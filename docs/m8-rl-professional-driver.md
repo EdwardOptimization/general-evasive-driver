@@ -35,13 +35,20 @@ Actor and observation interface:
 - `actor_history_length=4`;
 - `history_length=4`;
 - `action_history_mode="full"`;
-- base frame dimension is 19 for the obstacle task;
-- total actor observation dimension is 76.
+- the original M8 run used a 19-value obstacle frame and a 76-value stacked
+  observation;
+- the cleaned driver contract removes the model-derived `aeb_stop_distance`
+  obstacle feature, so new obstacle-driver runs use an 18-value frame and a
+  72-value stacked observation.
 
 The temporal actor encodes each history frame, reverses the current-first
 history into chronological order, and feeds the encoded sequence through a GRU.
 The final GRU hidden state is the actor/critic latent used for action, value,
 sequence prediction, and latent probes.
+
+The historical M8 checkpoint remains useful as a baseline, but it was trained
+before the observation cleanup and should not be treated as the final
+professional-driver input contract.
 
 ## Stable AES Reward Shaping
 

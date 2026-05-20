@@ -52,7 +52,8 @@ Benchmarking writes:
 Checkpoint benchmark specs support the following observation ablations through
 `--checkpoint-policy name=path@ablation`: `zero_action_history`,
 `single_frame_history`, `shuffled_history`, `zero_current_response`, and
-`zero_all_response`.
+`zero_all_response`. Oracle-like model features should be removed from the actor
+observation instead of handled as ablations.
 
 Latent probing writes:
 

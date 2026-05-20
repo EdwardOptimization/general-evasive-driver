@@ -119,6 +119,12 @@ the base policy, `zero_current_response`, `zero_all_response`,
 not change the aggregate success rate, so the benchmark still does not prove
 closed-loop self-identification.
 
+Follow-up observation-contract review found that the old obstacle frame also
+included `aeb_stop_distance`, which is derived from hidden friction and braking
+assumptions. This feature has been removed from actor observations. The M8
+checkpoint is therefore a historical baseline, not the final driver-interface
+baseline.
+
 ## Diagnosis
 
 The current simulator and obstacle task are now good enough to measure stable

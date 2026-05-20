@@ -185,7 +185,7 @@ configs/ppo_m5_obstacle_avoidance.json
 
 The config starts from the M2 circular-drift checkpoint. The PPO loader now
 supports partial first-layer expansion from the 13-dimensional circular
-observation to the 18-dimensional obstacle observation by copying the original
+observation to the obstacle observation by copying the original
 weights into the shared base-state slice and zero-initializing the new obstacle
 features.
 

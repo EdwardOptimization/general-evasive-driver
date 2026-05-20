@@ -59,6 +59,12 @@ shortcuts are obstacle geometry, path geometry, and label distribution: on this
 seed set, M8 succeeds on every sampled `drift_required` case and fails on almost
 all `unavoidable` cases, even when response features are masked.
 
+Follow-up inspection found that the pre-cleanup obstacle observation also
+included `aeb_stop_distance`, a model-derived feature computed from hidden
+friction and braking assumptions. That field has been removed from the actor
+observation contract, so this result is historical evidence about the old
+observation interface rather than a valid final-driver gate.
+
 Therefore, the next productive step is not another similar long training run.
 The next validation problem must include an online perturbation that cannot be
 classified from static obstacle geometry alone.

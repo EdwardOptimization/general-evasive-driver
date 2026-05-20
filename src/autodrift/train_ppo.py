@@ -191,6 +191,35 @@ def adapt_actor_critic_state(model: ActorCritic, source_state: dict[str, torch.T
     except RuntimeError as error:
         strict_load_error = error
 
+    def adapt_removed_aeb_stop_distance_input(
+        source_value: torch.Tensor,
+        target_value: torch.Tensor,
+    ) -> torch.Tensor | None:
+        if source_value.ndim != 2 or target_value.ndim != 2:
+            return None
+        if source_value.shape[0] != target_value.shape[0]:
+            return None
+        frame_mappings = {
+            (17, 16): list(range(16)),
+            (18, 17): list(range(17)),
+            (19, 18): [*range(17), 18],
+        }
+        source_cols = int(source_value.shape[1])
+        target_cols = int(target_value.shape[1])
+        for (source_frame_dim, target_frame_dim), frame_indices in frame_mappings.items():
+            if source_cols % source_frame_dim != 0 or target_cols % target_frame_dim != 0:
+                continue
+            frames = source_cols // source_frame_dim
+            if frames != target_cols // target_frame_dim:
+                continue
+            source_indices: list[int] = []
+            for frame in range(frames):
+                source_indices.extend(frame * source_frame_dim + index for index in frame_indices)
+            adapted = torch.zeros_like(target_value)
+            adapted[:, :] = source_value[:, source_indices]
+            return adapted
+        return None
+
     adapted_state = dict(target_state)
     modes: set[str] = set()
     for key, target_value in target_state.items():
@@ -206,12 +235,18 @@ def adapt_actor_critic_state(model: ActorCritic, source_state: dict[str, torch.T
         if source_value.shape == target_value.shape:
             adapted_state[key] = source_value
             continue
-        if key == "shared.0.weight" and source_value.ndim == 2 and target_value.ndim == 2:
+        if key in {"shared.0.weight", "frame_encoder.0.weight"} and source_value.ndim == 2 and target_value.ndim == 2:
             if source_value.shape[0] != target_value.shape[0]:
                 raise RuntimeError(
                     "cannot adapt init checkpoint first layer: hidden size differs "
                     f"({source_value.shape[0]} != {target_value.shape[0]})"
                 ) from strict_load_error
+            dropped = adapt_removed_aeb_stop_distance_input(source_value, target_value)
+            if dropped is not None:
+                adapted_state[key] = dropped
+                modes.add("drop_obstacle_aeb_stop_distance")
+                continue
+        if key == "shared.0.weight" and source_value.ndim == 2 and target_value.ndim == 2:
             if target_value.shape[1] <= source_value.shape[1]:
                 raise RuntimeError(
                     "cannot adapt init checkpoint first layer: target observation dimension "

@@ -90,8 +90,8 @@ class AutoDriftEnv(gym.Env):
     """A compact drift-tracking environment.
 
     Observation excludes `mu` by default. This forces a policy to infer current
-    friction and vehicle variation from response history, matching the intended
-    research direction.
+    friction and vehicle variation from response history. It also excludes
+    model-derived obstacle feasibility quantities such as AEB stopping distance.
     """
 
     metadata = {"render_modes": []}
@@ -105,7 +105,7 @@ class AutoDriftEnv(gym.Env):
             raise ValueError("action_history_mode must be one of: legacy, full, none")
         self.action_space = spaces.Box(low=-1.0, high=1.0, shape=(2,), dtype=np.float32)
 
-        obstacle_obs_dim = 5 if self.config.obstacle.enabled else 0
+        obstacle_obs_dim = 4 if self.config.obstacle.enabled else 0
         action_obs_dim = {"none": 0, "legacy": 1, "full": 2}[self.config.action_history_mode]
         self.base_obs_dim = 12 + action_obs_dim + obstacle_obs_dim + (4 if self.config.include_privileged_params else 0)
         obs_dim = self.base_obs_dim * self.config.history_length
@@ -284,9 +284,9 @@ class AutoDriftEnv(gym.Env):
         self.obstacle_position = position + frame.tangent * obstacle_distance
         self._update_obstacle_status(frame)
 
-    def _obstacle_features(self, frame: PathFrame) -> tuple[float, float, float, float, float]:
+    def _obstacle_features(self, frame: PathFrame) -> tuple[float, float, float, float]:
         if self.obstacle_scenario is None or self.obstacle_position is None:
-            return (0.0, 0.0, 0.0, 0.0, 0.0)
+            return (0.0, 0.0, 0.0, 0.0)
         ego_position = np.array([self.state.x, self.state.y], dtype=np.float64)
         delta = self.obstacle_position - ego_position
         longitudinal = float(np.dot(delta, frame.tangent))
@@ -297,7 +297,6 @@ class AutoDriftEnv(gym.Env):
             lateral / max(self.config.track_width, 1e-6),
             self.obstacle_scenario.required_lateral_offset / max(self.config.track_width, 1e-6),
             time_to_obstacle / 5.0,
-            self.obstacle_scenario.aeb_stop_distance / 80.0,
         )
 
     def _obstacle_longitudinal_distance(self, frame: PathFrame) -> float:

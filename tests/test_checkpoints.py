@@ -124,6 +124,48 @@ def test_temporal_gru_actor_rejects_mismatched_history_shape():
         ActorCritic(obs_dim=55, act_dim=2, hidden_size=16, actor_encoder="temporal_gru", actor_history_length=4)
 
 
+def test_init_checkpoint_drops_removed_obstacle_aeb_stop_distance_for_temporal_actor(tmp_path):
+    source = ActorCritic(obs_dim=76, act_dim=2, hidden_size=16, actor_encoder="temporal_gru", actor_history_length=4)
+    with torch.no_grad():
+        source.frame_encoder[0].weight.copy_(torch.arange(16 * 19, dtype=torch.float32).reshape(16, 19))
+    checkpoint_path = tmp_path / "checkpoint.pt"
+    torch.save(
+        {
+            "model_state": {key: value.detach().cpu() for key, value in source.state_dict().items()},
+            "config": {"device": "cpu", "actor_encoder": "temporal_gru", "actor_history_length": 4},
+        },
+        checkpoint_path,
+    )
+
+    target = ActorCritic(obs_dim=72, act_dim=2, hidden_size=16, actor_encoder="temporal_gru", actor_history_length=4)
+    load_mode = load_init_checkpoint_state(target, checkpoint_path, torch.device("cpu"))
+    expected_columns = [*range(17), 18]
+
+    assert load_mode == "drop_obstacle_aeb_stop_distance"
+    torch.testing.assert_close(target.frame_encoder[0].weight, source.frame_encoder[0].weight[:, expected_columns])
+
+
+def test_init_checkpoint_drops_removed_obstacle_aeb_stop_distance_for_flat_history(tmp_path):
+    source = ActorCritic(obs_dim=38, act_dim=2, hidden_size=16)
+    with torch.no_grad():
+        source.shared[0].weight.copy_(torch.arange(16 * 38, dtype=torch.float32).reshape(16, 38))
+    checkpoint_path = tmp_path / "checkpoint.pt"
+    torch.save(
+        {
+            "model_state": {key: value.detach().cpu() for key, value in source.state_dict().items()},
+            "config": {"device": "cpu"},
+        },
+        checkpoint_path,
+    )
+
+    target = ActorCritic(obs_dim=36, act_dim=2, hidden_size=16)
+    load_mode = load_init_checkpoint_state(target, checkpoint_path, torch.device("cpu"))
+    expected_columns = [*range(17), 18, *range(19, 36), 37]
+
+    assert load_mode == "drop_obstacle_aeb_stop_distance"
+    torch.testing.assert_close(target.shared[0].weight, source.shared[0].weight[:, expected_columns])
+
+
 def test_init_checkpoint_can_add_sequence_head_and_expand_obs(tmp_path):
     torch.manual_seed(8)
     source = ActorCritic(obs_dim=18, act_dim=2, hidden_size=16)

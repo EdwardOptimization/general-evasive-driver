@@ -1,5 +1,7 @@
 import numpy as np
 
+from autodrift.artifacts import read_json
+from autodrift.config import build_env_config
 from autodrift.dynamics import RandomizationConfig
 from autodrift.env import AutoDriftEnv, DriftEnvConfig, FrictionStepConfig, ObstacleTaskConfig
 from autodrift.policies import HeuristicPolicy
@@ -92,11 +94,24 @@ def test_obstacle_task_adds_observation_features_and_info():
     )
     obs, info = env.reset(seed=20)
 
-    assert obs.shape == (18,)
+    assert obs.shape == (17,)
     assert info["obstacle_enabled"] is True
     assert info["obstacle_label"] in {"aeb_feasible", "aes_feasible", "drift_required", "unavoidable"}
     assert info["obstacle_distance"] > 0.0
     assert info["collision"] is False
+    assert len(env._obstacle_features(env.track.frame(env.state.x, env.state.y, env.state.psi))) == 4
+
+
+def test_m8_driver_config_uses_deployable_observation_contract():
+    config = build_env_config(read_json("configs/ppo_m8_temporal_gru_driver.json")["env"])
+    env = AutoDriftEnv(config)
+
+    assert config.include_privileged_params is False
+    assert config.friction_limited_speed is False
+    assert config.history_length == 4
+    assert config.action_history_mode == "full"
+    assert env.base_obs_dim == 18
+    assert env.observation_space.shape == (72,)
 
 
 def test_obstacle_task_can_require_aeb_infeasible_labels():

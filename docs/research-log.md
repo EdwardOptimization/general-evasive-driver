@@ -67,3 +67,15 @@ Conclusion: response-feature masking is also not enough. M8 success stays
 `single_frame_history`, and `shuffled_history`. The next gate must use an online
 perturbation or carried recurrent hidden state; static observation masking still
 does not prove professional-driver-like self-identification.
+
+## observation-contract-review
+
+- `aeb_stop_distance` is removed from actor observations because it is computed
+  from hidden friction and braking assumptions.
+- M8 historical obstacle observations were 76-dimensional; the clean
+  full-action-history obstacle driver contract is 72-dimensional.
+- Driver configs must keep `include_privileged_params=false` and
+  `friction_limited_speed=false`; otherwise the actor can receive hidden
+  simulator state or friction-conditioned speed commands.
+- Next training task is a clean-observation temporal driver retrain before an
+  online recurrent hidden-state gate.
