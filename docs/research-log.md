@@ -130,3 +130,40 @@ self-identification.
 Next hypothesis: build an online recurrent hidden-state gate with hidden-state
 reset ablation and paired perturbation scenarios. Static observation masking is
 not enough.
+
+## 20260520T192744Z m11-online-recurrent-actor
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Train an online recurrent driver and test hidden-state reset ablation
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m11_online_recurrent_driver.json --seed 411 --device cuda --run-dir runs/ppo_m11_online_recurrent_driver_seed411`
+- returncode: `0`
+- run dir: `runs/research/m11-online-recurrent-actor_20260520T192417Z`
+- command log: `runs/research/m11-online-recurrent-actor_20260520T192417Z/command.log`
+- success artifact: `runs/ppo_m11_online_recurrent_driver_seed411/checkpoint.pt`
+- notes: M10 clean baseline is negative; online_gru carries hidden state instead of stacked observation history
+
+Conclusion: M11 trained successfully and wrote
+`runs/ppo_m11_online_recurrent_driver_seed411/checkpoint.pt`. Built-in eval is
+still weak: return mean 13.208 and termination rate 0.700.
+
+Hidden-state gate:
+
+- run dir: `runs/m11_online_recurrent_gate_seed1600`
+- M11 success: 0.275
+- M11 reset recurrent state success: 0.275
+- M11 zero-current response success: 0.250
+- M11 zero-all response success: 0.250
+- envelope AES success: 0.225
+
+Label diagnosis: M11 solves all 9 sampled `drift_required` cases and only 2 of
+31 `unavoidable` cases. Resetting recurrent state does not change those counts.
+
+M11 establishes the stateful actor infrastructure, but it does not prove
+behavior-level recurrent self-identification. Current response matters slightly;
+carried hidden state does not yet matter on this gate.
+
+Next hypothesis: create paired perturbation scenarios where obstacle geometry is
+held fixed but road friction, actuator lag, or brake capacity changes after the
+first control actions. The gate should compare normal recurrent state,
+hidden-reset, and response-masked policies on those paired cases.
