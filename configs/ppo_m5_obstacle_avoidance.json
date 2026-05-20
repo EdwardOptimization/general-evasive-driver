@@ -1,0 +1,79 @@
+{
+  "ppo": {
+    "total_steps": 1000000,
+    "rollout_steps": 256,
+    "num_envs": 16,
+    "minibatch_size": 1024,
+    "log_std_init": -1.0,
+    "log_std_max": -0.5,
+    "eval_episodes": 10,
+    "seed": 83,
+    "device": "auto"
+  },
+  "env": {
+    "track_kind": "circle",
+    "track_radius": 60.0,
+    "track_width": 8.0,
+    "history_length": 1,
+    "termination_penalty": 8.0,
+    "speed_range": [12.0, 16.0],
+    "beta_target_range": [0.10, 0.40],
+    "friction_limited_speed": false,
+    "obstacle": {
+      "enabled": true,
+      "distance_range": [3.0, 24.0],
+      "half_width_range": [0.45, 1.15],
+      "collision_penalty": 25.0,
+      "require_aeb_infeasible": true,
+      "max_sample_attempts": 1000
+    },
+    "randomization": {
+      "mu_range": [0.25, 1.15],
+      "mass_scale_range": [0.90, 1.10],
+      "cg_shift_range": [-0.06, 0.06],
+      "tire_stiffness_scale_range": [0.80, 1.20],
+      "actuator_tau_scale_range": [0.80, 1.40]
+    }
+  },
+  "curriculum": [
+    {
+      "name": "aes_feasible_wide",
+      "until_step": 250000,
+      "env": {
+        "track_width": 11.0,
+        "speed_range": [10.0, 14.0],
+        "obstacle": {
+          "distance_range": [3.0, 22.0],
+          "half_width_range": [0.45, 0.90],
+          "collision_penalty": 20.0,
+          "require_aeb_infeasible": true,
+          "max_sample_attempts": 1000
+        },
+        "randomization": {
+          "mu_range": [0.45, 1.15]
+        }
+      }
+    },
+    {
+      "name": "drift_required_mixed",
+      "until_step": 650000,
+      "env": {
+        "track_width": 9.5,
+        "speed_range": [11.0, 15.0],
+        "obstacle": {
+          "distance_range": [3.0, 24.0],
+          "half_width_range": [0.45, 1.05],
+          "require_aeb_infeasible": true,
+          "max_sample_attempts": 1000
+        }
+      }
+    },
+    {
+      "name": "base_recovery",
+      "until_step": 850000,
+      "env": {
+        "track_width": 8.5
+      }
+    }
+  ]
+}

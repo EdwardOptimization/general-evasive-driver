@@ -145,11 +145,6 @@ def load_init_checkpoint_state(model: ActorCritic, checkpoint_path: Path, device
                     "cannot adapt init checkpoint first layer: target observation dimension "
                     f"{target_value.shape[1]} is not larger than source {source_value.shape[1]}"
                 ) from strict_load_error
-            if target_value.shape[1] % source_value.shape[1] != 0:
-                raise RuntimeError(
-                    "cannot adapt init checkpoint first layer: target observation dimension "
-                    f"{target_value.shape[1]} is not a multiple of source {source_value.shape[1]}"
-                ) from strict_load_error
             expanded = torch.zeros_like(target_value)
             expanded[:, : source_value.shape[1]] = source_value
             adapted_state[key] = expanded

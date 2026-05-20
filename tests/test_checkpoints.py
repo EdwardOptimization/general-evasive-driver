@@ -49,3 +49,29 @@ def test_init_checkpoint_expands_single_frame_policy_to_history_obs(tmp_path):
     assert load_mode == "partial_input_expand"
     np.testing.assert_allclose(target_dist.mean.numpy(), source_dist.mean.numpy(), atol=1e-6)
     np.testing.assert_allclose(target_value.numpy(), source_value.numpy(), atol=1e-6)
+
+
+def test_init_checkpoint_expands_single_frame_policy_to_extra_features(tmp_path):
+    torch.manual_seed(4)
+    source = ActorCritic(obs_dim=13, act_dim=2, hidden_size=16)
+    checkpoint_path = tmp_path / "checkpoint.pt"
+    torch.save(
+        {
+            "model_state": {key: value.detach().cpu() for key, value in source.state_dict().items()},
+            "config": {"device": "cpu"},
+        },
+        checkpoint_path,
+    )
+
+    target = ActorCritic(obs_dim=18, act_dim=2, hidden_size=16)
+    load_mode = load_init_checkpoint_state(target, checkpoint_path, torch.device("cpu"))
+
+    base_obs = torch.linspace(-0.3, 0.3, 13).unsqueeze(0)
+    extra_obs = torch.randn(1, 5)
+    with torch.no_grad():
+        source_dist, source_value = source(base_obs)
+        target_dist, target_value = target(torch.cat([base_obs, extra_obs], dim=1))
+
+    assert load_mode == "partial_input_expand"
+    np.testing.assert_allclose(target_dist.mean.numpy(), source_dist.mean.numpy(), atol=1e-6)
+    np.testing.assert_allclose(target_value.numpy(), source_value.numpy(), atol=1e-6)

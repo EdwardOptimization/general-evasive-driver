@@ -168,6 +168,42 @@ Interpretation:
 - This is now a valid fixed-seed M5 baseline gate for the first RL obstacle
   policy.
 
+## First RL Training Template
+
+Config:
+
+```text
+configs/ppo_m5_obstacle_avoidance.json
+```
+
+The config starts from the M2 circular-drift checkpoint. The PPO loader now
+supports partial first-layer expansion from the 13-dimensional circular
+observation to the 18-dimensional obstacle observation by copying the original
+weights into the shared base-state slice and zero-initializing the new obstacle
+features.
+
+Smoke command:
+
+```bash
+PYTHONPATH=src python -m autodrift.train_ppo \
+  --config configs/ppo_m5_obstacle_avoidance.json \
+  --init-checkpoint runs/ppo_circle_m2_seed113_recover2/checkpoint.pt \
+  --total-steps 512 \
+  --eval-episodes 1 \
+  --run-dir runs/ppo_m5_obstacle_seed83_smoke
+```
+
+Smoke result:
+
+```text
+loaded_init_checkpoint=... load_mode=partial_input_expand
+training_device=cuda num_envs=16 curriculum_stage=aes_feasible_wide
+```
+
+The 512-step smoke is expected to fail behaviorally; its purpose is to verify
+that M5 obstacle observations, AEB-infeasible sampling, checkpoint expansion,
+and the PPO loop all work together.
+
 ## Next Steps
 
 M5 is still incomplete. The next implementation work is:
