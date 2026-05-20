@@ -302,3 +302,24 @@ also shifted the training distribution away from the M13 gate's later
 perturbation timing. M15 should sample friction-step timing from the accepted
 obstacle geometry so every episode is strict and feasible without forcing an
 early-step-only distribution.
+
+## m15-obstacle-aligned-perturbation-sampler
+
+- status: `pending`
+- kind: `training`
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m15_obstacle_aligned_recurrent_driver.json --seed 619 --device cuda --run-dir runs/ppo_m15_obstacle_aligned_recurrent_seed619`
+- success artifact: `runs/ppo_m15_obstacle_aligned_recurrent_seed619/checkpoint.pt`
+
+Infrastructure change: when `min_time_after_friction_step` is active, the
+environment samples the friction step from the accepted obstacle geometry. This
+keeps the M13-like late perturbation timing while preserving strict rejection:
+if no step in the configured range satisfies the obstacle-time constraint, that
+candidate obstacle is rejected.
+
+Smoke result:
+
+- run dir: `runs/ppo_m15_obstacle_aligned_smoke`;
+- eval return mean: 60.886;
+- eval steps mean: 66.500;
+- eval termination rate: 0.500;
+- eval lateral RMSE mean: 0.348.

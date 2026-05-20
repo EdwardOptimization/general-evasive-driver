@@ -157,8 +157,10 @@ def test_obstacle_task_can_filter_allowed_labels():
 def test_obstacle_task_can_sample_near_threshold_cases():
     env = AutoDriftEnv(
         DriftEnvConfig(
+            track_radius=60.0,
+            speed_range=(11.0, 16.0),
             friction_limited_speed=False,
-            friction_step=FrictionStepConfig(enabled=True, step_range=(4, 16), resample_speed_ref=False),
+            friction_step=FrictionStepConfig(enabled=True, step_range=(8, 40), resample_speed_ref=False),
             obstacle=ObstacleTaskConfig(
                 enabled=True,
                 distance_range=(3.0, 25.0),
@@ -173,12 +175,13 @@ def test_obstacle_task_can_sample_near_threshold_cases():
         )
     )
 
-    _, info = env.reset(seed=3000)
+    _, info = env.reset(seed=3838)
 
     assert info["obstacle_label"] in {"aes_feasible", "drift_required", "unavoidable"}
     assert info["obstacle_label"] != "aeb_feasible"
     assert info["obstacle_threshold_score"] <= 0.25
     assert info["obstacle_time_after_friction_step"] >= 0.10
+    assert 8 <= info["friction_step_at"] <= 40
 
 
 def test_obstacle_collision_terminates_episode_and_penalizes_reward():

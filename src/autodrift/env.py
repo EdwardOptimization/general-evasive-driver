@@ -150,7 +150,7 @@ class AutoDriftEnv(gym.Env):
         self.params = sample_vehicle_params(self.rng, base=base_params, config=self.config.randomization)
         self.initial_mu = self.params.mu
         self.model = SingleTrackDriftModel(self.params)
-        self.friction_step_at = self._sample_friction_step_at()
+        self.friction_step_at = None if self._uses_obstacle_aligned_friction_step() else self._sample_friction_step_at()
         self.friction_step_applied = False
 
         self.speed_ref = self._sample_speed_ref()
@@ -218,12 +218,28 @@ class AutoDriftEnv(gym.Env):
     def _sample_friction_step_at(self) -> int | None:
         if not self.config.friction_step.enabled:
             return None
-        low, high = self.config.friction_step.step_range
-        low = max(1, int(low))
-        high = min(int(high), self.config.max_steps - 1)
+        valid_range = self._friction_step_range()
+        if valid_range is None:
+            return None
+        low, high = valid_range
         if high <= low:
             return low
         return int(self.rng.integers(low, high + 1))
+
+    def _friction_step_range(self) -> tuple[int, int] | None:
+        low, high = self.config.friction_step.step_range
+        low = max(1, int(low))
+        high = min(int(high), self.config.max_steps - 1)
+        if high < low:
+            return None
+        return low, high
+
+    def _uses_obstacle_aligned_friction_step(self) -> bool:
+        return (
+            self.config.friction_step.enabled
+            and self.config.obstacle.enabled
+            and self.config.obstacle.min_time_after_friction_step > 0.0
+        )
 
     def _maybe_apply_friction_step(self) -> None:
         if self.friction_step_at is None or self.friction_step_applied:
@@ -266,6 +282,7 @@ class AutoDriftEnv(gym.Env):
         scenario_config = self.config.obstacle.scenario_config(speed=self.speed_ref, mu=self.params.mu)
         scenario = None
         accepted = False
+        accepted_friction_step_at = None
         allowed_labels = set(self.config.obstacle.allowed_labels)
         for _ in range(max(1, self.config.obstacle.max_sample_attempts)):
             obstacle_distance = float(self.rng.uniform(*self.config.obstacle.distance_range))
@@ -283,17 +300,40 @@ class AutoDriftEnv(gym.Env):
                 self.config.obstacle.max_threshold_score is None
                 or self._obstacle_threshold_score(scenario) <= self.config.obstacle.max_threshold_score
             )
-            has_time_after_step = self._obstacle_time_after_friction_step(scenario) >= self.config.obstacle.min_time_after_friction_step
+            aligned_step_range = self._obstacle_aligned_friction_step_range(scenario)
+            has_time_after_step = (
+                aligned_step_range is not None
+                if self._uses_obstacle_aligned_friction_step()
+                else self._obstacle_time_after_friction_step(scenario) >= self.config.obstacle.min_time_after_friction_step
+            )
             if is_allowed and is_aeb_valid and is_near_threshold and has_time_after_step:
+                if aligned_step_range is not None:
+                    low, high = aligned_step_range
+                    accepted_friction_step_at = low if high <= low else int(self.rng.integers(low, high + 1))
                 accepted = True
                 break
         if scenario is None or not accepted:
             raise RuntimeError("failed to sample an obstacle scenario matching the configured filters")
         if self.config.obstacle.require_aeb_infeasible and scenario.label == "aeb_feasible":
             raise RuntimeError("failed to sample an AEB-infeasible obstacle scenario")
+        if accepted_friction_step_at is not None:
+            self.friction_step_at = accepted_friction_step_at
         self.obstacle_scenario = scenario
         self.obstacle_position = position + frame.tangent * obstacle_distance
         self._update_obstacle_status(frame)
+
+    def _obstacle_aligned_friction_step_range(self, scenario: ObstacleScenario) -> tuple[int, int] | None:
+        if not self._uses_obstacle_aligned_friction_step():
+            return None
+        valid_range = self._friction_step_range()
+        if valid_range is None:
+            return None
+        low, high = valid_range
+        latest_step = int(math.floor((scenario.time_to_obstacle - self.config.obstacle.min_time_after_friction_step) / self.config.dt))
+        high = min(high, latest_step)
+        if high < low:
+            return None
+        return low, high
 
     def _obstacle_threshold_score(self, scenario: ObstacleScenario) -> float:
         required = max(float(scenario.required_lateral_offset), 1e-6)

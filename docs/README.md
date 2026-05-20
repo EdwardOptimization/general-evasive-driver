@@ -56,6 +56,8 @@ vehicle/tire models, and NMPC-style constrained control.
   paired hidden-response gate, M11 negative result, and M14 training direction.
 - `m14-near-threshold-training-plan.md`: near-threshold recurrent training
   config, scenario-sampling filters, queued command, and validation gate.
+- `m15-obstacle-aligned-perturbation-sampler.md`: strict obstacle-aligned
+  friction-step sampler, M15 training config, and paired-gate validation plan.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

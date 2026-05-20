@@ -3,8 +3,8 @@
     "blocked": 0,
     "completed": 11,
     "failed": 0,
-    "pending": 0,
-    "planned": 1,
+    "pending": 1,
+    "planned": 0,
     "running": 0
   },
   "last_result": {
@@ -14,6 +14,15 @@
     "status": "completed",
     "task_id": "m14-near-threshold-training"
   },
-  "next_task": null,
-  "updated_at_utc": "20260520T200147Z"
+  "next_task": {
+    "command": "conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m15_obstacle_aligned_recurrent_driver.json --seed 619 --device cuda --run-dir runs/ppo_m15_obstacle_aligned_recurrent_seed619",
+    "hypothesis": "Train with friction-step timing sampled from accepted obstacle geometry so late perturbations stay strict and feasible",
+    "id": "m15-obstacle-aligned-perturbation-sampler",
+    "kind": "training",
+    "notes": "M14 reset-hidden beats normal recurrent inference so align training timing with the M13 gate instead of forcing early friction steps",
+    "priority": 80,
+    "status": "pending",
+    "success_artifact": "runs/ppo_m15_obstacle_aligned_recurrent_seed619/checkpoint.pt"
+  },
+  "updated_at_utc": "20260520T200454Z"
 }
