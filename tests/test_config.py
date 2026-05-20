@@ -63,6 +63,13 @@ def test_build_env_config_overrides_obstacle_task():
     assert config.obstacle.allowed_labels == ("aes_feasible", "drift_required")
 
 
+def test_build_env_config_overrides_action_history_mode():
+    config = build_env_config({"action_history_mode": "full", "history_length": 3})
+
+    assert config.action_history_mode == "full"
+    assert config.history_length == 3
+
+
 def test_curriculum_selects_stage_before_base():
     base_data = {"track_width": 5.0, "randomization": {"mu_range": [0.25, 1.15]}}
     base_config = build_env_config(base_data)

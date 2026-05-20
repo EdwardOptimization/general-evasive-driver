@@ -41,6 +41,21 @@ def test_history_observation_stacks_recent_frames():
     assert not np.allclose(next_obs[:13], next_obs[13:26])
 
 
+def test_full_action_history_observation_adds_previous_steer_and_drive():
+    env = AutoDriftEnv(DriftEnvConfig(action_history_mode="full", history_length=2))
+    obs, _ = env.reset(seed=17)
+
+    assert obs.shape == (28,)
+    assert np.allclose(obs[12:14], [0.0, 0.0])
+
+    next_obs, _, _, _, info = env.step(np.array([0.4, -0.2], dtype=np.float32))
+
+    assert next_obs.shape == (28,)
+    assert np.allclose(next_obs[12:14], [-0.2, 0.4])
+    assert "brake_scale" in info
+    assert "steer_tau_scale" in info
+
+
 def test_speed_reference_respects_low_friction_limit():
     env = AutoDriftEnv(
         DriftEnvConfig(

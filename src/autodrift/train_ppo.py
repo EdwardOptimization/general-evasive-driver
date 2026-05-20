@@ -42,6 +42,8 @@ class PPOConfig:
     log_std_init: float = -1.0
     log_std_min: float = -5.0
     log_std_max: float = -0.5
+    action_sequence_horizon: int = 1
+    sequence_aux_coef: float = 0.0
     seed: int = 5
     device: str = "auto"
 
@@ -55,8 +57,14 @@ class ActorCritic(nn.Module):
         log_std_init: float = -1.0,
         log_std_min: float = -5.0,
         log_std_max: float = -0.5,
+        action_sequence_horizon: int = 1,
     ):
         super().__init__()
+        if action_sequence_horizon < 1:
+            raise ValueError("action_sequence_horizon must be at least 1")
+        self.obs_dim = int(obs_dim)
+        self.act_dim = int(act_dim)
+        self.action_sequence_horizon = int(action_sequence_horizon)
         self.log_std_min = float(log_std_min)
         self.log_std_max = float(log_std_max)
         self.shared = nn.Sequential(
@@ -68,6 +76,11 @@ class ActorCritic(nn.Module):
         self.actor_mean = nn.Linear(hidden_size, act_dim)
         self.critic = nn.Linear(hidden_size, 1)
         self.log_std = nn.Parameter(torch.full((act_dim,), float(log_std_init)))
+        self.sequence_tail = (
+            nn.Linear(hidden_size, (self.action_sequence_horizon - 1) * act_dim)
+            if self.action_sequence_horizon > 1
+            else None
+        )
 
     def forward(self, obs: torch.Tensor) -> tuple[Normal, torch.Tensor]:
         features = self.shared(obs)
@@ -75,6 +88,25 @@ class ActorCritic(nn.Module):
         log_std = torch.clamp(self.log_std, self.log_std_min, self.log_std_max)
         std = torch.exp(log_std).expand_as(mean)
         return Normal(mean, std), self.critic(features).squeeze(-1)
+
+    def action_sequence_tensor(self, obs: torch.Tensor) -> torch.Tensor:
+        features = self.shared(obs)
+        first_action = torch.tanh(self.actor_mean(features)).unsqueeze(1)
+        if self.sequence_tail is None:
+            return first_action
+        tail = torch.tanh(self.sequence_tail(features)).reshape(
+            obs.shape[0],
+            self.action_sequence_horizon - 1,
+            self.act_dim,
+        )
+        return torch.cat([first_action, tail], dim=1)
+
+    def predict_sequence(self, obs: np.ndarray) -> np.ndarray:
+        device = next(self.parameters()).device
+        obs_t = torch.as_tensor(obs, dtype=torch.float32, device=device).unsqueeze(0)
+        with torch.no_grad():
+            sequence = self.action_sequence_tensor(obs_t)
+        return sequence.squeeze(0).cpu().numpy().astype(np.float32)
 
     def _squashed_log_prob(self, dist: Normal, raw_action: torch.Tensor, action: torch.Tensor) -> torch.Tensor:
         correction = torch.log(torch.clamp(1.0 - action.pow(2), min=1e-6)).sum(dim=-1)
@@ -113,9 +145,7 @@ class ActorCritic(nn.Module):
         return log_prob, entropy, value
 
 
-def load_init_checkpoint_state(model: ActorCritic, checkpoint_path: Path, device: torch.device) -> str:
-    checkpoint = torch.load(checkpoint_path, map_location=device)
-    source_state = checkpoint["model_state"]
+def adapt_actor_critic_state(model: ActorCritic, source_state: dict[str, torch.Tensor]) -> str:
     target_state = model.state_dict()
 
     strict_load_error: RuntimeError | None = None
@@ -126,9 +156,12 @@ def load_init_checkpoint_state(model: ActorCritic, checkpoint_path: Path, device
         strict_load_error = error
 
     adapted_state = dict(target_state)
-    mode = "partial_input_expand"
+    modes: set[str] = set()
     for key, target_value in target_state.items():
         if key not in source_state:
+            if key.startswith("sequence_tail."):
+                modes.add("new_sequence_head")
+                continue
             raise RuntimeError(f"init checkpoint is missing parameter {key!r}") from strict_load_error
         source_value = source_state[key]
         if source_value.shape == target_value.shape:
@@ -148,6 +181,7 @@ def load_init_checkpoint_state(model: ActorCritic, checkpoint_path: Path, device
             expanded = torch.zeros_like(target_value)
             expanded[:, : source_value.shape[1]] = source_value
             adapted_state[key] = expanded
+            modes.add("partial_input_expand")
             continue
         raise RuntimeError(
             "cannot adapt init checkpoint parameter "
@@ -155,7 +189,13 @@ def load_init_checkpoint_state(model: ActorCritic, checkpoint_path: Path, device
         ) from strict_load_error
 
     model.load_state_dict(adapted_state)
-    return mode
+    return "+".join(sorted(modes)) if modes else "partial"
+
+
+def load_init_checkpoint_state(model: ActorCritic, checkpoint_path: Path, device: torch.device) -> str:
+    checkpoint = torch.load(checkpoint_path, map_location=device)
+    source_state = checkpoint["model_state"]
+    return adapt_actor_critic_state(model, source_state)
 
 
 def resolve_device(name: str) -> torch.device:
@@ -207,6 +247,35 @@ def compute_gae_vectorized(
     return advantages, returns
 
 
+def build_sequence_targets(
+    actions: np.ndarray,
+    dones: np.ndarray,
+    horizon: int,
+) -> tuple[np.ndarray, np.ndarray]:
+    if horizon <= 1:
+        target = np.zeros((*actions.shape[:2], 0, actions.shape[-1]), dtype=np.float32)
+        mask = np.zeros((*actions.shape[:2], 0), dtype=np.float32)
+        return target, mask
+    rollout_n, num_envs, act_dim = actions.shape
+    tail_horizon = horizon - 1
+    target = np.zeros((rollout_n, num_envs, tail_horizon, act_dim), dtype=np.float32)
+    mask = np.zeros((rollout_n, num_envs, tail_horizon), dtype=np.float32)
+    for t in range(rollout_n):
+        for env_index in range(num_envs):
+            valid = True
+            for tail_index in range(tail_horizon):
+                future_t = t + tail_index + 1
+                if future_t >= rollout_n:
+                    break
+                if dones[future_t - 1, env_index] > 0.0:
+                    valid = False
+                if not valid:
+                    break
+                target[t, env_index, tail_index] = actions[future_t, env_index]
+                mask[t, env_index, tail_index] = 1.0
+    return target, mask
+
+
 def train(
     config: PPOConfig,
     save_path: Path | None = None,
@@ -232,6 +301,7 @@ def train(
         log_std_init=config.log_std_init,
         log_std_min=config.log_std_min,
         log_std_max=config.log_std_max,
+        action_sequence_horizon=config.action_sequence_horizon,
     ).to(device)
     optimizer = Adam(model.parameters(), lr=config.learning_rate)
     if init_checkpoint_path is not None:
@@ -299,12 +369,21 @@ def train(
         flat_old_logp = logp_buf.reshape(-1)
         flat_adv = advantages.reshape(-1)
         flat_ret = returns.reshape(-1)
+        if config.action_sequence_horizon > 1:
+            seq_target_buf, seq_mask_buf = build_sequence_targets(act_buf, done_buf, config.action_sequence_horizon)
+            flat_seq_target = seq_target_buf.reshape((-1, *seq_target_buf.shape[2:]))
+            flat_seq_mask = seq_mask_buf.reshape((-1, *seq_mask_buf.shape[2:]))
+        else:
+            flat_seq_target = None
+            flat_seq_mask = None
 
         obs_t = torch.as_tensor(flat_obs, dtype=torch.float32, device=device)
         act_t = torch.as_tensor(flat_act, dtype=torch.float32, device=device)
         old_logp_t = torch.as_tensor(flat_old_logp, dtype=torch.float32, device=device)
         adv_t = torch.as_tensor(flat_adv, dtype=torch.float32, device=device)
         ret_t = torch.as_tensor(flat_ret, dtype=torch.float32, device=device)
+        seq_target_t = torch.as_tensor(flat_seq_target, dtype=torch.float32, device=device) if flat_seq_target is not None else None
+        seq_mask_t = torch.as_tensor(flat_seq_mask, dtype=torch.float32, device=device) if flat_seq_mask is not None else None
 
         indices = np.arange(len(flat_obs))
         for _ in range(config.update_epochs):
@@ -320,6 +399,14 @@ def train(
                 pg_loss = torch.max(pg_loss_1, pg_loss_2).mean()
                 value_loss = 0.5 * torch.square(value - ret_t[mb]).mean()
                 loss = pg_loss + config.vf_coef * value_loss - config.ent_coef * entropy
+                if config.action_sequence_horizon > 1 and config.sequence_aux_coef > 0.0:
+                    assert seq_target_t is not None
+                    assert seq_mask_t is not None
+                    predicted_tail = model.action_sequence_tensor(obs_t[mb])[:, 1:, :]
+                    sequence_error = torch.square(predicted_tail - seq_target_t[mb]).sum(dim=-1)
+                    sequence_mask = seq_mask_t[mb]
+                    sequence_loss = (sequence_error * sequence_mask).sum() / torch.clamp(sequence_mask.sum(), min=1.0)
+                    loss = loss + config.sequence_aux_coef * sequence_loss
 
                 optimizer.zero_grad()
                 loss.backward()

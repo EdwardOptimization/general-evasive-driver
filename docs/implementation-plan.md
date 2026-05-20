@@ -300,7 +300,12 @@ Exit criteria:
   leaked simulator parameters;
 - safety/fallback logic is separated from the main RL controller.
 
-Status: planned. See `docs/m7-universal-closed-loop-operator.md`.
+Status: infrastructure first pass. M7-A and M7-B training/evaluation paths now
+exist, including full action-history observations, M7-B sequence heads, named
+checkpoint benchmark comparison, and held-out vehicle-road bucket summaries.
+Only smoke training has been run so far; real M7 training, ablations, and latent
+probes remain open. See `docs/m7-universal-closed-loop-operator.md` and
+`docs/m7-first-stage-results.md`.
 Validation will follow `docs/m7-validation-protocol.md` so a policy is judged by
 held-out generalization, ablations, latent self-identification evidence, and
 behavior diagnostics rather than aggregate success alone.

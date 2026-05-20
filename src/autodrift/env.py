@@ -76,6 +76,7 @@ class DriftEnvConfig:
     friction_limited_speed: bool = True
     friction_speed_margin: float = 0.92
     history_length: int = 1
+    action_history_mode: str = "legacy"
     include_privileged_params: bool = False
     friction_step: FrictionStepConfig = FrictionStepConfig()
     obstacle: ObstacleTaskConfig = ObstacleTaskConfig()
@@ -97,10 +98,13 @@ class AutoDriftEnv(gym.Env):
         self.config = config or DriftEnvConfig()
         if self.config.history_length < 1:
             raise ValueError("history_length must be at least 1")
+        if self.config.action_history_mode not in {"legacy", "full", "none"}:
+            raise ValueError("action_history_mode must be one of: legacy, full, none")
         self.action_space = spaces.Box(low=-1.0, high=1.0, shape=(2,), dtype=np.float32)
 
         obstacle_obs_dim = 5 if self.config.obstacle.enabled else 0
-        self.base_obs_dim = 13 + obstacle_obs_dim + (4 if self.config.include_privileged_params else 0)
+        action_obs_dim = {"none": 0, "legacy": 1, "full": 2}[self.config.action_history_mode]
+        self.base_obs_dim = 12 + action_obs_dim + obstacle_obs_dim + (4 if self.config.include_privileged_params else 0)
         obs_dim = self.base_obs_dim * self.config.history_length
         self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(obs_dim,), dtype=np.float32)
 
@@ -343,8 +347,9 @@ class AutoDriftEnv(gym.Env):
             along_speed / 20.0,
             self.speed_ref / 20.0,
             self.beta_target,
-            self.last_action[1],
         ]
+        if self.config.action_history_mode in {"legacy", "full"}:
+            obs.append(self.last_action[1])
         if self.config.obstacle.enabled:
             obs.extend(self._obstacle_features(frame))
         if self.config.include_privileged_params:
@@ -356,6 +361,10 @@ class AutoDriftEnv(gym.Env):
                     self.params.cr / VehicleParams().cr,
                 ]
             )
+        if self.config.action_history_mode == "full":
+            # Preserve the legacy observation prefix so older checkpoints can
+            # be expanded without shifting obstacle-feature semantics.
+            obs.append(self.last_action[0])
         return np.asarray(obs, dtype=np.float32)
 
     def _reward(
@@ -420,12 +429,23 @@ class AutoDriftEnv(gym.Env):
     def _info(self, frame: PathFrame) -> dict[str, Any]:
         speed = math.hypot(self.state.vx, self.state.vy)
         beta = math.atan2(self.state.vy, max(self.state.vx, 1e-6))
+        base_params = VehicleParams()
         return {
             "mu": self.params.mu,
             "initial_mu": self.initial_mu,
             "mass": self.params.mass,
+            "mass_scale": self.params.mass / base_params.mass,
+            "inertia_scale": self.params.iz / base_params.iz,
+            "cg_shift": self.params.lf - base_params.lf,
             "lf": self.params.lf,
             "lr": self.params.lr,
+            "front_tire_stiffness_scale": self.params.cf / base_params.cf,
+            "rear_tire_stiffness_scale": self.params.cr / base_params.cr,
+            "tire_stiffness_scale": 0.5 * (self.params.cf / base_params.cf + self.params.cr / base_params.cr),
+            "drive_scale": self.params.max_drive_force / base_params.max_drive_force,
+            "brake_scale": self.params.max_brake_force / base_params.max_brake_force,
+            "steer_tau_scale": self.params.steer_tau / base_params.steer_tau,
+            "drive_tau_scale": self.params.drive_tau / base_params.drive_tau,
             "speed": speed,
             "beta": beta,
             "beta_target": self.beta_target,

@@ -11,21 +11,27 @@ from autodrift.artifacts import make_run_dir, write_json
 from autodrift.evaluate import SEGMENT_NAMES, evaluate_policy, load_env_config
 
 
+def _bucket(output: pd.DataFrame, column: str, target: str, bins: list[float], labels: list[str]) -> None:
+    if column in output:
+        output[target] = pd.cut(output[column], bins=bins, labels=labels, include_lowest=True)
+
+
 def add_buckets(frame: pd.DataFrame) -> pd.DataFrame:
     output = frame.copy()
-    output["mu_bucket"] = pd.cut(
-        output["mu"],
-        bins=[0.0, 0.45, 0.80, float("inf")],
-        labels=["low", "medium", "high"],
-        include_lowest=True,
-    )
+    _bucket(output, "mu", "mu_bucket", [0.0, 0.45, 0.80, float("inf")], ["low", "medium", "high"])
     if "initial_mu" in output:
-        output["initial_mu_bucket"] = pd.cut(
-            output["initial_mu"],
-            bins=[0.0, 0.45, 0.80, float("inf")],
-            labels=["low", "medium", "high"],
-            include_lowest=True,
-        )
+        _bucket(output, "initial_mu", "initial_mu_bucket", [0.0, 0.45, 0.80, float("inf")], ["low", "medium", "high"])
+    _bucket(output, "mass_scale", "mass_bucket", [0.0, 0.95, 1.05, float("inf")], ["light", "nominal", "heavy"])
+    _bucket(output, "cg_shift", "cg_bucket", [-float("inf"), -0.04, 0.04, float("inf")], ["rear", "nominal", "front"])
+    _bucket(output, "brake_scale", "brake_bucket", [0.0, 0.90, 1.05, float("inf")], ["weak", "nominal", "strong"])
+    _bucket(output, "tire_stiffness_scale", "tire_bucket", [0.0, 0.85, 1.15, float("inf")], ["weak", "nominal", "strong"])
+    _bucket(
+        output,
+        "steer_tau_scale",
+        "steering_tau_bucket",
+        [0.0, 0.90, 1.20, float("inf")],
+        ["fast", "nominal", "slow"],
+    )
     output["success"] = ~output["terminated"]
     return output
 
@@ -40,14 +46,32 @@ def summarize(frame: pd.DataFrame, by: list[str]) -> pd.DataFrame:
         lateral_rmse_mean=("lateral_rmse", "mean"),
         lateral_peak_mean=("lateral_peak", "mean"),
         beta_abs_error_mean=("beta_abs_error_mean", "mean"),
+        beta_abs_peak_mean=("beta_abs_peak", "mean"),
+        high_sideslip_fraction_mean=("high_sideslip_fraction", "mean"),
         speed_mean=("speed_mean", "mean"),
+        action_rate_mean=("action_rate_mean", "mean"),
         collision_rate=("collision", "mean"),
         obstacle_completion_rate=("obstacle_completed", "mean"),
         min_obstacle_clearance_mean=("min_obstacle_clearance", "mean"),
+        plan_horizon_mean=("plan_horizon", "mean"),
+        plan_action_rate_mean=("plan_action_rate_mean", "mean"),
         mu_min=("mu", "min"),
         mu_max=("mu", "max"),
     )
     return summary.reset_index()
+
+
+def parse_checkpoint_specs(specs: list[str] | None) -> list[tuple[str, Path]]:
+    parsed: list[tuple[str, Path]] = []
+    for spec in specs or []:
+        if "=" not in spec:
+            raise ValueError(f"checkpoint policy spec must be NAME=PATH, got {spec!r}")
+        name, raw_path = spec.split("=", 1)
+        name = name.strip()
+        if not name:
+            raise ValueError(f"checkpoint policy spec has empty name: {spec!r}")
+        parsed.append((name, Path(raw_path)))
+    return parsed
 
 
 def build_segment_frame(frame: pd.DataFrame) -> pd.DataFrame:
@@ -106,6 +130,12 @@ def main() -> None:
         choices=["heuristic", "random", "aeb", "aes_heuristic", "envelope_aes", "checkpoint"],
     )
     parser.add_argument("--checkpoint", type=Path, default=None)
+    parser.add_argument(
+        "--checkpoint-policy",
+        action="append",
+        default=[],
+        help="Additional checkpoint policy in NAME=PATH form. Can be repeated.",
+    )
     parser.add_argument("--episodes", type=int, default=10)
     parser.add_argument("--seed", type=int, default=7)
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="auto")
@@ -121,7 +151,7 @@ def main() -> None:
     all_rows = []
     policy_summaries = {}
 
-    for policy in args.policies:
+    for policy in [policy for policy in args.policies if policy != "checkpoint"]:
         rows, summary = evaluate_policy(
             policy_name=policy,
             episodes=args.episodes,
@@ -132,6 +162,25 @@ def main() -> None:
         )
         all_rows.extend(rows)
         policy_summaries[policy] = summary
+    checkpoint_specs = parse_checkpoint_specs(args.checkpoint_policy)
+    if "checkpoint" in args.policies:
+        if args.checkpoint is None:
+            raise ValueError("--checkpoint is required when --policies includes checkpoint")
+        checkpoint_specs.insert(0, ("checkpoint", args.checkpoint))
+    for label, checkpoint_path in checkpoint_specs:
+        rows, summary = evaluate_policy(
+            policy_name="checkpoint",
+            episodes=args.episodes,
+            seed=args.seed,
+            checkpoint=checkpoint_path,
+            device=args.device,
+            env_config=env_config,
+        )
+        for row in rows:
+            row["policy"] = label
+        summary["policy"] = label
+        all_rows.extend(rows)
+        policy_summaries[label] = summary
 
     frame = add_buckets(pd.DataFrame(all_rows))
     policy_summary = summarize(frame, ["policy"])
@@ -142,6 +191,12 @@ def main() -> None:
         if "obstacle_enabled" in frame and frame["obstacle_enabled"].any()
         else None
     )
+    vehicle_road_columns = [
+        column
+        for column in ["policy", "obstacle_label", "mu_bucket", "mass_bucket", "brake_bucket", "steering_tau_bucket"]
+        if column in frame
+    ]
+    vehicle_road_summary = summarize(frame, vehicle_road_columns) if len(vehicle_road_columns) > 1 else None
     segment_frame = build_segment_frame(frame)
     segment_summary = summarize_segments(segment_frame)
     segment_mu_bucket_summary = summarize_segments(segment_frame, ["policy", "mu_bucket", "segment"])
@@ -151,6 +206,7 @@ def main() -> None:
     bucket_csv = run_dir / "mu_bucket_summary.csv"
     initial_bucket_csv = run_dir / "initial_mu_bucket_summary.csv"
     obstacle_label_csv = run_dir / "obstacle_label_summary.csv"
+    vehicle_road_csv = run_dir / "vehicle_road_bucket_summary.csv"
     segment_csv = run_dir / "segment_summary.csv"
     segment_mu_bucket_csv = run_dir / "segment_mu_bucket_summary.csv"
     frame.to_csv(episodes_csv, index=False)
@@ -160,6 +216,8 @@ def main() -> None:
         initial_bucket_summary.to_csv(initial_bucket_csv, index=False)
     if obstacle_label_summary is not None:
         obstacle_label_summary.to_csv(obstacle_label_csv, index=False)
+    if vehicle_road_summary is not None:
+        vehicle_road_summary.to_csv(vehicle_road_csv, index=False)
     if not segment_summary.empty:
         segment_summary.to_csv(segment_csv, index=False)
         segment_mu_bucket_summary.to_csv(segment_mu_bucket_csv, index=False)
@@ -169,6 +227,7 @@ def main() -> None:
             "run_type": "benchmark",
             "policies": args.policies,
             "checkpoint": args.checkpoint,
+            "checkpoint_policies": {label: path for label, path in checkpoint_specs},
             "episodes": args.episodes,
             "seed": args.seed,
             "device": args.device,
@@ -179,6 +238,7 @@ def main() -> None:
                 "mu_bucket_summary_csv": bucket_csv,
                 "initial_mu_bucket_summary_csv": initial_bucket_csv if initial_bucket_summary is not None else None,
                 "obstacle_label_summary_csv": obstacle_label_csv if obstacle_label_summary is not None else None,
+                "vehicle_road_bucket_summary_csv": vehicle_road_csv if vehicle_road_summary is not None else None,
                 "segment_summary_csv": segment_csv if not segment_summary.empty else None,
                 "segment_mu_bucket_summary_csv": segment_mu_bucket_csv if not segment_summary.empty else None,
             },

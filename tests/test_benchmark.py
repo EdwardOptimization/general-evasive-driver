@@ -1,6 +1,8 @@
 import pandas as pd
 
-from autodrift.benchmark import add_buckets, build_segment_frame, summarize_segments
+from pathlib import Path
+
+from autodrift.benchmark import add_buckets, build_segment_frame, parse_checkpoint_specs, summarize_segments
 
 
 def test_segment_summary_uses_per_episode_segment_metrics():
@@ -55,3 +57,39 @@ def test_segment_summary_uses_per_episode_segment_metrics():
     assert int(left["steps_total"]) == 7
     assert left["success_rate"] == 0.5
     assert set(bucket_summary["mu_bucket"].astype(str)) == {"low", "high"}
+
+
+def test_add_buckets_labels_vehicle_road_hidden_params():
+    frame = add_buckets(
+        pd.DataFrame(
+            [
+                {
+                    "policy": "m7",
+                    "seed": 1,
+                    "terminated": False,
+                    "mu": 0.3,
+                    "initial_mu": 0.3,
+                    "mass_scale": 1.12,
+                    "cg_shift": -0.06,
+                    "brake_scale": 0.85,
+                    "tire_stiffness_scale": 1.20,
+                    "steer_tau_scale": 1.35,
+                }
+            ]
+        )
+    )
+    row = frame.iloc[0]
+
+    assert str(row["mu_bucket"]) == "low"
+    assert str(row["mass_bucket"]) == "heavy"
+    assert str(row["cg_bucket"]) == "rear"
+    assert str(row["brake_bucket"]) == "weak"
+    assert str(row["tire_bucket"]) == "strong"
+    assert str(row["steering_tau_bucket"]) == "slow"
+
+
+def test_parse_checkpoint_specs_uses_named_paths():
+    assert parse_checkpoint_specs(["m7a=runs/a.pt", "m7b=runs/b.pt"]) == [
+        ("m7a", Path("runs/a.pt")),
+        ("m7b", Path("runs/b.pt")),
+    ]

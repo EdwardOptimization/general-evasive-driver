@@ -25,9 +25,14 @@ def load_env_config(path: Path) -> DriftEnvConfig:
 class ActorPolicy(Policy):
     def __init__(self, model: ActorCritic):
         self.model = model
+        self.last_sequence: np.ndarray | None = None
 
     def act(self, observation: np.ndarray, info: dict) -> np.ndarray:
         del info
+        if self.model.action_sequence_horizon > 1:
+            self.last_sequence = self.model.predict_sequence(observation)
+            return self.last_sequence[0].astype(np.float32)
+        self.last_sequence = None
         action, _, _ = self.model.act(observation, deterministic=True)
         return action
 
@@ -78,20 +83,31 @@ def run_episode_with_policy(env: AutoDriftEnv, policy: Policy, policy_name: str,
     rewards: list[float] = []
     lateral_errors: list[float] = []
     beta_errors: list[float] = []
+    betas: list[float] = []
     speeds: list[float] = []
+    actions: list[np.ndarray] = []
+    plan_action_rates: list[float] = []
+    plan_first_action_errors: list[float] = []
     segment_stats = empty_segment_stats()
     friction_step_applied = False
     terminated = False
     truncated = False
     while not (terminated or truncated):
         action = policy.act(obs, info)
+        sequence = getattr(policy, "last_sequence", None)
+        if sequence is not None and len(sequence) > 0:
+            plan_first_action_errors.append(float(np.linalg.norm(np.asarray(sequence[0]) - np.asarray(action))))
+            if len(sequence) > 1:
+                plan_action_rates.append(float(np.mean(np.linalg.norm(np.diff(sequence, axis=0), axis=1))))
         obs, reward, terminated, truncated, info = env.step(action)
         beta_error = abs(float(info["beta"])) - float(info["beta_target"])
         segment = curvature_segment(float(info.get("curvature", 0.0)))
         rewards.append(float(reward))
         lateral_errors.append(float(info["lateral_error"]))
         beta_errors.append(beta_error)
+        betas.append(float(info["beta"]))
         speeds.append(float(info["speed"]))
+        actions.append(np.asarray(action, dtype=np.float32))
         segment_stats[segment]["lateral_errors"].append(float(info["lateral_error"]))
         segment_stats[segment]["beta_errors"].append(beta_error)
         segment_stats[segment]["speeds"].append(float(info["speed"]))
@@ -107,6 +123,14 @@ def run_episode_with_policy(env: AutoDriftEnv, policy: Policy, policy_name: str,
         "mu": float(info["mu"]),
         "initial_mu": float(info.get("initial_mu", info["mu"])),
         "mass": float(info["mass"]),
+        "mass_scale": float(info.get("mass_scale", float("nan"))),
+        "inertia_scale": float(info.get("inertia_scale", float("nan"))),
+        "cg_shift": float(info.get("cg_shift", float("nan"))),
+        "tire_stiffness_scale": float(info.get("tire_stiffness_scale", float("nan"))),
+        "brake_scale": float(info.get("brake_scale", float("nan"))),
+        "drive_scale": float(info.get("drive_scale", float("nan"))),
+        "steer_tau_scale": float(info.get("steer_tau_scale", float("nan"))),
+        "drive_tau_scale": float(info.get("drive_tau_scale", float("nan"))),
         "friction_step_at": info.get("friction_step_at"),
         "friction_step_applied": friction_step_applied,
         "obstacle_enabled": bool(info.get("obstacle_enabled", False)),
@@ -119,7 +143,17 @@ def run_episode_with_policy(env: AutoDriftEnv, policy: Policy, policy_name: str,
         "lateral_rmse": float(np.sqrt(np.mean(np.square(lateral_errors)))) if lateral_errors else float("nan"),
         "lateral_peak": float(np.max(np.abs(lateral_errors))) if lateral_errors else float("nan"),
         "beta_abs_error_mean": float(np.mean(np.abs(beta_errors))) if beta_errors else float("nan"),
+        "beta_abs_peak": float(np.max(np.abs(betas))) if betas else float("nan"),
+        "high_sideslip_fraction": float(np.mean(np.abs(betas) > 0.35)) if betas else float("nan"),
         "speed_mean": float(np.mean(speeds)) if speeds else float("nan"),
+        "action_rate_mean": (
+            float(np.mean(np.linalg.norm(np.diff(np.asarray(actions), axis=0), axis=1))) if len(actions) > 1 else 0.0
+        ),
+        "plan_horizon": int(getattr(getattr(policy, "model", None), "action_sequence_horizon", 1)),
+        "plan_action_rate_mean": float(np.mean(plan_action_rates)) if plan_action_rates else float("nan"),
+        "plan_first_action_error_mean": (
+            float(np.mean(plan_first_action_errors)) if plan_first_action_errors else float("nan")
+        ),
     }
     return add_segment_metrics(row, segment_stats)
 
@@ -155,15 +189,21 @@ def evaluate_policy(
 ) -> tuple[list[dict], dict[str, float | int | str]]:
     resolved_env_config = env_config or DriftEnvConfig()
     actor_policy: ActorPolicy | None = None
+    checkpoint_path = checkpoint
     if policy_name == "checkpoint":
-        if checkpoint is None:
+        if checkpoint_path is None:
             raise ValueError("--checkpoint is required when --policy checkpoint is used")
-        model, checkpoint_data = load_actor_critic_checkpoint(checkpoint, device=device)
+        model, checkpoint_data = load_actor_critic_checkpoint(checkpoint_path, device=device)
         metadata_env = checkpoint_data.get("metadata", {}).get("env")
         if env_config is None and isinstance(metadata_env, dict):
             resolved_env_config = build_env_config(metadata_env)
-        actor_policy = ActorPolicy(model)
     env = AutoDriftEnv(resolved_env_config)
+    if policy_name == "checkpoint":
+        assert checkpoint_path is not None
+        target_obs_dim = int(env.observation_space.shape[0])
+        if model.obs_dim != target_obs_dim:
+            model, _ = load_actor_critic_checkpoint(checkpoint_path, device=device, obs_dim=target_obs_dim)
+        actor_policy = ActorPolicy(model)
 
     rows = []
     for episode in range(episodes):
