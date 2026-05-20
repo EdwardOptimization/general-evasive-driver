@@ -4,7 +4,7 @@ Last updated: 2026-05-20
 
 ## Conda Environment
 
-Create the CPU development environment:
+Create the GPU development environment:
 
 ```bash
 make env-create
@@ -17,11 +17,24 @@ Update it after dependency changes:
 make env-update
 ```
 
-The environment installs PyTorch from the official CPU wheel index to avoid
-accidentally pulling multi-GB CUDA packages into the default development
-environment. The Makefile then installs the project in editable mode with
+The default environment installs PyTorch from the official CUDA 13.0 wheel index
+(`cu130`), which matches the local RTX 5080 / CUDA 13.1 driver stack. The
+Makefile then installs the project in editable mode with
 `pip install --no-deps -e .`, so changes under `src/autodrift` are picked up
 without reinstalling.
+
+For a CPU-only fallback:
+
+```bash
+make env-create-cpu
+```
+
+To switch an existing environment between PyTorch builds:
+
+```bash
+make torch-gpu
+make torch-cpu
+```
 
 ## Development Commands
 

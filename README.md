@@ -30,7 +30,8 @@ The project definition is in `docs/implementation-plan.md`. The target outcome
 is a complete runnable stack, not a paper prototype: simulator, training,
 evaluation, saved policies, benchmark reports, and documentation.
 
-Setup details are in `docs/setup.md`.
+Setup details are in `docs/setup.md`. The default environment targets the local
+NVIDIA GPU stack; a CPU-only fallback is also provided.
 
 ## Quick Check
 

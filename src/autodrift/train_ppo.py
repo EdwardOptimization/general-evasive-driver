@@ -34,6 +34,7 @@ class PPOConfig:
     max_grad_norm: float = 0.5
     learning_rate: float = 3e-4
     seed: int = 5
+    device: str = "auto"
 
 
 class ActorCritic(nn.Module):
@@ -56,13 +57,23 @@ class ActorCritic(nn.Module):
         return Normal(mean, std), self.critic(features).squeeze(-1)
 
     def act(self, obs: np.ndarray, deterministic: bool = False) -> tuple[np.ndarray, float, float]:
-        obs_t = torch.as_tensor(obs, dtype=torch.float32).unsqueeze(0)
+        device = next(self.parameters()).device
+        obs_t = torch.as_tensor(obs, dtype=torch.float32, device=device).unsqueeze(0)
         with torch.no_grad():
             dist, value = self.forward(obs_t)
             raw_action = dist.mean if deterministic else dist.sample()
             log_prob = dist.log_prob(raw_action).sum(dim=-1)
             action = torch.clamp(raw_action, -1.0, 1.0)
         return action.squeeze(0).cpu().numpy().astype(np.float32), float(log_prob.item()), float(value.item())
+
+
+def resolve_device(name: str) -> torch.device:
+    if name == "auto":
+        return torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = torch.device(name)
+    if device.type == "cuda" and not torch.cuda.is_available():
+        raise RuntimeError("CUDA was requested, but torch.cuda.is_available() is false.")
+    return device
 
 
 def compute_gae(
@@ -88,11 +99,13 @@ def compute_gae(
 def train(config: PPOConfig, save_path: Path | None = None) -> ActorCritic:
     np.random.seed(config.seed)
     torch.manual_seed(config.seed)
+    device = resolve_device(config.device)
 
     env = AutoDriftEnv()
     obs, info = env.reset(seed=config.seed)
-    model = ActorCritic(obs_dim=env.observation_space.shape[0], act_dim=env.action_space.shape[0])
+    model = ActorCritic(obs_dim=env.observation_space.shape[0], act_dim=env.action_space.shape[0]).to(device)
     optimizer = Adam(model.parameters(), lr=config.learning_rate)
+    print(f"training_device={device}")
 
     global_step = 0
     update = 0
@@ -127,7 +140,7 @@ def train(config: PPOConfig, save_path: Path | None = None) -> ActorCritic:
                 obs, info = env.reset()
 
         with torch.no_grad():
-            _, last_value_t = model.forward(torch.as_tensor(obs, dtype=torch.float32).unsqueeze(0))
+            _, last_value_t = model.forward(torch.as_tensor(obs, dtype=torch.float32, device=device).unsqueeze(0))
         advantages, returns = compute_gae(
             rew_buf,
             done_buf,
@@ -138,11 +151,11 @@ def train(config: PPOConfig, save_path: Path | None = None) -> ActorCritic:
         )
         advantages = (advantages - advantages.mean()) / (advantages.std() + 1e-8)
 
-        obs_t = torch.as_tensor(obs_buf, dtype=torch.float32)
-        act_t = torch.as_tensor(act_buf, dtype=torch.float32)
-        old_logp_t = torch.as_tensor(logp_buf, dtype=torch.float32)
-        adv_t = torch.as_tensor(advantages, dtype=torch.float32)
-        ret_t = torch.as_tensor(returns, dtype=torch.float32)
+        obs_t = torch.as_tensor(obs_buf, dtype=torch.float32, device=device)
+        act_t = torch.as_tensor(act_buf, dtype=torch.float32, device=device)
+        old_logp_t = torch.as_tensor(logp_buf, dtype=torch.float32, device=device)
+        adv_t = torch.as_tensor(advantages, dtype=torch.float32, device=device)
+        ret_t = torch.as_tensor(returns, dtype=torch.float32, device=device)
 
         indices = np.arange(rollout_n)
         for _ in range(config.update_epochs):
@@ -177,7 +190,8 @@ def train(config: PPOConfig, save_path: Path | None = None) -> ActorCritic:
 
     if save_path is not None:
         save_path.parent.mkdir(parents=True, exist_ok=True)
-        torch.save({"model_state": model.state_dict(), "config": config.__dict__}, save_path)
+        state_dict = {key: value.detach().cpu() for key, value in model.state_dict().items()}
+        torch.save({"model_state": state_dict, "config": config.__dict__}, save_path)
     return model
 
 
@@ -220,11 +234,17 @@ def main() -> None:
     parser.add_argument("--total-steps", type=int, default=50_000)
     parser.add_argument("--rollout-steps", type=int, default=1024)
     parser.add_argument("--seed", type=int, default=5)
+    parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="auto")
     parser.add_argument("--save", type=Path, default=Path("runs/ppo_autodrift.pt"))
     parser.add_argument("--eval-episodes", type=int, default=3)
     args = parser.parse_args()
 
-    config = PPOConfig(total_steps=args.total_steps, rollout_steps=args.rollout_steps, seed=args.seed)
+    config = PPOConfig(
+        total_steps=args.total_steps,
+        rollout_steps=args.rollout_steps,
+        seed=args.seed,
+        device=args.device,
+    )
     model = train(config, save_path=args.save)
     summary = evaluate_actor(model, args.eval_episodes, args.seed + 10_000)
     print(f"saved={args.save}")
