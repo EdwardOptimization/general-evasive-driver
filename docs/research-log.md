@@ -188,3 +188,35 @@ Conclusion: paired perturbation infrastructure works, but this friction-range
 pair is still not behavior-critical. Success counts remain label dominated.
 The next gate should target near-threshold cases and delayed actuator/brake
 perturbations that can change the outcome after the policy has already acted.
+
+## m13-near-threshold-paired-gate
+
+- status: `completed`
+- kind: `gate`
+- corpus command: `conda run -n autodrift python -m autodrift.near_threshold_corpus --env-config configs/m11_online_recurrent_history_critical_eval.json --seed-start 3000 --max-candidates 5000 --count 40 --max-threshold-score 0.20 --min-time-after-step 0.10 --label drift_required --label unavoidable --run-dir runs/m13_near_threshold_corpus_seed3000`
+- gate command: `conda run -n autodrift python -m autodrift.paired_perturbation_gate --env-config configs/m11_online_recurrent_history_critical_eval.json --seed-csv runs/m13_near_threshold_corpus_seed3000/scenario_corpus.csv --checkpoint runs/ppo_m11_online_recurrent_driver_seed411/checkpoint.pt --checkpoint-policy m11=runs/ppo_m11_online_recurrent_driver_seed411/checkpoint.pt --checkpoint-policy m11_reset=runs/ppo_m11_online_recurrent_driver_seed411/checkpoint.pt@reset_recurrent_state --checkpoint-policy m11_zero_current=runs/ppo_m11_online_recurrent_driver_seed411/checkpoint.pt@zero_current_response --checkpoint-policy m11_zero_all=runs/ppo_m11_online_recurrent_driver_seed411/checkpoint.pt@zero_all_response --device cpu --run-dir runs/m13_near_threshold_paired_gate_seed3000`
+
+Corpus result:
+
+- selected seeds: 40
+- candidates searched: 5000
+- label counts: 19 `drift_required`, 21 `unavoidable`
+- max threshold score: 0.009
+- mean threshold score: 0.005
+
+Gate result:
+
+- M11 nominal success: 0.750
+- M11 perturbed success: 0.375
+- M11 paired success drop: 0.375
+- M11 reset paired success drop: 0.375
+- M11 zero-current paired success drop: 0.375
+- M11 zero-all paired success drop: 0.375
+- M11 pair counts: 15 nominal-success/perturbed-fail, 0 nominal-fail/perturbed-success,
+  15 both-success, 10 both-fail.
+
+Conclusion: M13 finally creates a behavior-critical hidden-response stressor,
+but the current M11 driver still does not show a recurrent-state advantage.
+Normal recurrent inference, hidden reset, and response-masked inference all
+drop by the same amount. Next work should train on near-threshold perturbation
+cases, then re-run this exact corpus as the gate.

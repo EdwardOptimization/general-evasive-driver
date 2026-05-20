@@ -52,6 +52,8 @@ vehicle/tire models, and NMPC-style constrained control.
   reset ablation, queued training command, and validation plan.
 - `m12-paired-perturbation-gate.md`: paired hidden-friction perturbation gate,
   M11 paired result, and next near-threshold gate direction.
+- `m13-near-threshold-paired-gate.md`: near-threshold stress-corpus builder,
+  paired hidden-response gate, M11 negative result, and M14 training direction.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

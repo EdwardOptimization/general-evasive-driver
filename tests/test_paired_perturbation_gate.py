@@ -1,7 +1,8 @@
 import pandas as pd
 
-from autodrift.env import DriftEnvConfig, FrictionStepConfig
-from autodrift.paired_perturbation_gate import build_pair_summary, condition_config, parse_range
+from autodrift.env import DriftEnvConfig, FrictionStepConfig, ObstacleTaskConfig
+from autodrift.near_threshold_corpus import collect_candidate_rows, select_near_threshold_rows
+from autodrift.paired_perturbation_gate import build_pair_summary, condition_config, load_seed_csv, parse_range
 
 
 def test_condition_config_changes_only_friction_step_mu_range():
@@ -36,3 +37,43 @@ def test_build_pair_summary_reports_success_drop_and_return_delta():
 
 def test_parse_range_requires_low_high_pair():
     assert parse_range("0.25,0.55") == (0.25, 0.55)
+
+
+def test_load_seed_csv_reads_ordered_seeds(tmp_path):
+    path = tmp_path / "seeds.csv"
+    path.write_text("seed\n42\n44\n", encoding="utf-8")
+
+    assert load_seed_csv(path) == [42, 44]
+
+
+def test_select_near_threshold_rows_filters_and_sorts():
+    rows = [
+        {"seed": 1, "obstacle_label": "unavoidable", "threshold_score": 0.10, "time_after_step": 0.5},
+        {"seed": 2, "obstacle_label": "drift_required", "threshold_score": 0.03, "time_after_step": 0.2},
+        {"seed": 3, "obstacle_label": "aeb_feasible", "threshold_score": 0.01, "time_after_step": 0.5},
+        {"seed": 4, "obstacle_label": "drift_required", "threshold_score": 0.02, "time_after_step": 0.05},
+    ]
+
+    selected = select_near_threshold_rows(
+        rows,
+        count=2,
+        labels=("drift_required", "unavoidable"),
+        max_threshold_score=0.20,
+        min_time_after_step=0.10,
+    )
+
+    assert [row["seed"] for row in selected] == [2, 1]
+
+
+def test_collect_near_threshold_candidates_include_bucket_columns():
+    config = DriftEnvConfig(
+        friction_step=FrictionStepConfig(enabled=True, step_range=(2, 2)),
+        obstacle=ObstacleTaskConfig(enabled=True),
+    )
+
+    rows = collect_candidate_rows(config, seed_start=10, max_candidates=2)
+
+    assert rows
+    assert "terminated" in rows[0]
+    assert "threshold_score" in rows[0]
+    assert "time_after_step" in rows[0]

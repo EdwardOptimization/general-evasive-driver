@@ -54,6 +54,16 @@ def parse_checkpoint_specs(specs: list[str], default_checkpoint: Path) -> list[t
     return parsed
 
 
+def load_seed_csv(path: Path) -> list[int]:
+    frame = pd.read_csv(path)
+    if "seed" not in frame.columns:
+        raise ValueError(f"seed CSV must contain a 'seed' column: {path}")
+    seeds = [int(seed) for seed in frame["seed"].tolist()]
+    if not seeds:
+        raise ValueError(f"seed CSV is empty: {path}")
+    return seeds
+
+
 def build_pair_summary(frame: pd.DataFrame) -> pd.DataFrame:
     key_columns = ["policy", "seed"]
     required = {"condition", "success", "return", *key_columns}
@@ -86,6 +96,7 @@ def main() -> None:
     parser.add_argument("--checkpoint-policy", action="append", default=[])
     parser.add_argument("--episodes", type=int, default=40)
     parser.add_argument("--seed", type=int, default=1600)
+    parser.add_argument("--seed-csv", type=Path, default=None)
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="cpu")
     parser.add_argument("--nominal-friction-mu-range", type=parse_range, default=(0.85, 1.15))
     parser.add_argument("--perturbed-friction-mu-range", type=parse_range, default=(0.25, 0.35))
@@ -101,14 +112,15 @@ def main() -> None:
         "perturbed": condition_config(base_config, args.perturbed_friction_mu_range),
     }
     checkpoint_specs = parse_checkpoint_specs(args.checkpoint_policy, args.checkpoint)
-    seeds = [args.seed + episode for episode in range(args.episodes)]
+    seeds = load_seed_csv(args.seed_csv) if args.seed_csv is not None else [args.seed + episode for episode in range(args.episodes)]
+    episodes = len(seeds)
 
     rows = []
     for condition, env_config in configs.items():
         for name, checkpoint_path, ablation in checkpoint_specs:
             policy_rows, _ = evaluate_policy(
                 policy_name="checkpoint",
-                episodes=args.episodes,
+                episodes=episodes,
                 seed=args.seed,
                 checkpoint=checkpoint_path,
                 device=args.device,
@@ -144,8 +156,9 @@ def main() -> None:
             "checkpoint_policies": {
                 name: {"path": path, "ablation": ablation} for name, path, ablation in checkpoint_specs
             },
-            "episodes": args.episodes,
+            "episodes": episodes,
             "seed": args.seed,
+            "seed_csv": args.seed_csv,
             "nominal_friction_mu_range": args.nominal_friction_mu_range,
             "perturbed_friction_mu_range": args.perturbed_friction_mu_range,
             "episodes_csv": episodes_csv,
