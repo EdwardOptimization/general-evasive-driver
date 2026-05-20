@@ -27,6 +27,7 @@ The search focused on:
 | [Deep Drifting: Autonomous Drifting of Arbitrary Trajectories using Deep Reinforcement Learning](https://research.uni-luebeck.de/en/publications/deep-drifting-autonomous-drifting-of-arbitrary-trajectories-using/), Domberg et al., ICRA 2022 | peer-reviewed | Trains a small neural policy from measurements and control inputs; reports generalization to arbitrary unknown trajectories and different driving conditions, then validates on a model car. |
 | [Autonomous vehicle extreme control for emergency collision avoidance via Reachability-Guided reinforcement learning](https://doi.org/10.1016/j.aei.2024.102801), Zhao et al., Advanced Engineering Informatics 2024 | peer-reviewed | Very close to the AEB-failure framing. Uses backward reachable tubes to identify where conventional avoidance is infeasible, then trains an RL extreme maneuver controller and validates with real vehicles. |
 | [Autonomous Drifting Based on Maximal Safety Probability Learning](https://arxiv.org/abs/2409.03160), Hoshino et al., IEEE ITSC 2024 | peer-reviewed, arXiv available | Useful for reducing reward-shaping dependency: learns drift behavior from sparse binary safety rewards plus physics-informed loss, without a fixed reference trajectory. |
+| [MPC-based drifting control with reinforcement-learning-enhanced parameter self-adaptation](https://doi.org/10.1177/09544070251410614), Wei et al., 2026 | peer-reviewed, restricted access | Very recent hybrid baseline. The main controller remains MPC, while RL adjusts MPC parameters online during closed-loop drift control. Useful as a comparison against the direct RL operator, not as the preferred M7 architecture. |
 
 ## General Operator and Adaptation Foundations
 
@@ -81,6 +82,10 @@ The search focused on:
    stopping/lateral envelope labels.
 5. Model-based and learned tire-model papers remain useful as baselines and
    diagnostics, but they do not invalidate the direct RL operator objective.
+6. Recent hybrid MPC+RL drifting work is strong evidence that online adaptation
+   matters, but it still keeps a rule/model-based controller in the loop. It is
+   best treated as a benchmark family for AutoDrift rather than the main
+   architecture.
 
 ## Immediate Reading Priority
 
@@ -91,3 +96,4 @@ The search focused on:
 5. Ni et al. 2022 recurrent model-free RL.
 6. Yu et al. 2017 universal policy with online system identification.
 7. Pinto et al. 2017 asymmetric actor-critic.
+8. Wei et al. 2026 MPC+RL parameter self-adaptation baseline.
