@@ -1,28 +1,19 @@
 {
   "counts": {
     "blocked": 0,
-    "completed": 3,
+    "completed": 6,
     "failed": 0,
-    "pending": 1,
+    "pending": 0,
     "planned": 1,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m9-observation-degradation-gate_20260520T184106Z/command.log",
+    "command_log": "runs/research/m10-clean-observation-retrain_20260520T191136Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m9-observation-degradation-gate_20260520T184106Z",
+    "run_dir": "runs/research/m10-clean-observation-retrain_20260520T191136Z",
     "status": "completed",
-    "task_id": "m9-observation-degradation-gate"
+    "task_id": "m10-clean-observation-retrain"
   },
-  "next_task": {
-    "command": "conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m8_temporal_gru_driver.json --seed 327 --device cuda --run-dir runs/ppo_m10_clean_temporal_gru_driver_seed327",
-    "hypothesis": "Retrain the temporal driver under the clean 60-dimensional obstacle-driver observation",
-    "id": "m10-clean-observation-retrain",
-    "kind": "training",
-    "notes": "Clean 60-dim contract; train from scratch with no init checkpoint",
-    "priority": 35,
-    "status": "pending",
-    "success_artifact": "runs/ppo_m10_clean_temporal_gru_driver_seed327/checkpoint.pt"
-  },
-  "updated_at_utc": "20260520T191017Z"
+  "next_task": null,
+  "updated_at_utc": "20260520T191806Z"
 }

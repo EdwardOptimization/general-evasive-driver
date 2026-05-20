@@ -83,3 +83,50 @@ does not prove professional-driver-like self-identification.
   simulator state or friction-conditioned speed commands.
 - Next training task is a clean-observation temporal driver retrain before an
   online recurrent hidden-state gate.
+
+## 20260520T191508Z m10-clean-observation-retrain
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Retrain the temporal driver under the clean 60-dimensional obstacle-driver observation
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m8_temporal_gru_driver.json --seed 327 --device cuda --run-dir runs/ppo_m10_clean_temporal_gru_driver_seed327`
+- returncode: `0`
+- run dir: `runs/research/m10-clean-observation-retrain_20260520T191136Z`
+- command log: `runs/research/m10-clean-observation-retrain_20260520T191136Z/command.log`
+- success artifact: `runs/ppo_m10_clean_temporal_gru_driver_seed327/checkpoint.pt`
+- notes: Clean 60-dim contract; train from scratch with no init checkpoint
+
+Conclusion: M10 is the first valid clean-contract temporal-GRU checkpoint. It
+trained successfully and wrote
+`runs/ppo_m10_clean_temporal_gru_driver_seed327/checkpoint.pt`, but built-in
+eval is weak: return mean 10.787 and termination rate 0.800.
+
+Follow-up benchmark:
+
+- run dir: `runs/m10_clean_observation_degradation_gate_seed1600`
+- M10 success: 0.275
+- envelope AES success: 0.225
+- M10 zero-current response success: 0.275
+- M10 zero-all response success: 0.275
+- M10 single-frame history success: 0.275
+- M10 shuffled-history success: 0.275
+
+Label diagnosis: M10 solves all 9 sampled `drift_required` cases but only 2 of
+31 `unavoidable` cases. The gain over envelope AES is real but narrow.
+
+Latent probe:
+
+- run dir: `runs/m10_clean_latent_probe_seed1700`
+- latent friction lift: 0.076
+- single-frame friction lift: 0.037
+- shuffled-history latent friction lift: 0.086
+- latent brake lift: 0.116
+- shuffled-history latent brake lift: 0.124
+
+The ordered latent is not clearly stronger than shuffled-history latent.
+Therefore M10 is a clean baseline, not evidence of closed-loop
+self-identification.
+
+Next hypothesis: build an online recurrent hidden-state gate with hidden-state
+reset ablation and paired perturbation scenarios. Static observation masking is
+not enough.
