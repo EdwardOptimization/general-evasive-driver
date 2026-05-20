@@ -124,6 +124,35 @@ def test_obstacle_collision_terminates_episode_and_penalizes_reward():
     assert reward < 0.0
 
 
+def test_obstacle_pass_can_complete_episode_successfully():
+    env = AutoDriftEnv(
+        DriftEnvConfig(
+            obstacle=ObstacleTaskConfig(
+                enabled=True,
+                distance_range=(20.0, 20.0),
+                half_width_range=(0.8, 0.8),
+                finish_on_pass=True,
+                finish_pass_distance=2.0,
+                pass_reward=5.0,
+            )
+        )
+    )
+    _, _ = env.reset(seed=32)
+    frame = env.track.frame(env.state.x, env.state.y, env.state.psi)
+    position = np.array([env.state.x, env.state.y], dtype=np.float64)
+    env.obstacle_position = position - frame.tangent * 3.0
+    env.collision = False
+    env.min_obstacle_clearance = 3.0
+
+    _, reward, terminated, truncated, info = env.step(np.array([0.0, 0.0], dtype=np.float32))
+
+    assert terminated is False
+    assert truncated is True
+    assert info["obstacle_completed"] is True
+    assert info["reward_terms"]["pass_reward"] == 5.0
+    assert reward > 0.0
+
+
 def test_friction_step_changes_mu_and_reports_transition():
     env = AutoDriftEnv(
         DriftEnvConfig(

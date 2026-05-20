@@ -13,7 +13,9 @@
       "half_width_range": [0.45, 1.15],
       "collision_penalty": 20.0,
       "require_aeb_infeasible": true,
-      "max_sample_attempts": 1000
+      "max_sample_attempts": 1000,
+      "finish_on_pass": true,
+      "pass_reward": 10.0
     },
     "randomization": {
       "mu_range": [0.25, 1.15],

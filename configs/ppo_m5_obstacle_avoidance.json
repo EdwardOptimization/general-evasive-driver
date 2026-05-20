@@ -25,7 +25,9 @@
       "half_width_range": [0.45, 1.15],
       "collision_penalty": 25.0,
       "require_aeb_infeasible": true,
-      "max_sample_attempts": 1000
+      "max_sample_attempts": 1000,
+      "finish_on_pass": true,
+      "pass_reward": 12.0
     },
     "randomization": {
       "mu_range": [0.25, 1.15],
@@ -47,7 +49,9 @@
           "half_width_range": [0.45, 0.90],
           "collision_penalty": 20.0,
           "require_aeb_infeasible": true,
-          "max_sample_attempts": 1000
+          "max_sample_attempts": 1000,
+          "finish_on_pass": true,
+          "pass_reward": 12.0
         },
         "randomization": {
           "mu_range": [0.45, 1.15]
@@ -64,7 +68,9 @@
           "distance_range": [3.0, 24.0],
           "half_width_range": [0.45, 1.05],
           "require_aeb_infeasible": true,
-          "max_sample_attempts": 1000
+          "max_sample_attempts": 1000,
+          "finish_on_pass": true,
+          "pass_reward": 12.0
         }
       }
     },

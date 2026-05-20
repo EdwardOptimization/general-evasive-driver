@@ -44,6 +44,9 @@ class ObstacleTaskConfig:
     collision_penalty: float = 20.0
     require_aeb_infeasible: bool = False
     max_sample_attempts: int = 100
+    finish_on_pass: bool = False
+    finish_pass_distance: float = 2.0
+    pass_reward: float = 10.0
 
     def scenario_config(self, speed: float, mu: float) -> ObstacleScenarioConfig:
         return ObstacleScenarioConfig(
@@ -118,6 +121,7 @@ class AutoDriftEnv(gym.Env):
         self.obstacle_position: np.ndarray | None = None
         self.min_obstacle_clearance = float("inf")
         self.collision = False
+        self.obstacle_completed = False
 
     def reset(
         self,
@@ -180,13 +184,17 @@ class AutoDriftEnv(gym.Env):
         self._update_obstacle_status(frame)
 
         terminated = self._terminated(frame)
+        self.obstacle_completed = self._obstacle_completed(frame) and not terminated
+        if self.obstacle_completed and self.config.obstacle.pass_reward > 0.0:
+            reward += self.config.obstacle.pass_reward
+            reward_terms["pass_reward"] = self.config.obstacle.pass_reward
         if self.collision:
             reward -= self.config.obstacle.collision_penalty
             reward_terms["collision_penalty"] = self.config.obstacle.collision_penalty
         if terminated and self.config.termination_penalty > 0.0:
             reward -= self.config.termination_penalty
             reward_terms["termination_penalty"] = self.config.termination_penalty
-        truncated = self.step_count >= self.config.max_steps
+        truncated = self.obstacle_completed or self.step_count >= self.config.max_steps
         self.last_action = np.clip(action64, -1.0, 1.0)
 
         info = self._info(frame)
@@ -240,6 +248,7 @@ class AutoDriftEnv(gym.Env):
         self.obstacle_position = None
         self.min_obstacle_clearance = float("inf")
         self.collision = False
+        self.obstacle_completed = False
         if not self.config.obstacle.enabled:
             return
         scenario_config = self.config.obstacle.scenario_config(speed=self.speed_ref, mu=self.params.mu)
@@ -277,6 +286,19 @@ class AutoDriftEnv(gym.Env):
             time_to_obstacle / 5.0,
             self.obstacle_scenario.aeb_stop_distance / 80.0,
         )
+
+    def _obstacle_longitudinal_distance(self, frame: PathFrame) -> float:
+        if self.obstacle_scenario is None or self.obstacle_position is None:
+            return float("inf")
+        ego_position = np.array([self.state.x, self.state.y], dtype=np.float64)
+        return float(np.dot(self.obstacle_position - ego_position, frame.tangent))
+
+    def _obstacle_completed(self, frame: PathFrame) -> bool:
+        if not self.config.obstacle.enabled or not self.config.obstacle.finish_on_pass:
+            return False
+        if self.obstacle_scenario is None or self.obstacle_position is None:
+            return False
+        return self._obstacle_longitudinal_distance(frame) <= -self.config.obstacle.finish_pass_distance
 
     def _update_obstacle_status(self, frame: PathFrame) -> None:
         del frame
@@ -421,4 +443,5 @@ class AutoDriftEnv(gym.Env):
             ),
             "min_obstacle_clearance": self.min_obstacle_clearance if self.config.obstacle.enabled else float("nan"),
             "collision": self.collision,
+            "obstacle_completed": self.obstacle_completed,
         }

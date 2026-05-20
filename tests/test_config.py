@@ -46,6 +46,8 @@ def test_build_env_config_overrides_obstacle_task():
                 "half_width_range": [0.6, 1.0],
                 "collision_penalty": 12.0,
                 "require_aeb_infeasible": True,
+                "finish_on_pass": True,
+                "pass_reward": 6.0,
             }
         }
     )
@@ -55,6 +57,8 @@ def test_build_env_config_overrides_obstacle_task():
     assert config.obstacle.half_width_range == (0.6, 1.0)
     assert config.obstacle.collision_penalty == 12.0
     assert config.obstacle.require_aeb_infeasible is True
+    assert config.obstacle.finish_on_pass is True
+    assert config.obstacle.pass_reward == 6.0
 
 
 def test_curriculum_selects_stage_before_base():

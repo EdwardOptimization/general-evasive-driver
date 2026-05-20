@@ -49,6 +49,13 @@ When enabled, the environment:
   episode info and benchmark CSVs;
 - writes `obstacle_label_summary.csv` from benchmark runs.
 
+For obstacle tasks, success is defined as passing the obstacle without
+collision while still inside the track. `finish_on_pass=true` ends the episode
+with `truncated=True` and `terminated=False` after the ego vehicle has passed
+the obstacle by the configured distance. This avoids treating a completed
+emergency avoidance maneuver as a failure just because the vehicle did not keep
+tracking the circle for the rest of an 800-step episode.
+
 Command:
 
 ```bash
@@ -258,6 +265,53 @@ Interpretation:
   clearance and road recovery separately, and should benchmark `aes_feasible`
   and `drift_required` buckets with enough samples instead of letting
   `unavoidable` dominate the evaluation set.
+
+## Pass-Semantics Re-Evaluation
+
+After adding `finish_on_pass=true`, the same first M5 checkpoint was
+re-evaluated with obstacle pass completion semantics.
+
+Command:
+
+```bash
+PYTHONPATH=src python -m autodrift.benchmark \
+  --episodes 100 \
+  --policies aeb aes_heuristic heuristic checkpoint \
+  --checkpoint runs/ppo_m5_obstacle_seed83/checkpoint.pt \
+  --env-config configs/m5_obstacle_smoke_eval.json \
+  --run-dir runs/benchmark_ppo_m5_obstacle_seed83_pass_100eval
+```
+
+Overall result:
+
+| policy | episodes | success_rate | collision_rate | obstacle_completion_rate | min_obstacle_clearance_mean |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| aeb | 100 | 0.040 | 0.960 | 0.040 | 1.603 |
+| aes_heuristic | 100 | 0.160 | 0.840 | 0.160 | 1.686 |
+| heuristic | 100 | 0.090 | 0.910 | 0.090 | 1.657 |
+| checkpoint | 100 | 0.290 | 0.710 | 0.290 | 1.872 |
+
+Label bucket result:
+
+| policy | obstacle_label | episodes | success_rate | collision_rate | obstacle_completion_rate |
+| --- | --- | ---: | ---: | ---: | ---: |
+| checkpoint | aes_feasible | 6 | 1.000 | 0.000 | 1.000 |
+| checkpoint | drift_required | 22 | 0.909 | 0.091 | 0.909 |
+| checkpoint | unavoidable | 72 | 0.042 | 0.958 | 0.042 |
+| aeb | aes_feasible | 6 | 0.333 | 0.667 | 0.333 |
+| aeb | drift_required | 22 | 0.091 | 0.909 | 0.091 |
+| aeb | unavoidable | 72 | 0.000 | 1.000 | 0.000 |
+
+Interpretation:
+
+- The RL checkpoint solves most avoidable scenarios in this seed set: `1.000`
+  success on `aes_feasible` and `0.909` on `drift_required`.
+- Overall success remains low because `unavoidable` dominates the sampled
+  distribution. A final M5 gate should report avoidable and unavoidable buckets
+  separately, not collapse them into one headline number.
+- The next change should add label-filtered or balanced M5 benchmark configs so
+  RL is judged on the cases that the scenario model says are physically
+  avoidable.
 
 ## Next Steps
 

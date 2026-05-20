@@ -42,6 +42,7 @@ def summarize(frame: pd.DataFrame, by: list[str]) -> pd.DataFrame:
         beta_abs_error_mean=("beta_abs_error_mean", "mean"),
         speed_mean=("speed_mean", "mean"),
         collision_rate=("collision", "mean"),
+        obstacle_completion_rate=("obstacle_completed", "mean"),
         min_obstacle_clearance_mean=("min_obstacle_clearance", "mean"),
         mu_min=("mu", "min"),
         mu_max=("mu", "max"),
