@@ -40,6 +40,8 @@ vehicle/tire models, and NMPC-style constrained control.
   commands.
 - `m8-rl-professional-driver.md`: temporal-GRU driver baseline, stable-AES
   reward shaping, smoke result, and next validation steps.
+- `m8-driver-gate-blocker-report.md`: best M8 gate result, failed ablations,
+  negative attempts, and the remaining driver-v1 blocker.
 - `mvp-status.md`: engineering MVP completion audit.
 
 ## Local Hooks

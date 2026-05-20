@@ -234,6 +234,8 @@ blocker is evidence: current held-out obstacle episodes can be solved well enoug
 from the current deployable frame and actuator state, so no-history and
 shuffled-history ablations do not reduce success.
 
+The detailed blocker report is in `docs/m8-driver-gate-blocker-report.md`.
+
 The next iteration should make the validation task more history-critical rather
 than only training another similar policy. Candidate directions:
 
