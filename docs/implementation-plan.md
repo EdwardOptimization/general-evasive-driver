@@ -272,6 +272,9 @@ success. See `docs/m6-model-based-baselines.md`.
   or recurrent inference.
 - Treat previous action and actuator history as required deployable inputs, so
   the actor can associate its own commands with the vehicle's response.
+- Make the operator drift-capable rather than drift-seeking: stable AES should
+  remain stable, while high-sideslip behavior is used when the scenario demands
+  it.
 - Keep the deployed actor parameter-blind: no true `mu`, mass, CG, tire, or
   brake parameters as actor inputs.
 - Keep the deployed actor rule-label-blind: no `drift_required`, `aes_feasible`,
@@ -290,6 +293,8 @@ Exit criteria:
   held-out vehicle and road families;
 - it outperforms AEB-only, heuristic AES, and model-based envelope baselines on
   AEB-infeasible obstacle scenarios;
+- it handles `aes_feasible` scenarios without unnecessary drift and recovers
+  cleanly after `drift_required` maneuvers;
 - failure modes are reported by hidden vehicle and road buckets;
 - adaptation depends on closed-loop feedback rather than rule branches or
   leaked simulator parameters;

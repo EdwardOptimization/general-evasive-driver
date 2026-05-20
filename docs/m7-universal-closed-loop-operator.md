@@ -10,6 +10,10 @@ one road surface. The target is a closed-loop policy that can stabilize and
 avoid obstacles across changing vehicle mass, CG, tire grip, braking authority,
 steering response, actuator lag, and road friction.
 
+The operator is drift-capable, not drift-seeking. It should drive normally when
+stable avoidance is enough, use high-sideslip or drift behavior when the
+scenario demands it, and recover after the maneuver.
+
 The deployment controller should behave like a driver-like trained operator:
 
 ```text
@@ -51,6 +55,26 @@ This has several concrete consequences:
 
 Rules can define the training world and the evaluation labels. They cannot be
 the deployed driving skill.
+
+## Drift-Capable, Not Drift-Seeking
+
+M7 is not a policy that should drift in every emergency. It is a professional
+driver-like operator that can choose the right level of tire utilization for the
+scenario through learned closed-loop behavior.
+
+Expected behavior by scenario:
+
+- `aes_feasible`: avoid the obstacle with stable steering and braking when
+  possible, minimizing unnecessary sideslip, action chatter, and recovery cost;
+- `drift_required`: use nonlinear tire behavior, yaw rotation, or high sideslip
+  when conventional AES is not enough;
+- `unavoidable`: reduce harm, collision severity, and residual speed as much as
+  possible instead of chasing a drift reward;
+- after obstacle pass: recover heading, speed, and sideslip rather than only
+  "surviving" the instant of clearance.
+
+This matters because the target is a general driving operator, not a drift demo.
+High sideslip is a tool. It is not the objective.
 
 ## Core Principle
 
@@ -203,6 +227,8 @@ M7 is successful when:
   time;
 - the same checkpoint outperforms AEB-only, heuristic AES, and model-based
   envelope baselines on held-out AEB-infeasible obstacle scenarios;
+- the policy handles `aes_feasible` scenarios without unnecessary drift and
+  handles `drift_required` scenarios when drift-like behavior is useful;
 - low-friction and vehicle-variation failures are reported by bucket rather
   than hidden inside an aggregate score;
 - ablations show that history, recurrence, or latent adaptation matters for

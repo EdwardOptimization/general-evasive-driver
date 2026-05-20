@@ -27,6 +27,8 @@ M7 should only claim success when the evidence supports all of these claims:
    parameters.
 5. The actor's behavior is smooth, interpretable, and monitorable enough to be
    a plausible real-time control candidate.
+6. The actor is drift-capable, not drift-seeking: it can drive stable AES when
+   enough and reserve high-sideslip behavior for cases that need it.
 
 If any claim fails, the result is still useful but must be recorded as a bounded
 or negative result.
@@ -51,10 +53,14 @@ Report:
 - collision rate;
 - obstacle completion rate;
 - minimum obstacle clearance;
+- post-pass recovery rate;
+- residual speed at closest approach or collision;
 - return;
 - lateral RMSE and peak lateral error;
 - sideslip error;
+- peak sideslip and sideslip duration;
 - speed;
+- action-rate and steering/brake chatter metrics;
 - termination, spin, or off-track rate.
 
 ## Bucketed Reporting
@@ -73,6 +79,29 @@ buckets:
 
 The policy should not be called general if one or two easy buckets hide severe
 failures elsewhere.
+
+## Scenario-Specific Behavior Quality
+
+The same actor must cover stable and extreme behavior. Evaluate each obstacle
+label with a different quality lens:
+
+- `aes_feasible`: success should come with stable avoidance quality, low
+  unnecessary sideslip, low action chatter, and clean recovery;
+- `drift_required`: success may involve large sideslip, but the policy should
+  build rotation deliberately and recover after passing the obstacle;
+- `unavoidable`: measure harm reduction, residual speed, and clearance
+  improvement rather than binary success alone.
+
+Useful derived metrics:
+
+- unnecessary drift rate in `aes_feasible` episodes;
+- peak sideslip and high-sideslip duration;
+- post-pass recovery time for heading, sideslip, and lateral error;
+- residual speed at closest obstacle approach or collision;
+- action smoothness during entry, avoidance, and recovery.
+
+These metrics keep the objective aligned with a professional driver-like
+operator: drift is available when needed, not rewarded as a default style.
 
 ## Held-Out Generalization
 
@@ -189,7 +218,10 @@ An M7 checkpoint passes the first validation gate when:
 
 - it beats AEB, heuristic AES, envelope AES, and the M5 checkpoint on held-out
   `drift_required` obstacle scenarios;
+- it matches or improves stable-avoidance quality on held-out `aes_feasible`
+  scenarios without unnecessary sideslip;
 - it improves or matches collision rate while maintaining obstacle completion;
+- it reports recovery quality after obstacle pass;
 - it reports bucketed results for vehicle, road, and obstacle conditions;
 - the full actor beats `single_frame` and `no_action_history` ablations;
 - the actor receives no true hidden parameters and no rule labels at deployment
