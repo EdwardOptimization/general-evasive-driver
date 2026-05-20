@@ -132,6 +132,10 @@ def plot_trace(rows: list[dict], summary: dict, output: Path) -> None:
     steer_cmd = np.asarray([row["steer_cmd"] for row in rows])
     drive_cmd = np.asarray([row["drive_cmd"] for row in rows])
     lateral_error = np.asarray([row["lateral_error"] for row in rows])
+    step_at = summary.get("friction_step_at")
+    step_time = None
+    if step_at is not None and len(rows) > 0 and rows[0]["step"] > 0:
+        step_time = float(step_at) * (rows[0]["time"] / rows[0]["step"])
 
     fig, axes = plt.subplots(2, 2, figsize=(11, 8), constrained_layout=True)
     axes[0, 0].plot(x, y, label="trajectory")
@@ -161,9 +165,14 @@ def plot_trace(rows: list[dict], summary: dict, output: Path) -> None:
     axes[1, 1].set_ylabel("normalized command")
     axes[1, 1].legend()
 
+    if step_time is not None:
+        for axis in (axes[0, 1], axes[1, 0], axes[1, 1]):
+            axis.axvline(step_time, color="black", linestyle=":", linewidth=1.0, label="friction step")
+            axis.legend()
+
     fig.suptitle(
         f"{summary['policy']} seed={summary['seed']} return={summary['return']:.1f} "
-        f"mu={summary['mu']:.3f} terminated={summary['terminated']}"
+        f"mu={summary['initial_mu']:.3f}->{summary['final_mu']:.3f} terminated={summary['terminated']}"
     )
     fig.savefig(output, dpi=140)
     plt.close(fig)

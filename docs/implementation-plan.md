@@ -172,8 +172,11 @@ Exit criteria:
   non-history policy;
 - ablation shows history or latent adaptation matters.
 
-Status: started. Friction-step episodes, evaluation configs, baseline M2
-checkpoint evaluation, and first negative training attempts are in place. See
+Status: first pass complete. A history-stacked policy initialized from the M2
+checkpoint reaches 81% success on the 100-episode friction-step benchmark,
+beating both the M2 static checkpoint baseline and staged single-frame
+fine-tuning. Severe final low-friction transitions remain a known weakness and
+should be refined while M4/M5 are added. See
 `docs/m3-friction-adaptation-plan.md`.
 
 ### M4: Add General Path Tracking
