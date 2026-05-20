@@ -195,7 +195,8 @@ Status: in progress. `track_kind="figure_eight"` is implemented with a sampled
 closed path, signed curvature, reset support, and rollout curvature/progress
 traces. The best trained M4 policy currently reaches 83% success on a
 100-episode figure-eight benchmark but does not beat the heuristic's 100%
-survival rate; low-friction figure-eight recovery is the next blocker. See
+survival rate. Segment diagnostics show that low friction is the primary
+blocker across both left and right curve segments. See
 `docs/m4-general-path-tracking.md`.
 
 ### M5: Add AEB-Failure Obstacle Avoidance

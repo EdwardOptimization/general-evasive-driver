@@ -8,7 +8,7 @@ from pathlib import Path
 import pandas as pd
 
 from autodrift.artifacts import make_run_dir, write_json
-from autodrift.evaluate import evaluate_policy, load_env_config
+from autodrift.evaluate import SEGMENT_NAMES, evaluate_policy, load_env_config
 
 
 def add_buckets(frame: pd.DataFrame) -> pd.DataFrame:
@@ -41,6 +41,53 @@ def summarize(frame: pd.DataFrame, by: list[str]) -> pd.DataFrame:
         lateral_peak_mean=("lateral_peak", "mean"),
         beta_abs_error_mean=("beta_abs_error_mean", "mean"),
         speed_mean=("speed_mean", "mean"),
+        mu_min=("mu", "min"),
+        mu_max=("mu", "max"),
+    )
+    return summary.reset_index()
+
+
+def build_segment_frame(frame: pd.DataFrame) -> pd.DataFrame:
+    rows = []
+    for _, source in frame.iterrows():
+        for segment in SEGMENT_NAMES:
+            steps = int(source.get(f"{segment}_steps", 0))
+            if steps <= 0:
+                continue
+            rows.append(
+                {
+                    "policy": source["policy"],
+                    "seed": source["seed"],
+                    "segment": segment,
+                    "steps": steps,
+                    "success": bool(source["success"]),
+                    "terminated": bool(source["terminated"]),
+                    "mu": source["mu"],
+                    "initial_mu": source.get("initial_mu", source["mu"]),
+                    "mu_bucket": source.get("mu_bucket"),
+                    "initial_mu_bucket": source.get("initial_mu_bucket"),
+                    "lateral_rmse": source[f"{segment}_lateral_rmse"],
+                    "beta_abs_error_mean": source[f"{segment}_beta_abs_error_mean"],
+                    "speed_mean": source[f"{segment}_speed_mean"],
+                    "reward_mean": source[f"{segment}_reward_mean"],
+                }
+            )
+    return pd.DataFrame(rows)
+
+
+def summarize_segments(segment_frame: pd.DataFrame, by: list[str] | None = None) -> pd.DataFrame:
+    if segment_frame.empty:
+        return segment_frame
+    grouped = segment_frame.groupby(by or ["policy", "segment"], observed=True)
+    summary = grouped.agg(
+        episodes=("seed", "count"),
+        steps_total=("steps", "sum"),
+        success_rate=("success", "mean"),
+        termination_rate=("terminated", "mean"),
+        lateral_rmse_mean=("lateral_rmse", "mean"),
+        beta_abs_error_mean=("beta_abs_error_mean", "mean"),
+        speed_mean=("speed_mean", "mean"),
+        reward_mean=("reward_mean", "mean"),
         mu_min=("mu", "min"),
         mu_max=("mu", "max"),
     )
@@ -82,16 +129,24 @@ def main() -> None:
     policy_summary = summarize(frame, ["policy"])
     bucket_summary = summarize(frame, ["policy", "mu_bucket"])
     initial_bucket_summary = summarize(frame, ["policy", "initial_mu_bucket"]) if "initial_mu_bucket" in frame else None
+    segment_frame = build_segment_frame(frame)
+    segment_summary = summarize_segments(segment_frame)
+    segment_mu_bucket_summary = summarize_segments(segment_frame, ["policy", "mu_bucket", "segment"])
 
     episodes_csv = run_dir / "episodes.csv"
     policy_csv = run_dir / "policy_summary.csv"
     bucket_csv = run_dir / "mu_bucket_summary.csv"
     initial_bucket_csv = run_dir / "initial_mu_bucket_summary.csv"
+    segment_csv = run_dir / "segment_summary.csv"
+    segment_mu_bucket_csv = run_dir / "segment_mu_bucket_summary.csv"
     frame.to_csv(episodes_csv, index=False)
     policy_summary.to_csv(policy_csv, index=False)
     bucket_summary.to_csv(bucket_csv, index=False)
     if initial_bucket_summary is not None:
         initial_bucket_summary.to_csv(initial_bucket_csv, index=False)
+    if not segment_summary.empty:
+        segment_summary.to_csv(segment_csv, index=False)
+        segment_mu_bucket_summary.to_csv(segment_mu_bucket_csv, index=False)
     write_json(
         run_dir / "manifest.json",
         {
@@ -107,6 +162,8 @@ def main() -> None:
                 "policy_summary_csv": policy_csv,
                 "mu_bucket_summary_csv": bucket_csv,
                 "initial_mu_bucket_summary_csv": initial_bucket_csv if initial_bucket_summary is not None else None,
+                "segment_summary_csv": segment_csv if not segment_summary.empty else None,
+                "segment_mu_bucket_summary_csv": segment_mu_bucket_csv if not segment_summary.empty else None,
             },
             "policy_summaries": policy_summaries,
         },

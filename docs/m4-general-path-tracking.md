@@ -259,6 +259,67 @@ Interpretation:
   it should add segment-level diagnostics and/or a policy objective that
   explicitly separates low-mu survival from high-speed progress.
 
+## Segment Diagnostics
+
+Benchmark now writes two additional artifacts:
+
+```text
+segment_summary.csv
+segment_mu_bucket_summary.csv
+```
+
+Each episode row also includes per-segment metrics for:
+
+- `left_curve`;
+- `right_curve`;
+- `near_zero`.
+
+The segment classifier uses the sign of path curvature, so it applies to both
+figure-eight tracking and later avoidance paths.
+
+Reference command:
+
+```bash
+PYTHONPATH=src python -m autodrift.benchmark \
+  --episodes 100 \
+  --policies heuristic checkpoint \
+  --checkpoint runs/ppo_m4_figure_eight_survival_seed71/checkpoint.pt \
+  --env-config configs/m4_figure_eight_eval.json \
+  --run-dir runs/benchmark_ppo_m4_figure_eight_survival_seed71_segment_100eval
+```
+
+Overall segment summary:
+
+| policy | segment | episodes | success_rate | lateral_rmse_mean | speed_mean |
+| --- | --- | ---: | ---: | ---: | ---: |
+| checkpoint | left_curve | 99 | 0.838 | 1.354 | 6.313 |
+| checkpoint | right_curve | 98 | 0.837 | 1.213 | 6.180 |
+| heuristic | left_curve | 100 | 1.000 | 1.379 | 4.870 |
+| heuristic | right_curve | 100 | 1.000 | 1.358 | 4.866 |
+
+Segment by friction bucket:
+
+| policy | mu bucket | segment | episodes | success_rate | lateral_rmse_mean | speed_mean |
+| --- | --- | --- | ---: | ---: | ---: | ---: |
+| checkpoint | low | left_curve | 25 | 0.440 | 1.512 | 4.457 |
+| checkpoint | low | right_curve | 24 | 0.417 | 1.702 | 4.754 |
+| checkpoint | medium | left_curve | 34 | 0.941 | 1.753 | 6.647 |
+| checkpoint | medium | right_curve | 34 | 0.941 | 1.259 | 6.055 |
+| checkpoint | high | left_curve | 40 | 1.000 | 0.916 | 7.190 |
+| checkpoint | high | right_curve | 40 | 1.000 | 0.880 | 7.143 |
+
+Interpretation:
+
+- The M4 blocker is primarily low friction, not only left/right transition. Low
+  `mu` fails in both left and right curve segments.
+- Right-curve low-mu tracking is slightly worse than left-curve low-mu tracking
+  (`1.702` vs `1.512` lateral RMSE), so transition direction may matter, but it
+  is secondary to friction.
+- High-friction figure-eight is solved by the RL policy on this benchmark.
+- The next M4 policy iteration should explicitly reduce low-mu speed/progress
+  pressure or add recovery/survival structure in low-friction segments, rather
+  than only oversampling low-mu episodes.
+
 ## Exit Criteria
 
 M4 should not be considered complete until:

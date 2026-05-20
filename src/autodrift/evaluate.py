@@ -32,6 +32,45 @@ class ActorPolicy(Policy):
         return action
 
 
+SEGMENT_NAMES = ("left_curve", "right_curve", "near_zero")
+
+
+def curvature_segment(curvature: float, threshold: float = 1e-3) -> str:
+    if curvature > threshold:
+        return "left_curve"
+    if curvature < -threshold:
+        return "right_curve"
+    return "near_zero"
+
+
+def empty_segment_stats() -> dict[str, dict[str, list[float]]]:
+    return {
+        name: {
+            "lateral_errors": [],
+            "beta_errors": [],
+            "speeds": [],
+            "rewards": [],
+        }
+        for name in SEGMENT_NAMES
+    }
+
+
+def add_segment_metrics(row: dict, segment_stats: dict[str, dict[str, list[float]]]) -> dict:
+    for segment, stats in segment_stats.items():
+        lateral_errors = stats["lateral_errors"]
+        beta_errors = stats["beta_errors"]
+        speeds = stats["speeds"]
+        rewards = stats["rewards"]
+        row[f"{segment}_steps"] = len(lateral_errors)
+        row[f"{segment}_lateral_rmse"] = (
+            float(np.sqrt(np.mean(np.square(lateral_errors)))) if lateral_errors else float("nan")
+        )
+        row[f"{segment}_beta_abs_error_mean"] = float(np.mean(np.abs(beta_errors))) if beta_errors else float("nan")
+        row[f"{segment}_speed_mean"] = float(np.mean(speeds)) if speeds else float("nan")
+        row[f"{segment}_reward_mean"] = float(np.mean(rewards)) if rewards else float("nan")
+    return row
+
+
 def run_episode_with_policy(env: AutoDriftEnv, policy: Policy, policy_name: str, seed: int) -> dict:
     obs, info = env.reset(seed=seed)
     policy.reset()
@@ -40,19 +79,26 @@ def run_episode_with_policy(env: AutoDriftEnv, policy: Policy, policy_name: str,
     lateral_errors: list[float] = []
     beta_errors: list[float] = []
     speeds: list[float] = []
+    segment_stats = empty_segment_stats()
     friction_step_applied = False
     terminated = False
     truncated = False
     while not (terminated or truncated):
         action = policy.act(obs, info)
         obs, reward, terminated, truncated, info = env.step(action)
+        beta_error = abs(float(info["beta"])) - float(info["beta_target"])
+        segment = curvature_segment(float(info.get("curvature", 0.0)))
         rewards.append(float(reward))
         lateral_errors.append(float(info["lateral_error"]))
-        beta_errors.append(abs(float(info["beta"])) - float(info["beta_target"]))
+        beta_errors.append(beta_error)
         speeds.append(float(info["speed"]))
+        segment_stats[segment]["lateral_errors"].append(float(info["lateral_error"]))
+        segment_stats[segment]["beta_errors"].append(beta_error)
+        segment_stats[segment]["speeds"].append(float(info["speed"]))
+        segment_stats[segment]["rewards"].append(float(reward))
         friction_step_applied = friction_step_applied or bool(info.get("friction_step_applied", False))
 
-    return {
+    row = {
         "seed": seed,
         "policy": policy_name,
         "steps": int(info["step"]),
@@ -70,6 +116,7 @@ def run_episode_with_policy(env: AutoDriftEnv, policy: Policy, policy_name: str,
         "beta_abs_error_mean": float(np.mean(np.abs(beta_errors))) if beta_errors else float("nan"),
         "speed_mean": float(np.mean(speeds)) if speeds else float("nan"),
     }
+    return add_segment_metrics(row, segment_stats)
 
 
 def run_episode(env: AutoDriftEnv, policy_name: str, seed: int) -> dict:
