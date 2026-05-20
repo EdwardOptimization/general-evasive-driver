@@ -191,6 +191,11 @@ Exit criteria:
 - policy can transition drift direction without immediate spin-out;
 - metrics are reported per segment type.
 
+Status: started. `track_kind="figure_eight"` is implemented with a sampled
+closed path, signed curvature, and reset support. M4 configs and smoke runs are
+documented in `docs/m4-general-path-tracking.md`; trained figure-eight policy
+results are still pending.
+
 ### M5: Add AEB-Failure Obstacle Avoidance
 
 - Add AEB-only and conventional AES baselines.

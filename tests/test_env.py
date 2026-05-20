@@ -53,6 +53,15 @@ def test_speed_reference_respects_low_friction_limit():
     assert info["speed_ref"] <= friction_limit + 1e-9
 
 
+def test_figure_eight_env_reset_reports_track_kind_and_curvature():
+    env = AutoDriftEnv(DriftEnvConfig(track_kind="figure_eight", speed_range=(4.0, 8.0)))
+    obs, info = env.reset(seed=18)
+
+    assert obs.shape == env.observation_space.shape
+    assert info["track_kind"] == "figure_eight"
+    assert np.isfinite(env.track.frame(env.state.x, env.state.y, env.state.psi).curvature)
+
+
 def test_friction_step_changes_mu_and_reports_transition():
     env = AutoDriftEnv(
         DriftEnvConfig(

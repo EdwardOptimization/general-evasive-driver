@@ -4,12 +4,14 @@ from autodrift.config import build_curriculum, build_env_config, env_config_for_
 def test_build_env_config_overrides_nested_randomization():
     config = build_env_config(
         {
+            "track_kind": "figure_eight",
             "track_width": 7.0,
             "speed_range": [5.0, 8.0],
             "randomization": {"mu_range": [0.6, 1.0]},
         }
     )
 
+    assert config.track_kind == "figure_eight"
     assert config.track_width == 7.0
     assert config.speed_range == (5.0, 8.0)
     assert config.randomization.mu_range == (0.6, 1.0)

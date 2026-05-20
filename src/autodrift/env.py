@@ -19,7 +19,7 @@ from autodrift.dynamics import (
     sample_vehicle_params,
 )
 from autodrift.math_utils import wrap_pi
-from autodrift.tasks import CircleTrack, PathFrame
+from autodrift.tasks import PathFrame, make_track
 
 
 @dataclass(frozen=True)
@@ -34,6 +34,7 @@ class FrictionStepConfig:
 class DriftEnvConfig:
     dt: float = 0.02
     max_steps: int = 800
+    track_kind: str = "circle"
     track_radius: float = 18.0
     track_width: float = 5.0
     speed_range: tuple[float, float] = (5.0, 12.0)
@@ -67,7 +68,7 @@ class AutoDriftEnv(gym.Env):
         obs_dim = self.base_obs_dim * self.config.history_length
         self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(obs_dim,), dtype=np.float32)
 
-        self.track = CircleTrack(radius=self.config.track_radius)
+        self.track = make_track(self.config.track_kind, self.config.track_radius)
         self.rng = np.random.default_rng()
         self.model = SingleTrackDriftModel()
         self.params = self.model.params
@@ -104,13 +105,14 @@ class AutoDriftEnv(gym.Env):
         self.beta_target = float(self.rng.uniform(*self.config.beta_target_range))
         initial_beta = float(self.rng.normal(0.0, 0.04))
         x, y, psi, vx, vy = self.track.reset_pose(self.rng, self.speed_ref, beta=initial_beta)
+        initial_frame = self.track.frame(x, y, psi)
         self.state = VehicleState(
             x=x,
             y=y,
             psi=psi,
             vx=vx,
             vy=vy,
-            yaw_rate=self.speed_ref / self.config.track_radius,
+            yaw_rate=self.speed_ref * initial_frame.curvature,
             steer=0.0,
             drive_force=0.0,
         )
@@ -125,7 +127,7 @@ class AutoDriftEnv(gym.Env):
     def _sample_speed_ref(self) -> float:
         low, high = self.config.speed_range
         if self.config.friction_limited_speed:
-            friction_speed = math.sqrt(max(self.params.mu * self.params.gravity * self.config.track_radius, 1e-6))
+            friction_speed = math.sqrt(max(self.params.mu * self.params.gravity * self.track.reference_radius, 1e-6))
             high = min(high, friction_speed * self.config.friction_speed_margin)
         if high <= low:
             return float(max(high, 1.0))
@@ -304,4 +306,5 @@ class AutoDriftEnv(gym.Env):
             "step": self.step_count,
             "friction_step_at": self.friction_step_at,
             "friction_step_applied": self.friction_step_applied,
+            "track_kind": self.config.track_kind,
         }
