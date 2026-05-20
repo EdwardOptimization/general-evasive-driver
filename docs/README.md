@@ -29,6 +29,9 @@ vehicle/tire models, and NMPC-style constrained control.
   comparison against RL.
 - `m7-universal-closed-loop-operator.md`: next-stage closed-loop RL operator
   direction for vehicle, tire, brake, actuator, and road generalization.
+- `m7-related-papers.md`: related work for direct RL drift control, emergency
+  avoidance, recurrent adaptation, asymmetric actor-critic, and sim-to-real
+  domain randomization.
 - `mvp-status.md`: engineering MVP completion audit.
 
 ## Scope Rule
