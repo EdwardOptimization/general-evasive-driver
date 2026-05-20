@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="$(git rev-parse --show-toplevel)"
+cd "$ROOT_DIR"
+
+echo "pre-commit: checking staged whitespace"
+git diff --cached --check
+
+if [[ "${AUTODRIFT_SKIP_PRECOMMIT_TESTS:-0}" == "1" ]]; then
+  echo "pre-commit: skipping lightweight tests because AUTODRIFT_SKIP_PRECOMMIT_TESTS=1"
+  exit 0
+fi
+
+echo "pre-commit: running lightweight harness tests"
+PYTHONPATH="${PYTHONPATH:-src}" "${PYTHON:-python}" -m pytest -q \
+  tests/test_m7_gate.py \
+  tests/test_scenario_corpus.py \
+  tests/test_benchmark.py

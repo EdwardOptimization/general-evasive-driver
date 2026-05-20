@@ -1,8 +1,18 @@
 PYTHON ?= python
 PYTHONPATH ?= src
 CONDA_ENV ?= autodrift
+M7_ENV_CONFIG ?= configs/m7_obstacle_aes_weighted_holdout_eval.json
+M7_CORPUS_RUN_DIR ?= runs/scenario_corpus_m7_aes_weighted_seed1300
+M7_SEED_CSV ?= $(M7_CORPUS_RUN_DIR)/scenario_corpus.csv
+M7_GATE_RUN_DIR ?= runs/m7_gate_aes_weighted_corpus_seed1300
+M7_PER_LABEL ?= 20
+M7_MAX_CANDIDATES ?= 1000
+M7_EPISODES ?= 100
+M7_PROBE_EPISODES ?= 100
+M7_PROBE_EPOCHS ?= 160
+M7_DEVICE ?= cpu
 
-.PHONY: env-create env-create-cpu env-update env-update-cpu torch-gpu torch-cpu test eval-heuristic train-smoke benchmark-smoke rollout-smoke clean
+.PHONY: env-create env-create-cpu env-update env-update-cpu torch-gpu torch-cpu test test-light check-diff hooks-install eval-heuristic train-smoke benchmark-smoke rollout-smoke m7-corpus m7-gate-smoke m7-gate clean
 
 env-create:
 	mamba env create -f environment-gpu.yml -y
@@ -29,6 +39,16 @@ torch-cpu:
 test:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q
 
+test-light:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q tests/test_m7_gate.py tests/test_scenario_corpus.py tests/test_benchmark.py
+
+check-diff:
+	git diff --check
+	git diff --cached --check
+
+hooks-install:
+	install -m 0755 scripts/hooks/pre-commit .git/hooks/pre-commit
+
 eval-heuristic:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m autodrift.evaluate --episodes 5 --policy heuristic
 
@@ -40,6 +60,39 @@ benchmark-smoke:
 
 rollout-smoke:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m autodrift.rollout --policy heuristic --seeds 7 --out-dir /tmp/autodrift_rollout_smoke
+
+m7-corpus:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m autodrift.scenario_corpus \
+		--env-config $(M7_ENV_CONFIG) \
+		--seed-start 1300 \
+		--per-label $(M7_PER_LABEL) \
+		--max-candidates $(M7_MAX_CANDIDATES) \
+		--run-dir $(M7_CORPUS_RUN_DIR)
+
+m7-gate-smoke: m7-corpus
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m autodrift.m7_gate \
+		--env-config $(M7_ENV_CONFIG) \
+		--seed-csv $(M7_SEED_CSV) \
+		--episodes 6 \
+		--seed 900 \
+		--probe-episodes 6 \
+		--probe-seed 1200 \
+		--probe-epochs 20 \
+		--device $(M7_DEVICE) \
+		--run-dir runs/m7_gate_smoke \
+		--skip-probes
+
+m7-gate: m7-corpus
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m autodrift.m7_gate \
+		--env-config $(M7_ENV_CONFIG) \
+		--seed-csv $(M7_SEED_CSV) \
+		--episodes $(M7_EPISODES) \
+		--seed 900 \
+		--probe-episodes $(M7_PROBE_EPISODES) \
+		--probe-seed 1200 \
+		--probe-epochs $(M7_PROBE_EPOCHS) \
+		--device $(M7_DEVICE) \
+		--run-dir $(M7_GATE_RUN_DIR)
 
 clean:
 	rm -rf build dist *.egg-info .pytest_cache .ruff_cache .mypy_cache

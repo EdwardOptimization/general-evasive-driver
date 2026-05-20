@@ -40,6 +40,12 @@ vehicle/tire models, and NMPC-style constrained control.
   commands.
 - `mvp-status.md`: engineering MVP completion audit.
 
+## Local Hooks
+
+Install the lightweight local pre-commit hook with `make hooks-install`. It
+checks staged whitespace and runs the small harness test subset; it deliberately
+does not run training or the full M7 gate.
+
 ## Scope Rule
 
 The notes distinguish three roles:

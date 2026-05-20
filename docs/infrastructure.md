@@ -78,10 +78,25 @@ M7 gate writes:
 
 ```bash
 make test
+make test-light
 make train-smoke
 make eval-heuristic
 make benchmark-smoke
 make rollout-smoke
+```
+
+Install the lightweight local pre-commit hook:
+
+```bash
+make hooks-install
+```
+
+The hook only runs staged whitespace checks and lightweight harness tests. It
+does not run training or the full M7 gate. For emergency commits, skip the test
+portion with:
+
+```bash
+AUTODRIFT_SKIP_PRECOMMIT_TESTS=1 git commit ...
 ```
 
 Longer local PPO run:
@@ -120,19 +135,19 @@ PYTHONPATH=src python -m autodrift.latent_probe \
 Build a label-balanced M7 scenario corpus:
 
 ```bash
-PYTHONPATH=src python -m autodrift.scenario_corpus \
-  --env-config configs/m7_obstacle_aes_weighted_holdout_eval.json \
-  --per-label 20
+make m7-corpus
 ```
 
 Run the complete M7 validation gate:
 
 ```bash
-PYTHONPATH=src python -m autodrift.m7_gate \
-  --env-config configs/m7_obstacle_aes_weighted_holdout_eval.json \
-  --seed-csv runs/<scenario_corpus>/scenario_corpus.csv \
-  --episodes 100 \
-  --probe-episodes 100
+make m7-gate
+```
+
+Run a quick M7 gate smoke check:
+
+```bash
+make m7-gate-smoke
 ```
 
 Trace and plot selected rollouts:

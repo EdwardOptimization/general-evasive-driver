@@ -21,12 +21,7 @@ The gate checks four claims:
 Build a label-balanced seed corpus:
 
 ```bash
-conda run -n autodrift python -m autodrift.scenario_corpus \
-  --env-config configs/m7_obstacle_aes_weighted_holdout_eval.json \
-  --seed-start 1300 \
-  --per-label 20 \
-  --max-candidates 1000 \
-  --run-dir runs/scenario_corpus_m7_aes_weighted_seed1300
+make m7-corpus
 ```
 
 Current result:
@@ -50,21 +45,18 @@ Artifacts:
 Run the complete M7 validation gate:
 
 ```bash
-conda run -n autodrift python -m autodrift.m7_gate \
-  --env-config configs/m7_obstacle_aes_weighted_holdout_eval.json \
-  --seed-csv runs/scenario_corpus_m7_aes_weighted_seed1300/scenario_corpus.csv \
-  --episodes 100 \
-  --seed 900 \
-  --probe-episodes 100 \
-  --probe-seed 1200 \
-  --probe-epochs 160 \
-  --device cpu \
-  --run-dir runs/m7_gate_aes_weighted_corpus_seed1300
+make m7-gate
 ```
 
-If `--seed-csv` is set, the benchmark and history-ablation phases use the
-exact `seed` column from the corpus instead of a contiguous seed range. The
-probe phase still uses its own rollout seeds.
+`make m7-gate` first refreshes the scenario corpus, then runs the benchmark and
+history-ablation phases on the exact `seed` column from that corpus. The probe
+phase still uses its own rollout seeds.
+
+For a short command-path check:
+
+```bash
+make m7-gate-smoke
+```
 
 Current result:
 
