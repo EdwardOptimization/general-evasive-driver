@@ -1,28 +1,19 @@
 {
   "counts": {
     "blocked": 0,
-    "completed": 13,
+    "completed": 14,
     "failed": 0,
-    "pending": 1,
+    "pending": 0,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m16-sequence-recurrent-ppo_20260520T201650Z/command.log",
+    "command_log": "runs/research/m17-response-prediction-aux_20260520T211106Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m16-sequence-recurrent-ppo_20260520T201650Z",
+    "run_dir": "runs/research/m17-response-prediction-aux_20260520T211106Z",
     "status": "completed",
-    "task_id": "m16-sequence-recurrent-ppo"
+    "task_id": "m17-response-prediction-aux"
   },
-  "next_task": {
-    "command": "conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m17_response_aux_recurrent_driver.json --seed 733 --device cuda --run-dir runs/ppo_m17_response_aux_recurrent_seed733",
-    "hypothesis": "Add deployable response-prediction auxiliary loss so online GRU hidden state encodes vehicle reactions",
-    "id": "m17-response-prediction-aux",
-    "kind": "training",
-    "notes": "M16 sequence PPO improves perturbed success but reset still wins nominally and response masking is only slightly worse",
-    "priority": 100,
-    "status": "pending",
-    "success_artifact": "runs/ppo_m17_response_aux_recurrent_seed733/checkpoint.pt"
-  },
-  "updated_at_utc": "20260520T211006Z"
+  "next_task": null,
+  "updated_at_utc": "20260520T220825Z"
 }

@@ -443,3 +443,44 @@ Smoke result:
 - eval steps mean: 67.500;
 - eval termination rate: 0.000;
 - eval lateral RMSE mean: 0.258.
+
+## 20260520T220825Z m17-response-prediction-aux
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Add deployable response-prediction auxiliary loss so online GRU hidden state encodes vehicle reactions
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m17_response_aux_recurrent_driver.json --seed 733 --device cuda --run-dir runs/ppo_m17_response_aux_recurrent_seed733`
+- returncode: `0`
+- run dir: `runs/research/m17-response-prediction-aux_20260520T211106Z`
+- command log: `runs/research/m17-response-prediction-aux_20260520T211106Z/command.log`
+- success artifact: `runs/ppo_m17_response_aux_recurrent_seed733/checkpoint.pt`
+- notes: M16 sequence PPO improves perturbed success but reset still wins nominally and response masking is only slightly worse
+
+Training result:
+
+- final eval return mean: 79.977;
+- final eval steps mean: 62.800;
+- final eval termination rate: 0.000;
+- final eval lateral RMSE mean: 0.813;
+- final eval beta absolute error mean: 0.132.
+
+M13 paired gate re-run:
+
+- command: `conda run -n autodrift python -m autodrift.paired_perturbation_gate --env-config configs/m11_online_recurrent_history_critical_eval.json --seed-csv runs/m13_near_threshold_corpus_seed3000/scenario_corpus.csv --checkpoint runs/ppo_m17_response_aux_recurrent_seed733/checkpoint.pt --checkpoint-policy m17=runs/ppo_m17_response_aux_recurrent_seed733/checkpoint.pt --checkpoint-policy m17_reset=runs/ppo_m17_response_aux_recurrent_seed733/checkpoint.pt@reset_recurrent_state --checkpoint-policy m17_zero_current=runs/ppo_m17_response_aux_recurrent_seed733/checkpoint.pt@zero_current_response --checkpoint-policy m17_zero_all=runs/ppo_m17_response_aux_recurrent_seed733/checkpoint.pt@zero_all_response --device cpu --run-dir runs/m17_response_aux_paired_gate_seed3000`
+- run dir: `runs/m17_response_aux_paired_gate_seed3000`;
+- M17 nominal success: 0.825;
+- M17 perturbed success: 0.400;
+- M17 paired success drop: 0.425;
+- M17 hidden-reset nominal success: 0.900;
+- M17 hidden-reset perturbed success: 0.400;
+- M17 zero-current and zero-all nominal success: 0.825;
+- M17 zero-current and zero-all perturbed success: 0.400.
+
+Conclusion: M17 slightly improves normal perturbed success versus M16 (`0.400`
+instead of `0.375`) and matches hidden-reset perturbed success, but it still
+does not prove recurrent self-identification. Hidden reset remains better
+nominally, and response masking is indistinguishable from normal inference.
+Predicting next response is not enough if the policy head can ignore the
+response-sensitive latent. The next experiment should make response dependence
+behavior-critical in the control objective, not only predictable as an
+auxiliary target.

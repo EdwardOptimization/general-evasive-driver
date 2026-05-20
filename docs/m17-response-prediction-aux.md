@@ -55,6 +55,17 @@ Smoke result:
 - eval termination rate: 0.000;
 - eval lateral RMSE mean: 0.258.
 
+Full training result:
+
+- run dir: `runs/ppo_m17_response_aux_recurrent_seed733`;
+- checkpoint: `runs/ppo_m17_response_aux_recurrent_seed733/checkpoint.pt`;
+- research run dir: `runs/research/m17-response-prediction-aux_20260520T211106Z`;
+- final eval return mean: 79.977;
+- final eval steps mean: 62.800;
+- final eval termination rate: 0.000;
+- final eval lateral RMSE mean: 0.813;
+- final eval beta absolute error mean: 0.132.
+
 ## Validation
 
 Use the same M13 paired gate:
@@ -77,3 +88,28 @@ Pass direction:
 - normal M17 should beat hidden reset, especially on perturbed success;
 - response masking should remain worse than normal inference;
 - normal M17 should not regress below M16 aggregate gate performance.
+
+Gate result:
+
+| policy | nominal success | perturbed success | success drop | return delta |
+| --- | ---: | ---: | ---: | ---: |
+| `m17` | 0.825 | 0.400 | 0.425 | -20.595 |
+| `m17_reset` | 0.900 | 0.400 | 0.500 | -23.024 |
+| `m17_zero_current` | 0.825 | 0.400 | 0.425 | -20.468 |
+| `m17_zero_all` | 0.825 | 0.400 | 0.425 | -20.468 |
+
+Interpretation:
+
+- The auxiliary loss slightly improves normal perturbed success versus M16
+  (`0.400` vs `0.375`) and matches hidden-reset perturbed success.
+- Hidden reset still wins nominal success (`0.900` vs `0.825`), so normal
+  recurrent inference still does not dominate.
+- Current-response and all-response masking are behaviorally indistinguishable
+  from normal M17 on this gate. The actor can still solve the sampled cases
+  mostly from geometry and learned timing rather than response-dependent
+  self-identification.
+
+Conclusion: M17 is not the driver mechanism we want. Predicting next response
+as an auxiliary task may shape hidden state, but the policy head is still free
+to ignore that response-sensitive part of the latent. The next experiment should
+make response dependence behavior-critical rather than merely predictable.
