@@ -34,8 +34,8 @@ vehicle/tire models, and NMPC-style constrained control.
   domain randomization.
 - `m7-validation-protocol.md`: benchmark, ablation, latent-probe, and behavior
   diagnostics needed to prove an M7 policy is effective.
-- `m7-first-stage-results.md`: first M7 training, benchmark, ablation, negative
-  results, and remaining validation gaps.
+- `m7-first-stage-results.md`: first M7 training, benchmark, ablation,
+  latent-probe, negative results, and remaining validation gaps.
 - `mvp-status.md`: engineering MVP completion audit.
 
 ## Scope Rule

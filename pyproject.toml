@@ -26,6 +26,7 @@ autodrift-train-ppo = "autodrift.train_ppo:main"
 autodrift-benchmark = "autodrift.benchmark:main"
 autodrift-rollout = "autodrift.rollout:main"
 autodrift-scenarios = "autodrift.scenarios:main"
+autodrift-latent-probe = "autodrift.latent_probe:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

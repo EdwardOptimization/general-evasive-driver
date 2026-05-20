@@ -303,12 +303,15 @@ Exit criteria:
 Status: first training and ablation pass complete. M7-A and M7-B
 training/evaluation paths now exist, including full action-history
 observations, M7-B sequence heads, named checkpoint benchmark comparison,
-checkpoint observation ablations, and held-out vehicle-road bucket summaries.
+checkpoint observation ablations, latent self-identification probes, and
+held-out vehicle-road bucket summaries.
 The first 1M-step M7-A/M7-B checkpoints slightly improve aggregate success on
 the AES-weighted held-out benchmark, but they do not yet pass the M7 behavior
 gate: both use too much high sideslip on `aes_feasible` cases, and zeroing
-action history does not hurt performance. Latent probes, recurrent/latent
-actors, and better stable-AES objectives remain open. See
+action history does not hurt performance. First latent probes show some
+friction and tire information, but no convincing temporal/action-history
+self-identification signal. Recurrent/latent actors and better stable-AES
+objectives remain open. See
 `docs/m7-universal-closed-loop-operator.md` and
 `docs/m7-first-stage-results.md`.
 Validation follows `docs/m7-validation-protocol.md` so a policy is judged by

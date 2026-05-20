@@ -82,15 +82,18 @@ class ActorCritic(nn.Module):
             else None
         )
 
+    def features_tensor(self, obs: torch.Tensor) -> torch.Tensor:
+        return self.shared(obs)
+
     def forward(self, obs: torch.Tensor) -> tuple[Normal, torch.Tensor]:
-        features = self.shared(obs)
+        features = self.features_tensor(obs)
         mean = self.actor_mean(features)
         log_std = torch.clamp(self.log_std, self.log_std_min, self.log_std_max)
         std = torch.exp(log_std).expand_as(mean)
         return Normal(mean, std), self.critic(features).squeeze(-1)
 
     def action_sequence_tensor(self, obs: torch.Tensor) -> torch.Tensor:
-        features = self.shared(obs)
+        features = self.features_tensor(obs)
         first_action = torch.tanh(self.actor_mean(features)).unsqueeze(1)
         if self.sequence_tail is None:
             return first_action

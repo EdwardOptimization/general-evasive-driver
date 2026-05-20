@@ -1,6 +1,6 @@
 # AutoDrift Infrastructure
 
-Last updated: 2026-05-20
+Last updated: 2026-05-21
 
 ## Current Baseline
 
@@ -16,6 +16,8 @@ The repository now has enough project infrastructure for iterative development:
 - PPO smoke training that writes a complete run directory.
 - Checkpoint evaluation through the same evaluator used by built-in policies.
 - Shared-seed benchmark CLI for policy comparisons.
+- Checkpoint observation ablations for M7 validation.
+- Frozen-rollout latent probe CLI for hidden-condition diagnostics.
 - Rollout trace and plot generation for selected policy episodes.
 - Machine-readable outputs for later reports.
 
@@ -40,6 +42,15 @@ Benchmarking writes:
 - `episodes.csv`: all policy/seed rows.
 - `policy_summary.csv`: aggregate metrics by policy.
 - `mu_bucket_summary.csv`: aggregate metrics by policy and friction bucket.
+- `vehicle_road_bucket_summary.csv`: optional aggregate metrics by hidden
+  vehicle-road buckets when the required columns are present.
+- `manifest.json`: artifact index.
+
+Latent probing writes:
+
+- `samples.csv`: frozen rollout sample metadata and hidden bucket labels.
+- `probe_summary.csv`: probe accuracy by target and feature set.
+- `summary.json`: compact machine-readable result summary.
 - `manifest.json`: artifact index.
 
 ## Commands
@@ -74,6 +85,15 @@ PYTHONPATH=src python -m autodrift.benchmark \
   --policies heuristic checkpoint \
   --checkpoint runs/<run>/checkpoint.pt \
   --episodes 20
+```
+
+Probe hidden-condition information in a frozen actor:
+
+```bash
+PYTHONPATH=src python -m autodrift.latent_probe \
+  --checkpoint runs/<run>/checkpoint.pt \
+  --env-config configs/m7_obstacle_aes_weighted_holdout_eval.json \
+  --episodes 100
 ```
 
 Trace and plot selected rollouts:

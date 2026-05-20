@@ -163,6 +163,20 @@ Probe rules:
 - compare probe accuracy against raw single-frame observations and against
   shuffled-history latents.
 
+Current tooling:
+
+```bash
+python -m autodrift.latent_probe \
+  --checkpoint runs/ppo_m7a_history_seed127/checkpoint.pt \
+  --env-config configs/m7_obstacle_aes_weighted_holdout_eval.json \
+  --episodes 100 \
+  --run-dir runs/latent_probe_m7a_history_100eval
+```
+
+The probe writes `samples.csv`, `probe_summary.csv`, `summary.json`, and a
+manifest. These artifacts are diagnostics only; no probe output is used by the
+actor.
+
 Useful evidence is not just high probe accuracy. The stronger result is that
 probe accuracy and control success both degrade when action history or temporal
 order is removed.

@@ -27,6 +27,8 @@ Implemented pieces:
 - checkpoint observation ablations through
   `--checkpoint-policy name=path@zero_action_history` and
   `--checkpoint-policy name=path@single_frame_history`;
+- latent self-identification probe tooling through
+  `python -m autodrift.latent_probe`;
 - vehicle-road bucket summaries for held-out analysis.
 
 ## Configs
@@ -247,6 +249,72 @@ Interpretation:
 - The ablation tool is now in place, but the algorithm has not passed the M7
   adaptation gate.
 
+## Latent Self-Identification Probe
+
+Probe commands:
+
+```bash
+conda run -n autodrift python -m autodrift.latent_probe \
+  --checkpoint runs/ppo_m7a_history_seed127/checkpoint.pt \
+  --env-config configs/m7_obstacle_aes_weighted_holdout_eval.json \
+  --episodes 100 \
+  --seed 1200 \
+  --device cpu \
+  --epochs 160 \
+  --run-dir runs/latent_probe_m7a_history_100eval
+
+conda run -n autodrift python -m autodrift.latent_probe \
+  --checkpoint runs/ppo_m7b_sequence_seed131/checkpoint.pt \
+  --env-config configs/m7_obstacle_aes_weighted_holdout_eval.json \
+  --episodes 100 \
+  --seed 1200 \
+  --device cpu \
+  --epochs 160 \
+  --run-dir runs/latent_probe_m7b_sequence_100eval
+```
+
+The probe trains linear classifiers on frozen rollout samples. It compares
+three feature sets:
+
+- actor `latent`: the output of the actor's shared hidden layers;
+- `single_frame`: the current deployable observation frame only;
+- `shuffled_history_latent`: actor latent after randomly permuting history
+  frame order.
+
+M7-A selected probe results:
+
+| target | latent_acc | single_frame_acc | shuffled_latent_acc | majority_acc |
+| --- | ---: | ---: | ---: | ---: |
+| `mu_bucket` | 0.957 | 0.976 | 0.956 | 0.798 |
+| `mass_bucket` | 0.321 | 0.475 | 0.327 | 0.392 |
+| `cg_bucket` | 0.417 | 0.499 | 0.398 | 0.467 |
+| `brake_bucket` | 0.338 | 0.296 | 0.326 | 0.395 |
+| `tire_bucket` | 0.366 | 0.218 | 0.368 | 0.235 |
+| `steering_tau_bucket` | 0.552 | 0.517 | 0.540 | 0.642 |
+
+M7-B selected probe results:
+
+| target | latent_acc | single_frame_acc | shuffled_latent_acc | majority_acc |
+| --- | ---: | ---: | ---: | ---: |
+| `mu_bucket` | 0.959 | 0.974 | 0.967 | 0.799 |
+| `mass_bucket` | 0.366 | 0.441 | 0.378 | 0.397 |
+| `cg_bucket` | 0.349 | 0.478 | 0.355 | 0.471 |
+| `brake_bucket` | 0.307 | 0.301 | 0.298 | 0.397 |
+| `tire_bucket` | 0.357 | 0.143 | 0.384 | 0.234 |
+| `steering_tau_bucket` | 0.444 | 0.514 | 0.461 | 0.643 |
+
+Interpretation:
+
+- Both policies encode useful friction-bucket information, but single-frame
+  features are even stronger on `mu_bucket`.
+- Tire-bucket information is present in latent features, but
+  shuffled-history latent is not worse, so this does not prove temporal
+  self-identification.
+- Mass, CG, brake authority, and steering delay probes are weak or worse than
+  the majority baseline.
+- These probe results reinforce the ablation result: the current M7 policies
+  do not yet show convincing action-history or temporal-order dependence.
+
 ## Negative Results And Gaps
 
 - M7-A and M7-B completed 1M-step training, but the training eval termination
@@ -259,7 +327,8 @@ Interpretation:
 - No recurrent actor has been trained yet.
 - No privileged critic or teacher-student asymmetric training result exists
   yet.
-- No latent self-identification probe has been implemented yet.
+- Latent probes are implemented, but the first results do not show convincing
+  temporal/action-history self-identification.
 - M7-B sequence smoothness is recorded, but no safety-preview decision rule has
   been validated.
 
@@ -273,9 +342,10 @@ The strongest positive signal is that M7-A and M7-B can slightly improve
 aggregate success over M5 on the AES-weighted held-out benchmark, and M7-B can
 run the MPC-like "predict sequence, execute first action" interface.
 
-The strongest negative signal is that removing action history does not hurt.
-The next algorithm work should therefore target architectures and objectives
-that make feedback identification necessary and measurable.
+The strongest negative signal is that removing action history does not hurt,
+and latent probes do not degrade when history order is shuffled. The next
+algorithm work should therefore target architectures and objectives that make
+feedback identification necessary and measurable.
 
 ## Next Steps
 
@@ -283,8 +353,8 @@ that make feedback identification necessary and measurable.
    ablations.
 2. Add stable-AES penalties or reward terms so `aes_feasible` success is not
    achieved through unnecessary sideslip.
-3. Implement latent probe tooling on frozen rollout data for `mu`, mass, CG,
-   brake scale, tire scale, and actuator lag.
+3. Improve latent probe evidence by adding recurrent/latent actor states and
+   probing them against the current feed-forward latent baseline.
 4. Add label-balanced benchmark generation instead of relying only on random
    filtered sampling.
 5. Add `shuffled_history` and `privileged_leak` ablations.
