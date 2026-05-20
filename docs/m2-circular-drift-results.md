@@ -72,6 +72,24 @@ Friction bucket result:
 | heuristic | medium | 74 | 0.189 | 305.34 | 1.828 |
 | heuristic | high | 77 | 0.117 | 234.84 | 1.941 |
 
+## Rollout Plots
+
+Generate selected rollout traces and plots with:
+
+```bash
+PYTHONPATH=src python -m autodrift.rollout \
+  --policy checkpoint \
+  --checkpoint runs/ppo_circle_m2_base_recover_20260520T122018Z_seed29/checkpoint.pt \
+  --seeds 7 37 65 \
+  --out-dir runs/rollouts_ppo_circle_m2_base_recover_20260520T122018Z_seed29
+```
+
+Each selected seed writes:
+
+- a per-step CSV trace;
+- a summary JSON;
+- a PNG with trajectory, sideslip, speed/lateral error, and actions.
+
 ## Engineering Findings
 
 - The original clipped Gaussian policy learned a stochastic behavior that did

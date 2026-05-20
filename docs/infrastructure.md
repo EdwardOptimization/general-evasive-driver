@@ -16,7 +16,8 @@ The repository now has enough project infrastructure for iterative development:
 - PPO smoke training that writes a complete run directory.
 - Checkpoint evaluation through the same evaluator used by built-in policies.
 - Shared-seed benchmark CLI for policy comparisons.
-- Machine-readable outputs for later plotting and reports.
+- Rollout trace and plot generation for selected policy episodes.
+- Machine-readable outputs for later reports.
 
 ## Run Directory Contract
 
@@ -48,6 +49,7 @@ make test
 make train-smoke
 make eval-heuristic
 make benchmark-smoke
+make rollout-smoke
 ```
 
 Longer local PPO run:
@@ -74,6 +76,16 @@ PYTHONPATH=src python -m autodrift.benchmark \
   --episodes 20
 ```
 
+Trace and plot selected rollouts:
+
+```bash
+PYTHONPATH=src python -m autodrift.rollout \
+  --policy checkpoint \
+  --checkpoint runs/<run>/checkpoint.pt \
+  --seeds 7 37 \
+  --out-dir runs/<rollout_dir>
+```
+
 ## Deferred Infrastructure
 
 Add these only when the project reaches the relevant milestone:
@@ -81,7 +93,7 @@ Add these only when the project reaches the relevant milestone:
 - External training framework adapter, if the in-repo PPO trainer becomes the
   bottleneck after M2 experiments.
 - Scenario corpus versioning once obstacle tasks exist.
-- Plot/report generation once metrics stabilize.
+- Report generation once metrics stabilize.
 - Hyperparameter sweep tooling once a first policy learns reliably.
 - NMPC/SQP benchmark harness once model-based baselines are ready.
 - Simulator adapter layer when moving beyond the built-in single-track model.

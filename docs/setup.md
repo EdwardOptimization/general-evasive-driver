@@ -43,6 +43,7 @@ make test
 make eval-heuristic
 make train-smoke
 make benchmark-smoke
+make rollout-smoke
 ```
 
 Equivalent direct commands:
@@ -52,11 +53,12 @@ PYTHONPATH=src python -m pytest -q
 PYTHONPATH=src python -m autodrift.evaluate --episodes 5 --policy heuristic
 PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_smoke.json
 PYTHONPATH=src python -m autodrift.benchmark --episodes 2 --policies heuristic random
+PYTHONPATH=src python -m autodrift.rollout --policy heuristic --seeds 7 --out-dir /tmp/autodrift_rollout_smoke
 ```
 
 After `make env-create` or `make env-update`, the same commands are also
 available as console scripts: `autodrift-train-ppo`, `autodrift-evaluate`, and
-`autodrift-benchmark`.
+`autodrift-benchmark`, and `autodrift-rollout`.
 
 Training and evaluation commands create timestamped directories under `runs/`
 unless an explicit `--run-dir` is provided. A typical PPO run contains:

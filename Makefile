@@ -2,7 +2,7 @@ PYTHON ?= python
 PYTHONPATH ?= src
 CONDA_ENV ?= autodrift
 
-.PHONY: env-create env-create-cpu env-update env-update-cpu torch-gpu torch-cpu test eval-heuristic train-smoke benchmark-smoke clean
+.PHONY: env-create env-create-cpu env-update env-update-cpu torch-gpu torch-cpu test eval-heuristic train-smoke benchmark-smoke rollout-smoke clean
 
 env-create:
 	mamba env create -f environment-gpu.yml -y
@@ -37,6 +37,9 @@ train-smoke:
 
 benchmark-smoke:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m autodrift.benchmark --episodes 2 --policies heuristic random
+
+rollout-smoke:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m autodrift.rollout --policy heuristic --seeds 7 --out-dir /tmp/autodrift_rollout_smoke
 
 clean:
 	rm -rf build dist *.egg-info .pytest_cache .ruff_cache .mypy_cache
