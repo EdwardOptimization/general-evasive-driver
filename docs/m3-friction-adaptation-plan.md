@@ -29,7 +29,9 @@ Training templates:
 
 ```text
 configs/ppo_m3_single_frame_friction_step.json
+configs/ppo_m3_staged_single_frame_friction_step.json
 configs/ppo_m3_history_friction_step.json
+configs/ppo_m3_staged_history_friction_step.json
 configs/ppo_m3_privileged_friction_step.json
 ```
 
@@ -103,6 +105,11 @@ Takeaway:
 - The next useful experiment is a staged M3 curriculum: static recovery,
   high/medium friction-step, low final-mu focus, then base friction-step
   recovery, mirroring the M2 low-mu/base recovery pattern.
+
+Staged curriculum templates now encode that next experiment:
+
+- `configs/ppo_m3_staged_single_frame_friction_step.json`
+- `configs/ppo_m3_staged_history_friction_step.json`
 
 ## Exit Criteria
 
