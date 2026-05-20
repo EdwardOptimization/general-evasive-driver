@@ -49,6 +49,9 @@ def test_build_env_config_overrides_obstacle_task():
                 "finish_on_pass": True,
                 "pass_reward": 6.0,
                 "allowed_labels": ["aes_feasible", "drift_required"],
+                "stable_aes_beta_limit": 0.18,
+                "stable_aes_sideslip_penalty": 2.5,
+                "stable_aes_drift_bonus_scale": 0.25,
             }
         }
     )
@@ -61,6 +64,9 @@ def test_build_env_config_overrides_obstacle_task():
     assert config.obstacle.finish_on_pass is True
     assert config.obstacle.pass_reward == 6.0
     assert config.obstacle.allowed_labels == ("aes_feasible", "drift_required")
+    assert config.obstacle.stable_aes_beta_limit == 0.18
+    assert config.obstacle.stable_aes_sideslip_penalty == 2.5
+    assert config.obstacle.stable_aes_drift_bonus_scale == 0.25
 
 
 def test_build_env_config_overrides_action_history_mode():

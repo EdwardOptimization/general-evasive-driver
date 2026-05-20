@@ -3,6 +3,7 @@ import numpy as np
 from autodrift.dynamics import RandomizationConfig
 from autodrift.env import AutoDriftEnv, DriftEnvConfig, FrictionStepConfig, ObstacleTaskConfig
 from autodrift.policies import HeuristicPolicy
+from autodrift.scenarios import ObstacleScenario
 
 
 def test_env_reset_and_step_shapes():
@@ -187,6 +188,59 @@ def test_obstacle_pass_can_complete_episode_successfully():
     assert info["obstacle_completed"] is True
     assert info["reward_terms"]["pass_reward"] == 5.0
     assert reward > 0.0
+
+
+def test_stable_aes_reward_penalizes_high_sideslip_without_oracle_observation():
+    base_config = DriftEnvConfig(
+        obstacle=ObstacleTaskConfig(
+            enabled=True,
+            stable_aes_beta_limit=0.20,
+            stable_aes_sideslip_penalty=0.0,
+            stable_aes_drift_bonus_scale=1.0,
+        )
+    )
+    penalty_config = DriftEnvConfig(
+        obstacle=ObstacleTaskConfig(
+            enabled=True,
+            stable_aes_beta_limit=0.20,
+            stable_aes_sideslip_penalty=3.0,
+            stable_aes_drift_bonus_scale=0.25,
+        )
+    )
+    base_env = AutoDriftEnv(base_config)
+    penalty_env = AutoDriftEnv(penalty_config)
+    base_env.reset(seed=42)
+    penalty_env.reset(seed=42)
+
+    scenario = ObstacleScenario(
+        seed=42,
+        speed=10.0,
+        mu=0.9,
+        obstacle_distance=12.0,
+        obstacle_half_width=0.8,
+        required_lateral_offset=2.0,
+        time_to_obstacle=1.2,
+        aeb_stop_distance=12.5,
+        conventional_lateral_capacity=2.3,
+        drift_lateral_capacity=4.6,
+        label="aes_feasible",
+    )
+    for env in (base_env, penalty_env):
+        env.obstacle_scenario = scenario
+        env.state.vx = 10.0
+        env.state.vy = 3.0
+        env.beta_target = 0.25
+
+    action = np.zeros(2, dtype=np.float32)
+    base_frame = base_env.track.frame(base_env.state.x, base_env.state.y, base_env.state.psi)
+    penalty_frame = penalty_env.track.frame(penalty_env.state.x, penalty_env.state.y, penalty_env.state.psi)
+    base_reward, base_terms = base_env._reward(base_frame, action, base_env.last_forces)
+    penalty_reward, penalty_terms = penalty_env._reward(penalty_frame, action, penalty_env.last_forces)
+
+    assert penalty_terms["stable_aes_sideslip_cost"] > 0.0
+    assert penalty_terms["drift_bonus"] < base_terms["drift_bonus"]
+    assert penalty_reward < base_reward
+    assert np.isclose(base_terms["stable_aes_sideslip_cost"], penalty_terms["stable_aes_sideslip_cost"])
 
 
 def test_friction_step_changes_mu_and_reports_transition():

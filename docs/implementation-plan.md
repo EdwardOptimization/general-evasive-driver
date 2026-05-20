@@ -36,9 +36,12 @@ The first runnable MVP is in place:
 - `src/autodrift/policies.py`: random and heuristic sanity-check policies.
 - `src/autodrift/evaluate.py`: evaluation CLI.
 - `src/autodrift/train_ppo.py`: dependency-light PyTorch PPO trainer.
+  It now supports both the original MLP actor and a temporal-GRU actor over
+  stacked observation history.
 - `src/autodrift/benchmark.py`: shared-seed benchmark runner.
 - `src/autodrift/artifacts.py`: run directory, JSON, and CSV artifact helpers.
 - `src/autodrift/checkpoints.py`: PPO checkpoint loader for evaluation.
+  It can load both MLP and temporal-GRU actor checkpoints.
 - `src/autodrift/vector_env.py`: synchronous multi-environment rollout support.
 - `src/autodrift/config.py`: JSON config builders for env randomization and
   curricula.
@@ -320,6 +323,32 @@ repeatable gate command.
 Validation follows `docs/m7-validation-protocol.md` so a policy is judged by
 held-out generalization, ablations, latent self-identification evidence, and
 behavior diagnostics rather than aggregate success alone.
+
+### M8: RL Professional Driver v1
+
+- Add a recurrent or latent-state actor that can learn feedback-based
+  self-identification rather than only reading a flat stacked vector.
+- Keep the actor deployable: no true hidden parameters and no rule labels.
+- Make the policy drift-capable but not drift-seeking by shaping `aes_feasible`
+  cases toward stable avoidance and reserving high sideslip for scenarios that
+  need it.
+- Train a new checkpoint and run the full driver gate against AEB, heuristic
+  AES, envelope AES, M5, M7-A, and M7-B.
+
+Exit criteria:
+
+- the M8 checkpoint beats M5/M7 on the label-balanced held-out corpus;
+- `aes_feasible` high-sideslip behavior is below the gate threshold;
+- ablations show that temporal/action feedback matters;
+- latent probes show temporal lift over shuffled history;
+- negative results are documented if any criterion fails.
+
+Status: infrastructure started. `configs/ppo_m8_temporal_gru_driver.json` adds
+the first temporal-GRU driver baseline and stable-AES reward shaping. A 512-step
+smoke run initialized from the M7-A checkpoint passed the train/save/load/eval
+path with `load_mode=new_temporal_encoder`, but the smoke checkpoint terminates
+quickly and is not a performance result. See
+`docs/m8-rl-professional-driver.md`.
 
 ## Metrics
 

@@ -38,6 +38,8 @@ vehicle/tire models, and NMPC-style constrained control.
   latent-probe, negative results, and remaining validation gaps.
 - `m7-gate-harness.md`: repeatable M7 gate and label-balanced scenario corpus
   commands.
+- `m8-rl-professional-driver.md`: temporal-GRU driver baseline, stable-AES
+  reward shaping, smoke result, and next validation steps.
 - `mvp-status.md`: engineering MVP completion audit.
 
 ## Local Hooks

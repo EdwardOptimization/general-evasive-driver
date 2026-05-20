@@ -3,6 +3,7 @@ import numpy as np
 from autodrift.env import AutoDriftEnv, DriftEnvConfig
 from autodrift.latent_probe import (
     TARGET_SPECS,
+    build_feature_sets,
     bucket_label,
     collect_probe_dataset,
     split_by_episode,
@@ -62,3 +63,21 @@ def test_collect_probe_dataset_records_observations_and_hidden_labels():
     assert dataset.observations.shape[1] == int(env.observation_space.shape[0])
     assert "mu_bucket" in dataset.labels
     assert "steering_tau_bucket" in dataset.labels
+
+
+def test_build_feature_sets_supports_temporal_gru_latent():
+    env_config = DriftEnvConfig(history_length=3, action_history_mode="none")
+    model = ActorCritic(
+        obs_dim=36,
+        act_dim=2,
+        hidden_size=8,
+        actor_encoder="temporal_gru",
+        actor_history_length=3,
+    )
+    observations = np.arange(72, dtype=np.float32).reshape(2, 36)
+
+    features = build_feature_sets(model, observations, env_config, seed=5)
+
+    assert features["latent"].shape == (2, 8)
+    assert features["single_frame"].shape == (2, 12)
+    assert features["shuffled_history_latent"].shape == (2, 8)

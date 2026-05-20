@@ -48,6 +48,9 @@ class ObstacleTaskConfig:
     finish_pass_distance: float = 2.0
     pass_reward: float = 10.0
     allowed_labels: tuple[str, ...] = ("aeb_feasible", "aes_feasible", "drift_required", "unavoidable")
+    stable_aes_beta_limit: float = 0.24
+    stable_aes_sideslip_penalty: float = 0.0
+    stable_aes_drift_bonus_scale: float = 1.0
 
     def scenario_config(self, speed: float, mu: float) -> ObstacleScenarioConfig:
         return ObstacleScenarioConfig(
@@ -387,6 +390,10 @@ class AutoDriftEnv(gym.Env):
         action_rate_cost = float(np.sum(np.square(action - self.last_action)))
         rear_saturation = abs(forces.fx_rear) / max(self.params.mu * forces.fz_rear, 1.0)
         drift_bonus = min(abs(beta) / max(self.beta_target, 1e-3), 1.5)
+        stable_aes_sideslip_cost = 0.0
+        if self.obstacle_scenario is not None and self.obstacle_scenario.label == "aes_feasible":
+            drift_bonus *= self.config.obstacle.stable_aes_drift_bonus_scale
+            stable_aes_sideslip_cost = max(abs(beta) - self.config.obstacle.stable_aes_beta_limit, 0.0) ** 2
         progress_reward = along_speed / max(self.speed_ref, 1.0)
 
         reward = (
@@ -399,6 +406,7 @@ class AutoDriftEnv(gym.Env):
             - 0.70 * beta_cost
             - 0.030 * action_cost
             - 0.040 * action_rate_cost
+            - self.config.obstacle.stable_aes_sideslip_penalty * stable_aes_sideslip_cost
         )
         terms = {
             "progress": progress_reward,
@@ -409,6 +417,8 @@ class AutoDriftEnv(gym.Env):
             "speed_cost": speed_cost,
             "beta_cost": beta_cost,
         }
+        if stable_aes_sideslip_cost > 0.0 or self.config.obstacle.stable_aes_sideslip_penalty > 0.0:
+            terms["stable_aes_sideslip_cost"] = stable_aes_sideslip_cost
         return reward, terms
 
     def _terminated(self, frame: PathFrame) -> bool:

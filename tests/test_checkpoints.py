@@ -97,6 +97,33 @@ def test_sequence_actor_checkpoint_loads_and_predicts_plan(tmp_path):
     np.testing.assert_allclose(sequence[0], action, atol=1e-6)
 
 
+def test_temporal_gru_actor_checkpoint_loads_and_exposes_latent(tmp_path):
+    model = ActorCritic(obs_dim=56, act_dim=2, hidden_size=16, actor_encoder="temporal_gru", actor_history_length=4)
+    checkpoint_path = tmp_path / "checkpoint.pt"
+    torch.save(
+        {
+            "model_state": {key: value.detach().cpu() for key, value in model.state_dict().items()},
+            "config": {"device": "cpu", "actor_encoder": "temporal_gru", "actor_history_length": 4},
+        },
+        checkpoint_path,
+    )
+
+    loaded, _ = load_actor_critic_checkpoint(checkpoint_path, device="cpu")
+    features = loaded.features_tensor(torch.zeros(3, 56))
+    action, _, value = loaded.act(np.zeros(56, dtype=np.float32), deterministic=True)
+
+    assert loaded.actor_encoder == "temporal_gru"
+    assert loaded.actor_history_length == 4
+    assert features.shape == (3, 16)
+    assert action.shape == (2,)
+    assert np.isfinite(value)
+
+
+def test_temporal_gru_actor_rejects_mismatched_history_shape():
+    with np.testing.assert_raises(ValueError):
+        ActorCritic(obs_dim=55, act_dim=2, hidden_size=16, actor_encoder="temporal_gru", actor_history_length=4)
+
+
 def test_init_checkpoint_can_add_sequence_head_and_expand_obs(tmp_path):
     torch.manual_seed(8)
     source = ActorCritic(obs_dim=18, act_dim=2, hidden_size=16)
@@ -115,6 +142,25 @@ def test_init_checkpoint_can_add_sequence_head_and_expand_obs(tmp_path):
     assert "partial_input_expand" in load_mode
     assert "new_sequence_head" in load_mode
     assert target.predict_sequence(np.zeros(20, dtype=np.float32)).shape == (3, 2)
+
+
+def test_init_checkpoint_can_add_temporal_encoder_from_mlp(tmp_path):
+    torch.manual_seed(10)
+    source = ActorCritic(obs_dim=14, act_dim=2, hidden_size=16)
+    checkpoint_path = tmp_path / "checkpoint.pt"
+    torch.save(
+        {
+            "model_state": {key: value.detach().cpu() for key, value in source.state_dict().items()},
+            "config": {"device": "cpu"},
+        },
+        checkpoint_path,
+    )
+
+    target = ActorCritic(obs_dim=56, act_dim=2, hidden_size=16, actor_encoder="temporal_gru", actor_history_length=4)
+    load_mode = load_init_checkpoint_state(target, checkpoint_path, torch.device("cpu"))
+
+    assert "new_temporal_encoder" in load_mode
+    assert target.act(np.zeros(56, dtype=np.float32), deterministic=True)[0].shape == (2,)
 
 
 def test_sequence_targets_use_future_executed_actions_until_done():

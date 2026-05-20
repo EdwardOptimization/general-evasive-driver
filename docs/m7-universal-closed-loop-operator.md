@@ -240,5 +240,7 @@ M7 is successful when:
 The current M5 checkpoint is a task-specific prototype, not yet a universal
 operator. It demonstrates that direct RL control can outperform AEB, heuristic
 AES, and the friction-envelope AES baseline on the current `drift_required`
-benchmark. The next step is to make the policy adaptive through history,
-recurrence, and broader vehicle-family randomization.
+benchmark. M7-A/M7-B added history and action-history validation but did not
+prove closed-loop self-identification. The next implementation step is M8:
+temporal-GRU recurrent inference plus stable-AES reward shaping. See
+`docs/m8-rl-professional-driver.md`.

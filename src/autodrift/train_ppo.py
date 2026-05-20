@@ -8,7 +8,7 @@ to a vectorized trainer such as Stable-Baselines3, CleanRL, or RL-Games.
 from __future__ import annotations
 
 import argparse
-from dataclasses import dataclass, fields
+from dataclasses import dataclass, fields, replace
 from pathlib import Path
 import sys
 
@@ -42,6 +42,8 @@ class PPOConfig:
     log_std_init: float = -1.0
     log_std_min: float = -5.0
     log_std_max: float = -0.5
+    actor_encoder: str = "mlp"
+    actor_history_length: int = 1
     action_sequence_horizon: int = 1
     sequence_aux_coef: float = 0.0
     seed: int = 5
@@ -57,22 +59,44 @@ class ActorCritic(nn.Module):
         log_std_init: float = -1.0,
         log_std_min: float = -5.0,
         log_std_max: float = -0.5,
+        actor_encoder: str = "mlp",
+        actor_history_length: int = 1,
         action_sequence_horizon: int = 1,
     ):
         super().__init__()
         if action_sequence_horizon < 1:
             raise ValueError("action_sequence_horizon must be at least 1")
+        if actor_encoder not in {"mlp", "temporal_gru"}:
+            raise ValueError("actor_encoder must be one of: mlp, temporal_gru")
+        if actor_history_length < 1:
+            raise ValueError("actor_history_length must be at least 1")
         self.obs_dim = int(obs_dim)
         self.act_dim = int(act_dim)
+        self.actor_encoder = actor_encoder
+        self.actor_history_length = int(actor_history_length)
         self.action_sequence_horizon = int(action_sequence_horizon)
         self.log_std_min = float(log_std_min)
         self.log_std_max = float(log_std_max)
-        self.shared = nn.Sequential(
-            nn.Linear(obs_dim, hidden_size),
-            nn.Tanh(),
-            nn.Linear(hidden_size, hidden_size),
-            nn.Tanh(),
-        )
+        self.frame_dim = int(obs_dim)
+        if self.actor_encoder == "mlp":
+            self.shared = nn.Sequential(
+                nn.Linear(obs_dim, hidden_size),
+                nn.Tanh(),
+                nn.Linear(hidden_size, hidden_size),
+                nn.Tanh(),
+            )
+            self.frame_encoder = None
+            self.temporal_gru = None
+        else:
+            if obs_dim % self.actor_history_length != 0:
+                raise ValueError("temporal_gru actor requires obs_dim divisible by actor_history_length")
+            self.frame_dim = int(obs_dim // self.actor_history_length)
+            self.shared = None
+            self.frame_encoder = nn.Sequential(
+                nn.Linear(self.frame_dim, hidden_size),
+                nn.Tanh(),
+            )
+            self.temporal_gru = nn.GRU(hidden_size, hidden_size, batch_first=True)
         self.actor_mean = nn.Linear(hidden_size, act_dim)
         self.critic = nn.Linear(hidden_size, 1)
         self.log_std = nn.Parameter(torch.full((act_dim,), float(log_std_init)))
@@ -83,7 +107,16 @@ class ActorCritic(nn.Module):
         )
 
     def features_tensor(self, obs: torch.Tensor) -> torch.Tensor:
-        return self.shared(obs)
+        if self.actor_encoder == "mlp":
+            assert self.shared is not None
+            return self.shared(obs)
+        assert self.frame_encoder is not None
+        assert self.temporal_gru is not None
+        frames = obs.reshape(obs.shape[0], self.actor_history_length, self.frame_dim)
+        frames = torch.flip(frames, dims=[1])
+        encoded_frames = self.frame_encoder(frames)
+        _, hidden = self.temporal_gru(encoded_frames)
+        return hidden[-1]
 
     def forward(self, obs: torch.Tensor) -> tuple[Normal, torch.Tensor]:
         features = self.features_tensor(obs)
@@ -164,6 +197,9 @@ def adapt_actor_critic_state(model: ActorCritic, source_state: dict[str, torch.T
         if key not in source_state:
             if key.startswith("sequence_tail."):
                 modes.add("new_sequence_head")
+                continue
+            if key.startswith(("frame_encoder.", "temporal_gru.")):
+                modes.add("new_temporal_encoder")
                 continue
             raise RuntimeError(f"init checkpoint is missing parameter {key!r}") from strict_load_error
         source_value = source_state[key]
@@ -295,6 +331,8 @@ def train(
     env_config = env_config or DriftEnvConfig()
     curriculum = curriculum or []
     active_env_config, active_stage = env_config_for_step(env_config, curriculum, 0)
+    if config.actor_encoder == "temporal_gru" and config.actor_history_length != active_env_config.history_length:
+        config = replace(config, actor_history_length=active_env_config.history_length)
     env = SyncAutoDriftVectorEnv(num_envs=config.num_envs, config=active_env_config, seed=config.seed)
     obs, infos = env.reset()
     model = ActorCritic(
@@ -304,6 +342,8 @@ def train(
         log_std_init=config.log_std_init,
         log_std_min=config.log_std_min,
         log_std_max=config.log_std_max,
+        actor_encoder=config.actor_encoder,
+        actor_history_length=config.actor_history_length,
         action_sequence_horizon=config.action_sequence_horizon,
     ).to(device)
     optimizer = Adam(model.parameters(), lr=config.learning_rate)
