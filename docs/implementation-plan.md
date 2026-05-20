@@ -226,7 +226,10 @@ first RL attempt lowers collision rate but only reaches 1% full success under
 the original long-horizon tracking metric. With obstacle pass-completion
 semantics, the same checkpoint reaches 100% success on the small
 `aes_feasible` bucket and 90.9% on `drift_required`; the next gap is
-label-filtered/balanced M5 evaluation. See `docs/m5-emergency-avoidance.md`.
+label-filtered/balanced M5 evaluation. Label-filtered benchmarks now show 86%
+success on avoidable AEB-infeasible scenarios and 86% success on
+`drift_required` scenarios, beating AEB-only and heuristic AES baselines. See
+`docs/m5-emergency-avoidance.md`.
 
 ### M6: Add Model-Based Baselines
 

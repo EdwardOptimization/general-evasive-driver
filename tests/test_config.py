@@ -48,6 +48,7 @@ def test_build_env_config_overrides_obstacle_task():
                 "require_aeb_infeasible": True,
                 "finish_on_pass": True,
                 "pass_reward": 6.0,
+                "allowed_labels": ["aes_feasible", "drift_required"],
             }
         }
     )
@@ -59,6 +60,7 @@ def test_build_env_config_overrides_obstacle_task():
     assert config.obstacle.require_aeb_infeasible is True
     assert config.obstacle.finish_on_pass is True
     assert config.obstacle.pass_reward == 6.0
+    assert config.obstacle.allowed_labels == ("aes_feasible", "drift_required")
 
 
 def test_curriculum_selects_stage_before_base():

@@ -102,6 +102,27 @@ def test_obstacle_task_can_require_aeb_infeasible_labels():
         assert info["obstacle_label"] != "aeb_feasible"
 
 
+def test_obstacle_task_can_filter_allowed_labels():
+    env = AutoDriftEnv(
+        DriftEnvConfig(
+            speed_range=(14.0, 16.0),
+            friction_limited_speed=False,
+            obstacle=ObstacleTaskConfig(
+                enabled=True,
+                distance_range=(1.0, 2.0),
+                half_width_range=(0.8, 1.0),
+                require_aeb_infeasible=True,
+                allowed_labels=("unavoidable",),
+                max_sample_attempts=1000,
+            )
+        )
+    )
+
+    for seed in range(33, 38):
+        _, info = env.reset(seed=seed)
+        assert info["obstacle_label"] == "unavoidable"
+
+
 def test_obstacle_collision_terminates_episode_and_penalizes_reward():
     env = AutoDriftEnv(
         DriftEnvConfig(

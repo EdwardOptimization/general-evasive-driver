@@ -47,6 +47,7 @@ class ObstacleTaskConfig:
     finish_on_pass: bool = False
     finish_pass_distance: float = 2.0
     pass_reward: float = 10.0
+    allowed_labels: tuple[str, ...] = ("aeb_feasible", "aes_feasible", "drift_required", "unavoidable")
 
     def scenario_config(self, speed: float, mu: float) -> ObstacleScenarioConfig:
         return ObstacleScenarioConfig(
@@ -253,6 +254,7 @@ class AutoDriftEnv(gym.Env):
             return
         scenario_config = self.config.obstacle.scenario_config(speed=self.speed_ref, mu=self.params.mu)
         scenario = None
+        allowed_labels = set(self.config.obstacle.allowed_labels)
         for _ in range(max(1, self.config.obstacle.max_sample_attempts)):
             obstacle_distance = float(self.rng.uniform(*self.config.obstacle.distance_range))
             obstacle_half_width = float(self.rng.uniform(*self.config.obstacle.half_width_range))
@@ -263,9 +265,13 @@ class AutoDriftEnv(gym.Env):
                 obstacle_half_width=obstacle_half_width,
                 config=scenario_config,
             )
-            if not self.config.obstacle.require_aeb_infeasible or scenario.label != "aeb_feasible":
+            is_allowed = scenario.label in allowed_labels
+            is_aeb_valid = not self.config.obstacle.require_aeb_infeasible or scenario.label != "aeb_feasible"
+            if is_allowed and is_aeb_valid:
                 break
-        if scenario is None or (self.config.obstacle.require_aeb_infeasible and scenario.label == "aeb_feasible"):
+        if scenario is None or scenario.label not in allowed_labels:
+            raise RuntimeError("failed to sample an obstacle scenario with an allowed label")
+        if self.config.obstacle.require_aeb_infeasible and scenario.label == "aeb_feasible":
             raise RuntimeError("failed to sample an AEB-infeasible obstacle scenario")
         self.obstacle_scenario = scenario
         self.obstacle_position = position + frame.tangent * obstacle_distance

@@ -313,10 +313,84 @@ Interpretation:
   RL is judged on the cases that the scenario model says are physically
   avoidable.
 
+## Label-Filtered M5 Benchmarks
+
+Evaluation configs:
+
+```text
+configs/m5_obstacle_avoidable_eval.json
+configs/m5_obstacle_drift_required_eval.json
+```
+
+The avoidable config filters to:
+
+```text
+allowed_labels = ["aes_feasible", "drift_required"]
+```
+
+The drift-required config filters to:
+
+```text
+allowed_labels = ["drift_required"]
+```
+
+Avoidable benchmark:
+
+```bash
+PYTHONPATH=src python -m autodrift.benchmark \
+  --episodes 100 \
+  --policies aeb aes_heuristic heuristic checkpoint \
+  --checkpoint runs/ppo_m5_obstacle_seed83/checkpoint.pt \
+  --env-config configs/m5_obstacle_avoidable_eval.json \
+  --run-dir runs/benchmark_ppo_m5_obstacle_seed83_avoidable_100eval
+```
+
+Overall result:
+
+| policy | episodes | success_rate | collision_rate | obstacle_completion_rate | min_obstacle_clearance_mean |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| aeb | 100 | 0.080 | 0.920 | 0.080 | 1.578 |
+| aes_heuristic | 100 | 0.500 | 0.500 | 0.500 | 1.853 |
+| heuristic | 100 | 0.240 | 0.760 | 0.240 | 1.730 |
+| checkpoint | 100 | 0.860 | 0.140 | 0.860 | 2.252 |
+
+Drift-required benchmark:
+
+```bash
+PYTHONPATH=src python -m autodrift.benchmark \
+  --episodes 100 \
+  --policies aeb aes_heuristic heuristic checkpoint \
+  --checkpoint runs/ppo_m5_obstacle_seed83/checkpoint.pt \
+  --env-config configs/m5_obstacle_drift_required_eval.json \
+  --run-dir runs/benchmark_ppo_m5_obstacle_seed83_drift_required_100eval
+```
+
+Result:
+
+| policy | episodes | success_rate | collision_rate | obstacle_completion_rate | min_obstacle_clearance_mean |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| aeb | 100 | 0.050 | 0.950 | 0.050 | 1.577 |
+| aes_heuristic | 100 | 0.500 | 0.500 | 0.500 | 1.865 |
+| heuristic | 100 | 0.190 | 0.810 | 0.190 | 1.669 |
+| checkpoint | 100 | 0.860 | 0.140 | 0.860 | 2.180 |
+
+Interpretation:
+
+- M5 first pass is now successful on the benchmark bucket that matters most for
+  the project objective: `drift_required` AEB-infeasible scenarios.
+- The RL policy beats AEB-only, heuristic AES, and the original tracking
+  heuristic on success rate, collision rate, and minimum clearance.
+- `unavoidable` remains separated as a diagnostic bucket and should not be
+  counted as a failure of an avoidance policy unless the scenario-label model is
+  changed.
+- Remaining M5 work is robustness: more seeds, balanced label sampling, richer
+  obstacle geometry, and eventually replacing the simple feasibility-label
+  model with a stronger planner or NMPC baseline.
+
 ## Next Steps
 
-M5 is still incomplete. The next implementation work is:
+M5 first pass is complete. The next implementation work is:
 
-- train/evaluate RL on fixed `aes_feasible`, `drift_required`, and
-  `unavoidable` buckets;
-- keep AEB-infeasible filtering explicit in every M5 benchmark manifest.
+- expand benchmark seeds and obstacle geometries;
+- keep AEB-infeasible filtering explicit in every M5 benchmark manifest;
+- add model-based baselines for a stronger comparison.

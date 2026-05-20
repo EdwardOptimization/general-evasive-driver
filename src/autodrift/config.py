@@ -58,7 +58,9 @@ def build_env_config(data: dict[str, Any] | None = None) -> DriftEnvConfig:
             for obstacle_key, obstacle_value in value.items():
                 if obstacle_key not in obstacle:
                     raise ValueError(f"unknown obstacle config key: {obstacle_key}")
-                if obstacle_key.endswith("_range"):
+                if obstacle_key == "allowed_labels":
+                    obstacle[obstacle_key] = tuple(str(label) for label in obstacle_value)
+                elif obstacle_key.endswith("_range"):
                     obstacle[obstacle_key] = _tuple2(obstacle_value)
                 else:
                     obstacle[obstacle_key] = obstacle_value
