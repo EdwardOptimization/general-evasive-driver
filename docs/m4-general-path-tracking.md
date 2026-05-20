@@ -54,6 +54,10 @@ from the current M3 history checkpoint:
 runs/ppo_m3_staged_history_seed47_init_m2/checkpoint.pt
 ```
 
+The evaluation config also uses `history_length=4`. This is required when
+evaluating the M4 history checkpoint; using a single-frame eval config causes an
+observation/model shape mismatch.
+
 ## Smoke Results
 
 Heuristic figure-eight benchmark smoke:
@@ -93,6 +97,73 @@ training_device=cuda num_envs=16 curriculum_stage=wide_low_speed
 The 512-step smoke is not expected to learn the task. Its purpose is only to
 verify strict M3-to-M4 checkpoint initialization, figure-eight environment
 construction, and the PPO training loop.
+
+## First M4 Training Attempt
+
+Command:
+
+```bash
+PYTHONPATH=src python -m autodrift.train_ppo \
+  --config configs/ppo_m4_figure_eight_history.json \
+  --init-checkpoint runs/ppo_m3_staged_history_seed47_init_m2/checkpoint.pt \
+  --run-dir runs/ppo_m4_figure_eight_history_seed61
+```
+
+Benchmark command:
+
+```bash
+PYTHONPATH=src python -m autodrift.benchmark \
+  --episodes 100 \
+  --policies heuristic checkpoint \
+  --checkpoint runs/ppo_m4_figure_eight_history_seed61/checkpoint.pt \
+  --env-config configs/m4_figure_eight_eval.json \
+  --run-dir runs/benchmark_ppo_m4_figure_eight_history_seed61_100eval
+```
+
+Overall result:
+
+| policy | episodes | success_rate | return_mean | lateral_rmse_mean | beta_abs_error_mean | speed_mean |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| checkpoint | 100 | 0.820 | 848.21 | 1.467 | 0.320 | 6.052 |
+| heuristic | 100 | 1.000 | 805.79 | 1.519 | 0.314 | 4.890 |
+
+Friction bucket result:
+
+| policy | mu bucket | episodes | success_rate | return_mean | lateral_rmse_mean | speed_mean |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| checkpoint | low | 26 | 0.462 | 443.78 | 2.178 | 4.519 |
+| checkpoint | medium | 34 | 0.882 | 922.35 | 1.475 | 6.262 |
+| checkpoint | high | 40 | 1.000 | 1048.07 | 0.998 | 6.871 |
+| heuristic | low | 26 | 1.000 | 823.76 | 1.427 | 3.889 |
+| heuristic | medium | 34 | 1.000 | 809.15 | 1.527 | 4.941 |
+| heuristic | high | 40 | 1.000 | 791.25 | 1.571 | 5.497 |
+
+Selected rollout plots:
+
+```text
+runs/rollouts_ppo_m4_figure_eight_history_seed61
+```
+
+Selected seeds:
+
+| seed | mu | steps | terminated | return | purpose |
+| ---: | ---: | ---: | --- | ---: | --- |
+| 7 | 0.989 | 800 | false | 1016.53 | high-mu success |
+| 13 | 0.252 | 343 | true | 95.18 | low-mu failure |
+| 21 | 0.351 | 526 | true | -34.11 | low-mu failure |
+| 44 | 0.554 | 312 | true | 325.93 | medium-mu failure |
+
+Interpretation:
+
+- The first trained figure-eight policy is useful evidence but not an M4 pass.
+  It gets higher return than the heuristic by driving faster, but lower success
+  because it terminates in 18% of episodes.
+- Failures are concentrated in low friction. The low `mu` bucket is only
+  `0.462` success, while high `mu` is already `1.000`.
+- The next M4 iteration should use a low-friction figure-eight recovery
+  curriculum or lower-speed low-mu stage before tightening the benchmark.
+- `info` and rollout traces now include `curvature` and `progress`, which are
+  the fields needed for the next segment-level analysis.
 
 ## Exit Criteria
 

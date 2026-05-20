@@ -91,6 +91,8 @@ def collect_trace(
                 "speed_ref": info["speed_ref"],
                 "lateral_error": info["lateral_error"],
                 "heading_error": info["heading_error"],
+                "curvature": info["curvature"],
+                "progress": info["progress"],
                 "steer_cmd": float(action[0]),
                 "drive_cmd": float(action[1]),
                 "reward": reward,

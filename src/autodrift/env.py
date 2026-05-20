@@ -303,6 +303,8 @@ class AutoDriftEnv(gym.Env):
             "speed_ref": self.speed_ref,
             "lateral_error": frame.lateral_error,
             "heading_error": frame.heading_error,
+            "curvature": frame.curvature,
+            "progress": frame.progress,
             "step": self.step_count,
             "friction_step_at": self.friction_step_at,
             "friction_step_applied": self.friction_step_applied,

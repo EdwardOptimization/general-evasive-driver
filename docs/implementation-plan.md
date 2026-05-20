@@ -191,10 +191,12 @@ Exit criteria:
 - policy can transition drift direction without immediate spin-out;
 - metrics are reported per segment type.
 
-Status: started. `track_kind="figure_eight"` is implemented with a sampled
-closed path, signed curvature, and reset support. M4 configs and smoke runs are
-documented in `docs/m4-general-path-tracking.md`; trained figure-eight policy
-results are still pending.
+Status: in progress. `track_kind="figure_eight"` is implemented with a sampled
+closed path, signed curvature, reset support, and rollout curvature/progress
+traces. The first trained M4 policy reaches 82% success on a 100-episode
+figure-eight benchmark but does not beat the heuristic's 100% survival rate;
+low-friction figure-eight recovery is the next blocker. See
+`docs/m4-general-path-tracking.md`.
 
 ### M5: Add AEB-Failure Obstacle Avoidance
 

@@ -20,6 +20,8 @@ def test_env_reset_and_step_shapes():
     assert isinstance(terminated, bool)
     assert isinstance(truncated, bool)
     assert next_info["step"] == 1
+    assert np.isfinite(next_info["curvature"])
+    assert np.isfinite(next_info["progress"])
 
 
 def test_privileged_observation_adds_hidden_params():
