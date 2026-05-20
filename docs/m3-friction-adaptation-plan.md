@@ -39,6 +39,14 @@ The single-frame config is the fine-tuning baseline. The history config is the
 student-facing path. The privileged config is the teacher/reference path and
 exposes hidden vehicle parameters including `mu`.
 
+The PPO trainer can now initialize a history-stacked policy from a compatible
+single-frame checkpoint. If the only shape mismatch is the first observation
+layer expanding from one frame to multiple stacked frames, the loader copies the
+single-frame weights into the current-frame slice and zeroes the older-frame
+weights. The initialized history policy therefore starts equivalent to the M2
+policy, while later PPO updates can learn how to use the history tail for
+friction adaptation.
+
 ## M2 Checkpoint On M3 Task
 
 Command:
@@ -95,6 +103,7 @@ beat the M2 checkpoint baseline.
 | `runs/benchmark_ppo_m3_history_seed31_100eval` | history length 4 | scratch | 100 | 0.410 | 514.76 |
 | `runs/benchmark_ppo_m3_privileged_seed37_100eval` | privileged params | scratch | 100 | 0.430 | 568.94 |
 | `runs/benchmark_ppo_m3_single_frame_seed41_100eval` | single-frame | M2 checkpoint fine-tune | 100 | 0.730 | 952.85 |
+| `runs/benchmark_ppo_m3_staged_single_frame_seed43_100eval` | staged single-frame | M2 checkpoint fine-tune | 100 | 0.730 | 944.07 |
 
 Takeaway:
 
@@ -102,14 +111,29 @@ Takeaway:
   observations to a from-scratch PPO run.
 - Directly fine-tuning the M2 policy on friction-step episodes also did not
   improve the benchmark.
-- The next useful experiment is a staged M3 curriculum: static recovery,
-  high/medium friction-step, low final-mu focus, then base friction-step
-  recovery, mirroring the M2 low-mu/base recovery pattern.
+- A staged single-frame curriculum still did not improve the benchmark. Its
+  final low-friction bucket was only `0.217` success, confirming that the
+  remaining failure mode is low-mu recovery after the transition rather than
+  general circular tracking.
+- The next useful experiment is initialized history-stacked training: start from
+  the M2 policy behavior, expose recent state/action history, and train on the
+  staged M3 curriculum.
 
 Staged curriculum templates now encode that next experiment:
 
 - `configs/ppo_m3_staged_single_frame_friction_step.json`
 - `configs/ppo_m3_staged_history_friction_step.json`
+
+Validated smoke command for initialized history training:
+
+```bash
+PYTHONPATH=src python -m autodrift.train_ppo \
+  --config configs/ppo_m3_staged_history_friction_step.json \
+  --init-checkpoint runs/ppo_circle_m2_seed113_recover2/checkpoint.pt \
+  --total-steps 512 \
+  --eval-episodes 1 \
+  --run-dir runs/ppo_m3_staged_history_seed47_init_m2_smoke
+```
 
 ## Exit Criteria
 

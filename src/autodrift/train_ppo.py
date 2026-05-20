@@ -113,6 +113,56 @@ class ActorCritic(nn.Module):
         return log_prob, entropy, value
 
 
+def load_init_checkpoint_state(model: ActorCritic, checkpoint_path: Path, device: torch.device) -> str:
+    checkpoint = torch.load(checkpoint_path, map_location=device)
+    source_state = checkpoint["model_state"]
+    target_state = model.state_dict()
+
+    strict_load_error: RuntimeError | None = None
+    try:
+        model.load_state_dict(source_state)
+        return "strict"
+    except RuntimeError as error:
+        strict_load_error = error
+
+    adapted_state = dict(target_state)
+    mode = "partial_input_expand"
+    for key, target_value in target_state.items():
+        if key not in source_state:
+            raise RuntimeError(f"init checkpoint is missing parameter {key!r}") from strict_load_error
+        source_value = source_state[key]
+        if source_value.shape == target_value.shape:
+            adapted_state[key] = source_value
+            continue
+        if key == "shared.0.weight" and source_value.ndim == 2 and target_value.ndim == 2:
+            if source_value.shape[0] != target_value.shape[0]:
+                raise RuntimeError(
+                    "cannot adapt init checkpoint first layer: hidden size differs "
+                    f"({source_value.shape[0]} != {target_value.shape[0]})"
+                ) from strict_load_error
+            if target_value.shape[1] <= source_value.shape[1]:
+                raise RuntimeError(
+                    "cannot adapt init checkpoint first layer: target observation dimension "
+                    f"{target_value.shape[1]} is not larger than source {source_value.shape[1]}"
+                ) from strict_load_error
+            if target_value.shape[1] % source_value.shape[1] != 0:
+                raise RuntimeError(
+                    "cannot adapt init checkpoint first layer: target observation dimension "
+                    f"{target_value.shape[1]} is not a multiple of source {source_value.shape[1]}"
+                ) from strict_load_error
+            expanded = torch.zeros_like(target_value)
+            expanded[:, : source_value.shape[1]] = source_value
+            adapted_state[key] = expanded
+            continue
+        raise RuntimeError(
+            "cannot adapt init checkpoint parameter "
+            f"{key!r}: source shape {tuple(source_value.shape)} target shape {tuple(target_value.shape)}"
+        ) from strict_load_error
+
+    model.load_state_dict(adapted_state)
+    return mode
+
+
 def resolve_device(name: str) -> torch.device:
     if name == "auto":
         return torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -190,9 +240,8 @@ def train(
     ).to(device)
     optimizer = Adam(model.parameters(), lr=config.learning_rate)
     if init_checkpoint_path is not None:
-        checkpoint = torch.load(init_checkpoint_path, map_location=device)
-        model.load_state_dict(checkpoint["model_state"])
-        print(f"loaded_init_checkpoint={init_checkpoint_path}")
+        load_mode = load_init_checkpoint_state(model, init_checkpoint_path, device)
+        print(f"loaded_init_checkpoint={init_checkpoint_path} load_mode={load_mode}")
     print(f"training_device={device} num_envs={config.num_envs} curriculum_stage={active_stage}")
 
     global_step = 0
