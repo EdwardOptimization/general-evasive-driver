@@ -25,6 +25,7 @@ autodrift-evaluate = "autodrift.evaluate:main"
 autodrift-train-ppo = "autodrift.train_ppo:main"
 autodrift-benchmark = "autodrift.benchmark:main"
 autodrift-rollout = "autodrift.rollout:main"
+autodrift-scenarios = "autodrift.scenarios:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

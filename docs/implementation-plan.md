@@ -214,6 +214,11 @@ Exit criteria:
 - policies are evaluated on fixed scenario seeds;
 - reports separate AEB-feasible, AES-feasible, and drift-required buckets.
 
+Status: scaffolded. A reproducible obstacle scenario generator now labels
+`aeb_feasible`, `aes_feasible`, `drift_required`, and `unavoidable` cases, and
+can filter for AEB-infeasible scenarios. The environment-level obstacle task and
+baselines are still pending. See `docs/m5-emergency-avoidance.md`.
+
 ### M6: Add Model-Based Baselines
 
 - Implement a fixed-parameter controller.
