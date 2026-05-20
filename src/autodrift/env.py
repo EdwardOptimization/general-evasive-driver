@@ -39,6 +39,7 @@ class DriftEnvConfig:
     track_width: float = 5.0
     speed_range: tuple[float, float] = (5.0, 12.0)
     beta_target_range: tuple[float, float] = (0.32, 0.70)
+    termination_penalty: float = 0.0
     friction_limited_speed: bool = True
     friction_speed_margin: float = 0.92
     history_length: int = 1
@@ -142,6 +143,9 @@ class AutoDriftEnv(gym.Env):
         reward, reward_terms = self._reward(frame, action64, self.last_forces)
 
         terminated = self._terminated(frame)
+        if terminated and self.config.termination_penalty > 0.0:
+            reward -= self.config.termination_penalty
+            reward_terms["termination_penalty"] = self.config.termination_penalty
         truncated = self.step_count >= self.config.max_steps
         self.last_action = np.clip(action64, -1.0, 1.0)
 

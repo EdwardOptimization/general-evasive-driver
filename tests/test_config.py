@@ -6,6 +6,7 @@ def test_build_env_config_overrides_nested_randomization():
         {
             "track_kind": "figure_eight",
             "track_width": 7.0,
+            "termination_penalty": 8.0,
             "speed_range": [5.0, 8.0],
             "randomization": {"mu_range": [0.6, 1.0]},
         }
@@ -13,6 +14,7 @@ def test_build_env_config_overrides_nested_randomization():
 
     assert config.track_kind == "figure_eight"
     assert config.track_width == 7.0
+    assert config.termination_penalty == 8.0
     assert config.speed_range == (5.0, 8.0)
     assert config.randomization.mu_range == (0.6, 1.0)
 

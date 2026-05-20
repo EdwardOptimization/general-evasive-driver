@@ -88,6 +88,26 @@ def test_friction_step_changes_mu_and_reports_transition():
     assert info["friction_step_applied"] is True
 
 
+def test_termination_penalty_is_subtracted_on_failure():
+    base_env = AutoDriftEnv(DriftEnvConfig(track_width=1.0, termination_penalty=0.0))
+    penalty_env = AutoDriftEnv(DriftEnvConfig(track_width=1.0, termination_penalty=5.0))
+    _, _ = base_env.reset(seed=19)
+    _, _ = penalty_env.reset(seed=19)
+    for env in (base_env, penalty_env):
+        env.state.x = env.config.track_radius + 3.0
+        env.state.y = 0.0
+        env.state.psi = 0.0
+
+    action = np.array([0.0, 0.0], dtype=np.float32)
+    _, base_reward, base_terminated, _, _ = base_env.step(action)
+    _, penalty_reward, penalty_terminated, _, penalty_info = penalty_env.step(action)
+
+    assert base_terminated is True
+    assert penalty_terminated is True
+    assert np.isclose(base_reward - penalty_reward, 5.0)
+    assert penalty_info["reward_terms"]["termination_penalty"] == 5.0
+
+
 def test_heuristic_policy_runs_for_multiple_steps():
     env = AutoDriftEnv()
     policy = HeuristicPolicy()
