@@ -204,6 +204,61 @@ The 512-step smoke is expected to fail behaviorally; its purpose is to verify
 that M5 obstacle observations, AEB-infeasible sampling, checkpoint expansion,
 and the PPO loop all work together.
 
+## First RL Training Attempt
+
+Command:
+
+```bash
+PYTHONPATH=src python -m autodrift.train_ppo \
+  --config configs/ppo_m5_obstacle_avoidance.json \
+  --init-checkpoint runs/ppo_circle_m2_seed113_recover2/checkpoint.pt \
+  --run-dir runs/ppo_m5_obstacle_seed83
+```
+
+Benchmark:
+
+```bash
+PYTHONPATH=src python -m autodrift.benchmark \
+  --episodes 100 \
+  --policies aeb aes_heuristic heuristic checkpoint \
+  --checkpoint runs/ppo_m5_obstacle_seed83/checkpoint.pt \
+  --env-config configs/m5_obstacle_smoke_eval.json \
+  --run-dir runs/benchmark_ppo_m5_obstacle_seed83_100eval
+```
+
+Overall result:
+
+| policy | episodes | success_rate | collision_rate | return_mean | min_obstacle_clearance_mean |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| aeb | 100 | 0.000 | 0.960 | 0.26 | 1.603 |
+| aes_heuristic | 100 | 0.000 | 0.840 | -17.37 | 1.686 |
+| heuristic | 100 | 0.000 | 0.910 | 23.96 | 1.657 |
+| checkpoint | 100 | 0.010 | 0.710 | 105.29 | 1.872 |
+
+Label bucket result:
+
+| policy | obstacle_label | episodes | success_rate | collision_rate | min_obstacle_clearance_mean |
+| --- | --- | ---: | ---: | ---: | ---: |
+| checkpoint | aes_feasible | 6 | 0.000 | 0.000 | 3.539 |
+| checkpoint | drift_required | 22 | 0.045 | 0.091 | 2.194 |
+| checkpoint | unavoidable | 72 | 0.000 | 0.958 | 1.634 |
+| aeb | aes_feasible | 6 | 0.000 | 0.667 | 1.557 |
+| aeb | drift_required | 22 | 0.000 | 0.909 | 1.630 |
+| aeb | unavoidable | 72 | 0.000 | 1.000 | 1.599 |
+
+Interpretation:
+
+- The first M5 RL policy is not a solved avoidance controller. Overall success
+  is only `0.010`.
+- It does learn a useful partial behavior: collision rate drops from AEB's
+  `0.960` to `0.710`, and it avoids all collisions in the small `aes_feasible`
+  bucket.
+- The main failure mode changes from pure collision to post-avoidance
+  termination/off-track behavior. The next iteration should reward obstacle
+  clearance and road recovery separately, and should benchmark `aes_feasible`
+  and `drift_required` buckets with enough samples instead of letting
+  `unavoidable` dominate the evaluation set.
+
 ## Next Steps
 
 M5 is still incomplete. The next implementation work is:

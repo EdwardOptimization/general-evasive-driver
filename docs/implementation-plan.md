@@ -221,8 +221,9 @@ generator now labels `aeb_feasible`, `aes_feasible`, `drift_required`, and
 benchmark summaries. AEB-only and heuristic AES baselines are implemented and
 both fail the current AEB-infeasible smoke benchmark, giving the first RL
 obstacle policy a concrete baseline gate. The first M5 PPO template can
-initialize from the M2 checkpoint through partial observation expansion. See
-`docs/m5-emergency-avoidance.md`.
+initialize from the M2 checkpoint through partial observation expansion. The
+first RL attempt lowers collision rate but only reaches 1% full success, so M5
+remains open. See `docs/m5-emergency-avoidance.md`.
 
 ### M6: Add Model-Based Baselines
 
