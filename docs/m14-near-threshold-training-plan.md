@@ -91,3 +91,26 @@ Pass direction:
 
 If hidden reset remains equal to normal inference, M14 is a training-distribution
 improvement only, not closed-loop self-identification proof.
+
+## Result
+
+Full CUDA training completed:
+
+- checkpoint: `runs/ppo_m14_online_recurrent_near_threshold_seed517/checkpoint.pt`;
+- final eval return mean: 53.519;
+- final eval termination rate: 0.300.
+
+M13 paired gate result:
+
+| policy | nominal success | perturbed success | paired drop |
+| --- | ---: | ---: | ---: |
+| M14 | 0.600 | 0.300 | 0.300 |
+| M14 reset hidden | 0.900 | 0.450 | 0.450 |
+| M14 zero current response | 0.375 | 0.300 | 0.075 |
+| M14 zero all response | 0.375 | 0.300 | 0.075 |
+
+Interpretation: M14 did not pass the self-identification gate. Current response
+features matter, but carried hidden state is harmful on this corpus because
+resetting hidden state before every action outperforms normal recurrent
+inference. The next clean fix is to remove the early-step training distribution
+shift by sampling friction-step timing from accepted obstacle geometry.

@@ -259,3 +259,46 @@ Diagnosis: the strict sampler was correct to fail. With
 AEB-infeasible and at least 0.10 s after the friction change. The clean fix is
 to move the hidden perturbation earlier to `step_range=[4, 16]`; no fallback or
 checkpoint compatibility path is added.
+
+## 20260520T195945Z m14-near-threshold-training
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Train online recurrent driver on near-threshold hidden perturbation cases and re-run M13 gate
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m14_online_recurrent_near_threshold_driver.json --seed 517 --device cuda --run-dir runs/ppo_m14_online_recurrent_near_threshold_seed517`
+- returncode: `0`
+- run dir: `runs/research/m14-near-threshold-training_20260520T195616Z`
+- command log: `runs/research/m14-near-threshold-training_20260520T195616Z/command.log`
+- success artifact: `runs/ppo_m14_online_recurrent_near_threshold_seed517/checkpoint.pt`
+- notes: M13 gate is strong; train on near-threshold perturbation distribution after early-step sampler fix
+
+Training result:
+
+- final eval return mean: 53.519;
+- final eval steps mean: 90.900;
+- final eval termination rate: 0.300;
+- final eval lateral RMSE mean: 2.461.
+
+M13 paired gate re-run:
+
+- command: `conda run -n autodrift python -m autodrift.paired_perturbation_gate --env-config configs/m11_online_recurrent_history_critical_eval.json --seed-csv runs/m13_near_threshold_corpus_seed3000/scenario_corpus.csv --checkpoint runs/ppo_m14_online_recurrent_near_threshold_seed517/checkpoint.pt --checkpoint-policy m14=runs/ppo_m14_online_recurrent_near_threshold_seed517/checkpoint.pt --checkpoint-policy m14_reset=runs/ppo_m14_online_recurrent_near_threshold_seed517/checkpoint.pt@reset_recurrent_state --checkpoint-policy m14_zero_current=runs/ppo_m14_online_recurrent_near_threshold_seed517/checkpoint.pt@zero_current_response --checkpoint-policy m14_zero_all=runs/ppo_m14_online_recurrent_near_threshold_seed517/checkpoint.pt@zero_all_response --device cpu --run-dir runs/m14_near_threshold_paired_gate_seed3000`
+- run dir: `runs/m14_near_threshold_paired_gate_seed3000`
+- M14 nominal success: 0.600;
+- M14 perturbed success: 0.300;
+- M14 paired success drop: 0.300;
+- M14 hidden-reset nominal success: 0.900;
+- M14 hidden-reset perturbed success: 0.450;
+- M14 zero-current and zero-all nominal success: 0.375;
+- M14 zero-current and zero-all perturbed success: 0.300.
+
+Conclusion: M14 is a useful negative result. The actor uses current response
+features, because masking response drops nominal success from 0.600 to 0.375.
+However carried recurrent state is not yet beneficial: resetting hidden state
+before every action is better than normal recurrent inference on both nominal
+and perturbed pairs. This fails the self-identification proof target.
+
+Next hypothesis: M14's early friction-step fix removed sampler failures but
+also shifted the training distribution away from the M13 gate's later
+perturbation timing. M15 should sample friction-step timing from the accepted
+obstacle geometry so every episode is strict and feasible without forcing an
+early-step-only distribution.
