@@ -49,6 +49,11 @@ Benchmarking writes:
   vehicle-road buckets when the required columns are present.
 - `manifest.json`: artifact index.
 
+Checkpoint benchmark specs support the following observation ablations through
+`--checkpoint-policy name=path@ablation`: `zero_action_history`,
+`single_frame_history`, `shuffled_history`, `zero_current_response`, and
+`zero_all_response`.
+
 Latent probing writes:
 
 - `samples.csv`: frozen rollout sample metadata and hidden bucket labels.

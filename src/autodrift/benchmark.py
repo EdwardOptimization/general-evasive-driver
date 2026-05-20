@@ -8,7 +8,7 @@ from pathlib import Path
 import pandas as pd
 
 from autodrift.artifacts import make_run_dir, write_json
-from autodrift.evaluate import SEGMENT_NAMES, evaluate_policy, load_env_config
+from autodrift.evaluate import CHECKPOINT_ABLATIONS, SEGMENT_NAMES, evaluate_policy, load_env_config
 
 
 def _bucket(output: pd.DataFrame, column: str, target: str, bins: list[float], labels: list[str]) -> None:
@@ -70,7 +70,7 @@ def parse_checkpoint_specs(specs: list[str] | None) -> list[tuple[str, Path, str
         ablation = "none"
         if "@" in raw_path:
             raw_path, ablation = raw_path.rsplit("@", 1)
-        if ablation not in {"none", "zero_action_history", "single_frame_history", "shuffled_history"}:
+        if ablation not in CHECKPOINT_ABLATIONS:
             raise ValueError(f"unknown checkpoint ablation {ablation!r} in spec {spec!r}")
         name = name.strip()
         if not name:

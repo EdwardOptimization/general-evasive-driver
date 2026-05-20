@@ -17,6 +17,16 @@ from autodrift.policies import Policy, make_policy
 from autodrift.train_ppo import ActorCritic
 
 
+CHECKPOINT_ABLATIONS = (
+    "none",
+    "zero_action_history",
+    "single_frame_history",
+    "shuffled_history",
+    "zero_current_response",
+    "zero_all_response",
+)
+
+
 def load_env_config(path: Path) -> DriftEnvConfig:
     data = json.loads(path.read_text(encoding="utf-8"))
     return build_env_config(data.get("env", data))
@@ -35,6 +45,20 @@ class ActorPolicy(Policy):
         self.last_sequence = None
         self._rng = np.random.default_rng(self._rng_seed)
 
+    def _response_feature_indices(self, base_dim: int) -> list[int]:
+        indices = list(range(6))
+        if self.env_config.action_history_mode in {"legacy", "full"}:
+            indices.append(12)
+        if self.env_config.action_history_mode == "full":
+            indices.append(base_dim - 1)
+        return sorted(set(indices))
+
+    def _zero_response_features(self, observation: np.ndarray, base_dim: int, frame_starts: list[int]) -> None:
+        indices = self._response_feature_indices(base_dim)
+        for start in frame_starts:
+            for index in indices:
+                observation[start + index] = 0.0
+
     def _transform_observation(self, observation: np.ndarray) -> np.ndarray:
         if self.ablation == "none":
             return observation
@@ -52,6 +76,14 @@ class ActorPolicy(Policy):
                     transformed[start + 12] = 0.0
                 if self.env_config.action_history_mode == "full":
                     transformed[start + base_dim - 1] = 0.0
+        if self.ablation == "zero_current_response":
+            self._zero_response_features(transformed, base_dim, [0])
+        if self.ablation == "zero_all_response":
+            self._zero_response_features(
+                transformed,
+                base_dim,
+                list(range(0, len(transformed), base_dim)),
+            )
         return transformed
 
     def act(self, observation: np.ndarray, info: dict) -> np.ndarray:
@@ -217,7 +249,7 @@ def evaluate_policy(
     checkpoint_ablation: str = "none",
     seeds: list[int] | None = None,
 ) -> tuple[list[dict], dict[str, float | int | str]]:
-    if checkpoint_ablation not in {"none", "zero_action_history", "single_frame_history", "shuffled_history"}:
+    if checkpoint_ablation not in CHECKPOINT_ABLATIONS:
         raise ValueError(f"unknown checkpoint_ablation: {checkpoint_ablation}")
     resolved_env_config = env_config or DriftEnvConfig()
     actor_policy: ActorPolicy | None = None
@@ -260,7 +292,7 @@ def main() -> None:
     parser.add_argument("--checkpoint", type=Path, default=None)
     parser.add_argument(
         "--checkpoint-ablation",
-        choices=["none", "zero_action_history", "single_frame_history", "shuffled_history"],
+        choices=CHECKPOINT_ABLATIONS,
         default="none",
     )
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="auto")

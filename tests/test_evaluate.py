@@ -44,6 +44,29 @@ def test_actor_policy_can_ablate_action_history():
     assert transformed[27] == 0.0
 
 
+def test_actor_policy_can_ablate_current_response_only():
+    env_config = DriftEnvConfig(history_length=2, action_history_mode="full")
+    policy = ActorPolicy(ActorCritic(obs_dim=28, act_dim=2, hidden_size=8), env_config, ablation="zero_current_response")
+    observation = np.arange(28, dtype=np.float32)
+
+    transformed = policy._transform_observation(observation)
+
+    np.testing.assert_allclose(transformed[[0, 1, 2, 3, 4, 5, 12, 13]], np.zeros(8, dtype=np.float32))
+    np.testing.assert_allclose(transformed[14:], observation[14:])
+
+
+def test_actor_policy_can_ablate_all_response_history():
+    env_config = DriftEnvConfig(history_length=2, action_history_mode="full")
+    policy = ActorPolicy(ActorCritic(obs_dim=28, act_dim=2, hidden_size=8), env_config, ablation="zero_all_response")
+    observation = np.arange(28, dtype=np.float32)
+
+    transformed = policy._transform_observation(observation)
+
+    np.testing.assert_allclose(transformed[[0, 1, 2, 3, 4, 5, 12, 13]], np.zeros(8, dtype=np.float32))
+    np.testing.assert_allclose(transformed[[14, 15, 16, 17, 18, 19, 26, 27]], np.zeros(8, dtype=np.float32))
+    np.testing.assert_allclose(transformed[[6, 7, 8, 9, 10, 11]], observation[[6, 7, 8, 9, 10, 11]])
+
+
 def test_actor_policy_can_ablate_temporal_history():
     env_config = DriftEnvConfig(history_length=2, action_history_mode="legacy")
     policy = ActorPolicy(ActorCritic(obs_dim=26, act_dim=2, hidden_size=8), env_config, ablation="single_frame_history")

@@ -107,6 +107,12 @@ def test_parse_checkpoint_specs_accepts_shuffled_history_ablation():
     ]
 
 
+def test_parse_checkpoint_specs_accepts_response_ablation():
+    assert parse_checkpoint_specs(["m8_zero=runs/a.pt@zero_current_response"]) == [
+        ("m8_zero", Path("runs/a.pt"), "zero_current_response")
+    ]
+
+
 def test_load_seed_csv_reads_seed_column(tmp_path):
     path = tmp_path / "seeds.csv"
     path.write_text("seed,obstacle_label\n12,aes_feasible\n15,drift_required\n", encoding="utf-8")

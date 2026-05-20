@@ -112,6 +112,13 @@ Result:
 This stress probe is harder, but it still does not make M8 behavior depend on
 history.
 
+M9 response-feature masking adds another negative result. On
+`runs/research_m9_observation_degradation_gate`, M8 success remains 0.275 for
+the base policy, `zero_current_response`, `zero_all_response`,
+`single_frame_history`, and `shuffled_history`. Even all-response masking does
+not change the aggregate success rate, so the benchmark still does not prove
+closed-loop self-identification.
+
 ## Diagnosis
 
 The current simulator and obstacle task are now good enough to measure stable
@@ -139,8 +146,7 @@ The next iteration should change the validation problem before another long
 training run:
 
 1. Add a formal history-critical driver-gate subset with delayed friction
-   changes, actuator lag jumps, or sensor-current-frame degradation near obstacle
-   approach.
+   changes, actuator lag jumps, or online perturbations near obstacle approach.
 2. Add a matching training augmentation or task curriculum so the actor has to
    use response history to infer controllability.
 3. Consider a true online recurrent actor with carried hidden state, then add a
