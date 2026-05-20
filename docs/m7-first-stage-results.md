@@ -11,8 +11,7 @@ a completed M7 success claim.
 Implemented pieces:
 
 - `action_history_mode="full"` for deployable actor inputs that include both
-  previous drive/brake and previous steering commands while preserving the
-  legacy observation prefix for old checkpoint expansion;
+  previous steering and previous drive/brake commands;
 - hidden vehicle-road diagnostics in `info`, including mass, CG, brake, tire,
   and actuator-delay scales;
 - M7-A history actor path through stacked observations and full action history;
@@ -20,8 +19,8 @@ Implemented pieces:
   `action_sequence_horizon > 1`, executing only the first action;
 - sequence auxiliary target construction from future executed actions inside
   the rollout buffer;
-- checkpoint compatibility so older M5 checkpoints can be expanded to the M7
-  observation shape and M7-B can add a new sequence head;
+- historical checkpoint compatibility so older M5 checkpoints could be expanded
+  to the M7 observation shape and M7-B could add a new sequence head;
 - benchmark support for multiple named checkpoint policies through
   `--checkpoint-policy name=path`;
 - checkpoint observation ablations through
@@ -31,6 +30,10 @@ Implemented pieces:
 - latent self-identification probe tooling through
   `python -m autodrift.latent_probe`;
 - vehicle-road bucket summaries for held-out analysis.
+
+The checkpoint compatibility listed above has since been removed. Current runs
+load init checkpoints strictly; old M7 results are historical evidence, not a
+current migration path.
 
 ## Configs
 

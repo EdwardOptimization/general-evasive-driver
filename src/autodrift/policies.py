@@ -40,10 +40,10 @@ class HeuristicPolicy(Policy):
         vx = float(observation[0] * 20.0)
         vy = float(observation[1] * 12.0)
         beta = math.atan2(vy, max(vx, 1e-6))
-        lateral_error = float(observation[6])
-        heading_error = float(observation[7])
-        speed_ref = float(observation[10] * 20.0)
-        beta_target = float(observation[11])
+        lateral_error = float(observation[5])
+        heading_error = float(observation[6])
+        speed_ref = float(info.get("speed_ref", 8.0))
+        beta_target = float(info.get("beta_target", 0.4))
         speed = max(math.hypot(vx, vy), 1e-6)
 
         desired_beta_sign = -1.0 if heading_error > 0.0 else 1.0

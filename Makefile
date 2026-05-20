@@ -12,7 +12,7 @@ M7_PROBE_EPISODES ?= 100
 M7_PROBE_EPOCHS ?= 160
 M7_DEVICE ?= cpu
 M8_DRIVER_NAME ?= m8
-M8_CHECKPOINT ?= runs/ppo_m8_temporal_gru_driver_seed227/checkpoint.pt
+M8_CHECKPOINT ?=
 M8_GATE_RUN_DIR ?= runs/m8_driver_gate_seed227
 RESEARCH_QUEUE ?= experiments/research_queue.csv
 RESEARCH_STATUS ?= experiments/research_status.json
@@ -101,6 +101,7 @@ m7-gate: m7-corpus
 		--run-dir $(M7_GATE_RUN_DIR)
 
 m8-driver-gate-smoke: m7-corpus
+	test -n "$(M8_CHECKPOINT)" || { echo "Set M8_CHECKPOINT to a same-contract clean driver checkpoint"; exit 2; }
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m autodrift.m7_gate \
 		--env-config $(M7_ENV_CONFIG) \
 		--seed-csv $(M7_SEED_CSV) \
@@ -116,6 +117,7 @@ m8-driver-gate-smoke: m7-corpus
 		--driver-name $(M8_DRIVER_NAME)
 
 m8-driver-gate: m7-corpus
+	test -n "$(M8_CHECKPOINT)" || { echo "Set M8_CHECKPOINT to a same-contract clean driver checkpoint"; exit 2; }
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m autodrift.m7_gate \
 		--env-config $(M7_ENV_CONFIG) \
 		--seed-csv $(M7_SEED_CSV) \

@@ -120,10 +120,9 @@ not change the aggregate success rate, so the benchmark still does not prove
 closed-loop self-identification.
 
 Follow-up observation-contract review found that the old obstacle frame also
-included `aeb_stop_distance`, which is derived from hidden friction and braking
-assumptions. This feature has been removed from actor observations. The M8
-checkpoint is therefore a historical baseline, not the final driver-interface
-baseline.
+included `aeb_stop_distance`, explicit sideslip, `speed_ref`, and `beta_target`.
+Those fields have been removed from actor observations. The M8 checkpoint is
+therefore a historical baseline, not the final driver-interface baseline.
 
 ## Diagnosis
 
@@ -133,8 +132,8 @@ prove professional-driver-like self-identification.
 
 The likely reason is structural:
 
-- the actor receives a very informative current frame: body velocities, yaw
-  rate, sideslip estimate, steering state, drive/brake state, path frame, and
+- the actor receives a very informative current frame: body velocity
+  components, yaw rate, steering state, drive/brake state, path frame, and
   obstacle-relative features;
 - the actor also receives actuator state, so zeroing previous action commands
   does not remove all feedback about what the car is doing;

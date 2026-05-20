@@ -98,8 +98,8 @@ vehicle's feedback.
 The operator receives observations that are available from sensing and recent
 control history:
 
-- body-frame velocities, yaw rate, sideslip estimate, steering state, and drive
-  or brake state;
+- body-frame velocity components, yaw rate, steering state, and drive or brake
+  actuator state;
 - path or obstacle-relative features;
 - previous steering and throttle/brake commands;
 - short history of states, actions, and resulting motion.

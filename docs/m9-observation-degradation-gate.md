@@ -11,9 +11,9 @@ shortcuts rather than professional-driver-like closed-loop identification.
 
 The new checkpoint ablations are:
 
-- `zero_current_response`: zero current-frame `vx`, `vy`, yaw rate, sideslip,
-  steering state, drive/brake state, and action-history features while leaving
-  older history frames intact.
+- `zero_current_response`: zero current-frame `vx`, `vy`, yaw rate, steering
+  state, drive/brake state, and action-history features while leaving older
+  history frames intact.
 - `zero_all_response`: zero the same response features in every history frame.
 
 If the task truly requires response-history inference, `zero_current_response`
@@ -59,11 +59,11 @@ shortcuts are obstacle geometry, path geometry, and label distribution: on this
 seed set, M8 succeeds on every sampled `drift_required` case and fails on almost
 all `unavoidable` cases, even when response features are masked.
 
-Follow-up inspection found that the pre-cleanup obstacle observation also
-included `aeb_stop_distance`, a model-derived feature computed from hidden
-friction and braking assumptions. That field has been removed from the actor
-observation contract, so this result is historical evidence about the old
-observation interface rather than a valid final-driver gate.
+Follow-up inspection found that the pre-cleanup obstacle observation included
+`aeb_stop_distance`, explicit sideslip, `speed_ref`, and `beta_target`. Those
+fields have been removed from the actor observation contract, so this result is
+historical evidence about the old observation interface rather than a valid
+final-driver gate.
 
 Therefore, the next productive step is not another similar long training run.
 The next validation problem must include an online perturbation that cannot be

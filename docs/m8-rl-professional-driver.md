@@ -5,8 +5,9 @@ Last updated: 2026-05-21
 ## Purpose
 
 M8 is the first implementation step toward the project goal of a true
-driver-like RL operator. It keeps the M7 contract but replaces pure
-history-stacked MLP inference with an explicit temporal actor baseline.
+driver-like RL operator. The historical M8 run extended the M7 contract with an
+explicit temporal actor; the current project contract has since been cleaned and
+requires a fresh M8-style retrain.
 
 The target behavior is:
 
@@ -37,9 +38,11 @@ Actor and observation interface:
 - `action_history_mode="full"`;
 - the original M8 run used a 19-value obstacle frame and a 76-value stacked
   observation;
-- the cleaned driver contract removes the model-derived `aeb_stop_distance`
-  obstacle feature, so new obstacle-driver runs use an 18-value frame and a
-  72-value stacked observation.
+- the current clean driver contract uses a 15-value obstacle frame and a
+  60-value stacked observation;
+- removed actor inputs are `aeb_stop_distance`, explicit sideslip `beta`,
+  `speed_ref`, and `beta_target`;
+- previous actions are ordered as `[previous_steer, previous_drive_brake]`.
 
 The temporal actor encodes each history frame, reverses the current-first
 history into chronological order, and feeds the encoded sequence through a GRU.
@@ -47,8 +50,9 @@ The final GRU hidden state is the actor/critic latent used for action, value,
 sequence prediction, and latent probes.
 
 The historical M8 checkpoint remains useful as a baseline, but it was trained
-before the observation cleanup and should not be treated as the final
-professional-driver input contract.
+before the observation cleanup and cannot be loaded into the current clean
+contract. Observation-contract changes require retraining; no checkpoint
+compatibility shim is kept.
 
 ## Stable AES Reward Shaping
 
@@ -73,7 +77,6 @@ Short infrastructure check:
 ```bash
 conda run -n autodrift python -m autodrift.train_ppo \
   --config configs/ppo_m8_temporal_gru_driver.json \
-  --init-checkpoint runs/ppo_m7a_history_seed127/checkpoint.pt \
   --total-steps 512 \
   --rollout-steps 64 \
   --eval-episodes 2 \
@@ -81,12 +84,12 @@ conda run -n autodrift python -m autodrift.train_ppo \
   --run-dir runs/ppo_m8_temporal_gru_smoke
 ```
 
-Result:
+Historical pre-clean result:
 
 | item | value |
 | --- | --- |
 | run dir | `runs/ppo_m8_temporal_gru_smoke` |
-| init mode | `new_temporal_encoder` |
+| init mode | pre-clean `new_temporal_encoder` |
 | curriculum stage | `stable_aes_only` |
 | reward mean | 1.132 |
 | eval return mean | 2.529 |
@@ -95,16 +98,16 @@ Result:
 | eval lateral RMSE mean | 0.367 |
 | eval beta abs error mean | 0.086 |
 
-Interpretation: this is an infrastructure pass only. It proves that the
-temporal-GRU actor can be configured, initialized from an MLP checkpoint,
-trained, saved, loaded, and evaluated. It does not prove the policy is useful;
-the smoke checkpoint terminates quickly and must not be used as a performance
-claim.
+Interpretation: this was an infrastructure pass only. Under the current clean
+project policy, the same smoke should train from scratch or from a strict
+same-contract checkpoint. It does not prove the policy is useful; the smoke
+checkpoint terminates quickly and must not be used as a performance claim.
 
 ## Driver Gate Smoke
 
-M8 is now wired into the existing M7 gate as an optional required driver
-candidate:
+Historical M8 was wired into the existing M7 gate as an optional required driver
+candidate. The current `m8-driver-gate` Makefile target requires
+`M8_CHECKPOINT` to point at a same-contract clean checkpoint.
 
 ```bash
 conda run -n autodrift python -m autodrift.m7_gate \
@@ -167,7 +170,6 @@ Best M8-A seed:
 ```bash
 conda run -n autodrift python -m autodrift.train_ppo \
   --config configs/ppo_m8_temporal_gru_driver.json \
-  --init-checkpoint runs/ppo_m7a_history_seed127/checkpoint.pt \
   --seed 227 \
   --device cuda \
   --run-dir runs/ppo_m8_temporal_gru_driver_seed227
@@ -178,12 +180,15 @@ Sequence-head variant:
 ```bash
 conda run -n autodrift python -m autodrift.train_ppo \
   --config configs/ppo_m8b_temporal_sequence_driver.json \
-  --init-checkpoint runs/ppo_m7b_sequence_seed131/checkpoint.pt \
   --device cuda \
   --run-dir runs/ppo_m8b_temporal_sequence_driver_seed223
 ```
 
 ## Full Driver Gate Results
+
+These results are historical pre-clean-contract evidence. They used the old
+76-value M8 checkpoint and should not be compared as a current driver under the
+60-value actor contract.
 
 All rows use the same 60-seed label-balanced corpus:
 
@@ -208,7 +213,7 @@ conda run -n autodrift python -m autodrift.m7_gate \
 | M8-A seed227 | `needs_iteration` | 0.733 | 0.033 | 0.038 | 0.000 | 0.022 |
 | M8-B sequence seed223 | `needs_iteration` | 0.733 | 0.033 | 0.165 | 0.000 | -0.005 |
 
-Current best: M8-A seed227.
+Historical best: M8-A seed227.
 
 Label-bucket comparison for M8-A seed227:
 
@@ -236,28 +241,27 @@ stable-AES high-sideslip rose and temporal probe lift fell below threshold.
 
 ## Current Blocker
 
-The remaining blocker is not aggregate obstacle-avoidance performance. The
-blocker is evidence: current held-out obstacle episodes can be solved well enough
-from the current deployable frame and actuator state, so no-history and
-shuffled-history ablations do not reduce success.
+The remaining blocker is now the clean-contract retrain. The old M8 checkpoint
+cannot be adapted into the 60-value actor frame, so the next result must be
+trained under the new input/output contract before the gate can be interpreted
+again.
 
 The detailed blocker report is in `docs/m8-driver-gate-blocker-report.md`.
 
 The next iteration should make the validation task more history-critical rather
 than only training another similar policy. Candidate directions:
 
+- train a clean 60-value temporal driver from scratch;
 - add a driver-gate stress set with friction steps or actuator-lag changes close
   to obstacle approach;
 - add training augmentation that sometimes degrades the current frame so the GRU
   must use response history;
 - add a true online recurrent hidden-state actor and compare it against the
-  fixed-window GRU;
-- keep M8-A seed227 as the current best checkpoint while the ablation blocker is
-  addressed.
+  fixed-window GRU.
 
 ## Next Work
 
+- Retrain the best M8-A architecture under the clean 60-value driver contract.
 - Add a history-critical stress subset to the driver gate.
-- Train and test the best M8-A architecture on that stress subset.
 - Only call the project driver-v1 complete when both aggregate success and
   behavior-level temporal ablations pass.

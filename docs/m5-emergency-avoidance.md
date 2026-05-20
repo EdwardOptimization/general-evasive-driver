@@ -183,11 +183,10 @@ Config:
 configs/ppo_m5_obstacle_avoidance.json
 ```
 
-The config starts from the M2 circular-drift checkpoint. The PPO loader now
-supports partial first-layer expansion from the 13-dimensional circular
-observation to the obstacle observation by copying the original
-weights into the shared base-state slice and zero-initializing the new obstacle
-features.
+The historical M5 run started from the M2 circular-drift checkpoint using a
+partial first-layer expansion path. That compatibility path has been removed.
+Current obstacle-driver runs must train from scratch or load a strict
+same-contract checkpoint.
 
 Smoke command:
 
@@ -207,9 +206,10 @@ loaded_init_checkpoint=... load_mode=partial_input_expand
 training_device=cuda num_envs=16 curriculum_stage=aes_feasible_wide
 ```
 
-The 512-step smoke is expected to fail behaviorally; its purpose is to verify
+The 512-step smoke was expected to fail behaviorally; its purpose was to verify
 that M5 obstacle observations, AEB-infeasible sampling, checkpoint expansion,
-and the PPO loop all work together.
+and the PPO loop worked together. The checkpoint-expansion portion is historical
+only.
 
 ## First RL Training Attempt
 

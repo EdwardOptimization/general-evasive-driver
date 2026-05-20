@@ -33,48 +33,48 @@ def test_episode_row_includes_curvature_segment_metrics():
 
 def test_actor_policy_can_ablate_action_history():
     env_config = DriftEnvConfig(history_length=2, action_history_mode="full")
-    policy = ActorPolicy(ActorCritic(obs_dim=28, act_dim=2, hidden_size=8), env_config, ablation="zero_action_history")
-    observation = np.arange(28, dtype=np.float32)
+    policy = ActorPolicy(ActorCritic(obs_dim=22, act_dim=2, hidden_size=8), env_config, ablation="zero_action_history")
+    observation = np.arange(22, dtype=np.float32)
 
     transformed = policy._transform_observation(observation)
 
-    assert transformed[12] == 0.0
-    assert transformed[13] == 0.0
-    assert transformed[26] == 0.0
-    assert transformed[27] == 0.0
+    assert transformed[9] == 0.0
+    assert transformed[10] == 0.0
+    assert transformed[20] == 0.0
+    assert transformed[21] == 0.0
 
 
 def test_actor_policy_can_ablate_current_response_only():
     env_config = DriftEnvConfig(history_length=2, action_history_mode="full")
-    policy = ActorPolicy(ActorCritic(obs_dim=28, act_dim=2, hidden_size=8), env_config, ablation="zero_current_response")
-    observation = np.arange(28, dtype=np.float32)
+    policy = ActorPolicy(ActorCritic(obs_dim=22, act_dim=2, hidden_size=8), env_config, ablation="zero_current_response")
+    observation = np.arange(22, dtype=np.float32)
 
     transformed = policy._transform_observation(observation)
 
-    np.testing.assert_allclose(transformed[[0, 1, 2, 3, 4, 5, 12, 13]], np.zeros(8, dtype=np.float32))
-    np.testing.assert_allclose(transformed[14:], observation[14:])
+    np.testing.assert_allclose(transformed[[0, 1, 2, 3, 4, 9, 10]], np.zeros(7, dtype=np.float32))
+    np.testing.assert_allclose(transformed[11:], observation[11:])
 
 
 def test_actor_policy_can_ablate_all_response_history():
     env_config = DriftEnvConfig(history_length=2, action_history_mode="full")
-    policy = ActorPolicy(ActorCritic(obs_dim=28, act_dim=2, hidden_size=8), env_config, ablation="zero_all_response")
-    observation = np.arange(28, dtype=np.float32)
+    policy = ActorPolicy(ActorCritic(obs_dim=22, act_dim=2, hidden_size=8), env_config, ablation="zero_all_response")
+    observation = np.arange(22, dtype=np.float32)
 
     transformed = policy._transform_observation(observation)
 
-    np.testing.assert_allclose(transformed[[0, 1, 2, 3, 4, 5, 12, 13]], np.zeros(8, dtype=np.float32))
-    np.testing.assert_allclose(transformed[[14, 15, 16, 17, 18, 19, 26, 27]], np.zeros(8, dtype=np.float32))
-    np.testing.assert_allclose(transformed[[6, 7, 8, 9, 10, 11]], observation[[6, 7, 8, 9, 10, 11]])
+    np.testing.assert_allclose(transformed[[0, 1, 2, 3, 4, 9, 10]], np.zeros(7, dtype=np.float32))
+    np.testing.assert_allclose(transformed[[11, 12, 13, 14, 15, 20, 21]], np.zeros(7, dtype=np.float32))
+    np.testing.assert_allclose(transformed[[5, 6, 7, 8]], observation[[5, 6, 7, 8]])
 
 
 def test_actor_policy_can_ablate_temporal_history():
     env_config = DriftEnvConfig(history_length=2, action_history_mode="legacy")
-    policy = ActorPolicy(ActorCritic(obs_dim=26, act_dim=2, hidden_size=8), env_config, ablation="single_frame_history")
-    observation = np.arange(26, dtype=np.float32)
+    policy = ActorPolicy(ActorCritic(obs_dim=20, act_dim=2, hidden_size=8), env_config, ablation="single_frame_history")
+    observation = np.arange(20, dtype=np.float32)
 
     transformed = policy._transform_observation(observation)
 
-    np.testing.assert_allclose(transformed[:13], transformed[13:])
+    np.testing.assert_allclose(transformed[:10], transformed[10:])
 
 
 def test_actor_policy_can_shuffle_temporal_history_deterministically():

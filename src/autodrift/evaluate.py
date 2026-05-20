@@ -45,12 +45,17 @@ class ActorPolicy(Policy):
         self.last_sequence = None
         self._rng = np.random.default_rng(self._rng_seed)
 
-    def _response_feature_indices(self, base_dim: int) -> list[int]:
-        indices = list(range(6))
-        if self.env_config.action_history_mode in {"legacy", "full"}:
-            indices.append(12)
+    def _action_history_indices(self) -> list[int]:
+        if self.env_config.action_history_mode == "legacy":
+            return [9]
         if self.env_config.action_history_mode == "full":
-            indices.append(base_dim - 1)
+            return [9, 10]
+        return []
+
+    def _response_feature_indices(self, base_dim: int) -> list[int]:
+        del base_dim
+        indices = [0, 1, 2, 3, 4]
+        indices.extend(self._action_history_indices())
         return sorted(set(indices))
 
     def _zero_response_features(self, observation: np.ndarray, base_dim: int, frame_starts: list[int]) -> None:
@@ -72,10 +77,8 @@ class ActorPolicy(Policy):
             transformed = frames[self._rng.permutation(self.env_config.history_length)].reshape(-1).astype(np.float32)
         if self.ablation == "zero_action_history":
             for start in range(0, len(transformed), base_dim):
-                if self.env_config.action_history_mode in {"legacy", "full"}:
-                    transformed[start + 12] = 0.0
-                if self.env_config.action_history_mode == "full":
-                    transformed[start + base_dim - 1] = 0.0
+                for index in self._action_history_indices():
+                    transformed[start + index] = 0.0
         if self.ablation == "zero_current_response":
             self._zero_response_features(transformed, base_dim, [0])
         if self.ablation == "zero_all_response":

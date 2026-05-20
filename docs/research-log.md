@@ -72,8 +72,12 @@ does not prove professional-driver-like self-identification.
 
 - `aeb_stop_distance` is removed from actor observations because it is computed
   from hidden friction and braking assumptions.
-- M8 historical obstacle observations were 76-dimensional; the clean
-  full-action-history obstacle driver contract is 72-dimensional.
+- Explicit sideslip `beta`, `speed_ref`, and `beta_target` are also removed
+  from actor observations. They remain reward/logging quantities only.
+- M8 historical obstacle observations were 76-dimensional; the current clean
+  full-action-history obstacle driver contract is 60-dimensional.
+- Checkpoint compatibility for changed observation contracts is intentionally
+  removed. Old M8 is historical; the clean driver must be retrained.
 - Driver configs must keep `include_privileged_params=false` and
   `friction_limited_speed=false`; otherwise the actor can receive hidden
   simulator state or friction-conditioned speed commands.

@@ -55,6 +55,10 @@ Checkpoint benchmark specs support the following observation ablations through
 `zero_all_response`. Oracle-like model features should be removed from the actor
 observation instead of handled as ablations.
 
+Checkpoint initialization is strict. If the actor observation or action contract
+changes, old checkpoints are historical artifacts and must not be shape-adapted
+into the new policy.
+
 Latent probing writes:
 
 - `samples.csv`: frozen rollout sample metadata and hidden bucket labels.

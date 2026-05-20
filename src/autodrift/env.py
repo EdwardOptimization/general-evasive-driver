@@ -107,7 +107,7 @@ class AutoDriftEnv(gym.Env):
 
         obstacle_obs_dim = 4 if self.config.obstacle.enabled else 0
         action_obs_dim = {"none": 0, "legacy": 1, "full": 2}[self.config.action_history_mode]
-        self.base_obs_dim = 12 + action_obs_dim + obstacle_obs_dim + (4 if self.config.include_privileged_params else 0)
+        self.base_obs_dim = 9 + action_obs_dim + obstacle_obs_dim + (4 if self.config.include_privileged_params else 0)
         obs_dim = self.base_obs_dim * self.config.history_length
         self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(obs_dim,), dtype=np.float32)
 
@@ -330,8 +330,6 @@ class AutoDriftEnv(gym.Env):
 
     def _base_observation(self) -> np.ndarray:
         frame = self.track.frame(self.state.x, self.state.y, self.state.psi)
-        speed = math.hypot(self.state.vx, self.state.vy)
-        beta = math.atan2(self.state.vy, max(self.state.vx, 1e-6))
         global_vx = self.state.vx * math.cos(self.state.psi) - self.state.vy * math.sin(self.state.psi)
         global_vy = self.state.vx * math.sin(self.state.psi) + self.state.vy * math.cos(self.state.psi)
         along_speed = float(np.dot(np.array([global_vx, global_vy]), frame.tangent))
@@ -340,18 +338,17 @@ class AutoDriftEnv(gym.Env):
             self.state.vx / 20.0,
             self.state.vy / 12.0,
             self.state.yaw_rate / 2.5,
-            beta,
             self.state.steer / self.params.max_steer,
             self.state.drive_force / max(self.params.max_drive_force, self.params.max_brake_force),
             frame.lateral_error / self.config.track_width,
             frame.heading_error,
             frame.curvature * 20.0,
             along_speed / 20.0,
-            self.speed_ref / 20.0,
-            self.beta_target,
         ]
-        if self.config.action_history_mode in {"legacy", "full"}:
+        if self.config.action_history_mode == "legacy":
             obs.append(self.last_action[1])
+        if self.config.action_history_mode == "full":
+            obs.extend([self.last_action[0], self.last_action[1]])
         if self.config.obstacle.enabled:
             obs.extend(self._obstacle_features(frame))
         if self.config.include_privileged_params:
@@ -363,10 +360,6 @@ class AutoDriftEnv(gym.Env):
                     self.params.cr / VehicleParams().cr,
                 ]
             )
-        if self.config.action_history_mode == "full":
-            # Preserve the legacy observation prefix so older checkpoints can
-            # be expanded without shifting obstacle-feature semantics.
-            obs.append(self.last_action[0])
         return np.asarray(obs, dtype=np.float32)
 
     def _reward(

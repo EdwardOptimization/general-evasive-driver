@@ -25,8 +25,7 @@ def test_actor_critic_checkpoint_loads_from_shape(tmp_path):
     assert np.isfinite(value)
 
 
-def test_init_checkpoint_expands_single_frame_policy_to_history_obs(tmp_path):
-    torch.manual_seed(3)
+def test_init_checkpoint_rejects_different_observation_contract(tmp_path):
     source = ActorCritic(obs_dim=13, act_dim=2, hidden_size=16)
     checkpoint_path = tmp_path / "checkpoint.pt"
     torch.save(
@@ -37,44 +36,10 @@ def test_init_checkpoint_expands_single_frame_policy_to_history_obs(tmp_path):
         checkpoint_path,
     )
 
-    target = ActorCritic(obs_dim=52, act_dim=2, hidden_size=16)
-    load_mode = load_init_checkpoint_state(target, checkpoint_path, torch.device("cpu"))
+    target = ActorCritic(obs_dim=10, act_dim=2, hidden_size=16)
 
-    current_obs = torch.linspace(-0.5, 0.5, 13).unsqueeze(0)
-    history_tail = torch.randn(1, 39)
-    with torch.no_grad():
-        source_dist, source_value = source(current_obs)
-        target_dist, target_value = target(torch.cat([current_obs, history_tail], dim=1))
-
-    assert load_mode == "partial_input_expand"
-    np.testing.assert_allclose(target_dist.mean.numpy(), source_dist.mean.numpy(), atol=1e-6)
-    np.testing.assert_allclose(target_value.numpy(), source_value.numpy(), atol=1e-6)
-
-
-def test_init_checkpoint_expands_single_frame_policy_to_extra_features(tmp_path):
-    torch.manual_seed(4)
-    source = ActorCritic(obs_dim=13, act_dim=2, hidden_size=16)
-    checkpoint_path = tmp_path / "checkpoint.pt"
-    torch.save(
-        {
-            "model_state": {key: value.detach().cpu() for key, value in source.state_dict().items()},
-            "config": {"device": "cpu"},
-        },
-        checkpoint_path,
-    )
-
-    target = ActorCritic(obs_dim=18, act_dim=2, hidden_size=16)
-    load_mode = load_init_checkpoint_state(target, checkpoint_path, torch.device("cpu"))
-
-    base_obs = torch.linspace(-0.3, 0.3, 13).unsqueeze(0)
-    extra_obs = torch.randn(1, 5)
-    with torch.no_grad():
-        source_dist, source_value = source(base_obs)
-        target_dist, target_value = target(torch.cat([base_obs, extra_obs], dim=1))
-
-    assert load_mode == "partial_input_expand"
-    np.testing.assert_allclose(target_dist.mean.numpy(), source_dist.mean.numpy(), atol=1e-6)
-    np.testing.assert_allclose(target_value.numpy(), source_value.numpy(), atol=1e-6)
+    with np.testing.assert_raises(RuntimeError):
+        load_init_checkpoint_state(target, checkpoint_path, torch.device("cpu"))
 
 
 def test_sequence_actor_checkpoint_loads_and_predicts_plan(tmp_path):
@@ -124,10 +89,8 @@ def test_temporal_gru_actor_rejects_mismatched_history_shape():
         ActorCritic(obs_dim=55, act_dim=2, hidden_size=16, actor_encoder="temporal_gru", actor_history_length=4)
 
 
-def test_init_checkpoint_drops_removed_obstacle_aeb_stop_distance_for_temporal_actor(tmp_path):
+def test_init_checkpoint_rejects_old_temporal_driver_observation_contract(tmp_path):
     source = ActorCritic(obs_dim=76, act_dim=2, hidden_size=16, actor_encoder="temporal_gru", actor_history_length=4)
-    with torch.no_grad():
-        source.frame_encoder[0].weight.copy_(torch.arange(16 * 19, dtype=torch.float32).reshape(16, 19))
     checkpoint_path = tmp_path / "checkpoint.pt"
     torch.save(
         {
@@ -137,72 +100,10 @@ def test_init_checkpoint_drops_removed_obstacle_aeb_stop_distance_for_temporal_a
         checkpoint_path,
     )
 
-    target = ActorCritic(obs_dim=72, act_dim=2, hidden_size=16, actor_encoder="temporal_gru", actor_history_length=4)
-    load_mode = load_init_checkpoint_state(target, checkpoint_path, torch.device("cpu"))
-    expected_columns = [*range(17), 18]
+    target = ActorCritic(obs_dim=60, act_dim=2, hidden_size=16, actor_encoder="temporal_gru", actor_history_length=4)
 
-    assert load_mode == "drop_obstacle_aeb_stop_distance"
-    torch.testing.assert_close(target.frame_encoder[0].weight, source.frame_encoder[0].weight[:, expected_columns])
-
-
-def test_init_checkpoint_drops_removed_obstacle_aeb_stop_distance_for_flat_history(tmp_path):
-    source = ActorCritic(obs_dim=38, act_dim=2, hidden_size=16)
-    with torch.no_grad():
-        source.shared[0].weight.copy_(torch.arange(16 * 38, dtype=torch.float32).reshape(16, 38))
-    checkpoint_path = tmp_path / "checkpoint.pt"
-    torch.save(
-        {
-            "model_state": {key: value.detach().cpu() for key, value in source.state_dict().items()},
-            "config": {"device": "cpu"},
-        },
-        checkpoint_path,
-    )
-
-    target = ActorCritic(obs_dim=36, act_dim=2, hidden_size=16)
-    load_mode = load_init_checkpoint_state(target, checkpoint_path, torch.device("cpu"))
-    expected_columns = [*range(17), 18, *range(19, 36), 37]
-
-    assert load_mode == "drop_obstacle_aeb_stop_distance"
-    torch.testing.assert_close(target.shared[0].weight, source.shared[0].weight[:, expected_columns])
-
-
-def test_init_checkpoint_can_add_sequence_head_and_expand_obs(tmp_path):
-    torch.manual_seed(8)
-    source = ActorCritic(obs_dim=18, act_dim=2, hidden_size=16)
-    checkpoint_path = tmp_path / "checkpoint.pt"
-    torch.save(
-        {
-            "model_state": {key: value.detach().cpu() for key, value in source.state_dict().items()},
-            "config": {"device": "cpu"},
-        },
-        checkpoint_path,
-    )
-
-    target = ActorCritic(obs_dim=20, act_dim=2, hidden_size=16, action_sequence_horizon=3)
-    load_mode = load_init_checkpoint_state(target, checkpoint_path, torch.device("cpu"))
-
-    assert "partial_input_expand" in load_mode
-    assert "new_sequence_head" in load_mode
-    assert target.predict_sequence(np.zeros(20, dtype=np.float32)).shape == (3, 2)
-
-
-def test_init_checkpoint_can_add_temporal_encoder_from_mlp(tmp_path):
-    torch.manual_seed(10)
-    source = ActorCritic(obs_dim=14, act_dim=2, hidden_size=16)
-    checkpoint_path = tmp_path / "checkpoint.pt"
-    torch.save(
-        {
-            "model_state": {key: value.detach().cpu() for key, value in source.state_dict().items()},
-            "config": {"device": "cpu"},
-        },
-        checkpoint_path,
-    )
-
-    target = ActorCritic(obs_dim=56, act_dim=2, hidden_size=16, actor_encoder="temporal_gru", actor_history_length=4)
-    load_mode = load_init_checkpoint_state(target, checkpoint_path, torch.device("cpu"))
-
-    assert "new_temporal_encoder" in load_mode
-    assert target.act(np.zeros(56, dtype=np.float32), deterministic=True)[0].shape == (2,)
+    with np.testing.assert_raises(RuntimeError):
+        load_init_checkpoint_state(target, checkpoint_path, torch.device("cpu"))
 
 
 def test_sequence_targets_use_future_executed_actions_until_done():

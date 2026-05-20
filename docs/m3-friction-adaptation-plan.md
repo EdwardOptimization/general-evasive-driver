@@ -39,13 +39,11 @@ The single-frame config is the fine-tuning baseline. The history config is the
 student-facing path. The privileged config is the teacher/reference path and
 exposes hidden vehicle parameters including `mu`.
 
-The PPO trainer can now initialize a history-stacked policy from a compatible
-single-frame checkpoint. If the only shape mismatch is the first observation
-layer expanding from one frame to multiple stacked frames, the loader copies the
-single-frame weights into the current-frame slice and zeroes the older-frame
-weights. The initialized history policy therefore starts equivalent to the M2
-policy, while later PPO updates can learn how to use the history tail for
-friction adaptation.
+Historical M3 runs used checkpoint shape expansion to initialize a
+history-stacked policy from a single-frame checkpoint. That compatibility path
+has been removed. Current runs load init checkpoints strictly; if the actor
+observation contract changes, the policy must be retrained under the new
+contract.
 
 ## M2 Checkpoint On M3 Task
 

@@ -343,21 +343,21 @@ Exit criteria:
 - latent probes show temporal lift over shuffled history;
 - negative results are documented if any criterion fails.
 
-Status: partially successful but not passed. The temporal-GRU M8-A checkpoint at
-`runs/ppo_m8_temporal_gru_driver_seed227/checkpoint.pt` improves aggregate
-success from 0.700 to 0.733 on the label-balanced corpus, keeps
-`aes_feasible` high-sideslip at 0.038, and shows probe temporal lift of 0.022.
-It still fails the driver gate because zero-action-history and shuffled-history
-ablations do not reduce success. M8-B with a sequence head did not improve the
-gate. The current blocker is therefore behavior-level proof of closed-loop
-self-identification, not raw obstacle-avoidance success. See
+Status: historical partial success but not passed. The temporal-GRU M8-A
+checkpoint at `runs/ppo_m8_temporal_gru_driver_seed227/checkpoint.pt` improved
+aggregate success from 0.700 to 0.733 on the label-balanced corpus, kept
+`aes_feasible` high-sideslip at 0.038, and showed probe temporal lift of 0.022.
+It still failed the driver gate because zero-action-history and
+shuffled-history ablations did not reduce success. The current blocker is a
+clean-contract retrain followed by behavior-level proof of closed-loop
+self-identification. See
 `docs/m8-rl-professional-driver.md`.
 
 ## Metrics
 
 - episode success rate;
 - lateral RMSE and peak error;
-- sideslip target absolute error;
+- sideslip magnitude and high-sideslip fraction;
 - speed error;
 - spin-out/off-track rate;
 - actuator saturation frequency;

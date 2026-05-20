@@ -3,8 +3,8 @@
     "blocked": 0,
     "completed": 3,
     "failed": 0,
-    "pending": 0,
-    "planned": 2,
+    "pending": 1,
+    "planned": 1,
     "running": 0
   },
   "last_result": {
@@ -14,6 +14,15 @@
     "status": "completed",
     "task_id": "m9-observation-degradation-gate"
   },
-  "next_task": null,
-  "updated_at_utc": "20260520T185133Z"
+  "next_task": {
+    "command": "conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m8_temporal_gru_driver.json --seed 327 --device cuda --run-dir runs/ppo_m10_clean_temporal_gru_driver_seed327",
+    "hypothesis": "Retrain the temporal driver under the clean 60-dimensional obstacle-driver observation",
+    "id": "m10-clean-observation-retrain",
+    "kind": "training",
+    "notes": "Clean 60-dim contract; train from scratch with no init checkpoint",
+    "priority": 35,
+    "status": "pending",
+    "success_artifact": "runs/ppo_m10_clean_temporal_gru_driver_seed327/checkpoint.pt"
+  },
+  "updated_at_utc": "20260520T191017Z"
 }
