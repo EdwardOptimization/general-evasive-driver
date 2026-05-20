@@ -1,7 +1,7 @@
 import numpy as np
 
 from autodrift.dynamics import RandomizationConfig
-from autodrift.env import AutoDriftEnv, DriftEnvConfig, FrictionStepConfig
+from autodrift.env import AutoDriftEnv, DriftEnvConfig, FrictionStepConfig, ObstacleTaskConfig
 from autodrift.policies import HeuristicPolicy
 
 
@@ -62,6 +62,66 @@ def test_figure_eight_env_reset_reports_track_kind_and_curvature():
     assert obs.shape == env.observation_space.shape
     assert info["track_kind"] == "figure_eight"
     assert np.isfinite(env.track.frame(env.state.x, env.state.y, env.state.psi).curvature)
+
+
+def test_obstacle_task_adds_observation_features_and_info():
+    env = AutoDriftEnv(
+        DriftEnvConfig(
+            obstacle=ObstacleTaskConfig(
+                enabled=True,
+                distance_range=(20.0, 20.0),
+                half_width_range=(0.8, 0.8),
+            )
+        )
+    )
+    obs, info = env.reset(seed=20)
+
+    assert obs.shape == (18,)
+    assert info["obstacle_enabled"] is True
+    assert info["obstacle_label"] in {"aeb_feasible", "aes_feasible", "drift_required", "unavoidable"}
+    assert info["obstacle_distance"] > 0.0
+    assert info["collision"] is False
+
+
+def test_obstacle_task_can_require_aeb_infeasible_labels():
+    env = AutoDriftEnv(
+        DriftEnvConfig(
+            speed_range=(14.0, 16.0),
+            friction_limited_speed=False,
+            obstacle=ObstacleTaskConfig(
+                enabled=True,
+                distance_range=(7.0, 9.0),
+                half_width_range=(0.8, 1.0),
+                require_aeb_infeasible=True,
+            )
+        )
+    )
+
+    for seed in range(22, 32):
+        _, info = env.reset(seed=seed)
+        assert info["obstacle_label"] != "aeb_feasible"
+
+
+def test_obstacle_collision_terminates_episode_and_penalizes_reward():
+    env = AutoDriftEnv(
+        DriftEnvConfig(
+            obstacle=ObstacleTaskConfig(
+                enabled=True,
+                distance_range=(0.1, 0.1),
+                half_width_range=(1.0, 1.0),
+                collision_penalty=7.0,
+            )
+        )
+    )
+    _, info = env.reset(seed=21)
+    assert info["collision"] is True
+
+    _, reward, terminated, _, next_info = env.step(np.array([0.0, 0.0], dtype=np.float32))
+
+    assert terminated is True
+    assert next_info["collision"] is True
+    assert next_info["reward_terms"]["collision_penalty"] == 7.0
+    assert reward < 0.0
 
 
 def test_friction_step_changes_mu_and_reports_transition():

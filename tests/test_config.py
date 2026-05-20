@@ -37,6 +37,26 @@ def test_build_env_config_overrides_friction_step():
     assert config.friction_step.resample_speed_ref is False
 
 
+def test_build_env_config_overrides_obstacle_task():
+    config = build_env_config(
+        {
+            "obstacle": {
+                "enabled": True,
+                "distance_range": [20.0, 30.0],
+                "half_width_range": [0.6, 1.0],
+                "collision_penalty": 12.0,
+                "require_aeb_infeasible": True,
+            }
+        }
+    )
+
+    assert config.obstacle.enabled is True
+    assert config.obstacle.distance_range == (20.0, 30.0)
+    assert config.obstacle.half_width_range == (0.6, 1.0)
+    assert config.obstacle.collision_penalty == 12.0
+    assert config.obstacle.require_aeb_infeasible is True
+
+
 def test_curriculum_selects_stage_before_base():
     base_data = {"track_width": 5.0, "randomization": {"mu_range": [0.25, 1.15]}}
     base_config = build_env_config(base_data)

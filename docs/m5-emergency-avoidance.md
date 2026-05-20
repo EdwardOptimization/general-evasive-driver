@@ -27,11 +27,27 @@ scenario classes.
 
 ## Implemented Infrastructure
 
-Module:
+Scenario module:
 
 ```text
 src/autodrift/scenarios.py
 ```
+
+Environment integration:
+
+```text
+DriftEnvConfig.obstacle
+ObstacleTaskConfig
+```
+
+When enabled, the environment:
+
+- samples and labels an obstacle scenario at reset;
+- can reject `aeb_feasible` samples with `require_aeb_infeasible=true`;
+- appends obstacle-relative features to the policy observation;
+- reports `obstacle_label`, `collision`, and `min_obstacle_clearance` in
+  episode info and benchmark CSVs;
+- writes `obstacle_label_summary.csv` from benchmark runs.
 
 Command:
 
@@ -65,12 +81,51 @@ The command-line entry point is also exposed as:
 autodrift-scenarios
 ```
 
+## Environment Smoke
+
+Config:
+
+```text
+configs/m5_obstacle_smoke_eval.json
+```
+
+Command:
+
+```bash
+PYTHONPATH=src python -m autodrift.benchmark \
+  --episodes 20 \
+  --policies heuristic \
+  --env-config configs/m5_obstacle_smoke_eval.json \
+  --run-dir runs/benchmark_m5_obstacle_env_smoke
+```
+
+Overall result:
+
+| policy | episodes | success_rate | collision_rate | min_obstacle_clearance_mean |
+| --- | ---: | ---: | ---: | ---: |
+| heuristic | 20 | 0.000 | 0.950 | 1.594 |
+
+Label bucket result:
+
+| obstacle_label | episodes | success_rate | collision_rate | min_obstacle_clearance_mean |
+| --- | ---: | ---: | ---: | ---: |
+| drift_required | 4 | 0.000 | 1.000 | 1.598 |
+| unavoidable | 16 | 0.000 | 0.938 | 1.593 |
+
+Interpretation:
+
+- The M5 environment path now produces AEB-infeasible obstacle scenarios and
+  benchmark label buckets.
+- The existing circular-tracking heuristic is not an avoidance baseline. It
+  collides in nearly every AEB-infeasible smoke scenario, which is the expected
+  negative baseline.
+- The next M5 step is to add explicit AEB-only and heuristic AES policies, then
+  train/evaluate RL on the same fixed obstacle-label buckets.
+
 ## Next Steps
 
 M5 is only scaffolded. The next implementation work is:
 
-- connect fixed obstacle scenarios to an environment task;
-- add obstacle-relative observations and collision/min-distance metrics;
 - add AEB-only and heuristic AES baselines;
 - train/evaluate RL on fixed `aes_feasible`, `drift_required`, and
   `unavoidable` buckets;

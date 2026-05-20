@@ -19,6 +19,7 @@ from autodrift.dynamics import (
     sample_vehicle_params,
 )
 from autodrift.math_utils import wrap_pi
+from autodrift.scenarios import ObstacleScenario, ObstacleScenarioConfig, classify_obstacle_scenario
 from autodrift.tasks import PathFrame, make_track
 
 
@@ -28,6 +29,34 @@ class FrictionStepConfig:
     step_range: tuple[int, int] = (250, 550)
     mu_range: tuple[float, float] = (0.25, 1.15)
     resample_speed_ref: bool = True
+
+
+@dataclass(frozen=True)
+class ObstacleTaskConfig:
+    enabled: bool = False
+    distance_range: tuple[float, float] = (16.0, 55.0)
+    half_width_range: tuple[float, float] = (0.45, 1.15)
+    ego_half_width: float = 0.90
+    safety_margin: float = 0.30
+    brake_mu_fraction: float = 0.90
+    conventional_lateral_mu_fraction: float = 0.42
+    drift_lateral_mu_fraction: float = 0.85
+    collision_penalty: float = 20.0
+    require_aeb_infeasible: bool = False
+    max_sample_attempts: int = 100
+
+    def scenario_config(self, speed: float, mu: float) -> ObstacleScenarioConfig:
+        return ObstacleScenarioConfig(
+            speed_range=(speed, speed),
+            mu_range=(mu, mu),
+            obstacle_distance_range=self.distance_range,
+            obstacle_half_width_range=self.half_width_range,
+            ego_half_width=self.ego_half_width,
+            safety_margin=self.safety_margin,
+            brake_mu_fraction=self.brake_mu_fraction,
+            conventional_lateral_mu_fraction=self.conventional_lateral_mu_fraction,
+            drift_lateral_mu_fraction=self.drift_lateral_mu_fraction,
+        )
 
 
 @dataclass(frozen=True)
@@ -45,6 +74,7 @@ class DriftEnvConfig:
     history_length: int = 1
     include_privileged_params: bool = False
     friction_step: FrictionStepConfig = FrictionStepConfig()
+    obstacle: ObstacleTaskConfig = ObstacleTaskConfig()
     randomization: RandomizationConfig = RandomizationConfig()
 
 
@@ -65,7 +95,8 @@ class AutoDriftEnv(gym.Env):
             raise ValueError("history_length must be at least 1")
         self.action_space = spaces.Box(low=-1.0, high=1.0, shape=(2,), dtype=np.float32)
 
-        self.base_obs_dim = 13 + (4 if self.config.include_privileged_params else 0)
+        obstacle_obs_dim = 5 if self.config.obstacle.enabled else 0
+        self.base_obs_dim = 13 + obstacle_obs_dim + (4 if self.config.include_privileged_params else 0)
         obs_dim = self.base_obs_dim * self.config.history_length
         self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(obs_dim,), dtype=np.float32)
 
@@ -83,6 +114,10 @@ class AutoDriftEnv(gym.Env):
         self.friction_step_at: int | None = None
         self.friction_step_applied = False
         self.initial_mu = self.params.mu
+        self.obstacle_scenario: ObstacleScenario | None = None
+        self.obstacle_position: np.ndarray | None = None
+        self.min_obstacle_clearance = float("inf")
+        self.collision = False
 
     def reset(
         self,
@@ -117,6 +152,7 @@ class AutoDriftEnv(gym.Env):
             steer=0.0,
             drive_force=0.0,
         )
+        self._reset_obstacle(np.array([x, y], dtype=np.float64), initial_frame)
         self.last_action = np.zeros(2, dtype=np.float64)
         self.last_forces = self.model.tire_forces(vx, vy, self.state.yaw_rate, 0.0, 0.0)
         base_observation = self._base_observation()
@@ -141,8 +177,12 @@ class AutoDriftEnv(gym.Env):
         self.state, self.last_forces = self.model.step(self.state, action64, self.config.dt)
         frame = self.track.frame(self.state.x, self.state.y, self.state.psi)
         reward, reward_terms = self._reward(frame, action64, self.last_forces)
+        self._update_obstacle_status(frame)
 
         terminated = self._terminated(frame)
+        if self.collision:
+            reward -= self.config.obstacle.collision_penalty
+            reward_terms["collision_penalty"] = self.config.obstacle.collision_penalty
         if terminated and self.config.termination_penalty > 0.0:
             reward -= self.config.termination_penalty
             reward_terms["termination_penalty"] = self.config.termination_penalty
@@ -195,6 +235,59 @@ class AutoDriftEnv(gym.Env):
             self.speed_ref = self._sample_speed_ref()
         self.friction_step_applied = True
 
+    def _reset_obstacle(self, position: np.ndarray, frame: PathFrame) -> None:
+        self.obstacle_scenario = None
+        self.obstacle_position = None
+        self.min_obstacle_clearance = float("inf")
+        self.collision = False
+        if not self.config.obstacle.enabled:
+            return
+        scenario_config = self.config.obstacle.scenario_config(speed=self.speed_ref, mu=self.params.mu)
+        scenario = None
+        for _ in range(max(1, self.config.obstacle.max_sample_attempts)):
+            obstacle_distance = float(self.rng.uniform(*self.config.obstacle.distance_range))
+            obstacle_half_width = float(self.rng.uniform(*self.config.obstacle.half_width_range))
+            scenario = classify_obstacle_scenario(
+                speed=self.speed_ref,
+                mu=self.params.mu,
+                obstacle_distance=obstacle_distance,
+                obstacle_half_width=obstacle_half_width,
+                config=scenario_config,
+            )
+            if not self.config.obstacle.require_aeb_infeasible or scenario.label != "aeb_feasible":
+                break
+        if scenario is None or (self.config.obstacle.require_aeb_infeasible and scenario.label == "aeb_feasible"):
+            raise RuntimeError("failed to sample an AEB-infeasible obstacle scenario")
+        self.obstacle_scenario = scenario
+        self.obstacle_position = position + frame.tangent * obstacle_distance
+        self._update_obstacle_status(frame)
+
+    def _obstacle_features(self, frame: PathFrame) -> tuple[float, float, float, float, float]:
+        if self.obstacle_scenario is None or self.obstacle_position is None:
+            return (0.0, 0.0, 0.0, 0.0, 0.0)
+        ego_position = np.array([self.state.x, self.state.y], dtype=np.float64)
+        delta = self.obstacle_position - ego_position
+        longitudinal = float(np.dot(delta, frame.tangent))
+        lateral = float(frame.tangent[0] * delta[1] - frame.tangent[1] * delta[0])
+        time_to_obstacle = longitudinal / max(math.hypot(self.state.vx, self.state.vy), 1.0)
+        return (
+            longitudinal / 80.0,
+            lateral / max(self.config.track_width, 1e-6),
+            self.obstacle_scenario.required_lateral_offset / max(self.config.track_width, 1e-6),
+            time_to_obstacle / 5.0,
+            self.obstacle_scenario.aeb_stop_distance / 80.0,
+        )
+
+    def _update_obstacle_status(self, frame: PathFrame) -> None:
+        del frame
+        if self.obstacle_scenario is None or self.obstacle_position is None:
+            return
+        ego_position = np.array([self.state.x, self.state.y], dtype=np.float64)
+        clearance = float(np.linalg.norm(self.obstacle_position - ego_position))
+        self.min_obstacle_clearance = min(self.min_obstacle_clearance, clearance)
+        collision_radius = self.config.obstacle.ego_half_width + self.obstacle_scenario.obstacle_half_width
+        self.collision = clearance <= collision_radius
+
     def _observation(self) -> np.ndarray:
         if not self.obs_history:
             base_observation = self._base_observation()
@@ -224,6 +317,8 @@ class AutoDriftEnv(gym.Env):
             self.beta_target,
             self.last_action[1],
         ]
+        if self.config.obstacle.enabled:
+            obs.extend(self._obstacle_features(frame))
         if self.config.include_privileged_params:
             obs.extend(
                 [
@@ -286,6 +381,8 @@ class AutoDriftEnv(gym.Env):
             return True
         if abs(frame.lateral_error) > self.config.track_width:
             return True
+        if self.collision:
+            return True
         if speed < 1.0 or speed > 32.0:
             return True
         if abs(self.state.yaw_rate) > 6.0:
@@ -313,4 +410,12 @@ class AutoDriftEnv(gym.Env):
             "friction_step_at": self.friction_step_at,
             "friction_step_applied": self.friction_step_applied,
             "track_kind": self.config.track_kind,
+            "obstacle_enabled": self.config.obstacle.enabled,
+            "obstacle_label": self.obstacle_scenario.label if self.obstacle_scenario is not None else "",
+            "obstacle_distance": self._obstacle_features(frame)[0] * 80.0 if self.config.obstacle.enabled else float("nan"),
+            "obstacle_required_lateral_offset": (
+                self.obstacle_scenario.required_lateral_offset if self.obstacle_scenario is not None else float("nan")
+            ),
+            "min_obstacle_clearance": self.min_obstacle_clearance if self.config.obstacle.enabled else float("nan"),
+            "collision": self.collision,
         }

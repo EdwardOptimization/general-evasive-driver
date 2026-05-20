@@ -41,6 +41,8 @@ def summarize(frame: pd.DataFrame, by: list[str]) -> pd.DataFrame:
         lateral_peak_mean=("lateral_peak", "mean"),
         beta_abs_error_mean=("beta_abs_error_mean", "mean"),
         speed_mean=("speed_mean", "mean"),
+        collision_rate=("collision", "mean"),
+        min_obstacle_clearance_mean=("min_obstacle_clearance", "mean"),
         mu_min=("mu", "min"),
         mu_max=("mu", "max"),
     )
@@ -129,6 +131,11 @@ def main() -> None:
     policy_summary = summarize(frame, ["policy"])
     bucket_summary = summarize(frame, ["policy", "mu_bucket"])
     initial_bucket_summary = summarize(frame, ["policy", "initial_mu_bucket"]) if "initial_mu_bucket" in frame else None
+    obstacle_label_summary = (
+        summarize(frame[frame["obstacle_enabled"]], ["policy", "obstacle_label"])
+        if "obstacle_enabled" in frame and frame["obstacle_enabled"].any()
+        else None
+    )
     segment_frame = build_segment_frame(frame)
     segment_summary = summarize_segments(segment_frame)
     segment_mu_bucket_summary = summarize_segments(segment_frame, ["policy", "mu_bucket", "segment"])
@@ -137,6 +144,7 @@ def main() -> None:
     policy_csv = run_dir / "policy_summary.csv"
     bucket_csv = run_dir / "mu_bucket_summary.csv"
     initial_bucket_csv = run_dir / "initial_mu_bucket_summary.csv"
+    obstacle_label_csv = run_dir / "obstacle_label_summary.csv"
     segment_csv = run_dir / "segment_summary.csv"
     segment_mu_bucket_csv = run_dir / "segment_mu_bucket_summary.csv"
     frame.to_csv(episodes_csv, index=False)
@@ -144,6 +152,8 @@ def main() -> None:
     bucket_summary.to_csv(bucket_csv, index=False)
     if initial_bucket_summary is not None:
         initial_bucket_summary.to_csv(initial_bucket_csv, index=False)
+    if obstacle_label_summary is not None:
+        obstacle_label_summary.to_csv(obstacle_label_csv, index=False)
     if not segment_summary.empty:
         segment_summary.to_csv(segment_csv, index=False)
         segment_mu_bucket_summary.to_csv(segment_mu_bucket_csv, index=False)
@@ -162,6 +172,7 @@ def main() -> None:
                 "policy_summary_csv": policy_csv,
                 "mu_bucket_summary_csv": bucket_csv,
                 "initial_mu_bucket_summary_csv": initial_bucket_csv if initial_bucket_summary is not None else None,
+                "obstacle_label_summary_csv": obstacle_label_csv if obstacle_label_summary is not None else None,
                 "segment_summary_csv": segment_csv if not segment_summary.empty else None,
                 "segment_mu_bucket_summary_csv": segment_mu_bucket_csv if not segment_summary.empty else None,
             },

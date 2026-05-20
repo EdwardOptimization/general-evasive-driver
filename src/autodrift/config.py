@@ -6,7 +6,7 @@ from dataclasses import asdict, dataclass
 from typing import Any
 
 from autodrift.dynamics import RandomizationConfig
-from autodrift.env import DriftEnvConfig, FrictionStepConfig
+from autodrift.env import DriftEnvConfig, FrictionStepConfig, ObstacleTaskConfig
 
 
 def _tuple2(value: Any) -> tuple[float, float]:
@@ -28,6 +28,7 @@ def build_env_config(data: dict[str, Any] | None = None) -> DriftEnvConfig:
     values = asdict(DriftEnvConfig())
     values["randomization"] = asdict(RandomizationConfig())
     values["friction_step"] = asdict(FrictionStepConfig())
+    values["obstacle"] = asdict(ObstacleTaskConfig())
     for key, value in (data or {}).items():
         if key not in values:
             raise ValueError(f"unknown env config key: {key}")
@@ -52,12 +53,23 @@ def build_env_config(data: dict[str, Any] | None = None) -> DriftEnvConfig:
                 else:
                     friction_step[step_key] = step_value
             values["friction_step"] = friction_step
+        elif key == "obstacle":
+            obstacle = values["obstacle"].copy()
+            for obstacle_key, obstacle_value in value.items():
+                if obstacle_key not in obstacle:
+                    raise ValueError(f"unknown obstacle config key: {obstacle_key}")
+                if obstacle_key.endswith("_range"):
+                    obstacle[obstacle_key] = _tuple2(obstacle_value)
+                else:
+                    obstacle[obstacle_key] = obstacle_value
+            values["obstacle"] = obstacle
         elif key.endswith("_range"):
             values[key] = _tuple2(value)
         else:
             values[key] = value
     values["randomization"] = build_randomization_config(values["randomization"])
     values["friction_step"] = FrictionStepConfig(**values["friction_step"])
+    values["obstacle"] = ObstacleTaskConfig(**values["obstacle"])
     return DriftEnvConfig(**values)
 
 
@@ -76,6 +88,10 @@ def merge_env_config(base: dict[str, Any], override: dict[str, Any]) -> dict[str
             friction_step = dict(merged.get("friction_step", {}))
             friction_step.update(value)
             merged["friction_step"] = friction_step
+        elif key == "obstacle":
+            obstacle = dict(merged.get("obstacle", {}))
+            obstacle.update(value)
+            merged["obstacle"] = obstacle
         else:
             merged[key] = value
     return merged
