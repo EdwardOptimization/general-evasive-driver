@@ -93,6 +93,65 @@ trained, saved, loaded, and evaluated. It does not prove the policy is useful;
 the smoke checkpoint terminates quickly and must not be used as a performance
 claim.
 
+## Driver Gate Smoke
+
+M8 is now wired into the existing M7 gate as an optional required driver
+candidate:
+
+```bash
+conda run -n autodrift python -m autodrift.m7_gate \
+  --env-config configs/m7_obstacle_aes_weighted_holdout_eval.json \
+  --seed-csv runs/scenario_corpus_m7_aes_weighted_seed1300/scenario_corpus.csv \
+  --episodes 60 \
+  --seed 900 \
+  --probe-episodes 6 \
+  --probe-seed 1200 \
+  --probe-epochs 20 \
+  --device cpu \
+  --run-dir runs/m8_driver_gate_corpus_smoke \
+  --skip-probes \
+  --driver-checkpoint runs/ppo_m8_temporal_gru_smoke/checkpoint.pt \
+  --driver-name m8
+```
+
+Result:
+
+| check | result |
+| --- | --- |
+| `success_beats_m5` | fail |
+| `ablation_drop_present` | fail |
+| `aes_feasible_sideslip_ok` | pass |
+| `probe_temporal_lift_present` | fail, probes skipped |
+
+Overall status: `needs_iteration`.
+
+Key metrics:
+
+| metric | value |
+| --- | ---: |
+| `selected_policy` | `m8` |
+| `selected_success_rate` | 0.600 |
+| `selected_success_delta_vs_m5` | -0.100 |
+| `selected_min_ablation_drop` | 0.000 |
+| `selected_aes_feasible_high_sideslip` | 0.000 |
+| `m5_success_rate` | 0.700 |
+| `m7a_success_rate` | 0.700 |
+| `m7b_success_rate` | 0.700 |
+
+Label-bucket result:
+
+| policy | `aes_feasible` success / high sideslip | `drift_required` success / high sideslip | `unavoidable` success |
+| --- | --- | --- | ---: |
+| M5 | 1.000 / 0.090 | 0.950 / 0.059 | 0.150 |
+| M7-A | 1.000 / 0.292 | 0.950 / 0.079 | 0.150 |
+| M7-B | 1.000 / 0.171 | 0.950 / 0.069 | 0.150 |
+| M8 smoke | 1.000 / 0.000 | 0.750 / 0.018 | 0.050 |
+
+Interpretation: the untrained M8 smoke checkpoint shows the intended stable-AES
+direction, but it loses too much `drift_required` and `unavoidable` performance
+and its ablations do not show a useful temporal mechanism. This is negative
+evidence, not a driver-v1 result.
+
 ## Full Training Command
 
 Planned full run:

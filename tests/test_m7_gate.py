@@ -103,6 +103,63 @@ def test_compute_gate_summary_flags_missing_temporal_mechanism():
     assert not summary["checks"]["probe_temporal_lift_present"]
 
 
+def test_compute_gate_summary_requires_named_driver_when_requested():
+    comparison = pd.DataFrame(
+        [
+            {"policy": "m5", "success_rate": 0.50},
+            {"policy": "m7a", "success_rate": 0.70},
+            {"policy": "m7b", "success_rate": 0.68},
+            {"policy": "m8", "success_rate": 0.51},
+        ]
+    )
+    ablation = pd.DataFrame(
+        [
+            {"policy": "m7a", "success_rate": 0.70},
+            {"policy": "m7a_noact", "success_rate": 0.55},
+            {"policy": "m7a_shuffle", "success_rate": 0.55},
+            {"policy": "m7b", "success_rate": 0.68},
+            {"policy": "m7b_noact", "success_rate": 0.55},
+            {"policy": "m7b_shuffle", "success_rate": 0.55},
+            {"policy": "m8", "success_rate": 0.51},
+            {"policy": "m8_noact", "success_rate": 0.51},
+            {"policy": "m8_shuffle", "success_rate": 0.51},
+        ]
+    )
+    obstacle_labels = pd.DataFrame(
+        [
+            {"policy": "m7a", "obstacle_label": "aes_feasible", "high_sideslip_fraction_mean": 0.08},
+            {"policy": "m7b", "obstacle_label": "aes_feasible", "high_sideslip_fraction_mean": 0.09},
+            {"policy": "m8", "obstacle_label": "aes_feasible", "high_sideslip_fraction_mean": 0.16},
+        ]
+    )
+    probe = pd.DataFrame(
+        [
+            {"target": "mu_bucket", "feature_set": "latent", "test_accuracy": 0.80},
+            {"target": "mu_bucket", "feature_set": "shuffled_history_latent", "test_accuracy": 0.60},
+        ]
+    )
+
+    summary = compute_gate_summary(
+        comparison=comparison,
+        ablation=ablation,
+        obstacle_labels=obstacle_labels,
+        m7a_probe=probe,
+        m7b_probe=probe,
+        driver_probe=probe,
+        required_policy="m8",
+        min_success_delta=0.02,
+        min_ablation_drop=0.02,
+        max_aes_feasible_high_sideslip=0.15,
+        min_probe_temporal_lift=0.02,
+    )
+
+    assert summary["status"] == "needs_iteration"
+    assert summary["metrics"]["selected_policy"] == "m8"
+    assert not summary["checks"]["success_beats_m5"]
+    assert not summary["checks"]["ablation_drop_present"]
+    assert not summary["checks"]["aes_feasible_sideslip_ok"]
+
+
 def test_max_temporal_probe_lift_uses_best_target_difference():
     frame = pd.DataFrame(
         [

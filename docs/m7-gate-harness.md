@@ -58,6 +58,14 @@ For a short command-path check:
 make m7-gate-smoke
 ```
 
+To require a new recurrent driver candidate such as M8, pass a driver
+checkpoint. The gate still reports M7-A and M7-B as baselines, but the pass/fail
+checks are evaluated on the named driver:
+
+```bash
+make m8-driver-gate-smoke
+```
+
 Current result:
 
 | check | result |
@@ -101,3 +109,10 @@ they still do not prove driver-like closed-loop adaptation.
 
 This is the intended behavior of the harness: it should prevent a small success
 rate improvement from being mistaken for a validated self-identifying operator.
+
+The first M8 smoke checkpoint is also rejected on the same label-balanced corpus
+with probes skipped: success is 0.600 versus M5/M7 at 0.700, action/history
+ablation drop is 0.000, and probes still need to run after real training. Its
+useful signal is narrower: `aes_feasible` high-sideslip fraction drops to 0.000,
+which suggests the stable-AES shaping is pointing in the intended direction
+while the recurrent policy itself remains untrained.

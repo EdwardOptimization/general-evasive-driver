@@ -11,8 +11,11 @@ M7_EPISODES ?= 100
 M7_PROBE_EPISODES ?= 100
 M7_PROBE_EPOCHS ?= 160
 M7_DEVICE ?= cpu
+M8_DRIVER_NAME ?= m8
+M8_CHECKPOINT ?= runs/ppo_m8_temporal_gru_smoke/checkpoint.pt
+M8_GATE_RUN_DIR ?= runs/m8_driver_gate_corpus_smoke
 
-.PHONY: env-create env-create-cpu env-update env-update-cpu torch-gpu torch-cpu test test-light check-diff hooks-install eval-heuristic train-smoke benchmark-smoke rollout-smoke m7-corpus m7-gate-smoke m7-gate clean
+.PHONY: env-create env-create-cpu env-update env-update-cpu torch-gpu torch-cpu test test-light check-diff hooks-install eval-heuristic train-smoke benchmark-smoke rollout-smoke m7-corpus m7-gate-smoke m7-gate m8-driver-gate-smoke m8-driver-gate clean
 
 env-create:
 	mamba env create -f environment-gpu.yml -y
@@ -93,6 +96,35 @@ m7-gate: m7-corpus
 		--probe-epochs $(M7_PROBE_EPOCHS) \
 		--device $(M7_DEVICE) \
 		--run-dir $(M7_GATE_RUN_DIR)
+
+m8-driver-gate-smoke: m7-corpus
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m autodrift.m7_gate \
+		--env-config $(M7_ENV_CONFIG) \
+		--seed-csv $(M7_SEED_CSV) \
+		--episodes $(M7_EPISODES) \
+		--seed 900 \
+		--probe-episodes 6 \
+		--probe-seed 1200 \
+		--probe-epochs 20 \
+		--device $(M7_DEVICE) \
+		--run-dir $(M8_GATE_RUN_DIR) \
+		--skip-probes \
+		--driver-checkpoint $(M8_CHECKPOINT) \
+		--driver-name $(M8_DRIVER_NAME)
+
+m8-driver-gate: m7-corpus
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m autodrift.m7_gate \
+		--env-config $(M7_ENV_CONFIG) \
+		--seed-csv $(M7_SEED_CSV) \
+		--episodes $(M7_EPISODES) \
+		--seed 900 \
+		--probe-episodes $(M7_PROBE_EPISODES) \
+		--probe-seed 1200 \
+		--probe-epochs $(M7_PROBE_EPOCHS) \
+		--device $(M7_DEVICE) \
+		--run-dir $(M8_GATE_RUN_DIR) \
+		--driver-checkpoint $(M8_CHECKPOINT) \
+		--driver-name $(M8_DRIVER_NAME)
 
 clean:
 	rm -rf build dist *.egg-info .pytest_cache .ruff_cache .mypy_cache

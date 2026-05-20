@@ -346,8 +346,12 @@ Exit criteria:
 Status: infrastructure started. `configs/ppo_m8_temporal_gru_driver.json` adds
 the first temporal-GRU driver baseline and stable-AES reward shaping. A 512-step
 smoke run initialized from the M7-A checkpoint passed the train/save/load/eval
-path with `load_mode=new_temporal_encoder`, but the smoke checkpoint terminates
-quickly and is not a performance result. See
+path with `load_mode=new_temporal_encoder`. The gate harness can now take an
+M8 driver checkpoint as the required candidate while keeping M5/M7-A/M7-B as
+baselines. The smoke checkpoint is correctly rejected on the label-balanced
+corpus: success is 0.600 versus M5/M7 at 0.700, ablation drop is 0.000, and
+probes were skipped. Its useful signal is only that stable-AES high-sideslip
+falls to 0.000; it is not a performance result. See
 `docs/m8-rl-professional-driver.md`.
 
 ## Metrics
