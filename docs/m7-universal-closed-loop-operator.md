@@ -1,0 +1,156 @@
+# M7 Universal Closed-Loop RL Operator
+
+Last updated: 2026-05-21
+
+## Purpose
+
+The next project stage is to turn the current task-specific RL checkpoints into
+a general vehicle operator. The target is not a controller tuned for one car or
+one road surface. The target is a closed-loop policy that can stabilize and
+avoid obstacles across changing vehicle mass, CG, tire grip, braking authority,
+steering response, actuator lag, and road friction.
+
+The deployment controller should behave like a trained operator:
+
+```text
+sensor and action history
+  -> RL operator
+  -> steering and throttle/brake commands
+  -> vehicle response
+  -> updated sensor and action history
+```
+
+The actor should not depend on explicit rule branches such as "if slip is high,
+then counter-steer." It should learn continuous feedback corrections from the
+observed vehicle response and its own recent actions.
+
+## Core Principle
+
+The main controller is a neural closed-loop policy, not a rule selector.
+
+Rules are allowed in:
+
+- scenario generation;
+- reward and termination definitions;
+- evaluation labels and benchmark buckets;
+- offline diagnostics;
+- safety monitoring and fallback reporting.
+
+Rules should not be the deployed driving logic. A safety monitor can reject or
+log obviously unsafe behavior, but it should not become the normal AES/drift
+avoidance controller. The policy itself must learn how to recover from the
+vehicle's feedback.
+
+## Operator Interface
+
+The operator receives observations that are available from sensing and recent
+control history:
+
+- body-frame velocities, yaw rate, sideslip estimate, steering state, and drive
+  or brake state;
+- path or obstacle-relative features;
+- previous steering and throttle/brake commands;
+- short history of states, actions, and resulting motion.
+
+The operator outputs continuous low-level commands:
+
+- normalized steering command;
+- normalized throttle/brake command.
+
+This keeps the control loop direct:
+
+```text
+observation history -> actor -> [steer, drive/brake]
+```
+
+There is no required intermediate path planner and no required NMPC layer
+between the actor and the vehicle dynamics. Model-based controllers remain
+benchmarks, safety filters, or fallback components, not the main research
+mechanism.
+
+## Training Direction
+
+M7 should replace single-frame decision making with response-based adaptation.
+
+Recommended implementation order:
+
+1. Add history-stacked M5 obstacle training.
+2. Add recurrent actor support, starting with GRU or a compact temporal
+   convolution.
+3. Add asymmetric PPO: the actor sees deployable observations only, while the
+   critic may see privileged training-only parameters.
+4. Increase domain randomization for vehicle and actuator properties.
+5. Add holdout benchmark suites for unseen vehicle families and friction
+   profiles.
+
+The actor should infer hidden dynamics from feedback instead of receiving true
+parameters directly. Privileged parameters are useful for the critic and for
+teacher policies, but the deployed actor should not require them.
+
+## Domain Randomization Targets
+
+The current project already randomizes friction, mass scale, CG shift, tire
+stiffness scale, actuator lag, speed targets, beta targets, and obstacle
+geometry. M7 should extend this into a broader vehicle-family distribution:
+
+- mass and yaw inertia;
+- front/rear CG distribution;
+- wheelbase and track width;
+- maximum brake force;
+- front/rear brake balance;
+- front/rear tire stiffness and peak friction;
+- tire relaxation or lag;
+- steering rate limit and steering actuator delay;
+- drive force delay and brake pressure delay;
+- sensor noise and latency;
+- split-mu and time-varying friction;
+- road slope or external disturbances.
+
+The goal is to make the policy learn feedback correction, not to memorize a
+single nominal model.
+
+## Benchmark Requirements
+
+M7 must be evaluated on held-out combinations that were not used for training:
+
+- light and heavy vehicles;
+- front-heavy and rear-heavy vehicles;
+- weak-brake and strong-brake vehicles;
+- slow-steering and fast-steering vehicles;
+- high-grip, low-grip, split-mu, and friction-step roads;
+- obstacle cases where AEB is infeasible and conventional AES is marginal.
+
+Report the same metrics as M5/M6, grouped by hidden vehicle and road buckets:
+
+- success rate;
+- collision rate;
+- obstacle completion rate;
+- minimum obstacle clearance;
+- lateral RMSE and peak lateral error;
+- sideslip error;
+- speed;
+- termination/spin/off-track rate.
+
+The key claim should be narrow: the project should only claim a general operator
+when the same actor succeeds on held-out vehicle and road families.
+
+## Acceptance Criteria
+
+M7 is successful when:
+
+- the actor uses history or recurrence rather than only a single frame;
+- the actor does not receive true friction, mass, CG, tire, or brake parameters
+  at deployment time;
+- the same checkpoint outperforms AEB-only, heuristic AES, and model-based
+  envelope baselines on held-out AEB-infeasible obstacle scenarios;
+- low-friction and vehicle-variation failures are reported by bucket rather
+  than hidden inside an aggregate score;
+- safety/fallback logic is clearly separated from the main RL controller.
+
+## Current Status
+
+The current M5 checkpoint is a task-specific prototype, not yet a universal
+operator. It demonstrates that direct RL control can outperform AEB, heuristic
+AES, and the friction-envelope AES baseline on the current `drift_required`
+benchmark. The next step is to make the policy adaptive through history,
+recurrence, and broader vehicle-family randomization.

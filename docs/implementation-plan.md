@@ -69,6 +69,23 @@ NMPC or SQP controller
 NMPC is not the first main controller in this project; it is a baseline and a
 possible safety/filter layer after the RL-first result exists.
 
+The long-term controller target is a universal closed-loop RL operator:
+
+```text
+sensor/action history
+  -> RL actor
+  -> steering/throttle/brake
+  -> vehicle response
+  -> updated sensor/action history
+```
+
+The deployed actor should not depend on explicit rule branches or true hidden
+vehicle parameters. It should infer friction, braking authority, tire response,
+mass/CG variation, and actuator lag from recent feedback and its own previous
+actions. Rules remain useful for scenario generation, reward shaping, benchmark
+labels, diagnostics, and safety monitoring, but they should not become the
+normal driving policy. See `docs/m7-universal-closed-loop-operator.md`.
+
 ## Complete Project Deliverables
 
 - `autodrift` Python package with simulator, tasks, policies, training, and
@@ -248,6 +265,29 @@ Status: first pass complete. `envelope_aes` is implemented as a fixed
 friction-envelope AES baseline. On the 100-episode `drift_required` benchmark it
 reaches 79% success, beating heuristic AES but trailing the RL checkpoint's 86%
 success. See `docs/m6-model-based-baselines.md`.
+
+### M7: Build the Universal Closed-Loop RL Operator
+
+- Upgrade the M5 obstacle policy from single-frame inference to history-stacked
+  or recurrent inference.
+- Keep the deployed actor parameter-blind: no true `mu`, mass, CG, tire, or
+  brake parameters as actor inputs.
+- Use asymmetric PPO or teacher-student training so privileged parameters can
+  help training without becoming deployment dependencies.
+- Broaden domain randomization across vehicle family, actuator, tire, brake,
+  sensor, and road-surface variation.
+- Add held-out vehicle and friction benchmark suites.
+
+Exit criteria:
+
+- one actor checkpoint runs directly as `[steer, drive/brake]` control across
+  held-out vehicle and road families;
+- it outperforms AEB-only, heuristic AES, and model-based envelope baselines on
+  AEB-infeasible obstacle scenarios;
+- failure modes are reported by hidden vehicle and road buckets;
+- safety/fallback logic is separated from the main RL controller.
+
+Status: planned. See `docs/m7-universal-closed-loop-operator.md`.
 
 ## Metrics
 

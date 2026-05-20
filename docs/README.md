@@ -1,6 +1,6 @@
 # AutoDrift Research Notes
 
-Last updated: 2026-05-20
+Last updated: 2026-05-21
 
 This folder collects the initial literature package for the AutoDrift project.
 The current focus is autonomous drifting with reinforcement learning, learned
@@ -21,6 +21,15 @@ vehicle/tire models, and NMPC-style constrained control.
   result.
 - `m3-friction-adaptation-plan.md`: friction-step adaptation task definition
   and baseline result.
+- `m4-general-path-tracking.md`: figure-eight transition tracking results and
+  segment diagnostics.
+- `m5-emergency-avoidance.md`: AEB-infeasible obstacle-avoidance task,
+  baselines, and RL results.
+- `m6-model-based-baselines.md`: fixed friction-envelope AES baseline and
+  comparison against RL.
+- `m7-universal-closed-loop-operator.md`: next-stage closed-loop RL operator
+  direction for vehicle, tire, brake, actuator, and road generalization.
+- `mvp-status.md`: engineering MVP completion audit.
 
 ## Scope Rule
 
@@ -28,8 +37,10 @@ The notes distinguish three roles:
 
 - model-based control and NMPC for online constraint handling;
 - learned tire, thermal, residual, or diffusion models for improving prediction;
-- RL policies for reference-free waypoint behavior, residual decisions, or high-level
-  strategy, rather than as the first replacement for all solver logic.
+- RL policies as the primary closed-loop operator for AEB-infeasible emergency
+  avoidance and drift control;
+- model-based control and NMPC as baselines, safety monitors, or fallback
+  layers, rather than mandatory online control layers.
 
 Full extracted paper text is not stored in this repository. Temporary extraction was
 used only for reading and summarization.
