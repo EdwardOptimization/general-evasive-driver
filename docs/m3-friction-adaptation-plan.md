@@ -28,12 +28,14 @@ This config enables:
 Training templates:
 
 ```text
+configs/ppo_m3_single_frame_friction_step.json
 configs/ppo_m3_history_friction_step.json
 configs/ppo_m3_privileged_friction_step.json
 ```
 
-The history config is the student-facing path. The privileged config is the
-teacher/reference path and exposes hidden vehicle parameters including `mu`.
+The single-frame config is the fine-tuning baseline. The history config is the
+student-facing path. The privileged config is the teacher/reference path and
+exposes hidden vehicle parameters including `mu`.
 
 ## M2 Checkpoint On M3 Task
 
@@ -79,6 +81,28 @@ Interpretation:
   starts high-mu and transitions downward.
 - M3 should train on friction-step episodes and compare:
   single-frame policy, history-stacked policy, and privileged teacher policy.
+
+## First M3 Training Attempts
+
+Initial 1M-step M3 policies trained directly on the friction-step task did not
+beat the M2 checkpoint baseline.
+
+| run | observation | initialization | episodes | success_rate | return_mean |
+| --- | --- | --- | ---: | ---: | ---: |
+| `runs/benchmark_m3_friction_step_m2_checkpoint_100eval` | single-frame | M2 checkpoint, no M3 training | 100 | 0.770 | 979.15 |
+| `runs/benchmark_ppo_m3_history_seed31_100eval` | history length 4 | scratch | 100 | 0.410 | 514.76 |
+| `runs/benchmark_ppo_m3_privileged_seed37_100eval` | privileged params | scratch | 100 | 0.430 | 568.94 |
+| `runs/benchmark_ppo_m3_single_frame_seed41_100eval` | single-frame | M2 checkpoint fine-tune | 100 | 0.730 | 952.85 |
+
+Takeaway:
+
+- Friction-step adaptation is not solved by simply adding history or privileged
+  observations to a from-scratch PPO run.
+- Directly fine-tuning the M2 policy on friction-step episodes also did not
+  improve the benchmark.
+- The next useful experiment is a staged M3 curriculum: static recovery,
+  high/medium friction-step, low final-mu focus, then base friction-step
+  recovery, mirroring the M2 low-mu/base recovery pattern.
 
 ## Exit Criteria
 

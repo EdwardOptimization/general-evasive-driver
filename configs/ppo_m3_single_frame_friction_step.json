@@ -1,0 +1,31 @@
+{
+  "ppo": {
+    "total_steps": 500000,
+    "rollout_steps": 256,
+    "num_envs": 16,
+    "minibatch_size": 1024,
+    "log_std_init": -1.0,
+    "log_std_max": -0.5,
+    "eval_episodes": 10,
+    "seed": 41,
+    "device": "auto"
+  },
+  "env": {
+    "track_width": 5.0,
+    "speed_range": [5.0, 12.0],
+    "beta_target_range": [0.32, 0.70],
+    "friction_step": {
+      "enabled": true,
+      "step_range": [250, 550],
+      "mu_range": [0.25, 1.15],
+      "resample_speed_ref": true
+    },
+    "randomization": {
+      "mu_range": [0.25, 1.15],
+      "mass_scale_range": [0.85, 1.20],
+      "cg_shift_range": [-0.12, 0.12],
+      "tire_stiffness_scale_range": [0.65, 1.35],
+      "actuator_tau_scale_range": [0.75, 1.75]
+    }
+  }
+}
