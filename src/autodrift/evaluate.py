@@ -31,7 +31,9 @@ CHECKPOINT_ABLATIONS = (
 
 def load_env_config(path: Path) -> DriftEnvConfig:
     data = json.loads(path.read_text(encoding="utf-8"))
-    return build_env_config(data.get("env", data))
+    if "env" not in data:
+        raise ValueError(f"{path} is missing required top-level 'env' config")
+    return build_env_config(data["env"])
 
 
 class ActorPolicy(Policy):

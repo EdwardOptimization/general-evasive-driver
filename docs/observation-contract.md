@@ -18,6 +18,11 @@ Actor input/output contract changes invalidate old checkpoints. This project
 does not keep observation-shape compatibility shims; the correct migration is a
 new clean run.
 
+Checkpoint loading is also strict. Saved checkpoints must explicitly declare
+the actor encoder, actor history length, sequence horizon, response-prediction
+dimension, and log-std bounds in their config. The loader must fail on missing
+model-contract fields instead of inferring them from old weight shapes.
+
 The only supported action-history modes are `full` and `none`. The clean driver
 default is `full`, which exposes both previous steering and previous
 drive/brake command. The old one-channel action-history mode is removed.

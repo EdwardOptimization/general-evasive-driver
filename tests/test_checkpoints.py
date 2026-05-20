@@ -6,13 +6,28 @@ from autodrift.env import DriftEnvConfig
 from autodrift.train_ppo import ActorCritic, build_sequence_targets, evaluate_actor, load_init_checkpoint_state
 
 
-def test_actor_critic_checkpoint_loads_from_shape(tmp_path):
+def model_config(**overrides):
+    config = {
+        "device": "cpu",
+        "actor_encoder": "mlp",
+        "actor_history_length": 1,
+        "action_sequence_horizon": 1,
+        "response_prediction_dim": 0,
+        "log_std_init": -1.0,
+        "log_std_min": -5.0,
+        "log_std_max": -0.5,
+    }
+    config.update(overrides)
+    return config
+
+
+def test_actor_critic_checkpoint_loads_from_explicit_model_config(tmp_path):
     model = ActorCritic(obs_dim=13, act_dim=2, hidden_size=16)
     checkpoint_path = tmp_path / "checkpoint.pt"
     torch.save(
         {
             "model_state": {key: value.detach().cpu() for key, value in model.state_dict().items()},
-            "config": {"device": "cpu"},
+            "config": model_config(),
         },
         checkpoint_path,
     )
@@ -26,13 +41,28 @@ def test_actor_critic_checkpoint_loads_from_shape(tmp_path):
     assert np.isfinite(value)
 
 
+def test_actor_critic_checkpoint_rejects_missing_model_config_keys(tmp_path):
+    model = ActorCritic(obs_dim=13, act_dim=2, hidden_size=16)
+    checkpoint_path = tmp_path / "checkpoint.pt"
+    torch.save(
+        {
+            "model_state": {key: value.detach().cpu() for key, value in model.state_dict().items()},
+            "config": {"device": "cpu"},
+        },
+        checkpoint_path,
+    )
+
+    with np.testing.assert_raises(RuntimeError):
+        load_actor_critic_checkpoint(checkpoint_path, device="cpu")
+
+
 def test_init_checkpoint_rejects_different_observation_contract(tmp_path):
     source = ActorCritic(obs_dim=13, act_dim=2, hidden_size=16)
     checkpoint_path = tmp_path / "checkpoint.pt"
     torch.save(
         {
             "model_state": {key: value.detach().cpu() for key, value in source.state_dict().items()},
-            "config": {"device": "cpu"},
+            "config": model_config(),
         },
         checkpoint_path,
     )
@@ -49,7 +79,7 @@ def test_sequence_actor_checkpoint_loads_and_predicts_plan(tmp_path):
     torch.save(
         {
             "model_state": {key: value.detach().cpu() for key, value in model.state_dict().items()},
-            "config": {"device": "cpu", "action_sequence_horizon": 4},
+            "config": model_config(action_sequence_horizon=4),
         },
         checkpoint_path,
     )
@@ -69,7 +99,7 @@ def test_temporal_gru_actor_checkpoint_loads_and_exposes_latent(tmp_path):
     torch.save(
         {
             "model_state": {key: value.detach().cpu() for key, value in model.state_dict().items()},
-            "config": {"device": "cpu", "actor_encoder": "temporal_gru", "actor_history_length": 4},
+            "config": model_config(actor_encoder="temporal_gru", actor_history_length=4),
         },
         checkpoint_path,
     )
@@ -91,7 +121,7 @@ def test_online_gru_actor_checkpoint_loads_and_updates_hidden(tmp_path):
     torch.save(
         {
             "model_state": {key: value.detach().cpu() for key, value in model.state_dict().items()},
-            "config": {"device": "cpu", "actor_encoder": "online_gru", "actor_history_length": 1},
+            "config": model_config(actor_encoder="online_gru", actor_history_length=1),
         },
         checkpoint_path,
     )
@@ -144,13 +174,13 @@ def test_online_gru_response_prediction_head_uses_recurrent_history():
     assert float(obs.grad[0].abs().sum()) > 0.0
 
 
-def test_response_prediction_checkpoint_loads_optional_head(tmp_path):
+def test_response_prediction_checkpoint_loads_declared_head(tmp_path):
     model = ActorCritic(obs_dim=5, act_dim=2, hidden_size=8, actor_encoder="online_gru", response_prediction_dim=3)
     checkpoint_path = tmp_path / "checkpoint.pt"
     torch.save(
         {
             "model_state": {key: value.detach().cpu() for key, value in model.state_dict().items()},
-            "config": {"device": "cpu", "actor_encoder": "online_gru", "response_prediction_dim": 3},
+            "config": model_config(actor_encoder="online_gru", response_prediction_dim=3),
         },
         checkpoint_path,
     )
@@ -190,7 +220,7 @@ def test_init_checkpoint_rejects_old_temporal_driver_observation_contract(tmp_pa
     torch.save(
         {
             "model_state": {key: value.detach().cpu() for key, value in source.state_dict().items()},
-            "config": {"device": "cpu", "actor_encoder": "temporal_gru", "actor_history_length": 4},
+            "config": model_config(actor_encoder="temporal_gru", actor_history_length=4),
         },
         checkpoint_path,
     )

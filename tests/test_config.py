@@ -1,4 +1,5 @@
 from autodrift.config import build_curriculum, build_env_config, env_config_for_step
+from autodrift.evaluate import load_env_config
 
 
 def test_build_env_config_overrides_nested_randomization():
@@ -87,6 +88,18 @@ def test_build_env_config_rejects_legacy_action_history_mode():
         assert "action_history_mode" in str(exc)
     else:
         raise AssertionError("legacy action history mode should be rejected")
+
+
+def test_load_env_config_requires_explicit_env_section(tmp_path):
+    path = tmp_path / "raw-env.json"
+    path.write_text('{"track_width": 7.0}', encoding="utf-8")
+
+    try:
+        load_env_config(path)
+    except ValueError as exc:
+        assert "top-level 'env'" in str(exc)
+    else:
+        raise AssertionError("raw env-root config should be rejected")
 
 
 def test_curriculum_selects_stage_before_base():

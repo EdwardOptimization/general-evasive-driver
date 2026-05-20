@@ -760,7 +760,11 @@ def main() -> None:
     raw_config = {}
     if args.config is not None:
         raw_config = read_json(args.config)
-        ppo_config = raw_config.get("ppo", raw_config)
+        if "ppo" not in raw_config:
+            raise ValueError(f"{args.config} is missing required top-level 'ppo' config")
+        if "env" not in raw_config:
+            raise ValueError(f"{args.config} is missing required top-level 'env' config")
+        ppo_config = raw_config["ppo"]
         for key in config_data:
             if key in ppo_config:
                 config_data[key] = ppo_config[key]

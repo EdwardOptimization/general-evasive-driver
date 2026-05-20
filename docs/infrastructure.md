@@ -59,6 +59,15 @@ Checkpoint initialization is strict. If the actor observation or action contract
 changes, old checkpoints are historical artifacts and must not be shape-adapted
 into the new policy.
 
+Checkpoint loading is strict too: the checkpoint config must explicitly declare
+the model contract. Missing actor encoder, history length, action-sequence
+horizon, response-prediction dimension, or log-std bounds is a load failure, not
+a compatibility fallback.
+
+Experiment config files are explicit as well. Training configs must have
+top-level `ppo` and `env` sections. Evaluation configs must have a top-level
+`env` section; raw env-root JSON is not accepted.
+
 Latent probing writes:
 
 - `samples.csv`: frozen rollout sample metadata and hidden bucket labels.
