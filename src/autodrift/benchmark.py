@@ -79,6 +79,16 @@ def parse_checkpoint_specs(specs: list[str] | None) -> list[tuple[str, Path, str
     return parsed
 
 
+def load_seed_csv(path: Path) -> list[int]:
+    frame = pd.read_csv(path)
+    if "seed" not in frame.columns:
+        raise ValueError(f"seed CSV must contain a 'seed' column: {path}")
+    seeds = [int(seed) for seed in frame["seed"].tolist()]
+    if not seeds:
+        raise ValueError(f"seed CSV is empty: {path}")
+    return seeds
+
+
 def build_segment_frame(frame: pd.DataFrame) -> pd.DataFrame:
     rows = []
     for _, source in frame.iterrows():
@@ -143,6 +153,7 @@ def main() -> None:
     )
     parser.add_argument("--episodes", type=int, default=10)
     parser.add_argument("--seed", type=int, default=7)
+    parser.add_argument("--seed-csv", type=Path, default=None)
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="auto")
     parser.add_argument("--run-dir", type=Path, default=None)
     parser.add_argument("--env-config", type=Path, default=None)
@@ -153,17 +164,20 @@ def main() -> None:
     env_config = None
     if args.env_config is not None:
         env_config = load_env_config(args.env_config)
+    seed_list = load_seed_csv(args.seed_csv) if args.seed_csv is not None else None
+    episodes = len(seed_list) if seed_list is not None else args.episodes
     all_rows = []
     policy_summaries = {}
 
     for policy in [policy for policy in args.policies if policy != "checkpoint"]:
         rows, summary = evaluate_policy(
             policy_name=policy,
-            episodes=args.episodes,
+            episodes=episodes,
             seed=args.seed,
             checkpoint=args.checkpoint,
             device=args.device,
             env_config=env_config,
+            seeds=seed_list,
         )
         all_rows.extend(rows)
         policy_summaries[policy] = summary
@@ -175,12 +189,13 @@ def main() -> None:
     for label, checkpoint_path, ablation in checkpoint_specs:
         rows, summary = evaluate_policy(
             policy_name="checkpoint",
-            episodes=args.episodes,
+            episodes=episodes,
             seed=args.seed,
             checkpoint=checkpoint_path,
             device=args.device,
             env_config=env_config,
             checkpoint_ablation=ablation,
+            seeds=seed_list,
         )
         for row in rows:
             row["policy"] = label
@@ -238,8 +253,9 @@ def main() -> None:
             "checkpoint_policies": {
                 label: {"path": path, "ablation": ablation} for label, path, ablation in checkpoint_specs
             },
-            "episodes": args.episodes,
+            "episodes": episodes,
             "seed": args.seed,
+            "seed_csv": args.seed_csv,
             "device": args.device,
             "env_config": args.env_config,
             "artifacts": {

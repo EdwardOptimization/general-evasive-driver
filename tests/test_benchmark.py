@@ -2,7 +2,7 @@ import pandas as pd
 
 from pathlib import Path
 
-from autodrift.benchmark import add_buckets, build_segment_frame, parse_checkpoint_specs, summarize_segments
+from autodrift.benchmark import add_buckets, build_segment_frame, load_seed_csv, parse_checkpoint_specs, summarize_segments
 
 
 def test_segment_summary_uses_per_episode_segment_metrics():
@@ -105,3 +105,10 @@ def test_parse_checkpoint_specs_accepts_shuffled_history_ablation():
     assert parse_checkpoint_specs(["m7a_shuffle=runs/a.pt@shuffled_history"]) == [
         ("m7a_shuffle", Path("runs/a.pt"), "shuffled_history")
     ]
+
+
+def test_load_seed_csv_reads_seed_column(tmp_path):
+    path = tmp_path / "seeds.csv"
+    path.write_text("seed,obstacle_label\n12,aes_feasible\n15,drift_required\n", encoding="utf-8")
+
+    assert load_seed_csv(path) == [12, 15]

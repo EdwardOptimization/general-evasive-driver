@@ -177,6 +177,20 @@ The probe writes `samples.csv`, `probe_summary.csv`, `summary.json`, and a
 manifest. These artifacts are diagnostics only; no probe output is used by the
 actor.
 
+The full M7 gate can be run as:
+
+```bash
+python -m autodrift.m7_gate \
+  --env-config configs/m7_obstacle_aes_weighted_holdout_eval.json \
+  --seed-csv runs/<scenario_corpus>/scenario_corpus.csv \
+  --episodes 100 \
+  --probe-episodes 100
+```
+
+The gate writes a single `gate_summary.md` and `summary.json` that combine
+baseline comparison, history ablation, stable-AES behavior, and latent-probe
+checks.
+
 Useful evidence is not just high probe accuracy. The stronger result is that
 probe accuracy and control success both degrade when action history or temporal
 order is removed.

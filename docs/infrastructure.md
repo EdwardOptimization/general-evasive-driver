@@ -18,6 +18,9 @@ The repository now has enough project infrastructure for iterative development:
 - Shared-seed benchmark CLI for policy comparisons.
 - Checkpoint observation ablations for M7 validation.
 - Frozen-rollout latent probe CLI for hidden-condition diagnostics.
+- Label-balanced scenario corpus CLI for fixed benchmark seed sets.
+- M7 gate CLI that runs benchmark comparison, history ablation, and latent
+  probes into one report.
 - Rollout trace and plot generation for selected policy episodes.
 - Machine-readable outputs for later reports.
 
@@ -51,6 +54,24 @@ Latent probing writes:
 - `samples.csv`: frozen rollout sample metadata and hidden bucket labels.
 - `probe_summary.csv`: probe accuracy by target and feature set.
 - `summary.json`: compact machine-readable result summary.
+- `manifest.json`: artifact index.
+
+Scenario corpus generation writes:
+
+- `scenario_corpus.csv`: selected deterministic scenario seeds and hidden
+  condition metadata.
+- `label_summary.csv`: obstacle-label counts.
+- `vehicle_road_summary.csv`: hidden bucket counts.
+- `summary.json`: compact machine-readable result summary.
+- `manifest.json`: artifact index.
+
+M7 gate writes:
+
+- `benchmark_comparison/`: shared-seed AEB/AES/envelope/M5/M7 comparison.
+- `history_ablation/`: no-action, single-frame, and shuffled-history ablation.
+- `latent_probe_m7a/` and `latent_probe_m7b/`: frozen rollout probe outputs.
+- `gate_summary.md`: human-readable gate report.
+- `summary.json`: pass/fail checks and key metrics.
 - `manifest.json`: artifact index.
 
 ## Commands
@@ -94,6 +115,24 @@ PYTHONPATH=src python -m autodrift.latent_probe \
   --checkpoint runs/<run>/checkpoint.pt \
   --env-config configs/m7_obstacle_aes_weighted_holdout_eval.json \
   --episodes 100
+```
+
+Build a label-balanced M7 scenario corpus:
+
+```bash
+PYTHONPATH=src python -m autodrift.scenario_corpus \
+  --env-config configs/m7_obstacle_aes_weighted_holdout_eval.json \
+  --per-label 20
+```
+
+Run the complete M7 validation gate:
+
+```bash
+PYTHONPATH=src python -m autodrift.m7_gate \
+  --env-config configs/m7_obstacle_aes_weighted_holdout_eval.json \
+  --seed-csv runs/<scenario_corpus>/scenario_corpus.csv \
+  --episodes 100 \
+  --probe-episodes 100
 ```
 
 Trace and plot selected rollouts:

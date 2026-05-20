@@ -215,6 +215,7 @@ def evaluate_policy(
     device: str = "auto",
     env_config: DriftEnvConfig | None = None,
     checkpoint_ablation: str = "none",
+    seeds: list[int] | None = None,
 ) -> tuple[list[dict], dict[str, float | int | str]]:
     if checkpoint_ablation not in {"none", "zero_action_history", "single_frame_history", "shuffled_history"}:
         raise ValueError(f"unknown checkpoint_ablation: {checkpoint_ablation}")
@@ -237,8 +238,8 @@ def evaluate_policy(
         actor_policy = ActorPolicy(model, resolved_env_config, ablation=checkpoint_ablation)
 
     rows = []
-    for episode in range(episodes):
-        episode_seed = seed + episode
+    episode_seeds = list(seeds) if seeds is not None else [seed + episode for episode in range(episodes)]
+    for episode_seed in episode_seeds:
         if actor_policy is not None:
             row = run_episode_with_policy(env, actor_policy, policy_name, episode_seed)
         else:

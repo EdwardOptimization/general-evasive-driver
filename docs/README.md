@@ -36,6 +36,8 @@ vehicle/tire models, and NMPC-style constrained control.
   diagnostics needed to prove an M7 policy is effective.
 - `m7-first-stage-results.md`: first M7 training, benchmark, ablation,
   latent-probe, negative results, and remaining validation gaps.
+- `m7-gate-harness.md`: repeatable M7 gate and label-balanced scenario corpus
+  commands.
 - `mvp-status.md`: engineering MVP completion audit.
 
 ## Scope Rule
