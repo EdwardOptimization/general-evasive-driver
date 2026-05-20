@@ -420,26 +420,26 @@ only slightly worse than normal M16. The next hypothesis is to add a deployable
 response-prediction auxiliary loss so hidden state is explicitly trained to
 encode how the vehicle reacts over time.
 
-## 20260520T200959Z m15-obstacle-aligned-perturbation-sampler
+## m17-response-prediction-aux
 
-- status: `completed`
+- status: `pending`
 - kind: `training`
-- hypothesis: Train with friction-step timing sampled from accepted obstacle geometry so late perturbations stay strict and feasible
-- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m15_obstacle_aligned_recurrent_driver.json --seed 619 --device cuda --run-dir runs/ppo_m15_obstacle_aligned_recurrent_seed619`
-- returncode: `0`
-- run dir: `runs/research/m15-obstacle-aligned-perturbation-sampler_20260520T200628Z`
-- command log: `runs/research/m15-obstacle-aligned-perturbation-sampler_20260520T200628Z/command.log`
-- success artifact: `runs/ppo_m15_obstacle_aligned_recurrent_seed619/checkpoint.pt`
-- notes: M14 reset-hidden beats normal recurrent inference so align training timing with the M13 gate instead of forcing early friction steps
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m17_response_aux_recurrent_driver.json --seed 733 --device cuda --run-dir runs/ppo_m17_response_aux_recurrent_seed733`
+- success artifact: `runs/ppo_m17_response_aux_recurrent_seed733/checkpoint.pt`
 
-## 20260520T210114Z m16-sequence-recurrent-ppo
+Infrastructure change: `response_prediction_aux_coef` adds a deployable
+auxiliary target for online GRU sequence training. The head predicts the next
+observation's response features `[vx, vy, yaw_rate, steer_state,
+drive_brake_state]` from current recurrent feature and executed action, masked
+across done transitions. It does not use hidden simulator parameters, labels,
+controller modes, or feasibility oracles.
 
-- status: `completed`
-- kind: `training`
-- hypothesis: Train online GRU hidden dynamics with sequence backpropagation instead of detached per-step hidden replay
-- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m16_sequence_recurrent_driver.json --seed 733 --device cuda --run-dir runs/ppo_m16_sequence_recurrent_seed733`
-- returncode: `0`
-- run dir: `runs/research/m16-sequence-recurrent-ppo_20260520T201650Z`
-- command log: `runs/research/m16-sequence-recurrent-ppo_20260520T201650Z/command.log`
-- success artifact: `runs/ppo_m16_sequence_recurrent_seed733/checkpoint.pt`
-- notes: M15 response features matter but hidden reset still beats normal recurrent inference
+Smoke result:
+
+- seed 809 smoke: rejected as a poor random-initialization comparison,
+  termination rate 1.000 after one update;
+- seed 733 smoke: `runs/ppo_m17_response_aux_smoke_seed733`;
+- eval return mean: 83.418;
+- eval steps mean: 67.500;
+- eval termination rate: 0.000;
+- eval lateral RMSE mean: 0.258.

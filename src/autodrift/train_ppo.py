@@ -47,6 +47,8 @@ class PPOConfig:
     action_sequence_horizon: int = 1
     sequence_aux_coef: float = 0.0
     recurrent_sequence_training: bool = False
+    response_prediction_aux_coef: float = 0.0
+    response_prediction_dim: int = 0
     seed: int = 5
     device: str = "auto"
 
@@ -63,10 +65,13 @@ class ActorCritic(nn.Module):
         actor_encoder: str = "mlp",
         actor_history_length: int = 1,
         action_sequence_horizon: int = 1,
+        response_prediction_dim: int = 0,
     ):
         super().__init__()
         if action_sequence_horizon < 1:
             raise ValueError("action_sequence_horizon must be at least 1")
+        if response_prediction_dim < 0:
+            raise ValueError("response_prediction_dim cannot be negative")
         if actor_encoder not in {"mlp", "temporal_gru", "online_gru"}:
             raise ValueError("actor_encoder must be one of: mlp, temporal_gru, online_gru")
         if actor_history_length < 1:
@@ -76,6 +81,7 @@ class ActorCritic(nn.Module):
         self.actor_encoder = actor_encoder
         self.actor_history_length = int(actor_history_length)
         self.action_sequence_horizon = int(action_sequence_horizon)
+        self.response_prediction_dim = int(response_prediction_dim)
         self.log_std_min = float(log_std_min)
         self.log_std_max = float(log_std_max)
         self.frame_dim = int(obs_dim)
@@ -110,6 +116,11 @@ class ActorCritic(nn.Module):
         self.sequence_tail = (
             nn.Linear(hidden_size, (self.action_sequence_horizon - 1) * act_dim)
             if self.action_sequence_horizon > 1
+            else None
+        )
+        self.response_prediction_head = (
+            nn.Linear(hidden_size + act_dim, self.response_prediction_dim)
+            if self.response_prediction_dim > 0
             else None
         )
 
@@ -292,6 +303,29 @@ class ActorCritic(nn.Module):
                 hidden[done_t] = 0.0
         return torch.stack(logps), torch.stack(entropies), torch.stack(values)
 
+    def predict_response_recurrent_sequence(
+        self,
+        obs: torch.Tensor,
+        actions: torch.Tensor,
+        initial_hidden: torch.Tensor,
+        dones: torch.Tensor,
+    ) -> torch.Tensor:
+        if self.actor_encoder != "online_gru":
+            raise RuntimeError("predict_response_recurrent_sequence requires actor_encoder='online_gru'")
+        if self.response_prediction_head is None:
+            raise RuntimeError("response prediction head is not enabled")
+        predictions = []
+        hidden = initial_hidden
+        for t in range(obs.shape[0]):
+            features, next_hidden = self.recurrent_features_tensor(obs[t], hidden)
+            predictions.append(self.response_prediction_head(torch.cat([features, actions[t]], dim=-1)))
+            hidden = next_hidden
+            if t < obs.shape[0] - 1:
+                done_t = dones[t].to(dtype=torch.bool, device=obs.device)
+                hidden = hidden.clone()
+                hidden[done_t] = 0.0
+        return torch.stack(predictions)
+
 
 def adapt_actor_critic_state(model: ActorCritic, source_state: dict[str, torch.Tensor]) -> str:
     model.load_state_dict(source_state)
@@ -404,8 +438,15 @@ def train(
         raise ValueError("online_gru actor requires env history_length=1; memory is carried in recurrent hidden state")
     if config.actor_encoder == "online_gru" and config.action_sequence_horizon > 1:
         raise ValueError("online_gru actor does not currently support action_sequence_horizon > 1")
+    if config.response_prediction_aux_coef > 0.0:
+        if config.actor_encoder != "online_gru" or not config.recurrent_sequence_training:
+            raise ValueError("response prediction auxiliary loss requires online_gru recurrent sequence training")
+        if config.response_prediction_dim < 1:
+            raise ValueError("response_prediction_dim must be positive when response_prediction_aux_coef > 0")
     env = SyncAutoDriftVectorEnv(num_envs=config.num_envs, config=active_env_config, seed=config.seed)
     obs, infos = env.reset()
+    if config.response_prediction_dim > env.single_observation_space.shape[0]:
+        raise ValueError("response_prediction_dim cannot exceed observation dimension")
     model = ActorCritic(
         obs_dim=env.single_observation_space.shape[0],
         act_dim=env.single_action_space.shape[0],
@@ -416,6 +457,7 @@ def train(
         actor_encoder=config.actor_encoder,
         actor_history_length=config.actor_history_length,
         action_sequence_horizon=config.action_sequence_horizon,
+        response_prediction_dim=config.response_prediction_dim,
     ).to(device)
     optimizer = Adam(model.parameters(), lr=config.learning_rate)
     if init_checkpoint_path is not None:
@@ -551,6 +593,23 @@ def train(
                     pg_loss = torch.max(pg_loss_1, pg_loss_2).mean()
                     value_loss = 0.5 * torch.square(value - mb_ret).mean()
                     loss = pg_loss + config.vf_coef * value_loss - config.ent_coef * entropy
+                    if config.response_prediction_aux_coef > 0.0 and rollout_n > 1:
+                        if config.response_prediction_dim < 1:
+                            raise ValueError("response_prediction_dim must be positive when response_prediction_aux_coef > 0")
+                        response_pred = model.predict_response_recurrent_sequence(
+                            obs_seq_t[:-1, mb_env],
+                            act_seq_t[:-1, mb_env],
+                            initial_hidden_t[mb_env],
+                            done_seq_t[:-1, mb_env],
+                        )
+                        response_target = obs_seq_t[1:, mb_env, : config.response_prediction_dim].detach()
+                        response_mask = (1.0 - done_seq_t[:-1, mb_env]).unsqueeze(-1)
+                        response_error = torch.square(response_pred - response_target)
+                        response_loss = (response_error * response_mask).sum() / torch.clamp(
+                            response_mask.sum() * config.response_prediction_dim,
+                            min=1.0,
+                        )
+                        loss = loss + config.response_prediction_aux_coef * response_loss
 
                     optimizer.zero_grad()
                     loss.backward()
@@ -648,13 +707,17 @@ def evaluate_actor(
     rows = []
     for episode in range(episodes):
         obs, info = env.reset(seed=seed + episode)
+        recurrent_hidden = None
         rewards: list[float] = []
         lateral_errors: list[float] = []
         beta_errors: list[float] = []
         terminated = False
         truncated = False
         while not (terminated or truncated):
-            action, _, _ = model.act(obs, deterministic=True)
+            if model.actor_encoder == "online_gru":
+                action, _, _, recurrent_hidden = model.act_recurrent(obs, recurrent_hidden, deterministic=True)
+            else:
+                action, _, _ = model.act(obs, deterministic=True)
             obs, reward, terminated, truncated, info = env.step(action)
             rewards.append(float(reward))
             lateral_errors.append(float(info["lateral_error"]))

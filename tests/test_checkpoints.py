@@ -2,7 +2,8 @@ import numpy as np
 import torch
 
 from autodrift.checkpoints import load_actor_critic_checkpoint
-from autodrift.train_ppo import ActorCritic, build_sequence_targets, load_init_checkpoint_state
+from autodrift.env import DriftEnvConfig
+from autodrift.train_ppo import ActorCritic, build_sequence_targets, evaluate_actor, load_init_checkpoint_state
 
 
 def test_actor_critic_checkpoint_loads_from_shape(tmp_path):
@@ -126,6 +127,56 @@ def test_online_gru_sequence_eval_backpropagates_through_time():
     reset_values[1].sum().backward()
 
     assert float(reset_obs.grad[0].abs().sum()) == 0.0
+
+
+def test_online_gru_response_prediction_head_uses_recurrent_history():
+    torch.manual_seed(1)
+    model = ActorCritic(obs_dim=5, act_dim=2, hidden_size=8, actor_encoder="online_gru", response_prediction_dim=3)
+    actions = torch.tanh(torch.randn(3, 1, 2))
+    initial_hidden = model.initial_hidden(1, torch.device("cpu"))
+
+    obs = torch.randn(3, 1, 5, requires_grad=True)
+    dones = torch.zeros(3, 1)
+    predictions = model.predict_response_recurrent_sequence(obs, actions, initial_hidden, dones)
+    predictions[1].sum().backward()
+
+    assert predictions.shape == (3, 1, 3)
+    assert float(obs.grad[0].abs().sum()) > 0.0
+
+
+def test_response_prediction_checkpoint_loads_optional_head(tmp_path):
+    model = ActorCritic(obs_dim=5, act_dim=2, hidden_size=8, actor_encoder="online_gru", response_prediction_dim=3)
+    checkpoint_path = tmp_path / "checkpoint.pt"
+    torch.save(
+        {
+            "model_state": {key: value.detach().cpu() for key, value in model.state_dict().items()},
+            "config": {"device": "cpu", "actor_encoder": "online_gru", "response_prediction_dim": 3},
+        },
+        checkpoint_path,
+    )
+
+    loaded, _ = load_actor_critic_checkpoint(checkpoint_path, device="cpu")
+
+    assert loaded.response_prediction_dim == 3
+    assert loaded.response_prediction_head is not None
+
+
+def test_evaluate_actor_carries_online_recurrent_hidden_state():
+    model = ActorCritic(obs_dim=11, act_dim=2, hidden_size=8, actor_encoder="online_gru")
+    calls = {"count": 0}
+
+    def counted_act_recurrent(obs, hidden=None, deterministic=False):
+        del obs, deterministic
+        calls["count"] += 1
+        next_hidden = model.initial_hidden(1, torch.device("cpu")) if hidden is None else hidden + 1.0
+        return np.zeros(2, dtype=np.float32), 0.0, 0.0, next_hidden
+
+    model.act_recurrent = counted_act_recurrent
+
+    summary = evaluate_actor(model, episodes=1, seed=31, env_config=DriftEnvConfig(max_steps=3, speed_range=(4.0, 4.0)))
+
+    assert calls["count"] > 0
+    assert np.isfinite(summary["return_mean"])
 
 
 def test_temporal_gru_actor_rejects_mismatched_history_shape():

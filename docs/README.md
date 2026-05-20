@@ -60,6 +60,8 @@ vehicle/tire models, and NMPC-style constrained control.
   friction-step sampler, M15 training config, and paired-gate validation plan.
 - `m16-sequence-recurrent-ppo.md`: sequence recurrent PPO update for online GRU
   hidden dynamics and validation plan.
+- `m17-response-prediction-aux.md`: deployable response-prediction auxiliary
+  loss for online GRU hidden-state learning.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.
