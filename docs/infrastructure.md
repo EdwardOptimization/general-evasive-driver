@@ -150,6 +150,22 @@ Run a quick M7 gate smoke check:
 make m7-gate-smoke
 ```
 
+Plan the next long-running research task:
+
+```bash
+make research-plan
+```
+
+Run exactly one queued research task:
+
+```bash
+make research-run-next
+```
+
+The research harness uses `experiments/research_queue.csv` as the tracked queue,
+writes generated status to `experiments/research_status.json`, appends cycle
+notes to `docs/research-log.md`, and stores command logs under `runs/research/`.
+
 Trace and plot selected rollouts:
 
 ```bash

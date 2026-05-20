@@ -14,8 +14,11 @@ M7_DEVICE ?= cpu
 M8_DRIVER_NAME ?= m8
 M8_CHECKPOINT ?= runs/ppo_m8_temporal_gru_driver_seed227/checkpoint.pt
 M8_GATE_RUN_DIR ?= runs/m8_driver_gate_seed227
+RESEARCH_QUEUE ?= experiments/research_queue.csv
+RESEARCH_STATUS ?= experiments/research_status.json
+RESEARCH_LOG ?= docs/research-log.md
 
-.PHONY: env-create env-create-cpu env-update env-update-cpu torch-gpu torch-cpu test test-light check-diff hooks-install eval-heuristic train-smoke benchmark-smoke rollout-smoke m7-corpus m7-gate-smoke m7-gate m8-driver-gate-smoke m8-driver-gate clean
+.PHONY: env-create env-create-cpu env-update env-update-cpu torch-gpu torch-cpu test test-light check-diff hooks-install eval-heuristic train-smoke benchmark-smoke rollout-smoke m7-corpus m7-gate-smoke m7-gate m8-driver-gate-smoke m8-driver-gate research-plan research-run-next clean
 
 env-create:
 	mamba env create -f environment-gpu.yml -y
@@ -43,7 +46,7 @@ test:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q
 
 test-light:
-	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q tests/test_m7_gate.py tests/test_scenario_corpus.py tests/test_benchmark.py
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q tests/test_m7_gate.py tests/test_scenario_corpus.py tests/test_benchmark.py tests/test_research_cycle.py
 
 check-diff:
 	git diff --check
@@ -125,6 +128,20 @@ m8-driver-gate: m7-corpus
 		--run-dir $(M8_GATE_RUN_DIR) \
 		--driver-checkpoint $(M8_CHECKPOINT) \
 		--driver-name $(M8_DRIVER_NAME)
+
+research-plan:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m autodrift.research_cycle \
+		--mode plan \
+		--queue $(RESEARCH_QUEUE) \
+		--status $(RESEARCH_STATUS) \
+		--log $(RESEARCH_LOG)
+
+research-run-next:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m autodrift.research_cycle \
+		--mode run-next \
+		--queue $(RESEARCH_QUEUE) \
+		--status $(RESEARCH_STATUS) \
+		--log $(RESEARCH_LOG)
 
 clean:
 	rm -rf build dist *.egg-info .pytest_cache .ruff_cache .mypy_cache

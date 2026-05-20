@@ -42,6 +42,8 @@ vehicle/tire models, and NMPC-style constrained control.
   reward shaping, smoke result, and next validation steps.
 - `m8-driver-gate-blocker-report.md`: best M8 gate result, failed ablations,
   negative attempts, and the remaining driver-v1 blocker.
+- `research-log.md`: long-running research queue status, current best model,
+  per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.
 
 ## Local Hooks
