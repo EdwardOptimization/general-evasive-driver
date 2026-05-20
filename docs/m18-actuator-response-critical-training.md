@@ -125,3 +125,51 @@ self-identifying driver candidate:
 - M13 friction perturbation gate should not regress below M17's `0.400`
   perturbed success;
 - stable AES behavior should not become drift-seeking.
+
+## Full Result
+
+Training result:
+
+- run dir: `runs/ppo_m18_actuator_response_recurrent_seed911`;
+- checkpoint: `runs/ppo_m18_actuator_response_recurrent_seed911/checkpoint.pt`;
+- research run dir:
+  `runs/research/m18-actuator-response-critical-training_20260520T221756Z`;
+- final eval return mean: 80.380;
+- final eval steps mean: 68.600;
+- final eval termination rate: 0.100;
+- final eval lateral RMSE mean: 0.700;
+- final eval beta absolute error mean: 0.136.
+
+Actuator-response paired gate:
+
+| policy | nominal success | perturbed success | success drop | return delta |
+| --- | ---: | ---: | ---: | ---: |
+| `m18` | 0.450 | 0.375 | 0.075 | -7.482 |
+| `m18_reset` | 0.175 | 0.225 | -0.050 | 0.173 |
+| `m18_zero_current` | 0.450 | 0.300 | 0.150 | -11.280 |
+| `m18_zero_all` | 0.450 | 0.300 | 0.150 | -11.280 |
+
+M13 friction paired gate:
+
+| policy | nominal success | perturbed success | success drop | return delta |
+| --- | ---: | ---: | ---: | ---: |
+| `m18` | 0.775 | 0.375 | 0.400 | -18.785 |
+| `m18_reset` | 0.575 | 0.150 | 0.425 | -21.305 |
+| `m18_zero_current` | 0.750 | 0.325 | 0.425 | -20.944 |
+| `m18_zero_all` | 0.750 | 0.325 | 0.425 | -20.944 |
+
+Same-corpus obstacle benchmark:
+
+| policy | success | termination | high sideslip |
+| --- | ---: | ---: | ---: |
+| `envelope_aes` | 0.250 | 0.750 | 0.000 |
+| `m18` | 0.450 | 0.550 | 0.004 |
+| `m18_reset` | 0.225 | 0.775 | 0.010 |
+| `m18_zero_current` | 0.425 | 0.575 | 0.000 |
+
+Conclusion: M18 is the first run in this sequence where response masking and
+hidden-state reset clearly hurt paired-gate performance. That is real progress
+toward closed-loop self-identification. It is not yet the ideal driver:
+actuator-response aggregate success is still low, and M13 perturbed success
+falls short of M17 (`0.375` vs `0.400`). The next experiment should preserve the
+M18 response-dependence signal while recovering M17-level aggregate success.

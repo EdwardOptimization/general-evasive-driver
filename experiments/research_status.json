@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 0,
-    "completed": 14,
+    "completed": 15,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m17-response-prediction-aux_20260520T211106Z/command.log",
+    "command_log": "runs/research/m18-actuator-response-critical-training_20260520T221756Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m17-response-prediction-aux_20260520T211106Z",
+    "run_dir": "runs/research/m18-actuator-response-critical-training_20260520T221756Z",
     "status": "completed",
-    "task_id": "m17-response-prediction-aux"
+    "task_id": "m18-actuator-response-critical-training"
   },
   "next_task": {
-    "command": "conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m18_actuator_response_recurrent_driver.json --seed 911 --device cuda --run-dir runs/ppo_m18_actuator_response_recurrent_seed911",
-    "hypothesis": "Train on wider actuator and vehicle-response randomization so same geometry requires response-dependent control",
-    "id": "m18-actuator-response-critical-training",
+    "command": "conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m19_response_retention_finetune_driver.json --seed 919 --device cuda --init-checkpoint runs/ppo_m18_actuator_response_recurrent_seed911/checkpoint.pt --run-dir runs/ppo_m19_response_retention_finetune_seed919",
+    "hypothesis": "Fine-tune M18 on a softer response-retention curriculum to recover success without losing response dependence",
+    "id": "m19-response-retention-finetune",
     "kind": "training",
-    "notes": "Seed 911 warmup smoke reaches termination_rate 0.100 after 20480 steps",
-    "priority": 110,
+    "notes": "M18 gives response-mask degradation but M13 perturbed success remains 0.375",
+    "priority": 120,
     "status": "pending",
-    "success_artifact": "runs/ppo_m18_actuator_response_recurrent_seed911/checkpoint.pt"
+    "success_artifact": "runs/ppo_m19_response_retention_finetune_seed919/checkpoint.pt"
   },
-  "updated_at_utc": "20260520T221713Z"
+  "updated_at_utc": "20260520T230712Z"
 }

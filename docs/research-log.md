@@ -484,3 +484,65 @@ Predicting next response is not enough if the policy head can ignore the
 response-sensitive latent. The next experiment should make response dependence
 behavior-critical in the control objective, not only predictable as an
 auxiliary target.
+
+## 20260520T230245Z m18-actuator-response-critical-training
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Train on wider actuator and vehicle-response randomization so same geometry requires response-dependent control
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m18_actuator_response_recurrent_driver.json --seed 911 --device cuda --run-dir runs/ppo_m18_actuator_response_recurrent_seed911`
+- returncode: `0`
+- run dir: `runs/research/m18-actuator-response-critical-training_20260520T221756Z`
+- command log: `runs/research/m18-actuator-response-critical-training_20260520T221756Z/command.log`
+- success artifact: `runs/ppo_m18_actuator_response_recurrent_seed911/checkpoint.pt`
+- notes: Seed 911 warmup smoke reaches termination_rate 0.100 after 20480 steps
+
+Training result:
+
+- final eval return mean: 80.380;
+- final eval steps mean: 68.600;
+- final eval termination rate: 0.100;
+- final eval lateral RMSE mean: 0.700;
+- final eval beta absolute error mean: 0.136.
+
+Actuator-response paired gate:
+
+- command: `conda run -n autodrift python -m autodrift.paired_perturbation_gate --env-config configs/m11_online_recurrent_history_critical_eval.json --seed-csv runs/m13_near_threshold_corpus_seed3000/scenario_corpus.csv --checkpoint runs/ppo_m18_actuator_response_recurrent_seed911/checkpoint.pt --checkpoint-policy m18=runs/ppo_m18_actuator_response_recurrent_seed911/checkpoint.pt --checkpoint-policy m18_reset=runs/ppo_m18_actuator_response_recurrent_seed911/checkpoint.pt@reset_recurrent_state --checkpoint-policy m18_zero_current=runs/ppo_m18_actuator_response_recurrent_seed911/checkpoint.pt@zero_current_response --checkpoint-policy m18_zero_all=runs/ppo_m18_actuator_response_recurrent_seed911/checkpoint.pt@zero_all_response --device cpu --nominal-friction-mu-range 0.30,0.45 --perturbed-friction-mu-range 0.30,0.45 --nominal-randomization actuator_tau_scale_range=0.60,0.90 --nominal-randomization brake_scale_range=1.20,1.40 --nominal-randomization drive_scale_range=1.10,1.35 --perturbed-randomization actuator_tau_scale_range=2.40,3.20 --perturbed-randomization brake_scale_range=0.45,0.65 --perturbed-randomization drive_scale_range=0.55,0.75 --run-dir runs/m18_actuator_response_gate_seed3000`
+- run dir: `runs/m18_actuator_response_gate_seed3000`;
+- M18 nominal success: 0.450;
+- M18 perturbed success: 0.375;
+- M18 hidden-reset perturbed success: 0.225;
+- M18 zero-current and zero-all perturbed success: 0.300.
+
+M13 friction paired gate:
+
+- command: `conda run -n autodrift python -m autodrift.paired_perturbation_gate --env-config configs/m11_online_recurrent_history_critical_eval.json --seed-csv runs/m13_near_threshold_corpus_seed3000/scenario_corpus.csv --checkpoint runs/ppo_m18_actuator_response_recurrent_seed911/checkpoint.pt --checkpoint-policy m18=runs/ppo_m18_actuator_response_recurrent_seed911/checkpoint.pt --checkpoint-policy m18_reset=runs/ppo_m18_actuator_response_recurrent_seed911/checkpoint.pt@reset_recurrent_state --checkpoint-policy m18_zero_current=runs/ppo_m18_actuator_response_recurrent_seed911/checkpoint.pt@zero_current_response --checkpoint-policy m18_zero_all=runs/ppo_m18_actuator_response_recurrent_seed911/checkpoint.pt@zero_all_response --device cpu --run-dir runs/m18_friction_paired_gate_seed3000`
+- run dir: `runs/m18_friction_paired_gate_seed3000`;
+- M18 nominal success: 0.775;
+- M18 perturbed success: 0.375;
+- M18 hidden-reset perturbed success: 0.150;
+- M18 zero-current and zero-all perturbed success: 0.325.
+
+Same-corpus obstacle benchmark:
+
+- first attempted `configs/m7_obstacle_aes_weighted_holdout_eval.json`, but the
+  strict loader rejected it because M18 is an online-GRU 15-dimensional contract
+  while that eval config is a 60-dimensional history-stack contract;
+- second attempted random sampling under
+  `configs/m11_online_recurrent_history_critical_eval.json`, but some seeds
+  failed the strict near-threshold sampler;
+- final benchmark used the M13 seed corpus:
+  `runs/m18_same_contract_obstacle_benchmark_seed3000`;
+- `envelope_aes` success: 0.250;
+- M18 success: 0.450;
+- M18 hidden-reset success: 0.225;
+- M18 zero-current success: 0.425;
+- M18 high-sideslip fraction: 0.004.
+
+Conclusion: M18 is the first recurrent run here where hidden-state reset and
+response masking clearly hurt paired-gate performance. That is progress toward
+closed-loop self-identification. It is not enough: actuator-response aggregate
+success is low, and M13 perturbed success regresses below M17 (`0.375` vs
+`0.400`). The next experiment should keep the response-dependence pressure but
+recover aggregate success, likely with a softer actuator curriculum or mixed
+fine-tuning from the M18 checkpoint.

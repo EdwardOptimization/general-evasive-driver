@@ -64,6 +64,8 @@ vehicle/tire models, and NMPC-style constrained control.
   loss for online GRU hidden-state learning.
 - `m18-actuator-response-critical-training.md`: paired actuator-response gate
   extension and behavior-critical recurrent training direction.
+- `m19-response-retention-finetune.md`: same-contract M18 fine-tune direction
+  for recovering aggregate success without erasing response dependence.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.
