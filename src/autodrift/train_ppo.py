@@ -66,8 +66,8 @@ class ActorCritic(nn.Module):
         super().__init__()
         if action_sequence_horizon < 1:
             raise ValueError("action_sequence_horizon must be at least 1")
-        if actor_encoder not in {"mlp", "temporal_gru"}:
-            raise ValueError("actor_encoder must be one of: mlp, temporal_gru")
+        if actor_encoder not in {"mlp", "temporal_gru", "online_gru"}:
+            raise ValueError("actor_encoder must be one of: mlp, temporal_gru, online_gru")
         if actor_history_length < 1:
             raise ValueError("actor_history_length must be at least 1")
         self.obs_dim = int(obs_dim)
@@ -87,16 +87,22 @@ class ActorCritic(nn.Module):
             )
             self.frame_encoder = None
             self.temporal_gru = None
+            self.online_gru_cell = None
         else:
-            if obs_dim % self.actor_history_length != 0:
+            if self.actor_encoder == "temporal_gru" and obs_dim % self.actor_history_length != 0:
                 raise ValueError("temporal_gru actor requires obs_dim divisible by actor_history_length")
-            self.frame_dim = int(obs_dim // self.actor_history_length)
+            self.frame_dim = (
+                int(obs_dim // self.actor_history_length)
+                if self.actor_encoder == "temporal_gru"
+                else int(obs_dim)
+            )
             self.shared = None
             self.frame_encoder = nn.Sequential(
                 nn.Linear(self.frame_dim, hidden_size),
                 nn.Tanh(),
             )
-            self.temporal_gru = nn.GRU(hidden_size, hidden_size, batch_first=True)
+            self.temporal_gru = nn.GRU(hidden_size, hidden_size, batch_first=True) if self.actor_encoder == "temporal_gru" else None
+            self.online_gru_cell = nn.GRUCell(hidden_size, hidden_size) if self.actor_encoder == "online_gru" else None
         self.actor_mean = nn.Linear(hidden_size, act_dim)
         self.critic = nn.Linear(hidden_size, 1)
         self.log_std = nn.Parameter(torch.full((act_dim,), float(log_std_init)))
@@ -110,6 +116,10 @@ class ActorCritic(nn.Module):
         if self.actor_encoder == "mlp":
             assert self.shared is not None
             return self.shared(obs)
+        if self.actor_encoder == "online_gru":
+            hidden = self.initial_hidden(obs.shape[0], obs.device)
+            features, _ = self.recurrent_features_tensor(obs, hidden)
+            return features
         assert self.frame_encoder is not None
         assert self.temporal_gru is not None
         frames = obs.reshape(obs.shape[0], self.actor_history_length, self.frame_dim)
@@ -117,6 +127,26 @@ class ActorCritic(nn.Module):
         encoded_frames = self.frame_encoder(frames)
         _, hidden = self.temporal_gru(encoded_frames)
         return hidden[-1]
+
+    def initial_hidden(self, batch_size: int, device: torch.device | None = None) -> torch.Tensor:
+        resolved_device = device or next(self.parameters()).device
+        return torch.zeros(int(batch_size), self.actor_mean.in_features, dtype=torch.float32, device=resolved_device)
+
+    def recurrent_features_tensor(self, obs: torch.Tensor, hidden: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
+        if self.actor_encoder != "online_gru":
+            raise RuntimeError("recurrent_features_tensor requires actor_encoder='online_gru'")
+        assert self.frame_encoder is not None
+        assert self.online_gru_cell is not None
+        encoded = self.frame_encoder(obs)
+        next_hidden = self.online_gru_cell(encoded, hidden)
+        return next_hidden, next_hidden
+
+    def forward_recurrent(self, obs: torch.Tensor, hidden: torch.Tensor) -> tuple[Normal, torch.Tensor, torch.Tensor]:
+        features, next_hidden = self.recurrent_features_tensor(obs, hidden)
+        mean = self.actor_mean(features)
+        log_std = torch.clamp(self.log_std, self.log_std_min, self.log_std_max)
+        std = torch.exp(log_std).expand_as(mean)
+        return Normal(mean, std), self.critic(features).squeeze(-1), next_hidden
 
     def forward(self, obs: torch.Tensor) -> tuple[Normal, torch.Tensor]:
         features = self.features_tensor(obs)
@@ -158,6 +188,27 @@ class ActorCritic(nn.Module):
             log_prob = self._squashed_log_prob(dist, raw_action, action)
         return action.squeeze(0).cpu().numpy().astype(np.float32), float(log_prob.item()), float(value.item())
 
+    def act_recurrent(
+        self,
+        obs: np.ndarray,
+        hidden: torch.Tensor | None = None,
+        deterministic: bool = False,
+    ) -> tuple[np.ndarray, float, float, torch.Tensor]:
+        device = next(self.parameters()).device
+        obs_t = torch.as_tensor(obs, dtype=torch.float32, device=device).unsqueeze(0)
+        hidden_t = hidden if hidden is not None else self.initial_hidden(1, device)
+        with torch.no_grad():
+            dist, value, next_hidden = self.forward_recurrent(obs_t, hidden_t)
+            raw_action = dist.mean if deterministic else dist.sample()
+            action = torch.tanh(raw_action)
+            log_prob = self._squashed_log_prob(dist, raw_action, action)
+        return (
+            action.squeeze(0).cpu().numpy().astype(np.float32),
+            float(log_prob.item()),
+            float(value.item()),
+            next_hidden.detach(),
+        )
+
     def act_batch(self, obs: np.ndarray, deterministic: bool = False) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
         device = next(self.parameters()).device
         obs_t = torch.as_tensor(obs, dtype=torch.float32, device=device)
@@ -172,8 +223,41 @@ class ActorCritic(nn.Module):
             value.cpu().numpy().astype(np.float32),
         )
 
+    def act_batch_recurrent(
+        self,
+        obs: np.ndarray,
+        hidden: torch.Tensor,
+        deterministic: bool = False,
+    ) -> tuple[np.ndarray, np.ndarray, np.ndarray, torch.Tensor]:
+        device = next(self.parameters()).device
+        obs_t = torch.as_tensor(obs, dtype=torch.float32, device=device)
+        with torch.no_grad():
+            dist, value, next_hidden = self.forward_recurrent(obs_t, hidden)
+            raw_action = dist.mean if deterministic else dist.sample()
+            action = torch.tanh(raw_action)
+            log_prob = self._squashed_log_prob(dist, raw_action, action)
+        return (
+            action.cpu().numpy().astype(np.float32),
+            log_prob.cpu().numpy().astype(np.float32),
+            value.cpu().numpy().astype(np.float32),
+            next_hidden.detach(),
+        )
+
     def evaluate_actions(self, obs: torch.Tensor, actions: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         dist, value = self.forward(obs)
+        clipped_actions = torch.clamp(actions, -1.0 + 1e-6, 1.0 - 1e-6)
+        raw_actions = torch.atanh(clipped_actions)
+        log_prob = self._squashed_log_prob(dist, raw_actions, clipped_actions)
+        entropy = dist.entropy().sum(dim=-1)
+        return log_prob, entropy, value
+
+    def evaluate_actions_recurrent(
+        self,
+        obs: torch.Tensor,
+        actions: torch.Tensor,
+        hidden: torch.Tensor,
+    ) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+        dist, value, _ = self.forward_recurrent(obs, hidden)
         clipped_actions = torch.clamp(actions, -1.0 + 1e-6, 1.0 - 1e-6)
         raw_actions = torch.atanh(clipped_actions)
         log_prob = self._squashed_log_prob(dist, raw_actions, clipped_actions)
@@ -288,6 +372,10 @@ def train(
     active_env_config, active_stage = env_config_for_step(env_config, curriculum, 0)
     if config.actor_encoder == "temporal_gru" and config.actor_history_length != active_env_config.history_length:
         config = replace(config, actor_history_length=active_env_config.history_length)
+    if config.actor_encoder == "online_gru" and active_env_config.history_length != 1:
+        raise ValueError("online_gru actor requires env history_length=1; memory is carried in recurrent hidden state")
+    if config.actor_encoder == "online_gru" and config.action_sequence_horizon > 1:
+        raise ValueError("online_gru actor does not currently support action_sequence_horizon > 1")
     env = SyncAutoDriftVectorEnv(num_envs=config.num_envs, config=active_env_config, seed=config.seed)
     obs, infos = env.reset()
     model = ActorCritic(
@@ -310,13 +398,17 @@ def train(
     global_step = 0
     update = 0
     metric_rows: list[dict[str, float | int]] = []
+    recurrent_hidden = model.initial_hidden(config.num_envs, device) if config.actor_encoder == "online_gru" else None
     while global_step < config.total_steps:
         next_env_config, next_stage = env_config_for_step(env_config, curriculum, global_step)
         if next_stage != active_stage:
+            if config.actor_encoder == "online_gru" and next_env_config.history_length != 1:
+                raise ValueError("online_gru actor requires env history_length=1 in every curriculum stage")
             active_env_config = next_env_config
             active_stage = next_stage
             env = SyncAutoDriftVectorEnv(num_envs=config.num_envs, config=active_env_config, seed=config.seed + global_step)
             obs, infos = env.reset()
+            recurrent_hidden = model.initial_hidden(config.num_envs, device) if config.actor_encoder == "online_gru" else None
             print(f"curriculum_stage={active_stage} step={global_step}")
 
         remaining = config.total_steps - global_step
@@ -327,12 +419,24 @@ def train(
         rew_buf = np.zeros((rollout_n, config.num_envs), dtype=np.float32)
         done_buf = np.zeros((rollout_n, config.num_envs), dtype=np.float32)
         val_buf = np.zeros((rollout_n, config.num_envs), dtype=np.float32)
+        hidden_buf = (
+            np.zeros((rollout_n, config.num_envs, config.hidden_size), dtype=np.float32)
+            if config.actor_encoder == "online_gru"
+            else None
+        )
 
         episode_returns: list[float] = []
         episode_lengths: list[int] = []
         episode_terminated: list[float] = []
         for t in range(rollout_n):
-            action, logp, value = model.act_batch(obs)
+            if config.actor_encoder == "online_gru":
+                assert recurrent_hidden is not None
+                assert hidden_buf is not None
+                hidden_buf[t] = recurrent_hidden.detach().cpu().numpy().astype(np.float32)
+                action, logp, value, next_hidden = model.act_batch_recurrent(obs, recurrent_hidden)
+            else:
+                action, logp, value = model.act_batch(obs)
+                next_hidden = None
             step = env.step(action)
             done = np.logical_or(step.terminated, step.truncated)
             obs_buf[t] = obs
@@ -349,9 +453,22 @@ def train(
                     episode_lengths.append(int(episode["length"]))
                     episode_terminated.append(float(episode["terminated"]))
             obs = step.observations
+            if config.actor_encoder == "online_gru":
+                assert next_hidden is not None
+                done_t = torch.as_tensor(done, dtype=torch.bool, device=device)
+                next_hidden = next_hidden.clone()
+                next_hidden[done_t] = 0.0
+                recurrent_hidden = next_hidden.detach()
 
         with torch.no_grad():
-            _, last_value_t = model.forward(torch.as_tensor(obs, dtype=torch.float32, device=device))
+            if config.actor_encoder == "online_gru":
+                assert recurrent_hidden is not None
+                _, last_value_t, _ = model.forward_recurrent(
+                    torch.as_tensor(obs, dtype=torch.float32, device=device),
+                    recurrent_hidden,
+                )
+            else:
+                _, last_value_t = model.forward(torch.as_tensor(obs, dtype=torch.float32, device=device))
         advantages, returns = compute_gae_vectorized(
             rew_buf,
             done_buf,
@@ -367,6 +484,7 @@ def train(
         flat_old_logp = logp_buf.reshape(-1)
         flat_adv = advantages.reshape(-1)
         flat_ret = returns.reshape(-1)
+        flat_hidden = hidden_buf.reshape((-1, hidden_buf.shape[-1])) if hidden_buf is not None else None
         if config.action_sequence_horizon > 1:
             seq_target_buf, seq_mask_buf = build_sequence_targets(act_buf, done_buf, config.action_sequence_horizon)
             flat_seq_target = seq_target_buf.reshape((-1, *seq_target_buf.shape[2:]))
@@ -380,6 +498,7 @@ def train(
         old_logp_t = torch.as_tensor(flat_old_logp, dtype=torch.float32, device=device)
         adv_t = torch.as_tensor(flat_adv, dtype=torch.float32, device=device)
         ret_t = torch.as_tensor(flat_ret, dtype=torch.float32, device=device)
+        hidden_t = torch.as_tensor(flat_hidden, dtype=torch.float32, device=device) if flat_hidden is not None else None
         seq_target_t = torch.as_tensor(flat_seq_target, dtype=torch.float32, device=device) if flat_seq_target is not None else None
         seq_mask_t = torch.as_tensor(flat_seq_mask, dtype=torch.float32, device=device) if flat_seq_mask is not None else None
 
@@ -388,7 +507,11 @@ def train(
             np.random.shuffle(indices)
             for start in range(0, len(indices), config.minibatch_size):
                 mb = indices[start : start + config.minibatch_size]
-                logp, entropy_values, value = model.evaluate_actions(obs_t[mb], act_t[mb])
+                if config.actor_encoder == "online_gru":
+                    assert hidden_t is not None
+                    logp, entropy_values, value = model.evaluate_actions_recurrent(obs_t[mb], act_t[mb], hidden_t[mb])
+                else:
+                    logp, entropy_values, value = model.evaluate_actions(obs_t[mb], act_t[mb])
                 entropy = entropy_values.mean()
                 ratio = torch.exp(logp - old_logp_t[mb])
 

@@ -85,3 +85,21 @@ def test_actor_policy_can_shuffle_temporal_history_deterministically():
     transformed = policy._transform_observation(observation)
 
     np.testing.assert_allclose(transformed, np.array([4, 5, 0, 1, 2, 3, 6, 7], dtype=np.float32))
+
+
+def test_actor_policy_can_reset_online_recurrent_state_each_step():
+    env_config = DriftEnvConfig(history_length=1, action_history_mode="full")
+    model = ActorCritic(obs_dim=11, act_dim=2, hidden_size=8, actor_encoder="online_gru")
+    observation = np.linspace(-0.4, 0.4, 11, dtype=np.float32)
+
+    stateful_policy = ActorPolicy(model, env_config)
+    stateful_policy.act(observation, {})
+    stateful_hidden = stateful_policy.hidden.detach().clone()
+    stateful_policy.act(observation, {})
+    assert not np.allclose(stateful_hidden.numpy(), stateful_policy.hidden.detach().numpy())
+
+    reset_policy = ActorPolicy(model, env_config, ablation="reset_recurrent_state")
+    reset_policy.act(observation, {})
+    reset_hidden = reset_policy.hidden.detach().clone()
+    reset_policy.act(observation, {})
+    np.testing.assert_allclose(reset_hidden.numpy(), reset_policy.hidden.detach().numpy(), atol=1e-6)

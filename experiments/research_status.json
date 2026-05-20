@@ -3,8 +3,8 @@
     "blocked": 0,
     "completed": 6,
     "failed": 0,
-    "pending": 0,
-    "planned": 1,
+    "pending": 1,
+    "planned": 0,
     "running": 0
   },
   "last_result": {
@@ -14,6 +14,15 @@
     "status": "completed",
     "task_id": "m10-clean-observation-retrain"
   },
-  "next_task": null,
-  "updated_at_utc": "20260520T191806Z"
+  "next_task": {
+    "command": "conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m11_online_recurrent_driver.json --seed 411 --device cuda --run-dir runs/ppo_m11_online_recurrent_driver_seed411",
+    "hypothesis": "Train an online recurrent driver and test hidden-state reset ablation",
+    "id": "m11-online-recurrent-actor",
+    "kind": "training",
+    "notes": "M10 clean baseline is negative; online_gru carries hidden state instead of stacked observation history",
+    "priority": 40,
+    "status": "pending",
+    "success_artifact": "runs/ppo_m11_online_recurrent_driver_seed411/checkpoint.pt"
+  },
+  "updated_at_utc": "20260520T192320Z"
 }

@@ -84,6 +84,29 @@ def test_temporal_gru_actor_checkpoint_loads_and_exposes_latent(tmp_path):
     assert np.isfinite(value)
 
 
+def test_online_gru_actor_checkpoint_loads_and_updates_hidden(tmp_path):
+    model = ActorCritic(obs_dim=15, act_dim=2, hidden_size=16, actor_encoder="online_gru")
+    checkpoint_path = tmp_path / "checkpoint.pt"
+    torch.save(
+        {
+            "model_state": {key: value.detach().cpu() for key, value in model.state_dict().items()},
+            "config": {"device": "cpu", "actor_encoder": "online_gru", "actor_history_length": 1},
+        },
+        checkpoint_path,
+    )
+
+    loaded, _ = load_actor_critic_checkpoint(checkpoint_path, device="cpu")
+    observation = np.linspace(-0.5, 0.5, 15, dtype=np.float32)
+    action, _, value, hidden = loaded.act_recurrent(observation, deterministic=True)
+    _, _, _, next_hidden = loaded.act_recurrent(observation, hidden, deterministic=True)
+
+    assert loaded.actor_encoder == "online_gru"
+    assert action.shape == (2,)
+    assert hidden.shape == (1, 16)
+    assert not torch.allclose(hidden, next_hidden)
+    assert np.isfinite(value)
+
+
 def test_temporal_gru_actor_rejects_mismatched_history_shape():
     with np.testing.assert_raises(ValueError):
         ActorCritic(obs_dim=55, act_dim=2, hidden_size=16, actor_encoder="temporal_gru", actor_history_length=4)

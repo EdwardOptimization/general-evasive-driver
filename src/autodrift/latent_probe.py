@@ -14,7 +14,7 @@ from torch import nn
 from autodrift.artifacts import make_run_dir, write_csv_rows, write_json
 from autodrift.checkpoints import load_actor_critic_checkpoint
 from autodrift.env import AutoDriftEnv, DriftEnvConfig
-from autodrift.evaluate import ActorPolicy, load_env_config
+from autodrift.evaluate import CHECKPOINT_ABLATIONS, ActorPolicy, load_env_config
 from autodrift.train_ppo import ActorCritic
 
 
@@ -336,7 +336,7 @@ def main() -> None:
     parser.add_argument("--learning-rate", type=float, default=0.03)
     parser.add_argument(
         "--checkpoint-ablation",
-        choices=["none", "zero_action_history", "single_frame_history", "shuffled_history"],
+        choices=CHECKPOINT_ABLATIONS,
         default="none",
     )
     parser.add_argument(

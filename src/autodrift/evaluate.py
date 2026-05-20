@@ -8,6 +8,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import torch
 
 from autodrift.artifacts import make_run_dir, write_json
 from autodrift.checkpoints import load_actor_critic_checkpoint
@@ -24,6 +25,7 @@ CHECKPOINT_ABLATIONS = (
     "shuffled_history",
     "zero_current_response",
     "zero_all_response",
+    "reset_recurrent_state",
 )
 
 
@@ -38,11 +40,13 @@ class ActorPolicy(Policy):
         self.env_config = env_config
         self.ablation = ablation
         self.last_sequence: np.ndarray | None = None
+        self.hidden: torch.Tensor | None = None
         self._rng_seed = 0
         self._rng = np.random.default_rng(self._rng_seed)
 
     def reset(self) -> None:
         self.last_sequence = None
+        self.hidden = None
         self._rng = np.random.default_rng(self._rng_seed)
 
     def _action_history_indices(self) -> list[int]:
@@ -92,6 +96,16 @@ class ActorPolicy(Policy):
     def act(self, observation: np.ndarray, info: dict) -> np.ndarray:
         del info
         observation = self._transform_observation(observation)
+        if self.model.actor_encoder == "online_gru":
+            if self.ablation == "reset_recurrent_state":
+                self.hidden = None
+            action, _, _, self.hidden = self.model.act_recurrent(
+                observation,
+                self.hidden,
+                deterministic=True,
+            )
+            self.last_sequence = None
+            return action
         if self.model.action_sequence_horizon > 1:
             self.last_sequence = self.model.predict_sequence(observation)
             return self.last_sequence[0].astype(np.float32)

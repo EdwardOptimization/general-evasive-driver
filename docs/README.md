@@ -48,6 +48,8 @@ vehicle/tire models, and NMPC-style constrained control.
   result, and the next online recurrent validation requirement.
 - `m10-clean-driver-results.md`: first full clean-contract temporal driver
   retrain, benchmark, ablations, latent probe, and negative conclusion.
+- `m11-online-recurrent-plan.md`: online recurrent actor design, hidden-state
+  reset ablation, queued training command, and validation plan.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.
