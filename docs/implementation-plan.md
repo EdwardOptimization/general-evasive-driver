@@ -296,6 +296,9 @@ Exit criteria:
 - safety/fallback logic is separated from the main RL controller.
 
 Status: planned. See `docs/m7-universal-closed-loop-operator.md`.
+Validation will follow `docs/m7-validation-protocol.md` so a policy is judged by
+held-out generalization, ablations, latent self-identification evidence, and
+behavior diagnostics rather than aggregate success alone.
 
 ## Metrics
 

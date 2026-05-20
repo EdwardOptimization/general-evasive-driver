@@ -32,6 +32,8 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m7-related-papers.md`: related work for direct RL drift control, emergency
   avoidance, recurrent adaptation, asymmetric actor-critic, and sim-to-real
   domain randomization.
+- `m7-validation-protocol.md`: benchmark, ablation, latent-probe, and behavior
+  diagnostics needed to prove an M7 policy is effective.
 - `mvp-status.md`: engineering MVP completion audit.
 
 ## Scope Rule
