@@ -1,28 +1,19 @@
 {
   "counts": {
     "blocked": 0,
-    "completed": 12,
+    "completed": 13,
     "failed": 0,
-    "pending": 1,
-    "planned": 0,
+    "pending": 0,
+    "planned": 1,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m15-obstacle-aligned-perturbation-sampler_20260520T200628Z/command.log",
+    "command_log": "runs/research/m16-sequence-recurrent-ppo_20260520T201650Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m15-obstacle-aligned-perturbation-sampler_20260520T200628Z",
+    "run_dir": "runs/research/m16-sequence-recurrent-ppo_20260520T201650Z",
     "status": "completed",
-    "task_id": "m15-obstacle-aligned-perturbation-sampler"
+    "task_id": "m16-sequence-recurrent-ppo"
   },
-  "next_task": {
-    "command": "conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m16_sequence_recurrent_driver.json --seed 733 --device cuda --run-dir runs/ppo_m16_sequence_recurrent_seed733",
-    "hypothesis": "Train online GRU hidden dynamics with sequence backpropagation instead of detached per-step hidden replay",
-    "id": "m16-sequence-recurrent-ppo",
-    "kind": "training",
-    "notes": "M15 response features matter but hidden reset still beats normal recurrent inference",
-    "priority": 90,
-    "status": "pending",
-    "success_artifact": "runs/ppo_m16_sequence_recurrent_seed733/checkpoint.pt"
-  },
-  "updated_at_utc": "20260520T201541Z"
+  "next_task": null,
+  "updated_at_utc": "20260520T210302Z"
 }

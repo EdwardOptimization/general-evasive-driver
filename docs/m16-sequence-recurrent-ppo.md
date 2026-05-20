@@ -74,3 +74,28 @@ Pass direction:
 - normal M16 should not be worse than hidden reset;
 - normal M16 should improve perturbed success relative to M15;
 - response masking should remain worse than normal inference.
+
+## Result
+
+Full CUDA training completed:
+
+- checkpoint: `runs/ppo_m16_sequence_recurrent_seed733/checkpoint.pt`;
+- wall-clock: about 44 minutes for 1.5M steps on the local RTX 5080;
+- final eval return mean: 64.688;
+- final eval termination rate: 0.200.
+
+M13 paired gate result:
+
+| policy | nominal success | perturbed success | paired drop |
+| --- | ---: | ---: | ---: |
+| M16 | 0.800 | 0.375 | 0.425 |
+| M16 reset hidden | 0.900 | 0.375 | 0.525 |
+| M16 zero current response | 0.750 | 0.350 | 0.400 |
+| M16 zero all response | 0.750 | 0.350 | 0.400 |
+
+Interpretation: sequence PPO improved normal perturbed success to 0.375, equal
+to hidden reset and M11 on this corpus. It still does not prove recurrent
+self-identification because reset has higher nominal success and response
+masking is only slightly worse. The next direction should add an auxiliary
+closed-loop response-prediction objective so hidden state is trained to encode
+vehicle response history, not only policy reward.

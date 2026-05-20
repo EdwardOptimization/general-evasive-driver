@@ -382,6 +382,44 @@ Smoke result:
 - eval termination rate: 0.000;
 - eval lateral RMSE mean: 0.213.
 
+## 20260520T210114Z m16-sequence-recurrent-ppo
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Train online GRU hidden dynamics with sequence backpropagation instead of detached per-step hidden replay
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m16_sequence_recurrent_driver.json --seed 733 --device cuda --run-dir runs/ppo_m16_sequence_recurrent_seed733`
+- returncode: `0`
+- run dir: `runs/research/m16-sequence-recurrent-ppo_20260520T201650Z`
+- command log: `runs/research/m16-sequence-recurrent-ppo_20260520T201650Z/command.log`
+- success artifact: `runs/ppo_m16_sequence_recurrent_seed733/checkpoint.pt`
+
+Training result:
+
+- wall-clock: about 44 minutes for 1.5M steps;
+- final eval return mean: 64.688;
+- final eval steps mean: 70.300;
+- final eval termination rate: 0.200;
+- final eval lateral RMSE mean: 1.181.
+
+M13 paired gate re-run:
+
+- command: `conda run -n autodrift python -m autodrift.paired_perturbation_gate --env-config configs/m11_online_recurrent_history_critical_eval.json --seed-csv runs/m13_near_threshold_corpus_seed3000/scenario_corpus.csv --checkpoint runs/ppo_m16_sequence_recurrent_seed733/checkpoint.pt --checkpoint-policy m16=runs/ppo_m16_sequence_recurrent_seed733/checkpoint.pt --checkpoint-policy m16_reset=runs/ppo_m16_sequence_recurrent_seed733/checkpoint.pt@reset_recurrent_state --checkpoint-policy m16_zero_current=runs/ppo_m16_sequence_recurrent_seed733/checkpoint.pt@zero_current_response --checkpoint-policy m16_zero_all=runs/ppo_m16_sequence_recurrent_seed733/checkpoint.pt@zero_all_response --device cpu --run-dir runs/m16_sequence_recurrent_paired_gate_seed3000`
+- run dir: `runs/m16_sequence_recurrent_paired_gate_seed3000`
+- M16 nominal success: 0.800;
+- M16 perturbed success: 0.375;
+- M16 paired success drop: 0.425;
+- M16 hidden-reset nominal success: 0.900;
+- M16 hidden-reset perturbed success: 0.375;
+- M16 zero-current and zero-all nominal success: 0.750;
+- M16 zero-current and zero-all perturbed success: 0.350.
+
+Conclusion: sequence PPO fixed the detached-hidden training defect and improved
+normal perturbed success to the M11 level, but it still does not prove recurrent
+self-identification. Reset remains better nominally, and response masking is
+only slightly worse than normal M16. The next hypothesis is to add a deployable
+response-prediction auxiliary loss so hidden state is explicitly trained to
+encode how the vehicle reacts over time.
+
 ## 20260520T200959Z m15-obstacle-aligned-perturbation-sampler
 
 - status: `completed`
@@ -393,3 +431,15 @@ Smoke result:
 - command log: `runs/research/m15-obstacle-aligned-perturbation-sampler_20260520T200628Z/command.log`
 - success artifact: `runs/ppo_m15_obstacle_aligned_recurrent_seed619/checkpoint.pt`
 - notes: M14 reset-hidden beats normal recurrent inference so align training timing with the M13 gate instead of forcing early friction steps
+
+## 20260520T210114Z m16-sequence-recurrent-ppo
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Train online GRU hidden dynamics with sequence backpropagation instead of detached per-step hidden replay
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m16_sequence_recurrent_driver.json --seed 733 --device cuda --run-dir runs/ppo_m16_sequence_recurrent_seed733`
+- returncode: `0`
+- run dir: `runs/research/m16-sequence-recurrent-ppo_20260520T201650Z`
+- command log: `runs/research/m16-sequence-recurrent-ppo_20260520T201650Z/command.log`
+- success artifact: `runs/ppo_m16_sequence_recurrent_seed733/checkpoint.pt`
+- notes: M15 response features matter but hidden reset still beats normal recurrent inference
