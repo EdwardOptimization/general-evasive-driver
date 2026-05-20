@@ -3,20 +3,33 @@
 from __future__ import annotations
 
 import argparse
-from dataclasses import replace
+from dataclasses import fields, replace
 from pathlib import Path
 
 import pandas as pd
 
 from autodrift.artifacts import make_run_dir, write_json
 from autodrift.benchmark import add_buckets, summarize
+from autodrift.dynamics import RandomizationConfig
 from autodrift.env import DriftEnvConfig
 from autodrift.evaluate import CHECKPOINT_ABLATIONS, evaluate_policy, load_env_config
 
 
-def condition_config(env_config: DriftEnvConfig, friction_mu_range: tuple[float, float]) -> DriftEnvConfig:
+RANDOMIZATION_KEYS = {field.name for field in fields(RandomizationConfig)}
+
+
+def condition_config(
+    env_config: DriftEnvConfig,
+    friction_mu_range: tuple[float, float],
+    randomization_overrides: dict[str, tuple[float, float]] | None = None,
+) -> DriftEnvConfig:
     if not env_config.friction_step.enabled:
         raise ValueError("paired perturbation gate requires friction_step.enabled=true")
+    randomization = env_config.randomization
+    for key, value in (randomization_overrides or {}).items():
+        if key not in RANDOMIZATION_KEYS:
+            raise ValueError(f"unknown randomization override key: {key}")
+        randomization = replace(randomization, **{key: value})
     return replace(
         env_config,
         friction_step=replace(
@@ -24,6 +37,7 @@ def condition_config(env_config: DriftEnvConfig, friction_mu_range: tuple[float,
             mu_range=friction_mu_range,
             resample_speed_ref=False,
         ),
+        randomization=randomization,
     )
 
 
@@ -35,6 +49,19 @@ def parse_range(raw: str) -> tuple[float, float]:
     if high < low:
         raise argparse.ArgumentTypeError("range HIGH must be >= LOW")
     return low, high
+
+
+def parse_randomization_overrides(raw_specs: list[str]) -> dict[str, tuple[float, float]]:
+    overrides: dict[str, tuple[float, float]] = {}
+    for spec in raw_specs:
+        if "=" not in spec:
+            raise ValueError(f"randomization override must be KEY=LOW,HIGH, got {spec!r}")
+        key, raw_range = spec.split("=", 1)
+        key = key.strip()
+        if key not in RANDOMIZATION_KEYS:
+            raise ValueError(f"unknown randomization override key: {key}")
+        overrides[key] = parse_range(raw_range)
+    return overrides
 
 
 def parse_checkpoint_specs(specs: list[str], default_checkpoint: Path) -> list[tuple[str, Path, str]]:
@@ -100,6 +127,18 @@ def main() -> None:
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="cpu")
     parser.add_argument("--nominal-friction-mu-range", type=parse_range, default=(0.85, 1.15))
     parser.add_argument("--perturbed-friction-mu-range", type=parse_range, default=(0.25, 0.35))
+    parser.add_argument(
+        "--nominal-randomization",
+        action="append",
+        default=[],
+        help="Randomization override for nominal condition, formatted as KEY=LOW,HIGH.",
+    )
+    parser.add_argument(
+        "--perturbed-randomization",
+        action="append",
+        default=[],
+        help="Randomization override for perturbed condition, formatted as KEY=LOW,HIGH.",
+    )
     parser.add_argument("--run-dir", type=Path, default=None)
     args = parser.parse_args()
 
@@ -107,9 +146,11 @@ def main() -> None:
     run_dir.mkdir(parents=True, exist_ok=True)
 
     base_config = load_env_config(args.env_config)
+    nominal_randomization = parse_randomization_overrides(args.nominal_randomization)
+    perturbed_randomization = parse_randomization_overrides(args.perturbed_randomization)
     configs = {
-        "nominal": condition_config(base_config, args.nominal_friction_mu_range),
-        "perturbed": condition_config(base_config, args.perturbed_friction_mu_range),
+        "nominal": condition_config(base_config, args.nominal_friction_mu_range, nominal_randomization),
+        "perturbed": condition_config(base_config, args.perturbed_friction_mu_range, perturbed_randomization),
     }
     checkpoint_specs = parse_checkpoint_specs(args.checkpoint_policy, args.checkpoint)
     seeds = load_seed_csv(args.seed_csv) if args.seed_csv is not None else [args.seed + episode for episode in range(args.episodes)]
@@ -161,6 +202,8 @@ def main() -> None:
             "seed_csv": args.seed_csv,
             "nominal_friction_mu_range": args.nominal_friction_mu_range,
             "perturbed_friction_mu_range": args.perturbed_friction_mu_range,
+            "nominal_randomization": nominal_randomization,
+            "perturbed_randomization": perturbed_randomization,
             "episodes_csv": episodes_csv,
             "condition_summary_csv": condition_csv,
             "obstacle_label_summary_csv": label_csv,

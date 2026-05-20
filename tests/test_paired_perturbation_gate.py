@@ -2,7 +2,13 @@ import pandas as pd
 
 from autodrift.env import DriftEnvConfig, FrictionStepConfig, ObstacleTaskConfig
 from autodrift.near_threshold_corpus import collect_candidate_rows, select_near_threshold_rows
-from autodrift.paired_perturbation_gate import build_pair_summary, condition_config, load_seed_csv, parse_range
+from autodrift.paired_perturbation_gate import (
+    build_pair_summary,
+    condition_config,
+    load_seed_csv,
+    parse_randomization_overrides,
+    parse_range,
+)
 
 
 def test_condition_config_changes_only_friction_step_mu_range():
@@ -14,6 +20,37 @@ def test_condition_config_changes_only_friction_step_mu_range():
     assert changed.friction_step.mu_range == (0.2, 0.3)
     assert changed.friction_step.resample_speed_ref is False
     assert changed.obstacle == base.obstacle
+
+
+def test_condition_config_can_override_randomization_ranges():
+    base = DriftEnvConfig(friction_step=FrictionStepConfig(enabled=True, mu_range=(0.4, 0.8)))
+
+    changed = condition_config(
+        base,
+        friction_mu_range=(0.25, 0.35),
+        randomization_overrides={
+            "actuator_tau_scale_range": (2.0, 3.0),
+            "brake_scale_range": (0.5, 0.7),
+        },
+    )
+
+    assert changed.friction_step.mu_range == (0.25, 0.35)
+    assert changed.randomization.actuator_tau_scale_range == (2.0, 3.0)
+    assert changed.randomization.brake_scale_range == (0.5, 0.7)
+    assert base.randomization.actuator_tau_scale_range != changed.randomization.actuator_tau_scale_range
+
+
+def test_parse_randomization_overrides_requires_known_key():
+    assert parse_randomization_overrides(["drive_scale_range=0.5,0.8"]) == {
+        "drive_scale_range": (0.5, 0.8)
+    }
+
+    try:
+        parse_randomization_overrides(["unknown_range=0.5,0.8"])
+    except ValueError as exc:
+        assert "unknown randomization" in str(exc)
+    else:
+        raise AssertionError("unknown randomization override should be rejected")
 
 
 def test_build_pair_summary_reports_success_drop_and_return_delta():

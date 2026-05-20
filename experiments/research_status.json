@@ -3,7 +3,7 @@
     "blocked": 0,
     "completed": 14,
     "failed": 0,
-    "pending": 0,
+    "pending": 1,
     "planned": 0,
     "running": 0
   },
@@ -14,6 +14,15 @@
     "status": "completed",
     "task_id": "m17-response-prediction-aux"
   },
-  "next_task": null,
-  "updated_at_utc": "20260520T220825Z"
+  "next_task": {
+    "command": "conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m18_actuator_response_recurrent_driver.json --seed 911 --device cuda --run-dir runs/ppo_m18_actuator_response_recurrent_seed911",
+    "hypothesis": "Train on wider actuator and vehicle-response randomization so same geometry requires response-dependent control",
+    "id": "m18-actuator-response-critical-training",
+    "kind": "training",
+    "notes": "Seed 911 warmup smoke reaches termination_rate 0.100 after 20480 steps",
+    "priority": 110,
+    "status": "pending",
+    "success_artifact": "runs/ppo_m18_actuator_response_recurrent_seed911/checkpoint.pt"
+  },
+  "updated_at_utc": "20260520T221713Z"
 }
