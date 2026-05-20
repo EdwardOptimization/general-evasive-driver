@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 0,
-    "completed": 15,
+    "completed": 16,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m18-actuator-response-critical-training_20260520T221756Z/command.log",
+    "command_log": "runs/research/m19-response-retention-finetune_20260520T230853Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m18-actuator-response-critical-training_20260520T221756Z",
+    "run_dir": "runs/research/m19-response-retention-finetune_20260520T230853Z",
     "status": "completed",
-    "task_id": "m18-actuator-response-critical-training"
+    "task_id": "m19-response-retention-finetune"
   },
   "next_task": {
-    "command": "conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m19_response_retention_finetune_driver.json --seed 919 --device cuda --init-checkpoint runs/ppo_m18_actuator_response_recurrent_seed911/checkpoint.pt --run-dir runs/ppo_m19_response_retention_finetune_seed919",
-    "hypothesis": "Fine-tune M18 on a softer response-retention curriculum to recover success without losing response dependence",
-    "id": "m19-response-retention-finetune",
+    "command": "conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m20_periodic_response_retention_driver.json --seed 929 --device cuda --init-checkpoint runs/ppo_m18_actuator_response_recurrent_seed911/checkpoint.pt --run-dir runs/ppo_m20_periodic_response_retention_seed929",
+    "hypothesis": "Save periodic checkpoints during a shorter M18 fine-tune so gates can select response-retention points",
+    "id": "m20-periodic-response-retention",
     "kind": "training",
-    "notes": "M18 gives response-mask degradation but M13 perturbed success remains 0.375",
-    "priority": 120,
+    "notes": "M19 shows endpoint-only fine-tuning can erase response dependence",
+    "priority": 130,
     "status": "pending",
-    "success_artifact": "runs/ppo_m19_response_retention_finetune_seed919/checkpoint.pt"
+    "success_artifact": "runs/ppo_m20_periodic_response_retention_seed929/checkpoint.pt"
   },
-  "updated_at_utc": "20260520T230712Z"
+  "updated_at_utc": "20260520T233952Z"
 }

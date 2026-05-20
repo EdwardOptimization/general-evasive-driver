@@ -66,6 +66,8 @@ vehicle/tire models, and NMPC-style constrained control.
   extension and behavior-critical recurrent training direction.
 - `m19-response-retention-finetune.md`: same-contract M18 fine-tune direction
   for recovering aggregate success without erasing response dependence.
+- `m20-periodic-response-retention.md`: periodic checkpointing and checkpoint
+  selection plan for response-retention fine-tunes.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

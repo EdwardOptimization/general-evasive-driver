@@ -49,6 +49,7 @@ class PPOConfig:
     recurrent_sequence_training: bool = False
     response_prediction_aux_coef: float = 0.0
     response_prediction_dim: int = 0
+    checkpoint_interval_steps: int = 0
     seed: int = 5
     device: str = "auto"
 
@@ -338,6 +339,24 @@ def load_init_checkpoint_state(model: ActorCritic, checkpoint_path: Path, device
     return adapt_actor_critic_state(model, source_state)
 
 
+def save_training_checkpoint(
+    model: ActorCritic,
+    config: PPOConfig,
+    checkpoint_metadata: dict | None,
+    path: Path,
+) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    state_dict = {key: value.detach().cpu() for key, value in model.state_dict().items()}
+    torch.save(
+        {
+            "model_state": state_dict,
+            "config": config.__dict__,
+            "metadata": to_jsonable(checkpoint_metadata or {}),
+        },
+        path,
+    )
+
+
 def resolve_device(name: str) -> torch.device:
     if name == "auto":
         return torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -443,6 +462,8 @@ def train(
             raise ValueError("response prediction auxiliary loss requires online_gru recurrent sequence training")
         if config.response_prediction_dim < 1:
             raise ValueError("response_prediction_dim must be positive when response_prediction_aux_coef > 0")
+    if config.checkpoint_interval_steps < 0:
+        raise ValueError("checkpoint_interval_steps cannot be negative")
     env = SyncAutoDriftVectorEnv(num_envs=config.num_envs, config=active_env_config, seed=config.seed)
     obs, infos = env.reset()
     if config.response_prediction_dim > env.single_observation_space.shape[0]:
@@ -469,6 +490,8 @@ def train(
     update = 0
     metric_rows: list[dict[str, float | int]] = []
     recurrent_hidden = model.initial_hidden(config.num_envs, device) if config.actor_encoder == "online_gru" else None
+    checkpoint_interval = int(config.checkpoint_interval_steps)
+    next_checkpoint_step = checkpoint_interval if checkpoint_interval > 0 else None
     while global_step < config.total_steps:
         next_env_config, next_stage = env_config_for_step(env_config, curriculum, global_step)
         if next_stage != active_stage:
@@ -672,6 +695,11 @@ def train(
             "termination_rate": float(np.mean(episode_terminated)) if episode_terminated else float("nan"),
         }
         metric_rows.append(row)
+        if save_path is not None and next_checkpoint_step is not None and global_step >= next_checkpoint_step:
+            periodic_path = save_path.parent / "checkpoints" / f"checkpoint_step_{global_step}.pt"
+            save_training_checkpoint(model, config, checkpoint_metadata, periodic_path)
+            while next_checkpoint_step <= global_step:
+                next_checkpoint_step += checkpoint_interval
         if update % 5 == 0 or global_step >= config.total_steps:
             print(
                 f"step={global_step} update={update} "
@@ -682,16 +710,7 @@ def train(
             )
 
     if save_path is not None:
-        save_path.parent.mkdir(parents=True, exist_ok=True)
-        state_dict = {key: value.detach().cpu() for key, value in model.state_dict().items()}
-        torch.save(
-            {
-                "model_state": state_dict,
-                "config": config.__dict__,
-                "metadata": to_jsonable(checkpoint_metadata or {}),
-            },
-            save_path,
-        )
+        save_training_checkpoint(model, config, checkpoint_metadata, save_path)
     if metrics_csv_path is not None:
         write_csv_rows(metrics_csv_path, metric_rows)
     return model

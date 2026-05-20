@@ -66,3 +66,52 @@ M18 response-dependence signal:
   normal recurrent inference;
 - same-corpus obstacle benchmark should stay above envelope AES and avoid
   drift-seeking stable-AES behavior.
+
+## Full Result
+
+Training result:
+
+- run dir: `runs/ppo_m19_response_retention_finetune_seed919`;
+- checkpoint: `runs/ppo_m19_response_retention_finetune_seed919/checkpoint.pt`;
+- research run dir: `runs/research/m19-response-retention-finetune_20260520T230853Z`;
+- final eval return mean: 74.549;
+- final eval steps mean: 65.200;
+- final eval termination rate: 0.100;
+- final eval lateral RMSE mean: 0.761;
+- final eval beta absolute error mean: 0.156.
+
+Actuator-response paired gate:
+
+| policy | nominal success | perturbed success | success drop | return delta |
+| --- | ---: | ---: | ---: | ---: |
+| `m19` | 0.300 | 0.400 | -0.100 | 3.061 |
+| `m19_reset` | 0.375 | 0.375 | 0.000 | -2.020 |
+| `m19_zero_current` | 0.400 | 0.375 | 0.025 | -4.774 |
+| `m19_zero_all` | 0.400 | 0.375 | 0.025 | -4.774 |
+
+M13 friction paired gate:
+
+| policy | nominal success | perturbed success | success drop | return delta |
+| --- | ---: | ---: | ---: | ---: |
+| `m19` | 0.800 | 0.375 | 0.425 | -19.905 |
+| `m19_reset` | 0.675 | 0.375 | 0.300 | -14.151 |
+| `m19_zero_current` | 0.850 | 0.425 | 0.425 | -19.458 |
+| `m19_zero_all` | 0.850 | 0.425 | 0.425 | -19.458 |
+
+Same-corpus obstacle benchmark:
+
+| policy | success | termination | high sideslip |
+| --- | ---: | ---: | ---: |
+| `envelope_aes` | 0.250 | 0.750 | 0.000 |
+| `m19` | 0.450 | 0.550 | 0.047 |
+| `m19_reset` | 0.400 | 0.600 | 0.009 |
+| `m19_zero_current` | 0.425 | 0.575 | 0.022 |
+
+Conclusion: M19 is a negative result. It does not improve aggregate success
+enough, and it erases the main M18 signal: response masks are no longer worse
+than normal inference, and on the friction gate they are better. This suggests
+that endpoint-only checkpoint selection is too weak for fine-tuning; response
+dependence can appear during training and disappear by the final checkpoint.
+The next infrastructure step should save periodic checkpoints so future
+fine-tunes can select the best response-retention point instead of only the
+last model.

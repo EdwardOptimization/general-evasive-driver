@@ -546,3 +546,58 @@ success is low, and M13 perturbed success regresses below M17 (`0.375` vs
 `0.400`). The next experiment should keep the response-dependence pressure but
 recover aggregate success, likely with a softer actuator curriculum or mixed
 fine-tuning from the M18 checkpoint.
+
+## 20260520T233544Z m19-response-retention-finetune
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Fine-tune M18 on a softer response-retention curriculum to recover success without losing response dependence
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m19_response_retention_finetune_driver.json --seed 919 --device cuda --init-checkpoint runs/ppo_m18_actuator_response_recurrent_seed911/checkpoint.pt --run-dir runs/ppo_m19_response_retention_finetune_seed919`
+- returncode: `0`
+- run dir: `runs/research/m19-response-retention-finetune_20260520T230853Z`
+- command log: `runs/research/m19-response-retention-finetune_20260520T230853Z/command.log`
+- success artifact: `runs/ppo_m19_response_retention_finetune_seed919/checkpoint.pt`
+- notes: M18 gives response-mask degradation but M13 perturbed success remains 0.375
+
+Training result:
+
+- init checkpoint load mode: `strict`;
+- final eval return mean: 74.549;
+- final eval steps mean: 65.200;
+- final eval termination rate: 0.100;
+- final eval lateral RMSE mean: 0.761;
+- final eval beta absolute error mean: 0.156.
+
+Actuator-response paired gate:
+
+- command: `conda run -n autodrift python -m autodrift.paired_perturbation_gate --env-config configs/m11_online_recurrent_history_critical_eval.json --seed-csv runs/m13_near_threshold_corpus_seed3000/scenario_corpus.csv --checkpoint runs/ppo_m19_response_retention_finetune_seed919/checkpoint.pt --checkpoint-policy m19=runs/ppo_m19_response_retention_finetune_seed919/checkpoint.pt --checkpoint-policy m19_reset=runs/ppo_m19_response_retention_finetune_seed919/checkpoint.pt@reset_recurrent_state --checkpoint-policy m19_zero_current=runs/ppo_m19_response_retention_finetune_seed919/checkpoint.pt@zero_current_response --checkpoint-policy m19_zero_all=runs/ppo_m19_response_retention_finetune_seed919/checkpoint.pt@zero_all_response --device cpu --nominal-friction-mu-range 0.30,0.45 --perturbed-friction-mu-range 0.30,0.45 --nominal-randomization actuator_tau_scale_range=0.60,0.90 --nominal-randomization brake_scale_range=1.20,1.40 --nominal-randomization drive_scale_range=1.10,1.35 --perturbed-randomization actuator_tau_scale_range=2.40,3.20 --perturbed-randomization brake_scale_range=0.45,0.65 --perturbed-randomization drive_scale_range=0.55,0.75 --run-dir runs/m19_actuator_response_gate_seed3000`
+- run dir: `runs/m19_actuator_response_gate_seed3000`;
+- M19 nominal success: 0.300;
+- M19 perturbed success: 0.400;
+- M19 hidden-reset perturbed success: 0.375;
+- M19 zero-current and zero-all perturbed success: 0.375.
+
+M13 friction paired gate:
+
+- command: `conda run -n autodrift python -m autodrift.paired_perturbation_gate --env-config configs/m11_online_recurrent_history_critical_eval.json --seed-csv runs/m13_near_threshold_corpus_seed3000/scenario_corpus.csv --checkpoint runs/ppo_m19_response_retention_finetune_seed919/checkpoint.pt --checkpoint-policy m19=runs/ppo_m19_response_retention_finetune_seed919/checkpoint.pt --checkpoint-policy m19_reset=runs/ppo_m19_response_retention_finetune_seed919/checkpoint.pt@reset_recurrent_state --checkpoint-policy m19_zero_current=runs/ppo_m19_response_retention_finetune_seed919/checkpoint.pt@zero_current_response --checkpoint-policy m19_zero_all=runs/ppo_m19_response_retention_finetune_seed919/checkpoint.pt@zero_all_response --device cpu --run-dir runs/m19_friction_paired_gate_seed3000`
+- run dir: `runs/m19_friction_paired_gate_seed3000`;
+- M19 nominal success: 0.800;
+- M19 perturbed success: 0.375;
+- M19 hidden-reset perturbed success: 0.375;
+- M19 zero-current and zero-all perturbed success: 0.425.
+
+Same-corpus obstacle benchmark:
+
+- run dir: `runs/m19_same_contract_obstacle_benchmark_seed3000`;
+- `envelope_aes` success: 0.250;
+- M19 success: 0.450;
+- M19 hidden-reset success: 0.400;
+- M19 zero-current success: 0.425;
+- M19 high-sideslip fraction: 0.047.
+
+Conclusion: M19 is negative. It does not recover aggregate success enough, and
+it erases the strongest M18 self-identification evidence. On the friction gate,
+zero-response inference is better than normal inference (`0.425` vs `0.375`).
+The next step should add periodic checkpoint saving and selection, because a
+fine-tune can plausibly pass through useful response-retention states before
+the final checkpoint regresses to geometry/open-loop shortcuts.

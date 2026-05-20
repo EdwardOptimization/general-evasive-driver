@@ -3,7 +3,14 @@ import torch
 
 from autodrift.checkpoints import load_actor_critic_checkpoint
 from autodrift.env import DriftEnvConfig
-from autodrift.train_ppo import ActorCritic, build_sequence_targets, evaluate_actor, load_init_checkpoint_state
+from autodrift.train_ppo import (
+    ActorCritic,
+    PPOConfig,
+    build_sequence_targets,
+    evaluate_actor,
+    load_init_checkpoint_state,
+    train,
+)
 
 
 def model_config(**overrides):
@@ -71,6 +78,35 @@ def test_init_checkpoint_rejects_different_observation_contract(tmp_path):
 
     with np.testing.assert_raises(RuntimeError):
         load_init_checkpoint_state(target, checkpoint_path, torch.device("cpu"))
+
+
+def test_train_writes_periodic_checkpoints(tmp_path):
+    save_path = tmp_path / "run" / "checkpoint.pt"
+    config = PPOConfig(
+        total_steps=64,
+        rollout_steps=16,
+        num_envs=2,
+        update_epochs=1,
+        minibatch_size=16,
+        hidden_size=8,
+        checkpoint_interval_steps=32,
+        seed=123,
+        device="cpu",
+    )
+
+    train(
+        config,
+        save_path=save_path,
+        env_config=DriftEnvConfig(max_steps=8, speed_range=(4.0, 6.0)),
+    )
+
+    periodic = sorted((tmp_path / "run" / "checkpoints").glob("checkpoint_step_*.pt"))
+
+    assert save_path.exists()
+    assert [path.name for path in periodic] == ["checkpoint_step_32.pt", "checkpoint_step_64.pt"]
+    loaded, checkpoint = load_actor_critic_checkpoint(periodic[0], device="cpu")
+    assert loaded.obs_dim == 11
+    assert checkpoint["config"]["checkpoint_interval_steps"] == 32
 
 
 def test_sequence_actor_checkpoint_loads_and_predicts_plan(tmp_path):
