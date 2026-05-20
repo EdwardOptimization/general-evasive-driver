@@ -220,3 +220,24 @@ but the current M11 driver still does not show a recurrent-state advantage.
 Normal recurrent inference, hidden reset, and response-masked inference all
 drop by the same amount. Next work should train on near-threshold perturbation
 cases, then re-run this exact corpus as the gate.
+
+## m14-near-threshold-training
+
+- status: `pending`
+- kind: `training`
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m14_online_recurrent_near_threshold_driver.json --seed 517 --device cuda --run-dir runs/ppo_m14_online_recurrent_near_threshold_seed517`
+- success artifact: `runs/ppo_m14_online_recurrent_near_threshold_seed517/checkpoint.pt`
+
+Infrastructure result:
+
+- clean action-history contract now supports only `full` and `none`;
+- `legacy` action history is rejected at config construction;
+- near-threshold obstacle sampling is strict, with no best-effort fallback;
+- M14 training samples non-AEB near-threshold labels:
+  `aes_feasible`, `drift_required`, and `unavoidable`;
+- smoke run: `runs/ppo_m14_near_threshold_smoke`;
+- smoke eval return mean: 14.451;
+- smoke eval termination rate: 1.000.
+
+This is an infrastructure pass, not a policy-quality claim. The next action is
+the full CUDA M14 run followed by the exact M13 paired corpus gate.

@@ -51,6 +51,8 @@ class ObstacleTaskConfig:
     stable_aes_beta_limit: float = 0.24
     stable_aes_sideslip_penalty: float = 0.0
     stable_aes_drift_bonus_scale: float = 1.0
+    max_threshold_score: float | None = None
+    min_time_after_friction_step: float = 0.0
 
     def scenario_config(self, speed: float, mu: float) -> ObstacleScenarioConfig:
         return ObstacleScenarioConfig(
@@ -79,11 +81,17 @@ class DriftEnvConfig:
     friction_limited_speed: bool = True
     friction_speed_margin: float = 0.92
     history_length: int = 1
-    action_history_mode: str = "legacy"
+    action_history_mode: str = "full"
     include_privileged_params: bool = False
     friction_step: FrictionStepConfig = FrictionStepConfig()
     obstacle: ObstacleTaskConfig = ObstacleTaskConfig()
     randomization: RandomizationConfig = RandomizationConfig()
+
+    def __post_init__(self) -> None:
+        if self.history_length < 1:
+            raise ValueError("history_length must be at least 1")
+        if self.action_history_mode not in {"full", "none"}:
+            raise ValueError("action_history_mode must be one of: full, none")
 
 
 class AutoDriftEnv(gym.Env):
@@ -99,14 +107,10 @@ class AutoDriftEnv(gym.Env):
     def __init__(self, config: DriftEnvConfig | None = None):
         super().__init__()
         self.config = config or DriftEnvConfig()
-        if self.config.history_length < 1:
-            raise ValueError("history_length must be at least 1")
-        if self.config.action_history_mode not in {"legacy", "full", "none"}:
-            raise ValueError("action_history_mode must be one of: legacy, full, none")
         self.action_space = spaces.Box(low=-1.0, high=1.0, shape=(2,), dtype=np.float32)
 
         obstacle_obs_dim = 4 if self.config.obstacle.enabled else 0
-        action_obs_dim = {"none": 0, "legacy": 1, "full": 2}[self.config.action_history_mode]
+        action_obs_dim = {"none": 0, "full": 2}[self.config.action_history_mode]
         self.base_obs_dim = 9 + action_obs_dim + obstacle_obs_dim + (4 if self.config.include_privileged_params else 0)
         obs_dim = self.base_obs_dim * self.config.history_length
         self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(obs_dim,), dtype=np.float32)
@@ -261,6 +265,7 @@ class AutoDriftEnv(gym.Env):
             return
         scenario_config = self.config.obstacle.scenario_config(speed=self.speed_ref, mu=self.params.mu)
         scenario = None
+        accepted = False
         allowed_labels = set(self.config.obstacle.allowed_labels)
         for _ in range(max(1, self.config.obstacle.max_sample_attempts)):
             obstacle_distance = float(self.rng.uniform(*self.config.obstacle.distance_range))
@@ -274,15 +279,32 @@ class AutoDriftEnv(gym.Env):
             )
             is_allowed = scenario.label in allowed_labels
             is_aeb_valid = not self.config.obstacle.require_aeb_infeasible or scenario.label != "aeb_feasible"
-            if is_allowed and is_aeb_valid:
+            is_near_threshold = (
+                self.config.obstacle.max_threshold_score is None
+                or self._obstacle_threshold_score(scenario) <= self.config.obstacle.max_threshold_score
+            )
+            has_time_after_step = self._obstacle_time_after_friction_step(scenario) >= self.config.obstacle.min_time_after_friction_step
+            if is_allowed and is_aeb_valid and is_near_threshold and has_time_after_step:
+                accepted = True
                 break
-        if scenario is None or scenario.label not in allowed_labels:
-            raise RuntimeError("failed to sample an obstacle scenario with an allowed label")
+        if scenario is None or not accepted:
+            raise RuntimeError("failed to sample an obstacle scenario matching the configured filters")
         if self.config.obstacle.require_aeb_infeasible and scenario.label == "aeb_feasible":
             raise RuntimeError("failed to sample an AEB-infeasible obstacle scenario")
         self.obstacle_scenario = scenario
         self.obstacle_position = position + frame.tangent * obstacle_distance
         self._update_obstacle_status(frame)
+
+    def _obstacle_threshold_score(self, scenario: ObstacleScenario) -> float:
+        required = max(float(scenario.required_lateral_offset), 1e-6)
+        aes_margin = float(scenario.conventional_lateral_capacity - scenario.required_lateral_offset) / required
+        drift_margin = float(scenario.drift_lateral_capacity - scenario.required_lateral_offset) / required
+        return min(abs(aes_margin), abs(drift_margin))
+
+    def _obstacle_time_after_friction_step(self, scenario: ObstacleScenario) -> float:
+        if self.friction_step_at is None:
+            return float("inf")
+        return float(scenario.time_to_obstacle - self.friction_step_at * self.config.dt)
 
     def _obstacle_features(self, frame: PathFrame) -> tuple[float, float, float, float]:
         if self.obstacle_scenario is None or self.obstacle_position is None:
@@ -345,8 +367,6 @@ class AutoDriftEnv(gym.Env):
             frame.curvature * 20.0,
             along_speed / 20.0,
         ]
-        if self.config.action_history_mode == "legacy":
-            obs.append(self.last_action[1])
         if self.config.action_history_mode == "full":
             obs.extend([self.last_action[0], self.last_action[1]])
         if self.config.obstacle.enabled:
@@ -468,6 +488,14 @@ class AutoDriftEnv(gym.Env):
             ),
             "obstacle_required_lateral_offset": (
                 self.obstacle_scenario.required_lateral_offset if self.obstacle_scenario is not None else float("nan")
+            ),
+            "obstacle_threshold_score": (
+                self._obstacle_threshold_score(self.obstacle_scenario) if self.obstacle_scenario is not None else float("nan")
+            ),
+            "obstacle_time_after_friction_step": (
+                self._obstacle_time_after_friction_step(self.obstacle_scenario)
+                if self.obstacle_scenario is not None
+                else float("nan")
             ),
             "min_obstacle_clearance": self.min_obstacle_clearance if self.config.obstacle.enabled else float("nan"),
             "collision": self.collision,

@@ -63,9 +63,9 @@ M8 adds optional `ObstacleTaskConfig` fields:
 - `stable_aes_drift_bonus_scale`.
 
 These fields only affect `aes_feasible` scenarios. They reduce drift reward and
-penalize excessive sideslip when stable steering should be enough. Defaults
-preserve the older M7 behavior, so M7 checkpoints and configs do not silently
-change.
+penalize excessive sideslip when stable steering should be enough. Policies
+must be trained under the current clean observation/action contract; old
+checkpoints are evidence baselines, not migration targets.
 
 The M8 config enables this shaping because the M7 gate rejected both M7-A and
 M7-B for using too much high sideslip on `aes_feasible` cases.

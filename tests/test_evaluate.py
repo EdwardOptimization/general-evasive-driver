@@ -68,13 +68,13 @@ def test_actor_policy_can_ablate_all_response_history():
 
 
 def test_actor_policy_can_ablate_temporal_history():
-    env_config = DriftEnvConfig(history_length=2, action_history_mode="legacy")
-    policy = ActorPolicy(ActorCritic(obs_dim=20, act_dim=2, hidden_size=8), env_config, ablation="single_frame_history")
-    observation = np.arange(20, dtype=np.float32)
+    env_config = DriftEnvConfig(history_length=2, action_history_mode="full")
+    policy = ActorPolicy(ActorCritic(obs_dim=22, act_dim=2, hidden_size=8), env_config, ablation="single_frame_history")
+    observation = np.arange(22, dtype=np.float32)
 
     transformed = policy._transform_observation(observation)
 
-    np.testing.assert_allclose(transformed[:10], transformed[10:])
+    np.testing.assert_allclose(transformed[:11], transformed[11:])
 
 
 def test_actor_policy_can_shuffle_temporal_history_deterministically():

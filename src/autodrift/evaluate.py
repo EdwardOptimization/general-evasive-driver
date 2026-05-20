@@ -50,8 +50,6 @@ class ActorPolicy(Policy):
         self._rng = np.random.default_rng(self._rng_seed)
 
     def _action_history_indices(self) -> list[int]:
-        if self.env_config.action_history_mode == "legacy":
-            return [9]
         if self.env_config.action_history_mode == "full":
             return [9, 10]
         return []

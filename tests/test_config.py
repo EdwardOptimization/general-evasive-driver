@@ -52,6 +52,8 @@ def test_build_env_config_overrides_obstacle_task():
                 "stable_aes_beta_limit": 0.18,
                 "stable_aes_sideslip_penalty": 2.5,
                 "stable_aes_drift_bonus_scale": 0.25,
+                "max_threshold_score": 0.05,
+                "min_time_after_friction_step": 0.10,
             }
         }
     )
@@ -67,6 +69,8 @@ def test_build_env_config_overrides_obstacle_task():
     assert config.obstacle.stable_aes_beta_limit == 0.18
     assert config.obstacle.stable_aes_sideslip_penalty == 2.5
     assert config.obstacle.stable_aes_drift_bonus_scale == 0.25
+    assert config.obstacle.max_threshold_score == 0.05
+    assert config.obstacle.min_time_after_friction_step == 0.10
 
 
 def test_build_env_config_overrides_action_history_mode():
@@ -74,6 +78,15 @@ def test_build_env_config_overrides_action_history_mode():
 
     assert config.action_history_mode == "full"
     assert config.history_length == 3
+
+
+def test_build_env_config_rejects_legacy_action_history_mode():
+    try:
+        build_env_config({"action_history_mode": "legacy"})
+    except ValueError as exc:
+        assert "action_history_mode" in str(exc)
+    else:
+        raise AssertionError("legacy action history mode should be rejected")
 
 
 def test_curriculum_selects_stage_before_base():

@@ -31,7 +31,7 @@ def test_privileged_observation_adds_hidden_params():
     env = AutoDriftEnv(DriftEnvConfig(include_privileged_params=True))
     obs, _ = env.reset(seed=12)
 
-    assert obs.shape == (14,)
+    assert obs.shape == (15,)
 
 
 def test_history_observation_stacks_recent_frames():
@@ -39,9 +39,9 @@ def test_history_observation_stacks_recent_frames():
     obs, _ = env.reset(seed=15)
     next_obs, _, _, _, _ = env.step(np.array([0.0, 0.2], dtype=np.float32))
 
-    assert obs.shape == (40,)
-    assert next_obs.shape == (40,)
-    assert not np.allclose(next_obs[:10], next_obs[10:20])
+    assert obs.shape == (44,)
+    assert next_obs.shape == (44,)
+    assert not np.allclose(next_obs[:11], next_obs[11:22])
 
 
 def test_full_action_history_observation_adds_previous_steer_and_drive():
@@ -94,7 +94,7 @@ def test_obstacle_task_adds_observation_features_and_info():
     )
     obs, info = env.reset(seed=20)
 
-    assert obs.shape == (14,)
+    assert obs.shape == (15,)
     assert info["obstacle_enabled"] is True
     assert info["obstacle_label"] in {"aeb_feasible", "aes_feasible", "drift_required", "unavoidable"}
     assert info["obstacle_distance"] > 0.0
@@ -152,6 +152,33 @@ def test_obstacle_task_can_filter_allowed_labels():
     for seed in range(33, 38):
         _, info = env.reset(seed=seed)
         assert info["obstacle_label"] == "unavoidable"
+
+
+def test_obstacle_task_can_sample_near_threshold_cases():
+    env = AutoDriftEnv(
+        DriftEnvConfig(
+            friction_limited_speed=False,
+            friction_step=FrictionStepConfig(enabled=True, step_range=(8, 40), resample_speed_ref=False),
+            obstacle=ObstacleTaskConfig(
+                enabled=True,
+                distance_range=(3.0, 25.0),
+                half_width_range=(0.45, 1.15),
+                require_aeb_infeasible=True,
+                allowed_labels=("aes_feasible", "drift_required", "unavoidable"),
+                max_sample_attempts=10000,
+                max_threshold_score=0.25,
+                min_time_after_friction_step=0.10,
+            ),
+            randomization=RandomizationConfig(mu_range=(0.25, 0.75)),
+        )
+    )
+
+    _, info = env.reset(seed=3000)
+
+    assert info["obstacle_label"] in {"aes_feasible", "drift_required", "unavoidable"}
+    assert info["obstacle_label"] != "aeb_feasible"
+    assert info["obstacle_threshold_score"] <= 0.25
+    assert info["obstacle_time_after_friction_step"] >= 0.10
 
 
 def test_obstacle_collision_terminates_episode_and_penalizes_reward():

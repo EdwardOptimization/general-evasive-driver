@@ -18,6 +18,10 @@ Actor input/output contract changes invalidate old checkpoints. This project
 does not keep observation-shape compatibility shims; the correct migration is a
 new clean run.
 
+The only supported action-history modes are `full` and `none`. The clean driver
+default is `full`, which exposes both previous steering and previous
+drive/brake command. The old one-channel action-history mode is removed.
+
 ## Current Actor Frame
 
 The canonical obstacle-driver frame has 15 values when

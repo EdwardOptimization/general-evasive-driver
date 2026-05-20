@@ -54,6 +54,8 @@ vehicle/tire models, and NMPC-style constrained control.
   M11 paired result, and next near-threshold gate direction.
 - `m13-near-threshold-paired-gate.md`: near-threshold stress-corpus builder,
   paired hidden-response gate, M11 negative result, and M14 training direction.
+- `m14-near-threshold-training-plan.md`: near-threshold recurrent training
+  config, scenario-sampling filters, queued command, and validation gate.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.
