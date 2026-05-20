@@ -18,14 +18,17 @@ from torch import nn
 from torch.distributions import Normal
 from torch.optim import Adam
 
-from autodrift.artifacts import make_run_dir, read_json, write_csv_rows, write_json
-from autodrift.env import AutoDriftEnv
+from autodrift.artifacts import make_run_dir, read_json, to_jsonable, write_csv_rows, write_json
+from autodrift.config import build_curriculum, build_env_config, env_config_for_step
+from autodrift.env import AutoDriftEnv, DriftEnvConfig
+from autodrift.vector_env import SyncAutoDriftVectorEnv
 
 
 @dataclass(frozen=True)
 class PPOConfig:
     total_steps: int = 50_000
     rollout_steps: int = 1024
+    num_envs: int = 1
     update_epochs: int = 6
     minibatch_size: int = 256
     gamma: float = 0.99
@@ -64,9 +67,23 @@ class ActorCritic(nn.Module):
         with torch.no_grad():
             dist, value = self.forward(obs_t)
             raw_action = dist.mean if deterministic else dist.sample()
-            log_prob = dist.log_prob(raw_action).sum(dim=-1)
             action = torch.clamp(raw_action, -1.0, 1.0)
+            log_prob = dist.log_prob(action).sum(dim=-1)
         return action.squeeze(0).cpu().numpy().astype(np.float32), float(log_prob.item()), float(value.item())
+
+    def act_batch(self, obs: np.ndarray, deterministic: bool = False) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+        device = next(self.parameters()).device
+        obs_t = torch.as_tensor(obs, dtype=torch.float32, device=device)
+        with torch.no_grad():
+            dist, value = self.forward(obs_t)
+            raw_action = dist.mean if deterministic else dist.sample()
+            action = torch.clamp(raw_action, -1.0, 1.0)
+            log_prob = dist.log_prob(action).sum(dim=-1)
+        return (
+            action.cpu().numpy().astype(np.float32),
+            log_prob.cpu().numpy().astype(np.float32),
+            value.cpu().numpy().astype(np.float32),
+        )
 
 
 def resolve_device(name: str) -> torch.device:
@@ -98,76 +115,121 @@ def compute_gae(
     return advantages, returns
 
 
+def compute_gae_vectorized(
+    rewards: np.ndarray,
+    dones: np.ndarray,
+    values: np.ndarray,
+    last_values: np.ndarray,
+    gamma: float,
+    gae_lambda: float,
+) -> tuple[np.ndarray, np.ndarray]:
+    advantages = np.zeros_like(rewards, dtype=np.float32)
+    last_gae = np.zeros(rewards.shape[1], dtype=np.float32)
+    for t in reversed(range(rewards.shape[0])):
+        next_non_terminal = 1.0 - dones[t]
+        next_values = last_values if t == rewards.shape[0] - 1 else values[t + 1]
+        delta = rewards[t] + gamma * next_values * next_non_terminal - values[t]
+        last_gae = delta + gamma * gae_lambda * next_non_terminal * last_gae
+        advantages[t] = last_gae
+    returns = advantages + values
+    return advantages, returns
+
+
 def train(
     config: PPOConfig,
     save_path: Path | None = None,
     metrics_csv_path: Path | None = None,
+    env_config: DriftEnvConfig | None = None,
+    curriculum: list | None = None,
+    checkpoint_metadata: dict | None = None,
 ) -> ActorCritic:
     np.random.seed(config.seed)
     torch.manual_seed(config.seed)
     device = resolve_device(config.device)
 
-    env = AutoDriftEnv()
-    obs, info = env.reset(seed=config.seed)
-    model = ActorCritic(obs_dim=env.observation_space.shape[0], act_dim=env.action_space.shape[0]).to(device)
+    env_config = env_config or DriftEnvConfig()
+    curriculum = curriculum or []
+    active_env_config, active_stage = env_config_for_step(env_config, curriculum, 0)
+    env = SyncAutoDriftVectorEnv(num_envs=config.num_envs, config=active_env_config, seed=config.seed)
+    obs, infos = env.reset()
+    model = ActorCritic(
+        obs_dim=env.single_observation_space.shape[0],
+        act_dim=env.single_action_space.shape[0],
+    ).to(device)
     optimizer = Adam(model.parameters(), lr=config.learning_rate)
-    print(f"training_device={device}")
+    print(f"training_device={device} num_envs={config.num_envs} curriculum_stage={active_stage}")
 
     global_step = 0
     update = 0
     metric_rows: list[dict[str, float | int]] = []
     while global_step < config.total_steps:
-        rollout_n = min(config.rollout_steps, config.total_steps - global_step)
-        obs_buf = np.zeros((rollout_n, env.observation_space.shape[0]), dtype=np.float32)
-        act_buf = np.zeros((rollout_n, env.action_space.shape[0]), dtype=np.float32)
-        logp_buf = np.zeros(rollout_n, dtype=np.float32)
-        rew_buf = np.zeros(rollout_n, dtype=np.float32)
-        done_buf = np.zeros(rollout_n, dtype=np.float32)
-        val_buf = np.zeros(rollout_n, dtype=np.float32)
+        next_env_config, next_stage = env_config_for_step(env_config, curriculum, global_step)
+        if next_stage != active_stage:
+            active_env_config = next_env_config
+            active_stage = next_stage
+            env = SyncAutoDriftVectorEnv(num_envs=config.num_envs, config=active_env_config, seed=config.seed + global_step)
+            obs, infos = env.reset()
+            print(f"curriculum_stage={active_stage} step={global_step}")
+
+        remaining = config.total_steps - global_step
+        rollout_n = min(config.rollout_steps, max(1, int(np.ceil(remaining / config.num_envs))))
+        obs_buf = np.zeros((rollout_n, config.num_envs, env.single_observation_space.shape[0]), dtype=np.float32)
+        act_buf = np.zeros((rollout_n, config.num_envs, env.single_action_space.shape[0]), dtype=np.float32)
+        logp_buf = np.zeros((rollout_n, config.num_envs), dtype=np.float32)
+        rew_buf = np.zeros((rollout_n, config.num_envs), dtype=np.float32)
+        done_buf = np.zeros((rollout_n, config.num_envs), dtype=np.float32)
+        val_buf = np.zeros((rollout_n, config.num_envs), dtype=np.float32)
 
         episode_returns: list[float] = []
-        episode_return = 0.0
+        episode_lengths: list[int] = []
+        episode_terminated: list[float] = []
         for t in range(rollout_n):
-            action, logp, value = model.act(obs)
-            next_obs, reward, terminated, truncated, info = env.step(action)
-            done = terminated or truncated
-
+            action, logp, value = model.act_batch(obs)
+            step = env.step(action)
+            done = np.logical_or(step.terminated, step.truncated)
             obs_buf[t] = obs
             act_buf[t] = action
             logp_buf[t] = logp
-            rew_buf[t] = reward
-            done_buf[t] = float(done)
+            rew_buf[t] = step.rewards
+            done_buf[t] = done.astype(np.float32)
             val_buf[t] = value
 
-            episode_return += reward
-            obs = next_obs
-            if done:
-                episode_returns.append(episode_return)
-                episode_return = 0.0
-                obs, info = env.reset()
+            for info in step.infos:
+                episode = info.get("episode")
+                if episode is not None:
+                    episode_returns.append(float(episode["return"]))
+                    episode_lengths.append(int(episode["length"]))
+                    episode_terminated.append(float(episode["terminated"]))
+            obs = step.observations
 
         with torch.no_grad():
-            _, last_value_t = model.forward(torch.as_tensor(obs, dtype=torch.float32, device=device).unsqueeze(0))
-        advantages, returns = compute_gae(
+            _, last_value_t = model.forward(torch.as_tensor(obs, dtype=torch.float32, device=device))
+        advantages, returns = compute_gae_vectorized(
             rew_buf,
             done_buf,
             val_buf,
-            float(last_value_t.item()),
+            last_value_t.detach().cpu().numpy().astype(np.float32),
             config.gamma,
             config.gae_lambda,
         )
         advantages = (advantages - advantages.mean()) / (advantages.std() + 1e-8)
 
-        obs_t = torch.as_tensor(obs_buf, dtype=torch.float32, device=device)
-        act_t = torch.as_tensor(act_buf, dtype=torch.float32, device=device)
-        old_logp_t = torch.as_tensor(logp_buf, dtype=torch.float32, device=device)
-        adv_t = torch.as_tensor(advantages, dtype=torch.float32, device=device)
-        ret_t = torch.as_tensor(returns, dtype=torch.float32, device=device)
+        flat_obs = obs_buf.reshape((-1, obs_buf.shape[-1]))
+        flat_act = act_buf.reshape((-1, act_buf.shape[-1]))
+        flat_old_logp = logp_buf.reshape(-1)
+        flat_adv = advantages.reshape(-1)
+        flat_ret = returns.reshape(-1)
 
-        indices = np.arange(rollout_n)
+        obs_t = torch.as_tensor(flat_obs, dtype=torch.float32, device=device)
+        act_t = torch.as_tensor(flat_act, dtype=torch.float32, device=device)
+        old_logp_t = torch.as_tensor(flat_old_logp, dtype=torch.float32, device=device)
+        adv_t = torch.as_tensor(flat_adv, dtype=torch.float32, device=device)
+        ret_t = torch.as_tensor(flat_ret, dtype=torch.float32, device=device)
+
+        indices = np.arange(len(flat_obs))
         for _ in range(config.update_epochs):
             np.random.shuffle(indices)
-            for start in range(0, rollout_n, config.minibatch_size):
+            for start in range(0, len(indices), config.minibatch_size):
                 mb = indices[start : start + config.minibatch_size]
                 dist, value = model.forward(obs_t[mb])
                 logp = dist.log_prob(act_t[mb]).sum(dim=-1)
@@ -185,35 +247,53 @@ def train(
                 nn.utils.clip_grad_norm_(model.parameters(), config.max_grad_norm)
                 optimizer.step()
 
-        global_step += rollout_n
+        global_step += rollout_n * config.num_envs
         update += 1
         avg_return = float(np.mean(episode_returns)) if episode_returns else float("nan")
         row = {
             "step": global_step,
             "update": update,
+            "num_envs": config.num_envs,
+            "curriculum_stage": active_stage,
             "rollout_return_mean": avg_return,
             "reward_mean": float(rew_buf.mean()),
             "episode_count": len(episode_returns),
+            "episode_length_mean": float(np.mean(episode_lengths)) if episode_lengths else float("nan"),
+            "termination_rate": float(np.mean(episode_terminated)) if episode_terminated else float("nan"),
         }
         metric_rows.append(row)
         if update % 5 == 0 or global_step >= config.total_steps:
             print(
                 f"step={global_step} update={update} "
+                f"stage={active_stage} "
                 f"rollout_return_mean={avg_return:.2f} "
-                f"reward_mean={float(rew_buf.mean()):.3f}"
+                f"reward_mean={float(rew_buf.mean()):.3f} "
+                f"episode_count={len(episode_returns)}"
             )
 
     if save_path is not None:
         save_path.parent.mkdir(parents=True, exist_ok=True)
         state_dict = {key: value.detach().cpu() for key, value in model.state_dict().items()}
-        torch.save({"model_state": state_dict, "config": config.__dict__}, save_path)
+        torch.save(
+            {
+                "model_state": state_dict,
+                "config": config.__dict__,
+                "metadata": to_jsonable(checkpoint_metadata or {}),
+            },
+            save_path,
+        )
     if metrics_csv_path is not None:
         write_csv_rows(metrics_csv_path, metric_rows)
     return model
 
 
-def evaluate_actor(model: ActorCritic, episodes: int, seed: int) -> dict[str, float]:
-    env = AutoDriftEnv()
+def evaluate_actor(
+    model: ActorCritic,
+    episodes: int,
+    seed: int,
+    env_config: DriftEnvConfig | None = None,
+) -> dict[str, float]:
+    env = AutoDriftEnv(env_config or DriftEnvConfig())
     rows = []
     for episode in range(episodes):
         obs, info = env.reset(seed=seed + episode)
@@ -262,6 +342,7 @@ def main() -> None:
     ppo_defaults = PPOConfig()
     config_data = {field.name: getattr(ppo_defaults, field.name) for field in fields(PPOConfig)}
     eval_episodes = 3
+    raw_config = {}
     if args.config is not None:
         raw_config = read_json(args.config)
         ppo_config = raw_config.get("ppo", raw_config)
@@ -284,6 +365,9 @@ def main() -> None:
         eval_episodes = args.eval_episodes
 
     config = PPOConfig(**config_data)
+    env_data = raw_config.get("env", {})
+    env_config = build_env_config(env_data)
+    curriculum = build_curriculum(env_data, raw_config.get("curriculum", []))
     run_dir = args.run_dir or make_run_dir(prefix=args.run_name, seed=config.seed)
     save_path = args.save or run_dir / "checkpoint.pt"
     train_metrics_csv = run_dir / "train_metrics.csv"
@@ -294,13 +378,22 @@ def main() -> None:
             "command": sys.argv,
             "config_file": args.config,
             "ppo": config,
+            "env": env_config,
+            "curriculum": curriculum,
             "eval_episodes": eval_episodes,
             "save_path": save_path,
         },
     )
 
-    model = train(config, save_path=save_path, metrics_csv_path=train_metrics_csv)
-    summary = evaluate_actor(model, eval_episodes, config.seed + 10_000)
+    model = train(
+        config,
+        save_path=save_path,
+        metrics_csv_path=train_metrics_csv,
+        env_config=env_config,
+        curriculum=curriculum,
+        checkpoint_metadata={"env": env_config, "curriculum": curriculum},
+    )
+    summary = evaluate_actor(model, eval_episodes, config.seed + 10_000, env_config=env_config)
     write_json(run_dir / "eval_summary.json", summary)
     write_json(
         run_dir / "manifest.json",

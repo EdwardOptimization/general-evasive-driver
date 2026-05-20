@@ -1,0 +1,99 @@
+"""Configuration builders for AutoDrift experiments."""
+
+from __future__ import annotations
+
+from dataclasses import asdict, dataclass
+from typing import Any
+
+from autodrift.dynamics import RandomizationConfig
+from autodrift.env import DriftEnvConfig
+
+
+def _tuple2(value: Any) -> tuple[float, float]:
+    if not isinstance(value, (list, tuple)) or len(value) != 2:
+        raise ValueError(f"expected a two-element range, got {value!r}")
+    return float(value[0]), float(value[1])
+
+
+def build_randomization_config(data: dict[str, Any] | None = None) -> RandomizationConfig:
+    values = asdict(RandomizationConfig())
+    for key, value in (data or {}).items():
+        if key not in values:
+            raise ValueError(f"unknown randomization config key: {key}")
+        values[key] = _tuple2(value)
+    return RandomizationConfig(**values)
+
+
+def build_env_config(data: dict[str, Any] | None = None) -> DriftEnvConfig:
+    values = asdict(DriftEnvConfig())
+    values["randomization"] = asdict(RandomizationConfig())
+    for key, value in (data or {}).items():
+        if key not in values:
+            raise ValueError(f"unknown env config key: {key}")
+        if key == "randomization":
+            randomization = values["randomization"].copy()
+            for rand_key, rand_value in value.items():
+                if rand_key not in randomization:
+                    raise ValueError(f"unknown randomization config key: {rand_key}")
+                randomization[rand_key] = _tuple2(rand_value)
+            values["randomization"] = randomization
+        elif key.endswith("_range"):
+            values[key] = _tuple2(value)
+        else:
+            values[key] = value
+    values["randomization"] = build_randomization_config(values["randomization"])
+    return DriftEnvConfig(**values)
+
+
+def env_config_to_dict(config: DriftEnvConfig) -> dict[str, Any]:
+    return asdict(config)
+
+
+def merge_env_config(base: dict[str, Any], override: dict[str, Any]) -> dict[str, Any]:
+    merged = dict(base)
+    for key, value in override.items():
+        if key == "randomization":
+            randomization = dict(merged.get("randomization", {}))
+            randomization.update(value)
+            merged["randomization"] = randomization
+        else:
+            merged[key] = value
+    return merged
+
+
+@dataclass(frozen=True)
+class CurriculumStage:
+    name: str
+    until_step: int
+    env_config: DriftEnvConfig
+
+
+def build_curriculum(
+    base_env_data: dict[str, Any],
+    stages_data: list[dict[str, Any]] | None,
+) -> list[CurriculumStage]:
+    stages: list[CurriculumStage] = []
+    for index, stage_data in enumerate(stages_data or []):
+        if "until_step" not in stage_data:
+            raise ValueError(f"curriculum stage {index} is missing until_step")
+        stage_env_data = merge_env_config(base_env_data, stage_data.get("env", {}))
+        stages.append(
+            CurriculumStage(
+                name=str(stage_data.get("name", f"stage_{index}")),
+                until_step=int(stage_data["until_step"]),
+                env_config=build_env_config(stage_env_data),
+            )
+        )
+    stages.sort(key=lambda stage: stage.until_step)
+    return stages
+
+
+def env_config_for_step(
+    base_env_config: DriftEnvConfig,
+    curriculum: list[CurriculumStage],
+    step: int,
+) -> tuple[DriftEnvConfig, str]:
+    for stage in curriculum:
+        if step < stage.until_step:
+            return stage.env_config, stage.name
+    return base_env_config, "base"

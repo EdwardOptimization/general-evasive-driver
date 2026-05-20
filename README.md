@@ -22,6 +22,8 @@ The repository currently contains:
   saturation and randomized physical parameters.
 - `autodrift.tasks`: simple path tasks, starting with a circular drift track.
 - `autodrift.env`: a Gymnasium environment for drift tracking.
+- `autodrift.vector_env`: synchronous multi-environment rollout support.
+- `autodrift.config`: JSON config builders for env randomization and curricula.
 - `autodrift.policies`: baseline policies for sanity checks.
 - `autodrift.evaluate`: command-line evaluator.
 - `autodrift.benchmark`: shared-seed benchmark runner with CSV/JSON artifacts.

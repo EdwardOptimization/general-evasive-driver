@@ -37,6 +37,9 @@ The first runnable MVP is in place:
 - `src/autodrift/benchmark.py`: shared-seed benchmark runner.
 - `src/autodrift/artifacts.py`: run directory, JSON, and CSV artifact helpers.
 - `src/autodrift/checkpoints.py`: PPO checkpoint loader for evaluation.
+- `src/autodrift/vector_env.py`: synchronous multi-environment rollout support.
+- `src/autodrift/config.py`: JSON config builders for env randomization and
+  curricula.
 - `configs/`: tracked training configuration templates.
 - `tests/`: smoke tests for dynamics, environment, and baseline policy.
 
@@ -93,6 +96,8 @@ Already in place:
 - Installable package metadata and command-line entry points.
 - Reproducible run directories under `runs/`.
 - PPO config templates under `configs/`.
+- Synchronous vectorized PPO rollout collection.
+- Curriculum config support for staged env difficulty.
 - Training artifacts:
   `config.json`, `checkpoint.pt`, `train_metrics.csv`, `eval_summary.json`,
   and `manifest.json`.
@@ -104,8 +109,8 @@ Already in place:
 
 Deferred until the project needs them:
 
-- Vectorized trainer infrastructure or an external training framework adapter
-  such as Stable-Baselines3, CleanRL, or RL-Games.
+- External training framework adapter such as Stable-Baselines3, CleanRL, or
+  RL-Games if the in-repo vectorized PPO trainer is not enough.
 - Hyperparameter sweep management and experiment database.
 - Rich plotting/report generation beyond machine-readable CSV/JSON.
 - Scenario corpus versioning for obstacle-avoidance benchmarks.
@@ -134,7 +139,8 @@ configuration is still narrow because only the circular drift task exists.
 
 ### M2: Make RL Learn the Circular Drift Task
 
-- Add vectorized environment support or switch to SB3/CleanRL/RL-Games.
+- Use the vectorized PPO trainer or switch to SB3/CleanRL/RL-Games if the
+  in-repo trainer cannot learn reliably.
 - Train PPO/SAC on randomized `mu`, mass, CG, tire stiffness, and actuator lag.
 - Add curriculum over speed, track width, and beta target.
 - Track success rate by friction bucket.

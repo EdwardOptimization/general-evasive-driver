@@ -1,9 +1,57 @@
 {
   "ppo": {
-    "total_steps": 50000,
-    "rollout_steps": 1024,
+    "total_steps": 250000,
+    "rollout_steps": 256,
+    "num_envs": 16,
+    "minibatch_size": 1024,
     "eval_episodes": 5,
     "seed": 5,
     "device": "auto"
-  }
+  },
+  "env": {
+    "track_width": 5.0,
+    "speed_range": [6.5, 12.0],
+    "beta_target_range": [0.32, 0.70],
+    "randomization": {
+      "mu_range": [0.25, 1.15],
+      "mass_scale_range": [0.85, 1.20],
+      "cg_shift_range": [-0.12, 0.12],
+      "tire_stiffness_scale_range": [0.65, 1.35],
+      "actuator_tau_scale_range": [0.75, 1.75]
+    }
+  },
+  "curriculum": [
+    {
+      "name": "wide_high_mu",
+      "until_step": 60000,
+      "env": {
+        "track_width": 8.0,
+        "speed_range": [6.5, 9.0],
+        "beta_target_range": [0.20, 0.45],
+        "randomization": {
+          "mu_range": [0.75, 1.15],
+          "mass_scale_range": [0.95, 1.05],
+          "cg_shift_range": [-0.04, 0.04],
+          "tire_stiffness_scale_range": [0.90, 1.10],
+          "actuator_tau_scale_range": [0.90, 1.20]
+        }
+      }
+    },
+    {
+      "name": "medium_randomization",
+      "until_step": 150000,
+      "env": {
+        "track_width": 6.5,
+        "speed_range": [6.5, 10.5],
+        "beta_target_range": [0.25, 0.58],
+        "randomization": {
+          "mu_range": [0.45, 1.15],
+          "mass_scale_range": [0.90, 1.12],
+          "cg_shift_range": [-0.08, 0.08],
+          "tire_stiffness_scale_range": [0.80, 1.20],
+          "actuator_tau_scale_range": [0.80, 1.45]
+        }
+      }
+    }
+  ]
 }
