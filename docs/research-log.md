@@ -323,3 +323,52 @@ Smoke result:
 - eval steps mean: 66.500;
 - eval termination rate: 0.500;
 - eval lateral RMSE mean: 0.348.
+
+## 20260520T200959Z m15-obstacle-aligned-perturbation-sampler
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Train with friction-step timing sampled from accepted obstacle geometry so late perturbations stay strict and feasible
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m15_obstacle_aligned_recurrent_driver.json --seed 619 --device cuda --run-dir runs/ppo_m15_obstacle_aligned_recurrent_seed619`
+- returncode: `0`
+- run dir: `runs/research/m15-obstacle-aligned-perturbation-sampler_20260520T200628Z`
+- command log: `runs/research/m15-obstacle-aligned-perturbation-sampler_20260520T200628Z/command.log`
+- success artifact: `runs/ppo_m15_obstacle_aligned_recurrent_seed619/checkpoint.pt`
+
+Training result:
+
+- final eval return mean: 59.862;
+- final eval steps mean: 62.200;
+- final eval termination rate: 0.400;
+- final eval lateral RMSE mean: 0.600.
+
+M13 paired gate re-run:
+
+- command: `conda run -n autodrift python -m autodrift.paired_perturbation_gate --env-config configs/m11_online_recurrent_history_critical_eval.json --seed-csv runs/m13_near_threshold_corpus_seed3000/scenario_corpus.csv --checkpoint runs/ppo_m15_obstacle_aligned_recurrent_seed619/checkpoint.pt --checkpoint-policy m15=runs/ppo_m15_obstacle_aligned_recurrent_seed619/checkpoint.pt --checkpoint-policy m15_reset=runs/ppo_m15_obstacle_aligned_recurrent_seed619/checkpoint.pt@reset_recurrent_state --checkpoint-policy m15_zero_current=runs/ppo_m15_obstacle_aligned_recurrent_seed619/checkpoint.pt@zero_current_response --checkpoint-policy m15_zero_all=runs/ppo_m15_obstacle_aligned_recurrent_seed619/checkpoint.pt@zero_all_response --device cpu --run-dir runs/m15_obstacle_aligned_paired_gate_seed3000`
+- run dir: `runs/m15_obstacle_aligned_paired_gate_seed3000`
+- M15 nominal success: 0.725;
+- M15 perturbed success: 0.325;
+- M15 paired success drop: 0.400;
+- M15 hidden-reset nominal success: 0.825;
+- M15 hidden-reset perturbed success: 0.400;
+- M15 zero-current and zero-all nominal success: 0.525;
+- M15 zero-current and zero-all perturbed success: 0.125.
+
+Conclusion: M15 is better than M14 normal inference and proves response features
+matter under perturbation, but it still fails the recurrent-state proof. Hidden
+reset remains better than normal recurrent inference. The next blocker is
+probably the PPO update path: online GRU updates currently replay detached
+hidden states per step, so hidden dynamics are not trained with sequence
+backpropagation.
+
+## 20260520T200959Z m15-obstacle-aligned-perturbation-sampler
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Train with friction-step timing sampled from accepted obstacle geometry so late perturbations stay strict and feasible
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m15_obstacle_aligned_recurrent_driver.json --seed 619 --device cuda --run-dir runs/ppo_m15_obstacle_aligned_recurrent_seed619`
+- returncode: `0`
+- run dir: `runs/research/m15-obstacle-aligned-perturbation-sampler_20260520T200628Z`
+- command log: `runs/research/m15-obstacle-aligned-perturbation-sampler_20260520T200628Z/command.log`
+- success artifact: `runs/ppo_m15_obstacle_aligned_recurrent_seed619/checkpoint.pt`
+- notes: M14 reset-hidden beats normal recurrent inference so align training timing with the M13 gate instead of forcing early friction steps

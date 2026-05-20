@@ -84,3 +84,28 @@ Pass direction:
 - normal M15 should beat M14 on perturbed success;
 - normal M15 should not be worse than hidden reset;
 - response masking should remain worse than normal inference.
+
+## Result
+
+Full CUDA training completed:
+
+- checkpoint: `runs/ppo_m15_obstacle_aligned_recurrent_seed619/checkpoint.pt`;
+- final eval return mean: 59.862;
+- final eval termination rate: 0.400.
+
+M13 paired gate result:
+
+| policy | nominal success | perturbed success | paired drop |
+| --- | ---: | ---: | ---: |
+| M15 | 0.725 | 0.325 | 0.400 |
+| M15 reset hidden | 0.825 | 0.400 | 0.425 |
+| M15 zero current response | 0.525 | 0.125 | 0.400 |
+| M15 zero all response | 0.525 | 0.125 | 0.400 |
+
+Interpretation: obstacle-aligned timing improved over M14 normal inference and
+made response features clearly behavior-critical, especially under perturbation.
+It still does not pass the self-identification target because hidden reset
+remains better than normal recurrent inference. The next blocker is likely PPO
+training of the recurrent state itself: current updates replay stored hidden
+states as detached per-step features rather than training hidden dynamics with
+sequence backpropagation.
