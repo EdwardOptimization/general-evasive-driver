@@ -99,3 +99,9 @@ def test_parse_checkpoint_specs_accepts_observation_ablation():
     assert parse_checkpoint_specs(["m7a_noact=runs/a.pt@zero_action_history"]) == [
         ("m7a_noact", Path("runs/a.pt"), "zero_action_history")
     ]
+
+
+def test_parse_checkpoint_specs_accepts_shuffled_history_ablation():
+    assert parse_checkpoint_specs(["m7a_shuffle=runs/a.pt@shuffled_history"]) == [
+        ("m7a_shuffle", Path("runs/a.pt"), "shuffled_history")
+    ]

@@ -336,7 +336,7 @@ def main() -> None:
     parser.add_argument("--learning-rate", type=float, default=0.03)
     parser.add_argument(
         "--checkpoint-ablation",
-        choices=["none", "zero_action_history", "single_frame_history"],
+        choices=["none", "zero_action_history", "single_frame_history", "shuffled_history"],
         default="none",
     )
     parser.add_argument(

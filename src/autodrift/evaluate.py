@@ -28,6 +28,12 @@ class ActorPolicy(Policy):
         self.env_config = env_config
         self.ablation = ablation
         self.last_sequence: np.ndarray | None = None
+        self._rng_seed = 0
+        self._rng = np.random.default_rng(self._rng_seed)
+
+    def reset(self) -> None:
+        self.last_sequence = None
+        self._rng = np.random.default_rng(self._rng_seed)
 
     def _transform_observation(self, observation: np.ndarray) -> np.ndarray:
         if self.ablation == "none":
@@ -37,6 +43,9 @@ class ActorPolicy(Policy):
         if self.ablation == "single_frame_history":
             current = transformed[:base_dim].copy()
             transformed = np.tile(current, self.env_config.history_length).astype(np.float32)
+        if self.ablation == "shuffled_history" and self.env_config.history_length > 1:
+            frames = transformed.reshape(self.env_config.history_length, base_dim)
+            transformed = frames[self._rng.permutation(self.env_config.history_length)].reshape(-1).astype(np.float32)
         if self.ablation == "zero_action_history":
             for start in range(0, len(transformed), base_dim):
                 if self.env_config.action_history_mode in {"legacy", "full"}:
@@ -207,7 +216,7 @@ def evaluate_policy(
     env_config: DriftEnvConfig | None = None,
     checkpoint_ablation: str = "none",
 ) -> tuple[list[dict], dict[str, float | int | str]]:
-    if checkpoint_ablation not in {"none", "zero_action_history", "single_frame_history"}:
+    if checkpoint_ablation not in {"none", "zero_action_history", "single_frame_history", "shuffled_history"}:
         raise ValueError(f"unknown checkpoint_ablation: {checkpoint_ablation}")
     resolved_env_config = env_config or DriftEnvConfig()
     actor_policy: ActorPolicy | None = None
@@ -250,7 +259,7 @@ def main() -> None:
     parser.add_argument("--checkpoint", type=Path, default=None)
     parser.add_argument(
         "--checkpoint-ablation",
-        choices=["none", "zero_action_history", "single_frame_history"],
+        choices=["none", "zero_action_history", "single_frame_history", "shuffled_history"],
         default="none",
     )
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="auto")

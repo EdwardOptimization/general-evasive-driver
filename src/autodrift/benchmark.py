@@ -70,7 +70,7 @@ def parse_checkpoint_specs(specs: list[str] | None) -> list[tuple[str, Path, str
         ablation = "none"
         if "@" in raw_path:
             raw_path, ablation = raw_path.rsplit("@", 1)
-        if ablation not in {"none", "zero_action_history", "single_frame_history"}:
+        if ablation not in {"none", "zero_action_history", "single_frame_history", "shuffled_history"}:
             raise ValueError(f"unknown checkpoint ablation {ablation!r} in spec {spec!r}")
         name = name.strip()
         if not name:

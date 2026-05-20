@@ -26,7 +26,8 @@ Implemented pieces:
   `--checkpoint-policy name=path`;
 - checkpoint observation ablations through
   `--checkpoint-policy name=path@zero_action_history` and
-  `--checkpoint-policy name=path@single_frame_history`;
+  `--checkpoint-policy name=path@single_frame_history` or
+  `--checkpoint-policy name=path@shuffled_history`;
 - latent self-identification probe tooling through
   `python -m autodrift.latent_probe`;
 - vehicle-road bucket summaries for held-out analysis.
@@ -210,11 +211,13 @@ conda run -n autodrift python -m autodrift.benchmark \
   --checkpoint-policy m7a=runs/ppo_m7a_history_seed127/checkpoint.pt \
   --checkpoint-policy m7a_noact=runs/ppo_m7a_history_seed127/checkpoint.pt@zero_action_history \
   --checkpoint-policy m7a_single=runs/ppo_m7a_history_seed127/checkpoint.pt@single_frame_history \
+  --checkpoint-policy m7a_shuffle=runs/ppo_m7a_history_seed127/checkpoint.pt@shuffled_history \
   --checkpoint-policy m7b=runs/ppo_m7b_sequence_seed131/checkpoint.pt \
   --checkpoint-policy m7b_noact=runs/ppo_m7b_sequence_seed131/checkpoint.pt@zero_action_history \
+  --checkpoint-policy m7b_shuffle=runs/ppo_m7b_sequence_seed131/checkpoint.pt@shuffled_history \
   --env-config configs/m7_obstacle_aes_weighted_holdout_eval.json \
   --device cpu \
-  --run-dir runs/benchmark_m7_operator_ablation_100eval
+  --run-dir runs/benchmark_m7_operator_history_ablation_100eval
 ```
 
 Policy summary:
@@ -226,8 +229,10 @@ Policy summary:
 | `m7a` | none | 0.600 | 0.400 | 0.115 | 1 |
 | `m7a_noact` | zero action history | 0.600 | 0.400 | 0.115 | 1 |
 | `m7a_single` | single frame tiled | 0.590 | 0.410 | 0.125 | 1 |
+| `m7a_shuffle` | shuffled history order | 0.600 | 0.400 | 0.131 | 1 |
 | `m7b` | none | 0.600 | 0.400 | 0.071 | 6 |
 | `m7b_noact` | zero action history | 0.620 | 0.380 | 0.067 | 6 |
+| `m7b_shuffle` | shuffled history order | 0.600 | 0.400 | 0.086 | 6 |
 
 Key label-level result:
 
@@ -236,8 +241,10 @@ Key label-level result:
 | `m7a` | 1.000 | 0.950 | 0.156 |
 | `m7a_noact` | 1.000 | 0.950 | 0.156 |
 | `m7a_single` | 1.000 | 0.950 | 0.133 |
+| `m7a_shuffle` | 1.000 | 0.950 | 0.156 |
 | `m7b` | 1.000 | 0.975 | 0.133 |
 | `m7b_noact` | 1.000 | 0.975 | 0.178 |
+| `m7b_shuffle` | 1.000 | 0.975 | 0.133 |
 
 Interpretation:
 
@@ -246,6 +253,9 @@ Interpretation:
   improves M7-B on this seed set.
 - Single-frame tiling barely hurts M7-A, which suggests the current actor may
   still behave mostly like a feed-forward geometry and state controller.
+- Shuffling the history order also does not hurt binary success. It increases
+  high-sideslip usage, but not enough to expose a strong temporal-order
+  dependency.
 - The ablation tool is now in place, but the algorithm has not passed the M7
   adaptation gate.
 
@@ -322,8 +332,8 @@ Interpretation:
 - The AES-weighted benchmark shows small aggregate gains, but not a robust
   behavioral win.
 - Both M7 checkpoints overuse high sideslip in `aes_feasible` scenarios.
-- Action-history ablation does not currently reduce performance, so the core
-  closed-loop self-identification claim is not validated.
+- Action-history and shuffled-history ablations do not currently reduce binary
+  success, so the core closed-loop self-identification claim is not validated.
 - No recurrent actor has been trained yet.
 - No privileged critic or teacher-student asymmetric training result exists
   yet.
@@ -342,10 +352,10 @@ The strongest positive signal is that M7-A and M7-B can slightly improve
 aggregate success over M5 on the AES-weighted held-out benchmark, and M7-B can
 run the MPC-like "predict sequence, execute first action" interface.
 
-The strongest negative signal is that removing action history does not hurt,
-and latent probes do not degrade when history order is shuffled. The next
-algorithm work should therefore target architectures and objectives that make
-feedback identification necessary and measurable.
+The strongest negative signal is that removing or shuffling history does not
+hurt binary success, and latent probes do not degrade when history order is
+shuffled. The next algorithm work should therefore target architectures and
+objectives that make feedback identification necessary and measurable.
 
 ## Next Steps
 
@@ -357,6 +367,7 @@ feedback identification necessary and measurable.
    probing them against the current feed-forward latent baseline.
 4. Add label-balanced benchmark generation instead of relying only on random
    filtered sampling.
-5. Add `shuffled_history` and `privileged_leak` ablations.
+5. Add `privileged_leak` and recurrent-state ablations as upper-bound and
+   mechanism checks.
 6. Use the M7-B sequence output as a diagnostic and safety-preview signal, but
    do not treat it as validated fallback logic yet.

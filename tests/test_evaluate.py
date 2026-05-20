@@ -52,3 +52,13 @@ def test_actor_policy_can_ablate_temporal_history():
     transformed = policy._transform_observation(observation)
 
     np.testing.assert_allclose(transformed[:13], transformed[13:])
+
+
+def test_actor_policy_can_shuffle_temporal_history_deterministically():
+    env_config = DriftEnvConfig(history_length=4, action_history_mode="none")
+    policy = ActorPolicy(ActorCritic(obs_dim=8, act_dim=2, hidden_size=8), env_config, ablation="shuffled_history")
+    observation = np.arange(8, dtype=np.float32)
+
+    transformed = policy._transform_observation(observation)
+
+    np.testing.assert_allclose(transformed, np.array([4, 5, 0, 1, 2, 3, 6, 7], dtype=np.float32))
