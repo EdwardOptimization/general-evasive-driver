@@ -110,9 +110,9 @@ they still do not prove driver-like closed-loop adaptation.
 This is the intended behavior of the harness: it should prevent a small success
 rate improvement from being mistaken for a validated self-identifying operator.
 
-The first M8 smoke checkpoint is also rejected on the same label-balanced corpus
-with probes skipped: success is 0.600 versus M5/M7 at 0.700, action/history
-ablation drop is 0.000, and probes still need to run after real training. Its
-useful signal is narrower: `aes_feasible` high-sideslip fraction drops to 0.000,
-which suggests the stable-AES shaping is pointing in the intended direction
-while the recurrent policy itself remains untrained.
+The best current M8 full checkpoint is also rejected, but for a narrower reason:
+M8-A seed227 improves success to 0.733, drops `aes_feasible` high-sideslip to
+0.038, and passes the temporal-probe threshold. It still fails because
+zero-action-history and shuffled-history ablations do not reduce success. The
+gate is therefore blocking on behavior-level temporal dependence rather than raw
+avoidance performance.

@@ -343,15 +343,14 @@ Exit criteria:
 - latent probes show temporal lift over shuffled history;
 - negative results are documented if any criterion fails.
 
-Status: infrastructure started. `configs/ppo_m8_temporal_gru_driver.json` adds
-the first temporal-GRU driver baseline and stable-AES reward shaping. A 512-step
-smoke run initialized from the M7-A checkpoint passed the train/save/load/eval
-path with `load_mode=new_temporal_encoder`. The gate harness can now take an
-M8 driver checkpoint as the required candidate while keeping M5/M7-A/M7-B as
-baselines. The smoke checkpoint is correctly rejected on the label-balanced
-corpus: success is 0.600 versus M5/M7 at 0.700, ablation drop is 0.000, and
-probes were skipped. Its useful signal is only that stable-AES high-sideslip
-falls to 0.000; it is not a performance result. See
+Status: partially successful but not passed. The temporal-GRU M8-A checkpoint at
+`runs/ppo_m8_temporal_gru_driver_seed227/checkpoint.pt` improves aggregate
+success from 0.700 to 0.733 on the label-balanced corpus, keeps
+`aes_feasible` high-sideslip at 0.038, and shows probe temporal lift of 0.022.
+It still fails the driver gate because zero-action-history and shuffled-history
+ablations do not reduce success. M8-B with a sequence head did not improve the
+gate. The current blocker is therefore behavior-level proof of closed-loop
+self-identification, not raw obstacle-avoidance success. See
 `docs/m8-rl-professional-driver.md`.
 
 ## Metrics

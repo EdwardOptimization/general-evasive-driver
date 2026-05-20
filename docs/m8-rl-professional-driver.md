@@ -27,6 +27,7 @@ actuator parameters.
 Tracked config:
 
 - `configs/ppo_m8_temporal_gru_driver.json`
+- `configs/ppo_m8b_temporal_sequence_driver.json`
 
 Actor and observation interface:
 
@@ -152,27 +153,102 @@ direction, but it loses too much `drift_required` and `unavoidable` performance
 and its ablations do not show a useful temporal mechanism. This is negative
 evidence, not a driver-v1 result.
 
-## Full Training Command
+## Full Training Commands
 
-Planned full run:
+Best M8-A seed:
 
 ```bash
 conda run -n autodrift python -m autodrift.train_ppo \
   --config configs/ppo_m8_temporal_gru_driver.json \
   --init-checkpoint runs/ppo_m7a_history_seed127/checkpoint.pt \
-  --run-name ppo_m8_temporal_gru_driver
+  --seed 227 \
+  --device cuda \
+  --run-dir runs/ppo_m8_temporal_gru_driver_seed227
 ```
 
-The resulting checkpoint must go through the driver gate before it can be called
-an RL professional driver.
+Sequence-head variant:
+
+```bash
+conda run -n autodrift python -m autodrift.train_ppo \
+  --config configs/ppo_m8b_temporal_sequence_driver.json \
+  --init-checkpoint runs/ppo_m7b_sequence_seed131/checkpoint.pt \
+  --device cuda \
+  --run-dir runs/ppo_m8b_temporal_sequence_driver_seed223
+```
+
+## Full Driver Gate Results
+
+All rows use the same 60-seed label-balanced corpus:
+
+```bash
+conda run -n autodrift python -m autodrift.m7_gate \
+  --env-config configs/m7_obstacle_aes_weighted_holdout_eval.json \
+  --seed-csv runs/scenario_corpus_m7_aes_weighted_seed1300/scenario_corpus.csv \
+  --episodes 60 \
+  --seed 900 \
+  --probe-episodes 100 \
+  --probe-seed 1200 \
+  --probe-epochs 160 \
+  --device cpu \
+  --run-dir runs/m8_driver_gate_seed227 \
+  --driver-checkpoint runs/ppo_m8_temporal_gru_driver_seed227/checkpoint.pt \
+  --driver-name m8
+```
+
+| checkpoint | status | success | delta vs M5 | `aes_feasible` high sideslip | ablation drop | probe temporal lift |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| M8-A seed211 | `needs_iteration` | 0.733 | 0.033 | 0.159 | 0.000 | 0.022 |
+| M8-A seed227 | `needs_iteration` | 0.733 | 0.033 | 0.038 | 0.000 | 0.022 |
+| M8-B sequence seed223 | `needs_iteration` | 0.733 | 0.033 | 0.165 | 0.000 | -0.005 |
+
+Current best: M8-A seed227.
+
+Label-bucket comparison for M8-A seed227:
+
+| policy | `aes_feasible` success / high sideslip | `drift_required` success / high sideslip | `unavoidable` success |
+| --- | --- | --- | ---: |
+| M5 | 1.000 / 0.090 | 0.950 / 0.059 | 0.150 |
+| M7-A | 1.000 / 0.292 | 0.950 / 0.079 | 0.150 |
+| M7-B | 1.000 / 0.171 | 0.950 / 0.069 | 0.150 |
+| M8-A seed227 | 1.000 / 0.038 | 0.950 / 0.024 | 0.250 |
+
+Interpretation:
+
+- M8-A seed227 is a real improvement over M5/M7 on the current corpus:
+  aggregate success improves from 0.700 to 0.733, `unavoidable` success improves
+  from 0.150 to 0.250, and `aes_feasible` high-sideslip drops well below the
+  0.150 threshold.
+- The latent probe has temporal signal over shuffled history, so the GRU state
+  is not empty.
+- The policy still fails the driver gate because success is unchanged when
+  action history is zeroed or history order is shuffled. This means the current
+  benchmark does not yet prove behavior-level closed-loop self-identification.
+
+M8-B is not the next direction. Adding a sequence head did not improve the gate:
+stable-AES high-sideslip rose and temporal probe lift fell below threshold.
+
+## Current Blocker
+
+The remaining blocker is not aggregate obstacle-avoidance performance. The
+blocker is evidence: current held-out obstacle episodes can be solved well enough
+from the current deployable frame and actuator state, so no-history and
+shuffled-history ablations do not reduce success.
+
+The next iteration should make the validation task more history-critical rather
+than only training another similar policy. Candidate directions:
+
+- add a driver-gate stress set with friction steps or actuator-lag changes close
+  to obstacle approach;
+- add training augmentation that sometimes degrades the current frame so the GRU
+  must use response history;
+- add a true online recurrent hidden-state actor and compare it against the
+  fixed-window GRU;
+- keep M8-A seed227 as the current best checkpoint while the ablation blocker is
+  addressed.
 
 ## Next Work
 
-- Add the M8 checkpoint to the gate comparison after full training.
-- Compare AEB, heuristic AES, envelope AES, M5, M7-A, M7-B, and M8 on the same
-  label-balanced held-out corpus.
-- Run no-action-history, single-frame, and shuffled-history ablations for M8.
-- Run latent probes on the M8 GRU state and require temporal lift over shuffled
-  history.
-- Keep negative results if M8 fails, then iterate reward/curriculum or actor
-  design instead of claiming success.
+- Add a history-critical stress subset to the driver gate.
+- Train and test the best M8-A architecture on that stress subset.
+- Only call the project driver-v1 complete when both aggregate success and
+  behavior-level temporal ablations pass.

@@ -12,8 +12,8 @@ M7_PROBE_EPISODES ?= 100
 M7_PROBE_EPOCHS ?= 160
 M7_DEVICE ?= cpu
 M8_DRIVER_NAME ?= m8
-M8_CHECKPOINT ?= runs/ppo_m8_temporal_gru_smoke/checkpoint.pt
-M8_GATE_RUN_DIR ?= runs/m8_driver_gate_corpus_smoke
+M8_CHECKPOINT ?= runs/ppo_m8_temporal_gru_driver_seed227/checkpoint.pt
+M8_GATE_RUN_DIR ?= runs/m8_driver_gate_seed227
 
 .PHONY: env-create env-create-cpu env-update env-update-cpu torch-gpu torch-cpu test test-light check-diff hooks-install eval-heuristic train-smoke benchmark-smoke rollout-smoke m7-corpus m7-gate-smoke m7-gate m8-driver-gate-smoke m8-driver-gate clean
 
