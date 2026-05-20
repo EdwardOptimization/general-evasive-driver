@@ -236,8 +236,26 @@ Infrastructure result:
 - M14 training samples non-AEB near-threshold labels:
   `aes_feasible`, `drift_required`, and `unavoidable`;
 - smoke run: `runs/ppo_m14_near_threshold_smoke`;
-- smoke eval return mean: 14.451;
+- smoke eval return mean: 14.449;
 - smoke eval termination rate: 1.000.
 
 This is an infrastructure pass, not a policy-quality claim. The next action is
 the full CUDA M14 run followed by the exact M13 paired corpus gate.
+
+## 20260520T195244Z m14-near-threshold-training
+
+- status: `failed`
+- kind: `training`
+- hypothesis: Train online recurrent driver on near-threshold hidden perturbation cases and re-run M13 gate
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m14_online_recurrent_near_threshold_driver.json --seed 517 --device cuda --run-dir runs/ppo_m14_online_recurrent_near_threshold_seed517`
+- returncode: `1`
+- run dir: `runs/research/m14-near-threshold-training_20260520T195212Z`
+- command log: `runs/research/m14-near-threshold-training_20260520T195212Z/command.log`
+- success artifact: `runs/ppo_m14_online_recurrent_near_threshold_seed517/checkpoint.pt`
+- notes: M13 gate is strong; train on near-threshold perturbation distribution
+
+Diagnosis: the strict sampler was correct to fail. With
+`friction_step.step_range=[8, 40]`, some seeds have no geometry that is both
+AEB-infeasible and at least 0.10 s after the friction change. The clean fix is
+to move the hidden perturbation earlier to `step_range=[4, 16]`; no fallback or
+checkpoint compatibility path is added.

@@ -158,7 +158,7 @@ def test_obstacle_task_can_sample_near_threshold_cases():
     env = AutoDriftEnv(
         DriftEnvConfig(
             friction_limited_speed=False,
-            friction_step=FrictionStepConfig(enabled=True, step_range=(8, 40), resample_speed_ref=False),
+            friction_step=FrictionStepConfig(enabled=True, step_range=(4, 16), resample_speed_ref=False),
             obstacle=ObstacleTaskConfig(
                 enabled=True,
                 distance_range=(3.0, 25.0),

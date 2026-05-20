@@ -37,7 +37,7 @@ Key differences from M11:
 
 - `actor_encoder="online_gru"`;
 - `history_length=1`;
-- `friction_step.enabled=true`;
+- `friction_step.enabled=true` with `step_range=[4, 16]`;
 - initial road friction is sampled in a low-to-medium range so AEB-infeasible
   near-threshold geometry can be sampled strictly without fallback;
 - post-step friction is randomized broadly;
@@ -49,6 +49,12 @@ Key differences from M11:
 There is no compatibility or best-effort fallback in this training path. If a
 configuration cannot sample a matching scenario, reset fails and the
 configuration must be fixed.
+
+The first full CUDA attempt used `step_range=[8, 40]` and failed after 204,800
+steps because a late friction step can make the strict non-AEB and
+post-friction-obstacle filters geometrically incompatible for some seeds. The
+fixed clean configuration moves the hidden perturbation earlier instead of
+adding fallback sampling.
 
 Queued command:
 

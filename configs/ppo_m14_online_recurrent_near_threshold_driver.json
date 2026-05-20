@@ -27,7 +27,7 @@
     "friction_limited_speed": false,
     "friction_step": {
       "enabled": true,
-      "step_range": [8, 40],
+      "step_range": [4, 16],
       "mu_range": [0.25, 1.15],
       "resample_speed_ref": false
     },

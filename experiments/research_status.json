@@ -8,21 +8,21 @@
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m11-online-recurrent-actor_20260520T192417Z/command.log",
-    "returncode": 0,
-    "run_dir": "runs/research/m11-online-recurrent-actor_20260520T192417Z",
-    "status": "completed",
-    "task_id": "m11-online-recurrent-actor"
+    "command_log": "runs/research/m14-near-threshold-training_20260520T195212Z/command.log",
+    "returncode": 1,
+    "run_dir": "runs/research/m14-near-threshold-training_20260520T195212Z",
+    "status": "failed",
+    "task_id": "m14-near-threshold-training"
   },
   "next_task": {
     "command": "conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m14_online_recurrent_near_threshold_driver.json --seed 517 --device cuda --run-dir runs/ppo_m14_online_recurrent_near_threshold_seed517",
     "hypothesis": "Train online recurrent driver on near-threshold hidden perturbation cases and re-run M13 gate",
     "id": "m14-near-threshold-training",
     "kind": "training",
-    "notes": "M13 gate is strong; train on near-threshold perturbation distribution",
+    "notes": "M13 gate is strong; train on near-threshold perturbation distribution after early-step sampler fix",
     "priority": 70,
     "status": "pending",
     "success_artifact": "runs/ppo_m14_online_recurrent_near_threshold_seed517/checkpoint.pt"
   },
-  "updated_at_utc": "20260520T195034Z"
+  "updated_at_utc": "20260520T195510Z"
 }
