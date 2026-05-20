@@ -10,7 +10,7 @@ vehicle and friction parameters.
 Best checkpoint:
 
 ```text
-runs/ppo_circle_m2_base_recover_20260520T122018Z_seed29/checkpoint.pt
+runs/ppo_circle_m2_seed113_recover2/checkpoint.pt
 ```
 
 The checkpoint is a local run artifact under `runs/` and is intentionally not
@@ -18,7 +18,8 @@ tracked by git.
 
 ## Training Sequence
 
-The current best policy was produced by this sequence:
+The current best policy was produced by an extended low-mu/base recovery
+sequence:
 
 ```bash
 PYTHONPATH=src python -m autodrift.train_ppo \
@@ -42,6 +43,47 @@ PYTHONPATH=src python -m autodrift.train_ppo \
   --run-name ppo_circle_m2_base_recover
 ```
 
+An independent training trajectory starting from seed 101 needed one additional
+low-mu/base recovery cycle and produced the current best checkpoint:
+
+```bash
+PYTHONPATH=src python -m autodrift.train_ppo \
+  --config configs/ppo_circle_mvp.json \
+  --total-steps 1000000 \
+  --seed 101 \
+  --run-dir runs/ppo_circle_m2_seed101_main
+
+PYTHONPATH=src python -m autodrift.train_ppo \
+  --config configs/ppo_circle_low_mu_finetune.json \
+  --seed 103 \
+  --init-checkpoint runs/ppo_circle_m2_seed101_main/checkpoint.pt \
+  --run-dir runs/ppo_circle_m2_seed103_low1
+
+PYTHONPATH=src python -m autodrift.train_ppo \
+  --config configs/ppo_circle_low_mu_finetune.json \
+  --seed 107 \
+  --init-checkpoint runs/ppo_circle_m2_seed103_low1/checkpoint.pt \
+  --run-dir runs/ppo_circle_m2_seed107_low2
+
+PYTHONPATH=src python -m autodrift.train_ppo \
+  --config configs/ppo_circle_base_finetune.json \
+  --seed 109 \
+  --init-checkpoint runs/ppo_circle_m2_seed107_low2/checkpoint.pt \
+  --run-dir runs/ppo_circle_m2_seed109_recover
+
+PYTHONPATH=src python -m autodrift.train_ppo \
+  --config configs/ppo_circle_low_mu_finetune.json \
+  --seed 111 \
+  --init-checkpoint runs/ppo_circle_m2_seed109_recover/checkpoint.pt \
+  --run-dir runs/ppo_circle_m2_seed111_low3
+
+PYTHONPATH=src python -m autodrift.train_ppo \
+  --config configs/ppo_circle_base_finetune.json \
+  --seed 113 \
+  --init-checkpoint runs/ppo_circle_m2_seed111_low3/checkpoint.pt \
+  --run-dir runs/ppo_circle_m2_seed113_recover2
+```
+
 ## Benchmark
 
 Command:
@@ -50,27 +92,34 @@ Command:
 PYTHONPATH=src python -m autodrift.benchmark \
   --episodes 200 \
   --policies heuristic checkpoint \
-  --checkpoint runs/ppo_circle_m2_base_recover_20260520T122018Z_seed29/checkpoint.pt \
-  --run-dir runs/benchmark_ppo_circle_m2_base_recover_200eval_20260520T122018Z_seed29
+  --checkpoint runs/ppo_circle_m2_seed113_recover2/checkpoint.pt \
+  --run-dir runs/benchmark_ppo_circle_m2_seed113_recover2_200eval
 ```
 
 Overall result:
 
 | policy | episodes | success_rate | return_mean | lateral_rmse_mean | beta_abs_error_mean |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| checkpoint | 200 | 0.975 | 992.35 | 1.356 | 0.340 |
+| checkpoint | 200 | 1.000 | 1128.53 | 0.888 | 0.278 |
 | heuristic | 200 | 0.165 | 269.95 | 1.879 | 0.475 |
 
 Friction bucket result:
 
 | policy | mu_bucket | episodes | success_rate | return_mean | lateral_rmse_mean |
 | --- | --- | ---: | ---: | ---: | ---: |
-| checkpoint | low | 49 | 0.980 | 945.71 | 1.337 |
-| checkpoint | medium | 74 | 0.986 | 1018.77 | 1.231 |
-| checkpoint | high | 77 | 0.961 | 996.64 | 1.488 |
+| checkpoint | low | 49 | 1.000 | 1037.30 | 1.022 |
+| checkpoint | medium | 74 | 1.000 | 1140.54 | 0.822 |
+| checkpoint | high | 77 | 1.000 | 1175.05 | 0.867 |
 | heuristic | low | 49 | 0.204 | 271.68 | 1.860 |
 | heuristic | medium | 74 | 0.189 | 305.34 | 1.828 |
 | heuristic | high | 77 | 0.117 | 234.84 | 1.941 |
+
+Replication benchmark:
+
+| checkpoint | benchmark | success_rate | low | medium | high |
+| --- | --- | ---: | ---: | ---: | ---: |
+| `runs/ppo_circle_m2_base_recover_20260520T122018Z_seed29/checkpoint.pt` | `runs/benchmark_ppo_circle_m2_base_recover_200eval_20260520T122018Z_seed29` | 0.975 | 0.980 | 0.986 | 0.961 |
+| `runs/ppo_circle_m2_seed113_recover2/checkpoint.pt` | `runs/benchmark_ppo_circle_m2_seed113_recover2_200eval` | 1.000 | 1.000 | 1.000 | 1.000 |
 
 ## Rollout Plots
 
@@ -79,9 +128,9 @@ Generate selected rollout traces and plots with:
 ```bash
 PYTHONPATH=src python -m autodrift.rollout \
   --policy checkpoint \
-  --checkpoint runs/ppo_circle_m2_base_recover_20260520T122018Z_seed29/checkpoint.pt \
+  --checkpoint runs/ppo_circle_m2_seed113_recover2/checkpoint.pt \
   --seeds 7 37 65 \
-  --out-dir runs/rollouts_ppo_circle_m2_base_recover_20260520T122018Z_seed29
+  --out-dir runs/rollouts_ppo_circle_m2_seed113_recover2
 ```
 
 Each selected seed writes:
@@ -107,7 +156,6 @@ Each selected seed writes:
 
 ## Remaining M2 Risk
 
-This is a single training-seed result. It is strong enough for the project to
-move past the first circular-drift learning blocker, but before treating M2 as a
-locked benchmark, repeat the training sequence with at least two more training
-seeds and keep the same 200-seed evaluation set.
+The current result is strong enough to move past the first circular-drift
+learning blocker. Before freezing M2 as a release benchmark, make the
+low-mu/base recovery sequence shorter and less manual.

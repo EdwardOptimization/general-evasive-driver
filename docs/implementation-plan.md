@@ -154,9 +154,10 @@ Exit criteria:
 - metrics are reported by `mu` bucket;
 - plots show trajectory, sideslip, speed, and actions for selected episodes.
 
-Status: initial pass. The best local checkpoint reaches 97.5% success over a
-200-seed circular-drift benchmark and beats the heuristic in every friction
-bucket. See `docs/m2-circular-drift-results.md`. Plot generation remains open.
+Status: pass. The best local checkpoint reaches 100% success over a 200-seed
+circular-drift benchmark and beats the heuristic in every friction bucket. See
+`docs/m2-circular-drift-results.md`; rollout plots are generated with
+`autodrift.rollout`.
 
 ### M3: Add Friction Adaptation
 
