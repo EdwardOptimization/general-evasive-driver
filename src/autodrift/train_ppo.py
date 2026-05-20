@@ -46,6 +46,7 @@ class PPOConfig:
     actor_history_length: int = 1
     action_sequence_horizon: int = 1
     sequence_aux_coef: float = 0.0
+    recurrent_sequence_training: bool = False
     seed: int = 5
     device: str = "auto"
 
@@ -263,6 +264,33 @@ class ActorCritic(nn.Module):
         log_prob = self._squashed_log_prob(dist, raw_actions, clipped_actions)
         entropy = dist.entropy().sum(dim=-1)
         return log_prob, entropy, value
+
+    def evaluate_actions_recurrent_sequence(
+        self,
+        obs: torch.Tensor,
+        actions: torch.Tensor,
+        initial_hidden: torch.Tensor,
+        dones: torch.Tensor,
+    ) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+        if self.actor_encoder != "online_gru":
+            raise RuntimeError("evaluate_actions_recurrent_sequence requires actor_encoder='online_gru'")
+        logps = []
+        entropies = []
+        values = []
+        hidden = initial_hidden
+        for t in range(obs.shape[0]):
+            dist, value, next_hidden = self.forward_recurrent(obs[t], hidden)
+            clipped_actions = torch.clamp(actions[t], -1.0 + 1e-6, 1.0 - 1e-6)
+            raw_actions = torch.atanh(clipped_actions)
+            logps.append(self._squashed_log_prob(dist, raw_actions, clipped_actions))
+            entropies.append(dist.entropy().sum(dim=-1))
+            values.append(value)
+            hidden = next_hidden
+            if t < obs.shape[0] - 1:
+                done_t = dones[t].to(dtype=torch.bool, device=obs.device)
+                hidden = hidden.clone()
+                hidden[done_t] = 0.0
+        return torch.stack(logps), torch.stack(entropies), torch.stack(values)
 
 
 def adapt_actor_critic_state(model: ActorCritic, source_state: dict[str, torch.Tensor]) -> str:
@@ -493,46 +521,82 @@ def train(
             flat_seq_target = None
             flat_seq_mask = None
 
-        obs_t = torch.as_tensor(flat_obs, dtype=torch.float32, device=device)
-        act_t = torch.as_tensor(flat_act, dtype=torch.float32, device=device)
-        old_logp_t = torch.as_tensor(flat_old_logp, dtype=torch.float32, device=device)
-        adv_t = torch.as_tensor(flat_adv, dtype=torch.float32, device=device)
-        ret_t = torch.as_tensor(flat_ret, dtype=torch.float32, device=device)
-        hidden_t = torch.as_tensor(flat_hidden, dtype=torch.float32, device=device) if flat_hidden is not None else None
-        seq_target_t = torch.as_tensor(flat_seq_target, dtype=torch.float32, device=device) if flat_seq_target is not None else None
-        seq_mask_t = torch.as_tensor(flat_seq_mask, dtype=torch.float32, device=device) if flat_seq_mask is not None else None
+        if config.actor_encoder == "online_gru" and config.recurrent_sequence_training:
+            assert hidden_buf is not None
+            obs_seq_t = torch.as_tensor(obs_buf, dtype=torch.float32, device=device)
+            act_seq_t = torch.as_tensor(act_buf, dtype=torch.float32, device=device)
+            old_logp_seq_t = torch.as_tensor(logp_buf, dtype=torch.float32, device=device)
+            adv_seq_t = torch.as_tensor(advantages, dtype=torch.float32, device=device)
+            ret_seq_t = torch.as_tensor(returns, dtype=torch.float32, device=device)
+            done_seq_t = torch.as_tensor(done_buf, dtype=torch.float32, device=device)
+            initial_hidden_t = torch.as_tensor(hidden_buf[0], dtype=torch.float32, device=device)
+            env_indices = np.arange(config.num_envs)
+            env_minibatch = max(1, min(config.num_envs, config.minibatch_size // max(1, rollout_n)))
+            for _ in range(config.update_epochs):
+                np.random.shuffle(env_indices)
+                for start in range(0, len(env_indices), env_minibatch):
+                    mb_env = env_indices[start : start + env_minibatch]
+                    logp, entropy_values, value = model.evaluate_actions_recurrent_sequence(
+                        obs_seq_t[:, mb_env],
+                        act_seq_t[:, mb_env],
+                        initial_hidden_t[mb_env],
+                        done_seq_t[:, mb_env],
+                    )
+                    entropy = entropy_values.mean()
+                    ratio = torch.exp(logp - old_logp_seq_t[:, mb_env])
+                    mb_adv = adv_seq_t[:, mb_env]
+                    mb_ret = ret_seq_t[:, mb_env]
+                    pg_loss_1 = -mb_adv * ratio
+                    pg_loss_2 = -mb_adv * torch.clamp(ratio, 1.0 - config.clip_coef, 1.0 + config.clip_coef)
+                    pg_loss = torch.max(pg_loss_1, pg_loss_2).mean()
+                    value_loss = 0.5 * torch.square(value - mb_ret).mean()
+                    loss = pg_loss + config.vf_coef * value_loss - config.ent_coef * entropy
 
-        indices = np.arange(len(flat_obs))
-        for _ in range(config.update_epochs):
-            np.random.shuffle(indices)
-            for start in range(0, len(indices), config.minibatch_size):
-                mb = indices[start : start + config.minibatch_size]
-                if config.actor_encoder == "online_gru":
-                    assert hidden_t is not None
-                    logp, entropy_values, value = model.evaluate_actions_recurrent(obs_t[mb], act_t[mb], hidden_t[mb])
-                else:
-                    logp, entropy_values, value = model.evaluate_actions(obs_t[mb], act_t[mb])
-                entropy = entropy_values.mean()
-                ratio = torch.exp(logp - old_logp_t[mb])
+                    optimizer.zero_grad()
+                    loss.backward()
+                    nn.utils.clip_grad_norm_(model.parameters(), config.max_grad_norm)
+                    optimizer.step()
+        else:
+            obs_t = torch.as_tensor(flat_obs, dtype=torch.float32, device=device)
+            act_t = torch.as_tensor(flat_act, dtype=torch.float32, device=device)
+            old_logp_t = torch.as_tensor(flat_old_logp, dtype=torch.float32, device=device)
+            adv_t = torch.as_tensor(flat_adv, dtype=torch.float32, device=device)
+            ret_t = torch.as_tensor(flat_ret, dtype=torch.float32, device=device)
+            hidden_t = torch.as_tensor(flat_hidden, dtype=torch.float32, device=device) if flat_hidden is not None else None
+            seq_target_t = torch.as_tensor(flat_seq_target, dtype=torch.float32, device=device) if flat_seq_target is not None else None
+            seq_mask_t = torch.as_tensor(flat_seq_mask, dtype=torch.float32, device=device) if flat_seq_mask is not None else None
 
-                pg_loss_1 = -adv_t[mb] * ratio
-                pg_loss_2 = -adv_t[mb] * torch.clamp(ratio, 1.0 - config.clip_coef, 1.0 + config.clip_coef)
-                pg_loss = torch.max(pg_loss_1, pg_loss_2).mean()
-                value_loss = 0.5 * torch.square(value - ret_t[mb]).mean()
-                loss = pg_loss + config.vf_coef * value_loss - config.ent_coef * entropy
-                if config.action_sequence_horizon > 1 and config.sequence_aux_coef > 0.0:
-                    assert seq_target_t is not None
-                    assert seq_mask_t is not None
-                    predicted_tail = model.action_sequence_tensor(obs_t[mb])[:, 1:, :]
-                    sequence_error = torch.square(predicted_tail - seq_target_t[mb]).sum(dim=-1)
-                    sequence_mask = seq_mask_t[mb]
-                    sequence_loss = (sequence_error * sequence_mask).sum() / torch.clamp(sequence_mask.sum(), min=1.0)
-                    loss = loss + config.sequence_aux_coef * sequence_loss
+            indices = np.arange(len(flat_obs))
+            for _ in range(config.update_epochs):
+                np.random.shuffle(indices)
+                for start in range(0, len(indices), config.minibatch_size):
+                    mb = indices[start : start + config.minibatch_size]
+                    if config.actor_encoder == "online_gru":
+                        assert hidden_t is not None
+                        logp, entropy_values, value = model.evaluate_actions_recurrent(obs_t[mb], act_t[mb], hidden_t[mb])
+                    else:
+                        logp, entropy_values, value = model.evaluate_actions(obs_t[mb], act_t[mb])
+                    entropy = entropy_values.mean()
+                    ratio = torch.exp(logp - old_logp_t[mb])
 
-                optimizer.zero_grad()
-                loss.backward()
-                nn.utils.clip_grad_norm_(model.parameters(), config.max_grad_norm)
-                optimizer.step()
+                    pg_loss_1 = -adv_t[mb] * ratio
+                    pg_loss_2 = -adv_t[mb] * torch.clamp(ratio, 1.0 - config.clip_coef, 1.0 + config.clip_coef)
+                    pg_loss = torch.max(pg_loss_1, pg_loss_2).mean()
+                    value_loss = 0.5 * torch.square(value - ret_t[mb]).mean()
+                    loss = pg_loss + config.vf_coef * value_loss - config.ent_coef * entropy
+                    if config.action_sequence_horizon > 1 and config.sequence_aux_coef > 0.0:
+                        assert seq_target_t is not None
+                        assert seq_mask_t is not None
+                        predicted_tail = model.action_sequence_tensor(obs_t[mb])[:, 1:, :]
+                        sequence_error = torch.square(predicted_tail - seq_target_t[mb]).sum(dim=-1)
+                        sequence_mask = seq_mask_t[mb]
+                        sequence_loss = (sequence_error * sequence_mask).sum() / torch.clamp(sequence_mask.sum(), min=1.0)
+                        loss = loss + config.sequence_aux_coef * sequence_loss
+
+                    optimizer.zero_grad()
+                    loss.backward()
+                    nn.utils.clip_grad_norm_(model.parameters(), config.max_grad_norm)
+                    optimizer.step()
 
         global_step += rollout_n * config.num_envs
         update += 1

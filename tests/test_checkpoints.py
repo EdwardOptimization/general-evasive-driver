@@ -107,6 +107,27 @@ def test_online_gru_actor_checkpoint_loads_and_updates_hidden(tmp_path):
     assert np.isfinite(value)
 
 
+def test_online_gru_sequence_eval_backpropagates_through_time():
+    torch.manual_seed(0)
+    model = ActorCritic(obs_dim=5, act_dim=2, hidden_size=8, actor_encoder="online_gru")
+    actions = torch.tanh(torch.randn(3, 1, 2))
+    initial_hidden = model.initial_hidden(1, torch.device("cpu"))
+
+    obs = torch.randn(3, 1, 5, requires_grad=True)
+    dones = torch.zeros(3, 1)
+    _, _, values = model.evaluate_actions_recurrent_sequence(obs, actions, initial_hidden, dones)
+    values[1].sum().backward()
+
+    assert float(obs.grad[0].abs().sum()) > 0.0
+
+    reset_obs = obs.detach().clone().requires_grad_(True)
+    reset_dones = torch.tensor([[1.0], [0.0], [0.0]])
+    _, _, reset_values = model.evaluate_actions_recurrent_sequence(reset_obs, actions, initial_hidden, reset_dones)
+    reset_values[1].sum().backward()
+
+    assert float(reset_obs.grad[0].abs().sum()) == 0.0
+
+
 def test_temporal_gru_actor_rejects_mismatched_history_shape():
     with np.testing.assert_raises(ValueError):
         ActorCritic(obs_dim=55, act_dim=2, hidden_size=16, actor_encoder="temporal_gru", actor_history_length=4)

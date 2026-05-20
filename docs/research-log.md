@@ -361,6 +361,27 @@ probably the PPO update path: online GRU updates currently replay detached
 hidden states per step, so hidden dynamics are not trained with sequence
 backpropagation.
 
+## m16-sequence-recurrent-ppo
+
+- status: `pending`
+- kind: `training`
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m16_sequence_recurrent_driver.json --seed 733 --device cuda --run-dir runs/ppo_m16_sequence_recurrent_seed733`
+- success artifact: `runs/ppo_m16_sequence_recurrent_seed733/checkpoint.pt`
+
+Infrastructure change: `recurrent_sequence_training=true` trains online GRU
+rollouts as environment sequences. PPO losses still use the same rollout data,
+but the update unrolls hidden state through time and zeroes hidden state after
+done transitions. A focused gradient test verifies that a loss at t+1 can
+backpropagate to t through the recurrent state when no done boundary is present.
+
+Smoke result:
+
+- run dir: `runs/ppo_m16_sequence_recurrent_smoke`;
+- eval return mean: 83.584;
+- eval steps mean: 67.500;
+- eval termination rate: 0.000;
+- eval lateral RMSE mean: 0.213.
+
 ## 20260520T200959Z m15-obstacle-aligned-perturbation-sampler
 
 - status: `completed`

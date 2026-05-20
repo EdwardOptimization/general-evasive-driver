@@ -58,6 +58,8 @@ vehicle/tire models, and NMPC-style constrained control.
   config, scenario-sampling filters, queued command, and validation gate.
 - `m15-obstacle-aligned-perturbation-sampler.md`: strict obstacle-aligned
   friction-step sampler, M15 training config, and paired-gate validation plan.
+- `m16-sequence-recurrent-ppo.md`: sequence recurrent PPO update for online GRU
+  hidden dynamics and validation plan.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.
