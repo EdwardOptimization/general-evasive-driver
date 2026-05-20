@@ -165,6 +165,51 @@ Interpretation:
 - `info` and rollout traces now include `curvature` and `progress`, which are
   the fields needed for the next segment-level analysis.
 
+## Low-Mu Recovery Negative Result
+
+Config:
+
+```text
+configs/ppo_m4_figure_eight_low_mu_recovery.json
+```
+
+Command:
+
+```bash
+PYTHONPATH=src python -m autodrift.train_ppo \
+  --config configs/ppo_m4_figure_eight_low_mu_recovery.json \
+  --init-checkpoint runs/ppo_m4_figure_eight_history_seed61/checkpoint.pt \
+  --run-dir runs/ppo_m4_figure_eight_low_mu_seed67
+```
+
+Benchmark:
+
+```bash
+PYTHONPATH=src python -m autodrift.benchmark \
+  --episodes 100 \
+  --policies heuristic checkpoint \
+  --checkpoint runs/ppo_m4_figure_eight_low_mu_seed67/checkpoint.pt \
+  --env-config configs/m4_figure_eight_eval.json \
+  --run-dir runs/benchmark_ppo_m4_figure_eight_low_mu_seed67_100eval
+```
+
+Result:
+
+| run | success_rate | return_mean | lateral_rmse_mean | low-mu success |
+| --- | ---: | ---: | ---: | ---: |
+| `runs/benchmark_ppo_m4_figure_eight_history_seed61_100eval` | 0.820 | 848.21 | 1.467 | 0.462 |
+| `runs/benchmark_ppo_m4_figure_eight_low_mu_seed67_100eval` | 0.710 | 615.75 | 2.173 | 0.308 |
+
+Interpretation:
+
+- Naive low-mu oversampling made the policy worse and should not be treated as
+  the M4 path forward.
+- The likely issue is distribution shift/forgetting: the policy overfits the
+  wide, slow low-mu recovery stages and loses medium-friction tracking quality.
+- The next attempt should use a mixed replay curriculum or train/evaluate a
+  more conservative survival-first objective instead of replacing most samples
+  with low-mu stages.
+
 ## Exit Criteria
 
 M4 should not be considered complete until:
