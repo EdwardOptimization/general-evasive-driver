@@ -17,6 +17,11 @@ from autodrift.policies import Policy, make_policy
 from autodrift.train_ppo import ActorCritic
 
 
+def load_env_config(path: Path) -> DriftEnvConfig:
+    data = json.loads(path.read_text(encoding="utf-8"))
+    return build_env_config(data.get("env", data))
+
+
 class ActorPolicy(Policy):
     def __init__(self, model: ActorCritic):
         self.model = model
@@ -35,6 +40,7 @@ def run_episode_with_policy(env: AutoDriftEnv, policy: Policy, policy_name: str,
     lateral_errors: list[float] = []
     beta_errors: list[float] = []
     speeds: list[float] = []
+    friction_step_applied = False
     terminated = False
     truncated = False
     while not (terminated or truncated):
@@ -44,6 +50,7 @@ def run_episode_with_policy(env: AutoDriftEnv, policy: Policy, policy_name: str,
         lateral_errors.append(float(info["lateral_error"]))
         beta_errors.append(abs(float(info["beta"])) - float(info["beta_target"]))
         speeds.append(float(info["speed"]))
+        friction_step_applied = friction_step_applied or bool(info.get("friction_step_applied", False))
 
     return {
         "seed": seed,
@@ -52,7 +59,10 @@ def run_episode_with_policy(env: AutoDriftEnv, policy: Policy, policy_name: str,
         "terminated": bool(terminated),
         "truncated": bool(truncated),
         "mu": float(info["mu"]),
+        "initial_mu": float(info.get("initial_mu", info["mu"])),
         "mass": float(info["mass"]),
+        "friction_step_at": info.get("friction_step_at"),
+        "friction_step_applied": friction_step_applied,
         "return": float(np.sum(rewards)),
         "mean_reward": float(np.mean(rewards)) if rewards else 0.0,
         "lateral_rmse": float(np.sqrt(np.mean(np.square(lateral_errors)))) if lateral_errors else float("nan"),
@@ -89,18 +99,19 @@ def evaluate_policy(
     seed: int,
     checkpoint: Path | None = None,
     device: str = "auto",
+    env_config: DriftEnvConfig | None = None,
 ) -> tuple[list[dict], dict[str, float | int | str]]:
-    env_config = DriftEnvConfig()
+    resolved_env_config = env_config or DriftEnvConfig()
     actor_policy: ActorPolicy | None = None
     if policy_name == "checkpoint":
         if checkpoint is None:
             raise ValueError("--checkpoint is required when --policy checkpoint is used")
         model, checkpoint_data = load_actor_critic_checkpoint(checkpoint, device=device)
         metadata_env = checkpoint_data.get("metadata", {}).get("env")
-        if isinstance(metadata_env, dict):
-            env_config = build_env_config(metadata_env)
+        if env_config is None and isinstance(metadata_env, dict):
+            resolved_env_config = build_env_config(metadata_env)
         actor_policy = ActorPolicy(model)
-    env = AutoDriftEnv(env_config)
+    env = AutoDriftEnv(resolved_env_config)
 
     rows = []
     for episode in range(episodes):
@@ -123,6 +134,7 @@ def main() -> None:
     parser.add_argument("--csv", type=Path, default=None)
     parser.add_argument("--json", type=Path, default=None)
     parser.add_argument("--run-dir", type=Path, default=None)
+    parser.add_argument("--env-config", type=Path, default=None)
     args = parser.parse_args()
 
     run_dir = args.run_dir
@@ -137,12 +149,17 @@ def main() -> None:
         csv_path = run_dir / "episodes.csv"
         json_path = run_dir / "summary.json"
 
+    env_config = None
+    if args.env_config is not None:
+        env_config = load_env_config(args.env_config)
+
     rows, summary = evaluate_policy(
         policy_name=args.policy,
         episodes=args.episodes,
         seed=args.seed,
         checkpoint=args.checkpoint,
         device=args.device,
+        env_config=env_config,
     )
     frame = pd.DataFrame(rows)
     print(json.dumps(summary, indent=2, sort_keys=True))
@@ -161,6 +178,7 @@ def main() -> None:
                 "episodes": args.episodes,
                 "seed": args.seed,
                 "device": args.device,
+                "env_config": args.env_config,
                 "artifacts": {"episodes_csv": csv_path, "summary_json": json_path},
             },
         )

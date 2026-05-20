@@ -1,7 +1,7 @@
 import numpy as np
 
 from autodrift.dynamics import RandomizationConfig
-from autodrift.env import AutoDriftEnv, DriftEnvConfig
+from autodrift.env import AutoDriftEnv, DriftEnvConfig, FrictionStepConfig
 from autodrift.policies import HeuristicPolicy
 
 
@@ -51,6 +51,30 @@ def test_speed_reference_respects_low_friction_limit():
 
     friction_limit = (info["mu"] * 9.81 * 18.0) ** 0.5 * env.config.friction_speed_margin
     assert info["speed_ref"] <= friction_limit + 1e-9
+
+
+def test_friction_step_changes_mu_and_reports_transition():
+    env = AutoDriftEnv(
+        DriftEnvConfig(
+            friction_step=FrictionStepConfig(
+                enabled=True,
+                step_range=(3, 3),
+                mu_range=(0.35, 0.35),
+            ),
+            randomization=RandomizationConfig(mu_range=(1.0, 1.0)),
+        )
+    )
+    _, info = env.reset(seed=16)
+    assert info["initial_mu"] == 1.0
+    assert info["mu"] == 1.0
+    assert info["friction_step_at"] == 3
+
+    for _ in range(3):
+        _, _, _, _, info = env.step(np.array([0.0, 0.2], dtype=np.float32))
+
+    assert info["initial_mu"] == 1.0
+    assert info["mu"] == 0.35
+    assert info["friction_step_applied"] is True
 
 
 def test_heuristic_policy_runs_for_multiple_steps():

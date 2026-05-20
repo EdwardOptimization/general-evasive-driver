@@ -6,7 +6,7 @@ from dataclasses import asdict, dataclass
 from typing import Any
 
 from autodrift.dynamics import RandomizationConfig
-from autodrift.env import DriftEnvConfig
+from autodrift.env import DriftEnvConfig, FrictionStepConfig
 
 
 def _tuple2(value: Any) -> tuple[float, float]:
@@ -27,6 +27,7 @@ def build_randomization_config(data: dict[str, Any] | None = None) -> Randomizat
 def build_env_config(data: dict[str, Any] | None = None) -> DriftEnvConfig:
     values = asdict(DriftEnvConfig())
     values["randomization"] = asdict(RandomizationConfig())
+    values["friction_step"] = asdict(FrictionStepConfig())
     for key, value in (data or {}).items():
         if key not in values:
             raise ValueError(f"unknown env config key: {key}")
@@ -37,11 +38,26 @@ def build_env_config(data: dict[str, Any] | None = None) -> DriftEnvConfig:
                     raise ValueError(f"unknown randomization config key: {rand_key}")
                 randomization[rand_key] = _tuple2(rand_value)
             values["randomization"] = randomization
+        elif key == "friction_step":
+            friction_step = values["friction_step"].copy()
+            for step_key, step_value in value.items():
+                if step_key not in friction_step:
+                    raise ValueError(f"unknown friction_step config key: {step_key}")
+                if step_key.endswith("_range"):
+                    if step_key == "step_range":
+                        step_range = _tuple2(step_value)
+                        friction_step[step_key] = (int(step_range[0]), int(step_range[1]))
+                    else:
+                        friction_step[step_key] = _tuple2(step_value)
+                else:
+                    friction_step[step_key] = step_value
+            values["friction_step"] = friction_step
         elif key.endswith("_range"):
             values[key] = _tuple2(value)
         else:
             values[key] = value
     values["randomization"] = build_randomization_config(values["randomization"])
+    values["friction_step"] = FrictionStepConfig(**values["friction_step"])
     return DriftEnvConfig(**values)
 
 
@@ -56,6 +72,10 @@ def merge_env_config(base: dict[str, Any], override: dict[str, Any]) -> dict[str
             randomization = dict(merged.get("randomization", {}))
             randomization.update(value)
             merged["randomization"] = randomization
+        elif key == "friction_step":
+            friction_step = dict(merged.get("friction_step", {}))
+            friction_step.update(value)
+            merged["friction_step"] = friction_step
         else:
             merged[key] = value
     return merged

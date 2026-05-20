@@ -19,6 +19,8 @@ vehicle/tire models, and NMPC-style constrained control.
 - `infrastructure.md`: current run-artifact contract and deferred infrastructure.
 - `m2-circular-drift-results.md`: current circular drift training and benchmark
   result.
+- `m3-friction-adaptation-plan.md`: friction-step adaptation task definition
+  and baseline result.
 
 ## Scope Rule
 

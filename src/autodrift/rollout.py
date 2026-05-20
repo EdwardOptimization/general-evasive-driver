@@ -13,6 +13,7 @@ from autodrift.artifacts import write_csv_rows, write_json
 from autodrift.checkpoints import load_actor_critic_checkpoint
 from autodrift.config import build_env_config
 from autodrift.env import AutoDriftEnv, DriftEnvConfig
+from autodrift.evaluate import load_env_config
 from autodrift.policies import Policy, make_policy
 from autodrift.train_ppo import ActorCritic
 
@@ -57,8 +58,11 @@ def collect_trace(
     seed: int,
     checkpoint: Path | None = None,
     device: str = "auto",
+    env_config: DriftEnvConfig | None = None,
 ) -> tuple[list[dict], dict]:
-    env = AutoDriftEnv(env_config_from_checkpoint(checkpoint) if policy_name == "checkpoint" else DriftEnvConfig())
+    if env_config is None:
+        env_config = env_config_from_checkpoint(checkpoint) if policy_name == "checkpoint" else DriftEnvConfig()
+    env = AutoDriftEnv(env_config)
     policy = make_rollout_policy(policy_name, env, seed, checkpoint, device)
     obs, info = env.reset(seed=seed)
     policy.reset()
@@ -91,6 +95,9 @@ def collect_trace(
                 "drive_cmd": float(action[1]),
                 "reward": reward,
                 "mu": info["mu"],
+                "initial_mu": info.get("initial_mu", info["mu"]),
+                "friction_step_at": info.get("friction_step_at"),
+                "friction_step_applied": info.get("friction_step_applied", False),
                 "mass": info["mass"],
             }
         )
@@ -103,6 +110,10 @@ def collect_trace(
         "truncated": truncated,
         "return": total_return,
         "mu": rows[0]["mu"] if rows else float("nan"),
+        "initial_mu": rows[0]["initial_mu"] if rows else float("nan"),
+        "final_mu": rows[-1]["mu"] if rows else float("nan"),
+        "friction_step_at": rows[0]["friction_step_at"] if rows else None,
+        "friction_step_applied": any(row["friction_step_applied"] for row in rows),
         "speed_ref": rows[0]["speed_ref"] if rows else float("nan"),
         "beta_target": rows[0]["beta_target"] if rows else float("nan"),
     }
@@ -164,12 +175,14 @@ def main() -> None:
     parser.add_argument("--checkpoint", type=Path, default=None)
     parser.add_argument("--seeds", type=int, nargs="+", default=[7])
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="auto")
+    parser.add_argument("--env-config", type=Path, default=None)
     parser.add_argument("--out-dir", type=Path, default=Path("runs/rollouts"))
     args = parser.parse_args()
 
+    env_config = load_env_config(args.env_config) if args.env_config is not None else None
     summaries = []
     for seed in args.seeds:
-        rows, summary = collect_trace(args.policy, seed, checkpoint=args.checkpoint, device=args.device)
+        rows, summary = collect_trace(args.policy, seed, checkpoint=args.checkpoint, device=args.device, env_config=env_config)
         summaries.append(summary)
         prefix = f"{args.policy}_seed{seed}"
         write_csv_rows(args.out_dir / f"{prefix}.csv", rows)

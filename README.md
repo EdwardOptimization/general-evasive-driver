@@ -27,6 +27,7 @@ The repository currently contains:
 - `autodrift.policies`: baseline policies for sanity checks.
 - `autodrift.evaluate`: command-line evaluator.
 - `autodrift.benchmark`: shared-seed benchmark runner with CSV/JSON artifacts.
+- `autodrift.rollout`: selected-episode traces and plots.
 - `autodrift.artifacts`: run directory, JSON, and CSV helpers.
 - `docs/`: literature notes and PDFs.
 

@@ -23,6 +23,14 @@ from autodrift.tasks import CircleTrack, PathFrame
 
 
 @dataclass(frozen=True)
+class FrictionStepConfig:
+    enabled: bool = False
+    step_range: tuple[int, int] = (250, 550)
+    mu_range: tuple[float, float] = (0.25, 1.15)
+    resample_speed_ref: bool = True
+
+
+@dataclass(frozen=True)
 class DriftEnvConfig:
     dt: float = 0.02
     max_steps: int = 800
@@ -34,6 +42,7 @@ class DriftEnvConfig:
     friction_speed_margin: float = 0.92
     history_length: int = 1
     include_privileged_params: bool = False
+    friction_step: FrictionStepConfig = FrictionStepConfig()
     randomization: RandomizationConfig = RandomizationConfig()
 
 
@@ -69,6 +78,9 @@ class AutoDriftEnv(gym.Env):
         self.speed_ref = 8.0
         self.beta_target = 0.45
         self.step_count = 0
+        self.friction_step_at: int | None = None
+        self.friction_step_applied = False
+        self.initial_mu = self.params.mu
 
     def reset(
         self,
@@ -83,7 +95,10 @@ class AutoDriftEnv(gym.Env):
         options = options or {}
         base_params = options.get("base_params")
         self.params = sample_vehicle_params(self.rng, base=base_params, config=self.config.randomization)
+        self.initial_mu = self.params.mu
         self.model = SingleTrackDriftModel(self.params)
+        self.friction_step_at = self._sample_friction_step_at()
+        self.friction_step_applied = False
 
         self.speed_ref = self._sample_speed_ref()
         self.beta_target = float(self.rng.uniform(*self.config.beta_target_range))
@@ -118,6 +133,7 @@ class AutoDriftEnv(gym.Env):
 
     def step(self, action: np.ndarray) -> tuple[np.ndarray, float, bool, bool, dict[str, Any]]:
         self.step_count += 1
+        self._maybe_apply_friction_step()
         action64 = np.asarray(action, dtype=np.float64)
         self.state, self.last_forces = self.model.step(self.state, action64, self.config.dt)
         frame = self.track.frame(self.state.x, self.state.y, self.state.psi)
@@ -132,6 +148,46 @@ class AutoDriftEnv(gym.Env):
         base_observation = self._base_observation()
         self.obs_history = [base_observation] + self.obs_history[: self.config.history_length - 1]
         return self._observation(), float(reward), terminated, truncated, info
+
+    def _sample_friction_step_at(self) -> int | None:
+        if not self.config.friction_step.enabled:
+            return None
+        low, high = self.config.friction_step.step_range
+        low = max(1, int(low))
+        high = min(int(high), self.config.max_steps - 1)
+        if high <= low:
+            return low
+        return int(self.rng.integers(low, high + 1))
+
+    def _maybe_apply_friction_step(self) -> None:
+        if self.friction_step_at is None or self.friction_step_applied:
+            return
+        if self.step_count < self.friction_step_at:
+            return
+        new_mu = float(self.rng.uniform(*self.config.friction_step.mu_range))
+        self.params = VehicleParams(
+            mass=self.params.mass,
+            iz=self.params.iz,
+            lf=self.params.lf,
+            lr=self.params.lr,
+            h_cg=self.params.h_cg,
+            mu=new_mu,
+            cf=self.params.cf,
+            cr=self.params.cr,
+            max_steer=self.params.max_steer,
+            max_steer_rate=self.params.max_steer_rate,
+            max_drive_force=self.params.max_drive_force,
+            max_brake_force=self.params.max_brake_force,
+            drive_tau=self.params.drive_tau,
+            steer_tau=self.params.steer_tau,
+            drag_coeff=self.params.drag_coeff,
+            rolling_resistance=self.params.rolling_resistance,
+            gravity=self.params.gravity,
+        )
+        self.model = SingleTrackDriftModel(self.params)
+        if self.config.friction_step.resample_speed_ref:
+            self.speed_ref = self._sample_speed_ref()
+        self.friction_step_applied = True
 
     def _observation(self) -> np.ndarray:
         if not self.obs_history:
@@ -235,6 +291,7 @@ class AutoDriftEnv(gym.Env):
         beta = math.atan2(self.state.vy, max(self.state.vx, 1e-6))
         return {
             "mu": self.params.mu,
+            "initial_mu": self.initial_mu,
             "mass": self.params.mass,
             "lf": self.params.lf,
             "lr": self.params.lr,
@@ -245,4 +302,6 @@ class AutoDriftEnv(gym.Env):
             "lateral_error": frame.lateral_error,
             "heading_error": frame.heading_error,
             "step": self.step_count,
+            "friction_step_at": self.friction_step_at,
+            "friction_step_applied": self.friction_step_applied,
         }

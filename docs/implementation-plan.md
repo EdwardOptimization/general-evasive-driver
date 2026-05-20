@@ -172,6 +172,9 @@ Exit criteria:
   non-history policy;
 - ablation shows history or latent adaptation matters.
 
+Status: started. Friction-step episodes, evaluation configs, and baseline M2
+checkpoint evaluation are in place. See `docs/m3-friction-adaptation-plan.md`.
+
 ### M4: Add General Path Tracking
 
 - Add figure-eight and variable-curvature path tasks.

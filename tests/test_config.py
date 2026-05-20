@@ -15,6 +15,24 @@ def test_build_env_config_overrides_nested_randomization():
     assert config.randomization.mu_range == (0.6, 1.0)
 
 
+def test_build_env_config_overrides_friction_step():
+    config = build_env_config(
+        {
+            "friction_step": {
+                "enabled": True,
+                "step_range": [20, 40],
+                "mu_range": [0.3, 0.6],
+                "resample_speed_ref": False,
+            }
+        }
+    )
+
+    assert config.friction_step.enabled is True
+    assert config.friction_step.step_range == (20, 40)
+    assert config.friction_step.mu_range == (0.3, 0.6)
+    assert config.friction_step.resample_speed_ref is False
+
+
 def test_curriculum_selects_stage_before_base():
     base_data = {"track_width": 5.0, "randomization": {"mu_range": [0.25, 1.15]}}
     base_config = build_env_config(base_data)
