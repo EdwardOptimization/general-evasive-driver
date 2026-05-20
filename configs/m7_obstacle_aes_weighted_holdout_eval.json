@@ -1,0 +1,34 @@
+{
+  "env": {
+    "track_kind": "circle",
+    "track_radius": 60.0,
+    "track_width": 8.0,
+    "history_length": 4,
+    "action_history_mode": "full",
+    "termination_penalty": 8.0,
+    "speed_range": [14.0, 16.0],
+    "beta_target_range": [0.08, 0.38],
+    "friction_limited_speed": false,
+    "obstacle": {
+      "enabled": true,
+      "distance_range": [8.0, 26.0],
+      "half_width_range": [0.45, 1.00],
+      "collision_penalty": 25.0,
+      "require_aeb_infeasible": true,
+      "allowed_labels": ["aes_feasible", "drift_required", "unavoidable"],
+      "max_sample_attempts": 2000,
+      "finish_on_pass": true,
+      "pass_reward": 12.0
+    },
+    "randomization": {
+      "mu_range": [0.35, 0.80],
+      "mass_scale_range": [0.78, 1.30],
+      "cg_shift_range": [-0.16, 0.16],
+      "inertia_scale_range": [0.78, 1.35],
+      "tire_stiffness_scale_range": [0.55, 1.45],
+      "drive_scale_range": [0.70, 1.20],
+      "brake_scale_range": [0.65, 1.30],
+      "actuator_tau_scale_range": [0.65, 2.10]
+    }
+  }
+}

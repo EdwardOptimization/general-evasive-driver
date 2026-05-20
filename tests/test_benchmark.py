@@ -90,6 +90,12 @@ def test_add_buckets_labels_vehicle_road_hidden_params():
 
 def test_parse_checkpoint_specs_uses_named_paths():
     assert parse_checkpoint_specs(["m7a=runs/a.pt", "m7b=runs/b.pt"]) == [
-        ("m7a", Path("runs/a.pt")),
-        ("m7b", Path("runs/b.pt")),
+        ("m7a", Path("runs/a.pt"), "none"),
+        ("m7b", Path("runs/b.pt"), "none"),
+    ]
+
+
+def test_parse_checkpoint_specs_accepts_observation_ablation():
+    assert parse_checkpoint_specs(["m7a_noact=runs/a.pt@zero_action_history"]) == [
+        ("m7a_noact", Path("runs/a.pt"), "zero_action_history")
     ]

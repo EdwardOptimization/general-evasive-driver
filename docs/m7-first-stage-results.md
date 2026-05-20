@@ -4,8 +4,9 @@ Last updated: 2026-05-21
 
 ## Scope
 
-This note records the first M7 implementation pass. It is an infrastructure and
-smoke-validation result, not a completed M7 training result.
+This note records the first M7 implementation and validation pass. It is a
+real training and benchmark result for the new M7 infrastructure, but it is not
+a completed M7 success claim.
 
 Implemented pieces:
 
@@ -23,6 +24,9 @@ Implemented pieces:
   observation shape and M7-B can add a new sequence head;
 - benchmark support for multiple named checkpoint policies through
   `--checkpoint-policy name=path`;
+- checkpoint observation ablations through
+  `--checkpoint-policy name=path@zero_action_history` and
+  `--checkpoint-policy name=path@single_frame_history`;
 - vehicle-road bucket summaries for held-out analysis.
 
 ## Configs
@@ -31,9 +35,10 @@ New configuration files:
 
 - `configs/ppo_m7a_history_obstacle.json`;
 - `configs/ppo_m7b_sequence_obstacle.json`;
-- `configs/m7_obstacle_holdout_eval.json`.
+- `configs/m7_obstacle_holdout_eval.json`;
+- `configs/m7_obstacle_aes_weighted_holdout_eval.json`.
 
-All three use:
+All use:
 
 - `history_length=4`;
 - `action_history_mode="full"`;
@@ -41,115 +46,247 @@ All three use:
 - `aes_feasible`, `drift_required`, and `unavoidable` labels;
 - broader vehicle-road randomization than M5.
 
-## Smoke Training Commands
+The AES-weighted holdout config narrows speed and obstacle ranges so the
+benchmark contains more avoidable cases while still keeping AEB-only
+infeasible. For seeds `0..99`, its labels were:
 
-M7-A smoke:
+| label | count |
+| --- | ---: |
+| `aes_feasible` | 18 |
+| `drift_required` | 42 |
+| `unavoidable` | 40 |
+
+## Training Runs
+
+M7-A 1M-step training:
 
 ```bash
 conda run -n autodrift python -m autodrift.train_ppo \
   --config configs/ppo_m7a_history_obstacle.json \
   --init-checkpoint runs/ppo_m5_obstacle_seed83/checkpoint.pt \
-  --total-steps 128 \
-  --rollout-steps 32 \
-  --eval-episodes 2 \
-  --device cpu \
-  --run-dir runs/ppo_m7a_history_smoke
+  --run-dir runs/ppo_m7a_history_seed127
 ```
 
 Result:
 
 - load mode: `partial_input_expand`;
-- eval return mean: `91.179`;
-- eval termination rate: `0.000`.
+- device: CUDA;
+- eval return mean: `10.256`;
+- eval termination rate: `0.700`;
+- lateral RMSE mean: `0.411`;
+- beta absolute error mean: `0.241`.
 
-M7-B smoke:
+M7-B 1M-step training:
 
 ```bash
 conda run -n autodrift python -m autodrift.train_ppo \
   --config configs/ppo_m7b_sequence_obstacle.json \
   --init-checkpoint runs/ppo_m5_obstacle_seed83/checkpoint.pt \
-  --total-steps 128 \
-  --rollout-steps 32 \
-  --eval-episodes 2 \
-  --device cpu \
-  --run-dir runs/ppo_m7b_sequence_smoke
+  --run-dir runs/ppo_m7b_sequence_seed131
 ```
 
 Result:
 
 - load mode: `new_sequence_head+partial_input_expand`;
-- eval return mean: `-25.163`;
-- eval termination rate: `1.000`.
+- device: CUDA;
+- eval return mean: `1.390`;
+- eval termination rate: `0.800`;
+- lateral RMSE mean: `0.225`;
+- beta absolute error mean: `0.230`.
 
-Interpretation: the M7-B smoke proves the sequence-head training path and
-checkpoint format work, but the 128-step result is a negative performance
-result.
+Interpretation: both 1M-step runs completed and produced usable checkpoints,
+but the built-in training eval is weak. The useful evidence comes from the
+shared-seed obstacle benchmarks below.
 
-## Held-Out Benchmark Smoke
+## Holdout Benchmark
 
-Mixed-label command:
+Command:
 
 ```bash
 conda run -n autodrift python -m autodrift.benchmark \
-  --episodes 6 \
-  --seed 1 \
+  --episodes 100 \
+  --seed 700 \
   --policies aeb aes_heuristic envelope_aes \
   --checkpoint-policy m5=runs/ppo_m5_obstacle_seed83/checkpoint.pt \
-  --checkpoint-policy m7a=runs/ppo_m7a_history_smoke/checkpoint.pt \
-  --checkpoint-policy m7b=runs/ppo_m7b_sequence_smoke/checkpoint.pt \
+  --checkpoint-policy m7a=runs/ppo_m7a_history_seed127/checkpoint.pt \
+  --checkpoint-policy m7b=runs/ppo_m7b_sequence_seed131/checkpoint.pt \
   --env-config configs/m7_obstacle_holdout_eval.json \
   --device cpu \
-  --run-dir runs/benchmark_m7_operator_smoke_mixed
+  --run-dir runs/benchmark_m7_operator_holdout_100eval
 ```
 
 Policy summary:
 
-| policy | episodes | success_rate | collision_rate | obstacle_completion_rate | plan_horizon_mean |
+| policy | success_rate | collision_rate | high_sideslip_fraction | plan_horizon_mean |
+| --- | ---: | ---: | ---: | ---: |
+| `aeb` | 0.070 | 0.920 | 0.033 | 1 |
+| `aes_heuristic` | 0.150 | 0.850 | 0.277 | 1 |
+| `envelope_aes` | 0.330 | 0.670 | 0.000 | 1 |
+| `m5` | 0.330 | 0.670 | 0.055 | 1 |
+| `m7a` | 0.360 | 0.640 | 0.113 | 1 |
+| `m7b` | 0.330 | 0.670 | 0.074 | 6 |
+
+Label-level summary:
+
+| label | episodes | envelope_aes | m5 | m7a | m7b |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| `aeb` | 6 | 0.333 | 0.667 | 0.333 | 1 |
-| `aes_heuristic` | 6 | 0.167 | 0.833 | 0.167 | 1 |
-| `envelope_aes` | 6 | 0.667 | 0.333 | 0.667 | 1 |
-| `m5` | 6 | 0.667 | 0.333 | 0.667 | 1 |
-| `m7a` | 6 | 0.667 | 0.333 | 0.667 | 1 |
-| `m7b` | 6 | 0.667 | 0.333 | 0.667 | 6 |
-
-Obstacle-label result:
-
-- `aes_feasible`: `m5`, `m7a`, and `m7b` all reached `1.000` success in this
-  small seed set;
-- `drift_required`: `m5`, `m7a`, and `m7b` all reached `1.000` success in this
-  small seed set;
-- `unavoidable`: all policies reached `0.000` success, as expected for this
-  label under the current binary success definition.
+| `aes_feasible` | 4 | 1.000 | 1.000 | 1.000 | 1.000 |
+| `drift_required` | 29 | 0.897 | 0.897 | 0.931 | 0.862 |
+| `unavoidable` | 67 | 0.000 | 0.045 | 0.075 | 0.060 |
 
 Interpretation:
 
-- the benchmark harness can compare AEB, heuristic AES, envelope AES, M5, M7-A,
-  and M7-B under the same held-out physical configuration;
-- the M7-B sequence preview is recorded (`plan_horizon_mean=6`);
-- M7-A and M7-B are still essentially M5 warm-start smoke checkpoints and do
-  not yet prove improvement.
+- M7-A is slightly better than M5 overall and on `drift_required` cases.
+- M7-B records a valid six-step plan but does not beat M5 in this benchmark.
+- The main holdout is dominated by `unavoidable` cases, so it is not balanced
+  enough to judge drift-capable AES behavior by itself.
+
+## AES-Weighted Holdout Benchmark
+
+Command:
+
+```bash
+conda run -n autodrift python -m autodrift.benchmark \
+  --episodes 100 \
+  --seed 900 \
+  --policies aeb aes_heuristic envelope_aes \
+  --checkpoint-policy m5=runs/ppo_m5_obstacle_seed83/checkpoint.pt \
+  --checkpoint-policy m7a=runs/ppo_m7a_history_seed127/checkpoint.pt \
+  --checkpoint-policy m7b=runs/ppo_m7b_sequence_seed131/checkpoint.pt \
+  --env-config configs/m7_obstacle_aes_weighted_holdout_eval.json \
+  --device cpu \
+  --run-dir runs/benchmark_m7_operator_aes_weighted_100eval
+```
+
+Policy summary:
+
+| policy | success_rate | collision_rate | high_sideslip_fraction | plan_horizon_mean |
+| --- | ---: | ---: | ---: | ---: |
+| `aeb` | 0.130 | 0.860 | 0.061 | 1 |
+| `aes_heuristic` | 0.290 | 0.710 | 0.270 | 1 |
+| `envelope_aes` | 0.570 | 0.430 | 0.004 | 1 |
+| `m5` | 0.580 | 0.420 | 0.046 | 1 |
+| `m7a` | 0.600 | 0.400 | 0.115 | 1 |
+| `m7b` | 0.600 | 0.400 | 0.071 | 6 |
+
+Label-level success:
+
+| label | episodes | envelope_aes | m5 | m7a | m7b |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| `aes_feasible` | 15 | 1.000 | 1.000 | 1.000 | 1.000 |
+| `drift_required` | 40 | 0.950 | 0.950 | 0.950 | 0.975 |
+| `unavoidable` | 45 | 0.089 | 0.111 | 0.156 | 0.133 |
+
+Label-level high-sideslip fraction:
+
+| label | envelope_aes | m5 | m7a | m7b |
+| --- | ---: | ---: | ---: | ---: |
+| `aes_feasible` | 0.026 | 0.113 | 0.346 | 0.204 |
+| `drift_required` | 0.000 | 0.061 | 0.155 | 0.111 |
+| `unavoidable` | 0.000 | 0.000 | 0.003 | 0.000 |
+
+Interpretation:
+
+- M7-A and M7-B improve aggregate success from M5's `0.580` to `0.600`.
+- M7-B improves `drift_required` success from `0.950` to `0.975`.
+- M7-A improves the binary pass rate on `unavoidable` cases from `0.111` to
+  `0.156`.
+- Neither checkpoint satisfies the "drift-capable, not drift-seeking" behavior
+  requirement yet. Both use more high-sideslip behavior than M5 and
+  `envelope_aes` on `aes_feasible` cases.
+
+## Observation Ablation Benchmark
+
+Command:
+
+```bash
+conda run -n autodrift python -m autodrift.benchmark \
+  --episodes 100 \
+  --seed 900 \
+  --policies envelope_aes \
+  --checkpoint-policy m5=runs/ppo_m5_obstacle_seed83/checkpoint.pt \
+  --checkpoint-policy m7a=runs/ppo_m7a_history_seed127/checkpoint.pt \
+  --checkpoint-policy m7a_noact=runs/ppo_m7a_history_seed127/checkpoint.pt@zero_action_history \
+  --checkpoint-policy m7a_single=runs/ppo_m7a_history_seed127/checkpoint.pt@single_frame_history \
+  --checkpoint-policy m7b=runs/ppo_m7b_sequence_seed131/checkpoint.pt \
+  --checkpoint-policy m7b_noact=runs/ppo_m7b_sequence_seed131/checkpoint.pt@zero_action_history \
+  --env-config configs/m7_obstacle_aes_weighted_holdout_eval.json \
+  --device cpu \
+  --run-dir runs/benchmark_m7_operator_ablation_100eval
+```
+
+Policy summary:
+
+| policy | ablation | success_rate | collision_rate | high_sideslip_fraction | plan_horizon_mean |
+| --- | --- | ---: | ---: | ---: | ---: |
+| `envelope_aes` | none | 0.570 | 0.430 | 0.004 | 1 |
+| `m5` | none | 0.580 | 0.420 | 0.046 | 1 |
+| `m7a` | none | 0.600 | 0.400 | 0.115 | 1 |
+| `m7a_noact` | zero action history | 0.600 | 0.400 | 0.115 | 1 |
+| `m7a_single` | single frame tiled | 0.590 | 0.410 | 0.125 | 1 |
+| `m7b` | none | 0.600 | 0.400 | 0.071 | 6 |
+| `m7b_noact` | zero action history | 0.620 | 0.380 | 0.067 | 6 |
+
+Key label-level result:
+
+| policy | `aes_feasible` | `drift_required` | `unavoidable` |
+| --- | ---: | ---: | ---: |
+| `m7a` | 1.000 | 0.950 | 0.156 |
+| `m7a_noact` | 1.000 | 0.950 | 0.156 |
+| `m7a_single` | 1.000 | 0.950 | 0.133 |
+| `m7b` | 1.000 | 0.975 | 0.133 |
+| `m7b_noact` | 1.000 | 0.975 | 0.178 |
+
+Interpretation:
+
+- The current M7 checkpoints do not prove action-history-based
+  self-identification. Zeroing action history does not hurt M7-A and slightly
+  improves M7-B on this seed set.
+- Single-frame tiling barely hurts M7-A, which suggests the current actor may
+  still behave mostly like a feed-forward geometry and state controller.
+- The ablation tool is now in place, but the algorithm has not passed the M7
+  adaptation gate.
 
 ## Negative Results And Gaps
 
-- M7-B's direct two-episode eval after 128 training steps terminates every
-  episode.
-- A four-episode smoke with seed `500` sampled only `unavoidable` cases, and all
-  policies failed; this is useful for pipeline testing but not a balanced
-  validation result.
-- No long M7-A or M7-B training run has been completed yet.
-- No `single_frame`, `no_action_history`, `shuffled_history`, or privileged-leak
-  ablation has been run yet.
+- M7-A and M7-B completed 1M-step training, but the training eval termination
+  rates remain high.
+- The AES-weighted benchmark shows small aggregate gains, but not a robust
+  behavioral win.
+- Both M7 checkpoints overuse high sideslip in `aes_feasible` scenarios.
+- Action-history ablation does not currently reduce performance, so the core
+  closed-loop self-identification claim is not validated.
+- No recurrent actor has been trained yet.
+- No privileged critic or teacher-student asymmetric training result exists
+  yet.
 - No latent self-identification probe has been implemented yet.
 - M7-B sequence smoothness is recorded, but no safety-preview decision rule has
   been validated.
 
+## Current Conclusion
+
+M7 infrastructure is ready for iteration, but the current checkpoints should be
+treated as first-pass baselines rather than successful universal closed-loop
+operators.
+
+The strongest positive signal is that M7-A and M7-B can slightly improve
+aggregate success over M5 on the AES-weighted held-out benchmark, and M7-B can
+run the MPC-like "predict sequence, execute first action" interface.
+
+The strongest negative signal is that removing action history does not hurt.
+The next algorithm work should therefore target architectures and objectives
+that make feedback identification necessary and measurable.
+
 ## Next Steps
 
-1. Run real M7-A training from the M5 checkpoint with the full 1M-step config.
-2. Run real M7-B training from the M5 checkpoint with the sequence auxiliary
-   loss enabled.
-3. Run held-out benchmarks with at least 100 seeds and label-balanced reporting.
-4. Add ablation configs for `single_frame`, `no_action_history`, and
-   `privileged_leak`.
-5. Implement latent probe tooling on frozen rollout data.
+1. Add a recurrent actor or explicit latent-state actor and rerun the same
+   ablations.
+2. Add stable-AES penalties or reward terms so `aes_feasible` success is not
+   achieved through unnecessary sideslip.
+3. Implement latent probe tooling on frozen rollout data for `mu`, mass, CG,
+   brake scale, tire scale, and actuator lag.
+4. Add label-balanced benchmark generation instead of relying only on random
+   filtered sampling.
+5. Add `shuffled_history` and `privileged_leak` ablations.
+6. Use the M7-B sequence output as a diagnostic and safety-preview signal, but
+   do not treat it as validated fallback logic yet.

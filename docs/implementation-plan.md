@@ -1,6 +1,6 @@
 # AutoDrift Implementation Plan
 
-Last updated: 2026-05-20
+Last updated: 2026-05-21
 
 ## Goal
 
@@ -300,13 +300,18 @@ Exit criteria:
   leaked simulator parameters;
 - safety/fallback logic is separated from the main RL controller.
 
-Status: infrastructure first pass. M7-A and M7-B training/evaluation paths now
-exist, including full action-history observations, M7-B sequence heads, named
-checkpoint benchmark comparison, and held-out vehicle-road bucket summaries.
-Only smoke training has been run so far; real M7 training, ablations, and latent
-probes remain open. See `docs/m7-universal-closed-loop-operator.md` and
+Status: first training and ablation pass complete. M7-A and M7-B
+training/evaluation paths now exist, including full action-history
+observations, M7-B sequence heads, named checkpoint benchmark comparison,
+checkpoint observation ablations, and held-out vehicle-road bucket summaries.
+The first 1M-step M7-A/M7-B checkpoints slightly improve aggregate success on
+the AES-weighted held-out benchmark, but they do not yet pass the M7 behavior
+gate: both use too much high sideslip on `aes_feasible` cases, and zeroing
+action history does not hurt performance. Latent probes, recurrent/latent
+actors, and better stable-AES objectives remain open. See
+`docs/m7-universal-closed-loop-operator.md` and
 `docs/m7-first-stage-results.md`.
-Validation will follow `docs/m7-validation-protocol.md` so a policy is judged by
+Validation follows `docs/m7-validation-protocol.md` so a policy is judged by
 held-out generalization, ablations, latent self-identification evidence, and
 behavior diagnostics rather than aggregate success alone.
 

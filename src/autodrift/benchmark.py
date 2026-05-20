@@ -61,16 +61,21 @@ def summarize(frame: pd.DataFrame, by: list[str]) -> pd.DataFrame:
     return summary.reset_index()
 
 
-def parse_checkpoint_specs(specs: list[str] | None) -> list[tuple[str, Path]]:
-    parsed: list[tuple[str, Path]] = []
+def parse_checkpoint_specs(specs: list[str] | None) -> list[tuple[str, Path, str]]:
+    parsed: list[tuple[str, Path, str]] = []
     for spec in specs or []:
         if "=" not in spec:
             raise ValueError(f"checkpoint policy spec must be NAME=PATH, got {spec!r}")
         name, raw_path = spec.split("=", 1)
+        ablation = "none"
+        if "@" in raw_path:
+            raw_path, ablation = raw_path.rsplit("@", 1)
+        if ablation not in {"none", "zero_action_history", "single_frame_history"}:
+            raise ValueError(f"unknown checkpoint ablation {ablation!r} in spec {spec!r}")
         name = name.strip()
         if not name:
             raise ValueError(f"checkpoint policy spec has empty name: {spec!r}")
-        parsed.append((name, Path(raw_path)))
+        parsed.append((name, Path(raw_path), ablation))
     return parsed
 
 
@@ -166,8 +171,8 @@ def main() -> None:
     if "checkpoint" in args.policies:
         if args.checkpoint is None:
             raise ValueError("--checkpoint is required when --policies includes checkpoint")
-        checkpoint_specs.insert(0, ("checkpoint", args.checkpoint))
-    for label, checkpoint_path in checkpoint_specs:
+        checkpoint_specs.insert(0, ("checkpoint", args.checkpoint, "none"))
+    for label, checkpoint_path, ablation in checkpoint_specs:
         rows, summary = evaluate_policy(
             policy_name="checkpoint",
             episodes=args.episodes,
@@ -175,10 +180,13 @@ def main() -> None:
             checkpoint=checkpoint_path,
             device=args.device,
             env_config=env_config,
+            checkpoint_ablation=ablation,
         )
         for row in rows:
             row["policy"] = label
+            row["checkpoint_ablation"] = ablation
         summary["policy"] = label
+        summary["checkpoint_ablation"] = ablation
         all_rows.extend(rows)
         policy_summaries[label] = summary
 
@@ -227,7 +235,9 @@ def main() -> None:
             "run_type": "benchmark",
             "policies": args.policies,
             "checkpoint": args.checkpoint,
-            "checkpoint_policies": {label: path for label, path in checkpoint_specs},
+            "checkpoint_policies": {
+                label: {"path": path, "ablation": ablation} for label, path, ablation in checkpoint_specs
+            },
             "episodes": args.episodes,
             "seed": args.seed,
             "device": args.device,

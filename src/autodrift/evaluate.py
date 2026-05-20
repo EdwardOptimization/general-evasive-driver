@@ -23,12 +23,31 @@ def load_env_config(path: Path) -> DriftEnvConfig:
 
 
 class ActorPolicy(Policy):
-    def __init__(self, model: ActorCritic):
+    def __init__(self, model: ActorCritic, env_config: DriftEnvConfig, ablation: str = "none"):
         self.model = model
+        self.env_config = env_config
+        self.ablation = ablation
         self.last_sequence: np.ndarray | None = None
+
+    def _transform_observation(self, observation: np.ndarray) -> np.ndarray:
+        if self.ablation == "none":
+            return observation
+        transformed = observation.copy()
+        base_dim = len(transformed) // self.env_config.history_length
+        if self.ablation == "single_frame_history":
+            current = transformed[:base_dim].copy()
+            transformed = np.tile(current, self.env_config.history_length).astype(np.float32)
+        if self.ablation == "zero_action_history":
+            for start in range(0, len(transformed), base_dim):
+                if self.env_config.action_history_mode in {"legacy", "full"}:
+                    transformed[start + 12] = 0.0
+                if self.env_config.action_history_mode == "full":
+                    transformed[start + base_dim - 1] = 0.0
+        return transformed
 
     def act(self, observation: np.ndarray, info: dict) -> np.ndarray:
         del info
+        observation = self._transform_observation(observation)
         if self.model.action_sequence_horizon > 1:
             self.last_sequence = self.model.predict_sequence(observation)
             return self.last_sequence[0].astype(np.float32)
@@ -186,7 +205,10 @@ def evaluate_policy(
     checkpoint: Path | None = None,
     device: str = "auto",
     env_config: DriftEnvConfig | None = None,
+    checkpoint_ablation: str = "none",
 ) -> tuple[list[dict], dict[str, float | int | str]]:
+    if checkpoint_ablation not in {"none", "zero_action_history", "single_frame_history"}:
+        raise ValueError(f"unknown checkpoint_ablation: {checkpoint_ablation}")
     resolved_env_config = env_config or DriftEnvConfig()
     actor_policy: ActorPolicy | None = None
     checkpoint_path = checkpoint
@@ -203,7 +225,7 @@ def evaluate_policy(
         target_obs_dim = int(env.observation_space.shape[0])
         if model.obs_dim != target_obs_dim:
             model, _ = load_actor_critic_checkpoint(checkpoint_path, device=device, obs_dim=target_obs_dim)
-        actor_policy = ActorPolicy(model)
+        actor_policy = ActorPolicy(model, resolved_env_config, ablation=checkpoint_ablation)
 
     rows = []
     for episode in range(episodes):
@@ -226,6 +248,11 @@ def main() -> None:
         default="heuristic",
     )
     parser.add_argument("--checkpoint", type=Path, default=None)
+    parser.add_argument(
+        "--checkpoint-ablation",
+        choices=["none", "zero_action_history", "single_frame_history"],
+        default="none",
+    )
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="auto")
     parser.add_argument("--csv", type=Path, default=None)
     parser.add_argument("--json", type=Path, default=None)
@@ -256,6 +283,7 @@ def main() -> None:
         checkpoint=args.checkpoint,
         device=args.device,
         env_config=env_config,
+        checkpoint_ablation=args.checkpoint_ablation,
     )
     frame = pd.DataFrame(rows)
     print(json.dumps(summary, indent=2, sort_keys=True))
@@ -271,6 +299,7 @@ def main() -> None:
                 "run_type": "evaluate",
                 "policy": args.policy,
                 "checkpoint": args.checkpoint,
+                "checkpoint_ablation": args.checkpoint_ablation,
                 "episodes": args.episodes,
                 "seed": args.seed,
                 "device": args.device,
