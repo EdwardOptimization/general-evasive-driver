@@ -42,6 +42,7 @@ make torch-cpu
 make test
 make eval-heuristic
 make train-smoke
+make benchmark-smoke
 ```
 
 Equivalent direct commands:
@@ -49,7 +50,39 @@ Equivalent direct commands:
 ```bash
 PYTHONPATH=src python -m pytest -q
 PYTHONPATH=src python -m autodrift.evaluate --episodes 5 --policy heuristic
-PYTHONPATH=src python -m autodrift.train_ppo --total-steps 512 --rollout-steps 128 --eval-episodes 1
+PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_smoke.json
+PYTHONPATH=src python -m autodrift.benchmark --episodes 2 --policies heuristic random
+```
+
+After `make env-create` or `make env-update`, the same commands are also
+available as console scripts: `autodrift-train-ppo`, `autodrift-evaluate`, and
+`autodrift-benchmark`.
+
+Training and evaluation commands create timestamped directories under `runs/`
+unless an explicit `--run-dir` is provided. A typical PPO run contains:
+
+- `config.json`
+- `checkpoint.pt`
+- `train_metrics.csv`
+- `eval_summary.json`
+- `manifest.json`
+
+Evaluate a saved PPO checkpoint with:
+
+```bash
+PYTHONPATH=src python -m autodrift.evaluate \
+  --policy checkpoint \
+  --checkpoint runs/<run>/checkpoint.pt \
+  --episodes 10
+```
+
+Run a shared-seed comparison with:
+
+```bash
+PYTHONPATH=src python -m autodrift.benchmark \
+  --policies heuristic checkpoint \
+  --checkpoint runs/<run>/checkpoint.pt \
+  --episodes 20
 ```
 
 ## Git Notes

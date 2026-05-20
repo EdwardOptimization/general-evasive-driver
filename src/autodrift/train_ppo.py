@@ -8,8 +8,9 @@ to a vectorized trainer such as Stable-Baselines3, CleanRL, or RL-Games.
 from __future__ import annotations
 
 import argparse
-from dataclasses import dataclass
+from dataclasses import dataclass, fields
 from pathlib import Path
+import sys
 
 import numpy as np
 import torch
@@ -17,6 +18,7 @@ from torch import nn
 from torch.distributions import Normal
 from torch.optim import Adam
 
+from autodrift.artifacts import make_run_dir, read_json, write_csv_rows, write_json
 from autodrift.env import AutoDriftEnv
 
 
@@ -96,7 +98,11 @@ def compute_gae(
     return advantages, returns
 
 
-def train(config: PPOConfig, save_path: Path | None = None) -> ActorCritic:
+def train(
+    config: PPOConfig,
+    save_path: Path | None = None,
+    metrics_csv_path: Path | None = None,
+) -> ActorCritic:
     np.random.seed(config.seed)
     torch.manual_seed(config.seed)
     device = resolve_device(config.device)
@@ -109,6 +115,7 @@ def train(config: PPOConfig, save_path: Path | None = None) -> ActorCritic:
 
     global_step = 0
     update = 0
+    metric_rows: list[dict[str, float | int]] = []
     while global_step < config.total_steps:
         rollout_n = min(config.rollout_steps, config.total_steps - global_step)
         obs_buf = np.zeros((rollout_n, env.observation_space.shape[0]), dtype=np.float32)
@@ -180,8 +187,16 @@ def train(config: PPOConfig, save_path: Path | None = None) -> ActorCritic:
 
         global_step += rollout_n
         update += 1
+        avg_return = float(np.mean(episode_returns)) if episode_returns else float("nan")
+        row = {
+            "step": global_step,
+            "update": update,
+            "rollout_return_mean": avg_return,
+            "reward_mean": float(rew_buf.mean()),
+            "episode_count": len(episode_returns),
+        }
+        metric_rows.append(row)
         if update % 5 == 0 or global_step >= config.total_steps:
-            avg_return = float(np.mean(episode_returns)) if episode_returns else float("nan")
             print(
                 f"step={global_step} update={update} "
                 f"rollout_return_mean={avg_return:.2f} "
@@ -192,6 +207,8 @@ def train(config: PPOConfig, save_path: Path | None = None) -> ActorCritic:
         save_path.parent.mkdir(parents=True, exist_ok=True)
         state_dict = {key: value.detach().cpu() for key, value in model.state_dict().items()}
         torch.save({"model_state": state_dict, "config": config.__dict__}, save_path)
+    if metrics_csv_path is not None:
+        write_csv_rows(metrics_csv_path, metric_rows)
     return model
 
 
@@ -231,23 +248,71 @@ def evaluate_actor(model: ActorCritic, episodes: int, seed: int) -> dict[str, fl
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Train a PPO policy on AutoDrift.")
-    parser.add_argument("--total-steps", type=int, default=50_000)
-    parser.add_argument("--rollout-steps", type=int, default=1024)
-    parser.add_argument("--seed", type=int, default=5)
-    parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="auto")
-    parser.add_argument("--save", type=Path, default=Path("runs/ppo_autodrift.pt"))
-    parser.add_argument("--eval-episodes", type=int, default=3)
+    parser.add_argument("--config", type=Path, default=None)
+    parser.add_argument("--total-steps", type=int, default=None)
+    parser.add_argument("--rollout-steps", type=int, default=None)
+    parser.add_argument("--seed", type=int, default=None)
+    parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default=None)
+    parser.add_argument("--save", type=Path, default=None)
+    parser.add_argument("--run-dir", type=Path, default=None)
+    parser.add_argument("--run-name", type=str, default="ppo")
+    parser.add_argument("--eval-episodes", type=int, default=None)
     args = parser.parse_args()
 
-    config = PPOConfig(
-        total_steps=args.total_steps,
-        rollout_steps=args.rollout_steps,
-        seed=args.seed,
-        device=args.device,
+    ppo_defaults = PPOConfig()
+    config_data = {field.name: getattr(ppo_defaults, field.name) for field in fields(PPOConfig)}
+    eval_episodes = 3
+    if args.config is not None:
+        raw_config = read_json(args.config)
+        ppo_config = raw_config.get("ppo", raw_config)
+        for key in config_data:
+            if key in ppo_config:
+                config_data[key] = ppo_config[key]
+        if "eval_episodes" in ppo_config:
+            eval_episodes = int(ppo_config["eval_episodes"])
+
+    cli_overrides = {
+        "total_steps": args.total_steps,
+        "rollout_steps": args.rollout_steps,
+        "seed": args.seed,
+        "device": args.device,
+    }
+    for key, value in cli_overrides.items():
+        if value is not None:
+            config_data[key] = value
+    if args.eval_episodes is not None:
+        eval_episodes = args.eval_episodes
+
+    config = PPOConfig(**config_data)
+    run_dir = args.run_dir or make_run_dir(prefix=args.run_name, seed=config.seed)
+    save_path = args.save or run_dir / "checkpoint.pt"
+    train_metrics_csv = run_dir / "train_metrics.csv"
+    write_json(
+        run_dir / "config.json",
+        {
+            "run_type": "ppo_train",
+            "command": sys.argv,
+            "config_file": args.config,
+            "ppo": config,
+            "eval_episodes": eval_episodes,
+            "save_path": save_path,
+        },
     )
-    model = train(config, save_path=args.save)
-    summary = evaluate_actor(model, args.eval_episodes, args.seed + 10_000)
-    print(f"saved={args.save}")
+
+    model = train(config, save_path=save_path, metrics_csv_path=train_metrics_csv)
+    summary = evaluate_actor(model, eval_episodes, config.seed + 10_000)
+    write_json(run_dir / "eval_summary.json", summary)
+    write_json(
+        run_dir / "manifest.json",
+        {
+            "run_type": "ppo_train",
+            "checkpoint": save_path,
+            "train_metrics_csv": train_metrics_csv,
+            "eval_summary_json": run_dir / "eval_summary.json",
+        },
+    )
+    print(f"run_dir={run_dir}")
+    print(f"saved={save_path}")
     print(f"eval_summary={summary}")
 
 

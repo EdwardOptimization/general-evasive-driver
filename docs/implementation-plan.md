@@ -34,6 +34,10 @@ The first runnable MVP is in place:
 - `src/autodrift/policies.py`: random and heuristic sanity-check policies.
 - `src/autodrift/evaluate.py`: evaluation CLI.
 - `src/autodrift/train_ppo.py`: dependency-light PyTorch PPO trainer.
+- `src/autodrift/benchmark.py`: shared-seed benchmark runner.
+- `src/autodrift/artifacts.py`: run directory, JSON, and CSV artifact helpers.
+- `src/autodrift/checkpoints.py`: PPO checkpoint loader for evaluation.
+- `configs/`: tracked training configuration templates.
 - `tests/`: smoke tests for dynamics, environment, and baseline policy.
 
 ## Architecture Direction
@@ -81,6 +85,34 @@ possible safety/filter layer after the RL-first result exists.
   unit tests for dynamics/tasks, smoke tests for training/evaluation, and
   regression checks for benchmark outputs.
 
+## Infrastructure Status
+
+Already in place:
+
+- GPU-first conda environment with CPU fallback.
+- Installable package metadata and command-line entry points.
+- Reproducible run directories under `runs/`.
+- PPO config templates under `configs/`.
+- Training artifacts:
+  `config.json`, `checkpoint.pt`, `train_metrics.csv`, `eval_summary.json`,
+  and `manifest.json`.
+- Evaluation artifacts:
+  per-episode CSV, summary JSON, and manifest.
+- Benchmark artifacts:
+  shared-seed episode rows, policy summary, and friction-bucket summary.
+- Checkpoint evaluation through `--policy checkpoint`.
+
+Deferred until the project needs them:
+
+- Vectorized trainer infrastructure or an external training framework adapter
+  such as Stable-Baselines3, CleanRL, or RL-Games.
+- Hyperparameter sweep management and experiment database.
+- Rich plotting/report generation beyond machine-readable CSV/JSON.
+- Scenario corpus versioning for obstacle-avoidance benchmarks.
+- High-fidelity simulator adapters.
+- NMPC/SQP baseline harness and solver-specific profiling.
+- Continuous integration and container images.
+
 ## Milestones
 
 ### M1: Make the Project Easy to Run
@@ -96,6 +128,9 @@ Exit criteria:
 - one command trains a tiny policy;
 - one command evaluates a saved or baseline policy;
 - run artifacts are written in a predictable directory.
+
+Status: mostly complete for the current simulator and PPO trainer. Task/env
+configuration is still narrow because only the circular drift task exists.
 
 ### M2: Make RL Learn the Circular Drift Task
 
@@ -189,5 +224,6 @@ Exit criteria:
 ```bash
 pytest
 PYTHONPATH=src python3 -m autodrift.evaluate --episodes 5 --policy heuristic
-PYTHONPATH=src python3 -m autodrift.train_ppo --total-steps 2048 --rollout-steps 512 --eval-episodes 2
+PYTHONPATH=src python3 -m autodrift.train_ppo --config configs/ppo_smoke.json
+PYTHONPATH=src python3 -m autodrift.benchmark --episodes 2 --policies heuristic random
 ```

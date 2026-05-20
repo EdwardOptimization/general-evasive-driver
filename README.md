@@ -24,6 +24,8 @@ The repository currently contains:
 - `autodrift.env`: a Gymnasium environment for drift tracking.
 - `autodrift.policies`: baseline policies for sanity checks.
 - `autodrift.evaluate`: command-line evaluator.
+- `autodrift.benchmark`: shared-seed benchmark runner with CSV/JSON artifacts.
+- `autodrift.artifacts`: run directory, JSON, and CSV helpers.
 - `docs/`: literature notes and PDFs.
 
 The project definition is in `docs/implementation-plan.md`. The target outcome
@@ -38,8 +40,13 @@ NVIDIA GPU stack; a CPU-only fallback is also provided.
 ```bash
 pytest
 PYTHONPATH=src python -m autodrift.evaluate --episodes 5 --policy heuristic
-PYTHONPATH=src python -m autodrift.train_ppo --total-steps 2048 --rollout-steps 512 --eval-episodes 2
+PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_smoke.json
+PYTHONPATH=src python -m autodrift.benchmark --episodes 2 --policies heuristic random
 ```
 
 The environment intentionally hides friction by default. A learning policy must
 infer it from state/action history rather than reading a privileged `mu` value.
+
+Training, evaluation, and benchmark commands write reproducible artifacts under
+`runs/` by default. That directory is ignored by git; tracked configuration
+templates live under `configs/`.

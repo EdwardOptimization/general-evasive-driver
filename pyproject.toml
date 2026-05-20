@@ -20,6 +20,11 @@ dependencies = [
 [project.optional-dependencies]
 dev = ["pytest>=8.0"]
 
+[project.scripts]
+autodrift-evaluate = "autodrift.evaluate:main"
+autodrift-train-ppo = "autodrift.train_ppo:main"
+autodrift-benchmark = "autodrift.benchmark:main"
+
 [tool.setuptools.packages.find]
 where = ["src"]
 

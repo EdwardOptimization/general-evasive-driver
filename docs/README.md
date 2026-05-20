@@ -15,6 +15,8 @@ vehicle/tire models, and NMPC-style constrained control.
 - `drifting-rl-nmpc-reading-notes.md`: main reading note and project implications.
 - `emergency-drift-avoidance-related-work.md`: focused notes for AEB-failure,
   AES, drift-based obstacle avoidance, and friction-adaptive control.
+- `implementation-plan.md`: engineering roadmap and milestone definitions.
+- `infrastructure.md`: current run-artifact contract and deferred infrastructure.
 
 ## Scope Rule
 

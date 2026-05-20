@@ -1,0 +1,9 @@
+{
+  "ppo": {
+    "total_steps": 50000,
+    "rollout_steps": 1024,
+    "eval_episodes": 5,
+    "seed": 5,
+    "device": "auto"
+  }
+}
