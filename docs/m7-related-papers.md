@@ -16,6 +16,7 @@ The search focused on:
 - domain randomization and online adaptation;
 - recurrent policies for partial observability;
 - asymmetric actor-critic training with privileged critic inputs.
+- closed-loop training and online fine-tuning for autonomous driving.
 
 ## Highest-Relevance Papers
 
@@ -39,6 +40,7 @@ The search focused on:
 | [Sim-to-Real Transfer of Robotic Control with Dynamics Randomization](https://arxiv.org/abs/1710.06537), Peng et al., ICRA 2018 | peer-reviewed, arXiv available | Key dynamics-randomization reference for mass, inertia, friction, actuator, and calibration robustness. |
 | [Domain Randomization for Transferring Deep Neural Networks from Simulation to the Real World](https://arxiv.org/abs/1703.06907), Tobin et al., IROS 2017 | peer-reviewed, arXiv available | Foundational visual domain randomization reference. Less vehicle-specific, but important if AutoDrift later uses camera or raster observations. |
 | [Incorporating Recurrent Reinforcement Learning into Model Predictive Control for Adaptive Control in Autonomous Driving](https://arxiv.org/abs/2301.13313), Ding et al., 2023 | arXiv preprint | Hybrid comparison point: recurrent RL adapts model parameters inside MPC. This is not the main M7 controller, but it is a useful baseline against "RL as adapter for MPC." |
+| [Adaptive Control in Autonomous Driving via Real-Time Recurrent RL](https://arxiv.org/abs/2602.02236), Lemmel et al., 2026 | arXiv preprint | Recent direct evidence for online recurrent RL fine-tuning in driving tasks. It is simpler than AutoDrift's emergency-drift setting, but it supports closed-loop adaptation as a serious research direction. |
 
 ## End-to-End Vehicle Control and Racing Sim-to-Real
 
@@ -48,6 +50,7 @@ The search focused on:
 | [Sim-to-real reinforcement learning applied to end-to-end vehicle control](https://arxiv.org/abs/2012.07461), Kalapos et al., 2020 | arXiv preprint / IEEE copyright notice | PPO image policy directly outputs continuous vehicle control; uses domain randomization and real-track metrics. Useful for end-to-end interface and evaluation design. |
 | [Sim-To-Real Transfer for Miniature Autonomous Car Racing](https://arxiv.org/abs/2011.05617), Chu et al., 2020 | arXiv preprint | Shows the tradeoff between robustness and lap time under domain randomization; supports adding balanced/targeted randomization rather than naive broad randomization. |
 | [Zero-Shot Policy Transfer in Autonomous Racing: Reinforcement Learning vs Imitation Learning](https://doi.org/10.1109/ICAA52185.2022.00011), Hamilton et al., ICAA 2022 | peer-reviewed | Useful for comparing RL and imitation learning under zero-shot racing transfer. Full text may require access; DOI and metadata are available. |
+| [Beyond Behavior Cloning in Autonomous Driving: a Survey of Closed-Loop Training Techniques](https://research.nvidia.com/labs/avg/publication/karkus.igl.etal.pami2025/), Karkus et al., 2025 | submitted preprint | Frames why open-loop training fails when deployed policies influence future observations. Supports AutoDrift's requirement that the operator must be trained and evaluated in closed loop. |
 
 ## Model-Based and Learned-Model References
 
@@ -86,6 +89,9 @@ The search focused on:
    matters, but it still keeps a rule/model-based controller in the loop. It is
    best treated as a benchmark family for AutoDrift rather than the main
    architecture.
+7. The strongest M7 contribution is closed-loop self-identification from
+   observation-action-response history. The actor should learn a useful latent
+   controllability state, not depend on rule labels or true hidden parameters.
 
 ## Immediate Reading Priority
 
@@ -97,3 +103,5 @@ The search focused on:
 6. Yu et al. 2017 universal policy with online system identification.
 7. Pinto et al. 2017 asymmetric actor-critic.
 8. Wei et al. 2026 MPC+RL parameter self-adaptation baseline.
+9. Lemmel et al. 2026 real-time recurrent RL for driving adaptation.
+10. Karkus et al. 2025 closed-loop training survey.

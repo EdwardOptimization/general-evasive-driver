@@ -270,13 +270,19 @@ success. See `docs/m6-model-based-baselines.md`.
 
 - Upgrade the M5 obstacle policy from single-frame inference to history-stacked
   or recurrent inference.
+- Treat previous action and actuator history as required deployable inputs, so
+  the actor can associate its own commands with the vehicle's response.
 - Keep the deployed actor parameter-blind: no true `mu`, mass, CG, tire, or
   brake parameters as actor inputs.
+- Keep the deployed actor rule-label-blind: no `drift_required`, `aes_feasible`,
+  `mu_bucket`, or controller-mode labels as actor inputs.
 - Use asymmetric PPO or teacher-student training so privileged parameters can
   help training without becoming deployment dependencies.
 - Broaden domain randomization across vehicle family, actuator, tire, brake,
   sensor, and road-surface variation.
 - Add held-out vehicle and friction benchmark suites.
+- Add ablations for no-history, no-action-history, recurrent versus stacked
+  history, and privileged-parameter leakage.
 
 Exit criteria:
 
@@ -285,6 +291,8 @@ Exit criteria:
 - it outperforms AEB-only, heuristic AES, and model-based envelope baselines on
   AEB-infeasible obstacle scenarios;
 - failure modes are reported by hidden vehicle and road buckets;
+- adaptation depends on closed-loop feedback rather than rule branches or
+  leaked simulator parameters;
 - safety/fallback logic is separated from the main RL controller.
 
 Status: planned. See `docs/m7-universal-closed-loop-operator.md`.
