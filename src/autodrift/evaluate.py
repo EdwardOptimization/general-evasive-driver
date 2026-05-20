@@ -179,7 +179,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Evaluate an AutoDrift policy.")
     parser.add_argument("--episodes", type=int, default=10)
     parser.add_argument("--seed", type=int, default=7)
-    parser.add_argument("--policy", choices=["random", "heuristic", "checkpoint"], default="heuristic")
+    parser.add_argument("--policy", choices=["random", "heuristic", "aeb", "aes_heuristic", "checkpoint"], default="heuristic")
     parser.add_argument("--checkpoint", type=Path, default=None)
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="auto")
     parser.add_argument("--csv", type=Path, default=None)

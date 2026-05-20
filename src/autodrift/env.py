@@ -413,6 +413,9 @@ class AutoDriftEnv(gym.Env):
             "obstacle_enabled": self.config.obstacle.enabled,
             "obstacle_label": self.obstacle_scenario.label if self.obstacle_scenario is not None else "",
             "obstacle_distance": self._obstacle_features(frame)[0] * 80.0 if self.config.obstacle.enabled else float("nan"),
+            "obstacle_lateral_offset": (
+                self._obstacle_features(frame)[1] * self.config.track_width if self.config.obstacle.enabled else float("nan")
+            ),
             "obstacle_required_lateral_offset": (
                 self.obstacle_scenario.required_lateral_offset if self.obstacle_scenario is not None else float("nan")
             ),

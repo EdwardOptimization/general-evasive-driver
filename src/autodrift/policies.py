@@ -57,6 +57,41 @@ class HeuristicPolicy(Policy):
         return np.array([np.clip(steer, -1.0, 1.0), np.clip(throttle, -1.0, 1.0)], dtype=np.float32)
 
 
+class AEBPolicy(Policy):
+    """Full braking baseline."""
+
+    def act(self, observation: np.ndarray, info: dict) -> np.ndarray:
+        del observation, info
+        return np.array([0.0, -1.0], dtype=np.float32)
+
+
+@dataclass
+class HeuristicAESPolicy(Policy):
+    """Simple emergency steering baseline with braking."""
+
+    obstacle_trigger_distance: float = 35.0
+    steer_gain: float = 1.2
+    lateral_gain: float = 0.35
+
+    def act(self, observation: np.ndarray, info: dict) -> np.ndarray:
+        vx = float(observation[0] * 20.0)
+        obstacle_distance = float(info.get("obstacle_distance", float("inf")))
+        if not info.get("obstacle_enabled", False) or obstacle_distance <= 0.0:
+            brake = -0.7
+            return np.array([0.0, brake], dtype=np.float32)
+
+        required_offset = float(info.get("obstacle_required_lateral_offset", 2.0))
+        lateral_offset = float(info.get("obstacle_lateral_offset", 0.0))
+        # Pick one side deterministically. If the obstacle is already left of
+        # the ego vehicle, steer right; otherwise steer left.
+        desired_lateral = -required_offset if lateral_offset > 0.0 else required_offset
+        current_lateral = float(info.get("lateral_error", 0.0))
+        urgency = np.clip(1.0 - obstacle_distance / max(self.obstacle_trigger_distance, 1.0), 0.0, 1.0)
+        steer = self.steer_gain * urgency + self.lateral_gain * (desired_lateral - current_lateral)
+        brake = -0.9 if vx > 6.0 else -0.3
+        return np.array([np.clip(steer, -1.0, 1.0), np.clip(brake, -1.0, 1.0)], dtype=np.float32)
+
+
 def make_policy(name: str, env: AutoDriftEnv, seed: int | None = None) -> Policy:
     del env
     normalized = name.lower()
@@ -64,4 +99,8 @@ def make_policy(name: str, env: AutoDriftEnv, seed: int | None = None) -> Policy
         return RandomPolicy(seed=seed)
     if normalized == "heuristic":
         return HeuristicPolicy()
+    if normalized == "aeb":
+        return AEBPolicy()
+    if normalized in {"aes", "aes_heuristic"}:
+        return HeuristicAESPolicy()
     raise ValueError(f"unknown policy: {name}")

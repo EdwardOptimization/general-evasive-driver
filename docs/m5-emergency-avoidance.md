@@ -122,11 +122,56 @@ Interpretation:
 - The next M5 step is to add explicit AEB-only and heuristic AES policies, then
   train/evaluate RL on the same fixed obstacle-label buckets.
 
+## Baseline Smoke
+
+Implemented policy names:
+
+```text
+aeb
+aes_heuristic
+```
+
+Benchmark command:
+
+```bash
+PYTHONPATH=src python -m autodrift.benchmark \
+  --episodes 20 \
+  --policies aeb aes_heuristic heuristic \
+  --env-config configs/m5_obstacle_smoke_eval.json \
+  --run-dir runs/benchmark_m5_baselines_smoke
+```
+
+Overall result:
+
+| policy | episodes | success_rate | collision_rate | min_obstacle_clearance_mean |
+| --- | ---: | ---: | ---: | ---: |
+| aeb | 20 | 0.000 | 1.000 | 1.649 |
+| aes_heuristic | 20 | 0.000 | 0.800 | 1.755 |
+| heuristic | 20 | 0.000 | 0.950 | 1.594 |
+
+Label bucket result:
+
+| policy | obstacle_label | episodes | success_rate | collision_rate | min_obstacle_clearance_mean |
+| --- | --- | ---: | ---: | ---: | ---: |
+| aeb | drift_required | 4 | 0.000 | 1.000 | 1.649 |
+| aeb | unavoidable | 16 | 0.000 | 1.000 | 1.648 |
+| aes_heuristic | drift_required | 4 | 0.000 | 0.500 | 2.075 |
+| aes_heuristic | unavoidable | 16 | 0.000 | 0.875 | 1.675 |
+| heuristic | drift_required | 4 | 0.000 | 1.000 | 1.598 |
+| heuristic | unavoidable | 16 | 0.000 | 0.938 | 1.593 |
+
+Interpretation:
+
+- The AEB-only baseline correctly fails in AEB-infeasible scenarios.
+- The heuristic AES baseline improves clearance and collision rate versus AEB,
+  but still has zero success on this smoke set.
+- This is now a valid fixed-seed M5 baseline gate for the first RL obstacle
+  policy.
+
 ## Next Steps
 
-M5 is only scaffolded. The next implementation work is:
+M5 is still incomplete. The next implementation work is:
 
-- add AEB-only and heuristic AES baselines;
 - train/evaluate RL on fixed `aes_feasible`, `drift_required`, and
   `unavoidable` buckets;
 - keep AEB-infeasible filtering explicit in every M5 benchmark manifest.

@@ -182,7 +182,7 @@ def plot_trace(rows: list[dict], summary: dict, output: Path) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Trace and plot AutoDrift policy rollouts.")
-    parser.add_argument("--policy", choices=["heuristic", "random", "checkpoint"], default="checkpoint")
+    parser.add_argument("--policy", choices=["heuristic", "random", "aeb", "aes_heuristic", "checkpoint"], default="checkpoint")
     parser.add_argument("--checkpoint", type=Path, default=None)
     parser.add_argument("--seeds", type=int, nargs="+", default=[7])
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="auto")

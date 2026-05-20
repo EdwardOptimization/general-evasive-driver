@@ -98,7 +98,12 @@ def summarize_segments(segment_frame: pd.DataFrame, by: list[str] | None = None)
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run AutoDrift benchmark sweeps.")
-    parser.add_argument("--policies", nargs="+", default=["heuristic", "random"], choices=["heuristic", "random", "checkpoint"])
+    parser.add_argument(
+        "--policies",
+        nargs="+",
+        default=["heuristic", "random"],
+        choices=["heuristic", "random", "aeb", "aes_heuristic", "checkpoint"],
+    )
     parser.add_argument("--checkpoint", type=Path, default=None)
     parser.add_argument("--episodes", type=int, default=10)
     parser.add_argument("--seed", type=int, default=7)

@@ -218,8 +218,10 @@ Status: scaffolded with environment support. A reproducible obstacle scenario
 generator now labels `aeb_feasible`, `aes_feasible`, `drift_required`, and
 `unavoidable` cases, can filter for AEB-infeasible scenarios, and is wired into
 `AutoDriftEnv` with obstacle observations, collision metrics, and label-bucket
-benchmark summaries. AEB-only and heuristic AES baselines are still pending.
-See `docs/m5-emergency-avoidance.md`.
+benchmark summaries. AEB-only and heuristic AES baselines are implemented and
+both fail the current AEB-infeasible smoke benchmark, giving the first RL
+obstacle policy a concrete baseline gate. See
+`docs/m5-emergency-avoidance.md`.
 
 ### M6: Add Model-Based Baselines
 
