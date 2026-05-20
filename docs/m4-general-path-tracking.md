@@ -210,6 +210,55 @@ Interpretation:
   more conservative survival-first objective instead of replacing most samples
   with low-mu stages.
 
+## Survival-Penalty Recovery Result
+
+Config:
+
+```text
+configs/ppo_m4_figure_eight_survival_recovery.json
+```
+
+This config adds `termination_penalty=8.0` and keeps a mixed friction
+distribution instead of replacing most samples with low-mu episodes.
+
+Command:
+
+```bash
+PYTHONPATH=src python -m autodrift.train_ppo \
+  --config configs/ppo_m4_figure_eight_survival_recovery.json \
+  --init-checkpoint runs/ppo_m4_figure_eight_history_seed61/checkpoint.pt \
+  --run-dir runs/ppo_m4_figure_eight_survival_seed71
+```
+
+Benchmark:
+
+```bash
+PYTHONPATH=src python -m autodrift.benchmark \
+  --episodes 100 \
+  --policies heuristic checkpoint \
+  --checkpoint runs/ppo_m4_figure_eight_survival_seed71/checkpoint.pt \
+  --env-config configs/m4_figure_eight_eval.json \
+  --run-dir runs/benchmark_ppo_m4_figure_eight_survival_seed71_100eval
+```
+
+Result:
+
+| run | success_rate | return_mean | lateral_rmse_mean | low-mu success | medium-mu success | high-mu success |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| `runs/benchmark_ppo_m4_figure_eight_history_seed61_100eval` | 0.820 | 848.21 | 1.467 | 0.462 | 0.882 | 1.000 |
+| `runs/benchmark_ppo_m4_figure_eight_low_mu_seed67_100eval` | 0.710 | 615.75 | 2.173 | 0.308 | 0.676 | 1.000 |
+| `runs/benchmark_ppo_m4_figure_eight_survival_seed71_100eval` | 0.830 | 901.31 | 1.382 | 0.423 | 0.941 | 1.000 |
+
+Interpretation:
+
+- The survival penalty is the best M4 checkpoint so far by overall success,
+  return, and lateral RMSE.
+- It still does not solve low-friction figure-eight tracking: low-mu success is
+  `0.423`, below the first M4 checkpoint's `0.462`.
+- M4 remains open. The next high-leverage work is not another blind fine-tune;
+  it should add segment-level diagnostics and/or a policy objective that
+  explicitly separates low-mu survival from high-speed progress.
+
 ## Exit Criteria
 
 M4 should not be considered complete until:

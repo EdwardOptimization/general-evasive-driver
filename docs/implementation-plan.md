@@ -193,9 +193,9 @@ Exit criteria:
 
 Status: in progress. `track_kind="figure_eight"` is implemented with a sampled
 closed path, signed curvature, reset support, and rollout curvature/progress
-traces. The first trained M4 policy reaches 82% success on a 100-episode
-figure-eight benchmark but does not beat the heuristic's 100% survival rate;
-low-friction figure-eight recovery is the next blocker. See
+traces. The best trained M4 policy currently reaches 83% success on a
+100-episode figure-eight benchmark but does not beat the heuristic's 100%
+survival rate; low-friction figure-eight recovery is the next blocker. See
 `docs/m4-general-path-tracking.md`.
 
 ### M5: Add AEB-Failure Obstacle Avoidance
