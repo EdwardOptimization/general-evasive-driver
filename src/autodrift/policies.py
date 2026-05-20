@@ -92,6 +92,38 @@ class HeuristicAESPolicy(Policy):
         return np.array([np.clip(steer, -1.0, 1.0), np.clip(brake, -1.0, 1.0)], dtype=np.float32)
 
 
+@dataclass
+class EnvelopeAESPolicy(Policy):
+    """Friction-envelope emergency steering baseline."""
+
+    lateral_margin: float = 0.35
+    max_ttc: float = 2.5
+
+    def act(self, observation: np.ndarray, info: dict) -> np.ndarray:
+        vx = float(observation[0] * 20.0)
+        vy = float(observation[1] * 12.0)
+        speed = max(math.hypot(vx, vy), 1.0)
+        obstacle_distance = float(info.get("obstacle_distance", float("inf")))
+        if not info.get("obstacle_enabled", False) or obstacle_distance <= 0.0:
+            return np.array([0.0, -0.5], dtype=np.float32)
+
+        mu = max(float(info.get("mu", 0.6)), 0.05)
+        required_offset = float(info.get("obstacle_required_lateral_offset", 2.0)) + self.lateral_margin
+        obstacle_lateral = float(info.get("obstacle_lateral_offset", 0.0))
+        target_sign = -1.0 if obstacle_lateral > 0.0 else 1.0
+        lateral_error = float(info.get("lateral_error", 0.0))
+        desired_lateral = target_sign * required_offset
+        ttc = np.clip(obstacle_distance / speed, 0.05, self.max_ttc)
+        lateral_accel_need = 2.0 * abs(desired_lateral - lateral_error) / max(ttc**2, 1e-3)
+        accel_fraction = np.clip(lateral_accel_need / max(mu * 9.81, 1e-6), 0.0, 1.5)
+        steer = target_sign * np.clip(0.35 + 0.65 * accel_fraction, 0.0, 1.0)
+        # Keep speed through drift-required cases; brake only when the envelope
+        # says conventional steering should already be enough.
+        label = str(info.get("obstacle_label", ""))
+        throttle = -0.2 if label == "aes_feasible" else 0.15
+        return np.array([np.clip(steer, -1.0, 1.0), np.clip(throttle, -1.0, 1.0)], dtype=np.float32)
+
+
 def make_policy(name: str, env: AutoDriftEnv, seed: int | None = None) -> Policy:
     del env
     normalized = name.lower()
@@ -103,4 +135,6 @@ def make_policy(name: str, env: AutoDriftEnv, seed: int | None = None) -> Policy
         return AEBPolicy()
     if normalized in {"aes", "aes_heuristic"}:
         return HeuristicAESPolicy()
+    if normalized in {"envelope_aes", "model_aes"}:
+        return EnvelopeAESPolicy()
     raise ValueError(f"unknown policy: {name}")

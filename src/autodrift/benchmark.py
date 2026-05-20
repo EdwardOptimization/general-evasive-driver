@@ -103,7 +103,7 @@ def main() -> None:
         "--policies",
         nargs="+",
         default=["heuristic", "random"],
-        choices=["heuristic", "random", "aeb", "aes_heuristic", "checkpoint"],
+        choices=["heuristic", "random", "aeb", "aes_heuristic", "envelope_aes", "checkpoint"],
     )
     parser.add_argument("--checkpoint", type=Path, default=None)
     parser.add_argument("--episodes", type=int, default=10)

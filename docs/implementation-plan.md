@@ -244,6 +244,11 @@ Exit criteria:
   set;
 - identify where RL wins and where model-based control is still stronger.
 
+Status: first pass complete. `envelope_aes` is implemented as a fixed
+friction-envelope AES baseline. On the 100-episode `drift_required` benchmark it
+reaches 79% success, beating heuristic AES but trailing the RL checkpoint's 86%
+success. See `docs/m6-model-based-baselines.md`.
+
 ## Metrics
 
 - episode success rate;
