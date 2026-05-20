@@ -17,6 +17,8 @@ vehicle/tire models, and NMPC-style constrained control.
   AES, drift-based obstacle avoidance, and friction-adaptive control.
 - `implementation-plan.md`: engineering roadmap and milestone definitions.
 - `infrastructure.md`: current run-artifact contract and deferred infrastructure.
+- `m2-circular-drift-results.md`: current circular drift training and benchmark
+  result.
 
 ## Scope Rule
 

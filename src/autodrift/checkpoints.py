@@ -21,7 +21,15 @@ def load_actor_critic_checkpoint(path: Path | str, device: str = "auto") -> tupl
     hidden_size = int(first_layer.shape[0])
     act_dim = int(actor_head.shape[0])
 
-    model = ActorCritic(obs_dim=obs_dim, act_dim=act_dim, hidden_size=hidden_size).to(resolved_device)
+    config = checkpoint.get("config", {})
+    model = ActorCritic(
+        obs_dim=obs_dim,
+        act_dim=act_dim,
+        hidden_size=hidden_size,
+        log_std_init=float(config.get("log_std_init", -1.0)),
+        log_std_min=float(config.get("log_std_min", -5.0)),
+        log_std_max=float(config.get("log_std_max", -0.5)),
+    ).to(resolved_device)
     model.load_state_dict(state_dict)
     model.eval()
     return model, checkpoint

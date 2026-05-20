@@ -31,6 +31,8 @@ The first runnable MVP is in place:
   nonlinear tires and randomized hidden parameters.
 - `src/autodrift/tasks.py`: circular drift tracking task.
 - `src/autodrift/env.py`: Gymnasium environment with hidden friction by default.
+  Scenario speed targets are friction-limited so low-`mu` cases remain
+  physically plausible instead of asking the policy to track impossible speeds.
 - `src/autodrift/policies.py`: random and heuristic sanity-check policies.
 - `src/autodrift/evaluate.py`: evaluation CLI.
 - `src/autodrift/train_ppo.py`: dependency-light PyTorch PPO trainer.
@@ -151,6 +153,10 @@ Exit criteria:
 - lateral RMSE and sideslip error improve over heuristic;
 - metrics are reported by `mu` bucket;
 - plots show trajectory, sideslip, speed, and actions for selected episodes.
+
+Status: initial pass. The best local checkpoint reaches 97.5% success over a
+200-seed circular-drift benchmark and beats the heuristic in every friction
+bucket. See `docs/m2-circular-drift-results.md`. Plot generation remains open.
 
 ### M3: Add Friction Adaptation
 

@@ -11,6 +11,7 @@ import pandas as pd
 
 from autodrift.artifacts import make_run_dir, write_json
 from autodrift.checkpoints import load_actor_critic_checkpoint
+from autodrift.config import build_env_config
 from autodrift.env import AutoDriftEnv, DriftEnvConfig
 from autodrift.policies import Policy, make_policy
 from autodrift.train_ppo import ActorCritic
@@ -89,13 +90,17 @@ def evaluate_policy(
     checkpoint: Path | None = None,
     device: str = "auto",
 ) -> tuple[list[dict], dict[str, float | int | str]]:
-    env = AutoDriftEnv(DriftEnvConfig())
+    env_config = DriftEnvConfig()
     actor_policy: ActorPolicy | None = None
     if policy_name == "checkpoint":
         if checkpoint is None:
             raise ValueError("--checkpoint is required when --policy checkpoint is used")
-        model, _ = load_actor_critic_checkpoint(checkpoint, device=device)
+        model, checkpoint_data = load_actor_critic_checkpoint(checkpoint, device=device)
+        metadata_env = checkpoint_data.get("metadata", {}).get("env")
+        if isinstance(metadata_env, dict):
+            env_config = build_env_config(metadata_env)
         actor_policy = ActorPolicy(model)
+    env = AutoDriftEnv(env_config)
 
     rows = []
     for episode in range(episodes):

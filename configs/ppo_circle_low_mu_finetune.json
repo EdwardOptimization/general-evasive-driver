@@ -1,0 +1,43 @@
+{
+  "ppo": {
+    "total_steps": 500000,
+    "rollout_steps": 256,
+    "num_envs": 16,
+    "minibatch_size": 1024,
+    "log_std_init": -1.0,
+    "log_std_max": -0.5,
+    "eval_episodes": 10,
+    "seed": 17,
+    "device": "auto"
+  },
+  "env": {
+    "track_width": 5.0,
+    "speed_range": [5.0, 12.0],
+    "beta_target_range": [0.32, 0.70],
+    "randomization": {
+      "mu_range": [0.25, 1.15],
+      "mass_scale_range": [0.85, 1.20],
+      "cg_shift_range": [-0.12, 0.12],
+      "tire_stiffness_scale_range": [0.65, 1.35],
+      "actuator_tau_scale_range": [0.75, 1.75]
+    }
+  },
+  "curriculum": [
+    {
+      "name": "low_mu_focus",
+      "until_step": 300000,
+      "env": {
+        "track_width": 6.0,
+        "speed_range": [5.0, 10.0],
+        "beta_target_range": [0.24, 0.55],
+        "randomization": {
+          "mu_range": [0.25, 0.55],
+          "mass_scale_range": [0.90, 1.12],
+          "cg_shift_range": [-0.08, 0.08],
+          "tire_stiffness_scale_range": [0.75, 1.25],
+          "actuator_tau_scale_range": [0.80, 1.55]
+        }
+      }
+    }
+  ]
+}

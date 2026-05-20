@@ -28,8 +28,11 @@ class DriftEnvConfig:
     max_steps: int = 800
     track_radius: float = 18.0
     track_width: float = 5.0
-    speed_range: tuple[float, float] = (6.5, 12.0)
+    speed_range: tuple[float, float] = (5.0, 12.0)
     beta_target_range: tuple[float, float] = (0.32, 0.70)
+    friction_limited_speed: bool = True
+    friction_speed_margin: float = 0.92
+    history_length: int = 1
     include_privileged_params: bool = False
     randomization: RandomizationConfig = RandomizationConfig()
 
@@ -47,9 +50,12 @@ class AutoDriftEnv(gym.Env):
     def __init__(self, config: DriftEnvConfig | None = None):
         super().__init__()
         self.config = config or DriftEnvConfig()
+        if self.config.history_length < 1:
+            raise ValueError("history_length must be at least 1")
         self.action_space = spaces.Box(low=-1.0, high=1.0, shape=(2,), dtype=np.float32)
 
-        obs_dim = 13 + (4 if self.config.include_privileged_params else 0)
+        self.base_obs_dim = 13 + (4 if self.config.include_privileged_params else 0)
+        obs_dim = self.base_obs_dim * self.config.history_length
         self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(obs_dim,), dtype=np.float32)
 
         self.track = CircleTrack(radius=self.config.track_radius)
@@ -59,6 +65,7 @@ class AutoDriftEnv(gym.Env):
         self.state = VehicleState(0.0, 0.0, 0.0, 8.0, 0.0, 0.0)
         self.last_action = np.zeros(2, dtype=np.float64)
         self.last_forces = self.model.tire_forces(8.0, 0.0, 0.0, 0.0, 0.0)
+        self.obs_history: list[np.ndarray] = []
         self.speed_ref = 8.0
         self.beta_target = 0.45
         self.step_count = 0
@@ -78,7 +85,7 @@ class AutoDriftEnv(gym.Env):
         self.params = sample_vehicle_params(self.rng, base=base_params, config=self.config.randomization)
         self.model = SingleTrackDriftModel(self.params)
 
-        self.speed_ref = float(self.rng.uniform(*self.config.speed_range))
+        self.speed_ref = self._sample_speed_ref()
         self.beta_target = float(self.rng.uniform(*self.config.beta_target_range))
         initial_beta = float(self.rng.normal(0.0, 0.04))
         x, y, psi, vx, vy = self.track.reset_pose(self.rng, self.speed_ref, beta=initial_beta)
@@ -94,9 +101,20 @@ class AutoDriftEnv(gym.Env):
         )
         self.last_action = np.zeros(2, dtype=np.float64)
         self.last_forces = self.model.tire_forces(vx, vy, self.state.yaw_rate, 0.0, 0.0)
+        base_observation = self._base_observation()
+        self.obs_history = [base_observation.copy() for _ in range(self.config.history_length)]
         self.step_count = 0
 
         return self._observation(), self._info(self.track.frame(self.state.x, self.state.y, self.state.psi))
+
+    def _sample_speed_ref(self) -> float:
+        low, high = self.config.speed_range
+        if self.config.friction_limited_speed:
+            friction_speed = math.sqrt(max(self.params.mu * self.params.gravity * self.config.track_radius, 1e-6))
+            high = min(high, friction_speed * self.config.friction_speed_margin)
+        if high <= low:
+            return float(max(high, 1.0))
+        return float(self.rng.uniform(low, high))
 
     def step(self, action: np.ndarray) -> tuple[np.ndarray, float, bool, bool, dict[str, Any]]:
         self.step_count += 1
@@ -111,9 +129,17 @@ class AutoDriftEnv(gym.Env):
 
         info = self._info(frame)
         info["reward_terms"] = reward_terms
+        base_observation = self._base_observation()
+        self.obs_history = [base_observation] + self.obs_history[: self.config.history_length - 1]
         return self._observation(), float(reward), terminated, truncated, info
 
     def _observation(self) -> np.ndarray:
+        if not self.obs_history:
+            base_observation = self._base_observation()
+            return np.tile(base_observation, self.config.history_length).astype(np.float32)
+        return np.concatenate(self.obs_history).astype(np.float32)
+
+    def _base_observation(self) -> np.ndarray:
         frame = self.track.frame(self.state.x, self.state.y, self.state.psi)
         speed = math.hypot(self.state.vx, self.state.vy)
         beta = math.atan2(self.state.vy, max(self.state.vx, 1e-6))

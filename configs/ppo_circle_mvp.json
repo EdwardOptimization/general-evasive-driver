@@ -4,13 +4,15 @@
     "rollout_steps": 256,
     "num_envs": 16,
     "minibatch_size": 1024,
+    "log_std_init": -1.0,
+    "log_std_max": -0.5,
     "eval_episodes": 5,
     "seed": 5,
     "device": "auto"
   },
   "env": {
     "track_width": 5.0,
-    "speed_range": [6.5, 12.0],
+    "speed_range": [5.0, 12.0],
     "beta_target_range": [0.32, 0.70],
     "randomization": {
       "mu_range": [0.25, 1.15],
@@ -26,7 +28,7 @@
       "until_step": 60000,
       "env": {
         "track_width": 8.0,
-        "speed_range": [6.5, 9.0],
+        "speed_range": [5.0, 9.0],
         "beta_target_range": [0.20, 0.45],
         "randomization": {
           "mu_range": [0.75, 1.15],
@@ -42,7 +44,7 @@
       "until_step": 150000,
       "env": {
         "track_width": 6.5,
-        "speed_range": [6.5, 10.5],
+        "speed_range": [5.0, 10.5],
         "beta_target_range": [0.25, 0.58],
         "randomization": {
           "mu_range": [0.45, 1.15],

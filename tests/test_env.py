@@ -1,5 +1,6 @@
 import numpy as np
 
+from autodrift.dynamics import RandomizationConfig
 from autodrift.env import AutoDriftEnv, DriftEnvConfig
 from autodrift.policies import HeuristicPolicy
 
@@ -26,6 +27,30 @@ def test_privileged_observation_adds_hidden_params():
     obs, _ = env.reset(seed=12)
 
     assert obs.shape == (17,)
+
+
+def test_history_observation_stacks_recent_frames():
+    env = AutoDriftEnv(DriftEnvConfig(history_length=4))
+    obs, _ = env.reset(seed=15)
+    next_obs, _, _, _, _ = env.step(np.array([0.0, 0.2], dtype=np.float32))
+
+    assert obs.shape == (52,)
+    assert next_obs.shape == (52,)
+    assert not np.allclose(next_obs[:13], next_obs[13:26])
+
+
+def test_speed_reference_respects_low_friction_limit():
+    env = AutoDriftEnv(
+        DriftEnvConfig(
+            track_radius=18.0,
+            speed_range=(8.0, 12.0),
+            randomization=RandomizationConfig(mu_range=(0.25, 0.25)),
+        )
+    )
+    _, info = env.reset(seed=14)
+
+    friction_limit = (info["mu"] * 9.81 * 18.0) ** 0.5 * env.config.friction_speed_margin
+    assert info["speed_ref"] <= friction_limit + 1e-9
 
 
 def test_heuristic_policy_runs_for_multiple_steps():

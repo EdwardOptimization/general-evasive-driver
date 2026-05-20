@@ -38,13 +38,27 @@ class PPOConfig:
     vf_coef: float = 0.5
     max_grad_norm: float = 0.5
     learning_rate: float = 3e-4
+    hidden_size: int = 128
+    log_std_init: float = -1.0
+    log_std_min: float = -5.0
+    log_std_max: float = -0.5
     seed: int = 5
     device: str = "auto"
 
 
 class ActorCritic(nn.Module):
-    def __init__(self, obs_dim: int, act_dim: int, hidden_size: int = 128):
+    def __init__(
+        self,
+        obs_dim: int,
+        act_dim: int,
+        hidden_size: int = 128,
+        log_std_init: float = -1.0,
+        log_std_min: float = -5.0,
+        log_std_max: float = -0.5,
+    ):
         super().__init__()
+        self.log_std_min = float(log_std_min)
+        self.log_std_max = float(log_std_max)
         self.shared = nn.Sequential(
             nn.Linear(obs_dim, hidden_size),
             nn.Tanh(),
@@ -53,13 +67,18 @@ class ActorCritic(nn.Module):
         )
         self.actor_mean = nn.Linear(hidden_size, act_dim)
         self.critic = nn.Linear(hidden_size, 1)
-        self.log_std = nn.Parameter(torch.full((act_dim,), -0.5))
+        self.log_std = nn.Parameter(torch.full((act_dim,), float(log_std_init)))
 
     def forward(self, obs: torch.Tensor) -> tuple[Normal, torch.Tensor]:
         features = self.shared(obs)
-        mean = torch.tanh(self.actor_mean(features))
-        std = torch.exp(self.log_std).expand_as(mean)
+        mean = self.actor_mean(features)
+        log_std = torch.clamp(self.log_std, self.log_std_min, self.log_std_max)
+        std = torch.exp(log_std).expand_as(mean)
         return Normal(mean, std), self.critic(features).squeeze(-1)
+
+    def _squashed_log_prob(self, dist: Normal, raw_action: torch.Tensor, action: torch.Tensor) -> torch.Tensor:
+        correction = torch.log(torch.clamp(1.0 - action.pow(2), min=1e-6)).sum(dim=-1)
+        return dist.log_prob(raw_action).sum(dim=-1) - correction
 
     def act(self, obs: np.ndarray, deterministic: bool = False) -> tuple[np.ndarray, float, float]:
         device = next(self.parameters()).device
@@ -67,8 +86,8 @@ class ActorCritic(nn.Module):
         with torch.no_grad():
             dist, value = self.forward(obs_t)
             raw_action = dist.mean if deterministic else dist.sample()
-            action = torch.clamp(raw_action, -1.0, 1.0)
-            log_prob = dist.log_prob(action).sum(dim=-1)
+            action = torch.tanh(raw_action)
+            log_prob = self._squashed_log_prob(dist, raw_action, action)
         return action.squeeze(0).cpu().numpy().astype(np.float32), float(log_prob.item()), float(value.item())
 
     def act_batch(self, obs: np.ndarray, deterministic: bool = False) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
@@ -77,13 +96,21 @@ class ActorCritic(nn.Module):
         with torch.no_grad():
             dist, value = self.forward(obs_t)
             raw_action = dist.mean if deterministic else dist.sample()
-            action = torch.clamp(raw_action, -1.0, 1.0)
-            log_prob = dist.log_prob(action).sum(dim=-1)
+            action = torch.tanh(raw_action)
+            log_prob = self._squashed_log_prob(dist, raw_action, action)
         return (
             action.cpu().numpy().astype(np.float32),
             log_prob.cpu().numpy().astype(np.float32),
             value.cpu().numpy().astype(np.float32),
         )
+
+    def evaluate_actions(self, obs: torch.Tensor, actions: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+        dist, value = self.forward(obs)
+        clipped_actions = torch.clamp(actions, -1.0 + 1e-6, 1.0 - 1e-6)
+        raw_actions = torch.atanh(clipped_actions)
+        log_prob = self._squashed_log_prob(dist, raw_actions, clipped_actions)
+        entropy = dist.entropy().sum(dim=-1)
+        return log_prob, entropy, value
 
 
 def resolve_device(name: str) -> torch.device:
@@ -142,6 +169,7 @@ def train(
     env_config: DriftEnvConfig | None = None,
     curriculum: list | None = None,
     checkpoint_metadata: dict | None = None,
+    init_checkpoint_path: Path | None = None,
 ) -> ActorCritic:
     np.random.seed(config.seed)
     torch.manual_seed(config.seed)
@@ -155,8 +183,16 @@ def train(
     model = ActorCritic(
         obs_dim=env.single_observation_space.shape[0],
         act_dim=env.single_action_space.shape[0],
+        hidden_size=config.hidden_size,
+        log_std_init=config.log_std_init,
+        log_std_min=config.log_std_min,
+        log_std_max=config.log_std_max,
     ).to(device)
     optimizer = Adam(model.parameters(), lr=config.learning_rate)
+    if init_checkpoint_path is not None:
+        checkpoint = torch.load(init_checkpoint_path, map_location=device)
+        model.load_state_dict(checkpoint["model_state"])
+        print(f"loaded_init_checkpoint={init_checkpoint_path}")
     print(f"training_device={device} num_envs={config.num_envs} curriculum_stage={active_stage}")
 
     global_step = 0
@@ -231,9 +267,8 @@ def train(
             np.random.shuffle(indices)
             for start in range(0, len(indices), config.minibatch_size):
                 mb = indices[start : start + config.minibatch_size]
-                dist, value = model.forward(obs_t[mb])
-                logp = dist.log_prob(act_t[mb]).sum(dim=-1)
-                entropy = dist.entropy().sum(dim=-1).mean()
+                logp, entropy_values, value = model.evaluate_actions(obs_t[mb], act_t[mb])
+                entropy = entropy_values.mean()
                 ratio = torch.exp(logp - old_logp_t[mb])
 
                 pg_loss_1 = -adv_t[mb] * ratio
@@ -334,6 +369,7 @@ def main() -> None:
     parser.add_argument("--seed", type=int, default=None)
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default=None)
     parser.add_argument("--save", type=Path, default=None)
+    parser.add_argument("--init-checkpoint", type=Path, default=None)
     parser.add_argument("--run-dir", type=Path, default=None)
     parser.add_argument("--run-name", type=str, default="ppo")
     parser.add_argument("--eval-episodes", type=int, default=None)
@@ -382,6 +418,7 @@ def main() -> None:
             "curriculum": curriculum,
             "eval_episodes": eval_episodes,
             "save_path": save_path,
+            "init_checkpoint": args.init_checkpoint,
         },
     )
 
@@ -392,6 +429,7 @@ def main() -> None:
         env_config=env_config,
         curriculum=curriculum,
         checkpoint_metadata={"env": env_config, "curriculum": curriculum},
+        init_checkpoint_path=args.init_checkpoint,
     )
     summary = evaluate_actor(model, eval_episodes, config.seed + 10_000, env_config=env_config)
     write_json(run_dir / "eval_summary.json", summary)

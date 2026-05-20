@@ -11,6 +11,8 @@ The repository now has enough project infrastructure for iterative development:
 - Smoke tests for dynamics, environment, artifacts, and checkpoint loading.
 - Synchronous vectorized environment support for PPO rollout collection.
 - JSON-driven environment randomization and curriculum stages.
+- Friction-limited speed target sampling for circular tracking scenarios.
+- Optional observation history stacking for later adaptation experiments.
 - PPO smoke training that writes a complete run directory.
 - Checkpoint evaluation through the same evaluator used by built-in policies.
 - Shared-seed benchmark CLI for policy comparisons.
