@@ -39,3 +39,29 @@ def test_vector_env_cycles_optional_seed_sequence_on_reset():
     second_step = env.step(actions)
     assert second_step.truncated[0]
     assert second_step.infos[0]["reset_info"]["reset_seed"] == 101
+
+
+def test_vector_env_can_disable_seed_sequence_for_mixed_training():
+    env = SyncAutoDriftVectorEnv(
+        num_envs=1,
+        config=DriftEnvConfig(max_steps=1),
+        seed=21,
+        seed_sequence=[101, 103],
+        seed_sequence_probability=0.0,
+    )
+    _, infos = env.reset()
+    assert infos[0]["reset_seed"] == 21
+
+    actions = np.zeros((1, env.single_action_space.shape[0]), dtype=np.float32)
+    first_step = env.step(actions)
+    assert first_step.truncated[0]
+    assert first_step.infos[0]["reset_info"]["reset_seed"] == 22
+
+
+def test_vector_env_rejects_invalid_seed_sequence_probability():
+    try:
+        SyncAutoDriftVectorEnv(num_envs=1, seed_sequence=[1], seed_sequence_probability=1.5)
+    except ValueError as exc:
+        assert "seed_sequence_probability" in str(exc)
+    else:
+        raise AssertionError("invalid seed sequence probability should be rejected")

@@ -61,6 +61,7 @@ class PPOConfig:
     response_prediction_dim: int = 0
     checkpoint_interval_steps: int = 0
     training_seed_csv: str = ""
+    training_seed_mix_probability: float = 1.0
     seed: int = 5
     device: str = "auto"
 
@@ -543,6 +544,8 @@ def train(
             raise ValueError("response_prediction_dim must be positive when response_prediction_aux_coef > 0")
     if config.checkpoint_interval_steps < 0:
         raise ValueError("checkpoint_interval_steps cannot be negative")
+    if not 0.0 <= config.training_seed_mix_probability <= 1.0:
+        raise ValueError("training_seed_mix_probability must be in [0, 1]")
     training_seed_sequence = (
         load_training_seed_csv(config.training_seed_csv) if str(config.training_seed_csv).strip() else None
     )
@@ -551,6 +554,7 @@ def train(
         config=active_env_config,
         seed=config.seed,
         seed_sequence=training_seed_sequence,
+        seed_sequence_probability=config.training_seed_mix_probability,
     )
     obs, infos = env.reset()
     if config.response_prediction_dim > env.single_observation_space.shape[0]:
@@ -591,6 +595,7 @@ def train(
                 config=active_env_config,
                 seed=config.seed + global_step,
                 seed_sequence=training_seed_sequence,
+                seed_sequence_probability=config.training_seed_mix_probability,
             )
             obs, infos = env.reset()
             recurrent_hidden = model.initial_hidden(config.num_envs, device) if uses_online_recurrent else None

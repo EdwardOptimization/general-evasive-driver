@@ -506,6 +506,26 @@ nominal-vs-perturbed condition-change seeds, and 28 perturbed-failure seeds.
 This is not a self-identification pass. It is a hard training/gate corpus for
 M30. See `docs/m29-matched-response-corpus.md`.
 
+### M30: Mixed Hard-Corpus Training
+
+- Add mixed seed sampling so hard M29 seeds are oversampled without replacing
+  ordinary randomized resets.
+- Fine-tune `m26_602` with `human_view_online_gru` under the same clean
+  human-view input/output contract.
+- Select checkpoints by M29 hard-corpus performance, M28 hidden-swap behavior,
+  and broad same-seed obstacle success.
+
+Exit criteria:
+
+- mixed sampler has unit tests;
+- M30 smoke trains from `m26_602` with the M29 corpus;
+- full training writes periodic checkpoints and final checkpoint;
+- post-training benchmarks compare M26 and M30 on M28/M29 and broad obstacle
+  gates.
+
+Status: sampler and config implemented; 20k-step CUDA smoke passed. Full M30
+training is pending. See `docs/m30-mixed-hard-corpus-training.md`.
+
 ## Metrics
 
 - episode success rate;

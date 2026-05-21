@@ -86,6 +86,8 @@ vehicle/tire models, and NMPC-style constrained control.
   smoke validation, and negative M28 self-identification result.
 - `m29-matched-response-corpus.md`: M28-derived matched hard seed corpus for
   follow-up response-critical training and gates.
+- `m30-mixed-hard-corpus-training.md`: mixed hard-seed sampler, M30 training
+  config, and smoke result.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

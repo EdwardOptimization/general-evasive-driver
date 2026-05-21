@@ -32,16 +32,21 @@ class SyncAutoDriftVectorEnv:
         config: DriftEnvConfig | None = None,
         seed: int = 0,
         seed_sequence: list[int] | None = None,
+        seed_sequence_probability: float = 1.0,
     ):
         if num_envs < 1:
             raise ValueError("num_envs must be at least 1")
         if seed_sequence is not None and not seed_sequence:
             raise ValueError("seed_sequence cannot be empty")
+        if not 0.0 <= seed_sequence_probability <= 1.0:
+            raise ValueError("seed_sequence_probability must be in [0, 1]")
         self.num_envs = int(num_envs)
         self.config = config or DriftEnvConfig()
         self.base_seed = int(seed)
         self.seed_sequence = [int(item) for item in seed_sequence] if seed_sequence is not None else None
+        self.seed_sequence_probability = float(seed_sequence_probability)
         self.seed_sequence_index = 0
+        self.seed_rng = np.random.default_rng(self.base_seed + 1_000_003)
         self.envs = [AutoDriftEnv(self.config) for _ in range(self.num_envs)]
         self.single_observation_space = self.envs[0].observation_space
         self.single_action_space = self.envs[0].action_space
@@ -50,8 +55,13 @@ class SyncAutoDriftVectorEnv:
         self.reset_counts = np.zeros(self.num_envs, dtype=np.int64)
 
     def _next_seed(self, env_index: int) -> int:
+        default_seed = self.base_seed + env_index + self.num_envs * int(self.reset_counts[env_index])
         if self.seed_sequence is None:
-            return self.base_seed + env_index + self.num_envs * int(self.reset_counts[env_index])
+            return default_seed
+        if self.seed_sequence_probability <= 0.0:
+            return default_seed
+        if self.seed_sequence_probability < 1.0 and self.seed_rng.random() >= self.seed_sequence_probability:
+            return default_seed
         seed = self.seed_sequence[self.seed_sequence_index % len(self.seed_sequence)]
         self.seed_sequence_index += 1
         return int(seed)
@@ -63,6 +73,7 @@ class SyncAutoDriftVectorEnv:
         self.episode_lengths.fill(0)
         self.reset_counts.fill(0)
         self.seed_sequence_index = 0
+        self.seed_rng = np.random.default_rng(self.base_seed + 1_000_003)
         for index, env in enumerate(self.envs):
             seed = self._next_seed(index)
             obs, info = env.reset(seed=seed)

@@ -1095,3 +1095,27 @@ harder follow-up corpus. Because no ablation changes success, the selected
 seeds are condition-change and perturbed-failure cases, not recurrent-memory
 critical cases. The next training path should mix this hard corpus with ordinary
 randomized resets instead of replaying it exclusively.
+
+## 20260521 m30-mixed-hard-corpus-training-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: M29 hard seeds can be mixed with ordinary randomized resets
+  during PPO training without leaking actor inputs or repeating M23 hard-only
+  overfit mechanics
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m30_mixed_matched_response_driver.json --total-steps 20480 --seed 1330 --device cuda --init-checkpoint runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt --run-dir runs/ppo_m30_mixed_matched_response_smoke_seed1330`
+- run dir: `runs/ppo_m30_mixed_matched_response_smoke_seed1330`
+- checkpoint: `runs/ppo_m30_mixed_matched_response_smoke_seed1330/checkpoint.pt`
+
+Smoke result:
+
+- strict init checkpoint load succeeded from `m26_602`;
+- training device: `cuda`;
+- final step: 20480;
+- rollout return mean: 59.95;
+- eval return mean: 69.080;
+- eval steps mean: 61.900;
+- eval termination rate: 0.100.
+
+Conclusion: M30 mixed seed sampling and config are trainable. The full M30 run
+is now the next training task.
