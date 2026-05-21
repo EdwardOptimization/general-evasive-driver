@@ -280,6 +280,8 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m101-objective-only-actor-coupling.md`: fixed-batch actor-coupling result
   from M98; first clear reset/zero-response behavior-dependence signal, but
   hidden-envelope retention still fails.
+- `m102-retention-aware-actor-coupling.md`: stronger-anchor actor-coupling
+  repeat; hidden-envelope retention returns, but behavior dependence disappears.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

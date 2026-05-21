@@ -1,0 +1,37 @@
+{
+  "baseline_checkpoints": [
+    "runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt",
+    "runs/m101_actor_coupling_objective_seed9530/optimized_checkpoint.pt",
+    "runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt",
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt"
+  ],
+  "commands": [
+    {
+      "command": "TBD: build outcome-aware actor-coupling snippets from normal/reset/zero-response rollouts, then optimize only on states where recurrent history improves clearance or success",
+      "name": "m103_outcome_aware_actor_coupling"
+    }
+  ],
+  "decision_rule": "Admit only if outcome-aware coupling preserves M98 hidden-envelope lift and makes reset/zero-response/wrong-history ablations worse on outcome-sensitive states.",
+  "failure_criteria": [
+    "fixed-batch action divergence improves without closed-loop behavior degradation under ablation",
+    "hidden-envelope braking or lateral lift regresses versus M98",
+    "normal behavior regresses versus M62 or M98",
+    "objective labels hidden physics or oracle feasibility as actor inputs"
+  ],
+  "hypothesis": "History dependence must be trained on outcome-sensitive snippets; action-distance-only objectives are too weak because they can separate actions on fixed batches without making recurrent history causally useful in closed-loop behavior.",
+  "id": "m103-outcome-aware-actor-coupling",
+  "required_artifacts": [
+    {
+      "path": "docs/m103-outcome-aware-actor-coupling.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "constructs a snippet or corpus where normal history beats reset or zero-response in outcome",
+    "uses only deployable actor observations and training-time outcome labels",
+    "preserves M62/M98 normal behavior",
+    "reset, zero-response, delayed-history, or wrong-history ablations degrade success or clearance",
+    "retains M98 braking/lateral hidden-envelope lift"
+  ],
+  "type": "objective_sanity"
+}

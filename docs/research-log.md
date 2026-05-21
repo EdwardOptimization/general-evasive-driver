@@ -3914,3 +3914,45 @@ Conclusion: M101 is the first clear behavior-level recurrent-dependence signal,
 but it is not a PPO-admitted driver candidate. The next step should be M102:
 retention-aware actor coupling that keeps M101's reset/zero-response degradation
 while preserving M98's braking/lateral hidden-envelope belief.
+
+## 20260521T175702Z m102-retention-aware-actor-coupling
+
+- status: `completed`
+- kind: `objective_sanity`
+- hypothesis: stronger action anchoring or a softer reset-action contrast can
+  preserve M98 hidden-envelope belief while keeping M101 behavior dependence.
+- conservative objective runs:
+  `runs/m102_retention_actor_coupling_seed9550`,
+  `runs/m102_retention_actor_coupling_seed9551`,
+  `runs/m102_retention_actor_coupling_seed9552`
+- conservative behavior gate:
+  `runs/m102_retention_actor_coupling_behavior_gate_seed9500`
+- conservative hidden probe:
+  `runs/m102_retention_actor_coupling_hidden_envelope_probe_seed9510`
+- pareto objective runs:
+  `runs/m102_pareto_actor_coupling_seed9560`,
+  `runs/m102_pareto_actor_coupling_seed9561`,
+  `runs/m102_pareto_actor_coupling_seed9562`
+- pareto behavior gate:
+  `runs/m102_pareto_actor_coupling_behavior_gate_seed9500`
+- pareto hidden probe:
+  `runs/m102_pareto_actor_coupling_hidden_envelope_probe_seed9510`
+- artifact: `docs/m102-retention-aware-actor-coupling.md`
+
+Result:
+
+- conservative action coupling (`anchor=50`, `contrast=0.25`) increases
+  fixed-batch action distance in all three seeds while keeping low anchor MSE;
+- conservative behavior retention passes, but reset hidden improves success to
+  `0.8750`, and zero-response only drops to `0.8500`;
+- conservative hidden probe retains M98-style braking/lateral response-hidden
+  lift: braking `0.404079`, lateral `0.801162`;
+- middle point (`anchor=30`, `contrast=0.5`) also retains hidden-envelope
+  belief, but reset and zero-response both improve success to `0.8750`.
+
+Conclusion: M102 is negative for simple retention-aware actor-coupling. Softer
+action coupling can retain hidden-envelope belief, but it removes the M101
+behavior-dependence signal. The next step should be M103: an outcome-aware
+actor-coupling objective that applies recurrent-action pressure only where
+normal history is actually better than reset, zero-response, delayed-history,
+or wrong-history interventions.

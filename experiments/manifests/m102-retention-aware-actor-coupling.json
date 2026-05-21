@@ -6,8 +6,44 @@
   ],
   "commands": [
     {
-      "command": "TBD: add hidden-envelope retention to actor coupling, then re-run fixed-batch action, behavior, and hidden-envelope gates",
-      "name": "m102_retention_aware_actor_coupling"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.actor_coupling_optimize --checkpoint runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9550 --horizon-steps 15 --sample-stride 3 --max-samples 800 --train-fraction 0.70 --steps 200 --batch-size 256 --learning-rate 0.0001 --anchor-coef 50.0 --contrast-coef 0.25 --action-margin 0.04 --grad-clip-norm 1.0 --device cpu --run-dir runs/m102_retention_actor_coupling_seed9550",
+      "name": "m102_conservative_seed9550"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.actor_coupling_optimize --checkpoint runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9551 --horizon-steps 15 --sample-stride 3 --max-samples 800 --train-fraction 0.70 --steps 200 --batch-size 256 --learning-rate 0.0001 --anchor-coef 50.0 --contrast-coef 0.25 --action-margin 0.04 --grad-clip-norm 1.0 --device cpu --run-dir runs/m102_retention_actor_coupling_seed9551",
+      "name": "m102_conservative_seed9551"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.actor_coupling_optimize --checkpoint runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9552 --horizon-steps 15 --sample-stride 3 --max-samples 800 --train-fraction 0.70 --steps 200 --batch-size 256 --learning-rate 0.0001 --anchor-coef 50.0 --contrast-coef 0.25 --action-margin 0.04 --grad-clip-norm 1.0 --device cpu --run-dir runs/m102_retention_actor_coupling_seed9552",
+      "name": "m102_conservative_seed9552"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.benchmark --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 80 --seed 9500 --policies heuristic --checkpoint-policy m62_a250=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --checkpoint-policy m98_9480=runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt --checkpoint-policy m101_9530=runs/m101_actor_coupling_objective_seed9530/optimized_checkpoint.pt --checkpoint-policy m102_9550=runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt --checkpoint-policy m102_9551=runs/m102_retention_actor_coupling_seed9551/optimized_checkpoint.pt --checkpoint-policy m102_9552=runs/m102_retention_actor_coupling_seed9552/optimized_checkpoint.pt --checkpoint-policy m102_9550_reset=runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt@reset_recurrent_state --checkpoint-policy m102_9550_zero_current=runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt@zero_current_response --checkpoint-policy m102_9550_zero_all=runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt@zero_all_response --checkpoint-policy m102_9550_noact=runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt@zero_action_history --device cpu --run-dir runs/m102_retention_actor_coupling_behavior_gate_seed9500",
+      "name": "m102_conservative_behavior_gate"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_probe --checkpoint runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9510 --horizon-steps 15 --sample-stride 3 --max-samples 800 --ridge 0.1 --device cpu --run-dir runs/m102_retention_actor_coupling_hidden_envelope_probe_seed9510",
+      "name": "m102_conservative_hidden_envelope_probe"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.actor_coupling_optimize --checkpoint runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9560 --horizon-steps 15 --sample-stride 3 --max-samples 800 --train-fraction 0.70 --steps 200 --batch-size 256 --learning-rate 0.0001 --anchor-coef 30.0 --contrast-coef 0.5 --action-margin 0.04 --grad-clip-norm 1.0 --device cpu --run-dir runs/m102_pareto_actor_coupling_seed9560",
+      "name": "m102_pareto_seed9560"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.actor_coupling_optimize --checkpoint runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9561 --horizon-steps 15 --sample-stride 3 --max-samples 800 --train-fraction 0.70 --steps 200 --batch-size 256 --learning-rate 0.0001 --anchor-coef 30.0 --contrast-coef 0.5 --action-margin 0.04 --grad-clip-norm 1.0 --device cpu --run-dir runs/m102_pareto_actor_coupling_seed9561",
+      "name": "m102_pareto_seed9561"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.actor_coupling_optimize --checkpoint runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9562 --horizon-steps 15 --sample-stride 3 --max-samples 800 --train-fraction 0.70 --steps 200 --batch-size 256 --learning-rate 0.0001 --anchor-coef 30.0 --contrast-coef 0.5 --action-margin 0.04 --grad-clip-norm 1.0 --device cpu --run-dir runs/m102_pareto_actor_coupling_seed9562",
+      "name": "m102_pareto_seed9562"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.benchmark --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 80 --seed 9500 --policies heuristic --checkpoint-policy m62_a250=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --checkpoint-policy m98_9480=runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt --checkpoint-policy m101_9530=runs/m101_actor_coupling_objective_seed9530/optimized_checkpoint.pt --checkpoint-policy m102_p9560=runs/m102_pareto_actor_coupling_seed9560/optimized_checkpoint.pt --checkpoint-policy m102_p9561=runs/m102_pareto_actor_coupling_seed9561/optimized_checkpoint.pt --checkpoint-policy m102_p9562=runs/m102_pareto_actor_coupling_seed9562/optimized_checkpoint.pt --checkpoint-policy m102_p9561_reset=runs/m102_pareto_actor_coupling_seed9561/optimized_checkpoint.pt@reset_recurrent_state --checkpoint-policy m102_p9561_zero_current=runs/m102_pareto_actor_coupling_seed9561/optimized_checkpoint.pt@zero_current_response --checkpoint-policy m102_p9561_zero_all=runs/m102_pareto_actor_coupling_seed9561/optimized_checkpoint.pt@zero_all_response --checkpoint-policy m102_p9561_noact=runs/m102_pareto_actor_coupling_seed9561/optimized_checkpoint.pt@zero_action_history --device cpu --run-dir runs/m102_pareto_actor_coupling_behavior_gate_seed9500",
+      "name": "m102_pareto_behavior_gate"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_probe --checkpoint runs/m102_pareto_actor_coupling_seed9561/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9510 --horizon-steps 15 --sample-stride 3 --max-samples 800 --ridge 0.1 --device cpu --run-dir runs/m102_pareto_actor_coupling_hidden_envelope_probe_seed9510",
+      "name": "m102_pareto_hidden_envelope_probe"
     }
   ],
   "decision_rule": "Only return to PPO if the actor keeps M101-style reset/zero-response behavior degradation while preserving M98 braking/lateral hidden-envelope lift.",
@@ -23,6 +59,26 @@
     {
       "path": "docs/m102-retention-aware-actor-coupling.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m102_retention_actor_coupling_behavior_gate_seed9500/policy_summary.csv",
+      "type": "policy_summary"
+    },
+    {
+      "path": "runs/m102_retention_actor_coupling_hidden_envelope_probe_seed9510/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m102_pareto_actor_coupling_behavior_gate_seed9500/policy_summary.csv",
+      "type": "policy_summary"
+    },
+    {
+      "path": "runs/m102_pareto_actor_coupling_hidden_envelope_probe_seed9510/summary.json",
+      "type": "summary"
     }
   ],
   "success_criteria": [

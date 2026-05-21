@@ -2075,9 +2075,29 @@ M101 is not admitted to a long PPO continuation. See
 - Do not add hidden physical parameters, oracle labels, planner references, or
   wheel inputs to the no-wheel primary actor.
 
-Status: planned. M101 proves actor coupling can create behavior-level recurrent
-dependence, but it also shows that action coupling alone can move the closed-loop
-distribution away from the hidden-envelope belief that made M98 useful.
+Status: complete as a negative simple-retention result. Stronger normal-action
+anchoring preserves M98-style braking/lateral hidden-envelope lift, but reset
+and zero-response ablations stop degrading behavior. A middle anchor/contrast
+point also retains hidden-envelope belief while failing behavior-dependence.
+Do not keep sweeping simple anchor/contrast. See
+`docs/m102-retention-aware-actor-coupling.md`.
+
+### M103: Outcome-Aware Actor Coupling
+
+- Replace fixed-batch action-distance-only coupling with an outcome-aware
+  objective or corpus.
+- Only apply recurrent-action dependence pressure on snippets where normal
+  history actually gives better clearance, success, return, or risk than reset,
+  zero-response, delayed-history, or wrong-history interventions.
+- Preserve the no-wheel human-view actor contract and the M98 hidden-envelope
+  probe gate.
+- Treat M101 as the behavior-dependence positive control and M102 as the
+  hidden-retention positive control.
+
+Status: planned. M101 and M102 expose a real tradeoff: strong action coupling
+creates behavior dependence but breaks hidden-envelope retention; soft coupling
+retains hidden belief but is behavior-neutral. The next objective must bind
+history dependence to closed-loop outcomes.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 
