@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 133,
+    "completed": 134,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m124-retention-calibrated-zero-relvel-objective.md",
+    "command_log": "docs/m125-formal-m124-repeat-gate.md",
     "returncode": 0,
-    "run_dir": "runs/m124_calib_s120_lr5e5_anchor10_seed9821",
+    "run_dir": "runs/m125_m124_behavior_gate_seed9501",
     "status": "completed",
-    "task_id": "m124-retention-calibrated-zero-relvel-objective"
+    "task_id": "m125-formal-m124-repeat-gate"
   },
   "next_task": {
-    "command": "see experiments/manifests/m125-formal-m124-repeat-gate.json",
-    "hypothesis": "Repeat M124 behavior hidden-envelope and intervention gates across fresh seeds before PPO continuation",
-    "id": "m125-formal-m124-repeat-gate",
+    "command": "see experiments/manifests/m126-zero-relvel-belief-proof-surface-audit.json",
+    "hypothesis": "Audit hidden-envelope target reliability and stronger history proof surfaces after M125 rejection",
+    "id": "m126-zero-relvel-belief-proof-surface-audit",
     "kind": "gate",
-    "notes": "Pending after M124: calibrated candidate looks better than M123 but needs formal repeat before continuation",
-    "priority": 1200,
+    "notes": "Pending after M125: behavior works but the belief proof surface is still probe-seed fragile",
+    "priority": 1210,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T213842Z"
+  "updated_at_utc": "20260521T214240Z"
 }

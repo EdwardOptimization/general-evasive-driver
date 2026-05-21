@@ -2497,6 +2497,24 @@ weak and a formal repeat gate is required. See
 Status: pending. M124 is the best current objective candidate, but it is not
 yet a driver checkpoint or continuation-approved recipe.
 
+Status: completed as a PPO/continuation rejection. M125 repeats behavior on
+fresh seeds `9501` and `9502`; M124 retains `0.8625` success and zero-response
+ablation degrades to `0.8000` on both seeds. However, hidden-envelope repeats on
+fresh probe seeds `9511` and `9512` fail the yaw/lateral belief gate for both
+M105 and M124, and no-action history remains neutral. Do not start PPO. See
+`docs/m125-formal-m124-repeat-gate.md`.
+
+### M126: Zero-Relvel Belief Proof Surface Audit
+
+- Diagnose why zero-relvel hidden-envelope probes are probe-seed fragile.
+- Compare target distributions, current-response baselines, reset baselines,
+  and M105/M124 behavior on the same probe seeds.
+- Decide whether to keep yaw/lateral/braking hidden-envelope targets, replace
+  them with outcome-critical wrong-history gates, or redesign the belief proof.
+
+Status: pending. M125 shows behavior learning is more stable than the current
+belief proof surface.
+
 ### M67-F: Counterfactual Response-Intervention Objective
 
 - Stop treating seed replay alone as sufficient for self-identification.

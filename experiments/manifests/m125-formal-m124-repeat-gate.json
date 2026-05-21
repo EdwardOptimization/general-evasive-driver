@@ -7,8 +7,28 @@
   ],
   "commands": [
     {
-      "command": "TBD: repeat M124 behavior, hidden-envelope, and intervention gates across fresh behavior/probe seeds before admitting the calibrated recipe for PPO or continuation",
-      "name": "m125_formal_m124_repeat_gate"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m121_human_view_zero_obstacle_relvel.json --episodes 80 --seed 9501 --policies heuristic --checkpoint-policy m105_9710=runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt --checkpoint-policy m124_9821=runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt --checkpoint-policy m124_9822=runs/m124_calib_s120_lr5e5_anchor10_seed9822/optimized_checkpoint.pt --checkpoint-policy m124_9823=runs/m124_calib_s120_lr5e5_anchor10_seed9823/optimized_checkpoint.pt --checkpoint-policy m124_9821_reset=runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt@reset_recurrent_state --checkpoint-policy m124_9821_zero_current=runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt@zero_current_response --checkpoint-policy m124_9821_zero_all=runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt@zero_all_response --checkpoint-policy m124_9821_noact=runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt@zero_action_history --device cpu --run-dir runs/m125_m124_behavior_gate_seed9501",
+      "name": "m125_behavior_seed9501"
+    },
+    {
+      "command": "repeat m125_behavior_seed9501 with --seed 9502 --run-dir runs/m125_m124_behavior_gate_seed9502",
+      "name": "m125_behavior_seed9502"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.hidden_envelope_probe --checkpoint runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --episodes 30 --seed 9511 --horizon-steps 15 --sample-stride 3 --max-samples 800 --ridge 0.1 --device cpu --run-dir runs/m125_m105_hidden_probe_seed9511",
+      "name": "m125_m105_hidden_probe_seed9511"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.hidden_envelope_probe --checkpoint runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --episodes 30 --seed 9511 --horizon-steps 15 --sample-stride 3 --max-samples 800 --ridge 0.1 --device cpu --run-dir runs/m125_m124_9821_hidden_probe_seed9511",
+      "name": "m125_m124_hidden_probe_seed9511"
+    },
+    {
+      "command": "repeat m125_m105_hidden_probe_seed9511 with --seed 9512 --run-dir runs/m125_m105_hidden_probe_seed9512",
+      "name": "m125_m105_hidden_probe_seed9512"
+    },
+    {
+      "command": "repeat m125_m124_hidden_probe_seed9511 with --seed 9512 --run-dir runs/m125_m124_9821_hidden_probe_seed9512",
+      "name": "m125_m124_hidden_probe_seed9512"
     }
   ],
   "decision_rule": "Admit M124 for continuation only if behavior retention, zero-response degradation, and yaw/lateral hidden-envelope retention survive repeated seeds and stronger history interventions.",

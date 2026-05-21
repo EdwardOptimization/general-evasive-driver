@@ -1,0 +1,34 @@
+{
+  "baseline_checkpoints": [
+    "runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt",
+    "runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "TBD: audit zero-relvel hidden-envelope target reliability and stronger history interventions after M125 rejects PPO admission",
+      "name": "m126_zero_relvel_belief_proof_surface_audit"
+    }
+  ],
+  "decision_rule": "Before another objective or PPO continuation, determine whether the zero-relvel belief proof should use the current hidden-envelope targets, outcome-critical wrong-history gates, or a redesigned target/intervention surface.",
+  "failure_criteria": [
+    "another PPO or continuation starts before the M125 hidden-probe failure is diagnosed",
+    "probe targets are accepted despite fresh-seed instability",
+    "the next objective optimizes only fixed snippets without a reliable belief/outcome gate",
+    "no-action and wrong-history neutrality are ignored"
+  ],
+  "hypothesis": "M125 shows behavior retention is stable but hidden-envelope proof is probe-seed fragile. The next highest-leverage step is to audit the belief proof surface rather than tune PPO.",
+  "id": "m126-zero-relvel-belief-proof-surface-audit",
+  "required_artifacts": [
+    {
+      "path": "docs/m126-zero-relvel-belief-proof-surface-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "identify whether hidden-envelope target distributions are stable across probe seeds",
+    "compare M105 and M124 against current-response/reset baselines on the same zero-relvel profile",
+    "decide whether yaw/lateral/braking targets remain valid gates",
+    "define the next admitted proof surface before another objective or PPO run"
+  ],
+  "type": "gate"
+}

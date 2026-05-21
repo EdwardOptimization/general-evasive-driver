@@ -4798,3 +4798,34 @@ zero-response behavior gap, and avoids the M123 yaw collapse. It is still not a
 driver or PPO admission: braking hidden-reset lift is weak, no-action history is
 neutral, and the evaluation still needs fresh behavior/probe seeds. The next
 task is M125 formal repeat gate.
+
+## 20260521T214240Z m125-formal-m124-repeat-gate
+
+M125 repeats M124 on fresh behavior and hidden-envelope seeds before any PPO
+continuation.
+
+Behavior repeats:
+
+- seed `9501`: M105 success `0.8625`, M124 9821/9822/9823 all `0.8625`;
+- seed `9501`: M124 9821 reset `0.8500`, zero-current/zero-all `0.8000`,
+  no-action `0.8625`;
+- seed `9502`: M105 success `0.8625`, M124 9821/9822/9823 all `0.8625`;
+- seed `9502`: M124 9821 reset `0.8500`, zero-current/zero-all `0.8000`,
+  no-action `0.8625`.
+
+Hidden-envelope repeats, response-hidden minus reset R2:
+
+| policy/probe seed | braking | lateral | yaw |
+| --- | ---: | ---: | ---: |
+| M105 9510 | -0.259482 | 0.368120 | 0.133647 |
+| M124 9510 | -0.212614 | 0.543924 | 0.115071 |
+| M105 9511 | 25.655085 | -3.663584 | -0.482697 |
+| M124 9511 | 14.011373 | -2.982733 | -0.570959 |
+| M105 9512 | -0.762989 | -0.353693 | -1.952766 |
+| M124 9512 | -1.694324 | -0.303982 | -2.534112 |
+
+Conclusion: reject PPO/continuation admission. M124 behavior retention and
+zero-response degradation repeat, but yaw/lateral hidden-envelope lift fails
+fresh probe seeds, no-action history remains neutral, and the probe surface is
+still seed fragile. The next task is M126: audit or rebuild the zero-relvel
+belief proof surface instead of tuning PPO.

@@ -359,6 +359,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m124-retention-calibrated-zero-relvel-objective.md`: lower-strength M122
   objective sweep; admits a calibrated candidate for formal repeat because it
   keeps behavior and zero-response gap while avoiding the M123 yaw collapse.
+- `m125-formal-m124-repeat-gate.md`: fresh-seed repeat gate for M124; behavior
+  retention and zero-response gap repeat, but yaw/lateral hidden-envelope lift
+  fails fresh probes, so PPO admission is rejected.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.
