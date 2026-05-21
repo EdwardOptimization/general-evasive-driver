@@ -321,3 +321,10 @@ short smoke has `termination_rate = 0.0`, and the 20-episode gate reaches
 `zero_wheel_response` also reaches `0.90`. Continue with M85: make wheel/body
 response prediction or envelope estimation part of the warm-started training
 signal while keeping retention gates.
+M85 expands the auxiliary target to the full 25-value response stream and keeps
+20-episode success at `0.90`, but it still fails the causal wheel-input test:
+`m85_zero_wheel` also reaches `0.90`, and the wheel response encoder columns
+remain tiny (`0.058681` norm versus body `7.809560`). The next decision is M86:
+audit whether the current front/rear wheel signals add predictive information
+beyond body response, then decide whether to improve wheel sensors or build a
+matched wrong-wheel-history gate.

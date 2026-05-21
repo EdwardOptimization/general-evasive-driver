@@ -1818,9 +1818,23 @@ versus heuristic `0.40` and M83 `0.10`. This is not a wheel self-ID pass because
 - Gate normal, `zero_wheel_response`, `zero_all_response`, and reset-hidden
   variants after continuation.
 
-Status: planned. M84 shows the wheel actor can preserve behavior, but wheel
-features are still not behavior-critical. M85 should make wheel response useful
-without sacrificing retained margin.
+Status: complete as a retention-positive but self-ID-negative smoke. M85
+expands the auxiliary target to the full 25-value response stream and keeps
+`success_rate = 0.90`, but `m85_zero_wheel` also remains `0.90` and wheel
+response encoder columns stay tiny relative to body-response columns. See
+`docs/m85-warmstarted-wheel-response-aux.md`.
+
+### M86: Wheel Response Relevance Audit
+
+- Measure whether wheel response adds predictive information beyond body
+  response for hidden dynamics or future response.
+- Compare body-only and body+wheel probes on the same rollout corpus.
+- Mine or construct matched-current-response cases where wheel response differs.
+- Use the result to decide between stronger wheel sensors, wrong-wheel-history
+  gates, or dropping this front/rear wheel branch as redundant.
+
+Status: planned. M85 shows that adding wheel features and a full response
+prediction head is not enough by itself.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

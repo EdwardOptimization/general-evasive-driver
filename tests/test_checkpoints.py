@@ -443,6 +443,53 @@ def test_wheel_human_view_init_preserves_human_view_behavior(tmp_path):
     torch.testing.assert_close(target_next_hidden, source_next_hidden, atol=1e-7, rtol=0.0)
 
 
+def test_wheel_human_view_init_can_resize_response_prediction_head(tmp_path):
+    torch.manual_seed(9)
+    source = ActorCritic(
+        obs_dim=72,
+        act_dim=3,
+        hidden_size=16,
+        actor_encoder="human_view_online_gru",
+        response_prediction_dim=12,
+        response_prediction_horizon=4,
+    )
+    checkpoint_path = tmp_path / "m62_like.pt"
+    torch.save(
+        {
+            "model_state": {key: value.detach().cpu() for key, value in source.state_dict().items()},
+            "config": model_config(
+                actor_encoder="human_view_online_gru",
+                actor_history_length=1,
+                response_prediction_dim=12,
+                response_prediction_horizon=4,
+            ),
+        },
+        checkpoint_path,
+    )
+    target = ActorCritic(
+        obs_dim=85,
+        act_dim=3,
+        hidden_size=16,
+        actor_encoder="wheel_human_view_online_gru",
+        response_prediction_dim=25,
+        response_prediction_horizon=4,
+    )
+    initial_head_weight = target.response_prediction_head.weight.detach().clone()
+    initial_head_bias = target.response_prediction_head.bias.detach().clone()
+
+    load_mode = load_init_checkpoint_state(target, checkpoint_path, torch.device("cpu"))
+
+    assert load_mode == "partial_wheel_response_encoder_response_prediction_head"
+    assert target.response_prediction_head.weight.shape == (100, 19)
+    torch.testing.assert_close(target.response_prediction_head.weight, initial_head_weight)
+    torch.testing.assert_close(target.response_prediction_head.bias, initial_head_bias)
+    torch.testing.assert_close(
+        target.state_dict()["response_encoder.0.weight"][:, :12],
+        source.state_dict()["response_encoder.0.weight"],
+    )
+    assert float(target.state_dict()["response_encoder.0.weight"][:, 12:].abs().sum()) == 0.0
+
+
 def test_privileged_human_view_init_rejects_privileged_branch_shape_mismatch(tmp_path):
     source = ActorCritic(obs_dim=82, act_dim=3, hidden_size=16, actor_encoder="privileged_human_view_online_gru")
     source_state = {key: value.detach().clone() for key, value in source.state_dict().items()}

@@ -3420,3 +3420,35 @@ infrastructure, but not a wheel self-identification pass. The next task is M85:
 use a warm-started wheel/body response auxiliary target or envelope objective so
 wheel feedback becomes behavior-relevant under zero-wheel and wrong-history
 gates.
+
+## 20260521T143420Z m85-warmstarted-wheel-response-aux
+
+- status: `completed`
+- kind: `training`
+- hypothesis: expanding the warm-started response-prediction target to the full
+  25-value response stream can make wheel feedback behavior-relevant while
+  preserving M84/M62 behavior.
+- config: `configs/ppo_m85_wheel_response_aux_driver.json`
+- code update: added a focused checkpoint test for resizing the response
+  prediction head during 72-to-85 wheel initialization.
+- focused test:
+  `tests/test_checkpoints.py::test_wheel_human_view_init_can_resize_response_prediction_head`
+- training smoke: `runs/ppo_m85_wheel_response_aux_smoke_seed3985`
+- ablation gate: `runs/m85_wheel_response_aux_gate_seed8830`
+- artifact: `docs/m85-warmstarted-wheel-response-aux.md`
+
+Result:
+
+- real M62 checkpoint and anchor both load with
+  `partial_wheel_response_encoder_response_prediction_head`;
+- 4096-step smoke final eval termination rate `0.25`;
+- 20-episode gate success: heuristic `0.40`, M85 `0.90`;
+- M85 return mean `70.645276`;
+- ablations remain negative for wheel self-ID: reset `0.90`, zero-all `0.85`,
+  zero-wheel `0.90`;
+- response encoder norms: body `7.809560`, wheel `0.058681`.
+
+Conclusion: M85 retains good aggregate behavior but does not create wheel
+dependence. The next task is M86: audit whether the current front/rear wheel
+features contain useful information beyond body response before adding more
+training pressure.

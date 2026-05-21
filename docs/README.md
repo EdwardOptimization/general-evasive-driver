@@ -229,6 +229,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m84-m62-to-wheel-partial-init.md`: behavior-preserving partial
   initialization from M62 into the 85-value wheel-response actor, with positive
   retention but no wheel self-ID pass.
+- `m85-warmstarted-wheel-response-aux.md`: full 25-value response auxiliary
+  continuation from M62 warm-start, retaining success but still failing
+  zero-wheel dependence.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.
