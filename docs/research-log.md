@@ -29,8 +29,10 @@ Last updated: 2026-05-21
   preserved the probing history and found relaxed wrong-history margin-loss
   snippets, but strict visible matching still rejected them. M76 snapshot-bank
   matching improved visible-state distance and recovered one relaxed
-  history-sensitive row, but strict near-boundary acceptance is still zero. The
-  next blocker is boundary-aware relocation after visible matching.
+  history-sensitive row, but strict near-boundary acceptance is still zero. M77
+  dense boundary relocation found larger wrong-history gaps only when normal
+  history already collided; successful near-boundary rows still had sub-threshold
+  margin gaps. The next blocker is an outcome-weighted intervention objective.
 
 ## Standing Loop
 
@@ -3112,3 +3114,33 @@ margin-loss row, but the row is not strict evidence because context distance is
 just over the strict threshold and normal margin is too large. The next task is
 M77: boundary-aware relocation search that places matched snapshots near the
 clearance boundary before testing wrong-history margin loss.
+
+## 20260521T130515Z m77-boundary-aware-snapshot-relocation
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: dense obstacle-width relocation around M76 matched pairs can place
+  normal-history rollouts near the clearance boundary while preserving strict
+  visible matching and wrong-history margin loss.
+- code update: none; reused `autodrift.snapshot_bank_relocation`.
+- final validation: `git diff --check`, `python -m compileall -q src tests`,
+  and `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 conda run -n autodrift pytest -q`
+  returned `209 passed`.
+- run dir: `runs/m77_boundary_dense_width_strict_seed8500`
+- artifact: `docs/m77-boundary-aware-snapshot-relocation.md`
+
+Result:
+
+- `1344` candidates;
+- `448` strict visible matches;
+- `52` margin-gap rows;
+- `0` accepted outcome-sensitive pairs;
+- max margin gap `0.105091`;
+- mean visible distance `0.234060`.
+
+Conclusion: M77 is negative. Dense width search creates large wrong-history
+margin gaps only in collision-to-collision rows. Strict-visible, successful
+near-boundary rows exist, but wrong-history margin loss stays below the
+pre-registered `0.01` threshold. The next task is M78: implement an
+outcome-weighted intervention objective instead of relying on more geometry-only
+mining.

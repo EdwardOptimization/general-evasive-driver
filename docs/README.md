@@ -204,6 +204,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m76-snapshot-bank-visible-matcher.md`: active-probe snapshot-bank matcher,
   strict/relaxed relocation sweeps, and negative strict gate motivating
   boundary-aware relocation search.
+- `m77-boundary-aware-snapshot-relocation.md`: dense obstacle-width relocation
+  gate around M76 matched pairs and negative result motivating an
+  outcome-weighted intervention objective.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

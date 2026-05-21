@@ -1,19 +1,19 @@
 {
   "counts": {
     "blocked": 0,
-    "completed": 77,
+    "completed": 78,
     "failed": 0,
     "pending": 0,
     "planned": 1,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m76-snapshot-bank-visible-matcher.md",
+    "command_log": "docs/m77-boundary-aware-snapshot-relocation.md",
     "returncode": 0,
-    "run_dir": "runs/m76_snapshot_bank_relocation_strict_seed8400",
+    "run_dir": "runs/m77_boundary_dense_width_strict_seed8500",
     "status": "completed",
-    "task_id": "m76-snapshot-bank-visible-matcher"
+    "task_id": "m77-boundary-aware-snapshot-relocation"
   },
-  "next_task": "m77-boundary-aware-snapshot-relocation",
-  "updated_at_utc": "20260521T125846Z"
+  "next_task": "m78-outcome-weighted-intervention-objective",
+  "updated_at_utc": "20260521T130515Z"
 }

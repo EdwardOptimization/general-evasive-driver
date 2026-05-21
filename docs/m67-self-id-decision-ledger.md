@@ -247,16 +247,16 @@ Persisted in:
 Continue with:
 
 ```text
-m77-boundary-aware-snapshot-relocation
+m78-outcome-weighted-intervention-objective
 ```
 
 Implementation intent:
 
 ```text
-start from M76 visible-matched snapshot-bank pairs
-adaptively search obstacle body position / half-width
-target near-boundary normal-history clearance
-test whether wrong matched history loses margin under strict gates
+use M76/M77 rows as outcome-weighted intervention snippets
+weight by wrong-history margin loss and boundary proximity
+train risk/action preference rather than only replaying seeds
+preserve M62/M67E driving retention gates
 ```
 
 M70 showed that M69 wrong-history candidates do not degrade success or margin.
@@ -269,5 +269,7 @@ the rollout/history. M75 snapshot relocation preserves the probing history and
 finds relaxed wrong-history margin-loss rows, but strict visible-state matching
 still rejects those rows. M76 snapshot-bank matching improves visible-state
 distance and finds one relaxed history-sensitive row, but the row is high-margin
-and not a strict near-boundary proof. Do not proceed directly to student OSI
-distillation yet.
+and not a strict near-boundary proof. M77 dense boundary relocation finds large
+wrong-history gaps only in collision-to-collision rows; successful
+near-boundary rows stay below the margin-loss threshold. Do not proceed directly
+to student OSI distillation yet.

@@ -1670,9 +1670,27 @@ large normal margin. See `docs/m76-snapshot-bank-visible-matcher.md`.
   near-boundary margin and wrong history loses at least the pre-registered
   margin threshold.
 
-Status: planned after M76. M76 shows that matching can be made stricter, but the
-coarse relocation grid usually produces either high-margin safe rows or
-collision-to-collision rows. The next gate should search the boundary directly.
+Status: complete as a negative gate. M77 reused the M76 snapshot-bank harness
+with a dense obstacle half-width sweep around the high-signal relocation region.
+It produced `1344` candidates, `448` strict visible matches, and `52`
+margin-gap rows, but zero accepted snippets. Large gaps are
+collision-to-collision; successful near-boundary rows only lose millimeters
+under wrong history. See `docs/m77-boundary-aware-snapshot-relocation.md`.
+
+### M78: Outcome-Weighted Intervention Objective
+
+- Use M76/M77 rows as weighted intervention snippets instead of continuing to
+  mine geometry-only cases.
+- Weight snippets by wrong-history margin loss and normal-history boundary
+  proximity.
+- Train a small continuation objective or auxiliary value/preference head that
+  makes outcome-relevant history differences affect risk/action estimates.
+- Keep strict margin-retention and aggregate-driving gates as guards.
+
+Status: planned after M77. M77 shows that the current policy has some
+history-sensitive margin differences, but they are too weak near the boundary.
+The next step should train on outcome-sensitive preferences rather than only
+searching for rarer mined snippets.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 
