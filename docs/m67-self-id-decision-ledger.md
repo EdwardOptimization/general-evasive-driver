@@ -307,3 +307,10 @@ wheel gates remain open.
 M82 reintroduces the outcome objective into PPO with `log_std` frozen. It is
 less bad than M78/M79 on the fixed-batch objective but still worse than M62 and
 not a driver candidate. Continue with M83 wheel-response training.
+M83 trains the 85-value wheel-response actor from scratch for 32k steps and
+gates `zero_wheel_response`, `zero_all_response`, and reset-hidden ablations.
+The result is negative: same-seed gate success is only `0.1` versus heuristic
+`0.4`, so the weak ablation differences are not useful self-ID evidence. The
+next decision is M84: warm-start the wheel actor from the retained M62
+checkpoint by partial-initializing the response encoder and copying matching
+submodules before judging wheel response.

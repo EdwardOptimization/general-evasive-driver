@@ -3363,3 +3363,29 @@ Result:
 Conclusion: M82 is slightly better than M78/M79 on the fixed-batch objective but
 still worse than M62 and not a driving candidate. The next task is M83:
 meaningful wheel-response driver training and zero-wheel/history gates.
+
+## 20260521T141626Z m83-wheel-response-driver-training-gate
+
+- status: `completed`
+- kind: `training`
+- hypothesis: the M81 wheel-response actor can train at meaningful smoke scale
+  and expose useful dependence on wheel/action-response history.
+- config: `configs/ppo_m81_wheel_response_gru_driver.json`
+- training run: `runs/ppo_m83_wheel_response_driver_seed3783`
+- ablation gate: `runs/m83_wheel_response_gate_seed8830`
+- artifact: `docs/m83-wheel-response-driver-training-gate.md`
+
+Result:
+
+- 32k-step CUDA run final eval return mean `27.553417`;
+- final eval termination rate `0.9`;
+- 20-episode gate success: heuristic `0.4`, M83 `0.1`;
+- clearance margin mean: heuristic `0.479831`, M83 `0.285214`;
+- M83 ablations remain weak: reset success `0.1`, zero-all success `0.1`,
+  zero-wheel success `0.1`.
+
+Conclusion: M83 is negative. From-scratch 85-value wheel-response training loses
+too much driving behavior to support a wheel self-identification claim. The next
+task is M84: add an M62-to-wheel partial initialization path so the wheel branch
+starts from retained M62 behavior before testing whether wheel response adds
+useful adaptation evidence.

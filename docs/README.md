@@ -223,6 +223,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m82-outcome-objective-ppo-reintroduction.md`: guarded PPO reintroduction of
   the outcome objective with frozen `log_std`, fixed-batch guard, and negative
   smoke conclusion.
+- `m83-wheel-response-driver-training-gate.md`: 32k-step wheel-response driver
+  training gate and negative ablation result motivating M62-to-wheel
+  warm-start.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

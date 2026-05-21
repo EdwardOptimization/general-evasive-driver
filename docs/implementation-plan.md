@@ -1784,8 +1784,26 @@ but remains worse than `m62_init` (`0.039923`) and the short driving smoke has
 - Do not promote unless wheel/history dependence improves without aggregate
   margin regression.
 
-Status: planned after M82 or as the next wheel-specific training branch. M81
-only proves the infrastructure is runnable.
+Status: complete as a negative training gate. A 32k-step CUDA run from scratch
+reaches only `success_rate = 0.1` on the 20-episode wheel gate, worse than the
+heuristic baseline (`0.4`). `zero_wheel_response`, `zero_all_response`, and
+`reset_recurrent_state` produce only weak differences because the normal policy
+already fails most episodes. See
+`docs/m83-wheel-response-driver-training-gate.md`.
+
+### M84: M62-to-Wheel Partial Initialization
+
+- Add a warm-start path from the retained 72-value `human_view_online_gru`
+  checkpoint into the 85-value `wheel_human_view_online_gru` actor.
+- Copy the first 12 response columns from the source response encoder and keep
+  new wheel-response columns neutral at initialization.
+- Copy context encoder, GRU, fusion, actor, critic, and `log_std` where shapes
+  match.
+- Run the same short wheel-response continuation and zero-wheel/history gates.
+
+Status: planned. M83 shows that from-scratch wheel-response training is too weak
+to judge the input branch. The next test should preserve M62 driving behavior
+first, then measure whether wheel response adds useful adaptation evidence.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 
