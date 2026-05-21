@@ -83,6 +83,10 @@ per-env-config comparison path.
 
 ## Next Step
 
+M67-B ran this step and recorded the negative result in
+`docs/m67b-full-privileged-upper-bound-training.md`. The original next-step
+commands are kept here for reproducibility.
+
 Run the full M67-A teacher training:
 
 ```bash

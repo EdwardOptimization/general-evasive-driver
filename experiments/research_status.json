@@ -1,7 +1,7 @@
 {
   "counts": {
     "blocked": 0,
-    "completed": 64,
+    "completed": 65,
     "failed": 0,
     "pending": 0,
     "planned": 1,
@@ -10,10 +10,10 @@
   "last_result": {
     "command_log": null,
     "returncode": 0,
-    "run_dir": "runs/m67a_privileged_upper_bound_smoke_seed3600",
+    "run_dir": "runs/m67a_privileged_upper_bound_best_m65_seed3600",
     "status": "completed",
-    "task_id": "m67a-privileged-upper-bound-harness"
+    "task_id": "m67b-full-privileged-upper-bound-training"
   },
-  "next_task": "m67b-full-privileged-upper-bound-training",
-  "updated_at_utc": "20260521T104135Z"
+  "next_task": "m67c-warm-started-privileged-teacher",
+  "updated_at_utc": "20260521T105728Z"
 }

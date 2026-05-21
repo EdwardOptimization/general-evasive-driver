@@ -1417,7 +1417,34 @@ CUDA, and the `autodrift.privileged_upper_bound` harness compares `m62_a250`
 against a privileged checkpoint under different env configs. See
 `docs/m67a-privileged-upper-bound-harness.md`.
 
-### M67-C: Counterfactual Response-Intervention Objective
+### M67-B: Full Privileged Teacher Upper-Bound Attempt
+
+- Run the full M67-A privileged teacher training schedule.
+- Sweep dense checkpoints on the M65 response-critical corpus.
+- Promote the teacher as a real upper-bound only if it beats `m62_a250` on
+  success or clearance margin.
+
+Status: complete as a negative upper-bound attempt. The final teacher has M65
+success `0.461538` and mean margin `0.191716`; the best swept checkpoint
+`m67a_232` reaches success `0.500000` and mean margin `0.213538`. Both are below
+`m62_a250` at success `0.615385` and mean margin `0.304161`. The likely blocker
+is teacher optimization, not a proof that hidden dynamics is useless: the
+from-scratch `online_gru` teacher never reaches M62's retained driving behavior.
+See `docs/m67b-full-privileged-upper-bound-training.md`.
+
+### M67-C: Warm-Started Privileged Teacher
+
+- Build a privileged teacher architecture that preserves M62's human-view
+  response/context split for the first 72 deployable inputs and appends the
+  full hidden dynamics packet as teacher-only context.
+- Warm-start or anchor the teacher from `m62_a250` where tensor shapes permit.
+- Re-run the M65 upper-bound comparison before any deployable student OSI
+  objective.
+
+Status: planned. This replaces direct student counterfactual training as the
+next task because M67-B did not produce a credible oracle upper bound.
+
+### M67-D: Counterfactual Response-Intervention Objective
 
 - Stop treating seed replay alone as sufficient for self-identification.
 - Add or prototype an objective that compares normal recurrent rollout against
@@ -1437,8 +1464,8 @@ Exit criteria:
 - paired self-identification must improve against M62_a250 without hidden
   actor inputs.
 
-Status: planned after M67-A proves that hidden dynamics information creates a
-real upper-bound gap on response-critical seeds.
+Status: deferred until a warm-start privileged teacher proves that hidden
+dynamics information creates a real upper-bound gap on response-critical seeds.
 
 ## Metrics
 

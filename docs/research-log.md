@@ -14,9 +14,9 @@ Last updated: 2026-05-21
 - blocker: `m62_a250` is stronger than M37_102 on the current strict
   margin-retention evidence and does not regress the M37 hidden-swap diagnostic,
   but M63/M64/M66 still do not prove recurrent self-identification. Removing or
-  resetting response history does not reliably weaken the policy, so M67-A is
-  now checking whether a privileged teacher has an upper-bound advantage before
-  training another student objective.
+  resetting response history does not reliably weaken the policy. M67-B's
+  from-scratch privileged teacher also failed to beat M62, so the next blocker
+  is building a credible warm-started privileged teacher before student OSI.
 
 ## Standing Loop
 
@@ -2626,3 +2626,43 @@ from `configs/ppo_m67a_privileged_upper_bound_teacher.json`, then an M65 corpus
 upper-bound comparison against `m62_a250`. If the trained teacher does not
 improve response-critical margin or success, re-mine a matched action-divergent
 corpus before building the deployable OSI/student objective.
+
+## 20260521T111500Z m67b-full-privileged-upper-bound-training
+
+- status: `completed`
+- kind: `training`
+- hypothesis: A full privileged teacher with hidden dynamics should create an
+  upper-bound gap over `m62_a250` on the M65 response-critical corpus.
+- training command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m67a_privileged_upper_bound_teacher.json --seed 3067 --device cuda --run-dir runs/ppo_m67a_privileged_upper_bound_teacher_seed3067`
+- final upper-bound command: `conda run -n autodrift python -m autodrift.privileged_upper_bound --baseline-env-config configs/ppo_m24_human_view_gru_driver.json --candidate-env-config configs/ppo_m67a_privileged_upper_bound_teacher.json --baseline-checkpoint-policy m62_a250=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --candidate-checkpoint-policy m67a_teacher=runs/ppo_m67a_privileged_upper_bound_teacher_seed3067/checkpoint.pt --seed-csv runs/m65_response_necessity_corpus_seed3600/scenario_corpus.csv --seed 3600 --device cpu --run-dir runs/m67a_privileged_upper_bound_m65_seed3600`
+- checkpoint sweep command: `conda run -n autodrift python -m autodrift.benchmark --env-config configs/ppo_m67a_privileged_upper_bound_teacher.json --seed-csv runs/m65_response_necessity_corpus_seed3600/scenario_corpus.csv --checkpoint-policy m67a_008=... --checkpoint-policy m67a_256=... --policies heuristic --device cpu --run-dir runs/m67a_privileged_teacher_checkpoint_sweep_m65_seed3600`
+- best upper-bound command: `conda run -n autodrift python -m autodrift.privileged_upper_bound --baseline-env-config configs/ppo_m24_human_view_gru_driver.json --candidate-env-config configs/ppo_m67a_privileged_upper_bound_teacher.json --baseline-checkpoint-policy m62_a250=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --candidate-checkpoint-policy m67a_232=runs/ppo_m67a_privileged_upper_bound_teacher_seed3067/checkpoints/checkpoint_step_237568.pt --seed-csv runs/m65_response_necessity_corpus_seed3600/scenario_corpus.csv --seed 3600 --device cpu --run-dir runs/m67a_privileged_upper_bound_best_m65_seed3600`
+- returncode: `0`
+- run dirs: `runs/ppo_m67a_privileged_upper_bound_teacher_seed3067`,
+  `runs/m67a_privileged_upper_bound_m65_seed3600`,
+  `runs/m67a_privileged_teacher_checkpoint_sweep_m65_seed3600`,
+  `runs/m67a_privileged_upper_bound_best_m65_seed3600`
+- success artifact:
+  `runs/m67a_privileged_upper_bound_best_m65_seed3600/summary.json`
+
+Result:
+
+- final teacher eval return mean: `71.909091`;
+- final teacher eval termination rate: `0.100000`;
+- final teacher M65 success: `0.461538` versus M62 `0.615385`;
+- final teacher M65 mean margin: `0.191716` versus M62 `0.304161`;
+- best swept checkpoint: `m67a_232` at
+  `runs/ppo_m67a_privileged_upper_bound_teacher_seed3067/checkpoints/checkpoint_step_237568.pt`;
+- `m67a_232` M65 success: `0.500000`;
+- `m67a_232` M65 mean margin: `0.213538`;
+- `m67a_232` margin improved on 6 seeds and regressed on 20 seeds;
+- best swept checkpoint still has success delta `-0.115385` and mean margin
+  delta `-0.090623` versus `m62_a250`.
+
+Conclusion: M67-B is negative. A from-scratch privileged `online_gru` teacher
+does not produce a credible oracle upper bound over M62. This does not falsify
+self-identification value because the teacher never reaches the retained M62
+driving behavior. M67-C should build a warm-started or anchored privileged
+teacher that preserves the 72-value M62 human-view response/context structure
+and appends hidden dynamics as teacher-only context before returning to
+student OSI or counterfactual intervention objectives.
