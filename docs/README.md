@@ -120,6 +120,8 @@ vehicle/tire models, and NMPC-style constrained control.
   nominal/perturbed observations and recurrent hidden states.
 - `m46-paired-hidden-action-contrast-objective.md`: same-checkpoint
   paired-hidden action contrast objective using the M45 snapshot NPZ.
+- `m47-seed-delta-audit.md`: seed-level M46 win/loss audit and next
+  continuation-evidence direction.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

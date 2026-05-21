@@ -1834,3 +1834,37 @@ corpus slightly, but it fails the broad aggregate gate and does not create
 hidden-swap outcome sensitivity. Current best remains M37_102. The next step
 should audit seed-level M46 wins/losses and use on-policy or continuation-level
 evidence instead of fixed old hidden vectors.
+
+## 20260521 m47-seed-delta-audit
+
+- status: `completed`
+- kind: `probe`
+- hypothesis: M46's M38 gain and broad regression should be localized to
+  concrete scenario seeds before another training objective is designed
+- M38 command: `conda run -n autodrift python -m autodrift.seed_delta_audit --episodes-csv runs/m46_m38_corpus_checkpoint_sweep_seed4300/episodes.csv --baseline-policy m37_102 --candidate-policy m46_077 --candidate-policy m46_200 --run-dir runs/m47_m46_m38_seed_delta_audit_seed4300`
+- broad command: `conda run -n autodrift python -m autodrift.seed_delta_audit --episodes-csv runs/m46_broad_checkpoint_sweep_seed3000/episodes.csv --baseline-policy m37_102 --candidate-policy m46_077 --candidate-policy m46_200 --run-dir runs/m47_m46_broad_seed_delta_audit_seed3000`
+- M38 artifacts:
+  `runs/m47_m46_m38_seed_delta_audit_seed4300/seed_deltas.csv`;
+- broad artifacts:
+  `runs/m47_m46_broad_seed_delta_audit_seed3000/seed_deltas.csv`.
+
+Result:
+
+- M38: M46_077 and M46_200 each improve exactly one seed and regress zero;
+- the improved seed is 4327, an `unavoidable` case with current `mu = 1.137`,
+  initial `mu = 0.658`, nominal mass, front cg, weak brakes, weak tire
+  stiffness, and slow steering;
+- on seed 4327, M37_102 collides with return 0.441 while M46_077 and M46_200
+  complete with returns 54.718 and 54.033;
+- broad: M46_077 and M46_200 each regress exactly one seed and improve zero;
+- the regressed seed is 3037, an `unavoidable` case with current `mu = 0.340`,
+  initial `mu = 0.324`, nominal mass, nominal cg, strong brakes, nominal tire
+  stiffness, and slow steering;
+- on seed 3037, M37_102 completes with return 91.586 while M46_077 and M46_200
+  collide with returns 36.802 and 35.844.
+
+Conclusion: M46's small gain is not a general recurrent self-identification
+improvement. It trades a high-friction weak-actuator unavoidable win for a
+low-friction unavoidable regression. M48 should mine continuation snippets
+around these changed seeds and design the next objective from closed-loop
+trajectory evidence rather than static offline hidden vectors.

@@ -916,8 +916,32 @@ Exit criteria:
   outcome-change counts;
 - current-best status changes only if M37_102 aggregate gates are preserved.
 
-Status: planned. The next step should audit M46 seed-level wins/losses and
-design an on-policy or continuation-level objective before another long train.
+Status: complete as diagnostic infrastructure. M47 adds
+`autodrift.seed_delta_audit` and uses it to locate M46's one M38 win and one
+broad regression. M46 improves seed 4327, a high-friction unavoidable case with
+weak brakes, weak tires, front cg, and slow steering. It regresses seed 3037, a
+low-friction unavoidable case with strong brakes, nominal tires, nominal cg, and
+slow steering. See `docs/m47-seed-delta-audit.md`.
+
+### M48: Continuation-Level Critical Snippets
+
+- Mine short closed-loop snippets around the M47 changed seeds and nearby
+  matched cases.
+- Compare action and outcome trajectories for M37_102, M42_028, M46_077, and
+  M46_200 under the same deployed observation contract.
+- Convert the evidence into a training or checkpoint-selection objective that
+  protects low-friction unavoidable completion while keeping the high-friction
+  weak-actuator improvement.
+
+Exit criteria:
+
+- snippet harness writes per-step observations, actions, rewards, terminal
+  reason, and clearance around the obstacle;
+- analysis explains the causal difference between seed 4327 and seed 3037;
+- next training config or gate is based on continuation evidence, not static
+  hidden-vector separation alone.
+
+Status: planned.
 
 ## Metrics
 
