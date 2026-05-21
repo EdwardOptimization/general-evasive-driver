@@ -722,7 +722,27 @@ Exit criteria:
 - progress requires stronger unfavorable reset/zero-response or hidden-swap
   sensitivity without aggregate regression.
 
-Status: queued. See `docs/m39-m37-response-corpus-training.md`.
+Status: complete as a negative result. M39_028 and M39_053 slightly improve
+the M38 corpus success to 0.6375 versus 0.6250 for M37_102, but they do not
+improve M35, M29, or broad success. More importantly, reset/zero-response
+outcome changes weaken from 2 / 80 for M37_102 to 1 / 80 for M39_028 and
+M39_053, while hidden-swap remains zero. See
+`docs/m39-m37-response-corpus-training.md`.
+
+### M40: Response-Aux Diagnostics
+
+- Add response auxiliary loss logging to PPO train metrics.
+- Add an offline response-prediction evaluator for checkpoints.
+- Compare M34, M37_102, and M39 candidates on response-change cases.
+- Report prediction loss by future horizon step.
+
+Exit criteria:
+
+- tests cover logged metrics and target/loss shape;
+- evaluator writes machine-readable summaries;
+- docs use diagnostics to decide the next architecture direction.
+
+Status: planned. See `docs/m40-response-aux-diagnostics-plan.md`.
 
 ## Metrics
 

@@ -106,6 +106,8 @@ vehicle/tire models, and NMPC-style constrained control.
   response-critical corpus.
 - `m39-m37-response-corpus-training.md`: planned M39 continuation from M37_102
   on the M38 corpus.
+- `m40-response-aux-diagnostics-plan.md`: planned response auxiliary loss
+  logging and offline evaluator after M39 weakened the ablation signal.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

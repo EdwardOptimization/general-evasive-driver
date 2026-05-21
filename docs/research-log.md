@@ -1506,3 +1506,44 @@ Result:
 Conclusion: M38 is a better response-critical corpus than M35, but still not a
 hidden-swap pass. M39 should continue from M37_102 on this corpus with the
 multi-step response objective.
+
+## 20260521T050730Z m39-m37-response-corpus-training
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Continue M37_102 on the M38 response-critical corpus with multi-step auxiliary loss
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m39_m37_response_corpus_driver.json --seed 1739 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m39_m37_response_corpus_seed1739`
+- returncode: `0`
+- run dir: `runs/research/m39-m37-response-corpus-training_20260521T045647Z`
+- command log: `runs/research/m39-m37-response-corpus-training_20260521T045647Z/command.log`
+- success artifact: `runs/ppo_m39_m37_response_corpus_seed1739/checkpoint.pt`
+
+Result:
+
+- final eval return mean: 69.884;
+- final eval termination rate: 0.100;
+- best M38 corpus success: M39_028/M39_053 at 0.6375 versus M37_102 at 0.6250;
+- M35 corpus success: M39_028/M39_053 0.6500, same as M37_102;
+- M29 success: M39_028/M39_053 0.875, same as M37_102;
+- broad success: M39_028/M39_053 0.825, same as M37_102;
+- hidden-swap outcome changes: 0 for M39_028 and M39_053;
+- perturbed reset and zero-response outcome changes: 1 each for M39_028 and
+  M39_053, all unfavorable.
+
+Conclusion: M39 is not progress on the core driver gate. It slightly improves
+the mined M38 corpus but weakens the M37_102 response-critical ablation signal.
+The next step should instrument the response auxiliary objective directly:
+M40 should log train-time aux loss and add an offline multi-step response
+prediction evaluator before another training change.
+
+## 20260521T050730Z m39-m37-response-corpus-training
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Continue M37_102 on the M38 response-critical corpus with multi-step auxiliary loss
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m39_m37_response_corpus_driver.json --seed 1739 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m39_m37_response_corpus_seed1739`
+- returncode: `0`
+- run dir: `runs/research/m39-m37-response-corpus-training_20260521T045647Z`
+- command log: `runs/research/m39-m37-response-corpus-training_20260521T045647Z/command.log`
+- success artifact: `runs/ppo_m39_m37_response_corpus_seed1739/checkpoint.pt`
+- notes: Test whether M37 reset zero-response sensitivity can be strengthened without broad regression
