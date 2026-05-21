@@ -2518,3 +2518,37 @@ margin-retention checkpoint, but the ideal-driver blocker is unchanged:
 closed-loop response history is not yet behavior-critical. M65 should target
 response-history necessity directly with a corpus or training objective rather
 than another aggregate-success continuation.
+
+## 20260521T093805Z m65-response-necessity-corpus
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: M64's paired perturbation episodes can be mined into a focused
+  seed corpus for making deployable response history behavior-critical without
+  adding oracle actor inputs.
+- corpus command: `conda run -n autodrift python -m autodrift.response_necessity_corpus --episodes-csv runs/m64_m62_paired_perturbation_gate_seed3600/episodes.csv --baseline-policy m62_a250 --ablation-policy m62_a250_reset --ablation-policy m62_a250_zero_current --ablation-policy m62_a250_zero_all --ablation-policy m62_a250_noact --top-k 40 --repeat 4 --near-margin 0.05 --margin-scale 0.25 --run-dir runs/m65_response_necessity_corpus_seed3600`
+- smoke command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m65_response_necessity_driver.json --total-steps 4096 --rollout-steps 64 --num-envs 4 --vector-env-mode sync --seed 2965 --device cuda --init-checkpoint runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --run-dir runs/ppo_m65_response_necessity_smoke_seed2965`
+- returncode: `0`
+- run dirs: `runs/m65_response_necessity_corpus_seed3600`,
+  `runs/ppo_m65_response_necessity_smoke_seed2965`
+- success artifacts:
+  `runs/m65_response_necessity_corpus_seed3600/seed_sequence.csv`,
+  `runs/ppo_m65_response_necessity_smoke_seed2965/checkpoint.pt`
+
+Result:
+
+- M65 corpus scored 80 paired seeds;
+- selected critical seeds: 26;
+- perturbation regressions: 22;
+- low perturbed-margin seeds: 26;
+- PPO training seed sequence rows after repeat: 104;
+- maximum response-necessity score: `29.261055`;
+- smoke eval return mean: `70.448440`;
+- smoke eval termination rate: `0.100000`;
+- final response prediction loss mean: `0.049053`;
+- final baseline-action anchor loss mean: `0.000130`.
+
+Conclusion: M65 creates a reusable corpus and validates the continuation path,
+but it is not a promotion. The next step is M66 full continuation from
+M62_a250, followed by unchanged margin-retention gates and the M64 paired
+self-identification gate.

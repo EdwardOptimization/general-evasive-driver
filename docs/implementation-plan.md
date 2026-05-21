@@ -1360,6 +1360,29 @@ Exit criteria:
 - promotion requires both no aggregate regression and stronger degradation
   under response/history ablations.
 
+Status: complete as infrastructure plus smoke validation. M65 adds
+`response_necessity_corpus.py`, a CLI entry point, tests, and
+`configs/ppo_m65_response_necessity_driver.json`. The real M64 paired episodes
+produce 26 critical seeds and 104 repeated training-seed rows. A 4096-step
+smoke continuation from M62_a250 succeeds and logs both response-prediction and
+baseline-action-anchor losses. See `docs/m65-response-necessity-corpus.md`.
+
+### M66: Full Response-Necessity Continuation
+
+- Run the M65 continuation config at full length from M62_a250.
+- Sweep dense checkpoints through the same M38/broad/fresh margin-retention
+  gates used for M62.
+- Rerun the M63 broader-driver audit and M64 paired self-identification gate on
+  any candidate that keeps aggregate success and margin retention.
+
+Exit criteria:
+
+- full training artifact exists and checkpoints are evaluated reproducibly;
+- no candidate is promoted unless it keeps strict margin retention;
+- self-identification evidence must improve versus both M37_102 and M62_a250;
+- if no checkpoint improves the M64 ablation signal, record a negative result
+  and redesign the training objective rather than increasing replay alone.
+
 Status: planned.
 
 ## Metrics

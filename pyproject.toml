@@ -41,6 +41,7 @@ autodrift-margin-critical-corpus = "autodrift.margin_critical_corpus:main"
 autodrift-margin-retention-gate = "autodrift.margin_retention_gate:main"
 autodrift-training-seed-corpus = "autodrift.training_seed_corpus:main"
 autodrift-checkpoint-interpolation = "autodrift.checkpoint_interpolation:main"
+autodrift-response-necessity-corpus = "autodrift.response_necessity_corpus:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
