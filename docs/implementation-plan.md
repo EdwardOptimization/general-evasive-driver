@@ -138,7 +138,19 @@ probing window under hidden dynamics A or B
 
 The self-identification gate passes only if the learned hidden or recurrent
 state changes actions or outcomes in a way that is beneficial for the matching
-hidden dynamics. This is the M27+ validation direction.
+hidden dynamics. This is the M28+ validation direction.
+
+Important interpretation boundary:
+
+- If train and test dynamics are fixed, a reset/no-reset comparison cannot prove
+  friction or vehicle-response adaptation.
+- If current ego response plus previous physical commands are sufficient for a
+  local correction, reset and normal inference can match while the policy still
+  uses closed-loop feedback.
+- A professional-driver claim needs evidence that the policy maps its own
+  actions and sensed vehicle response into better future control. That evidence
+  can be one-step current-feedback dependence, recurrent hidden-state
+  dependence, or both, but the docs must label which form was actually shown.
 
 ## Complete Project Deliverables
 
@@ -404,7 +416,7 @@ clean-contract retrain followed by behavior-level proof of closed-loop
 self-identification. See
 `docs/m8-rl-professional-driver.md`.
 
-### M24-M27: Human-View Professional Driver Branch
+### M24-M28: Human-View Professional Driver Branch
 
 - Replace path-tracking and precomputed obstacle features with ego-frame
   human-view perception.
@@ -413,6 +425,9 @@ self-identification. See
 - Use checkpoint sweeps to select the best human-view driver by benchmark
   success, not final checkpoint by default.
 - Build a new hard response-dependence gate for the human-view branch.
+- Implement a matched-current-observation hidden-swap gate so recurrent
+  self-identification is tested directly instead of inferred from aggregate
+  success.
 
 Exit criteria:
 
@@ -424,16 +439,46 @@ Exit criteria:
 - matched-current-observation or hidden-swap gates show whether adaptation
   depends on accumulated recurrent state.
 
-Status: M24-M26 are complete as infrastructure and first full training. M26_602
-is the current best human-view checkpoint by success, reaching 0.800 success
-against envelope AES at 0.675 on the 40-episode same-seed obstacle benchmark.
-It is not a self-identification pass: hidden reset does not reduce success, and
-response masking only drops success to 0.775. The next task is M27, a
-human-view hard response gate that must separate "can drive" from "can adapt"
-and "requires recurrent hidden self-identification." See
+Status: M24-M27 are complete as infrastructure, first full training, and first
+paired perturbation gate. M26_602 is the current best human-view checkpoint by
+success, reaching 0.800 success against envelope AES at 0.675 on the 40-episode
+same-seed obstacle benchmark. M27 confirms the low-friction perturbation is hard
+in aggregate, but it is not a self-identification pass: hidden reset matches
+normal perturbed success, and response masking only lowers perturbed success by
+0.025. M28 is the next task: implement and run a matched-current-observation
+hidden-swap gate that separates "can drive," "can adapt from current feedback,"
+and "requires accumulated recurrent hidden self-identification." See
 `docs/m24-human-view-driver-contract.md`,
-`docs/m26-human-view-gru-results.md`, and
-`docs/m27-human-view-self-identification-gate.md`.
+`docs/m26-human-view-gru-results.md`,
+`docs/m27-human-view-self-identification-gate.md`, and
+`docs/m28-hidden-swap-gate.md`.
+
+### M28: Matched Hidden-Swap Self-Identification Gate
+
+- Collect paired rollouts under different hidden dynamics, such as normal
+  friction versus low friction or fast versus slow actuator response.
+- Snapshot the environment, visible observation, and GRU hidden state near an
+  obstacle decision point after a probing window.
+- Pair snapshots only when visible observations are close enough; otherwise
+  record the mismatch and treat the result as diagnostic rather than proof.
+- Replay continuations with normal hidden state, reset hidden state,
+  zero-response observation, and hidden state swapped from the paired dynamics.
+- Report first-action distance, continuation return, success, collision,
+  off-road, spin-out, and visible-observation match distance.
+
+Exit criteria:
+
+- the harness writes reproducible `pairs.csv`, `replays.csv`, `summary.csv`,
+  and `manifest.json` artifacts;
+- matched cases are tight enough to support a self-identification claim;
+- normal hidden state improves actions or outcomes relative to reset or swapped
+  hidden state on the matching hidden dynamics;
+- if the gate fails, the failure mode is recorded and used to choose the next
+  training change instead of being treated as a vague negative result.
+
+Status: planned. The current M27 paired baseline is insufficient because it does
+not force matched visible decision points and does not perform hidden-state
+swaps.
 
 ## Metrics
 

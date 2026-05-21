@@ -14,11 +14,17 @@ ego response and previous physical commands, so many scenes can be solved as a
 nearly Markov control problem. Resetting hidden state is only a test of whether
 long-horizon GRU memory is necessary for the current gate.
 
-M27 must build a gate that distinguishes:
+M27 and the follow-up M28 gate must distinguish:
 
 - the policy can drive well;
 - the policy can adapt to different hidden dynamics;
 - the policy needs accumulated recurrent state for that adaptation.
+
+This distinction matters because reset/no-reset is not a universal adaptation
+test. If train and test do not vary hidden dynamics, or if the current
+human-view response stream is already sufficient for local correction, reset can
+match normal inference. That does not prove the policy is blind to feedback. It
+only says the current gate did not require long-horizon recurrent memory.
 
 ## Current Best Candidate
 
@@ -62,7 +68,7 @@ is interesting but not sufficient.
 
 ## First Runnable Gate
 
-The current queued M27 task is a weaker paired perturbation baseline:
+The first M27 task was a weaker paired perturbation baseline:
 
 ```bash
 conda run -n autodrift python -m autodrift.paired_perturbation_gate \
@@ -98,12 +104,13 @@ state gate:
 - report action distance, success difference, return difference, and whether
   the swapped hidden state hurts the matching dynamics.
 
-This harness should become the main M27 proof route if the current paired gate
-does not expose hidden-state dependence.
+This harness is now the M28 proof route because the M27 paired baseline did not
+expose hidden-state dependence.
 
 ## Pass Criteria
 
-M27 should not be marked as a self-identification pass unless all are true:
+The human-view branch should not be marked as a self-identification pass unless
+all are true:
 
 - normal M26-family policy remains above the envelope AES baseline on the
   selected hard corpus;
@@ -113,7 +120,7 @@ M27 should not be marked as a self-identification pass unless all are true:
 - the same evidence is recorded in docs with commands, run dirs, and tables.
 
 If these criteria fail, record the failure and use the matched cases to design
-M28 training or architecture changes.
+the next training or architecture changes.
 
 ## Paired Baseline Result
 
@@ -149,3 +156,24 @@ zero-response variants are only slightly lower.
 
 The result confirms the need for the required harness upgrade above:
 matched-current-observation and hidden-swap tests are the next evidence path.
+
+## M28 Follow-Up
+
+M28 should implement the hidden-swap gate described above as a runnable CLI. The
+minimum artifact contract is:
+
+- `pairs.csv`: source condition, paired condition, seed, snapshot step,
+  obstacle distance, and visible-observation distance;
+- `replays.csv`: per-pair continuation results for normal, reset,
+  zero-response, and hidden-swap variants;
+- `summary.csv`: success, return, collision, off-road, spin-out, and
+  first-action distance grouped by source condition and variant;
+- `manifest.json`: config, checkpoint, command, seed, and artifact metadata.
+
+The M28 result should be interpreted in three separate buckets:
+
+- matched-current cases where hidden swap or reset hurts outcome: evidence for
+  recurrent self-identification;
+- matched-current cases where zero-response hurts but reset does not: evidence
+  for current-feedback adaptation without long-horizon memory;
+- unmatched or saturated cases: diagnostic only, not a proof.

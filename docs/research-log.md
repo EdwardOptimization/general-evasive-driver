@@ -981,3 +981,21 @@ normal recurrent hidden state is necessary. Reset hidden matches normal
 perturbed success, and response masking only lowers perturbed success by 0.025.
 The next step should implement the matched-current-observation hidden-swap gate
 described in `docs/m27-human-view-self-identification-gate.md`.
+
+## 20260521 m28-hidden-swap-gate-plan
+
+- status: `planned`
+- kind: `gate`
+- hypothesis: Matched-current-observation hidden-swap continuations can separate current-feedback adaptation from accumulated recurrent self-identification
+- planned command: `conda run -n autodrift python -m autodrift.hidden_swap_gate --env-config configs/ppo_m24_human_view_gru_driver.json --checkpoint runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt --episodes 80 --seed 4200 --device cpu --run-dir runs/m28_hidden_swap_gate_seed4200`
+- planned artifact: `runs/m28_hidden_swap_gate_seed4200/summary.csv`
+- notes: M27 is not a self-identification pass because reset matches normal perturbed success. M28 must snapshot matched visible decision points, replay normal/reset/zero-response/hidden-swap continuations, and report visible-observation distance so unmatched cases are treated as diagnostic only.
+
+Interpretation boundary:
+
+- reset/no-reset only tests long-horizon recurrent memory dependence;
+- zero-response tests current closed-loop feedback dependence;
+- hidden-swap on matched visible observations tests whether the accumulated
+  hidden state helps the matching hidden dynamics;
+- if training or testing has no meaningful hidden-dynamics variation, no gate
+  can prove friction or vehicle-response adaptation.
