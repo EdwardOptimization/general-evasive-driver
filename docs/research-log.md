@@ -3661,3 +3661,39 @@ Conclusion: M93 is negative for treating M62 hidden state as a stable
 future-envelope belief. The next no-wheel branch should test an objective-only
 or pretraining path that explicitly makes response hidden predict braking/yaw/
 lateral authority before returning to PPO.
+
+## 20260521T170652Z m94-hidden-envelope-objective-only
+
+- status: `completed`
+- kind: `objective_sanity`
+- hypothesis: after M93 rejected M62 hidden as an existing envelope belief, a
+  fixed-batch objective-only pass may make no-wheel response hidden predict
+  future braking, yaw, and lateral handling envelope better than same-frame
+  reset hidden before PPO.
+- code update: added `autodrift.hidden_envelope_optimize`, which freezes the
+  actor head, critic, context encoder, and `log_std`, then trains only
+  `response_encoder`, `online_gru_cell`, and a temporary envelope head.
+- focused tests: `tests/test_hidden_envelope_optimize.py`
+- diagnostic runs:
+  `runs/m94_hidden_envelope_objective_seed9430`,
+  `runs/m94_hidden_envelope_objective_seed9431`,
+  `runs/m94_hidden_envelope_objective_seed9432`
+- artifact: `docs/m94-hidden-envelope-objective-only.md`
+
+Result:
+
+- seed `9430`: braking/lateral/yaw R2 lift deltas
+  `+0.181666`, `+0.103870`, `+0.089349`;
+- seed `9431`: braking/lateral/yaw R2 lift deltas
+  `-0.583329`, `+0.213520`, `+1.113093`;
+- seed `9432`: braking/lateral/yaw R2 lift deltas
+  `-0.590820`, `+1.482785`, `+0.757101`;
+- after optimization, 7/9 target-seed pairs have positive
+  `response_hidden - reset_response_hidden` R2 lift.
+
+Conclusion: M94 is a qualified positive objective-only result. The harness can
+move no-wheel response hidden toward future-envelope belief, especially yaw and
+lateral authority, but braking is unstable across seeds. Do not proceed
+directly to PPO continuation; first run a braking-aware or per-target balanced
+objective iteration and require stable braking plus yaw lift before behavior
+retention and wrong-history gates.

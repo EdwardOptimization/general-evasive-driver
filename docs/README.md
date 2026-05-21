@@ -256,6 +256,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m93-m62-hidden-envelope-probe.md`: checkpoint diagnostic showing M62's
   carried recurrent hidden does not yet beat reset hidden on braking/yaw
   future-envelope prediction.
+- `m94-hidden-envelope-objective-only.md`: objective-only no-wheel hidden
+  envelope sanity check; yaw and lateral hidden belief improve but braking is
+  not stable enough for PPO admission.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

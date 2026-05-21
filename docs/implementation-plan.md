@@ -1943,6 +1943,25 @@ The next objective should explicitly train no-wheel response hidden to predict
 future envelope targets before PPO continuation. See
 `docs/m93-m62-hidden-envelope-probe.md`.
 
+### M94: Hidden-Envelope Objective-Only Sanity
+
+- Keep the no-wheel human-view observation contract from M24/M62.
+- Load the M62 checkpoint and collect fixed rollout batches.
+- Freeze actor head, critic, context encoder, and `log_std`.
+- Train only `response_encoder`, `online_gru_cell`, and a temporary envelope
+  head to predict future braking, yaw, and lateral response.
+- Compare before/after `response_hidden` against same-frame
+  `reset_response_hidden` on held-out ridge probes.
+
+Status: complete as a qualified positive objective-only diagnostic. Yaw and
+lateral normal-vs-reset R2 lift improve across all three repeated seeds, and
+7/9 target-seed pairs are positive after optimization. Braking is unstable:
+only seed `9430` improves, while seeds `9431` and `9432` regress. The harness is
+useful, but this recipe is not yet PPO-admissible. Next objective iteration
+should weight or separate braking/yaw/lateral targets and require stable
+braking plus yaw lift before behavior continuation. See
+`docs/m94-hidden-envelope-objective-only.md`.
+
 ### M67-F: Counterfactual Response-Intervention Objective
 
 - Stop treating seed replay alone as sufficient for self-identification.

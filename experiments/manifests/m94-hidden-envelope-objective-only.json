@@ -1,0 +1,55 @@
+{
+  "baseline_checkpoints": [
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt",
+    "baseline_feature=reset_response_hidden",
+    "previous_decision=m93_reject_m62_hidden_envelope_belief"
+  ],
+  "commands": [
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_optimize --checkpoint runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9430 --horizon-steps 15 --sample-stride 3 --max-samples 800 --train-fraction 0.70 --ridge 0.1 --steps 200 --batch-size 256 --learning-rate 0.0003 --contrast-coef 0.5 --contrast-margin 0.02 --grad-clip-norm 1.0 --device cpu --run-dir runs/m94_hidden_envelope_objective_seed9430",
+      "name": "m94_seed9430_hidden_envelope_objective"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_optimize --checkpoint runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9431 --horizon-steps 15 --sample-stride 3 --max-samples 800 --train-fraction 0.70 --ridge 0.1 --steps 200 --batch-size 256 --learning-rate 0.0003 --contrast-coef 0.5 --contrast-margin 0.02 --grad-clip-norm 1.0 --device cpu --run-dir runs/m94_hidden_envelope_objective_seed9431",
+      "name": "m94_seed9431_hidden_envelope_objective"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_optimize --checkpoint runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9432 --horizon-steps 15 --sample-stride 3 --max-samples 800 --train-fraction 0.70 --ridge 0.1 --steps 200 --batch-size 256 --learning-rate 0.0003 --contrast-coef 0.5 --contrast-margin 0.02 --grad-clip-norm 1.0 --device cpu --run-dir runs/m94_hidden_envelope_objective_seed9432",
+      "name": "m94_seed9432_hidden_envelope_objective"
+    }
+  ],
+  "decision_rule": "Treat the objective-only hidden-envelope recipe as PPO-admissible only if response_hidden beats reset_response_hidden after optimization on braking and yaw across repeated seeds without sacrificing lateral response.",
+  "failure_criteria": [
+    "the objective trains actor head or context encoder instead of only response encoder GRU and envelope head",
+    "normal hidden is not compared against same-frame reset hidden",
+    "braking or yaw normal-vs-reset lift is unstable across repeated seeds",
+    "objective-only checkpoint is promoted directly as a driver candidate without retention and intervention gates"
+  ],
+  "hypothesis": "After M93 rejected M62 hidden as an existing envelope belief, a fixed-batch objective-only pass may make no-wheel response hidden predict future braking yaw and lateral handling envelope better than same-frame reset hidden before PPO.",
+  "id": "m94-hidden-envelope-objective-only",
+  "required_artifacts": [
+    {
+      "path": "docs/m94-hidden-envelope-objective-only.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m94_hidden_envelope_objective_seed9430/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m94_hidden_envelope_objective_seed9431/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m94_hidden_envelope_objective_seed9432/summary.json",
+      "type": "summary"
+    }
+  ],
+  "success_criteria": [
+    "objective-only optimizer freezes actor head critic context encoder and log_std",
+    "before and after ridge probes compare response_hidden against reset_response_hidden",
+    "at least three independent seeds use the same fixed hyperparameters",
+    "decision states whether the result is admissible for PPO continuation"
+  ],
+  "type": "objective_sanity"
+}
