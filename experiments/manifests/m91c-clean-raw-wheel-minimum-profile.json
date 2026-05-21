@@ -1,0 +1,46 @@
+{
+  "baseline_checkpoints": [
+    "no_checkpoint_policy=heuristic",
+    "previous_profile=m91b_current_85_proxy"
+  ],
+  "commands": [
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.input_observability_audit --env-config configs/m91c_raw_wheel_minimum_profile.json --episodes 20 --seed 9320 --policy heuristic --horizon-steps 15 --sample-stride 4 --max-samples 400 --ridge 0.1 --run-dir runs/m91c_raw_wheel_minimum_profile_smoke_seed9320",
+      "name": "raw_wheel_profile_smoke"
+    }
+  ],
+  "decision_rule": "Pass as infrastructure only if the environment exposes a clean raw wheel-state profile separate from derived slip/ABS/TCS proxies and the smoke probe writes artifacts. Scientific promotion requires a later formal rerun.",
+  "failure_criteria": [
+    "raw wheel profile cannot be enabled by config",
+    "raw wheel channels are aliases for mu, tire force limits, or feasibility labels",
+    "raw wheel profile cannot run the input observability harness",
+    "observation-contract documentation is not updated"
+  ],
+  "hypothesis": "The weak M91-B lift is partly caused by the current proxy wheel features; a cleaner raw wheel-state profile is needed before judging wheel observability or training PPO.",
+  "id": "m91c-clean-raw-wheel-minimum-profile",
+  "required_artifacts": [
+    {
+      "path": "configs/m91c_raw_wheel_minimum_profile.json",
+      "type": "config"
+    },
+    {
+      "path": "runs/m91c_raw_wheel_minimum_profile_smoke_seed9320/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m91c_raw_wheel_minimum_profile_smoke_seed9320/profile_gain_summary.csv",
+      "type": "profile_gain_summary"
+    },
+    {
+      "path": "docs/m91c-clean-raw-wheel-minimum-profile.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "raw wheel profile is config-gated and does not change legacy defaults",
+    "derived slip and ABS/TCS proxy features are not part of the clean profile",
+    "input observability harness runs on the clean profile",
+    "documentation states that M91-C is infrastructure, not a promoted driver"
+  ],
+  "type": "infrastructure"
+}
