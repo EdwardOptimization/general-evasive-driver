@@ -5,6 +5,7 @@ import torch
 from autodrift.env import DriftEnvConfig
 from autodrift.hidden_swap_gate import (
     _is_snapshot_candidate,
+    action_trajectory_distances,
     build_pair_row,
     hidden_state_distance,
     observation_distances,
@@ -51,6 +52,25 @@ def test_hidden_state_distance_reports_l2_distance():
     paired = torch.tensor([[0.0, 3.0, 4.0, 0.0]])
 
     assert hidden_state_distance(source, paired) == 5.0
+
+
+def test_action_trajectory_distances_compare_common_prefix():
+    actions = [
+        np.array([1.0, 0.0, 0.0], dtype=np.float32),
+        np.array([0.0, 2.0, 0.0], dtype=np.float32),
+        np.array([0.0, 0.0, 3.0], dtype=np.float32),
+    ]
+    reference = [
+        np.array([0.0, 0.0, 0.0], dtype=np.float32),
+        np.array([0.0, 0.0, 0.0], dtype=np.float32),
+    ]
+
+    distances = action_trajectory_distances(actions, reference)
+
+    assert distances["action_trajectory_compare_steps"] == 2
+    assert np.isclose(distances["action_trajectory_distance_mean"], 1.5)
+    assert np.isclose(distances["action_trajectory_distance_rms"], np.sqrt(2.5))
+    assert distances["action_trajectory_distance_max"] == 2.0
 
 
 def test_snapshot_candidate_waits_for_hidden_updates_after_friction():
@@ -113,6 +133,10 @@ def test_summarize_replays_groups_by_condition_variant_and_match_flag():
                 "spin_out": False,
                 "obstacle_completed": True,
                 "first_action_distance": 0.0,
+                "action_trajectory_distance_mean": 0.0,
+                "action_trajectory_distance_rms": 0.0,
+                "action_trajectory_distance_max": 0.0,
+                "action_trajectory_compare_steps": 10,
                 "observation_distance": 0.1,
                 "response_observation_distance": 0.05,
                 "context_observation_distance": 0.09,
@@ -131,6 +155,10 @@ def test_summarize_replays_groups_by_condition_variant_and_match_flag():
                 "spin_out": False,
                 "obstacle_completed": False,
                 "first_action_distance": 0.0,
+                "action_trajectory_distance_mean": 0.2,
+                "action_trajectory_distance_rms": 0.3,
+                "action_trajectory_distance_max": 0.4,
+                "action_trajectory_compare_steps": 5,
                 "observation_distance": 0.3,
                 "response_observation_distance": 0.10,
                 "context_observation_distance": 0.28,
@@ -146,3 +174,7 @@ def test_summarize_replays_groups_by_condition_variant_and_match_flag():
     assert summary.loc[0, "collision_rate"] == 0.5
     assert summary.loc[0, "return_mean"] == 1.0
     assert np.isclose(summary.loc[0, "hidden_state_distance_mean"], 0.3)
+    assert np.isclose(summary.loc[0, "action_trajectory_distance_mean"], 0.1)
+    assert np.isclose(summary.loc[0, "action_trajectory_distance_rms_mean"], 0.15)
+    assert np.isclose(summary.loc[0, "action_trajectory_distance_max_mean"], 0.2)
+    assert np.isclose(summary.loc[0, "action_trajectory_compare_steps_mean"], 7.5)

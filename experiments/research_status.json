@@ -1,19 +1,19 @@
 {
   "counts": {
     "blocked": 0,
-    "completed": 39,
+    "completed": 40,
     "failed": 0,
     "pending": 0,
-    "planned": 1,
+    "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m42-hidden-contrast-objective_20260521T052240Z/command.log",
+    "command_log": null,
     "returncode": 0,
-    "run_dir": "runs/research/m42-hidden-contrast-objective_20260521T052240Z",
+    "run_dir": "runs/m43_m42_028_action_trajectory_gate_seed4200",
     "status": "completed",
-    "task_id": "m42-hidden-contrast-objective"
+    "task_id": "m43-action-trajectory-intervention-diagnostics"
   },
   "next_task": null,
-  "updated_at_utc": "20260521T054843Z"
+  "updated_at_utc": "20260521T055241Z"
 }

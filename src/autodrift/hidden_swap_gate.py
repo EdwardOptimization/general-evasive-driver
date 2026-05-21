@@ -97,6 +97,45 @@ def hidden_state_distance(source_hidden: torch.Tensor | None, paired_hidden: tor
     return float(np.linalg.norm(source - paired))
 
 
+def action_trajectory_distances(
+    actions: list[np.ndarray],
+    reference_actions: list[np.ndarray] | None,
+) -> dict[str, float | int]:
+    if reference_actions is None:
+        return {
+            "action_trajectory_distance_mean": float("nan"),
+            "action_trajectory_distance_rms": float("nan"),
+            "action_trajectory_distance_max": float("nan"),
+            "action_trajectory_compare_steps": 0,
+        }
+    common_steps = min(len(actions), len(reference_actions))
+    if common_steps == 0:
+        return {
+            "action_trajectory_distance_mean": float("nan"),
+            "action_trajectory_distance_rms": float("nan"),
+            "action_trajectory_distance_max": float("nan"),
+            "action_trajectory_compare_steps": 0,
+        }
+    action_array = np.asarray(actions[:common_steps], dtype=np.float32)
+    reference_array = np.asarray(reference_actions[:common_steps], dtype=np.float32)
+    distances = np.linalg.norm(action_array - reference_array, axis=1)
+    return {
+        "action_trajectory_distance_mean": float(np.mean(distances)),
+        "action_trajectory_distance_rms": float(np.sqrt(np.mean(np.square(distances)))),
+        "action_trajectory_distance_max": float(np.max(distances)),
+        "action_trajectory_compare_steps": int(common_steps),
+    }
+
+
+def zero_action_trajectory_distances(steps: int) -> dict[str, float | int]:
+    return {
+        "action_trajectory_distance_mean": 0.0,
+        "action_trajectory_distance_rms": 0.0,
+        "action_trajectory_distance_max": 0.0,
+        "action_trajectory_compare_steps": int(steps),
+    }
+
+
 def _is_snapshot_candidate(
     info: dict[str, Any],
     min_probe_steps: int,
@@ -193,8 +232,9 @@ def replay_continuation(
     variant: str,
     paired_hidden: torch.Tensor | None = None,
     normal_first_action: np.ndarray | None = None,
+    normal_actions: list[np.ndarray] | None = None,
     max_continuation_steps: int | None = None,
-) -> dict[str, Any]:
+) -> tuple[dict[str, Any], list[np.ndarray]]:
     if variant not in VARIANTS:
         raise ValueError(f"unknown hidden-swap variant: {variant}")
     env = copy.deepcopy(snapshot.env)
@@ -233,6 +273,7 @@ def replay_continuation(
         if normal_first_action is not None and np.all(np.isfinite(first_action))
         else float("nan")
     )
+    trajectory_distances = action_trajectory_distances(actions, normal_actions)
     reason = terminal_reason(info, terminated, truncated, env_config)
     beta_abs_peak = float(np.nanmax(np.abs(betas))) if betas else float("nan")
     return {
@@ -253,7 +294,8 @@ def replay_continuation(
         "first_throttle": float(first_action[1]),
         "first_brake": float(first_action[2]),
         "first_action_distance": first_action_distance,
-    }
+        **trajectory_distances,
+    }, actions
 
 
 def build_pair_row(
@@ -300,7 +342,7 @@ def replay_pair(
     env_config: DriftEnvConfig,
     max_continuation_steps: int | None,
 ) -> list[dict[str, Any]]:
-    normal = replay_continuation(
+    normal, normal_actions = replay_continuation(
         model,
         source,
         env_config=env_config,
@@ -308,25 +350,26 @@ def replay_pair(
         max_continuation_steps=max_continuation_steps,
     )
     normal["first_action_distance"] = 0.0
+    normal.update(zero_action_trajectory_distances(len(normal_actions)))
     normal_first_action = np.array(
         [normal["first_steer"], normal["first_throttle"], normal["first_brake"]],
         dtype=np.float32,
     )
     rows = []
     for variant in VARIANTS:
-        replay = (
-            normal
-            if variant == "normal"
-            else replay_continuation(
+        if variant == "normal":
+            replay = normal
+        else:
+            replay, _ = replay_continuation(
                 model,
                 source,
                 env_config=env_config,
                 variant=variant,
                 paired_hidden=paired.hidden,
                 normal_first_action=normal_first_action,
+                normal_actions=normal_actions,
                 max_continuation_steps=max_continuation_steps,
             )
-        )
         rows.append(
             {
                 "seed": source.seed,
@@ -359,6 +402,10 @@ def summarize_replays(frame: pd.DataFrame) -> pd.DataFrame:
                 "off_road_rate",
                 "spin_out_rate",
                 "first_action_distance_mean",
+                "action_trajectory_distance_mean",
+                "action_trajectory_distance_rms_mean",
+                "action_trajectory_distance_max_mean",
+                "action_trajectory_compare_steps_mean",
                 "observation_distance_mean",
                 "hidden_state_distance_mean",
             ]
@@ -374,6 +421,10 @@ def summarize_replays(frame: pd.DataFrame) -> pd.DataFrame:
         spin_out_rate=("spin_out", "mean"),
         obstacle_completion_rate=("obstacle_completed", "mean"),
         first_action_distance_mean=("first_action_distance", "mean"),
+        action_trajectory_distance_mean=("action_trajectory_distance_mean", "mean"),
+        action_trajectory_distance_rms_mean=("action_trajectory_distance_rms", "mean"),
+        action_trajectory_distance_max_mean=("action_trajectory_distance_max", "mean"),
+        action_trajectory_compare_steps_mean=("action_trajectory_compare_steps", "mean"),
         observation_distance_mean=("observation_distance", "mean"),
         response_observation_distance_mean=("response_observation_distance", "mean"),
         context_observation_distance_mean=("context_observation_distance", "mean"),

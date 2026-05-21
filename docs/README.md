@@ -112,6 +112,8 @@ vehicle/tire models, and NMPC-style constrained control.
   prediction diagnostics joined against outcome-change labels.
 - `m42-hidden-contrast-objective.md`: intervention-aware auxiliary loss that
   contrasts normal recurrent hidden against per-step reset hidden.
+- `m43-action-trajectory-intervention-diagnostics.md`: full-continuation action
+  distance diagnostics for reset, zero-response, and hidden-swap interventions.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

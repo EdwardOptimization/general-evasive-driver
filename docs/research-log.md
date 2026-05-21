@@ -1651,3 +1651,31 @@ it does not make the deterministic deployed policy more hidden-state critical.
 M37_102 remains the current best checkpoint. M43 should measure full
 action-trajectory divergence under interventions before choosing the next
 training objective.
+
+## 20260521 m43-action-trajectory-intervention-diagnostics
+
+- status: `completed`
+- kind: `probe`
+- hypothesis: first-action distance is not enough to explain hidden-swap
+  behavior; full-continuation action distance should show whether hidden-swap
+  causes sustained closed-loop control changes
+- artifacts:
+  - `runs/m43_m37_102_action_trajectory_gate_seed4200/summary.csv`
+  - `runs/m43_m42_028_action_trajectory_gate_seed4200/summary.csv`
+
+Perturbed accepted matches:
+
+- M37_102 hidden-swap first-action distance: 0.029597;
+- M37_102 hidden-swap trajectory mean distance: 0.005528;
+- M37_102 reset / zero-response trajectory mean distances:
+  0.219339 / 0.199217;
+- M42_028 hidden-swap first-action distance: 0.030208;
+- M42_028 hidden-swap trajectory mean distance: 0.004872;
+- M42_028 reset / zero-response trajectory mean distances:
+  0.200152 / 0.180518.
+
+Conclusion: the hidden-swap blocker is sustained closed-loop action collapse.
+The policy can make a small first-step change under hidden-swap, but over the
+continuation it returns to almost the same action trajectory. The next objective
+should train sustained behavior differences on matched latent-response cases,
+not just log-prob contrast.

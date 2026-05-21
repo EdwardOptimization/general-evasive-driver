@@ -806,7 +806,13 @@ Exit criteria:
 - result is joined against success-change labels;
 - next training objective is chosen from evidence, not from loss curves alone.
 
-Status: planned after M42 negative result.
+Status: complete as diagnostics. M43 adds full-continuation action trajectory
+distance fields to the hidden-swap gate and reruns M37_102 and M42_028 on the
+same 80-seed gate. Perturbed accepted hidden-swap trajectory mean distance is
+only 0.005528 for M37_102 and 0.004872 for M42_028, while reset and
+zero-response are about 0.18 to 0.22. This explains the blocker: hidden-swap
+does not sustain a different closed-loop action trajectory. See
+`docs/m43-action-trajectory-intervention-diagnostics.md`.
 
 ## Metrics
 
