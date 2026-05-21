@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 0,
-    "completed": 22,
+    "completed": 23,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m25-human-view-gru-smoke_20260521T015946Z/command.log",
+    "command_log": "runs/research/m26-human-view-gru-full-train_20260521T020206Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m25-human-view-gru-smoke_20260521T015946Z",
+    "run_dir": "runs/research/m26-human-view-gru-full-train_20260521T020206Z",
     "status": "completed",
-    "task_id": "m25-human-view-gru-smoke"
+    "task_id": "m26-human-view-gru-full-train"
   },
   "next_task": {
-    "command": "conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m24_human_view_gru_driver.json --seed 2024 --device cuda --run-dir runs/ppo_m26_human_view_gru_seed2024",
-    "hypothesis": "Full-train the human-view online GRU driver from scratch under the 72-value frame",
-    "id": "m26-human-view-gru-full-train",
-    "kind": "training",
-    "notes": "Follow M25 smoke with a full run before same-corpus and hidden-state gates",
-    "priority": 190,
+    "command": "conda run -n autodrift python -m autodrift.paired_perturbation_gate --env-config configs/ppo_m24_human_view_gru_driver.json --checkpoint runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt --checkpoint-policy m26_602=runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt --checkpoint-policy m26_602_reset=runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt@reset_recurrent_state --checkpoint-policy m26_602_zero_current=runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt@zero_current_response --checkpoint-policy m26_602_zero_all=runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt@zero_all_response --episodes 80 --seed 3600 --device cpu --run-dir runs/m27_human_view_paired_gate_seed3600",
+    "hypothesis": "Build a new response-dependence gate for the human-view contract because old M22 hard seeds saturate",
+    "id": "m27-human-view-hard-response-gate",
+    "kind": "gate",
+    "notes": "Need hard cases where same human-view geometry requires different response-conditioned control",
+    "priority": 200,
     "status": "pending",
-    "success_artifact": "runs/ppo_m26_human_view_gru_seed2024/checkpoint.pt"
+    "success_artifact": "runs/m27_human_view_paired_gate_seed3600/pair_summary.csv"
   },
-  "updated_at_utc": "20260521T020130Z"
+  "updated_at_utc": "20260521T024435Z"
 }

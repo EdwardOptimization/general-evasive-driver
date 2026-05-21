@@ -898,3 +898,61 @@ Conclusion: M25 passes as infrastructure only. The human-view observation and
 20k steps is not a quality result. The next step is a full M26 training run from
 scratch under the same contract, then same-corpus benchmarks and hidden-state
 ablations.
+
+## 20260521T023606Z m26-human-view-gru-full-train
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Full-train the human-view online GRU driver from scratch under the 72-value frame
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m24_human_view_gru_driver.json --seed 2024 --device cuda --run-dir runs/ppo_m26_human_view_gru_seed2024`
+- returncode: `0`
+- run dir: `runs/research/m26-human-view-gru-full-train_20260521T020206Z`
+- command log: `runs/research/m26-human-view-gru-full-train_20260521T020206Z/command.log`
+- success artifact: `runs/ppo_m26_human_view_gru_seed2024/checkpoint.pt`
+
+Training result:
+
+- final eval return mean: 66.240;
+- final eval steps mean: 59.100;
+- final eval termination rate: 0.200;
+- final eval lateral RMSE mean: 0.777;
+- final eval beta absolute error mean: 0.132;
+- periodic checkpoints: steps 102400, 200704, 303104, 401408, 503808,
+  602112, 700416, 802816, and 900000.
+
+Checkpoint sweep:
+
+- run dir: `runs/m26_human_view_checkpoint_sweep_seed3000`;
+- `envelope_aes` success: 0.675;
+- M26_102 / 200 / 303 success: 0.725 / 0.725 / 0.725;
+- M26_401 / 503 / 602 success: 0.775 / 0.775 / 0.800;
+- M26_700 / 802 / 900 / final success: 0.775 / 0.775 / 0.775 / 0.775.
+
+Ablation:
+
+- run dir: `runs/m26_602_human_view_ablation_seed3000`;
+- M26_602 success: 0.800;
+- M26_602 hidden-reset success: 0.800;
+- M26_602 zero-current and zero-all response success: 0.775.
+
+Old hard-seed check:
+
+- run dir: `runs/m26_602_human_view_m22_hard_seed_benchmark_seed3000`;
+- old M22 hard seeds are saturated under the human-view contract:
+  `envelope_aes`, M26_602, reset, and response-masked variants all reach
+  success 1.000.
+
+Conclusion: M26 is a positive aggregate result but not a self-identification
+pass. `m26_602` beats `envelope_aes` on the same human-view obstacle benchmark
+(`0.800` vs `0.675` success), but hidden reset does not reduce success and
+response masking only drops success by 0.025. The next milestone must build a
+new human-view hard response-dependence gate; the old M22 hard corpus is no
+longer valid for this actor contract.
+
+Interpretation boundary: reset-vs-normal only tests whether the current gate
+requires long-horizon GRU memory. It does not rule out one-step adaptation from
+current ego response and previous physical command inputs. If dynamics are fixed,
+or if the current observation is nearly Markov, reset and normal inference should
+be similar. The next gate should use matched-current-observation cases and
+hidden-swap ablations to separate "can adapt" from "requires recurrent
+self-identification."

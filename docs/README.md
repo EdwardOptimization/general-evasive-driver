@@ -78,6 +78,8 @@ vehicle/tire models, and NMPC-style constrained control.
   contract and 3-channel steer/throttle/brake simulator action.
 - `m25-human-view-gru-smoke.md`: GPU smoke result proving the human-view GRU
   contract trains end to end.
+- `m26-human-view-gru-results.md`: first full human-view GRU training result,
+  checkpoint sweep, ablations, and next hard-gate blocker.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.
