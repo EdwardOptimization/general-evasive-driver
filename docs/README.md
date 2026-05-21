@@ -1,6 +1,6 @@
 # AutoDrift Research Notes
 
-Last updated: 2026-05-21
+Last updated: 2026-05-22
 
 This folder collects the initial literature package for the AutoDrift project.
 The current focus is autonomous drifting with reinforcement learning, learned
@@ -289,6 +289,10 @@ vehicle/tire models, and NMPC-style constrained control.
   contract; actor sees sensor-direct command/actuator/wheel/body/scene signals,
   while slip ratios, controller flags, and oracle labels stay out of actor
   inputs.
+- `m105-retention-constrained-outcome-coupling.md`: action-anchor constrained
+  outcome actor coupling; first M101-M105 qualified positive where normal
+  behavior retention, reset/zero-response degradation, and hidden-envelope lift
+  are positive on the smoke gate, pending formal repeats.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

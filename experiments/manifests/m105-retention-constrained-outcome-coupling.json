@@ -2,35 +2,209 @@
   "baseline_checkpoints": [
     "runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt",
     "runs/m103_outcome_actor_coupling_m102_seed9610/optimized_checkpoint.pt",
-    "runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt",
     "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt"
   ],
   "commands": [
     {
-      "command": "TBD: combine M103 outcome snippets with a broad M102/M98 action-retention or hidden-envelope-retention guard before another actor-coupling optimization",
-      "name": "m105_retention_constrained_outcome_coupling"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.outcome_intervention_optimize --init-checkpoint runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt --snippet-npz runs/m103_history_ablation_snippets_m101_smoke_seed9600/outcome_intervention_snippets.npz --device cpu --steps 120 --batch-size 256 --learning-rate 0.0001 --logprob-margin 0.05 --seed 9710 --grad-clip-norm 1.0 --log-interval 20 --eval-batch-size 128 --eval-batches 20 --eval-seed 0 --train-scope actor_coupling --action-anchor-checkpoint runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt --action-anchor-env-config configs/ppo_m24_human_view_gru_driver.json --action-anchor-coef 10.0 --action-anchor-episodes 30 --action-anchor-seed 9710 --action-anchor-horizon-steps 15 --action-anchor-sample-stride 3 --action-anchor-max-samples 800 --action-anchor-batch-size 256 --run-dir runs/m105_anchor10_outcome_coupling_smoke_seed9710",
+      "name": "m105_anchor10_objective_seed9710"
+    },
+    {
+      "command": "repeat the same M105 objective command for seeds 9711 and 9712, with matching action-anchor seeds and run dirs",
+      "name": "m105_anchor10_objective_repeats"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.benchmark --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 80 --seed 9500 --policies heuristic --checkpoint-policy m62_a250=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --checkpoint-policy m102_9550=runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt --checkpoint-policy m103_9610=runs/m103_outcome_actor_coupling_m102_seed9610/optimized_checkpoint.pt --checkpoint-policy m105_a10=runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt --checkpoint-policy m105_a10_reset=runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt@reset_recurrent_state --checkpoint-policy m105_a10_zero_current=runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt@zero_current_response --checkpoint-policy m105_a10_zero_all=runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt@zero_all_response --checkpoint-policy m105_a10_noact=runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt@zero_action_history --device cpu --run-dir runs/m105_anchor10_behavior_gate_seed9500",
+      "name": "m105_anchor10_behavior_gate"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_probe --checkpoint runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9510 --horizon-steps 15 --sample-stride 3 --max-samples 800 --ridge 0.1 --device cpu --run-dir runs/m105_anchor10_hidden_envelope_probe_seed9510",
+      "name": "m105_anchor10_hidden_envelope_probe"
     }
   ],
-  "decision_rule": "Admit only if the optimized checkpoint preserves M98/M102 braking and lateral hidden-envelope lift while producing reset or zero-response behavior degradation on outcome-sensitive gates without normal-behavior regression.",
+  "decision_labels": {
+    "fail": "reject_retention_constrained_outcome_smoke",
+    "pass": "qualified_positive_smoke_needs_formal_repeats"
+  },
+  "decision_rule": "Treat M105 as a qualified positive smoke only if objective loss improves, normal M62-level behavior is retained, reset and zero-response ablations reduce success, and braking/lateral/yaw hidden-envelope lift are positive on the tested checkpoint.",
   "failure_criteria": [
     "outcome loss improves but reset-hidden behavior does not degrade",
+    "zero-response behavior does not degrade",
     "braking or lateral hidden-envelope lift is negative versus reset hidden",
-    "normal behavior regresses versus M62 or M98",
+    "normal behavior regresses versus M62 or M102",
     "the objective introduces hidden physics or oracle labels into actor inputs"
   ],
-  "hypothesis": "M103 failed because fitting reset-sensitive snippets alone changed the closed-loop trajectory distribution enough to lose hidden-envelope retention. A broad retention-constrained outcome objective may keep M102's hidden belief while recovering M101-style behavior dependence.",
+  "gates": [
+    {
+      "metric": "outcome_after_loss",
+      "name": "outcome_loss_low",
+      "op": "<=",
+      "threshold": 0.005
+    },
+    {
+      "metric": "success_rate",
+      "name": "normal_success_retention",
+      "op": ">=",
+      "threshold": 0.8625
+    },
+    {
+      "metric": "clearance_margin_mean",
+      "name": "m62_margin_retention",
+      "op": ">=",
+      "threshold": 1.852887
+    },
+    {
+      "aggregation": "difference",
+      "left_metric": "success_rate",
+      "name": "reset_success_degrades",
+      "op": ">=",
+      "right_metric": "reset_success",
+      "threshold": 0.01
+    },
+    {
+      "aggregation": "difference",
+      "left_metric": "success_rate",
+      "name": "zero_response_success_degrades",
+      "op": ">=",
+      "right_metric": "zero_all_success",
+      "threshold": 0.025
+    },
+    {
+      "metric": "braking_hidden_lift",
+      "name": "braking_hidden_lift_positive",
+      "op": ">",
+      "threshold": 0.0
+    },
+    {
+      "metric": "lateral_hidden_lift",
+      "name": "lateral_hidden_lift_positive",
+      "op": ">",
+      "threshold": 0.0
+    },
+    {
+      "metric": "yaw_hidden_lift",
+      "name": "yaw_hidden_lift_positive",
+      "op": ">",
+      "threshold": 0.0
+    }
+  ],
+  "hypothesis": "M103 failed because fitting reset-sensitive snippets alone changed the closed-loop trajectory distribution enough to lose hidden-envelope retention. A broad action-retention anchor can keep M102's hidden belief while recovering outcome-relevant behavior dependence.",
   "id": "m105-retention-constrained-outcome-coupling",
+  "metric_extractors": [
+    {
+      "column": "loss_mean",
+      "match": {
+        "policy": "after"
+      },
+      "metric": "outcome_after_loss",
+      "path": "runs/m105_anchor10_outcome_coupling_smoke_seed9710/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "success_rate",
+      "match": {
+        "policy": "m105_a10"
+      },
+      "metric": "success_rate",
+      "path": "runs/m105_anchor10_behavior_gate_seed9500/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "termination_rate",
+      "match": {
+        "policy": "m105_a10"
+      },
+      "metric": "termination_rate",
+      "path": "runs/m105_anchor10_behavior_gate_seed9500/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "min_clearance_margin_mean",
+      "match": {
+        "policy": "m105_a10"
+      },
+      "metric": "clearance_margin_mean",
+      "path": "runs/m105_anchor10_behavior_gate_seed9500/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "success_rate",
+      "match": {
+        "policy": "m105_a10_reset"
+      },
+      "metric": "reset_success",
+      "path": "runs/m105_anchor10_behavior_gate_seed9500/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "success_rate",
+      "match": {
+        "policy": "m105_a10_zero_all"
+      },
+      "metric": "zero_all_success",
+      "path": "runs/m105_anchor10_behavior_gate_seed9500/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "response_hidden_minus_reset_test_r2",
+      "match": {
+        "target": "future_braking_deceleration"
+      },
+      "metric": "braking_hidden_lift",
+      "path": "runs/m105_anchor10_hidden_envelope_probe_seed9510/hidden_gain_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "response_hidden_minus_reset_test_r2",
+      "match": {
+        "target": "future_lateral_accel_response"
+      },
+      "metric": "lateral_hidden_lift",
+      "path": "runs/m105_anchor10_hidden_envelope_probe_seed9510/hidden_gain_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "response_hidden_minus_reset_test_r2",
+      "match": {
+        "target": "future_yaw_response"
+      },
+      "metric": "yaw_hidden_lift",
+      "path": "runs/m105_anchor10_hidden_envelope_probe_seed9510/hidden_gain_summary.csv",
+      "type": "csv"
+    }
+  ],
   "required_artifacts": [
     {
       "path": "docs/m105-retention-constrained-outcome-coupling.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m105_anchor10_outcome_coupling_smoke_seed9710/summary.json",
+      "type": "objective_summary"
+    },
+    {
+      "path": "runs/m105_anchor10_outcome_coupling_smoke_seed9711/summary.json",
+      "type": "objective_summary"
+    },
+    {
+      "path": "runs/m105_anchor10_outcome_coupling_smoke_seed9712/summary.json",
+      "type": "objective_summary"
+    },
+    {
+      "path": "runs/m105_anchor10_behavior_gate_seed9500/policy_summary.csv",
+      "type": "behavior_gate"
+    },
+    {
+      "path": "runs/m105_anchor10_hidden_envelope_probe_seed9510/hidden_gain_summary.csv",
+      "type": "hidden_probe"
     }
   ],
+  "scoreboard_checkpoint": "runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt",
   "success_criteria": [
     "uses only deployable actor observations and training-time outcome labels",
-    "preserves M62/M98 normal behavior and clearance margin",
+    "preserves M62/M102 normal behavior and clearance margin",
     "reset or zero-response ablations degrade success or clearance",
-    "retains positive braking and lateral response-hidden-minus-reset envelope lift",
+    "retains positive braking, lateral, and yaw response-hidden-minus-reset envelope lift",
     "records objective repeats and full behavior and hidden-envelope gates"
   ],
   "type": "objective_sanity"

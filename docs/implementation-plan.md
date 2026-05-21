@@ -2127,16 +2127,35 @@ See `docs/m104-minimum-observable-input-contract.md`.
 ### M105: Retention-Constrained Outcome Coupling
 
 - Combine M103 outcome-sensitive snippet pressure with a broad retention guard.
-- Candidate guards include a normal-action anchor on a wider M102/M98 rollout
-  batch, a hidden-envelope retention term, or a two-stage objective that refuses
-  actor updates if braking/lateral response-hidden-minus-reset lift regresses.
+- Use a normal-action anchor on a wider M102 rollout batch while fitting the
+  M103 outcome-sensitive snippets.
 - Keep the actor input contract unchanged.
 - Gate objective loss, normal behavior retention, reset/zero-response behavior
   dependence, and hidden-envelope retention together.
 
-Status: planned. M103 showed that outcome snippets are optimizable, but fitting
-them alone is insufficient because recurrent hidden is still not
-behavior-critical and closed-loop hidden-envelope retention regresses.
+Status: qualified positive smoke. The action-anchor recipe reduces M103
+outcome loss from `0.045645` to about `0.0027` across seeds `9710`-`9712`,
+keeps anchor MSE near `2.6e-4` to `2.8e-4`, matches M62 normal success
+`0.8625`, makes reset-hidden success drop to `0.8500`, makes zero-response
+success drop to `0.8250`, and restores positive braking/lateral/yaw
+hidden-envelope lift on the tested `9710` checkpoint. This is not full driver
+admission yet because only one optimized checkpoint has completed full behavior
+and hidden-envelope gates. See
+`docs/m105-retention-constrained-outcome-coupling.md`.
+
+### M106: Formal M105 Repeat Gates
+
+- Repeat the M105 behavior gate for the `9711` and `9712` optimized
+  checkpoints.
+- Repeat hidden-envelope probes for `9711` and `9712`.
+- Add delayed-history and matched wrong-history interventions if the current
+  harness path supports them cleanly.
+- Admit the recipe for continuation only if normal retention, ablation
+  degradation, and hidden-envelope lift survive repeats.
+
+Status: pending. M105 is the first M101-M105 line with both behavior-dependence
+and hidden-envelope-retention evidence, but the repeat gate is required before
+claiming it as a robust candidate.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

@@ -4019,3 +4019,39 @@ Conclusion: M103 is not a PPO-admitted driver. Outcome-sensitive snippets are
 now a useful harness, but fitting them alone does not prove recurrent
 self-identification. The next planned step is M105: add a broad behavior or
 hidden-envelope retention constraint to the outcome actor-coupling objective.
+
+## 20260521T183134Z m105-retention-constrained-outcome-coupling
+
+- status: `completed`
+- kind: `objective_sanity`
+- implementation: `src/autodrift/outcome_intervention_optimize.py`
+- tests: `tests/test_outcome_intervention_optimize.py`
+- objective runs:
+  `runs/m105_anchor10_outcome_coupling_smoke_seed9710`,
+  `runs/m105_anchor10_outcome_coupling_smoke_seed9711`,
+  `runs/m105_anchor10_outcome_coupling_smoke_seed9712`
+- behavior gate: `runs/m105_anchor10_behavior_gate_seed9500`
+- hidden probe: `runs/m105_anchor10_hidden_envelope_probe_seed9510`
+- artifact: `docs/m105-retention-constrained-outcome-coupling.md`
+
+Result:
+
+- added action-anchor constrained outcome optimization:
+  `loss = outcome_intervention_loss + coef * action_anchor_mse`;
+- actor input contract is unchanged, and the run trains only
+  `response_context_fusion` and `actor_mean`;
+- all three objective repeats reduce outcome loss from `0.045645` to about
+  `0.0027`, with after-anchor MSE near `2.6e-4` to `2.8e-4`;
+- behavior gate on seed `9500` retains normal success at `0.8625`, matching
+  M62/M102, while reset-hidden drops to `0.8500` and zero-response drops to
+  `0.8250`;
+- hidden-envelope probe on seed `9510` restores positive
+  response-hidden-minus-reset R2 lift: braking `0.211398`, lateral `0.557126`,
+  yaw `0.033114`.
+
+Conclusion: M105 is the first M101-M105 qualified positive line with both
+behavior-dependence evidence and hidden-envelope-retention evidence on the same
+checkpoint. It is not full driver admission yet because only seed `9710` has
+completed the full behavior/probe gate. The next pending task is M106: repeat
+the gates across `9711`/`9712` and add stronger delayed-history or wrong-history
+interventions before any PPO continuation claim.

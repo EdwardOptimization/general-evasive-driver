@@ -1,0 +1,47 @@
+{
+  "baseline_checkpoints": [
+    "runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt",
+    "runs/m105_anchor10_outcome_coupling_smoke_seed9711/optimized_checkpoint.pt",
+    "runs/m105_anchor10_outcome_coupling_smoke_seed9712/optimized_checkpoint.pt",
+    "runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt",
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt"
+  ],
+  "commands": [
+    {
+      "command": "TBD: run the M105 behavior gate on checkpoints 9711 and 9712 with normal, reset-hidden, zero-current-response, zero-all-response, and zero-action-history ablations",
+      "name": "m106_behavior_repeats"
+    },
+    {
+      "command": "TBD: run hidden_envelope_probe on checkpoints 9711 and 9712 with the M105 probe recipe",
+      "name": "m106_hidden_envelope_repeats"
+    },
+    {
+      "command": "TBD: add delayed-history and matched wrong-history gates if the current intervention harness supports them without changing the actor input contract",
+      "name": "m106_stronger_history_interventions"
+    }
+  ],
+  "decision_rule": "Admit the M105 action-anchor outcome recipe only if normal behavior retention, ablation-induced degradation, and positive hidden-envelope lift survive repeat checkpoints and stronger history interventions.",
+  "failure_criteria": [
+    "any repeat checkpoint loses M62-level normal behavior retention",
+    "reset-hidden or zero-response degradation disappears on repeats",
+    "braking or lateral response-hidden-minus-reset lift turns negative on repeats",
+    "stronger delayed-history or wrong-history interventions do not affect behavior when available",
+    "the repeat requires changing deployable actor inputs or adding oracle labels"
+  ],
+  "hypothesis": "M105 is promising but under-tested: if the action-anchor outcome recipe really binds recurrent response history to behavior, the effect should survive repeat checkpoints and stronger history interventions.",
+  "id": "m106-formal-retention-constrained-repeat-gates",
+  "required_artifacts": [
+    {
+      "path": "docs/m106-formal-retention-constrained-repeat-gates.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "normal M62-level success and margin retention pass on 9711 and 9712",
+    "reset-hidden and zero-response ablations degrade behavior on repeats",
+    "braking and lateral hidden-envelope lift stay positive on repeats",
+    "delayed-history or wrong-history interventions are reported when available",
+    "the decision is recorded before PPO continuation"
+  ],
+  "type": "gate"
+}

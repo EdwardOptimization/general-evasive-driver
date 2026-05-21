@@ -13,6 +13,8 @@ import torch
 from autodrift.artifacts import make_run_dir, to_jsonable, write_json
 from autodrift.actor_coupling_optimize import actor_coupling_trainable_parameters
 from autodrift.checkpoints import load_actor_critic_checkpoint
+from autodrift.evaluate import load_env_config
+from autodrift.hidden_envelope_optimize import collect_hidden_envelope_objective_batch
 from autodrift.intervention_objectives import (
     load_outcome_intervention_snippets,
     outcome_weighted_intervention_loss,
@@ -47,6 +49,81 @@ def _trainable_parameters(
     if freeze_log_std and hasattr(model, "log_std"):
         model.log_std.requires_grad_(False)
     return [parameter for parameter in model.parameters() if parameter.requires_grad]
+
+
+def _collect_action_anchor(
+    *,
+    checkpoint: Path,
+    env_config_path: Path,
+    device: torch.device,
+    obs_dim: int,
+    episodes: int,
+    seed: int,
+    horizon_steps: int,
+    sample_stride: int,
+    max_samples: int | None,
+) -> dict[str, torch.Tensor]:
+    reference_model, _ = load_actor_critic_checkpoint(checkpoint, device=str(device), obs_dim=obs_dim)
+    reference_model.eval()
+    for parameter in reference_model.parameters():
+        parameter.requires_grad_(False)
+    env_config = load_env_config(env_config_path)
+    batch = collect_hidden_envelope_objective_batch(
+        model=reference_model,
+        env_config=env_config,
+        episodes=episodes,
+        seed=seed,
+        horizon_steps=horizon_steps,
+        sample_stride=sample_stride,
+        max_samples=max_samples,
+        device=device,
+    )
+    observations = torch.as_tensor(batch.observations, dtype=torch.float32, device=device)
+    dones = torch.as_tensor(batch.dones, dtype=torch.float32, device=device)
+    sample_mask = torch.as_tensor(batch.sample_mask, dtype=torch.bool, device=device)
+    positions = torch.nonzero(sample_mask.reshape(-1), as_tuple=False).squeeze(1)
+    if int(positions.numel()) == 0:
+        raise ValueError("action anchor batch has no sampled positions")
+    with torch.no_grad():
+        initial_hidden = reference_model.initial_hidden(observations.shape[1], device)
+        reference_actions = reference_model.action_mean_recurrent_sequence(observations, initial_hidden, dones)
+    return {
+        "observations": observations,
+        "dones": dones,
+        "positions": positions,
+        "reference_actions": reference_actions.detach(),
+    }
+
+
+def _action_anchor_mse(model: torch.nn.Module, anchor: dict[str, torch.Tensor]) -> torch.Tensor:
+    observations = anchor["observations"]
+    dones = anchor["dones"]
+    initial_hidden = model.initial_hidden(observations.shape[1], observations.device)  # type: ignore[attr-defined]
+    actions = model.action_mean_recurrent_sequence(observations, initial_hidden, dones)  # type: ignore[attr-defined]
+    flat_actions = actions.reshape(-1, actions.shape[-1])
+    flat_reference = anchor["reference_actions"].reshape(-1, actions.shape[-1])
+    positions = anchor["positions"]
+    return torch.square(flat_actions[positions] - flat_reference[positions].detach()).mean()
+
+
+def _sampled_action_anchor_loss(
+    model: torch.nn.Module,
+    anchor: dict[str, torch.Tensor],
+    *,
+    batch_size: int,
+) -> torch.Tensor:
+    positions = anchor["positions"]
+    count = int(positions.numel())
+    batch_count = max(1, min(int(batch_size), count))
+    sample_index = torch.randint(count, (batch_count,), device=positions.device)
+    sampled_positions = positions[sample_index]
+    observations = anchor["observations"]
+    dones = anchor["dones"]
+    initial_hidden = model.initial_hidden(observations.shape[1], observations.device)  # type: ignore[attr-defined]
+    actions = model.action_mean_recurrent_sequence(observations, initial_hidden, dones)  # type: ignore[attr-defined]
+    flat_actions = actions.reshape(-1, actions.shape[-1])
+    flat_reference = anchor["reference_actions"].reshape(-1, actions.shape[-1])
+    return torch.square(flat_actions[sampled_positions] - flat_reference[sampled_positions].detach()).mean()
 
 
 def save_checkpoint_like(
@@ -85,6 +162,15 @@ def optimize_outcome_intervention(
     eval_batches: int,
     eval_seed: int,
     train_scope: str = "all",
+    action_anchor_checkpoint: Path | None = None,
+    action_anchor_env_config: Path | None = None,
+    action_anchor_coef: float = 0.0,
+    action_anchor_episodes: int = 30,
+    action_anchor_seed: int = 0,
+    action_anchor_horizon_steps: int = 15,
+    action_anchor_sample_stride: int = 3,
+    action_anchor_max_samples: int | None = 800,
+    action_anchor_batch_size: int = 256,
 ) -> tuple[dict[str, Any], pd.DataFrame, pd.DataFrame]:
     run_dir.mkdir(parents=True, exist_ok=True)
     resolved_device = resolve_device(device)
@@ -103,6 +189,22 @@ def optimize_outcome_intervention(
     if not parameters:
         raise RuntimeError("no trainable parameters are available for outcome objective optimization")
     optimizer = torch.optim.Adam(parameters, lr=float(learning_rate))
+    anchor: dict[str, torch.Tensor] | None = None
+    if action_anchor_coef > 0.0:
+        if action_anchor_env_config is None:
+            raise ValueError("action_anchor_env_config is required when action_anchor_coef > 0")
+        anchor_checkpoint = action_anchor_checkpoint or init_checkpoint
+        anchor = _collect_action_anchor(
+            checkpoint=anchor_checkpoint,
+            env_config_path=action_anchor_env_config,
+            device=resolved_device,
+            obs_dim=obs_dim,
+            episodes=action_anchor_episodes,
+            seed=action_anchor_seed,
+            horizon_steps=action_anchor_horizon_steps,
+            sample_stride=action_anchor_sample_stride,
+            max_samples=action_anchor_max_samples,
+        )
 
     before_summary, before_batches = evaluate_checkpoint(
         label="before",
@@ -114,6 +216,8 @@ def optimize_outcome_intervention(
         seed=eval_seed,
         logprob_margin=logprob_margin,
     )
+    with torch.no_grad():
+        before_action_anchor_mse = float(_action_anchor_mse(model, anchor).detach().cpu().item()) if anchor else None
 
     metrics: list[dict[str, Any]] = []
     model.train()
@@ -127,6 +231,15 @@ def optimize_outcome_intervention(
             batch_size=batch_size,
             logprob_margin=logprob_margin,
         )
+        outcome_loss = loss
+        action_anchor_loss = torch.zeros((), dtype=torch.float32, device=resolved_device)
+        if anchor is not None:
+            action_anchor_loss = _sampled_action_anchor_loss(
+                model,
+                anchor,
+                batch_size=action_anchor_batch_size,
+            )
+            loss = outcome_loss + float(action_anchor_coef) * action_anchor_loss
         loss.backward()
         grad_norm = torch.nn.utils.clip_grad_norm_(parameters, max_norm=float(grad_clip_norm))
         optimizer.step()
@@ -135,6 +248,9 @@ def optimize_outcome_intervention(
                 {
                     "step": step,
                     "loss": float(loss.detach().cpu().item()),
+                    "outcome_loss": float(outcome_loss.detach().cpu().item()),
+                    "action_anchor_loss": float(action_anchor_loss.detach().cpu().item()),
+                    "action_anchor_coef": float(action_anchor_coef),
                     "grad_norm": float(grad_norm.detach().cpu().item() if isinstance(grad_norm, torch.Tensor) else grad_norm),
                     "learning_rate": float(learning_rate),
                 }
@@ -156,6 +272,15 @@ def optimize_outcome_intervention(
             "seed": int(seed),
             "freeze_log_std": bool(freeze_log_std),
             "train_scope": train_scope,
+            "action_anchor_checkpoint": action_anchor_checkpoint,
+            "action_anchor_env_config": action_anchor_env_config,
+            "action_anchor_coef": float(action_anchor_coef),
+            "action_anchor_episodes": int(action_anchor_episodes),
+            "action_anchor_seed": int(action_anchor_seed),
+            "action_anchor_horizon_steps": int(action_anchor_horizon_steps),
+            "action_anchor_sample_stride": int(action_anchor_sample_stride),
+            "action_anchor_max_samples": action_anchor_max_samples,
+            "action_anchor_batch_size": int(action_anchor_batch_size),
             "grad_clip_norm": float(grad_clip_norm),
         },
     )
@@ -169,6 +294,8 @@ def optimize_outcome_intervention(
         seed=eval_seed,
         logprob_margin=logprob_margin,
     )
+    with torch.no_grad():
+        after_action_anchor_mse = float(_action_anchor_mse(model, anchor).detach().cpu().item()) if anchor else None
 
     policy_summary = pd.DataFrame([before_summary, after_summary])
     batch_losses = pd.DataFrame([*before_batches, *after_batches])
@@ -187,6 +314,17 @@ def optimize_outcome_intervention(
         "seed": int(seed),
         "freeze_log_std": bool(freeze_log_std),
         "train_scope": train_scope,
+        "action_anchor_checkpoint": action_anchor_checkpoint,
+        "action_anchor_env_config": action_anchor_env_config,
+        "action_anchor_coef": float(action_anchor_coef),
+        "action_anchor_episodes": int(action_anchor_episodes),
+        "action_anchor_seed": int(action_anchor_seed),
+        "action_anchor_horizon_steps": int(action_anchor_horizon_steps),
+        "action_anchor_sample_stride": int(action_anchor_sample_stride),
+        "action_anchor_max_samples": action_anchor_max_samples,
+        "action_anchor_batch_size": int(action_anchor_batch_size),
+        "before_action_anchor_mse": before_action_anchor_mse,
+        "after_action_anchor_mse": after_action_anchor_mse,
         "grad_clip_norm": float(grad_clip_norm),
         "eval_batch_size": int(eval_batch_size),
         "eval_batches": int(eval_batches),
@@ -218,6 +356,15 @@ def main() -> None:
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--train-log-std", action="store_true")
     parser.add_argument("--train-scope", choices=["all", "actor_coupling"], default="all")
+    parser.add_argument("--action-anchor-checkpoint", type=Path, default=None)
+    parser.add_argument("--action-anchor-env-config", type=Path, default=None)
+    parser.add_argument("--action-anchor-coef", type=float, default=0.0)
+    parser.add_argument("--action-anchor-episodes", type=int, default=30)
+    parser.add_argument("--action-anchor-seed", type=int, default=0)
+    parser.add_argument("--action-anchor-horizon-steps", type=int, default=15)
+    parser.add_argument("--action-anchor-sample-stride", type=int, default=3)
+    parser.add_argument("--action-anchor-max-samples", type=int, default=800)
+    parser.add_argument("--action-anchor-batch-size", type=int, default=256)
     parser.add_argument("--grad-clip-norm", type=float, default=1.0)
     parser.add_argument("--log-interval", type=int, default=20)
     parser.add_argument("--eval-batch-size", type=int, default=128)
@@ -245,6 +392,15 @@ def main() -> None:
         eval_batch_size=args.eval_batch_size,
         eval_batches=args.eval_batches,
         eval_seed=args.eval_seed,
+        action_anchor_checkpoint=args.action_anchor_checkpoint,
+        action_anchor_env_config=args.action_anchor_env_config,
+        action_anchor_coef=args.action_anchor_coef,
+        action_anchor_episodes=args.action_anchor_episodes,
+        action_anchor_seed=args.action_anchor_seed,
+        action_anchor_horizon_steps=args.action_anchor_horizon_steps,
+        action_anchor_sample_stride=args.action_anchor_sample_stride,
+        action_anchor_max_samples=args.action_anchor_max_samples,
+        action_anchor_batch_size=args.action_anchor_batch_size,
     )
     print(train_metrics.tail(5).to_string(index=False))
     print(policy_summary.to_string(index=False))

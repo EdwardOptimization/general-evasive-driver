@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import numpy as np
 import torch
 
@@ -79,3 +81,48 @@ def test_actor_coupling_train_scope_excludes_response_gru():
     assert id(list(model.response_context_fusion.parameters())[0]) in param_ids
     assert id(list(model.actor_mean.parameters())[0]) in param_ids
     assert id(model.log_std) not in param_ids
+
+
+def test_optimize_outcome_intervention_with_action_anchor_records_anchor_metrics(tmp_path):
+    snippet_path = tmp_path / "snippets.npz"
+    np.savez_compressed(
+        snippet_path,
+        observation=np.zeros((8, 72), dtype=np.float32),
+        preferred_hidden=np.zeros((8, 8), dtype=np.float32),
+        rejected_hidden=np.ones((8, 8), dtype=np.float32),
+        preferred_action=np.zeros((8, 3), dtype=np.float32),
+        weight=np.ones(8, dtype=np.float32),
+    )
+    init_checkpoint = tmp_path / "init.pt"
+    _write_checkpoint(init_checkpoint)
+
+    summary, train_metrics, _ = optimize_outcome_intervention(
+        init_checkpoint=init_checkpoint,
+        snippet_npz=snippet_path,
+        device="cpu",
+        steps=3,
+        batch_size=4,
+        learning_rate=1e-3,
+        logprob_margin=0.05,
+        seed=5,
+        freeze_log_std=True,
+        grad_clip_norm=1.0,
+        log_interval=1,
+        run_dir=tmp_path / "run",
+        eval_batch_size=4,
+        eval_batches=2,
+        eval_seed=7,
+        action_anchor_checkpoint=init_checkpoint,
+        action_anchor_env_config=Path("configs/ppo_m24_human_view_gru_driver.json"),
+        action_anchor_coef=0.1,
+        action_anchor_episodes=2,
+        action_anchor_seed=123,
+        action_anchor_horizon_steps=1,
+        action_anchor_sample_stride=8,
+        action_anchor_max_samples=8,
+        action_anchor_batch_size=4,
+    )
+
+    assert np.isfinite(summary["before_action_anchor_mse"])
+    assert np.isfinite(summary["after_action_anchor_mse"])
+    assert "action_anchor_loss" in train_metrics

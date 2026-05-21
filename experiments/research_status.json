@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 113,
+    "completed": 114,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m103-outcome-aware-actor-coupling.md",
+    "command_log": "docs/m105-retention-constrained-outcome-coupling.md",
     "returncode": 0,
-    "run_dir": "runs/m103_outcome_actor_coupling_behavior_gate_seed9500",
+    "run_dir": "runs/m105_anchor10_behavior_gate_seed9500",
     "status": "completed",
-    "task_id": "m103-outcome-aware-actor-coupling"
+    "task_id": "m105-retention-constrained-outcome-coupling"
   },
   "next_task": {
-    "command": "see experiments/manifests/m105-retention-constrained-outcome-coupling.json",
-    "hypothesis": "Retention-constrained outcome coupling can keep hidden-envelope belief while recovering outcome-relevant behavior dependence",
-    "id": "m105-retention-constrained-outcome-coupling",
-    "kind": "objective_sanity",
-    "notes": "Pending after M103: combine outcome snippet pressure with broad behavior or hidden-envelope retention guards",
-    "priority": 1000,
+    "command": "see experiments/manifests/m106-formal-retention-constrained-repeat-gates.json",
+    "hypothesis": "Repeat M105 retention-constrained outcome gates before admitting the recipe for continuation",
+    "id": "m106-formal-retention-constrained-repeat-gates",
+    "kind": "gate",
+    "notes": "Pending after M105: repeat behavior and hidden-envelope gates on 9711/9712 and add stronger history interventions",
+    "priority": 1010,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T182205Z"
+  "updated_at_utc": "20260521T183134Z"
 }
