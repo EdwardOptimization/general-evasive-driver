@@ -126,6 +126,8 @@ vehicle/tire models, and NMPC-style constrained control.
   seeds and the clearance-margin gate direction.
 - `m49-clearance-margin-gate.md`: obstacle collision-radius and
   clearance-margin metrics for evaluation, benchmark, and seed-delta audit.
+- `m50-margin-critical-corpus.md`: margin-critical corpus mining across M38,
+  broad, and fresh randomized obstacle sweeps.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

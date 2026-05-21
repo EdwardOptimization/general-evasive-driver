@@ -988,6 +988,30 @@ Exit criteria:
 - next training or checkpoint-selection rule explicitly protects
   margin-critical low-friction unavoidable cases.
 
+Status: complete as gate/corpus infrastructure. M50 adds
+`autodrift.margin_critical_corpus`, mines M38, broad seed 3000, and fresh seed
+5200 margin-aware benchmarks, and writes a top-100 near-boundary corpus from
+480 policy pairs. M46 improves mean margin but also creates more near-boundary
+margin regressions and still fails broad success, so current best remains
+M37_102. See `docs/m50-margin-critical-corpus.md`.
+
+### M51: Margin-Retention Training And Gate
+
+- Convert the M50 corpus into a checkpoint promotion gate.
+- Oversample M50 near-boundary rows in continuation training while preserving
+  broad success.
+- Add margin-aware reward/checkpoint selection for training only, without
+  adding margin or oracle fields to actor observations.
+
+Exit criteria:
+
+- gate reports success, near-boundary margin regression count, and margin bucket
+  deltas versus M37_102;
+- training config consumes the M50 corpus without changing the human-view actor
+  observation contract;
+- candidate checkpoint is promoted only if broad success and near-boundary
+  margin regressions do not regress versus M37_102.
+
 Status: planned.
 
 ## Metrics

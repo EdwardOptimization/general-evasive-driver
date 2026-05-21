@@ -37,6 +37,7 @@ autodrift-rollout-throughput = "autodrift.rollout_throughput:main"
 autodrift-paired-hidden-snapshots = "autodrift.paired_hidden_snapshots:main"
 autodrift-seed-delta-audit = "autodrift.seed_delta_audit:main"
 autodrift-continuation-snippets = "autodrift.continuation_snippets:main"
+autodrift-margin-critical-corpus = "autodrift.margin_critical_corpus:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

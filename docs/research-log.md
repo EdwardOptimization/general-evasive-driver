@@ -1927,3 +1927,33 @@ near-boundary trajectories across the collision threshold while worsening mean
 margin on the changed-seed pair. Current best remains M37_102. M50 should mine
 a larger margin-critical corpus from M38, broad same-seed, and fresh randomized
 obstacle sweeps before another training objective.
+
+## 20260521 m50-margin-critical-corpus
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: a useful driver gate needs near-boundary margin-critical seeds,
+  not only binary success or aggregate mean margin
+- M38 benchmark: `conda run -n autodrift python -m autodrift.benchmark --env-config configs/ppo_m24_human_view_gru_driver.json --seed-csv runs/m38_m37_102_matched_response_corpus_seed4300/scenario_corpus.csv --policies envelope_aes --checkpoint-policy m37_102=runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --checkpoint-policy m42_028=runs/ppo_m42_hidden_contrast_seed1842/checkpoints/checkpoint_step_28672.pt --checkpoint-policy m46_077=runs/ppo_m46_paired_hidden_action_contrast_seed2046/checkpoints/checkpoint_step_77824.pt --checkpoint-policy m46_200=runs/ppo_m46_paired_hidden_action_contrast_seed2046/checkpoints/checkpoint_step_200000.pt --device cpu --run-dir runs/m50_m38_margin_benchmark_seed4300`
+- broad benchmark: `conda run -n autodrift python -m autodrift.benchmark --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 40 --seed 3000 --policies envelope_aes --checkpoint-policy m37_102=runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --checkpoint-policy m42_028=runs/ppo_m42_hidden_contrast_seed1842/checkpoints/checkpoint_step_28672.pt --checkpoint-policy m46_077=runs/ppo_m46_paired_hidden_action_contrast_seed2046/checkpoints/checkpoint_step_77824.pt --checkpoint-policy m46_200=runs/ppo_m46_paired_hidden_action_contrast_seed2046/checkpoints/checkpoint_step_200000.pt --device cpu --run-dir runs/m50_broad_margin_benchmark_seed3000`
+- fresh benchmark: `conda run -n autodrift python -m autodrift.benchmark --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 40 --seed 5200 --policies envelope_aes --checkpoint-policy m37_102=runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --checkpoint-policy m42_028=runs/ppo_m42_hidden_contrast_seed1842/checkpoints/checkpoint_step_28672.pt --checkpoint-policy m46_077=runs/ppo_m46_paired_hidden_action_contrast_seed2046/checkpoints/checkpoint_step_77824.pt --checkpoint-policy m46_200=runs/ppo_m46_paired_hidden_action_contrast_seed2046/checkpoints/checkpoint_step_200000.pt --device cpu --run-dir runs/m50_fresh_margin_benchmark_seed5200`
+- corpus command: `conda run -n autodrift python -m autodrift.margin_critical_corpus --episodes-csv runs/m50_m38_margin_benchmark_seed4300/episodes.csv --episodes-csv runs/m50_broad_margin_benchmark_seed3000/episodes.csv --episodes-csv runs/m50_fresh_margin_benchmark_seed5200/episodes.csv --baseline-policy m37_102 --candidate-policy m42_028 --candidate-policy m46_077 --candidate-policy m46_200 --near-margin 0.05 --min-abs-margin-delta 0.02 --top-k 100 --run-dir runs/m50_margin_critical_corpus_m38_broad_fresh`
+- artifacts: `runs/m50_margin_critical_corpus_m38_broad_fresh/scenario_corpus.csv`,
+  `runs/m50_margin_critical_corpus_m38_broad_fresh/policy_margin_summary.csv`,
+  `runs/m50_margin_critical_corpus_m38_broad_fresh/seed_margin_deltas.csv`.
+
+Result:
+
+- corpus pairs: 480;
+- selected rows: 100;
+- critical near-boundary rows: 118;
+- raw margin-regressed rows: 24;
+- binary outcome-changed rows: 4;
+- m42_028 has 38 critical rows and 3 near-margin regressions;
+- m46_077 has 39 critical rows and 4 near-margin regressions;
+- m46_200 has 41 critical rows and 10 near-margin regressions.
+
+Conclusion: M46 improves mean margin across the combined sweep, but this hides
+more near-boundary regressions and the known broad success regression. Current
+best remains M37_102. M51 should convert the M50 corpus into a margin-retention
+gate and training objective.
