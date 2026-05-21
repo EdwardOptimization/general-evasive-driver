@@ -114,6 +114,8 @@ vehicle/tire models, and NMPC-style constrained control.
   contrasts normal recurrent hidden against per-step reset hidden.
 - `m43-action-trajectory-intervention-diagnostics.md`: full-continuation action
   distance diagnostics for reset, zero-response, and hidden-swap interventions.
+- `m44-action-contrast-objective.md`: deterministic action-mean contrast
+  objective following the M43 action-collapse diagnosis.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

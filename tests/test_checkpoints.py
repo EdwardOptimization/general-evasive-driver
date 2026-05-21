@@ -348,6 +348,44 @@ def test_train_logs_hidden_contrast_loss(tmp_path):
     assert float(rows[0]["hidden_contrast_loss_mean"]) >= 0.0
 
 
+def test_train_logs_action_contrast_loss(tmp_path):
+    save_path = tmp_path / "run" / "checkpoint.pt"
+    metrics_path = tmp_path / "run" / "train_metrics.csv"
+    config = PPOConfig(
+        total_steps=32,
+        rollout_steps=8,
+        num_envs=2,
+        update_epochs=1,
+        minibatch_size=8,
+        hidden_size=8,
+        actor_encoder="human_view_online_gru",
+        recurrent_sequence_training=True,
+        action_contrast_aux_coef=0.01,
+        action_contrast_margin=0.10,
+        seed=132,
+        device="cpu",
+    )
+
+    train(
+        config,
+        save_path=save_path,
+        metrics_csv_path=metrics_path,
+        env_config=DriftEnvConfig(
+            max_steps=8,
+            speed_range=(4.0, 6.0),
+            friction_limited_speed=False,
+            obstacle=ObstacleTaskConfig(enabled=True, distance_range=(20.0, 24.0)),
+        ),
+    )
+
+    with metrics_path.open(newline="", encoding="utf-8") as handle:
+        rows = list(csv.DictReader(handle))
+
+    assert rows
+    assert "action_contrast_loss_mean" in rows[0]
+    assert float(rows[0]["action_contrast_loss_mean"]) >= 0.0
+
+
 def test_online_gru_sequence_eval_backpropagates_through_time():
     torch.manual_seed(0)
     model = ActorCritic(obs_dim=5, act_dim=2, hidden_size=8, actor_encoder="online_gru")

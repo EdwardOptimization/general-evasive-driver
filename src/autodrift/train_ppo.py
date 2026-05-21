@@ -63,6 +63,8 @@ class PPOConfig:
     response_prediction_stride: int = 1
     hidden_contrast_aux_coef: float = 0.0
     hidden_contrast_margin: float = 0.05
+    action_contrast_aux_coef: float = 0.0
+    action_contrast_margin: float = 0.15
     checkpoint_interval_steps: int = 0
     training_seed_csv: str = ""
     training_seed_mix_probability: float = 1.0
@@ -381,6 +383,26 @@ class ActorCritic(nn.Module):
                 hidden[done_t] = 0.0
         return torch.stack(logps), torch.stack(entropies), torch.stack(values)
 
+    def action_mean_recurrent_sequence(
+        self,
+        obs: torch.Tensor,
+        initial_hidden: torch.Tensor,
+        dones: torch.Tensor,
+    ) -> torch.Tensor:
+        if not self.is_online_recurrent:
+            raise RuntimeError("action_mean_recurrent_sequence requires an online recurrent actor_encoder")
+        means = []
+        hidden = initial_hidden
+        for t in range(obs.shape[0]):
+            dist, _, next_hidden = self.forward_recurrent(obs[t], hidden)
+            means.append(torch.tanh(dist.mean))
+            hidden = next_hidden
+            if t < obs.shape[0] - 1:
+                done_t = dones[t].to(dtype=torch.bool, device=obs.device)
+                hidden = hidden.clone()
+                hidden[done_t] = 0.0
+        return torch.stack(means)
+
     def predict_response_recurrent_sequence(
         self,
         obs: torch.Tensor,
@@ -654,6 +676,11 @@ def train(
             raise ValueError("hidden contrast auxiliary loss requires online recurrent sequence training")
         if config.hidden_contrast_margin < 0.0:
             raise ValueError("hidden_contrast_margin cannot be negative")
+    if config.action_contrast_aux_coef > 0.0:
+        if not uses_online_recurrent or not config.recurrent_sequence_training:
+            raise ValueError("action contrast auxiliary loss requires online recurrent sequence training")
+        if config.action_contrast_margin < 0.0:
+            raise ValueError("action_contrast_margin cannot be negative")
     if config.checkpoint_interval_steps < 0:
         raise ValueError("checkpoint_interval_steps cannot be negative")
     if not 0.0 <= config.training_seed_mix_probability <= 1.0:
@@ -824,6 +851,7 @@ def train(
             env_minibatch = max(1, min(config.num_envs, config.minibatch_size // max(1, rollout_n)))
             response_loss_values: list[float] = []
             hidden_contrast_loss_values: list[float] = []
+            action_contrast_loss_values: list[float] = []
             for _ in range(config.update_epochs):
                 np.random.shuffle(env_indices)
                 for start in range(0, len(env_indices), env_minibatch):
@@ -862,6 +890,30 @@ def train(
                         )
                         loss = loss + config.hidden_contrast_aux_coef * contrast_loss
                         hidden_contrast_loss_values.append(float(contrast_loss.detach().cpu().item()))
+                    if config.action_contrast_aux_coef > 0.0:
+                        reset_initial_hidden = torch.zeros_like(initial_hidden_t[mb_env])
+                        reset_every_step_dones = torch.ones_like(done_seq_t[:, mb_env])
+                        normal_action_mean = model.action_mean_recurrent_sequence(
+                            obs_seq_t[:, mb_env],
+                            initial_hidden_t[mb_env],
+                            done_seq_t[:, mb_env],
+                        )
+                        reset_action_mean = model.action_mean_recurrent_sequence(
+                            obs_seq_t[:, mb_env],
+                            reset_initial_hidden,
+                            reset_every_step_dones,
+                        )
+                        action_distance = torch.linalg.vector_norm(normal_action_mean - reset_action_mean, dim=-1)
+                        contrast_weight = torch.clamp(mb_adv.detach(), min=0.0)
+                        action_contrast_penalty = torch.nn.functional.softplus(
+                            config.action_contrast_margin - action_distance
+                        )
+                        action_contrast_loss = (action_contrast_penalty * contrast_weight).sum() / torch.clamp(
+                            contrast_weight.sum(),
+                            min=1.0,
+                        )
+                        loss = loss + config.action_contrast_aux_coef * action_contrast_loss
+                        action_contrast_loss_values.append(float(action_contrast_loss.detach().cpu().item()))
                     if config.response_prediction_aux_coef > 0.0 and rollout_n > 1:
                         if config.response_prediction_dim < 1:
                             raise ValueError("response_prediction_dim must be positive when response_prediction_aux_coef > 0")
@@ -950,6 +1002,10 @@ def train(
         if config.hidden_contrast_aux_coef > 0.0 and uses_online_recurrent and config.recurrent_sequence_training:
             row["hidden_contrast_loss_mean"] = (
                 float(np.mean(hidden_contrast_loss_values)) if hidden_contrast_loss_values else float("nan")
+            )
+        if config.action_contrast_aux_coef > 0.0 and uses_online_recurrent and config.recurrent_sequence_training:
+            row["action_contrast_loss_mean"] = (
+                float(np.mean(action_contrast_loss_values)) if action_contrast_loss_values else float("nan")
             )
         metric_rows.append(row)
         if save_path is not None and next_checkpoint_step is not None and global_step >= next_checkpoint_step:

@@ -1679,3 +1679,26 @@ The policy can make a small first-step change under hidden-swap, but over the
 continuation it returns to almost the same action trajectory. The next objective
 should train sustained behavior differences on matched latent-response cases,
 not just log-prob contrast.
+
+## 20260521 m44-action-contrast-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: direct deterministic action-mean contrast against reset hidden may
+  target the M43 sustained-action-collapse blocker better than M42 log-prob
+  contrast
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m44_action_contrast_driver.json --total-steps 4096 --rollout-steps 128 --seed 1944 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m44_action_contrast_smoke_seed1944`
+- run dir: `runs/ppo_m44_action_contrast_smoke_seed1944`
+- checkpoint: `runs/ppo_m44_action_contrast_smoke_seed1944/checkpoint.pt`
+
+Smoke result:
+
+- init load mode: `strict`;
+- final eval return mean: 61.995;
+- final eval termination rate: 0.200;
+- final train `response_prediction_loss_mean`: 0.023666;
+- final train `action_contrast_loss_mean`: 0.680256.
+
+Conclusion: M44 infrastructure is trainable and writes the intended metrics.
+The short smoke is not a positive policy result. The full run must be judged by
+M38/M35/M29/broad success and the M43 action-trajectory gate.

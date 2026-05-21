@@ -814,6 +814,26 @@ zero-response are about 0.18 to 0.22. This explains the blocker: hidden-swap
 does not sustain a different closed-loop action trajectory. See
 `docs/m43-action-trajectory-intervention-diagnostics.md`.
 
+### M44: Deterministic Action-Contrast Objective
+
+- Replace M42's log-probability contrast with a direct action-mean distance
+  contrast between normal recurrent hidden and per-step reset hidden.
+- Keep the actor contract clean: no hidden vehicle parameters or rule labels.
+- Treat the smoke only as trainability evidence; policy quality requires the
+  same corpus, broad, and action-trajectory gates used for M42/M43.
+
+Exit criteria:
+
+- trainer logs `action_contrast_loss_mean`;
+- M44 strict-loads M37_102 and completes a CUDA smoke;
+- full run is evaluated against M37_102 and M42_028 on M38, M35, M29, broad,
+  and action-trajectory gates.
+
+Status: smoke complete; full training queued. The 4096-step CUDA smoke writes
+`action_contrast_loss_mean = 0.680256`, but its short eval termination rate is
+0.200, so it is not evidence of improvement. See
+`docs/m44-action-contrast-objective.md`.
+
 ## Metrics
 
 - episode success rate;
