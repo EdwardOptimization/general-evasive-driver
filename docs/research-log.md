@@ -32,7 +32,9 @@ Last updated: 2026-05-21
   history-sensitive row, but strict near-boundary acceptance is still zero. M77
   dense boundary relocation found larger wrong-history gaps only when normal
   history already collided; successful near-boundary rows still had sub-threshold
-  margin gaps. The next blocker is an outcome-weighted intervention objective.
+  margin gaps. M78 wires an outcome-weighted intervention objective into PPO,
+  but the first low-coefficient smoke does not reduce offline intervention loss.
+  The next blocker is objective weight/coefficient tuning.
 
 ## Standing Loop
 
@@ -3144,3 +3146,45 @@ near-boundary rows exist, but wrong-history margin loss stays below the
 pre-registered `0.01` threshold. The next task is M78: implement an
 outcome-weighted intervention objective instead of relying on more geometry-only
 mining.
+
+## 20260521T132453Z m78-outcome-weighted-intervention-objective
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: an outcome-weighted hidden-intervention loss can turn weak
+  wrong-history margin losses into a training signal without adding oracle actor
+  inputs.
+- code update: added `OutcomeInterventionSnippets`,
+  `load_outcome_intervention_snippets`, `outcome_weighted_intervention_loss`,
+  PPO config fields, trainer metric logging, and snapshot-bank NPZ export.
+- config: `configs/ppo_m78_outcome_weighted_intervention_driver.json`
+- focused tests: `python -m compileall -q src tests` and
+  `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift pytest -q tests/test_intervention_objectives.py tests/test_snapshot_bank_relocation.py tests/test_checkpoints.py::test_train_logs_outcome_intervention_loss`
+  returned `15 passed`.
+- final validation: `git diff --check`, `python -m compileall -q src tests`,
+  and `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 conda run -n autodrift pytest -q`
+  returned `215 passed`.
+- snippet exports:
+  `runs/m78_outcome_weighted_snippets_seed8601`,
+  `runs/m78_human_view_outcome_weighted_snippets_seed8602`
+- smoke training:
+  `runs/ppo_m78_outcome_weighted_smoke_seed3368`
+- artifact: `docs/m78-outcome-weighted-intervention-objective.md`
+
+Result:
+
+- privileged diagnostic snippets: `523` rows, weight sum `0.247269`, max margin
+  gap `0.012205`;
+- human-view snippets: `671` rows, weight sum `0.299190`, max margin gap
+  `0.010836`;
+- smoke training logs `outcome_intervention_loss_mean`; final value
+  `0.038767`;
+- eval smoke: return mean `68.657370`, termination rate `0.0`;
+- fixed-batch offline objective check: `m62_init` mean loss `0.039923`,
+  `m78_smoke` mean loss `0.040302`.
+
+Conclusion: M78 is an infrastructure pass but a negative smoke result. The
+objective is wired and deployable-human-view compatible, but the first short
+low-coefficient smoke does not improve the offline intervention loss. The next
+task is M79: normalize or sharpen weights, sweep coefficient, and require
+fixed-batch offline objective reduction before long continuation training.

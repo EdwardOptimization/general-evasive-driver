@@ -41,6 +41,14 @@ from autodrift.paired_perturbation_gate import (
 from autodrift.train_ppo import ActorCritic, HUMAN_VIEW_OBS_DIM
 
 
+OUTCOME_ARRAY_KEYS = {
+    "observation",
+    "preferred_hidden",
+    "rejected_hidden",
+    "preferred_action",
+}
+
+
 def _probe_stats(
     probe_steps: int,
     probe_steer_abs_sum: float,
@@ -129,6 +137,94 @@ def collect_active_probe_snapshot_bank(
     return bank
 
 
+def _hidden_array(model: ActorCritic, hidden: Any) -> np.ndarray:
+    if hidden is None:
+        hidden = model.initial_hidden(1)
+    return hidden.detach().cpu().numpy().reshape(-1).astype(np.float32)
+
+
+def _outcome_intervention_weight(
+    normal_margin: float,
+    wrong_margin: float,
+    normal_success: bool,
+    *,
+    min_margin_gap: float,
+    boundary_margin_scale: float,
+) -> float:
+    if not normal_success:
+        return 0.0
+    if not (np.isfinite(normal_margin) and np.isfinite(wrong_margin)):
+        return 0.0
+    margin_gap = float(normal_margin) - float(wrong_margin)
+    if margin_gap <= float(min_margin_gap):
+        return 0.0
+    boundary_scale = max(float(boundary_margin_scale), 1e-6)
+    boundary_weight = boundary_scale / (boundary_scale + max(float(normal_margin), 0.0))
+    return float(margin_gap * boundary_weight)
+
+
+def append_outcome_intervention_example(
+    examples: list[dict[str, Any]],
+    *,
+    model: ActorCritic,
+    source: DecisionSnapshot,
+    paired: DecisionSnapshot,
+    row: dict[str, Any],
+    source_prefix: str,
+    min_margin_gap: float,
+    boundary_margin_scale: float,
+) -> None:
+    normal_margin = float(row.get(f"{source_prefix}_normal_margin", float("nan")))
+    wrong_margin = float(row.get(f"{source_prefix}_wrong_history_margin", float("nan")))
+    normal_success = bool(row.get(f"{source_prefix}_normal_success", False))
+    weight = _outcome_intervention_weight(
+        normal_margin,
+        wrong_margin,
+        normal_success,
+        min_margin_gap=min_margin_gap,
+        boundary_margin_scale=boundary_margin_scale,
+    )
+    if weight <= 0.0:
+        return
+    preferred_action, _, _, _ = model.act_recurrent(source.observation, source.hidden, deterministic=True)
+    examples.append(
+        {
+            "seed": int(source.seed),
+            "source_condition": source_prefix,
+            "source_step": int(source.step),
+            "paired_step": int(paired.step),
+            "normal_margin": normal_margin,
+            "wrong_history_margin": wrong_margin,
+            "margin_gap": normal_margin - wrong_margin,
+            "weight": float(weight),
+            "observation": np.asarray(source.observation, dtype=np.float32).copy(),
+            "preferred_hidden": _hidden_array(model, source.hidden),
+            "rejected_hidden": _hidden_array(model, paired.hidden),
+            "preferred_action": np.asarray(preferred_action, dtype=np.float32).copy(),
+        }
+    )
+
+
+def outcome_intervention_arrays(examples: list[dict[str, Any]]) -> dict[str, np.ndarray]:
+    if not examples:
+        return {}
+    return {
+        "observation": np.stack([example["observation"] for example in examples]).astype(np.float32),
+        "preferred_hidden": np.stack([example["preferred_hidden"] for example in examples]).astype(np.float32),
+        "rejected_hidden": np.stack([example["rejected_hidden"] for example in examples]).astype(np.float32),
+        "preferred_action": np.stack([example["preferred_action"] for example in examples]).astype(np.float32),
+        "weight": np.asarray([example["weight"] for example in examples], dtype=np.float32),
+    }
+
+
+def outcome_intervention_metadata(examples: list[dict[str, Any]]) -> pd.DataFrame:
+    rows = [
+        {key: value for key, value in example.items() if key not in OUTCOME_ARRAY_KEYS}
+        for example in examples
+    ]
+    return pd.DataFrame(rows)
+
+
 def pair_snapshot_banks(
     nominal_bank: list[DecisionSnapshot],
     perturbed_bank: list[DecisionSnapshot],
@@ -212,7 +308,9 @@ def run_snapshot_bank_relocation(
     max_continuation_steps: int | None,
     top_k: int,
     probe_config: ProbeConfig,
-) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    outcome_export_min_margin_gap: float,
+    outcome_export_boundary_margin_scale: float,
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, dict[str, np.ndarray]]:
     base_config = obstacle_override_config(
         base_config,
         distance_range=None,
@@ -231,6 +329,7 @@ def run_snapshot_bank_relocation(
     )
     rows: list[dict[str, Any]] = []
     replay_rows: list[dict[str, Any]] = []
+    outcome_examples: list[dict[str, Any]] = []
     for seed in seeds:
         banks = {
             condition: collect_active_probe_snapshot_bank(
@@ -324,6 +423,26 @@ def run_snapshot_bank_relocation(
                         ),
                     }
                 )
+                append_outcome_intervention_example(
+                    outcome_examples,
+                    model=model,
+                    source=relocated_nominal,
+                    paired=relocated_perturbed,
+                    row=row,
+                    source_prefix="nominal",
+                    min_margin_gap=outcome_export_min_margin_gap,
+                    boundary_margin_scale=outcome_export_boundary_margin_scale,
+                )
+                append_outcome_intervention_example(
+                    outcome_examples,
+                    model=model,
+                    source=relocated_perturbed,
+                    paired=relocated_nominal,
+                    row=row,
+                    source_prefix="perturbed",
+                    min_margin_gap=outcome_export_min_margin_gap,
+                    boundary_margin_scale=outcome_export_boundary_margin_scale,
+                )
                 rows.append(row)
                 for replay in replays:
                     replay.update(
@@ -343,7 +462,17 @@ def run_snapshot_bank_relocation(
     replays = pd.DataFrame(replay_rows)
     corpus = select_outcome_sensitive_corpus(candidates, top_k=top_k)
     summary = summarize_outcomes(candidates)
-    return candidates, replays, corpus, summary
+    outcome_metadata = outcome_intervention_metadata(outcome_examples)
+    snippets = outcome_intervention_arrays(outcome_examples)
+    if len(summary):
+        summary.loc[0, "outcome_intervention_snippets"] = int(len(outcome_metadata))
+        summary.loc[0, "outcome_intervention_weight_sum"] = (
+            float(outcome_metadata["weight"].sum()) if "weight" in outcome_metadata else 0.0
+        )
+        summary.loc[0, "outcome_intervention_margin_gap_max"] = (
+            float(outcome_metadata["margin_gap"].max()) if "margin_gap" in outcome_metadata else 0.0
+        )
+    return candidates, replays, corpus, summary, outcome_metadata, snippets
 
 
 def main() -> None:
@@ -389,6 +518,8 @@ def main() -> None:
     parser.add_argument("--probe-period-steps", type=int, default=20)
     parser.add_argument("--probe-until-step", type=int, default=None)
     parser.add_argument("--probe-until-distance", type=float, default=None)
+    parser.add_argument("--outcome-export-min-margin-gap", type=float, default=0.0)
+    parser.add_argument("--outcome-export-boundary-margin-scale", type=float, default=0.20)
     parser.add_argument("--top-k", type=int, default=40)
     parser.add_argument("--run-dir", type=Path, default=None)
     args = parser.parse_args()
@@ -414,7 +545,7 @@ def main() -> None:
         until_step=args.probe_until_step,
         until_distance=args.probe_until_distance,
     )
-    candidates, replays, corpus, summary = run_snapshot_bank_relocation(
+    candidates, replays, corpus, summary, outcome_metadata, outcome_snippets = run_snapshot_bank_relocation(
         model=model,
         base_config=base_config,
         seeds=seeds,
@@ -448,16 +579,23 @@ def main() -> None:
         max_continuation_steps=args.max_continuation_steps,
         top_k=args.top_k,
         probe_config=probe_config,
+        outcome_export_min_margin_gap=args.outcome_export_min_margin_gap,
+        outcome_export_boundary_margin_scale=args.outcome_export_boundary_margin_scale,
     )
 
     candidates_csv = run_dir / "outcome_candidates.csv"
     replays_csv = run_dir / "replays.csv"
     corpus_csv = run_dir / "outcome_sensitive_snippets.csv"
     summary_csv = run_dir / "summary.csv"
+    outcome_metadata_csv = run_dir / "outcome_intervention_snippets.csv"
+    outcome_npz = run_dir / "outcome_intervention_snippets.npz"
     candidates.to_csv(candidates_csv, index=False)
     replays.to_csv(replays_csv, index=False)
     corpus.to_csv(corpus_csv, index=False)
     summary.to_csv(summary_csv, index=False)
+    outcome_metadata.to_csv(outcome_metadata_csv, index=False)
+    if outcome_snippets:
+        np.savez_compressed(outcome_npz, **outcome_snippets)
     write_json(run_dir / "summary.json", summary.iloc[0].to_dict() if len(summary) else {})
     write_json(
         run_dir / "manifest.json",
@@ -508,12 +646,18 @@ def main() -> None:
                 "until_step": probe_config.until_step,
                 "until_distance": probe_config.until_distance,
             },
+            "outcome_export": {
+                "min_margin_gap": args.outcome_export_min_margin_gap,
+                "boundary_margin_scale": args.outcome_export_boundary_margin_scale,
+            },
             "top_k": args.top_k,
             "artifacts": {
                 "outcome_candidates_csv": candidates_csv,
                 "replays_csv": replays_csv,
                 "outcome_sensitive_snippets_csv": corpus_csv,
                 "summary_csv": summary_csv,
+                "outcome_intervention_snippets_csv": outcome_metadata_csv,
+                "outcome_intervention_snippets_npz": outcome_npz if outcome_snippets else None,
             },
         },
     )

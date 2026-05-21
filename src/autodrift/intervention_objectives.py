@@ -22,6 +22,19 @@ class PairedHiddenSnapshots:
         return int(self.nominal_observation.shape[0])
 
 
+@dataclass(frozen=True)
+class OutcomeInterventionSnippets:
+    observation: torch.Tensor
+    preferred_hidden: torch.Tensor
+    rejected_hidden: torch.Tensor
+    preferred_action: torch.Tensor
+    weight: torch.Tensor
+
+    @property
+    def size(self) -> int:
+        return int(self.observation.shape[0])
+
+
 def weighted_mean(values: torch.Tensor, weights: torch.Tensor) -> torch.Tensor:
     """Mean with the same zero-weight behavior used by PPO auxiliary losses."""
 
@@ -72,6 +85,13 @@ def baseline_action_anchor_loss(
     return action_error.mean()
 
 
+def squashed_action_log_prob(dist: Any, action: torch.Tensor) -> torch.Tensor:
+    clipped = torch.clamp(action.detach(), -1.0 + 1e-6, 1.0 - 1e-6)
+    raw = torch.atanh(clipped)
+    correction = torch.log(torch.clamp(1.0 - clipped.pow(2), min=1e-6)).sum(dim=-1)
+    return dist.log_prob(raw).sum(dim=-1) - correction
+
+
 def load_paired_hidden_snapshots(
     path: Path | str,
     *,
@@ -113,6 +133,55 @@ def load_paired_hidden_snapshots(
     )
 
 
+def load_outcome_intervention_snippets(
+    path: Path | str,
+    *,
+    device: torch.device,
+    obs_dim: int,
+    hidden_size: int,
+    act_dim: int,
+) -> OutcomeInterventionSnippets:
+    data = np.load(Path(path))
+    required = {
+        "observation",
+        "preferred_hidden",
+        "rejected_hidden",
+        "preferred_action",
+        "weight",
+    }
+    missing = sorted(required.difference(data.files))
+    if missing:
+        raise ValueError(f"outcome intervention snippet npz missing fields: {missing}")
+    observation = np.asarray(data["observation"], dtype=np.float32)
+    preferred_hidden = np.asarray(data["preferred_hidden"], dtype=np.float32)
+    rejected_hidden = np.asarray(data["rejected_hidden"], dtype=np.float32)
+    preferred_action = np.asarray(data["preferred_action"], dtype=np.float32)
+    weight = np.asarray(data["weight"], dtype=np.float32)
+    if observation.ndim != 2 or observation.shape[1] != obs_dim:
+        raise ValueError(f"outcome observations must have shape (N, {obs_dim}), got {observation.shape}")
+    if preferred_hidden.shape != rejected_hidden.shape:
+        raise ValueError("preferred and rejected hidden states must have matching shapes")
+    if preferred_hidden.ndim != 2 or preferred_hidden.shape[1] != hidden_size:
+        raise ValueError(f"outcome hidden states must have shape (N, {hidden_size}), got {preferred_hidden.shape}")
+    if preferred_action.ndim != 2 or preferred_action.shape[1] != act_dim:
+        raise ValueError(f"preferred actions must have shape (N, {act_dim}), got {preferred_action.shape}")
+    if weight.ndim != 1 or weight.shape[0] != observation.shape[0]:
+        raise ValueError(f"weights must have shape (N,), got {weight.shape}")
+    if observation.shape[0] < 1:
+        raise ValueError("outcome intervention snippet npz must contain at least one row")
+    if not np.all(np.isfinite(weight)):
+        raise ValueError("outcome intervention weights must be finite")
+    if float(np.max(weight)) <= 0.0:
+        raise ValueError("outcome intervention snippets require at least one positive weight")
+    return OutcomeInterventionSnippets(
+        observation=torch.as_tensor(observation, dtype=torch.float32, device=device),
+        preferred_hidden=torch.as_tensor(preferred_hidden, dtype=torch.float32, device=device),
+        rejected_hidden=torch.as_tensor(rejected_hidden, dtype=torch.float32, device=device),
+        preferred_action=torch.as_tensor(preferred_action, dtype=torch.float32, device=device),
+        weight=torch.as_tensor(np.clip(weight, 0.0, None), dtype=torch.float32, device=device),
+    )
+
+
 def paired_hidden_action_contrast_loss(
     model: Any,
     snapshots: PairedHiddenSnapshots,
@@ -142,3 +211,27 @@ def paired_hidden_action_contrast_loss(
     )
     distances = torch.cat([nominal_distance, perturbed_distance])
     return torch.nn.functional.softplus(float(margin) - distances).mean()
+
+
+def outcome_weighted_intervention_loss(
+    model: Any,
+    snippets: OutcomeInterventionSnippets,
+    *,
+    batch_size: int,
+    logprob_margin: float,
+) -> torch.Tensor:
+    count = snippets.size
+    batch_count = max(1, min(int(batch_size), count))
+    indices = torch.randint(count, (batch_count,), device=snippets.observation.device)
+    observation = snippets.observation[indices]
+    preferred_hidden = snippets.preferred_hidden[indices]
+    rejected_hidden = snippets.rejected_hidden[indices]
+    preferred_action = snippets.preferred_action[indices]
+    weight = snippets.weight[indices]
+
+    preferred_dist, _, _ = model.forward_recurrent(observation, preferred_hidden)
+    rejected_dist, _, _ = model.forward_recurrent(observation, rejected_hidden)
+    preferred_log_prob = squashed_action_log_prob(preferred_dist, preferred_action)
+    rejected_log_prob = squashed_action_log_prob(rejected_dist, preferred_action)
+    penalty = torch.nn.functional.softplus(rejected_log_prob - preferred_log_prob + float(logprob_margin))
+    return weighted_mean(penalty, weight.detach())

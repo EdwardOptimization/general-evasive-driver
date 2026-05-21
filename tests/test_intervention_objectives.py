@@ -4,14 +4,18 @@ import numpy as np
 import torch
 
 from autodrift.intervention_objectives import (
+    OutcomeInterventionSnippets,
     PairedHiddenSnapshots,
     action_mean_margin_contrast_loss,
     baseline_action_anchor_loss,
+    load_outcome_intervention_snippets,
     load_paired_hidden_snapshots,
     logprob_intervention_contrast_loss,
     negative_advantage_weights,
+    outcome_weighted_intervention_loss,
     paired_hidden_action_contrast_loss,
     positive_advantage_weights,
+    squashed_action_log_prob,
     weighted_mean,
 )
 
@@ -105,6 +109,31 @@ def test_load_paired_hidden_snapshots_validates_and_converts_arrays(tmp_path):
     assert snapshots.perturbed_hidden.dtype == torch.float32
 
 
+def test_load_outcome_intervention_snippets_validates_and_converts_arrays(tmp_path):
+    path = tmp_path / "outcome_snippets.npz"
+    np.savez(
+        path,
+        observation=np.zeros((2, 3), dtype=np.float32),
+        preferred_hidden=np.zeros((2, 4), dtype=np.float32),
+        rejected_hidden=np.ones((2, 4), dtype=np.float32),
+        preferred_action=np.zeros((2, 2), dtype=np.float32),
+        weight=np.asarray([0.0, 1.5], dtype=np.float32),
+    )
+
+    snippets = load_outcome_intervention_snippets(
+        path,
+        device=torch.device("cpu"),
+        obs_dim=3,
+        hidden_size=4,
+        act_dim=2,
+    )
+
+    assert snippets.size == 2
+    assert snippets.observation.shape == (2, 3)
+    assert snippets.preferred_action.shape == (2, 2)
+    assert torch.isclose(snippets.weight.max(), torch.tensor(1.5))
+
+
 def test_paired_hidden_action_contrast_loss_uses_swapped_hidden_states():
     class DummyModel:
         def forward_recurrent(self, observation, hidden):
@@ -123,3 +152,48 @@ def test_paired_hidden_action_contrast_loss_uses_swapped_hidden_states():
 
     assert torch.isfinite(loss)
     assert loss >= 0.0
+
+
+def test_outcome_weighted_intervention_loss_prefers_normal_history_action():
+    class DummyDist:
+        def __init__(self, mean):
+            self.mean = mean
+
+        def log_prob(self, raw_action):
+            return -torch.square(raw_action - self.mean)
+
+    class DummyModel:
+        def forward_recurrent(self, observation, hidden):
+            del observation
+            return DummyDist(hidden[:, :2]), None, None
+
+    snippets = OutcomeInterventionSnippets(
+        observation=torch.zeros((2, 3)),
+        preferred_hidden=torch.zeros((2, 4)),
+        rejected_hidden=torch.ones((2, 4)),
+        preferred_action=torch.zeros((2, 2)),
+        weight=torch.tensor([1.0, 2.0]),
+    )
+
+    torch.manual_seed(2)
+    loss = outcome_weighted_intervention_loss(
+        DummyModel(),
+        snippets,
+        batch_size=2,
+        logprob_margin=0.1,
+    )
+
+    preferred_logp = torch.zeros(2)
+    rejected_logp = torch.full((2,), -2.0)
+    expected = torch.nn.functional.softplus(rejected_logp - preferred_logp + 0.1).mean()
+    assert torch.isclose(loss, expected)
+
+
+def test_squashed_action_log_prob_handles_bounded_actions():
+    dist = torch.distributions.Normal(torch.zeros((1, 2)), torch.ones((1, 2)))
+    action = torch.tensor([[0.0, 0.5]])
+
+    log_prob = squashed_action_log_prob(dist, action)
+
+    assert log_prob.shape == (1,)
+    assert torch.isfinite(log_prob).all()

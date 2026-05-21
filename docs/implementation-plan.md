@@ -1687,10 +1687,26 @@ under wrong history. See `docs/m77-boundary-aware-snapshot-relocation.md`.
   makes outcome-relevant history differences affect risk/action estimates.
 - Keep strict margin-retention and aggregate-driving gates as guards.
 
-Status: planned after M77. M77 shows that the current policy has some
-history-sensitive margin differences, but they are too weak near the boundary.
-The next step should train on outcome-sensitive preferences rather than only
-searching for rarer mined snippets.
+Status: complete as infrastructure and negative smoke. M78 added an
+outcome-weighted hidden-intervention auxiliary loss, exports weighted snippet
+NPZ files from snapshot-bank relocation, and wires the loss into PPO metrics.
+The deployable human-view snippet export contains `671` rows with weight sum
+`0.299190`. A 4096-step CPU smoke logs `outcome_intervention_loss_mean`, but
+offline loss slightly worsens from `0.039923` to `0.040302`, so the checkpoint is
+not a candidate. See `docs/m78-outcome-weighted-intervention-objective.md`.
+
+### M79: Outcome Objective Weight Tuning
+
+- Normalize or sharpen outcome snippet weights so near-boundary rows dominate
+  the auxiliary objective.
+- Sweep a higher `outcome_intervention_aux_coef` in short CPU smokes.
+- Use fixed-batch offline objective loss as a required smoke gate before any
+  full continuation.
+- Continue to protect M62/M67E retention behavior with baseline-action anchor
+  and strict margin-retention gates.
+
+Status: planned after M78. M78 proves the objective can run but not that it
+improves the intended loss.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

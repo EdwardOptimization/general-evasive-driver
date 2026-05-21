@@ -25,8 +25,10 @@ from autodrift.env import AutoDriftEnv, DriftEnvConfig
 from autodrift.intervention_objectives import (
     action_mean_margin_contrast_loss,
     baseline_action_anchor_loss,
+    load_outcome_intervention_snippets,
     load_paired_hidden_snapshots,
     logprob_intervention_contrast_loss,
+    outcome_weighted_intervention_loss,
     paired_hidden_action_contrast_loss,
 )
 from autodrift.vector_env import ParallelAutoDriftVectorEnv, SyncAutoDriftVectorEnv
@@ -84,6 +86,10 @@ class PPOConfig:
     paired_hidden_action_contrast_margin: float = 0.08
     paired_hidden_snapshot_npz: str = ""
     paired_hidden_snapshot_batch_size: int = 128
+    outcome_intervention_aux_coef: float = 0.0
+    outcome_intervention_snapshot_npz: str = ""
+    outcome_intervention_batch_size: int = 128
+    outcome_intervention_logprob_margin: float = 0.05
     baseline_action_anchor_coef: float = 0.0
     baseline_action_anchor_checkpoint: str = ""
     baseline_action_anchor_negative_advantage_only: bool = False
@@ -766,6 +772,15 @@ def train(
             raise ValueError("paired_hidden_action_contrast_margin cannot be negative")
         if config.paired_hidden_snapshot_batch_size < 1:
             raise ValueError("paired_hidden_snapshot_batch_size must be positive")
+    if config.outcome_intervention_aux_coef > 0.0:
+        if not uses_online_recurrent or not config.recurrent_sequence_training:
+            raise ValueError("outcome intervention objective requires online recurrent sequence training")
+        if not str(config.outcome_intervention_snapshot_npz).strip():
+            raise ValueError("outcome_intervention_snapshot_npz is required when outcome intervention is enabled")
+        if config.outcome_intervention_batch_size < 1:
+            raise ValueError("outcome_intervention_batch_size must be positive")
+        if config.outcome_intervention_logprob_margin < 0.0:
+            raise ValueError("outcome_intervention_logprob_margin cannot be negative")
     if config.baseline_action_anchor_coef > 0.0:
         if not str(config.baseline_action_anchor_checkpoint).strip():
             raise ValueError("baseline_action_anchor_checkpoint is required when baseline action anchor is enabled")
@@ -834,6 +849,17 @@ def train(
             hidden_size=config.hidden_size,
         )
         if config.paired_hidden_action_contrast_aux_coef > 0.0
+        else None
+    )
+    outcome_intervention_snippets = (
+        load_outcome_intervention_snippets(
+            config.outcome_intervention_snapshot_npz,
+            device=device,
+            obs_dim=env.single_observation_space.shape[0],
+            hidden_size=config.hidden_size,
+            act_dim=env.single_action_space.shape[0],
+        )
+        if config.outcome_intervention_aux_coef > 0.0
         else None
     )
     print(f"training_device={device} num_envs={config.num_envs} curriculum_stage={active_stage}")
@@ -1017,6 +1043,7 @@ def train(
             hidden_contrast_loss_values: list[float] = []
             action_contrast_loss_values: list[float] = []
             paired_hidden_action_contrast_loss_values: list[float] = []
+            outcome_intervention_loss_values: list[float] = []
             baseline_action_anchor_loss_values: list[float] = []
             baseline_action_anchor_t = (
                 torch.as_tensor(baseline_action_anchor_buf, dtype=torch.float32, device=device)
@@ -1091,6 +1118,18 @@ def train(
                         loss = loss + config.paired_hidden_action_contrast_aux_coef * paired_hidden_loss
                         paired_hidden_action_contrast_loss_values.append(
                             float(paired_hidden_loss.detach().cpu().item())
+                        )
+                    if config.outcome_intervention_aux_coef > 0.0:
+                        assert outcome_intervention_snippets is not None
+                        outcome_intervention_loss = outcome_weighted_intervention_loss(
+                            model,
+                            outcome_intervention_snippets,
+                            batch_size=config.outcome_intervention_batch_size,
+                            logprob_margin=config.outcome_intervention_logprob_margin,
+                        )
+                        loss = loss + config.outcome_intervention_aux_coef * outcome_intervention_loss
+                        outcome_intervention_loss_values.append(
+                            float(outcome_intervention_loss.detach().cpu().item())
                         )
                     if config.baseline_action_anchor_coef > 0.0:
                         assert baseline_action_anchor_t is not None
@@ -1230,6 +1269,12 @@ def train(
             row["paired_hidden_action_contrast_loss_mean"] = (
                 float(np.mean(paired_hidden_action_contrast_loss_values))
                 if paired_hidden_action_contrast_loss_values
+                else float("nan")
+            )
+        if config.outcome_intervention_aux_coef > 0.0 and uses_online_recurrent and config.recurrent_sequence_training:
+            row["outcome_intervention_loss_mean"] = (
+                float(np.mean(outcome_intervention_loss_values))
+                if outcome_intervention_loss_values
                 else float("nan")
             )
         if config.baseline_action_anchor_coef > 0.0:

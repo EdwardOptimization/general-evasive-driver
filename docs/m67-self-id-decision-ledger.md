@@ -247,16 +247,16 @@ Persisted in:
 Continue with:
 
 ```text
-m78-outcome-weighted-intervention-objective
+m79-outcome-objective-weight-tuning
 ```
 
 Implementation intent:
 
 ```text
-use M76/M77 rows as outcome-weighted intervention snippets
-weight by wrong-history margin loss and boundary proximity
-train risk/action preference rather than only replaying seeds
-preserve M62/M67E driving retention gates
+normalize or sharpen M78 outcome snippet weights
+sweep outcome_intervention_aux_coef in short smokes
+require fixed-batch offline objective reduction
+then run retention and self-ID gates
 ```
 
 M70 showed that M69 wrong-history candidates do not degrade success or margin.
@@ -273,3 +273,6 @@ and not a strict near-boundary proof. M77 dense boundary relocation finds large
 wrong-history gaps only in collision-to-collision rows; successful
 near-boundary rows stay below the margin-loss threshold. Do not proceed directly
 to student OSI distillation yet.
+M78 wires the outcome-weighted objective into PPO and exports human-view
+snippets, but the first smoke slightly worsens fixed-batch offline loss. Do not
+run a long continuation until the objective passes an offline-loss smoke.

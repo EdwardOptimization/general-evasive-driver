@@ -528,6 +528,55 @@ def test_train_logs_paired_hidden_action_contrast_loss(tmp_path):
     assert float(rows[0]["paired_hidden_action_contrast_loss_mean"]) >= 0.0
 
 
+def test_train_logs_outcome_intervention_loss(tmp_path):
+    save_path = tmp_path / "run" / "checkpoint.pt"
+    metrics_path = tmp_path / "run" / "train_metrics.csv"
+    snippet_path = tmp_path / "outcome_snippets.npz"
+    np.savez_compressed(
+        snippet_path,
+        observation=np.zeros((3, 72), dtype=np.float32),
+        preferred_hidden=np.zeros((3, 8), dtype=np.float32),
+        rejected_hidden=np.ones((3, 8), dtype=np.float32) * 0.1,
+        preferred_action=np.zeros((3, 3), dtype=np.float32),
+        weight=np.ones(3, dtype=np.float32),
+    )
+    config = PPOConfig(
+        total_steps=32,
+        rollout_steps=8,
+        num_envs=2,
+        update_epochs=1,
+        minibatch_size=8,
+        hidden_size=8,
+        actor_encoder="human_view_online_gru",
+        recurrent_sequence_training=True,
+        outcome_intervention_aux_coef=0.01,
+        outcome_intervention_snapshot_npz=str(snippet_path),
+        outcome_intervention_batch_size=2,
+        outcome_intervention_logprob_margin=0.05,
+        seed=135,
+        device="cpu",
+    )
+
+    train(
+        config,
+        save_path=save_path,
+        metrics_csv_path=metrics_path,
+        env_config=DriftEnvConfig(
+            max_steps=8,
+            speed_range=(4.0, 6.0),
+            friction_limited_speed=False,
+            obstacle=ObstacleTaskConfig(enabled=True, distance_range=(20.0, 24.0)),
+        ),
+    )
+
+    with metrics_path.open(newline="", encoding="utf-8") as handle:
+        rows = list(csv.DictReader(handle))
+
+    assert rows
+    assert "outcome_intervention_loss_mean" in rows[0]
+    assert float(rows[0]["outcome_intervention_loss_mean"]) >= 0.0
+
+
 def test_train_requires_baseline_action_anchor_checkpoint():
     config = PPOConfig(
         total_steps=8,
