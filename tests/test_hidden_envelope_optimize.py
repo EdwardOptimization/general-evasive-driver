@@ -140,6 +140,9 @@ def test_optimize_hidden_envelope_objective_writes_artifacts(tmp_path):
         contrast_coef=0.5,
         contrast_margin=0.02,
         contrast_mode="per_target",
+        current_response_loss_coef=0.1,
+        current_response_contrast_coef=0.2,
+        current_response_contrast_margin=0.01,
         target_loss_weights=(3.0, 1.0, 1.0),
         grad_clip_norm=1.0,
         device="cpu",
@@ -153,6 +156,8 @@ def test_optimize_hidden_envelope_objective_writes_artifacts(tmp_path):
     assert loaded.is_online_recurrent
     assert checkpoint_data["metadata"]["init_checkpoint"] == str(checkpoint)
     assert summary["contrast_mode"] == "per_target"
+    assert summary["current_response_loss_coef"] == 0.1
+    assert summary["current_response_contrast_coef"] == 0.2
     assert summary["target_loss_weights"]["future_braking_deceleration"] > 1.0
     assert set(summary["response_hidden_minus_reset_test_r2_delta"]) == {
         "future_braking_deceleration",

@@ -305,6 +305,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m109-hidden-envelope-probe-reliability-audit.md`: hidden-envelope probe
   reliability audit; target means are stable at larger sample counts, but
   carried response hidden still loses to reset/current-response baselines.
+- `m110-current-response-anchored-hidden-envelope-objective.md`: objective-only
+  hidden-envelope tuning with an explicit current-response baseline; internal
+  objective-batch gains fail external repeated split/multi-seed reliability.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

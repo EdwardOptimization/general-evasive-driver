@@ -1,0 +1,35 @@
+{
+  "baseline_checkpoints": [
+    "runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt",
+    "runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt",
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt"
+  ],
+  "commands": [
+    {
+      "command": "TBD: build or audit a matched-current-response corpus where visible current response and scene are similar but prior command-response history or hidden dynamics imply different future envelope or action outcome",
+      "name": "m111_matched_current_response_ambiguity_audit"
+    }
+  ],
+  "decision_rule": "Before another hidden objective, prove the target surface is history-necessary by finding matched-current-response cases where current response is insufficient but history or hidden state can predict different capability or action outcomes.",
+  "failure_criteria": [
+    "the corpus is merely hard but not matched on current response and scene",
+    "current-response-only baselines can solve the target as well as history",
+    "oracle hidden parameters are fed to the deployable actor",
+    "the next objective is trained before the ambiguity proof surface is defined"
+  ],
+  "hypothesis": "M110 failed because future-envelope prediction is mostly current-response Markov in the present task. Self-identification needs a proof surface with matched current observations but different history-dependent capabilities or action outcomes.",
+  "id": "m111-matched-current-response-ambiguity-audit",
+  "required_artifacts": [
+    {
+      "path": "docs/m111-matched-current-response-ambiguity-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "matched-current-response candidate rows are mined or shown absent",
+    "current-response-only and history/hidden features are compared on the matched surface",
+    "the result selects a corpus or explains why simulator/task construction must change",
+    "docs, queue, status, and scoreboard are updated"
+  ],
+  "type": "gate"
+}

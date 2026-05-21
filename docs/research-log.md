@@ -4167,3 +4167,37 @@ Conclusion: M109 rejects another same-style hidden-retention objective and
 points to M110: a current-response anchored objective/gate where response
 hidden must beat both reset hidden and current response under repeated split
 and multi-seed evaluation.
+
+## 20260521T191032Z m110-current-response-anchored-hidden-envelope-objective
+
+- status: `completed`
+- kind: `objective_sanity`
+- implementation:
+  `src/autodrift/hidden_envelope_optimize.py`,
+  `src/autodrift/hidden_envelope_reliability_audit.py`
+- tests:
+  `tests/test_hidden_envelope_optimize.py`,
+  `tests/test_hidden_envelope_reliability_audit.py`
+- objective runs:
+  `runs/m110_current_response_anchor_objective_seed9730`,
+  `runs/m110_current_response_anchor_broad_objective_seed9700`
+- reliability gates:
+  `runs/m110_current_response_anchor_reliability_seed9510`,
+  `runs/m110_broad_current_response_anchor_reliability_seed9510`
+- artifact: `docs/m110-current-response-anchored-hidden-envelope-objective.md`
+
+Result:
+
+- added a current-response baseline head and contrast loss to the hidden
+  envelope objective;
+- added current-response lift aggregation to the reliability audit;
+- first variant makes hidden beat current response on its own objective batch,
+  but fails against reset on braking/lateral;
+- broad variant beats both reset and current response internally on all targets;
+- both variants fail the external repeated split / multi-seed reliability gate;
+- broad variant external hidden-current lift remains negative:
+  braking `-0.518338`, lateral `-0.653002`, yaw `-0.730686`.
+
+Conclusion: M110 rejects same-style current-response anchored objective-only
+tuning. The next pending task is M111: construct a matched-current-response
+ambiguity proof surface where current response is insufficient by construction.

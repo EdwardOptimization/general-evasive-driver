@@ -200,13 +200,24 @@ def aggregate_lift_rows(
     summary: list[dict[str, Any]] = []
     for (label, sample_limit, target), group in sorted(by_key.items()):
         lifts = np.asarray([float(row["response_hidden_minus_reset_test_r2"]) for row in group], dtype=np.float64)
+        current_lifts = np.asarray(
+            [float(row["response_hidden_minus_current_response_test_r2"]) for row in group],
+            dtype=np.float64,
+        )
         pass_mask = lifts >= float(thresholds.min_lift_threshold)
+        current_pass_mask = current_lifts >= float(thresholds.min_lift_threshold)
         lift_mean = float(np.mean(lifts))
         lift_min = float(np.min(lifts))
         pass_fraction = float(np.mean(pass_mask))
+        current_lift_mean = float(np.mean(current_lifts))
+        current_lift_min = float(np.min(current_lifts))
+        current_pass_fraction = float(np.mean(current_pass_mask))
         mean_pass = lift_mean >= float(thresholds.mean_lift_threshold)
         min_pass = lift_min >= float(thresholds.min_lift_threshold)
         fraction_pass = pass_fraction >= float(thresholds.pass_fraction_threshold)
+        current_mean_pass = current_lift_mean >= float(thresholds.mean_lift_threshold)
+        current_min_pass = current_lift_min >= float(thresholds.min_lift_threshold)
+        current_fraction_pass = current_pass_fraction >= float(thresholds.pass_fraction_threshold)
         summary.append(
             {
                 "checkpoint_label": label,
@@ -222,13 +233,32 @@ def aggregate_lift_rows(
                 "lift_max": float(np.max(lifts)),
                 "pass_count": int(np.sum(pass_mask)),
                 "pass_fraction": pass_fraction,
+                "current_lift_mean": current_lift_mean,
+                "current_lift_std": float(np.std(current_lifts)),
+                "current_lift_min": current_lift_min,
+                "current_lift_p10": float(np.percentile(current_lifts, 10)),
+                "current_lift_p50": float(np.percentile(current_lifts, 50)),
+                "current_lift_p90": float(np.percentile(current_lifts, 90)),
+                "current_lift_max": float(np.max(current_lifts)),
+                "current_pass_count": int(np.sum(current_pass_mask)),
+                "current_pass_fraction": current_pass_fraction,
                 "mean_lift_threshold": float(thresholds.mean_lift_threshold),
                 "min_lift_threshold": float(thresholds.min_lift_threshold),
                 "pass_fraction_threshold": float(thresholds.pass_fraction_threshold),
                 "mean_pass": bool(mean_pass),
                 "min_pass": bool(min_pass),
                 "fraction_pass": bool(fraction_pass),
-                "passed": bool(mean_pass and min_pass and fraction_pass),
+                "current_mean_pass": bool(current_mean_pass),
+                "current_min_pass": bool(current_min_pass),
+                "current_fraction_pass": bool(current_fraction_pass),
+                "passed": bool(
+                    mean_pass
+                    and min_pass
+                    and fraction_pass
+                    and current_mean_pass
+                    and current_min_pass
+                    and current_fraction_pass
+                ),
             }
         )
     return summary

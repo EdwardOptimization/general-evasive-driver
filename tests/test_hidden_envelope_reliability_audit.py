@@ -67,12 +67,14 @@ def test_aggregate_lift_rows_tracks_split_variance_and_gate_parts():
             "sample_limit": 800,
             "target": "future_yaw_response",
             "response_hidden_minus_reset_test_r2": 0.2,
+            "response_hidden_minus_current_response_test_r2": 0.3,
         },
         {
             "checkpoint_label": "m105",
             "sample_limit": 800,
             "target": "future_yaw_response",
             "response_hidden_minus_reset_test_r2": -0.1,
+            "response_hidden_minus_current_response_test_r2": -0.2,
         },
     ]
 
@@ -89,6 +91,11 @@ def test_aggregate_lift_rows_tracks_split_variance_and_gate_parts():
     assert np.isclose(summary[0]["lift_mean"], 0.05)
     assert np.isclose(summary[0]["lift_min"], -0.1)
     assert np.isclose(summary[0]["pass_fraction"], 0.5)
+    assert np.isclose(summary[0]["current_lift_mean"], 0.05)
+    assert np.isclose(summary[0]["current_lift_min"], -0.2)
+    assert np.isclose(summary[0]["current_pass_fraction"], 0.5)
     assert summary[0]["mean_pass"] is True
     assert summary[0]["min_pass"] is False
+    assert summary[0]["current_mean_pass"] is True
+    assert summary[0]["current_min_pass"] is False
     assert summary[0]["passed"] is False

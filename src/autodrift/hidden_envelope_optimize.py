@@ -58,6 +58,8 @@ class EnvelopeHeadMetrics:
     loss: float
     reset_loss: float
     normal_minus_reset_loss: float
+    current_response_loss: float
+    normal_minus_current_response_loss: float
     samples: int
 
 
@@ -223,11 +225,13 @@ def _normalization(
 def _envelope_head_metrics(
     model: ActorCritic,
     envelope_head: nn.Linear,
+    current_response_head: nn.Linear | None,
     observations: torch.Tensor,
     dones: torch.Tensor,
     targets: torch.Tensor,
     target_mean: torch.Tensor,
     target_std: torch.Tensor,
+    response_dim: int,
     mask: torch.Tensor,
     phase: str,
     split: str,
@@ -239,6 +243,8 @@ def _envelope_head_metrics(
             loss=float("nan"),
             reset_loss=float("nan"),
             normal_minus_reset_loss=float("nan"),
+            current_response_loss=float("nan"),
+            normal_minus_current_response_loss=float("nan"),
             samples=0,
         )
     with torch.no_grad():
@@ -248,12 +254,20 @@ def _envelope_head_metrics(
         reset_pred = envelope_head(features[RESET_RESPONSE_HIDDEN])
         normal_loss = torch.square(normal_pred - normalized_targets).mean(dim=-1)
         reset_loss = torch.square(reset_pred - normalized_targets).mean(dim=-1)
+        if current_response_head is None:
+            current_loss = torch.full_like(normal_loss, float("nan"))
+        else:
+            current_response = observations[..., :response_dim]
+            current_pred = current_response_head(current_response)
+            current_loss = torch.square(current_pred - normalized_targets).mean(dim=-1)
     return EnvelopeHeadMetrics(
         phase=phase,
         split=split,
         loss=float(normal_loss[mask].mean().item()),
         reset_loss=float(reset_loss[mask].mean().item()),
         normal_minus_reset_loss=float((normal_loss[mask] - reset_loss[mask]).mean().item()),
+        current_response_loss=float(current_loss[mask].mean().item()),
+        normal_minus_current_response_loss=float((normal_loss[mask] - current_loss[mask]).mean().item()),
         samples=int(mask.sum().item()),
     )
 
@@ -358,6 +372,9 @@ def optimize_hidden_envelope_objective(
     contrast_coef: float,
     contrast_margin: float,
     contrast_mode: str,
+    current_response_loss_coef: float,
+    current_response_contrast_coef: float,
+    current_response_contrast_margin: float,
     target_loss_weights: tuple[float, ...],
     grad_clip_norm: float,
     device: str,
@@ -389,8 +406,15 @@ def optimize_hidden_envelope_objective(
     for parameter in trainable_model_parameters:
         parameter.requires_grad_(True)
     envelope_head = nn.Linear(model.actor_mean.in_features, len(TARGETS)).to(resolved_device)
+    response_dim = response_feature_dim_for_model(model)
+    current_response_head: nn.Linear | None = None
+    if current_response_loss_coef > 0.0 or current_response_contrast_coef > 0.0:
+        current_response_head = nn.Linear(response_dim, len(TARGETS)).to(resolved_device)
+    optimizer_parameters: list[nn.Parameter] = [*trainable_model_parameters, *envelope_head.parameters()]
+    if current_response_head is not None:
+        optimizer_parameters.extend(current_response_head.parameters())
     optimizer = torch.optim.AdamW(
-        [*trainable_model_parameters, *envelope_head.parameters()],
+        optimizer_parameters,
         lr=learning_rate,
         weight_decay=1e-4,
     )
@@ -419,11 +443,13 @@ def optimize_hidden_envelope_objective(
         _envelope_head_metrics(
             model,
             envelope_head,
+            current_response_head,
             observations,
             dones,
             targets,
             target_mean,
             target_std,
+            response_dim,
             train_mask,
             "before",
             "train",
@@ -431,11 +457,13 @@ def optimize_hidden_envelope_objective(
         _envelope_head_metrics(
             model,
             envelope_head,
+            current_response_head,
             observations,
             dones,
             targets,
             target_mean,
             target_std,
+            response_dim,
             test_mask,
             "before",
             "test",
@@ -451,6 +479,8 @@ def optimize_hidden_envelope_objective(
         features = _feature_sequences(model, observations, dones)
         normal_hidden = features[RESPONSE_HIDDEN].reshape(-1, model.actor_mean.in_features)
         reset_hidden = features[RESET_RESPONSE_HIDDEN].reshape(-1, model.actor_mean.in_features)
+        flat_observations = observations.reshape(-1, observations.shape[-1])
+        current_response = flat_observations[:, :response_dim]
         flat_targets = ((targets - target_mean) / target_std).reshape(-1, len(TARGETS))
         batch_positions = rng.choice(
             train_positions,
@@ -465,13 +495,33 @@ def optimize_hidden_envelope_objective(
         reset_per_target_loss = torch.square(reset_pred - flat_targets[batch_index])
         per_sample_loss = (per_target_loss * target_weights).mean(dim=-1)
         reset_per_sample_loss = (reset_per_target_loss * target_weights).mean(dim=-1)
+        if current_response_head is None:
+            current_per_target_loss = torch.zeros_like(per_target_loss)
+            current_per_sample_loss = torch.zeros_like(per_sample_loss)
+        else:
+            current_pred = current_response_head(current_response[batch_index])
+            current_per_target_loss = torch.square(current_pred - flat_targets[batch_index])
+            current_per_sample_loss = (current_per_target_loss * target_weights).mean(dim=-1)
         prediction_loss = per_sample_loss.mean()
+        current_response_prediction_loss = current_per_sample_loss.mean()
         if contrast_mode == "mean":
             contrast_loss = torch.relu(contrast_margin + per_sample_loss - reset_per_sample_loss).mean()
+            current_response_contrast_loss = torch.relu(
+                current_response_contrast_margin + per_sample_loss - current_per_sample_loss.detach()
+            ).mean()
         else:
             contrast_loss = torch.relu(contrast_margin + per_target_loss - reset_per_target_loss)
             contrast_loss = (contrast_loss * target_weights).mean(dim=-1).mean()
-        loss = prediction_loss + contrast_coef * contrast_loss
+            current_response_contrast_loss = torch.relu(
+                current_response_contrast_margin + per_target_loss - current_per_target_loss.detach()
+            )
+            current_response_contrast_loss = (current_response_contrast_loss * target_weights).mean(dim=-1).mean()
+        loss = (
+            prediction_loss
+            + contrast_coef * contrast_loss
+            + current_response_loss_coef * current_response_prediction_loss
+            + current_response_contrast_coef * current_response_contrast_loss
+        )
         optimizer.zero_grad(set_to_none=True)
         loss.backward()
         grad_norm = nn.utils.clip_grad_norm_(
@@ -486,7 +536,12 @@ def optimize_hidden_envelope_objective(
                     "loss": float(loss.detach().cpu().item()),
                     "prediction_loss": float(prediction_loss.detach().cpu().item()),
                     "contrast_loss": float(contrast_loss.detach().cpu().item()),
+                    "current_response_prediction_loss": float(
+                        current_response_prediction_loss.detach().cpu().item()
+                    ),
+                    "current_response_contrast_loss": float(current_response_contrast_loss.detach().cpu().item()),
                     "reset_loss": float(reset_per_sample_loss.mean().detach().cpu().item()),
+                    "current_response_loss": float(current_per_sample_loss.mean().detach().cpu().item()),
                     "braking_loss_weight": float(target_weights_np[0]),
                     "yaw_loss_weight": float(target_weights_np[1]),
                     "lateral_loss_weight": float(target_weights_np[2]),
@@ -509,11 +564,13 @@ def optimize_hidden_envelope_objective(
         _envelope_head_metrics(
             model,
             envelope_head,
+            current_response_head,
             observations,
             dones,
             targets,
             target_mean,
             target_std,
+            response_dim,
             train_mask,
             "after",
             "train",
@@ -521,11 +578,13 @@ def optimize_hidden_envelope_objective(
         _envelope_head_metrics(
             model,
             envelope_head,
+            current_response_head,
             observations,
             dones,
             targets,
             target_mean,
             target_std,
+            response_dim,
             test_mask,
             "after",
             "test",
@@ -561,6 +620,9 @@ def optimize_hidden_envelope_objective(
             "steps": steps,
             "seed": seed,
             "contrast_mode": contrast_mode,
+            "current_response_loss_coef": float(current_response_loss_coef),
+            "current_response_contrast_coef": float(current_response_contrast_coef),
+            "current_response_contrast_margin": float(current_response_contrast_margin),
             "target_loss_weights": {
                 target: float(weight) for target, weight in zip(TARGETS, target_weights_np, strict=True)
             },
@@ -593,6 +655,9 @@ def optimize_hidden_envelope_objective(
         "contrast_coef": contrast_coef,
         "contrast_margin": contrast_margin,
         "contrast_mode": contrast_mode,
+        "current_response_loss_coef": float(current_response_loss_coef),
+        "current_response_contrast_coef": float(current_response_contrast_coef),
+        "current_response_contrast_margin": float(current_response_contrast_margin),
         "target_loss_weights": {
             target: float(weight) for target, weight in zip(TARGETS, target_weights_np, strict=True)
         },
@@ -626,6 +691,9 @@ def optimize_hidden_envelope_objective(
             "contrast_coef": contrast_coef,
             "contrast_margin": contrast_margin,
             "contrast_mode": contrast_mode,
+            "current_response_loss_coef": float(current_response_loss_coef),
+            "current_response_contrast_coef": float(current_response_contrast_coef),
+            "current_response_contrast_margin": float(current_response_contrast_margin),
             "target_loss_weights": summary["target_loss_weights"],
             "artifacts": summary["artifacts"],
         },
@@ -650,6 +718,9 @@ def main() -> None:
     parser.add_argument("--contrast-coef", type=float, default=0.5)
     parser.add_argument("--contrast-margin", type=float, default=0.02)
     parser.add_argument("--contrast-mode", choices=CONTRAST_MODES, default="mean")
+    parser.add_argument("--current-response-loss-coef", type=float, default=0.0)
+    parser.add_argument("--current-response-contrast-coef", type=float, default=0.0)
+    parser.add_argument("--current-response-contrast-margin", type=float, default=0.0)
     parser.add_argument(
         "--target-loss-weights",
         type=float,
@@ -680,6 +751,9 @@ def main() -> None:
         contrast_coef=args.contrast_coef,
         contrast_margin=args.contrast_margin,
         contrast_mode=args.contrast_mode,
+        current_response_loss_coef=args.current_response_loss_coef,
+        current_response_contrast_coef=args.current_response_contrast_coef,
+        current_response_contrast_margin=args.current_response_contrast_margin,
         target_loss_weights=tuple(args.target_loss_weights),
         grad_clip_norm=args.grad_clip_norm,
         device=args.device,

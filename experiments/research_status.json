@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 118,
+    "completed": 119,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m109-hidden-envelope-probe-reliability-audit.md",
+    "command_log": "docs/m110-current-response-anchored-hidden-envelope-objective.md",
     "returncode": 0,
-    "run_dir": "runs/m109_hidden_envelope_reliability_audit_seed9510",
+    "run_dir": "runs/m110_broad_current_response_anchor_reliability_seed9510",
     "status": "completed",
-    "task_id": "m109-hidden-envelope-probe-reliability-audit"
+    "task_id": "m110-current-response-anchored-hidden-envelope-objective"
   },
   "next_task": {
-    "command": "see experiments/manifests/m110-current-response-anchored-hidden-envelope-objective.json",
-    "hypothesis": "Train or prototype a hidden-envelope objective anchored against current-response baseline",
-    "id": "m110-current-response-anchored-hidden-envelope-objective",
-    "kind": "objective_sanity",
-    "notes": "Pending after M109: response hidden must beat both reset hidden and current response before PPO",
-    "priority": 1050,
+    "command": "see experiments/manifests/m111-matched-current-response-ambiguity-audit.json",
+    "hypothesis": "Find or construct matched-current-response cases where history is necessary",
+    "id": "m111-matched-current-response-ambiguity-audit",
+    "kind": "gate",
+    "notes": "Pending after M110: build a history-necessary proof surface before another objective",
+    "priority": 1060,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T190009Z"
+  "updated_at_utc": "20260521T191032Z"
 }

@@ -5,10 +5,26 @@
   ],
   "commands": [
     {
-      "command": "TBD: train or prototype a hidden-envelope objective that makes response_hidden beat both reset_hidden and current_response under repeated split / multi-seed gates",
-      "name": "m110_current_response_anchored_hidden_envelope_objective"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_optimize --checkpoint runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9730 --horizon-steps 15 --sample-stride 3 --max-samples 800 --train-fraction 0.70 --ridge 0.1 --steps 200 --batch-size 256 --learning-rate 0.0001 --contrast-coef 0.5 --contrast-margin 0.02 --contrast-mode per_target --current-response-loss-coef 1.0 --current-response-contrast-coef 1.0 --current-response-contrast-margin 0.02 --target-loss-weights 1.0 1.0 1.0 --grad-clip-norm 1.0 --device cpu --run-dir runs/m110_current_response_anchor_objective_seed9730",
+      "name": "m110_current_response_anchor_objective"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_reliability_audit --env-config configs/ppo_m24_human_view_gru_driver.json --checkpoint-policy m110_9730=runs/m110_current_response_anchor_objective_seed9730/optimized_checkpoint.pt --probe-seeds 9510,9511,9512 --split-seeds 9610,9611,9612,9613,9614 --sample-limits 800 --episodes 30 --horizon-steps 15 --sample-stride 3 --ridge 0.1 --device cpu --mean-lift-threshold 0.0 --min-lift-threshold 0.0 --pass-fraction-threshold 1.0 --run-dir runs/m110_current_response_anchor_reliability_seed9510",
+      "name": "m110_current_response_anchor_reliability"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_optimize --checkpoint runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 90 --seed 9700 --horizon-steps 15 --sample-stride 3 --max-samples 2400 --train-fraction 0.70 --ridge 0.1 --steps 300 --batch-size 512 --learning-rate 0.0001 --contrast-coef 1.0 --contrast-margin 0.02 --contrast-mode per_target --current-response-loss-coef 1.0 --current-response-contrast-coef 2.0 --current-response-contrast-margin 0.02 --target-loss-weights 1.0 1.0 1.0 --grad-clip-norm 1.0 --device cpu --run-dir runs/m110_current_response_anchor_broad_objective_seed9700",
+      "name": "m110_current_response_anchor_broad_objective"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_reliability_audit --env-config configs/ppo_m24_human_view_gru_driver.json --checkpoint-policy m110_broad9700=runs/m110_current_response_anchor_broad_objective_seed9700/optimized_checkpoint.pt --probe-seeds 9510,9511,9512 --split-seeds 9610,9611,9612,9613,9614 --sample-limits 800 --episodes 30 --horizon-steps 15 --sample-stride 3 --ridge 0.1 --device cpu --mean-lift-threshold 0.0 --min-lift-threshold 0.0 --pass-fraction-threshold 1.0 --run-dir runs/m110_broad_current_response_anchor_reliability_seed9510",
+      "name": "m110_broad_current_response_anchor_reliability"
     }
   ],
+  "decision_labels": {
+    "fail": "reject_current_response_anchored_hidden_objective",
+    "pass": "accept_current_response_anchored_hidden_objective"
+  },
   "decision_rule": "Do not admit a hidden-envelope objective unless response_hidden beats both reset_hidden and current_response across repeated split seeds, probe seeds, and braking/lateral/yaw targets.",
   "failure_criteria": [
     "response_hidden only beats reset_hidden but not current_response",
@@ -16,14 +32,103 @@
     "the objective changes deployable actor inputs or adds hidden physics to actor inference",
     "behavior-retention gates are skipped after objective movement"
   ],
+  "gates": [
+    {
+      "metric": "broad_lateral_current_lift_mean",
+      "name": "broad_lateral_beats_current",
+      "op": ">=",
+      "threshold": 0.0
+    },
+    {
+      "metric": "broad_yaw_current_lift_mean",
+      "name": "broad_yaw_beats_current",
+      "op": ">=",
+      "threshold": 0.0
+    },
+    {
+      "metric": "broad_lateral_reset_lift_mean",
+      "name": "broad_lateral_beats_reset",
+      "op": ">=",
+      "threshold": 0.0
+    },
+    {
+      "metric": "broad_braking_current_pass_fraction",
+      "name": "broad_braking_current_all_splits_positive",
+      "op": ">=",
+      "threshold": 1.0
+    }
+  ],
   "hypothesis": "M109 showed current_response often beats carried response_hidden. A useful self-identification hidden state must add information beyond the current response frame, not merely differ from reset hidden.",
   "id": "m110-current-response-anchored-hidden-envelope-objective",
+  "metric_extractors": [
+    {
+      "column": "current_lift_mean",
+      "match": {
+        "checkpoint_label": "m110_broad9700",
+        "sample_limit": "800",
+        "target": "future_lateral_accel_response"
+      },
+      "metric": "broad_lateral_current_lift_mean",
+      "path": "runs/m110_broad_current_response_anchor_reliability_seed9510/aggregate_lift_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "current_lift_mean",
+      "match": {
+        "checkpoint_label": "m110_broad9700",
+        "sample_limit": "800",
+        "target": "future_yaw_response"
+      },
+      "metric": "broad_yaw_current_lift_mean",
+      "path": "runs/m110_broad_current_response_anchor_reliability_seed9510/aggregate_lift_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "lift_mean",
+      "match": {
+        "checkpoint_label": "m110_broad9700",
+        "sample_limit": "800",
+        "target": "future_lateral_accel_response"
+      },
+      "metric": "broad_lateral_reset_lift_mean",
+      "path": "runs/m110_broad_current_response_anchor_reliability_seed9510/aggregate_lift_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "current_pass_fraction",
+      "match": {
+        "checkpoint_label": "m110_broad9700",
+        "sample_limit": "800",
+        "target": "future_braking_deceleration"
+      },
+      "metric": "broad_braking_current_pass_fraction",
+      "path": "runs/m110_broad_current_response_anchor_reliability_seed9510/aggregate_lift_summary.csv",
+      "type": "csv"
+    }
+  ],
   "required_artifacts": [
     {
       "path": "docs/m110-current-response-anchored-hidden-envelope-objective.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m110_current_response_anchor_objective_seed9730/summary.json",
+      "type": "objective_summary"
+    },
+    {
+      "path": "runs/m110_current_response_anchor_reliability_seed9510/aggregate_lift_summary.csv",
+      "type": "reliability_gate"
+    },
+    {
+      "path": "runs/m110_current_response_anchor_broad_objective_seed9700/summary.json",
+      "type": "objective_summary"
+    },
+    {
+      "path": "runs/m110_broad_current_response_anchor_reliability_seed9510/aggregate_lift_summary.csv",
+      "type": "reliability_gate"
     }
   ],
+  "scoreboard_checkpoint": "runs/m110_current_response_anchor_broad_objective_seed9700/optimized_checkpoint.pt",
   "success_criteria": [
     "objective or prototype explicitly gates response_hidden against current_response and reset_hidden",
     "repeated split and multi-seed metrics are reported",

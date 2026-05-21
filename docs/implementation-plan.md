@@ -2213,9 +2213,25 @@ stable future-envelope belief. See
 - Gate with repeated split seeds and multiple probe seeds before PPO.
 - Preserve the deployable actor input contract.
 
-Status: pending. M109 showed that a self-identification hidden state must add
-information beyond the current response frame, not only differ from reset
-hidden.
+Status: negative. The optimizer can fit its own objective batch, and the broad
+variant beats both reset and current response internally, but both variants fail
+the external repeated split / multi-seed reliability gate. The broad variant
+still has negative hidden-current mean lift on braking/lateral/yaw. See
+`docs/m110-current-response-anchored-hidden-envelope-objective.md`.
+
+### M111: Matched Current-Response Ambiguity Audit
+
+- Construct or mine cases where current response and scene are similar, but
+  prior command-response history or hidden dynamics imply different future
+  capability or action outcome.
+- Compare current-response-only baselines against history/hidden features on
+  that matched surface.
+- Use this to decide whether the simulator/task needs a different
+  self-identification proof surface before another objective.
+
+Status: pending. M110 suggests the current future-envelope target is too
+current-Markov for self-identification; the next proof surface must be
+history-necessary by construction.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 
