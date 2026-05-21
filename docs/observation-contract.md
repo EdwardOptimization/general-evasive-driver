@@ -161,3 +161,38 @@ oracle labels:
 - camera/lidar/radar feature encoders once the structured human-view contract
   is working;
 - asymmetric PPO action bounds for true `[steer, throttle, brake]` output.
+
+## Planned Wheel/Tire Response Branch
+
+M81 prioritizes wheel/tire response as the next self-identification input
+branch. The first version should add axle-level deployable response features to
+the response GRU stream:
+
+```text
+front_wheel_speed
+rear_wheel_speed
+front_wheel_accel
+rear_wheel_accel
+front_slip_proxy
+rear_slip_proxy
+rear_minus_front_slip
+brake_pressure_front
+brake_pressure_rear
+drive_torque_rear
+abs_front
+abs_rear
+tcs_active
+```
+
+These are allowed because they are vehicle feedback, not hidden environment
+parameters. They must be noisy, delayed, clipped, or otherwise treated as
+sensor-like estimates when needed. They must not become direct aliases for
+`mu`, true tire force limits, true friction-circle utilization, saturation
+labels, or AEB/AES/drift feasibility labels.
+
+Wheel response should not be placed in the road/obstacle context branch:
+
+```text
+body + actuator + wheel response history -> recurrent self-ID encoder
+road + obstacle geometry                 -> context encoder
+```

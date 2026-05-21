@@ -235,6 +235,8 @@ normal history margin > wrong-history margin
 wrong history induces wrong action on matched action-divergent cases
 latent predicts future response envelope better than memoryless baseline
 strict margin retention does not regress versus M62-class baseline
+zero wheel input degrades wheel-response policies on hidden-dynamics cases
+wrong wheel history degrades matched current-state cases
 ```
 
 Persisted in:
@@ -259,6 +261,21 @@ if it cannot decrease, fix objective/sign/data before more PPO
 if it can decrease, reintroduce PPO and retention anchors gradually
 ```
 
+Then continue with:
+
+```text
+m81-wheel-response-self-id-input-branch
+```
+
+M81 intent:
+
+```text
+add deployable front/rear wheel response to the response GRU stream
+keep true friction and oracle tire-limit labels out of actor observations
+gate with zero-wheel and wrong-wheel-history interventions
+compare current 72-value baseline against command-response and wheel profiles
+```
+
 M70 showed that M69 wrong-history candidates do not degrade success or margin.
 M71 added the outcome-sensitive miner but still found zero accepted passive
 matched-snapshot cases. M72 added passive warm-up reveal, but it also found zero
@@ -280,3 +297,8 @@ adds the fixed-batch evaluator and tests a stronger coefficient, but the offline
 loss worsens again (`m62_init` `0.039923`, `m79_highcoef` `0.041033`) and short
 eval termination rises to `0.5`. The next blocker is not coefficient scale; it
 is proving the objective can be optimized in isolation.
+The MHTML project review adds a larger follow-up decision: the current 72-value
+frame remains the baseline, but final self-identification evidence likely needs
+wheel/tire response feedback. The full review is preserved in
+`docs/external-review-5-5pro-mhtml.md`; the wheel-response execution plan is
+`docs/m81-wheel-response-input-roadmap.md`.

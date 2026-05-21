@@ -37,7 +37,11 @@ Last updated: 2026-05-21
   M79 adds a fixed-batch offline evaluator and tries a stronger auxiliary
   coefficient, but the offline objective worsens again and short evaluation
   termination rises to `0.5`. The next blocker is an objective-only sanity check
-  before any more PPO continuation.
+  before any more PPO continuation. The full 5.5pro MHTML review is now
+  persisted and adds a larger follow-up: after M80, prioritize wheel/tire
+  response inputs and wheel-specific history interventions because the current
+  72-value frame is a baseline, not enough for the final professional-driver
+  self-ID claim.
 
 ## Standing Loop
 
@@ -3232,3 +3236,26 @@ result. A stronger auxiliary coefficient does not reduce the offline objective
 and also damages the short evaluation, so the next task is M80: optimize only
 `outcome_weighted_intervention_loss` on the snippet NPZ to prove the objective
 can move in the intended direction before reintroducing PPO.
+
+## 20260521T134840Z external-review-5-5pro-mhtml-ingestion
+
+- status: `completed`
+- kind: `planning`
+- source: `~/workspace/AutoDrift - 项目评估分析.mhtml`
+- artifact:
+  `docs/external-review-5-5pro-mhtml.md`,
+  `docs/m81-wheel-response-input-roadmap.md`
+
+Result:
+
+- preserved the full MHTML review as a durable project note, including project
+  status, engineering backlog, research framing, input sufficiency, solve vs
+  verify boundary, warm-up/probing requirement, and proof gates;
+- added M81 as the planned wheel/tire response input branch after M80;
+- updated the observation contract so wheel response is explicitly allowed as
+  deployable vehicle feedback, while true friction, true tire limits, oracle
+  saturation labels, and feasibility labels remain forbidden actor inputs.
+
+Conclusion: M80 remains the immediate blocker for the current objective, but
+M81 is now the planned larger input-infrastructure branch. The important 5.5pro
+review content is no longer only in the MHTML export.

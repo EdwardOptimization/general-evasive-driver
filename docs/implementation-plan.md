@@ -1729,6 +1729,26 @@ Status: planned after M79. M79 shows coefficient scale is not the blocker by
 itself; the next evidence step is to prove the loss is locally optimizable in
 isolation.
 
+### M81: Wheel Response Self-ID Input Branch
+
+- Add deployable wheel/tire response signals to the response GRU stream rather
+  than the scene context branch.
+- Start with front/rear wheel speed, wheel acceleration, slip proxy, brake
+  pressure, drive torque, and simple ABS/TCS proxy signals for the current
+  bicycle/single-track simulator.
+- Keep the deployable actor blind to true friction, true tire limits, oracle
+  saturation labels, reference trajectories, and feasibility labels.
+- Compare current, command-response-error, front/rear wheel, four-wheel, and
+  noisy/delayed sensor profiles.
+- Gate the branch with zero-wheel, wrong wheel-history, and high/low-friction
+  wheel-history injection tests, not success rate alone.
+
+Status: planned after the M80 objective-only sanity check. The MHTML project
+review is consolidated in `docs/external-review-5-5pro-mhtml.md`; the M81
+execution plan in `docs/m81-wheel-response-input-roadmap.md` identifies
+wheel/tire response as the missing deployable sensory channel for a
+professional-driver self-identification claim.
+
 ### M67-F: Counterfactual Response-Intervention Objective
 
 - Stop treating seed replay alone as sufficient for self-identification.
