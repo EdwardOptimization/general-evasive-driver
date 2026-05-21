@@ -16,8 +16,9 @@ Last updated: 2026-05-21
   but M63/M64/M66 still do not prove recurrent self-identification. Removing or
   resetting response history does not reliably weaken the policy. M67-B's
   from-scratch privileged teacher and M67-E's warm-started privileged teacher
-  both failed to produce a meaningful hidden-dynamics upper-bound gap, so the
-  next blocker is mining matched action-divergent cases before student OSI.
+  both failed to produce a meaningful hidden-dynamics upper-bound gap. M68 then
+  found no privileged-packet action divergence on the M65 smoke, so the next
+  blocker is broader matched hidden-dynamics mining before student OSI.
 
 ## Standing Loop
 
@@ -2789,3 +2790,36 @@ gain is best treated as retention noise. Do not train a deployable student from
 this teacher yet. The next task is M68 matched action-divergent corpus mining:
 find same-visible-context cases where hidden dynamics or wrong history actually
 changes the preferred action or clearance outcome.
+
+## 20260521T114603Z m68-matched-action-divergent-corpus
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: M65 may contain same-visible-state pairs where hidden dynamics,
+  wrong recurrent history, or swapped privileged context changes the teacher
+  action.
+- smoke command: `conda run -n autodrift python -m autodrift.matched_action_corpus --env-config configs/ppo_m67e_warm_started_privileged_teacher.json --checkpoint runs/ppo_m67e_warm_privileged_teacher_seed3267/checkpoints/checkpoint_step_4096.pt --seed-csv runs/m65_response_necessity_corpus_seed3600/scenario_corpus.csv --seed 6800 --device cpu --top-k 20 --max-visible-distance 0.75 --max-response-distance 0.25 --max-context-distance 0.05 --min-action-distance 0.05 --run-dir runs/m68_matched_action_corpus_split_smoke_m65_seed6800`
+- run dirs: `runs/m68_matched_action_corpus_smoke_m65_seed6800`,
+  `runs/m68_matched_action_corpus_strict_smoke_m65_seed6800`,
+  `runs/m68_matched_action_corpus_split_smoke_m65_seed6800`
+- artifact: `docs/m68-matched-action-divergent-corpus.md`
+
+Result:
+
+- new harness: `src/autodrift/matched_action_corpus.py`;
+- tests: `tests/test_matched_action_corpus.py`;
+- strict visible matches: `10 / 26`;
+- action-divergent pairs: `6 / 26`;
+- paired-action divergent pairs: `6 / 26`;
+- wrong-history divergent pairs: `1 / 26`;
+- privileged-packet divergent pairs: `0 / 26`;
+- mean paired-action distance: `0.039916`;
+- mean wrong-history action distance: `0.019980`;
+- mean privileged-packet action distance: `0.000075`.
+
+Conclusion: M68 validates the matched-action corpus harness, but the initial M65
+smoke is a negative teacher-action diagnostic. The current M67-E privileged
+branch is not action-relevant; action differences mostly reflect current
+response differences rather than hidden dynamics alone. The next task is M69:
+broaden matched hidden-dynamics mining across fresh seeds and perturbation axes
+before building student OSI or wrong-history training losses.

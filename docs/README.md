@@ -179,6 +179,8 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m67-self-id-decision-ledger.md`: compact index of the adopted M67
   self-identification decisions, their persisted artifacts, and the next
   matched action-divergent corpus task.
+- `m68-matched-action-divergent-corpus.md`: matched visible-state action
+  divergence miner, strict M65 smoke, and negative teacher-action diagnostic.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

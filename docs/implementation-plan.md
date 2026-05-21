@@ -1498,9 +1498,29 @@ Exit criteria:
   margin under matched visible context;
 - identifies candidate seeds/snippets for wrong-history intervention gates.
 
-Status: planned after M67-E. M67-E showed that simply appending hidden dynamics
-to an M62-compatible teacher does not create a meaningful upper-bound gap on the
-current M65 corpus.
+Status: complete as a harness and smoke diagnostic. The new
+`autodrift.matched_action_corpus` command writes matched pairs, action-divergent
+snippets, summary CSV/JSON, and a manifest. On the M65 corpus with `m67e_004`,
+10/26 pairs pass strict visible matching and 6/26 pass action divergence, but all
+6 are paired-action differences, only 1 crosses wrong-history action divergence,
+and 0 cross privileged-packet action divergence. The privileged packet action
+distance mean is only `0.000075`, so this is not yet a useful teacher corpus.
+See `docs/m68-matched-action-divergent-corpus.md`.
+
+### M69: Broader Matched Hidden-Dynamics Mining
+
+- Run M68 on broader fresh seed sweeps rather than only the M65 response
+  necessity corpus.
+- Sweep hidden perturbation axes beyond friction, especially weak braking and
+  slow actuator response.
+- Rank and select pairs by wrong-history or privileged-packet action divergence,
+  not just nominal-versus-perturbed current-action distance.
+- Decide whether the simulator task distribution can produce enough causal
+  self-ID pairs for a student objective.
+
+Status: planned after M68. The initial M68 smoke shows the harness works but the
+current M65/M67-E teacher combination does not produce clean hidden-dynamics
+action divergence.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

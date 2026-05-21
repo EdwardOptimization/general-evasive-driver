@@ -247,16 +247,17 @@ Persisted in:
 Continue with:
 
 ```text
-m68-matched-action-divergent-corpus
+m69-broader-matched-hidden-dynamics-mining
 ```
 
 Implementation intent:
 
 ```text
-mine same-visible-state / different-hidden-dynamics pairs
-measure whether hidden dynamics changes the preferred action or margin
-build wrong-history intervention cases from action-divergent pairs
+search beyond the M65 corpus
+sweep friction, brake, and actuator hidden perturbation axes
+rank pairs by wrong-history or privileged-packet divergence
 ```
 
-M67-E did not produce a meaningful teacher upper-bound gap, so do not proceed
-directly to student OSI distillation yet.
+M68 added the matched-action harness, but the M65 smoke produced zero
+privileged-packet divergent pairs. Do not proceed directly to student OSI
+distillation yet.

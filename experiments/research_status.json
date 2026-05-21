@@ -1,19 +1,19 @@
 {
   "counts": {
     "blocked": 0,
-    "completed": 68,
+    "completed": 69,
     "failed": 0,
     "pending": 0,
     "planned": 1,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m67e-warm-started-privileged-teacher.md",
+    "command_log": "docs/m68-matched-action-divergent-corpus.md",
     "returncode": 0,
-    "run_dir": "runs/m67e_warm_privileged_teacher_best_upper_bound_m65_seed3600",
+    "run_dir": "runs/m68_matched_action_corpus_split_smoke_m65_seed6800",
     "status": "completed",
-    "task_id": "m67e-warm-started-privileged-teacher"
+    "task_id": "m68-matched-action-divergent-corpus"
   },
-  "next_task": "m68-matched-action-divergent-corpus",
-  "updated_at_utc": "20260521T113356Z"
+  "next_task": "m69-broader-matched-hidden-dynamics-mining",
+  "updated_at_utc": "20260521T114603Z"
 }

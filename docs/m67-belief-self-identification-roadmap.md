@@ -161,6 +161,11 @@ Useful score terms:
 This corpus is more valuable than ordinary hard seeds because it directly tests
 "looks the same, drives differently".
 
+Status: initial harness complete later under queue label
+`m68-matched-action-divergent-corpus`. The M65 smoke found 10/26 strict visible
+matches and 6 paired-action divergent pairs, but 0 privileged-packet divergent
+pairs. Broader mining is still required before student training.
+
 ### M67-E: Teacher-Student OSI Pretraining
 
 Train a deployable recurrent student to infer action-relevant dynamics from
