@@ -61,6 +61,8 @@ class PPOConfig:
     response_prediction_dim: int = 0
     response_prediction_horizon: int = 1
     response_prediction_stride: int = 1
+    hidden_contrast_aux_coef: float = 0.0
+    hidden_contrast_margin: float = 0.05
     checkpoint_interval_steps: int = 0
     training_seed_csv: str = ""
     training_seed_mix_probability: float = 1.0
@@ -647,6 +649,11 @@ def train(
             raise ValueError("response_prediction_horizon must be at least 1")
         if config.response_prediction_stride < 1:
             raise ValueError("response_prediction_stride must be at least 1")
+    if config.hidden_contrast_aux_coef > 0.0:
+        if not uses_online_recurrent or not config.recurrent_sequence_training:
+            raise ValueError("hidden contrast auxiliary loss requires online recurrent sequence training")
+        if config.hidden_contrast_margin < 0.0:
+            raise ValueError("hidden_contrast_margin cannot be negative")
     if config.checkpoint_interval_steps < 0:
         raise ValueError("checkpoint_interval_steps cannot be negative")
     if not 0.0 <= config.training_seed_mix_probability <= 1.0:
@@ -816,6 +823,7 @@ def train(
             env_indices = np.arange(config.num_envs)
             env_minibatch = max(1, min(config.num_envs, config.minibatch_size // max(1, rollout_n)))
             response_loss_values: list[float] = []
+            hidden_contrast_loss_values: list[float] = []
             for _ in range(config.update_epochs):
                 np.random.shuffle(env_indices)
                 for start in range(0, len(env_indices), env_minibatch):
@@ -835,6 +843,25 @@ def train(
                     pg_loss = torch.max(pg_loss_1, pg_loss_2).mean()
                     value_loss = 0.5 * torch.square(value - mb_ret).mean()
                     loss = pg_loss + config.vf_coef * value_loss - config.ent_coef * entropy
+                    if config.hidden_contrast_aux_coef > 0.0:
+                        reset_initial_hidden = torch.zeros_like(initial_hidden_t[mb_env])
+                        reset_every_step_dones = torch.ones_like(done_seq_t[:, mb_env])
+                        reset_logp, _, _ = model.evaluate_actions_recurrent_sequence(
+                            obs_seq_t[:, mb_env],
+                            act_seq_t[:, mb_env],
+                            reset_initial_hidden,
+                            reset_every_step_dones,
+                        )
+                        contrast_weight = torch.clamp(mb_adv.detach(), min=0.0)
+                        contrast_penalty = torch.nn.functional.softplus(
+                            reset_logp - logp + config.hidden_contrast_margin
+                        )
+                        contrast_loss = (contrast_penalty * contrast_weight).sum() / torch.clamp(
+                            contrast_weight.sum(),
+                            min=1.0,
+                        )
+                        loss = loss + config.hidden_contrast_aux_coef * contrast_loss
+                        hidden_contrast_loss_values.append(float(contrast_loss.detach().cpu().item()))
                     if config.response_prediction_aux_coef > 0.0 and rollout_n > 1:
                         if config.response_prediction_dim < 1:
                             raise ValueError("response_prediction_dim must be positive when response_prediction_aux_coef > 0")
@@ -919,6 +946,10 @@ def train(
         if config.response_prediction_aux_coef > 0.0 and uses_online_recurrent and config.recurrent_sequence_training:
             row["response_prediction_loss_mean"] = (
                 float(np.mean(response_loss_values)) if response_loss_values else float("nan")
+            )
+        if config.hidden_contrast_aux_coef > 0.0 and uses_online_recurrent and config.recurrent_sequence_training:
+            row["hidden_contrast_loss_mean"] = (
+                float(np.mean(hidden_contrast_loss_values)) if hidden_contrast_loss_values else float("nan")
             )
         metric_rows.append(row)
         if save_path is not None and next_checkpoint_step is not None and global_step >= next_checkpoint_step:

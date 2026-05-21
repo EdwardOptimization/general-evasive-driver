@@ -3,8 +3,8 @@
     "blocked": 0,
     "completed": 38,
     "failed": 0,
-    "pending": 0,
-    "planned": 1,
+    "pending": 1,
+    "planned": 0,
     "running": 0
   },
   "last_result": {
@@ -14,6 +14,15 @@
     "status": "completed",
     "task_id": "m39-m37-response-corpus-training"
   },
-  "next_task": null,
-  "updated_at_utc": "20260521T051839Z"
+  "next_task": {
+    "command": "conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m42_hidden_contrast_driver.json --seed 1842 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m42_hidden_contrast_seed1842",
+    "hypothesis": "Train M37_102 with hidden-reset contrast auxiliary loss",
+    "id": "m42-hidden-contrast-objective",
+    "kind": "training",
+    "notes": "Smoke passed and metrics include hidden_contrast_loss_mean",
+    "priority": 350,
+    "status": "pending",
+    "success_artifact": "runs/ppo_m42_hidden_contrast_seed1842/checkpoint.pt"
+  },
+  "updated_at_utc": "20260521T052156Z"
 }

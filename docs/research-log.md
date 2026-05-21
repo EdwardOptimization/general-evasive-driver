@@ -1581,6 +1581,30 @@ not pure prediction MSE. M37_102 remains the best current candidate because it
 has stronger reset/zero-response ablation sensitivity despite worse response
 prediction MSE.
 
+## 20260521 m42-hidden-contrast-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: an auxiliary loss contrasting normal recurrent hidden against
+  per-step reset hidden can make hidden state more action-relevant than pure
+  response-prediction MSE
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m42_hidden_contrast_driver.json --total-steps 4096 --rollout-steps 128 --seed 1842 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m42_hidden_contrast_smoke_seed1842`
+- run dir: `runs/ppo_m42_hidden_contrast_smoke_seed1842`
+- checkpoint: `runs/ppo_m42_hidden_contrast_smoke_seed1842/checkpoint.pt`
+
+Smoke result:
+
+- init load mode: `strict`;
+- final eval return mean: 78.432;
+- final eval termination rate: 0.000;
+- final train `response_prediction_loss_mean`: 0.024953;
+- final train `hidden_contrast_loss_mean`: 0.640056.
+
+Conclusion: M42 infrastructure is trainable and writes the intended metrics.
+The full M42 run is queued. The pass/fail check is whether M42 improves
+M37_102's reset/zero-response or hidden-swap behavior without aggregate
+regression.
+
 ## 20260521T050730Z m39-m37-response-corpus-training
 
 - status: `completed`

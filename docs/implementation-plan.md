@@ -782,7 +782,10 @@ Exit criteria:
   changes;
 - validation compares against M37_102, not M39.
 
-Status: planned.
+Status: smoke complete; full training queued. M42 strict-loads M37_102, logs
+both response prediction and hidden-contrast auxiliary losses, and the 4096-step
+CUDA smoke reached eval return 78.432 with termination rate 0.000. See
+`docs/m42-hidden-contrast-objective.md`.
 
 ## Metrics
 

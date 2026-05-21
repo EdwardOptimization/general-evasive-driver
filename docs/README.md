@@ -110,6 +110,8 @@ vehicle/tire models, and NMPC-style constrained control.
   logging and offline evaluator after M39 weakened the ablation signal.
 - `m41-behavior-sensitive-response-diagnostics.md`: per-seed response
   prediction diagnostics joined against outcome-change labels.
+- `m42-hidden-contrast-objective.md`: intervention-aware auxiliary loss that
+  contrasts normal recurrent hidden against per-step reset hidden.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.
