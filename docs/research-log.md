@@ -1266,3 +1266,73 @@ the response-prediction auxiliary head. The full M34 run is now the next queued
 training task. Post-run evaluation must compare M34 checkpoints against
 envelope AES, M26_602, and M30_053 on the M29 selected corpus, broad same-seed
 benchmark, and hidden-swap/reset/zero-response gates.
+
+## 20260521T040736Z m34-response-aux-mixed-training
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Train a human-view driver with mixed hard seeds plus response-prediction auxiliary loss
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m34_response_aux_mixed_driver.json --seed 1434 --device cuda --init-checkpoint runs/ppo_m30_mixed_matched_response_seed1330/checkpoints/checkpoint_step_53248.pt --run-dir runs/ppo_m34_response_aux_mixed_seed1434`
+- returncode: `0`
+- run dir: `runs/research/m34-response-aux-mixed-training_20260521T035144Z`
+- command log: `runs/research/m34-response-aux-mixed-training_20260521T035144Z/command.log`
+- success artifact: `runs/ppo_m34_response_aux_mixed_seed1434/checkpoint.pt`
+- notes: Smoke passed with partial_response_prediction_head; post-run gate hidden-swap reset and zero-response behavior
+
+Post-run result:
+
+- final eval return mean: 70.148;
+- final eval termination rate: 0.200;
+- periodic checkpoints: 53248, 102400, 151552, 200704, 253952, and 300000.
+
+M29 selected-corpus sweep:
+
+- M30_053 success: 0.875;
+- M34_053 / 102 / 151 success: 0.875 / 0.875 / 0.875;
+- M34_200 / 253 / final success: 0.850 / 0.850 / 0.850.
+
+Broad same-seed sweep:
+
+- M30_053 success: 0.825;
+- M34_053 / 102 / 151 / final success: 0.825 / 0.800 / 0.825 / 0.775.
+
+Hidden-swap gates:
+
+- M34_053, M34_102, and M34_151 all accepted 73 / 80 matched cases;
+- hidden-swap outcome changes: 0 for all three checkpoints;
+- perturbed reset outcome changes: 1, 2, and 3;
+- perturbed zero-response outcome changes: 2, 3, and 3.
+
+Conclusion: M34 is not an ideal-driver improvement. It preserves early M30
+aggregate success but still fails recurrent self-identification. The useful
+signal is weak response-ablation sensitivity, so the next step is larger M34
+response-change corpus mining.
+
+## 20260521 m35-m34-response-critical-corpus
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: enlarge the M34_151 hidden-swap sample to mine seeds where
+  reset or zero-response ablation changes outcome, then reuse those seeds for
+  follow-up training
+- hidden-swap command: `conda run -n autodrift python -m autodrift.hidden_swap_gate --env-config configs/ppo_m24_human_view_gru_driver.json --checkpoint runs/ppo_m34_response_aux_mixed_seed1434/checkpoints/checkpoint_step_151552.pt --episodes 300 --seed 4300 --device cpu --run-dir runs/m35_m34_151_hidden_swap_gate_seed4300`
+- corpus command: `conda run -n autodrift python -m autodrift.matched_response_corpus --pairs-csv runs/m35_m34_151_hidden_swap_gate_seed4300/pairs.csv --replays-csv runs/m35_m34_151_hidden_swap_gate_seed4300/replays.csv --top-k 80 --min-hidden-state-distance 0.8 --max-context-observation-distance 0.15 --run-dir runs/m35_m34_151_matched_response_corpus_seed4300`
+- corpus artifact: `runs/m35_m34_151_matched_response_corpus_seed4300/scenario_corpus.csv`
+
+Result:
+
+- accepted matches: 281 / 300;
+- hidden-swap outcome changes: 0;
+- perturbed reset outcome changes: 4, with 1 unfavorable and 3 favorable;
+- perturbed zero-response outcome changes: 5, with 2 unfavorable and 3
+  favorable;
+- selected corpus seeds: 80;
+- success-changed seeds: 5;
+- success-changed edges: 9;
+- condition-changed seeds: 76;
+- perturbed-failure seeds: 95.
+
+Conclusion: M35 is still a negative self-identification result, but it yields a
+better response-change training corpus than M29 for the M34 line. M36 should
+fine-tune from M34_151 on this corpus and then re-run the same aggregate and
+hidden-swap gates.

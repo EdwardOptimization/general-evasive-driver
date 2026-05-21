@@ -84,3 +84,75 @@ Post-run gates:
 - broad same-seed benchmark;
 - M28/M30 hidden-swap gate;
 - reset and zero-response ablations.
+
+## Full Run Result
+
+Command:
+
+```bash
+conda run -n autodrift python -m autodrift.train_ppo \
+  --config configs/ppo_m34_response_aux_mixed_driver.json \
+  --seed 1434 \
+  --device cuda \
+  --init-checkpoint runs/ppo_m30_mixed_matched_response_seed1330/checkpoints/checkpoint_step_53248.pt \
+  --run-dir runs/ppo_m34_response_aux_mixed_seed1434
+```
+
+Run artifacts:
+
+- final checkpoint: `runs/ppo_m34_response_aux_mixed_seed1434/checkpoint.pt`;
+- periodic checkpoints: steps 53248, 102400, 151552, 200704, 253952, and
+  300000;
+- command log: `runs/research/m34-response-aux-mixed-training_20260521T035144Z/command.log`.
+
+Final eval:
+
+- return mean: 70.148;
+- steps mean: 65.900;
+- termination rate: 0.200;
+- lateral RMSE mean: 0.656;
+- beta absolute error mean: 0.166.
+
+M29 selected-corpus checkpoint sweep:
+
+| Policy | Success | Return mean | Collision rate |
+| --- | ---: | ---: | ---: |
+| envelope AES | 0.725 | 61.882 | 0.275 |
+| M26_602 | 0.775 | 66.875 | 0.225 |
+| M30_053 | 0.875 | 70.795 | 0.125 |
+| M34_053 | 0.875 | 70.368 | 0.125 |
+| M34_102 | 0.875 | 69.758 | 0.125 |
+| M34_151 | 0.875 | 69.411 | 0.125 |
+| M34_200 | 0.850 | 68.202 | 0.150 |
+| M34_253 | 0.850 | 68.479 | 0.150 |
+| M34_final | 0.850 | 68.993 | 0.150 |
+
+Broad 40-seed checkpoint sweep:
+
+| Policy | Success | Return mean | Collision rate |
+| --- | ---: | ---: | ---: |
+| envelope AES | 0.675 | 56.594 | 0.300 |
+| M26_602 | 0.800 | 67.765 | 0.200 |
+| M30_053 | 0.825 | 67.732 | 0.175 |
+| M34_053 | 0.825 | 66.798 | 0.175 |
+| M34_102 | 0.800 | 64.655 | 0.200 |
+| M34_151 | 0.825 | 65.783 | 0.175 |
+| M34_final | 0.775 | 63.909 | 0.225 |
+
+Hidden-swap gates for M34_053, M34_102, and M34_151:
+
+- accepted visible matches: 73 / 80 for all three checkpoints;
+- hidden-swap success outcome changes: 0 for all three checkpoints;
+- perturbed reset outcome changes: 1, 2, and 3 respectively;
+- perturbed zero-response outcome changes: 2, 3, and 3 respectively.
+
+## Conclusion
+
+M34 is a mixed negative result. It preserves M30_053-level aggregate success at
+early checkpoints but does not improve it. More importantly, it still fails the
+self-identification gate: hidden-swap remains outcome-neutral.
+
+The useful signal is that response-prediction auxiliary training creates a
+small number of current-response ablation outcome changes. M35 therefore
+expands M34_151 hidden-swap mining and builds a response-change corpus instead
+of treating M34 as a pass.

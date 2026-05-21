@@ -96,6 +96,10 @@ vehicle/tire models, and NMPC-style constrained control.
   runtime profile and determinism check.
 - `m34-response-aux-mixed-training.md`: response-prediction auxiliary loss
   added to the M30 mixed hard-corpus training path.
+- `m35-m34-response-critical-corpus.md`: larger M34 hidden-swap mining run and
+  response-change corpus for follow-up training.
+- `m36-response-change-corpus-training.md`: planned fine-tune from M34_151 on
+  the M35 response-change corpus.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

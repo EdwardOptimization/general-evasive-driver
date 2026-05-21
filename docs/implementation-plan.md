@@ -616,6 +616,52 @@ steps, and reached eval return 70.377 with termination rate 0.200. This proves
 the architecture/config path is runnable, not that self-identification is
 solved. See `docs/m34-response-aux-mixed-training.md`.
 
+Post-run status: mixed negative. M34_053/M34_102/M34_151 match M30_053 on the
+M29 selected corpus at 0.875 success, and M34_053/M34_151 match M30_053 on the
+broad 40-seed benchmark at 0.825 success. Hidden-swap still changes zero
+accepted success outcomes. Reset and zero-response ablations begin to change a
+few perturbed outcomes, so M35 expands response-change corpus mining from
+M34_151.
+
+### M35: M34 Response-Critical Corpus
+
+- Re-run hidden-swap mining for M34_151 at 300 episodes.
+- Count reset, zero-response, and hidden-swap outcome changes on accepted
+  matched cases.
+- Mine an 80-seed corpus with higher success-change and condition-change
+  density for the next fine-tune.
+
+Exit criteria:
+
+- hidden-swap summary, pairs, and replays are written;
+- matched-response corpus is exported as `scenario_corpus.csv`;
+- docs clearly mark the result as corpus construction, not a pass.
+
+Status: complete as a corpus-building step. M35 accepted 281 / 300 matched
+cases, found 5 success-changed seeds and 9 success-changed edges, and selected
+80 seeds. Hidden-swap still changed zero accepted outcomes, so this remains a
+negative self-identification result. See
+`docs/m35-m34-response-critical-corpus.md`.
+
+### M36: Response-Change Corpus Training
+
+- Fine-tune from M34_151 on the M35 response-change corpus.
+- Keep ordinary randomized resets mixed in at 25% to reduce small-corpus
+  overfit.
+- Keep the response-prediction auxiliary head active.
+- Select checkpoints by response-critical gate behavior first, then aggregate
+  success.
+
+Exit criteria:
+
+- M36 config is committed;
+- full run writes periodic checkpoints;
+- post-run gates compare M36 against M30_053 and M34_151;
+- progress requires unfavorable reset, zero-response, or hidden-swap
+  sensitivity without aggregate regression.
+
+Status: queued. See `docs/m36-response-change-corpus-training.md`.
+
 ## Metrics
 
 - episode success rate;
