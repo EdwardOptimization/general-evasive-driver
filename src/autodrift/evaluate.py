@@ -96,7 +96,7 @@ class ActorPolicy(Policy):
     def act(self, observation: np.ndarray, info: dict) -> np.ndarray:
         del info
         observation = self._transform_observation(observation)
-        if self.model.actor_encoder == "online_gru":
+        if self.model.is_online_recurrent:
             if self.ablation == "reset_recurrent_state":
                 self.hidden = None
             action, _, _, self.hidden = self.model.act_recurrent(

@@ -63,3 +63,58 @@ Add a new strict `actor_encoder` variant for the response-critical online actor
 and a smoke config that trains from scratch under the M20 environment contract.
 Do not load M20 weights unless the architecture is exactly compatible; a clean
 architecture change should start as a new run.
+
+Implementation status:
+
+- `actor_encoder="response_critical_online_gru"` is available;
+- checkpoint loading is strict and recognizes the response/context encoder
+  weights only when they match the canonical 7-response + 8-context frame;
+- recurrent PPO sequence training supports the new online actor;
+- `reset_recurrent_state` and response-channel ablations use the same
+  evaluation harness as M18-M20.
+
+Config:
+
+```text
+configs/ppo_m21_response_critical_actor.json
+```
+
+Queued command:
+
+```bash
+conda run -n autodrift python -m autodrift.train_ppo \
+  --config configs/ppo_m21_response_critical_actor.json \
+  --seed 1031 \
+  --device cuda \
+  --run-dir runs/ppo_m21_response_critical_actor_seed1031
+```
+
+The new actor starts from scratch. It does not shape-adapt M18, M19, or M20
+weights.
+
+## Smoke Result
+
+Command:
+
+```bash
+conda run -n autodrift python -m autodrift.train_ppo \
+  --config configs/ppo_m21_response_critical_actor.json \
+  --total-steps 20480 \
+  --seed 1031 \
+  --device cuda \
+  --run-dir runs/ppo_m21_response_critical_smoke_seed1031
+```
+
+Result:
+
+- run dir: `runs/ppo_m21_response_critical_smoke_seed1031`;
+- saved checkpoint: `runs/ppo_m21_response_critical_smoke_seed1031/checkpoint.pt`;
+- eval return mean: 56.456;
+- eval steps mean: 63.700;
+- eval termination rate: 0.500;
+- eval lateral RMSE mean: 0.554;
+- eval beta absolute error mean: 0.175.
+
+The smoke result only proves the architecture trains and evaluates under the
+clean contract. It is not a driver-quality result. The full run must still pass
+the M21 validation gate above.

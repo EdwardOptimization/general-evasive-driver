@@ -2,7 +2,7 @@ import numpy as np
 import torch
 
 from autodrift.checkpoints import load_actor_critic_checkpoint
-from autodrift.env import DriftEnvConfig
+from autodrift.env import DriftEnvConfig, ObstacleTaskConfig
 from autodrift.train_ppo import (
     ActorCritic,
     PPOConfig,
@@ -172,6 +172,66 @@ def test_online_gru_actor_checkpoint_loads_and_updates_hidden(tmp_path):
     assert hidden.shape == (1, 16)
     assert not torch.allclose(hidden, next_hidden)
     assert np.isfinite(value)
+
+
+def test_response_critical_online_actor_checkpoint_loads_and_updates_hidden(tmp_path):
+    model = ActorCritic(obs_dim=15, act_dim=2, hidden_size=16, actor_encoder="response_critical_online_gru")
+    checkpoint_path = tmp_path / "checkpoint.pt"
+    torch.save(
+        {
+            "model_state": {key: value.detach().cpu() for key, value in model.state_dict().items()},
+            "config": model_config(actor_encoder="response_critical_online_gru", actor_history_length=1),
+        },
+        checkpoint_path,
+    )
+
+    loaded, _ = load_actor_critic_checkpoint(checkpoint_path, device="cpu")
+    observation = np.linspace(-0.5, 0.5, 15, dtype=np.float32)
+    action, _, value, hidden = loaded.act_recurrent(observation, deterministic=True)
+    _, _, _, next_hidden = loaded.act_recurrent(observation, hidden, deterministic=True)
+
+    assert loaded.actor_encoder == "response_critical_online_gru"
+    assert loaded.response_feature_indices == (0, 1, 2, 3, 4, 9, 10)
+    assert loaded.context_feature_indices == (5, 6, 7, 8, 11, 12, 13, 14)
+    assert action.shape == (2,)
+    assert hidden.shape == (1, 16)
+    assert not torch.allclose(hidden, next_hidden)
+    assert np.isfinite(value)
+
+
+def test_response_critical_online_actor_requires_canonical_obstacle_frame():
+    with np.testing.assert_raises(ValueError):
+        ActorCritic(obs_dim=11, act_dim=2, hidden_size=16, actor_encoder="response_critical_online_gru")
+
+
+def test_response_critical_online_actor_trains_with_canonical_obstacle_frame(tmp_path):
+    save_path = tmp_path / "run" / "checkpoint.pt"
+    config = PPOConfig(
+        total_steps=32,
+        rollout_steps=8,
+        num_envs=2,
+        update_epochs=1,
+        minibatch_size=8,
+        hidden_size=8,
+        actor_encoder="response_critical_online_gru",
+        recurrent_sequence_training=True,
+        seed=127,
+        device="cpu",
+    )
+
+    train(
+        config,
+        save_path=save_path,
+        env_config=DriftEnvConfig(
+            max_steps=8,
+            speed_range=(4.0, 6.0),
+            friction_limited_speed=False,
+            obstacle=ObstacleTaskConfig(enabled=True, distance_range=(20.0, 24.0)),
+        ),
+    )
+
+    loaded, _ = load_actor_critic_checkpoint(save_path, device="cpu")
+    assert loaded.actor_encoder == "response_critical_online_gru"
 
 
 def test_online_gru_sequence_eval_backpropagates_through_time():

@@ -49,6 +49,14 @@ def load_actor_critic_checkpoint(
     elif "frame_encoder.0.weight" in state_dict:
         frame_layer = state_dict["frame_encoder.0.weight"]
         source_obs_dim = int(frame_layer.shape[1]) * actor_history_length
+    elif actor_encoder == "response_critical_online_gru":
+        if "response_encoder.0.weight" not in state_dict or "context_encoder.0.weight" not in state_dict:
+            raise RuntimeError("response-critical checkpoint is missing response/context encoder weights")
+        response_dim = int(state_dict["response_encoder.0.weight"].shape[1])
+        context_dim = int(state_dict["context_encoder.0.weight"].shape[1])
+        if response_dim != 7 or context_dim != 8:
+            raise RuntimeError("response-critical checkpoint does not match the canonical 15-value actor frame")
+        source_obs_dim = response_dim + context_dim
     else:
         raise RuntimeError("checkpoint does not contain a recognized actor encoder")
 

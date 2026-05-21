@@ -24,6 +24,13 @@ from autodrift.env import AutoDriftEnv, DriftEnvConfig
 from autodrift.vector_env import SyncAutoDriftVectorEnv
 
 
+ONLINE_RECURRENT_ENCODERS = {"online_gru", "response_critical_online_gru"}
+
+
+def is_online_recurrent_encoder(actor_encoder: str) -> bool:
+    return actor_encoder in ONLINE_RECURRENT_ENCODERS
+
+
 @dataclass(frozen=True)
 class PPOConfig:
     total_steps: int = 50_000
@@ -73,8 +80,10 @@ class ActorCritic(nn.Module):
             raise ValueError("action_sequence_horizon must be at least 1")
         if response_prediction_dim < 0:
             raise ValueError("response_prediction_dim cannot be negative")
-        if actor_encoder not in {"mlp", "temporal_gru", "online_gru"}:
-            raise ValueError("actor_encoder must be one of: mlp, temporal_gru, online_gru")
+        if actor_encoder not in {"mlp", "temporal_gru", *ONLINE_RECURRENT_ENCODERS}:
+            raise ValueError(
+                "actor_encoder must be one of: mlp, temporal_gru, online_gru, response_critical_online_gru"
+            )
         if actor_history_length < 1:
             raise ValueError("actor_history_length must be at least 1")
         self.obs_dim = int(obs_dim)
@@ -96,6 +105,32 @@ class ActorCritic(nn.Module):
             self.frame_encoder = None
             self.temporal_gru = None
             self.online_gru_cell = None
+            self.response_encoder = None
+            self.context_encoder = None
+            self.response_context_fusion = None
+            self.response_feature_indices = ()
+            self.context_feature_indices = ()
+        elif self.actor_encoder == "response_critical_online_gru":
+            if obs_dim != 15:
+                raise ValueError("response_critical_online_gru requires the canonical 15-value obstacle actor frame")
+            self.shared = None
+            self.frame_encoder = None
+            self.temporal_gru = None
+            self.response_feature_indices = (0, 1, 2, 3, 4, 9, 10)
+            self.context_feature_indices = tuple(index for index in range(obs_dim) if index not in self.response_feature_indices)
+            self.response_encoder = nn.Sequential(
+                nn.Linear(len(self.response_feature_indices), hidden_size),
+                nn.Tanh(),
+            )
+            self.context_encoder = nn.Sequential(
+                nn.Linear(len(self.context_feature_indices), hidden_size),
+                nn.Tanh(),
+            )
+            self.online_gru_cell = nn.GRUCell(hidden_size, hidden_size)
+            self.response_context_fusion = nn.Sequential(
+                nn.Linear(hidden_size * 3, hidden_size),
+                nn.Tanh(),
+            )
         else:
             if self.actor_encoder == "temporal_gru" and obs_dim % self.actor_history_length != 0:
                 raise ValueError("temporal_gru actor requires obs_dim divisible by actor_history_length")
@@ -111,6 +146,11 @@ class ActorCritic(nn.Module):
             )
             self.temporal_gru = nn.GRU(hidden_size, hidden_size, batch_first=True) if self.actor_encoder == "temporal_gru" else None
             self.online_gru_cell = nn.GRUCell(hidden_size, hidden_size) if self.actor_encoder == "online_gru" else None
+            self.response_encoder = None
+            self.context_encoder = None
+            self.response_context_fusion = None
+            self.response_feature_indices = ()
+            self.context_feature_indices = ()
         self.actor_mean = nn.Linear(hidden_size, act_dim)
         self.critic = nn.Linear(hidden_size, 1)
         self.log_std = nn.Parameter(torch.full((act_dim,), float(log_std_init)))
@@ -129,7 +169,7 @@ class ActorCritic(nn.Module):
         if self.actor_encoder == "mlp":
             assert self.shared is not None
             return self.shared(obs)
-        if self.actor_encoder == "online_gru":
+        if self.is_online_recurrent:
             hidden = self.initial_hidden(obs.shape[0], obs.device)
             features, _ = self.recurrent_features_tensor(obs, hidden)
             return features
@@ -145,9 +185,30 @@ class ActorCritic(nn.Module):
         resolved_device = device or next(self.parameters()).device
         return torch.zeros(int(batch_size), self.actor_mean.in_features, dtype=torch.float32, device=resolved_device)
 
+    @property
+    def is_online_recurrent(self) -> bool:
+        return is_online_recurrent_encoder(self.actor_encoder)
+
+    def _response_critical_features_tensor(self, obs: torch.Tensor, hidden: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
+        assert self.response_encoder is not None
+        assert self.context_encoder is not None
+        assert self.online_gru_cell is not None
+        assert self.response_context_fusion is not None
+        response_indices = torch.as_tensor(self.response_feature_indices, dtype=torch.long, device=obs.device)
+        context_indices = torch.as_tensor(self.context_feature_indices, dtype=torch.long, device=obs.device)
+        response_obs = obs.index_select(dim=-1, index=response_indices)
+        context_obs = obs.index_select(dim=-1, index=context_indices)
+        response_encoded = self.response_encoder(response_obs)
+        context_encoded = self.context_encoder(context_obs)
+        next_hidden = self.online_gru_cell(response_encoded, hidden)
+        fused = self.response_context_fusion(torch.cat([next_hidden, context_encoded, next_hidden * context_encoded], dim=-1))
+        return fused, next_hidden
+
     def recurrent_features_tensor(self, obs: torch.Tensor, hidden: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
-        if self.actor_encoder != "online_gru":
-            raise RuntimeError("recurrent_features_tensor requires actor_encoder='online_gru'")
+        if not self.is_online_recurrent:
+            raise RuntimeError("recurrent_features_tensor requires an online recurrent actor_encoder")
+        if self.actor_encoder == "response_critical_online_gru":
+            return self._response_critical_features_tensor(obs, hidden)
         assert self.frame_encoder is not None
         assert self.online_gru_cell is not None
         encoded = self.frame_encoder(obs)
@@ -284,8 +345,8 @@ class ActorCritic(nn.Module):
         initial_hidden: torch.Tensor,
         dones: torch.Tensor,
     ) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
-        if self.actor_encoder != "online_gru":
-            raise RuntimeError("evaluate_actions_recurrent_sequence requires actor_encoder='online_gru'")
+        if not self.is_online_recurrent:
+            raise RuntimeError("evaluate_actions_recurrent_sequence requires an online recurrent actor_encoder")
         logps = []
         entropies = []
         values = []
@@ -311,8 +372,8 @@ class ActorCritic(nn.Module):
         initial_hidden: torch.Tensor,
         dones: torch.Tensor,
     ) -> torch.Tensor:
-        if self.actor_encoder != "online_gru":
-            raise RuntimeError("predict_response_recurrent_sequence requires actor_encoder='online_gru'")
+        if not self.is_online_recurrent:
+            raise RuntimeError("predict_response_recurrent_sequence requires an online recurrent actor_encoder")
         if self.response_prediction_head is None:
             raise RuntimeError("response prediction head is not enabled")
         predictions = []
@@ -451,15 +512,16 @@ def train(
     env_config = env_config or DriftEnvConfig()
     curriculum = curriculum or []
     active_env_config, active_stage = env_config_for_step(env_config, curriculum, 0)
+    uses_online_recurrent = is_online_recurrent_encoder(config.actor_encoder)
     if config.actor_encoder == "temporal_gru" and config.actor_history_length != active_env_config.history_length:
         config = replace(config, actor_history_length=active_env_config.history_length)
-    if config.actor_encoder == "online_gru" and active_env_config.history_length != 1:
-        raise ValueError("online_gru actor requires env history_length=1; memory is carried in recurrent hidden state")
-    if config.actor_encoder == "online_gru" and config.action_sequence_horizon > 1:
-        raise ValueError("online_gru actor does not currently support action_sequence_horizon > 1")
+    if uses_online_recurrent and active_env_config.history_length != 1:
+        raise ValueError("online recurrent actors require env history_length=1; memory is carried in recurrent hidden state")
+    if uses_online_recurrent and config.action_sequence_horizon > 1:
+        raise ValueError("online recurrent actors do not currently support action_sequence_horizon > 1")
     if config.response_prediction_aux_coef > 0.0:
-        if config.actor_encoder != "online_gru" or not config.recurrent_sequence_training:
-            raise ValueError("response prediction auxiliary loss requires online_gru recurrent sequence training")
+        if not uses_online_recurrent or not config.recurrent_sequence_training:
+            raise ValueError("response prediction auxiliary loss requires online recurrent sequence training")
         if config.response_prediction_dim < 1:
             raise ValueError("response_prediction_dim must be positive when response_prediction_aux_coef > 0")
     if config.checkpoint_interval_steps < 0:
@@ -489,19 +551,19 @@ def train(
     global_step = 0
     update = 0
     metric_rows: list[dict[str, float | int]] = []
-    recurrent_hidden = model.initial_hidden(config.num_envs, device) if config.actor_encoder == "online_gru" else None
+    recurrent_hidden = model.initial_hidden(config.num_envs, device) if uses_online_recurrent else None
     checkpoint_interval = int(config.checkpoint_interval_steps)
     next_checkpoint_step = checkpoint_interval if checkpoint_interval > 0 else None
     while global_step < config.total_steps:
         next_env_config, next_stage = env_config_for_step(env_config, curriculum, global_step)
         if next_stage != active_stage:
-            if config.actor_encoder == "online_gru" and next_env_config.history_length != 1:
-                raise ValueError("online_gru actor requires env history_length=1 in every curriculum stage")
+            if uses_online_recurrent and next_env_config.history_length != 1:
+                raise ValueError("online recurrent actors require env history_length=1 in every curriculum stage")
             active_env_config = next_env_config
             active_stage = next_stage
             env = SyncAutoDriftVectorEnv(num_envs=config.num_envs, config=active_env_config, seed=config.seed + global_step)
             obs, infos = env.reset()
-            recurrent_hidden = model.initial_hidden(config.num_envs, device) if config.actor_encoder == "online_gru" else None
+            recurrent_hidden = model.initial_hidden(config.num_envs, device) if uses_online_recurrent else None
             print(f"curriculum_stage={active_stage} step={global_step}")
 
         remaining = config.total_steps - global_step
@@ -514,7 +576,7 @@ def train(
         val_buf = np.zeros((rollout_n, config.num_envs), dtype=np.float32)
         hidden_buf = (
             np.zeros((rollout_n, config.num_envs, config.hidden_size), dtype=np.float32)
-            if config.actor_encoder == "online_gru"
+            if uses_online_recurrent
             else None
         )
 
@@ -522,7 +584,7 @@ def train(
         episode_lengths: list[int] = []
         episode_terminated: list[float] = []
         for t in range(rollout_n):
-            if config.actor_encoder == "online_gru":
+            if uses_online_recurrent:
                 assert recurrent_hidden is not None
                 assert hidden_buf is not None
                 hidden_buf[t] = recurrent_hidden.detach().cpu().numpy().astype(np.float32)
@@ -546,7 +608,7 @@ def train(
                     episode_lengths.append(int(episode["length"]))
                     episode_terminated.append(float(episode["terminated"]))
             obs = step.observations
-            if config.actor_encoder == "online_gru":
+            if uses_online_recurrent:
                 assert next_hidden is not None
                 done_t = torch.as_tensor(done, dtype=torch.bool, device=device)
                 next_hidden = next_hidden.clone()
@@ -554,7 +616,7 @@ def train(
                 recurrent_hidden = next_hidden.detach()
 
         with torch.no_grad():
-            if config.actor_encoder == "online_gru":
+            if uses_online_recurrent:
                 assert recurrent_hidden is not None
                 _, last_value_t, _ = model.forward_recurrent(
                     torch.as_tensor(obs, dtype=torch.float32, device=device),
@@ -586,7 +648,7 @@ def train(
             flat_seq_target = None
             flat_seq_mask = None
 
-        if config.actor_encoder == "online_gru" and config.recurrent_sequence_training:
+        if uses_online_recurrent and config.recurrent_sequence_training:
             assert hidden_buf is not None
             obs_seq_t = torch.as_tensor(obs_buf, dtype=torch.float32, device=device)
             act_seq_t = torch.as_tensor(act_buf, dtype=torch.float32, device=device)
@@ -653,7 +715,7 @@ def train(
                 np.random.shuffle(indices)
                 for start in range(0, len(indices), config.minibatch_size):
                     mb = indices[start : start + config.minibatch_size]
-                    if config.actor_encoder == "online_gru":
+                    if uses_online_recurrent:
                         assert hidden_t is not None
                         logp, entropy_values, value = model.evaluate_actions_recurrent(obs_t[mb], act_t[mb], hidden_t[mb])
                     else:
@@ -733,7 +795,7 @@ def evaluate_actor(
         terminated = False
         truncated = False
         while not (terminated or truncated):
-            if model.actor_encoder == "online_gru":
+            if model.is_online_recurrent:
                 action, _, _, recurrent_hidden = model.act_recurrent(obs, recurrent_hidden, deterministic=True)
             else:
                 action, _, _ = model.act(obs, deterministic=True)
