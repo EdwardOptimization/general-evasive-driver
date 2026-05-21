@@ -6,7 +6,7 @@
   ],
   "commands": [
     {
-      "command": "TBD: mine or construct matched-current-response pairs with low normal clearance margin and reset/wrong-history margin loss",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.near_boundary_outcome_surface --outcome-csv runs/m113_matched_history_outcome_gate_seed9510/outcome_interventions.csv --max-normal-margin 0.20 --min-margin-gap 0.02 --min-accepted-rows 30 --required-variants reset_hidden,wrong_matched_history --run-dir runs/m114_near_boundary_outcome_surface_seed9510",
       "name": "m114_near_boundary_matched_history_outcome_surface"
     }
   ],
@@ -23,6 +23,10 @@
     {
       "path": "docs/m114-near-boundary-matched-history-outcome-surface.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m114_near_boundary_outcome_surface_seed9510/summary.json",
+      "type": "run_summary"
     }
   ],
   "success_criteria": [

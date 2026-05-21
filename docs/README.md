@@ -317,6 +317,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m113-matched-history-outcome-gate.md`: continuation outcome gate for M112
   interventions; action changes do not produce success drops and only small
   clearance-margin gaps on M111 pairs.
+- `m114-near-boundary-matched-history-outcome-surface.md`: near-boundary mining
+  over M113 outcomes; finds reset/zero-current margin-loss rows but no
+  wrong-history outcome-critical rows.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

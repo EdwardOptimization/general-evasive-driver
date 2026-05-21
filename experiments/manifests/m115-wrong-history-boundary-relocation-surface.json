@@ -1,0 +1,35 @@
+{
+  "baseline_checkpoints": [
+    "runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt",
+    "runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt",
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt"
+  ],
+  "commands": [
+    {
+      "command": "TBD: relocate or tighten obstacle geometry around M111/M114 matched pairs until wrong matched history produces clearance or mitigation degradation",
+      "name": "m115_wrong_history_boundary_relocation_surface"
+    }
+  ],
+  "decision_rule": "Construct a near-boundary matched-history surface where wrong matched history, not only reset or zero-current response, measurably reduces clearance, success, or mitigation outcome.",
+  "failure_criteria": [
+    "wrong matched history remains outcome-neutral after boundary relocation",
+    "accepted rows are no longer matched in current response and scene",
+    "normal history is already colliding or invalid",
+    "the construction uses hidden parameters or oracle labels as actor inputs"
+  ],
+  "hypothesis": "M114 finds reset/zero-current near-boundary rows but no wrong-history rows. Tightening obstacle geometry around matched pairs may expose wrong-history causal outcome differences that passive M113 continuations missed.",
+  "id": "m115-wrong-history-boundary-relocation-surface",
+  "required_artifacts": [
+    {
+      "path": "docs/m115-wrong-history-boundary-relocation-surface.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "M111/M114 matched pairs are replayed under a boundary-tightened or relocated obstacle configuration",
+    "accepted rows require normal valid continuation and wrong-history margin loss or mitigation degradation",
+    "reset/zero-current rows are reported separately from wrong-history rows",
+    "the result decides whether to train a wrong-history outcome intervention objective"
+  ],
+  "type": "gate"
+}

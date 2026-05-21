@@ -2281,9 +2281,25 @@ around `0.011`. Do not train on M111 pairs as-is. See
 - Use obstacle geometry relocation or stricter corpus selection if passive M111
   pairs are too easy.
 
-Status: pending. M113 shows the current matched pairs are feature/action
-diagnostics but not outcome-critical. The next proof surface must make history
-sensitivity matter for clearance or collision by construction.
+Status: completed, partial positive. M114 mines M113 outcome rows and finds
+`119` accepted near-boundary rows across `51` unique pairs with normal margin
+around `0.1867` and mean margin gap `0.0299`. The accepted rows cover
+`reset_hidden`, `zero_current_response`, and two delayed-history rows, but there
+are zero `wrong_matched_history` rows and zero success drops. This surface is
+useful for reset/zeroed-history pressure, not for the stronger wrong-history
+self-identification claim. See
+`docs/m114-near-boundary-matched-history-outcome-surface.md`.
+
+### M115: Wrong-History Boundary Relocation Surface
+
+- Relocate or tighten obstacle geometry around M111/M114 matched pairs.
+- Require normal-history continuation to stay valid while wrong matched history
+  loses clearance, collides, or worsens mitigation.
+- Report reset/zero-current rows separately from wrong-history rows.
+
+Status: pending. M114 shows passive continuations do not make wrong matched
+history outcome-critical; the next surface must be constructed around the
+wrong-history variant instead of relying on reset/zero-current degradation.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

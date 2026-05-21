@@ -29,8 +29,9 @@ Last updated: 2026-05-22
   5.5pro MHTML input review is persisted: future wheel/tire work should use raw
   `Romega_i` plus independent local `v_parallel_i`, while `slip_ratio`,
   controller flags, tire labels, and oracle values stay out of actor inputs.
-  The next task is M114: construct a near-boundary matched-history outcome
-  surface.
+  M114 finds a near-boundary reset/zero-current outcome surface but no
+  wrong-history rows. The next task is M115: construct wrong-history
+  boundary-relocation cases.
 
 ## Standing Loop
 
@@ -4292,3 +4293,38 @@ surface. The pairs are useful for action diagnostics, but they are not
 outcome-critical enough. The next pending task is M114: mine or construct a
 near-boundary matched-history surface where normal history has measurable
 clearance or success advantage.
+
+## 20260521T194345Z m114-near-boundary-matched-history-outcome-surface
+
+- status: `completed`
+- kind: `gate`
+- implementation:
+  `src/autodrift/near_boundary_outcome_surface.py`
+- tests:
+  `tests/test_near_boundary_outcome_surface.py`
+- run:
+  `runs/m114_near_boundary_outcome_surface_seed9510`
+- artifact: `docs/m114-near-boundary-matched-history-outcome-surface.md`
+
+Result:
+
+- consumed M113 `outcome_interventions.csv`;
+- filter: `normal_margin <= 0.20`, `margin_gap >= 0.02`,
+  `normal_success == true`;
+- accepted rows: `119`;
+- unique pairs: `51`;
+- aggregate normal margin mean: `0.186675`;
+- aggregate margin gap mean: `0.029944`;
+- accepted variant counts:
+  - `reset_hidden`: `39`;
+  - `zero_current_response`: `78`;
+  - `delayed_history`: `2`;
+  - `wrong_matched_history`: `0`;
+- success drop count: `0`.
+
+Conclusion: M114 finds a usable near-boundary surface for reset/zeroed-history
+outcome pressure, but it still does not support the stronger wrong-history
+self-identification claim. The next pending task is M115: relocate or tighten
+obstacle geometry around matched pairs until wrong matched history creates
+clearance, collision, or mitigation degradation while normal history remains
+valid.
