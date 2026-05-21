@@ -2373,3 +2373,41 @@ Post-validation:
 Conclusion: M61 infrastructure is ready for a full continuation. The strict
 gate remains unchanged; replay and stronger anchoring must eliminate the M60
 near-boundary regressions rather than hide them.
+
+## 20260521T091441Z m61-regression-seed-retention-replay-full
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Full M61 continuation should reduce M60's concentrated
+  near-boundary regressions by replaying those seeds and increasing
+  baseline-action anchor strength.
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m61_regression_seed_retention_driver.json --seed 2861 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m61_regression_seed_retention_seed2861`
+- returncode: `0`
+- run dir: `runs/ppo_m61_regression_seed_retention_seed2861`
+- success artifact:
+  `runs/ppo_m61_regression_seed_retention_seed2861/checkpoint.pt`
+
+Post-validation:
+
+- M38/broad/fresh checkpoint sweeps:
+  `runs/m61_m38_margin_benchmark_seed4300`,
+  `runs/m61_broad_margin_benchmark_seed3000`,
+  `runs/m61_fresh_margin_benchmark_seed5200`;
+- margin corpus:
+  `runs/m61_margin_critical_corpus/seed_margin_deltas.csv`;
+- strict gate:
+  `runs/m61_margin_retention_gate_strict/candidate_gate_summary.csv`;
+- strict gate status: `needs_iteration`;
+- passed candidates: none;
+- `m61_004` and `m61_008` have zero binary and zero near-margin regressions
+  but still negative mean margin delta;
+- `m61_032` has zero binary regressions and positive mean margin delta
+  `0.000294`, but has 3 near-margin regressions;
+- remaining blocker seeds for `m61_032`: M38 `4378`, M38 `4413`, and broad
+  `3019`.
+
+Conclusion: M61 is not promotable, but it is the strongest retention result so
+far because it produces a positive-margin, zero-binary source checkpoint.
+M62 should interpolate M37_102 toward `m61_032` to see whether a smaller
+trust-region step can keep positive mean margin while removing the three
+near-margin regressions.

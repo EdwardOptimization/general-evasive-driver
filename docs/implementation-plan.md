@@ -1262,10 +1262,31 @@ Exit criteria:
 - promotion still requires zero binary regressions, zero near-margin
   regressions, and non-negative mean margin delta.
 
-Status: infrastructure ready; full run pending. M61 has a regression-seed
-replay corpus with 12 extra repeats each for seeds 4413, 4378, 4457, and 3019,
-plus a stronger baseline-action anchor config that smoke-trains successfully
-from M37_102. See `docs/m61-regression-seed-retention-replay.md`.
+Status: complete as a negative but improved result. M61 replays the M60
+regression seeds and strengthens the baseline-action anchor. It does not pass
+the strict gate, but `m61_032` has zero binary regressions and positive combined
+mean margin delta; the remaining blocker is three near-margin regressions on
+unchanged failures. See `docs/m61-regression-seed-retention-replay.md`.
+
+### M62: Positive-Margin Checkpoint Interpolation
+
+- Reuse the M59 checkpoint interpolation harness, but interpolate M37_102 toward
+  `m61_032` instead of M56_028.
+- Test whether a smaller step preserves M61's positive mean-margin direction
+  while eliminating the remaining three near-margin regressions.
+- Keep the strict margin-retention gate unchanged.
+
+Exit criteria:
+
+- interpolation artifacts record M37_102, M61_032, alpha values, and output
+  paths;
+- M38/broad/fresh strict margin gate is run unchanged;
+- any passing candidate is treated as a candidate only after broader driver
+  gates are rerun;
+- if none pass, next work should add an explicit near-boundary failure-depth
+  floor rather than more replay alone.
+
+Status: planned.
 
 ## Metrics
 

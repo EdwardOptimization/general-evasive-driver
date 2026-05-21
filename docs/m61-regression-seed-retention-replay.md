@@ -90,10 +90,62 @@ Result:
 - metrics include `response_prediction_loss_mean`;
 - metrics include `baseline_action_anchor_loss_mean`.
 
+## Full Run
+
+Command:
+
+```bash
+conda run -n autodrift python -m autodrift.train_ppo \
+  --config configs/ppo_m61_regression_seed_retention_driver.json \
+  --seed 2861 \
+  --device cuda \
+  --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt \
+  --run-dir runs/ppo_m61_regression_seed_retention_seed2861
+```
+
+Validation artifacts:
+
+- `runs/m61_m38_margin_benchmark_seed4300`;
+- `runs/m61_broad_margin_benchmark_seed3000`;
+- `runs/m61_fresh_margin_benchmark_seed5200`;
+- `runs/m61_margin_critical_corpus`;
+- `runs/m61_margin_retention_gate_strict`.
+
+Strict gate result: `needs_iteration`; passed candidates: none.
+
+| Candidate | Success Delta | Binary Regressions | Near-Margin Regressions | Mean Margin Delta | Passed |
+| --- | ---: | ---: | ---: | ---: | --- |
+| `m61_004` | 0.000000 | 0 | 0 | -0.000514 | false |
+| `m61_008` | 0.000000 | 0 | 0 | -0.000407 | false |
+| `m61_012` | 0.000000 | 0 | 1 | -0.000426 | false |
+| `m61_016` | 0.000000 | 0 | 3 | -0.000607 | false |
+| `m61_020` | -0.006250 | 1 | 3 | -0.000181 | false |
+| `m61_024` | -0.006250 | 1 | 2 | 0.000312 | false |
+| `m61_028` | 0.000000 | 0 | 3 | 0.000017 | false |
+| `m61_032` | 0.000000 | 0 | 3 | 0.000294 | false |
+
+M61 is not promotable, but it is the strongest margin-retention result so far.
+Unlike M59, the best M61 direction has positive combined mean margin. Unlike
+M60, `m61_032` also has no binary regressions. The remaining blocker is three
+near-margin regressions:
+
+| Seed | Source | Outcome | Notes |
+| ---: | --- | --- | --- |
+| 4378 | M38 | unchanged failure worsened | drift-required, low-mu, light, weak brake, slow steering |
+| 4413 | M38 | unchanged failure worsened | drift-required, medium-mu, heavy, nominal brake, slow steering |
+| 3019 | broad | unchanged failure worsened | unavoidable, high-mu, nominal mass, strong brake, slow steering |
+
+## Conclusion
+
+M61 validates the replay + stronger-anchor direction but still fails the strict
+near-margin floor. The best candidate, `m61_032`, is a good source direction
+for a trust-region interpolation probe because it has positive mean margin and
+no binary regressions.
+
 ## Next Step
 
-Run the full M61 continuation and evaluate it through the unchanged
-M38/broad/fresh margin-retention gate. Promotion still requires:
+M62 should interpolate M37_102 toward `m61_032` using the M59 harness. Promotion
+still requires:
 
 - zero binary regressions;
 - zero near-margin regressions;

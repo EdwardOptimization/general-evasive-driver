@@ -1,7 +1,7 @@
 {
   "counts": {
     "blocked": 0,
-    "completed": 57,
+    "completed": 58,
     "failed": 0,
     "pending": 0,
     "planned": 1,
@@ -10,10 +10,10 @@
   "last_result": {
     "command_log": null,
     "returncode": 0,
-    "run_dir": "runs/ppo_m60_constrained_baseline_anchor_seed2760",
+    "run_dir": "runs/ppo_m61_regression_seed_retention_seed2861",
     "status": "completed",
-    "task_id": "m60-constrained-baseline-anchored-margin-update"
+    "task_id": "m61-regression-seed-retention-replay"
   },
-  "next_task": "m61-regression-seed-retention-replay",
-  "updated_at_utc": "20260521T090446Z"
+  "next_task": "m62-positive-margin-checkpoint-interpolation",
+  "updated_at_utc": "20260521T091441Z"
 }
