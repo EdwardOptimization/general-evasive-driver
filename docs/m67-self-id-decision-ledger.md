@@ -249,25 +249,19 @@ Persisted in:
 Continue with:
 
 ```text
-m80-outcome-objective-only-sanity-check
-```
-
-Implementation intent:
-
-```text
-optimize only outcome_weighted_intervention_loss on the M78 human-view NPZ
-compare fixed-batch loss before/after with the M79 evaluator
-if it cannot decrease, fix objective/sign/data before more PPO
-if it can decrease, reintroduce PPO and retention anchors gradually
-```
-
-Then continue with:
-
-```text
 m81-wheel-response-self-id-input-branch
 ```
 
-M81 intent:
+M80 result:
+
+```text
+outcome_weighted_intervention_loss can decrease outside PPO
+fixed-batch loss: 0.039923 -> 0.008483
+short 5-episode eval did not immediately collapse
+not a promotion gate
+```
+
+Next implementation intent:
 
 ```text
 add deployable front/rear wheel response to the response GRU stream
@@ -297,6 +291,10 @@ adds the fixed-batch evaluator and tests a stronger coefficient, but the offline
 loss worsens again (`m62_init` `0.039923`, `m79_highcoef` `0.041033`) and short
 eval termination rises to `0.5`. The next blocker is not coefficient scale; it
 is proving the objective can be optimized in isolation.
+M80 resolves that narrow blocker: direct objective-only optimization reduces
+the fixed-batch loss to `0.008483` without training `log_std`. Future PPO
+reintroduction should use the M80 harness as a guard, but it is not the next
+highest-leverage work.
 The MHTML project review adds a larger follow-up decision: the current 72-value
 frame remains the baseline, but final self-identification evidence likely needs
 wheel/tire response feedback. The full review is preserved in

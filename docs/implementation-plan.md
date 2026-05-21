@@ -1729,6 +1729,13 @@ Status: planned after M79. M79 shows coefficient scale is not the blocker by
 itself; the next evidence step is to prove the loss is locally optimizable in
 isolation.
 
+Status: complete with a positive objective-only sanity result. M80 added an
+isolated optimizer for `outcome_weighted_intervention_loss`, froze `log_std` by
+default, and reduced fixed-batch loss from `0.039923` to `0.008483` over 200
+CPU steps from `m62_a250`. A 5-episode same-seed smoke did not show immediate
+driving collapse, but this is not a promotion gate. See
+`docs/m80-outcome-objective-only-sanity-check.md`.
+
 ### M81: Wheel Response Self-ID Input Branch
 
 - Add deployable wheel/tire response signals to the response GRU stream rather
@@ -1748,6 +1755,20 @@ review is consolidated in `docs/external-review-5-5pro-mhtml.md`; the M81
 execution plan in `docs/m81-wheel-response-input-roadmap.md` identifies
 wheel/tire response as the missing deployable sensory channel for a
 professional-driver self-identification claim.
+
+### M82: PPO Reintroduction For Outcome Objective
+
+- Reintroduce the M78 outcome objective into PPO only after M81 input work or as
+  a small guarded branch.
+- Use the M80 objective-only result as the reference guard.
+- Keep low learning rate, fixed-batch objective checks, short same-seed eval,
+  and strict margin-retention gates.
+- Freeze or explicitly monitor `log_std` so objective improvement is not a
+  variance-only artifact.
+
+Status: planned after M81 or as a small parallel branch. M80 proves the loss can
+move in isolation; M78/M79 still show PPO integration can move it in the wrong
+direction.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

@@ -36,12 +36,12 @@ Last updated: 2026-05-21
   but the first low-coefficient smoke does not reduce offline intervention loss.
   M79 adds a fixed-batch offline evaluator and tries a stronger auxiliary
   coefficient, but the offline objective worsens again and short evaluation
-  termination rises to `0.5`. The next blocker is an objective-only sanity check
-  before any more PPO continuation. The full 5.5pro MHTML review is now
-  persisted and adds a larger follow-up: after M80, prioritize wheel/tire
-  response inputs and wheel-specific history interventions because the current
-  72-value frame is a baseline, not enough for the final professional-driver
-  self-ID claim.
+  termination rises to `0.5`. M80 shows the objective can decrease in isolation,
+  so the remaining failure is PPO integration and proof-gate design rather than
+  a reversed loss sign. The full 5.5pro MHTML review is now persisted and adds a
+  larger follow-up: prioritize wheel/tire response inputs and wheel-specific
+  history interventions because the current 72-value frame is a baseline, not
+  enough for the final professional-driver self-ID claim.
 
 ## Standing Loop
 
@@ -3259,3 +3259,39 @@ Result:
 Conclusion: M80 remains the immediate blocker for the current objective, but
 M81 is now the planned larger input-infrastructure branch. The important 5.5pro
 review content is no longer only in the MHTML export.
+
+## 20260521T135652Z m80-outcome-objective-only-sanity-check
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: if the M78 outcome intervention objective is correctly signed and
+  the snippets contain signal, direct optimization from `m62_a250` should reduce
+  M79's fixed-batch loss.
+- code update: added `autodrift.outcome_intervention_optimize`, which freezes
+  `log_std` by default, optimizes only `outcome_weighted_intervention_loss`,
+  saves an optimized checkpoint, and writes before/after fixed-batch summaries.
+- focused tests: `python -m compileall -q src tests`,
+  `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift pytest -q tests/test_outcome_intervention_optimize.py tests/test_outcome_intervention_eval.py tests/test_intervention_objectives.py`,
+  and `git diff --check` passed with `13 passed`.
+- final validation: `git diff --check`, `python -m compileall -q src tests`,
+  JSON validation, CSV validation, and
+  `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 conda run -n autodrift pytest -q`
+  returned `218 passed`.
+- run dir: `runs/m80_outcome_objective_only_seed8800`
+- eval smoke dirs:
+  `runs/m80_m62_eval_seed8800`,
+  `runs/m80_outcome_objective_only_eval_seed8800`
+- artifact: `docs/m80-outcome-objective-only-sanity-check.md`
+
+Result:
+
+- fixed-batch loss improves from `0.039923` to `0.008483`;
+- training loss at step 200 is `0.017400`;
+- 5-episode same-seed smoke has termination `0.0` for both M62 and M80;
+- smoke return mean is `79.328658` for M62 and `85.073736` for the M80
+  objective-only checkpoint.
+
+Conclusion: M80 is a positive objective sanity result, not a promoted driver.
+The objective can move in isolation, so the next highest-leverage task is M81:
+add wheel/tire response inputs and gates. A later M82 should reintroduce the
+outcome objective into PPO with fixed-batch and margin-retention guards.

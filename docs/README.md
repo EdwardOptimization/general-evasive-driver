@@ -212,6 +212,8 @@ vehicle/tire models, and NMPC-style constrained control.
   training, and negative offline-loss check.
 - `m79-outcome-objective-weight-tuning.md`: fixed-batch outcome-intervention
   evaluator, high-coefficient smoke, and negative objective tuning result.
+- `m80-outcome-objective-only-sanity-check.md`: isolated outcome objective
+  optimizer, fixed-batch before/after result, and short driving smoke.
 - `external-review-5-5pro-mhtml.md`: consolidated 5.5pro MHTML review record
   covering project status, engineering backlog, research framing, input gaps,
   solve/verify split, warm-up/probing, and proof gates.
