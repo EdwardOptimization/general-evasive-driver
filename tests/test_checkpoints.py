@@ -374,6 +374,75 @@ def test_privileged_human_view_init_preserves_human_view_behavior(tmp_path):
     torch.testing.assert_close(target_next_hidden, source_next_hidden, atol=1e-7, rtol=0.0)
 
 
+def test_wheel_human_view_init_preserves_human_view_behavior(tmp_path):
+    torch.manual_seed(8)
+    source = ActorCritic(
+        obs_dim=72,
+        act_dim=3,
+        hidden_size=16,
+        actor_encoder="human_view_online_gru",
+        response_prediction_dim=12,
+        response_prediction_horizon=4,
+    )
+    checkpoint_path = tmp_path / "m62_like.pt"
+    torch.save(
+        {
+            "model_state": {key: value.detach().cpu() for key, value in source.state_dict().items()},
+            "config": model_config(
+                actor_encoder="human_view_online_gru",
+                actor_history_length=1,
+                response_prediction_dim=12,
+                response_prediction_horizon=4,
+            ),
+        },
+        checkpoint_path,
+    )
+    target = ActorCritic(
+        obs_dim=85,
+        act_dim=3,
+        hidden_size=16,
+        actor_encoder="wheel_human_view_online_gru",
+        response_prediction_dim=12,
+        response_prediction_horizon=4,
+    )
+
+    load_mode = load_init_checkpoint_state(target, checkpoint_path, torch.device("cpu"))
+
+    assert load_mode == "partial_wheel_response_encoder"
+    assert target.response_feature_indices == tuple(range(25))
+    assert target.context_feature_indices == tuple(range(25, 85))
+    target_state = target.state_dict()
+    source_state = source.state_dict()
+    torch.testing.assert_close(
+        target_state["response_encoder.0.weight"][:, :12],
+        source_state["response_encoder.0.weight"],
+    )
+    assert float(target_state["response_encoder.0.weight"][:, 12:].abs().sum()) == 0.0
+    torch.testing.assert_close(target_state["response_encoder.0.bias"], source_state["response_encoder.0.bias"])
+    torch.testing.assert_close(target_state["context_encoder.0.weight"], source_state["context_encoder.0.weight"])
+
+    obs72 = np.linspace(-0.7, 0.7, 72, dtype=np.float32)
+    wheel_response = np.linspace(1.0, 2.2, 13, dtype=np.float32)
+    obs85 = np.concatenate([obs72[:12], wheel_response, obs72[12:]]).astype(np.float32)
+    hidden_source = source.initial_hidden(1, torch.device("cpu"))
+    hidden_target = target.initial_hidden(1, torch.device("cpu"))
+    source_action, source_logp, source_value, source_next_hidden = source.act_recurrent(
+        obs72,
+        hidden_source,
+        deterministic=True,
+    )
+    target_action, target_logp, target_value, target_next_hidden = target.act_recurrent(
+        obs85,
+        hidden_target,
+        deterministic=True,
+    )
+
+    np.testing.assert_allclose(target_action, source_action, atol=1e-7)
+    assert target_logp == pytest.approx(source_logp, abs=1e-7)
+    assert target_value == pytest.approx(source_value, abs=1e-7)
+    torch.testing.assert_close(target_next_hidden, source_next_hidden, atol=1e-7, rtol=0.0)
+
+
 def test_privileged_human_view_init_rejects_privileged_branch_shape_mismatch(tmp_path):
     source = ActorCritic(obs_dim=82, act_dim=3, hidden_size=16, actor_encoder="privileged_human_view_online_gru")
     source_state = {key: value.detach().clone() for key, value in source.state_dict().items()}

@@ -544,6 +544,42 @@ def adapt_actor_critic_state(model: ActorCritic, source_state: dict[str, torch.T
     if not missing and not unexpected and not shape_mismatches:
         model.load_state_dict(source_state)
         return "strict"
+    wheel_response_key = "response_encoder.0.weight"
+    if (
+        model.actor_encoder == WHEEL_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER
+        and wheel_response_key in shape_mismatches
+        and not unexpected
+        and set(missing).issubset(allowed_missing)
+        and set(shape_mismatches).issubset(allowed_shape_mismatches | {wheel_response_key})
+    ):
+        source_response_weight = source_state[wheel_response_key]
+        target_response_weight = target_state[wheel_response_key]
+        if (
+            tuple(source_response_weight.shape)
+            != (target_response_weight.shape[0], HUMAN_VIEW_RESPONSE_FEATURE_DIM)
+            or tuple(target_response_weight.shape)
+            != (target_response_weight.shape[0], WHEEL_HUMAN_VIEW_RESPONSE_FEATURE_DIM)
+        ):
+            raise RuntimeError(
+                "init checkpoint cannot be partially loaded into wheel human-view response encoder: "
+                f"source={tuple(source_response_weight.shape)}, target={tuple(target_response_weight.shape)}"
+            )
+        merged_state = dict(target_state)
+        for key, value in source_state.items():
+            if key not in shape_mismatches:
+                merged_state[key] = value
+        merged_response_weight = target_response_weight.clone()
+        merged_response_weight[:, :HUMAN_VIEW_RESPONSE_FEATURE_DIM] = source_response_weight
+        merged_response_weight[:, HUMAN_VIEW_RESPONSE_FEATURE_DIM:] = 0.0
+        merged_state[wheel_response_key] = merged_response_weight
+        model.load_state_dict(merged_state)
+        partial_modes = ["wheel_response_encoder"]
+        if (set(missing) | set(shape_mismatches)) & {
+            "response_prediction_head.weight",
+            "response_prediction_head.bias",
+        }:
+            partial_modes.append("response_prediction_head")
+        return "partial_" + "_".join(partial_modes)
     if set(missing).issubset(allowed_missing) and not unexpected and set(shape_mismatches).issubset(
         allowed_shape_mismatches
     ):

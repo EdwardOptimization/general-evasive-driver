@@ -1801,9 +1801,26 @@ already fails most episodes. See
   match.
 - Run the same short wheel-response continuation and zero-wheel/history gates.
 
-Status: planned. M83 shows that from-scratch wheel-response training is too weak
-to judge the input branch. The next test should preserve M62 driving behavior
-first, then measure whether wheel response adds useful adaptation evidence.
+Status: complete as a positive retention/infrastructure result. M84 adds
+behavior-preserving partial initialization from M62 into the wheel actor. A
+4096-step CUDA smoke loads with `partial_wheel_response_encoder` and gets
+`termination_rate = 0.0`; the 20-episode gate reaches `success_rate = 0.90`
+versus heuristic `0.40` and M83 `0.10`. This is not a wheel self-ID pass because
+`m84_zero_wheel` also reaches `0.90`. See
+`docs/m84-m62-to-wheel-partial-init.md`.
+
+### M85: Warm-Started Wheel Response Auxiliary Continuation
+
+- Start from the M84 partial initialization path.
+- Add a stronger wheel/body response prediction target, such as the full
+  25-value response stream or a compact wheel/body response envelope.
+- Keep M62/M84 retention guards and avoid hidden dynamics actor inputs.
+- Gate normal, `zero_wheel_response`, `zero_all_response`, and reset-hidden
+  variants after continuation.
+
+Status: planned. M84 shows the wheel actor can preserve behavior, but wheel
+features are still not behavior-critical. M85 should make wheel response useful
+without sacrificing retained margin.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

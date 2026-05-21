@@ -3389,3 +3389,34 @@ too much driving behavior to support a wheel self-identification claim. The next
 task is M84: add an M62-to-wheel partial initialization path so the wheel branch
 starts from retained M62 behavior before testing whether wheel response adds
 useful adaptation evidence.
+
+## 20260521T142450Z m84-m62-to-wheel-partial-init
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: the wheel-response actor should be initialized from retained M62
+  behavior before judging whether wheel feedback helps self-identification.
+- code update: `load_init_checkpoint_state(...)` can now copy the first 12
+  human-view response encoder columns into the 25-value wheel response encoder
+  and zero the new wheel columns.
+- config: `configs/ppo_m84_wheel_response_warmstart_driver.json`
+- focused test:
+  `tests/test_checkpoints.py::test_wheel_human_view_init_preserves_human_view_behavior`
+- training smoke: `runs/ppo_m84_wheel_warmstart_smoke_seed3884`
+- ablation gate: `runs/m84_wheel_warmstart_gate_seed8830`
+- artifact: `docs/m84-m62-to-wheel-partial-init.md`
+
+Result:
+
+- real M62 checkpoint loads with `load_mode=partial_wheel_response_encoder`;
+- 4096-step CUDA smoke final eval termination rate `0.0`;
+- 20-episode gate success: heuristic `0.40`, M84 `0.90`;
+- M84 clearance margin mean `2.107145`;
+- ablations are not self-ID-positive: reset `0.85`, zero-all `0.90`,
+  zero-wheel `0.90`.
+
+Conclusion: M84 is positive for behavior retention and M62-to-wheel
+infrastructure, but not a wheel self-identification pass. The next task is M85:
+use a warm-started wheel/body response auxiliary target or envelope objective so
+wheel feedback becomes behavior-relevant under zero-wheel and wrong-history
+gates.

@@ -226,6 +226,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m83-wheel-response-driver-training-gate.md`: 32k-step wheel-response driver
   training gate and negative ablation result motivating M62-to-wheel
   warm-start.
+- `m84-m62-to-wheel-partial-init.md`: behavior-preserving partial
+  initialization from M62 into the 85-value wheel-response actor, with positive
+  retention but no wheel self-ID pass.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

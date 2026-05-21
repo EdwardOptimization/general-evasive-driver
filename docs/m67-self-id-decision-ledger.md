@@ -314,3 +314,10 @@ The result is negative: same-seed gate success is only `0.1` versus heuristic
 next decision is M84: warm-start the wheel actor from the retained M62
 checkpoint by partial-initializing the response encoder and copying matching
 submodules before judging wheel response.
+M84 completes that warm-start path. It is a positive retention result:
+`partial_wheel_response_encoder` loads real M62 into the 85-value actor, the
+short smoke has `termination_rate = 0.0`, and the 20-episode gate reaches
+`success_rate = 0.90`. It is not a wheel self-ID pass because
+`zero_wheel_response` also reaches `0.90`. Continue with M85: make wheel/body
+response prediction or envelope estimation part of the warm-started training
+signal while keeping retention gates.
