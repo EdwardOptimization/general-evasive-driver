@@ -7,8 +7,8 @@
   ],
   "commands": [
     {
-      "command": "TBD: benchmark M62 and M98 optimized checkpoints under normal reset zero-current zero-all and zero-action ablations before any PPO continuation",
-      "name": "m99_planned_m98_behavior_retention_gate"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.benchmark --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 80 --seed 9500 --policies heuristic --checkpoint-policy m62_a250=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --checkpoint-policy m98_9480=runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt --checkpoint-policy m98_9481=runs/m98_larger_batch_per_target_seed9481/optimized_checkpoint.pt --checkpoint-policy m98_9482=runs/m98_larger_batch_per_target_seed9482/optimized_checkpoint.pt --checkpoint-policy m98_9480_reset=runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt@reset_recurrent_state --checkpoint-policy m98_9480_zero_current=runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt@zero_current_response --checkpoint-policy m98_9480_zero_all=runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt@zero_all_response --checkpoint-policy m98_9480_noact=runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt@zero_action_history --device cpu --run-dir runs/m99_m98_behavior_retention_gate_seed9500",
+      "name": "m99_m98_behavior_retention_gate"
     }
   ],
   "decision_rule": "Only admit M98 for guarded PPO continuation if behavior retention versus M62 is acceptable and response-history ablations produce meaningful degradation without aggregate collapse.",
@@ -24,6 +24,14 @@
     {
       "path": "docs/m99-m98-behavior-retention-gate.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m99_m98_behavior_retention_gate_seed9500/policy_summary.csv",
+      "type": "policy_summary"
+    },
+    {
+      "path": "runs/m99_m98_behavior_retention_gate_seed9500/episodes.csv",
+      "type": "episodes"
     }
   ],
   "success_criteria": [

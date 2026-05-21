@@ -1,0 +1,34 @@
+{
+  "baseline_checkpoints": [
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt",
+    "runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "TBD: run a guarded actor-coupling continuation from M98 with retention anchor and response-history ablation gates",
+      "name": "m100_planned_m98_actor_coupling"
+    }
+  ],
+  "decision_rule": "Admit a candidate only if M62-level behavior is retained and normal recurrent history outperforms reset or zero-response ablations on response-critical seeds.",
+  "failure_criteria": [
+    "aggregate success or clearance margin regresses versus M62",
+    "actor coupling washes out M98 hidden-envelope probe gains",
+    "reset or zero-response ablations still match normal behavior",
+    "training introduces hidden or oracle actor inputs"
+  ],
+  "hypothesis": "A guarded actor-coupling continuation from M98 can make the actor use the learned hidden-envelope belief without losing M62 behavior.",
+  "id": "m100-m98-actor-coupling-continuation",
+  "required_artifacts": [
+    {
+      "path": "docs/m100-m98-actor-coupling-continuation.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "starts from an M98 strict objective-pass checkpoint",
+    "uses no hidden or oracle actor inputs",
+    "retains M62-level behavior on shared-seed benchmark",
+    "normal recurrent behavior beats reset and zero-response ablations"
+  ],
+  "type": "driver_candidate"
+}

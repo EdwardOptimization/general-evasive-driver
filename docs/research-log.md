@@ -3820,3 +3820,30 @@ supports the M96 equal per-target contrast recipe and rejects more target-weight
 tuning for now. This is not a driver pass: M99 must benchmark M98 objective
 checkpoints against M62 under normal and ablated behavior before any guarded PPO
 continuation.
+
+## 20260521T172856Z m99-m98-behavior-retention-gate
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: M98 objective-only checkpoints may preserve M62 behavior while
+  adding better hidden-envelope belief.
+- code hardening: `hidden_envelope_optimize.save_checkpoint_like` now writes
+  JSON-safe metadata with `to_jsonable`, after a PyTorch `weights_only=True`
+  loader failure on `pathlib.Path` metadata.
+- focused tests: `tests/test_hidden_envelope_optimize.py`
+- benchmark run: `runs/m99_m98_behavior_retention_gate_seed9500`
+- artifact: `docs/m99-m98-behavior-retention-gate.md`
+
+Result:
+
+- M62 success: `0.8625`, mean clearance margin: `1.852887`;
+- M98 seed9480 success: `0.8625`, margin: `1.853319`;
+- M98 seed9481 success: `0.8750`, margin: `1.866000`;
+- M98 seed9482 success: `0.8750`, margin: `1.848101`;
+- seed9480 reset/zero-current/zero-all ablations do not degrade success
+  (`0.8750`), and no-action stays at `0.8625`.
+
+Conclusion: M99 passes behavior retention but fails behavior-level
+self-identification. M98 hidden state is predictive, but the actor has not
+learned to depend on that belief. M100 should train actor coupling from M98
+under strict retention and ablation gates.

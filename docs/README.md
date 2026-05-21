@@ -271,6 +271,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m98-larger-batch-per-target-objective.md`: larger-batch repeat of the M96
   equal per-target objective; first strict objective-only hidden-envelope pass,
   still awaiting behavior retention.
+- `m99-m98-behavior-retention-gate.md`: behavior gate for M98; behavior
+  retention passes, but reset/zero-response ablations do not yet show
+  driver-level self-identification.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

@@ -4,6 +4,7 @@ import numpy as np
 import torch
 
 from autodrift.env import DriftEnvConfig
+from autodrift.checkpoints import load_actor_critic_checkpoint
 from autodrift.hidden_envelope_optimize import (
     collect_hidden_envelope_objective_batch,
     hidden_envelope_feature_sets_from_batch,
@@ -148,6 +149,9 @@ def test_optimize_hidden_envelope_objective_writes_artifacts(tmp_path):
     assert summary["samples"] == 9
     assert (tmp_path / "run" / "optimized_checkpoint.pt").exists()
     assert (tmp_path / "run" / "hidden_gain_summary.csv").exists()
+    loaded, checkpoint_data = load_actor_critic_checkpoint(tmp_path / "run" / "optimized_checkpoint.pt", device="cpu")
+    assert loaded.is_online_recurrent
+    assert checkpoint_data["metadata"]["init_checkpoint"] == str(checkpoint)
     assert summary["contrast_mode"] == "per_target"
     assert summary["target_loss_weights"]["future_braking_deceleration"] > 1.0
     assert set(summary["response_hidden_minus_reset_test_r2_delta"]) == {

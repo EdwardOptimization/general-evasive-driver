@@ -2028,7 +2028,22 @@ admits the checkpoint family to behavior-retention testing, not PPO. See
 - Reject M98 if objective hidden-belief gains damaged aggregate driving
   behavior or clearance margin.
 
-Status: planned. PPO continuation remains blocked until M99 passes.
+Status: complete as mixed evidence. M98 retains behavior: seed9480 matches
+M62 success (`0.8625`) and seed9481/seed9482 reach `0.8750`. However,
+behavior-level self-ID is still negative: reset and zero-response ablations do
+not degrade seed9480 behavior and slightly improve success. M98 is a
+representation checkpoint, not a driver pass. See
+`docs/m99-m98-behavior-retention-gate.md`.
+
+### M100: M98 Actor-Coupling Continuation
+
+- Initialize from an M98 strict objective-pass checkpoint.
+- Couple the actor to the learned hidden-envelope belief under a retention
+  anchor, without adding hidden or oracle actor inputs.
+- Gate against M62 and against reset/zero-response/no-action ablations.
+
+Status: planned. The objective now has a useful belief; the actor still needs
+to learn to use it.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

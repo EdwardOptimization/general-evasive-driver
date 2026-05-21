@@ -12,7 +12,7 @@ import pandas as pd
 import torch
 from torch import nn
 
-from autodrift.artifacts import make_run_dir, write_csv_rows, write_json
+from autodrift.artifacts import make_run_dir, to_jsonable, write_csv_rows, write_json
 from autodrift.checkpoints import load_actor_critic_checkpoint
 from autodrift.env import AutoDriftEnv, DriftEnvConfig
 from autodrift.evaluate import load_env_config
@@ -336,7 +336,7 @@ def save_checkpoint_like(
         {
             "model_state": {key: value.detach().cpu() for key, value in model.state_dict().items()},
             "config": source_checkpoint["config"],
-            "metadata": metadata,
+            "metadata": to_jsonable(metadata),
         },
         path,
     )
