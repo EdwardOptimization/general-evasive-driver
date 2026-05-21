@@ -38,26 +38,32 @@ def add_buckets(frame: pd.DataFrame) -> pd.DataFrame:
 
 def summarize(frame: pd.DataFrame, by: list[str]) -> pd.DataFrame:
     grouped = frame.groupby(by, observed=True)
-    summary = grouped.agg(
-        episodes=("seed", "count"),
-        return_mean=("return", "mean"),
-        success_rate=("success", "mean"),
-        termination_rate=("terminated", "mean"),
-        lateral_rmse_mean=("lateral_rmse", "mean"),
-        lateral_peak_mean=("lateral_peak", "mean"),
-        beta_abs_error_mean=("beta_abs_error_mean", "mean"),
-        beta_abs_peak_mean=("beta_abs_peak", "mean"),
-        high_sideslip_fraction_mean=("high_sideslip_fraction", "mean"),
-        speed_mean=("speed_mean", "mean"),
-        action_rate_mean=("action_rate_mean", "mean"),
-        collision_rate=("collision", "mean"),
-        obstacle_completion_rate=("obstacle_completed", "mean"),
-        min_obstacle_clearance_mean=("min_obstacle_clearance", "mean"),
-        plan_horizon_mean=("plan_horizon", "mean"),
-        plan_action_rate_mean=("plan_action_rate_mean", "mean"),
-        mu_min=("mu", "min"),
-        mu_max=("mu", "max"),
-    )
+    aggregations = {
+        "episodes": ("seed", "count"),
+        "return_mean": ("return", "mean"),
+        "success_rate": ("success", "mean"),
+        "termination_rate": ("terminated", "mean"),
+        "lateral_rmse_mean": ("lateral_rmse", "mean"),
+        "lateral_peak_mean": ("lateral_peak", "mean"),
+        "beta_abs_error_mean": ("beta_abs_error_mean", "mean"),
+        "beta_abs_peak_mean": ("beta_abs_peak", "mean"),
+        "high_sideslip_fraction_mean": ("high_sideslip_fraction", "mean"),
+        "speed_mean": ("speed_mean", "mean"),
+        "action_rate_mean": ("action_rate_mean", "mean"),
+        "collision_rate": ("collision", "mean"),
+        "obstacle_completion_rate": ("obstacle_completed", "mean"),
+        "min_obstacle_clearance_mean": ("min_obstacle_clearance", "mean"),
+        "plan_horizon_mean": ("plan_horizon", "mean"),
+        "plan_action_rate_mean": ("plan_action_rate_mean", "mean"),
+        "mu_min": ("mu", "min"),
+        "mu_max": ("mu", "max"),
+    }
+    if "obstacle_collision_radius" in frame:
+        aggregations["obstacle_collision_radius_mean"] = ("obstacle_collision_radius", "mean")
+    if "min_clearance_margin" in frame:
+        aggregations["min_clearance_margin_mean"] = ("min_clearance_margin", "mean")
+        aggregations["min_clearance_margin_min"] = ("min_clearance_margin", "min")
+    summary = grouped.agg(**aggregations)
     return summary.reset_index()
 
 

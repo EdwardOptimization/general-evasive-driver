@@ -99,6 +99,8 @@ def test_obstacle_task_adds_observation_features_and_info():
     assert info["obstacle_label"] in {"aeb_feasible", "aes_feasible", "drift_required", "unavoidable"}
     assert info["obstacle_distance"] > 0.0
     assert info["collision"] is False
+    assert np.isclose(info["obstacle_collision_radius"], 1.70)
+    assert np.isfinite(info["min_clearance_margin"])
     assert len(env._obstacle_slot_features()) == env.config.obstacle_slots * 7
     assert env._obstacle_slot_features()[0] == 1.0
 

@@ -36,6 +36,7 @@ CONTEXT_COLUMNS = [
     "drive_tau_scale",
     "friction_step_at",
     "friction_step_applied",
+    "obstacle_collision_radius",
     "mu_bucket",
     "initial_mu_bucket",
     "mass_bucket",
@@ -55,6 +56,7 @@ DELTA_COLUMNS = [
     "speed_mean",
     "action_rate_mean",
     "min_obstacle_clearance",
+    "min_clearance_margin",
 ]
 OUTCOME_ORDER = {
     "regressed": 0,

@@ -2,7 +2,14 @@ import pandas as pd
 
 from pathlib import Path
 
-from autodrift.benchmark import add_buckets, build_segment_frame, load_seed_csv, parse_checkpoint_specs, summarize_segments
+from autodrift.benchmark import (
+    add_buckets,
+    build_segment_frame,
+    load_seed_csv,
+    parse_checkpoint_specs,
+    summarize,
+    summarize_segments,
+)
 
 
 def test_segment_summary_uses_per_episode_segment_metrics():
@@ -86,6 +93,49 @@ def test_add_buckets_labels_vehicle_road_hidden_params():
     assert str(row["brake_bucket"]) == "weak"
     assert str(row["tire_bucket"]) == "strong"
     assert str(row["steering_tau_bucket"]) == "slow"
+
+
+def test_summarize_reports_clearance_margin_when_available():
+    frame = add_buckets(
+        pd.DataFrame(
+            [
+                {
+                    "policy": "m7",
+                    "seed": 1,
+                    "terminated": False,
+                    "success": True,
+                    "return": 3.0,
+                    "lateral_rmse": 0.1,
+                    "lateral_peak": 0.2,
+                    "beta_abs_error_mean": 0.1,
+                    "beta_abs_peak": 0.2,
+                    "high_sideslip_fraction": 0.0,
+                    "speed_mean": 10.0,
+                    "action_rate_mean": 0.1,
+                    "collision": False,
+                    "obstacle_completed": True,
+                    "min_obstacle_clearance": 1.8,
+                    "obstacle_collision_radius": 1.7,
+                    "min_clearance_margin": 0.1,
+                    "plan_horizon": 1,
+                    "plan_action_rate_mean": 0.0,
+                    "mu": 0.5,
+                    "initial_mu": 0.5,
+                    "mass_scale": 1.0,
+                    "cg_shift": 0.0,
+                    "brake_scale": 1.0,
+                    "tire_stiffness_scale": 1.0,
+                    "steer_tau_scale": 1.0,
+                }
+            ]
+        )
+    )
+
+    summary = summarize(frame, ["policy"]).iloc[0]
+
+    assert summary["min_clearance_margin_mean"] == 0.1
+    assert summary["min_clearance_margin_min"] == 0.1
+    assert summary["obstacle_collision_radius_mean"] == 1.7
 
 
 def test_parse_checkpoint_specs_uses_named_paths():

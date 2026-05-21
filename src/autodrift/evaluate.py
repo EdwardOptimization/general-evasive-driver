@@ -215,6 +215,8 @@ def run_episode_with_policy(env: AutoDriftEnv, policy: Policy, policy_name: str,
         "collision": bool(info.get("collision", False)),
         "obstacle_completed": bool(info.get("obstacle_completed", False)),
         "min_obstacle_clearance": float(info.get("min_obstacle_clearance", float("nan"))),
+        "obstacle_collision_radius": float(info.get("obstacle_collision_radius", float("nan"))),
+        "min_clearance_margin": float(info.get("min_clearance_margin", float("nan"))),
         "return": float(np.sum(rewards)),
         "mean_reward": float(np.mean(rewards)) if rewards else 0.0,
         "lateral_rmse": float(np.sqrt(np.mean(np.square(lateral_errors)))) if lateral_errors else float("nan"),
@@ -253,6 +255,12 @@ def summarize_rows(rows: list[dict]) -> dict[str, float | int | str]:
         "termination_rate": float(frame["terminated"].mean()),
         "mu_min": float(frame["mu"].min()),
         "mu_max": float(frame["mu"].max()),
+        "min_clearance_margin_mean": (
+            float(frame["min_clearance_margin"].mean()) if "min_clearance_margin" in frame else float("nan")
+        ),
+        "min_clearance_margin_min": (
+            float(frame["min_clearance_margin"].min()) if "min_clearance_margin" in frame else float("nan")
+        ),
     }
 
 

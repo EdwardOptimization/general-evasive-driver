@@ -482,6 +482,11 @@ class AutoDriftEnv(gym.Env):
         collision_radius = self.config.obstacle.ego_half_width + self.obstacle_scenario.obstacle_half_width
         self.collision = clearance <= collision_radius
 
+    def _obstacle_collision_radius(self) -> float:
+        if self.obstacle_scenario is None:
+            return float("nan")
+        return float(self.config.obstacle.ego_half_width + self.obstacle_scenario.obstacle_half_width)
+
     def _observation(self) -> np.ndarray:
         if not self.obs_history:
             base_observation = self._base_observation()
@@ -591,6 +596,12 @@ class AutoDriftEnv(gym.Env):
         beta = math.atan2(self.state.vy, max(self.state.vx, 1e-6))
         base_params = VehicleParams()
         obstacle_path = self._obstacle_path_features(frame)
+        obstacle_collision_radius = self._obstacle_collision_radius()
+        min_clearance_margin = (
+            self.min_obstacle_clearance - obstacle_collision_radius
+            if self.config.obstacle.enabled and np.isfinite(obstacle_collision_radius)
+            else float("nan")
+        )
         return {
             "mu": self.params.mu,
             "initial_mu": self.initial_mu,
@@ -637,6 +648,10 @@ class AutoDriftEnv(gym.Env):
                 else float("nan")
             ),
             "min_obstacle_clearance": self.min_obstacle_clearance if self.config.obstacle.enabled else float("nan"),
+            "obstacle_collision_radius": (
+                obstacle_collision_radius if self.config.obstacle.enabled else float("nan")
+            ),
+            "min_clearance_margin": min_clearance_margin,
             "collision": self.collision,
             "obstacle_completed": self.obstacle_completed,
         }

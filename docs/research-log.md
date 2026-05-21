@@ -1896,3 +1896,34 @@ Result:
 Conclusion: M46 is moving near-collision trajectories by millimeters, not
 creating a robust closed-loop driver improvement. M49 should make clearance
 margin a first-class benchmark/gate metric before the next training objective.
+
+## 20260521 m49-clearance-margin-gate
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: binary obstacle success is too coarse for near-boundary AES and
+  drift-avoidance cases, so the driver gate should expose clearance margin
+  directly
+- targeted test command: `conda run -n autodrift pytest -q tests/test_env.py tests/test_evaluate.py tests/test_benchmark.py tests/test_seed_delta_audit.py tests/test_continuation_snippets.py`
+- benchmark command: `conda run -n autodrift python -m autodrift.benchmark --env-config configs/ppo_m24_human_view_gru_driver.json --seed-csv runs/m49_changed_seed_margin_benchmark/changed_seeds.csv --checkpoint-policy m30_053=runs/ppo_m30_mixed_matched_response_seed1330/checkpoints/checkpoint_step_53248.pt --checkpoint-policy m37_102=runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --checkpoint-policy m42_028=runs/ppo_m42_hidden_contrast_seed1842/checkpoints/checkpoint_step_28672.pt --checkpoint-policy m46_077=runs/ppo_m46_paired_hidden_action_contrast_seed2046/checkpoints/checkpoint_step_77824.pt --checkpoint-policy m46_200=runs/ppo_m46_paired_hidden_action_contrast_seed2046/checkpoints/checkpoint_step_200000.pt --device cpu --run-dir runs/m49_changed_seed_margin_benchmark`
+- seed-delta command: `conda run -n autodrift python -m autodrift.seed_delta_audit --episodes-csv runs/m49_changed_seed_margin_benchmark/episodes.csv --baseline-policy m37_102 --candidate-policy m46_077 --candidate-policy m46_200 --run-dir runs/m49_changed_seed_margin_delta_audit`
+- artifacts: `runs/m49_changed_seed_margin_benchmark/policy_summary.csv`,
+  `runs/m49_changed_seed_margin_delta_audit/policy_delta_summary.csv`,
+  `runs/m49_changed_seed_margin_delta_audit/seed_deltas.csv`.
+
+Result:
+
+- env/evaluate/benchmark now report `obstacle_collision_radius` and
+  `min_clearance_margin`;
+- seed-delta audit now reports `min_clearance_margin_delta`;
+- targeted validation passed with 42 tests;
+- on the two M48 changed seeds, M46_077 and M46_200 have the same binary
+  success rate as M37_102, but lower mean clearance-margin deltas:
+  - M46_077: `-0.003894 m`;
+  - M46_200: `-0.005739 m`.
+
+Conclusion: M49 confirms that M46 is not a robust driver improvement. It moves
+near-boundary trajectories across the collision threshold while worsening mean
+margin on the changed-seed pair. Current best remains M37_102. M50 should mine
+a larger margin-critical corpus from M38, broad same-seed, and fresh randomized
+obstacle sweeps before another training objective.

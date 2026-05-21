@@ -1,7 +1,7 @@
 import numpy as np
 
 from autodrift.dynamics import RandomizationConfig
-from autodrift.env import AutoDriftEnv, DriftEnvConfig
+from autodrift.env import AutoDriftEnv, DriftEnvConfig, ObstacleTaskConfig
 from autodrift.evaluate import SEGMENT_NAMES, ActorPolicy, curvature_segment, run_episode
 from autodrift.train_ppo import ActorCritic
 
@@ -29,6 +29,24 @@ def test_episode_row_includes_curvature_segment_metrics():
     assert segment_steps > 0
     assert any(int(row[f"{segment}_steps"]) > 0 for segment in SEGMENT_NAMES)
     assert np.isfinite(row["lateral_rmse"])
+
+
+def test_episode_row_includes_obstacle_clearance_margin():
+    env = AutoDriftEnv(
+        DriftEnvConfig(
+            max_steps=3,
+            obstacle=ObstacleTaskConfig(
+                enabled=True,
+                distance_range=(20.0, 20.0),
+                half_width_range=(0.8, 0.8),
+            ),
+        )
+    )
+
+    row = run_episode(env, "heuristic", seed=24)
+
+    assert np.isclose(row["obstacle_collision_radius"], 1.70)
+    assert np.isfinite(row["min_clearance_margin"])
 
 
 def test_actor_policy_can_ablate_action_history():

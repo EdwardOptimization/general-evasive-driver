@@ -964,6 +964,30 @@ Exit criteria:
 - M37_102, M42_028, and M46 candidates can be compared by success and margin on
   M38, broad, and M48 changed seeds.
 
+Status: complete as first-class metric infrastructure. M49 adds
+`obstacle_collision_radius` and `min_clearance_margin` to env/evaluation rows,
+benchmark summaries, and seed-delta audits, with unit coverage for each output
+path. A changed-seed benchmark confirms the M48 conclusion: M46 has the same
+binary success rate as M37_102 on seeds 4327 and 3037, but worse mean clearance
+margin. Larger M38 and broad margin-critical corpus mining is split into M50.
+See `docs/m49-clearance-margin-gate.md`.
+
+### M50: Margin-Critical Corpus
+
+- Mine a larger corpus where success is near the obstacle boundary or margin
+  changes materially between policies.
+- Include M38 response-critical seeds, broad same-seed sweeps, and fresh
+  randomized obstacle seeds.
+- Use margin buckets, not only binary success, for checkpoint promotion.
+
+Exit criteria:
+
+- corpus artifact includes seed, policy outcomes, min-clearance margin, margin
+  bucket, road/vehicle buckets, and baseline/candidate deltas;
+- M37_102, M42_028, M46_077, and M46_200 are compared on the corpus;
+- next training or checkpoint-selection rule explicitly protects
+  margin-critical low-friction unavoidable cases.
+
 Status: planned.
 
 ## Metrics
@@ -975,6 +999,7 @@ Status: planned.
 - spin-out/off-track rate;
 - actuator saturation frequency;
 - minimum obstacle distance for avoidance tasks;
+- minimum clearance margin for obstacle avoidance tasks;
 - collision/off-road/spin-out counts;
 - metrics grouped by `mu` bucket, mass bucket, and path segment type.
 
