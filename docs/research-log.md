@@ -2165,3 +2165,38 @@ terminal clearance-margin reward moves one checkpoint to zero binary and zero
 near-margin regressions; its remaining blocker is a small negative combined
 mean margin. M57 should increase the terminal margin reward scale to `4.0`
 without weakening the strict gate.
+
+## 20260521T082753Z m57-clearance-margin-reward-scale4
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Run M56 schedule with stronger terminal clearance-margin reward scale 4
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m57_clearance_margin_reward_scale4_driver.json --seed 2557 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m57_clearance_margin_reward_scale4_seed2557`
+- returncode: `0`
+- run dir: `runs/research/m57-clearance-margin-reward-scale4_20260521T082604Z`
+- command log: `runs/research/m57-clearance-margin-reward-scale4_20260521T082604Z/command.log`
+- success artifact: `runs/ppo_m57_clearance_margin_reward_scale4_seed2557/checkpoint.pt`
+- notes: Promote only if strict gate improves M56_028 to non-negative mean margin without binary or near-margin regressions
+
+Post-validation:
+
+- M38/broad/fresh checkpoint sweeps:
+  `runs/m57_m38_margin_benchmark_seed4300`,
+  `runs/m57_broad_margin_benchmark_seed3000`,
+  `runs/m57_fresh_margin_benchmark_seed5200`;
+- margin corpus:
+  `runs/m57_margin_critical_corpus/seed_margin_deltas.csv`;
+- strict gate:
+  `runs/m57_margin_retention_gate_strict/candidate_gate_summary.csv`;
+- strict gate status: `needs_iteration`;
+- passed candidates: none;
+- best zero-binary checkpoint is `m57_004`: success delta `0.00000`, one
+  near-margin regression, and margin delta mean `-0.000729`;
+- every M57 checkpoint has negative mean margin delta;
+- stronger sparse terminal reward does not improve the M56 near-pass
+  `m56_028`, which had zero binary and zero near-margin regressions.
+
+Conclusion: M57 is not promotable. More terminal margin reward scale does not
+solve the M38 mean-margin loss and can reintroduce near-margin regressions.
+M58 should use a dense near-obstacle clearance reward rather than more sparse
+terminal scaling.

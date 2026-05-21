@@ -1161,8 +1161,31 @@ Exit criteria:
 - if no checkpoint passes, document whether stronger sparse reward improves or
   damages the M56_028 near-pass result.
 
-Status: planned. M57 uses
-`configs/ppo_m57_clearance_margin_reward_scale4_driver.json`.
+Status: complete as a negative result. M57 keeps broad and fresh success, but
+does not improve on the M56 near-pass. Stronger sparse terminal reward still
+leaves negative mean margin and introduces more near-margin regressions than
+the best M56 checkpoint. See `docs/m57-clearance-margin-reward-scale4.md`.
+
+M57 uses `configs/ppo_m57_clearance_margin_reward_scale4_driver.json`.
+
+### M58: Dense Near-Obstacle Clearance Reward
+
+- Add an optional dense clearance-margin reward active only near the obstacle
+  encounter window.
+- Keep actor observations clean and leave the strict promotion gate unchanged.
+- Compare against the M56/M57 sparse terminal reward results.
+
+Exit criteria:
+
+- dense reward is config-gated and defaults to disabled;
+- tests cover reward off/on behavior and observation dimension stability;
+- M58 training completes from M37_102;
+- strict M38/broad/fresh margin-retention gate is run unchanged;
+- if no checkpoint passes, decide whether to pursue a separate margin critic,
+  baseline-action distillation, or abandon margin shaping in favor of a larger
+  seed distribution.
+
+Status: planned.
 
 ## Metrics
 
