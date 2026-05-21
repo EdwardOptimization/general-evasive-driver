@@ -572,6 +572,25 @@ steps/s versus 10237 for sync; at 16 envs, 11664 versus 10103. This is useful
 but modest, so parallel should be used selectively. See
 `docs/m32-rollout-throughput-profile.md`.
 
+### M33: Full PPO Parallel Profile
+
+- Compare sync and parallel modes inside a short full PPO run at 16 envs.
+- Verify whether rollout-only speedup survives PPO update and CUDA overhead.
+- Check whether sync versus parallel changes training results.
+
+Exit criteria:
+
+- same config, seed, checkpoint, env count, and total steps;
+- wall-clock timings recorded;
+- metrics, eval summary, and model-state diff checked.
+
+Status: complete. Parallel mode is about 4.7% faster on the 20k-step 16-env
+full PPO profile: 50.99s versus 53.48s. The training metrics, eval summary, and
+model tensors are identical; checkpoint file hashes differ only because the
+saved config records `vector_env_mode`. Parallel is safe from a determinism
+standpoint in this profile, but the speedup is still modest. See
+`docs/m33-full-ppo-parallel-profile.md`.
+
 ## Metrics
 
 - episode success rate;

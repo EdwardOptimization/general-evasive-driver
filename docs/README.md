@@ -92,6 +92,8 @@ vehicle/tire models, and NMPC-style constrained control.
   multi-core rollout collection and first speed smoke.
 - `m32-rollout-throughput-profile.md`: rollout-only sync versus parallel
   throughput profile across worker counts.
+- `m33-full-ppo-parallel-profile.md`: short full PPO sync versus parallel
+  runtime profile and determinism check.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

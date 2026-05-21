@@ -1215,3 +1215,27 @@ for 1-4 envs, about 10% faster at 8 envs, and about 15% faster at 16 envs.
 This supports selective use, not a default switch. The next profile should be a
 short full PPO run at 16 envs to see whether rollout-only gains survive PPO
 update and CUDA overhead.
+
+## 20260521 m33-full-ppo-parallel-profile
+
+- status: `completed`
+- kind: `benchmark`
+- hypothesis: rollout-only gains at 16 envs produce a small but real full PPO
+  runtime improvement without changing learned model state
+- parallel command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m30_mixed_matched_response_driver.json --total-steps 20480 --rollout-steps 256 --num-envs 16 --seed 1332 --device cuda --vector-env-mode parallel --init-checkpoint runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt --run-dir runs/m33_parallel_ppo_profile_seed1332`
+- sync command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m30_mixed_matched_response_driver.json --total-steps 20480 --rollout-steps 256 --num-envs 16 --seed 1332 --device cuda --vector-env-mode sync --init-checkpoint runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt --run-dir runs/m33_sync_ppo_profile_seed1332`
+
+Result:
+
+- parallel real/user/sys seconds: 50.99 / 47.31 / 11.43;
+- sync real/user/sys seconds: 53.48 / 44.80 / 10.44;
+- eval return and termination: identical at 61.042 and 0.100;
+- `train_metrics.csv`: byte-identical;
+- `eval_summary.json`: byte-identical;
+- checkpoint model tensors: max absolute difference 0.0;
+- checkpoint file hash differs only because `vector_env_mode` differs in saved
+  config metadata.
+
+Conclusion: parallel mode is deterministic for this profile and yields a small
+4.7% full-training speedup at 16 envs. It is safe to use for long runs when the
+small speed gain is worth extra worker-process complexity.
