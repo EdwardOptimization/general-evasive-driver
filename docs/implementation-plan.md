@@ -782,10 +782,31 @@ Exit criteria:
   changes;
 - validation compares against M37_102, not M39.
 
-Status: smoke complete; full training queued. M42 strict-loads M37_102, logs
-both response prediction and hidden-contrast auxiliary losses, and the 4096-step
-CUDA smoke reached eval return 78.432 with termination rate 0.000. See
+Status: complete as a negative result. M42 strict-loads M37_102, logs both
+response prediction and hidden-contrast auxiliary losses, and the 200k-step CUDA
+run finished cleanly. M42_028 preserves M37_102 on M35, M29, and broad sweeps,
+but it does not improve M38, hidden-swap outcome changes remain zero, and reset
+sensitivity weakens from 2 unfavorable changes to 1 on the same 80-seed gate.
+M37_102 remains the current best checkpoint. See
 `docs/m42-hidden-contrast-objective.md`.
+
+### M43: Action-Trajectory Intervention Diagnostics
+
+- Measure deterministic action divergence over the whole continuation, not only
+  the first action.
+- Compare normal, reset, zero-response, and hidden-swap interventions on the
+  same matched snapshots.
+- Use the result to decide whether the next objective should target action
+  mean divergence, intervention-labeled hard states, or harder partial
+  observability.
+
+Exit criteria:
+
+- evaluator writes per-seed action-trajectory distances;
+- result is joined against success-change labels;
+- next training objective is chosen from evidence, not from loss curves alone.
+
+Status: planned after M42 negative result.
 
 ## Metrics
 

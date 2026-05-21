@@ -11,7 +11,7 @@ Last updated: 2026-05-21
   response-change corpus, with reset and zero-response ablations now hurting
   perturbed accepted outcomes. It still does not pass recurrent
   self-identification because hidden-swap changes zero accepted success
-  outcomes.
+  outcomes. M42 was evaluated and did not replace it.
 
 ## Standing Loop
 
@@ -1616,3 +1616,38 @@ regression.
 - command log: `runs/research/m39-m37-response-corpus-training_20260521T045647Z/command.log`
 - success artifact: `runs/ppo_m39_m37_response_corpus_seed1739/checkpoint.pt`
 - notes: Test whether M37 reset zero-response sensitivity can be strengthened without broad regression
+
+## 20260521T054016Z m42-hidden-contrast-objective
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Train M37_102 with hidden-reset contrast auxiliary loss
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m42_hidden_contrast_driver.json --seed 1842 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m42_hidden_contrast_seed1842`
+- returncode: `0`
+- run dir: `runs/research/m42-hidden-contrast-objective_20260521T052240Z`
+- command log: `runs/research/m42-hidden-contrast-objective_20260521T052240Z/command.log`
+- success artifact: `runs/ppo_m42_hidden_contrast_seed1842/checkpoint.pt`
+- notes: Smoke passed and metrics include hidden_contrast_loss_mean
+
+Post-validation:
+
+- M42 final eval return mean: 78.523250;
+- M42 final eval termination rate: 0.000;
+- M42 final response prediction loss mean: 0.016727;
+- M42 final hidden contrast loss mean: 0.530701;
+- M38 corpus best M42 checkpoint: M42_028 at 0.6250 success, equal to
+  M37_102 and below M39_053 at 0.6375;
+- M35 corpus: M42_028 0.6500, equal to M37_102;
+- M29 selected corpus: M42_028 and M42_final 0.8750, equal to M37_102;
+- broad same-seed sweep: M42_028 0.8250, equal to M37_102, while M42_final
+  regresses to 0.8000;
+- same 80-seed hidden-swap gate: M37_102 has 2 perturbed reset unfavorable
+  changes and 2 perturbed zero-response unfavorable changes; M42_028 has
+  1 reset and 2 zero-response unfavorable changes;
+- hidden-swap outcome changes: 0 for M42_028.
+
+Conclusion: M42 is a negative result. Hidden-contrast loss is trainable, but
+it does not make the deterministic deployed policy more hidden-state critical.
+M37_102 remains the current best checkpoint. M43 should measure full
+action-trajectory divergence under interventions before choosing the next
+training objective.
