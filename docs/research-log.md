@@ -1192,3 +1192,26 @@ Result:
 Conclusion: M31 is a functional harness, not a speedup proof. The next
 performance task should isolate rollout-only throughput on longer horizons and
 tune worker count before using parallel mode by default.
+
+## 20260521 m32-rollout-throughput-profile
+
+- status: `completed`
+- kind: `benchmark`
+- hypothesis: process-based rollout is only useful when enough env work is
+  batched per step to amortize IPC overhead
+- command: `conda run -n autodrift python -m autodrift.rollout_throughput --env-config configs/ppo_m24_human_view_gru_driver.json --modes sync parallel --num-envs 1,2,4,8,16 --rollout-steps 2048 --repeats 2 --seed 5100 --run-dir runs/m32_rollout_throughput_seed5100`
+- run dir: `runs/m32_rollout_throughput_seed5100`
+- success artifact: `runs/m32_rollout_throughput_seed5100/throughput_summary.csv`
+
+Result:
+
+- sync 1 / 2 / 4 / 8 / 16 env steps/s:
+  9835 / 10113 / 10240 / 10237 / 10103;
+- parallel 1 / 2 / 4 / 8 / 16 env steps/s:
+  3041 / 5195 / 8195 / 11311 / 11664.
+
+Conclusion: parallel rollout is useful only at higher env counts. It is slower
+for 1-4 envs, about 10% faster at 8 envs, and about 15% faster at 16 envs.
+This supports selective use, not a default switch. The next profile should be a
+short full PPO run at 16 envs to see whether rollout-only gains survive PPO
+update and CUDA overhead.

@@ -33,6 +33,7 @@ autodrift-hidden-swap-gate = "autodrift.hidden_swap_gate:main"
 autodrift-matched-response-corpus = "autodrift.matched_response_corpus:main"
 autodrift-m7-gate = "autodrift.m7_gate:main"
 autodrift-research-cycle = "autodrift.research_cycle:main"
+autodrift-rollout-throughput = "autodrift.rollout_throughput:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

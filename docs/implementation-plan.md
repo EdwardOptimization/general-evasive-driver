@@ -553,6 +553,25 @@ that scale. The next performance step should benchmark longer rollout-only
 sections before defaulting long training to parallel mode. See
 `docs/m31-parallel-rollout-harness.md`.
 
+### M32: Rollout Throughput Profile
+
+- Add a rollout-only benchmark CLI so vector-env throughput can be measured
+  without PPO update, CUDA, checkpoint, or eval overhead.
+- Compare sync and parallel modes across worker counts.
+- Decide when parallel mode is worth using.
+
+Exit criteria:
+
+- throughput benchmark has tests;
+- profile writes rows, summary, and manifest artifacts;
+- docs record the worker-count threshold.
+
+Status: complete. Rollout-only profiling shows parallel mode is slower for
+1-4 envs, but faster for 8 and 16 envs. At 8 envs, parallel reaches 11311 env
+steps/s versus 10237 for sync; at 16 envs, 11664 versus 10103. This is useful
+but modest, so parallel should be used selectively. See
+`docs/m32-rollout-throughput-profile.md`.
+
 ## Metrics
 
 - episode success rate;

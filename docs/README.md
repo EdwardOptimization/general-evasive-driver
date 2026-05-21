@@ -90,6 +90,8 @@ vehicle/tire models, and NMPC-style constrained control.
   config, and smoke result.
 - `m31-parallel-rollout-harness.md`: process-based vector env path for
   multi-core rollout collection and first speed smoke.
+- `m32-rollout-throughput-profile.md`: rollout-only sync versus parallel
+  throughput profile across worker counts.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.
