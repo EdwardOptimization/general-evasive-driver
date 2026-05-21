@@ -8,6 +8,7 @@ from autodrift.input_observability_audit import (
     P1_WHEEL_RESPONSE_CONTEXT,
     WHEEL_ONLY,
     build_input_feature_profiles,
+    parse_history_windows,
     summarize_profile_gains,
     train_ridge_regression_probe,
 )
@@ -26,9 +27,27 @@ def test_build_input_feature_profiles_uses_expected_slices():
     np.testing.assert_array_equal(profiles[WHEEL_ONLY], observations[:, 12:25])
 
 
+def test_build_input_feature_profiles_supports_concatenated_history_windows():
+    observations = np.arange(170, dtype=np.float32).reshape(1, 170)
+    frame0 = observations[:, :85]
+    frame1 = observations[:, 85:]
+
+    profiles = build_input_feature_profiles(observations)
+
+    expected_p0 = np.concatenate([frame0[:, :12], frame0[:, 25:], frame1[:, :12], frame1[:, 25:]], axis=1)
+    expected_wheel = np.concatenate([frame0[:, 12:25], frame1[:, 12:25]], axis=1)
+    np.testing.assert_array_equal(profiles[P0_NO_WHEEL_RESPONSE_CONTEXT], expected_p0)
+    np.testing.assert_array_equal(profiles[WHEEL_ONLY], expected_wheel)
+
+
 def test_build_input_feature_profiles_rejects_non_wheel_frame():
     with pytest.raises(ValueError, match="wheel-response observations"):
         build_input_feature_profiles(np.zeros((3, 24), dtype=np.float32))
+
+
+def test_build_input_feature_profiles_rejects_partial_history_frame():
+    with pytest.raises(ValueError, match="concatenated"):
+        build_input_feature_profiles(np.zeros((3, 86), dtype=np.float32))
 
 
 def test_train_ridge_regression_probe_beats_baseline_on_linear_target():
@@ -63,5 +82,15 @@ def test_summarize_profile_gains_reports_p1_minus_p0():
 
     assert len(rows) == 1
     assert rows[0]["target"] == "future_braking_deceleration"
+    assert rows[0]["history_window_steps"] == 1
     assert rows[0]["p1_minus_p0_test_r2"] == pytest.approx(0.3)
     assert rows[0]["p1_response_minus_p0_response_test_r2"] == pytest.approx(0.2)
+
+
+def test_parse_history_windows_sorts_and_deduplicates_positive_steps():
+    assert parse_history_windows("25,1,10,10") == (1, 10, 25)
+
+
+def test_parse_history_windows_rejects_non_positive_steps():
+    with pytest.raises(Exception, match="positive"):
+        parse_history_windows("1,0")

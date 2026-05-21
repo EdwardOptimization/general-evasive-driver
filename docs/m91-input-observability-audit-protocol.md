@@ -316,9 +316,11 @@ M91-A: implement and smoke-test the supervised input observability harness.
 M91-B: run the formal P0/P1 probe comparison on the legacy proxy wheel profile.
 M91-C: implement and smoke-test a cleaner raw wheel-state minimum profile.
 M91-D: run the formal P0/P1 probe comparison on the clean raw wheel profile.
-M91-E: implement minimum-set sensor ablations.
-M91-F: freeze a PPO recipe and run P0/P1 RL comparison.
-M91-G: run matched hidden-dynamics wrong-history gates.
+M91-E: add and run history-window observability probes.
+M91-F: compare compact command-response history summaries against raw history.
+M91-G: implement minimum-set sensor ablations.
+M91-H: freeze a PPO recipe and run P0/P1 RL comparison.
+M91-I: run matched hidden-dynamics wrong-history gates.
 ```
 
 M90 guarded PPO continuation is deferred until M91-A/B show that the chosen

@@ -1,0 +1,42 @@
+{
+  "baseline_checkpoints": [
+    "no_checkpoint_policy=heuristic",
+    "previous_profile=m91e_raw_history_window_probe"
+  ],
+  "commands": [
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.input_observability_audit --env-config configs/m91c_raw_wheel_minimum_profile.json --episodes 40 --seed 9350 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --ridge 0.1 --history-windows 10,25,50 --history-mode summary --run-dir runs/m91f_compact_history_observability_seed9350",
+      "name": "compact_history_observability_probe"
+    }
+  ],
+  "decision_rule": "Compare compact command-response history summaries against naive raw-frame history before moving to sensor ablations or PPO.",
+  "failure_criteria": [
+    "history summary mode leaks future observations",
+    "history summary mode cannot preserve P0/P1 profile comparability",
+    "compact history performs no better than current-frame baseline on all targets",
+    "results are used as promoted policy evidence"
+  ],
+  "hypothesis": "Compact history summaries should capture command-response adaptation signals better than high-dimensional raw frame concatenation.",
+  "id": "m91f-compact-history-observability-probe",
+  "required_artifacts": [
+    {
+      "path": "runs/m91f_compact_history_observability_seed9350/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m91f_compact_history_observability_seed9350/profile_gain_summary.csv",
+      "type": "profile_gain_summary"
+    },
+    {
+      "path": "docs/m91f-compact-history-observability-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "summary-mode probes run without changing PPO or reward settings",
+    "compact history improves at least one target over raw history at the same window",
+    "P1 raw wheel summary is compared against P0 no-wheel summary at identical windows",
+    "decision states whether to proceed to minimum-set sensor ablations"
+  ],
+  "type": "gate"
+}
