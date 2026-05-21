@@ -1767,9 +1767,12 @@ end, but the checkpoint is not a candidate (`termination_rate = 1.0` on the
 - Freeze or explicitly monitor `log_std` so objective improvement is not a
   variance-only artifact.
 
-Status: planned after M81 or as a small parallel branch. M80 proves the loss can
-move in isolation; M78/M79 still show PPO integration can move it in the wrong
-direction.
+Status: complete as a guarded but still negative smoke. M82 adds
+`freeze_log_std` and a lower-learning-rate outcome PPO config. It improves the
+fixed-batch loss relative to M78/M79 (`0.040120` versus `0.040302`/`0.041033`),
+but remains worse than `m62_init` (`0.039923`) and the short driving smoke has
+`termination_rate = 0.5`. See
+`docs/m82-outcome-objective-ppo-reintroduction.md`.
 
 ### M83: Wheel Response Driver Training Gate
 

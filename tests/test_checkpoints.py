@@ -114,6 +114,33 @@ def test_train_writes_periodic_checkpoints(tmp_path):
     assert checkpoint["config"]["checkpoint_interval_steps"] == 32
 
 
+def test_train_can_freeze_log_std(tmp_path):
+    save_path = tmp_path / "checkpoint.pt"
+    config = PPOConfig(
+        total_steps=32,
+        rollout_steps=16,
+        num_envs=2,
+        update_epochs=1,
+        minibatch_size=16,
+        hidden_size=8,
+        log_std_init=-1.25,
+        freeze_log_std=True,
+        seed=124,
+        device="cpu",
+    )
+
+    train(
+        config,
+        save_path=save_path,
+        env_config=DriftEnvConfig(max_steps=8, speed_range=(4.0, 6.0)),
+    )
+
+    checkpoint = torch.load(save_path, map_location="cpu")
+
+    assert checkpoint["config"]["freeze_log_std"] is True
+    assert torch.allclose(checkpoint["model_state"]["log_std"], torch.full((3,), -1.25))
+
+
 def test_training_seed_csv_loads_ordered_seeds(tmp_path):
     seed_csv = tmp_path / "seeds.csv"
     seed_csv.write_text("seed,notes\n101,a\n103,b\n", encoding="utf-8")

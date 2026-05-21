@@ -304,3 +304,6 @@ M81 Stage 1 implements the front/rear wheel-response stream and
 `zero_wheel_response` ablation, but only as runnable infrastructure. The
 4096-step smoke is not a candidate, so wheel-response training and wrong-history
 wheel gates remain open.
+M82 reintroduces the outcome objective into PPO with `log_std` frozen. It is
+less bad than M78/M79 on the fixed-batch objective but still worse than M62 and
+not a driver candidate. Continue with M83 wheel-response training.

@@ -220,6 +220,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m81-wheel-response-input-roadmap.md`: MHTML review decision capturing
   wheel/tire response as the next major self-identification input branch,
   including the Stage 1 front/rear wheel-response implementation.
+- `m82-outcome-objective-ppo-reintroduction.md`: guarded PPO reintroduction of
+  the outcome objective with frozen `log_std`, fixed-batch guard, and negative
+  smoke conclusion.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

@@ -73,6 +73,7 @@ class PPOConfig:
     log_std_init: float = -1.0
     log_std_min: float = -5.0
     log_std_max: float = -0.5
+    freeze_log_std: bool = False
     actor_encoder: str = "mlp"
     actor_history_length: int = 1
     action_sequence_horizon: int = 1
@@ -828,7 +829,12 @@ def train(
         response_prediction_dim=config.response_prediction_dim,
         response_prediction_horizon=config.response_prediction_horizon,
     ).to(device)
-    optimizer = Adam(model.parameters(), lr=config.learning_rate)
+    if config.freeze_log_std:
+        model.log_std.requires_grad_(False)
+    trainable_parameters = [parameter for parameter in model.parameters() if parameter.requires_grad]
+    if not trainable_parameters:
+        raise RuntimeError("no trainable parameters are available")
+    optimizer = Adam(trainable_parameters, lr=config.learning_rate)
     if init_checkpoint_path is not None:
         load_mode = load_init_checkpoint_state(model, init_checkpoint_path, device)
         print(f"loaded_init_checkpoint={init_checkpoint_path} load_mode={load_mode}")

@@ -3332,3 +3332,34 @@ Conclusion: M81 completes Stage 1 wheel-response infrastructure, but not a
 useful wheel-response driver. The next queued task is M82, the guarded PPO
 reintroduction of the outcome objective; a later M83 should train and gate the
 wheel-response driver at meaningful scale.
+
+## 20260521T141057Z m82-outcome-objective-ppo-reintroduction
+
+- status: `completed`
+- kind: `training`
+- hypothesis: freezing `log_std` and lowering learning rate will let PPO use
+  the M80-validated outcome objective without worsening the fixed-batch guard.
+- code update: added `PPOConfig.freeze_log_std` and optimized only trainable
+  parameters.
+- config: `configs/ppo_m82_outcome_guarded_reintro_driver.json`
+- focused tests: `python -m json.tool`, `python -m compileall -q src tests`,
+  `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift pytest -q tests/test_checkpoints.py::test_train_can_freeze_log_std tests/test_checkpoints.py::test_train_logs_outcome_intervention_loss tests/test_outcome_intervention_eval.py`,
+  and `git diff --check` passed with `4 passed`.
+- final validation: `git diff --check`, `python -m compileall -q src tests`,
+  JSON validation, CSV validation, and
+  `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 conda run -n autodrift pytest -q`
+  returned `226 passed`.
+- training smoke: `runs/ppo_m82_outcome_guarded_smoke_seed3682`
+- objective eval: `runs/m82_outcome_intervention_eval_seed0`
+- artifact: `docs/m82-outcome-objective-ppo-reintroduction.md`
+
+Result:
+
+- short eval return mean `30.307775`;
+- short eval termination rate `0.5`;
+- fixed-batch loss: `m62_init` `0.039923`, `m78_smoke` `0.040302`,
+  `m79_highcoef` `0.041033`, `m82_guarded` `0.040120`.
+
+Conclusion: M82 is slightly better than M78/M79 on the fixed-batch objective but
+still worse than M62 and not a driving candidate. The next task is M83:
+meaningful wheel-response driver training and zero-wheel/history gates.
