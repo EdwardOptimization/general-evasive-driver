@@ -3,3 +3,4 @@ m89-objective-only-wheel-masked-friction-sanity,objective_sanity,runs/m89_wheel_
 m91a-input-observability-probe-smoke,gate,no_checkpoint_heuristic_rollout,,,,,,,,harness_smoke_pass,Probe harness produced future envelope artifacts and current proxy wheel profile gave near zero P1-P0 lift
 m91b-formal-input-observability-probe,gate,no_checkpoint_heuristic_rollout,,,,,,,,mixed_negative,Formal probe found tiny current proxy wheel P1-P0 lift so PPO continuation remains blocked
 m91c-clean-raw-wheel-minimum-profile,infrastructure,no_checkpoint_heuristic_rollout,,,,,,,,infrastructure_pass_mixed_signal,Clean raw wheel profile preserves 85-dim shape and smoke P1 improved braking lateral but worsened yaw
+m91d-formal-raw-wheel-observability-probe,gate,no_checkpoint_heuristic_rollout,,,,,,,,mixed_weak_history_needed,Formal raw wheel P1 improves braking R2 but lateral regresses and MAE lift is tiny so PPO remains blocked

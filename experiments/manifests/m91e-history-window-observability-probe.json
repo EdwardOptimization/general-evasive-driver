@@ -1,0 +1,42 @@
+{
+  "baseline_checkpoints": [
+    "no_checkpoint_policy=heuristic",
+    "previous_profile=m91d_clean_raw_wheel_formal"
+  ],
+  "commands": [
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.input_observability_audit --env-config configs/m91c_raw_wheel_minimum_profile.json --episodes 40 --seed 9340 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --ridge 0.1 --history-windows 1,10,25,50,100 --run-dir runs/m91e_history_window_observability_seed9340",
+      "name": "history_window_observability_probe"
+    }
+  ],
+  "decision_rule": "Before sensor ablations or PPO profile comparisons, test whether command-response history windows improve future envelope prediction over current-frame features.",
+  "failure_criteria": [
+    "observability script cannot build history-window feature sets",
+    "history windows leak future observations",
+    "profile_gain_summary.csv omits the history window dimension",
+    "results are used to tune PPO before a stable recipe is frozen"
+  ],
+  "hypothesis": "Self-identification evidence should strengthen when the probe receives past commands and sensed responses, especially for braking and yaw authority targets.",
+  "id": "m91e-history-window-observability-probe",
+  "required_artifacts": [
+    {
+      "path": "runs/m91e_history_window_observability_seed9340/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m91e_history_window_observability_seed9340/profile_gain_summary.csv",
+      "type": "profile_gain_summary"
+    },
+    {
+      "path": "docs/m91e-history-window-observability-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "history-window probes run without changing PPO or reward settings",
+    "history windows improve at least one self-ID target over current frame",
+    "P1 raw wheel history is compared against P0 no-wheel history at identical windows",
+    "decision states whether to proceed to minimum-set sensor ablations"
+  ],
+  "type": "gate"
+}
