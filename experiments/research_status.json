@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 121,
+    "completed": 122,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m112-matched-history-intervention-gate.md",
+    "command_log": "docs/m113-matched-history-outcome-gate.md",
     "returncode": 0,
-    "run_dir": "runs/m112_matched_history_intervention_gate_seed9510",
+    "run_dir": "runs/m113_matched_history_outcome_gate_seed9510",
     "status": "completed",
-    "task_id": "m112-matched-history-intervention-gate"
+    "task_id": "m113-matched-history-outcome-gate"
   },
   "next_task": {
-    "command": "see experiments/manifests/m113-matched-history-outcome-gate.json",
-    "hypothesis": "Replay M112 matched-history interventions through continuations and measure clearance collision success and mitigation",
-    "id": "m113-matched-history-outcome-gate",
+    "command": "see experiments/manifests/m114-near-boundary-matched-history-outcome-surface.json",
+    "hypothesis": "Mine or construct matched-current-response pairs with low normal clearance margin and reset or wrong-history margin loss",
+    "id": "m114-near-boundary-matched-history-outcome-surface",
     "kind": "gate",
-    "notes": "Pending after M112: test whether action-level history sensitivity changes rollout outcomes",
-    "priority": 1080,
+    "notes": "Pending after M113: make the matched-history surface outcome-critical by construction",
+    "priority": 1090,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T193337Z"
+  "updated_at_utc": "20260521T193904Z"
 }

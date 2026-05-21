@@ -2264,9 +2264,26 @@ sensitivity, not outcome benefit. See
 - Admit the M111/M112 surface for training only if normal history has better
   rollout outcome than ablated or wrong history.
 
-Status: pending. M112 shows first-action history sensitivity, but action
-sensitivity is not sufficient for a driver-like self-identification claim until
-the rollout outcome changes in the expected direction.
+Status: completed, negative outcome gate. M112's action-level differences do
+not translate into safety outcomes on the M111 pairs: no variant creates
+success drops; wrong matched history has normal-better fraction `0.0`; reset
+hidden and zero-current-response produce only small aggregate mean margin gaps
+around `0.011`. Do not train on M111 pairs as-is. See
+`docs/m113-matched-history-outcome-gate.md`.
+
+### M114: Near-Boundary Matched History Outcome Surface
+
+- Mine or construct matched-current-response pairs that are also near the
+  obstacle clearance boundary.
+- Require normal-history continuation to have a measurable margin or success
+  advantage over reset, delayed, zero-current, zero-action, or wrong-history
+  variants.
+- Use obstacle geometry relocation or stricter corpus selection if passive M111
+  pairs are too easy.
+
+Status: pending. M113 shows the current matched pairs are feature/action
+diagnostics but not outcome-critical. The next proof surface must make history
+sensitivity matter for clearance or collision by construction.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

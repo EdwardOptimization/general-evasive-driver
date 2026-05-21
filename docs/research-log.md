@@ -24,11 +24,13 @@ Last updated: 2026-05-22
   systematically solve that ambiguity by feature distance. M112 then shows a
   positive action-level history-intervention signal on those pairs, including
   wrong-history actions moving closer to the matched-right action in about
-  `0.733` of rows. The latest 5.5pro MHTML input review is persisted: future
-  wheel/tire work should use raw `Romega_i` plus independent local
-  `v_parallel_i`, while `slip_ratio`, controller flags, tire labels, and oracle
-  values stay out of actor inputs. The next task is M113: test whether the
-  action-level signal changes rollout outcomes.
+  `0.733` of rows. M113 shows that this action signal does not yet change
+  rollout outcomes: no success drops and only small margin gaps. The latest
+  5.5pro MHTML input review is persisted: future wheel/tire work should use raw
+  `Romega_i` plus independent local `v_parallel_i`, while `slip_ratio`,
+  controller flags, tire labels, and oracle values stay out of actor inputs.
+  The next task is M114: construct a near-boundary matched-history outcome
+  surface.
 
 ## Standing Loop
 
@@ -4255,3 +4257,38 @@ not prove driver-level self-identification yet because action changes may not
 improve rollout outcome. The next pending task is M113: replay these
 interventions through continuations and measure clearance, collision, success,
 and mitigation.
+
+## 20260521T193904Z m113-matched-history-outcome-gate
+
+- status: `completed`
+- kind: `gate`
+- implementation:
+  `src/autodrift/matched_history_outcome_gate.py`
+- tests:
+  `tests/test_matched_history_outcome_gate.py`
+- run:
+  `runs/m113_matched_history_outcome_gate_seed9510`
+- artifact: `docs/m113-matched-history-outcome-gate.md`
+
+Result:
+
+- consumed M111 matched pairs with a cap of `40` pairs per checkpoint/target;
+- input pairs: `360`;
+- outcome rows: `2160`;
+- no intervention variant produced success drops;
+- aggregate normal-better fraction:
+  - reset hidden: `0.158`;
+  - zero-current-response: `0.244`;
+  - delayed-history: `0.006`;
+  - wrong matched-history: `0.000`;
+  - zero-action-history: `0.017`;
+- aggregate mean margin gap:
+  - reset hidden: `0.01098`;
+  - zero-current-response: `0.01113`;
+  - wrong matched-history: `0.00045`.
+
+Conclusion: M113 rejects M111/M112 pairs as an outcome-weighted training
+surface. The pairs are useful for action diagnostics, but they are not
+outcome-critical enough. The next pending task is M114: mine or construct a
+near-boundary matched-history surface where normal history has measurable
+clearance or success advantage.

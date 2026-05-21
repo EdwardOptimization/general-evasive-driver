@@ -6,7 +6,7 @@
   ],
   "commands": [
     {
-      "command": "TBD: replay M112 matched-history interventions through continuations and measure clearance, collision, success, and mitigation",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_history_outcome_gate --checkpoint-policy m62=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --checkpoint-policy m102=runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt --checkpoint-policy m105=runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --pairs-csv runs/m111_matched_current_response_ambiguity_seed9510/matched_pairs.csv --delay-steps 10 --max-continuation-steps 60 --min-margin-gap 0.02 --max-pairs-per-checkpoint-target 40 --device cpu --run-dir runs/m113_matched_history_outcome_gate_seed9510",
       "name": "m113_matched_history_outcome_gate"
     }
   ],
@@ -23,6 +23,10 @@
     {
       "path": "docs/m113-matched-history-outcome-gate.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m113_matched_history_outcome_gate_seed9510/summary.json",
+      "type": "run_summary"
     }
   ],
   "success_criteria": [

@@ -314,6 +314,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m112-matched-history-intervention-gate.md`: action-level intervention gate
   on M111 pairs; reset/wrong/delayed/zeroed histories change first actions, but
   rollout outcome is still untested.
+- `m113-matched-history-outcome-gate.md`: continuation outcome gate for M112
+  interventions; action changes do not produce success drops and only small
+  clearance-margin gaps on M111 pairs.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.
