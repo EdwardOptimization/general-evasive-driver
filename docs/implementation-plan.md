@@ -2620,8 +2620,27 @@ surface also drops from M124 `23` rows to M129 `14` rows. See
 - Use fresh miner seeds, not only the original M128 corpus.
 - Defer PPO until fresh strict proof-surface diversity recovers.
 
-Status: pending. M131 localizes the blocker to rollout-margin proof-surface
-retention after fixed-corpus fitting.
+Status: completed as repair-candidate admission only. M132 tests conservative
+updates from M124 on the M128 corpus. The selected s60/anchor20 candidate
+improves fixed loss by only `0.029004` with anchor MSE `0.000341`, but recovers
+fresh strict proof-surface diversity relative to M129: seed `9860` reaches
+`7` selected physical pairs/`5` seeds and seed `9880` reaches `5` pairs/`4`
+seeds. Behavior seed `9502` retains success `0.8625`; zero-response remains
+`0.8000`; reset is `0.8500`. This is admitted to formal repeat, not PPO. See
+`docs/m132-rollout-margin-retention-repair.md`.
+
+### M133: S60 Rollout Margin Formal Repeat Gate
+
+- Repeat the M132 s60/anchor20 candidate on fresh behavior seeds.
+- Repeat strict outcome-surface mining on fresh seeds and keep M62 controls.
+- Require selected-pair and selected-seed diversity to meet the prior
+  proof-surface standard.
+- Keep no-action neutrality and perturbed-only source coverage explicit.
+- Decide PPO readiness from the formal gate.
+
+Status: pending. M132 repaired much of M129's proof-surface shrinkage, but the
+second strict miner is still below the strongest M127 diversity level, so PPO
+requires a formal repeat gate.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

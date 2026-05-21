@@ -5,8 +5,20 @@
   ],
   "commands": [
     {
-      "command": "Design and test a proof-surface retention repair that preserves fresh rollout margin gaps instead of only improving fixed snippet logprob loss.",
-      "name": "m132_rollout_margin_retention_repair"
+      "command": "Run conservative outcome_intervention_optimize candidates from M124 on the M128 corpus: s40_anchor20 seed9840 and s60_anchor20 seed9841.",
+      "name": "m132_conservative_objective_candidates"
+    },
+    {
+      "command": "Run strict zero-relvel snapshot_bank_relocation on s40_anchor20 and s60_anchor20 with seed9860; exact CLI is preserved in each run manifest.",
+      "name": "m132_strict_seed9860"
+    },
+    {
+      "command": "Run strict zero-relvel snapshot_bank_relocation on s60_anchor20 with seed9880; exact CLI is preserved in runs/m132_zero_relvel_s60_anchor20_strict_60ep_seed9880/manifest.json.",
+      "name": "m132_s60_strict_seed9880"
+    },
+    {
+      "command": "Run M121 zero-relvel behavior gate for s60_anchor20 on seed9502 with reset zero-response and no-action ablations.",
+      "name": "m132_s60_behavior_gate_seed9502"
     }
   ],
   "decision_rule": "Only admit a repair if it improves or preserves fresh strict outcome-surface diversity while retaining M124 behavior and keeping M62 controls clean.",
@@ -23,6 +35,22 @@
     {
       "path": "docs/m132-rollout-margin-retention-repair.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m132_margin_retention_s60_anchor20_seed9841/summary.json",
+      "type": "objective_summary"
+    },
+    {
+      "path": "runs/m132_zero_relvel_s60_anchor20_strict_60ep_seed9860/summary.json",
+      "type": "proof_surface"
+    },
+    {
+      "path": "runs/m132_zero_relvel_s60_anchor20_strict_60ep_seed9880/summary.json",
+      "type": "proof_surface"
+    },
+    {
+      "path": "runs/m132_margin_retention_s60_behavior_gate_seed9502/policy_summary.csv",
+      "type": "behavior_gate"
     }
   ],
   "success_criteria": [

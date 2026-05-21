@@ -1,0 +1,36 @@
+{
+  "baseline_checkpoints": [
+    "runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt",
+    "runs/m132_margin_retention_s60_anchor20_seed9841/optimized_checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "Formally repeat the M132 s60 anchor20 candidate across fresh behavior and strict outcome-surface miner seeds before any PPO continuation.",
+      "name": "m133_s60_formal_repeat_gate"
+    }
+  ],
+  "decision_rule": "Admit PPO only if the s60 repair repeats behavior retention and strict outcome-surface diversity on fresh seeds while M62 remains clean.",
+  "failure_criteria": [
+    "fresh selected physical pairs fall below prior proof-surface thresholds",
+    "behavior retention regresses below M124",
+    "zero-response degradation disappears",
+    "M62 control is admitted",
+    "no-action neutrality or perturbed-only source coverage is ignored"
+  ],
+  "hypothesis": "M132 s60 anchor20 repairs M129's proof-surface shrinkage while keeping behavior. A formal repeat gate should determine whether it is robust enough for PPO continuation.",
+  "id": "m133-s60-rollout-margin-formal-repeat-gate",
+  "required_artifacts": [
+    {
+      "path": "docs/m133-s60-rollout-margin-formal-repeat-gate.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "behavior retention matches M124 on fresh seeds",
+    "zero-response degradation repeats",
+    "strict selected physical pairs and seeds meet or exceed prior thresholds on fresh miner seeds",
+    "M62 controls remain unadmitted",
+    "PPO readiness is decided explicitly"
+  ],
+  "type": "gate"
+}

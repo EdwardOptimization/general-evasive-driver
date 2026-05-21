@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 140,
+    "completed": 141,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m131-proof-surface-retention-repair.md",
+    "command_log": "docs/m132-rollout-margin-retention-repair.md",
     "returncode": 0,
-    "run_dir": "runs/m130_zero_relvel_m129_strict_60ep_seed9860",
+    "run_dir": "runs/m132_margin_retention_s60_anchor20_seed9841",
     "status": "completed",
-    "task_id": "m131-proof-surface-retention-repair"
+    "task_id": "m132-rollout-margin-retention-repair"
   },
   "next_task": {
-    "command": "see experiments/manifests/m132-rollout-margin-retention-repair.json",
-    "hypothesis": "Repair proof-surface retention with rollout margin evidence before PPO",
-    "id": "m132-rollout-margin-retention-repair",
+    "command": "see experiments/manifests/m133-s60-rollout-margin-formal-repeat-gate.json",
+    "hypothesis": "Formally repeat the M132 s60 repair before PPO continuation",
+    "id": "m133-s60-rollout-margin-formal-repeat-gate",
     "kind": "gate",
-    "notes": "Pending after M131: avoid fixed logprob-only optimization because it weakens fresh rollout margin proof surface",
-    "priority": 1270,
+    "notes": "Pending after M132: s60 repair improved proof-surface retention but still needs fresh multi-seed PPO-readiness gate",
+    "priority": 1280,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T224730Z"
+  "updated_at_utc": "20260521T230043Z"
 }

@@ -5035,3 +5035,32 @@ first-action distance, but shrinks trajectory distance and rollout margin gaps.
 The fixed logprob objective is therefore not aligned tightly enough with the
 fresh rollout-level proof surface. The next pending task is M132: repair
 proof-surface retention using rollout margin evidence before PPO.
+
+## 20260521T230043Z m132-rollout-margin-retention-repair
+
+M132 tests conservative M128-objective updates from M124 with a stronger action
+anchor.
+
+Objective candidates:
+
+| Candidate | Improvement | After anchor MSE |
+| --- | ---: | ---: |
+| s40 anchor20 seed 9840 | 0.021312 | 0.000289 |
+| s60 anchor20 seed 9841 | 0.029004 | 0.000341 |
+
+Strict proof-surface result:
+
+| Policy | Miner seed | Accepted rows | Selected pairs | Selected seeds | Snippets | Max gap |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| M129 | 9860 | 14 | 5 | 4 | 14 | 0.015155 |
+| M129 | 9880 | 9 | 3 | 3 | 9 | 0.015155 |
+| s40 anchor20 | 9860 | 20 | 6 | 4 | 20 | 0.031289 |
+| s60 anchor20 | 9860 | 21 | 7 | 5 | 21 | 0.032615 |
+| s60 anchor20 | 9880 | 13 | 5 | 4 | 13 | 0.029413 |
+
+Behavior seed `9502`: s60 normal success `0.8625`, reset `0.8500`,
+zero-current/zero-all `0.8000`, no-action `0.8625`.
+
+Decision: admit s60/anchor20 to formal repeat only. It repairs much of M129's
+fresh proof-surface shrinkage and keeps behavior, but PPO remains blocked until
+the repair repeats on fresh formal gate seeds. The next pending task is M133.

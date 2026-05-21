@@ -379,6 +379,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m131-proof-surface-retention-repair.md`: diagnosis of why M129 loses fresh
   proof-surface diversity; fixed logprob improvement increased one-step action
   distance but shrank rollout margin gaps.
+- `m132-rollout-margin-retention-repair.md`: conservative s60/anchor20 repair
+  that modestly improves M128 loss while recovering fresh proof-surface
+  diversity versus M129; admitted only to formal repeat.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.
