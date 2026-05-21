@@ -604,12 +604,52 @@ def summarize_outcomes(frame: pd.DataFrame) -> pd.DataFrame:
     )
 
 
-def select_outcome_sensitive_corpus(frame: pd.DataFrame, *, top_k: int) -> pd.DataFrame:
+def outcome_physical_pair_key(row: pd.Series | dict[str, Any]) -> tuple[int, int, int]:
+    return (
+        int(row["seed"]),
+        int(row.get("nominal_bank_step", row.get("nominal_step", -1))),
+        int(row.get("perturbed_bank_step", row.get("perturbed_step", -1))),
+    )
+
+
+def select_outcome_sensitive_corpus(
+    frame: pd.DataFrame,
+    *,
+    top_k: int,
+    max_rows_per_physical_pair: int = 0,
+    max_rows_per_seed: int = 0,
+) -> pd.DataFrame:
     if frame.empty:
         return frame.copy()
     selected = frame[frame["accepted_outcome_sensitive"].astype(bool)].copy()
     selected = selected.sort_values(["outcome_score", "max_margin_gap", "seed"], ascending=[False, False, True])
-    return selected.head(max(0, int(top_k))).reset_index(drop=True)
+    limit = max(0, int(top_k))
+    if limit == 0:
+        return selected.head(0).copy().reset_index(drop=True)
+    if max_rows_per_physical_pair <= 0 and max_rows_per_seed <= 0:
+        return selected.head(limit).reset_index(drop=True)
+
+    rows: list[pd.Series] = []
+    physical_counts: dict[tuple[int, int, int], int] = {}
+    seed_counts: dict[int, int] = {}
+    for _, row in selected.iterrows():
+        physical_key = outcome_physical_pair_key(row)
+        seed = int(row["seed"])
+        if (
+            max_rows_per_physical_pair > 0
+            and physical_counts.get(physical_key, 0) >= int(max_rows_per_physical_pair)
+        ):
+            continue
+        if max_rows_per_seed > 0 and seed_counts.get(seed, 0) >= int(max_rows_per_seed):
+            continue
+        rows.append(row)
+        physical_counts[physical_key] = physical_counts.get(physical_key, 0) + 1
+        seed_counts[seed] = seed_counts.get(seed, 0) + 1
+        if len(rows) >= limit:
+            break
+    if not rows:
+        return selected.head(0).copy().reset_index(drop=True)
+    return pd.DataFrame(rows).reset_index(drop=True)
 
 
 def run_outcome_sensitive_corpus(

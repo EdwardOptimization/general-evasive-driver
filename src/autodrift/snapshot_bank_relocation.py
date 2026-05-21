@@ -23,6 +23,7 @@ from autodrift.outcome_sensitive_corpus import (
     _snapshot_candidate_for_outcome,
     build_outcome_sensitive_row,
     obstacle_override_config,
+    outcome_physical_pair_key,
     parse_float_list,
     parse_float_values,
     probe_action,
@@ -173,7 +174,13 @@ def append_outcome_intervention_example(
     source_prefix: str,
     min_margin_gap: float,
     boundary_margin_scale: float,
+    export_only_accepted_outcomes: bool = False,
 ) -> None:
+    if export_only_accepted_outcomes and (
+        not bool(row.get("accepted_visible_match", False))
+        or not bool(row.get(f"{source_prefix}_accepted_outcome_sensitive", False))
+    ):
+        return
     normal_margin = float(row.get(f"{source_prefix}_normal_margin", float("nan")))
     wrong_margin = float(row.get(f"{source_prefix}_wrong_history_margin", float("nan")))
     normal_success = bool(row.get(f"{source_prefix}_normal_success", False))
@@ -307,9 +314,12 @@ def run_snapshot_bank_relocation(
     require_normal_success: bool,
     max_continuation_steps: int | None,
     top_k: int,
+    max_selected_per_physical_pair: int,
+    max_selected_per_seed: int,
     probe_config: ProbeConfig,
     outcome_export_min_margin_gap: float,
     outcome_export_boundary_margin_scale: float,
+    export_only_accepted_outcomes: bool,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, dict[str, np.ndarray]]:
     base_config = obstacle_override_config(
         base_config,
@@ -432,6 +442,7 @@ def run_snapshot_bank_relocation(
                     source_prefix="nominal",
                     min_margin_gap=outcome_export_min_margin_gap,
                     boundary_margin_scale=outcome_export_boundary_margin_scale,
+                    export_only_accepted_outcomes=export_only_accepted_outcomes,
                 )
                 append_outcome_intervention_example(
                     outcome_examples,
@@ -442,6 +453,7 @@ def run_snapshot_bank_relocation(
                     source_prefix="perturbed",
                     min_margin_gap=outcome_export_min_margin_gap,
                     boundary_margin_scale=outcome_export_boundary_margin_scale,
+                    export_only_accepted_outcomes=export_only_accepted_outcomes,
                 )
                 rows.append(row)
                 for replay in replays:
@@ -460,11 +472,26 @@ def run_snapshot_bank_relocation(
 
     candidates = pd.DataFrame(rows)
     replays = pd.DataFrame(replay_rows)
-    corpus = select_outcome_sensitive_corpus(candidates, top_k=top_k)
+    corpus = select_outcome_sensitive_corpus(
+        candidates,
+        top_k=top_k,
+        max_rows_per_physical_pair=max_selected_per_physical_pair,
+        max_rows_per_seed=max_selected_per_seed,
+    )
     summary = summarize_outcomes(candidates)
     outcome_metadata = outcome_intervention_metadata(outcome_examples)
     snippets = outcome_intervention_arrays(outcome_examples)
     if len(summary):
+        selected_physical_pairs = (
+            {outcome_physical_pair_key(row) for _, row in corpus.iterrows()}
+            if len(corpus)
+            else set()
+        )
+        summary.loc[0, "selected_rows"] = int(len(corpus))
+        summary.loc[0, "selected_physical_pairs"] = int(len(selected_physical_pairs))
+        summary.loc[0, "selected_seeds"] = int(corpus["seed"].nunique()) if len(corpus) else 0
+        summary.loc[0, "max_selected_per_physical_pair"] = int(max_selected_per_physical_pair)
+        summary.loc[0, "max_selected_per_seed"] = int(max_selected_per_seed)
         summary.loc[0, "outcome_intervention_snippets"] = int(len(outcome_metadata))
         summary.loc[0, "outcome_intervention_weight_sum"] = (
             float(outcome_metadata["weight"].sum()) if "weight" in outcome_metadata else 0.0
@@ -520,7 +547,10 @@ def main() -> None:
     parser.add_argument("--probe-until-distance", type=float, default=None)
     parser.add_argument("--outcome-export-min-margin-gap", type=float, default=0.0)
     parser.add_argument("--outcome-export-boundary-margin-scale", type=float, default=0.20)
+    parser.add_argument("--export-only-accepted-outcomes", action="store_true")
     parser.add_argument("--top-k", type=int, default=40)
+    parser.add_argument("--max-selected-per-physical-pair", type=int, default=0)
+    parser.add_argument("--max-selected-per-seed", type=int, default=0)
     parser.add_argument("--run-dir", type=Path, default=None)
     args = parser.parse_args()
 
@@ -578,9 +608,12 @@ def main() -> None:
         require_normal_success=not args.allow_normal_failure,
         max_continuation_steps=args.max_continuation_steps,
         top_k=args.top_k,
+        max_selected_per_physical_pair=args.max_selected_per_physical_pair,
+        max_selected_per_seed=args.max_selected_per_seed,
         probe_config=probe_config,
         outcome_export_min_margin_gap=args.outcome_export_min_margin_gap,
         outcome_export_boundary_margin_scale=args.outcome_export_boundary_margin_scale,
+        export_only_accepted_outcomes=args.export_only_accepted_outcomes,
     )
 
     candidates_csv = run_dir / "outcome_candidates.csv"
@@ -649,8 +682,11 @@ def main() -> None:
             "outcome_export": {
                 "min_margin_gap": args.outcome_export_min_margin_gap,
                 "boundary_margin_scale": args.outcome_export_boundary_margin_scale,
+                "only_accepted_outcomes": args.export_only_accepted_outcomes,
             },
             "top_k": args.top_k,
+            "max_selected_per_physical_pair": args.max_selected_per_physical_pair,
+            "max_selected_per_seed": args.max_selected_per_seed,
             "artifacts": {
                 "outcome_candidates_csv": candidates_csv,
                 "replays_csv": replays_csv,

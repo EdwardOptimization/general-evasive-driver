@@ -10,6 +10,7 @@ from autodrift.outcome_sensitive_corpus import (
     ProbeConfig,
     build_outcome_sensitive_row,
     obstacle_override_config,
+    outcome_physical_pair_key,
     parse_float_list,
     probe_action,
     relocate_obstacle_snapshot,
@@ -263,6 +264,40 @@ def test_summarize_and_select_outcome_sensitive_rows():
     assert summary.loc[0, "nominal_active_probe_steps_mean"] == 6.0
     assert summary.loc[0, "perturbed_active_probe_steps_mean"] == 7.0
     assert list(selected["seed"]) == [1]
+
+
+def test_select_outcome_sensitive_corpus_can_limit_physical_pair_repeats():
+    rows = []
+    for score in [1.0, 0.9, 0.8]:
+        rows.append(
+            {
+                "seed": 10,
+                "nominal_bank_step": 20,
+                "perturbed_bank_step": 22,
+                "accepted_outcome_sensitive": True,
+                "outcome_score": score,
+                "max_margin_gap": score,
+            }
+        )
+    rows.append(
+        {
+            "seed": 11,
+            "nominal_bank_step": 20,
+            "perturbed_bank_step": 22,
+            "accepted_outcome_sensitive": True,
+            "outcome_score": 0.7,
+            "max_margin_gap": 0.7,
+        }
+    )
+
+    selected = select_outcome_sensitive_corpus(
+        pd.DataFrame(rows),
+        top_k=10,
+        max_rows_per_physical_pair=1,
+    )
+
+    keys = [outcome_physical_pair_key(row) for _, row in selected.iterrows()]
+    assert keys == [(10, 20, 22), (11, 20, 22)]
 
 
 def test_summarize_outcomes_treats_missing_boolean_values_as_false():

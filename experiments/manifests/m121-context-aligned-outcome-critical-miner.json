@@ -1,0 +1,35 @@
+{
+  "baseline_checkpoints": [
+    "runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt",
+    "runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt",
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt"
+  ],
+  "commands": [
+    {
+      "command": "TBD: improve snapshot-bank pairing or relocation so outcome-critical wrong-history rows also satisfy strict context matching",
+      "name": "m121_context_aligned_outcome_critical_miner"
+    }
+  ],
+  "decision_rule": "Proceed toward objective training only if outcome-critical wrong-history rows pass strict response/context matching and source-diversity gates.",
+  "failure_criteria": [
+    "accepted rows require context distance above the strict threshold",
+    "accepted rows cover fewer than 6 physical pairs or fewer than 5 source decision steps",
+    "accepted rows are only reset or zero-current response effects",
+    "M62 control is admitted as an outcome-critical wrong-history surface"
+  ],
+  "hypothesis": "M120 finds relaxed outcome-sensitive rows, but they fail strict context matching. Context-aligned snapshot pairing or relocation may preserve the margin-gap signal while satisfying the human-view current-context contract.",
+  "id": "m121-context-aligned-outcome-critical-miner",
+  "required_artifacts": [
+    {
+      "path": "docs/m121-context-aligned-outcome-critical-miner.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "strict context threshold remains at or below 0.05",
+    "wrong-history outcome degradation is measured on accepted rows",
+    "accepted rows pass source-diversity targets before training",
+    "the result decides whether M120's relaxed rows can become a clean training surface"
+  ],
+  "type": "gate"
+}

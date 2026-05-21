@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 128,
+    "completed": 129,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m119-fresh-corpus-outcome-boundary-gates.md",
+    "command_log": "docs/m120-outcome-critical-source-diverse-miner.md",
     "returncode": 0,
-    "run_dir": "runs/m119_fresh_corpus_boundary_all_candidates_robustness_seed9510",
+    "run_dir": "runs/m120_active_probe_snapshot_bank_m105_strict_exportclean_10ep_seed9720",
     "status": "completed",
-    "task_id": "m119-fresh-corpus-outcome-boundary-gates"
+    "task_id": "m120-outcome-critical-source-diverse-miner"
   },
   "next_task": {
-    "command": "see experiments/manifests/m120-outcome-critical-source-diverse-miner.json",
-    "hypothesis": "Mine outcome-critical wrong-history candidates directly with source-diversity constraints",
-    "id": "m120-outcome-critical-source-diverse-miner",
+    "command": "see experiments/manifests/m121-context-aligned-outcome-critical-miner.json",
+    "hypothesis": "Improve snapshot-bank pairing or relocation so outcome-critical rows also pass strict context matching",
+    "id": "m121-context-aligned-outcome-critical-miner",
     "kind": "gate",
-    "notes": "Pending after M119: matched-current action ambiguity is not enough so mine outcome criticality directly",
-    "priority": 1150,
+    "notes": "Pending after M120: relaxed rows have margin-gap signal but fail strict context threshold",
+    "priority": 1160,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T203143Z"
+  "updated_at_utc": "20260521T205537Z"
 }

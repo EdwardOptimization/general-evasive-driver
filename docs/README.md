@@ -342,6 +342,10 @@ vehicle/tire models, and NMPC-style constrained control.
   and boundary gates on the M118 corpus; rejects it as a training surface
   because outcome-critical wrong-history rows still collapse to 3 physical
   pairs and 1 margin bucket.
+- `m120-outcome-critical-source-diverse-miner.md`: direct snapshot-bank
+  outcome-critical mining with source-diverse selection and clean snippet
+  export; strict context yields zero accepted rows, while relaxed context finds
+  a small non-admissible margin-gap signal.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

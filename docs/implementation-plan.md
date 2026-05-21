@@ -2398,6 +2398,25 @@ Status: pending. M119 shows that the outcome-critical rows still collapse to the
 old `9530/9540` physical pairs even when the upstream action corpus is
 source-diverse.
 
+Status: completed as an infrastructure pass and negative strict gate. M120 adds
+source-diverse selection and clean accepted-only snippet export to the direct
+snapshot-bank outcome miner. Strict context runs on M105, M102, and M62 produce
+zero accepted outcome rows and zero exported snippets. A relaxed M105 diagnostic
+with `max_context_distance=0.30` finds `7` accepted rows, `3` selected physical
+pairs, and `2` selected seeds, but this is not admissible because strict context
+matching fails. See `docs/m120-outcome-critical-source-diverse-miner.md`.
+
+### M121: Context-Aligned Outcome-Critical Miner
+
+- Keep direct outcome mining and accepted-only export from M120.
+- Improve pairing or relocation so wrong-history margin-gap rows pass strict
+  response/context matching.
+- Treat relaxed M120 rows as diagnostics, not training data.
+- Re-run M62 as a control after any context-alignment change.
+
+Status: pending. M120 shows the next blocker is context alignment, not absence
+of any margin-gap signal.
+
 ### M67-F: Counterfactual Response-Intervention Objective
 
 - Stop treating seed replay alone as sufficient for self-identification.

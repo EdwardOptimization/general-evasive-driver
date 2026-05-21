@@ -4588,3 +4588,67 @@ become outcome-level source diversity. Accepted wrong-history boundary rows
 still collapse to the old `9530/9540` physical pairs. The next pending task is
 M120: mine outcome-critical wrong-history candidates directly with
 source-diversity constraints.
+
+## 20260521T205537Z m120-outcome-critical-source-diverse-miner
+
+- status: `completed`
+- kind: `gate`
+- implementation:
+  - `src/autodrift/outcome_sensitive_corpus.py`
+  - `src/autodrift/snapshot_bank_relocation.py`
+- tests:
+  - `tests/test_outcome_sensitive_corpus.py`
+  - `tests/test_snapshot_bank_relocation.py`
+- runs:
+  - `runs/m120_active_probe_snapshot_bank_m105_strict_exportclean_10ep_seed9720`
+  - `runs/m120_active_probe_snapshot_bank_m105_relaxed_exportclean_10ep_seed9720`
+  - `runs/m120_active_probe_snapshot_bank_m102_strict_exportclean_10ep_seed9720`
+  - `runs/m120_active_probe_snapshot_bank_m62_strict_exportclean_10ep_seed9720`
+- artifact: `docs/m120-outcome-critical-source-diverse-miner.md`
+
+M120 adds direct outcome-miner source-diverse selection:
+
+```text
+--max-selected-per-physical-pair
+--max-selected-per-seed
+```
+
+It also adds clean snippet export:
+
+```text
+--export-only-accepted-outcomes
+```
+
+This prevents non-visible rows with margin gaps from entering
+`outcome_intervention_snippets.npz`.
+
+Focused validation:
+
+```text
+17 passed
+```
+
+Strict context results:
+
+| Policy | Candidates | Visible | Accepted | Selected physical pairs | Snippets |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| M105 | `507` | `24` | `0` | `0` | `0` |
+| M102 | `507` | `24` | `0` | `0` | `0` |
+| M62 control | `507` | `24` | `0` | `0` | `0` |
+
+Relaxed M105 diagnostic with `max_context_distance=0.30`:
+
+- candidates: `507`;
+- visible matches: `408`;
+- accepted outcome rows: `7`;
+- selected rows: `3`;
+- selected physical pairs: `3`;
+- selected seeds: `2`;
+- clean accepted-only snippets: `7`;
+- largest selected margin gap: `0.023294`.
+
+Conclusion: M120 is a useful infrastructure pass but a negative strict gate.
+The relaxed rows show margin-gap signal exists, but they are blocked by context
+distance (`~0.25-0.29`) and are too concentrated. The next pending task is M121:
+make the direct outcome miner context-aligned instead of relaxing the context
+contract.

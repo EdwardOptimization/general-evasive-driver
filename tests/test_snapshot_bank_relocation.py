@@ -1,9 +1,11 @@
 import numpy as np
+import torch
 
 from autodrift.env import DriftEnvConfig
 from autodrift.hidden_swap_gate import DecisionSnapshot
 from autodrift.snapshot_bank_relocation import (
     _outcome_intervention_weight,
+    append_outcome_intervention_example,
     outcome_intervention_arrays,
     outcome_intervention_metadata,
     pair_snapshot_banks,
@@ -23,6 +25,14 @@ def _snapshot(condition: str, step: int, observation: np.ndarray) -> DecisionSna
         obstacle_distance=10.0,
         snapshot_score=0.0,
     )
+
+
+class _DummyModel:
+    def act_recurrent(self, observation, hidden, deterministic=True):
+        return np.zeros(3, dtype=np.float32), None, None, hidden
+
+    def initial_hidden(self, batch_size: int):
+        return torch.zeros((batch_size, 4), dtype=torch.float32)
 
 
 def test_pair_snapshot_banks_sorts_by_visible_response_and_context_distance():
@@ -111,3 +121,44 @@ def test_outcome_intervention_arrays_and_metadata_split_tensor_payloads():
     assert arrays["preferred_action"].shape == (1, 2)
     assert "observation" not in metadata
     assert metadata.loc[0, "source_condition"] == "perturbed"
+
+
+def test_append_outcome_intervention_example_can_require_accepted_rows():
+    observation = np.zeros(3, dtype=np.float32)
+    source = _snapshot("nominal", 10, observation)
+    paired = _snapshot("perturbed", 11, observation)
+    row = {
+        "accepted_visible_match": False,
+        "nominal_accepted_outcome_sensitive": True,
+        "nominal_normal_success": True,
+        "nominal_normal_margin": 0.05,
+        "nominal_wrong_history_margin": 0.03,
+    }
+    examples = []
+
+    append_outcome_intervention_example(
+        examples,
+        model=_DummyModel(),
+        source=source,
+        paired=paired,
+        row=row,
+        source_prefix="nominal",
+        min_margin_gap=0.01,
+        boundary_margin_scale=0.20,
+        export_only_accepted_outcomes=True,
+    )
+    assert examples == []
+
+    row["accepted_visible_match"] = True
+    append_outcome_intervention_example(
+        examples,
+        model=_DummyModel(),
+        source=source,
+        paired=paired,
+        row=row,
+        source_prefix="nominal",
+        min_margin_gap=0.01,
+        boundary_margin_scale=0.20,
+        export_only_accepted_outcomes=True,
+    )
+    assert len(examples) == 1
