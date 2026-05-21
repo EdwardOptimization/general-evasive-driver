@@ -829,10 +829,27 @@ Exit criteria:
 - full run is evaluated against M37_102 and M42_028 on M38, M35, M29, broad,
   and action-trajectory gates.
 
-Status: smoke complete; full training queued. The 4096-step CUDA smoke writes
-`action_contrast_loss_mean = 0.680256`, but its short eval termination rate is
-0.200, so it is not evidence of improvement. See
+Status: complete as a negative result. The full M44 run completed, but the best
+M44 checkpoints only reach 0.6000 on M38 versus 0.6250 for M37_102, 0.6250 on
+M35 versus 0.6500, and 0.8000 broad success versus 0.8250. M44 increases reset
+and zero-response trajectory distances but hidden-swap outcome changes remain
+zero and hidden-swap trajectory mean distance only rises to 0.006230. See
 `docs/m44-action-contrast-objective.md`.
+
+### M45: Paired-Hidden Action Contrast
+
+- Stop contrasting against zero hidden as the primary target.
+- Build the next objective around matched nominal/perturbed hidden states,
+  because M44 shows reset-hidden contrast does not transfer to hidden-swap.
+- Preserve aggregate success gates before claiming progress.
+
+Exit criteria:
+
+- paired hidden-state snapshots can be exported or regenerated deterministically;
+- objective compares action means under matched nominal/perturbed hidden states;
+- validation uses M38, M35, M29, broad, and action-trajectory gates.
+
+Status: planned after M44 negative result.
 
 ## Metrics
 

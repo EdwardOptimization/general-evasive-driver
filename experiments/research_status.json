@@ -1,28 +1,19 @@
 {
   "counts": {
     "blocked": 0,
-    "completed": 40,
+    "completed": 41,
     "failed": 0,
-    "pending": 1,
-    "planned": 0,
+    "pending": 0,
+    "planned": 1,
     "running": 0
   },
   "last_result": {
-    "command_log": null,
+    "command_log": "runs/research/m44-action-contrast-objective_20260521T055743Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/m43_m42_028_action_trajectory_gate_seed4200",
+    "run_dir": "runs/research/m44-action-contrast-objective_20260521T055743Z",
     "status": "completed",
-    "task_id": "m43-action-trajectory-intervention-diagnostics"
+    "task_id": "m44-action-contrast-objective"
   },
-  "next_task": {
-    "command": "conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m44_action_contrast_driver.json --seed 1944 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m44_action_contrast_seed1944",
-    "hypothesis": "Train M37_102 with deterministic action-mean contrast against reset hidden",
-    "id": "m44-action-contrast-objective",
-    "kind": "training",
-    "notes": "Smoke trainable but short eval weaker so full run needs strict post-run gates",
-    "priority": 370,
-    "status": "pending",
-    "success_artifact": "runs/ppo_m44_action_contrast_seed1944/checkpoint.pt"
-  },
-  "updated_at_utc": "20260521T055655Z"
+  "next_task": null,
+  "updated_at_utc": "20260521T062139Z"
 }

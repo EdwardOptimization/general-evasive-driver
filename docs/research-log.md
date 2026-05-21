@@ -1702,3 +1702,39 @@ Smoke result:
 Conclusion: M44 infrastructure is trainable and writes the intended metrics.
 The short smoke is not a positive policy result. The full run must be judged by
 M38/M35/M29/broad success and the M43 action-trajectory gate.
+
+## 20260521T061710Z m44-action-contrast-objective
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Train M37_102 with deterministic action-mean contrast against reset hidden
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m44_action_contrast_driver.json --seed 1944 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m44_action_contrast_seed1944`
+- returncode: `0`
+- run dir: `runs/research/m44-action-contrast-objective_20260521T055743Z`
+- command log: `runs/research/m44-action-contrast-objective_20260521T055743Z/command.log`
+- success artifact: `runs/ppo_m44_action_contrast_seed1944/checkpoint.pt`
+- notes: Smoke trainable but short eval weaker so full run needs strict post-run gates
+
+Post-validation:
+
+- final eval return mean: 61.818865;
+- final eval termination rate: 0.200;
+- final train `response_prediction_loss_mean`: 0.019623;
+- final train `action_contrast_loss_mean`: 0.621962;
+- M38 best M44 checkpoint: M44_077/M44_102 at 0.6000 success versus
+  M37_102/M42_028 at 0.6250;
+- M35 best M44 checkpoint: M44_077/M44_102 at 0.6250 success versus
+  M37_102/M42_028 at 0.6500;
+- M29 selected corpus: M44_077/M44_102/M44_final all preserve 0.8750 success;
+- broad same-seed sweep: M44_077/M44_102 reach 0.8000 versus 0.8250 for
+  M37_102/M42_028;
+- action-trajectory gate: M44_077 raises perturbed hidden-swap trajectory mean
+  distance only to 0.006230 and hidden-swap outcome changes remain 0;
+- M44_077 raises reset / zero-response trajectory mean distances to
+  0.305656 / 0.246570, but this does not transfer to hidden-swap.
+
+Conclusion: M44 is a negative result. Direct action-mean contrast against reset
+hidden increases sensitivity to reset and zero-response interventions but
+hurts aggregate success and does not solve hidden-swap. The next objective
+should compare matched nominal/perturbed hidden states directly rather than
+contrasting against zero hidden.
