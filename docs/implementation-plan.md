@@ -941,6 +941,29 @@ Exit criteria:
 - next training config or gate is based on continuation evidence, not static
   hidden-vector separation alone.
 
+Status: complete as diagnostic infrastructure. M48 adds
+`autodrift.continuation_snippets` and traces seeds 4327 and 3037 across M30_053,
+M37_102, M42_028, M46_077, and M46_200. Both M46 outcome flips are millimeter
+scale clearance-margin events: M46 wins seed 4327 by 0.000862 to 0.002488 m and
+loses seed 3037 by -0.002355 to -0.007670 m. See
+`docs/m48-continuation-critical-snippets.md`.
+
+### M49: Clearance-Margin Gate
+
+- Promote clearance margin to a first-class benchmark metric.
+- Report collision radius and min-clearance margin in evaluation and benchmark
+  outputs.
+- Use margin-aware critical seeds to avoid treating millimeter near misses as
+  robust driver progress.
+
+Exit criteria:
+
+- evaluator and benchmark outputs include collision radius and min-clearance
+  margin when obstacles are enabled;
+- tests cover margin computation;
+- M37_102, M42_028, and M46 candidates can be compared by success and margin on
+  M38, broad, and M48 changed seeds.
+
 Status: planned.
 
 ## Metrics

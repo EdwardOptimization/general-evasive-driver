@@ -1868,3 +1868,31 @@ improvement. It trades a high-friction weak-actuator unavoidable win for a
 low-friction unavoidable regression. M48 should mine continuation snippets
 around these changed seeds and design the next objective from closed-loop
 trajectory evidence rather than static offline hidden vectors.
+
+## 20260521 m48-continuation-critical-snippets
+
+- status: `completed`
+- kind: `probe`
+- hypothesis: M46's changed seeds are near-boundary closed-loop clearance
+  cases, so the next gate should measure clearance margin instead of binary
+  success only
+- command: `conda run -n autodrift python -m autodrift.continuation_snippets --env-config configs/ppo_m24_human_view_gru_driver.json --seed 4327 --seed 3037 --checkpoint-policy m30_053=runs/ppo_m30_mixed_matched_response_seed1330/checkpoints/checkpoint_step_53248.pt --checkpoint-policy m37_102=runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --checkpoint-policy m42_028=runs/ppo_m42_hidden_contrast_seed1842/checkpoints/checkpoint_step_28672.pt --checkpoint-policy m46_077=runs/ppo_m46_paired_hidden_action_contrast_seed2046/checkpoints/checkpoint_step_77824.pt --checkpoint-policy m46_200=runs/ppo_m46_paired_hidden_action_contrast_seed2046/checkpoints/checkpoint_step_200000.pt --baseline-policy m37_102 --device cpu --run-dir runs/m48_continuation_snippets_changed_seeds`
+- artifacts: `runs/m48_continuation_snippets_changed_seeds/steps.csv`,
+  `runs/m48_continuation_snippets_changed_seeds/episodes.csv`,
+  `runs/m48_continuation_snippets_changed_seeds/action_delta_summary.csv`,
+  `runs/m48_continuation_snippets_changed_seeds/observations.npz`.
+
+Result:
+
+- seed 4327: M37_102 and M42_028 collide with clearance margins -0.003093 and
+  -0.002736 m, while M46_077 and M46_200 complete with margins 0.000862 and
+  0.002488 m;
+- seed 3037: M37_102 and M42_028 complete with margins 0.009387 and
+  0.040936 m, while M46_077 and M46_200 collide with margins -0.002355 and
+  -0.007670 m;
+- action trajectory distances versus M37_102 are modest for M46:
+  about 0.066 to 0.074 mean action distance on the two changed seeds.
+
+Conclusion: M46 is moving near-collision trajectories by millimeters, not
+creating a robust closed-loop driver improvement. M49 should make clearance
+margin a first-class benchmark/gate metric before the next training objective.

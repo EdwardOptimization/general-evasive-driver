@@ -36,6 +36,7 @@ autodrift-research-cycle = "autodrift.research_cycle:main"
 autodrift-rollout-throughput = "autodrift.rollout_throughput:main"
 autodrift-paired-hidden-snapshots = "autodrift.paired_hidden_snapshots:main"
 autodrift-seed-delta-audit = "autodrift.seed_delta_audit:main"
+autodrift-continuation-snippets = "autodrift.continuation_snippets:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
