@@ -1,7 +1,8 @@
 import numpy as np
 import torch
 
-from autodrift.response_prediction_eval import compute_response_prediction_metrics
+from autodrift.env import DriftEnvConfig
+from autodrift.response_prediction_eval import compute_response_prediction_metrics, evaluate_checkpoint
 from autodrift.train_ppo import ActorCritic
 
 
@@ -42,3 +43,48 @@ def test_response_prediction_eval_reports_horizon_metrics():
     assert metrics["horizon_3_valid_targets"] == 1.0
     assert metrics["mse"] >= 0.0
     assert metrics["horizon_1_mse"] >= 0.0
+
+
+def test_response_prediction_eval_returns_episode_rows(tmp_path):
+    model = ActorCritic(
+        obs_dim=72,
+        act_dim=3,
+        hidden_size=8,
+        actor_encoder="human_view_online_gru",
+        response_prediction_dim=3,
+        response_prediction_horizon=2,
+    )
+    checkpoint_path = tmp_path / "checkpoint.pt"
+    torch.save(
+        {
+            "model_state": {key: value.detach().cpu() for key, value in model.state_dict().items()},
+            "config": {
+                "device": "cpu",
+                "actor_encoder": "human_view_online_gru",
+                "actor_history_length": 1,
+                "action_sequence_horizon": 1,
+                "response_prediction_dim": 3,
+                "response_prediction_horizon": 2,
+                "response_prediction_stride": 1,
+                "log_std_init": -1.0,
+                "log_std_min": -5.0,
+                "log_std_max": -0.5,
+            },
+        },
+        checkpoint_path,
+    )
+
+    row, episode_rows = evaluate_checkpoint(
+        "test",
+        checkpoint_path,
+        env_config=DriftEnvConfig(max_steps=4, speed_range=(4.0, 4.0)),
+        seeds=[11],
+        device=torch.device("cpu"),
+    )
+
+    assert row["status"] == "ok"
+    assert row["episodes"] == 1
+    assert episode_rows
+    assert episode_rows[0]["policy"] == "test"
+    assert episode_rows[0]["seed"] == 11
+    assert episode_rows[0]["mse"] >= 0.0

@@ -762,6 +762,26 @@ Exit criteria:
 - M41 produces a concrete implementation direction with a smokeable config;
 - the direction is justified by M40 diagnostics and M37/M39 gate behavior.
 
+Status: complete as diagnostics. Per-seed MSE does not identify
+behavior-critical seeds: M39 lowers prediction error on both success-changed
+and non-changed seeds while weakening reset/zero-response ablation sensitivity.
+See `docs/m41-behavior-sensitive-response-diagnostics.md`.
+
+### M42: Intervention-Aware Response Objective
+
+- Use reset/zero-response outcome-change labels or action differences as a
+  behavior-sensitive training signal.
+- Avoid optimizing pure response MSE as the primary proxy.
+- Preserve the deployable actor contract: no hidden vehicle parameters or rule
+  labels enter actor observations.
+
+Exit criteria:
+
+- design is concrete enough to implement as code/config;
+- training signal is tied to behavior-critical interventions or action
+  changes;
+- validation compares against M37_102, not M39.
+
 Status: planned.
 
 ## Metrics

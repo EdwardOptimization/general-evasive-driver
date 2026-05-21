@@ -1558,6 +1558,29 @@ or checkpoint-selection metric. The next step should inspect behavior-sensitive
 diagnostics and design an objective that rewards action-relevant hidden state,
 not merely smooth future-response reconstruction.
 
+## 20260521 m41-behavior-sensitive-response-diagnostics
+
+- status: `completed`
+- kind: `probe`
+- hypothesis: per-seed response prediction error may correlate with
+  behavior-critical reset/zero-response outcome-change seeds
+- command: `conda run -n autodrift python -m autodrift.response_prediction_eval --env-config configs/ppo_m24_human_view_gru_driver.json --seed-csv runs/m38_m37_102_matched_response_corpus_seed4300/scenario_corpus.csv --checkpoint-policy m37_102=runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --checkpoint-policy m39_053=runs/ppo_m39_m37_response_corpus_seed1739/checkpoints/checkpoint_step_53248.pt --device cpu --run-dir runs/m41_response_prediction_per_seed_m38_seed4300`
+- success artifact: `runs/m41_response_prediction_per_seed_m38_seed4300/prediction_episodes.csv`
+
+Result:
+
+- M37_102 MSE on success-changed / non-changed selected seeds:
+  0.017595 / 0.018401;
+- M39_053 MSE on success-changed / non-changed selected seeds:
+  0.011282 / 0.011254;
+- M39 reduces MSE versus M37 by about 0.006 to 0.007 in both seed groups.
+
+Conclusion: response prediction error does not explain behavior-criticality.
+The next objective should use intervention-aware or action-difference signals,
+not pure prediction MSE. M37_102 remains the best current candidate because it
+has stronger reset/zero-response ablation sensitivity despite worse response
+prediction MSE.
+
 ## 20260521T050730Z m39-m37-response-corpus-training
 
 - status: `completed`

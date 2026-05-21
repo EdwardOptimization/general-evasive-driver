@@ -116,7 +116,7 @@ def evaluate_checkpoint(
     env_config: DriftEnvConfig,
     seeds: list[int],
     device: torch.device,
-) -> dict[str, Any]:
+) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     model, checkpoint = load_actor_critic_checkpoint(checkpoint_path, device=str(device))
     model.eval()
     stride = int(checkpoint.get("config", {}).get("response_prediction_stride", 1))
@@ -130,11 +130,12 @@ def evaluate_checkpoint(
     }
     if not model.is_online_recurrent or model.response_prediction_head is None or model.response_prediction_dim < 1:
         row["status"] = "unsupported"
-        return row
+        return row, []
     env = AutoDriftEnv(env_config)
     metric_sums: dict[str, float] = {}
     metric_counts: dict[str, float] = {}
     valid_counts: dict[str, float] = {}
+    episode_rows: list[dict[str, Any]] = []
     try:
         for episode_seed in seeds:
             observations, actions, dones = collect_episode(model, env, seed=episode_seed)
@@ -146,6 +147,17 @@ def evaluate_checkpoint(
                 stride=stride,
                 device=device,
             )
+            episode_row: dict[str, Any] = {
+                "policy": label,
+                "checkpoint": checkpoint_path,
+                "seed": episode_seed,
+                "steps": len(observations),
+                "response_prediction_dim": model.response_prediction_dim,
+                "response_prediction_horizon": model.response_prediction_horizon,
+                "response_prediction_stride": stride,
+            }
+            episode_row.update(metrics)
+            episode_rows.append(episode_row)
             for key, value in metrics.items():
                 if key.endswith("_valid_targets") or key == "valid_targets":
                     valid_counts[key] = valid_counts.get(key, 0.0) + float(value)
@@ -168,7 +180,7 @@ def evaluate_checkpoint(
                 row[key] = count
     finally:
         env.close()
-    return row
+    return row, episode_rows
 
 
 def main() -> None:
@@ -188,13 +200,17 @@ def main() -> None:
     device = resolve_device(args.device)
     run_dir = args.run_dir or make_run_dir(prefix="response_prediction_eval", seed=args.seed)
     run_dir.mkdir(parents=True, exist_ok=True)
-    rows = [
-        evaluate_checkpoint(label, path, env_config=env_config, seeds=seeds, device=device)
-        for label, path in checkpoint_specs
-    ]
+    rows = []
+    episode_rows = []
+    for label, path in checkpoint_specs:
+        row, policy_episode_rows = evaluate_checkpoint(label, path, env_config=env_config, seeds=seeds, device=device)
+        rows.append(row)
+        episode_rows.extend(policy_episode_rows)
     summary_csv = run_dir / "prediction_summary.csv"
+    episodes_csv = run_dir / "prediction_episodes.csv"
     frame = pd.DataFrame(rows)
     frame.to_csv(summary_csv, index=False)
+    pd.DataFrame(episode_rows).to_csv(episodes_csv, index=False)
     write_json(
         run_dir / "manifest.json",
         {
@@ -206,6 +222,7 @@ def main() -> None:
             "device": args.device,
             "env_config": args.env_config,
             "summary_csv": summary_csv,
+            "episodes_csv": episodes_csv,
         },
     )
     print(frame.to_string(index=False))

@@ -108,6 +108,8 @@ vehicle/tire models, and NMPC-style constrained control.
   on the M38 corpus.
 - `m40-response-aux-diagnostics-plan.md`: planned response auxiliary loss
   logging and offline evaluator after M39 weakened the ablation signal.
+- `m41-behavior-sensitive-response-diagnostics.md`: per-seed response
+  prediction diagnostics joined against outcome-change labels.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.
