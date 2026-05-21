@@ -1984,3 +1984,38 @@ Conclusion: M51 adds the missing promotion gate and proves the margin-retention
 training config can run, but no new checkpoint is promotable. Current best
 remains M37_102. M52 should run the full M51 continuation and sweep checkpoints
 through the strict gate.
+
+## 20260521T074043Z m52-full-margin-retention-continuation
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Run full M51 continuation from M37_102 and sweep checkpoints through strict margin-retention gates
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m51_margin_retention_driver.json --seed 2151 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m51_margin_retention_seed2151`
+- returncode: `0`
+- run dir: `runs/research/m52-full-margin-retention-continuation_20260521T072957Z`
+- command log: `runs/research/m52-full-margin-retention-continuation_20260521T072957Z/command.log`
+- success artifact: `runs/ppo_m51_margin_retention_seed2151/checkpoint.pt`
+- notes: Promote only if broad success and near-boundary margin retention both pass versus M37_102
+
+Post-validation:
+
+- M38/broad/fresh checkpoint sweeps:
+  `runs/m52_m38_margin_benchmark_seed4300`,
+  `runs/m52_broad_margin_benchmark_seed3000`,
+  `runs/m52_fresh_margin_benchmark_seed5200`;
+- margin corpus:
+  `runs/m52_margin_critical_corpus/seed_margin_deltas.csv`;
+- strict gate:
+  `runs/m52_margin_retention_gate_strict/candidate_gate_summary.csv`;
+- strict gate status: `needs_iteration`;
+- passed candidates: none;
+- best snapshot by damage is M51_028, but it still has success delta
+  `-0.01875`, 3 binary regressions, 10 near-margin regressions, and margin
+  delta mean `-0.015016`;
+- later snapshots are worse, with success deltas from `-0.02500` to
+  `-0.03125` and near-margin regressions from 19 to 28.
+
+Conclusion: M52 is a negative result. Directly oversampling the row-level M50
+top-100 corpus with 70% hard-seed probability overweights only 41 unique seeds
+and damages the broader M37 behavior. Current best remains M37_102. M53 should
+deduplicate the corpus and reduce hard-seed mix before another long run.

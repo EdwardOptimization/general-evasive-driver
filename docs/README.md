@@ -130,6 +130,8 @@ vehicle/tire models, and NMPC-style constrained control.
   broad, and fresh randomized obstacle sweeps.
 - `m51-margin-retention-gate.md`: strict promotion gate and continuation
   training config for near-boundary margin retention.
+- `m52-full-margin-retention-continuation.md`: full M51 continuation negative
+  result and the deduplicated lower-mix direction for M53.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

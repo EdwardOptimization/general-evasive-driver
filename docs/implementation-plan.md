@@ -1036,6 +1036,28 @@ Exit criteria:
 - current best updates only if a checkpoint passes aggregate and
   margin-retention gates.
 
+Status: complete as a negative result. The full M51 run strict-loads M37_102
+and completes 200k steps, but every checkpoint fails the strict
+margin-retention gate. The least-bad checkpoint, M51_028, still drops combined
+success by 0.01875, has 3 binary regressions, 10 near-margin regressions, and
+mean margin delta `-0.015016`. Current best remains M37_102. See
+`docs/m52-full-margin-retention-continuation.md`.
+
+### M53: Deduplicated Low-Mix Margin Retention
+
+- Convert the row-level M50 corpus into a deduplicated seed-level training
+  sequence.
+- Reduce hard-seed mix probability so broad randomized retention remains
+  dominant.
+- Keep M51 strict gate as the promotion gate.
+
+Exit criteria:
+
+- seed-level corpus artifact records unique seed count, source distribution,
+  and source/candidate row multiplicity;
+- training config uses the deduplicated corpus with lower mix probability;
+- smoke train proves the config runs before full continuation.
+
 Status: planned.
 
 ## Metrics
