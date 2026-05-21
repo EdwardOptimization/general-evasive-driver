@@ -3,8 +3,8 @@
     "blocked": 0,
     "completed": 33,
     "failed": 0,
-    "pending": 0,
-    "planned": 1,
+    "pending": 1,
+    "planned": 0,
     "running": 0
   },
   "last_result": {
@@ -14,6 +14,15 @@
     "status": "completed",
     "task_id": "m36-response-change-corpus-training"
   },
-  "next_task": null,
-  "updated_at_utc": "20260521T042922Z"
+  "next_task": {
+    "command": "conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m37_multistep_response_aux_driver.json --seed 1637 --device cuda --init-checkpoint runs/ppo_m34_response_aux_mixed_seed1434/checkpoints/checkpoint_step_151552.pt --run-dir runs/ppo_m37_multistep_response_aux_seed1637",
+    "hypothesis": "Train M34_151 with multi-step future-response auxiliary loss",
+    "id": "m37-multistep-response-aux",
+    "kind": "training",
+    "notes": "Smoke passed with resized response_prediction_head; validate with M35 M29 broad and hidden-swap gates",
+    "priority": 300,
+    "status": "pending",
+    "success_artifact": "runs/ppo_m37_multistep_response_aux_seed1637/checkpoint.pt"
+  },
+  "updated_at_utc": "20260521T043404Z"
 }

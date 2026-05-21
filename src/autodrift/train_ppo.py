@@ -59,6 +59,8 @@ class PPOConfig:
     recurrent_sequence_training: bool = False
     response_prediction_aux_coef: float = 0.0
     response_prediction_dim: int = 0
+    response_prediction_horizon: int = 1
+    response_prediction_stride: int = 1
     checkpoint_interval_steps: int = 0
     training_seed_csv: str = ""
     training_seed_mix_probability: float = 1.0
@@ -81,12 +83,15 @@ class ActorCritic(nn.Module):
         actor_history_length: int = 1,
         action_sequence_horizon: int = 1,
         response_prediction_dim: int = 0,
+        response_prediction_horizon: int = 1,
     ):
         super().__init__()
         if action_sequence_horizon < 1:
             raise ValueError("action_sequence_horizon must be at least 1")
         if response_prediction_dim < 0:
             raise ValueError("response_prediction_dim cannot be negative")
+        if response_prediction_horizon < 1:
+            raise ValueError("response_prediction_horizon must be at least 1")
         if actor_encoder not in {"mlp", "temporal_gru", *ONLINE_RECURRENT_ENCODERS}:
             raise ValueError(
                 "actor_encoder must be one of: mlp, temporal_gru, online_gru, response_critical_online_gru, "
@@ -100,6 +105,7 @@ class ActorCritic(nn.Module):
         self.actor_history_length = int(actor_history_length)
         self.action_sequence_horizon = int(action_sequence_horizon)
         self.response_prediction_dim = int(response_prediction_dim)
+        self.response_prediction_horizon = int(response_prediction_horizon)
         self.log_std_min = float(log_std_min)
         self.log_std_max = float(log_std_max)
         self.frame_dim = int(obs_dim)
@@ -168,7 +174,7 @@ class ActorCritic(nn.Module):
             else None
         )
         self.response_prediction_head = (
-            nn.Linear(hidden_size + act_dim, self.response_prediction_dim)
+            nn.Linear(hidden_size + act_dim, self.response_prediction_dim * self.response_prediction_horizon)
             if self.response_prediction_dim > 0
             else None
         )
@@ -388,7 +394,14 @@ class ActorCritic(nn.Module):
         hidden = initial_hidden
         for t in range(obs.shape[0]):
             features, next_hidden = self.recurrent_features_tensor(obs[t], hidden)
-            predictions.append(self.response_prediction_head(torch.cat([features, actions[t]], dim=-1)))
+            prediction = self.response_prediction_head(torch.cat([features, actions[t]], dim=-1))
+            predictions.append(
+                prediction.reshape(
+                    prediction.shape[0],
+                    self.response_prediction_horizon,
+                    self.response_prediction_dim,
+                )
+            )
             hidden = next_hidden
             if t < obs.shape[0] - 1:
                 done_t = dones[t].to(dtype=torch.bool, device=obs.device)
@@ -410,12 +423,17 @@ def adapt_actor_critic_state(model: ActorCritic, source_state: dict[str, torch.T
         "response_prediction_head.weight",
         "response_prediction_head.bias",
     }
+    allowed_shape_mismatches = allowed_missing
     if not missing and not unexpected and not shape_mismatches:
         model.load_state_dict(source_state)
         return "strict"
-    if set(missing).issubset(allowed_missing) and not unexpected and not shape_mismatches:
+    if set(missing).issubset(allowed_missing) and not unexpected and set(shape_mismatches).issubset(
+        allowed_shape_mismatches
+    ):
         merged_state = dict(target_state)
-        merged_state.update(source_state)
+        for key, value in source_state.items():
+            if key not in shape_mismatches:
+                merged_state[key] = value
         model.load_state_dict(merged_state)
         return "partial_response_prediction_head"
     raise RuntimeError(
@@ -526,6 +544,38 @@ def build_sequence_targets(
     return target, mask
 
 
+def build_response_prediction_targets(
+    observations: np.ndarray,
+    dones: np.ndarray,
+    response_dim: int,
+    horizon: int,
+    stride: int = 1,
+) -> tuple[np.ndarray, np.ndarray]:
+    if response_dim < 1:
+        raise ValueError("response_dim must be positive")
+    if horizon < 1:
+        raise ValueError("horizon must be at least 1")
+    if stride < 1:
+        raise ValueError("stride must be at least 1")
+    if response_dim > observations.shape[-1]:
+        raise ValueError("response_dim cannot exceed observation dimension")
+    rollout_n, num_envs, _ = observations.shape
+    target = np.zeros((rollout_n, num_envs, horizon, response_dim), dtype=np.float32)
+    mask = np.zeros((rollout_n, num_envs, horizon), dtype=np.float32)
+    for t in range(rollout_n):
+        for env_index in range(num_envs):
+            for horizon_index in range(horizon):
+                offset = (horizon_index + 1) * stride
+                future_t = t + offset
+                if future_t >= rollout_n:
+                    break
+                if np.any(dones[t:future_t, env_index] > 0.0):
+                    break
+                target[t, env_index, horizon_index] = observations[future_t, env_index, :response_dim]
+                mask[t, env_index, horizon_index] = 1.0
+    return target, mask
+
+
 def load_training_seed_csv(path: Path | str) -> list[int]:
     seed_path = Path(path)
     with seed_path.open(newline="", encoding="utf-8") as handle:
@@ -593,6 +643,10 @@ def train(
             raise ValueError("response prediction auxiliary loss requires online recurrent sequence training")
         if config.response_prediction_dim < 1:
             raise ValueError("response_prediction_dim must be positive when response_prediction_aux_coef > 0")
+        if config.response_prediction_horizon < 1:
+            raise ValueError("response_prediction_horizon must be at least 1")
+        if config.response_prediction_stride < 1:
+            raise ValueError("response_prediction_stride must be at least 1")
     if config.checkpoint_interval_steps < 0:
         raise ValueError("checkpoint_interval_steps cannot be negative")
     if not 0.0 <= config.training_seed_mix_probability <= 1.0:
@@ -615,6 +669,7 @@ def train(
         actor_history_length=config.actor_history_length,
         action_sequence_horizon=config.action_sequence_horizon,
         response_prediction_dim=config.response_prediction_dim,
+        response_prediction_horizon=config.response_prediction_horizon,
     ).to(device)
     optimizer = Adam(model.parameters(), lr=config.learning_rate)
     if init_checkpoint_path is not None:
@@ -727,6 +782,17 @@ def train(
         else:
             flat_seq_target = None
             flat_seq_mask = None
+        if config.response_prediction_aux_coef > 0.0:
+            response_target_buf, response_mask_buf = build_response_prediction_targets(
+                obs_buf,
+                done_buf,
+                config.response_prediction_dim,
+                config.response_prediction_horizon,
+                config.response_prediction_stride,
+            )
+        else:
+            response_target_buf = None
+            response_mask_buf = None
 
         if uses_online_recurrent and config.recurrent_sequence_training:
             assert hidden_buf is not None
@@ -736,6 +802,16 @@ def train(
             adv_seq_t = torch.as_tensor(advantages, dtype=torch.float32, device=device)
             ret_seq_t = torch.as_tensor(returns, dtype=torch.float32, device=device)
             done_seq_t = torch.as_tensor(done_buf, dtype=torch.float32, device=device)
+            response_target_t = (
+                torch.as_tensor(response_target_buf, dtype=torch.float32, device=device)
+                if response_target_buf is not None
+                else None
+            )
+            response_mask_t = (
+                torch.as_tensor(response_mask_buf, dtype=torch.float32, device=device)
+                if response_mask_buf is not None
+                else None
+            )
             initial_hidden_t = torch.as_tensor(hidden_buf[0], dtype=torch.float32, device=device)
             env_indices = np.arange(config.num_envs)
             env_minibatch = max(1, min(config.num_envs, config.minibatch_size // max(1, rollout_n)))
@@ -761,14 +837,16 @@ def train(
                     if config.response_prediction_aux_coef > 0.0 and rollout_n > 1:
                         if config.response_prediction_dim < 1:
                             raise ValueError("response_prediction_dim must be positive when response_prediction_aux_coef > 0")
+                        assert response_target_t is not None
+                        assert response_mask_t is not None
                         response_pred = model.predict_response_recurrent_sequence(
-                            obs_seq_t[:-1, mb_env],
-                            act_seq_t[:-1, mb_env],
+                            obs_seq_t[:, mb_env],
+                            act_seq_t[:, mb_env],
                             initial_hidden_t[mb_env],
-                            done_seq_t[:-1, mb_env],
+                            done_seq_t[:, mb_env],
                         )
-                        response_target = obs_seq_t[1:, mb_env, : config.response_prediction_dim].detach()
-                        response_mask = (1.0 - done_seq_t[:-1, mb_env]).unsqueeze(-1)
+                        response_target = response_target_t[:, mb_env].detach()
+                        response_mask = response_mask_t[:, mb_env].unsqueeze(-1)
                         response_error = torch.square(response_pred - response_target)
                         response_loss = (response_error * response_mask).sum() / torch.clamp(
                             response_mask.sum() * config.response_prediction_dim,

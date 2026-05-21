@@ -1389,6 +1389,30 @@ not keep replaying the same hard seeds: M37 should use multi-step future
 response prediction so the GRU hidden state must encode a longer dynamics
 belief.
 
+## 20260521 m37-multistep-response-aux-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: multi-step future response prediction can create a stronger
+  deployable recurrent dynamics-belief objective than one-step response
+  prediction
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m37_multistep_response_aux_driver.json --total-steps 4096 --rollout-steps 128 --seed 1637 --device cuda --init-checkpoint runs/ppo_m34_response_aux_mixed_seed1434/checkpoints/checkpoint_step_151552.pt --run-dir runs/ppo_m37_multistep_response_aux_smoke_seed1637`
+- run dir: `runs/ppo_m37_multistep_response_aux_smoke_seed1637`
+- checkpoint: `runs/ppo_m37_multistep_response_aux_smoke_seed1637/checkpoint.pt`
+
+Smoke result:
+
+- init load mode: `partial_response_prediction_head`;
+- training device: `cuda`;
+- final step: 4096;
+- rollout return mean: 34.42;
+- eval return mean: 70.445;
+- eval termination rate: 0.100.
+
+Conclusion: M37 infrastructure is runnable. The full M37 training run is now
+the next queued task. Validation must compare M37 checkpoints against M30_053,
+M34_151, and M36_028 on M35, M29, broad, and hidden-swap gates.
+
 ## 20260521T042602Z m36-response-change-corpus-training
 
 - status: `completed`

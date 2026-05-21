@@ -682,7 +682,10 @@ Exit criteria:
 - M37 smoke can initialize from M34/M36 checkpoints;
 - full M37 validation uses M35, M29, broad, and hidden-swap gates.
 
-Status: planned. See `docs/m37-multistep-response-aux-plan.md`.
+Status: smoke complete; full training queued. The M37 smoke loaded M34_151 with
+`partial_response_prediction_head`, trained 4096 CUDA steps, and reached eval
+return 70.445 with termination rate 0.100. See
+`docs/m37-multistep-response-aux-plan.md`.
 
 ## Metrics
 

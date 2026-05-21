@@ -42,6 +42,80 @@ Important constraints:
 - tests must cover target construction, masking across dones, checkpoint
   partial init, and train smoke.
 
+## Implementation
+
+Implemented fields:
+
+```text
+PPOConfig.response_prediction_horizon
+PPOConfig.response_prediction_stride
+```
+
+`ActorCritic.response_prediction_head` now outputs:
+
+```text
+response_prediction_dim * response_prediction_horizon
+```
+
+and reshapes predictions to:
+
+```text
+[rollout_step, env, horizon, response_dim]
+```
+
+`build_response_prediction_targets(...)` constructs the future response target
+and masks sequence tails or any future that crosses an episode boundary.
+
+Checkpoint initialization now treats response-prediction head shape mismatch
+as the same restricted partial-init case as adding the head: all compatible
+actor, critic, encoder, GRU, and log-std weights load; only the resized response
+head is reinitialized.
+
+Config:
+
+```text
+configs/ppo_m37_multistep_response_aux_driver.json
+```
+
+Key choices:
+
+- init checkpoint: `M34_151`;
+- response horizon: 4;
+- response stride: 1;
+- response dimension: first 12 human-view response/action-state features;
+- response auxiliary coefficient: 0.03;
+- M35 response-change corpus mix probability: 0.60;
+- total steps: 300k.
+
+## Smoke
+
+Command:
+
+```bash
+conda run -n autodrift python -m autodrift.train_ppo \
+  --config configs/ppo_m37_multistep_response_aux_driver.json \
+  --total-steps 4096 \
+  --rollout-steps 128 \
+  --seed 1637 \
+  --device cuda \
+  --init-checkpoint runs/ppo_m34_response_aux_mixed_seed1434/checkpoints/checkpoint_step_151552.pt \
+  --run-dir runs/ppo_m37_multistep_response_aux_smoke_seed1637
+```
+
+Result:
+
+- init load mode: `partial_response_prediction_head`;
+- training device: `cuda`;
+- final smoke step: 4096;
+- rollout return mean: 34.42;
+- eval return mean: 70.445;
+- eval steps mean: 66.200;
+- eval termination rate: 0.100.
+
+Smoke conclusion: the multi-step response auxiliary path trains end to end and
+can initialize from one-step response checkpoints by resizing only the response
+head.
+
 ## Validation
 
 M37 should be validated against:
@@ -55,3 +129,14 @@ M37 should be validated against:
 Success requires more than aggregate success. A useful M37 checkpoint must show
 unfavorable hidden/reset/zero-response ablation sensitivity on accepted matched
 cases while staying near M30/M34 broad success.
+
+## Full Run Command
+
+```bash
+conda run -n autodrift python -m autodrift.train_ppo \
+  --config configs/ppo_m37_multistep_response_aux_driver.json \
+  --seed 1637 \
+  --device cuda \
+  --init-checkpoint runs/ppo_m34_response_aux_mixed_seed1434/checkpoints/checkpoint_step_151552.pt \
+  --run-dir runs/ppo_m37_multistep_response_aux_seed1637
+```

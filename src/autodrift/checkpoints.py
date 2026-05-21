@@ -77,6 +77,7 @@ def load_actor_critic_checkpoint(
         actor_history_length=actor_history_length,
         action_sequence_horizon=int(config["action_sequence_horizon"]),
         response_prediction_dim=int(config["response_prediction_dim"]),
+        response_prediction_horizon=int(config.get("response_prediction_horizon", 1)),
     ).to(resolved_device)
     adapt_actor_critic_state(model, state_dict)
     model.eval()

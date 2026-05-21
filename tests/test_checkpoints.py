@@ -6,6 +6,7 @@ from autodrift.env import DriftEnvConfig, ObstacleTaskConfig
 from autodrift.train_ppo import (
     ActorCritic,
     PPOConfig,
+    build_response_prediction_targets,
     build_sequence_targets,
     evaluate_actor,
     load_training_seed_csv,
@@ -21,6 +22,7 @@ def model_config(**overrides):
         "actor_history_length": 1,
         "action_sequence_horizon": 1,
         "response_prediction_dim": 0,
+        "response_prediction_horizon": 1,
         "log_std_init": -1.0,
         "log_std_min": -5.0,
         "log_std_max": -0.5,
@@ -291,7 +293,14 @@ def test_online_gru_sequence_eval_backpropagates_through_time():
 
 def test_online_gru_response_prediction_head_uses_recurrent_history():
     torch.manual_seed(1)
-    model = ActorCritic(obs_dim=5, act_dim=2, hidden_size=8, actor_encoder="online_gru", response_prediction_dim=3)
+    model = ActorCritic(
+        obs_dim=5,
+        act_dim=2,
+        hidden_size=8,
+        actor_encoder="online_gru",
+        response_prediction_dim=3,
+        response_prediction_horizon=2,
+    )
     actions = torch.tanh(torch.randn(3, 1, 2))
     initial_hidden = model.initial_hidden(1, torch.device("cpu"))
 
@@ -300,17 +309,24 @@ def test_online_gru_response_prediction_head_uses_recurrent_history():
     predictions = model.predict_response_recurrent_sequence(obs, actions, initial_hidden, dones)
     predictions[1].sum().backward()
 
-    assert predictions.shape == (3, 1, 3)
+    assert predictions.shape == (3, 1, 2, 3)
     assert float(obs.grad[0].abs().sum()) > 0.0
 
 
 def test_response_prediction_checkpoint_loads_declared_head(tmp_path):
-    model = ActorCritic(obs_dim=5, act_dim=2, hidden_size=8, actor_encoder="online_gru", response_prediction_dim=3)
+    model = ActorCritic(
+        obs_dim=5,
+        act_dim=2,
+        hidden_size=8,
+        actor_encoder="online_gru",
+        response_prediction_dim=3,
+        response_prediction_horizon=2,
+    )
     checkpoint_path = tmp_path / "checkpoint.pt"
     torch.save(
         {
             "model_state": {key: value.detach().cpu() for key, value in model.state_dict().items()},
-            "config": model_config(actor_encoder="online_gru", response_prediction_dim=3),
+            "config": model_config(actor_encoder="online_gru", response_prediction_dim=3, response_prediction_horizon=2),
         },
         checkpoint_path,
     )
@@ -318,6 +334,7 @@ def test_response_prediction_checkpoint_loads_declared_head(tmp_path):
     loaded, _ = load_actor_critic_checkpoint(checkpoint_path, device="cpu")
 
     assert loaded.response_prediction_dim == 3
+    assert loaded.response_prediction_horizon == 2
     assert loaded.response_prediction_head is not None
 
 
@@ -338,6 +355,41 @@ def test_init_checkpoint_can_add_response_prediction_head(tmp_path):
     assert load_mode == "partial_response_prediction_head"
     assert target.response_prediction_head is not None
     for key, value in source.state_dict().items():
+        torch.testing.assert_close(target.state_dict()[key], value)
+
+
+def test_init_checkpoint_can_resize_response_prediction_head(tmp_path):
+    source = ActorCritic(
+        obs_dim=5,
+        act_dim=2,
+        hidden_size=8,
+        actor_encoder="online_gru",
+        response_prediction_dim=3,
+        response_prediction_horizon=1,
+    )
+    target = ActorCritic(
+        obs_dim=5,
+        act_dim=2,
+        hidden_size=8,
+        actor_encoder="online_gru",
+        response_prediction_dim=3,
+        response_prediction_horizon=4,
+    )
+    checkpoint_path = tmp_path / "checkpoint.pt"
+    torch.save(
+        {
+            "model_state": {key: value.detach().cpu() for key, value in source.state_dict().items()},
+            "config": model_config(actor_encoder="online_gru", response_prediction_dim=3, response_prediction_horizon=1),
+        },
+        checkpoint_path,
+    )
+
+    load_mode = load_init_checkpoint_state(target, checkpoint_path, torch.device("cpu"))
+
+    assert load_mode == "partial_response_prediction_head"
+    for key, value in source.state_dict().items():
+        if key.startswith("response_prediction_head."):
+            continue
         torch.testing.assert_close(target.state_dict()[key], value)
 
 
@@ -399,3 +451,27 @@ def test_sequence_targets_use_future_executed_actions_until_done():
     assert mask[0, 0, 0] == 1.0
     assert mask[0, 0, 1] == 0.0
     assert mask[1, 0, 0] == 0.0
+
+
+def test_response_prediction_targets_mask_future_observations_across_done():
+    observations = np.array(
+        [
+            [[0.0, 10.0, 100.0]],
+            [[1.0, 11.0, 101.0]],
+            [[2.0, 12.0, 102.0]],
+            [[3.0, 13.0, 103.0]],
+            [[4.0, 14.0, 104.0]],
+        ],
+        dtype=np.float32,
+    )
+    dones = np.array([[0.0], [1.0], [0.0], [0.0], [0.0]], dtype=np.float32)
+
+    target, mask = build_response_prediction_targets(observations, dones, response_dim=2, horizon=3, stride=1)
+
+    np.testing.assert_allclose(target[0, 0, 0], [1.0, 11.0])
+    assert mask[0, 0, 0] == 1.0
+    assert mask[0, 0, 1] == 0.0
+    assert mask[1, 0, 0] == 0.0
+    np.testing.assert_allclose(target[2, 0, 1], [4.0, 14.0])
+    assert mask[2, 0, 1] == 1.0
+    assert mask[3, 0, 1] == 0.0
