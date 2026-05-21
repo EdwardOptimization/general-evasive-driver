@@ -162,6 +162,12 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m66-full-response-necessity-continuation.md`: full M65 continuation negative
   result; no checkpoint passed margin retention or improved paired
   self-identification.
+- `m67-belief-self-identification-roadmap.md`: captured 5.5pro recommendation
+  and the adopted belief/self-ID roadmap after M66/M67-B.
+- `m67a-privileged-upper-bound-harness.md`: privileged teacher upper-bound
+  harness, full-dynamics teacher observation, and smoke validation.
+- `m67b-full-privileged-upper-bound-training.md`: full privileged teacher
+  negative upper-bound attempt and warm-started teacher next step.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

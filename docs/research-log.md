@@ -2666,3 +2666,17 @@ driving behavior. M67-C should build a warm-started or anchored privileged
 teacher that preserves the 72-value M62 human-view response/context structure
 and appends hidden dynamics as teacher-only context before returning to
 student OSI or counterfactual intervention objectives.
+
+## 20260521T112500Z m67-belief-self-identification-roadmap
+
+- status: `completed`
+- kind: `planning`
+- artifact: `docs/m67-belief-self-identification-roadmap.md`
+
+Conclusion: The 5.5pro recommendation is now recorded as the M67 belief/self-ID
+roadmap. The project adopts the core direction: treat the driver as a POMDP
+belief-learning problem, establish a credible privileged upper bound first,
+mine matched action-divergent cases, then train a deployable recurrent student
+with outcome-bound counterfactual interventions. The immediate next task remains
+M67-C warm-started privileged teacher because M67-B's from-scratch teacher did
+not beat `m62_a250`.
