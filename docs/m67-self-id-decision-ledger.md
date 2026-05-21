@@ -68,11 +68,12 @@ The upper-bound idea is still valid, but the teacher must preserve M62 driving
 behavior first. A weak from-scratch teacher is not a useful oracle.
 ```
 
-Next queued task:
+Completed follow-up:
 
-- `m67e-warm-started-privileged-teacher`
-- build a teacher that keeps the first 72 human-view inputs compatible with M62
-  and appends the hidden dynamics packet as teacher-only context.
+- `m67e-warm-started-privileged-teacher`;
+- result: the M62-compatible privileged teacher infrastructure works, but the
+  best checkpoint only improves M65 mean margin by `0.000804` with no success
+  gain, so it is not a credible upper-bound breakthrough.
 
 Persisted in:
 
@@ -152,8 +153,8 @@ Persisted in:
 
 ## Deferred Input Work
 
-These are accepted but intentionally deferred until the warm-started teacher and
-wrong-history diagnostics are clearer.
+These are accepted but intentionally deferred until matched action-divergent
+pairs and wrong-history diagnostics are clearer.
 
 Enhanced OSI response profile:
 
@@ -246,17 +247,16 @@ Persisted in:
 Continue with:
 
 ```text
-m67e-warm-started-privileged-teacher
+m68-matched-action-divergent-corpus
 ```
 
 Implementation intent:
 
 ```text
-reuse the M62-compatible 72-value human-view response/context path
-append full hidden dynamics through a teacher-only branch
-zero-initialize the privileged residual so initial behavior matches M62
-then test whether hidden dynamics can improve M65 response-critical margin
+mine same-visible-state / different-hidden-dynamics pairs
+measure whether hidden dynamics changes the preferred action or margin
+build wrong-history intervention cases from action-divergent pairs
 ```
 
-If the warm-started teacher still cannot beat M62 on response-critical seeds,
-stop student training and re-mine matched action-divergent cases.
+M67-E did not produce a meaningful teacher upper-bound gap, so do not proceed
+directly to student OSI distillation yet.

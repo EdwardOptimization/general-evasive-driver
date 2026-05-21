@@ -15,8 +15,9 @@ Last updated: 2026-05-21
   margin-retention evidence and does not regress the M37 hidden-swap diagnostic,
   but M63/M64/M66 still do not prove recurrent self-identification. Removing or
   resetting response history does not reliably weaken the policy. M67-B's
-  from-scratch privileged teacher also failed to beat M62, so the next blocker
-  is building a credible warm-started privileged teacher before student OSI.
+  from-scratch privileged teacher and M67-E's warm-started privileged teacher
+  both failed to produce a meaningful hidden-dynamics upper-bound gap, so the
+  next blocker is mining matched action-divergent cases before student OSI.
 
 ## Standing Loop
 
@@ -2748,3 +2749,43 @@ strict-context result, deferred enhanced-OSI/noisy-IMU/reward-cleanup work, and
 next `m67e-warm-started-privileged-teacher` task are now indexed in one recovery
 document. This does not change the research queue; it prevents the adopted
 decisions from being scattered across the M67 roadmap and profile-audit notes.
+
+## 20260521T113356Z m67e-warm-started-privileged-teacher
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: An M62-compatible privileged teacher can preserve the current
+  human-view behavior and reveal whether hidden dynamics improves the M65
+  response-critical corpus.
+- smoke command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m67e_warm_started_privileged_teacher.json --total-steps 4096 --rollout-steps 64 --num-envs 4 --vector-env-mode sync --seed 3267 --device cuda --init-checkpoint runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --run-dir runs/ppo_m67e_warm_privileged_teacher_smoke_seed3267 --eval-episodes 2`
+- full command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m67e_warm_started_privileged_teacher.json --seed 3267 --device cuda --init-checkpoint runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --run-dir runs/ppo_m67e_warm_privileged_teacher_seed3267`
+- best upper-bound command: `conda run -n autodrift python -m autodrift.privileged_upper_bound --baseline-env-config configs/ppo_m67d_strict_self_id_context_driver.json --candidate-env-config configs/ppo_m67e_warm_started_privileged_teacher.json --baseline-checkpoint-policy m62_a250=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --candidate-checkpoint-policy m67e_004=runs/ppo_m67e_warm_privileged_teacher_seed3267/checkpoints/checkpoint_step_4096.pt --seed-csv runs/m65_response_necessity_corpus_seed3600/scenario_corpus.csv --seed 3600 --device cpu --run-dir runs/m67e_warm_privileged_teacher_best_upper_bound_m65_seed3600`
+- run dirs: `runs/ppo_m67e_warm_privileged_teacher_smoke_seed3267`,
+  `runs/m67e_warm_privileged_teacher_smoke_upper_bound_m65_seed3600`,
+  `runs/ppo_m67e_warm_privileged_teacher_seed3267`,
+  `runs/m67e_warm_privileged_teacher_checkpoint_sweep_m65_seed3600`,
+  `runs/m67e_warm_privileged_teacher_upper_bound_m65_seed3600`,
+  `runs/m67e_warm_privileged_teacher_best_upper_bound_m65_seed3600`
+- artifact: `docs/m67e-warm-started-privileged-teacher.md`
+
+Result:
+
+- new actor encoder: `privileged_human_view_online_gru`;
+- teacher observation: first 72 values keep M62 human-view semantics, last 10
+  values are teacher-only full hidden dynamics;
+- M62 init load mode: `partial_privileged_human_view_branch`;
+- baseline action anchor load mode: `partial_privileged_human_view_branch`;
+- smoke M65 success: `0.615385`, mean margin `0.259679`;
+- final M65 success: `0.615385`, mean margin `0.258980`;
+- best swept checkpoint: `m67e_004`;
+- best M65 success: `0.615385` versus M62 `0.615385`;
+- best M65 mean margin: `0.260685` versus M62 `0.259881`;
+- best mean margin delta: `0.000804`;
+- margin-improved/regressed seeds: `13 / 13`.
+
+Conclusion: M67-E is a useful architecture and checkpoint-compatibility step,
+but it is not a credible privileged upper-bound breakthrough. The tiny margin
+gain is best treated as retention noise. Do not train a deployable student from
+this teacher yet. The next task is M68 matched action-divergent corpus mining:
+find same-visible-context cases where hidden dynamics or wrong history actually
+changes the preferred action or clearance outcome.

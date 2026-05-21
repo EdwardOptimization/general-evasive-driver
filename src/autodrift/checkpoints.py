@@ -8,8 +8,11 @@ from typing import Any
 import torch
 
 from autodrift.train_ppo import (
+    FULL_DYNAMICS_PRIVILEGED_FEATURE_DIM,
     HUMAN_VIEW_OBS_DIM,
     HUMAN_VIEW_RESPONSE_FEATURE_DIM,
+    PRIVILEGED_HUMAN_VIEW_OBS_DIM,
+    PRIVILEGED_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER,
     ActorCritic,
     adapt_actor_critic_state,
     resolve_device,
@@ -63,6 +66,24 @@ def load_actor_critic_checkpoint(
         if response_dim != HUMAN_VIEW_RESPONSE_FEATURE_DIM or response_dim + context_dim != HUMAN_VIEW_OBS_DIM:
             raise RuntimeError("human-view checkpoint does not match the canonical 72-value actor frame")
         source_obs_dim = response_dim + context_dim
+    elif actor_encoder == PRIVILEGED_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER:
+        required_keys = (
+            "response_encoder.0.weight",
+            "context_encoder.0.weight",
+            "privileged_encoder.0.weight",
+        )
+        if any(key not in state_dict for key in required_keys):
+            raise RuntimeError("privileged human-view checkpoint is missing response/context/privileged encoder weights")
+        response_dim = int(state_dict["response_encoder.0.weight"].shape[1])
+        context_dim = int(state_dict["context_encoder.0.weight"].shape[1])
+        privileged_dim = int(state_dict["privileged_encoder.0.weight"].shape[1])
+        if (
+            response_dim != HUMAN_VIEW_RESPONSE_FEATURE_DIM
+            or response_dim + context_dim != HUMAN_VIEW_OBS_DIM
+            or privileged_dim != FULL_DYNAMICS_PRIVILEGED_FEATURE_DIM
+        ):
+            raise RuntimeError("privileged human-view checkpoint does not match the canonical 82-value teacher frame")
+        source_obs_dim = PRIVILEGED_HUMAN_VIEW_OBS_DIM
     else:
         raise RuntimeError("checkpoint does not contain a recognized actor encoder")
 

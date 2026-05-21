@@ -99,8 +99,9 @@ Artifact:
 
 ### M67-C: Warm-Started Privileged Teacher
 
-Next required step. Build a privileged teacher that preserves M62's human-view
-driving behavior and appends hidden dynamics as teacher-only context.
+Completed later under queue label `m67e-warm-started-privileged-teacher`. Build
+a privileged teacher that preserves M62's human-view driving behavior and
+appends hidden dynamics as teacher-only context.
 
 Goal:
 
@@ -125,7 +126,13 @@ Pass condition:
 - improvement is not only aggregate reward;
 - per-seed deltas show action-relevant hidden-dynamics advantage.
 
-If M67-C fails, do not train a student yet. Re-mine the corpus.
+Status: complete as a weak/negative upper-bound result. The implementation
+worked and the best swept checkpoint `m67e_004` preserved M62 success, but it
+only improved M65 mean margin by `0.000804` with an even 13/13
+improved/regressed seed split. This is not a meaningful hidden-dynamics
+upper-bound gap.
+
+Conclusion: do not train a student yet. Re-mine the corpus.
 
 ### M67-D: Matched Action-Divergent Corpus
 

@@ -173,9 +173,12 @@ vehicle/tire models, and NMPC-style constrained control.
   reward-cleanup risks.
 - `m67d-strict-self-id-observation-profile.md`: config-gated strict context
   profile, smoke continuation, and M62 ablation diagnostic result.
+- `m67e-warm-started-privileged-teacher.md`: M62-compatible 82-value
+  privileged teacher architecture, training run, checkpoint sweep, and weak
+  upper-bound result.
 - `m67-self-id-decision-ledger.md`: compact index of the adopted M67
   self-identification decisions, their persisted artifacts, and the next
-  warm-started privileged-teacher task.
+  matched action-divergent corpus task.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

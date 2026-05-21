@@ -1472,8 +1472,35 @@ next gate still needs wrong-history or matched-history interventions. See
 - Re-run the M65 upper-bound comparison before any deployable student OSI
   objective.
 
-Status: planned after M67-D. This replaces direct student counterfactual
-training because M67-B did not produce a credible oracle upper bound.
+Status: complete as infrastructure and weak/negative upper-bound evidence.
+`privileged_human_view_online_gru` preserves the first 72 M62-compatible inputs,
+adds a teacher-only 10-value full-dynamics branch, and zero-initializes the
+privileged residual so M62 initialization preserves behavior. A 32768-step run
+from `m62_a250` completed, but the best swept checkpoint `m67e_004` only changes
+M65 mean clearance margin by `+0.000804` with no success improvement and an even
+13/13 improved/regressed seed split. This is retention noise, not a credible
+hidden-dynamics upper bound. See
+`docs/m67e-warm-started-privileged-teacher.md`.
+
+### M68: Matched Action-Divergent Corpus
+
+- Mine or construct pairs where current visible state and road/obstacle geometry
+  are nearly identical, but hidden dynamics require different actions.
+- Score candidate pairs by action distance, rollout margin gap under wrong
+  hidden/history, and whether wrong-history intervention reduces clearance.
+- Use the resulting corpus to decide whether the current M65 proof surface is
+  genuinely self-identification-critical.
+
+Exit criteria:
+
+- writes `matched_pairs.csv` and an action-divergence summary;
+- reports how often hidden dynamics changes the preferred action or terminal
+  margin under matched visible context;
+- identifies candidate seeds/snippets for wrong-history intervention gates.
+
+Status: planned after M67-E. M67-E showed that simply appending hidden dynamics
+to an M62-compatible teacher does not create a meaningful upper-bound gap on the
+current M65 corpus.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

@@ -34,7 +34,15 @@ from autodrift.vector_env import ParallelAutoDriftVectorEnv, SyncAutoDriftVector
 
 HUMAN_VIEW_OBS_DIM = 72
 HUMAN_VIEW_RESPONSE_FEATURE_DIM = 12
-ONLINE_RECURRENT_ENCODERS = {"online_gru", "response_critical_online_gru", "human_view_online_gru"}
+FULL_DYNAMICS_PRIVILEGED_FEATURE_DIM = 10
+PRIVILEGED_HUMAN_VIEW_OBS_DIM = HUMAN_VIEW_OBS_DIM + FULL_DYNAMICS_PRIVILEGED_FEATURE_DIM
+HUMAN_VIEW_ONLINE_RECURRENT_ENCODERS = {"response_critical_online_gru", "human_view_online_gru"}
+PRIVILEGED_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER = "privileged_human_view_online_gru"
+ONLINE_RECURRENT_ENCODERS = {
+    "online_gru",
+    *HUMAN_VIEW_ONLINE_RECURRENT_ENCODERS,
+    PRIVILEGED_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER,
+}
 
 
 def is_online_recurrent_encoder(actor_encoder: str) -> bool:
@@ -113,7 +121,7 @@ class ActorCritic(nn.Module):
         if actor_encoder not in {"mlp", "temporal_gru", *ONLINE_RECURRENT_ENCODERS}:
             raise ValueError(
                 "actor_encoder must be one of: mlp, temporal_gru, online_gru, response_critical_online_gru, "
-                "human_view_online_gru"
+                "human_view_online_gru, privileged_human_view_online_gru"
             )
         if actor_history_length < 1:
             raise ValueError("actor_history_length must be at least 1")
@@ -142,14 +150,28 @@ class ActorCritic(nn.Module):
             self.response_context_fusion = None
             self.response_feature_indices = ()
             self.context_feature_indices = ()
-        elif self.actor_encoder in {"response_critical_online_gru", "human_view_online_gru"}:
-            if obs_dim != HUMAN_VIEW_OBS_DIM:
-                raise ValueError("human-view online GRU actors require the canonical 72-value actor frame")
+            self.privileged_feature_indices = ()
+            self.privileged_encoder = None
+            self.privileged_residual = None
+        elif self.actor_encoder in HUMAN_VIEW_ONLINE_RECURRENT_ENCODERS | {PRIVILEGED_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER}:
+            if self.actor_encoder == PRIVILEGED_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER:
+                if obs_dim != PRIVILEGED_HUMAN_VIEW_OBS_DIM:
+                    raise ValueError(
+                        "privileged human-view online GRU actors require the 82-value frame "
+                        "with the first 72 values matching the human-view contract"
+                    )
+                context_limit = HUMAN_VIEW_OBS_DIM
+                self.privileged_feature_indices = tuple(range(HUMAN_VIEW_OBS_DIM, PRIVILEGED_HUMAN_VIEW_OBS_DIM))
+            else:
+                if obs_dim != HUMAN_VIEW_OBS_DIM:
+                    raise ValueError("human-view online GRU actors require the canonical 72-value actor frame")
+                context_limit = obs_dim
+                self.privileged_feature_indices = ()
             self.shared = None
             self.frame_encoder = None
             self.temporal_gru = None
             self.response_feature_indices = tuple(range(HUMAN_VIEW_RESPONSE_FEATURE_DIM))
-            self.context_feature_indices = tuple(index for index in range(obs_dim) if index not in self.response_feature_indices)
+            self.context_feature_indices = tuple(range(HUMAN_VIEW_RESPONSE_FEATURE_DIM, context_limit))
             self.response_encoder = nn.Sequential(
                 nn.Linear(len(self.response_feature_indices), hidden_size),
                 nn.Tanh(),
@@ -163,6 +185,17 @@ class ActorCritic(nn.Module):
                 nn.Linear(hidden_size * 3, hidden_size),
                 nn.Tanh(),
             )
+            if self.actor_encoder == PRIVILEGED_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER:
+                self.privileged_encoder = nn.Sequential(
+                    nn.Linear(len(self.privileged_feature_indices), hidden_size),
+                    nn.Tanh(),
+                )
+                self.privileged_residual = nn.Linear(hidden_size * 3, hidden_size)
+                nn.init.zeros_(self.privileged_residual.weight)
+                nn.init.zeros_(self.privileged_residual.bias)
+            else:
+                self.privileged_encoder = None
+                self.privileged_residual = None
         else:
             if self.actor_encoder == "temporal_gru" and obs_dim % self.actor_history_length != 0:
                 raise ValueError("temporal_gru actor requires obs_dim divisible by actor_history_length")
@@ -183,6 +216,9 @@ class ActorCritic(nn.Module):
             self.response_context_fusion = None
             self.response_feature_indices = ()
             self.context_feature_indices = ()
+            self.privileged_feature_indices = ()
+            self.privileged_encoder = None
+            self.privileged_residual = None
         self.actor_mean = nn.Linear(hidden_size, act_dim)
         self.critic = nn.Linear(hidden_size, 1)
         self.log_std = nn.Parameter(torch.full((act_dim,), float(log_std_init)))
@@ -234,12 +270,19 @@ class ActorCritic(nn.Module):
         context_encoded = self.context_encoder(context_obs)
         next_hidden = self.online_gru_cell(response_encoded, hidden)
         fused = self.response_context_fusion(torch.cat([next_hidden, context_encoded, next_hidden * context_encoded], dim=-1))
+        if self.privileged_encoder is not None and self.privileged_residual is not None:
+            privileged_indices = torch.as_tensor(self.privileged_feature_indices, dtype=torch.long, device=obs.device)
+            privileged_obs = obs.index_select(dim=-1, index=privileged_indices)
+            privileged_encoded = self.privileged_encoder(privileged_obs)
+            fused = fused + self.privileged_residual(
+                torch.cat([fused, privileged_encoded, fused * privileged_encoded], dim=-1)
+            )
         return fused, next_hidden
 
     def recurrent_features_tensor(self, obs: torch.Tensor, hidden: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
         if not self.is_online_recurrent:
             raise RuntimeError("recurrent_features_tensor requires an online recurrent actor_encoder")
-        if self.actor_encoder in {"response_critical_online_gru", "human_view_online_gru"}:
+        if self.actor_encoder in HUMAN_VIEW_ONLINE_RECURRENT_ENCODERS | {PRIVILEGED_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER}:
             return self._response_critical_features_tensor(obs, hidden)
         assert self.frame_encoder is not None
         assert self.online_gru_cell is not None
@@ -461,7 +504,18 @@ def adapt_actor_critic_state(model: ActorCritic, source_state: dict[str, torch.T
         "response_prediction_head.weight",
         "response_prediction_head.bias",
     }
-    allowed_shape_mismatches = allowed_missing
+    privileged_branch_keys = {
+        "privileged_encoder.0.weight",
+        "privileged_encoder.0.bias",
+        "privileged_residual.weight",
+        "privileged_residual.bias",
+    }
+    if model.actor_encoder == PRIVILEGED_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER:
+        allowed_missing |= privileged_branch_keys
+    allowed_shape_mismatches = {
+        "response_prediction_head.weight",
+        "response_prediction_head.bias",
+    }
     if not missing and not unexpected and not shape_mismatches:
         model.load_state_dict(source_state)
         return "strict"
@@ -473,7 +527,15 @@ def adapt_actor_critic_state(model: ActorCritic, source_state: dict[str, torch.T
             if key not in shape_mismatches:
                 merged_state[key] = value
         model.load_state_dict(merged_state)
-        return "partial_response_prediction_head"
+        partial_modes = []
+        if set(missing) & privileged_branch_keys:
+            partial_modes.append("privileged_human_view_branch")
+        if (set(missing) | set(shape_mismatches)) & {
+            "response_prediction_head.weight",
+            "response_prediction_head.bias",
+        }:
+            partial_modes.append("response_prediction_head")
+        return "partial_" + "_".join(partial_modes)
     raise RuntimeError(
         "init checkpoint is incompatible: "
         f"missing={missing}, unexpected={unexpected}, shape_mismatches={shape_mismatches}"

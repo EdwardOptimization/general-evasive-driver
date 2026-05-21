@@ -1,5 +1,6 @@
 import numpy as np
 import csv
+import pytest
 import torch
 
 from autodrift.checkpoints import load_actor_critic_checkpoint
@@ -239,6 +240,99 @@ def test_human_view_online_actor_checkpoint_loads_and_updates_hidden(tmp_path):
 def test_human_view_online_actor_requires_canonical_frame():
     with np.testing.assert_raises(ValueError):
         ActorCritic(obs_dim=71, act_dim=3, hidden_size=16, actor_encoder="human_view_online_gru")
+
+
+def test_privileged_human_view_online_actor_requires_teacher_frame():
+    with np.testing.assert_raises(ValueError):
+        ActorCritic(obs_dim=81, act_dim=3, hidden_size=16, actor_encoder="privileged_human_view_online_gru")
+
+
+def test_privileged_human_view_online_actor_checkpoint_loads(tmp_path):
+    model = ActorCritic(obs_dim=82, act_dim=3, hidden_size=16, actor_encoder="privileged_human_view_online_gru")
+    checkpoint_path = tmp_path / "checkpoint.pt"
+    torch.save(
+        {
+            "model_state": {key: value.detach().cpu() for key, value in model.state_dict().items()},
+            "config": model_config(actor_encoder="privileged_human_view_online_gru", actor_history_length=1),
+        },
+        checkpoint_path,
+    )
+
+    loaded, _ = load_actor_critic_checkpoint(checkpoint_path, device="cpu")
+    observation = np.linspace(-0.5, 0.5, 82, dtype=np.float32)
+    action, _, value, hidden = loaded.act_recurrent(observation, deterministic=True)
+    _, _, _, next_hidden = loaded.act_recurrent(observation, hidden, deterministic=True)
+
+    assert loaded.actor_encoder == "privileged_human_view_online_gru"
+    assert loaded.response_feature_indices == tuple(range(12))
+    assert loaded.context_feature_indices == tuple(range(12, 72))
+    assert loaded.privileged_feature_indices == tuple(range(72, 82))
+    assert action.shape == (3,)
+    assert hidden.shape == (1, 16)
+    assert not torch.allclose(hidden, next_hidden)
+    assert np.isfinite(value)
+
+
+def test_privileged_human_view_init_preserves_human_view_behavior(tmp_path):
+    torch.manual_seed(7)
+    source = ActorCritic(obs_dim=72, act_dim=3, hidden_size=16, actor_encoder="human_view_online_gru")
+    checkpoint_path = tmp_path / "m62_like.pt"
+    torch.save(
+        {
+            "model_state": {key: value.detach().cpu() for key, value in source.state_dict().items()},
+            "config": model_config(actor_encoder="human_view_online_gru", actor_history_length=1),
+        },
+        checkpoint_path,
+    )
+    target = ActorCritic(obs_dim=82, act_dim=3, hidden_size=16, actor_encoder="privileged_human_view_online_gru")
+
+    load_mode = load_init_checkpoint_state(target, checkpoint_path, torch.device("cpu"))
+
+    assert load_mode == "partial_privileged_human_view_branch"
+    assert target.context_feature_indices == tuple(range(12, 72))
+    assert target.privileged_feature_indices == tuple(range(72, 82))
+    assert target.privileged_residual is not None
+    assert float(target.privileged_residual.weight.detach().abs().sum()) == 0.0
+    assert float(target.privileged_residual.bias.detach().abs().sum()) == 0.0
+
+    obs72 = np.linspace(-0.7, 0.7, 72, dtype=np.float32)
+    privileged = np.linspace(0.2, 1.2, 10, dtype=np.float32)
+    obs82 = np.concatenate([obs72, privileged]).astype(np.float32)
+    hidden_source = source.initial_hidden(1, torch.device("cpu"))
+    hidden_target = target.initial_hidden(1, torch.device("cpu"))
+    source_action, source_logp, source_value, source_next_hidden = source.act_recurrent(
+        obs72,
+        hidden_source,
+        deterministic=True,
+    )
+    target_action, target_logp, target_value, target_next_hidden = target.act_recurrent(
+        obs82,
+        hidden_target,
+        deterministic=True,
+    )
+
+    np.testing.assert_allclose(target_action, source_action, atol=1e-7)
+    assert target_logp == pytest.approx(source_logp, abs=1e-7)
+    assert target_value == pytest.approx(source_value, abs=1e-7)
+    torch.testing.assert_close(target_next_hidden, source_next_hidden, atol=1e-7, rtol=0.0)
+
+
+def test_privileged_human_view_init_rejects_privileged_branch_shape_mismatch(tmp_path):
+    source = ActorCritic(obs_dim=82, act_dim=3, hidden_size=16, actor_encoder="privileged_human_view_online_gru")
+    source_state = {key: value.detach().clone() for key, value in source.state_dict().items()}
+    source_state["privileged_encoder.0.weight"] = torch.zeros(16, 9)
+    checkpoint_path = tmp_path / "bad_privileged_branch.pt"
+    torch.save(
+        {
+            "model_state": source_state,
+            "config": model_config(actor_encoder="privileged_human_view_online_gru", actor_history_length=1),
+        },
+        checkpoint_path,
+    )
+    target = ActorCritic(obs_dim=82, act_dim=3, hidden_size=16, actor_encoder="privileged_human_view_online_gru")
+
+    with np.testing.assert_raises(RuntimeError):
+        load_init_checkpoint_state(target, checkpoint_path, torch.device("cpu"))
 
 
 def test_human_view_online_actor_trains_with_canonical_frame(tmp_path):
