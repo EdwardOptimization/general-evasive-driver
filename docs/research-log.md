@@ -2452,3 +2452,29 @@ Conclusion: M62 is the first margin-retention pass. `m62_a250` replaces
 M37_102 as the current best margin-retention driver candidate, but it is not an
 ideal driver. M63 should run a broader driver audit before treating the
 checkpoint as a full driver promotion.
+
+## 20260521T092234Z m63-broader-driver-audit-for-m62
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: M62_a250 should keep M37 aggregate held-out performance, but it
+  still needs response-history/self-identification evidence before a broader
+  driver promotion.
+- command: `conda run -n autodrift python -m autodrift.benchmark --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 120 --seed 7000 --policies envelope_aes --checkpoint-policy m37_102=runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --checkpoint-policy m62_a250=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --checkpoint-policy m62_a250_reset=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt@reset_recurrent_state --checkpoint-policy m62_a250_zero_current=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt@zero_current_response --checkpoint-policy m62_a250_zero_all=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt@zero_all_response --checkpoint-policy m62_a250_noact=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt@zero_action_history --device cpu --run-dir runs/m63_m62_broader_driver_audit_seed7000`
+- returncode: `0`
+- run dir: `runs/m63_m62_broader_driver_audit_seed7000`
+- success artifact: `runs/m63_m62_broader_driver_audit_seed7000/policy_summary.csv`
+
+Result:
+
+- `m37_102` success: `0.875000`;
+- `m62_a250` success: `0.875000`;
+- `m62_a250` mean clearance margin: `1.942633` versus M37 `1.942143`;
+- reset recurrent state success: `0.866667`;
+- zero current/all response success: `0.875000`;
+- zero action history success: `0.875000`.
+
+Conclusion: M62 keeps aggregate held-out performance and remains the current
+best margin-retention candidate, but M63 does not prove driver-like closed-loop
+self-identification. M64 should build a stronger response-history gate rather
+than relying on average ablation success.

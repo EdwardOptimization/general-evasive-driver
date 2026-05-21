@@ -1310,6 +1310,28 @@ Exit criteria:
 - if it fails, keep M62 as a margin-retention candidate and design the next
   architecture/probe task.
 
+Status: complete. M63 shows `m62_a250` keeps M37 aggregate success and slightly
+improves mean clearance margin on a 120-episode held-out audit, but response and
+history ablations remain too weak. M62 remains the current best
+margin-retention candidate, not an ideal driver. See
+`docs/m63-broader-driver-audit.md`.
+
+### M64: Stronger Response-History Self-Identification Gate
+
+- Build a sharper gate for M62-class human-view recurrent policies.
+- Focus on scenarios where resetting recurrent state or removing response
+  features must change behavior.
+- Avoid adding oracle fields to actor observations.
+
+Exit criteria:
+
+- gate uses deployable observations and controlled perturbations only;
+- M62 and M37 are both evaluated on the same cases;
+- the result clearly separates "can drive" from "uses closed-loop response
+  history";
+- if the gate is still insensitive, document why and design the next training
+  objective around that measured failure.
+
 Status: planned.
 
 ## Metrics
