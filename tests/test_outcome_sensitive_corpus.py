@@ -1,17 +1,21 @@
 import argparse
+import math
 
 import numpy as np
 import pandas as pd
 
-from autodrift.env import DriftEnvConfig, ObstacleTaskConfig
+from autodrift.env import AutoDriftEnv, DriftEnvConfig, ObstacleTaskConfig
+from autodrift.hidden_swap_gate import DecisionSnapshot
 from autodrift.outcome_sensitive_corpus import (
     ProbeConfig,
     build_outcome_sensitive_row,
     obstacle_override_config,
     parse_float_list,
     probe_action,
+    relocate_obstacle_snapshot,
     select_outcome_sensitive_corpus,
     should_probe,
+    snapshot_relocation_grid,
     source_outcome_metrics,
     summarize_outcomes,
 )
@@ -82,6 +86,64 @@ def test_obstacle_override_config_updates_only_requested_ranges():
     assert changed.obstacle.perception_reveal_step == 20
     assert changed.obstacle.perception_reveal_distance == 14.0
     assert config.obstacle.distance_range == (3.0, 25.0)
+
+
+def test_snapshot_relocation_grid_requires_distances_when_enabled():
+    assert snapshot_relocation_grid(None, None, None) == [(None, 0.0, None)]
+
+    try:
+        snapshot_relocation_grid(None, [0.0], [0.8])
+    except ValueError as exc:
+        assert "distances" in str(exc)
+    else:
+        raise AssertionError("relocation without distances should be rejected")
+
+    grid = snapshot_relocation_grid([8.0, 10.0], [-0.5, 0.5], [0.7])
+    assert grid == [(8.0, -0.5, 0.7), (8.0, 0.5, 0.7), (10.0, -0.5, 0.7), (10.0, 0.5, 0.7)]
+
+
+def test_relocate_obstacle_snapshot_preserves_history_and_updates_current_obstacle():
+    config = DriftEnvConfig(
+        obstacle=ObstacleTaskConfig(
+            enabled=True,
+            distance_range=(20.0, 20.0),
+            half_width_range=(0.5, 0.5),
+            finish_on_pass=True,
+        )
+    )
+    env = AutoDriftEnv(config)
+    obs, info = env.reset(seed=123)
+    snapshot = DecisionSnapshot(
+        condition="nominal",
+        seed=123,
+        step=int(info["step"]),
+        observation=obs.copy(),
+        hidden=None,
+        env=env,
+        info={**info, "active_probe_steps": 4},
+        obstacle_distance=float(info["obstacle_distance"]),
+        snapshot_score=0.0,
+    )
+
+    relocated = relocate_obstacle_snapshot(
+        snapshot,
+        body_longitudinal=9.0,
+        body_lateral=-1.0,
+        half_width=0.8,
+    )
+
+    relocated_body = relocated.env._body_point(relocated.env.obstacle_position)
+    assert snapshot.env.obstacle_scenario.obstacle_half_width == 0.5
+    assert np.allclose(relocated_body, [9.0, -1.0], atol=1e-5)
+    assert relocated.info["active_probe_steps"] == 4
+    assert relocated.info["snapshot_relocated"]
+    assert relocated.info["relocated_obstacle_half_width"] == 0.8
+    expected_margin = math.hypot(9.0, -1.0) - (config.obstacle.ego_half_width + 0.8)
+    assert np.isclose(relocated.info["min_clearance_margin"], expected_margin)
+    assert np.isclose(relocated.observation[44], 1.0)
+    assert np.isclose(relocated.observation[45], 9.0 / 80.0)
+    assert np.isclose(relocated.observation[46], -1.0 / 20.0)
+    assert np.isclose(relocated.observation[49], 0.8 / 5.0)
 
 
 def test_probe_action_is_bounded_and_uses_pedal_levels():

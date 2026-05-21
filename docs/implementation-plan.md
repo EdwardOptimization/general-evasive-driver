@@ -1629,9 +1629,30 @@ non-strict-context rows. See
 - Search for strict visible matches where normal history succeeds or keeps
   positive near-boundary margin and wrong history collides or loses margin.
 
-Status: planned after M74. Reset-level obstacle geometry sweeps destroy or move
-the active-probe history signal; the next sweep should operate on copied
-snapshots directly.
+Status: complete as infrastructure and negative strict diagnostic. M75 added
+snapshot-level obstacle relocation to `outcome_sensitive_corpus`, preserving the
+copied env, recurrent hidden state, active-probe metadata, and current
+action-response history while sweeping obstacle body-frame position and
+half-width. Strict sweeps produced stronger margin-gap rows than M74 but zero
+accepted outcome-sensitive snippets. A relaxed diagnostic accepted `2`
+wrong-history margin-loss snippets, confirming the harness is useful but the
+strict same-target snapshot pairing remains too weak. See
+`docs/m75-snapshot-level-obstacle-relocation-sweep.md`.
+
+### M76: Snapshot-Bank Visible Matcher
+
+- Collect multiple active-probe snapshots per seed and condition instead of one
+  nearest shared target distance.
+- Pair nominal and perturbed snapshots by actual visible response/context
+  distance.
+- Apply M75 snapshot-level obstacle relocation only after a visible-state match
+  is selected.
+- Rank candidates by strict visible match, normal-success or near-boundary
+  margin, and wrong-history margin loss.
+
+Status: planned after M75. M75 found source-outcome rows under snapshot
+relocation, but those rows failed strict visible matching. Matching from a
+snapshot bank should attack that blocker directly.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

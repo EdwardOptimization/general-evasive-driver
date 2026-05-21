@@ -25,8 +25,10 @@ Last updated: 2026-05-21
   M72 warm-up reveal gate also produced zero accepted outcome-sensitive cases,
   and M73 active probing only produced large margin gaps in invalid
   collision-to-collision near misses. M74's reset-level obstacle geometry sweep
-  did not turn those near misses into valid snippets. The next blocker is
-  snapshot-level obstacle relocation that preserves the probing history.
+  did not turn those near misses into valid snippets. M75 snapshot relocation
+  preserved the probing history and found relaxed wrong-history margin-loss
+  snippets, but strict visible matching still rejected them. The next blocker is
+  snapshot-bank visible matching before relocation.
 
 ## Standing Loop
 
@@ -3027,3 +3029,49 @@ active-probe margin signal or leave it only in invalid collision-to-collision /
 non-strict-context rows. The next task is M75: snapshot-level obstacle relocation
 that preserves ego state, hidden state, and active-probe history while sweeping
 only obstacle geometry.
+
+## 20260521T124839Z m75-snapshot-level-obstacle-relocation-sweep
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: preserving the active-probe snapshot and mutating only obstacle
+  geometry can turn M73/M74 near misses into valid normal-history /
+  wrong-history outcome-sensitive snippets.
+- code update: `outcome_sensitive_corpus` now supports snapshot relocation via
+  `--snapshot-relocation-distances`,
+  `--snapshot-relocation-lateral-offsets`, and
+  `--snapshot-relocation-half-widths`.
+- focused test: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift pytest -q tests/test_outcome_sensitive_corpus.py`
+  returned `11 passed`.
+- final validation: `git diff --check`, `python -m compileall -q src tests`,
+  and `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 conda run -n autodrift pytest -q`
+  returned `207 passed`.
+- run dirs:
+  `runs/m75_snapshot_relocation_smoke_seed8300`,
+  `runs/m75_snapshot_relocation_lateral_seed8301`,
+  `runs/m75_snapshot_relocation_mid_friction_seed8302`,
+  `runs/m75_snapshot_relocation_relaxed_seed8303`,
+  `runs/m75_snapshot_relocation_target_refine_seed8304`
+- artifact: `docs/m75-snapshot-level-obstacle-relocation-sweep.md`
+
+Result:
+
+- centered strict relocation: `288` candidates, `64` strict visible matches,
+  `103` margin-gap rows, `0` accepted outcome-sensitive pairs, max gap
+  `0.122641`;
+- lateral strict relocation: `810` candidates, `180` strict visible matches,
+  `2` source-outcome rows, `0` accepted pairs, max gap `0.227224`;
+- mid-friction strict relocation: `810` candidates, `180` strict visible
+  matches, `1` source-outcome row, `0` accepted pairs, max gap `0.228434`;
+- relaxed lateral diagnostic: `810` candidates, `720` relaxed visible matches,
+  `2` accepted pairs, max gap `0.227224`;
+- target-refined strict diagnostic: `162` candidates, `12` strict visible
+  matches, `7` source-outcome rows, `0` accepted pairs, max gap `0.020358`.
+
+Conclusion: M75 is an infrastructure pass but a negative strict gate result.
+Snapshot relocation preserves the M73 active-probe history and can expose
+wrong-history margin loss under relaxed matching. Under strict matching, the
+useful outcome rows are not visible-state matches, while strict visible rows
+have weak or invalid outcome effects. The next task is M76: collect a snapshot
+bank and pair by actual visible response/context distance before applying
+relocation.

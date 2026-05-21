@@ -247,15 +247,16 @@ Persisted in:
 Continue with:
 
 ```text
-m75-snapshot-level-obstacle-relocation-sweep
+m76-snapshot-bank-visible-matcher
 ```
 
 Implementation intent:
 
 ```text
-preserve M73 active-probe ego state and recurrent history
-mutate only obstacle position and half-width in copied snapshots
-search for normal-success / wrong-history-loss boundary cases
+collect many active-probe snapshots per condition
+pair nominal and perturbed snapshots by actual visible response/context distance
+apply M75 snapshot relocation after the visible-state match
+search for strict normal-success / wrong-history-loss boundary cases
 ```
 
 M70 showed that M69 wrong-history candidates do not degrade success or margin.
@@ -264,4 +265,7 @@ matched-snapshot cases. M72 added passive warm-up reveal, but it also found zero
 accepted outcome-sensitive cases. M73 active probing produced larger margin gaps
 only in invalid collision-to-collision near misses. M74 reset-level obstacle
 geometry sweeps did not fix that because changing obstacle sampling also changes
-the rollout/history. Do not proceed directly to student OSI distillation yet.
+the rollout/history. M75 snapshot relocation preserves the probing history and
+finds relaxed wrong-history margin-loss rows, but strict visible-state matching
+still rejects those rows. Do not proceed directly to student OSI distillation
+yet.

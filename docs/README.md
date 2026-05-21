@@ -198,6 +198,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m74-active-probe-outcome-bound-scenario-sweep.md`: geometry sweep around M73
   active-probe near misses and negative result motivating snapshot-level
   obstacle relocation.
+- `m75-snapshot-level-obstacle-relocation-sweep.md`: snapshot-preserving
+  obstacle relocation harness, strict/relaxed sweeps, and negative strict gate
+  result motivating snapshot-bank visible matching.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

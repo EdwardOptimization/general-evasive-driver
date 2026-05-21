@@ -5,6 +5,8 @@ from __future__ import annotations
 import argparse
 import copy
 from dataclasses import replace
+from itertools import product
+import math
 from pathlib import Path
 from typing import Any
 
@@ -29,6 +31,7 @@ from autodrift.paired_perturbation_gate import (
     parse_randomization_overrides,
     parse_range,
 )
+from autodrift.scenarios import classify_obstacle_scenario
 from autodrift.train_ppo import ActorCritic, HUMAN_VIEW_OBS_DIM
 
 
@@ -53,6 +56,13 @@ def parse_float_list(raw: str) -> list[float]:
     if any(value <= 0.0 for value in parsed):
         raise argparse.ArgumentTypeError("target obstacle distances must be positive")
     return parsed
+
+
+def parse_float_values(raw: str) -> list[float]:
+    values = [part.strip() for part in raw.split(",") if part.strip()]
+    if not values:
+        raise argparse.ArgumentTypeError("list must contain at least one value")
+    return [float(value) for value in values]
 
 
 def _bool(value: Any) -> bool:
@@ -257,6 +267,102 @@ def obstacle_override_config(
     if perception_reveal_distance is not None:
         obstacle = replace(obstacle, perception_reveal_distance=float(perception_reveal_distance))
     return replace(env_config, obstacle=obstacle)
+
+
+def snapshot_relocation_grid(
+    distances: list[float] | None,
+    lateral_offsets: list[float] | None,
+    half_widths: list[float] | None,
+) -> list[tuple[float | None, float, float | None]]:
+    if distances is None and lateral_offsets is None and half_widths is None:
+        return [(None, 0.0, None)]
+    if distances is None:
+        raise ValueError("snapshot relocation requires --snapshot-relocation-distances")
+    offsets = lateral_offsets if lateral_offsets is not None else [0.0]
+    widths = half_widths if half_widths is not None else [None]
+    if any(distance <= 0.0 for distance in distances):
+        raise ValueError("snapshot relocation distances must be positive")
+    if any(width is not None and width <= 0.0 for width in widths):
+        raise ValueError("snapshot relocation half-widths must be positive")
+    return [(float(distance), float(offset), None if width is None else float(width)) for distance, offset, width in product(distances, offsets, widths)]
+
+
+def _body_to_world(env: AutoDriftEnv, body_x: float, body_y: float) -> np.ndarray:
+    cos_psi = math.cos(env.state.psi)
+    sin_psi = math.sin(env.state.psi)
+    return np.array(
+        [
+            env.state.x + cos_psi * float(body_x) - sin_psi * float(body_y),
+            env.state.y + sin_psi * float(body_x) + cos_psi * float(body_y),
+        ],
+        dtype=np.float64,
+    )
+
+
+def relocate_obstacle_snapshot(
+    snapshot: DecisionSnapshot,
+    *,
+    body_longitudinal: float,
+    body_lateral: float = 0.0,
+    half_width: float | None = None,
+) -> DecisionSnapshot:
+    if body_longitudinal <= 0.0:
+        raise ValueError("body_longitudinal must be positive")
+    env = copy.deepcopy(snapshot.env)
+    if env.obstacle_scenario is None:
+        raise ValueError("cannot relocate a snapshot without an obstacle scenario")
+    relocated_half_width = (
+        float(env.obstacle_scenario.obstacle_half_width) if half_width is None else float(half_width)
+    )
+    if relocated_half_width <= 0.0:
+        raise ValueError("half_width must be positive")
+
+    speed = max(math.hypot(env.state.vx, env.state.vy), 1e-6)
+    scenario = classify_obstacle_scenario(
+        speed=speed,
+        mu=env.params.mu,
+        obstacle_distance=float(body_longitudinal),
+        obstacle_half_width=relocated_half_width,
+        config=env.config.obstacle.scenario_config(speed=speed, mu=env.params.mu),
+    )
+    env.obstacle_scenario = scenario
+    env.obstacle_position = _body_to_world(env, float(body_longitudinal), float(body_lateral))
+    env.min_obstacle_clearance = float("inf")
+    env.collision = False
+    env.obstacle_completed = False
+    frame = env.track.frame(env.state.x, env.state.y, env.state.psi)
+    env._update_obstacle_status(frame)
+    relocated_base = env._base_observation()
+    if env.obs_history:
+        env.obs_history[0] = relocated_base.copy()
+    else:
+        env.obs_history = [relocated_base.copy() for _ in range(env.config.history_length)]
+    relocated_observation = env._observation()
+    relocated_info = env._info(frame)
+    for key, value in snapshot.info.items():
+        if key.startswith("active_probe_"):
+            relocated_info[key] = value
+    relocated_info.update(
+        {
+            "snapshot_relocated": True,
+            "source_obstacle_distance": snapshot.info.get("obstacle_distance", float("nan")),
+            "source_obstacle_lateral_offset": snapshot.info.get("obstacle_lateral_offset", float("nan")),
+            "relocated_obstacle_body_x": float(body_longitudinal),
+            "relocated_obstacle_body_y": float(body_lateral),
+            "relocated_obstacle_half_width": relocated_half_width,
+        }
+    )
+    return DecisionSnapshot(
+        condition=snapshot.condition,
+        seed=snapshot.seed,
+        step=snapshot.step,
+        observation=np.asarray(relocated_observation, dtype=np.float32).copy(),
+        hidden=clone_hidden(snapshot.hidden),
+        env=env,
+        info=relocated_info,
+        obstacle_distance=float(body_longitudinal),
+        snapshot_score=snapshot.snapshot_score,
+    )
 
 
 def source_outcome_metrics(
@@ -534,6 +640,9 @@ def run_outcome_sensitive_corpus(
     max_continuation_steps: int | None,
     top_k: int,
     probe_config: ProbeConfig | None = None,
+    snapshot_relocation_distances: list[float] | None = None,
+    snapshot_relocation_lateral_offsets: list[float] | None = None,
+    snapshot_relocation_half_widths: list[float] | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     base_config = obstacle_override_config(
         base_config,
@@ -557,6 +666,12 @@ def run_outcome_sensitive_corpus(
         until_step=None,
         until_distance=None,
     )
+    relocation_grid = snapshot_relocation_grid(
+        snapshot_relocation_distances,
+        snapshot_relocation_lateral_offsets,
+        snapshot_relocation_half_widths,
+    )
+    uses_snapshot_relocation = any(distance is not None for distance, _, _ in relocation_grid)
     for seed in seeds:
         for target_distance in target_obstacle_distances:
             snapshots: dict[str, DecisionSnapshot | None] = {}
@@ -591,44 +706,78 @@ def run_outcome_sensitive_corpus(
                 except RuntimeError as exc:
                     snapshots[condition] = None
                     errors[condition] = str(exc)
-            row, replays = build_outcome_sensitive_row(
-                seed,
-                target_distance,
-                snapshots["nominal"],
-                snapshots["perturbed"],
-                model,
-                configs["nominal"],
-                configs["perturbed"],
-                max_visible_distance=max_visible_distance,
-                max_response_distance=max_response_distance,
-                max_context_distance=max_context_distance,
-                min_margin_gap=min_margin_gap,
-                min_normal_margin=min_normal_margin,
-                max_normal_margin=max_normal_margin,
-                require_normal_success=require_normal_success,
-                max_continuation_steps=max_continuation_steps,
-            )
-            row["active_probe_strategy"] = active_probe_config.strategy
-            if snapshots["nominal"] is not None:
-                row["nominal_active_probe_steps"] = int(snapshots["nominal"].info.get("active_probe_steps", 0))
-                row["nominal_active_probe_steer_abs_mean"] = _float(
-                    snapshots["nominal"].info.get("active_probe_steer_abs_mean", float("nan"))
+            for relocation_distance, relocation_lateral, relocation_half_width in relocation_grid:
+                candidate_snapshots = snapshots
+                row_errors = dict(errors)
+                if relocation_distance is not None:
+                    candidate_snapshots = {"nominal": None, "perturbed": None}
+                    for condition in ["nominal", "perturbed"]:
+                        snapshot = snapshots[condition]
+                        if snapshot is None:
+                            continue
+                        try:
+                            candidate_snapshots[condition] = relocate_obstacle_snapshot(
+                                snapshot,
+                                body_longitudinal=relocation_distance,
+                                body_lateral=relocation_lateral,
+                                half_width=relocation_half_width,
+                            )
+                        except ValueError as exc:
+                            row_errors[condition] = str(exc)
+                row_target_distance = (
+                    float(target_distance) if relocation_distance is None else float(relocation_distance)
                 )
-                row["nominal_active_probe_brake_mean"] = _float(
-                    snapshots["nominal"].info.get("active_probe_brake_mean", float("nan"))
+                row, replays = build_outcome_sensitive_row(
+                    seed,
+                    row_target_distance,
+                    candidate_snapshots["nominal"],
+                    candidate_snapshots["perturbed"],
+                    model,
+                    configs["nominal"],
+                    configs["perturbed"],
+                    max_visible_distance=max_visible_distance,
+                    max_response_distance=max_response_distance,
+                    max_context_distance=max_context_distance,
+                    min_margin_gap=min_margin_gap,
+                    min_normal_margin=min_normal_margin,
+                    max_normal_margin=max_normal_margin,
+                    require_normal_success=require_normal_success,
+                    max_continuation_steps=max_continuation_steps,
                 )
-            if snapshots["perturbed"] is not None:
-                row["perturbed_active_probe_steps"] = int(snapshots["perturbed"].info.get("active_probe_steps", 0))
-                row["perturbed_active_probe_steer_abs_mean"] = _float(
-                    snapshots["perturbed"].info.get("active_probe_steer_abs_mean", float("nan"))
+                row["source_target_obstacle_distance"] = float(target_distance)
+                row["snapshot_relocated"] = uses_snapshot_relocation
+                row["relocated_obstacle_body_x"] = (
+                    float("nan") if relocation_distance is None else float(relocation_distance)
                 )
-                row["perturbed_active_probe_brake_mean"] = _float(
-                    snapshots["perturbed"].info.get("active_probe_brake_mean", float("nan"))
+                row["relocated_obstacle_body_y"] = float(relocation_lateral)
+                row["relocated_obstacle_half_width"] = (
+                    float("nan") if relocation_half_width is None else float(relocation_half_width)
                 )
-            row["nominal_error"] = errors.get("nominal", "")
-            row["perturbed_error"] = errors.get("perturbed", "")
-            rows.append(row)
-            replay_rows.extend(replays)
+                row["active_probe_strategy"] = active_probe_config.strategy
+                if candidate_snapshots["nominal"] is not None:
+                    row["nominal_active_probe_steps"] = int(
+                        candidate_snapshots["nominal"].info.get("active_probe_steps", 0)
+                    )
+                    row["nominal_active_probe_steer_abs_mean"] = _float(
+                        candidate_snapshots["nominal"].info.get("active_probe_steer_abs_mean", float("nan"))
+                    )
+                    row["nominal_active_probe_brake_mean"] = _float(
+                        candidate_snapshots["nominal"].info.get("active_probe_brake_mean", float("nan"))
+                    )
+                if candidate_snapshots["perturbed"] is not None:
+                    row["perturbed_active_probe_steps"] = int(
+                        candidate_snapshots["perturbed"].info.get("active_probe_steps", 0)
+                    )
+                    row["perturbed_active_probe_steer_abs_mean"] = _float(
+                        candidate_snapshots["perturbed"].info.get("active_probe_steer_abs_mean", float("nan"))
+                    )
+                    row["perturbed_active_probe_brake_mean"] = _float(
+                        candidate_snapshots["perturbed"].info.get("active_probe_brake_mean", float("nan"))
+                    )
+                row["nominal_error"] = row_errors.get("nominal", "")
+                row["perturbed_error"] = row_errors.get("perturbed", "")
+                rows.append(row)
+                replay_rows.extend(replays)
 
     candidates = pd.DataFrame(rows)
     replays = pd.DataFrame(replay_rows)
@@ -673,6 +822,9 @@ def main() -> None:
     parser.add_argument("--probe-period-steps", type=int, default=20)
     parser.add_argument("--probe-until-step", type=int, default=None)
     parser.add_argument("--probe-until-distance", type=float, default=None)
+    parser.add_argument("--snapshot-relocation-distances", type=parse_float_list, default=None)
+    parser.add_argument("--snapshot-relocation-lateral-offsets", type=parse_float_values, default=None)
+    parser.add_argument("--snapshot-relocation-half-widths", type=parse_float_list, default=None)
     parser.add_argument("--top-k", type=int, default=40)
     parser.add_argument("--run-dir", type=Path, default=None)
     args = parser.parse_args()
@@ -724,6 +876,9 @@ def main() -> None:
         max_continuation_steps=args.max_continuation_steps,
         top_k=args.top_k,
         probe_config=probe_config,
+        snapshot_relocation_distances=args.snapshot_relocation_distances,
+        snapshot_relocation_lateral_offsets=args.snapshot_relocation_lateral_offsets,
+        snapshot_relocation_half_widths=args.snapshot_relocation_half_widths,
     )
 
     candidates_csv = run_dir / "outcome_candidates.csv"
@@ -774,6 +929,11 @@ def main() -> None:
                 "period_steps": probe_config.period_steps,
                 "until_step": probe_config.until_step,
                 "until_distance": probe_config.until_distance,
+            },
+            "snapshot_relocation": {
+                "distances": args.snapshot_relocation_distances,
+                "lateral_offsets": args.snapshot_relocation_lateral_offsets,
+                "half_widths": args.snapshot_relocation_half_widths,
             },
             "top_k": args.top_k,
             "artifacts": {
