@@ -8,6 +8,7 @@ from autodrift.train_ppo import (
     PPOConfig,
     build_sequence_targets,
     evaluate_actor,
+    load_training_seed_csv,
     load_init_checkpoint_state,
     train,
 )
@@ -107,6 +108,39 @@ def test_train_writes_periodic_checkpoints(tmp_path):
     loaded, checkpoint = load_actor_critic_checkpoint(periodic[0], device="cpu")
     assert loaded.obs_dim == 11
     assert checkpoint["config"]["checkpoint_interval_steps"] == 32
+
+
+def test_training_seed_csv_loads_ordered_seeds(tmp_path):
+    seed_csv = tmp_path / "seeds.csv"
+    seed_csv.write_text("seed,notes\n101,a\n103,b\n", encoding="utf-8")
+
+    assert load_training_seed_csv(seed_csv) == [101, 103]
+
+
+def test_train_accepts_hard_response_seed_csv(tmp_path):
+    seed_csv = tmp_path / "seeds.csv"
+    seed_csv.write_text("seed\n101\n103\n", encoding="utf-8")
+    save_path = tmp_path / "run" / "checkpoint.pt"
+    config = PPOConfig(
+        total_steps=32,
+        rollout_steps=8,
+        num_envs=2,
+        update_epochs=1,
+        minibatch_size=8,
+        hidden_size=8,
+        training_seed_csv=str(seed_csv),
+        seed=123,
+        device="cpu",
+    )
+
+    train(
+        config,
+        save_path=save_path,
+        env_config=DriftEnvConfig(max_steps=4, speed_range=(4.0, 6.0)),
+    )
+
+    _, checkpoint = load_actor_critic_checkpoint(save_path, device="cpu")
+    assert checkpoint["config"]["training_seed_csv"] == str(seed_csv)
 
 
 def test_sequence_actor_checkpoint_loads_and_predicts_plan(tmp_path):

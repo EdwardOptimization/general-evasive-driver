@@ -8,6 +8,7 @@ to a vectorized trainer such as Stable-Baselines3, CleanRL, or RL-Games.
 from __future__ import annotations
 
 import argparse
+import csv
 from dataclasses import dataclass, fields, replace
 from pathlib import Path
 import sys
@@ -57,6 +58,7 @@ class PPOConfig:
     response_prediction_aux_coef: float = 0.0
     response_prediction_dim: int = 0
     checkpoint_interval_steps: int = 0
+    training_seed_csv: str = ""
     seed: int = 5
     device: str = "auto"
 
@@ -496,6 +498,18 @@ def build_sequence_targets(
     return target, mask
 
 
+def load_training_seed_csv(path: Path | str) -> list[int]:
+    seed_path = Path(path)
+    with seed_path.open(newline="", encoding="utf-8") as handle:
+        reader = csv.DictReader(handle)
+        if reader.fieldnames is None or "seed" not in reader.fieldnames:
+            raise ValueError(f"training seed CSV must contain a 'seed' column: {seed_path}")
+        seeds = [int(row["seed"]) for row in reader]
+    if not seeds:
+        raise ValueError(f"training seed CSV is empty: {seed_path}")
+    return seeds
+
+
 def train(
     config: PPOConfig,
     save_path: Path | None = None,
@@ -526,7 +540,15 @@ def train(
             raise ValueError("response_prediction_dim must be positive when response_prediction_aux_coef > 0")
     if config.checkpoint_interval_steps < 0:
         raise ValueError("checkpoint_interval_steps cannot be negative")
-    env = SyncAutoDriftVectorEnv(num_envs=config.num_envs, config=active_env_config, seed=config.seed)
+    training_seed_sequence = (
+        load_training_seed_csv(config.training_seed_csv) if str(config.training_seed_csv).strip() else None
+    )
+    env = SyncAutoDriftVectorEnv(
+        num_envs=config.num_envs,
+        config=active_env_config,
+        seed=config.seed,
+        seed_sequence=training_seed_sequence,
+    )
     obs, infos = env.reset()
     if config.response_prediction_dim > env.single_observation_space.shape[0]:
         raise ValueError("response_prediction_dim cannot exceed observation dimension")
@@ -561,7 +583,12 @@ def train(
                 raise ValueError("online recurrent actors require env history_length=1 in every curriculum stage")
             active_env_config = next_env_config
             active_stage = next_stage
-            env = SyncAutoDriftVectorEnv(num_envs=config.num_envs, config=active_env_config, seed=config.seed + global_step)
+            env = SyncAutoDriftVectorEnv(
+                num_envs=config.num_envs,
+                config=active_env_config,
+                seed=config.seed + global_step,
+                seed_sequence=training_seed_sequence,
+            )
             obs, infos = env.reset()
             recurrent_hidden = model.initial_hidden(config.num_envs, device) if uses_online_recurrent else None
             print(f"curriculum_stage={active_stage} step={global_step}")

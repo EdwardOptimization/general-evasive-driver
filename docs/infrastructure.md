@@ -92,6 +92,10 @@ Hard response corpus mining writes:
 - `summary.json`: selected seed count and success-changing pair count.
 - `manifest.json`: source gate files, policies, and artifact paths.
 
+Training can optionally use `PPOConfig.training_seed_csv` to cycle a fixed seed
+corpus during environment resets. The seed corpus is a simulator reset schedule
+only; seeds are not actor observations or checkpoint inputs.
+
 M7 gate writes:
 
 - `benchmark_comparison/`: shared-seed AEB/AES/envelope/M5/M7 comparison.

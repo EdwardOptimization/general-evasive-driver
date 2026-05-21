@@ -72,6 +72,8 @@ vehicle/tire models, and NMPC-style constrained control.
   after M20 showed response masking still does not hurt the best checkpoint.
 - `m22-hard-response-dependence-gate.md`: next gate direction for mining or
   constructing cases where response ablation must change the outcome.
+- `m23-hard-corpus-training.md`: hard response seed oversampling path and first
+  M23 training configuration.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.
