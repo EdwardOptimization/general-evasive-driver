@@ -13,6 +13,9 @@ from autodrift.train_ppo import (
     HUMAN_VIEW_RESPONSE_FEATURE_DIM,
     PRIVILEGED_HUMAN_VIEW_OBS_DIM,
     PRIVILEGED_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER,
+    WHEEL_HUMAN_VIEW_OBS_DIM,
+    WHEEL_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER,
+    WHEEL_HUMAN_VIEW_RESPONSE_FEATURE_DIM,
     ActorCritic,
     adapt_actor_critic_state,
     resolve_device,
@@ -65,6 +68,17 @@ def load_actor_critic_checkpoint(
         context_dim = int(state_dict["context_encoder.0.weight"].shape[1])
         if response_dim != HUMAN_VIEW_RESPONSE_FEATURE_DIM or response_dim + context_dim != HUMAN_VIEW_OBS_DIM:
             raise RuntimeError("human-view checkpoint does not match the canonical 72-value actor frame")
+        source_obs_dim = response_dim + context_dim
+    elif actor_encoder == WHEEL_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER:
+        if "response_encoder.0.weight" not in state_dict or "context_encoder.0.weight" not in state_dict:
+            raise RuntimeError("wheel human-view checkpoint is missing response/context encoder weights")
+        response_dim = int(state_dict["response_encoder.0.weight"].shape[1])
+        context_dim = int(state_dict["context_encoder.0.weight"].shape[1])
+        if (
+            response_dim != WHEEL_HUMAN_VIEW_RESPONSE_FEATURE_DIM
+            or response_dim + context_dim != WHEEL_HUMAN_VIEW_OBS_DIM
+        ):
+            raise RuntimeError("wheel human-view checkpoint does not match the canonical 85-value actor frame")
         source_obs_dim = response_dim + context_dim
     elif actor_encoder == PRIVILEGED_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER:
         required_keys = (

@@ -162,11 +162,12 @@ oracle labels:
   is working;
 - asymmetric PPO action bounds for true `[steer, throttle, brake]` output.
 
-## Planned Wheel/Tire Response Branch
+## Wheel/Tire Response Branch
 
-M81 prioritizes wheel/tire response as the next self-identification input
-branch. The first version should add axle-level deployable response features to
-the response GRU stream:
+M81 adds `wheel_observation_mode="front_rear"` as a config-gated
+self-identification input branch. It keeps the default 72-value frame unchanged,
+and adds axle-level deployable response features to the response GRU stream only
+when enabled:
 
 ```text
 front_wheel_speed
@@ -182,6 +183,14 @@ drive_torque_rear
 abs_front
 abs_rear
 tcs_active
+```
+
+With `action_history_mode="full"`, the Stage 1 wheel frame is:
+
+```text
+0-11   body response + previous commands
+12-24  front/rear wheel response
+25-84  road and obstacle context
 ```
 
 These are allowed because they are vehicle feedback, not hidden environment

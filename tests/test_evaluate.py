@@ -87,6 +87,23 @@ def test_actor_policy_can_ablate_all_response_history():
     np.testing.assert_allclose(transformed[12:72], observation[12:72])
 
 
+def test_actor_policy_can_ablate_wheel_response_only():
+    env_config = DriftEnvConfig(
+        history_length=2,
+        action_history_mode="full",
+        wheel_observation_mode="front_rear",
+    )
+    policy = ActorPolicy(ActorCritic(obs_dim=170, act_dim=3, hidden_size=8), env_config, ablation="zero_wheel_response")
+    observation = np.arange(170, dtype=np.float32)
+
+    transformed = policy._transform_observation(observation)
+
+    np.testing.assert_allclose(transformed[12:25], np.zeros(13, dtype=np.float32))
+    np.testing.assert_allclose(transformed[97:110], np.zeros(13, dtype=np.float32))
+    np.testing.assert_allclose(transformed[:12], observation[:12])
+    np.testing.assert_allclose(transformed[25:85], observation[25:85])
+
+
 def test_actor_policy_can_ablate_temporal_history():
     env_config = DriftEnvConfig(history_length=2, action_history_mode="full")
     policy = ActorPolicy(ActorCritic(obs_dim=144, act_dim=3, hidden_size=8), env_config, ablation="single_frame_history")

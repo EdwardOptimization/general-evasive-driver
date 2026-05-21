@@ -242,6 +242,36 @@ def test_human_view_online_actor_requires_canonical_frame():
         ActorCritic(obs_dim=71, act_dim=3, hidden_size=16, actor_encoder="human_view_online_gru")
 
 
+def test_wheel_human_view_online_actor_checkpoint_loads(tmp_path):
+    model = ActorCritic(obs_dim=85, act_dim=3, hidden_size=16, actor_encoder="wheel_human_view_online_gru")
+    checkpoint_path = tmp_path / "checkpoint.pt"
+    torch.save(
+        {
+            "model_state": {key: value.detach().cpu() for key, value in model.state_dict().items()},
+            "config": model_config(actor_encoder="wheel_human_view_online_gru", actor_history_length=1),
+        },
+        checkpoint_path,
+    )
+
+    loaded, _ = load_actor_critic_checkpoint(checkpoint_path, device="cpu")
+    observation = np.linspace(-0.5, 0.5, 85, dtype=np.float32)
+    action, _, value, hidden = loaded.act_recurrent(observation, deterministic=True)
+    _, _, _, next_hidden = loaded.act_recurrent(observation, hidden, deterministic=True)
+
+    assert loaded.actor_encoder == "wheel_human_view_online_gru"
+    assert loaded.response_feature_indices == tuple(range(25))
+    assert loaded.context_feature_indices == tuple(range(25, 85))
+    assert action.shape == (3,)
+    assert hidden.shape == (1, 16)
+    assert not torch.allclose(hidden, next_hidden)
+    assert np.isfinite(value)
+
+
+def test_wheel_human_view_online_actor_requires_wheel_frame():
+    with np.testing.assert_raises(ValueError):
+        ActorCritic(obs_dim=84, act_dim=3, hidden_size=16, actor_encoder="wheel_human_view_online_gru")
+
+
 def test_privileged_human_view_online_actor_requires_teacher_frame():
     with np.testing.assert_raises(ValueError):
         ActorCritic(obs_dim=81, act_dim=3, hidden_size=16, actor_encoder="privileged_human_view_online_gru")

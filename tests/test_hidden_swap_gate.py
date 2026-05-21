@@ -21,6 +21,16 @@ def test_response_feature_indices_cover_each_frame_response_stream():
     assert response_feature_indices(config, 144) == list(range(12)) + list(range(72, 84))
 
 
+def test_response_feature_indices_include_wheel_response_stream():
+    config = DriftEnvConfig(
+        history_length=2,
+        action_history_mode="full",
+        wheel_observation_mode="front_rear",
+    )
+
+    assert response_feature_indices(config, 170) == list(range(25)) + list(range(85, 110))
+
+
 def test_zero_response_observation_zeroes_all_response_frames():
     config = DriftEnvConfig(history_length=2, action_history_mode="full")
     observation = np.arange(144, dtype=np.float32)

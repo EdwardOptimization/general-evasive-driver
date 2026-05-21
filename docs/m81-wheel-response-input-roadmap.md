@@ -231,3 +231,151 @@ If M80 fails, fix the objective/sign/data before more PPO. If M80 passes, M81
 should still proceed because the MHTML review identifies wheel response as the
 missing sensory channel for a professional-driver-like self-identification
 claim.
+
+## Stage 1 Implementation
+
+Status: complete as infrastructure, not as a trained driver result.
+
+Added:
+
+```text
+wheel_observation_mode = "front_rear"
+actor_encoder = "wheel_human_view_online_gru"
+checkpoint ablation = zero_wheel_response
+configs/ppo_m81_wheel_response_gru_driver.json
+```
+
+The `front_rear` profile keeps the old 72-value human-view contract unchanged
+when disabled. When enabled, it adds 13 response-stream features after the
+action-history channels:
+
+```text
+front_wheel_speed
+rear_wheel_speed
+front_wheel_accel
+rear_wheel_accel
+front_slip_proxy
+rear_slip_proxy
+rear_minus_front_slip
+brake_pressure_front
+brake_pressure_rear
+drive_torque_rear
+abs_front
+abs_rear
+tcs_active
+```
+
+Current Stage 1 dimensions:
+
+```text
+observation_dim = 85
+response_stream_dim = 25
+context_stream_dim = 60
+```
+
+The slip signal is a sensor-style proxy derived from actuator force versus
+realized rear longitudinal tire force. It does not expose true `mu`, true tire
+capacity, tire saturation labels, or feasibility labels.
+
+## Stage 1 Validation
+
+Focused validation:
+
+```text
+python -m compileall -q src tests
+OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src \
+  conda run -n autodrift pytest -q \
+  tests/test_env.py \
+  tests/test_checkpoints.py \
+  tests/test_hidden_swap_gate.py \
+  tests/test_evaluate.py \
+  tests/test_benchmark.py
+git diff --check
+```
+
+Result:
+
+```text
+91 passed
+```
+
+Smoke training:
+
+```text
+OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 conda run -n autodrift python -m autodrift.train_ppo \
+  --config configs/ppo_m81_wheel_response_gru_driver.json \
+  --total-steps 4096 \
+  --rollout-steps 64 \
+  --num-envs 4 \
+  --vector-env-mode sync \
+  --seed 3581 \
+  --device cpu \
+  --run-dir runs/ppo_m81_wheel_response_smoke_seed3581 \
+  --eval-episodes 2
+```
+
+Result:
+
+```text
+eval_return_mean = 19.778977
+termination_rate = 1.0
+```
+
+The smoke validates the training path, but the checkpoint is not a candidate.
+
+Wheel ablation smoke:
+
+```text
+OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 conda run -n autodrift python -m autodrift.benchmark \
+  --env-config configs/ppo_m81_wheel_response_gru_driver.json \
+  --episodes 2 \
+  --seed 8810 \
+  --checkpoint-policy m81_smoke=runs/ppo_m81_wheel_response_smoke_seed3581/checkpoint.pt \
+  --checkpoint-policy m81_zero_wheel=runs/ppo_m81_wheel_response_smoke_seed3581/checkpoint.pt@zero_wheel_response \
+  --device cpu \
+  --run-dir runs/m81_wheel_response_ablation_smoke_seed8810
+```
+
+Result:
+
+| Policy | Success | Termination | Min Clearance Mean |
+| --- | ---: | ---: | ---: |
+| `m81_smoke` | 0.5 | 0.5 | 0.016724 |
+| `m81_zero_wheel` | 0.5 | 0.5 | 0.180523 |
+
+The zero-wheel path runs, but this short checkpoint has not learned useful
+wheel dependence.
+
+## Stage 1 Conclusion
+
+M81 Stage 1 completes the wheel-response infrastructure:
+
+- the simulator exposes a deployable front/rear wheel-response stream;
+- the actor has a dedicated 85-value wheel human-view recurrent encoder;
+- checkpoint loading supports the new actor frame;
+- response masking and hidden-swap distance accounting include wheel response;
+- benchmark/evaluate can run `@zero_wheel_response`.
+
+Remaining work:
+
+- train a real wheel-response driver, not a 4096-step smoke;
+- add wrong wheel-history injection, not just zero-wheel masking;
+- add noisy/delayed wheel sensors;
+- consider four-wheel extension after front/rear shows useful dependence.
+
+## Final Validation
+
+```text
+git diff --check
+python -m compileall -q src tests
+python -m json.tool experiments/research_status.json
+python -m json.tool configs/ppo_m81_wheel_response_gru_driver.json
+python csv validation for experiments/research_queue.csv
+OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 conda run -n autodrift pytest -q
+```
+
+Result:
+
+```text
+225 passed in 3.85s
+```

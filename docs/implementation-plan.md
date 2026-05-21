@@ -1750,11 +1750,12 @@ driving collapse, but this is not a promotion gate. See
 - Gate the branch with zero-wheel, wrong wheel-history, and high/low-friction
   wheel-history injection tests, not success rate alone.
 
-Status: planned after the M80 objective-only sanity check. The MHTML project
-review is consolidated in `docs/external-review-5-5pro-mhtml.md`; the M81
-execution plan in `docs/m81-wheel-response-input-roadmap.md` identifies
-wheel/tire response as the missing deployable sensory channel for a
-professional-driver self-identification claim.
+Status: complete as Stage 1 infrastructure. M81 adds a config-gated
+`front_rear` wheel-response observation profile, an 85-value
+`wheel_human_view_online_gru` actor, checkpoint loading support, and
+`zero_wheel_response` benchmark ablation. The 4096-step smoke trains end to
+end, but the checkpoint is not a candidate (`termination_rate = 1.0` on the
+2-episode eval). See `docs/m81-wheel-response-input-roadmap.md`.
 
 ### M82: PPO Reintroduction For Outcome Objective
 
@@ -1769,6 +1770,19 @@ professional-driver self-identification claim.
 Status: planned after M81 or as a small parallel branch. M80 proves the loss can
 move in isolation; M78/M79 still show PPO integration can move it in the wrong
 direction.
+
+### M83: Wheel Response Driver Training Gate
+
+- Train the new 85-value wheel-response recurrent driver beyond smoke scale.
+- Compare against the 72-value M62 baseline on same-seed obstacle and
+  margin-retention gates.
+- Run `zero_wheel_response`, `zero_all_response`, and `reset_recurrent_state`
+  ablations.
+- Do not promote unless wheel/history dependence improves without aggregate
+  margin regression.
+
+Status: planned after M82 or as the next wheel-specific training branch. M81
+only proves the infrastructure is runnable.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

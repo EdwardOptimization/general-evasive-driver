@@ -21,7 +21,7 @@ from torch.optim import Adam
 
 from autodrift.artifacts import make_run_dir, read_json, to_jsonable, write_csv_rows, write_json
 from autodrift.config import build_curriculum, build_env_config, env_config_for_step
-from autodrift.env import AutoDriftEnv, DriftEnvConfig
+from autodrift.env import AutoDriftEnv, DriftEnvConfig, FRONT_REAR_WHEEL_OBS_DIM
 from autodrift.intervention_objectives import (
     action_mean_margin_contrast_loss,
     baseline_action_anchor_loss,
@@ -36,13 +36,17 @@ from autodrift.vector_env import ParallelAutoDriftVectorEnv, SyncAutoDriftVector
 
 HUMAN_VIEW_OBS_DIM = 72
 HUMAN_VIEW_RESPONSE_FEATURE_DIM = 12
+WHEEL_HUMAN_VIEW_OBS_DIM = HUMAN_VIEW_OBS_DIM + FRONT_REAR_WHEEL_OBS_DIM
+WHEEL_HUMAN_VIEW_RESPONSE_FEATURE_DIM = HUMAN_VIEW_RESPONSE_FEATURE_DIM + FRONT_REAR_WHEEL_OBS_DIM
 FULL_DYNAMICS_PRIVILEGED_FEATURE_DIM = 10
 PRIVILEGED_HUMAN_VIEW_OBS_DIM = HUMAN_VIEW_OBS_DIM + FULL_DYNAMICS_PRIVILEGED_FEATURE_DIM
 HUMAN_VIEW_ONLINE_RECURRENT_ENCODERS = {"response_critical_online_gru", "human_view_online_gru"}
+WHEEL_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER = "wheel_human_view_online_gru"
 PRIVILEGED_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER = "privileged_human_view_online_gru"
 ONLINE_RECURRENT_ENCODERS = {
     "online_gru",
     *HUMAN_VIEW_ONLINE_RECURRENT_ENCODERS,
+    WHEEL_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER,
     PRIVILEGED_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER,
 }
 
@@ -127,7 +131,7 @@ class ActorCritic(nn.Module):
         if actor_encoder not in {"mlp", "temporal_gru", *ONLINE_RECURRENT_ENCODERS}:
             raise ValueError(
                 "actor_encoder must be one of: mlp, temporal_gru, online_gru, response_critical_online_gru, "
-                "human_view_online_gru, privileged_human_view_online_gru"
+                "human_view_online_gru, wheel_human_view_online_gru, privileged_human_view_online_gru"
             )
         if actor_history_length < 1:
             raise ValueError("actor_history_length must be at least 1")
@@ -159,7 +163,10 @@ class ActorCritic(nn.Module):
             self.privileged_feature_indices = ()
             self.privileged_encoder = None
             self.privileged_residual = None
-        elif self.actor_encoder in HUMAN_VIEW_ONLINE_RECURRENT_ENCODERS | {PRIVILEGED_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER}:
+        elif self.actor_encoder in (
+            HUMAN_VIEW_ONLINE_RECURRENT_ENCODERS
+            | {WHEEL_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER, PRIVILEGED_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER}
+        ):
             if self.actor_encoder == PRIVILEGED_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER:
                 if obs_dim != PRIVILEGED_HUMAN_VIEW_OBS_DIM:
                     raise ValueError(
@@ -168,16 +175,24 @@ class ActorCritic(nn.Module):
                     )
                 context_limit = HUMAN_VIEW_OBS_DIM
                 self.privileged_feature_indices = tuple(range(HUMAN_VIEW_OBS_DIM, PRIVILEGED_HUMAN_VIEW_OBS_DIM))
+                response_limit = HUMAN_VIEW_RESPONSE_FEATURE_DIM
+            elif self.actor_encoder == WHEEL_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER:
+                if obs_dim != WHEEL_HUMAN_VIEW_OBS_DIM:
+                    raise ValueError("wheel human-view online GRU actors require the canonical 85-value actor frame")
+                context_limit = obs_dim
+                self.privileged_feature_indices = ()
+                response_limit = WHEEL_HUMAN_VIEW_RESPONSE_FEATURE_DIM
             else:
                 if obs_dim != HUMAN_VIEW_OBS_DIM:
                     raise ValueError("human-view online GRU actors require the canonical 72-value actor frame")
                 context_limit = obs_dim
                 self.privileged_feature_indices = ()
+                response_limit = HUMAN_VIEW_RESPONSE_FEATURE_DIM
             self.shared = None
             self.frame_encoder = None
             self.temporal_gru = None
-            self.response_feature_indices = tuple(range(HUMAN_VIEW_RESPONSE_FEATURE_DIM))
-            self.context_feature_indices = tuple(range(HUMAN_VIEW_RESPONSE_FEATURE_DIM, context_limit))
+            self.response_feature_indices = tuple(range(response_limit))
+            self.context_feature_indices = tuple(range(response_limit, context_limit))
             self.response_encoder = nn.Sequential(
                 nn.Linear(len(self.response_feature_indices), hidden_size),
                 nn.Tanh(),
@@ -288,7 +303,10 @@ class ActorCritic(nn.Module):
     def recurrent_features_tensor(self, obs: torch.Tensor, hidden: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
         if not self.is_online_recurrent:
             raise RuntimeError("recurrent_features_tensor requires an online recurrent actor_encoder")
-        if self.actor_encoder in HUMAN_VIEW_ONLINE_RECURRENT_ENCODERS | {PRIVILEGED_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER}:
+        if self.actor_encoder in (
+            HUMAN_VIEW_ONLINE_RECURRENT_ENCODERS
+            | {WHEEL_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER, PRIVILEGED_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER}
+        ):
             return self._response_critical_features_tensor(obs, hidden)
         assert self.frame_encoder is not None
         assert self.online_gru_cell is not None

@@ -163,6 +163,12 @@ def test_parse_checkpoint_specs_accepts_response_ablation():
     ]
 
 
+def test_parse_checkpoint_specs_accepts_wheel_ablation():
+    assert parse_checkpoint_specs(["m81_zero_wheel=runs/a.pt@zero_wheel_response"]) == [
+        ("m81_zero_wheel", Path("runs/a.pt"), "zero_wheel_response")
+    ]
+
+
 def test_load_seed_csv_reads_seed_column(tmp_path):
     path = tmp_path / "seeds.csv"
     path.write_text("seed,obstacle_label\n12,aes_feasible\n15,drift_required\n", encoding="utf-8")

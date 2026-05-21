@@ -3295,3 +3295,40 @@ Conclusion: M80 is a positive objective sanity result, not a promoted driver.
 The objective can move in isolation, so the next highest-leverage task is M81:
 add wheel/tire response inputs and gates. A later M82 should reintroduce the
 outcome objective into PPO with fixed-batch and margin-retention guards.
+
+## 20260521T140554Z m81-wheel-response-self-id-input-branch
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: adding deployable front/rear wheel-response features to the
+  response stream creates a runnable input branch for professional-driver-like
+  self-identification without exposing true friction or oracle feasibility.
+- code update: added `wheel_observation_mode="front_rear"`,
+  `wheel_human_view_online_gru`, wheel checkpoint loading, response-mask
+  accounting for wheel features, and `zero_wheel_response` ablation.
+- config: `configs/ppo_m81_wheel_response_gru_driver.json`
+- focused tests: `python -m compileall -q src tests`,
+  `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift pytest -q tests/test_env.py tests/test_checkpoints.py tests/test_hidden_swap_gate.py tests/test_evaluate.py tests/test_benchmark.py`,
+  and `git diff --check` passed with `91 passed`.
+- final validation: `git diff --check`, `python -m compileall -q src tests`,
+  JSON validation, CSV validation, and
+  `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 conda run -n autodrift pytest -q`
+  returned `225 passed`.
+- training smoke: `runs/ppo_m81_wheel_response_smoke_seed3581`
+- ablation smoke: `runs/m81_wheel_response_ablation_smoke_seed8810`
+- artifact: `docs/m81-wheel-response-input-roadmap.md`
+
+Result:
+
+- wheel actor observation dimension: `85`;
+- response stream dimension: `25`;
+- context stream dimension: `60`;
+- 4096-step smoke trains and saves a checkpoint;
+- 2-episode eval after training has return mean `19.778977` and termination
+  rate `1.0`, so the checkpoint is not a candidate;
+- zero-wheel benchmark path executes with `m81_smoke` and `m81_zero_wheel`.
+
+Conclusion: M81 completes Stage 1 wheel-response infrastructure, but not a
+useful wheel-response driver. The next queued task is M82, the guarded PPO
+reintroduction of the outcome objective; a later M83 should train and gate the
+wheel-response driver at meaningful scale.

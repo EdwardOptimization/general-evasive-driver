@@ -218,7 +218,8 @@ vehicle/tire models, and NMPC-style constrained control.
   covering project status, engineering backlog, research framing, input gaps,
   solve/verify split, warm-up/probing, and proof gates.
 - `m81-wheel-response-input-roadmap.md`: MHTML review decision capturing
-  wheel/tire response as the next major self-identification input branch.
+  wheel/tire response as the next major self-identification input branch,
+  including the Stage 1 front/rear wheel-response implementation.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

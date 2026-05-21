@@ -25,6 +25,7 @@ from autodrift.tasks import PathFrame, make_track
 
 EGO_OBS_DIM = 9
 LAST_ACTION_OBS_DIM = 3
+FRONT_REAR_WHEEL_OBS_DIM = 13
 ROAD_POINT_DIM = 2
 OBSTACLE_SLOT_DIM = 7
 DEFAULT_ROAD_LOOKAHEAD_COUNT = 8
@@ -33,6 +34,7 @@ BASIC_PRIVILEGED_OBS_DIM = 4
 FULL_DYNAMICS_PRIVILEGED_OBS_DIM = 10
 PRIVILEGED_OBSERVATION_MODES = ("basic", "full_dynamics")
 OBSTACLE_RELATIVE_VELOCITY_MODES = ("ego", "zero")
+WHEEL_OBSERVATION_MODES = ("none", "front_rear")
 
 
 @dataclass(frozen=True)
@@ -116,6 +118,7 @@ class DriftEnvConfig:
     include_privileged_params: bool = False
     privileged_observation_mode: str = "basic"
     obstacle_relative_velocity_mode: str = "ego"
+    wheel_observation_mode: str = "none"
     road_lookahead_count: int = DEFAULT_ROAD_LOOKAHEAD_COUNT
     road_lookahead_spacing: float = 5.0
     obstacle_slots: int = DEFAULT_OBSTACLE_SLOTS
@@ -137,6 +140,11 @@ class DriftEnvConfig:
             raise ValueError(
                 "obstacle_relative_velocity_mode must be one of: "
                 + ", ".join(OBSTACLE_RELATIVE_VELOCITY_MODES)
+            )
+        if self.wheel_observation_mode not in WHEEL_OBSERVATION_MODES:
+            raise ValueError(
+                "wheel_observation_mode must be one of: "
+                + ", ".join(WHEEL_OBSERVATION_MODES)
             )
         if self.road_lookahead_count < 1:
             raise ValueError("road_lookahead_count must be at least 1")
@@ -162,11 +170,13 @@ class AutoDriftEnv(gym.Env):
         self.action_space = spaces.Box(low=-1.0, high=1.0, shape=(3,), dtype=np.float32)
 
         action_obs_dim = {"none": 0, "full": LAST_ACTION_OBS_DIM}[self.config.action_history_mode]
+        wheel_obs_dim = self._wheel_observation_dim()
         road_obs_dim = 2 * self.config.road_lookahead_count * ROAD_POINT_DIM
         obstacle_obs_dim = self.config.obstacle_slots * OBSTACLE_SLOT_DIM
         self.base_obs_dim = (
             EGO_OBS_DIM
             + action_obs_dim
+            + wheel_obs_dim
             + road_obs_dim
             + obstacle_obs_dim
             + self._privileged_observation_dim()
@@ -471,6 +481,50 @@ class AutoDriftEnv(gym.Env):
             return float(self.state.drive_force / max(self.params.max_drive_force, 1e-6)), 0.0
         return 0.0, float(-self.state.drive_force / max(self.params.max_brake_force, 1e-6))
 
+    def _wheel_observation_dim(self) -> int:
+        if self.config.wheel_observation_mode == "none":
+            return 0
+        if self.config.wheel_observation_mode == "front_rear":
+            return FRONT_REAR_WHEEL_OBS_DIM
+        raise ValueError(f"unknown wheel observation mode: {self.config.wheel_observation_mode}")
+
+    def _wheel_response_features(self, ax_body: float) -> list[float]:
+        if self.config.wheel_observation_mode == "none":
+            return []
+        if self.config.wheel_observation_mode != "front_rear":
+            raise ValueError(f"unknown wheel observation mode: {self.config.wheel_observation_mode}")
+
+        throttle_state, brake_state = self._drive_actuator_states()
+        force_scale = max(self.params.max_drive_force, self.params.max_brake_force, 1.0)
+        rear_force_error = self.state.drive_force - self.last_forces.fx_rear
+        rear_slip = float(np.tanh(rear_force_error / max(0.25 * force_scale, 1.0)))
+        front_slip = 0.0
+        rear_minus_front_slip = rear_slip - front_slip
+        speed_scale = max(abs(self.state.vx), 2.0)
+        front_wheel_speed = self.state.vx
+        rear_wheel_speed = self.state.vx + rear_slip * speed_scale
+        wheel_inertia_proxy = max(0.08 * self.params.mass, 1.0)
+        front_wheel_accel = float(ax_body)
+        rear_wheel_accel = float(ax_body + rear_force_error / wheel_inertia_proxy)
+        abs_active = 1.0 if brake_state > 0.2 and rear_slip < -0.25 else 0.0
+        tcs_active = 1.0 if throttle_state > 0.2 and rear_slip > 0.25 else 0.0
+
+        return [
+            float(front_wheel_speed / 20.0),
+            float(rear_wheel_speed / 20.0),
+            float(np.clip(front_wheel_accel / 30.0, -2.0, 2.0)),
+            float(np.clip(rear_wheel_accel / 30.0, -2.0, 2.0)),
+            front_slip,
+            rear_slip,
+            rear_minus_front_slip,
+            brake_state,
+            brake_state,
+            throttle_state,
+            abs_active,
+            abs_active,
+            tcs_active,
+        ]
+
     def _road_boundary_features(self) -> list[float]:
         distances = self.config.road_lookahead_spacing * np.arange(1, self.config.road_lookahead_count + 1)
         center_points, tangents = self.track.lookahead_centerline(self.state.x, self.state.y, distances)
@@ -653,6 +707,7 @@ class AutoDriftEnv(gym.Env):
         ]
         if self.config.action_history_mode == "full":
             obs.extend(self.last_control.tolist())
+        obs.extend(self._wheel_response_features(ax_body))
         obs.extend(self._road_boundary_features())
         obs.extend(self._obstacle_slot_features())
         if self.config.include_privileged_params:

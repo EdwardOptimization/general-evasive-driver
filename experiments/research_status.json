@@ -1,19 +1,19 @@
 {
   "counts": {
     "blocked": 0,
-    "completed": 81,
+    "completed": 82,
     "failed": 0,
     "pending": 0,
     "planned": 2,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m80-outcome-objective-only-sanity-check.md",
+    "command_log": "docs/m81-wheel-response-input-roadmap.md",
     "returncode": 0,
-    "run_dir": "runs/m80_outcome_objective_only_seed8800",
+    "run_dir": "runs/ppo_m81_wheel_response_smoke_seed3581",
     "status": "completed",
-    "task_id": "m80-outcome-objective-only-sanity-check"
+    "task_id": "m81-wheel-response-self-id-input-branch"
   },
-  "next_task": "m81-wheel-response-self-id-input-branch",
-  "updated_at_utc": "20260521T135652Z"
+  "next_task": "m82-outcome-objective-ppo-reintroduction",
+  "updated_at_utc": "20260521T140554Z"
 }

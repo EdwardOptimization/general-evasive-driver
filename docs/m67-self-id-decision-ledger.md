@@ -300,3 +300,7 @@ frame remains the baseline, but final self-identification evidence likely needs
 wheel/tire response feedback. The full review is preserved in
 `docs/external-review-5-5pro-mhtml.md`; the wheel-response execution plan is
 `docs/m81-wheel-response-input-roadmap.md`.
+M81 Stage 1 implements the front/rear wheel-response stream and
+`zero_wheel_response` ablation, but only as runnable infrastructure. The
+4096-step smoke is not a candidate, so wheel-response training and wrong-history
+wheel gates remain open.

@@ -13,7 +13,7 @@ import torch
 from autodrift.artifacts import make_run_dir, write_json
 from autodrift.checkpoints import load_actor_critic_checkpoint
 from autodrift.config import build_env_config
-from autodrift.env import AutoDriftEnv, DriftEnvConfig
+from autodrift.env import AutoDriftEnv, DriftEnvConfig, FRONT_REAR_WHEEL_OBS_DIM
 from autodrift.policies import Policy, make_policy
 from autodrift.train_ppo import ActorCritic
 
@@ -25,6 +25,7 @@ CHECKPOINT_ABLATIONS = (
     "shuffled_history",
     "zero_current_response",
     "zero_all_response",
+    "zero_wheel_response",
     "reset_recurrent_state",
 )
 
@@ -60,7 +61,17 @@ class ActorPolicy(Policy):
         del base_dim
         indices = list(range(0, 9))
         indices.extend(self._action_history_indices())
+        if self.env_config.wheel_observation_mode == "front_rear":
+            indices.extend(self._wheel_feature_indices())
         return sorted(set(indices))
+
+    def _wheel_feature_indices(self) -> list[int]:
+        if self.env_config.wheel_observation_mode != "front_rear":
+            return []
+        start = 9
+        if self.env_config.action_history_mode == "full":
+            start += len(self._action_history_indices())
+        return list(range(start, start + FRONT_REAR_WHEEL_OBS_DIM))
 
     def _zero_response_features(self, observation: np.ndarray, base_dim: int, frame_starts: list[int]) -> None:
         indices = self._response_feature_indices(base_dim)
@@ -91,6 +102,11 @@ class ActorPolicy(Policy):
                 base_dim,
                 list(range(0, len(transformed), base_dim)),
             )
+        if self.ablation == "zero_wheel_response":
+            wheel_indices = self._wheel_feature_indices()
+            for start in range(0, len(transformed), base_dim):
+                for index in wheel_indices:
+                    transformed[start + index] = 0.0
         return transformed
 
     def act(self, observation: np.ndarray, info: dict) -> np.ndarray:

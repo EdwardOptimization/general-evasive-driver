@@ -209,6 +209,27 @@ def test_obstacle_relative_velocity_mode_rejects_unknown_mode():
         DriftEnvConfig(obstacle_relative_velocity_mode="world")
 
 
+def test_front_rear_wheel_observation_adds_response_features():
+    env = AutoDriftEnv(DriftEnvConfig(wheel_observation_mode="front_rear"))
+    obs, _ = env.reset(seed=23)
+
+    assert obs.shape == (85,)
+    wheel_features = obs[12:25]
+    assert wheel_features.shape == (13,)
+    assert np.isfinite(wheel_features).all()
+    assert np.allclose(wheel_features[4:7], 0.0)
+
+    next_obs, _, _, _, _ = env.step(np.array([0.0, 1.0, -1.0], dtype=np.float32))
+
+    assert next_obs.shape == (85,)
+    assert np.isfinite(next_obs[12:25]).all()
+
+
+def test_wheel_observation_mode_rejects_unknown_mode():
+    with pytest.raises(ValueError, match="wheel_observation_mode"):
+        DriftEnvConfig(wheel_observation_mode="oracle")
+
+
 def test_m8_driver_config_uses_deployable_observation_contract():
     config = build_env_config(read_json("configs/ppo_m8_temporal_gru_driver.json")["env"])
     env = AutoDriftEnv(config)
