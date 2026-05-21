@@ -3760,3 +3760,31 @@ Conclusion: M96 is the best no-wheel hidden-envelope objective so far, but it
 is still not a strict pass. Do not start PPO. M97 should keep equal per-target
 contrast and add a small minimum-lift or lateral floor guard, with rejection if
 braking or yaw stability regresses.
+
+## 20260521T172008Z m97-minlift-hidden-envelope-objective
+
+- status: `completed`
+- kind: `objective_sanity`
+- hypothesis: a small lateral floor can fix the remaining M96 lateral negative
+  seed while preserving braking and yaw stability.
+- objective settings: `contrast_mode=per_target`,
+  `target_loss_weights=1.0 1.0 1.25`.
+- diagnostic runs:
+  `runs/m97_lateral_floor_hidden_envelope_seed9470`,
+  `runs/m97_lateral_floor_hidden_envelope_seed9471`,
+  `runs/m97_lateral_floor_hidden_envelope_seed9472`
+- artifact: `docs/m97-minlift-hidden-envelope-objective.md`
+
+Result:
+
+- seed `9470`: braking/lateral/yaw R2 lift after values
+  `-0.015814`, `+0.070606`, `+0.008445`;
+- seed `9471`: braking/lateral/yaw R2 lift after values
+  `+0.042498`, `+0.067743`, `+0.114699`;
+- seed `9472`: braking/lateral/yaw R2 lift after values
+  `+0.290312`, `-0.683934`, `-2.387921`;
+- only seed `9471` passes all three after-lift checks.
+
+Conclusion: M97 is negative. Target-weight tuning is not the right next lever.
+M96 remains the best objective recipe; M98 should repeat M96 with larger batches
+and more held-out samples to separate sample variance from objective weakness.

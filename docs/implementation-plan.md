@@ -2001,8 +2001,20 @@ still fails because seed `9460` lateral after-lift remains negative
   M96 lateral negative seed.
 - Reject the objective if braking or yaw stability regresses.
 
-Status: planned. PPO continuation remains blocked until objective-only
-hidden-envelope belief is stable across all three targets and repeated seeds.
+Status: complete as a negative target-weighting result. A mild lateral
+overweight (`1.0 1.0 1.25`) fixes some lateral cases but destabilizes the
+overall gate: seed `9470` braking becomes negative, and seed `9472` keeps
+strongly negative lateral and yaw. Do not replace M96 with M97. See
+`docs/m97-minlift-hidden-envelope-objective.md`.
+
+### M98: Larger-Batch Per-Target Objective Repeat
+
+- Return to the M96 equal per-target contrast recipe.
+- Increase rollout episodes and samples to reduce held-out variance.
+- Decide whether the remaining M96 lateral negative seed was sample-limited or
+  objective-limited before changing the objective again.
+
+Status: planned. PPO continuation remains blocked.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

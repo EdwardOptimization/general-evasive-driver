@@ -265,6 +265,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m96-per-target-hidden-envelope-objective.md`: equal per-target contrast
   objective; braking and yaw become stable, but one lateral seed still blocks
   PPO admission.
+- `m97-minlift-hidden-envelope-objective.md`: mild lateral-overweight objective;
+  negative result showing target-weight tuning should not replace the M96
+  recipe.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

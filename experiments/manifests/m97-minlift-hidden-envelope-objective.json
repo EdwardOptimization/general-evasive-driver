@@ -5,8 +5,16 @@
   ],
   "commands": [
     {
-      "command": "TBD: run equal per-target hidden-envelope objective with a lateral or minimum-lift guard across at least three repeated seeds",
-      "name": "m97_planned_minlift_objective"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_optimize --checkpoint runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9470 --horizon-steps 15 --sample-stride 3 --max-samples 800 --train-fraction 0.70 --ridge 0.1 --steps 200 --batch-size 256 --learning-rate 0.0003 --contrast-coef 0.5 --contrast-margin 0.02 --contrast-mode per_target --target-loss-weights 1.0 1.0 1.25 --grad-clip-norm 1.0 --device cpu --run-dir runs/m97_lateral_floor_hidden_envelope_seed9470",
+      "name": "m97_seed9470_lateral_floor_objective"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_optimize --checkpoint runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9471 --horizon-steps 15 --sample-stride 3 --max-samples 800 --train-fraction 0.70 --ridge 0.1 --steps 200 --batch-size 256 --learning-rate 0.0003 --contrast-coef 0.5 --contrast-margin 0.02 --contrast-mode per_target --target-loss-weights 1.0 1.0 1.25 --grad-clip-norm 1.0 --device cpu --run-dir runs/m97_lateral_floor_hidden_envelope_seed9471",
+      "name": "m97_seed9471_lateral_floor_objective"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_optimize --checkpoint runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9472 --horizon-steps 15 --sample-stride 3 --max-samples 800 --train-fraction 0.70 --ridge 0.1 --steps 200 --batch-size 256 --learning-rate 0.0003 --contrast-coef 0.5 --contrast-margin 0.02 --contrast-mode per_target --target-loss-weights 1.0 1.0 1.25 --grad-clip-norm 1.0 --device cpu --run-dir runs/m97_lateral_floor_hidden_envelope_seed9472",
+      "name": "m97_seed9472_lateral_floor_objective"
     }
   ],
   "decision_rule": "Only admit PPO if braking yaw and lateral response_hidden minus reset_response_hidden after-lift are all positive across repeated seeds.",
@@ -22,6 +30,18 @@
     {
       "path": "docs/m97-minlift-hidden-envelope-objective.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m97_lateral_floor_hidden_envelope_seed9470/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m97_lateral_floor_hidden_envelope_seed9471/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m97_lateral_floor_hidden_envelope_seed9472/summary.json",
+      "type": "summary"
     }
   ],
   "success_criteria": [

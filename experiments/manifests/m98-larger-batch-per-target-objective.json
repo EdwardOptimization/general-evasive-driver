@@ -1,0 +1,33 @@
+{
+  "baseline_checkpoints": [
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt",
+    "previous_decision=m96_best_recipe_m97_reject_weight_tuning"
+  ],
+  "commands": [
+    {
+      "command": "TBD: repeat M96 equal per-target hidden-envelope objective with larger episodes and max_samples across at least three repeated seeds",
+      "name": "m98_planned_larger_batch_repeat"
+    }
+  ],
+  "decision_rule": "Use the larger-batch repeat to decide whether M96's remaining lateral negative seed was sample-limited or objective-limited.",
+  "failure_criteria": [
+    "same M96 objective settings are not preserved",
+    "larger-batch repeats still show negative after-lift on any future-envelope target",
+    "result is used for PPO before repeated-seed objective evidence is stable"
+  ],
+  "hypothesis": "M96 equal per-target contrast may pass the strict objective gate with more rollout samples and lower held-out variance.",
+  "id": "m98-larger-batch-per-target-objective",
+  "required_artifacts": [
+    {
+      "path": "docs/m98-larger-batch-per-target-objective.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "same M96 objective settings are used",
+    "larger batches provide more held-out samples than M96",
+    "braking yaw and lateral after-lift are all positive across repeated seeds",
+    "decision states whether PPO continuation is still blocked"
+  ],
+  "type": "objective_sanity"
+}
