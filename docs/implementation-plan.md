@@ -1849,8 +1849,24 @@ no non-friction target improves meaningfully. See
 - Gate whether `zero_wheel_response` or wrong-wheel history hurts those targeted
   cases before making broader self-ID claims.
 
-Status: planned. The current wheel branch has narrow friction information, not
-broad vehicle self-identification evidence.
+Status: complete as a retention-positive but self-ID-negative smoke. M87 adds a
+training-time friction-bucket auxiliary loss and retains `success_rate = 0.90`,
+but `m87_zero_wheel` also remains `0.90`, and the post-training relevance audit
+shows body-only `mu_bucket` prediction reaches `0.802372` while body+wheel gain
+is `0.0`. See `docs/m87-wheel-informed-friction-envelope-objective.md`.
+
+### M88: Wheel-Masked Friction Auxiliary
+
+- Reuse the M87 friction-bucket label but prevent body-response shortcuts.
+- Compute the auxiliary loss from recurrent features generated with body
+  response masked and wheel response retained, or mine body-ambiguous
+  wheel-different cases.
+- Keep the deployable actor observation unchanged.
+- Gate whether zero-wheel or wrong-wheel interventions finally reduce targeted
+  friction/envelope behavior.
+
+Status: planned. M87 proves the unmasked friction auxiliary is too easy for
+body response alone.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

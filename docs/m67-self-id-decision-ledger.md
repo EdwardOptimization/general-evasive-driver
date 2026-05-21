@@ -334,3 +334,9 @@ only `+0.009371` and no non-friction bucket improves meaningfully. The current
 front/rear wheel branch should be treated as a narrow friction/envelope clue,
 not broad self-ID evidence. Continue with M87: targeted friction/envelope
 objectives or matched ambiguous-body cases.
+M87 implements the targeted friction-bucket auxiliary, but the unmasked version
+is still not enough. It retains `success_rate = 0.90`, yet `zero_wheel_response`
+also stays at `0.90`; the post-training relevance audit shows `mu_bucket`
+body-only accuracy `0.802372` and body+wheel gain `0.0`. The objective was
+solved through body response, not wheel response. Continue with M88:
+wheel-masked friction auxiliary or matched body-ambiguous wheel cases.

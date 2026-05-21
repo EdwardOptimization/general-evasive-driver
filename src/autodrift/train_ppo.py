@@ -95,6 +95,7 @@ class PPOConfig:
     outcome_intervention_snapshot_npz: str = ""
     outcome_intervention_batch_size: int = 128
     outcome_intervention_logprob_margin: float = 0.05
+    friction_bucket_aux_coef: float = 0.0
     baseline_action_anchor_coef: float = 0.0
     baseline_action_anchor_checkpoint: str = ""
     baseline_action_anchor_negative_advantage_only: bool = False
@@ -776,6 +777,35 @@ def make_vector_env(
     raise ValueError("vector_env_mode must be one of: sync, parallel")
 
 
+def friction_bucket_labels_from_mu(mu_values: np.ndarray) -> np.ndarray:
+    mu = np.asarray(mu_values, dtype=np.float32)
+    labels = np.ones(mu.shape, dtype=np.int64)
+    labels[mu < 0.45] = 0
+    labels[mu >= 0.80] = 2
+    return labels
+
+
+def recurrent_feature_sequence(
+    model: ActorCritic,
+    obs: torch.Tensor,
+    initial_hidden: torch.Tensor,
+    dones: torch.Tensor,
+) -> torch.Tensor:
+    if not model.is_online_recurrent:
+        raise RuntimeError("recurrent_feature_sequence requires an online recurrent actor")
+    features = []
+    hidden = initial_hidden
+    for t in range(obs.shape[0]):
+        feature, next_hidden = model.recurrent_features_tensor(obs[t], hidden)
+        features.append(feature)
+        hidden = next_hidden
+        if t < obs.shape[0] - 1:
+            done_t = dones[t].to(dtype=torch.bool, device=obs.device)
+            hidden = hidden.clone()
+            hidden[done_t] = 0.0
+    return torch.stack(features)
+
+
 def train(
     config: PPOConfig,
     save_path: Path | None = None,
@@ -836,6 +866,11 @@ def train(
             raise ValueError("outcome_intervention_batch_size must be positive")
         if config.outcome_intervention_logprob_margin < 0.0:
             raise ValueError("outcome_intervention_logprob_margin cannot be negative")
+    if config.friction_bucket_aux_coef > 0.0:
+        if not uses_online_recurrent or not config.recurrent_sequence_training:
+            raise ValueError("friction bucket auxiliary loss requires online recurrent sequence training")
+    if config.friction_bucket_aux_coef < 0.0:
+        raise ValueError("friction_bucket_aux_coef cannot be negative")
     if config.baseline_action_anchor_coef > 0.0:
         if not str(config.baseline_action_anchor_checkpoint).strip():
             raise ValueError("baseline_action_anchor_checkpoint is required when baseline action anchor is enabled")
@@ -865,9 +900,14 @@ def train(
         response_prediction_dim=config.response_prediction_dim,
         response_prediction_horizon=config.response_prediction_horizon,
     ).to(device)
+    friction_bucket_prediction_head = (
+        nn.Linear(config.hidden_size, 3).to(device) if config.friction_bucket_aux_coef > 0.0 else None
+    )
     if config.freeze_log_std:
         model.log_std.requires_grad_(False)
     trainable_parameters = [parameter for parameter in model.parameters() if parameter.requires_grad]
+    if friction_bucket_prediction_head is not None:
+        trainable_parameters.extend(friction_bucket_prediction_head.parameters())
     if not trainable_parameters:
         raise RuntimeError("no trainable parameters are available")
     optimizer = Adam(trainable_parameters, lr=config.learning_rate)
@@ -966,6 +1006,11 @@ def train(
         rew_buf = np.zeros((rollout_n, config.num_envs), dtype=np.float32)
         done_buf = np.zeros((rollout_n, config.num_envs), dtype=np.float32)
         val_buf = np.zeros((rollout_n, config.num_envs), dtype=np.float32)
+        friction_bucket_buf = (
+            np.zeros((rollout_n, config.num_envs), dtype=np.int64)
+            if config.friction_bucket_aux_coef > 0.0
+            else None
+        )
         hidden_buf = (
             np.zeros((rollout_n, config.num_envs, config.hidden_size), dtype=np.float32)
             if uses_online_recurrent
@@ -977,6 +1022,10 @@ def train(
         episode_lengths: list[int] = []
         episode_terminated: list[float] = []
         for t in range(rollout_n):
+            if friction_bucket_buf is not None:
+                friction_bucket_buf[t] = friction_bucket_labels_from_mu(
+                    np.asarray([float(info["mu"]) for info in infos], dtype=np.float32)
+                )
             if uses_online_recurrent:
                 assert recurrent_hidden is not None
                 assert hidden_buf is not None
@@ -1017,6 +1066,10 @@ def train(
                     episode_lengths.append(int(episode["length"]))
                     episode_terminated.append(float(episode["terminated"]))
             obs = step.observations
+            infos = [
+                dict(info.get("reset_info", info)) if bool(is_done) else dict(info)
+                for info, is_done in zip(step.infos, done, strict=True)
+            ]
             if uses_online_recurrent:
                 assert next_hidden is not None
                 done_t = torch.as_tensor(done, dtype=torch.bool, device=device)
@@ -1104,7 +1157,14 @@ def train(
             action_contrast_loss_values: list[float] = []
             paired_hidden_action_contrast_loss_values: list[float] = []
             outcome_intervention_loss_values: list[float] = []
+            friction_bucket_loss_values: list[float] = []
+            friction_bucket_accuracy_values: list[float] = []
             baseline_action_anchor_loss_values: list[float] = []
+            friction_bucket_t = (
+                torch.as_tensor(friction_bucket_buf, dtype=torch.long, device=device)
+                if friction_bucket_buf is not None
+                else None
+            )
             baseline_action_anchor_t = (
                 torch.as_tensor(baseline_action_anchor_buf, dtype=torch.float32, device=device)
                 if baseline_action_anchor_buf is not None
@@ -1191,6 +1251,23 @@ def train(
                         outcome_intervention_loss_values.append(
                             float(outcome_intervention_loss.detach().cpu().item())
                         )
+                    if config.friction_bucket_aux_coef > 0.0:
+                        assert friction_bucket_prediction_head is not None
+                        assert friction_bucket_t is not None
+                        feature_seq = recurrent_feature_sequence(
+                            model,
+                            obs_seq_t[:, mb_env],
+                            initial_hidden_t[mb_env],
+                            done_seq_t[:, mb_env],
+                        )
+                        logits = friction_bucket_prediction_head(feature_seq.reshape(-1, config.hidden_size))
+                        labels = friction_bucket_t[:, mb_env].reshape(-1)
+                        friction_loss = nn.functional.cross_entropy(logits, labels)
+                        loss = loss + config.friction_bucket_aux_coef * friction_loss
+                        with torch.no_grad():
+                            friction_accuracy = (torch.argmax(logits, dim=1) == labels).float().mean()
+                        friction_bucket_loss_values.append(float(friction_loss.detach().cpu().item()))
+                        friction_bucket_accuracy_values.append(float(friction_accuracy.detach().cpu().item()))
                     if config.baseline_action_anchor_coef > 0.0:
                         assert baseline_action_anchor_t is not None
                         current_action_mean = model.action_mean_recurrent_sequence(
@@ -1229,7 +1306,7 @@ def train(
 
                     optimizer.zero_grad()
                     loss.backward()
-                    nn.utils.clip_grad_norm_(model.parameters(), config.max_grad_norm)
+                    nn.utils.clip_grad_norm_(trainable_parameters, config.max_grad_norm)
                     optimizer.step()
         else:
             obs_t = torch.as_tensor(flat_obs, dtype=torch.float32, device=device)
@@ -1292,7 +1369,7 @@ def train(
 
                     optimizer.zero_grad()
                     loss.backward()
-                    nn.utils.clip_grad_norm_(model.parameters(), config.max_grad_norm)
+                    nn.utils.clip_grad_norm_(trainable_parameters, config.max_grad_norm)
                     optimizer.step()
 
         global_step += rollout_n * config.num_envs
@@ -1336,6 +1413,13 @@ def train(
                 float(np.mean(outcome_intervention_loss_values))
                 if outcome_intervention_loss_values
                 else float("nan")
+            )
+        if config.friction_bucket_aux_coef > 0.0 and uses_online_recurrent and config.recurrent_sequence_training:
+            row["friction_bucket_aux_loss_mean"] = (
+                float(np.mean(friction_bucket_loss_values)) if friction_bucket_loss_values else float("nan")
+            )
+            row["friction_bucket_aux_accuracy_mean"] = (
+                float(np.mean(friction_bucket_accuracy_values)) if friction_bucket_accuracy_values else float("nan")
             )
         if config.baseline_action_anchor_coef > 0.0:
             row["baseline_action_anchor_loss_mean"] = (

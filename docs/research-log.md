@@ -3480,3 +3480,39 @@ features have narrow friction-bucket information, but they do not provide broad
 hidden-dynamics information beyond body response. The next task is M87:
 target friction/envelope estimation or mine matched ambiguous body-response
 cases instead of increasing generic wheel auxiliary loss.
+
+## 20260521T145925Z m87-wheel-informed-friction-envelope-objective
+
+- status: `completed`
+- kind: `training`
+- hypothesis: the narrow M86 wheel friction signal can be converted into a
+  training-time friction-bucket auxiliary objective without exposing `mu` to the
+  deployable actor.
+- code update: added `friction_bucket_aux_coef`,
+  `friction_bucket_labels_from_mu`, recurrent feature sequence support, and
+  per-step friction labels from env info.
+- config: `configs/ppo_m87_wheel_friction_bucket_aux_driver.json`
+- focused tests:
+  `tests/test_checkpoints.py::test_friction_bucket_labels_use_m86_boundaries`
+  and
+  `tests/test_checkpoints.py::test_train_logs_friction_bucket_auxiliary_loss`
+- training smoke: `runs/ppo_m87_wheel_friction_bucket_aux_smoke_seed4087`
+- ablation gate: `runs/m87_wheel_friction_bucket_aux_gate_seed8830`
+- relevance audit: `runs/m87_wheel_friction_relevance_audit_seed9100`
+- artifact: `docs/m87-wheel-informed-friction-envelope-objective.md`
+
+Result:
+
+- M62 loads with `partial_wheel_response_encoder`;
+- 4096-step built-in eval termination rate `0.0`;
+- final friction aux accuracy is unstable and ends at `0.0`;
+- 20-episode gate success: M87 `0.90`, reset `0.85`, zero-all `0.90`,
+  zero-wheel `0.90`;
+- post-training `mu_bucket` audit: body `0.802372`, body+wheel `0.802372`,
+  body+wheel gain `0.0`;
+- response encoder norms: body `7.812276`, wheel `0.071743`.
+
+Conclusion: M87 preserves behavior but does not create wheel dependence. The
+friction auxiliary is solved by body response rather than wheel response. The
+next task is M88: mask body response or mine body-ambiguous wheel-different
+cases so the friction/envelope objective cannot ignore wheel evidence.

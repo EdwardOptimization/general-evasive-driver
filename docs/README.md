@@ -235,6 +235,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m86-wheel-response-relevance-audit.md`: body-only vs body+wheel linear probe
   audit showing narrow friction-bucket wheel information but no broad
   hidden-dynamics gain.
+- `m87-wheel-informed-friction-envelope-objective.md`: training-time friction
+  bucket auxiliary objective; retains behavior but is solved by body response
+  rather than wheel response.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

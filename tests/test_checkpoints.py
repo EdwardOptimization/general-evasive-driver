@@ -11,6 +11,7 @@ from autodrift.train_ppo import (
     build_response_prediction_targets,
     build_sequence_targets,
     evaluate_actor,
+    friction_bucket_labels_from_mu,
     load_training_seed_csv,
     load_init_checkpoint_state,
     train,
@@ -146,6 +147,12 @@ def test_training_seed_csv_loads_ordered_seeds(tmp_path):
     seed_csv.write_text("seed,notes\n101,a\n103,b\n", encoding="utf-8")
 
     assert load_training_seed_csv(seed_csv) == [101, 103]
+
+
+def test_friction_bucket_labels_use_m86_boundaries():
+    labels = friction_bucket_labels_from_mu(np.array([0.30, 0.449, 0.45, 0.799, 0.80, 1.10]))
+
+    np.testing.assert_array_equal(labels, np.array([0, 0, 1, 1, 2, 2]))
 
 
 def test_train_accepts_hard_response_seed_csv(tmp_path):
@@ -810,6 +817,38 @@ def test_train_logs_baseline_action_anchor_loss(tmp_path):
     assert rows
     assert "baseline_action_anchor_loss_mean" in rows[0]
     assert float(rows[0]["baseline_action_anchor_loss_mean"]) >= 0.0
+
+
+def test_train_logs_friction_bucket_auxiliary_loss(tmp_path):
+    save_path = tmp_path / "run" / "checkpoint.pt"
+    metrics_path = tmp_path / "run" / "metrics.csv"
+    config = PPOConfig(
+        total_steps=32,
+        rollout_steps=8,
+        num_envs=2,
+        update_epochs=1,
+        minibatch_size=8,
+        hidden_size=8,
+        actor_encoder="human_view_online_gru",
+        recurrent_sequence_training=True,
+        friction_bucket_aux_coef=0.01,
+        seed=129,
+        device="cpu",
+    )
+
+    train(
+        config,
+        save_path=save_path,
+        metrics_csv_path=metrics_path,
+        env_config=DriftEnvConfig(max_steps=4, speed_range=(4.0, 6.0)),
+    )
+
+    rows = list(csv.DictReader(metrics_path.open(newline="", encoding="utf-8")))
+    assert rows
+    assert "friction_bucket_aux_loss_mean" in rows[0]
+    assert "friction_bucket_aux_accuracy_mean" in rows[0]
+    assert float(rows[0]["friction_bucket_aux_loss_mean"]) >= 0.0
+    assert 0.0 <= float(rows[0]["friction_bucket_aux_accuracy_mean"]) <= 1.0
 
 
 def test_online_gru_sequence_eval_backpropagates_through_time():
