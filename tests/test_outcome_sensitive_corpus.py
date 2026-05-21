@@ -5,10 +5,13 @@ import pandas as pd
 
 from autodrift.env import DriftEnvConfig, ObstacleTaskConfig
 from autodrift.outcome_sensitive_corpus import (
+    ProbeConfig,
     build_outcome_sensitive_row,
     obstacle_override_config,
     parse_float_list,
+    probe_action,
     select_outcome_sensitive_corpus,
+    should_probe,
     source_outcome_metrics,
     summarize_outcomes,
 )
@@ -81,6 +84,44 @@ def test_obstacle_override_config_updates_only_requested_ranges():
     assert config.obstacle.distance_range == (3.0, 25.0)
 
 
+def test_probe_action_is_bounded_and_uses_pedal_levels():
+    config = ProbeConfig(
+        strategy="steer_brake",
+        steer_amplitude=0.2,
+        brake_level=0.15,
+        throttle_level=0.1,
+        period_steps=20,
+        until_step=None,
+        until_distance=None,
+    )
+
+    action = probe_action("steer_brake", 5, config)
+
+    assert action.shape == (3,)
+    assert np.all(action >= -1.0)
+    assert np.all(action <= 1.0)
+    assert np.isclose(action[0], 0.2)
+    assert np.isclose(action[1], -1.0)
+    assert np.isclose(action[2], -0.7)
+
+
+def test_should_probe_until_reveal_or_thresholds():
+    config = ProbeConfig(
+        strategy="steer_sine",
+        steer_amplitude=0.1,
+        brake_level=0.0,
+        throttle_level=0.0,
+        period_steps=20,
+        until_step=10,
+        until_distance=14.0,
+    )
+
+    assert should_probe({"step": 20, "obstacle_perception_visible": False}, config)
+    assert should_probe({"step": 5, "obstacle_perception_visible": True, "obstacle_distance": 10.0}, config)
+    assert should_probe({"step": 20, "obstacle_perception_visible": True, "obstacle_distance": 20.0}, config)
+    assert not should_probe({"step": 20, "obstacle_perception_visible": True, "obstacle_distance": 10.0}, config)
+
+
 def test_source_outcome_metrics_accepts_success_drop():
     rows = [
         {
@@ -129,6 +170,8 @@ def test_summarize_and_select_outcome_sensitive_rows():
                 "visible_observation_distance": 0.1,
                 "max_margin_gap": 0.04,
                 "outcome_score": 0.03,
+                "nominal_active_probe_steps": 7,
+                "perturbed_active_probe_steps": 8,
             },
             {
                 "seed": 2,
@@ -143,6 +186,8 @@ def test_summarize_and_select_outcome_sensitive_rows():
                 "visible_observation_distance": 0.2,
                 "max_margin_gap": 0.01,
                 "outcome_score": 0.00,
+                "nominal_active_probe_steps": 5,
+                "perturbed_active_probe_steps": 6,
             },
         ]
     )
@@ -153,6 +198,8 @@ def test_summarize_and_select_outcome_sensitive_rows():
     assert int(summary.loc[0, "candidates"]) == 2
     assert int(summary.loc[0, "accepted_outcome_sensitive_pairs"]) == 1
     assert int(summary.loc[0, "margin_gap_accept_pairs"]) == 1
+    assert summary.loc[0, "nominal_active_probe_steps_mean"] == 6.0
+    assert summary.loc[0, "perturbed_active_probe_steps_mean"] == 7.0
     assert list(selected["seed"]) == [1]
 
 

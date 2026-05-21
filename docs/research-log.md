@@ -23,7 +23,9 @@ Last updated: 2026-05-21
   M71 added an outcome-sensitive matched-scenario constructor, but passive
   snapshot mining still produced zero accepted wrong-history outcome cases. The
   M72 warm-up reveal gate also produced zero accepted outcome-sensitive cases,
-  so the next blocker is active, safety-bounded identification during warm-up.
+  and M73 active probing only produced large margin gaps in invalid
+  collision-to-collision near misses. The next blocker is sweeping active-probe
+  near misses into valid normal-success/wrong-history-loss emergency cases.
 
 ## Standing Loop
 
@@ -2962,3 +2964,33 @@ Passive warm-up reveal still does not make wrong-history recurrent state
 outcome-causal. The next task is M73: add active, safety-bounded probing during
 warm-up or a training objective that makes probing response history
 action-relevant.
+
+## 20260521T122640Z m73-active-probing-warmup-harness
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: safety-bounded probing before obstacle reveal can create stronger
+  response-history evidence than passive warm-up.
+- code update: `outcome_sensitive_corpus` now supports
+  `--probe-strategy`, steer/brake/throttle amplitude controls, probe period, and
+  probe-until thresholds.
+- tests: `conda run -n autodrift pytest -q tests/test_outcome_sensitive_corpus.py`
+  returned `9 passed`.
+- artifact: `docs/m73-active-probing-warmup-harness.md`
+
+Smoke results:
+
+- mild weak-brake probe: `60` candidates, `49` visible matches, `0`
+  outcome-sensitive pairs, max margin gap `0.000881`;
+- mild low-friction probe: `60` candidates, `35` visible matches, `0`
+  outcome-sensitive pairs, max margin gap `0.008426`;
+- strong low-friction probe: `60` candidates, `41` visible matches, `0`
+  outcome-sensitive pairs, max margin gap `0.040596`;
+- relaxed strong low-friction diagnostic: `52` visible matches, `0`
+  outcome-sensitive pairs, same max margin gap `0.040596`.
+
+Conclusion: M73 is a mixed negative result. Active probing creates more visible
+matches and can generate large wrong-history margin gaps, but the large gaps are
+not valid self-ID evidence because normal history already collides or context
+matching is too weak. The next task is M74: actively sweep obstacle geometry
+around M73 near misses to find valid normal-success / wrong-history-loss cases.

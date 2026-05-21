@@ -1597,7 +1597,25 @@ below `0.01 m`. The next step is active probing rather than passive warm-up.
 - Accept only if probing history changes outcome under strict visible-state
   matching.
 
-Status: planned after M72.
+Status: complete as infrastructure and mixed negative diagnostic. M73 added
+active probing to `outcome_sensitive_corpus` and ran weak-brake, low-friction,
+and strong low-friction probing smokes. Mild probing found no accepted snippets.
+Strong low-friction probing created up to `0.040596 m` wrong-history margin gap,
+but only in invalid collision-to-collision or non-strict-context rows. See
+`docs/m73-active-probing-warmup-harness.md`.
+
+### M74: Active-Probe Outcome-Bound Scenario Sweep
+
+- Start from M73 high-gap active-probe near misses.
+- Sweep obstacle distance and width around those seeds and hidden-dynamics
+  contrasts.
+- Search for normal-probing-history success or positive near-boundary margin
+  versus wrong-probing-history collision or `>= 0.01 m` margin loss.
+- Keep strict visible response/context matching as the promotion gate.
+
+Status: planned after M73. M73 shows active probing can create signal, but broad
+random mining does not yet place that signal on valid normal-success emergency
+cases.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

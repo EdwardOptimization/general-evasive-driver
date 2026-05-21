@@ -247,19 +247,20 @@ Persisted in:
 Continue with:
 
 ```text
-m73-active-probing-warmup-harness
+m74-active-probe-outcome-bound-scenario-sweep
 ```
 
 Implementation intent:
 
 ```text
-use small safety-bounded control excitation before obstacle reveal
-compare normal probing history with wrong matched probing history
-require wrong/reset/zero probing history to reduce outcome under strict visible matching
+start from M73 high-gap active-probe near misses
+sweep obstacle distance and width into normal-success / wrong-history-loss cases
+keep strict visible response/context matching before accepting snippets
 ```
 
 M70 showed that M69 wrong-history candidates do not degrade success or margin.
 M71 added the outcome-sensitive miner but still found zero accepted passive
 matched-snapshot cases. M72 added passive warm-up reveal, but it also found zero
-accepted outcome-sensitive cases. Do not proceed directly to student OSI
-distillation yet.
+accepted outcome-sensitive cases. M73 active probing produced larger margin gaps
+only in invalid collision-to-collision near misses. Do not proceed directly to
+student OSI distillation yet.

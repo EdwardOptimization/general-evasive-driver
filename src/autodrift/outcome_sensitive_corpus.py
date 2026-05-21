@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import copy
 from dataclasses import replace
 from pathlib import Path
 from typing import Any
@@ -16,6 +17,7 @@ from autodrift.env import AutoDriftEnv, DriftEnvConfig
 from autodrift.evaluate import load_env_config
 from autodrift.hidden_swap_gate import (
     DecisionSnapshot,
+    clone_hidden,
     collect_decision_snapshot,
     hidden_state_distance,
     replay_pair,
@@ -28,6 +30,19 @@ from autodrift.paired_perturbation_gate import (
     parse_range,
 )
 from autodrift.train_ppo import ActorCritic, HUMAN_VIEW_OBS_DIM
+
+
+PROBE_STRATEGIES = ("none", "steer_sine", "brake_tap", "steer_brake")
+
+
+class ProbeConfig(argparse.Namespace):
+    strategy: str
+    steer_amplitude: float
+    brake_level: float
+    throttle_level: float
+    period_steps: int
+    until_step: int | None
+    until_distance: float | None
 
 
 def parse_float_list(raw: str) -> list[float]:
@@ -63,6 +78,10 @@ def _finite_max(values: list[float]) -> float:
     return max(finite) if finite else float("nan")
 
 
+def _pedal_level_to_action(level: float) -> float:
+    return float(np.clip(2.0 * float(level) - 1.0, -1.0, 1.0))
+
+
 def _series(frame: pd.DataFrame, name: str, default: Any) -> pd.Series:
     if name in frame:
         return frame[name]
@@ -78,6 +97,139 @@ def _variant_row(rows: list[dict[str, Any]], variant: str) -> dict[str, Any]:
         if row.get("variant") == variant:
             return row
     raise ValueError(f"missing replay variant {variant!r}")
+
+
+def probe_action(strategy: str, step: int, config: ProbeConfig) -> np.ndarray:
+    if strategy not in PROBE_STRATEGIES:
+        raise ValueError(f"unknown probe strategy: {strategy}")
+    if strategy == "none":
+        return np.array([0.0, -1.0, -1.0], dtype=np.float32)
+    period = max(int(config.period_steps), 1)
+    phase = 2.0 * np.pi * (int(step) % period) / float(period)
+    steer = 0.0
+    throttle = 0.0
+    brake = 0.0
+    if strategy in {"steer_sine", "steer_brake"}:
+        steer = float(config.steer_amplitude) * float(np.sin(phase))
+    if strategy in {"brake_tap", "steer_brake"}:
+        brake = float(config.brake_level) if (int(step) // period) % 2 == 0 else 0.0
+    throttle = float(config.throttle_level)
+    if brake > 0.0:
+        throttle = 0.0
+    return np.array(
+        [
+            float(np.clip(steer, -1.0, 1.0)),
+            _pedal_level_to_action(throttle),
+            _pedal_level_to_action(brake),
+        ],
+        dtype=np.float32,
+    )
+
+
+def should_probe(info: dict[str, Any], config: ProbeConfig) -> bool:
+    if config.strategy == "none":
+        return False
+    step = int(info.get("step", 0))
+    if not bool(info.get("obstacle_perception_visible", True)):
+        return True
+    if config.until_step is not None and step < int(config.until_step):
+        return True
+    if config.until_distance is not None:
+        obstacle_distance = _float(info.get("obstacle_distance", float("nan")))
+        if np.isfinite(obstacle_distance) and obstacle_distance > float(config.until_distance):
+            return True
+    return False
+
+
+def collect_probing_decision_snapshot(
+    model: ActorCritic,
+    env_config: DriftEnvConfig,
+    condition: str,
+    seed: int,
+    *,
+    target_obstacle_distance: float,
+    min_probe_steps: int,
+    max_probe_steps: int,
+    require_friction_step: bool,
+    min_hidden_updates_after_friction: int,
+    probe_config: ProbeConfig,
+) -> DecisionSnapshot | None:
+    env = AutoDriftEnv(env_config)
+    obs, info = env.reset(seed=seed)
+    hidden = None
+    best: DecisionSnapshot | None = None
+    terminated = False
+    truncated = False
+    probe_steps = 0
+    probe_steer_abs_sum = 0.0
+    probe_brake_sum = 0.0
+
+    while not (terminated or truncated):
+        step = int(info.get("step", 0))
+        if (
+            _snapshot_candidate_for_outcome(info, min_probe_steps, require_friction_step, min_hidden_updates_after_friction)
+        ):
+            obstacle_distance = float(info["obstacle_distance"])
+            score = abs(obstacle_distance - target_obstacle_distance)
+            if best is None or score < best.snapshot_score:
+                snapshot_info = dict(info)
+                snapshot_info["active_probe_strategy"] = probe_config.strategy
+                snapshot_info["active_probe_steps"] = probe_steps
+                snapshot_info["active_probe_steer_abs_mean"] = (
+                    probe_steer_abs_sum / max(probe_steps, 1)
+                    if probe_steps
+                    else 0.0
+                )
+                snapshot_info["active_probe_brake_mean"] = (
+                    probe_brake_sum / max(probe_steps, 1)
+                    if probe_steps
+                    else 0.0
+                )
+                best = DecisionSnapshot(
+                    condition=condition,
+                    seed=seed,
+                    step=step,
+                    observation=np.asarray(obs, dtype=np.float32).copy(),
+                    hidden=clone_hidden(hidden),
+                    env=copy.deepcopy(env),
+                    info=snapshot_info,
+                    obstacle_distance=obstacle_distance,
+                    snapshot_score=score,
+                )
+            if obstacle_distance <= target_obstacle_distance:
+                break
+        if step >= max_probe_steps:
+            break
+        policy_action, _, _, next_hidden = model.act_recurrent(obs, hidden, deterministic=True)
+        hidden = next_hidden
+        if should_probe(info, probe_config):
+            action = probe_action(probe_config.strategy, step, probe_config)
+            probe_steps += 1
+            probe_steer_abs_sum += abs(float(action[0]))
+            probe_brake_sum += max((float(action[2]) + 1.0) * 0.5, 0.0)
+        else:
+            action = policy_action
+        obs, _, terminated, truncated, info = env.step(action)
+    return best
+
+
+def _snapshot_candidate_for_outcome(
+    info: dict[str, Any],
+    min_probe_steps: int,
+    require_friction_step: bool,
+    min_hidden_updates_after_friction: int,
+) -> bool:
+    step = int(info.get("step", 0))
+    if step < min_probe_steps:
+        return False
+    if require_friction_step:
+        if not bool(info.get("friction_step_applied", False)):
+            return False
+        friction_step_at = info.get("friction_step_at")
+        if friction_step_at is not None and step < int(friction_step_at) + min_hidden_updates_after_friction:
+            return False
+    obstacle_distance = _float(info.get("obstacle_distance", float("nan")))
+    return bool(np.isfinite(obstacle_distance) and obstacle_distance > 0.0)
 
 
 def obstacle_override_config(
@@ -320,6 +472,8 @@ def summarize_outcomes(frame: pd.DataFrame) -> pd.DataFrame:
     visible_distance = _series(frame, "visible_observation_distance", float("nan")).astype(float)
     max_margin_gap = _series(frame, "max_margin_gap", float("nan")).astype(float)
     outcome_score = _series(frame, "outcome_score", float("nan")).astype(float)
+    nominal_probe_steps = _series(frame, "nominal_active_probe_steps", float("nan")).astype(float)
+    perturbed_probe_steps = _series(frame, "perturbed_active_probe_steps", float("nan")).astype(float)
     return pd.DataFrame(
         [
             {
@@ -337,6 +491,8 @@ def summarize_outcomes(frame: pd.DataFrame) -> pd.DataFrame:
                 "max_margin_gap_mean": float(max_margin_gap.mean()),
                 "max_margin_gap": float(max_margin_gap.max()),
                 "outcome_score_max": float(outcome_score.max()),
+                "nominal_active_probe_steps_mean": float(nominal_probe_steps.mean()),
+                "perturbed_active_probe_steps_mean": float(perturbed_probe_steps.mean()),
             }
         ]
     )
@@ -377,6 +533,7 @@ def run_outcome_sensitive_corpus(
     require_normal_success: bool,
     max_continuation_steps: int | None,
     top_k: int,
+    probe_config: ProbeConfig | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     base_config = obstacle_override_config(
         base_config,
@@ -391,23 +548,46 @@ def run_outcome_sensitive_corpus(
     }
     rows: list[dict[str, Any]] = []
     replay_rows: list[dict[str, Any]] = []
+    active_probe_config = probe_config or ProbeConfig(
+        strategy="none",
+        steer_amplitude=0.0,
+        brake_level=0.0,
+        throttle_level=0.0,
+        period_steps=20,
+        until_step=None,
+        until_distance=None,
+    )
     for seed in seeds:
         for target_distance in target_obstacle_distances:
             snapshots: dict[str, DecisionSnapshot | None] = {}
             errors: dict[str, str] = {}
             for condition, env_config in configs.items():
                 try:
-                    snapshots[condition] = collect_decision_snapshot(
-                        model,
-                        env_config,
-                        condition,
-                        seed,
-                        target_obstacle_distance=target_distance,
-                        min_probe_steps=min_probe_steps,
-                        max_probe_steps=max_probe_steps,
-                        require_friction_step=require_friction_step,
-                        min_hidden_updates_after_friction=min_hidden_updates_after_friction,
-                    )
+                    if active_probe_config.strategy == "none":
+                        snapshots[condition] = collect_decision_snapshot(
+                            model,
+                            env_config,
+                            condition,
+                            seed,
+                            target_obstacle_distance=target_distance,
+                            min_probe_steps=min_probe_steps,
+                            max_probe_steps=max_probe_steps,
+                            require_friction_step=require_friction_step,
+                            min_hidden_updates_after_friction=min_hidden_updates_after_friction,
+                        )
+                    else:
+                        snapshots[condition] = collect_probing_decision_snapshot(
+                            model,
+                            env_config,
+                            condition,
+                            seed,
+                            target_obstacle_distance=target_distance,
+                            min_probe_steps=min_probe_steps,
+                            max_probe_steps=max_probe_steps,
+                            require_friction_step=require_friction_step,
+                            min_hidden_updates_after_friction=min_hidden_updates_after_friction,
+                            probe_config=active_probe_config,
+                        )
                 except RuntimeError as exc:
                     snapshots[condition] = None
                     errors[condition] = str(exc)
@@ -428,6 +608,23 @@ def run_outcome_sensitive_corpus(
                 require_normal_success=require_normal_success,
                 max_continuation_steps=max_continuation_steps,
             )
+            row["active_probe_strategy"] = active_probe_config.strategy
+            if snapshots["nominal"] is not None:
+                row["nominal_active_probe_steps"] = int(snapshots["nominal"].info.get("active_probe_steps", 0))
+                row["nominal_active_probe_steer_abs_mean"] = _float(
+                    snapshots["nominal"].info.get("active_probe_steer_abs_mean", float("nan"))
+                )
+                row["nominal_active_probe_brake_mean"] = _float(
+                    snapshots["nominal"].info.get("active_probe_brake_mean", float("nan"))
+                )
+            if snapshots["perturbed"] is not None:
+                row["perturbed_active_probe_steps"] = int(snapshots["perturbed"].info.get("active_probe_steps", 0))
+                row["perturbed_active_probe_steer_abs_mean"] = _float(
+                    snapshots["perturbed"].info.get("active_probe_steer_abs_mean", float("nan"))
+                )
+                row["perturbed_active_probe_brake_mean"] = _float(
+                    snapshots["perturbed"].info.get("active_probe_brake_mean", float("nan"))
+                )
             row["nominal_error"] = errors.get("nominal", "")
             row["perturbed_error"] = errors.get("perturbed", "")
             rows.append(row)
@@ -469,6 +666,13 @@ def main() -> None:
     parser.add_argument("--max-normal-margin", type=float, default=None)
     parser.add_argument("--allow-normal-failure", action="store_true")
     parser.add_argument("--max-continuation-steps", type=int, default=0)
+    parser.add_argument("--probe-strategy", choices=PROBE_STRATEGIES, default="none")
+    parser.add_argument("--probe-steer-amplitude", type=float, default=0.12)
+    parser.add_argument("--probe-brake-level", type=float, default=0.12)
+    parser.add_argument("--probe-throttle-level", type=float, default=0.0)
+    parser.add_argument("--probe-period-steps", type=int, default=20)
+    parser.add_argument("--probe-until-step", type=int, default=None)
+    parser.add_argument("--probe-until-distance", type=float, default=None)
     parser.add_argument("--top-k", type=int, default=40)
     parser.add_argument("--run-dir", type=Path, default=None)
     args = parser.parse_args()
@@ -484,6 +688,15 @@ def main() -> None:
     seeds = load_seed_csv(args.seed_csv) if args.seed_csv is not None else [args.seed + index for index in range(args.episodes)]
     nominal_randomization = parse_randomization_overrides(args.nominal_randomization)
     perturbed_randomization = parse_randomization_overrides(args.perturbed_randomization)
+    probe_config = ProbeConfig(
+        strategy=args.probe_strategy,
+        steer_amplitude=args.probe_steer_amplitude,
+        brake_level=args.probe_brake_level,
+        throttle_level=args.probe_throttle_level,
+        period_steps=args.probe_period_steps,
+        until_step=args.probe_until_step,
+        until_distance=args.probe_until_distance,
+    )
     candidates, replays, corpus, summary = run_outcome_sensitive_corpus(
         model=model,
         base_config=base_config,
@@ -510,6 +723,7 @@ def main() -> None:
         require_normal_success=not args.allow_normal_failure,
         max_continuation_steps=args.max_continuation_steps,
         top_k=args.top_k,
+        probe_config=probe_config,
     )
 
     candidates_csv = run_dir / "outcome_candidates.csv"
@@ -552,6 +766,15 @@ def main() -> None:
             "max_normal_margin": args.max_normal_margin,
             "require_normal_success": not args.allow_normal_failure,
             "max_continuation_steps": args.max_continuation_steps,
+            "probe": {
+                "strategy": probe_config.strategy,
+                "steer_amplitude": probe_config.steer_amplitude,
+                "brake_level": probe_config.brake_level,
+                "throttle_level": probe_config.throttle_level,
+                "period_steps": probe_config.period_steps,
+                "until_step": probe_config.until_step,
+                "until_distance": probe_config.until_distance,
+            },
             "top_k": args.top_k,
             "artifacts": {
                 "outcome_candidates_csv": candidates_csv,

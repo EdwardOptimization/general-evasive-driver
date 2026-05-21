@@ -192,6 +192,9 @@ vehicle/tire models, and NMPC-style constrained control.
   results across weak-brake and low-friction contrasts.
 - `m72-pre-emergency-warmup-history-harness.md`: warm-up history proof surface,
   obstacle perception reveal infrastructure, and negative warm-up reveal smoke.
+- `m73-active-probing-warmup-harness.md`: active-probing warm-up extension,
+  weak-brake/low-friction smoke runs, and near-miss diagnostic for the next
+  outcome-bound sweep.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.
