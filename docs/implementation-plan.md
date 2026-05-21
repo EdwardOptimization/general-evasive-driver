@@ -2603,8 +2603,25 @@ Do not start PPO. See `docs/m130-combined-outcome-formal-repeat-gate.md`.
 - Keep behavior retention and zero-response ablation gates.
 - Do not start PPO until proof-surface diversity recovers.
 
-Status: pending. M130 shows the next blocker is proof-surface retention, not
-fixed-corpus optimization or normal behavior retention.
+Status: completed as diagnosis. M131 shows M129 does not simply lose action
+difference: on seed `9860`, visible wrong-history candidates keep similar row
+count and M129 has larger first-action distance, but rollout margin gaps shrink
+sharply. M124 visible gap-accepted rows have margin-gap mean/max
+`0.020974`/`0.188070`; M129 has `0.009717`/`0.023838`. The selected strict
+surface also drops from M124 `23` rows to M129 `14` rows. See
+`docs/m131-proof-surface-retention-repair.md`.
+
+### M132: Rollout Margin Retention Repair
+
+- Stop optimizing only fixed snippet logprob as the primary repair.
+- Add or test a retention objective/gate that preserves fresh rollout margin
+  gaps and selected-pair diversity.
+- Keep M124 behavior retention, zero-response degradation, and M62 controls.
+- Use fresh miner seeds, not only the original M128 corpus.
+- Defer PPO until fresh strict proof-surface diversity recovers.
+
+Status: pending. M131 localizes the blocker to rollout-margin proof-surface
+retention after fixed-corpus fitting.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

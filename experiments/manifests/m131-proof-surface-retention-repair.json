@@ -5,15 +5,15 @@
   ],
   "commands": [
     {
-      "command": "Diagnose why M129 improves fixed-corpus loss but weakens fresh strict outcome-surface diversity, then propose or test a proof-surface-retention repair before PPO.",
-      "name": "m131_proof_surface_retention_repair"
+      "command": "Compare M124 and M129 strict miner artifacts from seed 9860 to isolate whether the M129 proof-surface regression is caused by visible matching, action divergence, margin-gap shrinkage, or source selection.",
+      "name": "m131_proof_surface_regression_diagnosis"
     }
   ],
-  "decision_rule": "Do not start PPO until the objective recipe preserves fresh strict outcome-surface diversity as well as behavior retention.",
+  "decision_rule": "Classify the proof-surface regression mode before designing another objective; do not start PPO from M129.",
   "failure_criteria": [
-    "repair only improves fixed-corpus loss",
-    "fresh selected physical pairs remain below the M122/M127 proof-surface thresholds",
-    "M62 control becomes admitted",
+    "diagnosis cannot explain why fresh selected pairs shrink",
+    "fixed-corpus loss is treated as enough for PPO",
+    "fresh selected physical pairs below the M122/M127 proof-surface thresholds are ignored",
     "no-action neutrality is ignored",
     "source-side perturbed-only limitation is hidden"
   ],
@@ -26,10 +26,10 @@
     }
   ],
   "success_criteria": [
-    "fresh proof-surface diversity recovers relative to M129",
-    "behavior retention remains at M124 level",
-    "M62 control remains unadmitted",
-    "the repair is evaluated on fresh miner seeds",
+    "regression mode is localized with M124/M129 side-by-side metrics",
+    "diagnosis distinguishes action-distance changes from rollout margin-gap changes",
+    "repair path is specified without starting PPO",
+    "M62 control cleanliness remains part of the next gate",
     "PPO readiness is still decided by gates, not objective loss alone"
   ],
   "type": "gate"

@@ -376,6 +376,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m130-combined-outcome-formal-repeat-gate.md`: formal repeat gate for M129;
   rejects PPO readiness because fresh strict outcome-surface diversity is too
   weak despite behavior retention and clean M62 controls.
+- `m131-proof-surface-retention-repair.md`: diagnosis of why M129 loses fresh
+  proof-surface diversity; fixed logprob improvement increased one-step action
+  distance but shrank rollout margin gaps.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

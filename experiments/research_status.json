@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 139,
+    "completed": 140,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m130-combined-outcome-formal-repeat-gate.md",
+    "command_log": "docs/m131-proof-surface-retention-repair.md",
     "returncode": 0,
     "run_dir": "runs/m130_zero_relvel_m129_strict_60ep_seed9860",
     "status": "completed",
-    "task_id": "m130-combined-outcome-formal-repeat-gate"
+    "task_id": "m131-proof-surface-retention-repair"
   },
   "next_task": {
-    "command": "see experiments/manifests/m131-proof-surface-retention-repair.json",
-    "hypothesis": "Diagnose and repair M129 proof-surface diversity loss before PPO",
-    "id": "m131-proof-surface-retention-repair",
+    "command": "see experiments/manifests/m132-rollout-margin-retention-repair.json",
+    "hypothesis": "Repair proof-surface retention with rollout margin evidence before PPO",
+    "id": "m132-rollout-margin-retention-repair",
     "kind": "gate",
-    "notes": "Pending after M130: fixed-corpus loss improved but fresh strict outcome-surface diversity regressed below PPO-readiness threshold",
-    "priority": 1260,
+    "notes": "Pending after M131: avoid fixed logprob-only optimization because it weakens fresh rollout margin proof surface",
+    "priority": 1270,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T223730Z"
+  "updated_at_utc": "20260521T224730Z"
 }

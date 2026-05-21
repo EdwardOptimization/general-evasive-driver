@@ -1,0 +1,36 @@
+{
+  "baseline_checkpoints": [
+    "runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt",
+    "runs/m129_combined_outcome_objective_seed9830/optimized_checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "Design and test a proof-surface retention repair that preserves fresh rollout margin gaps instead of only improving fixed snippet logprob loss.",
+      "name": "m132_rollout_margin_retention_repair"
+    }
+  ],
+  "decision_rule": "Only admit a repair if it improves or preserves fresh strict outcome-surface diversity while retaining M124 behavior and keeping M62 controls clean.",
+  "failure_criteria": [
+    "fixed-corpus loss improves but fresh rollout margin gaps shrink",
+    "selected physical pairs remain below prior proof-surface thresholds",
+    "behavior retention regresses",
+    "M62 control becomes admitted",
+    "the source-side perturbed-only limitation is hidden"
+  ],
+  "hypothesis": "M131 shows M129 increases one-step action separation but shrinks fresh rollout margin gaps. A rollout-margin retention repair should preserve the outcome proof surface better than the fixed logprob-only objective.",
+  "id": "m132-rollout-margin-retention-repair",
+  "required_artifacts": [
+    {
+      "path": "docs/m132-rollout-margin-retention-repair.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "fresh visible wrong-history margin gaps do not shrink relative to M124",
+    "selected physical pairs and selected seeds recover relative to M129",
+    "behavior retention remains at M124 level",
+    "M62 controls remain unadmitted",
+    "PPO readiness is decided by the formal gate after the repair"
+  ],
+  "type": "gate"
+}

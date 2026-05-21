@@ -5011,3 +5011,27 @@ Decision: reject PPO readiness. Behavior and M62 controls pass, but fresh M129
 strict proof-surface diversity is below the prior diversity standard and weaker
 than same-seed M124. The next pending task is M131: diagnose and repair
 proof-surface retention before PPO.
+
+## 20260521T224730Z m131-proof-surface-retention-repair
+
+M131 diagnoses why M129 loses fresh strict proof-surface diversity.
+
+Seed `9860` comparison:
+
+| Policy | Visible gap rows | Gap mean | Gap max | First-action mean | Trajectory mean |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| M124 | 158 | 0.020974 | 0.188070 | 0.087288 | 0.032974 |
+| M129 | 156 | 0.009717 | 0.023838 | 0.099090 | 0.026182 |
+
+Strict accepted rows:
+
+| Policy | Rows | Selected pairs | Gap mean | Gap max | First-action mean |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| M124 | 23 | 6 | 0.017592 | 0.035959 | 0.101018 |
+| M129 | 14 | 5 | 0.008877 | 0.015155 | 0.109515 |
+
+Diagnosis: M129 does not simply lose action separation. It increases one-step
+first-action distance, but shrinks trajectory distance and rollout margin gaps.
+The fixed logprob objective is therefore not aligned tightly enough with the
+fresh rollout-level proof surface. The next pending task is M132: repair
+proof-surface retention using rollout margin evidence before PPO.
