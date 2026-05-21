@@ -1,6 +1,6 @@
 # AutoDrift Research Log
 
-Last updated: 2026-05-21
+Last updated: 2026-05-22
 
 ## Current Best
 
@@ -11,37 +11,20 @@ Last updated: 2026-05-21
 - gate artifacts:
   `runs/m62_margin_retention_gate_strict/candidate_gate_summary.csv`,
   `runs/m62_a250_hidden_swap_gate_seed4300/summary.csv`
-- blocker: `m62_a250` is stronger than M37_102 on the current strict
-  margin-retention evidence and does not regress the M37 hidden-swap diagnostic,
-  but M63/M64/M66 still do not prove recurrent self-identification. Removing or
-  resetting response history does not reliably weaken the policy. M67-B's
-  from-scratch privileged teacher and M67-E's warm-started privileged teacher
-  both failed to produce a meaningful hidden-dynamics upper-bound gap. M68 then
-  found no privileged-packet action divergence on the M65 smoke. M69 broadened
-  the search and still found zero privileged-packet divergent pairs. M70 then
-  showed the few wrong-history candidates do not degrade continuation outcome.
-  M71 added an outcome-sensitive matched-scenario constructor, but passive
-  snapshot mining still produced zero accepted wrong-history outcome cases. The
-  M72 warm-up reveal gate also produced zero accepted outcome-sensitive cases,
-  and M73 active probing only produced large margin gaps in invalid
-  collision-to-collision near misses. M74's reset-level obstacle geometry sweep
-  did not turn those near misses into valid snippets. M75 snapshot relocation
-  preserved the probing history and found relaxed wrong-history margin-loss
-  snippets, but strict visible matching still rejected them. M76 snapshot-bank
-  matching improved visible-state distance and recovered one relaxed
-  history-sensitive row, but strict near-boundary acceptance is still zero. M77
-  dense boundary relocation found larger wrong-history gaps only when normal
-  history already collided; successful near-boundary rows still had sub-threshold
-  margin gaps. M78 wires an outcome-weighted intervention objective into PPO,
-  but the first low-coefficient smoke does not reduce offline intervention loss.
-  M79 adds a fixed-batch offline evaluator and tries a stronger auxiliary
-  coefficient, but the offline objective worsens again and short evaluation
-  termination rises to `0.5`. M80 shows the objective can decrease in isolation,
-  so the remaining failure is PPO integration and proof-gate design rather than
-  a reversed loss sign. The full 5.5pro MHTML review is now persisted and adds a
-  larger follow-up: prioritize wheel/tire response inputs and wheel-specific
-  history interventions because the current 72-value frame is a baseline, not
-  enough for the final professional-driver self-ID claim.
+- blocker: `m62_a250` remains the best margin-retention checkpoint, but the
+  project has still not proven professional-driver self-identification. M91/M92
+  rejected the current single-track wheel profiles as primary actor inputs;
+  M103-M105 found useful outcome/intervention objectives but M106/M107 rejected
+  M105 formal admission due probe-seed fragility; M108/M109 showed the current
+  hidden-envelope gate is unstable across baseline checkpoints and that current
+  response often beats carried recurrent hidden; M110 then fit a
+  current-response-anchored objective batch but failed external repeated
+  split/multi-seed reliability. The latest 5.5pro MHTML input review is
+  persisted: future wheel/tire work should use raw `Romega_i` plus independent
+  local `v_parallel_i`, while `slip_ratio`, controller flags, tire labels, and
+  oracle values stay out of actor inputs. The next task is M111: construct a
+  matched-current-response ambiguity surface before another objective or PPO
+  sweep.
 
 ## Standing Loop
 

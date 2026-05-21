@@ -312,6 +312,43 @@ train compared profiles with the same seeds, budget, reward, curriculum,
 evaluation corpus, auxiliary losses, and gates. Only after this comparison
 should the best primary profile be iterated further.
 
+## 2026-05-22 Input Addendum
+
+The latest pass over the 2026-05-21 23:50 MHTML snapshot adds one stricter
+interpretation to the already-recorded input plan:
+
+```text
+do not feed the actor a calculated tire diagnostic when the raw command,
+actuator, wheel, local ground-speed, and IMU signals can expose the same
+closed-loop evidence.
+```
+
+In particular:
+
+- `slip_ratio` stays out of the actor even though it is physically meaningful;
+- the division in `(Romega_i - v_parallel_i) / v_parallel_i` is a numerical and
+  distributional risk in lockup, spin, low-speed, and drift-onset states;
+- `slip_angle`, tire-saturation labels, true tire force, true normal load,
+  ABS/TCS/ESC flags, and `mu` remain diagnostics, probe targets, teacher
+  inputs, or verifier-side signals only;
+- the minimum future wheel/tire actor profile is `Romega_i` plus independently
+  fused `v_parallel_i`;
+- `v_perp_i` is an optional experimental channel for drift onset/recovery, not
+  a minimum requirement;
+- if a wheel-speed difference is ever tested, it should use a fixed scale,
+  `(Romega_i - v_parallel_i) / fixed_v_scale`, and must be compared as an
+  optional profile rather than silently added to the main contract.
+
+This reinforces the current M104 contract: the final driver should learn tire
+state in its recurrent latent from raw closed-loop signals, not from precomputed
+ratios or controller labels.
+
+The immediate research implication is also stricter after M109/M110. Current
+response often beats carried hidden state on the existing future-envelope probe,
+so another hidden-objective sweep is not justified until M111 finds or
+constructs matched-current-response cases where history is necessary by
+construction.
+
 ## Wheel Response Decision
 
 The strongest new decision is that wheel/tire response should become the next
@@ -411,7 +448,7 @@ Do not use M80 as the final answer to the project. It is only a blocker check
 for the current outcome-intervention objective. M81 addresses the deeper input
 gap identified by the full MHTML review.
 
-Current status after the later work:
+Current status after the later work through M110:
 
 - M91/M92 executed the input-observability audit path and rejected the current
   single-track wheel profiles as primary PPO inputs.
@@ -422,12 +459,23 @@ Current status after the later work:
   but hidden-envelope retention regressed on braking/lateral probe targets.
 - M102 recovered hidden-envelope retention under softer actor coupling, but the
   reset/zero-response behavior-dependence signal disappeared again.
+- M103 outcome-aware actor coupling fit mined snippets and retained behavior,
+  but reset-hidden dependence and braking/lateral hidden-envelope retention
+  still failed.
+- M105 produced a qualified positive smoke with behavior-dependence and
+  hidden-envelope lift, but M106/M107 rejected formal admission because the
+  hidden-envelope proof was probe-seed fragile.
+- M108/M109 showed that the hidden-envelope gate is unstable for M62/M98/M102
+  and M105, and that current-response features often beat carried response
+  hidden.
+- M110 tried to anchor hidden-envelope learning against an explicit
+  current-response baseline. It fit its own objective batch but failed external
+  repeated split / multi-seed reliability.
 
-The current next research step is therefore not another wheel-profile PPO run.
-It is M103 outcome-aware actor coupling: mine or construct snippets where
-normal carried history actually improves clearance or success over reset,
-zero-response, delayed-history, or wrong-history interventions, then apply
-actor-coupling pressure only on those outcome-relevant snippets.
+The current next research step is therefore M111, not another objective sweep
+or wheel-profile PPO run: construct a matched-current-response ambiguity
+surface where current response and scene are similar, but prior command-response
+history or hidden dynamics changes future capability or action outcome.
 
 The stricter input-contract takeaway is now also preserved as
 `docs/m104-minimum-observable-input-contract.md`.
