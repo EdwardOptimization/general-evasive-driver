@@ -398,8 +398,30 @@ class ActorCritic(nn.Module):
 
 
 def adapt_actor_critic_state(model: ActorCritic, source_state: dict[str, torch.Tensor]) -> str:
-    model.load_state_dict(source_state)
-    return "strict"
+    target_state = model.state_dict()
+    missing = [key for key in target_state if key not in source_state]
+    unexpected = [key for key in source_state if key not in target_state]
+    shape_mismatches = [
+        key
+        for key in source_state
+        if key in target_state and tuple(source_state[key].shape) != tuple(target_state[key].shape)
+    ]
+    allowed_missing = {
+        "response_prediction_head.weight",
+        "response_prediction_head.bias",
+    }
+    if not missing and not unexpected and not shape_mismatches:
+        model.load_state_dict(source_state)
+        return "strict"
+    if set(missing).issubset(allowed_missing) and not unexpected and not shape_mismatches:
+        merged_state = dict(target_state)
+        merged_state.update(source_state)
+        model.load_state_dict(merged_state)
+        return "partial_response_prediction_head"
+    raise RuntimeError(
+        "init checkpoint is incompatible: "
+        f"missing={missing}, unexpected={unexpected}, shape_mismatches={shape_mismatches}"
+    )
 
 
 def load_init_checkpoint_state(model: ActorCritic, checkpoint_path: Path, device: torch.device) -> str:

@@ -4,12 +4,12 @@ Last updated: 2026-05-21
 
 ## Current Best
 
-- checkpoint: `runs/ppo_m8_temporal_gru_driver_seed227/checkpoint.pt`
+- checkpoint: `runs/ppo_m30_mixed_matched_response_seed1330/checkpoints/checkpoint_step_53248.pt`
 - status: not ideal-driver passed
-- gate artifact: `runs/m8_driver_gate_seed227/summary.json`
-- blocker: behavior does not degrade under no-action-history,
-  shuffled-history, single-frame-history, or response-feature masking
-  ablations.
+- gate artifact: `runs/m30_053_hidden_swap_gate_seed4200/summary.csv`
+- blocker: aggregate success is stronger than M26/M8, but M30_053 still does
+  not pass recurrent self-identification; hidden-swap changes zero accepted
+  success outcomes on the M28-style gate.
 
 ## Standing Loop
 
@@ -1239,3 +1239,30 @@ Result:
 Conclusion: parallel mode is deterministic for this profile and yields a small
 4.7% full-training speedup at 16 envs. It is safe to use for long runs when the
 small speed gain is worth extra worker-process complexity.
+
+## 20260521 m34-response-aux-mixed-training-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: adding a deployable response-prediction auxiliary loss to the
+  M30 mixed hard-corpus path can force the recurrent state to model ego
+  response without giving the actor hidden vehicle or road parameters
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m34_response_aux_mixed_driver.json --total-steps 4096 --rollout-steps 128 --seed 1434 --device cuda --init-checkpoint runs/ppo_m30_mixed_matched_response_seed1330/checkpoints/checkpoint_step_53248.pt --run-dir runs/ppo_m34_response_aux_smoke_seed1434`
+- run dir: `runs/ppo_m34_response_aux_smoke_seed1434`
+- checkpoint: `runs/ppo_m34_response_aux_smoke_seed1434/checkpoint.pt`
+
+Smoke result:
+
+- init load mode: `partial_response_prediction_head`;
+- training device: `cuda`;
+- final step: 4096;
+- rollout return mean: 76.98;
+- eval return mean: 70.377;
+- eval steps mean: 65.400;
+- eval termination rate: 0.200.
+
+Conclusion: M34 is runnable and can initialize from `m30_053` while adding only
+the response-prediction auxiliary head. The full M34 run is now the next queued
+training task. Post-run evaluation must compare M34 checkpoints against
+envelope AES, M26_602, and M30_053 on the M29 selected corpus, broad same-seed
+benchmark, and hidden-swap/reset/zero-response gates.

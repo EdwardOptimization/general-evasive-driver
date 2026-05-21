@@ -94,6 +94,8 @@ vehicle/tire models, and NMPC-style constrained control.
   throughput profile across worker counts.
 - `m33-full-ppo-parallel-profile.md`: short full PPO sync versus parallel
   runtime profile and determinism check.
+- `m34-response-aux-mixed-training.md`: response-prediction auxiliary loss
+  added to the M30 mixed hard-corpus training path.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

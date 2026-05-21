@@ -321,6 +321,26 @@ def test_response_prediction_checkpoint_loads_declared_head(tmp_path):
     assert loaded.response_prediction_head is not None
 
 
+def test_init_checkpoint_can_add_response_prediction_head(tmp_path):
+    source = ActorCritic(obs_dim=5, act_dim=2, hidden_size=8, actor_encoder="online_gru", response_prediction_dim=0)
+    target = ActorCritic(obs_dim=5, act_dim=2, hidden_size=8, actor_encoder="online_gru", response_prediction_dim=3)
+    checkpoint_path = tmp_path / "checkpoint.pt"
+    torch.save(
+        {
+            "model_state": {key: value.detach().cpu() for key, value in source.state_dict().items()},
+            "config": model_config(actor_encoder="online_gru", response_prediction_dim=0),
+        },
+        checkpoint_path,
+    )
+
+    load_mode = load_init_checkpoint_state(target, checkpoint_path, torch.device("cpu"))
+
+    assert load_mode == "partial_response_prediction_head"
+    assert target.response_prediction_head is not None
+    for key, value in source.state_dict().items():
+        torch.testing.assert_close(target.state_dict()[key], value)
+
+
 def test_evaluate_actor_carries_online_recurrent_hidden_state():
     model = ActorCritic(obs_dim=72, act_dim=3, hidden_size=8, actor_encoder="online_gru")
     calls = {"count": 0}

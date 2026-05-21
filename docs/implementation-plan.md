@@ -591,6 +591,31 @@ saved config records `vector_env_mode`. Parallel is safe from a determinism
 standpoint in this profile, but the speedup is still modest. See
 `docs/m33-full-ppo-parallel-profile.md`.
 
+### M34: Response-Aux Mixed Training
+
+- Add a deployable response-prediction auxiliary objective to the M30 mixed
+  hard-corpus path.
+- Keep the actor contract clean: the auxiliary target is the next observable
+  ego response/action-state stream, not hidden friction, vehicle parameters,
+  labels, controller mode, or oracle targets.
+- Initialize from `m30_053` while adding only the new prediction head.
+- Select checkpoints by M29 hard-corpus performance, broad same-seed success,
+  and hidden-swap/reset/zero-response gates.
+
+Exit criteria:
+
+- partial init is tested and restricted to the new response-prediction head;
+- M34 smoke trains end to end from `m30_053`;
+- full training writes periodic checkpoints and final checkpoint;
+- post-training gates test aggregate success and recurrent
+  self-identification before claiming progress.
+
+Status: smoke complete; full training queued. The smoke run loaded
+`m30_053` with `partial_response_prediction_head`, trained on CUDA for 4096
+steps, and reached eval return 70.377 with termination rate 0.200. This proves
+the architecture/config path is runnable, not that self-identification is
+solved. See `docs/m34-response-aux-mixed-training.md`.
+
 ## Metrics
 
 - episode success rate;
