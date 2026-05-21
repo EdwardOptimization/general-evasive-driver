@@ -88,6 +88,8 @@ vehicle/tire models, and NMPC-style constrained control.
   follow-up response-critical training and gates.
 - `m30-mixed-hard-corpus-training.md`: mixed hard-seed sampler, M30 training
   config, and smoke result.
+- `m31-parallel-rollout-harness.md`: process-based vector env path for
+  multi-core rollout collection and first speed smoke.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

@@ -545,10 +545,13 @@ Exit criteria:
   semantics;
 - M30-style training can use 8 workers without changing actor inputs.
 
-Status: planned. Current training uses 32 logical cores only superficially:
-`train_ppo` creates many runtime threads, but rollout stepping effectively uses
-about one CPU core because `SyncAutoDriftVectorEnv` steps environments
-sequentially in one Python process.
+Status: functional but not yet a proven speedup. `ParallelAutoDriftVectorEnv`
+is implemented, tested, and wired into PPO through `vector_env_mode`. An
+8-worker 4096-step smoke matches sync behavior exactly, but real time is 9.37s
+parallel versus 9.19s sync, so process startup and IPC overhead erase gains at
+that scale. The next performance step should benchmark longer rollout-only
+sections before defaulting long training to parallel mode. See
+`docs/m31-parallel-rollout-harness.md`.
 
 ## Metrics
 

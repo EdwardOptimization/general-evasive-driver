@@ -1,7 +1,7 @@
 import numpy as np
 
 from autodrift.env import DriftEnvConfig
-from autodrift.vector_env import SyncAutoDriftVectorEnv
+from autodrift.vector_env import ParallelAutoDriftVectorEnv, SyncAutoDriftVectorEnv
 
 
 def test_vector_env_reset_and_step_shapes():
@@ -65,3 +65,49 @@ def test_vector_env_rejects_invalid_seed_sequence_probability():
         assert "seed_sequence_probability" in str(exc)
     else:
         raise AssertionError("invalid seed sequence probability should be rejected")
+
+
+def test_parallel_vector_env_reset_and_step_shapes():
+    env = ParallelAutoDriftVectorEnv(
+        num_envs=2,
+        config=DriftEnvConfig(max_steps=2),
+        seed=31,
+        start_method="fork",
+    )
+    try:
+        obs, infos = env.reset()
+        assert obs.shape == (2, env.single_observation_space.shape[0])
+        assert [info["reset_seed"] for info in infos] == [31, 32]
+
+        actions = np.zeros((2, env.single_action_space.shape[0]), dtype=np.float32)
+        step = env.step(actions)
+
+        assert step.observations.shape == obs.shape
+        assert step.rewards.shape == (2,)
+        assert len(step.infos) == 2
+    finally:
+        env.close()
+
+
+def test_parallel_vector_env_preserves_seed_sequence_cycle():
+    env = ParallelAutoDriftVectorEnv(
+        num_envs=1,
+        config=DriftEnvConfig(max_steps=1),
+        seed=21,
+        seed_sequence=[101, 103],
+        start_method="fork",
+    )
+    try:
+        _, infos = env.reset()
+        assert infos[0]["reset_seed"] == 101
+
+        actions = np.zeros((1, env.single_action_space.shape[0]), dtype=np.float32)
+        first_step = env.step(actions)
+        assert first_step.truncated[0]
+        assert first_step.infos[0]["reset_info"]["reset_seed"] == 103
+
+        second_step = env.step(actions)
+        assert second_step.truncated[0]
+        assert second_step.infos[0]["reset_info"]["reset_seed"] == 101
+    finally:
+        env.close()

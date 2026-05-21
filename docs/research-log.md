@@ -1167,3 +1167,28 @@ success over M26_602. It is still not a self-identification pass: hidden-swap is
 outcome-neutral, and reset/zero-response do not hurt. The next engineering
 blocker is rollout throughput; current training effectively uses one CPU core,
 so M31 should add an 8-core parallel rollout harness before longer training.
+
+## 20260521 m31-parallel-rollout-harness
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: PPO rollout collection can use multiple CPU worker processes
+  without changing actor inputs or hard-seed mix semantics
+- implementation: `ParallelAutoDriftVectorEnv`
+- config fields: `vector_env_mode`, `vector_env_start_method`
+- CLI overrides: `--num-envs`, `--vector-env-mode`, `--vector-env-start-method`
+
+Smoke commands:
+
+- parallel: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m30_mixed_matched_response_driver.json --total-steps 4096 --rollout-steps 128 --num-envs 8 --seed 1331 --device cuda --vector-env-mode parallel --init-checkpoint runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt --run-dir runs/ppo_m31_parallel_rollout_smoke_seed1331`
+- sync: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m30_mixed_matched_response_driver.json --total-steps 4096 --rollout-steps 128 --num-envs 8 --seed 1331 --device cuda --vector-env-mode sync --init-checkpoint runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt --run-dir runs/ppo_m31_sync_rollout_smoke_seed1331`
+
+Result:
+
+- parallel real time: 9.37s;
+- sync real time: 9.19s;
+- both runs produced identical eval return 67.979 and termination 0.100.
+
+Conclusion: M31 is a functional harness, not a speedup proof. The next
+performance task should isolate rollout-only throughput on longer horizons and
+tune worker count before using parallel mode by default.

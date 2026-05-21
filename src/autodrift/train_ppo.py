@@ -22,7 +22,7 @@ from torch.optim import Adam
 from autodrift.artifacts import make_run_dir, read_json, to_jsonable, write_csv_rows, write_json
 from autodrift.config import build_curriculum, build_env_config, env_config_for_step
 from autodrift.env import AutoDriftEnv, DriftEnvConfig
-from autodrift.vector_env import SyncAutoDriftVectorEnv
+from autodrift.vector_env import ParallelAutoDriftVectorEnv, SyncAutoDriftVectorEnv
 
 
 HUMAN_VIEW_OBS_DIM = 72
@@ -62,6 +62,8 @@ class PPOConfig:
     checkpoint_interval_steps: int = 0
     training_seed_csv: str = ""
     training_seed_mix_probability: float = 1.0
+    vector_env_mode: str = "sync"
+    vector_env_start_method: str = "fork"
     seed: int = 5
     device: str = "auto"
 
@@ -514,6 +516,33 @@ def load_training_seed_csv(path: Path | str) -> list[int]:
     return seeds
 
 
+def make_vector_env(
+    config: PPOConfig,
+    env_config: DriftEnvConfig,
+    *,
+    seed: int,
+    seed_sequence: list[int] | None,
+) -> SyncAutoDriftVectorEnv | ParallelAutoDriftVectorEnv:
+    if config.vector_env_mode == "sync":
+        return SyncAutoDriftVectorEnv(
+            num_envs=config.num_envs,
+            config=env_config,
+            seed=seed,
+            seed_sequence=seed_sequence,
+            seed_sequence_probability=config.training_seed_mix_probability,
+        )
+    if config.vector_env_mode == "parallel":
+        return ParallelAutoDriftVectorEnv(
+            num_envs=config.num_envs,
+            config=env_config,
+            seed=seed,
+            seed_sequence=seed_sequence,
+            seed_sequence_probability=config.training_seed_mix_probability,
+            start_method=config.vector_env_start_method,
+        )
+    raise ValueError("vector_env_mode must be one of: sync, parallel")
+
+
 def train(
     config: PPOConfig,
     save_path: Path | None = None,
@@ -549,13 +578,7 @@ def train(
     training_seed_sequence = (
         load_training_seed_csv(config.training_seed_csv) if str(config.training_seed_csv).strip() else None
     )
-    env = SyncAutoDriftVectorEnv(
-        num_envs=config.num_envs,
-        config=active_env_config,
-        seed=config.seed,
-        seed_sequence=training_seed_sequence,
-        seed_sequence_probability=config.training_seed_mix_probability,
-    )
+    env = make_vector_env(config, active_env_config, seed=config.seed, seed_sequence=training_seed_sequence)
     obs, infos = env.reset()
     if config.response_prediction_dim > env.single_observation_space.shape[0]:
         raise ValueError("response_prediction_dim cannot exceed observation dimension")
@@ -590,12 +613,12 @@ def train(
                 raise ValueError("online recurrent actors require env history_length=1 in every curriculum stage")
             active_env_config = next_env_config
             active_stage = next_stage
-            env = SyncAutoDriftVectorEnv(
-                num_envs=config.num_envs,
-                config=active_env_config,
+            env.close()
+            env = make_vector_env(
+                config,
+                active_env_config,
                 seed=config.seed + global_step,
                 seed_sequence=training_seed_sequence,
-                seed_sequence_probability=config.training_seed_mix_probability,
             )
             obs, infos = env.reset()
             recurrent_hidden = model.initial_hidden(config.num_envs, device) if uses_online_recurrent else None
@@ -810,6 +833,7 @@ def train(
         save_training_checkpoint(model, config, checkpoint_metadata, save_path)
     if metrics_csv_path is not None:
         write_csv_rows(metrics_csv_path, metric_rows)
+    env.close()
     return model
 
 
@@ -861,8 +885,11 @@ def main() -> None:
     parser.add_argument("--config", type=Path, default=None)
     parser.add_argument("--total-steps", type=int, default=None)
     parser.add_argument("--rollout-steps", type=int, default=None)
+    parser.add_argument("--num-envs", type=int, default=None)
     parser.add_argument("--seed", type=int, default=None)
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default=None)
+    parser.add_argument("--vector-env-mode", choices=["sync", "parallel"], default=None)
+    parser.add_argument("--vector-env-start-method", default=None)
     parser.add_argument("--save", type=Path, default=None)
     parser.add_argument("--init-checkpoint", type=Path, default=None)
     parser.add_argument("--run-dir", type=Path, default=None)
@@ -890,8 +917,11 @@ def main() -> None:
     cli_overrides = {
         "total_steps": args.total_steps,
         "rollout_steps": args.rollout_steps,
+        "num_envs": args.num_envs,
         "seed": args.seed,
         "device": args.device,
+        "vector_env_mode": args.vector_env_mode,
+        "vector_env_start_method": args.vector_env_start_method,
     }
     for key, value in cli_overrides.items():
         if value is not None:
