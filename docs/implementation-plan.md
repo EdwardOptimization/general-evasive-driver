@@ -476,11 +476,14 @@ Exit criteria:
 - if the gate fails, the failure mode is recorded and used to choose the next
   training change instead of being treated as a vague negative result.
 
-Status: CLI implemented and smoke-tested. The harness writes `pairs.csv`,
-`replays.csv`, `summary.csv`, and `manifest.json`; it also reports
-visible-observation distance, response/context split distances, and GRU
-hidden-state distance. The full 80-episode M28 run is pending in
-`experiments/research_queue.csv`.
+Status: complete as a gate harness and negative as a self-identification
+result. The full 80-seed run collected 80 paired snapshots and 74 accepted
+visible matches. Accepted cases had mean hidden-state distance 1.354, but reset,
+zero-response, and hidden-swap variants did not change success on any accepted
+case. This means `m26_602` still does not pass recurrent self-identification.
+The next task should build an M29 response-critical matched corpus or training
+curriculum where hidden/current feedback changes the outcome, not just the first
+action.
 
 ## Metrics
 

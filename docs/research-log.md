@@ -1030,3 +1030,38 @@ smoke result shows nonzero hidden-state distance and small hidden-swap action
 change, while reset and zero-response alter the first action more strongly.
 Full M28 is now queued to determine whether this pattern holds over 80 paired
 seeds.
+
+## 20260521T030628Z m28-hidden-swap-gate
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: Run the matched-current-observation hidden-swap gate for human-view self-identification
+- command: `conda run -n autodrift python -m autodrift.hidden_swap_gate --env-config configs/ppo_m24_human_view_gru_driver.json --checkpoint runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt --episodes 80 --seed 4200 --device cpu --run-dir runs/m28_hidden_swap_gate_seed4200`
+- returncode: `0`
+- run dir: `runs/research/m28-hidden-swap-gate_20260521T030619Z`
+- command log: `runs/research/m28-hidden-swap-gate_20260521T030619Z/command.log`
+- success artifact: `runs/m28_hidden_swap_gate_seed4200/summary.csv`
+- notes: CLI smoke passed; hidden snapshots require post-friction hidden updates and report visible-observation plus hidden-state distance
+
+Full result:
+
+- paired snapshots: 80 / 80;
+- accepted visible matches: 74 / 80;
+- accepted mean visible-observation distance: 0.410;
+- accepted mean hidden-state distance: 1.354;
+- accepted nominal normal/reset/zero-response/hidden-swap success:
+  0.973 / 0.973 / 0.973 / 0.973;
+- accepted perturbed normal/reset/zero-response/hidden-swap success:
+  0.622 / 0.622 / 0.622 / 0.622;
+- accepted nominal first-action distance for reset/zero-response/hidden-swap:
+  0.393 / 0.167 / 0.064;
+- accepted perturbed first-action distance for reset/zero-response/hidden-swap:
+  0.275 / 0.121 / 0.050;
+- accepted cases with success changed by any ablation: 0.
+
+Conclusion: M28 is a negative recurrent self-identification result for
+`m26_602`. The new gate works and records nonzero post-perturbation hidden-state
+distance, but hidden-swap does not change outcome and reset/zero-response do not
+change success. The next experiment should create an M29 matched
+response-critical corpus or curriculum where different hidden dynamics require
+different corrective action at the same visible decision point.

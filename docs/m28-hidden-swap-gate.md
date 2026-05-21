@@ -153,3 +153,64 @@ Use the M28 result to choose the next step:
 - no feedback dependence: revise training curriculum, reward thresholds, or
   actor loss so different hidden dynamics require different corrective actions
   at the same visible decision point.
+
+## Full Gate Result
+
+Command:
+
+```bash
+conda run -n autodrift python -m autodrift.hidden_swap_gate \
+  --env-config configs/ppo_m24_human_view_gru_driver.json \
+  --checkpoint runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt \
+  --episodes 80 \
+  --seed 4200 \
+  --device cpu \
+  --run-dir runs/m28_hidden_swap_gate_seed4200
+```
+
+Run artifacts:
+
+- `runs/m28_hidden_swap_gate_seed4200/pairs.csv`;
+- `runs/m28_hidden_swap_gate_seed4200/replays.csv`;
+- `runs/m28_hidden_swap_gate_seed4200/summary.csv`;
+- `runs/m28_hidden_swap_gate_seed4200/manifest.json`;
+- command log: `runs/research/m28-hidden-swap-gate_20260521T030619Z/command.log`.
+
+Pair quality:
+
+- paired snapshots: 80 / 80;
+- accepted visible matches: 74 / 80;
+- accepted mean visible-observation distance: 0.410;
+- accepted mean response-observation distance: 0.380;
+- accepted mean context-observation distance: 0.112;
+- accepted mean hidden-state distance: 1.354.
+
+Accepted-match summary:
+
+| Source | Variant | Pairs | Success | Return mean | First-action distance |
+| --- | --- | ---: | ---: | ---: | ---: |
+| nominal | normal | 74 | 0.973 | 47.825 | 0.000 |
+| nominal | reset | 74 | 0.973 | 46.201 | 0.393 |
+| nominal | zero response | 74 | 0.973 | 47.908 | 0.167 |
+| nominal | hidden swap | 74 | 0.973 | 47.793 | 0.064 |
+| perturbed | normal | 74 | 0.622 | 34.273 | 0.000 |
+| perturbed | reset | 74 | 0.622 | 33.979 | 0.275 |
+| perturbed | zero response | 74 | 0.622 | 34.099 | 0.121 |
+| perturbed | hidden swap | 74 | 0.622 | 34.290 | 0.050 |
+
+Result:
+
+- no accepted case changed success under reset, zero-response, or hidden-swap;
+- reset changes first action substantially but does not change the pass/fail
+  boundary;
+- zero-response changes first action moderately but does not reduce success;
+- hidden-swap sees nonzero hidden-state distance but only small first-action
+  change and no outcome change.
+
+Conclusion: M28 is a negative recurrent self-identification result for
+`m26_602`. The harness is valid and produces matched post-perturbation hidden
+states, but the current checkpoint does not show outcome-critical recurrent
+self-identification on this gate. The next step is M29: construct or mine a
+harder matched response-critical corpus where the same visible decision point
+requires different corrective actions, then train or fine-tune against that
+distribution.
