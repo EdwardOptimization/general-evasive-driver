@@ -1336,3 +1336,67 @@ Conclusion: M35 is still a negative self-identification result, but it yields a
 better response-change training corpus than M29 for the M34 line. M36 should
 fine-tune from M34_151 on this corpus and then re-run the same aggregate and
 hidden-swap gates.
+
+## 20260521T042602Z m36-response-change-corpus-training
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Fine-tune M34_151 on the M35 response-change corpus with response-prediction auxiliary loss
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m36_response_change_corpus_driver.json --seed 1536 --device cuda --init-checkpoint runs/ppo_m34_response_aux_mixed_seed1434/checkpoints/checkpoint_step_151552.pt --run-dir runs/ppo_m36_response_change_corpus_seed1536`
+- returncode: `0`
+- run dir: `runs/research/m36-response-change-corpus-training_20260521T041525Z`
+- command log: `runs/research/m36-response-change-corpus-training_20260521T041525Z/command.log`
+- success artifact: `runs/ppo_m36_response_change_corpus_seed1536/checkpoint.pt`
+
+Training result:
+
+- final eval return mean: 65.342;
+- final eval termination rate: 0.200;
+- periodic checkpoints: 28672, 53248, 77824, 102400, 126976, 151552, 176128,
+  and 200000.
+
+M35 response-change corpus sweep:
+
+- M30_053 success: 0.6125;
+- M34_151 success: 0.6125;
+- M36_028 / 053 / 077 / 102 / 126 / 151 / 176 / final success:
+  0.6125 / 0.6000 / 0.5875 / 0.6000 / 0.6125 / 0.6000 / 0.6000 / 0.6000.
+
+M29 selected-corpus sweep:
+
+- M30_053 success: 0.875;
+- M34_151 success: 0.875;
+- M36_028 / 126 / final success: 0.875 / 0.850 / 0.850.
+
+Broad same-seed sweep:
+
+- M30_053 success: 0.825;
+- M34_151 success: 0.825;
+- M36_028 / 126 / final success: 0.825 / 0.800 / 0.800.
+
+M36_028 hidden-swap:
+
+- accepted visible matches: 73 / 80;
+- hidden-swap outcome changes: 0;
+- perturbed reset outcome changes: 3, with 1 unfavorable and 2 favorable;
+- perturbed zero-response outcome changes: 3, with 1 unfavorable and 2
+  favorable.
+
+Conclusion: M36 is a negative result. Fine-tuning on response-change seeds does
+not beat M30/M34 aggregate success and does not make hidden-swap
+behavior-critical. The next hypothesis should change the auxiliary objective,
+not keep replaying the same hard seeds: M37 should use multi-step future
+response prediction so the GRU hidden state must encode a longer dynamics
+belief.
+
+## 20260521T042602Z m36-response-change-corpus-training
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Fine-tune M34_151 on the M35 response-change corpus with response-prediction auxiliary loss
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m36_response_change_corpus_driver.json --seed 1536 --device cuda --init-checkpoint runs/ppo_m34_response_aux_mixed_seed1434/checkpoints/checkpoint_step_151552.pt --run-dir runs/ppo_m36_response_change_corpus_seed1536`
+- returncode: `0`
+- run dir: `runs/research/m36-response-change-corpus-training_20260521T041525Z`
+- command log: `runs/research/m36-response-change-corpus-training_20260521T041525Z/command.log`
+- success artifact: `runs/ppo_m36_response_change_corpus_seed1536/checkpoint.pt`
+- notes: Use M35 response-change seeds to test whether weak response sensitivity can become behavior-critical recurrent control

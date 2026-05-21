@@ -660,7 +660,29 @@ Exit criteria:
 - progress requires unfavorable reset, zero-response, or hidden-swap
   sensitivity without aggregate regression.
 
-Status: queued. See `docs/m36-response-change-corpus-training.md`.
+Status: complete as a negative result. M36_028 preserves M34_151-level success
+on the M35 response-change corpus, M29 selected corpus, and broad same-seed
+benchmark, but it does not improve any gate. Later checkpoints regress.
+M36_028 hidden-swap changes zero accepted success outcomes. See
+`docs/m36-response-change-corpus-training.md`.
+
+### M37: Multi-Step Response Auxiliary
+
+- Extend response-prediction auxiliary loss from one-step prediction to
+  multi-step future observable response prediction.
+- Keep targets deployable-observable only: no hidden friction, vehicle
+  parameters, rule labels, or controller mode.
+- Allow compatible checkpoint initialization while reinitializing a resized
+  response-prediction head.
+
+Exit criteria:
+
+- multi-step response target construction is unit-tested;
+- done masking and sequence-tail masking are unit-tested;
+- M37 smoke can initialize from M34/M36 checkpoints;
+- full M37 validation uses M35, M29, broad, and hidden-swap gates.
+
+Status: planned. See `docs/m37-multistep-response-aux-plan.md`.
 
 ## Metrics
 

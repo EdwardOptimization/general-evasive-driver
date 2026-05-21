@@ -100,6 +100,8 @@ vehicle/tire models, and NMPC-style constrained control.
   response-change corpus for follow-up training.
 - `m36-response-change-corpus-training.md`: planned fine-tune from M34_151 on
   the M35 response-change corpus.
+- `m37-multistep-response-aux-plan.md`: next architecture direction after
+  M36 showed one-step response auxiliary plus hard replay is insufficient.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.
