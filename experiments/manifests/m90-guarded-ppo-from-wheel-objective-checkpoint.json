@@ -18,6 +18,10 @@
     }
   ],
   "decision_rule": "Accept as a continuation candidate only if aggregate success is at least 0.85, zero-wheel success is at least 0.10 below normal success, reset is not better than normal, and mu body+wheel gain remains at least 0.10. Otherwise reject and move to matched wrong-wheel-history corpus.",
+  "decision_labels": {
+    "fail": "reject",
+    "pass": "continuation_candidate"
+  },
   "failure_criteria": [
     "normal success_rate < 0.85",
     "normal success_rate - zero_wheel_success < 0.10",
@@ -27,6 +31,107 @@
   ],
   "hypothesis": "Guarded PPO continuation from the M89 objective-only wheel-aware checkpoint can preserve driving behavior while increasing causal dependence on wheel response.",
   "id": "m90-guarded-ppo-from-wheel-objective-checkpoint",
+  "gates": [
+    {
+      "metric": "success_rate",
+      "name": "normal_success_retention",
+      "op": ">=",
+      "threshold": 0.85
+    },
+    {
+      "aggregation": "difference",
+      "left_metric": "success_rate",
+      "name": "zero_wheel_behavior_gap",
+      "op": ">=",
+      "right_metric": "zero_wheel_success",
+      "threshold": 0.1
+    },
+    {
+      "aggregation": "difference",
+      "left_metric": "success_rate",
+      "name": "reset_not_better_than_normal",
+      "op": ">=",
+      "right_metric": "reset_success",
+      "threshold": 0.0
+    },
+    {
+      "metric": "wheel_gain_mu",
+      "name": "mu_wheel_gain_retention",
+      "op": ">=",
+      "threshold": 0.1
+    },
+    {
+      "metric": "clearance_margin_mean",
+      "name": "m89_clearance_margin_retention",
+      "op": ">=",
+      "threshold": 2.115762
+    }
+  ],
+  "metric_extractors": [
+    {
+      "column": "success_rate",
+      "match": {
+        "policy": "m90"
+      },
+      "metric": "success_rate",
+      "path": "runs/m90_guarded_wheel_objective_gate_seed8830/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "termination_rate",
+      "match": {
+        "policy": "m90"
+      },
+      "metric": "termination_rate",
+      "path": "runs/m90_guarded_wheel_objective_gate_seed8830/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "min_clearance_margin_mean",
+      "match": {
+        "policy": "m90"
+      },
+      "metric": "clearance_margin_mean",
+      "path": "runs/m90_guarded_wheel_objective_gate_seed8830/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "success_rate",
+      "match": {
+        "policy": "m90_reset"
+      },
+      "metric": "reset_success",
+      "path": "runs/m90_guarded_wheel_objective_gate_seed8830/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "success_rate",
+      "match": {
+        "policy": "m90_zero_wheel"
+      },
+      "metric": "zero_wheel_success",
+      "path": "runs/m90_guarded_wheel_objective_gate_seed8830/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "success_rate",
+      "match": {
+        "policy": "m90_zero_all"
+      },
+      "metric": "zero_all_success",
+      "path": "runs/m90_guarded_wheel_objective_gate_seed8830/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "body_plus_wheel_gain",
+      "match": {
+        "target": "mu_bucket"
+      },
+      "metric": "wheel_gain_mu",
+      "path": "runs/m90_guarded_wheel_objective_relevance_audit_seed9100/wheel_gain_summary.csv",
+      "type": "csv"
+    }
+  ],
   "required_artifacts": [
     {
       "path": "runs/ppo_m90_guarded_wheel_objective_smoke_seed4290/checkpoint.pt",
@@ -45,6 +150,7 @@
       "type": "documentation"
     }
   ],
+  "scoreboard_checkpoint": "runs/ppo_m90_guarded_wheel_objective_smoke_seed4290/checkpoint.pt",
   "success_criteria": [
     "normal success_rate >= 0.85 on the 20-episode same-seed gate",
     "normal success_rate - zero_wheel_success >= 0.10",

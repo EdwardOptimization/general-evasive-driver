@@ -20,8 +20,9 @@ RESEARCH_STATUS ?= experiments/research_status.json
 RESEARCH_LOG ?= docs/research-log.md
 RESEARCH_MANIFEST_DIR ?= experiments/manifests
 RESEARCH_SCOREBOARD ?= experiments/scoreboard.csv
+RESEARCH_MANIFEST ?= experiments/manifests/m90-guarded-ppo-from-wheel-objective-checkpoint.json
 
-.PHONY: env-create env-create-cpu env-update env-update-cpu torch-gpu torch-cpu test test-light check-diff hooks-install eval-heuristic train-smoke benchmark-smoke rollout-smoke m7-corpus m7-gate-smoke m7-gate m8-driver-gate-smoke m8-driver-gate research-plan research-run-next research-validate clean
+.PHONY: env-create env-create-cpu env-update env-update-cpu torch-gpu torch-cpu test test-light check-diff hooks-install eval-heuristic train-smoke benchmark-smoke rollout-smoke m7-corpus m7-gate-smoke m7-gate m8-driver-gate-smoke m8-driver-gate research-plan research-run-next research-validate research-manifest-run research-manifest-summarize clean
 
 env-create:
 	mamba env create -f environment-gpu.yml -y
@@ -153,6 +154,16 @@ research-validate:
 		--queue $(RESEARCH_QUEUE) \
 		--status $(RESEARCH_STATUS) \
 		--manifest-dir $(RESEARCH_MANIFEST_DIR) \
+		--scoreboard $(RESEARCH_SCOREBOARD)
+
+research-manifest-run:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m autodrift.research_manifest run \
+		--manifest $(RESEARCH_MANIFEST) \
+		--scoreboard $(RESEARCH_SCOREBOARD)
+
+research-manifest-summarize:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m autodrift.research_manifest summarize \
+		--manifest $(RESEARCH_MANIFEST) \
 		--scoreboard $(RESEARCH_SCOREBOARD)
 
 clean:

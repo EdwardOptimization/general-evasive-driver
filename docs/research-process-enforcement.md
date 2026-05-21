@@ -65,6 +65,49 @@ The validator checks:
 - each enforced task has a manifest in `experiments/manifests`;
 - completed enforced tasks have a scoreboard row;
 - completed enforced tasks have all manifest-declared required artifacts.
+- completed enforced tasks with structured `metric_extractors` and `gates`
+  have a scoreboard decision matching the recomputed gate result.
+
+## Manifest Runner
+
+M90+ manifests can now be executed as the source of truth:
+
+```bash
+make research-manifest-run
+```
+
+or:
+
+```bash
+PYTHONPATH=src python -m autodrift.research_manifest run \
+  --manifest experiments/manifests/m90-guarded-ppo-from-wheel-objective-checkpoint.json \
+  --scoreboard experiments/scoreboard.csv
+```
+
+The runner executes the manifest `commands` in order, writes per-command logs,
+and emits:
+
+```text
+runs/research_manifest/<manifest-id>_<timestamp>/run_receipt.json
+```
+
+The receipt records:
+
+- manifest id;
+- git commit and dirty status;
+- Python/platform metadata;
+- command return codes and log paths;
+- required artifact existence, size, and sha256 hash.
+
+For heavyweight experiments that are run manually, the metrics can still be
+closed into the same harness afterwards:
+
+```bash
+make research-manifest-summarize
+```
+
+This extracts manifest-declared metrics, evaluates structured gates, and
+upserts the task row in `experiments/scoreboard.csv`.
 
 ## Manifest Schema
 
@@ -100,6 +143,25 @@ The M90 manifest pre-registers:
 - required artifacts;
 - baseline checkpoints;
 - decision rule.
+
+M90 also defines structured fields:
+
+```text
+metric_extractors
+gates
+decision_labels
+scoreboard_checkpoint
+```
+
+`metric_extractors` read named values from CSV artifacts. `gates` compare those
+values against preregistered thresholds, including metric differences such as:
+
+```text
+success_rate - zero_wheel_success >= 0.10
+```
+
+The scoreboard decision is generated from these gates instead of hand-written
+after the result is known.
 
 ## Scoreboard
 
@@ -144,14 +206,16 @@ Commands run after implementation:
 ```bash
 make research-validate
 python -m compileall -q src tests
-OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift pytest -q tests/test_research_validate.py
+OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift pytest -q tests/test_research_manifest.py tests/test_research_validate.py tests/test_research_cycle.py
+OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift pytest -q
+scripts/hooks/pre-commit
 ```
 
 Results:
 
 ```text
 research validation passed (enforce_from_priority=870, enforced_tasks=1)
-5 passed
+13 passed for the focused research harness tests
+247 passed for the full suite
+16 passed from the pre-commit lightweight path
 ```
-
-The full test suite should also be run before commit.

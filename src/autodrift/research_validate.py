@@ -15,6 +15,7 @@ from typing import Any
 
 from autodrift.artifacts import read_json
 from autodrift.research_cycle import ALLOWED_STATUSES, ResearchTask, load_queue, queue_counts
+from autodrift.research_schema import SCOREBOARD_FIELDS
 
 
 ENFORCE_FROM_PRIORITY = 870
@@ -30,20 +31,7 @@ MANIFEST_REQUIRED_FIELDS = (
     "decision_rule",
 )
 MANIFEST_TYPES = {"infrastructure", "objective_sanity", "driver_candidate", "gate"}
-SCOREBOARD_FIELDS = [
-    "milestone",
-    "type",
-    "checkpoint",
-    "success_rate",
-    "termination_rate",
-    "clearance_margin_mean",
-    "reset_success",
-    "zero_wheel_success",
-    "zero_all_success",
-    "wheel_gain_mu",
-    "decision",
-    "reason",
-]
+GATE_OPERATORS = {">", ">=", "<", "<=", "==", "!="}
 
 
 @dataclass(frozen=True)
@@ -110,6 +98,65 @@ def _validate_manifest(task: ResearchTask, manifest: dict[str, Any]) -> list[Val
     for field in ("success_criteria", "failure_criteria", "commands", "required_artifacts", "baseline_checkpoints"):
         if not _non_empty_list(manifest[field]):
             issues.append(ValidationIssue("error", f"{task.id}: manifest field {field!r} must be a non-empty list"))
+    issues.extend(_validate_metric_extractors(task, manifest))
+    issues.extend(_validate_gates(task, manifest))
+    return issues
+
+
+def _validate_metric_extractors(task: ResearchTask, manifest: dict[str, Any]) -> list[ValidationIssue]:
+    issues: list[ValidationIssue] = []
+    extractors = manifest.get("metric_extractors", [])
+    if extractors == []:
+        return issues
+    if not isinstance(extractors, list):
+        return [ValidationIssue("error", f"{task.id}: metric_extractors must be a list")]
+    for index, extractor in enumerate(extractors):
+        prefix = f"{task.id}: metric_extractors[{index}]"
+        if not isinstance(extractor, dict):
+            issues.append(ValidationIssue("error", f"{prefix} must be an object"))
+            continue
+        if extractor.get("type", "csv") != "csv":
+            issues.append(ValidationIssue("error", f"{prefix} type must be 'csv'"))
+        for field in ("metric", "path", "column"):
+            if not _non_empty_text(extractor.get(field)):
+                issues.append(ValidationIssue("error", f"{prefix} field {field!r} must be non-empty text"))
+        match = extractor.get("match", {})
+        if not isinstance(match, dict):
+            issues.append(ValidationIssue("error", f"{prefix} match must be an object when present"))
+    return issues
+
+
+def _validate_gates(task: ResearchTask, manifest: dict[str, Any]) -> list[ValidationIssue]:
+    issues: list[ValidationIssue] = []
+    gates = manifest.get("gates", [])
+    if gates == []:
+        return issues
+    if not isinstance(gates, list):
+        return [ValidationIssue("error", f"{task.id}: gates must be a list")]
+    for index, gate in enumerate(gates):
+        prefix = f"{task.id}: gates[{index}]"
+        if not isinstance(gate, dict):
+            issues.append(ValidationIssue("error", f"{prefix} must be an object"))
+            continue
+        if not _non_empty_text(gate.get("name")):
+            issues.append(ValidationIssue("error", f"{prefix} field 'name' must be non-empty text"))
+        if gate.get("op") not in GATE_OPERATORS:
+            issues.append(ValidationIssue("error", f"{prefix} op must be one of {sorted(GATE_OPERATORS)}"))
+        if "threshold" not in gate:
+            issues.append(ValidationIssue("error", f"{prefix} must define threshold"))
+        has_metric = _non_empty_text(gate.get("metric"))
+        has_difference = (
+            gate.get("aggregation") == "difference"
+            and _non_empty_text(gate.get("left_metric"))
+            and _non_empty_text(gate.get("right_metric"))
+        )
+        if not has_metric and not has_difference:
+            issues.append(
+                ValidationIssue(
+                    "error",
+                    f"{prefix} must define either metric or aggregation='difference' with left_metric/right_metric",
+                )
+            )
     return issues
 
 
@@ -178,6 +225,7 @@ def validate_research_state(
     else:
         scoreboard_rows = load_scoreboard(scoreboard_path)
     scoreboard_ids = [row["milestone"] for row in scoreboard_rows]
+    scoreboard_by_id = {row["milestone"]: row for row in scoreboard_rows}
     if len(scoreboard_ids) != len(set(scoreboard_ids)):
         issues.append(ValidationIssue("error", "experiments/scoreboard.csv contains duplicate milestone rows"))
 
@@ -202,6 +250,23 @@ def validate_research_state(
                 artifact_path = artifact.get("path") if isinstance(artifact, dict) else artifact
                 if not artifact_path or not _path_exists(root, str(artifact_path)):
                     issues.append(ValidationIssue("error", f"{task.id}: required artifact missing: {artifact_path}"))
+            if manifest.get("metric_extractors") and manifest.get("gates") and task.id in scoreboard_by_id:
+                try:
+                    from autodrift.research_manifest import build_manifest_summary
+
+                    expected = build_manifest_summary(manifest, root=root)
+                except Exception as exc:  # pragma: no cover - exact exception type depends on external artifact shape.
+                    issues.append(ValidationIssue("error", f"{task.id}: could not recompute structured gates: {exc}"))
+                else:
+                    actual_decision = scoreboard_by_id[task.id].get("decision", "")
+                    if actual_decision != expected.decision:
+                        issues.append(
+                            ValidationIssue(
+                                "error",
+                                f"{task.id}: scoreboard decision {actual_decision!r} does not match "
+                                f"structured gate decision {expected.decision!r}",
+                            )
+                        )
     return issues
 
 

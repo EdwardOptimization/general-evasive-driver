@@ -183,3 +183,73 @@ def test_validate_research_state_accepts_current_enforced_planned_shape(tmp_path
     issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
 
     assert issues == []
+
+
+def test_validate_research_state_recomputes_completed_structured_gate_decision(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    docs = tmp_path / "docs"
+    manifest_dir.mkdir()
+    docs.mkdir()
+    (docs / "m90.md").write_text("done\n", encoding="utf-8")
+    with (tmp_path / "policy_summary.csv").open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=["policy", "success_rate"], lineterminator="\n")
+        writer.writeheader()
+        writer.writerow({"policy": "m90", "success_rate": "0.90"})
+    _write_queue(
+        queue,
+        [
+            {
+                "id": "m90",
+                "priority": 870,
+                "status": "completed",
+                "kind": "training",
+                "hypothesis": "run m90",
+                "command": "python -m autodrift.train_ppo",
+                "success_artifact": "docs/m90.md",
+                "notes": "",
+            }
+        ],
+    )
+    status.write_text(
+        json.dumps({"counts": {"planned": 0, "completed": 1, "failed": 0, "blocked": 0, "pending": 0, "running": 0}, "next_task": None}),
+        encoding="utf-8",
+    )
+    manifest = _manifest("m90")
+    manifest["metric_extractors"] = [
+        {
+            "type": "csv",
+            "metric": "success_rate",
+            "path": "policy_summary.csv",
+            "match": {"policy": "m90"},
+            "column": "success_rate",
+        }
+    ]
+    manifest["gates"] = [{"name": "retention", "metric": "success_rate", "op": ">=", "threshold": 0.85}]
+    manifest["decision_labels"] = {"pass": "accepted", "fail": "rejected"}
+    (manifest_dir / "m90.json").write_text(json.dumps(manifest), encoding="utf-8")
+    _write_scoreboard(
+        scoreboard,
+        [
+            {
+                "milestone": "m90",
+                "type": "driver_candidate",
+                "checkpoint": "runs/m90/checkpoint.pt",
+                "success_rate": "0.90",
+                "termination_rate": "",
+                "clearance_margin_mean": "",
+                "reset_success": "",
+                "zero_wheel_success": "",
+                "zero_all_success": "",
+                "wheel_gain_mu": "",
+                "decision": "rejected",
+                "reason": "wrong manual decision",
+            }
+        ],
+    )
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert any("does not match structured gate decision" in issue.message for issue in issues)
