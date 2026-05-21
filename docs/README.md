@@ -356,6 +356,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m123-m122-zero-relvel-objective-sanity.md`: retention-anchored objective
   sanity on the M122 snippets; fixed-batch loss and behavior retention pass, but
   yaw hidden-envelope regression blocks driver/PPO admission.
+- `m124-retention-calibrated-zero-relvel-objective.md`: lower-strength M122
+  objective sweep; admits a calibrated candidate for formal repeat because it
+  keeps behavior and zero-response gap while avoiding the M123 yaw collapse.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

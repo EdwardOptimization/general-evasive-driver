@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 132,
+    "completed": 133,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m123-m122-zero-relvel-objective-sanity.md",
+    "command_log": "docs/m124-retention-calibrated-zero-relvel-objective.md",
     "returncode": 0,
-    "run_dir": "runs/m123_m122_zero_relvel_objective_seed9811",
+    "run_dir": "runs/m124_calib_s120_lr5e5_anchor10_seed9821",
     "status": "completed",
-    "task_id": "m123-m122-zero-relvel-objective-sanity"
+    "task_id": "m124-retention-calibrated-zero-relvel-objective"
   },
   "next_task": {
-    "command": "see experiments/manifests/m124-retention-calibrated-zero-relvel-objective.json",
-    "hypothesis": "Reduce update strength or increase retention guard so M122 objective fitting preserves yaw belief while keeping behavior gap",
-    "id": "m124-retention-calibrated-zero-relvel-objective",
-    "kind": "objective_sanity",
-    "notes": "Pending after M123: objective signal works but hidden-envelope/yaw retention is not strong enough for PPO",
-    "priority": 1190,
+    "command": "see experiments/manifests/m125-formal-m124-repeat-gate.json",
+    "hypothesis": "Repeat M124 behavior hidden-envelope and intervention gates across fresh seeds before PPO continuation",
+    "id": "m125-formal-m124-repeat-gate",
+    "kind": "gate",
+    "notes": "Pending after M124: calibrated candidate looks better than M123 but needs formal repeat before continuation",
+    "priority": 1200,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T213249Z"
+  "updated_at_utc": "20260521T213842Z"
 }

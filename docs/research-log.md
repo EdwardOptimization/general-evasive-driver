@@ -4759,3 +4759,42 @@ zero-response ablation degrades success. It is not a driver/PPO admission:
 yaw hidden-envelope lift regresses, braking hidden-reset lift remains negative,
 and no-action history is still neutral. The next pending task is M124:
 retention-calibrate the M122 objective instead of starting PPO.
+
+## 20260521T213842Z m124-retention-calibrated-zero-relvel-objective
+
+M124 tests smaller M122 objective updates after M123's yaw hidden-envelope
+regression.
+
+Objective sweep:
+
+| run | after loss | improvement | after anchor MSE |
+| --- | ---: | ---: | ---: |
+| s80 lr5e-5 anchor20 seed9820 | 0.081277 | 0.005147 | 0.000055 |
+| s120 lr5e-5 anchor10 seed9821 | 0.072802 | 0.013622 | 0.000368 |
+| s120 lr5e-5 anchor10 seed9822 | 0.073205 | 0.013219 | 0.000328 |
+| s120 lr5e-5 anchor10 seed9823 | 0.073274 | 0.013150 | 0.000336 |
+
+Hidden-envelope lift, response hidden minus reset:
+
+| policy | braking | lateral | yaw |
+| --- | ---: | ---: | ---: |
+| M105 | -0.259482 | 0.368120 | 0.133647 |
+| M123 9811 | -0.193512 | 0.442902 | 0.031559 |
+| M124 9821 | -0.212614 | 0.543924 | 0.115071 |
+| M124 9822 | -0.231874 | 0.554479 | 0.119341 |
+| M124 9823 | -0.262513 | 0.534689 | 0.114265 |
+
+Behavior:
+
+- M124 9821/9822/9823 all retain `0.8625` success on the zero-relvel behavior
+  gate;
+- M124 9821 reset success is `0.8500`;
+- M124 9821 zero-current/zero-all success is `0.8000`;
+- no-action history remains neutral at `0.8625`.
+
+Conclusion: M124 is the best current objective candidate. The calibrated update
+keeps enough M122 loss improvement, preserves normal behavior, keeps the
+zero-response behavior gap, and avoids the M123 yaw collapse. It is still not a
+driver or PPO admission: braking hidden-reset lift is weak, no-action history is
+neutral, and the evaluation still needs fresh behavior/probe seeds. The next
+task is M125 formal repeat gate.

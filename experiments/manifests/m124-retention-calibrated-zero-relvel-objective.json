@@ -5,8 +5,24 @@
   ],
   "commands": [
     {
-      "command": "TBD: sweep lower update strength or stronger retention anchor on the M122 zero-relvel objective, then repeat behavior and hidden-envelope probes against M105 and M123",
-      "name": "m124_retention_calibrated_zero_relvel_objective"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_optimize --init-checkpoint runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt --snippet-npz runs/m122_zero_relvel_m105_strict_60ep_seed9720/outcome_intervention_snippets.npz --device cpu --steps 120 --batch-size 64 --learning-rate 0.00005 --logprob-margin 0.05 --seed 9821 --grad-clip-norm 1.0 --log-interval 20 --eval-batch-size 64 --eval-batches 20 --eval-seed 0 --train-scope actor_coupling --action-anchor-checkpoint runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt --action-anchor-env-config configs/m121_human_view_zero_obstacle_relvel.json --action-anchor-coef 10.0 --action-anchor-episodes 30 --action-anchor-seed 9821 --action-anchor-horizon-steps 15 --action-anchor-sample-stride 3 --action-anchor-max-samples 800 --action-anchor-batch-size 256 --run-dir runs/m124_calib_s120_lr5e5_anchor10_seed9821",
+      "name": "m124_calibrated_objective_seed9821"
+    },
+    {
+      "command": "repeat m124_calibrated_objective_seed9821 with --seed 9822 --action-anchor-seed 9822 --run-dir runs/m124_calib_s120_lr5e5_anchor10_seed9822",
+      "name": "m124_calibrated_objective_seed9822"
+    },
+    {
+      "command": "repeat m124_calibrated_objective_seed9821 with --seed 9823 --action-anchor-seed 9823 --run-dir runs/m124_calib_s120_lr5e5_anchor10_seed9823",
+      "name": "m124_calibrated_objective_seed9823"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m121_human_view_zero_obstacle_relvel.json --episodes 80 --seed 9500 --policies heuristic --checkpoint-policy m62_a250=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --checkpoint-policy m105_9710=runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt --checkpoint-policy m123_9811=runs/m123_m122_zero_relvel_objective_seed9811/optimized_checkpoint.pt --checkpoint-policy m124_9821=runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt --checkpoint-policy m124_9821_reset=runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt@reset_recurrent_state --checkpoint-policy m124_9821_zero_current=runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt@zero_current_response --checkpoint-policy m124_9821_zero_all=runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt@zero_all_response --checkpoint-policy m124_9821_noact=runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt@zero_action_history --device cpu --run-dir runs/m124_calib_s120_lr5e5_anchor10_behavior_gate_seed9500",
+      "name": "m124_calibrated_behavior_gate"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.hidden_envelope_probe --checkpoint runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --episodes 30 --seed 9510 --horizon-steps 15 --sample-stride 3 --max-samples 800 --ridge 0.1 --device cpu --run-dir runs/m124_calib_s120_lr5e5_anchor10_hidden_probe_seed9510",
+      "name": "m124_calibrated_hidden_probe_seed9821"
     }
   ],
   "decision_rule": "Admit an objective recipe for formal repeat only if it preserves M123's M122-loss improvement and zero-response behavior gap while avoiding yaw hidden-envelope regression.",

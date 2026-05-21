@@ -2476,6 +2476,27 @@ versus reset, and yaw response-hidden lift regresses from `0.133647` to
 Status: pending. M123 proves the M122 snippets are trainable, but the update is
 not belief-safe enough.
 
+Status: completed as a positive calibrated objective candidate. M124 reduces
+the update to `lr=5e-5`, `steps=120`, `action_anchor_coef=10`, preserving a
+repeatable M122 loss improvement around `0.0131-0.0136` with low anchor MSE.
+Behavior retention stays at `0.8625` success across seeds `9821-9823`, and the
+selected 9821 checkpoint keeps the zero-response success drop to `0.8000`.
+Yaw hidden-reset lift stays near M105 (`0.114-0.119` versus M105 `0.133647`)
+instead of collapsing like M123 (`0.031559`). Still no PPO: braking lift remains
+weak and a formal repeat gate is required. See
+`docs/m124-retention-calibrated-zero-relvel-objective.md`.
+
+### M125: Formal M124 Repeat Gate
+
+- Repeat M124 behavior retention on fresh behavior seeds.
+- Repeat hidden-envelope probes on fresh probe seeds.
+- Include reset, zero-response, no-action, and where available wrong-history
+  interventions.
+- Decide explicitly whether M124 is admitted for PPO/continuation.
+
+Status: pending. M124 is the best current objective candidate, but it is not
+yet a driver checkpoint or continuation-approved recipe.
+
 ### M67-F: Counterfactual Response-Intervention Objective
 
 - Stop treating seed replay alone as sufficient for self-identification.

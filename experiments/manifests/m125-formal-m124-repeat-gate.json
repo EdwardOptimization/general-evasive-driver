@@ -1,0 +1,38 @@
+{
+  "baseline_checkpoints": [
+    "runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt",
+    "runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt",
+    "runs/m124_calib_s120_lr5e5_anchor10_seed9822/optimized_checkpoint.pt",
+    "runs/m124_calib_s120_lr5e5_anchor10_seed9823/optimized_checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "TBD: repeat M124 behavior, hidden-envelope, and intervention gates across fresh behavior/probe seeds before admitting the calibrated recipe for PPO or continuation",
+      "name": "m125_formal_m124_repeat_gate"
+    }
+  ],
+  "decision_rule": "Admit M124 for continuation only if behavior retention, zero-response degradation, and yaw/lateral hidden-envelope retention survive repeated seeds and stronger history interventions.",
+  "failure_criteria": [
+    "M124 normal success or clearance regresses versus M105 on repeat behavior seeds",
+    "zero-response degradation disappears",
+    "yaw hidden-envelope lift fails fresh probe seeds",
+    "braking hidden-reset lift remains a blocker without an explicit next objective",
+    "no-action or wrong-history interventions remain neutral on all repeat gates"
+  ],
+  "hypothesis": "M124 fixes the M123 yaw regression on the initial probe seed while retaining behavior and objective signal. A formal repeat gate is needed before PPO continuation.",
+  "id": "m125-formal-m124-repeat-gate",
+  "required_artifacts": [
+    {
+      "path": "docs/m125-formal-m124-repeat-gate.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "normal behavior retention passes on fresh behavior seeds",
+    "zero-response ablation degrades success or safety margin",
+    "yaw hidden-envelope lift remains close to or above M105 on fresh probe seeds",
+    "lateral hidden-envelope lift remains positive",
+    "the decision explicitly states whether PPO continuation is admitted"
+  ],
+  "type": "gate"
+}
