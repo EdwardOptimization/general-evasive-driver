@@ -2550,8 +2550,26 @@ accepted snippets before any PPO continuation. See
 - Keep the perturbed-source-only limitation explicit.
 - Define the next objective-sanity step from this corpus, but do not start PPO.
 
-Status: pending. M127 admits the proof surface, but the training/proof harness
-needs a combined accepted-only corpus before testing an outcome-centric loss.
+Status: completed as corpus infrastructure. M128 adds an
+`autodrift.outcome_snippet_corpus` combiner, verifies the inputs are
+accepted-only through their manifests, deduplicates exact repeated snippets, and
+writes `runs/m128_combined_outcome_snippet_corpus`. The combined corpus has `62`
+input rows, `44` output rows, `18` duplicate rows removed, `13` unique seeds,
+and all rows are still perturbed-source. See
+`docs/m128-combined-outcome-snippet-corpus.md`.
+
+### M129: Combined Outcome Objective Sanity
+
+- Start from the M124 calibrated checkpoint.
+- Optimize against the deduplicated M128 accepted-only corpus with the same
+  retention-anchor discipline used in M124.
+- Repeat across seeds before interpreting any loss movement.
+- Gate against behavior retention and history-ablation gaps before PPO.
+- Keep the perturbed-source-only limitation visible in the decision.
+
+Status: pending. M128 makes the objective corpus reproducible; M129 should test
+whether that corpus improves the outcome-centric objective without washing out
+M124 behavior.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

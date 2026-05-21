@@ -1,0 +1,43 @@
+{
+  "baseline_checkpoints": [
+    "runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_optimize --init-checkpoint runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt --snippet-npz runs/m128_combined_outcome_snippet_corpus/outcome_intervention_snippets.npz --device cpu --steps 120 --batch-size 64 --learning-rate 0.00005 --logprob-margin 0.05 --seed 9830 --grad-clip-norm 1.0 --log-interval 20 --eval-batch-size 64 --eval-batches 20 --eval-seed 0 --train-scope actor_coupling --action-anchor-checkpoint runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt --action-anchor-env-config configs/m121_human_view_zero_obstacle_relvel.json --action-anchor-coef 10.0 --action-anchor-episodes 30 --action-anchor-seed 9830 --action-anchor-horizon-steps 15 --action-anchor-sample-stride 3 --action-anchor-max-samples 800 --action-anchor-batch-size 256 --run-dir runs/m129_combined_outcome_objective_seed9830",
+      "name": "m129_combined_objective_seed9830"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_optimize --init-checkpoint runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt --snippet-npz runs/m128_combined_outcome_snippet_corpus/outcome_intervention_snippets.npz --device cpu --steps 120 --batch-size 64 --learning-rate 0.00005 --logprob-margin 0.05 --seed 9831 --grad-clip-norm 1.0 --log-interval 20 --eval-batch-size 64 --eval-batches 20 --eval-seed 0 --train-scope actor_coupling --action-anchor-checkpoint runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt --action-anchor-env-config configs/m121_human_view_zero_obstacle_relvel.json --action-anchor-coef 10.0 --action-anchor-episodes 30 --action-anchor-seed 9831 --action-anchor-horizon-steps 15 --action-anchor-sample-stride 3 --action-anchor-max-samples 800 --action-anchor-batch-size 256 --run-dir runs/m129_combined_outcome_objective_seed9831",
+      "name": "m129_combined_objective_seed9831"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_optimize --init-checkpoint runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt --snippet-npz runs/m128_combined_outcome_snippet_corpus/outcome_intervention_snippets.npz --device cpu --steps 120 --batch-size 64 --learning-rate 0.00005 --logprob-margin 0.05 --seed 9832 --grad-clip-norm 1.0 --log-interval 20 --eval-batch-size 64 --eval-batches 20 --eval-seed 0 --train-scope actor_coupling --action-anchor-checkpoint runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt --action-anchor-env-config configs/m121_human_view_zero_obstacle_relvel.json --action-anchor-coef 10.0 --action-anchor-episodes 30 --action-anchor-seed 9832 --action-anchor-horizon-steps 15 --action-anchor-sample-stride 3 --action-anchor-max-samples 800 --action-anchor-batch-size 256 --run-dir runs/m129_combined_outcome_objective_seed9832",
+      "name": "m129_combined_objective_seed9832"
+    }
+  ],
+  "decision_rule": "Admit a new objective candidate only if the combined M128 fixed-batch loss improves repeatably while M124 behavior retention and zero-response gap are preserved; do not admit PPO from objective loss alone.",
+  "failure_criteria": [
+    "combined M128 loss improvement is not repeatable",
+    "action-anchor MSE becomes large",
+    "normal behavior retention regresses below M124",
+    "zero-response or wrong-history behavior gap disappears",
+    "the result is treated as driver success without behavior and intervention gates"
+  ],
+  "hypothesis": "The deduplicated M128 accepted-only corpus gives a stronger outcome-centric self-ID objective than the smaller M122 corpus. A retention-anchored M124 continuation should reduce the combined loss without degrading behavior.",
+  "id": "m129-combined-outcome-objective-sanity",
+  "required_artifacts": [
+    {
+      "path": "docs/m129-combined-outcome-objective-sanity.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "M128 fixed-batch loss improves on repeated seeds",
+    "action-anchor MSE remains small",
+    "normal behavior retention matches M124",
+    "history ablations retain an outcome gap",
+    "source-side limitation remains documented before PPO"
+  ],
+  "type": "objective_sanity"
+}

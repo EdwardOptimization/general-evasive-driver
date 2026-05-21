@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 136,
+    "completed": 137,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m127-outcome-centric-self-id-proof-gate.md",
+    "command_log": "docs/m128-combined-outcome-snippet-corpus.md",
     "returncode": 0,
-    "run_dir": "runs/m127_zero_relvel_m124_strict_60ep_seed9820",
+    "run_dir": "runs/m128_combined_outcome_snippet_corpus",
     "status": "completed",
-    "task_id": "m127-outcome-centric-self-id-proof-gate"
+    "task_id": "m128-combined-outcome-snippet-corpus"
   },
   "next_task": {
-    "command": "see experiments/manifests/m128-combined-outcome-snippet-corpus.json",
-    "hypothesis": "Build a combined accepted-only M127 outcome snippet corpus before objective sanity",
-    "id": "m128-combined-outcome-snippet-corpus",
-    "kind": "infrastructure",
-    "notes": "Pending after M127: combine accepted snippets with source metadata before any PPO continuation",
-    "priority": 1230,
+    "command": "see experiments/manifests/m129-combined-outcome-objective-sanity.json",
+    "hypothesis": "Test a retention-anchored objective on the deduplicated M128 corpus before PPO",
+    "id": "m129-combined-outcome-objective-sanity",
+    "kind": "objective_sanity",
+    "notes": "Pending after M128: verify combined outcome objective improves repeatably without behavior regression",
+    "priority": 1240,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T221617Z"
+  "updated_at_utc": "20260521T222320Z"
 }

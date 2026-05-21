@@ -4921,3 +4921,39 @@ rather than every history channel.
 The next task is M128: build a combined accepted-only M127 outcome snippet corpus
 with source metadata and row-count checks before testing an outcome-centric
 objective.
+
+## 20260521T222320Z m128-combined-outcome-snippet-corpus
+
+M128 builds the combined accepted-only corpus required before the next
+outcome-centric objective sanity run.
+
+Command:
+
+```text
+PYTHONPATH=src python -m autodrift.outcome_snippet_corpus \
+  --input-run runs/m126_zero_relvel_m124_strict_60ep_seed9720 \
+  --input-run runs/m127_zero_relvel_m124_strict_60ep_seed9820 \
+  --input-run runs/m127_zero_relvel_m124_strict_60ep_seed9840 \
+  --deduplicate \
+  --run-dir runs/m128_combined_outcome_snippet_corpus
+```
+
+Result:
+
+| Metric | Value |
+| --- | ---: |
+| Input runs | 3 |
+| Input rows | 62 |
+| Output rows | 44 |
+| Duplicate rows removed | 18 |
+| Unique seeds | 13 |
+| Weight sum | 0.419241 |
+
+The combined corpus loads as `44` snippets with shapes `(44, 72)`, `(44, 128)`,
+`(44, 128)`, `(44, 3)`, and `(44,)`. Source-side coverage is still
+`{'perturbed': 44}`.
+
+Decision: M128 passes as corpus infrastructure. The next pending task is M129:
+test a retention-anchored outcome objective on
+`runs/m128_combined_outcome_snippet_corpus/outcome_intervention_snippets.npz`
+before any PPO continuation.

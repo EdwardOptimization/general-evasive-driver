@@ -368,6 +368,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m127-outcome-centric-self-id-proof-gate.md`: formal repeat gate for the
   strict zero-relvel wrong-history outcome surface; admits the proof surface
   for corpus building while recording that all snippets are perturbed-source.
+- `m128-combined-outcome-snippet-corpus.md`: combines accepted-only M127/M126
+  outcome snippets into a deduplicated corpus with source-run provenance before
+  the next objective-sanity experiment.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

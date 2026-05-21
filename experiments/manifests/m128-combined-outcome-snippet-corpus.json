@@ -4,7 +4,7 @@
   ],
   "commands": [
     {
-      "command": "Implement and run an accepted-only M127 outcome-intervention snippet corpus builder over runs/m126_zero_relvel_m124_strict_60ep_seed9720 runs/m127_zero_relvel_m124_strict_60ep_seed9820 and runs/m127_zero_relvel_m124_strict_60ep_seed9840",
+      "command": "PYTHONPATH=src python -m autodrift.outcome_snippet_corpus --input-run runs/m126_zero_relvel_m124_strict_60ep_seed9720 --input-run runs/m127_zero_relvel_m124_strict_60ep_seed9820 --input-run runs/m127_zero_relvel_m124_strict_60ep_seed9840 --deduplicate --run-dir runs/m128_combined_outcome_snippet_corpus",
       "name": "m128_combined_outcome_snippet_corpus"
     }
   ],
@@ -21,6 +21,18 @@
     {
       "path": "docs/m128-combined-outcome-snippet-corpus.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m128_combined_outcome_snippet_corpus/outcome_intervention_snippets.npz",
+      "type": "corpus"
+    },
+    {
+      "path": "runs/m128_combined_outcome_snippet_corpus/outcome_intervention_snippets.csv",
+      "type": "metadata"
+    },
+    {
+      "path": "runs/m128_combined_outcome_snippet_corpus/summary.json",
+      "type": "summary"
     }
   ],
   "success_criteria": [
