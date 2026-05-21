@@ -299,6 +299,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m107-multiseed-hidden-envelope-gate.md`: multi-seed hidden-envelope gate
   harness and M105 aggregate result; M105 hidden belief fails aggregate
   admission across probe seeds.
+- `m108-baseline-multiseed-hidden-envelope-audit.md`: M62/M98/M102/M105
+  baseline audit under the same aggregate gate; all fail, so the proof surface
+  needs diagnosis before another objective.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

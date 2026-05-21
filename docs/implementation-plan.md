@@ -2185,9 +2185,21 @@ mean. See `docs/m107-multiseed-hidden-envelope-gate.md`.
   hidden-envelope proof surface is unstable for all current checkpoints.
 - Do not train a new objective before this comparison.
 
-Status: pending. M107 rejects M105 under aggregate hidden-envelope admission,
-but the next decision depends on whether earlier hidden-envelope checkpoints
-pass the same gate.
+Status: negative gate-surface result. M62, M98, M102, and M105 all fail the
+same aggregate hidden-envelope gate across probe seeds `9510,9511,9512`.
+Therefore the current blocker is not isolated M105 hidden-belief damage; the
+probe target distribution or train/test split is too unstable for admission
+decisions. See `docs/m108-baseline-multiseed-hidden-envelope-audit.md`.
+
+### M109: Hidden-Envelope Probe Reliability Audit
+
+- Inspect target distributions by probe seed.
+- Measure train/test split variance or compare repeated split seeds.
+- Compare larger sample counts before another hidden-retention objective.
+- Pre-register a replacement hidden-envelope gate if the current R2 lift is too
+  seed-fragile.
+
+Status: pending. M108 says to fix the proof surface before training.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

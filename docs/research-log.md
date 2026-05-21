@@ -4117,3 +4117,25 @@ Conclusion: M107 rejects M105 under multi-seed hidden-envelope admission. The
 next task is M108: run the same aggregate gate on M98/M102/M105/M62 to
 distinguish model-specific hidden-belief damage from a generally unstable
 probe surface.
+
+## 20260521T185245Z m108-baseline-multiseed-hidden-envelope-audit
+
+- status: `completed`
+- kind: `gate`
+- run: `runs/m108_baseline_multiseed_hidden_envelope_gate_seed9510`
+- artifact: `docs/m108-baseline-multiseed-hidden-envelope-audit.md`
+
+Result:
+
+- M62, M98, M102, and M105 all fail the strict multi-seed hidden-envelope gate;
+- M62 lateral mean lift is only `-0.073465`, but yaw pass fraction is `0.0`;
+- M98 and M102 lateral/yaw mean lifts are strongly negative;
+- M105 is not uniquely worse: it improves lateral mean relative to M98/M102 but
+  still fails the aggregate gate;
+- braking mean lift is positive for all checkpoints, but every checkpoint has
+  negative worst-case braking lift.
+
+Conclusion: the current hidden-envelope proof surface is not reliable enough
+for admission decisions. The next pending step is M109: audit target
+distributions, train/test split variance, and sample-count sensitivity before
+training another hidden-retention objective.

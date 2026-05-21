@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 116,
+    "completed": 117,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m107-multiseed-hidden-envelope-gate.md",
+    "command_log": "docs/m108-baseline-multiseed-hidden-envelope-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m107_multiseed_hidden_envelope_gate_seed9510",
+    "run_dir": "runs/m108_baseline_multiseed_hidden_envelope_gate_seed9510",
     "status": "completed",
-    "task_id": "m107-multiseed-hidden-envelope-gate"
+    "task_id": "m108-baseline-multiseed-hidden-envelope-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m108-baseline-multiseed-hidden-envelope-audit.json",
-    "hypothesis": "Compare M98 M102 M105 and M62 under the same multi-seed hidden-envelope gate",
-    "id": "m108-baseline-multiseed-hidden-envelope-audit",
+    "command": "see experiments/manifests/m109-hidden-envelope-probe-reliability-audit.json",
+    "hypothesis": "Diagnose hidden-envelope probe target distribution and split reliability before another objective",
+    "id": "m109-hidden-envelope-probe-reliability-audit",
     "kind": "gate",
-    "notes": "Pending after M107: determine whether the hidden-envelope failure is model-specific or gate-surface-wide",
-    "priority": 1030,
+    "notes": "Pending after M108: audit target distributions split variance and sample-count sensitivity",
+    "priority": 1040,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T184818Z"
+  "updated_at_utc": "20260521T185245Z"
 }

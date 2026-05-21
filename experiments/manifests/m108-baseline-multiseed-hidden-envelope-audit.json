@@ -7,24 +7,105 @@
   ],
   "commands": [
     {
-      "command": "TBD: run hidden_envelope_multiseed_gate on M98/M102/M105/M62 baselines with the same probe seeds before changing objectives",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_multiseed_gate --env-config configs/ppo_m24_human_view_gru_driver.json --checkpoint-policy m62_a250=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --checkpoint-policy m98_9480=runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt --checkpoint-policy m102_9550=runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt --checkpoint-policy m105_9710=runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt --probe-seeds 9510,9511,9512 --episodes 30 --horizon-steps 15 --sample-stride 3 --max-samples 800 --ridge 0.1 --device cpu --mean-lift-threshold 0.0 --min-lift-threshold 0.0 --pass-fraction-threshold 1.0 --run-dir runs/m108_baseline_multiseed_hidden_envelope_gate_seed9510",
       "name": "m108_baseline_multiseed_hidden_envelope_audit"
     }
   ],
+  "decision_labels": {
+    "fail": "reject_current_hidden_envelope_proof_surface",
+    "pass": "accept_current_hidden_envelope_proof_surface"
+  },
   "decision_rule": "Compare M98/M102/M105 under the same multi-seed hidden-envelope gate to determine whether M105 damaged hidden belief or whether the probe surface itself is unstable for all current checkpoints.",
   "failure_criteria": [
     "M105 is rejected without comparing M98/M102 under the same aggregate gate",
     "a new objective is trained before identifying whether the blocker is model-specific or gate-specific",
     "the audit changes actor inputs or adds hidden parameters to deployable policy inputs"
   ],
+  "gates": [
+    {
+      "metric": "m98_lateral_mean_lift",
+      "name": "m98_lateral_mean_positive",
+      "op": ">=",
+      "threshold": 0.0
+    },
+    {
+      "metric": "m102_lateral_mean_lift",
+      "name": "m102_lateral_mean_positive",
+      "op": ">=",
+      "threshold": 0.0
+    },
+    {
+      "metric": "m62_yaw_pass_fraction",
+      "name": "m62_yaw_all_seeds_positive",
+      "op": ">=",
+      "threshold": 1.0
+    },
+    {
+      "metric": "m105_lateral_mean_lift",
+      "name": "m105_lateral_mean_positive",
+      "op": ">=",
+      "threshold": 0.0
+    }
+  ],
   "hypothesis": "If M98 or M102 passes the M107 aggregate gate while M105 fails, M105's action-anchor outcome update harmed hidden belief. If all fail, the hidden-envelope proof surface or target split needs redesign before more optimization.",
   "id": "m108-baseline-multiseed-hidden-envelope-audit",
+  "metric_extractors": [
+    {
+      "column": "lift_mean",
+      "match": {
+        "checkpoint_label": "m98_9480",
+        "target": "future_lateral_accel_response"
+      },
+      "metric": "m98_lateral_mean_lift",
+      "path": "runs/m108_baseline_multiseed_hidden_envelope_gate_seed9510/gate_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "lift_mean",
+      "match": {
+        "checkpoint_label": "m102_9550",
+        "target": "future_lateral_accel_response"
+      },
+      "metric": "m102_lateral_mean_lift",
+      "path": "runs/m108_baseline_multiseed_hidden_envelope_gate_seed9510/gate_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "pass_fraction",
+      "match": {
+        "checkpoint_label": "m62_a250",
+        "target": "future_yaw_response"
+      },
+      "metric": "m62_yaw_pass_fraction",
+      "path": "runs/m108_baseline_multiseed_hidden_envelope_gate_seed9510/gate_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "lift_mean",
+      "match": {
+        "checkpoint_label": "m105_9710",
+        "target": "future_lateral_accel_response"
+      },
+      "metric": "m105_lateral_mean_lift",
+      "path": "runs/m108_baseline_multiseed_hidden_envelope_gate_seed9510/gate_summary.csv",
+      "type": "csv"
+    }
+  ],
   "required_artifacts": [
     {
       "path": "docs/m108-baseline-multiseed-hidden-envelope-audit.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m108_baseline_multiseed_hidden_envelope_gate_seed9510/gate_summary.csv",
+      "type": "gate_summary"
+    },
+    {
+      "path": "runs/m108_baseline_multiseed_hidden_envelope_gate_seed9510/summary.json",
+      "type": "summary"
     }
   ],
+  "scoreboard_checkpoint": "runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt",
   "success_criteria": [
     "M98/M102/M105/M62 are evaluated under the same multi-seed hidden-envelope gate",
     "the result identifies model-specific versus gate-surface failure",
