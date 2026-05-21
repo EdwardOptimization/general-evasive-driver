@@ -4449,3 +4449,43 @@ Conclusion: do not train a boundary-aware wrong-history objective yet. M115 is
 a valid construction proof but not a robust corpus. The next pending task is
 M117: broaden the source/geometry search until wrong-history success drops pass
 M116-style diversity gates.
+
+## 20260521T201729Z m117-source-diverse-wrong-history-boundary-mining
+
+- status: `completed`
+- kind: `gate`
+- implementation:
+  `src/autodrift/wrong_history_boundary_relocation_surface.py`
+- tests:
+  `tests/test_wrong_history_boundary_relocation_surface.py`
+- runs:
+  - `runs/m117_source_diverse_source_only_seed9510`
+  - `runs/m117_source_diverse_source_only_robustness_seed9510`
+  - `runs/m117_source_diverse_relative_lateral_seed9510`
+  - `runs/m117_source_diverse_relative_lateral_robustness_seed9510`
+  - `runs/m117_source_diverse_relative_longitudinal_seed9510`
+  - `runs/m117_source_diverse_relative_longitudinal_robustness_seed9510`
+  - diagnostic: `runs/m117_source_diverse_lateral_offsets_seed9510`
+- artifact: `docs/m117-source-diverse-wrong-history-boundary-mining.md`
+
+M117 tests whether M116 failed only because M115's candidate filtering or
+geometry sweep was too narrow. It adds relative obstacle offsets:
+
+```text
+--body-lateral-offsets
+--body-longitudinal-offsets
+```
+
+Results:
+
+| Variant | Candidate rows | Replay rows | Accepted wrong rows | Physical pairs | Margin buckets | Decision |
+| --- | ---: | ---: | ---: | ---: | ---: | --- |
+| source-only all candidates | 360 | 2383 | 12 | 3 | 1 | reject duplicate-dominated |
+| relative lateral offsets | 360 | 11915 | 12 | 3 | 1 | reject duplicate-dominated |
+| relative longitudinal offsets | 360 | 11628 | 12 | 3 | 1 | reject duplicate-dominated |
+| absolute lateral diagnostic | 360 | 11915 | 0 | 0 | 0 | no surface |
+
+Conclusion: the current M113/M115 surface is exhausted. More boundary tuning
+around those rows does not produce a source-diverse wrong-history corpus. The
+next pending task is M118: mine a fresh source-diverse matched-current-response
+corpus before repeating action/outcome/boundary gates.

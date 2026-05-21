@@ -55,6 +55,21 @@ def parse_variants(raw: str) -> tuple[str, ...]:
     return variants
 
 
+def geometry_axis_values(
+    source_value: float,
+    *,
+    absolute_values: tuple[float, ...] | None,
+    offsets: tuple[float, ...] | None,
+) -> tuple[float, ...]:
+    if absolute_values is not None and offsets is not None:
+        raise ValueError("absolute geometry values and offsets are mutually exclusive")
+    if absolute_values is not None:
+        return tuple(float(value) for value in absolute_values)
+    if offsets is not None:
+        return tuple(float(source_value) + float(offset) for offset in offsets)
+    return (float(source_value),)
+
+
 def obstacle_body_geometry(snapshot: OutcomeSnapshot) -> tuple[float, float, float]:
     env = snapshot.env
     if env.obstacle_scenario is None or env.obstacle_position is None:
@@ -244,6 +259,8 @@ def build_boundary_relocation_rows(
     half_width_inflations: tuple[float, ...],
     body_longitudinals: tuple[float, ...] | None,
     body_laterals: tuple[float, ...] | None,
+    body_longitudinal_offsets: tuple[float, ...] | None,
+    body_lateral_offsets: tuple[float, ...] | None,
     min_half_width: float,
     max_half_width: float,
     min_normal_margin: float,
@@ -268,8 +285,16 @@ def build_boundary_relocation_rows(
         source_body_x, source_body_y, source_half_width = obstacle_body_geometry(left)
         if body_longitudinals is None and source_body_x <= 0.0:
             continue
-        geometry_body_x = tuple(body_longitudinals) if body_longitudinals is not None else (source_body_x,)
-        geometry_body_y = tuple(body_laterals) if body_laterals is not None else (source_body_y,)
+        geometry_body_x = geometry_axis_values(
+            source_body_x,
+            absolute_values=body_longitudinals,
+            offsets=body_longitudinal_offsets,
+        )
+        geometry_body_y = geometry_axis_values(
+            source_body_y,
+            absolute_values=body_laterals,
+            offsets=body_lateral_offsets,
+        )
         widths = candidate_half_widths(
             base_half_width=source_half_width,
             original_normal_margin=float(candidate["normal_margin"]),
@@ -279,6 +304,8 @@ def build_boundary_relocation_rows(
             max_half_width=max_half_width,
         )
         for body_x in geometry_body_x:
+            if body_x <= 0.0:
+                continue
             for body_y in geometry_body_y:
                 for half_width in widths:
                     relocated = relocate_outcome_snapshot(
@@ -466,6 +493,8 @@ def run_wrong_history_boundary_relocation_surface(
     half_width_inflations: tuple[float, ...],
     body_longitudinals: tuple[float, ...] | None,
     body_laterals: tuple[float, ...] | None,
+    body_longitudinal_offsets: tuple[float, ...] | None,
+    body_lateral_offsets: tuple[float, ...] | None,
     min_half_width: float,
     max_half_width: float,
     min_normal_margin: float,
@@ -515,6 +544,8 @@ def run_wrong_history_boundary_relocation_surface(
                 half_width_inflations=half_width_inflations,
                 body_longitudinals=body_longitudinals,
                 body_laterals=body_laterals,
+                body_longitudinal_offsets=body_longitudinal_offsets,
+                body_lateral_offsets=body_lateral_offsets,
                 min_half_width=min_half_width,
                 max_half_width=max_half_width,
                 min_normal_margin=min_normal_margin,
@@ -550,6 +581,8 @@ def run_wrong_history_boundary_relocation_surface(
         "half_width_inflations": half_width_inflations,
         "body_longitudinals": body_longitudinals,
         "body_laterals": body_laterals,
+        "body_longitudinal_offsets": body_longitudinal_offsets,
+        "body_lateral_offsets": body_lateral_offsets,
         "min_half_width": float(min_half_width),
         "max_half_width": float(max_half_width),
         "min_normal_margin": float(min_normal_margin),
@@ -588,6 +621,8 @@ def main() -> None:
     parser.add_argument("--half-width-inflations", type=parse_float_list, default=(0.0,))
     parser.add_argument("--body-longitudinals", type=parse_float_list, default=None)
     parser.add_argument("--body-laterals", type=parse_float_list, default=None)
+    parser.add_argument("--body-longitudinal-offsets", type=parse_float_list, default=None)
+    parser.add_argument("--body-lateral-offsets", type=parse_float_list, default=None)
     parser.add_argument("--min-half-width", type=float, default=0.3)
     parser.add_argument("--max-half-width", type=float, default=2.5)
     parser.add_argument("--min-normal-margin", type=float, default=0.0)
@@ -613,6 +648,8 @@ def main() -> None:
         half_width_inflations=args.half_width_inflations,
         body_longitudinals=args.body_longitudinals,
         body_laterals=args.body_laterals,
+        body_longitudinal_offsets=args.body_longitudinal_offsets,
+        body_lateral_offsets=args.body_lateral_offsets,
         min_half_width=args.min_half_width,
         max_half_width=args.max_half_width,
         min_normal_margin=args.min_normal_margin,

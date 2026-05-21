@@ -1,0 +1,34 @@
+{
+  "baseline_checkpoints": [
+    "runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt",
+    "runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt",
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt"
+  ],
+  "commands": [
+    {
+      "command": "TBD: mine a fresh matched-current-response ambiguity corpus with source-diversity constraints before repeating history/outcome/boundary gates",
+      "name": "m118_fresh_source_diverse_matched_current_corpus"
+    }
+  ],
+  "decision_rule": "Proceed to another wrong-history outcome/boundary gate only if the fresh matched-current-response corpus contains enough distinct physical source pairs and decision steps before relocation.",
+  "failure_criteria": [
+    "matched-current-response pairs remain concentrated in the same few seed/step pairs",
+    "future-envelope ambiguity exists only in rows that do not produce action-level history sensitivity",
+    "source-diverse pairs cannot be reconstructed through the M112/M113 replay path"
+  ],
+  "hypothesis": "M117 shows the current M113/M115 surface is exhausted. A fresh source-diverse matched-current-response corpus is needed before more boundary relocation or objective training.",
+  "id": "m118-fresh-source-diverse-matched-current-corpus",
+  "required_artifacts": [
+    {
+      "path": "docs/m118-fresh-source-diverse-matched-current-corpus.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "fresh matched pairs cover substantially more physical source seed/step pairs than M111/M113",
+    "the corpus preserves current-response/context matching",
+    "action-level wrong-history sensitivity remains measurable",
+    "the result decides whether to repeat M113/M115 on the fresh corpus"
+  ],
+  "type": "gate"
+}

@@ -2337,6 +2337,25 @@ control with zero accepted wrong-history rows. See
 Status: pending. M116 shows that the next bottleneck is source and boundary
 diversity, not objective optimization.
 
+Status: completed as a negative mining result. M117 removes the M115 top-k
+candidate cap and adds relative lateral/longitudinal geometry sweeps. None of
+these broaden the surface: all variants still produce only the same `12`
+accepted wrong-history rows from `3` physical source pairs and `1` margin
+bucket. The current M113/M115 surface is exhausted for robust wrong-history
+training. See `docs/m117-source-diverse-wrong-history-boundary-mining.md`.
+
+### M118: Fresh Source-Diverse Matched-Current Corpus
+
+- Mine a new matched-current-response ambiguity corpus with explicit source
+  diversity constraints.
+- Preserve current-response/context matching but avoid concentrating rows in a
+  few seed/step pairs.
+- Repeat action and outcome gates only after the corpus has enough independent
+  physical source pairs.
+
+Status: pending. M117 shows that more boundary tuning around M113 rows is low
+leverage; the next step must move upstream to corpus construction.
+
 ### M67-F: Counterfactual Response-Intervention Objective
 
 - Stop treating seed replay alone as sufficient for self-identification.

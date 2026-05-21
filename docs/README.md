@@ -331,6 +331,10 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m116-boundary-wrong-history-surface-robustness-gate.md`: robustness gate for
   M115; rejects direct objective training because accepted rows collapse to 3
   physical source pairs and 1 normal-margin bucket.
+- `m117-source-diverse-wrong-history-boundary-mining.md`: source/geometry
+  expansion after M116; all-candidate, relative lateral, and relative
+  longitudinal sweeps still collapse to the same 3 physical pairs, so a fresh
+  matched corpus is needed.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

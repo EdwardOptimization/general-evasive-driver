@@ -8,6 +8,7 @@ from autodrift.env import AutoDriftEnv, DriftEnvConfig, ObstacleTaskConfig
 from autodrift.matched_history_outcome_gate import OutcomeSnapshot
 from autodrift.wrong_history_boundary_relocation_surface import (
     candidate_half_widths,
+    geometry_axis_values,
     relocate_outcome_snapshot,
     select_wrong_history_candidates,
     summarize_boundary_relocation_rows,
@@ -38,6 +39,23 @@ def test_candidate_half_widths_filters_invalid_range_and_sorts():
     )
 
     assert widths == [0.6, 0.8]
+
+
+def test_geometry_axis_values_supports_relative_offsets():
+    assert geometry_axis_values(2.0, absolute_values=None, offsets=None) == (2.0,)
+    assert geometry_axis_values(2.0, absolute_values=(1.0, 3.0), offsets=None) == (1.0, 3.0)
+    assert geometry_axis_values(2.0, absolute_values=None, offsets=(-0.5, 0.5)) == (1.5, 2.5)
+
+    try:
+        geometry_axis_values(2.0, absolute_values=(1.0,), offsets=(0.0,))
+    except ValueError as exc:
+        assert "mutually exclusive" in str(exc)
+    else:
+        raise AssertionError("absolute values and offsets should be rejected together")
+
+
+def test_geometry_axis_values_can_generate_nonpositive_values_for_caller_filtering():
+    assert geometry_axis_values(0.25, absolute_values=None, offsets=(-0.5, 0.0)) == (-0.25, 0.25)
 
 
 def test_relocate_outcome_snapshot_updates_obstacle_and_observation():

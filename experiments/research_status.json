@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 125,
+    "completed": 126,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m116-boundary-wrong-history-surface-robustness-gate.md",
+    "command_log": "docs/m117-source-diverse-wrong-history-boundary-mining.md",
     "returncode": 0,
-    "run_dir": "runs/m116_boundary_wrong_history_robustness_seed9510",
+    "run_dir": "runs/m117_source_diverse_relative_longitudinal_seed9510",
     "status": "completed",
-    "task_id": "m116-boundary-wrong-history-surface-robustness-gate"
+    "task_id": "m117-source-diverse-wrong-history-boundary-mining"
   },
   "next_task": {
-    "command": "see experiments/manifests/m117-source-diverse-wrong-history-boundary-mining.json",
-    "hypothesis": "Mine a source-diverse wrong-history boundary surface after M116 duplicate rejection",
-    "id": "m117-source-diverse-wrong-history-boundary-mining",
+    "command": "see experiments/manifests/m118-fresh-source-diverse-matched-current-corpus.json",
+    "hypothesis": "Mine a fresh source-diverse matched-current-response corpus before repeating boundary gates",
+    "id": "m118-fresh-source-diverse-matched-current-corpus",
     "kind": "gate",
-    "notes": "Pending after M116: broaden source/geometry search until wrong-history boundary drops pass diversity gates",
-    "priority": 1120,
+    "notes": "Pending after M117: current M113/M115 surface is exhausted so new source-diverse matched pairs are needed",
+    "priority": 1130,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T200538Z"
+  "updated_at_utc": "20260521T201729Z"
 }
