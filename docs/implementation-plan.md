@@ -2585,9 +2585,26 @@ M129 to a formal repeat gate, not PPO. See
 - Preserve the strict zero-relvel human-view input contract.
 - Decide PPO readiness explicitly.
 
-Status: pending. M129 is a positive fixed-corpus objective result with behavior
-retention, but it still needs a formal repeat/proof-surface gate before any
-continuation training.
+Status: completed as PPO-readiness rejection. M130 behavior seed `9502` passes:
+M129 keeps M124 success `0.8625`, reset drops to `0.8375`, and zero-response
+drops to `0.8000`. M62 controls remain clean on strict miner seeds `9860` and
+`9880`. However, M129 strict outcome-surface diversity regresses to `5` selected
+physical pairs/`4` seeds on miner seed `9860` and `3` pairs/`3` seeds on seed
+`9880`, below the M122/M127 diversity standard and weaker than same-seed M124.
+Do not start PPO. See `docs/m130-combined-outcome-formal-repeat-gate.md`.
+
+### M131: Proof-Surface Retention Repair
+
+- Diagnose why M129 improves fixed-corpus loss but weakens fresh strict
+  proof-surface diversity.
+- Prefer repairs that explicitly preserve or refresh outcome-surface diversity,
+  not just lower fixed snippet loss.
+- Keep M62 controls and fresh miner seeds in the gate.
+- Keep behavior retention and zero-response ablation gates.
+- Do not start PPO until proof-surface diversity recovers.
+
+Status: pending. M130 shows the next blocker is proof-surface retention, not
+fixed-corpus optimization or normal behavior retention.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

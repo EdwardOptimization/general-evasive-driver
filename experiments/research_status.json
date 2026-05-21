@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 138,
+    "completed": 139,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m129-combined-outcome-objective-sanity.md",
+    "command_log": "docs/m130-combined-outcome-formal-repeat-gate.md",
     "returncode": 0,
-    "run_dir": "runs/m129_combined_outcome_objective_seed9830",
+    "run_dir": "runs/m130_zero_relvel_m129_strict_60ep_seed9860",
     "status": "completed",
-    "task_id": "m129-combined-outcome-objective-sanity"
+    "task_id": "m130-combined-outcome-formal-repeat-gate"
   },
   "next_task": {
-    "command": "see experiments/manifests/m130-combined-outcome-formal-repeat-gate.json",
-    "hypothesis": "Formally repeat M129 behavior and outcome proof-surface gates before PPO",
-    "id": "m130-combined-outcome-formal-repeat-gate",
+    "command": "see experiments/manifests/m131-proof-surface-retention-repair.json",
+    "hypothesis": "Diagnose and repair M129 proof-surface diversity loss before PPO",
+    "id": "m131-proof-surface-retention-repair",
     "kind": "gate",
-    "notes": "Pending after M129: decide PPO readiness from fresh behavior and outcome proof-surface evidence",
-    "priority": 1250,
+    "notes": "Pending after M130: fixed-corpus loss improved but fresh strict outcome-surface diversity regressed below PPO-readiness threshold",
+    "priority": 1260,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T222925Z"
+  "updated_at_utc": "20260521T223730Z"
 }

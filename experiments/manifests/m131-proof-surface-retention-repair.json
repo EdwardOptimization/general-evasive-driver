@@ -1,0 +1,36 @@
+{
+  "baseline_checkpoints": [
+    "runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt",
+    "runs/m129_combined_outcome_objective_seed9830/optimized_checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "Diagnose why M129 improves fixed-corpus loss but weakens fresh strict outcome-surface diversity, then propose or test a proof-surface-retention repair before PPO.",
+      "name": "m131_proof_surface_retention_repair"
+    }
+  ],
+  "decision_rule": "Do not start PPO until the objective recipe preserves fresh strict outcome-surface diversity as well as behavior retention.",
+  "failure_criteria": [
+    "repair only improves fixed-corpus loss",
+    "fresh selected physical pairs remain below the M122/M127 proof-surface thresholds",
+    "M62 control becomes admitted",
+    "no-action neutrality is ignored",
+    "source-side perturbed-only limitation is hidden"
+  ],
+  "hypothesis": "M129 overfits the deduplicated corpus enough to reduce fresh proof-surface diversity. A repair should explicitly retain or mine fresh outcome-surface diversity instead of optimizing only fixed snippets.",
+  "id": "m131-proof-surface-retention-repair",
+  "required_artifacts": [
+    {
+      "path": "docs/m131-proof-surface-retention-repair.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "fresh proof-surface diversity recovers relative to M129",
+    "behavior retention remains at M124 level",
+    "M62 control remains unadmitted",
+    "the repair is evaluated on fresh miner seeds",
+    "PPO readiness is still decided by gates, not objective loss alone"
+  ],
+  "type": "gate"
+}

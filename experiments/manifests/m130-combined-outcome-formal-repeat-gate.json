@@ -5,8 +5,24 @@
   ],
   "commands": [
     {
-      "command": "Run a fresh behavior repeat and strict outcome-intervention gate on the M129 candidate before any PPO continuation.",
-      "name": "m130_formal_repeat_gate"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m121_human_view_zero_obstacle_relvel.json --episodes 80 --seed 9502 --policies heuristic --checkpoint-policy m124_9821=runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt --checkpoint-policy m129_9830=runs/m129_combined_outcome_objective_seed9830/optimized_checkpoint.pt --checkpoint-policy m129_9830_reset=runs/m129_combined_outcome_objective_seed9830/optimized_checkpoint.pt@reset_recurrent_state --checkpoint-policy m129_9830_zero_current=runs/m129_combined_outcome_objective_seed9830/optimized_checkpoint.pt@zero_current_response --checkpoint-policy m129_9830_zero_all=runs/m129_combined_outcome_objective_seed9830/optimized_checkpoint.pt@zero_all_response --checkpoint-policy m129_9830_noact=runs/m129_combined_outcome_objective_seed9830/optimized_checkpoint.pt@zero_action_history --device cpu --run-dir runs/m130_combined_outcome_behavior_gate_seed9502",
+      "name": "m130_behavior_gate_seed9502"
+    },
+    {
+      "command": "Run strict zero-relvel snapshot_bank_relocation on M129 9830 with seed 9860; exact CLI and arguments are preserved in runs/m130_zero_relvel_m129_strict_60ep_seed9860/manifest.json.",
+      "name": "m130_m129_strict_seed9860"
+    },
+    {
+      "command": "Run strict zero-relvel snapshot_bank_relocation on M129 9830 with seed 9880; exact CLI and arguments are preserved in runs/m130_zero_relvel_m129_strict_60ep_seed9880/manifest.json.",
+      "name": "m130_m129_strict_seed9880"
+    },
+    {
+      "command": "Run strict zero-relvel snapshot_bank_relocation on M124 9821 with seed 9860; exact CLI and arguments are preserved in runs/m130_zero_relvel_m124_strict_60ep_seed9860/manifest.json.",
+      "name": "m130_m124_strict_seed9860"
+    },
+    {
+      "command": "Run strict zero-relvel snapshot_bank_relocation on M62 with seeds 9860 and 9880; exact CLI and arguments are preserved in the corresponding run manifests.",
+      "name": "m130_m62_controls"
     }
   ],
   "decision_rule": "Admit M129 for PPO continuation only if fresh behavior retention, zero-response degradation, and strict outcome/wrong-history proof-surface checks all repeat without relaxing the human-view input contract.",
@@ -23,6 +39,26 @@
     {
       "path": "docs/m130-combined-outcome-formal-repeat-gate.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m130_combined_outcome_behavior_gate_seed9502/policy_summary.csv",
+      "type": "behavior_gate"
+    },
+    {
+      "path": "runs/m130_zero_relvel_m129_strict_60ep_seed9860/summary.json",
+      "type": "proof_surface"
+    },
+    {
+      "path": "runs/m130_zero_relvel_m129_strict_60ep_seed9880/summary.json",
+      "type": "proof_surface"
+    },
+    {
+      "path": "runs/m130_zero_relvel_m62_strict_60ep_seed9860/summary.json",
+      "type": "control"
+    },
+    {
+      "path": "runs/m130_zero_relvel_m62_strict_60ep_seed9880/summary.json",
+      "type": "control"
     }
   ],
   "success_criteria": [

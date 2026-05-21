@@ -4984,3 +4984,30 @@ repeat gate because the combined objective improves repeatably and behavior
 retention holds. It is not admitted to PPO: no-action history remains neutral,
 the source surface is still perturbed-only, and the wrong-history proof surface
 must repeat after the objective update. The next pending task is M130.
+
+## 20260521T223730Z m130-combined-outcome-formal-repeat-gate
+
+M130 tests whether M129 is PPO-ready. It is not.
+
+Behavior repeat on seed `9502`:
+
+- M124 success `0.8625`, clearance mean `1.849902`;
+- M129 success `0.8625`, clearance mean `1.843562`;
+- M129 reset success `0.8375`;
+- M129 zero-current/zero-all success `0.8000`;
+- M129 no-action success `0.8625`.
+
+Strict outcome-surface repeat:
+
+| Run | Accepted rows | Selected pairs | Selected seeds | Snippets |
+| --- | ---: | ---: | ---: | ---: |
+| M129 seed 9860 | 14 | 5 | 4 | 14 |
+| M129 seed 9880 | 9 | 3 | 3 | 9 |
+| M124 seed 9860 | 23 | 6 | 4 | 23 |
+| M62 seed 9860 | 0 | 0 | 0 | 0 |
+| M62 seed 9880 | 0 | 0 | 0 | 0 |
+
+Decision: reject PPO readiness. Behavior and M62 controls pass, but fresh M129
+strict proof-surface diversity is below the prior diversity standard and weaker
+than same-seed M124. The next pending task is M131: diagnose and repair
+proof-surface retention before PPO.

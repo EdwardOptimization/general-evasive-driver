@@ -373,6 +373,9 @@ vehicle/tire models, and NMPC-style constrained control.
   the next objective-sanity experiment.
 - `m129-combined-outcome-objective-sanity.md`: retention-anchored objective
   sanity on the M128 corpus; admits M129 only for formal repeat, not PPO.
+- `m130-combined-outcome-formal-repeat-gate.md`: formal repeat gate for M129;
+  rejects PPO readiness because fresh strict outcome-surface diversity is too
+  weak despite behavior retention and clean M62 controls.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.
