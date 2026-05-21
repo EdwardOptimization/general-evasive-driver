@@ -1058,6 +1058,31 @@ Exit criteria:
 - training config uses the deduplicated corpus with lower mix probability;
 - smoke train proves the config runs before full continuation.
 
+Status: complete as infrastructure and smoke validation. M53 adds
+`autodrift.training_seed_corpus`, produces a 41-seed deduplicated training
+sequence from the 100-row M50 corpus, and adds
+`configs/ppo_m53_dedup_low_mix_margin_retention_driver.json` with hard-seed mix
+reduced to 0.35. The M53 smoke is not promotable, but it is materially less
+damaging than M51 smoke: M38 success is retained and combined mean margin is
+positive, while broad still regresses by one seed. See
+`docs/m53-dedup-low-mix-margin-retention.md`.
+
+### M54: Full Deduplicated Low-Mix Continuation
+
+- Run full M53 training from M37_102.
+- Sweep checkpoints through M51 strict margin-retention gate and M50/M53
+  margin-critical benchmarks.
+- Promote only if broad success, binary regressions, and near-boundary margin
+  regressions all pass.
+
+Exit criteria:
+
+- full M53 run completes and writes checkpoint snapshots;
+- M38/broad/fresh checkpoint sweep is run against M37_102;
+- strict gate reports pass/fail for each checkpoint;
+- current best updates only if a checkpoint passes strict gate and does not
+  weaken existing aggregate/self-identification evidence.
+
 Status: planned.
 
 ## Metrics

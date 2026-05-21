@@ -2019,3 +2019,32 @@ Conclusion: M52 is a negative result. Directly oversampling the row-level M50
 top-100 corpus with 70% hard-seed probability overweights only 41 unique seeds
 and damages the broader M37 behavior. Current best remains M37_102. M53 should
 deduplicate the corpus and reduce hard-seed mix before another long run.
+
+## 20260521 m53-dedup-low-mix-margin-retention
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: M52 failed partly because it replayed 100 row-level corpus entries
+  that collapse to 41 unique seeds; a deduplicated lower-mix sequence should
+  damage broad behavior less
+- seed corpus command: `conda run -n autodrift python -m autodrift.training_seed_corpus --corpus-csv runs/m50_margin_critical_corpus_m38_broad_fresh/scenario_corpus.csv --run-dir runs/m53_dedup_margin_training_seeds`
+- smoke train command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m53_dedup_low_mix_margin_retention_driver.json --total-steps 4096 --rollout-steps 128 --seed 2253 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m53_dedup_low_mix_smoke_seed2253`
+- smoke gate artifact:
+  `runs/m53_smoke_margin_retention_gate_strict/candidate_gate_summary.csv`.
+
+Result:
+
+- deduplicated seed sequence: 41 unique seeds from 100 M50 rows;
+- source distribution: 26 M38, 9 broad, 6 fresh;
+- M53 config uses `training_seed_mix_probability = 0.35`;
+- smoke strict-loads M37_102 and trains to 4096 steps;
+- smoke gate status: `needs_iteration`;
+- smoke success delta: `-0.00625`;
+- smoke binary regressions: 1;
+- smoke near-margin regressions: 2;
+- smoke mean margin delta: `0.001714`.
+
+Conclusion: M53 smoke is not promotable, but it is a better direction than M51:
+M38 success is retained and combined mean margin is positive. The remaining
+problem is one broad regression. M54 should run the full deduplicated low-mix
+continuation and select checkpoints by the strict gate.

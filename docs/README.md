@@ -132,6 +132,8 @@ vehicle/tire models, and NMPC-style constrained control.
   training config for near-boundary margin retention.
 - `m52-full-margin-retention-continuation.md`: full M51 continuation negative
   result and the deduplicated lower-mix direction for M53.
+- `m53-dedup-low-mix-margin-retention.md`: deduplicated seed-level corpus,
+  lower-mix training config, and M53 smoke gate result.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

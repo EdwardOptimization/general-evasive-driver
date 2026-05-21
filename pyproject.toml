@@ -39,6 +39,7 @@ autodrift-seed-delta-audit = "autodrift.seed_delta_audit:main"
 autodrift-continuation-snippets = "autodrift.continuation_snippets:main"
 autodrift-margin-critical-corpus = "autodrift.margin_critical_corpus:main"
 autodrift-margin-retention-gate = "autodrift.margin_retention_gate:main"
+autodrift-training-seed-corpus = "autodrift.training_seed_corpus:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
