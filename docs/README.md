@@ -195,6 +195,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m73-active-probing-warmup-harness.md`: active-probing warm-up extension,
   weak-brake/low-friction smoke runs, and near-miss diagnostic for the next
   outcome-bound sweep.
+- `m74-active-probe-outcome-bound-scenario-sweep.md`: geometry sweep around M73
+  active-probe near misses and negative result motivating snapshot-level
+  obstacle relocation.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

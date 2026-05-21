@@ -1613,9 +1613,25 @@ but only in invalid collision-to-collision or non-strict-context rows. See
   versus wrong-probing-history collision or `>= 0.01 m` margin loss.
 - Keep strict visible response/context matching as the promotion gate.
 
-Status: planned after M73. M73 shows active probing can create signal, but broad
-random mining does not yet place that signal on valid normal-success emergency
-cases.
+Status: complete as a negative geometry-sweep result. Easier, medium, hard, and
+default dense-target sweeps around the M73 near-miss seeds produced zero accepted
+outcome-sensitive snippets. The default dense-target sweep reproduced a
+`0.045526 m` margin gap, but only in invalid collision-to-collision or
+non-strict-context rows. See
+`docs/m74-active-probe-outcome-bound-scenario-sweep.md`.
+
+### M75: Snapshot-Level Obstacle Relocation Sweep
+
+- Collect active-probe snapshots that preserve the M73 high-gap probing history.
+- Deep-copy the same env and mutate only obstacle position / half-width.
+- Replay normal and wrong probing histories from the same ego and recurrent
+  state.
+- Search for strict visible matches where normal history succeeds or keeps
+  positive near-boundary margin and wrong history collides or loses margin.
+
+Status: planned after M74. Reset-level obstacle geometry sweeps destroy or move
+the active-probe history signal; the next sweep should operate on copied
+snapshots directly.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

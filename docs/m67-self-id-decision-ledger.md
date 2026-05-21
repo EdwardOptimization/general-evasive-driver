@@ -247,20 +247,21 @@ Persisted in:
 Continue with:
 
 ```text
-m74-active-probe-outcome-bound-scenario-sweep
+m75-snapshot-level-obstacle-relocation-sweep
 ```
 
 Implementation intent:
 
 ```text
-start from M73 high-gap active-probe near misses
-sweep obstacle distance and width into normal-success / wrong-history-loss cases
-keep strict visible response/context matching before accepting snippets
+preserve M73 active-probe ego state and recurrent history
+mutate only obstacle position and half-width in copied snapshots
+search for normal-success / wrong-history-loss boundary cases
 ```
 
 M70 showed that M69 wrong-history candidates do not degrade success or margin.
 M71 added the outcome-sensitive miner but still found zero accepted passive
 matched-snapshot cases. M72 added passive warm-up reveal, but it also found zero
 accepted outcome-sensitive cases. M73 active probing produced larger margin gaps
-only in invalid collision-to-collision near misses. Do not proceed directly to
-student OSI distillation yet.
+only in invalid collision-to-collision near misses. M74 reset-level obstacle
+geometry sweeps did not fix that because changing obstacle sampling also changes
+the rollout/history. Do not proceed directly to student OSI distillation yet.

@@ -24,8 +24,9 @@ Last updated: 2026-05-21
   snapshot mining still produced zero accepted wrong-history outcome cases. The
   M72 warm-up reveal gate also produced zero accepted outcome-sensitive cases,
   and M73 active probing only produced large margin gaps in invalid
-  collision-to-collision near misses. The next blocker is sweeping active-probe
-  near misses into valid normal-success/wrong-history-loss emergency cases.
+  collision-to-collision near misses. M74's reset-level obstacle geometry sweep
+  did not turn those near misses into valid snippets. The next blocker is
+  snapshot-level obstacle relocation that preserves the probing history.
 
 ## Standing Loop
 
@@ -2994,3 +2995,35 @@ matches and can generate large wrong-history margin gaps, but the large gaps are
 not valid self-ID evidence because normal history already collides or context
 matching is too weak. The next task is M74: actively sweep obstacle geometry
 around M73 near misses to find valid normal-success / wrong-history-loss cases.
+
+## 20260521T123131Z m74-active-probe-outcome-bound-scenario-sweep
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: sweeping obstacle distance and width around M73 high-gap
+  active-probe near misses can create valid normal-success / wrong-history-loss
+  cases.
+- seed artifact: `experiments/m74_active_probe_near_miss_seeds.csv`
+- run dirs:
+  `runs/m74_active_probe_sweep_easy_friction_seed8200`,
+  `runs/m74_active_probe_sweep_medium_friction_seed8201`,
+  `runs/m74_active_probe_sweep_hard_friction_seed8202`,
+  `runs/m74_active_probe_sweep_default_friction_seed8203`
+- artifact: `docs/m74-active-probe-outcome-bound-scenario-sweep.md`
+
+Result:
+
+- easy geometry: `12` candidates, `8` visible matches, `0`
+  outcome-sensitive pairs, max margin gap `0.001431`;
+- medium geometry: `12` candidates, `10` visible matches, `0`
+  outcome-sensitive pairs, max margin gap `0.002826`;
+- hard geometry: `12` candidates, `11` visible matches, `0`
+  outcome-sensitive pairs, max margin gap `0.001620`;
+- default dense target: `21` candidates, `4` strict visible matches, `0`
+  outcome-sensitive pairs, max margin gap `0.045526`.
+
+Conclusion: M74 is negative. Reset-level geometry sweeps either remove the
+active-probe margin signal or leave it only in invalid collision-to-collision /
+non-strict-context rows. The next task is M75: snapshot-level obstacle relocation
+that preserves ego state, hidden state, and active-probe history while sweeping
+only obstacle geometry.
