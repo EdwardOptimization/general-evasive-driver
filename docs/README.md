@@ -146,6 +146,8 @@ vehicle/tire models, and NMPC-style constrained control.
   clearance-margin reward setup and smoke validation.
 - `m59-trust-region-checkpoint-interpolation.md`: M37_102 to M56_028
   checkpoint interpolation harness and strict gate result.
+- `m60-constrained-baseline-anchor.md`: baseline-action anchor training
+  constraint and M60 smoke validation.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

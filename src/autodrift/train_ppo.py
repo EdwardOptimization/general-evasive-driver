@@ -69,6 +69,9 @@ class PPOConfig:
     paired_hidden_action_contrast_margin: float = 0.08
     paired_hidden_snapshot_npz: str = ""
     paired_hidden_snapshot_batch_size: int = 128
+    baseline_action_anchor_coef: float = 0.0
+    baseline_action_anchor_checkpoint: str = ""
+    baseline_action_anchor_negative_advantage_only: bool = False
     checkpoint_interval_steps: int = 0
     training_seed_csv: str = ""
     training_seed_mix_probability: float = 1.0
@@ -727,6 +730,20 @@ def paired_hidden_action_contrast_loss(
     return torch.nn.functional.softplus(margin - distances).mean()
 
 
+def baseline_action_anchor_loss(
+    action_mean: torch.Tensor,
+    reference_action_mean: torch.Tensor,
+    advantages: torch.Tensor,
+    *,
+    negative_advantage_only: bool,
+) -> torch.Tensor:
+    action_error = torch.square(action_mean - reference_action_mean.detach()).mean(dim=-1)
+    if negative_advantage_only:
+        weights = torch.clamp(-advantages.detach(), min=0.0)
+        return (action_error * weights).sum() / torch.clamp(weights.sum(), min=1.0)
+    return action_error.mean()
+
+
 def train(
     config: PPOConfig,
     save_path: Path | None = None,
@@ -778,6 +795,11 @@ def train(
             raise ValueError("paired_hidden_action_contrast_margin cannot be negative")
         if config.paired_hidden_snapshot_batch_size < 1:
             raise ValueError("paired_hidden_snapshot_batch_size must be positive")
+    if config.baseline_action_anchor_coef > 0.0:
+        if not str(config.baseline_action_anchor_checkpoint).strip():
+            raise ValueError("baseline_action_anchor_checkpoint is required when baseline action anchor is enabled")
+    if config.baseline_action_anchor_coef < 0.0:
+        raise ValueError("baseline_action_anchor_coef cannot be negative")
     if config.checkpoint_interval_steps < 0:
         raise ValueError("checkpoint_interval_steps cannot be negative")
     if not 0.0 <= config.training_seed_mix_probability <= 1.0:
@@ -806,6 +828,33 @@ def train(
     if init_checkpoint_path is not None:
         load_mode = load_init_checkpoint_state(model, init_checkpoint_path, device)
         print(f"loaded_init_checkpoint={init_checkpoint_path} load_mode={load_mode}")
+    baseline_action_anchor_model = None
+    if config.baseline_action_anchor_coef > 0.0:
+        baseline_action_anchor_model = ActorCritic(
+            obs_dim=env.single_observation_space.shape[0],
+            act_dim=env.single_action_space.shape[0],
+            hidden_size=config.hidden_size,
+            log_std_init=config.log_std_init,
+            log_std_min=config.log_std_min,
+            log_std_max=config.log_std_max,
+            actor_encoder=config.actor_encoder,
+            actor_history_length=config.actor_history_length,
+            action_sequence_horizon=config.action_sequence_horizon,
+            response_prediction_dim=config.response_prediction_dim,
+            response_prediction_horizon=config.response_prediction_horizon,
+        ).to(device)
+        anchor_load_mode = load_init_checkpoint_state(
+            baseline_action_anchor_model,
+            Path(config.baseline_action_anchor_checkpoint),
+            device,
+        )
+        baseline_action_anchor_model.eval()
+        for parameter in baseline_action_anchor_model.parameters():
+            parameter.requires_grad_(False)
+        print(
+            f"loaded_baseline_action_anchor={config.baseline_action_anchor_checkpoint} "
+            f"load_mode={anchor_load_mode}"
+        )
     paired_hidden_snapshots = (
         load_paired_hidden_snapshots(
             config.paired_hidden_snapshot_npz,
@@ -822,6 +871,11 @@ def train(
     update = 0
     metric_rows: list[dict[str, float | int]] = []
     recurrent_hidden = model.initial_hidden(config.num_envs, device) if uses_online_recurrent else None
+    baseline_action_anchor_hidden = (
+        baseline_action_anchor_model.initial_hidden(config.num_envs, device)
+        if baseline_action_anchor_model is not None and uses_online_recurrent
+        else None
+    )
     checkpoint_interval = int(config.checkpoint_interval_steps)
     next_checkpoint_step = checkpoint_interval if checkpoint_interval > 0 else None
     while global_step < config.total_steps:
@@ -840,6 +894,11 @@ def train(
             )
             obs, infos = env.reset()
             recurrent_hidden = model.initial_hidden(config.num_envs, device) if uses_online_recurrent else None
+            baseline_action_anchor_hidden = (
+                baseline_action_anchor_model.initial_hidden(config.num_envs, device)
+                if baseline_action_anchor_model is not None and uses_online_recurrent
+                else None
+            )
             print(f"curriculum_stage={active_stage} step={global_step}")
 
         remaining = config.total_steps - global_step
@@ -855,6 +914,7 @@ def train(
             if uses_online_recurrent
             else None
         )
+        baseline_action_anchor_buf = np.zeros_like(act_buf) if baseline_action_anchor_model is not None else None
 
         episode_returns: list[float] = []
         episode_lengths: list[int] = []
@@ -868,6 +928,22 @@ def train(
             else:
                 action, logp, value = model.act_batch(obs)
                 next_hidden = None
+            if baseline_action_anchor_model is not None:
+                assert baseline_action_anchor_buf is not None
+                obs_t = torch.as_tensor(obs, dtype=torch.float32, device=device)
+                with torch.no_grad():
+                    if uses_online_recurrent:
+                        assert baseline_action_anchor_hidden is not None
+                        anchor_dist, _, next_anchor_hidden = baseline_action_anchor_model.forward_recurrent(
+                            obs_t,
+                            baseline_action_anchor_hidden,
+                        )
+                    else:
+                        anchor_dist, _ = baseline_action_anchor_model.forward(obs_t)
+                        next_anchor_hidden = None
+                    baseline_action_anchor_buf[t] = (
+                        torch.tanh(anchor_dist.mean).detach().cpu().numpy().astype(np.float32)
+                    )
             step = env.step(action)
             done = np.logical_or(step.terminated, step.truncated)
             obs_buf[t] = obs
@@ -890,6 +966,11 @@ def train(
                 next_hidden = next_hidden.clone()
                 next_hidden[done_t] = 0.0
                 recurrent_hidden = next_hidden.detach()
+                if baseline_action_anchor_model is not None:
+                    assert next_anchor_hidden is not None
+                    next_anchor_hidden = next_anchor_hidden.clone()
+                    next_anchor_hidden[done_t] = 0.0
+                    baseline_action_anchor_hidden = next_anchor_hidden.detach()
 
         with torch.no_grad():
             if uses_online_recurrent:
@@ -916,6 +997,11 @@ def train(
         flat_adv = advantages.reshape(-1)
         flat_ret = returns.reshape(-1)
         flat_hidden = hidden_buf.reshape((-1, hidden_buf.shape[-1])) if hidden_buf is not None else None
+        flat_baseline_action_anchor = (
+            baseline_action_anchor_buf.reshape((-1, baseline_action_anchor_buf.shape[-1]))
+            if baseline_action_anchor_buf is not None
+            else None
+        )
         if config.action_sequence_horizon > 1:
             seq_target_buf, seq_mask_buf = build_sequence_targets(act_buf, done_buf, config.action_sequence_horizon)
             flat_seq_target = seq_target_buf.reshape((-1, *seq_target_buf.shape[2:]))
@@ -960,6 +1046,12 @@ def train(
             hidden_contrast_loss_values: list[float] = []
             action_contrast_loss_values: list[float] = []
             paired_hidden_action_contrast_loss_values: list[float] = []
+            baseline_action_anchor_loss_values: list[float] = []
+            baseline_action_anchor_t = (
+                torch.as_tensor(baseline_action_anchor_buf, dtype=torch.float32, device=device)
+                if baseline_action_anchor_buf is not None
+                else None
+            )
             for _ in range(config.update_epochs):
                 np.random.shuffle(env_indices)
                 for start in range(0, len(env_indices), env_minibatch):
@@ -1034,6 +1126,21 @@ def train(
                         paired_hidden_action_contrast_loss_values.append(
                             float(paired_hidden_loss.detach().cpu().item())
                         )
+                    if config.baseline_action_anchor_coef > 0.0:
+                        assert baseline_action_anchor_t is not None
+                        current_action_mean = model.action_mean_recurrent_sequence(
+                            obs_seq_t[:, mb_env],
+                            initial_hidden_t[mb_env],
+                            done_seq_t[:, mb_env],
+                        )
+                        anchor_loss = baseline_action_anchor_loss(
+                            current_action_mean,
+                            baseline_action_anchor_t[:, mb_env],
+                            mb_adv,
+                            negative_advantage_only=config.baseline_action_anchor_negative_advantage_only,
+                        )
+                        loss = loss + config.baseline_action_anchor_coef * anchor_loss
+                        baseline_action_anchor_loss_values.append(float(anchor_loss.detach().cpu().item()))
                     if config.response_prediction_aux_coef > 0.0 and rollout_n > 1:
                         if config.response_prediction_dim < 1:
                             raise ValueError("response_prediction_dim must be positive when response_prediction_aux_coef > 0")
@@ -1068,6 +1175,12 @@ def train(
             hidden_t = torch.as_tensor(flat_hidden, dtype=torch.float32, device=device) if flat_hidden is not None else None
             seq_target_t = torch.as_tensor(flat_seq_target, dtype=torch.float32, device=device) if flat_seq_target is not None else None
             seq_mask_t = torch.as_tensor(flat_seq_mask, dtype=torch.float32, device=device) if flat_seq_mask is not None else None
+            baseline_action_anchor_t = (
+                torch.as_tensor(flat_baseline_action_anchor, dtype=torch.float32, device=device)
+                if flat_baseline_action_anchor is not None
+                else None
+            )
+            baseline_action_anchor_loss_values: list[float] = []
 
             indices = np.arange(len(flat_obs))
             for _ in range(config.update_epochs):
@@ -1095,6 +1208,22 @@ def train(
                         sequence_mask = seq_mask_t[mb]
                         sequence_loss = (sequence_error * sequence_mask).sum() / torch.clamp(sequence_mask.sum(), min=1.0)
                         loss = loss + config.sequence_aux_coef * sequence_loss
+                    if config.baseline_action_anchor_coef > 0.0:
+                        assert baseline_action_anchor_t is not None
+                        if uses_online_recurrent:
+                            assert hidden_t is not None
+                            anchor_dist, _, _ = model.forward_recurrent(obs_t[mb], hidden_t[mb])
+                        else:
+                            anchor_dist, _ = model.forward(obs_t[mb])
+                        current_action_mean = torch.tanh(anchor_dist.mean)
+                        anchor_loss = baseline_action_anchor_loss(
+                            current_action_mean,
+                            baseline_action_anchor_t[mb],
+                            adv_t[mb],
+                            negative_advantage_only=config.baseline_action_anchor_negative_advantage_only,
+                        )
+                        loss = loss + config.baseline_action_anchor_coef * anchor_loss
+                        baseline_action_anchor_loss_values.append(float(anchor_loss.detach().cpu().item()))
 
                     optimizer.zero_grad()
                     loss.backward()
@@ -1135,6 +1264,12 @@ def train(
             row["paired_hidden_action_contrast_loss_mean"] = (
                 float(np.mean(paired_hidden_action_contrast_loss_values))
                 if paired_hidden_action_contrast_loss_values
+                else float("nan")
+            )
+        if config.baseline_action_anchor_coef > 0.0:
+            row["baseline_action_anchor_loss_mean"] = (
+                float(np.mean(baseline_action_anchor_loss_values))
+                if baseline_action_anchor_loss_values
                 else float("nan")
             )
         metric_rows.append(row)

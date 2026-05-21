@@ -1237,7 +1237,11 @@ Exit criteria:
 - any candidate that passes margin retention must still rerun broader driver
   gates before promotion.
 
-Status: planned.
+Status: infrastructure ready; full run pending. The training path now supports
+a frozen baseline-action anchor with optional negative-advantage-only weighting,
+and `configs/ppo_m60_constrained_baseline_anchor_driver.json` smoke-trains from
+M37_102 with both response prediction and baseline-action anchor metrics. See
+`docs/m60-constrained-baseline-anchor.md`.
 
 ## Metrics
 

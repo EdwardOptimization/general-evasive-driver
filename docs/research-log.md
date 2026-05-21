@@ -2278,3 +2278,32 @@ behaviorally conservative direction but not a positive-margin direction. M60
 should stop increasing margin reward scale and instead build a constrained,
 baseline-anchored update that allows changes only where mined snippets show a
 credible margin-improvement opportunity.
+
+## 20260521T085620Z m60-constrained-baseline-anchor-setup
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: Add a frozen M37 action anchor so M60 can pursue margin reward
+  updates while penalizing deterministic action drift on negative-advantage
+  states.
+- smoke command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m60_constrained_baseline_anchor_driver.json --total-steps 4096 --rollout-steps 64 --num-envs 4 --vector-env-mode sync --seed 2760 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m60_anchor_smoke_seed2760`
+- returncode: `0`
+- run dir: `runs/ppo_m60_anchor_smoke_seed2760`
+- success artifact: `runs/ppo_m60_anchor_smoke_seed2760/train_metrics.csv`
+
+Post-validation:
+
+- focused tests:
+  `conda run -n autodrift pytest -q tests/test_checkpoints.py`
+  -> `28 passed`;
+- smoke metrics include `baseline_action_anchor_loss_mean`;
+- smoke metrics still include `response_prediction_loss_mean`;
+- smoke eval return mean is `65.0278`;
+- smoke eval termination rate is `0.100`;
+- actor observation contract is unchanged; the reference action is an auxiliary
+  training target only.
+
+Conclusion: M60 infrastructure is ready for a full continuation. The next run
+should train `configs/ppo_m60_constrained_baseline_anchor_driver.json` from
+M37_102 and then sweep dense checkpoints through the unchanged strict
+margin-retention gate.
