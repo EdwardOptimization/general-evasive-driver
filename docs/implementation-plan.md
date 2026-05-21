@@ -1237,11 +1237,32 @@ Exit criteria:
 - any candidate that passes margin retention must still rerun broader driver
   gates before promotion.
 
-Status: infrastructure ready; full run pending. The training path now supports
-a frozen baseline-action anchor with optional negative-advantage-only weighting,
-and `configs/ppo_m60_constrained_baseline_anchor_driver.json` smoke-trains from
-M37_102 with both response prediction and baseline-action anchor metrics. See
+Status: complete as a negative result. M60 adds the frozen baseline-action
+anchor, completes a full continuation from M37_102, and runs the unchanged
+M38/broad/fresh strict margin-retention gate. It is not promotable: some
+checkpoints reach non-negative mean margin delta, but all such checkpoints
+introduce binary or near-margin regressions. The blocker is now concentrated in
+specific near-boundary seeds such as 4413, 4378, 4457, and 3019. See
 `docs/m60-constrained-baseline-anchor.md`.
+
+### M61: Regression-Seed Retention Replay
+
+- Build a tiny replay/seed corpus from M60 near-boundary regressions.
+- Strengthen or schedule the baseline-action anchor so near-boundary failures
+  cannot become much deeper while pursuing margin gains elsewhere.
+- Keep actor observations clean and keep the strict gate unchanged.
+
+Exit criteria:
+
+- regression seeds are stored as a reproducible seed corpus;
+- M60 regression seeds are oversampled in training or used by a dedicated
+  retention term;
+- smoke training logs the stronger retention setup;
+- M38/broad/fresh strict margin gate is rerun unchanged;
+- promotion still requires zero binary regressions, zero near-margin
+  regressions, and non-negative mean margin delta.
+
+Status: planned.
 
 ## Metrics
 

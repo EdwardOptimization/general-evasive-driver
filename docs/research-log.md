@@ -2307,3 +2307,42 @@ Conclusion: M60 infrastructure is ready for a full continuation. The next run
 should train `configs/ppo_m60_constrained_baseline_anchor_driver.json` from
 M37_102 and then sweep dense checkpoints through the unchanged strict
 margin-retention gate.
+
+## 20260521T090446Z m60-constrained-baseline-anchor-full
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Run the M60 baseline-action-anchor continuation from M37_102 and
+  test whether negative-advantage action retention allows margin improvements
+  without broad regressions.
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m60_constrained_baseline_anchor_driver.json --seed 2760 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m60_constrained_baseline_anchor_seed2760`
+- returncode: `0`
+- run dir: `runs/ppo_m60_constrained_baseline_anchor_seed2760`
+- success artifact:
+  `runs/ppo_m60_constrained_baseline_anchor_seed2760/checkpoint.pt`
+
+Post-validation:
+
+- M38/broad/fresh checkpoint sweeps:
+  `runs/m60_m38_margin_benchmark_seed4300`,
+  `runs/m60_broad_margin_benchmark_seed3000`,
+  `runs/m60_fresh_margin_benchmark_seed5200`;
+- margin corpus:
+  `runs/m60_margin_critical_corpus/seed_margin_deltas.csv`;
+- strict gate:
+  `runs/m60_margin_retention_gate_strict/candidate_gate_summary.csv`;
+- strict gate status: `needs_iteration`;
+- passed candidates: none;
+- `m60_016` keeps success and reaches positive mean margin delta `0.000062`,
+  but has 4 near-margin regressions;
+- `m60_020` reaches the best mean margin delta `0.000361`, but has 1 binary
+  regression and 4 near-margin regressions;
+- `m60_004` is closest to retention but still has one near-margin regression
+  and mean margin delta `-0.000118`;
+- primary blocker seeds: M38 `4413`, `4378`, `4457`, and broad `3019`.
+
+Conclusion: M60 is not promotable, but it moves the failure mode. The project
+now has evidence that baseline anchoring can produce positive mean-margin
+deltas, while the strict gate exposes concentrated near-boundary regressions.
+M61 should explicitly replay those regression seeds and strengthen the
+near-boundary retention floor instead of only increasing reward scale.

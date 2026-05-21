@@ -97,9 +97,73 @@ conda run -n autodrift pytest -q tests/test_checkpoints.py
 
 Result: `28 passed`.
 
+## Full Run
+
+Command:
+
+```bash
+conda run -n autodrift python -m autodrift.train_ppo \
+  --config configs/ppo_m60_constrained_baseline_anchor_driver.json \
+  --seed 2760 \
+  --device cuda \
+  --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt \
+  --run-dir runs/ppo_m60_constrained_baseline_anchor_seed2760
+```
+
+Training completed with 8 dense checkpoints:
+
+- `m60_004` through `m60_032`;
+- final eval return mean: `65.6985`;
+- final eval termination rate: `0.100`;
+- metrics include `baseline_action_anchor_loss_mean`.
+
+Validation artifacts:
+
+- `runs/m60_m38_margin_benchmark_seed4300`;
+- `runs/m60_broad_margin_benchmark_seed3000`;
+- `runs/m60_fresh_margin_benchmark_seed5200`;
+- `runs/m60_margin_critical_corpus`;
+- `runs/m60_margin_retention_gate_strict`.
+
+Strict gate result: `needs_iteration`; passed candidates: none.
+
+| Candidate | Success Delta | Binary Regressions | Near-Margin Regressions | Mean Margin Delta | Passed |
+| --- | ---: | ---: | ---: | ---: | --- |
+| `m60_004` | 0.000000 | 0 | 1 | -0.000118 | false |
+| `m60_008` | 0.000000 | 0 | 2 | -0.000870 | false |
+| `m60_012` | -0.012500 | 2 | 4 | 0.000092 | false |
+| `m60_016` | 0.000000 | 0 | 4 | 0.000062 | false |
+| `m60_020` | -0.006250 | 1 | 4 | 0.000361 | false |
+| `m60_024` | -0.012500 | 2 | 8 | -0.000643 | false |
+| `m60_028` | -0.012500 | 2 | 8 | -0.000001 | false |
+| `m60_032` | -0.012500 | 2 | 8 | -0.000395 | false |
+
+M60 is not promotable, but it is the first continuation in this margin series
+to produce non-negative combined mean-margin deltas on some checkpoints. The
+blocker moved from aggregate mean margin to specific near-boundary regressions.
+
+Key regression seeds:
+
+| Seed | Source | Candidate | Outcome | Notes |
+| ---: | --- | --- | --- | --- |
+| 4413 | M38 | `m60_004`, `m60_016`, `m60_020` | unchanged failure | drift-required, medium-mu, heavy, slow steering; failure becomes much deeper |
+| 4378 | M38 | `m60_016`, `m60_020` | unchanged failure | drift-required, low-mu, light, weak brake, slow steering |
+| 4457 | M38 | `m60_016`, `m60_020` | success margin loss / binary regression | unavoidable, low-mu, heavy, strong brake |
+| 3019 | broad | `m60_016`, `m60_020` | unchanged failure | unavoidable, high-mu, strong brake, slow steering |
+
+## Conclusion
+
+M60 validates the baseline-anchor direction but not this coefficient/sampling
+choice. The anchor prevents broad drift compared with unconstrained reward
+continuations, and some checkpoints improve mean margin, but the strict gate
+correctly rejects them because near-boundary failures get worse.
+
 ## Next Step
 
-Run the full M60 continuation, sweep dense checkpoints through the unchanged
-M38/broad/fresh margin-retention benchmark, then apply the strict gate. Promote
-only if a checkpoint has no binary regressions, no near-margin regressions, and
-non-negative mean margin delta versus M37_102.
+M61 should replay the M60 regression seeds explicitly and strengthen retention
+on near-boundary states:
+
+- increase or schedule the baseline action anchor;
+- oversample seeds `4413`, `4378`, `4457`, and `3019`;
+- add a near-boundary floor criterion before accepting mean-margin gains;
+- keep the strict gate unchanged.
