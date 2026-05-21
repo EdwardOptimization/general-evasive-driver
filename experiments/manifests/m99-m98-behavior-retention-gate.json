@@ -1,0 +1,36 @@
+{
+  "baseline_checkpoints": [
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt",
+    "runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt",
+    "runs/m98_larger_batch_per_target_seed9481/optimized_checkpoint.pt",
+    "runs/m98_larger_batch_per_target_seed9482/optimized_checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "TBD: benchmark M62 and M98 optimized checkpoints under normal reset zero-current zero-all and zero-action ablations before any PPO continuation",
+      "name": "m99_planned_m98_behavior_retention_gate"
+    }
+  ],
+  "decision_rule": "Only admit M98 for guarded PPO continuation if behavior retention versus M62 is acceptable and response-history ablations produce meaningful degradation without aggregate collapse.",
+  "failure_criteria": [
+    "M98 aggregate success or clearance margin regresses versus M62",
+    "normal M98 behavior is worse than reset or zero-response variants",
+    "gate skips ablations and relies only on objective R2",
+    "PPO continuation starts before retention artifacts are documented"
+  ],
+  "hypothesis": "The M98 objective-only checkpoint may preserve M62 behavior while adding a better no-wheel hidden-envelope belief.",
+  "id": "m99-m98-behavior-retention-gate",
+  "required_artifacts": [
+    {
+      "path": "docs/m99-m98-behavior-retention-gate.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "M62 baseline and M98 optimized checkpoints are benchmarked on shared seeds",
+    "reset zero-current zero-all and zero-action ablations are included",
+    "success and clearance margin are reported",
+    "decision states whether guarded PPO continuation is still blocked"
+  ],
+  "type": "gate"
+}

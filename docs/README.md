@@ -268,6 +268,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m97-minlift-hidden-envelope-objective.md`: mild lateral-overweight objective;
   negative result showing target-weight tuning should not replace the M96
   recipe.
+- `m98-larger-batch-per-target-objective.md`: larger-batch repeat of the M96
+  equal per-target objective; first strict objective-only hidden-envelope pass,
+  still awaiting behavior retention.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

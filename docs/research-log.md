@@ -3788,3 +3788,35 @@ Result:
 Conclusion: M97 is negative. Target-weight tuning is not the right next lever.
 M96 remains the best objective recipe; M98 should repeat M96 with larger batches
 and more held-out samples to separate sample variance from objective weakness.
+
+## 20260521T172325Z m98-larger-batch-per-target-objective
+
+- status: `completed`
+- kind: `objective_sanity`
+- hypothesis: M96 equal per-target contrast may pass the strict objective gate
+  with more rollout samples and lower held-out variance.
+- objective settings: same as M96, with `contrast_mode=per_target` and
+  `target_loss_weights=1.0 1.0 1.0`.
+- data setting: `episodes=60`, `max_samples=1600`, `steps=200`.
+- diagnostic runs:
+  `runs/m98_larger_batch_per_target_seed9480`,
+  `runs/m98_larger_batch_per_target_seed9481`,
+  `runs/m98_larger_batch_per_target_seed9482`
+- artifact: `docs/m98-larger-batch-per-target-objective.md`
+
+Result:
+
+- seed `9480`: braking/lateral/yaw R2 lift after values
+  `+0.285544`, `+0.068964`, `+0.005246`;
+- seed `9481`: braking/lateral/yaw R2 lift after values
+  `+0.087432`, `+0.066624`, `+0.059191`;
+- seed `9482`: braking/lateral/yaw R2 lift after values
+  `+0.082257`, `+0.083511`, `+0.064771`;
+- all three future-envelope targets have positive after-lift in all three
+  repeated seeds.
+
+Conclusion: M98 is the first strict objective-only hidden-envelope pass. It
+supports the M96 equal per-target contrast recipe and rejects more target-weight
+tuning for now. This is not a driver pass: M99 must benchmark M98 objective
+checkpoints against M62 under normal and ablated behavior before any guarded PPO
+continuation.

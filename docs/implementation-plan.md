@@ -2014,7 +2014,21 @@ strongly negative lateral and yaw. Do not replace M96 with M97. See
 - Decide whether the remaining M96 lateral negative seed was sample-limited or
   objective-limited before changing the objective again.
 
-Status: planned. PPO continuation remains blocked.
+Status: complete as the first strict objective-only pass. With 60 episodes and
+about 1.4k samples per repeat, the M96 equal per-target contrast recipe makes
+braking, lateral, and yaw after-lift all positive across three seeds. This
+admits the checkpoint family to behavior-retention testing, not PPO. See
+`docs/m98-larger-batch-per-target-objective.md`.
+
+### M99: M98 Behavior Retention Gate
+
+- Benchmark M62 against M98 objective checkpoints on shared seeds.
+- Include normal, reset hidden, zero-current response, zero-all response, and
+  zero-action-history ablations.
+- Reject M98 if objective hidden-belief gains damaged aggregate driving
+  behavior or clearance margin.
+
+Status: planned. PPO continuation remains blocked until M99 passes.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

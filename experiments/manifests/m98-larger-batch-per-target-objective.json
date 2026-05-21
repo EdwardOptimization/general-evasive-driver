@@ -5,8 +5,16 @@
   ],
   "commands": [
     {
-      "command": "TBD: repeat M96 equal per-target hidden-envelope objective with larger episodes and max_samples across at least three repeated seeds",
-      "name": "m98_planned_larger_batch_repeat"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_optimize --checkpoint runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 60 --seed 9480 --horizon-steps 15 --sample-stride 3 --max-samples 1600 --train-fraction 0.70 --ridge 0.1 --steps 200 --batch-size 256 --learning-rate 0.0003 --contrast-coef 0.5 --contrast-margin 0.02 --contrast-mode per_target --target-loss-weights 1.0 1.0 1.0 --grad-clip-norm 1.0 --device cpu --run-dir runs/m98_larger_batch_per_target_seed9480",
+      "name": "m98_seed9480_larger_batch_repeat"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_optimize --checkpoint runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 60 --seed 9481 --horizon-steps 15 --sample-stride 3 --max-samples 1600 --train-fraction 0.70 --ridge 0.1 --steps 200 --batch-size 256 --learning-rate 0.0003 --contrast-coef 0.5 --contrast-margin 0.02 --contrast-mode per_target --target-loss-weights 1.0 1.0 1.0 --grad-clip-norm 1.0 --device cpu --run-dir runs/m98_larger_batch_per_target_seed9481",
+      "name": "m98_seed9481_larger_batch_repeat"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_optimize --checkpoint runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 60 --seed 9482 --horizon-steps 15 --sample-stride 3 --max-samples 1600 --train-fraction 0.70 --ridge 0.1 --steps 200 --batch-size 256 --learning-rate 0.0003 --contrast-coef 0.5 --contrast-margin 0.02 --contrast-mode per_target --target-loss-weights 1.0 1.0 1.0 --grad-clip-norm 1.0 --device cpu --run-dir runs/m98_larger_batch_per_target_seed9482",
+      "name": "m98_seed9482_larger_batch_repeat"
     }
   ],
   "decision_rule": "Use the larger-batch repeat to decide whether M96's remaining lateral negative seed was sample-limited or objective-limited.",
@@ -21,6 +29,18 @@
     {
       "path": "docs/m98-larger-batch-per-target-objective.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m98_larger_batch_per_target_seed9480/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m98_larger_batch_per_target_seed9481/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m98_larger_batch_per_target_seed9482/summary.json",
+      "type": "summary"
     }
   ],
   "success_criteria": [
