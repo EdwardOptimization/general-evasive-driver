@@ -5,11 +5,31 @@
   ],
   "commands": [
     {
-      "command": "TBD: run fixed-batch actor-coupling objective from M98 before another PPO continuation",
-      "name": "m101_planned_objective_only_actor_coupling"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.actor_coupling_optimize --checkpoint runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 8 --seed 9520 --horizon-steps 10 --sample-stride 4 --max-samples 160 --train-fraction 0.70 --steps 20 --batch-size 64 --learning-rate 0.0001 --anchor-coef 10.0 --contrast-coef 1.0 --action-margin 0.04 --grad-clip-norm 1.0 --device cpu --run-dir runs/m101_actor_coupling_objective_smoke_seed9520",
+      "name": "m101_actor_coupling_smoke"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.actor_coupling_optimize --checkpoint runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9530 --horizon-steps 15 --sample-stride 3 --max-samples 800 --train-fraction 0.70 --steps 200 --batch-size 256 --learning-rate 0.0001 --anchor-coef 10.0 --contrast-coef 1.0 --action-margin 0.04 --grad-clip-norm 1.0 --device cpu --run-dir runs/m101_actor_coupling_objective_seed9530",
+      "name": "m101_actor_coupling_seed9530"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.actor_coupling_optimize --checkpoint runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9531 --horizon-steps 15 --sample-stride 3 --max-samples 800 --train-fraction 0.70 --steps 200 --batch-size 256 --learning-rate 0.0001 --anchor-coef 10.0 --contrast-coef 1.0 --action-margin 0.04 --grad-clip-norm 1.0 --device cpu --run-dir runs/m101_actor_coupling_objective_seed9531",
+      "name": "m101_actor_coupling_seed9531"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.actor_coupling_optimize --checkpoint runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9532 --horizon-steps 15 --sample-stride 3 --max-samples 800 --train-fraction 0.70 --steps 200 --batch-size 256 --learning-rate 0.0001 --anchor-coef 10.0 --contrast-coef 1.0 --action-margin 0.04 --grad-clip-norm 1.0 --device cpu --run-dir runs/m101_actor_coupling_objective_seed9532",
+      "name": "m101_actor_coupling_seed9532"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.benchmark --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 80 --seed 9500 --policies heuristic --checkpoint-policy m62_a250=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --checkpoint-policy m98_9480=runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt --checkpoint-policy m101_9530=runs/m101_actor_coupling_objective_seed9530/optimized_checkpoint.pt --checkpoint-policy m101_9531=runs/m101_actor_coupling_objective_seed9531/optimized_checkpoint.pt --checkpoint-policy m101_9532=runs/m101_actor_coupling_objective_seed9532/optimized_checkpoint.pt --checkpoint-policy m101_9530_reset=runs/m101_actor_coupling_objective_seed9530/optimized_checkpoint.pt@reset_recurrent_state --checkpoint-policy m101_9530_zero_current=runs/m101_actor_coupling_objective_seed9530/optimized_checkpoint.pt@zero_current_response --checkpoint-policy m101_9530_zero_all=runs/m101_actor_coupling_objective_seed9530/optimized_checkpoint.pt@zero_all_response --checkpoint-policy m101_9530_noact=runs/m101_actor_coupling_objective_seed9530/optimized_checkpoint.pt@zero_action_history --device cpu --run-dir runs/m101_actor_coupling_behavior_gate_seed9500",
+      "name": "m101_behavior_gate"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_probe --checkpoint runs/m101_actor_coupling_objective_seed9530/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9510 --horizon-steps 15 --sample-stride 3 --max-samples 800 --ridge 0.1 --device cpu --run-dir runs/m101_actor_coupling_hidden_envelope_probe_seed9510",
+      "name": "m101_hidden_envelope_probe"
     }
   ],
-  "decision_rule": "Only return to PPO if objective-only actor coupling increases normal-vs-reset action dependence while preserving normal-action behavior and M98 hidden-envelope probes.",
+  "decision_rule": "Do not admit to PPO unless fixed-batch action dependence, behavior retention, reset or zero-response degradation, and hidden-envelope retention all hold.",
   "failure_criteria": [
     "normal actions drift away from M98 or M62 on retained behavior states",
     "reset or zero-response actions remain indistinguishable from normal actions",
@@ -22,13 +42,36 @@
     {
       "path": "docs/m101-objective-only-actor-coupling.md",
       "type": "documentation"
+    },
+    {
+      "path": "src/autodrift/actor_coupling_optimize.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_actor_coupling_optimize.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m101_actor_coupling_objective_seed9530/optimized_checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m101_actor_coupling_behavior_gate_seed9500/policy_summary.csv",
+      "type": "policy_summary"
+    },
+    {
+      "path": "runs/m101_actor_coupling_hidden_envelope_probe_seed9510/summary.json",
+      "type": "summary"
     }
   ],
   "success_criteria": [
     "starts from an M98 strict objective-pass checkpoint",
     "preserves normal-history actions under an action anchor",
     "increases normal-vs-reset action divergence on fixed batches",
-    "keeps no-wheel human-view actor inputs"
+    "keeps no-wheel human-view actor inputs",
+    "retains M62-level behavior on shared-seed benchmark",
+    "normal recurrent behavior beats reset and zero-response ablations",
+    "retains M98 hidden-envelope probe gains"
   ],
   "type": "objective_sanity"
 }

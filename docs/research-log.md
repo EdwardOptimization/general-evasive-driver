@@ -3876,3 +3876,41 @@ Conclusion: M100 is negative for actor coupling. Do not run a longer PPO version
 of this recipe. The next step should be M101: objective-only actor coupling on
 fixed batches, with a normal-action anchor and reset-action divergence gate
 before another PPO continuation.
+
+## 20260521T174702Z m101-objective-only-actor-coupling
+
+- status: `completed`
+- kind: `objective_sanity`
+- hypothesis: fixed-batch actor coupling can make the actor use M98's
+  hidden-envelope belief more directly than PPO plus a weak action-contrast
+  term.
+- implementation: `src/autodrift/actor_coupling_optimize.py`
+- test: `tests/test_actor_coupling_optimize.py`
+- objective runs:
+  `runs/m101_actor_coupling_objective_seed9530`,
+  `runs/m101_actor_coupling_objective_seed9531`,
+  `runs/m101_actor_coupling_objective_seed9532`
+- behavior gate: `runs/m101_actor_coupling_behavior_gate_seed9500`
+- hidden probe: `runs/m101_actor_coupling_hidden_envelope_probe_seed9510`
+- artifact: `docs/m101-objective-only-actor-coupling.md`
+
+Result:
+
+- objective-only actor coupling increases held-out normal-vs-reset action
+  distance in all three formal seeds:
+  `+0.847957`, `+0.824294`, `+0.730874`;
+- behavior retention passes on the shared 80-seed gate:
+  M62 `0.8625`, M98 `0.8625`, M101 seeds `0.8625`;
+- seed9530 reset and zero-response behavior finally degrade:
+  reset success `0.7875`, zero-current/zero-all success `0.7750`;
+- no-action-history success remains `0.8625`, so command-history dependence is
+  not yet established;
+- the hidden-envelope probe regresses on braking and lateral response-hidden
+  lift versus M98:
+  braking `0.358433 -> -0.411792`, lateral `0.682472 -> -0.148631`, yaw
+  `-0.014135 -> 0.160665`.
+
+Conclusion: M101 is the first clear behavior-level recurrent-dependence signal,
+but it is not a PPO-admitted driver candidate. The next step should be M102:
+retention-aware actor coupling that keeps M101's reset/zero-response degradation
+while preserving M98's braking/lateral hidden-envelope belief.

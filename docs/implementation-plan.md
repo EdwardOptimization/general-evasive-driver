@@ -2056,8 +2056,28 @@ seed. Do not run a long version of this recipe. See
   away only where hidden belief should matter.
 - Gate fixed-batch action dependence and hidden-envelope retention before PPO.
 
-Status: planned. The missing piece is actor coupling, not hidden-belief
-learning.
+Status: complete as a mixed objective-only result. Fixed-batch actor coupling
+strongly increases normal-vs-reset action distance across three seeds while
+keeping normal actions anchored. The behavior gate gives the first clear M98
+branch behavior-dependence signal: normal success stays at `0.8625`, reset
+falls to `0.7875`, and zero-response falls to `0.7750`. However, the same-seed
+hidden-envelope probe regresses on braking and lateral response-hidden lift, so
+M101 is not admitted to a long PPO continuation. See
+`docs/m101-objective-only-actor-coupling.md`.
+
+### M102: Retention-Aware Actor Coupling
+
+- Preserve the M101 behavior-dependence signal.
+- Add a hidden-envelope retention objective or gate so the M98 braking/lateral
+  response-hidden belief is not lost under the actor-coupled closed-loop
+  trajectory distribution.
+- Re-run normal/reset/zero-response/no-action gates on shared seeds.
+- Do not add hidden physical parameters, oracle labels, planner references, or
+  wheel inputs to the no-wheel primary actor.
+
+Status: planned. M101 proves actor coupling can create behavior-level recurrent
+dependence, but it also shows that action coupling alone can move the closed-loop
+distribution away from the hidden-envelope belief that made M98 useful.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

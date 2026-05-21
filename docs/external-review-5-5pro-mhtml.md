@@ -264,6 +264,54 @@ docs/m92-local-wheel-ground-speed-input-plan.md
 docs/m92-local-wheel-ground-speed-observability-audit.md
 ```
 
+## Latest Minimum-Input Principle
+
+The later input discussion also sharpens the general rule for actor inputs:
+
+```text
+actor inputs should be sensor-direct or minimally calibrated/fused;
+diagnostic ratios, controller mode flags, oracle labels, and planner answers
+belong only in logging, probes, teachers, verifiers, or baselines.
+```
+
+The minimum closed-loop observability chain is:
+
+```text
+known control commands
+-> actual actuator feedback
+-> wheel/tire raw response when available
+-> body inertial response
+-> road and obstacle geometry
+```
+
+The important distinction is command-response pairing. Without the command, a
+weak response cannot distinguish "I did not ask for control" from "I asked and
+the vehicle could not deliver it." Without actual actuator state, weak response
+cannot distinguish actuator lag from tire/road limits.
+
+Current no-wheel AutoDrift remains the primary driver input because M91/M92 did
+not admit the current single-track wheel profiles. The future four-wheel profile
+should be tested as a new sensor branch, not silently folded into the baseline.
+
+## Latest Experiment Ladder
+
+The saved MHTML recommends the input research order now preserved in
+`docs/m91-input-observability-audit-protocol.md`:
+
+```text
+A. supervised information-observability probes;
+B. minimum-set sensor ablations;
+C. frozen-recipe RL profile comparison;
+D. matched hidden-dynamics wrong-history counterfactuals;
+E. optional-sensor admission gates.
+```
+
+The reliability rule is to avoid tuning PPO separately for each input profile.
+Use probes first, find one stable training recipe, freeze the recipe, and then
+train compared profiles with the same seeds, budget, reward, curriculum,
+evaluation corpus, auxiliary losses, and gates. Only after this comparison
+should the best primary profile be iterated further.
+
 ## Wheel Response Decision
 
 The strongest new decision is that wheel/tire response should become the next
@@ -352,7 +400,7 @@ drift recoverability
 
 ## Queue Decision
 
-Keep the next tasks in this order:
+Historical queue decision from the first MHTML review:
 
 ```text
 M80: outcome objective-only sanity check.
@@ -362,3 +410,17 @@ M81: wheel/tire response input branch and wheel-specific self-ID gates.
 Do not use M80 as the final answer to the project. It is only a blocker check
 for the current outcome-intervention objective. M81 addresses the deeper input
 gap identified by the full MHTML review.
+
+Current status after the later work:
+
+- M91/M92 executed the input-observability audit path and rejected the current
+  single-track wheel profiles as primary PPO inputs.
+- M93-M98 found and optimized a no-wheel hidden-envelope belief objective.
+- M99/M100 showed that hidden belief alone was not enough; the actor still did
+  not depend on recurrent history.
+- M101 produced the first behavior-level reset/zero-response dependence signal,
+  but hidden-envelope retention regressed on braking/lateral probe targets.
+
+The current next research step is therefore not another wheel-profile PPO run.
+It is a retention-aware actor-coupling step that preserves M101's behavior
+dependence without losing M98's useful response-hidden envelope signal.

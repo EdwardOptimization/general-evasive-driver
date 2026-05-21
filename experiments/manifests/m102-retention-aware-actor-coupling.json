@@ -1,0 +1,36 @@
+{
+  "baseline_checkpoints": [
+    "runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt",
+    "runs/m101_actor_coupling_objective_seed9530/optimized_checkpoint.pt",
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt"
+  ],
+  "commands": [
+    {
+      "command": "TBD: add hidden-envelope retention to actor coupling, then re-run fixed-batch action, behavior, and hidden-envelope gates",
+      "name": "m102_retention_aware_actor_coupling"
+    }
+  ],
+  "decision_rule": "Only return to PPO if the actor keeps M101-style reset/zero-response behavior degradation while preserving M98 braking/lateral hidden-envelope lift.",
+  "failure_criteria": [
+    "normal behavior regresses versus M62 or M98",
+    "reset and zero-response ablations stop degrading behavior",
+    "M98 hidden-envelope braking or lateral lift remains negative after actor coupling",
+    "the objective adds hidden parameters, oracle labels, or planner references to the actor"
+  ],
+  "hypothesis": "Actor coupling needs an explicit hidden-envelope retention term or gate; action divergence alone can create behavior dependence while washing out the useful M98 response-hidden belief.",
+  "id": "m102-retention-aware-actor-coupling",
+  "required_artifacts": [
+    {
+      "path": "docs/m102-retention-aware-actor-coupling.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "normal-history behavior matches or exceeds the M62/M98 shared-seed baseline",
+    "reset and zero-response ablations degrade success or clearance margin",
+    "no-action-history ablation is measured even if not required to pass",
+    "response-hidden braking and lateral envelope lift are non-negative versus reset hidden",
+    "no hidden dynamics or oracle feasibility values enter actor input"
+  ],
+  "type": "objective_sanity"
+}

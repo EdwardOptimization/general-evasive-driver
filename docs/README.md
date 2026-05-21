@@ -277,6 +277,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m100-m98-actor-coupling-continuation.md`: first guarded PPO actor-coupling
   smoke from M98; retains behavior but still fails reset/zero-response
   dependence.
+- `m101-objective-only-actor-coupling.md`: fixed-batch actor-coupling result
+  from M98; first clear reset/zero-response behavior-dependence signal, but
+  hidden-envelope retention still fails.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.
