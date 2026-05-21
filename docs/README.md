@@ -184,6 +184,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m69-broader-matched-hidden-dynamics-mining.md`: fresh-seed friction,
   weak-brake, and slow-actuator matched-action sweeps plus next continuation
   gate direction.
+- `m70-wrong-history-continuation-gate.md`: continuation replay on M69
+  wrong-history candidates, margin-aware hidden-swap summary, and negative
+  outcome-causality result.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

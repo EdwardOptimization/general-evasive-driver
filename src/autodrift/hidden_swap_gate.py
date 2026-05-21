@@ -289,6 +289,8 @@ def replay_continuation(
         "terminal_reason": reason,
         "obstacle_completed": bool(info.get("obstacle_completed", False)),
         "min_obstacle_clearance": float(info.get("min_obstacle_clearance", float("nan"))),
+        "obstacle_collision_radius": float(info.get("obstacle_collision_radius", float("nan"))),
+        "min_clearance_margin": float(info.get("min_clearance_margin", float("nan"))),
         "beta_abs_peak": beta_abs_peak,
         "first_steer": float(first_action[0]),
         "first_throttle": float(first_action[1]),
@@ -411,25 +413,31 @@ def summarize_replays(frame: pd.DataFrame) -> pd.DataFrame:
             ]
         )
     grouped = frame.groupby(["source_condition", "variant", "accepted_match"], observed=True)
-    return grouped.agg(
-        pairs=("seed", "count"),
-        success_rate=("success", "mean"),
-        return_mean=("return", "mean"),
-        termination_rate=("terminated", "mean"),
-        collision_rate=("collision", "mean"),
-        off_road_rate=("off_road", "mean"),
-        spin_out_rate=("spin_out", "mean"),
-        obstacle_completion_rate=("obstacle_completed", "mean"),
-        first_action_distance_mean=("first_action_distance", "mean"),
-        action_trajectory_distance_mean=("action_trajectory_distance_mean", "mean"),
-        action_trajectory_distance_rms_mean=("action_trajectory_distance_rms", "mean"),
-        action_trajectory_distance_max_mean=("action_trajectory_distance_max", "mean"),
-        action_trajectory_compare_steps_mean=("action_trajectory_compare_steps", "mean"),
-        observation_distance_mean=("observation_distance", "mean"),
-        response_observation_distance_mean=("response_observation_distance", "mean"),
-        context_observation_distance_mean=("context_observation_distance", "mean"),
-        hidden_state_distance_mean=("hidden_state_distance", "mean"),
-    ).reset_index()
+    aggregations = {
+        "pairs": ("seed", "count"),
+        "success_rate": ("success", "mean"),
+        "return_mean": ("return", "mean"),
+        "termination_rate": ("terminated", "mean"),
+        "collision_rate": ("collision", "mean"),
+        "off_road_rate": ("off_road", "mean"),
+        "spin_out_rate": ("spin_out", "mean"),
+        "obstacle_completion_rate": ("obstacle_completed", "mean"),
+        "first_action_distance_mean": ("first_action_distance", "mean"),
+        "action_trajectory_distance_mean": ("action_trajectory_distance_mean", "mean"),
+        "action_trajectory_distance_rms_mean": ("action_trajectory_distance_rms", "mean"),
+        "action_trajectory_distance_max_mean": ("action_trajectory_distance_max", "mean"),
+        "action_trajectory_compare_steps_mean": ("action_trajectory_compare_steps", "mean"),
+        "observation_distance_mean": ("observation_distance", "mean"),
+        "response_observation_distance_mean": ("response_observation_distance", "mean"),
+        "context_observation_distance_mean": ("context_observation_distance", "mean"),
+        "hidden_state_distance_mean": ("hidden_state_distance", "mean"),
+    }
+    if "min_clearance_margin" in frame:
+        aggregations["min_clearance_margin_mean"] = ("min_clearance_margin", "mean")
+        aggregations["min_clearance_margin_min"] = ("min_clearance_margin", "min")
+    if "min_obstacle_clearance" in frame:
+        aggregations["min_obstacle_clearance_mean"] = ("min_obstacle_clearance", "mean")
+    return grouped.agg(**aggregations).reset_index()
 
 
 def run_hidden_swap_gate(

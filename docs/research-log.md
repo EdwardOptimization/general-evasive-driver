@@ -18,9 +18,9 @@ Last updated: 2026-05-21
   from-scratch privileged teacher and M67-E's warm-started privileged teacher
   both failed to produce a meaningful hidden-dynamics upper-bound gap. M68 then
   found no privileged-packet action divergence on the M65 smoke. M69 broadened
-  the search and still found zero privileged-packet divergent pairs, so the next
-  blocker is testing whether the few wrong-history candidates cause outcome
-  degradation.
+  the search and still found zero privileged-packet divergent pairs. M70 then
+  showed the few wrong-history candidates do not degrade continuation outcome,
+  so the next blocker is constructing outcome-sensitive matched scenarios.
 
 ## Standing Loop
 
@@ -2857,3 +2857,36 @@ still not using teacher-only hidden dynamics in an action-relevant way. The only
 useful next proof surface is the small wrong-history candidate set, especially
 weak-brake seeds. M70 should replay those candidates and require outcome-level
 margin degradation before any student objective is attempted.
+
+## 20260521T115609Z m70-wrong-history-continuation-gate
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: M69 wrong-history first-action candidates should degrade
+  continuation clearance margin or success if they are useful self-ID snippets.
+- code update: `hidden_swap_gate` now records `min_clearance_margin`,
+  `obstacle_collision_radius`, and `min_obstacle_clearance` in replay rows and
+  summarizes margin means/minima.
+- candidate seeds: `experiments/m70_brake_wrong_history_candidate_seeds.csv`,
+  `experiments/m70_friction_wrong_history_candidate_seeds.csv`
+- brake command: `conda run -n autodrift python -m autodrift.hidden_swap_gate --env-config configs/ppo_m67e_warm_started_privileged_teacher.json --checkpoint runs/ppo_m67e_warm_privileged_teacher_seed3267/checkpoints/checkpoint_step_4096.pt --seed-csv experiments/m70_brake_wrong_history_candidate_seeds.csv --seed 7201 --device cpu --nominal-friction-mu-range 0.85,1.15 --perturbed-friction-mu-range 0.85,1.15 --nominal-randomization brake_scale_range=1.20,1.40 --perturbed-randomization brake_scale_range=0.50,0.60 --max-observation-distance 10.0 --max-continuation-steps 0 --run-dir runs/m70_wrong_history_continuation_brake_candidates_margin_seed7201`
+- friction command: `conda run -n autodrift python -m autodrift.hidden_swap_gate --env-config configs/ppo_m67e_warm_started_privileged_teacher.json --checkpoint runs/ppo_m67e_warm_privileged_teacher_seed3267/checkpoints/checkpoint_step_4096.pt --seed-csv experiments/m70_friction_wrong_history_candidate_seeds.csv --seed 7202 --device cpu --nominal-friction-mu-range 0.85,1.15 --perturbed-friction-mu-range 0.25,0.35 --max-observation-distance 10.0 --max-continuation-steps 0 --run-dir runs/m70_wrong_history_continuation_friction_candidates_margin_seed7202`
+- run dirs: `runs/m70_wrong_history_continuation_brake_candidates_margin_seed7201`,
+  `runs/m70_wrong_history_continuation_friction_candidates_margin_seed7202`
+- artifact: `docs/m70-wrong-history-continuation-gate.md`
+
+Result:
+
+- weak-brake success delta under hidden-swap: `0` for all 6 source-condition
+  continuations;
+- weak-brake mean margin delta: `-0.000213 m`;
+- weak-brake worst margin delta: `-0.001416 m`;
+- friction success delta under hidden-swap: `0` for both source-condition
+  continuations;
+- friction mean margin delta: `+0.000670 m`;
+- all terminal reasons remain `obstacle_completed`.
+
+Conclusion: M70 is negative. Wrong-history first-action divergence does not
+translate into outcome damage on these candidates. The next task is M71:
+construct or mine outcome-sensitive matched scenarios where wrong history
+actually reduces clearance margin or success by design.

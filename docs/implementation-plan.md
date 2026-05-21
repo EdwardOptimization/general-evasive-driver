@@ -1534,8 +1534,24 @@ divergence, with 3/80 pairs crossing the threshold. See
 - Promote snippets only if wrong history degrades outcome, not merely first
   action.
 
-Status: planned after M69. M69 found a few wrong-history action-divergent
-candidate seeds, but no outcome-level evidence yet.
+Status: complete as a negative outcome-causality result. `hidden_swap_gate` now
+reports `min_clearance_margin` in continuation summaries. On weak-brake
+candidates `7019`, `7059`, and `7002`, hidden-swap changes first action but
+keeps success at 1.0 and changes mean margin by only `-0.000213 m`. On friction
+candidate `6905`, success also stays 1.0 and mean margin delta is `+0.000670 m`.
+See `docs/m70-wrong-history-continuation-gate.md`.
+
+### M71: Outcome-Sensitive Matched Scenario Constructor
+
+- Construct or mine near-boundary paired cases where normal-history margin is
+  positive but wrong-history margin drops by a preregistered threshold.
+- Prefer weak-brake and low-friction contrasts, because M69/M70 showed actuator
+  delay and passive wrong-history candidates are too weak.
+- Reject candidates where first-action divergence does not affect continuation
+  margin or success.
+
+Status: planned after M70. M70 showed that first-action wrong-history candidates
+are not enough; the next proof surface must be outcome-sensitive by construction.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

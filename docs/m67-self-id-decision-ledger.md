@@ -247,17 +247,17 @@ Persisted in:
 Continue with:
 
 ```text
-m70-wrong-history-continuation-gate
+m71-outcome-sensitive-matched-scenario-constructor
 ```
 
 Implementation intent:
 
 ```text
-replay M69 wrong-history candidate seeds
-compare normal history against wrong recurrent history
-promote only snippets where wrong history worsens clearance or success
+construct near-boundary paired emergency cases
+require normal-history margin to exceed wrong-history margin
+reject first-action-only differences that do not affect continuation outcome
 ```
 
-M69 still found zero privileged-packet divergent pairs, but weak-brake produced
-a few wrong-history action-divergent candidates. Do not proceed directly to
-student OSI distillation yet.
+M70 showed that M69 wrong-history candidates do not degrade success or margin in
+closed-loop continuation. Do not proceed directly to student OSI distillation
+yet.
