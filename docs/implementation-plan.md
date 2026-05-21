@@ -1833,8 +1833,24 @@ response encoder columns stay tiny relative to body-response columns. See
 - Use the result to decide between stronger wheel sensors, wrong-wheel-history
   gates, or dropping this front/rear wheel branch as redundant.
 
-Status: planned. M85 shows that adding wheel features and a full response
-prediction head is not enough by itself.
+Status: complete as an information audit. M86 adds a reusable probe harness and
+finds that body+wheel improves `mu_bucket` prediction by about `+0.102` over
+body response alone, but mean gain across hidden targets is only `+0.009` and
+no non-friction target improves meaningfully. See
+`docs/m86-wheel-response-relevance-audit.md`.
+
+### M87: Wheel-Informed Friction/Envelope Objective
+
+- Use the M86 result to target friction or available-authority estimation
+  rather than generic wheel-response prediction.
+- Mine matched cases where body response is ambiguous but wheel response changes
+  friction/envelope prediction.
+- Prefer training-time envelope labels over actor-visible hidden parameters.
+- Gate whether `zero_wheel_response` or wrong-wheel history hurts those targeted
+  cases before making broader self-ID claims.
+
+Status: planned. The current wheel branch has narrow friction information, not
+broad vehicle self-identification evidence.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

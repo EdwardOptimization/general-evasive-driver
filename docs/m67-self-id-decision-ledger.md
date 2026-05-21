@@ -328,3 +328,9 @@ remain tiny (`0.058681` norm versus body `7.809560`). The next decision is M86:
 audit whether the current front/rear wheel signals add predictive information
 beyond body response, then decide whether to improve wheel sensors or build a
 matched wrong-wheel-history gate.
+M86 completes that audit. Body+wheel improves `mu_bucket` prediction by
+`+0.102410` accuracy over body-only, but average gain across hidden targets is
+only `+0.009371` and no non-friction bucket improves meaningfully. The current
+front/rear wheel branch should be treated as a narrow friction/envelope clue,
+not broad self-ID evidence. Continue with M87: targeted friction/envelope
+objectives or matched ambiguous-body cases.

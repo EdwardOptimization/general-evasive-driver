@@ -232,6 +232,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m85-warmstarted-wheel-response-aux.md`: full 25-value response auxiliary
   continuation from M62 warm-start, retaining success but still failing
   zero-wheel dependence.
+- `m86-wheel-response-relevance-audit.md`: body-only vs body+wheel linear probe
+  audit showing narrow friction-bucket wheel information but no broad
+  hidden-dynamics gain.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

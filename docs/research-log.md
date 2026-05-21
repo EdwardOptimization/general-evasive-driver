@@ -3452,3 +3452,31 @@ Conclusion: M85 retains good aggregate behavior but does not create wheel
 dependence. The next task is M86: audit whether the current front/rear wheel
 features contain useful information beyond body response before adding more
 training pressure.
+
+## 20260521T144310Z m86-wheel-response-relevance-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: if the current front/rear wheel response features are useful, a
+  body+wheel offline probe should outperform a body-only probe on hidden
+  dynamics or future-response-relevant buckets.
+- code update: added `autodrift.wheel_response_relevance_audit` and focused
+  tests for wheel feature slicing and gain summaries.
+- focused tests: `tests/test_wheel_response_relevance_audit.py`
+- audit run: `runs/m86_wheel_response_relevance_audit_seed9100`
+- artifact: `docs/m86-wheel-response-relevance-audit.md`
+
+Result:
+
+- samples: `1500`;
+- mean body+wheel gain over body-only: `0.009371`;
+- max body+wheel gain: `0.102410`;
+- only target with gain above `0.02`: `mu_bucket`;
+- `mu_bucket` body accuracy `0.706827`, body+wheel accuracy `0.809237`;
+- brake, mass, tire, and steering-tau buckets do not improve.
+
+Conclusion: M86 is mixed but mostly negative. The current front/rear wheel
+features have narrow friction-bucket information, but they do not provide broad
+hidden-dynamics information beyond body response. The next task is M87:
+target friction/envelope estimation or mine matched ambiguous body-response
+cases instead of increasing generic wheel auxiliary loss.
