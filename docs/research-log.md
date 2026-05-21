@@ -1738,3 +1738,37 @@ hidden increases sensitivity to reset and zero-response interventions but
 hurts aggregate success and does not solve hidden-swap. The next objective
 should compare matched nominal/perturbed hidden states directly rather than
 contrasting against zero hidden.
+
+## 20260521 m45-paired-hidden-snapshot-export
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: paired nominal/perturbed hidden-state snapshots are needed before
+  a direct paired-hidden training objective can be designed safely
+- smoke run dir: `runs/m45_paired_hidden_snapshot_smoke_seed4200`
+- M37_102 export run dir:
+  `runs/m45_m37_102_paired_hidden_snapshots_seed4300`
+
+Smoke result:
+
+- seeds: 5;
+- accepted matches: 4;
+- exported observation shape: `(4, 72)`;
+- exported hidden shape: `(4, 128)`.
+
+M37_102 300-seed export:
+
+- seeds: 300;
+- paired seeds: 300;
+- accepted matches: 280;
+- exported pairs: 280;
+- exported accepted-pair mean hidden distance: 1.269070;
+- exported accepted-pair mean observation distance: 0.328693;
+- exported accepted-pair mean context observation distance: 0.096270;
+- exported observation shape: `(280, 72)`;
+- exported hidden shape: `(280, 128)`.
+
+Conclusion: M45 completes the paired-hidden data harness. The next step should
+not blindly train on old hidden vectors as universal labels; saved hidden states
+are checkpoint-specific. M46 should either fine-tune conservatively from the
+same checkpoint or generate paired hidden states on policy.

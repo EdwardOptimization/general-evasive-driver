@@ -34,6 +34,7 @@ autodrift-matched-response-corpus = "autodrift.matched_response_corpus:main"
 autodrift-m7-gate = "autodrift.m7_gate:main"
 autodrift-research-cycle = "autodrift.research_cycle:main"
 autodrift-rollout-throughput = "autodrift.rollout_throughput:main"
+autodrift-paired-hidden-snapshots = "autodrift.paired_hidden_snapshots:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
