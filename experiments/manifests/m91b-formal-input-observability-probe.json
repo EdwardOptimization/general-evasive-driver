@@ -1,0 +1,50 @@
+{
+  "baseline_checkpoints": [
+    "no_checkpoint_policy=heuristic",
+    "future_primary_checkpoint=selected_after_M91_A_B"
+  ],
+  "commands": [
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.input_observability_audit --env-config configs/ppo_m88_wheel_masked_friction_aux_driver.json --episodes 60 --seed 9310 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1200 --ridge 0.1 --run-dir runs/m91b_input_observability_formal_seed9310",
+      "name": "formal_input_observability_probe"
+    }
+  ],
+  "decision_rule": "Use M91-B to decide whether the current wheel profile has observable future-envelope information. Treat P1 as useful only if P1 improves over P0 on held-out future-envelope targets and the response-only P1-vs-P0 delta is positive on at least two of three targets.",
+  "failure_criteria": [
+    "formal probe artifacts are missing",
+    "P1 wheel response has no held-out improvement over P0 on future-envelope targets",
+    "response-only P1-vs-P0 lift is not positive on at least two of three targets",
+    "the result cannot separate response-branch signal from context overfitting"
+  ],
+  "hypothesis": "With more samples and a formal split, wheel response should improve future handling-envelope observability over the no-wheel minimal profile if it contains useful self-ID information.",
+  "id": "m91b-formal-input-observability-probe",
+  "required_artifacts": [
+    {
+      "path": "runs/m91b_input_observability_formal_seed9310/samples.csv",
+      "type": "samples"
+    },
+    {
+      "path": "runs/m91b_input_observability_formal_seed9310/probe_summary.csv",
+      "type": "probe_summary"
+    },
+    {
+      "path": "runs/m91b_input_observability_formal_seed9310/profile_gain_summary.csv",
+      "type": "profile_gain_summary"
+    },
+    {
+      "path": "runs/m91b_input_observability_formal_seed9310/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "docs/m91b-formal-input-observability-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "P1 improves over P0 on held-out future-envelope targets",
+    "response-only P1 improves over response-only P0 on at least two of three targets",
+    "profile conclusions are based on paired train/test splits, not PPO tuning",
+    "negative results are recorded and used to decide whether cleaner raw wheel dynamics are needed"
+  ],
+  "type": "gate"
+}

@@ -1,0 +1,51 @@
+{
+  "baseline_checkpoints": [
+    "no_checkpoint_policy=heuristic"
+  ],
+  "commands": [
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.input_observability_audit --env-config configs/ppo_m88_wheel_masked_friction_aux_driver.json --episodes 16 --seed 9301 --policy heuristic --horizon-steps 15 --sample-stride 4 --max-samples 300 --ridge 0.1 --run-dir runs/m91a_input_observability_smoke_seed9301",
+      "name": "input_observability_smoke"
+    }
+  ],
+  "decision_rule": "Pass only as a harness smoke if the command produces samples, probe summary, profile gain summary, summary JSON, and a result note. Do not promote any input profile from this smoke.",
+  "failure_criteria": [
+    "input observability command fails",
+    "samples.csv, probe_summary.csv, profile_gain_summary.csv, summary.json, or result note is missing",
+    "the smoke is interpreted as a final wheel/no-wheel conclusion"
+  ],
+  "hypothesis": "A lightweight supervised future-envelope probe can compare no-wheel and wheel-response input profiles before PPO training.",
+  "id": "m91a-input-observability-probe-smoke",
+  "required_artifacts": [
+    {
+      "path": "runs/m91a_input_observability_smoke_seed9301/samples.csv",
+      "type": "samples"
+    },
+    {
+      "path": "runs/m91a_input_observability_smoke_seed9301/probe_summary.csv",
+      "type": "probe_summary"
+    },
+    {
+      "path": "runs/m91a_input_observability_smoke_seed9301/profile_gain_summary.csv",
+      "type": "profile_gain_summary"
+    },
+    {
+      "path": "runs/m91a_input_observability_smoke_seed9301/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "docs/m91-input-observability-audit-protocol.md",
+      "type": "protocol"
+    },
+    {
+      "path": "docs/m91a-input-observability-probe-smoke.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "the harness writes all required artifacts",
+    "the result note clearly separates harness validation from scientific conclusion",
+    "the next task is a formal M91-B audit rather than PPO continuation"
+  ],
+  "type": "gate"
+}
