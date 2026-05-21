@@ -1795,3 +1795,42 @@ Smoke result:
 Conclusion: M46 infrastructure is trainable and writes the intended metric.
 The full run is queued. The pass/fail check remains the M38/M35/M29/broad
 sweeps plus the M43 action-trajectory gate.
+
+## 20260521T064448Z m46-paired-hidden-action-contrast
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Train M37_102 with same-checkpoint paired-hidden action contrast
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m46_paired_hidden_action_contrast_driver.json --seed 2046 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m46_paired_hidden_action_contrast_seed2046`
+- returncode: `0`
+- run dir: `runs/research/m46-paired-hidden-action-contrast_20260521T063355Z`
+- command log: `runs/research/m46-paired-hidden-action-contrast_20260521T063355Z/command.log`
+- success artifact: `runs/ppo_m46_paired_hidden_action_contrast_seed2046/checkpoint.pt`
+- notes: Smoke trainable and short eval clean but full run must pass M38 M35 M29 broad and action-trajectory gates
+
+Post-validation:
+
+- final eval return mean: 83.167580;
+- final eval termination rate: 0.000;
+- final response prediction loss mean: 0.022801;
+- final paired-hidden action contrast loss mean: 0.709751;
+- M38 response-critical corpus: M46_077 and M46_200 reach 0.6375 success
+  versus 0.6250 for M37_102/M42_028;
+- M35 response-change corpus: M46_077 and M46_200 preserve 0.6500 success,
+  equal to M37_102/M42_028;
+- M29 selected corpus: M46_077 and M46_200 preserve 0.8750 success, equal to
+  M30_053/M37_102/M42_028;
+- broad same-seed sweep: M46_077 and M46_200 regress to 0.8000 versus 0.8250
+  for M37_102/M42_028;
+- action-trajectory gate: M46_077 and M46_200 raise perturbed hidden-swap
+  trajectory mean distance to 0.006379 and 0.007083, but hidden-swap outcome
+  changes remain 0;
+- perturbed reset / zero-response outcome changes are 1 / 2 unfavorable for
+  M46_077 and 2 / 2 unfavorable for M46_200.
+
+Conclusion: M46 is a negative result. The direct paired-hidden action contrast
+creates a small hidden-swap action-distance signal and improves the mined M38
+corpus slightly, but it fails the broad aggregate gate and does not create
+hidden-swap outcome sensitivity. Current best remains M37_102. The next step
+should audit seed-level M46 wins/losses and use on-policy or continuation-level
+evidence instead of fixed old hidden vectors.

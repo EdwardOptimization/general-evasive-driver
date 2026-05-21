@@ -872,7 +872,9 @@ Exit criteria:
 - result updates current-best status only if hidden-swap improves without
   aggregate regression.
 
-Status: planned after M45 snapshot export.
+Status: complete as M46 same-checkpoint objective below. The offline paired
+hidden snapshots gave a usable auxiliary source, but fixed old hidden vectors
+were not sufficient to pass the aggregate and intervention gates.
 
 ### M46: Same-Checkpoint Paired-Hidden Action Contrast
 
@@ -889,10 +891,33 @@ Exit criteria:
 - full run is evaluated against M37_102 and M42_028 on M38, M35, M29, broad,
   and action-trajectory gates.
 
-Status: smoke complete; full training queued. The 4096-step CUDA smoke writes
-`paired_hidden_action_contrast_loss_mean = 0.718800`, strict-loads M37_102, and
-reaches eval return 82.897 with termination rate 0.000. This is trainability
-evidence only. See `docs/m46-paired-hidden-action-contrast-objective.md`.
+Status: complete as a negative result. The full run strict-loads M37_102 and
+finishes cleanly. M46_077 and M46_200 lightly improve the M38 mined corpus to
+0.6375 success versus 0.6250 for M37_102, and they preserve M35 at 0.6500 and
+M29 at 0.8750. Both regress the broad same-seed benchmark to 0.8000 versus
+0.8250 for M37_102/M42_028. Action-trajectory gates show slightly larger
+hidden-swap trajectory distances, up to 0.007083 for M46_200, but hidden-swap
+outcome changes remain 0. Current best remains M37_102. See
+`docs/m46-paired-hidden-action-contrast-objective.md`.
+
+### M47: On-Policy Continuation Evidence
+
+- Stop treating static old hidden vectors as universal labels after M46's
+  broad regression.
+- Mine or generate continuation-level evidence where an intervention changes
+  future closed-loop behavior, not just first-step action means.
+- Prefer objectives that preserve broad aggregate success before increasing
+  hidden-state sensitivity.
+
+Exit criteria:
+
+- M47 design is based on measured M46 deltas and hidden-swap trajectories;
+- any new objective is selected by M38/M35/M29/broad gates plus intervention
+  outcome-change counts;
+- current-best status changes only if M37_102 aggregate gates are preserved.
+
+Status: planned. The next step should audit M46 seed-level wins/losses and
+design an on-policy or continuation-level objective before another long train.
 
 ## Metrics
 
