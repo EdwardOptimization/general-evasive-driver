@@ -118,3 +118,93 @@ Result:
 The smoke result only proves the architecture trains and evaluates under the
 clean contract. It is not a driver-quality result. The full run must still pass
 the M21 validation gate above.
+
+## Full Result
+
+Training completed through the research harness:
+
+```text
+runs/ppo_m21_response_critical_actor_seed1031/checkpoint.pt
+```
+
+Built-in final evaluation:
+
+- return mean: 77.974;
+- steps mean: 73.700;
+- termination rate: 0.100;
+- lateral RMSE mean: 0.867;
+- beta absolute error mean: 0.179.
+
+Periodic checkpoints were saved at steps 102400, 200704, 303104, 401408,
+503808, 602112, 700416, 802816, and 900000.
+
+Actuator-response checkpoint sweep:
+
+| policy | nominal success | perturbed success | drop |
+| --- | ---: | ---: | ---: |
+| m20_700 | 0.475 | 0.400 | 0.075 |
+| m21_102 | 0.400 | 0.325 | 0.075 |
+| m21_200 | 0.425 | 0.375 | 0.050 |
+| m21_303 | 0.400 | 0.400 | 0.000 |
+| m21_401 | 0.475 | 0.425 | 0.050 |
+| m21_503 | 0.500 | 0.450 | 0.050 |
+| m21_602 | 0.475 | 0.450 | 0.025 |
+| m21_700 | 0.450 | 0.450 | 0.000 |
+| m21_802 | 0.450 | 0.450 | 0.000 |
+| m21_900 | 0.425 | 0.450 | -0.025 |
+
+Top-candidate actuator-response gate:
+
+| policy | nominal success | perturbed success | drop |
+| --- | ---: | ---: | ---: |
+| m20_700 | 0.475 | 0.400 | 0.075 |
+| m21_503 | 0.500 | 0.450 | 0.050 |
+| m21_503_reset | 0.350 | 0.450 | -0.100 |
+| m21_503_zero_current | 0.500 | 0.425 | 0.075 |
+| m21_602 | 0.475 | 0.450 | 0.025 |
+| m21_602_reset | 0.375 | 0.450 | -0.075 |
+| m21_602_zero_current | 0.500 | 0.450 | 0.050 |
+| m21_900 | 0.425 | 0.450 | -0.025 |
+| m21_900_reset | 0.275 | 0.450 | -0.175 |
+| m21_900_zero_current | 0.400 | 0.450 | -0.050 |
+
+Top-candidate M13 friction gate:
+
+| policy | nominal success | perturbed success | drop |
+| --- | ---: | ---: | ---: |
+| m20_700 | 0.875 | 0.425 | 0.450 |
+| m21_503 | 0.900 | 0.450 | 0.450 |
+| m21_503_reset | 0.900 | 0.400 | 0.500 |
+| m21_503_zero_current | 0.900 | 0.450 | 0.450 |
+| m21_602 | 0.900 | 0.450 | 0.450 |
+| m21_602_reset | 0.900 | 0.300 | 0.600 |
+| m21_602_zero_current | 0.900 | 0.450 | 0.450 |
+| m21_900 | 0.875 | 0.400 | 0.475 |
+| m21_900_reset | 0.875 | 0.250 | 0.625 |
+| m21_900_zero_current | 0.875 | 0.425 | 0.450 |
+
+Same-corpus obstacle benchmark:
+
+| policy | success | termination | high sideslip |
+| --- | ---: | ---: | ---: |
+| envelope_aes | 0.250 | 0.750 | 0.000 |
+| m20_700 | 0.475 | 0.525 | 0.000 |
+| m21_503 | 0.500 | 0.500 | 0.005 |
+| m21_503_reset | 0.450 | 0.550 | 0.021 |
+| m21_503_zero_current | 0.500 | 0.500 | 0.002 |
+| m21_602 | 0.475 | 0.525 | 0.009 |
+| m21_602_reset | 0.400 | 0.600 | 0.024 |
+| m21_602_zero_current | 0.500 | 0.500 | 0.007 |
+| m21_900 | 0.425 | 0.575 | 0.022 |
+| m21_900_reset | 0.325 | 0.675 | 0.061 |
+| m21_900_zero_current | 0.475 | 0.525 | 0.025 |
+
+Conclusion: M21 is a real aggregate-performance improvement but still not a
+complete self-identification solution. The best checkpoint is `m21_503`: it
+beats `m20_700` on same-corpus success (`0.500` vs `0.475`), actuator-response
+perturbed success (`0.450` vs `0.400`), and M13 friction perturbed success
+(`0.450` vs `0.425`). Hidden-state reset now hurts several checkpoints,
+especially M21_602 and M21_900 on the friction gate. However, response masking
+still does not reliably reduce success. The next milestone should make the
+gate itself harder by mining or constructing paired cases where identical
+geometry and different hidden response require different corrective actions.

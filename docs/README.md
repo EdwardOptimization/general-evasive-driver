@@ -70,6 +70,8 @@ vehicle/tire models, and NMPC-style constrained control.
   selection plan for response-retention fine-tunes.
 - `m21-response-critical-actor.md`: planned response-critical actor structure
   after M20 showed response masking still does not hurt the best checkpoint.
+- `m22-hard-response-dependence-gate.md`: next gate direction for mining or
+  constructing cases where response ablation must change the outcome.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

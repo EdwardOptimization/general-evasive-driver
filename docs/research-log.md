@@ -670,3 +670,80 @@ It still does not pass the self-identification gate, because zeroing the
 deployable response channels leaves success unchanged. The next step should be
 an architecture or loss change that makes response-conditioned hidden state
 directly control-critical, not another endpoint fine-tune.
+
+## 20260521T004810Z m21-response-critical-actor
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Train a response-critical online actor with separate response and context streams
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m21_response_critical_actor.json --seed 1031 --device cuda --run-dir runs/ppo_m21_response_critical_actor_seed1031`
+- returncode: `0`
+- run dir: `runs/research/m21-response-critical-actor_20260521T001442Z`
+- command log: `runs/research/m21-response-critical-actor_20260521T001442Z/command.log`
+- success artifact: `runs/ppo_m21_response_critical_actor_seed1031/checkpoint.pt`
+- notes: Smoke passed; starts from scratch under the clean 15-value obstacle actor contract
+
+Training result:
+
+- final eval return mean: 77.974;
+- final eval steps mean: 73.700;
+- final eval termination rate: 0.100;
+- final eval lateral RMSE mean: 0.867;
+- final eval beta absolute error mean: 0.179;
+- periodic checkpoints: steps 102400, 200704, 303104, 401408, 503808, 602112,
+  700416, 802816, and 900000.
+
+Actuator-response checkpoint sweep:
+
+- run dir: `runs/m21_actuator_response_checkpoint_sweep_seed3000`;
+- M20_700 nominal/perturbed success: 0.475 / 0.400;
+- M21_503 nominal/perturbed success: 0.500 / 0.450;
+- M21_602 nominal/perturbed success: 0.475 / 0.450;
+- M21_900 nominal/perturbed success: 0.425 / 0.450.
+
+Top-candidate actuator-response gate:
+
+- run dir: `runs/m21_top_actuator_response_gate_seed3000`;
+- M21_503 nominal/perturbed success: 0.500 / 0.450;
+- M21_503 hidden-reset nominal/perturbed success: 0.350 / 0.450;
+- M21_503 zero-current and zero-all perturbed success: 0.425;
+- M21_602 nominal/perturbed success: 0.475 / 0.450;
+- M21_602 hidden-reset nominal/perturbed success: 0.375 / 0.450;
+- M21_602 zero-current and zero-all perturbed success: 0.450;
+- M21_900 nominal/perturbed success: 0.425 / 0.450;
+- M21_900 hidden-reset nominal/perturbed success: 0.275 / 0.450.
+
+M13 friction paired gate:
+
+- run dir: `runs/m21_top_friction_gate_seed3000`;
+- M21_503 nominal/perturbed success: 0.900 / 0.450;
+- M21_503 hidden-reset perturbed success: 0.400;
+- M21_503 zero-current and zero-all perturbed success: 0.450;
+- M21_602 nominal/perturbed success: 0.900 / 0.450;
+- M21_602 hidden-reset perturbed success: 0.300;
+- M21_602 zero-current and zero-all perturbed success: 0.450;
+- M21_900 nominal/perturbed success: 0.875 / 0.400;
+- M21_900 hidden-reset perturbed success: 0.250.
+
+Same-corpus obstacle benchmark:
+
+- run dir: `runs/m21_same_contract_obstacle_benchmark_seed3000`;
+- `envelope_aes` success: 0.250;
+- M20_700 success: 0.475;
+- M21_503 success: 0.500;
+- M21_503 hidden-reset success: 0.450;
+- M21_503 zero-current success: 0.500;
+- M21_602 success: 0.475;
+- M21_602 hidden-reset success: 0.400;
+- M21_602 zero-current success: 0.500;
+- M21_900 success: 0.425.
+
+Conclusion: M21 is mixed but useful. The response-critical architecture improves
+aggregate performance: `m21_503` beats `m20_700` on same-corpus success
+(`0.500` vs `0.475`), actuator-response perturbed success (`0.450` vs
+`0.400`), and M13 friction perturbed success (`0.450` vs `0.425`). Hidden-state
+reset now causes clear drops for some checkpoints, especially M21_602 and
+M21_900 on the friction gate. It still does not prove deployable response
+channel dependence, because zero-current and zero-all response ablations remain
+near normal performance. The next task should build a harder response-dependence
+gate or corpus before adding more actor complexity.
