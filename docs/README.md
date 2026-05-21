@@ -144,6 +144,8 @@ vehicle/tire models, and NMPC-style constrained control.
   result and the dense near-obstacle reward direction.
 - `m58-dense-near-obstacle-clearance-reward.md`: dense near-obstacle
   clearance-margin reward setup and smoke validation.
+- `m59-trust-region-checkpoint-interpolation.md`: M37_102 to M56_028
+  checkpoint interpolation harness and strict gate result.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

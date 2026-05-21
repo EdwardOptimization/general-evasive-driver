@@ -2235,3 +2235,46 @@ Conclusion: M58 is not promotable and is a negative objective result. Dense
 near-obstacle reward in this simple form does not solve margin retention. M59
 should test checkpoint/weight interpolation as a trust-region diagnostic before
 more reward shaping.
+
+## 20260521T084940Z m59-trust-region-checkpoint-interpolation
+
+- status: `completed`
+- kind: `probe`
+- hypothesis: Interpolate M37_102 toward the closest non-promoted checkpoint
+  M56_028 to test whether a smaller trust-region move can pass strict margin
+  retention.
+- command: `conda run -n autodrift python -m autodrift.checkpoint_interpolation --base-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --target-checkpoint runs/ppo_m56_clearance_margin_reward_seed2456/checkpoints/checkpoint_step_28672.pt --alphas 0.125 0.25 0.375 0.5 0.625 0.75 0.875 --base-label m37_102 --target-label m56_028 --label-prefix m59 --run-dir runs/m59_m37_m56_028_interpolated_checkpoints`
+- returncode: `0`
+- run dir: `runs/m59_m37_m56_028_interpolated_checkpoints`
+- success artifact:
+  `runs/m59_m37_m56_028_interpolated_checkpoints/manifest.json`
+- notes: Generated checkpoints load through the canonical 72-value human-view
+  actor contract.
+
+Post-validation:
+
+- focused tests:
+  `conda run -n autodrift pytest -q tests/test_checkpoint_interpolation.py tests/test_checkpoints.py`
+  -> `31 passed`;
+- M38/broad/fresh checkpoint sweeps:
+  `runs/m59_m38_margin_benchmark_seed4300`,
+  `runs/m59_broad_margin_benchmark_seed3000`,
+  `runs/m59_fresh_margin_benchmark_seed5200`;
+- margin corpus:
+  `runs/m59_margin_critical_corpus/seed_margin_deltas.csv`;
+- strict gate:
+  `runs/m59_margin_retention_gate_strict/candidate_gate_summary.csv`;
+- strict gate status: `needs_iteration`;
+- passed candidates: none;
+- every alpha retains aggregate success with zero binary regressions and zero
+  near-margin regressions;
+- best alpha is `m59_a125`, but mean margin delta is still negative at
+  `-0.000193`;
+- margin loss is nearly monotonic with alpha, reaching `-0.001335` at
+  `m59_a875`.
+
+Conclusion: M59 is not promotable. The M37-to-M56_028 parameter direction is a
+behaviorally conservative direction but not a positive-margin direction. M60
+should stop increasing margin reward scale and instead build a constrained,
+baseline-anchored update that allows changes only where mined snippets show a
+credible margin-improvement opportunity.

@@ -1209,6 +1209,34 @@ Exit criteria:
 - if none pass, next work should focus on constrained policy updates or
   baseline-action distillation, not further reward-scale tuning.
 
+Status: complete as a negative diagnostic. M59 adds a reusable checkpoint
+interpolation harness and evaluates seven M37_102 to M56_028 interpolation
+alphas through the unchanged M38/broad/fresh strict margin-retention gate. All
+interpolated checkpoints retain success and have zero binary and near-margin
+regressions, but every nonzero alpha has negative mean clearance-margin delta;
+the strict gate rejects all candidates. See
+`docs/m59-trust-region-checkpoint-interpolation.md`.
+
+### M60: Constrained Baseline-Anchored Margin Update
+
+- Use M59/M56 evidence to avoid further reward-scale tuning along the same
+  parameter direction.
+- Build a constrained update that anchors deterministic actions to M37_102 on
+  non-critical states while allowing margin-improving changes on mined
+  near-boundary snippets.
+- Keep actor observations clean and keep the strict margin-retention gate
+  unchanged.
+
+Exit criteria:
+
+- training/evaluation data separates critical margin snippets from retained
+  background states;
+- action-anchor loss is config-gated and defaults to disabled;
+- smoke training logs action-anchor and margin terms;
+- M38/broad/fresh strict margin gate is rerun unchanged;
+- any candidate that passes margin retention must still rerun broader driver
+  gates before promotion.
+
 Status: planned.
 
 ## Metrics
