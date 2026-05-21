@@ -1,28 +1,19 @@
 {
   "counts": {
     "blocked": 0,
-    "completed": 23,
+    "completed": 24,
     "failed": 0,
-    "pending": 1,
-    "planned": 0,
+    "pending": 0,
+    "planned": 1,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m26-human-view-gru-full-train_20260521T020206Z/command.log",
+    "command_log": "runs/research/m27-human-view-hard-response-gate_20260521T025048Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m26-human-view-gru-full-train_20260521T020206Z",
+    "run_dir": "runs/research/m27-human-view-hard-response-gate_20260521T025048Z",
     "status": "completed",
-    "task_id": "m26-human-view-gru-full-train"
+    "task_id": "m27-human-view-hard-response-gate"
   },
-  "next_task": {
-    "command": "conda run -n autodrift python -m autodrift.paired_perturbation_gate --env-config configs/ppo_m24_human_view_gru_driver.json --checkpoint runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt --checkpoint-policy m26_602=runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt --checkpoint-policy m26_602_reset=runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt@reset_recurrent_state --checkpoint-policy m26_602_zero_current=runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt@zero_current_response --checkpoint-policy m26_602_zero_all=runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt@zero_all_response --episodes 80 --seed 3600 --device cpu --run-dir runs/m27_human_view_paired_gate_seed3600",
-    "hypothesis": "Build a new response-dependence gate for the human-view contract because old M22 hard seeds saturate",
-    "id": "m27-human-view-hard-response-gate",
-    "kind": "gate",
-    "notes": "First paired baseline; if weak then implement matched-current-observation hidden-swap gate",
-    "priority": 200,
-    "status": "pending",
-    "success_artifact": "runs/m27_human_view_paired_gate_seed3600/pair_summary.csv"
-  },
-  "updated_at_utc": "20260521T024943Z"
+  "next_task": null,
+  "updated_at_utc": "20260521T025237Z"
 }

@@ -114,3 +114,38 @@ M27 should not be marked as a self-identification pass unless all are true:
 
 If these criteria fail, record the failure and use the matched cases to design
 M28 training or architecture changes.
+
+## Paired Baseline Result
+
+Command run:
+
+```bash
+conda run -n autodrift python -m autodrift.paired_perturbation_gate \
+  --env-config configs/ppo_m24_human_view_gru_driver.json \
+  --checkpoint runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt \
+  --checkpoint-policy m26_602=runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt \
+  --checkpoint-policy m26_602_reset=runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt@reset_recurrent_state \
+  --checkpoint-policy m26_602_zero_current=runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt@zero_current_response \
+  --checkpoint-policy m26_602_zero_all=runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt@zero_all_response \
+  --episodes 80 \
+  --seed 3600 \
+  --device cpu \
+  --run-dir runs/m27_human_view_paired_gate_seed3600
+```
+
+Result:
+
+| Policy | Nominal success | Perturbed success | Success drop |
+| --- | ---: | ---: | ---: |
+| M26_602 | 0.938 | 0.663 | 0.275 |
+| M26_602 reset hidden | 0.925 | 0.663 | 0.263 |
+| M26_602 zero current response | 0.925 | 0.638 | 0.288 |
+| M26_602 zero all response | 0.925 | 0.638 | 0.288 |
+
+This is a weak/negative self-identification result. The paired friction
+perturbation is hard in aggregate, but it does not show that normal recurrent
+hidden state is necessary. Reset hidden matches normal perturbed success, and
+zero-response variants are only slightly lower.
+
+The result confirms the need for the required harness upgrade above:
+matched-current-observation and hidden-swap tests are the next evidence path.

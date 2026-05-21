@@ -956,3 +956,28 @@ or if the current observation is nearly Markov, reset and normal inference shoul
 be similar. The next gate should use matched-current-observation cases and
 hidden-swap ablations to separate "can adapt" from "requires recurrent
 self-identification."
+
+## 20260521T025100Z m27-human-view-hard-response-gate
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: Build a new response-dependence gate for the human-view contract because old M22 hard seeds saturate
+- command: `conda run -n autodrift python -m autodrift.paired_perturbation_gate --env-config configs/ppo_m24_human_view_gru_driver.json --checkpoint runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt --checkpoint-policy m26_602=runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt --checkpoint-policy m26_602_reset=runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt@reset_recurrent_state --checkpoint-policy m26_602_zero_current=runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt@zero_current_response --checkpoint-policy m26_602_zero_all=runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt@zero_all_response --episodes 80 --seed 3600 --device cpu --run-dir runs/m27_human_view_paired_gate_seed3600`
+- returncode: `0`
+- run dir: `runs/research/m27-human-view-hard-response-gate_20260521T025048Z`
+- command log: `runs/research/m27-human-view-hard-response-gate_20260521T025048Z/command.log`
+- success artifact: `runs/m27_human_view_paired_gate_seed3600/pair_summary.csv`
+- notes: First paired baseline; if weak then implement matched-current-observation hidden-swap gate
+
+Result:
+
+- normal M26_602 nominal/perturbed success: 0.938 / 0.663;
+- M26_602 hidden-reset nominal/perturbed success: 0.925 / 0.663;
+- M26_602 zero-current and zero-all nominal/perturbed success: 0.925 / 0.638.
+
+Conclusion: M27 paired baseline is a weak/negative self-identification result.
+The low-friction perturbation makes the task harder, but it does not show that
+normal recurrent hidden state is necessary. Reset hidden matches normal
+perturbed success, and response masking only lowers perturbed success by 0.025.
+The next step should implement the matched-current-observation hidden-swap gate
+described in `docs/m27-human-view-self-identification-gate.md`.
