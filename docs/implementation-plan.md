@@ -76,11 +76,11 @@ possible safety/filter layer after the RL-first result exists.
 The long-term controller target is a universal closed-loop RL operator:
 
 ```text
-sensor/action history
+human-view ego response + action history + road/free-space + obstacle geometry
   -> RL actor
   -> steering/throttle/brake
   -> vehicle response
-  -> updated sensor/action history
+  -> updated human-view observation and recurrent hidden state
 ```
 
 The deployed actor should not depend on explicit rule branches or true hidden
@@ -89,6 +89,56 @@ mass/CG variation, and actuator lag from recent feedback and its own previous
 actions. Rules remain useful for scenario generation, reward shaping, benchmark
 labels, diagnostics, and safety monitoring, but they should not become the
 normal driving policy. See `docs/m7-universal-closed-loop-operator.md`.
+
+### M24+ Human-View Contract
+
+The current driver branch no longer treats path-tracking scalars as the
+deployable actor input. The active contract is the 72-value human-view frame in
+`docs/observation-contract.md`:
+
+- ego response and actuator state;
+- previous physical steering, throttle, and brake commands;
+- ego-frame road-boundary lookahead points;
+- ego-frame obstacle slots.
+
+The actor must not receive path lateral error, heading error, path curvature,
+along-path speed, required lateral clearance, TTC, `speed_ref`, `beta_target`,
+`beta`, `mu`, vehicle parameters, rule labels, or seed/curriculum metadata.
+
+The active output contract is direct three-channel control:
+
+```text
+[steering_command, throttle_command, brake_command]
+```
+
+Old 15-value-frame checkpoints are historical evidence only. They are not
+migration targets for the human-view branch.
+
+### Self-Identification Proof Standard
+
+Aggregate success, ordinary recurrent hidden reset, and response masking are not
+enough by themselves to prove a professional-driver-like controller. They answer
+different questions:
+
+- aggregate success shows whether the policy can drive the benchmark;
+- reset-vs-normal shows whether a gate requires long-horizon GRU memory;
+- response masking shows whether current ego response features matter;
+- none of those alone proves friction or vehicle-response self-identification.
+
+Because the human-view frame already includes current ego response and previous
+physical commands, the task can be close to Markov on many scenarios. In those
+cases, resetting hidden state should not necessarily hurt. The stronger proof
+must use matched-current-observation gates:
+
+```text
+probing window under hidden dynamics A or B
+  -> same visible road/obstacle/current-state decision point
+  -> compare normal, reset, zero-response, and hidden-swap variants
+```
+
+The self-identification gate passes only if the learned hidden or recurrent
+state changes actions or outcomes in a way that is beneficial for the matching
+hidden dynamics. This is the M27+ validation direction.
 
 ## Complete Project Deliverables
 
@@ -353,6 +403,37 @@ shuffled-history ablations did not reduce success. The current blocker is a
 clean-contract retrain followed by behavior-level proof of closed-loop
 self-identification. See
 `docs/m8-rl-professional-driver.md`.
+
+### M24-M27: Human-View Professional Driver Branch
+
+- Replace path-tracking and precomputed obstacle features with ego-frame
+  human-view perception.
+- Split the action contract into direct steering, throttle, and brake commands.
+- Train the first `human_view_online_gru` controller from scratch.
+- Use checkpoint sweeps to select the best human-view driver by benchmark
+  success, not final checkpoint by default.
+- Build a new hard response-dependence gate for the human-view branch.
+
+Exit criteria:
+
+- human-view policy beats AEB and envelope AES baselines on same-seed obstacle
+  benchmarks;
+- old 15-value-frame checkpoints and hard corpora are treated as historical and
+  not reused as compatible artifacts;
+- reset and response-masking ablations are interpreted narrowly;
+- matched-current-observation or hidden-swap gates show whether adaptation
+  depends on accumulated recurrent state.
+
+Status: M24-M26 are complete as infrastructure and first full training. M26_602
+is the current best human-view checkpoint by success, reaching 0.800 success
+against envelope AES at 0.675 on the 40-episode same-seed obstacle benchmark.
+It is not a self-identification pass: hidden reset does not reduce success, and
+response masking only drops success to 0.775. The next task is M27, a
+human-view hard response gate that must separate "can drive" from "can adapt"
+and "requires recurrent hidden self-identification." See
+`docs/m24-human-view-driver-contract.md`,
+`docs/m26-human-view-gru-results.md`, and
+`docs/m27-human-view-self-identification-gate.md`.
 
 ## Metrics
 

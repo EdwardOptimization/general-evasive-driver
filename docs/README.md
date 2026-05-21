@@ -80,6 +80,8 @@ vehicle/tire models, and NMPC-style constrained control.
   contract trains end to end.
 - `m26-human-view-gru-results.md`: first full human-view GRU training result,
   checkpoint sweep, ablations, and next hard-gate blocker.
+- `m27-human-view-self-identification-gate.md`: proof standard and first
+  harness plan for human-view hidden-response self-identification.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.
