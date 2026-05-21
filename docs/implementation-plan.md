@@ -1456,9 +1456,12 @@ M67-D strict self-ID context profile. See
   the deployable actor input contract.
 - Add a strict-context driver config and smoke benchmark against current 72.
 
-Status: planned. This now precedes the warm-started privileged teacher because
-M67-B and the input audit show that a cleaner self-ID diagnostic profile is
-needed before teacher/student claims.
+Status: complete as infrastructure and mixed diagnostic. The strict profile
+preserves the 72-value shape, zeros obstacle relative velocity, loads M62
+strictly, and keeps M62 baseline success unchanged on the M65 corpus. It does
+not make reset-hidden or zero-response ablations more behavior-critical, so the
+next gate still needs wrong-history or matched-history interventions. See
+`docs/m67d-strict-self-id-observation-profile.md`.
 
 ### M67-E: Warm-Started Privileged Teacher
 

@@ -148,6 +148,37 @@ def test_obstacle_task_adds_observation_features_and_info():
     assert env._obstacle_slot_features()[0] == 1.0
 
 
+def test_obstacle_relative_velocity_mode_can_zero_context_motion_proxy():
+    base_config = dict(
+        speed_range=(12.0, 12.0),
+        friction_limited_speed=False,
+        obstacle=ObstacleTaskConfig(
+            enabled=True,
+            distance_range=(20.0, 20.0),
+            half_width_range=(0.8, 0.8),
+        ),
+    )
+    default_env = AutoDriftEnv(DriftEnvConfig(**base_config))
+    strict_env = AutoDriftEnv(DriftEnvConfig(**base_config, obstacle_relative_velocity_mode="zero"))
+
+    default_obs, _ = default_env.reset(seed=21)
+    strict_obs, _ = strict_env.reset(seed=21)
+    default_slots = default_env._obstacle_slot_features()
+    strict_slots = strict_env._obstacle_slot_features()
+
+    assert default_obs.shape == (72,)
+    assert strict_obs.shape == (72,)
+    assert np.linalg.norm(default_slots[3:5]) > 0.0
+    assert strict_slots[3:5] == [0.0, 0.0]
+    assert np.allclose(default_slots[:3], strict_slots[:3])
+    assert np.allclose(default_slots[5:7], strict_slots[5:7])
+
+
+def test_obstacle_relative_velocity_mode_rejects_unknown_mode():
+    with pytest.raises(ValueError, match="obstacle_relative_velocity_mode"):
+        DriftEnvConfig(obstacle_relative_velocity_mode="world")
+
+
 def test_m8_driver_config_uses_deployable_observation_contract():
     config = build_env_config(read_json("configs/ppo_m8_temporal_gru_driver.json")["env"])
     env = AutoDriftEnv(config)
@@ -158,6 +189,19 @@ def test_m8_driver_config_uses_deployable_observation_contract():
     assert config.action_history_mode == "full"
     assert env.base_obs_dim == 72
     assert env.observation_space.shape == (288,)
+
+
+def test_m67d_strict_self_id_config_preserves_clean_72_value_shape():
+    config = build_env_config(read_json("configs/ppo_m67d_strict_self_id_context_driver.json")["env"])
+    env = AutoDriftEnv(config)
+    obs, _ = env.reset(seed=3600)
+
+    assert config.include_privileged_params is False
+    assert config.obstacle_relative_velocity_mode == "zero"
+    assert env.base_obs_dim == 72
+    assert env.observation_space.shape == (72,)
+    assert obs.shape == (72,)
+    assert np.allclose(obs[[47, 48]], [0.0, 0.0])
 
 
 def test_obstacle_task_can_require_aeb_infeasible_labels():

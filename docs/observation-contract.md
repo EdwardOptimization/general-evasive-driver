@@ -54,6 +54,12 @@ the left and right road boundaries are ahead of the vehicle. Obstacle input is
 object geometry and relative motion in the ego frame, not a precomputed
 avoidance decision.
 
+M67-D adds a stricter diagnostic profile through
+`obstacle_relative_velocity_mode="zero"`. It keeps the 72-value shape and the
+same obstacle slot layout, but sets the obstacle `vx` and `vy` channels to zero
+for static-obstacle self-identification diagnostics. The default
+`obstacle_relative_velocity_mode="ego"` preserves historical behavior.
+
 ## Not Actor Input
 
 The policy observation must not include:

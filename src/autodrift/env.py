@@ -32,6 +32,7 @@ DEFAULT_OBSTACLE_SLOTS = 4
 BASIC_PRIVILEGED_OBS_DIM = 4
 FULL_DYNAMICS_PRIVILEGED_OBS_DIM = 10
 PRIVILEGED_OBSERVATION_MODES = ("basic", "full_dynamics")
+OBSTACLE_RELATIVE_VELOCITY_MODES = ("ego", "zero")
 
 
 @dataclass(frozen=True)
@@ -108,6 +109,7 @@ class DriftEnvConfig:
     action_history_mode: str = "full"
     include_privileged_params: bool = False
     privileged_observation_mode: str = "basic"
+    obstacle_relative_velocity_mode: str = "ego"
     road_lookahead_count: int = DEFAULT_ROAD_LOOKAHEAD_COUNT
     road_lookahead_spacing: float = 5.0
     obstacle_slots: int = DEFAULT_OBSTACLE_SLOTS
@@ -124,6 +126,11 @@ class DriftEnvConfig:
             raise ValueError(
                 "privileged_observation_mode must be one of: "
                 + ", ".join(PRIVILEGED_OBSERVATION_MODES)
+            )
+        if self.obstacle_relative_velocity_mode not in OBSTACLE_RELATIVE_VELOCITY_MODES:
+            raise ValueError(
+                "obstacle_relative_velocity_mode must be one of: "
+                + ", ".join(OBSTACLE_RELATIVE_VELOCITY_MODES)
             )
         if self.road_lookahead_count < 1:
             raise ValueError("road_lookahead_count must be at least 1")
@@ -476,8 +483,12 @@ class AutoDriftEnv(gym.Env):
         slots = np.zeros((self.config.obstacle_slots, OBSTACLE_SLOT_DIM), dtype=np.float64)
         if self.config.obstacle.enabled and self.obstacle_scenario is not None and self.obstacle_position is not None:
             body = self._body_point(self.obstacle_position)
-            rel_vx = -self.state.vx + self.state.yaw_rate * body[1]
-            rel_vy = -self.state.vy - self.state.yaw_rate * body[0]
+            if self.config.obstacle_relative_velocity_mode == "ego":
+                rel_vx = -self.state.vx + self.state.yaw_rate * body[1]
+                rel_vy = -self.state.vy - self.state.yaw_rate * body[0]
+            else:
+                rel_vx = 0.0
+                rel_vy = 0.0
             half_width = float(self.obstacle_scenario.obstacle_half_width)
             slots[0] = np.array(
                 [

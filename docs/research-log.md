@@ -2695,3 +2695,44 @@ next task changes from immediate warm-started teacher work to M67-D strict
 self-ID context profile: keep the 72-value shape, add a config mode that zeroes
 obstacle relative velocity, then re-run input-profile diagnostics before making
 teacher/student self-ID claims.
+
+## 20260521T113500Z m67d-strict-self-id-observation-profile
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: Removing obstacle-relative-velocity motion proxies should make the
+  self-ID diagnostic profile cleaner and may make response/action-history
+  ablations more behavior-critical.
+- smoke command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m67d_strict_self_id_context_driver.json --total-steps 4096 --rollout-steps 64 --num-envs 4 --vector-env-mode sync --seed 3167 --device cuda --init-checkpoint runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --run-dir runs/ppo_m67d_strict_context_smoke_seed3167 --eval-episodes 2`
+- current-context benchmark command: `conda run -n autodrift python -m autodrift.benchmark --env-config configs/ppo_m65_response_necessity_driver.json --seed-csv runs/m65_response_necessity_corpus_seed3600/scenario_corpus.csv --checkpoint-policy m62_a250=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --checkpoint-policy m62_a250_reset=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt@reset_recurrent_state --checkpoint-policy m62_a250_zero_current=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt@zero_current_response --checkpoint-policy m62_a250_zero_all=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt@zero_all_response --checkpoint-policy m62_a250_noact=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt@zero_action_history --policies heuristic --device cpu --run-dir runs/m67d_m62_current_context_ablation_m65_seed3600`
+- strict-context benchmark command: `conda run -n autodrift python -m autodrift.benchmark --env-config configs/ppo_m67d_strict_self_id_context_driver.json --seed-csv runs/m65_response_necessity_corpus_seed3600/scenario_corpus.csv --checkpoint-policy m62_a250=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --checkpoint-policy m62_a250_reset=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt@reset_recurrent_state --checkpoint-policy m62_a250_zero_current=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt@zero_current_response --checkpoint-policy m62_a250_zero_all=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt@zero_all_response --checkpoint-policy m62_a250_noact=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt@zero_action_history --policies heuristic --device cpu --run-dir runs/m67d_m62_strict_context_ablation_m65_seed3600`
+- returncode: `0`
+- run dirs: `runs/ppo_m67d_strict_context_smoke_seed3167`,
+  `runs/m67d_m62_current_context_ablation_m65_seed3600`,
+  `runs/m67d_m62_strict_context_ablation_m65_seed3600`,
+  `runs/m67d_current_context_seed_delta_audit_m65`,
+  `runs/m67d_strict_context_seed_delta_audit_m65`
+- success artifacts:
+  `runs/ppo_m67d_strict_context_smoke_seed3167/checkpoint.pt`,
+  `runs/m67d_m62_strict_context_ablation_m65_seed3600/policy_summary.csv`,
+  `runs/m67d_strict_context_seed_delta_audit_m65/policy_delta_summary.csv`
+
+Result:
+
+- new config field: `obstacle_relative_velocity_mode`;
+- default mode: `ego`;
+- strict mode: `zero`, preserving 72 observation values;
+- smoke continuation loaded M62 and baseline anchor with `strict` load mode;
+- strict-context M62 baseline success on M65: `0.615385`, unchanged from current
+  context;
+- strict-context zero-current/zero-all success deltas: `0.000000`;
+- strict-context reset-hidden success delta: `0.000000`;
+- strict-context no-action-history success delta: `-0.038462`;
+- current-context zero-current/zero-all/reset success deltas were each
+  `-0.038462`.
+
+Conclusion: M67-D is a useful cleanup but not a self-ID breakthrough. Obstacle
+relative velocity was a real context proxy, but removing it alone does not make
+M62 history-critical. Keep strict context as the preferred diagnostic profile,
+but the next proof gate needs wrong-history or matched-history interventions
+rather than relying on reset/zero-response ablations.
