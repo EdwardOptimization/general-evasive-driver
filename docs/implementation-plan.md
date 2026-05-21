@@ -2657,7 +2657,30 @@ accepted snippets are still perturbed-source. See
   degradation, and strict proof-surface diversity remain at or above M133.
 - Reject the PPO path if it washes out the repaired rollout-margin proof surface.
 
-Status: pending. M133 admits guarded PPO readiness but not driver success.
+Status: completed as a negative PPO-readiness result. M134 runs a small
+8192-step guarded PPO continuation from M132 s60 with frozen `log_std`, M132
+action anchoring, and M128 outcome snippets. Behavior seed `9503` remains at
+success `0.8625`, reset is `0.8500`, and zero-current/zero-all remain `0.8000`.
+The fixed-batch M128 outcome loss improves slightly from `0.252310` to
+`0.251741`. However, strict proof-surface diversity regresses below M133:
+final PPO reaches only `8` selected physical pairs/`5` seeds on miner seed
+`9900` and `8` pairs/`6` seeds on seed `9920`. The `4096` checkpoint is better
+at `9/6` and `9/7`, but still below the M133 selected-seed standard. Longer PPO
+is rejected. See `docs/m134-guarded-ppo-continuation-from-s60.md`.
+
+### M135: PPO Step And Anchor Sensitivity Gate
+
+- Diagnose whether smaller PPO steps, stronger action anchoring, or
+  gate-driven checkpoint selection can preserve M133 proof-surface diversity.
+- Keep the M121 human-view zero-relvel observation contract.
+- Do not compare candidates that were tuned with different gate visibility.
+- Require behavior retention, zero-response degradation, and strict selected
+  physical pairs/seeds at or above M133.
+- Treat tiny fixed-batch outcome-loss improvements as insufficient if selected
+  seed diversity shrinks.
+
+Status: pending. M134 shows PPO can retain behavior but still wash out part of
+the strict self-ID proof surface.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

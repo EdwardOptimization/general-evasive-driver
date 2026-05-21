@@ -5092,3 +5092,46 @@ diversity repeats on two fresh seeds while M62 controls export zero snippets.
 The limitations remain important: no-action history is still neutral and all
 accepted snippets are perturbed-source. The next pending task is M134, a small
 guarded PPO continuation from M132 s60 with immediate post-PPO retention gates.
+
+## 20260521T233408Z m134-guarded-ppo-continuation-from-s60
+
+M134 runs the first guarded PPO smoke continuation from M132 s60.
+
+Training:
+
+- config: `configs/ppo_m134_guarded_s60_smoke.json`;
+- init checkpoint: `runs/m132_margin_retention_s60_anchor20_seed9841/optimized_checkpoint.pt`;
+- run dir: `runs/ppo_m134_guarded_s60_smoke_seed5134`;
+- built-in eval termination rate: `0.0000` over 5 episodes.
+
+Behavior seed `9503` passes:
+
+- M132 s60 success `0.8625`, clearance mean `1.841558`;
+- M134 final success `0.8625`, clearance mean `1.843000`;
+- M134 final reset success `0.8500`;
+- M134 final zero-current/zero-all success `0.8000`;
+- M134 final no-action success `0.8625`.
+
+Fixed-batch M128 outcome loss changes only slightly:
+
+| Policy | Loss mean |
+| --- | ---: |
+| M132 s60 | 0.252310 |
+| M134 step4096 | 0.251846 |
+| M134 final | 0.251741 |
+
+Strict proof-surface repeat:
+
+| Policy | Miner seed | Selected pairs | Selected seeds | Snippets |
+| --- | ---: | ---: | ---: | ---: |
+| M133 M132 s60 | 9900 | 10 | 8 | 17 |
+| M133 M132 s60 | 9920 | 9 | 8 | 14 |
+| M134 step4096 | 9900 | 9 | 6 | 17 |
+| M134 step4096 | 9920 | 9 | 7 | 17 |
+| M134 final | 9900 | 8 | 5 | 17 |
+| M134 final | 9920 | 8 | 6 | 17 |
+
+Decision: reject continuation beyond smoke. M134 keeps behavior and slightly
+improves the fixed M128 loss, but it shrinks strict selected-seed diversity
+below M133. The next pending task is M135: a PPO step/anchor sensitivity gate
+before any longer PPO continuation.

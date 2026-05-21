@@ -386,6 +386,9 @@ vehicle/tire models, and NMPC-style constrained control.
   M132 s60 repair; admits guarded PPO readiness after fresh behavior retention
   and strict proof-surface diversity repeat while recording no-action neutrality
   and perturbed-only source coverage.
+- `m134-guarded-ppo-continuation-from-s60.md`: guarded PPO smoke from the M132
+  s60 checkpoint; behavior retention passes, but strict proof-surface diversity
+  regresses below M133, so longer PPO is rejected.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

@@ -1,0 +1,36 @@
+{
+  "baseline_checkpoints": [
+    "runs/m132_margin_retention_s60_anchor20_seed9841/optimized_checkpoint.pt",
+    "runs/ppo_m134_guarded_s60_smoke_seed5134/checkpoints/checkpoint_step_4096.pt",
+    "runs/ppo_m134_guarded_s60_smoke_seed5134/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "Run a guarded PPO step or anchor sensitivity gate after M134 showed behavior retention but strict proof-surface regression.",
+      "name": "m135_ppo_step_anchor_sensitivity"
+    }
+  ],
+  "decision_rule": "Do not continue PPO unless at least one recipe preserves M133 behavior and strict proof-surface diversity while avoiding worse fixed-batch outcome loss.",
+  "failure_criteria": [
+    "all candidates keep behavior but regress strict selected seeds or pairs below M133",
+    "fixed-batch outcome loss improves only by a tiny amount while proof-surface diversity shrinks",
+    "candidate selection ignores checkpoint-step sensitivity",
+    "candidate uses hidden or oracle actor inputs"
+  ],
+  "hypothesis": "M134 indicates ordinary guarded PPO can retain behavior but still shrink the outcome proof surface. A step-count and anchor-strength sensitivity gate should determine whether PPO can be made proof-surface preserving or should be deferred again.",
+  "id": "m135-ppo-step-anchor-sensitivity-gate",
+  "required_artifacts": [
+    {
+      "path": "docs/m135-ppo-step-anchor-sensitivity-gate.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "at least one candidate matches or exceeds M133 behavior success",
+    "zero-response degradation remains visible",
+    "strict selected physical pairs and selected seeds meet or exceed M133 on both miner seeds",
+    "fixed-batch M128 outcome loss is not worse than M132 s60",
+    "candidate admission or PPO rejection is recorded explicitly"
+  ],
+  "type": "gate"
+}

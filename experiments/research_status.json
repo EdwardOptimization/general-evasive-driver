@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 142,
+    "completed": 143,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m133-s60-rollout-margin-formal-repeat-gate.md",
+    "command_log": "docs/m134-guarded-ppo-continuation-from-s60.md",
     "returncode": 0,
-    "run_dir": "runs/m133_zero_relvel_s60_strict_60ep_seed9900",
+    "run_dir": "runs/ppo_m134_guarded_s60_smoke_seed5134",
     "status": "completed",
-    "task_id": "m133-s60-rollout-margin-formal-repeat-gate"
+    "task_id": "m134-guarded-ppo-continuation-from-s60"
   },
   "next_task": {
-    "command": "see experiments/manifests/m134-guarded-ppo-continuation-from-s60.json",
-    "hypothesis": "A small guarded PPO continuation from the M132 s60 repair may improve closed-loop behavior only if it preserves M133 behavior retention and proof-surface diversity",
-    "id": "m134-guarded-ppo-continuation-from-s60",
-    "kind": "driver_candidate",
-    "notes": "Pending after M133: guarded PPO readiness admitted but driver success is not claimed",
-    "priority": 1290,
+    "command": "see experiments/manifests/m135-ppo-step-anchor-sensitivity-gate.json",
+    "hypothesis": "Smaller PPO steps or stronger anchors may preserve M133 proof-surface diversity after M134 showed ordinary guarded PPO regresses selected seeds",
+    "id": "m135-ppo-step-anchor-sensitivity-gate",
+    "kind": "gate",
+    "notes": "Pending after M134: behavior retention passed but strict proof-surface diversity regressed below M133",
+    "priority": 1300,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T231547Z"
+  "updated_at_utc": "20260521T233408Z"
 }

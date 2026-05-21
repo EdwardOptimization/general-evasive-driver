@@ -4,8 +4,24 @@
   ],
   "commands": [
     {
-      "command": "Start a small guarded PPO continuation from the M132 s60/anchor20 candidate with strict retention gates and no relaxation of the human-view input contract.",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_m134_guarded_s60_smoke.json --seed 5134 --device cuda --init-checkpoint runs/m132_margin_retention_s60_anchor20_seed9841/optimized_checkpoint.pt --run-dir runs/ppo_m134_guarded_s60_smoke_seed5134 --eval-episodes 5",
       "name": "m134_guarded_ppo_continuation"
+    },
+    {
+      "command": "Run the M133 behavior gate on seed9503 comparing M132 s60, M134 step4096, M134 final, and final recurrent/response/action-history ablations. Exact CLI is preserved in runs/m134_guarded_s60_behavior_gate_seed9503/manifest.json.",
+      "name": "m134_behavior_gate_seed9503"
+    },
+    {
+      "command": "Run strict M133 zero-relvel proof-surface miners on M134 final with seeds9900 and 9920. Exact CLI is preserved in runs/m134_zero_relvel_final_strict_60ep_seed9900/manifest.json and runs/m134_zero_relvel_final_strict_60ep_seed9920/manifest.json.",
+      "name": "m134_final_strict_proof_surface"
+    },
+    {
+      "command": "Run strict M133 zero-relvel proof-surface miners on M134 checkpoint_step_4096 with seeds9900 and 9920 to diagnose whether proof-surface regression is step-dependent.",
+      "name": "m134_step4096_strict_proof_surface"
+    },
+    {
+      "command": "Evaluate fixed-batch M128 outcome intervention loss for M132 s60, M134 step4096, and M134 final.",
+      "name": "m134_fixed_batch_outcome_eval"
     }
   ],
   "decision_rule": "Continue beyond smoke PPO only if behavior retention, zero-response degradation, and strict outcome proof-surface gates remain at or above the M133 level.",
@@ -20,8 +36,44 @@
   "id": "m134-guarded-ppo-continuation-from-s60",
   "required_artifacts": [
     {
+      "path": "configs/ppo_m134_guarded_s60_smoke.json",
+      "type": "config"
+    },
+    {
       "path": "docs/m134-guarded-ppo-continuation-from-s60.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/ppo_m134_guarded_s60_smoke_seed5134/checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/ppo_m134_guarded_s60_smoke_seed5134/train_metrics.csv",
+      "type": "training_metrics"
+    },
+    {
+      "path": "runs/m134_guarded_s60_behavior_gate_seed9503/policy_summary.csv",
+      "type": "behavior_gate"
+    },
+    {
+      "path": "runs/m134_zero_relvel_final_strict_60ep_seed9900/summary.json",
+      "type": "proof_surface"
+    },
+    {
+      "path": "runs/m134_zero_relvel_final_strict_60ep_seed9920/summary.json",
+      "type": "proof_surface"
+    },
+    {
+      "path": "runs/m134_zero_relvel_step4096_strict_60ep_seed9900/summary.json",
+      "type": "proof_surface_diagnostic"
+    },
+    {
+      "path": "runs/m134_zero_relvel_step4096_strict_60ep_seed9920/summary.json",
+      "type": "proof_surface_diagnostic"
+    },
+    {
+      "path": "runs/m134_outcome_intervention_eval_seed0/policy_summary.csv",
+      "type": "fixed_batch_eval"
     }
   ],
   "success_criteria": [
