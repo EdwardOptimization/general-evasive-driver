@@ -1,0 +1,54 @@
+{
+  "baseline_checkpoints": [
+    "no_checkpoint_policy=heuristic",
+    "previous_profile=m91g_learned_history_encoder"
+  ],
+  "commands": [
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.learned_history_observability_probe --env-config configs/m91c_raw_wheel_minimum_profile.json --episodes 40 --seed 9370 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --history-window 50 --device cpu --epochs 30 --hidden-size 24 --weight-decay 0.001 --run-dir runs/m91h_learned_history_regularized_seed9370",
+      "name": "regularized_learned_history_seed9370"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.learned_history_observability_probe --env-config configs/m91c_raw_wheel_minimum_profile.json --episodes 40 --seed 9371 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --history-window 50 --device cpu --epochs 30 --hidden-size 24 --weight-decay 0.001 --run-dir runs/m91h_learned_history_regularized_seed9371",
+      "name": "regularized_learned_history_seed9371"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.learned_history_observability_probe --env-config configs/m91c_raw_wheel_minimum_profile.json --episodes 40 --seed 9372 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --history-window 50 --device cpu --epochs 30 --hidden-size 24 --weight-decay 0.001 --run-dir runs/m91h_learned_history_regularized_seed9372",
+      "name": "regularized_learned_history_seed9372"
+    }
+  ],
+  "decision_rule": "Repeat a smaller regularized learned-history probe before sensor ablations. Treat single-seed gains as insufficient.",
+  "failure_criteria": [
+    "regularized GRU still overfits badly on train/test R2",
+    "no repeated seed improves over current-frame ridge on any target",
+    "P1 wheel history repeatedly degrades relative to P0 history",
+    "results are used as promoted policy evidence"
+  ],
+  "hypothesis": "A smaller regularized history encoder may retain the lateral-response history benefit from M91-G while reducing overfit and wheel degradation.",
+  "id": "m91h-regularized-learned-history-repeat",
+  "required_artifacts": [
+    {
+      "path": "runs/m91h_learned_history_regularized_seed9370/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m91h_learned_history_regularized_seed9371/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m91h_learned_history_regularized_seed9372/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "docs/m91h-regularized-learned-history-repeat.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "three repeated seeds are documented",
+    "train/test overfit gap is lower than M91-G",
+    "history improves over current-frame ridge on at least one target in most seeds",
+    "decision states whether to proceed to sensor ablations or redesign the corpus"
+  ],
+  "type": "gate"
+}

@@ -6,3 +6,4 @@ m91c-clean-raw-wheel-minimum-profile,infrastructure,no_checkpoint_heuristic_roll
 m91d-formal-raw-wheel-observability-probe,gate,no_checkpoint_heuristic_rollout,,,,,,,,mixed_weak_history_needed,Formal raw wheel P1 improves braking R2 but lateral regresses and MAE lift is tiny so PPO remains blocked
 m91e-history-window-observability-probe,gate,no_checkpoint_heuristic_rollout,,,,,,,,mixed_negative_compact_history_needed,Naive raw history windows run but long windows degrade absolute R2 so compact history summaries are next
 m91f-compact-history-observability-probe,gate,no_checkpoint_heuristic_rollout,,,,,,,,negative_learned_encoder_needed,Compact summaries run but braking yaw absolute R2 remain negative and wheel gains are unstable
+m91g-learned-history-encoder-observability-probe,gate,no_checkpoint_heuristic_rollout,,,,,,,,mixed_history_signal_overfit,Learned history improves lateral response but overfits and P1 wheel history degrades relative to P0
