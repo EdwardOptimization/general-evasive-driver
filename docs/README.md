@@ -118,6 +118,8 @@ vehicle/tire models, and NMPC-style constrained control.
   objective following the M43 action-collapse diagnosis.
 - `m45-paired-hidden-snapshot-export.md`: export harness for matched
   nominal/perturbed observations and recurrent hidden states.
+- `m46-paired-hidden-action-contrast-objective.md`: same-checkpoint
+  paired-hidden action contrast objective using the M45 snapshot NPZ.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

@@ -874,6 +874,26 @@ Exit criteria:
 
 Status: planned after M45 snapshot export.
 
+### M46: Same-Checkpoint Paired-Hidden Action Contrast
+
+- Use the M45 NPZ as an offline paired-hidden auxiliary source.
+- Start from M37_102 so the saved hidden vectors begin in the same latent
+  coordinate system as the current policy.
+- Keep the coefficient small because stale hidden vectors can become invalid if
+  representation drift is large.
+
+Exit criteria:
+
+- trainer logs `paired_hidden_action_contrast_loss_mean`;
+- M46 strict-loads M37_102 and completes a CUDA smoke;
+- full run is evaluated against M37_102 and M42_028 on M38, M35, M29, broad,
+  and action-trajectory gates.
+
+Status: smoke complete; full training queued. The 4096-step CUDA smoke writes
+`paired_hidden_action_contrast_loss_mean = 0.718800`, strict-loads M37_102, and
+reaches eval return 82.897 with termination rate 0.000. This is trainability
+evidence only. See `docs/m46-paired-hidden-action-contrast-objective.md`.
+
 ## Metrics
 
 - episode success rate;

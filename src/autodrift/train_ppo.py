@@ -65,6 +65,10 @@ class PPOConfig:
     hidden_contrast_margin: float = 0.05
     action_contrast_aux_coef: float = 0.0
     action_contrast_margin: float = 0.15
+    paired_hidden_action_contrast_aux_coef: float = 0.0
+    paired_hidden_action_contrast_margin: float = 0.08
+    paired_hidden_snapshot_npz: str = ""
+    paired_hidden_snapshot_batch_size: int = 128
     checkpoint_interval_steps: int = 0
     training_seed_csv: str = ""
     training_seed_mix_probability: float = 1.0
@@ -639,6 +643,90 @@ def make_vector_env(
     raise ValueError("vector_env_mode must be one of: sync, parallel")
 
 
+@dataclass(frozen=True)
+class PairedHiddenSnapshots:
+    nominal_observation: torch.Tensor
+    perturbed_observation: torch.Tensor
+    nominal_hidden: torch.Tensor
+    perturbed_hidden: torch.Tensor
+
+    @property
+    def size(self) -> int:
+        return int(self.nominal_observation.shape[0])
+
+
+def load_paired_hidden_snapshots(
+    path: Path | str,
+    *,
+    device: torch.device,
+    obs_dim: int,
+    hidden_size: int,
+) -> PairedHiddenSnapshots:
+    data = np.load(Path(path))
+    required = {
+        "nominal_observation",
+        "perturbed_observation",
+        "nominal_hidden",
+        "perturbed_hidden",
+    }
+    missing = sorted(required.difference(data.files))
+    if missing:
+        raise ValueError(f"paired hidden snapshot npz missing fields: {missing}")
+    nominal_observation = np.asarray(data["nominal_observation"], dtype=np.float32)
+    perturbed_observation = np.asarray(data["perturbed_observation"], dtype=np.float32)
+    nominal_hidden = np.asarray(data["nominal_hidden"], dtype=np.float32)
+    perturbed_hidden = np.asarray(data["perturbed_hidden"], dtype=np.float32)
+    if nominal_observation.shape != perturbed_observation.shape:
+        raise ValueError("paired hidden observations must have matching shapes")
+    if nominal_hidden.shape != perturbed_hidden.shape:
+        raise ValueError("paired hidden states must have matching shapes")
+    if nominal_observation.ndim != 2 or nominal_observation.shape[1] != obs_dim:
+        raise ValueError(
+            f"paired hidden observations must have shape (N, {obs_dim}), got {nominal_observation.shape}"
+        )
+    if nominal_hidden.ndim != 2 or nominal_hidden.shape[1] != hidden_size:
+        raise ValueError(f"paired hidden states must have shape (N, {hidden_size}), got {nominal_hidden.shape}")
+    if nominal_observation.shape[0] < 1:
+        raise ValueError("paired hidden snapshot npz must contain at least one pair")
+    return PairedHiddenSnapshots(
+        nominal_observation=torch.as_tensor(nominal_observation, dtype=torch.float32, device=device),
+        perturbed_observation=torch.as_tensor(perturbed_observation, dtype=torch.float32, device=device),
+        nominal_hidden=torch.as_tensor(nominal_hidden, dtype=torch.float32, device=device),
+        perturbed_hidden=torch.as_tensor(perturbed_hidden, dtype=torch.float32, device=device),
+    )
+
+
+def paired_hidden_action_contrast_loss(
+    model: ActorCritic,
+    snapshots: PairedHiddenSnapshots,
+    *,
+    batch_size: int,
+    margin: float,
+) -> torch.Tensor:
+    count = snapshots.size
+    batch_count = max(1, min(int(batch_size), count))
+    indices = torch.randint(count, (batch_count,), device=snapshots.nominal_observation.device)
+    nominal_observation = snapshots.nominal_observation[indices]
+    perturbed_observation = snapshots.perturbed_observation[indices]
+    nominal_hidden = snapshots.nominal_hidden[indices]
+    perturbed_hidden = snapshots.perturbed_hidden[indices]
+
+    nominal_dist, _, _ = model.forward_recurrent(nominal_observation, nominal_hidden)
+    nominal_swapped_dist, _, _ = model.forward_recurrent(nominal_observation, perturbed_hidden)
+    perturbed_dist, _, _ = model.forward_recurrent(perturbed_observation, perturbed_hidden)
+    perturbed_swapped_dist, _, _ = model.forward_recurrent(perturbed_observation, nominal_hidden)
+    nominal_distance = torch.linalg.vector_norm(
+        torch.tanh(nominal_dist.mean) - torch.tanh(nominal_swapped_dist.mean),
+        dim=-1,
+    )
+    perturbed_distance = torch.linalg.vector_norm(
+        torch.tanh(perturbed_dist.mean) - torch.tanh(perturbed_swapped_dist.mean),
+        dim=-1,
+    )
+    distances = torch.cat([nominal_distance, perturbed_distance])
+    return torch.nn.functional.softplus(margin - distances).mean()
+
+
 def train(
     config: PPOConfig,
     save_path: Path | None = None,
@@ -681,6 +769,15 @@ def train(
             raise ValueError("action contrast auxiliary loss requires online recurrent sequence training")
         if config.action_contrast_margin < 0.0:
             raise ValueError("action_contrast_margin cannot be negative")
+    if config.paired_hidden_action_contrast_aux_coef > 0.0:
+        if not uses_online_recurrent or not config.recurrent_sequence_training:
+            raise ValueError("paired hidden action contrast requires online recurrent sequence training")
+        if not str(config.paired_hidden_snapshot_npz).strip():
+            raise ValueError("paired_hidden_snapshot_npz is required when paired hidden contrast is enabled")
+        if config.paired_hidden_action_contrast_margin < 0.0:
+            raise ValueError("paired_hidden_action_contrast_margin cannot be negative")
+        if config.paired_hidden_snapshot_batch_size < 1:
+            raise ValueError("paired_hidden_snapshot_batch_size must be positive")
     if config.checkpoint_interval_steps < 0:
         raise ValueError("checkpoint_interval_steps cannot be negative")
     if not 0.0 <= config.training_seed_mix_probability <= 1.0:
@@ -709,6 +806,16 @@ def train(
     if init_checkpoint_path is not None:
         load_mode = load_init_checkpoint_state(model, init_checkpoint_path, device)
         print(f"loaded_init_checkpoint={init_checkpoint_path} load_mode={load_mode}")
+    paired_hidden_snapshots = (
+        load_paired_hidden_snapshots(
+            config.paired_hidden_snapshot_npz,
+            device=device,
+            obs_dim=env.single_observation_space.shape[0],
+            hidden_size=config.hidden_size,
+        )
+        if config.paired_hidden_action_contrast_aux_coef > 0.0
+        else None
+    )
     print(f"training_device={device} num_envs={config.num_envs} curriculum_stage={active_stage}")
 
     global_step = 0
@@ -852,6 +959,7 @@ def train(
             response_loss_values: list[float] = []
             hidden_contrast_loss_values: list[float] = []
             action_contrast_loss_values: list[float] = []
+            paired_hidden_action_contrast_loss_values: list[float] = []
             for _ in range(config.update_epochs):
                 np.random.shuffle(env_indices)
                 for start in range(0, len(env_indices), env_minibatch):
@@ -914,6 +1022,18 @@ def train(
                         )
                         loss = loss + config.action_contrast_aux_coef * action_contrast_loss
                         action_contrast_loss_values.append(float(action_contrast_loss.detach().cpu().item()))
+                    if config.paired_hidden_action_contrast_aux_coef > 0.0:
+                        assert paired_hidden_snapshots is not None
+                        paired_hidden_loss = paired_hidden_action_contrast_loss(
+                            model,
+                            paired_hidden_snapshots,
+                            batch_size=config.paired_hidden_snapshot_batch_size,
+                            margin=config.paired_hidden_action_contrast_margin,
+                        )
+                        loss = loss + config.paired_hidden_action_contrast_aux_coef * paired_hidden_loss
+                        paired_hidden_action_contrast_loss_values.append(
+                            float(paired_hidden_loss.detach().cpu().item())
+                        )
                     if config.response_prediction_aux_coef > 0.0 and rollout_n > 1:
                         if config.response_prediction_dim < 1:
                             raise ValueError("response_prediction_dim must be positive when response_prediction_aux_coef > 0")
@@ -1006,6 +1126,16 @@ def train(
         if config.action_contrast_aux_coef > 0.0 and uses_online_recurrent and config.recurrent_sequence_training:
             row["action_contrast_loss_mean"] = (
                 float(np.mean(action_contrast_loss_values)) if action_contrast_loss_values else float("nan")
+            )
+        if (
+            config.paired_hidden_action_contrast_aux_coef > 0.0
+            and uses_online_recurrent
+            and config.recurrent_sequence_training
+        ):
+            row["paired_hidden_action_contrast_loss_mean"] = (
+                float(np.mean(paired_hidden_action_contrast_loss_values))
+                if paired_hidden_action_contrast_loss_values
+                else float("nan")
             )
         metric_rows.append(row)
         if save_path is not None and next_checkpoint_step is not None and global_step >= next_checkpoint_step:

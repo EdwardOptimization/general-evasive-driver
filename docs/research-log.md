@@ -1772,3 +1772,26 @@ Conclusion: M45 completes the paired-hidden data harness. The next step should
 not blindly train on old hidden vectors as universal labels; saved hidden states
 are checkpoint-specific. M46 should either fine-tune conservatively from the
 same checkpoint or generate paired hidden states on policy.
+
+## 20260521 m46-paired-hidden-action-contrast-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: direct paired nominal/perturbed hidden action contrast targets
+  hidden-swap better than zero-hidden reset contrast
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m46_paired_hidden_action_contrast_driver.json --total-steps 4096 --rollout-steps 128 --seed 2046 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m46_paired_hidden_action_contrast_smoke_seed2046`
+- run dir: `runs/ppo_m46_paired_hidden_action_contrast_smoke_seed2046`
+- checkpoint:
+  `runs/ppo_m46_paired_hidden_action_contrast_smoke_seed2046/checkpoint.pt`
+
+Smoke result:
+
+- init load mode: `strict`;
+- final eval return mean: 82.897;
+- final eval termination rate: 0.000;
+- final train `response_prediction_loss_mean`: 0.025627;
+- final train `paired_hidden_action_contrast_loss_mean`: 0.718800.
+
+Conclusion: M46 infrastructure is trainable and writes the intended metric.
+The full run is queued. The pass/fail check remains the M38/M35/M29/broad
+sweeps plus the M43 action-trajectory gate.
