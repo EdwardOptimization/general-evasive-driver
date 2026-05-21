@@ -1,5 +1,6 @@
 PYTHON ?= python
 PYTHONPATH ?= src
+PYTEST_THREAD_ENV ?= OMP_NUM_THREADS=1 MKL_NUM_THREADS=1
 CONDA_ENV ?= autodrift
 M7_ENV_CONFIG ?= configs/m7_obstacle_aes_weighted_holdout_eval.json
 M7_CORPUS_RUN_DIR ?= runs/scenario_corpus_m7_aes_weighted_seed1300
@@ -43,10 +44,10 @@ torch-cpu:
 	conda run -n $(CONDA_ENV) python -m pip install --force-reinstall --index-url https://download.pytorch.org/whl/cpu torch==2.12.0+cpu
 
 test:
-	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q
+	$(PYTEST_THREAD_ENV) PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q
 
 test-light:
-	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q tests/test_m7_gate.py tests/test_scenario_corpus.py tests/test_benchmark.py tests/test_research_cycle.py
+	$(PYTEST_THREAD_ENV) PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m pytest -q tests/test_m7_gate.py tests/test_scenario_corpus.py tests/test_benchmark.py tests/test_research_cycle.py
 
 check-diff:
 	git diff --check
