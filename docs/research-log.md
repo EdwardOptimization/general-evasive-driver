@@ -2048,3 +2048,43 @@ Conclusion: M53 smoke is not promotable, but it is a better direction than M51:
 M38 success is retained and combined mean margin is positive. The remaining
 problem is one broad regression. M54 should run the full deduplicated low-mix
 continuation and select checkpoints by the strict gate.
+
+## 20260521T080357Z m54-full-dedup-low-mix-continuation
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Run full M53 deduplicated low-mix continuation from M37_102 and sweep strict margin-retention gates
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m53_dedup_low_mix_margin_retention_driver.json --seed 2253 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m53_dedup_low_mix_margin_retention_seed2253`
+- returncode: `0`
+- run dir: `runs/research/m54-full-dedup-low-mix-continuation_20260521T075319Z`
+- command log: `runs/research/m54-full-dedup-low-mix-continuation_20260521T075319Z/command.log`
+- success artifact: `runs/ppo_m53_dedup_low_mix_margin_retention_seed2253/checkpoint.pt`
+- notes: Full run is justified by M53 smoke but promotion still requires zero broad and near-margin regressions
+
+Post-validation:
+
+- M38/broad/fresh checkpoint sweeps:
+  `runs/m54_m38_margin_benchmark_seed4300`,
+  `runs/m54_broad_margin_benchmark_seed3000`,
+  `runs/m54_fresh_margin_benchmark_seed5200`;
+- margin corpus:
+  `runs/m54_margin_critical_corpus/seed_margin_deltas.csv`;
+- strict gate:
+  `runs/m54_margin_retention_gate_strict/candidate_gate_summary.csv`;
+- strict gate status: `needs_iteration`;
+- passed candidates: none;
+- least-damaging snapshots by success delta are M54_028, M54_126, and M54_200,
+  each with success delta `-0.00625`, 2 binary regressions, and positive mean
+  margin delta;
+- M38 and fresh success can be retained, but broad seed3000 regresses from
+  `0.825` to at best `0.800`;
+- recurrent binary-regression seeds include M38 seed `4457` and broad seed
+  `3037`, both near-boundary unavoidable cases where M37 passes by only
+  millimeters and M54 crosses into small penetration.
+
+Conclusion: M54 is not promotable, but it improves the M52 failure mode.
+Deduplicated low-mix continuation can improve mean margin without destroying
+fresh success, yet it still shifts a few near-boundary positive cases. Current
+best remains M37_102. M55 should try a lower-learning-rate, lower-mix,
+dense-checkpoint continuation to find an early update window with zero binary
+and near-margin regressions.

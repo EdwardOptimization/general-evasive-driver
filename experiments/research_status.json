@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 0,
-    "completed": 50,
+    "completed": 51,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m52-full-margin-retention-continuation_20260521T072957Z/command.log",
+    "command_log": "runs/research/m54-full-dedup-low-mix-continuation_20260521T075319Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m52-full-margin-retention-continuation_20260521T072957Z",
+    "run_dir": "runs/research/m54-full-dedup-low-mix-continuation_20260521T075319Z",
     "status": "completed",
-    "task_id": "m52-full-margin-retention-continuation"
+    "task_id": "m54-full-dedup-low-mix-continuation"
   },
   "next_task": {
-    "command": "conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m53_dedup_low_mix_margin_retention_driver.json --seed 2253 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m53_dedup_low_mix_margin_retention_seed2253",
-    "hypothesis": "Run full M53 deduplicated low-mix continuation from M37_102 and sweep strict margin-retention gates",
-    "id": "m54-full-dedup-low-mix-continuation",
+    "command": "conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m55_conservative_dedup_margin_retention_driver.json --seed 2355 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m55_conservative_margin_retention_seed2355",
+    "hypothesis": "Run a lower-learning-rate lower-mix dense-checkpoint continuation to find a zero-regression early update window",
+    "id": "m55-conservative-margin-retention",
     "kind": "training",
-    "notes": "Full run is justified by M53 smoke but promotion still requires zero broad and near-margin regressions",
-    "priority": 470,
+    "notes": "Promote only if strict margin-retention gate has zero binary and near-margin regressions",
+    "priority": 480,
     "status": "pending",
-    "success_artifact": "runs/ppo_m53_dedup_low_mix_margin_retention_seed2253/checkpoint.pt"
+    "success_artifact": "runs/ppo_m55_conservative_margin_retention_seed2355/checkpoint.pt"
   },
-  "updated_at_utc": "20260521T074956Z"
+  "updated_at_utc": "20260521T080906Z"
 }

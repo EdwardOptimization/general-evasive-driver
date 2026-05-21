@@ -134,6 +134,8 @@ vehicle/tire models, and NMPC-style constrained control.
   result and the deduplicated lower-mix direction for M53.
 - `m53-dedup-low-mix-margin-retention.md`: deduplicated seed-level corpus,
   lower-mix training config, and M53 smoke gate result.
+- `m54-full-dedup-low-mix-continuation.md`: full M53 continuation, strict
+  margin-retention gate result, and the conservative M55 direction.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

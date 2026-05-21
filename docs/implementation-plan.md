@@ -1083,7 +1083,34 @@ Exit criteria:
 - current best updates only if a checkpoint passes strict gate and does not
   weaken existing aggregate/self-identification evidence.
 
-Status: planned.
+Status: complete as a negative promotion result. M54 full training completes
+and the checkpoint sweep shows that deduplicated low-mix training is less
+damaging than M52, but every checkpoint still fails strict margin retention.
+The least-damaging checkpoints retain M38 and fresh success and slightly
+improve mean margin, but they still introduce two near-boundary binary
+regressions, including broad seed `3037` and M38 seed `4457`. Current best
+remains M37_102. See `docs/m54-full-dedup-low-mix-continuation.md`.
+
+### M55: Conservative Early-Checkpoint Margin Retention
+
+- Run a short, lower-learning-rate continuation from M37_102.
+- Reduce hard-seed mix further so broad randomized retention dominates.
+- Save dense early checkpoints to test whether there is a small update window
+  that improves margin without flipping near-boundary positive cases.
+
+Exit criteria:
+
+- short M55 run completes and writes 4096-step checkpoint snapshots;
+- M38/broad/fresh checkpoint sweep is run against M37_102;
+- strict gate reports zero binary regressions and zero near-margin regressions
+  before any checkpoint can be promoted;
+- if all checkpoints fail, the failed seeds are added to the next diagnosis
+  corpus rather than weakening the gate.
+
+Status: planned. M55 uses
+`configs/ppo_m55_conservative_dedup_margin_retention_driver.json` with
+`learning_rate = 1e-5`, `training_seed_mix_probability = 0.15`, no low-mu-only
+curriculum stage, `32768` total steps, and dense `4096`-step checkpoints.
 
 ## Metrics
 
