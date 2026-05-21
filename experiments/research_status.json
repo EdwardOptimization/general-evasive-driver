@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 126,
+    "completed": 127,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m117-source-diverse-wrong-history-boundary-mining.md",
+    "command_log": "docs/m118-fresh-source-diverse-matched-current-corpus.md",
     "returncode": 0,
-    "run_dir": "runs/m117_source_diverse_relative_longitudinal_seed9510",
+    "run_dir": "runs/m118_source_diverse_matched_current_seed9510",
     "status": "completed",
-    "task_id": "m117-source-diverse-wrong-history-boundary-mining"
+    "task_id": "m118-fresh-source-diverse-matched-current-corpus"
   },
   "next_task": {
-    "command": "see experiments/manifests/m118-fresh-source-diverse-matched-current-corpus.json",
-    "hypothesis": "Mine a fresh source-diverse matched-current-response corpus before repeating boundary gates",
-    "id": "m118-fresh-source-diverse-matched-current-corpus",
+    "command": "see experiments/manifests/m119-fresh-corpus-outcome-boundary-gates.json",
+    "hypothesis": "Run outcome and boundary gates on the M118 source-diverse corpus",
+    "id": "m119-fresh-corpus-outcome-boundary-gates",
     "kind": "gate",
-    "notes": "Pending after M117: current M113/M115 surface is exhausted so new source-diverse matched pairs are needed",
-    "priority": 1130,
+    "notes": "Pending after M118: test whether source-diverse action sensitivity translates into outcome or boundary degradation",
+    "priority": 1140,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T201729Z"
+  "updated_at_utc": "20260521T202236Z"
 }

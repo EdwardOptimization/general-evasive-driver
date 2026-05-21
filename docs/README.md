@@ -335,6 +335,9 @@ vehicle/tire models, and NMPC-style constrained control.
   expansion after M116; all-candidate, relative lateral, and relative
   longitudinal sweeps still collapse to the same 3 physical pairs, so a fresh
   matched corpus is needed.
+- `m118-fresh-source-diverse-matched-current-corpus.md`: fresh matched-current
+  corpus with source-diversity selection; finds 471 matched rows across 155
+  physical pairs and preserves action-level wrong-history sensitivity.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

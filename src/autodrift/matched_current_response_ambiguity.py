@@ -182,12 +182,22 @@ def visible_distance_threshold(
     return float(np.quantile(distances, max_visible_quantile))
 
 
+def physical_pair_key(row: dict[str, Any]) -> tuple[int, int, int, int]:
+    return (
+        int(row["left_seed"]),
+        int(row["left_step"]),
+        int(row["right_seed"]),
+        int(row["right_step"]),
+    )
+
+
 def select_ambiguity_pairs(
     candidates: list[dict[str, Any]],
     *,
     visible_threshold: float,
     min_target_z_delta: float,
     max_pairs_per_target: int,
+    max_pairs_per_physical_pair: int = 0,
 ) -> list[dict[str, Any]]:
     accepted = [
         {**row, "accepted": True}
@@ -195,14 +205,24 @@ def select_ambiguity_pairs(
         if float(row["visible_distance"]) <= float(visible_threshold)
         and float(row["target_z_delta"]) >= float(min_target_z_delta)
     ]
-    if max_pairs_per_target <= 0:
+    if max_pairs_per_target <= 0 and max_pairs_per_physical_pair <= 0:
         return sorted(accepted, key=lambda row: (row["target"], row["visible_distance"], -row["target_z_delta"]))
 
     selected: list[dict[str, Any]] = []
+    physical_counts: dict[tuple[int, int, int, int], int] = {}
     for target in TARGETS:
         target_rows = [row for row in accepted if str(row["target"]) == target]
         target_rows.sort(key=lambda row: (-float(row["target_z_delta"]), float(row["visible_distance"])))
-        selected.extend(target_rows[:max_pairs_per_target])
+        target_selected = 0
+        for row in target_rows:
+            if max_pairs_per_target > 0 and target_selected >= int(max_pairs_per_target):
+                break
+            key = physical_pair_key(row)
+            if max_pairs_per_physical_pair > 0 and physical_counts.get(key, 0) >= int(max_pairs_per_physical_pair):
+                continue
+            selected.append(row)
+            target_selected += 1
+            physical_counts[key] = physical_counts.get(key, 0) + 1
     return selected
 
 
@@ -327,6 +347,7 @@ def run_matched_current_response_ambiguity_audit(
     max_visible_quantile: float,
     min_target_z_delta: float,
     max_pairs_per_target: int,
+    max_pairs_per_physical_pair: int,
     min_accepted_pairs: int,
     exclude_same_episode: bool,
     device: str,
@@ -377,6 +398,7 @@ def run_matched_current_response_ambiguity_audit(
                 visible_threshold=threshold,
                 min_target_z_delta=min_target_z_delta,
                 max_pairs_per_target=max_pairs_per_target,
+                max_pairs_per_physical_pair=max_pairs_per_physical_pair,
             )
             candidates_with_distances = add_feature_distances(candidates, dataset.features)
             selected_with_distances = add_feature_distances(selected, dataset.features)
@@ -423,6 +445,11 @@ def run_matched_current_response_ambiguity_audit(
             )
 
     total_accepted = len(all_pair_rows)
+    accepted_physical_pairs = {physical_pair_key(row) for row in all_pair_rows}
+    accepted_physical_counts: dict[tuple[int, int, int, int], int] = {}
+    for row in all_pair_rows:
+        key = physical_pair_key(row)
+        accepted_physical_counts[key] = accepted_physical_counts.get(key, 0) + 1
     accepted_by_target = {
         target: int(sum(1 for row in all_pair_rows if str(row["target"]) == target))
         for target in TARGETS
@@ -442,11 +469,16 @@ def run_matched_current_response_ambiguity_audit(
         "max_visible_quantile": float(max_visible_quantile),
         "min_target_z_delta": float(min_target_z_delta),
         "max_pairs_per_target": int(max_pairs_per_target),
+        "max_pairs_per_physical_pair": int(max_pairs_per_physical_pair),
         "min_accepted_pairs": int(min_accepted_pairs),
         "exclude_same_episode": bool(exclude_same_episode),
         "device": str(resolved_device),
         "candidate_pair_count": int(len(all_candidate_rows)),
         "accepted_pair_count": int(total_accepted),
+        "accepted_physical_pair_count": int(len(accepted_physical_pairs)),
+        "accepted_max_rows_per_physical_pair": (
+            int(max(accepted_physical_counts.values())) if accepted_physical_counts else 0
+        ),
         "accepted_by_target": accepted_by_target,
         "ambiguity_surface_found": bool(total_accepted >= int(min_accepted_pairs)),
         "candidate_pairs_csv": run_dir / "candidate_pairs.csv",
@@ -475,6 +507,7 @@ def main() -> None:
     parser.add_argument("--max-visible-quantile", type=float, default=0.05)
     parser.add_argument("--min-target-z-delta", type=float, default=1.0)
     parser.add_argument("--max-pairs-per-target", type=int, default=200)
+    parser.add_argument("--max-pairs-per-physical-pair", type=int, default=0)
     parser.add_argument("--min-accepted-pairs", type=int, default=30)
     parser.add_argument("--allow-same-episode", action="store_true")
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="auto")
@@ -496,6 +529,7 @@ def main() -> None:
         max_visible_quantile=args.max_visible_quantile,
         min_target_z_delta=args.min_target_z_delta,
         max_pairs_per_target=args.max_pairs_per_target,
+        max_pairs_per_physical_pair=args.max_pairs_per_physical_pair,
         min_accepted_pairs=args.min_accepted_pairs,
         exclude_same_episode=not args.allow_same_episode,
         device=args.device,

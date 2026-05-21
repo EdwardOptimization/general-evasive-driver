@@ -2356,6 +2356,25 @@ training. See `docs/m117-source-diverse-wrong-history-boundary-mining.md`.
 Status: pending. M117 shows that more boundary tuning around M113 rows is low
 leverage; the next step must move upstream to corpus construction.
 
+Status: completed as a positive source-diverse corpus gate. M118 adds
+`--max-pairs-per-physical-pair` to matched-current-response mining and produces
+`471` matched rows across `155` physical pairs. Repeating the action-level
+history intervention gate preserves wrong-history sensitivity: `408` wrong
+rows across `140` physical pairs, mean action distance `0.0663`, above-threshold
+fraction `0.772`, and closer-to-right fraction `0.738`. See
+`docs/m118-fresh-source-diverse-matched-current-corpus.md`.
+
+### M119: Fresh-Corpus Outcome And Boundary Gates
+
+- Run M113-style continuation outcomes on the M118 source-diverse corpus.
+- If outcome rows are still weak, repeat M115/M116-style boundary tightening
+  and robustness gates on the fresh corpus.
+- Decide whether the fresh corpus supports a boundary-aware wrong-history
+  objective.
+
+Status: pending. M118 restores source diversity and action-level intervention
+sensitivity; outcome-level causality is still unproven.
+
 ### M67-F: Counterfactual Response-Intervention Objective
 
 - Stop treating seed replay alone as sufficient for self-identification.

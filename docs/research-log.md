@@ -4489,3 +4489,46 @@ Conclusion: the current M113/M115 surface is exhausted. More boundary tuning
 around those rows does not produce a source-diverse wrong-history corpus. The
 next pending task is M118: mine a fresh source-diverse matched-current-response
 corpus before repeating action/outcome/boundary gates.
+
+## 20260521T202236Z m118-fresh-source-diverse-matched-current-corpus
+
+- status: `completed`
+- kind: `gate`
+- implementation:
+  `src/autodrift/matched_current_response_ambiguity.py`
+- tests:
+  `tests/test_matched_current_response_ambiguity.py`
+- runs:
+  - `runs/m118_source_diverse_matched_current_seed9510`
+  - `runs/m118_source_diverse_action_intervention_seed9510`
+- artifact: `docs/m118-fresh-source-diverse-matched-current-corpus.md`
+
+M118 adds `--max-pairs-per-physical-pair` to matched-current-response mining.
+The new physical source key is:
+
+```text
+(left_seed, left_step, right_seed, right_step)
+```
+
+Fresh corpus result:
+
+- candidate pairs: `89343`;
+- accepted pairs: `471`;
+- accepted physical pairs: `155`;
+- max rows per physical pair: `6`;
+- accepted by target:
+  - braking: `303` rows, `107` physical pairs;
+  - lateral: `97` rows, `31` physical pairs;
+  - yaw: `71` rows, `18` physical pairs.
+
+Action-level wrong-history result on the fresh corpus:
+
+- wrong-history rows: `408`;
+- physical pairs: `140`;
+- mean action distance: `0.066306`;
+- above-threshold fraction: `0.772059`;
+- closer-to-right fraction: `0.737745`.
+
+Conclusion: M118 is positive. It restores source diversity while preserving
+action-level history sensitivity. The next pending task is M119: run
+continuation outcomes and boundary robustness gates on the fresh corpus.

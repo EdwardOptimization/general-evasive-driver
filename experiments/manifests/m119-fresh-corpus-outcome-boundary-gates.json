@@ -1,0 +1,34 @@
+{
+  "baseline_checkpoints": [
+    "runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt",
+    "runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt",
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt"
+  ],
+  "commands": [
+    {
+      "command": "TBD: run M113 outcome continuations and M115/M116 boundary robustness on runs/m118_source_diverse_matched_current_seed9510/matched_pairs.csv",
+      "name": "m119_fresh_corpus_outcome_boundary_gates"
+    }
+  ],
+  "decision_rule": "Admit a wrong-history outcome surface only if the M118 source-diverse corpus produces continuation or boundary degradation across enough physical source pairs.",
+  "failure_criteria": [
+    "M118 action-level diversity does not translate into outcome-level degradation",
+    "boundary-tightened rows collapse again to fewer than 6 physical source pairs",
+    "M62 control becomes admitted as a wrong-history surface"
+  ],
+  "hypothesis": "M118 found a source-diverse matched-current corpus with preserved action-level wrong-history sensitivity. Repeating outcome and boundary gates may produce a robust wrong-history training surface.",
+  "id": "m119-fresh-corpus-outcome-boundary-gates",
+  "required_artifacts": [
+    {
+      "path": "docs/m119-fresh-corpus-outcome-boundary-gates.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "M113-style outcomes are evaluated on the M118 corpus",
+    "wrong-history degradation is measured before and after boundary tightening",
+    "accepted outcome rows cover enough physical source pairs to pass M116-style robustness",
+    "the result decides whether to train a boundary-aware wrong-history objective"
+  ],
+  "type": "gate"
+}
