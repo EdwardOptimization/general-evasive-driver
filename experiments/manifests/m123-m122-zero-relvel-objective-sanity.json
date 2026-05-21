@@ -1,0 +1,34 @@
+{
+  "baseline_checkpoints": [
+    "runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "TBD: run outcome_intervention_optimize from the M105 checkpoint using runs/m122_zero_relvel_m105_strict_60ep_seed9720/outcome_intervention_snippets.npz with action-anchor retention under configs/m121_human_view_zero_obstacle_relvel.json",
+      "name": "m123_m122_zero_relvel_objective_sanity"
+    }
+  ],
+  "decision_rule": "Proceed beyond objective sanity only if the M122 snippet loss improves while broad behavior retention and self-identification gates do not regress.",
+  "failure_criteria": [
+    "objective optimization only memorizes the fixed snippets and damages behavior retention",
+    "normal success or clearance margin regresses versus M105",
+    "reset/zero/wrong-history ablations do not degrade outcome on M122-style snippets",
+    "hidden-envelope or response-history diagnostics regress"
+  ],
+  "hypothesis": "The M122 admitted zero-relvel strict corpus may provide a cleaner low-friction wrong-history training signal than the older M103 snippets, if optimized with retention anchoring before PPO.",
+  "id": "m123-m122-zero-relvel-objective-sanity",
+  "required_artifacts": [
+    {
+      "path": "docs/m123-m122-zero-relvel-objective-sanity.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "fixed-batch M122 outcome intervention loss improves from baseline",
+    "action-anchor MSE remains small",
+    "normal behavior retention is not worse than M105 on the matched gate",
+    "history ablations or wrong-history interventions degrade relevant outcomes",
+    "no PPO continuation is started before the objective-sanity gate is documented"
+  ],
+  "type": "objective_sanity"
+}

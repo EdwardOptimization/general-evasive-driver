@@ -4689,3 +4689,37 @@ admitting the M62 control, so the M120 context issue was real and actionable.
 However, the selected surface is still below the diversity gate of `6` physical
 pairs and `5` source decision steps. M121 is therefore a diagnostic positive but
 a training-surface rejection. Do not train an objective from these snippets yet.
+
+## 20260521T212526Z m122-zero-relvel-source-diverse-outcome-surface
+
+M122 repeats the M121 zero-relvel strict miner at a broader 60-episode scale
+without relaxing the response or context thresholds.
+
+M105 run:
+
+- run: `runs/m122_zero_relvel_m105_strict_60ep_seed9720`;
+- candidates: `3134`;
+- visible matches: `1680`;
+- accepted outcome rows: `12`;
+- success-drop pairs: `9`;
+- selected rows: `6`;
+- selected physical pairs: `6`;
+- selected seeds: `5`;
+- accepted source steps: `8`;
+- accepted-only intervention snippets: `11`;
+- max snippet margin gap: `0.027255`.
+
+M62 control:
+
+- run: `runs/m122_zero_relvel_m62_strict_60ep_seed9720`;
+- candidates: `3134`;
+- visible matches: `1608`;
+- accepted outcome rows: `0`;
+- selected rows: `0`;
+- snippets: `0`.
+
+Conclusion: M122 is a positive corpus gate. The M105 zero-relvel strict surface
+now crosses the source-diversity target, while the M62 control remains clean
+under identical broad settings. This admits the M122 corpus for the next
+objective-sanity experiment only. It does not admit a driver checkpoint, and it
+does not justify PPO continuation before objective/retention gates.

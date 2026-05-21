@@ -350,6 +350,9 @@ vehicle/tire models, and NMPC-style constrained control.
   the M120 blocker; identifies obstacle relative velocity as the context proxy,
   then tests a zero-relvel strict profile that restores accepted rows but still
   fails the source-diversity gate.
+- `m122-zero-relvel-source-diverse-outcome-surface.md`: 60-episode repeat of
+  the strict zero-relvel miner; admits the M105 corpus for objective-sanity
+  only after reaching source diversity while the M62 control remains clean.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

@@ -1,19 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 130,
+    "completed": 131,
     "failed": 0,
-    "pending": 0,
+    "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m121-context-aligned-outcome-critical-miner.md",
+    "command_log": "docs/m122-zero-relvel-source-diverse-outcome-surface.md",
     "returncode": 0,
-    "run_dir": "runs/m121_zero_relvel_m105_strict_30ep_seed9720",
+    "run_dir": "runs/m122_zero_relvel_m105_strict_60ep_seed9720",
     "status": "completed",
-    "task_id": "m121-context-aligned-outcome-critical-miner"
+    "task_id": "m122-zero-relvel-source-diverse-outcome-surface"
   },
-  "next_task": null,
-  "updated_at_utc": "20260521T211032Z"
+  "next_task": {
+    "command": "see experiments/manifests/m123-m122-zero-relvel-objective-sanity.json",
+    "hypothesis": "Use the admitted M122 zero-relvel snippets for a retention-anchored objective sanity run before PPO",
+    "id": "m123-m122-zero-relvel-objective-sanity",
+    "kind": "objective_sanity",
+    "notes": "Pending after M122: corpus is admitted for objective sanity but not as a driver success claim",
+    "priority": 1180,
+    "status": "pending",
+    "success_artifact": ""
+  },
+  "updated_at_utc": "20260521T212526Z"
 }

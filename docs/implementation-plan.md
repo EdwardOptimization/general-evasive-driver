@@ -2427,6 +2427,34 @@ accepted rows, `4` selected physical pairs, and `3` selected seeds, below the
 pre-registered diversity target. Do not train an objective from M121 snippets.
 See `docs/m121-context-aligned-outcome-critical-miner.md`.
 
+### M122: Zero-Relvel Source-Diverse Outcome Surface
+
+- Keep the M121 strict zero obstacle relative-velocity profile.
+- Broaden the miner without relaxing context or response thresholds.
+- Admit a corpus only if source diversity reaches at least `6` physical pairs
+  and `5` seeds/source decision steps.
+- Re-run M62 under the same broad settings as a control.
+
+Status: completed as a positive corpus gate. The M105 60-episode strict
+zero-relvel run finds `12` accepted rows and selects `6` physical pairs across
+`5` seeds and `8` source steps, with `11` accepted-only intervention snippets.
+The M62 60-episode control has zero accepted rows and zero snippets. This admits
+the M122 corpus for objective-sanity only; it does not admit a driver checkpoint
+or justify PPO continuation. See
+`docs/m122-zero-relvel-source-diverse-outcome-surface.md`.
+
+### M123: M122 Zero-Relvel Objective Sanity
+
+- Use the admitted M122 snippets with retention anchoring.
+- Optimize only a constrained actor-coupling/objective-sanity update before any
+  PPO continuation.
+- Require fixed-batch objective improvement, small anchor MSE, behavior
+  retention, and no regression in history/belief diagnostics.
+
+Status: pending. M122 provides the first clean source-diverse zero-relvel
+wrong-history corpus, but the snippets are perturbed-source only and must be
+tested as an objective signal before broader training.
+
 ### M67-F: Counterfactual Response-Intervention Objective
 
 - Stop treating seed replay alone as sufficient for self-identification.

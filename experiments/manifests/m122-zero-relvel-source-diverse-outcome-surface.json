@@ -1,0 +1,39 @@
+{
+  "baseline_checkpoints": [
+    "runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt",
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt"
+  ],
+  "commands": [
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.snapshot_bank_relocation --env-config configs/m121_human_view_zero_obstacle_relvel.json --checkpoint runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt --episodes 60 --seed 9720 --device cpu --nominal-friction-mu-range 0.85,1.15 --perturbed-friction-mu-range 0.25,0.35 --obstacle-perception-reveal-step 20 --obstacle-perception-reveal-distance 16 --bank-obstacle-distance-range 5,12 --bank-stride-steps 3 --bank-max-snapshots 30 --bank-max-pairs-per-seed 3 --snapshot-relocation-distances 10,11,12 --snapshot-relocation-lateral-offsets=-1 --snapshot-relocation-half-widths 0.7,0.8,0.9,1.0,1.1,1.2,1.3,1.4 --max-visible-distance 0.75 --max-response-distance 0.35 --max-context-distance 0.05 --min-margin-gap 0.005 --max-normal-margin 0.20 --max-continuation-steps 40 --probe-strategy steer_brake --probe-steer-amplitude 0.25 --probe-brake-level 0.20 --probe-period-steps 20 --top-k 200 --max-selected-per-physical-pair 1 --max-selected-per-seed 2 --outcome-export-min-margin-gap 0.005 --export-only-accepted-outcomes --run-dir runs/m122_zero_relvel_m105_strict_60ep_seed9720",
+      "name": "m122_zero_relvel_m105_strict_60ep"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.snapshot_bank_relocation --env-config configs/m121_human_view_zero_obstacle_relvel.json --checkpoint runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --episodes 60 --seed 9720 --device cpu --nominal-friction-mu-range 0.85,1.15 --perturbed-friction-mu-range 0.25,0.35 --obstacle-perception-reveal-step 20 --obstacle-perception-reveal-distance 16 --bank-obstacle-distance-range 5,12 --bank-stride-steps 3 --bank-max-snapshots 30 --bank-max-pairs-per-seed 3 --snapshot-relocation-distances 10,11,12 --snapshot-relocation-lateral-offsets=-1 --snapshot-relocation-half-widths 0.7,0.8,0.9,1.0,1.1,1.2,1.3,1.4 --max-visible-distance 0.75 --max-response-distance 0.35 --max-context-distance 0.05 --min-margin-gap 0.005 --max-normal-margin 0.20 --max-continuation-steps 40 --probe-strategy steer_brake --probe-steer-amplitude 0.25 --probe-brake-level 0.20 --probe-period-steps 20 --top-k 200 --max-selected-per-physical-pair 1 --max-selected-per-seed 2 --outcome-export-min-margin-gap 0.005 --export-only-accepted-outcomes --run-dir runs/m122_zero_relvel_m62_strict_60ep_seed9720",
+      "name": "m122_zero_relvel_m62_strict_control_60ep"
+    }
+  ],
+  "decision_rule": "Admit a zero-relvel strict wrong-history outcome corpus for objective-sanity only if M105 crosses source-diversity thresholds and M62 remains clean under identical miner settings.",
+  "failure_criteria": [
+    "M105 selected rows cover fewer than 6 physical pairs or fewer than 5 seeds/source decision steps",
+    "M105 accepted rows require relaxed context distance above 0.05",
+    "M62 control has accepted outcome rows or exported snippets",
+    "the result is treated as driver success instead of corpus admission"
+  ],
+  "hypothesis": "M121's 30-episode zero-relvel strict run found a clean but under-diverse surface. A 60-episode repeat with the same thresholds may cross the diversity gate without relaxing context or admitting M62.",
+  "id": "m122-zero-relvel-source-diverse-outcome-surface",
+  "required_artifacts": [
+    {
+      "path": "docs/m122-zero-relvel-source-diverse-outcome-surface.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "strict context threshold is 0.05",
+    "M105 selected rows cover at least 6 physical pairs",
+    "M105 selected rows cover at least 5 seeds and source decision steps",
+    "M105 exports accepted-only outcome snippets",
+    "M62 control exports zero accepted snippets"
+  ],
+  "type": "gate"
+}
