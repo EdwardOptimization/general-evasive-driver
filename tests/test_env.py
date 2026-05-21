@@ -225,6 +225,26 @@ def test_front_rear_wheel_observation_adds_response_features():
     assert np.isfinite(next_obs[12:25]).all()
 
 
+def test_front_rear_raw_wheel_observation_keeps_clean_slot_shape():
+    env = AutoDriftEnv(DriftEnvConfig(wheel_observation_mode="front_rear_raw"))
+    obs, _ = env.reset(seed=24)
+
+    assert obs.shape == (85,)
+    wheel_features = obs[12:25]
+    assert wheel_features.shape == (13,)
+    assert np.isfinite(wheel_features).all()
+    np.testing.assert_allclose(wheel_features[4:7], np.zeros(3, dtype=np.float32))
+    np.testing.assert_allclose(wheel_features[10:13], np.zeros(3, dtype=np.float32))
+
+    next_obs, _, _, _, _ = env.step(np.array([0.0, 1.0, -1.0], dtype=np.float32))
+    next_wheel_features = next_obs[12:25]
+
+    assert next_obs.shape == (85,)
+    assert np.isfinite(next_wheel_features).all()
+    np.testing.assert_allclose(next_wheel_features[4:7], np.zeros(3, dtype=np.float32))
+    np.testing.assert_allclose(next_wheel_features[10:13], np.zeros(3, dtype=np.float32))
+
+
 def test_wheel_observation_mode_rejects_unknown_mode():
     with pytest.raises(ValueError, match="wheel_observation_mode"):
         DriftEnvConfig(wheel_observation_mode="oracle")

@@ -11,7 +11,7 @@ import pandas as pd
 
 from autodrift.artifacts import make_run_dir, write_csv_rows, write_json
 from autodrift.checkpoints import load_actor_critic_checkpoint
-from autodrift.env import AutoDriftEnv
+from autodrift.env import AutoDriftEnv, FRONT_REAR_WHEEL_OBSERVATION_MODES
 from autodrift.evaluate import CHECKPOINT_ABLATIONS, load_env_config
 from autodrift.latent_probe import (
     ProbeResult,
@@ -116,8 +116,8 @@ def run_wheel_relevance_audit(
 ) -> tuple[list[dict], list[dict], list[dict]]:
     env_config = load_env_config(env_config_path)
     env = AutoDriftEnv(env_config)
-    if env_config.wheel_observation_mode != "front_rear":
-        raise ValueError("wheel response relevance audit requires wheel_observation_mode='front_rear'")
+    if env_config.wheel_observation_mode not in FRONT_REAR_WHEEL_OBSERVATION_MODES:
+        raise ValueError("wheel response relevance audit requires a front/rear wheel observation mode")
     if int(env.observation_space.shape[0]) < WHEEL_HUMAN_VIEW_RESPONSE_FEATURE_DIM:
         raise ValueError("environment observation space is too small for wheel response audit")
     model, _ = load_actor_critic_checkpoint(

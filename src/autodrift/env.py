@@ -34,7 +34,8 @@ BASIC_PRIVILEGED_OBS_DIM = 4
 FULL_DYNAMICS_PRIVILEGED_OBS_DIM = 10
 PRIVILEGED_OBSERVATION_MODES = ("basic", "full_dynamics")
 OBSTACLE_RELATIVE_VELOCITY_MODES = ("ego", "zero")
-WHEEL_OBSERVATION_MODES = ("none", "front_rear")
+FRONT_REAR_WHEEL_OBSERVATION_MODES = ("front_rear", "front_rear_raw")
+WHEEL_OBSERVATION_MODES = ("none", *FRONT_REAR_WHEEL_OBSERVATION_MODES)
 
 
 @dataclass(frozen=True)
@@ -193,6 +194,10 @@ class AutoDriftEnv(gym.Env):
         self.last_control = np.zeros(3, dtype=np.float64)
         self.last_steer_rate = 0.0
         self.last_forces = self.model.tire_forces(8.0, 0.0, 0.0, 0.0, 0.0)
+        self.front_wheel_speed = float(self.state.vx)
+        self.rear_wheel_speed = float(self.state.vx)
+        self.last_front_wheel_speed = float(self.state.vx)
+        self.last_rear_wheel_speed = float(self.state.vx)
         self.obs_history: list[np.ndarray] = []
         self.speed_ref = 8.0
         self.beta_target = 0.45
@@ -245,6 +250,7 @@ class AutoDriftEnv(gym.Env):
         self.last_control = np.zeros(3, dtype=np.float64)
         self.last_steer_rate = 0.0
         self.last_forces = self.model.tire_forces(vx, vy, self.state.yaw_rate, 0.0, 0.0)
+        self._reset_raw_wheel_state()
         base_observation = self._base_observation()
         self.obs_history = [base_observation.copy() for _ in range(self.config.history_length)]
 
@@ -269,6 +275,7 @@ class AutoDriftEnv(gym.Env):
         previous_steer = self.state.steer
         self.state, self.last_forces = self.model.step(self.state, action64, self.config.dt)
         self.last_steer_rate = (self.state.steer - previous_steer) / self.config.dt
+        self._update_raw_wheel_state()
         frame = self.track.frame(self.state.x, self.state.y, self.state.psi)
         reward, reward_terms = self._reward(frame, control, self.last_forces)
         self._update_obstacle_status(frame)
@@ -484,13 +491,59 @@ class AutoDriftEnv(gym.Env):
     def _wheel_observation_dim(self) -> int:
         if self.config.wheel_observation_mode == "none":
             return 0
-        if self.config.wheel_observation_mode == "front_rear":
+        if self.config.wheel_observation_mode in FRONT_REAR_WHEEL_OBSERVATION_MODES:
             return FRONT_REAR_WHEEL_OBS_DIM
         raise ValueError(f"unknown wheel observation mode: {self.config.wheel_observation_mode}")
+
+    def _reset_raw_wheel_state(self) -> None:
+        self.front_wheel_speed = float(self.state.vx)
+        self.rear_wheel_speed = float(self.state.vx)
+        self.last_front_wheel_speed = float(self.state.vx)
+        self.last_rear_wheel_speed = float(self.state.vx)
+
+    def _update_raw_wheel_state(self) -> None:
+        if self.config.wheel_observation_mode != "front_rear_raw":
+            return
+        dt = max(float(self.config.dt), 1e-6)
+        self.last_front_wheel_speed = self.front_wheel_speed
+        self.last_rear_wheel_speed = self.rear_wheel_speed
+
+        sensor_tau = max(0.04, 0.5 * float(self.params.drive_tau))
+        front_relaxation = (float(self.state.vx) - self.front_wheel_speed) / sensor_tau
+        self.front_wheel_speed += dt * front_relaxation
+
+        wheel_inertia_proxy = max(0.08 * self.params.mass, 1.0)
+        rear_torque_balance = (float(self.state.drive_force) - float(self.last_forces.fx_rear)) / wheel_inertia_proxy
+        rear_relaxation = (float(self.state.vx) - self.rear_wheel_speed) / sensor_tau
+        self.rear_wheel_speed += dt * (rear_relaxation + rear_torque_balance)
+
+        speed_bound = max(45.0, 2.5 * abs(float(self.state.vx)) + 10.0)
+        self.front_wheel_speed = float(np.clip(self.front_wheel_speed, -speed_bound, speed_bound))
+        self.rear_wheel_speed = float(np.clip(self.rear_wheel_speed, -speed_bound, speed_bound))
 
     def _wheel_response_features(self, ax_body: float) -> list[float]:
         if self.config.wheel_observation_mode == "none":
             return []
+        if self.config.wheel_observation_mode == "front_rear_raw":
+            throttle_state, brake_state = self._drive_actuator_states()
+            dt = max(float(self.config.dt), 1e-6)
+            front_wheel_accel = (self.front_wheel_speed - self.last_front_wheel_speed) / dt
+            rear_wheel_accel = (self.rear_wheel_speed - self.last_rear_wheel_speed) / dt
+            return [
+                float(self.front_wheel_speed / 20.0),
+                float(self.rear_wheel_speed / 20.0),
+                float(np.clip(front_wheel_accel / 30.0, -2.0, 2.0)),
+                float(np.clip(rear_wheel_accel / 30.0, -2.0, 2.0)),
+                0.0,
+                0.0,
+                0.0,
+                brake_state,
+                brake_state,
+                throttle_state,
+                0.0,
+                0.0,
+                0.0,
+            ]
         if self.config.wheel_observation_mode != "front_rear":
             raise ValueError(f"unknown wheel observation mode: {self.config.wheel_observation_mode}")
 

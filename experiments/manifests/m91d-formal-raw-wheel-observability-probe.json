@@ -1,0 +1,42 @@
+{
+  "baseline_checkpoints": [
+    "no_checkpoint_policy=heuristic",
+    "previous_profile=m91c_clean_raw_wheel_smoke"
+  ],
+  "commands": [
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.input_observability_audit --env-config configs/m91c_raw_wheel_minimum_profile.json --episodes 60 --seed 9330 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1200 --ridge 0.1 --run-dir runs/m91d_raw_wheel_observability_formal_seed9330",
+      "name": "formal_raw_wheel_observability_probe"
+    }
+  ],
+  "decision_rule": "Compare clean raw-wheel P1 against no-wheel P0 on held-out future envelope targets. Do not train PPO unless P1 gives meaningful and consistent lift.",
+  "failure_criteria": [
+    "formal probe cannot collect episode-disjoint samples",
+    "profile_gain_summary.csv is missing",
+    "P1 improvements are smaller than the M91-B proxy-wheel result on all targets",
+    "results are interpreted as a promoted driver instead of an input-observability gate"
+  ],
+  "hypothesis": "A clean raw wheel-state profile contains more deployable self-ID information than the legacy proxy wheel branch, especially for braking and lateral response envelope targets.",
+  "id": "m91d-formal-raw-wheel-observability-probe",
+  "required_artifacts": [
+    {
+      "path": "runs/m91d_raw_wheel_observability_formal_seed9330/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m91d_raw_wheel_observability_formal_seed9330/profile_gain_summary.csv",
+      "type": "profile_gain_summary"
+    },
+    {
+      "path": "docs/m91d-formal-raw-wheel-observability-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "formal probe writes samples probe summary profile gains and manifest artifacts",
+    "P1 raw wheel improves over P0 on at least two future envelope targets",
+    "response-only P1 improves over response-only P0 on at least two future envelope targets",
+    "decision explicitly states whether M90 PPO continuation remains blocked"
+  ],
+  "type": "gate"
+}

@@ -14,7 +14,14 @@ import torch
 
 from autodrift.artifacts import make_run_dir, write_json
 from autodrift.checkpoints import load_actor_critic_checkpoint
-from autodrift.env import AutoDriftEnv, DriftEnvConfig, EGO_OBS_DIM, FRONT_REAR_WHEEL_OBS_DIM, LAST_ACTION_OBS_DIM
+from autodrift.env import (
+    AutoDriftEnv,
+    DriftEnvConfig,
+    EGO_OBS_DIM,
+    FRONT_REAR_WHEEL_OBS_DIM,
+    FRONT_REAR_WHEEL_OBSERVATION_MODES,
+    LAST_ACTION_OBS_DIM,
+)
 from autodrift.evaluate import load_env_config
 from autodrift.paired_perturbation_gate import (
     condition_config,
@@ -52,7 +59,7 @@ def response_feature_indices(env_config: DriftEnvConfig, observation_dim: int) -
     per_frame = EGO_OBS_DIM
     if env_config.action_history_mode == "full":
         per_frame += LAST_ACTION_OBS_DIM
-    if env_config.wheel_observation_mode == "front_rear":
+    if env_config.wheel_observation_mode in FRONT_REAR_WHEEL_OBSERVATION_MODES:
         per_frame += FRONT_REAR_WHEEL_OBS_DIM
     indices: list[int] = []
     for start in range(0, observation_dim, base_dim):

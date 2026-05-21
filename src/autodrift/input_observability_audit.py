@@ -12,7 +12,7 @@ import numpy as np
 import pandas as pd
 
 from autodrift.artifacts import make_run_dir, write_csv_rows, write_json
-from autodrift.env import AutoDriftEnv
+from autodrift.env import AutoDriftEnv, FRONT_REAR_WHEEL_OBSERVATION_MODES
 from autodrift.evaluate import load_env_config
 from autodrift.policies import make_policy
 from autodrift.train_ppo import HUMAN_VIEW_RESPONSE_FEATURE_DIM, WHEEL_HUMAN_VIEW_RESPONSE_FEATURE_DIM
@@ -229,8 +229,10 @@ def collect_input_observability_dataset(
 ) -> tuple[np.ndarray, dict[str, np.ndarray], list[dict[str, Any]]]:
     env_config = load_env_config(env_config_path)
     env = AutoDriftEnv(env_config)
-    if env_config.wheel_observation_mode != "front_rear":
-        raise ValueError("input observability audit currently requires wheel_observation_mode='front_rear'")
+    if env_config.wheel_observation_mode not in FRONT_REAR_WHEEL_OBSERVATION_MODES:
+        raise ValueError(
+            "input observability audit currently requires a front/rear wheel observation mode"
+        )
     policy = make_policy(policy_name, env, seed=seed)
     observations: list[np.ndarray] = []
     targets: dict[str, list[float]] = {name: [] for name in TARGETS}

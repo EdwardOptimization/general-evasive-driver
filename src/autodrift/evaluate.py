@@ -13,7 +13,12 @@ import torch
 from autodrift.artifacts import make_run_dir, write_json
 from autodrift.checkpoints import load_actor_critic_checkpoint
 from autodrift.config import build_env_config
-from autodrift.env import AutoDriftEnv, DriftEnvConfig, FRONT_REAR_WHEEL_OBS_DIM
+from autodrift.env import (
+    AutoDriftEnv,
+    DriftEnvConfig,
+    FRONT_REAR_WHEEL_OBS_DIM,
+    FRONT_REAR_WHEEL_OBSERVATION_MODES,
+)
 from autodrift.policies import Policy, make_policy
 from autodrift.train_ppo import ActorCritic
 
@@ -61,12 +66,12 @@ class ActorPolicy(Policy):
         del base_dim
         indices = list(range(0, 9))
         indices.extend(self._action_history_indices())
-        if self.env_config.wheel_observation_mode == "front_rear":
+        if self.env_config.wheel_observation_mode in FRONT_REAR_WHEEL_OBSERVATION_MODES:
             indices.extend(self._wheel_feature_indices())
         return sorted(set(indices))
 
     def _wheel_feature_indices(self) -> list[int]:
-        if self.env_config.wheel_observation_mode != "front_rear":
+        if self.env_config.wheel_observation_mode not in FRONT_REAR_WHEEL_OBSERVATION_MODES:
             return []
         start = 9
         if self.env_config.action_history_mode == "full":

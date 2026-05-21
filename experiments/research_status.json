@@ -1,19 +1,19 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 94,
+    "completed": 95,
     "failed": 0,
     "pending": 0,
     "planned": 1,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m91b-formal-input-observability-probe.md",
+    "command_log": "docs/m91c-clean-raw-wheel-minimum-profile.md",
     "returncode": 0,
-    "run_dir": "runs/m91b_input_observability_formal_seed9310",
+    "run_dir": "runs/m91c_raw_wheel_minimum_profile_smoke_seed9320",
     "status": "completed",
-    "task_id": "m91b-formal-input-observability-probe"
+    "task_id": "m91c-clean-raw-wheel-minimum-profile"
   },
-  "next_task": "m91c-clean-raw-wheel-minimum-profile",
-  "updated_at_utc": "20260521T153550Z"
+  "next_task": "m91d-formal-raw-wheel-observability-probe",
+  "updated_at_utc": "20260521T154242Z"
 }

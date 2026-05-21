@@ -185,6 +185,34 @@ abs_rear
 tcs_active
 ```
 
+That original M81 branch is a proxy wheel branch: the wheel-speed and slip slots
+are derived from the single-track model's body state, drive force, and tire-force
+residuals. It is useful for compatibility and historical M81-M88 comparisons,
+but M91-B showed that it does not by itself justify PPO continuation as a clean
+self-identification sensor.
+
+M91-C adds `wheel_observation_mode="front_rear_raw"` as the cleaner minimum
+wheel profile for new input-observability experiments. It preserves the same
+13-slot shape and the same response-GRU placement, but exposes only simulated
+front/rear wheel-speed state, wheel-speed acceleration, and physical actuator
+pressure/torque slots. Derived slip and ABS/TCS proxy slots are zeroed:
+
+```text
+front_wheel_speed
+rear_wheel_speed
+front_wheel_accel
+rear_wheel_accel
+0.0
+0.0
+0.0
+brake_pressure_front
+brake_pressure_rear
+drive_torque_rear
+0.0
+0.0
+0.0
+```
+
 With `action_history_mode="full"`, the Stage 1 wheel frame is:
 
 ```text
