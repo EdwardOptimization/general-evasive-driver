@@ -747,3 +747,37 @@ M21_900 on the friction gate. It still does not prove deployable response
 channel dependence, because zero-current and zero-all response ablations remain
 near normal performance. The next task should build a harder response-dependence
 gate or corpus before adding more actor complexity.
+
+## 20260521T005803Z m22-hard-response-dependence-gate
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: Mine or construct paired cases where identical geometry requires different response-conditioned corrective actions
+- implementation: `src/autodrift/hard_response_corpus.py`
+- primary corpus: `runs/m22_hard_response_corpus_m21_503_seed3000/scenario_corpus.csv`
+- secondary corpus: `runs/m22_hard_response_corpus_m21_602_seed3000/scenario_corpus.csv`
+
+Mining result:
+
+- M21_503 selected hard seeds: 7;
+- M21_503 selected success-changing rows: 10;
+- M21_602 selected hard seeds: 6;
+- M21_602 selected success-changing rows: 8.
+
+Hard gate result:
+
+- M21_503 hard actuator gate: normal 1.000 / 0.714, reset 0.143 / 0.714,
+  zero-current 0.857 / 0.571;
+- M21_503 hard friction gate: normal 1.000 / 0.714, reset 1.000 / 0.571,
+  zero-current 1.000 / 0.714;
+- M21_602 hard actuator gate: normal 0.833 / 0.667, reset 0.167 / 0.667,
+  zero-current 0.833 / 0.667;
+- M21_602 hard friction gate: normal 1.000 / 0.667, reset 1.000 / 0.000,
+  zero-current 1.000 / 0.667.
+
+Conclusion: M22 is a useful gate-construction success. It finds a small hard
+actuator corpus where response masking visibly hurts `m21_503`, and it finds
+hard friction cases where hidden-state reset hurts `m21_602`. This is not an
+ideal-driver pass because the corpus is small and mined from the current gate
+outputs. The next step should scale hard-case mining and add a clean training
+or fine-tuning path that oversamples hard response-dependent cases.

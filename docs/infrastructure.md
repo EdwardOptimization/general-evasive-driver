@@ -84,6 +84,14 @@ Scenario corpus generation writes:
 - `summary.json`: compact machine-readable result summary.
 - `manifest.json`: artifact index.
 
+Hard response corpus mining writes:
+
+- `scenario_corpus.csv`: selected hard seeds that can be passed back to paired
+  gates.
+- `hard_pairs.csv`: normal-vs-ablation rows for selected hard seeds.
+- `summary.json`: selected seed count and success-changing pair count.
+- `manifest.json`: source gate files, policies, and artifact paths.
+
 M7 gate writes:
 
 - `benchmark_comparison/`: shared-seed AEB/AES/envelope/M5/M7 comparison.

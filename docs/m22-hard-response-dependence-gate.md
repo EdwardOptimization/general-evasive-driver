@@ -49,3 +49,102 @@ making response ablation visibly worse:
 
 If the mined corpus is too sparse, the blocker should be documented as a gate
 construction problem before adding more model complexity.
+
+## Harness
+
+M22 adds:
+
+```text
+src/autodrift/hard_response_corpus.py
+```
+
+The CLI mines hard seeds from paired gate `episodes.csv` artifacts. A seed is
+selected when normal recurrent inference succeeds in at least one hidden
+condition and at least one reset or response-masked policy changes success for
+that same seed. The output is a normal seed CSV, so the existing paired gate can
+replay it directly.
+
+Command for `m21_503`:
+
+```bash
+conda run -n autodrift python -m autodrift.hard_response_corpus \
+  --episodes-csv runs/m21_top_actuator_response_gate_seed3000/episodes.csv \
+  --episodes-csv runs/m21_top_friction_gate_seed3000/episodes.csv \
+  --normal-policy m21_503 \
+  --ablation-policy m21_503_reset \
+  --ablation-policy m21_503_zero_current \
+  --ablation-policy m21_503_zero_all \
+  --run-dir runs/m22_hard_response_corpus_m21_503_seed3000
+```
+
+Result:
+
+- selected hard seeds: 7;
+- success-changing rows in selected pairs: 10;
+- corpus: `runs/m22_hard_response_corpus_m21_503_seed3000/scenario_corpus.csv`;
+- pair details: `runs/m22_hard_response_corpus_m21_503_seed3000/hard_pairs.csv`.
+
+Command for `m21_602`:
+
+```bash
+conda run -n autodrift python -m autodrift.hard_response_corpus \
+  --episodes-csv runs/m21_top_actuator_response_gate_seed3000/episodes.csv \
+  --episodes-csv runs/m21_top_friction_gate_seed3000/episodes.csv \
+  --normal-policy m21_602 \
+  --ablation-policy m21_602_reset \
+  --ablation-policy m21_602_zero_current \
+  --ablation-policy m21_602_zero_all \
+  --run-dir runs/m22_hard_response_corpus_m21_602_seed3000
+```
+
+Result:
+
+- selected hard seeds: 6;
+- success-changing rows in selected pairs: 8;
+- corpus: `runs/m22_hard_response_corpus_m21_602_seed3000/scenario_corpus.csv`.
+
+## Gate Result
+
+M21_503 hard actuator gate:
+
+| policy | pairs | nominal success | perturbed success |
+| --- | ---: | ---: | ---: |
+| m21_503 | 7 | 1.000 | 0.714 |
+| m21_503_reset | 7 | 0.143 | 0.714 |
+| m21_503_zero_current | 7 | 0.857 | 0.571 |
+| m21_503_zero_all | 7 | 0.857 | 0.571 |
+
+M21_503 hard friction gate:
+
+| policy | pairs | nominal success | perturbed success |
+| --- | ---: | ---: | ---: |
+| m21_503 | 7 | 1.000 | 0.714 |
+| m21_503_reset | 7 | 1.000 | 0.571 |
+| m21_503_zero_current | 7 | 1.000 | 0.714 |
+| m21_503_zero_all | 7 | 1.000 | 0.714 |
+
+M21_602 hard actuator gate:
+
+| policy | pairs | nominal success | perturbed success |
+| --- | ---: | ---: | ---: |
+| m21_602 | 6 | 0.833 | 0.667 |
+| m21_602_reset | 6 | 0.167 | 0.667 |
+| m21_602_zero_current | 6 | 0.833 | 0.667 |
+| m21_602_zero_all | 6 | 0.833 | 0.667 |
+
+M21_602 hard friction gate:
+
+| policy | pairs | nominal success | perturbed success |
+| --- | ---: | ---: | ---: |
+| m21_602 | 6 | 1.000 | 0.667 |
+| m21_602_reset | 6 | 1.000 | 0.000 |
+| m21_602_zero_current | 6 | 1.000 | 0.667 |
+| m21_602_zero_all | 6 | 1.000 | 0.667 |
+
+Conclusion: M22 succeeds as a gate-construction step. The mined hard actuator
+corpus exposes response-channel dependence for `m21_503`: response masking
+drops nominal success by `0.143` and perturbed success by `0.143`, while
+hidden-state reset drops nominal success by `0.857`. The hard friction corpus
+mainly exposes hidden-state dependence, not response-mask dependence. The next
+step should scale the hard corpus and add a training sampler or fine-tuning path
+that oversamples these hard cases without adding privileged actor inputs.
