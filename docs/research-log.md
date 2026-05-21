@@ -4829,3 +4829,61 @@ zero-response degradation repeat, but yaw/lateral hidden-envelope lift fails
 fresh probe seeds, no-action history remains neutral, and the probe surface is
 still seed fragile. The next task is M126: audit or rebuild the zero-relvel
 belief proof surface instead of tuning PPO.
+
+## 20260521T215134Z m126-zero-relvel-belief-proof-surface-audit
+
+M126 audits the zero-relvel belief proof surface after M125 rejects PPO
+admission.
+
+Hidden-envelope reliability audit:
+
+- run: `runs/m126_zero_relvel_hidden_envelope_reliability_audit_seed9510`;
+- checkpoints: M105 9710 and M124 9821;
+- probe seeds: `9510,9511,9512`;
+- split seeds: `9610-9614`;
+- sample limits: `400,800`;
+- result: `passed=False`.
+
+At `800` samples, target means are stable across probe seeds:
+
+- M105 target mean ranges: braking `0.021480`, lateral `0.040924`, yaw
+  `0.006224`;
+- M124 target mean ranges: braking `0.022244`, lateral `0.041717`, yaw
+  `0.006415`.
+
+But aggregate response-hidden minus reset-hidden lift fails:
+
+| checkpoint | braking mean | lateral mean | yaw mean |
+| --- | ---: | ---: | ---: |
+| M105 | -0.202113 | -0.336667 | -0.946768 |
+| M124 | -0.272462 | -0.305144 | -0.924079 |
+
+Current-response mean R2 is stronger than response hidden for all targets:
+
+| checkpoint | target | current response | response hidden |
+| --- | --- | ---: | ---: |
+| M105 | braking | 0.3050 | -0.0831 |
+| M105 | lateral | 0.0743 | -0.2867 |
+| M105 | yaw | 0.2676 | -0.9126 |
+| M124 | braking | 0.3030 | -0.1464 |
+| M124 | lateral | 0.0669 | -0.3010 |
+| M124 | yaw | 0.2773 | -0.8823 |
+
+Outcome-critical wrong-history check:
+
+- run: `runs/m126_zero_relvel_m124_strict_60ep_seed9720`;
+- candidates: `3134`;
+- accepted outcome rows: `15`;
+- success-drop pairs: `12`;
+- selected rows: `7`;
+- selected physical pairs: `7`;
+- selected seeds: `6`;
+- accepted-only snippets: `14`;
+- max snippet margin gap: `0.046191`;
+- source side: all exported snippets are perturbed-source.
+
+Conclusion: hidden-envelope R2 is not a reliable primary admission gate for the
+zero-relvel line. Target means are stable, but response hidden loses to reset
+and current-response baselines. The stronger proof surface is strict
+outcome-critical wrong-history degradation. The next pending task is M127:
+formalize an outcome-centric self-ID proof gate with repeat miners and controls.

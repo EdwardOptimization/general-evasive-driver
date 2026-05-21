@@ -5,8 +5,12 @@
   ],
   "commands": [
     {
-      "command": "TBD: audit zero-relvel hidden-envelope target reliability and stronger history interventions after M125 rejects PPO admission",
-      "name": "m126_zero_relvel_belief_proof_surface_audit"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.hidden_envelope_reliability_audit --env-config configs/m121_human_view_zero_obstacle_relvel.json --checkpoint-policy m105_9710=runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt --checkpoint-policy m124_9821=runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt --probe-seeds 9510,9511,9512 --split-seeds 9610,9611,9612,9613,9614 --sample-limits 400,800 --episodes 30 --horizon-steps 15 --sample-stride 3 --ridge 0.1 --device cpu --mean-lift-threshold 0.0 --min-lift-threshold 0.0 --pass-fraction-threshold 1.0 --run-dir runs/m126_zero_relvel_hidden_envelope_reliability_audit_seed9510",
+      "name": "m126_hidden_envelope_reliability_audit"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.snapshot_bank_relocation --env-config configs/m121_human_view_zero_obstacle_relvel.json --checkpoint runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt --episodes 60 --seed 9720 --device cpu --nominal-friction-mu-range 0.85,1.15 --perturbed-friction-mu-range 0.25,0.35 --obstacle-perception-reveal-step 20 --obstacle-perception-reveal-distance 16 --bank-obstacle-distance-range 5,12 --bank-stride-steps 3 --bank-max-snapshots 30 --bank-max-pairs-per-seed 3 --snapshot-relocation-distances 10,11,12 --snapshot-relocation-lateral-offsets=-1 --snapshot-relocation-half-widths 0.7,0.8,0.9,1.0,1.1,1.2,1.3,1.4 --max-visible-distance 0.75 --max-response-distance 0.35 --max-context-distance 0.05 --min-margin-gap 0.005 --max-normal-margin 0.20 --max-continuation-steps 40 --probe-strategy steer_brake --probe-steer-amplitude 0.25 --probe-brake-level 0.20 --probe-period-steps 20 --top-k 200 --max-selected-per-physical-pair 1 --max-selected-per-seed 2 --outcome-export-min-margin-gap 0.005 --export-only-accepted-outcomes --run-dir runs/m126_zero_relvel_m124_strict_60ep_seed9720",
+      "name": "m126_m124_outcome_critical_wrong_history_check"
     }
   ],
   "decision_rule": "Before another objective or PPO continuation, determine whether the zero-relvel belief proof should use the current hidden-envelope targets, outcome-critical wrong-history gates, or a redesigned target/intervention surface.",

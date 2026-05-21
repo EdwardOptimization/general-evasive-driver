@@ -1,0 +1,37 @@
+{
+  "baseline_checkpoints": [
+    "runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt",
+    "runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt",
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt"
+  ],
+  "commands": [
+    {
+      "command": "TBD: formalize strict zero-relvel outcome-critical wrong-history repeat gate after M126 rejects hidden-envelope R2 as primary proof",
+      "name": "m127_outcome_centric_self_id_proof_gate"
+    }
+  ],
+  "decision_rule": "Admit a proof surface only if strict zero-relvel wrong-history outcome degradation repeats across seeds/checkpoints while M62 and non-history controls remain clean.",
+  "failure_criteria": [
+    "accepted rows disappear on repeat miners",
+    "M62 control is admitted",
+    "the surface remains perturbed-only without an explicit limitation",
+    "no-action or wrong-history intervention remains neutral on all outcome gates",
+    "the result is treated as driver success instead of a proof-surface gate"
+  ],
+  "hypothesis": "M126 shows hidden-envelope R2 is not a reliable primary gate, but strict outcome-critical wrong-history surfaces remain source-diverse for M124. An outcome-centric formal gate may be the right proof surface for closed-loop self-identification.",
+  "id": "m127-outcome-centric-self-id-proof-gate",
+  "required_artifacts": [
+    {
+      "path": "docs/m127-outcome-centric-self-id-proof-gate.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "M124 strict zero-relvel outcome-critical rows repeat across fresh miner seeds",
+    "source diversity remains above the M122/M126 thresholds",
+    "M62 control remains unadmitted",
+    "the gate reports perturbed/nominal source-side coverage",
+    "the next training/proof step is decided from outcome-level evidence"
+  ],
+  "type": "gate"
+}

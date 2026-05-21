@@ -2515,6 +2515,26 @@ M105 and M124, and no-action history remains neutral. Do not start PPO. See
 Status: pending. M125 shows behavior learning is more stable than the current
 belief proof surface.
 
+Status: completed as a proof-surface pivot. M126 shows target means are stable
+across zero-relvel probe seeds, but response hidden does not reliably beat reset
+hidden or current-response baselines. The M124 strict zero-relvel
+outcome-critical wrong-history miner, however, finds `15` accepted rows, `7`
+selected physical pairs, `6` seeds, and `14` accepted snippets. Hidden-envelope
+R2 should no longer be the primary admission gate for this line. See
+`docs/m126-zero-relvel-belief-proof-surface-audit.md`.
+
+### M127: Outcome-Centric Self-ID Proof Gate
+
+- Repeat strict zero-relvel outcome-critical wrong-history mining across fresh
+  miner seeds/checkpoints.
+- Keep M62 and non-history controls clean.
+- Report source-side coverage, since current snippets are perturbed-source only.
+- Decide the next proof/training step from outcome-level evidence, not
+  hidden-envelope R2.
+
+Status: pending. M126 indicates the strongest current self-identification proof
+surface is outcome-critical wrong-history degradation.
+
 ### M67-F: Counterfactual Response-Intervention Objective
 
 - Stop treating seed replay alone as sufficient for self-identification.

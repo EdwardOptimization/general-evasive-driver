@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 134,
+    "completed": 135,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m125-formal-m124-repeat-gate.md",
+    "command_log": "docs/m126-zero-relvel-belief-proof-surface-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m125_m124_behavior_gate_seed9501",
+    "run_dir": "runs/m126_zero_relvel_hidden_envelope_reliability_audit_seed9510",
     "status": "completed",
-    "task_id": "m125-formal-m124-repeat-gate"
+    "task_id": "m126-zero-relvel-belief-proof-surface-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m126-zero-relvel-belief-proof-surface-audit.json",
-    "hypothesis": "Audit hidden-envelope target reliability and stronger history proof surfaces after M125 rejection",
-    "id": "m126-zero-relvel-belief-proof-surface-audit",
+    "command": "see experiments/manifests/m127-outcome-centric-self-id-proof-gate.json",
+    "hypothesis": "Formalize strict zero-relvel outcome-critical wrong-history repeat gate after M126",
+    "id": "m127-outcome-centric-self-id-proof-gate",
     "kind": "gate",
-    "notes": "Pending after M125: behavior works but the belief proof surface is still probe-seed fragile",
-    "priority": 1210,
+    "notes": "Pending after M126: outcome-critical wrong-history surface looks stronger than hidden-envelope R2 proof",
+    "priority": 1220,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T214240Z"
+  "updated_at_utc": "20260521T215134Z"
 }

@@ -362,6 +362,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m125-formal-m124-repeat-gate.md`: fresh-seed repeat gate for M124; behavior
   retention and zero-response gap repeat, but yaw/lateral hidden-envelope lift
   fails fresh probes, so PPO admission is rejected.
+- `m126-zero-relvel-belief-proof-surface-audit.md`: reliability audit after
+  M125; rejects hidden-envelope R2 as the primary gate and points toward
+  strict outcome-critical wrong-history proof surfaces.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.
