@@ -1262,7 +1262,10 @@ Exit criteria:
 - promotion still requires zero binary regressions, zero near-margin
   regressions, and non-negative mean margin delta.
 
-Status: planned.
+Status: infrastructure ready; full run pending. M61 has a regression-seed
+replay corpus with 12 extra repeats each for seeds 4413, 4378, 4457, and 3019,
+plus a stronger baseline-action anchor config that smoke-trains successfully
+from M37_102. See `docs/m61-regression-seed-retention-replay.md`.
 
 ## Metrics
 

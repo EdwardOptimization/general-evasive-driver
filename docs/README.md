@@ -148,6 +148,8 @@ vehicle/tire models, and NMPC-style constrained control.
   checkpoint interpolation harness and strict gate result.
 - `m60-constrained-baseline-anchor.md`: baseline-action anchor training
   constraint and M60 smoke validation.
+- `m61-regression-seed-retention-replay.md`: M60 regression-seed replay corpus
+  and stronger-retention smoke setup.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

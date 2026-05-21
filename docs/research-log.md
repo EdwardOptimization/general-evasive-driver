@@ -2346,3 +2346,30 @@ now has evidence that baseline anchoring can produce positive mean-margin
 deltas, while the strict gate exposes concentrated near-boundary regressions.
 M61 should explicitly replay those regression seeds and strengthen the
 near-boundary retention floor instead of only increasing reward scale.
+
+## 20260521T090831Z m61-regression-seed-retention-replay-setup
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: Oversample the M60 regression seeds and strengthen the
+  baseline-action anchor before running another full margin continuation.
+- replay corpus: `runs/m61_regression_seed_replay/seed_sequence.csv`
+- smoke command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m61_regression_seed_retention_driver.json --total-steps 4096 --rollout-steps 64 --num-envs 4 --vector-env-mode sync --seed 2861 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m61_regression_seed_retention_smoke_seed2861`
+- returncode: `0`
+- run dir: `runs/ppo_m61_regression_seed_retention_smoke_seed2861`
+- success artifact:
+  `runs/ppo_m61_regression_seed_retention_smoke_seed2861/train_metrics.csv`
+
+Post-validation:
+
+- replay corpus has 89 rows: 41 M53 base rows plus 12 extra repeats for each
+  of seeds `4413`, `4378`, `4457`, and `3019`;
+- config uses `baseline_action_anchor_coef = 1.0`;
+- config uses `training_seed_mix_probability = 0.30`;
+- smoke metrics include `baseline_action_anchor_loss_mean`;
+- smoke eval return mean is `74.0360`;
+- smoke eval termination rate is `0.100`.
+
+Conclusion: M61 infrastructure is ready for a full continuation. The strict
+gate remains unchanged; replay and stronger anchoring must eliminate the M60
+near-boundary regressions rather than hide them.
