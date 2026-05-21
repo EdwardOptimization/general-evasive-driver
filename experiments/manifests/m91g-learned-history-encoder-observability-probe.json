@@ -1,0 +1,42 @@
+{
+  "baseline_checkpoints": [
+    "no_checkpoint_policy=heuristic",
+    "previous_profile=m91f_compact_history_probe"
+  ],
+  "commands": [
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.learned_history_observability_probe --env-config configs/m91c_raw_wheel_minimum_profile.json --episodes 40 --seed 9360 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --history-window 50 --device cpu --epochs 80 --run-dir runs/m91g_learned_history_encoder_seed9360",
+      "name": "learned_history_encoder_observability_probe"
+    }
+  ],
+  "decision_rule": "Use a supervised learned history encoder to test whether command-response history contains predictive belief information that linear probes miss.",
+  "failure_criteria": [
+    "learned probe leaks future observations",
+    "train/test split is not episode-disjoint",
+    "learned probe cannot beat the current-frame ridge baseline on any target",
+    "results are interpreted as a promoted control policy"
+  ],
+  "hypothesis": "A small supervised GRU or temporal MLP over past command-response frames can extract self-ID information better than raw concatenation or hand summaries.",
+  "id": "m91g-learned-history-encoder-observability-probe",
+  "required_artifacts": [
+    {
+      "path": "runs/m91g_learned_history_encoder_seed9360/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m91g_learned_history_encoder_seed9360/probe_summary.csv",
+      "type": "probe_summary"
+    },
+    {
+      "path": "docs/m91g-learned-history-encoder-observability-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "learned history encoder runs without PPO",
+    "episode-disjoint test metrics are reported for P0 and P1",
+    "P1 learned history improves at least one target over P1 current-frame ridge",
+    "decision states whether to proceed to sensor ablations or corpus redesign"
+  ],
+  "type": "gate"
+}

@@ -36,6 +36,7 @@ INPUT_OBSERVABILITY_PROFILES = (
     WHEEL_ONLY,
     CONTEXT_ONLY,
 )
+HISTORY_MODES = ("raw", "summary")
 TARGETS = (
     "future_braking_deceleration",
     "future_yaw_response",
@@ -56,6 +57,7 @@ class RegressionProbeResult:
     mae_improvement: float
     status: str = "ok"
     history_window_steps: int = 1
+    history_mode: str = "raw"
 
 
 def build_input_feature_profiles(observations: np.ndarray) -> dict[str, np.ndarray]:
@@ -157,6 +159,7 @@ def train_ridge_regression_probe(
     feature_set: str,
     ridge: float = 1e-4,
     history_window_steps: int = 1,
+    history_mode: str = "raw",
 ) -> RegressionProbeResult:
     train_x = features[train_mask].astype(np.float64)
     test_x = features[~train_mask].astype(np.float64)
@@ -175,6 +178,7 @@ def train_ridge_regression_probe(
             mae_improvement=float("nan"),
             status="skipped_insufficient_samples",
             history_window_steps=history_window_steps,
+            history_mode=history_mode,
         )
 
     mean = train_x.mean(axis=0, keepdims=True)
@@ -203,6 +207,7 @@ def train_ridge_regression_probe(
         baseline_mae=baseline_mae,
         mae_improvement=float(baseline_mae - test_mae),
         history_window_steps=history_window_steps,
+        history_mode=history_mode,
     )
 
 
@@ -211,11 +216,13 @@ def regression_probe_results_to_rows(results: list[RegressionProbeResult]) -> li
 
 
 def summarize_profile_gains(results: list[RegressionProbeResult]) -> list[dict[str, Any]]:
-    by_target: dict[tuple[str, int], dict[str, RegressionProbeResult]] = {}
+    by_target: dict[tuple[str, int, str], dict[str, RegressionProbeResult]] = {}
     for result in results:
-        by_target.setdefault((result.target, result.history_window_steps), {})[result.feature_set] = result
+        by_target.setdefault((result.target, result.history_window_steps, result.history_mode), {})[
+            result.feature_set
+        ] = result
     rows: list[dict[str, Any]] = []
-    for (target, history_window_steps), feature_results in sorted(by_target.items()):
+    for (target, history_window_steps, history_mode), feature_results in sorted(by_target.items()):
         p0 = feature_results[P0_NO_WHEEL_RESPONSE_CONTEXT]
         p1 = feature_results[P1_WHEEL_RESPONSE_CONTEXT]
         p0_response = feature_results[P0_RESPONSE_ONLY]
@@ -224,6 +231,7 @@ def summarize_profile_gains(results: list[RegressionProbeResult]) -> list[dict[s
             {
                 "target": target,
                 "history_window_steps": history_window_steps,
+                "history_mode": history_mode,
                 "p0_no_wheel_test_r2": p0.test_r2,
                 "p1_wheel_test_r2": p1.test_r2,
                 "p1_minus_p0_test_r2": p1.test_r2 - p0.test_r2,
@@ -239,6 +247,31 @@ def summarize_profile_gains(results: list[RegressionProbeResult]) -> list[dict[s
     return rows
 
 
+def build_history_window_features(frames: np.ndarray, history_mode: str) -> np.ndarray:
+    frames = np.asarray(frames, dtype=np.float32)
+    if frames.ndim != 2 or frames.shape[1] != WHEEL_HUMAN_VIEW_OBS_DIM:
+        raise ValueError(
+            "history window features require a 2D array of "
+            f"{WHEEL_HUMAN_VIEW_OBS_DIM}-value frames"
+        )
+    if history_mode == "raw":
+        return frames.reshape(-1).astype(np.float32)
+    if history_mode == "summary":
+        current = frames[-1]
+        first = frames[0]
+        return np.concatenate(
+            [
+                current,
+                current - first,
+                frames.mean(axis=0),
+                frames.std(axis=0),
+                frames.min(axis=0),
+                frames.max(axis=0),
+            ]
+        ).astype(np.float32)
+    raise ValueError(f"unknown history mode: {history_mode}")
+
+
 def collect_input_observability_dataset(
     env_config_path: Path,
     episodes: int,
@@ -248,6 +281,7 @@ def collect_input_observability_dataset(
     sample_stride: int,
     max_samples: int | None,
     history_windows: tuple[int, ...] = (1,),
+    history_mode: str = "raw",
 ) -> tuple[dict[int, np.ndarray], dict[str, np.ndarray], list[dict[str, Any]]]:
     env_config = load_env_config(env_config_path)
     env = AutoDriftEnv(env_config)
@@ -259,6 +293,8 @@ def collect_input_observability_dataset(
         raise ValueError("input observability audit history windows require env history_length=1")
     if not history_windows:
         raise ValueError("at least one history window is required")
+    if history_mode not in HISTORY_MODES:
+        raise ValueError("history_mode must be one of: " + ", ".join(HISTORY_MODES))
     history_windows = tuple(sorted({int(window) for window in history_windows}))
     if any(window < 1 for window in history_windows):
         raise ValueError("history windows must be positive step counts")
@@ -283,7 +319,9 @@ def collect_input_observability_dataset(
                     for offset in range(window - 1, -1, -1):
                         index = max(0, len(episode_observations) - 1 - offset)
                         frames.append(episode_observations[index])
-                    observations_by_window[window].append(np.concatenate(frames).astype(np.float32))
+                    observations_by_window[window].append(
+                        build_history_window_features(np.asarray(frames, dtype=np.float32), history_mode)
+                    )
                 for name in TARGETS:
                     targets[name].append(float(target_values[name]))
                 rows.append(
@@ -328,6 +366,7 @@ def run_input_observability_audit(
     train_fraction: float = 0.70,
     ridge: float = 1e-4,
     history_windows: tuple[int, ...] = (1,),
+    history_mode: str = "raw",
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:
     observations_by_window, targets, rows = collect_input_observability_dataset(
         env_config_path=env_config_path,
@@ -338,6 +377,7 @@ def run_input_observability_audit(
         sample_stride=sample_stride,
         max_samples=max_samples,
         history_windows=history_windows,
+        history_mode=history_mode,
     )
     if len(rows) == 0:
         raise ValueError("input observability dataset is empty")
@@ -356,6 +396,7 @@ def run_input_observability_audit(
                         feature_set=feature_name,
                         ridge=ridge,
                         history_window_steps=history_window_steps,
+                        history_mode=history_mode,
                     )
                 )
     return rows, regression_probe_results_to_rows(results), summarize_profile_gains(results)
@@ -382,6 +423,7 @@ def main() -> None:
     parser.add_argument("--train-fraction", type=float, default=0.70)
     parser.add_argument("--ridge", type=float, default=1e-4)
     parser.add_argument("--history-windows", type=parse_history_windows, default=(1,))
+    parser.add_argument("--history-mode", choices=HISTORY_MODES, default="raw")
     parser.add_argument("--run-dir", type=Path, default=None)
     args = parser.parse_args()
 
@@ -396,6 +438,7 @@ def main() -> None:
         train_fraction=args.train_fraction,
         ridge=args.ridge,
         history_windows=args.history_windows,
+        history_mode=args.history_mode,
     )
 
     run_dir = args.run_dir or make_run_dir(prefix="input_observability_audit", seed=args.seed)
@@ -419,6 +462,7 @@ def main() -> None:
             "sample_stride": args.sample_stride,
             "feature_profiles": INPUT_OBSERVABILITY_PROFILES,
             "history_windows": args.history_windows,
+            "history_mode": args.history_mode,
             "targets": TARGETS,
             "profile_gain_summary": gain_rows,
             "probe_results": probe_rows,
@@ -435,6 +479,7 @@ def main() -> None:
             "horizon_steps": args.horizon_steps,
             "sample_stride": args.sample_stride,
             "history_windows": args.history_windows,
+            "history_mode": args.history_mode,
             "artifacts": {
                 "samples_csv": samples_csv,
                 "probe_summary_csv": probe_summary_csv,

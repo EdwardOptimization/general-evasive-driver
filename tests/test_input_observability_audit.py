@@ -7,6 +7,7 @@ from autodrift.input_observability_audit import (
     P1_RESPONSE_ONLY,
     P1_WHEEL_RESPONSE_CONTEXT,
     WHEEL_ONLY,
+    build_history_window_features,
     build_input_feature_profiles,
     parse_history_windows,
     summarize_profile_gains,
@@ -50,6 +51,33 @@ def test_build_input_feature_profiles_rejects_partial_history_frame():
         build_input_feature_profiles(np.zeros((3, 86), dtype=np.float32))
 
 
+def test_build_history_window_features_raw_concatenates_frames():
+    frames = np.arange(170, dtype=np.float32).reshape(2, 85)
+
+    features = build_history_window_features(frames, "raw")
+
+    np.testing.assert_array_equal(features, frames.reshape(-1))
+
+
+def test_build_history_window_features_summary_uses_current_delta_and_stats():
+    frames = np.stack(
+        [
+            np.zeros(85, dtype=np.float32),
+            np.ones(85, dtype=np.float32) * 2.0,
+            np.ones(85, dtype=np.float32) * 4.0,
+        ]
+    )
+
+    features = build_history_window_features(frames, "summary")
+
+    assert features.shape == (85 * 6,)
+    np.testing.assert_allclose(features[:85], np.ones(85, dtype=np.float32) * 4.0)
+    np.testing.assert_allclose(features[85:170], np.ones(85, dtype=np.float32) * 4.0)
+    np.testing.assert_allclose(features[170:255], np.ones(85, dtype=np.float32) * 2.0)
+    np.testing.assert_allclose(features[340:425], np.zeros(85, dtype=np.float32))
+    np.testing.assert_allclose(features[425:510], np.ones(85, dtype=np.float32) * 4.0)
+
+
 def test_train_ridge_regression_probe_beats_baseline_on_linear_target():
     rng = np.random.default_rng(7)
     features = rng.normal(size=(40, 3)).astype(np.float32)
@@ -83,6 +111,7 @@ def test_summarize_profile_gains_reports_p1_minus_p0():
     assert len(rows) == 1
     assert rows[0]["target"] == "future_braking_deceleration"
     assert rows[0]["history_window_steps"] == 1
+    assert rows[0]["history_mode"] == "raw"
     assert rows[0]["p1_minus_p0_test_r2"] == pytest.approx(0.3)
     assert rows[0]["p1_response_minus_p0_response_test_r2"] == pytest.approx(0.2)
 
