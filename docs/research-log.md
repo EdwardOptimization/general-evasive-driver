@@ -4139,3 +4139,31 @@ Conclusion: the current hidden-envelope proof surface is not reliable enough
 for admission decisions. The next pending step is M109: audit target
 distributions, train/test split variance, and sample-count sensitivity before
 training another hidden-retention objective.
+
+## 20260521T190009Z m109-hidden-envelope-probe-reliability-audit
+
+- status: `completed`
+- kind: `gate`
+- implementation: `src/autodrift/hidden_envelope_reliability_audit.py`
+- tests: `tests/test_hidden_envelope_reliability_audit.py`
+- run: `runs/m109_hidden_envelope_reliability_audit_seed9510`
+- artifact: `docs/m109-hidden-envelope-probe-reliability-audit.md`
+
+Result:
+
+- target means are stable at `800` samples across probe seeds; yaw target mean
+  range is only about `0.007` for M62/M102/M105;
+- increasing sample limit from `400` to `800` reduces lift variance, but the
+  response-hidden-minus-reset lift remains negative for M62/M102/M105 on most
+  targets;
+- at `800` samples, M105 split-averaged lift is braking `-0.138505`, lateral
+  `-0.459649`, yaw `-0.457534`;
+- current-response features often beat both carried response hidden and reset
+  hidden on mean test R2;
+- therefore the current recurrent hidden is not a stable future-envelope belief
+  and does not reliably add information beyond the current response frame.
+
+Conclusion: M109 rejects another same-style hidden-retention objective and
+points to M110: a current-response anchored objective/gate where response
+hidden must beat both reset hidden and current response under repeated split
+and multi-seed evaluation.

@@ -2199,7 +2199,23 @@ decisions. See `docs/m108-baseline-multiseed-hidden-envelope-audit.md`.
 - Pre-register a replacement hidden-envelope gate if the current R2 lift is too
   seed-fragile.
 
-Status: pending. M108 says to fix the proof surface before training.
+Status: completed, negative for the current probe gate. With `800` samples,
+target means are stable across probe seeds, but repeated train/test splits show
+response hidden still loses to reset hidden and often to current response. The
+blocker is not just target distribution shift; the recurrent hidden is not a
+stable future-envelope belief. See
+`docs/m109-hidden-envelope-probe-reliability-audit.md`.
+
+### M110: Current-Response Anchored Hidden-Envelope Objective
+
+- Train or prototype a hidden-envelope objective that makes carried
+  `response_hidden` beat both `reset_response_hidden` and `current_response`.
+- Gate with repeated split seeds and multiple probe seeds before PPO.
+- Preserve the deployable actor input contract.
+
+Status: pending. M109 showed that a self-identification hidden state must add
+information beyond the current response frame, not only differ from reset
+hidden.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

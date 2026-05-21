@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 117,
+    "completed": 118,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m108-baseline-multiseed-hidden-envelope-audit.md",
+    "command_log": "docs/m109-hidden-envelope-probe-reliability-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m108_baseline_multiseed_hidden_envelope_gate_seed9510",
+    "run_dir": "runs/m109_hidden_envelope_reliability_audit_seed9510",
     "status": "completed",
-    "task_id": "m108-baseline-multiseed-hidden-envelope-audit"
+    "task_id": "m109-hidden-envelope-probe-reliability-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m109-hidden-envelope-probe-reliability-audit.json",
-    "hypothesis": "Diagnose hidden-envelope probe target distribution and split reliability before another objective",
-    "id": "m109-hidden-envelope-probe-reliability-audit",
-    "kind": "gate",
-    "notes": "Pending after M108: audit target distributions split variance and sample-count sensitivity",
-    "priority": 1040,
+    "command": "see experiments/manifests/m110-current-response-anchored-hidden-envelope-objective.json",
+    "hypothesis": "Train or prototype a hidden-envelope objective anchored against current-response baseline",
+    "id": "m110-current-response-anchored-hidden-envelope-objective",
+    "kind": "objective_sanity",
+    "notes": "Pending after M109: response hidden must beat both reset hidden and current response before PPO",
+    "priority": 1050,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T185245Z"
+  "updated_at_utc": "20260521T190009Z"
 }

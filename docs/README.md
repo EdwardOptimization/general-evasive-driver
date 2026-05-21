@@ -302,6 +302,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m108-baseline-multiseed-hidden-envelope-audit.md`: M62/M98/M102/M105
   baseline audit under the same aggregate gate; all fail, so the proof surface
   needs diagnosis before another objective.
+- `m109-hidden-envelope-probe-reliability-audit.md`: hidden-envelope probe
+  reliability audit; target means are stable at larger sample counts, but
+  carried response hidden still loses to reset/current-response baselines.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

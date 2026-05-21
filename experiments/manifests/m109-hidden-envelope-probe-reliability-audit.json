@@ -6,24 +6,125 @@
   ],
   "commands": [
     {
-      "command": "TBD: audit hidden-envelope probe target distributions, train/test split variance, larger sample counts, and repeated split seeds before another objective",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_reliability_audit --env-config configs/ppo_m24_human_view_gru_driver.json --checkpoint-policy m62_a250=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --checkpoint-policy m102_9550=runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt --checkpoint-policy m105_9710=runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt --probe-seeds 9510,9511,9512 --split-seeds 9610,9611,9612,9613,9614 --sample-limits 400,800 --episodes 30 --horizon-steps 15 --sample-stride 3 --ridge 0.1 --device cpu --mean-lift-threshold 0.0 --min-lift-threshold 0.0 --pass-fraction-threshold 1.0 --run-dir runs/m109_hidden_envelope_reliability_audit_seed9510",
       "name": "m109_hidden_envelope_probe_reliability_audit"
     }
   ],
+  "decision_labels": {
+    "fail": "reject_current_hidden_envelope_probe_gate",
+    "pass": "accept_current_hidden_envelope_probe_gate"
+  },
   "decision_rule": "Diagnose whether hidden-envelope probe failures come from target distribution shift, train/test split instability, insufficient samples, or genuinely weak recurrent belief before training another objective.",
   "failure_criteria": [
     "a new hidden-retention objective is trained before probe reliability is diagnosed",
     "single train/test split R2 is treated as a stable self-identification proof",
     "the audit uses hidden physics as deployable actor input"
   ],
+  "gates": [
+    {
+      "metric": "m105_800_lateral_lift_mean",
+      "name": "m105_800_lateral_lift_mean_positive",
+      "op": ">=",
+      "threshold": 0.0
+    },
+    {
+      "metric": "m105_800_yaw_lift_mean",
+      "name": "m105_800_yaw_lift_mean_positive",
+      "op": ">=",
+      "threshold": 0.0
+    },
+    {
+      "metric": "m105_800_braking_pass_fraction",
+      "name": "m105_800_braking_all_splits_positive",
+      "op": ">=",
+      "threshold": 1.0
+    },
+    {
+      "metric": "m62_800_yaw_lift_mean",
+      "name": "m62_800_yaw_lift_mean_positive",
+      "op": ">=",
+      "threshold": 0.0
+    }
+  ],
   "hypothesis": "M108 showed all current checkpoints fail the multi-seed hidden-envelope gate. The next blocker is measurement reliability: the probe target distributions or train/test split may be too unstable for admission decisions.",
   "id": "m109-hidden-envelope-probe-reliability-audit",
+  "metric_extractors": [
+    {
+      "column": "lift_mean",
+      "match": {
+        "checkpoint_label": "m105_9710",
+        "sample_limit": "800",
+        "target": "future_lateral_accel_response"
+      },
+      "metric": "m105_800_lateral_lift_mean",
+      "path": "runs/m109_hidden_envelope_reliability_audit_seed9510/aggregate_lift_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "lift_mean",
+      "match": {
+        "checkpoint_label": "m105_9710",
+        "sample_limit": "800",
+        "target": "future_yaw_response"
+      },
+      "metric": "m105_800_yaw_lift_mean",
+      "path": "runs/m109_hidden_envelope_reliability_audit_seed9510/aggregate_lift_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "pass_fraction",
+      "match": {
+        "checkpoint_label": "m105_9710",
+        "sample_limit": "800",
+        "target": "future_braking_deceleration"
+      },
+      "metric": "m105_800_braking_pass_fraction",
+      "path": "runs/m109_hidden_envelope_reliability_audit_seed9510/aggregate_lift_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "lift_mean",
+      "match": {
+        "checkpoint_label": "m62_a250",
+        "sample_limit": "800",
+        "target": "future_yaw_response"
+      },
+      "metric": "m62_800_yaw_lift_mean",
+      "path": "runs/m109_hidden_envelope_reliability_audit_seed9510/aggregate_lift_summary.csv",
+      "type": "csv"
+    }
+  ],
   "required_artifacts": [
     {
       "path": "docs/m109-hidden-envelope-probe-reliability-audit.md",
       "type": "documentation"
+    },
+    {
+      "path": "src/autodrift/hidden_envelope_reliability_audit.py",
+      "type": "harness"
+    },
+    {
+      "path": "tests/test_hidden_envelope_reliability_audit.py",
+      "type": "tests"
+    },
+    {
+      "path": "runs/m109_hidden_envelope_reliability_audit_seed9510/aggregate_lift_summary.csv",
+      "type": "aggregate_lift_summary"
+    },
+    {
+      "path": "runs/m109_hidden_envelope_reliability_audit_seed9510/target_shift_summary.csv",
+      "type": "target_shift_summary"
+    },
+    {
+      "path": "runs/m109_hidden_envelope_reliability_audit_seed9510/split_probe_metrics.csv",
+      "type": "split_probe_metrics"
+    },
+    {
+      "path": "runs/m109_hidden_envelope_reliability_audit_seed9510/summary.json",
+      "type": "summary"
     }
   ],
+  "scoreboard_checkpoint": "runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt",
   "success_criteria": [
     "target distributions are summarized by probe seed",
     "train/test split variance is measured or bounded",

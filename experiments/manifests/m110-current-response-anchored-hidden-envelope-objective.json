@@ -1,0 +1,34 @@
+{
+  "baseline_checkpoints": [
+    "runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt",
+    "runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "TBD: train or prototype a hidden-envelope objective that makes response_hidden beat both reset_hidden and current_response under repeated split / multi-seed gates",
+      "name": "m110_current_response_anchored_hidden_envelope_objective"
+    }
+  ],
+  "decision_rule": "Do not admit a hidden-envelope objective unless response_hidden beats both reset_hidden and current_response across repeated split seeds, probe seeds, and braking/lateral/yaw targets.",
+  "failure_criteria": [
+    "response_hidden only beats reset_hidden but not current_response",
+    "single split or single probe seed is used for admission",
+    "the objective changes deployable actor inputs or adds hidden physics to actor inference",
+    "behavior-retention gates are skipped after objective movement"
+  ],
+  "hypothesis": "M109 showed current_response often beats carried response_hidden. A useful self-identification hidden state must add information beyond the current response frame, not merely differ from reset hidden.",
+  "id": "m110-current-response-anchored-hidden-envelope-objective",
+  "required_artifacts": [
+    {
+      "path": "docs/m110-current-response-anchored-hidden-envelope-objective.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "objective or prototype explicitly gates response_hidden against current_response and reset_hidden",
+    "repeated split and multi-seed metrics are reported",
+    "no hidden/oracle actor inputs are added",
+    "behavior retention remains a required follow-up gate before PPO continuation"
+  ],
+  "type": "objective_sanity"
+}
