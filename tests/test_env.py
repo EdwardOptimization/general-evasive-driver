@@ -238,6 +238,79 @@ def test_obstacle_pass_can_complete_episode_successfully():
     assert reward > 0.0
 
 
+def test_terminal_clearance_margin_reward_is_config_gated():
+    disabled_env = AutoDriftEnv(
+        DriftEnvConfig(
+            obstacle=ObstacleTaskConfig(
+                enabled=True,
+                distance_range=(20.0, 20.0),
+                half_width_range=(0.8, 0.8),
+                finish_on_pass=True,
+                finish_pass_distance=2.0,
+                pass_reward=0.0,
+            )
+        )
+    )
+    shaped_env = AutoDriftEnv(
+        DriftEnvConfig(
+            obstacle=ObstacleTaskConfig(
+                enabled=True,
+                distance_range=(20.0, 20.0),
+                half_width_range=(0.8, 0.8),
+                finish_on_pass=True,
+                finish_pass_distance=2.0,
+                pass_reward=0.0,
+                clearance_margin_reward_scale=2.0,
+                clearance_margin_reward_clip=1.0,
+            )
+        )
+    )
+    disabled_obs, _ = disabled_env.reset(seed=32)
+    shaped_obs, _ = shaped_env.reset(seed=32)
+    assert disabled_obs.shape == shaped_obs.shape == (72,)
+
+    for env in (disabled_env, shaped_env):
+        frame = env.track.frame(env.state.x, env.state.y, env.state.psi)
+        position = np.array([env.state.x, env.state.y], dtype=np.float64)
+        env.obstacle_position = position - frame.tangent * 3.0
+        env.collision = False
+        env.min_obstacle_clearance = 3.0
+
+    action = np.array([0.0, -1.0, -1.0], dtype=np.float32)
+    _, _, _, disabled_truncated, disabled_info = disabled_env.step(action)
+    _, shaped_reward, _, shaped_truncated, shaped_info = shaped_env.step(action)
+
+    assert disabled_truncated is True
+    assert shaped_truncated is True
+    assert "clearance_margin_reward" not in disabled_info["reward_terms"]
+    assert np.isclose(shaped_info["reward_terms"]["clearance_margin_reward"], 2.0)
+    assert np.isclose(shaped_info["reward_terms"]["clearance_margin_reward_normalized"], 1.0)
+    assert shaped_reward > 0.0
+
+
+def test_terminal_clearance_margin_reward_penalizes_collision_margin():
+    env = AutoDriftEnv(
+        DriftEnvConfig(
+            obstacle=ObstacleTaskConfig(
+                enabled=True,
+                distance_range=(0.1, 0.1),
+                half_width_range=(1.0, 1.0),
+                collision_penalty=0.0,
+                clearance_margin_reward_scale=2.0,
+                clearance_margin_reward_clip=1.0,
+            )
+        )
+    )
+    _, info = env.reset(seed=21)
+    assert info["collision"] is True
+
+    _, _, terminated, _, next_info = env.step(np.array([0.0, -1.0, -1.0], dtype=np.float32))
+
+    assert terminated is True
+    assert np.isclose(next_info["reward_terms"]["clearance_margin_reward"], -2.0)
+    assert np.isclose(next_info["reward_terms"]["clearance_margin_reward_normalized"], -1.0)
+
+
 def test_stable_aes_reward_penalizes_high_sideslip_without_oracle_observation():
     base_config = DriftEnvConfig(
         obstacle=ObstacleTaskConfig(

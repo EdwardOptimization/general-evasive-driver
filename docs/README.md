@@ -138,6 +138,8 @@ vehicle/tire models, and NMPC-style constrained control.
   margin-retention gate result, and the conservative M55 direction.
 - `m55-conservative-margin-retention.md`: lower-learning-rate dense-checkpoint
   continuation result and the M56 clearance-margin reward direction.
+- `m56-terminal-clearance-margin-reward.md`: config-gated terminal
+  clearance-margin reward shaping and smoke validation.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

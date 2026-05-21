@@ -55,6 +55,8 @@ def test_build_env_config_overrides_obstacle_task():
                 "stable_aes_drift_bonus_scale": 0.25,
                 "max_threshold_score": 0.05,
                 "min_time_after_friction_step": 0.10,
+                "clearance_margin_reward_scale": 1.5,
+                "clearance_margin_reward_clip": 0.20,
             }
         }
     )
@@ -72,6 +74,8 @@ def test_build_env_config_overrides_obstacle_task():
     assert config.obstacle.stable_aes_drift_bonus_scale == 0.25
     assert config.obstacle.max_threshold_score == 0.05
     assert config.obstacle.min_time_after_friction_step == 0.10
+    assert config.obstacle.clearance_margin_reward_scale == 1.5
+    assert config.obstacle.clearance_margin_reward_clip == 0.20
 
 
 def test_build_env_config_overrides_action_history_mode():

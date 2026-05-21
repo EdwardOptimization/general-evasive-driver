@@ -1136,7 +1136,10 @@ Exit criteria:
 - promotion requires zero binary regressions, zero near-margin regressions, and
   non-negative mean margin delta.
 
-Status: planned.
+Status: infrastructure complete and full training pending. M56 adds the
+config-gated terminal clearance-margin reward, tests reward off/on behavior,
+and smoke-trains from M37_102. See
+`docs/m56-terminal-clearance-margin-reward.md`.
 
 ## Metrics
 

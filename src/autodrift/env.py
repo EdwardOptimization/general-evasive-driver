@@ -61,6 +61,12 @@ class ObstacleTaskConfig:
     stable_aes_drift_bonus_scale: float = 1.0
     max_threshold_score: float | None = None
     min_time_after_friction_step: float = 0.0
+    clearance_margin_reward_scale: float = 0.0
+    clearance_margin_reward_clip: float = 0.25
+
+    def __post_init__(self) -> None:
+        if self.clearance_margin_reward_clip <= 0.0:
+            raise ValueError("clearance_margin_reward_clip must be positive")
 
     def scenario_config(self, speed: float, mu: float) -> ObstacleScenarioConfig:
         return ObstacleScenarioConfig(
@@ -232,6 +238,10 @@ class AutoDriftEnv(gym.Env):
         if self.collision:
             reward -= self.config.obstacle.collision_penalty
             reward_terms["collision_penalty"] = self.config.obstacle.collision_penalty
+        margin_reward, margin_terms = self._terminal_clearance_margin_reward()
+        if margin_terms:
+            reward += margin_reward
+            reward_terms.update(margin_terms)
         if terminated and self.config.termination_penalty > 0.0:
             reward -= self.config.termination_penalty
             reward_terms["termination_penalty"] = self.config.termination_penalty
@@ -487,6 +497,27 @@ class AutoDriftEnv(gym.Env):
             return float("nan")
         return float(self.config.obstacle.ego_half_width + self.obstacle_scenario.obstacle_half_width)
 
+    def _clearance_margin(self) -> float:
+        obstacle_collision_radius = self._obstacle_collision_radius()
+        if not self.config.obstacle.enabled or not np.isfinite(obstacle_collision_radius):
+            return float("nan")
+        return float(self.min_obstacle_clearance - obstacle_collision_radius)
+
+    def _terminal_clearance_margin_reward(self) -> tuple[float, dict[str, float]]:
+        scale = float(self.config.obstacle.clearance_margin_reward_scale)
+        if scale == 0.0 or not (self.obstacle_completed or self.collision):
+            return 0.0, {}
+        margin = self._clearance_margin()
+        if not np.isfinite(margin):
+            return 0.0, {}
+        clip = float(self.config.obstacle.clearance_margin_reward_clip)
+        normalized_margin = float(np.clip(margin / clip, -1.0, 1.0))
+        reward = scale * normalized_margin
+        return reward, {
+            "clearance_margin_reward": reward,
+            "clearance_margin_reward_normalized": normalized_margin,
+        }
+
     def _observation(self) -> np.ndarray:
         if not self.obs_history:
             base_observation = self._base_observation()
@@ -597,11 +628,7 @@ class AutoDriftEnv(gym.Env):
         base_params = VehicleParams()
         obstacle_path = self._obstacle_path_features(frame)
         obstacle_collision_radius = self._obstacle_collision_radius()
-        min_clearance_margin = (
-            self.min_obstacle_clearance - obstacle_collision_radius
-            if self.config.obstacle.enabled and np.isfinite(obstacle_collision_radius)
-            else float("nan")
-        )
+        min_clearance_margin = self._clearance_margin()
         return {
             "mu": self.params.mu,
             "initial_mu": self.initial_mu,
