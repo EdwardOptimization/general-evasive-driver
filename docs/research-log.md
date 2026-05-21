@@ -22,8 +22,8 @@ Last updated: 2026-05-21
   showed the few wrong-history candidates do not degrade continuation outcome.
   M71 added an outcome-sensitive matched-scenario constructor, but passive
   snapshot mining still produced zero accepted wrong-history outcome cases. The
-  next blocker is giving the policy explicit pre-emergency response history
-  before testing wrong-history interventions.
+  M72 warm-up reveal gate also produced zero accepted outcome-sensitive cases,
+  so the next blocker is active, safety-bounded identification during warm-up.
 
 ## Standing Loop
 
@@ -2933,20 +2933,32 @@ outcome gaps. The next task is M72: add a pre-emergency warm-up/history harness
 so the recurrent state has explicit action-response evidence before obstacle
 avoidance is evaluated.
 
-## 20260521 m72-pre-emergency-warmup-history-harness-start
+## 20260521T121723Z m72-pre-emergency-warmup-history-harness
 
-- status: `started`
+- status: `completed`
 - kind: `infrastructure`
 - hypothesis: passive matched snapshots are too weak because they do not give
   the recurrent state a clean pre-emergency identification phase.
 - code update: `ObstacleTaskConfig` now supports `perception_reveal_step` and
-  `perception_reveal_distance`.
+  `perception_reveal_distance`; `outcome_sensitive_corpus` can override both
+  from the CLI.
 - behavior: the obstacle remains physically present and logged, but actor
   obstacle slots stay zero until reveal conditions pass.
 - tests: `conda run -n autodrift pytest -q tests/test_env.py tests/test_config.py`
-  returned `33 passed`.
+  returned `33 passed`; the expanded M72-B target set returned `40 passed`.
+- smoke runs: `runs/m72_warmup_reveal_brake_smoke_seed7700`,
+  `runs/m72_warmup_reveal_friction_smoke_seed7800`
 - artifact: `docs/m72-pre-emergency-warmup-history-harness.md`
 
-Next: build the actual warm-up history gate that swaps normal and wrong matched
-warm-up recurrent histories before obstacle reveal and accepts only
-outcome-sensitive success or margin degradation.
+Result:
+
+- weak-brake warm-up reveal: `60` candidates, `33` visible matches, `0`
+  outcome-sensitive pairs, max margin gap `0.008442`;
+- low-friction warm-up reveal: `60` candidates, `7` visible matches, `0`
+  outcome-sensitive pairs, max margin gap `0.007695`.
+
+Conclusion: M72 is a useful infrastructure pass but a negative diagnostic.
+Passive warm-up reveal still does not make wrong-history recurrent state
+outcome-causal. The next task is M73: add active, safety-bounded probing during
+warm-up or a training objective that makes probing response history
+action-relevant.

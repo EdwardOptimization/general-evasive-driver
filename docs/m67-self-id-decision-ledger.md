@@ -247,17 +247,19 @@ Persisted in:
 Continue with:
 
 ```text
-m72-pre-emergency-warmup-history-harness
+m73-active-probing-warmup-harness
 ```
 
 Implementation intent:
 
 ```text
-let action-response history accumulate before obstacle appearance
-compare normal warm-up history with wrong matched warm-up history
-require wrong/reset/zero history to reduce outcome under strict visible matching
+use small safety-bounded control excitation before obstacle reveal
+compare normal probing history with wrong matched probing history
+require wrong/reset/zero probing history to reduce outcome under strict visible matching
 ```
 
 M70 showed that M69 wrong-history candidates do not degrade success or margin.
 M71 added the outcome-sensitive miner but still found zero accepted passive
-matched-snapshot cases. Do not proceed directly to student OSI distillation yet.
+matched-snapshot cases. M72 added passive warm-up reveal, but it also found zero
+accepted outcome-sensitive cases. Do not proceed directly to student OSI
+distillation yet.

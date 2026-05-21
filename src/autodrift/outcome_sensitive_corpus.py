@@ -85,14 +85,25 @@ def obstacle_override_config(
     *,
     distance_range: tuple[float, float] | None,
     half_width_range: tuple[float, float] | None,
+    perception_reveal_step: int | None = None,
+    perception_reveal_distance: float | None = None,
 ) -> DriftEnvConfig:
-    if distance_range is None and half_width_range is None:
+    if (
+        distance_range is None
+        and half_width_range is None
+        and perception_reveal_step is None
+        and perception_reveal_distance is None
+    ):
         return env_config
     obstacle = env_config.obstacle
     if distance_range is not None:
         obstacle = replace(obstacle, distance_range=distance_range)
     if half_width_range is not None:
         obstacle = replace(obstacle, half_width_range=half_width_range)
+    if perception_reveal_step is not None:
+        obstacle = replace(obstacle, perception_reveal_step=int(perception_reveal_step))
+    if perception_reveal_distance is not None:
+        obstacle = replace(obstacle, perception_reveal_distance=float(perception_reveal_distance))
     return replace(env_config, obstacle=obstacle)
 
 
@@ -350,6 +361,8 @@ def run_outcome_sensitive_corpus(
     perturbed_randomization: dict[str, tuple[float, float]],
     obstacle_distance_range: tuple[float, float] | None,
     obstacle_half_width_range: tuple[float, float] | None,
+    obstacle_perception_reveal_step: int | None,
+    obstacle_perception_reveal_distance: float | None,
     target_obstacle_distances: list[float],
     min_probe_steps: int,
     max_probe_steps: int,
@@ -369,6 +382,8 @@ def run_outcome_sensitive_corpus(
         base_config,
         distance_range=obstacle_distance_range,
         half_width_range=obstacle_half_width_range,
+        perception_reveal_step=obstacle_perception_reveal_step,
+        perception_reveal_distance=obstacle_perception_reveal_distance,
     )
     configs = {
         "nominal": condition_config(base_config, nominal_friction_mu_range, nominal_randomization),
@@ -439,6 +454,8 @@ def main() -> None:
     parser.add_argument("--perturbed-randomization", action="append", default=[])
     parser.add_argument("--obstacle-distance-range", type=parse_range, default=None)
     parser.add_argument("--obstacle-half-width-range", type=parse_range, default=None)
+    parser.add_argument("--obstacle-perception-reveal-step", type=int, default=None)
+    parser.add_argument("--obstacle-perception-reveal-distance", type=float, default=None)
     parser.add_argument("--target-obstacle-distances", type=parse_float_list, default=[8.0, 10.0, 12.0])
     parser.add_argument("--min-probe-steps", type=int, default=10)
     parser.add_argument("--max-probe-steps", type=int, default=180)
@@ -477,6 +494,8 @@ def main() -> None:
         perturbed_randomization=perturbed_randomization,
         obstacle_distance_range=args.obstacle_distance_range,
         obstacle_half_width_range=args.obstacle_half_width_range,
+        obstacle_perception_reveal_step=args.obstacle_perception_reveal_step,
+        obstacle_perception_reveal_distance=args.obstacle_perception_reveal_distance,
         target_obstacle_distances=args.target_obstacle_distances,
         min_probe_steps=args.min_probe_steps,
         max_probe_steps=args.max_probe_steps,
@@ -518,6 +537,8 @@ def main() -> None:
             "perturbed_randomization": perturbed_randomization,
             "obstacle_distance_range": args.obstacle_distance_range,
             "obstacle_half_width_range": args.obstacle_half_width_range,
+            "obstacle_perception_reveal_step": args.obstacle_perception_reveal_step,
+            "obstacle_perception_reveal_distance": args.obstacle_perception_reveal_distance,
             "target_obstacle_distances": args.target_obstacle_distances,
             "min_probe_steps": args.min_probe_steps,
             "max_probe_steps": args.max_probe_steps,

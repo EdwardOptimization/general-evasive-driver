@@ -1582,6 +1582,23 @@ remain physically active while actor obstacle slots stay zero until
 the actor observation shape and creates the basis for warm-up history gates. See
 `docs/m72-pre-emergency-warmup-history-harness.md`.
 
+M72-B status: complete as negative smoke. The outcome-sensitive miner can now
+override obstacle reveal controls. Weak-brake and low-friction warm-up reveal
+smokes produced zero accepted outcome-sensitive pairs; max margin gaps stayed
+below `0.01 m`. The next step is active probing rather than passive warm-up.
+
+### M73: Active-Probing Warm-Up Harness
+
+- Add a harness or task variant where the policy can produce small
+  safety-bounded steering/brake/throttle excitations before obstacle reveal.
+- Compare normal probing history against wrong matched probing history and
+  reset/zero-history interventions.
+- Penalize unsafe probing and keep all actor inputs deployable.
+- Accept only if probing history changes outcome under strict visible-state
+  matching.
+
+Status: planned after M72.
+
 ### M67-F: Counterfactual Response-Intervention Objective
 
 - Stop treating seed replay alone as sufficient for self-identification.

@@ -49,6 +49,16 @@ Behavior:
 This supports a controlled warm-up phase without changing the actor contract.
 The driver can experience vehicle response first, then see the obstacle later.
 
+M72-B also wired these controls into `outcome_sensitive_corpus`:
+
+```text
+--obstacle-perception-reveal-step STEP
+--obstacle-perception-reveal-distance DISTANCE
+```
+
+This lets the M71 outcome-sensitive miner run warm-up reveal gates without a
+separate config file.
+
 ## Tests
 
 Focused tests cover:
@@ -72,18 +82,122 @@ Result:
 33 passed
 ```
 
-## Next Step
-
-Build the actual M72 gate:
+Additional M72-B validation:
 
 ```text
-collect warm-up snapshots with obstacle hidden
-reveal obstacle at matched emergency geometry
-swap normal and wrong matched warm-up recurrent histories
-replay normal/reset/zero/wrong-history variants
-accept only outcome-sensitive cases
+conda run -n autodrift pytest -q \
+  tests/test_outcome_sensitive_corpus.py tests/test_env.py tests/test_config.py
 ```
 
-The M72 gate should reuse M71's outcome-sensitive acceptance logic where
-possible, but its snapshot source should be warm-up history rather than passive
-same-obstacle rollouts.
+Result:
+
+```text
+40 passed
+```
+
+## Warm-Up Reveal Smoke
+
+Both smoke runs hide obstacle slots until at least step `20` and until obstacle
+longitudinal distance is at most `14 m`. Snapshots are collected after reveal at
+`8,10,12 m`.
+
+### Weak-Brake Warm-Up Reveal
+
+```text
+conda run -n autodrift python -m autodrift.outcome_sensitive_corpus \
+  --env-config configs/ppo_m67e_warm_started_privileged_teacher.json \
+  --checkpoint runs/ppo_m67e_warm_privileged_teacher_seed3267/checkpoints/checkpoint_step_4096.pt \
+  --episodes 20 \
+  --seed 7700 \
+  --device cpu \
+  --nominal-friction-mu-range 0.85,1.15 \
+  --perturbed-friction-mu-range 0.85,1.15 \
+  --nominal-randomization brake_scale_range=1.20,1.40 \
+  --perturbed-randomization brake_scale_range=0.50,0.60 \
+  --obstacle-perception-reveal-step 20 \
+  --obstacle-perception-reveal-distance 14 \
+  --target-obstacle-distances 8,10,12 \
+  --max-visible-distance 0.75 \
+  --max-response-distance 0.25 \
+  --max-context-distance 0.05 \
+  --min-margin-gap 0.01 \
+  --max-normal-margin 0.20 \
+  --max-continuation-steps 0 \
+  --top-k 20 \
+  --run-dir runs/m72_warmup_reveal_brake_smoke_seed7700
+```
+
+Result:
+
+| Metric | Value |
+| --- | ---: |
+| Candidates | 60 |
+| Paired candidates | 60 |
+| Accepted visible matches | 33 |
+| Accepted outcome-sensitive pairs | 0 |
+| Max margin gap | 0.008442 |
+
+### Low-Friction Warm-Up Reveal
+
+```text
+conda run -n autodrift python -m autodrift.outcome_sensitive_corpus \
+  --env-config configs/ppo_m67e_warm_started_privileged_teacher.json \
+  --checkpoint runs/ppo_m67e_warm_privileged_teacher_seed3267/checkpoints/checkpoint_step_4096.pt \
+  --episodes 20 \
+  --seed 7800 \
+  --device cpu \
+  --nominal-friction-mu-range 0.85,1.15 \
+  --perturbed-friction-mu-range 0.25,0.35 \
+  --obstacle-perception-reveal-step 20 \
+  --obstacle-perception-reveal-distance 14 \
+  --target-obstacle-distances 8,10,12 \
+  --max-visible-distance 0.75 \
+  --max-response-distance 0.25 \
+  --max-context-distance 0.05 \
+  --min-margin-gap 0.01 \
+  --max-normal-margin 0.20 \
+  --max-continuation-steps 0 \
+  --top-k 20 \
+  --run-dir runs/m72_warmup_reveal_friction_smoke_seed7800
+```
+
+Result:
+
+| Metric | Value |
+| --- | ---: |
+| Candidates | 60 |
+| Paired candidates | 57 |
+| Accepted visible matches | 7 |
+| Accepted outcome-sensitive pairs | 0 |
+| Max margin gap | 0.007695 |
+
+## Interpretation
+
+M72 is an infrastructure pass and a negative smoke result.
+
+The reveal mechanism creates the intended observation sequence, but the current
+policy still does not show causal dependence on warm-up recurrent history:
+
+- weak-brake warm-up reveal has many visible matches, but max wrong-history
+  margin gap remains below the 1 cm acceptance threshold;
+- low-friction warm-up reveal has few strict visible matches and also stays
+  below threshold;
+- normal margins for the highest-gap rows are still not near-boundary.
+
+This means passive warm-up is still insufficient. The next proof surface should
+add active but safety-bounded identification actions during warm-up, or train a
+policy/objective that makes warm-up response history action-relevant.
+
+## Next Step
+
+Build M73:
+
+```text
+active-probing warm-up harness
+small steer/brake/throttle excitation under safety cost
+wrong matched probing history intervention
+outcome-sensitive acceptance after obstacle reveal
+```
+
+The probing sequence must remain deployable. Hidden parameters can only be used
+for pairing, labels, diagnostics, or teacher-only training targets.

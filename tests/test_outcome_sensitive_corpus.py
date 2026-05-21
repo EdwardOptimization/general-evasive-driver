@@ -69,11 +69,15 @@ def test_obstacle_override_config_updates_only_requested_ranges():
     changed = obstacle_override_config(
         config,
         distance_range=(5.0, 12.0),
-        half_width_range=None,
+        half_width_range=(0.8, 1.2),
+        perception_reveal_step=20,
+        perception_reveal_distance=14.0,
     )
 
     assert changed.obstacle.distance_range == (5.0, 12.0)
-    assert changed.obstacle.half_width_range == (0.4, 1.0)
+    assert changed.obstacle.half_width_range == (0.8, 1.2)
+    assert changed.obstacle.perception_reveal_step == 20
+    assert changed.obstacle.perception_reveal_distance == 14.0
     assert config.obstacle.distance_range == (3.0, 25.0)
 
 
