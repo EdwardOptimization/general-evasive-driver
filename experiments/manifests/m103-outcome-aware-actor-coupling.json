@@ -7,8 +7,20 @@
   ],
   "commands": [
     {
-      "command": "TBD: build outcome-aware actor-coupling snippets from normal/reset/zero-response rollouts, then optimize only on states where recurrent history improves clearance or success",
-      "name": "m103_outcome_aware_actor_coupling"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.history_ablation_snippets --env-config configs/ppo_m24_human_view_gru_driver.json --checkpoint runs/m101_actor_coupling_objective_seed9530/optimized_checkpoint.pt --episodes 30 --seed 9600 --device cpu --target-obstacle-distances 8,10,12 --min-probe-steps 10 --max-probe-steps 180 --allow-pre-friction-snapshot --max-continuation-steps 0 --min-margin-gap 0.01 --min-normal-margin 0.0 --outcome-export-min-margin-gap 0.0 --outcome-export-boundary-margin-scale 0.20 --top-k 100 --run-dir runs/m103_history_ablation_snippets_m101_smoke_seed9600",
+      "name": "m103_history_ablation_snippets"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.outcome_intervention_optimize --init-checkpoint runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt --snippet-npz runs/m103_history_ablation_snippets_m101_smoke_seed9600/outcome_intervention_snippets.npz --device cpu --steps 200 --batch-size 256 --learning-rate 0.0001 --logprob-margin 0.05 --seed 9610 --grad-clip-norm 1.0 --log-interval 20 --eval-batch-size 128 --eval-batches 20 --eval-seed 0 --train-scope actor_coupling --run-dir runs/m103_outcome_actor_coupling_m102_seed9610",
+      "name": "m103_outcome_actor_coupling"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.benchmark --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 80 --seed 9500 --policies heuristic --checkpoint-policy m62_a250=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --checkpoint-policy m98_9480=runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt --checkpoint-policy m101_9530=runs/m101_actor_coupling_objective_seed9530/optimized_checkpoint.pt --checkpoint-policy m102_9550=runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt --checkpoint-policy m103_9610=runs/m103_outcome_actor_coupling_m102_seed9610/optimized_checkpoint.pt --checkpoint-policy m103_9610_reset=runs/m103_outcome_actor_coupling_m102_seed9610/optimized_checkpoint.pt@reset_recurrent_state --checkpoint-policy m103_9610_zero_current=runs/m103_outcome_actor_coupling_m102_seed9610/optimized_checkpoint.pt@zero_current_response --checkpoint-policy m103_9610_zero_all=runs/m103_outcome_actor_coupling_m102_seed9610/optimized_checkpoint.pt@zero_all_response --checkpoint-policy m103_9610_noact=runs/m103_outcome_actor_coupling_m102_seed9610/optimized_checkpoint.pt@zero_action_history --device cpu --run-dir runs/m103_outcome_actor_coupling_behavior_gate_seed9500",
+      "name": "m103_behavior_gate"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_probe --checkpoint runs/m103_outcome_actor_coupling_m102_seed9610/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9510 --horizon-steps 15 --sample-stride 3 --max-samples 800 --ridge 0.1 --device cpu --run-dir runs/m103_outcome_actor_coupling_hidden_envelope_probe_seed9510",
+      "name": "m103_hidden_envelope_probe"
     }
   ],
   "decision_rule": "Admit only if outcome-aware coupling preserves M98 hidden-envelope lift and makes reset/zero-response/wrong-history ablations worse on outcome-sensitive states.",
@@ -24,6 +36,22 @@
     {
       "path": "docs/m103-outcome-aware-actor-coupling.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m103_history_ablation_snippets_m101_smoke_seed9600/outcome_intervention_snippets.npz",
+      "type": "snippet_npz"
+    },
+    {
+      "path": "runs/m103_outcome_actor_coupling_m102_seed9610/summary.json",
+      "type": "objective_summary"
+    },
+    {
+      "path": "runs/m103_outcome_actor_coupling_behavior_gate_seed9500/policy_summary.csv",
+      "type": "behavior_gate"
+    },
+    {
+      "path": "runs/m103_outcome_actor_coupling_hidden_envelope_probe_seed9510/hidden_gain_summary.csv",
+      "type": "hidden_probe"
     }
   ],
   "success_criteria": [

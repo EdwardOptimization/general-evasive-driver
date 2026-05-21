@@ -2097,10 +2097,12 @@ Do not keep sweeping simple anchor/contrast. See
 - Treat M101 as the behavior-dependence positive control and M102 as the
   hidden-retention positive control.
 
-Status: planned. M101 and M102 expose a real tradeoff: strong action coupling
-creates behavior dependence but breaks hidden-envelope retention; soft coupling
-retains hidden belief but is behavior-neutral. The next objective must bind
-history dependence to closed-loop outcomes.
+Status: complete as a mixed negative objective-sanity result. M103 successfully
+mines outcome-sensitive M101 reset snippets and optimizes the M102 actor/fusion
+layers to near-zero fixed-batch outcome loss. Behavior retention passes and
+zero-response drops slightly, but reset-hidden success still matches normal and
+braking/lateral hidden-envelope retention fails. Do not promote to PPO
+continuation. See `docs/m103-outcome-aware-actor-coupling.md`.
 
 ### M104: Minimum Observable Input Contract
 
@@ -2121,6 +2123,20 @@ Status: design note only. M91/M92 keep the current no-wheel human-view driver
 as primary for now. M104 records the rule for future four-wheel or richer
 wheel-contact work without reopening the rejected single-track wheel profiles.
 See `docs/m104-minimum-observable-input-contract.md`.
+
+### M105: Retention-Constrained Outcome Coupling
+
+- Combine M103 outcome-sensitive snippet pressure with a broad retention guard.
+- Candidate guards include a normal-action anchor on a wider M102/M98 rollout
+  batch, a hidden-envelope retention term, or a two-stage objective that refuses
+  actor updates if braking/lateral response-hidden-minus-reset lift regresses.
+- Keep the actor input contract unchanged.
+- Gate objective loss, normal behavior retention, reset/zero-response behavior
+  dependence, and hidden-envelope retention together.
+
+Status: planned. M103 showed that outcome snippets are optimizable, but fitting
+them alone is insufficient because recurrent hidden is still not
+behavior-critical and closed-loop hidden-envelope retention regresses.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

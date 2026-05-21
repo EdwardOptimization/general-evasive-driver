@@ -1,0 +1,37 @@
+{
+  "baseline_checkpoints": [
+    "runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt",
+    "runs/m103_outcome_actor_coupling_m102_seed9610/optimized_checkpoint.pt",
+    "runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt",
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt"
+  ],
+  "commands": [
+    {
+      "command": "TBD: combine M103 outcome snippets with a broad M102/M98 action-retention or hidden-envelope-retention guard before another actor-coupling optimization",
+      "name": "m105_retention_constrained_outcome_coupling"
+    }
+  ],
+  "decision_rule": "Admit only if the optimized checkpoint preserves M98/M102 braking and lateral hidden-envelope lift while producing reset or zero-response behavior degradation on outcome-sensitive gates without normal-behavior regression.",
+  "failure_criteria": [
+    "outcome loss improves but reset-hidden behavior does not degrade",
+    "braking or lateral hidden-envelope lift is negative versus reset hidden",
+    "normal behavior regresses versus M62 or M98",
+    "the objective introduces hidden physics or oracle labels into actor inputs"
+  ],
+  "hypothesis": "M103 failed because fitting reset-sensitive snippets alone changed the closed-loop trajectory distribution enough to lose hidden-envelope retention. A broad retention-constrained outcome objective may keep M102's hidden belief while recovering M101-style behavior dependence.",
+  "id": "m105-retention-constrained-outcome-coupling",
+  "required_artifacts": [
+    {
+      "path": "docs/m105-retention-constrained-outcome-coupling.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "uses only deployable actor observations and training-time outcome labels",
+    "preserves M62/M98 normal behavior and clearance margin",
+    "reset or zero-response ablations degrade success or clearance",
+    "retains positive braking and lateral response-hidden-minus-reset envelope lift",
+    "records objective repeats and full behavior and hidden-envelope gates"
+  ],
+  "type": "objective_sanity"
+}

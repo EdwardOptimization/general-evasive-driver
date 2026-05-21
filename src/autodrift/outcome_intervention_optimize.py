@@ -11,6 +11,7 @@ import pandas as pd
 import torch
 
 from autodrift.artifacts import make_run_dir, to_jsonable, write_json
+from autodrift.actor_coupling_optimize import actor_coupling_trainable_parameters
 from autodrift.checkpoints import load_actor_critic_checkpoint
 from autodrift.intervention_objectives import (
     load_outcome_intervention_snippets,
@@ -25,7 +26,24 @@ def _snippet_dims(snippet_npz: Path) -> tuple[int, int]:
     return int(data["observation"].shape[1]), int(data["preferred_action"].shape[1])
 
 
-def _trainable_parameters(model: torch.nn.Module, *, freeze_log_std: bool) -> list[torch.nn.Parameter]:
+def _trainable_parameters(
+    model: torch.nn.Module,
+    *,
+    freeze_log_std: bool,
+    train_scope: str,
+) -> list[torch.nn.Parameter]:
+    if train_scope not in {"all", "actor_coupling"}:
+        raise ValueError("train_scope must be 'all' or 'actor_coupling'")
+    if train_scope == "actor_coupling":
+        for parameter in model.parameters():
+            parameter.requires_grad_(False)
+        parameters = actor_coupling_trainable_parameters(model)  # type: ignore[arg-type]
+        for parameter in parameters:
+            parameter.requires_grad_(True)
+        if not freeze_log_std and hasattr(model, "log_std"):
+            model.log_std.requires_grad_(True)
+            parameters = [*parameters, model.log_std]
+        return parameters
     if freeze_log_std and hasattr(model, "log_std"):
         model.log_std.requires_grad_(False)
     return [parameter for parameter in model.parameters() if parameter.requires_grad]
@@ -66,6 +84,7 @@ def optimize_outcome_intervention(
     eval_batch_size: int,
     eval_batches: int,
     eval_seed: int,
+    train_scope: str = "all",
 ) -> tuple[dict[str, Any], pd.DataFrame, pd.DataFrame]:
     run_dir.mkdir(parents=True, exist_ok=True)
     resolved_device = resolve_device(device)
@@ -80,7 +99,7 @@ def optimize_outcome_intervention(
         hidden_size=model.actor_mean.in_features,
         act_dim=act_dim,
     )
-    parameters = _trainable_parameters(model, freeze_log_std=freeze_log_std)
+    parameters = _trainable_parameters(model, freeze_log_std=freeze_log_std, train_scope=train_scope)
     if not parameters:
         raise RuntimeError("no trainable parameters are available for outcome objective optimization")
     optimizer = torch.optim.Adam(parameters, lr=float(learning_rate))
@@ -136,6 +155,7 @@ def optimize_outcome_intervention(
             "logprob_margin": float(logprob_margin),
             "seed": int(seed),
             "freeze_log_std": bool(freeze_log_std),
+            "train_scope": train_scope,
             "grad_clip_norm": float(grad_clip_norm),
         },
     )
@@ -166,6 +186,7 @@ def optimize_outcome_intervention(
         "logprob_margin": float(logprob_margin),
         "seed": int(seed),
         "freeze_log_std": bool(freeze_log_std),
+        "train_scope": train_scope,
         "grad_clip_norm": float(grad_clip_norm),
         "eval_batch_size": int(eval_batch_size),
         "eval_batches": int(eval_batches),
@@ -196,6 +217,7 @@ def main() -> None:
     parser.add_argument("--logprob-margin", type=float, default=0.05)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--train-log-std", action="store_true")
+    parser.add_argument("--train-scope", choices=["all", "actor_coupling"], default="all")
     parser.add_argument("--grad-clip-norm", type=float, default=1.0)
     parser.add_argument("--log-interval", type=int, default=20)
     parser.add_argument("--eval-batch-size", type=int, default=128)
@@ -216,6 +238,7 @@ def main() -> None:
         logprob_margin=args.logprob_margin,
         seed=args.seed,
         freeze_log_std=not args.train_log_std,
+        train_scope=args.train_scope,
         grad_clip_norm=args.grad_clip_norm,
         log_interval=args.log_interval,
         run_dir=run_dir,

@@ -3980,3 +3980,42 @@ Decision:
 This is not a result and does not change the active M103 path. It prevents the
 historical M81 proxy branch from being mistaken for the final minimum actor
 contract.
+
+## 20260521T181755Z m103-outcome-aware-actor-coupling
+
+- status: `completed`
+- kind: `objective_sanity`
+- implementation:
+  `src/autodrift/history_ablation_snippets.py`,
+  `src/autodrift/outcome_intervention_optimize.py`
+- tests:
+  `tests/test_history_ablation_snippets.py`,
+  `tests/test_outcome_intervention_optimize.py`
+- snippet run: `runs/m103_history_ablation_snippets_m101_smoke_seed9600`
+- objective runs:
+  `runs/m103_outcome_actor_coupling_m102_seed9610`,
+  `runs/m103_outcome_actor_coupling_m102_seed9611`,
+  `runs/m103_outcome_actor_coupling_m102_seed9612`
+- behavior gate:
+  `runs/m103_outcome_actor_coupling_behavior_gate_seed9500`
+- hidden probe:
+  `runs/m103_outcome_actor_coupling_hidden_envelope_probe_seed9510`
+- artifact: `docs/m103-outcome-aware-actor-coupling.md`
+
+Result:
+
+- M103 snippet mining finds `87` accepted outcome-sensitive rows from `180`
+  candidates and exports `57` reset-hidden outcome snippets;
+- fixed-batch outcome loss from the M102 checkpoint drops from `0.045645` to
+  `0.000102` in all three deterministic repeats;
+- behavior retention passes: M103 success is `0.8750` versus M62/M98/M101/M102
+  at `0.8625`;
+- zero-response success drops to `0.8500`, but reset-hidden success stays
+  `0.8750`;
+- hidden-envelope retention fails on braking and lateral:
+  `-0.070796` and `-0.110616` response-hidden-minus-reset R2 lift.
+
+Conclusion: M103 is not a PPO-admitted driver. Outcome-sensitive snippets are
+now a useful harness, but fitting them alone does not prove recurrent
+self-identification. The next planned step is M105: add a broad behavior or
+hidden-envelope retention constraint to the outcome actor-coupling objective.

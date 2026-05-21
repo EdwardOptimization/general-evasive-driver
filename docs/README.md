@@ -282,6 +282,9 @@ vehicle/tire models, and NMPC-style constrained control.
   hidden-envelope retention still fails.
 - `m102-retention-aware-actor-coupling.md`: stronger-anchor actor-coupling
   repeat; hidden-envelope retention returns, but behavior dependence disappears.
+- `m103-outcome-aware-actor-coupling.md`: outcome-sensitive snippet mining and
+  actor-coupling repeat; objective and behavior retention pass, but reset-hidden
+  dependence and braking/lateral hidden-envelope retention still fail.
 - `m104-minimum-observable-input-contract.md`: latest MHTML-derived input
   contract; actor sees sensor-direct command/actuator/wheel/body/scene signals,
   while slip ratios, controller flags, and oracle labels stay out of actor

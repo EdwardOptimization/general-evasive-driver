@@ -1,7 +1,7 @@
 import numpy as np
 import torch
 
-from autodrift.outcome_intervention_optimize import optimize_outcome_intervention
+from autodrift.outcome_intervention_optimize import _trainable_parameters, optimize_outcome_intervention
 from autodrift.train_ppo import ActorCritic
 
 
@@ -65,3 +65,17 @@ def test_optimize_outcome_intervention_writes_before_after_artifacts(tmp_path):
     assert np.isfinite(summary["before_loss_mean"])
     assert np.isfinite(summary["after_loss_mean"])
     assert summary["optimized_checkpoint"].name == "optimized_checkpoint.pt"
+
+
+def test_actor_coupling_train_scope_excludes_response_gru():
+    model = ActorCritic(obs_dim=72, act_dim=3, hidden_size=8, actor_encoder="human_view_online_gru")
+
+    params = _trainable_parameters(model, freeze_log_std=True, train_scope="actor_coupling")
+    param_ids = {id(parameter) for parameter in params}
+
+    assert id(list(model.response_encoder.parameters())[0]) not in param_ids
+    assert id(list(model.online_gru_cell.parameters())[0]) not in param_ids
+    assert id(list(model.context_encoder.parameters())[0]) not in param_ids
+    assert id(list(model.response_context_fusion.parameters())[0]) in param_ids
+    assert id(list(model.actor_mean.parameters())[0]) in param_ids
+    assert id(model.log_std) not in param_ids
