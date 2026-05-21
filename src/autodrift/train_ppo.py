@@ -22,6 +22,11 @@ from torch.optim import Adam
 from autodrift.artifacts import make_run_dir, read_json, to_jsonable, write_csv_rows, write_json
 from autodrift.config import build_curriculum, build_env_config, env_config_for_step
 from autodrift.env import AutoDriftEnv, DriftEnvConfig
+from autodrift.intervention_objectives import (
+    action_mean_margin_contrast_loss,
+    baseline_action_anchor_loss,
+    logprob_intervention_contrast_loss,
+)
 from autodrift.vector_env import ParallelAutoDriftVectorEnv, SyncAutoDriftVectorEnv
 
 
@@ -730,20 +735,6 @@ def paired_hidden_action_contrast_loss(
     return torch.nn.functional.softplus(margin - distances).mean()
 
 
-def baseline_action_anchor_loss(
-    action_mean: torch.Tensor,
-    reference_action_mean: torch.Tensor,
-    advantages: torch.Tensor,
-    *,
-    negative_advantage_only: bool,
-) -> torch.Tensor:
-    action_error = torch.square(action_mean - reference_action_mean.detach()).mean(dim=-1)
-    if negative_advantage_only:
-        weights = torch.clamp(-advantages.detach(), min=0.0)
-        return (action_error * weights).sum() / torch.clamp(weights.sum(), min=1.0)
-    return action_error.mean()
-
-
 def train(
     config: PPOConfig,
     save_path: Path | None = None,
@@ -1080,13 +1071,11 @@ def train(
                             reset_initial_hidden,
                             reset_every_step_dones,
                         )
-                        contrast_weight = torch.clamp(mb_adv.detach(), min=0.0)
-                        contrast_penalty = torch.nn.functional.softplus(
-                            reset_logp - logp + config.hidden_contrast_margin
-                        )
-                        contrast_loss = (contrast_penalty * contrast_weight).sum() / torch.clamp(
-                            contrast_weight.sum(),
-                            min=1.0,
+                        contrast_loss = logprob_intervention_contrast_loss(
+                            logp,
+                            reset_logp,
+                            mb_adv,
+                            margin=config.hidden_contrast_margin,
                         )
                         loss = loss + config.hidden_contrast_aux_coef * contrast_loss
                         hidden_contrast_loss_values.append(float(contrast_loss.detach().cpu().item()))
@@ -1103,14 +1092,11 @@ def train(
                             reset_initial_hidden,
                             reset_every_step_dones,
                         )
-                        action_distance = torch.linalg.vector_norm(normal_action_mean - reset_action_mean, dim=-1)
-                        contrast_weight = torch.clamp(mb_adv.detach(), min=0.0)
-                        action_contrast_penalty = torch.nn.functional.softplus(
-                            config.action_contrast_margin - action_distance
-                        )
-                        action_contrast_loss = (action_contrast_penalty * contrast_weight).sum() / torch.clamp(
-                            contrast_weight.sum(),
-                            min=1.0,
+                        action_contrast_loss = action_mean_margin_contrast_loss(
+                            normal_action_mean,
+                            reset_action_mean,
+                            mb_adv,
+                            margin=config.action_contrast_margin,
                         )
                         loss = loss + config.action_contrast_aux_coef * action_contrast_loss
                         action_contrast_loss_values.append(float(action_contrast_loss.detach().cpu().item()))
