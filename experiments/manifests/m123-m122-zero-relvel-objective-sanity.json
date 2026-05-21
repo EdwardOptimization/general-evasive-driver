@@ -4,8 +4,24 @@
   ],
   "commands": [
     {
-      "command": "TBD: run outcome_intervention_optimize from the M105 checkpoint using runs/m122_zero_relvel_m105_strict_60ep_seed9720/outcome_intervention_snippets.npz with action-anchor retention under configs/m121_human_view_zero_obstacle_relvel.json",
-      "name": "m123_m122_zero_relvel_objective_sanity"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_optimize --init-checkpoint runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt --snippet-npz runs/m122_zero_relvel_m105_strict_60ep_seed9720/outcome_intervention_snippets.npz --device cpu --steps 120 --batch-size 64 --learning-rate 0.0001 --logprob-margin 0.05 --seed 9810 --grad-clip-norm 1.0 --log-interval 20 --eval-batch-size 64 --eval-batches 20 --eval-seed 0 --train-scope actor_coupling --action-anchor-checkpoint runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt --action-anchor-env-config configs/m121_human_view_zero_obstacle_relvel.json --action-anchor-coef 10.0 --action-anchor-episodes 30 --action-anchor-seed 9810 --action-anchor-horizon-steps 15 --action-anchor-sample-stride 3 --action-anchor-max-samples 800 --action-anchor-batch-size 256 --run-dir runs/m123_m122_zero_relvel_objective_seed9810",
+      "name": "m123_objective_seed9810"
+    },
+    {
+      "command": "repeat the m123_objective_seed9810 command with --seed 9811 --action-anchor-seed 9811 --run-dir runs/m123_m122_zero_relvel_objective_seed9811",
+      "name": "m123_objective_seed9811"
+    },
+    {
+      "command": "repeat the m123_objective_seed9810 command with --seed 9812 --action-anchor-seed 9812 --run-dir runs/m123_m122_zero_relvel_objective_seed9812",
+      "name": "m123_objective_seed9812"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m121_human_view_zero_obstacle_relvel.json --episodes 80 --seed 9500 --policies heuristic --checkpoint-policy m62_a250=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --checkpoint-policy m105_9710=runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt --checkpoint-policy m123_9810=runs/m123_m122_zero_relvel_objective_seed9810/optimized_checkpoint.pt --checkpoint-policy m123_9811=runs/m123_m122_zero_relvel_objective_seed9811/optimized_checkpoint.pt --checkpoint-policy m123_9812=runs/m123_m122_zero_relvel_objective_seed9812/optimized_checkpoint.pt --checkpoint-policy m123_9811_reset=runs/m123_m122_zero_relvel_objective_seed9811/optimized_checkpoint.pt@reset_recurrent_state --checkpoint-policy m123_9811_zero_current=runs/m123_m122_zero_relvel_objective_seed9811/optimized_checkpoint.pt@zero_current_response --checkpoint-policy m123_9811_zero_all=runs/m123_m122_zero_relvel_objective_seed9811/optimized_checkpoint.pt@zero_all_response --checkpoint-policy m123_9811_noact=runs/m123_m122_zero_relvel_objective_seed9811/optimized_checkpoint.pt@zero_action_history --device cpu --run-dir runs/m123_zero_relvel_behavior_gate_seed9500",
+      "name": "m123_zero_relvel_behavior_gate"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.hidden_envelope_probe --checkpoint runs/m123_m122_zero_relvel_objective_seed9811/optimized_checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --episodes 30 --seed 9510 --horizon-steps 15 --sample-stride 3 --max-samples 800 --ridge 0.1 --device cpu --run-dir runs/m123_9811_zero_relvel_hidden_envelope_probe_seed9510",
+      "name": "m123_9811_hidden_envelope_probe"
     }
   ],
   "decision_rule": "Proceed beyond objective sanity only if the M122 snippet loss improves while broad behavior retention and self-identification gates do not regress.",

@@ -4723,3 +4723,39 @@ now crosses the source-diversity target, while the M62 control remains clean
 under identical broad settings. This admits the M122 corpus for the next
 objective-sanity experiment only. It does not admit a driver checkpoint, and it
 does not justify PPO continuation before objective/retention gates.
+
+## 20260521T213249Z m123-m122-zero-relvel-objective-sanity
+
+M123 optimizes the admitted M122 zero-relvel snippets from the M105 checkpoint
+with the same action-anchor style used in M105.
+
+Objective repeats:
+
+| seed | before loss | after loss | improvement | after anchor MSE |
+| ---: | ---: | ---: | ---: | ---: |
+| 9810 | 0.086424 | 0.055829 | 0.030595 | 0.000744 |
+| 9811 | 0.086424 | 0.054460 | 0.031964 | 0.000826 |
+| 9812 | 0.086424 | 0.056457 | 0.029967 | 0.000763 |
+
+Behavior gate on `configs/m121_human_view_zero_obstacle_relvel.json`:
+
+- M105 success: `0.8625`, mean margin `1.859915`;
+- M123 9810/9811/9812 success: all `0.8625`;
+- M123 9811 reset success: `0.8500`;
+- M123 9811 zero-current/zero-all success: `0.8000`;
+- M123 9811 no-action success: `0.8625`.
+
+Hidden-envelope probe comparison, M105 versus M123 9811:
+
+| target | M105 hidden-reset R2 | M123 hidden-reset R2 |
+| --- | ---: | ---: |
+| braking | -0.259482 | -0.193512 |
+| lateral | 0.368120 | 0.442902 |
+| yaw | 0.133647 | 0.031559 |
+
+Conclusion: M123 is a qualified objective-sanity positive. The M122 snippets
+are trainable, behavior retention passes on the zero-relvel gate, and
+zero-response ablation degrades success. It is not a driver/PPO admission:
+yaw hidden-envelope lift regresses, braking hidden-reset lift remains negative,
+and no-action history is still neutral. The next pending task is M124:
+retention-calibrate the M122 objective instead of starting PPO.

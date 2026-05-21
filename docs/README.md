@@ -353,6 +353,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m122-zero-relvel-source-diverse-outcome-surface.md`: 60-episode repeat of
   the strict zero-relvel miner; admits the M105 corpus for objective-sanity
   only after reaching source diversity while the M62 control remains clean.
+- `m123-m122-zero-relvel-objective-sanity.md`: retention-anchored objective
+  sanity on the M122 snippets; fixed-batch loss and behavior retention pass, but
+  yaw hidden-envelope regression blocks driver/PPO admission.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

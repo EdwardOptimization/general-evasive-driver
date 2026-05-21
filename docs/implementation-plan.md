@@ -2455,6 +2455,27 @@ Status: pending. M122 provides the first clean source-diverse zero-relvel
 wrong-history corpus, but the snippets are perturbed-source only and must be
 tested as an objective signal before broader training.
 
+Status: completed as a qualified objective-sanity positive and a driver/PPO
+rejection. M123 improves the M122 fixed-batch loss across three seeds
+(`0.0300-0.0320` improvement) with small action-anchor MSE (`< 0.001`) and
+retains normal behavior success on the zero-relvel 80-episode gate. The selected
+9811 checkpoint shows reset and zero-response behavior degradation, but
+hidden-envelope evidence is mixed: lateral improves, braking remains negative
+versus reset, and yaw response-hidden lift regresses from `0.133647` to
+`0.031559`. Do not start PPO from M123. See
+`docs/m123-m122-zero-relvel-objective-sanity.md`.
+
+### M124: Retention-Calibrated Zero-Relvel Objective
+
+- Keep the admitted M122 corpus and zero-relvel input contract.
+- Reduce update strength or increase retention pressure relative to M123.
+- Preserve M123's M122-loss improvement and zero-response behavior gap.
+- Avoid the M123 yaw hidden-envelope regression before any formal repeat or PPO
+  continuation.
+
+Status: pending. M123 proves the M122 snippets are trainable, but the update is
+not belief-safe enough.
+
 ### M67-F: Counterfactual Response-Intervention Objective
 
 - Stop treating seed replay alone as sufficient for self-identification.

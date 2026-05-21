@@ -1,0 +1,36 @@
+{
+  "baseline_checkpoints": [
+    "runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt",
+    "runs/m123_m122_zero_relvel_objective_seed9811/optimized_checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "TBD: sweep lower update strength or stronger retention anchor on the M122 zero-relvel objective, then repeat behavior and hidden-envelope probes against M105 and M123",
+      "name": "m124_retention_calibrated_zero_relvel_objective"
+    }
+  ],
+  "decision_rule": "Admit an objective recipe for formal repeat only if it preserves M123's M122-loss improvement and zero-response behavior gap while avoiding yaw hidden-envelope regression.",
+  "failure_criteria": [
+    "M122 loss improvement disappears",
+    "normal behavior success or clearance retention regresses",
+    "zero-response behavior gap disappears",
+    "yaw response-hidden lift remains materially below M105",
+    "the recipe requires relaxing the zero-relvel input contract"
+  ],
+  "hypothesis": "M123 proves the M122 snippets are optimizable, but the 120-step update shifts behavior enough to regress yaw hidden-envelope lift. A smaller or more strongly anchored update may keep the useful zero-response behavior gap without damaging yaw belief.",
+  "id": "m124-retention-calibrated-zero-relvel-objective",
+  "required_artifacts": [
+    {
+      "path": "docs/m124-retention-calibrated-zero-relvel-objective.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "M122 fixed-batch loss improves on repeated seeds",
+    "action-anchor MSE remains small",
+    "normal behavior retention matches M105",
+    "zero-response ablation still degrades success",
+    "yaw response-hidden lift is not worse than M105 by the M123 regression magnitude"
+  ],
+  "type": "objective_sanity"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 131,
+    "completed": 132,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m122-zero-relvel-source-diverse-outcome-surface.md",
+    "command_log": "docs/m123-m122-zero-relvel-objective-sanity.md",
     "returncode": 0,
-    "run_dir": "runs/m122_zero_relvel_m105_strict_60ep_seed9720",
+    "run_dir": "runs/m123_m122_zero_relvel_objective_seed9811",
     "status": "completed",
-    "task_id": "m122-zero-relvel-source-diverse-outcome-surface"
+    "task_id": "m123-m122-zero-relvel-objective-sanity"
   },
   "next_task": {
-    "command": "see experiments/manifests/m123-m122-zero-relvel-objective-sanity.json",
-    "hypothesis": "Use the admitted M122 zero-relvel snippets for a retention-anchored objective sanity run before PPO",
-    "id": "m123-m122-zero-relvel-objective-sanity",
+    "command": "see experiments/manifests/m124-retention-calibrated-zero-relvel-objective.json",
+    "hypothesis": "Reduce update strength or increase retention guard so M122 objective fitting preserves yaw belief while keeping behavior gap",
+    "id": "m124-retention-calibrated-zero-relvel-objective",
     "kind": "objective_sanity",
-    "notes": "Pending after M122: corpus is admitted for objective sanity but not as a driver success claim",
-    "priority": 1180,
+    "notes": "Pending after M123: objective signal works but hidden-envelope/yaw retention is not strong enough for PPO",
+    "priority": 1190,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T212526Z"
+  "updated_at_utc": "20260521T213249Z"
 }
