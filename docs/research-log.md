@@ -5135,3 +5135,50 @@ Decision: reject continuation beyond smoke. M134 keeps behavior and slightly
 improves the fixed M128 loss, but it shrinks strict selected-seed diversity
 below M133. The next pending task is M135: a PPO step/anchor sensitivity gate
 before any longer PPO continuation.
+
+## 20260521T235318Z m135-ppo-step-anchor-sensitivity-gate
+
+M135 tests whether smaller PPO steps or stronger anchors can preserve the M133
+proof surface.
+
+Candidate grid:
+
+| Candidate | Steps | Anchor |
+| --- | ---: | --- |
+| s2048 a1 | 2048 | coef 1.0 negative-advantage only |
+| s2048 a20 | 2048 | coef 20.0 all-state |
+| s4096 a20 | 4096 | coef 20.0 all-state |
+
+Behavior seed `9503`: all candidates retain normal success `0.8625`, reset
+success `0.8500`, zero-response success `0.8000`, and no-action success
+`0.8625`.
+
+Fixed M128 outcome loss:
+
+| Policy | Loss mean |
+| --- | ---: |
+| M132 s60 | 0.252310 |
+| M134 step4096 | 0.251846 |
+| M134 final | 0.251741 |
+| M135 s2048 a1 | 0.252178 |
+| M135 s2048 a20 | 0.252404 |
+| M135 s4096 a20 | 0.252389 |
+
+Strict proof-surface summary:
+
+| Policy | Miner seed | Selected pairs | Selected seeds | Snippets |
+| --- | ---: | ---: | ---: | ---: |
+| M133 M132 s60 | 9900 | 10 | 8 | 17 |
+| M133 M132 s60 | 9920 | 9 | 8 | 14 |
+| M135 s2048 a1 | 9900 | 9 | 7 | 16 |
+| M135 s2048 a1 | 9920 | 9 | 8 | 16 |
+| M135 s2048 a20 | 9900 | 8 | 6 | 16 |
+| M135 s2048 a20 | 9920 | 8 | 7 | 16 |
+| M135 s4096 a20 | 9900 | 9 | 6 | 17 |
+| M135 s4096 a20 | 9920 | 9 | 7 | 17 |
+
+Decision: reject the PPO sensitivity branch. Smaller steps help but still fail
+M133 selected-seed diversity on seed `9900`; strong all-state anchoring worsens
+fixed M128 loss and does not restore proof-surface diversity. The next pending
+task is M136: make the M133 proof-surface rows an explicit retention corpus or
+guard before PPO resumes.

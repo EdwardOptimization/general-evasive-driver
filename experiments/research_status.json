@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 143,
+    "completed": 144,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m134-guarded-ppo-continuation-from-s60.md",
+    "command_log": "docs/m135-ppo-step-anchor-sensitivity-gate.md",
     "returncode": 0,
-    "run_dir": "runs/ppo_m134_guarded_s60_smoke_seed5134",
+    "run_dir": "runs/m135_s2048_a1_strict_60ep_seed9900",
     "status": "completed",
-    "task_id": "m134-guarded-ppo-continuation-from-s60"
+    "task_id": "m135-ppo-step-anchor-sensitivity-gate"
   },
   "next_task": {
-    "command": "see experiments/manifests/m135-ppo-step-anchor-sensitivity-gate.json",
-    "hypothesis": "Smaller PPO steps or stronger anchors may preserve M133 proof-surface diversity after M134 showed ordinary guarded PPO regresses selected seeds",
-    "id": "m135-ppo-step-anchor-sensitivity-gate",
-    "kind": "gate",
-    "notes": "Pending after M134: behavior retention passed but strict proof-surface diversity regressed below M133",
-    "priority": 1300,
+    "command": "see experiments/manifests/m136-m133-proof-surface-retention-corpus.json",
+    "hypothesis": "The M133 strict proof-surface rows need to become an explicit retention corpus or objective guard before PPO resumes",
+    "id": "m136-m133-proof-surface-retention-corpus",
+    "kind": "infrastructure",
+    "notes": "Pending after M135: smaller steps improve selected diversity but still fail M133 on seed9900",
+    "priority": 1310,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T233408Z"
+  "updated_at_utc": "20260521T235318Z"
 }

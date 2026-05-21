@@ -389,6 +389,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m134-guarded-ppo-continuation-from-s60.md`: guarded PPO smoke from the M132
   s60 checkpoint; behavior retention passes, but strict proof-surface diversity
   regresses below M133, so longer PPO is rejected.
+- `m135-ppo-step-anchor-sensitivity-gate.md`: PPO step-count and anchor-strength
+  sensitivity gate; smaller steps reduce proof-surface regression but still
+  fail M133 selected-seed diversity.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

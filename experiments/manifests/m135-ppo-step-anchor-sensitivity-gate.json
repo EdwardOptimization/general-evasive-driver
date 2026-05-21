@@ -6,8 +6,28 @@
   ],
   "commands": [
     {
-      "command": "Run a guarded PPO step or anchor sensitivity gate after M134 showed behavior retention but strict proof-surface regression.",
-      "name": "m135_ppo_step_anchor_sensitivity"
+      "command": "Train configs/ppo_m135_step2048_anchor1_neg.json from M132 s60 into runs/ppo_m135_step2048_anchor1_neg_seed5235.",
+      "name": "m135_train_step2048_anchor1_neg"
+    },
+    {
+      "command": "Train configs/ppo_m135_step2048_anchor20_all.json from M132 s60 into runs/ppo_m135_step2048_anchor20_all_seed5236.",
+      "name": "m135_train_step2048_anchor20_all"
+    },
+    {
+      "command": "Train configs/ppo_m135_step4096_anchor20_all.json from M132 s60 into runs/ppo_m135_step4096_anchor20_all_seed5237.",
+      "name": "m135_train_step4096_anchor20_all"
+    },
+    {
+      "command": "Run the common M133 behavior gate on seed9503 for all M135 candidates and their reset zero-response and no-action ablations.",
+      "name": "m135_behavior_gate_seed9503"
+    },
+    {
+      "command": "Run fixed-batch M128 outcome intervention eval for M132 s60, M134, and all M135 candidates.",
+      "name": "m135_fixed_batch_outcome_eval"
+    },
+    {
+      "command": "Run strict M133 zero-relvel proof-surface miners on all three M135 candidates with seeds9900 and 9920. Exact CLI is preserved in each run manifest.",
+      "name": "m135_strict_proof_surface_grid"
     }
   ],
   "decision_rule": "Do not continue PPO unless at least one recipe preserves M133 behavior and strict proof-surface diversity while avoiding worse fixed-batch outcome loss.",
@@ -21,8 +41,52 @@
   "id": "m135-ppo-step-anchor-sensitivity-gate",
   "required_artifacts": [
     {
+      "path": "configs/ppo_m135_step2048_anchor1_neg.json",
+      "type": "config"
+    },
+    {
+      "path": "configs/ppo_m135_step2048_anchor20_all.json",
+      "type": "config"
+    },
+    {
+      "path": "configs/ppo_m135_step4096_anchor20_all.json",
+      "type": "config"
+    },
+    {
       "path": "docs/m135-ppo-step-anchor-sensitivity-gate.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m135_behavior_gate_seed9503/policy_summary.csv",
+      "type": "behavior_gate"
+    },
+    {
+      "path": "runs/m135_outcome_intervention_eval_seed0/policy_summary.csv",
+      "type": "fixed_batch_eval"
+    },
+    {
+      "path": "runs/m135_s2048_a1_strict_60ep_seed9900/summary.json",
+      "type": "proof_surface"
+    },
+    {
+      "path": "runs/m135_s2048_a1_strict_60ep_seed9920/summary.json",
+      "type": "proof_surface"
+    },
+    {
+      "path": "runs/m135_s2048_a20_strict_60ep_seed9900/summary.json",
+      "type": "proof_surface"
+    },
+    {
+      "path": "runs/m135_s2048_a20_strict_60ep_seed9920/summary.json",
+      "type": "proof_surface"
+    },
+    {
+      "path": "runs/m135_s4096_a20_strict_60ep_seed9900/summary.json",
+      "type": "proof_surface"
+    },
+    {
+      "path": "runs/m135_s4096_a20_strict_60ep_seed9920/summary.json",
+      "type": "proof_surface"
     }
   ],
   "success_criteria": [

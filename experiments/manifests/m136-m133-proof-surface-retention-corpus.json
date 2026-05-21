@@ -1,0 +1,36 @@
+{
+  "baseline_checkpoints": [
+    "runs/m132_margin_retention_s60_anchor20_seed9841/optimized_checkpoint.pt",
+    "runs/ppo_m135_step2048_anchor1_neg_seed5235/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "Build or audit a retention corpus from the M133 strict proof-surface rows before any further PPO continuation.",
+      "name": "m136_m133_proof_surface_retention_corpus"
+    }
+  ],
+  "decision_rule": "Do not restart PPO until the strict proof-surface rows that M134/M135 shrink are represented as an explicit retention corpus or objective guard.",
+  "failure_criteria": [
+    "corpus is dominated by duplicate physical pairs",
+    "corpus ignores the M133 rows that M134/M135 lost",
+    "M62 controls become admitted",
+    "source-side perturbed-only limitation is hidden",
+    "next PPO proceeds without a proof-surface retention guard"
+  ],
+  "hypothesis": "M134 and M135 show that generic PPO with M128 outcome loss and action anchors can retain behavior but shrink M133 strict selected-seed diversity. The next repair should make the fresh M133 proof surface itself a retained training or gate artifact before PPO resumes.",
+  "id": "m136-m133-proof-surface-retention-corpus",
+  "required_artifacts": [
+    {
+      "path": "docs/m136-m133-proof-surface-retention-corpus.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "M133 strict accepted snippets and selected physical pairs are represented with provenance",
+    "M134/M135 regression rows are identified or recoverable",
+    "M62 controls remain clean",
+    "source condition coverage is reported explicitly",
+    "the next PPO/objective recipe has a concrete proof-surface retention guard"
+  ],
+  "type": "infrastructure"
+}

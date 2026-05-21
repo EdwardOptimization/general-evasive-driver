@@ -2679,8 +2679,28 @@ is rejected. See `docs/m134-guarded-ppo-continuation-from-s60.md`.
 - Treat tiny fixed-batch outcome-loss improvements as insufficient if selected
   seed diversity shrinks.
 
-Status: pending. M134 shows PPO can retain behavior but still wash out part of
-the strict self-ID proof surface.
+Status: completed as a negative PPO sensitivity result. M135 tests three
+pre-registered candidates: `2048` steps with anchor1 negative-advantage only,
+`2048` steps with anchor20 all-state, and `4096` steps with anchor20 all-state.
+All retain behavior on seed `9503` with success `0.8625`, reset `0.8500`, and
+zero-response `0.8000`. The best fixed-loss candidate is `s2048 a1`, which
+improves M128 loss only from `0.252310` to `0.252178`. Strict proof-surface
+diversity remains below M133: best case is `9` selected pairs/`7` seeds on
+seed `9900` and `9` pairs/`8` seeds on seed `9920`, versus M133's `10/8` and
+`9/8`. PPO remains rejected. See
+`docs/m135-ppo-step-anchor-sensitivity-gate.md`.
+
+### M136: M133 Proof-Surface Retention Corpus
+
+- Build or audit a corpus from the M133 strict accepted snippets and selected
+  physical pairs.
+- Identify which M133 proof-surface rows M134/M135 lose.
+- Keep M62 controls clean and report source condition coverage explicitly.
+- Do not restart PPO until this proof surface is represented as a training-time
+  retention guard or a hard checkpoint-selection gate.
+
+Status: pending. M134/M135 show behavior anchors are not enough to preserve the
+strict self-ID proof surface during PPO.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 
