@@ -1,19 +1,19 @@
 {
   "counts": {
     "blocked": 0,
-    "completed": 71,
+    "completed": 72,
     "failed": 0,
     "pending": 0,
     "planned": 1,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m70-wrong-history-continuation-gate.md",
+    "command_log": "docs/m71-outcome-sensitive-matched-scenario-constructor.md",
     "returncode": 0,
-    "run_dir": "runs/m70_wrong_history_continuation_brake_candidates_margin_seed7201",
+    "run_dir": "runs/m71_outcome_sensitive_brake_smoke_seed7300",
     "status": "completed",
-    "task_id": "m70-wrong-history-continuation-gate"
+    "task_id": "m71-outcome-sensitive-matched-scenario-constructor"
   },
-  "next_task": "m71-outcome-sensitive-matched-scenario-constructor",
-  "updated_at_utc": "20260521T115609Z"
+  "next_task": "m72-pre-emergency-warmup-history-harness",
+  "updated_at_utc": "20260521T120931Z"
 }

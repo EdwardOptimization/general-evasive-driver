@@ -1553,6 +1553,29 @@ See `docs/m70-wrong-history-continuation-gate.md`.
 Status: planned after M70. M70 showed that first-action wrong-history candidates
 are not enough; the next proof surface must be outcome-sensitive by construction.
 
+Status update: complete as infrastructure and negative smoke. M71 added
+`python -m autodrift.outcome_sensitive_corpus`, visible-state matching,
+normal-vs-wrong-history success/margin acceptance, obstacle geometry overrides,
+and missing-scenario error capture. Four 20-seed smoke runs across baseline and
+tight weak-brake / low-friction settings produced zero accepted
+outcome-sensitive pairs. See
+`docs/m71-outcome-sensitive-matched-scenario-constructor.md`.
+
+### M72: Pre-Emergency Warm-Up History Harness
+
+- Build a gate where hidden dynamics evidence can accumulate before the obstacle
+  appears.
+- Compare normal warm-up history against wrong matched warm-up history, reset
+  history, zero action history, and zero response history.
+- Keep actor observations deployable and use hidden parameters only for pairing,
+  logging, or teacher diagnostics.
+- Require outcome-level success or clearance-margin differences under strict
+  visible-state matching before any student OSI distillation.
+
+Status: planned after M71. Passive matched snapshots are still not producing
+causal wrong-history outcome gaps, so the next proof surface needs explicit
+pre-emergency response evidence.
+
 ### M67-F: Counterfactual Response-Intervention Objective
 
 - Stop treating seed replay alone as sufficient for self-identification.

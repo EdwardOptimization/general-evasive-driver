@@ -19,8 +19,11 @@ Last updated: 2026-05-21
   both failed to produce a meaningful hidden-dynamics upper-bound gap. M68 then
   found no privileged-packet action divergence on the M65 smoke. M69 broadened
   the search and still found zero privileged-packet divergent pairs. M70 then
-  showed the few wrong-history candidates do not degrade continuation outcome,
-  so the next blocker is constructing outcome-sensitive matched scenarios.
+  showed the few wrong-history candidates do not degrade continuation outcome.
+  M71 added an outcome-sensitive matched-scenario constructor, but passive
+  snapshot mining still produced zero accepted wrong-history outcome cases. The
+  next blocker is giving the policy explicit pre-emergency response history
+  before testing wrong-history interventions.
 
 ## Standing Loop
 
@@ -2890,3 +2893,42 @@ Conclusion: M70 is negative. Wrong-history first-action divergence does not
 translate into outcome damage on these candidates. The next task is M71:
 construct or mine outcome-sensitive matched scenarios where wrong history
 actually reduces clearance margin or success by design.
+
+## 20260521T120931Z m71-outcome-sensitive-matched-scenario-constructor
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: outcome-sensitive mining can reject first-action-only differences
+  and find matched hidden-dynamics cases where wrong history reduces success or
+  clearance margin.
+- code update: added `src/autodrift/outcome_sensitive_corpus.py`
+- tests: added `tests/test_outcome_sensitive_corpus.py`
+- artifact: `docs/m71-outcome-sensitive-matched-scenario-constructor.md`
+
+Smoke commands:
+
+- weak-brake baseline geometry:
+  `runs/m71_outcome_sensitive_brake_smoke_seed7300`
+- low-friction baseline geometry:
+  `runs/m71_outcome_sensitive_friction_smoke_seed7400`
+- tight weak-brake geometry:
+  `runs/m71_outcome_sensitive_tight_brake_smoke_seed7500`
+- tight low-friction geometry:
+  `runs/m71_outcome_sensitive_tight_friction_smoke_seed7600`
+
+Result:
+
+- baseline weak-brake: `80` candidates, `35` visible matches, `0`
+  outcome-sensitive pairs, max margin gap `0.003190`;
+- baseline low-friction: `80` candidates, `7` visible matches, `0`
+  outcome-sensitive pairs, max margin gap `0.013007` but not strict-valid;
+- tight weak-brake: `80` candidates, `16` paired candidates, `13` visible
+  matches, `0` outcome-sensitive pairs;
+- tight low-friction: `80` candidates, `28` paired candidates, `5` visible
+  matches, `0` outcome-sensitive pairs.
+
+Conclusion: M71 is a useful harness but a negative diagnostic. The current
+passive matched-snapshot setup still does not produce causal wrong-history
+outcome gaps. The next task is M72: add a pre-emergency warm-up/history harness
+so the recurrent state has explicit action-response evidence before obstacle
+avoidance is evaluated.

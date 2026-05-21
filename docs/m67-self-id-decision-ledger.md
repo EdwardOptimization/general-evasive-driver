@@ -247,17 +247,17 @@ Persisted in:
 Continue with:
 
 ```text
-m71-outcome-sensitive-matched-scenario-constructor
+m72-pre-emergency-warmup-history-harness
 ```
 
 Implementation intent:
 
 ```text
-construct near-boundary paired emergency cases
-require normal-history margin to exceed wrong-history margin
-reject first-action-only differences that do not affect continuation outcome
+let action-response history accumulate before obstacle appearance
+compare normal warm-up history with wrong matched warm-up history
+require wrong/reset/zero history to reduce outcome under strict visible matching
 ```
 
-M70 showed that M69 wrong-history candidates do not degrade success or margin in
-closed-loop continuation. Do not proceed directly to student OSI distillation
-yet.
+M70 showed that M69 wrong-history candidates do not degrade success or margin.
+M71 added the outcome-sensitive miner but still found zero accepted passive
+matched-snapshot cases. Do not proceed directly to student OSI distillation yet.

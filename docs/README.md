@@ -187,6 +187,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m70-wrong-history-continuation-gate.md`: continuation replay on M69
   wrong-history candidates, margin-aware hidden-swap summary, and negative
   outcome-causality result.
+- `m71-outcome-sensitive-matched-scenario-constructor.md`: outcome-sensitive
+  wrong-history corpus miner, obstacle-geometry overrides, and negative smoke
+  results across weak-brake and low-friction contrasts.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.
