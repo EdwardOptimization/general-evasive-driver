@@ -4090,3 +4090,30 @@ behavior signal is real enough to keep the line alive, but the hidden-envelope
 proof is seed-fragile. The next pending step is M107: replace single-seed
 hidden-envelope admission with a multi-seed aggregate gate before another
 objective or PPO run.
+
+## 20260521T184818Z m107-multiseed-hidden-envelope-gate
+
+- status: `completed`
+- kind: `gate`
+- implementation: `src/autodrift/hidden_envelope_multiseed_gate.py`
+- tests: `tests/test_hidden_envelope_multiseed_gate.py`
+- run: `runs/m107_multiseed_hidden_envelope_gate_seed9510`
+- artifact: `docs/m107-multiseed-hidden-envelope-gate.md`
+
+Result:
+
+- M107 evaluates M105 checkpoints `9710`, `9711`, and `9712` across probe seeds
+  `9510`, `9511`, and `9512`;
+- no checkpoint-target pair passes the strict aggregate gate;
+- braking mean lift is positive because seed `9511` is strongly positive, but
+  worst-case braking lift is negative for all checkpoints;
+- lateral mean lift is negative for all checkpoints: about `-0.79`, `-0.80`,
+  and `-0.84`;
+- yaw mean lift is negative for all checkpoints: about `-0.87`, `-0.85`, and
+  `-0.88`;
+- lateral/yaw pass fraction is only `0.3333` for all checkpoints.
+
+Conclusion: M107 rejects M105 under multi-seed hidden-envelope admission. The
+next task is M108: run the same aggregate gate on M98/M102/M105/M62 to
+distinguish model-specific hidden-belief damage from a generally unstable
+probe surface.

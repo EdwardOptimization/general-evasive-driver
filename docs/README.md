@@ -296,6 +296,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m106-formal-retention-constrained-repeat-gates.md`: formal M105 repeat gate;
   behavior dependence repeats, but strict margin retention is borderline and
   hidden-envelope lift fails fresh probe seeds.
+- `m107-multiseed-hidden-envelope-gate.md`: multi-seed hidden-envelope gate
+  harness and M105 aggregate result; M105 hidden belief fails aggregate
+  admission across probe seeds.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

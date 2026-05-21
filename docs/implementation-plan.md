@@ -2171,8 +2171,23 @@ admitted for PPO continuation. See
 - Use the aggregate gate to decide whether M105 needs a stronger hidden
   retention objective or only a more stable proof surface.
 
-Status: pending. M106 showed that behavior dependence repeats, but the
-hidden-envelope proof surface is too seed-fragile for admission.
+Status: negative gate result for M105. Added
+`hidden_envelope_multiseed_gate`, evaluated M105 checkpoints `9710`-`9712`
+across probe seeds `9510,9511,9512`, and found no checkpoint-target pair passes
+the strict aggregate gate. Lateral and yaw mean lift are negative for all three
+M105 checkpoints, and braking has negative worst-case lift despite positive
+mean. See `docs/m107-multiseed-hidden-envelope-gate.md`.
+
+### M108: Baseline Multi-Seed Hidden-Envelope Audit
+
+- Run the same M107 aggregate gate on M98, M102, M105, and M62.
+- Decide whether the M105 update damaged hidden belief or whether the
+  hidden-envelope proof surface is unstable for all current checkpoints.
+- Do not train a new objective before this comparison.
+
+Status: pending. M107 rejects M105 under aggregate hidden-envelope admission,
+but the next decision depends on whether earlier hidden-envelope checkpoints
+pass the same gate.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

@@ -1,0 +1,35 @@
+{
+  "baseline_checkpoints": [
+    "runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt",
+    "runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt",
+    "runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt",
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt"
+  ],
+  "commands": [
+    {
+      "command": "TBD: run hidden_envelope_multiseed_gate on M98/M102/M105/M62 baselines with the same probe seeds before changing objectives",
+      "name": "m108_baseline_multiseed_hidden_envelope_audit"
+    }
+  ],
+  "decision_rule": "Compare M98/M102/M105 under the same multi-seed hidden-envelope gate to determine whether M105 damaged hidden belief or whether the probe surface itself is unstable for all current checkpoints.",
+  "failure_criteria": [
+    "M105 is rejected without comparing M98/M102 under the same aggregate gate",
+    "a new objective is trained before identifying whether the blocker is model-specific or gate-specific",
+    "the audit changes actor inputs or adds hidden parameters to deployable policy inputs"
+  ],
+  "hypothesis": "If M98 or M102 passes the M107 aggregate gate while M105 fails, M105's action-anchor outcome update harmed hidden belief. If all fail, the hidden-envelope proof surface or target split needs redesign before more optimization.",
+  "id": "m108-baseline-multiseed-hidden-envelope-audit",
+  "required_artifacts": [
+    {
+      "path": "docs/m108-baseline-multiseed-hidden-envelope-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "M98/M102/M105/M62 are evaluated under the same multi-seed hidden-envelope gate",
+    "the result identifies model-specific versus gate-surface failure",
+    "next objective or probe redesign is selected from evidence",
+    "docs, queue, status, and scoreboard are updated"
+  ],
+  "type": "gate"
+}

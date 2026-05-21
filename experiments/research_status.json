@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 115,
+    "completed": 116,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m106-formal-retention-constrained-repeat-gates.md",
+    "command_log": "docs/m107-multiseed-hidden-envelope-gate.md",
     "returncode": 0,
-    "run_dir": "runs/m106_m105_repeat_behavior_gate_seed9500",
+    "run_dir": "runs/m107_multiseed_hidden_envelope_gate_seed9510",
     "status": "completed",
-    "task_id": "m106-formal-retention-constrained-repeat-gates"
+    "task_id": "m107-multiseed-hidden-envelope-gate"
   },
   "next_task": {
-    "command": "see experiments/manifests/m107-multiseed-hidden-envelope-gate.json",
-    "hypothesis": "Build a multi-seed hidden-envelope gate before any M105 continuation",
-    "id": "m107-multiseed-hidden-envelope-gate",
+    "command": "see experiments/manifests/m108-baseline-multiseed-hidden-envelope-audit.json",
+    "hypothesis": "Compare M98 M102 M105 and M62 under the same multi-seed hidden-envelope gate",
+    "id": "m108-baseline-multiseed-hidden-envelope-audit",
     "kind": "gate",
-    "notes": "Pending after M106: aggregate hidden-envelope lift across probe seeds and checkpoints",
-    "priority": 1020,
+    "notes": "Pending after M107: determine whether the hidden-envelope failure is model-specific or gate-surface-wide",
+    "priority": 1030,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T184051Z"
+  "updated_at_utc": "20260521T184818Z"
 }

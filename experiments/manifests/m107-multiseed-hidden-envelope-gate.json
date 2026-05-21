@@ -8,10 +8,14 @@
   ],
   "commands": [
     {
-      "command": "TBD: build or use a multi-seed hidden-envelope probe aggregator over several probe seeds, checkpoints, and target envelopes",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_multiseed_gate --env-config configs/ppo_m24_human_view_gru_driver.json --checkpoint-policy m105_9710=runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt --checkpoint-policy m105_9711=runs/m105_anchor10_outcome_coupling_smoke_seed9711/optimized_checkpoint.pt --checkpoint-policy m105_9712=runs/m105_anchor10_outcome_coupling_smoke_seed9712/optimized_checkpoint.pt --probe-seeds 9510,9511,9512 --episodes 30 --horizon-steps 15 --sample-stride 3 --max-samples 800 --ridge 0.1 --device cpu --mean-lift-threshold 0.0 --min-lift-threshold 0.0 --pass-fraction-threshold 1.0 --run-dir runs/m107_multiseed_hidden_envelope_gate_seed9510",
       "name": "m107_multiseed_hidden_envelope_gate"
     }
   ],
+  "decision_labels": {
+    "fail": "reject_m105_multiseed_hidden_envelope_gate",
+    "pass": "accept_m105_multiseed_hidden_envelope_gate"
+  },
   "decision_rule": "Before any PPO continuation from M105, require a hidden-envelope gate that aggregates across probe seeds and reports mean, worst-case, and pass fractions for braking, lateral, and yaw envelope lift.",
   "failure_criteria": [
     "single probe seed results are treated as admission evidence",
@@ -19,14 +23,115 @@
     "the aggregate gate cannot distinguish model instability from probe-corpus variance",
     "the gate changes deployable actor inputs or uses hidden physics at inference"
   ],
+  "gates": [
+    {
+      "metric": "m105_9710_lateral_mean_lift",
+      "name": "m105_9710_lateral_mean_positive",
+      "op": ">=",
+      "threshold": 0.0
+    },
+    {
+      "metric": "m105_9710_yaw_mean_lift",
+      "name": "m105_9710_yaw_mean_positive",
+      "op": ">=",
+      "threshold": 0.0
+    },
+    {
+      "metric": "m105_9711_lateral_mean_lift",
+      "name": "m105_9711_lateral_mean_positive",
+      "op": ">=",
+      "threshold": 0.0
+    },
+    {
+      "metric": "m105_9712_lateral_mean_lift",
+      "name": "m105_9712_lateral_mean_positive",
+      "op": ">=",
+      "threshold": 0.0
+    },
+    {
+      "metric": "m105_9712_braking_pass_fraction",
+      "name": "m105_9712_braking_all_seeds_positive",
+      "op": ">=",
+      "threshold": 1.0
+    }
+  ],
   "hypothesis": "M106 showed that behavior dependence repeats but hidden-envelope lift is probe-seed fragile. A multi-seed aggregate gate is needed before deciding whether M105 needs a stronger objective or just a more stable proof surface.",
   "id": "m107-multiseed-hidden-envelope-gate",
+  "metric_extractors": [
+    {
+      "column": "lift_mean",
+      "match": {
+        "checkpoint_label": "m105_9710",
+        "target": "future_lateral_accel_response"
+      },
+      "metric": "m105_9710_lateral_mean_lift",
+      "path": "runs/m107_multiseed_hidden_envelope_gate_seed9510/gate_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "lift_mean",
+      "match": {
+        "checkpoint_label": "m105_9710",
+        "target": "future_yaw_response"
+      },
+      "metric": "m105_9710_yaw_mean_lift",
+      "path": "runs/m107_multiseed_hidden_envelope_gate_seed9510/gate_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "lift_mean",
+      "match": {
+        "checkpoint_label": "m105_9711",
+        "target": "future_lateral_accel_response"
+      },
+      "metric": "m105_9711_lateral_mean_lift",
+      "path": "runs/m107_multiseed_hidden_envelope_gate_seed9510/gate_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "lift_mean",
+      "match": {
+        "checkpoint_label": "m105_9712",
+        "target": "future_lateral_accel_response"
+      },
+      "metric": "m105_9712_lateral_mean_lift",
+      "path": "runs/m107_multiseed_hidden_envelope_gate_seed9510/gate_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "pass_fraction",
+      "match": {
+        "checkpoint_label": "m105_9712",
+        "target": "future_braking_deceleration"
+      },
+      "metric": "m105_9712_braking_pass_fraction",
+      "path": "runs/m107_multiseed_hidden_envelope_gate_seed9510/gate_summary.csv",
+      "type": "csv"
+    }
+  ],
   "required_artifacts": [
     {
       "path": "docs/m107-multiseed-hidden-envelope-gate.md",
       "type": "documentation"
+    },
+    {
+      "path": "src/autodrift/hidden_envelope_multiseed_gate.py",
+      "type": "harness"
+    },
+    {
+      "path": "tests/test_hidden_envelope_multiseed_gate.py",
+      "type": "tests"
+    },
+    {
+      "path": "runs/m107_multiseed_hidden_envelope_gate_seed9510/gate_summary.csv",
+      "type": "gate_summary"
+    },
+    {
+      "path": "runs/m107_multiseed_hidden_envelope_gate_seed9510/summary.json",
+      "type": "summary"
     }
   ],
+  "scoreboard_checkpoint": "runs/m105_anchor10_outcome_coupling_smoke_seed9712/optimized_checkpoint.pt",
   "success_criteria": [
     "aggregate hidden-envelope metrics are computed across multiple probe seeds",
     "mean and worst-case lift are reported per target",
