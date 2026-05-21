@@ -234,6 +234,30 @@ speeds; that would erase the lockup/spin information the policy is supposed to
 learn from. Optional future channels such as `v_perp_i`, steering torque, and
 vertical dynamics require their own admission gates.
 
+M92 adds three single-track audit profiles under the same 13-slot wheel branch:
+
+```text
+front_rear_omega
+front_rear_omega_ground
+front_rear_omega_ground_error
+```
+
+These profiles preserve the 85-value wheel-frame shape for comparability. They
+replace the M91-C wheel-acceleration slots with local ground-speed components
+for the `*_ground` modes and optionally add a fixed-scale speed error for
+`*_ground_error`. They do not expose `slip_ratio`, `slip_angle`, ABS/TCS/ESC
+flags, tire-saturation labels, true tire force, or `mu`.
+
+For the current bicycle approximation:
+
+```text
+v_parallel_front =
+  vx * cos(steer) + (vy + yaw_rate * lf) * sin(steer)
+v_parallel_rear = vx
+```
+
+This is an experiment profile, not the final four-wheel sensor contract.
+
 Do not put these diagnostic quantities into the actor:
 
 ```text

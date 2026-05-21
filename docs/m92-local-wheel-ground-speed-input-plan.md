@@ -24,6 +24,55 @@ local wheel-contact ground speed
 The newer input-design review argues that wheel/tire observability should use
 those raw components rather than slip ratios or controller flags.
 
+## Minimum Observable Actor Set
+
+The latest review refines the deployable minimum set as:
+
+```text
+known commands:
+  steering command
+  brake command
+  drive/throttle command
+
+actual actuator feedback:
+  steering rack / road-wheel angle
+  brake actuator or line-pressure state
+  drive actuator / motor-current / throttle state
+
+wheel raw:
+  Romega_fl
+  Romega_fr
+  Romega_rl
+  Romega_rr
+
+local ground-speed fusion:
+  v_parallel_fl
+  v_parallel_fr
+  v_parallel_rl
+  v_parallel_rr
+
+body inertial response:
+  ax
+  ay
+  yaw_rate
+
+scene:
+  road boundary / drivable corridor
+  obstacle present
+  obstacle ego-frame position
+  obstacle size
+```
+
+The key correction is replacing a single `vehicle_speed_fused` with local
+contact-patch ground speeds. For handling-limit avoidance, the center speed is
+not enough: yaw rate, lateral velocity, wheel position, and front steering angle
+make each tire's local longitudinal ground speed different.
+
+Current AutoDrift still exposes `vx` and `vy` in the 72-value baseline frame.
+M92 treats local ground speed as an additional low-level fused wheel-contact
+signal for experiment profiles, not as a hidden simulator parameter or an
+oracle feasibility label.
+
 ## Do Not Input Slip Ratio
 
 Do not feed actor:
@@ -186,6 +235,17 @@ P3: Romega + v_parallel + v_perp
 P4: Romega + v_parallel + fixed-scale speed error
 ```
 
+The current single-track implementation can only test:
+
+```text
+P1: front_rear_omega
+P2: front_rear_omega_ground
+P4: front_rear_omega_ground_error
+```
+
+`P3` remains a future four-wheel or richer state-estimator profile because the
+bicycle simulator does not provide meaningful per-wheel lateral contact speed.
+
 `P4` may use:
 
 ```text
@@ -214,3 +274,33 @@ driver input.
 
 If they pass, the wheel/local-ground-speed profile can re-enter the PPO-facing
 profile comparison.
+
+## Current Implementation Constraint
+
+The M92 single-track approximation keeps the historical 13-slot wheel branch so
+existing wheel-response encoders and probe harnesses stay comparable:
+
+```text
+0   Romega_front / 20
+1   Romega_rear / 20
+2   v_parallel_front / 20, or 0 for Romega-only
+3   v_parallel_rear / 20, or 0 for Romega-only
+4   fixed-scale front speed error, only in P4
+5   fixed-scale rear speed error, only in P4
+6   0
+7   brake actuator state, front proxy
+8   brake actuator state, rear proxy
+9   drive actuator state, rear proxy
+10  0
+11  0
+12  0
+```
+
+The fixed-scale error is:
+
+```text
+(Romega_i - v_parallel_i) / 20
+```
+
+It is deliberately not a slip ratio because the denominator is a constant
+normalization scale, not the current local ground speed.

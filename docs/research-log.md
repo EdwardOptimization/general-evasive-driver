@@ -3603,3 +3603,35 @@ Result:
 Conclusion: M90+ research tasks now fail closed on missing manifest,
 scoreboard, status-count, or required-artifact metadata. Historical M8-M89
 records remain legacy-compatible.
+
+## 20260521T164207Z m92-local-wheel-ground-speed-observability-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: M91-I rejected the current single-track raw wheel proxy, not wheel
+  sensing in general; a cleaner `Romega_i + v_parallel_i` profile may improve
+  future handling-envelope observability without feeding slip diagnostics.
+- code update: added `front_rear_omega`, `front_rear_omega_ground`, and
+  `front_rear_omega_ground_error` observation modes while preserving the
+  85-value wheel frame.
+- configs:
+  `configs/m92_front_rear_omega_profile.json`,
+  `configs/m92_front_rear_omega_ground_profile.json`,
+  `configs/m92_front_rear_omega_ground_error_profile.json`
+- audit runs:
+  `runs/m92_omega_observability_seed9390`,
+  `runs/m92_omega_ground_observability_seed9391`,
+  `runs/m92_omega_ground_error_observability_seed9392`
+- artifact: `docs/m92-local-wheel-ground-speed-observability-audit.md`
+
+Result:
+
+- `front_rear_omega` mean P1-vs-P0 R2 lift: `+0.151403`;
+- `front_rear_omega_ground` mean P1-vs-P0 R2 lift: `-0.062184`;
+- `front_rear_omega_ground_error` mean P1-vs-P0 R2 lift: `-0.344659`;
+- fixed-scale speed error regresses mean MAE-improvement by `-0.054854`.
+
+Conclusion: M92 is negative for admitting the current single-track local
+wheel/ground-speed branch into the primary PPO driver input. Keep the no-wheel
+human-view response stream as primary until a true four-wheel profile or a
+better matched corpus proves stable benefit.

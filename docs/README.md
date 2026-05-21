@@ -244,6 +244,15 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m89-objective-only-wheel-masked-friction-sanity.md`: objective-only
   optimization of the wheel-masked friction target, positive isolated movement,
   and small first zero-wheel behavior drop.
+- `m91i-learned-history-sensor-ablation.md`: learned-history sensor ablation
+  showing that the current raw front/rear wheel branch should not become the
+  primary driver input.
+- `m92-local-wheel-ground-speed-input-plan.md`: latest wheel input correction:
+  use `Romega_i` and local `v_parallel_i`, not `slip_ratio` or wheel-speed
+  averages.
+- `m92-local-wheel-ground-speed-observability-audit.md`: M92 audit result;
+  single-track local ground-speed wheel profiles do not beat the no-wheel
+  human-view baseline.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

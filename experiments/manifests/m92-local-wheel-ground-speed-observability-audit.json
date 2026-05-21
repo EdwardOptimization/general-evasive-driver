@@ -5,8 +5,16 @@
   ],
   "commands": [
     {
-      "command": "TBD after implementing local wheel ground-speed observation profiles",
-      "name": "local_wheel_ground_speed_observability_audit"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.input_observability_audit --env-config configs/m92_front_rear_omega_profile.json --episodes 30 --seed 9390 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 800 --ridge 0.1 --history-windows 1,10,25 --run-dir runs/m92_omega_observability_seed9390",
+      "name": "m92_p1_omega_observability"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.input_observability_audit --env-config configs/m92_front_rear_omega_ground_profile.json --episodes 30 --seed 9391 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 800 --ridge 0.1 --history-windows 1,10,25 --run-dir runs/m92_omega_ground_observability_seed9391",
+      "name": "m92_p2_omega_ground_observability"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.input_observability_audit --env-config configs/m92_front_rear_omega_ground_error_profile.json --episodes 30 --seed 9392 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 800 --ridge 0.1 --history-windows 1,10,25 --run-dir runs/m92_omega_ground_error_observability_seed9392",
+      "name": "m92_p4_omega_ground_error_observability"
     }
   ],
   "decision_rule": "Test whether physically cleaner wheel inputs, Romega_i plus independent v_parallel_i, provide self-identification information that the rejected M91 front/rear raw proxy did not.",
@@ -26,10 +34,22 @@
     {
       "path": "docs/m92-local-wheel-ground-speed-observability-audit.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m92_omega_observability_seed9390/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m92_omega_ground_observability_seed9391/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m92_omega_ground_error_observability_seed9392/summary.json",
+      "type": "summary"
     }
   ],
   "success_criteria": [
-    "new profiles distinguish Romega-only, Romega plus v_parallel, and optional v_perp without slip ratio",
+    "new profiles distinguish Romega-only, Romega plus v_parallel, and fixed-scale speed error without slip ratio",
     "P0 no-wheel baseline is preserved for comparison",
     "future braking yaw lateral envelope probes are reported",
     "decision states whether wheel/local-ground-speed signals can re-enter PPO-facing profile comparison"

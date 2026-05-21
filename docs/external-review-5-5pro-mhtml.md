@@ -1,7 +1,8 @@
 # 5.5pro MHTML External Review
 
-Source: `~/workspace/AutoDrift - 项目评估分析.mhtml`, saved
-2026-05-21 21:27 +0800.
+Source: `~/workspace/AutoDrift - 项目评估分析.mhtml`, reviewed at
+2026-05-21 21:27 +0800 and updated from the later 2026-05-21 23:50 +0800
+snapshot.
 
 This note preserves the important points from the full 5.5pro conversation so
 they are not lost behind the local MHTML file. It is a review/decision record,
@@ -160,15 +161,17 @@ delta_yaw_rate
 yaw_acceleration
 ```
 
-Wheel/tire response:
+Earlier wheel/tire response candidates:
 
 ```text
 wheel speed
 wheel acceleration
-longitudinal slip proxy
-front/rear or four-wheel slip comparison
-ABS/TCS/ESC intervention proxy
+front/rear or four-wheel comparison
 ```
+
+The later input review supersedes the earlier suggestion to feed slip proxies
+or ABS/TCS/ESC flags directly into the actor. Those are now diagnostic/logging
+or teacher targets, not deployable actor input.
 
 Actuator and force-path feedback:
 
@@ -197,6 +200,70 @@ visual road-surface embedding
 confidence / uncertainty
 ```
 
+## Latest Wheel Input Correction
+
+The 23:50 snapshot makes the wheel/tire input rule stricter:
+
+```text
+Do not input slip_ratio.
+Do not input slip_angle.
+Do not input ABS/TCS/ESC flags.
+Do not input tire saturation labels.
+Do not input true tire force, true normal load, or mu.
+```
+
+The reason is both conceptual and numerical. Slip ratio requires a
+state-dependent division:
+
+```text
+(Romega_i - v_parallel_i) / v_parallel_i
+```
+
+That creates low-speed singularities, epsilon/clip choices, sign switching, and
+distribution artifacts in lockup, spin, and drift-onset cases.
+
+The cleaner actor-facing signals are the raw components:
+
+```text
+Romega_i
+v_parallel_i
+optional v_perp_i
+optional fixed-scale error: (Romega_i - v_parallel_i) / fixed_v_scale
+```
+
+`v_parallel_i` must be each tire contact patch's local ground speed along the
+wheel rolling direction. It must not be the vehicle-center speed and must not be
+computed from the average of wheel speeds, because wheel speed is the signal
+used to detect lockup and spin.
+
+The revised minimum observable actor set is:
+
+```text
+commands
+actual actuator states
+wheel circumferential speeds
+local wheel-ground speeds
+IMU ax / ay / yaw_rate
+road and obstacle geometry
+```
+
+For current single-track AutoDrift, this becomes a temporary front/rear
+approximation:
+
+```text
+Romega_front
+Romega_rear
+v_parallel_front
+v_parallel_rear
+```
+
+This correction is implemented and tested in M92:
+
+```text
+docs/m92-local-wheel-ground-speed-input-plan.md
+docs/m92-local-wheel-ground-speed-observability-audit.md
+```
+
 ## Wheel Response Decision
 
 The strongest new decision is that wheel/tire response should become the next
@@ -212,6 +279,13 @@ Persisted execution roadmap:
 - `docs/observation-contract.md`
 - `docs/implementation-plan.md`
 - `docs/m67-self-id-decision-ledger.md`
+
+Current status after M91/M92: the idea remains valid, but the current
+single-track front/rear wheel profiles are not admitted into the primary driver
+input. M91-I rejected the raw front/rear proxy, and M92 rejected the
+single-track local-ground-speed variants as primary PPO inputs. A real
+four-wheel model or a better matched corpus is needed before wheel sensing can
+return to the main driver profile.
 
 ## Warm-Up And Probing
 

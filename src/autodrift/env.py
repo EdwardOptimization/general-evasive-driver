@@ -34,7 +34,13 @@ BASIC_PRIVILEGED_OBS_DIM = 4
 FULL_DYNAMICS_PRIVILEGED_OBS_DIM = 10
 PRIVILEGED_OBSERVATION_MODES = ("basic", "full_dynamics")
 OBSTACLE_RELATIVE_VELOCITY_MODES = ("ego", "zero")
-FRONT_REAR_WHEEL_OBSERVATION_MODES = ("front_rear", "front_rear_raw")
+RAW_FRONT_REAR_WHEEL_OBSERVATION_MODES = (
+    "front_rear_raw",
+    "front_rear_omega",
+    "front_rear_omega_ground",
+    "front_rear_omega_ground_error",
+)
+FRONT_REAR_WHEEL_OBSERVATION_MODES = ("front_rear", *RAW_FRONT_REAR_WHEEL_OBSERVATION_MODES)
 WHEEL_OBSERVATION_MODES = ("none", *FRONT_REAR_WHEEL_OBSERVATION_MODES)
 
 
@@ -502,7 +508,7 @@ class AutoDriftEnv(gym.Env):
         self.last_rear_wheel_speed = float(self.state.vx)
 
     def _update_raw_wheel_state(self) -> None:
-        if self.config.wheel_observation_mode != "front_rear_raw":
+        if self.config.wheel_observation_mode not in RAW_FRONT_REAR_WHEEL_OBSERVATION_MODES:
             return
         dt = max(float(self.config.dt), 1e-6)
         self.last_front_wheel_speed = self.front_wheel_speed
@@ -521,15 +527,23 @@ class AutoDriftEnv(gym.Env):
         self.front_wheel_speed = float(np.clip(self.front_wheel_speed, -speed_bound, speed_bound))
         self.rear_wheel_speed = float(np.clip(self.rear_wheel_speed, -speed_bound, speed_bound))
 
+    def _front_rear_local_ground_speeds(self) -> tuple[float, float]:
+        front_lateral_speed = float(self.state.vy + self.state.yaw_rate * self.params.lf)
+        front_parallel = float(
+            self.state.vx * math.cos(self.state.steer) + front_lateral_speed * math.sin(self.state.steer)
+        )
+        rear_parallel = float(self.state.vx)
+        return front_parallel, rear_parallel
+
     def _wheel_response_features(self, ax_body: float) -> list[float]:
         if self.config.wheel_observation_mode == "none":
             return []
-        if self.config.wheel_observation_mode == "front_rear_raw":
+        if self.config.wheel_observation_mode in RAW_FRONT_REAR_WHEEL_OBSERVATION_MODES:
             throttle_state, brake_state = self._drive_actuator_states()
             dt = max(float(self.config.dt), 1e-6)
             front_wheel_accel = (self.front_wheel_speed - self.last_front_wheel_speed) / dt
             rear_wheel_accel = (self.rear_wheel_speed - self.last_rear_wheel_speed) / dt
-            return [
+            features = [
                 float(self.front_wheel_speed / 20.0),
                 float(self.rear_wheel_speed / 20.0),
                 float(np.clip(front_wheel_accel / 30.0, -2.0, 2.0)),
@@ -544,6 +558,23 @@ class AutoDriftEnv(gym.Env):
                 0.0,
                 0.0,
             ]
+            if self.config.wheel_observation_mode == "front_rear_raw":
+                return features
+
+            front_ground, rear_ground = self._front_rear_local_ground_speeds()
+            features[2] = float(front_ground / 20.0)
+            features[3] = float(rear_ground / 20.0)
+            if self.config.wheel_observation_mode == "front_rear_omega":
+                features[2] = 0.0
+                features[3] = 0.0
+                return features
+            if self.config.wheel_observation_mode == "front_rear_omega_ground":
+                return features
+            if self.config.wheel_observation_mode == "front_rear_omega_ground_error":
+                fixed_speed_scale = 20.0
+                features[4] = float((self.front_wheel_speed - front_ground) / fixed_speed_scale)
+                features[5] = float((self.rear_wheel_speed - rear_ground) / fixed_speed_scale)
+                return features
         if self.config.wheel_observation_mode != "front_rear":
             raise ValueError(f"unknown wheel observation mode: {self.config.wheel_observation_mode}")
 

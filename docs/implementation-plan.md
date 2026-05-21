@@ -1894,8 +1894,38 @@ a small zero-wheel drop (`0.90` to `0.85`). See
 - Gate normal/reset/zero-wheel/zero-all after continuation.
 - Rerun wheel relevance audit and compare against M89.
 
-Status: planned. M89 gives a useful wheel-aware starting point, but not yet a
-promoted driver.
+Status: blocked. M89 gives a useful wheel-aware starting point, but M91/M92
+input-observability audits did not justify admitting the current single-track
+wheel branch into PPO continuation.
+
+### M91: Input Observability Audit Sequence
+
+- Compare wheel-response profiles against the no-wheel human-view baseline on
+  supervised future envelope targets before spending PPO budget.
+- Add raw and compact history windows, then learned-history probes.
+- Use sensor ablations to identify whether history benefit comes from commands,
+  actuator feedback, IMU/body response, or wheel channels.
+
+Status: complete as a no-wheel-primary decision. M91-H showed repeatable
+history benefit for braking/yaw targets, but M91-I found that removing wheel
+channels improved braking and lateral response in the learned-history ablation.
+The current `front_rear_raw` profile remains optional and is not a primary
+driver input. See `docs/m91i-learned-history-sensor-ablation.md`.
+
+### M92: Local Wheel Ground-Speed Observability Audit
+
+- Implement clean single-track wheel profiles that expose `Romega` and local
+  `v_parallel` without `slip_ratio`, ABS/TCS flags, tire labels, or `mu`.
+- Preserve the 85-value wheel-frame shape for apples-to-apples comparison.
+- Run P1 `Romega`, P2 `Romega + v_parallel`, and P4 `Romega + v_parallel +
+  fixed-scale error` against P0 no-wheel probes.
+
+Status: complete as a negative admission result. P1 `Romega` gives weak mean
+R2 lift, but the physically cleaner P2 local-ground-speed profile has mean
+P1-vs-P0 R2 lift `-0.062184`, and P4 fixed-scale error regresses further. Keep
+the no-wheel human-view response stream as primary until a true four-wheel
+profile or better matched corpus proves stable benefit. See
+`docs/m92-local-wheel-ground-speed-observability-audit.md`.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

@@ -3,7 +3,7 @@ import pytest
 
 from autodrift.artifacts import read_json
 from autodrift.config import build_env_config
-from autodrift.dynamics import RandomizationConfig
+from autodrift.dynamics import RandomizationConfig, VehicleState
 from autodrift.env import AutoDriftEnv, DriftEnvConfig, FrictionStepConfig, ObstacleTaskConfig
 from autodrift.policies import HeuristicPolicy
 from autodrift.scenarios import ObstacleScenario
@@ -243,6 +243,55 @@ def test_front_rear_raw_wheel_observation_keeps_clean_slot_shape():
     assert np.isfinite(next_wheel_features).all()
     np.testing.assert_allclose(next_wheel_features[4:7], np.zeros(3, dtype=np.float32))
     np.testing.assert_allclose(next_wheel_features[10:13], np.zeros(3, dtype=np.float32))
+
+
+@pytest.mark.parametrize(
+    "mode",
+    [
+        "front_rear_omega",
+        "front_rear_omega_ground",
+        "front_rear_omega_ground_error",
+    ],
+)
+def test_local_wheel_ground_speed_profiles_keep_clean_slot_shape(mode):
+    env = AutoDriftEnv(DriftEnvConfig(wheel_observation_mode=mode))
+    obs, _ = env.reset(seed=25)
+
+    assert obs.shape == (85,)
+    wheel_features = obs[12:25]
+    assert wheel_features.shape == (13,)
+    assert np.isfinite(wheel_features).all()
+    np.testing.assert_allclose(wheel_features[10:13], np.zeros(3, dtype=np.float32))
+
+    next_obs, _, _, _, _ = env.step(np.array([0.3, 1.0, -1.0], dtype=np.float32))
+    next_wheel_features = next_obs[12:25]
+
+    assert next_obs.shape == (85,)
+    assert np.isfinite(next_wheel_features).all()
+    np.testing.assert_allclose(next_wheel_features[10:13], np.zeros(3, dtype=np.float32))
+
+
+def test_local_wheel_ground_speed_profile_uses_bicycle_contact_speed_not_slip_ratio():
+    env = AutoDriftEnv(DriftEnvConfig(wheel_observation_mode="front_rear_omega_ground_error"))
+    env.reset(seed=26)
+    env.state = VehicleState(x=0.0, y=0.0, psi=0.0, vx=10.0, vy=1.5, yaw_rate=0.4, steer=0.2)
+    env.front_wheel_speed = 9.0
+    env.rear_wheel_speed = 11.0
+    env.last_front_wheel_speed = 9.0
+    env.last_rear_wheel_speed = 11.0
+
+    front_ground, rear_ground = env._front_rear_local_ground_speeds()
+    wheel_features = np.asarray(env._wheel_response_features(ax_body=0.0), dtype=np.float32)
+
+    expected_front_ground = 10.0 * np.cos(0.2) + (1.5 + 0.4 * env.params.lf) * np.sin(0.2)
+    assert np.isclose(front_ground, expected_front_ground)
+    assert np.isclose(rear_ground, 10.0)
+    np.testing.assert_allclose(wheel_features[0:4], [9.0 / 20.0, 11.0 / 20.0, front_ground / 20.0, 0.5])
+    np.testing.assert_allclose(
+        wheel_features[4:7],
+        [(9.0 - front_ground) / 20.0, (11.0 - rear_ground) / 20.0, 0.0],
+    )
+    np.testing.assert_allclose(wheel_features[10:13], np.zeros(3, dtype=np.float32))
 
 
 def test_wheel_observation_mode_rejects_unknown_mode():
