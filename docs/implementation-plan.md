@@ -1332,6 +1332,34 @@ Exit criteria:
 - if the gate is still insensitive, document why and design the next training
   objective around that measured failure.
 
+Status: complete as a negative diagnostic. M64 adds a seed-delta audit over the
+M63 broader-driver episodes and a paired nominal/low-friction perturbation gate
+for M37_102, `m62_a250`, and their reset, zero-response, and no-action-history
+ablations. The ablations remain too strong: reset hidden and zero-response
+variants do not meaningfully reduce perturbed success. M37_102 and M62_a250
+behave nearly identically on the paired grid. M62 remains the current best
+margin-retention candidate, but it is not a self-identification pass. See
+`docs/m64-stronger-response-history-self-identification-gate.md`.
+
+### M65: Response-History Necessity Objective
+
+- Target the measured M64 failure directly instead of improving aggregate
+  success alone.
+- Mine or construct a response-necessity corpus from paired perturbation
+  episodes where closed-loop response history should change behavior.
+- Add a training objective or continuation setup that makes deployable response
+  history behavior-critical without adding hidden vehicle parameters,
+  controller mode, oracle labels, or rule inputs to the actor.
+
+Exit criteria:
+
+- corpus or objective artifacts are reproducible from recorded seeds;
+- actor observations remain the clean human-view contract;
+- M62/M37 baselines and new candidates are evaluated on the same paired
+  perturbation, ablation, margin-retention, and broader-driver gates;
+- promotion requires both no aggregate regression and stronger degradation
+  under response/history ablations.
+
 Status: planned.
 
 ## Metrics

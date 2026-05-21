@@ -154,6 +154,9 @@ vehicle/tire models, and NMPC-style constrained control.
   margin-retention pass and M62 current-best candidate.
 - `m63-broader-driver-audit.md`: held-out audit showing M62 keeps aggregate
   success but still fails to prove response-history dependence.
+- `m64-stronger-response-history-self-identification-gate.md`: paired
+  perturbation and ablation audit showing M62 still lacks strong closed-loop
+  self-identification evidence.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

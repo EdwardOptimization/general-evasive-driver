@@ -1,7 +1,7 @@
 {
   "counts": {
     "blocked": 0,
-    "completed": 60,
+    "completed": 61,
     "failed": 0,
     "pending": 0,
     "planned": 1,
@@ -10,10 +10,10 @@
   "last_result": {
     "command_log": null,
     "returncode": 0,
-    "run_dir": "runs/m63_m62_broader_driver_audit_seed7000",
+    "run_dir": "runs/m64_m62_paired_perturbation_gate_seed3600",
     "status": "completed",
-    "task_id": "m63-broader-driver-audit-for-m62"
+    "task_id": "m64-stronger-response-history-self-identification-gate"
   },
-  "next_task": "m64-stronger-response-history-self-identification-gate",
-  "updated_at_utc": "20260521T092234Z"
+  "next_task": "m65-response-history-necessity-objective",
+  "updated_at_utc": "20260521T092827Z"
 }

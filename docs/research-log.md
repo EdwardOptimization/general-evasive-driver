@@ -2478,3 +2478,43 @@ Conclusion: M62 keeps aggregate held-out performance and remains the current
 best margin-retention candidate, but M63 does not prove driver-like closed-loop
 self-identification. M64 should build a stronger response-history gate rather
 than relying on average ablation success.
+
+## 20260521T092827Z m64-stronger-response-history-self-identification-gate
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A paired nominal/low-friction perturbation gate should expose
+  whether M62_a250 depends on recurrent response history and action history,
+  rather than only preserving aggregate success.
+- seed-delta command: `conda run -n autodrift python -m autodrift.seed_delta_audit --episodes-csv runs/m63_m62_broader_driver_audit_seed7000/episodes.csv --baseline-policy m62_a250 --candidate-policy m62_a250_reset --candidate-policy m62_a250_zero_current --candidate-policy m62_a250_zero_all --candidate-policy m62_a250_noact --run-dir runs/m64_m62_ablation_seed_delta_audit`
+- paired gate command: `conda run -n autodrift python -m autodrift.paired_perturbation_gate --env-config configs/ppo_m24_human_view_gru_driver.json --checkpoint runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --checkpoint-policy m37_102=runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --checkpoint-policy m37_102_reset=runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt@reset_recurrent_state --checkpoint-policy m37_102_zero_current=runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt@zero_current_response --checkpoint-policy m37_102_zero_all=runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt@zero_all_response --checkpoint-policy m37_102_noact=runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt@zero_action_history --checkpoint-policy m62_a250=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --checkpoint-policy m62_a250_reset=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt@reset_recurrent_state --checkpoint-policy m62_a250_zero_current=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt@zero_current_response --checkpoint-policy m62_a250_zero_all=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt@zero_all_response --checkpoint-policy m62_a250_noact=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt@zero_action_history --episodes 80 --seed 3600 --device cpu --run-dir runs/m64_m62_paired_perturbation_gate_seed3600`
+- returncode: `0`
+- run dirs: `runs/m64_m62_ablation_seed_delta_audit`,
+  `runs/m64_m62_paired_perturbation_gate_seed3600`
+- success artifact:
+  `runs/m64_m62_paired_perturbation_gate_seed3600/pair_summary.csv`
+
+Result:
+
+- seed-delta audit: `m62_a250_noact`, `m62_a250_zero_current`, and
+  `m62_a250_zero_all` have zero aggregate success delta versus `m62_a250`;
+- seed-delta audit: reset recurrent state has success delta `-0.008333` with
+  1 improved and 2 regressed seeds;
+- seed-delta audit: zero current/all response features reduce mean clearance
+  margin by `-0.007306` without reducing aggregate success;
+- paired gate nominal/perturbed success for `m37_102`: `0.9375` / `0.6875`;
+- paired gate perturbed success for M37 reset hidden and zero current/all
+  response: `0.7000` / `0.7000`;
+- paired gate nominal/perturbed success for `m62_a250`: `0.9375` / `0.6875`;
+- paired gate perturbed success for reset hidden: `0.7000`;
+- paired gate perturbed success for zero current/all response: `0.7000`;
+- paired gate perturbed success for no action history: `0.6750`.
+
+Conclusion: M64 is a negative self-identification diagnostic. The stricter
+paired perturbation gate still does not show that removing recurrent response
+state reliably weakens the policy. M37_102 and M62_a250 behave nearly
+identically on the paired ablation grid. `m62_a250` remains the current best
+margin-retention checkpoint, but the ideal-driver blocker is unchanged:
+closed-loop response history is not yet behavior-critical. M65 should target
+response-history necessity directly with a corpus or training objective rather
+than another aggregate-success continuation.
