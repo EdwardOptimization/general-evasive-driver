@@ -59,6 +59,12 @@ the tire and chassis cues a skilled driver uses.
 
 ## Stage 1: Front/Rear Wheel Branch
 
+Historical note: this was the first M81 proxy branch. The later 23:50 MHTML
+input review and M92 correction supersede the idea of feeding slip proxies or
+ABS/TCS/ESC flags as final actor inputs. Keep this branch only for historical
+M81-M88 compatibility and ablation comparisons. New actor-input work should
+follow `docs/m104-minimum-observable-input-contract.md`.
+
 For the current bicycle/single-track simulator, start with axle-level wheel
 signals instead of a full four-wheel model:
 
@@ -85,8 +91,8 @@ Iw * omega_dot_front = -T_brake_front - R * Fx_front
 Iw * omega_dot_rear  =  T_drive_rear - T_brake_rear - R * Fx_rear
 ```
 
-The slip proxy should be clipped, smoothed, delayed, and noisy enough to avoid
-becoming a perfect simulator oracle:
+In the original M81 design, the slip proxy would have been clipped, smoothed,
+delayed, and noisy enough to avoid becoming a perfect simulator oracle:
 
 ```text
 kappa_front = (R * omega_front - vx_front) / max(abs(vx_front), epsilon)
@@ -98,17 +104,14 @@ kappa_rear  = (R * omega_rear  - vx_rear)  / max(abs(vx_rear), epsilon)
 If Stage 1 shows signal, extend to four-wheel response:
 
 ```text
-wheel_speed_fl, wheel_speed_fr, wheel_speed_rl, wheel_speed_rr
-wheel_accel_fl, wheel_accel_fr, wheel_accel_rl, wheel_accel_rr
-slip_proxy_fl, slip_proxy_fr, slip_proxy_rl, slip_proxy_rr
-front_avg_slip
-rear_avg_slip
-rear_minus_front_slip
-left_right_slip_diff
+Romega_fl, Romega_fr, Romega_rl, Romega_rr
+v_parallel_fl, v_parallel_fr, v_parallel_rl, v_parallel_rr
+optional v_perp_fl, v_perp_fr, v_perp_rl, v_perp_rr
 ```
 
 This helps expose yaw-related tire behavior, left/right asymmetry, braking
-asymmetry, and incipient spin.
+asymmetry, and incipient spin without feeding diagnostic slip ratios or
+controller flags to the actor.
 
 ## Stage 3: Control-System Proxies
 
@@ -125,9 +128,11 @@ tcs_active
 esc_yaw_intervention
 ```
 
-These signals may be visible to the actor because a real vehicle can know its
-own actuator and stability-control states. They must not be implemented as
-direct aliases for true friction, tire force limit, or oracle feasibility.
+Actual actuator and torque signals may be visible to the actor because a real
+vehicle can know its own commanded and measured actuator path. ABS/TCS/ESC mode
+flags should remain logging, probe, teacher, verifier, or baseline signals
+unless a later admission gate proves they improve deployable self-ID without
+creating controller-mode shortcuts.
 
 ## Observation Placement
 
@@ -276,6 +281,12 @@ context_stream_dim = 60
 The slip signal is a sensor-style proxy derived from actuator force versus
 realized rear longitudinal tire force. It does not expose true `mu`, true tire
 capacity, tire saturation labels, or feasibility labels.
+
+Later decision: this proxy remains valid only as historical M81-M88
+infrastructure. It is not the future minimum actor contract because it still
+contains engineered slip and controller-mode proxy slots. The future strict
+profile should expose raw `Romega_i` and local `v_parallel_i` components and
+let the recurrent policy learn tire state internally.
 
 ## Stage 1 Validation
 

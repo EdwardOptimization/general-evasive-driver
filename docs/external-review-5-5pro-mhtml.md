@@ -420,7 +420,14 @@ Current status after the later work:
   not depend on recurrent history.
 - M101 produced the first behavior-level reset/zero-response dependence signal,
   but hidden-envelope retention regressed on braking/lateral probe targets.
+- M102 recovered hidden-envelope retention under softer actor coupling, but the
+  reset/zero-response behavior-dependence signal disappeared again.
 
 The current next research step is therefore not another wheel-profile PPO run.
-It is a retention-aware actor-coupling step that preserves M101's behavior
-dependence without losing M98's useful response-hidden envelope signal.
+It is M103 outcome-aware actor coupling: mine or construct snippets where
+normal carried history actually improves clearance or success over reset,
+zero-response, delayed-history, or wrong-history interventions, then apply
+actor-coupling pressure only on those outcome-relevant snippets.
+
+The stricter input-contract takeaway is now also preserved as
+`docs/m104-minimum-observable-input-contract.md`.

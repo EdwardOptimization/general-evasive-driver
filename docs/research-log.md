@@ -3956,3 +3956,27 @@ behavior-dependence signal. The next step should be M103: an outcome-aware
 actor-coupling objective that applies recurrent-action pressure only where
 normal history is actually better than reset, zero-response, delayed-history,
 or wrong-history interventions.
+
+## 20260522T000000Z m104-minimum-observable-input-contract
+
+- status: `planned`
+- kind: `design`
+- source: `/home/quyaonan/workspace/AutoDrift - 项目评估分析.mhtml`,
+  snapshot saved 2026-05-21 23:50 +0800
+- artifact: `docs/m104-minimum-observable-input-contract.md`
+
+Decision:
+
+- deployable actor inputs should be sensor-direct or minimally calibrated/fused;
+- minimum observability chain is known commands, actual actuator feedback, raw
+  wheel/contact response when available, body inertial response, and
+  road/obstacle geometry;
+- `slip_ratio`, `slip_angle`, `slip_proxy`, ABS/TCS/ESC flags, tire-force
+  labels, `mu`, oracle feasibility, and reference trajectories stay out of the
+  actor;
+- future wheel work should use raw `Romega_i` and independently fused local
+  `v_parallel_i`, not wheel-speed averages or diagnostic ratios.
+
+This is not a result and does not change the active M103 path. It prevents the
+historical M81 proxy branch from being mistaken for the final minimum actor
+contract.

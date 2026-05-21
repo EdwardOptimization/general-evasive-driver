@@ -258,6 +258,12 @@ v_parallel_rear = vx
 
 This is an experiment profile, not the final four-wheel sensor contract.
 
+M104 records the stricter future input contract. It explicitly forbids feeding
+`slip_ratio`, `slip_angle`, `slip_proxy`, ABS/TCS/ESC flags, tire-force labels,
+or controller-mode shortcuts to the deployable actor. Future wheel work should
+use raw `Romega_i` plus independently fused local `v_parallel_i`, with optional
+`v_perp_i` only after a separate admission gate.
+
 Do not put these diagnostic quantities into the actor:
 
 ```text

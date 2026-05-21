@@ -1740,9 +1740,11 @@ driving collapse, but this is not a promotion gate. See
 
 - Add deployable wheel/tire response signals to the response GRU stream rather
   than the scene context branch.
-- Start with front/rear wheel speed, wheel acceleration, slip proxy, brake
-  pressure, drive torque, and simple ABS/TCS proxy signals for the current
-  bicycle/single-track simulator.
+- The historical M81 branch started with front/rear wheel speed, wheel
+  acceleration, slip proxy, brake pressure, drive torque, and simple ABS/TCS
+  proxy signals for the current bicycle/single-track simulator. Later input
+  reviews supersede slip and controller-mode proxies as final actor inputs.
+  They remain historical M81-M88 comparison infrastructure only.
 - Keep the deployable actor blind to true friction, true tire limits, oracle
   saturation labels, reference trajectories, and feasibility labels.
 - Compare current, command-response-error, front/rear wheel, four-wheel, and
@@ -1755,7 +1757,8 @@ Status: complete as Stage 1 infrastructure. M81 adds a config-gated
 `wheel_human_view_online_gru` actor, checkpoint loading support, and
 `zero_wheel_response` benchmark ablation. The 4096-step smoke trains end to
 end, but the checkpoint is not a candidate (`termination_rate = 1.0` on the
-2-episode eval). See `docs/m81-wheel-response-input-roadmap.md`.
+2-episode eval). For the stricter post-M92 minimum-input rule, see
+`docs/m104-minimum-observable-input-contract.md`.
 
 ### M82: PPO Reintroduction For Outcome Objective
 
@@ -2098,6 +2101,26 @@ Status: planned. M101 and M102 expose a real tradeoff: strong action coupling
 creates behavior dependence but breaks hidden-envelope retention; soft coupling
 retains hidden belief but is behavior-neutral. The next objective must bind
 history dependence to closed-loop outcomes.
+
+### M104: Minimum Observable Input Contract
+
+- Preserve the latest 5.5pro input review as a future sensor-contract protocol.
+- Actor inputs should be sensor-direct or minimally calibrated/fused:
+  commands, actual actuator feedback, raw wheel/contact response when available,
+  body inertial response, and road/obstacle geometry.
+- Do not feed `slip_ratio`, `slip_angle`, `slip_proxy`, ABS/TCS/ESC flags,
+  controller modes, `mu`, tire-force labels, oracle feasibility, or reference
+  trajectories to the deployable actor.
+- Treat four-wheel `Romega_i` plus independent local `v_parallel_i` as the next
+  strict wheel-sensor branch; do not compute local ground speed from wheel-speed
+  averages.
+- Compare profiles through supervised probes first, then frozen-recipe RL,
+  matched wrong-history counterfactuals, and optional-sensor admission gates.
+
+Status: design note only. M91/M92 keep the current no-wheel human-view driver
+as primary for now. M104 records the rule for future four-wheel or richer
+wheel-contact work without reopening the rejected single-track wheel profiles.
+See `docs/m104-minimum-observable-input-contract.md`.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 
