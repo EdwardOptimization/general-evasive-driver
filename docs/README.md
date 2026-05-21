@@ -76,6 +76,8 @@ vehicle/tire models, and NMPC-style constrained control.
   M23 training configuration.
 - `m24-human-view-driver-contract.md`: 72-value human-view GRU observation
   contract and 3-channel steer/throttle/brake simulator action.
+- `m25-human-view-gru-smoke.md`: GPU smoke result proving the human-view GRU
+  contract trains end to end.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

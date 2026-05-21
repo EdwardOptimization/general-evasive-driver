@@ -868,3 +868,33 @@ Validation:
   tests/test_env.py tests/test_dynamics.py tests/test_policies.py
   tests/test_evaluate.py tests/test_checkpoints.py tests/test_vector_env.py`
   returned 52 passed.
+
+## 20260521T020037Z m25-human-view-gru-smoke
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Smoke-train the human-view online GRU driver from scratch under the 72-value frame
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m24_human_view_gru_driver.json --total-steps 20480 --seed 2024 --device cuda --run-dir runs/ppo_m25_human_view_gru_smoke_seed2024`
+- returncode: `0`
+- run dir: `runs/research/m25-human-view-gru-smoke_20260521T015946Z`
+- command log: `runs/research/m25-human-view-gru-smoke_20260521T015946Z/command.log`
+- success artifact: `runs/ppo_m25_human_view_gru_smoke_seed2024/checkpoint.pt`
+- notes: First validation that the new human-view observation and 3-channel action contract train end to end
+
+Smoke result:
+
+- training device: `cuda`;
+- final step: 20480;
+- final rollout return mean: 43.762;
+- final rollout termination rate: 0.648;
+- eval return mean: 50.532;
+- eval steps mean: 53.700;
+- eval termination rate: 0.500;
+- eval lateral RMSE mean: 0.455;
+- eval beta absolute error mean: 0.146.
+
+Conclusion: M25 passes as infrastructure only. The human-view observation and
+3-channel action contract can train end to end with `human_view_online_gru`, but
+20k steps is not a quality result. The next step is a full M26 training run from
+scratch under the same contract, then same-corpus benchmarks and hidden-state
+ablations.

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 0,
-    "completed": 21,
+    "completed": 22,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m23-hard-corpus-training_20260521T010313Z/command.log",
+    "command_log": "runs/research/m25-human-view-gru-smoke_20260521T015946Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m23-hard-corpus-training_20260521T010313Z",
+    "run_dir": "runs/research/m25-human-view-gru-smoke_20260521T015946Z",
     "status": "completed",
-    "task_id": "m23-hard-corpus-training"
+    "task_id": "m25-human-view-gru-smoke"
   },
   "next_task": {
-    "command": "conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m24_human_view_gru_driver.json --total-steps 20480 --seed 2024 --device cuda --run-dir runs/ppo_m25_human_view_gru_smoke_seed2024",
-    "hypothesis": "Smoke-train the human-view online GRU driver from scratch under the 72-value frame",
-    "id": "m25-human-view-gru-smoke",
+    "command": "conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m24_human_view_gru_driver.json --seed 2024 --device cuda --run-dir runs/ppo_m26_human_view_gru_seed2024",
+    "hypothesis": "Full-train the human-view online GRU driver from scratch under the 72-value frame",
+    "id": "m26-human-view-gru-full-train",
     "kind": "training",
-    "notes": "First validation that the new human-view observation and 3-channel action contract train end to end",
-    "priority": 180,
+    "notes": "Follow M25 smoke with a full run before same-corpus and hidden-state gates",
+    "priority": 190,
     "status": "pending",
-    "success_artifact": "runs/ppo_m25_human_view_gru_smoke_seed2024/checkpoint.pt"
+    "success_artifact": "runs/ppo_m26_human_view_gru_seed2024/checkpoint.pt"
   },
-  "updated_at_utc": "20260521T015854Z"
+  "updated_at_utc": "20260521T020130Z"
 }
