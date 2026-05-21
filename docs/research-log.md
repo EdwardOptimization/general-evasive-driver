@@ -4,12 +4,14 @@ Last updated: 2026-05-21
 
 ## Current Best
 
-- checkpoint: `runs/ppo_m30_mixed_matched_response_seed1330/checkpoints/checkpoint_step_53248.pt`
+- checkpoint: `runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt`
 - status: not ideal-driver passed
-- gate artifact: `runs/m30_053_hidden_swap_gate_seed4200/summary.csv`
-- blocker: aggregate success is stronger than M26/M8, but M30_053 still does
-  not pass recurrent self-identification; hidden-swap changes zero accepted
-  success outcomes on the M28-style gate.
+- gate artifact: `runs/m37_102_hidden_swap_gate_seed4300/summary.csv`
+- blocker: M37_102 preserves M30/M34 aggregate success and improves the M35
+  response-change corpus, with reset and zero-response ablations now hurting
+  perturbed accepted outcomes. It still does not pass recurrent
+  self-identification because hidden-swap changes zero accepted success
+  outcomes.
 
 ## Standing Loop
 
@@ -1424,3 +1426,83 @@ M34_151, and M36_028 on M35, M29, broad, and hidden-swap gates.
 - command log: `runs/research/m36-response-change-corpus-training_20260521T041525Z/command.log`
 - success artifact: `runs/ppo_m36_response_change_corpus_seed1536/checkpoint.pt`
 - notes: Use M35 response-change seeds to test whether weak response sensitivity can become behavior-critical recurrent control
+
+## 20260521T045049Z m37-multistep-response-aux
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Train M34_151 with multi-step future-response auxiliary loss
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m37_multistep_response_aux_driver.json --seed 1637 --device cuda --init-checkpoint runs/ppo_m34_response_aux_mixed_seed1434/checkpoints/checkpoint_step_151552.pt --run-dir runs/ppo_m37_multistep_response_aux_seed1637`
+- returncode: `0`
+- run dir: `runs/research/m37-multistep-response-aux_20260521T043446Z`
+- command log: `runs/research/m37-multistep-response-aux_20260521T043446Z/command.log`
+- success artifact: `runs/ppo_m37_multistep_response_aux_seed1637/checkpoint.pt`
+- notes: Smoke passed with resized response_prediction_head; validate with M35 M29 broad and hidden-swap gates
+
+Post-run result:
+
+- final eval return mean: 70.028;
+- final eval termination rate: 0.100;
+- periodic checkpoints: 53248, 102400, 151552, 200704, 253952, and 300000.
+
+M35 response-change corpus sweep:
+
+- M30_053 / M34_151 / M36_028 success: 0.6125 / 0.6125 / 0.6125;
+- M37_053 / 102 / 151 / 200 / 253 / final success:
+  0.6375 / 0.6500 / 0.6125 / 0.6250 / 0.6250 / 0.6125.
+
+M29 selected-corpus sweep:
+
+- M30_053 success: 0.875;
+- M34_151 success: 0.875;
+- M37_053 / 102 / final success: 0.875 / 0.875 / 0.875.
+
+Broad same-seed sweep:
+
+- M30_053 success: 0.825;
+- M34_151 success: 0.825;
+- M37_053 / 102 / final success: 0.825 / 0.825 / 0.800.
+
+M37_102 hidden-swap:
+
+- 80-episode accepted matches: 73 / 80;
+- 80-episode hidden-swap outcome changes: 0;
+- 80-episode perturbed reset and zero-response changes: 2 each, all
+  unfavorable;
+- 300-episode accepted matches: 280 / 300;
+- 300-episode hidden-swap outcome changes: 0;
+- 300-episode perturbed reset and zero-response changes: 5 each, all
+  unfavorable.
+
+Conclusion: M37 is the strongest response-critical result so far, but not an
+ideal-driver pass. Multi-step response prediction improves the M35
+response-change corpus and makes reset/zero-response ablations reliably harmful
+on perturbed accepted cases. Hidden-swap remains outcome-neutral, so M38 mines
+a sharper M37_102 corpus and M39 should test whether this signal can be
+reinforced.
+
+## 20260521 m38-m37-response-critical-corpus
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: mine M37_102 hidden-swap replays after the first clean
+  reset/zero-response unfavorable outcome changes
+- hidden-swap command: `conda run -n autodrift python -m autodrift.hidden_swap_gate --env-config configs/ppo_m24_human_view_gru_driver.json --checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --episodes 300 --seed 4300 --device cpu --run-dir runs/m37_102_hidden_swap_gate_seed4300`
+- corpus command: `conda run -n autodrift python -m autodrift.matched_response_corpus --pairs-csv runs/m37_102_hidden_swap_gate_seed4300/pairs.csv --replays-csv runs/m37_102_hidden_swap_gate_seed4300/replays.csv --top-k 80 --min-hidden-state-distance 0.8 --max-context-observation-distance 0.15 --run-dir runs/m38_m37_102_matched_response_corpus_seed4300`
+- corpus artifact: `runs/m38_m37_102_matched_response_corpus_seed4300/scenario_corpus.csv`
+
+Result:
+
+- accepted matches: 280 / 300;
+- hidden-swap outcome changes: 0;
+- perturbed reset outcome changes: 5, all unfavorable;
+- perturbed zero-response outcome changes: 5, all unfavorable;
+- selected corpus seeds: 80;
+- success-changed seeds: 11;
+- success-changed edges: 18;
+- condition-changed seeds: 76;
+- perturbed-failure seeds: 91.
+
+Conclusion: M38 is a better response-critical corpus than M35, but still not a
+hidden-swap pass. M39 should continue from M37_102 on this corpus with the
+multi-step response objective.

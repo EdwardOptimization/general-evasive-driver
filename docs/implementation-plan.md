@@ -682,10 +682,47 @@ Exit criteria:
 - M37 smoke can initialize from M34/M36 checkpoints;
 - full M37 validation uses M35, M29, broad, and hidden-swap gates.
 
-Status: smoke complete; full training queued. The M37 smoke loaded M34_151 with
-`partial_response_prediction_head`, trained 4096 CUDA steps, and reached eval
-return 70.445 with termination rate 0.100. See
+Status: partial positive. M37_102 improves the M35 response-change corpus to
+0.650 success versus 0.6125 for M30_053, M34_151, and M36_028, while
+preserving M29 selected-corpus success at 0.875 and broad success at 0.825.
+It also makes reset and zero-response ablations unfavorably outcome-critical on
+perturbed accepted cases. Hidden-swap still changes zero accepted outcomes, so
+this is not a self-identification pass. See
 `docs/m37-multistep-response-aux-plan.md`.
+
+### M38: M37 Response-Critical Corpus
+
+- Expand M37_102 hidden-swap mining to 300 episodes.
+- Mine a follow-up corpus from seeds where reset/zero-response are now
+  unfavorable.
+- Keep hidden-swap outcome-neutrality recorded as the blocker.
+
+Exit criteria:
+
+- hidden-swap summary, pairs, and replays are written;
+- corpus summary records success-changed seeds and edges;
+- docs distinguish response-critical progress from hidden-swap pass.
+
+Status: complete as corpus construction. M38 accepted 280 / 300 cases, found
+11 success-changed seeds and 18 success-changed edges, and selected 80 seeds.
+Hidden-swap remains zero outcome changes. See
+`docs/m38-m37-response-critical-corpus.md`.
+
+### M39: M37 Response-Corpus Training
+
+- Continue from M37_102 on the M38 corpus.
+- Keep multi-step response prediction active.
+- Use lower learning rate and mixed ordinary resets to avoid M36-style
+  regression.
+
+Exit criteria:
+
+- M39 full run writes periodic checkpoints;
+- post-run sweeps compare against M37_102 on M38, M35, M29, and broad gates;
+- progress requires stronger unfavorable reset/zero-response or hidden-swap
+  sensitivity without aggregate regression.
+
+Status: queued. See `docs/m39-m37-response-corpus-training.md`.
 
 ## Metrics
 
