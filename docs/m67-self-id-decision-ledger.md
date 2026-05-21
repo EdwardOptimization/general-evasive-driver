@@ -247,17 +247,17 @@ Persisted in:
 Continue with:
 
 ```text
-m69-broader-matched-hidden-dynamics-mining
+m70-wrong-history-continuation-gate
 ```
 
 Implementation intent:
 
 ```text
-search beyond the M65 corpus
-sweep friction, brake, and actuator hidden perturbation axes
-rank pairs by wrong-history or privileged-packet divergence
+replay M69 wrong-history candidate seeds
+compare normal history against wrong recurrent history
+promote only snippets where wrong history worsens clearance or success
 ```
 
-M68 added the matched-action harness, but the M65 smoke produced zero
-privileged-packet divergent pairs. Do not proceed directly to student OSI
-distillation yet.
+M69 still found zero privileged-packet divergent pairs, but weak-brake produced
+a few wrong-history action-divergent candidates. Do not proceed directly to
+student OSI distillation yet.

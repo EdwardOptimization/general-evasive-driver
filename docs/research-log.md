@@ -17,8 +17,10 @@ Last updated: 2026-05-21
   resetting response history does not reliably weaken the policy. M67-B's
   from-scratch privileged teacher and M67-E's warm-started privileged teacher
   both failed to produce a meaningful hidden-dynamics upper-bound gap. M68 then
-  found no privileged-packet action divergence on the M65 smoke, so the next
-  blocker is broader matched hidden-dynamics mining before student OSI.
+  found no privileged-packet action divergence on the M65 smoke. M69 broadened
+  the search and still found zero privileged-packet divergent pairs, so the next
+  blocker is testing whether the few wrong-history candidates cause outcome
+  degradation.
 
 ## Standing Loop
 
@@ -2823,3 +2825,35 @@ branch is not action-relevant; action differences mostly reflect current
 response differences rather than hidden dynamics alone. The next task is M69:
 broaden matched hidden-dynamics mining across fresh seeds and perturbation axes
 before building student OSI or wrong-history training losses.
+
+## 20260521T115016Z m69-broader-matched-hidden-dynamics-mining
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: broader fresh-seed mining across friction, weak-brake, and
+  slow-actuator perturbations may reveal hidden-dynamics action divergence that
+  the M65 smoke missed.
+- friction command: `conda run -n autodrift python -m autodrift.matched_action_corpus --env-config configs/ppo_m67e_warm_started_privileged_teacher.json --checkpoint runs/ppo_m67e_warm_privileged_teacher_seed3267/checkpoints/checkpoint_step_4096.pt --episodes 80 --seed 6900 --device cpu --top-k 40 --max-visible-distance 0.75 --max-response-distance 0.25 --max-context-distance 0.05 --min-action-distance 0.05 --nominal-friction-mu-range 0.85,1.15 --perturbed-friction-mu-range 0.25,0.35 --run-dir runs/m69_matched_action_friction_fresh80_seed6900`
+- brake command: `conda run -n autodrift python -m autodrift.matched_action_corpus --env-config configs/ppo_m67e_warm_started_privileged_teacher.json --checkpoint runs/ppo_m67e_warm_privileged_teacher_seed3267/checkpoints/checkpoint_step_4096.pt --episodes 80 --seed 7000 --device cpu --top-k 40 --max-visible-distance 0.75 --max-response-distance 0.25 --max-context-distance 0.05 --min-action-distance 0.05 --nominal-friction-mu-range 0.85,1.15 --perturbed-friction-mu-range 0.85,1.15 --nominal-randomization brake_scale_range=1.20,1.40 --perturbed-randomization brake_scale_range=0.50,0.60 --run-dir runs/m69_matched_action_brake_fresh80_seed7000`
+- actuator command: `conda run -n autodrift python -m autodrift.matched_action_corpus --env-config configs/ppo_m67e_warm_started_privileged_teacher.json --checkpoint runs/ppo_m67e_warm_privileged_teacher_seed3267/checkpoints/checkpoint_step_4096.pt --episodes 80 --seed 7100 --device cpu --top-k 40 --max-visible-distance 0.75 --max-response-distance 0.25 --max-context-distance 0.05 --min-action-distance 0.05 --nominal-friction-mu-range 0.85,1.15 --perturbed-friction-mu-range 0.85,1.15 --nominal-randomization actuator_tau_scale_range=0.55,0.75 --perturbed-randomization actuator_tau_scale_range=2.50,3.20 --run-dir runs/m69_matched_action_actuator_fresh80_seed7100`
+- run dirs: `runs/m69_matched_action_friction_fresh80_seed6900`,
+  `runs/m69_matched_action_brake_fresh80_seed7000`,
+  `runs/m69_matched_action_actuator_fresh80_seed7100`
+- artifact: `docs/m69-broader-matched-hidden-dynamics-mining.md`
+
+Result:
+
+- friction: 21/80 visible matches, 13 action-divergent, 1 wrong-history
+  divergent, 0 privileged-packet divergent;
+- weak brake: 53/80 visible matches, 6 action-divergent, 3 wrong-history
+  divergent, 0 privileged-packet divergent;
+- slow actuator: 70/80 visible matches, 0 action-divergent, 0 wrong-history
+  divergent, 0 privileged-packet divergent;
+- best weak-brake wrong-history candidates: seeds `7002`, `7059`, `7019`;
+- all axes: privileged-packet action divergence remains effectively zero.
+
+Conclusion: M69 broadens the negative M68 result. The M67-E privileged teacher is
+still not using teacher-only hidden dynamics in an action-relevant way. The only
+useful next proof surface is the small wrong-history candidate set, especially
+weak-brake seeds. M70 should replay those candidates and require outcome-level
+margin degradation before any student objective is attempted.

@@ -181,6 +181,9 @@ vehicle/tire models, and NMPC-style constrained control.
   matched action-divergent corpus task.
 - `m68-matched-action-divergent-corpus.md`: matched visible-state action
   divergence miner, strict M65 smoke, and negative teacher-action diagnostic.
+- `m69-broader-matched-hidden-dynamics-mining.md`: fresh-seed friction,
+  weak-brake, and slow-actuator matched-action sweeps plus next continuation
+  gate direction.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

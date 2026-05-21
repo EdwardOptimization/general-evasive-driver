@@ -1518,9 +1518,24 @@ See `docs/m68-matched-action-divergent-corpus.md`.
 - Decide whether the simulator task distribution can produce enough causal
   self-ID pairs for a student objective.
 
-Status: planned after M68. The initial M68 smoke shows the harness works but the
-current M65/M67-E teacher combination does not produce clean hidden-dynamics
-action divergence.
+Status: complete as a broader negative diagnostic. Fresh 80-seed sweeps across
+friction, weak-brake, and slow-actuator axes still produce 0 privileged-packet
+divergent pairs. Weak-brake is the most promising axis for wrong-history
+divergence, with 3/80 pairs crossing the threshold. See
+`docs/m69-broader-matched-hidden-dynamics-mining.md`.
+
+### M70: Wrong-History Continuation Gate
+
+- Replay the M69 wrong-history candidate seeds from matched decision snapshots.
+- Compare normal recurrent history against wrong-history, reset, and zero
+  response continuations.
+- Measure clearance margin, collision, terminal reason, and action-trajectory
+  distance.
+- Promote snippets only if wrong history degrades outcome, not merely first
+  action.
+
+Status: planned after M69. M69 found a few wrong-history action-divergent
+candidate seeds, but no outcome-level evidence yet.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 
