@@ -781,3 +781,59 @@ hard friction cases where hidden-state reset hurts `m21_602`. This is not an
 ideal-driver pass because the corpus is small and mined from the current gate
 outputs. The next step should scale hard-case mining and add a clean training
 or fine-tuning path that oversamples hard response-dependent cases.
+
+## 20260521T012159Z m23-hard-corpus-training
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Fine-tune M21_503 on the mined hard response seed corpus
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m23_hard_response_corpus_driver.json --seed 1223 --device cuda --init-checkpoint runs/ppo_m21_response_critical_actor_seed1031/checkpoints/checkpoint_step_503808.pt --run-dir runs/ppo_m23_hard_response_corpus_seed1223`
+- returncode: `0`
+- run dir: `runs/research/m23-hard-corpus-training_20260521T010313Z`
+- command log: `runs/research/m23-hard-corpus-training_20260521T010313Z/command.log`
+- success artifact: `runs/ppo_m23_hard_response_corpus_seed1223/checkpoint.pt`
+- notes: Uses training_seed_csv for hard-case reset oversampling without actor oracle inputs
+
+Training result:
+
+- final eval return mean: 43.382;
+- final eval steps mean: 60.300;
+- final eval termination rate: 0.200;
+- final eval lateral RMSE mean: 0.595;
+- final eval beta absolute error mean: 0.209;
+- periodic checkpoints: steps 102400, 200704, 303104, 401408, and 500000.
+
+Hard actuator gate:
+
+- run dir: `runs/m23_hard_actuator_checkpoint_sweep_seed3000`;
+- M21_503 nominal/perturbed success: 1.000 / 0.714;
+- M23_102 nominal/perturbed success: 0.714 / 0.571;
+- M23_200 nominal/perturbed success: 0.429 / 0.571;
+- M23_303 nominal/perturbed success: 0.000 / 0.286;
+- M23_401 nominal/perturbed success: 0.143 / 0.286;
+- M23_500 nominal/perturbed success: 0.286 / 0.429.
+
+Hard friction gate:
+
+- run dir: `runs/m23_hard_friction_checkpoint_sweep_seed3000`;
+- M21_503 nominal/perturbed success: 1.000 / 0.714;
+- M23_102 nominal/perturbed success: 1.000 / 0.714;
+- M23_200 nominal/perturbed success: 0.857 / 0.429;
+- M23_303 nominal/perturbed success: 0.857 / 0.143;
+- M23_401 nominal/perturbed success: 0.857 / 0.143;
+- M23_500 nominal/perturbed success: 0.857 / 0.143.
+
+Same-corpus obstacle benchmark:
+
+- run dir: `runs/m23_same_contract_obstacle_benchmark_seed3000`;
+- `envelope_aes` success/termination: 0.250 / 0.750;
+- M21_503 success/termination: 0.500 / 0.500;
+- M23_102 success/termination: 0.500 / 0.500;
+- M23_500 success/termination: 0.300 / 0.700.
+
+Conclusion: M23 is a negative result. Hard-only replay proves the strict reset
+seed infrastructure works, but it overfits the small mined corpus and damages
+the general obstacle policy. The next step is M24 mixed hard replay: sample hard
+response seeds only part of the time, keep ordinary randomized resets active,
+and select periodic checkpoints by both hard response gates and same-corpus
+success.

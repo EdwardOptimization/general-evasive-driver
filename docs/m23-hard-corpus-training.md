@@ -87,3 +87,73 @@ Result:
 
 The smoke run proves the hard seed reset schedule and strict same-architecture
 initialization work. It is not a driver-quality result.
+
+## Full Training Result
+
+Command:
+
+```bash
+conda run -n autodrift python -m autodrift.train_ppo \
+  --config configs/ppo_m23_hard_response_corpus_driver.json \
+  --seed 1223 \
+  --device cuda \
+  --init-checkpoint runs/ppo_m21_response_critical_actor_seed1031/checkpoints/checkpoint_step_503808.pt \
+  --run-dir runs/ppo_m23_hard_response_corpus_seed1223
+```
+
+Result:
+
+- run dir: `runs/ppo_m23_hard_response_corpus_seed1223`;
+- saved checkpoint: `runs/ppo_m23_hard_response_corpus_seed1223/checkpoint.pt`;
+- eval return mean: 43.382;
+- eval steps mean: 60.300;
+- eval termination rate: 0.200;
+- eval lateral RMSE mean: 0.595;
+- eval beta absolute error mean: 0.209;
+- periodic checkpoints: steps 102400, 200704, 303104, 401408, and 500000.
+
+## Gate Results
+
+Hard actuator gate:
+
+| Policy | Nominal success | Perturbed success |
+| --- | ---: | ---: |
+| M21_503 | 1.000 | 0.714 |
+| M23_102 | 0.714 | 0.571 |
+| M23_200 | 0.429 | 0.571 |
+| M23_303 | 0.000 | 0.286 |
+| M23_401 | 0.143 | 0.286 |
+| M23_500 | 0.286 | 0.429 |
+
+Hard friction gate:
+
+| Policy | Nominal success | Perturbed success |
+| --- | ---: | ---: |
+| M21_503 | 1.000 | 0.714 |
+| M23_102 | 1.000 | 0.714 |
+| M23_200 | 0.857 | 0.429 |
+| M23_303 | 0.857 | 0.143 |
+| M23_401 | 0.857 | 0.143 |
+| M23_500 | 0.857 | 0.143 |
+
+Same-contract obstacle benchmark:
+
+| Policy | Success | Termination rate |
+| --- | ---: | ---: |
+| `envelope_aes` | 0.250 | 0.750 |
+| M21_503 | 0.500 | 0.500 |
+| M23_102 | 0.500 | 0.500 |
+| M23_500 | 0.300 | 0.700 |
+
+## Conclusion
+
+M23 is a negative result. The hard seed reset infrastructure is valid, but
+hard-only replay is too narrow: it overfits a seven-seed corpus and damages the
+general obstacle policy. The earliest M23 checkpoint preserves the same-corpus
+benchmark but already loses the hard actuator gate, while the final checkpoint
+regresses both hard-gate behavior and same-corpus success.
+
+The next training path should mix the hard response corpus with ordinary
+randomized resets, or add a separate KL-constrained fine-tune. The actor
+contract should stay strict and deployable: no hidden parameter inputs, no target
+labels, no abstract slip fields, and no backward-compatible checkpoint adapter.
