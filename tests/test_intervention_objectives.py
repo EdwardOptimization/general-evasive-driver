@@ -1,10 +1,16 @@
+from types import SimpleNamespace
+
+import numpy as np
 import torch
 
 from autodrift.intervention_objectives import (
+    PairedHiddenSnapshots,
     action_mean_margin_contrast_loss,
     baseline_action_anchor_loss,
+    load_paired_hidden_snapshots,
     logprob_intervention_contrast_loss,
     negative_advantage_weights,
+    paired_hidden_action_contrast_loss,
     positive_advantage_weights,
     weighted_mean,
 )
@@ -80,3 +86,40 @@ def test_baseline_action_anchor_can_weight_negative_advantage_only():
 
     assert torch.isclose(weighted, torch.tensor(2.0))
     assert torch.isclose(unweighted, torch.tensor(1.25))
+
+
+def test_load_paired_hidden_snapshots_validates_and_converts_arrays(tmp_path):
+    path = tmp_path / "snapshots.npz"
+    np.savez(
+        path,
+        nominal_observation=np.zeros((2, 3), dtype=np.float32),
+        perturbed_observation=np.ones((2, 3), dtype=np.float32),
+        nominal_hidden=np.zeros((2, 4), dtype=np.float32),
+        perturbed_hidden=np.ones((2, 4), dtype=np.float32),
+    )
+
+    snapshots = load_paired_hidden_snapshots(path, device=torch.device("cpu"), obs_dim=3, hidden_size=4)
+
+    assert snapshots.size == 2
+    assert snapshots.nominal_observation.shape == (2, 3)
+    assert snapshots.perturbed_hidden.dtype == torch.float32
+
+
+def test_paired_hidden_action_contrast_loss_uses_swapped_hidden_states():
+    class DummyModel:
+        def forward_recurrent(self, observation, hidden):
+            mean = observation[:, :2] + hidden[:, :2]
+            return SimpleNamespace(mean=mean), None, None
+
+    snapshots = PairedHiddenSnapshots(
+        nominal_observation=torch.tensor([[0.0, 0.0], [1.0, 0.0]]),
+        perturbed_observation=torch.tensor([[0.5, 0.0], [1.5, 0.0]]),
+        nominal_hidden=torch.tensor([[0.0, 0.0], [0.0, 0.0]]),
+        perturbed_hidden=torch.tensor([[1.0, 0.0], [1.0, 0.0]]),
+    )
+
+    torch.manual_seed(1)
+    loss = paired_hidden_action_contrast_loss(DummyModel(), snapshots, batch_size=2, margin=0.1)
+
+    assert torch.isfinite(loss)
+    assert loss >= 0.0

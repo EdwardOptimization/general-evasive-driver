@@ -25,7 +25,9 @@ from autodrift.env import AutoDriftEnv, DriftEnvConfig
 from autodrift.intervention_objectives import (
     action_mean_margin_contrast_loss,
     baseline_action_anchor_loss,
+    load_paired_hidden_snapshots,
     logprob_intervention_contrast_loss,
+    paired_hidden_action_contrast_loss,
 )
 from autodrift.vector_env import ParallelAutoDriftVectorEnv, SyncAutoDriftVectorEnv
 
@@ -649,90 +651,6 @@ def make_vector_env(
             start_method=config.vector_env_start_method,
         )
     raise ValueError("vector_env_mode must be one of: sync, parallel")
-
-
-@dataclass(frozen=True)
-class PairedHiddenSnapshots:
-    nominal_observation: torch.Tensor
-    perturbed_observation: torch.Tensor
-    nominal_hidden: torch.Tensor
-    perturbed_hidden: torch.Tensor
-
-    @property
-    def size(self) -> int:
-        return int(self.nominal_observation.shape[0])
-
-
-def load_paired_hidden_snapshots(
-    path: Path | str,
-    *,
-    device: torch.device,
-    obs_dim: int,
-    hidden_size: int,
-) -> PairedHiddenSnapshots:
-    data = np.load(Path(path))
-    required = {
-        "nominal_observation",
-        "perturbed_observation",
-        "nominal_hidden",
-        "perturbed_hidden",
-    }
-    missing = sorted(required.difference(data.files))
-    if missing:
-        raise ValueError(f"paired hidden snapshot npz missing fields: {missing}")
-    nominal_observation = np.asarray(data["nominal_observation"], dtype=np.float32)
-    perturbed_observation = np.asarray(data["perturbed_observation"], dtype=np.float32)
-    nominal_hidden = np.asarray(data["nominal_hidden"], dtype=np.float32)
-    perturbed_hidden = np.asarray(data["perturbed_hidden"], dtype=np.float32)
-    if nominal_observation.shape != perturbed_observation.shape:
-        raise ValueError("paired hidden observations must have matching shapes")
-    if nominal_hidden.shape != perturbed_hidden.shape:
-        raise ValueError("paired hidden states must have matching shapes")
-    if nominal_observation.ndim != 2 or nominal_observation.shape[1] != obs_dim:
-        raise ValueError(
-            f"paired hidden observations must have shape (N, {obs_dim}), got {nominal_observation.shape}"
-        )
-    if nominal_hidden.ndim != 2 or nominal_hidden.shape[1] != hidden_size:
-        raise ValueError(f"paired hidden states must have shape (N, {hidden_size}), got {nominal_hidden.shape}")
-    if nominal_observation.shape[0] < 1:
-        raise ValueError("paired hidden snapshot npz must contain at least one pair")
-    return PairedHiddenSnapshots(
-        nominal_observation=torch.as_tensor(nominal_observation, dtype=torch.float32, device=device),
-        perturbed_observation=torch.as_tensor(perturbed_observation, dtype=torch.float32, device=device),
-        nominal_hidden=torch.as_tensor(nominal_hidden, dtype=torch.float32, device=device),
-        perturbed_hidden=torch.as_tensor(perturbed_hidden, dtype=torch.float32, device=device),
-    )
-
-
-def paired_hidden_action_contrast_loss(
-    model: ActorCritic,
-    snapshots: PairedHiddenSnapshots,
-    *,
-    batch_size: int,
-    margin: float,
-) -> torch.Tensor:
-    count = snapshots.size
-    batch_count = max(1, min(int(batch_size), count))
-    indices = torch.randint(count, (batch_count,), device=snapshots.nominal_observation.device)
-    nominal_observation = snapshots.nominal_observation[indices]
-    perturbed_observation = snapshots.perturbed_observation[indices]
-    nominal_hidden = snapshots.nominal_hidden[indices]
-    perturbed_hidden = snapshots.perturbed_hidden[indices]
-
-    nominal_dist, _, _ = model.forward_recurrent(nominal_observation, nominal_hidden)
-    nominal_swapped_dist, _, _ = model.forward_recurrent(nominal_observation, perturbed_hidden)
-    perturbed_dist, _, _ = model.forward_recurrent(perturbed_observation, perturbed_hidden)
-    perturbed_swapped_dist, _, _ = model.forward_recurrent(perturbed_observation, nominal_hidden)
-    nominal_distance = torch.linalg.vector_norm(
-        torch.tanh(nominal_dist.mean) - torch.tanh(nominal_swapped_dist.mean),
-        dim=-1,
-    )
-    perturbed_distance = torch.linalg.vector_norm(
-        torch.tanh(perturbed_dist.mean) - torch.tanh(perturbed_swapped_dist.mean),
-        dim=-1,
-    )
-    distances = torch.cat([nominal_distance, perturbed_distance])
-    return torch.nn.functional.softplus(margin - distances).mean()
 
 
 def train(
