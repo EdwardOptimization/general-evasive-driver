@@ -168,6 +168,9 @@ vehicle/tire models, and NMPC-style constrained control.
   harness, full-dynamics teacher observation, and smoke validation.
 - `m67b-full-privileged-upper-bound-training.md`: full privileged teacher
   negative upper-bound attempt and warm-started teacher next step.
+- `m67c-input-profile-audit.md`: captured the observation-profile review,
+  context motion-proxy risk, strict self-ID profile, enhanced OSI profile, and
+  reward-cleanup risks.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

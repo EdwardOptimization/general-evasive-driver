@@ -1432,7 +1432,35 @@ is teacher optimization, not a proof that hidden dynamics is useless: the
 from-scratch `online_gru` teacher never reaches M62's retained driving behavior.
 See `docs/m67b-full-privileged-upper-bound-training.md`.
 
-### M67-C: Warm-Started Privileged Teacher
+### M67-C: Input Profile Audit
+
+- Record the observation-profile review and code-level risks before changing the
+  next architecture.
+- Keep current 72-value human-view as the main baseline.
+- Add a strict self-ID profile that removes obstacle-relative-velocity motion
+  proxies from the context branch before using zero-response ablations as strong
+  evidence.
+- Defer enhanced OSI response features and noisy IMU until strict-context smoke
+  is implemented.
+
+Status: complete as a planning/documentation task. The concrete next task is
+M67-D strict self-ID context profile. See
+`docs/m67c-input-profile-audit.md`.
+
+### M67-D: Strict Self-ID Observation Profile
+
+- Add a config-gated obstacle relative velocity mode:
+  `ego` for current behavior and `zero` for strict self-ID diagnostics.
+- Preserve the 72-value observation shape for the first strict profile.
+- Add tests proving static obstacle rel-vx/rel-vy can be zeroed without changing
+  the deployable actor input contract.
+- Add a strict-context driver config and smoke benchmark against current 72.
+
+Status: planned. This now precedes the warm-started privileged teacher because
+M67-B and the input audit show that a cleaner self-ID diagnostic profile is
+needed before teacher/student claims.
+
+### M67-E: Warm-Started Privileged Teacher
 
 - Build a privileged teacher architecture that preserves M62's human-view
   response/context split for the first 72 deployable inputs and appends the
@@ -1441,10 +1469,10 @@ See `docs/m67b-full-privileged-upper-bound-training.md`.
 - Re-run the M65 upper-bound comparison before any deployable student OSI
   objective.
 
-Status: planned. This replaces direct student counterfactual training as the
-next task because M67-B did not produce a credible oracle upper bound.
+Status: planned after M67-D. This replaces direct student counterfactual
+training because M67-B did not produce a credible oracle upper bound.
 
-### M67-D: Counterfactual Response-Intervention Objective
+### M67-F: Counterfactual Response-Intervention Objective
 
 - Stop treating seed replay alone as sufficient for self-identification.
 - Add or prototype an objective that compares normal recurrent rollout against

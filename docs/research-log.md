@@ -2680,3 +2680,18 @@ mine matched action-divergent cases, then train a deployable recurrent student
 with outcome-bound counterfactual interventions. The immediate next task remains
 M67-C warm-started privileged teacher because M67-B's from-scratch teacher did
 not beat `m62_a250`.
+
+## 20260521T113000Z m67c-input-profile-audit
+
+- status: `completed`
+- kind: `planning`
+- artifact: `docs/m67c-input-profile-audit.md`
+
+Conclusion: The observation-profile review is now recorded. The main accepted
+finding is that the current 72-value profile is deployable and useful, but not
+clean enough to make zero-response/reset-hidden ablations decisive: obstacle
+`rel_vx` and `rel_vy` are context-side motion proxies for static obstacles. The
+next task changes from immediate warm-started teacher work to M67-D strict
+self-ID context profile: keep the 72-value shape, add a config mode that zeroes
+obstacle relative velocity, then re-run input-profile diagnostics before making
+teacher/student self-ID claims.
