@@ -311,6 +311,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m111-matched-current-response-ambiguity-audit.md`: matched-current-response
   ambiguity audit; finds 702 future-envelope ambiguous pairs but current hidden
   states do not systematically solve the ambiguity.
+- `m112-matched-history-intervention-gate.md`: action-level intervention gate
+  on M111 pairs; reset/wrong/delayed/zeroed histories change first actions, but
+  rollout outcome is still untested.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

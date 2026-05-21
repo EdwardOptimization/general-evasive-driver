@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 120,
+    "completed": 121,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m111-matched-current-response-ambiguity-audit.md",
+    "command_log": "docs/m112-matched-history-intervention-gate.md",
     "returncode": 0,
-    "run_dir": "runs/m111_matched_current_response_ambiguity_seed9510",
+    "run_dir": "runs/m112_matched_history_intervention_gate_seed9510",
     "status": "completed",
-    "task_id": "m111-matched-current-response-ambiguity-audit"
+    "task_id": "m112-matched-history-intervention-gate"
   },
   "next_task": {
-    "command": "see experiments/manifests/m112-matched-history-intervention-gate.json",
-    "hypothesis": "Turn M111 matched-current-response pairs into normal reset delayed zero-action and wrong-history intervention gates",
-    "id": "m112-matched-history-intervention-gate",
+    "command": "see experiments/manifests/m113-matched-history-outcome-gate.json",
+    "hypothesis": "Replay M112 matched-history interventions through continuations and measure clearance collision success and mitigation",
+    "id": "m113-matched-history-outcome-gate",
     "kind": "gate",
-    "notes": "Pending after M111: test action and outcome dependence on matched history interventions",
-    "priority": 1070,
+    "notes": "Pending after M112: test whether action-level history sensitivity changes rollout outcomes",
+    "priority": 1080,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T192617Z"
+  "updated_at_utc": "20260521T193337Z"
 }

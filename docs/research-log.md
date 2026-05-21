@@ -21,11 +21,14 @@ Last updated: 2026-05-22
   current-response-anchored objective batch but failed external repeated
   split/multi-seed reliability. M111 now finds a matched-current-response
   ambiguity surface with `702` accepted pairs, but current hidden states do not
-  systematically solve that ambiguity. The latest 5.5pro MHTML input review is
-  persisted: future wheel/tire work should use raw `Romega_i` plus independent
-  local `v_parallel_i`, while `slip_ratio`, controller flags, tire labels, and
-  oracle values stay out of actor inputs. The next task is M112: use M111 pairs
-  for action/outcome intervention gates before another objective or PPO sweep.
+  systematically solve that ambiguity by feature distance. M112 then shows a
+  positive action-level history-intervention signal on those pairs, including
+  wrong-history actions moving closer to the matched-right action in about
+  `0.733` of rows. The latest 5.5pro MHTML input review is persisted: future
+  wheel/tire work should use raw `Romega_i` plus independent local
+  `v_parallel_i`, while `slip_ratio`, controller flags, tire labels, and oracle
+  values stay out of actor inputs. The next task is M113: test whether the
+  action-level signal changes rollout outcomes.
 
 ## Standing Loop
 
@@ -4218,3 +4221,37 @@ checkpoints do not encode it reliably in recurrent hidden state. The next task
 is M112: replay or construct normal/reset/delayed/zero-action/wrong-history
 interventions on the M111 matched surface and gate action/outcome degradation,
 not only feature-distance separation.
+
+## 20260521T193337Z m112-matched-history-intervention-gate
+
+- status: `completed`
+- kind: `gate`
+- implementation:
+  `src/autodrift/matched_history_intervention_gate.py`
+- tests:
+  `tests/test_matched_history_intervention_gate.py`
+- run:
+  `runs/m112_matched_history_intervention_gate_seed9510`
+- artifact: `docs/m112-matched-history-intervention-gate.md`
+
+Result:
+
+- consumed M111 `matched_pairs.csv`;
+- reconstructed M62/M102/M105 recurrent snapshots deterministically;
+- input pairs after per-checkpoint/target cap: `639`;
+- intervention rows: `3195`;
+- reset-hidden mean action distance: `0.517`, above-threshold fraction `0.932`;
+- zero-current-response mean action distance: `0.124`, above-threshold fraction
+  `0.985`;
+- delayed-history mean action distance: `0.097`, above-threshold fraction
+  `0.892`;
+- wrong matched-history mean action distance: `0.066`, above-threshold fraction
+  `0.771`;
+- wrong matched-history action is closer to the matched-right normal action in
+  about `0.733` of rows.
+
+Conclusion: M112 is a positive action-level history-sensitivity gate. It does
+not prove driver-level self-identification yet because action changes may not
+improve rollout outcome. The next pending task is M113: replay these
+interventions through continuations and measure clearance, collision, success,
+and mitigation.

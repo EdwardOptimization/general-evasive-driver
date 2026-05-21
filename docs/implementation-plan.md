@@ -2241,15 +2241,32 @@ targets. See `docs/m111-matched-current-response-ambiguity-audit.md`.
 
 - Convert the M111 matched-current-response pairs into replay snippets or an
   intervention corpus.
-- Compare normal, reset-hidden, delayed-history, zero-action-history, and wrong
-  matched-history variants on action and rollout outcome metrics.
-- Gate action/outcome dependence rather than only feature-distance separation.
-- Preserve normal behavior retention against the current M62-class baseline.
+- Compare normal, reset-hidden, delayed-history, zero-action-history,
+  zero-current-response, and wrong matched-history variants on first-action
+  metrics.
+- Gate action dependence rather than only feature-distance separation.
+- Leave rollout outcome to M113.
 
-Status: pending. M111 found the ambiguity surface but not a stable hidden-state
-solution; M112 should test whether wrong or missing history causes measurable
-action or clearance degradation on that surface before another training
-objective.
+Status: completed with a positive action-level signal. On `639` M111 matched
+pairs, reset hidden has mean action distance `0.517`, zero-current-response
+`0.124`, delayed-history `0.097`, wrong matched-history `0.066`, and
+zero-action-history `0.032`. Wrong matched history moves the left action closer
+to the matched-right action in about `0.733` of rows. This proves action
+sensitivity, not outcome benefit. See
+`docs/m112-matched-history-intervention-gate.md`.
+
+### M113: Matched History Outcome Gate
+
+- Replay M112 interventions through continuations.
+- Compare normal, reset, delayed, zero-current-response, zero-action-history,
+  and wrong matched-history variants on clearance, collision, success,
+  mitigation, return, and action-distance metrics.
+- Admit the M111/M112 surface for training only if normal history has better
+  rollout outcome than ablated or wrong history.
+
+Status: pending. M112 shows first-action history sensitivity, but action
+sensitivity is not sufficient for a driver-like self-identification claim until
+the rollout outcome changes in the expected direction.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

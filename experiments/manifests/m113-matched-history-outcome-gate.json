@@ -1,0 +1,35 @@
+{
+  "baseline_checkpoints": [
+    "runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt",
+    "runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt",
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt"
+  ],
+  "commands": [
+    {
+      "command": "TBD: replay M112 matched-history interventions through continuations and measure clearance, collision, success, and mitigation",
+      "name": "m113_matched_history_outcome_gate"
+    }
+  ],
+  "decision_rule": "Admit the M111/M112 surface for training only if normal history improves rollout outcome relative to reset, delayed, zero-action, and wrong matched history on clearance, collision, success, or mitigation metrics.",
+  "failure_criteria": [
+    "action changes from M112 do not produce measurable outcome differences",
+    "wrong-history or reset-history variants perform as well as normal history",
+    "normal continuation success or clearance regresses below the current baseline",
+    "the gate relies on hidden parameters or oracle labels as actor inputs"
+  ],
+  "hypothesis": "M112 shows action-level history sensitivity on M111 matched pairs. The next proof must determine whether that sensitivity matters for closed-loop safety outcomes rather than only first-action distance.",
+  "id": "m113-matched-history-outcome-gate",
+  "required_artifacts": [
+    {
+      "path": "docs/m113-matched-history-outcome-gate.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "M112 action-intervention rows are replayed or reconstructed as continuations",
+    "normal/reset/delayed/zero-action/wrong-history variants are compared on outcome metrics",
+    "clearance, collision, success, mitigation, and action-distance metrics are recorded",
+    "the result decides whether to train an outcome-weighted intervention objective"
+  ],
+  "type": "gate"
+}
