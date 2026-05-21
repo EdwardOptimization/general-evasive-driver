@@ -6,7 +6,7 @@
   ],
   "commands": [
     {
-      "command": "TBD: relocate or tighten obstacle geometry around M111/M114 matched pairs until wrong matched history produces clearance or mitigation degradation",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.wrong_history_boundary_relocation_surface --checkpoint-policy m62=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --checkpoint-policy m102=runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt --checkpoint-policy m105=runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --outcome-csv runs/m113_matched_history_outcome_gate_seed9510/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 60 --max-pairs-per-checkpoint-target 10 --min-base-action-distance 0.02 --target-normal-margins 0.005,0.01,0.02,0.05,0.10,0.15 --half-width-inflations 0 --min-margin-gap 0.02 --min-accepted-wrong-rows 10 --report-variants wrong_matched_history,reset_hidden,zero_current_response,zero_action_history,delayed_history --device cpu --run-dir runs/m115_wrong_history_boundary_relocation_surface_seed9510",
       "name": "m115_wrong_history_boundary_relocation_surface"
     }
   ],
@@ -26,7 +26,7 @@
     }
   ],
   "success_criteria": [
-    "M111/M114 matched pairs are replayed under a boundary-tightened or relocated obstacle configuration",
+    "M111/M113 matched pairs are replayed under a boundary-tightened or relocated obstacle configuration",
     "accepted rows require normal valid continuation and wrong-history margin loss or mitigation degradation",
     "reset/zero-current rows are reported separately from wrong-history rows",
     "the result decides whether to train a wrong-history outcome intervention objective"

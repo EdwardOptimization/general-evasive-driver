@@ -324,6 +324,10 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m114-near-boundary-matched-history-outcome-surface.md`: near-boundary mining
   over M113 outcomes; finds reset/zero-current margin-loss rows but no
   wrong-history outcome-critical rows.
+- `m115-wrong-history-boundary-relocation-surface.md`: boundary-tightened
+  relocation gate; finds 12 wrong-history success-drop rows after obstacle
+  half-width tightening, but the surface is narrow and needs M116 robustness
+  checks before objective training.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

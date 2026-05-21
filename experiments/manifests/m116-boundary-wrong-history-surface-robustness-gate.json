@@ -1,0 +1,35 @@
+{
+  "baseline_checkpoints": [
+    "runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt",
+    "runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt",
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt"
+  ],
+  "commands": [
+    {
+      "command": "TBD: split or repeat M115 boundary relocation with held-out source pairs and stricter dominance checks before objective training",
+      "name": "m116_boundary_wrong_history_surface_robustness_gate"
+    }
+  ],
+  "decision_rule": "Admit the M115 boundary-tightened wrong-history surface for objective training only if it is not dominated by duplicate source pairs or a single tuned boundary width and if wrong-history success drops remain visible under a held-out split.",
+  "failure_criteria": [
+    "accepted wrong-history rows collapse after deduplicating source seed/step pairs",
+    "accepted rows require only one checkpoint or one source seed pair",
+    "wrong-history drops disappear under held-out target-normal-margin splits",
+    "reset or zero-current degradation is the only robust signal"
+  ],
+  "hypothesis": "M115 constructed a positive wrong-history success-drop surface, but the margins are very narrow and may be boundary-tuned. A robustness gate should verify the surface before training a new intervention objective.",
+  "id": "m116-boundary-wrong-history-surface-robustness-gate",
+  "required_artifacts": [
+    {
+      "path": "docs/m116-boundary-wrong-history-surface-robustness-gate.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "M115 accepted rows are split by source pair or geometry target and evaluated on held-out rows",
+    "wrong-history success drops or mitigation degradation remain after deduplication",
+    "M62 remains a control rather than an admitted wrong-history surface",
+    "the result decides whether M117 should train a boundary-aware wrong-history objective"
+  ],
+  "type": "gate"
+}

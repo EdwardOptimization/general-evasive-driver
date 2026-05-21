@@ -4360,3 +4360,45 @@ profiles as primary PPO inputs. That negative result does not reject the future
 four-wheel sensor contract. The active actor input remains the clean no-wheel
 human-view branch until a richer wheel model or matched corpus justifies
 reopening wheel inputs.
+
+## 20260521T195936Z m115-wrong-history-boundary-relocation-surface
+
+- status: `completed`
+- kind: `gate`
+- implementation:
+  `src/autodrift/wrong_history_boundary_relocation_surface.py`
+- tests:
+  `tests/test_wrong_history_boundary_relocation_surface.py`
+- run:
+  `runs/m115_wrong_history_boundary_relocation_surface_seed9510`
+- artifact: `docs/m115-wrong-history-boundary-relocation-surface.md`
+
+M115 targets the M114 blocker directly: passive M113 continuations had no
+`wrong_matched_history` outcome-critical rows. The new harness reconstructs the
+M113 snapshots, tightens obstacle half-width at the snapshot-level boundary,
+and replays normal, wrong-history, reset, zero-current, zero-action, and delayed
+variants.
+
+Formal result:
+
+- candidate rows: `90`;
+- relocation replay rows: `3045`;
+- accepted wrong-history rows: `12`;
+- accepted wrong-history source pairs: `11`;
+- wrong-history success drops: `12`;
+- accepted reset rows: `275`;
+- accepted zero-current rows: `332`;
+- M62 accepted wrong-history rows: `0`;
+- M102 accepted wrong-history rows: `6`;
+- M105 accepted wrong-history rows: `6`.
+
+Interpretation: M115 is a positive construction gate. It proves that a
+boundary-tightened matched surface exists where normal history succeeds and
+wrong matched history collides. It is not yet broad self-ID evidence: accepted
+normal margins are only about `0.006 m`, wrong-history gaps are below
+`0.009 m`, and the signal is absent without relocation.
+
+Conclusion: proceed to M116 robustness before training. M116 should split or
+repeat the M115 surface, deduplicate source pairs, and verify that the
+wrong-history success-drop signal survives held-out geometry/target-margin
+choices.

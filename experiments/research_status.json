@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 123,
+    "completed": 124,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m114-near-boundary-matched-history-outcome-surface.md",
+    "command_log": "docs/m115-wrong-history-boundary-relocation-surface.md",
     "returncode": 0,
-    "run_dir": "runs/m114_near_boundary_outcome_surface_seed9510",
+    "run_dir": "runs/m115_wrong_history_boundary_relocation_surface_seed9510",
     "status": "completed",
-    "task_id": "m114-near-boundary-matched-history-outcome-surface"
+    "task_id": "m115-wrong-history-boundary-relocation-surface"
   },
   "next_task": {
-    "command": "see experiments/manifests/m115-wrong-history-boundary-relocation-surface.json",
-    "hypothesis": "Relocate or tighten obstacle geometry around matched pairs until wrong matched history produces clearance or mitigation degradation",
-    "id": "m115-wrong-history-boundary-relocation-surface",
+    "command": "see experiments/manifests/m116-boundary-wrong-history-surface-robustness-gate.json",
+    "hypothesis": "Split or repeat M115 boundary wrong-history surface before objective training",
+    "id": "m116-boundary-wrong-history-surface-robustness-gate",
     "kind": "gate",
-    "notes": "Pending after M114: target wrong-history outcome-critical rows instead of reset or zero-current rows",
-    "priority": 1100,
+    "notes": "Pending after M115: verify constructed wrong-history success-drop surface is not boundary-tuned or duplicate-dominated",
+    "priority": 1110,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T194345Z"
+  "updated_at_utc": "20260521T195936Z"
 }

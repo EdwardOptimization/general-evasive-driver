@@ -2293,14 +2293,31 @@ self-identification claim. See
 
 ### M115: Wrong-History Boundary Relocation Surface
 
-- Relocate or tighten obstacle geometry around M111/M114 matched pairs.
+- Relocate or tighten obstacle geometry around M111/M113 matched pairs.
 - Require normal-history continuation to stay valid while wrong matched history
   loses clearance, collides, or worsens mitigation.
 - Report reset/zero-current rows separately from wrong-history rows.
 
-Status: pending. M114 shows passive continuations do not make wrong matched
-history outcome-critical; the next surface must be constructed around the
-wrong-history variant instead of relying on reset/zero-current degradation.
+Status: completed as a positive construction gate. M115 adds a
+boundary-tightened relocation harness and finds `12` wrong-history success-drop
+rows across `11` source pairs, with normal history still completing the
+obstacle and wrong history colliding. M62 has zero accepted wrong-history rows;
+M102 and M105 contribute the accepted rows. The result is useful but narrow:
+accepted normal margins are about `0.006 m` and wrong-history gaps are below
+`0.009 m`, so this is not yet paper-grade self-ID evidence. See
+`docs/m115-wrong-history-boundary-relocation-surface.md`.
+
+### M116: Boundary Wrong-History Surface Robustness Gate
+
+- Split or repeat the M115 surface before using it as a training objective.
+- Deduplicate source seed/step pairs and test held-out geometry/target-margin
+  choices.
+- Verify that wrong-history success drops remain and that reset/zero-current
+  degradation is not the only robust signal.
+
+Status: pending. M115 creates an admissible constructed surface, but the next
+gate must decide whether it is robust enough for an M117 boundary-aware
+wrong-history objective.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 
