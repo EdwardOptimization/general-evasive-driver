@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 127,
+    "completed": 128,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m118-fresh-source-diverse-matched-current-corpus.md",
+    "command_log": "docs/m119-fresh-corpus-outcome-boundary-gates.md",
     "returncode": 0,
-    "run_dir": "runs/m118_source_diverse_matched_current_seed9510",
+    "run_dir": "runs/m119_fresh_corpus_boundary_all_candidates_robustness_seed9510",
     "status": "completed",
-    "task_id": "m118-fresh-source-diverse-matched-current-corpus"
+    "task_id": "m119-fresh-corpus-outcome-boundary-gates"
   },
   "next_task": {
-    "command": "see experiments/manifests/m119-fresh-corpus-outcome-boundary-gates.json",
-    "hypothesis": "Run outcome and boundary gates on the M118 source-diverse corpus",
-    "id": "m119-fresh-corpus-outcome-boundary-gates",
+    "command": "see experiments/manifests/m120-outcome-critical-source-diverse-miner.json",
+    "hypothesis": "Mine outcome-critical wrong-history candidates directly with source-diversity constraints",
+    "id": "m120-outcome-critical-source-diverse-miner",
     "kind": "gate",
-    "notes": "Pending after M118: test whether source-diverse action sensitivity translates into outcome or boundary degradation",
-    "priority": 1140,
+    "notes": "Pending after M119: matched-current action ambiguity is not enough so mine outcome criticality directly",
+    "priority": 1150,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T202236Z"
+  "updated_at_utc": "20260521T203143Z"
 }

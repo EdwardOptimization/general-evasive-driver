@@ -1,0 +1,35 @@
+{
+  "baseline_checkpoints": [
+    "runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt",
+    "runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt",
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt"
+  ],
+  "commands": [
+    {
+      "command": "TBD: mine outcome-critical wrong-history candidates directly with source-diversity constraints before another objective or PPO run",
+      "name": "m120_outcome_critical_source_diverse_miner"
+    }
+  ],
+  "decision_rule": "Admit a new training surface only if outcome-critical wrong-history rows are discovered across enough physical pairs, targets, and boundary buckets before objective training.",
+  "failure_criteria": [
+    "accepted rows still collapse to the 9530/9540 physical source pairs",
+    "wrong-history degradation appears only after post-hoc duplicate-heavy boundary tuning",
+    "reset or zero-current response remains the only source-diverse outcome signal",
+    "M62 is admitted as a wrong-history outcome-critical policy"
+  ],
+  "hypothesis": "M119 shows source-diverse matched-current action ambiguity is not enough: outcome-critical wrong-history rows still collapse to a few old physical pairs. A miner that optimizes for outcome criticality and source diversity directly may produce a usable self-identification training surface.",
+  "id": "m120-outcome-critical-source-diverse-miner",
+  "required_artifacts": [
+    {
+      "path": "docs/m120-outcome-critical-source-diverse-miner.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "candidate generation or selection explicitly accounts for physical-pair diversity before post-hoc robustness",
+    "wrong-history outcome degradation is measured, not only first-action distance",
+    "accepted rows cover at least 6 physical source pairs, 5 left steps, 3 target groups, and 2 normal-margin buckets",
+    "the result decides whether a wrong-history outcome objective is admissible"
+  ],
+  "type": "gate"
+}

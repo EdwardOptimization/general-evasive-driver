@@ -2375,6 +2375,29 @@ fraction `0.772`, and closer-to-right fraction `0.738`. See
 Status: pending. M118 restores source diversity and action-level intervention
 sensitivity; outcome-level causality is still unproven.
 
+Status: completed as a negative outcome-surface gate. Passive continuations on
+the M118 corpus produce `408` wrong-history rows across `140` physical pairs
+but no success drops and only mean margin gap `0.000165`. Boundary tightening
+with all candidates produces only `6` accepted wrong-history rows from `3`
+physical pairs, `2` targets, and `1` margin bucket; robustness decision:
+`reject_duplicate_dominated_boundary_surface`. See
+`docs/m119-fresh-corpus-outcome-boundary-gates.md`.
+
+### M120: Outcome-Critical Source-Diverse Miner
+
+- Stop assuming matched-current action ambiguity will become outcome-critical.
+- Mine or construct wrong-history candidates directly against safety outcomes:
+  success drop, clearance margin loss, mitigation loss, and near-boundary
+  normal validity.
+- Enforce physical-pair, target, and margin-bucket diversity before objective
+  training admission.
+- Keep M62 as the control policy that must not be admitted as a wrong-history
+  outcome surface.
+
+Status: pending. M119 shows that the outcome-critical rows still collapse to the
+old `9530/9540` physical pairs even when the upstream action corpus is
+source-diverse.
+
 ### M67-F: Counterfactual Response-Intervention Objective
 
 - Stop treating seed replay alone as sufficient for self-identification.

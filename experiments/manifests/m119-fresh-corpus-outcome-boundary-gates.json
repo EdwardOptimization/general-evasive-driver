@@ -6,8 +6,20 @@
   ],
   "commands": [
     {
-      "command": "TBD: run M113 outcome continuations and M115/M116 boundary robustness on runs/m118_source_diverse_matched_current_seed9510/matched_pairs.csv",
-      "name": "m119_fresh_corpus_outcome_boundary_gates"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_history_outcome_gate --checkpoint-policy m62=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --checkpoint-policy m102=runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt --checkpoint-policy m105=runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --pairs-csv runs/m118_source_diverse_matched_current_seed9510/matched_pairs.csv --delay-steps 10 --max-continuation-steps 60 --min-margin-gap 0.02 --max-pairs-per-checkpoint-target 80 --device cpu --run-dir runs/m119_fresh_corpus_outcome_gate_seed9510",
+      "name": "m119_fresh_corpus_outcome_gate"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.wrong_history_boundary_relocation_surface --checkpoint-policy m62=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --checkpoint-policy m102=runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt --checkpoint-policy m105=runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --outcome-csv runs/m119_fresh_corpus_outcome_gate_seed9510/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 60 --max-pairs-per-checkpoint-target 20 --min-base-action-distance 0.02 --target-normal-margins 0.005,0.01,0.02,0.05,0.10,0.15 --half-width-inflations 0 --min-margin-gap 0.02 --min-accepted-wrong-rows 10 --report-variants wrong_matched_history,reset_hidden,zero_current_response,zero_action_history,delayed_history --device cpu --run-dir runs/m119_fresh_corpus_boundary_relocation_seed9510",
+      "name": "m119_fresh_corpus_boundary_relocation_capped"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.wrong_history_boundary_relocation_surface --checkpoint-policy m62=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --checkpoint-policy m102=runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt --checkpoint-policy m105=runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --outcome-csv runs/m119_fresh_corpus_outcome_gate_seed9510/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 60 --max-pairs-per-checkpoint-target 0 --min-base-action-distance 0.02 --target-normal-margins 0.005,0.01,0.02,0.05,0.10,0.15 --half-width-inflations 0 --min-margin-gap 0.02 --min-accepted-wrong-rows 10 --report-variants wrong_matched_history,reset_hidden,zero_current_response,zero_action_history,delayed_history --device cpu --run-dir runs/m119_fresh_corpus_boundary_all_candidates_seed9510",
+      "name": "m119_fresh_corpus_boundary_all_candidates"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_wrong_history_surface_robustness --boundary-rows-csv runs/m119_fresh_corpus_boundary_all_candidates_seed9510/boundary_relocation_rows.csv --control-checkpoint-label m62 --margin-bucket-width 0.01 --min-accepted-wrong-rows 10 --min-physical-pairs 6 --min-left-steps 5 --min-checkpoints 2 --min-targets 3 --min-margin-buckets 2 --min-success-drop-fraction 1.0 --max-rows-per-pair-fraction 0.40 --max-control-accepted-rows 0 --run-dir runs/m119_fresh_corpus_boundary_all_candidates_robustness_seed9510",
+      "name": "m119_fresh_corpus_boundary_all_candidates_robustness"
     }
   ],
   "decision_rule": "Admit a wrong-history outcome surface only if the M118 source-diverse corpus produces continuation or boundary degradation across enough physical source pairs.",

@@ -4532,3 +4532,59 @@ Action-level wrong-history result on the fresh corpus:
 Conclusion: M118 is positive. It restores source diversity while preserving
 action-level history sensitivity. The next pending task is M119: run
 continuation outcomes and boundary robustness gates on the fresh corpus.
+
+## 20260521T203143Z m119-fresh-corpus-outcome-boundary-gates
+
+- status: `completed`
+- kind: `gate`
+- implementation:
+  - `src/autodrift/matched_history_outcome_gate.py`
+  - `src/autodrift/wrong_history_boundary_relocation_surface.py`
+  - `src/autodrift/boundary_wrong_history_surface_robustness.py`
+- runs:
+  - `runs/m119_fresh_corpus_outcome_gate_seed9510`
+  - `runs/m119_fresh_corpus_boundary_relocation_seed9510`
+  - `runs/m119_fresh_corpus_boundary_robustness_seed9510`
+  - `runs/m119_fresh_corpus_boundary_all_candidates_seed9510`
+  - `runs/m119_fresh_corpus_boundary_all_candidates_robustness_seed9510`
+- artifact: `docs/m119-fresh-corpus-outcome-boundary-gates.md`
+
+M119 repeats outcome and boundary gates on the M118 source-diverse corpus.
+
+Passive outcome result:
+
+- input pairs: `408`;
+- outcome rows: `2448`;
+- wrong-history physical pairs: `140`;
+- wrong-history success drops: `0`;
+- wrong-history normal-better fraction: `0.000`;
+- wrong-history mean margin gap: `0.000165`;
+- reset-hidden mean margin gap: `0.009007`;
+- zero-current-response mean margin gap: `0.009643`.
+
+Boundary tightening result:
+
+| Pass | Candidates | Rows | Accepted wrong rows | Accepted wrong pairs | Surface |
+| --- | ---: | ---: | ---: | ---: | --- |
+| capped | `171` | `5630` | `6` | `4` | false |
+| all-candidate | `315` | `8720` | `6` | `4` | false |
+
+All-candidate robustness decision:
+
+```text
+reject_duplicate_dominated_boundary_surface
+```
+
+Failed gates:
+
+- accepted wrong rows: `6 < 10`;
+- physical pairs: `3 < 6`;
+- left steps: `3 < 5`;
+- target groups: `2 < 3`;
+- margin buckets: `1 < 2`.
+
+Conclusion: M119 is negative. M118's action-level source diversity does not
+become outcome-level source diversity. Accepted wrong-history boundary rows
+still collapse to the old `9530/9540` physical pairs. The next pending task is
+M120: mine outcome-critical wrong-history candidates directly with
+source-diversity constraints.

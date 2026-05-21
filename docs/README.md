@@ -338,6 +338,10 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m118-fresh-source-diverse-matched-current-corpus.md`: fresh matched-current
   corpus with source-diversity selection; finds 471 matched rows across 155
   physical pairs and preserves action-level wrong-history sensitivity.
+- `m119-fresh-corpus-outcome-boundary-gates.md`: M113/M115/M116-style outcome
+  and boundary gates on the M118 corpus; rejects it as a training surface
+  because outcome-critical wrong-history rows still collapse to 3 physical
+  pairs and 1 margin bucket.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.
