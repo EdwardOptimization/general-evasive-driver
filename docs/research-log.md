@@ -4887,3 +4887,37 @@ zero-relvel line. Target means are stable, but response hidden loses to reset
 and current-response baselines. The stronger proof surface is strict
 outcome-critical wrong-history degradation. The next pending task is M127:
 formalize an outcome-centric self-ID proof gate with repeat miners and controls.
+
+## 20260521T221617Z m127-outcome-centric-self-id-proof-gate
+
+M127 formalizes the strict zero-relvel wrong-history outcome surface as the
+current self-identification proof gate. It repeats the M124 miner on fresh seeds
+and compares against matching M62 controls.
+
+M124 repeat results:
+
+| Run | Accepted rows | Success-drop pairs | Selected pairs | Selected seeds | Snippets | Max snippet gap |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| seed 9720 | 15 | 12 | 7 | 6 | 14 | 0.046191 |
+| seed 9820 | 25 | 14 | 10 | 8 | 24 | 0.035959 |
+| seed 9840 | 25 | 11 | 8 | 7 | 24 | 0.035959 |
+
+M62 controls:
+
+| Run | Accepted rows | Success-drop pairs | Selected pairs | Snippets |
+| --- | ---: | ---: | ---: | ---: |
+| seed 9720 | 0 | 0 | 0 | 0 |
+| seed 9820 | 0 | 2 | 0 | 0 |
+| seed 9840 | 0 | 3 | 0 | 0 |
+
+Decision: admit the strict zero-relvel outcome-critical wrong-history proof
+surface for the next stage. This is not driver success and not PPO admission.
+The important positive signal is repeated outcome degradation under wrong
+history while M62 exports zero snippets. The important limitation is source-side
+coverage: all exported snippets are perturbed-source rows. No-action history
+also remains neutral from M125, so M127 proves the wrong-history outcome surface
+rather than every history channel.
+
+The next task is M128: build a combined accepted-only M127 outcome snippet corpus
+with source metadata and row-count checks before testing an outcome-centric
+objective.

@@ -1,0 +1,34 @@
+{
+  "baseline_checkpoints": [
+    "runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "Implement and run an accepted-only M127 outcome-intervention snippet corpus builder over runs/m126_zero_relvel_m124_strict_60ep_seed9720 runs/m127_zero_relvel_m124_strict_60ep_seed9820 and runs/m127_zero_relvel_m124_strict_60ep_seed9840",
+      "name": "m128_combined_outcome_snippet_corpus"
+    }
+  ],
+  "decision_rule": "Before another objective or PPO run, create a combined accepted-only M127 corpus and verify counts/source-side limitations are explicit.",
+  "failure_criteria": [
+    "combined corpus includes non-accepted rows",
+    "metadata and npz row counts disagree",
+    "source side coverage is hidden or mislabeled",
+    "the combined corpus is used for PPO before objective-sanity validation"
+  ],
+  "hypothesis": "M127 admits an outcome-centric proof surface across multiple strict zero-relvel runs. A combined accepted-only snippet corpus is needed before testing an outcome-centric objective on that proof surface.",
+  "id": "m128-combined-outcome-snippet-corpus",
+  "required_artifacts": [
+    {
+      "path": "docs/m128-combined-outcome-snippet-corpus.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "combined npz contains only accepted M127 snippets",
+    "combined metadata records source run and source condition",
+    "row counts match across npz and csv",
+    "source-side limitation is documented",
+    "next objective-sanity step is defined but PPO is not started"
+  ],
+  "type": "infrastructure"
+}

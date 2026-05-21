@@ -2532,8 +2532,26 @@ R2 should no longer be the primary admission gate for this line. See
 - Decide the next proof/training step from outcome-level evidence, not
   hidden-envelope R2.
 
-Status: pending. M126 indicates the strongest current self-identification proof
-surface is outcome-critical wrong-history degradation.
+Status: completed as proof-surface admission only. M124 strict zero-relvel
+outcome-critical wrong-history rows repeat across miner seeds `9720`, `9820`,
+and `9840` with `7`, `10`, and `8` selected physical pairs. Matching M62
+controls export zero snippets across the same repeat surface. The admitted
+surface is perturbed-source only, so the next step must combine and audit the
+accepted snippets before any PPO continuation. See
+`docs/m127-outcome-centric-self-id-proof-gate.md`.
+
+### M128: Combined Outcome Snippet Corpus
+
+- Combine the accepted-only M127 outcome-intervention snippets from the admitted
+  strict zero-relvel runs.
+- Preserve source run, source condition, selected seed, physical pair, and
+  intervention metadata in a CSV alongside the combined NPZ.
+- Verify NPZ row counts match metadata row counts.
+- Keep the perturbed-source-only limitation explicit.
+- Define the next objective-sanity step from this corpus, but do not start PPO.
+
+Status: pending. M127 admits the proof surface, but the training/proof harness
+needs a combined accepted-only corpus before testing an outcome-centric loss.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

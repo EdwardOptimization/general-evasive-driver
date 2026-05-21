@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 135,
+    "completed": 136,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m126-zero-relvel-belief-proof-surface-audit.md",
+    "command_log": "docs/m127-outcome-centric-self-id-proof-gate.md",
     "returncode": 0,
-    "run_dir": "runs/m126_zero_relvel_hidden_envelope_reliability_audit_seed9510",
+    "run_dir": "runs/m127_zero_relvel_m124_strict_60ep_seed9820",
     "status": "completed",
-    "task_id": "m126-zero-relvel-belief-proof-surface-audit"
+    "task_id": "m127-outcome-centric-self-id-proof-gate"
   },
   "next_task": {
-    "command": "see experiments/manifests/m127-outcome-centric-self-id-proof-gate.json",
-    "hypothesis": "Formalize strict zero-relvel outcome-critical wrong-history repeat gate after M126",
-    "id": "m127-outcome-centric-self-id-proof-gate",
-    "kind": "gate",
-    "notes": "Pending after M126: outcome-critical wrong-history surface looks stronger than hidden-envelope R2 proof",
-    "priority": 1220,
+    "command": "see experiments/manifests/m128-combined-outcome-snippet-corpus.json",
+    "hypothesis": "Build a combined accepted-only M127 outcome snippet corpus before objective sanity",
+    "id": "m128-combined-outcome-snippet-corpus",
+    "kind": "infrastructure",
+    "notes": "Pending after M127: combine accepted snippets with source metadata before any PPO continuation",
+    "priority": 1230,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T215134Z"
+  "updated_at_utc": "20260521T221617Z"
 }

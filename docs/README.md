@@ -365,6 +365,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m126-zero-relvel-belief-proof-surface-audit.md`: reliability audit after
   M125; rejects hidden-envelope R2 as the primary gate and points toward
   strict outcome-critical wrong-history proof surfaces.
+- `m127-outcome-centric-self-id-proof-gate.md`: formal repeat gate for the
+  strict zero-relvel wrong-history outcome surface; admits the proof surface
+  for corpus building while recording that all snippets are perturbed-source.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.
