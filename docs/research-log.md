@@ -34,7 +34,10 @@ Last updated: 2026-05-21
   history already collided; successful near-boundary rows still had sub-threshold
   margin gaps. M78 wires an outcome-weighted intervention objective into PPO,
   but the first low-coefficient smoke does not reduce offline intervention loss.
-  The next blocker is objective weight/coefficient tuning.
+  M79 adds a fixed-batch offline evaluator and tries a stronger auxiliary
+  coefficient, but the offline objective worsens again and short evaluation
+  termination rises to `0.5`. The next blocker is an objective-only sanity check
+  before any more PPO continuation.
 
 ## Standing Loop
 
@@ -3188,3 +3191,44 @@ objective is wired and deployable-human-view compatible, but the first short
 low-coefficient smoke does not improve the offline intervention loss. The next
 task is M79: normalize or sharpen weights, sweep coefficient, and require
 fixed-batch offline objective reduction before long continuation training.
+
+## 20260521T133409Z m79-outcome-objective-weight-tuning
+
+- status: `completed`
+- kind: `training`
+- hypothesis: a fixed-batch evaluator plus a stronger
+  `outcome_intervention_aux_coef` can show whether M78's objective simply needs
+  coefficient/weight tuning before full continuation.
+- code update: added `autodrift.outcome_intervention_eval`, which loads one
+  snippet NPZ and multiple checkpoints, resets the Torch RNG for every policy,
+  and writes comparable `policy_summary.csv`, `batch_losses.csv`, and
+  `summary.json` artifacts.
+- config: `configs/ppo_m79_outcome_weighted_highcoef_driver.json`
+- focused tests: `python -m compileall -q src tests` and
+  `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift pytest -q tests/test_outcome_intervention_eval.py tests/test_intervention_objectives.py`
+  returned `12 passed`.
+- final validation: `git diff --check`, `python -m compileall -q src tests`,
+  JSON validation, CSV validation, and
+  `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 conda run -n autodrift pytest -q`
+  returned `217 passed`.
+- evaluator runs:
+  `runs/m79_outcome_intervention_eval_m78_seed0`,
+  `runs/m79_outcome_intervention_eval_highcoef_seed0`
+- smoke training:
+  `runs/ppo_m79_outcome_weighted_highcoef_smoke_seed3469`
+- artifact: `docs/m79-outcome-objective-weight-tuning.md`
+
+Result:
+
+- fixed-batch reproduction: `m62_init` mean loss `0.039923`, `m78_smoke` mean
+  loss `0.040302`;
+- high-coefficient smoke: eval return mean `49.376177`, termination rate `0.5`,
+  final train `outcome_intervention_loss_mean` `0.078022`;
+- fixed-batch high-coefficient check: `m62_init` mean loss `0.039923`,
+  `m78_smoke` mean loss `0.040302`, `m79_highcoef` mean loss `0.041033`.
+
+Conclusion: M79 is an infrastructure pass and a negative coefficient-tuning
+result. A stronger auxiliary coefficient does not reduce the offline objective
+and also damages the short evaluation, so the next task is M80: optimize only
+`outcome_weighted_intervention_loss` on the snippet NPZ to prove the objective
+can move in the intended direction before reintroducing PPO.

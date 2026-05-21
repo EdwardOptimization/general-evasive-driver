@@ -210,6 +210,8 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m78-outcome-weighted-intervention-objective.md`: outcome-weighted
   hidden-intervention auxiliary loss, snippet NPZ export, human-view smoke
   training, and negative offline-loss check.
+- `m79-outcome-objective-weight-tuning.md`: fixed-batch outcome-intervention
+  evaluator, high-coefficient smoke, and negative objective tuning result.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

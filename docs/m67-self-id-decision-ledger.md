@@ -247,16 +247,16 @@ Persisted in:
 Continue with:
 
 ```text
-m79-outcome-objective-weight-tuning
+m80-outcome-objective-only-sanity-check
 ```
 
 Implementation intent:
 
 ```text
-normalize or sharpen M78 outcome snippet weights
-sweep outcome_intervention_aux_coef in short smokes
-require fixed-batch offline objective reduction
-then run retention and self-ID gates
+optimize only outcome_weighted_intervention_loss on the M78 human-view NPZ
+compare fixed-batch loss before/after with the M79 evaluator
+if it cannot decrease, fix objective/sign/data before more PPO
+if it can decrease, reintroduce PPO and retention anchors gradually
 ```
 
 M70 showed that M69 wrong-history candidates do not degrade success or margin.
@@ -275,4 +275,8 @@ near-boundary rows stay below the margin-loss threshold. Do not proceed directly
 to student OSI distillation yet.
 M78 wires the outcome-weighted objective into PPO and exports human-view
 snippets, but the first smoke slightly worsens fixed-batch offline loss. Do not
-run a long continuation until the objective passes an offline-loss smoke.
+run a long continuation until the objective passes an offline-loss smoke. M79
+adds the fixed-batch evaluator and tests a stronger coefficient, but the offline
+loss worsens again (`m62_init` `0.039923`, `m79_highcoef` `0.041033`) and short
+eval termination rises to `0.5`. The next blocker is not coefficient scale; it
+is proving the objective can be optimized in isolation.

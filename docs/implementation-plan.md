@@ -1705,8 +1705,29 @@ not a candidate. See `docs/m78-outcome-weighted-intervention-objective.md`.
 - Continue to protect M62/M67E retention behavior with baseline-action anchor
   and strict margin-retention gates.
 
-Status: planned after M78. M78 proves the objective can run but not that it
-improves the intended loss.
+Status: complete as infrastructure and a negative tuning result. M79 added a
+fixed-batch `outcome_intervention_eval` harness and reproduced the M78 offline
+loss regression. A higher-coefficient 4096-step smoke also worsened the
+fixed-batch loss from `0.039923` for `m62_init` to `0.041033` for
+`m79_highcoef`, while short eval termination rose to `0.5`. The objective is
+therefore still not ready for a long continuation. See
+`docs/m79-outcome-objective-weight-tuning.md`.
+
+### M80: Outcome Objective-Only Sanity Check
+
+- Isolate `outcome_weighted_intervention_loss` outside PPO and environment
+  rollouts.
+- Start from the M62-compatible actor and optimize only the M78 human-view
+  snippet NPZ for a short fixed number of steps.
+- Compare fixed-batch loss before and after with the M79 evaluator.
+- If objective-only training cannot reduce the loss, fix the objective/sign/data
+  before touching PPO again.
+- If objective-only training can reduce the loss, reintroduce PPO and the
+  baseline-action anchor gradually.
+
+Status: planned after M79. M79 shows coefficient scale is not the blocker by
+itself; the next evidence step is to prove the loss is locally optimizable in
+isolation.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 
@@ -1728,8 +1749,10 @@ Exit criteria:
 - paired self-identification must improve against M62_a250 without hidden
   actor inputs.
 
-Status: deferred until a warm-start privileged teacher proves that hidden
-dynamics information creates a real upper-bound gap on response-critical seeds.
+Status: partially superseded by the M78-M80 outcome-weighted intervention track.
+M79 shows the PPO-integrated version still moves the fixed-batch objective in
+the wrong direction, so M80 must first prove the objective can decrease in
+isolation before returning to broader counterfactual intervention training.
 
 ## Metrics
 
