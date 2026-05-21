@@ -601,3 +601,72 @@ zero-response inference is better than normal inference (`0.425` vs `0.375`).
 The next step should add periodic checkpoint saving and selection, because a
 fine-tune can plausibly pass through useful response-retention states before
 the final checkpoint regresses to geometry/open-loop shortcuts.
+
+## 20260521T000131Z m20-periodic-response-retention
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Save periodic checkpoints during a shorter M18 fine-tune so gates can select response-retention points
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m20_periodic_response_retention_driver.json --seed 929 --device cuda --init-checkpoint runs/ppo_m18_actuator_response_recurrent_seed911/checkpoint.pt --run-dir runs/ppo_m20_periodic_response_retention_seed929`
+- returncode: `0`
+- run dir: `runs/research/m20-periodic-response-retention_20260520T234036Z`
+- command log: `runs/research/m20-periodic-response-retention_20260520T234036Z/command.log`
+- success artifact: `runs/ppo_m20_periodic_response_retention_seed929/checkpoint.pt`
+- notes: M19 shows endpoint-only fine-tuning can erase response dependence
+
+Training result:
+
+- init checkpoint load mode: `strict`;
+- periodic checkpoints: steps 102400, 200704, 303104, 401408, 503808, 602112,
+  and 700000;
+- final eval return mean: 78.390;
+- final eval steps mean: 65.300;
+- final eval termination rate: 0.100;
+- final eval lateral RMSE mean: 0.464;
+- final eval beta absolute error mean: 0.149.
+
+Actuator-response checkpoint sweep:
+
+- run dir: `runs/m20_actuator_response_checkpoint_sweep_seed3000`;
+- best aggregate candidate: `m20_700`, with nominal success 0.475 and
+  perturbed success 0.400;
+- early candidate: `m20_102`, with nominal success 0.450 and perturbed success
+  0.400.
+
+Top-candidate actuator-response gate:
+
+- run dir: `runs/m20_top_actuator_response_gate_seed3000`;
+- M20_102 nominal/perturbed success: 0.450 / 0.400;
+- M20_102 hidden-reset nominal/perturbed success: 0.150 / 0.325;
+- M20_102 zero-current and zero-all perturbed success: 0.375;
+- M20_700 nominal/perturbed success: 0.475 / 0.400;
+- M20_700 hidden-reset nominal/perturbed success: 0.375 / 0.375;
+- M20_700 zero-current and zero-all perturbed success: 0.400.
+
+M13 friction paired gate:
+
+- run dir: `runs/m20_top_friction_gate_seed3000`;
+- M20_102 nominal/perturbed success: 0.825 / 0.400;
+- M20_102 hidden-reset perturbed success: 0.175;
+- M20_102 zero-current and zero-all perturbed success: 0.400;
+- M20_700 nominal/perturbed success: 0.875 / 0.425;
+- M20_700 hidden-reset perturbed success: 0.350;
+- M20_700 zero-current and zero-all perturbed success: 0.425.
+
+Same-corpus obstacle benchmark:
+
+- run dir: `runs/m20_same_contract_obstacle_benchmark_seed3000`;
+- `envelope_aes` success: 0.250;
+- M20_102 success: 0.450;
+- M20_700 success: 0.475;
+- M20_700 hidden-reset success: 0.400;
+- M20_700 zero-current and zero-all success: 0.475;
+- M20_700 high-sideslip fraction: 0.000.
+
+Conclusion: M20 is mixed. Periodic checkpointing finds a better same-contract
+driver than M18/M19 on the near-threshold corpus: `m20_700` reaches success
+0.475 versus `envelope_aes` 0.250 and improves M13 perturbed success to 0.425.
+It still does not pass the self-identification gate, because zeroing the
+deployable response channels leaves success unchanged. The next step should be
+an architecture or loss change that makes response-conditioned hidden state
+directly control-critical, not another endpoint fine-tune.

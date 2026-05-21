@@ -36,12 +36,13 @@ The first runnable MVP is in place:
 - `src/autodrift/policies.py`: random and heuristic sanity-check policies.
 - `src/autodrift/evaluate.py`: evaluation CLI.
 - `src/autodrift/train_ppo.py`: dependency-light PyTorch PPO trainer.
-  It now supports both the original MLP actor and a temporal-GRU actor over
-  stacked observation history.
+  Current driver work uses the clean online-GRU actor contract; older actor
+  variants are historical baselines, not migration targets.
 - `src/autodrift/benchmark.py`: shared-seed benchmark runner.
 - `src/autodrift/artifacts.py`: run directory, JSON, and CSV artifact helpers.
-- `src/autodrift/checkpoints.py`: PPO checkpoint loader for evaluation.
-  It can load both MLP and temporal-GRU actor checkpoints.
+- `src/autodrift/checkpoints.py`: strict PPO checkpoint loader for evaluation.
+  Checkpoints must declare the full model contract and matching observation
+  shape; changed actor contracts require retraining.
 - `src/autodrift/vector_env.py`: synchronous multi-environment rollout support.
 - `src/autodrift/config.py`: JSON config builders for env randomization and
   curricula.

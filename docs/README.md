@@ -68,6 +68,8 @@ vehicle/tire models, and NMPC-style constrained control.
   for recovering aggregate success without erasing response dependence.
 - `m20-periodic-response-retention.md`: periodic checkpointing and checkpoint
   selection plan for response-retention fine-tunes.
+- `m21-response-critical-actor.md`: planned response-critical actor structure
+  after M20 showed response masking still does not hurt the best checkpoint.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.
