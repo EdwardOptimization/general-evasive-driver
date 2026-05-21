@@ -1536,6 +1536,28 @@ The next step should instrument the response auxiliary objective directly:
 M40 should log train-time aux loss and add an offline multi-step response
 prediction evaluator before another training change.
 
+## 20260521 m40-response-aux-diagnostics
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: response-prediction error can explain why M37 creates a stronger
+  ablation signal than M39 despite M39 continuing the same auxiliary objective
+- command: `conda run -n autodrift python -m autodrift.response_prediction_eval --env-config configs/ppo_m24_human_view_gru_driver.json --seed-csv runs/m38_m37_102_matched_response_corpus_seed4300/scenario_corpus.csv --checkpoint-policy m34_151=runs/ppo_m34_response_aux_mixed_seed1434/checkpoints/checkpoint_step_151552.pt --checkpoint-policy m37_102=runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --checkpoint-policy m39_053=runs/ppo_m39_m37_response_corpus_seed1739/checkpoints/checkpoint_step_53248.pt --device cpu --run-dir runs/m40_response_prediction_eval_m38_seed4300`
+- success artifact: `runs/m40_response_prediction_eval_m38_seed4300/prediction_summary.csv`
+
+Result:
+
+- M34_151 one-step MSE: 0.015019;
+- M37_102 multi-step total MSE: 0.019116;
+- M39_053 multi-step total MSE: 0.011935;
+- M37_102 has stronger reset/zero-response ablation signal than M39_053 even
+  though M39_053 has lower prediction error.
+
+Conclusion: future-response prediction MSE is not enough as a driver objective
+or checkpoint-selection metric. The next step should inspect behavior-sensitive
+diagnostics and design an objective that rewards action-relevant hidden state,
+not merely smooth future-response reconstruction.
+
 ## 20260521T050730Z m39-m37-response-corpus-training
 
 - status: `completed`

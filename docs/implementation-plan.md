@@ -742,7 +742,27 @@ Exit criteria:
 - evaluator writes machine-readable summaries;
 - docs use diagnostics to decide the next architecture direction.
 
-Status: planned. See `docs/m40-response-aux-diagnostics-plan.md`.
+Status: complete as diagnostics. M40 logs train-time response auxiliary loss
+and adds `autodrift.response_prediction_eval`. On the M38 corpus, M39_053 has
+lower multi-step prediction MSE than M37_102 but weaker reset/zero-response
+gate sensitivity, so lower MSE alone is not the right selection target. See
+`docs/m40-response-aux-diagnostics-plan.md`.
+
+### M41: Behavior-Sensitive Response Objective
+
+- Use M40 diagnostics to design a target that favors behavior-critical hidden
+  state, not just low future-response MSE.
+- Compare per-seed prediction error against reset/zero-response outcome-change
+  seeds.
+- Decide whether the next training objective should be contrastive,
+  gate-weighted, or intervention-aware.
+
+Exit criteria:
+
+- M41 produces a concrete implementation direction with a smokeable config;
+- the direction is justified by M40 diagnostics and M37/M39 gate behavior.
+
+Status: planned.
 
 ## Metrics
 

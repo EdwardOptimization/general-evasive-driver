@@ -815,6 +815,7 @@ def train(
             initial_hidden_t = torch.as_tensor(hidden_buf[0], dtype=torch.float32, device=device)
             env_indices = np.arange(config.num_envs)
             env_minibatch = max(1, min(config.num_envs, config.minibatch_size // max(1, rollout_n)))
+            response_loss_values: list[float] = []
             for _ in range(config.update_epochs):
                 np.random.shuffle(env_indices)
                 for start in range(0, len(env_indices), env_minibatch):
@@ -853,6 +854,7 @@ def train(
                             min=1.0,
                         )
                         loss = loss + config.response_prediction_aux_coef * response_loss
+                        response_loss_values.append(float(response_loss.detach().cpu().item()))
 
                     optimizer.zero_grad()
                     loss.backward()
@@ -914,6 +916,10 @@ def train(
             "episode_length_mean": float(np.mean(episode_lengths)) if episode_lengths else float("nan"),
             "termination_rate": float(np.mean(episode_terminated)) if episode_terminated else float("nan"),
         }
+        if config.response_prediction_aux_coef > 0.0 and uses_online_recurrent and config.recurrent_sequence_training:
+            row["response_prediction_loss_mean"] = (
+                float(np.mean(response_loss_values)) if response_loss_values else float("nan")
+            )
         metric_rows.append(row)
         if save_path is not None and next_checkpoint_step is not None and global_step >= next_checkpoint_step:
             periodic_path = save_path.parent / "checkpoints" / f"checkpoint_step_{global_step}.pt"
