@@ -47,6 +47,23 @@ def test_visible_observation_distances_ignore_privileged_tail():
     assert np.isclose(distances["visible_observation_distance"], 0.4)
     assert distances["visible_response_distance"] == 0.0
     assert np.isclose(distances["visible_context_distance"], 0.4)
+    assert np.isclose(distances["visible_road_context_distance"], 0.4)
+    assert distances["visible_obstacle_context_distance"] == 0.0
+
+
+def test_visible_observation_distances_reports_obstacle_context_groups():
+    config = DriftEnvConfig(history_length=1, action_history_mode="full")
+    source = np.zeros(72, dtype=np.float32)
+    paired = np.zeros(72, dtype=np.float32)
+    paired[45] = 0.2
+    paired[47] = 0.3
+
+    distances = visible_observation_distances(source, paired, config)
+
+    assert distances["visible_road_context_distance"] == 0.0
+    assert np.isclose(distances["visible_obstacle_context_distance"], np.hypot(0.2, 0.3))
+    assert np.isclose(distances["visible_obstacle_geometry_distance"], 0.2)
+    assert np.isclose(distances["visible_obstacle_rel_velocity_distance"], 0.3)
 
 
 def test_hybrid_privileged_observation_replaces_only_tail():

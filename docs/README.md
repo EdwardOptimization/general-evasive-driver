@@ -346,6 +346,10 @@ vehicle/tire models, and NMPC-style constrained control.
   outcome-critical mining with source-diverse selection and clean snippet
   export; strict context yields zero accepted rows, while relaxed context finds
   a small non-admissible margin-gap signal.
+- `m121-context-aligned-outcome-critical-miner.md`: context-distance audit for
+  the M120 blocker; identifies obstacle relative velocity as the context proxy,
+  then tests a zero-relvel strict profile that restores accepted rows but still
+  fails the source-diversity gate.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

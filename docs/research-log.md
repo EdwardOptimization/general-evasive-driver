@@ -4652,3 +4652,40 @@ The relaxed rows show margin-gap signal exists, but they are blocked by context
 distance (`~0.25-0.29`) and are too concentrated. The next pending task is M121:
 make the direct outcome miner context-aligned instead of relaxing the context
 contract.
+
+## 20260521T211032Z m121-context-aligned-outcome-critical-miner
+
+M121 tested whether the M120 relaxed rows failed strict context because the
+obstacle geometry was not aligned, or because another context field was acting
+as a response proxy.
+
+Implementation:
+
+- `visible_observation_distances(...)` now breaks context distance into road,
+  obstacle, obstacle geometry, and obstacle relative-velocity components;
+- `tests/test_matched_action_corpus.py` covers the new diagnostic components;
+- `configs/m121_human_view_zero_obstacle_relvel.json` keeps the M24 human-view
+  profile but sets `obstacle_relative_velocity_mode` to `zero`.
+
+Diagnostic result:
+
+- M105 relaxed context run still finds `7` accepted rows, `3` selected physical
+  pairs, and `2` seeds;
+- accepted rows have zero obstacle geometry distance;
+- their context mismatch is almost entirely obstacle relative velocity
+  (`~0.245-0.266`), with road distance only `~0.027`.
+
+Strict zero-relvel result:
+
+- M105 10ep: `7` accepted rows, `3` selected physical pairs, `2` seeds;
+- M102 10ep: `5` accepted rows, `2` selected physical pairs, `2` seeds;
+- M62 10ep control: `0` accepted rows;
+- M105 30ep: `9` accepted rows, `4` selected physical pairs, `3` seeds, max
+  snippet margin gap `0.027255`.
+
+Conclusion: zero obstacle relative velocity is the cleaner strict
+self-identification context profile. It restores strict accepted rows without
+admitting the M62 control, so the M120 context issue was real and actionable.
+However, the selected surface is still below the diversity gate of `6` physical
+pairs and `5` source decision steps. M121 is therefore a diagnostic positive but
+a training-surface rejection. Do not train an objective from these snippets yet.

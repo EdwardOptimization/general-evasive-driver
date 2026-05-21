@@ -2417,6 +2417,16 @@ matching fails. See `docs/m120-outcome-critical-source-diverse-miner.md`.
 Status: pending. M120 shows the next blocker is context alignment, not absence
 of any margin-gap signal.
 
+Status: completed as a diagnostic positive and training-surface negative. M121
+adds context-group distance logging and shows that M120's relaxed accepted rows
+had zero obstacle geometry mismatch; the blocker was obstacle relative velocity,
+which acts as an ego-motion proxy inside the context stream. A zero obstacle
+relative-velocity strict profile restores accepted outcome rows for M105 and
+M102 while the M62 control remains clean. The best M105 30-episode run finds `9`
+accepted rows, `4` selected physical pairs, and `3` selected seeds, below the
+pre-registered diversity target. Do not train an objective from M121 snippets.
+See `docs/m121-context-aligned-outcome-critical-miner.md`.
+
 ### M67-F: Counterfactual Response-Intervention Objective
 
 - Stop treating seed replay alone as sufficient for self-identification.

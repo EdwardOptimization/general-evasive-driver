@@ -11,7 +11,7 @@ import pandas as pd
 
 from autodrift.artifacts import make_run_dir, write_json
 from autodrift.checkpoints import load_actor_critic_checkpoint
-from autodrift.env import AutoDriftEnv, DriftEnvConfig
+from autodrift.env import AutoDriftEnv, DriftEnvConfig, OBSTACLE_SLOT_DIM, ROAD_POINT_DIM
 from autodrift.evaluate import load_env_config
 from autodrift.hidden_swap_gate import (
     DecisionSnapshot,
@@ -47,11 +47,28 @@ def visible_observation_distances(
     response_mask = np.zeros(visible_dim, dtype=bool)
     response_mask[response_indices] = True
     diff = source_visible - paired_visible
-    return {
+    distances = {
         "visible_observation_distance": float(np.linalg.norm(diff)),
         "visible_response_distance": float(np.linalg.norm(diff[response_mask])),
         "visible_context_distance": float(np.linalg.norm(diff[~response_mask])),
     }
+    response_end = int(np.max(response_indices)) + 1 if len(response_indices) else 0
+    road_start = response_end
+    road_end = min(road_start + 2 * env_config.road_lookahead_count * ROAD_POINT_DIM, visible_dim)
+    obstacle_start = road_end
+    obstacle_end = min(obstacle_start + env_config.obstacle_slots * OBSTACLE_SLOT_DIM, visible_dim)
+    road_diff = diff[road_start:road_end]
+    obstacle_diff = diff[obstacle_start:obstacle_end]
+    distances["visible_road_context_distance"] = float(np.linalg.norm(road_diff))
+    distances["visible_obstacle_context_distance"] = float(np.linalg.norm(obstacle_diff))
+    if len(obstacle_diff) >= OBSTACLE_SLOT_DIM:
+        slots = obstacle_diff.reshape((-1, OBSTACLE_SLOT_DIM))
+        distances["visible_obstacle_geometry_distance"] = float(np.linalg.norm(slots[:, [0, 1, 2, 5, 6]]))
+        distances["visible_obstacle_rel_velocity_distance"] = float(np.linalg.norm(slots[:, [3, 4]]))
+    else:
+        distances["visible_obstacle_geometry_distance"] = float("nan")
+        distances["visible_obstacle_rel_velocity_distance"] = float("nan")
+    return distances
 
 
 def hybrid_privileged_observation(
