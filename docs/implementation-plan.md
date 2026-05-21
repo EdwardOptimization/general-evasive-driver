@@ -1286,6 +1286,30 @@ Exit criteria:
 - if none pass, next work should add an explicit near-boundary failure-depth
   floor rather than more replay alone.
 
+Status: complete as the first positive margin-retention result. M62
+interpolates M37_102 toward M61_032 and passes the unchanged strict gate for
+`m62_a125` and `m62_a250`. The stronger candidate `m62_a250` keeps M38/broad/
+fresh success unchanged, has zero binary and near-margin regressions, and has
+positive mean margin delta. Hidden-swap audit does not regress versus M37_102,
+but recurrent self-identification remains unsolved. See
+`docs/m62-positive-margin-checkpoint-interpolation.md`.
+
+### M63: Broader Driver Audit for M62
+
+- Treat `m62_a250` as the current best margin-retention candidate.
+- Rerun broader deployable-driver gates that are compatible with the human-view
+  observation contract.
+- Compare held-out benchmark, history/action ablations, hidden-swap summary,
+  and any existing driver gate artifacts against M37_102.
+
+Exit criteria:
+
+- audit artifacts identify whether M62 can replace M37_102 as the broader
+  current-best driver, not only the margin-retention candidate;
+- if it passes, update current-best docs and queue state accordingly;
+- if it fails, keep M62 as a margin-retention candidate and design the next
+  architecture/probe task.
+
 Status: planned.
 
 ## Metrics

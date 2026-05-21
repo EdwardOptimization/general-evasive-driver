@@ -4,14 +4,17 @@ Last updated: 2026-05-21
 
 ## Current Best
 
-- checkpoint: `runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt`
-- status: not ideal-driver passed
-- gate artifact: `runs/m37_102_hidden_swap_gate_seed4300/summary.csv`
-- blocker: M37_102 preserves M30/M34 aggregate success and improves the M35
-  response-change corpus, with reset and zero-response ablations now hurting
-  perturbed accepted outcomes. It still does not pass recurrent
-  self-identification because hidden-swap changes zero accepted success
-  outcomes. M42 was evaluated and did not replace it.
+- checkpoint:
+  `runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt`
+- label: `m62_a250`
+- status: margin-retention promoted; not ideal-driver passed
+- gate artifacts:
+  `runs/m62_margin_retention_gate_strict/candidate_gate_summary.csv`,
+  `runs/m62_a250_hidden_swap_gate_seed4300/summary.csv`
+- blocker: `m62_a250` is stronger than M37_102 on the current strict
+  margin-retention evidence and does not regress the M37 hidden-swap diagnostic,
+  but it still does not prove recurrent self-identification because hidden-swap
+  changes zero accepted success outcomes. A broader driver audit is pending.
 
 ## Standing Loop
 
@@ -2411,3 +2414,41 @@ far because it produces a positive-margin, zero-binary source checkpoint.
 M62 should interpolate M37_102 toward `m61_032` to see whether a smaller
 trust-region step can keep positive mean margin while removing the three
 near-margin regressions.
+
+## 20260521T091951Z m62-positive-margin-checkpoint-interpolation
+
+- status: `completed`
+- kind: `probe`
+- hypothesis: Interpolate M37_102 toward M61_032 to retain the positive
+  mean-margin direction while removing M61's three near-margin regressions.
+- command: `conda run -n autodrift python -m autodrift.checkpoint_interpolation --base-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --target-checkpoint runs/ppo_m61_regression_seed_retention_seed2861/checkpoints/checkpoint_step_32768.pt --alphas 0.125 0.25 0.375 0.5 0.625 0.75 0.875 --base-label m37_102 --target-label m61_032 --label-prefix m62 --run-dir runs/m62_m37_m61_032_interpolated_checkpoints`
+- returncode: `0`
+- run dir: `runs/m62_m37_m61_032_interpolated_checkpoints`
+- success artifact:
+  `runs/m62_margin_retention_gate_strict/candidate_gate_summary.csv`
+
+Post-validation:
+
+- M38/broad/fresh checkpoint sweeps:
+  `runs/m62_m38_margin_benchmark_seed4300`,
+  `runs/m62_broad_margin_benchmark_seed3000`,
+  `runs/m62_fresh_margin_benchmark_seed5200`;
+- margin corpus:
+  `runs/m62_margin_critical_corpus/seed_margin_deltas.csv`;
+- strict gate:
+  `runs/m62_margin_retention_gate_strict/candidate_gate_summary.csv`;
+- strict gate status: `passed`;
+- passed candidates: `m62_a125`, `m62_a250`;
+- `m62_a250` has success delta `0.000000`, zero binary regressions, zero
+  near-margin regressions, and mean margin delta `0.000552`;
+- source-level mean margin deltas for `m62_a250`: M38 `0.000495`, broad
+  `0.000425`, fresh `0.000791`;
+- hidden-swap audit:
+  `runs/m62_a250_hidden_swap_gate_seed4300/summary.csv`;
+- hidden-swap accepted-match success rates match M37_102; hidden-swap remains
+  outcome-neutral.
+
+Conclusion: M62 is the first margin-retention pass. `m62_a250` replaces
+M37_102 as the current best margin-retention driver candidate, but it is not an
+ideal driver. M63 should run a broader driver audit before treating the
+checkpoint as a full driver promotion.

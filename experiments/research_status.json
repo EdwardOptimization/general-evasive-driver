@@ -1,7 +1,7 @@
 {
   "counts": {
     "blocked": 0,
-    "completed": 58,
+    "completed": 59,
     "failed": 0,
     "pending": 0,
     "planned": 1,
@@ -10,10 +10,10 @@
   "last_result": {
     "command_log": null,
     "returncode": 0,
-    "run_dir": "runs/ppo_m61_regression_seed_retention_seed2861",
+    "run_dir": "runs/m62_m37_m61_032_interpolated_checkpoints",
     "status": "completed",
-    "task_id": "m61-regression-seed-retention-replay"
+    "task_id": "m62-positive-margin-checkpoint-interpolation"
   },
-  "next_task": "m62-positive-margin-checkpoint-interpolation",
-  "updated_at_utc": "20260521T091441Z"
+  "next_task": "m63-broader-driver-audit-for-m62",
+  "updated_at_utc": "20260521T091951Z"
 }

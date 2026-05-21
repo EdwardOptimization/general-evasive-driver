@@ -150,6 +150,8 @@ vehicle/tire models, and NMPC-style constrained control.
   constraint and M60 smoke validation.
 - `m61-regression-seed-retention-replay.md`: M60 regression-seed replay corpus
   and stronger-retention smoke setup.
+- `m62-positive-margin-checkpoint-interpolation.md`: first strict
+  margin-retention pass and M62 current-best candidate.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.
