@@ -238,6 +238,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m87-wheel-informed-friction-envelope-objective.md`: training-time friction
   bucket auxiliary objective; retains behavior but is solved by body response
   rather than wheel response.
+- `m88-wheel-masked-friction-auxiliary.md`: wheel-only masked friction
+  auxiliary path; preserves most behavior but still fails zero-wheel
+  dependence.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

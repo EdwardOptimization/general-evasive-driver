@@ -1865,8 +1865,23 @@ is `0.0`. See `docs/m87-wheel-informed-friction-envelope-objective.md`.
 - Gate whether zero-wheel or wrong-wheel interventions finally reduce targeted
   friction/envelope behavior.
 
-Status: planned. M87 proves the unmasked friction auxiliary is too easy for
-body response alone.
+Status: complete as a negative wheel-dependence result. M88 adds a `wheel_only`
+mask and `response_hidden` friction auxiliary path. It retains `success_rate =
+0.85`, but `m88_zero_wheel` also remains `0.85`; post-training `mu_bucket`
+body+wheel gain is only `+0.006160`, and wheel encoder columns remain tiny. See
+`docs/m88-wheel-masked-friction-auxiliary.md`.
+
+### M89: Objective-Only Wheel-Masked Friction Sanity
+
+- Load M62 through the wheel partial initialization path.
+- Optimize only the wheel-masked friction objective on a rollout batch, without
+  PPO reward coupling.
+- Measure whether wheel encoder columns and wheel-only `mu_bucket` prediction
+  move in isolation.
+- Only return to PPO continuation if the isolated objective improves.
+
+Status: planned. M88 repeats the M78/M79 lesson: PPO coupling can hide whether
+an auxiliary objective is usable, so isolate the objective first.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

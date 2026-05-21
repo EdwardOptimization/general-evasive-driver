@@ -12,6 +12,7 @@ from autodrift.train_ppo import (
     build_sequence_targets,
     evaluate_actor,
     friction_bucket_labels_from_mu,
+    mask_friction_aux_observations,
     load_training_seed_csv,
     load_init_checkpoint_state,
     train,
@@ -153,6 +154,17 @@ def test_friction_bucket_labels_use_m86_boundaries():
     labels = friction_bucket_labels_from_mu(np.array([0.30, 0.449, 0.45, 0.799, 0.80, 1.10]))
 
     np.testing.assert_array_equal(labels, np.array([0, 0, 1, 1, 2, 2]))
+
+
+def test_wheel_only_friction_aux_mask_zeros_body_response_only():
+    obs = torch.arange(170, dtype=torch.float32).reshape(2, 85)
+
+    masked = mask_friction_aux_observations(obs, "wheel_only")
+
+    assert masked is not obs
+    torch.testing.assert_close(masked[:, :12], torch.zeros(2, 12))
+    torch.testing.assert_close(masked[:, 12:25], obs[:, 12:25])
+    torch.testing.assert_close(masked[:, 25:], obs[:, 25:])
 
 
 def test_train_accepts_hard_response_seed_csv(tmp_path):
@@ -841,6 +853,44 @@ def test_train_logs_friction_bucket_auxiliary_loss(tmp_path):
         save_path=save_path,
         metrics_csv_path=metrics_path,
         env_config=DriftEnvConfig(max_steps=4, speed_range=(4.0, 6.0)),
+    )
+
+    rows = list(csv.DictReader(metrics_path.open(newline="", encoding="utf-8")))
+    assert rows
+    assert "friction_bucket_aux_loss_mean" in rows[0]
+    assert "friction_bucket_aux_accuracy_mean" in rows[0]
+    assert float(rows[0]["friction_bucket_aux_loss_mean"]) >= 0.0
+    assert 0.0 <= float(rows[0]["friction_bucket_aux_accuracy_mean"]) <= 1.0
+
+
+def test_train_logs_wheel_masked_friction_bucket_auxiliary_loss(tmp_path):
+    save_path = tmp_path / "run" / "checkpoint.pt"
+    metrics_path = tmp_path / "run" / "metrics.csv"
+    config = PPOConfig(
+        total_steps=32,
+        rollout_steps=8,
+        num_envs=2,
+        update_epochs=1,
+        minibatch_size=8,
+        hidden_size=8,
+        actor_encoder="wheel_human_view_online_gru",
+        recurrent_sequence_training=True,
+        friction_bucket_aux_coef=0.01,
+        friction_bucket_aux_observation_mask="wheel_only",
+        friction_bucket_aux_feature_source="response_hidden",
+        seed=130,
+        device="cpu",
+    )
+
+    train(
+        config,
+        save_path=save_path,
+        metrics_csv_path=metrics_path,
+        env_config=DriftEnvConfig(
+            max_steps=4,
+            speed_range=(4.0, 6.0),
+            wheel_observation_mode="front_rear",
+        ),
     )
 
     rows = list(csv.DictReader(metrics_path.open(newline="", encoding="utf-8")))

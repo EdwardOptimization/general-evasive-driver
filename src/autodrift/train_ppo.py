@@ -49,6 +49,8 @@ ONLINE_RECURRENT_ENCODERS = {
     WHEEL_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER,
     PRIVILEGED_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER,
 }
+FRICTION_BUCKET_AUX_OBSERVATION_MASKS = ("none", "wheel_only")
+FRICTION_BUCKET_AUX_FEATURE_SOURCES = ("policy_features", "response_hidden")
 
 
 def is_online_recurrent_encoder(actor_encoder: str) -> bool:
@@ -96,6 +98,8 @@ class PPOConfig:
     outcome_intervention_batch_size: int = 128
     outcome_intervention_logprob_margin: float = 0.05
     friction_bucket_aux_coef: float = 0.0
+    friction_bucket_aux_observation_mask: str = "none"
+    friction_bucket_aux_feature_source: str = "policy_features"
     baseline_action_anchor_coef: float = 0.0
     baseline_action_anchor_checkpoint: str = ""
     baseline_action_anchor_negative_advantage_only: bool = False
@@ -806,6 +810,39 @@ def recurrent_feature_sequence(
     return torch.stack(features)
 
 
+def recurrent_response_hidden_sequence(
+    model: ActorCritic,
+    obs: torch.Tensor,
+    initial_hidden: torch.Tensor,
+    dones: torch.Tensor,
+) -> torch.Tensor:
+    if not model.is_online_recurrent:
+        raise RuntimeError("recurrent_response_hidden_sequence requires an online recurrent actor")
+    hidden_states = []
+    hidden = initial_hidden
+    for t in range(obs.shape[0]):
+        _, next_hidden = model.recurrent_features_tensor(obs[t], hidden)
+        hidden_states.append(next_hidden)
+        hidden = next_hidden
+        if t < obs.shape[0] - 1:
+            done_t = dones[t].to(dtype=torch.bool, device=obs.device)
+            hidden = hidden.clone()
+            hidden[done_t] = 0.0
+    return torch.stack(hidden_states)
+
+
+def mask_friction_aux_observations(obs: torch.Tensor, observation_mask: str) -> torch.Tensor:
+    if observation_mask == "none":
+        return obs
+    if observation_mask == "wheel_only":
+        if obs.shape[-1] < WHEEL_HUMAN_VIEW_RESPONSE_FEATURE_DIM:
+            raise ValueError("wheel_only friction auxiliary mask requires a wheel-response observation frame")
+        masked = obs.clone()
+        masked[..., :HUMAN_VIEW_RESPONSE_FEATURE_DIM] = 0.0
+        return masked
+    raise ValueError(f"unknown friction bucket auxiliary observation mask: {observation_mask}")
+
+
 def train(
     config: PPOConfig,
     save_path: Path | None = None,
@@ -869,6 +906,21 @@ def train(
     if config.friction_bucket_aux_coef > 0.0:
         if not uses_online_recurrent or not config.recurrent_sequence_training:
             raise ValueError("friction bucket auxiliary loss requires online recurrent sequence training")
+        if config.friction_bucket_aux_observation_mask not in FRICTION_BUCKET_AUX_OBSERVATION_MASKS:
+            raise ValueError(
+                "friction_bucket_aux_observation_mask must be one of: "
+                + ", ".join(FRICTION_BUCKET_AUX_OBSERVATION_MASKS)
+            )
+        if config.friction_bucket_aux_feature_source not in FRICTION_BUCKET_AUX_FEATURE_SOURCES:
+            raise ValueError(
+                "friction_bucket_aux_feature_source must be one of: "
+                + ", ".join(FRICTION_BUCKET_AUX_FEATURE_SOURCES)
+            )
+        if (
+            config.friction_bucket_aux_observation_mask == "wheel_only"
+            and config.actor_encoder != WHEEL_HUMAN_VIEW_ONLINE_RECURRENT_ENCODER
+        ):
+            raise ValueError("wheel_only friction auxiliary mask requires wheel_human_view_online_gru")
     if config.friction_bucket_aux_coef < 0.0:
         raise ValueError("friction_bucket_aux_coef cannot be negative")
     if config.baseline_action_anchor_coef > 0.0:
@@ -1254,12 +1306,24 @@ def train(
                     if config.friction_bucket_aux_coef > 0.0:
                         assert friction_bucket_prediction_head is not None
                         assert friction_bucket_t is not None
-                        feature_seq = recurrent_feature_sequence(
-                            model,
+                        friction_obs_seq = mask_friction_aux_observations(
                             obs_seq_t[:, mb_env],
-                            initial_hidden_t[mb_env],
-                            done_seq_t[:, mb_env],
+                            config.friction_bucket_aux_observation_mask,
                         )
+                        if config.friction_bucket_aux_feature_source == "response_hidden":
+                            feature_seq = recurrent_response_hidden_sequence(
+                                model,
+                                friction_obs_seq,
+                                initial_hidden_t[mb_env],
+                                done_seq_t[:, mb_env],
+                            )
+                        else:
+                            feature_seq = recurrent_feature_sequence(
+                                model,
+                                friction_obs_seq,
+                                initial_hidden_t[mb_env],
+                                done_seq_t[:, mb_env],
+                            )
                         logits = friction_bucket_prediction_head(feature_seq.reshape(-1, config.hidden_size))
                         labels = friction_bucket_t[:, mb_env].reshape(-1)
                         friction_loss = nn.functional.cross_entropy(logits, labels)

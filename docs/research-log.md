@@ -3516,3 +3516,37 @@ Conclusion: M87 preserves behavior but does not create wheel dependence. The
 friction auxiliary is solved by body response rather than wheel response. The
 next task is M88: mask body response or mine body-ambiguous wheel-different
 cases so the friction/envelope objective cannot ignore wheel evidence.
+
+## 20260521T151030Z m88-wheel-masked-friction-auxiliary
+
+- status: `completed`
+- kind: `training`
+- hypothesis: masking body response in the friction auxiliary branch and using
+  response GRU hidden should force the friction objective to use wheel evidence.
+- code update: added `friction_bucket_aux_observation_mask`,
+  `friction_bucket_aux_feature_source`, `mask_friction_aux_observations`, and
+  `recurrent_response_hidden_sequence`.
+- config: `configs/ppo_m88_wheel_masked_friction_aux_driver.json`
+- focused tests:
+  `tests/test_checkpoints.py::test_wheel_only_friction_aux_mask_zeros_body_response_only`
+  and
+  `tests/test_checkpoints.py::test_train_logs_wheel_masked_friction_bucket_auxiliary_loss`
+- training smoke: `runs/ppo_m88_wheel_masked_friction_aux_smoke_seed4188`
+- ablation gate: `runs/m88_wheel_masked_friction_aux_gate_seed8830`
+- relevance audit: `runs/m88_wheel_masked_friction_relevance_audit_seed9100`
+- artifact: `docs/m88-wheel-masked-friction-auxiliary.md`
+
+Result:
+
+- built-in eval termination rate `0.25`;
+- final friction aux accuracy `0.285156`;
+- 20-episode gate success: M88 `0.85`, reset `0.80`, zero-all `0.85`,
+  zero-wheel `0.85`;
+- post-training `mu_bucket` audit: body `0.819302`, wheel `0.636550`,
+  body+wheel `0.825462`, gain `0.006160`;
+- response encoder norms: body `7.807649`, wheel `0.073712`.
+
+Conclusion: M88 is negative for wheel self-identification. The masked auxiliary
+path works but still does not make wheel response behavior-critical. The next
+task is M89: isolate the wheel-masked friction objective outside PPO, as M80 did
+for the outcome objective.

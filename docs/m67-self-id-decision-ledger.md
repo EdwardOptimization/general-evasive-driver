@@ -340,3 +340,8 @@ also stays at `0.90`; the post-training relevance audit shows `mu_bucket`
 body-only accuracy `0.802372` and body+wheel gain `0.0`. The objective was
 solved through body response, not wheel response. Continue with M88:
 wheel-masked friction auxiliary or matched body-ambiguous wheel cases.
+M88 adds the wheel-only masked auxiliary path and response-hidden classifier.
+It is still not a self-ID pass: M88 success is `0.85`, `zero_wheel_response`
+also stays `0.85`, and post-audit `mu_bucket` body+wheel gain is only
+`+0.006160`. The next decision is M89: objective-only masked-friction sanity
+before more PPO coupling.
