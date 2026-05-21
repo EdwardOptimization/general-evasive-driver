@@ -1880,8 +1880,22 @@ body+wheel gain is only `+0.006160`, and wheel encoder columns remain tiny. See
   move in isolation.
 - Only return to PPO continuation if the isolated objective improves.
 
-Status: planned. M88 repeats the M78/M79 lesson: PPO coupling can hide whether
-an auxiliary objective is usable, so isolate the objective first.
+Status: complete as a positive objective-only sanity result. M89 improves
+wheel-masked `mu_bucket` test accuracy from `0.078199` to `0.668246`, grows
+wheel encoder norm by `+2.008215`, retains `success_rate = 0.90`, and produces
+a small zero-wheel drop (`0.90` to `0.85`). See
+`docs/m89-objective-only-wheel-masked-friction-sanity.md`.
+
+### M90: Guarded PPO From Objective-Only Wheel Checkpoint
+
+- Initialize from
+  `runs/m89_wheel_masked_friction_objective_only_seed9200/optimized_checkpoint.pt`.
+- Use low learning rate, baseline action anchor, and retention gates.
+- Gate normal/reset/zero-wheel/zero-all after continuation.
+- Rerun wheel relevance audit and compare against M89.
+
+Status: planned. M89 gives a useful wheel-aware starting point, but not yet a
+promoted driver.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

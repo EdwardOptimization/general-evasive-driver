@@ -241,6 +241,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m88-wheel-masked-friction-auxiliary.md`: wheel-only masked friction
   auxiliary path; preserves most behavior but still fails zero-wheel
   dependence.
+- `m89-objective-only-wheel-masked-friction-sanity.md`: objective-only
+  optimization of the wheel-masked friction target, positive isolated movement,
+  and small first zero-wheel behavior drop.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

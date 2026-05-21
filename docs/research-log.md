@@ -3550,3 +3550,32 @@ Conclusion: M88 is negative for wheel self-identification. The masked auxiliary
 path works but still does not make wheel response behavior-critical. The next
 task is M89: isolate the wheel-masked friction objective outside PPO, as M80 did
 for the outcome objective.
+
+## 20260521T151800Z m89-objective-only-wheel-masked-friction-sanity
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: the M88 wheel-masked friction objective can move in isolation even
+  though PPO coupling did not make wheel response behavior-critical.
+- code update: added `autodrift.wheel_masked_friction_optimize`, an objective-
+  only harness that updates response encoder, online GRU, and a temporary
+  classifier while leaving actor head, critic, context encoder, and `log_std`
+  untouched.
+- focused tests: `tests/test_wheel_masked_friction_optimize.py`
+- objective run: `runs/m89_wheel_masked_friction_objective_only_seed9200`
+- behavior gate: `runs/m89_wheel_masked_friction_objective_gate_seed8830`
+- relevance audit: `runs/m89_wheel_masked_friction_relevance_audit_seed9100`
+- artifact: `docs/m89-objective-only-wheel-masked-friction-sanity.md`
+
+Result:
+
+- objective test accuracy improves from `0.078199` to `0.668246`;
+- wheel response encoder norm grows from `0.0` to `2.008215`;
+- 20-episode behavior gate success: M89 `0.90`, reset `0.80`,
+  zero-all `0.90`, zero-wheel `0.85`;
+- `mu_bucket` relevance audit body+wheel gain reaches `+0.137014`.
+
+Conclusion: M89 is the first positive wheel objective result. It is not a full
+self-ID pass, but it proves the masked wheel friction objective can move in
+isolation and creates a small behavior-level zero-wheel drop. The next task is
+M90: guarded PPO continuation from the M89 optimized checkpoint.

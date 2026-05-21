@@ -345,3 +345,8 @@ It is still not a self-ID pass: M88 success is `0.85`, `zero_wheel_response`
 also stays `0.85`, and post-audit `mu_bucket` body+wheel gain is only
 `+0.006160`. The next decision is M89: objective-only masked-friction sanity
 before more PPO coupling.
+M89 is positive as an objective-only sanity check. The isolated wheel-masked
+friction objective improves test accuracy from `0.078199` to `0.668246`, grows
+wheel encoder norm by `+2.008215`, keeps aggregate success at `0.90`, and makes
+`zero_wheel_response` drop to `0.85`. This is not enough for a full self-ID
+claim, but it is a valid warm-start candidate for M90 guarded PPO continuation.
