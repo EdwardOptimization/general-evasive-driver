@@ -2736,3 +2736,15 @@ relative velocity was a real context proxy, but removing it alone does not make
 M62 history-critical. Keep strict context as the preferred diagnostic profile,
 but the next proof gate needs wrong-history or matched-history interventions
 rather than relying on reset/zero-response ablations.
+
+## 20260521T121500Z m67-self-id-decision-ledger
+
+- status: `completed`
+- kind: `documentation`
+- artifact: `docs/m67-self-id-decision-ledger.md`
+
+Conclusion: The M67 belief-learning recommendation, input-profile audit,
+strict-context result, deferred enhanced-OSI/noisy-IMU/reward-cleanup work, and
+next `m67e-warm-started-privileged-teacher` task are now indexed in one recovery
+document. This does not change the research queue; it prevents the adopted
+decisions from being scattered across the M67 roadmap and profile-audit notes.
