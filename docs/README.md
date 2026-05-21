@@ -262,6 +262,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m95-braking-weighted-hidden-envelope-objective.md`: per-target contrast and
   braking-weighted objective; braking stabilizes but lateral/yaw tradeoffs still
   block PPO admission.
+- `m96-per-target-hidden-envelope-objective.md`: equal per-target contrast
+  objective; braking and yaw become stable, but one lateral seed still blocks
+  PPO admission.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

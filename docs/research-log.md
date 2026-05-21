@@ -3730,3 +3730,33 @@ unacceptable target tradeoff. Do not start PPO. M96 should decouple the three
 future-envelope targets more strongly, then admit behavior training only if
 braking, yaw, and lateral all beat same-frame reset hidden across repeated
 seeds.
+
+## 20260521T171652Z m96-per-target-hidden-envelope-objective
+
+- status: `completed`
+- kind: `objective_sanity`
+- hypothesis: equal per-target contrast can preserve the M95 braking gain
+  without the M95 lateral/yaw tradeoff.
+- objective settings: `contrast_mode=per_target`,
+  `target_loss_weights=1.0 1.0 1.0`.
+- diagnostic runs:
+  `runs/m96_per_target_balanced_hidden_envelope_seed9460`,
+  `runs/m96_per_target_balanced_hidden_envelope_seed9461`,
+  `runs/m96_per_target_balanced_hidden_envelope_seed9462`
+- artifact: `docs/m96-per-target-hidden-envelope-objective.md`
+
+Result:
+
+- seed `9460`: braking/lateral/yaw R2 lift after values
+  `+0.086932`, `-0.040365`, `+0.016726`;
+- seed `9461`: braking/lateral/yaw R2 lift after values
+  `+0.066797`, `+0.004757`, `+0.075936`;
+- seed `9462`: braking/lateral/yaw R2 lift after values
+  `+0.079167`, `+0.010814`, `+0.151876`;
+- braking and yaw are positive in 3/3 seeds; lateral is positive in 2/3 seeds
+  and improves but remains negative in seed `9460`.
+
+Conclusion: M96 is the best no-wheel hidden-envelope objective so far, but it
+is still not a strict pass. Do not start PPO. M97 should keep equal per-target
+contrast and add a small minimum-lift or lateral floor guard, with rejection if
+braking or yaw stability regresses.

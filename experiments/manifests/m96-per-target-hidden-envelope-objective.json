@@ -5,8 +5,16 @@
   ],
   "commands": [
     {
-      "command": "TBD: run objective-only no-wheel hidden-envelope optimization with decoupled per-target heads or alternating target-balanced minibatches across at least three repeated seeds",
-      "name": "m96_planned_per_target_objective"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_optimize --checkpoint runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9460 --horizon-steps 15 --sample-stride 3 --max-samples 800 --train-fraction 0.70 --ridge 0.1 --steps 200 --batch-size 256 --learning-rate 0.0003 --contrast-coef 0.5 --contrast-margin 0.02 --contrast-mode per_target --target-loss-weights 1.0 1.0 1.0 --grad-clip-norm 1.0 --device cpu --run-dir runs/m96_per_target_balanced_hidden_envelope_seed9460",
+      "name": "m96_seed9460_equal_per_target_objective"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_optimize --checkpoint runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9461 --horizon-steps 15 --sample-stride 3 --max-samples 800 --train-fraction 0.70 --ridge 0.1 --steps 200 --batch-size 256 --learning-rate 0.0003 --contrast-coef 0.5 --contrast-margin 0.02 --contrast-mode per_target --target-loss-weights 1.0 1.0 1.0 --grad-clip-norm 1.0 --device cpu --run-dir runs/m96_per_target_balanced_hidden_envelope_seed9461",
+      "name": "m96_seed9461_equal_per_target_objective"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_optimize --checkpoint runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9462 --horizon-steps 15 --sample-stride 3 --max-samples 800 --train-fraction 0.70 --ridge 0.1 --steps 200 --batch-size 256 --learning-rate 0.0003 --contrast-coef 0.5 --contrast-margin 0.02 --contrast-mode per_target --target-loss-weights 1.0 1.0 1.0 --grad-clip-norm 1.0 --device cpu --run-dir runs/m96_per_target_balanced_hidden_envelope_seed9462",
+      "name": "m96_seed9462_equal_per_target_objective"
     }
   ],
   "decision_rule": "Only admit a hidden-envelope objective for PPO if braking yaw and lateral normal-vs-reset lift are all positive after optimization across repeated seeds.",
@@ -22,6 +30,18 @@
     {
       "path": "docs/m96-per-target-hidden-envelope-objective.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m96_per_target_balanced_hidden_envelope_seed9460/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m96_per_target_balanced_hidden_envelope_seed9461/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m96_per_target_balanced_hidden_envelope_seed9462/summary.json",
+      "type": "summary"
     }
   ],
   "success_criteria": [

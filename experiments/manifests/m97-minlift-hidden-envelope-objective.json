@@ -1,0 +1,34 @@
+{
+  "baseline_checkpoints": [
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt",
+    "previous_decision=m96_near_pass_lateral_one_seed_negative"
+  ],
+  "commands": [
+    {
+      "command": "TBD: run equal per-target hidden-envelope objective with a lateral or minimum-lift guard across at least three repeated seeds",
+      "name": "m97_planned_minlift_objective"
+    }
+  ],
+  "decision_rule": "Only admit PPO if braking yaw and lateral response_hidden minus reset_response_hidden after-lift are all positive across repeated seeds.",
+  "failure_criteria": [
+    "braking becomes unstable again",
+    "yaw becomes unstable again",
+    "any lateral after-lift remains negative",
+    "new objective is tuned seed-by-seed instead of using one formal setting"
+  ],
+  "hypothesis": "A small minimum-lift or lateral floor term can fix the remaining M96 lateral negative seed while preserving braking and yaw stability.",
+  "id": "m97-minlift-hidden-envelope-objective",
+  "required_artifacts": [
+    {
+      "path": "docs/m97-minlift-hidden-envelope-objective.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "braking yaw and lateral after-lift are all positive across repeated formal seeds",
+    "same objective settings are reused across formal seeds",
+    "actor observation contract remains no-wheel human-view",
+    "result is documented before PPO continuation"
+  ],
+  "type": "objective_sanity"
+}

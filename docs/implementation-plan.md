@@ -1987,8 +1987,22 @@ alternating target-balanced minibatches. See
 - Gate on all three future-envelope targets being positive after optimization
   against same-frame reset hidden across repeated seeds.
 
-Status: planned. PPO continuation remains blocked until the objective-only
-hidden-envelope belief is stable across braking, yaw, and lateral targets.
+Status: complete as a near-pass objective-only result. Equal per-target contrast
+preserves the M95 braking gain without the M95 lateral collapse: braking and
+yaw after-lift are positive in all three seeds. The strict PPO-admission gate
+still fails because seed `9460` lateral after-lift remains negative
+(`-0.040365`), even though it improves from `-0.095185`. See
+`docs/m96-per-target-hidden-envelope-objective.md`.
+
+### M97: Minimum-Lift Hidden-Envelope Objective
+
+- Keep equal per-target contrast as the base recipe.
+- Add a small lateral floor or minimum after-lift guard to remove the remaining
+  M96 lateral negative seed.
+- Reject the objective if braking or yaw stability regresses.
+
+Status: planned. PPO continuation remains blocked until objective-only
+hidden-envelope belief is stable across all three targets and repeated seeds.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 
