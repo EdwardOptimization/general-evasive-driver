@@ -1107,10 +1107,36 @@ Exit criteria:
 - if all checkpoints fail, the failed seeds are added to the next diagnosis
   corpus rather than weakening the gate.
 
-Status: planned. M55 uses
+Status: complete as a negative promotion result. M55 keeps broad and fresh
+success at M37 levels and its earliest checkpoint has zero binary regressions,
+but every checkpoint still fails strict margin retention because mean clearance
+margin is lower than M37 and near-boundary margin regressions remain. The
+failure is now objective-related rather than data-mixture-only. See
+`docs/m55-conservative-margin-retention.md`.
+
+M55 uses
 `configs/ppo_m55_conservative_dedup_margin_retention_driver.json` with
 `learning_rate = 1e-5`, `training_seed_mix_probability = 0.15`, no low-mu-only
 curriculum stage, `32768` total steps, and dense `4096`-step checkpoints.
+
+### M56: Terminal Clearance-Margin Reward
+
+- Add an optional terminal clearance-margin reward term to obstacle tasks.
+- Keep the actor observation contract unchanged.
+- Reuse the M55 conservative schedule so the ablation is isolated to reward
+  shaping.
+
+Exit criteria:
+
+- reward term is config-gated and defaults to disabled;
+- tests cover reward off/on behavior and ensure observations do not gain margin
+  fields;
+- M56 training completes from M37_102;
+- M38/broad/fresh strict gate is run unchanged;
+- promotion requires zero binary regressions, zero near-margin regressions, and
+  non-negative mean margin delta.
+
+Status: planned.
 
 ## Metrics
 

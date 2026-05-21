@@ -2088,3 +2088,41 @@ fresh success, yet it still shifts a few near-boundary positive cases. Current
 best remains M37_102. M55 should try a lower-learning-rate, lower-mix,
 dense-checkpoint continuation to find an early update window with zero binary
 and near-margin regressions.
+
+## 20260521T081150Z m55-conservative-margin-retention
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Run a lower-learning-rate lower-mix dense-checkpoint continuation to find a zero-regression early update window
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m55_conservative_dedup_margin_retention_driver.json --seed 2355 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m55_conservative_margin_retention_seed2355`
+- returncode: `0`
+- run dir: `runs/research/m55-conservative-margin-retention_20260521T081002Z`
+- command log: `runs/research/m55-conservative-margin-retention_20260521T081002Z/command.log`
+- success artifact: `runs/ppo_m55_conservative_margin_retention_seed2355/checkpoint.pt`
+- notes: Promote only if strict margin-retention gate has zero binary and near-margin regressions
+
+Post-validation:
+
+- M38/broad/fresh checkpoint sweeps:
+  `runs/m55_m38_margin_benchmark_seed4300`,
+  `runs/m55_broad_margin_benchmark_seed3000`,
+  `runs/m55_fresh_margin_benchmark_seed5200`;
+- margin corpus:
+  `runs/m55_margin_critical_corpus/seed_margin_deltas.csv`;
+- strict gate:
+  `runs/m55_margin_retention_gate_strict/candidate_gate_summary.csv`;
+- strict gate status: `needs_iteration`;
+- passed candidates: none;
+- `m55_004` is the least-damaging checkpoint: success delta `0.00000`, zero
+  binary regressions, one near-margin regression, and margin delta mean
+  `-0.001267`;
+- broad and fresh success stay at `0.825` for all checkpoints;
+- M38 success stays at `0.625` for early checkpoints but mean margin is lower
+  than M37;
+- binary outcome changes are reduced to 3 candidate-pairs total, versus 27 for
+  M54, but the margin-retention gate correctly rejects every checkpoint.
+
+Conclusion: M55 fixes the broad binary-regression failure mode but does not
+learn positive clearance-margin retention. The next change should be objective
+level: add a config-gated terminal clearance-margin reward for training while
+leaving actor observations and the strict promotion gate unchanged.
