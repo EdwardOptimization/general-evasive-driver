@@ -1650,9 +1650,29 @@ strict same-target snapshot pairing remains too weak. See
 - Rank candidates by strict visible match, normal-success or near-boundary
   margin, and wrong-history margin loss.
 
-Status: planned after M75. M75 found source-outcome rows under snapshot
-relocation, but those rows failed strict visible matching. Matching from a
-snapshot bank should attack that blocker directly.
+Status: complete as infrastructure and negative strict diagnostic. M76 added a
+snapshot-bank relocation harness that collects many active-probe snapshots,
+pairs nominal/perturbed states by visible response/context distance, and then
+applies M75 relocation. The strict smoke improved mean visible distance to
+`0.234060` and found `144 / 432` strict visible matches, but still produced zero
+accepted outcome-sensitive snippets. A relaxed diagnostic found one
+wrong-history margin-loss row, blocked by slightly loose context distance and
+large normal margin. See `docs/m76-snapshot-bank-visible-matcher.md`.
+
+### M77: Boundary-Aware Snapshot Relocation
+
+- Start from M76 visible-matched snapshot-bank pairs.
+- Adaptively sweep or search obstacle body position / half-width to place the
+  normal-history rollout near the clearance boundary.
+- Keep the strict visible-state gate; do not accept high-margin relaxed rows as
+  proof.
+- Promote snippets only when normal history succeeds or has positive
+  near-boundary margin and wrong history loses at least the pre-registered
+  margin threshold.
+
+Status: planned after M76. M76 shows that matching can be made stricter, but the
+coarse relocation grid usually produces either high-margin safe rows or
+collision-to-collision rows. The next gate should search the boundary directly.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

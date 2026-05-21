@@ -247,16 +247,16 @@ Persisted in:
 Continue with:
 
 ```text
-m76-snapshot-bank-visible-matcher
+m77-boundary-aware-snapshot-relocation
 ```
 
 Implementation intent:
 
 ```text
-collect many active-probe snapshots per condition
-pair nominal and perturbed snapshots by actual visible response/context distance
-apply M75 snapshot relocation after the visible-state match
-search for strict normal-success / wrong-history-loss boundary cases
+start from M76 visible-matched snapshot-bank pairs
+adaptively search obstacle body position / half-width
+target near-boundary normal-history clearance
+test whether wrong matched history loses margin under strict gates
 ```
 
 M70 showed that M69 wrong-history candidates do not degrade success or margin.
@@ -267,5 +267,7 @@ only in invalid collision-to-collision near misses. M74 reset-level obstacle
 geometry sweeps did not fix that because changing obstacle sampling also changes
 the rollout/history. M75 snapshot relocation preserves the probing history and
 finds relaxed wrong-history margin-loss rows, but strict visible-state matching
-still rejects those rows. Do not proceed directly to student OSI distillation
-yet.
+still rejects those rows. M76 snapshot-bank matching improves visible-state
+distance and finds one relaxed history-sensitive row, but the row is high-margin
+and not a strict near-boundary proof. Do not proceed directly to student OSI
+distillation yet.

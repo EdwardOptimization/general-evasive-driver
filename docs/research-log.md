@@ -27,8 +27,10 @@ Last updated: 2026-05-21
   collision-to-collision near misses. M74's reset-level obstacle geometry sweep
   did not turn those near misses into valid snippets. M75 snapshot relocation
   preserved the probing history and found relaxed wrong-history margin-loss
-  snippets, but strict visible matching still rejected them. The next blocker is
-  snapshot-bank visible matching before relocation.
+  snippets, but strict visible matching still rejected them. M76 snapshot-bank
+  matching improved visible-state distance and recovered one relaxed
+  history-sensitive row, but strict near-boundary acceptance is still zero. The
+  next blocker is boundary-aware relocation after visible matching.
 
 ## Standing Loop
 
@@ -3075,3 +3077,38 @@ useful outcome rows are not visible-state matches, while strict visible rows
 have weak or invalid outcome effects. The next task is M76: collect a snapshot
 bank and pair by actual visible response/context distance before applying
 relocation.
+
+## 20260521T125846Z m76-snapshot-bank-visible-matcher
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: pairing active-probe snapshots by visible response/context
+  distance before relocation can preserve M75's outcome signal while satisfying
+  the strict visible-state gate.
+- code update: added `autodrift.snapshot_bank_relocation`, which collects
+  active-probe snapshot banks, ranks nominal/perturbed pairs by visible-state
+  distance, and then applies M75 relocation and wrong-history replay.
+- focused tests: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift pytest -q tests/test_snapshot_bank_relocation.py tests/test_outcome_sensitive_corpus.py`
+  returned `13 passed`.
+- final validation: `git diff --check`, `python -m compileall -q src tests`,
+  and `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 conda run -n autodrift pytest -q`
+  returned `209 passed`.
+- run dirs:
+  `runs/m76_snapshot_bank_relocation_strict_seed8400`,
+  `runs/m76_snapshot_bank_relocation_relaxed_seed8401`
+- artifact: `docs/m76-snapshot-bank-visible-matcher.md`
+
+Result:
+
+- strict bank relocation: `432` candidates, `144` strict visible matches, `2`
+  margin-gap rows, `0` accepted snippets, max gap `0.011437`, mean visible
+  distance `0.234060`;
+- relaxed bank relocation: `432` candidates, `162` visible matches, `1`
+  accepted relaxed snippet, max gap `0.011437`.
+
+Conclusion: M76 is an infrastructure pass but a negative strict gate result. It
+improves visible matching versus M75 and can find a relaxed wrong-history
+margin-loss row, but the row is not strict evidence because context distance is
+just over the strict threshold and normal margin is too large. The next task is
+M77: boundary-aware relocation search that places matched snapshots near the
+clearance boundary before testing wrong-history margin loss.
