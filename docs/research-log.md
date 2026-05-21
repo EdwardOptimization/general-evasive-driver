@@ -1957,3 +1957,30 @@ Conclusion: M46 improves mean margin across the combined sweep, but this hides
 more near-boundary regressions and the known broad success regression. Current
 best remains M37_102. M51 should convert the M50 corpus into a margin-retention
 gate and training objective.
+
+## 20260521 m51-margin-retention-gate
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: checkpoint promotion should fail if a candidate drops broad
+  success, creates binary regressions, or introduces near-boundary margin
+  regressions versus M37_102
+- strict gate command: `conda run -n autodrift python -m autodrift.margin_retention_gate --seed-delta-csv runs/m50_margin_critical_corpus_m38_broad_fresh/seed_margin_deltas.csv --min-success-delta 0.0 --max-binary-regressed-seeds 0 --max-near-margin-regressed-seeds 0 --min-margin-delta-mean 0.0 --run-dir runs/m51_margin_retention_gate_m50_strict`
+- smoke train command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m51_margin_retention_driver.json --total-steps 4096 --rollout-steps 128 --seed 2151 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m51_margin_retention_smoke_seed2151`
+- smoke gate artifact:
+  `runs/m51_smoke_margin_retention_gate_strict/candidate_gate_summary.csv`.
+
+Result:
+
+- strict gate status for M42/M46 candidates: `needs_iteration`;
+- m42_028 fails with 3 near-margin regressions;
+- m46_077 fails with 1 binary regression and 4 near-margin regressions;
+- m46_200 fails with 1 binary regression and 10 near-margin regressions;
+- M51 smoke strict-loads M37_102 and trains to 4096 steps;
+- M51 smoke also fails promotion: success delta `-0.0125`, 2 binary
+  regressions, 6 near-margin regressions, margin delta mean `-0.011257`.
+
+Conclusion: M51 adds the missing promotion gate and proves the margin-retention
+training config can run, but no new checkpoint is promotable. Current best
+remains M37_102. M52 should run the full M51 continuation and sweep checkpoints
+through the strict gate.

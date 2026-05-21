@@ -1012,6 +1012,30 @@ Exit criteria:
 - candidate checkpoint is promoted only if broad success and near-boundary
   margin regressions do not regress versus M37_102.
 
+Status: complete as gate and training-config infrastructure. M51 adds
+`autodrift.margin_retention_gate`, a strict pass/fail gate over full
+margin-critical deltas, plus `configs/ppo_m51_margin_retention_driver.json`.
+The current M42/M46 candidates all fail strict margin retention. A 4096-step
+M51 smoke strict-loads M37_102 and trains end to end, but its checkpoint also
+fails the gate, so it is not promoted. See
+`docs/m51-margin-retention-gate.md`.
+
+### M52: Full Margin-Retention Continuation
+
+- Run full M51 training from M37_102.
+- Sweep checkpoints through M51 strict gate, M50 margin-critical corpus, broad
+  same-seed success, and hidden-swap/action-trajectory diagnostics.
+- Promote only if aggregate success is retained and near-boundary margin
+  regressions are not introduced.
+
+Exit criteria:
+
+- full M51 run completes and writes checkpoint snapshots;
+- checkpoint sweep includes M37_102 baseline and at least two M51 snapshots;
+- M51 gate status and failure reasons are recorded for every candidate;
+- current best updates only if a checkpoint passes aggregate and
+  margin-retention gates.
+
 Status: planned.
 
 ## Metrics

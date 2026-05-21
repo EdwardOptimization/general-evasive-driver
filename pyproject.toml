@@ -38,6 +38,7 @@ autodrift-paired-hidden-snapshots = "autodrift.paired_hidden_snapshots:main"
 autodrift-seed-delta-audit = "autodrift.seed_delta_audit:main"
 autodrift-continuation-snippets = "autodrift.continuation_snippets:main"
 autodrift-margin-critical-corpus = "autodrift.margin_critical_corpus:main"
+autodrift-margin-retention-gate = "autodrift.margin_retention_gate:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -128,6 +128,8 @@ vehicle/tire models, and NMPC-style constrained control.
   clearance-margin metrics for evaluation, benchmark, and seed-delta audit.
 - `m50-margin-critical-corpus.md`: margin-critical corpus mining across M38,
   broad, and fresh randomized obstacle sweeps.
+- `m51-margin-retention-gate.md`: strict promotion gate and continuation
+  training config for near-boundary margin retention.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.
