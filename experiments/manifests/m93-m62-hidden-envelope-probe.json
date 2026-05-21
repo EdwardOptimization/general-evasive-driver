@@ -1,0 +1,41 @@
+{
+  "baseline_checkpoints": [
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt",
+    "baseline_feature=reset_response_hidden"
+  ],
+  "commands": [
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_probe --checkpoint runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9410 --horizon-steps 15 --sample-stride 3 --max-samples 800 --ridge 0.1 --device cpu --run-dir runs/m93_m62_hidden_envelope_probe_seed9410",
+      "name": "m62_hidden_envelope_probe"
+    }
+  ],
+  "decision_rule": "Treat M62 hidden state as envelope-belief evidence only if normal response_hidden beats reset_response_hidden on at least braking and yaw future-envelope targets without hurting lateral response.",
+  "failure_criteria": [
+    "normal recurrent hidden is not compared against same-frame reset hidden",
+    "future-envelope targets are replaced by hidden physical parameters",
+    "normal response_hidden is worse than reset_response_hidden on braking or yaw",
+    "results are interpreted as driver promotion instead of diagnostic evidence"
+  ],
+  "hypothesis": "M62 may already encode useful no-wheel response history in its recurrent hidden state even though prior behavior gates were weak.",
+  "id": "m93-m62-hidden-envelope-probe",
+  "required_artifacts": [
+    {
+      "path": "runs/m93_m62_hidden_envelope_probe_seed9410/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m93_m62_hidden_envelope_probe_seed9410/hidden_gain_summary.csv",
+      "type": "hidden_gain_summary"
+    },
+    {
+      "path": "docs/m93-m62-hidden-envelope-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "M62 checkpoint hidden state is evaluated on future braking yaw and lateral envelope targets",
+    "normal response_hidden is compared with reset_response_hidden on the same samples",
+    "decision states whether M62 hidden is already a sufficient envelope belief"
+  ],
+  "type": "gate"
+}

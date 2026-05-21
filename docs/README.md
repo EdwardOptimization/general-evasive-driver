@@ -253,6 +253,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m92-local-wheel-ground-speed-observability-audit.md`: M92 audit result;
   single-track local ground-speed wheel profiles do not beat the no-wheel
   human-view baseline.
+- `m93-m62-hidden-envelope-probe.md`: checkpoint diagnostic showing M62's
+  carried recurrent hidden does not yet beat reset hidden on braking/yaw
+  future-envelope prediction.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

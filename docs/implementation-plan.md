@@ -1927,6 +1927,22 @@ the no-wheel human-view response stream as primary until a true four-wheel
 profile or better matched corpus proves stable benefit. See
 `docs/m92-local-wheel-ground-speed-observability-audit.md`.
 
+### M93: M62 Hidden-Envelope Probe
+
+- Load the current M62 margin-retention candidate.
+- Roll it out under the no-wheel human-view environment.
+- Compare normal carried `response_hidden` against same-frame
+  `reset_response_hidden` on future braking, yaw, and lateral envelope targets.
+- Use this to decide whether current M62 hidden already behaves like an
+  envelope belief or whether a new objective/pretraining path is needed.
+
+Status: complete as a negative hidden-belief diagnostic. Normal M62
+`response_hidden` beats reset hidden only on lateral acceleration
+(`+0.056331` R2 lift), while braking is `-0.102351` and yaw is `-0.272739`.
+The next objective should explicitly train no-wheel response hidden to predict
+future envelope targets before PPO continuation. See
+`docs/m93-m62-hidden-envelope-probe.md`.
+
 ### M67-F: Counterfactual Response-Intervention Objective
 
 - Stop treating seed replay alone as sufficient for self-identification.

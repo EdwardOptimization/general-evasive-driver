@@ -3635,3 +3635,29 @@ Conclusion: M92 is negative for admitting the current single-track local
 wheel/ground-speed branch into the primary PPO driver input. Keep the no-wheel
 human-view response stream as primary until a true four-wheel profile or a
 better matched corpus proves stable benefit.
+
+## 20260521T165246Z m93-m62-hidden-envelope-probe
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: M62 may already encode useful no-wheel response history in its
+  recurrent hidden state even though prior behavior gates were weak.
+- code update: added `autodrift.hidden_envelope_probe`, which compares normal
+  carried recurrent hidden against same-frame reset hidden on future envelope
+  targets.
+- focused tests: `tests/test_hidden_envelope_probe.py`
+- diagnostic run: `runs/m93_m62_hidden_envelope_probe_seed9410`
+- artifact: `docs/m93-m62-hidden-envelope-probe.md`
+
+Result:
+
+- sampled `704` states across `30` episodes;
+- braking `response_hidden - reset_response_hidden` R2 lift: `-0.102351`;
+- lateral acceleration R2 lift: `+0.056331`;
+- yaw R2 lift: `-0.272739`;
+- policy fused features are worse than reset fused features on all targets.
+
+Conclusion: M93 is negative for treating M62 hidden state as a stable
+future-envelope belief. The next no-wheel branch should test an objective-only
+or pretraining path that explicitly makes response hidden predict braking/yaw/
+lateral authority before returning to PPO.
