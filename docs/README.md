@@ -308,6 +308,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m110-current-response-anchored-hidden-envelope-objective.md`: objective-only
   hidden-envelope tuning with an explicit current-response baseline; internal
   objective-batch gains fail external repeated split/multi-seed reliability.
+- `m111-matched-current-response-ambiguity-audit.md`: matched-current-response
+  ambiguity audit; finds 702 future-envelope ambiguous pairs but current hidden
+  states do not systematically solve the ambiguity.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

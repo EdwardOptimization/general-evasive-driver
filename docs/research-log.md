@@ -19,12 +19,13 @@ Last updated: 2026-05-22
   hidden-envelope gate is unstable across baseline checkpoints and that current
   response often beats carried recurrent hidden; M110 then fit a
   current-response-anchored objective batch but failed external repeated
-  split/multi-seed reliability. The latest 5.5pro MHTML input review is
+  split/multi-seed reliability. M111 now finds a matched-current-response
+  ambiguity surface with `702` accepted pairs, but current hidden states do not
+  systematically solve that ambiguity. The latest 5.5pro MHTML input review is
   persisted: future wheel/tire work should use raw `Romega_i` plus independent
   local `v_parallel_i`, while `slip_ratio`, controller flags, tire labels, and
-  oracle values stay out of actor inputs. The next task is M111: construct a
-  matched-current-response ambiguity surface before another objective or PPO
-  sweep.
+  oracle values stay out of actor inputs. The next task is M112: use M111 pairs
+  for action/outcome intervention gates before another objective or PPO sweep.
 
 ## Standing Loop
 
@@ -4184,3 +4185,36 @@ Result:
 Conclusion: M110 rejects same-style current-response anchored objective-only
 tuning. The next pending task is M111: construct a matched-current-response
 ambiguity proof surface where current response is insufficient by construction.
+
+## 20260521T192617Z m111-matched-current-response-ambiguity-audit
+
+- status: `completed`
+- kind: `gate`
+- implementation:
+  `src/autodrift/matched_current_response_ambiguity.py`
+- tests:
+  `tests/test_matched_current_response_ambiguity.py`
+- smoke run:
+  `runs/m111_smoke_matched_current_response_ambiguity_seed9510`
+- formal run:
+  `runs/m111_matched_current_response_ambiguity_seed9510`
+- artifact: `docs/m111-matched-current-response-ambiguity-audit.md`
+
+Result:
+
+- formal audit used M62, M102, and M105 checkpoints with probe seeds
+  `9510,9511`;
+- candidate pair count: `89343`;
+- accepted matched-current-response pair count: `702`;
+- accepted by target: braking `303`, yaw `184`, lateral `215`;
+- aggregate target z-delta means: braking `1.385`, yaw `1.819`,
+  lateral `2.286`;
+- carried response hidden is not a stable solution to the ambiguity:
+  response-hidden distance correlations with target delta are negative on all
+  aggregate targets.
+
+Conclusion: M111 finds the proof surface that M110 was missing, but current
+checkpoints do not encode it reliably in recurrent hidden state. The next task
+is M112: replay or construct normal/reset/delayed/zero-action/wrong-history
+interventions on the M111 matched surface and gate action/outcome degradation,
+not only feature-distance separation.

@@ -1,0 +1,35 @@
+{
+  "baseline_checkpoints": [
+    "runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt",
+    "runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt",
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt"
+  ],
+  "commands": [
+    {
+      "command": "TBD: replay or construct normal/reset/delayed/zero-action/wrong-history interventions on the M111 matched-current-response pair surface",
+      "name": "m112_matched_history_intervention_gate"
+    }
+  ],
+  "decision_rule": "Use M111 matched-current-response pairs as an outcome-relevant intervention surface; admit a checkpoint or objective only if wrong/reset/delayed histories cause measurable action or clearance degradation while normal retention remains intact.",
+  "failure_criteria": [
+    "matched pairs only differ in target probes but do not change policy action or rollout outcome",
+    "reset or wrong history does not degrade action choice, clearance margin, or success on the matched surface",
+    "the intervention uses hidden parameters or oracle labels as deployable actor input",
+    "normal behavior retention regresses relative to M62-class baseline"
+  ],
+  "hypothesis": "M111 found current-response-matched future-envelope ambiguity, but current hidden states do not systematically encode it. A stronger gate should test whether normal history, reset history, delayed history, zero-action history, and wrong matched history produce different actions or rollout outcomes on that surface.",
+  "id": "m112-matched-history-intervention-gate",
+  "required_artifacts": [
+    {
+      "path": "docs/m112-matched-history-intervention-gate.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "M111 matched pairs are reused or converted into replay snippets",
+    "normal/reset/delayed/zero-action/wrong-history variants are compared on action and outcome metrics",
+    "normal retention is checked against the current M62-class baseline",
+    "the result decides whether to train an intervention objective or redesign the task/simulator"
+  ],
+  "type": "gate"
+}

@@ -6,7 +6,7 @@
   ],
   "commands": [
     {
-      "command": "TBD: build or audit a matched-current-response corpus where visible current response and scene are similar but prior command-response history or hidden dynamics imply different future envelope or action outcome",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_current_response_ambiguity --checkpoint-policy m62=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --checkpoint-policy m102=runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt --checkpoint-policy m105=runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --probe-seeds 9510,9511 --episodes 30 --horizon-steps 15 --sample-stride 3 --max-samples 800 --nearest-k 10 --max-visible-quantile 0.05 --min-target-z-delta 1.0 --max-pairs-per-target 200 --min-accepted-pairs 30 --device cpu --run-dir runs/m111_matched_current_response_ambiguity_seed9510",
       "name": "m111_matched_current_response_ambiguity_audit"
     }
   ],
@@ -23,6 +23,10 @@
     {
       "path": "docs/m111-matched-current-response-ambiguity-audit.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m111_matched_current_response_ambiguity_seed9510/summary.json",
+      "type": "run_summary"
     }
   ],
   "success_criteria": [

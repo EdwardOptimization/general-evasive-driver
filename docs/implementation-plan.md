@@ -2229,9 +2229,27 @@ still has negative hidden-current mean lift on braking/lateral/yaw. See
 - Use this to decide whether the simulator/task needs a different
   self-identification proof surface before another objective.
 
-Status: pending. M110 suggests the current future-envelope target is too
-current-Markov for self-identification; the next proof surface must be
-history-necessary by construction.
+Status: completed, mixed negative. M111 adds a matched-current-response
+ambiguity audit and finds `702` accepted pairs across M62/M102/M105 and probe
+seeds `9510,9511`, so a history-necessary proof surface can be mined. However,
+current carried response hidden is not admitted as the solution: aggregate
+response-hidden distance correlations with target delta are negative for
+braking, yaw, and lateral targets, and hidden separation is not robust across
+targets. See `docs/m111-matched-current-response-ambiguity-audit.md`.
+
+### M112: Matched History Intervention Gate
+
+- Convert the M111 matched-current-response pairs into replay snippets or an
+  intervention corpus.
+- Compare normal, reset-hidden, delayed-history, zero-action-history, and wrong
+  matched-history variants on action and rollout outcome metrics.
+- Gate action/outcome dependence rather than only feature-distance separation.
+- Preserve normal behavior retention against the current M62-class baseline.
+
+Status: pending. M111 found the ambiguity surface but not a stable hidden-state
+solution; M112 should test whether wrong or missing history causes measurable
+action or clearance degradation on that surface before another training
+objective.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 
