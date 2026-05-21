@@ -4,7 +4,7 @@
     "completed": 101,
     "failed": 0,
     "pending": 0,
-    "planned": 0,
+    "planned": 1,
     "running": 0
   },
   "last_result": {
@@ -14,6 +14,6 @@
     "status": "completed",
     "task_id": "m91i-learned-history-sensor-ablation"
   },
-  "next_task": null,
-  "updated_at_utc": "20260521T160356Z"
+  "next_task": "m92-local-wheel-ground-speed-observability-audit",
+  "updated_at_utc": "20260521T163310Z"
 }

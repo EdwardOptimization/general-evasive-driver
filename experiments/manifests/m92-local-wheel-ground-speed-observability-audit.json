@@ -1,0 +1,38 @@
+{
+  "baseline_checkpoints": [
+    "no_checkpoint_policy=heuristic",
+    "previous_decision=m91i_reject_current_front_rear_raw_proxy"
+  ],
+  "commands": [
+    {
+      "command": "TBD after implementing local wheel ground-speed observation profiles",
+      "name": "local_wheel_ground_speed_observability_audit"
+    }
+  ],
+  "decision_rule": "Test whether physically cleaner wheel inputs, Romega_i plus independent v_parallel_i, provide self-identification information that the rejected M91 front/rear raw proxy did not.",
+  "failure_criteria": [
+    "actor profile includes slip_ratio or tire saturation labels",
+    "v_parallel is derived from wheel-speed average instead of independent ego-motion fusion or simulator local contact speed",
+    "Romega plus v_parallel does not improve future envelope probes over the no-wheel baseline",
+    "wheel profile weakens wrong-history counterfactual evidence"
+  ],
+  "hypothesis": "The M91-I no-wheel result rejected the current front/rear proxy, not wheel sensing in general. A cleaner Romega plus local ground-speed profile may improve handling-envelope observability without feeding slip diagnostics.",
+  "id": "m92-local-wheel-ground-speed-observability-audit",
+  "required_artifacts": [
+    {
+      "path": "docs/m92-local-wheel-ground-speed-input-plan.md",
+      "type": "design_note"
+    },
+    {
+      "path": "docs/m92-local-wheel-ground-speed-observability-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "new profiles distinguish Romega-only, Romega plus v_parallel, and optional v_perp without slip ratio",
+    "P0 no-wheel baseline is preserved for comparison",
+    "future braking yaw lateral envelope probes are reported",
+    "decision states whether wheel/local-ground-speed signals can re-enter PPO-facing profile comparison"
+  ],
+  "type": "gate"
+}

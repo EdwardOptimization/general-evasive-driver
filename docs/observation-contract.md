@@ -219,6 +219,34 @@ profile was better on braking and lateral response in the M91-I sensor
 ablation. Keep `front_rear_raw` as an optional experimental sensor profile until
 a later wheel model or corpus shows stable benefit over the no-wheel contract.
 
+Important caveat: M91-I rejects the current single-track `front_rear_raw` proxy,
+not the general idea of wheel-speed sensing. A stricter future wheel/tire
+profile should expose the raw components of slip instead of slip diagnostics:
+
+```text
+Romega_i       = wheel circumferential speed
+v_parallel_i  = independent local ground-speed estimate along the wheel rolling direction
+```
+
+For four-wheel simulation, this means per-wheel `Romega_fl/fr/rl/rr` and
+`v_parallel_fl/fr/rl/rr`. Do not derive `v_parallel_i` from the average of wheel
+speeds; that would erase the lockup/spin information the policy is supposed to
+learn from. Optional future channels such as `v_perp_i`, steering torque, and
+vertical dynamics require their own admission gates.
+
+Do not put these diagnostic quantities into the actor:
+
+```text
+slip_ratio
+slip_angle
+ABS/TCS/ESC flags
+tire_saturation_label
+friction_circle_margin
+```
+
+See `docs/m92-local-wheel-ground-speed-input-plan.md` for the planned
+observability audit.
+
 With `action_history_mode="full"`, the Stage 1 wheel frame is:
 
 ```text

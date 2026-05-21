@@ -91,6 +91,20 @@ road/obstacle geometry context
 The raw wheel branch can remain as an experimental optional sensor, but M91-I
 does not justify using it as the primary self-identification input.
 
+This result is scoped to the current `front_rear_raw` single-track proxy. It
+does not prove that physically correct wheel-speed sensing is useless. A future
+wheel profile should test the raw components:
+
+```text
+Romega_i
+v_parallel_i
+optional v_perp_i
+```
+
+and must not input `slip_ratio` or compute ground speed from wheel-speed
+averages. That follow-up is recorded in
+`docs/m92-local-wheel-ground-speed-input-plan.md`.
+
 Next research direction:
 
 ```text
