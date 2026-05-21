@@ -8,39 +8,310 @@
   ],
   "commands": [
     {
-      "command": "TBD: run the M105 behavior gate on checkpoints 9711 and 9712 with normal, reset-hidden, zero-current-response, zero-all-response, and zero-action-history ablations",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.benchmark --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 80 --seed 9500 --policies heuristic --checkpoint-policy m62_a250=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --checkpoint-policy m102_9550=runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt --checkpoint-policy m105_9710=runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt --checkpoint-policy m105_9711=runs/m105_anchor10_outcome_coupling_smoke_seed9711/optimized_checkpoint.pt --checkpoint-policy m105_9711_reset=runs/m105_anchor10_outcome_coupling_smoke_seed9711/optimized_checkpoint.pt@reset_recurrent_state --checkpoint-policy m105_9711_zero_current=runs/m105_anchor10_outcome_coupling_smoke_seed9711/optimized_checkpoint.pt@zero_current_response --checkpoint-policy m105_9711_zero_all=runs/m105_anchor10_outcome_coupling_smoke_seed9711/optimized_checkpoint.pt@zero_all_response --checkpoint-policy m105_9711_noact=runs/m105_anchor10_outcome_coupling_smoke_seed9711/optimized_checkpoint.pt@zero_action_history --checkpoint-policy m105_9712=runs/m105_anchor10_outcome_coupling_smoke_seed9712/optimized_checkpoint.pt --checkpoint-policy m105_9712_reset=runs/m105_anchor10_outcome_coupling_smoke_seed9712/optimized_checkpoint.pt@reset_recurrent_state --checkpoint-policy m105_9712_zero_current=runs/m105_anchor10_outcome_coupling_smoke_seed9712/optimized_checkpoint.pt@zero_current_response --checkpoint-policy m105_9712_zero_all=runs/m105_anchor10_outcome_coupling_smoke_seed9712/optimized_checkpoint.pt@zero_all_response --checkpoint-policy m105_9712_noact=runs/m105_anchor10_outcome_coupling_smoke_seed9712/optimized_checkpoint.pt@zero_action_history --device cpu --run-dir runs/m106_m105_repeat_behavior_gate_seed9500",
       "name": "m106_behavior_repeats"
     },
     {
-      "command": "TBD: run hidden_envelope_probe on checkpoints 9711 and 9712 with the M105 probe recipe",
-      "name": "m106_hidden_envelope_repeats"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_probe --checkpoint runs/m105_anchor10_outcome_coupling_smoke_seed9711/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9510 --horizon-steps 15 --sample-stride 3 --max-samples 800 --ridge 0.1 --device cpu --run-dir runs/m106_m105_9711_hidden_envelope_probe_seed9510",
+      "name": "m106_hidden_repeat_9711_seed9510"
     },
     {
-      "command": "TBD: add delayed-history and matched wrong-history gates if the current intervention harness supports them without changing the actor input contract",
-      "name": "m106_stronger_history_interventions"
+      "command": "repeat hidden_envelope_probe for 9712/9510, 9710/9511, 9711/9511, 9710/9512, and 9712/9512",
+      "name": "m106_hidden_fresh_probe_seeds"
     }
   ],
-  "decision_rule": "Admit the M105 action-anchor outcome recipe only if normal behavior retention, ablation-induced degradation, and positive hidden-envelope lift survive repeat checkpoints and stronger history interventions.",
+  "decision_labels": {
+    "fail": "reject_m105_formal_repeat_hidden_probe_seed_robustness",
+    "pass": "admit_m105_recipe_for_continuation"
+  },
+  "decision_rule": "Admit the M105 action-anchor outcome recipe only if normal behavior retention, ablation-induced degradation, strict margin retention, and positive hidden-envelope lift survive repeat checkpoints and fresh probe seeds.",
   "failure_criteria": [
     "any repeat checkpoint loses M62-level normal behavior retention",
     "reset-hidden or zero-response degradation disappears on repeats",
-    "braking or lateral response-hidden-minus-reset lift turns negative on repeats",
+    "strict M62 margin retention fails on repeat checkpoints",
+    "braking or lateral response-hidden-minus-reset lift turns negative on fresh probe seeds",
     "stronger delayed-history or wrong-history interventions do not affect behavior when available",
     "the repeat requires changing deployable actor inputs or adding oracle labels"
   ],
-  "hypothesis": "M105 is promising but under-tested: if the action-anchor outcome recipe really binds recurrent response history to behavior, the effect should survive repeat checkpoints and stronger history interventions.",
+  "gates": [
+    {
+      "metric": "m105_9711_success",
+      "name": "m105_9711_success_retention",
+      "op": ">=",
+      "threshold": 0.8625
+    },
+    {
+      "metric": "m105_9712_success",
+      "name": "m105_9712_success_retention",
+      "op": ">=",
+      "threshold": 0.8625
+    },
+    {
+      "metric": "m105_9711_margin",
+      "name": "m105_9711_margin_retention",
+      "op": ">=",
+      "threshold": 1.852887
+    },
+    {
+      "metric": "m105_9712_margin",
+      "name": "m105_9712_margin_retention",
+      "op": ">=",
+      "threshold": 1.852887
+    },
+    {
+      "aggregation": "difference",
+      "left_metric": "m105_9711_success",
+      "name": "m105_9711_reset_degrades",
+      "op": ">=",
+      "right_metric": "m105_9711_reset_success",
+      "threshold": 0.01
+    },
+    {
+      "aggregation": "difference",
+      "left_metric": "m105_9712_success",
+      "name": "m105_9712_reset_degrades",
+      "op": ">=",
+      "right_metric": "m105_9712_reset_success",
+      "threshold": 0.01
+    },
+    {
+      "aggregation": "difference",
+      "left_metric": "m105_9711_success",
+      "name": "m105_9711_zero_response_degrades",
+      "op": ">=",
+      "right_metric": "m105_9711_zero_all_success",
+      "threshold": 0.025
+    },
+    {
+      "aggregation": "difference",
+      "left_metric": "m105_9712_success",
+      "name": "m105_9712_zero_response_degrades",
+      "op": ">=",
+      "right_metric": "m105_9712_zero_all_success",
+      "threshold": 0.025
+    },
+    {
+      "metric": "m105_9711_seed9510_lateral_hidden_lift",
+      "name": "fixed_probe_9711_lateral_positive",
+      "op": ">",
+      "threshold": 0.0
+    },
+    {
+      "metric": "m105_9712_seed9510_lateral_hidden_lift",
+      "name": "fixed_probe_9712_lateral_positive",
+      "op": ">",
+      "threshold": 0.0
+    },
+    {
+      "metric": "m105_9710_seed9511_lateral_hidden_lift",
+      "name": "fresh_probe_9511_lateral_positive",
+      "op": ">",
+      "threshold": 0.0
+    },
+    {
+      "metric": "m105_9710_seed9512_braking_hidden_lift",
+      "name": "fresh_probe_9512_braking_positive",
+      "op": ">",
+      "threshold": 0.0
+    }
+  ],
+  "hypothesis": "M105 is promising but under-tested: if the action-anchor outcome recipe really binds recurrent response history to behavior, the effect should survive repeat checkpoints and stronger hidden-envelope probe seeds.",
   "id": "m106-formal-retention-constrained-repeat-gates",
+  "metric_extractors": [
+    {
+      "column": "success_rate",
+      "match": {
+        "policy": "m105_9712"
+      },
+      "metric": "success_rate",
+      "path": "runs/m106_m105_repeat_behavior_gate_seed9500/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "termination_rate",
+      "match": {
+        "policy": "m105_9712"
+      },
+      "metric": "termination_rate",
+      "path": "runs/m106_m105_repeat_behavior_gate_seed9500/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "min_clearance_margin_mean",
+      "match": {
+        "policy": "m105_9712"
+      },
+      "metric": "clearance_margin_mean",
+      "path": "runs/m106_m105_repeat_behavior_gate_seed9500/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "success_rate",
+      "match": {
+        "policy": "m105_9712_reset"
+      },
+      "metric": "reset_success",
+      "path": "runs/m106_m105_repeat_behavior_gate_seed9500/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "success_rate",
+      "match": {
+        "policy": "m105_9712_zero_all"
+      },
+      "metric": "zero_all_success",
+      "path": "runs/m106_m105_repeat_behavior_gate_seed9500/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "success_rate",
+      "match": {
+        "policy": "m105_9711"
+      },
+      "metric": "m105_9711_success",
+      "path": "runs/m106_m105_repeat_behavior_gate_seed9500/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "min_clearance_margin_mean",
+      "match": {
+        "policy": "m105_9711"
+      },
+      "metric": "m105_9711_margin",
+      "path": "runs/m106_m105_repeat_behavior_gate_seed9500/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "success_rate",
+      "match": {
+        "policy": "m105_9711_reset"
+      },
+      "metric": "m105_9711_reset_success",
+      "path": "runs/m106_m105_repeat_behavior_gate_seed9500/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "success_rate",
+      "match": {
+        "policy": "m105_9711_zero_all"
+      },
+      "metric": "m105_9711_zero_all_success",
+      "path": "runs/m106_m105_repeat_behavior_gate_seed9500/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "success_rate",
+      "match": {
+        "policy": "m105_9712"
+      },
+      "metric": "m105_9712_success",
+      "path": "runs/m106_m105_repeat_behavior_gate_seed9500/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "min_clearance_margin_mean",
+      "match": {
+        "policy": "m105_9712"
+      },
+      "metric": "m105_9712_margin",
+      "path": "runs/m106_m105_repeat_behavior_gate_seed9500/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "success_rate",
+      "match": {
+        "policy": "m105_9712_reset"
+      },
+      "metric": "m105_9712_reset_success",
+      "path": "runs/m106_m105_repeat_behavior_gate_seed9500/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "success_rate",
+      "match": {
+        "policy": "m105_9712_zero_all"
+      },
+      "metric": "m105_9712_zero_all_success",
+      "path": "runs/m106_m105_repeat_behavior_gate_seed9500/policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "response_hidden_minus_reset_test_r2",
+      "match": {
+        "target": "future_lateral_accel_response"
+      },
+      "metric": "m105_9711_seed9510_lateral_hidden_lift",
+      "path": "runs/m106_m105_9711_hidden_envelope_probe_seed9510/hidden_gain_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "response_hidden_minus_reset_test_r2",
+      "match": {
+        "target": "future_lateral_accel_response"
+      },
+      "metric": "m105_9712_seed9510_lateral_hidden_lift",
+      "path": "runs/m106_m105_9712_hidden_envelope_probe_seed9510/hidden_gain_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "response_hidden_minus_reset_test_r2",
+      "match": {
+        "target": "future_lateral_accel_response"
+      },
+      "metric": "m105_9710_seed9511_lateral_hidden_lift",
+      "path": "runs/m106_m105_9710_hidden_envelope_probe_seed9511/hidden_gain_summary.csv",
+      "type": "csv"
+    },
+    {
+      "column": "response_hidden_minus_reset_test_r2",
+      "match": {
+        "target": "future_braking_deceleration"
+      },
+      "metric": "m105_9710_seed9512_braking_hidden_lift",
+      "path": "runs/m106_m105_9710_hidden_envelope_probe_seed9512/hidden_gain_summary.csv",
+      "type": "csv"
+    }
+  ],
   "required_artifacts": [
     {
       "path": "docs/m106-formal-retention-constrained-repeat-gates.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m106_m105_repeat_behavior_gate_seed9500/policy_summary.csv",
+      "type": "behavior_gate"
+    },
+    {
+      "path": "runs/m106_m105_9711_hidden_envelope_probe_seed9510/hidden_gain_summary.csv",
+      "type": "hidden_probe"
+    },
+    {
+      "path": "runs/m106_m105_9712_hidden_envelope_probe_seed9510/hidden_gain_summary.csv",
+      "type": "hidden_probe"
+    },
+    {
+      "path": "runs/m106_m105_9710_hidden_envelope_probe_seed9511/hidden_gain_summary.csv",
+      "type": "hidden_probe"
+    },
+    {
+      "path": "runs/m106_m105_9711_hidden_envelope_probe_seed9511/hidden_gain_summary.csv",
+      "type": "hidden_probe"
+    },
+    {
+      "path": "runs/m106_m105_9710_hidden_envelope_probe_seed9512/hidden_gain_summary.csv",
+      "type": "hidden_probe"
+    },
+    {
+      "path": "runs/m106_m105_9712_hidden_envelope_probe_seed9512/hidden_gain_summary.csv",
+      "type": "hidden_probe"
     }
   ],
+  "scoreboard_checkpoint": "runs/m105_anchor10_outcome_coupling_smoke_seed9712/optimized_checkpoint.pt",
   "success_criteria": [
     "normal M62-level success and margin retention pass on 9711 and 9712",
     "reset-hidden and zero-response ablations degrade behavior on repeats",
-    "braking and lateral hidden-envelope lift stay positive on repeats",
-    "delayed-history or wrong-history interventions are reported when available",
+    "braking and lateral hidden-envelope lift stay positive on repeat checkpoints",
+    "fresh probe seeds preserve hidden-envelope lift",
     "the decision is recorded before PPO continuation"
   ],
   "type": "gate"

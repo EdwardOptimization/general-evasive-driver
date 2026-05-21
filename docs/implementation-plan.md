@@ -2153,9 +2153,26 @@ and hidden-envelope gates. See
 - Admit the recipe for continuation only if normal retention, ablation
   degradation, and hidden-envelope lift survive repeats.
 
-Status: pending. M105 is the first M101-M105 line with both behavior-dependence
-and hidden-envelope-retention evidence, but the repeat gate is required before
-claiming it as a robust candidate.
+Status: negative formal repeat. Behavior dependence repeats on `9711` and
+`9712`: normal success stays `0.8625`, reset-hidden drops to `0.8500`, and
+zero-response drops to `0.8375`/`0.8250`. However, strict margin retention is
+borderline and fails for `9712` (`1.851823 < 1.852887`), and hidden-envelope
+lift is only positive on the original probe seed `9510`. Fresh probe seeds
+`9511`/`9512` produce negative lateral/yaw or braking lift, so M105 is not
+admitted for PPO continuation. See
+`docs/m106-formal-retention-constrained-repeat-gates.md`.
+
+### M107: Multi-Seed Hidden-Envelope Gate
+
+- Replace single-probe hidden-envelope admission with an aggregate gate across
+  several probe seeds and checkpoints.
+- Report per-target mean, worst-case, and pass fraction for
+  response-hidden-minus-reset lift.
+- Use the aggregate gate to decide whether M105 needs a stronger hidden
+  retention objective or only a more stable proof surface.
+
+Status: pending. M106 showed that behavior dependence repeats, but the
+hidden-envelope proof surface is too seed-fragile for admission.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

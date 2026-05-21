@@ -1,0 +1,38 @@
+{
+  "baseline_checkpoints": [
+    "runs/m105_anchor10_outcome_coupling_smoke_seed9710/optimized_checkpoint.pt",
+    "runs/m105_anchor10_outcome_coupling_smoke_seed9711/optimized_checkpoint.pt",
+    "runs/m105_anchor10_outcome_coupling_smoke_seed9712/optimized_checkpoint.pt",
+    "runs/m102_retention_actor_coupling_seed9550/optimized_checkpoint.pt",
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt"
+  ],
+  "commands": [
+    {
+      "command": "TBD: build or use a multi-seed hidden-envelope probe aggregator over several probe seeds, checkpoints, and target envelopes",
+      "name": "m107_multiseed_hidden_envelope_gate"
+    }
+  ],
+  "decision_rule": "Before any PPO continuation from M105, require a hidden-envelope gate that aggregates across probe seeds and reports mean, worst-case, and pass fractions for braking, lateral, and yaw envelope lift.",
+  "failure_criteria": [
+    "single probe seed results are treated as admission evidence",
+    "fresh probe seeds produce negative braking or lateral lift",
+    "the aggregate gate cannot distinguish model instability from probe-corpus variance",
+    "the gate changes deployable actor inputs or uses hidden physics at inference"
+  ],
+  "hypothesis": "M106 showed that behavior dependence repeats but hidden-envelope lift is probe-seed fragile. A multi-seed aggregate gate is needed before deciding whether M105 needs a stronger objective or just a more stable proof surface.",
+  "id": "m107-multiseed-hidden-envelope-gate",
+  "required_artifacts": [
+    {
+      "path": "docs/m107-multiseed-hidden-envelope-gate.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "aggregate hidden-envelope metrics are computed across multiple probe seeds",
+    "mean and worst-case lift are reported per target",
+    "the gate pre-registers pass/fail thresholds before PPO continuation",
+    "M105 checkpoints are evaluated under the aggregate gate",
+    "the result is recorded in docs, scoreboard, queue, and status"
+  ],
+  "type": "gate"
+}

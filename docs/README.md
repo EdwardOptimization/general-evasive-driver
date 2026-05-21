@@ -293,6 +293,9 @@ vehicle/tire models, and NMPC-style constrained control.
   outcome actor coupling; first M101-M105 qualified positive where normal
   behavior retention, reset/zero-response degradation, and hidden-envelope lift
   are positive on the smoke gate, pending formal repeats.
+- `m106-formal-retention-constrained-repeat-gates.md`: formal M105 repeat gate;
+  behavior dependence repeats, but strict margin retention is borderline and
+  hidden-envelope lift fails fresh probe seeds.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

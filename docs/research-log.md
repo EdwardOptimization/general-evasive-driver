@@ -4055,3 +4055,38 @@ checkpoint. It is not full driver admission yet because only seed `9710` has
 completed the full behavior/probe gate. The next pending task is M106: repeat
 the gates across `9711`/`9712` and add stronger delayed-history or wrong-history
 interventions before any PPO continuation claim.
+
+## 20260521T184051Z m106-formal-retention-constrained-repeat-gates
+
+- status: `completed`
+- kind: `gate`
+- behavior gate: `runs/m106_m105_repeat_behavior_gate_seed9500`
+- fixed probe repeats:
+  `runs/m106_m105_9711_hidden_envelope_probe_seed9510`,
+  `runs/m106_m105_9712_hidden_envelope_probe_seed9510`
+- fresh probe repeats:
+  `runs/m106_m105_9710_hidden_envelope_probe_seed9511`,
+  `runs/m106_m105_9711_hidden_envelope_probe_seed9511`,
+  `runs/m106_m105_9710_hidden_envelope_probe_seed9512`,
+  `runs/m106_m105_9712_hidden_envelope_probe_seed9512`
+- artifact: `docs/m106-formal-retention-constrained-repeat-gates.md`
+
+Result:
+
+- behavior dependence repeats: `9711` and `9712` both keep normal success
+  `0.8625` and reset-hidden drops to `0.8500`;
+- zero-response degradation repeats: `9711` drops to `0.8375`, `9712` drops to
+  `0.8250`;
+- no-action-history remains behavior-neutral;
+- strict margin retention is borderline and fails for `9712`:
+  `1.851823 < 1.852887`;
+- on the original probe seed `9510`, hidden-envelope lift remains positive for
+  `9711` and `9712`;
+- on fresh probe seeds `9511` and `9512`, lateral/yaw or braking lift becomes
+  negative across M105 checkpoints.
+
+Conclusion: M106 rejects formal admission of M105 for PPO continuation. The
+behavior signal is real enough to keep the line alive, but the hidden-envelope
+proof is seed-fragile. The next pending step is M107: replace single-seed
+hidden-envelope admission with a multi-seed aggregate gate before another
+objective or PPO run.
