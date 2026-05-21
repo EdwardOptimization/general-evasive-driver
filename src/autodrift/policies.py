@@ -10,6 +10,18 @@ import numpy as np
 from autodrift.env import AutoDriftEnv
 
 
+def split_drive_brake_action(steer: float, drive_brake: float) -> np.ndarray:
+    steer_cmd = float(np.clip(steer, -1.0, 1.0))
+    drive_brake_cmd = float(np.clip(drive_brake, -1.0, 1.0))
+    if drive_brake_cmd >= 0.0:
+        throttle = 2.0 * drive_brake_cmd - 1.0
+        brake = -1.0
+    else:
+        throttle = -1.0
+        brake = 2.0 * (-drive_brake_cmd) - 1.0
+    return np.array([steer_cmd, float(np.clip(throttle, -1.0, 1.0)), float(np.clip(brake, -1.0, 1.0))], dtype=np.float32)
+
+
 class Policy:
     def reset(self) -> None:
         pass
@@ -23,7 +35,7 @@ class RandomPolicy(Policy):
         self.rng = np.random.default_rng(seed)
 
     def act(self, observation: np.ndarray, info: dict) -> np.ndarray:
-        return self.rng.uniform(-1.0, 1.0, size=2).astype(np.float32)
+        return self.rng.uniform(-1.0, 1.0, size=3).astype(np.float32)
 
 
 @dataclass
@@ -40,8 +52,8 @@ class HeuristicPolicy(Policy):
         vx = float(observation[0] * 20.0)
         vy = float(observation[1] * 12.0)
         beta = math.atan2(vy, max(vx, 1e-6))
-        lateral_error = float(observation[5])
-        heading_error = float(observation[6])
+        lateral_error = float(info.get("lateral_error", 0.0)) / 5.0
+        heading_error = float(info.get("heading_error", 0.0))
         speed_ref = float(info.get("speed_ref", 8.0))
         beta_target = float(info.get("beta_target", 0.4))
         speed = max(math.hypot(vx, vy), 1e-6)
@@ -54,7 +66,7 @@ class HeuristicPolicy(Policy):
             - self.steer_gain_beta * beta_error
         )
         throttle = self.speed_gain * (speed_ref - speed) / max(speed_ref, 1.0) + self.drift_bias
-        return np.array([np.clip(steer, -1.0, 1.0), np.clip(throttle, -1.0, 1.0)], dtype=np.float32)
+        return split_drive_brake_action(steer, throttle)
 
 
 class AEBPolicy(Policy):
@@ -62,7 +74,7 @@ class AEBPolicy(Policy):
 
     def act(self, observation: np.ndarray, info: dict) -> np.ndarray:
         del observation, info
-        return np.array([0.0, -1.0], dtype=np.float32)
+        return np.array([0.0, -1.0, 1.0], dtype=np.float32)
 
 
 @dataclass
@@ -78,7 +90,7 @@ class HeuristicAESPolicy(Policy):
         obstacle_distance = float(info.get("obstacle_distance", float("inf")))
         if not info.get("obstacle_enabled", False) or obstacle_distance <= 0.0:
             brake = -0.7
-            return np.array([0.0, brake], dtype=np.float32)
+            return split_drive_brake_action(0.0, brake)
 
         required_offset = float(info.get("obstacle_required_lateral_offset", 2.0))
         lateral_offset = float(info.get("obstacle_lateral_offset", 0.0))
@@ -89,7 +101,7 @@ class HeuristicAESPolicy(Policy):
         urgency = np.clip(1.0 - obstacle_distance / max(self.obstacle_trigger_distance, 1.0), 0.0, 1.0)
         steer = self.steer_gain * urgency + self.lateral_gain * (desired_lateral - current_lateral)
         brake = -0.9 if vx > 6.0 else -0.3
-        return np.array([np.clip(steer, -1.0, 1.0), np.clip(brake, -1.0, 1.0)], dtype=np.float32)
+        return split_drive_brake_action(steer, brake)
 
 
 @dataclass
@@ -105,7 +117,7 @@ class EnvelopeAESPolicy(Policy):
         speed = max(math.hypot(vx, vy), 1.0)
         obstacle_distance = float(info.get("obstacle_distance", float("inf")))
         if not info.get("obstacle_enabled", False) or obstacle_distance <= 0.0:
-            return np.array([0.0, -0.5], dtype=np.float32)
+            return split_drive_brake_action(0.0, -0.5)
 
         mu = max(float(info.get("mu", 0.6)), 0.05)
         required_offset = float(info.get("obstacle_required_lateral_offset", 2.0)) + self.lateral_margin
@@ -121,7 +133,7 @@ class EnvelopeAESPolicy(Policy):
         # says conventional steering should already be enough.
         label = str(info.get("obstacle_label", ""))
         throttle = -0.2 if label == "aes_feasible" else 0.15
-        return np.array([np.clip(steer, -1.0, 1.0), np.clip(throttle, -1.0, 1.0)], dtype=np.float32)
+        return split_drive_brake_action(steer, throttle)
 
 
 def make_policy(name: str, env: AutoDriftEnv, seed: int | None = None) -> Policy:

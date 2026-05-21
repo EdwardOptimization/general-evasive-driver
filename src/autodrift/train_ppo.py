@@ -25,7 +25,9 @@ from autodrift.env import AutoDriftEnv, DriftEnvConfig
 from autodrift.vector_env import SyncAutoDriftVectorEnv
 
 
-ONLINE_RECURRENT_ENCODERS = {"online_gru", "response_critical_online_gru"}
+HUMAN_VIEW_OBS_DIM = 72
+HUMAN_VIEW_RESPONSE_FEATURE_DIM = 12
+ONLINE_RECURRENT_ENCODERS = {"online_gru", "response_critical_online_gru", "human_view_online_gru"}
 
 
 def is_online_recurrent_encoder(actor_encoder: str) -> bool:
@@ -84,7 +86,8 @@ class ActorCritic(nn.Module):
             raise ValueError("response_prediction_dim cannot be negative")
         if actor_encoder not in {"mlp", "temporal_gru", *ONLINE_RECURRENT_ENCODERS}:
             raise ValueError(
-                "actor_encoder must be one of: mlp, temporal_gru, online_gru, response_critical_online_gru"
+                "actor_encoder must be one of: mlp, temporal_gru, online_gru, response_critical_online_gru, "
+                "human_view_online_gru"
             )
         if actor_history_length < 1:
             raise ValueError("actor_history_length must be at least 1")
@@ -112,13 +115,13 @@ class ActorCritic(nn.Module):
             self.response_context_fusion = None
             self.response_feature_indices = ()
             self.context_feature_indices = ()
-        elif self.actor_encoder == "response_critical_online_gru":
-            if obs_dim != 15:
-                raise ValueError("response_critical_online_gru requires the canonical 15-value obstacle actor frame")
+        elif self.actor_encoder in {"response_critical_online_gru", "human_view_online_gru"}:
+            if obs_dim != HUMAN_VIEW_OBS_DIM:
+                raise ValueError("human-view online GRU actors require the canonical 72-value actor frame")
             self.shared = None
             self.frame_encoder = None
             self.temporal_gru = None
-            self.response_feature_indices = (0, 1, 2, 3, 4, 9, 10)
+            self.response_feature_indices = tuple(range(HUMAN_VIEW_RESPONSE_FEATURE_DIM))
             self.context_feature_indices = tuple(index for index in range(obs_dim) if index not in self.response_feature_indices)
             self.response_encoder = nn.Sequential(
                 nn.Linear(len(self.response_feature_indices), hidden_size),
@@ -209,7 +212,7 @@ class ActorCritic(nn.Module):
     def recurrent_features_tensor(self, obs: torch.Tensor, hidden: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
         if not self.is_online_recurrent:
             raise RuntimeError("recurrent_features_tensor requires an online recurrent actor_encoder")
-        if self.actor_encoder == "response_critical_online_gru":
+        if self.actor_encoder in {"response_critical_online_gru", "human_view_online_gru"}:
             return self._response_critical_features_tensor(obs, hidden)
         assert self.frame_encoder is not None
         assert self.online_gru_cell is not None

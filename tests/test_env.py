@@ -16,7 +16,7 @@ def test_env_reset_and_step_shapes():
     assert env.observation_space.contains(obs)
     assert 0.25 <= info["mu"] <= 1.15
 
-    next_obs, reward, terminated, truncated, next_info = env.step(np.array([0.0, 0.2], dtype=np.float32))
+    next_obs, reward, terminated, truncated, next_info = env.step(np.array([0.0, 0.2, -1.0], dtype=np.float32))
 
     assert next_obs.shape == env.observation_space.shape
     assert np.isfinite(reward)
@@ -31,30 +31,30 @@ def test_privileged_observation_adds_hidden_params():
     env = AutoDriftEnv(DriftEnvConfig(include_privileged_params=True))
     obs, _ = env.reset(seed=12)
 
-    assert obs.shape == (15,)
+    assert obs.shape == (76,)
 
 
 def test_history_observation_stacks_recent_frames():
     env = AutoDriftEnv(DriftEnvConfig(history_length=4))
     obs, _ = env.reset(seed=15)
-    next_obs, _, _, _, _ = env.step(np.array([0.0, 0.2], dtype=np.float32))
+    next_obs, _, _, _, _ = env.step(np.array([0.0, 0.2, -1.0], dtype=np.float32))
 
-    assert obs.shape == (44,)
-    assert next_obs.shape == (44,)
-    assert not np.allclose(next_obs[:11], next_obs[11:22])
+    assert obs.shape == (288,)
+    assert next_obs.shape == (288,)
+    assert not np.allclose(next_obs[:72], next_obs[72:144])
 
 
 def test_full_action_history_observation_adds_previous_steer_and_drive():
     env = AutoDriftEnv(DriftEnvConfig(action_history_mode="full", history_length=2))
     obs, _ = env.reset(seed=17)
 
-    assert obs.shape == (22,)
-    assert np.allclose(obs[9:11], [0.0, 0.0])
+    assert obs.shape == (144,)
+    assert np.allclose(obs[9:12], [0.0, 0.0, 0.0])
 
-    next_obs, _, _, _, info = env.step(np.array([0.4, -0.2], dtype=np.float32))
+    next_obs, _, _, _, info = env.step(np.array([0.4, 0.2, -1.0], dtype=np.float32))
 
-    assert next_obs.shape == (22,)
-    assert np.allclose(next_obs[9:11], [0.4, -0.2])
+    assert next_obs.shape == (144,)
+    assert np.allclose(next_obs[9:12], [0.4, 0.6, 0.0])
     assert "brake_scale" in info
     assert "steer_tau_scale" in info
 
@@ -94,12 +94,13 @@ def test_obstacle_task_adds_observation_features_and_info():
     )
     obs, info = env.reset(seed=20)
 
-    assert obs.shape == (15,)
+    assert obs.shape == (72,)
     assert info["obstacle_enabled"] is True
     assert info["obstacle_label"] in {"aeb_feasible", "aes_feasible", "drift_required", "unavoidable"}
     assert info["obstacle_distance"] > 0.0
     assert info["collision"] is False
-    assert len(env._obstacle_features(env.track.frame(env.state.x, env.state.y, env.state.psi))) == 4
+    assert len(env._obstacle_slot_features()) == env.config.obstacle_slots * 7
+    assert env._obstacle_slot_features()[0] == 1.0
 
 
 def test_m8_driver_config_uses_deployable_observation_contract():
@@ -110,8 +111,8 @@ def test_m8_driver_config_uses_deployable_observation_contract():
     assert config.friction_limited_speed is False
     assert config.history_length == 4
     assert config.action_history_mode == "full"
-    assert env.base_obs_dim == 15
-    assert env.observation_space.shape == (60,)
+    assert env.base_obs_dim == 72
+    assert env.observation_space.shape == (288,)
 
 
 def test_obstacle_task_can_require_aeb_infeasible_labels():
@@ -198,7 +199,7 @@ def test_obstacle_collision_terminates_episode_and_penalizes_reward():
     _, info = env.reset(seed=21)
     assert info["collision"] is True
 
-    _, reward, terminated, _, next_info = env.step(np.array([0.0, 0.0], dtype=np.float32))
+    _, reward, terminated, _, next_info = env.step(np.array([0.0, -1.0, -1.0], dtype=np.float32))
 
     assert terminated is True
     assert next_info["collision"] is True
@@ -226,7 +227,7 @@ def test_obstacle_pass_can_complete_episode_successfully():
     env.collision = False
     env.min_obstacle_clearance = 3.0
 
-    _, reward, terminated, truncated, info = env.step(np.array([0.0, 0.0], dtype=np.float32))
+    _, reward, terminated, truncated, info = env.step(np.array([0.0, -1.0, -1.0], dtype=np.float32))
 
     assert terminated is False
     assert truncated is True
@@ -276,7 +277,7 @@ def test_stable_aes_reward_penalizes_high_sideslip_without_oracle_observation():
         env.state.vy = 3.0
         env.beta_target = 0.25
 
-    action = np.zeros(2, dtype=np.float32)
+    action = np.zeros(3, dtype=np.float32)
     base_frame = base_env.track.frame(base_env.state.x, base_env.state.y, base_env.state.psi)
     penalty_frame = penalty_env.track.frame(penalty_env.state.x, penalty_env.state.y, penalty_env.state.psi)
     base_reward, base_terms = base_env._reward(base_frame, action, base_env.last_forces)
@@ -305,7 +306,7 @@ def test_friction_step_changes_mu_and_reports_transition():
     assert info["friction_step_at"] == 3
 
     for _ in range(3):
-        _, _, _, _, info = env.step(np.array([0.0, 0.2], dtype=np.float32))
+        _, _, _, _, info = env.step(np.array([0.0, 0.2, -1.0], dtype=np.float32))
 
     assert info["initial_mu"] == 1.0
     assert info["mu"] == 0.35
@@ -322,7 +323,7 @@ def test_termination_penalty_is_subtracted_on_failure():
         env.state.y = 0.0
         env.state.psi = 0.0
 
-    action = np.array([0.0, 0.0], dtype=np.float32)
+    action = np.array([0.0, -1.0, -1.0], dtype=np.float32)
     _, base_reward, base_terminated, _, _ = base_env.step(action)
     _, penalty_reward, penalty_terminated, _, penalty_info = penalty_env.step(action)
 

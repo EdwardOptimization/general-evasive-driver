@@ -837,3 +837,34 @@ the general obstacle policy. The next step is M24 mixed hard replay: sample hard
 response seeds only part of the time, keep ordinary randomized resets active,
 and select periodic checkpoints by both hard response gates and same-corpus
 success.
+
+## 20260521 m24-human-view-driver-contract
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A professional-driver RL actor should receive ego-frame
+  human-view perception instead of path-tracking errors and precomputed obstacle
+  answers.
+- implementation: `src/autodrift/env.py`, `src/autodrift/dynamics.py`,
+  `src/autodrift/train_ppo.py`, `src/autodrift/checkpoints.py`
+- config: `configs/ppo_m24_human_view_gru_driver.json`
+
+M24 supersedes the previous mixed-hard-replay plan. The next training run should
+start from scratch under the human-view contract rather than fine-tuning M21 or
+M23 checkpoints.
+
+Implemented contract:
+
+- actor observation is 72 values: ego response, previous physical controls,
+  ego-frame road boundaries, and ego-frame obstacle slots;
+- action is 3 values: steering, throttle, and brake;
+- path lateral error, heading error, curvature, along-path speed, required
+  clearance, and TTC are removed from the actor frame;
+- `human_view_online_gru` requires the 72-value frame strictly.
+
+Validation:
+
+- targeted interface tests passed: `conda run -n autodrift pytest -q
+  tests/test_env.py tests/test_dynamics.py tests/test_policies.py
+  tests/test_evaluate.py tests/test_checkpoints.py tests/test_vector_env.py`
+  returned 52 passed.

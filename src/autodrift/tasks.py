@@ -60,6 +60,18 @@ class CircleTrack:
         vy = speed * math.sin(beta)
         return x, y, psi, vx, vy
 
+    def lookahead_centerline(self, x: float, y: float, distances: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+        angle = math.atan2(y, x)
+        sign = -1.0 if self.clockwise else 1.0
+        points = []
+        tangents = []
+        for distance in distances:
+            point_angle = angle + sign * float(distance) / self.radius
+            tangent_heading = point_angle + (-math.pi / 2.0 if self.clockwise else math.pi / 2.0)
+            points.append([self.radius * math.cos(point_angle), self.radius * math.sin(point_angle)])
+            tangents.append([math.cos(tangent_heading), math.sin(tangent_heading)])
+        return np.asarray(points, dtype=np.float64), np.asarray(tangents, dtype=np.float64)
+
 
 class FigureEightTrack:
     """Closed figure-eight path for drift transition and varying curvature."""
@@ -86,6 +98,7 @@ class FigureEightTrack:
         next_points = np.roll(self.points, -1, axis=0)
         segment_lengths = np.linalg.norm(next_points - self.points, axis=1)
         self.progress = np.concatenate([[0.0], np.cumsum(segment_lengths[:-1])]).astype(np.float64)
+        self.length = float(np.sum(segment_lengths))
         max_curvature = float(np.max(np.abs(self.curvatures)))
         self.reference_radius = 1.0 / max(max_curvature, 1e-6)
 
@@ -123,6 +136,13 @@ class FigureEightTrack:
         vx = speed * math.cos(beta)
         vy = speed * math.sin(beta)
         return float(x), float(y), psi, vx, vy
+
+    def lookahead_centerline(self, x: float, y: float, distances: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+        index = self._nearest_index(x, y)
+        current_progress = float(self.progress[index])
+        targets = (current_progress + distances.astype(np.float64)) % self.length
+        indices = np.searchsorted(self.progress, targets, side="left") % self.samples
+        return self.points[indices].copy(), self.tangents[indices].copy()
 
 
 def make_track(kind: str, radius: float) -> CircleTrack | FigureEightTrack:

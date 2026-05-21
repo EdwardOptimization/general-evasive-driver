@@ -94,7 +94,8 @@ def collect_trace(
                 "curvature": info["curvature"],
                 "progress": info["progress"],
                 "steer_cmd": float(action[0]),
-                "drive_cmd": float(action[1]),
+                "throttle_cmd": 0.5 * (float(action[1]) + 1.0),
+                "brake_cmd": 0.5 * (float(action[2]) + 1.0),
                 "reward": reward,
                 "mu": info["mu"],
                 "initial_mu": info.get("initial_mu", info["mu"]),
@@ -132,7 +133,8 @@ def plot_trace(rows: list[dict], summary: dict, output: Path) -> None:
     speed = np.asarray([row["speed"] for row in rows])
     speed_ref = np.asarray([row["speed_ref"] for row in rows])
     steer_cmd = np.asarray([row["steer_cmd"] for row in rows])
-    drive_cmd = np.asarray([row["drive_cmd"] for row in rows])
+    throttle_cmd = np.asarray([row["throttle_cmd"] for row in rows])
+    brake_cmd = np.asarray([row["brake_cmd"] for row in rows])
     lateral_error = np.asarray([row["lateral_error"] for row in rows])
     step_at = summary.get("friction_step_at")
     step_time = None
@@ -161,7 +163,8 @@ def plot_trace(rows: list[dict], summary: dict, output: Path) -> None:
     axes[1, 0].legend()
 
     axes[1, 1].plot(time, steer_cmd, label="steer")
-    axes[1, 1].plot(time, drive_cmd, label="drive/brake")
+    axes[1, 1].plot(time, throttle_cmd, label="throttle")
+    axes[1, 1].plot(time, brake_cmd, label="brake")
     axes[1, 1].set_title("actions")
     axes[1, 1].set_xlabel("time [s]")
     axes[1, 1].set_ylabel("normalized command")

@@ -11,7 +11,7 @@ def test_aeb_policy_commands_full_brake():
 
     action = policy.act(obs, info)
 
-    np.testing.assert_allclose(action, np.array([0.0, -1.0], dtype=np.float32))
+    np.testing.assert_allclose(action, np.array([0.0, -1.0, 1.0], dtype=np.float32))
 
 
 def test_aes_heuristic_policy_runs_with_obstacle_info():
@@ -33,7 +33,7 @@ def test_aes_heuristic_policy_runs_with_obstacle_info():
     action = policy.act(obs, info)
 
     assert env.action_space.contains(action)
-    assert action[1] < 0.0
+    assert action[2] > -1.0
 
 
 def test_envelope_aes_policy_runs_with_obstacle_info():

@@ -74,8 +74,8 @@ vehicle/tire models, and NMPC-style constrained control.
   constructing cases where response ablation must change the outcome.
 - `m23-hard-corpus-training.md`: hard response seed oversampling path and first
   M23 training configuration.
-- `m24-mixed-hard-replay-training.md`: mixed hard-corpus and randomized reset
-  training direction after M23 overfit the hard-only replay corpus.
+- `m24-human-view-driver-contract.md`: 72-value human-view GRU observation
+  contract and 3-channel steer/throttle/brake simulator action.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

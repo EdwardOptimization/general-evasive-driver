@@ -7,7 +7,13 @@ from typing import Any
 
 import torch
 
-from autodrift.train_ppo import ActorCritic, adapt_actor_critic_state, resolve_device
+from autodrift.train_ppo import (
+    HUMAN_VIEW_OBS_DIM,
+    HUMAN_VIEW_RESPONSE_FEATURE_DIM,
+    ActorCritic,
+    adapt_actor_critic_state,
+    resolve_device,
+)
 
 
 REQUIRED_MODEL_CONFIG_KEYS = (
@@ -49,13 +55,13 @@ def load_actor_critic_checkpoint(
     elif "frame_encoder.0.weight" in state_dict:
         frame_layer = state_dict["frame_encoder.0.weight"]
         source_obs_dim = int(frame_layer.shape[1]) * actor_history_length
-    elif actor_encoder == "response_critical_online_gru":
+    elif actor_encoder in {"response_critical_online_gru", "human_view_online_gru"}:
         if "response_encoder.0.weight" not in state_dict or "context_encoder.0.weight" not in state_dict:
-            raise RuntimeError("response-critical checkpoint is missing response/context encoder weights")
+            raise RuntimeError("human-view checkpoint is missing response/context encoder weights")
         response_dim = int(state_dict["response_encoder.0.weight"].shape[1])
         context_dim = int(state_dict["context_encoder.0.weight"].shape[1])
-        if response_dim != 7 or context_dim != 8:
-            raise RuntimeError("response-critical checkpoint does not match the canonical 15-value actor frame")
+        if response_dim != HUMAN_VIEW_RESPONSE_FEATURE_DIM or response_dim + context_dim != HUMAN_VIEW_OBS_DIM:
+            raise RuntimeError("human-view checkpoint does not match the canonical 72-value actor frame")
         source_obs_dim = response_dim + context_dim
     else:
         raise RuntimeError("checkpoint does not contain a recognized actor encoder")

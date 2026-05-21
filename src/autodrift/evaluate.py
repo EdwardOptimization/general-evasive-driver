@@ -53,12 +53,12 @@ class ActorPolicy(Policy):
 
     def _action_history_indices(self) -> list[int]:
         if self.env_config.action_history_mode == "full":
-            return [9, 10]
+            return [9, 10, 11]
         return []
 
     def _response_feature_indices(self, base_dim: int) -> list[int]:
         del base_dim
-        indices = [0, 1, 2, 3, 4]
+        indices = list(range(0, 9))
         indices.extend(self._action_history_indices())
         return sorted(set(indices))
 

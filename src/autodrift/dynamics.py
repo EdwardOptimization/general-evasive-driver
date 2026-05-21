@@ -152,18 +152,18 @@ class SingleTrackDriftModel:
 
     def step(self, state: VehicleState, action: np.ndarray, dt: float) -> tuple[VehicleState, TireForces]:
         action = np.asarray(action, dtype=np.float64)
+        if action.shape != (3,):
+            raise ValueError(f"expected action shape (3,), got {action.shape}")
         steer_cmd = clamp(float(action[0]), -1.0, 1.0) * self.params.max_steer
-        drive_cmd = clamp(float(action[1]), -1.0, 1.0)
+        throttle_cmd = 0.5 * (clamp(float(action[1]), -1.0, 1.0) + 1.0)
+        brake_cmd = 0.5 * (clamp(float(action[2]), -1.0, 1.0) + 1.0)
 
         steer_rate_limit = self.params.max_steer_rate * dt
         steer_lag_delta = dt / max(self.params.steer_tau, dt)
         steer_target = state.steer + (steer_cmd - state.steer) * clamp(steer_lag_delta, 0.0, 1.0)
         steer = move_towards(state.steer, steer_target, steer_rate_limit)
 
-        if drive_cmd >= 0.0:
-            force_target = drive_cmd * self.params.max_drive_force
-        else:
-            force_target = drive_cmd * self.params.max_brake_force
+        force_target = throttle_cmd * self.params.max_drive_force - brake_cmd * self.params.max_brake_force
         drive_alpha = clamp(dt / max(self.params.drive_tau, dt), 0.0, 1.0)
         drive_force = state.drive_force + (force_target - state.drive_force) * drive_alpha
 

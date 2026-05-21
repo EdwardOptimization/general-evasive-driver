@@ -23,6 +23,14 @@ from autodrift.scenarios import ObstacleScenario, ObstacleScenarioConfig, classi
 from autodrift.tasks import PathFrame, make_track
 
 
+EGO_OBS_DIM = 9
+LAST_ACTION_OBS_DIM = 3
+ROAD_POINT_DIM = 2
+OBSTACLE_SLOT_DIM = 7
+DEFAULT_ROAD_LOOKAHEAD_COUNT = 8
+DEFAULT_OBSTACLE_SLOTS = 4
+
+
 @dataclass(frozen=True)
 class FrictionStepConfig:
     enabled: bool = False
@@ -83,6 +91,9 @@ class DriftEnvConfig:
     history_length: int = 1
     action_history_mode: str = "full"
     include_privileged_params: bool = False
+    road_lookahead_count: int = DEFAULT_ROAD_LOOKAHEAD_COUNT
+    road_lookahead_spacing: float = 5.0
+    obstacle_slots: int = DEFAULT_OBSTACLE_SLOTS
     friction_step: FrictionStepConfig = FrictionStepConfig()
     obstacle: ObstacleTaskConfig = ObstacleTaskConfig()
     randomization: RandomizationConfig = RandomizationConfig()
@@ -92,6 +103,12 @@ class DriftEnvConfig:
             raise ValueError("history_length must be at least 1")
         if self.action_history_mode not in {"full", "none"}:
             raise ValueError("action_history_mode must be one of: full, none")
+        if self.road_lookahead_count < 1:
+            raise ValueError("road_lookahead_count must be at least 1")
+        if self.road_lookahead_spacing <= 0.0:
+            raise ValueError("road_lookahead_spacing must be positive")
+        if self.obstacle_slots < 1:
+            raise ValueError("obstacle_slots must be at least 1")
 
 
 class AutoDriftEnv(gym.Env):
@@ -107,11 +124,14 @@ class AutoDriftEnv(gym.Env):
     def __init__(self, config: DriftEnvConfig | None = None):
         super().__init__()
         self.config = config or DriftEnvConfig()
-        self.action_space = spaces.Box(low=-1.0, high=1.0, shape=(2,), dtype=np.float32)
+        self.action_space = spaces.Box(low=-1.0, high=1.0, shape=(3,), dtype=np.float32)
 
-        obstacle_obs_dim = 4 if self.config.obstacle.enabled else 0
-        action_obs_dim = {"none": 0, "full": 2}[self.config.action_history_mode]
-        self.base_obs_dim = 9 + action_obs_dim + obstacle_obs_dim + (4 if self.config.include_privileged_params else 0)
+        action_obs_dim = {"none": 0, "full": LAST_ACTION_OBS_DIM}[self.config.action_history_mode]
+        road_obs_dim = 2 * self.config.road_lookahead_count * ROAD_POINT_DIM
+        obstacle_obs_dim = self.config.obstacle_slots * OBSTACLE_SLOT_DIM
+        self.base_obs_dim = EGO_OBS_DIM + action_obs_dim + road_obs_dim + obstacle_obs_dim + (
+            4 if self.config.include_privileged_params else 0
+        )
         obs_dim = self.base_obs_dim * self.config.history_length
         self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(obs_dim,), dtype=np.float32)
 
@@ -120,7 +140,9 @@ class AutoDriftEnv(gym.Env):
         self.model = SingleTrackDriftModel()
         self.params = self.model.params
         self.state = VehicleState(0.0, 0.0, 0.0, 8.0, 0.0, 0.0)
-        self.last_action = np.zeros(2, dtype=np.float64)
+        self.last_action = np.array([0.0, -1.0, -1.0], dtype=np.float64)
+        self.last_control = np.zeros(3, dtype=np.float64)
+        self.last_steer_rate = 0.0
         self.last_forces = self.model.tire_forces(8.0, 0.0, 0.0, 0.0, 0.0)
         self.obs_history: list[np.ndarray] = []
         self.speed_ref = 8.0
@@ -169,7 +191,9 @@ class AutoDriftEnv(gym.Env):
             drive_force=0.0,
         )
         self._reset_obstacle(np.array([x, y], dtype=np.float64), initial_frame)
-        self.last_action = np.zeros(2, dtype=np.float64)
+        self.last_action = np.array([0.0, -1.0, -1.0], dtype=np.float64)
+        self.last_control = np.zeros(3, dtype=np.float64)
+        self.last_steer_rate = 0.0
         self.last_forces = self.model.tire_forces(vx, vy, self.state.yaw_rate, 0.0, 0.0)
         base_observation = self._base_observation()
         self.obs_history = [base_observation.copy() for _ in range(self.config.history_length)]
@@ -190,9 +214,14 @@ class AutoDriftEnv(gym.Env):
         self.step_count += 1
         self._maybe_apply_friction_step()
         action64 = np.asarray(action, dtype=np.float64)
+        if action64.shape != (3,):
+            raise ValueError(f"expected action shape (3,), got {action64.shape}")
+        control = self._control_from_action(action64)
+        previous_steer = self.state.steer
         self.state, self.last_forces = self.model.step(self.state, action64, self.config.dt)
+        self.last_steer_rate = (self.state.steer - previous_steer) / self.config.dt
         frame = self.track.frame(self.state.x, self.state.y, self.state.psi)
-        reward, reward_terms = self._reward(frame, action64, self.last_forces)
+        reward, reward_terms = self._reward(frame, control, self.last_forces)
         self._update_obstacle_status(frame)
 
         terminated = self._terminated(frame)
@@ -208,6 +237,7 @@ class AutoDriftEnv(gym.Env):
             reward_terms["termination_penalty"] = self.config.termination_penalty
         truncated = self.obstacle_completed or self.step_count >= self.config.max_steps
         self.last_action = np.clip(action64, -1.0, 1.0)
+        self.last_control = control
 
         info = self._info(frame)
         info["reward_terms"] = reward_terms
@@ -346,7 +376,7 @@ class AutoDriftEnv(gym.Env):
             return float("inf")
         return float(scenario.time_to_obstacle - self.friction_step_at * self.config.dt)
 
-    def _obstacle_features(self, frame: PathFrame) -> tuple[float, float, float, float]:
+    def _obstacle_path_features(self, frame: PathFrame) -> tuple[float, float, float, float]:
         if self.obstacle_scenario is None or self.obstacle_position is None:
             return (0.0, 0.0, 0.0, 0.0)
         ego_position = np.array([self.state.x, self.state.y], dtype=np.float64)
@@ -360,6 +390,74 @@ class AutoDriftEnv(gym.Env):
             self.obstacle_scenario.required_lateral_offset / max(self.config.track_width, 1e-6),
             time_to_obstacle / 5.0,
         )
+
+    def _body_point(self, point: np.ndarray) -> np.ndarray:
+        delta = np.asarray(point, dtype=np.float64) - np.array([self.state.x, self.state.y], dtype=np.float64)
+        cos_psi = math.cos(self.state.psi)
+        sin_psi = math.sin(self.state.psi)
+        return np.array(
+            [
+                cos_psi * delta[0] + sin_psi * delta[1],
+                -sin_psi * delta[0] + cos_psi * delta[1],
+            ],
+            dtype=np.float64,
+        )
+
+    def _control_from_action(self, action: np.ndarray) -> np.ndarray:
+        action = np.asarray(action, dtype=np.float64)
+        steer = float(np.clip(action[0], -1.0, 1.0))
+        throttle = 0.5 * (float(np.clip(action[1], -1.0, 1.0)) + 1.0)
+        brake = 0.5 * (float(np.clip(action[2], -1.0, 1.0)) + 1.0)
+        return np.array([steer, throttle, brake], dtype=np.float64)
+
+    def _body_acceleration(self, forces: TireForces) -> tuple[float, float]:
+        drag = self.params.drag_coeff * self.state.vx * abs(self.state.vx)
+        rolling = self.params.rolling_resistance * math.tanh(self.state.vx)
+        fx_body = forces.fx_rear - forces.fy_front * math.sin(self.state.steer) - drag - rolling
+        fy_body = forces.fy_front * math.cos(self.state.steer) + forces.fy_rear
+        ax_body = fx_body / self.params.mass + self.state.yaw_rate * self.state.vy
+        ay_body = fy_body / self.params.mass - self.state.yaw_rate * self.state.vx
+        return float(ax_body), float(ay_body)
+
+    def _drive_actuator_states(self) -> tuple[float, float]:
+        if self.state.drive_force >= 0.0:
+            return float(self.state.drive_force / max(self.params.max_drive_force, 1e-6)), 0.0
+        return 0.0, float(-self.state.drive_force / max(self.params.max_brake_force, 1e-6))
+
+    def _road_boundary_features(self) -> list[float]:
+        distances = self.config.road_lookahead_spacing * np.arange(1, self.config.road_lookahead_count + 1)
+        center_points, tangents = self.track.lookahead_centerline(self.state.x, self.state.y, distances)
+        half_width = 0.5 * self.config.track_width
+        left_features: list[float] = []
+        right_features: list[float] = []
+        for point, tangent in zip(center_points, tangents, strict=True):
+            normal_left = np.array([-tangent[1], tangent[0]], dtype=np.float64)
+            left_body = self._body_point(point + normal_left * half_width)
+            right_body = self._body_point(point - normal_left * half_width)
+            left_features.extend([float(left_body[0] / 80.0), float(left_body[1] / 20.0)])
+            right_features.extend([float(right_body[0] / 80.0), float(right_body[1] / 20.0)])
+        return left_features + right_features
+
+    def _obstacle_slot_features(self) -> list[float]:
+        slots = np.zeros((self.config.obstacle_slots, OBSTACLE_SLOT_DIM), dtype=np.float64)
+        if self.config.obstacle.enabled and self.obstacle_scenario is not None and self.obstacle_position is not None:
+            body = self._body_point(self.obstacle_position)
+            rel_vx = -self.state.vx + self.state.yaw_rate * body[1]
+            rel_vy = -self.state.vy - self.state.yaw_rate * body[0]
+            half_width = float(self.obstacle_scenario.obstacle_half_width)
+            slots[0] = np.array(
+                [
+                    1.0,
+                    body[0] / 80.0,
+                    body[1] / 20.0,
+                    rel_vx / 20.0,
+                    rel_vy / 12.0,
+                    half_width / 5.0,
+                    half_width / 5.0,
+                ],
+                dtype=np.float64,
+            )
+        return slots.reshape(-1).astype(float).tolist()
 
     def _obstacle_longitudinal_distance(self, frame: PathFrame) -> float:
         if self.obstacle_scenario is None or self.obstacle_position is None:
@@ -392,25 +490,25 @@ class AutoDriftEnv(gym.Env):
 
     def _base_observation(self) -> np.ndarray:
         frame = self.track.frame(self.state.x, self.state.y, self.state.psi)
-        global_vx = self.state.vx * math.cos(self.state.psi) - self.state.vy * math.sin(self.state.psi)
-        global_vy = self.state.vx * math.sin(self.state.psi) + self.state.vy * math.cos(self.state.psi)
-        along_speed = float(np.dot(np.array([global_vx, global_vy]), frame.tangent))
+        del frame
+        ax_body, ay_body = self._body_acceleration(self.last_forces)
+        throttle_state, brake_state = self._drive_actuator_states()
 
         obs = [
             self.state.vx / 20.0,
             self.state.vy / 12.0,
             self.state.yaw_rate / 2.5,
+            ax_body / 15.0,
+            ay_body / 15.0,
             self.state.steer / self.params.max_steer,
-            self.state.drive_force / max(self.params.max_drive_force, self.params.max_brake_force),
-            frame.lateral_error / self.config.track_width,
-            frame.heading_error,
-            frame.curvature * 20.0,
-            along_speed / 20.0,
+            self.last_steer_rate / max(self.params.max_steer_rate, 1e-6),
+            throttle_state,
+            brake_state,
         ]
         if self.config.action_history_mode == "full":
-            obs.extend([self.last_action[0], self.last_action[1]])
-        if self.config.obstacle.enabled:
-            obs.extend(self._obstacle_features(frame))
+            obs.extend(self.last_control.tolist())
+        obs.extend(self._road_boundary_features())
+        obs.extend(self._obstacle_slot_features())
         if self.config.include_privileged_params:
             obs.extend(
                 [
@@ -425,7 +523,7 @@ class AutoDriftEnv(gym.Env):
     def _reward(
         self,
         frame: PathFrame,
-        action: np.ndarray,
+        control: np.ndarray,
         forces: TireForces,
     ) -> tuple[float, dict[str, float]]:
         speed = math.hypot(self.state.vx, self.state.vy)
@@ -438,8 +536,8 @@ class AutoDriftEnv(gym.Env):
         heading_cost = wrap_pi(frame.heading_error) ** 2
         speed_cost = ((speed - self.speed_ref) / max(self.speed_ref, 1.0)) ** 2
         beta_cost = (abs(beta) - self.beta_target) ** 2
-        action_cost = float(np.sum(np.square(action)))
-        action_rate_cost = float(np.sum(np.square(action - self.last_action)))
+        action_cost = float(np.sum(np.square(control)))
+        action_rate_cost = float(np.sum(np.square(control - self.last_control)))
         rear_saturation = abs(forces.fx_rear) / max(self.params.mu * forces.fz_rear, 1.0)
         drift_bonus = min(abs(beta) / max(self.beta_target, 1e-3), 1.5)
         stable_aes_sideslip_cost = 0.0
@@ -492,6 +590,7 @@ class AutoDriftEnv(gym.Env):
         speed = math.hypot(self.state.vx, self.state.vy)
         beta = math.atan2(self.state.vy, max(self.state.vx, 1e-6))
         base_params = VehicleParams()
+        obstacle_path = self._obstacle_path_features(frame)
         return {
             "mu": self.params.mu,
             "initial_mu": self.initial_mu,
@@ -522,9 +621,9 @@ class AutoDriftEnv(gym.Env):
             "track_kind": self.config.track_kind,
             "obstacle_enabled": self.config.obstacle.enabled,
             "obstacle_label": self.obstacle_scenario.label if self.obstacle_scenario is not None else "",
-            "obstacle_distance": self._obstacle_features(frame)[0] * 80.0 if self.config.obstacle.enabled else float("nan"),
+            "obstacle_distance": obstacle_path[0] * 80.0 if self.config.obstacle.enabled else float("nan"),
             "obstacle_lateral_offset": (
-                self._obstacle_features(frame)[1] * self.config.track_width if self.config.obstacle.enabled else float("nan")
+                obstacle_path[1] * self.config.track_width if self.config.obstacle.enabled else float("nan")
             ),
             "obstacle_required_lateral_offset": (
                 self.obstacle_scenario.required_lateral_offset if self.obstacle_scenario is not None else float("nan")

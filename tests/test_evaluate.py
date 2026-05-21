@@ -33,53 +33,55 @@ def test_episode_row_includes_curvature_segment_metrics():
 
 def test_actor_policy_can_ablate_action_history():
     env_config = DriftEnvConfig(history_length=2, action_history_mode="full")
-    policy = ActorPolicy(ActorCritic(obs_dim=22, act_dim=2, hidden_size=8), env_config, ablation="zero_action_history")
-    observation = np.arange(22, dtype=np.float32)
+    policy = ActorPolicy(ActorCritic(obs_dim=144, act_dim=3, hidden_size=8), env_config, ablation="zero_action_history")
+    observation = np.arange(144, dtype=np.float32)
 
     transformed = policy._transform_observation(observation)
 
     assert transformed[9] == 0.0
     assert transformed[10] == 0.0
-    assert transformed[20] == 0.0
-    assert transformed[21] == 0.0
+    assert transformed[11] == 0.0
+    assert transformed[81] == 0.0
+    assert transformed[82] == 0.0
+    assert transformed[83] == 0.0
 
 
 def test_actor_policy_can_ablate_current_response_only():
     env_config = DriftEnvConfig(history_length=2, action_history_mode="full")
-    policy = ActorPolicy(ActorCritic(obs_dim=22, act_dim=2, hidden_size=8), env_config, ablation="zero_current_response")
-    observation = np.arange(22, dtype=np.float32)
+    policy = ActorPolicy(ActorCritic(obs_dim=144, act_dim=3, hidden_size=8), env_config, ablation="zero_current_response")
+    observation = np.arange(144, dtype=np.float32)
 
     transformed = policy._transform_observation(observation)
 
-    np.testing.assert_allclose(transformed[[0, 1, 2, 3, 4, 9, 10]], np.zeros(7, dtype=np.float32))
-    np.testing.assert_allclose(transformed[11:], observation[11:])
+    np.testing.assert_allclose(transformed[:12], np.zeros(12, dtype=np.float32))
+    np.testing.assert_allclose(transformed[12:], observation[12:])
 
 
 def test_actor_policy_can_ablate_all_response_history():
     env_config = DriftEnvConfig(history_length=2, action_history_mode="full")
-    policy = ActorPolicy(ActorCritic(obs_dim=22, act_dim=2, hidden_size=8), env_config, ablation="zero_all_response")
-    observation = np.arange(22, dtype=np.float32)
+    policy = ActorPolicy(ActorCritic(obs_dim=144, act_dim=3, hidden_size=8), env_config, ablation="zero_all_response")
+    observation = np.arange(144, dtype=np.float32)
 
     transformed = policy._transform_observation(observation)
 
-    np.testing.assert_allclose(transformed[[0, 1, 2, 3, 4, 9, 10]], np.zeros(7, dtype=np.float32))
-    np.testing.assert_allclose(transformed[[11, 12, 13, 14, 15, 20, 21]], np.zeros(7, dtype=np.float32))
-    np.testing.assert_allclose(transformed[[5, 6, 7, 8]], observation[[5, 6, 7, 8]])
+    np.testing.assert_allclose(transformed[:12], np.zeros(12, dtype=np.float32))
+    np.testing.assert_allclose(transformed[72:84], np.zeros(12, dtype=np.float32))
+    np.testing.assert_allclose(transformed[12:72], observation[12:72])
 
 
 def test_actor_policy_can_ablate_temporal_history():
     env_config = DriftEnvConfig(history_length=2, action_history_mode="full")
-    policy = ActorPolicy(ActorCritic(obs_dim=22, act_dim=2, hidden_size=8), env_config, ablation="single_frame_history")
-    observation = np.arange(22, dtype=np.float32)
+    policy = ActorPolicy(ActorCritic(obs_dim=144, act_dim=3, hidden_size=8), env_config, ablation="single_frame_history")
+    observation = np.arange(144, dtype=np.float32)
 
     transformed = policy._transform_observation(observation)
 
-    np.testing.assert_allclose(transformed[:11], transformed[11:])
+    np.testing.assert_allclose(transformed[:72], transformed[72:])
 
 
 def test_actor_policy_can_shuffle_temporal_history_deterministically():
     env_config = DriftEnvConfig(history_length=4, action_history_mode="none")
-    policy = ActorPolicy(ActorCritic(obs_dim=8, act_dim=2, hidden_size=8), env_config, ablation="shuffled_history")
+    policy = ActorPolicy(ActorCritic(obs_dim=8, act_dim=3, hidden_size=8), env_config, ablation="shuffled_history")
     observation = np.arange(8, dtype=np.float32)
 
     transformed = policy._transform_observation(observation)
@@ -89,8 +91,8 @@ def test_actor_policy_can_shuffle_temporal_history_deterministically():
 
 def test_actor_policy_can_reset_online_recurrent_state_each_step():
     env_config = DriftEnvConfig(history_length=1, action_history_mode="full")
-    model = ActorCritic(obs_dim=11, act_dim=2, hidden_size=8, actor_encoder="online_gru")
-    observation = np.linspace(-0.4, 0.4, 11, dtype=np.float32)
+    model = ActorCritic(obs_dim=72, act_dim=3, hidden_size=8, actor_encoder="online_gru")
+    observation = np.linspace(-0.4, 0.4, 72, dtype=np.float32)
 
     stateful_policy = ActorPolicy(model, env_config)
     stateful_policy.act(observation, {})

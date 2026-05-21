@@ -55,7 +55,7 @@ def test_train_linear_probe_beats_majority_on_separable_data():
 def test_collect_probe_dataset_records_observations_and_hidden_labels():
     env_config = DriftEnvConfig(max_steps=3, history_length=2, action_history_mode="full")
     env = AutoDriftEnv(env_config)
-    model = ActorCritic(obs_dim=int(env.observation_space.shape[0]), act_dim=2, hidden_size=8)
+    model = ActorCritic(obs_dim=int(env.observation_space.shape[0]), act_dim=3, hidden_size=8)
 
     dataset = collect_probe_dataset(model=model, env_config=env_config, episodes=2, seed=11)
 
@@ -69,7 +69,7 @@ def test_build_feature_sets_supports_temporal_gru_latent():
     env_config = DriftEnvConfig(history_length=3, action_history_mode="none")
     model = ActorCritic(
         obs_dim=36,
-        act_dim=2,
+        act_dim=3,
         hidden_size=8,
         actor_encoder="temporal_gru",
         actor_history_length=3,

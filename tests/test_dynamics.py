@@ -16,7 +16,7 @@ def test_tire_forces_respect_friction_capacity():
 def test_model_step_returns_finite_state():
     model = SingleTrackDriftModel()
     state = VehicleState(x=18.0, y=0.0, psi=1.57, vx=8.0, vy=0.0, yaw_rate=0.4)
-    next_state, forces = model.step(state, np.array([0.1, 0.5]), dt=0.02)
+    next_state, forces = model.step(state, np.array([0.1, 0.5, -1.0]), dt=0.02)
 
     assert np.all(np.isfinite(next_state.as_array()))
     assert np.isfinite(forces.fy_front)

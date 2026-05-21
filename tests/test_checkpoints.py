@@ -106,7 +106,7 @@ def test_train_writes_periodic_checkpoints(tmp_path):
     assert save_path.exists()
     assert [path.name for path in periodic] == ["checkpoint_step_32.pt", "checkpoint_step_64.pt"]
     loaded, checkpoint = load_actor_critic_checkpoint(periodic[0], device="cpu")
-    assert loaded.obs_dim == 11
+    assert loaded.obs_dim == 72
     assert checkpoint["config"]["checkpoint_interval_steps"] == 32
 
 
@@ -186,7 +186,7 @@ def test_temporal_gru_actor_checkpoint_loads_and_exposes_latent(tmp_path):
 
 
 def test_online_gru_actor_checkpoint_loads_and_updates_hidden(tmp_path):
-    model = ActorCritic(obs_dim=15, act_dim=2, hidden_size=16, actor_encoder="online_gru")
+    model = ActorCritic(obs_dim=72, act_dim=3, hidden_size=16, actor_encoder="online_gru")
     checkpoint_path = tmp_path / "checkpoint.pt"
     torch.save(
         {
@@ -197,48 +197,48 @@ def test_online_gru_actor_checkpoint_loads_and_updates_hidden(tmp_path):
     )
 
     loaded, _ = load_actor_critic_checkpoint(checkpoint_path, device="cpu")
-    observation = np.linspace(-0.5, 0.5, 15, dtype=np.float32)
+    observation = np.linspace(-0.5, 0.5, 72, dtype=np.float32)
     action, _, value, hidden = loaded.act_recurrent(observation, deterministic=True)
     _, _, _, next_hidden = loaded.act_recurrent(observation, hidden, deterministic=True)
 
     assert loaded.actor_encoder == "online_gru"
-    assert action.shape == (2,)
+    assert action.shape == (3,)
     assert hidden.shape == (1, 16)
     assert not torch.allclose(hidden, next_hidden)
     assert np.isfinite(value)
 
 
-def test_response_critical_online_actor_checkpoint_loads_and_updates_hidden(tmp_path):
-    model = ActorCritic(obs_dim=15, act_dim=2, hidden_size=16, actor_encoder="response_critical_online_gru")
+def test_human_view_online_actor_checkpoint_loads_and_updates_hidden(tmp_path):
+    model = ActorCritic(obs_dim=72, act_dim=3, hidden_size=16, actor_encoder="human_view_online_gru")
     checkpoint_path = tmp_path / "checkpoint.pt"
     torch.save(
         {
             "model_state": {key: value.detach().cpu() for key, value in model.state_dict().items()},
-            "config": model_config(actor_encoder="response_critical_online_gru", actor_history_length=1),
+            "config": model_config(actor_encoder="human_view_online_gru", actor_history_length=1),
         },
         checkpoint_path,
     )
 
     loaded, _ = load_actor_critic_checkpoint(checkpoint_path, device="cpu")
-    observation = np.linspace(-0.5, 0.5, 15, dtype=np.float32)
+    observation = np.linspace(-0.5, 0.5, 72, dtype=np.float32)
     action, _, value, hidden = loaded.act_recurrent(observation, deterministic=True)
     _, _, _, next_hidden = loaded.act_recurrent(observation, hidden, deterministic=True)
 
-    assert loaded.actor_encoder == "response_critical_online_gru"
-    assert loaded.response_feature_indices == (0, 1, 2, 3, 4, 9, 10)
-    assert loaded.context_feature_indices == (5, 6, 7, 8, 11, 12, 13, 14)
-    assert action.shape == (2,)
+    assert loaded.actor_encoder == "human_view_online_gru"
+    assert loaded.response_feature_indices == tuple(range(12))
+    assert loaded.context_feature_indices == tuple(range(12, 72))
+    assert action.shape == (3,)
     assert hidden.shape == (1, 16)
     assert not torch.allclose(hidden, next_hidden)
     assert np.isfinite(value)
 
 
-def test_response_critical_online_actor_requires_canonical_obstacle_frame():
+def test_human_view_online_actor_requires_canonical_frame():
     with np.testing.assert_raises(ValueError):
-        ActorCritic(obs_dim=11, act_dim=2, hidden_size=16, actor_encoder="response_critical_online_gru")
+        ActorCritic(obs_dim=71, act_dim=3, hidden_size=16, actor_encoder="human_view_online_gru")
 
 
-def test_response_critical_online_actor_trains_with_canonical_obstacle_frame(tmp_path):
+def test_human_view_online_actor_trains_with_canonical_frame(tmp_path):
     save_path = tmp_path / "run" / "checkpoint.pt"
     config = PPOConfig(
         total_steps=32,
@@ -247,7 +247,7 @@ def test_response_critical_online_actor_trains_with_canonical_obstacle_frame(tmp
         update_epochs=1,
         minibatch_size=8,
         hidden_size=8,
-        actor_encoder="response_critical_online_gru",
+        actor_encoder="human_view_online_gru",
         recurrent_sequence_training=True,
         seed=127,
         device="cpu",
@@ -265,7 +265,7 @@ def test_response_critical_online_actor_trains_with_canonical_obstacle_frame(tmp
     )
 
     loaded, _ = load_actor_critic_checkpoint(save_path, device="cpu")
-    assert loaded.actor_encoder == "response_critical_online_gru"
+    assert loaded.actor_encoder == "human_view_online_gru"
 
 
 def test_online_gru_sequence_eval_backpropagates_through_time():
@@ -322,14 +322,14 @@ def test_response_prediction_checkpoint_loads_declared_head(tmp_path):
 
 
 def test_evaluate_actor_carries_online_recurrent_hidden_state():
-    model = ActorCritic(obs_dim=11, act_dim=2, hidden_size=8, actor_encoder="online_gru")
+    model = ActorCritic(obs_dim=72, act_dim=3, hidden_size=8, actor_encoder="online_gru")
     calls = {"count": 0}
 
     def counted_act_recurrent(obs, hidden=None, deterministic=False):
         del obs, deterministic
         calls["count"] += 1
         next_hidden = model.initial_hidden(1, torch.device("cpu")) if hidden is None else hidden + 1.0
-        return np.zeros(2, dtype=np.float32), 0.0, 0.0, next_hidden
+        return np.zeros(3, dtype=np.float32), 0.0, 0.0, next_hidden
 
     model.act_recurrent = counted_act_recurrent
 
