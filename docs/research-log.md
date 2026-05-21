@@ -3847,3 +3847,32 @@ Conclusion: M99 passes behavior retention but fails behavior-level
 self-identification. M98 hidden state is predictive, but the actor has not
 learned to depend on that belief. M100 should train actor coupling from M98
 under strict retention and ablation gates.
+
+## 20260521T173430Z m100-m98-actor-coupling-continuation
+
+- status: `completed`
+- kind: `driver_candidate`
+- hypothesis: a guarded PPO continuation from M98 can make the actor use the
+  learned hidden-envelope belief without losing M62 behavior.
+- config: `configs/ppo_m100_m98_actor_coupling_smoke.json`
+- training run: `runs/ppo_m100_m98_actor_coupling_smoke_seed4100`
+- behavior gate: `runs/m100_m98_actor_coupling_smoke_gate_seed9500`
+- hidden probe: `runs/m100_smoke_hidden_envelope_probe_seed9510`
+- artifact: `docs/m100-m98-actor-coupling-continuation.md`
+
+Result:
+
+- training loaded M98 init and M62 baseline anchor with strict checkpoint loads;
+- short eval termination rate: `0.0`;
+- shared 80-seed behavior success:
+  M62 `0.8625`, M98 `0.8625`, M100 `0.8625`;
+- M100 reset and zero-response success: `0.8750`, so behavior still does not
+  depend on recurrent response history;
+- same-seed hidden probe weakens relative to M98:
+  braking lift `0.358433 -> 0.271200`, lateral `0.682472 -> 0.438872`, yaw
+  `-0.014135 -> -0.032174`.
+
+Conclusion: M100 is negative for actor coupling. Do not run a longer PPO version
+of this recipe. The next step should be M101: objective-only actor coupling on
+fixed batches, with a normal-action anchor and reset-action divergence gate
+before another PPO continuation.

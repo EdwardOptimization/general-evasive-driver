@@ -2042,8 +2042,22 @@ representation checkpoint, not a driver pass. See
   anchor, without adding hidden or oracle actor inputs.
 - Gate against M62 and against reset/zero-response/no-action ablations.
 
-Status: planned. The objective now has a useful belief; the actor still needs
-to learn to use it.
+Status: complete as a negative PPO-coupling smoke. Behavior is retained
+(`success_rate = 0.8625`), but reset and zero-response ablations still do not
+degrade behavior. The hidden-envelope probe also weakens versus M98 on the same
+seed. Do not run a long version of this recipe. See
+`docs/m100-m98-actor-coupling-continuation.md`.
+
+### M101: Objective-Only Actor Coupling
+
+- Start from the M98 strict objective-pass checkpoint.
+- Train actor/fusion layers on fixed batches before another PPO continuation.
+- Anchor normal-history actions to M98/M62 while pushing reset-hidden actions
+  away only where hidden belief should matter.
+- Gate fixed-batch action dependence and hidden-envelope retention before PPO.
+
+Status: planned. The missing piece is actor coupling, not hidden-belief
+learning.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

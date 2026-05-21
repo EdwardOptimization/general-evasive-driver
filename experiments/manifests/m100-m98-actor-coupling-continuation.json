@@ -5,8 +5,16 @@
   ],
   "commands": [
     {
-      "command": "TBD: run a guarded actor-coupling continuation from M98 with retention anchor and response-history ablation gates",
-      "name": "m100_planned_m98_actor_coupling"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m100_m98_actor_coupling_smoke.json --total-steps 4096 --rollout-steps 64 --num-envs 4 --vector-env-mode sync --seed 4100 --device cuda --init-checkpoint runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt --run-dir runs/ppo_m100_m98_actor_coupling_smoke_seed4100 --eval-episodes 4",
+      "name": "m100_actor_coupling_smoke_train"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.benchmark --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 80 --seed 9500 --policies heuristic --checkpoint-policy m62_a250=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --checkpoint-policy m98_9480=runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt --checkpoint-policy m100_smoke=runs/ppo_m100_m98_actor_coupling_smoke_seed4100/checkpoint.pt --checkpoint-policy m100_smoke_reset=runs/ppo_m100_m98_actor_coupling_smoke_seed4100/checkpoint.pt@reset_recurrent_state --checkpoint-policy m100_smoke_zero_current=runs/ppo_m100_m98_actor_coupling_smoke_seed4100/checkpoint.pt@zero_current_response --checkpoint-policy m100_smoke_zero_all=runs/ppo_m100_m98_actor_coupling_smoke_seed4100/checkpoint.pt@zero_all_response --checkpoint-policy m100_smoke_noact=runs/ppo_m100_m98_actor_coupling_smoke_seed4100/checkpoint.pt@zero_action_history --device cpu --run-dir runs/m100_m98_actor_coupling_smoke_gate_seed9500",
+      "name": "m100_behavior_gate"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_probe --checkpoint runs/ppo_m100_m98_actor_coupling_smoke_seed4100/checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9510 --horizon-steps 15 --sample-stride 3 --max-samples 800 --ridge 0.1 --device cpu --run-dir runs/m100_smoke_hidden_envelope_probe_seed9510",
+      "name": "m100_hidden_envelope_probe"
     }
   ],
   "decision_rule": "Admit a candidate only if M62-level behavior is retained and normal recurrent history outperforms reset or zero-response ablations on response-critical seeds.",
@@ -22,6 +30,22 @@
     {
       "path": "docs/m100-m98-actor-coupling-continuation.md",
       "type": "documentation"
+    },
+    {
+      "path": "configs/ppo_m100_m98_actor_coupling_smoke.json",
+      "type": "config"
+    },
+    {
+      "path": "runs/ppo_m100_m98_actor_coupling_smoke_seed4100/checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m100_m98_actor_coupling_smoke_gate_seed9500/policy_summary.csv",
+      "type": "policy_summary"
+    },
+    {
+      "path": "runs/m100_smoke_hidden_envelope_probe_seed9510/summary.json",
+      "type": "summary"
     }
   ],
   "success_criteria": [

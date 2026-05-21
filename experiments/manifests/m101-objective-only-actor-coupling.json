@@ -1,0 +1,34 @@
+{
+  "baseline_checkpoints": [
+    "runs/m98_larger_batch_per_target_seed9480/optimized_checkpoint.pt",
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt"
+  ],
+  "commands": [
+    {
+      "command": "TBD: run fixed-batch actor-coupling objective from M98 before another PPO continuation",
+      "name": "m101_planned_objective_only_actor_coupling"
+    }
+  ],
+  "decision_rule": "Only return to PPO if objective-only actor coupling increases normal-vs-reset action dependence while preserving normal-action behavior and M98 hidden-envelope probes.",
+  "failure_criteria": [
+    "normal actions drift away from M98 or M62 on retained behavior states",
+    "reset or zero-response actions remain indistinguishable from normal actions",
+    "hidden-envelope probe regresses versus M98",
+    "objective uses hidden physical parameters or oracle feasibility actor inputs"
+  ],
+  "hypothesis": "A fixed-batch actor-coupling objective can make the actor use M98's hidden-envelope belief more directly than PPO plus a weak action-contrast term.",
+  "id": "m101-objective-only-actor-coupling",
+  "required_artifacts": [
+    {
+      "path": "docs/m101-objective-only-actor-coupling.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "starts from an M98 strict objective-pass checkpoint",
+    "preserves normal-history actions under an action anchor",
+    "increases normal-vs-reset action divergence on fixed batches",
+    "keeps no-wheel human-view actor inputs"
+  ],
+  "type": "objective_sanity"
+}
