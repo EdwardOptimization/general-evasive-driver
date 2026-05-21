@@ -999,3 +999,34 @@ Interpretation boundary:
   hidden state helps the matching hidden dynamics;
 - if training or testing has no meaningful hidden-dynamics variation, no gate
   can prove friction or vehicle-response adaptation.
+
+## 20260521 m28-hidden-swap-gate-implementation-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: The hidden-swap gate can snapshot post-perturbation recurrent
+  states and replay normal/reset/zero-response/hidden-swap continuations from a
+  shared environment state
+- command: `conda run -n autodrift python -m autodrift.hidden_swap_gate --env-config configs/ppo_m24_human_view_gru_driver.json --checkpoint runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt --episodes 2 --seed 4200 --device cpu --run-dir runs/m28_hidden_swap_gate_smoke_seed4200`
+- run dir: `runs/m28_hidden_swap_gate_smoke_seed4200`
+- success artifact: `runs/m28_hidden_swap_gate_smoke_seed4200/summary.csv`
+- notes: This is a CLI smoke, not a gate result. The harness requires
+  post-friction hidden updates before snapshotting so the hidden state has
+  consumed feedback under the changed dynamics.
+
+Smoke result:
+
+- accepted pairs: 2 / 2;
+- mean visible-observation distance: 0.389;
+- mean hidden-state distance: 1.205;
+- nominal success: 1.000 for all variants;
+- perturbed success: 0.500 for all variants;
+- reset first-action distance: 0.346-0.376;
+- zero-response first-action distance: 0.087-0.098;
+- hidden-swap first-action distance: 0.034-0.046.
+
+Conclusion: the M28 harness is runnable and records the right diagnostics. The
+smoke result shows nonzero hidden-state distance and small hidden-swap action
+change, while reset and zero-response alter the first action more strongly.
+Full M28 is now queued to determine whether this pattern holds over 80 paired
+seeds.

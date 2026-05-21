@@ -101,6 +101,47 @@ conda run -n autodrift python -m autodrift.hidden_swap_gate \
 The command should remain CPU-runnable because it is an evaluation harness, not
 a training job.
 
+## Implementation Status
+
+The M28 CLI is implemented as `autodrift.hidden_swap_gate` with script entry
+`autodrift-hidden-swap-gate`.
+
+Smoke command:
+
+```bash
+conda run -n autodrift python -m autodrift.hidden_swap_gate \
+  --env-config configs/ppo_m24_human_view_gru_driver.json \
+  --checkpoint runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt \
+  --episodes 2 \
+  --seed 4200 \
+  --device cpu \
+  --run-dir runs/m28_hidden_swap_gate_smoke_seed4200
+```
+
+Smoke artifacts:
+
+- `runs/m28_hidden_swap_gate_smoke_seed4200/pairs.csv`;
+- `runs/m28_hidden_swap_gate_smoke_seed4200/replays.csv`;
+- `runs/m28_hidden_swap_gate_smoke_seed4200/summary.csv`;
+- `runs/m28_hidden_swap_gate_smoke_seed4200/manifest.json`.
+
+Smoke result:
+
+- 2 paired seeds were collected;
+- both visible-observation pairs were accepted under the default 0.75 distance
+  threshold;
+- mean visible-observation distance: 0.389;
+- mean hidden-state distance: 1.205;
+- nominal continuations succeeded for all variants;
+- perturbed continuations succeeded for one of two seeds across all variants;
+- reset and zero-response changed first actions more than hidden-swap did.
+
+This is infrastructure validation only, not a gate result. The important smoke
+fix was to require post-friction hidden updates before taking a snapshot.
+Without that requirement, the visible current observation could already reflect
+the new friction while the GRU hidden state had not yet consumed any post-step
+feedback, making hidden-swap distance zero for the wrong reason.
+
 ## Next Training Decision
 
 Use the M28 result to choose the next step:

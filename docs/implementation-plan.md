@@ -476,9 +476,11 @@ Exit criteria:
 - if the gate fails, the failure mode is recorded and used to choose the next
   training change instead of being treated as a vague negative result.
 
-Status: planned. The current M27 paired baseline is insufficient because it does
-not force matched visible decision points and does not perform hidden-state
-swaps.
+Status: CLI implemented and smoke-tested. The harness writes `pairs.csv`,
+`replays.csv`, `summary.csv`, and `manifest.json`; it also reports
+visible-observation distance, response/context split distances, and GRU
+hidden-state distance. The full 80-episode M28 run is pending in
+`experiments/research_queue.csv`.
 
 ## Metrics
 
