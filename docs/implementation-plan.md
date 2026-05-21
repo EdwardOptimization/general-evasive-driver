@@ -1185,7 +1185,10 @@ Exit criteria:
   baseline-action distillation, or abandon margin shaping in favor of a larger
   seed distribution.
 
-Status: planned.
+Status: infrastructure complete and full training pending. M58 adds the
+config-gated dense near-obstacle clearance reward, tests reward off/on behavior,
+and smoke-trains from M37_102. See
+`docs/m58-dense-near-obstacle-clearance-reward.md`.
 
 ## Metrics
 

@@ -63,10 +63,17 @@ class ObstacleTaskConfig:
     min_time_after_friction_step: float = 0.0
     clearance_margin_reward_scale: float = 0.0
     clearance_margin_reward_clip: float = 0.25
+    dense_clearance_margin_reward_scale: float = 0.0
+    dense_clearance_margin_reward_clip: float = 0.25
+    dense_clearance_margin_reward_window: float = 8.0
 
     def __post_init__(self) -> None:
         if self.clearance_margin_reward_clip <= 0.0:
             raise ValueError("clearance_margin_reward_clip must be positive")
+        if self.dense_clearance_margin_reward_clip <= 0.0:
+            raise ValueError("dense_clearance_margin_reward_clip must be positive")
+        if self.dense_clearance_margin_reward_window <= 0.0:
+            raise ValueError("dense_clearance_margin_reward_window must be positive")
 
     def scenario_config(self, speed: float, mu: float) -> ObstacleScenarioConfig:
         return ObstacleScenarioConfig(
@@ -232,6 +239,10 @@ class AutoDriftEnv(gym.Env):
 
         terminated = self._terminated(frame)
         self.obstacle_completed = self._obstacle_completed(frame) and not terminated
+        dense_margin_reward, dense_margin_terms = self._dense_clearance_margin_reward(frame)
+        if dense_margin_terms:
+            reward += dense_margin_reward
+            reward_terms.update(dense_margin_terms)
         if self.obstacle_completed and self.config.obstacle.pass_reward > 0.0:
             reward += self.config.obstacle.pass_reward
             reward_terms["pass_reward"] = self.config.obstacle.pass_reward
@@ -516,6 +527,26 @@ class AutoDriftEnv(gym.Env):
         return reward, {
             "clearance_margin_reward": reward,
             "clearance_margin_reward_normalized": normalized_margin,
+        }
+
+    def _dense_clearance_margin_reward(self, frame: PathFrame) -> tuple[float, dict[str, float]]:
+        scale = float(self.config.obstacle.dense_clearance_margin_reward_scale)
+        if scale == 0.0 or self.obstacle_scenario is None or self.obstacle_position is None:
+            return 0.0, {}
+        longitudinal = self._obstacle_longitudinal_distance(frame)
+        if longitudinal > self.config.obstacle.dense_clearance_margin_reward_window:
+            return 0.0, {}
+        if longitudinal < -self.config.obstacle.finish_pass_distance:
+            return 0.0, {}
+        margin = self._clearance_margin()
+        if not np.isfinite(margin):
+            return 0.0, {}
+        clip = float(self.config.obstacle.dense_clearance_margin_reward_clip)
+        normalized_margin = float(np.clip(margin / clip, -1.0, 1.0))
+        reward = scale * normalized_margin
+        return reward, {
+            "dense_clearance_margin_reward": reward,
+            "dense_clearance_margin_reward_normalized": normalized_margin,
         }
 
     def _observation(self) -> np.ndarray:

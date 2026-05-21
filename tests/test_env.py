@@ -311,6 +311,51 @@ def test_terminal_clearance_margin_reward_penalizes_collision_margin():
     assert np.isclose(next_info["reward_terms"]["clearance_margin_reward_normalized"], -1.0)
 
 
+def test_dense_clearance_margin_reward_only_applies_near_obstacle_window():
+    near_env = AutoDriftEnv(
+        DriftEnvConfig(
+            obstacle=ObstacleTaskConfig(
+                enabled=True,
+                distance_range=(20.0, 20.0),
+                half_width_range=(0.8, 0.8),
+                dense_clearance_margin_reward_scale=0.5,
+                dense_clearance_margin_reward_clip=1.0,
+                dense_clearance_margin_reward_window=8.0,
+            )
+        )
+    )
+    far_env = AutoDriftEnv(
+        DriftEnvConfig(
+            obstacle=ObstacleTaskConfig(
+                enabled=True,
+                distance_range=(20.0, 20.0),
+                half_width_range=(0.8, 0.8),
+                dense_clearance_margin_reward_scale=0.5,
+                dense_clearance_margin_reward_clip=1.0,
+                dense_clearance_margin_reward_window=8.0,
+            )
+        )
+    )
+    near_obs, _ = near_env.reset(seed=34)
+    far_obs, _ = far_env.reset(seed=34)
+    assert near_obs.shape == far_obs.shape == (72,)
+
+    for env, distance in ((near_env, 5.0), (far_env, 20.0)):
+        frame = env.track.frame(env.state.x, env.state.y, env.state.psi)
+        position = np.array([env.state.x, env.state.y], dtype=np.float64)
+        env.obstacle_position = position + frame.tangent * distance
+        env.collision = False
+        env.min_obstacle_clearance = float("inf")
+
+    action = np.array([0.0, -1.0, -1.0], dtype=np.float32)
+    _, _, _, _, near_info = near_env.step(action)
+    _, _, _, _, far_info = far_env.step(action)
+
+    assert np.isclose(near_info["reward_terms"]["dense_clearance_margin_reward"], 0.5)
+    assert np.isclose(near_info["reward_terms"]["dense_clearance_margin_reward_normalized"], 1.0)
+    assert "dense_clearance_margin_reward" not in far_info["reward_terms"]
+
+
 def test_stable_aes_reward_penalizes_high_sideslip_without_oracle_observation():
     base_config = DriftEnvConfig(
         obstacle=ObstacleTaskConfig(

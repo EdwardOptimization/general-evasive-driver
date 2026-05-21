@@ -142,6 +142,8 @@ vehicle/tire models, and NMPC-style constrained control.
   clearance-margin reward shaping and smoke validation.
 - `m57-clearance-margin-reward-scale4.md`: stronger terminal margin reward
   result and the dense near-obstacle reward direction.
+- `m58-dense-near-obstacle-clearance-reward.md`: dense near-obstacle
+  clearance-margin reward setup and smoke validation.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

@@ -57,6 +57,9 @@ def test_build_env_config_overrides_obstacle_task():
                 "min_time_after_friction_step": 0.10,
                 "clearance_margin_reward_scale": 1.5,
                 "clearance_margin_reward_clip": 0.20,
+                "dense_clearance_margin_reward_scale": 0.05,
+                "dense_clearance_margin_reward_clip": 0.30,
+                "dense_clearance_margin_reward_window": 6.0,
             }
         }
     )
@@ -76,6 +79,9 @@ def test_build_env_config_overrides_obstacle_task():
     assert config.obstacle.min_time_after_friction_step == 0.10
     assert config.obstacle.clearance_margin_reward_scale == 1.5
     assert config.obstacle.clearance_margin_reward_clip == 0.20
+    assert config.obstacle.dense_clearance_margin_reward_scale == 0.05
+    assert config.obstacle.dense_clearance_margin_reward_clip == 0.30
+    assert config.obstacle.dense_clearance_margin_reward_window == 6.0
 
 
 def test_build_env_config_overrides_action_history_mode():
