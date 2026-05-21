@@ -2200,3 +2200,38 @@ Conclusion: M57 is not promotable. More terminal margin reward scale does not
 solve the M38 mean-margin loss and can reintroduce near-margin regressions.
 M58 should use a dense near-obstacle clearance reward rather than more sparse
 terminal scaling.
+
+## 20260521T083720Z m58-dense-near-obstacle-clearance-reward
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Run conservative continuation with dense near-obstacle clearance reward shaping
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m58_dense_clearance_margin_reward_driver.json --seed 2658 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m58_dense_clearance_margin_reward_seed2658`
+- returncode: `0`
+- run dir: `runs/research/m58-dense-near-obstacle-clearance-reward_20260521T083531Z`
+- command log: `runs/research/m58-dense-near-obstacle-clearance-reward_20260521T083531Z/command.log`
+- success artifact: `runs/ppo_m58_dense_clearance_margin_reward_seed2658/checkpoint.pt`
+- notes: Promotion still requires strict zero binary and near-margin regressions plus non-negative mean margin
+
+Post-validation:
+
+- M38/broad/fresh checkpoint sweeps:
+  `runs/m58_m38_margin_benchmark_seed4300`,
+  `runs/m58_broad_margin_benchmark_seed3000`,
+  `runs/m58_fresh_margin_benchmark_seed5200`;
+- margin corpus:
+  `runs/m58_margin_critical_corpus/seed_margin_deltas.csv`;
+- strict gate:
+  `runs/m58_margin_retention_gate_strict/candidate_gate_summary.csv`;
+- strict gate status: `needs_iteration`;
+- passed candidates: none;
+- `m58_004` has zero binary and zero near-margin regressions, but margin delta
+  mean is `-0.002749`;
+- later checkpoints reintroduce binary regressions, up to 3 regressed seeds;
+- dense near-obstacle reward produces worse mean-margin retention than M56 and
+  M57.
+
+Conclusion: M58 is not promotable and is a negative objective result. Dense
+near-obstacle reward in this simple form does not solve margin retention. M59
+should test checkpoint/weight interpolation as a trust-region diagnostic before
+more reward shaping.

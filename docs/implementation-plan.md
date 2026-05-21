@@ -1185,10 +1185,31 @@ Exit criteria:
   baseline-action distillation, or abandon margin shaping in favor of a larger
   seed distribution.
 
-Status: infrastructure complete and full training pending. M58 adds the
-config-gated dense near-obstacle clearance reward, tests reward off/on behavior,
-and smoke-trains from M37_102. See
-`docs/m58-dense-near-obstacle-clearance-reward.md`.
+Status: complete as a negative result. M58 adds the config-gated dense
+near-obstacle clearance reward, tests reward off/on behavior, smoke-trains from
+M37_102, and completes a full short continuation. It is not promotable: early
+checkpoints can have zero binary and near-margin regressions, but mean margin
+is worse than M56/M57, and later checkpoints reintroduce binary regressions.
+See `docs/m58-dense-near-obstacle-clearance-reward.md`.
+
+### M59: Trust-Region Checkpoint Interpolation
+
+- Build a small interpolation/probe harness between M37_102 and closest
+  non-promoted candidates such as M56_028.
+- Evaluate interpolated checkpoints through the unchanged strict margin gate.
+- Use this as a trust-region diagnostic before more reward shaping.
+
+Exit criteria:
+
+- interpolation artifacts record source checkpoints, alpha values, and output
+  paths;
+- M38/broad/fresh strict gate is run unchanged;
+- if any interpolated checkpoint passes, it is treated as a candidate only
+  after the broader driver gates are rerun;
+- if none pass, next work should focus on constrained policy updates or
+  baseline-action distillation, not further reward-scale tuning.
+
+Status: planned.
 
 ## Metrics
 

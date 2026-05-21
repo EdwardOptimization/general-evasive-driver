@@ -74,3 +74,56 @@ M58 should reuse the conservative schedule:
 - checkpoints every `4096` steps over `32768` total steps.
 
 Promotion gate remains unchanged.
+
+## Full Result
+
+Full training completed:
+
+- command log:
+  `runs/research/m58-dense-near-obstacle-clearance-reward_20260521T083531Z/command.log`;
+- final eval return mean: `74.113`;
+- final eval termination rate: `0.100`;
+- checkpoint run:
+  `runs/ppo_m58_dense_clearance_margin_reward_seed2658`.
+
+Checkpoint sweeps:
+
+- `runs/m58_m38_margin_benchmark_seed4300`;
+- `runs/m58_broad_margin_benchmark_seed3000`;
+- `runs/m58_fresh_margin_benchmark_seed5200`.
+
+Strict gate:
+
+- corpus: `runs/m58_margin_critical_corpus`;
+- gate: `runs/m58_margin_retention_gate_strict`;
+- status: `needs_iteration`;
+- passed candidates: none.
+
+Gate summary:
+
+| Candidate | Passed | Success delta | Binary regressions | Near-margin regressions | Margin delta mean |
+| --- | --- | ---: | ---: | ---: | ---: |
+| m58_004 | false | 0.00000 | 0 | 0 | -0.002749 |
+| m58_008 | false | -0.01250 | 2 | 0 | -0.005254 |
+| m58_012 | false | -0.00625 | 1 | 1 | -0.004573 |
+| m58_016 | false | 0.00000 | 0 | 1 | -0.002816 |
+| m58_020 | false | 0.00000 | 0 | 0 | -0.003863 |
+| m58_024 | false | -0.01875 | 3 | 1 | -0.007706 |
+| m58_028 | false | -0.01875 | 3 | 1 | -0.008128 |
+| m58_032 | false | -0.01875 | 3 | 0 | -0.005629 |
+
+Dense near-obstacle reward is a negative result in this form. It eliminates
+near-margin regressions for some early checkpoints, but the mean margin drops
+more than M56/M57, and later checkpoints reintroduce binary regressions.
+
+## Conclusion
+
+M58 is not promotable. Current best remains `m37_102`; the closest
+non-promoted candidate remains `m56_028`.
+
+## Next Step
+
+M59 should stop scaling reward terms and instead test a trust-region selection
+path: checkpoint or weight interpolation between M37_102 and the closest
+non-promoted candidates, especially M56_028. The goal is to determine whether
+a very small update can satisfy the strict margin gate without training drift.

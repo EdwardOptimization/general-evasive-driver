@@ -1,28 +1,19 @@
 {
   "counts": {
     "blocked": 0,
-    "completed": 54,
+    "completed": 55,
     "failed": 0,
-    "pending": 1,
-    "planned": 0,
+    "pending": 0,
+    "planned": 1,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m57-clearance-margin-reward-scale4_20260521T082604Z/command.log",
+    "command_log": "runs/research/m58-dense-near-obstacle-clearance-reward_20260521T083531Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m57-clearance-margin-reward-scale4_20260521T082604Z",
+    "run_dir": "runs/research/m58-dense-near-obstacle-clearance-reward_20260521T083531Z",
     "status": "completed",
-    "task_id": "m57-clearance-margin-reward-scale4"
+    "task_id": "m58-dense-near-obstacle-clearance-reward"
   },
-  "next_task": {
-    "command": "conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m58_dense_clearance_margin_reward_driver.json --seed 2658 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m58_dense_clearance_margin_reward_seed2658",
-    "hypothesis": "Run conservative continuation with dense near-obstacle clearance reward shaping",
-    "id": "m58-dense-near-obstacle-clearance-reward",
-    "kind": "training",
-    "notes": "Promotion still requires strict zero binary and near-margin regressions plus non-negative mean margin",
-    "priority": 510,
-    "status": "pending",
-    "success_artifact": "runs/ppo_m58_dense_clearance_margin_reward_seed2658/checkpoint.pt"
-  },
-  "updated_at_utc": "20260521T083440Z"
+  "next_task": null,
+  "updated_at_utc": "20260521T084026Z"
 }
