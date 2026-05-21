@@ -14,6 +14,14 @@
     {
       "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_optimize --init-checkpoint runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt --snippet-npz runs/m128_combined_outcome_snippet_corpus/outcome_intervention_snippets.npz --device cpu --steps 120 --batch-size 64 --learning-rate 0.00005 --logprob-margin 0.05 --seed 9832 --grad-clip-norm 1.0 --log-interval 20 --eval-batch-size 64 --eval-batches 20 --eval-seed 0 --train-scope actor_coupling --action-anchor-checkpoint runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt --action-anchor-env-config configs/m121_human_view_zero_obstacle_relvel.json --action-anchor-coef 10.0 --action-anchor-episodes 30 --action-anchor-seed 9832 --action-anchor-horizon-steps 15 --action-anchor-sample-stride 3 --action-anchor-max-samples 800 --action-anchor-batch-size 256 --run-dir runs/m129_combined_outcome_objective_seed9832",
       "name": "m129_combined_objective_seed9832"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m121_human_view_zero_obstacle_relvel.json --episodes 80 --seed 9500 --policies heuristic --checkpoint-policy m124_9821=runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt --checkpoint-policy m129_9830=runs/m129_combined_outcome_objective_seed9830/optimized_checkpoint.pt --checkpoint-policy m129_9831=runs/m129_combined_outcome_objective_seed9831/optimized_checkpoint.pt --checkpoint-policy m129_9832=runs/m129_combined_outcome_objective_seed9832/optimized_checkpoint.pt --checkpoint-policy m129_9830_reset=runs/m129_combined_outcome_objective_seed9830/optimized_checkpoint.pt@reset_recurrent_state --checkpoint-policy m129_9830_zero_current=runs/m129_combined_outcome_objective_seed9830/optimized_checkpoint.pt@zero_current_response --checkpoint-policy m129_9830_zero_all=runs/m129_combined_outcome_objective_seed9830/optimized_checkpoint.pt@zero_all_response --checkpoint-policy m129_9830_noact=runs/m129_combined_outcome_objective_seed9830/optimized_checkpoint.pt@zero_action_history --device cpu --run-dir runs/m129_combined_objective_behavior_gate_seed9500",
+      "name": "m129_behavior_gate_seed9500"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m121_human_view_zero_obstacle_relvel.json --episodes 80 --seed 9501 --policies heuristic --checkpoint-policy m124_9821=runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt --checkpoint-policy m129_9830=runs/m129_combined_outcome_objective_seed9830/optimized_checkpoint.pt --checkpoint-policy m129_9830_reset=runs/m129_combined_outcome_objective_seed9830/optimized_checkpoint.pt@reset_recurrent_state --checkpoint-policy m129_9830_zero_current=runs/m129_combined_outcome_objective_seed9830/optimized_checkpoint.pt@zero_current_response --checkpoint-policy m129_9830_zero_all=runs/m129_combined_outcome_objective_seed9830/optimized_checkpoint.pt@zero_all_response --checkpoint-policy m129_9830_noact=runs/m129_combined_outcome_objective_seed9830/optimized_checkpoint.pt@zero_action_history --device cpu --run-dir runs/m129_combined_objective_behavior_gate_seed9501",
+      "name": "m129_behavior_gate_seed9501"
     }
   ],
   "decision_rule": "Admit a new objective candidate only if the combined M128 fixed-batch loss improves repeatably while M124 behavior retention and zero-response gap are preserved; do not admit PPO from objective loss alone.",
@@ -30,6 +38,26 @@
     {
       "path": "docs/m129-combined-outcome-objective-sanity.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m129_combined_outcome_objective_seed9830/summary.json",
+      "type": "objective_summary"
+    },
+    {
+      "path": "runs/m129_combined_outcome_objective_seed9831/summary.json",
+      "type": "objective_summary"
+    },
+    {
+      "path": "runs/m129_combined_outcome_objective_seed9832/summary.json",
+      "type": "objective_summary"
+    },
+    {
+      "path": "runs/m129_combined_objective_behavior_gate_seed9500/policy_summary.csv",
+      "type": "behavior_gate"
+    },
+    {
+      "path": "runs/m129_combined_objective_behavior_gate_seed9501/policy_summary.csv",
+      "type": "behavior_gate"
     }
   ],
   "success_criteria": [

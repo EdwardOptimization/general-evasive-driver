@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 137,
+    "completed": 138,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m128-combined-outcome-snippet-corpus.md",
+    "command_log": "docs/m129-combined-outcome-objective-sanity.md",
     "returncode": 0,
-    "run_dir": "runs/m128_combined_outcome_snippet_corpus",
+    "run_dir": "runs/m129_combined_outcome_objective_seed9830",
     "status": "completed",
-    "task_id": "m128-combined-outcome-snippet-corpus"
+    "task_id": "m129-combined-outcome-objective-sanity"
   },
   "next_task": {
-    "command": "see experiments/manifests/m129-combined-outcome-objective-sanity.json",
-    "hypothesis": "Test a retention-anchored objective on the deduplicated M128 corpus before PPO",
-    "id": "m129-combined-outcome-objective-sanity",
-    "kind": "objective_sanity",
-    "notes": "Pending after M128: verify combined outcome objective improves repeatably without behavior regression",
-    "priority": 1240,
+    "command": "see experiments/manifests/m130-combined-outcome-formal-repeat-gate.json",
+    "hypothesis": "Formally repeat M129 behavior and outcome proof-surface gates before PPO",
+    "id": "m130-combined-outcome-formal-repeat-gate",
+    "kind": "gate",
+    "notes": "Pending after M129: decide PPO readiness from fresh behavior and outcome proof-surface evidence",
+    "priority": 1250,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T222320Z"
+  "updated_at_utc": "20260521T222925Z"
 }

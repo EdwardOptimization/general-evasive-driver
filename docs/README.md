@@ -371,6 +371,8 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m128-combined-outcome-snippet-corpus.md`: combines accepted-only M127/M126
   outcome snippets into a deduplicated corpus with source-run provenance before
   the next objective-sanity experiment.
+- `m129-combined-outcome-objective-sanity.md`: retention-anchored objective
+  sanity on the M128 corpus; admits M129 only for formal repeat, not PPO.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

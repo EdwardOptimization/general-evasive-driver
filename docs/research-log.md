@@ -4957,3 +4957,30 @@ Decision: M128 passes as corpus infrastructure. The next pending task is M129:
 test a retention-anchored outcome objective on
 `runs/m128_combined_outcome_snippet_corpus/outcome_intervention_snippets.npz`
 before any PPO continuation.
+
+## 20260521T222925Z m129-combined-outcome-objective-sanity
+
+M129 tests a retention-anchored objective on the deduplicated M128 corpus.
+
+Objective repeats:
+
+| Run | Before loss | After loss | Improvement | After anchor MSE |
+| --- | ---: | ---: | ---: | ---: |
+| seed 9830 | 0.281314 | 0.171088 | 0.110226 | 0.002512 |
+| seed 9831 | 0.281314 | 0.175752 | 0.105563 | 0.002225 |
+| seed 9832 | 0.281314 | 0.178909 | 0.102405 | 0.002170 |
+
+Behavior gate summary:
+
+- seed `9500`: M124 and M129 normal policies all have success `0.8625`;
+- seed `9501`: M124 and M129 9830 both have success `0.8625`;
+- M129 9830 reset success is `0.8375` on both behavior seeds;
+- M129 9830 zero-current and zero-all success are `0.8000` on both behavior
+  seeds;
+- M129 9830 no-action remains `0.8625`.
+
+Decision: positive objective sanity only. M129 9830 is admitted to a formal
+repeat gate because the combined objective improves repeatably and behavior
+retention holds. It is not admitted to PPO: no-action history remains neutral,
+the source surface is still perturbed-only, and the wrong-history proof surface
+must repeat after the objective update. The next pending task is M130.

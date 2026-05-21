@@ -1,0 +1,36 @@
+{
+  "baseline_checkpoints": [
+    "runs/m124_calib_s120_lr5e5_anchor10_seed9821/optimized_checkpoint.pt",
+    "runs/m129_combined_outcome_objective_seed9830/optimized_checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "Run a fresh behavior repeat and strict outcome-intervention gate on the M129 candidate before any PPO continuation.",
+      "name": "m130_formal_repeat_gate"
+    }
+  ],
+  "decision_rule": "Admit M129 for PPO continuation only if fresh behavior retention, zero-response degradation, and strict outcome/wrong-history proof-surface checks all repeat without relaxing the human-view input contract.",
+  "failure_criteria": [
+    "fresh behavior success regresses below M124",
+    "zero-response or wrong-history degradation disappears",
+    "strict zero-relvel proof-surface rows disappear",
+    "source-side limitation is hidden",
+    "the result is treated as ideal-driver completion"
+  ],
+  "hypothesis": "M129 improves the combined outcome objective and preserves behavior on two seeds. A formal repeat gate should decide whether it is safe to start PPO continuation or whether the objective is still only a fixed-corpus fit.",
+  "id": "m130-combined-outcome-formal-repeat-gate",
+  "required_artifacts": [
+    {
+      "path": "docs/m130-combined-outcome-formal-repeat-gate.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "fresh behavior retention matches M124",
+    "zero-response degradation repeats",
+    "wrong-history outcome proof surface remains active",
+    "M62 or earlier controls remain below the M129 proof-surface signal",
+    "PPO readiness decision is based on gate evidence rather than objective loss alone"
+  ],
+  "type": "gate"
+}

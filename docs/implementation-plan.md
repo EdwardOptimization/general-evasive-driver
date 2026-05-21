@@ -2567,9 +2567,27 @@ and all rows are still perturbed-source. See
 - Gate against behavior retention and history-ablation gaps before PPO.
 - Keep the perturbed-source-only limitation visible in the decision.
 
-Status: pending. M128 makes the objective corpus reproducible; M129 should test
-whether that corpus improves the outcome-centric objective without washing out
-M124 behavior.
+Status: completed as objective-sanity admission only. M129 improves the M128
+fixed-corpus loss by `0.110226`, `0.105563`, and `0.102405` across seeds
+`9830-9832`, with after-anchor MSE around `0.0022-0.0025`. Behavior retention
+matches M124 on seeds `9500` and `9501`; zero-response still drops success to
+`0.8000`, reset drops to `0.8375`, and no-action remains neutral. This admits
+M129 to a formal repeat gate, not PPO. See
+`docs/m129-combined-outcome-objective-sanity.md`.
+
+### M130: Combined Outcome Formal Repeat Gate
+
+- Repeat M129 behavior retention on fresh seeds before PPO.
+- Test whether the wrong-history outcome proof surface remains active after the
+  M129 objective update.
+- Keep M62/M124 controls in the gate so objective-loss improvement is not used
+  as a proxy for closed-loop self-identification.
+- Preserve the strict zero-relvel human-view input contract.
+- Decide PPO readiness explicitly.
+
+Status: pending. M129 is a positive fixed-corpus objective result with behavior
+retention, but it still needs a formal repeat/proof-surface gate before any
+continuation training.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 
