@@ -523,8 +523,32 @@ Exit criteria:
 - post-training benchmarks compare M26 and M30 on M28/M29 and broad obstacle
   gates.
 
-Status: sampler and config implemented; 20k-step CUDA smoke passed. Full M30
-training is pending. See `docs/m30-mixed-hard-corpus-training.md`.
+Status: partial positive. Full M30 training completed and early checkpoints
+improve both M29 hard-corpus success and broad same-seed obstacle success.
+`m30_053` reaches 0.875 on the M29 selected corpus versus 0.775 for M26_602,
+and 0.825 on the broad 40-seed benchmark versus 0.800 for M26_602. The final
+checkpoint regresses, so checkpoint selection matters. M30 still does not pass
+recurrent self-identification: hidden-swap changes zero accepted success
+outcomes on the M28-style gate. See `docs/m30-mixed-hard-corpus-training.md`.
+
+### M31: Parallel Rollout Harness
+
+- Replace or extend the synchronous vector env so rollout collection can use
+  multiple CPU cores.
+- Preserve deterministic seed sequencing, including mixed hard-seed sampling.
+- Keep the trainer API compatible with existing configs.
+
+Exit criteria:
+
+- current single-process vector-env tests still pass;
+- new parallel rollout smoke matches observation/action shapes and reset-seed
+  semantics;
+- M30-style training can use 8 workers without changing actor inputs.
+
+Status: planned. Current training uses 32 logical cores only superficially:
+`train_ppo` creates many runtime threads, but rollout stepping effectively uses
+about one CPU core because `SyncAutoDriftVectorEnv` steps environments
+sequentially in one Python process.
 
 ## Metrics
 

@@ -1119,3 +1119,51 @@ Smoke result:
 
 Conclusion: M30 mixed seed sampling and config are trainable. The full M30 run
 is now the next training task.
+
+## 20260521T032905Z m30-mixed-hard-corpus-training
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Train human-view GRU with M29 hard seeds mixed with ordinary randomized resets
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m30_mixed_matched_response_driver.json --seed 1330 --device cuda --init-checkpoint runs/ppo_m26_human_view_gru_seed2024/checkpoints/checkpoint_step_602112.pt --run-dir runs/ppo_m30_mixed_matched_response_seed1330`
+- returncode: `0`
+- run dir: `runs/research/m30-mixed-hard-corpus-training_20260521T031733Z`
+- command log: `runs/research/m30-mixed-hard-corpus-training_20260521T031733Z/command.log`
+- success artifact: `runs/ppo_m30_mixed_matched_response_seed1330/checkpoint.pt`
+- notes: M30 mixed sampler smoke passed; full run should preserve broad success while improving M29 hard corpus
+
+Training result:
+
+- final eval return mean: 63.764;
+- final eval steps mean: 60.400;
+- final eval termination rate: 0.200;
+- periodic checkpoints: 53248, 102400, 151552, 200704, 253952, and 300000.
+
+M29 selected-corpus sweep:
+
+- M26_602 success: 0.775;
+- M30_053 / 102 / 151 / 200 success: 0.875 / 0.875 / 0.875 / 0.875;
+- M30_253 / final success: 0.850 / 0.800.
+
+Broad same-seed sweep:
+
+- envelope AES success: 0.675;
+- M26_602 success: 0.800;
+- M30_053 / 102 / 200 success: 0.825 / 0.825 / 0.825;
+- M30_final success: 0.750.
+
+M30_053 hidden-swap gate:
+
+- accepted visible matches: 73 / 80;
+- accepted nominal normal/reset/zero-response/hidden-swap success:
+  0.973 / 0.973 / 0.973 / 0.973;
+- accepted perturbed normal/reset/zero-response/hidden-swap success:
+  0.644 / 0.658 / 0.658 / 0.644;
+- hidden-swap changed zero accepted success outcomes.
+
+Conclusion: M30 is a partial positive aggregate result. The early M30_053
+checkpoint improves both M29 selected-corpus success and broad benchmark
+success over M26_602. It is still not a self-identification pass: hidden-swap is
+outcome-neutral, and reset/zero-response do not hurt. The next engineering
+blocker is rollout throughput; current training effectively uses one CPU core,
+so M31 should add an 8-core parallel rollout harness before longer training.
