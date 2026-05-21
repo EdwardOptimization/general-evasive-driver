@@ -82,6 +82,10 @@ vehicle/tire models, and NMPC-style constrained control.
   checkpoint sweep, ablations, and next hard-gate blocker.
 - `m27-human-view-self-identification-gate.md`: proof standard and first
   harness plan for human-view hidden-response self-identification.
+- `m28-hidden-swap-gate.md`: matched-current-observation hidden-swap gate,
+  smoke validation, and negative M28 self-identification result.
+- `m29-matched-response-corpus.md`: M28-derived matched hard seed corpus for
+  follow-up response-critical training and gates.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

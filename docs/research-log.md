@@ -1065,3 +1065,33 @@ distance, but hidden-swap does not change outcome and reset/zero-response do not
 change success. The next experiment should create an M29 matched
 response-critical corpus or curriculum where different hidden dynamics require
 different corrective action at the same visible decision point.
+
+## 20260521T031118Z m29-response-critical-matched-corpus
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: Mine a matched response-critical seed corpus from M28 hidden-swap artifacts
+- command: `conda run -n autodrift python -m autodrift.matched_response_corpus --pairs-csv runs/m28_hidden_swap_gate_seed4200/pairs.csv --replays-csv runs/m28_hidden_swap_gate_seed4200/replays.csv --top-k 40 --min-hidden-state-distance 1.0 --max-context-observation-distance 0.15 --run-dir runs/m29_matched_response_corpus_seed4200`
+- returncode: `0`
+- run dir: `runs/research/m29-response-critical-matched-corpus_20260521T031117Z`
+- command log: `runs/research/m29-response-critical-matched-corpus_20260521T031117Z/command.log`
+- success artifact: `runs/m29_matched_response_corpus_seed4200/scenario_corpus.csv`
+- notes: M28 has zero ablation success changes; select accepted condition-change and perturbed-failure seeds for harder follow-up training
+
+Result:
+
+- candidate seeds: 80;
+- accepted visible matches: 74;
+- selected seeds: 40;
+- ablation success-change seeds: 0;
+- ablation success-change edges: 0;
+- nominal-vs-perturbed condition-change seeds: 26;
+- perturbed-failure seeds: 28;
+- accepted mean hidden-state distance: 1.354;
+- selected score mean: 6.036.
+
+Conclusion: M29 does not create proof of self-identification; it creates a
+harder follow-up corpus. Because no ablation changes success, the selected
+seeds are condition-change and perturbed-failure cases, not recurrent-memory
+critical cases. The next training path should mix this hard corpus with ordinary
+randomized resets instead of replaying it exclusively.

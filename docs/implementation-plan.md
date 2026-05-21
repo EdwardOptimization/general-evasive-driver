@@ -485,6 +485,27 @@ The next task should build an M29 response-critical matched corpus or training
 curriculum where hidden/current feedback changes the outcome, not just the first
 action.
 
+### M29: Matched Response-Critical Corpus
+
+- Mine M28 hidden-swap artifacts for accepted matched seeds.
+- Record whether reset, zero-response, or hidden-swap changes success.
+- If ablations do not change success, select high-quality condition-change
+  seeds where nominal dynamics pass and perturbed dynamics fail.
+- Export `scenario_corpus.csv` with a `seed` column so it can be reused by PPO
+  training and benchmark commands.
+
+Exit criteria:
+
+- corpus miner has unit tests;
+- corpus run writes candidate, selected, edge, summary, and manifest artifacts;
+- docs distinguish ablation-outcome-critical seeds from condition-change seeds.
+
+Status: complete as corpus infrastructure. M29 selected 40 seeds from M28:
+74 accepted visible matches, 0 ablation success-change seeds, 26
+nominal-vs-perturbed condition-change seeds, and 28 perturbed-failure seeds.
+This is not a self-identification pass. It is a hard training/gate corpus for
+M30. See `docs/m29-matched-response-corpus.md`.
+
 ## Metrics
 
 - episode success rate;
