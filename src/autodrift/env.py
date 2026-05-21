@@ -65,6 +65,8 @@ class ObstacleTaskConfig:
     stable_aes_drift_bonus_scale: float = 1.0
     max_threshold_score: float | None = None
     min_time_after_friction_step: float = 0.0
+    perception_reveal_step: int = 0
+    perception_reveal_distance: float | None = None
     clearance_margin_reward_scale: float = 0.0
     clearance_margin_reward_clip: float = 0.25
     dense_clearance_margin_reward_scale: float = 0.0
@@ -78,6 +80,10 @@ class ObstacleTaskConfig:
             raise ValueError("dense_clearance_margin_reward_clip must be positive")
         if self.dense_clearance_margin_reward_window <= 0.0:
             raise ValueError("dense_clearance_margin_reward_window must be positive")
+        if self.perception_reveal_step < 0:
+            raise ValueError("perception_reveal_step must be non-negative")
+        if self.perception_reveal_distance is not None and self.perception_reveal_distance <= 0.0:
+            raise ValueError("perception_reveal_distance must be positive when set")
 
     def scenario_config(self, speed: float, mu: float) -> ObstacleScenarioConfig:
         return ObstacleScenarioConfig(
@@ -207,6 +213,7 @@ class AutoDriftEnv(gym.Env):
         self.model = SingleTrackDriftModel(self.params)
         self.friction_step_at = None if self._uses_obstacle_aligned_friction_step() else self._sample_friction_step_at()
         self.friction_step_applied = False
+        self.step_count = 0
 
         self.speed_ref = self._sample_speed_ref()
         self.beta_target = float(self.rng.uniform(*self.config.beta_target_range))
@@ -230,7 +237,6 @@ class AutoDriftEnv(gym.Env):
         self.last_forces = self.model.tire_forces(vx, vy, self.state.yaw_rate, 0.0, 0.0)
         base_observation = self._base_observation()
         self.obs_history = [base_observation.copy() for _ in range(self.config.history_length)]
-        self.step_count = 0
 
         return self._observation(), self._info(self.track.frame(self.state.x, self.state.y, self.state.psi))
 
@@ -483,6 +489,8 @@ class AutoDriftEnv(gym.Env):
         slots = np.zeros((self.config.obstacle_slots, OBSTACLE_SLOT_DIM), dtype=np.float64)
         if self.config.obstacle.enabled and self.obstacle_scenario is not None and self.obstacle_position is not None:
             body = self._body_point(self.obstacle_position)
+            if not self._obstacle_perception_visible(longitudinal_distance=float(body[0])):
+                return slots.reshape(-1).astype(float).tolist()
             if self.config.obstacle_relative_velocity_mode == "ego":
                 rel_vx = -self.state.vx + self.state.yaw_rate * body[1]
                 rel_vy = -self.state.vy - self.state.yaw_rate * body[0]
@@ -503,6 +511,20 @@ class AutoDriftEnv(gym.Env):
                 dtype=np.float64,
             )
         return slots.reshape(-1).astype(float).tolist()
+
+    def _obstacle_perception_visible(self, longitudinal_distance: float | None = None) -> bool:
+        if not self.config.obstacle.enabled or self.obstacle_scenario is None or self.obstacle_position is None:
+            return False
+        if self.step_count < self.config.obstacle.perception_reveal_step:
+            return False
+        reveal_distance = self.config.obstacle.perception_reveal_distance
+        if reveal_distance is not None:
+            if longitudinal_distance is None:
+                frame = self.track.frame(self.state.x, self.state.y, self.state.psi)
+                longitudinal_distance = self._obstacle_longitudinal_distance(frame)
+            if float(longitudinal_distance) > reveal_distance:
+                return False
+        return True
 
     def _privileged_observation_dim(self) -> int:
         if not self.config.include_privileged_params:
@@ -708,6 +730,7 @@ class AutoDriftEnv(gym.Env):
         beta = math.atan2(self.state.vy, max(self.state.vx, 1e-6))
         base_params = VehicleParams()
         obstacle_path = self._obstacle_path_features(frame)
+        obstacle_distance = obstacle_path[0] * 80.0 if self.config.obstacle.enabled else float("nan")
         obstacle_collision_radius = self._obstacle_collision_radius()
         min_clearance_margin = self._clearance_margin()
         return {
@@ -739,8 +762,11 @@ class AutoDriftEnv(gym.Env):
             "friction_step_applied": self.friction_step_applied,
             "track_kind": self.config.track_kind,
             "obstacle_enabled": self.config.obstacle.enabled,
+            "obstacle_perception_visible": self._obstacle_perception_visible(
+                longitudinal_distance=obstacle_distance if self.config.obstacle.enabled else None
+            ),
             "obstacle_label": self.obstacle_scenario.label if self.obstacle_scenario is not None else "",
-            "obstacle_distance": obstacle_path[0] * 80.0 if self.config.obstacle.enabled else float("nan"),
+            "obstacle_distance": obstacle_distance,
             "obstacle_lateral_offset": (
                 obstacle_path[1] * self.config.track_width if self.config.obstacle.enabled else float("nan")
             ),

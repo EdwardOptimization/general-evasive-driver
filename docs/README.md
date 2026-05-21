@@ -190,6 +190,8 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m71-outcome-sensitive-matched-scenario-constructor.md`: outcome-sensitive
   wrong-history corpus miner, obstacle-geometry overrides, and negative smoke
   results across weak-brake and low-friction contrasts.
+- `m72-pre-emergency-warmup-history-harness.md`: warm-up history proof surface
+  plan and obstacle perception reveal infrastructure.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

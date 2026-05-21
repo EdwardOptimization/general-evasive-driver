@@ -139,6 +139,7 @@ def test_obstacle_task_adds_observation_features_and_info():
 
     assert obs.shape == (72,)
     assert info["obstacle_enabled"] is True
+    assert info["obstacle_perception_visible"] is True
     assert info["obstacle_label"] in {"aeb_feasible", "aes_feasible", "drift_required", "unavoidable"}
     assert info["obstacle_distance"] > 0.0
     assert info["collision"] is False
@@ -172,6 +173,35 @@ def test_obstacle_relative_velocity_mode_can_zero_context_motion_proxy():
     assert strict_slots[3:5] == [0.0, 0.0]
     assert np.allclose(default_slots[:3], strict_slots[:3])
     assert np.allclose(default_slots[5:7], strict_slots[5:7])
+
+
+def test_obstacle_perception_reveal_can_hide_obstacle_slots_until_step_or_distance():
+    env = AutoDriftEnv(
+        DriftEnvConfig(
+            speed_range=(8.0, 8.0),
+            friction_limited_speed=False,
+            obstacle=ObstacleTaskConfig(
+                enabled=True,
+                distance_range=(20.0, 20.0),
+                half_width_range=(0.8, 0.8),
+                perception_reveal_step=5,
+                perception_reveal_distance=12.0,
+            ),
+        )
+    )
+    _, info = env.reset(seed=22)
+
+    assert info["obstacle_perception_visible"] is False
+    assert env._obstacle_slot_features()[0] == 0.0
+
+    env.step_count = 5
+    assert env._obstacle_perception_visible(longitudinal_distance=20.0) is False
+    assert env._obstacle_perception_visible(longitudinal_distance=12.0) is True
+
+    env.step_count = 8
+    _, info = env.reset(seed=22)
+    assert info["obstacle_perception_visible"] is False
+    assert env._obstacle_slot_features()[0] == 0.0
 
 
 def test_obstacle_relative_velocity_mode_rejects_unknown_mode():

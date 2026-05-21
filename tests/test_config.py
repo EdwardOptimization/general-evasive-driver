@@ -55,6 +55,8 @@ def test_build_env_config_overrides_obstacle_task():
                 "stable_aes_drift_bonus_scale": 0.25,
                 "max_threshold_score": 0.05,
                 "min_time_after_friction_step": 0.10,
+                "perception_reveal_step": 12,
+                "perception_reveal_distance": 18.0,
                 "clearance_margin_reward_scale": 1.5,
                 "clearance_margin_reward_clip": 0.20,
                 "dense_clearance_margin_reward_scale": 0.05,
@@ -77,6 +79,8 @@ def test_build_env_config_overrides_obstacle_task():
     assert config.obstacle.stable_aes_drift_bonus_scale == 0.25
     assert config.obstacle.max_threshold_score == 0.05
     assert config.obstacle.min_time_after_friction_step == 0.10
+    assert config.obstacle.perception_reveal_step == 12
+    assert config.obstacle.perception_reveal_distance == 18.0
     assert config.obstacle.clearance_margin_reward_scale == 1.5
     assert config.obstacle.clearance_margin_reward_clip == 0.20
     assert config.obstacle.dense_clearance_margin_reward_scale == 0.05

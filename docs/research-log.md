@@ -2932,3 +2932,21 @@ passive matched-snapshot setup still does not produce causal wrong-history
 outcome gaps. The next task is M72: add a pre-emergency warm-up/history harness
 so the recurrent state has explicit action-response evidence before obstacle
 avoidance is evaluated.
+
+## 20260521 m72-pre-emergency-warmup-history-harness-start
+
+- status: `started`
+- kind: `infrastructure`
+- hypothesis: passive matched snapshots are too weak because they do not give
+  the recurrent state a clean pre-emergency identification phase.
+- code update: `ObstacleTaskConfig` now supports `perception_reveal_step` and
+  `perception_reveal_distance`.
+- behavior: the obstacle remains physically present and logged, but actor
+  obstacle slots stay zero until reveal conditions pass.
+- tests: `conda run -n autodrift pytest -q tests/test_env.py tests/test_config.py`
+  returned `33 passed`.
+- artifact: `docs/m72-pre-emergency-warmup-history-harness.md`
+
+Next: build the actual warm-up history gate that swaps normal and wrong matched
+warm-up recurrent histories before obstacle reveal and accepts only
+outcome-sensitive success or margin degradation.

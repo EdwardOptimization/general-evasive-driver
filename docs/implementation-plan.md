@@ -1576,6 +1576,12 @@ Status: planned after M71. Passive matched snapshots are still not producing
 causal wrong-history outcome gaps, so the next proof surface needs explicit
 pre-emergency response evidence.
 
+M72-A status: obstacle perception reveal infrastructure added. The obstacle can
+remain physically active while actor obstacle slots stay zero until
+`perception_reveal_step` and/or `perception_reveal_distance` pass. This preserves
+the actor observation shape and creates the basis for warm-up history gates. See
+`docs/m72-pre-emergency-warmup-history-harness.md`.
+
 ### M67-F: Counterfactual Response-Intervention Objective
 
 - Stop treating seed replay alone as sufficient for self-identification.
