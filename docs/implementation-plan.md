@@ -2122,7 +2122,8 @@ continuation. See `docs/m103-outcome-aware-actor-coupling.md`.
 Status: design note only. M91/M92 keep the current no-wheel human-view driver
 as primary for now. M104 records the rule for future four-wheel or richer
 wheel-contact work without reopening the rejected single-track wheel profiles.
-See `docs/m104-minimum-observable-input-contract.md`.
+See `docs/m104-minimum-observable-input-contract.md` and the extracted MHTML
+record in `docs/mhtml-input-sensor-contract-2026-05-21.md`.
 
 ### M105: Retention-Constrained Outcome Coupling
 

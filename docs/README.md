@@ -217,6 +217,10 @@ vehicle/tire models, and NMPC-style constrained control.
 - `external-review-5-5pro-mhtml.md`: consolidated 5.5pro MHTML review record
   covering project status, engineering backlog, research framing, input gaps,
   solve/verify split, warm-up/probing, and proof gates.
+- `mhtml-input-sensor-contract-2026-05-21.md`: extracted latest MHTML input
+  contract; actor inputs stay sensor-direct / low-level fused, slip ratios and
+  controller diagnostics stay out, and four-wheel `Romega_i + v_parallel_i`
+  becomes the future strict wheel branch.
 - `m81-wheel-response-input-roadmap.md`: MHTML review decision capturing
   wheel/tire response as the next major self-identification input branch,
   including the Stage 1 front/rear wheel-response implementation.

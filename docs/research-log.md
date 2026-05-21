@@ -4328,3 +4328,35 @@ self-identification claim. The next pending task is M115: relocate or tighten
 obstacle geometry around matched pairs until wrong matched history creates
 clearance, collision, or mitigation degradation while normal history remains
 valid.
+
+## 20260521T195500Z mhtml-input-sensor-contract-extract
+
+- status: `completed`
+- kind: `documentation`
+- source: `/home/quyaonan/workspace/AutoDrift - 项目评估分析.mhtml`
+- artifact: `docs/mhtml-input-sensor-contract-2026-05-21.md`
+
+Persisted the latest visible 5.5pro input discussion as a durable input
+contract. The important decision is that the actor should see sensor-direct or
+minimally fused closed-loop evidence, not engineered diagnostics.
+
+Captured contract:
+
+- actor branch should keep commands, actual actuator states, wheel/contact raw
+  response, body inertial response, and scene geometry separated;
+- `slip_ratio`, `slip_angle`, ABS/TCS/ESC flags, per-wheel pressure split,
+  tire-force labels, `mu`, oracle feasibility, and reference trajectories stay
+  out of actor input;
+- future strict wheel branch is four-wheel `Romega_i` plus independent local
+  `v_parallel_i`, not center speed and not wheel-speed average;
+- `v_perp_i`, steering torque/EPS current, roll/pitch/vertical acceleration,
+  and suspension travel are optional admission-gated sensors;
+- input profile comparisons must use supervised probes first, then a frozen
+  PPO recipe, matched wrong-history counterfactuals, and optional-sensor
+  admission gates.
+
+Current implication: M91/M92 still reject the current single-track wheel
+profiles as primary PPO inputs. That negative result does not reject the future
+four-wheel sensor contract. The active actor input remains the clean no-wheel
+human-view branch until a richer wheel model or matched corpus justifies
+reopening wheel inputs.
