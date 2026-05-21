@@ -5182,3 +5182,38 @@ M133 selected-seed diversity on seed `9900`; strong all-state anchoring worsens
 fixed M128 loss and does not restore proof-surface diversity. The next pending
 task is M136: make the M133 proof-surface rows an explicit retention corpus or
 guard before PPO resumes.
+
+## 20260521T235725Z m136-m133-proof-surface-retention-corpus
+
+M136 builds the explicit M133 proof-surface retention corpus.
+
+Corpus:
+
+- input runs: M133 strict seed `9900` and `9920`;
+- input rows: `31`;
+- output rows after deduplication: `20`;
+- duplicate rows removed: `11`;
+- unique seeds: `9`;
+- source coverage: perturbed-only.
+
+M62 controls remain clean with zero accepted rows and zero exported snippets on
+both strict seeds.
+
+Retention coverage over 11 unique M133 keys:
+
+| Candidate run | Retained keys | Lost keys |
+| --- | ---: | ---: |
+| M134 final 9900 | 7 | 4 |
+| M134 final 9920 | 7 | 4 |
+| M134 step4096 9900 | 8 | 3 |
+| M134 step4096 9920 | 8 | 3 |
+| M135 s2048 a1 9900 | 8 | 3 |
+| M135 s2048 a1 9920 | 8 | 3 |
+| M135 s2048 a20 9900 | 8 | 3 |
+| M135 s2048 a20 9920 | 8 | 3 |
+| M135 s4096 a20 9900 | 8 | 3 |
+| M135 s4096 a20 9920 | 8 | 3 |
+
+Decision: corpus ready for objective-sanity work, not promotion. The next
+pending task is M137: optimize or gate directly against this M133 retention
+corpus before PPO resumes.

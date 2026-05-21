@@ -1,0 +1,35 @@
+{
+  "baseline_checkpoints": [
+    "runs/m132_margin_retention_s60_anchor20_seed9841/optimized_checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "Run an objective-only sanity update from M132 s60 using the M136 M133 proof-surface retention corpus before any PPO continuation.",
+      "name": "m137_m133_retention_objective_sanity"
+    }
+  ],
+  "decision_rule": "Admit a candidate only if it improves the M136 retention objective without regressing M133 behavior or strict proof-surface diversity.",
+  "failure_criteria": [
+    "M136 fixed loss improves but strict proof-surface diversity stays below M133",
+    "behavior retention regresses below M132",
+    "M128 outcome loss regresses materially",
+    "source-side perturbed-only limitation is hidden",
+    "candidate proceeds to PPO without a formal repeat gate"
+  ],
+  "hypothesis": "A fixed objective update on the exact M133 proof-surface retention corpus may preserve the strict rows that M134/M135 PPO shrank better than generic M128 outcome snippets.",
+  "id": "m137-m133-retention-objective-sanity",
+  "required_artifacts": [
+    {
+      "path": "docs/m137-m133-retention-objective-sanity.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "M136 retention loss improves on held-out batches",
+    "M128 outcome loss is not materially worse than M132 s60",
+    "behavior success remains at M132 level",
+    "zero-response degradation remains visible",
+    "strict selected physical pairs and selected seeds meet or exceed M133 on both miner seeds"
+  ],
+  "type": "objective_sanity"
+}

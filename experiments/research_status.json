@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 144,
+    "completed": 145,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m135-ppo-step-anchor-sensitivity-gate.md",
+    "command_log": "docs/m136-m133-proof-surface-retention-corpus.md",
     "returncode": 0,
-    "run_dir": "runs/m135_s2048_a1_strict_60ep_seed9900",
+    "run_dir": "runs/m136_m133_proof_surface_retention_corpus",
     "status": "completed",
-    "task_id": "m135-ppo-step-anchor-sensitivity-gate"
+    "task_id": "m136-m133-proof-surface-retention-corpus"
   },
   "next_task": {
-    "command": "see experiments/manifests/m136-m133-proof-surface-retention-corpus.json",
-    "hypothesis": "The M133 strict proof-surface rows need to become an explicit retention corpus or objective guard before PPO resumes",
-    "id": "m136-m133-proof-surface-retention-corpus",
-    "kind": "infrastructure",
-    "notes": "Pending after M135: smaller steps improve selected diversity but still fail M133 on seed9900",
-    "priority": 1310,
+    "command": "see experiments/manifests/m137-m133-retention-objective-sanity.json",
+    "hypothesis": "A fixed objective update on the exact M133 proof-surface retention corpus may preserve rows that PPO shrank",
+    "id": "m137-m133-retention-objective-sanity",
+    "kind": "objective_sanity",
+    "notes": "Pending after M136: explicit M133 retention corpus is ready but source coverage remains perturbed-only",
+    "priority": 1320,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T235318Z"
+  "updated_at_utc": "20260521T235725Z"
 }

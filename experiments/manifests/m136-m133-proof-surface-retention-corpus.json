@@ -5,8 +5,12 @@
   ],
   "commands": [
     {
-      "command": "Build or audit a retention corpus from the M133 strict proof-surface rows before any further PPO continuation.",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_snippet_corpus --input-run runs/m133_zero_relvel_s60_strict_60ep_seed9900 --input-run runs/m133_zero_relvel_s60_strict_60ep_seed9920 --deduplicate --run-dir runs/m136_m133_proof_surface_retention_corpus",
       "name": "m136_m133_proof_surface_retention_corpus"
+    },
+    {
+      "command": "Create runs/m136_m133_proof_surface_retention_corpus/retention_coverage.csv and retention_summary.json by comparing M133 retention keys against M134 and M135 strict exports.",
+      "name": "m136_retention_coverage_audit"
     }
   ],
   "decision_rule": "Do not restart PPO until the strict proof-surface rows that M134/M135 shrink are represented as an explicit retention corpus or objective guard.",
@@ -23,6 +27,22 @@
     {
       "path": "docs/m136-m133-proof-surface-retention-corpus.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m136_m133_proof_surface_retention_corpus/outcome_intervention_snippets.npz",
+      "type": "corpus"
+    },
+    {
+      "path": "runs/m136_m133_proof_surface_retention_corpus/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m136_m133_proof_surface_retention_corpus/retention_summary.json",
+      "type": "coverage_audit"
+    },
+    {
+      "path": "runs/m136_m133_proof_surface_retention_corpus/retention_coverage.csv",
+      "type": "coverage_audit"
     }
   ],
   "success_criteria": [

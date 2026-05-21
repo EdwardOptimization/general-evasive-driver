@@ -2699,8 +2699,23 @@ seed `9900` and `9` pairs/`8` seeds on seed `9920`, versus M133's `10/8` and
 - Do not restart PPO until this proof surface is represented as a training-time
   retention guard or a hard checkpoint-selection gate.
 
-Status: pending. M134/M135 show behavior anchors are not enough to preserve the
-strict self-ID proof surface during PPO.
+Status: completed as retention-corpus infrastructure. M136 combines the two M133
+strict proof-surface runs into `20` deduplicated snippets across `9` seeds, with
+`11` duplicate rows removed. Source coverage remains perturbed-only. A coverage
+audit over `11` unique M133 keys shows M134 final retains only `7/11`, while
+M134 step4096 and all M135 candidates retain `8/11`. This confirms that PPO
+keeps behavior while losing specific proof-surface keys. See
+`docs/m136-m133-proof-surface-retention-corpus.md`.
+
+### M137: M133 Retention Objective Sanity
+
+- Run an objective-only update from M132 s60 using the M136 retention corpus.
+- Require M136 loss improvement without material M128 loss regression.
+- Rerun M133 behavior and strict proof-surface gates.
+- Do not return to PPO until the exact M133 retained keys are preserved.
+
+Status: pending. M136 makes the proof-surface rows explicit, but they still need
+to be used as a training-time objective or guard.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 
