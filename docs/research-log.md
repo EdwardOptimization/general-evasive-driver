@@ -2552,3 +2552,41 @@ Conclusion: M65 creates a reusable corpus and validates the continuation path,
 but it is not a promotion. The next step is M66 full continuation from
 M62_a250, followed by unchanged margin-retention gates and the M64 paired
 self-identification gate.
+
+## 20260521T094543Z m66-full-response-necessity-continuation
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Full M65 continuation from M62_a250 should use the
+  response-necessity corpus to improve paired self-identification while keeping
+  strict margin retention.
+- training command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m65_response_necessity_driver.json --seed 2965 --device cuda --init-checkpoint runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --run-dir runs/ppo_m65_response_necessity_seed2965`
+- paired gate command: `conda run -n autodrift python -m autodrift.paired_perturbation_gate --env-config configs/ppo_m24_human_view_gru_driver.json --checkpoint runs/ppo_m65_response_necessity_seed2965/checkpoints/checkpoint_step_4096.pt --checkpoint-policy m62_a250=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --checkpoint-policy m65_004=runs/ppo_m65_response_necessity_seed2965/checkpoints/checkpoint_step_4096.pt --checkpoint-policy m65_004_reset=runs/ppo_m65_response_necessity_seed2965/checkpoints/checkpoint_step_4096.pt@reset_recurrent_state --checkpoint-policy m65_004_zero_current=runs/ppo_m65_response_necessity_seed2965/checkpoints/checkpoint_step_4096.pt@zero_current_response --checkpoint-policy m65_004_zero_all=runs/ppo_m65_response_necessity_seed2965/checkpoints/checkpoint_step_4096.pt@zero_all_response --checkpoint-policy m65_004_noact=runs/ppo_m65_response_necessity_seed2965/checkpoints/checkpoint_step_4096.pt@zero_action_history --episodes 80 --seed 3600 --device cpu --run-dir runs/m66_m65_004_paired_perturbation_gate_seed3600`
+- returncode: `0`
+- run dirs: `runs/ppo_m65_response_necessity_seed2965`,
+  `runs/m66_margin_retention_gate_strict`,
+  `runs/m66_m65_004_paired_perturbation_gate_seed3600`
+- success artifact:
+  `runs/m66_margin_retention_gate_strict/candidate_gate_summary.csv`
+
+Result:
+
+- full training final eval return mean: `70.371693`;
+- strict margin gate status: `needs_iteration`;
+- passed candidates: none;
+- closest candidate: `m65_004`;
+- `m65_004` success delta: `0.000000`;
+- `m65_004` binary regressions: 0;
+- `m65_004` near-margin regressions: 1;
+- `m65_004` mean margin delta: `-0.000603`;
+- later checkpoints `m65_020` through `m65_032` introduce one binary
+  regression and negative success delta `-0.006250`;
+- paired gate `m65_004` nominal/perturbed success: `0.9375` / `0.6875`;
+- paired gate `m65_004_reset` perturbed success: `0.7000`;
+- paired gate `m65_004_zero_current` and `m65_004_zero_all` perturbed success:
+  `0.7000`.
+
+Conclusion: M66 is negative. Response-necessity seed replay and a stronger
+response-prediction auxiliary did not produce a margin-retained checkpoint and
+did not improve the self-identification ablation signal. M67 should use a
+counterfactual/intervention objective rather than more replay probability.

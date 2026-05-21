@@ -159,6 +159,9 @@ vehicle/tire models, and NMPC-style constrained control.
   self-identification evidence.
 - `m65-response-necessity-corpus.md`: response-history necessity corpus miner,
   PPO continuation config, and smoke validation.
+- `m66-full-response-necessity-continuation.md`: full M65 continuation negative
+  result; no checkpoint passed margin retention or improved paired
+  self-identification.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

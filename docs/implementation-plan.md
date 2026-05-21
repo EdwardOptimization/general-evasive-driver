@@ -1383,6 +1383,34 @@ Exit criteria:
 - if no checkpoint improves the M64 ablation signal, record a negative result
   and redesign the training objective rather than increasing replay alone.
 
+Status: complete as a negative result. M66 full continuation runs from M62_a250
+and evaluates all dense checkpoints against the unchanged strict
+margin-retention gate. No checkpoint passes. `m65_004` is closest, with no
+binary regression but one near-margin regression and negative mean margin
+delta. Its paired perturbation gate is effectively unchanged from M62_a250, so
+the response-necessity replay did not create stronger self-identification. See
+`docs/m66-full-response-necessity-continuation.md`.
+
+### M67: Counterfactual Response-Intervention Objective
+
+- Stop treating seed replay alone as sufficient for self-identification.
+- Add or prototype an objective that compares normal recurrent rollout against
+  reset/zero-response/no-action-history interventions on response-critical
+  snippets.
+- Penalize cases where ablated-policy behavior is not worse on seeds where
+  closed-loop response history should matter.
+- Keep the actor input contract unchanged and use intervention signals only as
+  training-time losses or gates.
+
+Exit criteria:
+
+- focused unit tests cover the new objective or corpus transformation;
+- a smoke run logs the counterfactual/intervention loss;
+- full candidates are still gated by strict margin retention before broader
+  promotion;
+- paired self-identification must improve against M62_a250 without hidden
+  actor inputs.
+
 Status: planned.
 
 ## Metrics
