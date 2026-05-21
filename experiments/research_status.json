@@ -1,7 +1,7 @@
 {
   "counts": {
     "blocked": 0,
-    "completed": 63,
+    "completed": 64,
     "failed": 0,
     "pending": 0,
     "planned": 1,
@@ -10,10 +10,10 @@
   "last_result": {
     "command_log": null,
     "returncode": 0,
-    "run_dir": "runs/m66_margin_retention_gate_strict",
+    "run_dir": "runs/m67a_privileged_upper_bound_smoke_seed3600",
     "status": "completed",
-    "task_id": "m66-full-response-necessity-continuation"
+    "task_id": "m67a-privileged-upper-bound-harness"
   },
-  "next_task": "m67-counterfactual-response-intervention-objective",
-  "updated_at_utc": "20260521T094543Z"
+  "next_task": "m67b-full-privileged-upper-bound-training",
+  "updated_at_utc": "20260521T104135Z"
 }

@@ -13,8 +13,10 @@ Last updated: 2026-05-21
   `runs/m62_a250_hidden_swap_gate_seed4300/summary.csv`
 - blocker: `m62_a250` is stronger than M37_102 on the current strict
   margin-retention evidence and does not regress the M37 hidden-swap diagnostic,
-  but it still does not prove recurrent self-identification because hidden-swap
-  changes zero accepted success outcomes. A broader driver audit is pending.
+  but M63/M64/M66 still do not prove recurrent self-identification. Removing or
+  resetting response history does not reliably weaken the policy, so M67-A is
+  now checking whether a privileged teacher has an upper-bound advantage before
+  training another student objective.
 
 ## Standing Loop
 
@@ -2590,3 +2592,37 @@ Conclusion: M66 is negative. Response-necessity seed replay and a stronger
 response-prediction auxiliary did not produce a margin-retained checkpoint and
 did not improve the self-identification ablation signal. M67 should use a
 counterfactual/intervention objective rather than more replay probability.
+
+## 20260521T110000Z m67a-privileged-upper-bound-harness
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: Before training another deployable recurrent student objective,
+  first test whether a privileged teacher with hidden vehicle dynamics can
+  outperform `m62_a250` on response-critical seeds.
+- teacher smoke command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m67a_privileged_upper_bound_teacher.json --total-steps 1024 --rollout-steps 64 --num-envs 4 --vector-env-mode sync --seed 3067 --device cuda --run-dir runs/ppo_m67a_privileged_upper_bound_teacher_smoke_seed3067 --eval-episodes 2`
+- upper-bound smoke command: `conda run -n autodrift python -m autodrift.privileged_upper_bound --baseline-env-config configs/ppo_m24_human_view_gru_driver.json --candidate-env-config configs/ppo_m67a_privileged_upper_bound_teacher.json --baseline-checkpoint-policy m62_a250=runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --candidate-checkpoint-policy m67a_smoke=runs/ppo_m67a_privileged_upper_bound_teacher_smoke_seed3067/checkpoint.pt --episodes 4 --seed 3600 --device cpu --run-dir runs/m67a_privileged_upper_bound_smoke_seed3600`
+- returncode: `0`
+- run dirs: `runs/ppo_m67a_privileged_upper_bound_teacher_smoke_seed3067`,
+  `runs/m67a_privileged_upper_bound_smoke_seed3600`
+- success artifacts:
+  `runs/ppo_m67a_privileged_upper_bound_teacher_smoke_seed3067/checkpoint.pt`,
+  `runs/m67a_privileged_upper_bound_smoke_seed3600/summary.json`
+
+Result:
+
+- added teacher-only `privileged_observation_mode="full_dynamics"`;
+- legacy `include_privileged_params=True` still produces a 76-value observation;
+- M67-A full-dynamics teacher observation has 82 values;
+- smoke teacher eval return mean: `66.402815`;
+- smoke teacher eval termination rate: `0.500000`;
+- smoke upper-bound comparison is intentionally negative: `m67a_smoke` success
+  `0.250000` versus `m62_a250` success `1.000000` over 4 seeds;
+- smoke margin delta: `-1.390342`.
+
+Conclusion: M67-A infrastructure is ready, but the smoke teacher is undertrained
+and not a research result. The next step is full privileged teacher training
+from `configs/ppo_m67a_privileged_upper_bound_teacher.json`, then an M65 corpus
+upper-bound comparison against `m62_a250`. If the trained teacher does not
+improve response-critical margin or success, re-mine a matched action-divergent
+corpus before building the deployable OSI/student objective.

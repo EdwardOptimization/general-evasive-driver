@@ -76,7 +76,33 @@ The policy observation must not include:
 - reward terms, progress counters, collision labels, or success labels.
 
 `include_privileged_params=True` remains a diagnostic or teacher-only option and
-must not be used for deployable driver actors.
+must not be used for deployable driver actors. Its default
+`privileged_observation_mode="basic"` appends the legacy four-value packet:
+
+```text
+[mu, mass_scale, lf_scale, rear_tire_stiffness_scale]
+```
+
+M67-A adds `privileged_observation_mode="full_dynamics"` for upper-bound
+teacher experiments only. It appends:
+
+```text
+[
+  mu,
+  mass_scale,
+  inertia_scale,
+  cg_shift / 0.25,
+  front_tire_stiffness_scale,
+  rear_tire_stiffness_scale,
+  drive_scale,
+  brake_scale,
+  steer_tau_scale,
+  drive_tau_scale,
+]
+```
+
+The full packet is an oracle/teacher diagnostic. It must not be used by a
+deployable driver actor or by any result claiming human-view control.
 
 ## Output Contract
 

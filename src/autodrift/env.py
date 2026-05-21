@@ -29,6 +29,9 @@ ROAD_POINT_DIM = 2
 OBSTACLE_SLOT_DIM = 7
 DEFAULT_ROAD_LOOKAHEAD_COUNT = 8
 DEFAULT_OBSTACLE_SLOTS = 4
+BASIC_PRIVILEGED_OBS_DIM = 4
+FULL_DYNAMICS_PRIVILEGED_OBS_DIM = 10
+PRIVILEGED_OBSERVATION_MODES = ("basic", "full_dynamics")
 
 
 @dataclass(frozen=True)
@@ -104,6 +107,7 @@ class DriftEnvConfig:
     history_length: int = 1
     action_history_mode: str = "full"
     include_privileged_params: bool = False
+    privileged_observation_mode: str = "basic"
     road_lookahead_count: int = DEFAULT_ROAD_LOOKAHEAD_COUNT
     road_lookahead_spacing: float = 5.0
     obstacle_slots: int = DEFAULT_OBSTACLE_SLOTS
@@ -116,6 +120,11 @@ class DriftEnvConfig:
             raise ValueError("history_length must be at least 1")
         if self.action_history_mode not in {"full", "none"}:
             raise ValueError("action_history_mode must be one of: full, none")
+        if self.privileged_observation_mode not in PRIVILEGED_OBSERVATION_MODES:
+            raise ValueError(
+                "privileged_observation_mode must be one of: "
+                + ", ".join(PRIVILEGED_OBSERVATION_MODES)
+            )
         if self.road_lookahead_count < 1:
             raise ValueError("road_lookahead_count must be at least 1")
         if self.road_lookahead_spacing <= 0.0:
@@ -142,8 +151,12 @@ class AutoDriftEnv(gym.Env):
         action_obs_dim = {"none": 0, "full": LAST_ACTION_OBS_DIM}[self.config.action_history_mode]
         road_obs_dim = 2 * self.config.road_lookahead_count * ROAD_POINT_DIM
         obstacle_obs_dim = self.config.obstacle_slots * OBSTACLE_SLOT_DIM
-        self.base_obs_dim = EGO_OBS_DIM + action_obs_dim + road_obs_dim + obstacle_obs_dim + (
-            4 if self.config.include_privileged_params else 0
+        self.base_obs_dim = (
+            EGO_OBS_DIM
+            + action_obs_dim
+            + road_obs_dim
+            + obstacle_obs_dim
+            + self._privileged_observation_dim()
         )
         obs_dim = self.base_obs_dim * self.config.history_length
         self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(obs_dim,), dtype=np.float32)
@@ -480,6 +493,39 @@ class AutoDriftEnv(gym.Env):
             )
         return slots.reshape(-1).astype(float).tolist()
 
+    def _privileged_observation_dim(self) -> int:
+        if not self.config.include_privileged_params:
+            return 0
+        if self.config.privileged_observation_mode == "basic":
+            return BASIC_PRIVILEGED_OBS_DIM
+        if self.config.privileged_observation_mode == "full_dynamics":
+            return FULL_DYNAMICS_PRIVILEGED_OBS_DIM
+        raise ValueError(f"unknown privileged observation mode: {self.config.privileged_observation_mode}")
+
+    def _privileged_param_features(self) -> list[float]:
+        base = VehicleParams()
+        if self.config.privileged_observation_mode == "basic":
+            return [
+                self.params.mu,
+                self.params.mass / base.mass,
+                self.params.lf / base.lf,
+                self.params.cr / base.cr,
+            ]
+        if self.config.privileged_observation_mode == "full_dynamics":
+            return [
+                self.params.mu,
+                self.params.mass / base.mass,
+                self.params.iz / base.iz,
+                (self.params.lf - base.lf) / 0.25,
+                self.params.cf / base.cf,
+                self.params.cr / base.cr,
+                self.params.max_drive_force / base.max_drive_force,
+                self.params.max_brake_force / base.max_brake_force,
+                self.params.steer_tau / base.steer_tau,
+                self.params.drive_tau / base.drive_tau,
+            ]
+        raise ValueError(f"unknown privileged observation mode: {self.config.privileged_observation_mode}")
+
     def _obstacle_longitudinal_distance(self, frame: PathFrame) -> float:
         if self.obstacle_scenario is None or self.obstacle_position is None:
             return float("inf")
@@ -577,14 +623,7 @@ class AutoDriftEnv(gym.Env):
         obs.extend(self._road_boundary_features())
         obs.extend(self._obstacle_slot_features())
         if self.config.include_privileged_params:
-            obs.extend(
-                [
-                    self.params.mu,
-                    self.params.mass / VehicleParams().mass,
-                    self.params.lf / VehicleParams().lf,
-                    self.params.cr / VehicleParams().cr,
-                ]
-            )
+            obs.extend(self._privileged_param_features())
         return np.asarray(obs, dtype=np.float32)
 
     def _reward(

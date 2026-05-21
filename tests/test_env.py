@@ -1,4 +1,5 @@
 import numpy as np
+import pytest
 
 from autodrift.artifacts import read_json
 from autodrift.config import build_env_config
@@ -32,6 +33,48 @@ def test_privileged_observation_adds_hidden_params():
     obs, _ = env.reset(seed=12)
 
     assert obs.shape == (76,)
+
+
+def test_full_dynamics_privileged_observation_adds_teacher_only_hidden_packet():
+    env = AutoDriftEnv(
+        DriftEnvConfig(
+            include_privileged_params=True,
+            privileged_observation_mode="full_dynamics",
+            randomization=RandomizationConfig(
+                mu_range=(0.42, 0.42),
+                mass_scale_range=(1.10, 1.10),
+                cg_shift_range=(0.05, 0.05),
+                inertia_scale_range=(1.20, 1.20),
+                tire_stiffness_scale_range=(0.80, 0.80),
+                drive_scale_range=(1.30, 1.30),
+                brake_scale_range=(0.70, 0.70),
+                actuator_tau_scale_range=(1.50, 1.50),
+            ),
+        )
+    )
+    obs, info = env.reset(seed=12)
+
+    assert obs.shape == (82,)
+    assert np.allclose(
+        obs[-10:],
+        [
+            info["mu"],
+            info["mass_scale"],
+            info["inertia_scale"],
+            info["cg_shift"] / 0.25,
+            info["front_tire_stiffness_scale"],
+            info["rear_tire_stiffness_scale"],
+            info["drive_scale"],
+            info["brake_scale"],
+            info["steer_tau_scale"],
+            info["drive_tau_scale"],
+        ],
+    )
+
+
+def test_privileged_observation_mode_rejects_unknown_mode():
+    with pytest.raises(ValueError, match="privileged_observation_mode"):
+        DriftEnvConfig(privileged_observation_mode="oracle")
 
 
 def test_history_observation_stacks_recent_frames():

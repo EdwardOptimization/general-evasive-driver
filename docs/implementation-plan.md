@@ -1391,7 +1391,33 @@ delta. Its paired perturbation gate is effectively unchanged from M62_a250, so
 the response-necessity replay did not create stronger self-identification. See
 `docs/m66-full-response-necessity-continuation.md`.
 
-### M67: Counterfactual Response-Intervention Objective
+### M67-A: Privileged Upper-Bound Before Student Objectives
+
+- Stop treating seed replay alone as sufficient for self-identification.
+- First train/evaluate a privileged teacher that sees a teacher-only full hidden
+  dynamics packet.
+- Compare the teacher against `m62_a250` on M65 response-critical seeds using the
+  same seed sequence but separate env configs.
+- Use the result to decide whether the current corpus is truly
+  self-identification-critical.
+
+Exit criteria:
+
+- full-dynamics privileged observation is implemented without changing the
+  deployable 72-value actor frame;
+- privileged teacher config trains and writes checkpoints;
+- upper-bound harness writes per-seed deltas between human-view and privileged
+  policies;
+- full teacher evaluation either shows a meaningful upper-bound gap or forces
+  M67-B corpus re-mining.
+
+Status: smoke infrastructure complete. The teacher-only `full_dynamics`
+privileged packet produces an 82-value observation, the smoke teacher trains on
+CUDA, and the `autodrift.privileged_upper_bound` harness compares `m62_a250`
+against a privileged checkpoint under different env configs. See
+`docs/m67a-privileged-upper-bound-harness.md`.
+
+### M67-C: Counterfactual Response-Intervention Objective
 
 - Stop treating seed replay alone as sufficient for self-identification.
 - Add or prototype an objective that compares normal recurrent rollout against
@@ -1411,7 +1437,8 @@ Exit criteria:
 - paired self-identification must improve against M62_a250 without hidden
   actor inputs.
 
-Status: planned.
+Status: planned after M67-A proves that hidden dynamics information creates a
+real upper-bound gap on response-critical seeds.
 
 ## Metrics
 
