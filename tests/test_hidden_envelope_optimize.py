@@ -7,6 +7,7 @@ from autodrift.env import DriftEnvConfig
 from autodrift.hidden_envelope_optimize import (
     collect_hidden_envelope_objective_batch,
     hidden_envelope_feature_sets_from_batch,
+    normalized_target_weights,
     optimize_hidden_envelope_objective,
     trainable_hidden_envelope_parameters,
 )
@@ -53,6 +54,20 @@ def test_trainable_hidden_envelope_parameters_excludes_actor_head():
     assert id(list(model.context_encoder.parameters())[0]) not in param_ids
     assert id(list(model.response_encoder.parameters())[0]) in param_ids
     assert id(list(model.online_gru_cell.parameters())[0]) in param_ids
+
+
+def test_normalized_target_weights_validates_shape_and_values():
+    weights = normalized_target_weights((3.0, 1.0, 2.0))
+
+    np.testing.assert_allclose(weights, np.asarray([1.5, 0.5, 1.0], dtype=np.float32))
+
+    for bad_weights in ((1.0, 2.0), (1.0, 0.0, 1.0), (1.0, float("nan"), 1.0)):
+        try:
+            normalized_target_weights(bad_weights)
+        except ValueError:
+            pass
+        else:  # pragma: no cover - pytest assertion is clearer outside raises context here.
+            raise AssertionError(f"expected invalid weights to fail: {bad_weights}")
 
 
 def test_collect_hidden_envelope_objective_batch_keeps_episode_sequences():
@@ -123,6 +138,8 @@ def test_optimize_hidden_envelope_objective_writes_artifacts(tmp_path):
         learning_rate=0.0003,
         contrast_coef=0.5,
         contrast_margin=0.02,
+        contrast_mode="per_target",
+        target_loss_weights=(3.0, 1.0, 1.0),
         grad_clip_norm=1.0,
         device="cpu",
         run_dir=tmp_path / "run",
@@ -131,6 +148,8 @@ def test_optimize_hidden_envelope_objective_writes_artifacts(tmp_path):
     assert summary["samples"] == 9
     assert (tmp_path / "run" / "optimized_checkpoint.pt").exists()
     assert (tmp_path / "run" / "hidden_gain_summary.csv").exists()
+    assert summary["contrast_mode"] == "per_target"
+    assert summary["target_loss_weights"]["future_braking_deceleration"] > 1.0
     assert set(summary["response_hidden_minus_reset_test_r2_delta"]) == {
         "future_braking_deceleration",
         "future_lateral_accel_response",

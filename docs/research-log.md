@@ -3697,3 +3697,36 @@ lateral authority, but braking is unstable across seeds. Do not proceed
 directly to PPO continuation; first run a braking-aware or per-target balanced
 objective iteration and require stable braking plus yaw lift before behavior
 retention and wrong-history gates.
+
+## 20260521T171251Z m95-braking-weighted-hidden-envelope-objective
+
+- status: `completed`
+- kind: `objective_sanity`
+- hypothesis: per-target contrast with higher braking weight can fix the M94
+  braking instability without losing yaw or lateral future-envelope belief.
+- code update: added `--contrast-mode per_target` and
+  `--target-loss-weights` to `autodrift.hidden_envelope_optimize`. Defaults
+  preserve the M94 scalar-mean contrast behavior.
+- focused tests: `tests/test_hidden_envelope_optimize.py`
+- diagnostic runs:
+  `runs/m95_braking_weighted_hidden_envelope_seed9450`,
+  `runs/m95_braking_weighted_hidden_envelope_seed9451`,
+  `runs/m95_braking_weighted_hidden_envelope_seed9452`
+- artifact: `docs/m95-braking-weighted-hidden-envelope-objective.md`
+
+Result:
+
+- seed `9450`: braking/lateral/yaw R2 lift after values
+  `+0.093007`, `-0.230815`, `-0.004631`;
+- seed `9451`: braking/lateral/yaw R2 lift after values
+  `+0.059400`, `+0.045079`, `+0.059469`;
+- seed `9452`: braking/lateral/yaw R2 lift after values
+  `+0.644474`, `-0.207891`, `+0.494708`;
+- braking is positive in 3/3 seeds, but lateral is negative in 2/3 and yaw is
+  slightly negative once.
+
+Conclusion: M95 fixes the immediate braking instability but creates an
+unacceptable target tradeoff. Do not start PPO. M96 should decouple the three
+future-envelope targets more strongly, then admit behavior training only if
+braking, yaw, and lateral all beat same-frame reset hidden across repeated
+seeds.

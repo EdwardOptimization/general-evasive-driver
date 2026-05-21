@@ -1,0 +1,54 @@
+{
+  "baseline_checkpoints": [
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt",
+    "previous_decision=m94_qualified_positive_but_braking_unstable"
+  ],
+  "commands": [
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_optimize --checkpoint runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9450 --horizon-steps 15 --sample-stride 3 --max-samples 800 --train-fraction 0.70 --ridge 0.1 --steps 200 --batch-size 256 --learning-rate 0.0003 --contrast-coef 0.5 --contrast-margin 0.02 --contrast-mode per_target --target-loss-weights 3.0 1.0 1.0 --grad-clip-norm 1.0 --device cpu --run-dir runs/m95_braking_weighted_hidden_envelope_seed9450",
+      "name": "m95_seed9450_braking_weighted_objective"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_optimize --checkpoint runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9451 --horizon-steps 15 --sample-stride 3 --max-samples 800 --train-fraction 0.70 --ridge 0.1 --steps 200 --batch-size 256 --learning-rate 0.0003 --contrast-coef 0.5 --contrast-margin 0.02 --contrast-mode per_target --target-loss-weights 3.0 1.0 1.0 --grad-clip-norm 1.0 --device cpu --run-dir runs/m95_braking_weighted_hidden_envelope_seed9451",
+      "name": "m95_seed9451_braking_weighted_objective"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.hidden_envelope_optimize --checkpoint runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt --env-config configs/ppo_m24_human_view_gru_driver.json --episodes 30 --seed 9452 --horizon-steps 15 --sample-stride 3 --max-samples 800 --train-fraction 0.70 --ridge 0.1 --steps 200 --batch-size 256 --learning-rate 0.0003 --contrast-coef 0.5 --contrast-margin 0.02 --contrast-mode per_target --target-loss-weights 3.0 1.0 1.0 --grad-clip-norm 1.0 --device cpu --run-dir runs/m95_braking_weighted_hidden_envelope_seed9452",
+      "name": "m95_seed9452_braking_weighted_objective"
+    }
+  ],
+  "decision_rule": "Admit the recipe for PPO only if braking normal-vs-reset lift becomes stable across repeated seeds without causing yaw or lateral normal-vs-reset lift to regress.",
+  "failure_criteria": [
+    "braking remains negative after optimization in repeated seeds",
+    "yaw or lateral response hidden is sacrificed to improve braking",
+    "same hyperparameters are not reused across formal seeds",
+    "objective-only checkpoint is treated as a driver candidate without behavior gates"
+  ],
+  "hypothesis": "Per-target contrast with higher braking weight can fix the M94 braking instability without losing yaw or lateral future-envelope belief.",
+  "id": "m95-braking-weighted-hidden-envelope-objective",
+  "required_artifacts": [
+    {
+      "path": "docs/m95-braking-weighted-hidden-envelope-objective.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m95_braking_weighted_hidden_envelope_seed9450/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m95_braking_weighted_hidden_envelope_seed9451/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m95_braking_weighted_hidden_envelope_seed9452/summary.json",
+      "type": "summary"
+    }
+  ],
+  "success_criteria": [
+    "per-target contrast is implemented without changing actor observation inputs",
+    "formal seeds use identical weights and optimizer settings",
+    "braking lift is positive after optimization across repeated seeds",
+    "decision states whether yaw and lateral stability are preserved"
+  ],
+  "type": "objective_sanity"
+}

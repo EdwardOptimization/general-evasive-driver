@@ -39,6 +39,8 @@ from autodrift.train_ppo import (
     resolve_device,
 )
 
+CONTRAST_MODES = ("mean", "per_target")
+
 
 @dataclass(frozen=True)
 class HiddenEnvelopeObjectiveBatch:
@@ -57,6 +59,17 @@ class EnvelopeHeadMetrics:
     reset_loss: float
     normal_minus_reset_loss: float
     samples: int
+
+
+def normalized_target_weights(weights: tuple[float, ...] | list[float] | np.ndarray) -> np.ndarray:
+    values = np.asarray(weights, dtype=np.float32)
+    if values.shape != (len(TARGETS),):
+        raise ValueError(f"target weights must have exactly {len(TARGETS)} values")
+    if not np.isfinite(values).all():
+        raise ValueError("target weights must be finite")
+    if np.any(values <= 0.0):
+        raise ValueError("target weights must be positive")
+    return values / float(values.mean())
 
 
 def trainable_hidden_envelope_parameters(model: ActorCritic) -> list[nn.Parameter]:
@@ -344,13 +357,18 @@ def optimize_hidden_envelope_objective(
     learning_rate: float,
     contrast_coef: float,
     contrast_margin: float,
+    contrast_mode: str,
+    target_loss_weights: tuple[float, ...],
     grad_clip_norm: float,
     device: str,
     run_dir: Path,
 ) -> dict[str, Any]:
+    if contrast_mode not in CONTRAST_MODES:
+        raise ValueError("contrast_mode must be one of: " + ", ".join(CONTRAST_MODES))
     resolved_device = resolve_device(device)
     torch.manual_seed(seed)
     np.random.seed(seed)
+    target_weights_np = normalized_target_weights(target_loss_weights)
     model, source_checkpoint = load_actor_critic_checkpoint(checkpoint_path, device=str(resolved_device))
     env_config = load_env_config(env_config_path)
     batch = collect_hidden_envelope_objective_batch(
@@ -380,6 +398,7 @@ def optimize_hidden_envelope_objective(
     observations = torch.as_tensor(batch.observations, dtype=torch.float32, device=resolved_device)
     dones = torch.as_tensor(batch.dones, dtype=torch.float32, device=resolved_device)
     targets = torch.as_tensor(batch.targets, dtype=torch.float32, device=resolved_device)
+    target_weights = torch.as_tensor(target_weights_np, dtype=torch.float32, device=resolved_device)
     sample_mask = torch.as_tensor(batch.sample_mask, dtype=torch.bool, device=resolved_device)
     flat_train_mask = torch.as_tensor(train_mask_np, dtype=torch.bool, device=resolved_device)
     train_mask = torch.zeros_like(sample_mask)
@@ -442,10 +461,16 @@ def optimize_hidden_envelope_objective(
         normal_pred = envelope_head(normal_hidden[batch_index])
         with torch.no_grad():
             reset_pred = envelope_head(reset_hidden[batch_index])
-        per_sample_loss = torch.square(normal_pred - flat_targets[batch_index]).mean(dim=-1)
-        reset_per_sample_loss = torch.square(reset_pred - flat_targets[batch_index]).mean(dim=-1)
+        per_target_loss = torch.square(normal_pred - flat_targets[batch_index])
+        reset_per_target_loss = torch.square(reset_pred - flat_targets[batch_index])
+        per_sample_loss = (per_target_loss * target_weights).mean(dim=-1)
+        reset_per_sample_loss = (reset_per_target_loss * target_weights).mean(dim=-1)
         prediction_loss = per_sample_loss.mean()
-        contrast_loss = torch.relu(contrast_margin + per_sample_loss - reset_per_sample_loss).mean()
+        if contrast_mode == "mean":
+            contrast_loss = torch.relu(contrast_margin + per_sample_loss - reset_per_sample_loss).mean()
+        else:
+            contrast_loss = torch.relu(contrast_margin + per_target_loss - reset_per_target_loss)
+            contrast_loss = (contrast_loss * target_weights).mean(dim=-1).mean()
         loss = prediction_loss + contrast_coef * contrast_loss
         optimizer.zero_grad(set_to_none=True)
         loss.backward()
@@ -462,7 +487,13 @@ def optimize_hidden_envelope_objective(
                     "prediction_loss": float(prediction_loss.detach().cpu().item()),
                     "contrast_loss": float(contrast_loss.detach().cpu().item()),
                     "reset_loss": float(reset_per_sample_loss.mean().detach().cpu().item()),
-                    "grad_norm": float(grad_norm.detach().cpu().item() if isinstance(grad_norm, torch.Tensor) else grad_norm),
+                    "braking_loss_weight": float(target_weights_np[0]),
+                    "yaw_loss_weight": float(target_weights_np[1]),
+                    "lateral_loss_weight": float(target_weights_np[2]),
+                    "contrast_mode": contrast_mode,
+                    "grad_norm": float(
+                        grad_norm.detach().cpu().item() if isinstance(grad_norm, torch.Tensor) else grad_norm
+                    ),
                 }
             )
 
@@ -529,6 +560,10 @@ def optimize_hidden_envelope_objective(
             "env_config": env_config_path,
             "steps": steps,
             "seed": seed,
+            "contrast_mode": contrast_mode,
+            "target_loss_weights": {
+                target: float(weight) for target, weight in zip(TARGETS, target_weights_np, strict=True)
+            },
         },
     )
     before_by_target = {row["target"]: row for row in before_gain_rows}
@@ -557,6 +592,10 @@ def optimize_hidden_envelope_objective(
         "learning_rate": learning_rate,
         "contrast_coef": contrast_coef,
         "contrast_margin": contrast_margin,
+        "contrast_mode": contrast_mode,
+        "target_loss_weights": {
+            target: float(weight) for target, weight in zip(TARGETS, target_weights_np, strict=True)
+        },
         "before_hidden_gain_summary": before_gain_rows,
         "after_hidden_gain_summary": after_gain_rows,
         "response_hidden_minus_reset_test_r2_delta": lift_delta,
@@ -586,6 +625,8 @@ def optimize_hidden_envelope_objective(
             "learning_rate": learning_rate,
             "contrast_coef": contrast_coef,
             "contrast_margin": contrast_margin,
+            "contrast_mode": contrast_mode,
+            "target_loss_weights": summary["target_loss_weights"],
             "artifacts": summary["artifacts"],
         },
     )
@@ -608,6 +649,15 @@ def main() -> None:
     parser.add_argument("--learning-rate", type=float, default=0.0003)
     parser.add_argument("--contrast-coef", type=float, default=0.5)
     parser.add_argument("--contrast-margin", type=float, default=0.02)
+    parser.add_argument("--contrast-mode", choices=CONTRAST_MODES, default="mean")
+    parser.add_argument(
+        "--target-loss-weights",
+        type=float,
+        nargs=len(TARGETS),
+        default=(1.0, 1.0, 1.0),
+        metavar=("BRAKING", "YAW", "LATERAL"),
+        help="Positive per-target loss weights; normalized to mean one.",
+    )
     parser.add_argument("--grad-clip-norm", type=float, default=1.0)
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="cpu")
     parser.add_argument("--run-dir", type=Path, default=None)
@@ -629,6 +679,8 @@ def main() -> None:
         learning_rate=args.learning_rate,
         contrast_coef=args.contrast_coef,
         contrast_margin=args.contrast_margin,
+        contrast_mode=args.contrast_mode,
+        target_loss_weights=tuple(args.target_loss_weights),
         grad_clip_norm=args.grad_clip_norm,
         device=args.device,
         run_dir=run_dir,

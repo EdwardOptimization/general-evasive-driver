@@ -1,0 +1,34 @@
+{
+  "baseline_checkpoints": [
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt",
+    "previous_decision=m95_braking_stabilized_but_lateral_regressed"
+  ],
+  "commands": [
+    {
+      "command": "TBD: run objective-only no-wheel hidden-envelope optimization with decoupled per-target heads or alternating target-balanced minibatches across at least three repeated seeds",
+      "name": "m96_planned_per_target_objective"
+    }
+  ],
+  "decision_rule": "Only admit a hidden-envelope objective for PPO if braking yaw and lateral normal-vs-reset lift are all positive after optimization across repeated seeds.",
+  "failure_criteria": [
+    "one target improves by sacrificing another target",
+    "formal seeds use target-specific tuning after seeing results",
+    "normal hidden is not compared to same-frame reset hidden",
+    "behavior PPO starts before the objective-only pass is stable"
+  ],
+  "hypothesis": "A decoupled per-target hidden-envelope objective can keep the M95 braking gain while preventing lateral and yaw regressions.",
+  "id": "m96-per-target-hidden-envelope-objective",
+  "required_artifacts": [
+    {
+      "path": "docs/m96-per-target-hidden-envelope-objective.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "objective decouples braking yaw and lateral losses more strongly than M95",
+    "same hyperparameters are reused across repeated formal seeds",
+    "all three future-envelope targets have positive after-lift against reset hidden",
+    "result is documented before any PPO continuation"
+  ],
+  "type": "objective_sanity"
+}

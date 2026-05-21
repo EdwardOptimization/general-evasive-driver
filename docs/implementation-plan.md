@@ -1962,6 +1962,34 @@ should weight or separate braking/yaw/lateral targets and require stable
 braking plus yaw lift before behavior continuation. See
 `docs/m94-hidden-envelope-objective-only.md`.
 
+### M95: Braking-Weighted Hidden-Envelope Objective
+
+- Add per-target contrast to prevent yaw/lateral gains from masking braking
+  regression.
+- Weight braking more strongly in the scalar objective while keeping the
+  no-wheel actor input contract unchanged.
+- Repeat the same hyperparameters across three formal seeds before deciding.
+
+Status: complete as a mixed objective-only result. Braking normal-vs-reset R2
+lift is positive after optimization in all three seeds (`+0.093007`,
+`+0.059400`, `+0.644474`), fixing the M94 braking failure mode. The cost is not
+acceptable for PPO admission: lateral after-lift is negative in two seeds
+(`-0.230815`, `-0.207891`) and yaw is slightly negative once (`-0.004631`).
+Next objective iteration should decouple targets through separate heads or
+alternating target-balanced minibatches. See
+`docs/m95-braking-weighted-hidden-envelope-objective.md`.
+
+### M96: Per-Target Hidden-Envelope Objective
+
+- Preserve the M95 braking gain without sacrificing lateral or yaw belief.
+- Try stronger target decoupling before PPO, such as separate per-target heads
+  or alternating target-balanced minibatches.
+- Gate on all three future-envelope targets being positive after optimization
+  against same-frame reset hidden across repeated seeds.
+
+Status: planned. PPO continuation remains blocked until the objective-only
+hidden-envelope belief is stable across braking, yaw, and lateral targets.
+
 ### M67-F: Counterfactual Response-Intervention Objective
 
 - Stop treating seed replay alone as sufficient for self-identification.
