@@ -1,0 +1,35 @@
+{
+  "baseline_checkpoints": [
+    "runs/m132_margin_retention_s60_anchor20_seed9841/optimized_checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "Start a small guarded PPO continuation from the M132 s60/anchor20 candidate with strict retention gates and no relaxation of the human-view input contract.",
+      "name": "m134_guarded_ppo_continuation"
+    }
+  ],
+  "decision_rule": "Continue beyond smoke PPO only if behavior retention, zero-response degradation, and strict outcome proof-surface gates remain at or above the M133 level.",
+  "failure_criteria": [
+    "normal behavior success regresses below M124/M132",
+    "strict proof-surface diversity regresses below M133",
+    "M62 or other controls become admitted",
+    "no-action neutrality is ignored",
+    "PPO uses hidden or oracle actor inputs"
+  ],
+  "hypothesis": "M133 admits the s60 repair for guarded PPO readiness. A small PPO continuation may improve closed-loop behavior only if it preserves the newly recovered rollout-margin proof surface.",
+  "id": "m134-guarded-ppo-continuation-from-s60",
+  "required_artifacts": [
+    {
+      "path": "docs/m134-guarded-ppo-continuation-from-s60.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "PPO smoke run completes from the s60 checkpoint",
+    "normal behavior retention remains at M124/M132 level",
+    "zero-response degradation remains visible",
+    "strict outcome proof-surface diversity does not regress below M133",
+    "PPO readiness or rejection is recorded before any larger run"
+  ],
+  "type": "driver_candidate"
+}

@@ -2638,9 +2638,26 @@ seeds. Behavior seed `9502` retains success `0.8625`; zero-response remains
 - Keep no-action neutrality and perturbed-only source coverage explicit.
 - Decide PPO readiness from the formal gate.
 
-Status: pending. M132 repaired much of M129's proof-surface shrinkage, but the
-second strict miner is still below the strongest M127 diversity level, so PPO
-requires a formal repeat gate.
+Status: completed as guarded PPO readiness only. M133 repeats behavior on
+fresh seed `9503`: M132 s60 matches M124 success at `0.8625`, reset is
+`0.8500`, and zero-current/zero-all remain `0.8000`. Strict fresh miners reach
+`10` selected physical pairs/`8` seeds on seed `9900` and `9` pairs/`8` seeds
+on seed `9920`, while same-seed M62 controls export zero snippets. PPO may start
+only as a small guarded continuation because no-action remains neutral and all
+accepted snippets are still perturbed-source. See
+`docs/m133-s60-rollout-margin-formal-repeat-gate.md`.
+
+### M134: Guarded PPO Continuation From S60
+
+- Start from `runs/m132_margin_retention_s60_anchor20_seed9841/optimized_checkpoint.pt`.
+- Keep the M121 human-view zero-relvel observation contract.
+- Run only a small PPO continuation first; do not relax the actor input contract.
+- Immediately rerun M133-style behavior and strict proof-surface gates.
+- Continue beyond smoke PPO only if behavior retention, zero-response
+  degradation, and strict proof-surface diversity remain at or above M133.
+- Reject the PPO path if it washes out the repaired rollout-margin proof surface.
+
+Status: pending. M133 admits guarded PPO readiness but not driver success.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

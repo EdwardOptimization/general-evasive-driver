@@ -5064,3 +5064,31 @@ zero-current/zero-all `0.8000`, no-action `0.8625`.
 Decision: admit s60/anchor20 to formal repeat only. It repairs much of M129's
 fresh proof-surface shrinkage and keeps behavior, but PPO remains blocked until
 the repair repeats on fresh formal gate seeds. The next pending task is M133.
+
+## 20260521T231547Z m133-s60-rollout-margin-formal-repeat-gate
+
+M133 formally repeats the M132 s60/anchor20 repair before PPO.
+
+Behavior repeat on seed `9503`:
+
+- M124 success `0.8625`, clearance mean `1.843230`;
+- M132 s60 success `0.8625`, clearance mean `1.841558`;
+- M132 s60 reset success `0.8500`;
+- M132 s60 zero-current/zero-all success `0.8000`;
+- M132 s60 no-action success `0.8625`.
+
+Strict outcome-surface repeat:
+
+| Policy | Miner seed | Accepted rows | Success-drop pairs | Selected pairs | Selected seeds | Snippets | Max gap |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| M132 s60 | 9900 | 18 | 5 | 10 | 8 | 17 | 0.029413 |
+| M132 s60 | 9920 | 15 | 4 | 9 | 8 | 14 | 0.029413 |
+| M62 control | 9900 | 0 | 2 | 0 | 0 | 0 | 0.000000 |
+| M62 control | 9920 | 0 | 1 | 0 | 0 | 0 | 0.000000 |
+
+Decision: admit guarded PPO readiness, not driver success. The behavior gate
+passes, zero-response degradation repeats, and strict s60 proof-surface
+diversity repeats on two fresh seeds while M62 controls export zero snippets.
+The limitations remain important: no-action history is still neutral and all
+accepted snippets are perturbed-source. The next pending task is M134, a small
+guarded PPO continuation from M132 s60 with immediate post-PPO retention gates.

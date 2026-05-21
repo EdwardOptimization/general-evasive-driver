@@ -5,8 +5,20 @@
   ],
   "commands": [
     {
-      "command": "Formally repeat the M132 s60 anchor20 candidate across fresh behavior and strict outcome-surface miner seeds before any PPO continuation.",
-      "name": "m133_s60_formal_repeat_gate"
+      "command": "Run M121 zero-relvel behavior gate on seed9503 comparing M124, M132 s60, reset-hidden, zero-current-response, zero-all-response, and zero-action-history ablations. Exact CLI is preserved in runs/m133_s60_formal_behavior_gate_seed9503/manifest.json.",
+      "name": "m133_behavior_gate_seed9503"
+    },
+    {
+      "command": "Run strict M127/M132 zero-relvel snapshot-bank relocation miner on the M132 s60 checkpoint with 60 episodes and seed9900. Exact CLI is preserved in runs/m133_zero_relvel_s60_strict_60ep_seed9900/manifest.json.",
+      "name": "m133_s60_strict_seed9900"
+    },
+    {
+      "command": "Run strict M127/M132 zero-relvel snapshot-bank relocation miner on the M132 s60 checkpoint with 60 episodes and seed9920. Exact CLI is preserved in runs/m133_zero_relvel_s60_strict_60ep_seed9920/manifest.json.",
+      "name": "m133_s60_strict_seed9920"
+    },
+    {
+      "command": "Run strict M127/M132 zero-relvel M62 controls with seeds9900 and 9920. Exact CLI is preserved in runs/m133_zero_relvel_m62_strict_60ep_seed9900/manifest.json and runs/m133_zero_relvel_m62_strict_60ep_seed9920/manifest.json.",
+      "name": "m133_m62_strict_controls"
     }
   ],
   "decision_rule": "Admit PPO only if the s60 repair repeats behavior retention and strict outcome-surface diversity on fresh seeds while M62 remains clean.",
@@ -23,6 +35,26 @@
     {
       "path": "docs/m133-s60-rollout-margin-formal-repeat-gate.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m133_s60_formal_behavior_gate_seed9503/policy_summary.csv",
+      "type": "behavior_gate"
+    },
+    {
+      "path": "runs/m133_zero_relvel_s60_strict_60ep_seed9900/summary.json",
+      "type": "proof_surface"
+    },
+    {
+      "path": "runs/m133_zero_relvel_s60_strict_60ep_seed9920/summary.json",
+      "type": "proof_surface"
+    },
+    {
+      "path": "runs/m133_zero_relvel_m62_strict_60ep_seed9900/summary.json",
+      "type": "control"
+    },
+    {
+      "path": "runs/m133_zero_relvel_m62_strict_60ep_seed9920/summary.json",
+      "type": "control"
     }
   ],
   "success_criteria": [

@@ -382,6 +382,10 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m132-rollout-margin-retention-repair.md`: conservative s60/anchor20 repair
   that modestly improves M128 loss while recovering fresh proof-surface
   diversity versus M129; admitted only to formal repeat.
+- `m133-s60-rollout-margin-formal-repeat-gate.md`: formal repeat gate for the
+  M132 s60 repair; admits guarded PPO readiness after fresh behavior retention
+  and strict proof-surface diversity repeat while recording no-action neutrality
+  and perturbed-only source coverage.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

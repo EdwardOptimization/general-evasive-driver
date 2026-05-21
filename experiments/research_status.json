@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 141,
+    "completed": 142,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m132-rollout-margin-retention-repair.md",
+    "command_log": "docs/m133-s60-rollout-margin-formal-repeat-gate.md",
     "returncode": 0,
-    "run_dir": "runs/m132_margin_retention_s60_anchor20_seed9841",
+    "run_dir": "runs/m133_zero_relvel_s60_strict_60ep_seed9900",
     "status": "completed",
-    "task_id": "m132-rollout-margin-retention-repair"
+    "task_id": "m133-s60-rollout-margin-formal-repeat-gate"
   },
   "next_task": {
-    "command": "see experiments/manifests/m133-s60-rollout-margin-formal-repeat-gate.json",
-    "hypothesis": "Formally repeat the M132 s60 repair before PPO continuation",
-    "id": "m133-s60-rollout-margin-formal-repeat-gate",
-    "kind": "gate",
-    "notes": "Pending after M132: s60 repair improved proof-surface retention but still needs fresh multi-seed PPO-readiness gate",
-    "priority": 1280,
+    "command": "see experiments/manifests/m134-guarded-ppo-continuation-from-s60.json",
+    "hypothesis": "A small guarded PPO continuation from the M132 s60 repair may improve closed-loop behavior only if it preserves M133 behavior retention and proof-surface diversity",
+    "id": "m134-guarded-ppo-continuation-from-s60",
+    "kind": "driver_candidate",
+    "notes": "Pending after M133: guarded PPO readiness admitted but driver success is not claimed",
+    "priority": 1290,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T230043Z"
+  "updated_at_utc": "20260521T231547Z"
 }
