@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 124,
+    "completed": 125,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m115-wrong-history-boundary-relocation-surface.md",
+    "command_log": "docs/m116-boundary-wrong-history-surface-robustness-gate.md",
     "returncode": 0,
-    "run_dir": "runs/m115_wrong_history_boundary_relocation_surface_seed9510",
+    "run_dir": "runs/m116_boundary_wrong_history_robustness_seed9510",
     "status": "completed",
-    "task_id": "m115-wrong-history-boundary-relocation-surface"
+    "task_id": "m116-boundary-wrong-history-surface-robustness-gate"
   },
   "next_task": {
-    "command": "see experiments/manifests/m116-boundary-wrong-history-surface-robustness-gate.json",
-    "hypothesis": "Split or repeat M115 boundary wrong-history surface before objective training",
-    "id": "m116-boundary-wrong-history-surface-robustness-gate",
+    "command": "see experiments/manifests/m117-source-diverse-wrong-history-boundary-mining.json",
+    "hypothesis": "Mine a source-diverse wrong-history boundary surface after M116 duplicate rejection",
+    "id": "m117-source-diverse-wrong-history-boundary-mining",
     "kind": "gate",
-    "notes": "Pending after M115: verify constructed wrong-history success-drop surface is not boundary-tuned or duplicate-dominated",
-    "priority": 1110,
+    "notes": "Pending after M116: broaden source/geometry search until wrong-history boundary drops pass diversity gates",
+    "priority": 1120,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260521T195936Z"
+  "updated_at_utc": "20260521T200538Z"
 }

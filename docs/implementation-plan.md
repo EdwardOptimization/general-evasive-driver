@@ -2319,6 +2319,24 @@ Status: pending. M115 creates an admissible constructed surface, but the next
 gate must decide whether it is robust enough for an M117 boundary-aware
 wrong-history objective.
 
+Status: completed as a negative robustness gate. M116 reads the M115 replay
+rows and rejects direct objective training: the `12` accepted wrong-history
+success drops collapse to only `3` physical source pairs, `3` source decision
+steps, and a single normal-margin bucket around `0.006 m`. M62 remains a clean
+control with zero accepted wrong-history rows. See
+`docs/m116-boundary-wrong-history-surface-robustness-gate.md`.
+
+### M117: Source-Diverse Wrong-History Boundary Mining
+
+- Broaden the M115 search over source pairs, geometry offsets, or matched-pair
+  cohorts.
+- Require the M116-style robustness gates to pass before objective training.
+- Keep M62 as a control and do not admit a surface that only works in one
+  boundary bucket.
+
+Status: pending. M116 shows that the next bottleneck is source and boundary
+diversity, not objective optimization.
+
 ### M67-F: Counterfactual Response-Intervention Objective
 
 - Stop treating seed replay alone as sufficient for self-identification.

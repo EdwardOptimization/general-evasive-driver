@@ -6,7 +6,7 @@
   ],
   "commands": [
     {
-      "command": "TBD: split or repeat M115 boundary relocation with held-out source pairs and stricter dominance checks before objective training",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_wrong_history_surface_robustness --boundary-rows-csv runs/m115_wrong_history_boundary_relocation_surface_seed9510/boundary_relocation_rows.csv --control-checkpoint-label m62 --margin-bucket-width 0.01 --min-accepted-wrong-rows 10 --min-physical-pairs 6 --min-left-steps 5 --min-checkpoints 2 --min-targets 3 --min-margin-buckets 2 --min-success-drop-fraction 1.0 --max-rows-per-pair-fraction 0.40 --max-control-accepted-rows 0 --run-dir runs/m116_boundary_wrong_history_robustness_seed9510",
       "name": "m116_boundary_wrong_history_surface_robustness_gate"
     }
   ],

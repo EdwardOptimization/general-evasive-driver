@@ -328,6 +328,9 @@ vehicle/tire models, and NMPC-style constrained control.
   relocation gate; finds 12 wrong-history success-drop rows after obstacle
   half-width tightening, but the surface is narrow and needs M116 robustness
   checks before objective training.
+- `m116-boundary-wrong-history-surface-robustness-gate.md`: robustness gate for
+  M115; rejects direct objective training because accepted rows collapse to 3
+  physical source pairs and 1 normal-margin bucket.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

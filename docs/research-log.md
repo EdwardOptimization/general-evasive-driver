@@ -4402,3 +4402,50 @@ Conclusion: proceed to M116 robustness before training. M116 should split or
 repeat the M115 surface, deduplicate source pairs, and verify that the
 wrong-history success-drop signal survives held-out geometry/target-margin
 choices.
+
+## 20260521T200538Z m116-boundary-wrong-history-surface-robustness-gate
+
+- status: `completed`
+- kind: `gate`
+- implementation:
+  `src/autodrift/boundary_wrong_history_surface_robustness.py`
+- tests:
+  `tests/test_boundary_wrong_history_surface_robustness.py`
+- run:
+  `runs/m116_boundary_wrong_history_robustness_seed9510`
+- artifact: `docs/m116-boundary-wrong-history-surface-robustness-gate.md`
+
+M116 audits the M115 boundary-tightened surface before any objective training.
+It treats physical source pair diversity as:
+
+```text
+(left_seed, left_step, right_seed, right_step)
+```
+
+Result:
+
+- accepted wrong-history rows: `12`;
+- accepted physical source pairs: `3`;
+- accepted left steps: `3`;
+- accepted checkpoints: `2`;
+- accepted target groups: `3`;
+- accepted normal-margin buckets: `1`;
+- success-drop fraction: `1.0`;
+- max rows from one physical pair: `6`;
+- max rows per physical pair fraction: `0.5`;
+- M62 accepted wrong-history rows: `0`;
+- accepted reset rows: `275`;
+- accepted zero-current rows: `332`;
+- decision: `reject_duplicate_dominated_boundary_surface`.
+
+Failed gates:
+
+- physical source pairs: `3 < 6`;
+- distinct left steps: `3 < 5`;
+- normal-margin buckets: `1 < 2`;
+- max rows per physical pair fraction: `0.5 > 0.4`.
+
+Conclusion: do not train a boundary-aware wrong-history objective yet. M115 is
+a valid construction proof but not a robust corpus. The next pending task is
+M117: broaden the source/geometry search until wrong-history success drops pass
+M116-style diversity gates.
