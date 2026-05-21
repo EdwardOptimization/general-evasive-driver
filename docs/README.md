@@ -244,6 +244,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m89-objective-only-wheel-masked-friction-sanity.md`: objective-only
   optimization of the wheel-masked friction target, positive isolated movement,
   and small first zero-wheel behavior drop.
+- `research-process-enforcement.md`: local validator, manifest schema,
+  scoreboard, and pre-commit integration that enforce the M90+ research
+  workflow.
 - `research-log.md`: long-running research queue status, current best model,
   per-cycle notes, and next hypotheses.
 - `mvp-status.md`: engineering MVP completion audit.

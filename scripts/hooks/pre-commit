@@ -7,6 +7,9 @@ cd "$ROOT_DIR"
 echo "pre-commit: checking staged whitespace"
 git diff --cached --check
 
+echo "pre-commit: validating research process state"
+PYTHONPATH="${PYTHONPATH:-src}" "${PYTHON:-python}" -m autodrift.research_validate
+
 if [[ "${AUTODRIFT_SKIP_PRECOMMIT_TESTS:-0}" == "1" ]]; then
   echo "pre-commit: skipping lightweight tests because AUTODRIFT_SKIP_PRECOMMIT_TESTS=1"
   exit 0

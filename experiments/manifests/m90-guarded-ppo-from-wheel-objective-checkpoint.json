@@ -1,0 +1,56 @@
+{
+  "baseline_checkpoints": [
+    "runs/m62_m37_m61_032_interpolated_checkpoints/checkpoints/alpha_0_25.pt",
+    "runs/m89_wheel_masked_friction_objective_only_seed9200/optimized_checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "name": "train",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m88_wheel_masked_friction_aux_driver.json --total-steps 4096 --rollout-steps 64 --num-envs 4 --vector-env-mode sync --seed 4290 --device cuda --init-checkpoint runs/m89_wheel_masked_friction_objective_only_seed9200/optimized_checkpoint.pt --run-dir runs/ppo_m90_guarded_wheel_objective_smoke_seed4290 --eval-episodes 4"
+    },
+    {
+      "name": "ablation_gate",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 conda run -n autodrift python -m autodrift.benchmark --env-config configs/ppo_m88_wheel_masked_friction_aux_driver.json --episodes 20 --seed 8830 --policies heuristic --checkpoint-policy m90=runs/ppo_m90_guarded_wheel_objective_smoke_seed4290/checkpoint.pt --checkpoint-policy m90_zero_wheel=runs/ppo_m90_guarded_wheel_objective_smoke_seed4290/checkpoint.pt@zero_wheel_response --checkpoint-policy m90_reset=runs/ppo_m90_guarded_wheel_objective_smoke_seed4290/checkpoint.pt@reset_recurrent_state --checkpoint-policy m90_zero_all=runs/ppo_m90_guarded_wheel_objective_smoke_seed4290/checkpoint.pt@zero_all_response --device cpu --run-dir runs/m90_guarded_wheel_objective_gate_seed8830"
+    },
+    {
+      "name": "relevance_audit",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 conda run -n autodrift python -m autodrift.wheel_response_relevance_audit --checkpoint runs/ppo_m90_guarded_wheel_objective_smoke_seed4290/checkpoint.pt --env-config configs/ppo_m88_wheel_masked_friction_aux_driver.json --episodes 30 --seed 9100 --device cpu --max-samples 1500 --epochs 120 --run-dir runs/m90_guarded_wheel_objective_relevance_audit_seed9100"
+    }
+  ],
+  "decision_rule": "Accept as a continuation candidate only if aggregate success is at least 0.85, zero-wheel success is at least 0.10 below normal success, reset is not better than normal, and mu body+wheel gain remains at least 0.10. Otherwise reject and move to matched wrong-wheel-history corpus.",
+  "failure_criteria": [
+    "normal success_rate < 0.85",
+    "normal success_rate - zero_wheel_success < 0.10",
+    "wheel_gain_mu < 0.10",
+    "clearance margin regresses below the M89 same-seed gate",
+    "training fails to produce checkpoint and gate artifacts"
+  ],
+  "hypothesis": "Guarded PPO continuation from the M89 objective-only wheel-aware checkpoint can preserve driving behavior while increasing causal dependence on wheel response.",
+  "id": "m90-guarded-ppo-from-wheel-objective-checkpoint",
+  "required_artifacts": [
+    {
+      "path": "runs/ppo_m90_guarded_wheel_objective_smoke_seed4290/checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m90_guarded_wheel_objective_gate_seed8830/policy_summary.csv",
+      "type": "ablation_gate"
+    },
+    {
+      "path": "runs/m90_guarded_wheel_objective_relevance_audit_seed9100/wheel_gain_summary.csv",
+      "type": "relevance_audit"
+    },
+    {
+      "path": "docs/m90-guarded-ppo-from-wheel-objective-checkpoint.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "normal success_rate >= 0.85 on the 20-episode same-seed gate",
+    "normal success_rate - zero_wheel_success >= 0.10",
+    "reset_success <= normal success_rate",
+    "mu_bucket body_plus_wheel_gain >= 0.10",
+    "no hidden parameters or oracle labels are added to actor observations"
+  ],
+  "type": "driver_candidate"
+}

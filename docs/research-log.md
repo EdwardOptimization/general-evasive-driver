@@ -3579,3 +3579,27 @@ Conclusion: M89 is the first positive wheel objective result. It is not a full
 self-ID pass, but it proves the masked wheel friction objective can move in
 isolation and creates a small behavior-level zero-wheel drop. The next task is
 M90: guarded PPO continuation from the M89 optimized checkpoint.
+
+## 20260521T152900Z m89b-research-process-enforcement
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: research workflow rules should be enforced by local repository
+  checks instead of only being documented.
+- code update: added `autodrift.research_validate`, manifest validation,
+  scoreboard validation, M90 manifest, and pre-commit integration.
+- focused tests: `tests/test_research_validate.py`
+- artifact: `docs/research-process-enforcement.md`
+
+Result:
+
+- `make research-validate` passes with `enforce_from_priority=870`;
+- M90 is now pre-registered in
+  `experiments/manifests/m90-guarded-ppo-from-wheel-objective-checkpoint.json`;
+- `experiments/scoreboard.csv` has the fixed schema and an M89 reference row;
+- tracked and installed pre-commit hooks run the research validator before
+  lightweight tests.
+
+Conclusion: M90+ research tasks now fail closed on missing manifest,
+scoreboard, status-count, or required-artifact metadata. Historical M8-M89
+records remain legacy-compatible.

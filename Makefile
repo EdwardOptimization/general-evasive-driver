@@ -18,8 +18,10 @@ M8_GATE_RUN_DIR ?= runs/m8_driver_gate_seed227
 RESEARCH_QUEUE ?= experiments/research_queue.csv
 RESEARCH_STATUS ?= experiments/research_status.json
 RESEARCH_LOG ?= docs/research-log.md
+RESEARCH_MANIFEST_DIR ?= experiments/manifests
+RESEARCH_SCOREBOARD ?= experiments/scoreboard.csv
 
-.PHONY: env-create env-create-cpu env-update env-update-cpu torch-gpu torch-cpu test test-light check-diff hooks-install eval-heuristic train-smoke benchmark-smoke rollout-smoke m7-corpus m7-gate-smoke m7-gate m8-driver-gate-smoke m8-driver-gate research-plan research-run-next clean
+.PHONY: env-create env-create-cpu env-update env-update-cpu torch-gpu torch-cpu test test-light check-diff hooks-install eval-heuristic train-smoke benchmark-smoke rollout-smoke m7-corpus m7-gate-smoke m7-gate m8-driver-gate-smoke m8-driver-gate research-plan research-run-next research-validate clean
 
 env-create:
 	mamba env create -f environment-gpu.yml -y
@@ -145,6 +147,13 @@ research-run-next:
 		--queue $(RESEARCH_QUEUE) \
 		--status $(RESEARCH_STATUS) \
 		--log $(RESEARCH_LOG)
+
+research-validate:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m autodrift.research_validate \
+		--queue $(RESEARCH_QUEUE) \
+		--status $(RESEARCH_STATUS) \
+		--manifest-dir $(RESEARCH_MANIFEST_DIR) \
+		--scoreboard $(RESEARCH_SCOREBOARD)
 
 clean:
 	rm -rf build dist *.egg-info .pytest_cache .ruff_cache .mypy_cache
