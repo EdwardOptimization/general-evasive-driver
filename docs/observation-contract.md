@@ -213,6 +213,12 @@ drive_torque_rear
 0.0
 ```
 
+M91-H/M91-I found that learned response history is useful, but the current raw
+wheel branch should not become the primary driver input: the no-wheel history
+profile was better on braking and lateral response in the M91-I sensor
+ablation. Keep `front_rear_raw` as an optional experimental sensor profile until
+a later wheel model or corpus shows stable benefit over the no-wheel contract.
+
 With `action_history_mode="full"`, the Stage 1 wheel frame is:
 
 ```text

@@ -1,19 +1,19 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 99,
+    "completed": 101,
     "failed": 0,
     "pending": 0,
-    "planned": 1,
+    "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m91g-learned-history-encoder-observability-probe.md",
+    "command_log": "docs/m91i-learned-history-sensor-ablation.md",
     "returncode": 0,
-    "run_dir": "runs/m91g_learned_history_encoder_seed9360",
+    "run_dir": "runs/m91i_learned_history_sensor_ablation_seed9380",
     "status": "completed",
-    "task_id": "m91g-learned-history-encoder-observability-probe"
+    "task_id": "m91i-learned-history-sensor-ablation"
   },
-  "next_task": "m91h-regularized-learned-history-repeat",
-  "updated_at_utc": "20260521T155817Z"
+  "next_task": null,
+  "updated_at_utc": "20260521T160356Z"
 }

@@ -1,0 +1,41 @@
+{
+  "baseline_checkpoints": [
+    "no_checkpoint_policy=heuristic",
+    "previous_profile=m91h_regularized_learned_history"
+  ],
+  "commands": [
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src conda run -n autodrift python -m autodrift.learned_history_observability_probe --env-config configs/m91c_raw_wheel_minimum_profile.json --episodes 40 --seed 9380 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --history-window 50 --device cpu --epochs 30 --hidden-size 24 --weight-decay 0.001 --profile-set ablation --run-dir runs/m91i_learned_history_sensor_ablation_seed9380",
+      "name": "learned_history_sensor_ablation"
+    }
+  ],
+  "decision_rule": "Identify which deployable response channels explain M91-H's history benefit before PPO or optional sensor expansion.",
+  "failure_criteria": [
+    "ablation profiles are not matched by seed and target",
+    "ablation removes future information incorrectly or changes scene context",
+    "no channel group explains the history benefit",
+    "results are used as promoted policy evidence"
+  ],
+  "hypothesis": "The repeatable history benefit is driven by body response and command/actuator dynamics, while raw wheel speed mainly helps lateral-response prediction.",
+  "id": "m91i-learned-history-sensor-ablation",
+  "required_artifacts": [
+    {
+      "path": "runs/m91i_learned_history_sensor_ablation_seed9380/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m91i_learned_history_sensor_ablation_seed9380/probe_summary.csv",
+      "type": "probe_summary"
+    },
+    {
+      "path": "docs/m91i-learned-history-sensor-ablation.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "P0/P1 and ablated response-channel groups are evaluated with the same learned probe recipe",
+    "at least one channel group explains the history benefit on yaw or lateral response",
+    "decision states whether to proceed to PPO profile comparison or corpus redesign"
+  ],
+  "type": "gate"
+}

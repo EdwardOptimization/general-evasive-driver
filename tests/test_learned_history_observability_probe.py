@@ -2,6 +2,10 @@ import numpy as np
 import pytest
 
 from autodrift.learned_history_observability_probe import (
+    P1_NO_ACTUATOR_ACTUALS_HISTORY,
+    P1_NO_COMMANDS_HISTORY,
+    P1_NO_IMU_HISTORY,
+    P1_NO_WHEEL_HISTORY,
     P0_RESPONSE_HISTORY,
     P1_RESPONSE_HISTORY,
     metric_rows,
@@ -19,6 +23,21 @@ def test_response_history_sequence_slices_p0_and_p1_streams():
     assert p1.shape == (2, 3, 25)
     np.testing.assert_array_equal(p0, frames[:, :, :12])
     np.testing.assert_array_equal(p1, frames[:, :, :25])
+
+
+def test_response_history_sequence_slices_ablation_profiles():
+    frames = np.arange(2 * 3 * 85, dtype=np.float32).reshape(2, 3, 85)
+
+    no_commands = response_history_sequence(frames, P1_NO_COMMANDS_HISTORY)
+    no_actuators = response_history_sequence(frames, P1_NO_ACTUATOR_ACTUALS_HISTORY)
+    no_imu = response_history_sequence(frames, P1_NO_IMU_HISTORY)
+    no_wheel = response_history_sequence(frames, P1_NO_WHEEL_HISTORY)
+
+    assert no_commands.shape == (2, 3, 22)
+    assert no_actuators.shape == (2, 3, 21)
+    assert no_imu.shape == (2, 3, 23)
+    assert no_wheel.shape == (2, 3, 12)
+    np.testing.assert_array_equal(no_wheel, frames[:, :, :12])
 
 
 def test_response_history_sequence_rejects_unknown_profile():

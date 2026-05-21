@@ -7,3 +7,5 @@ m91d-formal-raw-wheel-observability-probe,gate,no_checkpoint_heuristic_rollout,,
 m91e-history-window-observability-probe,gate,no_checkpoint_heuristic_rollout,,,,,,,,mixed_negative_compact_history_needed,Naive raw history windows run but long windows degrade absolute R2 so compact history summaries are next
 m91f-compact-history-observability-probe,gate,no_checkpoint_heuristic_rollout,,,,,,,,negative_learned_encoder_needed,Compact summaries run but braking yaw absolute R2 remain negative and wheel gains are unstable
 m91g-learned-history-encoder-observability-probe,gate,no_checkpoint_heuristic_rollout,,,,,,,,mixed_history_signal_overfit,Learned history improves lateral response but overfits and P1 wheel history degrades relative to P0
+m91h-regularized-learned-history-repeat,gate,no_checkpoint_heuristic_rollout,,,,,,,,qualified_positive_history_signal,Regularized repeats improve braking yaw mean R2 but wheel P1 is only helpful for lateral response
+m91i-learned-history-sensor-ablation,gate,no_checkpoint_heuristic_rollout,,,,,,,,reject_raw_wheel_primary_input,No-wheel history is best on braking and lateral so raw wheel branch remains optional

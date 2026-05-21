@@ -31,8 +31,22 @@ from autodrift.train_ppo import (
 
 P0_RESPONSE_HISTORY = "p0_response_history"
 P1_RESPONSE_HISTORY = "p1_response_history"
+P1_NO_COMMANDS_HISTORY = "p1_no_commands_history"
+P1_NO_ACTUATOR_ACTUALS_HISTORY = "p1_no_actuator_actuals_history"
+P1_NO_IMU_HISTORY = "p1_no_imu_history"
+P1_NO_WHEEL_HISTORY = "p1_no_wheel_history"
 P0_CURRENT_RIDGE = "p0_current_ridge"
 P1_CURRENT_RIDGE = "p1_current_ridge"
+LEARNED_PROFILE_SETS = {
+    "core": (P0_RESPONSE_HISTORY, P1_RESPONSE_HISTORY),
+    "ablation": (
+        P1_RESPONSE_HISTORY,
+        P1_NO_COMMANDS_HISTORY,
+        P1_NO_ACTUATOR_ACTUALS_HISTORY,
+        P1_NO_IMU_HISTORY,
+        P1_NO_WHEEL_HISTORY,
+    ),
+}
 
 
 @dataclass(frozen=True)
@@ -73,6 +87,17 @@ def response_history_sequence(frames: np.ndarray, profile: str) -> np.ndarray:
         return frames[:, :, :HUMAN_VIEW_RESPONSE_FEATURE_DIM].astype(np.float32)
     if profile == P1_RESPONSE_HISTORY:
         return frames[:, :, :WHEEL_HUMAN_VIEW_RESPONSE_FEATURE_DIM].astype(np.float32)
+    if profile == P1_NO_COMMANDS_HISTORY:
+        indices = [*range(0, 9), *range(12, WHEEL_HUMAN_VIEW_RESPONSE_FEATURE_DIM)]
+        return frames[:, :, indices].astype(np.float32)
+    if profile == P1_NO_ACTUATOR_ACTUALS_HISTORY:
+        indices = [0, 1, 2, 3, 4, 9, 10, 11, *range(12, WHEEL_HUMAN_VIEW_RESPONSE_FEATURE_DIM)]
+        return frames[:, :, indices].astype(np.float32)
+    if profile == P1_NO_IMU_HISTORY:
+        indices = [0, 1, 2, 5, 6, 7, 8, 9, 10, 11, *range(12, WHEEL_HUMAN_VIEW_RESPONSE_FEATURE_DIM)]
+        return frames[:, :, indices].astype(np.float32)
+    if profile == P1_NO_WHEEL_HISTORY:
+        return frames[:, :, :HUMAN_VIEW_RESPONSE_FEATURE_DIM].astype(np.float32)
     raise ValueError(f"unknown learned history profile: {profile}")
 
 
@@ -226,7 +251,10 @@ def run_learned_history_observability_probe(
     history_window: int,
     config: LearnedProbeConfig,
     ridge: float,
+    profile_set: str = "core",
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    if profile_set not in LEARNED_PROFILE_SETS:
+        raise ValueError("profile_set must be one of: " + ", ".join(sorted(LEARNED_PROFILE_SETS)))
     observations_by_window, targets, sample_rows = collect_input_observability_dataset(
         env_config_path=env_config_path,
         episodes=episodes,
@@ -250,7 +278,7 @@ def run_learned_history_observability_probe(
         history_window_steps=history_window,
         ridge=ridge,
     )
-    for profile in (P0_RESPONSE_HISTORY, P1_RESPONSE_HISTORY):
+    for profile in LEARNED_PROFILE_SETS[profile_set]:
         sequence = response_history_sequence(frames, profile)
         probe_rows.extend(
             train_learned_history_probe(
@@ -289,6 +317,7 @@ def main() -> None:
     parser.add_argument("--weight-decay", type=float, default=1e-4)
     parser.add_argument("--train-fraction", type=float, default=0.70)
     parser.add_argument("--ridge", type=float, default=0.1)
+    parser.add_argument("--profile-set", choices=sorted(LEARNED_PROFILE_SETS), default="core")
     parser.add_argument("--device", default="cpu")
     parser.add_argument("--run-dir", type=Path, default=None)
     args = parser.parse_args()
@@ -315,6 +344,7 @@ def main() -> None:
         history_window=args.history_window,
         config=config,
         ridge=args.ridge,
+        profile_set=args.profile_set,
     )
 
     run_dir = args.run_dir or make_run_dir(prefix="learned_history_observability", seed=args.seed)
@@ -335,6 +365,7 @@ def main() -> None:
             "sample_stride": args.sample_stride,
             "history_window": args.history_window,
             "targets": TARGETS,
+            "profile_set": args.profile_set,
             "probe_results": probe_rows,
             "config": config.__dict__,
         },
@@ -350,6 +381,7 @@ def main() -> None:
             "horizon_steps": args.horizon_steps,
             "sample_stride": args.sample_stride,
             "history_window": args.history_window,
+            "profile_set": args.profile_set,
             "artifacts": {
                 "samples_csv": samples_csv,
                 "probe_summary_csv": probe_summary_csv,
