@@ -1136,10 +1136,33 @@ Exit criteria:
 - promotion requires zero binary regressions, zero near-margin regressions, and
   non-negative mean margin delta.
 
-Status: infrastructure complete and full training pending. M56 adds the
-config-gated terminal clearance-margin reward, tests reward off/on behavior,
-and smoke-trains from M37_102. See
+Status: complete as a negative promotion result and a positive objective
+direction. M56 adds the config-gated terminal clearance-margin reward,
+tests reward off/on behavior, smoke-trains from M37_102, and completes a full
+short continuation. No checkpoint passes strict margin retention. The best
+checkpoint, M56_028, has zero binary regressions and zero near-margin
+regressions, but still has mean margin delta `-0.001527`. See
 `docs/m56-terminal-clearance-margin-reward.md`.
+
+### M57: Stronger Terminal Clearance-Margin Reward
+
+- Rerun the M56 schedule with terminal clearance-margin reward scale increased
+  from `2.0` to `4.0`.
+- Keep actor observations and strict promotion gate unchanged.
+- Treat failure as evidence that sparse terminal reward is insufficient and a
+  denser near-obstacle clearance signal is needed.
+
+Exit criteria:
+
+- M57 training completes from M37_102;
+- M38/broad/fresh strict gate is run unchanged;
+- promotion requires zero binary regressions, zero near-margin regressions, and
+  non-negative mean margin delta;
+- if no checkpoint passes, document whether stronger sparse reward improves or
+  damages the M56_028 near-pass result.
+
+Status: planned. M57 uses
+`configs/ppo_m57_clearance_margin_reward_scale4_driver.json`.
 
 ## Metrics
 

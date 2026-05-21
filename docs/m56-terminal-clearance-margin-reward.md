@@ -78,3 +78,53 @@ M56 full training should reuse the M55 conservative schedule:
 
 Promotion gate remains unchanged: zero binary regressions, zero near-margin
 regressions, and non-negative mean margin delta versus M37_102.
+
+## Full Result
+
+Full training completed:
+
+- command log:
+  `runs/research/m56-terminal-clearance-margin-reward_20260521T081954Z/command.log`;
+- final eval return mean: `80.382`;
+- final eval termination rate: `0.100`;
+- checkpoint run:
+  `runs/ppo_m56_clearance_margin_reward_seed2456`.
+
+Checkpoint sweeps:
+
+- `runs/m56_m38_margin_benchmark_seed4300`;
+- `runs/m56_broad_margin_benchmark_seed3000`;
+- `runs/m56_fresh_margin_benchmark_seed5200`.
+
+Strict gate:
+
+- corpus: `runs/m56_margin_critical_corpus`;
+- gate: `runs/m56_margin_retention_gate_strict`;
+- status: `needs_iteration`;
+- passed candidates: none.
+
+Gate summary:
+
+| Candidate | Passed | Success delta | Binary regressions | Near-margin regressions | Margin delta mean |
+| --- | --- | ---: | ---: | ---: | ---: |
+| m56_004 | false | 0.00000 | 0 | 1 | -0.000445 |
+| m56_008 | false | -0.00625 | 1 | 4 | -0.001418 |
+| m56_012 | false | -0.01250 | 2 | 7 | -0.000429 |
+| m56_016 | false | -0.00625 | 1 | 6 | -0.001967 |
+| m56_020 | false | 0.00000 | 0 | 1 | -0.002899 |
+| m56_024 | false | -0.01250 | 2 | 0 | -0.003555 |
+| m56_028 | false | 0.00000 | 0 | 0 | -0.001527 |
+| m56_032 | false | -0.00625 | 1 | 4 | -0.000600 |
+
+M56 improves over M55 in one important way: `m56_028` has zero binary
+regressions and zero near-margin regressions. It still fails because combined
+mean margin is slightly negative. The terminal reward therefore moves in the
+right direction, but the scale `2.0` is not enough to produce positive mean
+margin under the strict gate.
+
+## Next Step
+
+M57 should rerun the same schedule with stronger terminal clearance-margin
+reward scale `4.0` while leaving the gate unchanged. If stronger sparse reward
+still fails mean margin retention, the next objective change should be a denser
+near-obstacle clearance signal rather than further data-mixture tuning.

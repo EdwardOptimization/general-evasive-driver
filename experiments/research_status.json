@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 0,
-    "completed": 52,
+    "completed": 53,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m55-conservative-margin-retention_20260521T081002Z/command.log",
+    "command_log": "runs/research/m56-terminal-clearance-margin-reward_20260521T081954Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m55-conservative-margin-retention_20260521T081002Z",
+    "run_dir": "runs/research/m56-terminal-clearance-margin-reward_20260521T081954Z",
     "status": "completed",
-    "task_id": "m55-conservative-margin-retention"
+    "task_id": "m56-terminal-clearance-margin-reward"
   },
   "next_task": {
-    "command": "conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m56_clearance_margin_reward_driver.json --seed 2456 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m56_clearance_margin_reward_seed2456",
-    "hypothesis": "Run conservative margin-retention continuation with terminal clearance-margin reward shaping",
-    "id": "m56-terminal-clearance-margin-reward",
+    "command": "conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m57_clearance_margin_reward_scale4_driver.json --seed 2557 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m57_clearance_margin_reward_scale4_seed2557",
+    "hypothesis": "Run M56 schedule with stronger terminal clearance-margin reward scale 4",
+    "id": "m57-clearance-margin-reward-scale4",
     "kind": "training",
-    "notes": "Promotion still requires strict zero binary and near-margin regressions",
-    "priority": 490,
+    "notes": "Promote only if strict gate improves M56_028 to non-negative mean margin without binary or near-margin regressions",
+    "priority": 500,
     "status": "pending",
-    "success_artifact": "runs/ppo_m56_clearance_margin_reward_seed2456/checkpoint.pt"
+    "success_artifact": "runs/ppo_m57_clearance_margin_reward_scale4_seed2557/checkpoint.pt"
   },
-  "updated_at_utc": "20260521T081910Z"
+  "updated_at_utc": "20260521T082511Z"
 }

@@ -2126,3 +2126,42 @@ Conclusion: M55 fixes the broad binary-regression failure mode but does not
 learn positive clearance-margin retention. The next change should be objective
 level: add a config-gated terminal clearance-margin reward for training while
 leaving actor observations and the strict promotion gate unchanged.
+
+## 20260521T082143Z m56-terminal-clearance-margin-reward
+
+- status: `completed`
+- kind: `training`
+- hypothesis: Run conservative margin-retention continuation with terminal clearance-margin reward shaping
+- command: `conda run -n autodrift python -m autodrift.train_ppo --config configs/ppo_m56_clearance_margin_reward_driver.json --seed 2456 --device cuda --init-checkpoint runs/ppo_m37_multistep_response_aux_seed1637/checkpoints/checkpoint_step_102400.pt --run-dir runs/ppo_m56_clearance_margin_reward_seed2456`
+- returncode: `0`
+- run dir: `runs/research/m56-terminal-clearance-margin-reward_20260521T081954Z`
+- command log: `runs/research/m56-terminal-clearance-margin-reward_20260521T081954Z/command.log`
+- success artifact: `runs/ppo_m56_clearance_margin_reward_seed2456/checkpoint.pt`
+- notes: Promotion still requires strict zero binary and near-margin regressions
+
+Post-validation:
+
+- M38/broad/fresh checkpoint sweeps:
+  `runs/m56_m38_margin_benchmark_seed4300`,
+  `runs/m56_broad_margin_benchmark_seed3000`,
+  `runs/m56_fresh_margin_benchmark_seed5200`;
+- margin corpus:
+  `runs/m56_margin_critical_corpus/seed_margin_deltas.csv`;
+- strict gate:
+  `runs/m56_margin_retention_gate_strict/candidate_gate_summary.csv`;
+- strict gate status: `needs_iteration`;
+- passed candidates: none;
+- `m56_004` has zero binary regressions but one near-margin regression and
+  margin delta mean `-0.000445`;
+- `m56_028` has zero binary regressions and zero near-margin regressions, but
+  margin delta mean remains negative at `-0.001527`;
+- broad and fresh success are mostly retained, but later checkpoints reintroduce
+  broad seed `3037` regressions;
+- compared with M55, terminal margin reward improves the best near-margin
+  regression count from 1 to 0, but does not yet pass mean margin retention.
+
+Conclusion: M56 is not promotable, but it validates the direction. Sparse
+terminal clearance-margin reward moves one checkpoint to zero binary and zero
+near-margin regressions; its remaining blocker is a small negative combined
+mean margin. M57 should increase the terminal margin reward scale to `4.0`
+without weakening the strict gate.
