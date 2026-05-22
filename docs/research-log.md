@@ -5944,3 +5944,54 @@ only deployable P0 history features. Teacher arrays contain braking/yaw/lateral
 capability targets and diagnostic hidden-group metadata for training-time
 weighting only. Next task: M152 objective-only capability-belief sanity before
 any actor integration or PPO.
+
+## 20260522T051000Z m152-capability-belief-objective-sanity
+
+M152 runs an objective-only sanity check on the M151 P0-close
+capability-belief dataset. It does not change actor observations and does not
+start PPO.
+
+New code:
+
+```text
+src/autodrift/capability_belief_objective_sanity.py
+tests/test_capability_belief_objective_sanity.py
+```
+
+Run:
+
+```text
+runs/m152_capability_belief_objective_sanity
+```
+
+Contract:
+
+```text
+student inputs: student_p0_i, student_p0_j
+teacher targets: teacher_capability_i, teacher_capability_j
+targets: braking, yaw, lateral future capability
+hidden diagnostics: metadata only, not actor inputs
+```
+
+Validation improvements, before minus after:
+
+| Optimization seed | Combined | Target | Delta | Pass |
+| ---: | ---: | ---: | ---: | --- |
+| 9600 | 2.607162 | 1.012032 | 3.190260 | true |
+| 9601 | 2.294578 | 0.932582 | 2.723993 | true |
+| 9602 | 2.741131 | 1.146059 | 3.190145 | true |
+
+Mean validation improvements:
+
+| Metric | Improvement |
+| --- | ---: |
+| combined loss | 2.547624 |
+| target loss | 1.030224 |
+| pairwise delta loss | 3.034799 |
+
+Per-target validation improvements are positive for braking, yaw, and lateral
+targets, and their pairwise delta losses are also positive.
+
+Decision: M152 passes objective-only sanity. Admit a guarded capability-belief
+hidden-state integration smoke, but do not claim closed-loop self-identification
+or start broad PPO without behavior retention and wrong-history gates.

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 160,
+    "completed": 161,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m151-capability-belief-target-dataset.md",
+    "command_log": "docs/m152-capability-belief-objective-sanity.md",
     "returncode": 0,
-    "run_dir": "runs/m151_capability_belief_dataset_multiseed",
+    "run_dir": "runs/m152_capability_belief_objective_sanity",
     "status": "completed",
-    "task_id": "m151-capability-belief-target-dataset"
+    "task_id": "m152-capability-belief-objective-sanity"
   },
   "next_task": {
-    "command": "see experiments/manifests/m152-capability-belief-objective-sanity.json",
-    "hypothesis": "A capability-belief auxiliary objective can learn P0-close future-envelope distinctions from deployable P0 history better than direct friction prediction or passive input expansion.",
-    "id": "m152-capability-belief-objective-sanity",
+    "command": "see experiments/manifests/m153-capability-belief-hidden-integration-smoke.json",
+    "hypothesis": "The M152 capability-belief objective can be attached to the recurrent driver training path as a training-time auxiliary belief head while preserving the P0 human-view actor input contract.",
+    "id": "m153-capability-belief-hidden-integration-smoke",
     "kind": "objective_sanity",
-    "notes": "Pending after M151: objective-only sanity before actor integration or PPO",
-    "priority": 1470,
+    "notes": "Pending after M152: guarded integration smoke before PPO or driver promotion",
+    "priority": 1480,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T033000Z"
+  "updated_at_utc": "20260522T051000Z"
 }

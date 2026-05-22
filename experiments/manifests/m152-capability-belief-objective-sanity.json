@@ -5,7 +5,7 @@
   ],
   "commands": [
     {
-      "command": "Run an objective-only sanity check on the M151 capability-belief dataset without changing actor inputs or starting PPO.",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.capability_belief_objective_sanity --dataset-npz runs/m151_capability_belief_dataset_multiseed/capability_belief_dataset.npz --optimization-seeds 9600,9601,9602 --train-fraction 0.70 --steps 300 --batch-size 64 --learning-rate 0.0003 --weight-decay 0.001 --hidden-dim 96 --delta-loss-coef 0.5 --device cpu --run-dir runs/m152_capability_belief_objective_sanity",
       "name": "m152_capability_belief_objective_sanity"
     }
   ],
@@ -22,8 +22,28 @@
     {
       "path": "docs/m152-capability-belief-objective-sanity.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m152_capability_belief_objective_sanity/summary.json",
+      "type": "objective_summary"
+    },
+    {
+      "path": "runs/m152_capability_belief_objective_sanity/seed_summary.csv",
+      "type": "seed_summary"
+    },
+    {
+      "path": "runs/m152_capability_belief_objective_sanity/loss_summary.csv",
+      "type": "loss_summary"
     }
   ],
+  "result": {
+    "admission_decision": "admit_for_guarded_actor_hidden_state_integration_test",
+    "mean_val_combined_loss_improvement": 2.547624,
+    "mean_val_delta_loss_improvement": 3.034799,
+    "mean_val_target_loss_improvement": 1.030224,
+    "objective_pass": true,
+    "seed_pass_count": 3
+  },
   "success_criteria": [
     "consume the M151 multiseed capability-belief dataset",
     "report before/after capability target loss across at least three optimization seeds",

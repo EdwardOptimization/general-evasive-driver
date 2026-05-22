@@ -139,3 +139,12 @@ features (`1800` dims = 25 frames x 72 features) and three teacher capability
 targets for braking, yaw, and lateral response. Hidden diagnostics are included
 only for training-time weighting/analysis. The next step is objective-only
 sanity on this dataset before any actor or PPO integration.
+
+M152 passed that objective-only sanity check. A deployable-history student
+reduced validation combined, target, and pairwise-delta losses in `3/3`
+optimization seeds on the M151 dataset. Mean validation improvements were:
+combined `2.547624`, target `1.030224`, and pairwise delta `3.034799`.
+This admits a guarded capability-belief hidden-state integration smoke, but it
+does not yet prove closed-loop self-identification or driver behavior. PPO and
+driver promotion remain blocked until behavior retention and wrong-history gates
+pass.

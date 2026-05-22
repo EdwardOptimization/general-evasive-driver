@@ -1,0 +1,35 @@
+{
+  "baseline_checkpoints": [
+    "runs/m152_capability_belief_objective_sanity/summary.json",
+    "runs/m151_capability_belief_dataset_multiseed/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "Prototype a guarded capability-belief hidden-state integration path without changing actor inputs or starting broad PPO.",
+      "name": "m153_capability_belief_hidden_integration_smoke"
+    }
+  ],
+  "decision_rule": "Proceed beyond integration smoke only if the capability-belief objective is wired to recurrent driver features without actor-input leakage and if behavior/intervention gates remain explicitly required before PPO promotion.",
+  "failure_criteria": [
+    "hidden parameters or hidden diagnostics become deployable actor inputs",
+    "capability targets replace the policy action objective without a behavior-retention guard",
+    "implementation starts broad PPO before a small integration smoke and contract tests",
+    "M152 target and delta loss accounting is dropped"
+  ],
+  "hypothesis": "The M152 capability-belief objective can be attached to the recurrent driver training path as a training-time auxiliary belief head while preserving the P0 human-view actor input contract.",
+  "id": "m153-capability-belief-hidden-integration-smoke",
+  "required_artifacts": [
+    {
+      "path": "docs/m153-capability-belief-hidden-integration-smoke.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "add a config-gated capability-belief auxiliary path or hidden-state objective harness",
+    "prove actor observations remain current P0 human-view deployable fields only",
+    "run a small smoke that reports capability target and pairwise delta losses",
+    "keep PPO or driver promotion blocked until behavior retention and wrong-history gates run",
+    "document whether the integration is ready for guarded PPO continuation"
+  ],
+  "type": "objective_sanity"
+}
