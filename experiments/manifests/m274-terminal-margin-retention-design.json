@@ -1,0 +1,83 @@
+{
+  "id": "m274-terminal-margin-retention-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m272_m264_to_m271_interpolation_boundary/checkpoints/alpha_0_01025.pt"
+    ],
+    "parent_dataset": [
+      "runs/m273_m272_boundary_trust_region_audit/row16_alpha_audit.csv",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m273-m272-boundary-trust-region-audit.json",
+      "docs/m273-m272-boundary-trust-region-audit.md"
+    ],
+    "parent_objective": [
+      "design terminal-margin retention for fragile closed-loop proof rows"
+    ],
+    "derived_from": [
+      "m273-m272-boundary-trust-region-audit"
+    ],
+    "blocked_by": [
+      "m273-m272-boundary-trust-region-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m274-terminal-margin-retention-design.md",
+  "public_gates": [
+    "design a terminal-margin retention objective or harness",
+    "preserve actor input contract",
+    "include M183/M170 row16 as a hard retention row",
+    "do not run PPO"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M274",
+    "do not run a new actor update before the retention design is validated",
+    "do not loosen M183/M170 row16",
+    "do not use hidden params or privileged actor inputs",
+    "do not claim promotion"
+  ],
+  "hypothesis": "Adding an explicit terminal-margin retention layer for fragile closed-loop rows can prevent M271-style objective improvements from crossing near-zero normal-history clearance margins.",
+  "success_criteria": [
+    "specify how terminal-margin rows are represented and weighted",
+    "define the loss or gate that protects near-zero normal-history margins",
+    "identify required code changes or explain why existing tools are sufficient",
+    "pre-register the first guarded actor-update attempt that uses the retention layer",
+    "no PPO is run"
+  ],
+  "failure_criteria": [
+    "retention design only anchors first actions and ignores terminal margin",
+    "design requires actor privileged inputs",
+    "design permits a candidate that fails M183/M170 row16",
+    "PPO or actor update is run before design validation"
+  ],
+  "commands": [
+    {
+      "name": "m274_design",
+      "command": "Design terminal-margin retention from M273 evidence before any new update."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m274-terminal-margin-retention-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m272_m264_to_m271_interpolation_boundary/checkpoints/alpha_0_01025.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m273-m272-boundary-trust-region-audit.md",
+    "runs/m273_m272_boundary_trust_region_audit/summary.json"
+  ],
+  "decision_rule": "M274 should produce a concrete terminal-margin retention design and only then admit a tightly scoped actor-update or interpolation experiment.",
+  "next_blocker": "pending M274 terminal-margin retention design"
+}

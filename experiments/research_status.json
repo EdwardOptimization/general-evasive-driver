@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 281,
+    "completed": 282,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m272-m271-interpolation-retention-probe.md",
+    "command_log": "docs/m273-m272-boundary-trust-region-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m272_selected_m183_m170_replay_gate",
+    "run_dir": "runs/m273_m272_boundary_trust_region_audit",
     "status": "completed",
-    "task_id": "m272-m271-interpolation-retention-probe"
+    "task_id": "m273-m272-boundary-trust-region-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m273-m272-boundary-trust-region-audit.json",
-    "hypothesis": "M272's safe alpha is limited by a terminal-margin cliff on M183/M170 row 16; future learning needs a window-aware terminal-margin or trajectory-retention guard rather than another snippet-only actor update.",
-    "id": "m273-m272-boundary-trust-region-audit",
-    "kind": "gate",
-    "notes": "Pending: audit row16 trust-region cliff; PPO remains blocked",
-    "priority": 2680,
+    "command": "see experiments/manifests/m274-terminal-margin-retention-design.json",
+    "hypothesis": "Adding an explicit terminal-margin retention layer for fragile closed-loop rows can prevent M271-style objective improvements from crossing near-zero normal-history clearance margins.",
+    "id": "m274-terminal-margin-retention-design",
+    "kind": "infrastructure",
+    "notes": "Pending: design terminal-margin retention; PPO remains blocked",
+    "priority": 2690,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T175759Z"
+  "updated_at_utc": "20260522T180319Z"
 }
