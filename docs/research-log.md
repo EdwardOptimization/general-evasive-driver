@@ -5655,3 +5655,65 @@ docs/mhtml-body-feedback-input-revision-2026-05-22.md
 
 Next task changed from guarded PPO preflight to M146 body-feedback observability
 audit.
+
+## 20260522T021500Z m146-body-feedback-observability-audit
+
+M146 separates the latest input question into post-slip detection, pre-limit
+future-envelope prediction, and ambiguous H1 body-history search before any PPO
+restart.
+
+New code:
+
+```text
+src/autodrift/body_feedback_observability_audit.py
+tests/test_body_feedback_observability_audit.py
+```
+
+Profiles:
+
+```text
+passenger_body_response: yaw_rate, ax, ay
+passenger_body_scene: passenger body response plus road/obstacle geometry
+h1_body_only: yaw/IMU, actuator states, previous commands, scene
+p0_current_baseline: current no-wheel human-view actor input
+```
+
+Runs:
+
+```text
+runs/m146_body_feedback_seed9480
+runs/m146_body_feedback_seed9481
+runs/m146_body_feedback_seed9482
+runs/m146_body_feedback_multiseed
+```
+
+Offline post-slip proxy:
+
+```text
+|beta| >= 0.06 rad
+```
+
+This label is used only for supervised diagnosis; it is not an actor input.
+
+Coverage:
+
+```text
+post_slip samples: 122
+pre_limit_nonpost samples: 2077
+ambiguous H1 candidate pairs: 434 total, 150 exported
+```
+
+Multiseed deltas:
+
+| Delta | Post-slip AUC | Post-slip balanced acc. | Pre-limit R2 | Pre-limit MAE lift |
+| --- | ---: | ---: | ---: | ---: |
+| passenger body+scene - body only | 0.166508 | 0.121409 | 0.014227 | -0.007046 |
+| H1 - passenger body+scene | -0.027005 | -0.010327 | -0.044467 | -0.011010 |
+| P0 - H1 | 0.014683 | 0.093991 | 0.004110 | 0.005291 |
+
+Decision: complete M146 as a diagnostic negative input audit. Body+scene helps
+detect high-sideslip-tail states, but command/actuator/body H1 history does not
+improve pre-limit future-envelope prediction over passenger body+scene. The
+ambiguous-history search finds many close-H1-history/different-envelope pairs,
+so do not promote H1 and do not restart PPO from a new profile based on this
+evidence. Keep P0 as the current deployable human-view baseline.

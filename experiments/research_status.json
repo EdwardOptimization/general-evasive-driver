@@ -1,28 +1,19 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 154,
+    "completed": 155,
     "failed": 0,
-    "pending": 1,
+    "pending": 0,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m145-driver-like-speed-cue-audit.md",
+    "command_log": "docs/m146-body-feedback-observability-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m145_speed_cue_learned_multiseed",
+    "run_dir": "runs/m146_body_feedback_multiseed",
     "status": "completed",
-    "task_id": "m145-driver-like-speed-cue-audit"
+    "task_id": "m146-body-feedback-observability-audit"
   },
-  "next_task": {
-    "command": "see experiments/manifests/m146-body-feedback-observability-audit.json",
-    "hypothesis": "Body-only command/actuator/ax/ay/yaw history may detect already-visible sliding but may be insufficient for pre-limit future-envelope prediction",
-    "id": "m146-body-feedback-observability-audit",
-    "kind": "gate",
-    "notes": "Pending after latest MHTML: separate post-slip detection, pre-limit envelope prediction, and ambiguous body-history search",
-    "priority": 1410,
-    "status": "pending",
-    "success_artifact": ""
-  },
-  "updated_at_utc": "20260522T013834Z"
+  "next_task": null,
+  "updated_at_utc": "20260522T021500Z"
 }

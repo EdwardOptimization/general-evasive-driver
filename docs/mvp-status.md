@@ -67,3 +67,41 @@ The MVP is not a sim-to-real or safety-certified controller. Remaining research
 work includes broader obstacle geometry, stronger balanced sampling, more
 robust low-friction figure-eight tracking, and a true NMPC baseline once the
 scenario surface stabilizes.
+
+## Current Research Frontier
+
+As of 2026-05-22, the active research frontier is no longer MVP viability. The
+project is testing whether a deployable recurrent policy can use its own
+history of commands and vehicle response for online capability-envelope
+self-identification.
+
+Recent input audits:
+
+```text
+M143: supervised driver-like profile audit
+M144: learned-history repeat
+M145: speed-cue audit
+M146: body-feedback observability audit
+```
+
+M146 artifacts:
+
+```text
+runs/m146_body_feedback_seed9480/summary.json
+runs/m146_body_feedback_seed9481/summary.json
+runs/m146_body_feedback_seed9482/summary.json
+runs/m146_body_feedback_multiseed/summary.json
+docs/m146-body-feedback-observability-audit.md
+```
+
+Key M146 aggregate results:
+
+| Delta | Post-slip AUC delta | Pre-limit R2 delta |
+| --- | ---: | ---: |
+| passenger body+scene - body only | 0.166508 | 0.014227 |
+| H1 - passenger body+scene | -0.027005 | -0.044467 |
+| P0 - H1 | 0.014683 | 0.004110 |
+
+M146 found `434` ambiguous H1 body-history candidate pairs across three seeds,
+with `150` rows exported. Decision: keep P0 as the current human-view input
+contract and do not restart PPO from a new narrower H1 profile.
