@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 215,
+    "completed": 216,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m206-guarded-stage6-ppo-from-m204.md",
+    "command_log": "docs/m207-stage6-protected-key-failure-audit.md",
     "returncode": 0,
     "run_dir": "runs/m206_critical_key_seed9944",
     "status": "completed",
-    "task_id": "m206-guarded-stage6-ppo-from-m204"
+    "task_id": "m207-stage6-protected-key-failure-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m207-stage6-protected-key-failure-audit.json",
-    "hypothesis": "M206 improves fixed objective and broad retention gates but fails the protected key, so the failure mechanism must be audited before any more PPO.",
-    "id": "m207-stage6-protected-key-failure-audit",
-    "kind": "gate",
-    "notes": "Do not run PPO; audit the 9944|perturbed|28|28 failure and pre-register any guarded retry or design change.",
-    "priority": 2020,
+    "command": "see experiments/manifests/m208-stage6-protected-key-retry-from-m204.json",
+    "hypothesis": "M206 failed protected-key boundary acceptance but not broad behavior or replay, so one fresh-seed stage6 retry from M204 can test seed-specific update noise.",
+    "id": "m208-stage6-protected-key-retry-from-m204",
+    "kind": "driver_candidate",
+    "notes": "Run one retry from M204 only; if protected key fails again, stop same PPO recipe and design a protected-key-aware objective or config.",
+    "priority": 2030,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T095349Z"
+  "updated_at_utc": "20260522T095809Z"
 }

@@ -7474,3 +7474,31 @@ Protected-key diagnosis:
 Decision: M206 is rejected. Do not run stage6 repeats or longer PPO
 continuation until M207 audits the protected-key failure and pre-registers any
 guarded retry or design change.
+
+## 20260522T095809Z m207-stage6-protected-key-failure-audit
+
+M207 audited the M206 protected-key failure without running PPO or actor
+updates.
+
+Artifacts:
+
+- `runs/m206_critical_key_seed9944/guard_results.csv`
+- `runs/m206_critical_key_seed9944/m206_stage6_candidates.csv`
+- `docs/m207-stage6-protected-key-failure-audit.md`
+- `experiments/manifests/m208-stage6-protected-key-retry-from-m204.json`
+
+Findings:
+
+- M206 does not fail due to broad behavior collapse: fixed objective improves,
+  smoke eval termination is `0.00`, behavior seeds keep success `0.8625`, and
+  replay gates retain `16/16`, `17/17`, and `14/14` drops.
+- On protected key `9944|perturbed|28|28`, M206 keeps normal success true and
+  margin gap large (`0.097903`).
+- The selected key's normal margin moves to `0.207450`, above the reference
+  manifest's `max_normal_margin = 0.2`, so it leaves the pre-registered
+  near-boundary acceptance window.
+
+Decision: keep M204 as current best. Admit exactly one fresh-seed stage6 retry
+from M204 to test seed-specific update noise. If the retry also fails the
+protected key, stop repeating the same PPO recipe and design a protected-key
+aware objective or config.

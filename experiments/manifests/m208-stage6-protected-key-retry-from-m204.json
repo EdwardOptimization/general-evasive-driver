@@ -1,0 +1,58 @@
+{
+  "id": "m208-stage6-protected-key-retry-from-m204",
+  "type": "driver_candidate",
+  "hypothesis": "M206 failed the protected key by moving the selected key outside the near-boundary max_normal_margin window, while fixed objective, behavior, replay, normal success, and margin gap remained strong. One fresh-seed stage6 retry from M204 can distinguish seed-specific update noise from systematic stage6 protected-key washout.",
+  "success_criteria": [
+    "start from runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt",
+    "run only one fresh stage6 retry seed before any repeat or longer continuation",
+    "use configs/ppo_m196_guarded_from_m194_smoke.json unchanged",
+    "keep M194 as the strong action anchor",
+    "keep actor inputs unchanged",
+    "preserve behavior seeds 9505 and 9506",
+    "preserve protected key 9944|perturbed|28|28 with 1/1 accepted cases",
+    "preserve old M183 M168/M170 replay gates and refreshed M193 M189 replay gate",
+    "compare fixed M193 objective against M204, M206, and the retry before accepting any repeat"
+  ],
+  "failure_criteria": [
+    "run multiple retry seeds before the first retry gate passes",
+    "chain from M206",
+    "run a longer PPO continuation directly",
+    "drop any M183 or M193 replay row",
+    "lose behavior or protected-key retention",
+    "change actor observation inputs",
+    "promote based on fixed objective improvement alone",
+    "repeat the same PPO recipe again if this retry also fails the protected key"
+  ],
+  "commands": [
+    {
+      "name": "m208_stage6_retry",
+      "command": "Run one 1024-step guarded PPO stage6 retry from runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt using configs/ppo_m196_guarded_from_m194_smoke.json."
+    },
+    {
+      "name": "m208_fixed_eval",
+      "command": "Compare M204, M206, and the M208 retry on the fixed M193 M189 corpus."
+    },
+    {
+      "name": "m208_retention_gates",
+      "command": "Run old M183 replay, refreshed M193 replay, behavior seeds 9505/9506, and protected-key gates before admitting a stage6 repeat."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m208-stage6-protected-key-retry-from-m204.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt",
+    "runs/ppo_m206_stage6_from_m204_seed5212/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m207-stage6-protected-key-failure-audit.md",
+    "runs/m206_critical_key_seed9944/guard_results.csv",
+    "runs/m206_fixed_batch_outcome_eval_seed37/summary.json",
+    "runs/m206_behavior_gate_seed9505/policy_summary.csv",
+    "runs/m206_behavior_gate_seed9506/policy_summary.csv"
+  ],
+  "decision_rule": "If the retry fails the protected key, do not repeat the same PPO recipe again; switch to a protected-key-aware objective or config design."
+}

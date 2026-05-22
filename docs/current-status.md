@@ -186,19 +186,23 @@ slightly stronger action-level sensitivity.
   old/refreshed replay gates, but fails protected key
   `9944|perturbed|28|28` with `0/1` accepted cases. M206 is rejected; do not
   continue PPO until the protected-key failure is audited.
+- M207: audits M206's protected-key failure. The selected key keeps normal
+  success and large margin gap, but its normal margin moves to `0.207450`,
+  above the reference `max_normal_margin = 0.2` boundary window. M204 remains
+  the current best; one fresh-seed stage6 retry from M204 is pre-registered.
 
 Current blocker:
 
 ```text
-protected-key failure audit before any further PPO continuation
+one protected-key-guarded stage6 retry from M204 before any further continuation
 ```
 
 ## Near-Term Rule
 
 M206 is rejected despite better fixed objective because the protected-key gate
-failed. Do not run PPO or actor updates until M207 audits the failure mechanism
-and pre-registers any guarded retry or design change. M204 remains the current
-best retained stage5 checkpoint.
+failed. M207 permits exactly one fresh-seed stage6 retry from M204. If that
+retry fails the protected key, stop repeating the same PPO recipe and design a
+protected-key-aware objective or config before any further PPO.
 
 ## Sensor Profile Policy
 
