@@ -81,6 +81,31 @@
     "docs/m286-rejected-trajectory-anchor-balance-sweep.md",
     "docs/m287-balanced-rejected-trajectory-repeat.md"
   ],
-  "decision_rule": "M288 is an audit milestone. It cannot promote a driver checkpoint and should unblock only one explicitly registered proof-retention repair recipe.",
-  "next_blocker": "pending M288 balanced repeat seed fragility audit"
+  "results": {
+    "run_dir": "runs/m288_balanced_repeat_seed_fragility_audit",
+    "m286_safe_alpha": 0.5,
+    "m287_safe_alpha": 0.005,
+    "safe_alpha_collapse_ratio": 0.01,
+    "m286_raw_failed_rows": [
+      "10"
+    ],
+    "m287_raw_failed_rows": [
+      "5",
+      "9",
+      "10",
+      "16"
+    ],
+    "m287_first_refined_failure_alpha": 0.01,
+    "m287_first_refined_failure_rows": [
+      "16"
+    ],
+    "row16_base_margin": 0.0000006356749755465074,
+    "row16_m286_a500_margin": 0.0000852898725927087,
+    "row16_m287_a005_margin": 0.00000015807331466000107,
+    "row16_m287_a010_margin": -0.00000037306505529244305,
+    "recommended_next_repair": "row16-aware lower-risk balanced repeat"
+  },
+  "decision_rule": "M288 is an audit milestone. It selects a row16-aware balanced repeat calibration and keeps PPO blocked.",
+  "decision": "repair_with_row16_aware_balanced_repeat",
+  "next_blocker": "m289-row16-aware-balanced-repeat-calibration"
 }

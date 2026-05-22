@@ -1,0 +1,88 @@
+{
+  "id": "m289-row16-aware-balanced-repeat-calibration",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m286_rejected_trajectory_anchor_balance_sweep/repeat2_interpolation/checkpoints/alpha_0_5.pt",
+      "runs/m287_balanced_rejected_trajectory_repeat/interpolation_refine/checkpoints/alpha_0_005.pt"
+    ],
+    "parent_dataset": [
+      "runs/m288_balanced_repeat_seed_fragility_audit/fragile_row_action_margin_audit.csv",
+      "runs/m286_rejected_trajectory_anchor_balance_sweep/anchors/repeat2/combined_recovery_rejected_anchor.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m288-balanced-repeat-seed-fragility-audit.json",
+      "docs/m288-balanced-repeat-seed-fragility-audit.md"
+    ],
+    "parent_objective": [
+      "row16-aware lower-risk balanced repeat before any PPO"
+    ],
+    "derived_from": [
+      "m288-balanced-repeat-seed-fragility-audit"
+    ],
+    "blocked_by": [
+      "m288-balanced-repeat-seed-fragility-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m289-row16-aware-balanced-repeat-calibration.md",
+  "public_gates": [
+    "do not run PPO",
+    "start from M272 or the registered M286 base as specified before execution",
+    "calibrate a row16-aware lower-risk repeat recipe",
+    "gate M183/M170 row16 and M267/M264 first",
+    "run broader public gates only if row16 and M267/M264 pass with non-micro exact improvement"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M289",
+    "do not change actor inputs",
+    "do not ignore row16 terminal-margin slack",
+    "do not promote a candidate that only passes by alpha near zero",
+    "do not drop M267/M264 current-family retention"
+  ],
+  "hypothesis": "A row16-aware lower-risk balanced recipe can reduce the M287 seed-fragile safe-alpha collapse while retaining the M267/M264 rejected-history direction.",
+  "success_criteria": [
+    "candidate preserves M183/M170 row16 positive terminal margin and M267/M264 success drops",
+    "candidate improves exact M270 by more than M287 alpha 0.005 without requiring a near-zero alpha",
+    "candidate passes broader public replay protected-key and behavior gates before promotion",
+    "actor input contract remains unchanged"
+  ],
+  "failure_criteria": [
+    "row16 still collapses before material objective improvement",
+    "candidate preserves row16 but loses M267/M264 success drops",
+    "PPO is run",
+    "actor observation inputs change"
+  ],
+  "commands": [
+    {
+      "name": "m289_calibration",
+      "command": "Run a bounded row16-aware balanced repeat calibration and gate row16 plus M267/M264 before broader checks."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m289-row16-aware-balanced-repeat-calibration.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m289_row16_aware_balanced_repeat_calibration/summary.json",
+      "type": "calibration_summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m286_rejected_trajectory_anchor_balance_sweep/repeat2_interpolation/checkpoints/alpha_0_5.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m288-balanced-repeat-seed-fragility-audit.md",
+    "runs/m288_balanced_repeat_seed_fragility_audit/summary.json"
+  ],
+  "decision_rule": "M289 may only promote or admit PPO if a row16-aware repeat candidate passes first and full public gates with non-micro exact M270 improvement. Otherwise PPO remains blocked.",
+  "next_blocker": "pending M289 row16-aware balanced repeat calibration"
+}

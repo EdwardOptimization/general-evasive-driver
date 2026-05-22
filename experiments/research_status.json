@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 296,
+    "completed": 297,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m287-balanced-rejected-trajectory-repeat.md",
+    "command_log": "docs/m288-balanced-repeat-seed-fragility-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m287_balanced_rejected_trajectory_repeat",
+    "run_dir": "runs/m288_balanced_repeat_seed_fragility_audit",
     "status": "completed",
-    "task_id": "m287-balanced-rejected-trajectory-repeat"
+    "task_id": "m288-balanced-repeat-seed-fragility-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m288-balanced-repeat-seed-fragility-audit.json",
-    "hypothesis": "The M287 safe-alpha collapse is caused by seed-sensitive drift on old M183/M170 fragile rows rather than loss of the M267/M264 current-family rejected-history direction.",
-    "id": "m288-balanced-repeat-seed-fragility-audit",
-    "kind": "gate",
-    "notes": "Pending: compare M286 and M287 failed old-surface rows before next repair",
-    "priority": 2830,
+    "command": "see experiments/manifests/m289-row16-aware-balanced-repeat-calibration.json",
+    "hypothesis": "A row16-aware lower-risk balanced recipe can reduce the M287 seed-fragile safe-alpha collapse while retaining the M267/M264 rejected-history direction.",
+    "id": "m289-row16-aware-balanced-repeat-calibration",
+    "kind": "driver_candidate",
+    "notes": "Pending: protect row16 and M267/M264 before broader gates",
+    "priority": 2840,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T192817Z"
+  "updated_at_utc": "20260522T193134Z"
 }
