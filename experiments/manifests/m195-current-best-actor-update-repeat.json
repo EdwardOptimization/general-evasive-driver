@@ -1,0 +1,48 @@
+{
+  "id": "m195-current-best-actor-update-repeat",
+  "type": "driver_candidate",
+  "hypothesis": "M194 is a positive single-seed tiny actor update from M189, but a single actor-update seed should not immediately admit PPO. Repeat the same low-drift actor-coupling recipe from M189 on fresh seeds before any guarded PPO smoke.",
+  "success_criteria": [
+    "start every repeat from runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt",
+    "reuse the M194 update recipe without relaxing anchors or gates",
+    "run no PPO",
+    "improve the M193 M189 fixed objective on independent fixed-batch eval",
+    "preserve behavior seeds 9505 and 9506",
+    "preserve protected key 9944|perturbed|28|28",
+    "preserve M183 M168, M183 M170, and M193 M189 replay gates"
+  ],
+  "failure_criteria": [
+    "chain from M194 before repeat evidence",
+    "run PPO before repeat actor-update evidence",
+    "accept a repeat that loses any old or refreshed replay row",
+    "accept objective gain with behavior or protected-key regression"
+  ],
+  "commands": [
+    {
+      "name": "m195_actor_update_repeats",
+      "command": "Repeat the M194 actor-coupling recipe from M189 with fresh seeds."
+    },
+    {
+      "name": "m195_repeat_retention_gates",
+      "command": "Run fixed objective, replay, behavior, and protected-key gates for all accepted repeats."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m195-current-best-actor-update-repeat.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt",
+    "runs/m194_m189_actor_coupling_anchor100_s20_seed9850/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m194_m189_actor_coupling_anchor100_s20_seed9850/summary.json",
+    "runs/m194_fixed_batch_outcome_eval_seed37/summary.json",
+    "runs/m194_m193_m189_replay_gate_seed9630/summary.json",
+    "runs/m194_behavior_gate_seed9505/policy_summary.csv",
+    "runs/m194_behavior_gate_seed9506/policy_summary.csv"
+  ],
+  "decision_rule": "Only repeat-stable actor updates may admit a tiny guarded PPO smoke; otherwise keep actor-update design blocked."
+}

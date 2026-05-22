@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 202,
+    "completed": 203,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m193-current-family-boundary-objective-sanity.md",
+    "command_log": "docs/m194-current-best-guarded-actor-update.md",
     "returncode": 0,
-    "run_dir": "runs/m193_m189_boundary_replay_sanity_seed9630",
+    "run_dir": "runs/m194_m189_actor_coupling_anchor100_s20_seed9850",
     "status": "completed",
-    "task_id": "m193-current-family-boundary-objective-sanity"
+    "task_id": "m194-current-best-guarded-actor-update"
   },
   "next_task": {
-    "command": "see experiments/manifests/m194-current-best-guarded-actor-update.json",
-    "hypothesis": "M193 converted the refreshed current-family proof surface into replay-aligned objective corpora, so a tiny anchored actor update from M189 can be tested before PPO.",
-    "id": "m194-current-best-guarded-actor-update",
+    "command": "see experiments/manifests/m195-current-best-actor-update-repeat.json",
+    "hypothesis": "M194 is positive as a single-seed actor update, so repeat the same low-drift recipe before any PPO smoke.",
+    "id": "m195-current-best-actor-update-repeat",
     "kind": "driver_candidate",
-    "notes": "No PPO; run a low-drift M189 actor update and reject any behavior, protected-key, M183 replay, or M193 replay regression.",
-    "priority": 1890,
+    "notes": "No PPO; repeat from M189 on fresh actor-update seeds and reject any behavior, protected-key, M183 replay, or M193 replay regression.",
+    "priority": 1900,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T083248Z"
+  "updated_at_utc": "20260522T083751Z"
 }

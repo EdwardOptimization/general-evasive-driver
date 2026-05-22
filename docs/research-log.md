@@ -6991,3 +6991,37 @@ Decision: M193 admits a current-best guarded actor-update design only. PPO
 remains blocked until a low-drift M189 actor update improves the refreshed
 objective and preserves behavior, protected key, old M183 replay, and refreshed
 M193 replay.
+
+## 20260522T083751Z m194-current-best-guarded-actor-update
+
+M194 ran one tiny anchored actor-coupling update from current-best M189 using
+the M193 M189 boundary-outcome corpus. No PPO was run.
+
+Artifacts:
+
+- `runs/m194_m189_actor_coupling_anchor100_s20_seed9850`
+- `runs/m194_fixed_batch_outcome_eval_seed37`
+- `runs/m194_m183_m168_replay_gate_seed9510`
+- `runs/m194_m183_m170_replay_gate_seed9510`
+- `runs/m194_m193_m189_replay_gate_seed9630`
+- `runs/m194_behavior_gate_seed9505`
+- `runs/m194_behavior_gate_seed9506`
+- `runs/m194_critical_key_seed9944`
+- `docs/m194-current-best-guarded-actor-update.md`
+
+Results:
+
+- training eval M193 loss improves `0.162431 -> 0.160765`;
+- independent fixed M193 loss improves `0.160647 -> 0.159008`;
+- after action-anchor MSE is `0.000014546`;
+- M183 M168 replay retains `16/16` success drops;
+- M183 M170 replay retains `17/17` success drops;
+- M193 M189 replay retains `14/14` success drops;
+- behavior seeds `9505` and `9506` keep success `0.8625`;
+- reset-hidden and zero-all-response still degrade success to `0.85` and
+  `0.80`;
+- protected key `9944|perturbed|28|28` passes.
+
+Decision: M194 is positive as a single-seed actor update, but not enough to run
+PPO. Repeat the same actor-update recipe from M189 on fresh seeds before any
+guarded PPO smoke.

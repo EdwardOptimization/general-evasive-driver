@@ -20,18 +20,62 @@
   ],
   "commands": [
     {
-      "name": "m194_actor_update_design",
-      "command": "Run a tiny anchored outcome_intervention_optimize update from M189 using runs/m193_m189_boundary_outcome_corpus_seed9630/boundary_outcome_corpus.npz."
+      "name": "m194_actor_update_seed9850",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_optimize --init-checkpoint runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt --snippet-npz runs/m193_m189_boundary_outcome_corpus_seed9630/boundary_outcome_corpus.npz --device cpu --steps 20 --batch-size 64 --learning-rate 0.0001 --logprob-margin 0.05 --seed 9850 --grad-clip-norm 1.0 --log-interval 5 --eval-batch-size 64 --eval-batches 30 --eval-seed 0 --train-scope actor_coupling --action-anchor-checkpoint runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt --action-anchor-env-config configs/m121_human_view_zero_obstacle_relvel.json --action-anchor-coef 100.0 --action-anchor-episodes 30 --action-anchor-seed 9850 --action-anchor-horizon-steps 15 --action-anchor-sample-stride 3 --action-anchor-max-samples 800 --action-anchor-batch-size 256 --run-dir runs/m194_m189_actor_coupling_anchor100_s20_seed9850"
     },
     {
-      "name": "m194_retention_gates",
-      "command": "Evaluate behavior, protected key, old M183 replay, and new M193 replay before admitting any PPO."
+      "name": "m194_fixed_batch_eval",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_eval --snippet-npz runs/m193_m189_boundary_outcome_corpus_seed9630/boundary_outcome_corpus.npz --checkpoint-policy m189_5193=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt --checkpoint-policy m194_s20=runs/m194_m189_actor_coupling_anchor100_s20_seed9850/optimized_checkpoint.pt --device cpu --batch-size 64 --batches 50 --seed 37 --logprob-margin 0.05 --run-dir runs/m194_fixed_batch_outcome_eval_seed37"
+    },
+    {
+      "name": "m194_old_new_replay_gates",
+      "command": "Run M183 M168, M183 M170, and M193 M189 boundary replay gates comparing M189 to M194."
+    },
+    {
+      "name": "m194_behavior_and_key",
+      "command": "Run behavior seeds 9505/9506 and protected key 9944|perturbed|28|28."
     }
   ],
   "required_artifacts": [
     {
       "path": "docs/m194-current-best-guarded-actor-update.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m194_m189_actor_coupling_anchor100_s20_seed9850/optimized_checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m194_m189_actor_coupling_anchor100_s20_seed9850/summary.json",
+      "type": "objective_summary"
+    },
+    {
+      "path": "runs/m194_fixed_batch_outcome_eval_seed37/summary.json",
+      "type": "fixed_eval_summary"
+    },
+    {
+      "path": "runs/m194_m183_m168_replay_gate_seed9510/summary.json",
+      "type": "m183_m168_replay"
+    },
+    {
+      "path": "runs/m194_m183_m170_replay_gate_seed9510/summary.json",
+      "type": "m183_m170_replay"
+    },
+    {
+      "path": "runs/m194_m193_m189_replay_gate_seed9630/summary.json",
+      "type": "m193_m189_replay"
+    },
+    {
+      "path": "runs/m194_behavior_gate_seed9505/policy_summary.csv",
+      "type": "behavior_seed9505"
+    },
+    {
+      "path": "runs/m194_behavior_gate_seed9506/policy_summary.csv",
+      "type": "behavior_seed9506"
+    },
+    {
+      "path": "runs/m194_critical_key_seed9944/summary.json",
+      "type": "protected_key"
     }
   ],
   "baseline_checkpoints": [
@@ -44,5 +88,23 @@
     "runs/m191_behavior_gate_seed9505/policy_summary.csv",
     "runs/m191_behavior_gate_seed9506/policy_summary.csv"
   ],
-  "decision_rule": "Only a low-drift actor update that improves the refreshed objective and preserves behavior plus both old and new replay surfaces may admit a guarded PPO smoke."
+  "results": {
+    "optimized_checkpoint": "runs/m194_m189_actor_coupling_anchor100_s20_seed9850/optimized_checkpoint.pt",
+    "loss_mean_improvement": 0.0016655266284942571,
+    "independent_loss_mean_improvement": 0.001638772189617172,
+    "after_action_anchor_mse": 0.00001454592802474508,
+    "m183_m168_replay_gate_pass": true,
+    "m183_m168_success_drop_count": 16,
+    "m183_m170_replay_gate_pass": true,
+    "m183_m170_success_drop_count": 17,
+    "m193_m189_replay_gate_pass": true,
+    "m193_m189_success_drop_count": 14,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "reset_success": 0.85,
+    "zero_all_success": 0.80,
+    "protected_key_pass": true
+  },
+  "decision_rule": "Only a low-drift actor update that improves the refreshed objective and preserves behavior plus both old and new replay surfaces may admit a guarded PPO smoke.",
+  "decision": "admit_actor_update_repeat"
 }

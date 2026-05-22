@@ -111,19 +111,22 @@ slightly stronger action-level sensitivity.
   objective corpora. All three pass 3-seed objective sanity and replay gates.
   The current-best M189 corpus has `14` rows across `11` physical pairs and
   `2` targets, with `14/14` replayed success drops retained.
+- M194: a single-seed tiny actor-coupling update from M189 improves the M193
+  fixed objective by `0.001639` on independent eval, preserves behavior seeds
+  `9505` and `9506`, passes the protected key, retains old M183 replay drops
+  `16/16` and `17/17`, and retains refreshed M193 replay drops `14/14`.
 
 Current blocker:
 
 ```text
-low-drift current-best actor update before any PPO continuation
+repeat the low-drift current-best actor update before any PPO continuation
 ```
 
 ## Near-Term Rule
 
-Do not run PPO yet. Keep M189 seed `5193` as the current best checkpoint.
-M193 admits only a tiny anchored actor-update design. Any update must preserve
-behavior, the protected key, old M183 replay surfaces, and the refreshed M193
-replay surface before PPO is considered.
+Do not run PPO yet. M194 is positive but only one actor-update seed. Repeat the
+same anchored update recipe from M189 on fresh seeds before any PPO smoke is
+admitted.
 
 ## Sensor Profile Policy
 
