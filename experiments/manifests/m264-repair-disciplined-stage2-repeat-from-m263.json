@@ -1,0 +1,89 @@
+{
+  "id": "m264-repair-disciplined-stage2-repeat-from-m263",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m263_m261_to_projection_interpolation/checkpoints/alpha_0_005.pt"
+    ],
+    "parent_dataset": [
+      "runs/m231_protected_key_snippet_surface/protected_key_snippets.npz",
+      "runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.npz",
+      "runs/m235_closed_loop_trajectory_anchor_surface/trajectory_anchor.npz"
+    ],
+    "parent_config": [
+      "configs/ppo_m248_source_balanced_from_m239_smoke.json",
+      "docs/m263-m261-raw-trajectory-projection-repair.md"
+    ],
+    "parent_objective": [
+      "repeat the repaired stage2 PPO discipline from the M263 public-gate base"
+    ],
+    "derived_from": [
+      "m263-m261-raw-trajectory-projection-repair"
+    ],
+    "blocked_by": [
+      "m263-m261-raw-trajectory-projection-repair"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m264-repair-disciplined-stage2-repeat-from-m263.md",
+  "public_gates": [
+    "fresh-seed 4096-step PPO from M263",
+    "raw PPO exact source gate",
+    "trajectory-anchored projection repair if protected source regresses or protected key fails",
+    "interpolation from M263 base",
+    "row16 gate before full public gates",
+    "protected key boundary check",
+    "full public replay and behavior gates",
+    "research validator"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run medium or long PPO in M264",
+    "do not promote raw PPO that fails protected-key source or protected-key replay",
+    "do not skip trajectory-anchored repair if raw PPO is unsafe",
+    "do not skip exact-source or row16 gates",
+    "do not change actor inputs",
+    "do not tune from private holdout evidence"
+  ],
+  "hypothesis": "The repaired stage2 PPO discipline can repeat from M263 on a fresh seed when raw PPO is followed by exact-source gating and trajectory-anchored projection repair before promotion.",
+  "success_criteria": [
+    "fresh 4096-step PPO completes without actor input changes",
+    "raw PPO or its trajectory-anchored projection has M223 source delta < 0, aggregate M232 delta <= +1e-8, and protected-key source delta <= +1e-8 versus M263",
+    "selected interpolation candidate preserves M183/M170 row16",
+    "selected candidate passes full public replay, protected-key, and behavior gates",
+    "no medium or long PPO is run"
+  ],
+  "failure_criteria": [
+    "fresh PPO update direction cannot be repaired without losing source improvement",
+    "trajectory-anchored projection repairs exact sources but breaks row16",
+    "candidate passes row16 but fails broader public replay, protected-key, or behavior gates",
+    "training instability appears",
+    "actor input contract changes"
+  ],
+  "commands": [
+    {
+      "name": "m264_stage2_repeat",
+      "command": "Run one fresh 4096-step PPO from M263 and apply exact-source, trajectory-projection, interpolation, row16, protected-key, replay, and behavior gates."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m264-repair-disciplined-stage2-repeat-from-m263.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m263_m261_to_projection_interpolation/checkpoints/alpha_0_005.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m263-m261-raw-trajectory-projection-repair.md"
+  ],
+  "decision_rule": "M264 may only promote a candidate if a fresh 4096-step PPO path plus optional trajectory repair passes exact source, row16, protected-key, full public replay, behavior, and validator gates.",
+  "next_blocker": "If M264 succeeds, decide whether repaired stage2 is stable enough for a cautious medium-PPO design; if it fails, redesign protected-key window handling."
+}

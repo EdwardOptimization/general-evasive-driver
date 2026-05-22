@@ -42,18 +42,15 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m261_m260_to_raw_interpolation/checkpoints/alpha_0_001.pt
+runs/m263_m261_to_projection_interpolation/checkpoints/alpha_0_005.pt
 ```
 
-Status: M261 fresh-seed stage2 repeat. The 4096-step raw PPO improves M223
-source loss but regresses protected-key source loss; interpolation promotes only
-`alpha=0.001`. It passes exact source tolerance, M183/M168, M183/M170,
-M193/M189, M212/M204, M223/M219 replay gates, protected key
-`9944|perturbed|28|28`, and behavior seeds `9505`/`9506`. The result is
-positive but weak: M260 admitted `alpha=0.05`, while M261 admits only
-`alpha=0.001`. M262 classifies the blocker as seed-fragile protected-source
-direction plus protected-key normal-margin pressure. Next step is a no-PPO
-trajectory-anchored projection repair from M261 raw, not a medium PPO run.
+Status: M263 trajectory-anchored repair of M261 raw. Projection repairs M261's
+protected-key source regression and `alpha=0.005` passes exact source,
+M183/M168, M183/M170, M193/M189, M212/M204, M223/M219 replay gates, protected
+key `9944|perturbed|28|28`, and behavior seeds `9505`/`9506`. Full projection
+and `alpha=0.010` fail the protected-key normal-margin window, so the next step
+is a repaired 4096-step stage2 repeat from M263, not medium PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

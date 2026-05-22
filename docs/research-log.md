@@ -8587,3 +8587,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M260 and M261 both improve M223 raw source loss, but M261 regresses protected-key source by `+0.000006868` and is exact-safe only to `alpha=0.001`. M260 is exact-safe through `alpha=0.10` but fails the protected-key normal-margin window there. Replay and behavior are not the blocker.
 - decision: `repair_with_m261_raw_trajectory_projection`
 - next: `m263-m261-raw-trajectory-projection-repair`
+
+## 20260522T160011Z - m263-m261-raw-trajectory-projection-repair
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m263_behavior_gate_a005_seed9506`
+- artifact: `docs/m263-m261-raw-trajectory-projection-repair.md`
+- result: trajectory-anchored projection repairs M261 raw protected-key source regression. Full projection has exact deltas `M223=-0.000401384` and `protected_key=-0.000266808` but fails protected-key replay. Interpolation promotes `m263_a005`, with exact deltas `M223=-0.000001946` and `protected_key=-0.000001301`; it passes replay gates, protected key, and behavior seeds `9505`/`9506`.
+- decision: `promote_m263_a005_public_gate_base`
+- next: `m264-repair-disciplined-stage2-repeat-from-m263`

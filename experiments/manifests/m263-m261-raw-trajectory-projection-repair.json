@@ -2,7 +2,7 @@
   "id": "m263-m261-raw-trajectory-projection-repair",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -90,5 +90,5 @@
     "docs/m262-stage2-repeat-fragility-audit.md"
   ],
   "decision_rule": "M263 may only promote a checkpoint if a repaired or interpolated candidate improves exact sources versus M261 and passes row16, protected-key, full public replay, behavior, and validator gates.",
-  "next_blocker": "If M263 succeeds, repeat the repair path or design a cautious medium-PPO escalation; if it fails, redesign protected-source PPO pressure before more continuation."
+  "next_blocker": "m264-repair-disciplined-stage2-repeat-from-m263"
 }

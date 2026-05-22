@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 271,
+    "completed": 272,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m262-stage2-repeat-fragility-audit.md",
+    "command_log": "docs/m263-m261-raw-trajectory-projection-repair.md",
     "returncode": 0,
-    "run_dir": "docs/m262-stage2-repeat-fragility-audit.md",
+    "run_dir": "runs/m263_behavior_gate_a005_seed9506",
     "status": "completed",
-    "task_id": "m262-stage2-repeat-fragility-audit"
+    "task_id": "m263-m261-raw-trajectory-projection-repair"
   },
   "next_task": {
-    "command": "see experiments/manifests/m263-m261-raw-trajectory-projection-repair.json",
-    "hypothesis": "A trajectory-anchored protected-source projection can repair M261 raw PPO's protected-key source regression and admit a larger proof-safe update than M261 alpha 0.001.",
-    "id": "m263-m261-raw-trajectory-projection-repair",
+    "command": "see experiments/manifests/m264-repair-disciplined-stage2-repeat-from-m263.json",
+    "hypothesis": "The repaired stage2 PPO discipline can repeat from M263 on a fresh seed when raw PPO is followed by exact-source gating and trajectory-anchored projection repair before promotion.",
+    "id": "m264-repair-disciplined-stage2-repeat-from-m263",
     "kind": "driver_candidate",
-    "notes": "Pending: no-PPO projection repair from M261 raw before any medium PPO",
-    "priority": 2580,
+    "notes": "Pending: fresh 4096-step PPO plus repair discipline before medium PPO",
+    "priority": 2590,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T155316Z"
+  "updated_at_utc": "20260522T160011Z"
 }
