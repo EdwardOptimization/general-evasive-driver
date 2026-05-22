@@ -1,6 +1,6 @@
 # AutoDrift Observation Contract
 
-Last updated: 2026-05-21
+Last updated: 2026-05-22
 
 ## Rule
 
@@ -263,6 +263,12 @@ M104 records the stricter future input contract. It explicitly forbids feeding
 or controller-mode shortcuts to the deployable actor. Future wheel work should
 use raw `Romega_i` plus independently fused local `v_parallel_i`, with optional
 `v_perp_i` only after a separate admission gate.
+
+The important distinction is that `v_parallel_i` is a local contact-patch
+ground-speed estimate along each wheel's rolling direction. It is not center
+vehicle speed and not an average of wheel speeds. Averaging wheel speeds would
+wash out the lockup/spin signal. The deployable actor should receive raw
+closed-loop signals, not diagnostic ratios with division and clipping choices.
 
 Do not put these diagnostic quantities into the actor:
 

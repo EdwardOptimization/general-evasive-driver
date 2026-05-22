@@ -5274,3 +5274,29 @@ penalties by about `0.058-0.060`.
 Decision: diagnostic positive. Fixed retained-snippet logprob is not a safe
 proxy for rollout-level proof-surface retention. The next pending task is M139:
 prototype a key-action anchor or rollout-aware retention objective.
+
+## 20260522T002753Z mhtml-input-contract-recheck
+
+Rechecked the latest local MHTML snapshot:
+
+```text
+/home/quyaonan/workspace/AutoDrift - 项目评估分析.mhtml
+```
+
+No new actor oracle fields are admitted. The latest input discussion is now
+explicitly tied into the formal M91 protocol:
+
+- final wheel profiles should use `Romega_i` and local `v_parallel_i`;
+- `v_parallel_i` is a per-wheel contact-patch ground-speed estimate, not
+  vehicle-center speed and not a wheel-speed average;
+- `slip_ratio` remains out of the deployable actor because its division,
+  clipping, low-speed singularities, and sign switches can create numerical and
+  distribution artifacts;
+- optional `v_perp_i`, steering torque, vertical dynamics, and suspension
+  channels still require admission gates;
+- the reliable experiment order remains probe first, then frozen-recipe RL
+  comparison, then matched hidden-dynamics wrong-history gates.
+
+Updated `docs/m91-input-observability-audit-protocol.md` and
+`docs/observation-contract.md` so future input-profile work does not drift back
+to slip-ratio or shortcut features.

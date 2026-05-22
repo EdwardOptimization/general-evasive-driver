@@ -74,6 +74,48 @@ This is not the final clean sensor contract. The current 13 wheel channels are
 front/rear proxy signals, not independent wheel dynamics. The smoke is used to
 validate the audit harness and establish a baseline.
 
+## Local Wheel-Speed Refinement
+
+The latest MHTML input review tightens the final wheel-sensor contract. The
+generic phrase "wheel speed + fused speed" is acceptable for early no-wheel
+versus wheel comparisons, but the future strict wheel profile must use local
+contact-patch quantities:
+
+```text
+Romega_i       = wheel circumferential speed
+v_parallel_i  = local ground-speed estimate along the wheel rolling direction
+```
+
+For a four-wheel profile, this means:
+
+```text
+Romega_fl/fr/rl/rr
+v_parallel_fl/fr/rl/rr
+```
+
+`v_parallel_i` must not be a vehicle-center speed and must not be inferred from
+the average of wheel speeds. Wheel speed is the signal needed to observe lockup,
+spin, and drift onset; using wheel speed to define its own ground-speed
+reference erases the information the policy is supposed to learn from.
+
+Do not add `slip_ratio` as an actor profile. It is a diagnostic ratio with
+state-dependent division and low-speed singularities. The actor should see the
+raw components and let the recurrent self-ID encoder form the tire-state latent.
+
+Wheel-specific follow-up profiles should be:
+
+```text
+P1a: Romega only
+P1b: Romega + v_parallel
+P1c: Romega + v_parallel + optional v_perp
+P1d: Romega + v_parallel + fixed-scale speed error
+```
+
+`P1d` uses `(Romega_i - v_parallel_i) / fixed_v_scale`, not a slip ratio. It is
+an optional training-stability experiment, not part of the minimum contract.
+See `docs/m92-local-wheel-ground-speed-input-plan.md` and
+`docs/m104-minimum-observable-input-contract.md`.
+
 ## Not Actor Input
 
 These must not enter deployable actor observations:
