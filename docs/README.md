@@ -445,6 +445,10 @@ vehicle/tire models, and NMPC-style constrained control.
   capability-belief update that keeps positive objective signal, passes the
   protected critical key, and preserves cheap behavior seeds; admitted only to
   a full M154 gate repeat.
+- `m157-capability-belief-full-m154-gate-repeat.md`: full-gate repeat rejects
+  guarded PPO because the M118 matched-history action gate yields zero rows for
+  M156 and for M142 calibration; the action surface must be recalibrated for the
+  current baseline family.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

@@ -179,3 +179,10 @@ the same M142 baseline. The candidate keeps positive validation improvements
 protected key (`1/1`, margin gap `0.009455`), and matches M142 success on both
 cheap behavior seeds 9503 and 9504 (`0.8625`). It is admitted only to a full
 M154 gate repeat; it is not yet a PPO or driver promotion.
+
+M157 then rejects that full gate repeat at the matched-history action stage.
+M156 has `0` intervention rows on the M118 action gate. Calibration shows M142
+also has `0` rows under the same gate, so this is a current-baseline gate-surface
+blocker rather than a M156-only regression. The next frontier is recalibrating
+or remining a broad action-sensitive matched-history surface for the M142/M156
+family before any PPO continuation.

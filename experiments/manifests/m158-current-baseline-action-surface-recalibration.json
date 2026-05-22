@@ -1,0 +1,36 @@
+{
+  "id": "m158-current-baseline-action-surface-recalibration",
+  "type": "gate",
+  "hypothesis": "The broad M118 matched-history action surface is not calibrated for the current M142/M156 guarded baseline family, so a current-baseline action-sensitive surface must be mined or the gate must be redesigned before another M154 repeat.",
+  "success_criteria": [
+    "use only the P0 human-view actor input contract",
+    "determine whether M142/M156 have any broad wrong-history action-sensitive surface under zero-relvel or current-profile matched pairs",
+    "separate gate-surface mismatch from candidate regression",
+    "produce a source-diverse current-baseline matched-history action corpus or document why none exists",
+    "state the next repair target before PPO or strict proof-surface work resumes"
+  ],
+  "failure_criteria": [
+    "reuse M118 thresholds without checking baseline calibration",
+    "treat M156 as failed without testing whether M142 also fails",
+    "start PPO despite the action-gate blocker",
+    "admit a gate surface with poor source diversity"
+  ],
+  "commands": [
+    {
+      "name": "m158_current_baseline_action_surface",
+      "command": "Mine or recalibrate matched-history action dependence for the current M142/M156 guarded baseline family before another full M154 gate repeat."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m158-current-baseline-action-surface-recalibration.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt",
+    "runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt",
+    "runs/m157_action_gate_calibration_m142_m156_seed9510/summary.json"
+  ],
+  "decision_rule": "Do not repeat M154 or start PPO until the matched-history action stage has a calibrated current-baseline proof surface."
+}

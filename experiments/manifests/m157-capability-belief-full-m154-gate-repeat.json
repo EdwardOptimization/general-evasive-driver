@@ -18,14 +18,38 @@
   ],
   "commands": [
     {
-      "name": "m157_full_m154_gate_repeat",
-      "command": "Run the full M154 gate stages for runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt against runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt."
+      "name": "m157_actor_contract",
+      "command": "PYTHONPATH=src python - <<'PY'\nfrom autodrift.checkpoints import load_actor_critic_checkpoint\nm, ckpt = load_actor_critic_checkpoint('runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt', device='cpu', obs_dim=72)\nprint('actor_encoder', m.actor_encoder)\nprint('obs_dim', m.obs_dim)\nprint('metadata_run_type', ckpt.get('metadata', {}).get('run_type'))\nPY"
+    },
+    {
+      "name": "m157_m156_action_gate",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_history_intervention_gate --checkpoint-policy m156_s20=runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --pairs-csv runs/m118_source_diverse_matched_current_seed9510/matched_pairs.csv --delay-steps 10 --min-action-distance 0.02 --max-pairs-per-checkpoint-target 80 --device cpu --run-dir runs/m157_m156_s20_action_intervention_gate_seed9510"
+    },
+    {
+      "name": "m157_m142_m156_action_gate_calibration_zero_relvel",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_history_intervention_gate --checkpoint-policy m142_a400=runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt --checkpoint-policy m156_s20=runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --pairs-csv runs/m118_source_diverse_matched_current_seed9510/matched_pairs.csv --delay-steps 10 --min-action-distance 0.02 --max-pairs-per-checkpoint-target 80 --device cpu --run-dir runs/m157_action_gate_calibration_m142_m156_seed9510"
+    },
+    {
+      "name": "m157_m142_m156_action_gate_calibration_m24",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_history_intervention_gate --checkpoint-policy m142_a400=runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt --checkpoint-policy m156_s20=runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt --env-config configs/ppo_m24_human_view_gru_driver.json --pairs-csv runs/m118_source_diverse_matched_current_seed9510/matched_pairs.csv --delay-steps 10 --min-action-distance 0.02 --max-pairs-per-checkpoint-target 80 --device cpu --run-dir runs/m157_action_gate_calibration_m24_m142_m156_seed9510"
     }
   ],
   "required_artifacts": [
     {
       "path": "docs/m157-capability-belief-full-m154-gate-repeat.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m157_m156_s20_action_intervention_gate_seed9510/summary.json",
+      "type": "action_gate"
+    },
+    {
+      "path": "runs/m157_action_gate_calibration_m142_m156_seed9510/summary.json",
+      "type": "baseline_calibration"
+    },
+    {
+      "path": "runs/m157_action_gate_calibration_m24_m142_m156_seed9510/summary.json",
+      "type": "baseline_calibration"
     }
   ],
   "baseline_checkpoints": [
@@ -33,5 +57,14 @@
     "runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt",
     "runs/m154_capability_belief_behavior_gate_design/gate_spec.json"
   ],
-  "decision_rule": "Passing M156 cheap gates is not enough for PPO. M157 must repeat the full behavior, intervention, critical-key, matched-history, and strict proof-surface checks before any guarded PPO admission."
+  "decision_rule": "Passing M156 cheap gates is not enough for PPO. M157 must repeat the full behavior, intervention, critical-key, matched-history, and strict proof-surface checks before any guarded PPO admission.",
+  "result": {
+    "actor_contract_pass": true,
+    "behavior_and_critical_key_reused_from_m156": true,
+    "m156_action_gate_intervention_rows": 0,
+    "m142_m156_zero_relvel_calibration_intervention_rows": 0,
+    "m142_m156_m24_calibration_intervention_rows": 0,
+    "downstream_gates_skipped_after_required_action_gate_failure": true,
+    "admission_decision": "reject_guarded_ppo_action_gate_not_calibrated_for_current_baseline"
+  }
 }

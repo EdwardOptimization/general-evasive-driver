@@ -6210,3 +6210,51 @@ success:
 Decision: M156 is a positive key-safe repair smoke. Admit
 `runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt` to a
 full M154 gate repeat. Do not start PPO until that repeat passes.
+
+## 20260522T064500Z m157-capability-belief-full-m154-gate-repeat
+
+M157 begins the full M154 gate repeat for the M156 s20 candidate. The cheap
+behavior and protected critical-key stages are reused from M156 because they
+were run with the registered M154 thresholds.
+
+Already-passed cheap stages:
+
+| Stage | Result |
+| --- | --- |
+| actor contract | `human_view_online_gru`, obs dim `72` |
+| behavior seed9503 | M142 `0.8625`, M156 `0.8625` |
+| behavior seed9504 | M142 `0.8625`, M156 `0.8625` |
+| zero-current / zero-all | M156 drops to `0.8000` on both seeds |
+| protected key `9944|perturbed|28|28` | M156 `1/1`, margin gap `0.009455` |
+
+M157 then ran the M154 matched-history action gate:
+
+```text
+runs/m157_m156_s20_action_intervention_gate_seed9510
+```
+
+Result:
+
+| Metric | Value |
+| --- | ---: |
+| input pairs | 408 |
+| intervention rows | 0 |
+| variant summary rows | 0 |
+
+This fails the required M154 matched-history action thresholds. A calibration
+run showed the same result for the current guarded baseline:
+
+```text
+runs/m157_action_gate_calibration_m142_m156_seed9510
+runs/m157_action_gate_calibration_m24_m142_m156_seed9510
+```
+
+Both M142/M156 calibration runs produced `0` intervention rows. Therefore this
+is not a M156-only regression. The old M118 action surface that worked for
+M62/M102/M105 is not calibrated for the current M142/M156 guarded baseline
+family.
+
+Decision: reject guarded PPO admission. Do not run more strict miners or PPO
+until the matched-history action stage is rebuilt or recalibrated for the
+current baseline. Next task: mine or redesign a current-baseline action-sensitive
+surface.

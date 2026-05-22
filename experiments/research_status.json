@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 165,
+    "completed": 166,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m156-capability-belief-critical-key-safe-repair.md",
+    "command_log": "docs/m157-capability-belief-full-m154-gate-repeat.md",
     "returncode": 0,
-    "run_dir": "runs/m156_capability_belief_aux_s20_seed9630",
+    "run_dir": "runs/m157_m156_s20_action_intervention_gate_seed9510",
     "status": "completed",
-    "task_id": "m156-capability-belief-critical-key-safe-repair"
+    "task_id": "m157-capability-belief-full-m154-gate-repeat"
   },
   "next_task": {
-    "command": "see experiments/manifests/m157-capability-belief-full-m154-gate-repeat.json",
-    "hypothesis": "The M156 s20 key-safe capability-belief repair should be judged by the full M154 proof gate before any PPO continuation or driver promotion.",
-    "id": "m157-capability-belief-full-m154-gate-repeat",
+    "command": "see experiments/manifests/m158-current-baseline-action-surface-recalibration.json",
+    "hypothesis": "The broad M118 matched-history action surface is not calibrated for the current M142/M156 guarded baseline family, so a current-baseline action-sensitive surface must be mined or the gate must be redesigned before another M154 repeat.",
+    "id": "m158-current-baseline-action-surface-recalibration",
     "kind": "gate",
-    "notes": "Pending after M156: full M154 gate repeat before guarded PPO",
-    "priority": 1520,
+    "notes": "Pending after M157: calibrate current-baseline matched-history action surface",
+    "priority": 1530,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T062000Z"
+  "updated_at_utc": "20260522T064500Z"
 }
