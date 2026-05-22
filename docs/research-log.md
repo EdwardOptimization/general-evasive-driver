@@ -7173,3 +7173,41 @@ Results:
 Decision: M198 is positive as a single-seed stage2. Repeat the same stage2
 recipe from M197 seed `5197` on fresh seeds before chaining from M198 or
 running any longer PPO continuation.
+
+## 20260522T091510Z m199-stage2-repeat-from-m197
+
+M199 repeated the M198 stage2 recipe from M197 seed `5197` on fresh seeds
+`5201` and `5202`. Every repeat restarted from M197 seed `5197`; no repeat
+chained from M198 or another M199 checkpoint.
+
+Artifacts:
+
+- `runs/ppo_m199_stage2_from_m197_seed5201`
+- `runs/ppo_m199_stage2_from_m197_seed5202`
+- `runs/m199_fixed_batch_outcome_eval_seed37`
+- `runs/m199_5201_m183_m168_replay_gate_seed9510`
+- `runs/m199_5201_m183_m170_replay_gate_seed9510`
+- `runs/m199_5201_m193_m189_replay_gate_seed9630`
+- `runs/m199_5202_m183_m168_replay_gate_seed9510`
+- `runs/m199_5202_m183_m170_replay_gate_seed9510`
+- `runs/m199_5202_m193_m189_replay_gate_seed9630`
+- `runs/m199_behavior_gate_seed9505`
+- `runs/m199_behavior_gate_seed9506`
+- `runs/m199_critical_key_seed9944`
+- `docs/m199-stage2-repeat-from-m197.md`
+
+Results:
+
+- fixed M193 objective loss: M197 seed `5197` `0.158919`, M198 `0.158892`,
+  M199 seed `5201` `0.158850`, M199 seed `5202` `0.158857`;
+- both repeats improve fixed objective versus M198;
+- both repeats retain M183 M168 replay drops `16/16`;
+- both repeats retain M183 M170 replay drops `17/17`;
+- both repeats retain M193 M189 replay drops `14/14`;
+- behavior seeds `9505` and `9506` keep success `0.8625`;
+- reset-hidden and zero-all-response ablations remain at `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` passes for both repeats.
+
+Decision: M199 is positive repeat evidence. Admit one short guarded stage3
+from the best fixed-loss retained repeat, M199 seed `5201`, but do not run a
+stage3 repeat or longer PPO continuation before that first stage3 passes gates.

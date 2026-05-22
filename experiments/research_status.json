@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 207,
+    "completed": 208,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m198-guarded-stage2-ppo-from-m197.md",
+    "command_log": "docs/m199-stage2-repeat-from-m197.md",
     "returncode": 0,
-    "run_dir": "runs/m198_fixed_batch_outcome_eval_seed37",
+    "run_dir": "runs/m199_fixed_batch_outcome_eval_seed37",
     "status": "completed",
-    "task_id": "m198-guarded-stage2-ppo-from-m197"
+    "task_id": "m199-stage2-repeat-from-m197"
   },
   "next_task": {
-    "command": "see experiments/manifests/m199-stage2-repeat-from-m197.json",
-    "hypothesis": "M198 shows one short stage2 from M197 seed 5197 can improve fixed M193 objective while preserving all required gates, so the stage2 recipe should be repeated from the same M197 seed on fresh seeds.",
-    "id": "m199-stage2-repeat-from-m197",
+    "command": "see experiments/manifests/m200-guarded-stage3-ppo-from-m199.json",
+    "hypothesis": "M199 shows repeat-stable stage2 from M197 seed 5197, and seed 5201 is the best fixed-loss retained repeat, so one short guarded stage3 can be tested.",
+    "id": "m200-guarded-stage3-ppo-from-m199",
     "kind": "driver_candidate",
-    "notes": "Restart every repeat from M197 seed 5197; reject any behavior, protected-key, old M183 replay, or refreshed M193 replay regression.",
-    "priority": 1940,
+    "notes": "Run one short stage3 from M199 seed 5201; reject any behavior, protected-key, old M183 replay, or refreshed M193 replay regression.",
+    "priority": 1950,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T090905Z"
+  "updated_at_utc": "20260522T091510Z"
 }

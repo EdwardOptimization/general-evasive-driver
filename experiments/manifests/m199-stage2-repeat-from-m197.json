@@ -23,7 +23,7 @@
   "commands": [
     {
       "name": "m199_stage2_repeats",
-      "command": "Run the M198 stage2 recipe from M197 seed 5197 on fresh seeds."
+      "command": "Run the M198 stage2 recipe from M197 seed 5197 on fresh seeds 5201 and 5202."
     },
     {
       "name": "m199_fixed_eval",
@@ -38,6 +38,54 @@
     {
       "path": "docs/m199-stage2-repeat-from-m197.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/ppo_m199_stage2_from_m197_seed5201/checkpoint.pt",
+      "type": "checkpoint_seed5201"
+    },
+    {
+      "path": "runs/ppo_m199_stage2_from_m197_seed5202/checkpoint.pt",
+      "type": "checkpoint_seed5202"
+    },
+    {
+      "path": "runs/m199_fixed_batch_outcome_eval_seed37/summary.json",
+      "type": "fixed_eval_summary"
+    },
+    {
+      "path": "runs/m199_5201_m183_m168_replay_gate_seed9510/summary.json",
+      "type": "seed5201_m183_m168_replay"
+    },
+    {
+      "path": "runs/m199_5201_m183_m170_replay_gate_seed9510/summary.json",
+      "type": "seed5201_m183_m170_replay"
+    },
+    {
+      "path": "runs/m199_5201_m193_m189_replay_gate_seed9630/summary.json",
+      "type": "seed5201_m193_m189_replay"
+    },
+    {
+      "path": "runs/m199_5202_m183_m168_replay_gate_seed9510/summary.json",
+      "type": "seed5202_m183_m168_replay"
+    },
+    {
+      "path": "runs/m199_5202_m183_m170_replay_gate_seed9510/summary.json",
+      "type": "seed5202_m183_m170_replay"
+    },
+    {
+      "path": "runs/m199_5202_m193_m189_replay_gate_seed9630/summary.json",
+      "type": "seed5202_m193_m189_replay"
+    },
+    {
+      "path": "runs/m199_behavior_gate_seed9505/policy_summary.csv",
+      "type": "behavior_seed9505"
+    },
+    {
+      "path": "runs/m199_behavior_gate_seed9506/policy_summary.csv",
+      "type": "behavior_seed9506"
+    },
+    {
+      "path": "runs/m199_critical_key_seed9944/summary.json",
+      "type": "protected_key"
     }
   ],
   "baseline_checkpoints": [
@@ -53,5 +101,28 @@
     "runs/m198_behavior_gate_seed9506/policy_summary.csv",
     "runs/m198_critical_key_seed9944/summary.json"
   ],
-  "decision_rule": "Only repeat-stable stage2 seeds that preserve behavior, protected key, old replay, and refreshed replay may admit any further continuation."
+  "results": {
+    "repeat_checkpoints": [
+      "runs/ppo_m199_stage2_from_m197_seed5201/checkpoint.pt",
+      "runs/ppo_m199_stage2_from_m197_seed5202/checkpoint.pt"
+    ],
+    "fixed_loss_m197_5197": 0.15891851872205734,
+    "fixed_loss_m198": 0.15889249086380006,
+    "fixed_loss_seed5201": 0.15885026693344118,
+    "fixed_loss_seed5202": 0.15885673552751542,
+    "m183_m168_success_drop_count_seed5201": 16,
+    "m183_m170_success_drop_count_seed5201": 17,
+    "m193_m189_success_drop_count_seed5201": 14,
+    "m183_m168_success_drop_count_seed5202": 16,
+    "m183_m170_success_drop_count_seed5202": 17,
+    "m193_m189_success_drop_count_seed5202": 14,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "reset_success": 0.85,
+    "zero_all_success": 0.80,
+    "protected_key_pass": true,
+    "best_repeat_checkpoint": "runs/ppo_m199_stage2_from_m197_seed5201/checkpoint.pt"
+  },
+  "decision_rule": "Only repeat-stable stage2 seeds that preserve behavior, protected key, old replay, and refreshed replay may admit any further continuation.",
+  "decision": "admit_guarded_stage3_from_m199"
 }

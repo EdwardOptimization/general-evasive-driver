@@ -54,6 +54,7 @@ Not allowed in the deployable actor:
 | current-best guarded PPO smoke | `runs/ppo_m196_guarded_from_m194_seed5196/checkpoint.pt` | positive retention smoke from M194; requires repeat before longer PPO |
 | current-best guarded PPO repeat | `runs/ppo_m197_guarded_from_m194_seed5197/checkpoint.pt` | best fixed-loss M197 repeat; preserves behavior, protected key, old replay, and refreshed replay |
 | current-best guarded stage2 | `runs/ppo_m198_stage2_from_m197_seed5200/checkpoint.pt` | positive single-seed stage2; requires repeat before further continuation |
+| current-best guarded stage2 repeat | `runs/ppo_m199_stage2_from_m197_seed5201/checkpoint.pt` | best fixed-loss M199 repeat; preserves behavior, protected key, old replay, and refreshed replay |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -137,18 +138,23 @@ slightly stronger action-level sensitivity.
   `0.158892`, preserves behavior seeds `9505` and `9506`, passes the protected
   key, retains old M183 replay drops `16/16` and `17/17`, and retains
   refreshed M193 replay drops `14/14`.
+- M199: stage2 repeats from M197 seed `5197` on seeds `5201` and `5202` both
+  improve fixed M193 loss versus M198 (`0.158850` and `0.158857` vs
+  `0.158892`) and preserve behavior, protected key, old M183 replay drops
+  `16/16` and `17/17`, and refreshed M193 replay drops `14/14`. Seed `5201`
+  is the current best retained fixed-loss repeat.
 
 Current blocker:
 
 ```text
-repeat the M198 stage2 recipe from M197 seed 5197 before any further continuation
+one short guarded stage3 from the best M199 repeat before any further continuation
 ```
 
 ## Near-Term Rule
 
-Only short stage2 repeats are admitted, each starting from M197 seed `5197`.
-Do not chain from M198 or run a longer PPO continuation until stage2 repeats
-preserve behavior, protected key, old M183 replay, and refreshed M193 replay.
+Only one short guarded stage3 is admitted, starting from M199 seed `5201`. Do
+not run a stage3 repeat or longer PPO continuation until that stage3 preserves
+behavior, protected key, old M183 replay, and refreshed M193 replay.
 
 ## Sensor Profile Policy
 
