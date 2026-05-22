@@ -1,0 +1,34 @@
+{
+  "baseline_checkpoints": [
+    "runs/m147_ambiguous_resolution_multiseed/summary.json",
+    "runs/m146_body_feedback_multiseed/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "Build or run a stricter ambiguity miner that requires current P0 human-view features to be close while future envelope targets remain far apart.",
+      "name": "m148_p0_close_ambiguity_miner"
+    }
+  ],
+  "decision_rule": "Only treat current P0 as information-limited if close-P0, target-divergent pairs exist across multiple seeds after removing H1-only speed/steer-rate ambiguity.",
+  "failure_criteria": [
+    "miner only repeats H1-close ambiguity without requiring P0 closeness",
+    "results come from one seed only",
+    "pairs are accepted without source diversity or target-distance reporting",
+    "oracle labels or hidden parameters are used as actor-like inputs"
+  ],
+  "hypothesis": "If P0-close target-divergent pairs remain, the current deployable actor input may be genuinely information-limited; if they disappear, M146 ambiguity was mostly caused by narrowing H1 too far.",
+  "id": "m148-p0-close-ambiguity-miner",
+  "required_artifacts": [
+    {
+      "path": "docs/m148-p0-close-ambiguity-miner.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "mine or explicitly rule out P0-close, future-envelope-divergent pairs across at least three seeds",
+    "compare H1-close versus P0-close ambiguity counts",
+    "report target-distance thresholds, feature-distance thresholds, source diversity, and exported examples",
+    "record whether current P0 is sufficient for the next PPO/probe phase"
+  ],
+  "type": "gate"
+}

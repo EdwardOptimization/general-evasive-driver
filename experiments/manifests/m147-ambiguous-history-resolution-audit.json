@@ -1,0 +1,46 @@
+{
+  "baseline_checkpoints": [
+    "runs/m146_body_feedback_multiseed/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.ambiguous_history_resolution_audit --mode run --env-config configs/m143_driver_like_profile_audit.json --pair-csv runs/m146_body_feedback_seed9480/ambiguous_body_history_pairs.csv --episodes 40 --seed 9480 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --history-window 25 --post-slip-beta-threshold 0.06 --run-dir runs/m147_ambiguous_resolution_seed9480",
+      "name": "m147_resolution_seed9480"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.ambiguous_history_resolution_audit --mode run --env-config configs/m143_driver_like_profile_audit.json --pair-csv runs/m146_body_feedback_seed9481/ambiguous_body_history_pairs.csv --episodes 40 --seed 9481 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --history-window 25 --post-slip-beta-threshold 0.06 --run-dir runs/m147_ambiguous_resolution_seed9481",
+      "name": "m147_resolution_seed9481"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.ambiguous_history_resolution_audit --mode run --env-config configs/m143_driver_like_profile_audit.json --pair-csv runs/m146_body_feedback_seed9482/ambiguous_body_history_pairs.csv --episodes 40 --seed 9482 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --history-window 25 --post-slip-beta-threshold 0.06 --run-dir runs/m147_ambiguous_resolution_seed9482",
+      "name": "m147_resolution_seed9482"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.ambiguous_history_resolution_audit --mode aggregate --summary-jsons runs/m147_ambiguous_resolution_seed9480/summary.json,runs/m147_ambiguous_resolution_seed9481/summary.json,runs/m147_ambiguous_resolution_seed9482/summary.json --run-dir runs/m147_ambiguous_resolution_multiseed",
+      "name": "m147_resolution_multiseed"
+    }
+  ],
+  "decision_rule": "Do not promote raw wheel, vparallel, or a new actor profile unless existing M146 ambiguous H1 pairs are resolved by target-aligned deployable signals rather than just any large extra-channel distance.",
+  "failure_criteria": [
+    "audit consumes M146 pairs but does not deterministically reconstruct matching observations",
+    "resolution is judged only by a single seed",
+    "raw wheel or vparallel is promoted despite weak target alignment",
+    "non-deployable fields such as mu, slip ratio, tire force, TTC, path error, or oracle labels enter actor-like profile inputs"
+  ],
+  "hypothesis": "M146 H1 ambiguous pairs may be separated by current deployable P0 cues or wheel proxies, but separation alone may not be target-aligned enough to justify a new actor input.",
+  "id": "m147-ambiguous-history-resolution-audit",
+  "required_artifacts": [
+    {
+      "path": "docs/m147-ambiguous-history-resolution-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "M146 exported ambiguous pairs are evaluated across at least three seeds",
+    "P0, raw wheel, vparallel, and extra-only candidate distances are reported separately",
+    "feature-distance resolution is distinguished from target-aligned evidence",
+    "actor input contract remains free of oracle and non-deployable fields",
+    "the next ambiguity-mining decision is recorded"
+  ],
+  "type": "gate"
+}

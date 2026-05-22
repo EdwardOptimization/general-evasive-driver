@@ -5717,3 +5717,41 @@ improve pre-limit future-envelope prediction over passenger body+scene. The
 ambiguous-history search finds many close-H1-history/different-envelope pairs,
 so do not promote H1 and do not restart PPO from a new profile based on this
 evidence. Keep P0 as the current deployable human-view baseline.
+
+## 20260522T023000Z m147-ambiguous-history-resolution-audit
+
+M147 consumes the M146 exported ambiguous H1 body-history pairs and asks whether
+existing candidate signals resolve them.
+
+New code:
+
+```text
+src/autodrift/ambiguous_history_resolution_audit.py
+tests/test_ambiguous_history_resolution_audit.py
+```
+
+Runs:
+
+```text
+runs/m147_ambiguous_resolution_seed9480
+runs/m147_ambiguous_resolution_seed9481
+runs/m147_ambiguous_resolution_seed9482
+runs/m147_ambiguous_resolution_multiseed
+```
+
+Aggregate over `150` exported M146 pairs:
+
+| Profile | Role | Resolved fraction | Feature-target corr. |
+| --- | --- | ---: | ---: |
+| P0 current baseline | full candidate | 0.153333 | 0.534400 |
+| H1 + raw wheel | full candidate | 0.186667 | 0.399738 |
+| H1 + raw wheel + vparallel | diagnostic full candidate | 0.306667 | 0.258442 |
+| extra P0 missing | extra only | 1.000000 | 0.138040 |
+| extra raw wheel | extra only | 0.806667 | 0.020244 |
+| extra vparallel | diagnostic extra only | 0.806667 | 0.018508 |
+
+Decision: complete M147 as a diagnostic audit without actor input promotion.
+The extra channels distinguish many M146 H1 pairs, but target alignment is weak.
+Full P0 resolves only `15.3%`, raw wheel `18.7%`, and diagnostic `v_parallel`
+`30.7%`. The next task is M148: mine pairs that are close under current P0, not
+only close under narrowed H1, before claiming P0 is information-limited.

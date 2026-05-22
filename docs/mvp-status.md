@@ -105,3 +105,10 @@ Key M146 aggregate results:
 M146 found `434` ambiguous H1 body-history candidate pairs across three seeds,
 with `150` rows exported. Decision: keep P0 as the current human-view input
 contract and do not restart PPO from a new narrower H1 profile.
+
+M147 then checked whether those exported H1-ambiguous pairs are resolved by
+existing candidate signals. Full P0 resolved only `15.3%`, raw wheel `18.7%`,
+and diagnostic raw wheel + `v_parallel` `30.7%`. Extra-only channels separate
+many pairs, but their distance is weakly target-aligned. The next input question
+is therefore stricter: mine pairs that remain close under current P0, not only
+under narrowed H1.

@@ -1,19 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 155,
+    "completed": 156,
     "failed": 0,
-    "pending": 0,
+    "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m146-body-feedback-observability-audit.md",
+    "command_log": "docs/m147-ambiguous-history-resolution-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m146_body_feedback_multiseed",
+    "run_dir": "runs/m147_ambiguous_resolution_multiseed",
     "status": "completed",
-    "task_id": "m146-body-feedback-observability-audit"
+    "task_id": "m147-ambiguous-history-resolution-audit"
   },
-  "next_task": null,
-  "updated_at_utc": "20260522T021500Z"
+  "next_task": {
+    "command": "see experiments/manifests/m148-p0-close-ambiguity-miner.json",
+    "hypothesis": "If P0-close target-divergent pairs remain, the current deployable actor input may be genuinely information-limited; if they disappear, M146 ambiguity was mostly caused by narrowing H1 too far.",
+    "id": "m148-p0-close-ambiguity-miner",
+    "kind": "gate",
+    "notes": "Pending after M147: mine ambiguity that remains close under P0, not only H1",
+    "priority": 1430,
+    "status": "pending",
+    "success_artifact": ""
+  },
+  "updated_at_utc": "20260522T023000Z"
 }
