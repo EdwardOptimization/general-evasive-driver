@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 263,
+    "completed": 264,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m254-exact-source-gated-ppo-smoke-from-m253.md",
+    "command_log": "docs/m255-m254-protected-source-regression-audit.md",
     "returncode": 0,
     "run_dir": "runs/m254_source_aware_exact_m232_eval",
     "status": "completed",
-    "task_id": "m254-exact-source-gated-ppo-smoke-from-m253"
+    "task_id": "m255-m254-protected-source-regression-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m255-m254-protected-source-regression-audit.json",
-    "hypothesis": "Audit persistent protected-key source regression under PPO before any further PPO continuation",
-    "id": "m255-m254-protected-source-regression-audit",
-    "kind": "gate",
-    "notes": "Pending: compare M248/M254 source slopes and choose bounded repair",
-    "priority": 2500,
+    "command": "see experiments/manifests/m256-post-ppo-protected-source-projection.json",
+    "hypothesis": "Run a no-PPO protected-key source projection from M254 raw PPO and exact-source gate it before proof gates",
+    "id": "m256-post-ppo-protected-source-projection",
+    "kind": "driver_candidate",
+    "notes": "Pending: protected-source projection from M254 raw PPO",
+    "priority": 2510,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T150623Z"
+  "updated_at_utc": "20260522T150856Z"
 }

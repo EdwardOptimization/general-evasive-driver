@@ -8507,3 +8507,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: 1024-step PPO from M253 completed and improved aggregate/M223 exact source loss, but protected-key source regressed for every interpolation alpha. The smallest alpha `0.10` already has protected-key source delta `+0.000000878`, above the `+1e-8` gate.
 - decision: `reject_protected_key_source_regression`
 - next: `m255-m254-protected-source-regression-audit`
+
+## 20260522T150856Z - m255-m254-protected-source-regression-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m254_source_aware_exact_m232_eval`
+- artifact: `docs/m255-m254-protected-source-regression-audit.md`
+- result: M248 and M254 share the same PPO source conflict: M223 improves while protected-key source regresses. M253 calibration lowers the starting protected-key loss but does not change the PPO update sign; protected regression relative to M223 improvement is higher in M254.
+- decision: `admit_post_ppo_protected_source_projection`
+- next: `m256-post-ppo-protected-source-projection`

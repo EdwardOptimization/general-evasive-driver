@@ -1,0 +1,83 @@
+{
+  "id": "m256-post-ppo-protected-source-projection",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m252_alpha_boundary_interpolation/checkpoints/alpha_0_00008.pt",
+      "runs/ppo_m254_exact_source_from_m253_seed5225/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m231_protected_key_snippet_surface/protected_key_snippets.npz",
+      "runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.npz",
+      "runs/m254_source_aware_exact_m232_eval/source_summary.csv"
+    ],
+    "parent_config": [
+      "docs/m255-m254-protected-source-regression-audit.md"
+    ],
+    "parent_objective": [
+      "post-PPO protected-key source projection with M253 action anchor"
+    ],
+    "derived_from": [
+      "m255-m254-protected-source-regression-audit"
+    ],
+    "blocked_by": [
+      "m255-m254-protected-source-regression-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m256-post-ppo-protected-source-projection.md",
+  "public_gates": [
+    "protected-key source projection from M254 raw PPO",
+    "M245 exact source-aware objective gate",
+    "post-projection interpolation if exact source/proof margins require it",
+    "public proof gates only after exact source gate passes",
+    "research validator"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run new PPO in M256",
+    "do not promote projection without exact source gate",
+    "do not run proof gates if exact source gate fails",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "A no-PPO actor-coupling projection from the M254 raw PPO checkpoint can restore the protected-key source while retaining useful M223 movement, giving a candidate that exact-source gates before public proof evaluation.",
+  "success_criteria": [
+    "projection reduces protected-key source loss versus M254 raw",
+    "at least one projected/interpolated alpha has M223 source delta < 0, aggregate M232 delta <= +1e-8, and protected-key source delta <= +1e-8 versus M253",
+    "proof gates are only run for exact-gated candidates",
+    "no PPO is run"
+  ],
+  "failure_criteria": [
+    "projection cannot restore protected-key source without losing M223 improvement",
+    "all projected/interpolated candidates fail exact source gate",
+    "candidate exact-gates but fails public proof retention",
+    "actor input contract changes"
+  ],
+  "commands": [
+    {
+      "name": "m256_projection",
+      "command": "Run protected-key source actor-coupling projection from M254 raw PPO with M253 snippet anchor, then exact-source gate."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m256-post-ppo-protected-source-projection.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m252_alpha_boundary_interpolation/checkpoints/alpha_0_00008.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m254-exact-source-gated-ppo-smoke-from-m253.md",
+    "docs/m255-m254-protected-source-regression-audit.md"
+  ],
+  "decision_rule": "Promote only if a projected/interpolated checkpoint passes exact source and public proof/behavior gates; otherwise reject post-PPO projection and design a hard train-time constraint.",
+  "next_blocker": "Run protected-source projection from the M254 raw PPO checkpoint."
+}

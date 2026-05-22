@@ -2,7 +2,7 @@
   "id": "m255-m254-protected-source-regression-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "repair",
   "failure_types": [
     "none"
   ],
@@ -80,6 +80,6 @@
     "runs/m254_source_aware_exact_m232_eval/source_summary.csv",
     "runs/m248_source_aware_exact_m232_eval/source_summary.csv"
   ],
-  "decision_rule": "M255 should either admit a concrete protected-source projection/constraint implementation or reject PPO continuation until the source conflict is resolved.",
-  "next_blocker": "Audit protected-key source regression and choose a bounded repair."
+  "decision_rule": "M255 admits a bounded post-PPO protected-source projection repair because M248 and M254 show the same protected-key regression sign despite different public-gate bases.",
+  "next_blocker": "Run a no-PPO protected-source projection from the M254 raw PPO checkpoint, then exact-source-gate and interpolate if needed."
 }
