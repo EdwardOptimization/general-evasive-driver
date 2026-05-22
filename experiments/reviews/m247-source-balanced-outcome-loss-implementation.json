@@ -1,0 +1,77 @@
+{
+  "decision_reason": "M247 adds named source-balanced outcome losses to PPO config/training and per-source metrics; focused tests passed and no PPO was run",
+  "failure_criteria": [
+    "source loss config silently accepts missing or duplicate names",
+    "per-source loss metrics are not logged",
+    "existing combined outcome loss tests regress",
+    "run PPO or modify actor inputs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO in M247",
+    "do not change actor inputs",
+    "do not loosen source-aware exact gates",
+    "do not remove existing combined outcome loss compatibility"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260522T143123Z",
+  "hypothesis": "Adding named source-balanced outcome intervention losses will let the next PPO smoke apply explicit protected-key pressure instead of relying on one combined M232 loss.",
+  "lineage": {
+    "blocked_by": [
+      "m246-source-balanced-outcome-loss-design"
+    ],
+    "derived_from": [
+      "m246-source-balanced-outcome-loss-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m239_m224_to_m237_interpolation/checkpoints/alpha_0_5.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m243_exact_gated_from_m239_smoke.json"
+    ],
+    "parent_dataset": [
+      "runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.npz",
+      "runs/m231_protected_key_snippet_surface/protected_key_snippets.npz"
+    ],
+    "parent_objective": [
+      "source-balanced outcome intervention auxiliary losses",
+      "M245 source-aware exact gate"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m247-source-balanced-outcome-loss-implementation",
+  "next_blocker": "Run one source-balanced PPO smoke from M239.",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_source_balanced_ppo_smoke_from_m239",
+  "public_gates": [
+    "source-balanced outcome loss focused tests",
+    "PPO config validation tests",
+    "research validator"
+  ],
+  "scoreboard": {
+    "checkpoint": "",
+    "clearance_margin_mean": "",
+    "decision": "admit_source_balanced_ppo_smoke_from_m239",
+    "milestone": "m247-source-balanced-outcome-loss-implementation",
+    "reason": "M247 adds named source-balanced outcome losses to PPO config/training and per-source metrics; focused tests passed and no PPO was run",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "add PPO config support for multiple named source outcome losses",
+    "load and validate each source NPZ independently",
+    "add each source loss to the PPO objective with its own coefficient",
+    "log per-source outcome loss metrics",
+    "add focused tests for validation and logging",
+    "do not run PPO"
+  ],
+  "type": "infrastructure"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 255,
+    "completed": 256,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m246-source-balanced-outcome-loss-design.md",
+    "command_log": "docs/m247-source-balanced-outcome-loss-implementation.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m246-source-balanced-outcome-loss-design"
+    "task_id": "m247-source-balanced-outcome-loss-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m247-source-balanced-outcome-loss-implementation.json",
-    "hypothesis": "Implement named source-balanced outcome intervention losses in PPO before any new training smoke",
-    "id": "m247-source-balanced-outcome-loss-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement source-balanced PPO loss support and tests",
-    "priority": 2420,
+    "command": "see experiments/manifests/m248-source-balanced-ppo-smoke-from-m239.json",
+    "hypothesis": "Run one source-balanced PPO smoke from M239 and gate it with exact source-aware objective checks before proof gates",
+    "id": "m248-source-balanced-ppo-smoke-from-m239",
+    "kind": "driver_candidate",
+    "notes": "Pending: create config run one PPO smoke and exact source gate",
+    "priority": 2430,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T142543Z"
+  "updated_at_utc": "20260522T142955Z"
 }

@@ -8428,3 +8428,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: selected source-balanced outcome intervention losses as the next bounded repair. The next PPO gate must require protected-key source delta `<= +1e-8`, M223 source delta `< 0`, and aggregate M232 delta `<= +1e-8` before replay/protected-key/behavior gates.
 - decision: `admit_source_balanced_outcome_loss_implementation`
 - next: `m247-source-balanced-outcome-loss-implementation`
+
+## 20260522T142955Z m247-source-balanced-outcome-loss-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m247-source-balanced-outcome-loss-implementation.md`
+- result: added `outcome_intervention_source_losses` to PPO config/training, strict source config validation, independent source NPZ loading, per-source auxiliary loss terms, and per-source train metrics. Focused tests passed (`66 passed`).
+- decision: `admit_source_balanced_ppo_smoke_from_m239`
+- next: `m248-source-balanced-ppo-smoke-from-m239`

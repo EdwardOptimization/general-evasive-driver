@@ -769,6 +769,109 @@ def test_train_logs_outcome_intervention_loss(tmp_path):
     assert float(rows[0]["outcome_intervention_loss_mean"]) >= 0.0
 
 
+def test_train_logs_source_balanced_outcome_intervention_losses(tmp_path):
+    save_path = tmp_path / "run" / "checkpoint.pt"
+    metrics_path = tmp_path / "run" / "train_metrics.csv"
+    m223_path = tmp_path / "m223_snippets.npz"
+    protected_path = tmp_path / "protected_snippets.npz"
+    np.savez_compressed(
+        m223_path,
+        observation=np.zeros((3, 72), dtype=np.float32),
+        preferred_hidden=np.zeros((3, 8), dtype=np.float32),
+        rejected_hidden=np.ones((3, 8), dtype=np.float32) * 0.1,
+        preferred_action=np.zeros((3, 3), dtype=np.float32),
+        weight=np.ones(3, dtype=np.float32),
+    )
+    np.savez_compressed(
+        protected_path,
+        observation=np.zeros((1, 72), dtype=np.float32),
+        preferred_hidden=np.zeros((1, 8), dtype=np.float32),
+        rejected_hidden=np.ones((1, 8), dtype=np.float32) * 0.2,
+        preferred_action=np.zeros((1, 3), dtype=np.float32),
+        weight=np.ones(1, dtype=np.float32),
+    )
+    config = PPOConfig(
+        total_steps=32,
+        rollout_steps=8,
+        num_envs=2,
+        update_epochs=1,
+        minibatch_size=8,
+        hidden_size=8,
+        actor_encoder="human_view_online_gru",
+        recurrent_sequence_training=True,
+        outcome_intervention_source_losses=[
+            {
+                "name": "m223",
+                "snapshot_npz": str(m223_path),
+                "coef": 0.02,
+                "batch_size": 2,
+                "logprob_margin": 0.05,
+            },
+            {
+                "name": "protected-key",
+                "snapshot_npz": str(protected_path),
+                "coef": 0.08,
+                "batch_size": 1,
+                "logprob_margin": 0.05,
+            },
+        ],
+        seed=137,
+        device="cpu",
+    )
+
+    train(
+        config,
+        save_path=save_path,
+        metrics_csv_path=metrics_path,
+        env_config=DriftEnvConfig(
+            max_steps=8,
+            speed_range=(4.0, 6.0),
+            friction_limited_speed=False,
+            obstacle=ObstacleTaskConfig(enabled=True, distance_range=(20.0, 24.0)),
+        ),
+    )
+
+    with metrics_path.open(newline="", encoding="utf-8") as handle:
+        rows = list(csv.DictReader(handle))
+
+    assert rows
+    row = rows[0]
+    assert "outcome_intervention_source_m223_loss_mean" in row
+    assert "outcome_intervention_source_protected_key_loss_mean" in row
+    assert float(row["outcome_intervention_source_m223_loss_mean"]) >= 0.0
+    assert float(row["outcome_intervention_source_protected_key_loss_mean"]) >= 0.0
+    assert float(row["outcome_intervention_source_m223_coef"]) == 0.02
+    assert float(row["outcome_intervention_source_protected_key_coef"]) == 0.08
+
+
+def test_train_rejects_duplicate_outcome_intervention_source_names(tmp_path):
+    snippet_path = tmp_path / "snippets.npz"
+    np.savez_compressed(
+        snippet_path,
+        observation=np.zeros((1, 72), dtype=np.float32),
+        preferred_hidden=np.zeros((1, 8), dtype=np.float32),
+        rejected_hidden=np.ones((1, 8), dtype=np.float32) * 0.1,
+        preferred_action=np.zeros((1, 3), dtype=np.float32),
+        weight=np.ones(1, dtype=np.float32),
+    )
+    config = PPOConfig(
+        total_steps=8,
+        rollout_steps=4,
+        num_envs=1,
+        hidden_size=8,
+        actor_encoder="human_view_online_gru",
+        recurrent_sequence_training=True,
+        outcome_intervention_source_losses=[
+            {"name": "protected-key", "snapshot_npz": str(snippet_path), "coef": 0.1},
+            {"name": "protected_key", "snapshot_npz": str(snippet_path), "coef": 0.1},
+        ],
+        device="cpu",
+    )
+
+    with pytest.raises(ValueError, match="duplicate outcome intervention source loss name"):
+        train(config, env_config=DriftEnvConfig(max_steps=4, speed_range=(4.0, 6.0)))
+
+
 def test_train_requires_baseline_action_anchor_checkpoint():
     config = PPOConfig(
         total_steps=8,

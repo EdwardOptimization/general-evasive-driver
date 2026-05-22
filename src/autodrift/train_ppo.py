@@ -9,9 +9,10 @@ from __future__ import annotations
 
 import argparse
 import csv
-from dataclasses import dataclass, fields, replace
+from dataclasses import dataclass, field, fields, replace
 from pathlib import Path
 import sys
+from typing import Any
 
 import numpy as np
 import torch
@@ -61,6 +62,58 @@ def is_online_recurrent_encoder(actor_encoder: str) -> bool:
     return actor_encoder in ONLINE_RECURRENT_ENCODERS
 
 
+def _metric_token(name: str) -> str:
+    token = "".join(character.lower() if character.isalnum() else "_" for character in name).strip("_")
+    while "__" in token:
+        token = token.replace("__", "_")
+    if not token:
+        raise ValueError("outcome intervention source loss name must contain at least one alphanumeric character")
+    return token
+
+
+def normalize_outcome_intervention_source_losses(raw_sources: Any) -> list[dict[str, Any]]:
+    if raw_sources in (None, ""):
+        return []
+    if not isinstance(raw_sources, list):
+        raise ValueError("outcome_intervention_source_losses must be a list")
+
+    normalized: list[dict[str, Any]] = []
+    seen_names: set[str] = set()
+    for index, raw_source in enumerate(raw_sources):
+        if not isinstance(raw_source, dict):
+            raise ValueError(f"outcome_intervention_source_losses[{index}] must be an object")
+        name = str(raw_source.get("name", "")).strip()
+        if not name:
+            raise ValueError(f"outcome_intervention_source_losses[{index}].name is required")
+        metric_token = _metric_token(name)
+        if metric_token in seen_names:
+            raise ValueError(f"duplicate outcome intervention source loss name: {name}")
+        seen_names.add(metric_token)
+        snapshot_npz = str(raw_source.get("snapshot_npz", "")).strip()
+        if not snapshot_npz:
+            raise ValueError(f"outcome_intervention_source_losses[{index}].snapshot_npz is required")
+        coef = float(raw_source.get("coef", 0.0))
+        if coef <= 0.0:
+            raise ValueError(f"outcome_intervention_source_losses[{index}].coef must be positive")
+        batch_size = int(raw_source.get("batch_size", 128))
+        if batch_size < 1:
+            raise ValueError(f"outcome_intervention_source_losses[{index}].batch_size must be positive")
+        logprob_margin = float(raw_source.get("logprob_margin", 0.05))
+        if logprob_margin < 0.0:
+            raise ValueError(f"outcome_intervention_source_losses[{index}].logprob_margin cannot be negative")
+        normalized.append(
+            {
+                "name": name,
+                "metric_token": metric_token,
+                "snapshot_npz": snapshot_npz,
+                "coef": coef,
+                "batch_size": batch_size,
+                "logprob_margin": logprob_margin,
+            }
+        )
+    return normalized
+
+
 @dataclass(frozen=True)
 class PPOConfig:
     total_steps: int = 50_000
@@ -101,6 +154,7 @@ class PPOConfig:
     outcome_intervention_snapshot_npz: str = ""
     outcome_intervention_batch_size: int = 128
     outcome_intervention_logprob_margin: float = 0.05
+    outcome_intervention_source_losses: list[dict[str, Any]] = field(default_factory=list)
     friction_bucket_aux_coef: float = 0.0
     friction_bucket_aux_observation_mask: str = "none"
     friction_bucket_aux_feature_source: str = "policy_features"
@@ -872,6 +926,9 @@ def train(
     curriculum = curriculum or []
     active_env_config, active_stage = env_config_for_step(env_config, curriculum, 0)
     uses_online_recurrent = is_online_recurrent_encoder(config.actor_encoder)
+    outcome_intervention_source_configs = normalize_outcome_intervention_source_losses(
+        config.outcome_intervention_source_losses
+    )
     if config.actor_encoder == "temporal_gru" and config.actor_history_length != active_env_config.history_length:
         config = replace(config, actor_history_length=active_env_config.history_length)
     if uses_online_recurrent and active_env_config.history_length != 1:
@@ -915,6 +972,9 @@ def train(
             raise ValueError("outcome_intervention_batch_size must be positive")
         if config.outcome_intervention_logprob_margin < 0.0:
             raise ValueError("outcome_intervention_logprob_margin cannot be negative")
+    if outcome_intervention_source_configs:
+        if not uses_online_recurrent or not config.recurrent_sequence_training:
+            raise ValueError("outcome intervention source losses require online recurrent sequence training")
     if config.friction_bucket_aux_coef > 0.0:
         if not uses_online_recurrent or not config.recurrent_sequence_training:
             raise ValueError("friction bucket auxiliary loss requires online recurrent sequence training")
@@ -1049,6 +1109,19 @@ def train(
         if config.outcome_intervention_aux_coef > 0.0
         else None
     )
+    outcome_intervention_source_snippets = [
+        (
+            source_config,
+            load_outcome_intervention_snippets(
+                source_config["snapshot_npz"],
+                device=device,
+                obs_dim=env.single_observation_space.shape[0],
+                hidden_size=config.hidden_size,
+                act_dim=env.single_action_space.shape[0],
+            ),
+        )
+        for source_config in outcome_intervention_source_configs
+    ]
     snippet_action_anchor = None
     if config.snippet_action_anchor_coef > 0.0:
         snippet_anchor_npz = str(config.snippet_action_anchor_snapshot_npz).strip() or str(
@@ -1308,6 +1381,9 @@ def train(
             action_contrast_loss_values: list[float] = []
             paired_hidden_action_contrast_loss_values: list[float] = []
             outcome_intervention_loss_values: list[float] = []
+            outcome_intervention_source_loss_values: dict[str, list[float]] = {
+                source_config["metric_token"]: [] for source_config, _ in outcome_intervention_source_snippets
+            }
             friction_bucket_loss_values: list[float] = []
             friction_bucket_accuracy_values: list[float] = []
             baseline_action_anchor_loss_values: list[float] = []
@@ -1403,6 +1479,17 @@ def train(
                         loss = loss + config.outcome_intervention_aux_coef * outcome_intervention_loss
                         outcome_intervention_loss_values.append(
                             float(outcome_intervention_loss.detach().cpu().item())
+                        )
+                    for source_config, source_snippets in outcome_intervention_source_snippets:
+                        source_loss = outcome_weighted_intervention_loss(
+                            model,
+                            source_snippets,
+                            batch_size=int(source_config["batch_size"]),
+                            logprob_margin=float(source_config["logprob_margin"]),
+                        )
+                        loss = loss + float(source_config["coef"]) * source_loss
+                        outcome_intervention_source_loss_values[source_config["metric_token"]].append(
+                            float(source_loss.detach().cpu().item())
                         )
                     if config.snippet_action_anchor_coef > 0.0:
                         assert snippet_action_anchor is not None
@@ -1601,6 +1688,13 @@ def train(
                 if outcome_intervention_loss_values
                 else float("nan")
             )
+        for source_config in outcome_intervention_source_configs:
+            metric_token = source_config["metric_token"]
+            values = outcome_intervention_source_loss_values.get(metric_token, [])
+            row[f"outcome_intervention_source_{metric_token}_loss_mean"] = (
+                float(np.mean(values)) if values else float("nan")
+            )
+            row[f"outcome_intervention_source_{metric_token}_coef"] = float(source_config["coef"])
         if config.friction_bucket_aux_coef > 0.0 and uses_online_recurrent and config.recurrent_sequence_training:
             row["friction_bucket_aux_loss_mean"] = (
                 float(np.mean(friction_bucket_loss_values)) if friction_bucket_loss_values else float("nan")

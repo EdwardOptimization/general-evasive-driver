@@ -2,7 +2,7 @@
   "id": "m247-source-balanced-outcome-loss-implementation",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -79,5 +79,22 @@
     "tests/test_checkpoints.py"
   ],
   "decision_rule": "M247 may unblock a source-balanced PPO smoke only if focused tests and research validation pass without changing actor inputs.",
-  "next_blocker": "Implement source-balanced outcome losses before PPO."
+  "results": {
+    "implemented": [
+      "PPOConfig.outcome_intervention_source_losses",
+      "normalize_outcome_intervention_source_losses",
+      "per-source source NPZ loading",
+      "per-source PPO auxiliary loss contribution",
+      "per-source train_metrics logging"
+    ],
+    "focused_tests": "66 passed",
+    "metrics": [
+      "outcome_intervention_source_<name>_loss_mean",
+      "outcome_intervention_source_<name>_coef"
+    ],
+    "actor_inputs_changed": false,
+    "ppo_run": false
+  },
+  "decision": "admit_source_balanced_ppo_smoke_from_m239",
+  "next_blocker": "Run one source-balanced PPO smoke from M239."
 }
