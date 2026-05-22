@@ -2,7 +2,7 @@
   "id": "m257-trajectory-anchored-projection-implementation",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -76,6 +76,6 @@
   "baseline_artifacts": [
     "docs/m256-post-ppo-protected-source-projection.md"
   ],
-  "decision_rule": "M257 completes only if trajectory-anchor projection support is implemented and tested without running PPO or promoting a driver.",
-  "next_blocker": "Retry the M256 projection with the M235 trajectory anchor enabled."
+  "decision_rule": "M257 is complete because trajectory-anchor projection support is implemented, focused tests pass, the real M235 anchor loads in an optimizer smoke, and no PPO or driver promotion was performed.",
+  "next_blocker": "m258-trajectory-anchored-projection-retry"
 }

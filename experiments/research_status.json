@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 265,
+    "completed": 266,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m256-post-ppo-protected-source-projection.md",
+    "command_log": "docs/m257-trajectory-anchored-projection-implementation.md",
     "returncode": 0,
-    "run_dir": "runs/m256_projection_interpolation_source_aware_exact_m232_eval",
+    "run_dir": "runs/m257_trajectory_anchor_optimizer_smoke",
     "status": "completed",
-    "task_id": "m256-post-ppo-protected-source-projection"
+    "task_id": "m257-trajectory-anchored-projection-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m257-trajectory-anchored-projection-implementation.json",
-    "hypothesis": "Add trajectory-action-anchor support to post-PPO outcome projection before retrying protected-source repair",
-    "id": "m257-trajectory-anchored-projection-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement trajectory anchor support in outcome_intervention_optimize",
-    "priority": 2520,
+    "command": "see experiments/manifests/m258-trajectory-anchored-projection-retry.json",
+    "hypothesis": "Adding the M235 trajectory action anchor to the M256 protected-source projection can preserve row16 closed-loop behavior while still repairing protected-key source loss from M254 raw PPO.",
+    "id": "m258-trajectory-anchored-projection-retry",
+    "kind": "driver_candidate",
+    "notes": "Pending: run no-PPO projection with trajectory anchor then exact-source and row16 gates",
+    "priority": 2530,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T151402Z"
+  "updated_at_utc": "20260522T152017Z"
 }

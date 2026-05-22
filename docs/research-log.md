@@ -8527,3 +8527,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: protected-source projection from M254 raw fixes exact source losses, including protected-key delta `-0.012259328` on the full projected checkpoint. However every tested interpolation alpha fails M183/M170 row16; even `alpha=0.00001` flips row16 from `0.000000252` positive margin to `-0.000000172` collision.
 - decision: `reject_projection_proof_washout`
 - next: `m257-trajectory-anchored-projection-implementation`
+
+## 20260522T152017Z - m257-trajectory-anchored-projection-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m257_trajectory_anchor_optimizer_smoke`
+- artifact: `docs/m257-trajectory-anchored-projection-implementation.md`
+- result: `outcome_intervention_optimize` now accepts the existing M235 trajectory action anchor NPZ format, adds `trajectory_action_anchor_loss`, and records before/after trajectory anchor MSE. Focused tests passed (`65 passed`) and a real M235 anchor smoke loaded successfully.
+- decision: `complete_trajectory_anchor_projection_support`
+- next: `m258-trajectory-anchored-projection-retry`

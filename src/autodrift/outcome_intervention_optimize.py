@@ -17,8 +17,11 @@ from autodrift.evaluate import load_env_config
 from autodrift.hidden_envelope_optimize import collect_hidden_envelope_objective_batch
 from autodrift.intervention_objectives import (
     OutcomeInterventionSnippets,
+    TrajectoryActionAnchor,
+    load_trajectory_action_anchor,
     load_outcome_intervention_snippets,
     outcome_weighted_intervention_loss,
+    trajectory_action_anchor_loss,
     weighted_mean,
 )
 from autodrift.outcome_intervention_eval import evaluate_checkpoint
@@ -208,6 +211,13 @@ def _sampled_snippet_action_anchor_loss(
     return weighted_mean(errors, anchor["weight"][indices])
 
 
+def _trajectory_action_anchor_mse(model: torch.nn.Module, anchor: TrajectoryActionAnchor) -> torch.Tensor:
+    dist, _, _ = model.forward_recurrent(anchor.observation, anchor.hidden)  # type: ignore[attr-defined]
+    action = torch.tanh(dist.mean)
+    error = torch.square(action - anchor.reference_action.detach()).mean(dim=-1)
+    return weighted_mean(error, anchor.weight.detach())
+
+
 def save_checkpoint_like(
     *,
     model: torch.nn.Module,
@@ -257,6 +267,9 @@ def optimize_outcome_intervention(
     snippet_action_anchor_coef: float = 0.0,
     snippet_action_anchor_batch_size: int = 128,
     snippet_action_anchor_include_rejected_hidden: bool = True,
+    trajectory_action_anchor_snapshot_npz: Path | None = None,
+    trajectory_action_anchor_coef: float = 0.0,
+    trajectory_action_anchor_batch_size: int = 128,
 ) -> tuple[dict[str, Any], pd.DataFrame, pd.DataFrame]:
     run_dir.mkdir(parents=True, exist_ok=True)
     resolved_device = resolve_device(device)
@@ -301,6 +314,21 @@ def optimize_outcome_intervention(
             obs_dim=obs_dim,
             include_rejected_hidden=snippet_action_anchor_include_rejected_hidden,
         )
+    trajectory_action_anchor: TrajectoryActionAnchor | None = None
+    if trajectory_action_anchor_coef < 0.0:
+        raise ValueError("trajectory_action_anchor_coef must be non-negative")
+    if trajectory_action_anchor_batch_size < 1:
+        raise ValueError("trajectory_action_anchor_batch_size must be at least 1")
+    if trajectory_action_anchor_coef > 0.0:
+        if trajectory_action_anchor_snapshot_npz is None:
+            raise ValueError("trajectory_action_anchor_snapshot_npz is required when trajectory_action_anchor_coef > 0")
+        trajectory_action_anchor = load_trajectory_action_anchor(
+            trajectory_action_anchor_snapshot_npz,
+            device=resolved_device,
+            obs_dim=obs_dim,
+            hidden_size=model.actor_mean.in_features,
+            act_dim=act_dim,
+        )
 
     before_summary, before_batches = evaluate_checkpoint(
         label="before",
@@ -319,6 +347,11 @@ def optimize_outcome_intervention(
             if snippet_action_anchor
             else None
         )
+        before_trajectory_action_anchor_mse = (
+            float(_trajectory_action_anchor_mse(model, trajectory_action_anchor).detach().cpu().item())
+            if trajectory_action_anchor
+            else None
+        )
 
     metrics: list[dict[str, Any]] = []
     model.train()
@@ -335,6 +368,7 @@ def optimize_outcome_intervention(
         outcome_loss = loss
         action_anchor_loss = torch.zeros((), dtype=torch.float32, device=resolved_device)
         snippet_action_anchor_loss = torch.zeros((), dtype=torch.float32, device=resolved_device)
+        trajectory_anchor_loss = torch.zeros((), dtype=torch.float32, device=resolved_device)
         if anchor is not None:
             action_anchor_loss = _sampled_action_anchor_loss(
                 model,
@@ -349,6 +383,13 @@ def optimize_outcome_intervention(
                 batch_size=snippet_action_anchor_batch_size,
             )
             loss = loss + float(snippet_action_anchor_coef) * snippet_action_anchor_loss
+        if trajectory_action_anchor is not None:
+            trajectory_anchor_loss = trajectory_action_anchor_loss(
+                model,
+                trajectory_action_anchor,
+                batch_size=trajectory_action_anchor_batch_size,
+            )
+            loss = loss + float(trajectory_action_anchor_coef) * trajectory_anchor_loss
         loss.backward()
         grad_norm = torch.nn.utils.clip_grad_norm_(parameters, max_norm=float(grad_clip_norm))
         optimizer.step()
@@ -362,6 +403,8 @@ def optimize_outcome_intervention(
                     "action_anchor_coef": float(action_anchor_coef),
                     "snippet_action_anchor_loss": float(snippet_action_anchor_loss.detach().cpu().item()),
                     "snippet_action_anchor_coef": float(snippet_action_anchor_coef),
+                    "trajectory_action_anchor_loss": float(trajectory_anchor_loss.detach().cpu().item()),
+                    "trajectory_action_anchor_coef": float(trajectory_action_anchor_coef),
                     "grad_norm": float(grad_norm.detach().cpu().item() if isinstance(grad_norm, torch.Tensor) else grad_norm),
                     "learning_rate": float(learning_rate),
                 }
@@ -396,6 +439,9 @@ def optimize_outcome_intervention(
             "snippet_action_anchor_coef": float(snippet_action_anchor_coef),
             "snippet_action_anchor_batch_size": int(snippet_action_anchor_batch_size),
             "snippet_action_anchor_include_rejected_hidden": bool(snippet_action_anchor_include_rejected_hidden),
+            "trajectory_action_anchor_snapshot_npz": trajectory_action_anchor_snapshot_npz,
+            "trajectory_action_anchor_coef": float(trajectory_action_anchor_coef),
+            "trajectory_action_anchor_batch_size": int(trajectory_action_anchor_batch_size),
             "grad_clip_norm": float(grad_clip_norm),
         },
     )
@@ -414,6 +460,11 @@ def optimize_outcome_intervention(
         after_snippet_action_anchor_mse = (
             float(_snippet_action_anchor_mse(model, snippet_action_anchor).detach().cpu().item())
             if snippet_action_anchor
+            else None
+        )
+        after_trajectory_action_anchor_mse = (
+            float(_trajectory_action_anchor_mse(model, trajectory_action_anchor).detach().cpu().item())
+            if trajectory_action_anchor
             else None
         )
 
@@ -447,10 +498,15 @@ def optimize_outcome_intervention(
         "snippet_action_anchor_coef": float(snippet_action_anchor_coef),
         "snippet_action_anchor_batch_size": int(snippet_action_anchor_batch_size),
         "snippet_action_anchor_include_rejected_hidden": bool(snippet_action_anchor_include_rejected_hidden),
+        "trajectory_action_anchor_snapshot_npz": trajectory_action_anchor_snapshot_npz,
+        "trajectory_action_anchor_coef": float(trajectory_action_anchor_coef),
+        "trajectory_action_anchor_batch_size": int(trajectory_action_anchor_batch_size),
         "before_action_anchor_mse": before_action_anchor_mse,
         "after_action_anchor_mse": after_action_anchor_mse,
         "before_snippet_action_anchor_mse": before_snippet_action_anchor_mse,
         "after_snippet_action_anchor_mse": after_snippet_action_anchor_mse,
+        "before_trajectory_action_anchor_mse": before_trajectory_action_anchor_mse,
+        "after_trajectory_action_anchor_mse": after_trajectory_action_anchor_mse,
         "grad_clip_norm": float(grad_clip_norm),
         "eval_batch_size": int(eval_batch_size),
         "eval_batches": int(eval_batches),
@@ -495,6 +551,9 @@ def main() -> None:
     parser.add_argument("--snippet-action-anchor-coef", type=float, default=0.0)
     parser.add_argument("--snippet-action-anchor-batch-size", type=int, default=128)
     parser.add_argument("--snippet-action-anchor-preferred-only", action="store_true")
+    parser.add_argument("--trajectory-action-anchor-snapshot-npz", type=Path, default=None)
+    parser.add_argument("--trajectory-action-anchor-coef", type=float, default=0.0)
+    parser.add_argument("--trajectory-action-anchor-batch-size", type=int, default=128)
     parser.add_argument("--grad-clip-norm", type=float, default=1.0)
     parser.add_argument("--log-interval", type=int, default=20)
     parser.add_argument("--eval-batch-size", type=int, default=128)
@@ -535,6 +594,9 @@ def main() -> None:
         snippet_action_anchor_coef=args.snippet_action_anchor_coef,
         snippet_action_anchor_batch_size=args.snippet_action_anchor_batch_size,
         snippet_action_anchor_include_rejected_hidden=not args.snippet_action_anchor_preferred_only,
+        trajectory_action_anchor_snapshot_npz=args.trajectory_action_anchor_snapshot_npz,
+        trajectory_action_anchor_coef=args.trajectory_action_anchor_coef,
+        trajectory_action_anchor_batch_size=args.trajectory_action_anchor_batch_size,
     )
     print(train_metrics.tail(5).to_string(index=False))
     print(policy_summary.to_string(index=False))

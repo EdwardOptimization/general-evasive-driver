@@ -1,0 +1,77 @@
+{
+  "decision_reason": "M257 adds trajectory action anchor support to outcome_intervention_optimize with focused tests and a real M235 anchor optimizer smoke; no PPO and no driver promotion",
+  "failure_criteria": [
+    "trajectory anchor support changes train_ppo behavior",
+    "optimizer cannot load the existing M235 trajectory anchor",
+    "tests fail",
+    "actor input contract changes"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO in M257",
+    "do not change actor inputs",
+    "do not alter existing trajectory anchor semantics in train_ppo",
+    "do not promote a driver checkpoint in an infrastructure milestone"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260522T152126Z",
+  "hypothesis": "Post-PPO projection needs trajectory action anchor support so protected-source repair can also preserve fragile closed-loop rows such as M183/M170 row16.",
+  "lineage": {
+    "blocked_by": [
+      "m256-post-ppo-protected-source-projection"
+    ],
+    "derived_from": [
+      "m256-post-ppo-protected-source-projection"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m252_alpha_boundary_interpolation/checkpoints/alpha_0_00008.pt",
+      "runs/m256_post_ppo_protected_source_projection_seed10067/optimized_checkpoint.pt"
+    ],
+    "parent_config": [
+      "src/autodrift/outcome_intervention_optimize.py",
+      "docs/m256-post-ppo-protected-source-projection.md"
+    ],
+    "parent_dataset": [
+      "runs/m235_closed_loop_trajectory_anchor_surface/trajectory_anchor.npz",
+      "runs/m256_m183_m170_replay_gate_a0_00001/comparison_summary.csv"
+    ],
+    "parent_objective": [
+      "allow post-PPO projection to protect fragile closed-loop trajectory anchors"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m257-trajectory-anchored-projection-implementation",
+  "next_blocker": "m258-trajectory-anchored-projection-retry",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "complete_trajectory_anchor_projection_support",
+  "public_gates": [
+    "trajectory anchor support in outcome_intervention_optimize",
+    "focused tests",
+    "research validator"
+  ],
+  "scoreboard": {
+    "checkpoint": "not_applicable_infrastructure_task",
+    "clearance_margin_mean": "",
+    "decision": "complete_trajectory_anchor_projection_support",
+    "milestone": "m257-trajectory-anchored-projection-implementation",
+    "reason": "M257 adds trajectory action anchor support to outcome_intervention_optimize with focused tests and a real M235 anchor optimizer smoke; no PPO and no driver promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "outcome_intervention_optimize can load trajectory_action_anchor_snapshot_npz",
+    "projection loss logs trajectory_action_anchor_loss when enabled",
+    "focused tests cover the new optimizer path",
+    "research validator passes",
+    "no PPO is run"
+  ],
+  "type": "infrastructure"
+}
