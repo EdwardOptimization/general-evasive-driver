@@ -2,9 +2,10 @@
   "id": "m243-exact-gated-ppo-smoke-from-m239",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "objective_overfit",
+    "promotion_gate_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -96,5 +97,34 @@
     "runs/m242_exact_m223_outcome_eval/policy_summary.csv"
   ],
   "decision_rule": "M243 may promote only an interpolation alpha that passes exact objective gates plus full proof and behavior retention. If no alpha passes, reject and audit the continuation recipe before more PPO.",
-  "next_blocker": "Run one exact-gated PPO smoke from M239."
+  "results": {
+    "raw_checkpoint": "runs/ppo_m243_exact_gated_from_m239_seed5223/checkpoint.pt",
+    "rollout_return_mean": 54.048920394104655,
+    "reward_mean": 0.9171414375305176,
+    "raw_rollout_termination_rate": 0.4,
+    "built_in_eval_termination_rate": 0.2,
+    "outcome_intervention_loss_mean": 0.2534163457651933,
+    "baseline_action_anchor_loss_mean": 1.1022579902449555e-05,
+    "snippet_action_anchor_loss_mean": 4.4025097123423507e-08,
+    "trajectory_action_anchor_loss_mean": 2.3217327083102646e-07,
+    "interpolation_run_dir": "runs/m243_m239_to_raw_interpolation",
+    "m232_exact_loss_m239": 0.244649454951,
+    "m232_exact_loss_a100": 0.244649633765,
+    "m232_exact_loss_a250": 0.244650021195,
+    "m232_exact_loss_a500": 0.24465072155,
+    "m232_exact_loss_a750": 0.244651511312,
+    "m232_exact_loss_a1000": 0.244652479887,
+    "m223_exact_loss_m239": 0.209007069468,
+    "m223_exact_loss_a100": 0.209006235003,
+    "m223_exact_loss_a250": 0.209005072713,
+    "m223_exact_loss_a500": 0.209003180265,
+    "m223_exact_loss_a750": 0.209001347423,
+    "m223_exact_loss_a1000": 0.208999633789,
+    "proof_gates_run": false,
+    "behavior_gates_run": false,
+    "actor_inputs_changed": false,
+    "rejection_reason": "all interpolation alphas regress exact M232 while improving M223"
+  },
+  "decision": "reject_exact_m232_regression",
+  "next_blocker": "Audit protected-key versus M223 per-row objective conflict before more PPO."
 }

@@ -8389,3 +8389,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: added `outcome_intervention_eval --exact` with deterministic full-corpus loss and mode-tagged outputs. Focused tests passed (`15 passed`) and M232/M223 exact smoke reproduced M241.
 - decision: `admit_exact_gated_ppo_smoke_from_m239`
 - next: `m243-exact-gated-ppo-smoke-from-m239`
+
+## 20260522T140542Z m243-exact-gated-ppo-smoke-from-m239
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/ppo_m243_exact_gated_from_m239_seed5223`
+- artifact: `docs/m243-exact-gated-ppo-smoke-from-m239.md`
+- result: negative. Exact M223 improves monotonically with alpha, but exact M232 regresses for every alpha. Candidate stops at objective gate; proof and behavior gates were not run.
+- decision: `reject_exact_m232_regression`
+- next: `m244-m243-protected-key-objective-conflict-audit`
