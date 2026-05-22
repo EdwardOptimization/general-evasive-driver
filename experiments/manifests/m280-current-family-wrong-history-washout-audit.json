@@ -78,6 +78,34 @@
     "docs/m279-recovery-anchored-actor-update.md",
     "runs/m279_m267_m264_replay_gate_seed10070/summary.json"
   ],
-  "decision_rule": "M280 completes only when it explains the current-family wrong-history washout and pre-registers a targeted repair. PPO remains blocked.",
-  "next_blocker": "pending M280 current-family wrong-history washout audit"
+  "results": {
+    "m279_exact_loss_m272": 0.6813756227493286,
+    "m279_exact_loss_candidate": 0.6774370670318604,
+    "m279_m183_m170_row16_margin": 0.0024594188918236615,
+    "m267_m264_baseline_success_drop_count": 17,
+    "m267_m264_m279_success_drop_count": 12,
+    "m267_m264_failed_rows": [
+      6,
+      11,
+      13,
+      15,
+      16
+    ],
+    "failed_row_wrong_margin_deltas": {
+      "6": 0.001887,
+      "11": 0.001166,
+      "13": 0.002137,
+      "15": 0.001697,
+      "16": 0.002231
+    },
+    "m279_used_snippet_action_anchor_preferred_only": true,
+    "m270_all_preferred_action_l2_mean": 0.005260,
+    "m270_all_rejected_action_l2_mean": 0.007316,
+    "m270_m267_m264_preferred_action_l2_mean": 0.005319,
+    "m270_m267_m264_rejected_action_l2_mean": 0.007328,
+    "selected_repair": "enable_rejected_hidden_snippet_action_anchor_with_m279_combined_recovery_anchor"
+  },
+  "decision_rule": "M280 completes the audit and admits exactly one no-PPO rejected-hidden anchored recovery update. M267/M264 must be gated before protected-key or behavior gates.",
+  "decision": "admit_rejected_hidden_anchored_recovery_update",
+  "next_blocker": "m281-rejected-hidden-recovery-anchored-update"
 }

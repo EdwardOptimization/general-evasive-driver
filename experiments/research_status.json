@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 288,
+    "completed": 289,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m279-recovery-anchored-actor-update.md",
+    "command_log": "docs/m280-current-family-wrong-history-washout-audit.md",
     "returncode": 0,
     "run_dir": "runs/m279_m267_m264_replay_gate_seed10070",
     "status": "completed",
-    "task_id": "m279-recovery-anchored-actor-update"
+    "task_id": "m280-current-family-wrong-history-washout-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m280-current-family-wrong-history-washout-audit.json",
-    "hypothesis": "M279 improves normal terminal margins but also makes rejected/wrong-history hidden states safer on current-family rows because the update lacks an explicit rejected-hidden retention or contrast anchor.",
-    "id": "m280-current-family-wrong-history-washout-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M279 M267/M264 washout before any new actor update; PPO remains blocked",
-    "priority": 2750,
+    "command": "see experiments/manifests/m281-rejected-hidden-recovery-anchored-update.json",
+    "hypothesis": "Rejected-hidden snippet action anchoring can preserve current-family wrong-history contrast while the M279 combined recovery anchor repairs normal terminal-margin slack.",
+    "id": "m281-rejected-hidden-recovery-anchored-update",
+    "kind": "driver_candidate",
+    "notes": "Pending: one small no-PPO actor update with rejected-hidden snippet action anchoring; gate row16 and M267/M264 first",
+    "priority": 2760,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T184205Z"
+  "updated_at_utc": "20260522T184547Z"
 }
