@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 220,
+    "completed": 221,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m211-m192-seed-control-protected-surface-audit.md",
+    "command_log": "docs/m212-current-family-boundary-objective-sanity.md",
     "returncode": 0,
-    "run_dir": "runs/m211_current_family_boundary_robustness_seed9520",
+    "run_dir": "runs/m212_m204_boundary_replay_sanity_seed10040",
     "status": "completed",
-    "task_id": "m211-m192-seed-control-protected-surface-audit"
+    "task_id": "m212-current-family-boundary-objective-sanity"
   },
   "next_task": {
-    "command": "see experiments/manifests/m212-current-family-boundary-objective-sanity.json",
-    "hypothesis": "M211 recovered a robustness-passing current-family wrong-history surface, so convert accepted rows into replay-aligned M204/M202/M199 objective corpora before any actor update or PPO.",
-    "id": "m212-current-family-boundary-objective-sanity",
-    "kind": "objective_sanity",
-    "notes": "Build objective corpora and replay sanity only; PPO remains blocked.",
-    "priority": 2070,
+    "command": "see experiments/manifests/m213-m212-guarded-actor-update.json",
+    "hypothesis": "M212 validates a replay-aligned M204 current-best objective corpus, so one tiny anchored actor update can test whether the objective can improve without washing out behavior, old/new replay surfaces, or protected key.",
+    "id": "m213-m212-guarded-actor-update",
+    "kind": "driver_candidate",
+    "notes": "Run one single-seed low-drift actor update only; PPO remains blocked.",
+    "priority": 2080,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T103622Z"
+  "updated_at_utc": "20260522T104014Z"
 }

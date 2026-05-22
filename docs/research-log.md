@@ -7642,3 +7642,37 @@ Decision: M211 is positive. M210 was seed/corpus-specific, not proof that
 current-family wrong-history evidence is gone. Convert the M211 accepted rows
 into replay-aligned objective corpora in M212 before any guarded actor update or
 PPO.
+
+## 20260522T104014Z m212-current-family-boundary-objective-sanity
+
+M212 converted the M211 accepted wrong-history rows into current-family
+boundary-outcome objective corpora. No PPO, actor update, or actor input change
+was run.
+
+Artifacts:
+
+- `runs/m212_m204_boundary_outcome_corpus_seed10040`
+- `runs/m212_m202_boundary_outcome_corpus_seed10040`
+- `runs/m212_m199_boundary_outcome_corpus_seed10040`
+- `runs/m212_m204_boundary_replay_sanity_seed10040`
+- `runs/m212_m202_boundary_replay_sanity_seed10040`
+- `runs/m212_m199_boundary_replay_sanity_seed10040`
+- `docs/m212-current-family-boundary-objective-sanity.md`
+- `experiments/manifests/m213-m212-guarded-actor-update.json`
+
+Results:
+
+- M204 corpus: `17` rows, `13` physical pairs, objective_pass true, min val
+  combined improvement `2.940994`, min val pairwise accuracy `1.0`;
+- M202 corpus: `16` rows, `13` physical pairs, objective_pass true;
+- M199 corpus: `15` rows, `12` physical pairs, objective_pass true;
+- M204 replay sanity against M202 passes with `17/17` drops retained;
+- M202 replay sanity against M199 passes with `16/16` drops retained;
+- M199 replay sanity against M202 is mixed and fails with `13/15` drops
+  retained.
+
+Decision: M212 is positive for the current-best M204 path. Admit exactly one
+tiny anchored actor-coupling update from M204 using the M212 M204 corpus. Do not
+use the M199 mixed cross-family rows for the next actor update, and do not run
+PPO before the actor update preserves behavior, old/new replay surfaces, and
+protected key.

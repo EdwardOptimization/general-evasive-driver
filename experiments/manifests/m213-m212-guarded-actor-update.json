@@ -1,0 +1,99 @@
+{
+  "id": "m213-m212-guarded-actor-update",
+  "type": "driver_candidate",
+  "hypothesis": "M212 shows that the M211 current-family protected surface can be converted into a replay-aligned M204 objective corpus. A tiny anchored actor-coupling update from M204 may improve the M212 M204 objective without washing out behavior, old replay surfaces, refreshed M193 replay, the new M212 replay surface, or the protected key.",
+  "success_criteria": [
+    "start from runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt",
+    "use runs/m212_m204_boundary_outcome_corpus_seed10040/boundary_outcome_corpus.npz as training-time objective data only",
+    "keep actor inputs unchanged",
+    "use train-scope actor_coupling, a strong action anchor, and a small update count",
+    "improve the fixed M212 M204 objective on held-out batches",
+    "preserve behavior seeds 9505 and 9506",
+    "preserve old M183 M168/M170 replay gates",
+    "preserve refreshed M193 M189 replay gate",
+    "preserve new M212 M204 replay gate",
+    "preserve protected key 9944|perturbed|28|28"
+  ],
+  "failure_criteria": [
+    "run PPO before a low-drift actor update passes gates",
+    "change observation inputs",
+    "ignore old M183 or M193 replay surfaces while optimizing the new M212 corpus",
+    "accept objective improvement without behavior, replay, and protected-key retention",
+    "chain from rejected M206 or M208"
+  ],
+  "commands": [
+    {
+      "name": "m213_actor_update_seed10050",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_optimize --init-checkpoint runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt --snippet-npz runs/m212_m204_boundary_outcome_corpus_seed10040/boundary_outcome_corpus.npz --device cpu --steps 20 --batch-size 64 --learning-rate 0.0001 --logprob-margin 0.05 --seed 10050 --grad-clip-norm 1.0 --log-interval 5 --eval-batch-size 64 --eval-batches 30 --eval-seed 0 --train-scope actor_coupling --action-anchor-checkpoint runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt --action-anchor-env-config configs/m121_human_view_zero_obstacle_relvel.json --action-anchor-coef 100.0 --action-anchor-episodes 30 --action-anchor-seed 10050 --action-anchor-horizon-steps 15 --action-anchor-sample-stride 3 --action-anchor-max-samples 800 --action-anchor-batch-size 256 --run-dir runs/m213_m204_actor_coupling_anchor100_s20_seed10050"
+    },
+    {
+      "name": "m213_fixed_batch_eval",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_eval --snippet-npz runs/m212_m204_boundary_outcome_corpus_seed10040/boundary_outcome_corpus.npz --checkpoint-policy m204_5209=runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt --checkpoint-policy m213_s20=runs/m213_m204_actor_coupling_anchor100_s20_seed10050/optimized_checkpoint.pt --device cpu --batch-size 64 --batches 50 --seed 37 --logprob-margin 0.05 --run-dir runs/m213_fixed_batch_outcome_eval_seed37"
+    },
+    {
+      "name": "m213_old_new_replay_gates",
+      "command": "Run M183 M168, M183 M170, M193 M189, and M212 M204 boundary replay gates comparing M204 to M213."
+    },
+    {
+      "name": "m213_behavior_and_key",
+      "command": "Run behavior seeds 9505/9506 and protected key 9944|perturbed|28|28 before admitting any repeat."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m213-m212-guarded-actor-update.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m213_m204_actor_coupling_anchor100_s20_seed10050/optimized_checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m213_m204_actor_coupling_anchor100_s20_seed10050/summary.json",
+      "type": "objective_summary"
+    },
+    {
+      "path": "runs/m213_fixed_batch_outcome_eval_seed37/summary.json",
+      "type": "fixed_eval_summary"
+    },
+    {
+      "path": "runs/m213_m183_m168_replay_gate_seed9510/summary.json",
+      "type": "m183_m168_replay"
+    },
+    {
+      "path": "runs/m213_m183_m170_replay_gate_seed9510/summary.json",
+      "type": "m183_m170_replay"
+    },
+    {
+      "path": "runs/m213_m193_m189_replay_gate_seed9630/summary.json",
+      "type": "m193_m189_replay"
+    },
+    {
+      "path": "runs/m213_m212_m204_replay_gate_seed10040/summary.json",
+      "type": "m212_m204_replay"
+    },
+    {
+      "path": "runs/m213_behavior_gate_seed9505/policy_summary.csv",
+      "type": "behavior_seed9505"
+    },
+    {
+      "path": "runs/m213_behavior_gate_seed9506/policy_summary.csv",
+      "type": "behavior_seed9506"
+    },
+    {
+      "path": "runs/m213_critical_key_seed9944/summary.json",
+      "type": "protected_key"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt",
+    "runs/ppo_m202_stage4_from_m201_seed5206/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m212-current-family-boundary-objective-sanity.md",
+    "runs/m212_m204_boundary_outcome_corpus_seed10040/objective_summary.json",
+    "runs/m212_m204_boundary_replay_sanity_seed10040/summary.json",
+    "runs/m208_critical_key_seed9944/guard_results.csv"
+  ],
+  "decision_rule": "Only a low-drift actor update that improves the M212 fixed objective and preserves behavior plus old/new replay surfaces and protected key may admit a repeat or PPO smoke."
+}

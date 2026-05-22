@@ -213,11 +213,16 @@ slightly stronger action-level sensitivity.
   `13` physical pairs, `8` left steps, `3` checkpoints, `2` targets, and
   `2` margin buckets. Robustness passes, so M210 was seed/corpus-specific
   rather than proof that current-family wrong-history evidence is gone.
+- M212: converts the M211 accepted rows into M204/M202/M199 objective corpora.
+  The current-best M204 corpus has `17` rows across `13` physical pairs,
+  passes 3-seed objective sanity, and replays against M202 with `17/17`
+  success drops retained. The M199 cross-family replay is mixed (`13/15`), so
+  the next actor update should use only the M204 current-best corpus.
 
 Current blocker:
 
 ```text
-current-family boundary objective sanity from the M211 protected surface
+single-seed low-drift actor update from M204 using the M212 M204 corpus
 ```
 
 ## Near-Term Rule
@@ -226,9 +231,9 @@ M206 and M208 are both rejected despite better fixed objectives because the
 protected-key gate failed. The failure is now repeated, not a single-seed
 accident. Do not run another same-recipe stage6 retry, do not chain from M206 or
 M208, and do not loosen the protected-key threshold after seeing the result.
-M211 recovered a robustness-passing current-family wrong-history surface. M212
-must convert M211 accepted rows into replay-aligned objective corpora before any
-actor update or PPO. PPO remains blocked.
+M212 validated the current-best M204 objective corpus. M213 may run one tiny
+anchored actor-coupling update from M204, but PPO remains blocked until that
+candidate preserves behavior, old/new replay surfaces, and protected key.
 
 ## Sensor Profile Policy
 
