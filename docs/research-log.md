@@ -7286,3 +7286,36 @@ Results:
 Decision: M201 is positive repeat evidence. Admit one short guarded stage4
 from the best fixed-loss retained repeat, M201 seed `5204`, but do not run a
 stage4 repeat or longer PPO continuation before that first stage4 passes gates.
+
+## 20260522T093459Z m202-guarded-stage4-ppo-from-m201
+
+M202 ran one short guarded stage4 from the best fixed-loss retained M201 repeat,
+seed `5204`.
+
+Artifacts:
+
+- `runs/ppo_m202_stage4_from_m201_seed5206`
+- `runs/m202_fixed_batch_outcome_eval_seed37`
+- `runs/m202_m183_m168_replay_gate_seed9510`
+- `runs/m202_m183_m170_replay_gate_seed9510`
+- `runs/m202_m193_m189_replay_gate_seed9630`
+- `runs/m202_behavior_gate_seed9505`
+- `runs/m202_behavior_gate_seed9506`
+- `runs/m202_critical_key_seed9944`
+- `docs/m202-guarded-stage4-ppo-from-m201.md`
+
+Results:
+
+- fixed M193 objective loss improves from M201 seed `5204` `0.158730` to
+  M202 `0.158585`;
+- smoke eval termination stays at `0.20`;
+- M183 M168 replay retains `16/16` success drops;
+- M183 M170 replay retains `17/17` success drops;
+- M193 M189 replay retains `14/14` success drops;
+- behavior seeds `9505` and `9506` keep success `0.8625`;
+- reset-hidden and zero-all-response ablations remain at `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` passes.
+
+Decision: M202 is positive as a single-seed stage4. Repeat the same stage4
+recipe from M201 seed `5204` on fresh seeds before chaining from M202 or
+running any longer PPO continuation.

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 210,
+    "completed": 211,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m201-stage3-repeat-from-m199.md",
+    "command_log": "docs/m202-guarded-stage4-ppo-from-m201.md",
     "returncode": 0,
-    "run_dir": "runs/m201_fixed_batch_outcome_eval_seed37",
+    "run_dir": "runs/m202_fixed_batch_outcome_eval_seed37",
     "status": "completed",
-    "task_id": "m201-stage3-repeat-from-m199"
+    "task_id": "m202-guarded-stage4-ppo-from-m201"
   },
   "next_task": {
-    "command": "see experiments/manifests/m202-guarded-stage4-ppo-from-m201.json",
-    "hypothesis": "M201 shows repeat-stable stage3 from M199 seed 5201, and seed 5204 is the best fixed-loss retained repeat, so one short guarded stage4 can be tested.",
-    "id": "m202-guarded-stage4-ppo-from-m201",
+    "command": "see experiments/manifests/m203-stage4-repeat-from-m201.json",
+    "hypothesis": "M202 is a positive single-seed stage4 from M201 seed 5204, so fresh stage4 repeats from the same parent are required before chaining further continuation.",
+    "id": "m203-stage4-repeat-from-m201",
     "kind": "driver_candidate",
-    "notes": "Run one short stage4 from M201 seed 5204; reject any behavior, protected-key, old M183 replay, or refreshed M193 replay regression.",
-    "priority": 1970,
+    "notes": "Repeat the M202 recipe from M201 seed 5204 on fresh seeds; reject any behavior, protected-key, old M183 replay, or refreshed M193 replay regression.",
+    "priority": 1980,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T092708Z"
+  "updated_at_utc": "20260522T093459Z"
 }
