@@ -1,0 +1,94 @@
+{
+  "id": "m279-recovery-anchored-actor-update",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m272_m264_to_m271_interpolation_boundary/checkpoints/alpha_0_01025.pt"
+    ],
+    "parent_dataset": [
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "runs/m275_terminal_margin_retention_surface/retention_trajectory_anchor.npz",
+      "runs/m278_terminal_margin_recovery_anchor_probe/recovery_anchor.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m278-current-hidden-recovery-anchor-probe.json",
+      "docs/m278-current-hidden-recovery-anchor-probe.md"
+    ],
+    "parent_objective": [
+      "M270 source-balanced objective plus M275 retention anchor plus M278 recovery anchor"
+    ],
+    "derived_from": [
+      "m278-current-hidden-recovery-anchor-probe"
+    ],
+    "blocked_by": [
+      "m278-current-hidden-recovery-anchor-probe"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m279-recovery-anchored-actor-update.md",
+  "public_gates": [
+    "fixed sampled and exact M270 objective improvement",
+    "M183/M170 row16 terminal-margin hard gate",
+    "M278 recovery-anchor MSE check",
+    "six replay surfaces if row16 passes",
+    "old protected-key diagnostic if replay passes",
+    "behavior seeds 9505 and 9506 if replay passes",
+    "do not run PPO"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M279",
+    "do not change actor inputs",
+    "do not use old checkpoint hidden states",
+    "do not skip M183/M170 row16",
+    "do not promote based only on objective improvement"
+  ],
+  "hypothesis": "Adding the M278 current-hidden recovery anchor to the M270 objective and M275 retention anchor can improve objective while preserving row16 terminal-margin slack.",
+  "success_criteria": [
+    "start from m272b_a0_01025",
+    "use M270 source-balanced objective, M275 retention trajectory anchor, and M278 recovery anchor",
+    "run exactly one small actor-coupling update before any repeat or PPO",
+    "improve fixed M270 objective versus M272",
+    "preserve M183/M170 row16 terminal margin above the registered required floor",
+    "preserve all six replay surfaces, protected key, and behavior seeds if row16 passes",
+    "actor input contract remains unchanged"
+  ],
+  "failure_criteria": [
+    "row16 terminal margin crosses the registered floor",
+    "combined objective improves but row16 or replay surfaces regress",
+    "recovery anchor creates objective movement but loses behavior retention",
+    "PPO is run",
+    "actor observation inputs change"
+  ],
+  "commands": [
+    {
+      "name": "m279_actor_update",
+      "command": "Run one small actor-coupling update from m272b_a0_01025 using M270 objective, M275 retention anchor, and M278 recovery anchor, then gate row16 before broader proof gates."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m279-recovery-anchored-actor-update.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m279_m272_actor_coupling_m270_retention_recovery_anchor_s10_lr5e5_seed10076/summary.json",
+      "type": "actor_update_summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m272_m264_to_m271_interpolation_boundary/checkpoints/alpha_0_01025.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m278-current-hidden-recovery-anchor-probe.md",
+    "runs/m278_terminal_margin_recovery_anchor_probe/summary.json"
+  ],
+  "decision_rule": "M279 may promote only after objective improvement and row16, replay, protected-key, and behavior-retention gates pass. If row16 fails, classify the update as proof_washout/objective_overfit and do not run broader PPO.",
+  "next_blocker": "pending M279 recovery-anchored actor update"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 286,
+    "completed": 287,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m277-terminal-margin-recovery-anchor-design.md",
+    "command_log": "docs/m278-current-hidden-recovery-anchor-probe.md",
     "returncode": 0,
-    "run_dir": "runs/m276_m183_m170_row16_gate_seed9510",
+    "run_dir": "runs/m278_terminal_margin_recovery_anchor_probe",
     "status": "completed",
-    "task_id": "m277-terminal-margin-recovery-anchor-design"
+    "task_id": "m278-current-hidden-recovery-anchor-probe"
   },
   "next_task": {
-    "command": "see experiments/manifests/m278-current-hidden-recovery-anchor-probe.json",
-    "hypothesis": "A local first-action override evaluated under the current M272 hidden state can recover terminal-margin slack for row16 without cross-checkpoint hidden leakage.",
-    "id": "m278-current-hidden-recovery-anchor-probe",
-    "kind": "infrastructure",
-    "notes": "Pending: current-hidden local-action recovery probe; PPO remains blocked",
-    "priority": 2730,
+    "command": "see experiments/manifests/m279-recovery-anchored-actor-update.json",
+    "hypothesis": "Adding the M278 current-hidden recovery anchor to the M270 objective and M275 retention anchor can improve objective while preserving row16 terminal-margin slack.",
+    "id": "m279-recovery-anchored-actor-update",
+    "kind": "driver_candidate",
+    "notes": "Pending: one small no-PPO actor-coupling update; gate row16 first",
+    "priority": 2740,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T182051Z"
+  "updated_at_utc": "20260522T183027Z"
 }

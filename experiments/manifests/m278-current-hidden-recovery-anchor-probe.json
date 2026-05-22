@@ -2,7 +2,7 @@
   "id": "m278-current-hidden-recovery-anchor-probe",
   "type": "infrastructure",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -73,6 +73,10 @@
     {
       "path": "runs/m278_terminal_margin_recovery_anchor_probe/summary.json",
       "type": "summary"
+    },
+    {
+      "path": "runs/m278_terminal_margin_recovery_anchor_probe/recovery_anchor.npz",
+      "type": "trajectory_action_anchor"
     }
   ],
   "baseline_checkpoints": [
@@ -82,6 +86,37 @@
     "docs/m277-terminal-margin-recovery-anchor-design.md",
     "runs/m275_terminal_margin_retention_surface/terminal_margin_registry.csv"
   ],
+  "results": {
+    "run_dir": "runs/m278_terminal_margin_recovery_anchor_probe",
+    "rows_probed": 30,
+    "candidate_rollouts": 720,
+    "accepted_candidates": 360,
+    "recovered_rows": 30,
+    "unrecovered_rows": 0,
+    "required_row16_probed": true,
+    "required_row16_recovered": true,
+    "recovery_anchor_npz": "runs/m278_terminal_margin_recovery_anchor_probe/recovery_anchor.npz",
+    "anchor_observation_shape": [
+      30,
+      72
+    ],
+    "anchor_hidden_shape": [
+      30,
+      128
+    ],
+    "anchor_reference_action_shape": [
+      30,
+      3
+    ],
+    "row16_baseline_margin": 0.0000006356749755465074,
+    "row16_recovered_margin": 0.0005628190773816488,
+    "row16_margin_improvement": 0.0005621834024061023,
+    "row16_action_l2": 0.026925817207913226,
+    "recovered_margin_improvement_min": 0.000400441911694,
+    "recovered_margin_improvement_mean": 0.0004900564367959433,
+    "recovered_margin_improvement_max": 0.0005621966006181
+  },
   "decision_rule": "M278 completes only if it either exports a validated current-hidden recovery anchor or proves row16 cannot be locally recovered by the registered action grid. The first actor update using it must be pre-registered separately.",
-  "next_blocker": "pending M278 current-hidden recovery-anchor probe"
+  "decision": "admit_recovery_anchored_actor_update",
+  "next_blocker": "m279-recovery-anchored-actor-update"
 }
