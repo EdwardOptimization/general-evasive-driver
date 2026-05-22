@@ -56,6 +56,7 @@ Not allowed in the deployable actor:
 | current-best guarded stage2 | `runs/ppo_m198_stage2_from_m197_seed5200/checkpoint.pt` | positive single-seed stage2; requires repeat before further continuation |
 | current-best guarded stage2 repeat | `runs/ppo_m199_stage2_from_m197_seed5201/checkpoint.pt` | best fixed-loss M199 repeat; preserves behavior, protected key, old replay, and refreshed replay |
 | current-best guarded stage3 | `runs/ppo_m200_stage3_from_m199_seed5203/checkpoint.pt` | positive single-seed stage3; smoke eval termination elevated; requires repeat before further continuation |
+| current-best guarded stage3 repeat | `runs/ppo_m201_stage3_from_m199_seed5204/checkpoint.pt` | best fixed-loss M201 repeat; preserves behavior, protected key, old replay, and refreshed replay |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -150,18 +151,24 @@ slightly stronger action-level sensitivity.
   refreshed M193 replay drops `14/14`. Its smoke eval termination rate is
   elevated at `0.40`, so repeat evidence is required before further
   continuation.
+- M201: stage3 repeats from M199 seed `5201` on seeds `5204` and `5205` both
+  improve fixed M193 loss versus M199 (`0.158730` and `0.158755` vs
+  `0.158850`), do not repeat M200's elevated smoke eval termination, and
+  preserve behavior, protected key, old M183 replay drops `16/16` and `17/17`,
+  and refreshed M193 replay drops `14/14`. Seed `5204` is the current best
+  retained fixed-loss repeat.
 
 Current blocker:
 
 ```text
-repeat the M200 stage3 recipe from M199 seed 5201 before any further continuation
+one short guarded stage4 from the best M201 repeat before any further continuation
 ```
 
 ## Near-Term Rule
 
-Only short stage3 repeats are admitted, each starting from M199 seed `5201`.
-Do not chain from M200 or run a longer PPO continuation until stage3 repeats
-preserve behavior, protected key, old M183 replay, and refreshed M193 replay.
+Only one short guarded stage4 is admitted, starting from M201 seed `5204`. Do
+not run a stage4 repeat or longer PPO continuation until that stage4 preserves
+behavior, protected key, old M183 replay, and refreshed M193 replay.
 
 ## Sensor Profile Policy
 

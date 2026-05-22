@@ -1,0 +1,58 @@
+{
+  "id": "m202-guarded-stage4-ppo-from-m201",
+  "type": "driver_candidate",
+  "hypothesis": "M201 shows the stage3 recipe from M199 seed 5201 is repeat-stable, does not repeat M200's elevated smoke-eval termination, and preserves all required gates. A single short stage4 from the best fixed-loss retained repeat may continue the fixed-objective improvement without washing out the proof surface.",
+  "success_criteria": [
+    "start from runs/ppo_m201_stage3_from_m199_seed5204/checkpoint.pt because it is the lowest fixed-loss retained repeat",
+    "run only one short guarded stage4 before any repeat or longer continuation",
+    "keep M194 as the strong action anchor through configs/ppo_m196_guarded_from_m194_smoke.json",
+    "keep actor inputs unchanged",
+    "preserve behavior seeds 9505 and 9506",
+    "preserve protected key 9944|perturbed|28|28",
+    "preserve old M183 M168/M170 replay gates and refreshed M193 M189 replay gate",
+    "compare fixed M193 objective against M199, M200, and M201 before accepting any repeat"
+  ],
+  "failure_criteria": [
+    "run multiple stage4 seeds before the first stage4 gate passes",
+    "run a longer PPO continuation directly",
+    "drop any M183 or M193 replay row",
+    "lose behavior or protected-key retention",
+    "change actor observation inputs",
+    "promote based on fixed objective improvement alone"
+  ],
+  "commands": [
+    {
+      "name": "m202_short_stage4",
+      "command": "Run one 1024-step guarded PPO stage4 from runs/ppo_m201_stage3_from_m199_seed5204/checkpoint.pt using configs/ppo_m196_guarded_from_m194_smoke.json."
+    },
+    {
+      "name": "m202_fixed_eval",
+      "command": "Compare M199, M200, M201, and the M202 candidate on the fixed M193 M189 corpus."
+    },
+    {
+      "name": "m202_retention_gates",
+      "command": "Run old M183 replay, refreshed M193 replay, behavior seeds 9505/9506, and protected-key gates before admitting a stage4 repeat."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m202-guarded-stage4-ppo-from-m201.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m199_stage2_from_m197_seed5201/checkpoint.pt",
+    "runs/ppo_m200_stage3_from_m199_seed5203/checkpoint.pt",
+    "runs/ppo_m201_stage3_from_m199_seed5204/checkpoint.pt",
+    "runs/ppo_m201_stage3_from_m199_seed5205/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m201_fixed_batch_outcome_eval_seed37/summary.json",
+    "runs/m201_5204_m193_m189_replay_gate_seed9630/summary.json",
+    "runs/m201_5205_m193_m189_replay_gate_seed9630/summary.json",
+    "runs/m201_behavior_gate_seed9505/policy_summary.csv",
+    "runs/m201_behavior_gate_seed9506/policy_summary.csv",
+    "runs/m201_critical_key_seed9944/summary.json"
+  ],
+  "decision_rule": "Only a short stage4 that preserves behavior, protected key, old replay, and refreshed replay may admit stage4 repeats."
+}

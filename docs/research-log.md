@@ -7246,3 +7246,43 @@ Decision: M200 is positive as a single-seed stage3, but its smoke eval
 termination rate is worse than earlier stages. Repeat the same stage3 recipe
 from M199 seed `5201` on fresh seeds before chaining from M200 or running any
 longer PPO continuation.
+
+## 20260522T092708Z m201-stage3-repeat-from-m199
+
+M201 repeated the M200 stage3 recipe from M199 seed `5201` on fresh seeds
+`5204` and `5205`. Every repeat restarted from M199 seed `5201`; no repeat
+chained from M200 or another M201 checkpoint.
+
+Artifacts:
+
+- `runs/ppo_m201_stage3_from_m199_seed5204`
+- `runs/ppo_m201_stage3_from_m199_seed5205`
+- `runs/m201_fixed_batch_outcome_eval_seed37`
+- `runs/m201_5204_m183_m168_replay_gate_seed9510`
+- `runs/m201_5204_m183_m170_replay_gate_seed9510`
+- `runs/m201_5204_m193_m189_replay_gate_seed9630`
+- `runs/m201_5205_m183_m168_replay_gate_seed9510`
+- `runs/m201_5205_m183_m170_replay_gate_seed9510`
+- `runs/m201_5205_m193_m189_replay_gate_seed9630`
+- `runs/m201_behavior_gate_seed9505`
+- `runs/m201_behavior_gate_seed9506`
+- `runs/m201_critical_key_seed9944`
+- `docs/m201-stage3-repeat-from-m199.md`
+
+Results:
+
+- fixed M193 objective loss: M199 seed `5201` `0.158850`, M200 `0.158756`,
+  M201 seed `5204` `0.158730`, M201 seed `5205` `0.158755`;
+- both repeats improve fixed objective versus M199;
+- both repeats have smoke eval termination `0.20`, so M200's elevated `0.40`
+  termination does not repeat;
+- both repeats retain M183 M168 replay drops `16/16`;
+- both repeats retain M183 M170 replay drops `17/17`;
+- both repeats retain M193 M189 replay drops `14/14`;
+- behavior seeds `9505` and `9506` keep success `0.8625`;
+- reset-hidden and zero-all-response ablations remain at `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` passes for both repeats.
+
+Decision: M201 is positive repeat evidence. Admit one short guarded stage4
+from the best fixed-loss retained repeat, M201 seed `5204`, but do not run a
+stage4 repeat or longer PPO continuation before that first stage4 passes gates.
