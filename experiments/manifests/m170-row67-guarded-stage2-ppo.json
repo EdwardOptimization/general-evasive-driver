@@ -1,0 +1,39 @@
+{
+  "id": "m170-row67-guarded-stage2-ppo",
+  "type": "driver_candidate",
+  "hypothesis": "After M169 adds an explicit row-level guard for fragile boundary replay row 67, the admitted M168 branch can attempt one more short PPO stage only if row 67 and the full M164 replay are both preserved.",
+  "success_criteria": [
+    "start only from runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt",
+    "run one short stage-2 PPO continuation, not a long unguarded PPO run",
+    "keep actor inputs unchanged and hidden labels out of the actor",
+    "run fixed M162 outcome objective after the stage",
+    "run full M164 boundary replay after the stage",
+    "run M169 fragile row guard with required row 67 after the stage",
+    "run behavior retention and protected-key gates only if full replay and row67 guard pass"
+  ],
+  "failure_criteria": [
+    "continue from the M168 M166 branch that lost row 67",
+    "skip the row67 guard",
+    "accept a candidate that preserves aggregate count by swapping rows",
+    "relax M164 or M169 thresholds",
+    "declare self-identification proof from this continuation"
+  ],
+  "commands": [
+    {
+      "name": "m170_stage2_ppo",
+      "command": "Run one short PPO stage from the admitted M168 branch and gate it with fixed objective, full M164 replay, M169 row67 guard, behavior retention, and protected key."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m170-row67-guarded-stage2-ppo.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt",
+    "runs/m169_m168_from_m167_5168_fragile_row_guard_seed9510/summary.json",
+    "runs/m168_from_m167_5168_boundary_outcome_replay_gate_seed9510/summary.json"
+  ],
+  "decision_rule": "Reject stage 2 at the first failed fixed objective, full M164 replay, row67 guard, behavior, or protected-key gate."
+}

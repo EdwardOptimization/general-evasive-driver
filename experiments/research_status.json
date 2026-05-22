@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 177,
+    "completed": 178,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m168-staged-boundary-retention-ppo-extension.md",
+    "command_log": "docs/m169-boundary-row67-stage-sensitivity-guard.md",
     "returncode": 0,
-    "run_dir": "runs/m168_from_m167_5168_boundary_outcome_replay_gate_seed9510",
+    "run_dir": "runs/m169_m168_from_m167_5168_fragile_row_guard_seed9510",
     "status": "completed",
-    "task_id": "m168-staged-boundary-retention-ppo-extension"
+    "task_id": "m169-boundary-row67-stage-sensitivity-guard"
   },
   "next_task": {
-    "command": "see experiments/manifests/m169-boundary-row67-stage-sensitivity-guard.json",
-    "hypothesis": "M168 showed that the same staged PPO recipe can pass from M167_5168 but fail from M166 by losing boundary replay row 67, so the next step should make row 67 and similar fragile rows explicit guards before any further PPO stage.",
-    "id": "m169-boundary-row67-stage-sensitivity-guard",
-    "kind": "gate",
-    "notes": "Pending after M168: stage from M167_5168 passed but stage from M166 lost row 67, so stage2 must protect fragile boundary rows explicitly",
-    "priority": 1640,
+    "command": "see experiments/manifests/m170-row67-guarded-stage2-ppo.json",
+    "hypothesis": "After M169 adds an explicit row-level guard for fragile boundary replay row 67, the admitted M168 branch can attempt one more short PPO stage only if row 67 and the full M164 replay are both preserved.",
+    "id": "m170-row67-guarded-stage2-ppo",
+    "kind": "driver_candidate",
+    "notes": "Pending after M169: row67 guard passes admitted M168 branch and must be used with full M164 replay for any stage2 continuation",
+    "priority": 1650,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T045237Z"
+  "updated_at_utc": "20260522T045700Z"
 }
