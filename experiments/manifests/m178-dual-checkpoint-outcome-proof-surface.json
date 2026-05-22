@@ -1,0 +1,37 @@
+{
+  "id": "m178-dual-checkpoint-outcome-proof-surface",
+  "type": "gate",
+  "hypothesis": "M177 shows M170 has a small action-level self-ID sensitivity lift over strict M168, but the next decision needs outcome-level proof-surface evidence on both checkpoints.",
+  "success_criteria": [
+    "evaluate M168 and M170 on an outcome-level self-identification proof surface",
+    "include normal, wrong-history, reset, zero-response, and zero-action outcome variants where available",
+    "preserve strict versus split-aware labels",
+    "do not run more PPO during this gate",
+    "decide whether future self-ID work should use M168, M170, or a dual-track protocol"
+  ],
+  "failure_criteria": [
+    "choose a checkpoint solely by action-level sensitivity",
+    "ignore M170's row67 full-replay stress loss",
+    "ignore M168's weaker fixed objective",
+    "run more PPO before outcome-level proof-surface comparison"
+  ],
+  "commands": [
+    {
+      "name": "m178_dual_checkpoint_outcome_proof_surface",
+      "command": "Compare strict M168 and split-aware M170 on outcome-level self-ID proof-surface behavior with response-history ablations."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m178-dual-checkpoint-outcome-proof-surface.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt",
+    "runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt",
+    "runs/m177_dual_checkpoint_action_proof_surface_seed9510/summary.json",
+    "runs/m177_dual_checkpoint_action_proof_surface_seed9510/variant_summary.csv"
+  ],
+  "decision_rule": "Only outcome-level proof-surface evidence can move the project beyond the dual-track M168/M170 status."
+}

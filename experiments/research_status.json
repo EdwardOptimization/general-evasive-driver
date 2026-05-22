@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 185,
+    "completed": 186,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m176-split-aware-m170-broader-evaluation.md",
+    "command_log": "docs/m177-dual-checkpoint-self-id-proof-surface.md",
     "returncode": 0,
-    "run_dir": "runs/m176_behavior_compare_seed9506",
+    "run_dir": "runs/m177_dual_checkpoint_action_proof_surface_seed9510",
     "status": "completed",
-    "task_id": "m176-split-aware-m170-broader-evaluation"
+    "task_id": "m177-dual-checkpoint-self-id-proof-surface"
   },
   "next_task": {
-    "command": "see experiments/manifests/m177-dual-checkpoint-self-id-proof-surface.json",
-    "hypothesis": "M176 leaves two useful checkpoints, strict M168 and split-aware M170, so the next step should compare their self-identification proof-surface behavior rather than running more PPO.",
-    "id": "m177-dual-checkpoint-self-id-proof-surface",
+    "command": "see experiments/manifests/m178-dual-checkpoint-outcome-proof-surface.json",
+    "hypothesis": "M177 shows M170 has a small action-level self-ID sensitivity lift over strict M168, but the next decision needs outcome-level proof-surface evidence on both checkpoints.",
+    "id": "m178-dual-checkpoint-outcome-proof-surface",
     "kind": "gate",
-    "notes": "Pending after M176: compare M168 and M170 on self-ID proof-surface evidence without more PPO",
-    "priority": 1720,
+    "notes": "Pending after M177: run outcome-level proof-surface comparison for strict M168 and split-aware M170",
+    "priority": 1730,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T052215Z"
+  "updated_at_utc": "20260522T052522Z"
 }
