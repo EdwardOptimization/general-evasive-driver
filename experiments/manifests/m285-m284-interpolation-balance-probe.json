@@ -2,7 +2,7 @@
   "id": "m285-m284-interpolation-balance-probe",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "archive",
   "failure_types": [
     "none"
   ],
@@ -37,6 +37,7 @@
     "evaluate exact M270 objective",
     "gate M183/M170 and M267/M264 first",
     "run broader replay only if both first gates pass",
+    "run protected-key diagnostic and behavior seeds only after replay gates pass",
     "do not run PPO or actor update"
   ],
   "private_holdout_policy": "not_used",
@@ -74,6 +75,14 @@
     {
       "path": "runs/m285_m272_to_m284_interpolation_balance/manifest.json",
       "type": "interpolation_manifest"
+    },
+    {
+      "path": "runs/m285_m272_to_m284_interpolation_balance/alpha_summary.csv",
+      "type": "interpolation_alpha_summary"
+    },
+    {
+      "path": "runs/m285_m272_to_m284_interpolation_balance/full_gate_summary.json",
+      "type": "full_public_gate_summary"
     }
   ],
   "baseline_checkpoints": [
@@ -84,6 +93,26 @@
     "runs/m284_m183_m170_replay_gate_seed9510/summary.json",
     "runs/m284_m267_m264_replay_gate_seed10070/summary.json"
   ],
-  "decision_rule": "M285 may promote only a no-training interpolation alpha that improves or preserves exact M270 objective and passes both M183/M170 and M267/M264 first proof gates. PPO remains blocked.",
-  "next_blocker": "pending M285 M284 interpolation balance probe"
+  "results": {
+    "run_dir": "runs/m285_m272_to_m284_interpolation_balance",
+    "base_checkpoint": "runs/m285_m272_to_m284_interpolation_balance/checkpoints/alpha_0.pt",
+    "best_passing_checkpoint": "runs/m285_m272_to_m284_interpolation_balance/checkpoints/alpha_0_0002.pt",
+    "best_passing_alpha": 0.0002,
+    "first_failing_alpha": 0.0005,
+    "exact_m270_loss_base": 0.6813756227493286,
+    "exact_m270_loss_best": 0.6813746690750122,
+    "exact_m270_loss_delta": -0.00000095367431640625,
+    "first_gates_passing_rows": 4,
+    "m183_m170_alpha_0_0005_normal_success_rate": 0.9411764705882353,
+    "m183_m170_alpha_0_0005_success_drop_count": 16,
+    "m267_m264_alpha_1_0_gate_pass": true,
+    "full_replay_gates_pass": true,
+    "protected_key_guard_validated": true,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "promotion_recommended": false
+  },
+  "decision_rule": "Archive M285 rather than promote because alpha 0.0002 passes all public gates but improves exact M270 by only 9.5e-7 and alpha 0.0005 already fails M183/M170 row16. PPO remains blocked.",
+  "decision": "archive_m285_a0_0002_boundary_diagnostic",
+  "next_blocker": "m286-rejected-trajectory-anchor-balance-sweep"
 }

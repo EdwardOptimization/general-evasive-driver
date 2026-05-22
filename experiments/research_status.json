@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 293,
+    "completed": 294,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m284-rejected-trajectory-anchored-update.md",
+    "command_log": "docs/m285-m284-interpolation-balance-probe.md",
     "returncode": 0,
-    "run_dir": "runs/m284_m183_m170_replay_gate_seed9510",
+    "run_dir": "runs/m285_m272_to_m284_interpolation_balance",
     "status": "completed",
-    "task_id": "m284-rejected-trajectory-anchored-update"
+    "task_id": "m285-m284-interpolation-balance-probe"
   },
   "next_task": {
-    "command": "see experiments/manifests/m285-m284-interpolation-balance-probe.json",
-    "hypothesis": "A smaller interpolation toward M284 may retain M267/M264 wrong-history success drops without crossing the M183/M170 normal-success cliff.",
-    "id": "m285-m284-interpolation-balance-probe",
+    "command": "see experiments/manifests/m286-rejected-trajectory-anchor-balance-sweep.json",
+    "hypothesis": "M284 fails because the rejected-history trajectory anchor pressure is too large; a lower-repeat or lower-pressure source-balanced variant may preserve M267/M264 without crossing the M183/M170 terminal-margin cliff.",
+    "id": "m286-rejected-trajectory-anchor-balance-sweep",
     "kind": "driver_candidate",
-    "notes": "Pending: no-training interpolation balance probe; gate M183/M170 and M267/M264 first",
-    "priority": 2800,
+    "notes": "Pending: no-PPO balance sweep from M272 with M183/M170 and M267/M264 first gates",
+    "priority": 2810,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T190222Z"
+  "updated_at_utc": "20260522T191159Z"
 }
