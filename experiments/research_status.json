@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 298,
+    "completed": 299,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m289-row16-aware-balanced-repeat-calibration.md",
+    "command_log": "docs/m290-row16-aware-balanced-repeat-fresh-seed.md",
     "returncode": 0,
-    "run_dir": "runs/m289_row16_aware_balanced_repeat_calibration",
+    "run_dir": "runs/m290_row16_aware_balanced_repeat_fresh_seed",
     "status": "completed",
-    "task_id": "m289-row16-aware-balanced-repeat-calibration"
+    "task_id": "m290-row16-aware-balanced-repeat-fresh-seed"
   },
   "next_task": {
-    "command": "see experiments/manifests/m290-row16-aware-balanced-repeat-fresh-seed.json",
-    "hypothesis": "The M289 row16-aware extra64 recipe should repeat on a fresh optimizer seed with a proof-safe non-micro interpolation, making PPO smoke admission plausible.",
-    "id": "m290-row16-aware-balanced-repeat-fresh-seed",
+    "command": "see experiments/manifests/m291-row16-aware-guarded-ppo-smoke.json",
+    "hypothesis": "A smoke-scale guarded PPO continuation from m290x64_a500 can run without washing out the repeated row16-aware proof surfaces.",
+    "id": "m291-row16-aware-guarded-ppo-smoke",
     "kind": "driver_candidate",
-    "notes": "Pending: fresh-seed row16-aware repeat with first gates then full public gates",
-    "priority": 2850,
+    "notes": "Pending: smoke PPO from m290x64_a500 with proof gates before broader gates",
+    "priority": 2860,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T193806Z"
+  "updated_at_utc": "20260522T194725Z"
 }

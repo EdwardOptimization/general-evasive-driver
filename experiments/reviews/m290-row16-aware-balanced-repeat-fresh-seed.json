@@ -1,0 +1,76 @@
+{
+  "decision_reason": "Fresh seed repeats row16-aware recipe with alpha 0.5 exact M270 delta -0.002097 and passes six replay surfaces protected key behavior gates; admit smoke-scale PPO only",
+  "failure_criteria": [
+    "safe alpha collapses back to near zero",
+    "row16 passes but M267/M264 success drops are lost",
+    "PPO is run",
+    "actor observation inputs change"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO in M290",
+    "do not change actor inputs",
+    "do not skip row16 or M267/M264 first gates",
+    "do not promote a near-zero interpolation artifact"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260522T195048Z",
+  "hypothesis": "The M289 row16-aware extra64 recipe should repeat on a fresh optimizer seed with a proof-safe non-micro interpolation, making PPO smoke admission plausible.",
+  "lineage": {
+    "blocked_by": [
+      "m289-row16-aware-balanced-repeat-calibration"
+    ],
+    "derived_from": [
+      "m289-row16-aware-balanced-repeat-calibration"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m289_row16_aware_balanced_repeat_calibration/extra64_interpolation/checkpoints/alpha_0_6.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m289-row16-aware-balanced-repeat-calibration.json",
+      "docs/m289-row16-aware-balanced-repeat-calibration.md"
+    ],
+    "parent_dataset": [
+      "runs/m289_row16_aware_balanced_repeat_calibration/anchors/row16_extra64_combined_anchor.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz"
+    ],
+    "parent_objective": [
+      "repeat M289 row16-aware extra64 balanced recipe on a fresh optimizer seed"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m290-row16-aware-balanced-repeat-fresh-seed",
+  "next_blocker": "m291-row16-aware-guarded-ppo-smoke",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "promote_m290x64_a500_and_admit_ppo_smoke",
+  "public_gates": [
+    "do not run PPO",
+    "repeat the row16-aware extra64 recipe on a fresh optimizer seed",
+    "gate M183/M170 row16 and M267/M264 first",
+    "run broader replay protected-key and behavior gates only if first gates pass with non-micro exact improvement"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m290_row16_aware_balanced_repeat_fresh_seed/interpolation/checkpoints/alpha_0_5.pt",
+    "clearance_margin_mean": "1.844872",
+    "decision": "promote_m290x64_a500_and_admit_ppo_smoke",
+    "milestone": "m290-row16-aware-balanced-repeat-fresh-seed",
+    "reason": "Fresh seed repeats row16-aware recipe with alpha 0.5 exact M270 delta -0.002097 and passes six replay surfaces protected key behavior gates; admit smoke-scale PPO only",
+    "reset_success": "0.8500",
+    "success_rate": "0.8625",
+    "termination_rate": "0.1375",
+    "type": "driver_candidate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "0.8000",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "fresh-seed row16-aware update preserves M183/M170 row16 and M267/M264 after interpolation",
+    "candidate improves exact M270 beyond M287 weak repeat scale",
+    "candidate passes full public replay protected-key and behavior gates before promotion",
+    "actor input contract remains unchanged"
+  ],
+  "type": "driver_candidate"
+}

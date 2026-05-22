@@ -1,0 +1,89 @@
+{
+  "id": "m291-row16-aware-guarded-ppo-smoke",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m290_row16_aware_balanced_repeat_fresh_seed/interpolation/checkpoints/alpha_0_5.pt",
+      "runs/m289_row16_aware_balanced_repeat_calibration/extra64_interpolation/checkpoints/alpha_0_6.pt"
+    ],
+    "parent_dataset": [
+      "runs/m289_row16_aware_balanced_repeat_calibration/anchors/row16_extra64_combined_anchor.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m290-row16-aware-balanced-repeat-fresh-seed.json",
+      "docs/m290-row16-aware-balanced-repeat-fresh-seed.md"
+    ],
+    "parent_objective": [
+      "one smoke-scale guarded PPO continuation after repeatable row16-aware public-gate repair"
+    ],
+    "derived_from": [
+      "m290-row16-aware-balanced-repeat-fresh-seed"
+    ],
+    "blocked_by": [
+      "m290-row16-aware-balanced-repeat-fresh-seed"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m291-row16-aware-guarded-ppo-smoke.md",
+  "public_gates": [
+    "run only smoke-scale PPO",
+    "do not change actor inputs",
+    "evaluate M183/M170 row16 and M267/M264 first",
+    "run full replay protected-key and behavior gates only if first gates pass",
+    "classify any proof-row or protected-key loss as proof_washout"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run medium or long PPO in M291",
+    "do not change actor observation inputs",
+    "do not ignore M183/M170 row16 terminal margin",
+    "do not ignore M267/M264 wrong-history retention",
+    "do not promote raw PPO if interpolation is required but only near-zero alpha is safe"
+  ],
+  "hypothesis": "A smoke-scale guarded PPO continuation from m290x64_a500 can run without washing out the repeated row16-aware proof surfaces.",
+  "success_criteria": [
+    "raw or interpolated smoke PPO candidate preserves M183/M170 and M267/M264 first gates",
+    "candidate passes full public replay protected-key and behavior gates before any promotion",
+    "candidate does not require near-zero interpolation to be proof-safe",
+    "actor input contract remains unchanged"
+  ],
+  "failure_criteria": [
+    "PPO loses M183/M170 row16 or M267/M264 success drops",
+    "protected-key guard no longer validates",
+    "behavior seeds 9505 or 9506 regress",
+    "safe interpolation collapses to near zero",
+    "actor observation inputs change"
+  ],
+  "commands": [
+    {
+      "name": "m291_ppo_smoke",
+      "command": "Run a smoke-scale guarded PPO continuation from m290x64_a500, then gate first proof surfaces before broader public gates."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m291-row16-aware-guarded-ppo-smoke.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m291_row16_aware_guarded_ppo_smoke/summary.json",
+      "type": "ppo_smoke_summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m290_row16_aware_balanced_repeat_fresh_seed/interpolation/checkpoints/alpha_0_5.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m290-row16-aware-balanced-repeat-fresh-seed.md",
+    "runs/m290_row16_aware_balanced_repeat_fresh_seed/summary.json"
+  ],
+  "decision_rule": "M291 may promote only a smoke-scale PPO result that preserves proof surfaces, protected key, and behavior without near-zero interpolation.",
+  "next_blocker": "pending M291 guarded PPO smoke"
+}

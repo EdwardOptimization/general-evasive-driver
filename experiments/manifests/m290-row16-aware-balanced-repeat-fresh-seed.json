@@ -2,7 +2,7 @@
   "id": "m290-row16-aware-balanced-repeat-fresh-seed",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -80,6 +80,26 @@
     "docs/m289-row16-aware-balanced-repeat-calibration.md",
     "runs/m289_row16_aware_balanced_repeat_calibration/summary.json"
   ],
+  "results": {
+    "run_dir": "runs/m290_row16_aware_balanced_repeat_fresh_seed",
+    "raw_checkpoint": "runs/m290_row16_aware_balanced_repeat_fresh_seed/update_row16_extra64_s10_lr5e5_seed10081/optimized_checkpoint.pt",
+    "raw_exact_m270_loss": 0.6771589517593384,
+    "raw_m183_m170_gate_pass": true,
+    "raw_m267_m264_gate_pass": false,
+    "selected_policy": "m290x64_a500",
+    "selected_checkpoint": "runs/m290_row16_aware_balanced_repeat_fresh_seed/interpolation/checkpoints/alpha_0_5.pt",
+    "selected_alpha": 0.5,
+    "exact_m270_loss_base": 0.6813756227493286,
+    "exact_m270_loss_selected": 0.6792783737182617,
+    "exact_m270_loss_delta": -0.0020972490310668945,
+    "full_replay_gates_pass": true,
+    "protected_key_guard_validated": true,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "promotion_recommended": true,
+    "ppo_smoke_admission_recommended": true
+  },
   "decision_rule": "M290 may admit one PPO smoke only if the row16-aware recipe repeats on a fresh seed and passes full public gates with non-micro exact improvement.",
-  "next_blocker": "pending M290 row16-aware balanced repeat fresh seed"
+  "decision": "promote_m290x64_a500_and_admit_ppo_smoke",
+  "next_blocker": "m291-row16-aware-guarded-ppo-smoke"
 }
