@@ -49,8 +49,8 @@ Status: M264 repaired stage2 repeat from M263. Raw PPO improves exact M223 and
 protected-key source losses, but protected-key replay promotes only
 `alpha=0.001`. `m264_a001` passes M183/M168, M183/M170, M193/M189, M212/M204,
 M223/M219 replay gates, protected key `9944|perturbed|28|28`, and behavior seeds
-`9505`/`9506`. The protected-key normal-margin slack is now only `0.000029`, so
-the next step is a no-training protected-key saturation audit, not more PPO.
+`9505`/`9506`. M265 audits the protected-key normal-margin slack at `0.000029`
+and blocks more PPO until the current-family protected surface is refreshed.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

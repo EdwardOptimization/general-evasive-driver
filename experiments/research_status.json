@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 273,
+    "completed": 274,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m264-repair-disciplined-stage2-repeat-from-m263.md",
+    "command_log": "docs/m265-protected-key-window-saturation-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m264_behavior_gate_a001_seed9506",
+    "run_dir": "docs/m265-protected-key-window-saturation-audit.md",
     "status": "completed",
-    "task_id": "m264-repair-disciplined-stage2-repeat-from-m263"
+    "task_id": "m265-protected-key-window-saturation-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m265-protected-key-window-saturation-audit.json",
-    "hypothesis": "The M263 to M264 repaired stage2 path has nearly saturated the single protected-key normal-margin window, so more PPO should be blocked until the protected surface or gate policy is refreshed.",
-    "id": "m265-protected-key-window-saturation-audit",
+    "command": "see experiments/manifests/m266-m264-family-protected-surface-refresh.json",
+    "hypothesis": "A current-family protected-surface refresh can determine whether M264's protected-key saturation is a single-key artifact or a broader proof-surface constraint.",
+    "id": "m266-m264-family-protected-surface-refresh",
     "kind": "gate",
-    "notes": "Pending: no-training audit before any more PPO",
-    "priority": 2600,
+    "notes": "Pending: refresh protected surface before any more PPO",
+    "priority": 2610,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T160536Z"
+  "updated_at_utc": "20260522T160747Z"
 }

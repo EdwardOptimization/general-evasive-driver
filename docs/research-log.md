@@ -8607,3 +8607,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: fresh 4096-step PPO from M263 improves exact sources (`M223=-0.000364444`, `protected_key=-0.000000644`). Protected-key replay permits only `m264_a001`; `alpha=0.0025` already fails with normal margin `0.200065`. `m264_a001` passes replay gates, protected key, and behavior seeds `9505`/`9506`, but slack to the `0.2` window is only `0.000029`.
 - decision: `promote_m264_a001_public_gate_base`
 - next: `m265-protected-key-window-saturation-audit`
+
+## 20260522T160747Z - m265-protected-key-window-saturation-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `docs/m265-protected-key-window-saturation-audit.md`
+- artifact: `docs/m265-protected-key-window-saturation-audit.md`
+- result: the old protected key is saturated: slack falls from `0.004180` at M253 to `0.000029` at M264 while wrong-history margin gap remains large. Replay and behavior are not the blocker; the single protected-key normal-margin window is now the active constraint.
+- decision: `refresh_current_family_protected_surface`
+- next: `m266-m264-family-protected-surface-refresh`

@@ -2,9 +2,9 @@
   "id": "m265-protected-key-window-saturation-audit",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "repair",
   "failure_types": [
-    "none"
+    "protected_key_window_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -80,5 +80,5 @@
     "docs/m264-repair-disciplined-stage2-repeat-from-m263.md"
   ],
   "decision_rule": "M265 does not promote a checkpoint. It must decide whether to refresh the protected surface, adjust the protected-key gate, add a stronger window-aware anchor, or admit another repaired stage2 repeat.",
-  "next_blocker": "pending M265 audit decision"
+  "next_blocker": "m266-m264-family-protected-surface-refresh"
 }

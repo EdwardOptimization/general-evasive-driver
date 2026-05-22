@@ -1,0 +1,83 @@
+{
+  "id": "m266-m264-family-protected-surface-refresh",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt",
+      "runs/m263_m261_to_projection_interpolation/checkpoints/alpha_0_005.pt"
+    ],
+    "parent_dataset": [
+      "runs/m231_protected_key_snippet_surface/protected_key_snippets.npz",
+      "runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.npz",
+      "runs/m235_closed_loop_trajectory_anchor_surface/trajectory_anchor.npz"
+    ],
+    "parent_config": [
+      "docs/m265-protected-key-window-saturation-audit.md"
+    ],
+    "parent_objective": [
+      "refresh current-family protected rows before more PPO because the old single key is saturated"
+    ],
+    "derived_from": [
+      "m265-protected-key-window-saturation-audit"
+    ],
+    "blocked_by": [
+      "m265-protected-key-window-saturation-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m266-m264-family-protected-surface-refresh.md",
+  "public_gates": [
+    "mine current-family protected surface candidates around M263 and M264",
+    "check source diversity across seeds physical pairs and margin buckets",
+    "require wrong-history outcome sensitivity rather than only action distance",
+    "do not admit PPO from a duplicate-dominated surface",
+    "record whether old protected key is representative or saturated"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M266",
+    "do not loosen the old protected key without evidence",
+    "do not change actor inputs",
+    "do not tune from private holdout evidence",
+    "do not promote a checkpoint in M266"
+  ],
+  "hypothesis": "A current-family protected-surface refresh can determine whether M264's protected-key saturation is a single-key artifact or a broader proof-surface constraint.",
+  "success_criteria": [
+    "M266 mines or audits current-family protected candidates without PPO",
+    "M266 reports accepted wrong-history rows and diversity metrics",
+    "M266 records whether the old protected key is representative, stale, or saturated",
+    "M266 records a concrete next milestone decision before more PPO",
+    "actor input contract remains unchanged"
+  ],
+  "failure_criteria": [
+    "candidate surface is duplicate-dominated or has zero accepted wrong-history outcome rows",
+    "audit cannot distinguish single-key saturation from broader proof loss",
+    "M266 starts PPO or changes actor inputs"
+  ],
+  "commands": [
+    {
+      "name": "m266_protected_surface_refresh",
+      "command": "Run a current-family protected-surface refresh around M263/M264 and summarize diversity plus old-key representativeness."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m266-m264-family-protected-surface-refresh.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m265-protected-key-window-saturation-audit.md"
+  ],
+  "decision_rule": "M266 may not promote a checkpoint. It must decide whether to convert a refreshed surface into replay/objective gates, redesign protected-key handling, or admit one more repaired PPO repeat.",
+  "next_blocker": "pending M266 refresh decision"
+}
