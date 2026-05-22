@@ -7853,3 +7853,52 @@ Decision:
 ```text
 admit_fresh_snippet_anchor_repeat
 ```
+
+## 20260522T114852Z m217-snippet-anchored-actor-update-fresh-repeat
+
+M217 repeated the exact M216 snippet-anchored actor-update recipe on fresh seeds
+`10053` and `10054`. No PPO was run and actor inputs were unchanged.
+
+Artifacts:
+
+- `runs/m217_m204_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10053`
+- `runs/m217_m204_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10054`
+- `runs/m217_fixed_batch_outcome_eval_seed37`
+- `runs/m217_10053_m183_m168_replay_gate_seed9510`
+- `runs/m217_10053_m183_m170_replay_gate_seed9510`
+- `runs/m217_10053_m193_m189_replay_gate_seed9630`
+- `runs/m217_10053_m212_m204_replay_gate_seed10040`
+- `runs/m217_10054_m183_m168_replay_gate_seed9510`
+- `runs/m217_10054_m183_m170_replay_gate_seed9510`
+- `runs/m217_10054_m193_m189_replay_gate_seed9630`
+- `runs/m217_10054_m212_m204_replay_gate_seed10040`
+- `runs/m217_behavior_gate_seed9505`
+- `runs/m217_behavior_gate_seed9506`
+- `runs/m217_critical_key_seed9944`
+- `docs/m217-snippet-anchored-actor-update-fresh-repeat.md`
+- `configs/ppo_m218_guarded_from_m217_smoke.json`
+- `experiments/manifests/m218-guarded-ppo-smoke-from-m217.json`
+
+Results:
+
+- seeds `10053` and `10054` improve train/eval loss by `0.000898` and
+  `0.000920`;
+- fixed M212 eval improves versus M204: M217 losses are `0.204313` and
+  `0.204291` versus M204 `0.205221`;
+- preferred-only snippet anchor MSE stays near `1.5e-6`;
+- both seeds pass all replay surfaces: M183 M168 `16/16`, M183 M170 `17/17`,
+  M193 M189 `14/14`, and M212 M204 `17/17` drops retained;
+- behavior seeds `9505` and `9506` retain success `0.8625`;
+- reset-hidden and zero-all-response ablations remain at `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` passes for both M217 seeds while M206 and
+  M208 remain rejected controls.
+
+Decision: M217 is positive as a fresh-seed repeat. Seed `10054` is the best
+fresh-repeat candidate by fixed M212 loss. Admit exactly one tiny guarded PPO
+smoke from M217 seed `10054`; no longer continuation before that smoke is gated.
+
+Decision:
+
+```text
+admit_guarded_ppo_smoke_from_m217
+```

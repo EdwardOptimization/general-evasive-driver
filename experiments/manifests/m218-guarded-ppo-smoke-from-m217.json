@@ -1,0 +1,74 @@
+{
+  "id": "m218-guarded-ppo-smoke-from-m217",
+  "type": "driver_candidate",
+  "hypothesis": "M217 shows the snippet-anchored actor-update recipe is fresh-seed repeat-stable. A single tiny guarded PPO smoke from the best M217 fresh-repeat candidate may test whether PPO can continue without washing out old/current replay, broad behavior, or the protected key.",
+  "success_criteria": [
+    "start from runs/m217_m204_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10054/optimized_checkpoint.pt",
+    "run only one tiny PPO smoke before any repeat or longer continuation",
+    "use configs/ppo_m218_guarded_from_m217_smoke.json",
+    "keep actor inputs unchanged",
+    "preserve behavior seeds 9505 and 9506",
+    "preserve protected key 9944|perturbed|28|28",
+    "preserve old M183 M168/M170 replay gates",
+    "preserve refreshed M193 M189 replay gate",
+    "preserve current M212 M204 replay gate",
+    "compare fixed M212 objective against M204, M216, M217, and M218 before accepting any PPO repeat",
+    "do not promote based only on training reward"
+  ],
+  "failure_criteria": [
+    "run multiple PPO seeds before the first smoke is gated",
+    "run a longer PPO continuation directly",
+    "drop any M183, M193, or M212 replay row",
+    "lose behavior or protected-key retention",
+    "change actor observation inputs",
+    "promote based on fixed objective improvement alone"
+  ],
+  "commands": [
+    {
+      "name": "m218_guarded_ppo_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_m218_guarded_from_m217_smoke.json --seed 5214 --init-checkpoint runs/m217_m204_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10054/optimized_checkpoint.pt --run-dir runs/ppo_m218_guarded_from_m217_seed5214"
+    },
+    {
+      "name": "m218_fixed_eval",
+      "command": "Evaluate M204, M216 seed10051, M217 seed10054, and M218 on the fixed M212 batch."
+    },
+    {
+      "name": "m218_retention_gates",
+      "command": "Run old M183 replay, refreshed M193 replay, current M212 replay, behavior seeds 9505/9506, and protected-key replay before admitting any PPO repeat."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m218-guarded-ppo-smoke-from-m217.md",
+      "type": "documentation"
+    },
+    {
+      "path": "configs/ppo_m218_guarded_from_m217_smoke.json",
+      "type": "training_config"
+    },
+    {
+      "path": "runs/ppo_m218_guarded_from_m217_seed5214/checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m218_fixed_batch_outcome_eval_seed37/summary.json",
+      "type": "fixed_eval_summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt",
+    "runs/m216_m204_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10051/optimized_checkpoint.pt",
+    "runs/m217_m204_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10053/optimized_checkpoint.pt",
+    "runs/m217_m204_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10054/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m217-snippet-anchored-actor-update-fresh-repeat.md",
+    "runs/m217_fixed_batch_outcome_eval_seed37/summary.json",
+    "runs/m217_10053_m212_m204_replay_gate_seed10040/summary.json",
+    "runs/m217_10054_m212_m204_replay_gate_seed10040/summary.json",
+    "runs/m217_behavior_gate_seed9505/policy_summary.csv",
+    "runs/m217_behavior_gate_seed9506/policy_summary.csv",
+    "runs/m217_critical_key_seed9944/summary.json"
+  ],
+  "decision_rule": "Only a tiny PPO smoke that preserves behavior, protected key, old replay, refreshed replay, current replay, and fixed M212 retention may admit PPO repeats."
+}

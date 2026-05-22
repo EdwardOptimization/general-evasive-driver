@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 225,
+    "completed": 226,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m216-snippet-anchored-actor-update-calibration.md",
+    "command_log": "docs/m217-snippet-anchored-actor-update-fresh-repeat.md",
     "returncode": 0,
-    "run_dir": "runs/m216_critical_key_seed9944",
+    "run_dir": "runs/m217_critical_key_seed9944",
     "status": "completed",
-    "task_id": "m216-snippet-anchored-actor-update-calibration"
+    "task_id": "m217-snippet-anchored-actor-update-fresh-repeat"
   },
   "next_task": {
-    "command": "see experiments/manifests/m217-snippet-anchored-actor-update-fresh-repeat.json",
-    "hypothesis": "M216 passed on known failure seeds; fresh-seed repeat evidence is required before admitting PPO or continuation.",
-    "id": "m217-snippet-anchored-actor-update-fresh-repeat",
+    "command": "see experiments/manifests/m218-guarded-ppo-smoke-from-m217.json",
+    "hypothesis": "M217 fresh-seed repeat passed; one tiny guarded PPO smoke from the best fresh-repeat checkpoint can test continuation without washing out proof surfaces.",
+    "id": "m218-guarded-ppo-smoke-from-m217",
     "kind": "driver_candidate",
-    "notes": "No PPO; restart from M204 on seeds 10053 and 10054 with the exact M216 recipe.",
-    "priority": 2120,
+    "notes": "Start from M217 seed10054 with config ppo_m218_guarded_from_m217_smoke; no repeat or longer continuation before gates.",
+    "priority": 2130,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T113314Z"
+  "updated_at_utc": "20260522T114852Z"
 }
