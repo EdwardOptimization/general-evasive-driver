@@ -1,0 +1,46 @@
+{
+  "id": "m180-diversified-boundary-outcome-proof-surface-mining",
+  "type": "gate",
+  "hypothesis": "M179 shows a local boundary-relocated wrong-history success-drop signal, but robustness rejects it as duplicate-dominated and lateral-only. The next step should diversify obstacle geometry and source pairs before building any objective or PPO continuation.",
+  "success_criteria": [
+    "start from M179/M178 artifacts without changing actor inputs",
+    "mine a boundary outcome surface with more strict physical pairs and left steps than M179",
+    "test whether lateral or longitudinal obstacle offsets broaden accepted wrong-history rows",
+    "run robustness gates before any corpus/objective/PPO admission",
+    "keep M168 strict and M170 split-aware labels explicit"
+  ],
+  "failure_criteria": [
+    "treat M179 duplicate-dominated accepted rows as a training corpus",
+    "run PPO before a robust diversified outcome surface exists",
+    "select M170 solely by a small margin-gap difference",
+    "use hidden parameters or oracle labels as actor inputs"
+  ],
+  "commands": [
+    {
+      "name": "m180_lateral_offset_boundary_surface",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.wrong_history_boundary_relocation_surface --checkpoint-policy m168_strict=runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt --checkpoint-policy m170_split=runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --outcome-csv runs/m178_dual_checkpoint_outcome_proof_surface_seed9510/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 60 --max-pairs-per-checkpoint-target 0 --min-base-action-distance 0.02 --target-normal-margins 0.005,0.01,0.02,0.05,0.10,0.15 --half-width-inflations 0 --body-lateral-offsets=-0.50,-0.25,0.0,0.25,0.50 --min-margin-gap 0.02 --min-accepted-wrong-rows 40 --report-variants wrong_matched_history,reset_hidden,zero_current_response,zero_action_history,delayed_history --device cpu --run-dir runs/m180_lateral_offset_boundary_surface_seed9510"
+    },
+    {
+      "name": "m180_lateral_offset_robustness",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_wrong_history_surface_robustness --boundary-rows-csv runs/m180_lateral_offset_boundary_surface_seed9510/boundary_relocation_rows.csv --control-checkpoint-label none --margin-bucket-width 0.01 --min-accepted-wrong-rows 40 --min-physical-pairs 10 --min-left-steps 5 --min-checkpoints 2 --min-targets 1 --min-margin-buckets 2 --min-success-drop-fraction 1.0 --max-rows-per-pair-fraction 0.25 --max-control-accepted-rows 0 --run-dir runs/m180_lateral_offset_robustness_seed9510"
+    },
+    {
+      "name": "m180_longitudinal_offset_boundary_surface_if_needed",
+      "command": "If lateral offsets remain duplicate-dominated, repeat the same surface with --body-longitudinal-offsets=-2.0,-1.0,0.0,1.0,2.0 and run the same robustness gate."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m180-diversified-boundary-outcome-proof-surface-mining.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt",
+    "runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt",
+    "runs/m178_dual_checkpoint_outcome_proof_surface_seed9510/outcome_interventions.csv",
+    "runs/m179_dual_checkpoint_boundary_relocation_seed9510/summary.json",
+    "runs/m179_boundary_relocation_lateral_robustness_seed9510/summary.json"
+  ],
+  "decision_rule": "Admit a boundary outcome proof surface only if robustness passes; otherwise design explicit source-pair-diverse mining instead of training."
+}

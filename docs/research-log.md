@@ -6486,3 +6486,56 @@ wrong-history lift for M170 does not translate into outcome-level causal
 evidence on this surface. Keep dual-track status: M168 remains the strict
 full-replay anchor, M170 remains the split-aware action-sensitive branch. The
 next step is a boundary-relocated outcome proof surface, not more PPO.
+
+## 20260522T054232Z m179-dual-checkpoint-boundary-relocated-outcome-proof-surface
+
+M179 relocates the M178 outcome surface to near-boundary obstacle widths:
+
+```text
+runs/m179_dual_checkpoint_boundary_relocation_seed9510
+```
+
+Aggregate result:
+
+| Metric | Value |
+| --- | ---: |
+| candidate rows | 658 |
+| replay rows | 16880 |
+| accepted wrong-history rows | 48 |
+| accepted wrong-history source pairs | 20 |
+| wrong-history success drops | 48 |
+| accepted reset rows | 1448 |
+| accepted zero-current rows | 704 |
+| surface found | true |
+
+Accepted wrong-history rows are symmetric across M168 and M170 and only appear
+on `future_lateral_accel_response`:
+
+| Checkpoint | Accepted rows | Source pairs | Success drops | Mean margin gap |
+| --- | ---: | ---: | ---: | ---: |
+| M168 strict | 24 | 20 | 24 | 0.008496 |
+| M170 split | 24 | 20 | 24 | 0.008547 |
+
+Robustness run:
+
+```text
+runs/m179_boundary_relocation_lateral_robustness_seed9510
+```
+
+It rejects the surface as duplicate dominated:
+
+| Metric | Value |
+| --- | ---: |
+| accepted wrong rows | 48 |
+| strict physical pairs | 3 |
+| left steps | 2 |
+| checkpoints | 2 |
+| targets | 1 |
+| success-drop fraction | 1.0 |
+| max rows per physical pair fraction | 0.333333 |
+
+Decision: M179 is a mixed result. It proves that M178's action-sensitive surface
+can become outcome-critical near a boundary, but the accepted wrong-history rows
+are too concentrated for a reusable proof surface or training corpus. Keep
+M168/M170 dual-track status and mine a diversified boundary outcome surface
+before any objective or PPO.

@@ -19,6 +19,10 @@
     {
       "name": "m179_dual_checkpoint_boundary_relocated_outcome_proof_surface",
       "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.wrong_history_boundary_relocation_surface --checkpoint-policy m168_strict=runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt --checkpoint-policy m170_split=runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --outcome-csv runs/m178_dual_checkpoint_outcome_proof_surface_seed9510/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 60 --max-pairs-per-checkpoint-target 0 --min-base-action-distance 0.02 --target-normal-margins 0.005,0.01,0.02,0.05,0.10,0.15 --half-width-inflations 0 --min-margin-gap 0.02 --min-accepted-wrong-rows 10 --report-variants wrong_matched_history,reset_hidden,zero_current_response,zero_action_history,delayed_history --device cpu --run-dir runs/m179_dual_checkpoint_boundary_relocation_seed9510"
+    },
+    {
+      "name": "m179_boundary_relocation_lateral_robustness",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_wrong_history_surface_robustness --boundary-rows-csv runs/m179_dual_checkpoint_boundary_relocation_seed9510/boundary_relocation_rows.csv --control-checkpoint-label none --margin-bucket-width 0.01 --min-accepted-wrong-rows 40 --min-physical-pairs 10 --min-left-steps 5 --min-checkpoints 2 --min-targets 1 --min-margin-buckets 2 --min-success-drop-fraction 1.0 --max-rows-per-pair-fraction 0.25 --max-control-accepted-rows 0 --run-dir runs/m179_boundary_relocation_lateral_robustness_seed9510"
     }
   ],
   "required_artifacts": [
@@ -31,7 +35,14 @@
     "runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt",
     "runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt",
     "runs/m177_dual_checkpoint_action_proof_surface_seed9510/summary.json",
-    "runs/m178_dual_checkpoint_outcome_proof_surface_seed9510/summary.json"
+    "runs/m178_dual_checkpoint_outcome_proof_surface_seed9510/summary.json",
+    "runs/m179_dual_checkpoint_boundary_relocation_seed9510/summary.json",
+    "runs/m179_boundary_relocation_lateral_robustness_seed9510/summary.json"
   ],
-  "decision_rule": "If boundary relocation yields robust wrong-history outcome degradation, use it as the next self-ID proof surface; otherwise mine a stronger matched-current outcome-critical corpus before further PPO."
+  "decision_rule": "If boundary relocation yields robust wrong-history outcome degradation, use it as the next self-ID proof surface; otherwise mine a stronger matched-current outcome-critical corpus before further PPO.",
+  "result": {
+    "status": "completed",
+    "decision": "mixed_local_signal_reject_duplicate_dominated_surface",
+    "notes": "Boundary relocation finds 48 accepted wrong-history rows and 48 success drops across both M168 and M170, but strict robustness rejects the surface with only 3 physical pairs, 2 left steps, and one target. Keep dual-track status and mine a diversified boundary outcome surface before any objective or PPO."
+  }
 }

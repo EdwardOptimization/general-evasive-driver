@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 187,
+    "completed": 188,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m178-dual-checkpoint-outcome-proof-surface.md",
+    "command_log": "docs/m179-dual-checkpoint-boundary-relocated-outcome-proof-surface.md",
     "returncode": 0,
-    "run_dir": "runs/m178_dual_checkpoint_outcome_proof_surface_seed9510",
+    "run_dir": "runs/m179_dual_checkpoint_boundary_relocation_seed9510",
     "status": "completed",
-    "task_id": "m178-dual-checkpoint-outcome-proof-surface"
+    "task_id": "m179-dual-checkpoint-boundary-relocated-outcome-proof-surface"
   },
   "next_task": {
-    "command": "see experiments/manifests/m179-dual-checkpoint-boundary-relocated-outcome-proof-surface.json",
-    "hypothesis": "M178 shows raw matched-current continuation outcome is neutral, so the next proof step should relocate obstacle boundaries to test near-boundary outcome sensitivity.",
-    "id": "m179-dual-checkpoint-boundary-relocated-outcome-proof-surface",
+    "command": "see experiments/manifests/m180-diversified-boundary-outcome-proof-surface-mining.json",
+    "hypothesis": "M179 finds a local boundary wrong-history success-drop signal, but it is duplicate-dominated and lateral-only, so diversify obstacle geometry and source pairs before any objective or PPO.",
+    "id": "m180-diversified-boundary-outcome-proof-surface-mining",
     "kind": "gate",
-    "notes": "Pending after M178: use boundary relocation before any PPO because action-level sensitivity did not translate to raw continuation success drops",
-    "priority": 1740,
+    "notes": "Pending after M179: run lateral/longitudinal offset mining or explicit source-diverse selection and robustness gates",
+    "priority": 1750,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T053158Z"
+  "updated_at_utc": "20260522T054232Z"
 }
