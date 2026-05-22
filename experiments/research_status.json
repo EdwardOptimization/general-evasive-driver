@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 300,
+    "completed": 301,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m291-row16-aware-guarded-ppo-smoke.md",
+    "command_log": "docs/m292-m291-ppo-proof-washout-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m291_row16_aware_guarded_ppo_smoke",
+    "run_dir": "runs/m292_m291_ppo_proof_washout_audit",
     "status": "completed",
-    "task_id": "m291-row16-aware-guarded-ppo-smoke"
+    "task_id": "m292-m291-ppo-proof-washout-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m292-m291-ppo-proof-washout-audit.json",
-    "hypothesis": "M291 raw PPO washes out M267/M264 because the PPO reward update overpowers current-family rejected-history retention while preserving old row16 margins.",
-    "id": "m292-m291-ppo-proof-washout-audit",
-    "kind": "gate",
-    "notes": "Pending: no-PPO audit of M291 raw failed current-family rows",
-    "priority": 2870,
+    "command": "see experiments/manifests/m293-current-family-rejected-history-ppo-repair-design.json",
+    "hypothesis": "The next PPO smoke needs explicit M267/M264 rejected-history retention and exact M270 no-regression, not only baseline action anchoring.",
+    "id": "m293-current-family-rejected-history-ppo-repair-design",
+    "kind": "infrastructure",
+    "notes": "Pending: no-PPO design for M267/M264 retention plus exact M270 no-regression",
+    "priority": 2880,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T195757Z"
+  "updated_at_utc": "20260522T200113Z"
 }

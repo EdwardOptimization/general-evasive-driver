@@ -1,0 +1,84 @@
+{
+  "id": "m293-current-family-rejected-history-ppo-repair-design",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m290_row16_aware_balanced_repeat_fresh_seed/interpolation/checkpoints/alpha_0_5.pt",
+      "runs/ppo_m291_row16_aware_guarded_smoke_seed5231/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m292_m291_ppo_proof_washout_audit/failed_m267_m264_rows.csv",
+      "runs/m289_row16_aware_balanced_repeat_calibration/anchors/row16_extra64_combined_anchor.npz"
+    ],
+    "parent_config": [
+      "configs/ppo_m291_row16_aware_guarded_smoke.json",
+      "experiments/manifests/m292-m291-ppo-proof-washout-audit.json",
+      "docs/m292-m291-ppo-proof-washout-audit.md"
+    ],
+    "parent_objective": [
+      "design a PPO repair that protects current-family rejected-history rows and fixed M270 objective"
+    ],
+    "derived_from": [
+      "m292-m291-ppo-proof-washout-audit"
+    ],
+    "blocked_by": [
+      "m292-m291-ppo-proof-washout-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m293-current-family-rejected-history-ppo-repair-design.md",
+  "public_gates": [
+    "do not run PPO",
+    "design current-family rejected-history retention before the next PPO smoke",
+    "include exact M270 no-regression as a gate",
+    "keep M183/M170 row16 and M267/M264 first gates",
+    "pre-register the next executable PPO attempt only after the design is explicit"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M293",
+    "do not promote m291_a100",
+    "do not change actor inputs",
+    "do not treat lower learning rate alone as sufficient without rejected-history protection"
+  ],
+  "hypothesis": "The next PPO smoke needs explicit M267/M264 rejected-history retention and exact M270 no-regression, not only baseline action anchoring.",
+  "success_criteria": [
+    "document a concrete repair recipe",
+    "identify required corpora and anchors",
+    "define first gates and promotion criteria",
+    "pre-register the next runnable milestone without executing PPO"
+  ],
+  "failure_criteria": [
+    "repair recipe does not address M267/M264 wrong-history washout",
+    "repair recipe omits fixed M270 no-regression",
+    "PPO is run",
+    "actor observation inputs change"
+  ],
+  "commands": [
+    {
+      "name": "m293_design",
+      "command": "Design the current-family rejected-history PPO repair and pre-register the next smoke attempt; do not train."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m293-current-family-rejected-history-ppo-repair-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m290_row16_aware_balanced_repeat_fresh_seed/interpolation/checkpoints/alpha_0_5.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m292-m291-ppo-proof-washout-audit.md",
+    "runs/m292_m291_ppo_proof_washout_audit/summary.json"
+  ],
+  "decision_rule": "M293 should end with a concrete no-PPO repair design and a pre-registered M294 executable smoke if the design is actionable.",
+  "next_blocker": "pending M293 current-family rejected-history PPO repair design"
+}

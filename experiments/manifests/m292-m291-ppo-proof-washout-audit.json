@@ -2,9 +2,10 @@
   "id": "m292-m291-ppo-proof-washout-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "repair",
   "failure_types": [
-    "none"
+    "proof_washout",
+    "objective_overfit"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -84,6 +85,23 @@
     "docs/m291-row16-aware-guarded-ppo-smoke.md",
     "runs/m291_row16_aware_guarded_ppo_smoke/summary.json"
   ],
+  "results": {
+    "run_dir": "runs/m292_m291_ppo_proof_washout_audit",
+    "raw_failed_rows": [
+      6,
+      11,
+      15,
+      16
+    ],
+    "raw_m267_success_drop_count": 13,
+    "base_m267_success_drop_count": 17,
+    "raw_exact_m270_delta_vs_m290": 0.0005027055740356445,
+    "safe_interpolation_alpha": 0.1,
+    "safe_interpolation_exact_m270_delta_vs_m290": 0.000050067901611328125,
+    "failure_cause": "raw PPO raises wrong-history margins enough to make four current-family rejected-history rows safe",
+    "recommended_repair": "strengthen M267/M264 rejected-history trajectory retention and exact M270 no-regression before another PPO smoke"
+  },
   "decision_rule": "M292 should produce a no-PPO repair recommendation for M293; it must not promote a checkpoint.",
-  "next_blocker": "pending M292 PPO proof-washout audit"
+  "decision": "repair_current_family_rejected_history_ppo",
+  "next_blocker": "m293-current-family-rejected-history-ppo-repair-design"
 }
