@@ -1,0 +1,91 @@
+{
+  "id": "m228-ppo-snippet-action-anchor-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.npz"
+    ],
+    "parent_config": [
+      "configs/ppo_m226_guarded_from_m224_smoke.json"
+    ],
+    "parent_objective": [
+      "M223 outcome intervention corpus",
+      "M224 preferred-only snippet action anchor"
+    ],
+    "derived_from": [
+      "m227-ppo-smoke-retention-failure-audit"
+    ],
+    "blocked_by": [
+      "m226-guarded-ppo-smoke-from-m224"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m228-ppo-snippet-action-anchor-implementation.md",
+  "public_gates": [
+    "unit tests for PPO config validation",
+    "unit tests for snippet action anchor loss on outcome snippets",
+    "research validator",
+    "pre-commit lightweight harness"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M228",
+    "do not change actor inputs",
+    "do not loosen replay/protected-key thresholds",
+    "do not reuse private holdouts for repair"
+  ],
+  "hypothesis": "PPO needs the same boundary snippet-level action anchor that stabilized M224/M225 actor updates; adding this loss path to train_ppo should make a later M229 PPO smoke testable without changing actor inputs or loosening gates.",
+  "success_criteria": [
+    "train_ppo config supports a snippet-level action anchor checkpoint, snippet corpus, coefficient, batch size, and preferred-only mode",
+    "the snippet action anchor uses boundary outcome snippets rather than rollout-only states",
+    "the implementation is covered by focused unit tests",
+    "no PPO or driver promotion is claimed in this infrastructure milestone",
+    "M229 PPO smoke is pre-registered only after implementation tests pass"
+  ],
+  "failure_criteria": [
+    "run PPO before the snippet anchor implementation is tested",
+    "reuse only rollout-state action anchoring",
+    "anchor rejected hidden states by default when the protected recipe requires preferred-only",
+    "change the human-view actor input contract",
+    "loosen M183/M223/protected-key gates"
+  ],
+  "commands": [
+    {
+      "name": "implement_snippet_anchor",
+      "command": "Add train_ppo snippet-action-anchor config fields and loss path, then run focused tests."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/train_ppo.py",
+      "type": "code"
+    },
+    {
+      "path": "tests/test_train_ppo.py",
+      "type": "tests"
+    },
+    {
+      "path": "docs/m228-ppo-snippet-action-anchor-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m227-ppo-smoke-retention-failure-audit.md",
+    "runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.npz",
+    "configs/ppo_m226_guarded_from_m224_smoke.json"
+  ],
+  "decision_rule": "M228 may complete only as infrastructure. It may unblock M229 PPO smoke if the snippet-level anchor path is implemented and tested without actor-input changes.",
+  "next_blocker": "Run one M229 PPO smoke from M224 using rollout action anchor plus preferred-only snippet action anchor, then gate old/current/new replay, behavior, and protected key."
+}

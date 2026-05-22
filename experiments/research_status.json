@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 235,
+    "completed": 236,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m226-guarded-ppo-smoke-from-m224.md",
+    "command_log": "docs/m227-ppo-smoke-retention-failure-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m226_critical_key_seed9944",
+    "run_dir": "",
     "status": "completed",
-    "task_id": "m226-guarded-ppo-smoke-from-m224"
+    "task_id": "m227-ppo-smoke-retention-failure-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m227-ppo-smoke-retention-failure-audit.json",
-    "hypothesis": "M226 broad behavior is stable but proof-surface replay and protected key fail; audit PPO retention before any more PPO.",
-    "id": "m227-ppo-smoke-retention-failure-audit",
-    "kind": "gate",
-    "notes": "Compare stable M224/M225 actor updates against M226 PPO; design snippet-level or replay-surface PPO retention mechanism.",
-    "priority": 2220,
+    "command": "see experiments/manifests/m228-ppo-snippet-action-anchor-implementation.json",
+    "hypothesis": "PPO needs preferred-only boundary snippet action anchoring before another smoke can be meaningfully gated.",
+    "id": "m228-ppo-snippet-action-anchor-implementation",
+    "kind": "infrastructure",
+    "notes": "Add train_ppo config/loss path for snippet-level action anchoring, with focused tests; no PPO in M228.",
+    "priority": 2230,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T131500Z"
+  "updated_at_utc": "20260522T140000Z"
 }

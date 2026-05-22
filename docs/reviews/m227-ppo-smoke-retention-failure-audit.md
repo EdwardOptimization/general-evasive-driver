@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260522T123215Z
+- Generated at UTC: 20260522T124852Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: Only an audit that preserves the replay/protected-key standard and pre-registers a stronger PPO retention mechanism may unblock further PPO.
+- Promotion decision: repair_with_ppo_snippet_action_anchor
+- Decision reason: M227 classifies M226 as proof_washout and protected_key_window_failure: PPO kept broad behavior but only anchored rollout states while M224/M225 stability came from preferred-only boundary snippet action anchors; keep M224 and implement M228 before any more PPO
 
 ## Hypothesis
 
@@ -66,8 +66,19 @@ M226 shows that ordinary guarded PPO with rollout action anchoring and the M223 
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m227-ppo-smoke-retention-failure-audit
+- type: gate
+- checkpoint: runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt
+- success_rate: 0.8625
+- termination_rate: 0.1375
+- clearance_margin_mean: 1.844231
+- reset_success: 0.8500
+- zero_wheel_success: None
+- zero_all_success: 0.8000
+- wheel_gain_mu: None
+- decision: repair_with_ppo_snippet_action_anchor
+- reason: M227 classifies M226 as proof_washout and protected_key_window_failure: PPO kept broad behavior but only anchored rollout states while M224/M225 stability came from preferred-only boundary snippet action anchors; keep M224 and implement M228 before any more PPO
 
 ## Next Blocker
 
-Determine why snippet-anchored actor updates preserve proof rows while guarded PPO loses M183 replay and protected-key retention.
+Implement PPO snippet-level action anchoring before any more PPO smoke.

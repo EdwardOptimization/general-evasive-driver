@@ -2,7 +2,7 @@
   "id": "m227-ppo-smoke-retention-failure-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "repair",
   "failure_types": [
     "proof_washout",
     "protected_key_window_failure"
@@ -88,5 +88,5 @@
     "runs/m226_behavior_gate_seed9506/policy_summary.csv"
   ],
   "decision_rule": "Only an audit that preserves the replay/protected-key standard and pre-registers a stronger PPO retention mechanism may unblock further PPO.",
-  "next_blocker": "Determine why snippet-anchored actor updates preserve proof rows while guarded PPO loses M183 replay and protected-key retention."
+  "next_blocker": "Implement PPO snippet-level action anchoring before any more PPO smoke."
 }

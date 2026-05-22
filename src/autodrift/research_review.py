@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from autodrift.artifacts import read_json, utc_timestamp, write_json
-from autodrift.research_schema import PROCESS_V2_LINEAGE_FIELDS
+from autodrift.research_schema import PROCESS_V2_ENFORCE_FROM_PRIORITY, PROCESS_V2_LINEAGE_FIELDS
 from autodrift.research_validate import load_scoreboard
 
 
@@ -24,7 +24,10 @@ def _as_list(value: Any) -> list[str]:
 def _find_scoreboard_row(scoreboard_path: Path, milestone: str) -> dict[str, str] | None:
     if not scoreboard_path.exists():
         return None
-    for row in load_scoreboard(scoreboard_path):
+    for row in load_scoreboard(
+        scoreboard_path,
+        reject_extra_fields_from_milestone=PROCESS_V2_ENFORCE_FROM_PRIORITY // 10 + 5,
+    ):
         if row["milestone"] == milestone:
             return row
     return None
@@ -142,7 +145,8 @@ def render_review_markdown(payload: dict[str, Any]) -> str:
     scoreboard = payload["scoreboard"]
     if scoreboard:
         for key, value in scoreboard.items():
-            lines.append(f"- {key}: {value}")
+            display_value = value if str(value) else "None"
+            lines.append(f"- {key}: {display_value}")
     else:
         lines.append("- No scoreboard row recorded.")
     lines.extend(["", "## Next Blocker", "", str(payload["next_blocker"] or "None recorded."), ""])

@@ -82,6 +82,18 @@ def test_load_scoreboard_requires_exact_fields(tmp_path):
         load_scoreboard(scoreboard)
 
 
+def test_load_scoreboard_rejects_unescaped_extra_columns(tmp_path):
+    scoreboard = tmp_path / "scoreboard.csv"
+    _write_scoreboard(scoreboard, [])
+    scoreboard.write_text(
+        scoreboard.read_text(encoding="utf-8") + "m90,gate,,,,,,,,,reject,reason with comma,extra\n",
+        encoding="utf-8",
+    )
+
+    with pytest.raises(ValueError, match="extra fields"):
+        load_scoreboard(scoreboard)
+
+
 def test_validate_research_state_requires_manifest_for_enforced_task(tmp_path):
     queue = tmp_path / "queue.csv"
     status = tmp_path / "status.json"

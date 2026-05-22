@@ -1,5 +1,5 @@
 {
-  "decision_reason": "Only an audit that preserves the replay/protected-key standard and pre-registers a stronger PPO retention mechanism may unblock further PPO.",
+  "decision_reason": "M227 classifies M226 as proof_washout and protected_key_window_failure: PPO kept broad behavior but only anchored rollout states while M224/M225 stability came from preferred-only boundary snippet action anchors; keep M224 and implement M228 before any more PPO",
   "failure_criteria": [
     "repeat M226 before audit",
     "run longer PPO from M226",
@@ -18,7 +18,7 @@
     "do not change actor inputs while auditing PPO retention"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260522T123215Z",
+  "generated_at_utc": "20260522T124852Z",
   "hypothesis": "M226 shows that ordinary guarded PPO with rollout action anchoring and the M223 outcome corpus can still lose proof-surface retention: M183 M170 drops one row and the historical protected key leaves the near-boundary window. Before any more PPO, audit whether PPO needs snippet-level action anchoring or another replay-surface retention mechanism.",
   "lineage": {
     "blocked_by": [
@@ -46,9 +46,9 @@
     "supersedes": []
   },
   "milestone": "m227-ppo-smoke-retention-failure-audit",
-  "next_blocker": "Determine why snippet-anchored actor updates preserve proof rows while guarded PPO loses M183 replay and protected-key retention.",
+  "next_blocker": "Implement PPO snippet-level action anchoring before any more PPO smoke.",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "repair_with_ppo_snippet_action_anchor",
   "public_gates": [
     "fixed M223 outcome objective",
     "M183 M170 old replay surface",
@@ -56,7 +56,20 @@
     "M226 broad behavior seeds 9505 and 9506",
     "critical protected key seed 9944"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt",
+    "clearance_margin_mean": "1.844231",
+    "decision": "repair_with_ppo_snippet_action_anchor",
+    "milestone": "m227-ppo-smoke-retention-failure-audit",
+    "reason": "M227 classifies M226 as proof_washout and protected_key_window_failure: PPO kept broad behavior but only anchored rollout states while M224/M225 stability came from preferred-only boundary snippet action anchors; keep M224 and implement M228 before any more PPO",
+    "reset_success": "0.8500",
+    "success_rate": "0.8625",
+    "termination_rate": "0.1375",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "0.8000",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "do not run another PPO smoke before the audit is documented",
     "compare M224 and M226 on fixed M223 objective, M183 M170 replay, and protected key",

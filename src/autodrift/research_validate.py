@@ -112,12 +112,35 @@ def normalize_next_task(value: Any) -> str | None:
     raise ValueError(f"research_status next_task must be string, object, or null, got {type(value).__name__}")
 
 
-def load_scoreboard(path: Path) -> list[dict[str, str]]:
+def _milestone_number(milestone: str) -> int | None:
+    if not milestone.startswith("m"):
+        return None
+    digits = []
+    for character in milestone[1:]:
+        if not character.isdigit():
+            break
+        digits.append(character)
+    return int("".join(digits)) if digits else None
+
+
+def load_scoreboard(path: Path, *, reject_extra_fields_from_milestone: int | None = None) -> list[dict[str, str]]:
     with path.open(newline="", encoding="utf-8") as handle:
         reader = csv.DictReader(handle)
         if reader.fieldnames != SCOREBOARD_FIELDS:
             raise ValueError(f"scoreboard must have fields {SCOREBOARD_FIELDS}, got {reader.fieldnames}")
-        return [dict(row) for row in reader]
+        rows: list[dict[str, str]] = []
+        for index, row in enumerate(reader, start=2):
+            milestone = str(row.get("milestone", ""))
+            milestone_number = _milestone_number(milestone)
+            reject_extra = (
+                reject_extra_fields_from_milestone is None
+                or (milestone_number is not None and milestone_number >= reject_extra_fields_from_milestone)
+            )
+            if None in row and reject_extra:
+                raise ValueError(f"scoreboard row {index} has extra fields: {row[None]}")
+            row.pop(None, None)
+            rows.append(dict(row))
+        return rows
 
 
 def _validate_manifest(task: ResearchTask, manifest: dict[str, Any], process_v2: bool = False) -> list[ValidationIssue]:
@@ -343,7 +366,10 @@ def validate_research_state(
         issues.append(ValidationIssue("error", f"missing scoreboard: {scoreboard_path}"))
         scoreboard_rows: list[dict[str, str]] = []
     else:
-        scoreboard_rows = load_scoreboard(scoreboard_path)
+        scoreboard_rows = load_scoreboard(
+            scoreboard_path,
+            reject_extra_fields_from_milestone=process_v2_from_priority // 10 + 5,
+        )
     scoreboard_ids = [row["milestone"] for row in scoreboard_rows]
     scoreboard_by_id = {row["milestone"]: row for row in scoreboard_rows}
     if len(scoreboard_ids) != len(set(scoreboard_ids)):
