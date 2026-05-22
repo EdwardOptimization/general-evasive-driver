@@ -60,6 +60,7 @@ Not allowed in the deployable actor:
 | current-best guarded stage4 | `runs/ppo_m202_stage4_from_m201_seed5206/checkpoint.pt` | positive single-seed stage4; requires repeat before further continuation |
 | current-best guarded stage4 repeat evidence | `runs/ppo_m202_stage4_from_m201_seed5206/checkpoint.pt` | M203 repeats preserve gates, but M202 remains best fixed-loss stage4 |
 | current-best guarded stage5 | `runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt` | positive single-seed stage5; requires repeat before further continuation |
+| current-best guarded stage5 repeat evidence | `runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt` | M205 repeats preserve gates, but M204 remains best fixed-loss stage5 |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -175,19 +176,24 @@ slightly stronger action-level sensitivity.
   `0.158475`, keeps smoke eval termination at `0.20`, preserves behavior seeds
   `9505` and `9506`, passes the protected key, retains old M183 replay drops
   `16/16` and `17/17`, and retains refreshed M193 replay drops `14/14`.
+- M205: stage5 repeats from M202 seed `5206` on seeds `5210` and `5211` both
+  improve fixed M193 loss versus M202 (`0.158520` and `0.158503` vs
+  `0.158585`) and preserve behavior, protected key, old M183 replay drops
+  `16/16` and `17/17`, and refreshed M193 replay drops `14/14`. They do not
+  beat M204 (`0.158475`), so M204 remains the best fixed-loss stage5.
 
 Current blocker:
 
 ```text
-stage5 repeat evidence from M202 seed 5206 before any further continuation
+one short guarded stage6 from M204 before any further continuation
 ```
 
 ## Near-Term Rule
 
-M204 is positive as one short guarded stage5, but this is only single-seed
-evidence. Repeat the same stage5 recipe from M202 seed `5206` on fresh seeds.
-Do not chain from M204 or run a longer PPO continuation until stage5 repeats
-preserve behavior, protected key, old M183 replay, and refreshed M193 replay.
+M205 gives repeat-stable stage5 evidence, while M204 remains the best fixed-loss
+stage5 checkpoint. Run only one short guarded stage6 from M204 seed `5209`. Do
+not run stage6 repeats or a longer PPO continuation until that single stage6
+preserves behavior, protected key, old M183 replay, and refreshed M193 replay.
 
 ## Sensor Profile Policy
 

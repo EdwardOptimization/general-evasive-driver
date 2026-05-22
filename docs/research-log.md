@@ -7393,3 +7393,43 @@ Results:
 Decision: M204 is positive as a single-seed stage5. Repeat the same stage5
 recipe from M202 seed `5206` on fresh seeds before chaining from M204 or
 running any longer PPO continuation.
+
+## 20260522T094934Z m205-stage5-repeat-from-m202
+
+M205 repeated the M204 stage5 recipe from M202 seed `5206` on fresh seeds
+`5210` and `5211`. Every repeat restarted from M202 seed `5206`; no repeat
+chained from M204 or another M205 checkpoint.
+
+Artifacts:
+
+- `runs/ppo_m205_stage5_from_m202_seed5210`
+- `runs/ppo_m205_stage5_from_m202_seed5211`
+- `runs/m205_fixed_batch_outcome_eval_seed37`
+- `runs/m205_5210_m183_m168_replay_gate_seed9510`
+- `runs/m205_5210_m183_m170_replay_gate_seed9510`
+- `runs/m205_5210_m193_m189_replay_gate_seed9630`
+- `runs/m205_5211_m183_m168_replay_gate_seed9510`
+- `runs/m205_5211_m183_m170_replay_gate_seed9510`
+- `runs/m205_5211_m193_m189_replay_gate_seed9630`
+- `runs/m205_behavior_gate_seed9505`
+- `runs/m205_behavior_gate_seed9506`
+- `runs/m205_critical_key_seed9944`
+- `docs/m205-stage5-repeat-from-m202.md`
+
+Results:
+
+- fixed M193 objective loss: M202 `0.158585`, M204 `0.158475`, M205 seed
+  `5210` `0.158520`, M205 seed `5211` `0.158503`;
+- both repeats improve fixed objective versus M202;
+- neither repeat beats M204, so M204 remains the best fixed-loss stage5;
+- both repeats have smoke eval termination `0.20`;
+- both repeats retain M183 M168 replay drops `16/16`;
+- both repeats retain M183 M170 replay drops `17/17`;
+- both repeats retain M193 M189 replay drops `14/14`;
+- behavior seeds `9505` and `9506` keep success `0.8625`;
+- reset-hidden and zero-all-response ablations remain at `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` passes for both repeats.
+
+Decision: M205 is positive repeat evidence, but not a new best checkpoint.
+Admit one short guarded stage6 from M204 seed `5209`, and do not run a stage6
+repeat or longer PPO continuation before that first stage6 passes gates.

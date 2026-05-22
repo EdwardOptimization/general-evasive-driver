@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 213,
+    "completed": 214,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m204-guarded-stage5-ppo-from-m202.md",
+    "command_log": "docs/m205-stage5-repeat-from-m202.md",
     "returncode": 0,
-    "run_dir": "runs/m204_fixed_batch_outcome_eval_seed37",
+    "run_dir": "runs/m205_fixed_batch_outcome_eval_seed37",
     "status": "completed",
-    "task_id": "m204-guarded-stage5-ppo-from-m202"
+    "task_id": "m205-stage5-repeat-from-m202"
   },
   "next_task": {
-    "command": "see experiments/manifests/m205-stage5-repeat-from-m202.json",
-    "hypothesis": "M204 is a positive single-seed stage5 from M202 seed 5206, so fresh stage5 repeats from the same parent are required before chaining further continuation.",
-    "id": "m205-stage5-repeat-from-m202",
+    "command": "see experiments/manifests/m206-guarded-stage6-ppo-from-m204.json",
+    "hypothesis": "M205 gives repeat-stable stage5 evidence and M204 remains the best fixed-loss retained stage5 checkpoint, so one short guarded stage6 can be tested.",
+    "id": "m206-guarded-stage6-ppo-from-m204",
     "kind": "driver_candidate",
-    "notes": "Repeat the M204 recipe from M202 seed 5206 on fresh seeds; reject any behavior, protected-key, old M183 replay, or refreshed M193 replay regression.",
-    "priority": 2000,
+    "notes": "Run one short stage6 from M204 seed 5209; reject any behavior, protected-key, old M183 replay, or refreshed M193 replay regression.",
+    "priority": 2010,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T094453Z"
+  "updated_at_utc": "20260522T094934Z"
 }
