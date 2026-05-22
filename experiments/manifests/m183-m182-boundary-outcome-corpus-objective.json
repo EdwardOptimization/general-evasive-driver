@@ -1,0 +1,43 @@
+{
+  "id": "m183-m182-boundary-outcome-corpus-objective",
+  "type": "objective_sanity",
+  "hypothesis": "M182 produced a robustness-passing source-diverse boundary wrong-history surface. Before PPO, the accepted rows must be converted into a deduplicated boundary-outcome corpus/objective and shown to be replay-aligned rather than only a fixed-loss proxy.",
+  "success_criteria": [
+    "build the corpus only from M182 robustness-passing accepted wrong-history rows",
+    "deduplicate or cap rows by strict physical pair so no single pair dominates",
+    "keep the actor input contract unchanged and use M182 labels only as training-time objective data",
+    "prove objective-only improvement on the M182 corpus without regressing existing behavior/protected-key checks",
+    "run a fixed replay or replay-guard sanity check before admitting any PPO update"
+  ],
+  "failure_criteria": [
+    "train PPO directly from M182 accepted rows",
+    "use duplicate rows without physical-pair caps",
+    "accept fixed objective loss improvement without replay alignment",
+    "change deployable actor inputs or add hidden/oracle actor features"
+  ],
+  "commands": [
+    {
+      "name": "m183_build_m182_boundary_corpus",
+      "command": "Build a deduplicated boundary outcome corpus from runs/m182_boundary_robustness_seed9510/accepted_wrong_history_rows.csv."
+    },
+    {
+      "name": "m183_objective_sanity",
+      "command": "Run objective-only sanity from the current admitted branch and require fixed objective improvement plus replay/protected-key preservation."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m183-m182-boundary-outcome-corpus-objective.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_artifacts": [
+    "runs/m182_boundary_robustness_seed9510/accepted_wrong_history_rows.csv",
+    "runs/m182_boundary_robustness_seed9510/summary.json"
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt",
+    "runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt"
+  ],
+  "decision_rule": "Only a replay-aligned objective sanity result can admit a guarded actor update or PPO continuation."
+}

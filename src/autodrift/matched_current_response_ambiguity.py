@@ -76,6 +76,29 @@ def _safe_correlation(x_values: list[float], y_values: list[float]) -> float:
     return float(np.corrcoef(x, y)[0, 1])
 
 
+def _optional_float(row: dict[str, Any], key: str) -> float:
+    value = row.get(key, float("nan"))
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return float("nan")
+
+
+def _bucket_label(value: float, width: float) -> str:
+    if not np.isfinite(value):
+        return "nan"
+    if width <= 0.0:
+        raise ValueError("bucket width must be positive")
+    start = np.floor(float(value) / float(width)) * float(width)
+    return f"{start:.3f}-{start + float(width):.3f}"
+
+
+def source_obstacle_bucket_key(row: dict[str, Any], *, distance_width: float, lateral_width: float) -> str:
+    distance = _bucket_label(_optional_float(row, "left_obstacle_distance"), distance_width)
+    lateral = _bucket_label(_optional_float(row, "left_obstacle_lateral_offset"), lateral_width)
+    return f"distance={distance}|lateral={lateral}"
+
+
 def build_match_features(
     full_observation: np.ndarray,
     current_response: np.ndarray,
@@ -159,6 +182,18 @@ def nearest_visible_candidate_pairs(
                         "right_seed": int(rows[pair_right]["seed"]),
                         "left_step": int(rows[pair_left]["step"]),
                         "right_step": int(rows[pair_right]["step"]),
+                        "left_obstacle_label": str(rows[pair_left].get("obstacle_label", "")),
+                        "right_obstacle_label": str(rows[pair_right].get("obstacle_label", "")),
+                        "left_obstacle_distance": _optional_float(rows[pair_left], "obstacle_distance"),
+                        "right_obstacle_distance": _optional_float(rows[pair_right], "obstacle_distance"),
+                        "left_obstacle_lateral_offset": _optional_float(
+                            rows[pair_left],
+                            "obstacle_lateral_offset",
+                        ),
+                        "right_obstacle_lateral_offset": _optional_float(
+                            rows[pair_right],
+                            "obstacle_lateral_offset",
+                        ),
                     }
                 )
     return candidates
@@ -198,6 +233,10 @@ def select_ambiguity_pairs(
     min_target_z_delta: float,
     max_pairs_per_target: int,
     max_pairs_per_physical_pair: int = 0,
+    max_pairs_per_left_step: int = 0,
+    max_pairs_per_source_obstacle_bucket: int = 0,
+    obstacle_distance_bucket_width: float = 5.0,
+    obstacle_lateral_bucket_width: float = 1.0,
 ) -> list[dict[str, Any]]:
     accepted = [
         {**row, "accepted": True}
@@ -205,11 +244,18 @@ def select_ambiguity_pairs(
         if float(row["visible_distance"]) <= float(visible_threshold)
         and float(row["target_z_delta"]) >= float(min_target_z_delta)
     ]
-    if max_pairs_per_target <= 0 and max_pairs_per_physical_pair <= 0:
+    if (
+        max_pairs_per_target <= 0
+        and max_pairs_per_physical_pair <= 0
+        and max_pairs_per_left_step <= 0
+        and max_pairs_per_source_obstacle_bucket <= 0
+    ):
         return sorted(accepted, key=lambda row: (row["target"], row["visible_distance"], -row["target_z_delta"]))
 
     selected: list[dict[str, Any]] = []
     physical_counts: dict[tuple[int, int, int, int], int] = {}
+    left_step_counts: dict[int, int] = {}
+    source_obstacle_bucket_counts: dict[str, int] = {}
     for target in TARGETS:
         target_rows = [row for row in accepted if str(row["target"]) == target]
         target_rows.sort(key=lambda row: (-float(row["target_z_delta"]), float(row["visible_distance"])))
@@ -220,9 +266,24 @@ def select_ambiguity_pairs(
             key = physical_pair_key(row)
             if max_pairs_per_physical_pair > 0 and physical_counts.get(key, 0) >= int(max_pairs_per_physical_pair):
                 continue
+            left_step = int(row["left_step"])
+            if max_pairs_per_left_step > 0 and left_step_counts.get(left_step, 0) >= int(max_pairs_per_left_step):
+                continue
+            source_bucket = source_obstacle_bucket_key(
+                row,
+                distance_width=obstacle_distance_bucket_width,
+                lateral_width=obstacle_lateral_bucket_width,
+            )
+            if (
+                max_pairs_per_source_obstacle_bucket > 0
+                and source_obstacle_bucket_counts.get(source_bucket, 0) >= int(max_pairs_per_source_obstacle_bucket)
+            ):
+                continue
             selected.append(row)
             target_selected += 1
             physical_counts[key] = physical_counts.get(key, 0) + 1
+            left_step_counts[left_step] = left_step_counts.get(left_step, 0) + 1
+            source_obstacle_bucket_counts[source_bucket] = source_obstacle_bucket_counts.get(source_bucket, 0) + 1
     return selected
 
 
@@ -348,6 +409,10 @@ def run_matched_current_response_ambiguity_audit(
     min_target_z_delta: float,
     max_pairs_per_target: int,
     max_pairs_per_physical_pair: int,
+    max_pairs_per_left_step: int,
+    max_pairs_per_source_obstacle_bucket: int,
+    obstacle_distance_bucket_width: float,
+    obstacle_lateral_bucket_width: float,
     min_accepted_pairs: int,
     exclude_same_episode: bool,
     device: str,
@@ -399,6 +464,10 @@ def run_matched_current_response_ambiguity_audit(
                 min_target_z_delta=min_target_z_delta,
                 max_pairs_per_target=max_pairs_per_target,
                 max_pairs_per_physical_pair=max_pairs_per_physical_pair,
+                max_pairs_per_left_step=max_pairs_per_left_step,
+                max_pairs_per_source_obstacle_bucket=max_pairs_per_source_obstacle_bucket,
+                obstacle_distance_bucket_width=obstacle_distance_bucket_width,
+                obstacle_lateral_bucket_width=obstacle_lateral_bucket_width,
             )
             candidates_with_distances = add_feature_distances(candidates, dataset.features)
             selected_with_distances = add_feature_distances(selected, dataset.features)
@@ -446,6 +515,15 @@ def run_matched_current_response_ambiguity_audit(
 
     total_accepted = len(all_pair_rows)
     accepted_physical_pairs = {physical_pair_key(row) for row in all_pair_rows}
+    accepted_left_steps = {int(row["left_step"]) for row in all_pair_rows}
+    accepted_source_obstacle_buckets = {
+        source_obstacle_bucket_key(
+            row,
+            distance_width=obstacle_distance_bucket_width,
+            lateral_width=obstacle_lateral_bucket_width,
+        )
+        for row in all_pair_rows
+    }
     accepted_physical_counts: dict[tuple[int, int, int, int], int] = {}
     for row in all_pair_rows:
         key = physical_pair_key(row)
@@ -470,12 +548,18 @@ def run_matched_current_response_ambiguity_audit(
         "min_target_z_delta": float(min_target_z_delta),
         "max_pairs_per_target": int(max_pairs_per_target),
         "max_pairs_per_physical_pair": int(max_pairs_per_physical_pair),
+        "max_pairs_per_left_step": int(max_pairs_per_left_step),
+        "max_pairs_per_source_obstacle_bucket": int(max_pairs_per_source_obstacle_bucket),
+        "obstacle_distance_bucket_width": float(obstacle_distance_bucket_width),
+        "obstacle_lateral_bucket_width": float(obstacle_lateral_bucket_width),
         "min_accepted_pairs": int(min_accepted_pairs),
         "exclude_same_episode": bool(exclude_same_episode),
         "device": str(resolved_device),
         "candidate_pair_count": int(len(all_candidate_rows)),
         "accepted_pair_count": int(total_accepted),
         "accepted_physical_pair_count": int(len(accepted_physical_pairs)),
+        "accepted_left_step_count": int(len(accepted_left_steps)),
+        "accepted_source_obstacle_bucket_count": int(len(accepted_source_obstacle_buckets)),
         "accepted_max_rows_per_physical_pair": (
             int(max(accepted_physical_counts.values())) if accepted_physical_counts else 0
         ),
@@ -508,6 +592,10 @@ def main() -> None:
     parser.add_argument("--min-target-z-delta", type=float, default=1.0)
     parser.add_argument("--max-pairs-per-target", type=int, default=200)
     parser.add_argument("--max-pairs-per-physical-pair", type=int, default=0)
+    parser.add_argument("--max-pairs-per-left-step", type=int, default=0)
+    parser.add_argument("--max-pairs-per-source-obstacle-bucket", type=int, default=0)
+    parser.add_argument("--obstacle-distance-bucket-width", type=float, default=5.0)
+    parser.add_argument("--obstacle-lateral-bucket-width", type=float, default=1.0)
     parser.add_argument("--min-accepted-pairs", type=int, default=30)
     parser.add_argument("--allow-same-episode", action="store_true")
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="auto")
@@ -530,6 +618,10 @@ def main() -> None:
         min_target_z_delta=args.min_target_z_delta,
         max_pairs_per_target=args.max_pairs_per_target,
         max_pairs_per_physical_pair=args.max_pairs_per_physical_pair,
+        max_pairs_per_left_step=args.max_pairs_per_left_step,
+        max_pairs_per_source_obstacle_bucket=args.max_pairs_per_source_obstacle_bucket,
+        obstacle_distance_bucket_width=args.obstacle_distance_bucket_width,
+        obstacle_lateral_bucket_width=args.obstacle_lateral_bucket_width,
         min_accepted_pairs=args.min_accepted_pairs,
         exclude_same_episode=not args.allow_same_episode,
         device=args.device,

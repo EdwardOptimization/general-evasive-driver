@@ -19,22 +19,42 @@
   ],
   "commands": [
     {
-      "name": "m182_design_or_implement_source_diverse_miner",
-      "command": "Implement or configure a source-pair-diverse matched-current miner that selects candidates by strict physical pair, left step, target, normal-margin bucket, and obstacle bucket before relocation."
+      "name": "m182_matched_current_remine",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_current_response_ambiguity --checkpoint-policy m168_strict=runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt --checkpoint-policy m170_split=runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --probe-seeds 9510,9511,9512,9513 --episodes 40 --horizon-steps 15 --sample-stride 3 --max-samples 1200 --nearest-k 12 --max-visible-quantile 0.05 --min-target-z-delta 1.0 --max-pairs-per-target 320 --max-pairs-per-physical-pair 1 --max-pairs-per-left-step 20 --max-pairs-per-source-obstacle-bucket 40 --obstacle-distance-bucket-width 5.0 --obstacle-lateral-bucket-width 1.0 --min-accepted-pairs 60 --device cpu --run-dir runs/m182_source_diverse_matched_current_zero_relvel_seed9510"
+    },
+    {
+      "name": "m182_direct_outcome_gate",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_history_outcome_gate --checkpoint-policy m168_strict=runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt --checkpoint-policy m170_split=runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --pairs-csv runs/m182_source_diverse_matched_current_zero_relvel_seed9510/matched_pairs.csv --delay-steps 10 --max-continuation-steps 60 --min-margin-gap 0.02 --max-pairs-per-checkpoint-target 0 --pair-label-mode matching --device cpu --run-dir runs/m182_matched_history_outcome_zero_relvel_seed9510"
     },
     {
       "name": "m182_wrong_history_boundary_relocation",
-      "command": "Run wrong-history-only boundary relocation on the new source-diverse candidate set with M168 and M170 once the miner output is available."
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.wrong_history_boundary_relocation_surface --checkpoint-policy m168_strict=runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt --checkpoint-policy m170_split=runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --outcome-csv runs/m182_matched_history_outcome_zero_relvel_seed9510/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 60 --max-pairs-per-checkpoint-target 0 --min-base-action-distance 0.0 --target-normal-margins 0.005,0.01,0.02,0.05,0.10,0.15 --half-width-inflations 0 --min-margin-gap 0.02 --min-accepted-wrong-rows 40 --report-variants wrong_matched_history --device cpu --run-dir runs/m182_wrong_history_boundary_surface_seed9510"
     },
     {
       "name": "m182_robustness_gate",
-      "command": "Run boundary_wrong_history_surface_robustness with min accepted rows 40, min physical pairs 10, min left steps 5, min checkpoints 2, min targets 2, min margin buckets 2, and max rows per pair fraction 0.25."
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_wrong_history_surface_robustness --boundary-rows-csv runs/m182_wrong_history_boundary_surface_seed9510/boundary_relocation_rows.csv --control-checkpoint-label none --margin-bucket-width 0.01 --min-accepted-wrong-rows 40 --min-physical-pairs 10 --min-left-steps 5 --min-checkpoints 2 --min-targets 2 --min-margin-buckets 2 --min-success-drop-fraction 1.0 --max-rows-per-pair-fraction 0.25 --max-control-accepted-rows 0 --run-dir runs/m182_boundary_robustness_seed9510"
     }
   ],
   "required_artifacts": [
     {
       "path": "docs/m182-source-diverse-matched-current-remine.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m182_source_diverse_matched_current_zero_relvel_seed9510/summary.json",
+      "type": "matched_current_summary"
+    },
+    {
+      "path": "runs/m182_matched_history_outcome_zero_relvel_seed9510/summary.json",
+      "type": "direct_outcome_summary"
+    },
+    {
+      "path": "runs/m182_wrong_history_boundary_surface_seed9510/summary.json",
+      "type": "boundary_surface_summary"
+    },
+    {
+      "path": "runs/m182_boundary_robustness_seed9510/summary.json",
+      "type": "robustness_summary"
     }
   ],
   "baseline_checkpoints": [
@@ -45,5 +65,29 @@
     "runs/m181_action01_robustness_seed9510/summary.json",
     "runs/m181_action02_robustness_seed9510/summary.json"
   ],
-  "decision_rule": "Only a robustness-passing source-diverse surface can enter multi-variant replay or corpus construction; otherwise design active-probe data generation."
+  "results": {
+    "matched_current": {
+      "accepted_pair_count": 1691,
+      "accepted_physical_pair_count": 319,
+      "accepted_left_step_count": 26,
+      "accepted_source_obstacle_bucket_count": 16
+    },
+    "direct_outcome": {
+      "wrong_history_success_drops": 0,
+      "wrong_history_margin_gap_max": 0.0113991164771396
+    },
+    "boundary_robustness": {
+      "decision": "admit_boundary_wrong_history_objective",
+      "passed": true,
+      "accepted_wrong_rows": 78,
+      "accepted_wrong_physical_pairs": 15,
+      "accepted_wrong_left_steps": 8,
+      "accepted_wrong_checkpoints": 2,
+      "accepted_wrong_targets": 3,
+      "accepted_wrong_normal_margin_buckets": 2,
+      "max_rows_per_physical_pair_fraction": 0.15384615384615385
+    }
+  },
+  "decision_rule": "Only a robustness-passing source-diverse surface can enter multi-variant replay or corpus construction; otherwise design active-probe data generation.",
+  "decision": "admit_boundary_wrong_history_objective"
 }

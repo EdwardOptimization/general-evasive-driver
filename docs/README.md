@@ -463,6 +463,11 @@ vehicle/tire models, and NMPC-style constrained control.
   current zero-relvel boundary-relocated wrong-history outcome-critical surface
   for M156 and M142; robustness passes but PPO remains blocked until a reusable
   corpus/objective is built.
+- `m162-boundary-outcome-corpus-objective.md` through
+  `m182-source-diverse-matched-current-remine.md`: boundary-objective and
+  proof-surface iterations for the current M168/M170 branch. M182 is the first
+  robustness-passing source-diverse boundary wrong-history surface after the
+  M179-M181 duplicate-domination blocker.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

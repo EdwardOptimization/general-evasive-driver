@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 190,
+    "completed": 191,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m181-low-threshold-source-diverse-boundary-mining.md",
+    "command_log": "docs/m182-source-diverse-matched-current-remine.md",
     "returncode": 0,
-    "run_dir": "runs/m181_action0_wrong_history_boundary_surface_seed9510",
+    "run_dir": "runs/m182_boundary_robustness_seed9510",
     "status": "completed",
-    "task_id": "m181-low-threshold-source-diverse-boundary-mining"
+    "task_id": "m182-source-diverse-matched-current-remine"
   },
   "next_task": {
-    "command": "see experiments/manifests/m182-source-diverse-matched-current-remine.json",
-    "hypothesis": "M181 exhausts the M178 outcome rows, so the next step must remine or rebuild matched-current proof candidates with physical-pair diversity as a first-class objective.",
-    "id": "m182-source-diverse-matched-current-remine",
-    "kind": "gate",
-    "notes": "Pending after M181: implement source-pair-diverse candidate mining before multi-variant replay, corpus construction, or PPO",
-    "priority": 1770,
+    "command": "see experiments/manifests/m183-m182-boundary-outcome-corpus-objective.json",
+    "hypothesis": "M182 produced a robustness-passing source-diverse boundary wrong-history surface, so the next step is a deduplicated replay-aligned corpus/objective before any PPO.",
+    "id": "m183-m182-boundary-outcome-corpus-objective",
+    "kind": "objective_sanity",
+    "notes": "Pending after M182: build corpus/objective from accepted robust rows and prove replay alignment before actor updates",
+    "priority": 1780,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T064853Z"
+  "updated_at_utc": "20260522T070247Z"
 }

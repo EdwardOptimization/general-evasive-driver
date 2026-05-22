@@ -8,6 +8,7 @@ from autodrift.matched_current_response_ambiguity import (
     nearest_visible_candidate_pairs,
     physical_pair_key,
     select_ambiguity_pairs,
+    source_obstacle_bucket_key,
     summarize_ambiguity_pairs,
     visible_distance_threshold,
 )
@@ -121,6 +122,89 @@ def test_select_ambiguity_pairs_can_limit_physical_pair_repeats():
         counts[key] = counts.get(key, 0) + 1
     assert max(counts.values()) == 1
     assert len(selected) == 2
+
+
+def test_select_ambiguity_pairs_can_limit_left_step_repeats():
+    candidates = [
+        {
+            "left_seed": 1,
+            "left_step": 10,
+            "right_seed": 2,
+            "right_step": 20 + index,
+            "target": "future_braking_deceleration",
+            "visible_distance": 0.01 + 0.001 * index,
+            "target_z_delta": 4.0 - index,
+        }
+        for index in range(2)
+    ]
+    candidates.append(
+        {
+            "left_seed": 3,
+            "left_step": 11,
+            "right_seed": 4,
+            "right_step": 30,
+            "target": "future_braking_deceleration",
+            "visible_distance": 0.02,
+            "target_z_delta": 2.0,
+        }
+    )
+
+    selected = select_ambiguity_pairs(
+        candidates,
+        visible_threshold=0.05,
+        min_target_z_delta=1.0,
+        max_pairs_per_target=10,
+        max_pairs_per_left_step=1,
+    )
+
+    assert [int(row["left_step"]) for row in selected] == [10, 11]
+
+
+def test_select_ambiguity_pairs_can_limit_source_obstacle_bucket_repeats():
+    candidates = [
+        {
+            "left_seed": 1 + index,
+            "left_step": 10 + index,
+            "right_seed": 10 + index,
+            "right_step": 20 + index,
+            "target": "future_yaw_response",
+            "visible_distance": 0.01 + 0.001 * index,
+            "target_z_delta": 4.0 - index,
+            "left_obstacle_distance": 12.0,
+            "left_obstacle_lateral_offset": 0.2,
+        }
+        for index in range(2)
+    ]
+    candidates.append(
+        {
+            "left_seed": 8,
+            "left_step": 18,
+            "right_seed": 9,
+            "right_step": 28,
+            "target": "future_yaw_response",
+            "visible_distance": 0.02,
+            "target_z_delta": 2.0,
+            "left_obstacle_distance": 22.0,
+            "left_obstacle_lateral_offset": 0.2,
+        }
+    )
+
+    selected = select_ambiguity_pairs(
+        candidates,
+        visible_threshold=0.05,
+        min_target_z_delta=1.0,
+        max_pairs_per_target=10,
+        max_pairs_per_source_obstacle_bucket=1,
+        obstacle_distance_bucket_width=5.0,
+        obstacle_lateral_bucket_width=1.0,
+    )
+
+    buckets = [
+        source_obstacle_bucket_key(row, distance_width=5.0, lateral_width=1.0)
+        for row in selected
+    ]
+    assert len(selected) == 2
+    assert len(set(buckets)) == 2
 
 
 def test_add_feature_distances_and_summary_compare_hidden_to_current():

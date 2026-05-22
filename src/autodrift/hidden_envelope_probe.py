@@ -142,6 +142,8 @@ def collect_hidden_envelope_dataset(
                             "seed": episode_seed,
                             "step": int(info["step"]),
                             "obstacle_label": str(info.get("obstacle_label", "")),
+                            "obstacle_distance": float(info.get("obstacle_distance", float("nan"))),
+                            "obstacle_lateral_offset": float(info.get("obstacle_lateral_offset", float("nan"))),
                             **target_values,
                         }
                     )

@@ -6612,3 +6612,39 @@ is exhausted for the current boundary relocation recipe. The next step must
 remine or rebuild same-current/different-history candidates with physical-pair
 diversity as a first-class objective before multi-variant replay, corpus
 construction, actor update, or PPO.
+## 20260522T070247Z m182-source-diverse-matched-current-remine
+
+M182 remade the matched-current proof surface after M181 exhausted the M178
+candidate pool.
+
+Code change:
+
+- `hidden_envelope_probe` now logs obstacle distance/lateral offset for mining
+  summaries only.
+- `matched_current_response_ambiguity` now supports left-step and source
+  obstacle-bucket caps before outcome or boundary relocation.
+- focused validation: `tests/test_matched_current_response_ambiguity.py` passed
+  `6/6`; `python -m compileall -q src tests` passed.
+
+Artifacts:
+
+- `runs/m182_source_diverse_matched_current_zero_relvel_seed9510`
+- `runs/m182_matched_history_outcome_zero_relvel_seed9510`
+- `runs/m182_wrong_history_boundary_surface_seed9510`
+- `runs/m182_boundary_robustness_seed9510`
+- `docs/m182-source-diverse-matched-current-remine.md`
+
+Results:
+
+- matched-current remine: `1691` rows across `319` physical pairs, `26` left
+  steps, and `16` source obstacle buckets;
+- direct continuation outcome remains neutral: wrong-history success drops
+  `0`, max margin gap `0.011399`;
+- boundary relocation finds `78` accepted wrong-history rows, all success drops;
+- robustness passes with `15` physical pairs, `8` left steps, `3` targets,
+  `2` checkpoints, `2` margin buckets, and max pair fraction `0.153846`.
+
+Decision: admit the M182 boundary wrong-history objective surface, but do not
+run PPO yet. Next task is M183: convert the accepted rows into a deduplicated
+boundary-outcome corpus/objective and prove replay alignment before actor
+updates.

@@ -60,17 +60,22 @@ slightly stronger action-level sensitivity.
 - M181: lowering the base action-distance threshold does not fix duplicate
   domination; the M178 candidate pool is exhausted for the current boundary
   relocation recipe.
+- M182: remaking the matched-current corpus with physical-pair, left-step, and
+  obstacle-bucket diversity produces a robustness-passing boundary wrong-history
+  proof surface: `78` accepted success-drop rows across `15` physical pairs,
+  `8` left steps, `3` targets, and `2` checkpoints.
 
 Current blocker:
 
 ```text
-source-diverse outcome-level self-ID proof surface
+turn the M182 source-diverse proof surface into a replay-aligned objective
 ```
 
 ## Near-Term Rule
 
-Do not run more PPO or build a training corpus from duplicate-dominated
-wrong-history rows. The next step is source-pair-diverse proof-surface mining.
+Do not run PPO directly from the M182 rows. First build a deduplicated
+boundary-outcome corpus/objective and prove objective improvement is aligned
+with replayed boundary outcomes.
 
 ## Sensor Profile Policy
 
