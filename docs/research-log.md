@@ -5493,3 +5493,55 @@ docs/observation-contract.md
 docs/README.md
 docs/implementation-plan.md
 ```
+
+## 20260522T015500Z m143-driver-like-input-profile-audit
+
+M143 implements a supervised input-profile audit for the latest driver-like
+input revision.
+
+New code:
+
+```text
+src/autodrift/driver_like_input_profile_audit.py
+tests/test_driver_like_input_profile_audit.py
+configs/m143_driver_like_profile_audit.json
+```
+
+The compared profiles are:
+
+```text
+P0 current no-wheel baseline
+P1 driver-like minimal with steer-rate proxy
+P2 P1 without steer-rate proxy
+P3 P1 plus raw front/rear wheel speed
+P4 P3 plus front/rear v_parallel
+```
+
+Commands ran seeds `9440`, `9441`, and `9442`, each with 30 episodes, max 800
+samples, horizon 15, stride 3, ridge 0.1, and raw history windows `1,10,25`.
+
+Artifacts:
+
+```text
+runs/m143_driver_like_input_profile_audit/summary.json
+runs/m143_driver_like_input_profile_audit_seed9441/summary.json
+runs/m143_driver_like_input_profile_audit_seed9442/summary.json
+runs/m143_driver_like_input_profile_audit_multiseed/summary.json
+```
+
+Multiseed aggregate over all targets and windows:
+
+| Delta | Mean test R2 delta | Mean MAE-improvement delta |
+| --- | ---: | ---: |
+| P1 - P0 | -0.086331 | 0.000510 |
+| P1 - P2 steer-rate proxy | -0.158046 | -0.023909 |
+| P3 - P1 raw wheel | 0.051552 | 0.006885 |
+| P4 - P3 v_parallel | 0.160504 | 0.032093 |
+
+Decision: complete M143 as a supervised audit with no actor-profile promotion.
+P1 driver-like minimal does not beat P0, steer-rate is not a good steering-feel
+substitute, raw wheel speed is small/noisy positive, and `v_parallel` is the
+strongest supervised signal but remains a single-track diagnostic comparison.
+
+Next task: M144 should repeat the exact P0-P4 profiles with a frozen regularized
+learned-history sequence probe before any PPO profile comparison.

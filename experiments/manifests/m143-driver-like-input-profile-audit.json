@@ -1,20 +1,21 @@
 {
   "baseline_checkpoints": [
     "runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt",
-    "runs/m132_margin_retention_s60_anchor20_seed9841/optimized_checkpoint.pt"
+    "runs/m132_margin_retention_s60_anchor20_seed9841/optimized_checkpoint.pt",
+    "runs/m143_driver_like_input_profile_audit_multiseed/summary.json"
   ],
   "commands": [
     {
-      "command": "Define deployable observation profiles without oracle inputs: P0 current baseline, P1 driver-like minimal, P2 driver-like minimal without steering torque, P3 P1 plus raw wheel speeds, P4 P3 plus optional v_parallel_i diagnostic channels.",
-      "name": "m143_define_profiles"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.driver_like_input_profile_audit --env-config configs/m143_driver_like_profile_audit.json --episodes 30 --seed 9440 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 800 --ridge 0.1 --history-windows 1,10,25 --run-dir runs/m143_driver_like_input_profile_audit",
+      "name": "m143_seed9440_probe"
     },
     {
-      "command": "Run supervised future-envelope probes before PPO, using the same seeds, history windows, targets, and evaluator for all profiles.",
-      "name": "m143_supervised_probe"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.driver_like_input_profile_audit --env-config configs/m143_driver_like_profile_audit.json --episodes 30 --seed 9441 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 800 --ridge 0.1 --history-windows 1,10,25 --run-dir runs/m143_driver_like_input_profile_audit_seed9441",
+      "name": "m143_seed9441_probe"
     },
     {
-      "command": "Only after probe sanity, run a frozen-recipe RL comparison with identical reward, curriculum, seeds, budget, auxiliary losses, and gates across profiles.",
-      "name": "m143_frozen_recipe_rl_comparison"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.driver_like_input_profile_audit --env-config configs/m143_driver_like_profile_audit.json --episodes 30 --seed 9442 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 800 --ridge 0.1 --history-windows 1,10,25 --run-dir runs/m143_driver_like_input_profile_audit_seed9442",
+      "name": "m143_seed9442_probe"
     }
   ],
   "decision_rule": "Do not tune each input profile independently. Admit an input profile only if it improves or preserves behavior and self-identification gates under a frozen recipe, with all profile differences preserved in artifacts.",
@@ -33,6 +34,26 @@
     {
       "path": "runs/m143_driver_like_input_profile_audit/summary.json",
       "type": "profile_audit_summary"
+    },
+    {
+      "path": "runs/m143_driver_like_input_profile_audit_seed9441/summary.json",
+      "type": "profile_audit_summary"
+    },
+    {
+      "path": "runs/m143_driver_like_input_profile_audit_seed9442/summary.json",
+      "type": "profile_audit_summary"
+    },
+    {
+      "path": "runs/m143_driver_like_input_profile_audit/profile_spec.csv",
+      "type": "profile_spec"
+    },
+    {
+      "path": "runs/m143_driver_like_input_profile_audit_multiseed/summary.json",
+      "type": "multiseed_summary"
+    },
+    {
+      "path": "runs/m143_driver_like_input_profile_audit_multiseed/profile_delta_multiseed_summary.csv",
+      "type": "multiseed_summary_csv"
     }
   ],
   "success_criteria": [

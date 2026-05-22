@@ -222,10 +222,11 @@ vehicle/tire models, and NMPC-style constrained control.
   out, and the 2026-05-22 revision demotes `v_parallel_i` from required future
   actor input to optional low-level fusion comparison after driver-like minimal
   and raw-wheel profiles.
-- `m143-driver-like-input-profile-audit.md`: latest input-profile audit plan:
-  compare current baseline, driver-like minimal, driver-like minimal without
-  steering feel, raw wheel speed, and optional `v_parallel_i` under the same
-  probe and frozen RL recipe.
+- `m143-driver-like-input-profile-audit.md`: latest input-profile audit:
+  compares current baseline, driver-like minimal, driver-like minimal without
+  steering feel, raw wheel speed, and optional `v_parallel_i` over three
+  supervised probe seeds. Result: no actor-profile promotion; `v_parallel`
+  remains diagnostic only pending learned-history repeat.
 - `m81-wheel-response-input-roadmap.md`: MHTML review decision capturing
   wheel/tire response as the next major self-identification input branch,
   including the Stage 1 front/rear wheel-response implementation.

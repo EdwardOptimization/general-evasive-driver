@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 151,
+    "completed": 152,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m142-critical-key-guarded-repair.md",
+    "command_log": "docs/m143-driver-like-input-profile-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m142_interpolation_guard_seed9944",
+    "run_dir": "runs/m143_driver_like_input_profile_audit_multiseed",
     "status": "completed",
-    "task_id": "m142-critical-key-guarded-repair"
+    "task_id": "m143-driver-like-input-profile-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m143-driver-like-input-profile-audit.json",
-    "hypothesis": "A cleaner driver-like minimal profile can test professional-driver-like self-identification more directly than profiles that feed low-level tire diagnostics",
-    "id": "m143-driver-like-input-profile-audit",
+    "command": "see experiments/manifests/m144-driver-like-learned-history-repeat.json",
+    "hypothesis": "M143 P3/P4 ridge gains must survive a regularized learned-history probe before PPO profile comparison",
+    "id": "m144-driver-like-learned-history-repeat",
     "kind": "gate",
-    "notes": "Pending after latest MHTML input revision: define exact profiles and use supervised probes before frozen-recipe RL comparison",
-    "priority": 1380,
+    "notes": "Pending after M143: repeat exact P0-P4 profiles with frozen learned-history sequence probes across multiple seeds",
+    "priority": 1390,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T014500Z"
+  "updated_at_utc": "20260522T015500Z"
 }

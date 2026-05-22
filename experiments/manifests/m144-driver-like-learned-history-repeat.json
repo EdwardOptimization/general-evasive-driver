@@ -1,0 +1,38 @@
+{
+  "baseline_checkpoints": [
+    "runs/m143_driver_like_input_profile_audit_multiseed/summary.json",
+    "runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt"
+  ],
+  "commands": [
+    {
+      "command": "Extend or reuse the learned-history probe so it can train the exact M143 P0-P4 sequence profiles under one frozen recipe.",
+      "name": "m144_profile_sequence_probe"
+    },
+    {
+      "command": "Run at least three seeds with identical train/test split policy, history window, targets, hidden size, epochs, optimizer, and regularization across profiles.",
+      "name": "m144_multiseed_repeat"
+    }
+  ],
+  "decision_rule": "Admit a profile for PPO comparison only if the M143 supervised deltas survive regularized learned-history probes across multiple seeds without profile-specific tuning.",
+  "failure_criteria": [
+    "learned-history profile comparison uses different model sizes, epochs, seeds, targets, or regularization per profile",
+    "P3/P4 gains disappear or are dominated by variance across seeds",
+    "the probe adds slip ratio, slip angle, controller flags, hidden simulator parameters, or oracle labels"
+  ],
+  "hypothesis": "The M143 P3/P4 ridge gains may reflect real deployable history signal, but they must survive a regularized sequence probe before any PPO profile comparison.",
+  "id": "m144-driver-like-learned-history-repeat",
+  "required_artifacts": [
+    {
+      "path": "docs/m144-driver-like-learned-history-repeat.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "exact M143 P0-P4 feature profiles are used",
+    "at least three seeds are run",
+    "same learned-history recipe is used for every profile",
+    "artifacts record per-target, per-profile, and multiseed aggregate deltas",
+    "no non-deployable actor inputs are introduced"
+  ],
+  "type": "gate"
+}
