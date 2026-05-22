@@ -7360,3 +7360,36 @@ Results:
 Decision: M203 is positive repeat evidence, but not a new best checkpoint.
 Admit one short guarded stage5 from M202 seed `5206`, and do not run a stage5
 repeat or longer PPO continuation before that first stage5 passes gates.
+
+## 20260522T094453Z m204-guarded-stage5-ppo-from-m202
+
+M204 ran one short guarded stage5 from the best fixed-loss retained stage4,
+M202 seed `5206`.
+
+Artifacts:
+
+- `runs/ppo_m204_stage5_from_m202_seed5209`
+- `runs/m204_fixed_batch_outcome_eval_seed37`
+- `runs/m204_m183_m168_replay_gate_seed9510`
+- `runs/m204_m183_m170_replay_gate_seed9510`
+- `runs/m204_m193_m189_replay_gate_seed9630`
+- `runs/m204_behavior_gate_seed9505`
+- `runs/m204_behavior_gate_seed9506`
+- `runs/m204_critical_key_seed9944`
+- `docs/m204-guarded-stage5-ppo-from-m202.md`
+
+Results:
+
+- fixed M193 objective loss improves from M202 `0.158585` to M204
+  `0.158475`;
+- smoke eval termination stays at `0.20`;
+- M183 M168 replay retains `16/16` success drops;
+- M183 M170 replay retains `17/17` success drops;
+- M193 M189 replay retains `14/14` success drops;
+- behavior seeds `9505` and `9506` keep success `0.8625`;
+- reset-hidden and zero-all-response ablations remain at `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` passes.
+
+Decision: M204 is positive as a single-seed stage5. Repeat the same stage5
+recipe from M202 seed `5206` on fresh seeds before chaining from M204 or
+running any longer PPO continuation.
