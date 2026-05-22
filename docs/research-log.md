@@ -6839,3 +6839,31 @@ Results:
 
 Decision: admit one short guarded stage3 design. Start from M188 seed `5191`
 because it has the current best fixed M183 loss while preserving all gates.
+
+## 20260522T075749Z m189-guarded-stage3-from-m188
+
+M189 ran one short guarded stage3 from M188 seed `5191`.
+
+Artifacts:
+
+- `runs/ppo_m189_stage3_from_m188_seed5193`
+- `runs/m189_fixed_batch_outcome_eval_seed37`
+- `runs/m189_m168_boundary_replay_gate_seed9510`
+- `runs/m189_m170_boundary_replay_gate_seed9510`
+- `runs/m189_behavior_gate_seed9503`
+- `runs/m189_behavior_gate_seed9504`
+- `runs/m189_critical_key_seed9944`
+- `docs/m189-guarded-stage3-from-m188.md`
+
+Results:
+
+- fixed M183 loss improves from M188 `0.171306` to M189 `0.171221`;
+- M168 boundary replay retains `16/16` success drops;
+- M170 boundary replay retains `17/17` success drops;
+- behavior success matches M184/M188 on seeds `9503` and `9504`;
+- reset and zero-all ablations still degrade success to `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` passes `1/1`.
+
+Decision: admit stage3 repeats only. Do not run longer PPO until fresh stage3
+repeats from M188 seed `5191` preserve behavior, protected key, and both M183
+replay surfaces.

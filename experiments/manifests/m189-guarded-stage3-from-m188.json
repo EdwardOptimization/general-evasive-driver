@@ -20,13 +20,65 @@
   "commands": [
     {
       "name": "m189_short_stage3",
-      "command": "Run a 1024-step guarded PPO continuation from runs/ppo_m188_stage2_from_m185_seed5191/checkpoint.pt with the same M188 gate set."
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_m185_guarded_from_m184_smoke.json --seed 5193 --init-checkpoint runs/ppo_m188_stage2_from_m185_seed5191/checkpoint.pt --run-dir runs/ppo_m189_stage3_from_m188_seed5193"
+    },
+    {
+      "name": "m189_fixed_batch_eval",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_eval --snippet-npz runs/m183_m168_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.npz --checkpoint-policy m184_s20=runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt --checkpoint-policy m188_5191=runs/ppo_m188_stage2_from_m185_seed5191/checkpoint.pt --checkpoint-policy m189_stage3=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt --device cpu --batch-size 64 --batches 50 --seed 37 --logprob-margin 0.05 --run-dir runs/m189_fixed_batch_outcome_eval_seed37"
+    },
+    {
+      "name": "m189_m168_boundary_replay",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_replay_gate --checkpoint-policy m184_s20=runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt --checkpoint-policy m189_stage3=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt --corpus-csv runs/m183_m168_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv --env-config configs/m121_human_view_zero_obstacle_relvel.json --max-continuation-steps 60 --baseline-policy m184_s20 --candidate-policy m189_stage3 --max-normal-success-drop 0.0 --max-normal-margin-regression 0.005 --max-margin-gap-regression 0.001 --max-success-drop-count-regression 0 --device cpu --run-dir runs/m189_m168_boundary_replay_gate_seed9510"
+    },
+    {
+      "name": "m189_m170_boundary_replay",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_replay_gate --checkpoint-policy m170_split=runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt --checkpoint-policy m189_stage3=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt --corpus-csv runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv --env-config configs/m121_human_view_zero_obstacle_relvel.json --max-continuation-steps 60 --baseline-policy m170_split --candidate-policy m189_stage3 --max-normal-success-drop 0.0 --max-normal-margin-regression 0.005 --max-margin-gap-regression 0.001 --max-success-drop-count-regression 0 --device cpu --run-dir runs/m189_m170_boundary_replay_gate_seed9510"
+    },
+    {
+      "name": "m189_behavior_seed9503",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m121_human_view_zero_obstacle_relvel.json --episodes 80 --seed 9503 --checkpoint-policy m184_s20=runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt --checkpoint-policy m188_5191=runs/ppo_m188_stage2_from_m185_seed5191/checkpoint.pt --checkpoint-policy m189_stage3=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt --checkpoint-policy m189_stage3_reset=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt@reset_recurrent_state --checkpoint-policy m189_stage3_zero_all=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt@zero_all_response --checkpoint-policy m189_stage3_noact=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt@zero_action_history --device cpu --run-dir runs/m189_behavior_gate_seed9503"
+    },
+    {
+      "name": "m189_behavior_seed9504",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m121_human_view_zero_obstacle_relvel.json --episodes 80 --seed 9504 --checkpoint-policy m184_s20=runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt --checkpoint-policy m188_5191=runs/ppo_m188_stage2_from_m185_seed5191/checkpoint.pt --checkpoint-policy m189_stage3=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt --checkpoint-policy m189_stage3_reset=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt@reset_recurrent_state --checkpoint-policy m189_stage3_zero_all=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt@zero_all_response --checkpoint-policy m189_stage3_noact=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt@zero_action_history --device cpu --run-dir runs/m189_behavior_gate_seed9504"
+    },
+    {
+      "name": "m189_protected_key",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.critical_key_replay_guard --reference-manifest runs/m133_zero_relvel_s60_strict_60ep_seed9900/manifest.json --reference-cases-csv runs/m133_zero_relvel_s60_strict_60ep_seed9900/outcome_sensitive_snippets.csv --reference-cases-csv runs/m133_zero_relvel_s60_strict_60ep_seed9920/outcome_sensitive_snippets.csv --case-key '9944|perturbed|28|28' --checkpoint-policy m184_s20=runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt --checkpoint-policy m188_5191=runs/ppo_m188_stage2_from_m185_seed5191/checkpoint.pt --checkpoint-policy m189_stage3=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt --reference-policy m184_s20 --device cpu --run-dir runs/m189_critical_key_seed9944"
     }
   ],
   "required_artifacts": [
     {
       "path": "docs/m189-guarded-stage3-from-m188.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m189_fixed_batch_outcome_eval_seed37/summary.json",
+      "type": "fixed_eval_summary"
+    },
+    {
+      "path": "runs/m189_m168_boundary_replay_gate_seed9510/summary.json",
+      "type": "m168_boundary_replay"
+    },
+    {
+      "path": "runs/m189_m170_boundary_replay_gate_seed9510/summary.json",
+      "type": "m170_boundary_replay"
+    },
+    {
+      "path": "runs/m189_behavior_gate_seed9503/policy_summary.csv",
+      "type": "behavior_seed9503"
+    },
+    {
+      "path": "runs/m189_behavior_gate_seed9504/policy_summary.csv",
+      "type": "behavior_seed9504"
+    },
+    {
+      "path": "runs/m189_critical_key_seed9944/summary.json",
+      "type": "protected_key"
     }
   ],
   "baseline_checkpoints": [
@@ -45,5 +97,21 @@
     "runs/m188_behavior_gate_seed9504/policy_summary.csv",
     "runs/m188_critical_key_seed9944/summary.json"
   ],
-  "decision_rule": "Admit any further continuation only if the short stage3 preserves behavior, protected key, and both M183 replay surfaces."
+  "results": {
+    "checkpoint": "runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt",
+    "fixed_loss_m184": 0.1715176922082901,
+    "fixed_loss_m188_5191": 0.17130567997694016,
+    "fixed_loss_m189": 0.17122066766023636,
+    "m168_boundary_replay_gate_pass": true,
+    "m168_boundary_success_drop_count": 16,
+    "m170_boundary_replay_gate_pass": true,
+    "m170_boundary_success_drop_count": 17,
+    "behavior_seed9503_success": 0.8625,
+    "behavior_seed9504_success": 0.8625,
+    "reset_success": 0.85,
+    "zero_all_success": 0.80,
+    "protected_key_pass": true
+  },
+  "decision_rule": "Admit any further continuation only if the short stage3 preserves behavior, protected key, and both M183 replay surfaces.",
+  "decision": "admit_stage3_repeat"
 }
