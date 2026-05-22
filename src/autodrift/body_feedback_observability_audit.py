@@ -240,6 +240,20 @@ def collect_body_feedback_dataset(
                         "yaw_rate": yaw_rate,
                         "abs_yaw_rate": abs(yaw_rate),
                         "obstacle_label": str(info.get("obstacle_label", "")),
+                        # Offline diagnostics only. These fields must never be
+                        # promoted into actor-like input profiles.
+                        "mu": float(info["mu"]),
+                        "initial_mu": float(info["initial_mu"]),
+                        "mass_scale": float(info["mass_scale"]),
+                        "inertia_scale": float(info["inertia_scale"]),
+                        "cg_shift": float(info["cg_shift"]),
+                        "front_tire_stiffness_scale": float(info["front_tire_stiffness_scale"]),
+                        "rear_tire_stiffness_scale": float(info["rear_tire_stiffness_scale"]),
+                        "tire_stiffness_scale": float(info["tire_stiffness_scale"]),
+                        "drive_scale": float(info["drive_scale"]),
+                        "brake_scale": float(info["brake_scale"]),
+                        "steer_tau_scale": float(info["steer_tau_scale"]),
+                        "drive_tau_scale": float(info["drive_tau_scale"]),
                         **target_values,
                     }
                 )

@@ -127,3 +127,9 @@ not target-aligned; longer passive P0 history resolved `23.33%` but had negative
 feature-target correlation. The next frontier is hidden-cause diagnosis and
 belief/active-identification targets, not adding raw wheel or diagnostic
 `v_parallel` to the actor.
+
+M150 diagnosed hidden causes on the P0-close pair surface. `future_yaw_response`
+is the dominant target gap in `47.5%` of pairs. Friction is common but not
+target-aligned, while mass/geometry is the strongest target-aligned hidden
+group (`corr=0.409`, top-overlap `0.45`). The next frontier is therefore a
+training-time capability-belief target dataset, not direct `mu` prediction.

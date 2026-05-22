@@ -1,0 +1,35 @@
+{
+  "baseline_checkpoints": [
+    "runs/m150_p0_close_hidden_cause_multiseed/summary.json",
+    "runs/m149_p0_close_resolution_multiseed/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "Build a training-time capability-belief target dataset from P0-close pairs, prioritizing yaw response and mass/geometry-sensitive envelope targets rather than direct mu prediction.",
+      "name": "m151_capability_belief_target_dataset"
+    }
+  ],
+  "decision_rule": "Admit a belief-learning objective only if the target dataset is P0-close, target-divergent, source-diverse, and uses deployable observations for the student while keeping hidden/capability values training-time only.",
+  "failure_criteria": [
+    "dataset trains actor to read hidden parameters at deployment",
+    "dataset collapses to direct mu prediction as the primary target",
+    "dataset ignores yaw/lateral/braking envelope targets",
+    "dataset is built from one seed only or lacks source-diversity reporting"
+  ],
+  "hypothesis": "A capability-belief target surface focused on yaw/lateral/braking envelope and mass-geometry-sensitive causes will be more useful than passive input expansion or direct friction prediction for P0-close ambiguity.",
+  "id": "m151-capability-belief-target-dataset",
+  "required_artifacts": [
+    {
+      "path": "docs/m151-capability-belief-target-dataset.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "consume M148/M150 P0-close pairs across at least three seeds",
+    "export a dataset or manifest of training-time capability targets",
+    "separate deployable student inputs from hidden/teacher target values",
+    "report target coverage for yaw response, lateral accel response, braking deceleration, and mass-geometry-sensitive cases",
+    "define the next objective-only sanity check without changing actor inputs"
+  ],
+  "type": "infrastructure"
+}

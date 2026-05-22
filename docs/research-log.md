@@ -5835,3 +5835,50 @@ resolves `12.08%`; longer passive P0 history resolves `23.33%` but has poor
 target alignment. Do not expand actor inputs from this result. Next task:
 diagnose hidden/capability causes of P0-close target divergence and convert
 them into training-time belief or active-identification targets.
+
+## 20260522T031500Z m150-p0-close-hidden-cause-audit
+
+M150 consumes M148 P0-close pairs and audits hidden/capability causes. Hidden
+values are diagnostic/teacher-only and are not actor inputs.
+
+New code:
+
+```text
+src/autodrift/p0_close_hidden_cause_audit.py
+tests/test_p0_close_hidden_cause_audit.py
+```
+
+Runs:
+
+```text
+runs/m150_p0_close_hidden_cause_seed9480
+runs/m150_p0_close_hidden_cause_seed9481
+runs/m150_p0_close_hidden_cause_seed9482
+runs/m150_p0_close_hidden_cause_multiseed
+```
+
+Hidden group aggregate over `240` P0-close pairs:
+
+| Hidden group | Mean distance | Corr. with target distance | Top-overlap | Dominant fraction |
+| --- | ---: | ---: | ---: | ---: |
+| friction | 1.578262 | -0.183158 | 0.166667 | 0.341667 |
+| braking authority | 1.197686 | -0.071742 | 0.200000 | 0.041667 |
+| drive authority | 1.008890 | -0.053067 | 0.316667 | 0.158333 |
+| tire lateral authority | 0.966373 | -0.001999 | 0.266667 | 0.062500 |
+| mass geometry | 1.568961 | 0.409142 | 0.450000 | 0.300000 |
+| actuator delay | 1.251474 | -0.229505 | 0.133333 | 0.095833 |
+
+Target aggregate:
+
+| Target | Mean abs diff | Mean z abs diff | Dominant fraction |
+| --- | ---: | ---: | ---: |
+| future braking deceleration | 1.138162 | 1.520156 | 0.304167 |
+| future yaw response | 1.851881 | 2.601378 | 0.475000 |
+| future lateral accel response | 2.260772 | 1.898658 | 0.220833 |
+
+Decision: positive hidden-cause diagnostic. The dominant future-envelope gap is
+yaw response. Friction is a common hidden difference but not target-aligned on
+this surface. Mass/geometry is the strongest target-aligned hidden group. The
+next target should be capability belief, especially yaw/lateral/braking envelope
+under mass/inertia/cg variation, not direct `mu` prediction and not actor input
+expansion.

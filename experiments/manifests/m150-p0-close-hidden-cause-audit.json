@@ -5,8 +5,20 @@
   ],
   "commands": [
     {
-      "command": "Audit hidden dynamics and capability-envelope causes of M148 P0-close target-divergent pairs without feeding those hidden values to the actor.",
-      "name": "m150_p0_close_hidden_cause_audit"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.p0_close_hidden_cause_audit --mode run --env-config configs/m143_driver_like_profile_audit.json --pair-csv runs/m148_p0_close_ambiguity_seed9480/accepted_pairs.csv --episodes 40 --seed 9480 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --post-slip-beta-threshold 0.06 --run-dir runs/m150_p0_close_hidden_cause_seed9480",
+      "name": "m150_hidden_cause_seed9480"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.p0_close_hidden_cause_audit --mode run --env-config configs/m143_driver_like_profile_audit.json --pair-csv runs/m148_p0_close_ambiguity_seed9481/accepted_pairs.csv --episodes 40 --seed 9481 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --post-slip-beta-threshold 0.06 --run-dir runs/m150_p0_close_hidden_cause_seed9481",
+      "name": "m150_hidden_cause_seed9481"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.p0_close_hidden_cause_audit --mode run --env-config configs/m143_driver_like_profile_audit.json --pair-csv runs/m148_p0_close_ambiguity_seed9482/accepted_pairs.csv --episodes 40 --seed 9482 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --post-slip-beta-threshold 0.06 --run-dir runs/m150_p0_close_hidden_cause_seed9482",
+      "name": "m150_hidden_cause_seed9482"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.p0_close_hidden_cause_audit --mode aggregate --summary-jsons runs/m150_p0_close_hidden_cause_seed9480/summary.json,runs/m150_p0_close_hidden_cause_seed9481/summary.json,runs/m150_p0_close_hidden_cause_seed9482/summary.json --run-dir runs/m150_p0_close_hidden_cause_multiseed",
+      "name": "m150_hidden_cause_multiseed"
     }
   ],
   "decision_rule": "Use hidden causes only as diagnostic/teacher targets; if P0-close pairs are explained by hidden dynamics, build a belief or active-identification objective rather than expanding deployable actor inputs.",
