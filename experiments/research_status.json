@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 176,
+    "completed": 177,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m167-multiseed-boundary-retention-ppo-repeat.md",
+    "command_log": "docs/m168-staged-boundary-retention-ppo-extension.md",
     "returncode": 0,
-    "run_dir": "runs/m167_5168_boundary_outcome_replay_gate_seed9510",
+    "run_dir": "runs/m168_from_m167_5168_boundary_outcome_replay_gate_seed9510",
     "status": "completed",
-    "task_id": "m167-multiseed-boundary-retention-ppo-repeat"
+    "task_id": "m168-staged-boundary-retention-ppo-extension"
   },
   "next_task": {
-    "command": "see experiments/manifests/m168-staged-boundary-retention-ppo-extension.json",
-    "hypothesis": "M167 shows the 1024-step anchor50 PPO micro recipe can preserve the fixed boundary replay signal across seeds so the next step should extend PPO only in short gated stages rather than one unguarded long run.",
-    "id": "m168-staged-boundary-retention-ppo-extension",
-    "kind": "driver_candidate",
-    "notes": "Pending after M167: seeds 5167 and 5168 both preserve M164 replay behavior and protected key but longer PPO must be stage-gated",
-    "priority": 1630,
+    "command": "see experiments/manifests/m169-boundary-row67-stage-sensitivity-guard.json",
+    "hypothesis": "M168 showed that the same staged PPO recipe can pass from M167_5168 but fail from M166 by losing boundary replay row 67, so the next step should make row 67 and similar fragile rows explicit guards before any further PPO stage.",
+    "id": "m169-boundary-row67-stage-sensitivity-guard",
+    "kind": "gate",
+    "notes": "Pending after M168: stage from M167_5168 passed but stage from M166 lost row 67, so stage2 must protect fragile boundary rows explicitly",
+    "priority": 1640,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T044652Z"
+  "updated_at_utc": "20260522T045237Z"
 }

@@ -1,0 +1,36 @@
+{
+  "id": "m169-boundary-row67-stage-sensitivity-guard",
+  "type": "gate",
+  "hypothesis": "M168 showed that the same staged PPO recipe can pass from M167_5168 but fail from M166 by losing boundary replay row 67, so the next step should make row 67 and similar fragile rows explicit guards before any further PPO stage.",
+  "success_criteria": [
+    "compare the M168 failed and passed branches on boundary replay row 67",
+    "extract the fragile boundary rows where parent or stage changes alter success-drop status",
+    "define a small explicit fragile-row guard that can run before the full M164 replay",
+    "rerun the admitted M168 branch through the explicit guard",
+    "do not continue PPO stage 2 unless the fragile-row guard and full M164 replay both pass"
+  ],
+  "failure_criteria": [
+    "ignore the M168 failed branch because another branch passed",
+    "continue PPO stage 2 without checking row 67",
+    "select continuation only by fixed objective loss or rollout return",
+    "relax the M164 success-drop count threshold"
+  ],
+  "commands": [
+    {
+      "name": "m169_row67_fragile_guard",
+      "command": "Analyze M168 boundary replay rows, identify fragile success-drop rows such as row 67, and create or document a guard that must pass before any stage-2 PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m169-boundary-row67-stage-sensitivity-guard.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m168_from_m166_boundary_outcome_replay_gate_seed9510/boundary_replay_rows.csv",
+    "runs/m168_from_m167_5168_boundary_outcome_replay_gate_seed9510/boundary_replay_rows.csv",
+    "runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt"
+  ],
+  "decision_rule": "A stage-2 PPO candidate is allowed only after the fragile-row guard preserves row 67 and the full M164 boundary replay gate remains passing."
+}
