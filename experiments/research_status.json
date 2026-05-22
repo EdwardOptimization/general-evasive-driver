@@ -16,10 +16,10 @@
   },
   "next_task": {
     "command": "see experiments/manifests/m181-low-threshold-source-diverse-boundary-mining.json",
-    "hypothesis": "M180 shows simple obstacle offsets do not diversify the wrong-history outcome surface, so lower the base action-distance filter and mine source-pair diversity directly.",
+    "hypothesis": "M180 shows simple obstacle offsets do not diversify the wrong-history outcome surface, so run base action-distance threshold ablations and select only by robustness/diversity.",
     "id": "m181-low-threshold-source-diverse-boundary-mining",
     "kind": "gate",
-    "notes": "Pending after M180: run wrong-history-only low-threshold boundary relocation and robustness before any multi-variant sweep",
+    "notes": "Pending after M180: run wrong-history-only threshold ablation at 0/0.005/0.01/0.02 and robustness gates before any multi-variant sweep",
     "priority": 1760,
     "status": "pending",
     "success_artifact": ""

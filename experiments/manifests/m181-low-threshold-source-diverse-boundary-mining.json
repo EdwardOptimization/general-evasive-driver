@@ -1,34 +1,64 @@
 {
   "id": "m181-low-threshold-source-diverse-boundary-mining",
   "type": "gate",
-  "hypothesis": "M180 shows geometry offsets do not diversify the accepted wrong-history surface when the base first-action-distance threshold is 0.02. The next attempt should lower the action-distance filter and mine source-pair diversity directly before running expensive multi-variant sweeps.",
+  "hypothesis": "M180 shows blind geometry offsets do not diversify the wrong-history outcome surface. The next miner should broaden candidates by lowering the base action-distance filter and evaluate source-pair diversity before any multi-variant replay, corpus construction, actor update, or PPO.",
   "success_criteria": [
     "start from M178 outcome rows and keep actor inputs unchanged",
-    "use min-base-action-distance 0.0 for a wider wrong-history candidate set",
-    "run a wrong-history-only boundary relocation first to reduce cost",
-    "pass a robustness gate with at least 10 strict physical pairs and 5 left steps",
-    "only if robustness passes, promote the surface to multi-variant replay or corpus construction"
+    "run wrong-history-only boundary relocation for min-base-action-distance values 0.0, 0.005, 0.01, and 0.02",
+    "run robustness gates for each threshold before any multi-variant sweep",
+    "select a surface only if it has at least 40 accepted wrong-history success-drop rows, 10 strict physical pairs, 5 left steps, 2 margin buckets, and max pair dominance <= 25%",
+    "prefer a threshold that increases strict physical-pair and left-step diversity over raw row count",
+    "if all thresholds remain duplicate-dominated, record the failure and implement an explicit source-pair-diverse candidate selector in the next milestone"
   ],
   "failure_criteria": [
     "continue blind lateral or longitudinal geometry sweeps after M180",
     "build a training corpus from duplicate-dominated rows",
     "run PPO before a robust source-diverse surface exists",
+    "select by accepted-row count while ignoring strict physical-pair diversity",
     "change actor inputs or introduce hidden/oracle features"
   ],
   "commands": [
     {
-      "name": "m181_low_threshold_wrong_history_boundary_surface",
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.wrong_history_boundary_relocation_surface --checkpoint-policy m168_strict=runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt --checkpoint-policy m170_split=runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --outcome-csv runs/m178_dual_checkpoint_outcome_proof_surface_seed9510/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 60 --max-pairs-per-checkpoint-target 0 --min-base-action-distance 0.0 --target-normal-margins 0.005,0.01,0.02,0.05,0.10,0.15 --half-width-inflations 0 --min-margin-gap 0.02 --min-accepted-wrong-rows 40 --report-variants wrong_matched_history --device cpu --run-dir runs/m181_low_threshold_wrong_history_boundary_surface_seed9510"
+      "name": "m181_action0_wrong_history_boundary_surface",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.wrong_history_boundary_relocation_surface --checkpoint-policy m168_strict=runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt --checkpoint-policy m170_split=runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --outcome-csv runs/m178_dual_checkpoint_outcome_proof_surface_seed9510/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 60 --max-pairs-per-checkpoint-target 0 --min-base-action-distance 0.0 --target-normal-margins 0.005,0.01,0.02,0.05,0.10,0.15 --half-width-inflations 0 --min-margin-gap 0.02 --min-accepted-wrong-rows 40 --report-variants wrong_matched_history --device cpu --run-dir runs/m181_action0_wrong_history_boundary_surface_seed9510"
     },
     {
-      "name": "m181_low_threshold_robustness",
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_wrong_history_surface_robustness --boundary-rows-csv runs/m181_low_threshold_wrong_history_boundary_surface_seed9510/boundary_relocation_rows.csv --control-checkpoint-label none --margin-bucket-width 0.01 --min-accepted-wrong-rows 40 --min-physical-pairs 10 --min-left-steps 5 --min-checkpoints 2 --min-targets 1 --min-margin-buckets 2 --min-success-drop-fraction 1.0 --max-rows-per-pair-fraction 0.25 --max-control-accepted-rows 0 --run-dir runs/m181_low_threshold_robustness_seed9510"
+      "name": "m181_action0_robustness",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_wrong_history_surface_robustness --boundary-rows-csv runs/m181_action0_wrong_history_boundary_surface_seed9510/boundary_relocation_rows.csv --control-checkpoint-label none --margin-bucket-width 0.01 --min-accepted-wrong-rows 40 --min-physical-pairs 10 --min-left-steps 5 --min-checkpoints 2 --min-targets 1 --min-margin-buckets 2 --min-success-drop-fraction 1.0 --max-rows-per-pair-fraction 0.25 --max-control-accepted-rows 0 --run-dir runs/m181_action0_robustness_seed9510"
+    },
+    {
+      "name": "m181_action005_wrong_history_boundary_surface",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.wrong_history_boundary_relocation_surface --checkpoint-policy m168_strict=runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt --checkpoint-policy m170_split=runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --outcome-csv runs/m178_dual_checkpoint_outcome_proof_surface_seed9510/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 60 --max-pairs-per-checkpoint-target 0 --min-base-action-distance 0.005 --target-normal-margins 0.005,0.01,0.02,0.05,0.10,0.15 --half-width-inflations 0 --min-margin-gap 0.02 --min-accepted-wrong-rows 40 --report-variants wrong_matched_history --device cpu --run-dir runs/m181_action005_wrong_history_boundary_surface_seed9510"
+    },
+    {
+      "name": "m181_action005_robustness",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_wrong_history_surface_robustness --boundary-rows-csv runs/m181_action005_wrong_history_boundary_surface_seed9510/boundary_relocation_rows.csv --control-checkpoint-label none --margin-bucket-width 0.01 --min-accepted-wrong-rows 40 --min-physical-pairs 10 --min-left-steps 5 --min-checkpoints 2 --min-targets 1 --min-margin-buckets 2 --min-success-drop-fraction 1.0 --max-rows-per-pair-fraction 0.25 --max-control-accepted-rows 0 --run-dir runs/m181_action005_robustness_seed9510"
+    },
+    {
+      "name": "m181_action01_wrong_history_boundary_surface",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.wrong_history_boundary_relocation_surface --checkpoint-policy m168_strict=runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt --checkpoint-policy m170_split=runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --outcome-csv runs/m178_dual_checkpoint_outcome_proof_surface_seed9510/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 60 --max-pairs-per-checkpoint-target 0 --min-base-action-distance 0.01 --target-normal-margins 0.005,0.01,0.02,0.05,0.10,0.15 --half-width-inflations 0 --min-margin-gap 0.02 --min-accepted-wrong-rows 40 --report-variants wrong_matched_history --device cpu --run-dir runs/m181_action01_wrong_history_boundary_surface_seed9510"
+    },
+    {
+      "name": "m181_action01_robustness",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_wrong_history_surface_robustness --boundary-rows-csv runs/m181_action01_wrong_history_boundary_surface_seed9510/boundary_relocation_rows.csv --control-checkpoint-label none --margin-bucket-width 0.01 --min-accepted-wrong-rows 40 --min-physical-pairs 10 --min-left-steps 5 --min-checkpoints 2 --min-targets 1 --min-margin-buckets 2 --min-success-drop-fraction 1.0 --max-rows-per-pair-fraction 0.25 --max-control-accepted-rows 0 --run-dir runs/m181_action01_robustness_seed9510"
+    },
+    {
+      "name": "m181_action02_wrong_history_boundary_surface",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.wrong_history_boundary_relocation_surface --checkpoint-policy m168_strict=runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt --checkpoint-policy m170_split=runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --outcome-csv runs/m178_dual_checkpoint_outcome_proof_surface_seed9510/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 60 --max-pairs-per-checkpoint-target 0 --min-base-action-distance 0.02 --target-normal-margins 0.005,0.01,0.02,0.05,0.10,0.15 --half-width-inflations 0 --min-margin-gap 0.02 --min-accepted-wrong-rows 40 --report-variants wrong_matched_history --device cpu --run-dir runs/m181_action02_wrong_history_boundary_surface_seed9510"
+    },
+    {
+      "name": "m181_action02_robustness",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_wrong_history_surface_robustness --boundary-rows-csv runs/m181_action02_wrong_history_boundary_surface_seed9510/boundary_relocation_rows.csv --control-checkpoint-label none --margin-bucket-width 0.01 --min-accepted-wrong-rows 40 --min-physical-pairs 10 --min-left-steps 5 --min-checkpoints 2 --min-targets 1 --min-margin-buckets 2 --min-success-drop-fraction 1.0 --max-rows-per-pair-fraction 0.25 --max-control-accepted-rows 0 --run-dir runs/m181_action02_robustness_seed9510"
     }
   ],
   "required_artifacts": [
     {
       "path": "docs/m181-low-threshold-source-diverse-boundary-mining.md",
       "type": "documentation"
+    },
+    {
+      "path": "docs/current-status.md",
+      "type": "status"
     }
   ],
   "baseline_checkpoints": [
@@ -38,5 +68,5 @@
     "runs/m180_lateral_offset_robustness_seed9510/summary.json",
     "runs/m180_longitudinal_offset_robustness_seed9510/summary.json"
   ],
-  "decision_rule": "If low-threshold mining remains duplicate-dominated, implement an explicit source-pair-diverse candidate selector instead of more relocation sweeps."
+  "decision_rule": "Promote a threshold only if robustness passes. If all thresholds remain duplicate-dominated, do not train; implement a dedicated source-pair-diverse candidate selector."
 }
