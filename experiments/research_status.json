@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 283,
+    "completed": 284,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m274-terminal-margin-retention-design.md",
+    "command_log": "docs/m275-terminal-margin-retention-surface-export.md",
     "returncode": 0,
-    "run_dir": "runs/m273_m272_boundary_trust_region_audit",
+    "run_dir": "runs/m275_terminal_margin_retention_surface",
     "status": "completed",
-    "task_id": "m274-terminal-margin-retention-design"
+    "task_id": "m275-terminal-margin-retention-surface-export"
   },
   "next_task": {
-    "command": "see experiments/manifests/m275-terminal-margin-retention-surface-export.json",
-    "hypothesis": "A refreshed current-base terminal-margin retention surface can represent fragile closed-loop rows in a reusable registry and trajectory-anchor format, enabling the next guarded update to protect row16 explicitly.",
-    "id": "m275-terminal-margin-retention-surface-export",
-    "kind": "infrastructure",
-    "notes": "Pending: export terminal-margin retention surface; PPO remains blocked",
-    "priority": 2700,
+    "command": "see experiments/manifests/m276-terminal-margin-anchored-actor-update.json",
+    "hypothesis": "The M275 terminal-margin trajectory anchor can let a small M270 actor-coupling update improve objective without crossing the M183/M170 row16 terminal-margin cliff.",
+    "id": "m276-terminal-margin-anchored-actor-update",
+    "kind": "driver_candidate",
+    "notes": "Pending: one small terminal-margin anchored actor update; PPO remains blocked",
+    "priority": 2710,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T180657Z"
+  "updated_at_utc": "20260522T181316Z"
 }

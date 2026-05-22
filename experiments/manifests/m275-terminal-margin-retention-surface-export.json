@@ -2,7 +2,7 @@
   "id": "m275-terminal-margin-retention-surface-export",
   "type": "infrastructure",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -80,6 +80,10 @@
     {
       "path": "runs/m275_terminal_margin_retention_surface/summary.json",
       "type": "summary"
+    },
+    {
+      "path": "runs/m275_terminal_margin_retention_surface/retention_trajectory_anchor.npz",
+      "type": "trajectory_anchor"
     }
   ],
   "baseline_checkpoints": [
@@ -89,6 +93,21 @@
     "docs/m274-terminal-margin-retention-design.md",
     "runs/m273_m272_boundary_trust_region_audit/summary.json"
   ],
-  "decision_rule": "M275 completes only if the retention surface exports and validates. The first actor update using it must be pre-registered separately.",
-  "next_blocker": "pending M275 terminal-margin retention surface export"
+  "results": {
+    "export_module": "src/autodrift/terminal_margin_retention_surface.py",
+    "run_dir": "runs/m275_terminal_margin_retention_surface",
+    "fragile_rows": 30,
+    "trajectory_rows": 1440,
+    "required_row16_present": true,
+    "weight_min": 1.0119091046058462,
+    "weight_max": 50.0,
+    "weight_mean": 3.5517236531203222,
+    "retention_trajectory_anchor_npz": "runs/m275_terminal_margin_retention_surface/retention_trajectory_anchor.npz",
+    "recovery_trajectory_anchor_available": false,
+    "recovery_unavailable_reason": "cross-checkpoint recurrent hidden states are not aligned",
+    "focused_tests": "19 passed"
+  },
+  "decision_rule": "M275 completes because the fragile-row registry and retention trajectory anchor export and validate. The first actor update using it must be pre-registered separately and gate row16 terminal margin before broader gates.",
+  "decision": "admit_terminal_margin_anchored_actor_update",
+  "next_blocker": "m276-terminal-margin-anchored-actor-update"
 }

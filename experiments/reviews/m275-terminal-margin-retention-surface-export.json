@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M275 exports 30 fragile rows and 1440 retention trajectory-anchor rows from the M272 current base with M183/M170 row16 included and validated through the existing loader",
+  "failure_criteria": [
+    "row16 is missing",
+    "NPZ fails TrajectoryActionAnchor validation",
+    "export relies on hidden params or privileged actor inputs",
+    "PPO or actor update is run"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO in M275",
+    "do not run a new actor update in M275",
+    "do not omit M183/M170 row16",
+    "do not include privileged actor inputs",
+    "do not claim driver promotion"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260522T181348Z",
+  "hypothesis": "A refreshed current-base terminal-margin retention surface can represent fragile closed-loop rows in a reusable registry and trajectory-anchor format, enabling the next guarded update to protect row16 explicitly.",
+  "lineage": {
+    "blocked_by": [
+      "m274-terminal-margin-retention-design"
+    ],
+    "derived_from": [
+      "m274-terminal-margin-retention-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m272_m264_to_m271_interpolation_boundary/checkpoints/alpha_0_01025.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m274-terminal-margin-retention-design.json",
+      "docs/m274-terminal-margin-retention-design.md"
+    ],
+    "parent_dataset": [
+      "runs/m273_m272_boundary_trust_region_audit/row16_alpha_audit.csv",
+      "runs/m272_selected_m183_m168_replay_gate/boundary_replay_rows.csv",
+      "runs/m272_selected_m183_m170_replay_gate/boundary_replay_rows.csv",
+      "runs/m272_selected_m193_m189_replay_gate/boundary_replay_rows.csv",
+      "runs/m272_selected_m212_m204_replay_gate/boundary_replay_rows.csv",
+      "runs/m272_selected_m223_m219_replay_gate/boundary_replay_rows.csv",
+      "runs/m272_selected_m267_m264_replay_gate/boundary_replay_rows.csv"
+    ],
+    "parent_objective": [
+      "export terminal-margin retention surface before any further learning"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m275-terminal-margin-retention-surface-export",
+  "next_blocker": "m276-terminal-margin-anchored-actor-update",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_terminal_margin_anchored_actor_update",
+  "public_gates": [
+    "export fragile row registry",
+    "export retention trajectory anchor",
+    "export recovery trajectory anchor when source trajectories are available",
+    "validate TrajectoryActionAnchor NPZ shape contract",
+    "do not run PPO"
+  ],
+  "scoreboard": {
+    "checkpoint": "not_applicable_infrastructure_task",
+    "clearance_margin_mean": "",
+    "decision": "admit_terminal_margin_anchored_actor_update",
+    "milestone": "m275-terminal-margin-retention-surface-export",
+    "reason": "M275 exports 30 fragile rows and 1440 retention trajectory-anchor rows from the M272 current base with M183/M170 row16 included and validated through the existing loader",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "fragile_rows.csv includes M183/M170 row16",
+    "terminal_margin_registry.csv records baseline normal margin, hard floor, allowed regression, and row source",
+    "retention_trajectory_anchor.npz loads through the existing trajectory anchor loader",
+    "recovery_trajectory_anchor.npz is exported or explicitly marked unavailable with a reason",
+    "summary.json records row counts and weight ranges",
+    "no PPO or actor update is run"
+  ],
+  "type": "infrastructure"
+}
