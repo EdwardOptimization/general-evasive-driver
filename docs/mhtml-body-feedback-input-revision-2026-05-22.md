@@ -285,3 +285,106 @@ ambiguous body-history cases
 ```
 
 Only after this should optional sensors or PPO profile comparisons be admitted.
+
+## 09:41 MHTML Additions
+
+The later exported discussion sharpened the input contract further.
+
+The minimum driver-like self-identification profile should start from the
+closed-loop body-feedback chain, not from tire diagnostics:
+
+```text
+commands:
+  steer_cmd
+  brake_cmd
+  drive_cmd
+
+actual actuator states:
+  actual_steering_angle
+  actual_brake_actuator_state
+  actual_drive_actuator_state
+
+continuous inertial feedback:
+  ax
+  ay
+  yaw_rate
+
+scene:
+  road boundary / drivable corridor
+  obstacle position
+  obstacle size
+```
+
+The key claim is:
+
+```text
+passenger-like sensing can detect current sliding;
+driver-like sensing must predict response to intended actions.
+```
+
+Therefore the decisive evidence is not aggregate RL success alone. A credible
+self-identification claim needs:
+
+```text
+future-envelope probe accuracy
+history-length improvement
+wrong-history degradation
+reset / zero-IMU / delayed-history degradation
+noise and delay robustness
+closed-loop clearance margin retention
+```
+
+The recommended profile ladder is now:
+
+```text
+H0: passenger-like inertial history
+    ax, ay, yaw_rate, scene geometry
+
+H1: driver minimal body-feedback history
+    commands, actuator actuals, ax, ay, yaw_rate, scene geometry
+
+H2: H1 + steering torque / EPS current
+    tests front-grip and steering-feel information
+
+H3: H2 + raw wheel speeds
+    tests deployable vehicle proprioception beyond human body feel
+
+H4: H2 + roll / pitch / vertical acceleration
+    tests richer body / load-transfer feel
+```
+
+Wheel speed changed status in the discussion:
+
+```text
+not required for a human-like minimum claim;
+still a strong optional vehicle sensor to test;
+must not be converted into slip ratio before actor input.
+```
+
+`R * omega_i` and local `v_parallel_i` can be useful in a machine sensor
+profile, but they should not become the human-like minimum. If a low-level
+fusion profile is tested, the clean rule is:
+
+```text
+allowed optional raw/fused components:
+  R * omega_i
+  v_parallel_i
+  optionally v_perp_i
+
+excluded from actor:
+  slip_ratio
+  slip_angle
+  tire saturation label
+  ABS/TCS/ESC flags
+  mu
+  tire force
+  normal load
+  oracle feasibility
+  reference trajectory
+```
+
+If `v_parallel_i` or `v_perp_i` are admitted later, the result must say that the
+policy uses a deployable low-level fusion layer rather than a purely
+human-like body-feedback input. The stronger human-like result remains H1/H2
+passing the envelope probes and wrong-history gates without wheel or local
+tire-speed inputs.
