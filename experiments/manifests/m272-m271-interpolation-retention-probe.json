@@ -1,0 +1,91 @@
+{
+  "id": "m272-m271-interpolation-retention-probe",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt",
+      "runs/m271_m264_actor_coupling_m270_multisurface_anchor100_s10_lr5e5_seed10074/optimized_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "runs/m271_m183_m168_replay_gate_seed9510/summary.json",
+      "runs/m271_m183_m170_replay_gate_seed9510/summary.json",
+      "runs/m271_m193_m189_replay_gate_seed9630/summary.json",
+      "runs/m271_m212_m204_replay_gate_seed10040/summary.json",
+      "runs/m271_m223_m219_replay_gate_seed10060/summary.json",
+      "runs/m271_m267_m264_replay_gate_seed10070/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m271-m270-multi-surface-guarded-actor-update.json",
+      "docs/m271-m270-multi-surface-guarded-actor-update.md"
+    ],
+    "parent_objective": [
+      "no-training interpolation from M264 toward the rejected M271 multi-surface actor update"
+    ],
+    "derived_from": [
+      "m271-m270-multi-surface-guarded-actor-update"
+    ],
+    "blocked_by": [
+      "m271-m270-multi-surface-guarded-actor-update"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m272-m271-interpolation-retention-probe.md",
+  "public_gates": [
+    "M270 sampled and exact objective improvement",
+    "M183 M168 and M170 replay retention",
+    "M193 M189 replay retention",
+    "M212 M204 replay retention",
+    "M223 M219 replay retention",
+    "M267 M264 replay retention",
+    "do not run PPO"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M272",
+    "do not run a new actor update in M272",
+    "do not promote an interpolation that fails any replay surface",
+    "do not change actor inputs",
+    "do not skip old M183/M193 replay gates"
+  ],
+  "hypothesis": "A smaller interpolation from M264 toward the rejected M271 checkpoint may retain proof surfaces while preserving some combined-objective improvement.",
+  "success_criteria": [
+    "build interpolated checkpoints from M264 toward M271 without training",
+    "find the largest alpha that improves M270 objective and preserves all replay surfaces",
+    "if no alpha passes, classify the M271 direction as unusable at the tested resolution",
+    "actor input contract remains unchanged"
+  ],
+  "failure_criteria": [
+    "interpolation is treated as promotion without replay gates",
+    "objective improvement is accepted despite replay failure",
+    "M272 runs PPO, actor update, or changes actor inputs"
+  ],
+  "commands": [
+    {
+      "name": "m272_interpolation",
+      "command": "Interpolate M264 to M271, then gate objective and replay surfaces before any promotion or further update."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m272-m271-interpolation-retention-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt",
+    "runs/m271_m264_actor_coupling_m270_multisurface_anchor100_s10_lr5e5_seed10074/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m271-m270-multi-surface-guarded-actor-update.md",
+    "runs/m270_source_balanced_multi_surface_anchor/summary.json"
+  ],
+  "decision_rule": "M272 may promote only an interpolation that improves M270 objective and preserves all replay surfaces. PPO remains blocked.",
+  "next_blocker": "pending M272 interpolation probe"
+}

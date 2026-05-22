@@ -8667,3 +8667,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M270 builds a `99`-row source-balanced combined corpus from M183/M168, M183/M170, M193/M189, M212/M204, M223/M219, M267/M264, and protected key `9944`. Each source contributes total weight about `1.0`; loader validation passes for shape `99 x 72`, hidden `99 x 128`, and actions `99 x 3`.
 - decision: `admit_multi_surface_guarded_actor_update`
 - next: `m271-m270-multi-surface-guarded-actor-update`
+
+## 20260522T173950Z - m271-m270-multi-surface-guarded-actor-update
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m271_m183_m170_replay_gate_seed9510`
+- artifact: `docs/m271-m270-multi-surface-guarded-actor-update.md`
+- result: M271 improves the source-balanced M270 objective under sampled fixed eval (`0.681606` to `0.674872`) and exact eval (`0.681443` to `0.674680`), but replay gates fail for M183/M168, M183/M170, M193/M189, M212/M204, and M223/M219 before behavior or protected-key gates. M267/M264 remains retained.
+- decision: `reject_multi_surface_actor_update_proof_washout`
+- next: `m272-m271-interpolation-retention-probe`

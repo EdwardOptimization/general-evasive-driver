@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 279,
+    "completed": 280,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m270-source-balanced-multi-surface-anchor-corpus.md",
+    "command_log": "docs/m271-m270-multi-surface-guarded-actor-update.md",
     "returncode": 0,
-    "run_dir": "runs/m270_source_balanced_multi_surface_anchor",
+    "run_dir": "runs/m271_m183_m170_replay_gate_seed9510",
     "status": "completed",
-    "task_id": "m270-source-balanced-multi-surface-anchor-corpus"
+    "task_id": "m271-m270-multi-surface-guarded-actor-update"
   },
   "next_task": {
-    "command": "see experiments/manifests/m271-m270-multi-surface-guarded-actor-update.json",
-    "hypothesis": "A small actor-coupling update from M264 using the M270 source-balanced multi-surface corpus can improve the combined objective while retaining old M183/M193 and current M267 proof surfaces.",
-    "id": "m271-m270-multi-surface-guarded-actor-update",
+    "command": "see experiments/manifests/m272-m271-interpolation-retention-probe.json",
+    "hypothesis": "A smaller interpolation from M264 toward the rejected M271 checkpoint may retain proof surfaces while preserving some combined-objective improvement.",
+    "id": "m272-m271-interpolation-retention-probe",
     "kind": "driver_candidate",
-    "notes": "Pending: one small multi-surface actor update; PPO remains blocked",
-    "priority": 2660,
+    "notes": "Pending: no-training interpolation sweep; PPO remains blocked",
+    "priority": 2670,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T173512Z"
+  "updated_at_utc": "20260522T173950Z"
 }

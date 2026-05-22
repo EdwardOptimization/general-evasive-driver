@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M271 improves sampled and exact M270 loss but fails M183 M193 M212 and M223 replay gates so behavior and protected-key gates were not run",
+  "failure_criteria": [
+    "run PPO before the actor update is gated",
+    "drop any old or refreshed replay row",
+    "lose behavior retention or protected-key diagnostic",
+    "combined objective improves but proof surfaces regress",
+    "change actor observation inputs"
+  ],
+  "failure_types": [
+    "proof_washout",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO in M271",
+    "do not run multiple actor-update seeds before the first seed passes",
+    "do not promote based only on combined objective improvement",
+    "do not change actor inputs",
+    "do not delete or loosen the old protected key diagnostic"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260522T174315Z",
+  "hypothesis": "A small actor-coupling update from M264 using the M270 source-balanced multi-surface corpus can improve the combined objective while retaining old M183/M193 and current M267 proof surfaces.",
+  "lineage": {
+    "blocked_by": [
+      "m270-source-balanced-multi-surface-anchor-corpus"
+    ],
+    "derived_from": [
+      "m270-source-balanced-multi-surface-anchor-corpus"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m270-source-balanced-multi-surface-anchor-corpus.json",
+      "docs/m270-source-balanced-multi-surface-anchor-corpus.md"
+    ],
+    "parent_dataset": [
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.csv"
+    ],
+    "parent_objective": [
+      "source-balanced multi-surface outcome/snippet anchor update"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m271-m270-multi-surface-guarded-actor-update",
+  "next_blocker": "m272-m271-interpolation-retention-probe",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "reject_multi_surface_actor_update_proof_washout",
+  "public_gates": [
+    "M270 combined fixed objective eval",
+    "M183 M168 and M170 replay retention",
+    "M193 M189 replay retention",
+    "M212 M204 replay retention",
+    "M223 M219 replay retention",
+    "M267 M264 replay retention",
+    "old protected key 9944 diagnostic replay",
+    "behavior seeds 9505 and 9506"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m271_m264_actor_coupling_m270_multisurface_anchor100_s10_lr5e5_seed10074/optimized_checkpoint.pt",
+    "clearance_margin_mean": "",
+    "decision": "reject_multi_surface_actor_update_proof_washout",
+    "milestone": "m271-m270-multi-surface-guarded-actor-update",
+    "reason": "M271 improves sampled and exact M270 loss but fails M183 M193 M212 and M223 replay gates so behavior and protected-key gates were not run",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "driver_candidate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "start from runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt",
+    "use runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+    "run exactly one small actor update before any repeat or PPO",
+    "improve fixed M270 objective versus M264 on independent fixed-batch eval",
+    "preserve all listed public replay gates",
+    "preserve behavior seeds 9505 and 9506",
+    "preserve old protected key diagnostic",
+    "actor input contract remains unchanged"
+  ],
+  "type": "driver_candidate"
+}
