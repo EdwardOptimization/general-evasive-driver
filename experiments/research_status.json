@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 180,
+    "completed": 181,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m171-row67-preserving-stage2-recipe.md",
+    "command_log": "docs/m172-stage2-objective-replay-mismatch-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m171_fragile_row_guard_seed9510",
+    "run_dir": "runs/m171_boundary_outcome_replay_gate_seed9510",
     "status": "completed",
-    "task_id": "m171-row67-preserving-stage2-recipe"
+    "task_id": "m172-stage2-objective-replay-mismatch-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m172-stage2-objective-replay-mismatch-audit.json",
-    "hypothesis": "M170 and M171 both improved the fixed outcome objective while failing full boundary replay, so the fixed objective is not sufficiently aligned with actual replay retention for stage2 PPO.",
-    "id": "m172-stage2-objective-replay-mismatch-audit",
+    "command": "see experiments/manifests/m173-fragile-row-action-margin-sensitivity-audit.json",
+    "hypothesis": "The M170/M171 replay failures may be caused by tiny action or hidden-state shifts on low-margin rows, so fragile-row action and margin sensitivity should be audited before changing PPO or objectives.",
+    "id": "m173-fragile-row-action-margin-sensitivity-audit",
     "kind": "objective_sanity",
-    "notes": "Pending after M171: pause stage2 PPO and audit why fixed objective improvements lose replay rows 67 70 or 77",
-    "priority": 1670,
+    "notes": "Pending after M172: inspect fragile rows 67 70 and 77 action and margin sensitivity before another PPO stage",
+    "priority": 1680,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T050325Z"
+  "updated_at_utc": "20260522T050718Z"
 }

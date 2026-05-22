@@ -1,0 +1,36 @@
+{
+  "id": "m173-fragile-row-action-margin-sensitivity-audit",
+  "type": "objective_sanity",
+  "hypothesis": "The M170/M171 replay failures may be caused by tiny action or hidden-state shifts on low-margin rows, so fragile-row action and margin sensitivity should be audited before changing PPO or objectives.",
+  "success_criteria": [
+    "compare row 67 across M168 and M170",
+    "compare rows 70 and 77 across M168 and M171",
+    "measure first-action deltas, wrong-history action deltas, margin flips, and terminal reason changes",
+    "decide whether a fragile-row action anchor or replay-aligned objective is justified",
+    "do not run another PPO stage during this audit"
+  ],
+  "failure_criteria": [
+    "run more PPO before explaining the lost fragile rows",
+    "assume fixed objective improvement implies replay safety",
+    "treat row67 as the only fragile row",
+    "ignore low-margin binary flips"
+  ],
+  "commands": [
+    {
+      "name": "m173_fragile_row_action_margin_sensitivity_audit",
+      "command": "Inspect boundary replay rows for M168/M170/M171 and quantify action and margin sensitivity on rows 67, 70, and 77."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m173-fragile-row-action-margin-sensitivity-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m168_from_m167_5168_boundary_outcome_replay_gate_seed9510/boundary_replay_rows.csv",
+    "runs/m170_boundary_outcome_replay_gate_seed9510/boundary_replay_rows.csv",
+    "runs/m171_boundary_outcome_replay_gate_seed9510/boundary_replay_rows.csv"
+  ],
+  "decision_rule": "Only after the audit identifies the sensitivity mechanism should the project add a new objective or try another PPO stage."
+}
