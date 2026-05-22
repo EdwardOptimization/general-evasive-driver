@@ -282,11 +282,16 @@ slightly stronger action-level sensitivity.
   groups and passes 3-seed objective sanity. The M219 corpus replay sanity
   preserves `17/17` wrong-history success drops, so a small guarded actor-update
   design is admitted.
+- M224: runs one small M216-style preferred-only snippet-anchored actor update
+  from M219 seed `5216` using the M223 M219 corpus. Fixed M223 loss improves
+  from `0.210903` to `0.209824`; old M183, refreshed M193, current M212, and
+  new M223 replay gates pass; behavior remains `0.8625`; protected key `9944`
+  passes with normal margin `0.186385`.
 
 Current blocker:
 
 ```text
-one small snippet-anchored actor update from M219 using the M223 corpus
+fresh-seed repeat of the M224 actor-update recipe
 ```
 
 ## Near-Term Rule
@@ -312,7 +317,9 @@ current-family protected-surface refresh; PPO remains blocked until M222 passes
 and is converted into objective/replay gates. M222 passed, so M223 must convert
 the accepted rows into M219-family objective/replay corpora before any actor
 update or PPO. M223 passed; only one M216-style tiny snippet-anchored actor
-update from M219 seed `5216` is admitted before repeat evidence.
+update from M219 seed `5216` is admitted before repeat evidence. M224 passed as
+a single actor update, so M225 must repeat the exact recipe from the same M219
+source on fresh seeds before any PPO.
 
 ## Sensor Profile Policy
 

@@ -8143,3 +8143,44 @@ Decision:
 ```text
 admit_guarded_actor_update_design
 ```
+
+## 20260522T125500Z m224-m223-guarded-actor-update
+
+M224 ran one small preferred-only snippet-anchored actor update from M219 seed
+`5216` using the M223 M219 corpus. Actor inputs were unchanged and no PPO was
+run.
+
+Artifacts:
+
+- `runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063`
+- `runs/m224_fixed_batch_outcome_eval_seed37`
+- `runs/m224_m183_m168_replay_gate_seed9510`
+- `runs/m224_m183_m170_replay_gate_seed9510`
+- `runs/m224_m193_m189_replay_gate_seed9630`
+- `runs/m224_m212_m204_replay_gate_seed10040`
+- `runs/m224_m223_m219_replay_gate_seed10060`
+- `runs/m224_behavior_gate_seed9505`
+- `runs/m224_behavior_gate_seed9506`
+- `runs/m224_critical_key_seed9944`
+- `docs/m224-m223-guarded-actor-update.md`
+- `experiments/manifests/m225-m223-actor-update-repeat.json`
+
+Results:
+
+- optimize eval loss improves from `0.210572` to `0.209490`;
+- independent fixed M223 loss improves from M219 `0.210903` to M224 `0.209824`;
+- replay gates retain M183 M168 `16/16`, M183 M170 `17/17`, M193 M189
+  `14/14`, M212 M204 `17/17`, and M223 M219 `17/17` drops;
+- behavior seeds `9505` and `9506` retain success `0.8625`;
+- reset-hidden and zero-all-response ablations remain at `0.85` and `0.80`;
+- protected key passes with normal margin `0.186385`, wrong-history margin
+  `0.086925`, and margin gap `0.099460`.
+
+Decision: M224 is positive as a single actor update. Repeat the exact same
+recipe from M219 seed `5216` on fresh actor-update seeds before any PPO.
+
+Decision:
+
+```text
+admit_actor_update_repeat
+```

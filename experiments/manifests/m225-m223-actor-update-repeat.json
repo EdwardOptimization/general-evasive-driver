@@ -1,0 +1,77 @@
+{
+  "id": "m225-m223-actor-update-repeat",
+  "type": "driver_candidate",
+  "hypothesis": "M224 shows one small preferred-only snippet-anchored actor update from M219 seed5216 can improve fixed M223 objective while preserving old/current/new replay, behavior, and protected key. Repeat the exact recipe on fresh actor-update seeds before any PPO.",
+  "success_criteria": [
+    "restart every repeat from runs/ppo_m219_guarded_from_m217_seed5216/checkpoint.pt",
+    "do not chain repeats from M224",
+    "use runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.npz",
+    "use the same 10-step lr 5e-5 actor_coupling recipe with action anchor 100 and preferred-only snippet action anchor 100",
+    "run fresh seeds 10064 and 10065",
+    "keep actor inputs unchanged",
+    "both repeats must improve fixed M223 objective versus M219",
+    "both repeats must preserve old M183 M168/M170 replay gates",
+    "both repeats must preserve refreshed M193 M189 replay gate",
+    "both repeats must preserve current M212 M204 replay gate",
+    "both repeats must preserve new M223 M219 replay gate",
+    "both repeats must preserve behavior seeds 9505 and 9506",
+    "both repeats must preserve protected key 9944|perturbed|28|28"
+  ],
+  "failure_criteria": [
+    "chain from M224 before repeat evidence",
+    "run PPO before repeat evidence",
+    "drop any old/current/new replay row",
+    "lose behavior or protected-key retention",
+    "change actor observation inputs",
+    "promote based on fixed objective improvement alone"
+  ],
+  "commands": [
+    {
+      "name": "m225_actor_update_seed10064",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_optimize --init-checkpoint runs/ppo_m219_guarded_from_m217_seed5216/checkpoint.pt --snippet-npz runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.npz --device cpu --steps 10 --batch-size 64 --learning-rate 0.00005 --logprob-margin 0.05 --seed 10064 --train-scope actor_coupling --grad-clip-norm 1.0 --log-interval 5 --eval-batch-size 64 --eval-batches 30 --eval-seed 0 --action-anchor-checkpoint runs/ppo_m219_guarded_from_m217_seed5216/checkpoint.pt --action-anchor-env-config configs/m121_human_view_zero_obstacle_relvel.json --action-anchor-coef 100.0 --action-anchor-seed 10064 --action-anchor-episodes 30 --action-anchor-horizon-steps 15 --action-anchor-sample-stride 3 --action-anchor-max-samples 800 --action-anchor-batch-size 256 --snippet-action-anchor-checkpoint runs/ppo_m219_guarded_from_m217_seed5216/checkpoint.pt --snippet-action-anchor-coef 100.0 --snippet-action-anchor-batch-size 64 --snippet-action-anchor-preferred-only --run-dir runs/m225_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10064"
+    },
+    {
+      "name": "m225_actor_update_seed10065",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_optimize --init-checkpoint runs/ppo_m219_guarded_from_m217_seed5216/checkpoint.pt --snippet-npz runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.npz --device cpu --steps 10 --batch-size 64 --learning-rate 0.00005 --logprob-margin 0.05 --seed 10065 --train-scope actor_coupling --grad-clip-norm 1.0 --log-interval 5 --eval-batch-size 64 --eval-batches 30 --eval-seed 0 --action-anchor-checkpoint runs/ppo_m219_guarded_from_m217_seed5216/checkpoint.pt --action-anchor-env-config configs/m121_human_view_zero_obstacle_relvel.json --action-anchor-coef 100.0 --action-anchor-seed 10065 --action-anchor-episodes 30 --action-anchor-horizon-steps 15 --action-anchor-sample-stride 3 --action-anchor-max-samples 800 --action-anchor-batch-size 256 --snippet-action-anchor-checkpoint runs/ppo_m219_guarded_from_m217_seed5216/checkpoint.pt --snippet-action-anchor-coef 100.0 --snippet-action-anchor-batch-size 64 --snippet-action-anchor-preferred-only --run-dir runs/m225_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10065"
+    },
+    {
+      "name": "m225_fixed_eval",
+      "command": "Compare M219, M224, and both M225 repeats on the fixed M223 M219 corpus."
+    },
+    {
+      "name": "m225_retention_gates",
+      "command": "Run old M183 replay, refreshed M193 replay, current M212 replay, new M223 replay, behavior seeds 9505/9506, and protected-key replay for both repeats."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m225-m223-actor-update-repeat.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m225_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10064/optimized_checkpoint.pt",
+      "type": "checkpoint_seed10064"
+    },
+    {
+      "path": "runs/m225_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10065/optimized_checkpoint.pt",
+      "type": "checkpoint_seed10065"
+    },
+    {
+      "path": "runs/m225_fixed_batch_outcome_eval_seed37/summary.json",
+      "type": "fixed_eval_summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m219_guarded_from_m217_seed5216/checkpoint.pt",
+    "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m224-m223-guarded-actor-update.md",
+    "runs/m224_fixed_batch_outcome_eval_seed37/summary.json",
+    "runs/m224_m223_m219_replay_gate_seed10060/summary.json",
+    "runs/m224_behavior_gate_seed9505/policy_summary.csv",
+    "runs/m224_behavior_gate_seed9506/policy_summary.csv",
+    "runs/m224_critical_key_seed9944/summary.json"
+  ],
+  "decision_rule": "Only repeat-stable actor-update seeds that preserve fixed objective, old/current/new replay, behavior, and protected key may admit a guarded PPO smoke from the best retained repeat."
+}

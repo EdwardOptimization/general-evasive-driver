@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 232,
+    "completed": 233,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m223-m219-family-boundary-objective-sanity.md",
+    "command_log": "docs/m224-m223-guarded-actor-update.md",
     "returncode": 0,
-    "run_dir": "runs/m223_m219_boundary_replay_sanity_seed10060",
+    "run_dir": "runs/m224_critical_key_seed9944",
     "status": "completed",
-    "task_id": "m223-m219-family-boundary-objective-sanity"
+    "task_id": "m224-m223-guarded-actor-update"
   },
   "next_task": {
-    "command": "see experiments/manifests/m224-m223-guarded-actor-update.json",
-    "hypothesis": "M223 validates a replay-aligned M219 corpus from the refreshed surface; run one tiny snippet-anchored actor update before any repeat or PPO.",
-    "id": "m224-m223-guarded-actor-update",
+    "command": "see experiments/manifests/m225-m223-actor-update-repeat.json",
+    "hypothesis": "M224 single actor update passed fixed objective, old/current/new replay, behavior, and protected key; repeat from M219 seed5216 on fresh seeds before PPO.",
+    "id": "m225-m223-actor-update-repeat",
     "kind": "driver_candidate",
-    "notes": "Use M216-style preferred-only snippet action anchor from M219 seed5216; require old/current/new replay, behavior, and protected-key retention.",
-    "priority": 2190,
+    "notes": "Restart from M219 seed5216 on seeds 10064 and 10065; do not chain from M224.",
+    "priority": 2200,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T124500Z"
+  "updated_at_utc": "20260522T125500Z"
 }

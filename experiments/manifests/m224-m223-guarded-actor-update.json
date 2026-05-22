@@ -61,5 +61,26 @@
     "runs/m223_m219_boundary_outcome_corpus_seed10060/objective_summary.json",
     "runs/m223_m219_boundary_replay_sanity_seed10060/summary.json"
   ],
-  "decision_rule": "Only a single actor update that improves fixed M223 objective and preserves old/current/new replay, behavior, and protected key may admit fresh-seed repeats."
+  "results": {
+    "checkpoint": "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt",
+    "optimize_before_loss": 0.21057205994923908,
+    "optimize_after_loss": 0.20949003100395203,
+    "fixed_loss_m219_5216": 0.21090264409780501,
+    "fixed_loss_m224_10063": 0.20982385843992232,
+    "m183_m168_success_drop_count": 16,
+    "m183_m170_success_drop_count": 17,
+    "m193_m189_success_drop_count": 14,
+    "m212_m204_success_drop_count": 17,
+    "m223_m219_success_drop_count": 17,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "reset_success": 0.85,
+    "zero_all_success": 0.80,
+    "protected_key_pass": true,
+    "protected_key_normal_margin": 0.18638540533940784,
+    "protected_key_wrong_history_margin": 0.08692523234686012,
+    "protected_key_margin_gap": 0.09946017299254772
+  },
+  "decision_rule": "Only a single actor update that improves fixed M223 objective and preserves old/current/new replay, behavior, and protected key may admit fresh-seed repeats.",
+  "decision": "admit_actor_update_repeat"
 }
