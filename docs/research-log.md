@@ -8437,3 +8437,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: added `outcome_intervention_source_losses` to PPO config/training, strict source config validation, independent source NPZ loading, per-source auxiliary loss terms, and per-source train metrics. Focused tests passed (`66 passed`).
 - decision: `admit_source_balanced_ppo_smoke_from_m239`
 - next: `m248-source-balanced-ppo-smoke-from-m239`
+
+## 20260522T143422Z m248-source-balanced-ppo-smoke-from-m239
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/ppo_m248_source_balanced_from_m239_seed5224`
+- artifact: `docs/m248-source-balanced-ppo-smoke-from-m239.md`
+- result: negative. The source-balanced PPO smoke improves aggregate exact M232 for all alphas and improves M223 source strongly, but every alpha regresses protected-key source above the pre-registered `+1e-8` threshold. Proof and behavior gates were not run.
+- decision: `reject_protected_key_source_regression`
+- next: `m249-protected-key-source-gradient-audit`

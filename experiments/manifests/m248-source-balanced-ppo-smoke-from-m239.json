@@ -2,9 +2,11 @@
   "id": "m248-source-balanced-ppo-smoke-from-m239",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "proof_washout",
+    "objective_overfit",
+    "promotion_gate_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -94,5 +96,42 @@
     "docs/m246-source-balanced-outcome-loss-design.md"
   ],
   "decision_rule": "M248 may promote only an interpolation alpha that passes exact source-aware objective gates plus full proof and behavior retention.",
-  "next_blocker": "Run one source-balanced PPO smoke from M239."
+  "results": {
+    "config": "configs/ppo_m248_source_balanced_from_m239_smoke.json",
+    "raw_checkpoint": "runs/ppo_m248_source_balanced_from_m239_seed5224/checkpoint.pt",
+    "interpolation_run_dir": "runs/m248_m239_to_raw_interpolation",
+    "exact_source_eval_run_dir": "runs/m248_source_aware_exact_m232_eval",
+    "rollout_return_mean": 65.91357870938614,
+    "reward_mean": 0.9713000655174255,
+    "raw_rollout_termination_rate": 0.3,
+    "built_in_eval_termination_rate": 0.2,
+    "m223_source_loss_mean": 0.20703398063778877,
+    "protected_key_source_loss_mean": 0.03564866818487644,
+    "baseline_action_anchor_loss_mean": 1.987583361066451e-05,
+    "snippet_action_anchor_loss_mean": 3.5883521117459814e-08,
+    "trajectory_action_anchor_loss_mean": 2.3933950525171593e-07,
+    "m232_exact_loss_m239": 0.24464945495128632,
+    "m232_exact_loss_a100": 0.2446454018354416,
+    "m232_exact_loss_a250": 0.24463941156864166,
+    "m232_exact_loss_a500": 0.24462956190109253,
+    "m232_exact_loss_a750": 0.24461978673934937,
+    "m232_exact_loss_a1000": 0.24461022019386292,
+    "m248_a100_m223_delta": -5.03393536155361e-06,
+    "m248_a100_protected_key_delta": 9.880853522048483e-07,
+    "m248_a250_m223_delta": -1.2523956592347396e-05,
+    "m248_a250_protected_key_delta": 2.500899261015377e-06,
+    "m248_a500_m223_delta": -2.4941799669553344e-05,
+    "m248_a500_protected_key_delta": 5.047827342785638e-06,
+    "m248_a750_m223_delta": -3.728450696366403e-05,
+    "m248_a750_protected_key_delta": 7.631578481159806e-06,
+    "m248_a1000_m223_delta": -4.949585593666539e-05,
+    "m248_a1000_protected_key_delta": 1.0258289852238534e-05,
+    "exact_source_gate_passed": false,
+    "proof_gates_run": false,
+    "behavior_gates_run": false,
+    "actor_inputs_changed": false,
+    "rejection_reason": "all interpolation alphas regress protected-key source above the pre-registered +1e-8 limit"
+  },
+  "decision": "reject_protected_key_source_regression",
+  "next_blocker": "Audit protected-key source gradient before more PPO."
 }

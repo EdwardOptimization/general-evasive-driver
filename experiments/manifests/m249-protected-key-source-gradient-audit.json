@@ -1,0 +1,84 @@
+{
+  "id": "m249-protected-key-source-gradient-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m239_m224_to_m237_interpolation/checkpoints/alpha_0_5.pt",
+      "runs/ppo_m248_source_balanced_from_m239_seed5224/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.npz",
+      "runs/m231_protected_key_snippet_surface/protected_key_snippets.npz",
+      "runs/m248_source_aware_exact_m232_eval/source_summary.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m248_source_balanced_from_m239_smoke.json"
+    ],
+    "parent_objective": [
+      "protected-key source exact objective",
+      "source-balanced PPO gradient pressure"
+    ],
+    "derived_from": [
+      "m248-source-balanced-ppo-smoke-from-m239"
+    ],
+    "blocked_by": [
+      "m248-source-balanced-ppo-smoke-from-m239"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m249-protected-key-source-gradient-audit.md",
+  "public_gates": [
+    "M248 source-aware exact reports",
+    "protected-key source-only optimization probe",
+    "research validator"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M249",
+    "do not change actor inputs",
+    "do not loosen protected-key source gate",
+    "do not repeat M248 before understanding the protected-key source gradient"
+  ],
+  "hypothesis": "M248 failed because PPO rollout gradients and anchors still overpower or conflict with the protected-key source loss. A source-only optimization probe should distinguish implementation/steerability from PPO gradient conflict.",
+  "success_criteria": [
+    "measure whether the protected-key source loss can decrease from M239 under source-only optimization",
+    "measure whether the M223 source loss is affected by that source-only update",
+    "compare source-only movement against M248 PPO movement",
+    "choose one bounded next repair before more PPO",
+    "keep M239 alpha 0.5 as current public-gate base"
+  ],
+  "failure_criteria": [
+    "run PPO before the audit",
+    "repeat M248 with larger coefficients without gradient evidence",
+    "ignore protected-key source deltas",
+    "change the actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "m249_audit",
+      "command": "Run a protected-key source-only optimization probe from M239 and compare exact source movement against M248."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m249-protected-key-source-gradient-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m239_m224_to_m237_interpolation/checkpoints/alpha_0_5.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m248-source-balanced-ppo-smoke-from-m239.md",
+    "runs/m248_source_aware_exact_m232_eval/source_summary.csv",
+    "runs/m231_protected_key_snippet_surface/protected_key_snippets.npz"
+  ],
+  "decision_rule": "M249 may unblock a new PPO repair only after determining whether protected-key source loss is steerable in isolation.",
+  "next_blocker": "Audit protected-key source gradient before more PPO."
+}

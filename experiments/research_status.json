@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 256,
+    "completed": 257,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m247-source-balanced-outcome-loss-implementation.md",
+    "command_log": "docs/m248-source-balanced-ppo-smoke-from-m239.md",
     "returncode": 0,
-    "run_dir": "",
+    "run_dir": "runs/ppo_m248_source_balanced_from_m239_seed5224",
     "status": "completed",
-    "task_id": "m247-source-balanced-outcome-loss-implementation"
+    "task_id": "m248-source-balanced-ppo-smoke-from-m239"
   },
   "next_task": {
-    "command": "see experiments/manifests/m248-source-balanced-ppo-smoke-from-m239.json",
-    "hypothesis": "Run one source-balanced PPO smoke from M239 and gate it with exact source-aware objective checks before proof gates",
-    "id": "m248-source-balanced-ppo-smoke-from-m239",
-    "kind": "driver_candidate",
-    "notes": "Pending: create config run one PPO smoke and exact source gate",
-    "priority": 2430,
+    "command": "see experiments/manifests/m249-protected-key-source-gradient-audit.json",
+    "hypothesis": "Audit whether protected-key source loss is steerable in isolation before more PPO",
+    "id": "m249-protected-key-source-gradient-audit",
+    "kind": "gate",
+    "notes": "Pending: source-only protected-key optimization probe",
+    "priority": 2440,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T142955Z"
+  "updated_at_utc": "20260522T143422Z"
 }
