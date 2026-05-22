@@ -1,0 +1,95 @@
+{
+  "id": "m239-m237-checkpoint-interpolation-retention-probe",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt",
+      "runs/ppo_m237_trajectory_anchor_from_m224_seed5221/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.npz",
+      "runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.npz",
+      "runs/m237_m183_m170_replay_gate_seed9510/boundary_replay_rows.csv",
+      "runs/m237_critical_key_seed9944/guard_results.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m237_trajectory_anchor_from_m224_smoke.json"
+    ],
+    "parent_objective": [
+      "no-PPO checkpoint interpolation trust-region probe",
+      "fixed M232/M223 objective retention",
+      "M183 M170 and protected-key proof retention"
+    ],
+    "derived_from": [
+      "m238-trajectory-anchor-retention-failure-audit"
+    ],
+    "blocked_by": [
+      "m237-trajectory-anchored-ppo-smoke-from-m224"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m239-m237-checkpoint-interpolation-retention-probe.md",
+  "public_gates": [
+    "checkpoint interpolation sweep",
+    "fixed M232/M223 objective evaluation",
+    "M183 M170 replay gate",
+    "protected key 9944 guard",
+    "behavior seeds 9505 and 9506 if any alpha passes proof gates",
+    "research validator"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M239",
+    "do not loosen replay or protected-key thresholds",
+    "do not promote an alpha that fails M183 M170 or protected key",
+    "do not use private holdout to select alpha",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "If M237 failed mainly because the PPO update was too large for near-boundary proof windows, a smaller interpolation from M224 toward M237 should preserve M183 M170 and protected key while retaining some fixed-objective improvement. If no useful alpha passes, the next repair needs a stronger on-policy margin-retention objective rather than more action anchoring.",
+  "success_criteria": [
+    "generate a bounded interpolation sweep from M224 to M237 without PPO",
+    "evaluate fixed M232/M223 losses for all alphas",
+    "evaluate M183 M170 replay and protected key for candidate alphas",
+    "promote only if an alpha passes proof gates and improves or does not materially regress fixed objective",
+    "run behavior seeds only after proof gates identify a promotable alpha"
+  ],
+  "failure_criteria": [
+    "run PPO",
+    "select alpha using private holdout",
+    "promote an alpha that fails M183 M170 replay",
+    "promote an alpha that fails protected key",
+    "change the actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "m239_interpolate",
+      "command": "Use autodrift.checkpoint_interpolation to create alphas from M224 toward M237, then gate fixed objectives, M183 M170 replay, protected key, and behavior for any proof-passing alpha."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m239-m237-checkpoint-interpolation-retention-probe.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m239_m224_to_m237_interpolation/manifest.json",
+      "type": "run_manifest"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m238-trajectory-anchor-retention-failure-audit.md",
+    "runs/m237_m183_m170_replay_gate_seed9510/summary.json",
+    "runs/m237_critical_key_seed9944/guard_results.csv"
+  ],
+  "decision_rule": "M239 may promote only an interpolation alpha that passes M183 M170 and protected key at existing thresholds and retains behavior. If no alpha passes with useful objective movement, reject and design an on-policy margin-retention repair.",
+  "next_blocker": "Run the no-PPO M224-to-M237 interpolation retention probe."
+}

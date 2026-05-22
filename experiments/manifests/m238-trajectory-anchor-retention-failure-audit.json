@@ -2,9 +2,11 @@
   "id": "m238-trajectory-anchor-retention-failure-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "repair",
   "failure_types": [
-    "none"
+    "proof_washout",
+    "protected_key_window_failure",
+    "promotion_gate_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -87,5 +89,30 @@
     "runs/m235_closed_loop_trajectory_anchor_surface/summary.json"
   ],
   "decision_rule": "M238 may only unblock a next repair if it explains why M237's near-zero trajectory-anchor loss did not preserve on-policy closed-loop proof retention and pre-registers one bounded non-PPO or one-smoke PPO path.",
-  "next_blocker": "Audit M237 trajectory-anchor retention failure."
+  "results": {
+    "ppo_run": false,
+    "actor_inputs_changed": false,
+    "m235_rows": 97,
+    "m235_source0_rows": 57,
+    "m235_source1_rows": 40,
+    "m235_failed_m183_m170_row16_included": true,
+    "m235_protected_key_9944_included": true,
+    "m237_trajectory_action_anchor_loss_mean": 1.3405747440507545e-07,
+    "m237_anchor_action_mse_mean": 3.9808981000533095e-07,
+    "m237_anchor_action_mse_max": 7.990258836798603e-07,
+    "m237_anchor_action_l2_mean": 0.0010640084510669112,
+    "m237_anchor_action_l2_max": 0.001548249856568873,
+    "m237_m183_anchor_action_l2_mean": 0.0009045025799423456,
+    "m237_protected_key_anchor_action_l2_mean": 0.001291304244659841,
+    "m183_m170_row16_m224_normal_margin": 0.000106,
+    "m183_m170_row16_m233_normal_margin": -0.000169,
+    "m183_m170_row16_m237_normal_margin": -0.000084,
+    "protected_key_m224_normal_margin": 0.18638540533940784,
+    "protected_key_m233_normal_margin": 0.20464540156918803,
+    "protected_key_m237_normal_margin": 0.204386,
+    "behavior_success_retained": true,
+    "failure_classification": "on_policy_closed_loop_distribution_drift_under_too_large_update_for_near_boundary_windows"
+  },
+  "decision": "admit_checkpoint_interpolation_retention_probe",
+  "next_blocker": "Run a bounded no-PPO interpolation sweep from M224 toward M237 to separate trust-region magnitude from objective design failure."
 }

@@ -8342,3 +8342,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: negative. Fixed M232/M223 losses improve and behavior seeds `9505`/`9506` retain success `0.8625`, but M183 M170 replay remains `16/17` and protected key `9944|perturbed|28|28` fails with normal margin `0.204386`.
 - decision: `reject_trajectory_anchor_ppo_smoke_replay_and_protected_key_failure`
 - next: `m238-trajectory-anchor-retention-failure-audit`
+
+## 20260522T134653Z m238-trajectory-anchor-retention-failure-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m238-trajectory-anchor-retention-failure-audit.md`
+- result: M235 covers both failed surfaces and M237 matches teacher-forced trajectory actions closely (`L2 mean 0.001064`), but on-policy near-boundary margins still drift. M237 is not broad behavior collapse or missing coverage.
+- decision: `admit_checkpoint_interpolation_retention_probe`
+- next: `m239-m237-checkpoint-interpolation-retention-probe`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 246,
+    "completed": 247,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m237-trajectory-anchored-ppo-smoke-from-m224.md",
+    "command_log": "docs/m238-trajectory-anchor-retention-failure-audit.md",
     "returncode": 0,
-    "run_dir": "runs/ppo_m237_trajectory_anchor_from_m224_seed5221",
+    "run_dir": "",
     "status": "completed",
-    "task_id": "m237-trajectory-anchored-ppo-smoke-from-m224"
+    "task_id": "m238-trajectory-anchor-retention-failure-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m238-trajectory-anchor-retention-failure-audit.json",
-    "hypothesis": "Audit why M237 trajectory anchoring still failed on-policy closed-loop proof retention",
-    "id": "m238-trajectory-anchor-retention-failure-audit",
-    "kind": "gate",
-    "notes": "Pending: classify anchor strength coverage on-policy drift or trust-region weakness before any more PPO",
-    "priority": 2330,
+    "command": "see experiments/manifests/m239-m237-checkpoint-interpolation-retention-probe.json",
+    "hypothesis": "Probe whether a smaller interpolation from M224 toward M237 preserves proof gates while retaining objective improvement",
+    "id": "m239-m237-checkpoint-interpolation-retention-probe",
+    "kind": "driver_candidate",
+    "notes": "Pending: no-PPO interpolation sweep with fixed objective M183 M170 protected key and behavior gates",
+    "priority": 2340,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T134237Z"
+  "updated_at_utc": "20260522T134653Z"
 }
