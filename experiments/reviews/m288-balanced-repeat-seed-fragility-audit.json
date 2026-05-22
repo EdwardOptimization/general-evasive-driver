@@ -15,7 +15,7 @@
     "do not ignore M183/M170 row-level failure evidence"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260522T193252Z",
+  "generated_at_utc": "20260522T193328Z",
   "hypothesis": "The M287 safe-alpha collapse is caused by seed-sensitive drift on old M183/M170 fragile rows rather than loss of the M267/M264 current-family rejected-history direction.",
   "lineage": {
     "blocked_by": [

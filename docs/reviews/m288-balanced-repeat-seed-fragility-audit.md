@@ -2,7 +2,7 @@
 
 ## Summary
 
-- Generated at UTC: 20260522T193252Z
+- Generated at UTC: 20260522T193328Z
 - Type: gate
 - Gate tier: process
 - Promotion decision: repair_with_row16_aware_balanced_repeat
