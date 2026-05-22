@@ -6776,3 +6776,34 @@ Results:
 Decision: admit a guarded stage2 PPO design, not long PPO. Since fixed objective
 improvement is mixed across repeats, use M185 seed `5185` as the next starting
 checkpoint because it remains the lowest fixed-loss retained checkpoint.
+
+## 20260522T074031Z m187-guarded-stage2-ppo-from-m185
+
+M187 ran one short stage2 PPO extension from M185 seed `5185`, while keeping
+M184 as the action anchor and retaining the M183 M168 outcome auxiliary
+objective.
+
+Artifacts:
+
+- `runs/ppo_m187_stage2_from_m185_seed5190`
+- `runs/m187_fixed_batch_outcome_eval_seed37`
+- `runs/m187_m168_boundary_replay_gate_seed9510`
+- `runs/m187_m170_boundary_replay_gate_seed9510`
+- `runs/m187_behavior_gate_seed9503`
+- `runs/m187_behavior_gate_seed9504`
+- `runs/m187_critical_key_seed9944`
+- `docs/m187-guarded-stage2-ppo-from-m185.md`
+
+Results:
+
+- fixed M183 loss improves from M184 `0.171518` and M185 `0.171432` to
+  M187 `0.171351`;
+- M168 boundary replay retains `16/16` success drops;
+- M170 boundary replay retains `17/17` success drops;
+- behavior success matches M184/M185 on seeds `9503` and `9504`;
+- reset and zero-all ablations still degrade success to `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` passes `1/1`.
+
+Decision: admit stage2 repeats only. Do not run longer PPO until fresh stage2
+repeats from M185 preserve behavior, protected key, and both M183 replay
+surfaces.

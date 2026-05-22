@@ -46,6 +46,7 @@ Not allowed in the deployable actor:
 | guarded actor-update candidate | `runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt` | passes M183 objective, behavior, protected key, and M168/M170 boundary replay |
 | guarded PPO smoke candidate | `runs/ppo_m185_guarded_from_m184_seed5185/checkpoint.pt` | positive single-seed PPO smoke; requires repeat before longer PPO |
 | repeated PPO smoke candidates | `runs/ppo_m186_guarded_from_m184_seed5186/checkpoint.pt`, `runs/ppo_m186_guarded_from_m184_seed5187/checkpoint.pt` | preserve gates; fixed objective mixed, so M185 remains best fixed-loss candidate |
+| guarded stage2 candidate | `runs/ppo_m187_stage2_from_m185_seed5190/checkpoint.pt` | positive single-seed stage2; requires repeat before longer PPO |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -81,19 +82,22 @@ slightly stronger action-level sensitivity.
   preserve behavior, protected key, and M168/M170 boundary replay drops. Fixed
   objective improvement is mixed, so M185 seed `5185` remains the best retained
   fixed-loss checkpoint.
+- M187: a short stage2 PPO extension from M185 seed `5185` improves fixed M183
+  loss to `0.171351` and preserves behavior, protected key, and both M183
+  replay surfaces.
 
 Current blocker:
 
 ```text
-short staged PPO extension from M185 seed 5185 without losing behavior
-retention, protected key, or M183 boundary replay rows
+stage2 repeat from M185 seed 5185 without losing behavior retention,
+protected key, or M183 boundary replay rows
 ```
 
 ## Near-Term Rule
 
-Run only one short staged PPO extension from M185 seed `5185`. Reject it if
-behavior retention, protected key, or either M183 boundary replay surface
-regresses.
+Repeat the M187 stage2 recipe from M185 seed `5185` on fresh seeds. Do not run
+a longer continuation until repeats preserve behavior retention, protected key,
+and both M183 boundary replay surfaces.
 
 ## Sensor Profile Policy
 

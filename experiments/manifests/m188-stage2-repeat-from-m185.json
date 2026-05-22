@@ -1,0 +1,50 @@
+{
+  "id": "m188-stage2-repeat-from-m185",
+  "type": "driver_candidate",
+  "hypothesis": "M187 is a positive single-seed stage2 PPO extension from M185. Repeating the same stage2 recipe on fresh seeds should determine whether the stage2 gain and gate retention are stable.",
+  "success_criteria": [
+    "start each repeat from runs/ppo_m185_guarded_from_m184_seed5185/checkpoint.pt",
+    "reuse the M187 stage2 recipe without relaxing gates",
+    "run only short stage2 repeats, not a longer continuation",
+    "preserve behavior success on seeds 9503 and 9504",
+    "preserve protected key 9944|perturbed|28|28",
+    "preserve M168 and M170 M183 boundary replay success-drop counts",
+    "compare fixed M183 objective against M184, M185, and M187"
+  ],
+  "failure_criteria": [
+    "chain from M187 before repeat evidence",
+    "drop any M183 boundary replay row",
+    "lose behavior or protected-key retention",
+    "promote to longer PPO based on one positive stage2 seed"
+  ],
+  "commands": [
+    {
+      "name": "m188_stage2_repeat_seed5191",
+      "command": "Run a 1024-step stage2 PPO repeat from runs/ppo_m185_guarded_from_m184_seed5185/checkpoint.pt with seed 5191 and the same M187 gates."
+    },
+    {
+      "name": "m188_stage2_repeat_seed5192",
+      "command": "Run a 1024-step stage2 PPO repeat from runs/ppo_m185_guarded_from_m184_seed5185/checkpoint.pt with seed 5192 and the same M187 gates."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m188-stage2-repeat-from-m185.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt",
+    "runs/ppo_m185_guarded_from_m184_seed5185/checkpoint.pt",
+    "runs/ppo_m187_stage2_from_m185_seed5190/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m187_fixed_batch_outcome_eval_seed37/summary.json",
+    "runs/m187_m168_boundary_replay_gate_seed9510/summary.json",
+    "runs/m187_m170_boundary_replay_gate_seed9510/summary.json",
+    "runs/m187_behavior_gate_seed9503/policy_summary.csv",
+    "runs/m187_behavior_gate_seed9504/policy_summary.csv",
+    "runs/m187_critical_key_seed9944/summary.json"
+  ],
+  "decision_rule": "Admit any longer or chained PPO only if stage2 repeats preserve behavior, protected key, and both M183 replay surfaces."
+}
