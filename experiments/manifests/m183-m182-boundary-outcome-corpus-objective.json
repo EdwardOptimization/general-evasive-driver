@@ -6,7 +6,7 @@
     "build the corpus only from M182 robustness-passing accepted wrong-history rows",
     "deduplicate or cap rows by strict physical pair so no single pair dominates",
     "keep the actor input contract unchanged and use M182 labels only as training-time objective data",
-    "prove objective-only improvement on the M182 corpus without regressing existing behavior/protected-key checks",
+    "prove objective-only improvement on the M182 corpus before any actor update",
     "run a fixed replay or replay-guard sanity check before admitting any PPO update"
   ],
   "failure_criteria": [
@@ -17,18 +17,42 @@
   ],
   "commands": [
     {
-      "name": "m183_build_m182_boundary_corpus",
-      "command": "Build a deduplicated boundary outcome corpus from runs/m182_boundary_robustness_seed9510/accepted_wrong_history_rows.csv."
+      "name": "m183_m168_boundary_outcome_corpus_objective",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_corpus_objective --checkpoint-policy m168_strict=runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --boundary-rows-csv runs/m182_boundary_robustness_seed9510/accepted_wrong_history_rows.csv --delay-steps 10 --device cpu --max-rows-per-physical-pair 2 --optimization-seeds 9620,9621,9622 --steps 180 --batch-size 64 --learning-rate 0.0003 --weight-decay 0.001 --hidden-dim 96 --run-dir runs/m183_m168_boundary_outcome_corpus_dedup_seed9510"
     },
     {
-      "name": "m183_objective_sanity",
-      "command": "Run objective-only sanity from the current admitted branch and require fixed objective improvement plus replay/protected-key preservation."
+      "name": "m183_m170_boundary_outcome_corpus_objective",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_corpus_objective --checkpoint-policy m170_split=runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --boundary-rows-csv runs/m182_boundary_robustness_seed9510/accepted_wrong_history_rows.csv --delay-steps 10 --device cpu --max-rows-per-physical-pair 2 --optimization-seeds 9620,9621,9622 --steps 180 --batch-size 64 --learning-rate 0.0003 --weight-decay 0.001 --hidden-dim 96 --run-dir runs/m183_m170_boundary_outcome_corpus_dedup_seed9510"
+    },
+    {
+      "name": "m183_m168_boundary_replay_sanity",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_replay_gate --checkpoint-policy m168_strict=runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt --checkpoint-policy m170_split=runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt --corpus-csv runs/m183_m168_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv --env-config configs/m121_human_view_zero_obstacle_relvel.json --max-continuation-steps 60 --baseline-policy m168_strict --candidate-policy m170_split --max-normal-success-drop 0.0 --max-normal-margin-regression 0.005 --max-margin-gap-regression 0.001 --max-success-drop-count-regression 0 --device cpu --run-dir runs/m183_m168_boundary_replay_sanity_seed9510"
+    },
+    {
+      "name": "m183_m170_boundary_replay_sanity",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_replay_gate --checkpoint-policy m170_split=runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt --checkpoint-policy m168_strict=runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt --corpus-csv runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv --env-config configs/m121_human_view_zero_obstacle_relvel.json --max-continuation-steps 60 --baseline-policy m170_split --candidate-policy m168_strict --max-normal-success-drop 0.0 --max-normal-margin-regression 0.005 --max-margin-gap-regression 0.001 --max-success-drop-count-regression 0 --device cpu --run-dir runs/m183_m170_boundary_replay_sanity_seed9510"
     }
   ],
   "required_artifacts": [
     {
       "path": "docs/m183-m182-boundary-outcome-corpus-objective.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m183_m168_boundary_outcome_corpus_dedup_seed9510/objective_summary.json",
+      "type": "m168_objective_summary"
+    },
+    {
+      "path": "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/objective_summary.json",
+      "type": "m170_objective_summary"
+    },
+    {
+      "path": "runs/m183_m168_boundary_replay_sanity_seed9510/summary.json",
+      "type": "m168_replay_summary"
+    },
+    {
+      "path": "runs/m183_m170_boundary_replay_sanity_seed9510/summary.json",
+      "type": "m170_replay_summary"
     }
   ],
   "baseline_artifacts": [
@@ -39,5 +63,32 @@
     "runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt",
     "runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt"
   ],
-  "decision_rule": "Only a replay-aligned objective sanity result can admit a guarded actor update or PPO continuation."
+  "results": {
+    "m168_strict": {
+      "corpus_rows": 16,
+      "physical_pairs": 14,
+      "targets": 3,
+      "objective_pass": true,
+      "seed_pass_count": 3,
+      "min_val_combined_loss_improvement": 2.6802468299865723,
+      "min_val_delta_loss_improvement": 3.4035158157348633,
+      "min_val_pairwise_accuracy_after": 1.0,
+      "replay_gate_pass": true,
+      "replay_success_drop_count": 16
+    },
+    "m170_split": {
+      "corpus_rows": 17,
+      "physical_pairs": 15,
+      "targets": 3,
+      "objective_pass": true,
+      "seed_pass_count": 3,
+      "min_val_combined_loss_improvement": 2.2801074981689453,
+      "min_val_delta_loss_improvement": 2.920117139816284,
+      "min_val_pairwise_accuracy_after": 0.8571428656578064,
+      "replay_gate_pass": true,
+      "replay_success_drop_count": 17
+    }
+  },
+  "decision_rule": "Only a replay-aligned objective sanity result can admit a guarded actor update or PPO continuation.",
+  "decision": "admit_guarded_actor_update_design"
 }

@@ -749,7 +749,7 @@ def summarize_corpus(
         "training_metadata_arrays_not_actor_inputs": list(contract.training_metadata_arrays),
         "actor_contract": (
             "student features are human-view observation and recurrent hidden states reconstructed from "
-            "deployable P0 command-response history; M161 relocated outcomes are labels only"
+            "deployable P0 command-response history; relocated outcomes are labels only"
         ),
         "action_reconstruction_error_max": (
             float(finite_action_errors.max()) if len(finite_action_errors) else None

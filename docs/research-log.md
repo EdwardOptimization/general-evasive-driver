@@ -6648,3 +6648,35 @@ Decision: admit the M182 boundary wrong-history objective surface, but do not
 run PPO yet. Next task is M183: convert the accepted rows into a deduplicated
 boundary-outcome corpus/objective and prove replay alignment before actor
 updates.
+## 20260522T071150Z m183-m182-boundary-outcome-corpus-objective
+
+M183 converted the M182 source-diverse proof surface into deduplicated
+boundary-outcome corpora and replay sanity checks.
+
+Code cleanup:
+
+- `boundary_outcome_corpus_objective` now uses milestone-neutral actor-contract
+  text for relocated outcome labels.
+
+Artifacts:
+
+- `runs/m183_m168_boundary_outcome_corpus_dedup_seed9510`
+- `runs/m183_m170_boundary_outcome_corpus_dedup_seed9510`
+- `runs/m183_m168_boundary_replay_sanity_seed9510`
+- `runs/m183_m170_boundary_replay_sanity_seed9510`
+- `docs/m183-m182-boundary-outcome-corpus-objective.md`
+
+Results:
+
+- M168 corpus: `16` rows, `14` physical pairs, `3` targets,
+  objective pass `true`, seed pass `3/3`, min val combined improvement
+  `2.680247`, replay gate pass `true`.
+- M170 corpus: `17` rows, `15` physical pairs, `3` targets,
+  objective pass `true`, seed pass `3/3`, min val combined improvement
+  `2.280107`, replay gate pass `true`.
+- Replay sanity is exact on both corpora: baseline normal success `1.0`,
+  wrong-history success `0.0`, and every row remains a success drop.
+
+Decision: admit M183 for guarded actor-update design, not PPO. Next task is
+M184: start from M168 strict first, run a small anchored actor-coupling update,
+and require behavior/protected-key/M182 boundary replay gates before any PPO.

@@ -64,18 +64,22 @@ slightly stronger action-level sensitivity.
   obstacle-bucket diversity produces a robustness-passing boundary wrong-history
   proof surface: `78` accepted success-drop rows across `15` physical pairs,
   `8` left steps, `3` targets, and `2` checkpoints.
+- M183: deduplicated M182 boundary-outcome corpora pass objective sanity for
+  both M168 and M170, and replay sanity reproduces normal-history success plus
+  wrong-history failure on every corpus row.
 
 Current blocker:
 
 ```text
-turn the M182 source-diverse proof surface into a replay-aligned objective
+guarded actor update from the M183 replay-aligned objective without losing
+behavior retention or protected boundary rows
 ```
 
 ## Near-Term Rule
 
-Do not run PPO directly from the M182 rows. First build a deduplicated
-boundary-outcome corpus/objective and prove objective improvement is aligned
-with replayed boundary outcomes.
+Do not run PPO directly from M183. First run a small actor-coupling update with
+strong anchors, then require behavior retention, protected-key replay, and M182
+boundary replay gates.
 
 ## Sensor Profile Policy
 

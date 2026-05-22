@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 191,
+    "completed": 192,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m182-source-diverse-matched-current-remine.md",
+    "command_log": "docs/m183-m182-boundary-outcome-corpus-objective.md",
     "returncode": 0,
-    "run_dir": "runs/m182_boundary_robustness_seed9510",
+    "run_dir": "runs/m183_m168_boundary_outcome_corpus_dedup_seed9510",
     "status": "completed",
-    "task_id": "m182-source-diverse-matched-current-remine"
+    "task_id": "m183-m182-boundary-outcome-corpus-objective"
   },
   "next_task": {
-    "command": "see experiments/manifests/m183-m182-boundary-outcome-corpus-objective.json",
-    "hypothesis": "M182 produced a robustness-passing source-diverse boundary wrong-history surface, so the next step is a deduplicated replay-aligned corpus/objective before any PPO.",
-    "id": "m183-m182-boundary-outcome-corpus-objective",
-    "kind": "objective_sanity",
-    "notes": "Pending after M182: build corpus/objective from accepted robust rows and prove replay alignment before actor updates",
-    "priority": 1780,
+    "command": "see experiments/manifests/m184-m183-guarded-actor-update.json",
+    "hypothesis": "M183 produced replay-aligned objective corpora, so the next step is a tiny anchored actor-coupling update from M168 strict before any PPO.",
+    "id": "m184-m183-guarded-actor-update",
+    "kind": "driver_candidate",
+    "notes": "Pending after M183: start from M168 strict first and require behavior protected-key and boundary replay gates before PPO",
+    "priority": 1790,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T070247Z"
+  "updated_at_utc": "20260522T071150Z"
 }
