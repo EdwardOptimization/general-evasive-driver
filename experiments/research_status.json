@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 260,
+    "completed": 261,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m251-checkpoint-interpolation-alpha-token-fix.md",
+    "command_log": "docs/m252-nano-alpha-safety-boundary-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m251_alpha_token_precision_smoke",
+    "run_dir": "runs/m252_alpha_boundary_interpolation",
     "status": "completed",
-    "task_id": "m251-checkpoint-interpolation-alpha-token-fix"
+    "task_id": "m252-nano-alpha-safety-boundary-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m252-nano-alpha-safety-boundary-audit.json",
-    "hypothesis": "Map the source-calibration alpha proof-retention boundary between 0.00005 and 0.0001 before PPO from the calibrated base",
-    "id": "m252-nano-alpha-safety-boundary-audit",
+    "command": "see experiments/manifests/m253-full-public-gate-for-m252-a0-00008.json",
+    "hypothesis": "Run full public replay protected-key and behavior gates for M252 alpha 0.00008 before promotion",
+    "id": "m253-full-public-gate-for-m252-a0-00008",
     "kind": "driver_candidate",
-    "notes": "Pending: fixed interpolation sweep exact source eval and M183/M170 replay gate",
-    "priority": 2470,
+    "notes": "Pending: full public gate for candidate alpha 0.00008",
+    "priority": 2480,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T145544Z"
+  "updated_at_utc": "20260522T145941Z"
 }

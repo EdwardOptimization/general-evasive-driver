@@ -8477,3 +8477,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: fixed checkpoint interpolation labels and paths for micro/nano alphas. `0.0001`, `0.00025`, `0.0005`, and `0.0025` now produce distinct labels and files, while common labels such as `a125` and `a500` remain stable. Focused tests passed (`6 passed`).
 - decision: `complete_alpha_token_precision_fix`
 - next: `m252-nano-alpha-safety-boundary-audit`
+
+## 20260522T145941Z - m252-nano-alpha-safety-boundary-audit
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m252_alpha_boundary_interpolation`
+- artifact: `docs/m252-nano-alpha-safety-boundary-audit.md`
+- result: exact source-aware M232 loss improves monotonically from alpha `0.00005` through `0.0001`. M183/M170 replay passes through alpha `0.00008`, but alpha `0.00009` loses row `16` (`9530:6:9550:6`) by flipping normal margin from barely positive to collision.
+- decision: `admit_m253_full_public_gate_for_a0_00008`
+- next: `m253-full-public-gate-for-m252-a0-00008`
