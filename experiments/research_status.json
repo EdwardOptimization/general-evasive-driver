@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 242,
+    "completed": 243,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m233-protected-key-aware-ppo-smoke-from-m224.md",
+    "command_log": "docs/m234-m233-closed-loop-retention-failure-audit.md",
     "returncode": 0,
-    "run_dir": "runs/ppo_m233_protected_key_combined_anchor_from_m224_seed5220",
+    "run_dir": "runs/m234_m233_closed_loop_retention_audit",
     "status": "completed",
-    "task_id": "m233-protected-key-aware-ppo-smoke-from-m224"
+    "task_id": "m234-m233-closed-loop-retention-failure-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m234-m233-closed-loop-retention-failure-audit.json",
-    "hypothesis": "Audit why M233 satisfied snippet anchors but failed closed-loop replay and protected-key margins",
-    "id": "m234-m233-closed-loop-retention-failure-audit",
-    "kind": "gate",
-    "notes": "Pending: classify first-action versus closed-loop rollout drift and pre-register exactly one repair path; no PPO in M234",
-    "priority": 2290,
+    "command": "see experiments/manifests/m235-closed-loop-trajectory-anchor-surface-export.json",
+    "hypothesis": "Export multi-step trajectory anchor surface for fragile replay and protected rows before any more PPO",
+    "id": "m235-closed-loop-trajectory-anchor-surface-export",
+    "kind": "infrastructure",
+    "notes": "Pending: export M224 teacher-forced trajectory anchors for M183 M170 row16 and protected key 9944; no PPO in M235",
+    "priority": 2300,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T132353Z"
+  "updated_at_utc": "20260522T132649Z"
 }

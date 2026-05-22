@@ -2,7 +2,7 @@
   "id": "m234-m233-closed-loop-retention-failure-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "repair",
   "failure_types": [
     "proof_washout",
     "protected_key_window_failure",
@@ -86,5 +86,25 @@
     "runs/ppo_m233_protected_key_combined_anchor_from_m224_seed5220/train_metrics.csv"
   ],
   "decision_rule": "M234 may only unblock a new repair if it explains the closed-loop retention failure and pre-registers a bounded non-PPO or one-smoke PPO path with explicit retention gates.",
-  "next_blocker": "Audit whether M233 needs rollout-level replay anchoring, multi-step action anchors, or stricter PPO trust-region constraints."
+  "results": {
+    "snippet_action_anchor_loss_mean": 4.320291678815919e-08,
+    "m232_action_mse_mean": 8.986472721517202e-07,
+    "m232_action_mse_max": 1.6302161611747579e-06,
+    "m232_action_l2_mean": 0.0016315521206706762,
+    "m232_action_l2_max": 0.002211481099948287,
+    "protected_key_action_l2": 0.0017713895067572594,
+    "m183_m170_failed_row_id": 16,
+    "m183_m170_failed_row_pair": "9530:6:9550:6",
+    "m183_m170_failed_row_m224_normal_margin": 0.000106,
+    "m183_m170_failed_row_m233_normal_margin": -0.000169,
+    "m183_m170_failed_row_margin_delta": -0.000275,
+    "m183_m170_failed_row_first_action_l2": 0.0023427670581969767,
+    "protected_key": "9944|perturbed|28|28",
+    "protected_key_m224_normal_margin": 0.18638540533940784,
+    "protected_key_m233_normal_margin": 0.20464540156918803,
+    "protected_key_m233_pass": false,
+    "failure_classification": "closed_loop_rollout_drift"
+  },
+  "decision": "repair_with_closed_loop_trajectory_anchor_surface",
+  "next_blocker": "Export a closed-loop trajectory anchor surface before any further PPO continuation."
 }

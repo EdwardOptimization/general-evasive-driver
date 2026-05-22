@@ -8303,3 +8303,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: negative. Behavior success stayed `0.8625`, but M183 M170 replay fell to `16/17` and protected key `9944|perturbed|28|28` failed with normal margin `0.204645`.
 - decision: `reject_ppo_smoke_replay_and_protected_key_failure`
 - next: `m234-m233-closed-loop-retention-failure-audit`
+
+## 20260522T132649Z m234-m233-closed-loop-retention-failure-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m234_m233_closed_loop_retention_audit`
+- artifact: `docs/m234-m233-closed-loop-retention-failure-audit.md`
+- result: M233 failure is closed-loop rollout drift. First-action differences are tiny but M183 M170 row `16` flips from margin `0.000106` to `-0.000169`, and protected key `9944|perturbed|28|28` still leaves the `0.2` window.
+- decision: `repair_with_closed_loop_trajectory_anchor_surface`
+- next: `m235-closed-loop-trajectory-anchor-surface-export`

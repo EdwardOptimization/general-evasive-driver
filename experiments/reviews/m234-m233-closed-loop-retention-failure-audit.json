@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M234 classifies M233 as closed-loop rollout drift: first-action differences are tiny but M183 row16 flips by margin -0.000275 and protected key leaves the 0.2 window; export trajectory anchors before more PPO",
+  "failure_criteria": [
+    "run more PPO before the audit",
+    "promote M233 because behavior success is retained",
+    "ignore the M183 M170 replay failure",
+    "ignore the protected-key failure",
+    "change the actor input contract"
+  ],
+  "failure_types": [
+    "proof_washout",
+    "protected_key_window_failure",
+    "promotion_gate_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not repeat or lengthen M233 before the audit",
+    "do not loosen replay or protected-key thresholds",
+    "do not treat near-zero first-action anchor loss as closed-loop retention",
+    "do not change actor inputs"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260522T132655Z",
+  "hypothesis": "M233 fails because snippet-level first-action anchoring can be satisfied while closed-loop near-boundary rollout margins still drift. The next repair should be designed around rollout-level retention rather than another coverage-only snippet export.",
+  "lineage": {
+    "blocked_by": [
+      "m233-protected-key-aware-ppo-smoke-from-m224"
+    ],
+    "derived_from": [
+      "m233-protected-key-aware-ppo-smoke-from-m224"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt",
+      "runs/ppo_m233_protected_key_combined_anchor_from_m224_seed5220/checkpoint.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m233_protected_key_combined_anchor_from_m224_smoke.json"
+    ],
+    "parent_dataset": [
+      "runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.npz",
+      "runs/m233_m183_m170_replay_gate_seed9510/boundary_replay_rows.csv",
+      "runs/m233_critical_key_seed9944/guard_results.csv"
+    ],
+    "parent_objective": [
+      "combined M223/M231 preferred-only snippet action anchor",
+      "combined M223/M231 outcome intervention auxiliary loss",
+      "rollout-state M224 baseline action anchor"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m234-m233-closed-loop-retention-failure-audit",
+  "next_blocker": "Export a closed-loop trajectory anchor surface before any further PPO continuation.",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "repair_with_closed_loop_trajectory_anchor_surface",
+  "public_gates": [
+    "M233 M183 M170 replay failed row audit",
+    "M233 protected key candidate audit",
+    "M233 train snippet anchor loss audit",
+    "research validator"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt",
+    "clearance_margin_mean": "1.844231",
+    "decision": "repair_with_closed_loop_trajectory_anchor_surface",
+    "milestone": "m234-m233-closed-loop-retention-failure-audit",
+    "reason": "M234 classifies M233 as closed-loop rollout drift: first-action differences are tiny but M183 row16 flips by margin -0.000275 and protected key leaves the 0.2 window; export trajectory anchors before more PPO",
+    "reset_success": "0.8500",
+    "success_rate": "0.8625",
+    "termination_rate": "0.1375",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "0.8000",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "classify whether M233 failure is first-action mismatch or closed-loop rollout drift",
+    "identify the exact failed replay row and protected-key margin movement",
+    "decide the next repair path before any more PPO",
+    "keep M224 current best",
+    "pre-register exactly one bounded next milestone"
+  ],
+  "type": "gate"
+}

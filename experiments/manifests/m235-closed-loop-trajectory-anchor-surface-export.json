@@ -1,0 +1,94 @@
+{
+  "id": "m235-closed-loop-trajectory-anchor-surface-export",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m233_m183_m170_replay_gate_seed9510/boundary_replay_rows.csv",
+      "runs/m233_critical_key_seed9944/protected_cases.csv",
+      "runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.npz"
+    ],
+    "parent_config": [
+      "configs/ppo_m233_protected_key_combined_anchor_from_m224_smoke.json"
+    ],
+    "parent_objective": [
+      "closed-loop replay retention",
+      "multi-step action trajectory anchoring"
+    ],
+    "derived_from": [
+      "m234-m233-closed-loop-retention-failure-audit"
+    ],
+    "blocked_by": [
+      "m233-protected-key-aware-ppo-smoke-from-m224"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m235-closed-loop-trajectory-anchor-surface-export.md",
+  "public_gates": [
+    "trajectory corpus shape validation",
+    "failed M183 M170 row 16 inclusion",
+    "protected key 9944 inclusion",
+    "M224 reference action reconstruction",
+    "research validator"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M235",
+    "do not change actor inputs",
+    "do not loosen replay or protected-key thresholds",
+    "do not export only first-action snippets"
+  ],
+  "hypothesis": "M233 showed that first-action snippet anchoring is insufficient for near-boundary closed-loop proof retention. Exporting teacher-forced M224 action trajectories for fragile replay and protected rows will create the right surface for a future trajectory-level anchor.",
+  "success_criteria": [
+    "export a multi-step trajectory anchor NPZ with deployable observations hidden states reference actions row ids and step indices",
+    "include failed M183 M170 row 16",
+    "include protected key 9944|perturbed|28|28",
+    "validate all arrays are finite and shape-consistent",
+    "do not run PPO or promote a driver checkpoint"
+  ],
+  "failure_criteria": [
+    "run PPO before trajectory export validation",
+    "export only the same first-action snippets as M232",
+    "omit the failed M183 M170 row",
+    "omit the protected key",
+    "change the human-view actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "m235_export",
+      "command": "Export M224 teacher-forced multi-step action trajectories for fragile replay and protected rows without running PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m235-closed-loop-trajectory-anchor-surface-export.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m235_closed_loop_trajectory_anchor_surface/trajectory_anchor.npz",
+      "type": "trajectory_npz"
+    },
+    {
+      "path": "runs/m235_closed_loop_trajectory_anchor_surface/summary.json",
+      "type": "summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m234-m233-closed-loop-retention-failure-audit.md",
+    "runs/m233_m183_m170_replay_gate_seed9510/boundary_replay_rows.csv",
+    "runs/m233_critical_key_seed9944/protected_cases.csv"
+  ],
+  "decision_rule": "M235 may only unblock trajectory-anchor implementation if the exported corpus includes the failed replay row and protected key with finite multi-step deployable arrays.",
+  "next_blocker": "Implement or adapt a trajectory-level anchor loss before any further PPO continuation."
+}
