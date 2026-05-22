@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 179,
+    "completed": 180,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m170-row67-guarded-stage2-ppo.md",
+    "command_log": "docs/m171-row67-preserving-stage2-recipe.md",
     "returncode": 0,
-    "run_dir": "runs/m170_fragile_row_guard_seed9510",
+    "run_dir": "runs/m171_fragile_row_guard_seed9510",
     "status": "completed",
-    "task_id": "m170-row67-guarded-stage2-ppo"
+    "task_id": "m171-row67-preserving-stage2-recipe"
   },
   "next_task": {
-    "command": "see experiments/manifests/m171-row67-preserving-stage2-recipe.json",
-    "hypothesis": "M170 improved the fixed objective but lost row 67, so stage2 PPO needs a more conservative recipe such as a shorter step budget or stronger anchoring before any continuation is admissible.",
-    "id": "m171-row67-preserving-stage2-recipe",
-    "kind": "driver_candidate",
-    "notes": "Pending after M170: failed stage2 lost row67, so retry only from M168 admitted checkpoint with a more conservative recipe",
-    "priority": 1660,
+    "command": "see experiments/manifests/m172-stage2-objective-replay-mismatch-audit.json",
+    "hypothesis": "M170 and M171 both improved the fixed outcome objective while failing full boundary replay, so the fixed objective is not sufficiently aligned with actual replay retention for stage2 PPO.",
+    "id": "m172-stage2-objective-replay-mismatch-audit",
+    "kind": "objective_sanity",
+    "notes": "Pending after M171: pause stage2 PPO and audit why fixed objective improvements lose replay rows 67 70 or 77",
+    "priority": 1670,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T045943Z"
+  "updated_at_utc": "20260522T050325Z"
 }

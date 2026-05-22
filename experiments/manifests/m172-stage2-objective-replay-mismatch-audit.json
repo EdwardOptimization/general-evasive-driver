@@ -1,0 +1,38 @@
+{
+  "id": "m172-stage2-objective-replay-mismatch-audit",
+  "type": "objective_sanity",
+  "hypothesis": "M170 and M171 both improved the fixed outcome objective while failing full boundary replay, so the fixed objective is not sufficiently aligned with actual replay retention for stage2 PPO.",
+  "success_criteria": [
+    "compare M168, M170, and M171 fixed objective losses against full M164 replay outcomes",
+    "extract lost and changed success-drop rows for M170 and M171",
+    "identify whether failures are row67-only, row-swap, normal-success regression, or broader replay mismatch",
+    "document whether PPO should be paused until a replay-aligned objective or stricter prescreen is added",
+    "do not run another stage2 PPO candidate before the mismatch audit is complete"
+  ],
+  "failure_criteria": [
+    "try another PPO recipe before explaining the M170/M171 mismatch",
+    "treat fixed objective improvement as sufficient for admission",
+    "ignore rows 70 and 77 because row67 was retained in M171",
+    "relax full M164 replay or fragile-row guard thresholds"
+  ],
+  "commands": [
+    {
+      "name": "m172_stage2_objective_replay_mismatch_audit",
+      "command": "Audit M168/M170/M171 fixed objective and boundary replay artifacts, especially lost rows 67, 70, and 77, before any further PPO stage."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m172-stage2-objective-replay-mismatch-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m168_fixed_batch_outcome_eval_seed37/summary.json",
+    "runs/m170_fixed_batch_outcome_eval_seed37/summary.json",
+    "runs/m171_fixed_batch_outcome_eval_seed37/summary.json",
+    "runs/m170_boundary_outcome_replay_gate_seed9510/boundary_replay_rows.csv",
+    "runs/m171_boundary_outcome_replay_gate_seed9510/boundary_replay_rows.csv"
+  ],
+  "decision_rule": "Pause stage2 PPO unless the audit defines a replay-aligned objective or guard that directly protects the observed lost rows."
+}
