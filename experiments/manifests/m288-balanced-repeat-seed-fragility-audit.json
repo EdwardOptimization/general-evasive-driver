@@ -1,0 +1,86 @@
+{
+  "id": "m288-balanced-repeat-seed-fragility-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m286_rejected_trajectory_anchor_balance_sweep/repeat2_interpolation/checkpoints/alpha_0_5.pt",
+      "runs/m287_balanced_rejected_trajectory_repeat/interpolation_refine/checkpoints/alpha_0_005.pt"
+    ],
+    "parent_dataset": [
+      "runs/m286_rejected_trajectory_anchor_balance_sweep/repeat2_interpolation/alpha_summary.csv",
+      "runs/m287_balanced_rejected_trajectory_repeat/interpolation_refine/alpha_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m286-rejected-trajectory-anchor-balance-sweep.json",
+      "experiments/manifests/m287-balanced-rejected-trajectory-repeat.json"
+    ],
+    "parent_objective": [
+      "audit why the M286 repeat2 recipe has a wide safe alpha on seed10079 and a collapsed safe alpha on seed10080"
+    ],
+    "derived_from": [
+      "m287-balanced-rejected-trajectory-repeat"
+    ],
+    "blocked_by": [
+      "m287-balanced-rejected-trajectory-repeat"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m288-balanced-repeat-seed-fragility-audit.md",
+  "public_gates": [
+    "audit only; do not run PPO",
+    "compare M286 and M287 raw and selected interpolation candidates",
+    "identify which M183/M170 rows create the seed-fragile safe-alpha collapse",
+    "compare first-action and trajectory action drift on failed old-surface rows",
+    "recommend exactly one next repair recipe"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M288",
+    "do not promote a checkpoint in M288",
+    "do not change actor inputs",
+    "do not ignore M183/M170 row-level failure evidence"
+  ],
+  "hypothesis": "The M287 safe-alpha collapse is caused by seed-sensitive drift on old M183/M170 fragile rows rather than loss of the M267/M264 current-family rejected-history direction.",
+  "success_criteria": [
+    "identify the M183/M170 rows responsible for the M286 versus M287 safe-alpha difference",
+    "quantify action drift or margin drift on those rows",
+    "separate current-family retention success from old-surface normal-success fragility",
+    "pre-register one next repair recipe before any further update or PPO"
+  ],
+  "failure_criteria": [
+    "audit cannot explain why M287 safe alpha collapses",
+    "audit recommends PPO without a repeat-safe proof-retention recipe",
+    "actor observation inputs change"
+  ],
+  "commands": [
+    {
+      "name": "m288_audit",
+      "command": "Compare M286 and M287 replay rows and action drift on first failing old-surface rows, then select the next bounded repair."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m288-balanced-repeat-seed-fragility-audit.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m288_balanced_repeat_seed_fragility_audit/summary.json",
+      "type": "audit_summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m286_rejected_trajectory_anchor_balance_sweep/repeat2_interpolation/checkpoints/alpha_0_5.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m286-rejected-trajectory-anchor-balance-sweep.md",
+    "docs/m287-balanced-rejected-trajectory-repeat.md"
+  ],
+  "decision_rule": "M288 is an audit milestone. It cannot promote a driver checkpoint and should unblock only one explicitly registered proof-retention repair recipe.",
+  "next_blocker": "pending M288 balanced repeat seed fragility audit"
+}

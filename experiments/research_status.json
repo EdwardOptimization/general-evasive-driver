@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 295,
+    "completed": 296,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m286-rejected-trajectory-anchor-balance-sweep.md",
+    "command_log": "docs/m287-balanced-rejected-trajectory-repeat.md",
     "returncode": 0,
-    "run_dir": "runs/m286_rejected_trajectory_anchor_balance_sweep",
+    "run_dir": "runs/m287_balanced_rejected_trajectory_repeat",
     "status": "completed",
-    "task_id": "m286-rejected-trajectory-anchor-balance-sweep"
+    "task_id": "m287-balanced-rejected-trajectory-repeat"
   },
   "next_task": {
-    "command": "see experiments/manifests/m287-balanced-rejected-trajectory-repeat.json",
-    "hypothesis": "The M286 repeat2 balanced trajectory-anchor recipe should repeat on a fresh optimizer seed and produce a public-gate-safe interpolation with material exact M270 improvement.",
-    "id": "m287-balanced-rejected-trajectory-repeat",
-    "kind": "driver_candidate",
-    "notes": "Pending: fresh-seed balanced repeat with first gates then full public gates",
-    "priority": 2820,
+    "command": "see experiments/manifests/m288-balanced-repeat-seed-fragility-audit.json",
+    "hypothesis": "The M287 safe-alpha collapse is caused by seed-sensitive drift on old M183/M170 fragile rows rather than loss of the M267/M264 current-family rejected-history direction.",
+    "id": "m288-balanced-repeat-seed-fragility-audit",
+    "kind": "gate",
+    "notes": "Pending: compare M286 and M287 failed old-surface rows before next repair",
+    "priority": 2830,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T192137Z"
+  "updated_at_utc": "20260522T192817Z"
 }

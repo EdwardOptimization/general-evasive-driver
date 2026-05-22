@@ -1,0 +1,82 @@
+# m287-balanced-rejected-trajectory-repeat Research Review
+
+## Summary
+
+- Generated at UTC: 20260522T192948Z
+- Type: driver_candidate
+- Gate tier: proof
+- Promotion decision: reject_m287_balanced_repeat_seed_fragility
+- Decision reason: M287 fresh seed passes full gates only at alpha 0.005 with exact M270 delta 0.0000268 so PPO remains blocked
+
+## Hypothesis
+
+The M286 repeat2 balanced trajectory-anchor recipe should repeat on a fresh optimizer seed and produce a public-gate-safe interpolation with material exact M270 improvement.
+
+## Lineage
+
+- parent_checkpoint: runs/m272_m264_to_m271_interpolation_boundary/checkpoints/alpha_0_01025.pt, runs/m286_rejected_trajectory_anchor_balance_sweep/repeat2_interpolation/checkpoints/alpha_0_5.pt
+- parent_dataset: runs/m286_rejected_trajectory_anchor_balance_sweep/anchors/repeat2/combined_recovery_rejected_anchor.npz, runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz
+- parent_config: experiments/manifests/m286-rejected-trajectory-anchor-balance-sweep.json, docs/m286-rejected-trajectory-anchor-balance-sweep.md
+- parent_objective: repeat M286 repeat2 rejected-history trajectory balance recipe on a fresh optimizer seed
+- derived_from: m286-rejected-trajectory-anchor-balance-sweep
+- blocked_by: m286-rejected-trajectory-anchor-balance-sweep
+- supersedes: None
+- invalidates: None
+
+## Success Criteria
+
+- run a fresh-seed no-PPO update using the repeat2 combined trajectory anchor
+- find a raw or interpolated candidate with material exact M270 improvement
+- candidate preserves M183/M170 and M267/M264 first gates
+- candidate passes broader public replay protected-key and behavior gates before promotion
+- actor input contract remains unchanged
+
+## Failure Criteria
+
+- fresh seed cannot produce a first-gate-safe candidate with material exact improvement
+- candidate passes first gates but fails broader public replay protected-key or behavior gates
+- PPO is run
+- actor observation inputs change
+
+## Evidence Gates
+
+- do not run PPO
+- repeat the M286 repeat2 no-PPO update recipe on a fresh optimizer seed
+- interpolate from M272 toward the fresh repeat if raw update fails first gates
+- gate M183/M170 and M267/M264 first
+- run broader replay protected-key and behavior gates only if first gates pass with non-negligible improvement
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run PPO in M287
+- do not change actor inputs
+- do not tune from private holdouts
+- do not promote a candidate that fails any public replay gate
+- do not skip behavior seeds 9505 and 9506 if replay gates pass
+
+## Failure Taxonomy
+
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m287-balanced-rejected-trajectory-repeat
+- type: driver_candidate
+- checkpoint: runs/m287_balanced_rejected_trajectory_repeat/interpolation_refine/checkpoints/alpha_0_005.pt
+- success_rate: 0.8625
+- termination_rate: 0.1375
+- clearance_margin_mean: 1.844094
+- reset_success: 0.8500
+- zero_wheel_success: None
+- zero_all_success: 0.8000
+- wheel_gain_mu: None
+- decision: reject_m287_balanced_repeat_seed_fragility
+- reason: M287 fresh seed passes full gates only at alpha 0.005 with exact M270 delta 0.0000268 so PPO remains blocked
+
+## Next Blocker
+
+m288-balanced-repeat-seed-fragility-audit

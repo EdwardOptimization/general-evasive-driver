@@ -2,9 +2,9 @@
   "id": "m287-balanced-rejected-trajectory-repeat",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "seed_fragility"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -84,6 +84,24 @@
     "docs/m286-rejected-trajectory-anchor-balance-sweep.md",
     "runs/m286_rejected_trajectory_anchor_balance_sweep/summary.json"
   ],
-  "decision_rule": "M287 may admit PPO only after a fresh-seed balanced-repeat candidate passes full public gates with material exact M270 improvement. Otherwise keep PPO blocked.",
-  "next_blocker": "pending M287 balanced rejected trajectory repeat"
+  "results": {
+    "run_dir": "runs/m287_balanced_rejected_trajectory_repeat",
+    "raw_checkpoint": "runs/m287_balanced_rejected_trajectory_repeat/update_repeat2_s10_lr5e5_seed10080/optimized_checkpoint.pt",
+    "raw_exact_m270_loss": 0.6759185791015625,
+    "raw_m183_m170_gate_pass": false,
+    "raw_m267_m264_gate_pass": true,
+    "selected_checkpoint": "runs/m287_balanced_rejected_trajectory_repeat/interpolation_refine/checkpoints/alpha_0_005.pt",
+    "selected_alpha": 0.005,
+    "exact_m270_loss_base": 0.6813756227493286,
+    "exact_m270_loss_selected": 0.6813488006591797,
+    "exact_m270_loss_delta": -0.00002682209014892578,
+    "full_replay_gates_pass": true,
+    "protected_key_guard_validated": true,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "promotion_recommended": false
+  },
+  "decision_rule": "Reject M287 for PPO admission because the fresh-seed safe alpha collapses to 0.005. The selected checkpoint passes public gates but does not justify replacing M286 or starting PPO.",
+  "decision": "reject_m287_balanced_repeat_seed_fragility",
+  "next_blocker": "m288-balanced-repeat-seed-fragility-audit"
 }
