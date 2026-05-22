@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 181,
+    "completed": 182,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m172-stage2-objective-replay-mismatch-audit.md",
+    "command_log": "docs/m173-fragile-row-action-margin-sensitivity-audit.md",
     "returncode": 0,
     "run_dir": "runs/m171_boundary_outcome_replay_gate_seed9510",
     "status": "completed",
-    "task_id": "m172-stage2-objective-replay-mismatch-audit"
+    "task_id": "m173-fragile-row-action-margin-sensitivity-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m173-fragile-row-action-margin-sensitivity-audit.json",
-    "hypothesis": "The M170/M171 replay failures may be caused by tiny action or hidden-state shifts on low-margin rows, so fragile-row action and margin sensitivity should be audited before changing PPO or objectives.",
-    "id": "m173-fragile-row-action-margin-sensitivity-audit",
-    "kind": "objective_sanity",
-    "notes": "Pending after M172: inspect fragile rows 67 70 and 77 action and margin sensitivity before another PPO stage",
-    "priority": 1680,
+    "command": "see experiments/manifests/m174-robust-vs-knife-edge-boundary-rows.json",
+    "hypothesis": "M173 showed that rows 67, 70, and 77 are knife-edge binary flips, so boundary replay rows should be split into robust promotion rows and knife-edge stress rows before further PPO or objective redesign.",
+    "id": "m174-robust-vs-knife-edge-boundary-rows",
+    "kind": "gate",
+    "notes": "Pending after M173: classify full M162 boundary replay rows by margin slack under M168 before further PPO",
+    "priority": 1690,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T050718Z"
+  "updated_at_utc": "20260522T050943Z"
 }

@@ -1,0 +1,36 @@
+{
+  "id": "m174-robust-vs-knife-edge-boundary-rows",
+  "type": "gate",
+  "hypothesis": "M173 showed that rows 67, 70, and 77 are knife-edge binary flips, so boundary replay rows should be split into robust promotion rows and knife-edge stress rows before further PPO or objective redesign.",
+  "success_criteria": [
+    "classify M162 boundary replay rows by normal and wrong-history margin slack under the admitted M168 checkpoint",
+    "identify robust rows with sufficient normal/wrong margin slack",
+    "identify knife-edge rows such as 67, 70, and 77",
+    "compare M170 and M171 failures on robust rows versus knife-edge rows",
+    "define whether future promotion should require robust-row retention, knife-edge stress reporting, or both"
+  ],
+  "failure_criteria": [
+    "run more PPO before classifying robust versus knife-edge rows",
+    "relax gates simply to pass M170 or M171",
+    "discard knife-edge rows without documenting their diagnostic role",
+    "use aggregate fixed objective loss as the main promotion signal"
+  ],
+  "commands": [
+    {
+      "name": "m174_robust_vs_knife_edge_boundary_rows",
+      "command": "Analyze M168 boundary replay rows by margin slack and split rows into robust promotion rows and knife-edge stress rows."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m174-robust-vs-knife-edge-boundary-rows.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m168_from_m167_5168_boundary_outcome_replay_gate_seed9510/boundary_replay_rows.csv",
+    "runs/m170_boundary_outcome_replay_gate_seed9510/boundary_replay_rows.csv",
+    "runs/m171_boundary_outcome_replay_gate_seed9510/boundary_replay_rows.csv"
+  ],
+  "decision_rule": "Future PPO promotion must distinguish robust replay retention from knife-edge stress diagnostics."
+}
