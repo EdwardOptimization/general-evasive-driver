@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 261,
+    "completed": 262,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m252-nano-alpha-safety-boundary-audit.md",
+    "command_log": "docs/m253-full-public-gate-for-m252-a0-00008.md",
     "returncode": 0,
-    "run_dir": "runs/m252_alpha_boundary_interpolation",
+    "run_dir": "runs/m253_behavior_gate_a0_00008_seed9506",
     "status": "completed",
-    "task_id": "m252-nano-alpha-safety-boundary-audit"
+    "task_id": "m253-full-public-gate-for-m252-a0-00008"
   },
   "next_task": {
-    "command": "see experiments/manifests/m253-full-public-gate-for-m252-a0-00008.json",
-    "hypothesis": "Run full public replay protected-key and behavior gates for M252 alpha 0.00008 before promotion",
-    "id": "m253-full-public-gate-for-m252-a0-00008",
+    "command": "see experiments/manifests/m254-exact-source-gated-ppo-smoke-from-m253.json",
+    "hypothesis": "Run one exact-source-gated PPO smoke from the promoted M253 public-gate base before longer continuation",
+    "id": "m254-exact-source-gated-ppo-smoke-from-m253",
     "kind": "driver_candidate",
-    "notes": "Pending: full public gate for candidate alpha 0.00008",
-    "priority": 2480,
+    "notes": "Pending: PPO smoke exact source gate then proof gates if admitted",
+    "priority": 2490,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T145941Z"
+  "updated_at_utc": "20260522T150319Z"
 }

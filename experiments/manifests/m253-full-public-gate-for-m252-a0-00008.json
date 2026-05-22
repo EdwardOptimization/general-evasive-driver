@@ -2,7 +2,7 @@
   "id": "m253-full-public-gate-for-m252-a0-00008",
   "type": "driver_candidate",
   "gate_tier": "promotion",
-  "promotion_decision": "pending",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -87,6 +87,6 @@
     "docs/m250-protected-key-source-actor-coupling-calibration.md",
     "docs/m252-nano-alpha-safety-boundary-audit.md"
   ],
-  "decision_rule": "Promote m252_a0_00008 as the public-gate base only if every public proof, protected-key, and behavior gate passes; otherwise keep M250.",
-  "next_blocker": "If M253 passes, run one guarded PPO smoke from the promoted calibrated base; if it fails, keep M250 and audit the failing gate."
+  "decision_rule": "M253 promotes m252_a0_00008 as the public-gate base because every public replay, protected-key, and behavior gate passes without PPO.",
+  "next_blocker": "Run one exact-source-gated PPO smoke from the promoted calibrated base."
 }

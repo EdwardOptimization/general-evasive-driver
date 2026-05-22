@@ -8487,3 +8487,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: exact source-aware M232 loss improves monotonically from alpha `0.00005` through `0.0001`. M183/M170 replay passes through alpha `0.00008`, but alpha `0.00009` loses row `16` (`9530:6:9550:6`) by flipping normal margin from barely positive to collision.
 - decision: `admit_m253_full_public_gate_for_a0_00008`
 - next: `m253-full-public-gate-for-m252-a0-00008`
+
+## 20260522T150319Z - m253-full-public-gate-for-m252-a0-00008
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m253_behavior_gate_a0_00008_seed9506`
+- artifact: `docs/m253-full-public-gate-for-m252-a0-00008.md`
+- result: alpha `0.00008` passes all replay gates, protected key `9944|perturbed|28|28`, and behavior seeds `9505/9506` versus M250. It preserves success `0.8625`, reset success `0.8500`, and zero-all success `0.8000`.
+- decision: `promote_m252_a0_00008_public_gate_base`
+- next: `m254-exact-source-gated-ppo-smoke-from-m253`

@@ -1,0 +1,85 @@
+{
+  "id": "m254-exact-source-gated-ppo-smoke-from-m253",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m252_alpha_boundary_interpolation/checkpoints/alpha_0_00008.pt"
+    ],
+    "parent_dataset": [
+      "runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.npz",
+      "runs/m231_protected_key_snippet_surface/protected_key_snippets.npz",
+      "runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.npz",
+      "runs/m235_closed_loop_trajectory_anchor_surface/trajectory_anchor.npz"
+    ],
+    "parent_config": [
+      "configs/ppo_m248_source_balanced_from_m239_smoke.json",
+      "docs/m253-full-public-gate-for-m252-a0-00008.md"
+    ],
+    "parent_objective": [
+      "source-balanced exact objective PPO smoke with existing snippet and trajectory anchors"
+    ],
+    "derived_from": [
+      "m253-full-public-gate-for-m252-a0-00008"
+    ],
+    "blocked_by": [
+      "m253-full-public-gate-for-m252-a0-00008"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m254-exact-source-gated-ppo-smoke-from-m253.md",
+  "public_gates": [
+    "1024-step PPO smoke from M253",
+    "post-PPO interpolation sweep",
+    "M245 exact source-aware objective gate",
+    "public proof gates only if exact source gate passes",
+    "research validator"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run longer PPO before the smoke passes",
+    "do not ignore protected-key source regression",
+    "do not run proof gates if exact source gate fails",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "Starting PPO from the source-calibrated M253 base may reduce the protected-key regression seen in M248, allowing a small PPO smoke to improve M223 and aggregate exact source loss without protected-key source regression.",
+  "success_criteria": [
+    "1024-step PPO smoke completes from M253",
+    "post-PPO interpolation includes at least alpha 0.1, 0.25, 0.5, 0.75, and 1.0",
+    "at least one alpha improves M223 source loss and aggregate M232 without protected-key source regression above +1e-8",
+    "run proof and behavior gates only for alphas that pass the exact source gate",
+    "no actor-input contract changes"
+  ],
+  "failure_criteria": [
+    "PPO fails to complete",
+    "all alphas regress protected-key source loss",
+    "any exact-gated alpha fails proof retention",
+    "behavior materially regresses"
+  ],
+  "commands": [
+    {
+      "name": "m254_ppo_smoke",
+      "command": "Run a 1024-step PPO smoke from M253 using the M248 source-balanced recipe with a fresh seed, then exact-source-gate interpolated alphas."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m254-exact-source-gated-ppo-smoke-from-m253.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m252_alpha_boundary_interpolation/checkpoints/alpha_0_00008.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m253-full-public-gate-for-m252-a0-00008.md",
+    "configs/ppo_m248_source_balanced_from_m239_smoke.json"
+  ],
+  "decision_rule": "Accept an interpolated PPO candidate only if exact source-aware objectives pass lexicographically and public proof/behavior gates retain M253; otherwise reject and audit PPO gradient conflict.",
+  "next_blocker": "Run exact-source-gated PPO smoke from the M253 public-gate base."
+}
