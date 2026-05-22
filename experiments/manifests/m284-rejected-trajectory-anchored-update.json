@@ -2,9 +2,10 @@
   "id": "m284-rejected-trajectory-anchored-update",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "proof_washout",
+    "objective_overfit"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -79,6 +80,14 @@
     {
       "path": "runs/m284_m272_actor_coupling_m270_rejected_trajectory_anchor_s10_lr5e5_seed10078/summary.json",
       "type": "actor_update_summary"
+    },
+    {
+      "path": "runs/m284_exact_outcome_eval_seed37/summary.json",
+      "type": "exact_eval_summary"
+    },
+    {
+      "path": "runs/m284_m183_m170_replay_gate_seed9510/summary.json",
+      "type": "failed_replay_summary"
     }
   ],
   "baseline_checkpoints": [
@@ -88,6 +97,25 @@
     "docs/m283-current-family-rejected-trajectory-anchor-export.md",
     "runs/m283_current_family_rejected_trajectory_anchor/summary.json"
   ],
-  "decision_rule": "M284 may promote only if objective improvement, M183/M170 row16, M267/M264 success-drop retention, remaining replay surfaces, protected key, and behavior seeds all pass. If M267/M264 fails again, reject and audit anchor weighting or source-aware terminal contrast rather than running PPO.",
-  "next_blocker": "pending M284 rejected trajectory anchored update"
+  "results": {
+    "raw_checkpoint": "runs/m284_m272_actor_coupling_m270_rejected_trajectory_anchor_s10_lr5e5_seed10078/optimized_checkpoint.pt",
+    "optimizer_sampled_loss_m272": 0.6808386286099751,
+    "optimizer_sampled_loss_m284": 0.6762213627497355,
+    "fixed_sampled_loss_m272": 0.681538792848587,
+    "fixed_sampled_loss_m284": 0.676859792470932,
+    "exact_loss_m272": 0.6813756227493286,
+    "exact_loss_m284": 0.6766853928565979,
+    "m267_m264_gate_pass": true,
+    "m267_m264_candidate_success_drop_count": 17,
+    "m267_m264_candidate_normal_success_rate": 1.0,
+    "m183_m170_gate_pass": false,
+    "m183_m170_candidate_normal_success_rate": 0.17647058823529413,
+    "m183_m170_candidate_success_drop_count": 3,
+    "m183_m170_row16_m284_margin": -0.0018084487583784892,
+    "protected_key_run": false,
+    "behavior_gate_run": false
+  },
+  "decision_rule": "Reject raw M284 because it repairs M267/M264 but washes out old M183/M170 normal success and row16. Next run a no-training interpolation balance probe before changing anchor weights.",
+  "decision": "reject_rejected_trajectory_raw_update_old_surface_washout",
+  "next_blocker": "m285-m284-interpolation-balance-probe"
 }
