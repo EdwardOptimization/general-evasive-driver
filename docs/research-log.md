@@ -7140,3 +7140,36 @@ Results:
 Decision: M197 is positive repeat evidence. Admit one short guarded stage2
 from the best fixed-loss retained repeat, M197 seed `5197`, but do not run a
 stage2 repeat or longer PPO continuation before that first stage2 passes gates.
+
+## 20260522T090905Z m198-guarded-stage2-ppo-from-m197
+
+M198 ran one short guarded stage2 from the best fixed-loss M197 repeat, seed
+`5197`. The action anchor remains M194 through
+`configs/ppo_m196_guarded_from_m194_smoke.json`.
+
+Artifacts:
+
+- `runs/ppo_m198_stage2_from_m197_seed5200`
+- `runs/m198_fixed_batch_outcome_eval_seed37`
+- `runs/m198_m183_m168_replay_gate_seed9510`
+- `runs/m198_m183_m170_replay_gate_seed9510`
+- `runs/m198_m193_m189_replay_gate_seed9630`
+- `runs/m198_behavior_gate_seed9505`
+- `runs/m198_behavior_gate_seed9506`
+- `runs/m198_critical_key_seed9944`
+- `docs/m198-guarded-stage2-ppo-from-m197.md`
+
+Results:
+
+- fixed M193 objective loss improves from M197 seed `5197` `0.158919` to M198
+  `0.158892`;
+- M183 M168 replay retains `16/16` success drops;
+- M183 M170 replay retains `17/17` success drops;
+- M193 M189 replay retains `14/14` success drops;
+- behavior seeds `9505` and `9506` keep success `0.8625`;
+- reset-hidden and zero-all-response ablations remain at `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` passes.
+
+Decision: M198 is positive as a single-seed stage2. Repeat the same stage2
+recipe from M197 seed `5197` on fresh seeds before chaining from M198 or
+running any longer PPO continuation.

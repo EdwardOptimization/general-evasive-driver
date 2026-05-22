@@ -23,7 +23,7 @@
   "commands": [
     {
       "name": "m198_short_stage2",
-      "command": "Run one 1024-step guarded PPO stage2 from runs/ppo_m197_guarded_from_m194_seed5197/checkpoint.pt using configs/ppo_m196_guarded_from_m194_smoke.json."
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_m196_guarded_from_m194_smoke.json --seed 5200 --init-checkpoint runs/ppo_m197_guarded_from_m194_seed5197/checkpoint.pt --run-dir runs/ppo_m198_stage2_from_m197_seed5200"
     },
     {
       "name": "m198_fixed_eval",
@@ -38,6 +38,38 @@
     {
       "path": "docs/m198-guarded-stage2-ppo-from-m197.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/ppo_m198_stage2_from_m197_seed5200/checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m198_fixed_batch_outcome_eval_seed37/summary.json",
+      "type": "fixed_eval_summary"
+    },
+    {
+      "path": "runs/m198_m183_m168_replay_gate_seed9510/summary.json",
+      "type": "m183_m168_replay"
+    },
+    {
+      "path": "runs/m198_m183_m170_replay_gate_seed9510/summary.json",
+      "type": "m183_m170_replay"
+    },
+    {
+      "path": "runs/m198_m193_m189_replay_gate_seed9630/summary.json",
+      "type": "m193_m189_replay"
+    },
+    {
+      "path": "runs/m198_behavior_gate_seed9505/policy_summary.csv",
+      "type": "behavior_seed9505"
+    },
+    {
+      "path": "runs/m198_behavior_gate_seed9506/policy_summary.csv",
+      "type": "behavior_seed9506"
+    },
+    {
+      "path": "runs/m198_critical_key_seed9944/summary.json",
+      "type": "protected_key"
     }
   ],
   "baseline_checkpoints": [
@@ -55,5 +87,23 @@
     "runs/m197_behavior_gate_seed9506/policy_summary.csv",
     "runs/m197_critical_key_seed9944/summary.json"
   ],
-  "decision_rule": "Only a short stage2 that preserves behavior, protected key, old replay, and refreshed replay may admit stage2 repeats."
+  "results": {
+    "checkpoint": "runs/ppo_m198_stage2_from_m197_seed5200/checkpoint.pt",
+    "train_rollout_return_mean": 70.4208100390373,
+    "train_reward_mean": 0.9799662828445435,
+    "train_outcome_intervention_loss_mean": 0.1543346531689167,
+    "train_baseline_action_anchor_loss_mean": 0.00003430673170138713,
+    "fixed_loss_m197_5197": 0.15891851872205734,
+    "fixed_loss_m198": 0.15889249086380006,
+    "m183_m168_success_drop_count": 16,
+    "m183_m170_success_drop_count": 17,
+    "m193_m189_success_drop_count": 14,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "reset_success": 0.85,
+    "zero_all_success": 0.80,
+    "protected_key_pass": true
+  },
+  "decision_rule": "Only a short stage2 that preserves behavior, protected key, old replay, and refreshed replay may admit stage2 repeats.",
+  "decision": "admit_stage2_repeat_from_m197"
 }
