@@ -15,7 +15,15 @@ from typing import Any
 
 from autodrift.artifacts import read_json
 from autodrift.research_cycle import ALLOWED_STATUSES, ResearchTask, load_queue, queue_counts
-from autodrift.research_schema import SCOREBOARD_FIELDS
+from autodrift.research_schema import (
+    PROCESS_V2_ENFORCE_FROM_PRIORITY,
+    PROCESS_V2_FAILURE_TYPES,
+    PROCESS_V2_GATE_TIERS,
+    PROCESS_V2_LINEAGE_FIELDS,
+    PROCESS_V2_PRIVATE_HOLDOUT_POLICIES,
+    PROCESS_V2_PROMOTION_DECISIONS,
+    SCOREBOARD_FIELDS,
+)
 
 
 ENFORCE_FROM_PRIORITY = 870
@@ -32,6 +40,16 @@ MANIFEST_REQUIRED_FIELDS = (
 )
 MANIFEST_TYPES = {"infrastructure", "objective_sanity", "driver_candidate", "gate"}
 GATE_OPERATORS = {">", ">=", "<", "<=", "==", "!="}
+PROCESS_V2_REQUIRED_FIELDS = (
+    "gate_tier",
+    "promotion_decision",
+    "failure_types",
+    "lineage",
+    "review_artifact",
+    "public_gates",
+    "private_holdout_policy",
+    "forbidden_shortcuts",
+)
 
 
 @dataclass(frozen=True)
@@ -44,6 +62,10 @@ def _is_enforced(task: ResearchTask, enforce_from_priority: int) -> bool:
     return int(task.priority) >= int(enforce_from_priority)
 
 
+def _is_process_v2(task: ResearchTask, process_v2_from_priority: int) -> bool:
+    return int(task.priority) >= int(process_v2_from_priority)
+
+
 def _manifest_path(manifest_dir: Path, task_id: str) -> Path:
     return manifest_dir / f"{task_id}.json"
 
@@ -54,6 +76,24 @@ def _non_empty_text(value: Any) -> bool:
 
 def _non_empty_list(value: Any) -> bool:
     return isinstance(value, list) and bool(value)
+
+
+def _is_text_or_list_or_null(value: Any) -> bool:
+    if value is None:
+        return True
+    if isinstance(value, str):
+        return True
+    if isinstance(value, list):
+        return all(isinstance(item, str) for item in value)
+    return False
+
+
+def _has_lineage_value(value: Any) -> bool:
+    if isinstance(value, str):
+        return bool(value.strip())
+    if isinstance(value, list):
+        return any(isinstance(item, str) and bool(item.strip()) for item in value)
+    return False
 
 
 def _path_exists(root: Path, path_text: str) -> bool:
@@ -80,7 +120,7 @@ def load_scoreboard(path: Path) -> list[dict[str, str]]:
         return [dict(row) for row in reader]
 
 
-def _validate_manifest(task: ResearchTask, manifest: dict[str, Any]) -> list[ValidationIssue]:
+def _validate_manifest(task: ResearchTask, manifest: dict[str, Any], process_v2: bool = False) -> list[ValidationIssue]:
     issues: list[ValidationIssue] = []
     missing = [field for field in MANIFEST_REQUIRED_FIELDS if field not in manifest]
     if missing:
@@ -100,6 +140,85 @@ def _validate_manifest(task: ResearchTask, manifest: dict[str, Any]) -> list[Val
             issues.append(ValidationIssue("error", f"{task.id}: manifest field {field!r} must be a non-empty list"))
     issues.extend(_validate_metric_extractors(task, manifest))
     issues.extend(_validate_gates(task, manifest))
+    if process_v2:
+        issues.extend(_validate_process_v2_manifest(task, manifest))
+    return issues
+
+
+def _validate_process_v2_manifest(task: ResearchTask, manifest: dict[str, Any]) -> list[ValidationIssue]:
+    issues: list[ValidationIssue] = []
+    missing = [field for field in PROCESS_V2_REQUIRED_FIELDS if field not in manifest]
+    if missing:
+        issues.append(ValidationIssue("error", f"{task.id}: process-v2 manifest missing fields {missing}"))
+        return issues
+
+    gate_tier = manifest.get("gate_tier")
+    if gate_tier not in PROCESS_V2_GATE_TIERS:
+        issues.append(
+            ValidationIssue("error", f"{task.id}: gate_tier must be one of {sorted(PROCESS_V2_GATE_TIERS)}")
+        )
+
+    promotion_decision = manifest.get("promotion_decision")
+    if promotion_decision not in PROCESS_V2_PROMOTION_DECISIONS:
+        issues.append(
+            ValidationIssue(
+                "error",
+                f"{task.id}: promotion_decision must be one of {sorted(PROCESS_V2_PROMOTION_DECISIONS)}",
+            )
+        )
+    if task.status == "completed" and promotion_decision == "pending":
+        issues.append(ValidationIssue("error", f"{task.id}: completed process-v2 task cannot keep pending promotion_decision"))
+
+    failure_types = manifest.get("failure_types")
+    if not isinstance(failure_types, list):
+        issues.append(ValidationIssue("error", f"{task.id}: failure_types must be a list"))
+    else:
+        unknown = [item for item in failure_types if item not in PROCESS_V2_FAILURE_TYPES]
+        if unknown:
+            issues.append(
+                ValidationIssue("error", f"{task.id}: unknown failure_types {unknown}; allowed {sorted(PROCESS_V2_FAILURE_TYPES)}")
+            )
+        if "none" in failure_types and len(failure_types) > 1:
+            issues.append(ValidationIssue("error", f"{task.id}: failure_types cannot combine 'none' with other failures"))
+        if task.status == "completed" and promotion_decision in {"reject", "repair"} and not failure_types:
+            issues.append(
+                ValidationIssue("error", f"{task.id}: rejected or repair process-v2 task must classify failure_types")
+            )
+
+    lineage = manifest.get("lineage")
+    if not isinstance(lineage, dict):
+        issues.append(ValidationIssue("error", f"{task.id}: lineage must be an object"))
+    else:
+        missing_lineage = [field for field in PROCESS_V2_LINEAGE_FIELDS if field not in lineage]
+        if missing_lineage:
+            issues.append(ValidationIssue("error", f"{task.id}: lineage missing fields {missing_lineage}"))
+        for field in PROCESS_V2_LINEAGE_FIELDS:
+            if field in lineage and not _is_text_or_list_or_null(lineage[field]):
+                issues.append(
+                    ValidationIssue(
+                        "error",
+                        f"{task.id}: lineage.{field} must be text, list of text, or null",
+                    )
+                )
+        if task.status != "planned" and not _has_lineage_value(lineage.get("derived_from")):
+            issues.append(ValidationIssue("error", f"{task.id}: lineage.derived_from must identify a parent experiment"))
+        if task.kind != "infrastructure" and not _has_lineage_value(lineage.get("blocked_by")):
+            issues.append(ValidationIssue("error", f"{task.id}: lineage.blocked_by must identify the current blocker"))
+
+    if not _non_empty_text(manifest.get("review_artifact")):
+        issues.append(ValidationIssue("error", f"{task.id}: review_artifact must be non-empty text"))
+
+    if not _non_empty_list(manifest.get("public_gates")):
+        issues.append(ValidationIssue("error", f"{task.id}: public_gates must be a non-empty list"))
+    if manifest.get("private_holdout_policy") not in PROCESS_V2_PRIVATE_HOLDOUT_POLICIES:
+        issues.append(
+            ValidationIssue(
+                "error",
+                f"{task.id}: private_holdout_policy must be one of {sorted(PROCESS_V2_PRIVATE_HOLDOUT_POLICIES)}",
+            )
+        )
+    if not _non_empty_list(manifest.get("forbidden_shortcuts")):
+        issues.append(ValidationIssue("error", f"{task.id}: forbidden_shortcuts must be a non-empty list"))
     return issues
 
 
@@ -189,6 +308,7 @@ def validate_research_state(
     manifest_dir: Path,
     scoreboard_path: Path,
     enforce_from_priority: int = ENFORCE_FROM_PRIORITY,
+    process_v2_from_priority: int = PROCESS_V2_ENFORCE_FROM_PRIORITY,
 ) -> list[ValidationIssue]:
     issues: list[ValidationIssue] = []
     tasks = load_queue(queue_path)
@@ -242,8 +362,11 @@ def validate_research_state(
             issues.append(ValidationIssue("error", f"{task.id}: missing manifest {path}"))
             continue
         manifest = read_json(path)
-        issues.extend(_validate_manifest(task, manifest))
+        process_v2 = _is_process_v2(task, process_v2_from_priority)
+        issues.extend(_validate_manifest(task, manifest, process_v2=process_v2))
         if task.status == "completed":
+            if process_v2 and manifest.get("review_artifact") and not _path_exists(root, str(manifest["review_artifact"])):
+                issues.append(ValidationIssue("error", f"{task.id}: review_artifact is missing: {manifest['review_artifact']}"))
             if task.id not in scoreboard_ids:
                 issues.append(ValidationIssue("error", f"{task.id}: completed enforced task missing scoreboard row"))
             for artifact in manifest.get("required_artifacts", []):
@@ -278,6 +401,7 @@ def main() -> None:
     parser.add_argument("--manifest-dir", type=Path, default=Path("experiments/manifests"))
     parser.add_argument("--scoreboard", type=Path, default=Path("experiments/scoreboard.csv"))
     parser.add_argument("--enforce-from-priority", type=int, default=ENFORCE_FROM_PRIORITY)
+    parser.add_argument("--process-v2-from-priority", type=int, default=PROCESS_V2_ENFORCE_FROM_PRIORITY)
     args = parser.parse_args()
 
     issues = validate_research_state(
@@ -287,6 +411,7 @@ def main() -> None:
         manifest_dir=args.manifest_dir,
         scoreboard_path=args.scoreboard,
         enforce_from_priority=args.enforce_from_priority,
+        process_v2_from_priority=args.process_v2_from_priority,
     )
     for issue in issues:
         print(f"{issue.severity}: {issue.message}")
@@ -295,7 +420,8 @@ def main() -> None:
     enforced_count = sum(1 for task in load_queue(args.queue) if _is_enforced(task, args.enforce_from_priority))
     print(
         "research validation passed "
-        f"(enforce_from_priority={args.enforce_from_priority}, enforced_tasks={enforced_count})"
+        f"(enforce_from_priority={args.enforce_from_priority}, enforced_tasks={enforced_count}, "
+        f"process_v2_from_priority={args.process_v2_from_priority})"
     )
 
 

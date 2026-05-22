@@ -219,3 +219,129 @@ research validation passed (enforce_from_priority=870, enforced_tasks=1)
 247 passed for the full suite
 16 passed from the pre-commit lightweight path
 ```
+
+## Process V2
+
+The M227 workflow upgrade adds a second enforcement layer. It starts at
+priority `2220`:
+
+```text
+m227-ppo-smoke-retention-failure-audit
+```
+
+M90-M226 remain under the original manifest rules. M227+ manifests must also
+declare evidence-governance fields:
+
+```text
+gate_tier
+promotion_decision
+failure_types
+lineage
+review_artifact
+public_gates
+private_holdout_policy
+forbidden_shortcuts
+```
+
+The validator accepts these gate tiers:
+
+```text
+proof
+generalization
+promotion
+process
+infrastructure
+```
+
+Failure classification is required for rejected or repair-path completed
+milestones. The taxonomy is intentionally short:
+
+```text
+proof_washout
+objective_overfit
+behavior_regression
+seed_fragility
+lineage_invalid
+contract_violation
+metric_artifact
+training_instability
+protected_key_window_failure
+promotion_gate_failure
+private_holdout_contamination
+none
+```
+
+Lineage is now explicit:
+
+```text
+parent_checkpoint
+parent_dataset
+parent_config
+parent_objective
+derived_from
+blocked_by
+supersedes
+invalidates
+```
+
+The goal is to prevent the research loop from becoming only a fixed-gate
+passing machine. Public gates are allowed for daily debugging and repair.
+Private holdout policy must be declared separately; private holdouts are for
+promotion or paper evidence, not routine repair. If a private holdout result is
+used to repair a candidate, the holdout must be rotated before being treated as
+unbiased evidence again.
+
+## Review Generator
+
+M227 also adds a deterministic review artifact generator:
+
+```bash
+make research-review RESEARCH_MANIFEST=experiments/manifests/m227-ppo-smoke-retention-failure-audit.json
+```
+
+or:
+
+```bash
+PYTHONPATH=src python -m autodrift.research_review \
+  --manifest experiments/manifests/m227-ppo-smoke-retention-failure-audit.json \
+  --scoreboard experiments/scoreboard.csv
+```
+
+It writes:
+
+```text
+docs/reviews/<manifest-id>.md
+experiments/reviews/<manifest-id>.json
+```
+
+The review captures hypothesis, lineage, public gates, holdout policy,
+forbidden shortcuts, failure taxonomy, scoreboard decision, and next blocker.
+Completed M227+ tasks must have the declared `review_artifact` on disk.
+
+## Hook Boundary
+
+The pre-commit hook remains intentionally cheap. It runs:
+
+```text
+git diff --cached --check
+python -m autodrift.research_validate
+lightweight tests unless AUTODRIFT_SKIP_PRECOMMIT_TESTS=1
+```
+
+It does not run long PPO, private holdouts, scenario-distribution evaluations,
+or promotion gates. Those belong in manifest commands and milestone review,
+not in the commit hook.
+
+## Agent Skill
+
+The local Codex skill is:
+
+```text
+/home/quyaonan/.agents/skills/autodrift-research-harness/SKILL.md
+```
+
+Its job is behavioral, not authoritative. It tells future agent sessions to read
+the live queue/status/manifest first, preserve the human-view input contract,
+use process-v2 lineage and failure taxonomy, generate review artifacts, and run
+the repository validator. The authoritative enforcement remains in
+`autodrift.research_validate` and the pre-commit hook.

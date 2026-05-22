@@ -40,6 +40,32 @@ def _manifest(task_id, artifact="docs/m90.md"):
     }
 
 
+def _process_v2_manifest(task_id, artifact="docs/m227.md"):
+    manifest = _manifest(task_id, artifact=artifact)
+    manifest.update(
+        {
+            "gate_tier": "process",
+            "promotion_decision": "pending",
+            "failure_types": ["proof_washout"],
+            "lineage": {
+                "parent_checkpoint": ["runs/m226/checkpoint.pt"],
+                "parent_dataset": ["runs/m223/boundary_outcome_corpus.npz"],
+                "parent_config": ["configs/ppo_m226_guarded_from_m224_smoke.json"],
+                "parent_objective": ["M223 outcome objective"],
+                "derived_from": ["m226"],
+                "blocked_by": ["m226"],
+                "supersedes": [],
+                "invalidates": [],
+            },
+            "review_artifact": "docs/reviews/m227.md",
+            "public_gates": ["M183 replay", "protected key"],
+            "private_holdout_policy": "not_used",
+            "forbidden_shortcuts": ["do not promote broad behavior alone"],
+        }
+    )
+    return manifest
+
+
 def test_normalize_next_task_supports_string_and_object():
     assert normalize_next_task("m90") == "m90"
     assert normalize_next_task({"id": "m91"}) == "m91"
@@ -253,3 +279,127 @@ def test_validate_research_state_recomputes_completed_structured_gate_decision(t
     issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
 
     assert any("does not match structured gate decision" in issue.message for issue in issues)
+
+
+def test_process_v2_requires_governance_fields_from_m227(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    manifest_dir.mkdir()
+    _write_queue(
+        queue,
+        [
+            {
+                "id": "m227",
+                "priority": 2220,
+                "status": "pending",
+                "kind": "gate",
+                "hypothesis": "audit PPO retention",
+                "command": "see manifest",
+                "success_artifact": "",
+                "notes": "",
+            }
+        ],
+    )
+    status.write_text(
+        json.dumps({"counts": {"planned": 0, "completed": 0, "failed": 0, "blocked": 0, "pending": 1, "running": 0}, "next_task": "m227"}),
+        encoding="utf-8",
+    )
+    (manifest_dir / "m227.json").write_text(json.dumps(_manifest("m227")), encoding="utf-8")
+    _write_scoreboard(scoreboard, [])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert any("process-v2 manifest missing fields" in issue.message for issue in issues)
+
+
+def test_process_v2_accepts_pending_governance_manifest(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    manifest_dir.mkdir()
+    _write_queue(
+        queue,
+        [
+            {
+                "id": "m227",
+                "priority": 2220,
+                "status": "pending",
+                "kind": "gate",
+                "hypothesis": "audit PPO retention",
+                "command": "see manifest",
+                "success_artifact": "",
+                "notes": "",
+            }
+        ],
+    )
+    status.write_text(
+        json.dumps({"counts": {"planned": 0, "completed": 0, "failed": 0, "blocked": 0, "pending": 1, "running": 0}, "next_task": "m227"}),
+        encoding="utf-8",
+    )
+    (manifest_dir / "m227.json").write_text(json.dumps(_process_v2_manifest("m227")), encoding="utf-8")
+    _write_scoreboard(scoreboard, [])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert issues == []
+
+
+def test_process_v2_completed_reject_requires_failure_taxonomy_and_review(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    docs = tmp_path / "docs"
+    manifest_dir.mkdir()
+    docs.mkdir()
+    (docs / "m227.md").write_text("done\n", encoding="utf-8")
+    _write_queue(
+        queue,
+        [
+            {
+                "id": "m227",
+                "priority": 2220,
+                "status": "completed",
+                "kind": "gate",
+                "hypothesis": "audit PPO retention",
+                "command": "see manifest",
+                "success_artifact": "docs/m227.md",
+                "notes": "",
+            }
+        ],
+    )
+    status.write_text(
+        json.dumps({"counts": {"planned": 0, "completed": 1, "failed": 0, "blocked": 0, "pending": 0, "running": 0}, "next_task": None}),
+        encoding="utf-8",
+    )
+    manifest = _process_v2_manifest("m227")
+    manifest["promotion_decision"] = "reject"
+    manifest["failure_types"] = []
+    (manifest_dir / "m227.json").write_text(json.dumps(manifest), encoding="utf-8")
+    _write_scoreboard(
+        scoreboard,
+        [
+            {
+                "milestone": "m227",
+                "type": "gate",
+                "checkpoint": "",
+                "success_rate": "",
+                "termination_rate": "",
+                "clearance_margin_mean": "",
+                "reset_success": "",
+                "zero_wheel_success": "",
+                "zero_all_success": "",
+                "wheel_gain_mu": "",
+                "decision": "reject",
+                "reason": "audit failed",
+            }
+        ],
+    )
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert any("must classify failure_types" in issue.message for issue in issues)
+    assert any("review_artifact is missing" in issue.message for issue in issues)
