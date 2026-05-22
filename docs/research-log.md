@@ -5795,3 +5795,43 @@ This does not justify adding raw wheel or `v_parallel`; it means the next
 surface must consume M148 P0-close pairs and test whether candidate signals,
 longer history, or active-probe-compatible cues resolve them in a
 target-aligned way.
+
+## 20260522T030000Z m149-p0-close-resolution-audit
+
+M149 consumes only M148 `p0_close_target_divergent` pairs and tests whether
+candidate signals resolve them in a target-aligned way.
+
+New code:
+
+```text
+src/autodrift/p0_close_resolution_audit.py
+tests/test_p0_close_resolution_audit.py
+```
+
+Runs:
+
+```text
+runs/m149_p0_close_resolution_seed9480
+runs/m149_p0_close_resolution_seed9481
+runs/m149_p0_close_resolution_seed9482
+runs/m149_p0_close_resolution_multiseed
+```
+
+Aggregate over `240` exported M148 P0-close pairs:
+
+| Profile | Resolved fraction | Feature-target corr. | Top-overlap |
+| --- | ---: | ---: | ---: |
+| P0 25-step baseline | 0.000000 | 0.390889 | 0.583333 |
+| P0 50-step history | 0.233333 | -0.096056 | 0.166667 |
+| P0 + raw wheel | 0.037500 | 0.279495 | 0.466667 |
+| P0 + raw wheel + vparallel | 0.120833 | 0.191947 | 0.400000 |
+| extra raw wheel | 0.750000 | -0.046099 | 0.333333 |
+| extra vparallel | 0.750000 | -0.048411 | 0.333333 |
+
+Decision: negative resolution audit. Raw wheel and diagnostic `v_parallel`
+separate many pairs as extra-only signals, but those distances are not
+target-aligned. Full P0+raw resolves only `3.75%`; diagnostic P0+raw+vparallel
+resolves `12.08%`; longer passive P0 history resolves `23.33%` but has poor
+target alignment. Do not expand actor inputs from this result. Next task:
+diagnose hidden/capability causes of P0-close target divergence and convert
+them into training-time belief or active-identification targets.

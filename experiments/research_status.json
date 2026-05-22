@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 157,
+    "completed": 158,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m148-p0-close-ambiguity-miner.md",
+    "command_log": "docs/m149-p0-close-resolution-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m148_p0_close_ambiguity_multiseed",
+    "run_dir": "runs/m149_p0_close_resolution_multiseed",
     "status": "completed",
-    "task_id": "m148-p0-close-ambiguity-miner"
+    "task_id": "m149-p0-close-resolution-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m149-p0-close-resolution-audit.json",
-    "hypothesis": "M148 P0-close target-divergent pairs may require extra deployable signals, longer history, or active probing; if existing raw proxies do not resolve them target-aligned, the next direction should be belief/active-identification rather than input expansion.",
-    "id": "m149-p0-close-resolution-audit",
+    "command": "see experiments/manifests/m150-p0-close-hidden-cause-audit.json",
+    "hypothesis": "M148 P0-close target-divergent pairs are likely caused by hidden dynamics or capability-envelope differences that passive raw wheel/vparallel cues do not target-align; identifying those causes can define better belief-learning or active-probing targets.",
+    "id": "m150-p0-close-hidden-cause-audit",
     "kind": "gate",
-    "notes": "Pending after M148: consume P0-close pairs and test target-aligned resolution candidates",
-    "priority": 1440,
+    "notes": "Pending after M149: diagnose hidden/capability causes of P0-close target divergence",
+    "priority": 1450,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T024500Z"
+  "updated_at_utc": "20260522T030000Z"
 }

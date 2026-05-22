@@ -5,8 +5,20 @@
   ],
   "commands": [
     {
-      "command": "Evaluate whether raw wheel proxy, vparallel diagnostics, longer history, or active-probe-compatible cues resolve the P0-close target-divergent pairs mined by M148.",
-      "name": "m149_p0_close_resolution_audit"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.p0_close_resolution_audit --mode run --env-config configs/m143_driver_like_profile_audit.json --pair-csv runs/m148_p0_close_ambiguity_seed9480/accepted_pairs.csv --episodes 40 --seed 9480 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --base-history-window 25 --long-history-window 50 --post-slip-beta-threshold 0.06 --run-dir runs/m149_p0_close_resolution_seed9480",
+      "name": "m149_p0_close_resolution_seed9480"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.p0_close_resolution_audit --mode run --env-config configs/m143_driver_like_profile_audit.json --pair-csv runs/m148_p0_close_ambiguity_seed9481/accepted_pairs.csv --episodes 40 --seed 9481 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --base-history-window 25 --long-history-window 50 --post-slip-beta-threshold 0.06 --run-dir runs/m149_p0_close_resolution_seed9481",
+      "name": "m149_p0_close_resolution_seed9481"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.p0_close_resolution_audit --mode run --env-config configs/m143_driver_like_profile_audit.json --pair-csv runs/m148_p0_close_ambiguity_seed9482/accepted_pairs.csv --episodes 40 --seed 9482 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --base-history-window 25 --long-history-window 50 --post-slip-beta-threshold 0.06 --run-dir runs/m149_p0_close_resolution_seed9482",
+      "name": "m149_p0_close_resolution_seed9482"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.p0_close_resolution_audit --mode aggregate --summary-jsons runs/m149_p0_close_resolution_seed9480/summary.json,runs/m149_p0_close_resolution_seed9481/summary.json,runs/m149_p0_close_resolution_seed9482/summary.json --run-dir runs/m149_p0_close_resolution_multiseed",
+      "name": "m149_p0_close_resolution_multiseed"
     }
   ],
   "decision_rule": "Only consider adding a new deployable sensor or active-probing objective if it resolves P0-close pairs with target-aligned evidence across multiple seeds.",

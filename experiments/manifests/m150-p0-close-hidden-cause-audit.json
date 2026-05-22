@@ -1,0 +1,34 @@
+{
+  "baseline_checkpoints": [
+    "runs/m149_p0_close_resolution_multiseed/summary.json",
+    "runs/m148_p0_close_ambiguity_multiseed/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "Audit hidden dynamics and capability-envelope causes of M148 P0-close target-divergent pairs without feeding those hidden values to the actor.",
+      "name": "m150_p0_close_hidden_cause_audit"
+    }
+  ],
+  "decision_rule": "Use hidden causes only as diagnostic/teacher targets; if P0-close pairs are explained by hidden dynamics, build a belief or active-identification objective rather than expanding deployable actor inputs.",
+  "failure_criteria": [
+    "hidden parameters are proposed as actor inputs",
+    "audit ignores the M148 P0-close pair surface",
+    "results come from one seed only",
+    "cause labels are reported without linking them to future-envelope target gaps"
+  ],
+  "hypothesis": "M148 P0-close target-divergent pairs are likely caused by hidden dynamics or capability-envelope differences that passive raw wheel/vparallel cues do not target-align; identifying those causes can define better belief-learning or active-probing targets.",
+  "id": "m150-p0-close-hidden-cause-audit",
+  "required_artifacts": [
+    {
+      "path": "docs/m150-p0-close-hidden-cause-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "consume M148/M149 P0-close pairs across at least three seeds",
+    "report hidden dynamics differences and future-envelope target differences separately",
+    "rank likely cause groups such as friction, braking authority, yaw/lateral authority, and actuator delay",
+    "record training-time belief or active-identification targets without changing actor inputs"
+  ],
+  "type": "gate"
+}

@@ -119,3 +119,11 @@ pairs over `108` episode-pairs, with a P0/H1 ambiguity-count ratio of
 `0.922667`. Current P0 may therefore be information-limited for future-envelope
 self-identification; the next step is to test target-aligned resolution of those
 P0-close pairs.
+
+M149 tested that resolution surface and rejected passive input expansion as the
+immediate answer. P0 + raw wheel resolved only `3.75%`; diagnostic P0 + raw
+wheel + `v_parallel` resolved `12.08%`; extra-only raw/vparallel distances were
+not target-aligned; longer passive P0 history resolved `23.33%` but had negative
+feature-target correlation. The next frontier is hidden-cause diagnosis and
+belief/active-identification targets, not adding raw wheel or diagnostic
+`v_parallel` to the actor.
