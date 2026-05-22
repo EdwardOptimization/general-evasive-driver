@@ -230,11 +230,16 @@ slightly stronger action-level sensitivity.
   replay surfaces rather than a global behavior collapse. M214 is rejected;
   M204 remains the retained base and the actor-update recipe needs audit before
   any more updates.
+- M215: audits M214. The failure mechanism is now classified as preferred
+  boundary-action drift under a relative contrast objective: fixed loss improves
+  because rejected-history logprob is reduced, but preferred/normal action
+  fidelity is not explicitly protected on the near-boundary snippets. M216 is
+  pre-registered as a smaller update with preferred-only snippet action anchor.
 
 Current blocker:
 
 ```text
-actor-update repeat failure audit before any more updates or PPO
+snippet-anchored actor-update calibration before any PPO
 ```
 
 ## Near-Term Rule
@@ -246,6 +251,9 @@ M208, and do not loosen the protected-key threshold after seeing the result.
 M214 shows the M213 actor-update recipe is not repeat-stable: fixed objective
 can improve while replay normal-success retention fails. M215 must audit the
 failure and design a safer actor-update recipe before any more updates or PPO.
+M215 found the likely mechanism. M216 may run only the pre-registered smaller
+snippet-anchored actor update; PPO remains blocked until repeat replay retention
+passes.
 
 ## Sensor Profile Policy
 

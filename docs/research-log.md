@@ -7768,3 +7768,40 @@ the direct evidence guard for near-boundary normal-history success.
 Decision: M214 is negative. Keep M204 as the retained base, treat M213 as an
 unrepeated single-seed candidate only, and audit the actor-update recipe before
 any more updates or PPO.
+
+## 20260522T111622Z m215-actor-update-repeat-failure-audit
+
+M215 audited the M214 repeat failure. No PPO and no actor update were run in
+this milestone.
+
+Artifacts:
+
+- `docs/m215-actor-update-repeat-failure-audit.md`
+- `experiments/manifests/m216-snippet-anchored-actor-update-calibration.json`
+
+Evidence:
+
+- M214 is a real replay failure: both seeds fail old M183, refreshed M193, and
+  current M212 replay retention.
+- It is not a global behavior collapse: behavior seeds `9505` and `9506` still
+  retain success `0.8625`, and the protected key still passes.
+- Fixed objective is insufficient for promotion: M214 `10052` has the best
+  fixed M212 loss (`0.200899`) but fails replay.
+- On M212 replay, M204 has mean normal margin `0.006191`; M213 keeps `0.004568`
+  and passes; M214 seeds drop to `0.000115` and `0.001087`, losing normal
+  success on `12/17` and `10/17` rows.
+- Preferred-hidden action MSE versus M204 on the M212 snippets rises from M213
+  `0.000102` to M214 `0.000132` and `0.000148`; this small drift is enough to
+  flip knife-edge rows.
+
+Conclusion: the relative outcome contrast objective can improve by reducing
+rejected-history logprob while still drifting the preferred/normal boundary
+action. The generic action anchor does not specifically protect the M212 proof
+snippets. Keep M204 as the retained base and pre-register a smaller
+preferred-only snippet-anchored actor update before any PPO.
+
+Decision:
+
+```text
+admit_snippet_anchored_actor_update_calibration
+```

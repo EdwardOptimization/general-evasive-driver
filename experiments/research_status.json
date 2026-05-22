@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 223,
+    "completed": 224,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m214-m212-actor-update-repeat.md",
+    "command_log": "docs/m215-actor-update-repeat-failure-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m214_10052_m212_m204_replay_gate_seed10040",
+    "run_dir": "docs/m215-actor-update-repeat-failure-audit.md",
     "status": "completed",
-    "task_id": "m214-m212-actor-update-repeat"
+    "task_id": "m215-actor-update-repeat-failure-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m215-actor-update-repeat-failure-audit.json",
-    "hypothesis": "M214 repeats improved fixed objective but broke replay normal-success retention, so audit the actor-update recipe before more updates or PPO.",
-    "id": "m215-actor-update-repeat-failure-audit",
-    "kind": "gate",
-    "notes": "No training; design a safer actor-update recipe.",
-    "priority": 2100,
+    "command": "see experiments/manifests/m216-snippet-anchored-actor-update-calibration.json",
+    "hypothesis": "A smaller actor update with preferred-only snippet action anchoring should preserve boundary normal actions while retaining M212 objective improvement.",
+    "id": "m216-snippet-anchored-actor-update-calibration",
+    "kind": "driver_candidate",
+    "notes": "No PPO; restart from M204 on seeds 10051 and 10052 with snippet preferred-action anchor.",
+    "priority": 2110,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T104954Z"
+  "updated_at_utc": "20260522T111622Z"
 }
