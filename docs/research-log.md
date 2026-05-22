@@ -6959,3 +6959,35 @@ Results:
 Decision: M192 admits current-family boundary objective sanity, not actor/PPO.
 The next milestone should convert the refreshed rows into replay-aligned
 boundary-outcome corpora, starting with M189 as the current best checkpoint.
+
+## 20260522T083248Z m193-current-family-boundary-objective-sanity
+
+M193 converted the M192 refreshed proof surface into replay-aligned
+boundary-outcome objective corpora for the current M184/M188/M189 family.
+
+Artifacts:
+
+- `runs/m193_m184_boundary_outcome_corpus_seed9630`
+- `runs/m193_m188_boundary_outcome_corpus_seed9630`
+- `runs/m193_m189_boundary_outcome_corpus_seed9630`
+- `runs/m193_m184_boundary_replay_sanity_seed9630`
+- `runs/m193_m188_boundary_replay_sanity_seed9630`
+- `runs/m193_m189_boundary_replay_sanity_seed9630`
+- `docs/m193-current-family-boundary-objective-sanity.md`
+
+Results:
+
+- M184 corpus: `10` rows, `9` physical pairs, `2` targets, objective pass
+  `3/3`, replay success drops `10/10`;
+- M188 corpus: `13` rows, `11` physical pairs, `2` targets, objective pass
+  `3/3`, replay success drops `13/13`;
+- M189 corpus: `14` rows, `11` physical pairs, `2` targets, objective pass
+  `3/3`, replay success drops `14/14`;
+- current-best M189 min validation combined-loss improvement is `2.415990`,
+  min validation delta-loss improvement is `3.080534`, and min validation
+  pairwise accuracy is `1.0`.
+
+Decision: M193 admits a current-best guarded actor-update design only. PPO
+remains blocked until a low-drift M189 actor update improves the refreshed
+objective and preserves behavior, protected key, old M183 replay, and refreshed
+M193 replay.

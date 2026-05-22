@@ -21,17 +21,53 @@
   "commands": [
     {
       "name": "m193_m189_boundary_objective",
-      "command": "Build the M189 boundary-outcome corpus/objective from runs/m192_current_family_boundary_robustness_seed9520/accepted_wrong_history_rows.csv."
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_corpus_objective --checkpoint-policy m189_5193=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --boundary-rows-csv runs/m192_current_family_boundary_robustness_seed9520/accepted_wrong_history_rows.csv --delay-steps 10 --device cpu --max-rows-per-physical-pair 2 --optimization-seeds 9630,9631,9632 --steps 180 --batch-size 64 --learning-rate 0.0003 --weight-decay 0.001 --hidden-dim 96 --run-dir runs/m193_m189_boundary_outcome_corpus_seed9630"
     },
     {
-      "name": "m193_replay_sanity",
-      "command": "Replay the M193 corpus rows to verify normal-history success and wrong-history failure remain aligned."
+      "name": "m193_m184_boundary_objective",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_corpus_objective --checkpoint-policy m184_s20=runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --boundary-rows-csv runs/m192_current_family_boundary_robustness_seed9520/accepted_wrong_history_rows.csv --delay-steps 10 --device cpu --max-rows-per-physical-pair 2 --optimization-seeds 9630,9631,9632 --steps 180 --batch-size 64 --learning-rate 0.0003 --weight-decay 0.001 --hidden-dim 96 --run-dir runs/m193_m184_boundary_outcome_corpus_seed9630"
+    },
+    {
+      "name": "m193_m188_boundary_objective",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_corpus_objective --checkpoint-policy m188_5191=runs/ppo_m188_stage2_from_m185_seed5191/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --boundary-rows-csv runs/m192_current_family_boundary_robustness_seed9520/accepted_wrong_history_rows.csv --delay-steps 10 --device cpu --max-rows-per-physical-pair 2 --optimization-seeds 9630,9631,9632 --steps 180 --batch-size 64 --learning-rate 0.0003 --weight-decay 0.001 --hidden-dim 96 --run-dir runs/m193_m188_boundary_outcome_corpus_seed9630"
+    },
+    {
+      "name": "m193_m189_replay_sanity",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_replay_gate --checkpoint-policy m189_5193=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt --checkpoint-policy m188_5191=runs/ppo_m188_stage2_from_m185_seed5191/checkpoint.pt --corpus-csv runs/m193_m189_boundary_outcome_corpus_seed9630/boundary_outcome_corpus.csv --env-config configs/m121_human_view_zero_obstacle_relvel.json --max-continuation-steps 60 --baseline-policy m189_5193 --candidate-policy m188_5191 --max-normal-success-drop 0.0 --max-normal-margin-regression 0.005 --max-margin-gap-regression 0.001 --max-success-drop-count-regression 0 --device cpu --run-dir runs/m193_m189_boundary_replay_sanity_seed9630"
+    },
+    {
+      "name": "m193_m184_m188_replay_sanity",
+      "command": "Replay the M184 and M188 corpora against M189 to verify cross-family retention."
     }
   ],
   "required_artifacts": [
     {
       "path": "docs/m193-current-family-boundary-objective-sanity.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m193_m189_boundary_outcome_corpus_seed9630/objective_summary.json",
+      "type": "m189_objective_summary"
+    },
+    {
+      "path": "runs/m193_m188_boundary_outcome_corpus_seed9630/objective_summary.json",
+      "type": "m188_objective_summary"
+    },
+    {
+      "path": "runs/m193_m184_boundary_outcome_corpus_seed9630/objective_summary.json",
+      "type": "m184_objective_summary"
+    },
+    {
+      "path": "runs/m193_m189_boundary_replay_sanity_seed9630/summary.json",
+      "type": "m189_replay_summary"
+    },
+    {
+      "path": "runs/m193_m188_boundary_replay_sanity_seed9630/summary.json",
+      "type": "m188_replay_summary"
+    },
+    {
+      "path": "runs/m193_m184_boundary_replay_sanity_seed9630/summary.json",
+      "type": "m184_replay_summary"
     }
   ],
   "baseline_checkpoints": [
@@ -44,5 +80,44 @@
     "runs/m192_current_family_boundary_robustness_seed9520/summary.json",
     "runs/m192_current_family_boundary_surface_seed9520/summary.json"
   ],
-  "decision_rule": "Only replay-aligned objective sanity may admit a guarded current-best actor update design; PPO remains blocked until that update also preserves behavior and proof-surface replay gates."
+  "results": {
+    "m184_s20": {
+      "corpus_rows": 10,
+      "physical_pairs": 9,
+      "targets": 2,
+      "objective_pass": true,
+      "seed_pass_count": 3,
+      "min_val_combined_loss_improvement": 2.123931407928467,
+      "min_val_delta_loss_improvement": 2.7130134105682373,
+      "min_val_pairwise_accuracy_after": 0.6666666865348816,
+      "replay_gate_pass": true,
+      "replay_success_drop_count": 10
+    },
+    "m188_5191": {
+      "corpus_rows": 13,
+      "physical_pairs": 11,
+      "targets": 2,
+      "objective_pass": true,
+      "seed_pass_count": 3,
+      "min_val_combined_loss_improvement": 2.188184976577759,
+      "min_val_delta_loss_improvement": 3.035855770111084,
+      "min_val_pairwise_accuracy_after": 1.0,
+      "replay_gate_pass": true,
+      "replay_success_drop_count": 13
+    },
+    "m189_5193": {
+      "corpus_rows": 14,
+      "physical_pairs": 11,
+      "targets": 2,
+      "objective_pass": true,
+      "seed_pass_count": 3,
+      "min_val_combined_loss_improvement": 2.415990114212036,
+      "min_val_delta_loss_improvement": 3.0805344581604004,
+      "min_val_pairwise_accuracy_after": 1.0,
+      "replay_gate_pass": true,
+      "replay_success_drop_count": 14
+    }
+  },
+  "decision_rule": "Only replay-aligned objective sanity may admit a guarded current-best actor update design; PPO remains blocked until that update also preserves behavior and proof-surface replay gates.",
+  "decision": "admit_current_best_guarded_actor_update_design"
 }

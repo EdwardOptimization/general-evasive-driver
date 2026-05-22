@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 201,
+    "completed": 202,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m192-current-best-proof-surface-refresh.md",
+    "command_log": "docs/m193-current-family-boundary-objective-sanity.md",
     "returncode": 0,
-    "run_dir": "runs/m192_current_family_boundary_robustness_seed9520",
+    "run_dir": "runs/m193_m189_boundary_replay_sanity_seed9630",
     "status": "completed",
-    "task_id": "m192-current-best-proof-surface-refresh"
+    "task_id": "m193-current-family-boundary-objective-sanity"
   },
   "next_task": {
-    "command": "see experiments/manifests/m193-current-family-boundary-objective-sanity.json",
-    "hypothesis": "M192 produced a fresh current-family boundary proof surface, so the next step is replay-aligned objective sanity before any actor update or stage4 PPO.",
-    "id": "m193-current-family-boundary-objective-sanity",
-    "kind": "objective_sanity",
-    "notes": "No PPO; build at least the M189 current-best corpus from M192 accepted rows and run objective plus replay sanity.",
-    "priority": 1880,
+    "command": "see experiments/manifests/m194-current-best-guarded-actor-update.json",
+    "hypothesis": "M193 converted the refreshed current-family proof surface into replay-aligned objective corpora, so a tiny anchored actor update from M189 can be tested before PPO.",
+    "id": "m194-current-best-guarded-actor-update",
+    "kind": "driver_candidate",
+    "notes": "No PPO; run a low-drift M189 actor update and reject any behavior, protected-key, M183 replay, or M193 replay regression.",
+    "priority": 1890,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T082810Z"
+  "updated_at_utc": "20260522T083248Z"
 }

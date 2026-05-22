@@ -1,0 +1,48 @@
+{
+  "id": "m194-current-best-guarded-actor-update",
+  "type": "driver_candidate",
+  "hypothesis": "M193 shows that the refreshed M192 current-family boundary surface can be converted into replay-aligned objective corpora. A tiny anchored actor update from the current-best M189 checkpoint may improve the M193 M189 objective without washing out behavior, protected key, or old/new proof-surface replay gates.",
+  "success_criteria": [
+    "start from runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt",
+    "use the M193 M189 boundary-outcome corpus as training-time objective data only",
+    "keep actor inputs unchanged",
+    "use a strong action anchor and small update count",
+    "improve the fixed M193 M189 objective on held-out seeds or fixed eval",
+    "preserve M191 behavior retention seeds",
+    "preserve M168/M170 M183 replay gates and M193 refreshed replay gates",
+    "preserve protected key 9944|perturbed|28|28"
+  ],
+  "failure_criteria": [
+    "run PPO before a low-drift actor update passes gates",
+    "change observation inputs",
+    "ignore old M183 replay surfaces while optimizing the new M193 corpus",
+    "accept objective improvement without behavior and replay retention"
+  ],
+  "commands": [
+    {
+      "name": "m194_actor_update_design",
+      "command": "Run a tiny anchored outcome_intervention_optimize update from M189 using runs/m193_m189_boundary_outcome_corpus_seed9630/boundary_outcome_corpus.npz."
+    },
+    {
+      "name": "m194_retention_gates",
+      "command": "Evaluate behavior, protected key, old M183 replay, and new M193 replay before admitting any PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m194-current-best-guarded-actor-update.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt",
+    "runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m193_m189_boundary_outcome_corpus_seed9630/objective_summary.json",
+    "runs/m193_m189_boundary_replay_sanity_seed9630/summary.json",
+    "runs/m191_behavior_gate_seed9505/policy_summary.csv",
+    "runs/m191_behavior_gate_seed9506/policy_summary.csv"
+  ],
+  "decision_rule": "Only a low-drift actor update that improves the refreshed objective and preserves behavior plus both old and new replay surfaces may admit a guarded PPO smoke."
+}

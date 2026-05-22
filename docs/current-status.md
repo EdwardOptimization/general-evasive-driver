@@ -107,18 +107,23 @@ slightly stronger action-level sensitivity.
   `131` wrong-history success drops across `11` physical pairs, `6` left
   steps, `3` checkpoints, and `2` target groups. This refreshes evidence beyond
   M183 but still requires replay-aligned objective sanity before actor/PPO work.
+- M193: converts M192 accepted rows into M184/M188/M189 boundary-outcome
+  objective corpora. All three pass 3-seed objective sanity and replay gates.
+  The current-best M189 corpus has `14` rows across `11` physical pairs and
+  `2` targets, with `14/14` replayed success drops retained.
 
 Current blocker:
 
 ```text
-replay-aligned objective sanity for the refreshed M192 current-family surface
+low-drift current-best actor update before any PPO continuation
 ```
 
 ## Near-Term Rule
 
-Do not run stage4 yet. Keep M189 seed `5193` as the current best checkpoint.
-The refreshed M192 proof surface is positive, but it must first be converted
-into a replay-aligned boundary-outcome objective, starting with the M189 corpus.
+Do not run PPO yet. Keep M189 seed `5193` as the current best checkpoint.
+M193 admits only a tiny anchored actor-update design. Any update must preserve
+behavior, the protected key, old M183 replay surfaces, and the refreshed M193
+replay surface before PPO is considered.
 
 ## Sensor Profile Policy
 
