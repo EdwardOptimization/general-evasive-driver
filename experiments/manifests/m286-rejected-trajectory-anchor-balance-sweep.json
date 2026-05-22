@@ -2,7 +2,7 @@
   "id": "m286-rejected-trajectory-anchor-balance-sweep",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -86,6 +86,21 @@
     "docs/m285-m284-interpolation-balance-probe.md",
     "runs/m285_m272_to_m284_interpolation_balance/full_gate_summary.json"
   ],
-  "decision_rule": "M286 may only promote a no-PPO candidate if it materially improves exact M270 beyond the M285 micro-alpha result and passes M183/M170 plus M267/M264 before broader public gates.",
-  "next_blocker": "pending M286 rejected trajectory anchor balance sweep"
+  "results": {
+    "run_dir": "runs/m286_rejected_trajectory_anchor_balance_sweep",
+    "selected_policy": "m286r2_a500",
+    "selected_checkpoint": "runs/m286_rejected_trajectory_anchor_balance_sweep/repeat2_interpolation/checkpoints/alpha_0_5.pt",
+    "selected_alpha": 0.5,
+    "exact_m270_loss_base": 0.6813756227493286,
+    "exact_m270_loss_selected": 0.678828239440918,
+    "exact_m270_loss_delta": -0.0025473833084106445,
+    "full_replay_gates_pass": true,
+    "protected_key_guard_validated": true,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "ppo_or_actor_input_change": false
+  },
+  "decision_rule": "Promote m286r2_a500 as a public-gate base because it materially improves exact M270 and passes six replay surfaces protected-key and behavior gates. PPO remains blocked until a fresh-seed repeat.",
+  "decision": "promote_m286r2_a500_public_gate_base",
+  "next_blocker": "m287-balanced-rejected-trajectory-repeat"
 }

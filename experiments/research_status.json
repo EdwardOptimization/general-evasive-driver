@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 294,
+    "completed": 295,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m285-m284-interpolation-balance-probe.md",
+    "command_log": "docs/m286-rejected-trajectory-anchor-balance-sweep.md",
     "returncode": 0,
-    "run_dir": "runs/m285_m272_to_m284_interpolation_balance",
+    "run_dir": "runs/m286_rejected_trajectory_anchor_balance_sweep",
     "status": "completed",
-    "task_id": "m285-m284-interpolation-balance-probe"
+    "task_id": "m286-rejected-trajectory-anchor-balance-sweep"
   },
   "next_task": {
-    "command": "see experiments/manifests/m286-rejected-trajectory-anchor-balance-sweep.json",
-    "hypothesis": "M284 fails because the rejected-history trajectory anchor pressure is too large; a lower-repeat or lower-pressure source-balanced variant may preserve M267/M264 without crossing the M183/M170 terminal-margin cliff.",
-    "id": "m286-rejected-trajectory-anchor-balance-sweep",
+    "command": "see experiments/manifests/m287-balanced-rejected-trajectory-repeat.json",
+    "hypothesis": "The M286 repeat2 balanced trajectory-anchor recipe should repeat on a fresh optimizer seed and produce a public-gate-safe interpolation with material exact M270 improvement.",
+    "id": "m287-balanced-rejected-trajectory-repeat",
     "kind": "driver_candidate",
-    "notes": "Pending: no-PPO balance sweep from M272 with M183/M170 and M267/M264 first gates",
-    "priority": 2810,
+    "notes": "Pending: fresh-seed balanced repeat with first gates then full public gates",
+    "priority": 2820,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T191159Z"
+  "updated_at_utc": "20260522T192137Z"
 }

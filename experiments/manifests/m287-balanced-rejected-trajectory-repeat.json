@@ -1,0 +1,89 @@
+{
+  "id": "m287-balanced-rejected-trajectory-repeat",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m272_m264_to_m271_interpolation_boundary/checkpoints/alpha_0_01025.pt",
+      "runs/m286_rejected_trajectory_anchor_balance_sweep/repeat2_interpolation/checkpoints/alpha_0_5.pt"
+    ],
+    "parent_dataset": [
+      "runs/m286_rejected_trajectory_anchor_balance_sweep/anchors/repeat2/combined_recovery_rejected_anchor.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m286-rejected-trajectory-anchor-balance-sweep.json",
+      "docs/m286-rejected-trajectory-anchor-balance-sweep.md"
+    ],
+    "parent_objective": [
+      "repeat M286 repeat2 rejected-history trajectory balance recipe on a fresh optimizer seed"
+    ],
+    "derived_from": [
+      "m286-rejected-trajectory-anchor-balance-sweep"
+    ],
+    "blocked_by": [
+      "m286-rejected-trajectory-anchor-balance-sweep"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m287-balanced-rejected-trajectory-repeat.md",
+  "public_gates": [
+    "do not run PPO",
+    "repeat the M286 repeat2 no-PPO update recipe on a fresh optimizer seed",
+    "interpolate from M272 toward the fresh repeat if raw update fails first gates",
+    "gate M183/M170 and M267/M264 first",
+    "run broader replay protected-key and behavior gates only if first gates pass with non-negligible improvement"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M287",
+    "do not change actor inputs",
+    "do not tune from private holdouts",
+    "do not promote a candidate that fails any public replay gate",
+    "do not skip behavior seeds 9505 and 9506 if replay gates pass"
+  ],
+  "hypothesis": "The M286 repeat2 balanced trajectory-anchor recipe should repeat on a fresh optimizer seed and produce a public-gate-safe interpolation with material exact M270 improvement.",
+  "success_criteria": [
+    "run a fresh-seed no-PPO update using the repeat2 combined trajectory anchor",
+    "find a raw or interpolated candidate with material exact M270 improvement",
+    "candidate preserves M183/M170 and M267/M264 first gates",
+    "candidate passes broader public replay protected-key and behavior gates before promotion",
+    "actor input contract remains unchanged"
+  ],
+  "failure_criteria": [
+    "fresh seed cannot produce a first-gate-safe candidate with material exact improvement",
+    "candidate passes first gates but fails broader public replay protected-key or behavior gates",
+    "PPO is run",
+    "actor observation inputs change"
+  ],
+  "commands": [
+    {
+      "name": "m287_repeat",
+      "command": "Run the M286 repeat2 no-PPO update on a fresh seed, interpolate if needed, then gate first proof surfaces before broader public gates."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m287-balanced-rejected-trajectory-repeat.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m287_balanced_rejected_trajectory_repeat/summary.json",
+      "type": "repeat_summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m286_rejected_trajectory_anchor_balance_sweep/repeat2_interpolation/checkpoints/alpha_0_5.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m286-rejected-trajectory-anchor-balance-sweep.md",
+    "runs/m286_rejected_trajectory_anchor_balance_sweep/summary.json"
+  ],
+  "decision_rule": "M287 may admit PPO only after a fresh-seed balanced-repeat candidate passes full public gates with material exact M270 improvement. Otherwise keep PPO blocked.",
+  "next_blocker": "pending M287 balanced rejected trajectory repeat"
+}
