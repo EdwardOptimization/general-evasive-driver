@@ -65,3 +65,49 @@ def test_evaluate_policies_writes_fixed_batch_comparable_summary(tmp_path):
     assert set(batch_losses["policy"]) == {"a", "b"}
     assert len(batch_losses) == 6
     assert (summary["loss_mean"] >= 0.0).all()
+    assert set(summary["mode"]) == {"sampled"}
+    assert set(batch_losses["mode"]) == {"sampled"}
+
+
+def test_evaluate_policies_exact_full_corpus_is_deterministic(tmp_path):
+    snippet_path = tmp_path / "snippets.npz"
+    np.savez_compressed(
+        snippet_path,
+        observation=np.zeros((4, 72), dtype=np.float32),
+        preferred_hidden=np.zeros((4, 8), dtype=np.float32),
+        rejected_hidden=np.ones((4, 8), dtype=np.float32) * 0.2,
+        preferred_action=np.zeros((4, 3), dtype=np.float32),
+        weight=np.ones(4, dtype=np.float32),
+    )
+    checkpoint = tmp_path / "model.pt"
+    _write_checkpoint(checkpoint, hidden_bias=0.05)
+
+    summary_a, batch_losses_a = evaluate_policies(
+        checkpoint_policies=[("model", checkpoint)],
+        snippet_npz=snippet_path,
+        device="cpu",
+        batch_size=2,
+        batches=3,
+        seed=7,
+        logprob_margin=0.05,
+        exact=True,
+    )
+    summary_b, batch_losses_b = evaluate_policies(
+        checkpoint_policies=[("model", checkpoint)],
+        snippet_npz=snippet_path,
+        device="cpu",
+        batch_size=2,
+        batches=3,
+        seed=999,
+        logprob_margin=0.05,
+        exact=True,
+    )
+
+    assert list(summary_a["policy"]) == ["model"]
+    assert summary_a.loc[0, "mode"] == "exact"
+    assert summary_a.loc[0, "batch_size"] == 4
+    assert summary_a.loc[0, "batches"] == 1
+    assert len(batch_losses_a) == 1
+    assert batch_losses_a.loc[0, "mode"] == "exact"
+    np.testing.assert_allclose(summary_a["loss_mean"], summary_b["loss_mean"])
+    np.testing.assert_allclose(batch_losses_a["loss"], batch_losses_b["loss"])

@@ -1,0 +1,77 @@
+{
+  "decision_reason": "M242 adds outcome_intervention_eval --exact with deterministic full-corpus loss mode-tagged outputs focused tests and M232/M223 exact smoke; no PPO and no driver promotion",
+  "failure_criteria": [
+    "run PPO",
+    "change actor inputs",
+    "silently mix sampled and exact objective metrics",
+    "remove existing fixed-batch evaluator compatibility"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO in M242",
+    "do not change actor inputs",
+    "do not replace proof gates with objective values",
+    "do not use sampled fixed-batch objective as the only promotion signal for tiny corpora"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260522T140348Z",
+  "hypothesis": "Small M232/M223 corpora need a deterministic full-corpus outcome objective evaluator. Adding it to the harness will make future PPO/interpolation promotion decisions less sensitive to sampled fixed-batch noise.",
+  "lineage": {
+    "blocked_by": [
+      "m240-interpolation-guarded-ppo-repeat-from-m224"
+    ],
+    "derived_from": [
+      "m241-trajectory-ppo-seed-direction-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m239_m224_to_m237_interpolation/checkpoints/alpha_0_5.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m237_trajectory_anchor_from_m224_smoke.json",
+      "configs/ppo_m240_trajectory_anchor_from_m224_smoke.json"
+    ],
+    "parent_dataset": [
+      "runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.npz",
+      "runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.npz"
+    ],
+    "parent_objective": [
+      "deterministic full-corpus outcome objective",
+      "fixed-batch outcome objective reliability"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m242-exact-outcome-objective-evaluator",
+  "next_blocker": "Run one exact-objective-gated PPO smoke from the M239 public-gate base.",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_exact_gated_ppo_smoke_from_m239",
+  "public_gates": [
+    "exact full-corpus objective unit tests",
+    "M232/M223 exact objective smoke",
+    "research validator"
+  ],
+  "scoreboard": {
+    "checkpoint": "",
+    "clearance_margin_mean": "",
+    "decision": "admit_exact_gated_ppo_smoke_from_m239",
+    "milestone": "m242-exact-outcome-objective-evaluator",
+    "reason": "M242 adds outcome_intervention_eval --exact with deterministic full-corpus loss mode-tagged outputs focused tests and M232/M223 exact smoke; no PPO and no driver promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "implement an exact full-corpus outcome objective evaluation path",
+    "cover exact evaluation with tests",
+    "reproduce the M241 exact-loss comparison for M224 M237 M239 and M240",
+    "do not run PPO",
+    "pre-register the next bounded PPO or objective-direction screen after the evaluator exists"
+  ],
+  "type": "infrastructure"
+}

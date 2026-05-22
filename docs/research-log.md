@@ -8380,3 +8380,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: deterministic full-corpus objective confirms M237/M239 improve M232 while M240/M240-a500 regress M232. Retention is repeatable, but PPO objective direction is seed-fragile and sampled fixed-batch metrics are too weak for tiny corpora.
 - decision: `repair_with_exact_outcome_objective_evaluator`
 - next: `m242-exact-outcome-objective-evaluator`
+
+## 20260522T140234Z m242-exact-outcome-objective-evaluator
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m242-exact-outcome-objective-evaluator.md`
+- result: added `outcome_intervention_eval --exact` with deterministic full-corpus loss and mode-tagged outputs. Focused tests passed (`15 passed`) and M232/M223 exact smoke reproduced M241.
+- decision: `admit_exact_gated_ppo_smoke_from_m239`
+- next: `m243-exact-gated-ppo-smoke-from-m239`

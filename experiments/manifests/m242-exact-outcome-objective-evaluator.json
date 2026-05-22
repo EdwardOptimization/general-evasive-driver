@@ -2,7 +2,7 @@
   "id": "m242-exact-outcome-objective-evaluator",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -85,5 +85,27 @@
     "docs/m241-trajectory-ppo-seed-direction-audit.md"
   ],
   "decision_rule": "M242 may only unblock more PPO if exact full-corpus objective evaluation is implemented, tested, and documented without changing actor inputs.",
-  "next_blocker": "Implement exact outcome objective evaluator."
+  "results": {
+    "ppo_run": false,
+    "actor_inputs_changed": false,
+    "implemented_cli_flag": "--exact",
+    "sampled_mode_compatibility": true,
+    "exact_mode_summary_field": "mode=exact",
+    "focused_tests": "15 passed in 0.88s",
+    "compileall": "pass",
+    "m242_exact_m232_run_dir": "runs/m242_exact_m232_outcome_eval",
+    "m242_exact_m223_run_dir": "runs/m242_exact_m223_outcome_eval",
+    "m232_exact_loss_m224": 0.244663,
+    "m232_exact_loss_m237_raw": 0.244636,
+    "m232_exact_loss_m239_a500": 0.244649,
+    "m232_exact_loss_m240_raw": 0.244676,
+    "m232_exact_loss_m240_a500": 0.244669,
+    "m223_exact_loss_m224": 0.209025,
+    "m223_exact_loss_m237_raw": 0.208989,
+    "m223_exact_loss_m239_a500": 0.209007,
+    "m223_exact_loss_m240_raw": 0.209022,
+    "m223_exact_loss_m240_a500": 0.209023
+  },
+  "decision": "admit_exact_gated_ppo_smoke_from_m239",
+  "next_blocker": "Run one exact-objective-gated PPO smoke from the M239 public-gate base."
 }

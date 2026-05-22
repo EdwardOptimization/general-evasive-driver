@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 250,
+    "completed": 251,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m241-trajectory-ppo-seed-direction-audit.md",
+    "command_log": "docs/m242-exact-outcome-objective-evaluator.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m241-trajectory-ppo-seed-direction-audit"
+    "task_id": "m242-exact-outcome-objective-evaluator"
   },
   "next_task": {
-    "command": "see experiments/manifests/m242-exact-outcome-objective-evaluator.json",
-    "hypothesis": "Implement deterministic full-corpus outcome objective evaluator before more PPO decisions",
-    "id": "m242-exact-outcome-objective-evaluator",
-    "kind": "infrastructure",
-    "notes": "Pending: add exact objective eval path tests and documentation without PPO",
-    "priority": 2370,
+    "command": "see experiments/manifests/m243-exact-gated-ppo-smoke-from-m239.json",
+    "hypothesis": "Run one exact-objective-gated PPO smoke from M239 public-gate base",
+    "id": "m243-exact-gated-ppo-smoke-from-m239",
+    "kind": "driver_candidate",
+    "notes": "Pending: one PPO from M239 then interpolation exact objective proof protected-key and behavior gates",
+    "priority": 2380,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T135919Z"
+  "updated_at_utc": "20260522T140234Z"
 }
