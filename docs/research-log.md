@@ -8537,3 +8537,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: `outcome_intervention_optimize` now accepts the existing M235 trajectory action anchor NPZ format, adds `trajectory_action_anchor_loss`, and records before/after trajectory anchor MSE. Focused tests passed (`65 passed`) and a real M235 anchor smoke loaded successfully.
 - decision: `complete_trajectory_anchor_projection_support`
 - next: `m258-trajectory-anchored-projection-retry`
+
+## 20260522T152833Z - m258-trajectory-anchored-projection-retry
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m258_behavior_gate_a010_seed9506`
+- artifact: `docs/m258-trajectory-anchored-projection-retry.md`
+- result: M258 trajectory-anchored projection repairs the M254 protected-key source conflict and promotes `m258_a010`. It has exact source deltas `M223=-0.000002160` and `protected_key=-0.000002479` versus M253, retains M183/M170 row16, passes all public replay gates, passes protected key `9944|perturbed|28|28`, and keeps behavior success `0.8625` on seeds `9505` and `9506`.
+- decision: `promote_m258_a010_public_gate_base`
+- next: `m259-trajectory-anchored-repair-repeat`

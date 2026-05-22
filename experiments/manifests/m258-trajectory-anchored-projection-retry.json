@@ -2,7 +2,7 @@
   "id": "m258-trajectory-anchored-projection-retry",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -87,6 +87,6 @@
     "docs/m256-post-ppo-protected-source-projection.md",
     "docs/m257-trajectory-anchored-projection-implementation.md"
   ],
-  "decision_rule": "M258 may only promote a candidate if exact source, row16, full public replay, protected-key, behavior, and research-validator gates all pass.",
-  "next_blocker": "If M258 fails, audit whether trajectory anchor weight or projection scope conflicts with protected-source repair."
+  "decision_rule": "M258 promotes m258_a010 because it passes exact source, row16, full public replay, protected-key, behavior, and research-validator gates without new PPO.",
+  "next_blocker": "m259-trajectory-anchored-repair-repeat"
 }

@@ -39,6 +39,18 @@ Not allowed in the deployable actor:
 
 ## Current Checkpoints
 
+Latest public-gate base:
+
+```text
+runs/m258_m253_to_projection_interpolation/checkpoints/alpha_0_01.pt
+```
+
+Status: M258 trajectory-anchored post-PPO projection repair. It improves exact
+M223 and protected-key source losses versus M253 while passing M183/M168,
+M183/M170, M193/M189, M212/M204, M223/M219 replay gates, protected key
+`9944|perturbed|28|28`, and behavior seeds `9505`/`9506`. This is a
+single-seed repair result; repeat before longer PPO.
+
 | Role | Checkpoint | Status |
 | --- | --- | --- |
 | strict anchor | `runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt` | strict full-replay anchor |

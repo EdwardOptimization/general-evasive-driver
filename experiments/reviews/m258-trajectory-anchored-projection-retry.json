@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M258 trajectory-anchored projection repairs protected-key source while retaining row16 full replay protected-key and behavior gates; promote m258_a010 as public-gate base",
+  "failure_criteria": [
+    "trajectory-anchored projection cannot restore protected-key source without losing M223 improvement",
+    "all projected/interpolated candidates fail exact source gate",
+    "exact-gated candidates still fail M183/M170 row16",
+    "candidate exact-gates and row16-gates but fails broader public proof retention",
+    "actor input contract changes"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO in M258",
+    "do not promote projection without exact source and public proof gates",
+    "do not run full public gates if exact source or row16 gate fails",
+    "do not change actor inputs",
+    "do not alter trajectory anchor format"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260522T153004Z",
+  "hypothesis": "Adding the M235 trajectory action anchor to the M256 protected-source projection can preserve row16 closed-loop behavior while still repairing protected-key source loss from M254 raw PPO.",
+  "lineage": {
+    "blocked_by": [
+      "m257-trajectory-anchored-projection-implementation"
+    ],
+    "derived_from": [
+      "m256-post-ppo-protected-source-projection",
+      "m257-trajectory-anchored-projection-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m252_alpha_boundary_interpolation/checkpoints/alpha_0_00008.pt",
+      "runs/ppo_m254_exact_source_from_m253_seed5225/checkpoint.pt"
+    ],
+    "parent_config": [
+      "src/autodrift/outcome_intervention_optimize.py",
+      "docs/m256-post-ppo-protected-source-projection.md",
+      "docs/m257-trajectory-anchored-projection-implementation.md"
+    ],
+    "parent_dataset": [
+      "runs/m231_protected_key_snippet_surface/protected_key_snippets.npz",
+      "runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.npz",
+      "runs/m235_closed_loop_trajectory_anchor_surface/trajectory_anchor.npz",
+      "runs/m256_m183_m170_replay_gate_a0_00001/comparison_summary.csv"
+    ],
+    "parent_objective": [
+      "post-PPO protected-key source projection with trajectory action anchor retention"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m258-trajectory-anchored-projection-retry",
+  "next_blocker": "m259-trajectory-anchored-repair-repeat",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "promote_m258_a010_public_gate_base",
+  "public_gates": [
+    "M245 exact source-aware objective gate",
+    "M183/M170 row16 replay retention",
+    "full public replay gates only after exact source and row16 gates pass",
+    "protected key gate only after exact source and row16 gates pass",
+    "behavior retention only after proof gates pass",
+    "research validator"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m258_m253_to_projection_interpolation/checkpoints/alpha_0_01.pt",
+    "clearance_margin_mean": "1.844114",
+    "decision": "promote_m258_a010_public_gate_base",
+    "milestone": "m258-trajectory-anchored-projection-retry",
+    "reason": "M258 trajectory-anchored projection repairs protected-key source while retaining row16 full replay protected-key and behavior gates; promote m258_a010 as public-gate base",
+    "reset_success": "0.8500",
+    "success_rate": "0.8625",
+    "termination_rate": "0.1375",
+    "type": "driver_candidate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "0.8000",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "projection reduces protected-key source loss versus M254 raw",
+    "at least one projected/interpolated alpha has M223 source delta < 0, aggregate M232 delta <= +1e-8, and protected-key source delta <= +1e-8 versus M253",
+    "at least one exact-gated alpha preserves M183/M170 row16 normal success and margin",
+    "only row16/exact-gated candidates advance to full replay protected-key and behavior gates",
+    "no PPO is run"
+  ],
+  "type": "driver_candidate"
+}
