@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 272,
+    "completed": 273,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m263-m261-raw-trajectory-projection-repair.md",
+    "command_log": "docs/m264-repair-disciplined-stage2-repeat-from-m263.md",
     "returncode": 0,
-    "run_dir": "runs/m263_behavior_gate_a005_seed9506",
+    "run_dir": "runs/m264_behavior_gate_a001_seed9506",
     "status": "completed",
-    "task_id": "m263-m261-raw-trajectory-projection-repair"
+    "task_id": "m264-repair-disciplined-stage2-repeat-from-m263"
   },
   "next_task": {
-    "command": "see experiments/manifests/m264-repair-disciplined-stage2-repeat-from-m263.json",
-    "hypothesis": "The repaired stage2 PPO discipline can repeat from M263 on a fresh seed when raw PPO is followed by exact-source gating and trajectory-anchored projection repair before promotion.",
-    "id": "m264-repair-disciplined-stage2-repeat-from-m263",
-    "kind": "driver_candidate",
-    "notes": "Pending: fresh 4096-step PPO plus repair discipline before medium PPO",
-    "priority": 2590,
+    "command": "see experiments/manifests/m265-protected-key-window-saturation-audit.json",
+    "hypothesis": "The M263 to M264 repaired stage2 path has nearly saturated the single protected-key normal-margin window, so more PPO should be blocked until the protected surface or gate policy is refreshed.",
+    "id": "m265-protected-key-window-saturation-audit",
+    "kind": "gate",
+    "notes": "Pending: no-training audit before any more PPO",
+    "priority": 2600,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T160011Z"
+  "updated_at_utc": "20260522T160536Z"
 }

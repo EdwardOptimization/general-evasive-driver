@@ -8597,3 +8597,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: trajectory-anchored projection repairs M261 raw protected-key source regression. Full projection has exact deltas `M223=-0.000401384` and `protected_key=-0.000266808` but fails protected-key replay. Interpolation promotes `m263_a005`, with exact deltas `M223=-0.000001946` and `protected_key=-0.000001301`; it passes replay gates, protected key, and behavior seeds `9505`/`9506`.
 - decision: `promote_m263_a005_public_gate_base`
 - next: `m264-repair-disciplined-stage2-repeat-from-m263`
+
+## 20260522T160536Z - m264-repair-disciplined-stage2-repeat-from-m263
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m264_behavior_gate_a001_seed9506`
+- artifact: `docs/m264-repair-disciplined-stage2-repeat-from-m263.md`
+- result: fresh 4096-step PPO from M263 improves exact sources (`M223=-0.000364444`, `protected_key=-0.000000644`). Protected-key replay permits only `m264_a001`; `alpha=0.0025` already fails with normal margin `0.200065`. `m264_a001` passes replay gates, protected key, and behavior seeds `9505`/`9506`, but slack to the `0.2` window is only `0.000029`.
+- decision: `promote_m264_a001_public_gate_base`
+- next: `m265-protected-key-window-saturation-audit`

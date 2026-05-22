@@ -1,0 +1,84 @@
+{
+  "id": "m265-protected-key-window-saturation-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt"
+    ],
+    "parent_dataset": [
+      "runs/m231_protected_key_snippet_surface/protected_key_snippets.npz",
+      "runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.npz",
+      "runs/m235_closed_loop_trajectory_anchor_surface/trajectory_anchor.npz"
+    ],
+    "parent_config": [
+      "docs/m260-repair-disciplined-stage2-ppo-from-m259.md",
+      "docs/m261-repair-disciplined-stage2-repeat.md",
+      "docs/m262-stage2-repeat-fragility-audit.md",
+      "docs/m263-m261-raw-trajectory-projection-repair.md",
+      "docs/m264-repair-disciplined-stage2-repeat-from-m263.md"
+    ],
+    "parent_objective": [
+      "audit whether the single protected key window is saturated before more PPO"
+    ],
+    "derived_from": [
+      "m264-repair-disciplined-stage2-repeat-from-m263"
+    ],
+    "blocked_by": [
+      "m264-repair-disciplined-stage2-repeat-from-m263"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m265-protected-key-window-saturation-audit.md",
+  "public_gates": [
+    "compare protected-key normal-margin trajectory across M259 through M264",
+    "compare exact-source improvement versus remaining protected-key slack",
+    "separate replay or behavior regressions from protected-key window pressure",
+    "decide whether another PPO repeat is admissible"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M265",
+    "do not loosen the protected key without recorded evidence",
+    "do not change actor inputs",
+    "do not tune from private holdout evidence",
+    "do not start medium PPO until the audit decision is recorded"
+  ],
+  "hypothesis": "The M263 to M264 repaired stage2 path has nearly saturated the single protected-key normal-margin window, so more PPO should be blocked until the protected surface or gate policy is refreshed.",
+  "success_criteria": [
+    "M265 records the protected-key normal-margin trajectory and remaining slack",
+    "M265 identifies whether the current blocker is protected-key saturation rather than replay, behavior, exact-source, or training instability",
+    "M265 records a concrete next milestone decision without running new PPO",
+    "actor input contract remains unchanged"
+  ],
+  "failure_criteria": [
+    "audit artifacts are insufficient to explain the protected-key alpha collapse",
+    "M265 starts new PPO or tunes from private holdout evidence",
+    "actor input contract changes"
+  ],
+  "commands": [
+    {
+      "name": "m265_saturation_audit",
+      "command": "Summarize M259-M264 protected-key margins, source deltas, replay gates, and behavior gates into a no-training audit."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m265-protected-key-window-saturation-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m264-repair-disciplined-stage2-repeat-from-m263.md"
+  ],
+  "decision_rule": "M265 does not promote a checkpoint. It must decide whether to refresh the protected surface, adjust the protected-key gate, add a stronger window-aware anchor, or admit another repaired stage2 repeat.",
+  "next_blocker": "pending M265 audit decision"
+}

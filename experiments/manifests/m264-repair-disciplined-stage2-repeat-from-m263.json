@@ -2,7 +2,7 @@
   "id": "m264-repair-disciplined-stage2-repeat-from-m263",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -85,5 +85,5 @@
     "docs/m263-m261-raw-trajectory-projection-repair.md"
   ],
   "decision_rule": "M264 may only promote a candidate if a fresh 4096-step PPO path plus optional trajectory repair passes exact source, row16, protected-key, full public replay, behavior, and validator gates.",
-  "next_blocker": "If M264 succeeds, decide whether repaired stage2 is stable enough for a cautious medium-PPO design; if it fails, redesign protected-key window handling."
+  "next_blocker": "m265-protected-key-window-saturation-audit"
 }

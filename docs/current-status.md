@@ -42,15 +42,15 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m263_m261_to_projection_interpolation/checkpoints/alpha_0_005.pt
+runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt
 ```
 
-Status: M263 trajectory-anchored repair of M261 raw. Projection repairs M261's
-protected-key source regression and `alpha=0.005` passes exact source,
-M183/M168, M183/M170, M193/M189, M212/M204, M223/M219 replay gates, protected
-key `9944|perturbed|28|28`, and behavior seeds `9505`/`9506`. Full projection
-and `alpha=0.010` fail the protected-key normal-margin window, so the next step
-is a repaired 4096-step stage2 repeat from M263, not medium PPO.
+Status: M264 repaired stage2 repeat from M263. Raw PPO improves exact M223 and
+protected-key source losses, but protected-key replay promotes only
+`alpha=0.001`. `m264_a001` passes M183/M168, M183/M170, M193/M189, M212/M204,
+M223/M219 replay gates, protected key `9944|perturbed|28|28`, and behavior seeds
+`9505`/`9506`. The protected-key normal-margin slack is now only `0.000029`, so
+the next step is a no-training protected-key saturation audit, not more PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
