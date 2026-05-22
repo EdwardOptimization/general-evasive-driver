@@ -277,11 +277,16 @@ slightly stronger action-level sensitivity.
   across `13` physical pairs, `8` left steps, `3` checkpoints, `2` targets, and
   `2` margin buckets. Robustness passes, so the current family still has
   source-diverse history-dependent near-boundary evidence.
+- M223: converts the M222 accepted rows into replay-aligned M219/M218/M217
+  boundary-outcome corpora. Each corpus has `17` rows across `13` physical
+  groups and passes 3-seed objective sanity. The M219 corpus replay sanity
+  preserves `17/17` wrong-history success drops, so a small guarded actor-update
+  design is admitted.
 
 Current blocker:
 
 ```text
-M222 boundary surface conversion into objective/replay sanity
+one small snippet-anchored actor update from M219 using the M223 corpus
 ```
 
 ## Near-Term Rule
@@ -306,7 +311,8 @@ protected-key-aware continuation path before any further PPO. M221 selected a
 current-family protected-surface refresh; PPO remains blocked until M222 passes
 and is converted into objective/replay gates. M222 passed, so M223 must convert
 the accepted rows into M219-family objective/replay corpora before any actor
-update or PPO.
+update or PPO. M223 passed; only one M216-style tiny snippet-anchored actor
+update from M219 seed `5216` is admitted before repeat evidence.
 
 ## Sensor Profile Policy
 

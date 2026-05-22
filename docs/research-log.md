@@ -8108,3 +8108,38 @@ Decision:
 ```text
 admit_boundary_wrong_history_objective
 ```
+
+## 20260522T124500Z m223-m219-family-boundary-objective-sanity
+
+M223 converted the M222 robustness-passing accepted wrong-history rows into
+replay-aligned boundary-outcome corpora. No PPO or actor update was run.
+
+Artifacts:
+
+- `runs/m223_m219_boundary_outcome_corpus_seed10060`
+- `runs/m223_m218_boundary_outcome_corpus_seed10060`
+- `runs/m223_m217_boundary_outcome_corpus_seed10060`
+- `runs/m223_m219_boundary_replay_sanity_seed10060`
+- `docs/m223-m219-family-boundary-objective-sanity.md`
+- `experiments/manifests/m224-m223-guarded-actor-update.json`
+
+Results:
+
+- M219, M218, and M217 corpora each have `17` rows, `13` physical groups, and
+  `2` targets;
+- all three pass objective sanity with `3/3` seed passes and pairwise accuracy
+  `1.0`;
+- M219 corpus mean validation combined-loss improvement is `2.281296`;
+- M219 replay sanity preserves `17/17` success drops against M218;
+- M219 replay normal margin delta is `0.000056` and margin-gap delta is
+  `0.000002`.
+
+Decision: M223 is positive. Admit exactly one small preferred-only
+snippet-anchored actor update from M219 seed `5216` using the M223 M219 corpus.
+Do not run PPO or actor-update repeats before that single update is gated.
+
+Decision:
+
+```text
+admit_guarded_actor_update_design
+```

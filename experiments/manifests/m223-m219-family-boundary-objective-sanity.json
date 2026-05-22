@@ -70,5 +70,21 @@
     "runs/m222_m219_family_boundary_robustness_seed9520/accepted_wrong_history_rows.csv",
     "runs/m222_m219_family_boundary_robustness_seed9520/summary.json"
   ],
-  "decision_rule": "Admit a guarded actor-update design only if the M219 current-best corpus passes multi-seed objective sanity and replay sanity preserves normal success plus wrong-history success drops."
+  "results": {
+    "m219_rows": 17,
+    "m219_physical_groups": 13,
+    "m219_objective_pass": true,
+    "m219_seed_pass_count": 3,
+    "m219_mean_val_combined_loss_improvement": 2.2812957763671875,
+    "m219_mean_val_delta_loss_improvement": 3.0295677185058594,
+    "m218_objective_pass": true,
+    "m217_objective_pass": true,
+    "m219_replay_rows": 17,
+    "m219_replay_success_drop_count": 17,
+    "m219_replay_gate_pass": true,
+    "m219_replay_normal_margin_delta": 0.00005617269666215088,
+    "m219_replay_margin_gap_delta": 0.0000017711874711716369
+  },
+  "decision_rule": "Admit a guarded actor-update design only if the M219 current-best corpus passes multi-seed objective sanity and replay sanity preserves normal success plus wrong-history success drops.",
+  "decision": "admit_guarded_actor_update_design"
 }

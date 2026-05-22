@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 231,
+    "completed": 232,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m222-m219-family-protected-surface-refresh.md",
+    "command_log": "docs/m223-m219-family-boundary-objective-sanity.md",
     "returncode": 0,
-    "run_dir": "runs/m222_m219_family_boundary_robustness_seed9520",
+    "run_dir": "runs/m223_m219_boundary_replay_sanity_seed10060",
     "status": "completed",
-    "task_id": "m222-m219-family-protected-surface-refresh"
+    "task_id": "m223-m219-family-boundary-objective-sanity"
   },
   "next_task": {
-    "command": "see experiments/manifests/m223-m219-family-boundary-objective-sanity.json",
-    "hypothesis": "M222 recovered a robust M217/M218/M219-family wrong-history boundary surface; convert it into replay-aligned objective corpora before any actor update or PPO.",
-    "id": "m223-m219-family-boundary-objective-sanity",
-    "kind": "objective_sanity",
-    "notes": "Build M219/M218/M217 corpora from M222 accepted rows and run objective plus replay sanity; do not use rejected M220 as source.",
-    "priority": 2180,
+    "command": "see experiments/manifests/m224-m223-guarded-actor-update.json",
+    "hypothesis": "M223 validates a replay-aligned M219 corpus from the refreshed surface; run one tiny snippet-anchored actor update before any repeat or PPO.",
+    "id": "m224-m223-guarded-actor-update",
+    "kind": "driver_candidate",
+    "notes": "Use M216-style preferred-only snippet action anchor from M219 seed5216; require old/current/new replay, behavior, and protected-key retention.",
+    "priority": 2190,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T123500Z"
+  "updated_at_utc": "20260522T124500Z"
 }
