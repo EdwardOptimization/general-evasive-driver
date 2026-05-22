@@ -1,0 +1,119 @@
+{
+  "id": "m229-snippet-anchored-ppo-smoke-from-m224",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.npz"
+    ],
+    "parent_config": [
+      "configs/ppo_m229_snippet_anchor_from_m224_smoke.json"
+    ],
+    "parent_objective": [
+      "M223 outcome intervention corpus",
+      "rollout-state M224 baseline action anchor",
+      "preferred-only M224 boundary snippet action anchor"
+    ],
+    "derived_from": [
+      "m228-ppo-snippet-action-anchor-implementation"
+    ],
+    "blocked_by": [
+      "m226-guarded-ppo-smoke-from-m224"
+    ],
+    "supersedes": [
+      "m226-guarded-ppo-smoke-from-m224"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m229-snippet-anchored-ppo-smoke-from-m224.md",
+  "public_gates": [
+    "fixed M223 outcome objective versus M219/M224/M225/M226",
+    "M183 M168 and M183 M170 old replay surfaces",
+    "M193 M189 refreshed replay surface",
+    "M212 M204 current replay surface",
+    "M223 M219 new replay surface",
+    "behavior seeds 9505 and 9506",
+    "critical protected key seed 9944"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run multiple PPO seeds before this smoke is gated",
+    "do not run longer PPO directly",
+    "do not promote based on training reward",
+    "do not change actor inputs",
+    "do not loosen replay or protected-key thresholds after seeing the result"
+  ],
+  "hypothesis": "Adding preferred-only boundary snippet action anchoring to the M226 PPO recipe may preserve the proof rows that M226 lost while retaining broad behavior from M224.",
+  "success_criteria": [
+    "start from the M224 checkpoint",
+    "run exactly one tiny PPO smoke with configs/ppo_m229_snippet_anchor_from_m224_smoke.json",
+    "keep actor inputs unchanged",
+    "log snippet_action_anchor_loss_mean during training",
+    "preserve M183 M168 and M183 M170 replay gates",
+    "preserve M193 M189, M212 M204, and M223 M219 replay gates",
+    "preserve behavior seeds 9505 and 9506",
+    "preserve protected key 9944|perturbed|28|28",
+    "do not promote unless fixed M223 objective is not worse than M224 within tolerance and every proof surface passes"
+  ],
+  "failure_criteria": [
+    "snippet_action_anchor_loss_mean is missing",
+    "drop any old/current/new replay row",
+    "protected key leaves the near-boundary window",
+    "behavior success regresses below M224",
+    "fixed M223 objective regresses beyond tolerance",
+    "change actor observation inputs"
+  ],
+  "commands": [
+    {
+      "name": "m229_snippet_anchored_ppo_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_m229_snippet_anchor_from_m224_smoke.json --seed 5219 --init-checkpoint runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt --run-dir runs/ppo_m229_snippet_anchor_from_m224_seed5219"
+    },
+    {
+      "name": "m229_fixed_eval",
+      "command": "Compare M219, M224, M225, M226, and M229 on the fixed M223 M219 corpus."
+    },
+    {
+      "name": "m229_retention_gates",
+      "command": "Run old M183 replay, refreshed M193 replay, current M212 replay, new M223 replay, behavior seeds 9505/9506, and protected-key replay before admitting any PPO repeat."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m229-snippet-anchored-ppo-smoke-from-m224.md",
+      "type": "documentation"
+    },
+    {
+      "path": "configs/ppo_m229_snippet_anchor_from_m224_smoke.json",
+      "type": "training_config"
+    },
+    {
+      "path": "runs/ppo_m229_snippet_anchor_from_m224_seed5219/checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m229_fixed_batch_outcome_eval_seed37/summary.json",
+      "type": "fixed_eval_summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m219_guarded_from_m217_seed5216/checkpoint.pt",
+    "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt",
+    "runs/m225_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10064/optimized_checkpoint.pt",
+    "runs/m225_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10065/optimized_checkpoint.pt",
+    "runs/ppo_m226_guarded_from_m224_seed5218/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m226-guarded-ppo-smoke-from-m224.md",
+    "docs/m227-ppo-smoke-retention-failure-audit.md",
+    "docs/m228-ppo-snippet-action-anchor-implementation.md"
+  ],
+  "decision_rule": "Only a single PPO smoke that preserves fixed objective, behavior, protected key, old replay, refreshed replay, current replay, and new replay may admit PPO repeats.",
+  "next_blocker": "If M229 passes all proof gates, run a fresh-seed repeat before any longer continuation; if it fails, classify whether snippet anchoring is underweighted or PPO is still misaligned with proof rows."
+}

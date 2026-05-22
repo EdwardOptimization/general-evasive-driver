@@ -25,11 +25,13 @@ from autodrift.env import AutoDriftEnv, DriftEnvConfig, FRONT_REAR_WHEEL_OBS_DIM
 from autodrift.intervention_objectives import (
     action_mean_margin_contrast_loss,
     baseline_action_anchor_loss,
+    build_snippet_action_anchor,
     load_outcome_intervention_snippets,
     load_paired_hidden_snapshots,
     logprob_intervention_contrast_loss,
     outcome_weighted_intervention_loss,
     paired_hidden_action_contrast_loss,
+    snippet_action_anchor_loss,
 )
 from autodrift.vector_env import ParallelAutoDriftVectorEnv, SyncAutoDriftVectorEnv
 
@@ -103,6 +105,11 @@ class PPOConfig:
     baseline_action_anchor_coef: float = 0.0
     baseline_action_anchor_checkpoint: str = ""
     baseline_action_anchor_negative_advantage_only: bool = False
+    snippet_action_anchor_coef: float = 0.0
+    snippet_action_anchor_checkpoint: str = ""
+    snippet_action_anchor_snapshot_npz: str = ""
+    snippet_action_anchor_batch_size: int = 128
+    snippet_action_anchor_preferred_only: bool = True
     checkpoint_interval_steps: int = 0
     training_seed_csv: str = ""
     training_seed_mix_probability: float = 1.0
@@ -928,6 +935,20 @@ def train(
             raise ValueError("baseline_action_anchor_checkpoint is required when baseline action anchor is enabled")
     if config.baseline_action_anchor_coef < 0.0:
         raise ValueError("baseline_action_anchor_coef cannot be negative")
+    if config.snippet_action_anchor_coef > 0.0:
+        if not uses_online_recurrent or not config.recurrent_sequence_training:
+            raise ValueError("snippet action anchor requires online recurrent sequence training")
+        if not str(config.snippet_action_anchor_checkpoint).strip():
+            raise ValueError("snippet_action_anchor_checkpoint is required when snippet action anchor is enabled")
+        snippet_anchor_npz = str(config.snippet_action_anchor_snapshot_npz).strip() or str(
+            config.outcome_intervention_snapshot_npz
+        ).strip()
+        if not snippet_anchor_npz:
+            raise ValueError("snippet_action_anchor_snapshot_npz is required when snippet action anchor is enabled")
+        if config.snippet_action_anchor_batch_size < 1:
+            raise ValueError("snippet_action_anchor_batch_size must be positive")
+    if config.snippet_action_anchor_coef < 0.0:
+        raise ValueError("snippet_action_anchor_coef cannot be negative")
     if config.checkpoint_interval_steps < 0:
         raise ValueError("checkpoint_interval_steps cannot be negative")
     if not 0.0 <= config.training_seed_mix_probability <= 1.0:
@@ -1014,6 +1035,54 @@ def train(
         if config.outcome_intervention_aux_coef > 0.0
         else None
     )
+    snippet_action_anchor = None
+    if config.snippet_action_anchor_coef > 0.0:
+        snippet_anchor_npz = str(config.snippet_action_anchor_snapshot_npz).strip() or str(
+            config.outcome_intervention_snapshot_npz
+        ).strip()
+        snippet_action_anchor_snippets = (
+            outcome_intervention_snippets
+            if outcome_intervention_snippets is not None
+            and snippet_anchor_npz == str(config.outcome_intervention_snapshot_npz).strip()
+            else load_outcome_intervention_snippets(
+                snippet_anchor_npz,
+                device=device,
+                obs_dim=env.single_observation_space.shape[0],
+                hidden_size=config.hidden_size,
+                act_dim=env.single_action_space.shape[0],
+            )
+        )
+        snippet_anchor_model = ActorCritic(
+            obs_dim=env.single_observation_space.shape[0],
+            act_dim=env.single_action_space.shape[0],
+            hidden_size=config.hidden_size,
+            log_std_init=config.log_std_init,
+            log_std_min=config.log_std_min,
+            log_std_max=config.log_std_max,
+            actor_encoder=config.actor_encoder,
+            actor_history_length=config.actor_history_length,
+            action_sequence_horizon=config.action_sequence_horizon,
+            response_prediction_dim=config.response_prediction_dim,
+            response_prediction_horizon=config.response_prediction_horizon,
+        ).to(device)
+        snippet_anchor_load_mode = load_init_checkpoint_state(
+            snippet_anchor_model,
+            Path(config.snippet_action_anchor_checkpoint),
+            device,
+        )
+        snippet_anchor_model.eval()
+        for parameter in snippet_anchor_model.parameters():
+            parameter.requires_grad_(False)
+        snippet_action_anchor = build_snippet_action_anchor(
+            snippet_anchor_model,
+            snippet_action_anchor_snippets,
+            include_rejected_hidden=not config.snippet_action_anchor_preferred_only,
+        )
+        print(
+            f"loaded_snippet_action_anchor={config.snippet_action_anchor_checkpoint} "
+            f"snapshot={snippet_anchor_npz} load_mode={snippet_anchor_load_mode} "
+            f"preferred_only={config.snippet_action_anchor_preferred_only}"
+        )
     print(f"training_device={device} num_envs={config.num_envs} curriculum_stage={active_stage}")
 
     global_step = 0
@@ -1212,6 +1281,7 @@ def train(
             friction_bucket_loss_values: list[float] = []
             friction_bucket_accuracy_values: list[float] = []
             baseline_action_anchor_loss_values: list[float] = []
+            snippet_action_anchor_loss_values: list[float] = []
             friction_bucket_t = (
                 torch.as_tensor(friction_bucket_buf, dtype=torch.long, device=device)
                 if friction_bucket_buf is not None
@@ -1302,6 +1372,17 @@ def train(
                         loss = loss + config.outcome_intervention_aux_coef * outcome_intervention_loss
                         outcome_intervention_loss_values.append(
                             float(outcome_intervention_loss.detach().cpu().item())
+                        )
+                    if config.snippet_action_anchor_coef > 0.0:
+                        assert snippet_action_anchor is not None
+                        snippet_anchor_loss_value = snippet_action_anchor_loss(
+                            model,
+                            snippet_action_anchor,
+                            batch_size=config.snippet_action_anchor_batch_size,
+                        )
+                        loss = loss + config.snippet_action_anchor_coef * snippet_anchor_loss_value
+                        snippet_action_anchor_loss_values.append(
+                            float(snippet_anchor_loss_value.detach().cpu().item())
                         )
                     if config.friction_bucket_aux_coef > 0.0:
                         assert friction_bucket_prediction_head is not None
@@ -1489,6 +1570,12 @@ def train(
             row["baseline_action_anchor_loss_mean"] = (
                 float(np.mean(baseline_action_anchor_loss_values))
                 if baseline_action_anchor_loss_values
+                else float("nan")
+            )
+        if config.snippet_action_anchor_coef > 0.0:
+            row["snippet_action_anchor_loss_mean"] = (
+                float(np.mean(snippet_action_anchor_loss_values))
+                if snippet_action_anchor_loss_values
                 else float("nan")
             )
         metric_rows.append(row)

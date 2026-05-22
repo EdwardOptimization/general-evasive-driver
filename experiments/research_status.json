@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 236,
+    "completed": 237,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m227-ppo-smoke-retention-failure-audit.md",
+    "command_log": "docs/m228-ppo-snippet-action-anchor-implementation.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m227-ppo-smoke-retention-failure-audit"
+    "task_id": "m228-ppo-snippet-action-anchor-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m228-ppo-snippet-action-anchor-implementation.json",
-    "hypothesis": "PPO needs preferred-only boundary snippet action anchoring before another smoke can be meaningfully gated.",
-    "id": "m228-ppo-snippet-action-anchor-implementation",
-    "kind": "infrastructure",
-    "notes": "Add train_ppo config/loss path for snippet-level action anchoring, with focused tests; no PPO in M228.",
-    "priority": 2230,
+    "command": "see experiments/manifests/m229-snippet-anchored-ppo-smoke-from-m224.json",
+    "hypothesis": "Preferred-only boundary snippet action anchoring may preserve the proof rows that M226 lost while retaining broad behavior.",
+    "id": "m229-snippet-anchored-ppo-smoke-from-m224",
+    "kind": "driver_candidate",
+    "notes": "Run one smoke from M224 using configs/ppo_m229_snippet_anchor_from_m224_smoke.json; gate fixed M223, old/current/new replay, behavior, and protected key.",
+    "priority": 2240,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T140000Z"
+  "updated_at_utc": "20260522T143000Z"
 }

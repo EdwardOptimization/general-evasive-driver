@@ -2,7 +2,7 @@
   "id": "m228-ppo-snippet-action-anchor-implementation",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -70,7 +70,7 @@
       "type": "code"
     },
     {
-      "path": "tests/test_train_ppo.py",
+      "path": "tests/test_checkpoints.py",
       "type": "tests"
     },
     {

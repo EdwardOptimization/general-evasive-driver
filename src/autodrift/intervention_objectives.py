@@ -35,6 +35,21 @@ class OutcomeInterventionSnippets:
         return int(self.observation.shape[0])
 
 
+@dataclass(frozen=True)
+class SnippetActionAnchor:
+    observation: torch.Tensor
+    preferred_hidden: torch.Tensor
+    rejected_hidden: torch.Tensor
+    weight: torch.Tensor
+    reference_preferred_action: torch.Tensor
+    reference_rejected_action: torch.Tensor
+    include_rejected_hidden: bool
+
+    @property
+    def size(self) -> int:
+        return int(self.observation.shape[0])
+
+
 def weighted_mean(values: torch.Tensor, weights: torch.Tensor) -> torch.Tensor:
     """Mean with the same zero-weight behavior used by PPO auxiliary losses."""
 
@@ -235,3 +250,67 @@ def outcome_weighted_intervention_loss(
     rejected_log_prob = squashed_action_log_prob(rejected_dist, preferred_action)
     penalty = torch.nn.functional.softplus(rejected_log_prob - preferred_log_prob + float(logprob_margin))
     return weighted_mean(penalty, weight.detach())
+
+
+def build_snippet_action_anchor(
+    reference_model: Any,
+    snippets: OutcomeInterventionSnippets,
+    *,
+    include_rejected_hidden: bool,
+) -> SnippetActionAnchor:
+    with torch.no_grad():
+        preferred_dist, _, _ = reference_model.forward_recurrent(
+            snippets.observation,
+            snippets.preferred_hidden,
+        )
+        reference_preferred_action = torch.tanh(preferred_dist.mean).detach()
+        reference_rejected_action = torch.empty_like(reference_preferred_action)
+        if include_rejected_hidden:
+            rejected_dist, _, _ = reference_model.forward_recurrent(
+                snippets.observation,
+                snippets.rejected_hidden,
+            )
+            reference_rejected_action = torch.tanh(rejected_dist.mean).detach()
+    return SnippetActionAnchor(
+        observation=snippets.observation,
+        preferred_hidden=snippets.preferred_hidden,
+        rejected_hidden=snippets.rejected_hidden,
+        weight=snippets.weight.detach(),
+        reference_preferred_action=reference_preferred_action,
+        reference_rejected_action=reference_rejected_action,
+        include_rejected_hidden=include_rejected_hidden,
+    )
+
+
+def snippet_action_anchor_errors(
+    model: Any,
+    anchor: SnippetActionAnchor,
+    indices: torch.Tensor,
+) -> torch.Tensor:
+    observation = anchor.observation[indices]
+    preferred_hidden = anchor.preferred_hidden[indices]
+    preferred_dist, _, _ = model.forward_recurrent(observation, preferred_hidden)
+    preferred_action = torch.tanh(preferred_dist.mean)
+    error = torch.square(preferred_action - anchor.reference_preferred_action[indices].detach()).mean(dim=-1)
+    if anchor.include_rejected_hidden:
+        rejected_hidden = anchor.rejected_hidden[indices]
+        rejected_dist, _, _ = model.forward_recurrent(observation, rejected_hidden)
+        rejected_action = torch.tanh(rejected_dist.mean)
+        rejected_error = torch.square(
+            rejected_action - anchor.reference_rejected_action[indices].detach()
+        ).mean(dim=-1)
+        error = 0.5 * (error + rejected_error)
+    return error
+
+
+def snippet_action_anchor_loss(
+    model: Any,
+    anchor: SnippetActionAnchor,
+    *,
+    batch_size: int,
+) -> torch.Tensor:
+    count = anchor.size
+    batch_count = max(1, min(int(batch_size), count))
+    indices = torch.randint(count, (batch_count,), device=anchor.observation.device)
+    errors = snippet_action_anchor_errors(model, anchor, indices)
+    return weighted_mean(errors, anchor.weight[indices])
