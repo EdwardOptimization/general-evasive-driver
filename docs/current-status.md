@@ -51,8 +51,9 @@ source loss but regresses protected-key source loss; interpolation promotes only
 M193/M189, M212/M204, M223/M219 replay gates, protected key
 `9944|perturbed|28|28`, and behavior seeds `9505`/`9506`. The result is
 positive but weak: M260 admitted `alpha=0.05`, while M261 admits only
-`alpha=0.001`. Next step is a no-training stage2 repeat fragility audit, not a
-medium PPO run.
+`alpha=0.001`. M262 classifies the blocker as seed-fragile protected-source
+direction plus protected-key normal-margin pressure. Next step is a no-PPO
+trajectory-anchored projection repair from M261 raw, not a medium PPO run.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

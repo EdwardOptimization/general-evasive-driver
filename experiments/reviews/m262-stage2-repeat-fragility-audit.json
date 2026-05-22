@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M262 finds M261 safe-alpha collapse is not replay or behavior regression but seed-fragile protected-source direction and protected-key normal-margin pressure",
+  "failure_criteria": [
+    "audit artifacts are insufficient to explain the M260 versus M261 safe-alpha gap",
+    "M262 starts new PPO or tunes from private holdout evidence",
+    "actor input contract changes"
+  ],
+  "failure_types": [
+    "seed_fragility",
+    "protected_key_window_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO in M262",
+    "do not promote a new checkpoint in M262",
+    "do not change actor inputs",
+    "do not use private holdout evidence",
+    "do not start medium PPO until the audit decision is recorded"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260522T155441Z",
+  "hypothesis": "M261 passed promotion only at a tiny interpolation alpha because the repeated stage2 PPO direction is seed-fragile and remains constrained by protected-key source and normal-margin pressure.",
+  "lineage": {
+    "blocked_by": [
+      "m261-repair-disciplined-stage2-repeat"
+    ],
+    "derived_from": [
+      "m260-repair-disciplined-stage2-ppo-from-m259",
+      "m261-repair-disciplined-stage2-repeat"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m261_m260_to_raw_interpolation/checkpoints/alpha_0_001.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m248_source_balanced_from_m239_smoke.json",
+      "docs/m260-repair-disciplined-stage2-ppo-from-m259.md",
+      "docs/m261-repair-disciplined-stage2-repeat.md"
+    ],
+    "parent_dataset": [
+      "runs/m231_protected_key_snippet_surface/protected_key_snippets.npz",
+      "runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.npz",
+      "runs/m235_closed_loop_trajectory_anchor_surface/trajectory_anchor.npz"
+    ],
+    "parent_objective": [
+      "audit whether M260/M261 staged PPO repeats are stable enough to admit medium PPO"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m262-stage2-repeat-fragility-audit",
+  "next_blocker": "m263-m261-raw-trajectory-projection-repair",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "repair_with_m261_raw_trajectory_projection",
+  "public_gates": [
+    "compare M260 and M261 raw exact-source movement",
+    "compare safe interpolation alpha boundaries",
+    "compare protected-key normal-margin pressure",
+    "compare behavior retention deltas",
+    "classify the next blocker before any medium PPO"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m261_m260_to_raw_interpolation/checkpoints/alpha_0_001.pt",
+    "clearance_margin_mean": "1.844111",
+    "decision": "repair_with_m261_raw_trajectory_projection",
+    "milestone": "m262-stage2-repeat-fragility-audit",
+    "reason": "M262 finds M261 safe-alpha collapse is not replay or behavior regression but seed-fragile protected-source direction and protected-key normal-margin pressure",
+    "reset_success": "0.8500",
+    "success_rate": "0.8625",
+    "termination_rate": "0.1375",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "0.8000",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M262 produces a source-aware comparison of M260 and M261 raw PPO movement",
+    "M262 identifies whether the limiting gate is exact protected-source regression, protected-key normal-margin pressure, replay row16 fragility, behavior regression, or training instability",
+    "M262 records a concrete next milestone decision without running new PPO",
+    "actor input contract remains unchanged"
+  ],
+  "type": "gate"
+}

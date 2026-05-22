@@ -2,9 +2,10 @@
   "id": "m262-stage2-repeat-fragility-audit",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "repair",
   "failure_types": [
-    "none"
+    "seed_fragility",
+    "protected_key_window_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -82,5 +83,5 @@
     "docs/m261-repair-disciplined-stage2-repeat.md"
   ],
   "decision_rule": "M262 does not promote a checkpoint. It must decide whether the next step is another stage2 repeat, stronger protected-source repair, a stage2 config adjustment, or a cautious medium-PPO escalation.",
-  "next_blocker": "pending M262 audit decision"
+  "next_blocker": "m263-m261-raw-trajectory-projection-repair"
 }

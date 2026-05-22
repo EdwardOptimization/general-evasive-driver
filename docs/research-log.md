@@ -8577,3 +8577,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: 4096-step stage2 repeat from M260 is promotable only through tiny interpolation. Raw PPO improves M223 source (`-0.000329`) but regresses protected-key source (`+0.000007`). `m261_a001` has exact deltas `M223=-0.000000316` and `protected_key=+0.000000003`, retains row16, passes all public replay gates, passes protected key, and keeps behavior success `0.8625` on seeds `9505`/`9506`.
 - decision: `promote_m261_a001_public_gate_base`
 - next: `m262-stage2-repeat-fragility-audit`
+
+## 20260522T155316Z - m262-stage2-repeat-fragility-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `docs/m262-stage2-repeat-fragility-audit.md`
+- artifact: `docs/m262-stage2-repeat-fragility-audit.md`
+- result: M260 and M261 both improve M223 raw source loss, but M261 regresses protected-key source by `+0.000006868` and is exact-safe only to `alpha=0.001`. M260 is exact-safe through `alpha=0.10` but fails the protected-key normal-margin window there. Replay and behavior are not the blocker.
+- decision: `repair_with_m261_raw_trajectory_projection`
+- next: `m263-m261-raw-trajectory-projection-repair`

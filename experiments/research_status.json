@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 270,
+    "completed": 271,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m261-repair-disciplined-stage2-repeat.md",
+    "command_log": "docs/m262-stage2-repeat-fragility-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m261_behavior_gate_a001_seed9506",
+    "run_dir": "docs/m262-stage2-repeat-fragility-audit.md",
     "status": "completed",
-    "task_id": "m261-repair-disciplined-stage2-repeat"
+    "task_id": "m262-stage2-repeat-fragility-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m262-stage2-repeat-fragility-audit.json",
-    "hypothesis": "M261 passed promotion only at a tiny interpolation alpha because the repeated stage2 PPO direction is seed-fragile and remains constrained by protected-key source and normal-margin pressure.",
-    "id": "m262-stage2-repeat-fragility-audit",
-    "kind": "gate",
-    "notes": "Pending: no-training audit before any medium PPO",
-    "priority": 2570,
+    "command": "see experiments/manifests/m263-m261-raw-trajectory-projection-repair.json",
+    "hypothesis": "A trajectory-anchored protected-source projection can repair M261 raw PPO's protected-key source regression and admit a larger proof-safe update than M261 alpha 0.001.",
+    "id": "m263-m261-raw-trajectory-projection-repair",
+    "kind": "driver_candidate",
+    "notes": "Pending: no-PPO projection repair from M261 raw before any medium PPO",
+    "priority": 2580,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T154936Z"
+  "updated_at_utc": "20260522T155316Z"
 }
