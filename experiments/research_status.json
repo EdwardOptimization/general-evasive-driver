@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 299,
+    "completed": 300,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m290-row16-aware-balanced-repeat-fresh-seed.md",
+    "command_log": "docs/m291-row16-aware-guarded-ppo-smoke.md",
     "returncode": 0,
-    "run_dir": "runs/m290_row16_aware_balanced_repeat_fresh_seed",
+    "run_dir": "runs/m291_row16_aware_guarded_ppo_smoke",
     "status": "completed",
-    "task_id": "m290-row16-aware-balanced-repeat-fresh-seed"
+    "task_id": "m291-row16-aware-guarded-ppo-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m291-row16-aware-guarded-ppo-smoke.json",
-    "hypothesis": "A smoke-scale guarded PPO continuation from m290x64_a500 can run without washing out the repeated row16-aware proof surfaces.",
-    "id": "m291-row16-aware-guarded-ppo-smoke",
-    "kind": "driver_candidate",
-    "notes": "Pending: smoke PPO from m290x64_a500 with proof gates before broader gates",
-    "priority": 2860,
+    "command": "see experiments/manifests/m292-m291-ppo-proof-washout-audit.json",
+    "hypothesis": "M291 raw PPO washes out M267/M264 because the PPO reward update overpowers current-family rejected-history retention while preserving old row16 margins.",
+    "id": "m292-m291-ppo-proof-washout-audit",
+    "kind": "gate",
+    "notes": "Pending: no-PPO audit of M291 raw failed current-family rows",
+    "priority": 2870,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T194725Z"
+  "updated_at_utc": "20260522T195757Z"
 }

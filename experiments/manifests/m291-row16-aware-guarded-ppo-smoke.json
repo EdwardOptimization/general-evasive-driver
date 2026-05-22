@@ -2,9 +2,10 @@
   "id": "m291-row16-aware-guarded-ppo-smoke",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "archive",
   "failure_types": [
-    "none"
+    "proof_washout",
+    "objective_overfit"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -84,6 +85,27 @@
     "docs/m290-row16-aware-balanced-repeat-fresh-seed.md",
     "runs/m290_row16_aware_balanced_repeat_fresh_seed/summary.json"
   ],
+  "results": {
+    "run_dir": "runs/m291_row16_aware_guarded_ppo_smoke",
+    "config": "configs/ppo_m291_row16_aware_guarded_smoke.json",
+    "raw_checkpoint": "runs/ppo_m291_row16_aware_guarded_smoke_seed5231/checkpoint.pt",
+    "raw_exact_m270_loss": 0.6797810792922974,
+    "raw_exact_m270_delta_vs_m290": 0.0005027055740356445,
+    "raw_m183_m170_gate_pass": true,
+    "raw_m267_m264_gate_pass": false,
+    "raw_m267_m264_success_drops": 13,
+    "selected_diagnostic_policy": "m291_a100",
+    "selected_diagnostic_checkpoint": "runs/m291_row16_aware_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_1.pt",
+    "selected_diagnostic_alpha": 0.1,
+    "selected_exact_m270_loss": 0.679328441619873,
+    "selected_exact_m270_delta_vs_m290": 0.000050067901611328125,
+    "full_replay_gates_pass": true,
+    "protected_key_guard_validated": true,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "promotion_recommended": false
+  },
   "decision_rule": "M291 may promote only a smoke-scale PPO result that preserves proof surfaces, protected key, and behavior without near-zero interpolation.",
-  "next_blocker": "pending M291 guarded PPO smoke"
+  "decision": "archive_m291_safe_interpolation_diagnostic_keep_m290_base",
+  "next_blocker": "m292-m291-ppo-proof-washout-audit"
 }

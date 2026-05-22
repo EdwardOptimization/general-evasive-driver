@@ -1,0 +1,89 @@
+{
+  "id": "m292-m291-ppo-proof-washout-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m290_row16_aware_balanced_repeat_fresh_seed/interpolation/checkpoints/alpha_0_5.pt",
+      "runs/ppo_m291_row16_aware_guarded_smoke_seed5231/checkpoint.pt",
+      "runs/m291_row16_aware_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m291_row16_aware_guarded_ppo_smoke/gates/raw_m267_m264/boundary_replay_rows.csv",
+      "runs/m291_row16_aware_guarded_ppo_smoke/interpolation/alpha_summary.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m291_row16_aware_guarded_smoke.json",
+      "experiments/manifests/m291-row16-aware-guarded-ppo-smoke.json",
+      "docs/m291-row16-aware-guarded-ppo-smoke.md"
+    ],
+    "parent_objective": [
+      "audit why raw smoke PPO worsens exact M270 and loses M267/M264 wrong-history drops"
+    ],
+    "derived_from": [
+      "m291-row16-aware-guarded-ppo-smoke"
+    ],
+    "blocked_by": [
+      "m291-row16-aware-guarded-ppo-smoke"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m292-m291-ppo-proof-washout-audit.md",
+  "public_gates": [
+    "do not run PPO",
+    "inspect raw M291 failed M267/M264 rows",
+    "compare M290, m291_a100, and m291raw action/margin deltas",
+    "identify whether washout comes from PPO reward, anchor weakness, or current-family rejected-history underweighting",
+    "pre-register the next PPO repair only after the audit"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not start another PPO run in M292",
+    "do not promote m291_a100",
+    "do not change actor inputs",
+    "do not treat public behavior retention as enough when fixed M270 regresses"
+  ],
+  "hypothesis": "M291 raw PPO washes out M267/M264 because the PPO reward update overpowers current-family rejected-history retention while preserving old row16 margins.",
+  "success_criteria": [
+    "identify which M267/M264 rows raw PPO makes safe",
+    "compare action and terminal-margin changes for M290, m291_a100, and m291raw",
+    "classify the failure cause using process-v2 taxonomy",
+    "select the next repair strategy without running PPO"
+  ],
+  "failure_criteria": [
+    "audit cannot explain the M267/M264 success-drop loss",
+    "audit discovers metric or lineage inconsistency",
+    "PPO is run",
+    "actor observation inputs change"
+  ],
+  "commands": [
+    {
+      "name": "m292_audit",
+      "command": "Audit M291 raw PPO failed M267/M264 replay rows and choose the next guarded PPO repair design."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m292-m291-ppo-proof-washout-audit.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m292_m291_ppo_proof_washout_audit/summary.json",
+      "type": "audit_summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m290_row16_aware_balanced_repeat_fresh_seed/interpolation/checkpoints/alpha_0_5.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m291-row16-aware-guarded-ppo-smoke.md",
+    "runs/m291_row16_aware_guarded_ppo_smoke/summary.json"
+  ],
+  "decision_rule": "M292 should produce a no-PPO repair recommendation for M293; it must not promote a checkpoint.",
+  "next_blocker": "pending M292 PPO proof-washout audit"
+}
