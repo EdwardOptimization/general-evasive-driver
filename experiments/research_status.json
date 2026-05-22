@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 188,
+    "completed": 189,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m179-dual-checkpoint-boundary-relocated-outcome-proof-surface.md",
+    "command_log": "docs/m180-diversified-boundary-outcome-proof-surface-mining.md",
     "returncode": 0,
-    "run_dir": "runs/m179_dual_checkpoint_boundary_relocation_seed9510",
+    "run_dir": "runs/m180_longitudinal_offset_boundary_surface_seed9510",
     "status": "completed",
-    "task_id": "m179-dual-checkpoint-boundary-relocated-outcome-proof-surface"
+    "task_id": "m180-diversified-boundary-outcome-proof-surface-mining"
   },
   "next_task": {
-    "command": "see experiments/manifests/m180-diversified-boundary-outcome-proof-surface-mining.json",
-    "hypothesis": "M179 finds a local boundary wrong-history success-drop signal, but it is duplicate-dominated and lateral-only, so diversify obstacle geometry and source pairs before any objective or PPO.",
-    "id": "m180-diversified-boundary-outcome-proof-surface-mining",
+    "command": "see experiments/manifests/m181-low-threshold-source-diverse-boundary-mining.json",
+    "hypothesis": "M180 shows simple obstacle offsets do not diversify the wrong-history outcome surface, so lower the base action-distance filter and mine source-pair diversity directly.",
+    "id": "m181-low-threshold-source-diverse-boundary-mining",
     "kind": "gate",
-    "notes": "Pending after M179: run lateral/longitudinal offset mining or explicit source-diverse selection and robustness gates",
-    "priority": 1750,
+    "notes": "Pending after M180: run wrong-history-only low-threshold boundary relocation and robustness before any multi-variant sweep",
+    "priority": 1760,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T054232Z"
+  "updated_at_utc": "20260522T060822Z"
 }

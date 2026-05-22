@@ -25,8 +25,12 @@
       "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_wrong_history_surface_robustness --boundary-rows-csv runs/m180_lateral_offset_boundary_surface_seed9510/boundary_relocation_rows.csv --control-checkpoint-label none --margin-bucket-width 0.01 --min-accepted-wrong-rows 40 --min-physical-pairs 10 --min-left-steps 5 --min-checkpoints 2 --min-targets 1 --min-margin-buckets 2 --min-success-drop-fraction 1.0 --max-rows-per-pair-fraction 0.25 --max-control-accepted-rows 0 --run-dir runs/m180_lateral_offset_robustness_seed9510"
     },
     {
-      "name": "m180_longitudinal_offset_boundary_surface_if_needed",
-      "command": "If lateral offsets remain duplicate-dominated, repeat the same surface with --body-longitudinal-offsets=-2.0,-1.0,0.0,1.0,2.0 and run the same robustness gate."
+      "name": "m180_longitudinal_offset_boundary_surface",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.wrong_history_boundary_relocation_surface --checkpoint-policy m168_strict=runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt --checkpoint-policy m170_split=runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --outcome-csv runs/m178_dual_checkpoint_outcome_proof_surface_seed9510/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 60 --max-pairs-per-checkpoint-target 0 --min-base-action-distance 0.02 --target-normal-margins 0.005,0.01,0.02,0.05,0.10,0.15 --half-width-inflations 0 --body-longitudinal-offsets=-2.0,-1.0,0.0,1.0,2.0 --min-margin-gap 0.02 --min-accepted-wrong-rows 40 --report-variants wrong_matched_history,reset_hidden,zero_current_response,zero_action_history,delayed_history --device cpu --run-dir runs/m180_longitudinal_offset_boundary_surface_seed9510"
+    },
+    {
+      "name": "m180_longitudinal_offset_robustness",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_wrong_history_surface_robustness --boundary-rows-csv runs/m180_longitudinal_offset_boundary_surface_seed9510/boundary_relocation_rows.csv --control-checkpoint-label none --margin-bucket-width 0.01 --min-accepted-wrong-rows 40 --min-physical-pairs 10 --min-left-steps 5 --min-checkpoints 2 --min-targets 1 --min-margin-buckets 2 --min-success-drop-fraction 1.0 --max-rows-per-pair-fraction 0.25 --max-control-accepted-rows 0 --run-dir runs/m180_longitudinal_offset_robustness_seed9510"
     }
   ],
   "required_artifacts": [
@@ -40,7 +44,16 @@
     "runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt",
     "runs/m178_dual_checkpoint_outcome_proof_surface_seed9510/outcome_interventions.csv",
     "runs/m179_dual_checkpoint_boundary_relocation_seed9510/summary.json",
-    "runs/m179_boundary_relocation_lateral_robustness_seed9510/summary.json"
+    "runs/m179_boundary_relocation_lateral_robustness_seed9510/summary.json",
+    "runs/m180_lateral_offset_boundary_surface_seed9510/summary.json",
+    "runs/m180_lateral_offset_robustness_seed9510/summary.json",
+    "runs/m180_longitudinal_offset_boundary_surface_seed9510/summary.json",
+    "runs/m180_longitudinal_offset_robustness_seed9510/summary.json"
   ],
-  "decision_rule": "Admit a boundary outcome proof surface only if robustness passes; otherwise design explicit source-pair-diverse mining instead of training."
+  "decision_rule": "Admit a boundary outcome proof surface only if robustness passes; otherwise design explicit source-pair-diverse mining instead of training.",
+  "result": {
+    "status": "completed",
+    "decision": "reject_geometry_offsets_duplicate_dominated",
+    "notes": "Lateral offsets leave accepted wrong-history rows unchanged at 48; longitudinal offsets raise rows to 56 but both robustness gates still reject with only 3 strict physical pairs and 2 left steps. Do not continue blind geometry sweeps; next mine source-pair-diverse candidates with lower base-action threshold."
+  }
 }

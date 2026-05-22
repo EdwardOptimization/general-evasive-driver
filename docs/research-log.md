@@ -6539,3 +6539,43 @@ can become outcome-critical near a boundary, but the accepted wrong-history rows
 are too concentrated for a reusable proof surface or training corpus. Keep
 M168/M170 dual-track status and mine a diversified boundary outcome surface
 before any objective or PPO.
+
+## 20260522T060822Z m180-diversified-boundary-outcome-proof-surface-mining
+
+M180 tests whether simple obstacle geometry offsets can diversify the
+M179 accepted wrong-history surface before any objective or PPO.
+
+Lateral-offset run:
+
+```text
+runs/m180_lateral_offset_boundary_surface_seed9510
+runs/m180_lateral_offset_robustness_seed9510
+```
+
+Longitudinal-offset run:
+
+```text
+runs/m180_longitudinal_offset_boundary_surface_seed9510
+runs/m180_longitudinal_offset_robustness_seed9510
+```
+
+Comparison:
+
+| Surface | Replay rows | Accepted wrong rows | Success drops | Strict physical pairs | Left steps | Robustness |
+| --- | ---: | ---: | ---: | ---: | ---: | --- |
+| M179 source-only | 16880 | 48 | 48 | 3 | 2 | reject |
+| M180 lateral offsets | 84400 | 48 | 48 | 3 | 2 | reject |
+| M180 longitudinal offsets | 84050 | 56 | 56 | 3 | 2 | reject |
+
+Dominating strict physical pairs remain:
+
+```text
+(9530, 18, 9540, 21)
+(9530, 18, 9540, 24)
+(9530, 21, 9540, 24)
+```
+
+Decision: M180 is a negative diversification result. Blind geometry offsets do
+not solve duplicate domination. The next step should broaden the candidate set
+by lowering the base action-distance filter and mining source-pair diversity
+directly before any expensive multi-variant sweep.
