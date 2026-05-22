@@ -7211,3 +7211,38 @@ Results:
 Decision: M199 is positive repeat evidence. Admit one short guarded stage3
 from the best fixed-loss retained repeat, M199 seed `5201`, but do not run a
 stage3 repeat or longer PPO continuation before that first stage3 passes gates.
+
+## 20260522T092113Z m200-guarded-stage3-ppo-from-m199
+
+M200 ran one short guarded stage3 from the best fixed-loss M199 repeat, seed
+`5201`. The action anchor remains M194 through
+`configs/ppo_m196_guarded_from_m194_smoke.json`.
+
+Artifacts:
+
+- `runs/ppo_m200_stage3_from_m199_seed5203`
+- `runs/m200_fixed_batch_outcome_eval_seed37`
+- `runs/m200_m183_m168_replay_gate_seed9510`
+- `runs/m200_m183_m170_replay_gate_seed9510`
+- `runs/m200_m193_m189_replay_gate_seed9630`
+- `runs/m200_behavior_gate_seed9505`
+- `runs/m200_behavior_gate_seed9506`
+- `runs/m200_critical_key_seed9944`
+- `docs/m200-guarded-stage3-ppo-from-m199.md`
+
+Results:
+
+- fixed M193 objective loss improves from M199 seed `5201` `0.158850` to M200
+  `0.158756`;
+- smoke eval termination rate is elevated at `0.40`;
+- M183 M168 replay retains `16/16` success drops;
+- M183 M170 replay retains `17/17` success drops;
+- M193 M189 replay retains `14/14` success drops;
+- behavior seeds `9505` and `9506` keep success `0.8625`;
+- reset-hidden and zero-all-response ablations remain at `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` passes.
+
+Decision: M200 is positive as a single-seed stage3, but its smoke eval
+termination rate is worse than earlier stages. Repeat the same stage3 recipe
+from M199 seed `5201` on fresh seeds before chaining from M200 or running any
+longer PPO continuation.
