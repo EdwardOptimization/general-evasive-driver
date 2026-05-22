@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 173,
+    "completed": 174,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m164-boundary-outcome-replay-gate.md",
+    "command_log": "docs/m165-guarded-ppo-smoke-from-boundary-update.md",
     "returncode": 0,
-    "run_dir": "runs/m164_boundary_outcome_replay_gate_seed9510",
+    "run_dir": "runs/ppo_m165_guarded_boundary_smoke_seed5165",
     "status": "completed",
-    "task_id": "m164-boundary-outcome-replay-gate"
+    "task_id": "m165-guarded-ppo-smoke-from-boundary-update"
   },
   "next_task": {
-    "command": "see experiments/manifests/m165-guarded-ppo-smoke-from-boundary-update.json",
-    "hypothesis": "A very small PPO continuation from the M163 boundary-outcome actor update can improve or retain broad obstacle behavior while preserving the M164 boundary replay signal.",
-    "id": "m165-guarded-ppo-smoke-from-boundary-update",
+    "command": "see experiments/manifests/m166-boundary-retention-ppo-micro-smoke.json",
+    "hypothesis": "A smaller or more tightly anchored PPO micro-smoke from M163 may retain the M164 boundary success-drop signal that M165 lost by one row.",
+    "id": "m166-boundary-retention-ppo-micro-smoke",
     "kind": "driver_candidate",
-    "notes": "Pending after M164: M163 passed actual fixed boundary replay so a tightly gated PPO smoke is admitted",
-    "priority": 1600,
+    "notes": "Pending after M165: behavior and protected key pass but boundary replay count retention fails by one success-drop row",
+    "priority": 1610,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T043157Z"
+  "updated_at_utc": "20260522T043641Z"
 }

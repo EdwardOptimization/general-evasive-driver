@@ -1,0 +1,39 @@
+{
+  "id": "m166-boundary-retention-ppo-micro-smoke",
+  "type": "driver_candidate",
+  "hypothesis": "A smaller or more tightly anchored PPO micro-smoke from M163 may retain the M164 boundary success-drop signal that M165 lost by one row.",
+  "success_criteria": [
+    "initialize from the M163 boundary-outcome actor update",
+    "use a shorter or stricter PPO recipe than M165",
+    "keep actor inputs unchanged and do not expose M162 labels or hidden dynamics",
+    "pass fixed M162 objective evaluation",
+    "pass behavior retention on zero-relvel seeds 9503 and 9504",
+    "pass protected critical-key replay",
+    "pass the M164 boundary replay gate with no success-drop count regression",
+    "state whether longer PPO is admitted"
+  ],
+  "failure_criteria": [
+    "reuse the failed M165 checkpoint as a starting point",
+    "relax the M164 success-drop retention threshold after seeing the result",
+    "accept PPO based only on behavior and protected-key retention",
+    "weaken the M164 fixed boundary replay signal"
+  ],
+  "commands": [
+    {
+      "name": "m166_ppo_micro_smoke",
+      "command": "Try a smaller or more strongly anchored PPO micro-smoke from M163 and gate it with the same M165 checks."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m166-boundary-retention-ppo-micro-smoke.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m163_boundary_outcome_actor_coupling_anchor100_s20_seed9832/optimized_checkpoint.pt",
+    "runs/ppo_m165_guarded_boundary_smoke_seed5165/checkpoint.pt",
+    "runs/m165_boundary_outcome_replay_gate_seed9510/summary.json"
+  ],
+  "decision_rule": "Admit longer PPO only if the micro-smoke passes the full M165 gate set without relaxing the M164 boundary replay thresholds."
+}
