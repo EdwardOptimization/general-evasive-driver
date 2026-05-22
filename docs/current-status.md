@@ -55,7 +55,8 @@ saturated diagnostic singleton, not the only current proof surface. M267
 converts the refreshed surface into replay-aligned objective/proof corpora.
 M268 tried one small guarded actor update from M264 using the M267 M264 corpus.
 It improved the M267 objective but washed out old M183/M193 proof surfaces. PPO
-and further actor updates are blocked until M269 audits that failure.
+and further actor updates are blocked until a source-balanced multi-surface
+anchor corpus is built.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -333,21 +334,24 @@ slightly stronger action-level sensitivity.
   Fixed M267 loss improves under sampled and exact eval, but M183/M168,
   M183/M170, and M193/M189 replay gates fail. M268 is rejected as
   `proof_washout` / `objective_overfit`.
+- M269: audits M268 and finds the failure is normal-history collision on old
+  surfaces, not wrong-history sensitivity loss. M193 fully overlaps M267
+  physical keys and still fails, so the issue is old hidden/action geometry not
+  protected by an M267-only corpus.
 
 Current blocker:
 
 ```text
-m269-m268-old-surface-proof-washout-audit
+m270-source-balanced-multi-surface-anchor-corpus
 ```
 
 ## Near-Term Rule
 
-Do not repeat M268, run PPO, or run another actor update until M269 audits the
-old-surface proof washout. M269 must explain why the M267-only actor update
-failed M183/M193 while retaining M212/M223/M267, then pre-register a
-multi-surface repair path. Keep `9944|perturbed|28|28` as a diagnostic row, but
-do not let it remain the only hard protected-surface veto. Do not change actor
-inputs.
+Do not repeat M268, run PPO, or run another actor update until M270 builds and
+validates a source-balanced combined anchor corpus covering old M183/M193,
+recent M212/M223/M267, and the protected-key diagnostic. Keep
+`9944|perturbed|28|28` as a diagnostic row, but do not let it remain the only
+hard protected-surface veto. Do not change actor inputs.
 
 ## Sensor Profile Policy
 

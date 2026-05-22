@@ -8647,3 +8647,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M268 runs one small M216/M224-style actor update from `m264_a001`. The M267 objective improves under sampled fixed eval (`0.213681` to `0.212479`) and exact eval (`0.212996` to `0.211805`), but old M183/M168, M183/M170, and M193/M189 replay gates fail before behavior or protected-key gates.
 - decision: `reject_actor_update_proof_washout`
 - next: `m269-m268-old-surface-proof-washout-audit`
+
+## 20260522T173050Z - m269-m268-old-surface-proof-washout-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `docs/m269-m268-old-surface-proof-washout-audit.md`
+- artifact: `docs/m269-m268-old-surface-proof-washout-audit.md`
+- result: M269 audits M268 and finds the failure is normal-history collision on old surfaces, not wrong-history sensitivity loss. M183/M168 loses `13/16` normal successes, M183/M170 loses `14/17`, and M193/M189 loses `9/14`; retained M212/M223/M267 surfaces have smaller action drift. M193 fully overlaps M267 physical keys, so the issue is old hidden/action geometry not protected by an M267-only corpus.
+- decision: `repair_with_multi_surface_anchor_corpus`
+- next: `m270-source-balanced-multi-surface-anchor-corpus`

@@ -1,0 +1,91 @@
+{
+  "id": "m270-source-balanced-multi-surface-anchor-corpus",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt"
+    ],
+    "parent_dataset": [
+      "runs/m183_m168_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.npz",
+      "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.npz",
+      "runs/m193_m189_boundary_outcome_corpus_seed9630/boundary_outcome_corpus.npz",
+      "runs/m212_m204_boundary_outcome_corpus_seed10040/boundary_outcome_corpus.npz",
+      "runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.npz",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.npz",
+      "runs/m231_protected_key_snippet_surface/protected_key_snippets.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m269-m268-old-surface-proof-washout-audit.json",
+      "docs/m269-m268-old-surface-proof-washout-audit.md"
+    ],
+    "parent_objective": [
+      "source-balanced old+current+protected-key snippet anchor corpus for actor-update retention"
+    ],
+    "derived_from": [
+      "m269-m268-old-surface-proof-washout-audit"
+    ],
+    "blocked_by": [
+      "m269-m268-old-surface-proof-washout-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m270-source-balanced-multi-surface-anchor-corpus.md",
+  "public_gates": [
+    "combined corpus shape validation",
+    "source-balanced row-count and weight validation",
+    "old M183/M193 rows retained",
+    "recent M212/M223/M267 rows retained",
+    "protected key 9944 diagnostic retained",
+    "loader validation for outcome_intervention_optimize"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M270",
+    "do not run an actor update in M270",
+    "do not drop old M183/M193 rows",
+    "do not change actor inputs",
+    "do not hide source imbalance behind aggregate row counts"
+  ],
+  "hypothesis": "A source-balanced combined snippet corpus covering old M183/M193, recent M212/M223/M267, and the protected-key diagnostic can provide the retention substrate that M268 lacked.",
+  "success_criteria": [
+    "build one validated combined NPZ compatible with outcome_intervention_optimize",
+    "retain rows from every required source surface",
+    "record per-source row counts and weights",
+    "validate observation hidden action and weight shapes",
+    "validate all weights are finite and positive",
+    "do not run actor update or PPO"
+  ],
+  "failure_criteria": [
+    "combined corpus omits any required source surface",
+    "source weights are aggregate-dominated by one surface",
+    "loader validation fails",
+    "M270 runs actor update, PPO, or changes actor inputs"
+  ],
+  "commands": [
+    {
+      "name": "m270_combine",
+      "command": "Build and validate a source-balanced combined old+current+protected-key snippet anchor corpus before any new actor update."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m270-source-balanced-multi-surface-anchor-corpus.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m269-m268-old-surface-proof-washout-audit.md",
+    "docs/m232-protected-key-combined-snippet-anchor-corpus.md"
+  ],
+  "decision_rule": "M270 may only admit a new actor-update repair if the combined corpus is source-balanced, validates through the loader, and retains old M183/M193 plus current M267 surfaces. PPO remains blocked.",
+  "next_blocker": "pending M270 combined corpus"
+}

@@ -1,0 +1,81 @@
+# m269-m268-old-surface-proof-washout-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260522T173308Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: repair_with_multi_surface_anchor_corpus
+- Decision reason: M269 finds M268 failure is normal-success loss on old M183/M193 states rather than wrong-history gap loss and requires source-balanced multi-surface anchors before more updates
+
+## Hypothesis
+
+M268 failed because the M267-only actor update improved the refreshed protected-surface objective without enough retention pressure on older M183/M193 proof states.
+
+## Lineage
+
+- parent_checkpoint: runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt, runs/m268_m264_actor_coupling_m267_snippet_pref_anchor100_s10_lr5e5_seed10073/optimized_checkpoint.pt
+- parent_dataset: runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.npz, runs/m268_m183_m168_replay_gate_seed9510/boundary_replay_rows.csv, runs/m268_m183_m170_replay_gate_seed9510/boundary_replay_rows.csv, runs/m268_m193_m189_replay_gate_seed9630/boundary_replay_rows.csv
+- parent_config: experiments/manifests/m268-m267-guarded-actor-update-from-m264.json, docs/m268-m267-guarded-actor-update-from-m264.md
+- parent_objective: audit old-surface proof washout after M267-only actor update
+- derived_from: m268-m267-guarded-actor-update-from-m264
+- blocked_by: m268-m267-guarded-actor-update-from-m264
+- supersedes: None
+- invalidates: None
+
+## Success Criteria
+
+- M269 identifies which old proof rows failed and whether failure is normal-success loss, margin regression, or wrong-history-gap regression
+- M269 compares failed old rows against retained recent rows
+- M269 decides a concrete repair path before any further actor update or PPO
+- M269 keeps actor inputs unchanged
+
+## Failure Criteria
+
+- audit cannot explain why M183/M193 rows failed
+- audit recommends repeating M268 without adding retention evidence
+- M269 runs PPO or changes actor inputs
+
+## Evidence Gates
+
+- inspect failed M183/M193 replay rows before any new actor update
+- compare M268 action drift on failed old rows versus retained M212/M223/M267 rows
+- check whether M267-only snippet/action anchors covered old proof states
+- decide whether next repair needs combined old+new snippets or trajectory anchors
+- do not run PPO
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run PPO in M269
+- do not repeat M268 with a new seed before auditing the failure
+- do not promote M268 despite fixed M267 objective improvement
+- do not change actor inputs
+- do not drop old M183/M193 proof surfaces
+
+## Failure Taxonomy
+
+- proof_washout
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m269-m268-old-surface-proof-washout-audit
+- type: gate
+- checkpoint: runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: repair_with_multi_surface_anchor_corpus
+- reason: M269 finds M268 failure is normal-success loss on old M183/M193 states rather than wrong-history gap loss and requires source-balanced multi-surface anchors before more updates
+
+## Next Blocker
+
+m270-source-balanced-multi-surface-anchor-corpus

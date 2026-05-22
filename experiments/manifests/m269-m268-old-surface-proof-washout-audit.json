@@ -2,7 +2,7 @@
   "id": "m269-m268-old-surface-proof-washout-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "repair",
   "failure_types": [
     "proof_washout",
     "objective_overfit"
@@ -83,6 +83,31 @@
     "runs/m268_m183_m170_replay_gate_seed9510/summary.json",
     "runs/m268_m193_m189_replay_gate_seed9630/summary.json"
   ],
-  "decision_rule": "M269 may not promote a checkpoint. It must explain M268 old-surface proof washout and pre-register a safer multi-surface repair before any new actor update or PPO.",
-  "next_blocker": "pending M269 proof-washout audit"
+  "results": {
+    "failure_mode": "normal_success_loss_not_wrong_history_gap_loss",
+    "m183_m168_failed_normal_rows": 13,
+    "m183_m168_candidate_success_drops": 3,
+    "m183_m168_action_l2_mean": 0.03656133244854857,
+    "m183_m170_failed_normal_rows": 14,
+    "m183_m170_candidate_success_drops": 3,
+    "m183_m170_action_l2_mean": 0.03560460691844274,
+    "m193_m189_failed_normal_rows": 9,
+    "m193_m189_candidate_success_drops": 5,
+    "m193_m189_action_l2_mean": 0.02095596692836561,
+    "m212_m204_failed_normal_rows": 0,
+    "m212_m204_action_l2_mean": 0.012793258855178194,
+    "m223_m219_failed_normal_rows": 0,
+    "m223_m219_action_l2_mean": 0.010536879907150113,
+    "m267_m264_failed_normal_rows": 0,
+    "m267_m264_action_l2_mean": 0.005966925982425055,
+    "m193_physical_key_overlap_with_m267": 11,
+    "m193_physical_key_count": 11,
+    "m183_m168_physical_key_overlap_with_m267": 9,
+    "m183_m168_physical_key_count": 14,
+    "m183_m170_physical_key_overlap_with_m267": 10,
+    "m183_m170_physical_key_count": 15
+  },
+  "decision_rule": "M269 may not promote a checkpoint. The audit rejects repeating M268 and requires a source-balanced multi-surface anchor corpus before any new actor update or PPO.",
+  "decision": "repair_with_multi_surface_anchor_corpus",
+  "next_blocker": "m270-source-balanced-multi-surface-anchor-corpus"
 }

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 277,
+    "completed": 278,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m268-m267-guarded-actor-update-from-m264.md",
+    "command_log": "docs/m269-m268-old-surface-proof-washout-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m268_m183_m170_replay_gate_seed9510",
+    "run_dir": "docs/m269-m268-old-surface-proof-washout-audit.md",
     "status": "completed",
-    "task_id": "m268-m267-guarded-actor-update-from-m264"
+    "task_id": "m269-m268-old-surface-proof-washout-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m269-m268-old-surface-proof-washout-audit.json",
-    "hypothesis": "M268 failed because the M267-only actor update improved the refreshed protected-surface objective without enough retention pressure on older M183/M193 proof states.",
-    "id": "m269-m268-old-surface-proof-washout-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M268 old-surface proof washout before any more actor update or PPO",
-    "priority": 2640,
+    "command": "see experiments/manifests/m270-source-balanced-multi-surface-anchor-corpus.json",
+    "hypothesis": "A source-balanced combined snippet corpus covering old M183/M193, recent M212/M223/M267, and the protected-key diagnostic can provide the retention substrate that M268 lacked.",
+    "id": "m270-source-balanced-multi-surface-anchor-corpus",
+    "kind": "infrastructure",
+    "notes": "Pending: build source-balanced combined anchor corpus before any new actor update or PPO",
+    "priority": 2650,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T172550Z"
+  "updated_at_utc": "20260522T173050Z"
 }
