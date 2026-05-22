@@ -1,0 +1,84 @@
+{
+  "id": "m246-source-balanced-outcome-loss-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m239_m224_to_m237_interpolation/checkpoints/alpha_0_5.pt"
+    ],
+    "parent_dataset": [
+      "runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.npz",
+      "runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.npz",
+      "runs/m231_protected_key_snippet_surface/protected_key_snippets.npz",
+      "runs/m245_source_aware_exact_m232_eval/source_summary.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m243_exact_gated_from_m239_smoke.json"
+    ],
+    "parent_objective": [
+      "source-aware exact objective gate",
+      "outcome intervention auxiliary loss",
+      "protected-key non-regression"
+    ],
+    "derived_from": [
+      "m245-source-aware-exact-objective-evaluator"
+    ],
+    "blocked_by": [
+      "m245-source-aware-exact-objective-evaluator"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m246-source-balanced-outcome-loss-design.md",
+  "public_gates": [
+    "M245 source-aware exact reports",
+    "M243 config/objective audit",
+    "research validator"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M246",
+    "do not change actor inputs",
+    "do not loosen the protected-key guard",
+    "do not proceed with another M243-style combined-only outcome loss"
+  ],
+  "hypothesis": "M243 regressed the protected-key source because the PPO auxiliary objective and gate treated the combined M232 corpus as one surface. A bounded repair should separate protected-key non-regression from broad M223 improvement before any new PPO.",
+  "success_criteria": [
+    "identify why the current M243 training objective can improve M223 while regressing protected-key source",
+    "choose one bounded training repair that can be implemented and tested",
+    "pre-register lexicographic exact gate criteria for the next PPO candidate",
+    "keep M239 alpha 0.5 as current public-gate base"
+  ],
+  "failure_criteria": [
+    "run PPO before choosing a bounded repair",
+    "use M223-only improvement as a continuation criterion",
+    "ignore protected-key source deltas",
+    "change the actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "m246_design",
+      "command": "Use M245 source-aware outputs and the M243 PPO config to design the next source-balanced outcome-loss repair."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m246-source-balanced-outcome-loss-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m239_m224_to_m237_interpolation/checkpoints/alpha_0_5.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m245-source-aware-exact-objective-evaluator.md",
+    "runs/m245_source_aware_exact_m232_eval/source_summary.csv",
+    "configs/ppo_m243_exact_gated_from_m239_smoke.json"
+  ],
+  "decision_rule": "M246 may unblock implementation only if it selects one source-aware repair and pre-registers exact source gates before any new PPO.",
+  "next_blocker": "Design source-balanced outcome-loss repair before more PPO."
+}

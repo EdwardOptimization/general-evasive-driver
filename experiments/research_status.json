@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 253,
+    "completed": 254,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m244-m243-protected-key-objective-conflict-audit.md",
+    "command_log": "docs/m245-source-aware-exact-objective-evaluator.md",
     "returncode": 0,
-    "run_dir": "runs/m244_m243_protected_key_objective_conflict_audit",
+    "run_dir": "runs/m245_source_aware_exact_m232_eval",
     "status": "completed",
-    "task_id": "m244-m243-protected-key-objective-conflict-audit"
+    "task_id": "m245-source-aware-exact-objective-evaluator"
   },
   "next_task": {
-    "command": "see experiments/manifests/m245-source-aware-exact-objective-evaluator.json",
-    "hypothesis": "Make exact objective evaluation source-aware so protected-key regressions cannot hide behind aggregate or M223-only movement",
-    "id": "m245-source-aware-exact-objective-evaluator",
-    "kind": "infrastructure",
-    "notes": "Pending: implement source-aware exact evaluator and reproduce M244",
-    "priority": 2400,
+    "command": "see experiments/manifests/m246-source-balanced-outcome-loss-design.json",
+    "hypothesis": "Design a source-balanced outcome-loss repair so protected-key non-regression is separated from broad M223 improvement",
+    "id": "m246-source-balanced-outcome-loss-design",
+    "kind": "gate",
+    "notes": "Pending: choose bounded repair before any more PPO",
+    "priority": 2410,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T141442Z"
+  "updated_at_utc": "20260522T142120Z"
 }

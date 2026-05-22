@@ -8409,3 +8409,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M244 reproduces the exact M232 loss with maximum absolute error `4.689e-13` and confirms the conflict is source-specific: M243 improves the 17 M223 rows but regresses the one protected-key row enough to dominate combined M232 movement.
 - decision: `repair_with_source_aware_lexicographic_exact_gate`
 - next: `m245-source-aware-exact-objective-evaluator`
+
+## 20260522T142120Z m245-source-aware-exact-objective-evaluator
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m245_source_aware_exact_m232_eval`
+- artifact: `docs/m245-source-aware-exact-objective-evaluator.md`
+- result: added strict source-aware exact reporting to `outcome_intervention_eval`, including `--source-npz`, per-row losses, and source summaries. Focused tests passed (`6 passed`) and M245 reproduced M244 source deltas with `max_abs_diff = 0.0`.
+- decision: `admit_source_balanced_outcome_loss_design`
+- next: `m246-source-balanced-outcome-loss-design`

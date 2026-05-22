@@ -2,7 +2,7 @@
   "id": "m245-source-aware-exact-objective-evaluator",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -88,5 +88,35 @@
     "runs/m244_m243_protected_key_objective_conflict_audit/source_delta_decomposition.csv"
   ],
   "decision_rule": "M245 may unblock a new PPO repair only if the evaluator reproduces M244 source deltas and focused tests plus research validation pass.",
-  "next_blocker": "Implement source-aware exact evaluator before any more PPO."
+  "results": {
+    "implemented": [
+      "parse_source_npz",
+      "match_source_rows",
+      "evaluate_exact_source_reports",
+      "CLI --source-npz",
+      "CLI --baseline-policy",
+      "per_row_losses.csv",
+      "source_summary.csv"
+    ],
+    "run_dir": "runs/m245_source_aware_exact_m232_eval",
+    "source_summary_csv": "runs/m245_source_aware_exact_m232_eval/source_summary.csv",
+    "per_row_losses_csv": "runs/m245_source_aware_exact_m232_eval/per_row_losses.csv",
+    "summary_json": "runs/m245_source_aware_exact_m232_eval/summary.json",
+    "focused_tests": "6 passed",
+    "max_abs_diff_vs_m244_source_deltas": 0.0,
+    "m243_a100_m223_delta": -8.213085121444585e-07,
+    "m243_a100_protected_key_delta": 1.0157026446577788e-06,
+    "m243_a250_m223_delta": -1.9831915067936023e-06,
+    "m243_a250_protected_key_delta": 2.556133845921238e-06,
+    "m243_a500_m223_delta": -3.88849538446312e-06,
+    "m243_a500_protected_key_delta": 5.152159336496709e-06,
+    "m243_a750_m223_delta": -5.702849602329252e-06,
+    "m243_a750_protected_key_delta": 7.781939295625762e-06,
+    "m243_a1000_m223_delta": -7.425000649652347e-06,
+    "m243_a1000_protected_key_delta": 1.0445473723308396e-05,
+    "actor_inputs_changed": false,
+    "ppo_run": false
+  },
+  "decision": "admit_source_balanced_outcome_loss_design",
+  "next_blocker": "Design source-balanced outcome-loss repair before more PPO."
 }
