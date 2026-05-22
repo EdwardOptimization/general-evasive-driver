@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 301,
+    "completed": 302,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m292-m291-ppo-proof-washout-audit.md",
+    "command_log": "docs/m293-current-family-rejected-history-ppo-repair-design.md",
     "returncode": 0,
-    "run_dir": "runs/m292_m291_ppo_proof_washout_audit",
+    "run_dir": "runs/m293_current_family_rejected_history_ppo_repair_design",
     "status": "completed",
-    "task_id": "m292-m291-ppo-proof-washout-audit"
+    "task_id": "m293-current-family-rejected-history-ppo-repair-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m293-current-family-rejected-history-ppo-repair-design.json",
-    "hypothesis": "The next PPO smoke needs explicit M267/M264 rejected-history retention and exact M270 no-regression, not only baseline action anchoring.",
-    "id": "m293-current-family-rejected-history-ppo-repair-design",
-    "kind": "infrastructure",
-    "notes": "Pending: no-PPO design for M267/M264 retention plus exact M270 no-regression",
-    "priority": 2880,
+    "command": "see experiments/manifests/m294-current-family-rejected-repair-ppo-smoke.json",
+    "hypothesis": "Stronger current-family rejected-history trajectory retention plus exact M270 gating can prevent the M291 PPO washout failure.",
+    "id": "m294-current-family-rejected-repair-ppo-smoke",
+    "kind": "driver_candidate",
+    "notes": "Pending: M294 smoke PPO from m290x64_a500 with exact M270 gate first",
+    "priority": 2890,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T200113Z"
+  "updated_at_utc": "20260522T200435Z"
 }

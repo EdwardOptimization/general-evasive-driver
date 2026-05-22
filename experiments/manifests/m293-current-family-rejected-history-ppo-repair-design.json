@@ -2,7 +2,7 @@
   "id": "m293-current-family-rejected-history-ppo-repair-design",
   "type": "infrastructure",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -79,6 +79,21 @@
     "docs/m292-m291-ppo-proof-washout-audit.md",
     "runs/m292_m291_ppo_proof_washout_audit/summary.json"
   ],
+  "results": {
+    "run_dir": "runs/m293_current_family_rejected_history_ppo_repair_design",
+    "exported_anchor": "runs/m293_current_family_rejected_history_ppo_repair_design/m267_failed_rows_extra4_anchor.npz",
+    "exported_anchor_rows": 3900,
+    "failed_rows_repeated": [
+      6,
+      11,
+      15,
+      16
+    ],
+    "extra_repeat": 4,
+    "config": "configs/ppo_m294_current_family_rejected_repair_smoke.json",
+    "next_smoke": "m294-current-family-rejected-repair-ppo-smoke"
+  },
   "decision_rule": "M293 should end with a concrete no-PPO repair design and a pre-registered M294 executable smoke if the design is actionable.",
-  "next_blocker": "pending M293 current-family rejected-history PPO repair design"
+  "decision": "admit_m294_current_family_rejected_repair_smoke",
+  "next_blocker": "m294-current-family-rejected-repair-ppo-smoke"
 }

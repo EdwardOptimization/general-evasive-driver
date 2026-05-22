@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M293 exports failed-row extra4 trajectory anchor and M294 config with stronger M267/M264 retention plus exact M270 no-regression gate",
+  "failure_criteria": [
+    "repair recipe does not address M267/M264 wrong-history washout",
+    "repair recipe omits fixed M270 no-regression",
+    "PPO is run",
+    "actor observation inputs change"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO in M293",
+    "do not promote m291_a100",
+    "do not change actor inputs",
+    "do not treat lower learning rate alone as sufficient without rejected-history protection"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260522T200543Z",
+  "hypothesis": "The next PPO smoke needs explicit M267/M264 rejected-history retention and exact M270 no-regression, not only baseline action anchoring.",
+  "lineage": {
+    "blocked_by": [
+      "m292-m291-ppo-proof-washout-audit"
+    ],
+    "derived_from": [
+      "m292-m291-ppo-proof-washout-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m290_row16_aware_balanced_repeat_fresh_seed/interpolation/checkpoints/alpha_0_5.pt",
+      "runs/ppo_m291_row16_aware_guarded_smoke_seed5231/checkpoint.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m291_row16_aware_guarded_smoke.json",
+      "experiments/manifests/m292-m291-ppo-proof-washout-audit.json",
+      "docs/m292-m291-ppo-proof-washout-audit.md"
+    ],
+    "parent_dataset": [
+      "runs/m292_m291_ppo_proof_washout_audit/failed_m267_m264_rows.csv",
+      "runs/m289_row16_aware_balanced_repeat_calibration/anchors/row16_extra64_combined_anchor.npz"
+    ],
+    "parent_objective": [
+      "design a PPO repair that protects current-family rejected-history rows and fixed M270 objective"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m293-current-family-rejected-history-ppo-repair-design",
+  "next_blocker": "m294-current-family-rejected-repair-ppo-smoke",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m294_current_family_rejected_repair_smoke",
+  "public_gates": [
+    "do not run PPO",
+    "design current-family rejected-history retention before the next PPO smoke",
+    "include exact M270 no-regression as a gate",
+    "keep M183/M170 row16 and M267/M264 first gates",
+    "pre-register the next executable PPO attempt only after the design is explicit"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m290_row16_aware_balanced_repeat_fresh_seed/interpolation/checkpoints/alpha_0_5.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m294_current_family_rejected_repair_smoke",
+    "milestone": "m293-current-family-rejected-history-ppo-repair-design",
+    "reason": "M293 exports failed-row extra4 trajectory anchor and M294 config with stronger M267/M264 retention plus exact M270 no-regression gate",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "document a concrete repair recipe",
+    "identify required corpora and anchors",
+    "define first gates and promotion criteria",
+    "pre-register the next runnable milestone without executing PPO"
+  ],
+  "type": "infrastructure"
+}
