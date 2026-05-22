@@ -1,0 +1,85 @@
+{
+  "id": "m255-m254-protected-source-regression-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m252_alpha_boundary_interpolation/checkpoints/alpha_0_00008.pt",
+      "runs/ppo_m254_exact_source_from_m253_seed5225/checkpoint.pt",
+      "runs/ppo_m248_source_balanced_from_m239_seed5224/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m254_source_aware_exact_m232_eval/source_summary.csv",
+      "runs/m248_source_aware_exact_m232_eval/source_summary.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m248_source_balanced_from_m239_smoke.json",
+      "docs/m254-exact-source-gated-ppo-smoke-from-m253.md"
+    ],
+    "parent_objective": [
+      "audit persistent protected-key source regression under PPO"
+    ],
+    "derived_from": [
+      "m254-exact-source-gated-ppo-smoke-from-m253"
+    ],
+    "blocked_by": [
+      "m254-exact-source-gated-ppo-smoke-from-m253"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m255-m254-protected-source-regression-audit.md",
+  "public_gates": [
+    "M248 versus M254 source-delta comparison",
+    "PPO train metric audit",
+    "repair decision before more PPO",
+    "research validator"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run more PPO before the audit",
+    "do not tune from private holdouts",
+    "do not ignore protected-key source deltas",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "M248 and M254 share a persistent PPO-gradient conflict: source-balanced PPO improves the broad M223 source while regressing the protected-key source, so the next repair needs a stronger lexicographic projection or hard protected-source constraint rather than another plain PPO smoke.",
+  "success_criteria": [
+    "compare M248 and M254 protected-key and M223 source slopes",
+    "audit train-time source metrics against exact source deltas",
+    "classify whether the failure is base-specific or PPO-direction persistent",
+    "choose one bounded repair before more PPO",
+    "no PPO is run"
+  ],
+  "failure_criteria": [
+    "run PPO before the audit decision",
+    "treat aggregate exact loss as sufficient despite protected-key regression",
+    "change actor inputs",
+    "leave the next blocker ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "m255_regression_audit",
+      "command": "Compare source-aware exact deltas and PPO metrics from M248 and M254, then select a bounded protected-source repair."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m255-m254-protected-source-regression-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m252_alpha_boundary_interpolation/checkpoints/alpha_0_00008.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m254-exact-source-gated-ppo-smoke-from-m253.md",
+    "runs/m254_source_aware_exact_m232_eval/source_summary.csv",
+    "runs/m248_source_aware_exact_m232_eval/source_summary.csv"
+  ],
+  "decision_rule": "M255 should either admit a concrete protected-source projection/constraint implementation or reject PPO continuation until the source conflict is resolved.",
+  "next_blocker": "Audit protected-key source regression and choose a bounded repair."
+}

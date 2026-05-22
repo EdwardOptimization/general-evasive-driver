@@ -2,9 +2,11 @@
   "id": "m254-exact-source-gated-ppo-smoke-from-m253",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "objective_overfit",
+    "proof_washout",
+    "promotion_gate_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -80,6 +82,6 @@
     "docs/m253-full-public-gate-for-m252-a0-00008.md",
     "configs/ppo_m248_source_balanced_from_m239_smoke.json"
   ],
-  "decision_rule": "Accept an interpolated PPO candidate only if exact source-aware objectives pass lexicographically and public proof/behavior gates retain M253; otherwise reject and audit PPO gradient conflict.",
-  "next_blocker": "Run exact-source-gated PPO smoke from the M253 public-gate base."
+  "decision_rule": "M254 is rejected because every post-PPO interpolation alpha improves M223 and aggregate M232 but regresses the protected-key source above the +1e-8 exact source gate; proof and behavior gates were not run.",
+  "next_blocker": "Audit the persistent PPO protected-key source regression before any more PPO."
 }

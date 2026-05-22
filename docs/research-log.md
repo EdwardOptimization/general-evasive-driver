@@ -8497,3 +8497,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: alpha `0.00008` passes all replay gates, protected key `9944|perturbed|28|28`, and behavior seeds `9505/9506` versus M250. It preserves success `0.8625`, reset success `0.8500`, and zero-all success `0.8000`.
 - decision: `promote_m252_a0_00008_public_gate_base`
 - next: `m254-exact-source-gated-ppo-smoke-from-m253`
+
+## 20260522T150623Z - m254-exact-source-gated-ppo-smoke-from-m253
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m254_source_aware_exact_m232_eval`
+- artifact: `docs/m254-exact-source-gated-ppo-smoke-from-m253.md`
+- result: 1024-step PPO from M253 completed and improved aggregate/M223 exact source loss, but protected-key source regressed for every interpolation alpha. The smallest alpha `0.10` already has protected-key source delta `+0.000000878`, above the `+1e-8` gate.
+- decision: `reject_protected_key_source_regression`
+- next: `m255-m254-protected-source-regression-audit`
