@@ -164,3 +164,11 @@ matched-history action gate, matched-history outcome gate, strict proof-surface
 gate, and a promotion boundary. Passing M154 can only admit guarded PPO
 continuation; it cannot promote a driver. The next step is to produce or reject
 a concrete capability-belief candidate under this gate.
+
+M155 produced the first small capability-belief auxiliary candidate from the
+guarded M142 baseline. The candidate improved validation capability-belief
+losses on M151 (`combined=0.548986`, `target=0.250640`,
+`delta=0.596691`) and matched M142 success on the cheap seed9503 behavior
+prescreen (`0.8625`). It is still rejected because the protected critical key
+`9944|perturbed|28|28` failed (`0/1` accepted versus M142 `1/1`). The active
+frontier remains rollout-key-safe belief learning, not PPO scale-up.

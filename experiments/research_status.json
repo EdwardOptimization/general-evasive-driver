@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 163,
+    "completed": 164,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m154-capability-belief-behavior-gate-design.md",
+    "command_log": "docs/m155-capability-belief-aux-candidate-smoke.md",
     "returncode": 0,
-    "run_dir": "runs/m154_capability_belief_behavior_gate_design",
+    "run_dir": "runs/m155_capability_belief_aux_candidate_seed9620",
     "status": "completed",
-    "task_id": "m154-capability-belief-behavior-gate-design"
+    "task_id": "m155-capability-belief-aux-candidate-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m155-capability-belief-aux-candidate-smoke.json",
-    "hypothesis": "A small capability-belief auxiliary candidate can be produced from the M153 recurrent objective and then judged by the M154 behavior gate without relaxing the human-view input contract.",
-    "id": "m155-capability-belief-aux-candidate-smoke",
-    "kind": "driver_candidate",
-    "notes": "Pending after M154: produce or reject a gated capability-belief candidate",
-    "priority": 1500,
+    "command": "see experiments/manifests/m156-capability-belief-critical-key-safe-repair.json",
+    "hypothesis": "The M155 capability-belief auxiliary signal can be kept only if the update is made explicitly safe for the protected rollout key and margin surface before any strict miner or PPO promotion.",
+    "id": "m156-capability-belief-critical-key-safe-repair",
+    "kind": "objective_sanity",
+    "notes": "Pending after M155: repair key-safe anchoring before full M154 gate or PPO",
+    "priority": 1510,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T053000Z"
+  "updated_at_utc": "20260522T054500Z"
 }

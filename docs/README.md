@@ -420,6 +420,27 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m138-retention-loss-rollout-misalignment-audit.md`: key-level audit showing
   M137 can lower retained-row penalties while losing strict rollout keys, so
   direct logprob retention is not rollout-safe.
+- `m139-m136-key-action-anchor-objective.md`: direct key-action anchoring keeps
+  fixed action MSE tiny but still fails strict rollout proof-surface retention.
+- `m140-rollout-key-survival-audit.md`: identifies near-threshold key
+  `9944|perturbed|28|28` as the critical rollout survivor to protect.
+- `m141-critical-key-replay-guard.md`: cheap exact replay guard for that
+  critical key before future objective or PPO work.
+- `m142-critical-key-guarded-repair.md`: interpolation repair selecting
+  `alpha_0_4` as the guarded baseline that passes the critical-key guard.
+- `m143-driver-like-input-profile-audit.md` through
+  `m149-p0-close-resolution-audit.md`: frozen input-profile audits from the
+  latest MHTML discussion; result is no actor input expansion from raw wheel or
+  `v_parallel`.
+- `m150-p0-close-hidden-cause-audit.md` through
+  `m153-capability-belief-hidden-integration-smoke.md`: capability-belief
+  target dataset and recurrent hidden integration smokes using P0 history only.
+- `m154-capability-belief-behavior-gate-design.md`: pre-registered behavior,
+  intervention, critical-key, and strict proof-surface gate for capability
+  belief candidates.
+- `m155-capability-belief-aux-candidate-smoke.md`: first capability-belief
+  auxiliary candidate; fixed losses and cheap behavior pass, but critical-key
+  replay fails, so no strict miner or PPO admission.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

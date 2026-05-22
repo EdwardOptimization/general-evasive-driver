@@ -388,3 +388,48 @@ policy uses a deployable low-level fusion layer rather than a purely
 human-like body-feedback input. The stronger human-like result remains H1/H2
 passing the envelope probes and wrong-history gates without wheel or local
 tire-speed inputs.
+
+## Reliability And Archiving Rule
+
+The MHTML discussion also sets the process rule for profile comparisons.
+Sensor-profile experiments are only decision-quality when the training and
+evaluation recipe is frozen before the comparison:
+
+```text
+same rollout source or same PPO budget
+same seeds
+same reward
+same curriculum
+same network size
+same evaluation corpus
+same history window sweep
+same intervention suite
+```
+
+The detailed profile results must be preserved, not just the winning profile:
+
+```text
+probe metrics
+history-length sweep
+pre-slip vs post-slip split
+ambiguous-pair counts
+wrong-history / reset / delayed / zero-IMU gaps
+noise and delay robustness
+per-seed artifacts and manifests
+```
+
+Development order:
+
+```text
+1. use supervised/probe audits to reject weak input profiles cheaply;
+2. keep the current P0 actor contract unless a profile repeats under learned
+   history and target-aligned ambiguity checks;
+3. once a stable training recipe exists, train the admitted profile set under
+   the same recipe for final comparison;
+4. continue iteration from the best gated profile, but keep the other profile
+   artifacts for paper-quality ablation tables.
+```
+
+This is why M143-M149 were logged as profile audits instead of immediate PPO
+branches, and why M150-M155 moved to capability-belief targets without changing
+the deployable actor input.

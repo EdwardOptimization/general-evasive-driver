@@ -1,0 +1,40 @@
+{
+  "id": "m156-capability-belief-critical-key-safe-repair",
+  "type": "objective_sanity",
+  "hypothesis": "The M155 capability-belief auxiliary signal can be kept only if the update is made explicitly safe for the protected rollout key and margin surface before any strict miner or PPO promotion.",
+  "success_criteria": [
+    "preserve the P0 human-view actor input contract",
+    "retain positive validation target and pairwise delta improvements on the M151 capability-belief dataset",
+    "pass the protected critical-key replay for 9944|perturbed|28|28",
+    "keep behavior seed 9503 aggregate success within the M154 prescreen tolerance versus M142 alpha_0_4",
+    "document whether the repair is admitted to a full M154 gate repeat or rejected"
+  ],
+  "failure_criteria": [
+    "critical-key replay fails again",
+    "objective loss improves only by breaking behavior retention",
+    "repair relies on hidden diagnostics or oracle inputs at actor inference",
+    "repair proceeds to PPO before the cheap gate passes"
+  ],
+  "commands": [
+    {
+      "name": "m156_key_safe_capability_belief_repair",
+      "command": "Design and run a key-safe variant of the M155 auxiliary candidate that includes protected-key or rollout-margin retention before repeating the M155 cheap behavior and critical-key prescreens."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m156-capability-belief-critical-key-safe-repair.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m155_capability_belief_aux_candidate_seed9620/optimized_checkpoint.pt",
+    "runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt",
+    "runs/m155_capability_belief_critical_key_prescreen_seed9944/guard_results.csv"
+  ],
+  "decision_rule": "Do not run strict miners or PPO unless a repaired candidate keeps the M155 capability-belief objective signal and passes the M141/M142 protected-key replay.",
+  "notes": [
+    "M155 showed that fixed capability loss and feature anchoring are not rollout-key safe.",
+    "The first repair should be small and cheap-gated, not a broad PPO continuation."
+  ]
+}

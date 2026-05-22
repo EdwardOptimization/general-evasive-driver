@@ -6092,3 +6092,73 @@ The gate has eight required stages:
 Decision: M154 completes as a positive gate-design milestone. The next task may
 produce a capability-belief candidate, but that candidate must be judged by the
 registered gate before PPO readiness or driver-like claims.
+
+## 20260522T054500Z m155-capability-belief-aux-candidate-smoke
+
+M155 creates a small capability-belief auxiliary candidate from the guarded
+M142 `alpha_0_4` checkpoint and evaluates it against the cheapest M154
+pre-screens. It does not change actor observations and does not start PPO.
+
+New code:
+
+```text
+src/autodrift/capability_belief_aux_candidate.py
+tests/test_capability_belief_aux_candidate.py
+```
+
+Candidate run:
+
+```text
+runs/m155_capability_belief_aux_candidate_seed9620
+```
+
+Contract:
+
+```text
+actor_encoder: human_view_online_gru
+actor_obs_dim: 72
+feature_source: response_hidden
+hidden diagnostics as actor inputs: no
+```
+
+Validation improvements, before minus after:
+
+| Metric | Improvement |
+| --- | ---: |
+| combined loss | 0.548986 |
+| target loss | 0.250640 |
+| pairwise delta loss | 0.596691 |
+| feature anchor loss after | 0.008260 |
+
+Cheap behavior prescreen:
+
+```text
+runs/m155_capability_belief_behavior_prescreen_seed9503
+```
+
+| Policy | Success | Mean clearance margin |
+| --- | ---: | ---: |
+| m142_a400 | 0.8625 | 1.841495 |
+| m155_candidate | 0.8625 | 1.823737 |
+| m155_candidate_reset | 0.8500 | 1.832171 |
+| m155_candidate_zero_current | 0.8000 | 1.854834 |
+| m155_candidate_zero_all | 0.8000 | 1.854834 |
+| m155_candidate_noact | 0.8625 | 1.837875 |
+
+Protected critical-key replay:
+
+```text
+runs/m155_capability_belief_critical_key_prescreen_seed9944
+key: 9944|perturbed|28|28
+```
+
+| Policy | Accepted cases | Pass |
+| --- | ---: | --- |
+| m142_a400 | 1 / 1 | true |
+| m155_candidate | 0 / 1 | false |
+
+Decision: M155 is rejected for M154 gate admission. The fixed
+capability-belief objective has signal and seed9503 behavior retention is not
+broken, but the candidate loses the protected near-threshold rollout key. The
+next task is a key-safe or rollout-margin-aware repair, not strict miners or
+PPO.

@@ -1,30 +1,7 @@
 {
-  "baseline_checkpoints": [
-    "runs/m154_capability_belief_behavior_gate_design/summary.json",
-    "runs/m153_capability_belief_hidden_integration_smoke/summary.json",
-    "runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt"
-  ],
-  "commands": [
-    {
-      "command": "Create a small config-gated capability-belief auxiliary candidate or actor-coupling smoke, then evaluate it with the M154 gate before any PPO promotion.",
-      "name": "m155_capability_belief_aux_candidate_smoke"
-    }
-  ],
-  "decision_rule": "A capability-belief candidate is admitted only if the training path preserves the P0 actor input contract and is evaluated against the M154 behavior gate.",
-  "failure_criteria": [
-    "candidate changes actor observations or adds hidden dynamics at inference",
-    "candidate is promoted from supervised losses without M154 gate evidence",
-    "candidate skips behavior retention or critical-key replay",
-    "candidate trains broad PPO before a smoke-scale integration"
-  ],
-  "hypothesis": "A small capability-belief auxiliary candidate can be produced from the M153 recurrent objective and then judged by the M154 behavior gate without relaxing the human-view input contract.",
   "id": "m155-capability-belief-aux-candidate-smoke",
-  "required_artifacts": [
-    {
-      "path": "docs/m155-capability-belief-aux-candidate-smoke.md",
-      "type": "documentation"
-    }
-  ],
+  "type": "driver_candidate",
+  "hypothesis": "A small capability-belief auxiliary candidate can be produced from the M153 recurrent objective and then judged by the M154 behavior gate without relaxing the human-view input contract.",
   "success_criteria": [
     "produce a concrete checkpoint or explain why no candidate should be produced yet",
     "prove actor observation contract remains P0 human-view only",
@@ -32,5 +9,66 @@
     "run at least the cheap M154 pre-screens before expensive strict miners",
     "record whether full M154 gate execution is justified"
   ],
-  "type": "driver_candidate"
+  "failure_criteria": [
+    "candidate changes actor observations or adds hidden dynamics at inference",
+    "candidate is promoted from supervised losses without M154 gate evidence",
+    "candidate skips behavior retention or critical-key replay",
+    "candidate trains broad PPO before a smoke-scale integration"
+  ],
+  "commands": [
+    {
+      "name": "m155_capability_belief_aux_candidate_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.capability_belief_aux_candidate --init-checkpoint runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt --dataset-npz runs/m151_capability_belief_dataset_multiseed/capability_belief_dataset.npz --optimization-seeds 9620 --train-fraction 0.70 --steps 80 --batch-size 64 --learning-rate 0.0001 --weight-decay 0.001 --history-window 25 --feature-source response_hidden --delta-loss-coef 0.5 --anchor-coef 10.0 --device cpu --run-dir runs/m155_capability_belief_aux_candidate_seed9620"
+    },
+    {
+      "name": "m155_behavior_prescreen_seed9503",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m121_human_view_zero_obstacle_relvel.json --episodes 80 --seed 9503 --policies heuristic --checkpoint-policy m142_a400=runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt --checkpoint-policy m155_candidate=runs/m155_capability_belief_aux_candidate_seed9620/optimized_checkpoint.pt --checkpoint-policy m155_candidate_reset=runs/m155_capability_belief_aux_candidate_seed9620/optimized_checkpoint.pt@reset_recurrent_state --checkpoint-policy m155_candidate_zero_current=runs/m155_capability_belief_aux_candidate_seed9620/optimized_checkpoint.pt@zero_current_response --checkpoint-policy m155_candidate_zero_all=runs/m155_capability_belief_aux_candidate_seed9620/optimized_checkpoint.pt@zero_all_response --checkpoint-policy m155_candidate_noact=runs/m155_capability_belief_aux_candidate_seed9620/optimized_checkpoint.pt@zero_action_history --device cpu --run-dir runs/m155_capability_belief_behavior_prescreen_seed9503"
+    },
+    {
+      "name": "m155_critical_key_prescreen_seed9944",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.critical_key_replay_guard --reference-manifest runs/m133_zero_relvel_s60_strict_60ep_seed9900/manifest.json --reference-cases-csv runs/m133_zero_relvel_s60_strict_60ep_seed9900/outcome_sensitive_snippets.csv --reference-cases-csv runs/m133_zero_relvel_s60_strict_60ep_seed9920/outcome_sensitive_snippets.csv --case-key '9944|perturbed|28|28' --checkpoint-policy m142_a400=runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt --checkpoint-policy m155_candidate=runs/m155_capability_belief_aux_candidate_seed9620/optimized_checkpoint.pt --reference-policy m142_a400 --device cpu --run-dir runs/m155_capability_belief_critical_key_prescreen_seed9944"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m155-capability-belief-aux-candidate-smoke.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m155_capability_belief_aux_candidate_seed9620/summary.json",
+      "type": "objective_summary"
+    },
+    {
+      "path": "runs/m155_capability_belief_aux_candidate_seed9620/loss_summary.csv",
+      "type": "loss_summary"
+    },
+    {
+      "path": "runs/m155_capability_belief_behavior_prescreen_seed9503/policy_summary.csv",
+      "type": "behavior_prescreen"
+    },
+    {
+      "path": "runs/m155_capability_belief_critical_key_prescreen_seed9944/guard_results.csv",
+      "type": "critical_key_guard"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m154_capability_belief_behavior_gate_design/summary.json",
+    "runs/m153_capability_belief_hidden_integration_smoke/summary.json",
+    "runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt"
+  ],
+  "decision_rule": "A capability-belief candidate is admitted only if it preserves the P0 actor input contract, does not regress cheap behavior retention, and passes the protected M141/M142 critical-key replay before strict miners or PPO.",
+  "result": {
+    "candidate_checkpoint": "runs/m155_capability_belief_aux_candidate_seed9620/optimized_checkpoint.pt",
+    "objective_pass": true,
+    "val_combined_loss_improvement": 0.548986,
+    "val_target_loss_improvement": 0.25064,
+    "val_delta_loss_improvement": 0.596691,
+    "behavior_seed9503_success": 0.8625,
+    "behavior_seed9503_m142_success": 0.8625,
+    "behavior_seed9503_margin_mean": 1.823737,
+    "critical_key": "9944|perturbed|28|28",
+    "critical_key_reference_pass": true,
+    "critical_key_candidate_pass": false,
+    "admission_decision": "reject_m155_critical_key_replay_failure"
+  }
 }
