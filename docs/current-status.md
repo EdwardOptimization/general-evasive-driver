@@ -51,8 +51,10 @@ protected-key source losses, but protected-key replay promotes only
 M223/M219 replay gates, protected key `9944|perturbed|28|28`, and behavior seeds
 `9505`/`9506`. M265 audits the protected-key normal-margin slack at `0.000029`.
 M266 refreshes the current-family protected surface and finds the old key is a
-saturated diagnostic singleton, not the only current proof surface. More PPO is
-blocked until M267 converts the refreshed surface into objective/replay gates.
+saturated diagnostic singleton, not the only current proof surface. M267
+converts the refreshed surface into replay-aligned objective/proof corpora.
+More PPO remains blocked; the next step is one small guarded actor update from
+M264 using the M267 M264 corpus.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -322,22 +324,26 @@ slightly stronger action-level sensitivity.
   The refreshed rows have mean normal margin `0.005947` and max normal margin
   `0.010194`, so the old key remains a diagnostic but should not be the sole
   protected-surface veto.
+- M267: converts the M266 surface into replay-aligned boundary-outcome corpora
+  for `m264_a001`, `m263_a005`, and `m261_a001`. Each corpus has `17` rows
+  across `13` physical pairs and passes 3-seed objective sanity; replay sanity
+  preserves normal success `1.0` and `17/17` wrong-history success drops.
 
 Current blocker:
 
 ```text
-m267-protected-surface-objective-replay-conversion
+m268-m267-guarded-actor-update-from-m264
 ```
 
 ## Near-Term Rule
 
-Do not run PPO, actor updates, or checkpoint promotion until M267 converts the
-M266 refreshed protected surface into replay-aligned objective/proof corpora and
-passes objective plus replay sanity. Keep the old protected key
-`9944|perturbed|28|28` as a diagnostic regression row, but do not let it remain
-the only hard protected-surface veto after M266. Do not loosen or delete the old
-key, do not change actor inputs, and do not compare future checkpoints without a
-source-diverse protected-surface gate.
+M268 may run exactly one small M216/M224-style guarded actor update from
+`m264_a001` using the M267 M264 corpus. Do not run PPO, repeat seeds, or
+checkpoint promotion before that first actor update passes fixed M267 objective,
+old replay gates, the new M267 replay gate, behavior seeds, and the old
+protected-key diagnostic. Keep `9944|perturbed|28|28` as a diagnostic row, but
+do not let it remain the only hard protected-surface veto. Do not change actor
+inputs.
 
 ## Sensor Profile Policy
 

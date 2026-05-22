@@ -8627,3 +8627,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M266 refreshes the current M261/M263/M264 protected surface without PPO. Robustness passes with `180` accepted wrong-history boundary rows across `13` physical pairs, `8` left steps, `3` checkpoints, `2` targets, and `2` margin buckets. Mean normal margin is `0.005947` and max normal margin is `0.010194`, while the old key remains saturated at M264 with slack `0.000029`.
 - decision: `admit_protected_surface_objective_conversion`
 - next: `m267-protected-surface-objective-replay-conversion`
+
+## 20260522T172028Z - m267-protected-surface-objective-replay-conversion
+
+- status: `completed`
+- kind: `objective_sanity`
+- run dir: `runs/m267_m264_boundary_replay_sanity_seed10070`
+- artifact: `docs/m267-protected-surface-objective-replay-conversion.md`
+- result: M267 converts the M266 surface into compact 17-row 13-pair boundary-outcome corpora for `m264_a001`, `m263_a005`, and `m261_a001`. All three pass 3-seed objective sanity with pairwise accuracy `1.0`; all replay sanity gates preserve normal success `1.0` and `17/17` wrong-history success drops.
+- decision: `admit_guarded_actor_update_design`
+- next: `m268-m267-guarded-actor-update-from-m264`

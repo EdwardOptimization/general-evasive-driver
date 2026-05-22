@@ -2,7 +2,7 @@
   "id": "m267-protected-surface-objective-replay-conversion",
   "type": "objective_sanity",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -65,13 +65,57 @@
   "commands": [
     {
       "name": "m267_boundary_objective_conversion",
-      "command": "Convert M266 accepted wrong-history rows into replay-aligned current-family boundary-outcome corpora and run objective/replay sanity."
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_corpus_objective --checkpoint-policy m264_a001=runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --boundary-rows-csv runs/m266_m264_family_boundary_robustness_seed9520/accepted_wrong_history_rows.csv --delay-steps 10 --device cpu --max-rows-per-physical-pair 2 --optimization-seeds 10070,10071,10072 --steps 180 --batch-size 64 --learning-rate 0.0003 --weight-decay 0.001 --hidden-dim 96 --run-dir runs/m267_m264_boundary_outcome_corpus_seed10070"
+    },
+    {
+      "name": "m267_m263_boundary_objective",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_corpus_objective --checkpoint-policy m263_a005=runs/m263_m261_to_projection_interpolation/checkpoints/alpha_0_005.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --boundary-rows-csv runs/m266_m264_family_boundary_robustness_seed9520/accepted_wrong_history_rows.csv --delay-steps 10 --device cpu --max-rows-per-physical-pair 2 --optimization-seeds 10070,10071,10072 --steps 180 --batch-size 64 --learning-rate 0.0003 --weight-decay 0.001 --hidden-dim 96 --run-dir runs/m267_m263_boundary_outcome_corpus_seed10070"
+    },
+    {
+      "name": "m267_m261_boundary_objective",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_corpus_objective --checkpoint-policy m261_a001=runs/m261_m260_to_raw_interpolation/checkpoints/alpha_0_001.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --boundary-rows-csv runs/m266_m264_family_boundary_robustness_seed9520/accepted_wrong_history_rows.csv --delay-steps 10 --device cpu --max-rows-per-physical-pair 2 --optimization-seeds 10070,10071,10072 --steps 180 --batch-size 64 --learning-rate 0.0003 --weight-decay 0.001 --hidden-dim 96 --run-dir runs/m267_m261_boundary_outcome_corpus_seed10070"
+    },
+    {
+      "name": "m267_m264_replay_sanity",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_replay_gate --checkpoint-policy m264_a001=runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt --checkpoint-policy m263_a005=runs/m263_m261_to_projection_interpolation/checkpoints/alpha_0_005.pt --corpus-csv runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv --env-config configs/m121_human_view_zero_obstacle_relvel.json --max-continuation-steps 60 --baseline-policy m264_a001 --candidate-policy m263_a005 --max-normal-success-drop 0.0 --max-normal-margin-regression 0.005 --max-margin-gap-regression 0.001 --max-success-drop-count-regression 0 --device cpu --run-dir runs/m267_m264_boundary_replay_sanity_seed10070"
+    },
+    {
+      "name": "m267_m263_replay_sanity",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_replay_gate --checkpoint-policy m263_a005=runs/m263_m261_to_projection_interpolation/checkpoints/alpha_0_005.pt --checkpoint-policy m264_a001=runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt --corpus-csv runs/m267_m263_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv --env-config configs/m121_human_view_zero_obstacle_relvel.json --max-continuation-steps 60 --baseline-policy m263_a005 --candidate-policy m264_a001 --max-normal-success-drop 0.0 --max-normal-margin-regression 0.005 --max-margin-gap-regression 0.001 --max-success-drop-count-regression 0 --device cpu --run-dir runs/m267_m263_boundary_replay_sanity_seed10070"
+    },
+    {
+      "name": "m267_m261_replay_sanity",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_replay_gate --checkpoint-policy m261_a001=runs/m261_m260_to_raw_interpolation/checkpoints/alpha_0_001.pt --checkpoint-policy m264_a001=runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt --corpus-csv runs/m267_m261_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv --env-config configs/m121_human_view_zero_obstacle_relvel.json --max-continuation-steps 60 --baseline-policy m261_a001 --candidate-policy m264_a001 --max-normal-success-drop 0.0 --max-normal-margin-regression 0.005 --max-margin-gap-regression 0.001 --max-success-drop-count-regression 0 --device cpu --run-dir runs/m267_m261_boundary_replay_sanity_seed10070"
     }
   ],
   "required_artifacts": [
     {
       "path": "docs/m267-protected-surface-objective-replay-conversion.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m267_m264_boundary_outcome_corpus_seed10070/objective_summary.json",
+      "type": "m264_objective_summary"
+    },
+    {
+      "path": "runs/m267_m263_boundary_outcome_corpus_seed10070/objective_summary.json",
+      "type": "m263_objective_summary"
+    },
+    {
+      "path": "runs/m267_m261_boundary_outcome_corpus_seed10070/objective_summary.json",
+      "type": "m261_objective_summary"
+    },
+    {
+      "path": "runs/m267_m264_boundary_replay_sanity_seed10070/summary.json",
+      "type": "m264_replay_summary"
+    },
+    {
+      "path": "runs/m267_m263_boundary_replay_sanity_seed10070/summary.json",
+      "type": "m263_replay_summary"
+    },
+    {
+      "path": "runs/m267_m261_boundary_replay_sanity_seed10070/summary.json",
+      "type": "m261_replay_summary"
     }
   ],
   "baseline_checkpoints": [
@@ -81,6 +125,36 @@
     "docs/m266-m264-family-protected-surface-refresh.md",
     "runs/m266_m264_family_boundary_robustness_seed9520/summary.json"
   ],
-  "decision_rule": "M267 may not promote a checkpoint. If objective and replay sanity pass, it may admit a protected-surface-aware actor update or PPO repair design; otherwise PPO remains blocked for protected-surface redesign.",
-  "next_blocker": "pending M267 objective/replay conversion"
+  "results": {
+    "m264_rows": 17,
+    "m264_physical_groups": 13,
+    "m264_objective_pass": true,
+    "m264_seed_pass_count": 3,
+    "m264_min_val_combined_loss_improvement": 2.744661808013916,
+    "m264_min_val_delta_loss_improvement": 3.700352907180786,
+    "m264_pairwise_accuracy_after": 1.0,
+    "m263_rows": 17,
+    "m263_physical_groups": 13,
+    "m263_objective_pass": true,
+    "m263_seed_pass_count": 3,
+    "m263_min_val_combined_loss_improvement": 2.7446346282958984,
+    "m263_min_val_delta_loss_improvement": 3.7003109455108643,
+    "m263_pairwise_accuracy_after": 1.0,
+    "m261_rows": 17,
+    "m261_physical_groups": 13,
+    "m261_objective_pass": true,
+    "m261_seed_pass_count": 3,
+    "m261_min_val_combined_loss_improvement": 2.744372606277466,
+    "m261_min_val_delta_loss_improvement": 3.7000627517700195,
+    "m261_pairwise_accuracy_after": 1.0,
+    "m264_replay_gate_pass": true,
+    "m264_replay_success_drop_count": 17,
+    "m263_replay_gate_pass": true,
+    "m263_replay_success_drop_count": 17,
+    "m261_replay_gate_pass": true,
+    "m261_replay_success_drop_count": 17
+  },
+  "decision_rule": "M267 may not promote a checkpoint. Passing objective and replay sanity admits one protected-surface-aware guarded actor update from M264 before any PPO.",
+  "decision": "admit_guarded_actor_update_design",
+  "next_blocker": "m268-m267-guarded-actor-update-from-m264"
 }

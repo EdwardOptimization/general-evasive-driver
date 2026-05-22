@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 275,
+    "completed": 276,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m266-m264-family-protected-surface-refresh.md",
+    "command_log": "docs/m267-protected-surface-objective-replay-conversion.md",
     "returncode": 0,
-    "run_dir": "runs/m266_m264_family_boundary_robustness_seed9520",
+    "run_dir": "runs/m267_m264_boundary_replay_sanity_seed10070",
     "status": "completed",
-    "task_id": "m266-m264-family-protected-surface-refresh"
+    "task_id": "m267-protected-surface-objective-replay-conversion"
   },
   "next_task": {
-    "command": "see experiments/manifests/m267-protected-surface-objective-replay-conversion.json",
-    "hypothesis": "The M266 source-diverse protected surface can be converted into replay-aligned objective/proof corpora for the current M261/M263/M264 family before any further PPO.",
-    "id": "m267-protected-surface-objective-replay-conversion",
-    "kind": "objective_sanity",
-    "notes": "Pending: convert refreshed M266 protected surface before any actor update or PPO",
-    "priority": 2620,
+    "command": "see experiments/manifests/m268-m267-guarded-actor-update-from-m264.json",
+    "hypothesis": "A tiny preferred-only actor-coupling update from M264 on the M267 protected-surface corpus may improve the refreshed protected-surface objective without washing out old replay surfaces, the new M267 surface, behavior, or the old protected-key diagnostic.",
+    "id": "m268-m267-guarded-actor-update-from-m264",
+    "kind": "driver_candidate",
+    "notes": "Pending: one small guarded actor update; PPO remains blocked",
+    "priority": 2630,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T171351Z"
+  "updated_at_utc": "20260522T172028Z"
 }
