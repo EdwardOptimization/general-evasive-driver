@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 147,
+    "completed": 148,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m138-retention-loss-rollout-misalignment-audit.md",
+    "command_log": "docs/m139-m136-key-action-anchor-objective.md",
     "returncode": 0,
-    "run_dir": "runs/m138_retention_loss_rollout_misalignment_audit",
+    "run_dir": "runs/m139_m136_s20_env20_snip1000_seed7141",
     "status": "completed",
-    "task_id": "m138-retention-loss-rollout-misalignment-audit"
+    "task_id": "m139-m136-key-action-anchor-objective"
   },
   "next_task": {
-    "command": "see experiments/manifests/m139-m136-key-action-anchor-objective.json",
-    "hypothesis": "Direct action anchoring on M136 retained keys may preserve rollout-level proof-surface keys better than retained-key logprob minimization",
-    "id": "m139-m136-key-action-anchor-objective",
-    "kind": "objective_sanity",
-    "notes": "Pending after M138: lost retained keys had lower logprob penalty but disappeared from strict rollout selection",
-    "priority": 1340,
+    "command": "see experiments/manifests/m140-rollout-key-survival-audit.json",
+    "hypothesis": "Rollout-level key survival evidence is needed because fixed retained-key action anchoring did not preserve M133 strict proof-surface diversity",
+    "id": "m140-rollout-key-survival-audit",
+    "kind": "gate",
+    "notes": "Pending after M139: direct action anchor retained behavior but strict selected pairs/seeds stayed below M133",
+    "priority": 1350,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T002033Z"
+  "updated_at_utc": "20260522T005900Z"
 }

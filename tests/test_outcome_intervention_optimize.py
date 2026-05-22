@@ -126,3 +126,46 @@ def test_optimize_outcome_intervention_with_action_anchor_records_anchor_metrics
     assert np.isfinite(summary["before_action_anchor_mse"])
     assert np.isfinite(summary["after_action_anchor_mse"])
     assert "action_anchor_loss" in train_metrics
+
+
+def test_optimize_outcome_intervention_with_snippet_action_anchor_records_anchor_metrics(tmp_path):
+    snippet_path = tmp_path / "snippets.npz"
+    np.savez_compressed(
+        snippet_path,
+        observation=np.zeros((8, 72), dtype=np.float32),
+        preferred_hidden=np.zeros((8, 8), dtype=np.float32),
+        rejected_hidden=np.ones((8, 8), dtype=np.float32),
+        preferred_action=np.zeros((8, 3), dtype=np.float32),
+        weight=np.ones(8, dtype=np.float32),
+    )
+    init_checkpoint = tmp_path / "init.pt"
+    _write_checkpoint(init_checkpoint)
+
+    summary, train_metrics, _ = optimize_outcome_intervention(
+        init_checkpoint=init_checkpoint,
+        snippet_npz=snippet_path,
+        device="cpu",
+        steps=3,
+        batch_size=4,
+        learning_rate=1e-3,
+        logprob_margin=0.05,
+        seed=5,
+        freeze_log_std=True,
+        grad_clip_norm=1.0,
+        log_interval=1,
+        run_dir=tmp_path / "run",
+        eval_batch_size=4,
+        eval_batches=2,
+        eval_seed=7,
+        snippet_action_anchor_checkpoint=init_checkpoint,
+        snippet_action_anchor_coef=0.1,
+        snippet_action_anchor_batch_size=4,
+    )
+
+    assert summary["before_action_anchor_mse"] is None
+    assert summary["after_action_anchor_mse"] is None
+    assert np.isfinite(summary["before_snippet_action_anchor_mse"])
+    assert np.isfinite(summary["after_snippet_action_anchor_mse"])
+    assert summary["before_snippet_action_anchor_mse"] == 0.0
+    assert "snippet_action_anchor_loss" in train_metrics
+    assert (train_metrics["snippet_action_anchor_coef"] == 0.1).all()

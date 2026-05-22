@@ -1,0 +1,37 @@
+{
+  "baseline_checkpoints": [
+    "runs/m132_margin_retention_s60_anchor20_seed9841/optimized_checkpoint.pt",
+    "runs/m136_m133_proof_surface_retention_corpus/outcome_intervention_snippets.npz"
+  ],
+  "commands": [
+    {
+      "command": "Audit key-level survival for M139 candidates by joining M136 retained keys, M133 strict selected keys, and M139 strict selected keys.",
+      "name": "m140_key_survival_audit"
+    },
+    {
+      "command": "Prototype the next rollout-aware retention guard/objective from the M140 lost-key audit.",
+      "name": "m140_rollout_aware_retention_design"
+    }
+  ],
+  "decision_rule": "Proceed only if the audit identifies a concrete rollout-level signal that explains lost M133 keys better than fixed logprob or fixed action-MSE proxies.",
+  "failure_criteria": [
+    "lost-key analysis again reduces to fixed snippet logprob/action metrics",
+    "no actionable rollout-margin or selected-key survival signal is found",
+    "proposed repair would require oracle actor inputs"
+  ],
+  "hypothesis": "M139 shows even extremely small retained-key action drift can lose strict selected keys. A key-survival audit should identify rollout-level features or guard conditions needed for the next repair.",
+  "id": "m140-rollout-key-survival-audit",
+  "required_artifacts": [
+    {
+      "path": "docs/m140-rollout-key-survival-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "audit maps M136 retained keys to M133 and M139 strict selected/lost keys",
+    "lost keys are explained with rollout margin or selected-key survival evidence",
+    "next objective or guard is specified without changing actor inputs",
+    "docs, queue, status, and scoreboard are updated"
+  ],
+  "type": "gate"
+}

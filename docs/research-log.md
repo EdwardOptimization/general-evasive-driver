@@ -5300,3 +5300,38 @@ explicitly tied into the formal M91 protocol:
 Updated `docs/m91-input-observability-audit-protocol.md` and
 `docs/observation-contract.md` so future input-profile work does not drift back
 to slip-ratio or shortcut features.
+
+## 20260522T005900Z m139-m136-key-action-anchor-objective
+
+M139 added snippet-level action anchoring to the outcome intervention optimizer
+and tested whether direct retained-key action preservation can repair the M137
+rollout proof-surface regression.
+
+Focused tests:
+
+```text
+tests/test_outcome_intervention_optimize.py: 4 passed
+```
+
+Best behavior candidate:
+
+```text
+runs/m139_m136_s20_env20_snip1000_seed7141/optimized_checkpoint.pt
+```
+
+It keeps behavior on seed `9503`: normal success `0.8625`, reset `0.8500`,
+zero-response `0.8000`, no-action `0.8625`.
+
+Strict proof-surface result is negative. M133 reference is `10 pairs / 8 seeds`
+on miner seed `9900` and `9 / 8` on seed `9920`. M139 reaches only:
+
+```text
+s40 snip100:   8 / 6 and 7 / 6
+s40 snip500:   9 / 7 and 8 / 7
+s20 snip1000:  9 / 7 and 8 / 7
+```
+
+Decision: reject M139 as a repair. Even retained-key action MSE near
+`2.19e-7` does not preserve the strict rollout proof surface. The next task is
+M140, a rollout-key survival audit that should look at selected-key survival
+and rollout margin signals directly.

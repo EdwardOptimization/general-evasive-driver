@@ -5,8 +5,20 @@
   ],
   "commands": [
     {
-      "command": "Prototype a key-action retention objective that anchors M136 proof-surface actions to M132 while allowing controlled improvement elsewhere.",
-      "name": "m139_m136_key_action_anchor_objective"
+      "command": "Add snippet action anchor support to autodrift.outcome_intervention_optimize and validate with tests/test_outcome_intervention_optimize.py.",
+      "name": "m139_snippet_action_anchor_implementation"
+    },
+    {
+      "command": "Run M136/M128 fixed-loss objective grid over snippet action anchor coefficients 100, 500, 1000, and 2000.",
+      "name": "m139_objective_grid"
+    },
+    {
+      "command": "Run behavior gate on the conservative s20 snip1000 candidate with reset, zero-response, and no-action ablations.",
+      "name": "m139_behavior_gate_seed9503"
+    },
+    {
+      "command": "Run M133 strict zero-relvel proof-surface miners on s40 snip100, s40 snip500, and s20 snip1000 with miner seeds 9900 and 9920.",
+      "name": "m139_strict_proof_surface_grid"
     }
   ],
   "decision_rule": "Admit only if key-action anchoring preserves M133 strict proof-surface diversity while fixed losses and behavior remain acceptable.",
@@ -22,6 +34,54 @@
     {
       "path": "docs/m139-m136-key-action-anchor-objective.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m139_m136_s40_env20_snip100_seed7140/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m139_m136_s40_env20_snip500_seed7139/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m139_m136_s20_env20_snip1000_seed7141/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m139_m136_retention_eval_seed0/policy_summary.csv",
+      "type": "fixed_loss_eval"
+    },
+    {
+      "path": "runs/m139_m128_outcome_eval_seed0/policy_summary.csv",
+      "type": "fixed_loss_eval"
+    },
+    {
+      "path": "runs/m139_behavior_gate_seed9503/policy_summary.csv",
+      "type": "behavior_gate"
+    },
+    {
+      "path": "runs/m139_s40_snip100_strict_60ep_seed9900/summary.json",
+      "type": "strict_gate"
+    },
+    {
+      "path": "runs/m139_s40_snip100_strict_60ep_seed9920/summary.json",
+      "type": "strict_gate"
+    },
+    {
+      "path": "runs/m139_s40_snip500_strict_60ep_seed9900/summary.json",
+      "type": "strict_gate"
+    },
+    {
+      "path": "runs/m139_s40_snip500_strict_60ep_seed9920/summary.json",
+      "type": "strict_gate"
+    },
+    {
+      "path": "runs/m139_s20_snip1000_strict_60ep_seed9900/summary.json",
+      "type": "strict_gate"
+    },
+    {
+      "path": "runs/m139_s20_snip1000_strict_60ep_seed9920/summary.json",
+      "type": "strict_gate"
     }
   ],
   "success_criteria": [

@@ -16,8 +16,10 @@ from autodrift.checkpoints import load_actor_critic_checkpoint
 from autodrift.evaluate import load_env_config
 from autodrift.hidden_envelope_optimize import collect_hidden_envelope_objective_batch
 from autodrift.intervention_objectives import (
+    OutcomeInterventionSnippets,
     load_outcome_intervention_snippets,
     outcome_weighted_intervention_loss,
+    weighted_mean,
 )
 from autodrift.outcome_intervention_eval import evaluate_checkpoint
 from autodrift.train_ppo import resolve_device
@@ -126,6 +128,86 @@ def _sampled_action_anchor_loss(
     return torch.square(flat_actions[sampled_positions] - flat_reference[sampled_positions].detach()).mean()
 
 
+def _collect_snippet_action_anchor(
+    *,
+    checkpoint: Path,
+    snippets: OutcomeInterventionSnippets,
+    device: torch.device,
+    obs_dim: int,
+    include_rejected_hidden: bool,
+) -> dict[str, torch.Tensor]:
+    reference_model, _ = load_actor_critic_checkpoint(checkpoint, device=str(device), obs_dim=obs_dim)
+    reference_model.eval()
+    for parameter in reference_model.parameters():
+        parameter.requires_grad_(False)
+    with torch.no_grad():
+        preferred_dist, _, _ = reference_model.forward_recurrent(
+            snippets.observation,
+            snippets.preferred_hidden,
+        )
+        reference_preferred_action = torch.tanh(preferred_dist.mean).detach()
+        reference_rejected_action = torch.empty_like(reference_preferred_action)
+        if include_rejected_hidden:
+            rejected_dist, _, _ = reference_model.forward_recurrent(
+                snippets.observation,
+                snippets.rejected_hidden,
+            )
+            reference_rejected_action = torch.tanh(rejected_dist.mean).detach()
+    return {
+        "observation": snippets.observation,
+        "preferred_hidden": snippets.preferred_hidden,
+        "rejected_hidden": snippets.rejected_hidden,
+        "weight": snippets.weight.detach(),
+        "reference_preferred_action": reference_preferred_action,
+        "reference_rejected_action": reference_rejected_action,
+        "include_rejected_hidden": torch.tensor(
+            1 if include_rejected_hidden else 0,
+            dtype=torch.int64,
+            device=device,
+        ),
+    }
+
+
+def _snippet_action_anchor_errors(
+    model: torch.nn.Module,
+    anchor: dict[str, torch.Tensor],
+    indices: torch.Tensor,
+) -> torch.Tensor:
+    observation = anchor["observation"][indices]
+    preferred_hidden = anchor["preferred_hidden"][indices]
+    preferred_dist, _, _ = model.forward_recurrent(observation, preferred_hidden)  # type: ignore[attr-defined]
+    preferred_action = torch.tanh(preferred_dist.mean)
+    error = torch.square(preferred_action - anchor["reference_preferred_action"][indices].detach()).mean(dim=-1)
+    if bool(int(anchor["include_rejected_hidden"].detach().cpu().item())):
+        rejected_hidden = anchor["rejected_hidden"][indices]
+        rejected_dist, _, _ = model.forward_recurrent(observation, rejected_hidden)  # type: ignore[attr-defined]
+        rejected_action = torch.tanh(rejected_dist.mean)
+        rejected_error = torch.square(
+            rejected_action - anchor["reference_rejected_action"][indices].detach()
+        ).mean(dim=-1)
+        error = 0.5 * (error + rejected_error)
+    return error
+
+
+def _snippet_action_anchor_mse(model: torch.nn.Module, anchor: dict[str, torch.Tensor]) -> torch.Tensor:
+    indices = torch.arange(anchor["observation"].shape[0], device=anchor["observation"].device)
+    errors = _snippet_action_anchor_errors(model, anchor, indices)
+    return weighted_mean(errors, anchor["weight"])
+
+
+def _sampled_snippet_action_anchor_loss(
+    model: torch.nn.Module,
+    anchor: dict[str, torch.Tensor],
+    *,
+    batch_size: int,
+) -> torch.Tensor:
+    count = int(anchor["observation"].shape[0])
+    batch_count = max(1, min(int(batch_size), count))
+    indices = torch.randint(count, (batch_count,), device=anchor["observation"].device)
+    errors = _snippet_action_anchor_errors(model, anchor, indices)
+    return weighted_mean(errors, anchor["weight"][indices])
+
+
 def save_checkpoint_like(
     *,
     model: torch.nn.Module,
@@ -171,6 +253,10 @@ def optimize_outcome_intervention(
     action_anchor_sample_stride: int = 3,
     action_anchor_max_samples: int | None = 800,
     action_anchor_batch_size: int = 256,
+    snippet_action_anchor_checkpoint: Path | None = None,
+    snippet_action_anchor_coef: float = 0.0,
+    snippet_action_anchor_batch_size: int = 128,
+    snippet_action_anchor_include_rejected_hidden: bool = True,
 ) -> tuple[dict[str, Any], pd.DataFrame, pd.DataFrame]:
     run_dir.mkdir(parents=True, exist_ok=True)
     resolved_device = resolve_device(device)
@@ -205,6 +291,16 @@ def optimize_outcome_intervention(
             sample_stride=action_anchor_sample_stride,
             max_samples=action_anchor_max_samples,
         )
+    snippet_action_anchor: dict[str, torch.Tensor] | None = None
+    if snippet_action_anchor_coef > 0.0:
+        anchor_checkpoint = snippet_action_anchor_checkpoint or init_checkpoint
+        snippet_action_anchor = _collect_snippet_action_anchor(
+            checkpoint=anchor_checkpoint,
+            snippets=snippets,
+            device=resolved_device,
+            obs_dim=obs_dim,
+            include_rejected_hidden=snippet_action_anchor_include_rejected_hidden,
+        )
 
     before_summary, before_batches = evaluate_checkpoint(
         label="before",
@@ -218,6 +314,11 @@ def optimize_outcome_intervention(
     )
     with torch.no_grad():
         before_action_anchor_mse = float(_action_anchor_mse(model, anchor).detach().cpu().item()) if anchor else None
+        before_snippet_action_anchor_mse = (
+            float(_snippet_action_anchor_mse(model, snippet_action_anchor).detach().cpu().item())
+            if snippet_action_anchor
+            else None
+        )
 
     metrics: list[dict[str, Any]] = []
     model.train()
@@ -233,6 +334,7 @@ def optimize_outcome_intervention(
         )
         outcome_loss = loss
         action_anchor_loss = torch.zeros((), dtype=torch.float32, device=resolved_device)
+        snippet_action_anchor_loss = torch.zeros((), dtype=torch.float32, device=resolved_device)
         if anchor is not None:
             action_anchor_loss = _sampled_action_anchor_loss(
                 model,
@@ -240,6 +342,13 @@ def optimize_outcome_intervention(
                 batch_size=action_anchor_batch_size,
             )
             loss = outcome_loss + float(action_anchor_coef) * action_anchor_loss
+        if snippet_action_anchor is not None:
+            snippet_action_anchor_loss = _sampled_snippet_action_anchor_loss(
+                model,
+                snippet_action_anchor,
+                batch_size=snippet_action_anchor_batch_size,
+            )
+            loss = loss + float(snippet_action_anchor_coef) * snippet_action_anchor_loss
         loss.backward()
         grad_norm = torch.nn.utils.clip_grad_norm_(parameters, max_norm=float(grad_clip_norm))
         optimizer.step()
@@ -251,6 +360,8 @@ def optimize_outcome_intervention(
                     "outcome_loss": float(outcome_loss.detach().cpu().item()),
                     "action_anchor_loss": float(action_anchor_loss.detach().cpu().item()),
                     "action_anchor_coef": float(action_anchor_coef),
+                    "snippet_action_anchor_loss": float(snippet_action_anchor_loss.detach().cpu().item()),
+                    "snippet_action_anchor_coef": float(snippet_action_anchor_coef),
                     "grad_norm": float(grad_norm.detach().cpu().item() if isinstance(grad_norm, torch.Tensor) else grad_norm),
                     "learning_rate": float(learning_rate),
                 }
@@ -281,6 +392,10 @@ def optimize_outcome_intervention(
             "action_anchor_sample_stride": int(action_anchor_sample_stride),
             "action_anchor_max_samples": action_anchor_max_samples,
             "action_anchor_batch_size": int(action_anchor_batch_size),
+            "snippet_action_anchor_checkpoint": snippet_action_anchor_checkpoint,
+            "snippet_action_anchor_coef": float(snippet_action_anchor_coef),
+            "snippet_action_anchor_batch_size": int(snippet_action_anchor_batch_size),
+            "snippet_action_anchor_include_rejected_hidden": bool(snippet_action_anchor_include_rejected_hidden),
             "grad_clip_norm": float(grad_clip_norm),
         },
     )
@@ -296,6 +411,11 @@ def optimize_outcome_intervention(
     )
     with torch.no_grad():
         after_action_anchor_mse = float(_action_anchor_mse(model, anchor).detach().cpu().item()) if anchor else None
+        after_snippet_action_anchor_mse = (
+            float(_snippet_action_anchor_mse(model, snippet_action_anchor).detach().cpu().item())
+            if snippet_action_anchor
+            else None
+        )
 
     policy_summary = pd.DataFrame([before_summary, after_summary])
     batch_losses = pd.DataFrame([*before_batches, *after_batches])
@@ -323,8 +443,14 @@ def optimize_outcome_intervention(
         "action_anchor_sample_stride": int(action_anchor_sample_stride),
         "action_anchor_max_samples": action_anchor_max_samples,
         "action_anchor_batch_size": int(action_anchor_batch_size),
+        "snippet_action_anchor_checkpoint": snippet_action_anchor_checkpoint,
+        "snippet_action_anchor_coef": float(snippet_action_anchor_coef),
+        "snippet_action_anchor_batch_size": int(snippet_action_anchor_batch_size),
+        "snippet_action_anchor_include_rejected_hidden": bool(snippet_action_anchor_include_rejected_hidden),
         "before_action_anchor_mse": before_action_anchor_mse,
         "after_action_anchor_mse": after_action_anchor_mse,
+        "before_snippet_action_anchor_mse": before_snippet_action_anchor_mse,
+        "after_snippet_action_anchor_mse": after_snippet_action_anchor_mse,
         "grad_clip_norm": float(grad_clip_norm),
         "eval_batch_size": int(eval_batch_size),
         "eval_batches": int(eval_batches),
@@ -365,6 +491,10 @@ def main() -> None:
     parser.add_argument("--action-anchor-sample-stride", type=int, default=3)
     parser.add_argument("--action-anchor-max-samples", type=int, default=800)
     parser.add_argument("--action-anchor-batch-size", type=int, default=256)
+    parser.add_argument("--snippet-action-anchor-checkpoint", type=Path, default=None)
+    parser.add_argument("--snippet-action-anchor-coef", type=float, default=0.0)
+    parser.add_argument("--snippet-action-anchor-batch-size", type=int, default=128)
+    parser.add_argument("--snippet-action-anchor-preferred-only", action="store_true")
     parser.add_argument("--grad-clip-norm", type=float, default=1.0)
     parser.add_argument("--log-interval", type=int, default=20)
     parser.add_argument("--eval-batch-size", type=int, default=128)
@@ -401,6 +531,10 @@ def main() -> None:
         action_anchor_sample_stride=args.action_anchor_sample_stride,
         action_anchor_max_samples=args.action_anchor_max_samples,
         action_anchor_batch_size=args.action_anchor_batch_size,
+        snippet_action_anchor_checkpoint=args.snippet_action_anchor_checkpoint,
+        snippet_action_anchor_coef=args.snippet_action_anchor_coef,
+        snippet_action_anchor_batch_size=args.snippet_action_anchor_batch_size,
+        snippet_action_anchor_include_rejected_hidden=not args.snippet_action_anchor_preferred_only,
     )
     print(train_metrics.tail(5).to_string(index=False))
     print(policy_summary.to_string(index=False))
