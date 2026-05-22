@@ -6048,3 +6048,47 @@ Decision: M153 passes recurrent hidden integration smoke. Admit behavior and
 wrong-history gate design, but keep PPO and driver promotion blocked until
 closed-loop behavior retention and intervention degradation are explicitly
 verified.
+
+## 20260522T053000Z m154-capability-belief-behavior-gate-design
+
+M154 pre-registers the behavior gate required after M153 and before any
+capability-belief PPO continuation. No candidate checkpoint is evaluated yet.
+
+New code:
+
+```text
+src/autodrift/capability_belief_behavior_gate_design.py
+tests/test_capability_belief_behavior_gate_design.py
+```
+
+Run:
+
+```text
+runs/m154_capability_belief_behavior_gate_design
+```
+
+Artifacts:
+
+```text
+runs/m154_capability_belief_behavior_gate_design/gate_spec.json
+runs/m154_capability_belief_behavior_gate_design/gate_checklist.csv
+runs/m154_capability_belief_behavior_gate_design/command_plan.csv
+runs/m154_capability_belief_behavior_gate_design/summary.json
+```
+
+The gate has eight required stages:
+
+| Stage | Purpose |
+| --- | --- |
+| actor input contract | keep 72-value P0 human-view actor input and reject oracle leakage |
+| behavior retention | compare candidate to M142 alpha_0_4 on two 80-episode behavior seeds |
+| response history interventions | require reset, zero-current, zero-all, and zero-action ablation accounting |
+| critical-key replay | protect M141 key `9944|perturbed|28|28` |
+| matched-history action gate | require wrong-history action dependence on M118 source-diverse corpus |
+| matched-history outcome gate | require wrong-history rollout degradation |
+| strict proof surface | preserve M133/M142 strict selected-pair and seed thresholds |
+| promotion boundary | passing M154 can admit guarded PPO only, never driver promotion |
+
+Decision: M154 completes as a positive gate-design milestone. The next task may
+produce a capability-belief candidate, but that candidate must be judged by the
+registered gate before PPO readiness or driver-like claims.

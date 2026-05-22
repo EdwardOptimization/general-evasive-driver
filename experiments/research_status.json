@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 162,
+    "completed": 163,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m153-capability-belief-hidden-integration-smoke.md",
+    "command_log": "docs/m154-capability-belief-behavior-gate-design.md",
     "returncode": 0,
-    "run_dir": "runs/m153_capability_belief_hidden_integration_smoke",
+    "run_dir": "runs/m154_capability_belief_behavior_gate_design",
     "status": "completed",
-    "task_id": "m153-capability-belief-hidden-integration-smoke"
+    "task_id": "m154-capability-belief-behavior-gate-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m154-capability-belief-behavior-gate-design.json",
-    "hypothesis": "A capability-belief auxiliary can be useful only if paired with a behavior gate that prevents the supervised belief objective from washing out rollout-margin and wrong-history proof surfaces.",
-    "id": "m154-capability-belief-behavior-gate-design",
-    "kind": "gate",
-    "notes": "Pending after M153: behavior-retention and wrong-history gate before PPO",
-    "priority": 1490,
+    "command": "see experiments/manifests/m155-capability-belief-aux-candidate-smoke.json",
+    "hypothesis": "A small capability-belief auxiliary candidate can be produced from the M153 recurrent objective and then judged by the M154 behavior gate without relaxing the human-view input contract.",
+    "id": "m155-capability-belief-aux-candidate-smoke",
+    "kind": "driver_candidate",
+    "notes": "Pending after M154: produce or reject a gated capability-belief candidate",
+    "priority": 1500,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T052000Z"
+  "updated_at_utc": "20260522T053000Z"
 }

@@ -1,0 +1,36 @@
+{
+  "baseline_checkpoints": [
+    "runs/m154_capability_belief_behavior_gate_design/summary.json",
+    "runs/m153_capability_belief_hidden_integration_smoke/summary.json",
+    "runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt"
+  ],
+  "commands": [
+    {
+      "command": "Create a small config-gated capability-belief auxiliary candidate or actor-coupling smoke, then evaluate it with the M154 gate before any PPO promotion.",
+      "name": "m155_capability_belief_aux_candidate_smoke"
+    }
+  ],
+  "decision_rule": "A capability-belief candidate is admitted only if the training path preserves the P0 actor input contract and is evaluated against the M154 behavior gate.",
+  "failure_criteria": [
+    "candidate changes actor observations or adds hidden dynamics at inference",
+    "candidate is promoted from supervised losses without M154 gate evidence",
+    "candidate skips behavior retention or critical-key replay",
+    "candidate trains broad PPO before a smoke-scale integration"
+  ],
+  "hypothesis": "A small capability-belief auxiliary candidate can be produced from the M153 recurrent objective and then judged by the M154 behavior gate without relaxing the human-view input contract.",
+  "id": "m155-capability-belief-aux-candidate-smoke",
+  "required_artifacts": [
+    {
+      "path": "docs/m155-capability-belief-aux-candidate-smoke.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "produce a concrete checkpoint or explain why no candidate should be produced yet",
+    "prove actor observation contract remains P0 human-view only",
+    "report capability-belief target and pairwise delta losses",
+    "run at least the cheap M154 pre-screens before expensive strict miners",
+    "record whether full M154 gate execution is justified"
+  ],
+  "type": "driver_candidate"
+}

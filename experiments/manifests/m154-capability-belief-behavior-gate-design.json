@@ -6,7 +6,7 @@
   ],
   "commands": [
     {
-      "command": "Design or implement the next behavior-retention and wrong-history guard required before any capability-belief PPO continuation.",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.capability_belief_behavior_gate_design --candidate-name capability_belief_candidate --candidate-checkpoint '<capability_belief_candidate_checkpoint.pt>' --baseline-checkpoint runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --m118-pairs-csv runs/m118_source_diverse_matched_current_seed9510/matched_pairs.csv --behavior-episodes 80 --behavior-seeds 9503,9504 --strict-surface-seeds 9900,9920 --run-dir runs/m154_capability_belief_behavior_gate_design",
       "name": "m154_capability_belief_behavior_gate_design"
     }
   ],
@@ -23,8 +23,37 @@
     {
       "path": "docs/m154-capability-belief-behavior-gate-design.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m154_capability_belief_behavior_gate_design/gate_spec.json",
+      "type": "gate_spec"
+    },
+    {
+      "path": "runs/m154_capability_belief_behavior_gate_design/gate_checklist.csv",
+      "type": "gate_checklist"
+    },
+    {
+      "path": "runs/m154_capability_belief_behavior_gate_design/command_plan.csv",
+      "type": "command_plan"
+    },
+    {
+      "path": "runs/m154_capability_belief_behavior_gate_design/summary.json",
+      "type": "summary"
     }
   ],
+  "result": {
+    "gate_stage_count": 8,
+    "required_interventions": [
+      "reset_recurrent_state",
+      "zero_current_response",
+      "zero_all_response",
+      "zero_action_history",
+      "wrong_matched_history",
+      "delayed_history"
+    ],
+    "required_stage_count": 8,
+    "status": "gate_design_complete"
+  },
   "success_criteria": [
     "specify the exact benchmark and intervention checks for a capability-belief trained checkpoint",
     "preserve current P0 human-view actor input contract",

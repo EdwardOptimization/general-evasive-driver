@@ -157,3 +157,10 @@ pairwise delta `2.191227`. This proves the objective can be wired into the
 current recurrent driver architecture, but still does not prove behavior. The
 next required item is a behavior-retention and wrong-history gate design before
 any capability-belief PPO continuation.
+
+M154 registered that gate. It contains eight required stages: actor input
+contract, behavior retention, response-history ablations, critical-key replay,
+matched-history action gate, matched-history outcome gate, strict proof-surface
+gate, and a promotion boundary. Passing M154 can only admit guarded PPO
+continuation; it cannot promote a driver. The next step is to produce or reject
+a concrete capability-belief candidate under this gate.
