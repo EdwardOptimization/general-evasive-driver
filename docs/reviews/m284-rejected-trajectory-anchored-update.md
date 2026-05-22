@@ -2,7 +2,7 @@
 
 ## Summary
 
-- Generated at UTC: 20260522T190305Z
+- Generated at UTC: 20260522T190421Z
 - Type: driver_candidate
 - Gate tier: proof
 - Promotion decision: reject_rejected_trajectory_raw_update_old_surface_washout
