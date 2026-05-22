@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 287,
+    "completed": 288,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m278-current-hidden-recovery-anchor-probe.md",
+    "command_log": "docs/m279-recovery-anchored-actor-update.md",
     "returncode": 0,
-    "run_dir": "runs/m278_terminal_margin_recovery_anchor_probe",
+    "run_dir": "runs/m279_m267_m264_replay_gate_seed10070",
     "status": "completed",
-    "task_id": "m278-current-hidden-recovery-anchor-probe"
+    "task_id": "m279-recovery-anchored-actor-update"
   },
   "next_task": {
-    "command": "see experiments/manifests/m279-recovery-anchored-actor-update.json",
-    "hypothesis": "Adding the M278 current-hidden recovery anchor to the M270 objective and M275 retention anchor can improve objective while preserving row16 terminal-margin slack.",
-    "id": "m279-recovery-anchored-actor-update",
-    "kind": "driver_candidate",
-    "notes": "Pending: one small no-PPO actor-coupling update; gate row16 first",
-    "priority": 2740,
+    "command": "see experiments/manifests/m280-current-family-wrong-history-washout-audit.json",
+    "hypothesis": "M279 improves normal terminal margins but also makes rejected/wrong-history hidden states safer on current-family rows because the update lacks an explicit rejected-hidden retention or contrast anchor.",
+    "id": "m280-current-family-wrong-history-washout-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M279 M267/M264 washout before any new actor update; PPO remains blocked",
+    "priority": 2750,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T183027Z"
+  "updated_at_utc": "20260522T184205Z"
 }

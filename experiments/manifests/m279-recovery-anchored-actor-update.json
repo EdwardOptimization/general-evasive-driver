@@ -2,9 +2,10 @@
   "id": "m279-recovery-anchored-actor-update",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "proof_washout",
+    "objective_overfit"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -13,14 +14,15 @@
     "parent_dataset": [
       "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
       "runs/m275_terminal_margin_retention_surface/retention_trajectory_anchor.npz",
-      "runs/m278_terminal_margin_recovery_anchor_probe/recovery_anchor.npz"
+      "runs/m278_terminal_margin_recovery_anchor_probe/recovery_anchor.npz",
+      "runs/m279_combined_retention_recovery_anchor/combined_trajectory_anchor.npz"
     ],
     "parent_config": [
       "experiments/manifests/m278-current-hidden-recovery-anchor-probe.json",
       "docs/m278-current-hidden-recovery-anchor-probe.md"
     ],
     "parent_objective": [
-      "M270 source-balanced objective plus M275 retention anchor plus M278 recovery anchor"
+    "M270 source-balanced objective plus M275 retention anchor plus M278 recovery anchor"
     ],
     "derived_from": [
       "m278-current-hidden-recovery-anchor-probe"
@@ -52,7 +54,7 @@
   "hypothesis": "Adding the M278 current-hidden recovery anchor to the M270 objective and M275 retention anchor can improve objective while preserving row16 terminal-margin slack.",
   "success_criteria": [
     "start from m272b_a0_01025",
-    "use M270 source-balanced objective, M275 retention trajectory anchor, and M278 recovery anchor",
+    "use M270 source-balanced objective and a combined trajectory anchor that keeps M275 retention while replacing recovered step0 targets with M278 recovery actions",
     "run exactly one small actor-coupling update before any repeat or PPO",
     "improve fixed M270 objective versus M272",
     "preserve M183/M170 row16 terminal margin above the registered required floor",
@@ -68,8 +70,12 @@
   ],
   "commands": [
     {
+      "name": "m279_combined_anchor",
+      "command": "Build runs/m279_combined_retention_recovery_anchor/combined_trajectory_anchor.npz by dropping M275 retention step0 rows whose source_index appears in M278 recovery_anchor.npz and appending M278 recovery rows repeated 16 times."
+    },
+    {
       "name": "m279_actor_update",
-      "command": "Run one small actor-coupling update from m272b_a0_01025 using M270 objective, M275 retention anchor, and M278 recovery anchor, then gate row16 before broader proof gates."
+      "command": "Run one small actor-coupling update from m272b_a0_01025 using M270 objective and the M279 combined retention/recovery trajectory anchor, then gate row16 before broader proof gates."
     }
   ],
   "required_artifacts": [
@@ -78,8 +84,20 @@
       "type": "documentation"
     },
     {
+      "path": "runs/m279_combined_retention_recovery_anchor/summary.json",
+      "type": "combined_anchor_summary"
+    },
+    {
       "path": "runs/m279_m272_actor_coupling_m270_retention_recovery_anchor_s10_lr5e5_seed10076/summary.json",
       "type": "actor_update_summary"
+    },
+    {
+      "path": "runs/m279_exact_outcome_eval_seed37/summary.json",
+      "type": "exact_eval_summary"
+    },
+    {
+      "path": "runs/m279_m267_m264_replay_gate_seed10070/summary.json",
+      "type": "failed_replay_summary"
     }
   ],
   "baseline_checkpoints": [
@@ -89,6 +107,45 @@
     "docs/m278-current-hidden-recovery-anchor-probe.md",
     "runs/m278_terminal_margin_recovery_anchor_probe/summary.json"
   ],
-  "decision_rule": "M279 may promote only after objective improvement and row16, replay, protected-key, and behavior-retention gates pass. If row16 fails, classify the update as proof_washout/objective_overfit and do not run broader PPO.",
-  "next_blocker": "pending M279 recovery-anchored actor update"
+  "results": {
+    "combined_anchor": "runs/m279_combined_retention_recovery_anchor/combined_trajectory_anchor.npz",
+    "combined_anchor_rows": 1890,
+    "combined_anchor_recovery_repeat": 16,
+    "combined_anchor_retention_step0_rows_replaced": 30,
+    "raw_checkpoint": "runs/m279_m272_actor_coupling_m270_retention_recovery_anchor_s10_lr5e5_seed10076/optimized_checkpoint.pt",
+    "optimizer_sampled_loss_m272": 0.6808386286099751,
+    "optimizer_sampled_loss_m279": 0.6769450167814891,
+    "fixed_sampled_loss_m272": 0.681538792848587,
+    "fixed_sampled_loss_m279": 0.6776151764392853,
+    "exact_loss_m272": 0.6813756227493286,
+    "exact_loss_m279": 0.6774370670318604,
+    "m183_m170_row16_baseline_margin": 0.0000006356749755465074,
+    "m183_m170_row16_m279_margin": 0.0024594188918236615,
+    "m183_m170_row16_gate_pass": true,
+    "replay_gates_passed": [
+      "m183_m168",
+      "m183_m170",
+      "m193_m189",
+      "m212_m204",
+      "m223_m219"
+    ],
+    "replay_gates_failed": [
+      "m267_m264"
+    ],
+    "m267_m264_baseline_success_drop_count": 17,
+    "m267_m264_candidate_success_drop_count": 12,
+    "m267_m264_wrong_history_success_delta": 0.29411764705882354,
+    "m267_m264_failed_rows": [
+      6,
+      11,
+      13,
+      15,
+      16
+    ],
+    "protected_key_run": false,
+    "behavior_gate_run": false
+  },
+  "decision_rule": "Reject M279 because exact objective and row16 improve but the refreshed M267/M264 current-family replay surface loses five wrong-history success drops. Protected-key and behavior gates are skipped because the replay proof tier already failed.",
+  "decision": "reject_recovery_anchored_actor_update_current_family_washout",
+  "next_blocker": "m280-current-family-wrong-history-washout-audit"
 }
