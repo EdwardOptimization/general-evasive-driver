@@ -7611,3 +7611,34 @@ Decision: M210 is negative and does not justify objective conversion or PPO.
 Run M211 as a M192-seed control with the current M199/M202/M204 family before
 concluding that fresh current-family wrong-history near-boundary evidence is
 gone.
+
+## 20260522T103622Z m211-m192-seed-control-protected-surface-audit
+
+M211 repeated the current-family protected-surface refresh on the M192 probe
+seeds `9520`-`9523`. No PPO, actor update, or actor input change was run.
+
+Artifacts:
+
+- `runs/m211_current_family_matched_current_seed9520`
+- `runs/m211_current_family_outcome_seed9520`
+- `runs/m211_current_family_boundary_surface_seed9520`
+- `runs/m211_current_family_boundary_robustness_seed9520`
+- `docs/m211-m192-seed-control-protected-surface-audit.md`
+- `experiments/manifests/m212-current-family-boundary-objective-sanity.json`
+
+Results:
+
+- matched-current mining finds `2853` accepted pairs across `305` physical
+  pairs, `31` left steps, and `19` obstacle buckets;
+- direct outcome gate emits `17118` continuation rows;
+- boundary relocation emits `70805` rows and finds `171` accepted wrong-history
+  rows;
+- accepted wrong-history rows cover `13` physical pairs, `8` left steps,
+  `3` checkpoints, `2` targets, and `2` margin buckets;
+- accepted wrong-history success-drop fraction is `1.0`;
+- robustness passes with decision `admit_boundary_wrong_history_objective`.
+
+Decision: M211 is positive. M210 was seed/corpus-specific, not proof that
+current-family wrong-history evidence is gone. Convert the M211 accepted rows
+into replay-aligned objective corpora in M212 before any guarded actor update or
+PPO.

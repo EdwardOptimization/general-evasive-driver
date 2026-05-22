@@ -208,11 +208,16 @@ slightly stronger action-level sensitivity.
   and zero-current interventions still produce `680` and `261` accepted rows,
   so the negative result is specific to fresh wrong-history near-boundary
   evidence.
+- M211: repeats the current-family refresh on the M192 probe seeds
+  `9520`-`9523` and recovers `171` accepted wrong-history rows across
+  `13` physical pairs, `8` left steps, `3` checkpoints, `2` targets, and
+  `2` margin buckets. Robustness passes, so M210 was seed/corpus-specific
+  rather than proof that current-family wrong-history evidence is gone.
 
 Current blocker:
 
 ```text
-M192-seed control audit for current-family wrong-history boundary evidence
+current-family boundary objective sanity from the M211 protected surface
 ```
 
 ## Near-Term Rule
@@ -221,10 +226,9 @@ M206 and M208 are both rejected despite better fixed objectives because the
 protected-key gate failed. The failure is now repeated, not a single-seed
 accident. Do not run another same-recipe stage6 retry, do not chain from M206 or
 M208, and do not loosen the protected-key threshold after seeing the result.
-M210 failed to refresh a fresh current-family wrong-history protected surface.
-M211 must run a seed/corpus control on the M192 probe seeds before deciding
-whether the current family has truly lost fresh wrong-history near-boundary
-evidence. PPO remains blocked.
+M211 recovered a robustness-passing current-family wrong-history surface. M212
+must convert M211 accepted rows into replay-aligned objective corpora before any
+actor update or PPO. PPO remains blocked.
 
 ## Sensor Profile Policy
 

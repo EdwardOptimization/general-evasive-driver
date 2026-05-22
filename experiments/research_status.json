@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 219,
+    "completed": 220,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m210-current-best-protected-surface-refresh.md",
+    "command_log": "docs/m211-m192-seed-control-protected-surface-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m210_current_family_boundary_robustness_seed10020",
+    "run_dir": "runs/m211_current_family_boundary_robustness_seed9520",
     "status": "completed",
-    "task_id": "m210-current-best-protected-surface-refresh"
+    "task_id": "m211-m192-seed-control-protected-surface-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m211-m192-seed-control-protected-surface-audit.json",
-    "hypothesis": "M210 found no fresh wrong-history boundary rows under fresh seeds, so repeat the same current-family surface refresh on the M192 probe seeds to separate seed/corpus effects from current-family history-evidence loss.",
-    "id": "m211-m192-seed-control-protected-surface-audit",
-    "kind": "gate",
-    "notes": "Gate-only seed control; PPO remains blocked.",
-    "priority": 2060,
+    "command": "see experiments/manifests/m212-current-family-boundary-objective-sanity.json",
+    "hypothesis": "M211 recovered a robustness-passing current-family wrong-history surface, so convert accepted rows into replay-aligned M204/M202/M199 objective corpora before any actor update or PPO.",
+    "id": "m212-current-family-boundary-objective-sanity",
+    "kind": "objective_sanity",
+    "notes": "Build objective corpora and replay sanity only; PPO remains blocked.",
+    "priority": 2070,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T102042Z"
+  "updated_at_utc": "20260522T103622Z"
 }
