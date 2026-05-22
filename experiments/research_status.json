@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 252,
+    "completed": 253,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m243-exact-gated-ppo-smoke-from-m239.md",
+    "command_log": "docs/m244-m243-protected-key-objective-conflict-audit.md",
     "returncode": 0,
-    "run_dir": "runs/ppo_m243_exact_gated_from_m239_seed5223",
+    "run_dir": "runs/m244_m243_protected_key_objective_conflict_audit",
     "status": "completed",
-    "task_id": "m243-exact-gated-ppo-smoke-from-m239"
+    "task_id": "m244-m243-protected-key-objective-conflict-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m244-m243-protected-key-objective-conflict-audit.json",
-    "hypothesis": "Audit whether M243 M232 regression is dominated by protected-key row movement",
-    "id": "m244-m243-protected-key-objective-conflict-audit",
-    "kind": "gate",
-    "notes": "Pending: per-row exact objective audit before any more PPO",
-    "priority": 2390,
+    "command": "see experiments/manifests/m245-source-aware-exact-objective-evaluator.json",
+    "hypothesis": "Make exact objective evaluation source-aware so protected-key regressions cannot hide behind aggregate or M223-only movement",
+    "id": "m245-source-aware-exact-objective-evaluator",
+    "kind": "infrastructure",
+    "notes": "Pending: implement source-aware exact evaluator and reproduce M244",
+    "priority": 2400,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T140542Z"
+  "updated_at_utc": "20260522T141442Z"
 }

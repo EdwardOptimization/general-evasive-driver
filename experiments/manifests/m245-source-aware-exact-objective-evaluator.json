@@ -1,0 +1,92 @@
+{
+  "id": "m245-source-aware-exact-objective-evaluator",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m239_m224_to_m237_interpolation/checkpoints/alpha_0_5.pt",
+      "runs/m243_m239_to_raw_interpolation/checkpoints/alpha_0_1.pt",
+      "runs/m243_m239_to_raw_interpolation/checkpoints/alpha_0_25.pt",
+      "runs/m243_m239_to_raw_interpolation/checkpoints/alpha_0_5.pt",
+      "runs/m243_m239_to_raw_interpolation/checkpoints/alpha_0_75.pt",
+      "runs/m243_m239_to_raw_interpolation/checkpoints/alpha_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.npz",
+      "runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.npz",
+      "runs/m231_protected_key_snippet_surface/protected_key_snippets.npz"
+    ],
+    "parent_config": [
+      "src/autodrift/outcome_intervention_eval.py"
+    ],
+    "parent_objective": [
+      "source-aware exact M232 objective reporting",
+      "lexicographic protected-key non-regression gate support"
+    ],
+    "derived_from": [
+      "m244-m243-protected-key-objective-conflict-audit"
+    ],
+    "blocked_by": [
+      "m244-m243-protected-key-objective-conflict-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m245-source-aware-exact-objective-evaluator.md",
+  "public_gates": [
+    "source-aware exact evaluator tests",
+    "M244 source decomposition reproduction",
+    "research validator"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M245",
+    "do not change actor inputs",
+    "do not normalize source deltas with a formula different from weighted_mean",
+    "do not promote a driver checkpoint"
+  ],
+  "hypothesis": "Source-aware exact objective reporting should make the M244 audit durable and prevent future PPO gates from hiding protected-key regressions behind M223 improvements.",
+  "success_criteria": [
+    "add evaluator support for named source NPZ files in exact mode",
+    "emit per-row and per-source exact objective artifacts",
+    "verify source matching uses the same observation hidden and action rows as the combined corpus",
+    "reproduce the M244 M223/protected-key decomposition from the evaluator",
+    "add focused tests for source matching and clamped-denominator source reporting"
+  ],
+  "failure_criteria": [
+    "source reporting disagrees with the aggregate exact M232 loss",
+    "source matching silently ignores unmatched rows",
+    "tests fail",
+    "run PPO or modify actor inputs"
+  ],
+  "commands": [
+    {
+      "name": "m245_implementation",
+      "command": "Extend outcome_intervention_eval exact mode with source-aware per-row and per-source reports, then reproduce M244."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m245-source-aware-exact-objective-evaluator.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m245_source_aware_exact_m232_eval/summary.json",
+      "type": "run_artifact"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m239_m224_to_m237_interpolation/checkpoints/alpha_0_5.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m244-m243-protected-key-objective-conflict-audit.md",
+    "runs/m244_m243_protected_key_objective_conflict_audit/summary.json",
+    "runs/m244_m243_protected_key_objective_conflict_audit/source_delta_decomposition.csv"
+  ],
+  "decision_rule": "M245 may unblock a new PPO repair only if the evaluator reproduces M244 source deltas and focused tests plus research validation pass.",
+  "next_blocker": "Implement source-aware exact evaluator before any more PPO."
+}

@@ -8399,3 +8399,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: negative. Exact M223 improves monotonically with alpha, but exact M232 regresses for every alpha. Candidate stops at objective gate; proof and behavior gates were not run.
 - decision: `reject_exact_m232_regression`
 - next: `m244-m243-protected-key-objective-conflict-audit`
+
+## 20260522T141442Z m244-m243-protected-key-objective-conflict-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m244_m243_protected_key_objective_conflict_audit`
+- artifact: `docs/m244-m243-protected-key-objective-conflict-audit.md`
+- result: M244 reproduces the exact M232 loss with maximum absolute error `4.689e-13` and confirms the conflict is source-specific: M243 improves the 17 M223 rows but regresses the one protected-key row enough to dominate combined M232 movement.
+- decision: `repair_with_source_aware_lexicographic_exact_gate`
+- next: `m245-source-aware-exact-objective-evaluator`

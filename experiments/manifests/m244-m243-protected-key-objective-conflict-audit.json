@@ -2,9 +2,10 @@
   "id": "m244-m243-protected-key-objective-conflict-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "repair",
   "failure_types": [
-    "none"
+    "objective_overfit",
+    "promotion_gate_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -80,5 +81,36 @@
     "runs/m243_exact_m223_outcome_eval/policy_summary.csv"
   ],
   "decision_rule": "M244 may only unblock more PPO if it explains the protected-key/objective conflict and pre-registers one bounded repair path.",
-  "next_blocker": "Audit M243 protected-key objective conflict."
+  "results": {
+    "run_dir": "runs/m244_m243_protected_key_objective_conflict_audit",
+    "combined_npz": "runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.npz",
+    "m223_npz": "runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.npz",
+    "protected_key_npz": "runs/m231_protected_key_snippet_surface/protected_key_snippets.npz",
+    "rows": 18,
+    "m223_rows": 17,
+    "protected_key_rows": 1,
+    "weight_sum": 0.3574830163270235,
+    "combined_denominator": 1.0,
+    "exact_loss_reproduces_m243_doc_max_abs_diff": 4.689304500260505e-13,
+    "m243_a100_m223_delta": -8.213085121444585e-07,
+    "m243_a100_protected_key_delta": 1.0157026446577788e-06,
+    "m243_a100_m232_delta": 1.9439413251332027e-07,
+    "m243_a250_m223_delta": -1.9831915067936023e-06,
+    "m243_a250_protected_key_delta": 2.556133845921238e-06,
+    "m243_a250_m232_delta": 5.729423391276356e-07,
+    "m243_a500_m223_delta": -3.88849538446312e-06,
+    "m243_a500_protected_key_delta": 5.152159336496709e-06,
+    "m243_a500_m232_delta": 1.263663952033589e-06,
+    "m243_a750_m223_delta": -5.702849602329252e-06,
+    "m243_a750_protected_key_delta": 7.781939295625762e-06,
+    "m243_a750_m232_delta": 2.0790896932965097e-06,
+    "m243_a1000_m223_delta": -7.425000649652347e-06,
+    "m243_a1000_protected_key_delta": 1.0445473723308396e-05,
+    "m243_a1000_m232_delta": 3.0204730736560492e-06,
+    "actor_inputs_changed": false,
+    "ppo_run": false,
+    "diagnosis": "M243 improves M223 rows while the protected-key row regresses enough to dominate combined M232 movement."
+  },
+  "decision": "repair_with_source_aware_lexicographic_exact_gate",
+  "next_blocker": "Implement source-aware exact objective reporting so future PPO gates can require protected-key non-regression separately from M223 improvement."
 }
