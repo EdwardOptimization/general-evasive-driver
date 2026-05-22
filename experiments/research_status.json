@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 249,
+    "completed": 250,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m240-interpolation-guarded-ppo-repeat-from-m224.md",
+    "command_log": "docs/m241-trajectory-ppo-seed-direction-audit.md",
     "returncode": 0,
-    "run_dir": "runs/ppo_m240_trajectory_anchor_from_m224_seed5222",
+    "run_dir": "",
     "status": "completed",
-    "task_id": "m240-interpolation-guarded-ppo-repeat-from-m224"
+    "task_id": "m241-trajectory-ppo-seed-direction-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m241-trajectory-ppo-seed-direction-audit.json",
-    "hypothesis": "Audit why M237 improved combined objective while M240 regressed it despite proof-retention success",
-    "id": "m241-trajectory-ppo-seed-direction-audit",
-    "kind": "gate",
-    "notes": "Pending: compare M237 and M240 objective direction before any more PPO",
-    "priority": 2360,
+    "command": "see experiments/manifests/m242-exact-outcome-objective-evaluator.json",
+    "hypothesis": "Implement deterministic full-corpus outcome objective evaluator before more PPO decisions",
+    "id": "m242-exact-outcome-objective-evaluator",
+    "kind": "infrastructure",
+    "notes": "Pending: add exact objective eval path tests and documentation without PPO",
+    "priority": 2370,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T135628Z"
+  "updated_at_utc": "20260522T135919Z"
 }

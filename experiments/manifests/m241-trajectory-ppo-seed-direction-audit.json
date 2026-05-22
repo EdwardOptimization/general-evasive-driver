@@ -2,9 +2,11 @@
   "id": "m241-trajectory-ppo-seed-direction-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "repair",
   "failure_types": [
-    "none"
+    "seed_fragility",
+    "metric_artifact",
+    "promotion_gate_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -85,5 +87,25 @@
     "docs/m240-interpolation-guarded-ppo-repeat-from-m224.md"
   ],
   "decision_rule": "M241 may only unblock more PPO if it explains the seed-direction failure and pre-registers a bounded recipe with explicit objective and promotion gates.",
-  "next_blocker": "Audit trajectory-anchored PPO seed-direction fragility."
+  "results": {
+    "ppo_run": false,
+    "actor_inputs_changed": false,
+    "m232_exact_loss_m224": 0.244663029909,
+    "m232_exact_loss_m237_raw": 0.244636327028,
+    "m232_exact_loss_m239_a500": 0.244649454951,
+    "m232_exact_loss_m240_raw": 0.244676247239,
+    "m232_exact_loss_m240_a500": 0.2446693331,
+    "m223_exact_loss_m224": 0.209025382996,
+    "m223_exact_loss_m237_raw": 0.208989083767,
+    "m223_exact_loss_m239_a500": 0.209007069468,
+    "m223_exact_loss_m240_raw": 0.209021538496,
+    "m223_exact_loss_m240_a500": 0.209023222327,
+    "m239_a500_full_replay_pass": true,
+    "m240_a500_full_replay_pass": true,
+    "m239_a500_behavior_success": 0.8625,
+    "m240_a500_behavior_success": 0.8625,
+    "failure_classification": "seed_fragile_ppo_objective_direction_with_need_for_exact_full_corpus_metric"
+  },
+  "decision": "repair_with_exact_outcome_objective_evaluator",
+  "next_blocker": "Implement deterministic full-corpus outcome objective evaluator before more PPO."
 }

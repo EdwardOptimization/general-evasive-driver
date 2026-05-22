@@ -1,0 +1,82 @@
+# m241-trajectory-ppo-seed-direction-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260522T140036Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: repair_with_exact_outcome_objective_evaluator
+- Decision reason: M241 confirms M237 improves exact M232 while M240 regresses it and classifies PPO seed-direction fragility plus sampled-metric risk; implement exact evaluator before more PPO
+
+## Hypothesis
+
+M240 shows that interpolation-guarded proof retention is repeatable, but the trajectory-anchored PPO update direction is seed-fragile for the combined M232 objective. The audit should decide whether the next repair is fixed-objective prefiltering, lower-variance PPO, or a different update objective.
+
+## Lineage
+
+- parent_checkpoint: runs/m239_m224_to_m237_interpolation/checkpoints/alpha_0_5.pt, runs/ppo_m237_trajectory_anchor_from_m224_seed5221/checkpoint.pt, runs/ppo_m240_trajectory_anchor_from_m224_seed5222/checkpoint.pt
+- parent_dataset: runs/m239_fixed_m232_outcome_eval_seed37/policy_summary.csv, runs/m240_fixed_m232_outcome_eval_seed37/policy_summary.csv, runs/m239_critical_key_seed9944/guard_results.csv, runs/m240_critical_key_seed9944/guard_results.csv
+- parent_config: configs/ppo_m237_trajectory_anchor_from_m224_smoke.json, configs/ppo_m240_trajectory_anchor_from_m224_smoke.json
+- parent_objective: trajectory-anchored PPO smoke, post-PPO interpolation guard, combined M232 objective, fixed M223 objective
+- derived_from: m240-interpolation-guarded-ppo-repeat-from-m224
+- blocked_by: m240-interpolation-guarded-ppo-repeat-from-m224
+- supersedes: None
+- invalidates: None
+
+## Success Criteria
+
+- classify why M237 improved M232 while M240 regressed it
+- separate objective-direction fragility from proof-retention fragility
+- decide one bounded next milestone before any more PPO
+- keep M239 alpha 0.5 as the current public-gate base
+- pre-register the next repair path
+
+## Failure Criteria
+
+- run more PPO before the audit
+- promote M240 despite M232 regression
+- collapse proof retention and objective direction into one diagnosis
+- change the actor input contract
+
+## Evidence Gates
+
+- M237 versus M240 fixed objective comparison
+- M237 versus M240 proof-retention comparison
+- M237 versus M240 train-metric comparison
+- research validator
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run more PPO before the audit
+- do not promote M240 because proof gates pass
+- do not ignore the combined M232 objective regression
+- do not change actor inputs
+
+## Failure Taxonomy
+
+- seed_fragility
+- metric_artifact
+- promotion_gate_failure
+
+## Scoreboard
+
+- milestone: m241-trajectory-ppo-seed-direction-audit
+- type: gate
+- checkpoint: runs/m239_m224_to_m237_interpolation/checkpoints/alpha_0_5.pt
+- success_rate: 0.8625
+- termination_rate: 0.1375
+- clearance_margin_mean: 1.844117
+- reset_success: 0.8500
+- zero_wheel_success: None
+- zero_all_success: 0.8000
+- wheel_gain_mu: None
+- decision: repair_with_exact_outcome_objective_evaluator
+- reason: M241 confirms M237 improves exact M232 while M240 regresses it and classifies PPO seed-direction fragility plus sampled-metric risk; implement exact evaluator before more PPO
+
+## Next Blocker
+
+Implement deterministic full-corpus outcome objective evaluator before more PPO.

@@ -1,0 +1,89 @@
+{
+  "id": "m242-exact-outcome-objective-evaluator",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m239_m224_to_m237_interpolation/checkpoints/alpha_0_5.pt"
+    ],
+    "parent_dataset": [
+      "runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.npz",
+      "runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.npz"
+    ],
+    "parent_config": [
+      "configs/ppo_m237_trajectory_anchor_from_m224_smoke.json",
+      "configs/ppo_m240_trajectory_anchor_from_m224_smoke.json"
+    ],
+    "parent_objective": [
+      "deterministic full-corpus outcome objective",
+      "fixed-batch outcome objective reliability"
+    ],
+    "derived_from": [
+      "m241-trajectory-ppo-seed-direction-audit"
+    ],
+    "blocked_by": [
+      "m240-interpolation-guarded-ppo-repeat-from-m224"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m242-exact-outcome-objective-evaluator.md",
+  "public_gates": [
+    "exact full-corpus objective unit tests",
+    "M232/M223 exact objective smoke",
+    "research validator"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M242",
+    "do not change actor inputs",
+    "do not replace proof gates with objective values",
+    "do not use sampled fixed-batch objective as the only promotion signal for tiny corpora"
+  ],
+  "hypothesis": "Small M232/M223 corpora need a deterministic full-corpus outcome objective evaluator. Adding it to the harness will make future PPO/interpolation promotion decisions less sensitive to sampled fixed-batch noise.",
+  "success_criteria": [
+    "implement an exact full-corpus outcome objective evaluation path",
+    "cover exact evaluation with tests",
+    "reproduce the M241 exact-loss comparison for M224 M237 M239 and M240",
+    "do not run PPO",
+    "pre-register the next bounded PPO or objective-direction screen after the evaluator exists"
+  ],
+  "failure_criteria": [
+    "run PPO",
+    "change actor inputs",
+    "silently mix sampled and exact objective metrics",
+    "remove existing fixed-batch evaluator compatibility"
+  ],
+  "commands": [
+    {
+      "name": "m242_implement",
+      "command": "Add deterministic full-corpus outcome objective evaluation and tests, then validate the research harness without PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m242-exact-outcome-objective-evaluator.md",
+      "type": "documentation"
+    },
+    {
+      "path": "src/autodrift/outcome_intervention_eval.py",
+      "type": "code"
+    },
+    {
+      "path": "tests/test_outcome_intervention_eval.py",
+      "type": "tests"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m239_m224_to_m237_interpolation/checkpoints/alpha_0_5.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m241-trajectory-ppo-seed-direction-audit.md"
+  ],
+  "decision_rule": "M242 may only unblock more PPO if exact full-corpus objective evaluation is implemented, tested, and documented without changing actor inputs.",
+  "next_blocker": "Implement exact outcome objective evaluator."
+}

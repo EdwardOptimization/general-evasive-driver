@@ -8371,3 +8371,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: negative. Interpolation guard preserves proof and behavior for `alpha=0.5`, but every alpha regresses the combined M232 fixed objective relative to M224. This is PPO seed-direction fragility, not proof-retention failure.
 - decision: `reject_fresh_seed_no_combined_objective_improvement`
 - next: `m241-trajectory-ppo-seed-direction-audit`
+
+## 20260522T135919Z m241-trajectory-ppo-seed-direction-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m241-trajectory-ppo-seed-direction-audit.md`
+- result: deterministic full-corpus objective confirms M237/M239 improve M232 while M240/M240-a500 regress M232. Retention is repeatable, but PPO objective direction is seed-fragile and sampled fixed-batch metrics are too weak for tiny corpora.
+- decision: `repair_with_exact_outcome_objective_evaluator`
+- next: `m242-exact-outcome-objective-evaluator`
