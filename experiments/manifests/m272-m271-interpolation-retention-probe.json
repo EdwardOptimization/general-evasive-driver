@@ -2,7 +2,7 @@
   "id": "m272-m271-interpolation-retention-probe",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -44,6 +44,8 @@
     "M212 M204 replay retention",
     "M223 M219 replay retention",
     "M267 M264 replay retention",
+    "old protected key 9944 diagnostic replay",
+    "behavior seeds 9505 and 9506",
     "do not run PPO"
   ],
   "private_holdout_policy": "not_used",
@@ -70,12 +72,36 @@
     {
       "name": "m272_interpolation",
       "command": "Interpolate M264 to M271, then gate objective and replay surfaces before any promotion or further update."
+    },
+    {
+      "name": "m272_selected_full_gate",
+      "command": "Run selected alpha 0.01025 exact/sampled M270 objective, six replay surfaces, protected-key diagnostic, and behavior seeds 9505/9506."
     }
   ],
   "required_artifacts": [
     {
       "path": "docs/m272-m271-interpolation-retention-probe.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m272_m264_to_m271_interpolation_boundary/checkpoints/alpha_0_01025.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m272_retention_gate_matrix/aggregate_gate_matrix_with_sampled.csv",
+      "type": "gate_matrix"
+    },
+    {
+      "path": "runs/m272_critical_key_seed9944/summary.json",
+      "type": "protected_key_summary"
+    },
+    {
+      "path": "runs/m272_behavior_gate_seed9505/policy_summary.csv",
+      "type": "behavior_summary"
+    },
+    {
+      "path": "runs/m272_behavior_gate_seed9506/policy_summary.csv",
+      "type": "behavior_summary"
     }
   ],
   "baseline_checkpoints": [
@@ -86,6 +112,30 @@
     "docs/m271-m270-multi-surface-guarded-actor-update.md",
     "runs/m270_source_balanced_multi_surface_anchor/summary.json"
   ],
-  "decision_rule": "M272 may promote only an interpolation that improves M270 objective and preserves all replay surfaces. PPO remains blocked.",
-  "next_blocker": "pending M272 interpolation probe"
+  "results": {
+    "selected_checkpoint": "runs/m272_m264_to_m271_interpolation_boundary/checkpoints/alpha_0_01025.pt",
+    "selected_alpha": 0.01025,
+    "largest_failed_boundary_alpha": 0.0105,
+    "exact_m270_loss_m264": 0.6814433932304382,
+    "exact_m270_loss_selected": 0.6813756227493286,
+    "sampled_m270_loss_m264": 0.6816596448421478,
+    "sampled_m270_loss_selected": 0.6815916866064071,
+    "m183_m168_gate_pass": true,
+    "m183_m170_gate_pass": true,
+    "m193_m189_gate_pass": true,
+    "m212_m204_gate_pass": true,
+    "m223_m219_gate_pass": true,
+    "m267_m264_gate_pass": true,
+    "limiting_row_id": 16,
+    "limiting_row_physical_pair_key": "9530:6:9550:6",
+    "limiting_row_margin_alpha_0_01025": 0.000000635675,
+    "limiting_row_margin_alpha_0_0105": -0.00000008713025,
+    "protected_key_pass": true,
+    "protected_key_normal_margin": 0.199770,
+    "behavior_seed_9505_success": 0.8625,
+    "behavior_seed_9506_success": 0.8625
+  },
+  "decision_rule": "Promote m272b_a0_01025 because it improves sampled and exact M270 objective, preserves all six replay surfaces, passes the old protected-key diagnostic, and retains behavior seeds 9505/9506 without PPO. PPO remains blocked until the limiting M183/M170 boundary row is audited.",
+  "decision": "promote_m272_a0_01025_public_gate_base",
+  "next_blocker": "m273-m272-boundary-trust-region-audit"
 }

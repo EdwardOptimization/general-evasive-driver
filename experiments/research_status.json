@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 280,
+    "completed": 281,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m271-m270-multi-surface-guarded-actor-update.md",
+    "command_log": "docs/m272-m271-interpolation-retention-probe.md",
     "returncode": 0,
-    "run_dir": "runs/m271_m183_m170_replay_gate_seed9510",
+    "run_dir": "runs/m272_selected_m183_m170_replay_gate",
     "status": "completed",
-    "task_id": "m271-m270-multi-surface-guarded-actor-update"
+    "task_id": "m272-m271-interpolation-retention-probe"
   },
   "next_task": {
-    "command": "see experiments/manifests/m272-m271-interpolation-retention-probe.json",
-    "hypothesis": "A smaller interpolation from M264 toward the rejected M271 checkpoint may retain proof surfaces while preserving some combined-objective improvement.",
-    "id": "m272-m271-interpolation-retention-probe",
-    "kind": "driver_candidate",
-    "notes": "Pending: no-training interpolation sweep; PPO remains blocked",
-    "priority": 2670,
+    "command": "see experiments/manifests/m273-m272-boundary-trust-region-audit.json",
+    "hypothesis": "M272's safe alpha is limited by a terminal-margin cliff on M183/M170 row 16; future learning needs a window-aware terminal-margin or trajectory-retention guard rather than another snippet-only actor update.",
+    "id": "m273-m272-boundary-trust-region-audit",
+    "kind": "gate",
+    "notes": "Pending: audit row16 trust-region cliff; PPO remains blocked",
+    "priority": 2680,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T173950Z"
+  "updated_at_utc": "20260522T175759Z"
 }
