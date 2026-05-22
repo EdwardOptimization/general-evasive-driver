@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 227,
+    "completed": 228,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m218-guarded-ppo-smoke-from-m217.md",
+    "command_log": "docs/m219-guarded-ppo-smoke-repeat-from-m217.md",
     "returncode": 0,
-    "run_dir": "runs/m218_critical_key_seed9944",
+    "run_dir": "runs/m219_critical_key_seed9944",
     "status": "completed",
-    "task_id": "m218-guarded-ppo-smoke-from-m217"
+    "task_id": "m219-guarded-ppo-smoke-repeat-from-m217"
   },
   "next_task": {
-    "command": "see experiments/manifests/m219-guarded-ppo-smoke-repeat-from-m217.json",
-    "hypothesis": "M218 single PPO smoke passed; repeat the same smoke from M217 seed10054 on fresh PPO seeds before any longer continuation.",
-    "id": "m219-guarded-ppo-smoke-repeat-from-m217",
+    "command": "see experiments/manifests/m220-guarded-stage2-ppo-from-m219.json",
+    "hypothesis": "M219 seed5216 is the best fixed-loss retained PPO-smoke repeat and passes protected key; run exactly one short stage2 before any repeat or longer continuation.",
+    "id": "m220-guarded-stage2-ppo-from-m219",
     "kind": "driver_candidate",
-    "notes": "Restart from M217 seed10054 on PPO seeds 5215 and 5216; do not chain from M218.",
-    "priority": 2140,
+    "notes": "Start from M219 seed5216, keep M217 action anchor, actor inputs unchanged; require old/current replay, behavior, and protected-key retention.",
+    "priority": 2150,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T115948Z"
+  "updated_at_utc": "20260522T120000Z"
 }

@@ -61,6 +61,8 @@ Not allowed in the deployable actor:
 | current-best guarded stage4 repeat evidence | `runs/ppo_m202_stage4_from_m201_seed5206/checkpoint.pt` | M203 repeats preserve gates, but M202 remains best fixed-loss stage4 |
 | current-best guarded stage5 | `runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt` | positive single-seed stage5; requires repeat before further continuation |
 | current-best guarded stage5 repeat evidence | `runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt` | M205 repeats preserve gates, but M204 remains best fixed-loss stage5 |
+| current-best snippet-anchored actor update | `runs/m217_m204_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10054/optimized_checkpoint.pt` | M217 fresh repeat preserves old/current replay, behavior, and protected key |
+| current-best guarded PPO smoke repeat | `runs/ppo_m219_guarded_from_m217_seed5216/checkpoint.pt` | best retained M219 repeat; seed5215 fails protected-key margin window |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -251,11 +253,18 @@ slightly stronger action-level sensitivity.
   seeds `9505`/`9506` stay at success `0.8625`, and protected key `9944`
   passes. M219 must repeat the same smoke from M217 seed `10054` on fresh PPO
   seeds before any longer continuation.
+- M219: repeats the M218 guarded PPO smoke from the same M217 seed `10054`
+  source on fresh PPO seeds `5215` and `5216`. Both repeats keep fixed M212
+  loss improved versus M204, preserve old M183 replay, refreshed M193 replay,
+  current M212 replay, and broad behavior. Seed `5215` fails the protected key
+  by moving normal margin to `0.200679`, just above the old `0.2` boundary
+  window. Seed `5216` has the best fixed M212 loss `0.204240` and passes the
+  protected key with normal margin `0.199571`, so only seed `5216` is promotable.
 
 Current blocker:
 
 ```text
-fresh-seed repeat of the guarded PPO smoke from M217 seed 10054
+one short guarded stage2 from M219 seed 5216
 ```
 
 ## Near-Term Rule
@@ -272,8 +281,9 @@ snippet-anchored actor update; PPO remains blocked until repeat replay retention
 passes. M216 passed on known failure seeds, so M217 must repeat the same recipe
 on fresh seeds before any PPO. M217 passed; only one tiny guarded PPO smoke from
 M217 seed `10054` is admitted before repeat evidence. M218 passed that single
-smoke, so M219 must restart from M217 seed `10054` on fresh PPO seeds; do not
-chain from M218 yet.
+smoke, and M219 found only seed `5216` repeat-stable under the protected-key
+gate. Only one short guarded stage2 from M219 seed `5216` is admitted next; do
+not chain from M218 or from failed M219 seed `5215`.
 
 ## Sensor Profile Policy
 

@@ -7946,3 +7946,54 @@ Decision:
 ```text
 admit_guarded_ppo_smoke_repeat_from_m217
 ```
+
+## 20260522T120000Z m219-guarded-ppo-smoke-repeat-from-m217
+
+M219 repeated the M218 tiny guarded PPO smoke from the same M217 seed `10054`
+source checkpoint on fresh PPO seeds `5215` and `5216`. The repeats were not
+chained from M218. Actor inputs were unchanged.
+
+Artifacts:
+
+- `runs/ppo_m219_guarded_from_m217_seed5215`
+- `runs/ppo_m219_guarded_from_m217_seed5216`
+- `runs/m219_fixed_batch_outcome_eval_seed37`
+- `runs/m219_5215_m183_m168_replay_gate_seed9510`
+- `runs/m219_5215_m183_m170_replay_gate_seed9510`
+- `runs/m219_5215_m193_m189_replay_gate_seed9630`
+- `runs/m219_5215_m212_m204_replay_gate_seed10040`
+- `runs/m219_5216_m183_m168_replay_gate_seed9510`
+- `runs/m219_5216_m183_m170_replay_gate_seed9510`
+- `runs/m219_5216_m193_m189_replay_gate_seed9630`
+- `runs/m219_5216_m212_m204_replay_gate_seed10040`
+- `runs/m219_behavior_gate_seed9505`
+- `runs/m219_behavior_gate_seed9506`
+- `runs/m219_critical_key_seed9944`
+- `docs/m219-guarded-ppo-smoke-repeat-from-m217.md`
+- `experiments/manifests/m220-guarded-stage2-ppo-from-m219.json`
+
+Results:
+
+- fixed M212 loss: M204 `0.205221`, M217 `0.204291`, M218 `0.204267`,
+  M219 seed `5215` `0.204423`, and M219 seed `5216` `0.204240`;
+- both repeats retain old M183 replay drops `16/16` and `17/17`;
+- both repeats retain refreshed M193 replay drops `14/14`;
+- both repeats retain current M212 replay drops `17/17`;
+- behavior seeds `9505` and `9506` retain success `0.8625`;
+- reset-hidden and zero-all-response ablations for seed `5216` remain at
+  `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` fails for seed `5215` because normal
+  margin moves to `0.200679`, just above the old `0.2` acceptance window;
+- protected key passes for seed `5216` with normal margin `0.199571`,
+  wrong-history margin `0.100774`, and margin gap `0.098797`.
+
+Decision: M219 is positive only for seed `5216`. Seed `5216` is the best
+fixed-loss retained repeat and the only M219 repeat that passes the protected
+key. Admit exactly one guarded stage2 from seed `5216`; do not chain from M218
+or from failed seed `5215`.
+
+Decision:
+
+```text
+admit_guarded_stage2_from_m219_seed5216
+```

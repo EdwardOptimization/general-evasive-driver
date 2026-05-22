@@ -1,0 +1,102 @@
+{
+  "id": "m220-guarded-stage2-ppo-from-m219",
+  "type": "driver_candidate",
+  "hypothesis": "M219 confirms that the M218 guarded PPO smoke recipe is repeat-stable only for seed5216: it is the best fixed-loss retained repeat and preserves behavior, protected key, old replay, refreshed replay, and current replay. One short stage2 from that retained repeat may continue the fixed M212 improvement without washing out the proof surfaces.",
+  "success_criteria": [
+    "start from runs/ppo_m219_guarded_from_m217_seed5216/checkpoint.pt because it is the lowest fixed-loss retained M219 repeat",
+    "run only one short guarded stage2 before any repeat or longer continuation",
+    "keep M217 seed10054 as the strong action anchor through configs/ppo_m218_guarded_from_m217_smoke.json",
+    "keep actor inputs unchanged",
+    "preserve behavior seeds 9505 and 9506",
+    "preserve protected key 9944|perturbed|28|28",
+    "preserve old M183 M168/M170 replay gates",
+    "preserve refreshed M193 M189 replay gate",
+    "preserve current M212 M204 replay gate",
+    "compare fixed M212 objective against M204, M217, M218, and M219 before accepting any repeat",
+    "do not promote based only on training reward"
+  ],
+  "failure_criteria": [
+    "run multiple stage2 seeds before the first stage2 gate passes",
+    "run a longer PPO continuation directly",
+    "drop any M183, M193, or M212 replay row",
+    "lose behavior or protected-key retention",
+    "change actor observation inputs",
+    "promote based on fixed objective improvement alone",
+    "chain from M218 or from failed M219 seed5215"
+  ],
+  "commands": [
+    {
+      "name": "m220_short_stage2",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_m218_guarded_from_m217_smoke.json --seed 5217 --init-checkpoint runs/ppo_m219_guarded_from_m217_seed5216/checkpoint.pt --run-dir runs/ppo_m220_stage2_from_m219_seed5217"
+    },
+    {
+      "name": "m220_fixed_eval",
+      "command": "Compare M204, M217 seed10054, M218 seed5214, M219 seed5216, and the M220 candidate on the fixed M212 M204 corpus."
+    },
+    {
+      "name": "m220_retention_gates",
+      "command": "Run old M183 replay, refreshed M193 replay, current M212 replay, behavior seeds 9505/9506, and protected-key gates before admitting a stage2 repeat."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m220-guarded-stage2-ppo-from-m219.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/ppo_m220_stage2_from_m219_seed5217/checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m220_fixed_batch_outcome_eval_seed37/summary.json",
+      "type": "fixed_eval_summary"
+    },
+    {
+      "path": "runs/m220_m183_m168_replay_gate_seed9510/summary.json",
+      "type": "m183_m168_replay"
+    },
+    {
+      "path": "runs/m220_m183_m170_replay_gate_seed9510/summary.json",
+      "type": "m183_m170_replay"
+    },
+    {
+      "path": "runs/m220_m193_m189_replay_gate_seed9630/summary.json",
+      "type": "m193_m189_replay"
+    },
+    {
+      "path": "runs/m220_m212_m204_replay_gate_seed10040/summary.json",
+      "type": "m212_m204_replay"
+    },
+    {
+      "path": "runs/m220_behavior_gate_seed9505/policy_summary.csv",
+      "type": "behavior_seed9505"
+    },
+    {
+      "path": "runs/m220_behavior_gate_seed9506/policy_summary.csv",
+      "type": "behavior_seed9506"
+    },
+    {
+      "path": "runs/m220_critical_key_seed9944/summary.json",
+      "type": "protected_key"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt",
+    "runs/m217_m204_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10054/optimized_checkpoint.pt",
+    "runs/ppo_m218_guarded_from_m217_seed5214/checkpoint.pt",
+    "runs/ppo_m219_guarded_from_m217_seed5215/checkpoint.pt",
+    "runs/ppo_m219_guarded_from_m217_seed5216/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m219-guarded-ppo-smoke-repeat-from-m217.md",
+    "runs/m219_fixed_batch_outcome_eval_seed37/summary.json",
+    "runs/m219_5216_m183_m168_replay_gate_seed9510/summary.json",
+    "runs/m219_5216_m183_m170_replay_gate_seed9510/summary.json",
+    "runs/m219_5216_m193_m189_replay_gate_seed9630/summary.json",
+    "runs/m219_5216_m212_m204_replay_gate_seed10040/summary.json",
+    "runs/m219_behavior_gate_seed9505/policy_summary.csv",
+    "runs/m219_behavior_gate_seed9506/policy_summary.csv",
+    "runs/m219_critical_key_seed9944/summary.json"
+  ],
+  "decision_rule": "Only a short stage2 that preserves behavior, protected key, old replay, refreshed replay, and current replay may admit stage2 repeats."
+}
