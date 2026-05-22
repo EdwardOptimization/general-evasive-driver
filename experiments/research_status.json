@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 170,
+    "completed": 171,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m161-current-zero-relvel-outcome-critical-surface-mining.md",
+    "command_log": "docs/m162-current-boundary-outcome-corpus-objective.md",
     "returncode": 0,
-    "run_dir": "runs/m161_m156_boundary_relocation_zero_relvel_seed9510",
+    "run_dir": "runs/m162_m156_boundary_outcome_corpus_dedup_seed9510",
     "status": "completed",
-    "task_id": "m161-current-zero-relvel-outcome-critical-surface-mining"
+    "task_id": "m162-current-boundary-outcome-corpus-objective"
   },
   "next_task": {
-    "command": "see experiments/manifests/m162-current-boundary-outcome-corpus-objective.json",
-    "hypothesis": "The M161 current zero-relvel boundary outcome-critical rows should be converted into a reusable training-time corpus and objective before any guarded PPO continuation.",
-    "id": "m162-current-boundary-outcome-corpus-objective",
-    "kind": "objective_sanity",
-    "notes": "Pending after M161: positive outcome-critical boundary surface exists; build diversified corpus/objective before updates",
-    "priority": 1570,
+    "command": "see experiments/manifests/m163-boundary-outcome-guarded-actor-update.json",
+    "hypothesis": "The M162 M156 boundary-outcome corpus can support a very small guarded actor-coupling update that improves wrong-history outcome preference without degrading protected behavior.",
+    "id": "m163-boundary-outcome-guarded-actor-update",
+    "kind": "driver_candidate",
+    "notes": "Pending after M162: objective-only sanity passed for the M156 dedup corpus but M142 calibration is unstable so guarded actor update is required before PPO",
+    "priority": 1580,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T083000Z"
+  "updated_at_utc": "20260522T041754Z"
 }

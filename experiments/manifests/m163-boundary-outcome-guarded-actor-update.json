@@ -1,0 +1,41 @@
+{
+  "id": "m163-boundary-outcome-guarded-actor-update",
+  "type": "driver_candidate",
+  "hypothesis": "The M162 M156 boundary-outcome corpus can support a very small guarded actor-coupling update that improves wrong-history outcome preference without degrading protected behavior.",
+  "success_criteria": [
+    "initialize from the M156 s20 checkpoint",
+    "use runs/m162_m156_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.npz as training-time supervision only",
+    "train only a tightly scoped actor coupling or equivalent low-drift actor slice",
+    "use baseline or snippet action anchors to prevent broad behavior drift",
+    "pass fixed-batch outcome-intervention objective evaluation",
+    "pass cheap behavior retention against M156 and M142 on zero-relvel obstacle benchmarks",
+    "pass protected critical-key replay before any PPO admission",
+    "state whether a PPO continuation is admitted"
+  ],
+  "failure_criteria": [
+    "start PPO directly from M162",
+    "feed target ids, group ids, relocated geometry keys, hidden parameters, or outcome labels to the deployable actor",
+    "accept an actor update based only on objective loss without behavior gates",
+    "ignore the M142 calibration failure from M162"
+  ],
+  "commands": [
+    {
+      "name": "m163_guarded_actor_coupling_update",
+      "command": "Run a small actor-coupling update from M156 on the M162 M156 corpus with anchors and retention gates."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m163-boundary-outcome-guarded-actor-update.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt",
+    "runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt",
+    "runs/m162_m156_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.npz",
+    "runs/m162_m156_boundary_outcome_corpus_dedup_seed9510/objective_summary.json",
+    "runs/m162_m142_boundary_outcome_corpus_dedup_seed9510/objective_summary.json"
+  ],
+  "decision_rule": "Admit PPO only if the small actor update improves the M162 outcome objective while passing behavior retention and protected-key gates; otherwise keep it as a rejected objective-only candidate."
+}
