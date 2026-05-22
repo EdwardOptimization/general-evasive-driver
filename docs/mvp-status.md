@@ -203,3 +203,9 @@ physical pairs `319` / `318`, above-threshold fractions `0.733` / `0.790`, and
 closer-to-right fractions `0.719` / `0.731`. This clears only the action-stage
 blocker. M156 still needs the remaining M154 matched-history outcome and strict
 proof-surface gates before any PPO continuation.
+
+M160 runs the next required M154 outcome stage and rejects PPO admission. M156's
+wrong-history outcome margin gap is only `0.000284` with `3` success-drop rows;
+M142 calibration is also outcome-neutral (`0.000499` margin gap, `0` success
+drops). Therefore the current surface changes actions but not outcomes. The next
+frontier is a current zero-relvel outcome-critical surface, not PPO.

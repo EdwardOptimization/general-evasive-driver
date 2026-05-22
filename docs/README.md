@@ -456,6 +456,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m159-current-action-surface-coverage-repeat.md`: broadens the current
   zero-relvel action surface; the full surface clears action thresholds for
   M142/M156, while the top-80 cap remains a negative calibration result.
+- `m160-remaining-m154-outcome-strict-repeat.md`: rejects guarded PPO after the
+  M159 action surface proves outcome-neutral for both M156 and M142; next work
+  is current zero-relvel outcome-critical surface mining.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

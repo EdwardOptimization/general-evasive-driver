@@ -6358,3 +6358,45 @@ Decision: M159 clears the current zero-relvel matched-history action blocker
 for M156, but does not admit PPO. M156 is admitted only to the remaining M154
 repeat stages: matched-history outcome, strict proof-surface, and promotion
 boundary check.
+
+## 20260522T081500Z m160-remaining-m154-outcome-strict-repeat
+
+M160 runs the next required M154 stage after M159: matched-history continuation
+outcome on the current zero-relvel full surface.
+
+M156 outcome gate:
+
+```text
+runs/m160_m156_outcome_gate_zero_relvel_allpairs_seed9510
+```
+
+Wrong-history aggregate:
+
+| Metric | Value |
+| --- | ---: |
+| wrong rows | 928 |
+| physical pairs | 318 |
+| mean margin gap | 0.000284 |
+| success-drop rows | 3 |
+| success-drop physical pairs | 1 |
+| selected physical pairs | 25 |
+| normal success | 0.886853 |
+| wrong-history success | 0.883621 |
+
+This fails M154 outcome thresholds: mean margin gap must be at least `0.005`
+and success-drop rows must be at least `6`.
+
+M160 then calibrates M142 on the same surface:
+
+```text
+runs/m160_m142_outcome_calibration_zero_relvel_allpairs_seed9510
+```
+
+M142 also fails: mean margin gap `0.000499`, success-drop rows `0`, selected
+physical pairs `29`.
+
+Decision: reject guarded PPO admission. The current zero-relvel M159 surface is
+action-sensitive but outcome-neutral for both M156 and M142. Strict
+proof-surface seeds are skipped because the outcome stage already fails. The
+next task is to mine or relocate a current zero-relvel outcome-critical surface,
+not to train PPO.

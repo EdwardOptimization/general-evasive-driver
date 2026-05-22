@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 168,
+    "completed": 169,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m159-current-action-surface-coverage-repeat.md",
+    "command_log": "docs/m160-remaining-m154-outcome-strict-repeat.md",
     "returncode": 0,
-    "run_dir": "runs/m159_current_baseline_action_gate_zero_relvel_allpairs_seed9510",
+    "run_dir": "runs/m160_m156_outcome_gate_zero_relvel_allpairs_seed9510",
     "status": "completed",
-    "task_id": "m159-current-action-surface-coverage-repeat"
+    "task_id": "m160-remaining-m154-outcome-strict-repeat"
   },
   "next_task": {
-    "command": "see experiments/manifests/m160-remaining-m154-outcome-strict-repeat.json",
-    "hypothesis": "After M159 clears the current zero-relvel matched-history action blocker, the M156 s20 candidate must still pass the remaining M154 outcome and strict proof-surface stages before any PPO continuation.",
-    "id": "m160-remaining-m154-outcome-strict-repeat",
+    "command": "see experiments/manifests/m161-current-zero-relvel-outcome-critical-surface-mining.json",
+    "hypothesis": "M160 shows the current zero-relvel action surface is not outcome-critical, so the next proof surface must be mined or relocated around continuation outcome degradation rather than one-step action distance alone.",
+    "id": "m161-current-zero-relvel-outcome-critical-surface-mining",
     "kind": "gate",
-    "notes": "Pending after M159: action stage passes on full current zero-relvel surface; outcome and strict proof-surface gates remain before PPO",
-    "priority": 1550,
+    "notes": "Pending after M160: action-sensitive current surface is outcome-neutral for both M156 and M142",
+    "priority": 1560,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T075000Z"
+  "updated_at_utc": "20260522T081500Z"
 }

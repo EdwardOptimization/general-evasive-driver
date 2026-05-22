@@ -1,0 +1,37 @@
+{
+  "id": "m161-current-zero-relvel-outcome-critical-surface-mining",
+  "type": "gate",
+  "hypothesis": "M160 shows the current zero-relvel action surface is not outcome-critical, so the next proof surface must be mined or relocated around continuation outcome degradation rather than one-step action distance alone.",
+  "success_criteria": [
+    "use the current P0 zero-obstacle-relative-velocity actor input contract",
+    "start from M159/M160 current surface artifacts rather than old M118/M24 rows",
+    "mine or relocate matched-history cases where wrong history reduces success or clearance margin",
+    "produce at least 6 selected physical pairs meeting the M154 outcome thresholds or explicitly prove the current surface cannot supply them",
+    "calibrate against M142 before blaming M156",
+    "export commands, CSV artifacts, threshold tables, and a decision on the next repair target"
+  ],
+  "failure_criteria": [
+    "start PPO before an outcome-critical current surface exists",
+    "use action-distance alone as the admission criterion",
+    "reuse oracle labels or hidden parameters as actor inputs",
+    "claim self-identification from action changes without outcome degradation"
+  ],
+  "commands": [
+    {
+      "name": "m161_current_zero_relvel_outcome_surface",
+      "command": "Mine or relocate current zero-relvel matched-history cases until wrong-history outcome degradation is observed, or document that the present surface is outcome-neutral."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m161-current-zero-relvel-outcome-critical-surface-mining.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m159_current_baseline_matched_current_zero_relvel_seed9510/matched_pairs.csv",
+    "runs/m160_m156_outcome_gate_zero_relvel_allpairs_seed9510/outcome_interventions.csv",
+    "runs/m160_m142_outcome_calibration_zero_relvel_allpairs_seed9510/outcome_interventions.csv"
+  ],
+  "decision_rule": "Do not resume PPO or strict proof-surface gates until a current zero-relvel outcome-critical surface exists or the blocker is documented with a concrete alternate repair path."
+}

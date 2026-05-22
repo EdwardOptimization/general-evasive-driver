@@ -18,8 +18,12 @@
   ],
   "commands": [
     {
-      "name": "m160_remaining_m154_outcome_strict_repeat",
-      "command": "Run matched-history outcome and strict proof-surface gates for M156 s20 using the M159 current zero-relvel surface; admit guarded PPO only if all remaining M154 thresholds pass."
+      "name": "m160_m156_outcome_gate_zero_relvel_allpairs",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_history_outcome_gate --checkpoint-policy m156_s20=runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --pairs-csv runs/m159_current_baseline_matched_current_zero_relvel_seed9510/matched_pairs.csv --delay-steps 10 --max-continuation-steps 40 --min-margin-gap 0.005 --max-pairs-per-checkpoint-target 0 --device cpu --run-dir runs/m160_m156_outcome_gate_zero_relvel_allpairs_seed9510"
+    },
+    {
+      "name": "m160_m142_outcome_calibration_zero_relvel_allpairs",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_history_outcome_gate --checkpoint-policy m142_a400=runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --pairs-csv runs/m159_current_baseline_matched_current_zero_relvel_seed9510/matched_pairs.csv --delay-steps 10 --max-continuation-steps 40 --min-margin-gap 0.005 --max-pairs-per-checkpoint-target 0 --device cpu --run-dir runs/m160_m142_outcome_calibration_zero_relvel_allpairs_seed9510"
     }
   ],
   "required_artifacts": [
@@ -30,7 +34,14 @@
   ],
   "baseline_checkpoints": [
     "runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt",
-    "runs/m159_current_baseline_action_gate_zero_relvel_allpairs_seed9510/summary.json"
+    "runs/m159_current_baseline_action_gate_zero_relvel_allpairs_seed9510/summary.json",
+    "runs/m160_m156_outcome_gate_zero_relvel_allpairs_seed9510/summary.json",
+    "runs/m160_m142_outcome_calibration_zero_relvel_allpairs_seed9510/summary.json"
   ],
-  "decision_rule": "Guarded PPO continuation is admitted only if the M159 action result, matched-history outcome gate, and strict proof-surface gates all pass; otherwise document the failed stage and next repair target."
+  "decision_rule": "Guarded PPO continuation is admitted only if the M159 action result, matched-history outcome gate, and strict proof-surface gates all pass; otherwise document the failed stage and next repair target.",
+  "result": {
+    "status": "completed",
+    "decision": "reject_guarded_ppo_outcome_gate_failed",
+    "notes": "M156 wrong-history outcome has mean margin gap 0.000284 and only 3 success-drop rows, below M154 thresholds. M142 calibration also fails with mean margin gap 0.000499 and zero success drops, so the M159 surface is action-sensitive but outcome-neutral. Strict proof-surface gates were skipped as no longer decision-relevant."
+  }
 }
