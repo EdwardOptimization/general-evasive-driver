@@ -1,0 +1,87 @@
+{
+  "id": "m278-current-hidden-recovery-anchor-probe",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m272_m264_to_m271_interpolation_boundary/checkpoints/alpha_0_01025.pt"
+    ],
+    "parent_dataset": [
+      "runs/m275_terminal_margin_retention_surface/terminal_margin_registry.csv",
+      "runs/m276_m183_m170_row16_gate_seed9510/boundary_replay_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m277-terminal-margin-recovery-anchor-design.json",
+      "docs/m277-terminal-margin-recovery-anchor-design.md"
+    ],
+    "parent_objective": [
+      "current-hidden local-action recovery anchor probe"
+    ],
+    "derived_from": [
+      "m277-terminal-margin-recovery-anchor-design"
+    ],
+    "blocked_by": [
+      "m277-terminal-margin-recovery-anchor-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m278-current-hidden-recovery-anchor-probe.md",
+  "public_gates": [
+    "probe local first-action overrides on current hidden states",
+    "export recovery_anchor.npz if at least row16 recovers",
+    "validate TrajectoryActionAnchor NPZ shape contract",
+    "do not run PPO"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M278",
+    "do not run a new actor update in M278",
+    "do not use old checkpoint hidden states",
+    "do not loosen row16 terminal-margin floor",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "A local first-action override evaluated under the current M272 hidden state can recover terminal-margin slack for row16 without cross-checkpoint hidden leakage.",
+  "success_criteria": [
+    "row16 is probed with current M272 observation and hidden",
+    "candidate overrides are evaluated by simulator terminal margin",
+    "recovery_anchor.npz exports at least one recovered row or the failure is documented",
+    "exported NPZ loads through the existing trajectory anchor loader",
+    "no PPO or actor update is run"
+  ],
+  "failure_criteria": [
+    "row16 is not probed",
+    "source checkpoint hidden states are used as current actor input",
+    "no action improves row16 and the failure is not documented",
+    "PPO or actor update is run"
+  ],
+  "commands": [
+    {
+      "name": "m278_probe",
+      "command": "Implement and run current-hidden local-action recovery probe for fragile terminal-margin rows."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m278-current-hidden-recovery-anchor-probe.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m278_terminal_margin_recovery_anchor_probe/summary.json",
+      "type": "summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m272_m264_to_m271_interpolation_boundary/checkpoints/alpha_0_01025.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m277-terminal-margin-recovery-anchor-design.md",
+    "runs/m275_terminal_margin_retention_surface/terminal_margin_registry.csv"
+  ],
+  "decision_rule": "M278 completes only if it either exports a validated current-hidden recovery anchor or proves row16 cannot be locally recovered by the registered action grid. The first actor update using it must be pre-registered separately.",
+  "next_blocker": "pending M278 current-hidden recovery-anchor probe"
+}

@@ -1,0 +1,80 @@
+# m277-terminal-margin-recovery-anchor-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260522T182311Z
+- Type: gate
+- Gate tier: proof
+- Promotion decision: implement_current_hidden_recovery_anchor_probe
+- Decision reason: M277 designs local first-action recovery anchors that use current M272 observation/hidden and simulator-selected safer action targets without cross-checkpoint hidden transfer
+
+## Hypothesis
+
+Retention-only anchors fail because they preserve a near-zero-margin trajectory; the next repair needs a recovery target that keeps current hidden states but nudges fragile-row actions toward safer terminal-margin behavior.
+
+## Lineage
+
+- parent_checkpoint: runs/m272_m264_to_m271_interpolation_boundary/checkpoints/alpha_0_01025.pt, runs/m276_m272_actor_coupling_m270_terminal_margin_anchor100_s10_lr5e5_seed10075/optimized_checkpoint.pt
+- parent_dataset: runs/m275_terminal_margin_retention_surface/retention_trajectory_anchor.npz, runs/m276_m183_m170_row16_gate_seed9510/boundary_replay_rows.csv, runs/m276_interpolation_m183_m170_row16_sweep/boundary_replay_rows.csv
+- parent_config: experiments/manifests/m276-terminal-margin-anchored-actor-update.json, docs/m276-terminal-margin-anchored-actor-update.md
+- parent_objective: design recovery anchors after retention-only update fails row16
+- derived_from: m276-terminal-margin-anchored-actor-update
+- blocked_by: m276-terminal-margin-anchored-actor-update
+- supersedes: None
+- invalidates: None
+
+## Success Criteria
+
+- classify the M276 failure mechanism
+- define a recovery-anchor contract that avoids cross-checkpoint hidden leakage
+- identify the first implementation milestone and hard gates
+- no PPO or actor update is run
+
+## Failure Criteria
+
+- design relies on old checkpoint hidden states as current actor input
+- design ignores row16 terminal-margin floor
+- PPO or actor update is run
+- actor observation inputs change
+
+## Evidence Gates
+
+- explain why retention-only anchoring failed
+- design a current-hidden recovery anchor without cross-checkpoint hidden leakage
+- pre-register the next implementation or repair experiment
+- do not run PPO
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run PPO in M277
+- do not run a new actor update in M277
+- do not feed source checkpoint hidden states to the current actor
+- do not loosen row16 terminal-margin floor
+- do not change actor inputs
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m277-terminal-margin-recovery-anchor-design
+- type: gate
+- checkpoint: runs/m272_m264_to_m271_interpolation_boundary/checkpoints/alpha_0_01025.pt
+- success_rate: 0.8625
+- termination_rate: 0.1375
+- clearance_margin_mean: 1.844095
+- reset_success: 0.8500
+- zero_wheel_success: None
+- zero_all_success: 0.8000
+- wheel_gain_mu: None
+- decision: implement_current_hidden_recovery_anchor_probe
+- reason: M277 designs local first-action recovery anchors that use current M272 observation/hidden and simulator-selected safer action targets without cross-checkpoint hidden transfer
+
+## Next Blocker
+
+m278-current-hidden-recovery-anchor-probe

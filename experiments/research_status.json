@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 285,
+    "completed": 286,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m276-terminal-margin-anchored-actor-update.md",
+    "command_log": "docs/m277-terminal-margin-recovery-anchor-design.md",
     "returncode": 0,
     "run_dir": "runs/m276_m183_m170_row16_gate_seed9510",
     "status": "completed",
-    "task_id": "m276-terminal-margin-anchored-actor-update"
+    "task_id": "m277-terminal-margin-recovery-anchor-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m277-terminal-margin-recovery-anchor-design.json",
-    "hypothesis": "Retention-only anchors fail because they preserve a near-zero-margin trajectory; the next repair needs a recovery target that keeps current hidden states but nudges fragile-row actions toward safer terminal-margin behavior.",
-    "id": "m277-terminal-margin-recovery-anchor-design",
-    "kind": "gate",
-    "notes": "Pending: design current-hidden recovery anchors; PPO remains blocked",
-    "priority": 2720,
+    "command": "see experiments/manifests/m278-current-hidden-recovery-anchor-probe.json",
+    "hypothesis": "A local first-action override evaluated under the current M272 hidden state can recover terminal-margin slack for row16 without cross-checkpoint hidden leakage.",
+    "id": "m278-current-hidden-recovery-anchor-probe",
+    "kind": "infrastructure",
+    "notes": "Pending: current-hidden local-action recovery probe; PPO remains blocked",
+    "priority": 2730,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T181828Z"
+  "updated_at_utc": "20260522T182051Z"
 }

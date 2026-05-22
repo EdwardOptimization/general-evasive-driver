@@ -2,7 +2,7 @@
   "id": "m277-terminal-margin-recovery-anchor-design",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -79,6 +79,16 @@
     "docs/m276-terminal-margin-anchored-actor-update.md",
     "runs/m276_interpolation_m183_m170_row16_sweep/boundary_replay_rows.csv"
   ],
-  "decision_rule": "M277 should not train. It should produce a recovery-anchor design that can be implemented before any new actor update or PPO.",
-  "next_blocker": "pending M277 terminal-margin recovery-anchor design"
+  "results": {
+    "failure_mechanism": "retention_anchor_preserves_near_zero_margin_without_recovery",
+    "selected_design": "current_hidden_local_action_recovery_anchor",
+    "forbidden_design": "cross_checkpoint_hidden_transfer",
+    "first_target_row": "M183/M170 row16",
+    "recommended_min_margin_improvement": 0.00005,
+    "recommended_max_action_l2": 0.05,
+    "next_export": "recovery_anchor.npz"
+  },
+  "decision_rule": "M277 completes the design and admits only a current-hidden local-action recovery probe next. No actor update or PPO should run until the recovery anchor is exported and validated.",
+  "decision": "implement_current_hidden_recovery_anchor_probe",
+  "next_blocker": "m278-current-hidden-recovery-anchor-probe"
 }
