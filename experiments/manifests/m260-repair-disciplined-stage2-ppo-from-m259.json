@@ -1,0 +1,87 @@
+{
+  "id": "m260-repair-disciplined-stage2-ppo-from-m259",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m259_m258_to_projection_interpolation/checkpoints/alpha_0_01.pt"
+    ],
+    "parent_dataset": [
+      "runs/m231_protected_key_snippet_surface/protected_key_snippets.npz",
+      "runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.npz",
+      "runs/m235_closed_loop_trajectory_anchor_surface/trajectory_anchor.npz"
+    ],
+    "parent_config": [
+      "configs/ppo_m248_source_balanced_from_m239_smoke.json",
+      "docs/m259-trajectory-anchored-repair-repeat.md"
+    ],
+    "parent_objective": [
+      "first staged PPO escalation after two positive trajectory-anchored repair smokes"
+    ],
+    "derived_from": [
+      "m259-trajectory-anchored-repair-repeat"
+    ],
+    "blocked_by": [
+      "m259-trajectory-anchored-repair-repeat"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m260-repair-disciplined-stage2-ppo-from-m259.md",
+  "public_gates": [
+    "short stage2 PPO only",
+    "raw PPO exact source gate",
+    "trajectory-anchored projection repair if protected source regresses",
+    "interpolation from M259",
+    "row16 gate before full public gates",
+    "full public replay protected-key and behavior gates only after exact source and row16 pass",
+    "research validator"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run long PPO in M260",
+    "do not promote raw PPO with protected-key source regression",
+    "do not skip exact-source or row16 gates",
+    "do not change actor inputs",
+    "do not tune from private holdout evidence"
+  ],
+  "hypothesis": "After M258 and M259, a short staged PPO escalation can make additional progress if every PPO update is followed by exact-source gating and trajectory-anchored projection repair before promotion.",
+  "success_criteria": [
+    "stage2 PPO completes without actor input changes",
+    "raw PPO or repaired projection has M223 source delta < 0, aggregate M232 delta <= +1e-8, and protected-key source delta <= +1e-8 versus M259",
+    "at least one exact-gated interpolation alpha preserves M183/M170 row16",
+    "selected candidate passes full public replay, protected-key, and behavior gates",
+    "no long PPO is run"
+  ],
+  "failure_criteria": [
+    "stage2 PPO cannot be repaired without losing source improvement",
+    "trajectory-anchored projection repairs exact sources but breaks row16",
+    "candidate passes row16 but fails broader public replay, protected-key, or behavior gates",
+    "training instability appears",
+    "actor input contract changes"
+  ],
+  "commands": [
+    {
+      "name": "m260_stage2",
+      "command": "Create or use a short stage2 PPO config from M259, then apply the M258/M259 exact-source and trajectory-anchored projection repair discipline."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m260-repair-disciplined-stage2-ppo-from-m259.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m259_m258_to_projection_interpolation/checkpoints/alpha_0_01.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m259-trajectory-anchored-repair-repeat.md"
+  ],
+  "decision_rule": "M260 may only promote a candidate if the staged PPO plus repair path passes exact source, row16, full public replay, protected-key, behavior, and research-validator gates.",
+  "next_blocker": "If M260 succeeds, repeat stage2 on a fresh seed; if it fails, audit whether staged PPO requires stronger on-policy margin retention."
+}

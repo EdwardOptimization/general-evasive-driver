@@ -42,14 +42,16 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m258_m253_to_projection_interpolation/checkpoints/alpha_0_01.pt
+runs/m259_m258_to_projection_interpolation/checkpoints/alpha_0_01.pt
 ```
 
-Status: M258 trajectory-anchored post-PPO projection repair. It improves exact
-M223 and protected-key source losses versus M253 while passing M183/M168,
-M183/M170, M193/M189, M212/M204, M223/M219 replay gates, protected key
-`9944|perturbed|28|28`, and behavior seeds `9505`/`9506`. This is a
-single-seed repair result; repeat before longer PPO.
+Status: M259 repeated trajectory-anchored post-PPO projection repair. Fresh raw
+PPO seed `5226` repeated the protected-key source regression, but the
+trajectory-anchored projection repaired it. `m259_a010` improves exact M223 and
+protected-key source losses versus M258 while passing M183/M168, M183/M170,
+M193/M189, M212/M204, M223/M219 replay gates, protected key
+`9944|perturbed|28|28`, and behavior seeds `9505`/`9506`. This is repeat smoke
+evidence; next step is a short staged PPO escalation, not a long run.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

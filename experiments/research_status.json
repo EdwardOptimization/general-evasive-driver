@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 267,
+    "completed": 268,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m258-trajectory-anchored-projection-retry.md",
+    "command_log": "docs/m259-trajectory-anchored-repair-repeat.md",
     "returncode": 0,
-    "run_dir": "runs/m258_behavior_gate_a010_seed9506",
+    "run_dir": "runs/m259_behavior_gate_a010_seed9506",
     "status": "completed",
-    "task_id": "m258-trajectory-anchored-projection-retry"
+    "task_id": "m259-trajectory-anchored-repair-repeat"
   },
   "next_task": {
-    "command": "see experiments/manifests/m259-trajectory-anchored-repair-repeat.json",
-    "hypothesis": "The M258 trajectory-anchored post-PPO repair pattern is repeatable on a fresh PPO seed and not just a lucky repair of M254 seed5225.",
-    "id": "m259-trajectory-anchored-repair-repeat",
+    "command": "see experiments/manifests/m260-repair-disciplined-stage2-ppo-from-m259.json",
+    "hypothesis": "After M258 and M259, a short staged PPO escalation can make additional progress if every PPO update is followed by exact-source gating and trajectory-anchored projection repair before promotion.",
+    "id": "m260-repair-disciplined-stage2-ppo-from-m259",
     "kind": "driver_candidate",
-    "notes": "Pending: run fresh PPO smoke and exact-source trajectory-anchored repair discipline",
-    "priority": 2540,
+    "notes": "Pending: create or use short stage2 config and gate through exact-source row16 public gates",
+    "priority": 2550,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T152833Z"
+  "updated_at_utc": "20260522T153359Z"
 }

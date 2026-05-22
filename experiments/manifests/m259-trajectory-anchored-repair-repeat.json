@@ -2,7 +2,7 @@
   "id": "m259-trajectory-anchored-repair-repeat",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -84,6 +84,6 @@
   "baseline_artifacts": [
     "docs/m258-trajectory-anchored-projection-retry.md"
   ],
-  "decision_rule": "M259 may only promote a candidate if the fresh-seed repair path passes exact source, row16, full public replay, protected-key, behavior, and research-validator gates.",
-  "next_blocker": "If repeat succeeds, consider a staged PPO escalation; if it fails, audit whether repair is seed-fragile or needs a stronger on-policy margin retention objective."
+  "decision_rule": "M259 promotes m259_a010 because the fresh-seed PPO plus trajectory-anchored repair path passes exact source, row16, full public replay, protected-key, behavior, and research-validator gates.",
+  "next_blocker": "m260-repair-disciplined-stage2-ppo-from-m259"
 }
