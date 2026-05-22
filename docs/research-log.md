@@ -6867,3 +6867,36 @@ Results:
 Decision: admit stage3 repeats only. Do not run longer PPO until fresh stage3
 repeats from M188 seed `5191` preserve behavior, protected key, and both M183
 replay surfaces.
+
+## 20260522T080328Z m190-stage3-repeat-from-m188
+
+M190 repeated the M189 stage3 recipe from M188 seed `5191` on fresh seeds
+`5194` and `5195`.
+
+Artifacts:
+
+- `runs/ppo_m190_stage3_from_m188_seed5194`
+- `runs/ppo_m190_stage3_from_m188_seed5195`
+- `runs/m190_fixed_batch_outcome_eval_seed37`
+- `runs/m190_5194_m168_boundary_replay_gate_seed9510`
+- `runs/m190_5194_m170_boundary_replay_gate_seed9510`
+- `runs/m190_5195_m168_boundary_replay_gate_seed9510`
+- `runs/m190_5195_m170_boundary_replay_gate_seed9510`
+- `runs/m190_behavior_gate_seed9503`
+- `runs/m190_behavior_gate_seed9504`
+- `runs/m190_critical_key_seed9944`
+- `docs/m190-stage3-repeat-from-m188.md`
+
+Results:
+
+- fixed M183 losses: M189 `0.171221`, M190 seed `5194` `0.171232`, M190
+  seed `5195` `0.171232`;
+- all M190 repeats retain M168 replay `16/16` success drops;
+- all M190 repeats retain M170 replay `17/17` success drops;
+- behavior success matches M184/M189 on seeds `9503` and `9504`;
+- reset and zero-all ablations still degrade success to `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` passes `1/1` for both repeats.
+
+Decision: pause stage4 and run broader current-best evaluation. The current best
+checkpoint remains M189 seed `5193` because M190 repeats preserve gates but do
+not improve fixed M183 loss.

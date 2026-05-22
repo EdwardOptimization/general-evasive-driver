@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 198,
+    "completed": 199,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m189-guarded-stage3-from-m188.md",
+    "command_log": "docs/m190-stage3-repeat-from-m188.md",
     "returncode": 0,
-    "run_dir": "runs/ppo_m189_stage3_from_m188_seed5193",
+    "run_dir": "runs/ppo_m190_stage3_from_m188_seed5194",
     "status": "completed",
-    "task_id": "m189-guarded-stage3-from-m188"
+    "task_id": "m190-stage3-repeat-from-m188"
   },
   "next_task": {
-    "command": "see experiments/manifests/m190-stage3-repeat-from-m188.json",
-    "hypothesis": "M189 passed as a single-seed stage3 PPO continuation, but repeat evidence is needed before any longer continuation.",
-    "id": "m190-stage3-repeat-from-m188",
-    "kind": "driver_candidate",
-    "notes": "Repeat the M189 stage3 recipe from M188 seed 5191 on fresh seeds and reject if behavior, protected key, or either M183 replay surface regresses.",
-    "priority": 1850,
+    "command": "see experiments/manifests/m191-stage3-broader-evaluation.json",
+    "hypothesis": "M190 repeats preserved the existing gates but the fixed objective plateaued, so the current best M189 checkpoint needs broader evaluation before any stage4.",
+    "id": "m191-stage3-broader-evaluation",
+    "kind": "gate",
+    "notes": "No PPO training; evaluate M189 on fresh behavior seeds and repeat proof-surface/key gates before deciding whether stage4 is justified.",
+    "priority": 1860,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T075749Z"
+  "updated_at_utc": "20260522T080328Z"
 }

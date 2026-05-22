@@ -1,0 +1,52 @@
+{
+  "id": "m191-stage3-broader-evaluation",
+  "type": "gate",
+  "hypothesis": "M190 shows that stage3 repeats preserve the existing gates but the fixed M183 objective has plateaued. Before any stage4 or longer PPO, the current best checkpoint should be evaluated on broader behavior seeds and additional proof-surface diagnostics.",
+  "success_criteria": [
+    "do not train a new PPO checkpoint",
+    "treat runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt as the current fixed-loss best",
+    "run broader behavior retention beyond seeds 9503 and 9504",
+    "include reset, zero-all, and no-action-history ablations",
+    "preserve protected key 9944|perturbed|28|28",
+    "preserve M168 and M170 M183 boundary replay surfaces",
+    "decide whether stage4 is justified or whether proof surfaces must be broadened first"
+  ],
+  "failure_criteria": [
+    "run more PPO before broader evaluation",
+    "accept stage4 based only on the fixed M183 objective",
+    "ignore behavior regressions on fresh seeds",
+    "change actor observation inputs"
+  ],
+  "commands": [
+    {
+      "name": "m191_broader_behavior_seed9505",
+      "command": "Benchmark M184, M188 seed 5191, M189, and M189 ablations on env config configs/m121_human_view_zero_obstacle_relvel.json with seed 9505."
+    },
+    {
+      "name": "m191_broader_behavior_seed9506",
+      "command": "Benchmark M184, M188 seed 5191, M189, and M189 ablations on env config configs/m121_human_view_zero_obstacle_relvel.json with seed 9506."
+    },
+    {
+      "name": "m191_replay_and_key_repeat",
+      "command": "Repeat protected-key and M168/M170 boundary replay checks for the current best checkpoint."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m191-stage3-broader-evaluation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt",
+    "runs/ppo_m188_stage2_from_m185_seed5191/checkpoint.pt",
+    "runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m190_fixed_batch_outcome_eval_seed37/summary.json",
+    "runs/m190_behavior_gate_seed9503/policy_summary.csv",
+    "runs/m190_behavior_gate_seed9504/policy_summary.csv",
+    "runs/m190_critical_key_seed9944/summary.json"
+  ],
+  "decision_rule": "Stage4 is only justified if the current best checkpoint preserves broader behavior and proof-surface gates."
+}
