@@ -7319,3 +7319,44 @@ Results:
 Decision: M202 is positive as a single-seed stage4. Repeat the same stage4
 recipe from M201 seed `5204` on fresh seeds before chaining from M202 or
 running any longer PPO continuation.
+
+## 20260522T094019Z m203-stage4-repeat-from-m201
+
+M203 repeated the M202 stage4 recipe from M201 seed `5204` on fresh seeds
+`5207` and `5208`. Every repeat restarted from M201 seed `5204`; no repeat
+chained from M202 or another M203 checkpoint.
+
+Artifacts:
+
+- `runs/ppo_m203_stage4_from_m201_seed5207`
+- `runs/ppo_m203_stage4_from_m201_seed5208`
+- `runs/m203_fixed_batch_outcome_eval_seed37`
+- `runs/m203_5207_m183_m168_replay_gate_seed9510`
+- `runs/m203_5207_m183_m170_replay_gate_seed9510`
+- `runs/m203_5207_m193_m189_replay_gate_seed9630`
+- `runs/m203_5208_m183_m168_replay_gate_seed9510`
+- `runs/m203_5208_m183_m170_replay_gate_seed9510`
+- `runs/m203_5208_m193_m189_replay_gate_seed9630`
+- `runs/m203_behavior_gate_seed9505`
+- `runs/m203_behavior_gate_seed9506`
+- `runs/m203_critical_key_seed9944`
+- `docs/m203-stage4-repeat-from-m201.md`
+
+Results:
+
+- fixed M193 objective loss: M201 seed `5204` `0.158730`, M202 `0.158585`,
+  M203 seed `5207` `0.158642`, M203 seed `5208` `0.158616`;
+- both repeats improve fixed objective versus M201 seed `5204`;
+- neither repeat beats M202, so M202 remains the best fixed-loss stage4;
+- seed `5207` has elevated smoke eval termination `0.40`; seed `5208` is
+  `0.20`;
+- both repeats retain M183 M168 replay drops `16/16`;
+- both repeats retain M183 M170 replay drops `17/17`;
+- both repeats retain M193 M189 replay drops `14/14`;
+- behavior seeds `9505` and `9506` keep success `0.8625`;
+- reset-hidden and zero-all-response ablations remain at `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` passes for both repeats.
+
+Decision: M203 is positive repeat evidence, but not a new best checkpoint.
+Admit one short guarded stage5 from M202 seed `5206`, and do not run a stage5
+repeat or longer PPO continuation before that first stage5 passes gates.
