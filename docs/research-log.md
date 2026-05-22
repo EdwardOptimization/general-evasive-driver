@@ -8637,3 +8637,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M267 converts the M266 surface into compact 17-row 13-pair boundary-outcome corpora for `m264_a001`, `m263_a005`, and `m261_a001`. All three pass 3-seed objective sanity with pairwise accuracy `1.0`; all replay sanity gates preserve normal success `1.0` and `17/17` wrong-history success drops.
 - decision: `admit_guarded_actor_update_design`
 - next: `m268-m267-guarded-actor-update-from-m264`
+
+## 20260522T172550Z - m268-m267-guarded-actor-update-from-m264
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m268_m183_m170_replay_gate_seed9510`
+- artifact: `docs/m268-m267-guarded-actor-update-from-m264.md`
+- result: M268 runs one small M216/M224-style actor update from `m264_a001`. The M267 objective improves under sampled fixed eval (`0.213681` to `0.212479`) and exact eval (`0.212996` to `0.211805`), but old M183/M168, M183/M170, and M193/M189 replay gates fail before behavior or protected-key gates.
+- decision: `reject_actor_update_proof_washout`
+- next: `m269-m268-old-surface-proof-washout-audit`

@@ -1,0 +1,88 @@
+{
+  "id": "m269-m268-old-surface-proof-washout-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "proof_washout",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt",
+      "runs/m268_m264_actor_coupling_m267_snippet_pref_anchor100_s10_lr5e5_seed10073/optimized_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.npz",
+      "runs/m268_m183_m168_replay_gate_seed9510/boundary_replay_rows.csv",
+      "runs/m268_m183_m170_replay_gate_seed9510/boundary_replay_rows.csv",
+      "runs/m268_m193_m189_replay_gate_seed9630/boundary_replay_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m268-m267-guarded-actor-update-from-m264.json",
+      "docs/m268-m267-guarded-actor-update-from-m264.md"
+    ],
+    "parent_objective": [
+      "audit old-surface proof washout after M267-only actor update"
+    ],
+    "derived_from": [
+      "m268-m267-guarded-actor-update-from-m264"
+    ],
+    "blocked_by": [
+      "m268-m267-guarded-actor-update-from-m264"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m269-m268-old-surface-proof-washout-audit.md",
+  "public_gates": [
+    "inspect failed M183/M193 replay rows before any new actor update",
+    "compare M268 action drift on failed old rows versus retained M212/M223/M267 rows",
+    "check whether M267-only snippet/action anchors covered old proof states",
+    "decide whether next repair needs combined old+new snippets or trajectory anchors",
+    "do not run PPO"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M269",
+    "do not repeat M268 with a new seed before auditing the failure",
+    "do not promote M268 despite fixed M267 objective improvement",
+    "do not change actor inputs",
+    "do not drop old M183/M193 proof surfaces"
+  ],
+  "hypothesis": "M268 failed because the M267-only actor update improved the refreshed protected-surface objective without enough retention pressure on older M183/M193 proof states.",
+  "success_criteria": [
+    "M269 identifies which old proof rows failed and whether failure is normal-success loss, margin regression, or wrong-history-gap regression",
+    "M269 compares failed old rows against retained recent rows",
+    "M269 decides a concrete repair path before any further actor update or PPO",
+    "M269 keeps actor inputs unchanged"
+  ],
+  "failure_criteria": [
+    "audit cannot explain why M183/M193 rows failed",
+    "audit recommends repeating M268 without adding retention evidence",
+    "M269 runs PPO or changes actor inputs"
+  ],
+  "commands": [
+    {
+      "name": "m269_washout_audit",
+      "command": "Audit M268 failed replay rows and decide whether the next repair should combine old+new snippets, add trajectory anchors, or redesign the multi-surface objective."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m269-m268-old-surface-proof-washout-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m268-m267-guarded-actor-update-from-m264.md",
+    "runs/m268_m183_m168_replay_gate_seed9510/summary.json",
+    "runs/m268_m183_m170_replay_gate_seed9510/summary.json",
+    "runs/m268_m193_m189_replay_gate_seed9630/summary.json"
+  ],
+  "decision_rule": "M269 may not promote a checkpoint. It must explain M268 old-surface proof washout and pre-register a safer multi-surface repair before any new actor update or PPO.",
+  "next_blocker": "pending M269 proof-washout audit"
+}

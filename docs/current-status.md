@@ -53,8 +53,9 @@ M223/M219 replay gates, protected key `9944|perturbed|28|28`, and behavior seeds
 M266 refreshes the current-family protected surface and finds the old key is a
 saturated diagnostic singleton, not the only current proof surface. M267
 converts the refreshed surface into replay-aligned objective/proof corpora.
-More PPO remains blocked; the next step is one small guarded actor update from
-M264 using the M267 M264 corpus.
+M268 tried one small guarded actor update from M264 using the M267 M264 corpus.
+It improved the M267 objective but washed out old M183/M193 proof surfaces. PPO
+and further actor updates are blocked until M269 audits that failure.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -328,20 +329,23 @@ slightly stronger action-level sensitivity.
   for `m264_a001`, `m263_a005`, and `m261_a001`. Each corpus has `17` rows
   across `13` physical pairs and passes 3-seed objective sanity; replay sanity
   preserves normal success `1.0` and `17/17` wrong-history success drops.
+- M268: runs one small actor update from `m264_a001` using the M267 corpus.
+  Fixed M267 loss improves under sampled and exact eval, but M183/M168,
+  M183/M170, and M193/M189 replay gates fail. M268 is rejected as
+  `proof_washout` / `objective_overfit`.
 
 Current blocker:
 
 ```text
-m268-m267-guarded-actor-update-from-m264
+m269-m268-old-surface-proof-washout-audit
 ```
 
 ## Near-Term Rule
 
-M268 may run exactly one small M216/M224-style guarded actor update from
-`m264_a001` using the M267 M264 corpus. Do not run PPO, repeat seeds, or
-checkpoint promotion before that first actor update passes fixed M267 objective,
-old replay gates, the new M267 replay gate, behavior seeds, and the old
-protected-key diagnostic. Keep `9944|perturbed|28|28` as a diagnostic row, but
+Do not repeat M268, run PPO, or run another actor update until M269 audits the
+old-surface proof washout. M269 must explain why the M267-only actor update
+failed M183/M193 while retaining M212/M223/M267, then pre-register a
+multi-surface repair path. Keep `9944|perturbed|28|28` as a diagnostic row, but
 do not let it remain the only hard protected-surface veto. Do not change actor
 inputs.
 

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 276,
+    "completed": 277,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m267-protected-surface-objective-replay-conversion.md",
+    "command_log": "docs/m268-m267-guarded-actor-update-from-m264.md",
     "returncode": 0,
-    "run_dir": "runs/m267_m264_boundary_replay_sanity_seed10070",
+    "run_dir": "runs/m268_m183_m170_replay_gate_seed9510",
     "status": "completed",
-    "task_id": "m267-protected-surface-objective-replay-conversion"
+    "task_id": "m268-m267-guarded-actor-update-from-m264"
   },
   "next_task": {
-    "command": "see experiments/manifests/m268-m267-guarded-actor-update-from-m264.json",
-    "hypothesis": "A tiny preferred-only actor-coupling update from M264 on the M267 protected-surface corpus may improve the refreshed protected-surface objective without washing out old replay surfaces, the new M267 surface, behavior, or the old protected-key diagnostic.",
-    "id": "m268-m267-guarded-actor-update-from-m264",
-    "kind": "driver_candidate",
-    "notes": "Pending: one small guarded actor update; PPO remains blocked",
-    "priority": 2630,
+    "command": "see experiments/manifests/m269-m268-old-surface-proof-washout-audit.json",
+    "hypothesis": "M268 failed because the M267-only actor update improved the refreshed protected-surface objective without enough retention pressure on older M183/M193 proof states.",
+    "id": "m269-m268-old-surface-proof-washout-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M268 old-surface proof washout before any more actor update or PPO",
+    "priority": 2640,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T172028Z"
+  "updated_at_utc": "20260522T172550Z"
 }

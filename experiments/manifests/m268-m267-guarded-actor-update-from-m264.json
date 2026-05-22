@@ -2,9 +2,10 @@
   "id": "m268-m267-guarded-actor-update-from-m264",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "proof_washout",
+    "objective_overfit"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -71,13 +72,61 @@
   "commands": [
     {
       "name": "m268_actor_update",
-      "command": "Run one M216/M224-style preferred-only actor-coupling update from m264_a001 using the M267 M264 corpus, then gate fixed objective, replay surfaces, protected key, and behavior."
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_optimize --init-checkpoint runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt --snippet-npz runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.npz --device cpu --steps 10 --batch-size 64 --learning-rate 0.00005 --logprob-margin 0.05 --seed 10073 --train-scope actor_coupling --grad-clip-norm 1.0 --log-interval 5 --eval-batch-size 64 --eval-batches 30 --eval-seed 0 --action-anchor-checkpoint runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt --action-anchor-env-config configs/m121_human_view_zero_obstacle_relvel.json --action-anchor-coef 100.0 --action-anchor-seed 10073 --action-anchor-episodes 30 --action-anchor-horizon-steps 15 --action-anchor-sample-stride 3 --action-anchor-max-samples 800 --action-anchor-batch-size 256 --snippet-action-anchor-checkpoint runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt --snippet-action-anchor-coef 100.0 --snippet-action-anchor-batch-size 64 --snippet-action-anchor-preferred-only --run-dir runs/m268_m264_actor_coupling_m267_snippet_pref_anchor100_s10_lr5e5_seed10073"
+    },
+    {
+      "name": "m268_fixed_eval",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_eval --snippet-npz runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.npz --checkpoint-policy m264_a001=runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt --checkpoint-policy m268_10073=runs/m268_m264_actor_coupling_m267_snippet_pref_anchor100_s10_lr5e5_seed10073/optimized_checkpoint.pt --device cpu --batch-size 64 --batches 50 --seed 37 --logprob-margin 0.05 --run-dir runs/m268_fixed_batch_outcome_eval_seed37"
+    },
+    {
+      "name": "m268_exact_eval",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_eval --snippet-npz runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.npz --checkpoint-policy m264_a001=runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt --checkpoint-policy m268_10073=runs/m268_m264_actor_coupling_m267_snippet_pref_anchor100_s10_lr5e5_seed10073/optimized_checkpoint.pt --device cpu --batch-size 64 --batches 1 --seed 37 --logprob-margin 0.05 --exact --baseline-policy m264_a001 --run-dir runs/m268_exact_outcome_eval_seed37"
+    },
+    {
+      "name": "m268_replay_gates",
+      "command": "Run M183/M168, M183/M170, M193/M189, M212/M204, M223/M219, and M267/M264 boundary replay gates against m268_10073 before behavior or protected-key gates."
     }
   ],
   "required_artifacts": [
     {
       "path": "docs/m268-m267-guarded-actor-update-from-m264.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m268_m264_actor_coupling_m267_snippet_pref_anchor100_s10_lr5e5_seed10073/optimized_checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m268_fixed_batch_outcome_eval_seed37/summary.json",
+      "type": "fixed_eval_summary"
+    },
+    {
+      "path": "runs/m268_exact_outcome_eval_seed37/summary.json",
+      "type": "exact_eval_summary"
+    },
+    {
+      "path": "runs/m268_m183_m168_replay_gate_seed9510/summary.json",
+      "type": "m183_m168_replay_summary"
+    },
+    {
+      "path": "runs/m268_m183_m170_replay_gate_seed9510/summary.json",
+      "type": "m183_m170_replay_summary"
+    },
+    {
+      "path": "runs/m268_m193_m189_replay_gate_seed9630/summary.json",
+      "type": "m193_m189_replay_summary"
+    },
+    {
+      "path": "runs/m268_m212_m204_replay_gate_seed10040/summary.json",
+      "type": "m212_m204_replay_summary"
+    },
+    {
+      "path": "runs/m268_m223_m219_replay_gate_seed10060/summary.json",
+      "type": "m223_m219_replay_summary"
+    },
+    {
+      "path": "runs/m268_m267_m264_replay_gate_seed10070/summary.json",
+      "type": "m267_m264_replay_summary"
     }
   ],
   "baseline_checkpoints": [
@@ -88,6 +137,32 @@
     "runs/m267_m264_boundary_outcome_corpus_seed10070/objective_summary.json",
     "runs/m267_m264_boundary_replay_sanity_seed10070/summary.json"
   ],
-  "decision_rule": "Only a single actor update that improves fixed M267 objective and preserves old plus refreshed proof surfaces, behavior, and the old protected-key diagnostic may admit repeat evidence. PPO remains blocked.",
-  "next_blocker": "pending M268 actor-update gate"
+  "results": {
+    "checkpoint": "runs/m268_m264_actor_coupling_m267_snippet_pref_anchor100_s10_lr5e5_seed10073/optimized_checkpoint.pt",
+    "optimize_before_loss": 0.21353042274713516,
+    "optimize_after_loss": 0.21233384062846503,
+    "optimize_loss_improvement": 0.0011965821186701309,
+    "fixed_loss_m264": 0.2136809343099594,
+    "fixed_loss_m268": 0.21247880965471266,
+    "exact_loss_m264": 0.2129964828491211,
+    "exact_loss_m268": 0.21180514991283417,
+    "m183_m168_gate_pass": false,
+    "m183_m168_candidate_normal_success": 0.1875,
+    "m183_m168_candidate_success_drops": 3,
+    "m183_m170_gate_pass": false,
+    "m183_m170_candidate_normal_success": 0.17647058823529413,
+    "m183_m170_candidate_success_drops": 3,
+    "m193_m189_gate_pass": false,
+    "m193_m189_candidate_normal_success": 0.35714285714285715,
+    "m193_m189_candidate_success_drops": 5,
+    "m212_m204_gate_pass": true,
+    "m212_m204_candidate_success_drops": 17,
+    "m223_m219_gate_pass": true,
+    "m223_m219_candidate_success_drops": 17,
+    "m267_m264_gate_pass": true,
+    "m267_m264_candidate_success_drops": 17
+  },
+  "decision_rule": "Reject m268_10073 because M267 fixed objective improves but old M183/M193 replay surfaces regress before behavior or protected-key gates. Do not run repeat seeds or PPO; audit the old-surface washout.",
+  "decision": "reject_actor_update_proof_washout",
+  "next_blocker": "m269-m268-old-surface-proof-washout-audit"
 }
