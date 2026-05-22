@@ -120,3 +120,37 @@ def test_interpolation_sweep_writes_manifest_and_policy_args(tmp_path):
     assert (tmp_path / "sweep" / "checkpoint_policies.csv").exists()
     policy_args = (tmp_path / "sweep" / "checkpoint_policy_args.txt").read_text(encoding="utf-8")
     assert "--checkpoint-policy m59_a125=" in policy_args
+
+
+def test_interpolation_sweep_preserves_micro_alpha_precision(tmp_path):
+    model = ActorCritic(obs_dim=13, act_dim=2, hidden_size=16)
+    base_state = model.state_dict()
+    target_state = _target_state_from(base_state, 1.0)
+    base_path = tmp_path / "base.pt"
+    target_path = tmp_path / "target.pt"
+    _write_checkpoint(base_path, base_state)
+    _write_checkpoint(target_path, target_state)
+
+    manifest = write_interpolation_sweep(
+        run_dir=tmp_path / "micro_sweep",
+        base_checkpoint_path=base_path,
+        target_checkpoint_path=target_path,
+        alphas=[0.0001, 0.00025, 0.0005, 0.0025, 0.125, 0.5],
+        base_label="base",
+        target_label="target",
+        label_prefix="m251",
+    )
+
+    rows = manifest["checkpoints"]
+    labels = [row["policy_label"] for row in rows]
+    paths = [row["path"] for row in rows]
+    assert len(set(labels)) == len(labels)
+    assert len(set(paths)) == len(paths)
+    assert labels[:4] == ["m251_a0_0001", "m251_a0_00025", "m251_a0_0005", "m251_a0_0025"]
+    assert labels[-2:] == ["m251_a125", "m251_a500"]
+    assert [path.rsplit("/", 1)[-1] for path in paths[:4]] == [
+        "alpha_0_0001.pt",
+        "alpha_0_00025.pt",
+        "alpha_0_0005.pt",
+        "alpha_0_0025.pt",
+    ]

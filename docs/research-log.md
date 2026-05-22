@@ -8467,3 +8467,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: selected nano alpha `0.00005` improves exact source losses versus M239 (`M232 -0.000008885`, `M223 -0.000007513`, protected key `-0.000001372`) and passes M183/M168, M183/M170, M193/M189, M212/M204, M223/M219 replay gates, protected key `9944|perturbed|28|28`, and behavior seeds `9505/9506`.
 - decision: `promote_m250_n00005_public_gate_base`
 - next: `m251-checkpoint-interpolation-alpha-token-fix`
+
+## 20260522T145544Z - m251-checkpoint-interpolation-alpha-token-fix
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m251_alpha_token_precision_smoke`
+- artifact: `docs/m251-checkpoint-interpolation-alpha-token-fix.md`
+- result: fixed checkpoint interpolation labels and paths for micro/nano alphas. `0.0001`, `0.00025`, `0.0005`, and `0.0025` now produce distinct labels and files, while common labels such as `a125` and `a500` remain stable. Focused tests passed (`6 passed`).
+- decision: `complete_alpha_token_precision_fix`
+- next: `m252-nano-alpha-safety-boundary-audit`

@@ -131,12 +131,19 @@ def write_interpolated_checkpoint(
 
 
 def _alpha_file_token(alpha: float) -> str:
-    text = f"{float(alpha):.3f}".rstrip("0").rstrip(".")
+    text = f"{_validate_alpha(alpha):.9f}".rstrip("0").rstrip(".")
+    if not text:
+        text = "0"
     return text.replace(".", "_")
 
 
 def _alpha_label_token(alpha: float) -> str:
-    return f"{int(round(float(alpha) * 1000.0)):03d}"
+    value = _validate_alpha(alpha)
+    scaled = value * 1000.0
+    rounded = round(scaled)
+    if abs(scaled - rounded) <= 1e-9:
+        return f"{int(rounded):03d}"
+    return _alpha_file_token(value)
 
 
 def write_interpolation_sweep(

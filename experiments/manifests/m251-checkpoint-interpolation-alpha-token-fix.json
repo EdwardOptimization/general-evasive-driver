@@ -2,7 +2,7 @@
   "id": "m251-checkpoint-interpolation-alpha-token-fix",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -73,6 +73,6 @@
   "baseline_artifacts": [
     "docs/m250-protected-key-source-actor-coupling-calibration.md"
   ],
-  "decision_rule": "M251 completes only if checkpoint interpolation emits collision-free micro/nano alpha labels and paths without changing model interpolation behavior.",
-  "next_blocker": "After fixing interpolation precision, decide whether to run PPO from M250 or first map the alpha safety boundary around 0.00005 to 0.0001."
+  "decision_rule": "M251 completed because checkpoint interpolation now emits collision-free micro/nano alpha labels and paths while preserving common-alpha labels and tensor interpolation behavior.",
+  "next_blocker": "Map the alpha safety boundary around 0.00005 to 0.0001 with the fixed interpolation sweep before PPO from the calibrated base."
 }

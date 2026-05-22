@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 259,
+    "completed": 260,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m250-protected-key-source-actor-coupling-calibration.md",
+    "command_log": "docs/m251-checkpoint-interpolation-alpha-token-fix.md",
     "returncode": 0,
-    "run_dir": "runs/m250_nano_custom_m239_to_protected_source_interpolation",
+    "run_dir": "runs/m251_alpha_token_precision_smoke",
     "status": "completed",
-    "task_id": "m250-protected-key-source-actor-coupling-calibration"
+    "task_id": "m251-checkpoint-interpolation-alpha-token-fix"
   },
   "next_task": {
-    "command": "see experiments/manifests/m251-checkpoint-interpolation-alpha-token-fix.json",
-    "hypothesis": "Fix checkpoint interpolation alpha label and path collisions for sub-0.001 sweeps before more nano calibration",
-    "id": "m251-checkpoint-interpolation-alpha-token-fix",
-    "kind": "infrastructure",
-    "notes": "Pending: focused interpolation fix and validator",
-    "priority": 2460,
+    "command": "see experiments/manifests/m252-nano-alpha-safety-boundary-audit.json",
+    "hypothesis": "Map the source-calibration alpha proof-retention boundary between 0.00005 and 0.0001 before PPO from the calibrated base",
+    "id": "m252-nano-alpha-safety-boundary-audit",
+    "kind": "driver_candidate",
+    "notes": "Pending: fixed interpolation sweep exact source eval and M183/M170 replay gate",
+    "priority": 2470,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T145210Z"
+  "updated_at_utc": "20260522T145544Z"
 }

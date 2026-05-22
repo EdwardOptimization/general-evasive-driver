@@ -1,0 +1,87 @@
+{
+  "id": "m252-nano-alpha-safety-boundary-audit",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m239_m224_to_m237_interpolation/checkpoints/alpha_0_5.pt",
+      "runs/m249_protected_key_source_actor_coupling_probe/optimized_checkpoint.pt",
+      "runs/m250_nano_custom_m239_to_protected_source_interpolation/checkpoints/alpha_0_00005.pt"
+    ],
+    "parent_dataset": [
+      "runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.npz",
+      "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv"
+    ],
+    "parent_config": [
+      "src/autodrift/checkpoint_interpolation.py",
+      "docs/m250-protected-key-source-actor-coupling-calibration.md",
+      "docs/m251-checkpoint-interpolation-alpha-token-fix.md"
+    ],
+    "parent_objective": [
+      "source-aware exact objective improvement",
+      "M183 M170 near-boundary replay retention"
+    ],
+    "derived_from": [
+      "m250-protected-key-source-actor-coupling-calibration",
+      "m251-checkpoint-interpolation-alpha-token-fix"
+    ],
+    "blocked_by": [
+      "m251-checkpoint-interpolation-alpha-token-fix"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m252-nano-alpha-safety-boundary-audit.md",
+  "public_gates": [
+    "fixed interpolation sweep between alpha 0.00005 and 0.0001",
+    "M245 exact source-aware objective gate",
+    "M183 M170 replay gate",
+    "research validator"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M252",
+    "do not use the discarded colliding M250 micro sweep",
+    "do not promote any alpha that loses M183 M170 normal success",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "The proof-retention cliff between alpha 0.00005 and 0.0001 can be mapped with the fixed interpolation sweep, allowing the project to choose the largest safe source-calibrated alpha or prove that M250 is already the safe boundary.",
+  "success_criteria": [
+    "generate collision-free interpolation checkpoints for alphas around 0.00005 to 0.0001",
+    "evaluate exact source-aware M232 loss for each alpha",
+    "run M183 M170 replay gate for candidate alphas",
+    "identify the largest alpha that improves exact source losses and preserves M183 M170 replay retention",
+    "no PPO is run"
+  ],
+  "failure_criteria": [
+    "all alphas above M250 fail M183 M170 replay retention",
+    "exact source loss stops improving before any replay-safe alpha",
+    "a collision or label ambiguity remains in interpolation outputs",
+    "change the actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "m252_boundary_sweep",
+      "command": "Run fixed interpolation sweep around alpha 0.00005 to 0.0001, exact source eval, and M183 M170 replay gates."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m252-nano-alpha-safety-boundary-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m250_nano_custom_m239_to_protected_source_interpolation/checkpoints/alpha_0_00005.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m250-protected-key-source-actor-coupling-calibration.md",
+    "docs/m251-checkpoint-interpolation-alpha-token-fix.md"
+  ],
+  "decision_rule": "Promote only if an alpha above 0.00005 improves exact source losses and passes M183 M170 replay retention; otherwise keep M250 and move to PPO only with the conservative base.",
+  "next_blocker": "Use the boundary result to decide whether PPO should start from M250 or from a larger safe alpha."
+}
