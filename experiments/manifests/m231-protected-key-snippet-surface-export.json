@@ -2,7 +2,7 @@
   "id": "m231-protected-key-snippet-surface-export",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -78,6 +78,10 @@
     {
       "path": "runs/m231_protected_key_snippet_surface/summary.json",
       "type": "summary"
+    },
+    {
+      "path": "runs/m231_protected_key_snippet_surface/protected_key_validation.json",
+      "type": "validation"
     }
   ],
   "baseline_checkpoints": [
@@ -89,5 +93,35 @@
     "runs/m229_critical_key_seed9944/m224_10063_candidates.csv"
   ],
   "decision_rule": "M231 may only unblock a later protected-key-aware PPO smoke if the exported surface is validated and no PPO is run during export.",
-  "next_blocker": "Use the protected-key surface together with M223 snippets in a bounded PPO repair, or reject this path if export cannot recover deployable snippet states."
+  "results": {
+    "run_dir": "runs/m231_protected_key_snippet_surface",
+    "protected_key": "9944|perturbed|28|28",
+    "snippet_count": 1,
+    "observation_shape": [
+      1,
+      72
+    ],
+    "preferred_hidden_shape": [
+      1,
+      128
+    ],
+    "rejected_hidden_shape": [
+      1,
+      128
+    ],
+    "preferred_action_shape": [
+      1,
+      3
+    ],
+    "weight_shape": [
+      1
+    ],
+    "weight_sum": 0.051482364535331726,
+    "normal_margin": 0.1863854053394078,
+    "wrong_history_margin": 0.0869252323468601,
+    "margin_gap": 0.0994601729925477,
+    "validated": true
+  },
+  "decision": "admit_combined_anchor_corpus_build",
+  "next_blocker": "Combine the protected-key surface with M223 snippets before any protected-key-aware PPO repair."
 }

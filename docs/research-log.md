@@ -8275,3 +8275,12 @@ Decision:
 ```text
 reject_ppo_smoke_replay_and_protected_key_failure
 ```
+
+## 20260522T131356Z m231-protected-key-snippet-surface-export
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m231_protected_key_snippet_surface`
+- artifact: `docs/m231-protected-key-snippet-surface-export.md`
+- result: exported and validated protected key `9944|perturbed|28|28` with one positive finite-weight snippet. No PPO was run.
+- next: `m232-protected-key-combined-snippet-anchor-corpus`

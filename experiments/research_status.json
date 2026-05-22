@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 239,
+    "completed": 240,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m230-m229-protected-key-failure-audit.md",
+    "command_log": "docs/m231-protected-key-snippet-surface-export.md",
     "returncode": 0,
-    "run_dir": "",
+    "run_dir": "runs/m231_protected_key_snippet_surface",
     "status": "completed",
-    "task_id": "m230-m229-protected-key-failure-audit"
+    "task_id": "m231-protected-key-snippet-surface-export"
   },
   "next_task": {
-    "command": "see experiments/manifests/m231-protected-key-snippet-surface-export.json",
-    "hypothesis": "The protected key is outside the M223 snippet anchor surface and needs an explicit deployable snippet/action-anchor export.",
-    "id": "m231-protected-key-snippet-surface-export",
+    "command": "see experiments/manifests/m232-protected-key-combined-snippet-anchor-corpus.json",
+    "hypothesis": "Combine M223 proof snippets and M231 protected-key snippets before any more PPO.",
+    "id": "m232-protected-key-combined-snippet-anchor-corpus",
     "kind": "infrastructure",
-    "notes": "Export validated protected-key snippet arrays; no PPO in M231.",
-    "priority": 2260,
+    "notes": "Pending: build one validated combined anchor corpus with all M223 rows plus protected key 9944; no PPO in M232",
+    "priority": 2270,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T153000Z"
+  "updated_at_utc": "20260522T131259Z"
 }
