@@ -1,0 +1,57 @@
+{
+  "id": "m215-actor-update-repeat-failure-audit",
+  "type": "gate",
+  "hypothesis": "M214 repeats improved the fixed M212 objective but broke normal-history replay success across old and new boundary surfaces. Before any further actor update or PPO, audit whether the current actor-update recipe is too large, under-anchored on boundary rows, or sensitive to the action-anchor sample seed.",
+  "success_criteria": [
+    "do not train PPO or run actor updates in this milestone",
+    "compare M213, M214 seed10051, and M214 seed10052 objective and replay artifacts",
+    "identify the failure mechanism as precisely as possible",
+    "decide whether the next recipe should reduce step count, lower learning rate, increase anchor strength, add snippet action anchoring, or change the gate sequence",
+    "keep actor inputs unchanged",
+    "keep M204 as the current retained base unless a future candidate passes repeat gates",
+    "pre-register the next runnable experiment"
+  ],
+  "failure_criteria": [
+    "run another actor update before auditing M214",
+    "run PPO after M214",
+    "promote M214 based on fixed objective improvement",
+    "ignore old M183 or refreshed M193 replay failures",
+    "change actor observation inputs to solve this failure"
+  ],
+  "commands": [
+    {
+      "name": "m215_failure_review",
+      "command": "Inspect M213 and M214 objective summaries, fixed eval, replay summaries, and replay rows to identify why repeats break normal-success retention."
+    },
+    {
+      "name": "m215_design_note",
+      "command": "Write docs/m215-actor-update-repeat-failure-audit.md with the failure analysis and selected next recipe."
+    },
+    {
+      "name": "m215_next_manifest",
+      "command": "Pre-register the next runnable safer actor-update or objective-design experiment before any training resumes."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m215-actor-update-repeat-failure-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt",
+    "runs/m213_m204_actor_coupling_anchor100_s20_seed10050/optimized_checkpoint.pt",
+    "runs/m214_m204_actor_coupling_anchor100_s20_seed10051/optimized_checkpoint.pt",
+    "runs/m214_m204_actor_coupling_anchor100_s20_seed10052/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m213-m212-guarded-actor-update.md",
+    "docs/m214-m212-actor-update-repeat.md",
+    "runs/m214_fixed_batch_outcome_eval_seed37/summary.json",
+    "runs/m214_10051_m183_m168_replay_gate_seed9510/summary.json",
+    "runs/m214_10051_m212_m204_replay_gate_seed10040/summary.json",
+    "runs/m214_10052_m183_m168_replay_gate_seed9510/summary.json",
+    "runs/m214_10052_m212_m204_replay_gate_seed10040/summary.json"
+  ],
+  "decision_rule": "Do not run another actor update until M215 selects and pre-registers a safer recipe that directly addresses normal-success replay retention."
+}

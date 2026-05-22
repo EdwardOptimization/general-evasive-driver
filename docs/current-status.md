@@ -223,11 +223,18 @@ slightly stronger action-level sensitivity.
   success remains `0.8625`, reset and zero-all ablations remain `0.85` and
   `0.80`, old M183 replay, refreshed M193 replay, new M212 replay, and
   protected key all pass.
+- M214: repeats the M213 recipe from M204 on seeds `10051` and `10052`.
+  Both improve fixed M212 objective, but both fail old and new replay gates by
+  losing normal-history success on near-boundary rows. Broad behavior and the
+  single protected key still pass, so the failure is specific to the proof
+  replay surfaces rather than a global behavior collapse. M214 is rejected;
+  M204 remains the retained base and the actor-update recipe needs audit before
+  any more updates.
 
 Current blocker:
 
 ```text
-fresh-seed repeats of the M212 actor-update recipe from M204
+actor-update repeat failure audit before any more updates or PPO
 ```
 
 ## Near-Term Rule
@@ -236,8 +243,9 @@ M206 and M208 are both rejected despite better fixed objectives because the
 protected-key gate failed. The failure is now repeated, not a single-seed
 accident. Do not run another same-recipe stage6 retry, do not chain from M206 or
 M208, and do not loosen the protected-key threshold after seeing the result.
-M213 is positive as a single-seed actor update. M214 must repeat the same recipe
-from M204 on fresh seeds before any PPO or continuation. Do not chain from M213.
+M214 shows the M213 actor-update recipe is not repeat-stable: fixed objective
+can improve while replay normal-success retention fails. M215 must audit the
+failure and design a safer actor-update recipe before any more updates or PPO.
 
 ## Sensor Profile Policy
 

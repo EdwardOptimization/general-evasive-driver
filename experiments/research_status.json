@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 222,
+    "completed": 223,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m213-m212-guarded-actor-update.md",
+    "command_log": "docs/m214-m212-actor-update-repeat.md",
     "returncode": 0,
-    "run_dir": "runs/m213_critical_key_seed9944",
+    "run_dir": "runs/m214_10052_m212_m204_replay_gate_seed10040",
     "status": "completed",
-    "task_id": "m213-m212-guarded-actor-update"
+    "task_id": "m214-m212-actor-update-repeat"
   },
   "next_task": {
-    "command": "see experiments/manifests/m214-m212-actor-update-repeat.json",
-    "hypothesis": "M213 positive single-seed actor update needs fresh-seed repeat evidence before PPO or continuation.",
-    "id": "m214-m212-actor-update-repeat",
-    "kind": "driver_candidate",
-    "notes": "Restart from M204 on seeds 10051 and 10052; do not chain from M213.",
-    "priority": 2090,
+    "command": "see experiments/manifests/m215-actor-update-repeat-failure-audit.json",
+    "hypothesis": "M214 repeats improved fixed objective but broke replay normal-success retention, so audit the actor-update recipe before more updates or PPO.",
+    "id": "m215-actor-update-repeat-failure-audit",
+    "kind": "gate",
+    "notes": "No training; design a safer actor-update recipe.",
+    "priority": 2100,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T104448Z"
+  "updated_at_utc": "20260522T104954Z"
 }

@@ -7714,3 +7714,57 @@ Results:
 Decision: M213 is positive as a single-seed actor update. Repeat the same recipe
 from M204 on fresh seeds before any PPO or continuation. Do not chain from
 M213.
+
+## 20260522T104954Z m214-m212-actor-update-repeat
+
+M214 repeated the M213 actor-update recipe from M204 on fresh seeds `10051` and
+`10052`. Both repeats restarted from M204; neither chained from M213. No PPO was
+run.
+
+Artifacts:
+
+- `runs/m214_m204_actor_coupling_anchor100_s20_seed10051`
+- `runs/m214_m204_actor_coupling_anchor100_s20_seed10052`
+- `runs/m214_fixed_batch_outcome_eval_seed37`
+- `runs/m214_10051_m183_m168_replay_gate_seed9510`
+- `runs/m214_10051_m183_m170_replay_gate_seed9510`
+- `runs/m214_10051_m193_m189_replay_gate_seed9630`
+- `runs/m214_10051_m212_m204_replay_gate_seed10040`
+- `runs/m214_10052_m183_m168_replay_gate_seed9510`
+- `runs/m214_10052_m183_m170_replay_gate_seed9510`
+- `runs/m214_10052_m193_m189_replay_gate_seed9630`
+- `runs/m214_10052_m212_m204_replay_gate_seed10040`
+- `runs/m214_behavior_gate_seed9505`
+- `runs/m214_behavior_gate_seed9506`
+- `runs/m214_critical_key_seed9944`
+- `docs/m214-m212-actor-update-repeat.md`
+- `experiments/manifests/m215-actor-update-repeat-failure-audit.json`
+
+Results:
+
+- seed `10051` improves actor-update eval loss by `0.003712`;
+- seed `10052` improves actor-update eval loss by `0.004287`;
+- fixed M212 loss improves versus M204 for both repeats: `0.201478` and
+  `0.200899` versus M204 `0.205221`;
+- both repeats fail M183 M168, M183 M170, M193 M189, and M212 M204 replay
+  gates;
+- failure mode is normal-history success loss, not just margin-gap regression:
+  M214 `10051` keeps only `3/16`, `3/17`, `4/14`, and `5/17` drops across the
+  four replay surfaces; M214 `10052` keeps only `3/16`, `3/17`, `5/14`, and
+  `7/17`;
+- broad behavior gates still pass: both M214 repeats keep success `0.8625` on
+  seeds `9505` and `9506`;
+- for seed `10052`, reset-hidden success remains `0.85` and zero-all-response
+  success remains `0.80` on both behavior gates;
+- the protected key still passes for both repeats: M214 `10051` has normal
+  margin `0.139752`, wrong-history margin `0.063222`, and margin gap
+  `0.076530`; M214 `10052` has normal margin `0.136634`, wrong-history margin
+  `0.063396`, and margin gap `0.073238`.
+
+Behavior and protected-key gates confirm that the repeats are not globally
+broken. They still cannot be promoted because the replay-retention surfaces are
+the direct evidence guard for near-boundary normal-history success.
+
+Decision: M214 is negative. Keep M204 as the retained base, treat M213 as an
+unrepeated single-seed candidate only, and audit the actor-update recipe before
+any more updates or PPO.
