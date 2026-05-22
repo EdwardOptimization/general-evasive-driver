@@ -246,11 +246,16 @@ slightly stronger action-level sensitivity.
   replay, current M212 replay, behavior seeds `9505`/`9506`, and protected key
   `9944`. Seed `10054` is the best fresh-repeat candidate and admits one tiny
   guarded PPO smoke only.
+- M218: runs one tiny guarded PPO smoke from M217 seed `10054`. Fixed M212 loss
+  improves slightly to `0.204267`, all old/current replay gates pass, behavior
+  seeds `9505`/`9506` stay at success `0.8625`, and protected key `9944`
+  passes. M219 must repeat the same smoke from M217 seed `10054` on fresh PPO
+  seeds before any longer continuation.
 
 Current blocker:
 
 ```text
-one guarded PPO smoke from the best M217 fresh-repeat candidate
+fresh-seed repeat of the guarded PPO smoke from M217 seed 10054
 ```
 
 ## Near-Term Rule
@@ -266,7 +271,9 @@ M215 found the likely mechanism. M216 may run only the pre-registered smaller
 snippet-anchored actor update; PPO remains blocked until repeat replay retention
 passes. M216 passed on known failure seeds, so M217 must repeat the same recipe
 on fresh seeds before any PPO. M217 passed; only one tiny guarded PPO smoke from
-M217 seed `10054` is admitted before repeat evidence.
+M217 seed `10054` is admitted before repeat evidence. M218 passed that single
+smoke, so M219 must restart from M217 seed `10054` on fresh PPO seeds; do not
+chain from M218 yet.
 
 ## Sensor Profile Policy
 

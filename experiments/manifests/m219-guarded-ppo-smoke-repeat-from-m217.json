@@ -1,0 +1,80 @@
+{
+  "id": "m219-guarded-ppo-smoke-repeat-from-m217",
+  "type": "driver_candidate",
+  "hypothesis": "M218 shows one tiny guarded PPO smoke from M217 seed10054 can preserve fixed objective, old/current replay, behavior, and protected key. Repeat the same smoke recipe on fresh PPO seeds before admitting any longer continuation.",
+  "success_criteria": [
+    "restart every repeat from runs/m217_m204_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10054/optimized_checkpoint.pt",
+    "do not chain repeats from M218",
+    "use configs/ppo_m218_guarded_from_m217_smoke.json",
+    "run fresh PPO seeds 5215 and 5216",
+    "keep actor inputs unchanged",
+    "both repeats must preserve behavior seeds 9505 and 9506",
+    "both repeats must preserve protected key 9944|perturbed|28|28",
+    "both repeats must preserve old M183 M168/M170 replay gates",
+    "both repeats must preserve refreshed M193 M189 replay gate",
+    "both repeats must preserve current M212 M204 replay gate",
+    "both repeats must keep fixed M212 loss improved versus M204",
+    "do not promote based only on training reward"
+  ],
+  "failure_criteria": [
+    "chain from M218 before repeat evidence",
+    "run longer PPO directly",
+    "drop any M183, M193, or M212 replay row",
+    "lose behavior or protected-key retention",
+    "change actor observation inputs",
+    "promote based on fixed objective improvement alone"
+  ],
+  "commands": [
+    {
+      "name": "m219_ppo_repeat_seed5215",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_m218_guarded_from_m217_smoke.json --seed 5215 --init-checkpoint runs/m217_m204_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10054/optimized_checkpoint.pt --run-dir runs/ppo_m219_guarded_from_m217_seed5215"
+    },
+    {
+      "name": "m219_ppo_repeat_seed5216",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_m218_guarded_from_m217_smoke.json --seed 5216 --init-checkpoint runs/m217_m204_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10054/optimized_checkpoint.pt --run-dir runs/ppo_m219_guarded_from_m217_seed5216"
+    },
+    {
+      "name": "m219_fixed_eval",
+      "command": "Evaluate M204, M217 seed10054, M218 seed5214, and both M219 repeats on the fixed M212 batch."
+    },
+    {
+      "name": "m219_retention_gates",
+      "command": "Run old M183 replay, refreshed M193 replay, current M212 replay, behavior seeds 9505/9506, and protected-key replay for both repeats."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m219-guarded-ppo-smoke-repeat-from-m217.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/ppo_m219_guarded_from_m217_seed5215/checkpoint.pt",
+      "type": "checkpoint_seed5215"
+    },
+    {
+      "path": "runs/ppo_m219_guarded_from_m217_seed5216/checkpoint.pt",
+      "type": "checkpoint_seed5216"
+    },
+    {
+      "path": "runs/m219_fixed_batch_outcome_eval_seed37/summary.json",
+      "type": "fixed_eval_summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt",
+    "runs/m217_m204_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10054/optimized_checkpoint.pt",
+    "runs/ppo_m218_guarded_from_m217_seed5214/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m218-guarded-ppo-smoke-from-m217.md",
+    "runs/m218_fixed_batch_outcome_eval_seed37/summary.json",
+    "runs/m218_m183_m168_replay_gate_seed9510/summary.json",
+    "runs/m218_m183_m170_replay_gate_seed9510/summary.json",
+    "runs/m218_m193_m189_replay_gate_seed9630/summary.json",
+    "runs/m218_m212_m204_replay_gate_seed10040/summary.json",
+    "runs/m218_behavior_gate_seed9505/policy_summary.csv",
+    "runs/m218_behavior_gate_seed9506/policy_summary.csv",
+    "runs/m218_critical_key_seed9944/summary.json"
+  ],
+  "decision_rule": "Only repeat-stable PPO smoke seeds that preserve fixed objective, behavior, protected key, old replay, refreshed replay, and current replay may admit any longer continuation."
+}

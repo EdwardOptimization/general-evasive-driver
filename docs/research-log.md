@@ -7902,3 +7902,47 @@ Decision:
 ```text
 admit_guarded_ppo_smoke_from_m217
 ```
+
+## 20260522T115948Z m218-guarded-ppo-smoke-from-m217
+
+M218 ran one tiny guarded PPO smoke from the best M217 fresh-repeat candidate.
+Actor inputs were unchanged and no repeat or longer continuation was run.
+
+Artifacts:
+
+- `configs/ppo_m218_guarded_from_m217_smoke.json`
+- `runs/ppo_m218_guarded_from_m217_seed5214`
+- `runs/m218_fixed_batch_outcome_eval_seed37`
+- `runs/m218_m183_m168_replay_gate_seed9510`
+- `runs/m218_m183_m170_replay_gate_seed9510`
+- `runs/m218_m193_m189_replay_gate_seed9630`
+- `runs/m218_m212_m204_replay_gate_seed10040`
+- `runs/m218_behavior_gate_seed9505`
+- `runs/m218_behavior_gate_seed9506`
+- `runs/m218_critical_key_seed9944`
+- `docs/m218-guarded-ppo-smoke-from-m217.md`
+- `experiments/manifests/m219-guarded-ppo-smoke-repeat-from-m217.json`
+
+Results:
+
+- training smoke writes `runs/ppo_m218_guarded_from_m217_seed5214/checkpoint.pt`;
+- built-in eval termination rate is `0.0`;
+- fixed M212 loss is `0.204267`, slightly better than M217 `0.204291` and
+  better than M204 `0.205221`;
+- replay gates all pass against M217 seed `10054`: M183 M168 `16/16`, M183 M170
+  `17/17`, M193 M189 `14/14`, and M212 M204 `17/17` drops retained;
+- normal margin deltas are positive on all replay surfaces;
+- behavior seeds `9505` and `9506` retain success `0.8625`;
+- reset-hidden and zero-all-response ablations remain at `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` passes for M218 while M206 and M208
+  remain rejected controls.
+
+Decision: M218 is positive as a single guarded PPO smoke. Repeat the same PPO
+smoke from M217 seed `10054` on fresh seeds before any longer continuation. Do
+not chain directly from M218.
+
+Decision:
+
+```text
+admit_guarded_ppo_smoke_repeat_from_m217
+```
