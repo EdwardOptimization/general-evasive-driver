@@ -1,0 +1,34 @@
+{
+  "baseline_checkpoints": [
+    "runs/m148_p0_close_ambiguity_multiseed/summary.json",
+    "runs/m147_ambiguous_resolution_multiseed/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "Evaluate whether raw wheel proxy, vparallel diagnostics, longer history, or active-probe-compatible cues resolve the P0-close target-divergent pairs mined by M148.",
+      "name": "m149_p0_close_resolution_audit"
+    }
+  ],
+  "decision_rule": "Only consider adding a new deployable sensor or active-probing objective if it resolves P0-close pairs with target-aligned evidence across multiple seeds.",
+  "failure_criteria": [
+    "audit reuses H1-close pairs instead of M148 P0-close pairs",
+    "resolution is judged by feature distance alone without target alignment",
+    "results come from one seed only",
+    "vparallel or other diagnostic-only fields are promoted as actor inputs"
+  ],
+  "hypothesis": "M148 P0-close target-divergent pairs may require extra deployable signals, longer history, or active probing; if existing raw proxies do not resolve them target-aligned, the next direction should be belief/active-identification rather than input expansion.",
+  "id": "m149-p0-close-resolution-audit",
+  "required_artifacts": [
+    {
+      "path": "docs/m149-p0-close-resolution-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "consume M148 P0-close exported pairs across at least three seeds",
+    "report raw wheel, vparallel diagnostic, P0 longer-history, and extra-channel resolution separately",
+    "distinguish feature separation from target-aligned resolution",
+    "record whether to pursue input expansion, longer history, or active probing next"
+  ],
+  "type": "gate"
+}

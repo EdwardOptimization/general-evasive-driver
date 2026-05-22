@@ -5755,3 +5755,43 @@ The extra channels distinguish many M146 H1 pairs, but target alignment is weak.
 Full P0 resolves only `15.3%`, raw wheel `18.7%`, and diagnostic `v_parallel`
 `30.7%`. The next task is M148: mine pairs that are close under current P0, not
 only close under narrowed H1, before claiming P0 is information-limited.
+
+## 20260522T024500Z m148-p0-close-ambiguity-miner
+
+M148 mines target-divergent ambiguity under the current P0 human-view input,
+not just under narrowed H1.
+
+New code:
+
+```text
+src/autodrift/p0_close_ambiguity_miner.py
+tests/test_p0_close_ambiguity_miner.py
+```
+
+Runs:
+
+```text
+runs/m148_p0_close_ambiguity_seed9480
+runs/m148_p0_close_ambiguity_seed9481
+runs/m148_p0_close_ambiguity_seed9482
+runs/m148_p0_close_ambiguity_multiseed
+```
+
+Multiseed totals:
+
+| Metric | Value |
+| --- | ---: |
+| H1-close target-divergent pairs | 375 |
+| P0-close target-divergent pairs | 346 |
+| Both H1/P0-close pairs | 292 |
+| H1-only pairs | 83 |
+| P0-only pairs | 54 |
+| P0 unique episode-pairs | 108 |
+| P0 / H1 count ratio | 0.922667 |
+
+Decision: positive diagnostic. P0-close target-divergent pairs remain numerous
+and source-diverse, so M146's ambiguity was not merely caused by narrowing H1.
+This does not justify adding raw wheel or `v_parallel`; it means the next
+surface must consume M148 P0-close pairs and test whether candidate signals,
+longer history, or active-probe-compatible cues resolve them in a
+target-aligned way.

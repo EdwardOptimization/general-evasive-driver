@@ -5,8 +5,20 @@
   ],
   "commands": [
     {
-      "command": "Build or run a stricter ambiguity miner that requires current P0 human-view features to be close while future envelope targets remain far apart.",
-      "name": "m148_p0_close_ambiguity_miner"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.p0_close_ambiguity_miner --mode run --env-config configs/m143_driver_like_profile_audit.json --episodes 40 --seed 9480 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --history-window 25 --post-slip-beta-threshold 0.06 --max-search-samples 450 --feature-quantile 0.05 --target-quantile 0.90 --max-export-pairs 80 --run-dir runs/m148_p0_close_ambiguity_seed9480",
+      "name": "m148_p0_close_seed9480"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.p0_close_ambiguity_miner --mode run --env-config configs/m143_driver_like_profile_audit.json --episodes 40 --seed 9481 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --history-window 25 --post-slip-beta-threshold 0.06 --max-search-samples 450 --feature-quantile 0.05 --target-quantile 0.90 --max-export-pairs 80 --run-dir runs/m148_p0_close_ambiguity_seed9481",
+      "name": "m148_p0_close_seed9481"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.p0_close_ambiguity_miner --mode run --env-config configs/m143_driver_like_profile_audit.json --episodes 40 --seed 9482 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --history-window 25 --post-slip-beta-threshold 0.06 --max-search-samples 450 --feature-quantile 0.05 --target-quantile 0.90 --max-export-pairs 80 --run-dir runs/m148_p0_close_ambiguity_seed9482",
+      "name": "m148_p0_close_seed9482"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.p0_close_ambiguity_miner --mode aggregate --summary-jsons runs/m148_p0_close_ambiguity_seed9480/summary.json,runs/m148_p0_close_ambiguity_seed9481/summary.json,runs/m148_p0_close_ambiguity_seed9482/summary.json --run-dir runs/m148_p0_close_ambiguity_multiseed",
+      "name": "m148_p0_close_multiseed"
     }
   ],
   "decision_rule": "Only treat current P0 as information-limited if close-P0, target-divergent pairs exist across multiple seeds after removing H1-only speed/steer-rate ambiguity.",

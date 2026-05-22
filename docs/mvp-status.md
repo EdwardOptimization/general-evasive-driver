@@ -112,3 +112,10 @@ and diagnostic raw wheel + `v_parallel` `30.7%`. Extra-only channels separate
 many pairs, but their distance is weakly target-aligned. The next input question
 is therefore stricter: mine pairs that remain close under current P0, not only
 under narrowed H1.
+
+M148 answered that stricter question positively: P0-close target-divergent pairs
+remain numerous. Across three seeds it found `346` P0-close target-divergent
+pairs over `108` episode-pairs, with a P0/H1 ambiguity-count ratio of
+`0.922667`. Current P0 may therefore be information-limited for future-envelope
+self-identification; the next step is to test target-aligned resolution of those
+P0-close pairs.
