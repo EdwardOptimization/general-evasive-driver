@@ -1,0 +1,38 @@
+{
+  "id": "m177-dual-checkpoint-self-id-proof-surface",
+  "type": "gate",
+  "hypothesis": "M176 leaves two useful checkpoints, strict M168 and split-aware M170, so the next step should compare their self-identification proof-surface behavior rather than running more PPO.",
+  "success_criteria": [
+    "evaluate both M168 and M170 on a self-identification/proof-surface gate",
+    "include reset and response-ablation variants",
+    "preserve strict and split-aware labels instead of selecting by one metric",
+    "do not run more PPO during this gate",
+    "decide which checkpoint should be used for future self-ID evidence work"
+  ],
+  "failure_criteria": [
+    "choose M170 solely because fixed objective is lower",
+    "choose M168 solely because strict full replay passes",
+    "ignore M170's row67 stress loss",
+    "run more PPO before self-ID proof-surface comparison"
+  ],
+  "commands": [
+    {
+      "name": "m177_dual_checkpoint_self_id_proof_surface",
+      "command": "Compare M168 and M170 on self-identification proof-surface behavior with response-history ablations."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m177-dual-checkpoint-self-id-proof-surface.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt",
+    "runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt",
+    "runs/m175_m170_margin_split_guard_seed9510/summary.json",
+    "runs/m176_behavior_compare_seed9505/policy_summary.csv",
+    "runs/m176_behavior_compare_seed9506/policy_summary.csv"
+  ],
+  "decision_rule": "Future self-ID work should use the checkpoint that provides the stronger proof-surface evidence while keeping strict versus split-aware status explicit."
+}
