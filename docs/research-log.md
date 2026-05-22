@@ -8184,3 +8184,52 @@ Decision:
 ```text
 admit_actor_update_repeat
 ```
+
+## 20260522T130500Z m225-m223-actor-update-repeat
+
+M225 repeated the M224 snippet-anchored actor-update recipe from M219 seed
+`5216` on fresh seeds `10064` and `10065`. The repeats were not chained from
+M224. Actor inputs were unchanged and no PPO was run.
+
+Artifacts:
+
+- `runs/m225_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10064`
+- `runs/m225_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10065`
+- `runs/m225_fixed_batch_outcome_eval_seed37`
+- `runs/m225_10064_m183_m168_replay_gate_seed9510`
+- `runs/m225_10064_m183_m170_replay_gate_seed9510`
+- `runs/m225_10064_m193_m189_replay_gate_seed9630`
+- `runs/m225_10064_m212_m204_replay_gate_seed10040`
+- `runs/m225_10064_m223_m219_replay_gate_seed10060`
+- `runs/m225_10065_m183_m168_replay_gate_seed9510`
+- `runs/m225_10065_m183_m170_replay_gate_seed9510`
+- `runs/m225_10065_m193_m189_replay_gate_seed9630`
+- `runs/m225_10065_m212_m204_replay_gate_seed10040`
+- `runs/m225_10065_m223_m219_replay_gate_seed10060`
+- `runs/m225_behavior_gate_seed9505`
+- `runs/m225_behavior_gate_seed9506`
+- `runs/m225_critical_key_seed9944`
+- `docs/m225-m223-actor-update-repeat.md`
+- `configs/ppo_m226_guarded_from_m224_smoke.json`
+- `experiments/manifests/m226-guarded-ppo-smoke-from-m224.json`
+
+Results:
+
+- internal eval loss improves for both repeats: seed `10064` by `0.000813` and
+  seed `10065` by `0.000870`;
+- fixed M223 loss: M219 `0.210903`, M224 `0.209824`, M225 seed `10064`
+  `0.210094`, and M225 seed `10065` `0.210036`;
+- both repeats preserve M183 M168 `16/16`, M183 M170 `17/17`, M193 M189
+  `14/14`, M212 M204 `17/17`, and M223 M219 `17/17` replay drops;
+- behavior seeds `9505` and `9506` retain success `0.8625`;
+- protected key passes for both repeats.
+
+Decision: M225 is positive repeat evidence. M224 remains the best fixed-loss
+actor-update checkpoint and admits exactly one tiny guarded PPO smoke using the
+M223 corpus and M224 action anchor.
+
+Decision:
+
+```text
+admit_guarded_ppo_smoke_from_m224
+```

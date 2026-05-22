@@ -287,11 +287,16 @@ slightly stronger action-level sensitivity.
   from `0.210903` to `0.209824`; old M183, refreshed M193, current M212, and
   new M223 replay gates pass; behavior remains `0.8625`; protected key `9944`
   passes with normal margin `0.186385`.
+- M225: repeats the M224 actor-update recipe from the same M219 source on fresh
+  seeds `10064` and `10065`. Both improve fixed M223 versus M219 and preserve
+  old/current/new replay, broad behavior, and protected key. They do not beat
+  M224 fixed loss, so M224 remains the best actor-update checkpoint and admits
+  one guarded PPO smoke.
 
 Current blocker:
 
 ```text
-fresh-seed repeat of the M224 actor-update recipe
+one tiny guarded PPO smoke from M224
 ```
 
 ## Near-Term Rule
@@ -319,7 +324,9 @@ the accepted rows into M219-family objective/replay corpora before any actor
 update or PPO. M223 passed; only one M216-style tiny snippet-anchored actor
 update from M219 seed `5216` is admitted before repeat evidence. M224 passed as
 a single actor update, so M225 must repeat the exact recipe from the same M219
-source on fresh seeds before any PPO.
+source on fresh seeds before any PPO. M225 passed repeat gates; only one tiny
+guarded PPO smoke from M224 is admitted before PPO repeat or longer
+continuation.
 
 ## Sensor Profile Policy
 

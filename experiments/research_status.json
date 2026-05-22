@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 233,
+    "completed": 234,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m224-m223-guarded-actor-update.md",
+    "command_log": "docs/m225-m223-actor-update-repeat.md",
     "returncode": 0,
-    "run_dir": "runs/m224_critical_key_seed9944",
+    "run_dir": "runs/m225_critical_key_seed9944",
     "status": "completed",
-    "task_id": "m224-m223-guarded-actor-update"
+    "task_id": "m225-m223-actor-update-repeat"
   },
   "next_task": {
-    "command": "see experiments/manifests/m225-m223-actor-update-repeat.json",
-    "hypothesis": "M224 single actor update passed fixed objective, old/current/new replay, behavior, and protected key; repeat from M219 seed5216 on fresh seeds before PPO.",
-    "id": "m225-m223-actor-update-repeat",
+    "command": "see experiments/manifests/m226-guarded-ppo-smoke-from-m224.json",
+    "hypothesis": "M225 proves the M223 actor-update recipe is repeat-stable while M224 remains best fixed-loss; run one tiny guarded PPO smoke from M224.",
+    "id": "m226-guarded-ppo-smoke-from-m224",
     "kind": "driver_candidate",
-    "notes": "Restart from M219 seed5216 on seeds 10064 and 10065; do not chain from M224.",
-    "priority": 2200,
+    "notes": "Start from M224, use M223 corpus and M224 action anchor; no repeat or longer PPO before gates pass.",
+    "priority": 2210,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T125500Z"
+  "updated_at_utc": "20260522T130500Z"
 }

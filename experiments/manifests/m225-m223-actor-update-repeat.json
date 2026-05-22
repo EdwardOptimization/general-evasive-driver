@@ -73,5 +73,31 @@
     "runs/m224_behavior_gate_seed9506/policy_summary.csv",
     "runs/m224_critical_key_seed9944/summary.json"
   ],
-  "decision_rule": "Only repeat-stable actor-update seeds that preserve fixed objective, old/current/new replay, behavior, and protected key may admit a guarded PPO smoke from the best retained repeat."
+  "results": {
+    "checkpoint_seed10064": "runs/m225_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10064/optimized_checkpoint.pt",
+    "checkpoint_seed10065": "runs/m225_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10065/optimized_checkpoint.pt",
+    "fixed_loss_m219_5216": 0.21090264409780501,
+    "fixed_loss_m224_10063": 0.20982385843992232,
+    "fixed_loss_m225_10064": 0.21009430885314942,
+    "fixed_loss_m225_10065": 0.21003568232059477,
+    "m183_m168_success_drop_count_seed10064": 16,
+    "m183_m170_success_drop_count_seed10064": 17,
+    "m193_m189_success_drop_count_seed10064": 14,
+    "m212_m204_success_drop_count_seed10064": 17,
+    "m223_m219_success_drop_count_seed10064": 17,
+    "m183_m168_success_drop_count_seed10065": 16,
+    "m183_m170_success_drop_count_seed10065": 17,
+    "m193_m189_success_drop_count_seed10065": 14,
+    "m212_m204_success_drop_count_seed10065": 17,
+    "m223_m219_success_drop_count_seed10065": 17,
+    "behavior_seed9505_success_seed10064": 0.8625,
+    "behavior_seed9505_success_seed10065": 0.8625,
+    "behavior_seed9506_success_seed10064": 0.8625,
+    "behavior_seed9506_success_seed10065": 0.8625,
+    "protected_key_pass_seed10064": true,
+    "protected_key_pass_seed10065": true,
+    "best_fixed_loss_checkpoint": "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt"
+  },
+  "decision_rule": "Only repeat-stable actor-update seeds that preserve fixed objective, old/current/new replay, behavior, and protected key may admit a guarded PPO smoke from the best retained repeat.",
+  "decision": "admit_guarded_ppo_smoke_from_m224"
 }
