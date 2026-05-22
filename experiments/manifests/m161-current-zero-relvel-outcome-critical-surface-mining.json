@@ -18,8 +18,20 @@
   ],
   "commands": [
     {
-      "name": "m161_current_zero_relvel_outcome_surface",
-      "command": "Mine or relocate current zero-relvel matched-history cases until wrong-history outcome degradation is observed, or document that the present surface is outcome-neutral."
+      "name": "m161_m156_boundary_relocation_zero_relvel",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.wrong_history_boundary_relocation_surface --checkpoint-policy m156_s20=runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --outcome-csv runs/m160_m156_outcome_gate_zero_relvel_allpairs_seed9510/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 40 --max-pairs-per-checkpoint-target 20 --min-base-action-distance 0.02 --target-normal-margins 0.005,0.01,0.02,0.05,0.10,0.15 --half-width-inflations 0 --min-margin-gap 0.005 --min-accepted-wrong-rows 6 --report-variants wrong_matched_history,reset_hidden,zero_current_response,zero_action_history,delayed_history --device cpu --run-dir runs/m161_m156_boundary_relocation_zero_relvel_seed9510"
+    },
+    {
+      "name": "m161_m142_boundary_relocation_zero_relvel",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.wrong_history_boundary_relocation_surface --checkpoint-policy m142_a400=runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --outcome-csv runs/m160_m142_outcome_calibration_zero_relvel_allpairs_seed9510/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 40 --max-pairs-per-checkpoint-target 20 --min-base-action-distance 0.02 --target-normal-margins 0.005,0.01,0.02,0.05,0.10,0.15 --half-width-inflations 0 --min-margin-gap 0.005 --min-accepted-wrong-rows 6 --report-variants wrong_matched_history,reset_hidden,zero_current_response,zero_action_history,delayed_history --device cpu --run-dir runs/m161_m142_boundary_relocation_zero_relvel_seed9510"
+    },
+    {
+      "name": "m161_m156_boundary_robustness_m154_zero_relvel",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_wrong_history_surface_robustness --boundary-rows-csv runs/m161_m156_boundary_relocation_zero_relvel_seed9510/boundary_relocation_rows.csv --control-checkpoint-label none --margin-bucket-width 0.01 --min-accepted-wrong-rows 20 --min-physical-pairs 6 --min-left-steps 5 --min-checkpoints 1 --min-targets 3 --min-margin-buckets 2 --min-success-drop-fraction 0.10 --max-rows-per-pair-fraction 0.25 --max-control-accepted-rows 0 --run-dir runs/m161_m156_boundary_robustness_m154_zero_relvel_seed9510"
+    },
+    {
+      "name": "m161_m142_boundary_robustness_m154_zero_relvel",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_wrong_history_surface_robustness --boundary-rows-csv runs/m161_m142_boundary_relocation_zero_relvel_seed9510/boundary_relocation_rows.csv --control-checkpoint-label none --margin-bucket-width 0.01 --min-accepted-wrong-rows 20 --min-physical-pairs 6 --min-left-steps 5 --min-checkpoints 1 --min-targets 3 --min-margin-buckets 2 --min-success-drop-fraction 0.10 --max-rows-per-pair-fraction 0.25 --max-control-accepted-rows 0 --run-dir runs/m161_m142_boundary_robustness_m154_zero_relvel_seed9510"
     }
   ],
   "required_artifacts": [
@@ -31,7 +43,16 @@
   "baseline_checkpoints": [
     "runs/m159_current_baseline_matched_current_zero_relvel_seed9510/matched_pairs.csv",
     "runs/m160_m156_outcome_gate_zero_relvel_allpairs_seed9510/outcome_interventions.csv",
-    "runs/m160_m142_outcome_calibration_zero_relvel_allpairs_seed9510/outcome_interventions.csv"
+    "runs/m160_m142_outcome_calibration_zero_relvel_allpairs_seed9510/outcome_interventions.csv",
+    "runs/m161_m156_boundary_relocation_zero_relvel_seed9510/summary.json",
+    "runs/m161_m142_boundary_relocation_zero_relvel_seed9510/summary.json",
+    "runs/m161_m156_boundary_robustness_m154_zero_relvel_seed9510/summary.json",
+    "runs/m161_m142_boundary_robustness_m154_zero_relvel_seed9510/summary.json"
   ],
-  "decision_rule": "Do not resume PPO or strict proof-surface gates until a current zero-relvel outcome-critical surface exists or the blocker is documented with a concrete alternate repair path."
+  "decision_rule": "Do not resume PPO or strict proof-surface gates until a current zero-relvel outcome-critical surface exists or the blocker is documented with a concrete alternate repair path.",
+  "result": {
+    "status": "completed",
+    "decision": "positive_outcome_critical_surface_no_ppo_admission",
+    "notes": "Boundary relocation produces current zero-relvel wrong-history outcome-critical rows for both M156 and M142. M156 has 238 accepted wrong-history rows, 45 relocation source pairs, 51 success drops, and passes M154/M161 robustness with 16 stricter physical pairs. M142 calibration has 260 accepted rows, 47 source pairs, 57 success drops, and also passes robustness. Next step is a reusable boundary-outcome corpus/objective, not PPO."
+  }
 }

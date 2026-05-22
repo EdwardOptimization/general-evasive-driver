@@ -209,3 +209,10 @@ wrong-history outcome margin gap is only `0.000284` with `3` success-drop rows;
 M142 calibration is also outcome-neutral (`0.000499` margin gap, `0` success
 drops). Therefore the current surface changes actions but not outcomes. The next
 frontier is a current zero-relvel outcome-critical surface, not PPO.
+
+M161 constructs that current zero-relvel outcome-critical surface through
+boundary relocation. M156 produces `238` accepted wrong-history rows and `51`
+success drops; M142 calibration produces `260` rows and `57` success drops.
+M154-minimum robustness gates pass with `16` stricter physical pairs for both.
+This is a positive proof-surface milestone, but still not PPO admission; the
+next step is a reusable boundary-outcome corpus/objective.

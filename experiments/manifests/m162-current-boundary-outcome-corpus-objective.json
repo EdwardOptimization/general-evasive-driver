@@ -1,0 +1,38 @@
+{
+  "id": "m162-current-boundary-outcome-corpus-objective",
+  "type": "objective_sanity",
+  "hypothesis": "The M161 current zero-relvel boundary outcome-critical rows should be converted into a reusable training-time corpus and objective before any guarded PPO continuation.",
+  "success_criteria": [
+    "use only deployable P0 history features for student inputs",
+    "use M161 boundary relocation rows only as training-time supervision or gating artifacts",
+    "export a current zero-relvel boundary-outcome corpus with accepted wrong-history rows, paired normal/wrong outcomes, and diversity metadata",
+    "run objective-only sanity before actor updates or PPO",
+    "verify the objective improves boundary outcome preference or risk ranking without changing actor inputs",
+    "state whether a guarded candidate update is admitted"
+  ],
+  "failure_criteria": [
+    "start PPO directly from M161",
+    "feed relocated oracle labels or hidden parameters to the actor",
+    "train from duplicate-dominated rows without diversity metadata",
+    "claim driver-level self-identification from objective-only loss improvements"
+  ],
+  "commands": [
+    {
+      "name": "m162_current_boundary_outcome_corpus_objective",
+      "command": "Build a reusable M161 boundary-outcome corpus and run objective-only sanity before any actor/PPO update."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m162-current-boundary-outcome-corpus-objective.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m161_m156_boundary_relocation_zero_relvel_seed9510/accepted_wrong_history_rows.csv",
+    "runs/m161_m142_boundary_relocation_zero_relvel_seed9510/accepted_wrong_history_rows.csv",
+    "runs/m161_m156_boundary_robustness_m154_zero_relvel_seed9510/summary.json",
+    "runs/m161_m142_boundary_robustness_m154_zero_relvel_seed9510/summary.json"
+  ],
+  "decision_rule": "Admit a guarded actor update only after objective-only sanity shows useful signal on the diversified M161 boundary-outcome corpus; do not admit PPO from corpus construction alone."
+}

@@ -459,6 +459,10 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m160-remaining-m154-outcome-strict-repeat.md`: rejects guarded PPO after the
   M159 action surface proves outcome-neutral for both M156 and M142; next work
   is current zero-relvel outcome-critical surface mining.
+- `m161-current-zero-relvel-outcome-critical-surface-mining.md`: constructs a
+  current zero-relvel boundary-relocated wrong-history outcome-critical surface
+  for M156 and M142; robustness passes but PPO remains blocked until a reusable
+  corpus/objective is built.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

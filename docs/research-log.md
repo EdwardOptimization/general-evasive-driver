@@ -6400,3 +6400,59 @@ action-sensitive but outcome-neutral for both M156 and M142. Strict
 proof-surface seeds are skipped because the outcome stage already fails. The
 next task is to mine or relocate a current zero-relvel outcome-critical surface,
 not to train PPO.
+
+## 20260522T083000Z m161-current-zero-relvel-outcome-critical-surface-mining
+
+M161 uses the existing boundary-relocation harness on the current zero-relvel
+M160 outcome artifacts. This keeps the actor input contract fixed and moves the
+gate-time obstacle boundary to expose near-boundary outcome sensitivity.
+
+M156 run:
+
+```text
+runs/m161_m156_boundary_relocation_zero_relvel_seed9510
+```
+
+Results:
+
+| Metric | Value |
+| --- | ---: |
+| candidate rows | 60 |
+| replay rows | 2100 |
+| accepted wrong-history rows | 238 |
+| accepted wrong-history source pairs | 45 |
+| wrong-history success drops | 51 |
+| surface found | true |
+
+M142 calibration:
+
+```text
+runs/m161_m142_boundary_relocation_zero_relvel_seed9510
+```
+
+Results:
+
+| Metric | Value |
+| --- | ---: |
+| candidate rows | 60 |
+| replay rows | 2040 |
+| accepted wrong-history rows | 260 |
+| accepted wrong-history source pairs | 47 |
+| wrong-history success drops | 57 |
+| surface found | true |
+
+M161 then runs M154-minimum robustness gates:
+
+```text
+runs/m161_m156_boundary_robustness_m154_zero_relvel_seed9510
+runs/m161_m142_boundary_robustness_m154_zero_relvel_seed9510
+```
+
+Both pass. The stricter deduplicated physical-pair counts are `16` for both
+M156 and M142, with all three target groups, `14` normal-margin buckets, and
+max rows per physical pair below `0.12`.
+
+Decision: M161 is a positive current zero-relvel outcome-critical surface
+milestone. It still does not admit PPO. The next step is to convert the
+diversified accepted rows into a reusable boundary-outcome corpus/objective and
+run objective-only sanity before any actor update.
