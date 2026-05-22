@@ -2,9 +2,10 @@
   "id": "m294-current-family-rejected-repair-ppo-smoke",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "proof_washout",
+    "objective_overfit"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -86,6 +87,23 @@
     "docs/m293-current-family-rejected-history-ppo-repair-design.md",
     "runs/m293_current_family_rejected_history_ppo_repair_design/summary.json"
   ],
+  "results": {
+    "run_dir": "runs/m294_current_family_rejected_repair_ppo_smoke",
+    "raw_checkpoint": "runs/ppo_m294_current_family_rejected_repair_smoke_seed5232/checkpoint.pt",
+    "raw_exact_m270_loss": 0.6798936724662781,
+    "raw_exact_m270_delta_vs_m290": 0.0006152987480163574,
+    "raw_m183_m170_gate_pass": true,
+    "raw_m267_m264_gate_pass": false,
+    "raw_m267_m264_success_drops": 14,
+    "raw_m267_failed_rows": [
+      6,
+      15,
+      16
+    ],
+    "nonzero_exact_m270_non_regressing": false,
+    "promotion_recommended": false
+  },
   "decision_rule": "Promote only if exact M270, first proof gates, full public gates, protected key, and behavior all pass without near-zero interpolation.",
-  "next_blocker": "pending M294 current-family rejected-history PPO repair smoke"
+  "decision": "reject_m294_repair_smoke_objective_regression_and_m267_washout",
+  "next_blocker": "m295-current-family-ppo-repair-audit"
 }
