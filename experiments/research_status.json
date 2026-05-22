@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 178,
+    "completed": 179,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m169-boundary-row67-stage-sensitivity-guard.md",
+    "command_log": "docs/m170-row67-guarded-stage2-ppo.md",
     "returncode": 0,
-    "run_dir": "runs/m169_m168_from_m167_5168_fragile_row_guard_seed9510",
+    "run_dir": "runs/m170_fragile_row_guard_seed9510",
     "status": "completed",
-    "task_id": "m169-boundary-row67-stage-sensitivity-guard"
+    "task_id": "m170-row67-guarded-stage2-ppo"
   },
   "next_task": {
-    "command": "see experiments/manifests/m170-row67-guarded-stage2-ppo.json",
-    "hypothesis": "After M169 adds an explicit row-level guard for fragile boundary replay row 67, the admitted M168 branch can attempt one more short PPO stage only if row 67 and the full M164 replay are both preserved.",
-    "id": "m170-row67-guarded-stage2-ppo",
+    "command": "see experiments/manifests/m171-row67-preserving-stage2-recipe.json",
+    "hypothesis": "M170 improved the fixed objective but lost row 67, so stage2 PPO needs a more conservative recipe such as a shorter step budget or stronger anchoring before any continuation is admissible.",
+    "id": "m171-row67-preserving-stage2-recipe",
     "kind": "driver_candidate",
-    "notes": "Pending after M169: row67 guard passes admitted M168 branch and must be used with full M164 replay for any stage2 continuation",
-    "priority": 1650,
+    "notes": "Pending after M170: failed stage2 lost row67, so retry only from M168 admitted checkpoint with a more conservative recipe",
+    "priority": 1660,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T045700Z"
+  "updated_at_utc": "20260522T045943Z"
 }

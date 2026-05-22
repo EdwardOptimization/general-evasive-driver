@@ -1,0 +1,39 @@
+{
+  "id": "m171-row67-preserving-stage2-recipe",
+  "type": "driver_candidate",
+  "hypothesis": "M170 improved the fixed objective but lost row 67, so stage2 PPO needs a more conservative recipe such as a shorter step budget or stronger anchoring before any continuation is admissible.",
+  "success_criteria": [
+    "start only from the M168 admitted checkpoint, not from the failed M170 checkpoint",
+    "try a more conservative short stage2 recipe than M170",
+    "keep actor inputs unchanged and hidden labels out of the actor",
+    "evaluate fixed M162 outcome objective",
+    "run full M164 boundary replay",
+    "run M169 fragile row guard with required row 67",
+    "run behavior retention and protected-key gates only if full replay and row67 guard pass"
+  ],
+  "failure_criteria": [
+    "continue from runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt",
+    "accept a candidate that loses row 67",
+    "accept fixed objective improvement without replay retention",
+    "relax M164 or M169 thresholds",
+    "change actor inputs to make the stage pass"
+  ],
+  "commands": [
+    {
+      "name": "m171_row67_preserving_stage2_recipe",
+      "command": "Run a conservative stage2 PPO variant from the M168 admitted checkpoint and gate it with fixed objective, full M164 replay, row67 guard, behavior retention, and protected key."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m171-row67-preserving-stage2-recipe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt",
+    "runs/m170_boundary_outcome_replay_gate_seed9510/summary.json",
+    "runs/m170_fragile_row_guard_seed9510/summary.json"
+  ],
+  "decision_rule": "Reject any conservative stage2 recipe that loses row 67 or fails the full M164 replay gate, regardless of fixed objective improvement."
+}
