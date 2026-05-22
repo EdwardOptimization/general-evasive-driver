@@ -172,3 +172,10 @@ losses on M151 (`combined=0.548986`, `target=0.250640`,
 prescreen (`0.8625`). It is still rejected because the protected critical key
 `9944|perturbed|28|28` failed (`0/1` accepted versus M142 `1/1`). The active
 frontier remains rollout-key-safe belief learning, not PPO scale-up.
+
+M156 repaired that failure with a smaller 20-step capability-belief update from
+the same M142 baseline. The candidate keeps positive validation improvements
+(`combined=0.108913`, `target=0.068497`, `delta=0.080831`), passes the
+protected key (`1/1`, margin gap `0.009455`), and matches M142 success on both
+cheap behavior seeds 9503 and 9504 (`0.8625`). It is admitted only to a full
+M154 gate repeat; it is not yet a PPO or driver promotion.

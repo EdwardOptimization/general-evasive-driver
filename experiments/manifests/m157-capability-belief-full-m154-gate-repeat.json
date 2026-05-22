@@ -1,0 +1,37 @@
+{
+  "id": "m157-capability-belief-full-m154-gate-repeat",
+  "type": "gate",
+  "hypothesis": "The M156 s20 key-safe capability-belief repair should be judged by the full M154 proof gate before any PPO continuation or driver promotion.",
+  "success_criteria": [
+    "preserve the P0 human-view actor input contract",
+    "repeat the M154 behavior-retention checks",
+    "pass the protected critical-key replay",
+    "run matched-history action and outcome checks",
+    "preserve the M133/M142 strict proof-surface selected-pair and selected-seed thresholds",
+    "document whether guarded PPO is admitted or rejected"
+  ],
+  "failure_criteria": [
+    "strict proof-surface diversity falls below M133/M142 thresholds",
+    "matched-history outcome or action gates regress versus the guarded baseline",
+    "behavior retention regresses on registered seeds",
+    "candidate is promoted to PPO or driver status without full gate evidence"
+  ],
+  "commands": [
+    {
+      "name": "m157_full_m154_gate_repeat",
+      "command": "Run the full M154 gate stages for runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt against runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m157-capability-belief-full-m154-gate-repeat.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt",
+    "runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt",
+    "runs/m154_capability_belief_behavior_gate_design/gate_spec.json"
+  ],
+  "decision_rule": "Passing M156 cheap gates is not enough for PPO. M157 must repeat the full behavior, intervention, critical-key, matched-history, and strict proof-surface checks before any guarded PPO admission."
+}

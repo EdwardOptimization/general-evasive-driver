@@ -6162,3 +6162,51 @@ capability-belief objective has signal and seed9503 behavior retention is not
 broken, but the candidate loses the protected near-threshold rollout key. The
 next task is a key-safe or rollout-margin-aware repair, not strict miners or
 PPO.
+
+## 20260522T062000Z m156-capability-belief-critical-key-safe-repair
+
+M156 repairs M155 by making the capability-belief update smaller rather than
+changing the actor input contract. It uses the same M151 target dataset, M142
+initial checkpoint, feature source, learning rate, and anchor coefficient as
+M155, but reduces the auxiliary update from 80 steps to 20 steps.
+
+Run:
+
+```text
+runs/m156_capability_belief_aux_s20_seed9630
+```
+
+Validation improvements, before minus after:
+
+| Metric | Improvement |
+| --- | ---: |
+| combined loss | 0.108913 |
+| target loss | 0.068497 |
+| pairwise delta loss | 0.080831 |
+| feature anchor loss after | 0.000407 |
+
+The protected critical-key replay passes:
+
+```text
+runs/m156_critical_key_prescreen_s20_seed9944
+key: 9944|perturbed|28|28
+```
+
+| Policy | Accepted cases | Margin gap |
+| --- | ---: | ---: |
+| m142_a400 | 1 / 1 | 0.005014 |
+| m156_s20 | 1 / 1 | 0.009455 |
+
+Behavior prescreens on both registered cheap seeds also preserve aggregate
+success:
+
+| Seed | Policy | Success | Mean clearance margin | Zero-response success |
+| ---: | --- | ---: | ---: | ---: |
+| 9503 | m142_a400 | 0.8625 | 1.841495 | n/a |
+| 9503 | m156_s20 | 0.8625 | 1.845927 | 0.8000 |
+| 9504 | m142_a400 | 0.8625 | 1.849323 | n/a |
+| 9504 | m156_s20 | 0.8625 | 1.853662 | 0.8000 |
+
+Decision: M156 is a positive key-safe repair smoke. Admit
+`runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt` to a
+full M154 gate repeat. Do not start PPO until that repeat passes.

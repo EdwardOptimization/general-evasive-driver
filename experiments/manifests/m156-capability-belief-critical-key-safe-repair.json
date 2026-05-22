@@ -17,14 +17,42 @@
   ],
   "commands": [
     {
-      "name": "m156_key_safe_capability_belief_repair",
-      "command": "Design and run a key-safe variant of the M155 auxiliary candidate that includes protected-key or rollout-margin retention before repeating the M155 cheap behavior and critical-key prescreens."
+      "name": "m156_key_safe_capability_belief_repair_s20",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.capability_belief_aux_candidate --init-checkpoint runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt --dataset-npz runs/m151_capability_belief_dataset_multiseed/capability_belief_dataset.npz --optimization-seeds 9630 --train-fraction 0.70 --steps 20 --batch-size 64 --learning-rate 0.0001 --weight-decay 0.001 --history-window 25 --feature-source response_hidden --delta-loss-coef 0.5 --anchor-coef 10.0 --device cpu --run-dir runs/m156_capability_belief_aux_s20_seed9630"
+    },
+    {
+      "name": "m156_critical_key_prescreen_s20",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.critical_key_replay_guard --reference-manifest runs/m133_zero_relvel_s60_strict_60ep_seed9900/manifest.json --reference-cases-csv runs/m133_zero_relvel_s60_strict_60ep_seed9900/outcome_sensitive_snippets.csv --reference-cases-csv runs/m133_zero_relvel_s60_strict_60ep_seed9920/outcome_sensitive_snippets.csv --case-key '9944|perturbed|28|28' --checkpoint-policy m142_a400=runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt --checkpoint-policy m156_s20=runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt --reference-policy m142_a400 --device cpu --run-dir runs/m156_critical_key_prescreen_s20_seed9944"
+    },
+    {
+      "name": "m156_behavior_prescreen_s20_seed9503",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m121_human_view_zero_obstacle_relvel.json --episodes 80 --seed 9503 --policies heuristic --checkpoint-policy m142_a400=runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt --checkpoint-policy m156_s20=runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt --checkpoint-policy m156_s20_reset=runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt@reset_recurrent_state --checkpoint-policy m156_s20_zero_current=runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt@zero_current_response --checkpoint-policy m156_s20_zero_all=runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt@zero_all_response --checkpoint-policy m156_s20_noact=runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt@zero_action_history --device cpu --run-dir runs/m156_behavior_prescreen_s20_seed9503"
+    },
+    {
+      "name": "m156_behavior_prescreen_s20_seed9504",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m121_human_view_zero_obstacle_relvel.json --episodes 80 --seed 9504 --policies heuristic --checkpoint-policy m142_a400=runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt --checkpoint-policy m156_s20=runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt --checkpoint-policy m156_s20_reset=runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt@reset_recurrent_state --checkpoint-policy m156_s20_zero_current=runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt@zero_current_response --checkpoint-policy m156_s20_zero_all=runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt@zero_all_response --checkpoint-policy m156_s20_noact=runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt@zero_action_history --device cpu --run-dir runs/m156_behavior_prescreen_s20_seed9504"
     }
   ],
   "required_artifacts": [
     {
       "path": "docs/m156-capability-belief-critical-key-safe-repair.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m156_capability_belief_aux_s20_seed9630/summary.json",
+      "type": "objective_summary"
+    },
+    {
+      "path": "runs/m156_critical_key_prescreen_s20_seed9944/guard_results.csv",
+      "type": "critical_key_guard"
+    },
+    {
+      "path": "runs/m156_behavior_prescreen_s20_seed9503/policy_summary.csv",
+      "type": "behavior_prescreen"
+    },
+    {
+      "path": "runs/m156_behavior_prescreen_s20_seed9504/policy_summary.csv",
+      "type": "behavior_prescreen"
     }
   ],
   "baseline_checkpoints": [
@@ -33,8 +61,20 @@
     "runs/m155_capability_belief_critical_key_prescreen_seed9944/guard_results.csv"
   ],
   "decision_rule": "Do not run strict miners or PPO unless a repaired candidate keeps the M155 capability-belief objective signal and passes the M141/M142 protected-key replay.",
-  "notes": [
-    "M155 showed that fixed capability loss and feature anchoring are not rollout-key safe.",
-    "The first repair should be small and cheap-gated, not a broad PPO continuation."
-  ]
+  "result": {
+    "candidate_checkpoint": "runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt",
+    "objective_pass": true,
+    "val_combined_loss_improvement": 0.108913,
+    "val_target_loss_improvement": 0.068497,
+    "val_delta_loss_improvement": 0.080831,
+    "val_anchor_loss_after": 0.000407,
+    "critical_key": "9944|perturbed|28|28",
+    "critical_key_candidate_pass": true,
+    "critical_key_margin_gap": 0.009455,
+    "behavior_seed9503_success": 0.8625,
+    "behavior_seed9504_success": 0.8625,
+    "behavior_seed9503_zero_response_success": 0.8,
+    "behavior_seed9504_zero_response_success": 0.8,
+    "admission_decision": "admit_m156_s20_to_full_m154_gate_repeat"
+  }
 }

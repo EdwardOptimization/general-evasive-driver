@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 164,
+    "completed": 165,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m155-capability-belief-aux-candidate-smoke.md",
+    "command_log": "docs/m156-capability-belief-critical-key-safe-repair.md",
     "returncode": 0,
-    "run_dir": "runs/m155_capability_belief_aux_candidate_seed9620",
+    "run_dir": "runs/m156_capability_belief_aux_s20_seed9630",
     "status": "completed",
-    "task_id": "m155-capability-belief-aux-candidate-smoke"
+    "task_id": "m156-capability-belief-critical-key-safe-repair"
   },
   "next_task": {
-    "command": "see experiments/manifests/m156-capability-belief-critical-key-safe-repair.json",
-    "hypothesis": "The M155 capability-belief auxiliary signal can be kept only if the update is made explicitly safe for the protected rollout key and margin surface before any strict miner or PPO promotion.",
-    "id": "m156-capability-belief-critical-key-safe-repair",
-    "kind": "objective_sanity",
-    "notes": "Pending after M155: repair key-safe anchoring before full M154 gate or PPO",
-    "priority": 1510,
+    "command": "see experiments/manifests/m157-capability-belief-full-m154-gate-repeat.json",
+    "hypothesis": "The M156 s20 key-safe capability-belief repair should be judged by the full M154 proof gate before any PPO continuation or driver promotion.",
+    "id": "m157-capability-belief-full-m154-gate-repeat",
+    "kind": "gate",
+    "notes": "Pending after M156: full M154 gate repeat before guarded PPO",
+    "priority": 1520,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T054500Z"
+  "updated_at_utc": "20260522T062000Z"
 }

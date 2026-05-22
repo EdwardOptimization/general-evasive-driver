@@ -441,6 +441,10 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m155-capability-belief-aux-candidate-smoke.md`: first capability-belief
   auxiliary candidate; fixed losses and cheap behavior pass, but critical-key
   replay fails, so no strict miner or PPO admission.
+- `m156-capability-belief-critical-key-safe-repair.md`: smaller 20-step
+  capability-belief update that keeps positive objective signal, passes the
+  protected critical key, and preserves cheap behavior seeds; admitted only to
+  a full M154 gate repeat.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.
