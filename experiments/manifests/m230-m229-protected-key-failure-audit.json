@@ -1,0 +1,88 @@
+{
+  "id": "m230-m229-protected-key-failure-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "protected_key_window_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt",
+      "runs/ppo_m226_guarded_from_m224_seed5218/checkpoint.pt",
+      "runs/ppo_m229_snippet_anchor_from_m224_seed5219/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.npz",
+      "runs/m229_critical_key_seed9944/protected_cases.csv",
+      "runs/m229_critical_key_seed9944/guard_results.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m229_snippet_anchor_from_m224_smoke.json"
+    ],
+    "parent_objective": [
+      "rollout-state M224 baseline action anchor",
+      "preferred-only M224 boundary snippet action anchor"
+    ],
+    "derived_from": [
+      "m229-snippet-anchored-ppo-smoke-from-m224"
+    ],
+    "blocked_by": [
+      "m229-snippet-anchored-ppo-smoke-from-m224"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m230-m229-protected-key-failure-audit.md",
+  "public_gates": [
+    "M229 protected key guard",
+    "M229 replay gates",
+    "M229 train_metrics snippet_action_anchor_loss_mean",
+    "M223 snippet corpus coverage against protected key"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not repeat or lengthen M229 before the audit",
+    "do not loosen the protected-key normal-margin window after seeing M229",
+    "do not lower clearance just to satisfy one historical key",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "M229 proves snippet action anchoring restores replay-surface retention but not the historical protected key. The remaining failure is likely a protected-key coverage/window issue rather than old replay washout.",
+  "success_criteria": [
+    "classify whether M229's protected-key failure is normal-margin-window only or margin-gap collapse",
+    "compare M224/M226/M229 protected key candidates",
+    "check whether the protected key is represented by the M223 snippet anchor surface",
+    "pre-register exactly one next repair path before any more PPO",
+    "keep M224 current best unless all protected-key gates pass"
+  ],
+  "failure_criteria": [
+    "run another PPO seed before the audit",
+    "promote M229 because fixed loss and replay gates passed",
+    "ignore the protected key failure",
+    "relax protected-key thresholds after observing M229"
+  ],
+  "commands": [
+    {
+      "name": "m230_audit",
+      "command": "Use M229 artifacts to classify the protected-key failure and pre-register the next repair path."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m230-m229-protected-key-failure-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt",
+    "runs/ppo_m229_snippet_anchor_from_m224_seed5219/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m229-snippet-anchored-ppo-smoke-from-m224.md",
+    "runs/m229_critical_key_seed9944/summary.json",
+    "runs/m229_critical_key_seed9944/guard_results.csv",
+    "runs/m229_m183_m170_replay_gate_seed9510/summary.json"
+  ],
+  "decision_rule": "Only an audit that explains the protected-key failure and pre-registers a bounded repair may unblock further PPO.",
+  "next_blocker": "Determine whether to add protected-key snippets to the PPO anchor surface, refresh a current-family protected surface, or change the promotion gate hierarchy."
+}

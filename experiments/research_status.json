@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 237,
+    "completed": 238,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m228-ppo-snippet-action-anchor-implementation.md",
+    "command_log": "docs/m229-snippet-anchored-ppo-smoke-from-m224.md",
     "returncode": 0,
-    "run_dir": "",
+    "run_dir": "runs/m229_critical_key_seed9944",
     "status": "completed",
-    "task_id": "m228-ppo-snippet-action-anchor-implementation"
+    "task_id": "m229-snippet-anchored-ppo-smoke-from-m224"
   },
   "next_task": {
-    "command": "see experiments/manifests/m229-snippet-anchored-ppo-smoke-from-m224.json",
-    "hypothesis": "Preferred-only boundary snippet action anchoring may preserve the proof rows that M226 lost while retaining broad behavior.",
-    "id": "m229-snippet-anchored-ppo-smoke-from-m224",
-    "kind": "driver_candidate",
-    "notes": "Run one smoke from M224 using configs/ppo_m229_snippet_anchor_from_m224_smoke.json; gate fixed M223, old/current/new replay, behavior, and protected key.",
-    "priority": 2240,
+    "command": "see experiments/manifests/m230-m229-protected-key-failure-audit.json",
+    "hypothesis": "M229 restored replay-surface retention but still failed the historical protected key; audit before any more PPO.",
+    "id": "m230-m229-protected-key-failure-audit",
+    "kind": "gate",
+    "notes": "Classify protected-key normal-margin-window failure and pre-register a bounded repair path.",
+    "priority": 2250,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T143000Z"
+  "updated_at_utc": "20260522T150000Z"
 }

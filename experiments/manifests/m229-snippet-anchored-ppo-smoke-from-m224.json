@@ -2,9 +2,10 @@
   "id": "m229-snippet-anchored-ppo-smoke-from-m224",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "protected_key_window_failure",
+    "promotion_gate_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -114,6 +115,28 @@
     "docs/m227-ppo-smoke-retention-failure-audit.md",
     "docs/m228-ppo-snippet-action-anchor-implementation.md"
   ],
+  "results": {
+    "checkpoint": "runs/ppo_m229_snippet_anchor_from_m224_seed5219/checkpoint.pt",
+    "train_eval_termination_rate": 0.0,
+    "snippet_action_anchor_loss_mean": 1.9008744171304197e-08,
+    "fixed_loss_m224_10063": 0.20982385843992232,
+    "fixed_loss_m226_5218": 0.2098338145017624,
+    "fixed_loss_m229_5219": 0.20972828388214113,
+    "m183_m168_success_drop_count": 16,
+    "m183_m170_success_drop_count": 17,
+    "m193_m189_success_drop_count": 14,
+    "m212_m204_success_drop_count": 17,
+    "m223_m219_success_drop_count": 17,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "reset_success": 0.85,
+    "zero_all_success": 0.80,
+    "protected_key_pass": false,
+    "protected_key_normal_margin": 0.20520001699064117,
+    "protected_key_wrong_history_margin": 0.10617913009612456,
+    "protected_key_margin_gap": 0.0990208868945166
+  },
   "decision_rule": "Only a single PPO smoke that preserves fixed objective, behavior, protected key, old replay, refreshed replay, current replay, and new replay may admit PPO repeats.",
-  "next_blocker": "If M229 passes all proof gates, run a fresh-seed repeat before any longer continuation; if it fails, classify whether snippet anchoring is underweighted or PPO is still misaligned with proof rows."
+  "decision": "reject_protected_key_window_failure",
+  "next_blocker": "Audit why M229 restores replay gates but still moves the protected key outside the near-boundary normal-margin window."
 }
