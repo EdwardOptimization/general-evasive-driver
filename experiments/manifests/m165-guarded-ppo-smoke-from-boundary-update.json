@@ -1,0 +1,40 @@
+{
+  "id": "m165-guarded-ppo-smoke-from-boundary-update",
+  "type": "driver_candidate",
+  "hypothesis": "A very small PPO continuation from the M163 boundary-outcome actor update can improve or retain broad obstacle behavior while preserving the M164 boundary replay signal.",
+  "success_criteria": [
+    "initialize from runs/m163_boundary_outcome_actor_coupling_anchor100_s20_seed9832/optimized_checkpoint.pt",
+    "run only a short guarded PPO smoke before any long training",
+    "keep actor inputs unchanged and do not expose M162 labels or hidden parameters",
+    "include action-retention or low-learning-rate controls to avoid washing out M163",
+    "pass behavior retention against M156/M163 on zero-relvel obstacle seeds",
+    "pass protected critical-key replay",
+    "rerun M164 boundary-outcome replay gate after PPO",
+    "state whether longer PPO is admitted"
+  ],
+  "failure_criteria": [
+    "start a large PPO continuation directly",
+    "accept PPO based on training reward without M164 replay retention",
+    "weaken normal-history boundary outcomes",
+    "erase wrong-history degradation on the fixed M162 boundary rows",
+    "feed oracle labels or hidden dynamics to the actor"
+  ],
+  "commands": [
+    {
+      "name": "m165_guarded_ppo_smoke",
+      "command": "Run a short PPO continuation from M163 and gate it with behavior, protected-key, and M164 boundary replay checks."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m165-guarded-ppo-smoke-from-boundary-update.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt",
+    "runs/m163_boundary_outcome_actor_coupling_anchor100_s20_seed9832/optimized_checkpoint.pt",
+    "runs/m164_boundary_outcome_replay_gate_seed9510/summary.json"
+  ],
+  "decision_rule": "Admit longer PPO only if the smoke checkpoint passes behavior retention, protected key replay, and the M164 fixed boundary replay gate."
+}

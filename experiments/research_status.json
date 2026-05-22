@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 172,
+    "completed": 173,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m163-boundary-outcome-guarded-actor-update.md",
+    "command_log": "docs/m164-boundary-outcome-replay-gate.md",
     "returncode": 0,
-    "run_dir": "runs/m163_boundary_outcome_actor_coupling_anchor100_s20_seed9832",
+    "run_dir": "runs/m164_boundary_outcome_replay_gate_seed9510",
     "status": "completed",
-    "task_id": "m163-boundary-outcome-guarded-actor-update"
+    "task_id": "m164-boundary-outcome-replay-gate"
   },
   "next_task": {
-    "command": "see experiments/manifests/m164-boundary-outcome-replay-gate.json",
-    "hypothesis": "The M163 guarded actor update should be accepted for PPO only if it preserves or improves actual continuation outcomes on the M162 boundary geometry replay surface, not just the fixed logprob objective.",
-    "id": "m164-boundary-outcome-replay-gate",
-    "kind": "gate",
-    "notes": "Pending after M163: 20-step anchor100 actor update passed objective, behavior, and protected key but actual boundary rollout outcomes remain unverified",
-    "priority": 1590,
+    "command": "see experiments/manifests/m165-guarded-ppo-smoke-from-boundary-update.json",
+    "hypothesis": "A very small PPO continuation from the M163 boundary-outcome actor update can improve or retain broad obstacle behavior while preserving the M164 boundary replay signal.",
+    "id": "m165-guarded-ppo-smoke-from-boundary-update",
+    "kind": "driver_candidate",
+    "notes": "Pending after M164: M163 passed actual fixed boundary replay so a tightly gated PPO smoke is admitted",
+    "priority": 1600,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T042611Z"
+  "updated_at_utc": "20260522T043157Z"
 }
