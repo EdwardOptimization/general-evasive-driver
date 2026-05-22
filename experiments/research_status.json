@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 217,
+    "completed": 218,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m208-stage6-protected-key-retry-from-m204.md",
+    "command_log": "docs/m209-protected-key-aware-stage6-design.md",
     "returncode": 0,
-    "run_dir": "runs/m208_critical_key_seed9944",
+    "run_dir": "docs/m209-protected-key-aware-stage6-design.md",
     "status": "completed",
-    "task_id": "m208-stage6-protected-key-retry-from-m204"
+    "task_id": "m209-protected-key-aware-stage6-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m209-protected-key-aware-stage6-design.json",
-    "hypothesis": "M206 and M208 both improved fixed objective and preserved broad gates but failed the same protected key through boundary-window excursion, so same-recipe PPO should stop until a protected-key-aware objective/config is designed.",
-    "id": "m209-protected-key-aware-stage6-design",
+    "command": "see experiments/manifests/m210-current-best-protected-surface-refresh.json",
+    "hypothesis": "The old single protected key is fragile because it can leave the near-boundary window when normal clearance improves, so refresh a current-best-family multi-key protected surface before further PPO.",
+    "id": "m210-current-best-protected-surface-refresh",
     "kind": "gate",
-    "notes": "No PPO in M209; design and pre-register a protected-key-aware stage6 plan while keeping M204 as current best.",
-    "priority": 2040,
+    "notes": "Run mining/outcome/boundary/robustness gates only; PPO remains blocked until the refreshed protected surface is documented.",
+    "priority": 2050,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T100502Z"
+  "updated_at_utc": "20260522T101000Z"
 }

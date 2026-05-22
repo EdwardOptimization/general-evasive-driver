@@ -197,11 +197,16 @@ slightly stronger action-level sensitivity.
   It fails the same protected key with normal margin `0.208742`, above the
   reference `max_normal_margin = 0.2`, so M208 is rejected and same-recipe
   stage6 PPO is stopped.
+- M209: designs the protected-key-aware response. The repeated M206/M208
+  failure is treated as single-key proof fragility: normal-history clearance
+  improved out of the near-boundary window while wrong-history margin gap stayed
+  large. Do not train the driver to lower clearance for the old key. Refresh a
+  current-best-family multi-key protected surface before any further PPO.
 
 Current blocker:
 
 ```text
-protected-key-aware stage6 objective/config design before any further PPO
+current-best-family multi-key protected surface refresh before any further PPO
 ```
 
 ## Near-Term Rule
@@ -210,8 +215,8 @@ M206 and M208 are both rejected despite better fixed objectives because the
 protected-key gate failed. The failure is now repeated, not a single-seed
 accident. Do not run another same-recipe stage6 retry, do not chain from M206 or
 M208, and do not loosen the protected-key threshold after seeing the result.
-M209 must design a protected-key-aware objective or config before any further
-PPO.
+M210 must refresh a current-best-family multi-key protected surface before any
+further PPO.
 
 ## Sensor Profile Policy
 

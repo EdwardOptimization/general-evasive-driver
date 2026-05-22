@@ -1,0 +1,74 @@
+{
+  "id": "m210-current-best-protected-surface-refresh",
+  "type": "gate",
+  "hypothesis": "M206 and M208 show that a single protected key can leave the near-boundary window when the policy improves normal clearance. Before further PPO, refresh the protected surface around the current retained M199/M202/M204 family and require source-diverse multi-row wrong-history outcome evidence.",
+  "success_criteria": [
+    "do not train PPO or run actor updates",
+    "keep M204 as the current best checkpoint under evaluation",
+    "mine a fresh current-best-family matched-current surface from M199, M202, and M204",
+    "include wrong-history, reset-hidden, zero-current-response, zero-action-history, and delayed-history interventions at boundary relocation",
+    "require source diversity across physical pairs, left steps, checkpoints, targets, and normal-margin buckets",
+    "do not change actor inputs or observation profiles",
+    "do not loosen the old M206/M208 protected-key threshold retroactively",
+    "decide whether the refreshed surface can support a multi-key protected gate and objective sanity step"
+  ],
+  "failure_criteria": [
+    "run PPO before the refreshed protected surface passes robustness",
+    "reuse only the old single protected key as the stage6 guard",
+    "accept a duplicate-dominated surface",
+    "accept a surface with only one checkpoint or one physical pair",
+    "change actor observation inputs during this gate",
+    "treat M206 or M208 as accepted by changing old thresholds"
+  ],
+  "commands": [
+    {
+      "name": "m210_current_family_matched_current",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_current_response_ambiguity --checkpoint-policy m199_5201=runs/ppo_m199_stage2_from_m197_seed5201/checkpoint.pt --checkpoint-policy m202_5206=runs/ppo_m202_stage4_from_m201_seed5206/checkpoint.pt --checkpoint-policy m204_5209=runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --probe-seeds 10020,10021,10022,10023 --episodes 40 --horizon-steps 15 --sample-stride 3 --max-samples 1200 --nearest-k 12 --max-visible-quantile 0.05 --min-target-z-delta 1.0 --max-pairs-per-target 320 --max-pairs-per-physical-pair 1 --max-pairs-per-left-step 20 --max-pairs-per-source-obstacle-bucket 40 --obstacle-distance-bucket-width 5.0 --obstacle-lateral-bucket-width 1.0 --min-accepted-pairs 60 --device cpu --run-dir runs/m210_current_family_matched_current_seed10020"
+    },
+    {
+      "name": "m210_current_family_outcome_gate",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_history_outcome_gate --checkpoint-policy m199_5201=runs/ppo_m199_stage2_from_m197_seed5201/checkpoint.pt --checkpoint-policy m202_5206=runs/ppo_m202_stage4_from_m201_seed5206/checkpoint.pt --checkpoint-policy m204_5209=runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --pairs-csv runs/m210_current_family_matched_current_seed10020/matched_pairs.csv --delay-steps 10 --max-continuation-steps 60 --min-margin-gap 0.02 --max-pairs-per-checkpoint-target 0 --pair-label-mode matching --device cpu --run-dir runs/m210_current_family_outcome_seed10020"
+    },
+    {
+      "name": "m210_current_family_boundary_surface",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.wrong_history_boundary_relocation_surface --checkpoint-policy m199_5201=runs/ppo_m199_stage2_from_m197_seed5201/checkpoint.pt --checkpoint-policy m202_5206=runs/ppo_m202_stage4_from_m201_seed5206/checkpoint.pt --checkpoint-policy m204_5209=runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --outcome-csv runs/m210_current_family_outcome_seed10020/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 60 --max-pairs-per-checkpoint-target 0 --min-base-action-distance 0.0 --target-normal-margins 0.005,0.01,0.02,0.05,0.10,0.15,0.20 --half-width-inflations 0 --min-normal-margin 0.0 --max-normal-margin 0.20 --min-margin-gap 0.02 --min-accepted-wrong-rows 40 --report-variants wrong_matched_history,reset_hidden,zero_current_response,zero_action_history,delayed_history --device cpu --run-dir runs/m210_current_family_boundary_surface_seed10020"
+    },
+    {
+      "name": "m210_current_family_boundary_robustness",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_wrong_history_surface_robustness --boundary-rows-csv runs/m210_current_family_boundary_surface_seed10020/boundary_relocation_rows.csv --control-checkpoint-label none --margin-bucket-width 0.01 --min-accepted-wrong-rows 40 --min-physical-pairs 10 --min-left-steps 5 --min-checkpoints 3 --min-targets 2 --min-margin-buckets 2 --min-success-drop-fraction 1.0 --max-rows-per-pair-fraction 0.25 --max-control-accepted-rows 0 --run-dir runs/m210_current_family_boundary_robustness_seed10020"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m210-current-best-protected-surface-refresh.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m210_current_family_matched_current_seed10020/summary.json",
+      "type": "matched_current_summary"
+    },
+    {
+      "path": "runs/m210_current_family_outcome_seed10020/summary.json",
+      "type": "outcome_summary"
+    },
+    {
+      "path": "runs/m210_current_family_boundary_surface_seed10020/summary.json",
+      "type": "boundary_surface_summary"
+    },
+    {
+      "path": "runs/m210_current_family_boundary_robustness_seed10020/summary.json",
+      "type": "robustness_summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m199_stage2_from_m197_seed5201/checkpoint.pt",
+    "runs/ppo_m202_stage4_from_m201_seed5206/checkpoint.pt",
+    "runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m208-stage6-protected-key-retry-from-m204.md",
+    "runs/m208_critical_key_seed9944/guard_results.csv",
+    "runs/m208_fixed_batch_outcome_eval_seed37/summary.json"
+  ],
+  "decision_rule": "Admit the next objective-sanity or protected-gate design only if the refreshed surface is source-diverse and retains near-boundary wrong-history outcome sensitivity without depending on one row."
+}

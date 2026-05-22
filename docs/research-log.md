@@ -7545,3 +7545,30 @@ Protected-key diagnosis:
 Decision: reject M208. Keep M204 as the current best retained checkpoint. Stop
 the same stage6 PPO recipe and move to M209 protected-key-aware objective/config
 design before any further PPO.
+
+## 20260522T101000Z m209-protected-key-aware-stage6-design
+
+M209 designed the response to the repeated M206/M208 protected-key failure. No
+PPO, actor update, or actor input change was run.
+
+Artifacts:
+
+- `docs/m209-protected-key-aware-stage6-design.md`
+- `experiments/manifests/m210-current-best-protected-surface-refresh.json`
+
+Findings:
+
+- M206 and M208 both improve fixed M193 objective versus M204;
+- both preserve broad behavior and replay gates;
+- both fail the same protected key because normal-history margin moves above
+  the old `max_normal_margin = 0.2` near-boundary window;
+- wrong-history margin gap remains large, so the failure is proof-artifact
+  fragility rather than broad self-ID evidence collapse.
+
+Decision:
+
+- keep M204 as current best;
+- do not train the driver to lower clearance just to satisfy the old single key;
+- do not run another same-recipe stage6 retry;
+- pre-register M210 to refresh a source-diverse current-best-family multi-key
+  protected surface before any further PPO.
