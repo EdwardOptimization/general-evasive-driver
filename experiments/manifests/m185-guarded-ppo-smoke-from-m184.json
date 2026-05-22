@@ -1,0 +1,47 @@
+{
+  "id": "m185-guarded-ppo-smoke-from-m184",
+  "type": "driver_candidate",
+  "hypothesis": "M184 is a low-drift guarded actor update that preserves behavior, protected key, and M183 replay surfaces. A tiny PPO smoke from M184 may retain those gains without washing out the proof surface.",
+  "success_criteria": [
+    "initialize from M184 only after its guards pass",
+    "run a tiny PPO smoke, not long PPO",
+    "preserve M184/M168 behavior success on seeds 9503 and 9504",
+    "preserve protected key 9944|perturbed|28|28",
+    "preserve M168 and M170 M183 boundary replay success-drop counts",
+    "do not promote if fixed objective improves but replay or behavior regresses"
+  ],
+  "failure_criteria": [
+    "run long PPO before smoke gates pass",
+    "drop any protected boundary replay success-drop row",
+    "regress behavior below M168/M184 on the checked seeds",
+    "lose the protected key"
+  ],
+  "commands": [
+    {
+      "name": "m185_tiny_ppo_smoke",
+      "command": "Run a very small PPO continuation from runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt with behavior and boundary retention guards."
+    },
+    {
+      "name": "m185_post_update_gates",
+      "command": "Repeat M184 behavior, protected-key, and M183 boundary replay gates on the PPO candidate."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m185-guarded-ppo-smoke-from-m184.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt",
+    "runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m184_m168_boundary_replay_gate_seed9510/summary.json",
+    "runs/m184_m170_boundary_replay_gate_seed9510/summary.json",
+    "runs/m184_behavior_gate_seed9503/policy_summary.csv",
+    "runs/m184_behavior_gate_seed9504/policy_summary.csv",
+    "runs/m184_critical_key_seed9944/summary.json"
+  ],
+  "decision_rule": "Admit a PPO continuation only if all M184 guards are retained after the tiny PPO smoke."
+}

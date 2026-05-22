@@ -464,11 +464,12 @@ vehicle/tire models, and NMPC-style constrained control.
   for M156 and M142; robustness passes but PPO remains blocked until a reusable
   corpus/objective is built.
 - `m162-boundary-outcome-corpus-objective.md` through
-  `m183-m182-boundary-outcome-corpus-objective.md`: boundary-objective and
+  `m184-m183-guarded-actor-update.md`: boundary-objective and
   proof-surface iterations for the current M168/M170 branch. M182 is the first
   robustness-passing source-diverse boundary wrong-history surface after the
   M179-M181 duplicate-domination blocker; M183 turns it into deduplicated
-  replay-aligned objective corpora.
+  replay-aligned objective corpora; M184 runs the first low-drift guarded actor
+  update and admits only a tiny PPO smoke.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

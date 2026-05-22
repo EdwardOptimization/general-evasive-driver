@@ -43,6 +43,7 @@ Not allowed in the deployable actor:
 | --- | --- | --- |
 | strict anchor | `runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt` | strict full-replay anchor |
 | split-aware candidate | `runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt` | preserves robust rows but loses knife-edge row 67 |
+| guarded actor-update candidate | `runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt` | passes M183 objective, behavior, protected key, and M168/M170 boundary replay |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -67,19 +68,22 @@ slightly stronger action-level sensitivity.
 - M183: deduplicated M182 boundary-outcome corpora pass objective sanity for
   both M168 and M170, and replay sanity reproduces normal-history success plus
   wrong-history failure on every corpus row.
+- M184: a 20-step anchored actor-coupling update from M168 improves the M183
+  fixed objective with tiny anchor drift, preserves behavior on seeds `9503`
+  and `9504`, passes the protected key, and retains all M168/M170 boundary
+  replay success drops.
 
 Current blocker:
 
 ```text
-guarded actor update from the M183 replay-aligned objective without losing
-behavior retention or protected boundary rows
+guarded PPO smoke from M184 without losing behavior retention, protected key,
+or M183 boundary replay rows
 ```
 
 ## Near-Term Rule
 
-Do not run PPO directly from M183. First run a small actor-coupling update with
-strong anchors, then require behavior retention, protected-key replay, and M182
-boundary replay gates.
+Run only a tiny PPO smoke from M184. Reject it if behavior retention, protected
+key replay, or either M183 boundary replay surface regresses.
 
 ## Sensor Profile Policy
 

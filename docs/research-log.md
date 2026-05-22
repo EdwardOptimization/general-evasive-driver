@@ -6680,3 +6680,33 @@ Results:
 Decision: admit M183 for guarded actor-update design, not PPO. Next task is
 M184: start from M168 strict first, run a small anchored actor-coupling update,
 and require behavior/protected-key/M182 boundary replay gates before any PPO.
+
+## 20260522T071849Z m184-m183-guarded-actor-update
+
+M184 ran the first guarded actor update from the M183 replay-aligned objective.
+It starts from M168 strict and does not run PPO.
+
+Artifacts:
+
+- `runs/m184_m168_actor_coupling_anchor100_s20_seed9840`
+- `runs/m184_fixed_batch_outcome_eval_s20_seed37`
+- `runs/m184_m168_boundary_replay_gate_seed9510`
+- `runs/m184_m170_boundary_replay_gate_seed9510`
+- `runs/m184_behavior_gate_seed9503`
+- `runs/m184_behavior_gate_seed9504`
+- `runs/m184_critical_key_seed9944`
+- `docs/m184-m183-guarded-actor-update.md`
+
+Results:
+
+- fixed M183 loss improves `0.176441 -> 0.175359`;
+- independent fixed-batch loss improves `0.172549 -> 0.171518`;
+- action-anchor MSE after update is `0.000005879`;
+- M168 boundary replay retains `16/16` success drops;
+- M170 boundary replay retains `17/17` success drops;
+- behavior success matches M168 on seeds `9503` and `9504`;
+- reset and zero-all ablations still degrade success to `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` passes `1/1`.
+
+Decision: admit guarded PPO smoke from M184 only. Reject PPO if it weakens
+M183 replay surfaces, behavior retention, or the protected key.

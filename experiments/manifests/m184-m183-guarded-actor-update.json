@@ -18,17 +18,69 @@
   "commands": [
     {
       "name": "m184_m168_guarded_actor_coupling_smoke",
-      "command": "Run outcome_intervention_optimize from M168 strict with runs/m183_m168_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.npz, actor_coupling train scope, action-anchor coefficient 100, and a small step count."
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_optimize --init-checkpoint runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt --snippet-npz runs/m183_m168_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.npz --device cpu --steps 20 --batch-size 64 --learning-rate 0.0001 --logprob-margin 0.05 --seed 9840 --grad-clip-norm 1.0 --log-interval 5 --eval-batch-size 64 --eval-batches 30 --eval-seed 0 --train-scope actor_coupling --action-anchor-checkpoint runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt --action-anchor-env-config configs/m121_human_view_zero_obstacle_relvel.json --action-anchor-coef 100.0 --action-anchor-episodes 30 --action-anchor-seed 9840 --action-anchor-horizon-steps 15 --action-anchor-sample-stride 3 --action-anchor-max-samples 800 --action-anchor-batch-size 256 --run-dir runs/m184_m168_actor_coupling_anchor100_s20_seed9840"
     },
     {
-      "name": "m184_behavior_and_replay_gates",
-      "command": "Evaluate the candidate on behavior retention, protected-key replay, and fixed M183 boundary replay before considering PPO."
+      "name": "m184_fixed_batch_eval",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_eval --snippet-npz runs/m183_m168_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.npz --checkpoint-policy m168_strict=runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt --checkpoint-policy m184_s20=runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt --device cpu --batch-size 64 --batches 50 --seed 37 --logprob-margin 0.05 --run-dir runs/m184_fixed_batch_outcome_eval_s20_seed37"
+    },
+    {
+      "name": "m184_m168_boundary_replay",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_replay_gate --checkpoint-policy m168_strict=runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt --checkpoint-policy m184_s20=runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt --corpus-csv runs/m183_m168_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv --env-config configs/m121_human_view_zero_obstacle_relvel.json --max-continuation-steps 60 --baseline-policy m168_strict --candidate-policy m184_s20 --max-normal-success-drop 0.0 --max-normal-margin-regression 0.005 --max-margin-gap-regression 0.001 --max-success-drop-count-regression 0 --device cpu --run-dir runs/m184_m168_boundary_replay_gate_seed9510"
+    },
+    {
+      "name": "m184_m170_boundary_replay",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_replay_gate --checkpoint-policy m170_split=runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt --checkpoint-policy m184_s20=runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt --corpus-csv runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv --env-config configs/m121_human_view_zero_obstacle_relvel.json --max-continuation-steps 60 --baseline-policy m170_split --candidate-policy m184_s20 --max-normal-success-drop 0.0 --max-normal-margin-regression 0.005 --max-margin-gap-regression 0.001 --max-success-drop-count-regression 0 --device cpu --run-dir runs/m184_m170_boundary_replay_gate_seed9510"
+    },
+    {
+      "name": "m184_behavior_seed9503",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m121_human_view_zero_obstacle_relvel.json --episodes 80 --seed 9503 --checkpoint-policy m168_strict=runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt --checkpoint-policy m184_s20=runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt --checkpoint-policy m184_s20_reset=runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt@reset_recurrent_state --checkpoint-policy m184_s20_zero_all=runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt@zero_all_response --checkpoint-policy m184_s20_noact=runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt@zero_action_history --device cpu --run-dir runs/m184_behavior_gate_seed9503"
+    },
+    {
+      "name": "m184_behavior_seed9504",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m121_human_view_zero_obstacle_relvel.json --episodes 80 --seed 9504 --checkpoint-policy m168_strict=runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt --checkpoint-policy m184_s20=runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt --checkpoint-policy m184_s20_reset=runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt@reset_recurrent_state --checkpoint-policy m184_s20_zero_all=runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt@zero_all_response --checkpoint-policy m184_s20_noact=runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt@zero_action_history --device cpu --run-dir runs/m184_behavior_gate_seed9504"
+    },
+    {
+      "name": "m184_protected_key",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.critical_key_replay_guard --reference-manifest runs/m133_zero_relvel_s60_strict_60ep_seed9900/manifest.json --reference-cases-csv runs/m133_zero_relvel_s60_strict_60ep_seed9900/outcome_sensitive_snippets.csv --reference-cases-csv runs/m133_zero_relvel_s60_strict_60ep_seed9920/outcome_sensitive_snippets.csv --case-key '9944|perturbed|28|28' --checkpoint-policy m168_strict=runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt --checkpoint-policy m184_s20=runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt --reference-policy m168_strict --device cpu --run-dir runs/m184_critical_key_seed9944"
     }
   ],
   "required_artifacts": [
     {
       "path": "docs/m184-m183-guarded-actor-update.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m184_m168_actor_coupling_anchor100_s20_seed9840/summary.json",
+      "type": "objective_summary"
+    },
+    {
+      "path": "runs/m184_fixed_batch_outcome_eval_s20_seed37/summary.json",
+      "type": "fixed_eval_summary"
+    },
+    {
+      "path": "runs/m184_m168_boundary_replay_gate_seed9510/summary.json",
+      "type": "m168_boundary_replay"
+    },
+    {
+      "path": "runs/m184_m170_boundary_replay_gate_seed9510/summary.json",
+      "type": "m170_boundary_replay"
+    },
+    {
+      "path": "runs/m184_behavior_gate_seed9503/policy_summary.csv",
+      "type": "behavior_seed9503"
+    },
+    {
+      "path": "runs/m184_behavior_gate_seed9504/policy_summary.csv",
+      "type": "behavior_seed9504"
+    },
+    {
+      "path": "runs/m184_critical_key_seed9944/summary.json",
+      "type": "protected_key"
     }
   ],
   "baseline_checkpoints": [
@@ -41,5 +93,21 @@
     "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.npz",
     "runs/m183_m170_boundary_replay_sanity_seed9510/summary.json"
   ],
-  "decision_rule": "Only a low-drift guarded actor update that preserves behavior and boundary replay may admit PPO smoke."
+  "results": {
+    "optimized_checkpoint": "runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt",
+    "loss_mean_improvement": 0.0010827273130416815,
+    "independent_loss_mean_improvement": 0.0010317957401275635,
+    "after_action_anchor_mse": 0.000005878981937712524,
+    "behavior_seed9503_success": 0.8625,
+    "behavior_seed9504_success": 0.8625,
+    "reset_success": 0.85,
+    "zero_all_success": 0.80,
+    "protected_key_pass": true,
+    "m168_boundary_replay_gate_pass": true,
+    "m168_boundary_success_drop_count": 16,
+    "m170_boundary_replay_gate_pass": true,
+    "m170_boundary_success_drop_count": 17
+  },
+  "decision_rule": "Only a low-drift guarded actor update that preserves behavior and boundary replay may admit PPO smoke.",
+  "decision": "admit_guarded_ppo_smoke"
 }
