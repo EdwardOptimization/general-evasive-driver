@@ -2,7 +2,7 @@
   "id": "m274-terminal-margin-retention-design",
   "type": "infrastructure",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -78,6 +78,22 @@
     "docs/m273-m272-boundary-trust-region-audit.md",
     "runs/m273_m272_boundary_trust_region_audit/summary.json"
   ],
-  "decision_rule": "M274 should produce a concrete terminal-margin retention design and only then admit a tightly scoped actor-update or interpolation experiment.",
-  "next_blocker": "pending M274 terminal-margin retention design"
+  "results": {
+    "selected_design": "two_layer_terminal_margin_retention",
+    "hard_gate": "lexicographic simulator replay terminal-margin gate",
+    "differentiable_proxy": "trajectory action anchor with inverse-margin fragile-row weights",
+    "required_hard_row": "M183/M170 row16",
+    "first_failed_alpha": 0.0105,
+    "safe_alpha": 0.01025,
+    "minimum_export_artifacts": [
+      "fragile_rows.csv",
+      "terminal_margin_registry.csv",
+      "retention_trajectory_anchor.npz",
+      "recovery_trajectory_anchor.npz",
+      "summary.json"
+    ]
+  },
+  "decision_rule": "M274 completes the design and admits only a surface-export implementation next. No actor update or PPO should run until the fragile-row registry and terminal-margin trajectory anchors are exported and validated.",
+  "decision": "implement_terminal_margin_retention_surface_export",
+  "next_blocker": "m275-terminal-margin-retention-surface-export"
 }

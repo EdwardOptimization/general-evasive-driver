@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 282,
+    "completed": 283,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m273-m272-boundary-trust-region-audit.md",
+    "command_log": "docs/m274-terminal-margin-retention-design.md",
     "returncode": 0,
     "run_dir": "runs/m273_m272_boundary_trust_region_audit",
     "status": "completed",
-    "task_id": "m273-m272-boundary-trust-region-audit"
+    "task_id": "m274-terminal-margin-retention-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m274-terminal-margin-retention-design.json",
-    "hypothesis": "Adding an explicit terminal-margin retention layer for fragile closed-loop rows can prevent M271-style objective improvements from crossing near-zero normal-history clearance margins.",
-    "id": "m274-terminal-margin-retention-design",
+    "command": "see experiments/manifests/m275-terminal-margin-retention-surface-export.json",
+    "hypothesis": "A refreshed current-base terminal-margin retention surface can represent fragile closed-loop rows in a reusable registry and trajectory-anchor format, enabling the next guarded update to protect row16 explicitly.",
+    "id": "m275-terminal-margin-retention-surface-export",
     "kind": "infrastructure",
-    "notes": "Pending: design terminal-margin retention; PPO remains blocked",
-    "priority": 2690,
+    "notes": "Pending: export terminal-margin retention surface; PPO remains blocked",
+    "priority": 2700,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T180319Z"
+  "updated_at_utc": "20260522T180657Z"
 }
