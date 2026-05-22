@@ -292,11 +292,15 @@ slightly stronger action-level sensitivity.
   old/current/new replay, broad behavior, and protected key. They do not beat
   M224 fixed loss, so M224 remains the best actor-update checkpoint and admits
   one guarded PPO smoke.
+- M226: runs one tiny guarded PPO smoke from M224 using the M223 corpus and M224
+  action anchor. Broad behavior remains `0.8625`, but fixed M223 does not beat
+  M224, M183 M170 replay drops to `16/17`, and protected key `9944` fails with
+  normal margin `0.203847`. M226 is rejected; current best remains M224.
 
 Current blocker:
 
 ```text
-one tiny guarded PPO smoke from M224
+PPO smoke retention failure audit
 ```
 
 ## Near-Term Rule
@@ -326,7 +330,9 @@ update from M219 seed `5216` is admitted before repeat evidence. M224 passed as
 a single actor update, so M225 must repeat the exact recipe from the same M219
 source on fresh seeds before any PPO. M225 passed repeat gates; only one tiny
 guarded PPO smoke from M224 is admitted before PPO repeat or longer
-continuation.
+continuation. M226 failed proof-surface retention despite stable broad behavior;
+do not repeat or continue PPO until M227 audits and pre-registers a stronger PPO
+retention mechanism.
 
 ## Sensor Profile Policy
 

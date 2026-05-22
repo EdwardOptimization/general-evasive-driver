@@ -1,0 +1,45 @@
+{
+  "id": "m227-ppo-smoke-retention-failure-audit",
+  "type": "gate",
+  "hypothesis": "M226 shows that ordinary guarded PPO with rollout action anchoring and the M223 outcome corpus can still lose proof-surface retention: M183 M170 drops one row and the historical protected key leaves the near-boundary window. Before any more PPO, audit whether PPO needs snippet-level action anchoring or another replay-surface retention mechanism.",
+  "success_criteria": [
+    "do not run another PPO smoke before the audit is documented",
+    "compare M224 and M226 on fixed M223 objective, M183 M170 replay, and protected key",
+    "separate broad behavior retention from proof-surface retention",
+    "identify why M224/M225 actor updates are stable but M226 PPO is not",
+    "pre-register the next code/config milestone before any more PPO",
+    "keep M224 as current best unless a new gated candidate passes all surfaces"
+  ],
+  "failure_criteria": [
+    "repeat M226 before audit",
+    "run longer PPO from M226",
+    "promote M226 based on broad behavior",
+    "change actor inputs",
+    "loosen replay or protected-key thresholds after seeing the result"
+  ],
+  "commands": [
+    {
+      "name": "m227_audit",
+      "command": "Use M226 artifacts to classify PPO proof-surface retention failure and pre-register the next safe PPO retention mechanism."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m227-ppo-smoke-retention-failure-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt",
+    "runs/ppo_m226_guarded_from_m224_seed5218/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m226-guarded-ppo-smoke-from-m224.md",
+    "runs/m226_fixed_batch_outcome_eval_seed37/summary.json",
+    "runs/m226_m183_m170_replay_gate_seed9510/summary.json",
+    "runs/m226_critical_key_seed9944/summary.json",
+    "runs/m226_behavior_gate_seed9505/policy_summary.csv",
+    "runs/m226_behavior_gate_seed9506/policy_summary.csv"
+  ],
+  "decision_rule": "Only an audit that preserves the replay/protected-key standard and pre-registers a stronger PPO retention mechanism may unblock further PPO."
+}

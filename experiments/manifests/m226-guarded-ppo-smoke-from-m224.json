@@ -69,5 +69,26 @@
     "runs/m225_behavior_gate_seed9506/policy_summary.csv",
     "runs/m225_critical_key_seed9944/summary.json"
   ],
-  "decision_rule": "Only a tiny PPO smoke that preserves fixed objective, behavior, protected key, old replay, refreshed replay, current replay, and new replay may admit PPO repeats."
+  "results": {
+    "checkpoint": "runs/ppo_m226_guarded_from_m224_seed5218/checkpoint.pt",
+    "train_eval_termination_rate": 0.0,
+    "fixed_loss_m224_10063": 0.20982385843992232,
+    "fixed_loss_m226_5218": 0.20983428537845612,
+    "m183_m168_success_drop_count": 16,
+    "m183_m170_success_drop_count": 16,
+    "m183_m170_reference_success_drop_count": 17,
+    "m193_m189_success_drop_count": 14,
+    "m212_m204_success_drop_count": 17,
+    "m223_m219_success_drop_count": 17,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "reset_success": 0.85,
+    "zero_all_success": 0.80,
+    "protected_key_pass": false,
+    "protected_key_normal_margin": 0.20384706090081361,
+    "protected_key_wrong_history_margin": 0.10416292325027521,
+    "protected_key_margin_gap": 0.0996841376505384
+  },
+  "decision_rule": "Only a tiny PPO smoke that preserves fixed objective, behavior, protected key, old replay, refreshed replay, current replay, and new replay may admit PPO repeats.",
+  "decision": "reject_ppo_smoke_replay_and_protected_key_failure"
 }

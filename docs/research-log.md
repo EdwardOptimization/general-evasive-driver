@@ -8233,3 +8233,45 @@ Decision:
 ```text
 admit_guarded_ppo_smoke_from_m224
 ```
+
+## 20260522T131500Z m226-guarded-ppo-smoke-from-m224
+
+M226 ran one tiny guarded PPO smoke from M224 using the M223 corpus and M224
+action anchor. Actor inputs were unchanged.
+
+Artifacts:
+
+- `configs/ppo_m226_guarded_from_m224_smoke.json`
+- `runs/ppo_m226_guarded_from_m224_seed5218`
+- `runs/m226_fixed_batch_outcome_eval_seed37`
+- `runs/m226_m183_m168_replay_gate_seed9510`
+- `runs/m226_m183_m170_replay_gate_seed9510`
+- `runs/m226_m193_m189_replay_gate_seed9630`
+- `runs/m226_m212_m204_replay_gate_seed10040`
+- `runs/m226_m223_m219_replay_gate_seed10060`
+- `runs/m226_behavior_gate_seed9505`
+- `runs/m226_behavior_gate_seed9506`
+- `runs/m226_critical_key_seed9944`
+- `docs/m226-guarded-ppo-smoke-from-m224.md`
+- `experiments/manifests/m227-ppo-smoke-retention-failure-audit.json`
+
+Results:
+
+- built-in eval termination rate is `0.0`;
+- fixed M223 loss is `0.209834`, slightly worse than M224 `0.209824`;
+- M183 M168, M193 M189, M212 M204, and M223 M219 replay gates pass;
+- M183 M170 replay fails: candidate retains `16/17` drops and normal success
+  falls to `0.941176`;
+- behavior seeds `9505` and `9506` retain success `0.8625`;
+- protected key fails with normal margin `0.203847` above the `0.2`
+  near-boundary window.
+
+Decision: M226 is negative. This is not broad behavior collapse, but PPO still
+loses proof-surface retention. Keep M224 as current best and audit PPO retention
+before any more PPO.
+
+Decision:
+
+```text
+reject_ppo_smoke_replay_and_protected_key_failure
+```

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 234,
+    "completed": 235,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m225-m223-actor-update-repeat.md",
+    "command_log": "docs/m226-guarded-ppo-smoke-from-m224.md",
     "returncode": 0,
-    "run_dir": "runs/m225_critical_key_seed9944",
+    "run_dir": "runs/m226_critical_key_seed9944",
     "status": "completed",
-    "task_id": "m225-m223-actor-update-repeat"
+    "task_id": "m226-guarded-ppo-smoke-from-m224"
   },
   "next_task": {
-    "command": "see experiments/manifests/m226-guarded-ppo-smoke-from-m224.json",
-    "hypothesis": "M225 proves the M223 actor-update recipe is repeat-stable while M224 remains best fixed-loss; run one tiny guarded PPO smoke from M224.",
-    "id": "m226-guarded-ppo-smoke-from-m224",
-    "kind": "driver_candidate",
-    "notes": "Start from M224, use M223 corpus and M224 action anchor; no repeat or longer PPO before gates pass.",
-    "priority": 2210,
+    "command": "see experiments/manifests/m227-ppo-smoke-retention-failure-audit.json",
+    "hypothesis": "M226 broad behavior is stable but proof-surface replay and protected key fail; audit PPO retention before any more PPO.",
+    "id": "m227-ppo-smoke-retention-failure-audit",
+    "kind": "gate",
+    "notes": "Compare stable M224/M225 actor updates against M226 PPO; design snippet-level or replay-surface PPO retention mechanism.",
+    "priority": 2220,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T130500Z"
+  "updated_at_utc": "20260522T131500Z"
 }
