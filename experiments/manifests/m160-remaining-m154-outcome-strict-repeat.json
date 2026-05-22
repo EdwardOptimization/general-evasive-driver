@@ -1,0 +1,36 @@
+{
+  "id": "m160-remaining-m154-outcome-strict-repeat",
+  "type": "gate",
+  "hypothesis": "After M159 clears the current zero-relvel matched-history action blocker, the M156 s20 candidate must still pass the remaining M154 outcome and strict proof-surface stages before any PPO continuation.",
+  "success_criteria": [
+    "use the M156 s20 checkpoint and current P0 zero-relvel actor input contract",
+    "run matched-history outcome intervention on the M159 current surface",
+    "clear wrong-history outcome thresholds: mean margin gap at least 0.005, at least 6 success-drop pairs, and at least 6 selected physical pairs",
+    "run strict proof-surface gates at seeds 9900 and 9920",
+    "meet strict proof-surface selected-pair and selected-seed thresholds for both seeds",
+    "state explicitly whether guarded PPO continuation is admitted or rejected"
+  ],
+  "failure_criteria": [
+    "start PPO before outcome and strict proof-surface gates pass",
+    "reuse the old M118 surface for current zero-relvel outcome claims",
+    "claim driver promotion from M154; M154 can only admit guarded PPO",
+    "ignore the M159 top-80 negative calibration when choosing the action/outcome surface"
+  ],
+  "commands": [
+    {
+      "name": "m160_remaining_m154_outcome_strict_repeat",
+      "command": "Run matched-history outcome and strict proof-surface gates for M156 s20 using the M159 current zero-relvel surface; admit guarded PPO only if all remaining M154 thresholds pass."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m160-remaining-m154-outcome-strict-repeat.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt",
+    "runs/m159_current_baseline_action_gate_zero_relvel_allpairs_seed9510/summary.json"
+  ],
+  "decision_rule": "Guarded PPO continuation is admitted only if the M159 action result, matched-history outcome gate, and strict proof-surface gates all pass; otherwise document the failed stage and next repair target."
+}

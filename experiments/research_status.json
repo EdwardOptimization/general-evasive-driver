@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 167,
+    "completed": 168,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m158-current-baseline-action-surface-recalibration.md",
+    "command_log": "docs/m159-current-action-surface-coverage-repeat.md",
     "returncode": 0,
-    "run_dir": "runs/m158_current_baseline_action_gate_zero_relvel_seed9510",
+    "run_dir": "runs/m159_current_baseline_action_gate_zero_relvel_allpairs_seed9510",
     "status": "completed",
-    "task_id": "m158-current-baseline-action-surface-recalibration"
+    "task_id": "m159-current-action-surface-coverage-repeat"
   },
   "next_task": {
-    "command": "see experiments/manifests/m159-current-action-surface-coverage-repeat.json",
-    "hypothesis": "The M158 current zero-relvel action surface has enough action signal but too little per-checkpoint physical-pair coverage, so broadening the current-baseline corpus should clear the registered M154 action-stage coverage threshold.",
-    "id": "m159-current-action-surface-coverage-repeat",
+    "command": "see experiments/manifests/m160-remaining-m154-outcome-strict-repeat.json",
+    "hypothesis": "After M159 clears the current zero-relvel matched-history action blocker, the M156 s20 candidate must still pass the remaining M154 outcome and strict proof-surface stages before any PPO continuation.",
+    "id": "m160-remaining-m154-outcome-strict-repeat",
     "kind": "gate",
-    "notes": "Pending after M158: broaden current zero-relvel action surface from 89/87 physical pairs to the 100-pair target for M142/M156",
-    "priority": 1540,
+    "notes": "Pending after M159: action stage passes on full current zero-relvel surface; outcome and strict proof-surface gates remain before PPO",
+    "priority": 1550,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T071500Z"
+  "updated_at_utc": "20260522T075000Z"
 }

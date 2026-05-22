@@ -18,8 +18,16 @@
   ],
   "commands": [
     {
-      "name": "m159_current_action_surface_coverage_repeat",
-      "command": "Broaden the M158 current zero-relvel matched-current corpus, then rerun matched_history_intervention_gate for M142 and M156 under the registered M154 action thresholds."
+      "name": "m159_current_baseline_matched_current_zero_relvel",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_current_response_ambiguity --checkpoint-policy m142_a400=runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt --checkpoint-policy m156_s20=runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --probe-seeds 9510,9511,9512,9513 --episodes 40 --horizon-steps 15 --sample-stride 3 --max-samples 1200 --nearest-k 12 --max-visible-quantile 0.05 --min-target-z-delta 1.0 --max-pairs-per-target 320 --max-pairs-per-physical-pair 1 --min-accepted-pairs 60 --device cpu --run-dir runs/m159_current_baseline_matched_current_zero_relvel_seed9510"
+    },
+    {
+      "name": "m159_current_baseline_action_gate_top80",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_history_intervention_gate --checkpoint-policy m142_a400=runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt --checkpoint-policy m156_s20=runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --pairs-csv runs/m159_current_baseline_matched_current_zero_relvel_seed9510/matched_pairs.csv --delay-steps 10 --min-action-distance 0.02 --max-pairs-per-checkpoint-target 80 --device cpu --run-dir runs/m159_current_baseline_action_gate_zero_relvel_seed9510"
+    },
+    {
+      "name": "m159_current_baseline_action_gate_allpairs",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_history_intervention_gate --checkpoint-policy m142_a400=runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt --checkpoint-policy m156_s20=runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --pairs-csv runs/m159_current_baseline_matched_current_zero_relvel_seed9510/matched_pairs.csv --delay-steps 10 --min-action-distance 0.02 --max-pairs-per-checkpoint-target 0 --device cpu --run-dir runs/m159_current_baseline_action_gate_zero_relvel_allpairs_seed9510"
     }
   ],
   "required_artifacts": [
@@ -31,7 +39,15 @@
   "baseline_checkpoints": [
     "runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt",
     "runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt",
-    "runs/m158_current_baseline_action_gate_zero_relvel_seed9510/summary.json"
+    "runs/m158_current_baseline_action_gate_zero_relvel_seed9510/summary.json",
+    "runs/m159_current_baseline_matched_current_zero_relvel_seed9510/summary.json",
+    "runs/m159_current_baseline_action_gate_zero_relvel_seed9510/summary.json",
+    "runs/m159_current_baseline_action_gate_zero_relvel_allpairs_seed9510/summary.json"
   ],
-  "decision_rule": "Admit the remaining M154 repeat stages only if the broadened current action surface clears coverage, action-distance, and closer-to-right thresholds for both M142 and M156."
+  "decision_rule": "Admit the remaining M154 repeat stages only if the broadened current action surface clears coverage, action-distance, and closer-to-right thresholds for both M142 and M156.",
+  "result": {
+    "status": "completed",
+    "decision": "admit_remaining_m154_stages_no_ppo_admission",
+    "notes": "The top-80 cap remains negative, but the full broadened current zero-relvel surface clears physical-pair coverage, above-threshold action-distance, and closer-to-right thresholds for both M142 and M156. This clears the action-stage blocker only; outcome and strict proof-surface gates are still required before PPO."
+  }
 }

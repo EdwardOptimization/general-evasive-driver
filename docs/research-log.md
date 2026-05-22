@@ -6309,3 +6309,52 @@ PPO. The current zero-relvel surface shows real action dependence for M142 and
 M156, but each checkpoint remains below the M154 target of `100` physical pairs.
 The next task is M159: broaden the current zero-relvel corpus and rerun the
 action stage before returning to outcome gates or PPO.
+
+## 20260522T075000Z m159-current-action-surface-coverage-repeat
+
+M159 broadens the current zero-relvel matched-current corpus while keeping the
+actor input contract and wrong-history action thresholds unchanged.
+
+Corpus run:
+
+```text
+runs/m159_current_baseline_matched_current_zero_relvel_seed9510
+```
+
+Coverage expands from M158 `318` accepted pairs / `94` physical pairs to M159
+`1868` accepted pairs / `343` physical pairs.
+
+The historical top-80 per checkpoint/target action cap remains negative:
+
+```text
+runs/m159_current_baseline_action_gate_zero_relvel_seed9510
+```
+
+| Checkpoint | Physical pairs | Above `0.02` | Closer-to-right |
+| --- | ---: | ---: | ---: |
+| m142_a400 | 78 | 0.650000 | 0.666667 |
+| m156_s20 | 84 | 0.687500 | 0.691667 |
+
+This shows that sorting to the top target-delta rows is not a reliable sampling
+cap for the current action surface.
+
+The full broadened surface clears the registered wrong-history action
+thresholds:
+
+```text
+runs/m159_current_baseline_action_gate_zero_relvel_allpairs_seed9510
+```
+
+| Checkpoint | Wrong rows | Physical pairs | Mean action distance | Above `0.02` | Closer-to-right |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| m142_a400 | 940 | 319 | 0.044709 | 0.732979 | 0.719149 |
+| m156_s20 | 928 | 318 | 0.049950 | 0.789871 | 0.730603 |
+
+Target diversity is retained across braking, lateral, and yaw targets. The
+surface covers four probe seeds, `29` unique left rollout seeds, and `20` unique
+right rollout seeds.
+
+Decision: M159 clears the current zero-relvel matched-history action blocker
+for M156, but does not admit PPO. M156 is admitted only to the remaining M154
+repeat stages: matched-history outcome, strict proof-surface, and promotion
+boundary check.

@@ -453,6 +453,9 @@ vehicle/tire models, and NMPC-style constrained control.
   pair/checkpoint label binding, confirms M156 has wrong-history action signal
   on the old M24 surface, and mines a current zero-relvel action surface that
   still needs broader per-checkpoint coverage before PPO admission.
+- `m159-current-action-surface-coverage-repeat.md`: broadens the current
+  zero-relvel action surface; the full surface clears action thresholds for
+  M142/M156, while the top-80 cap remains a negative calibration result.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

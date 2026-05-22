@@ -196,3 +196,10 @@ fix. A fresh current zero-relvel surface also shows wrong-history action signal
 for M142 and M156, but per-checkpoint coverage is still below the M154 target
 (`89` and `87` physical pairs versus `100`). The next frontier is M159:
 broaden the current zero-relvel action surface before outcome gates or PPO.
+
+M159 broadens that current zero-relvel surface. The top-80 cap remains negative,
+but the full surface clears action-stage thresholds for both M142 and M156:
+physical pairs `319` / `318`, above-threshold fractions `0.733` / `0.790`, and
+closer-to-right fractions `0.719` / `0.731`. This clears only the action-stage
+blocker. M156 still needs the remaining M154 matched-history outcome and strict
+proof-surface gates before any PPO continuation.
