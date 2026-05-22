@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 174,
+    "completed": 175,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m165-guarded-ppo-smoke-from-boundary-update.md",
+    "command_log": "docs/m166-boundary-retention-ppo-micro-smoke.md",
     "returncode": 0,
-    "run_dir": "runs/ppo_m165_guarded_boundary_smoke_seed5165",
+    "run_dir": "runs/ppo_m166_boundary_retention_micro_seed5166",
     "status": "completed",
-    "task_id": "m165-guarded-ppo-smoke-from-boundary-update"
+    "task_id": "m166-boundary-retention-ppo-micro-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m166-boundary-retention-ppo-micro-smoke.json",
-    "hypothesis": "A smaller or more tightly anchored PPO micro-smoke from M163 may retain the M164 boundary success-drop signal that M165 lost by one row.",
-    "id": "m166-boundary-retention-ppo-micro-smoke",
+    "command": "see experiments/manifests/m167-multiseed-boundary-retention-ppo-repeat.json",
+    "hypothesis": "The M166 1024-step anchor50 PPO micro recipe should be repeated across seeds before any longer PPO because M165 showed that a superficially safe PPO step can regress the fixed boundary replay signal.",
+    "id": "m167-multiseed-boundary-retention-ppo-repeat",
     "kind": "driver_candidate",
-    "notes": "Pending after M165: behavior and protected key pass but boundary replay count retention fails by one success-drop row",
-    "priority": 1610,
+    "notes": "Pending after M166: one PPO micro seed passed all gates but repeat is required before longer PPO",
+    "priority": 1620,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T043641Z"
+  "updated_at_utc": "20260522T044031Z"
 }

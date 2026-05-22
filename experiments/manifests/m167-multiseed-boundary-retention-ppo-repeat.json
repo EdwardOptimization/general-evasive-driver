@@ -1,0 +1,38 @@
+{
+  "id": "m167-multiseed-boundary-retention-ppo-repeat",
+  "type": "driver_candidate",
+  "hypothesis": "The M166 1024-step anchor50 PPO micro recipe should be repeated across seeds before any longer PPO because M165 showed that a superficially safe PPO step can regress the fixed boundary replay signal.",
+  "success_criteria": [
+    "run at least two additional M166-style PPO micro seeds from M163",
+    "do not continue from M165 or a failed checkpoint",
+    "keep actor inputs unchanged and hidden labels out of the actor",
+    "evaluate fixed M162 objective for every repeat",
+    "run M164 boundary replay gate for every repeat",
+    "run behavior retention and protected-key gates for the best repeat",
+    "admit longer staged PPO only if repeats preserve boundary replay success-drop count"
+  ],
+  "failure_criteria": [
+    "declare the single M166 seed sufficient for longer PPO",
+    "relax the M164 replay thresholds to pass a repeat",
+    "skip the fixed boundary replay gate",
+    "select a repeat only by PPO rollout reward"
+  ],
+  "commands": [
+    {
+      "name": "m167_multiseed_ppo_micro_repeat",
+      "command": "Repeat the M166 PPO micro recipe across seeds and gate each repeat with M164 boundary replay."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m167-multiseed-boundary-retention-ppo-repeat.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m163_boundary_outcome_actor_coupling_anchor100_s20_seed9832/optimized_checkpoint.pt",
+    "runs/ppo_m166_boundary_retention_micro_seed5166/checkpoint.pt",
+    "runs/m166_boundary_outcome_replay_gate_seed9510/summary.json"
+  ],
+  "decision_rule": "Admit longer staged PPO only if repeated M166-style PPO seeds preserve behavior, protected key, and the fixed M164 boundary replay signal."
+}
