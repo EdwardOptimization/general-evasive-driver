@@ -25,6 +25,42 @@
     {
       "path": "docs/m142-critical-key-guarded-repair.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m142_interpolation_guard_seed9944/summary.json",
+      "type": "guard_summary"
+    },
+    {
+      "path": "runs/m142_interpolation_guard_seed9944/policy_summary.csv",
+      "type": "guard_summary_csv"
+    },
+    {
+      "path": "runs/m142_interpolation_guard_seed9944/guard_results.csv",
+      "type": "guard_results_csv"
+    },
+    {
+      "path": "runs/m142_m136_interpolation_eval_seed0/policy_summary.csv",
+      "type": "fixed_loss_eval"
+    },
+    {
+      "path": "runs/m142_m128_interpolation_eval_seed0/policy_summary.csv",
+      "type": "fixed_loss_eval"
+    },
+    {
+      "path": "runs/m142_behavior_gate_seed9503/policy_summary.csv",
+      "type": "behavior_eval"
+    },
+    {
+      "path": "runs/m142_interp_a400_strict_60ep_seed9900/summary.json",
+      "type": "strict_miner_summary"
+    },
+    {
+      "path": "runs/m142_interp_a400_strict_60ep_seed9920/summary.json",
+      "type": "strict_miner_summary"
     }
   ],
   "success_criteria": [

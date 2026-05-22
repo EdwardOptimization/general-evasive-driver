@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 150,
+    "completed": 151,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m141-critical-key-replay-guard.md",
+    "command_log": "docs/m142-critical-key-guarded-repair.md",
     "returncode": 0,
-    "run_dir": "runs/m141_critical_key_replay_guard_seed9944",
+    "run_dir": "runs/m142_interpolation_guard_seed9944",
     "status": "completed",
-    "task_id": "m141-critical-key-replay-guard"
+    "task_id": "m142-critical-key-guarded-repair"
   },
   "next_task": {
-    "command": "see experiments/manifests/m142-critical-key-guarded-repair.json",
-    "hypothesis": "A critical-key pre-screen can prevent near-threshold proof-surface regressions while allowing small fixed-loss improvements",
-    "id": "m142-critical-key-guarded-repair",
-    "kind": "objective_sanity",
-    "notes": "Pending after M141: only run strict miners after the cheap critical-key guard passes",
-    "priority": 1370,
+    "command": "see experiments/manifests/m143-driver-like-input-profile-audit.json",
+    "hypothesis": "A cleaner driver-like minimal profile can test professional-driver-like self-identification more directly than profiles that feed low-level tire diagnostics",
+    "id": "m143-driver-like-input-profile-audit",
+    "kind": "gate",
+    "notes": "Pending after latest MHTML input revision: define exact profiles and use supervised probes before frozen-recipe RL comparison",
+    "priority": 1380,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T012800Z"
+  "updated_at_utc": "20260522T014500Z"
 }

@@ -5398,3 +5398,98 @@ M139 s40 snip100:    0/1 accepted, fail
 Decision: M141 is a positive harness result. The guard reproduces M132 and
 rejects the M139 lost-key candidates without changing actor inputs. M142 should
 use this guard as a pre-screen for minimal repair candidates.
+
+## 20260522T014500Z m142-critical-key-guarded-repair
+
+M142 uses the M141 critical-key guard as a cheap pre-screen for a minimal repair
+candidate before strict miners.
+
+The experiment interpolated from M132 s60 to M139 s20/snippet1000:
+
+```text
+alpha_0_1
+alpha_0_2
+alpha_0_3
+alpha_0_4
+alpha_0_5
+```
+
+The protected key is `9944|perturbed|28|28`. Guard result:
+
+```text
+M132 s60:          1/1 accepted
+alpha_0_1:         1/1 accepted
+alpha_0_2:         1/1 accepted
+alpha_0_3:         1/1 accepted
+alpha_0_4:         1/1 accepted
+alpha_0_5:         0/1 accepted
+M139 s20/snippet1000: 0/1 accepted
+```
+
+The accepted margin gap decays from M132 `0.005196` to alpha_0_4 `0.005014`;
+alpha_0_5 falls below the strict threshold at `0.004959`.
+
+`alpha_0_4` is the maximum guard-pass candidate. It gives tiny fixed-loss
+improvements on M136 (`0.106838 -> 0.106782`) and M128 (`0.252310 ->
+0.252169`), keeps behavior on seed `9503`, and restores the M133 strict proof
+surface:
+
+```text
+seed9900: 10 selected pairs / 8 selected seeds
+seed9920: 9 selected pairs / 8 selected seeds
+```
+
+Decision: M142 is a positive harness result and admits
+`runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt` as the current
+guarded repair candidate. It is not a new driver-success claim; the useful
+result is that critical-key replay prevents near-threshold rollout regressions
+before expensive strict miners or PPO continuation.
+
+The next queued task is M143, a driver-like input-profile audit prompted by the
+latest MHTML discussion. The rule is to compare input profiles with supervised
+probes and then a frozen RL recipe, not to tune each profile independently.
+
+## 20260522T014600Z mhtml-driver-like-input-revision
+
+Rechecked the latest local MHTML snapshot:
+
+```text
+/home/quyaonan/workspace/AutoDrift - 项目评估分析.mhtml
+```
+
+The newest input discussion revises the earlier M91/M92/M104 wheel profile
+priority. The actor should not assume `v_parallel_i` as a required minimum input
+yet. A cleaner professional-driver-like test should first use:
+
+```text
+commands
+actual actuator feedback
+ax / ay / yaw_rate
+steering torque or EPS motor current
+road boundary / drivable corridor
+obstacle position and size
+```
+
+Then compare optional vehicle-proprioception channels:
+
+```text
+raw wheel_speed_fl/fr/rl/rr
+roll / pitch / vertical acceleration
+suspension feedback
+engine or motor RPM
+```
+
+`v_parallel_i` is demoted to an optional low-level fusion comparison and remains
+valid for logging, probes, diagnostics, verifier targets, or a production fusion
+layer. It should not enter the main actor contract unless it wins under the same
+probe and frozen RL recipe.
+
+Persisted updates:
+
+```text
+docs/m143-driver-like-input-profile-audit.md
+docs/mhtml-input-sensor-contract-2026-05-21.md
+docs/observation-contract.md
+docs/README.md
+docs/implementation-plan.md
+```

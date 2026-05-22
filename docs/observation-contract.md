@@ -283,6 +283,71 @@ friction_circle_margin
 See `docs/m92-local-wheel-ground-speed-input-plan.md` for the planned
 observability audit.
 
+## 2026-05-22 Driver-Like Input Revision
+
+The latest MHTML input review revises the future-input priority. Earlier M91,
+M92, and M104 notes treated raw wheel circumferential speed plus independently
+fused `v_parallel_i` as the next strict wheel/tire profile. That remains a valid
+diagnostic and optional comparison, but it is no longer the assumed minimum
+actor contract.
+
+For the professional-driver-like claim, first test a cleaner driver-like
+minimal profile:
+
+```text
+commands:
+  steer_cmd
+  brake_cmd
+  drive_cmd
+
+actual actuator feedback:
+  actual_steering_angle
+  actual_brake_actuator_state
+  actual_drive_actuator_state
+
+body and steering feel:
+  ax
+  ay
+  yaw_rate
+  steering_torque or EPS motor current
+
+scene:
+  road boundary / drivable corridor
+  obstacle position and size in ego frame
+```
+
+Then compare optional vehicle-proprioception channels:
+
+```text
+raw wheel_speed_fl/fr/rl/rr
+roll_rate / pitch_rate / vertical acceleration
+suspension travel / suspension velocity
+engine or motor RPM
+high-frequency chassis vibration
+```
+
+`v_parallel_i` should be tested only after the driver-like minimal and raw-wheel
+profiles, as a low-level fusion comparison. It can remain useful for logging,
+probe targets, verifier diagnostics, or a production fusion layer, but it should
+not be silently promoted into the main actor input.
+
+This revision reinforces the non-input list:
+
+```text
+slip_ratio
+slip_angle
+v_parallel_i as a required main-contract input
+tire_force
+normal_load
+friction_circle_margin
+ABS/TCS/ESC flag
+mu
+oracle feasibility
+reference trajectory
+```
+
+The next planned input study is `docs/m143-driver-like-input-profile-audit.md`.
+
 With `action_history_mode="full"`, the Stage 1 wheel frame is:
 
 ```text

@@ -7,6 +7,31 @@ This note preserves the latest visible 5.5pro input discussion as an
 implementation-facing contract. It is not a new experiment result. It is a
 guardrail for future observation-profile work.
 
+## 2026-05-22 Revision
+
+The latest MHTML pass tightens the input philosophy again.
+
+Earlier notes treated `Romega_i + v_parallel_i` as the minimum future wheel/tire
+profile. The revised view is stricter and more driver-like:
+
+```text
+do not make v_parallel_i a required main actor input yet;
+first test whether commands + actuator feedback + IMU + steering feel + scene
+geometry can learn the available handling envelope;
+then test raw wheel speeds as vehicle proprioception;
+only then test v_parallel_i as an optional low-level fusion comparison.
+```
+
+The reason is that a skilled driver does not explicitly know tire slip ratio,
+local tire-ground speed, tire force, or friction coefficient. The driver knows
+the command they gave, feels actuator and steering response, senses body
+acceleration/yaw, and sees the road/obstacle geometry. The RL latent should be
+allowed to encode "what the car can currently do" from that closed-loop
+evidence, instead of receiving a precomputed tire-state diagnostic.
+
+The new profile ladder is recorded in
+`docs/m143-driver-like-input-profile-audit.md`.
+
 ## Extracted Scope
 
 The visible MHTML discussion contains the following important additions:
@@ -30,7 +55,7 @@ physically meaningful. Feed the raw components instead.
 
 ## Minimum Actor Inputs
 
-Future four-wheel strict profile:
+Historical four-wheel strict profile from the previous MHTML pass:
 
 ```text
 response / self-ID branch:
@@ -217,6 +242,21 @@ P1d: Romega + v_parallel + fixed-scale speed error
 Do not add a `slip_ratio` profile to the main actor comparison. If it is ever
 computed, keep it diagnostic-only unless there is a separate explicit negative
 control.
+
+The 2026-05-22 revision changes the first profiles to compare:
+
+```text
+P0: current baseline
+P1: driver-like minimal
+    commands + actuator actuals + IMU + steering torque/EPS current + scene
+P2: driver-like minimal without steering torque/EPS current
+P3: P1 + raw four-wheel speeds
+P4: P3 + v_parallel_i as an optional low-level fusion comparison
+```
+
+This does not delete the old `Romega_i + v_parallel_i` plan; it demotes it from
+"minimum future actor contract" to "optional comparison profile that must prove
+it is needed."
 
 ## Probe Targets
 

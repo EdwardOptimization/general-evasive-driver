@@ -1,0 +1,45 @@
+{
+  "baseline_checkpoints": [
+    "runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt",
+    "runs/m132_margin_retention_s60_anchor20_seed9841/optimized_checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "Define deployable observation profiles without oracle inputs: P0 current baseline, P1 driver-like minimal, P2 driver-like minimal without steering torque, P3 P1 plus raw wheel speeds, P4 P3 plus optional v_parallel_i diagnostic channels.",
+      "name": "m143_define_profiles"
+    },
+    {
+      "command": "Run supervised future-envelope probes before PPO, using the same seeds, history windows, targets, and evaluator for all profiles.",
+      "name": "m143_supervised_probe"
+    },
+    {
+      "command": "Only after probe sanity, run a frozen-recipe RL comparison with identical reward, curriculum, seeds, budget, auxiliary losses, and gates across profiles.",
+      "name": "m143_frozen_recipe_rl_comparison"
+    }
+  ],
+  "decision_rule": "Do not tune each input profile independently. Admit an input profile only if it improves or preserves behavior and self-identification gates under a frozen recipe, with all profile differences preserved in artifacts.",
+  "failure_criteria": [
+    "profile adds slip ratio, slip angle, mu, tire-force labels, controller flags, feasibility labels, path tracking errors, TTC, or reference trajectory",
+    "profile comparison uses different training budgets, seeds, reward, curriculum, auxiliary losses, or evaluation corpus",
+    "v_parallel_i is promoted to the main actor contract without outperforming driver-like minimal and raw-wheel profiles under the same recipe"
+  ],
+  "hypothesis": "A cleaner driver-like minimal profile can test professional-driver-like self-identification more directly than profiles that feed low-level tire diagnostics; raw wheel speed and v_parallel_i should be optional evidence branches, not assumed inputs.",
+  "id": "m143-driver-like-input-profile-audit",
+  "required_artifacts": [
+    {
+      "path": "docs/m143-driver-like-input-profile-audit.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m143_driver_like_input_profile_audit/summary.json",
+      "type": "profile_audit_summary"
+    }
+  ],
+  "success_criteria": [
+    "profiles are documented with exact actor-visible fields and normalized dimensions",
+    "no profile uses hidden simulator parameters, tire diagnostics, planner answers, or controller flags as actor input",
+    "supervised probe artifacts keep seeds, history windows, targets, and evaluator fixed across profiles",
+    "RL comparison, if run, uses one frozen recipe across all compared profiles"
+  ],
+  "type": "gate"
+}

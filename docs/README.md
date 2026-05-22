@@ -217,10 +217,15 @@ vehicle/tire models, and NMPC-style constrained control.
 - `external-review-5-5pro-mhtml.md`: consolidated 5.5pro MHTML review record
   covering project status, engineering backlog, research framing, input gaps,
   solve/verify split, warm-up/probing, and proof gates.
-- `mhtml-input-sensor-contract-2026-05-21.md`: extracted latest MHTML input
-  contract; actor inputs stay sensor-direct / low-level fused, slip ratios and
-  controller diagnostics stay out, and four-wheel `Romega_i + v_parallel_i`
-  becomes the future strict wheel branch.
+- `mhtml-input-sensor-contract-2026-05-21.md`: extracted MHTML input contract;
+  actor inputs stay sensor-direct, slip ratios and controller diagnostics stay
+  out, and the 2026-05-22 revision demotes `v_parallel_i` from required future
+  actor input to optional low-level fusion comparison after driver-like minimal
+  and raw-wheel profiles.
+- `m143-driver-like-input-profile-audit.md`: latest input-profile audit plan:
+  compare current baseline, driver-like minimal, driver-like minimal without
+  steering feel, raw wheel speed, and optional `v_parallel_i` under the same
+  probe and frozen RL recipe.
 - `m81-wheel-response-input-roadmap.md`: MHTML review decision capturing
   wheel/tire response as the next major self-identification input branch,
   including the Stage 1 front/rear wheel-response implementation.
@@ -251,9 +256,10 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m91i-learned-history-sensor-ablation.md`: learned-history sensor ablation
   showing that the current raw front/rear wheel branch should not become the
   primary driver input.
-- `m92-local-wheel-ground-speed-input-plan.md`: latest wheel input correction:
-  use `Romega_i` and local `v_parallel_i`, not `slip_ratio` or wheel-speed
-  averages.
+- `m92-local-wheel-ground-speed-input-plan.md`: historical wheel input
+  correction: use `Romega_i` and local `v_parallel_i`, not `slip_ratio` or
+  wheel-speed averages. The latest M143 plan now treats `v_parallel_i` as an
+  optional comparison profile rather than the default actor contract.
 - `m92-local-wheel-ground-speed-observability-audit.md`: M92 audit result;
   single-track local ground-speed wheel profiles do not beat the no-wheel
   human-view baseline.

@@ -2113,17 +2113,21 @@ continuation. See `docs/m103-outcome-aware-actor-coupling.md`.
 - Do not feed `slip_ratio`, `slip_angle`, `slip_proxy`, ABS/TCS/ESC flags,
   controller modes, `mu`, tire-force labels, oracle feasibility, or reference
   trajectories to the deployable actor.
-- Treat four-wheel `Romega_i` plus independent local `v_parallel_i` as the next
-  strict wheel-sensor branch; do not compute local ground speed from wheel-speed
-  averages.
+- Historical M104/M92 treated four-wheel `Romega_i` plus independent local
+  `v_parallel_i` as the next strict wheel-sensor branch. The 2026-05-22 MHTML
+  revision demotes `v_parallel_i` to an optional low-level fusion comparison:
+  first test driver-like minimal inputs, then raw wheel speed, and only then
+  `v_parallel_i` if the earlier profiles are insufficient.
 - Compare profiles through supervised probes first, then frozen-recipe RL,
   matched wrong-history counterfactuals, and optional-sensor admission gates.
 
-Status: design note only. M91/M92 keep the current no-wheel human-view driver
-as primary for now. M104 records the rule for future four-wheel or richer
-wheel-contact work without reopening the rejected single-track wheel profiles.
-See `docs/m104-minimum-observable-input-contract.md` and the extracted MHTML
-record in `docs/mhtml-input-sensor-contract-2026-05-21.md`.
+Status: design note superseded in priority by M143. M91/M92 keep the current
+no-wheel human-view driver as primary for now. M104 records the older rule for
+future four-wheel or richer wheel-contact work; M143 records the latest
+driver-like input-profile audit where `v_parallel_i` is not assumed as a
+minimum actor input. See `docs/m104-minimum-observable-input-contract.md`,
+`docs/mhtml-input-sensor-contract-2026-05-21.md`, and
+`docs/m143-driver-like-input-profile-audit.md`.
 
 ### M105: Retention-Constrained Outcome Coupling
 
