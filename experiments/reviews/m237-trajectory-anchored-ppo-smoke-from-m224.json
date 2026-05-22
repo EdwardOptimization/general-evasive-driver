@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M237 improves fixed losses and keeps behavior stable but M183 M170 replay stays 16/17 and protected key fails at normal margin 0.204386 despite near-zero trajectory anchor loss; keep M224 and audit retention",
+  "failure_criteria": [
+    "M183 M170 replay drops below 17/17",
+    "protected key 9944 fails",
+    "behavior seed success regresses materially",
+    "trajectory_action_anchor_loss_mean is missing from training metrics",
+    "actor input contract changes"
+  ],
+  "failure_types": [
+    "proof_washout",
+    "protected_key_window_failure",
+    "promotion_gate_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not change actor inputs",
+    "do not loosen replay or protected-key thresholds",
+    "do not lengthen PPO before this one-smoke gate passes",
+    "do not promote if M183 M170 or protected key fails"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260522T134426Z",
+  "hypothesis": "Trajectory-level action anchoring should preserve the failed M183 M170 row and protected key better than M233's first-action snippet-only repair.",
+  "lineage": {
+    "blocked_by": [
+      "m233-protected-key-aware-ppo-smoke-from-m224"
+    ],
+    "derived_from": [
+      "m236-trajectory-action-anchor-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m233_protected_key_combined_anchor_from_m224_smoke.json"
+    ],
+    "parent_dataset": [
+      "runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.npz",
+      "runs/m235_closed_loop_trajectory_anchor_surface/trajectory_anchor.npz"
+    ],
+    "parent_objective": [
+      "combined M223/M231 snippet action anchor",
+      "M235 trajectory action anchor",
+      "rollout-state M224 baseline action anchor"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m237-trajectory-anchored-ppo-smoke-from-m224",
+  "next_blocker": "Audit why trajectory anchoring still fails on-policy closed-loop proof retention before any more PPO.",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "reject_trajectory_anchor_ppo_smoke",
+  "public_gates": [
+    "fixed M223/M232 objective evaluation",
+    "M183 replay gates",
+    "M193 replay gate",
+    "M212 replay gate",
+    "M223 replay gate",
+    "behavior seeds 9505 and 9506",
+    "protected key 9944 guard",
+    "research validator"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/ppo_m237_trajectory_anchor_from_m224_seed5221/checkpoint.pt",
+    "clearance_margin_mean": "1.844021",
+    "decision": "reject_trajectory_anchor_ppo_smoke",
+    "milestone": "m237-trajectory-anchored-ppo-smoke-from-m224",
+    "reason": "M237 improves fixed losses and keeps behavior stable but M183 M170 replay stays 16/17 and protected key fails at normal margin 0.204386 despite near-zero trajectory anchor loss; keep M224 and audit retention",
+    "reset_success": "0.8500",
+    "success_rate": "0.8625",
+    "termination_rate": "0.1375",
+    "type": "driver_candidate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "0.8000",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "run exactly one 1024-step PPO smoke from M224 with M232 snippet anchor and M235 trajectory anchor",
+    "retain M183 M170 replay at 17/17 success drops",
+    "pass protected key 9944 within the existing normal-margin window",
+    "retain behavior seed success at the M224 level",
+    "do not repeat or lengthen PPO before the one-smoke result is audited"
+  ],
+  "type": "driver_candidate"
+}

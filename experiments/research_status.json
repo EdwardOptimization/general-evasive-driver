@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 245,
+    "completed": 246,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m236-trajectory-action-anchor-implementation.md",
+    "command_log": "docs/m237-trajectory-anchored-ppo-smoke-from-m224.md",
     "returncode": 0,
-    "run_dir": "",
+    "run_dir": "runs/ppo_m237_trajectory_anchor_from_m224_seed5221",
     "status": "completed",
-    "task_id": "m236-trajectory-action-anchor-implementation"
+    "task_id": "m237-trajectory-anchored-ppo-smoke-from-m224"
   },
   "next_task": {
-    "command": "see experiments/manifests/m237-trajectory-anchored-ppo-smoke-from-m224.json",
-    "hypothesis": "Run one trajectory-anchored PPO smoke from M224 using M232 snippet and M235 trajectory anchors",
-    "id": "m237-trajectory-anchored-ppo-smoke-from-m224",
-    "kind": "driver_candidate",
-    "notes": "Pending: create M237 config and run exactly one 1024-step PPO smoke then gate replay behavior and protected key",
-    "priority": 2320,
+    "command": "see experiments/manifests/m238-trajectory-anchor-retention-failure-audit.json",
+    "hypothesis": "Audit why M237 trajectory anchoring still failed on-policy closed-loop proof retention",
+    "id": "m238-trajectory-anchor-retention-failure-audit",
+    "kind": "gate",
+    "notes": "Pending: classify anchor strength coverage on-policy drift or trust-region weakness before any more PPO",
+    "priority": 2330,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T133634Z"
+  "updated_at_utc": "20260522T134237Z"
 }

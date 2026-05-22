@@ -1,0 +1,91 @@
+{
+  "id": "m238-trajectory-anchor-retention-failure-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt",
+      "runs/ppo_m237_trajectory_anchor_from_m224_seed5221/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m235_closed_loop_trajectory_anchor_surface/trajectory_anchor.npz",
+      "runs/m237_m183_m170_replay_gate_seed9510/boundary_replay_rows.csv",
+      "runs/m237_critical_key_seed9944/guard_results.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m237_trajectory_anchor_from_m224_smoke.json"
+    ],
+    "parent_objective": [
+      "M232 preferred-only snippet action anchor",
+      "M235 trajectory action anchor",
+      "rollout-state M224 baseline action anchor",
+      "outcome intervention auxiliary loss"
+    ],
+    "derived_from": [
+      "m237-trajectory-anchored-ppo-smoke-from-m224"
+    ],
+    "blocked_by": [
+      "m237-trajectory-anchored-ppo-smoke-from-m224"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m238-trajectory-anchor-retention-failure-audit.md",
+  "public_gates": [
+    "M237 train trajectory-anchor loss audit",
+    "M237 M183 M170 failed row audit",
+    "M237 protected key candidate audit",
+    "M235 trajectory anchor coverage audit",
+    "research validator"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not repeat or lengthen M237 before the audit",
+    "do not loosen replay or protected-key thresholds",
+    "do not change actor inputs",
+    "do not treat near-zero teacher-forced trajectory loss as on-policy closed-loop retention"
+  ],
+  "hypothesis": "M237 fails because teacher-forced trajectory action anchoring can be satisfied while the on-policy closed-loop trajectory still drifts on near-boundary proof rows. The audit should identify whether the next repair needs stronger anchoring, hidden/state anchoring, KL tightening, or a different PPO update structure.",
+  "success_criteria": [
+    "classify whether M237 failure is anchor strength, anchor coverage, on-policy distribution drift, or PPO trust-region weakness",
+    "quantify the failed M183 M170 row and protected-key margin movement relative to M224 and M233",
+    "decide one bounded next milestone before any more PPO",
+    "keep M224 current best",
+    "pre-register the next repair path"
+  ],
+  "failure_criteria": [
+    "run more PPO before the audit",
+    "promote M237 because behavior success is retained",
+    "ignore the M183 M170 replay failure",
+    "ignore the protected-key failure",
+    "change the actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "m238_audit",
+      "command": "Use M237 train metrics, replay rows, protected-key guard results, and M235 trajectory coverage to classify the failure and pre-register the next repair path without running PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m238-trajectory-anchor-retention-failure-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m237-trajectory-anchored-ppo-smoke-from-m224.md",
+    "runs/m237_m183_m170_replay_gate_seed9510/summary.json",
+    "runs/m237_critical_key_seed9944/guard_results.csv",
+    "runs/ppo_m237_trajectory_anchor_from_m224_seed5221/train_metrics.csv",
+    "runs/m235_closed_loop_trajectory_anchor_surface/summary.json"
+  ],
+  "decision_rule": "M238 may only unblock a next repair if it explains why M237's near-zero trajectory-anchor loss did not preserve on-policy closed-loop proof retention and pre-registers one bounded non-PPO or one-smoke PPO path.",
+  "next_blocker": "Audit M237 trajectory-anchor retention failure."
+}

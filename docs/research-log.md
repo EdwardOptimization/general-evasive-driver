@@ -8332,3 +8332,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: added `TrajectoryActionAnchor`, loader, loss, train config fields, train metric logging, and focused tests. `58 passed`; no PPO was run.
 - decision: `admit_trajectory_anchored_ppo_smoke`
 - next: `m237-trajectory-anchored-ppo-smoke-from-m224`
+
+## 20260522T134237Z m237-trajectory-anchored-ppo-smoke-from-m224
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/ppo_m237_trajectory_anchor_from_m224_seed5221`
+- artifact: `docs/m237-trajectory-anchored-ppo-smoke-from-m224.md`
+- result: negative. Fixed M232/M223 losses improve and behavior seeds `9505`/`9506` retain success `0.8625`, but M183 M170 replay remains `16/17` and protected key `9944|perturbed|28|28` fails with normal margin `0.204386`.
+- decision: `reject_trajectory_anchor_ppo_smoke_replay_and_protected_key_failure`
+- next: `m238-trajectory-anchor-retention-failure-audit`

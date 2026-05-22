@@ -2,9 +2,11 @@
   "id": "m237-trajectory-anchored-ppo-smoke-from-m224",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "proof_washout",
+    "protected_key_window_failure",
+    "promotion_gate_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -96,5 +98,43 @@
     "runs/m235_closed_loop_trajectory_anchor_surface/summary.json"
   ],
   "decision_rule": "M237 may admit only a repeat PPO smoke if trajectory-anchor metrics are present and replay behavior protected-key gates all pass. Any M183 M170 or protected-key failure rejects the smoke and triggers audit.",
-  "next_blocker": "Run one trajectory-anchored PPO smoke and decide between repeat PPO or trajectory-anchor audit."
+  "results": {
+    "train_checkpoint": "runs/ppo_m237_trajectory_anchor_from_m224_seed5221/checkpoint.pt",
+    "rollout_return_mean": 77.57533950118163,
+    "reward_mean": 1.042931318283081,
+    "built_in_eval_termination_rate": 0.2,
+    "outcome_intervention_loss_mean": 0.24042763064304987,
+    "baseline_action_anchor_loss_mean": 6.704194717599421e-06,
+    "snippet_action_anchor_loss_mean": 2.7271938716581328e-08,
+    "trajectory_action_anchor_loss_mean": 1.3405747440507545e-07,
+    "fixed_m232_loss_m224": 0.24650573164224623,
+    "fixed_m232_loss_m233": 0.24652445137500764,
+    "fixed_m232_loss_m237": 0.24647933542728423,
+    "fixed_m223_loss_m224": 0.20982385843992232,
+    "fixed_m223_loss_m233": 0.20982515305280686,
+    "fixed_m223_loss_m237": 0.20978878438472748,
+    "m183_m168_replay_pass": true,
+    "m183_m170_replay_pass": false,
+    "m183_m170_candidate_success_drop_count": 16,
+    "m183_m170_baseline_success_drop_count": 17,
+    "m183_m170_failed_row_id": 16,
+    "m183_m170_failed_row_pair": "9530:6:9550:6",
+    "m183_m170_failed_row_m224_normal_margin": 0.000106,
+    "m183_m170_failed_row_m237_normal_margin": -0.000084,
+    "m193_m189_replay_pass": true,
+    "m212_m204_replay_pass": true,
+    "m223_m219_replay_pass": true,
+    "behavior_seed_9505_m224_success": 0.8625,
+    "behavior_seed_9505_m237_success": 0.8625,
+    "behavior_seed_9506_m224_success": 0.8625,
+    "behavior_seed_9506_m237_success": 0.8625,
+    "protected_key": "9944|perturbed|28|28",
+    "protected_key_m224_normal_margin": 0.18638540533940784,
+    "protected_key_m233_normal_margin": 0.20464540156918803,
+    "protected_key_m237_normal_margin": 0.204386,
+    "protected_key_m237_pass": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "reject_trajectory_anchor_ppo_smoke_replay_and_protected_key_failure",
+  "next_blocker": "Audit why trajectory anchoring still fails on-policy closed-loop proof retention before any more PPO."
 }
