@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 149,
+    "completed": 150,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m140-rollout-key-survival-audit.md",
+    "command_log": "docs/m141-critical-key-replay-guard.md",
     "returncode": 0,
-    "run_dir": "runs/m140_rollout_key_survival_audit",
+    "run_dir": "runs/m141_critical_key_replay_guard_seed9944",
     "status": "completed",
-    "task_id": "m140-rollout-key-survival-audit"
+    "task_id": "m141-critical-key-replay-guard"
   },
   "next_task": {
-    "command": "see experiments/manifests/m141-critical-key-replay-guard.json",
-    "hypothesis": "An exact replay guard on near-threshold M133 keys can catch rollout proof-surface regressions that fixed logprob/action objectives miss",
-    "id": "m141-critical-key-replay-guard",
-    "kind": "gate",
-    "notes": "Pending after M140: key 9944 is lost by a small margin-gap threshold crossing",
-    "priority": 1360,
+    "command": "see experiments/manifests/m142-critical-key-guarded-repair.json",
+    "hypothesis": "A critical-key pre-screen can prevent near-threshold proof-surface regressions while allowing small fixed-loss improvements",
+    "id": "m142-critical-key-guarded-repair",
+    "kind": "objective_sanity",
+    "notes": "Pending after M141: only run strict miners after the cheap critical-key guard passes",
+    "priority": 1370,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T011000Z"
+  "updated_at_utc": "20260522T012800Z"
 }

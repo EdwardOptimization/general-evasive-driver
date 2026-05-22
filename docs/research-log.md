@@ -5364,3 +5364,37 @@ key disappeared even though fixed retained-key action MSE was near `2e-7`.
 Decision: M140 is diagnostic positive. The next task is M141, a critical-key
 exact replay guard that should catch this type of selected-key survival
 regression before running full strict miners or PPO continuation.
+
+## 20260522T012800Z m141-critical-key-replay-guard
+
+M141 implements and validates a cheap exact replay guard for the M140 lost key.
+
+New module:
+
+```text
+src/autodrift/critical_key_replay_guard.py
+```
+
+Artifacts:
+
+```text
+runs/m141_critical_key_replay_guard_seed9944/protected_cases.csv
+runs/m141_critical_key_replay_guard_seed9944/guard_results.csv
+runs/m141_critical_key_replay_guard_seed9944/policy_summary.csv
+runs/m141_critical_key_replay_guard_seed9944/summary.json
+```
+
+Focused test result: `tests/test_critical_key_replay_guard.py` passed.
+
+Guard result on `9944|perturbed|28|28`:
+
+```text
+M132 s60:            1/1 accepted, pass
+M139 s20 snip1000:   0/1 accepted, fail
+M139 s40 snip500:    0/1 accepted, fail
+M139 s40 snip100:    0/1 accepted, fail
+```
+
+Decision: M141 is a positive harness result. The guard reproduces M132 and
+rejects the M139 lost-key candidates without changing actor inputs. M142 should
+use this guard as a pre-screen for minimal repair candidates.

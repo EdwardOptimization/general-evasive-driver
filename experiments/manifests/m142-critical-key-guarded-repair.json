@@ -1,0 +1,37 @@
+{
+  "baseline_checkpoints": [
+    "runs/m132_margin_retention_s60_anchor20_seed9841/optimized_checkpoint.pt",
+    "runs/m141_critical_key_replay_guard_seed9944/guard_results.csv"
+  ],
+  "commands": [
+    {
+      "command": "Use the M141 critical-key guard as a pre-screen for any repair candidate that tries to improve M136/M128 fixed losses.",
+      "name": "m142_guarded_candidate_prescreen"
+    },
+    {
+      "command": "Try a minimal repair path, such as interpolation or lower-step objective updates, and admit only candidates that pass the M141 guard before strict miners.",
+      "name": "m142_minimal_guarded_repair"
+    }
+  ],
+  "decision_rule": "Proceed to expensive strict miners only if a candidate improves or preserves fixed losses while passing the M141 critical-key guard and behavior retention.",
+  "failure_criteria": [
+    "candidate fails the M141 critical-key guard",
+    "candidate only passes by reverting to M132 with no measurable fixed-loss benefit",
+    "candidate changes actor observations or uses hidden/oracle policy inputs"
+  ],
+  "hypothesis": "A critical-key pre-screen can prevent near-threshold rollout proof-surface regressions while allowing very small fixed-loss improvements.",
+  "id": "m142-critical-key-guarded-repair",
+  "required_artifacts": [
+    {
+      "path": "docs/m142-critical-key-guarded-repair.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "candidate passes M141 critical-key guard",
+    "candidate preserves behavior success and zero-response degradation",
+    "fixed M136/M128 loss does not regress materially",
+    "strict miner is run only after the cheap guard passes"
+  ],
+  "type": "objective_sanity"
+}

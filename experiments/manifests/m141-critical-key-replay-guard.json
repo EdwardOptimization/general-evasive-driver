@@ -25,6 +25,22 @@
     {
       "path": "docs/m141-critical-key-replay-guard.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m141_critical_key_replay_guard_seed9944/protected_cases.csv",
+      "type": "protected_cases"
+    },
+    {
+      "path": "runs/m141_critical_key_replay_guard_seed9944/guard_results.csv",
+      "type": "guard_results"
+    },
+    {
+      "path": "runs/m141_critical_key_replay_guard_seed9944/policy_summary.csv",
+      "type": "policy_summary"
+    },
+    {
+      "path": "runs/m141_critical_key_replay_guard_seed9944/summary.json",
+      "type": "summary"
     }
   ],
   "success_criteria": [
