@@ -8557,3 +8557,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M259 repeats the source-conflict pattern on fresh PPO seed `5226`: raw PPO has `M223=-0.000105` but `protected_key=+0.000005`. The trajectory-anchored projection repairs it; `m259_a010` has exact deltas `M223=-0.000002625` and `protected_key=-0.000002507` versus M258, retains M183/M170 row16, passes all public replay gates, passes protected key, and keeps behavior success `0.8625` on seeds `9505`/`9506`.
 - decision: `promote_m259_a010_public_gate_base`
 - next: `m260-repair-disciplined-stage2-ppo-from-m259`
+
+## 20260522T154217Z - m260-repair-disciplined-stage2-ppo-from-m259
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m260_behavior_gate_a050_seed9506`
+- artifact: `docs/m260-repair-disciplined-stage2-ppo-from-m259.md`
+- result: 4096-step stage2 raw PPO from M259 improves exact sources (`M223=-0.000382`, `protected_key=-0.000002`), but full raw fails protected key. Interpolation finds protected-key boundary between `alpha=0.05` and `0.10`; `m260_a050` passes exact source, row16, all replay gates, protected key, and behavior seeds `9505`/`9506`.
+- decision: `promote_m260_a050_public_gate_base`
+- next: `m261-repair-disciplined-stage2-repeat`

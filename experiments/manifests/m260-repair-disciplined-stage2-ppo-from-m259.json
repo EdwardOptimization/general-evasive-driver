@@ -2,7 +2,7 @@
   "id": "m260-repair-disciplined-stage2-ppo-from-m259",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -82,6 +82,6 @@
   "baseline_artifacts": [
     "docs/m259-trajectory-anchored-repair-repeat.md"
   ],
-  "decision_rule": "M260 may only promote a candidate if the staged PPO plus repair path passes exact source, row16, full public replay, protected-key, behavior, and research-validator gates.",
-  "next_blocker": "If M260 succeeds, repeat stage2 on a fresh seed; if it fails, audit whether staged PPO requires stronger on-policy margin retention."
+  "decision_rule": "M260 promotes m260_a050 because it passes exact source, row16, protected-key, full public replay, behavior, and research-validator gates; full raw is rejected by protected key.",
+  "next_blocker": "m261-repair-disciplined-stage2-repeat"
 }
