@@ -1,0 +1,46 @@
+{
+  "id": "m221-stage2-protected-key-failure-audit",
+  "type": "gate",
+  "hypothesis": "M220 repeats the M206/M208 class of failure: fixed objective, replay, and behavior improve or retain, but a longer PPO continuation leaves the protected-key near-boundary normal-margin window. Before any more PPO, audit whether the failure is a boundary-window artifact, a true proof-surface washout, or a missing protected-surface anchor.",
+  "success_criteria": [
+    "compare M219 seed5216 and M220 seed5217 on protected key 9944|perturbed|28|28",
+    "separate normal-success retention, margin-gap retention, and near-boundary normal-margin-window retention",
+    "confirm whether M220 loses the key only by normal margin exceeding 0.2",
+    "keep M219 seed5216 as current best unless a new gated candidate passes protected key",
+    "pre-register the next training or mining milestone before running any PPO",
+    "do not loosen the protected-key threshold after seeing the result",
+    "do not train the policy merely to reduce clearance on the old key"
+  ],
+  "failure_criteria": [
+    "run an M220 repeat before the audit is documented",
+    "chain longer PPO from M220",
+    "promote M220 based on fixed objective or broad behavior alone",
+    "change actor inputs",
+    "retroactively relax the protected-key acceptance window"
+  ],
+  "commands": [
+    {
+      "name": "m221_audit",
+      "command": "Use M220 docs and runs/m220_critical_key_seed9944/guard_results.csv to classify the protected-key failure and pre-register the next safe milestone."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m221-stage2-protected-key-failure-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m219_guarded_from_m217_seed5216/checkpoint.pt",
+    "runs/ppo_m220_stage2_from_m219_seed5217/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m220-guarded-stage2-ppo-from-m219.md",
+    "runs/m220_critical_key_seed9944/guard_results.csv",
+    "runs/m220_fixed_batch_outcome_eval_seed37/summary.json",
+    "runs/m220_m212_m204_replay_gate_seed10040/summary.json",
+    "runs/m220_behavior_gate_seed9505/policy_summary.csv",
+    "runs/m220_behavior_gate_seed9506/policy_summary.csv"
+  ],
+  "decision_rule": "Only an audit that preserves the protected-key standard and pre-registers a safer continuation or fresh protected-surface refresh may unblock further PPO."
+}

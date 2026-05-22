@@ -98,5 +98,26 @@
     "runs/m219_behavior_gate_seed9506/policy_summary.csv",
     "runs/m219_critical_key_seed9944/summary.json"
   ],
-  "decision_rule": "Only a short stage2 that preserves behavior, protected key, old replay, refreshed replay, and current replay may admit stage2 repeats."
+  "results": {
+    "checkpoint": "runs/ppo_m220_stage2_from_m219_seed5217/checkpoint.pt",
+    "train_rollout_return_mean": 67.01762429574346,
+    "train_reward_mean": 1.0415468215942383,
+    "train_eval_termination_rate": 0.0,
+    "fixed_loss_m219_5216": 0.20423995465040207,
+    "fixed_loss_m220_5217": 0.20417896956205367,
+    "m183_m168_success_drop_count": 16,
+    "m183_m170_success_drop_count": 17,
+    "m193_m189_success_drop_count": 14,
+    "m212_m204_success_drop_count": 17,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "reset_success": 0.85,
+    "zero_all_success": 0.80,
+    "protected_key_pass": false,
+    "protected_key_normal_margin": 0.21460188024992033,
+    "protected_key_wrong_history_margin": 0.1191002947570503,
+    "protected_key_margin_gap": 0.09550158549287002
+  },
+  "decision_rule": "Only a short stage2 that preserves behavior, protected key, old replay, refreshed replay, and current replay may admit stage2 repeats.",
+  "decision": "reject_stage2_protected_key_failure"
 }

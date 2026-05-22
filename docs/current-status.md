@@ -63,6 +63,7 @@ Not allowed in the deployable actor:
 | current-best guarded stage5 repeat evidence | `runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt` | M205 repeats preserve gates, but M204 remains best fixed-loss stage5 |
 | current-best snippet-anchored actor update | `runs/m217_m204_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10054/optimized_checkpoint.pt` | M217 fresh repeat preserves old/current replay, behavior, and protected key |
 | current-best guarded PPO smoke repeat | `runs/ppo_m219_guarded_from_m217_seed5216/checkpoint.pt` | best retained M219 repeat; seed5215 fails protected-key margin window |
+| rejected guarded stage2 from M219 | `runs/ppo_m220_stage2_from_m219_seed5217/checkpoint.pt` | improves fixed M212 and preserves replay/behavior, but fails protected key |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -260,11 +261,16 @@ slightly stronger action-level sensitivity.
   by moving normal margin to `0.200679`, just above the old `0.2` boundary
   window. Seed `5216` has the best fixed M212 loss `0.204240` and passes the
   protected key with normal margin `0.199571`, so only seed `5216` is promotable.
+- M220: runs one short guarded stage2 from M219 seed `5216`. Fixed M212 loss
+  improves to `0.204179`, all old/current replay gates pass, and behavior seeds
+  `9505`/`9506` stay at success `0.8625`, but protected key `9944` fails with
+  normal margin `0.214602` above the old `0.2` near-boundary window. M220 is
+  rejected; current best remains M219 seed `5216`.
 
 Current blocker:
 
 ```text
-one short guarded stage2 from M219 seed 5216
+protected-key-aware audit after M220 stage2 failure
 ```
 
 ## Near-Term Rule
@@ -282,8 +288,10 @@ passes. M216 passed on known failure seeds, so M217 must repeat the same recipe
 on fresh seeds before any PPO. M217 passed; only one tiny guarded PPO smoke from
 M217 seed `10054` is admitted before repeat evidence. M218 passed that single
 smoke, and M219 found only seed `5216` repeat-stable under the protected-key
-gate. Only one short guarded stage2 from M219 seed `5216` is admitted next; do
-not chain from M218 or from failed M219 seed `5215`.
+gate. M220 tried the one admitted stage2 and failed the protected key by leaving
+the near-boundary normal-margin window. Do not repeat M220, do not chain from
+M220, and do not loosen the protected-key threshold. Audit and design a
+protected-key-aware continuation path before any further PPO.
 
 ## Sensor Profile Policy
 

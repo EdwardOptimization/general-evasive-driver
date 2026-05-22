@@ -7997,3 +7997,45 @@ Decision:
 ```text
 admit_guarded_stage2_from_m219_seed5216
 ```
+
+## 20260522T121500Z m220-guarded-stage2-ppo-from-m219
+
+M220 ran one short guarded stage2 from M219 seed `5216`, keeping the M217
+seed `10054` action anchor and leaving actor inputs unchanged.
+
+Artifacts:
+
+- `runs/ppo_m220_stage2_from_m219_seed5217`
+- `runs/m220_fixed_batch_outcome_eval_seed37`
+- `runs/m220_m183_m168_replay_gate_seed9510`
+- `runs/m220_m183_m170_replay_gate_seed9510`
+- `runs/m220_m193_m189_replay_gate_seed9630`
+- `runs/m220_m212_m204_replay_gate_seed10040`
+- `runs/m220_behavior_gate_seed9505`
+- `runs/m220_behavior_gate_seed9506`
+- `runs/m220_critical_key_seed9944`
+- `docs/m220-guarded-stage2-ppo-from-m219.md`
+- `experiments/manifests/m221-stage2-protected-key-failure-audit.json`
+
+Results:
+
+- training wrote `runs/ppo_m220_stage2_from_m219_seed5217/checkpoint.pt`;
+- built-in eval termination rate is `0.0`;
+- fixed M212 loss improves from M219 `0.204240` to M220 `0.204179`;
+- replay gates all pass against M219 seed `5216`: M183 M168 `16/16`, M183
+  M170 `17/17`, M193 M189 `14/14`, and M212 M204 `17/17` drops retained;
+- behavior seeds `9505` and `9506` retain success `0.8625`;
+- reset-hidden and zero-all-response ablations remain at `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` fails for M220 with normal margin
+  `0.214602`, wrong-history margin `0.119100`, and margin gap `0.095502`.
+
+Decision: M220 is negative despite fixed-objective improvement and replay /
+behavior retention. The failure is the repeated protected-key normal-margin
+window failure seen in M206/M208 and M219 seed `5215`, not a broad behavior
+collapse. Keep M219 seed `5216` as current best and audit before any more PPO.
+
+Decision:
+
+```text
+reject_stage2_protected_key_failure
+```
