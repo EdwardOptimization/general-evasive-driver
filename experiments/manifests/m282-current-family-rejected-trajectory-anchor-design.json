@@ -79,6 +79,26 @@
     "docs/m281-rejected-hidden-recovery-anchored-update.md",
     "runs/m281_m267_m264_replay_gate_seed10070/summary.json"
   ],
-  "decision_rule": "M282 completes only when it defines a current-family rejected-history trajectory anchor and the next non-PPO repair/export step. PPO remains blocked.",
-  "next_blocker": "pending M282 current-family rejected trajectory anchor design"
+  "results": {
+    "failure_mechanism": "one_step_rejected_action_anchor_does_not_preserve_closed_loop_wrong_history_rollout",
+    "m281_m183_m170_row16_margin": 0.00263316481636533,
+    "m281_m267_m264_success_drop_count": 11,
+    "m281_failed_rows": [
+      4,
+      6,
+      11,
+      13,
+      15,
+      16
+    ],
+    "selected_design": "current_family_rejected_history_trajectory_anchor",
+    "source_surface": "m267_m264",
+    "recommended_rows": "all_17_rows_with_failed_rows_forced",
+    "recommended_rejected_repeat": 16,
+    "recommended_max_continuation_steps": 60,
+    "next_export": "rejected_trajectory_anchor.npz"
+  },
+  "decision_rule": "M282 completes the design and admits only a current-family rejected-history trajectory anchor export next. PPO and actor update remain blocked until the export validates.",
+  "decision": "implement_current_family_rejected_trajectory_anchor_export",
+  "next_blocker": "m283-current-family-rejected-trajectory-anchor-export"
 }

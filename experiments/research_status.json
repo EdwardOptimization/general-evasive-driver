@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 290,
+    "completed": 291,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m281-rejected-hidden-recovery-anchored-update.md",
+    "command_log": "docs/m282-current-family-rejected-trajectory-anchor-design.md",
     "returncode": 0,
     "run_dir": "runs/m281_m267_m264_replay_gate_seed10070",
     "status": "completed",
-    "task_id": "m281-rejected-hidden-recovery-anchored-update"
+    "task_id": "m282-current-family-rejected-trajectory-anchor-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m282-current-family-rejected-trajectory-anchor-design.json",
-    "hypothesis": "Current-family wrong-history retention needs a trajectory-level rejected-history anchor because one-step rejected action anchoring does not preserve closed-loop wrong-history failure.",
-    "id": "m282-current-family-rejected-trajectory-anchor-design",
-    "kind": "gate",
-    "notes": "Pending: design current-family rejected-history trajectory anchor; no PPO or actor update",
-    "priority": 2770,
+    "command": "see experiments/manifests/m283-current-family-rejected-trajectory-anchor-export.json",
+    "hypothesis": "A current-base rejected-history trajectory anchor can preserve the closed-loop wrong-history branch that one-step rejected action anchoring failed to retain.",
+    "id": "m283-current-family-rejected-trajectory-anchor-export",
+    "kind": "infrastructure",
+    "notes": "Pending: export current-family rejected-history trajectory anchors; no PPO or actor update",
+    "priority": 2780,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T184945Z"
+  "updated_at_utc": "20260522T185212Z"
 }

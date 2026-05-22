@@ -1,0 +1,88 @@
+{
+  "id": "m283-current-family-rejected-trajectory-anchor-export",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m272_m264_to_m271_interpolation_boundary/checkpoints/alpha_0_01025.pt"
+    ],
+    "parent_dataset": [
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv",
+      "runs/m279_combined_retention_recovery_anchor/combined_trajectory_anchor.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m282-current-family-rejected-trajectory-anchor-design.json",
+      "docs/m282-current-family-rejected-trajectory-anchor-design.md"
+    ],
+    "parent_objective": [
+      "export current-family rejected-history trajectory retention anchors"
+    ],
+    "derived_from": [
+      "m282-current-family-rejected-trajectory-anchor-design"
+    ],
+    "blocked_by": [
+      "m282-current-family-rejected-trajectory-anchor-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m283-current-family-rejected-trajectory-anchor-export.md",
+  "public_gates": [
+    "export rejected_trajectory_anchor.npz for M267/M264 wrong-history rollouts",
+    "include all 17 M267/M264 rows and force failed rows 4 6 11 13 15 16",
+    "export combined_recovery_rejected_anchor.npz with M279 combined anchor plus rejected rows",
+    "validate NPZ files through load_trajectory_action_anchor",
+    "do not run PPO or actor update"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M283",
+    "do not run a new actor update in M283",
+    "do not use old checkpoint hidden states",
+    "do not change actor inputs",
+    "do not skip M267/M264 failed rows"
+  ],
+  "hypothesis": "A current-base rejected-history trajectory anchor can preserve the closed-loop wrong-history branch that one-step rejected action anchoring failed to retain.",
+  "success_criteria": [
+    "reconstruct M272 M267/M264 wrong-history rollouts with current M272 hidden states",
+    "export rejected_trajectory_anchor.npz",
+    "export combined_recovery_rejected_anchor.npz",
+    "validate exported NPZ shapes through the existing trajectory anchor loader",
+    "no PPO or actor update is run"
+  ],
+  "failure_criteria": [
+    "failed M267/M264 rows are missing",
+    "source checkpoint hidden states are used as current actor input",
+    "exported anchors do not load",
+    "PPO or actor update is run"
+  ],
+  "commands": [
+    {
+      "name": "m283_export",
+      "command": "Implement and run current-family rejected-history trajectory anchor export for M267/M264."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m283-current-family-rejected-trajectory-anchor-export.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m283_current_family_rejected_trajectory_anchor/summary.json",
+      "type": "summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m272_m264_to_m271_interpolation_boundary/checkpoints/alpha_0_01025.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m282-current-family-rejected-trajectory-anchor-design.md",
+    "runs/m279_combined_retention_recovery_anchor/summary.json"
+  ],
+  "decision_rule": "M283 completes only if it exports validated current-hidden rejected trajectory anchors or documents why M267/M264 cannot be reconstructed. The next actor update must be pre-registered separately.",
+  "next_blocker": "pending M283 current-family rejected trajectory anchor export"
+}
