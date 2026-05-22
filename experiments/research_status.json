@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 146,
+    "completed": 147,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m137-m133-retention-objective-sanity.md",
+    "command_log": "docs/m138-retention-loss-rollout-misalignment-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m137_m136_s40_anchor20_seed6138",
+    "run_dir": "runs/m138_retention_loss_rollout_misalignment_audit",
     "status": "completed",
-    "task_id": "m137-m133-retention-objective-sanity"
+    "task_id": "m138-retention-loss-rollout-misalignment-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m138-retention-loss-rollout-misalignment-audit.json",
-    "hypothesis": "Fixed logprob retention loss is misaligned with rollout-level proof-surface preservation and needs key-level diagnosis",
-    "id": "m138-retention-loss-rollout-misalignment-audit",
-    "kind": "gate",
-    "notes": "Pending after M137: objective-only updates improve fixed losses but shrink strict selected pairs and seeds",
-    "priority": 1330,
+    "command": "see experiments/manifests/m139-m136-key-action-anchor-objective.json",
+    "hypothesis": "Direct action anchoring on M136 retained keys may preserve rollout-level proof-surface keys better than retained-key logprob minimization",
+    "id": "m139-m136-key-action-anchor-objective",
+    "kind": "objective_sanity",
+    "notes": "Pending after M138: lost retained keys had lower logprob penalty but disappeared from strict rollout selection",
+    "priority": 1340,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T001343Z"
+  "updated_at_utc": "20260522T002033Z"
 }

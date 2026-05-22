@@ -2731,8 +2731,25 @@ retention loss as the repair. See `docs/m137-m133-retention-objective-sanity.md`
 - Determine whether the next repair needs a rollout-aware objective, a hard
   key-retention gate, or a different corpus construction.
 
-Status: pending. M137 proves fixed logprob loss is not a sufficient proxy for
-strict rollout proof-surface preservation.
+Status: completed as a diagnostic positive. M138 audits the 20 retained rows
+and 11 unique M133 keys in M136. M137 candidates reduce fixed objective loss
+from M132's `0.105571` to as low as `0.101464`, but retain only `7-8` of
+`11` unique keys. Some lost rows have lower per-row penalties than M132, for
+example `s40 a20` loses duplicated seed `9906` step `44 -> 44` rows while
+lowering their penalties by roughly `0.058-0.060`. This proves retained-snippet
+logprob is not a rollout-safe proxy. See
+`docs/m138-retention-loss-rollout-misalignment-audit.md`.
+
+### M139: M136 Key-Action Anchor Objective
+
+- Prototype a retained-key action-mean anchor against M132 on the M136 keys.
+- Allow controlled objective improvement only if retained-key action drift stays
+  bounded.
+- Rerun M133 behavior and strict proof-surface gates.
+- Keep actor observations unchanged and avoid hidden/oracle inputs.
+
+Status: pending. M138 indicates the next objective must constrain retained-key
+actions or rollout outcomes, not just retained-key logprob.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 

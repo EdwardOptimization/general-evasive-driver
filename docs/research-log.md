@@ -5252,3 +5252,25 @@ Decision: reject M137 as a proof-surface repair. Fixed M136/M128 losses improve
 and behavior passes, but strict rollout proof-surface diversity collapses. The
 next pending task is M138: audit the mismatch between fixed retention loss and
 rollout-level margin/key retention before designing another objective.
+
+## 20260522T002036Z m138-retention-loss-rollout-misalignment-audit
+
+M138 audits why M137 fixed-loss improvements shrink rollout proof-surface
+diversity.
+
+Aggregate retained-key audit:
+
+| Policy | Objective loss | Delta vs M132 | Retained keys | Lost keys |
+| --- | ---: | ---: | ---: | ---: |
+| M132 s60 | 0.105571 | 0.000000 | 11 | 0 |
+| M137 s20 a20 | 0.103103 | -0.002467 | 7 | 4 |
+| M137 s40 a20 | 0.101464 | -0.004106 | 7 | 4 |
+| M137 s40 a50 | 0.104001 | -0.001569 | 8 | 3 |
+
+Lost-key rows can have lower penalties than M132. For example, `s40 a20` loses
+the duplicated seed `9906` step `44 -> 44` rows while lowering their per-row
+penalties by about `0.058-0.060`.
+
+Decision: diagnostic positive. Fixed retained-snippet logprob is not a safe
+proxy for rollout-level proof-surface retention. The next pending task is M139:
+prototype a key-action anchor or rollout-aware retention objective.

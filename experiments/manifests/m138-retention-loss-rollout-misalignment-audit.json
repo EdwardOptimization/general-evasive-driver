@@ -5,7 +5,7 @@
   ],
   "commands": [
     {
-      "command": "Audit why fixed M136 retention-loss improvement shrinks strict rollout proof-surface diversity.",
+      "command": "Generate runs/m138_retention_loss_rollout_misalignment_audit/key_loss_rollout_audit.csv and audit_summary.json by comparing M132 and M137 per-row M136 penalties against strict retained keys.",
       "name": "m138_retention_loss_rollout_misalignment_audit"
     }
   ],
@@ -22,6 +22,14 @@
     {
       "path": "docs/m138-retention-loss-rollout-misalignment-audit.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m138_retention_loss_rollout_misalignment_audit/key_loss_rollout_audit.csv",
+      "type": "audit"
+    },
+    {
+      "path": "runs/m138_retention_loss_rollout_misalignment_audit/audit_summary.json",
+      "type": "audit"
     }
   ],
   "success_criteria": [

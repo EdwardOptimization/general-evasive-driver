@@ -1,0 +1,35 @@
+{
+  "baseline_checkpoints": [
+    "runs/m132_margin_retention_s60_anchor20_seed9841/optimized_checkpoint.pt",
+    "runs/m136_m133_proof_surface_retention_corpus/outcome_intervention_snippets.npz"
+  ],
+  "commands": [
+    {
+      "command": "Prototype a key-action retention objective that anchors M136 proof-surface actions to M132 while allowing controlled improvement elsewhere.",
+      "name": "m139_m136_key_action_anchor_objective"
+    }
+  ],
+  "decision_rule": "Admit only if key-action anchoring preserves M133 strict proof-surface diversity while fixed losses and behavior remain acceptable.",
+  "failure_criteria": [
+    "lost M133 keys still disappear under strict rollout gate",
+    "behavior retention regresses below M132",
+    "fixed losses improve by changing retained-key actions despite anchor",
+    "implementation introduces hidden or oracle actor inputs"
+  ],
+  "hypothesis": "M138 shows retained keys can get lower logprob penalty while disappearing from rollout selection. A direct action-mean anchor on the M136 retained keys may preserve rollout behavior better than minimizing retained-key logprob alone.",
+  "id": "m139-m136-key-action-anchor-objective",
+  "required_artifacts": [
+    {
+      "path": "docs/m139-m136-key-action-anchor-objective.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "focused tests cover any new objective or optimizer path",
+    "M136 retained-key action drift is constrained against M132",
+    "behavior success remains at M132 level",
+    "zero-response degradation remains visible",
+    "strict selected pairs and seeds meet or exceed M133 on both miner seeds"
+  ],
+  "type": "objective_sanity"
+}
