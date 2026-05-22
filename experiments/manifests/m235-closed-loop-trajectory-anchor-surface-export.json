@@ -2,7 +2,7 @@
   "id": "m235-closed-loop-trajectory-anchor-surface-export",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -90,5 +90,40 @@
     "runs/m233_critical_key_seed9944/protected_cases.csv"
   ],
   "decision_rule": "M235 may only unblock trajectory-anchor implementation if the exported corpus includes the failed replay row and protected key with finite multi-step deployable arrays.",
-  "next_blocker": "Implement or adapt a trajectory-level anchor loss before any further PPO continuation."
+  "results": {
+    "run_dir": "runs/m235_closed_loop_trajectory_anchor_surface",
+    "trajectory_rows": 97,
+    "source_count": 2,
+    "m183_m170_row16_rows": 57,
+    "m183_m170_row16_terminal_margin": 0.00010562403294245293,
+    "m183_m170_row16_obstacle_completed": true,
+    "protected_key": "9944|perturbed|28|28",
+    "protected_key_rows": 40,
+    "protected_key_terminal_margin": 0.18638540533940784,
+    "protected_key_margin_matches_m224_guard": true,
+    "observation_shape": [
+      97,
+      72
+    ],
+    "hidden_shape": [
+      97,
+      128
+    ],
+    "reference_action_shape": [
+      97,
+      3
+    ],
+    "source_index_shape": [
+      97
+    ],
+    "step_index_shape": [
+      97
+    ],
+    "weight_shape": [
+      97
+    ],
+    "finite": true
+  },
+  "decision": "admit_trajectory_action_anchor_implementation",
+  "next_blocker": "Implement a trajectory-level action anchor loader and PPO loss before any further PPO continuation."
 }

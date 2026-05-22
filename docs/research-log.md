@@ -8313,3 +8313,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M233 failure is closed-loop rollout drift. First-action differences are tiny but M183 M170 row `16` flips from margin `0.000106` to `-0.000169`, and protected key `9944|perturbed|28|28` still leaves the `0.2` window.
 - decision: `repair_with_closed_loop_trajectory_anchor_surface`
 - next: `m235-closed-loop-trajectory-anchor-surface-export`
+
+## 20260522T133202Z m235-closed-loop-trajectory-anchor-surface-export
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m235_closed_loop_trajectory_anchor_surface`
+- artifact: `docs/m235-closed-loop-trajectory-anchor-surface-export.md`
+- result: exported 97 finite M224 trajectory anchor rows: 57 for M183 M170 row `16` and 40 for protected key `9944|perturbed|28|28`. The protected key margin reproduces the M224 guard margin `0.186385`.
+- decision: `admit_trajectory_action_anchor_implementation`
+- next: `m236-trajectory-action-anchor-implementation`

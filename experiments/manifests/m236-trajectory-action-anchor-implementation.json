@@ -1,0 +1,100 @@
+{
+  "id": "m236-trajectory-action-anchor-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m235_closed_loop_trajectory_anchor_surface/trajectory_anchor.npz",
+      "runs/m235_closed_loop_trajectory_anchor_surface/trajectory_anchor.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m233_protected_key_combined_anchor_from_m224_smoke.json"
+    ],
+    "parent_objective": [
+      "multi-step trajectory action anchoring",
+      "closed-loop proof retention"
+    ],
+    "derived_from": [
+      "m235-closed-loop-trajectory-anchor-surface-export"
+    ],
+    "blocked_by": [
+      "m233-protected-key-aware-ppo-smoke-from-m224"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m236-trajectory-action-anchor-implementation.md",
+  "public_gates": [
+    "trajectory anchor loader unit tests",
+    "trajectory anchor loss unit tests",
+    "train_ppo config validation tests",
+    "research validator"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M236",
+    "do not change actor inputs",
+    "do not loosen replay or protected-key thresholds",
+    "do not replace replay gates with training loss values"
+  ],
+  "hypothesis": "A trajectory-level action anchor can protect multi-step closed-loop proof surfaces better than first-action snippet anchors. M236 should implement the loader/loss path and tests before any new PPO smoke.",
+  "success_criteria": [
+    "add a trajectory anchor loader that validates observation hidden reference_action source_index step_index and positive weights",
+    "add a trajectory action anchor loss that anchors model action means to reference_action",
+    "wire optional trajectory_action_anchor config fields into train_ppo",
+    "log trajectory_action_anchor_loss_mean when enabled",
+    "cover the new path with focused tests",
+    "do not run PPO or promote a driver checkpoint"
+  ],
+  "failure_criteria": [
+    "run PPO before implementation tests pass",
+    "depend on hidden privileged actor inputs",
+    "anchor only first-action snippets",
+    "silently accept malformed trajectory arrays",
+    "change the human-view actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "m236_implement",
+      "command": "Implement trajectory anchor loader/loss/config/logging in train_ppo and run focused tests without PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m236-trajectory-action-anchor-implementation.md",
+      "type": "documentation"
+    },
+    {
+      "path": "src/autodrift/intervention_objectives.py",
+      "type": "code"
+    },
+    {
+      "path": "src/autodrift/train_ppo.py",
+      "type": "code"
+    },
+    {
+      "path": "tests/test_intervention_objectives.py",
+      "type": "tests"
+    },
+    {
+      "path": "tests/test_checkpoints.py",
+      "type": "tests"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m235-closed-loop-trajectory-anchor-surface-export.md",
+    "runs/m235_closed_loop_trajectory_anchor_surface/summary.json"
+  ],
+  "decision_rule": "M236 may only unblock PPO if the trajectory anchor path is implemented and tested without changing actor inputs.",
+  "next_blocker": "Run one bounded M237 PPO smoke from M224 with the combined snippet anchor and new trajectory action anchor, then gate replay behavior and protected key."
+}
