@@ -395,6 +395,9 @@ vehicle/tire models, and NMPC-style constrained control.
 - `m136-m133-proof-surface-retention-corpus.md`: combines M133 strict
   proof-surface snippets into an explicit retention corpus and audits which
   keys M134/M135 lose.
+- `m137-m133-retention-objective-sanity.md`: objective-only update on the M136
+  retention corpus; fixed losses and behavior improve/pass, but strict rollout
+  proof-surface diversity collapses, proving loss misalignment.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

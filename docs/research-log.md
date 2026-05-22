@@ -5217,3 +5217,38 @@ Retention coverage over 11 unique M133 keys:
 Decision: corpus ready for objective-sanity work, not promotion. The next
 pending task is M137: optimize or gate directly against this M133 retention
 corpus before PPO resumes.
+
+## 20260522T001343Z m137-m133-retention-objective-sanity
+
+M137 tests objective-only updates on the M136 M133 retention corpus.
+
+Fixed losses:
+
+| Policy | M136 loss | M128 loss |
+| --- | ---: | ---: |
+| M132 s60 | 0.106838 | 0.252310 |
+| s20 a20 | 0.104333 | 0.247032 |
+| s40 a20 | 0.102648 | 0.243741 |
+| s40 a50 | 0.105241 | 0.248916 |
+
+Behavior seed `9503`: all candidates retain normal success `0.8625`. The best
+fixed-loss candidate `s40 a20` keeps reset success `0.8500`, zero-response
+success `0.8000`, and no-action success `0.8625`.
+
+Strict proof-surface result:
+
+| Policy | Miner seed | Selected pairs | Selected seeds | Snippets |
+| --- | ---: | ---: | ---: | ---: |
+| M133 M132 s60 | 9900 | 10 | 8 | 17 |
+| M133 M132 s60 | 9920 | 9 | 8 | 14 |
+| s20 a20 | 9900 | 6 | 5 | 13 |
+| s20 a20 | 9920 | 5 | 4 | 11 |
+| s40 a20 | 9900 | 7 | 6 | 12 |
+| s40 a20 | 9920 | 6 | 5 | 10 |
+| s40 a50 | 9900 | 7 | 5 | 15 |
+| s40 a50 | 9920 | 5 | 4 | 11 |
+
+Decision: reject M137 as a proof-surface repair. Fixed M136/M128 losses improve
+and behavior passes, but strict rollout proof-surface diversity collapses. The
+next pending task is M138: audit the mismatch between fixed retention loss and
+rollout-level margin/key retention before designing another objective.

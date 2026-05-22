@@ -4,8 +4,32 @@
   ],
   "commands": [
     {
-      "command": "Run an objective-only sanity update from M132 s60 using the M136 M133 proof-surface retention corpus before any PPO continuation.",
-      "name": "m137_m133_retention_objective_sanity"
+      "command": "Evaluate M136 retention loss for M132, M134 step4096, and M135 s2048 a1 before objective updates.",
+      "name": "m137_baseline_m136_retention_eval"
+    },
+    {
+      "command": "Run outcome_intervention_optimize from M132 s60 on M136 corpus with s20 anchor20 seed6137.",
+      "name": "m137_s20_anchor20_objective"
+    },
+    {
+      "command": "Run outcome_intervention_optimize from M132 s60 on M136 corpus with s40 anchor20 seed6138.",
+      "name": "m137_s40_anchor20_objective"
+    },
+    {
+      "command": "Run outcome_intervention_optimize from M132 s60 on M136 corpus with s40 anchor50 lr2e-5 seed6139.",
+      "name": "m137_s40_anchor50_objective"
+    },
+    {
+      "command": "Evaluate M136 and M128 fixed losses for all M137 candidates.",
+      "name": "m137_fixed_batch_evals"
+    },
+    {
+      "command": "Run behavior gate on seed9503 for M137 candidates and s40 anchor20 ablations.",
+      "name": "m137_behavior_gate_seed9503"
+    },
+    {
+      "command": "Run strict M133 zero-relvel proof-surface miners on all three M137 candidates with seeds9900 and 9920.",
+      "name": "m137_strict_proof_surface_grid"
     }
   ],
   "decision_rule": "Admit a candidate only if it improves the M136 retention objective without regressing M133 behavior or strict proof-surface diversity.",
@@ -22,6 +46,58 @@
     {
       "path": "docs/m137-m133-retention-objective-sanity.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m137_baseline_m136_retention_eval_seed0/policy_summary.csv",
+      "type": "baseline_eval"
+    },
+    {
+      "path": "runs/m137_m136_s20_anchor20_seed6137/summary.json",
+      "type": "objective_summary"
+    },
+    {
+      "path": "runs/m137_m136_s40_anchor20_seed6138/summary.json",
+      "type": "objective_summary"
+    },
+    {
+      "path": "runs/m137_m136_s40_anchor50_lr2e5_seed6139/summary.json",
+      "type": "objective_summary"
+    },
+    {
+      "path": "runs/m137_m136_retention_eval_seed0/policy_summary.csv",
+      "type": "fixed_batch_eval"
+    },
+    {
+      "path": "runs/m137_m128_outcome_eval_seed0/policy_summary.csv",
+      "type": "fixed_batch_eval"
+    },
+    {
+      "path": "runs/m137_behavior_gate_seed9503/policy_summary.csv",
+      "type": "behavior_gate"
+    },
+    {
+      "path": "runs/m137_s20_a20_strict_60ep_seed9900/summary.json",
+      "type": "proof_surface"
+    },
+    {
+      "path": "runs/m137_s20_a20_strict_60ep_seed9920/summary.json",
+      "type": "proof_surface"
+    },
+    {
+      "path": "runs/m137_s40_a20_strict_60ep_seed9900/summary.json",
+      "type": "proof_surface"
+    },
+    {
+      "path": "runs/m137_s40_a20_strict_60ep_seed9920/summary.json",
+      "type": "proof_surface"
+    },
+    {
+      "path": "runs/m137_s40_a50_strict_60ep_seed9900/summary.json",
+      "type": "proof_surface"
+    },
+    {
+      "path": "runs/m137_s40_a50_strict_60ep_seed9920/summary.json",
+      "type": "proof_surface"
     }
   ],
   "success_criteria": [

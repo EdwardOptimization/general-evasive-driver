@@ -1,0 +1,34 @@
+{
+  "baseline_checkpoints": [
+    "runs/m132_margin_retention_s60_anchor20_seed9841/optimized_checkpoint.pt",
+    "runs/m137_m136_s40_anchor20_seed6138/optimized_checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "Audit why fixed M136 retention-loss improvement shrinks strict rollout proof-surface diversity.",
+      "name": "m138_retention_loss_rollout_misalignment_audit"
+    }
+  ],
+  "decision_rule": "Do not design another objective until the mismatch between fixed logprob loss and rollout margin/selected-key retention is measured.",
+  "failure_criteria": [
+    "audit cannot identify which M133 keys are lost",
+    "audit only reports aggregate fixed loss",
+    "next recipe ignores rollout-level margin gaps",
+    "PPO or objective optimization resumes without a rollout-aware guard"
+  ],
+  "hypothesis": "M137 shows that improving retained-snippet logprob can reduce strict rollout diversity. The next repair needs a key-level rollout-margin audit before another differentiable objective is chosen.",
+  "id": "m138-retention-loss-rollout-misalignment-audit",
+  "required_artifacts": [
+    {
+      "path": "docs/m138-retention-loss-rollout-misalignment-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "lost M133 keys are identified for M137 candidates",
+    "fixed-loss changes are compared with rollout margin and selected-key changes",
+    "a concrete rollout-aware guard or objective direction is selected",
+    "no hidden or oracle actor inputs are introduced"
+  ],
+  "type": "gate"
+}

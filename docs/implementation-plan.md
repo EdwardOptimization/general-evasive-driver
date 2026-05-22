@@ -2714,8 +2714,25 @@ keeps behavior while losing specific proof-surface keys. See
 - Rerun M133 behavior and strict proof-surface gates.
 - Do not return to PPO until the exact M133 retained keys are preserved.
 
-Status: pending. M136 makes the proof-surface rows explicit, but they still need
-to be used as a training-time objective or guard.
+Status: completed as a negative proof result. M137 trains three
+objective-only candidates on the M136 retention corpus. All improve M136 loss,
+all improve M128 fixed loss, and behavior seed `9503` remains at success
+`0.8625` with zero-response `0.8000`. However, all three collapse the strict
+rollout proof surface. The best fixed-loss candidate, `s40 a20`, drops to
+`7` selected pairs/`6` seeds on miner seed `9900` and `6` pairs/`5` seeds on
+seed `9920`, versus M133's `10/8` and `9/8`. This rejects direct fixed logprob
+retention loss as the repair. See `docs/m137-m133-retention-objective-sanity.md`.
+
+### M138: Retention Loss Rollout Misalignment Audit
+
+- Identify which M133 keys M137 loses.
+- Compare fixed-loss improvement with rollout margin gap and selected-key
+  retention.
+- Determine whether the next repair needs a rollout-aware objective, a hard
+  key-retention gate, or a different corpus construction.
+
+Status: pending. M137 proves fixed logprob loss is not a sufficient proxy for
+strict rollout proof-surface preservation.
 
 ### M67-F: Counterfactual Response-Intervention Objective
 
