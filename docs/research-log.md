@@ -8323,3 +8323,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: exported 97 finite M224 trajectory anchor rows: 57 for M183 M170 row `16` and 40 for protected key `9944|perturbed|28|28`. The protected key margin reproduces the M224 guard margin `0.186385`.
 - decision: `admit_trajectory_action_anchor_implementation`
 - next: `m236-trajectory-action-anchor-implementation`
+
+## 20260522T133634Z m236-trajectory-action-anchor-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m236-trajectory-action-anchor-implementation.md`
+- result: added `TrajectoryActionAnchor`, loader, loss, train config fields, train metric logging, and focused tests. `58 passed`; no PPO was run.
+- decision: `admit_trajectory_anchored_ppo_smoke`
+- next: `m237-trajectory-anchored-ppo-smoke-from-m224`

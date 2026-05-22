@@ -50,6 +50,20 @@ class SnippetActionAnchor:
         return int(self.observation.shape[0])
 
 
+@dataclass(frozen=True)
+class TrajectoryActionAnchor:
+    observation: torch.Tensor
+    hidden: torch.Tensor
+    reference_action: torch.Tensor
+    source_index: torch.Tensor
+    step_index: torch.Tensor
+    weight: torch.Tensor
+
+    @property
+    def size(self) -> int:
+        return int(self.observation.shape[0])
+
+
 def weighted_mean(values: torch.Tensor, weights: torch.Tensor) -> torch.Tensor:
     """Mean with the same zero-weight behavior used by PPO auxiliary losses."""
 
@@ -197,6 +211,72 @@ def load_outcome_intervention_snippets(
     )
 
 
+def load_trajectory_action_anchor(
+    path: Path | str,
+    *,
+    device: torch.device,
+    obs_dim: int,
+    hidden_size: int,
+    act_dim: int,
+) -> TrajectoryActionAnchor:
+    data = np.load(Path(path))
+    required = {
+        "observation",
+        "hidden",
+        "reference_action",
+        "source_index",
+        "step_index",
+        "weight",
+    }
+    missing = sorted(required.difference(data.files))
+    if missing:
+        raise ValueError(f"trajectory action anchor npz missing fields: {missing}")
+    observation = np.asarray(data["observation"], dtype=np.float32)
+    hidden = np.asarray(data["hidden"], dtype=np.float32)
+    reference_action = np.asarray(data["reference_action"], dtype=np.float32)
+    source_index = np.asarray(data["source_index"], dtype=np.int64)
+    step_index = np.asarray(data["step_index"], dtype=np.int64)
+    weight = np.asarray(data["weight"], dtype=np.float32)
+    if observation.ndim != 2 or observation.shape[1] != obs_dim:
+        raise ValueError(f"trajectory observations must have shape (N, {obs_dim}), got {observation.shape}")
+    if hidden.ndim != 2 or hidden.shape[1] != hidden_size:
+        raise ValueError(f"trajectory hidden states must have shape (N, {hidden_size}), got {hidden.shape}")
+    if reference_action.ndim != 2 or reference_action.shape[1] != act_dim:
+        raise ValueError(f"trajectory reference actions must have shape (N, {act_dim}), got {reference_action.shape}")
+    rows = int(observation.shape[0])
+    if rows < 1:
+        raise ValueError("trajectory action anchor npz must contain at least one row")
+    for name, value in (
+        ("hidden", hidden),
+        ("reference_action", reference_action),
+        ("source_index", source_index),
+        ("step_index", step_index),
+        ("weight", weight),
+    ):
+        if value.ndim != 1 and name in {"source_index", "step_index", "weight"}:
+            raise ValueError(f"trajectory {name} must have shape (N,), got {value.shape}")
+        if int(value.shape[0]) != rows:
+            raise ValueError(f"trajectory {name} row count {value.shape[0]} does not match {rows}")
+    for name, value in (
+        ("observation", observation),
+        ("hidden", hidden),
+        ("reference_action", reference_action),
+        ("weight", weight),
+    ):
+        if not np.all(np.isfinite(value)):
+            raise ValueError(f"trajectory {name} must be finite")
+    if float(np.max(weight)) <= 0.0:
+        raise ValueError("trajectory action anchor requires at least one positive weight")
+    return TrajectoryActionAnchor(
+        observation=torch.as_tensor(observation, dtype=torch.float32, device=device),
+        hidden=torch.as_tensor(hidden, dtype=torch.float32, device=device),
+        reference_action=torch.as_tensor(reference_action, dtype=torch.float32, device=device),
+        source_index=torch.as_tensor(source_index, dtype=torch.long, device=device),
+        step_index=torch.as_tensor(step_index, dtype=torch.long, device=device),
+        weight=torch.as_tensor(np.clip(weight, 0.0, None), dtype=torch.float32, device=device),
+    )
+
+
 def paired_hidden_action_contrast_loss(
     model: Any,
     snapshots: PairedHiddenSnapshots,
@@ -314,3 +394,22 @@ def snippet_action_anchor_loss(
     indices = torch.randint(count, (batch_count,), device=anchor.observation.device)
     errors = snippet_action_anchor_errors(model, anchor, indices)
     return weighted_mean(errors, anchor.weight[indices])
+
+
+def trajectory_action_anchor_loss(
+    model: Any,
+    anchor: TrajectoryActionAnchor,
+    *,
+    batch_size: int,
+) -> torch.Tensor:
+    count = anchor.size
+    batch_count = max(1, min(int(batch_size), count))
+    indices = torch.randint(count, (batch_count,), device=anchor.observation.device)
+    observation = anchor.observation[indices]
+    hidden = anchor.hidden[indices]
+    reference_action = anchor.reference_action[indices]
+    weight = anchor.weight[indices]
+    dist, _, _ = model.forward_recurrent(observation, hidden)
+    action = torch.tanh(dist.mean)
+    error = torch.square(action - reference_action.detach()).mean(dim=-1)
+    return weighted_mean(error, weight.detach())

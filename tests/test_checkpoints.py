@@ -916,6 +916,71 @@ def test_train_logs_snippet_action_anchor_loss(tmp_path):
     assert float(rows[0]["snippet_action_anchor_loss_mean"]) >= 0.0
 
 
+def test_train_requires_trajectory_action_anchor_snapshot():
+    config = PPOConfig(
+        total_steps=8,
+        rollout_steps=4,
+        num_envs=1,
+        hidden_size=8,
+        actor_encoder="human_view_online_gru",
+        recurrent_sequence_training=True,
+        trajectory_action_anchor_coef=0.01,
+        device="cpu",
+    )
+
+    with np.testing.assert_raises(ValueError):
+        train(config, env_config=DriftEnvConfig(max_steps=4, speed_range=(4.0, 6.0)))
+
+
+def test_train_logs_trajectory_action_anchor_loss(tmp_path):
+    trajectory_path = tmp_path / "trajectory_anchor.npz"
+    np.savez_compressed(
+        trajectory_path,
+        observation=np.zeros((4, 72), dtype=np.float32),
+        hidden=np.zeros((4, 8), dtype=np.float32),
+        reference_action=np.zeros((4, 3), dtype=np.float32),
+        source_index=np.asarray([0, 0, 1, 1], dtype=np.int64),
+        step_index=np.asarray([0, 1, 0, 1], dtype=np.int64),
+        weight=np.ones(4, dtype=np.float32),
+    )
+    save_path = tmp_path / "run" / "checkpoint.pt"
+    metrics_path = tmp_path / "run" / "train_metrics.csv"
+    config = PPOConfig(
+        total_steps=32,
+        rollout_steps=8,
+        num_envs=2,
+        update_epochs=1,
+        minibatch_size=8,
+        hidden_size=8,
+        actor_encoder="human_view_online_gru",
+        recurrent_sequence_training=True,
+        trajectory_action_anchor_coef=0.05,
+        trajectory_action_anchor_snapshot_npz=str(trajectory_path),
+        trajectory_action_anchor_batch_size=2,
+        seed=137,
+        device="cpu",
+    )
+
+    train(
+        config,
+        save_path=save_path,
+        metrics_csv_path=metrics_path,
+        env_config=DriftEnvConfig(
+            max_steps=8,
+            speed_range=(4.0, 6.0),
+            friction_limited_speed=False,
+            obstacle=ObstacleTaskConfig(enabled=True, distance_range=(20.0, 24.0)),
+        ),
+    )
+
+    with metrics_path.open(newline="", encoding="utf-8") as handle:
+        rows = list(csv.DictReader(handle))
+
+    assert rows
+    assert "trajectory_action_anchor_loss_mean" in rows[0]
+    assert float(rows[0]["trajectory_action_anchor_loss_mean"]) >= 0.0
+
+
 def test_train_logs_friction_bucket_auxiliary_loss(tmp_path):
     save_path = tmp_path / "run" / "checkpoint.pt"
     metrics_path = tmp_path / "run" / "metrics.csv"

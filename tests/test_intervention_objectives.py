@@ -6,16 +6,19 @@ import torch
 from autodrift.intervention_objectives import (
     OutcomeInterventionSnippets,
     PairedHiddenSnapshots,
+    TrajectoryActionAnchor,
     action_mean_margin_contrast_loss,
     baseline_action_anchor_loss,
     load_outcome_intervention_snippets,
     load_paired_hidden_snapshots,
+    load_trajectory_action_anchor,
     logprob_intervention_contrast_loss,
     negative_advantage_weights,
     outcome_weighted_intervention_loss,
     paired_hidden_action_contrast_loss,
     positive_advantage_weights,
     squashed_action_log_prob,
+    trajectory_action_anchor_loss,
     weighted_mean,
 )
 
@@ -134,6 +137,34 @@ def test_load_outcome_intervention_snippets_validates_and_converts_arrays(tmp_pa
     assert torch.isclose(snippets.weight.max(), torch.tensor(1.5))
 
 
+def test_load_trajectory_action_anchor_validates_and_converts_arrays(tmp_path):
+    path = tmp_path / "trajectory_anchor.npz"
+    np.savez(
+        path,
+        observation=np.zeros((2, 3), dtype=np.float32),
+        hidden=np.zeros((2, 4), dtype=np.float32),
+        reference_action=np.zeros((2, 2), dtype=np.float32),
+        source_index=np.asarray([0, 1], dtype=np.int64),
+        step_index=np.asarray([0, 3], dtype=np.int64),
+        weight=np.asarray([0.5, 1.5], dtype=np.float32),
+    )
+
+    anchor = load_trajectory_action_anchor(
+        path,
+        device=torch.device("cpu"),
+        obs_dim=3,
+        hidden_size=4,
+        act_dim=2,
+    )
+
+    assert anchor.size == 2
+    assert anchor.observation.shape == (2, 3)
+    assert anchor.hidden.shape == (2, 4)
+    assert anchor.reference_action.shape == (2, 2)
+    assert anchor.source_index.dtype == torch.long
+    assert torch.isclose(anchor.weight.max(), torch.tensor(1.5))
+
+
 def test_paired_hidden_action_contrast_loss_uses_swapped_hidden_states():
     class DummyModel:
         def forward_recurrent(self, observation, hidden):
@@ -187,6 +218,27 @@ def test_outcome_weighted_intervention_loss_prefers_normal_history_action():
     rejected_logp = torch.full((2,), -2.0)
     expected = torch.nn.functional.softplus(rejected_logp - preferred_logp + 0.1).mean()
     assert torch.isclose(loss, expected)
+
+
+def test_trajectory_action_anchor_loss_matches_reference_actions():
+    class DummyModel:
+        def forward_recurrent(self, observation, hidden):
+            mean = torch.atanh(torch.clamp(observation[:, :2] + hidden[:, :2], -0.95, 0.95))
+            return type("DummyDist", (), {"mean": mean})(), None, None
+
+    anchor = TrajectoryActionAnchor(
+        observation=torch.tensor([[0.1, 0.0, 0.0], [0.2, 0.1, 0.0]]),
+        hidden=torch.tensor([[0.0, 0.2, 0.0, 0.0], [0.1, 0.0, 0.0, 0.0]]),
+        reference_action=torch.tensor([[0.1, 0.2], [0.3, 0.1]]),
+        source_index=torch.tensor([0, 1]),
+        step_index=torch.tensor([0, 1]),
+        weight=torch.tensor([1.0, 2.0]),
+    )
+
+    torch.manual_seed(3)
+    loss = trajectory_action_anchor_loss(DummyModel(), anchor, batch_size=2)
+
+    assert torch.isclose(loss, torch.tensor(0.0), atol=1e-6)
 
 
 def test_squashed_action_log_prob_handles_bounded_actions():

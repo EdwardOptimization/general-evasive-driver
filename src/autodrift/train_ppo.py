@@ -28,10 +28,12 @@ from autodrift.intervention_objectives import (
     build_snippet_action_anchor,
     load_outcome_intervention_snippets,
     load_paired_hidden_snapshots,
+    load_trajectory_action_anchor,
     logprob_intervention_contrast_loss,
     outcome_weighted_intervention_loss,
     paired_hidden_action_contrast_loss,
     snippet_action_anchor_loss,
+    trajectory_action_anchor_loss,
 )
 from autodrift.vector_env import ParallelAutoDriftVectorEnv, SyncAutoDriftVectorEnv
 
@@ -110,6 +112,9 @@ class PPOConfig:
     snippet_action_anchor_snapshot_npz: str = ""
     snippet_action_anchor_batch_size: int = 128
     snippet_action_anchor_preferred_only: bool = True
+    trajectory_action_anchor_coef: float = 0.0
+    trajectory_action_anchor_snapshot_npz: str = ""
+    trajectory_action_anchor_batch_size: int = 128
     checkpoint_interval_steps: int = 0
     training_seed_csv: str = ""
     training_seed_mix_probability: float = 1.0
@@ -949,6 +954,15 @@ def train(
             raise ValueError("snippet_action_anchor_batch_size must be positive")
     if config.snippet_action_anchor_coef < 0.0:
         raise ValueError("snippet_action_anchor_coef cannot be negative")
+    if config.trajectory_action_anchor_coef > 0.0:
+        if not uses_online_recurrent or not config.recurrent_sequence_training:
+            raise ValueError("trajectory action anchor requires online recurrent sequence training")
+        if not str(config.trajectory_action_anchor_snapshot_npz).strip():
+            raise ValueError("trajectory_action_anchor_snapshot_npz is required when trajectory anchor is enabled")
+        if config.trajectory_action_anchor_batch_size < 1:
+            raise ValueError("trajectory_action_anchor_batch_size must be positive")
+    if config.trajectory_action_anchor_coef < 0.0:
+        raise ValueError("trajectory_action_anchor_coef cannot be negative")
     if config.checkpoint_interval_steps < 0:
         raise ValueError("checkpoint_interval_steps cannot be negative")
     if not 0.0 <= config.training_seed_mix_probability <= 1.0:
@@ -1082,6 +1096,22 @@ def train(
             f"loaded_snippet_action_anchor={config.snippet_action_anchor_checkpoint} "
             f"snapshot={snippet_anchor_npz} load_mode={snippet_anchor_load_mode} "
             f"preferred_only={config.snippet_action_anchor_preferred_only}"
+        )
+    trajectory_action_anchor = (
+        load_trajectory_action_anchor(
+            config.trajectory_action_anchor_snapshot_npz,
+            device=device,
+            obs_dim=env.single_observation_space.shape[0],
+            hidden_size=config.hidden_size,
+            act_dim=env.single_action_space.shape[0],
+        )
+        if config.trajectory_action_anchor_coef > 0.0
+        else None
+    )
+    if trajectory_action_anchor is not None:
+        print(
+            f"loaded_trajectory_action_anchor={config.trajectory_action_anchor_snapshot_npz} "
+            f"rows={trajectory_action_anchor.size}"
         )
     print(f"training_device={device} num_envs={config.num_envs} curriculum_stage={active_stage}")
 
@@ -1282,6 +1312,7 @@ def train(
             friction_bucket_accuracy_values: list[float] = []
             baseline_action_anchor_loss_values: list[float] = []
             snippet_action_anchor_loss_values: list[float] = []
+            trajectory_action_anchor_loss_values: list[float] = []
             friction_bucket_t = (
                 torch.as_tensor(friction_bucket_buf, dtype=torch.long, device=device)
                 if friction_bucket_buf is not None
@@ -1383,6 +1414,17 @@ def train(
                         loss = loss + config.snippet_action_anchor_coef * snippet_anchor_loss_value
                         snippet_action_anchor_loss_values.append(
                             float(snippet_anchor_loss_value.detach().cpu().item())
+                        )
+                    if config.trajectory_action_anchor_coef > 0.0:
+                        assert trajectory_action_anchor is not None
+                        trajectory_anchor_loss_value = trajectory_action_anchor_loss(
+                            model,
+                            trajectory_action_anchor,
+                            batch_size=config.trajectory_action_anchor_batch_size,
+                        )
+                        loss = loss + config.trajectory_action_anchor_coef * trajectory_anchor_loss_value
+                        trajectory_action_anchor_loss_values.append(
+                            float(trajectory_anchor_loss_value.detach().cpu().item())
                         )
                     if config.friction_bucket_aux_coef > 0.0:
                         assert friction_bucket_prediction_head is not None
@@ -1576,6 +1618,12 @@ def train(
             row["snippet_action_anchor_loss_mean"] = (
                 float(np.mean(snippet_action_anchor_loss_values))
                 if snippet_action_anchor_loss_values
+                else float("nan")
+            )
+        if config.trajectory_action_anchor_coef > 0.0:
+            row["trajectory_action_anchor_loss_mean"] = (
+                float(np.mean(trajectory_action_anchor_loss_values))
+                if trajectory_action_anchor_loss_values
                 else float("nan")
             )
         metric_rows.append(row)

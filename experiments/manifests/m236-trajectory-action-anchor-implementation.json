@@ -2,7 +2,7 @@
   "id": "m236-trajectory-action-anchor-implementation",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -96,5 +96,20 @@
     "runs/m235_closed_loop_trajectory_anchor_surface/summary.json"
   ],
   "decision_rule": "M236 may only unblock PPO if the trajectory anchor path is implemented and tested without changing actor inputs.",
+  "results": {
+    "implemented_loader": "load_trajectory_action_anchor",
+    "implemented_loss": "trajectory_action_anchor_loss",
+    "train_config_fields": [
+      "trajectory_action_anchor_coef",
+      "trajectory_action_anchor_snapshot_npz",
+      "trajectory_action_anchor_batch_size"
+    ],
+    "train_metric": "trajectory_action_anchor_loss_mean",
+    "focused_tests": "58 passed in 3.13s",
+    "compileall": "pass",
+    "ppo_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_trajectory_anchored_ppo_smoke",
   "next_blocker": "Run one bounded M237 PPO smoke from M224 with the combined snippet anchor and new trajectory action anchor, then gate replay behavior and protected key."
 }
