@@ -1,0 +1,71 @@
+{
+  "id": "m209-protected-key-aware-stage6-design",
+  "type": "gate",
+  "hypothesis": "M206 and M208 both improve fixed M193 objective and preserve broad behavior/replay gates, but both fail the protected key by moving its normal margin above the pre-registered near-boundary max_normal_margin window. Further same-recipe PPO is therefore likely to keep improving broad loss while washing out protected-key boundary evidence. The next step is to design a protected-key-aware objective or config before any PPO.",
+  "success_criteria": [
+    "do not run PPO or actor updates in this milestone",
+    "identify the exact protected-key failure mechanism using M206 and M208 artifacts",
+    "define at least one protected-key-aware training objective or config change that can retain near-boundary acceptance without loosening the guard after seeing results",
+    "define how the proposed objective/config will be validated before promotion",
+    "keep M204 as the current best retained checkpoint unless a future candidate passes all gates",
+    "preserve the existing actor observation contract",
+    "pre-register the next runnable experiment after design"
+  ],
+  "failure_criteria": [
+    "run another same-recipe stage6 retry from M204",
+    "chain from M206 or M208",
+    "loosen max_normal_margin or any protected-key threshold post hoc to accept M206 or M208",
+    "promote based on fixed objective improvement alone",
+    "change actor observation inputs to solve the protected-key failure",
+    "skip old M183 replay, refreshed M193 replay, behavior seeds 9505/9506, or protected-key validation in the next runnable milestone"
+  ],
+  "candidate_directions": [
+    {
+      "name": "protected_boundary_anchor",
+      "description": "Add a small protected-key retention anchor or auxiliary loss that penalizes movement of the selected key outside the near-boundary acceptance window while preserving wrong-history margin gap."
+    },
+    {
+      "name": "lower_update_magnitude",
+      "description": "Reduce PPO update magnitude or number of minibatch passes for the stage6 continuation and require the protected key to pass before any repeat."
+    },
+    {
+      "name": "boundary_window_refresh",
+      "description": "Only if pre-registered, mine a fresh protected-key set with multiple near-boundary keys so the guard is not dependent on one row; do not loosen the existing key retroactively."
+    }
+  ],
+  "commands": [
+    {
+      "name": "m209_failure_review",
+      "command": "Inspect M206 and M208 protected-key artifacts and summarize why fixed-objective improvement moves the protected key outside the near-boundary acceptance window."
+    },
+    {
+      "name": "m209_design_note",
+      "command": "Write docs/m209-protected-key-aware-stage6-design.md with the selected protected-key-aware objective/config plan and next runnable milestone."
+    },
+    {
+      "name": "m209_next_manifest",
+      "command": "Pre-register the next runnable protected-key-aware experiment manifest before any PPO resumes."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m209-protected-key-aware-stage6-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt",
+    "runs/ppo_m206_stage6_from_m204_seed5212/checkpoint.pt",
+    "runs/ppo_m208_stage6_retry_from_m204_seed5213/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m206-guarded-stage6-ppo-from-m204.md",
+    "docs/m207-stage6-protected-key-failure-audit.md",
+    "docs/m208-stage6-protected-key-retry-from-m204.md",
+    "runs/m206_critical_key_seed9944/guard_results.csv",
+    "runs/m208_critical_key_seed9944/guard_results.csv",
+    "runs/m208_critical_key_seed9944/m208_retry_candidates.csv",
+    "runs/m208_fixed_batch_outcome_eval_seed37/summary.json"
+  ],
+  "decision_rule": "M209 should produce a pre-registered protected-key-aware stage6 plan. PPO may resume only after that design is documented and added to the research queue."
+}

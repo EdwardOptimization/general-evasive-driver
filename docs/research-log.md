@@ -7502,3 +7502,46 @@ Decision: keep M204 as current best. Admit exactly one fresh-seed stage6 retry
 from M204 to test seed-specific update noise. If the retry also fails the
 protected key, stop repeating the same PPO recipe and design a protected-key
 aware objective or config.
+
+## 20260522T100502Z m208-stage6-protected-key-retry-from-m204
+
+M208 ran the one allowed fresh-seed stage6 retry from M204 seed `5209` using
+seed `5213` and the unchanged M196 guarded PPO smoke config. No actor input
+changes were made.
+
+Artifacts:
+
+- `runs/ppo_m208_stage6_retry_from_m204_seed5213`
+- `runs/m208_fixed_batch_outcome_eval_seed37`
+- `runs/m208_m183_m168_replay_gate_seed9510`
+- `runs/m208_m183_m170_replay_gate_seed9510`
+- `runs/m208_m193_m189_replay_gate_seed9630`
+- `runs/m208_behavior_gate_seed9505`
+- `runs/m208_behavior_gate_seed9506`
+- `runs/m208_critical_key_seed9944`
+- `docs/m208-stage6-protected-key-retry-from-m204.md`
+- `experiments/manifests/m209-protected-key-aware-stage6-design.json`
+
+Results:
+
+- fixed M193 objective loss improves from M204 `0.158475` and M206
+  `0.158420` to M208 `0.158354`;
+- smoke eval termination is `0.00`;
+- M183 M168 replay retains `16/16` success drops;
+- M183 M170 replay retains `17/17` success drops;
+- M193 M189 replay retains `14/14` success drops;
+- behavior seeds `9505` and `9506` keep success `0.8625`;
+- reset-hidden and zero-all-response ablations remain at `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` fails again with `0/1` accepted cases.
+
+Protected-key diagnosis:
+
+- M208 keeps normal success true on the selected protected row;
+- M208 keeps a large wrong-history margin gap (`0.097479`);
+- M208's normal margin is `0.208742`, above the reference manifest's
+  `max_normal_margin = 0.2` boundary window;
+- this repeats the M206 failure mechanism.
+
+Decision: reject M208. Keep M204 as the current best retained checkpoint. Stop
+the same stage6 PPO recipe and move to M209 protected-key-aware objective/config
+design before any further PPO.

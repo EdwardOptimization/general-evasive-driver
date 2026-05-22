@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 216,
+    "completed": 217,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m207-stage6-protected-key-failure-audit.md",
+    "command_log": "docs/m208-stage6-protected-key-retry-from-m204.md",
     "returncode": 0,
-    "run_dir": "runs/m206_critical_key_seed9944",
+    "run_dir": "runs/m208_critical_key_seed9944",
     "status": "completed",
-    "task_id": "m207-stage6-protected-key-failure-audit"
+    "task_id": "m208-stage6-protected-key-retry-from-m204"
   },
   "next_task": {
-    "command": "see experiments/manifests/m208-stage6-protected-key-retry-from-m204.json",
-    "hypothesis": "M206 failed protected-key boundary acceptance but not broad behavior or replay, so one fresh-seed stage6 retry from M204 can test seed-specific update noise.",
-    "id": "m208-stage6-protected-key-retry-from-m204",
-    "kind": "driver_candidate",
-    "notes": "Run one retry from M204 only; if protected key fails again, stop same PPO recipe and design a protected-key-aware objective or config.",
-    "priority": 2030,
+    "command": "see experiments/manifests/m209-protected-key-aware-stage6-design.json",
+    "hypothesis": "M206 and M208 both improved fixed objective and preserved broad gates but failed the same protected key through boundary-window excursion, so same-recipe PPO should stop until a protected-key-aware objective/config is designed.",
+    "id": "m209-protected-key-aware-stage6-design",
+    "kind": "gate",
+    "notes": "No PPO in M209; design and pre-register a protected-key-aware stage6 plan while keeping M204 as current best.",
+    "priority": 2040,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T095809Z"
+  "updated_at_utc": "20260522T100502Z"
 }

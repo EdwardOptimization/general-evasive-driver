@@ -190,19 +190,28 @@ slightly stronger action-level sensitivity.
   success and large margin gap, but its normal margin moves to `0.207450`,
   above the reference `max_normal_margin = 0.2` boundary window. M204 remains
   the current best; one fresh-seed stage6 retry from M204 is pre-registered.
+- M208: runs the one allowed fresh-seed stage6 retry from M204 seed `5209`.
+  The retry improves fixed M193 loss to `0.158354`, keeps behavior success
+  `0.8625` on seeds `9505` and `9506`, preserves old M183 replay drops
+  `16/16` and `17/17`, and preserves refreshed M193 replay drops `14/14`.
+  It fails the same protected key with normal margin `0.208742`, above the
+  reference `max_normal_margin = 0.2`, so M208 is rejected and same-recipe
+  stage6 PPO is stopped.
 
 Current blocker:
 
 ```text
-one protected-key-guarded stage6 retry from M204 before any further continuation
+protected-key-aware stage6 objective/config design before any further PPO
 ```
 
 ## Near-Term Rule
 
-M206 is rejected despite better fixed objective because the protected-key gate
-failed. M207 permits exactly one fresh-seed stage6 retry from M204. If that
-retry fails the protected key, stop repeating the same PPO recipe and design a
-protected-key-aware objective or config before any further PPO.
+M206 and M208 are both rejected despite better fixed objectives because the
+protected-key gate failed. The failure is now repeated, not a single-seed
+accident. Do not run another same-recipe stage6 retry, do not chain from M206 or
+M208, and do not loosen the protected-key threshold after seeing the result.
+M209 must design a protected-key-aware objective or config before any further
+PPO.
 
 ## Sensor Profile Policy
 
