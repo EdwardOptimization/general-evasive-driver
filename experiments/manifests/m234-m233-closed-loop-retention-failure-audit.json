@@ -1,0 +1,90 @@
+{
+  "id": "m234-m233-closed-loop-retention-failure-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "proof_washout",
+    "protected_key_window_failure",
+    "promotion_gate_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt",
+      "runs/ppo_m233_protected_key_combined_anchor_from_m224_seed5220/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.npz",
+      "runs/m233_m183_m170_replay_gate_seed9510/boundary_replay_rows.csv",
+      "runs/m233_critical_key_seed9944/guard_results.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m233_protected_key_combined_anchor_from_m224_smoke.json"
+    ],
+    "parent_objective": [
+      "combined M223/M231 preferred-only snippet action anchor",
+      "combined M223/M231 outcome intervention auxiliary loss",
+      "rollout-state M224 baseline action anchor"
+    ],
+    "derived_from": [
+      "m233-protected-key-aware-ppo-smoke-from-m224"
+    ],
+    "blocked_by": [
+      "m233-protected-key-aware-ppo-smoke-from-m224"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m234-m233-closed-loop-retention-failure-audit.md",
+  "public_gates": [
+    "M233 M183 M170 replay failed row audit",
+    "M233 protected key candidate audit",
+    "M233 train snippet anchor loss audit",
+    "research validator"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not repeat or lengthen M233 before the audit",
+    "do not loosen replay or protected-key thresholds",
+    "do not treat near-zero first-action anchor loss as closed-loop retention",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "M233 fails because snippet-level first-action anchoring can be satisfied while closed-loop near-boundary rollout margins still drift. The next repair should be designed around rollout-level retention rather than another coverage-only snippet export.",
+  "success_criteria": [
+    "classify whether M233 failure is first-action mismatch or closed-loop rollout drift",
+    "identify the exact failed replay row and protected-key margin movement",
+    "decide the next repair path before any more PPO",
+    "keep M224 current best",
+    "pre-register exactly one bounded next milestone"
+  ],
+  "failure_criteria": [
+    "run more PPO before the audit",
+    "promote M233 because behavior success is retained",
+    "ignore the M183 M170 replay failure",
+    "ignore the protected-key failure",
+    "change the actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "m234_audit",
+      "command": "Use M233 train metrics, replay rows, and protected-key guard results to classify the failure and pre-register the next repair path without running PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m234-m233-closed-loop-retention-failure-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m233-protected-key-aware-ppo-smoke-from-m224.md",
+    "runs/m233_m183_m170_replay_gate_seed9510/summary.json",
+    "runs/m233_critical_key_seed9944/guard_results.csv",
+    "runs/ppo_m233_protected_key_combined_anchor_from_m224_seed5220/train_metrics.csv"
+  ],
+  "decision_rule": "M234 may only unblock a new repair if it explains the closed-loop retention failure and pre-registers a bounded non-PPO or one-smoke PPO path with explicit retention gates.",
+  "next_blocker": "Audit whether M233 needs rollout-level replay anchoring, multi-step action anchors, or stricter PPO trust-region constraints."
+}

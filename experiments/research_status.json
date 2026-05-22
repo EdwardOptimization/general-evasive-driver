@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 241,
+    "completed": 242,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m232-protected-key-combined-snippet-anchor-corpus.md",
+    "command_log": "docs/m233-protected-key-aware-ppo-smoke-from-m224.md",
     "returncode": 0,
-    "run_dir": "runs/m232_combined_m223_m231_snippet_anchor",
+    "run_dir": "runs/ppo_m233_protected_key_combined_anchor_from_m224_seed5220",
     "status": "completed",
-    "task_id": "m232-protected-key-combined-snippet-anchor-corpus"
+    "task_id": "m233-protected-key-aware-ppo-smoke-from-m224"
   },
   "next_task": {
-    "command": "see experiments/manifests/m233-protected-key-aware-ppo-smoke-from-m224.json",
-    "hypothesis": "Run one protected-key-aware PPO smoke from M224 using the combined M223/M231 snippet anchor",
-    "id": "m233-protected-key-aware-ppo-smoke-from-m224",
-    "kind": "driver_candidate",
-    "notes": "Pending: create M233 config and run exactly one 1024-step PPO smoke then gate fixed objective replay behavior and protected key",
-    "priority": 2280,
+    "command": "see experiments/manifests/m234-m233-closed-loop-retention-failure-audit.json",
+    "hypothesis": "Audit why M233 satisfied snippet anchors but failed closed-loop replay and protected-key margins",
+    "id": "m234-m233-closed-loop-retention-failure-audit",
+    "kind": "gate",
+    "notes": "Pending: classify first-action versus closed-loop rollout drift and pre-register exactly one repair path; no PPO in M234",
+    "priority": 2290,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T131705Z"
+  "updated_at_utc": "20260522T132353Z"
 }

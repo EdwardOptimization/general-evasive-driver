@@ -8293,3 +8293,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - artifact: `docs/m232-protected-key-combined-snippet-anchor-corpus.md`
 - result: combined 17 M223 rows plus protected key `9944|perturbed|28|28` into one 18-row positive finite-weight snippet corpus. No PPO was run.
 - next: `m233-protected-key-aware-ppo-smoke-from-m224`
+
+## 20260522T132353Z m233-protected-key-aware-ppo-smoke-from-m224
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/ppo_m233_protected_key_combined_anchor_from_m224_seed5220`
+- artifact: `docs/m233-protected-key-aware-ppo-smoke-from-m224.md`
+- result: negative. Behavior success stayed `0.8625`, but M183 M170 replay fell to `16/17` and protected key `9944|perturbed|28|28` failed with normal margin `0.204645`.
+- decision: `reject_ppo_smoke_replay_and_protected_key_failure`
+- next: `m234-m233-closed-loop-retention-failure-audit`

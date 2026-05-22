@@ -2,9 +2,11 @@
   "id": "m233-protected-key-aware-ppo-smoke-from-m224",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "proof_washout",
+    "protected_key_window_failure",
+    "promotion_gate_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -97,5 +99,40 @@
     "runs/m232_combined_m223_m231_snippet_anchor/summary.json"
   ],
   "decision_rule": "M233 may admit only a repeat PPO smoke if fixed objective and replay behavior protected-key gates all pass. Any protected-key failure rejects the smoke and triggers audit instead of repeat.",
-  "next_blocker": "Run the M233 one-smoke PPO gate and decide between repeat PPO or protected-key-aware objective audit."
+  "results": {
+    "checkpoint": "runs/ppo_m233_protected_key_combined_anchor_from_m224_seed5220/checkpoint.pt",
+    "train_rollout_return_mean": 75.34814959955216,
+    "train_reward_mean": 1.0702937841415405,
+    "train_builtin_eval_termination_rate": 0.2,
+    "outcome_intervention_loss_mean": 0.252934992313385,
+    "baseline_action_anchor_loss_mean": 0.000003953900098131969,
+    "snippet_action_anchor_loss_mean": 4.320291678815919e-08,
+    "fixed_combined_loss_m224": 0.24650630712509155,
+    "fixed_combined_loss_m229": 0.24640714377164842,
+    "fixed_combined_loss_m233": 0.24652378380298616,
+    "fixed_m223_loss_m224": 0.20982385843992232,
+    "fixed_m223_loss_m229": 0.20972828388214113,
+    "fixed_m223_loss_m233": 0.20982543647289276,
+    "m183_m168_gate_pass": true,
+    "m183_m170_gate_pass": false,
+    "m183_m170_candidate_success_drop_count": 16,
+    "m183_m170_baseline_success_drop_count": 17,
+    "m183_m170_failed_row_id": 16,
+    "m193_m189_gate_pass": true,
+    "m212_m204_gate_pass": true,
+    "m223_m219_gate_pass": true,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "behavior_seed9505_reset_success": 0.85,
+    "behavior_seed9506_reset_success": 0.85,
+    "behavior_seed9505_zero_all_success": 0.8,
+    "behavior_seed9506_zero_all_success": 0.8,
+    "protected_key": "9944|perturbed|28|28",
+    "protected_key_pass": false,
+    "protected_key_normal_margin": 0.20464540156918803,
+    "protected_key_wrong_history_margin": 0.10499331707976816,
+    "protected_key_margin_gap": 0.09965208448941987
+  },
+  "decision": "reject_ppo_smoke_replay_and_protected_key_failure",
+  "next_blocker": "Audit why first-action snippet anchoring did not preserve closed-loop replay and protected-key margins before any more PPO."
 }
