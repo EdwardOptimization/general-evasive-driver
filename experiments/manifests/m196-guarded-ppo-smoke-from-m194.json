@@ -20,17 +20,57 @@
   "commands": [
     {
       "name": "m196_guarded_ppo_smoke",
-      "command": "Run a tiny guarded PPO smoke from M194 using the existing M185 smoke recipe adapted only by init checkpoint."
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_m196_guarded_from_m194_smoke.json --seed 5196 --init-checkpoint runs/m194_m189_actor_coupling_anchor100_s20_seed9850/optimized_checkpoint.pt --run-dir runs/ppo_m196_guarded_from_m194_seed5196"
+    },
+    {
+      "name": "m196_fixed_eval",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_eval --snippet-npz runs/m193_m189_boundary_outcome_corpus_seed9630/boundary_outcome_corpus.npz --checkpoint-policy m189_5193=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt --checkpoint-policy m194_s20=runs/m194_m189_actor_coupling_anchor100_s20_seed9850/optimized_checkpoint.pt --checkpoint-policy m196_5196=runs/ppo_m196_guarded_from_m194_seed5196/checkpoint.pt --device cpu --batch-size 64 --batches 50 --seed 37 --logprob-margin 0.05 --run-dir runs/m196_fixed_batch_outcome_eval_seed37"
     },
     {
       "name": "m196_retention_gates",
-      "command": "Run fixed objective, replay, behavior, and protected-key gates before admitting any PPO repeat."
+      "command": "Run M183 M168, M183 M170, and M193 M189 replay gates with M194 as baseline, plus behavior seeds 9505/9506 and protected-key replay."
     }
   ],
   "required_artifacts": [
     {
       "path": "docs/m196-guarded-ppo-smoke-from-m194.md",
       "type": "documentation"
+    },
+    {
+      "path": "configs/ppo_m196_guarded_from_m194_smoke.json",
+      "type": "training_config"
+    },
+    {
+      "path": "runs/ppo_m196_guarded_from_m194_seed5196/checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m196_fixed_batch_outcome_eval_seed37/summary.json",
+      "type": "fixed_eval_summary"
+    },
+    {
+      "path": "runs/m196_m183_m168_replay_gate_seed9510/summary.json",
+      "type": "m183_m168_replay"
+    },
+    {
+      "path": "runs/m196_m183_m170_replay_gate_seed9510/summary.json",
+      "type": "m183_m170_replay"
+    },
+    {
+      "path": "runs/m196_m193_m189_replay_gate_seed9630/summary.json",
+      "type": "m193_m189_replay"
+    },
+    {
+      "path": "runs/m196_behavior_gate_seed9505/policy_summary.csv",
+      "type": "behavior_seed9505"
+    },
+    {
+      "path": "runs/m196_behavior_gate_seed9506/policy_summary.csv",
+      "type": "behavior_seed9506"
+    },
+    {
+      "path": "runs/m196_critical_key_seed9944/summary.json",
+      "type": "protected_key"
     }
   ],
   "baseline_checkpoints": [
@@ -46,5 +86,31 @@
     "runs/m195_behavior_gate_seed9505/policy_summary.csv",
     "runs/m195_behavior_gate_seed9506/policy_summary.csv"
   ],
-  "decision_rule": "Only a tiny PPO smoke that preserves behavior, protected key, old replay, and refreshed replay may admit PPO repeats."
+  "results": {
+    "checkpoint": "runs/ppo_m196_guarded_from_m194_seed5196/checkpoint.pt",
+    "train_rollout_return_mean": 76.49404767375354,
+    "train_reward_mean": 0.9698768854141235,
+    "train_outcome_intervention_loss_mean": 0.1643355960647265,
+    "train_baseline_action_anchor_loss_mean": 0.0000058916673933614066,
+    "eval_return_mean": 60.41671810948585,
+    "eval_termination_rate": 0.2,
+    "fixed_loss_m189": 0.16064704418182374,
+    "fixed_loss_m194": 0.15900827199220657,
+    "fixed_loss_m196": 0.15901683270931244,
+    "fixed_loss_delta_vs_m189": -0.0016302114725113007,
+    "fixed_loss_delta_vs_m194": 0.000008560717105865,
+    "m183_m168_success_drop_count": 16,
+    "m183_m170_success_drop_count": 17,
+    "m193_m189_success_drop_count": 14,
+    "m183_m168_gate_pass": true,
+    "m183_m170_gate_pass": true,
+    "m193_m189_gate_pass": true,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "reset_success": 0.85,
+    "zero_all_success": 0.80,
+    "protected_key_pass": true
+  },
+  "decision_rule": "Only a tiny PPO smoke that preserves behavior, protected key, old replay, and refreshed replay may admit PPO repeats.",
+  "decision": "admit_guarded_ppo_smoke_repeat_from_m194"
 }

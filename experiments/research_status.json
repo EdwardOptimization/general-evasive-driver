@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 204,
+    "completed": 205,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m195-current-best-actor-update-repeat.md",
+    "command_log": "docs/m196-guarded-ppo-smoke-from-m194.md",
     "returncode": 0,
-    "run_dir": "runs/m195_fixed_batch_outcome_eval_seed37",
+    "run_dir": "runs/ppo_m196_guarded_from_m194_seed5196",
     "status": "completed",
-    "task_id": "m195-current-best-actor-update-repeat"
+    "task_id": "m196-guarded-ppo-smoke-from-m194"
   },
   "next_task": {
-    "command": "see experiments/manifests/m196-guarded-ppo-smoke-from-m194.json",
-    "hypothesis": "M195 shows the low-drift actor update is repeat-stable and M194 remains the best fixed-objective actor update, so a tiny guarded PPO smoke from M194 can be tested.",
-    "id": "m196-guarded-ppo-smoke-from-m194",
+    "command": "see experiments/manifests/m197-guarded-ppo-smoke-repeat-from-m194.json",
+    "hypothesis": "M196 shows one tiny guarded PPO smoke from M194 can preserve behavior, protected key, old M183 replay, and refreshed M193 replay, so the same smoke recipe should be repeated from M194 on fresh seeds.",
+    "id": "m197-guarded-ppo-smoke-repeat-from-m194",
     "kind": "driver_candidate",
-    "notes": "Run only a tiny PPO smoke from M194; reject any behavior, protected-key, old M183 replay, or refreshed M193 replay regression.",
-    "priority": 1910,
+    "notes": "Restart every repeat from M194; reject any behavior, protected-key, old M183 replay, or refreshed M193 replay regression.",
+    "priority": 1920,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T084409Z"
+  "updated_at_utc": "20260522T085328Z"
 }

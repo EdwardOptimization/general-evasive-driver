@@ -50,6 +50,8 @@ Not allowed in the deployable actor:
 | repeated stage2 candidates | `runs/ppo_m188_stage2_from_m185_seed5191/checkpoint.pt`, `runs/ppo_m188_stage2_from_m185_seed5192/checkpoint.pt` | preserve gates; seed 5191 has current best fixed M183 loss |
 | guarded stage3 candidate | `runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt` | positive single-seed stage3; requires repeat before longer PPO |
 | repeated stage3 candidates | `runs/ppo_m190_stage3_from_m188_seed5194/checkpoint.pt`, `runs/ppo_m190_stage3_from_m188_seed5195/checkpoint.pt` | preserve gates but do not beat M189 fixed loss |
+| current-best actor-update candidate | `runs/m194_m189_actor_coupling_anchor100_s20_seed9850/optimized_checkpoint.pt` | best refreshed M193 fixed-objective actor update; seed-repeat stable |
+| current-best guarded PPO smoke | `runs/ppo_m196_guarded_from_m194_seed5196/checkpoint.pt` | positive retention smoke from M194; requires repeat before longer PPO |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -119,18 +121,23 @@ slightly stronger action-level sensitivity.
   improve the fixed M193 objective versus M189 and preserve behavior,
   protected key, old M183 replay, and refreshed M193 replay. M194 remains the
   best fixed-objective actor-update checkpoint.
+- M196: a 1024-step guarded PPO smoke from M194 preserves behavior seeds
+  `9505` and `9506`, passes the protected key, retains old M183 replay drops
+  `16/16` and `17/17`, and retains refreshed M193 replay drops `14/14`.
+  Fixed M193 loss remains better than M189 (`0.159017` vs `0.160647`) but does
+  not beat M194 (`0.159008`), so the result is retention only.
 
 Current blocker:
 
 ```text
-tiny guarded PPO smoke from M194 before any longer PPO continuation
+repeat the M196 guarded PPO smoke from M194 before any longer PPO continuation
 ```
 
 ## Near-Term Rule
 
-Only a tiny guarded PPO smoke is admitted, starting from M194. Do not run a
-longer PPO continuation until the smoke preserves behavior, protected key, old
-M183 replay, and refreshed M193 replay.
+Only repeat tiny guarded PPO smoke seeds are admitted, each starting from M194.
+Do not run a longer PPO continuation until smoke repeats preserve behavior,
+protected key, old M183 replay, and refreshed M193 replay.
 
 ## Sensor Profile Policy
 

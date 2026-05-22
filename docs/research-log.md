@@ -7066,3 +7066,39 @@ Results:
 Decision: M195 is positive repeat evidence. M194 remains the best
 fixed-objective actor-update checkpoint. Admit only a tiny guarded PPO smoke
 from M194, with old and refreshed replay gates still required.
+
+## 20260522T085328Z m196-guarded-ppo-smoke-from-m194
+
+M196 ran one 1024-step guarded PPO smoke from the current-best M194 actor-update
+checkpoint. This milestone tested retention only; it did not run a longer PPO
+continuation.
+
+Artifacts:
+
+- `configs/ppo_m196_guarded_from_m194_smoke.json`
+- `runs/ppo_m196_guarded_from_m194_seed5196`
+- `runs/m196_fixed_batch_outcome_eval_seed37`
+- `runs/m196_m183_m168_replay_gate_seed9510`
+- `runs/m196_m183_m170_replay_gate_seed9510`
+- `runs/m196_m193_m189_replay_gate_seed9630`
+- `runs/m196_behavior_gate_seed9505`
+- `runs/m196_behavior_gate_seed9506`
+- `runs/m196_critical_key_seed9944`
+- `docs/m196-guarded-ppo-smoke-from-m194.md`
+
+Results:
+
+- fixed M193 objective loss: M189 `0.160647`, M194 `0.159008`, M196
+  `0.159017`;
+- M196 remains better than M189 but is `0.000009` worse than M194, so the
+  result is not objective progress;
+- M183 M168 replay retains `16/16` success drops;
+- M183 M170 replay retains `17/17` success drops;
+- M193 M189 replay retains `14/14` success drops;
+- behavior seeds `9505` and `9506` keep success `0.8625`;
+- reset-hidden and zero-all-response ablations remain at `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` passes.
+
+Decision: M196 is positive as a retention smoke only. Admit a repeat of the
+same tiny PPO smoke recipe from M194 on fresh seeds, but do not admit any
+longer PPO continuation yet.

@@ -1,0 +1,57 @@
+{
+  "id": "m197-guarded-ppo-smoke-repeat-from-m194",
+  "type": "driver_candidate",
+  "hypothesis": "M196 shows one tiny guarded PPO smoke from M194 can preserve behavior, protected key, old M183 replay, and refreshed M193 replay. Repeat the exact M196 smoke recipe on fresh seeds before admitting any longer PPO continuation.",
+  "success_criteria": [
+    "start every repeat from runs/m194_m189_actor_coupling_anchor100_s20_seed9850/optimized_checkpoint.pt",
+    "reuse configs/ppo_m196_guarded_from_m194_smoke.json without relaxing anchors or gates",
+    "run only tiny 1024-step PPO smoke repeats",
+    "keep actor inputs unchanged",
+    "preserve behavior seeds 9505 and 9506",
+    "preserve protected key 9944|perturbed|28|28",
+    "preserve old M183 M168/M170 replay gates and refreshed M193 M189 replay gate",
+    "compare fixed M193 objective against M189, M194, and M196 before accepting any continuation"
+  ],
+  "failure_criteria": [
+    "chain repeats from M196 instead of restarting from M194",
+    "run longer PPO before repeat smoke evidence",
+    "drop any M183 or M193 replay row",
+    "lose behavior or protected-key retention",
+    "promote based only on rollout reward"
+  ],
+  "commands": [
+    {
+      "name": "m197_guarded_ppo_smoke_repeats",
+      "command": "Run the M196 guarded PPO smoke recipe from M194 with fresh seeds."
+    },
+    {
+      "name": "m197_fixed_eval",
+      "command": "Compare M189, M194, M196, and M197 repeats on the fixed M193 M189 corpus."
+    },
+    {
+      "name": "m197_retention_gates",
+      "command": "Run old M183 replay, refreshed M193 replay, behavior seeds 9505/9506, and protected-key gates for every repeat."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m197-guarded-ppo-smoke-repeat-from-m194.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt",
+    "runs/m194_m189_actor_coupling_anchor100_s20_seed9850/optimized_checkpoint.pt",
+    "runs/ppo_m196_guarded_from_m194_seed5196/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m196_fixed_batch_outcome_eval_seed37/summary.json",
+    "runs/m196_m183_m168_replay_gate_seed9510/summary.json",
+    "runs/m196_m183_m170_replay_gate_seed9510/summary.json",
+    "runs/m196_m193_m189_replay_gate_seed9630/summary.json",
+    "runs/m196_behavior_gate_seed9505/policy_summary.csv",
+    "runs/m196_behavior_gate_seed9506/policy_summary.csv",
+    "runs/m196_critical_key_seed9944/summary.json"
+  ],
+  "decision_rule": "Only repeat-stable PPO smoke seeds that preserve behavior, protected key, old replay, and refreshed replay may admit any longer PPO continuation."
+}
