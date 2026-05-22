@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 254,
+    "completed": 255,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m245-source-aware-exact-objective-evaluator.md",
+    "command_log": "docs/m246-source-balanced-outcome-loss-design.md",
     "returncode": 0,
-    "run_dir": "runs/m245_source_aware_exact_m232_eval",
+    "run_dir": "",
     "status": "completed",
-    "task_id": "m245-source-aware-exact-objective-evaluator"
+    "task_id": "m246-source-balanced-outcome-loss-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m246-source-balanced-outcome-loss-design.json",
-    "hypothesis": "Design a source-balanced outcome-loss repair so protected-key non-regression is separated from broad M223 improvement",
-    "id": "m246-source-balanced-outcome-loss-design",
-    "kind": "gate",
-    "notes": "Pending: choose bounded repair before any more PPO",
-    "priority": 2410,
+    "command": "see experiments/manifests/m247-source-balanced-outcome-loss-implementation.json",
+    "hypothesis": "Implement named source-balanced outcome intervention losses in PPO before any new training smoke",
+    "id": "m247-source-balanced-outcome-loss-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement source-balanced PPO loss support and tests",
+    "priority": 2420,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T142120Z"
+  "updated_at_utc": "20260522T142543Z"
 }

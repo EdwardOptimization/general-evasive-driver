@@ -2,7 +2,7 @@
   "id": "m246-source-balanced-outcome-loss-design",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "repair",
   "failure_types": [
     "none"
   ],
@@ -80,5 +80,37 @@
     "configs/ppo_m243_exact_gated_from_m239_smoke.json"
   ],
   "decision_rule": "M246 may unblock implementation only if it selects one source-aware repair and pre-registers exact source gates before any new PPO.",
-  "next_blocker": "Design source-balanced outcome-loss repair before more PPO."
+  "results": {
+    "selected_repair": "source-balanced outcome intervention auxiliary losses",
+    "rejected_repairs": [
+      "loosen protected-key guard",
+      "use M223-only improvement as continuation criterion",
+      "increase combined M232 coefficient without source separation"
+    ],
+    "proposed_source_losses": [
+      {
+        "name": "m223",
+        "snapshot_npz": "runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.npz",
+        "coef": 0.02,
+        "batch_size": 17,
+        "logprob_margin": 0.05
+      },
+      {
+        "name": "protected_key",
+        "snapshot_npz": "runs/m231_protected_key_snippet_surface/protected_key_snippets.npz",
+        "coef": 0.08,
+        "batch_size": 1,
+        "logprob_margin": 0.05
+      }
+    ],
+    "next_exact_source_gate": {
+      "protected_key_delta_max": 1e-08,
+      "m223_delta_required": "negative",
+      "aggregate_m232_delta_max": 1e-08
+    },
+    "actor_inputs_changed": false,
+    "ppo_run": false
+  },
+  "decision": "admit_source_balanced_outcome_loss_implementation",
+  "next_blocker": "Implement source-balanced outcome losses before PPO."
 }

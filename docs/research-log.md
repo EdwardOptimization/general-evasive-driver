@@ -8419,3 +8419,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: added strict source-aware exact reporting to `outcome_intervention_eval`, including `--source-npz`, per-row losses, and source summaries. Focused tests passed (`6 passed`) and M245 reproduced M244 source deltas with `max_abs_diff = 0.0`.
 - decision: `admit_source_balanced_outcome_loss_design`
 - next: `m246-source-balanced-outcome-loss-design`
+
+## 20260522T142543Z m246-source-balanced-outcome-loss-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m246-source-balanced-outcome-loss-design.md`
+- result: selected source-balanced outcome intervention losses as the next bounded repair. The next PPO gate must require protected-key source delta `<= +1e-8`, M223 source delta `< 0`, and aggregate M232 delta `<= +1e-8` before replay/protected-key/behavior gates.
+- decision: `admit_source_balanced_outcome_loss_implementation`
+- next: `m247-source-balanced-outcome-loss-implementation`

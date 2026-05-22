@@ -1,0 +1,83 @@
+{
+  "id": "m247-source-balanced-outcome-loss-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m239_m224_to_m237_interpolation/checkpoints/alpha_0_5.pt"
+    ],
+    "parent_dataset": [
+      "runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.npz",
+      "runs/m231_protected_key_snippet_surface/protected_key_snippets.npz"
+    ],
+    "parent_config": [
+      "configs/ppo_m243_exact_gated_from_m239_smoke.json"
+    ],
+    "parent_objective": [
+      "source-balanced outcome intervention auxiliary losses",
+      "M245 source-aware exact gate"
+    ],
+    "derived_from": [
+      "m246-source-balanced-outcome-loss-design"
+    ],
+    "blocked_by": [
+      "m246-source-balanced-outcome-loss-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m247-source-balanced-outcome-loss-implementation.md",
+  "public_gates": [
+    "source-balanced outcome loss focused tests",
+    "PPO config validation tests",
+    "research validator"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M247",
+    "do not change actor inputs",
+    "do not loosen source-aware exact gates",
+    "do not remove existing combined outcome loss compatibility"
+  ],
+  "hypothesis": "Adding named source-balanced outcome intervention losses will let the next PPO smoke apply explicit protected-key pressure instead of relying on one combined M232 loss.",
+  "success_criteria": [
+    "add PPO config support for multiple named source outcome losses",
+    "load and validate each source NPZ independently",
+    "add each source loss to the PPO objective with its own coefficient",
+    "log per-source outcome loss metrics",
+    "add focused tests for validation and logging",
+    "do not run PPO"
+  ],
+  "failure_criteria": [
+    "source loss config silently accepts missing or duplicate names",
+    "per-source loss metrics are not logged",
+    "existing combined outcome loss tests regress",
+    "run PPO or modify actor inputs"
+  ],
+  "commands": [
+    {
+      "name": "m247_implementation",
+      "command": "Implement outcome_intervention_source_losses in train_ppo and add focused tests."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m247-source-balanced-outcome-loss-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m239_m224_to_m237_interpolation/checkpoints/alpha_0_5.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m246-source-balanced-outcome-loss-design.md",
+    "src/autodrift/train_ppo.py",
+    "tests/test_checkpoints.py"
+  ],
+  "decision_rule": "M247 may unblock a source-balanced PPO smoke only if focused tests and research validation pass without changing actor inputs.",
+  "next_blocker": "Implement source-balanced outcome losses before PPO."
+}
