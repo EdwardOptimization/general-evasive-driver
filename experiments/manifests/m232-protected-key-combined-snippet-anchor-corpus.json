@@ -2,7 +2,7 @@
   "id": "m232-protected-key-combined-snippet-anchor-corpus",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -91,5 +91,37 @@
     "runs/m231_protected_key_snippet_surface/protected_key_snippets.npz"
   ],
   "decision_rule": "M232 may only unblock a later PPO repair if the combined corpus retains M223 rows and includes the protected key with valid deployable arrays.",
+  "results": {
+    "run_dir": "runs/m232_combined_m223_m231_snippet_anchor",
+    "m223_rows": 17,
+    "m231_rows": 1,
+    "output_rows": 18,
+    "protected_key": "9944|perturbed|28|28",
+    "protected_key_included": true,
+    "observation_shape": [
+      18,
+      72
+    ],
+    "preferred_hidden_shape": [
+      18,
+      128
+    ],
+    "rejected_hidden_shape": [
+      18,
+      128
+    ],
+    "preferred_action_shape": [
+      18,
+      3
+    ],
+    "weight_shape": [
+      18
+    ],
+    "weight_min": 0.01142640970647335,
+    "weight_max": 0.051482364535331726,
+    "weight_sum": 0.35748302936553955,
+    "loader_validation": true
+  },
+  "decision": "admit_protected_key_aware_ppo_smoke",
   "next_blocker": "Run one bounded M233 protected-key-aware PPO smoke from M224 using rollout action anchor plus the combined M223/M231 snippet action anchor."
 }

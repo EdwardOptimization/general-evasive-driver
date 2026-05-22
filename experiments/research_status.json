@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 240,
+    "completed": 241,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m231-protected-key-snippet-surface-export.md",
+    "command_log": "docs/m232-protected-key-combined-snippet-anchor-corpus.md",
     "returncode": 0,
-    "run_dir": "runs/m231_protected_key_snippet_surface",
+    "run_dir": "runs/m232_combined_m223_m231_snippet_anchor",
     "status": "completed",
-    "task_id": "m231-protected-key-snippet-surface-export"
+    "task_id": "m232-protected-key-combined-snippet-anchor-corpus"
   },
   "next_task": {
-    "command": "see experiments/manifests/m232-protected-key-combined-snippet-anchor-corpus.json",
-    "hypothesis": "Combine M223 proof snippets and M231 protected-key snippets before any more PPO.",
-    "id": "m232-protected-key-combined-snippet-anchor-corpus",
-    "kind": "infrastructure",
-    "notes": "Pending: build one validated combined anchor corpus with all M223 rows plus protected key 9944; no PPO in M232",
-    "priority": 2270,
+    "command": "see experiments/manifests/m233-protected-key-aware-ppo-smoke-from-m224.json",
+    "hypothesis": "Run one protected-key-aware PPO smoke from M224 using the combined M223/M231 snippet anchor",
+    "id": "m233-protected-key-aware-ppo-smoke-from-m224",
+    "kind": "driver_candidate",
+    "notes": "Pending: create M233 config and run exactly one 1024-step PPO smoke then gate fixed objective replay behavior and protected key",
+    "priority": 2280,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T131259Z"
+  "updated_at_utc": "20260522T131705Z"
 }

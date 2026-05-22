@@ -1,0 +1,101 @@
+{
+  "id": "m233-protected-key-aware-ppo-smoke-from-m224",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.npz",
+      "runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m229_snippet_anchor_from_m224_smoke.json"
+    ],
+    "parent_objective": [
+      "rollout-state M224 baseline action anchor",
+      "combined M223/M231 preferred-only snippet action anchor",
+      "combined M223/M231 outcome intervention auxiliary loss"
+    ],
+    "derived_from": [
+      "m232-protected-key-combined-snippet-anchor-corpus"
+    ],
+    "blocked_by": [
+      "m229-snippet-anchored-ppo-smoke-from-m224"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m233-protected-key-aware-ppo-smoke-from-m224.md",
+  "public_gates": [
+    "fixed M223/M232 objective evaluation",
+    "M183 replay gates",
+    "M193 replay gate",
+    "M212 replay gate",
+    "M223 replay gate",
+    "behavior seeds 9505 and 9506",
+    "protected key 9944 guard",
+    "research validator"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not change actor inputs",
+    "do not loosen replay or protected-key thresholds",
+    "do not lengthen PPO before this one-smoke gate passes",
+    "do not promote if protected key fails even when fixed loss improves"
+  ],
+  "hypothesis": "Using the combined M223/M231 snippet anchor during PPO should preserve the replay proof surface and the historical protected key better than M229, which anchored only M223 snippets.",
+  "success_criteria": [
+    "run exactly one 1024-step PPO smoke from M224 with the M232 combined corpus",
+    "improve or at least not regress the fixed objective against M224 within the existing smoke tolerance",
+    "retain M183/M193/M212/M223 replay drops",
+    "retain behavior seed success at the M224 level",
+    "pass protected key 9944 within the existing normal-margin window"
+  ],
+  "failure_criteria": [
+    "protected key 9944 fails",
+    "any old or current replay gate loses normal-history success retention",
+    "behavior seed success regresses materially",
+    "PPO is lengthened or repeated before the one-smoke result is audited",
+    "actor input contract changes"
+  ],
+  "commands": [
+    {
+      "name": "m233_train",
+      "command": "Create a M233 smoke config from M229 with outcome_intervention_snapshot_npz and snippet_action_anchor_snapshot_npz set to the M232 combined corpus, then run one 1024-step PPO smoke from M224."
+    },
+    {
+      "name": "m233_gates",
+      "command": "Evaluate fixed objective, old/current replay gates, behavior seeds, and protected key before any repeat or longer PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m233-protected-key-aware-ppo-smoke-from-m224.md",
+      "type": "documentation"
+    },
+    {
+      "path": "configs/ppo_m233_protected_key_combined_anchor_from_m224_smoke.json",
+      "type": "config"
+    },
+    {
+      "path": "runs/ppo_m233_protected_key_combined_anchor_from_m224_seed5220/checkpoint.pt",
+      "type": "checkpoint"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m229-snippet-anchored-ppo-smoke-from-m224.md",
+    "docs/m232-protected-key-combined-snippet-anchor-corpus.md",
+    "runs/m232_combined_m223_m231_snippet_anchor/summary.json"
+  ],
+  "decision_rule": "M233 may admit only a repeat PPO smoke if fixed objective and replay behavior protected-key gates all pass. Any protected-key failure rejects the smoke and triggers audit instead of repeat.",
+  "next_blocker": "Run the M233 one-smoke PPO gate and decide between repeat PPO or protected-key-aware objective audit."
+}

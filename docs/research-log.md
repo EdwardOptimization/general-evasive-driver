@@ -8284,3 +8284,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - artifact: `docs/m231-protected-key-snippet-surface-export.md`
 - result: exported and validated protected key `9944|perturbed|28|28` with one positive finite-weight snippet. No PPO was run.
 - next: `m232-protected-key-combined-snippet-anchor-corpus`
+
+## 20260522T131729Z m232-protected-key-combined-snippet-anchor-corpus
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m232_combined_m223_m231_snippet_anchor`
+- artifact: `docs/m232-protected-key-combined-snippet-anchor-corpus.md`
+- result: combined 17 M223 rows plus protected key `9944|perturbed|28|28` into one 18-row positive finite-weight snippet corpus. No PPO was run.
+- next: `m233-protected-key-aware-ppo-smoke-from-m224`
