@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 257,
+    "completed": 258,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m248-source-balanced-ppo-smoke-from-m239.md",
+    "command_log": "docs/m249-protected-key-source-gradient-audit.md",
     "returncode": 0,
-    "run_dir": "runs/ppo_m248_source_balanced_from_m239_seed5224",
+    "run_dir": "runs/m249_protected_key_source_actor_coupling_probe",
     "status": "completed",
-    "task_id": "m248-source-balanced-ppo-smoke-from-m239"
+    "task_id": "m249-protected-key-source-gradient-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m249-protected-key-source-gradient-audit.json",
-    "hypothesis": "Audit whether protected-key source loss is steerable in isolation before more PPO",
-    "id": "m249-protected-key-source-gradient-audit",
-    "kind": "gate",
-    "notes": "Pending: source-only protected-key optimization probe",
-    "priority": 2440,
+    "command": "see experiments/manifests/m250-protected-key-source-actor-coupling-calibration.json",
+    "hypothesis": "Interpolate from M239 toward the protected-key source-only checkpoint and gate exact sources plus public proof retention",
+    "id": "m250-protected-key-source-actor-coupling-calibration",
+    "kind": "driver_candidate",
+    "notes": "Pending: no-PPO interpolation and proof gate",
+    "priority": 2450,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T143422Z"
+  "updated_at_utc": "20260522T143850Z"
 }

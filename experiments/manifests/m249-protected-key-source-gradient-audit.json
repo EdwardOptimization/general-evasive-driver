@@ -2,7 +2,7 @@
   "id": "m249-protected-key-source-gradient-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "repair",
   "failure_types": [
     "none"
   ],
@@ -80,5 +80,24 @@
     "runs/m231_protected_key_snippet_surface/protected_key_snippets.npz"
   ],
   "decision_rule": "M249 may unblock a new PPO repair only after determining whether protected-key source loss is steerable in isolation.",
-  "next_blocker": "Audit protected-key source gradient before more PPO."
+  "results": {
+    "source_only_run_dir": "runs/m249_protected_key_source_actor_coupling_probe",
+    "combined_exact_eval_run_dir": "runs/m249_protected_key_source_combined_exact_eval",
+    "train_scope": "actor_coupling",
+    "steps": 80,
+    "learning_rate": 5e-05,
+    "protected_key_loss_before": 0.03564238175749779,
+    "protected_key_loss_after": 0.01086803711950779,
+    "protected_key_loss_improvement": 0.024774344637989998,
+    "m249_exact_m232": 0.074837572,
+    "m249_m223_delta": -0.14503755887319758,
+    "m249_protected_key_delta": -0.024774320804711092,
+    "m248_raw_m223_delta": -4.949585593666539e-05,
+    "m248_raw_protected_key_delta": 1.0258289852238534e-05,
+    "diagnosis": "protected-key source loss is steerable and aligned with M223 in isolation; M248 failure is PPO gradient conflict or insufficient protected-source pressure",
+    "actor_inputs_changed": false,
+    "ppo_run": false
+  },
+  "decision": "admit_protected_key_source_actor_coupling_calibration",
+  "next_blocker": "Interpolate protected-source calibration and gate it."
 }

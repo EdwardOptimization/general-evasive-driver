@@ -1,0 +1,78 @@
+{
+  "decision_reason": "M249 shows protected-key source loss is strongly steerable in actor-coupling scope and also improves M223 exact source; M248 failure is PPO gradient conflict or insufficient protected-source pressure",
+  "failure_criteria": [
+    "run PPO before the audit",
+    "repeat M248 with larger coefficients without gradient evidence",
+    "ignore protected-key source deltas",
+    "change the actor input contract"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO in M249",
+    "do not change actor inputs",
+    "do not loosen protected-key source gate",
+    "do not repeat M248 before understanding the protected-key source gradient"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260522T144048Z",
+  "hypothesis": "M248 failed because PPO rollout gradients and anchors still overpower or conflict with the protected-key source loss. A source-only optimization probe should distinguish implementation/steerability from PPO gradient conflict.",
+  "lineage": {
+    "blocked_by": [
+      "m248-source-balanced-ppo-smoke-from-m239"
+    ],
+    "derived_from": [
+      "m248-source-balanced-ppo-smoke-from-m239"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m239_m224_to_m237_interpolation/checkpoints/alpha_0_5.pt",
+      "runs/ppo_m248_source_balanced_from_m239_seed5224/checkpoint.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m248_source_balanced_from_m239_smoke.json"
+    ],
+    "parent_dataset": [
+      "runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.npz",
+      "runs/m231_protected_key_snippet_surface/protected_key_snippets.npz",
+      "runs/m248_source_aware_exact_m232_eval/source_summary.csv"
+    ],
+    "parent_objective": [
+      "protected-key source exact objective",
+      "source-balanced PPO gradient pressure"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m249-protected-key-source-gradient-audit",
+  "next_blocker": "Interpolate protected-source calibration and gate it.",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_protected_key_source_actor_coupling_calibration",
+  "public_gates": [
+    "M248 source-aware exact reports",
+    "protected-key source-only optimization probe",
+    "research validator"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m249_protected_key_source_actor_coupling_probe/optimized_checkpoint.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_protected_key_source_actor_coupling_calibration",
+    "milestone": "m249-protected-key-source-gradient-audit",
+    "reason": "M249 shows protected-key source loss is strongly steerable in actor-coupling scope and also improves M223 exact source; M248 failure is PPO gradient conflict or insufficient protected-source pressure",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "measure whether the protected-key source loss can decrease from M239 under source-only optimization",
+    "measure whether the M223 source loss is affected by that source-only update",
+    "compare source-only movement against M248 PPO movement",
+    "choose one bounded next repair before more PPO",
+    "keep M239 alpha 0.5 as current public-gate base"
+  ],
+  "type": "gate"
+}

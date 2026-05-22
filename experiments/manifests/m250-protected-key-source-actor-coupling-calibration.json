@@ -1,0 +1,90 @@
+{
+  "id": "m250-protected-key-source-actor-coupling-calibration",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m239_m224_to_m237_interpolation/checkpoints/alpha_0_5.pt",
+      "runs/m249_protected_key_source_actor_coupling_probe/optimized_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m231_protected_key_snippet_surface/protected_key_snippets.npz",
+      "runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.npz",
+      "runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.npz"
+    ],
+    "parent_config": [
+      "docs/m249-protected-key-source-gradient-audit.md"
+    ],
+    "parent_objective": [
+      "protected-key source-only actor-coupling calibration",
+      "M245 exact source-aware gate",
+      "full proof and behavior retention"
+    ],
+    "derived_from": [
+      "m249-protected-key-source-gradient-audit"
+    ],
+    "blocked_by": [
+      "m249-protected-key-source-gradient-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m250-protected-key-source-actor-coupling-calibration.md",
+  "public_gates": [
+    "post-calibration interpolation sweep",
+    "M245 exact source-aware objective gate",
+    "M183 M168 and M170 replay gates",
+    "M193 M189 replay gate",
+    "M212 M204 replay gate",
+    "M223 M219 replay gate",
+    "protected key 9944 guard",
+    "behavior seeds 9505 and 9506",
+    "research validator"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M250",
+    "do not promote the raw M249 source-only checkpoint without interpolation",
+    "do not run proof gates if exact source gate fails",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "A small interpolation from M239 toward the M249 protected-key source-only actor-coupling checkpoint can improve both exact source objectives while retaining public proof and behavior gates.",
+  "success_criteria": [
+    "interpolate M239 toward the M249 protected-only checkpoint without additional training",
+    "select only an alpha with protected_key source delta <= +1e-8",
+    "selected alpha must have M223 source delta < 0 and aggregate M232 delta <= +1e-8",
+    "selected alpha must pass full replay gates protected key and behavior retention",
+    "no PPO is run"
+  ],
+  "failure_criteria": [
+    "all alphas fail exact source gate",
+    "no alpha passes full replay gates",
+    "selected alpha regresses behavior materially",
+    "change the actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "m250_interpolate_and_gate",
+      "command": "Interpolate from M239 toward the M249 source-only checkpoint, then gate exact source objectives and public proof retention."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m250-protected-key-source-actor-coupling-calibration.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m239_m224_to_m237_interpolation/checkpoints/alpha_0_5.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m249-protected-key-source-gradient-audit.md",
+    "runs/m249_protected_key_source_combined_exact_eval/source_summary.csv"
+  ],
+  "decision_rule": "M250 may promote only an interpolation alpha that passes exact source-aware objective gates plus full proof and behavior retention without PPO.",
+  "next_blocker": "Interpolate protected-source calibration and gate it."
+}

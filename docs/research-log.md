@@ -8447,3 +8447,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: negative. The source-balanced PPO smoke improves aggregate exact M232 for all alphas and improves M223 source strongly, but every alpha regresses protected-key source above the pre-registered `+1e-8` threshold. Proof and behavior gates were not run.
 - decision: `reject_protected_key_source_regression`
 - next: `m249-protected-key-source-gradient-audit`
+
+## 20260522T143850Z m249-protected-key-source-gradient-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m249_protected_key_source_actor_coupling_probe`
+- artifact: `docs/m249-protected-key-source-gradient-audit.md`
+- result: protected-key source loss is steerable in isolation: actor-coupling source-only optimization reduces protected-key loss from `0.035642` to `0.010868` and improves exact M223 source by `-0.145038`. M248 failure is therefore PPO gradient conflict or insufficient protected-source pressure, not objective unsteerability.
+- decision: `admit_protected_key_source_actor_coupling_calibration`
+- next: `m250-protected-key-source-actor-coupling-calibration`
