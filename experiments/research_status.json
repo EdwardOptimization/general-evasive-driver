@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 175,
+    "completed": 176,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m166-boundary-retention-ppo-micro-smoke.md",
+    "command_log": "docs/m167-multiseed-boundary-retention-ppo-repeat.md",
     "returncode": 0,
-    "run_dir": "runs/ppo_m166_boundary_retention_micro_seed5166",
+    "run_dir": "runs/m167_5168_boundary_outcome_replay_gate_seed9510",
     "status": "completed",
-    "task_id": "m166-boundary-retention-ppo-micro-smoke"
+    "task_id": "m167-multiseed-boundary-retention-ppo-repeat"
   },
   "next_task": {
-    "command": "see experiments/manifests/m167-multiseed-boundary-retention-ppo-repeat.json",
-    "hypothesis": "The M166 1024-step anchor50 PPO micro recipe should be repeated across seeds before any longer PPO because M165 showed that a superficially safe PPO step can regress the fixed boundary replay signal.",
-    "id": "m167-multiseed-boundary-retention-ppo-repeat",
+    "command": "see experiments/manifests/m168-staged-boundary-retention-ppo-extension.json",
+    "hypothesis": "M167 shows the 1024-step anchor50 PPO micro recipe can preserve the fixed boundary replay signal across seeds so the next step should extend PPO only in short gated stages rather than one unguarded long run.",
+    "id": "m168-staged-boundary-retention-ppo-extension",
     "kind": "driver_candidate",
-    "notes": "Pending after M166: one PPO micro seed passed all gates but repeat is required before longer PPO",
-    "priority": 1620,
+    "notes": "Pending after M167: seeds 5167 and 5168 both preserve M164 replay behavior and protected key but longer PPO must be stage-gated",
+    "priority": 1630,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T044031Z"
+  "updated_at_utc": "20260522T044652Z"
 }

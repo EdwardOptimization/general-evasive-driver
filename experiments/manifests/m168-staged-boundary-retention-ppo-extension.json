@@ -1,0 +1,40 @@
+{
+  "id": "m168-staged-boundary-retention-ppo-extension",
+  "type": "driver_candidate",
+  "hypothesis": "M167 shows the 1024-step anchor50 PPO micro recipe can preserve the fixed boundary replay signal across seeds, so the next step should extend PPO only in short gated stages rather than one unguarded long run.",
+  "success_criteria": [
+    "start only from M166 or an M167 checkpoint that passed M164 boundary replay, behavior retention, and protected-key gates",
+    "run staged PPO extension in short increments rather than one long continuation",
+    "keep actor inputs unchanged and hidden labels out of the actor",
+    "after every stage, rerun the fixed M162 objective and M164 boundary replay gate",
+    "reject or stop at the first stage that loses normal success, regresses normal margin beyond threshold, or loses any success-drop row",
+    "run behavior retention and protected-key gates for the final admitted stage"
+  ],
+  "failure_criteria": [
+    "continue from the failed M165 checkpoint",
+    "skip the boundary replay gate between stages",
+    "select a stage only by PPO rollout reward",
+    "relax M164 replay thresholds to pass a continuation",
+    "declare self-identification proof from aggregate success alone"
+  ],
+  "commands": [
+    {
+      "name": "m168_staged_ppo_extension",
+      "command": "Run one short PPO extension stage from a passed M166/M167 checkpoint and gate it with fixed objective, M164 boundary replay, behavior retention, and protected key before any further stage."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m168-staged-boundary-retention-ppo-extension.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m166_boundary_retention_micro_seed5166/checkpoint.pt",
+    "runs/ppo_m167_boundary_retention_micro_seed5167/checkpoint.pt",
+    "runs/ppo_m167_boundary_retention_micro_seed5168/checkpoint.pt",
+    "runs/m167_5167_boundary_outcome_replay_gate_seed9510/summary.json",
+    "runs/m167_5168_boundary_outcome_replay_gate_seed9510/summary.json"
+  ],
+  "decision_rule": "Admit further PPO only stage by stage; every accepted stage must preserve the M164 boundary replay success-drop count and behavior/protected-key retention."
+}
