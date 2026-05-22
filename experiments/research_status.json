@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 229,
+    "completed": 230,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m220-guarded-stage2-ppo-from-m219.md",
+    "command_log": "docs/m221-stage2-protected-key-failure-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m220_critical_key_seed9944",
+    "run_dir": "docs/m221-stage2-protected-key-failure-audit.md",
     "status": "completed",
-    "task_id": "m220-guarded-stage2-ppo-from-m219"
+    "task_id": "m221-stage2-protected-key-failure-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m221-stage2-protected-key-failure-audit.json",
-    "hypothesis": "M220 fixed objective and replay/behavior pass but protected key fails by leaving the near-boundary normal-margin window; audit before any more PPO.",
-    "id": "m221-stage2-protected-key-failure-audit",
+    "command": "see experiments/manifests/m222-m219-family-protected-surface-refresh.json",
+    "hypothesis": "M220 shows single-key margin-window fragility; refresh a current M217/M218/M219-family multi-key protected surface before any more PPO.",
+    "id": "m222-m219-family-protected-surface-refresh",
     "kind": "gate",
-    "notes": "Classify normal-margin-window failure versus proof washout; do not loosen threshold or chain from M220.",
-    "priority": 2160,
+    "notes": "Run matched-current, outcome, boundary relocation, and robustness on seeds 9520-9523; no PPO or actor input changes.",
+    "priority": 2170,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T121500Z"
+  "updated_at_utc": "20260522T122500Z"
 }

@@ -42,5 +42,16 @@
     "runs/m220_behavior_gate_seed9505/policy_summary.csv",
     "runs/m220_behavior_gate_seed9506/policy_summary.csv"
   ],
-  "decision_rule": "Only an audit that preserves the protected-key standard and pre-registers a safer continuation or fresh protected-surface refresh may unblock further PPO."
+  "results": {
+    "failure_class": "normal_margin_window",
+    "m219_5216_protected_key_pass": true,
+    "m219_5216_normal_margin": 0.19957134596112458,
+    "m219_5216_margin_gap": 0.09879722287905346,
+    "m220_5217_protected_key_pass": false,
+    "m220_5217_normal_margin": 0.21460188024992033,
+    "m220_5217_margin_gap": 0.09550158549287002,
+    "selected_next_step": "m222-m219-family-protected-surface-refresh"
+  },
+  "decision_rule": "Only an audit that preserves the protected-key standard and pre-registers a safer continuation or fresh protected-surface refresh may unblock further PPO.",
+  "decision": "admit_m219_family_protected_surface_refresh"
 }

@@ -8039,3 +8039,35 @@ Decision:
 ```text
 reject_stage2_protected_key_failure
 ```
+
+## 20260522T122500Z m221-stage2-protected-key-failure-audit
+
+M221 audited the M220 protected-key failure. No PPO, actor update, or actor input
+change was run.
+
+Artifacts:
+
+- `docs/m221-stage2-protected-key-failure-audit.md`
+- `experiments/manifests/m222-m219-family-protected-surface-refresh.json`
+
+Conclusion:
+
+- M220 preserves normal success on protected key `9944|perturbed|28|28`;
+- M220 preserves a large wrong-history margin gap, `0.095502`;
+- M220 fails because normal margin leaves the old `0.2` near-boundary window,
+  moving to `0.214602`;
+- the failure is the same normal-margin-window class as M206/M208 and M219 seed
+  `5215`;
+- this is not broad behavior collapse or proof-gap collapse, but it still fails
+  the pre-registered gate.
+
+Decision: keep M219 seed `5216` as current best. Do not repeat M220, do not
+loosen the old key, and do not train lower clearance on the historical key.
+Refresh a source-diverse M217/M218/M219-family protected surface before any more
+PPO.
+
+Decision:
+
+```text
+admit_m219_family_protected_surface_refresh
+```

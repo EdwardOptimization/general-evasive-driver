@@ -266,11 +266,17 @@ slightly stronger action-level sensitivity.
   `9505`/`9506` stay at success `0.8625`, but protected key `9944` fails with
   normal margin `0.214602` above the old `0.2` near-boundary window. M220 is
   rejected; current best remains M219 seed `5216`.
+- M221: audits the M220 failure. M220 preserves normal success and
+  wrong-history gap on the old key but leaves the near-boundary normal-margin
+  window, matching the M206/M208 and M219 seed `5215` failure class. Do not
+  repeat M220, loosen the old key, or train lower clearance on that one row.
+  Refresh a source-diverse M217/M218/M219-family protected surface before any
+  more PPO.
 
 Current blocker:
 
 ```text
-protected-key-aware audit after M220 stage2 failure
+M217/M218/M219-family protected-surface refresh before any more PPO
 ```
 
 ## Near-Term Rule
@@ -291,7 +297,9 @@ smoke, and M219 found only seed `5216` repeat-stable under the protected-key
 gate. M220 tried the one admitted stage2 and failed the protected key by leaving
 the near-boundary normal-margin window. Do not repeat M220, do not chain from
 M220, and do not loosen the protected-key threshold. Audit and design a
-protected-key-aware continuation path before any further PPO.
+protected-key-aware continuation path before any further PPO. M221 selected a
+current-family protected-surface refresh; PPO remains blocked until M222 passes
+and is converted into objective/replay gates.
 
 ## Sensor Profile Policy
 
