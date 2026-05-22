@@ -2,7 +2,7 @@
   "id": "m239-m237-checkpoint-interpolation-retention-probe",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -40,6 +40,10 @@
     "fixed M232/M223 objective evaluation",
     "M183 M170 replay gate",
     "protected key 9944 guard",
+    "M183 M168 replay gate for selected alpha",
+    "M193 replay gate for selected alpha",
+    "M212 replay gate for selected alpha",
+    "M223 replay gate for selected alpha",
     "behavior seeds 9505 and 9506 if any alpha passes proof gates",
     "research validator"
   ],
@@ -91,5 +95,55 @@
     "runs/m237_critical_key_seed9944/guard_results.csv"
   ],
   "decision_rule": "M239 may promote only an interpolation alpha that passes M183 M170 and protected key at existing thresholds and retains behavior. If no alpha passes with useful objective movement, reject and design an on-policy margin-retention repair.",
-  "next_blocker": "Run the no-PPO M224-to-M237 interpolation retention probe."
+  "results": {
+    "ppo_run": false,
+    "actor_inputs_changed": false,
+    "interpolation_run_dir": "runs/m239_m224_to_m237_interpolation",
+    "alphas": [
+      0.1,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "fixed_m232_loss_m224": 0.246506,
+    "fixed_m232_loss_a500": 0.246492,
+    "fixed_m232_loss_a1000": 0.246479,
+    "fixed_m223_loss_m224": 0.209824,
+    "fixed_m223_loss_a500": 0.209806,
+    "fixed_m223_loss_a1000": 0.209789,
+    "m183_m170_pass_alphas": [
+      0.1,
+      0.25,
+      0.5
+    ],
+    "m183_m170_fail_alphas": [
+      0.75,
+      1.0
+    ],
+    "protected_key_pass_alphas": [
+      0.1,
+      0.25,
+      0.5
+    ],
+    "protected_key_fail_alphas": [
+      0.75,
+      1.0
+    ],
+    "selected_policy": "m239_a500",
+    "selected_alpha": 0.5,
+    "selected_checkpoint": "runs/m239_m224_to_m237_interpolation/checkpoints/alpha_0_5.pt",
+    "selected_m183_m170_row16_margin": 0.000007514270297992454,
+    "selected_protected_key_normal_margin": 0.195916,
+    "selected_m183_m168_replay_pass": true,
+    "selected_m183_m170_replay_pass": true,
+    "selected_m193_m189_replay_pass": true,
+    "selected_m212_m204_replay_pass": true,
+    "selected_m223_m219_replay_pass": true,
+    "behavior_seed_9505_success": 0.8625,
+    "behavior_seed_9506_success": 0.8625,
+    "failure_boundary_alpha": 0.75
+  },
+  "decision": "promote_m239_a500_public_gate_base",
+  "next_blocker": "Repeat the trajectory-anchored PPO recipe on a fresh seed and require interpolation-guarded promotion before accepting a new base."
 }

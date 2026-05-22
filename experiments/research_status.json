@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 247,
+    "completed": 248,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m238-trajectory-anchor-retention-failure-audit.md",
+    "command_log": "docs/m239-m237-checkpoint-interpolation-retention-probe.md",
     "returncode": 0,
-    "run_dir": "",
+    "run_dir": "runs/m239_m224_to_m237_interpolation",
     "status": "completed",
-    "task_id": "m238-trajectory-anchor-retention-failure-audit"
+    "task_id": "m239-m237-checkpoint-interpolation-retention-probe"
   },
   "next_task": {
-    "command": "see experiments/manifests/m239-m237-checkpoint-interpolation-retention-probe.json",
-    "hypothesis": "Probe whether a smaller interpolation from M224 toward M237 preserves proof gates while retaining objective improvement",
-    "id": "m239-m237-checkpoint-interpolation-retention-probe",
+    "command": "see experiments/manifests/m240-interpolation-guarded-ppo-repeat-from-m224.json",
+    "hypothesis": "Repeat trajectory-anchored PPO from M224 on a fresh seed but require interpolation-guarded promotion",
+    "id": "m240-interpolation-guarded-ppo-repeat-from-m224",
     "kind": "driver_candidate",
-    "notes": "Pending: no-PPO interpolation sweep with fixed objective M183 M170 protected key and behavior gates",
-    "priority": 2340,
+    "notes": "Pending: one fresh PPO seed then no-PPO interpolation sweep and full proof behavior gates",
+    "priority": 2350,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T134653Z"
+  "updated_at_utc": "20260522T135133Z"
 }

@@ -8351,3 +8351,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M235 covers both failed surfaces and M237 matches teacher-forced trajectory actions closely (`L2 mean 0.001064`), but on-policy near-boundary margins still drift. M237 is not broad behavior collapse or missing coverage.
 - decision: `admit_checkpoint_interpolation_retention_probe`
 - next: `m239-m237-checkpoint-interpolation-retention-probe`
+
+## 20260522T135133Z m239-m237-checkpoint-interpolation-retention-probe
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m239_m224_to_m237_interpolation`
+- artifact: `docs/m239-m237-checkpoint-interpolation-retention-probe.md`
+- result: positive. `alpha=0.5` is the largest tested interpolation from M224 toward M237 that passes M183 M170 and protected key; it also passes M183 M168, M193, M212, M223 replay and behavior seeds `9505`/`9506` with success `0.8625`.
+- decision: `promote_m239_a500_public_gate_base`
+- next: `m240-interpolation-guarded-ppo-repeat-from-m224`
