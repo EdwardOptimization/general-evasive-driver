@@ -45,6 +45,7 @@ Not allowed in the deployable actor:
 | split-aware candidate | `runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt` | preserves robust rows but loses knife-edge row 67 |
 | guarded actor-update candidate | `runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt` | passes M183 objective, behavior, protected key, and M168/M170 boundary replay |
 | guarded PPO smoke candidate | `runs/ppo_m185_guarded_from_m184_seed5185/checkpoint.pt` | positive single-seed PPO smoke; requires repeat before longer PPO |
+| repeated PPO smoke candidates | `runs/ppo_m186_guarded_from_m184_seed5186/checkpoint.pt`, `runs/ppo_m186_guarded_from_m184_seed5187/checkpoint.pt` | preserve gates; fixed objective mixed, so M185 remains best fixed-loss candidate |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -76,19 +77,23 @@ slightly stronger action-level sensitivity.
 - M185: a 1024-step guarded PPO smoke from M184 improves the fixed M183
   objective slightly, preserves behavior on seeds `9503` and `9504`, passes the
   protected key, and retains all M168/M170 boundary replay success drops.
+- M186: independent repeats of the M185 recipe on seeds `5186` and `5187`
+  preserve behavior, protected key, and M168/M170 boundary replay drops. Fixed
+  objective improvement is mixed, so M185 seed `5185` remains the best retained
+  fixed-loss checkpoint.
 
 Current blocker:
 
 ```text
-multi-seed repeat of the M185 guarded PPO smoke without losing behavior
+short staged PPO extension from M185 seed 5185 without losing behavior
 retention, protected key, or M183 boundary replay rows
 ```
 
 ## Near-Term Rule
 
-Repeat the M185 PPO smoke recipe from M184 on fresh seeds. Do not start a
-longer PPO stage until repeats preserve behavior retention, protected key, and
-both M183 boundary replay surfaces.
+Run only one short staged PPO extension from M185 seed `5185`. Reject it if
+behavior retention, protected key, or either M183 boundary replay surface
+regresses.
 
 ## Sensor Profile Policy
 

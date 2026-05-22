@@ -1,0 +1,55 @@
+{
+  "id": "m187-guarded-stage2-ppo-from-m185",
+  "type": "driver_candidate",
+  "hypothesis": "M185 and M186 show that the 1024-step guarded PPO smoke recipe can preserve behavior, protected key, and M183 replay surfaces across independent seeds. A single short staged extension from the best retained fixed-loss checkpoint may advance the policy without washing out the proof rows.",
+  "success_criteria": [
+    "start from runs/ppo_m185_guarded_from_m184_seed5185/checkpoint.pt because it is the lowest fixed-loss retained checkpoint",
+    "run only one short staged PPO extension before any longer training",
+    "keep M184 or M185 as a strong action anchor",
+    "keep actor inputs unchanged and do not expose M183 labels or hidden dynamics",
+    "preserve behavior success on seeds 9503 and 9504",
+    "preserve protected key 9944|perturbed|28|28",
+    "preserve M168 and M170 M183 boundary replay success-drop counts",
+    "reject the stage if replay or behavior regresses even if fixed objective improves"
+  ],
+  "failure_criteria": [
+    "run a long PPO continuation directly",
+    "drop any M183 boundary replay success-drop row",
+    "lose the protected key",
+    "promote based on fixed objective improvement alone",
+    "change actor observation inputs"
+  ],
+  "commands": [
+    {
+      "name": "m187_short_stage2",
+      "command": "Run a 1024-step staged PPO extension from runs/ppo_m185_guarded_from_m184_seed5185/checkpoint.pt with strong action anchoring and the same M183 outcome auxiliary objective."
+    },
+    {
+      "name": "m187_post_stage_gates",
+      "command": "Repeat M185/M186 fixed objective, behavior, protected-key, and M168/M170 M183 boundary replay gates on the stage2 candidate."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m187-guarded-stage2-ppo-from-m185.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt",
+    "runs/ppo_m185_guarded_from_m184_seed5185/checkpoint.pt",
+    "runs/ppo_m186_guarded_from_m184_seed5186/checkpoint.pt",
+    "runs/ppo_m186_guarded_from_m184_seed5187/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m186_fixed_batch_outcome_eval_seed37/summary.json",
+    "runs/m186_5186_m168_boundary_replay_gate_seed9510/summary.json",
+    "runs/m186_5186_m170_boundary_replay_gate_seed9510/summary.json",
+    "runs/m186_5187_m168_boundary_replay_gate_seed9510/summary.json",
+    "runs/m186_5187_m170_boundary_replay_gate_seed9510/summary.json",
+    "runs/m186_behavior_gate_seed9503/policy_summary.csv",
+    "runs/m186_behavior_gate_seed9504/policy_summary.csv",
+    "runs/m186_critical_key_seed9944/summary.json"
+  ],
+  "decision_rule": "Admit further staged PPO only if the short stage2 candidate preserves behavior, protected key, and both M183 replay surfaces."
+}

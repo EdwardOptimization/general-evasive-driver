@@ -20,17 +20,65 @@
   "commands": [
     {
       "name": "m186_repeat_seed5186",
-      "command": "Run configs/ppo_m185_guarded_from_m184_smoke.json from runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt with seed override 5186 and the same M185 gate set."
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_m185_guarded_from_m184_smoke.json --seed 5186 --init-checkpoint runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt --run-dir runs/ppo_m186_guarded_from_m184_seed5186"
     },
     {
       "name": "m186_repeat_seed5187",
-      "command": "Run configs/ppo_m185_guarded_from_m184_smoke.json from runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt with seed override 5187 and the same M185 gate set."
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_m185_guarded_from_m184_smoke.json --seed 5187 --init-checkpoint runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt --run-dir runs/ppo_m186_guarded_from_m184_seed5187"
+    },
+    {
+      "name": "m186_fixed_batch_eval",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_eval --snippet-npz runs/m183_m168_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.npz --checkpoint-policy m184_s20=runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt --checkpoint-policy m185_5185=runs/ppo_m185_guarded_from_m184_seed5185/checkpoint.pt --checkpoint-policy m186_5186=runs/ppo_m186_guarded_from_m184_seed5186/checkpoint.pt --checkpoint-policy m186_5187=runs/ppo_m186_guarded_from_m184_seed5187/checkpoint.pt --device cpu --batch-size 64 --batches 50 --seed 37 --logprob-margin 0.05 --run-dir runs/m186_fixed_batch_outcome_eval_seed37"
+    },
+    {
+      "name": "m186_replay_behavior_key_gates",
+      "command": "Run the M168/M170 boundary replay gates, behavior seeds 9503/9504, and protected-key replay for both M186 repeat checkpoints."
     }
   ],
   "required_artifacts": [
     {
       "path": "docs/m186-m185-guarded-ppo-repeat.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/ppo_m186_guarded_from_m184_seed5186/checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/ppo_m186_guarded_from_m184_seed5187/checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m186_fixed_batch_outcome_eval_seed37/summary.json",
+      "type": "fixed_eval_summary"
+    },
+    {
+      "path": "runs/m186_5186_m168_boundary_replay_gate_seed9510/summary.json",
+      "type": "m168_boundary_replay_seed5186"
+    },
+    {
+      "path": "runs/m186_5186_m170_boundary_replay_gate_seed9510/summary.json",
+      "type": "m170_boundary_replay_seed5186"
+    },
+    {
+      "path": "runs/m186_5187_m168_boundary_replay_gate_seed9510/summary.json",
+      "type": "m168_boundary_replay_seed5187"
+    },
+    {
+      "path": "runs/m186_5187_m170_boundary_replay_gate_seed9510/summary.json",
+      "type": "m170_boundary_replay_seed5187"
+    },
+    {
+      "path": "runs/m186_behavior_gate_seed9503/policy_summary.csv",
+      "type": "behavior_seed9503"
+    },
+    {
+      "path": "runs/m186_behavior_gate_seed9504/policy_summary.csv",
+      "type": "behavior_seed9504"
+    },
+    {
+      "path": "runs/m186_critical_key_seed9944/summary.json",
+      "type": "protected_key"
     }
   ],
   "baseline_checkpoints": [
@@ -44,5 +92,25 @@
     "runs/m185_behavior_gate_seed9504/policy_summary.csv",
     "runs/m185_critical_key_seed9944/summary.json"
   ],
-  "decision_rule": "Admit a staged PPO extension only if independent M185-recipe repeats preserve behavior, protected key, and both M183 boundary replay surfaces."
+  "results": {
+    "repeat_checkpoints": [
+      "runs/ppo_m186_guarded_from_m184_seed5186/checkpoint.pt",
+      "runs/ppo_m186_guarded_from_m184_seed5187/checkpoint.pt"
+    ],
+    "fixed_loss_m184": 0.1715176922082901,
+    "fixed_loss_m185_5185": 0.17143208682537078,
+    "fixed_loss_m186_5186": 0.17148556143045426,
+    "fixed_loss_m186_5187": 0.17151875644922257,
+    "m168_success_drop_count_seed5186": 16,
+    "m170_success_drop_count_seed5186": 17,
+    "m168_success_drop_count_seed5187": 16,
+    "m170_success_drop_count_seed5187": 17,
+    "behavior_seed9503_success": 0.8625,
+    "behavior_seed9504_success": 0.8625,
+    "reset_success": 0.85,
+    "zero_all_success": 0.80,
+    "protected_key_pass": true
+  },
+  "decision_rule": "Admit a staged PPO extension only if independent M185-recipe repeats preserve behavior, protected key, and both M183 boundary replay surfaces.",
+  "decision": "admit_guarded_stage2_ppo_design"
 }

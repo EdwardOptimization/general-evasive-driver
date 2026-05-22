@@ -6743,3 +6743,36 @@ Results:
 Decision: admit multi-seed guarded PPO repeat only. Do not start longer PPO
 until independent repeats from M184 preserve behavior, protected key, and both
 M183 replay surfaces.
+
+## 20260522T073544Z m186-m185-guarded-ppo-repeat
+
+M186 repeated the M185 guarded PPO smoke recipe on fresh PPO seeds `5186` and
+`5187`. Both repeats initialize independently from M184, not from M185.
+
+Artifacts:
+
+- `runs/ppo_m186_guarded_from_m184_seed5186`
+- `runs/ppo_m186_guarded_from_m184_seed5187`
+- `runs/m186_fixed_batch_outcome_eval_seed37`
+- `runs/m186_5186_m168_boundary_replay_gate_seed9510`
+- `runs/m186_5186_m170_boundary_replay_gate_seed9510`
+- `runs/m186_5187_m168_boundary_replay_gate_seed9510`
+- `runs/m186_5187_m170_boundary_replay_gate_seed9510`
+- `runs/m186_behavior_gate_seed9503`
+- `runs/m186_behavior_gate_seed9504`
+- `runs/m186_critical_key_seed9944`
+- `docs/m186-m185-guarded-ppo-repeat.md`
+
+Results:
+
+- fixed M183 losses: M184 `0.171518`, M185 `0.171432`, M186 seed `5186`
+  `0.171486`, M186 seed `5187` `0.171519`;
+- all M186 repeats retain M168 replay `16/16` success drops;
+- all M186 repeats retain M170 replay `17/17` success drops;
+- behavior success matches M184 on seeds `9503` and `9504`;
+- reset and zero-all ablations still degrade success to `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` passes `1/1` for both repeats.
+
+Decision: admit a guarded stage2 PPO design, not long PPO. Since fixed objective
+improvement is mixed across repeats, use M185 seed `5185` as the next starting
+checkpoint because it remains the lowest fixed-loss retained checkpoint.

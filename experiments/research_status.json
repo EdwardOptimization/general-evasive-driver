@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 194,
+    "completed": 195,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m185-guarded-ppo-smoke-from-m184.md",
+    "command_log": "docs/m186-m185-guarded-ppo-repeat.md",
     "returncode": 0,
-    "run_dir": "runs/ppo_m185_guarded_from_m184_seed5185",
+    "run_dir": "runs/ppo_m186_guarded_from_m184_seed5186",
     "status": "completed",
-    "task_id": "m185-guarded-ppo-smoke-from-m184"
+    "task_id": "m186-m185-guarded-ppo-repeat"
   },
   "next_task": {
-    "command": "see experiments/manifests/m186-m185-guarded-ppo-repeat.json",
-    "hypothesis": "M185 passed as a single-seed guarded PPO smoke, but one seed is not enough to admit a longer stage. Repeat the same recipe across fresh seeds from M184.",
-    "id": "m186-m185-guarded-ppo-repeat",
+    "command": "see experiments/manifests/m187-guarded-stage2-ppo-from-m185.json",
+    "hypothesis": "M185 remains the best retained fixed-loss checkpoint after M186 repeats, so the next step is one short staged PPO extension with the same strict gates.",
+    "id": "m187-guarded-stage2-ppo-from-m185",
     "kind": "driver_candidate",
-    "notes": "Independent repeats must start from M184 and preserve behavior retention, protected key, and both M183 boundary replay surfaces.",
-    "priority": 1810,
+    "notes": "Start from M185 seed 5185 with strong anchoring and reject if behavior, protected key, or either M183 replay surface regresses.",
+    "priority": 1820,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T072908Z"
+  "updated_at_utc": "20260522T073544Z"
 }
