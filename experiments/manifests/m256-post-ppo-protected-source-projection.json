@@ -2,9 +2,10 @@
   "id": "m256-post-ppo-protected-source-projection",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "proof_washout",
+    "promotion_gate_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -78,6 +79,6 @@
     "docs/m254-exact-source-gated-ppo-smoke-from-m253.md",
     "docs/m255-m254-protected-source-regression-audit.md"
   ],
-  "decision_rule": "Promote only if a projected/interpolated checkpoint passes exact source and public proof/behavior gates; otherwise reject post-PPO projection and design a hard train-time constraint.",
-  "next_blocker": "Run protected-source projection from the M254 raw PPO checkpoint."
+  "decision_rule": "M256 is rejected because protected-source projection repairs exact source losses but every tested interpolation alpha fails M183 M170 row16 proof retention, including alpha 0.00001.",
+  "next_blocker": "Implement or design row16/trajectory-anchor support for post-PPO projection before retrying projection."
 }

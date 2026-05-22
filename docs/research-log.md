@@ -8517,3 +8517,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M248 and M254 share the same PPO source conflict: M223 improves while protected-key source regresses. M253 calibration lowers the starting protected-key loss but does not change the PPO update sign; protected regression relative to M223 improvement is higher in M254.
 - decision: `admit_post_ppo_protected_source_projection`
 - next: `m256-post-ppo-protected-source-projection`
+
+## 20260522T151402Z - m256-post-ppo-protected-source-projection
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m256_projection_interpolation_source_aware_exact_m232_eval`
+- artifact: `docs/m256-post-ppo-protected-source-projection.md`
+- result: protected-source projection from M254 raw fixes exact source losses, including protected-key delta `-0.012259328` on the full projected checkpoint. However every tested interpolation alpha fails M183/M170 row16; even `alpha=0.00001` flips row16 from `0.000000252` positive margin to `-0.000000172` collision.
+- decision: `reject_projection_proof_washout`
+- next: `m257-trajectory-anchored-projection-implementation`

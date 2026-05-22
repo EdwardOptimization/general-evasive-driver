@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M256 projection repairs exact source losses but every tested interpolation alpha fails M183/M170 row16 proof retention; trajectory anchor support is needed before retry",
+  "failure_criteria": [
+    "projection cannot restore protected-key source without losing M223 improvement",
+    "all projected/interpolated candidates fail exact source gate",
+    "candidate exact-gates but fails public proof retention",
+    "actor input contract changes"
+  ],
+  "failure_types": [
+    "proof_washout",
+    "promotion_gate_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not run new PPO in M256",
+    "do not promote projection without exact source gate",
+    "do not run proof gates if exact source gate fails",
+    "do not change actor inputs"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260522T151518Z",
+  "hypothesis": "A no-PPO actor-coupling projection from the M254 raw PPO checkpoint can restore the protected-key source while retaining useful M223 movement, giving a candidate that exact-source gates before public proof evaluation.",
+  "lineage": {
+    "blocked_by": [
+      "m255-m254-protected-source-regression-audit"
+    ],
+    "derived_from": [
+      "m255-m254-protected-source-regression-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m252_alpha_boundary_interpolation/checkpoints/alpha_0_00008.pt",
+      "runs/ppo_m254_exact_source_from_m253_seed5225/checkpoint.pt"
+    ],
+    "parent_config": [
+      "docs/m255-m254-protected-source-regression-audit.md"
+    ],
+    "parent_dataset": [
+      "runs/m231_protected_key_snippet_surface/protected_key_snippets.npz",
+      "runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.npz",
+      "runs/m254_source_aware_exact_m232_eval/source_summary.csv"
+    ],
+    "parent_objective": [
+      "post-PPO protected-key source projection with M253 action anchor"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m256-post-ppo-protected-source-projection",
+  "next_blocker": "Implement or design row16/trajectory-anchor support for post-PPO projection before retrying projection.",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "reject_projection_proof_washout",
+  "public_gates": [
+    "protected-key source projection from M254 raw PPO",
+    "M245 exact source-aware objective gate",
+    "post-projection interpolation if exact source/proof margins require it",
+    "public proof gates only after exact source gate passes",
+    "research validator"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m256_post_ppo_protected_source_projection_seed10067/optimized_checkpoint.pt",
+    "clearance_margin_mean": "",
+    "decision": "reject_projection_proof_washout",
+    "milestone": "m256-post-ppo-protected-source-projection",
+    "reason": "M256 projection repairs exact source losses but every tested interpolation alpha fails M183/M170 row16 proof retention; trajectory anchor support is needed before retry",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "driver_candidate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "projection reduces protected-key source loss versus M254 raw",
+    "at least one projected/interpolated alpha has M223 source delta < 0, aggregate M232 delta <= +1e-8, and protected-key source delta <= +1e-8 versus M253",
+    "proof gates are only run for exact-gated candidates",
+    "no PPO is run"
+  ],
+  "type": "driver_candidate"
+}

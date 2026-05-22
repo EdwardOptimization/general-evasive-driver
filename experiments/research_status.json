@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 264,
+    "completed": 265,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m255-m254-protected-source-regression-audit.md",
+    "command_log": "docs/m256-post-ppo-protected-source-projection.md",
     "returncode": 0,
-    "run_dir": "runs/m254_source_aware_exact_m232_eval",
+    "run_dir": "runs/m256_projection_interpolation_source_aware_exact_m232_eval",
     "status": "completed",
-    "task_id": "m255-m254-protected-source-regression-audit"
+    "task_id": "m256-post-ppo-protected-source-projection"
   },
   "next_task": {
-    "command": "see experiments/manifests/m256-post-ppo-protected-source-projection.json",
-    "hypothesis": "Run a no-PPO protected-key source projection from M254 raw PPO and exact-source gate it before proof gates",
-    "id": "m256-post-ppo-protected-source-projection",
-    "kind": "driver_candidate",
-    "notes": "Pending: protected-source projection from M254 raw PPO",
-    "priority": 2510,
+    "command": "see experiments/manifests/m257-trajectory-anchored-projection-implementation.json",
+    "hypothesis": "Add trajectory-action-anchor support to post-PPO outcome projection before retrying protected-source repair",
+    "id": "m257-trajectory-anchored-projection-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement trajectory anchor support in outcome_intervention_optimize",
+    "priority": 2520,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T150856Z"
+  "updated_at_utc": "20260522T151402Z"
 }
