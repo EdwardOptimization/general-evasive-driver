@@ -52,6 +52,7 @@ Not allowed in the deployable actor:
 | repeated stage3 candidates | `runs/ppo_m190_stage3_from_m188_seed5194/checkpoint.pt`, `runs/ppo_m190_stage3_from_m188_seed5195/checkpoint.pt` | preserve gates but do not beat M189 fixed loss |
 | current-best actor-update candidate | `runs/m194_m189_actor_coupling_anchor100_s20_seed9850/optimized_checkpoint.pt` | best refreshed M193 fixed-objective actor update; seed-repeat stable |
 | current-best guarded PPO smoke | `runs/ppo_m196_guarded_from_m194_seed5196/checkpoint.pt` | positive retention smoke from M194; requires repeat before longer PPO |
+| current-best guarded PPO repeat | `runs/ppo_m197_guarded_from_m194_seed5197/checkpoint.pt` | best fixed-loss M197 repeat; preserves behavior, protected key, old replay, and refreshed replay |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -126,18 +127,23 @@ slightly stronger action-level sensitivity.
   `16/16` and `17/17`, and retains refreshed M193 replay drops `14/14`.
   Fixed M193 loss remains better than M189 (`0.159017` vs `0.160647`) but does
   not beat M194 (`0.159008`), so the result is retention only.
+- M197: fresh PPO smoke repeats from M194 on seeds `5197` and `5198` both
+  improve fixed M193 loss versus M194 (`0.158919` and `0.158976` vs
+  `0.159008`) and preserve behavior seeds `9505` and `9506`, protected key,
+  old M183 replay drops `16/16` and `17/17`, and refreshed M193 replay drops
+  `14/14`. Seed `5197` is the current best retained fixed-loss repeat.
 
 Current blocker:
 
 ```text
-repeat the M196 guarded PPO smoke from M194 before any longer PPO continuation
+one short guarded stage2 from the best M197 repeat before any longer PPO continuation
 ```
 
 ## Near-Term Rule
 
-Only repeat tiny guarded PPO smoke seeds are admitted, each starting from M194.
-Do not run a longer PPO continuation until smoke repeats preserve behavior,
-protected key, old M183 replay, and refreshed M193 replay.
+Only one short guarded stage2 is admitted, starting from M197 seed `5197`. Do
+not run a stage2 repeat or longer PPO continuation until that stage2 preserves
+behavior, protected key, old M183 replay, and refreshed M193 replay.
 
 ## Sensor Profile Policy
 

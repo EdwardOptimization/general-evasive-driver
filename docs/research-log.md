@@ -7102,3 +7102,41 @@ Results:
 Decision: M196 is positive as a retention smoke only. Admit a repeat of the
 same tiny PPO smoke recipe from M194 on fresh seeds, but do not admit any
 longer PPO continuation yet.
+
+## 20260522T090123Z m197-guarded-ppo-smoke-repeat-from-m194
+
+M197 repeated the M196 guarded PPO smoke recipe from M194 on fresh seeds
+`5197` and `5198`. Every repeat restarted from M194; no repeat chained from
+M196 or another M197 checkpoint.
+
+Artifacts:
+
+- `runs/ppo_m197_guarded_from_m194_seed5197`
+- `runs/ppo_m197_guarded_from_m194_seed5198`
+- `runs/m197_fixed_batch_outcome_eval_seed37`
+- `runs/m197_5197_m183_m168_replay_gate_seed9510`
+- `runs/m197_5197_m183_m170_replay_gate_seed9510`
+- `runs/m197_5197_m193_m189_replay_gate_seed9630`
+- `runs/m197_5198_m183_m168_replay_gate_seed9510`
+- `runs/m197_5198_m183_m170_replay_gate_seed9510`
+- `runs/m197_5198_m193_m189_replay_gate_seed9630`
+- `runs/m197_behavior_gate_seed9505`
+- `runs/m197_behavior_gate_seed9506`
+- `runs/m197_critical_key_seed9944`
+- `docs/m197-guarded-ppo-smoke-repeat-from-m194.md`
+
+Results:
+
+- fixed M193 objective loss: M189 `0.160647`, M194 `0.159008`, M196
+  `0.159017`, M197 seed `5197` `0.158919`, M197 seed `5198` `0.158976`;
+- both repeats improve fixed objective versus M194;
+- both repeats retain M183 M168 replay drops `16/16`;
+- both repeats retain M183 M170 replay drops `17/17`;
+- both repeats retain M193 M189 replay drops `14/14`;
+- behavior seeds `9505` and `9506` keep success `0.8625`;
+- reset-hidden and zero-all-response ablations remain at `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` passes for both repeats.
+
+Decision: M197 is positive repeat evidence. Admit one short guarded stage2
+from the best fixed-loss retained repeat, M197 seed `5197`, but do not run a
+stage2 repeat or longer PPO continuation before that first stage2 passes gates.

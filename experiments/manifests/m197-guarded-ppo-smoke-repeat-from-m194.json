@@ -22,7 +22,7 @@
   "commands": [
     {
       "name": "m197_guarded_ppo_smoke_repeats",
-      "command": "Run the M196 guarded PPO smoke recipe from M194 with fresh seeds."
+      "command": "Run the M196 guarded PPO smoke recipe from M194 with fresh seeds 5197 and 5198."
     },
     {
       "name": "m197_fixed_eval",
@@ -37,6 +37,54 @@
     {
       "path": "docs/m197-guarded-ppo-smoke-repeat-from-m194.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/ppo_m197_guarded_from_m194_seed5197/checkpoint.pt",
+      "type": "checkpoint_seed5197"
+    },
+    {
+      "path": "runs/ppo_m197_guarded_from_m194_seed5198/checkpoint.pt",
+      "type": "checkpoint_seed5198"
+    },
+    {
+      "path": "runs/m197_fixed_batch_outcome_eval_seed37/summary.json",
+      "type": "fixed_eval_summary"
+    },
+    {
+      "path": "runs/m197_5197_m183_m168_replay_gate_seed9510/summary.json",
+      "type": "seed5197_m183_m168_replay"
+    },
+    {
+      "path": "runs/m197_5197_m183_m170_replay_gate_seed9510/summary.json",
+      "type": "seed5197_m183_m170_replay"
+    },
+    {
+      "path": "runs/m197_5197_m193_m189_replay_gate_seed9630/summary.json",
+      "type": "seed5197_m193_m189_replay"
+    },
+    {
+      "path": "runs/m197_5198_m183_m168_replay_gate_seed9510/summary.json",
+      "type": "seed5198_m183_m168_replay"
+    },
+    {
+      "path": "runs/m197_5198_m183_m170_replay_gate_seed9510/summary.json",
+      "type": "seed5198_m183_m170_replay"
+    },
+    {
+      "path": "runs/m197_5198_m193_m189_replay_gate_seed9630/summary.json",
+      "type": "seed5198_m193_m189_replay"
+    },
+    {
+      "path": "runs/m197_behavior_gate_seed9505/policy_summary.csv",
+      "type": "behavior_seed9505"
+    },
+    {
+      "path": "runs/m197_behavior_gate_seed9506/policy_summary.csv",
+      "type": "behavior_seed9506"
+    },
+    {
+      "path": "runs/m197_critical_key_seed9944/summary.json",
+      "type": "protected_key"
     }
   ],
   "baseline_checkpoints": [
@@ -53,5 +101,29 @@
     "runs/m196_behavior_gate_seed9506/policy_summary.csv",
     "runs/m196_critical_key_seed9944/summary.json"
   ],
-  "decision_rule": "Only repeat-stable PPO smoke seeds that preserve behavior, protected key, old replay, and refreshed replay may admit any longer PPO continuation."
+  "results": {
+    "repeat_checkpoints": [
+      "runs/ppo_m197_guarded_from_m194_seed5197/checkpoint.pt",
+      "runs/ppo_m197_guarded_from_m194_seed5198/checkpoint.pt"
+    ],
+    "fixed_loss_m189": 0.16064704418182374,
+    "fixed_loss_m194": 0.15900827199220657,
+    "fixed_loss_m196": 0.15901683270931244,
+    "fixed_loss_seed5197": 0.15891851872205734,
+    "fixed_loss_seed5198": 0.15897561609745026,
+    "m183_m168_success_drop_count_seed5197": 16,
+    "m183_m170_success_drop_count_seed5197": 17,
+    "m193_m189_success_drop_count_seed5197": 14,
+    "m183_m168_success_drop_count_seed5198": 16,
+    "m183_m170_success_drop_count_seed5198": 17,
+    "m193_m189_success_drop_count_seed5198": 14,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "reset_success": 0.85,
+    "zero_all_success": 0.80,
+    "protected_key_pass": true,
+    "best_repeat_checkpoint": "runs/ppo_m197_guarded_from_m194_seed5197/checkpoint.pt"
+  },
+  "decision_rule": "Only repeat-stable PPO smoke seeds that preserve behavior, protected key, old replay, and refreshed replay may admit any longer PPO continuation.",
+  "decision": "admit_guarded_stage2_from_m197"
 }

@@ -1,0 +1,59 @@
+{
+  "id": "m198-guarded-stage2-ppo-from-m197",
+  "type": "driver_candidate",
+  "hypothesis": "M197 shows that tiny guarded PPO smoke from M194 is repeat-stable and both fresh seeds improve the fixed M193 objective while preserving behavior, protected key, old replay, and refreshed replay. A single short stage2 from the best fixed-loss retained repeat may continue the same improvement without washing out the proof surface.",
+  "success_criteria": [
+    "start from runs/ppo_m197_guarded_from_m194_seed5197/checkpoint.pt because it is the lowest fixed-loss retained repeat",
+    "run only one short guarded stage2 before any repeat or longer continuation",
+    "keep M194 as the strong action anchor through configs/ppo_m196_guarded_from_m194_smoke.json",
+    "keep actor inputs unchanged",
+    "preserve behavior seeds 9505 and 9506",
+    "preserve protected key 9944|perturbed|28|28",
+    "preserve old M183 M168/M170 replay gates and refreshed M193 M189 replay gate",
+    "compare fixed M193 objective against M189, M194, M196, and M197 before accepting any repeat"
+  ],
+  "failure_criteria": [
+    "run multiple stage2 seeds before the first stage2 gate passes",
+    "run a longer PPO continuation directly",
+    "drop any M183 or M193 replay row",
+    "lose behavior or protected-key retention",
+    "change actor observation inputs",
+    "promote based on fixed objective improvement alone"
+  ],
+  "commands": [
+    {
+      "name": "m198_short_stage2",
+      "command": "Run one 1024-step guarded PPO stage2 from runs/ppo_m197_guarded_from_m194_seed5197/checkpoint.pt using configs/ppo_m196_guarded_from_m194_smoke.json."
+    },
+    {
+      "name": "m198_fixed_eval",
+      "command": "Compare M189, M194, M196, M197, and the M198 candidate on the fixed M193 M189 corpus."
+    },
+    {
+      "name": "m198_retention_gates",
+      "command": "Run old M183 replay, refreshed M193 replay, behavior seeds 9505/9506, and protected-key gates before admitting a stage2 repeat."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m198-guarded-stage2-ppo-from-m197.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt",
+    "runs/m194_m189_actor_coupling_anchor100_s20_seed9850/optimized_checkpoint.pt",
+    "runs/ppo_m196_guarded_from_m194_seed5196/checkpoint.pt",
+    "runs/ppo_m197_guarded_from_m194_seed5197/checkpoint.pt",
+    "runs/ppo_m197_guarded_from_m194_seed5198/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m197_fixed_batch_outcome_eval_seed37/summary.json",
+    "runs/m197_5197_m193_m189_replay_gate_seed9630/summary.json",
+    "runs/m197_5198_m193_m189_replay_gate_seed9630/summary.json",
+    "runs/m197_behavior_gate_seed9505/policy_summary.csv",
+    "runs/m197_behavior_gate_seed9506/policy_summary.csv",
+    "runs/m197_critical_key_seed9944/summary.json"
+  ],
+  "decision_rule": "Only a short stage2 that preserves behavior, protected key, old replay, and refreshed replay may admit stage2 repeats."
+}
