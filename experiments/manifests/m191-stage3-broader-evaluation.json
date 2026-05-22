@@ -20,21 +20,49 @@
   "commands": [
     {
       "name": "m191_broader_behavior_seed9505",
-      "command": "Benchmark M184, M188 seed 5191, M189, and M189 ablations on env config configs/m121_human_view_zero_obstacle_relvel.json with seed 9505."
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m121_human_view_zero_obstacle_relvel.json --episodes 80 --seed 9505 --checkpoint-policy m184_s20=runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt --checkpoint-policy m188_5191=runs/ppo_m188_stage2_from_m185_seed5191/checkpoint.pt --checkpoint-policy m189_5193=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt --checkpoint-policy m189_5193_reset=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt@reset_recurrent_state --checkpoint-policy m189_5193_zero_all=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt@zero_all_response --checkpoint-policy m189_5193_noact=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt@zero_action_history --device cpu --run-dir runs/m191_behavior_gate_seed9505"
     },
     {
       "name": "m191_broader_behavior_seed9506",
-      "command": "Benchmark M184, M188 seed 5191, M189, and M189 ablations on env config configs/m121_human_view_zero_obstacle_relvel.json with seed 9506."
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m121_human_view_zero_obstacle_relvel.json --episodes 80 --seed 9506 --checkpoint-policy m184_s20=runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt --checkpoint-policy m188_5191=runs/ppo_m188_stage2_from_m185_seed5191/checkpoint.pt --checkpoint-policy m189_5193=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt --checkpoint-policy m189_5193_reset=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt@reset_recurrent_state --checkpoint-policy m189_5193_zero_all=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt@zero_all_response --checkpoint-policy m189_5193_noact=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt@zero_action_history --device cpu --run-dir runs/m191_behavior_gate_seed9506"
     },
     {
-      "name": "m191_replay_and_key_repeat",
-      "command": "Repeat protected-key and M168/M170 boundary replay checks for the current best checkpoint."
+      "name": "m191_m168_boundary_replay",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_replay_gate --checkpoint-policy m184_s20=runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt --checkpoint-policy m189_5193=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt --corpus-csv runs/m183_m168_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv --env-config configs/m121_human_view_zero_obstacle_relvel.json --max-continuation-steps 60 --baseline-policy m184_s20 --candidate-policy m189_5193 --max-normal-success-drop 0.0 --max-normal-margin-regression 0.005 --max-margin-gap-regression 0.001 --max-success-drop-count-regression 0 --device cpu --run-dir runs/m191_m168_boundary_replay_gate_seed9510"
+    },
+    {
+      "name": "m191_m170_boundary_replay",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_replay_gate --checkpoint-policy m170_split=runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt --checkpoint-policy m189_5193=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt --corpus-csv runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv --env-config configs/m121_human_view_zero_obstacle_relvel.json --max-continuation-steps 60 --baseline-policy m170_split --candidate-policy m189_5193 --max-normal-success-drop 0.0 --max-normal-margin-regression 0.005 --max-margin-gap-regression 0.001 --max-success-drop-count-regression 0 --device cpu --run-dir runs/m191_m170_boundary_replay_gate_seed9510"
+    },
+    {
+      "name": "m191_protected_key",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.critical_key_replay_guard --reference-manifest runs/m133_zero_relvel_s60_strict_60ep_seed9900/manifest.json --reference-cases-csv runs/m133_zero_relvel_s60_strict_60ep_seed9900/outcome_sensitive_snippets.csv --reference-cases-csv runs/m133_zero_relvel_s60_strict_60ep_seed9920/outcome_sensitive_snippets.csv --case-key '9944|perturbed|28|28' --checkpoint-policy m184_s20=runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt --checkpoint-policy m189_5193=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt --reference-policy m184_s20 --device cpu --run-dir runs/m191_critical_key_seed9944"
     }
   ],
   "required_artifacts": [
     {
       "path": "docs/m191-stage3-broader-evaluation.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m191_behavior_gate_seed9505/policy_summary.csv",
+      "type": "behavior_seed9505"
+    },
+    {
+      "path": "runs/m191_behavior_gate_seed9506/policy_summary.csv",
+      "type": "behavior_seed9506"
+    },
+    {
+      "path": "runs/m191_m168_boundary_replay_gate_seed9510/summary.json",
+      "type": "m168_boundary_replay"
+    },
+    {
+      "path": "runs/m191_m170_boundary_replay_gate_seed9510/summary.json",
+      "type": "m170_boundary_replay"
+    },
+    {
+      "path": "runs/m191_critical_key_seed9944/summary.json",
+      "type": "protected_key"
     }
   ],
   "baseline_checkpoints": [
@@ -48,5 +76,25 @@
     "runs/m190_behavior_gate_seed9504/policy_summary.csv",
     "runs/m190_critical_key_seed9944/summary.json"
   ],
-  "decision_rule": "Stage4 is only justified if the current best checkpoint preserves broader behavior and proof-surface gates."
+  "results": {
+    "current_best_checkpoint": "runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt",
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "behavior_seed9505_margin_mean": 1.838229954022946,
+    "behavior_seed9506_margin_mean": 1.8559939580550208,
+    "reset_success": 0.85,
+    "zero_all_success": 0.80,
+    "no_action_history_success": 0.8625,
+    "m168_boundary_replay_rows": 16,
+    "m168_candidate_success_drop_count": 16,
+    "m168_gate_pass": true,
+    "m170_boundary_replay_rows": 17,
+    "m170_candidate_success_drop_count": 17,
+    "m170_gate_pass": true,
+    "protected_key_policy_pass": true,
+    "protected_key_m189_margin_gap": 0.03493102861276087,
+    "protected_key_guard_validated": false
+  },
+  "decision_rule": "Stage4 is only justified if the current best checkpoint preserves broader behavior and proof-surface gates.",
+  "decision": "broaden_proof_surface_before_stage4"
 }

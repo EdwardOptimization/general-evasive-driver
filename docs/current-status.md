@@ -97,18 +97,24 @@ slightly stronger action-level sensitivity.
 - M190: stage3 repeats preserve behavior, protected key, and both M183 replay
   surfaces, but fixed M183 loss plateaus near `0.171232`; M189 remains the
   current best fixed-loss checkpoint.
+- M191: broader current-best evaluation validates M189 on fresh behavior seeds
+  `9505` and `9506`, preserves the protected key, and keeps the M168/M170 M183
+  replay success-drop counts at `16/16` and `17/17`. The result is positive as
+  retention, but not enough to continue PPO because the proof surface is still
+  inherited from M183.
 
 Current blocker:
 
 ```text
-broader current-best evaluation before any stage4 or longer PPO
+fresh current-best proof-surface refresh before any stage4 or longer PPO
 ```
 
 ## Near-Term Rule
 
-Do not run stage4 yet. Evaluate M189 on broader behavior seeds and repeat the
-protected-key and M183 replay gates before deciding whether another PPO stage is
-justified.
+Do not run stage4 yet. Keep M189 seed `5193` as the current best checkpoint and
+refresh the proof surface first. Stage4 is only justified if the refreshed
+surface is source-diverse, outcome-sensitive, and not merely a replay of M183
+rows.
 
 ## Sensor Profile Policy
 

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 199,
+    "completed": 200,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m190-stage3-repeat-from-m188.md",
+    "command_log": "docs/m191-stage3-broader-evaluation.md",
     "returncode": 0,
-    "run_dir": "runs/ppo_m190_stage3_from_m188_seed5194",
+    "run_dir": "runs/m191_behavior_gate_seed9505",
     "status": "completed",
-    "task_id": "m190-stage3-repeat-from-m188"
+    "task_id": "m191-stage3-broader-evaluation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m191-stage3-broader-evaluation.json",
-    "hypothesis": "M190 repeats preserved the existing gates but the fixed objective plateaued, so the current best M189 checkpoint needs broader evaluation before any stage4.",
-    "id": "m191-stage3-broader-evaluation",
+    "command": "see experiments/manifests/m192-current-best-proof-surface-refresh.json",
+    "hypothesis": "M191 preserved broader behavior and existing proof-surface gates, but proof evidence is still mostly inherited from M183, so refresh the current-best proof surface before stage4.",
+    "id": "m192-current-best-proof-surface-refresh",
     "kind": "gate",
-    "notes": "No PPO training; evaluate M189 on fresh behavior seeds and repeat proof-surface/key gates before deciding whether stage4 is justified.",
-    "priority": 1860,
+    "notes": "No PPO training; build or evaluate a fresh source-diverse outcome-sensitive proof surface for M189 before deciding on stage4.",
+    "priority": 1870,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T080328Z"
+  "updated_at_utc": "20260522T081000Z"
 }

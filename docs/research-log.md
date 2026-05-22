@@ -6900,3 +6900,31 @@ Results:
 Decision: pause stage4 and run broader current-best evaluation. The current best
 checkpoint remains M189 seed `5193` because M190 repeats preserve gates but do
 not improve fixed M183 loss.
+
+## 20260522T081000Z m191-stage3-broader-evaluation
+
+M191 evaluated the current best M189 checkpoint without training.
+
+Artifacts:
+
+- `runs/m191_behavior_gate_seed9505`
+- `runs/m191_behavior_gate_seed9506`
+- `runs/m191_m168_boundary_replay_gate_seed9510`
+- `runs/m191_m170_boundary_replay_gate_seed9510`
+- `runs/m191_critical_key_seed9944`
+- `docs/m191-stage3-broader-evaluation.md`
+
+Results:
+
+- behavior seeds `9505` and `9506` both keep M189 success at `0.8625`;
+- reset-hidden success remains `0.85`;
+- zero-all-response success remains `0.80`;
+- no-action-history remains success-neutral at `0.8625`;
+- M168 boundary replay retains `16/16` success drops;
+- M170 boundary replay retains `17/17` success drops;
+- protected key `9944|perturbed|28|28` passes for M189 with margin gap
+  `0.034931`.
+
+Decision: M191 is positive as a broader retention gate, but stage4 remains
+paused. The next step is to refresh the current-best proof surface so further
+PPO is not justified only by repeated success on M183 rows.
