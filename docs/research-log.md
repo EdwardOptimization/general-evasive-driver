@@ -7572,3 +7572,42 @@ Decision:
 - do not run another same-recipe stage6 retry;
 - pre-register M210 to refresh a source-diverse current-best-family multi-key
   protected surface before any further PPO.
+
+## 20260522T102042Z m210-current-best-protected-surface-refresh
+
+M210 attempted to refresh the current-best-family protected surface using fresh
+probe seeds `10020`-`10023`. No PPO, actor update, or actor input change was
+run.
+
+Artifacts:
+
+- `runs/m210_current_family_matched_current_seed10020`
+- `runs/m210_current_family_outcome_seed10020`
+- `runs/m210_current_family_boundary_surface_seed10020`
+- `runs/m210_current_family_boundary_robustness_seed10020`
+- `docs/m210-current-best-protected-surface-refresh.md`
+- `experiments/manifests/m211-m192-seed-control-protected-surface-audit.json`
+
+Results:
+
+- matched-current mining finds `1837` accepted pairs across `209` physical
+  pairs, `30` left steps, and `26` obstacle buckets;
+- direct outcome gate emits `11022` continuation rows;
+- boundary relocation emits `24170` rows but finds `0` accepted wrong-history
+  rows;
+- reset-hidden relocation has `680` accepted rows;
+- zero-current-response relocation has `261` accepted rows;
+- robustness rejects the surface because every wrong-history evidence count is
+  zero.
+
+Failure mechanism:
+
+- all wrong-history rows: `4834` rows, `135` rows with margin gap >= `0.02`,
+  but those positive-gap rows are far from the near-boundary window;
+- near-boundary wrong-history rows: `2655` rows, max margin gap only
+  `0.001786`, mean gap `-0.001244`, and `0` success drops.
+
+Decision: M210 is negative and does not justify objective conversion or PPO.
+Run M211 as a M192-seed control with the current M199/M202/M204 family before
+concluding that fresh current-family wrong-history near-boundary evidence is
+gone.

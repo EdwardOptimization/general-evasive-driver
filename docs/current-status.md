@@ -202,11 +202,17 @@ slightly stronger action-level sensitivity.
   improved out of the near-boundary window while wrong-history margin gap stayed
   large. Do not train the driver to lower clearance for the old key. Refresh a
   current-best-family multi-key protected surface before any further PPO.
+- M210: fresh current-family protected-surface refresh with seeds
+  `10020`-`10023` finds `1837` matched-current pairs across `209` physical
+  pairs, but boundary relocation finds `0` accepted wrong-history rows. Reset
+  and zero-current interventions still produce `680` and `261` accepted rows,
+  so the negative result is specific to fresh wrong-history near-boundary
+  evidence.
 
 Current blocker:
 
 ```text
-current-best-family multi-key protected surface refresh before any further PPO
+M192-seed control audit for current-family wrong-history boundary evidence
 ```
 
 ## Near-Term Rule
@@ -215,8 +221,10 @@ M206 and M208 are both rejected despite better fixed objectives because the
 protected-key gate failed. The failure is now repeated, not a single-seed
 accident. Do not run another same-recipe stage6 retry, do not chain from M206 or
 M208, and do not loosen the protected-key threshold after seeing the result.
-M210 must refresh a current-best-family multi-key protected surface before any
-further PPO.
+M210 failed to refresh a fresh current-family wrong-history protected surface.
+M211 must run a seed/corpus control on the M192 probe seeds before deciding
+whether the current family has truly lost fresh wrong-history near-boundary
+evidence. PPO remains blocked.
 
 ## Sensor Profile Policy
 

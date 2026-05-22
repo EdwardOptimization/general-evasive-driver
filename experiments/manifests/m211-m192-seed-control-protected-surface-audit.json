@@ -1,0 +1,73 @@
+{
+  "id": "m211-m192-seed-control-protected-surface-audit",
+  "type": "gate",
+  "hypothesis": "M210 found fresh current-family matched-current ambiguity but zero accepted wrong-history boundary rows. Repeating the same current-family protected-surface refresh on the M192 probe seeds can distinguish fresh-seed/corpus failure from a true loss of current-family wrong-history near-boundary outcome evidence.",
+  "success_criteria": [
+    "do not train PPO or run actor updates",
+    "keep M204 as the current best checkpoint under evaluation",
+    "reuse the current M199/M202/M204 checkpoint family",
+    "use the M192 probe seeds 9520,9521,9522,9523 as a seed/corpus control",
+    "run the same matched-current, direct outcome, boundary relocation, and robustness gates as M210",
+    "keep actor inputs and observation profile unchanged",
+    "decide whether the M210 failure was seed/corpus-specific or current-family history-evidence loss"
+  ],
+  "failure_criteria": [
+    "run PPO before this control audit",
+    "change actor observation inputs",
+    "change old protected-key thresholds to accept M206 or M208",
+    "promote a duplicate-dominated surface",
+    "claim current-family wrong-history evidence is gone without this seed/corpus control"
+  ],
+  "commands": [
+    {
+      "name": "m211_current_family_matched_current_m192_seeds",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_current_response_ambiguity --checkpoint-policy m199_5201=runs/ppo_m199_stage2_from_m197_seed5201/checkpoint.pt --checkpoint-policy m202_5206=runs/ppo_m202_stage4_from_m201_seed5206/checkpoint.pt --checkpoint-policy m204_5209=runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --probe-seeds 9520,9521,9522,9523 --episodes 40 --horizon-steps 15 --sample-stride 3 --max-samples 1200 --nearest-k 12 --max-visible-quantile 0.05 --min-target-z-delta 1.0 --max-pairs-per-target 320 --max-pairs-per-physical-pair 1 --max-pairs-per-left-step 20 --max-pairs-per-source-obstacle-bucket 40 --obstacle-distance-bucket-width 5.0 --obstacle-lateral-bucket-width 1.0 --min-accepted-pairs 60 --device cpu --run-dir runs/m211_current_family_matched_current_seed9520"
+    },
+    {
+      "name": "m211_current_family_outcome_gate_m192_seeds",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_history_outcome_gate --checkpoint-policy m199_5201=runs/ppo_m199_stage2_from_m197_seed5201/checkpoint.pt --checkpoint-policy m202_5206=runs/ppo_m202_stage4_from_m201_seed5206/checkpoint.pt --checkpoint-policy m204_5209=runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --pairs-csv runs/m211_current_family_matched_current_seed9520/matched_pairs.csv --delay-steps 10 --max-continuation-steps 60 --min-margin-gap 0.02 --max-pairs-per-checkpoint-target 0 --pair-label-mode matching --device cpu --run-dir runs/m211_current_family_outcome_seed9520"
+    },
+    {
+      "name": "m211_current_family_boundary_surface_m192_seeds",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.wrong_history_boundary_relocation_surface --checkpoint-policy m199_5201=runs/ppo_m199_stage2_from_m197_seed5201/checkpoint.pt --checkpoint-policy m202_5206=runs/ppo_m202_stage4_from_m201_seed5206/checkpoint.pt --checkpoint-policy m204_5209=runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --outcome-csv runs/m211_current_family_outcome_seed9520/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 60 --max-pairs-per-checkpoint-target 0 --min-base-action-distance 0.0 --target-normal-margins 0.005,0.01,0.02,0.05,0.10,0.15,0.20 --half-width-inflations 0 --min-normal-margin 0.0 --max-normal-margin 0.20 --min-margin-gap 0.02 --min-accepted-wrong-rows 40 --report-variants wrong_matched_history,reset_hidden,zero_current_response,zero_action_history,delayed_history --device cpu --run-dir runs/m211_current_family_boundary_surface_seed9520"
+    },
+    {
+      "name": "m211_current_family_boundary_robustness_m192_seeds",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_wrong_history_surface_robustness --boundary-rows-csv runs/m211_current_family_boundary_surface_seed9520/boundary_relocation_rows.csv --control-checkpoint-label none --margin-bucket-width 0.01 --min-accepted-wrong-rows 40 --min-physical-pairs 10 --min-left-steps 5 --min-checkpoints 3 --min-targets 2 --min-margin-buckets 2 --min-success-drop-fraction 1.0 --max-rows-per-pair-fraction 0.25 --max-control-accepted-rows 0 --run-dir runs/m211_current_family_boundary_robustness_seed9520"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m211-m192-seed-control-protected-surface-audit.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m211_current_family_matched_current_seed9520/summary.json",
+      "type": "matched_current_summary"
+    },
+    {
+      "path": "runs/m211_current_family_outcome_seed9520/summary.json",
+      "type": "outcome_summary"
+    },
+    {
+      "path": "runs/m211_current_family_boundary_surface_seed9520/summary.json",
+      "type": "boundary_surface_summary"
+    },
+    {
+      "path": "runs/m211_current_family_boundary_robustness_seed9520/summary.json",
+      "type": "robustness_summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m199_stage2_from_m197_seed5201/checkpoint.pt",
+    "runs/ppo_m202_stage4_from_m201_seed5206/checkpoint.pt",
+    "runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m192-current-best-proof-surface-refresh.md",
+    "docs/m210-current-best-protected-surface-refresh.md",
+    "runs/m210_current_family_boundary_surface_seed10020/summary.json",
+    "runs/m210_current_family_boundary_robustness_seed10020/summary.json"
+  ],
+  "decision_rule": "If M211 passes, treat M210 as seed/corpus-specific and convert the M211 surface to objective/gate sanity. If M211 also fails, pause PPO and design a stronger history-necessity mining or objective path instead of continuing stage6."
+}

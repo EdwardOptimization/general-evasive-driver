@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 218,
+    "completed": 219,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m209-protected-key-aware-stage6-design.md",
+    "command_log": "docs/m210-current-best-protected-surface-refresh.md",
     "returncode": 0,
-    "run_dir": "docs/m209-protected-key-aware-stage6-design.md",
+    "run_dir": "runs/m210_current_family_boundary_robustness_seed10020",
     "status": "completed",
-    "task_id": "m209-protected-key-aware-stage6-design"
+    "task_id": "m210-current-best-protected-surface-refresh"
   },
   "next_task": {
-    "command": "see experiments/manifests/m210-current-best-protected-surface-refresh.json",
-    "hypothesis": "The old single protected key is fragile because it can leave the near-boundary window when normal clearance improves, so refresh a current-best-family multi-key protected surface before further PPO.",
-    "id": "m210-current-best-protected-surface-refresh",
+    "command": "see experiments/manifests/m211-m192-seed-control-protected-surface-audit.json",
+    "hypothesis": "M210 found no fresh wrong-history boundary rows under fresh seeds, so repeat the same current-family surface refresh on the M192 probe seeds to separate seed/corpus effects from current-family history-evidence loss.",
+    "id": "m211-m192-seed-control-protected-surface-audit",
     "kind": "gate",
-    "notes": "Run mining/outcome/boundary/robustness gates only; PPO remains blocked until the refreshed protected surface is documented.",
-    "priority": 2050,
+    "notes": "Gate-only seed control; PPO remains blocked.",
+    "priority": 2060,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T101000Z"
+  "updated_at_utc": "20260522T102042Z"
 }
