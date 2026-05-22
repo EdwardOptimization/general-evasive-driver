@@ -2,9 +2,10 @@
   "id": "m281-rejected-hidden-recovery-anchored-update",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "proof_washout",
+    "objective_overfit"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -81,6 +82,14 @@
     {
       "path": "runs/m281_m272_actor_coupling_m270_rejected_hidden_recovery_anchor_s10_lr5e5_seed10077/summary.json",
       "type": "actor_update_summary"
+    },
+    {
+      "path": "runs/m281_exact_outcome_eval_seed37/summary.json",
+      "type": "exact_eval_summary"
+    },
+    {
+      "path": "runs/m281_m267_m264_replay_gate_seed10070/summary.json",
+      "type": "failed_replay_summary"
     }
   ],
   "baseline_checkpoints": [
@@ -90,6 +99,32 @@
     "docs/m280-current-family-wrong-history-washout-audit.md",
     "runs/m279_combined_retention_recovery_anchor/summary.json"
   ],
-  "decision_rule": "M281 may promote only if objective improvement, M183/M170 row16, M267/M264 success-drop retention, remaining replay surfaces, protected key, and behavior seeds all pass. If M267/M264 fails again, reject and audit source-aware contrast rather than running PPO.",
-  "next_blocker": "pending M281 rejected-hidden recovery anchored update"
+  "results": {
+    "raw_checkpoint": "runs/m281_m272_actor_coupling_m270_rejected_hidden_recovery_anchor_s10_lr5e5_seed10077/optimized_checkpoint.pt",
+    "optimizer_sampled_loss_m272": 0.6808386286099751,
+    "optimizer_sampled_loss_m281": 0.6776092926661174,
+    "fixed_sampled_loss_m272": 0.681538792848587,
+    "fixed_sampled_loss_m281": 0.6782665240764618,
+    "exact_loss_m272": 0.6813756227493286,
+    "exact_loss_m281": 0.6780914068222046,
+    "m183_m170_row16_baseline_margin": 0.0000006356749755465074,
+    "m183_m170_row16_m281_margin": 0.00263316481636533,
+    "m183_m170_gate_pass": true,
+    "m267_m264_baseline_success_drop_count": 17,
+    "m267_m264_candidate_success_drop_count": 11,
+    "m267_m264_wrong_history_success_delta": 0.35294117647058826,
+    "m267_m264_failed_rows": [
+      4,
+      6,
+      11,
+      13,
+      15,
+      16
+    ],
+    "protected_key_run": false,
+    "behavior_gate_run": false
+  },
+  "decision_rule": "Reject M281 because it improves objective and row16 but worsens M267/M264 current-family wrong-history success-drop retention to 11/17. A trajectory-level rejected-history surface is needed before another update.",
+  "decision": "reject_rejected_hidden_action_anchor_update",
+  "next_blocker": "m282-current-family-rejected-trajectory-anchor-design"
 }

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 289,
+    "completed": 290,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m280-current-family-wrong-history-washout-audit.md",
+    "command_log": "docs/m281-rejected-hidden-recovery-anchored-update.md",
     "returncode": 0,
-    "run_dir": "runs/m279_m267_m264_replay_gate_seed10070",
+    "run_dir": "runs/m281_m267_m264_replay_gate_seed10070",
     "status": "completed",
-    "task_id": "m280-current-family-wrong-history-washout-audit"
+    "task_id": "m281-rejected-hidden-recovery-anchored-update"
   },
   "next_task": {
-    "command": "see experiments/manifests/m281-rejected-hidden-recovery-anchored-update.json",
-    "hypothesis": "Rejected-hidden snippet action anchoring can preserve current-family wrong-history contrast while the M279 combined recovery anchor repairs normal terminal-margin slack.",
-    "id": "m281-rejected-hidden-recovery-anchored-update",
-    "kind": "driver_candidate",
-    "notes": "Pending: one small no-PPO actor update with rejected-hidden snippet action anchoring; gate row16 and M267/M264 first",
-    "priority": 2760,
+    "command": "see experiments/manifests/m282-current-family-rejected-trajectory-anchor-design.json",
+    "hypothesis": "Current-family wrong-history retention needs a trajectory-level rejected-history anchor because one-step rejected action anchoring does not preserve closed-loop wrong-history failure.",
+    "id": "m282-current-family-rejected-trajectory-anchor-design",
+    "kind": "gate",
+    "notes": "Pending: design current-family rejected-history trajectory anchor; no PPO or actor update",
+    "priority": 2770,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T184547Z"
+  "updated_at_utc": "20260522T184945Z"
 }
