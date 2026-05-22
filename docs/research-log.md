@@ -7805,3 +7805,51 @@ Decision:
 ```text
 admit_snippet_anchored_actor_update_calibration
 ```
+
+## 20260522T113314Z m216-snippet-anchored-actor-update-calibration
+
+M216 ran the M215-selected safer actor-update recipe on the known M214 failure
+seeds `10051` and `10052`. No PPO was run and actor inputs were unchanged.
+
+Artifacts:
+
+- `runs/m216_m204_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10051`
+- `runs/m216_m204_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10052`
+- `runs/m216_fixed_batch_outcome_eval_seed37`
+- `runs/m216_10051_m183_m168_replay_gate_seed9510`
+- `runs/m216_10051_m183_m170_replay_gate_seed9510`
+- `runs/m216_10051_m193_m189_replay_gate_seed9630`
+- `runs/m216_10051_m212_m204_replay_gate_seed10040`
+- `runs/m216_10052_m183_m168_replay_gate_seed9510`
+- `runs/m216_10052_m183_m170_replay_gate_seed9510`
+- `runs/m216_10052_m193_m189_replay_gate_seed9630`
+- `runs/m216_10052_m212_m204_replay_gate_seed10040`
+- `runs/m216_behavior_gate_seed9505`
+- `runs/m216_behavior_gate_seed9506`
+- `runs/m216_critical_key_seed9944`
+- `docs/m216-snippet-anchored-actor-update-calibration.md`
+- `experiments/manifests/m217-snippet-anchored-actor-update-fresh-repeat.json`
+
+Results:
+
+- seed `10051` improves train/eval loss by `0.000920`; seed `10052` improves by
+  `0.000915`;
+- fixed M212 eval improves versus M204: M216 losses are `0.204291` and
+  `0.204297` versus M204 `0.205221`;
+- preferred-only snippet anchor MSE stays near `1.5e-6`;
+- both seeds pass all replay surfaces: M183 M168 `16/16`, M183 M170 `17/17`,
+  M193 M189 `14/14`, and M212 M204 `17/17` drops retained;
+- behavior seeds `9505` and `9506` retain success `0.8625`;
+- reset-hidden and zero-all-response ablations remain at `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` passes for both M216 seeds while M206 and
+  M208 remain rejected controls.
+
+Decision: M216 is positive as recipe calibration. It is not enough to admit PPO
+because it used known M214 failure seeds. Repeat the exact recipe on fresh seeds
+before any PPO or continuation.
+
+Decision:
+
+```text
+admit_fresh_snippet_anchor_repeat
+```

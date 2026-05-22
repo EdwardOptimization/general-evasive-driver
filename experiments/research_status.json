@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 224,
+    "completed": 225,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m215-actor-update-repeat-failure-audit.md",
+    "command_log": "docs/m216-snippet-anchored-actor-update-calibration.md",
     "returncode": 0,
-    "run_dir": "docs/m215-actor-update-repeat-failure-audit.md",
+    "run_dir": "runs/m216_critical_key_seed9944",
     "status": "completed",
-    "task_id": "m215-actor-update-repeat-failure-audit"
+    "task_id": "m216-snippet-anchored-actor-update-calibration"
   },
   "next_task": {
-    "command": "see experiments/manifests/m216-snippet-anchored-actor-update-calibration.json",
-    "hypothesis": "A smaller actor update with preferred-only snippet action anchoring should preserve boundary normal actions while retaining M212 objective improvement.",
-    "id": "m216-snippet-anchored-actor-update-calibration",
+    "command": "see experiments/manifests/m217-snippet-anchored-actor-update-fresh-repeat.json",
+    "hypothesis": "M216 passed on known failure seeds; fresh-seed repeat evidence is required before admitting PPO or continuation.",
+    "id": "m217-snippet-anchored-actor-update-fresh-repeat",
     "kind": "driver_candidate",
-    "notes": "No PPO; restart from M204 on seeds 10051 and 10052 with snippet preferred-action anchor.",
-    "priority": 2110,
+    "notes": "No PPO; restart from M204 on seeds 10053 and 10054 with the exact M216 recipe.",
+    "priority": 2120,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T111622Z"
+  "updated_at_utc": "20260522T113314Z"
 }

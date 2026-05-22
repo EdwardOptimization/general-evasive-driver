@@ -235,11 +235,17 @@ slightly stronger action-level sensitivity.
   because rejected-history logprob is reduced, but preferred/normal action
   fidelity is not explicitly protected on the near-boundary snippets. M216 is
   pre-registered as a smaller update with preferred-only snippet action anchor.
+- M216: runs the smaller preferred-only snippet-anchored actor-update recipe on
+  the known M214 failure seeds `10051` and `10052`. Both improve fixed M212
+  loss modestly, pass old M183 replay, refreshed M193 replay, current M212
+  replay, behavior seeds `9505`/`9506`, and protected key `9944`. Because these
+  were known failure seeds selected after M214, M217 must repeat the same recipe
+  on fresh seeds before PPO.
 
 Current blocker:
 
 ```text
-snippet-anchored actor-update calibration before any PPO
+fresh-seed repeat of the snippet-anchored actor-update recipe before any PPO
 ```
 
 ## Near-Term Rule
@@ -253,7 +259,8 @@ can improve while replay normal-success retention fails. M215 must audit the
 failure and design a safer actor-update recipe before any more updates or PPO.
 M215 found the likely mechanism. M216 may run only the pre-registered smaller
 snippet-anchored actor update; PPO remains blocked until repeat replay retention
-passes.
+passes. M216 passed on known failure seeds, so M217 must repeat the same recipe
+on fresh seeds before any PPO.
 
 ## Sensor Profile Policy
 

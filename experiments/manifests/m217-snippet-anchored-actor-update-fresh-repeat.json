@@ -1,0 +1,100 @@
+{
+  "id": "m217-snippet-anchored-actor-update-fresh-repeat",
+  "type": "driver_candidate",
+  "hypothesis": "M216 fixed the M214 replay-retention failure on the known bad seeds by using a smaller update with preferred-only snippet action anchoring. A fresh-seed repeat from M204 is required before admitting any PPO or continuation.",
+  "success_criteria": [
+    "do not run PPO in this milestone",
+    "do not change actor inputs",
+    "restart every candidate from runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt",
+    "use the exact M216 snippet-anchored recipe",
+    "run fresh seeds 10053 and 10054",
+    "both seeds must improve fixed M212 objective versus M204",
+    "both seeds must keep preferred-only snippet action-anchor MSE finite and small",
+    "both seeds must pass M183 M168 replay retention",
+    "both seeds must pass M183 M170 replay retention",
+    "both seeds must pass refreshed M193 M189 replay retention",
+    "both seeds must pass current M212 M204 replay retention",
+    "both seeds must preserve behavior seeds 9505 and 9506",
+    "both seeds must preserve protected key 9944|perturbed|28|28",
+    "keep M204 as retained base unless every required gate passes"
+  ],
+  "failure_criteria": [
+    "any seed loses normal-history success on old or current replay surfaces",
+    "fixed objective improves but replay retention fails",
+    "promote based on M216 known-seed calibration alone",
+    "run PPO before fresh repeat evidence passes",
+    "change actor observation profile to solve this recipe failure"
+  ],
+  "recipe": {
+    "init_checkpoint": "runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt",
+    "snippet_npz": "runs/m212_m204_boundary_outcome_corpus_seed10040/boundary_outcome_corpus.npz",
+    "device": "cpu",
+    "steps": 10,
+    "batch_size": 64,
+    "learning_rate": 0.00005,
+    "logprob_margin": 0.05,
+    "train_scope": "actor_coupling",
+    "freeze_log_std": true,
+    "grad_clip_norm": 1.0,
+    "action_anchor_checkpoint": "runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt",
+    "action_anchor_env_config": "configs/m121_human_view_zero_obstacle_relvel.json",
+    "action_anchor_coef": 100.0,
+    "action_anchor_episodes": 30,
+    "action_anchor_horizon_steps": 15,
+    "action_anchor_sample_stride": 3,
+    "action_anchor_max_samples": 800,
+    "action_anchor_batch_size": 256,
+    "snippet_action_anchor_checkpoint": "runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt",
+    "snippet_action_anchor_coef": 100.0,
+    "snippet_action_anchor_batch_size": 64,
+    "snippet_action_anchor_preferred_only": true,
+    "eval_batch_size": 64,
+    "eval_batches": 30,
+    "eval_seed": 0
+  },
+  "commands": [
+    {
+      "name": "m217_optimize_seed10053",
+      "command": "PYTHONPATH=src python -m autodrift.outcome_intervention_optimize --init-checkpoint runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt --snippet-npz runs/m212_m204_boundary_outcome_corpus_seed10040/boundary_outcome_corpus.npz --device cpu --steps 10 --batch-size 64 --learning-rate 0.00005 --logprob-margin 0.05 --seed 10053 --train-scope actor_coupling --grad-clip-norm 1.0 --log-interval 5 --eval-batch-size 64 --eval-batches 30 --eval-seed 0 --action-anchor-checkpoint runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt --action-anchor-env-config configs/m121_human_view_zero_obstacle_relvel.json --action-anchor-coef 100.0 --action-anchor-seed 10053 --action-anchor-episodes 30 --action-anchor-horizon-steps 15 --action-anchor-sample-stride 3 --action-anchor-max-samples 800 --action-anchor-batch-size 256 --snippet-action-anchor-checkpoint runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt --snippet-action-anchor-coef 100.0 --snippet-action-anchor-batch-size 64 --snippet-action-anchor-preferred-only --run-dir runs/m217_m204_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10053"
+    },
+    {
+      "name": "m217_optimize_seed10054",
+      "command": "PYTHONPATH=src python -m autodrift.outcome_intervention_optimize --init-checkpoint runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt --snippet-npz runs/m212_m204_boundary_outcome_corpus_seed10040/boundary_outcome_corpus.npz --device cpu --steps 10 --batch-size 64 --learning-rate 0.00005 --logprob-margin 0.05 --seed 10054 --train-scope actor_coupling --grad-clip-norm 1.0 --log-interval 5 --eval-batch-size 64 --eval-batches 30 --eval-seed 0 --action-anchor-checkpoint runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt --action-anchor-env-config configs/m121_human_view_zero_obstacle_relvel.json --action-anchor-coef 100.0 --action-anchor-seed 10054 --action-anchor-episodes 30 --action-anchor-horizon-steps 15 --action-anchor-sample-stride 3 --action-anchor-max-samples 800 --action-anchor-batch-size 256 --snippet-action-anchor-checkpoint runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt --snippet-action-anchor-coef 100.0 --snippet-action-anchor-batch-size 64 --snippet-action-anchor-preferred-only --run-dir runs/m217_m204_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10054"
+    },
+    {
+      "name": "m217_fixed_eval",
+      "command": "Evaluate M204, M216 seed10051, M216 seed10052, and both M217 candidates on the fixed M212 batch."
+    },
+    {
+      "name": "m217_replay_behavior_key_gates",
+      "command": "Run old M183 replay, refreshed M193 replay, new M212 replay, behavior seeds 9505/9506, and protected-key gates before admitting PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m217-snippet-anchored-actor-update-fresh-repeat.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m217_m204_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10053/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m217_m204_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10054/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt",
+    "runs/m216_m204_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10051/optimized_checkpoint.pt",
+    "runs/m216_m204_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10052/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m216-snippet-anchored-actor-update-calibration.md",
+    "runs/m216_fixed_batch_outcome_eval_seed37/summary.json",
+    "runs/m216_10051_m212_m204_replay_gate_seed10040/summary.json",
+    "runs/m216_10052_m212_m204_replay_gate_seed10040/summary.json",
+    "runs/m216_critical_key_seed9944/summary.json"
+  ],
+  "decision_rule": "Do not admit PPO unless the fresh-seed repeat preserves fixed objective improvement, old/current replay, broad behavior, and protected key."
+}
