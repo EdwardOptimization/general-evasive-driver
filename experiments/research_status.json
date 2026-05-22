@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 182,
+    "completed": 183,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m173-fragile-row-action-margin-sensitivity-audit.md",
+    "command_log": "docs/m174-robust-vs-knife-edge-boundary-rows.md",
     "returncode": 0,
-    "run_dir": "runs/m171_boundary_outcome_replay_gate_seed9510",
+    "run_dir": "runs/m168_from_m167_5168_boundary_outcome_replay_gate_seed9510",
     "status": "completed",
-    "task_id": "m173-fragile-row-action-margin-sensitivity-audit"
+    "task_id": "m174-robust-vs-knife-edge-boundary-rows"
   },
   "next_task": {
-    "command": "see experiments/manifests/m174-robust-vs-knife-edge-boundary-rows.json",
-    "hypothesis": "M173 showed that rows 67, 70, and 77 are knife-edge binary flips, so boundary replay rows should be split into robust promotion rows and knife-edge stress rows before further PPO or objective redesign.",
-    "id": "m174-robust-vs-knife-edge-boundary-rows",
+    "command": "see experiments/manifests/m175-margin-split-boundary-replay-guard.json",
+    "hypothesis": "M174 showed that M170 and M171 only lose knife-edge rows, so a margin-split replay guard should separately report robust promotion rows, low-margin watchlist rows, and knife-edge stress rows.",
+    "id": "m175-margin-split-boundary-replay-guard",
     "kind": "gate",
-    "notes": "Pending after M173: classify full M162 boundary replay rows by margin slack under M168 before further PPO",
-    "priority": 1690,
+    "notes": "Pending after M174: evaluate M168 M170 and M171 with robust promotion and knife-edge stress rows separated",
+    "priority": 1700,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T050943Z"
+  "updated_at_utc": "20260522T051221Z"
 }

@@ -1,0 +1,37 @@
+{
+  "id": "m175-margin-split-boundary-replay-guard",
+  "type": "gate",
+  "hypothesis": "M174 showed that M170 and M171 only lose knife-edge rows, so a margin-split replay guard should separately report robust promotion rows, low-margin watchlist rows, and knife-edge stress rows.",
+  "success_criteria": [
+    "implement or document a margin-split boundary replay guard",
+    "classify rows using robust threshold 0.001 and knife-edge threshold 0.0005",
+    "evaluate M168, M170, and M171 under the split",
+    "require robust-row retention as a hard gate",
+    "report low-margin and knife-edge changes separately",
+    "decide whether M170 or M171 should receive behavior/protected-key evaluation under the split"
+  ],
+  "failure_criteria": [
+    "silently relax M164 to pass a failed candidate",
+    "discard knife-edge rows without reporting them",
+    "promote a candidate without robust-row retention",
+    "run more PPO before the split guard is evaluated"
+  ],
+  "commands": [
+    {
+      "name": "m175_margin_split_boundary_replay_guard",
+      "command": "Apply a margin-split replay guard to M168/M170/M171 using M168 margin slack classes."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m175-margin-split-boundary-replay-guard.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m168_from_m167_5168_boundary_outcome_replay_gate_seed9510/boundary_replay_rows.csv",
+    "runs/m170_boundary_outcome_replay_gate_seed9510/boundary_replay_rows.csv",
+    "runs/m171_boundary_outcome_replay_gate_seed9510/boundary_replay_rows.csv"
+  ],
+  "decision_rule": "Only candidates that retain robust promotion rows may proceed to behavior and protected-key evaluation; knife-edge losses must be reported as stress regressions."
+}
