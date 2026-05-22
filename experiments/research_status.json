@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 284,
+    "completed": 285,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m275-terminal-margin-retention-surface-export.md",
+    "command_log": "docs/m276-terminal-margin-anchored-actor-update.md",
     "returncode": 0,
-    "run_dir": "runs/m275_terminal_margin_retention_surface",
+    "run_dir": "runs/m276_m183_m170_row16_gate_seed9510",
     "status": "completed",
-    "task_id": "m275-terminal-margin-retention-surface-export"
+    "task_id": "m276-terminal-margin-anchored-actor-update"
   },
   "next_task": {
-    "command": "see experiments/manifests/m276-terminal-margin-anchored-actor-update.json",
-    "hypothesis": "The M275 terminal-margin trajectory anchor can let a small M270 actor-coupling update improve objective without crossing the M183/M170 row16 terminal-margin cliff.",
-    "id": "m276-terminal-margin-anchored-actor-update",
-    "kind": "driver_candidate",
-    "notes": "Pending: one small terminal-margin anchored actor update; PPO remains blocked",
-    "priority": 2710,
+    "command": "see experiments/manifests/m277-terminal-margin-recovery-anchor-design.json",
+    "hypothesis": "Retention-only anchors fail because they preserve a near-zero-margin trajectory; the next repair needs a recovery target that keeps current hidden states but nudges fragile-row actions toward safer terminal-margin behavior.",
+    "id": "m277-terminal-margin-recovery-anchor-design",
+    "kind": "gate",
+    "notes": "Pending: design current-hidden recovery anchors; PPO remains blocked",
+    "priority": 2720,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T181316Z"
+  "updated_at_utc": "20260522T181828Z"
 }

@@ -2,9 +2,10 @@
   "id": "m276-terminal-margin-anchored-actor-update",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "proof_washout",
+    "objective_overfit"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -75,6 +76,18 @@
     {
       "path": "docs/m276-terminal-margin-anchored-actor-update.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m276_m272_actor_coupling_m270_terminal_margin_anchor100_s10_lr5e5_seed10075/summary.json",
+      "type": "actor_update_summary"
+    },
+    {
+      "path": "runs/m276_m183_m170_row16_gate_seed9510/summary.json",
+      "type": "row16_gate_summary"
+    },
+    {
+      "path": "runs/m276_m272_to_update_interpolation/manifest.json",
+      "type": "interpolation_manifest"
     }
   ],
   "baseline_checkpoints": [
@@ -84,6 +97,22 @@
     "docs/m275-terminal-margin-retention-surface-export.md",
     "runs/m275_terminal_margin_retention_surface/summary.json"
   ],
-  "decision_rule": "M276 may only proceed past the row16 gate if the terminal-margin anchor preserves the registered fragile row while improving M270 objective. PPO remains blocked.",
-  "next_blocker": "pending M276 terminal-margin anchored actor update"
+  "results": {
+    "raw_checkpoint": "runs/m276_m272_actor_coupling_m270_terminal_margin_anchor100_s10_lr5e5_seed10075/optimized_checkpoint.pt",
+    "raw_fixed_sampled_loss_m272": 0.6815916866064071,
+    "raw_fixed_sampled_loss_m276": 0.6765867322683334,
+    "raw_exact_loss_m272": 0.6813756227493286,
+    "raw_exact_loss_m276": 0.6764004826545715,
+    "raw_row16_gate_pass": false,
+    "raw_row16_normal_margin": -0.002258,
+    "raw_m183_m170_normal_success": 0.17647058823529413,
+    "interpolation_largest_row16_safe_alpha": 0.0002,
+    "interpolation_first_failed_alpha": 0.0003,
+    "interpolation_a0_0002_row16_margin": 0.0000001699516,
+    "interpolation_a0_0002_exact_loss": 0.6813746094703674,
+    "interpolation_a0_0002_sampled_loss": 0.6815907001495362
+  },
+  "decision_rule": "Reject M276 because the terminal-margin retention anchor improves the objective but the full update crosses the M183/M170 row16 margin cliff; the only safe interpolation alpha is 0.0002 with negligible objective movement. PPO remains blocked.",
+  "decision": "reject_terminal_margin_retention_anchor_update",
+  "next_blocker": "m277-terminal-margin-recovery-anchor-design"
 }
