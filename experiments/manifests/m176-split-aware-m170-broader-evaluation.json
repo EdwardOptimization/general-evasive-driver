@@ -1,0 +1,39 @@
+{
+  "id": "m176-split-aware-m170-broader-evaluation",
+  "type": "driver_candidate",
+  "hypothesis": "M175 shows M170 preserves robust boundary rows and passes behavior/protected-key checks while losing only a knife-edge stress row, so it needs broader split-aware evaluation against M168 before deciding the current best checkpoint.",
+  "success_criteria": [
+    "compare M168 and M170 under fixed objective, full M164 replay, margin-split replay, behavior, and protected key",
+    "run additional behavior seeds beyond 9503 and 9504 for M170 and M168",
+    "keep M168 marked as strict full-replay checkpoint unless M170's knife-edge loss is explicitly accepted as stress-only",
+    "do not run more PPO during this broader evaluation",
+    "decide whether M170 becomes a split-aware candidate branch or whether M168 remains the only accepted driver checkpoint"
+  ],
+  "failure_criteria": [
+    "replace M168 with M170 without documenting the row67 knife-edge loss",
+    "ignore full M164 replay failure",
+    "run more PPO before broader evaluation",
+    "promote by fixed objective alone"
+  ],
+  "commands": [
+    {
+      "name": "m176_split_aware_m170_broader_evaluation",
+      "command": "Run broader non-PPO evaluation comparing M168 and M170 under strict and split-aware gates."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m176-split-aware-m170-broader-evaluation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt",
+    "runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt",
+    "runs/m175_m170_margin_split_guard_seed9510/summary.json",
+    "runs/m175_m170_behavior_gate_seed9503/policy_summary.csv",
+    "runs/m175_m170_behavior_gate_seed9504/policy_summary.csv",
+    "runs/m175_m170_critical_key_seed9944/summary.json"
+  ],
+  "decision_rule": "M170 can only become a split-aware candidate branch after broader behavior and gate evaluation; M168 remains the strict full-replay checkpoint until then."
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 183,
+    "completed": 184,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m174-robust-vs-knife-edge-boundary-rows.md",
+    "command_log": "docs/m175-margin-split-boundary-replay-guard.md",
     "returncode": 0,
-    "run_dir": "runs/m168_from_m167_5168_boundary_outcome_replay_gate_seed9510",
+    "run_dir": "runs/m175_m170_margin_split_guard_seed9510",
     "status": "completed",
-    "task_id": "m174-robust-vs-knife-edge-boundary-rows"
+    "task_id": "m175-margin-split-boundary-replay-guard"
   },
   "next_task": {
-    "command": "see experiments/manifests/m175-margin-split-boundary-replay-guard.json",
-    "hypothesis": "M174 showed that M170 and M171 only lose knife-edge rows, so a margin-split replay guard should separately report robust promotion rows, low-margin watchlist rows, and knife-edge stress rows.",
-    "id": "m175-margin-split-boundary-replay-guard",
-    "kind": "gate",
-    "notes": "Pending after M174: evaluate M168 M170 and M171 with robust promotion and knife-edge stress rows separated",
-    "priority": 1700,
+    "command": "see experiments/manifests/m176-split-aware-m170-broader-evaluation.json",
+    "hypothesis": "M175 shows M170 preserves robust boundary rows and passes behavior/protected-key checks while losing only a knife-edge stress row, so it needs broader split-aware evaluation against M168 before deciding the current best checkpoint.",
+    "id": "m176-split-aware-m170-broader-evaluation",
+    "kind": "driver_candidate",
+    "notes": "Pending after M175: compare M170 versus strict M168 broadly without more PPO before choosing current best checkpoint",
+    "priority": 1710,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T051221Z"
+  "updated_at_utc": "20260522T051821Z"
 }
