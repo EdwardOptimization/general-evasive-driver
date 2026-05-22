@@ -218,11 +218,16 @@ slightly stronger action-level sensitivity.
   passes 3-seed objective sanity, and replays against M202 with `17/17`
   success drops retained. The M199 cross-family replay is mixed (`13/15`), so
   the next actor update should use only the M204 current-best corpus.
+- M213: runs one tiny anchored actor update from M204 using the M212 M204
+  corpus. Fixed M212 loss improves from `0.205221` to `0.201354`, behavior
+  success remains `0.8625`, reset and zero-all ablations remain `0.85` and
+  `0.80`, old M183 replay, refreshed M193 replay, new M212 replay, and
+  protected key all pass.
 
 Current blocker:
 
 ```text
-single-seed low-drift actor update from M204 using the M212 M204 corpus
+fresh-seed repeats of the M212 actor-update recipe from M204
 ```
 
 ## Near-Term Rule
@@ -231,9 +236,8 @@ M206 and M208 are both rejected despite better fixed objectives because the
 protected-key gate failed. The failure is now repeated, not a single-seed
 accident. Do not run another same-recipe stage6 retry, do not chain from M206 or
 M208, and do not loosen the protected-key threshold after seeing the result.
-M212 validated the current-best M204 objective corpus. M213 may run one tiny
-anchored actor-coupling update from M204, but PPO remains blocked until that
-candidate preserves behavior, old/new replay surfaces, and protected key.
+M213 is positive as a single-seed actor update. M214 must repeat the same recipe
+from M204 on fresh seeds before any PPO or continuation. Do not chain from M213.
 
 ## Sensor Profile Policy
 

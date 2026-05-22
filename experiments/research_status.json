@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 221,
+    "completed": 222,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m212-current-family-boundary-objective-sanity.md",
+    "command_log": "docs/m213-m212-guarded-actor-update.md",
     "returncode": 0,
-    "run_dir": "runs/m212_m204_boundary_replay_sanity_seed10040",
+    "run_dir": "runs/m213_critical_key_seed9944",
     "status": "completed",
-    "task_id": "m212-current-family-boundary-objective-sanity"
+    "task_id": "m213-m212-guarded-actor-update"
   },
   "next_task": {
-    "command": "see experiments/manifests/m213-m212-guarded-actor-update.json",
-    "hypothesis": "M212 validates a replay-aligned M204 current-best objective corpus, so one tiny anchored actor update can test whether the objective can improve without washing out behavior, old/new replay surfaces, or protected key.",
-    "id": "m213-m212-guarded-actor-update",
+    "command": "see experiments/manifests/m214-m212-actor-update-repeat.json",
+    "hypothesis": "M213 positive single-seed actor update needs fresh-seed repeat evidence before PPO or continuation.",
+    "id": "m214-m212-actor-update-repeat",
     "kind": "driver_candidate",
-    "notes": "Run one single-seed low-drift actor update only; PPO remains blocked.",
-    "priority": 2080,
+    "notes": "Restart from M204 on seeds 10051 and 10052; do not chain from M213.",
+    "priority": 2090,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T104014Z"
+  "updated_at_utc": "20260522T104448Z"
 }

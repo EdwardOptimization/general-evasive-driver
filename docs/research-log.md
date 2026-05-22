@@ -7676,3 +7676,41 @@ tiny anchored actor-coupling update from M204 using the M212 M204 corpus. Do not
 use the M199 mixed cross-family rows for the next actor update, and do not run
 PPO before the actor update preserves behavior, old/new replay surfaces, and
 protected key.
+
+## 20260522T104448Z m213-m212-guarded-actor-update
+
+M213 ran one tiny anchored actor-coupling update from M204 using the M212 M204
+boundary-outcome corpus. This was not PPO and actor inputs were unchanged.
+
+Artifacts:
+
+- `runs/m213_m204_actor_coupling_anchor100_s20_seed10050`
+- `runs/m213_fixed_batch_outcome_eval_seed37`
+- `runs/m213_m183_m168_replay_gate_seed9510`
+- `runs/m213_m183_m170_replay_gate_seed9510`
+- `runs/m213_m193_m189_replay_gate_seed9630`
+- `runs/m213_m212_m204_replay_gate_seed10040`
+- `runs/m213_behavior_gate_seed9505`
+- `runs/m213_behavior_gate_seed9506`
+- `runs/m213_critical_key_seed9944`
+- `docs/m213-m212-guarded-actor-update.md`
+- `experiments/manifests/m214-m212-actor-update-repeat.json`
+
+Results:
+
+- training/eval objective loss improves from `0.205123` to `0.201290`;
+- independent fixed M212 loss improves from M204 `0.205221` to M213
+  `0.201354`;
+- action-anchor MSE remains small at `0.000017875`;
+- M183 M168 replay retains `16/16` drops;
+- M183 M170 replay retains `17/17` drops;
+- M193 M189 replay retains `14/14` drops;
+- M212 M204 replay retains `17/17` drops;
+- behavior seeds `9505` and `9506` retain success `0.8625`;
+- reset-hidden and zero-all-response ablations remain at `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` passes for M213 while M206/M208 remain
+  rejected controls.
+
+Decision: M213 is positive as a single-seed actor update. Repeat the same recipe
+from M204 on fresh seeds before any PPO or continuation. Do not chain from
+M213.
