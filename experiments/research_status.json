@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 200,
+    "completed": 201,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m191-stage3-broader-evaluation.md",
+    "command_log": "docs/m192-current-best-proof-surface-refresh.md",
     "returncode": 0,
-    "run_dir": "runs/m191_behavior_gate_seed9505",
+    "run_dir": "runs/m192_current_family_boundary_robustness_seed9520",
     "status": "completed",
-    "task_id": "m191-stage3-broader-evaluation"
+    "task_id": "m192-current-best-proof-surface-refresh"
   },
   "next_task": {
-    "command": "see experiments/manifests/m192-current-best-proof-surface-refresh.json",
-    "hypothesis": "M191 preserved broader behavior and existing proof-surface gates, but proof evidence is still mostly inherited from M183, so refresh the current-best proof surface before stage4.",
-    "id": "m192-current-best-proof-surface-refresh",
-    "kind": "gate",
-    "notes": "No PPO training; build or evaluate a fresh source-diverse outcome-sensitive proof surface for M189 before deciding on stage4.",
-    "priority": 1870,
+    "command": "see experiments/manifests/m193-current-family-boundary-objective-sanity.json",
+    "hypothesis": "M192 produced a fresh current-family boundary proof surface, so the next step is replay-aligned objective sanity before any actor update or stage4 PPO.",
+    "id": "m193-current-family-boundary-objective-sanity",
+    "kind": "objective_sanity",
+    "notes": "No PPO; build at least the M189 current-best corpus from M192 accepted rows and run objective plus replay sanity.",
+    "priority": 1880,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T081000Z"
+  "updated_at_utc": "20260522T082810Z"
 }

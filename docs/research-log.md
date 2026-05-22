@@ -6928,3 +6928,34 @@ Results:
 Decision: M191 is positive as a broader retention gate, but stage4 remains
 paused. The next step is to refresh the current-best proof surface so further
 PPO is not justified only by repeated success on M183 rows.
+
+## 20260522T082810Z m192-current-best-proof-surface-refresh
+
+M192 refreshed the proof surface for the current M184/M188/M189 checkpoint
+family without training or changing actor inputs.
+
+Artifacts:
+
+- `runs/m192_current_family_matched_current_seed9520`
+- `runs/m192_current_family_outcome_seed9520`
+- `runs/m192_current_family_boundary_surface_seed9520`
+- `runs/m192_current_family_boundary_robustness_seed9520`
+- `docs/m192-current-best-proof-surface-refresh.md`
+
+Results:
+
+- matched-current mining finds `2817` accepted pairs across `283` physical
+  pairs, `31` left steps, and `19` obstacle buckets;
+- raw direct outcome remains neutral for wrong-history, with `0` success drops
+  and max margin gap `0.013937`;
+- boundary relocation over the full intervention set finds `131`
+  wrong-history success drops, plus `3389` reset-hidden accepted rows and
+  `3455` zero-current accepted rows;
+- robustness passes with `131` accepted wrong rows, `11` physical pairs,
+  `6` left steps, `3` checkpoints, `2` targets, `2` normal-margin buckets,
+  success-drop fraction `1.0`, and max rows per physical pair fraction
+  `0.183206`.
+
+Decision: M192 admits current-family boundary objective sanity, not actor/PPO.
+The next milestone should convert the refreshed rows into replay-aligned
+boundary-outcome corpora, starting with M189 as the current best checkpoint.

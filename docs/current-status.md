@@ -102,19 +102,23 @@ slightly stronger action-level sensitivity.
   replay success-drop counts at `16/16` and `17/17`. The result is positive as
   retention, but not enough to continue PPO because the proof surface is still
   inherited from M183.
+- M192: a fresh current-family proof-surface refresh with seeds
+  `9520`-`9523` finds `2817` matched-current pairs and passes robustness with
+  `131` wrong-history success drops across `11` physical pairs, `6` left
+  steps, `3` checkpoints, and `2` target groups. This refreshes evidence beyond
+  M183 but still requires replay-aligned objective sanity before actor/PPO work.
 
 Current blocker:
 
 ```text
-fresh current-best proof-surface refresh before any stage4 or longer PPO
+replay-aligned objective sanity for the refreshed M192 current-family surface
 ```
 
 ## Near-Term Rule
 
-Do not run stage4 yet. Keep M189 seed `5193` as the current best checkpoint and
-refresh the proof surface first. Stage4 is only justified if the refreshed
-surface is source-diverse, outcome-sensitive, and not merely a replay of M183
-rows.
+Do not run stage4 yet. Keep M189 seed `5193` as the current best checkpoint.
+The refreshed M192 proof surface is positive, but it must first be converted
+into a replay-aligned boundary-outcome objective, starting with the M189 corpus.
 
 ## Sensor Profile Policy
 

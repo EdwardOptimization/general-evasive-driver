@@ -464,7 +464,7 @@ vehicle/tire models, and NMPC-style constrained control.
   for M156 and M142; robustness passes but PPO remains blocked until a reusable
   corpus/objective is built.
 - `m162-boundary-outcome-corpus-objective.md` through
-  `m191-stage3-broader-evaluation.md`: boundary-objective and
+  `m192-current-best-proof-surface-refresh.md`: boundary-objective and
   proof-surface iterations for the current M168/M170 branch. M182 is the first
   robustness-passing source-diverse boundary wrong-history surface after the
   M179-M181 duplicate-domination blocker; M183 turns it into deduplicated
@@ -474,8 +474,8 @@ vehicle/tire models, and NMPC-style constrained control.
   admits only stage2 repeat; M188 repeats stage2 and admits one guarded stage3
   design; M189 runs the first guarded stage3; M190 repeats stage3 and pauses
   further PPO for broader evaluation; M191 validates M189 on fresh behavior
-  seeds and existing replay/key gates but keeps stage4 paused until the proof
-  surface is refreshed beyond M183 rows.
+  seeds and existing replay/key gates; M192 refreshes the current-family proof
+  surface beyond M183 and keeps actor/PPO blocked until objective sanity.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

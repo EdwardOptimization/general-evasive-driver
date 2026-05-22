@@ -1,0 +1,48 @@
+{
+  "id": "m193-current-family-boundary-objective-sanity",
+  "type": "objective_sanity",
+  "hypothesis": "M192 produced a fresh robustness-passing current-family boundary wrong-history surface for M184, M188, and M189. Before any stage4 PPO or actor update, the accepted rows must be converted into replay-aligned boundary-outcome corpora and objective sanity artifacts, with M189 treated as the current-best source checkpoint.",
+  "success_criteria": [
+    "do not train PPO",
+    "build boundary-outcome corpora only from M192 robustness-passing accepted wrong-history rows",
+    "build at least the current-best M189 corpus; optionally build M184/M188 family corpora for comparison",
+    "deduplicate or cap rows by strict physical pair so no single pair dominates",
+    "keep actor inputs unchanged and use relocated outcomes only as training-time labels",
+    "prove objective-only improvement across at least three optimization seeds",
+    "run replay sanity before admitting any guarded actor update or PPO continuation"
+  ],
+  "failure_criteria": [
+    "run stage4 PPO directly from M192",
+    "mix hidden-state spaces inside one corpus",
+    "accept objective loss improvement without replay alignment",
+    "change the actor observation contract",
+    "promote a duplicate-dominated corpus"
+  ],
+  "commands": [
+    {
+      "name": "m193_m189_boundary_objective",
+      "command": "Build the M189 boundary-outcome corpus/objective from runs/m192_current_family_boundary_robustness_seed9520/accepted_wrong_history_rows.csv."
+    },
+    {
+      "name": "m193_replay_sanity",
+      "command": "Replay the M193 corpus rows to verify normal-history success and wrong-history failure remain aligned."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m193-current-family-boundary-objective-sanity.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt",
+    "runs/ppo_m188_stage2_from_m185_seed5191/checkpoint.pt",
+    "runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m192_current_family_boundary_robustness_seed9520/accepted_wrong_history_rows.csv",
+    "runs/m192_current_family_boundary_robustness_seed9520/summary.json",
+    "runs/m192_current_family_boundary_surface_seed9520/summary.json"
+  ],
+  "decision_rule": "Only replay-aligned objective sanity may admit a guarded current-best actor update design; PPO remains blocked until that update also preserves behavior and proof-surface replay gates."
+}
