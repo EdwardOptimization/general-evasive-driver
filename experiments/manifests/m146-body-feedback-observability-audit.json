@@ -1,0 +1,39 @@
+{
+  "baseline_checkpoints": [
+    "runs/m145_speed_cue_learned_multiseed/summary.json",
+    "runs/m144_driver_like_learned_history_multiseed/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "Build a body-feedback observability audit that separates already-sliding detection from pre-limit future-envelope prediction.",
+      "name": "m146_body_feedback_probe"
+    },
+    {
+      "command": "Search for ambiguous body-only histories where command/actuator/ax/ay/yaw history is close but future envelope differs.",
+      "name": "m146_ambiguous_history_search"
+    }
+  ],
+  "decision_rule": "Do not start PPO from a new sensor profile until body-only history has been tested separately for post-slip detection, pre-limit envelope prediction, and ambiguity.",
+  "failure_criteria": [
+    "probe uses slip ratio, v_parallel, tire force, mu, oracle labels, TTC, path error, or feasibility labels as actor-like inputs",
+    "pre-slip and post-slip samples are not separated",
+    "results come from a single seed only",
+    "ambiguous-history search is omitted before PPO admission"
+  ],
+  "hypothesis": "Continuous command, actuator, and ax/ay/yaw history may be enough to detect already-visible sliding but may be insufficient for pre-limit future-envelope prediction.",
+  "id": "m146-body-feedback-observability-audit",
+  "required_artifacts": [
+    {
+      "path": "docs/m146-body-feedback-observability-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "body-only H1 profile is defined with command, actuator, ax/ay/yaw, and scene history",
+    "post-slip detection and pre-limit future-envelope prediction are reported separately",
+    "at least three seeds are run",
+    "ambiguous body-history cases are exported or explicitly shown absent",
+    "no non-deployable actor inputs are introduced"
+  ],
+  "type": "gate"
+}

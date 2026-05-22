@@ -5589,3 +5589,69 @@ Decision: negative repeat. M143's raw-wheel and `v_parallel` ridge gains do not
 survive learned-history probing, so do not promote either profile to PPO. The
 next input question is whether P1 was too strict because it removed deployable
 speed cues a real driver has through speedometer and visual flow.
+
+## 20260522T013834Z m145-driver-like-speed-cue-audit
+
+M145 audits whether the M143/M144 P1 driver-like minimal profile was too narrow
+because it removed deployable ego-speed cues.
+
+New code:
+
+```text
+src/autodrift/driver_like_speed_cue_audit.py
+tests/test_driver_like_speed_cue_audit.py
+```
+
+Profiles:
+
+```text
+P0 current no-wheel baseline
+P1 driver-like minimal
+P5 P1 + vx
+P6 P1 + vx/vy
+```
+
+Important: P6 exactly reconstructs P0. Nonzero P6-P0 learned-history deltas are
+training noise from separate GRU initializations, not input differences.
+
+Artifacts:
+
+```text
+runs/m145_speed_cue_ridge_multiseed/summary.json
+runs/m145_speed_cue_learned_multiseed/summary.json
+```
+
+Ridge aggregate:
+
+| Delta | Mean test R2 delta | Mean MAE-improvement delta |
+| --- | ---: | ---: |
+| P1 - P0 | -0.197442 | -0.042090 |
+| P5 vx - P1 | 0.065391 | 0.015470 |
+| P6 vx/vy - P1 | 0.197442 | 0.042090 |
+| P6 - P0 | 0.000000 | 0.000000 |
+
+Learned-history aggregate:
+
+| Delta | Mean test R2 delta | Mean MAE-improvement delta |
+| --- | ---: | ---: |
+| P1 - P0 | -0.006595 | -0.005549 |
+| P5 vx - P1 | -0.005735 | -0.001383 |
+| P6 vx/vy - P1 | -0.008342 | 0.002861 |
+| P6 - P0 | -0.014937 | -0.002688 |
+
+Decision: keep the current P0 human-view input contract. P1 is too narrow for
+the intended driver-like baseline, but this does not require a new actor
+profile. `vx/vy` are deployable ego-kinematic cues, not oracle planner fields.
+
+The latest MHTML update then refined the next step: do not jump directly back to
+PPO. First split body-feedback sensing into post-slip detection, pre-limit
+future-envelope prediction, and ambiguous body-history search.
+
+Persisted note:
+
+```text
+docs/mhtml-body-feedback-input-revision-2026-05-22.md
+```
+
+Next task changed from guarded PPO preflight to M146 body-feedback observability
+audit.

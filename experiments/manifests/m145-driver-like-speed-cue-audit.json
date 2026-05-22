@@ -1,16 +1,34 @@
 {
   "baseline_checkpoints": [
     "runs/m144_driver_like_learned_history_multiseed/summary.json",
-    "runs/m143_driver_like_input_profile_audit_multiseed/summary.json"
+    "runs/m143_driver_like_input_profile_audit_multiseed/summary.json",
+    "runs/m145_speed_cue_ridge_multiseed/summary.json",
+    "runs/m145_speed_cue_learned_multiseed/summary.json"
   ],
   "commands": [
     {
-      "command": "Define driver-like minimal variants that add deployable ego-speed or visual-flow cues back to P1 without adding oracle path, TTC, feasibility, mu, slip, or tire-force fields.",
-      "name": "m145_define_speed_cue_profiles"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.driver_like_speed_cue_audit --mode ridge --env-config configs/m143_driver_like_profile_audit.json --episodes 30 --seed 9460 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 800 --ridge 0.1 --history-windows 1,10,25 --run-dir runs/m145_speed_cue_ridge_seed9460",
+      "name": "m145_ridge_seed9460"
     },
     {
-      "command": "Run the same supervised and learned-history profile probes to check whether P1 underperformed P0 because it removed speed cues that a real driver or perception stack would have.",
-      "name": "m145_speed_cue_probe"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.driver_like_speed_cue_audit --mode ridge --env-config configs/m143_driver_like_profile_audit.json --episodes 30 --seed 9461 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 800 --ridge 0.1 --history-windows 1,10,25 --run-dir runs/m145_speed_cue_ridge_seed9461",
+      "name": "m145_ridge_seed9461"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.driver_like_speed_cue_audit --mode ridge --env-config configs/m143_driver_like_profile_audit.json --episodes 30 --seed 9462 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 800 --ridge 0.1 --history-windows 1,10,25 --run-dir runs/m145_speed_cue_ridge_seed9462",
+      "name": "m145_ridge_seed9462"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.driver_like_speed_cue_audit --mode learned --env-config configs/m143_driver_like_profile_audit.json --episodes 40 --seed 9470 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --history-window 50 --hidden-size 24 --epochs 30 --weight-decay 0.001 --device cpu --run-dir runs/m145_speed_cue_learned_seed9470",
+      "name": "m145_learned_seed9470"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.driver_like_speed_cue_audit --mode learned --env-config configs/m143_driver_like_profile_audit.json --episodes 40 --seed 9471 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --history-window 50 --hidden-size 24 --epochs 30 --weight-decay 0.001 --device cpu --run-dir runs/m145_speed_cue_learned_seed9471",
+      "name": "m145_learned_seed9471"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.driver_like_speed_cue_audit --mode learned --env-config configs/m143_driver_like_profile_audit.json --episodes 40 --seed 9472 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --history-window 50 --hidden-size 24 --epochs 30 --weight-decay 0.001 --device cpu --run-dir runs/m145_speed_cue_learned_seed9472",
+      "name": "m145_learned_seed9472"
     }
   ],
   "decision_rule": "Only revise the driver-like minimal contract if deployable ego-speed or visual-flow cues improve probes under the same frozen recipe without weakening the non-oracle input boundary.",
@@ -25,6 +43,34 @@
     {
       "path": "docs/m145-driver-like-speed-cue-audit.md",
       "type": "documentation"
+    },
+    {
+      "path": "docs/mhtml-body-feedback-input-revision-2026-05-22.md",
+      "type": "documentation"
+    },
+    {
+      "path": "src/autodrift/driver_like_speed_cue_audit.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_driver_like_speed_cue_audit.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m145_speed_cue_ridge_multiseed/summary.json",
+      "type": "ridge_multiseed_summary"
+    },
+    {
+      "path": "runs/m145_speed_cue_learned_multiseed/summary.json",
+      "type": "learned_multiseed_summary"
+    },
+    {
+      "path": "runs/m145_speed_cue_ridge_multiseed/profile_delta_metric_summary.csv",
+      "type": "ridge_metric_summary"
+    },
+    {
+      "path": "runs/m145_speed_cue_learned_multiseed/profile_delta_metric_summary.csv",
+      "type": "learned_metric_summary"
     }
   ],
   "success_criteria": [

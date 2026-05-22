@@ -231,6 +231,14 @@ vehicle/tire models, and NMPC-style constrained control.
   repeat of the exact M143 P0-P4 profiles. Result: M143 raw-wheel and
   `v_parallel` ridge gains do not survive learned-history probing; no wheel or
   `v_parallel` actor promotion.
+- `m145-driver-like-speed-cue-audit.md`: speed-cue audit showing P1 was too
+  narrow; `vx/vy` simply reconstructs the current P0 baseline, and `vx` alone
+  does not survive learned-history. Result: keep the current P0 human-view
+  input contract.
+- `mhtml-body-feedback-input-revision-2026-05-22.md`: latest MHTML input
+  revision separating passenger-like already-sliding detection from
+  driver-like pre-limit future-envelope prediction; it redirects the next task
+  to body-feedback observability before PPO.
 - `m81-wheel-response-input-roadmap.md`: MHTML review decision capturing
   wheel/tire response as the next major self-identification input branch,
   including the Stage 1 front/rear wheel-response implementation.

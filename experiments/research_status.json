@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 153,
+    "completed": 154,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m144-driver-like-learned-history-repeat.md",
+    "command_log": "docs/m145-driver-like-speed-cue-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m144_driver_like_learned_history_multiseed",
+    "run_dir": "runs/m145_speed_cue_learned_multiseed",
     "status": "completed",
-    "task_id": "m144-driver-like-learned-history-repeat"
+    "task_id": "m145-driver-like-speed-cue-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m145-driver-like-speed-cue-audit.json",
-    "hypothesis": "Driver-like minimal may need deployable ego-speed or visual-flow cues to match P0 without oracle leakage",
-    "id": "m145-driver-like-speed-cue-audit",
+    "command": "see experiments/manifests/m146-body-feedback-observability-audit.json",
+    "hypothesis": "Body-only command/actuator/ax/ay/yaw history may detect already-visible sliding but may be insufficient for pre-limit future-envelope prediction",
+    "id": "m146-body-feedback-observability-audit",
     "kind": "gate",
-    "notes": "Pending after M144: audit speed-cue variants under the same non-oracle input boundary",
-    "priority": 1400,
+    "notes": "Pending after latest MHTML: separate post-slip detection, pre-limit envelope prediction, and ambiguous body-history search",
+    "priority": 1410,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T020500Z"
+  "updated_at_utc": "20260522T013834Z"
 }
