@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 171,
+    "completed": 172,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m162-current-boundary-outcome-corpus-objective.md",
+    "command_log": "docs/m163-boundary-outcome-guarded-actor-update.md",
     "returncode": 0,
-    "run_dir": "runs/m162_m156_boundary_outcome_corpus_dedup_seed9510",
+    "run_dir": "runs/m163_boundary_outcome_actor_coupling_anchor100_s20_seed9832",
     "status": "completed",
-    "task_id": "m162-current-boundary-outcome-corpus-objective"
+    "task_id": "m163-boundary-outcome-guarded-actor-update"
   },
   "next_task": {
-    "command": "see experiments/manifests/m163-boundary-outcome-guarded-actor-update.json",
-    "hypothesis": "The M162 M156 boundary-outcome corpus can support a very small guarded actor-coupling update that improves wrong-history outcome preference without degrading protected behavior.",
-    "id": "m163-boundary-outcome-guarded-actor-update",
-    "kind": "driver_candidate",
-    "notes": "Pending after M162: objective-only sanity passed for the M156 dedup corpus but M142 calibration is unstable so guarded actor update is required before PPO",
-    "priority": 1580,
+    "command": "see experiments/manifests/m164-boundary-outcome-replay-gate.json",
+    "hypothesis": "The M163 guarded actor update should be accepted for PPO only if it preserves or improves actual continuation outcomes on the M162 boundary geometry replay surface, not just the fixed logprob objective.",
+    "id": "m164-boundary-outcome-replay-gate",
+    "kind": "gate",
+    "notes": "Pending after M163: 20-step anchor100 actor update passed objective, behavior, and protected key but actual boundary rollout outcomes remain unverified",
+    "priority": 1590,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T041754Z"
+  "updated_at_utc": "20260522T042611Z"
 }

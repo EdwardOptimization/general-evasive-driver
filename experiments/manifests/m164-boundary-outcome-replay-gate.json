@@ -1,0 +1,38 @@
+{
+  "id": "m164-boundary-outcome-replay-gate",
+  "type": "gate",
+  "hypothesis": "The M163 guarded actor update should be accepted for PPO only if it preserves or improves actual continuation outcomes on the M162 boundary geometry replay surface, not just the fixed logprob objective.",
+  "success_criteria": [
+    "replay the M162 M156 boundary corpus rows under M156 and M163 on the same relocated obstacle geometries",
+    "compare normal-history and wrong-history continuation outcomes, not only fixed-batch objective loss",
+    "verify M163 does not regress normal-history success or clearance on the boundary surface",
+    "verify M163 preserves or increases wrong-history degradation where M162 labels say wrong history is dangerous",
+    "keep actor inputs unchanged and use M162 labels only as replay selection metadata",
+    "state whether guarded PPO smoke is admitted"
+  ],
+  "failure_criteria": [
+    "admit PPO from M163 using only objective-loss improvement",
+    "re-mine an easier boundary surface instead of replaying the M162 rows",
+    "feed target ids, geometry keys, outcome scores, or hidden dynamics to the actor",
+    "ignore the rejected M163 80-step protected-key failure"
+  ],
+  "commands": [
+    {
+      "name": "m164_boundary_outcome_replay_gate",
+      "command": "Build or run a replay gate that evaluates M156 and M163 on the same M162 boundary rows and records continuation outcome deltas."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m164-boundary-outcome-replay-gate.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt",
+    "runs/m163_boundary_outcome_actor_coupling_anchor100_s20_seed9832/optimized_checkpoint.pt",
+    "runs/m162_m156_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+    "runs/m162_m156_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.npz"
+  ],
+  "decision_rule": "Admit guarded PPO smoke only if M163 passes actual boundary-outcome replay retention; otherwise keep M163 as an objective/behavior-positive but rollout-unproven candidate."
+}
