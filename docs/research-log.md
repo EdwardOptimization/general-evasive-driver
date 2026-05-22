@@ -8361,3 +8361,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: positive. `alpha=0.5` is the largest tested interpolation from M224 toward M237 that passes M183 M170 and protected key; it also passes M183 M168, M193, M212, M223 replay and behavior seeds `9505`/`9506` with success `0.8625`.
 - decision: `promote_m239_a500_public_gate_base`
 - next: `m240-interpolation-guarded-ppo-repeat-from-m224`
+
+## 20260522T135628Z m240-interpolation-guarded-ppo-repeat-from-m224
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/ppo_m240_trajectory_anchor_from_m224_seed5222`
+- artifact: `docs/m240-interpolation-guarded-ppo-repeat-from-m224.md`
+- result: negative. Interpolation guard preserves proof and behavior for `alpha=0.5`, but every alpha regresses the combined M232 fixed objective relative to M224. This is PPO seed-direction fragility, not proof-retention failure.
+- decision: `reject_fresh_seed_no_combined_objective_improvement`
+- next: `m241-trajectory-ppo-seed-direction-audit`

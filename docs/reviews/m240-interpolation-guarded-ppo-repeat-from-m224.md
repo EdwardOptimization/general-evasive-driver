@@ -1,0 +1,89 @@
+# m240-interpolation-guarded-ppo-repeat-from-m224 Research Review
+
+## Summary
+
+- Generated at UTC: 20260522T135805Z
+- Type: driver_candidate
+- Gate tier: proof
+- Promotion decision: reject_no_combined_objective_improvement
+- Decision reason: M240 alpha 0.5 preserves full replay protected key and behavior but all alphas regress combined M232 objective; reject and audit PPO seed-direction fragility
+
+## Hypothesis
+
+The trajectory-anchored PPO update is useful but must be promoted through a checkpoint interpolation guard. A fresh PPO seed should produce a direction where some interpolation alpha preserves all proof gates and behavior while retaining fixed-objective improvement.
+
+## Lineage
+
+- parent_checkpoint: runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt, runs/m239_m224_to_m237_interpolation/checkpoints/alpha_0_5.pt
+- parent_dataset: runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.npz, runs/m235_closed_loop_trajectory_anchor_surface/trajectory_anchor.npz
+- parent_config: configs/ppo_m237_trajectory_anchor_from_m224_smoke.json
+- parent_objective: trajectory-anchored PPO smoke, post-PPO checkpoint interpolation guard, fixed M232/M223 objective retention, full proof and behavior retention
+- derived_from: m239-m237-checkpoint-interpolation-retention-probe
+- blocked_by: m237-trajectory-anchored-ppo-smoke-from-m224
+- supersedes: None
+- invalidates: None
+
+## Success Criteria
+
+- run exactly one fresh 1024-step PPO smoke from M224 with the M237 trajectory-anchor recipe
+- interpolate from M224 to the fresh raw PPO checkpoint without additional training
+- select only an alpha that passes full replay gates and protected key
+- retain behavior success at the M224 level on seeds 9505 and 9506
+- record whether the interpolation-guarded promotion is repeatable
+
+## Failure Criteria
+
+- raw PPO or all interpolation alphas fail M183 M170
+- raw PPO or all interpolation alphas fail protected key
+- selected alpha regresses behavior materially
+- run multiple PPO seeds before the repeat result is audited
+- change the actor input contract
+
+## Evidence Gates
+
+- fresh 1024-step trajectory-anchored PPO smoke from M224
+- post-PPO checkpoint interpolation sweep
+- fixed M232/M223 objective evaluation
+- M183 M168 and M170 replay gates
+- M193 M189 replay gate
+- M212 M204 replay gate
+- M223 M219 replay gate
+- protected key 9944 guard
+- behavior seeds 9505 and 9506
+- research validator
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not promote the raw PPO checkpoint without interpolation gates
+- do not run more than one fresh PPO smoke in M240
+- do not loosen replay or protected-key thresholds
+- do not use private holdout to select alpha
+- do not change actor inputs
+
+## Failure Taxonomy
+
+- seed_fragility
+- promotion_gate_failure
+
+## Scoreboard
+
+- milestone: m240-interpolation-guarded-ppo-repeat-from-m224
+- type: driver_candidate
+- checkpoint: runs/m240_m224_to_raw_interpolation/checkpoints/alpha_0_5.pt
+- success_rate: 0.8625
+- termination_rate: 0.1375
+- clearance_margin_mean: 1.844315
+- reset_success: 0.8500
+- zero_wheel_success: None
+- zero_all_success: 0.8000
+- wheel_gain_mu: None
+- decision: reject_no_combined_objective_improvement
+- reason: M240 alpha 0.5 preserves full replay protected key and behavior but all alphas regress combined M232 objective; reject and audit PPO seed-direction fragility
+
+## Next Blocker
+
+Audit PPO seed-direction fragility before running more trajectory-anchored PPO.

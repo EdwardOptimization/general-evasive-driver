@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 248,
+    "completed": 249,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m239-m237-checkpoint-interpolation-retention-probe.md",
+    "command_log": "docs/m240-interpolation-guarded-ppo-repeat-from-m224.md",
     "returncode": 0,
-    "run_dir": "runs/m239_m224_to_m237_interpolation",
+    "run_dir": "runs/ppo_m240_trajectory_anchor_from_m224_seed5222",
     "status": "completed",
-    "task_id": "m239-m237-checkpoint-interpolation-retention-probe"
+    "task_id": "m240-interpolation-guarded-ppo-repeat-from-m224"
   },
   "next_task": {
-    "command": "see experiments/manifests/m240-interpolation-guarded-ppo-repeat-from-m224.json",
-    "hypothesis": "Repeat trajectory-anchored PPO from M224 on a fresh seed but require interpolation-guarded promotion",
-    "id": "m240-interpolation-guarded-ppo-repeat-from-m224",
-    "kind": "driver_candidate",
-    "notes": "Pending: one fresh PPO seed then no-PPO interpolation sweep and full proof behavior gates",
-    "priority": 2350,
+    "command": "see experiments/manifests/m241-trajectory-ppo-seed-direction-audit.json",
+    "hypothesis": "Audit why M237 improved combined objective while M240 regressed it despite proof-retention success",
+    "id": "m241-trajectory-ppo-seed-direction-audit",
+    "kind": "gate",
+    "notes": "Pending: compare M237 and M240 objective direction before any more PPO",
+    "priority": 2360,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T135133Z"
+  "updated_at_utc": "20260522T135628Z"
 }

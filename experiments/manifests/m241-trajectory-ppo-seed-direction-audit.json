@@ -1,0 +1,89 @@
+{
+  "id": "m241-trajectory-ppo-seed-direction-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m239_m224_to_m237_interpolation/checkpoints/alpha_0_5.pt",
+      "runs/ppo_m237_trajectory_anchor_from_m224_seed5221/checkpoint.pt",
+      "runs/ppo_m240_trajectory_anchor_from_m224_seed5222/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m239_fixed_m232_outcome_eval_seed37/policy_summary.csv",
+      "runs/m240_fixed_m232_outcome_eval_seed37/policy_summary.csv",
+      "runs/m239_critical_key_seed9944/guard_results.csv",
+      "runs/m240_critical_key_seed9944/guard_results.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m237_trajectory_anchor_from_m224_smoke.json",
+      "configs/ppo_m240_trajectory_anchor_from_m224_smoke.json"
+    ],
+    "parent_objective": [
+      "trajectory-anchored PPO smoke",
+      "post-PPO interpolation guard",
+      "combined M232 objective",
+      "fixed M223 objective"
+    ],
+    "derived_from": [
+      "m240-interpolation-guarded-ppo-repeat-from-m224"
+    ],
+    "blocked_by": [
+      "m240-interpolation-guarded-ppo-repeat-from-m224"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m241-trajectory-ppo-seed-direction-audit.md",
+  "public_gates": [
+    "M237 versus M240 fixed objective comparison",
+    "M237 versus M240 proof-retention comparison",
+    "M237 versus M240 train-metric comparison",
+    "research validator"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run more PPO before the audit",
+    "do not promote M240 because proof gates pass",
+    "do not ignore the combined M232 objective regression",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "M240 shows that interpolation-guarded proof retention is repeatable, but the trajectory-anchored PPO update direction is seed-fragile for the combined M232 objective. The audit should decide whether the next repair is fixed-objective prefiltering, lower-variance PPO, or a different update objective.",
+  "success_criteria": [
+    "classify why M237 improved M232 while M240 regressed it",
+    "separate objective-direction fragility from proof-retention fragility",
+    "decide one bounded next milestone before any more PPO",
+    "keep M239 alpha 0.5 as the current public-gate base",
+    "pre-register the next repair path"
+  ],
+  "failure_criteria": [
+    "run more PPO before the audit",
+    "promote M240 despite M232 regression",
+    "collapse proof retention and objective direction into one diagnosis",
+    "change the actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "m241_audit",
+      "command": "Compare M237 and M240 train metrics, fixed objectives, interpolation gates, and behavior results; then pre-register one bounded next step without PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m241-trajectory-ppo-seed-direction-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m239_m224_to_m237_interpolation/checkpoints/alpha_0_5.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m239-m237-checkpoint-interpolation-retention-probe.md",
+    "docs/m240-interpolation-guarded-ppo-repeat-from-m224.md"
+  ],
+  "decision_rule": "M241 may only unblock more PPO if it explains the seed-direction failure and pre-registers a bounded recipe with explicit objective and promotion gates.",
+  "next_blocker": "Audit trajectory-anchored PPO seed-direction fragility."
+}
