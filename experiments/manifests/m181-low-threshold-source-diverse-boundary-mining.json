@@ -68,5 +68,10 @@
     "runs/m180_lateral_offset_robustness_seed9510/summary.json",
     "runs/m180_longitudinal_offset_robustness_seed9510/summary.json"
   ],
-  "decision_rule": "Promote a threshold only if robustness passes. If all thresholds remain duplicate-dominated, do not train; implement a dedicated source-pair-diverse candidate selector."
+  "decision_rule": "Promote a threshold only if robustness passes. If all thresholds remain duplicate-dominated, do not train; implement a dedicated source-pair-diverse candidate selector.",
+  "result": {
+    "status": "completed",
+    "decision": "reject_threshold_ablation_duplicate_dominated",
+    "notes": "All four thresholds 0.0/0.005/0.01/0.02 produce the same 48 accepted wrong-history success-drop rows, 3 strict physical pairs, 2 left steps, one target, and max pair fraction 0.333333. The M178 candidate pool is exhausted for this boundary recipe; next remine a source-diverse matched-current/proof surface instead of filtering the same rows."
+  }
 }

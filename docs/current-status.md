@@ -57,6 +57,9 @@ slightly stronger action-level sensitivity.
   surface is lateral-only and duplicate-dominated.
 - M180: lateral and longitudinal obstacle offsets do not fix duplicate
   domination.
+- M181: lowering the base action-distance threshold does not fix duplicate
+  domination; the M178 candidate pool is exhausted for the current boundary
+  relocation recipe.
 
 Current blocker:
 

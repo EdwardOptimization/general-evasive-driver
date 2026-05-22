@@ -1,0 +1,49 @@
+{
+  "id": "m182-source-diverse-matched-current-remine",
+  "type": "gate",
+  "hypothesis": "M181 exhausts the M178 outcome rows: threshold changes cannot produce source-diverse accepted wrong-history rows. The next step must remine or rebuild the matched-current proof surface with physical-pair diversity as a first-class objective.",
+  "success_criteria": [
+    "start from deployable P0 human-view inputs and keep actor inputs unchanged",
+    "mine candidate same-current different-history pairs with explicit physical-pair and left-step diversity",
+    "cap candidate rows per strict physical pair before boundary relocation",
+    "cover at least 10 strict physical pairs, 5 left steps, 2 target types, and 2 normal-margin buckets after robustness",
+    "run wrong-history-only boundary relocation before multi-variant replay",
+    "do not run PPO or actor updates until robustness passes"
+  ],
+  "failure_criteria": [
+    "reuse only the M178 accepted rows after M181 showed they are exhausted",
+    "rank solely by action distance or margin gap while ignoring pair diversity",
+    "continue blind obstacle geometry offsets",
+    "use hidden/oracle quantities as actor inputs",
+    "promote duplicate-dominated rows into a training corpus"
+  ],
+  "commands": [
+    {
+      "name": "m182_design_or_implement_source_diverse_miner",
+      "command": "Implement or configure a source-pair-diverse matched-current miner that selects candidates by strict physical pair, left step, target, normal-margin bucket, and obstacle bucket before relocation."
+    },
+    {
+      "name": "m182_wrong_history_boundary_relocation",
+      "command": "Run wrong-history-only boundary relocation on the new source-diverse candidate set with M168 and M170 once the miner output is available."
+    },
+    {
+      "name": "m182_robustness_gate",
+      "command": "Run boundary_wrong_history_surface_robustness with min accepted rows 40, min physical pairs 10, min left steps 5, min checkpoints 2, min targets 2, min margin buckets 2, and max rows per pair fraction 0.25."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m182-source-diverse-matched-current-remine.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt",
+    "runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt",
+    "runs/m181_action0_robustness_seed9510/summary.json",
+    "runs/m181_action005_robustness_seed9510/summary.json",
+    "runs/m181_action01_robustness_seed9510/summary.json",
+    "runs/m181_action02_robustness_seed9510/summary.json"
+  ],
+  "decision_rule": "Only a robustness-passing source-diverse surface can enter multi-variant replay or corpus construction; otherwise design active-probe data generation."
+}

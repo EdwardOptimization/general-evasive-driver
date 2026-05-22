@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 189,
+    "completed": 190,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m180-diversified-boundary-outcome-proof-surface-mining.md",
+    "command_log": "docs/m181-low-threshold-source-diverse-boundary-mining.md",
     "returncode": 0,
-    "run_dir": "runs/m180_longitudinal_offset_boundary_surface_seed9510",
+    "run_dir": "runs/m181_action0_wrong_history_boundary_surface_seed9510",
     "status": "completed",
-    "task_id": "m180-diversified-boundary-outcome-proof-surface-mining"
+    "task_id": "m181-low-threshold-source-diverse-boundary-mining"
   },
   "next_task": {
-    "command": "see experiments/manifests/m181-low-threshold-source-diverse-boundary-mining.json",
-    "hypothesis": "M180 shows simple obstacle offsets do not diversify the wrong-history outcome surface, so run base action-distance threshold ablations and select only by robustness/diversity.",
-    "id": "m181-low-threshold-source-diverse-boundary-mining",
+    "command": "see experiments/manifests/m182-source-diverse-matched-current-remine.json",
+    "hypothesis": "M181 exhausts the M178 outcome rows, so the next step must remine or rebuild matched-current proof candidates with physical-pair diversity as a first-class objective.",
+    "id": "m182-source-diverse-matched-current-remine",
     "kind": "gate",
-    "notes": "Pending after M180: run wrong-history-only threshold ablation at 0/0.005/0.01/0.02 and robustness gates before any multi-variant sweep",
-    "priority": 1760,
+    "notes": "Pending after M181: implement source-pair-diverse candidate mining before multi-variant replay, corpus construction, or PPO",
+    "priority": 1770,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T060822Z"
+  "updated_at_utc": "20260522T064853Z"
 }

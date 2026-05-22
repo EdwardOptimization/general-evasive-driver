@@ -6579,3 +6579,36 @@ Decision: M180 is a negative diversification result. Blind geometry offsets do
 not solve duplicate domination. The next step should broaden the candidate set
 by lowering the base action-distance filter and mining source-pair diversity
 directly before any expensive multi-variant sweep.
+
+## 20260522T064853Z m181-low-threshold-source-diverse-boundary-mining
+
+M181 tests whether M179/M180 duplicate domination was caused by the
+`min-base-action-distance=0.02` filter. It runs wrong-history-only boundary
+relocation and robustness gates at four thresholds:
+
+```text
+0.0, 0.005, 0.01, 0.02
+```
+
+Result:
+
+| Threshold | Candidates | Accepted wrong rows | Strict physical pairs | Left steps | Targets | Max pair fraction | Decision |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| 0.000 | 960 | 48 | 3 | 2 | 1 | 0.333333 | reject |
+| 0.005 | 878 | 48 | 3 | 2 | 1 | 0.333333 | reject |
+| 0.010 | 804 | 48 | 3 | 2 | 1 | 0.333333 | reject |
+| 0.020 | 658 | 48 | 3 | 2 | 1 | 0.333333 | reject |
+
+All thresholds recover the same dominating strict physical pairs:
+
+```text
+(9530, 18, 9540, 21)
+(9530, 18, 9540, 24)
+(9530, 21, 9540, 24)
+```
+
+Decision: M181 is a negative threshold-ablation result. The M178 candidate pool
+is exhausted for the current boundary relocation recipe. The next step must
+remine or rebuild same-current/different-history candidates with physical-pair
+diversity as a first-class objective before multi-variant replay, corpus
+construction, actor update, or PPO.
