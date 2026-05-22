@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 258,
+    "completed": 259,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m249-protected-key-source-gradient-audit.md",
+    "command_log": "docs/m250-protected-key-source-actor-coupling-calibration.md",
     "returncode": 0,
-    "run_dir": "runs/m249_protected_key_source_actor_coupling_probe",
+    "run_dir": "runs/m250_nano_custom_m239_to_protected_source_interpolation",
     "status": "completed",
-    "task_id": "m249-protected-key-source-gradient-audit"
+    "task_id": "m250-protected-key-source-actor-coupling-calibration"
   },
   "next_task": {
-    "command": "see experiments/manifests/m250-protected-key-source-actor-coupling-calibration.json",
-    "hypothesis": "Interpolate from M239 toward the protected-key source-only checkpoint and gate exact sources plus public proof retention",
-    "id": "m250-protected-key-source-actor-coupling-calibration",
-    "kind": "driver_candidate",
-    "notes": "Pending: no-PPO interpolation and proof gate",
-    "priority": 2450,
+    "command": "see experiments/manifests/m251-checkpoint-interpolation-alpha-token-fix.json",
+    "hypothesis": "Fix checkpoint interpolation alpha label and path collisions for sub-0.001 sweeps before more nano calibration",
+    "id": "m251-checkpoint-interpolation-alpha-token-fix",
+    "kind": "infrastructure",
+    "notes": "Pending: focused interpolation fix and validator",
+    "priority": 2460,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T143850Z"
+  "updated_at_utc": "20260522T145210Z"
 }

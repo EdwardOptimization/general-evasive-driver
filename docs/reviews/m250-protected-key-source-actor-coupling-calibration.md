@@ -1,0 +1,85 @@
+# m250-protected-key-source-actor-coupling-calibration Research Review
+
+## Summary
+
+- Generated at UTC: 20260522T145431Z
+- Type: driver_candidate
+- Gate tier: proof
+- Promotion decision: promote_m250_n00005_public_gate_base
+- Decision reason: M250 nano alpha 0.00005 improves exact M232 M223 and protected-key source losses while passing all public replay protected-key and behavior gates without PPO
+
+## Hypothesis
+
+A small interpolation from M239 toward the M249 protected-key source-only actor-coupling checkpoint can improve both exact source objectives while retaining public proof and behavior gates.
+
+## Lineage
+
+- parent_checkpoint: runs/m239_m224_to_m237_interpolation/checkpoints/alpha_0_5.pt, runs/m249_protected_key_source_actor_coupling_probe/optimized_checkpoint.pt
+- parent_dataset: runs/m231_protected_key_snippet_surface/protected_key_snippets.npz, runs/m232_combined_m223_m231_snippet_anchor/outcome_intervention_snippets.npz, runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.npz
+- parent_config: docs/m249-protected-key-source-gradient-audit.md
+- parent_objective: protected-key source-only actor-coupling calibration, M245 exact source-aware gate, full proof and behavior retention
+- derived_from: m249-protected-key-source-gradient-audit
+- blocked_by: m249-protected-key-source-gradient-audit
+- supersedes: None
+- invalidates: None
+
+## Success Criteria
+
+- interpolate M239 toward the M249 protected-only checkpoint without additional training
+- select only an alpha with protected_key source delta <= +1e-8
+- selected alpha must have M223 source delta < 0 and aggregate M232 delta <= +1e-8
+- selected alpha must pass full replay gates protected key and behavior retention
+- no PPO is run
+
+## Failure Criteria
+
+- all alphas fail exact source gate
+- no alpha passes full replay gates
+- selected alpha regresses behavior materially
+- change the actor input contract
+
+## Evidence Gates
+
+- post-calibration interpolation sweep
+- M245 exact source-aware objective gate
+- M183 M168 and M170 replay gates
+- M193 M189 replay gate
+- M212 M204 replay gate
+- M223 M219 replay gate
+- protected key 9944 guard
+- behavior seeds 9505 and 9506
+- research validator
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run PPO in M250
+- do not promote the raw M249 source-only checkpoint without interpolation
+- do not run proof gates if exact source gate fails
+- do not change actor inputs
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m250-protected-key-source-actor-coupling-calibration
+- type: driver_candidate
+- checkpoint: runs/m250_nano_custom_m239_to_protected_source_interpolation/checkpoints/alpha_0_00005.pt
+- success_rate: 0.8625
+- termination_rate: 0.1375
+- clearance_margin_mean: 1.844113
+- reset_success: 0.8500
+- zero_wheel_success: None
+- zero_all_success: 0.8000
+- wheel_gain_mu: None
+- decision: promote_m250_n00005_public_gate_base
+- reason: M250 nano alpha 0.00005 improves exact M232 M223 and protected-key source losses while passing all public replay protected-key and behavior gates without PPO
+
+## Next Blocker
+
+Fix checkpoint_interpolation sub-0.001 alpha label/path collisions before more nano sweeps or PPO from the calibrated base.

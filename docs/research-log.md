@@ -8457,3 +8457,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: protected-key source loss is steerable in isolation: actor-coupling source-only optimization reduces protected-key loss from `0.035642` to `0.010868` and improves exact M223 source by `-0.145038`. M248 failure is therefore PPO gradient conflict or insufficient protected-source pressure, not objective unsteerability.
 - decision: `admit_protected_key_source_actor_coupling_calibration`
 - next: `m250-protected-key-source-actor-coupling-calibration`
+
+## 20260522T145210Z - m250-protected-key-source-actor-coupling-calibration
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m250_nano_custom_m239_to_protected_source_interpolation`
+- artifact: `docs/m250-protected-key-source-actor-coupling-calibration.md`
+- result: selected nano alpha `0.00005` improves exact source losses versus M239 (`M232 -0.000008885`, `M223 -0.000007513`, protected key `-0.000001372`) and passes M183/M168, M183/M170, M193/M189, M212/M204, M223/M219 replay gates, protected key `9944|perturbed|28|28`, and behavior seeds `9505/9506`.
+- decision: `promote_m250_n00005_public_gate_base`
+- next: `m251-checkpoint-interpolation-alpha-token-fix`
