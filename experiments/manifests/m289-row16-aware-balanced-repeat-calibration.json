@@ -2,7 +2,7 @@
   "id": "m289-row16-aware-balanced-repeat-calibration",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -83,6 +83,22 @@
     "docs/m288-balanced-repeat-seed-fragility-audit.md",
     "runs/m288_balanced_repeat_seed_fragility_audit/summary.json"
   ],
-  "decision_rule": "M289 may only promote or admit PPO if a row16-aware repeat candidate passes first and full public gates with non-micro exact M270 improvement. Otherwise PPO remains blocked.",
-  "next_blocker": "pending M289 row16-aware balanced repeat calibration"
+  "results": {
+    "run_dir": "runs/m289_row16_aware_balanced_repeat_calibration",
+    "selected_policy": "m289x64_a600",
+    "selected_checkpoint": "runs/m289_row16_aware_balanced_repeat_calibration/extra64_interpolation/checkpoints/alpha_0_6.pt",
+    "selected_alpha": 0.6,
+    "row16_extra_repeat": 64,
+    "exact_m270_loss_base": 0.6813756227493286,
+    "exact_m270_loss_selected": 0.6785975694656372,
+    "exact_m270_loss_delta": -0.0027780532836914062,
+    "full_replay_gates_pass": true,
+    "protected_key_guard_validated": true,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "ppo_or_actor_input_change": false
+  },
+  "decision_rule": "Promote m289x64_a600 as a public-gate base because row16-aware extra64 calibration passes full public gates with material exact M270 improvement. PPO remains blocked until one fresh-seed repeat.",
+  "decision": "promote_m289x64_a600_public_gate_base",
+  "next_blocker": "m290-row16-aware-balanced-repeat-fresh-seed"
 }

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 297,
+    "completed": 298,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m288-balanced-repeat-seed-fragility-audit.md",
+    "command_log": "docs/m289-row16-aware-balanced-repeat-calibration.md",
     "returncode": 0,
-    "run_dir": "runs/m288_balanced_repeat_seed_fragility_audit",
+    "run_dir": "runs/m289_row16_aware_balanced_repeat_calibration",
     "status": "completed",
-    "task_id": "m288-balanced-repeat-seed-fragility-audit"
+    "task_id": "m289-row16-aware-balanced-repeat-calibration"
   },
   "next_task": {
-    "command": "see experiments/manifests/m289-row16-aware-balanced-repeat-calibration.json",
-    "hypothesis": "A row16-aware lower-risk balanced recipe can reduce the M287 seed-fragile safe-alpha collapse while retaining the M267/M264 rejected-history direction.",
-    "id": "m289-row16-aware-balanced-repeat-calibration",
+    "command": "see experiments/manifests/m290-row16-aware-balanced-repeat-fresh-seed.json",
+    "hypothesis": "The M289 row16-aware extra64 recipe should repeat on a fresh optimizer seed with a proof-safe non-micro interpolation, making PPO smoke admission plausible.",
+    "id": "m290-row16-aware-balanced-repeat-fresh-seed",
     "kind": "driver_candidate",
-    "notes": "Pending: protect row16 and M267/M264 before broader gates",
-    "priority": 2840,
+    "notes": "Pending: fresh-seed row16-aware repeat with first gates then full public gates",
+    "priority": 2850,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T193134Z"
+  "updated_at_utc": "20260522T193806Z"
 }
