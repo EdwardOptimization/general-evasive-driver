@@ -25,6 +25,14 @@
     {
       "path": "docs/m140-rollout-key-survival-audit.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m140_rollout_key_survival_audit/key_survival_audit.csv",
+      "type": "audit_csv"
+    },
+    {
+      "path": "runs/m140_rollout_key_survival_audit/audit_summary.json",
+      "type": "audit_summary"
     }
   ],
   "success_criteria": [

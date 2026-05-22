@@ -5335,3 +5335,32 @@ Decision: reject M139 as a repair. Even retained-key action MSE near
 `2.19e-7` does not preserve the strict rollout proof surface. The next task is
 M140, a rollout-key survival audit that should look at selected-key survival
 and rollout margin signals directly.
+
+## 20260522T011000Z m140-rollout-key-survival-audit
+
+M140 joined M136 retained keys against M133 and M139 strict selected snippets.
+
+Artifacts:
+
+```text
+runs/m140_rollout_key_survival_audit/key_survival_audit.csv
+runs/m140_rollout_key_survival_audit/audit_summary.json
+```
+
+Result:
+
+```text
+M136/M133 unique keys: 11
+s40 snip100 retained/lost: 9 / 2
+s40 snip500 retained/lost: 10 / 1
+s20 snip1000 retained/lost: 10 / 1
+```
+
+The shared lost key is `9944|perturbed|28|28`. It is a near-threshold row:
+M133 accepted half width `0.9` with margin gap `0.005196`, barely above the
+`0.005` threshold. M139 s20 snip1000 changed the same row to `0.004675`, so the
+key disappeared even though fixed retained-key action MSE was near `2e-7`.
+
+Decision: M140 is diagnostic positive. The next task is M141, a critical-key
+exact replay guard that should catch this type of selected-key survival
+regression before running full strict miners or PPO continuation.

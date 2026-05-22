@@ -1,0 +1,37 @@
+{
+  "baseline_checkpoints": [
+    "runs/m132_margin_retention_s60_anchor20_seed9841/optimized_checkpoint.pt",
+    "runs/m140_rollout_key_survival_audit/key_survival_audit.csv"
+  ],
+  "commands": [
+    {
+      "command": "Implement or script an exact replay guard for M133 critical keys, starting with the M140 lost key 9944|perturbed|28|28.",
+      "name": "m141_critical_key_replay_guard"
+    },
+    {
+      "command": "Run the guard on M132, M139 candidates, and any next repair candidate before strict 60-episode miners.",
+      "name": "m141_guard_validation"
+    }
+  ],
+  "decision_rule": "Use the guard only if it reproduces M132 key acceptance, rejects M139 lost-key candidates, and does not require oracle actor inputs.",
+  "failure_criteria": [
+    "guard cannot reproduce M133 accepted key status on M132",
+    "guard does not reject M139 candidates that lost the 9944 critical key",
+    "guard requires changing actor observations or reading hidden parameters at policy time"
+  ],
+  "hypothesis": "A cheap exact replay guard on near-threshold M133 keys can catch rollout proof-surface regressions that fixed logprob/action objectives miss.",
+  "id": "m141-critical-key-replay-guard",
+  "required_artifacts": [
+    {
+      "path": "docs/m141-critical-key-replay-guard.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "guard reproduces M132 acceptance on protected M133 critical keys",
+    "guard rejects M139 candidates that lose the protected key",
+    "guard outputs replay artifacts suitable for future objective/gate use",
+    "actor input contract remains unchanged"
+  ],
+  "type": "gate"
+}
