@@ -5,6 +5,7 @@ import torch
 from autodrift.matched_history_intervention_gate import (
     ACTION_VARIANTS,
     RecurrentSnapshot,
+    _pairs_for_checkpoint,
     build_action_intervention_rows,
     requested_snapshot_steps,
     summarize_action_interventions,
@@ -93,3 +94,19 @@ def test_build_action_intervention_rows_emits_all_variants():
     assert {row["variant"] for row in rows} == set(ACTION_VARIANTS)
     assert all(row["action_distance_above_threshold"] for row in rows)
     assert len(summary) == len(ACTION_VARIANTS)
+
+
+def test_pairs_for_checkpoint_all_mode_relabels_but_preserves_source_label():
+    pairs = pd.DataFrame(
+        [
+            {"checkpoint_label": "m62", "target": "future_yaw_response", "target_z_delta": 1.5},
+            {"checkpoint_label": "m105", "target": "future_yaw_response", "target_z_delta": 1.2},
+        ]
+    )
+
+    matching = _pairs_for_checkpoint(pairs, "candidate", "matching")
+    all_pairs = _pairs_for_checkpoint(pairs, "candidate", "all")
+
+    assert matching.empty
+    assert list(all_pairs["checkpoint_label"]) == ["candidate", "candidate"]
+    assert list(all_pairs["source_checkpoint_label"]) == ["m62", "m105"]

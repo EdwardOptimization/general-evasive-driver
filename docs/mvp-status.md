@@ -186,3 +186,13 @@ also has `0` rows under the same gate, so this is a current-baseline gate-surfac
 blocker rather than a M156-only regression. The next frontier is recalibrating
 or remining a broad action-sensitive matched-history surface for the M142/M156
 family before any PPO continuation.
+
+M158 recalibrates that action surface and finds the concrete blocker. The M118
+pairs were source-labeled `m62`, `m102`, and `m105`, so exact label matching
+discarded all current `m142_a400` / `m156_s20` rows. The action gate now has a
+non-default `--pair-label-mode all` for calibration, preserving
+`source_checkpoint_label`. M156 clears the old M24 action thresholds after that
+fix. A fresh current zero-relvel surface also shows wrong-history action signal
+for M142 and M156, but per-checkpoint coverage is still below the M154 target
+(`89` and `87` physical pairs versus `100`). The next frontier is M159:
+broaden the current zero-relvel action surface before outcome gates or PPO.

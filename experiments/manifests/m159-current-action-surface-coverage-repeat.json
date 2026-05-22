@@ -1,0 +1,37 @@
+{
+  "id": "m159-current-action-surface-coverage-repeat",
+  "type": "gate",
+  "hypothesis": "The M158 current zero-relvel action surface has enough action signal but too little per-checkpoint physical-pair coverage, so broadening the current-baseline corpus should clear the registered M154 action-stage coverage threshold.",
+  "success_criteria": [
+    "use only the P0 human-view zero-obstacle-relative-velocity actor input contract",
+    "mine a current-baseline matched-current corpus for M142 and M156 with at least 100 wrong-history physical pairs per evaluated checkpoint after action-gate filtering",
+    "keep wrong-history above-threshold fraction at or above 0.70",
+    "keep wrong-history closer-to-right fraction at or above 0.65",
+    "preserve source and target diversity in the exported action-intervention rows",
+    "state whether the candidate can continue to the remaining M154 stages"
+  ],
+  "failure_criteria": [
+    "start PPO before the action stage reaches registered coverage",
+    "relax the M154 action thresholds after seeing the result",
+    "evaluate only M156 without recalibrating M142",
+    "reuse old M118 rows as a zero-relvel proof surface without fresh snapshot compatibility"
+  ],
+  "commands": [
+    {
+      "name": "m159_current_action_surface_coverage_repeat",
+      "command": "Broaden the M158 current zero-relvel matched-current corpus, then rerun matched_history_intervention_gate for M142 and M156 under the registered M154 action thresholds."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m159-current-action-surface-coverage-repeat.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt",
+    "runs/m156_capability_belief_aux_s20_seed9630/optimized_checkpoint.pt",
+    "runs/m158_current_baseline_action_gate_zero_relvel_seed9510/summary.json"
+  ],
+  "decision_rule": "Admit the remaining M154 repeat stages only if the broadened current action surface clears coverage, action-distance, and closer-to-right thresholds for both M142 and M156."
+}

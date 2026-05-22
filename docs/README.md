@@ -449,6 +449,10 @@ vehicle/tire models, and NMPC-style constrained control.
   guarded PPO because the M118 matched-history action gate yields zero rows for
   M156 and for M142 calibration; the action surface must be recalibrated for the
   current baseline family.
+- `m158-current-baseline-action-surface-recalibration.md`: fixes the action-gate
+  pair/checkpoint label binding, confirms M156 has wrong-history action signal
+  on the old M24 surface, and mines a current zero-relvel action surface that
+  still needs broader per-checkpoint coverage before PPO admission.
 - `research-process-enforcement.md`: local validator, manifest schema,
   scoreboard, and pre-commit integration that enforce the M90+ research
   workflow.

@@ -6258,3 +6258,54 @@ Decision: reject guarded PPO admission. Do not run more strict miners or PPO
 until the matched-history action stage is rebuilt or recalibrated for the
 current baseline. Next task: mine or redesign a current-baseline action-sensitive
 surface.
+
+## 20260522T071500Z m158-current-baseline-action-surface-recalibration
+
+M158 resolves the M157 action-gate blocker as a surface-label calibration issue,
+not as proof that M156 lacks wrong-history action dependence. The action gate
+previously filtered pairs by exact `checkpoint_label`. The M118 pair corpus was
+mined under source labels `m62`, `m102`, and `m105`, while the current guarded
+family uses labels such as `m142_a400` and `m156_s20`, so current labels
+selected zero rows.
+
+The harness now supports `--pair-label-mode all`, which preserves the old source
+label as `source_checkpoint_label` while relabeling rows for the evaluated
+checkpoint. The default remains `matching`.
+
+Old M24 surface check:
+
+```text
+runs/m158_pair_all_m24_m156_seed9510
+```
+
+M156 has `408` wrong-history rows, `295` physical pairs, mean action distance
+`0.072531`, above-threshold fraction `0.830882`, and closer-to-right fraction
+`0.762255`. This clears the registered action-distance and closer-to-right
+thresholds on the old M24 surface.
+
+M158 then mined a fresh current zero-relvel corpus:
+
+```text
+runs/m158_current_baseline_matched_current_zero_relvel_seed9510
+```
+
+It found `318` accepted pairs over `94` physical pairs. The action gate on that
+fresh surface:
+
+```text
+runs/m158_current_baseline_action_gate_zero_relvel_seed9510
+```
+
+has aggregate wrong-history signal:
+
+| Scope | Wrong rows | Physical pairs | Mean action distance | Above `0.02` | Closer-to-right |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| all | 318 | 176 | 0.046298 | 0.761006 | 0.858491 |
+| m142_a400 | 160 | 89 | 0.045232 | 0.731250 | 0.868750 |
+| m156_s20 | 158 | 87 | 0.047378 | 0.791139 | 0.848101 |
+
+Decision: M158 is a positive calibration milestone, but it still does not admit
+PPO. The current zero-relvel surface shows real action dependence for M142 and
+M156, but each checkpoint remains below the M154 target of `100` physical pairs.
+The next task is M159: broaden the current zero-relvel corpus and rerun the
+action stage before returning to outcome gates or PPO.

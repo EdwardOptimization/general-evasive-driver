@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 166,
+    "completed": 167,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m157-capability-belief-full-m154-gate-repeat.md",
+    "command_log": "docs/m158-current-baseline-action-surface-recalibration.md",
     "returncode": 0,
-    "run_dir": "runs/m157_m156_s20_action_intervention_gate_seed9510",
+    "run_dir": "runs/m158_current_baseline_action_gate_zero_relvel_seed9510",
     "status": "completed",
-    "task_id": "m157-capability-belief-full-m154-gate-repeat"
+    "task_id": "m158-current-baseline-action-surface-recalibration"
   },
   "next_task": {
-    "command": "see experiments/manifests/m158-current-baseline-action-surface-recalibration.json",
-    "hypothesis": "The broad M118 matched-history action surface is not calibrated for the current M142/M156 guarded baseline family, so a current-baseline action-sensitive surface must be mined or the gate must be redesigned before another M154 repeat.",
-    "id": "m158-current-baseline-action-surface-recalibration",
+    "command": "see experiments/manifests/m159-current-action-surface-coverage-repeat.json",
+    "hypothesis": "The M158 current zero-relvel action surface has enough action signal but too little per-checkpoint physical-pair coverage, so broadening the current-baseline corpus should clear the registered M154 action-stage coverage threshold.",
+    "id": "m159-current-action-surface-coverage-repeat",
     "kind": "gate",
-    "notes": "Pending after M157: calibrate current-baseline matched-history action surface",
-    "priority": 1530,
+    "notes": "Pending after M158: broaden current zero-relvel action surface from 89/87 physical pairs to the 100-pair target for M142/M156",
+    "priority": 1540,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T064500Z"
+  "updated_at_utc": "20260522T071500Z"
 }

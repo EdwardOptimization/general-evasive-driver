@@ -171,6 +171,9 @@ def build_action_intervention_rows(
                 {
                     "pair_id": int(pair_id),
                     "checkpoint_label": str(pair.get("checkpoint_label", "")),
+                    "source_checkpoint_label": str(
+                        pair.get("source_checkpoint_label", pair.get("checkpoint_label", ""))
+                    ),
                     "probe_seed": int(pair.get("probe_seed", -1)),
                     "target": str(pair["target"]),
                     "variant": variant,
@@ -258,6 +261,17 @@ def _limit_pairs(frame: pd.DataFrame, max_pairs_per_checkpoint_target: int) -> p
     return pd.concat(selected, ignore_index=True)
 
 
+def _pairs_for_checkpoint(pair_frame: pd.DataFrame, checkpoint_label: str, pair_label_mode: str) -> pd.DataFrame:
+    if pair_label_mode == "matching":
+        return pair_frame[pair_frame["checkpoint_label"].astype(str) == str(checkpoint_label)].copy()
+    if pair_label_mode == "all":
+        output = pair_frame.copy()
+        output["source_checkpoint_label"] = output["checkpoint_label"].astype(str)
+        output["checkpoint_label"] = str(checkpoint_label)
+        return output
+    raise ValueError("pair_label_mode must be 'matching' or 'all'")
+
+
 def run_matched_history_intervention_gate(
     *,
     checkpoint_specs: tuple[CheckpointSpec, ...],
@@ -266,6 +280,7 @@ def run_matched_history_intervention_gate(
     delay_steps: int,
     min_action_distance: float,
     max_pairs_per_checkpoint_target: int,
+    pair_label_mode: str,
     device: str,
     run_dir: Path,
 ) -> dict[str, Any]:
@@ -277,7 +292,7 @@ def run_matched_history_intervention_gate(
     intervention_rows: list[dict[str, Any]] = []
 
     for checkpoint_spec in checkpoint_specs:
-        checkpoint_pairs = pair_frame[pair_frame["checkpoint_label"].astype(str) == checkpoint_spec.label]
+        checkpoint_pairs = _pairs_for_checkpoint(pair_frame, checkpoint_spec.label, pair_label_mode)
         if checkpoint_pairs.empty:
             continue
         model, _ = load_actor_critic_checkpoint(checkpoint_spec.path, device=str(resolved_device))
@@ -312,6 +327,7 @@ def run_matched_history_intervention_gate(
         "delay_steps": int(delay_steps),
         "min_action_distance": float(min_action_distance),
         "max_pairs_per_checkpoint_target": int(max_pairs_per_checkpoint_target),
+        "pair_label_mode": str(pair_label_mode),
         "device": str(resolved_device),
         "input_pair_count": int(len(pair_frame)),
         "intervention_row_count": int(len(intervention_rows)),
@@ -331,6 +347,7 @@ def main() -> None:
     parser.add_argument("--delay-steps", type=int, default=10)
     parser.add_argument("--min-action-distance", type=float, default=0.02)
     parser.add_argument("--max-pairs-per-checkpoint-target", type=int, default=80)
+    parser.add_argument("--pair-label-mode", choices=("matching", "all"), default="matching")
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="auto")
     parser.add_argument("--run-dir", type=Path, default=None)
     args = parser.parse_args()
@@ -343,6 +360,7 @@ def main() -> None:
         delay_steps=args.delay_steps,
         min_action_distance=args.min_action_distance,
         max_pairs_per_checkpoint_target=args.max_pairs_per_checkpoint_target,
+        pair_label_mode=args.pair_label_mode,
         device=args.device,
         run_dir=run_dir,
     )
