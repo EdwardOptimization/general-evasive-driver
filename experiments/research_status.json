@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 269,
+    "completed": 270,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m260-repair-disciplined-stage2-ppo-from-m259.md",
+    "command_log": "docs/m261-repair-disciplined-stage2-repeat.md",
     "returncode": 0,
-    "run_dir": "runs/m260_behavior_gate_a050_seed9506",
+    "run_dir": "runs/m261_behavior_gate_a001_seed9506",
     "status": "completed",
-    "task_id": "m260-repair-disciplined-stage2-ppo-from-m259"
+    "task_id": "m261-repair-disciplined-stage2-repeat"
   },
   "next_task": {
-    "command": "see experiments/manifests/m261-repair-disciplined-stage2-repeat.json",
-    "hypothesis": "The M260 4096-step staged PPO improvement is repeatable on a fresh seed if promotion remains interpolation-gated by exact source, row16, and protected-key retention.",
-    "id": "m261-repair-disciplined-stage2-repeat",
-    "kind": "driver_candidate",
-    "notes": "Pending: run fresh stage2 PPO and interpolation-gated promotion stack",
-    "priority": 2560,
+    "command": "see experiments/manifests/m262-stage2-repeat-fragility-audit.json",
+    "hypothesis": "M261 passed promotion only at a tiny interpolation alpha because the repeated stage2 PPO direction is seed-fragile and remains constrained by protected-key source and normal-margin pressure.",
+    "id": "m262-stage2-repeat-fragility-audit",
+    "kind": "gate",
+    "notes": "Pending: no-training audit before any medium PPO",
+    "priority": 2570,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T154217Z"
+  "updated_at_utc": "20260522T154936Z"
 }

@@ -2,7 +2,7 @@
   "id": "m261-repair-disciplined-stage2-repeat",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -83,5 +83,5 @@
     "docs/m260-repair-disciplined-stage2-ppo-from-m259.md"
   ],
   "decision_rule": "M261 may only promote a candidate if the repeated staged PPO path passes exact source, row16, protected-key, full public replay, behavior, and research-validator gates.",
-  "next_blocker": "If M261 succeeds, consider medium PPO escalation; if it fails, audit stage2 seed fragility and protected-key margin pressure."
+  "next_blocker": "m262-stage2-repeat-fragility-audit"
 }

@@ -42,15 +42,17 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m260_m259_to_raw_interpolation/checkpoints/alpha_0_05.pt
+runs/m261_m260_to_raw_interpolation/checkpoints/alpha_0_001.pt
 ```
 
-Status: M260 short staged PPO escalation. The 4096-step raw PPO improves exact
-M223 and protected-key source losses versus M259, but full raw fails protected
-key; `alpha=0.05` is the largest checked protected-key-safe interpolation. It
-passes M183/M168, M183/M170, M193/M189, M212/M204, M223/M219 replay gates,
-protected key `9944|perturbed|28|28`, and behavior seeds `9505`/`9506`. Next
-step is a fresh-seed stage2 repeat, not a longer PPO run.
+Status: M261 fresh-seed stage2 repeat. The 4096-step raw PPO improves M223
+source loss but regresses protected-key source loss; interpolation promotes only
+`alpha=0.001`. It passes exact source tolerance, M183/M168, M183/M170,
+M193/M189, M212/M204, M223/M219 replay gates, protected key
+`9944|perturbed|28|28`, and behavior seeds `9505`/`9506`. The result is
+positive but weak: M260 admitted `alpha=0.05`, while M261 admits only
+`alpha=0.001`. Next step is a no-training stage2 repeat fragility audit, not a
+medium PPO run.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
