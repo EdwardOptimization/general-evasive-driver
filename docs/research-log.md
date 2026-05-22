@@ -7433,3 +7433,44 @@ Results:
 Decision: M205 is positive repeat evidence, but not a new best checkpoint.
 Admit one short guarded stage6 from M204 seed `5209`, and do not run a stage6
 repeat or longer PPO continuation before that first stage6 passes gates.
+
+## 20260522T095349Z m206-guarded-stage6-ppo-from-m204
+
+M206 ran one short guarded stage6 from the best fixed-loss retained stage5,
+M204 seed `5209`.
+
+Artifacts:
+
+- `runs/ppo_m206_stage6_from_m204_seed5212`
+- `runs/m206_fixed_batch_outcome_eval_seed37`
+- `runs/m206_m183_m168_replay_gate_seed9510`
+- `runs/m206_m183_m170_replay_gate_seed9510`
+- `runs/m206_m193_m189_replay_gate_seed9630`
+- `runs/m206_behavior_gate_seed9505`
+- `runs/m206_behavior_gate_seed9506`
+- `runs/m206_critical_key_seed9944`
+- `docs/m206-guarded-stage6-ppo-from-m204.md`
+
+Results:
+
+- fixed M193 objective loss improves from M204 `0.158475` to M206
+  `0.158420`;
+- smoke eval termination is `0.00`;
+- M183 M168 replay retains `16/16` success drops;
+- M183 M170 replay retains `17/17` success drops;
+- M193 M189 replay retains `14/14` success drops;
+- behavior seeds `9505` and `9506` keep success `0.8625`;
+- reset-hidden and zero-all-response ablations remain at `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` fails with `0/1` accepted cases.
+
+Protected-key diagnosis:
+
+- M206 keeps normal success true on the selected protected row;
+- M206 keeps a large wrong-history margin gap (`0.097903`);
+- M206's normal margin is `0.207450`, above the reference manifest's
+  `max_normal_margin = 0.2` boundary window;
+- under the pre-registered guard, this is a protected-key failure.
+
+Decision: M206 is rejected. Do not run stage6 repeats or longer PPO
+continuation until M207 audits the protected-key failure and pre-registers any
+guarded retry or design change.

@@ -181,19 +181,24 @@ slightly stronger action-level sensitivity.
   `0.158585`) and preserve behavior, protected key, old M183 replay drops
   `16/16` and `17/17`, and refreshed M193 replay drops `14/14`. They do not
   beat M204 (`0.158475`), so M204 remains the best fixed-loss stage5.
+- M206: a short stage6 from M204 seed `5209` improves fixed M193 loss to
+  `0.158420`, has smoke eval termination `0.00`, and preserves behavior plus
+  old/refreshed replay gates, but fails protected key
+  `9944|perturbed|28|28` with `0/1` accepted cases. M206 is rejected; do not
+  continue PPO until the protected-key failure is audited.
 
 Current blocker:
 
 ```text
-one short guarded stage6 from M204 before any further continuation
+protected-key failure audit before any further PPO continuation
 ```
 
 ## Near-Term Rule
 
-M205 gives repeat-stable stage5 evidence, while M204 remains the best fixed-loss
-stage5 checkpoint. Run only one short guarded stage6 from M204 seed `5209`. Do
-not run stage6 repeats or a longer PPO continuation until that single stage6
-preserves behavior, protected key, old M183 replay, and refreshed M193 replay.
+M206 is rejected despite better fixed objective because the protected-key gate
+failed. Do not run PPO or actor updates until M207 audits the failure mechanism
+and pre-registers any guarded retry or design change. M204 remains the current
+best retained stage5 checkpoint.
 
 ## Sensor Profile Policy
 

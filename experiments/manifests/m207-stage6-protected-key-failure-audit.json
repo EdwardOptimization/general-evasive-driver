@@ -1,0 +1,47 @@
+{
+  "id": "m207-stage6-protected-key-failure-audit",
+  "type": "gate",
+  "hypothesis": "M206 improves fixed objective and broad retention gates but fails the protected key because the key moves outside the pre-registered boundary acceptance window. Before any more PPO, the failure mode must be audited and the next guarded retry must be specified.",
+  "success_criteria": [
+    "do not run PPO or actor updates in this milestone",
+    "inspect runs/m206_critical_key_seed9944 guard results and candidate CSVs",
+    "compare M204 and M206 on protected key 9944|perturbed|28|28",
+    "identify whether the failure is caused by boundary-window excursion, lost normal success, lost wrong-history sensitivity, or missing candidate rows",
+    "keep M204 as current-best unless the audit justifies a pre-registered retry",
+    "write a concrete next-step manifest before any further training"
+  ],
+  "failure_criteria": [
+    "continue PPO directly from M206",
+    "change protected-key thresholds after seeing the result without a design note",
+    "promote M206 based on fixed objective, behavior, or replay gates while protected-key acceptance is false",
+    "discard the protected key without replacing it with an equal or stronger pre-registered guard"
+  ],
+  "commands": [
+    {
+      "name": "m207_protected_key_audit",
+      "command": "Inspect runs/m206_critical_key_seed9944/guard_results.csv and m206_stage6_candidates.csv against the reference manifest thresholds."
+    },
+    {
+      "name": "m207_next_design",
+      "command": "Write the audited diagnosis and choose either a guarded stage6 retry from M204 or a protected-key-aware objective/config adjustment."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m207-stage6-protected-key-failure-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m204_stage5_from_m202_seed5209/checkpoint.pt",
+    "runs/ppo_m206_stage6_from_m204_seed5212/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m206_critical_key_seed9944/guard_results.csv",
+    "runs/m206_critical_key_seed9944/m206_stage6_candidates.csv",
+    "runs/m206_fixed_batch_outcome_eval_seed37/summary.json",
+    "runs/m206_behavior_gate_seed9505/policy_summary.csv",
+    "runs/m206_behavior_gate_seed9506/policy_summary.csv"
+  ],
+  "decision_rule": "No further PPO is allowed until this audit records the protected-key failure mechanism and pre-registers the next guarded action."
+}
