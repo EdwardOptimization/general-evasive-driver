@@ -5,8 +5,20 @@
   ],
   "commands": [
     {
-      "command": "Build a training-time capability-belief target dataset from P0-close pairs, prioritizing yaw response and mass/geometry-sensitive envelope targets rather than direct mu prediction.",
-      "name": "m151_capability_belief_target_dataset"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.capability_belief_target_dataset --mode run --env-config configs/m143_driver_like_profile_audit.json --pair-csv runs/m148_p0_close_ambiguity_seed9480/accepted_pairs.csv --hidden-metrics-csv runs/m150_p0_close_hidden_cause_seed9480/hidden_pair_metrics.csv --episodes 40 --seed 9480 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --history-window 25 --post-slip-beta-threshold 0.06 --run-dir runs/m151_capability_belief_dataset_seed9480",
+      "name": "m151_dataset_seed9480"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.capability_belief_target_dataset --mode run --env-config configs/m143_driver_like_profile_audit.json --pair-csv runs/m148_p0_close_ambiguity_seed9481/accepted_pairs.csv --hidden-metrics-csv runs/m150_p0_close_hidden_cause_seed9481/hidden_pair_metrics.csv --episodes 40 --seed 9481 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --history-window 25 --post-slip-beta-threshold 0.06 --run-dir runs/m151_capability_belief_dataset_seed9481",
+      "name": "m151_dataset_seed9481"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.capability_belief_target_dataset --mode run --env-config configs/m143_driver_like_profile_audit.json --pair-csv runs/m148_p0_close_ambiguity_seed9482/accepted_pairs.csv --hidden-metrics-csv runs/m150_p0_close_hidden_cause_seed9482/hidden_pair_metrics.csv --episodes 40 --seed 9482 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --history-window 25 --post-slip-beta-threshold 0.06 --run-dir runs/m151_capability_belief_dataset_seed9482",
+      "name": "m151_dataset_seed9482"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.capability_belief_target_dataset --mode combine --dataset-npzs runs/m151_capability_belief_dataset_seed9480/capability_belief_dataset.npz,runs/m151_capability_belief_dataset_seed9481/capability_belief_dataset.npz,runs/m151_capability_belief_dataset_seed9482/capability_belief_dataset.npz --summary-jsons runs/m151_capability_belief_dataset_seed9480/summary.json,runs/m151_capability_belief_dataset_seed9481/summary.json,runs/m151_capability_belief_dataset_seed9482/summary.json --run-dir runs/m151_capability_belief_dataset_multiseed",
+      "name": "m151_dataset_multiseed"
     }
   ],
   "decision_rule": "Admit a belief-learning objective only if the target dataset is P0-close, target-divergent, source-diverse, and uses deployable observations for the student while keeping hidden/capability values training-time only.",

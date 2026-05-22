@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 159,
+    "completed": 160,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m150-p0-close-hidden-cause-audit.md",
+    "command_log": "docs/m151-capability-belief-target-dataset.md",
     "returncode": 0,
-    "run_dir": "runs/m150_p0_close_hidden_cause_multiseed",
+    "run_dir": "runs/m151_capability_belief_dataset_multiseed",
     "status": "completed",
-    "task_id": "m150-p0-close-hidden-cause-audit"
+    "task_id": "m151-capability-belief-target-dataset"
   },
   "next_task": {
-    "command": "see experiments/manifests/m151-capability-belief-target-dataset.json",
-    "hypothesis": "A capability-belief target surface focused on yaw/lateral/braking envelope and mass-geometry-sensitive causes will be more useful than passive input expansion or direct friction prediction for P0-close ambiguity.",
-    "id": "m151-capability-belief-target-dataset",
-    "kind": "infrastructure",
-    "notes": "Pending after M150: build capability-belief target dataset without changing actor inputs",
-    "priority": 1460,
+    "command": "see experiments/manifests/m152-capability-belief-objective-sanity.json",
+    "hypothesis": "A capability-belief auxiliary objective can learn P0-close future-envelope distinctions from deployable P0 history better than direct friction prediction or passive input expansion.",
+    "id": "m152-capability-belief-objective-sanity",
+    "kind": "objective_sanity",
+    "notes": "Pending after M151: objective-only sanity before actor integration or PPO",
+    "priority": 1470,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T031500Z"
+  "updated_at_utc": "20260522T033000Z"
 }

@@ -133,3 +133,9 @@ is the dominant target gap in `47.5%` of pairs. Friction is common but not
 target-aligned, while mass/geometry is the strongest target-aligned hidden
 group (`corr=0.409`, top-overlap `0.45`). The next frontier is therefore a
 training-time capability-belief target dataset, not direct `mu` prediction.
+
+M151 built that dataset: `240` P0-close pairs with deployable P0 student
+features (`1800` dims = 25 frames x 72 features) and three teacher capability
+targets for braking, yaw, and lateral response. Hidden diagnostics are included
+only for training-time weighting/analysis. The next step is objective-only
+sanity on this dataset before any actor or PPO integration.

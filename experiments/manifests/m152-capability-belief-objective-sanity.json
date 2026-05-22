@@ -1,0 +1,35 @@
+{
+  "baseline_checkpoints": [
+    "runs/m151_capability_belief_dataset_multiseed/summary.json",
+    "runs/m150_p0_close_hidden_cause_multiseed/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "Run an objective-only sanity check on the M151 capability-belief dataset without changing actor inputs or starting PPO.",
+      "name": "m152_capability_belief_objective_sanity"
+    }
+  ],
+  "decision_rule": "Only admit capability-belief training toward actor work if objective-only optimization reduces capability target loss while preserving the current human-view actor input contract.",
+  "failure_criteria": [
+    "objective uses hidden parameters as deployable actor inputs",
+    "objective optimizes direct mu prediction as the primary target",
+    "objective ignores yaw/lateral/braking capability targets",
+    "sanity result is single-seed only or lacks before/after loss reporting"
+  ],
+  "hypothesis": "A capability-belief auxiliary objective can learn P0-close future-envelope distinctions from deployable P0 history better than direct friction prediction or passive input expansion.",
+  "id": "m152-capability-belief-objective-sanity",
+  "required_artifacts": [
+    {
+      "path": "docs/m152-capability-belief-objective-sanity.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "consume the M151 multiseed capability-belief dataset",
+    "report before/after capability target loss across at least three optimization seeds",
+    "verify student inputs remain P0 deployable history only",
+    "separate losses for braking, yaw, lateral, and pairwise delta targets",
+    "record whether the objective is ready for a guarded actor/hidden-state integration test"
+  ],
+  "type": "objective_sanity"
+}

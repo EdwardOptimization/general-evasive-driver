@@ -5882,3 +5882,65 @@ this surface. Mass/geometry is the strongest target-aligned hidden group. The
 next target should be capability belief, especially yaw/lateral/braking envelope
 under mass/inertia/cg variation, not direct `mu` prediction and not actor input
 expansion.
+
+## 20260522T033000Z m151-capability-belief-target-dataset
+
+M151 exports the training-time capability-belief dataset implied by M148-M150.
+The actor input contract remains unchanged.
+
+New code:
+
+```text
+src/autodrift/capability_belief_target_dataset.py
+tests/test_capability_belief_target_dataset.py
+```
+
+Runs:
+
+```text
+runs/m151_capability_belief_dataset_seed9480
+runs/m151_capability_belief_dataset_seed9481
+runs/m151_capability_belief_dataset_seed9482
+runs/m151_capability_belief_dataset_multiseed
+```
+
+Combined dataset:
+
+```text
+runs/m151_capability_belief_dataset_multiseed/capability_belief_dataset.npz
+```
+
+Array shapes:
+
+| Array | Shape |
+| --- | ---: |
+| student_p0_i | 240 x 1800 |
+| student_p0_j | 240 x 1800 |
+| teacher_capability_i | 240 x 3 |
+| teacher_capability_j | 240 x 3 |
+| teacher_capability_delta | 240 x 3 |
+| teacher_capability_abs_delta_z | 240 x 3 |
+| hidden_group_distances | 240 x 6 |
+
+Coverage:
+
+| Dominant target | Count | Fraction |
+| --- | ---: | ---: |
+| future braking deceleration | 73 | 0.304167 |
+| future yaw response | 114 | 0.475000 |
+| future lateral accel response | 53 | 0.220833 |
+
+| Dominant hidden group | Count | Fraction |
+| --- | ---: | ---: |
+| friction | 82 | 0.341667 |
+| mass geometry | 72 | 0.300000 |
+| drive authority | 38 | 0.158333 |
+| actuator delay | 23 | 0.095833 |
+| tire lateral authority | 15 | 0.062500 |
+| braking authority | 10 | 0.041667 |
+
+Decision: dataset is ready for objective-only sanity. Student arrays contain
+only deployable P0 history features. Teacher arrays contain braking/yaw/lateral
+capability targets and diagnostic hidden-group metadata for training-time
+weighting only. Next task: M152 objective-only capability-belief sanity before
+any actor integration or PPO.
