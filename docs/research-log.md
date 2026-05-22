@@ -8617,3 +8617,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: the old protected key is saturated: slack falls from `0.004180` at M253 to `0.000029` at M264 while wrong-history margin gap remains large. Replay and behavior are not the blocker; the single protected-key normal-margin window is now the active constraint.
 - decision: `refresh_current_family_protected_surface`
 - next: `m266-m264-family-protected-surface-refresh`
+
+## 20260522T171351Z - m266-m264-family-protected-surface-refresh
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m266_m264_family_boundary_robustness_seed9520`
+- artifact: `docs/m266-m264-family-protected-surface-refresh.md`
+- result: M266 refreshes the current M261/M263/M264 protected surface without PPO. Robustness passes with `180` accepted wrong-history boundary rows across `13` physical pairs, `8` left steps, `3` checkpoints, `2` targets, and `2` margin buckets. Mean normal margin is `0.005947` and max normal margin is `0.010194`, while the old key remains saturated at M264 with slack `0.000029`.
+- decision: `admit_protected_surface_objective_conversion`
+- next: `m267-protected-surface-objective-replay-conversion`

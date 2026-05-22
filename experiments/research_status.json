@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 274,
+    "completed": 275,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m265-protected-key-window-saturation-audit.md",
+    "command_log": "docs/m266-m264-family-protected-surface-refresh.md",
     "returncode": 0,
-    "run_dir": "docs/m265-protected-key-window-saturation-audit.md",
+    "run_dir": "runs/m266_m264_family_boundary_robustness_seed9520",
     "status": "completed",
-    "task_id": "m265-protected-key-window-saturation-audit"
+    "task_id": "m266-m264-family-protected-surface-refresh"
   },
   "next_task": {
-    "command": "see experiments/manifests/m266-m264-family-protected-surface-refresh.json",
-    "hypothesis": "A current-family protected-surface refresh can determine whether M264's protected-key saturation is a single-key artifact or a broader proof-surface constraint.",
-    "id": "m266-m264-family-protected-surface-refresh",
-    "kind": "gate",
-    "notes": "Pending: refresh protected surface before any more PPO",
-    "priority": 2610,
+    "command": "see experiments/manifests/m267-protected-surface-objective-replay-conversion.json",
+    "hypothesis": "The M266 source-diverse protected surface can be converted into replay-aligned objective/proof corpora for the current M261/M263/M264 family before any further PPO.",
+    "id": "m267-protected-surface-objective-replay-conversion",
+    "kind": "objective_sanity",
+    "notes": "Pending: convert refreshed M266 protected surface before any actor update or PPO",
+    "priority": 2620,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T160747Z"
+  "updated_at_utc": "20260522T171351Z"
 }

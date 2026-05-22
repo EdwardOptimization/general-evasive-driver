@@ -49,8 +49,10 @@ Status: M264 repaired stage2 repeat from M263. Raw PPO improves exact M223 and
 protected-key source losses, but protected-key replay promotes only
 `alpha=0.001`. `m264_a001` passes M183/M168, M183/M170, M193/M189, M212/M204,
 M223/M219 replay gates, protected key `9944|perturbed|28|28`, and behavior seeds
-`9505`/`9506`. M265 audits the protected-key normal-margin slack at `0.000029`
-and blocks more PPO until the current-family protected surface is refreshed.
+`9505`/`9506`. M265 audits the protected-key normal-margin slack at `0.000029`.
+M266 refreshes the current-family protected surface and finds the old key is a
+saturated diagnostic singleton, not the only current proof surface. More PPO is
+blocked until M267 converts the refreshed surface into objective/replay gates.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -309,43 +311,33 @@ slightly stronger action-level sensitivity.
   action anchor. Broad behavior remains `0.8625`, but fixed M223 does not beat
   M224, M183 M170 replay drops to `16/17`, and protected key `9944` fails with
   normal margin `0.203847`. M226 is rejected; current best remains M224.
+- M227-M265: repairs the PPO retention path with snippet anchors, protected-key
+  snippets, trajectory anchors, exact source-aware objectives, and
+  trajectory-anchored post-PPO projection. The current public-gate base advances
+  to `m264_a001`, but the old protected key becomes saturated: normal-margin
+  slack shrinks to `0.000029` while wrong-history margin gap remains large.
+- M266: refreshes the M261/M263/M264 protected surface without PPO. Robustness
+  passes with `180` accepted wrong-history boundary rows across `13` physical
+  pairs, `8` left steps, `3` checkpoints, `2` targets, and `2` margin buckets.
+  The refreshed rows have mean normal margin `0.005947` and max normal margin
+  `0.010194`, so the old key remains a diagnostic but should not be the sole
+  protected-surface veto.
 
 Current blocker:
 
 ```text
-PPO smoke retention failure audit
+m267-protected-surface-objective-replay-conversion
 ```
 
 ## Near-Term Rule
 
-M206 and M208 are both rejected despite better fixed objectives because the
-protected-key gate failed. The failure is now repeated, not a single-seed
-accident. Do not run another same-recipe stage6 retry, do not chain from M206 or
-M208, and do not loosen the protected-key threshold after seeing the result.
-M214 shows the M213 actor-update recipe is not repeat-stable: fixed objective
-can improve while replay normal-success retention fails. M215 must audit the
-failure and design a safer actor-update recipe before any more updates or PPO.
-M215 found the likely mechanism. M216 may run only the pre-registered smaller
-snippet-anchored actor update; PPO remains blocked until repeat replay retention
-passes. M216 passed on known failure seeds, so M217 must repeat the same recipe
-on fresh seeds before any PPO. M217 passed; only one tiny guarded PPO smoke from
-M217 seed `10054` is admitted before repeat evidence. M218 passed that single
-smoke, and M219 found only seed `5216` repeat-stable under the protected-key
-gate. M220 tried the one admitted stage2 and failed the protected key by leaving
-the near-boundary normal-margin window. Do not repeat M220, do not chain from
-M220, and do not loosen the protected-key threshold. Audit and design a
-protected-key-aware continuation path before any further PPO. M221 selected a
-current-family protected-surface refresh; PPO remains blocked until M222 passes
-and is converted into objective/replay gates. M222 passed, so M223 must convert
-the accepted rows into M219-family objective/replay corpora before any actor
-update or PPO. M223 passed; only one M216-style tiny snippet-anchored actor
-update from M219 seed `5216` is admitted before repeat evidence. M224 passed as
-a single actor update, so M225 must repeat the exact recipe from the same M219
-source on fresh seeds before any PPO. M225 passed repeat gates; only one tiny
-guarded PPO smoke from M224 is admitted before PPO repeat or longer
-continuation. M226 failed proof-surface retention despite stable broad behavior;
-do not repeat or continue PPO until M227 audits and pre-registers a stronger PPO
-retention mechanism.
+Do not run PPO, actor updates, or checkpoint promotion until M267 converts the
+M266 refreshed protected surface into replay-aligned objective/proof corpora and
+passes objective plus replay sanity. Keep the old protected key
+`9944|perturbed|28|28` as a diagnostic regression row, but do not let it remain
+the only hard protected-surface veto after M266. Do not loosen or delete the old
+key, do not change actor inputs, and do not compare future checkpoints without a
+source-diverse protected-surface gate.
 
 ## Sensor Profile Policy
 
