@@ -1,0 +1,93 @@
+{
+  "id": "m231-protected-key-snippet-surface-export",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt",
+      "runs/ppo_m229_snippet_anchor_from_m224_seed5219/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m229_critical_key_seed9944/protected_cases.csv",
+      "runs/m229_critical_key_seed9944/guard_results.csv",
+      "runs/m229_critical_key_seed9944/m224_10063_candidates.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m229_snippet_anchor_from_m224_smoke.json"
+    ],
+    "parent_objective": [
+      "protected-key normal-margin-window retention",
+      "preferred-only snippet action anchoring"
+    ],
+    "derived_from": [
+      "m230-m229-protected-key-failure-audit"
+    ],
+    "blocked_by": [
+      "m229-snippet-anchored-ppo-smoke-from-m224"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m231-protected-key-snippet-surface-export.md",
+  "public_gates": [
+    "protected key 9944 export",
+    "shape validation for observation/hidden/action/weight arrays",
+    "M224 reference action reconstruction",
+    "research validator"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M231",
+    "do not change actor inputs",
+    "do not loosen the protected-key normal-margin window",
+    "do not train lower clearance just to satisfy one key"
+  ],
+  "hypothesis": "M229 failed the protected key because the M223 snippet anchor surface does not cover that key. Exporting a protected-key snippet/action-anchor surface will make the missing proof row explicit before any further PPO.",
+  "success_criteria": [
+    "export a protected-key snippet npz compatible with PPO snippet_action_anchor_snapshot_npz",
+    "include deployable observation and recurrent hidden states for the protected key or a small protected-key family",
+    "anchor actions to M224 without adding privileged actor inputs",
+    "validate array shapes and positive weights",
+    "do not run PPO or promote a driver checkpoint"
+  ],
+  "failure_criteria": [
+    "run PPO before export validation",
+    "depend on hidden privileged parameters as actor inputs",
+    "omit the 9944 protected key",
+    "produce a snippet corpus with zero or non-finite weights"
+  ],
+  "commands": [
+    {
+      "name": "m231_export",
+      "command": "Export a protected-key snippet/action-anchor surface from the M229 critical-key artifacts, then validate it without running PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m231-protected-key-snippet-surface-export.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m231_protected_key_snippet_surface/protected_key_snippets.npz",
+      "type": "snippet_npz"
+    },
+    {
+      "path": "runs/m231_protected_key_snippet_surface/summary.json",
+      "type": "summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m224_m219_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10063/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m230-m229-protected-key-failure-audit.md",
+    "runs/m229_critical_key_seed9944/guard_results.csv",
+    "runs/m229_critical_key_seed9944/m224_10063_candidates.csv"
+  ],
+  "decision_rule": "M231 may only unblock a later protected-key-aware PPO smoke if the exported surface is validated and no PPO is run during export.",
+  "next_blocker": "Use the protected-key surface together with M223 snippets in a bounded PPO repair, or reject this path if export cannot recover deployable snippet states."
+}

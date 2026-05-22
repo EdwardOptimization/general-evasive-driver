@@ -2,9 +2,10 @@
   "id": "m230-m229-protected-key-failure-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "repair",
   "failure_types": [
-    "protected_key_window_failure"
+    "protected_key_window_failure",
+    "promotion_gate_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -84,5 +85,18 @@
     "runs/m229_m183_m170_replay_gate_seed9510/summary.json"
   ],
   "decision_rule": "Only an audit that explains the protected-key failure and pre-registers a bounded repair may unblock further PPO.",
-  "next_blocker": "Determine whether to add protected-key snippets to the PPO anchor surface, refresh a current-family protected surface, or change the promotion gate hierarchy."
+  "results": {
+    "m229_m183_m170_success_drop_count": 17,
+    "m229_m223_m219_success_drop_count": 17,
+    "m229_behavior_seed9505_success": 0.8625,
+    "m229_behavior_seed9506_success": 0.8625,
+    "m229_snippet_action_anchor_loss_mean": 1.9008744171304197e-08,
+    "protected_key": "9944|perturbed|28|28",
+    "protected_key_normal_margin": 0.20520001699064117,
+    "protected_key_margin_gap": 0.0990208868945166,
+    "protected_key_in_m223_surface": false,
+    "nearest_m223_geometry_distance": 0.5717698559622038
+  },
+  "decision": "repair_with_protected_key_snippet_surface",
+  "next_blocker": "Export protected-key snippets or a small protected-key family before any more PPO."
 }

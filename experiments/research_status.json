@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 238,
+    "completed": 239,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m229-snippet-anchored-ppo-smoke-from-m224.md",
+    "command_log": "docs/m230-m229-protected-key-failure-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m229_critical_key_seed9944",
+    "run_dir": "",
     "status": "completed",
-    "task_id": "m229-snippet-anchored-ppo-smoke-from-m224"
+    "task_id": "m230-m229-protected-key-failure-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m230-m229-protected-key-failure-audit.json",
-    "hypothesis": "M229 restored replay-surface retention but still failed the historical protected key; audit before any more PPO.",
-    "id": "m230-m229-protected-key-failure-audit",
-    "kind": "gate",
-    "notes": "Classify protected-key normal-margin-window failure and pre-register a bounded repair path.",
-    "priority": 2250,
+    "command": "see experiments/manifests/m231-protected-key-snippet-surface-export.json",
+    "hypothesis": "The protected key is outside the M223 snippet anchor surface and needs an explicit deployable snippet/action-anchor export.",
+    "id": "m231-protected-key-snippet-surface-export",
+    "kind": "infrastructure",
+    "notes": "Export validated protected-key snippet arrays; no PPO in M231.",
+    "priority": 2260,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T150000Z"
+  "updated_at_utc": "20260522T153000Z"
 }
