@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 161,
+    "completed": 162,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m152-capability-belief-objective-sanity.md",
+    "command_log": "docs/m153-capability-belief-hidden-integration-smoke.md",
     "returncode": 0,
-    "run_dir": "runs/m152_capability_belief_objective_sanity",
+    "run_dir": "runs/m153_capability_belief_hidden_integration_smoke",
     "status": "completed",
-    "task_id": "m152-capability-belief-objective-sanity"
+    "task_id": "m153-capability-belief-hidden-integration-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m153-capability-belief-hidden-integration-smoke.json",
-    "hypothesis": "The M152 capability-belief objective can be attached to the recurrent driver training path as a training-time auxiliary belief head while preserving the P0 human-view actor input contract.",
-    "id": "m153-capability-belief-hidden-integration-smoke",
-    "kind": "objective_sanity",
-    "notes": "Pending after M152: guarded integration smoke before PPO or driver promotion",
-    "priority": 1480,
+    "command": "see experiments/manifests/m154-capability-belief-behavior-gate-design.json",
+    "hypothesis": "A capability-belief auxiliary can be useful only if paired with a behavior gate that prevents the supervised belief objective from washing out rollout-margin and wrong-history proof surfaces.",
+    "id": "m154-capability-belief-behavior-gate-design",
+    "kind": "gate",
+    "notes": "Pending after M153: behavior-retention and wrong-history gate before PPO",
+    "priority": 1490,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T051000Z"
+  "updated_at_utc": "20260522T052000Z"
 }

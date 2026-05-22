@@ -148,3 +148,12 @@ This admits a guarded capability-belief hidden-state integration smoke, but it
 does not yet prove closed-loop self-identification or driver behavior. PPO and
 driver promotion remain blocked until behavior retention and wrong-history gates
 pass.
+
+M153 then attached the capability-belief target to the recurrent
+`human_view_online_gru` response hidden state. The smoke passed in `3/3`
+optimization seeds using only `25 x 72` canonical P0 history frames. Mean
+validation improvements were: combined `1.751224`, target `0.655611`, and
+pairwise delta `2.191227`. This proves the objective can be wired into the
+current recurrent driver architecture, but still does not prove behavior. The
+next required item is a behavior-retention and wrong-history gate design before
+any capability-belief PPO continuation.

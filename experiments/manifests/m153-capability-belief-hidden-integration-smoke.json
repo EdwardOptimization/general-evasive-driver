@@ -5,7 +5,7 @@
   ],
   "commands": [
     {
-      "command": "Prototype a guarded capability-belief hidden-state integration path without changing actor inputs or starting broad PPO.",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.capability_belief_hidden_integration --dataset-npz runs/m151_capability_belief_dataset_multiseed/capability_belief_dataset.npz --optimization-seeds 9610,9611,9612 --train-fraction 0.70 --steps 300 --batch-size 64 --learning-rate 0.0003 --weight-decay 0.001 --hidden-size 128 --history-window 25 --feature-source response_hidden --delta-loss-coef 0.5 --device cpu --run-dir runs/m153_capability_belief_hidden_integration_smoke",
       "name": "m153_capability_belief_hidden_integration_smoke"
     }
   ],
@@ -22,8 +22,29 @@
     {
       "path": "docs/m153-capability-belief-hidden-integration-smoke.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m153_capability_belief_hidden_integration_smoke/summary.json",
+      "type": "objective_summary"
+    },
+    {
+      "path": "runs/m153_capability_belief_hidden_integration_smoke/seed_summary.csv",
+      "type": "seed_summary"
+    },
+    {
+      "path": "runs/m153_capability_belief_hidden_integration_smoke/loss_summary.csv",
+      "type": "loss_summary"
     }
   ],
+  "result": {
+    "admission_decision": "admit_guarded_behavior_and_wrong_history_gate_design",
+    "feature_source": "response_hidden",
+    "integration_smoke_pass": true,
+    "mean_val_combined_loss_improvement": 1.751224,
+    "mean_val_delta_loss_improvement": 2.191227,
+    "mean_val_target_loss_improvement": 0.655611,
+    "seed_pass_count": 3
+  },
   "success_criteria": [
     "add a config-gated capability-belief auxiliary path or hidden-state objective harness",
     "prove actor observations remain current P0 human-view deployable fields only",

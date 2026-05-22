@@ -5995,3 +5995,56 @@ targets, and their pairwise delta losses are also positive.
 Decision: M152 passes objective-only sanity. Admit a guarded capability-belief
 hidden-state integration smoke, but do not claim closed-loop self-identification
 or start broad PPO without behavior retention and wrong-history gates.
+
+## 20260522T052000Z m153-capability-belief-hidden-integration-smoke
+
+M153 attaches the M152 capability-belief target to the current recurrent
+human-view driver architecture in a smoke setting. It does not change actor
+observations, does not start PPO, and does not claim driver promotion.
+
+New code:
+
+```text
+src/autodrift/capability_belief_hidden_integration.py
+tests/test_capability_belief_hidden_integration.py
+```
+
+Run:
+
+```text
+runs/m153_capability_belief_hidden_integration_smoke
+```
+
+Contract:
+
+```text
+input: 25 x 72 canonical P0 human-view frames
+actor_encoder: human_view_online_gru
+feature_source: response_hidden
+teacher targets: braking, yaw, lateral future capability
+hidden diagnostics: metadata only, not actor inputs
+```
+
+Validation improvements, before minus after:
+
+| Optimization seed | Combined | Target | Delta | Pass |
+| ---: | ---: | ---: | ---: | --- |
+| 9610 | 1.674818 | 0.612447 | 2.124743 | true |
+| 9611 | 1.877988 | 0.721843 | 2.312291 | true |
+| 9612 | 1.700866 | 0.632542 | 2.136648 | true |
+
+Mean validation improvements:
+
+| Metric | Improvement |
+| --- | ---: |
+| combined loss | 1.751224 |
+| target loss | 0.655611 |
+| pairwise delta loss | 2.191227 |
+
+Per-target validation improvements are positive for braking, yaw, and lateral
+targets, and their pairwise delta losses are also positive.
+
+Decision: M153 passes recurrent hidden integration smoke. Admit behavior and
+wrong-history gate design, but keep PPO and driver promotion blocked until
+closed-loop behavior retention and intervention degradation are explicitly
+verified.

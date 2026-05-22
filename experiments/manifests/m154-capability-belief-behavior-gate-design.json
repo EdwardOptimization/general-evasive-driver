@@ -1,0 +1,36 @@
+{
+  "baseline_checkpoints": [
+    "runs/m153_capability_belief_hidden_integration_smoke/summary.json",
+    "runs/m152_capability_belief_objective_sanity/summary.json",
+    "runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt"
+  ],
+  "commands": [
+    {
+      "command": "Design or implement the next behavior-retention and wrong-history guard required before any capability-belief PPO continuation.",
+      "name": "m154_capability_belief_behavior_gate_design"
+    }
+  ],
+  "decision_rule": "Capability-belief training cannot proceed to PPO unless the gate explicitly checks behavior retention, rollout margin, reset/zero-response/wrong-history degradation, and no actor-input leakage.",
+  "failure_criteria": [
+    "gate only reports supervised capability loss and ignores closed-loop behavior",
+    "gate permits driver promotion from M153 smoke alone",
+    "gate drops M142/M62-style behavior retention or strict proof-surface checks",
+    "gate introduces oracle labels or hidden dynamics into deployable actor observations"
+  ],
+  "hypothesis": "A capability-belief auxiliary can be useful only if paired with a behavior gate that prevents the supervised belief objective from washing out rollout-margin and wrong-history proof surfaces.",
+  "id": "m154-capability-belief-behavior-gate-design",
+  "required_artifacts": [
+    {
+      "path": "docs/m154-capability-belief-behavior-gate-design.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "specify the exact benchmark and intervention checks for a capability-belief trained checkpoint",
+    "preserve current P0 human-view actor input contract",
+    "include M142/M133-style behavior retention or critical-key guard requirements",
+    "include reset-hidden, zero-response, zero-action, and wrong-history degradation checks",
+    "state pass/fail thresholds before the next PPO or actor-coupling run"
+  ],
+  "type": "gate"
+}
