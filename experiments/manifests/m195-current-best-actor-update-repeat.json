@@ -20,17 +20,69 @@
   "commands": [
     {
       "name": "m195_actor_update_repeats",
-      "command": "Repeat the M194 actor-coupling recipe from M189 with fresh seeds."
+      "command": "Run the M194 actor-coupling recipe from M189 with fresh seeds 9851 and 9852."
     },
     {
-      "name": "m195_repeat_retention_gates",
-      "command": "Run fixed objective, replay, behavior, and protected-key gates for all accepted repeats."
+      "name": "m195_fixed_eval",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_eval --snippet-npz runs/m193_m189_boundary_outcome_corpus_seed9630/boundary_outcome_corpus.npz --checkpoint-policy m189_5193=runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt --checkpoint-policy m194_s20=runs/m194_m189_actor_coupling_anchor100_s20_seed9850/optimized_checkpoint.pt --checkpoint-policy m195_9851=runs/m195_m189_actor_coupling_anchor100_s20_seed9851/optimized_checkpoint.pt --checkpoint-policy m195_9852=runs/m195_m189_actor_coupling_anchor100_s20_seed9852/optimized_checkpoint.pt --device cpu --batch-size 64 --batches 50 --seed 37 --logprob-margin 0.05 --run-dir runs/m195_fixed_batch_outcome_eval_seed37"
+    },
+    {
+      "name": "m195_replay_behavior_key_gates",
+      "command": "Run M183 M168, M183 M170, M193 M189 replay gates plus behavior seeds 9505/9506 and protected-key replay for both M195 repeats."
     }
   ],
   "required_artifacts": [
     {
       "path": "docs/m195-current-best-actor-update-repeat.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m195_m189_actor_coupling_anchor100_s20_seed9851/optimized_checkpoint.pt",
+      "type": "checkpoint_seed9851"
+    },
+    {
+      "path": "runs/m195_m189_actor_coupling_anchor100_s20_seed9852/optimized_checkpoint.pt",
+      "type": "checkpoint_seed9852"
+    },
+    {
+      "path": "runs/m195_fixed_batch_outcome_eval_seed37/summary.json",
+      "type": "fixed_eval_summary"
+    },
+    {
+      "path": "runs/m195_9851_m183_m168_replay_gate_seed9510/summary.json",
+      "type": "seed9851_m183_m168_replay"
+    },
+    {
+      "path": "runs/m195_9851_m183_m170_replay_gate_seed9510/summary.json",
+      "type": "seed9851_m183_m170_replay"
+    },
+    {
+      "path": "runs/m195_9851_m193_m189_replay_gate_seed9630/summary.json",
+      "type": "seed9851_m193_m189_replay"
+    },
+    {
+      "path": "runs/m195_9852_m183_m168_replay_gate_seed9510/summary.json",
+      "type": "seed9852_m183_m168_replay"
+    },
+    {
+      "path": "runs/m195_9852_m183_m170_replay_gate_seed9510/summary.json",
+      "type": "seed9852_m183_m170_replay"
+    },
+    {
+      "path": "runs/m195_9852_m193_m189_replay_gate_seed9630/summary.json",
+      "type": "seed9852_m193_m189_replay"
+    },
+    {
+      "path": "runs/m195_behavior_gate_seed9505/policy_summary.csv",
+      "type": "behavior_seed9505"
+    },
+    {
+      "path": "runs/m195_behavior_gate_seed9506/policy_summary.csv",
+      "type": "behavior_seed9506"
+    },
+    {
+      "path": "runs/m195_critical_key_seed9944/summary.json",
+      "type": "protected_key"
     }
   ],
   "baseline_checkpoints": [
@@ -44,5 +96,32 @@
     "runs/m194_behavior_gate_seed9505/policy_summary.csv",
     "runs/m194_behavior_gate_seed9506/policy_summary.csv"
   ],
-  "decision_rule": "Only repeat-stable actor updates may admit a tiny guarded PPO smoke; otherwise keep actor-update design blocked."
+  "results": {
+    "repeat_checkpoints": [
+      "runs/m195_m189_actor_coupling_anchor100_s20_seed9851/optimized_checkpoint.pt",
+      "runs/m195_m189_actor_coupling_anchor100_s20_seed9852/optimized_checkpoint.pt"
+    ],
+    "training_loss_improvement_seed9851": 0.0011545558770497677,
+    "training_loss_improvement_seed9852": 0.001266806324323022,
+    "independent_loss_m189": 0.16064704418182374,
+    "independent_loss_m194": 0.15900827199220657,
+    "independent_loss_seed9851": 0.159514,
+    "independent_loss_seed9852": 0.159406,
+    "after_action_anchor_mse_seed9851": 0.0000057546712923794985,
+    "after_action_anchor_mse_seed9852": 0.000007877982170612086,
+    "m183_m168_success_drop_count_seed9851": 16,
+    "m183_m170_success_drop_count_seed9851": 17,
+    "m193_m189_success_drop_count_seed9851": 14,
+    "m183_m168_success_drop_count_seed9852": 16,
+    "m183_m170_success_drop_count_seed9852": 17,
+    "m193_m189_success_drop_count_seed9852": 14,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "reset_success": 0.85,
+    "zero_all_success": 0.80,
+    "protected_key_pass": true,
+    "best_actor_update_checkpoint": "runs/m194_m189_actor_coupling_anchor100_s20_seed9850/optimized_checkpoint.pt"
+  },
+  "decision_rule": "Only repeat-stable actor updates may admit a tiny guarded PPO smoke; otherwise keep actor-update design blocked.",
+  "decision": "admit_guarded_ppo_smoke_from_m194"
 }

@@ -115,18 +115,22 @@ slightly stronger action-level sensitivity.
   fixed objective by `0.001639` on independent eval, preserves behavior seeds
   `9505` and `9506`, passes the protected key, retains old M183 replay drops
   `16/16` and `17/17`, and retains refreshed M193 replay drops `14/14`.
+- M195: fresh actor-update repeats from M189 on seeds `9851` and `9852` both
+  improve the fixed M193 objective versus M189 and preserve behavior,
+  protected key, old M183 replay, and refreshed M193 replay. M194 remains the
+  best fixed-objective actor-update checkpoint.
 
 Current blocker:
 
 ```text
-repeat the low-drift current-best actor update before any PPO continuation
+tiny guarded PPO smoke from M194 before any longer PPO continuation
 ```
 
 ## Near-Term Rule
 
-Do not run PPO yet. M194 is positive but only one actor-update seed. Repeat the
-same anchored update recipe from M189 on fresh seeds before any PPO smoke is
-admitted.
+Only a tiny guarded PPO smoke is admitted, starting from M194. Do not run a
+longer PPO continuation until the smoke preserves behavior, protected key, old
+M183 replay, and refreshed M193 replay.
 
 ## Sensor Profile Policy
 

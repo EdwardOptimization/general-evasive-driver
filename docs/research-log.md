@@ -7025,3 +7025,44 @@ Results:
 Decision: M194 is positive as a single-seed actor update, but not enough to run
 PPO. Repeat the same actor-update recipe from M189 on fresh seeds before any
 guarded PPO smoke.
+
+## 20260522T084409Z m195-current-best-actor-update-repeat
+
+M195 repeated the M194 low-drift actor-coupling recipe from the same M189
+checkpoint on fresh seeds `9851` and `9852`. No PPO was run.
+
+Artifacts:
+
+- `runs/m195_m189_actor_coupling_anchor100_s20_seed9851`
+- `runs/m195_m189_actor_coupling_anchor100_s20_seed9852`
+- `runs/m195_fixed_batch_outcome_eval_seed37`
+- `runs/m195_9851_m183_m168_replay_gate_seed9510`
+- `runs/m195_9851_m183_m170_replay_gate_seed9510`
+- `runs/m195_9851_m193_m189_replay_gate_seed9630`
+- `runs/m195_9852_m183_m168_replay_gate_seed9510`
+- `runs/m195_9852_m183_m170_replay_gate_seed9510`
+- `runs/m195_9852_m193_m189_replay_gate_seed9630`
+- `runs/m195_behavior_gate_seed9505`
+- `runs/m195_behavior_gate_seed9506`
+- `runs/m195_critical_key_seed9944`
+- `docs/m195-current-best-actor-update-repeat.md`
+
+Results:
+
+- seed `9851` training objective improvement `0.001155`, action-anchor MSE
+  `0.000005755`;
+- seed `9852` training objective improvement `0.001267`, action-anchor MSE
+  `0.000007878`;
+- independent fixed objective losses: M189 `0.160647`, M194 `0.159008`,
+  M195 seed `9851` `0.159514`, M195 seed `9852` `0.159406`;
+- both repeats preserve M183 M168 replay drops `16/16`;
+- both repeats preserve M183 M170 replay drops `17/17`;
+- both repeats preserve M193 M189 replay drops `14/14`;
+- behavior seeds `9505` and `9506` retain success `0.8625`;
+- reset-hidden and zero-all-response ablations remain at `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` passes for M189, M194, and both M195
+  repeats.
+
+Decision: M195 is positive repeat evidence. M194 remains the best
+fixed-objective actor-update checkpoint. Admit only a tiny guarded PPO smoke
+from M194, with old and refreshed replay gates still required.

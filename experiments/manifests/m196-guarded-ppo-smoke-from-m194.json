@@ -1,0 +1,50 @@
+{
+  "id": "m196-guarded-ppo-smoke-from-m194",
+  "type": "driver_candidate",
+  "hypothesis": "M194 is the best fixed-objective low-drift actor update from M189, and M195 shows the same actor-update recipe is repeat-stable. A tiny guarded PPO smoke from M194 may test whether PPO can retain the refreshed objective and proof-surface gains without behavior or replay regression.",
+  "success_criteria": [
+    "start from runs/m194_m189_actor_coupling_anchor100_s20_seed9850/optimized_checkpoint.pt",
+    "run only a tiny PPO smoke, not a longer continuation",
+    "keep actor inputs unchanged",
+    "preserve behavior seeds 9505 and 9506",
+    "preserve protected key 9944|perturbed|28|28",
+    "preserve old M183 M168/M170 replay gates and refreshed M193 M189 replay gate",
+    "compare fixed M193 objective against M189 and M194 before accepting any continuation"
+  ],
+  "failure_criteria": [
+    "chain multiple PPO stages before one smoke passes",
+    "drop any M183 or M193 replay row",
+    "lose behavior or protected-key retention",
+    "promote based only on training reward or fixed objective improvement"
+  ],
+  "commands": [
+    {
+      "name": "m196_guarded_ppo_smoke",
+      "command": "Run a tiny guarded PPO smoke from M194 using the existing M185 smoke recipe adapted only by init checkpoint."
+    },
+    {
+      "name": "m196_retention_gates",
+      "command": "Run fixed objective, replay, behavior, and protected-key gates before admitting any PPO repeat."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m196-guarded-ppo-smoke-from-m194.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m189_stage3_from_m188_seed5193/checkpoint.pt",
+    "runs/m194_m189_actor_coupling_anchor100_s20_seed9850/optimized_checkpoint.pt",
+    "runs/m195_m189_actor_coupling_anchor100_s20_seed9851/optimized_checkpoint.pt",
+    "runs/m195_m189_actor_coupling_anchor100_s20_seed9852/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m195_fixed_batch_outcome_eval_seed37/summary.json",
+    "runs/m195_9851_m193_m189_replay_gate_seed9630/summary.json",
+    "runs/m195_9852_m193_m189_replay_gate_seed9630/summary.json",
+    "runs/m195_behavior_gate_seed9505/policy_summary.csv",
+    "runs/m195_behavior_gate_seed9506/policy_summary.csv"
+  ],
+  "decision_rule": "Only a tiny PPO smoke that preserves behavior, protected key, old replay, and refreshed replay may admit PPO repeats."
+}
