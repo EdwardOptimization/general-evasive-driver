@@ -8657,3 +8657,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M269 audits M268 and finds the failure is normal-history collision on old surfaces, not wrong-history sensitivity loss. M183/M168 loses `13/16` normal successes, M183/M170 loses `14/17`, and M193/M189 loses `9/14`; retained M212/M223/M267 surfaces have smaller action drift. M193 fully overlaps M267 physical keys, so the issue is old hidden/action geometry not protected by an M267-only corpus.
 - decision: `repair_with_multi_surface_anchor_corpus`
 - next: `m270-source-balanced-multi-surface-anchor-corpus`
+
+## 20260522T173512Z - m270-source-balanced-multi-surface-anchor-corpus
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m270_source_balanced_multi_surface_anchor`
+- artifact: `docs/m270-source-balanced-multi-surface-anchor-corpus.md`
+- result: M270 builds a `99`-row source-balanced combined corpus from M183/M168, M183/M170, M193/M189, M212/M204, M223/M219, M267/M264, and protected key `9944`. Each source contributes total weight about `1.0`; loader validation passes for shape `99 x 72`, hidden `99 x 128`, and actions `99 x 3`.
+- decision: `admit_multi_surface_guarded_actor_update`
+- next: `m271-m270-multi-surface-guarded-actor-update`

@@ -2,7 +2,7 @@
   "id": "m270-source-balanced-multi-surface-anchor-corpus",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -70,13 +70,25 @@
   "commands": [
     {
       "name": "m270_combine",
-      "command": "Build and validate a source-balanced combined old+current+protected-key snippet anchor corpus before any new actor update."
+      "command": "Build and validate a source-balanced combined old+current+protected-key snippet anchor corpus before any new actor update. Output: runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz"
     }
   ],
   "required_artifacts": [
     {
       "path": "docs/m270-source-balanced-multi-surface-anchor-corpus.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "type": "combined_snippet_npz"
+    },
+    {
+      "path": "runs/m270_source_balanced_multi_surface_anchor/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m270_source_balanced_multi_surface_anchor/validation.json",
+      "type": "validation"
     }
   ],
   "baseline_checkpoints": [
@@ -86,6 +98,49 @@
     "docs/m269-m268-old-surface-proof-washout-audit.md",
     "docs/m232-protected-key-combined-snippet-anchor-corpus.md"
   ],
-  "decision_rule": "M270 may only admit a new actor-update repair if the combined corpus is source-balanced, validates through the loader, and retains old M183/M193 plus current M267 surfaces. PPO remains blocked.",
-  "next_blocker": "pending M270 combined corpus"
+  "results": {
+    "run_dir": "runs/m270_source_balanced_multi_surface_anchor",
+    "output_rows": 99,
+    "source_count": 7,
+    "source_labels": [
+      "m183_m168",
+      "m183_m170",
+      "m193_m189",
+      "m212_m204",
+      "m223_m219",
+      "m267_m264",
+      "protected_key_9944"
+    ],
+    "m183_m168_rows": 16,
+    "m183_m170_rows": 17,
+    "m193_m189_rows": 14,
+    "m212_m204_rows": 17,
+    "m223_m219_rows": 17,
+    "m267_m264_rows": 17,
+    "protected_key_rows": 1,
+    "source_weight_sum_target": 1.0,
+    "combined_weight_sum": 6.999999523162842,
+    "weight_min": 0.03709816187620163,
+    "weight_max": 1.0,
+    "observation_shape": [
+      99,
+      72
+    ],
+    "preferred_hidden_shape": [
+      99,
+      128
+    ],
+    "rejected_hidden_shape": [
+      99,
+      128
+    ],
+    "preferred_action_shape": [
+      99,
+      3
+    ],
+    "loader_validation": true
+  },
+  "decision_rule": "M270 admits one guarded actor-update repair only because the combined corpus is source-balanced, validates through the loader, and retains old M183/M193 plus current M267 surfaces. PPO remains blocked.",
+  "decision": "admit_multi_surface_guarded_actor_update",
+  "next_blocker": "m271-m270-multi-surface-guarded-actor-update"
 }

@@ -56,7 +56,7 @@ converts the refreshed surface into replay-aligned objective/proof corpora.
 M268 tried one small guarded actor update from M264 using the M267 M264 corpus.
 It improved the M267 objective but washed out old M183/M193 proof surfaces. PPO
 and further actor updates are blocked until a source-balanced multi-surface
-anchor corpus is built.
+anchor corpus is used in the next gated actor-update attempt.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -338,18 +338,22 @@ slightly stronger action-level sensitivity.
   surfaces, not wrong-history sensitivity loss. M193 fully overlaps M267
   physical keys and still fails, so the issue is old hidden/action geometry not
   protected by an M267-only corpus.
+- M270: builds a `99`-row source-balanced combined anchor corpus covering
+  M183/M168, M183/M170, M193/M189, M212/M204, M223/M219, M267/M264, and
+  protected key `9944`. Loader validation passes.
 
 Current blocker:
 
 ```text
-m270-source-balanced-multi-surface-anchor-corpus
+m271-m270-multi-surface-guarded-actor-update
 ```
 
 ## Near-Term Rule
 
-Do not repeat M268, run PPO, or run another actor update until M270 builds and
-validates a source-balanced combined anchor corpus covering old M183/M193,
-recent M212/M223/M267, and the protected-key diagnostic. Keep
+M271 may run exactly one small actor update from `m264_a001` using the M270
+combined corpus. Do not repeat seeds, run PPO, or promote a checkpoint before
+that update passes fixed combined objective, old replay gates, current replay
+gates, protected-key diagnostic, and behavior seeds. Keep
 `9944|perturbed|28|28` as a diagnostic row, but do not let it remain the only
 hard protected-surface veto. Do not change actor inputs.
 

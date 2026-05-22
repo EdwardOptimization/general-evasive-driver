@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 278,
+    "completed": 279,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m269-m268-old-surface-proof-washout-audit.md",
+    "command_log": "docs/m270-source-balanced-multi-surface-anchor-corpus.md",
     "returncode": 0,
-    "run_dir": "docs/m269-m268-old-surface-proof-washout-audit.md",
+    "run_dir": "runs/m270_source_balanced_multi_surface_anchor",
     "status": "completed",
-    "task_id": "m269-m268-old-surface-proof-washout-audit"
+    "task_id": "m270-source-balanced-multi-surface-anchor-corpus"
   },
   "next_task": {
-    "command": "see experiments/manifests/m270-source-balanced-multi-surface-anchor-corpus.json",
-    "hypothesis": "A source-balanced combined snippet corpus covering old M183/M193, recent M212/M223/M267, and the protected-key diagnostic can provide the retention substrate that M268 lacked.",
-    "id": "m270-source-balanced-multi-surface-anchor-corpus",
-    "kind": "infrastructure",
-    "notes": "Pending: build source-balanced combined anchor corpus before any new actor update or PPO",
-    "priority": 2650,
+    "command": "see experiments/manifests/m271-m270-multi-surface-guarded-actor-update.json",
+    "hypothesis": "A small actor-coupling update from M264 using the M270 source-balanced multi-surface corpus can improve the combined objective while retaining old M183/M193 and current M267 proof surfaces.",
+    "id": "m271-m270-multi-surface-guarded-actor-update",
+    "kind": "driver_candidate",
+    "notes": "Pending: one small multi-surface actor update; PPO remains blocked",
+    "priority": 2660,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T173050Z"
+  "updated_at_utc": "20260522T173512Z"
 }

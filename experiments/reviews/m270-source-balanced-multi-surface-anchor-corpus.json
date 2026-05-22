@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M270 builds a 99-row 7-source balanced corpus covering M183 M193 M212 M223 M267 and protected-key snippets with loader validation",
+  "failure_criteria": [
+    "combined corpus omits any required source surface",
+    "source weights are aggregate-dominated by one surface",
+    "loader validation fails",
+    "M270 runs actor update, PPO, or changes actor inputs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO in M270",
+    "do not run an actor update in M270",
+    "do not drop old M183/M193 rows",
+    "do not change actor inputs",
+    "do not hide source imbalance behind aggregate row counts"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260522T173724Z",
+  "hypothesis": "A source-balanced combined snippet corpus covering old M183/M193, recent M212/M223/M267, and the protected-key diagnostic can provide the retention substrate that M268 lacked.",
+  "lineage": {
+    "blocked_by": [
+      "m269-m268-old-surface-proof-washout-audit"
+    ],
+    "derived_from": [
+      "m269-m268-old-surface-proof-washout-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m269-m268-old-surface-proof-washout-audit.json",
+      "docs/m269-m268-old-surface-proof-washout-audit.md"
+    ],
+    "parent_dataset": [
+      "runs/m183_m168_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.npz",
+      "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.npz",
+      "runs/m193_m189_boundary_outcome_corpus_seed9630/boundary_outcome_corpus.npz",
+      "runs/m212_m204_boundary_outcome_corpus_seed10040/boundary_outcome_corpus.npz",
+      "runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.npz",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.npz",
+      "runs/m231_protected_key_snippet_surface/protected_key_snippets.npz"
+    ],
+    "parent_objective": [
+      "source-balanced old+current+protected-key snippet anchor corpus for actor-update retention"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m270-source-balanced-multi-surface-anchor-corpus",
+  "next_blocker": "m271-m270-multi-surface-guarded-actor-update",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_multi_surface_guarded_actor_update",
+  "public_gates": [
+    "combined corpus shape validation",
+    "source-balanced row-count and weight validation",
+    "old M183/M193 rows retained",
+    "recent M212/M223/M267 rows retained",
+    "protected key 9944 diagnostic retained",
+    "loader validation for outcome_intervention_optimize"
+  ],
+  "scoreboard": {
+    "checkpoint": "not_applicable_infrastructure_task",
+    "clearance_margin_mean": "",
+    "decision": "admit_multi_surface_guarded_actor_update",
+    "milestone": "m270-source-balanced-multi-surface-anchor-corpus",
+    "reason": "M270 builds a 99-row 7-source balanced corpus covering M183 M193 M212 M223 M267 and protected-key snippets with loader validation",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "build one validated combined NPZ compatible with outcome_intervention_optimize",
+    "retain rows from every required source surface",
+    "record per-source row counts and weights",
+    "validate observation hidden action and weight shapes",
+    "validate all weights are finite and positive",
+    "do not run actor update or PPO"
+  ],
+  "type": "infrastructure"
+}
