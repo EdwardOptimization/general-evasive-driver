@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 196,
+    "completed": 197,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m187-guarded-stage2-ppo-from-m185.md",
+    "command_log": "docs/m188-stage2-repeat-from-m185.md",
     "returncode": 0,
-    "run_dir": "runs/ppo_m187_stage2_from_m185_seed5190",
+    "run_dir": "runs/ppo_m188_stage2_from_m185_seed5191",
     "status": "completed",
-    "task_id": "m187-guarded-stage2-ppo-from-m185"
+    "task_id": "m188-stage2-repeat-from-m185"
   },
   "next_task": {
-    "command": "see experiments/manifests/m188-stage2-repeat-from-m185.json",
-    "hypothesis": "M187 passed as a single-seed stage2 PPO extension, but repeat evidence is needed before any longer continuation.",
-    "id": "m188-stage2-repeat-from-m185",
+    "command": "see experiments/manifests/m189-guarded-stage3-from-m188.json",
+    "hypothesis": "M188 repeated the stage2 recipe successfully and seed 5191 has the best fixed loss, so the next step is one short guarded stage3 from that checkpoint.",
+    "id": "m189-guarded-stage3-from-m188",
     "kind": "driver_candidate",
-    "notes": "Repeat the M187 stage2 recipe from M185 on fresh seeds and reject if behavior, protected key, or either M183 replay surface regresses.",
-    "priority": 1830,
+    "notes": "Start from M188 seed 5191 and reject if behavior, protected key, or either M183 replay surface regresses.",
+    "priority": 1840,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T074031Z"
+  "updated_at_utc": "20260522T074733Z"
 }

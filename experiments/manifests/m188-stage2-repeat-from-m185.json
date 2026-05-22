@@ -20,17 +20,65 @@
   "commands": [
     {
       "name": "m188_stage2_repeat_seed5191",
-      "command": "Run a 1024-step stage2 PPO repeat from runs/ppo_m185_guarded_from_m184_seed5185/checkpoint.pt with seed 5191 and the same M187 gates."
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_m185_guarded_from_m184_smoke.json --seed 5191 --init-checkpoint runs/ppo_m185_guarded_from_m184_seed5185/checkpoint.pt --run-dir runs/ppo_m188_stage2_from_m185_seed5191"
     },
     {
       "name": "m188_stage2_repeat_seed5192",
-      "command": "Run a 1024-step stage2 PPO repeat from runs/ppo_m185_guarded_from_m184_seed5185/checkpoint.pt with seed 5192 and the same M187 gates."
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_m185_guarded_from_m184_smoke.json --seed 5192 --init-checkpoint runs/ppo_m185_guarded_from_m184_seed5185/checkpoint.pt --run-dir runs/ppo_m188_stage2_from_m185_seed5192"
+    },
+    {
+      "name": "m188_fixed_batch_eval",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_eval --snippet-npz runs/m183_m168_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.npz --checkpoint-policy m184_s20=runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt --checkpoint-policy m185_5185=runs/ppo_m185_guarded_from_m184_seed5185/checkpoint.pt --checkpoint-policy m187_5190=runs/ppo_m187_stage2_from_m185_seed5190/checkpoint.pt --checkpoint-policy m188_5191=runs/ppo_m188_stage2_from_m185_seed5191/checkpoint.pt --checkpoint-policy m188_5192=runs/ppo_m188_stage2_from_m185_seed5192/checkpoint.pt --device cpu --batch-size 64 --batches 50 --seed 37 --logprob-margin 0.05 --run-dir runs/m188_fixed_batch_outcome_eval_seed37"
+    },
+    {
+      "name": "m188_replay_behavior_key_gates",
+      "command": "Run the M168/M170 boundary replay gates, behavior seeds 9503/9504, and protected-key replay for both M188 repeat checkpoints."
     }
   ],
   "required_artifacts": [
     {
       "path": "docs/m188-stage2-repeat-from-m185.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/ppo_m188_stage2_from_m185_seed5191/checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/ppo_m188_stage2_from_m185_seed5192/checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m188_fixed_batch_outcome_eval_seed37/summary.json",
+      "type": "fixed_eval_summary"
+    },
+    {
+      "path": "runs/m188_5191_m168_boundary_replay_gate_seed9510/summary.json",
+      "type": "m168_boundary_replay_seed5191"
+    },
+    {
+      "path": "runs/m188_5191_m170_boundary_replay_gate_seed9510/summary.json",
+      "type": "m170_boundary_replay_seed5191"
+    },
+    {
+      "path": "runs/m188_5192_m168_boundary_replay_gate_seed9510/summary.json",
+      "type": "m168_boundary_replay_seed5192"
+    },
+    {
+      "path": "runs/m188_5192_m170_boundary_replay_gate_seed9510/summary.json",
+      "type": "m170_boundary_replay_seed5192"
+    },
+    {
+      "path": "runs/m188_behavior_gate_seed9503/policy_summary.csv",
+      "type": "behavior_seed9503"
+    },
+    {
+      "path": "runs/m188_behavior_gate_seed9504/policy_summary.csv",
+      "type": "behavior_seed9504"
+    },
+    {
+      "path": "runs/m188_critical_key_seed9944/summary.json",
+      "type": "protected_key"
     }
   ],
   "baseline_checkpoints": [
@@ -46,5 +94,24 @@
     "runs/m187_behavior_gate_seed9504/policy_summary.csv",
     "runs/m187_critical_key_seed9944/summary.json"
   ],
-  "decision_rule": "Admit any longer or chained PPO only if stage2 repeats preserve behavior, protected key, and both M183 replay surfaces."
+  "results": {
+    "repeat_checkpoints": [
+      "runs/ppo_m188_stage2_from_m185_seed5191/checkpoint.pt",
+      "runs/ppo_m188_stage2_from_m185_seed5192/checkpoint.pt"
+    ],
+    "fixed_loss_m187": 0.1713507679104805,
+    "fixed_loss_m188_5191": 0.17130567997694016,
+    "fixed_loss_m188_5192": 0.17135250002145766,
+    "m168_success_drop_count_seed5191": 16,
+    "m170_success_drop_count_seed5191": 17,
+    "m168_success_drop_count_seed5192": 16,
+    "m170_success_drop_count_seed5192": 17,
+    "behavior_seed9503_success": 0.8625,
+    "behavior_seed9504_success": 0.8625,
+    "reset_success": 0.85,
+    "zero_all_success": 0.80,
+    "protected_key_pass": true
+  },
+  "decision_rule": "Admit any longer or chained PPO only if stage2 repeats preserve behavior, protected key, and both M183 replay surfaces.",
+  "decision": "admit_guarded_stage3_design"
 }

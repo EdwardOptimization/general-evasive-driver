@@ -1,0 +1,49 @@
+{
+  "id": "m189-guarded-stage3-from-m188",
+  "type": "driver_candidate",
+  "hypothesis": "M188 repeated the stage2 recipe successfully and seed 5191 is the lowest fixed-loss retained stage2 checkpoint. One short guarded stage3 from that checkpoint may continue improving the fixed objective while preserving behavior and replay gates.",
+  "success_criteria": [
+    "start from runs/ppo_m188_stage2_from_m185_seed5191/checkpoint.pt",
+    "run only one short stage3 continuation",
+    "keep strong action anchoring and unchanged actor inputs",
+    "preserve behavior success on seeds 9503 and 9504",
+    "preserve protected key 9944|perturbed|28|28",
+    "preserve M168 and M170 M183 boundary replay success-drop counts",
+    "reject if replay or behavior regresses even if fixed objective improves"
+  ],
+  "failure_criteria": [
+    "run a long PPO continuation directly",
+    "drop any M183 boundary replay row",
+    "lose behavior or protected-key retention",
+    "change actor observation inputs"
+  ],
+  "commands": [
+    {
+      "name": "m189_short_stage3",
+      "command": "Run a 1024-step guarded PPO continuation from runs/ppo_m188_stage2_from_m185_seed5191/checkpoint.pt with the same M188 gate set."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m189-guarded-stage3-from-m188.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt",
+    "runs/ppo_m187_stage2_from_m185_seed5190/checkpoint.pt",
+    "runs/ppo_m188_stage2_from_m185_seed5191/checkpoint.pt",
+    "runs/ppo_m188_stage2_from_m185_seed5192/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m188_fixed_batch_outcome_eval_seed37/summary.json",
+    "runs/m188_5191_m168_boundary_replay_gate_seed9510/summary.json",
+    "runs/m188_5191_m170_boundary_replay_gate_seed9510/summary.json",
+    "runs/m188_5192_m168_boundary_replay_gate_seed9510/summary.json",
+    "runs/m188_5192_m170_boundary_replay_gate_seed9510/summary.json",
+    "runs/m188_behavior_gate_seed9503/policy_summary.csv",
+    "runs/m188_behavior_gate_seed9504/policy_summary.csv",
+    "runs/m188_critical_key_seed9944/summary.json"
+  ],
+  "decision_rule": "Admit any further continuation only if the short stage3 preserves behavior, protected key, and both M183 replay surfaces."
+}

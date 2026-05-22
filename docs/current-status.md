@@ -47,6 +47,7 @@ Not allowed in the deployable actor:
 | guarded PPO smoke candidate | `runs/ppo_m185_guarded_from_m184_seed5185/checkpoint.pt` | positive single-seed PPO smoke; requires repeat before longer PPO |
 | repeated PPO smoke candidates | `runs/ppo_m186_guarded_from_m184_seed5186/checkpoint.pt`, `runs/ppo_m186_guarded_from_m184_seed5187/checkpoint.pt` | preserve gates; fixed objective mixed, so M185 remains best fixed-loss candidate |
 | guarded stage2 candidate | `runs/ppo_m187_stage2_from_m185_seed5190/checkpoint.pt` | positive single-seed stage2; requires repeat before longer PPO |
+| repeated stage2 candidates | `runs/ppo_m188_stage2_from_m185_seed5191/checkpoint.pt`, `runs/ppo_m188_stage2_from_m185_seed5192/checkpoint.pt` | preserve gates; seed 5191 has current best fixed M183 loss |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -85,19 +86,21 @@ slightly stronger action-level sensitivity.
 - M187: a short stage2 PPO extension from M185 seed `5185` improves fixed M183
   loss to `0.171351` and preserves behavior, protected key, and both M183
   replay surfaces.
+- M188: stage2 repeats on seeds `5191` and `5192` preserve behavior, protected
+  key, and both M183 replay surfaces; seed `5191` improves fixed M183 loss to
+  `0.171306`.
 
 Current blocker:
 
 ```text
-stage2 repeat from M185 seed 5185 without losing behavior retention,
+short guarded stage3 from M188 seed 5191 without losing behavior retention,
 protected key, or M183 boundary replay rows
 ```
 
 ## Near-Term Rule
 
-Repeat the M187 stage2 recipe from M185 seed `5185` on fresh seeds. Do not run
-a longer continuation until repeats preserve behavior retention, protected key,
-and both M183 boundary replay surfaces.
+Run only one short guarded stage3 from M188 seed `5191`. Reject it if behavior
+retention, protected key, or either M183 boundary replay surface regresses.
 
 ## Sensor Profile Policy
 

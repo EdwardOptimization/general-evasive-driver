@@ -6807,3 +6807,35 @@ Results:
 Decision: admit stage2 repeats only. Do not run longer PPO until fresh stage2
 repeats from M185 preserve behavior, protected key, and both M183 replay
 surfaces.
+
+## 20260522T074733Z m188-stage2-repeat-from-m185
+
+M188 repeated the M187 stage2 recipe from M185 seed `5185` on fresh seeds
+`5191` and `5192`.
+
+Artifacts:
+
+- `runs/ppo_m188_stage2_from_m185_seed5191`
+- `runs/ppo_m188_stage2_from_m185_seed5192`
+- `runs/m188_fixed_batch_outcome_eval_seed37`
+- `runs/m188_5191_m168_boundary_replay_gate_seed9510`
+- `runs/m188_5191_m170_boundary_replay_gate_seed9510`
+- `runs/m188_5192_m168_boundary_replay_gate_seed9510`
+- `runs/m188_5192_m170_boundary_replay_gate_seed9510`
+- `runs/m188_behavior_gate_seed9503`
+- `runs/m188_behavior_gate_seed9504`
+- `runs/m188_critical_key_seed9944`
+- `docs/m188-stage2-repeat-from-m185.md`
+
+Results:
+
+- fixed M183 losses: M187 `0.171351`, M188 seed `5191` `0.171306`, M188
+  seed `5192` `0.171353`;
+- all M188 repeats retain M168 replay `16/16` success drops;
+- all M188 repeats retain M170 replay `17/17` success drops;
+- behavior success matches M184/M187 on seeds `9503` and `9504`;
+- reset and zero-all ablations still degrade success to `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` passes `1/1` for both repeats.
+
+Decision: admit one short guarded stage3 design. Start from M188 seed `5191`
+because it has the current best fixed M183 loss while preserving all gates.
