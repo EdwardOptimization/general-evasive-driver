@@ -71,5 +71,22 @@
     "runs/m211_current_family_boundary_surface_seed9520/summary.json",
     "runs/m211_current_family_boundary_robustness_seed9520/summary.json"
   ],
-  "decision_rule": "If M222 passes, convert the refreshed current-family surface into objective and replay gates before any more PPO. If it fails, pause PPO and design stronger history-necessity mining or protected-surface anchoring."
+  "results": {
+    "candidate_pair_count": 276273,
+    "accepted_pair_count": 2816,
+    "accepted_physical_pair_count": 292,
+    "outcome_row_count": 16896,
+    "boundary_row_count": 69565,
+    "accepted_wrong_history_rows": 180,
+    "accepted_wrong_history_pairs": 107,
+    "accepted_wrong_physical_pairs": 13,
+    "accepted_wrong_left_steps": 8,
+    "accepted_wrong_checkpoints": 3,
+    "accepted_wrong_targets": 2,
+    "accepted_wrong_normal_margin_buckets": 2,
+    "accepted_wrong_success_drop_fraction": 1.0,
+    "robustness_passed": true
+  },
+  "decision_rule": "If M222 passes, convert the refreshed current-family surface into objective and replay gates before any more PPO. If it fails, pause PPO and design stronger history-necessity mining or protected-surface anchoring.",
+  "decision": "admit_boundary_wrong_history_objective"
 }

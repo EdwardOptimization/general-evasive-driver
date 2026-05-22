@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 230,
+    "completed": 231,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m221-stage2-protected-key-failure-audit.md",
+    "command_log": "docs/m222-m219-family-protected-surface-refresh.md",
     "returncode": 0,
-    "run_dir": "docs/m221-stage2-protected-key-failure-audit.md",
+    "run_dir": "runs/m222_m219_family_boundary_robustness_seed9520",
     "status": "completed",
-    "task_id": "m221-stage2-protected-key-failure-audit"
+    "task_id": "m222-m219-family-protected-surface-refresh"
   },
   "next_task": {
-    "command": "see experiments/manifests/m222-m219-family-protected-surface-refresh.json",
-    "hypothesis": "M220 shows single-key margin-window fragility; refresh a current M217/M218/M219-family multi-key protected surface before any more PPO.",
-    "id": "m222-m219-family-protected-surface-refresh",
-    "kind": "gate",
-    "notes": "Run matched-current, outcome, boundary relocation, and robustness on seeds 9520-9523; no PPO or actor input changes.",
-    "priority": 2170,
+    "command": "see experiments/manifests/m223-m219-family-boundary-objective-sanity.json",
+    "hypothesis": "M222 recovered a robust M217/M218/M219-family wrong-history boundary surface; convert it into replay-aligned objective corpora before any actor update or PPO.",
+    "id": "m223-m219-family-boundary-objective-sanity",
+    "kind": "objective_sanity",
+    "notes": "Build M219/M218/M217 corpora from M222 accepted rows and run objective plus replay sanity; do not use rejected M220 as source.",
+    "priority": 2180,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T122500Z"
+  "updated_at_utc": "20260522T123500Z"
 }

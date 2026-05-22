@@ -272,11 +272,16 @@ slightly stronger action-level sensitivity.
   repeat M220, loosen the old key, or train lower clearance on that one row.
   Refresh a source-diverse M217/M218/M219-family protected surface before any
   more PPO.
+- M222: refreshes the protected surface for the M217/M218/M219 family on probe
+  seeds `9520`-`9523`. It recovers `180` accepted wrong-history boundary rows
+  across `13` physical pairs, `8` left steps, `3` checkpoints, `2` targets, and
+  `2` margin buckets. Robustness passes, so the current family still has
+  source-diverse history-dependent near-boundary evidence.
 
 Current blocker:
 
 ```text
-M217/M218/M219-family protected-surface refresh before any more PPO
+M222 boundary surface conversion into objective/replay sanity
 ```
 
 ## Near-Term Rule
@@ -299,7 +304,9 @@ the near-boundary normal-margin window. Do not repeat M220, do not chain from
 M220, and do not loosen the protected-key threshold. Audit and design a
 protected-key-aware continuation path before any further PPO. M221 selected a
 current-family protected-surface refresh; PPO remains blocked until M222 passes
-and is converted into objective/replay gates.
+and is converted into objective/replay gates. M222 passed, so M223 must convert
+the accepted rows into M219-family objective/replay corpora before any actor
+update or PPO.
 
 ## Sensor Profile Policy
 

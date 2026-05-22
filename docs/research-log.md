@@ -8071,3 +8071,40 @@ Decision:
 ```text
 admit_m219_family_protected_surface_refresh
 ```
+
+## 20260522T123500Z m222-m219-family-protected-surface-refresh
+
+M222 refreshed the protected proof surface around the current M217/M218/M219
+retained family. No PPO, actor update, or actor input change was run.
+
+Artifacts:
+
+- `runs/m222_m219_family_matched_current_seed9520`
+- `runs/m222_m219_family_outcome_seed9520`
+- `runs/m222_m219_family_boundary_surface_seed9520`
+- `runs/m222_m219_family_boundary_robustness_seed9520`
+- `docs/m222-m219-family-protected-surface-refresh.md`
+- `experiments/manifests/m223-m219-family-boundary-objective-sanity.json`
+
+Results:
+
+- matched-current mining finds `2816` accepted pairs across `292` physical
+  pairs and `31` left steps;
+- direct outcome continuation produces `16896` outcome rows;
+- boundary relocation finds `180` accepted wrong-history rows and `107`
+  accepted wrong-history pairs;
+- robustness passes with `13` physical pairs, `8` left steps, `3` checkpoints,
+  `2` targets, `2` margin buckets, and success-drop fraction `1.0`;
+- accepted wrong-history normal margins remain near-boundary with mean
+  `0.006013` and max `0.010385`.
+
+Decision: M222 is positive. The current M217/M218/M219 retained family still has
+source-diverse wrong-history near-boundary outcome evidence. Convert the M222
+accepted rows into replay-aligned boundary-outcome corpora before any guarded
+actor update or PPO.
+
+Decision:
+
+```text
+admit_boundary_wrong_history_objective
+```
