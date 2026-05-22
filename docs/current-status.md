@@ -44,6 +44,7 @@ Not allowed in the deployable actor:
 | strict anchor | `runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt` | strict full-replay anchor |
 | split-aware candidate | `runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt` | preserves robust rows but loses knife-edge row 67 |
 | guarded actor-update candidate | `runs/m184_m168_actor_coupling_anchor100_s20_seed9840/optimized_checkpoint.pt` | passes M183 objective, behavior, protected key, and M168/M170 boundary replay |
+| guarded PPO smoke candidate | `runs/ppo_m185_guarded_from_m184_seed5185/checkpoint.pt` | positive single-seed PPO smoke; requires repeat before longer PPO |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -72,18 +73,22 @@ slightly stronger action-level sensitivity.
   fixed objective with tiny anchor drift, preserves behavior on seeds `9503`
   and `9504`, passes the protected key, and retains all M168/M170 boundary
   replay success drops.
+- M185: a 1024-step guarded PPO smoke from M184 improves the fixed M183
+  objective slightly, preserves behavior on seeds `9503` and `9504`, passes the
+  protected key, and retains all M168/M170 boundary replay success drops.
 
 Current blocker:
 
 ```text
-guarded PPO smoke from M184 without losing behavior retention, protected key,
-or M183 boundary replay rows
+multi-seed repeat of the M185 guarded PPO smoke without losing behavior
+retention, protected key, or M183 boundary replay rows
 ```
 
 ## Near-Term Rule
 
-Run only a tiny PPO smoke from M184. Reject it if behavior retention, protected
-key replay, or either M183 boundary replay surface regresses.
+Repeat the M185 PPO smoke recipe from M184 on fresh seeds. Do not start a
+longer PPO stage until repeats preserve behavior retention, protected key, and
+both M183 boundary replay surfaces.
 
 ## Sensor Profile Policy
 

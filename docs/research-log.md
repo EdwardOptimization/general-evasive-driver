@@ -6710,3 +6710,36 @@ Results:
 
 Decision: admit guarded PPO smoke from M184 only. Reject PPO if it weakens
 M183 replay surfaces, behavior retention, or the protected key.
+
+## 20260522T072908Z m185-guarded-ppo-smoke-from-m184
+
+M185 ran the first PPO smoke from the M184 guarded actor-update checkpoint. It
+uses the conservative M166-style recipe: 1024 PPO steps, learning rate `1e-6`,
+M184 action anchor coefficient `100`, and the M183 M168 boundary corpus as a
+training-time auxiliary objective.
+
+Artifacts:
+
+- `configs/ppo_m185_guarded_from_m184_smoke.json`
+- `runs/ppo_m185_guarded_from_m184_seed5185`
+- `runs/m185_fixed_batch_outcome_eval_seed37`
+- `runs/m185_m168_boundary_replay_gate_seed9510`
+- `runs/m185_m170_boundary_replay_gate_seed9510`
+- `runs/m185_behavior_gate_seed9503`
+- `runs/m185_behavior_gate_seed9504`
+- `runs/m185_critical_key_seed9944`
+- `docs/m185-guarded-ppo-smoke-from-m184.md`
+
+Results:
+
+- fixed M183 loss improves `0.171518 -> 0.171432`;
+- baseline action-anchor loss during PPO is `0.000003576`;
+- M168 boundary replay retains `16/16` success drops;
+- M170 boundary replay retains `17/17` success drops;
+- behavior success matches M184 on seeds `9503` and `9504`;
+- reset and zero-all ablations still degrade success to `0.85` and `0.80`;
+- protected key `9944|perturbed|28|28` passes `1/1`.
+
+Decision: admit multi-seed guarded PPO repeat only. Do not start longer PPO
+until independent repeats from M184 preserve behavior, protected key, and both
+M183 replay surfaces.
