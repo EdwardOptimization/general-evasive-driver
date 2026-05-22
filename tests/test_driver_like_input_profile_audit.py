@@ -8,6 +8,7 @@ from autodrift.driver_like_input_profile_audit import (
     P3_DRIVER_LIKE_RAW_WHEEL,
     P4_DRIVER_LIKE_RAW_WHEEL_VPARALLEL,
     build_driver_like_feature_profiles,
+    driver_like_history_sequence,
     profile_spec_rows,
     summarize_profile_deltas,
 )
@@ -46,6 +47,21 @@ def test_build_driver_like_feature_profiles_supports_history_windows():
         axis=1,
     )
     np.testing.assert_array_equal(profiles[P1_DRIVER_LIKE_MINIMAL], expected_p1)
+
+
+def test_driver_like_history_sequence_returns_per_step_profile_features():
+    frames = np.arange(2 * 3 * 85, dtype=np.float32).reshape(2, 3, 85)
+
+    sequence = driver_like_history_sequence(frames, P3_DRIVER_LIKE_RAW_WHEEL)
+
+    assert sequence.shape == (2, 3, 72)
+    np.testing.assert_array_equal(sequence[:, :, :12], frames[:, :, [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]])
+    np.testing.assert_array_equal(sequence[:, :, 12:], frames[:, :, 25:])
+
+
+def test_driver_like_history_sequence_rejects_unknown_profile():
+    with pytest.raises(ValueError, match="unknown driver-like profile"):
+        driver_like_history_sequence(np.zeros((1, 2, 85), dtype=np.float32), "missing")
 
 
 def test_build_driver_like_feature_profiles_rejects_partial_frame():

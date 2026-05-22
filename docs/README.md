@@ -227,6 +227,10 @@ vehicle/tire models, and NMPC-style constrained control.
   steering feel, raw wheel speed, and optional `v_parallel_i` over three
   supervised probe seeds. Result: no actor-profile promotion; `v_parallel`
   remains diagnostic only pending learned-history repeat.
+- `m144-driver-like-learned-history-repeat.md`: regularized sequence-probe
+  repeat of the exact M143 P0-P4 profiles. Result: M143 raw-wheel and
+  `v_parallel` ridge gains do not survive learned-history probing; no wheel or
+  `v_parallel` actor promotion.
 - `m81-wheel-response-input-roadmap.md`: MHTML review decision capturing
   wheel/tire response as the next major self-identification input branch,
   including the Stage 1 front/rear wheel-response implementation.

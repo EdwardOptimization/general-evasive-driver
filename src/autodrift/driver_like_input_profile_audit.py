@@ -119,6 +119,23 @@ def profile_spec_rows() -> list[dict[str, Any]]:
     return rows
 
 
+def profile_spec_by_name() -> dict[str, ProfileSpec]:
+    return {spec.name: spec for spec in profile_specs()}
+
+
+def driver_like_history_sequence(frames: np.ndarray, profile: str) -> np.ndarray:
+    frames = np.asarray(frames, dtype=np.float32)
+    if frames.ndim != 3 or frames.shape[2] != WHEEL_HUMAN_VIEW_OBS_DIM:
+        raise ValueError(
+            "driver-like history sequences require frames with shape "
+            f"(samples, steps, {WHEEL_HUMAN_VIEW_OBS_DIM})"
+        )
+    specs = profile_spec_by_name()
+    if profile not in specs:
+        raise ValueError("unknown driver-like profile: " + profile)
+    return frames[:, :, list(specs[profile].per_frame_indices)].astype(np.float32)
+
+
 def build_driver_like_feature_profiles(observations: np.ndarray) -> dict[str, np.ndarray]:
     observations = np.asarray(observations, dtype=np.float32)
     if observations.ndim != 2:
@@ -132,7 +149,7 @@ def build_driver_like_feature_profiles(observations: np.ndarray) -> dict[str, np
     frames = observations.reshape(observations.shape[0], frame_count, WHEEL_HUMAN_VIEW_OBS_DIM)
     features: dict[str, np.ndarray] = {}
     for spec in profile_specs():
-        selected = frames[:, :, list(spec.per_frame_indices)]
+        selected = driver_like_history_sequence(frames, spec.name)
         features[spec.name] = selected.reshape(observations.shape[0], -1).astype(np.float32)
     return features
 

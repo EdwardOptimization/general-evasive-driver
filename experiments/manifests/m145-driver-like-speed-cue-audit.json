@@ -1,0 +1,37 @@
+{
+  "baseline_checkpoints": [
+    "runs/m144_driver_like_learned_history_multiseed/summary.json",
+    "runs/m143_driver_like_input_profile_audit_multiseed/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "Define driver-like minimal variants that add deployable ego-speed or visual-flow cues back to P1 without adding oracle path, TTC, feasibility, mu, slip, or tire-force fields.",
+      "name": "m145_define_speed_cue_profiles"
+    },
+    {
+      "command": "Run the same supervised and learned-history profile probes to check whether P1 underperformed P0 because it removed speed cues that a real driver or perception stack would have.",
+      "name": "m145_speed_cue_probe"
+    }
+  ],
+  "decision_rule": "Only revise the driver-like minimal contract if deployable ego-speed or visual-flow cues improve probes under the same frozen recipe without weakening the non-oracle input boundary.",
+  "failure_criteria": [
+    "profile adds path error, heading error, TTC, required clearance, feasibility labels, mu, slip ratio, or tire-force diagnostics",
+    "profile-specific tuning is used",
+    "speed-cue gains are single-seed or fail learned-history repeat"
+  ],
+  "hypothesis": "M143/M144 P1 may be too strict because it removes ego speed cues that a real driver has through speedometer and visual flow; adding deployable speed cues may recover P0-level observability without oracle leakage.",
+  "id": "m145-driver-like-speed-cue-audit",
+  "required_artifacts": [
+    {
+      "path": "docs/m145-driver-like-speed-cue-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "success_criteria": [
+    "profile definitions distinguish deployable ego-speed cues from planner/oracle fields",
+    "supervised and learned-history probes use the same seeds and recipes as M143/M144 where possible",
+    "at least three seeds are run",
+    "artifacts record whether speed-cue profiles close the P1 vs P0 gap"
+  ],
+  "type": "gate"
+}

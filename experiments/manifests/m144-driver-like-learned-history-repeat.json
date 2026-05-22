@@ -1,16 +1,21 @@
 {
   "baseline_checkpoints": [
     "runs/m143_driver_like_input_profile_audit_multiseed/summary.json",
-    "runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt"
+    "runs/m142_interpolate_m132_to_m139_s20/checkpoints/alpha_0_4.pt",
+    "runs/m144_driver_like_learned_history_multiseed/summary.json"
   ],
   "commands": [
     {
-      "command": "Extend or reuse the learned-history probe so it can train the exact M143 P0-P4 sequence profiles under one frozen recipe.",
-      "name": "m144_profile_sequence_probe"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.driver_like_learned_history_probe --env-config configs/m143_driver_like_profile_audit.json --episodes 40 --seed 9450 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --history-window 50 --hidden-size 24 --epochs 30 --weight-decay 0.001 --device cpu --run-dir runs/m144_driver_like_learned_history_seed9450",
+      "name": "m144_seed9450_learned_history"
     },
     {
-      "command": "Run at least three seeds with identical train/test split policy, history window, targets, hidden size, epochs, optimizer, and regularization across profiles.",
-      "name": "m144_multiseed_repeat"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.driver_like_learned_history_probe --env-config configs/m143_driver_like_profile_audit.json --episodes 40 --seed 9451 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --history-window 50 --hidden-size 24 --epochs 30 --weight-decay 0.001 --device cpu --run-dir runs/m144_driver_like_learned_history_seed9451",
+      "name": "m144_seed9451_learned_history"
+    },
+    {
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.driver_like_learned_history_probe --env-config configs/m143_driver_like_profile_audit.json --episodes 40 --seed 9452 --policy heuristic --horizon-steps 15 --sample-stride 3 --max-samples 1000 --history-window 50 --hidden-size 24 --epochs 30 --weight-decay 0.001 --device cpu --run-dir runs/m144_driver_like_learned_history_seed9452",
+      "name": "m144_seed9452_learned_history"
     }
   ],
   "decision_rule": "Admit a profile for PPO comparison only if the M143 supervised deltas survive regularized learned-history probes across multiple seeds without profile-specific tuning.",
@@ -25,6 +30,34 @@
     {
       "path": "docs/m144-driver-like-learned-history-repeat.md",
       "type": "documentation"
+    },
+    {
+      "path": "src/autodrift/driver_like_learned_history_probe.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_driver_like_learned_history_probe.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m144_driver_like_learned_history_seed9450/summary.json",
+      "type": "learned_history_probe"
+    },
+    {
+      "path": "runs/m144_driver_like_learned_history_seed9451/summary.json",
+      "type": "learned_history_probe"
+    },
+    {
+      "path": "runs/m144_driver_like_learned_history_seed9452/summary.json",
+      "type": "learned_history_probe"
+    },
+    {
+      "path": "runs/m144_driver_like_learned_history_multiseed/summary.json",
+      "type": "multiseed_summary"
+    },
+    {
+      "path": "runs/m144_driver_like_learned_history_multiseed/profile_delta_multiseed_summary.csv",
+      "type": "multiseed_summary_csv"
     }
   ],
   "success_criteria": [

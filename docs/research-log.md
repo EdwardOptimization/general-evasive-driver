@@ -5545,3 +5545,47 @@ strongest supervised signal but remains a single-track diagnostic comparison.
 
 Next task: M144 should repeat the exact P0-P4 profiles with a frozen regularized
 learned-history sequence probe before any PPO profile comparison.
+
+## 20260522T020500Z m144-driver-like-learned-history-repeat
+
+M144 repeats the exact M143 P0-P4 profile comparison with a regularized GRU
+history probe.
+
+New code:
+
+```text
+src/autodrift/driver_like_learned_history_probe.py
+tests/test_driver_like_learned_history_probe.py
+```
+
+Runs:
+
+```text
+runs/m144_driver_like_learned_history_seed9450
+runs/m144_driver_like_learned_history_seed9451
+runs/m144_driver_like_learned_history_seed9452
+runs/m144_driver_like_learned_history_multiseed
+```
+
+Frozen recipe:
+
+```text
+history_window: 50
+hidden_size: 24
+epochs: 30
+weight_decay: 0.001
+```
+
+Multiseed aggregate:
+
+| Delta | Mean test R2 delta | Mean MAE-improvement delta |
+| --- | ---: | ---: |
+| P1 - P0 | 0.002086 | -0.009776 |
+| P1 - P2 steer-rate proxy | -0.001224 | 0.003302 |
+| P3 - P1 raw wheel | -0.006285 | -0.004906 |
+| P4 - P3 v_parallel | -0.056911 | -0.021276 |
+
+Decision: negative repeat. M143's raw-wheel and `v_parallel` ridge gains do not
+survive learned-history probing, so do not promote either profile to PPO. The
+next input question is whether P1 was too strict because it removed deployable
+speed cues a real driver has through speedometer and visual flow.
