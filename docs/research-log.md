@@ -6456,3 +6456,33 @@ Decision: M161 is a positive current zero-relvel outcome-critical surface
 milestone. It still does not admit PPO. The next step is to convert the
 diversified accepted rows into a reusable boundary-outcome corpus/objective and
 run objective-only sanity before any actor update.
+
+## 20260522T053158Z m178-dual-checkpoint-outcome-proof-surface
+
+M178 compared the strict M168 checkpoint and split-aware M170 branch on the raw
+matched-current outcome proof surface:
+
+```text
+runs/m178_dual_checkpoint_outcome_proof_surface_seed9510
+```
+
+The outcome gate now supports `--pair-label-mode all`, matching the action gate
+behavior from M177 and allowing the same old-source matched pairs to be reused
+for both M168 and M170.
+
+Aggregate result over `480` matched-current pairs per checkpoint:
+
+| Metric | M168 strict | M170 split |
+| --- | ---: | ---: |
+| normal success | 0.870833 | 0.870833 |
+| normal margin mean | 0.725276 | 0.725600 |
+| wrong-history success drops | 0 / 480 | 0 / 480 |
+| wrong-history margin gap | 0.000540 | 0.000504 |
+| reset-hidden margin gap | 0.011602 | 0.011656 |
+| zero-current-response margin gap | 0.008367 | 0.008420 |
+
+Decision: raw continuation outcome is neutral. The small M177 action-level
+wrong-history lift for M170 does not translate into outcome-level causal
+evidence on this surface. Keep dual-track status: M168 remains the strict
+full-replay anchor, M170 remains the split-aware action-sensitive branch. The
+next step is a boundary-relocated outcome proof surface, not more PPO.

@@ -18,7 +18,7 @@
   "commands": [
     {
       "name": "m178_dual_checkpoint_outcome_proof_surface",
-      "command": "Compare strict M168 and split-aware M170 on outcome-level self-ID proof-surface behavior with response-history ablations."
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_history_outcome_gate --checkpoint-policy m168_strict=runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt --checkpoint-policy m170_split=runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --pairs-csv runs/m159_current_baseline_matched_current_zero_relvel_seed9510/matched_pairs.csv --delay-steps 10 --max-continuation-steps 60 --min-margin-gap 0.02 --max-pairs-per-checkpoint-target 80 --pair-label-mode all --device cpu --run-dir runs/m178_dual_checkpoint_outcome_proof_surface_seed9510"
     }
   ],
   "required_artifacts": [

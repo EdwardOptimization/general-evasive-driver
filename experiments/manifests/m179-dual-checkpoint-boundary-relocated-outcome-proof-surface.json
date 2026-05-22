@@ -1,0 +1,37 @@
+{
+  "id": "m179-dual-checkpoint-boundary-relocated-outcome-proof-surface",
+  "type": "gate",
+  "hypothesis": "M178 shows the raw matched-current continuation surface is outcome-neutral even though M177 is action-sensitive, so the next proof step should relocate obstacle boundaries to test whether those history-dependent actions become safety-critical near the margin.",
+  "success_criteria": [
+    "evaluate M168 and M170 on a boundary-relocated outcome proof surface derived from M178 outcome rows",
+    "preserve strict versus split-aware checkpoint labels",
+    "report wrong-history, reset-hidden, zero-current-response, zero-action-history, and delayed-history variants",
+    "separate raw-outcome neutrality from near-boundary outcome sensitivity",
+    "do not run more PPO during this gate"
+  ],
+  "failure_criteria": [
+    "treat M178 raw outcome neutrality as proof that history is irrelevant",
+    "select M170 solely by M177 action-level sensitivity",
+    "select M168 solely by M170's row67 knife-edge loss",
+    "run PPO before near-boundary outcome evidence is measured"
+  ],
+  "commands": [
+    {
+      "name": "m179_dual_checkpoint_boundary_relocated_outcome_proof_surface",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.wrong_history_boundary_relocation_surface --checkpoint-policy m168_strict=runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt --checkpoint-policy m170_split=runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --outcome-csv runs/m178_dual_checkpoint_outcome_proof_surface_seed9510/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 60 --max-pairs-per-checkpoint-target 0 --min-base-action-distance 0.02 --target-normal-margins 0.005,0.01,0.02,0.05,0.10,0.15 --half-width-inflations 0 --min-margin-gap 0.02 --min-accepted-wrong-rows 10 --report-variants wrong_matched_history,reset_hidden,zero_current_response,zero_action_history,delayed_history --device cpu --run-dir runs/m179_dual_checkpoint_boundary_relocation_seed9510"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m179-dual-checkpoint-boundary-relocated-outcome-proof-surface.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m168_stage1_from_m167_5168_seed6168/checkpoint.pt",
+    "runs/ppo_m170_row67_guarded_stage2_seed7170/checkpoint.pt",
+    "runs/m177_dual_checkpoint_action_proof_surface_seed9510/summary.json",
+    "runs/m178_dual_checkpoint_outcome_proof_surface_seed9510/summary.json"
+  ],
+  "decision_rule": "If boundary relocation yields robust wrong-history outcome degradation, use it as the next self-ID proof surface; otherwise mine a stronger matched-current outcome-critical corpus before further PPO."
+}

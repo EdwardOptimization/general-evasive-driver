@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 186,
+    "completed": 187,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m177-dual-checkpoint-self-id-proof-surface.md",
+    "command_log": "docs/m178-dual-checkpoint-outcome-proof-surface.md",
     "returncode": 0,
-    "run_dir": "runs/m177_dual_checkpoint_action_proof_surface_seed9510",
+    "run_dir": "runs/m178_dual_checkpoint_outcome_proof_surface_seed9510",
     "status": "completed",
-    "task_id": "m177-dual-checkpoint-self-id-proof-surface"
+    "task_id": "m178-dual-checkpoint-outcome-proof-surface"
   },
   "next_task": {
-    "command": "see experiments/manifests/m178-dual-checkpoint-outcome-proof-surface.json",
-    "hypothesis": "M177 shows M170 has a small action-level self-ID sensitivity lift over strict M168, but the next decision needs outcome-level proof-surface evidence on both checkpoints.",
-    "id": "m178-dual-checkpoint-outcome-proof-surface",
+    "command": "see experiments/manifests/m179-dual-checkpoint-boundary-relocated-outcome-proof-surface.json",
+    "hypothesis": "M178 shows raw matched-current continuation outcome is neutral, so the next proof step should relocate obstacle boundaries to test near-boundary outcome sensitivity.",
+    "id": "m179-dual-checkpoint-boundary-relocated-outcome-proof-surface",
     "kind": "gate",
-    "notes": "Pending after M177: run outcome-level proof-surface comparison for strict M168 and split-aware M170",
-    "priority": 1730,
+    "notes": "Pending after M178: use boundary relocation before any PPO because action-level sensitivity did not translate to raw continuation success drops",
+    "priority": 1740,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T052522Z"
+  "updated_at_utc": "20260522T053158Z"
 }

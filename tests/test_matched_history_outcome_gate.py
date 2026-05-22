@@ -1,7 +1,9 @@
 import numpy as np
+import pandas as pd
 
 from autodrift.matched_history_outcome_gate import (
     OUTCOME_VARIANTS,
+    _pairs_for_checkpoint,
     replay_outcome_variant,
     summarize_outcome_interventions,
 )
@@ -57,6 +59,20 @@ def test_summarize_outcome_interventions_reports_normal_better_fraction():
     assert np.isclose(summary[0]["success_drop_rate"], 0.5)
     assert np.isclose(summary[0]["normal_better_fraction"], 0.5)
     assert np.isclose(summary[0]["margin_gap_mean"], 0.1)
+
+
+def test_outcome_pairs_for_checkpoint_all_mode_relabels_source_pairs():
+    pairs = pd.DataFrame(
+        [
+            {"checkpoint_label": "source_a", "target": "future_yaw_response"},
+            {"checkpoint_label": "source_b", "target": "future_yaw_response"},
+        ]
+    )
+
+    relabeled = _pairs_for_checkpoint(pairs, "candidate", "all")
+
+    assert list(relabeled["checkpoint_label"]) == ["candidate", "candidate"]
+    assert list(relabeled["source_checkpoint_label"]) == ["source_a", "source_b"]
 
 
 def test_replay_outcome_variant_runs_short_normal_continuation():

@@ -21,6 +21,7 @@ from autodrift.hidden_envelope_probe import response_feature_dim_for_model
 from autodrift.hidden_swap_gate import action_trajectory_distances, terminal_reason, zero_action_trajectory_distances
 from autodrift.matched_history_intervention_gate import (
     ACTION_VARIANTS,
+    _pairs_for_checkpoint,
     deterministic_action_from_hidden,
     requested_snapshot_steps,
     zero_action_history_observation,
@@ -339,6 +340,7 @@ def run_matched_history_outcome_gate(
     max_continuation_steps: int,
     min_margin_gap: float,
     max_pairs_per_checkpoint_target: int,
+    pair_label_mode: str,
     device: str,
     run_dir: Path,
 ) -> dict[str, Any]:
@@ -350,7 +352,7 @@ def run_matched_history_outcome_gate(
     outcome_rows: list[dict[str, Any]] = []
 
     for checkpoint_spec in checkpoint_specs:
-        checkpoint_pairs = pair_frame[pair_frame["checkpoint_label"].astype(str) == checkpoint_spec.label]
+        checkpoint_pairs = _pairs_for_checkpoint(pair_frame, checkpoint_spec.label, pair_label_mode)
         if checkpoint_pairs.empty:
             continue
         model, _ = load_actor_critic_checkpoint(checkpoint_spec.path, device=str(resolved_device))
@@ -388,6 +390,7 @@ def run_matched_history_outcome_gate(
         "max_continuation_steps": int(max_continuation_steps),
         "min_margin_gap": float(min_margin_gap),
         "max_pairs_per_checkpoint_target": int(max_pairs_per_checkpoint_target),
+        "pair_label_mode": str(pair_label_mode),
         "device": str(resolved_device),
         "input_pair_count": int(len(pair_frame)),
         "outcome_row_count": int(len(outcome_rows)),
@@ -408,6 +411,7 @@ def main() -> None:
     parser.add_argument("--max-continuation-steps", type=int, default=60)
     parser.add_argument("--min-margin-gap", type=float, default=0.02)
     parser.add_argument("--max-pairs-per-checkpoint-target", type=int, default=40)
+    parser.add_argument("--pair-label-mode", choices=("matching", "all"), default="matching")
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="auto")
     parser.add_argument("--run-dir", type=Path, default=None)
     args = parser.parse_args()
@@ -421,6 +425,7 @@ def main() -> None:
         max_continuation_steps=args.max_continuation_steps,
         min_margin_gap=args.min_margin_gap,
         max_pairs_per_checkpoint_target=args.max_pairs_per_checkpoint_target,
+        pair_label_mode=args.pair_label_mode,
         device=args.device,
         run_dir=run_dir,
     )
