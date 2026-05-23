@@ -1,0 +1,80 @@
+{
+  "decision_reason": "M412 classifies M411 as retention-heavy: it keeps only 5.8 percent of M406 recovery improvement while reducing replay-anchor MSE to 0.03 percent of M406",
+  "failure_criteria": [
+    "candidate movement cannot be measured",
+    "audit tries to promote without full public gate",
+    "audit uses private holdout feedback",
+    "actor input or output contract changes"
+  ],
+  "failure_types": [
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not count base-collapse as driver improvement"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260523T162754Z",
+  "hypothesis": "The M411 proof-passing lambda 1e13 projection may be retention-heavy, so utility must be audited before any full public gate or chained repair.",
+  "lineage": {
+    "blocked_by": [
+      "m411-combined-replay-aware-projection-probe"
+    ],
+    "derived_from": [
+      "m411-combined-replay-aware-projection-probe"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m411_combined_anchor_projection_ltraj1e13_s40_seed10144/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m411-combined-replay-aware-projection-probe.json"
+    ],
+    "parent_dataset": [
+      "runs/m411_combined_replay_failure_trajectory_anchor/combined_replay_failure_trajectory_anchor.npz",
+      "runs/m411_ltraj1e13_m267_m264_first_replay/summary.json",
+      "runs/m411_ltraj1e13_old_key_replay_gate/summary.json",
+      "runs/m411_ltraj1e13_m183_m170_first_replay/summary.json"
+    ],
+    "parent_objective": [
+      "replay-aware exact projection with strong trajectory-anchor residual"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m412-replay-aware-projection-utility-audit",
+  "next_blocker": "m413-replay-recovery-balance-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "reject_m411_promotion_admit_m413_replay_recovery_balance_design",
+  "public_gates": [
+    "no PPO run",
+    "no checkpoint promotion",
+    "measure M411 movement from M400 base",
+    "measure retained recovery-target movement versus M406",
+    "classify as useful chained candidate or retention-only proof projection"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m411_combined_anchor_projection_ltraj1e13_s40_seed10144/candidate_checkpoint.pt",
+    "clearance_margin_mean": "",
+    "decision": "reject_m411_promotion_admit_m413_replay_recovery_balance_design",
+    "milestone": "m412-replay-aware-projection-utility-audit",
+    "reason": "M412 classifies M411 as retention-heavy: it keeps only 5.8 percent of M406 recovery improvement while reducing replay-anchor MSE to 0.03 percent of M406",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "quantify parameter and action movement from M400 base",
+    "quantify recovery-target movement retained versus M406 and M400",
+    "compare exact-objective improvement against replay-trajectory collapse",
+    "make an explicit decision: full public gate, redesign residual balance, or classify as retention-only"
+  ],
+  "type": "gate"
+}

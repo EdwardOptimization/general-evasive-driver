@@ -9754,3 +9754,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M411 combines the M409 `669`-row M267/M264 replay-failure anchor and M410 `290`-row old-key anchor into a `959`-row trajectory anchor. The M406 replay-failed candidate has combined trajectory loss `7.238024e-05`, confirming residual signal. `lambda_replay=1e11` improves but fails (`5/17` M267/M264, `34/40` old-key); `1e12` passes M267/M264 but leaves `3` old-key accepted regressions. `1e13` passes exact M297/M270/old-key, M267/M264 `17/17`, old-key compact with `0` accepted regressions, and M183/M170 `17/17`. This is proof-positive but likely retention-heavy: replay trajectory loss is `2.168418e-08` and old-key recovery loss `0.003813319`, close to the M400 base `0.003873642`.
 - decision: `admit_m412_replay_aware_projection_utility_audit`
 - next: `m412-replay-aware-projection-utility-audit`
+
+## 20260523T162605Z - m412-replay-aware-projection-utility-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m412_replay_aware_projection_utility_audit`
+- artifact: `docs/m412-replay-aware-projection-utility-audit.md`
+- result: M412 rejects M411 as a useful chained candidate. M411 parameter L2 to M400 is only `0.003700` versus M406 `0.011096`, replay-anchor MSE is `2.168418e-08` versus M406 `7.238024e-05`, and retained old-key recovery improvement is only `0.058176` of M406. This means M411 passes proof gates primarily by returning the replay-failure surface to M400 behavior, not by keeping meaningful recovery movement.
+- decision: `reject_m411_promotion_admit_m413_replay_recovery_balance_design`
+- next: `m413-replay-recovery-balance-design`

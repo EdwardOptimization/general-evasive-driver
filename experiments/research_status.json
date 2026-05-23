@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 420,
+        "completed": 421,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m411-combined-replay-aware-projection-probe",
+        "task_id": "m412-replay-aware-projection-utility-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m411_combined_anchor_projection_ltraj1e13_s40_seed10144",
-        "command_log": "docs/m411-combined-replay-aware-projection-probe.md"
+        "run_dir": "runs/m412_replay_aware_projection_utility_audit",
+        "command_log": "docs/m412-replay-aware-projection-utility-audit.md"
     },
     "next_task": {
-        "id": "m412-replay-aware-projection-utility-audit",
+        "id": "m413-replay-recovery-balance-design",
         "status": "pending",
-        "priority": 4070,
-        "kind": "gate",
-        "hypothesis": "Audit whether M411 proof-passing projection is useful or only retention-heavy",
-        "command": "see experiments/manifests/m412-replay-aware-projection-utility-audit.json",
+        "priority": 4080,
+        "kind": "infrastructure",
+        "hypothesis": "Design selective replay/recovery residual balance after M412 retention-heavy audit",
+        "command": "see experiments/manifests/m413-replay-recovery-balance-design.json",
         "success_artifact": "",
-        "notes": "Pending: quantify movement from M400 base and retained recovery progress before any full public gate or chained repair"
+        "notes": "Pending: define active-set replay residual and recovery-preservation acceptance rule before implementation"
     },
-    "updated_at_utc": "20260523T162054Z"
+    "updated_at_utc": "20260523T162605Z"
 }

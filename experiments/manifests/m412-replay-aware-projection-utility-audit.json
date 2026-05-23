@@ -2,9 +2,9 @@
   "id": "m412-replay-aware-projection-utility-audit",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "objective_overfit"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -80,5 +80,28 @@
     "docs/m411-combined-replay-aware-projection-probe.md"
   ],
   "decision_rule": "M412 should admit a full public gate only if M411 has meaningful movement beyond M400 while retaining proof gates; otherwise classify it as retention-only and redesign the residual balance.",
-  "next_blocker": "pending M412 replay-aware projection utility audit"
+  "next_blocker": "m413-replay-recovery-balance-design",
+  "results": {
+    "artifact": "docs/m412-replay-aware-projection-utility-audit.md",
+    "run_dir": "runs/m412_replay_aware_projection_utility_audit",
+    "summary_json": "runs/m412_replay_aware_projection_utility_audit/summary.json",
+    "policy_surface_metrics_csv": "runs/m412_replay_aware_projection_utility_audit/policy_surface_metrics.csv",
+    "m411_param_l2_to_base": 0.0037003562320023775,
+    "m406_param_l2_to_base": 0.011095724068582058,
+    "m411_param_l2_ratio_vs_m406": 0.33349389450662975,
+    "m406_trajectory_anchor_mse": 7.238023681566119e-05,
+    "m411_trajectory_anchor_mse": 2.1684176232383834e-08,
+    "m411_trajectory_anchor_mse_ratio_vs_m406": 0.0002995869754835058,
+    "base_old_key_recovery_preferred_mse": 0.003873637644574046,
+    "m406_old_key_recovery_preferred_mse": 0.0028321200516074896,
+    "m411_old_key_recovery_preferred_mse": 0.0038130467291921377,
+    "m411_recovery_improvement_retained_vs_m406": 0.05817560432112068,
+    "classification": "retention_heavy_projection",
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m413-replay-recovery-balance-design"
+  },
+  "decision": "reject_m411_promotion_admit_m413_replay_recovery_balance_design"
 }

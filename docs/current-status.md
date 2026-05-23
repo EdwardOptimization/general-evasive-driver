@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m412-replay-aware-projection-utility-audit
+m413-replay-recovery-balance-design
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -270,7 +270,11 @@ M297/M270/old-key no-regression, M267/M264 `17/17`, old-key compact with `0`
 accepted regressions, and M183/M170 `17/17`. The result is likely
 retention-heavy because replay trajectory loss is nearly zero and old-key
 recovery movement is close to the M400 base, so M412 should audit utility before
-any full public gate or chained repair.
+any full public gate or chained repair. M412 completes that audit and rejects
+M411 as a useful chained candidate: it preserves only `5.8%` of M406's
+old-key recovery improvement, while replay-anchor MSE collapses to `0.03%` of
+M406. M413 should redesign the replay/recovery balance instead of sending M411
+to full public gate.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -349,7 +353,7 @@ any full public gate or chained repair.
 | current public-gate base | `runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt` | M379 promotes alpha `0.05` after cumulative old-key source-diverse six public replay surfaces and behavior seeds pass |
 | recovery residual infrastructure | `src/autodrift/exact_post_ppo_repair.py` | M383 implements optional old-key local-action recovery loss and verifies finite no-update smoke terms |
 | recovery target corpus | `runs/m384_old_key_local_recovery_targets/old_key_recovery_corpus.npz` | M384 exports 4 replay-selected recovery targets from 1008 local-action rollouts |
-| current blocker | `experiments/manifests/m412-replay-aware-projection-utility-audit.json` | M412 must quantify whether the M411 proof-passing projection has meaningful movement beyond M400 or is only retention-heavy |
+| current blocker | `experiments/manifests/m413-replay-recovery-balance-design.json` | M413 must design a selective replay/recovery residual balance after M412 classified M411 as retention-heavy |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

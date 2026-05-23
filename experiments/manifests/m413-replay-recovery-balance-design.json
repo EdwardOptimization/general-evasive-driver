@@ -1,0 +1,82 @@
+{
+  "id": "m413-replay-recovery-balance-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m411_combined_anchor_projection_ltraj1e13_s40_seed10144/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m412_replay_aware_projection_utility_audit/summary.json",
+      "runs/m412_replay_aware_projection_utility_audit/policy_surface_metrics.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m412-replay-aware-projection-utility-audit.json"
+    ],
+    "parent_objective": [
+      "redesign replay/recovery residual balance after retention-heavy projection"
+    ],
+    "derived_from": [
+      "m412-replay-aware-projection-utility-audit"
+    ],
+    "blocked_by": [
+      "m412-replay-aware-projection-utility-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m413-replay-recovery-balance-design.md",
+  "public_gates": [
+    "design only",
+    "no PPO run",
+    "no checkpoint promotion",
+    "no actor input/output change"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not count replay-anchor collapse as driver progress"
+  ],
+  "hypothesis": "A more selective replay/recovery balance can preserve M411 proof gates without collapsing the candidate back to M400 behavior.",
+  "success_criteria": [
+    "define active-set replay residuals that only push rows or branches near replay failure",
+    "define recovery-preservation terms that retain M406 movement where replay gates are not threatened",
+    "define a measurable Pareto acceptance rule for replay retention versus recovery utility",
+    "pre-register the next no-PPO implementation or probe milestone"
+  ],
+  "failure_criteria": [
+    "design relies on actor-input shortcuts",
+    "design treats scalar replay-anchor collapse as sufficient progress",
+    "design weakens exact or replay gates",
+    "design cannot be tested without PPO"
+  ],
+  "commands": [
+    {
+      "name": "replay_recovery_balance_design",
+      "command": "Design the next selective replay/recovery residual after M412 retention-heavy audit; no PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m413-replay-recovery-balance-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m411-combined-replay-aware-projection-probe.md",
+    "docs/m412-replay-aware-projection-utility-audit.md"
+  ],
+  "decision_rule": "M413 should admit implementation only if it creates a testable no-PPO residual balance that preserves proof gates without rewarding replay-anchor collapse.",
+  "next_blocker": "pending M413 replay/recovery balance design"
+}
