@@ -9504,3 +9504,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M386 promotes `runs/m385_recovery_repair_micro_interpolation/checkpoints/alpha_0_00075.pt`. It retains M385 exact, cumulative old-key, source-diverse, and first-replay proof, then passes all six public replay surfaces versus `m333_base`: M183/M168 `16/16`, M183/M170 `17/17`, M193/M189 `14/14`, M212/M204 `17/17`, M223/M219 `17/17`, and M267/M264 `17/17`. Behavior seeds `9505` and `9506` retain success mean `0.8625`, termination mean `0.1375`, clearance margin mean `1.844183791`, reset success mean `0.85`, and zero-all success mean `0.80`.
 - decision: `promote_m385_micro_a00075_public_gate_base`
 - next: `m387-m386-micro-promotion-utility-audit`
+
+## 20260523T140250Z - m387-m386-micro-promotion-utility-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m387_m386_micro_promotion_utility_audit`
+- artifact: `docs/m387-m386-micro-promotion-utility-audit.md`
+- result: M387 classifies M386 as `proof_safe_micro_retention_not_meaningful_driver_improvement`. The selected alpha is only `0.00075`, exact M297 improves by `-0.000011206`, exact M270 by `-0.000006974`, and old-key recovery loss by `-0.000001519`, while behavior metrics are unchanged. M267/M264 row `15` is the active boundary: base wrong-history margin is `-0.000015570`, selected alpha margin is `-0.000001064`, and alpha `0.001` crosses to `+0.000003801` with wrong-history success.
+- decision: `admit_m388_m267_row15_conflict_residual_design`
+- next: `m388-m267-row15-conflict-residual-design`

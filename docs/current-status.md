@@ -55,7 +55,7 @@ proof-safe micro promotion, not a large driver-performance improvement; alpha
 Current blocker:
 
 ```text
-m387-m386-micro-promotion-utility-audit
+m388-m267-row15-conflict-residual-design
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -152,7 +152,11 @@ public promotion gate before any promotion or PPO continuation. M386 promotes
 the micro-alpha candidate after all six public replay surfaces and behavior
 seeds pass. M387 should audit whether this micro promotion is useful enough to
 chain repair or PPO, or whether the objective needs redesign around the
-M267/M264 row15 boundary.
+M267/M264 row15 boundary. M387 classifies M386 as proof-safe micro retention,
+not meaningful driver improvement: selected alpha `0.00075` only slightly
+improves exact objectives, while alpha `0.001` flips M267/M264 row `15`
+wrong-history margin from collision to success. M388 should design an explicit
+row15-aware conflict residual before any more repair or PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

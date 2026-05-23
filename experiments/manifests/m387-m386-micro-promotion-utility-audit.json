@@ -76,5 +76,25 @@
     "docs/m386-full-public-gate-for-m385-a00075.md"
   ],
   "decision_rule": "M387 should decide whether the new public base is a useful chain point or merely a micro retention checkpoint that requires objective redesign before more PPO.",
-  "next_blocker": "pending M387 micro-promotion utility audit"
+  "next_blocker": "m388-m267-row15-conflict-residual-design",
+  "results": {
+    "artifact": "docs/m387-m386-micro-promotion-utility-audit.md",
+    "run_dir": "runs/m387_m386_micro_promotion_utility_audit",
+    "summary": "runs/m387_m386_micro_promotion_utility_audit/summary.json",
+    "row15_trace": "runs/m387_m386_micro_promotion_utility_audit/m267_row15_alpha_trace.csv",
+    "selected_alpha": 0.00075,
+    "first_failing_tested_alpha_m267_m264": 0.001,
+    "first_failing_tested_alpha_old_key": 0.02,
+    "exact_m297_delta_vs_previous_base": -1.1205673217773438e-05,
+    "exact_m270_delta_vs_previous_base": -6.973743438720703e-06,
+    "old_key_recovery_loss_delta_vs_previous_base": -1.5189871191978455e-06,
+    "m267_row15_base_wrong_margin": -1.557032863530594e-05,
+    "m267_row15_selected_wrong_margin": -1.0638089380510252e-06,
+    "m267_row15_first_fail_wrong_margin": 3.800815846277672e-06,
+    "utility_classification": "proof_safe_micro_retention_not_meaningful_driver_improvement",
+    "checkpoint_promoted": false,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m388_m267_row15_conflict_residual_design"
 }

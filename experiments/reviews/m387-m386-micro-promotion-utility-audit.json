@@ -1,0 +1,76 @@
+{
+  "decision_reason": "M387 classifies M386 as proof-safe micro retention not meaningful driver improvement; M267/M264 row15 flips at alpha 0.001 so next design must handle cross-surface conflict",
+  "failure_criteria": [
+    "audit omits the M267/M264 row15 boundary",
+    "audit recommends PPO based only on promotion status",
+    "actor contract changes",
+    "research validation fails"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote another checkpoint",
+    "do not lower M267/M264 success-drop requirement",
+    "do not change actor inputs or outputs"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260523T135739Z",
+  "hypothesis": "M386 may be a proof-safe but utility-small micro promotion; before chaining repair or PPO, audit whether alpha 0.00075 materially improves the active objectives or only records retention progress.",
+  "lineage": {
+    "blocked_by": [
+      "m386-full-public-gate-for-m385-a00075"
+    ],
+    "derived_from": [
+      "m386-full-public-gate-for-m385-a00075"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m385_recovery_repair_micro_interpolation/checkpoints/alpha_0_00075.pt",
+      "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m386-full-public-gate-for-m385-a00075.json"
+    ],
+    "parent_dataset": [
+      "docs/m386-full-public-gate-for-m385-a00075.md",
+      "runs/m386_full_public_gate_for_m385_a00075/summary.json"
+    ],
+    "parent_objective": [
+      "audit whether the M386 micro promotion is useful enough to chain more repair or PPO"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m387-m386-micro-promotion-utility-audit",
+  "next_blocker": "m388-m267-row15-conflict-residual-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m388_m267_row15_conflict_residual_design",
+  "public_gates": [
+    "no PPO run",
+    "audit step size and proof-boundary slack",
+    "decide whether to chain from M386 or redesign the objective",
+    "preserve actor contract"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m385_recovery_repair_micro_interpolation/checkpoints/alpha_0_00075.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m388_m267_row15_conflict_residual_design",
+    "milestone": "m387-m386-micro-promotion-utility-audit",
+    "reason": "M387 classifies M386 as proof-safe micro retention not meaningful driver improvement; M267/M264 row15 flips at alpha 0.001 so next design must handle cross-surface conflict",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "classify M386 utility based on exact deltas, replay slack, first failing alpha, and behavior deltas",
+    "identify the next blocker without running training",
+    "document whether to chain from M386 or redesign the repair objective",
+    "research validation passes"
+  ],
+  "type": "gate"
+}

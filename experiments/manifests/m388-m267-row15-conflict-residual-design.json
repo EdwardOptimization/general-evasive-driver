@@ -1,0 +1,79 @@
+{
+  "id": "m388-m267-row15-conflict-residual-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m385_recovery_repair_micro_interpolation/checkpoints/alpha_0_00075.pt"
+    ],
+    "parent_dataset": [
+      "runs/m387_m386_micro_promotion_utility_audit/summary.json",
+      "runs/m387_m386_micro_promotion_utility_audit/m267_row15_alpha_trace.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m387-m386-micro-promotion-utility-audit.json"
+    ],
+    "parent_objective": [
+      "design a repair objective that treats M267/M264 row15 as an active wrong-history boundary while preserving old-key recovery"
+    ],
+    "derived_from": [
+      "m387-m386-micro-promotion-utility-audit"
+    ],
+    "blocked_by": [
+      "m387-m386-micro-promotion-utility-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m388-m267-row15-conflict-residual-design.md",
+  "public_gates": [
+    "no PPO run",
+    "preserve actor contract",
+    "design must keep M267/M264 success-drop retention authoritative",
+    "design must keep cumulative old-key replay authoritative"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not lower M267/M264 thresholds",
+    "do not make wrong-history rows safe",
+    "do not add hidden or oracle actor inputs",
+    "do not run PPO in the design milestone"
+  ],
+  "hypothesis": "A conflict-aware repair design can expose M267/M264 row15 as a first-class active constraint, preventing old-key recovery updates from making current-family wrong-history rollouts safe.",
+  "success_criteria": [
+    "define the residual or corpus needed for M267/M264 row15 and related rows",
+    "state how it composes with old-key recovery without changing actor inputs",
+    "pre-register acceptance gates before implementation",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design relies on threshold relaxation",
+    "design relies on hidden actor inputs",
+    "design ignores cumulative old-key recovery",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "design_only",
+      "command": "Write the row15 conflict residual design and register implementation; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m388-m267-row15-conflict-residual-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m385_recovery_repair_micro_interpolation/checkpoints/alpha_0_00075.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m387-m386-micro-promotion-utility-audit.md"
+  ],
+  "decision_rule": "M388 should admit implementation only if the design directly addresses the old-key recovery versus M267 row15 wrong-history conflict without changing the deployable actor contract.",
+  "next_blocker": "pending M388 row15 conflict residual design"
+}
