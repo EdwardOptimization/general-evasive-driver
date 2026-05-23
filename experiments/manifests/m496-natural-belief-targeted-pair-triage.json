@@ -1,0 +1,98 @@
+{
+  "id": "m496-natural-belief-targeted-pair-triage",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m495_natural_belief_matched_current_summary/combined_summary.json",
+      "runs/m495_natural_belief_matched_current_summary/combined_matched_pairs.csv"
+    ],
+    "parent_config": [
+      "configs/m494_natural_belief_short_reveal_zero_relvel.json",
+      "configs/m494_natural_belief_warmup_capability_zero_relvel.json",
+      "experiments/manifests/m495-natural-belief-matched-current-mining.json"
+    ],
+    "parent_objective": [
+      "source-diverse natural targeted wrong-history pair triage"
+    ],
+    "derived_from": [
+      "m495-natural-belief-matched-current-mining"
+    ],
+    "blocked_by": [
+      "m495-natural-belief-matched-current-mining"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m496-natural-belief-targeted-pair-triage.md",
+  "public_gates": [
+    "run wrong_history_targeted_pair_triage on the combined M495 matched-current surface",
+    "preserve source diversity across seeds labels targets configs and obstacle buckets",
+    "export targeted pairs for natural wrong-history outcome gates",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not skip targeted source-diversity caps",
+    "do not run outcome gates if triage surface is source-narrow",
+    "do not tune from private holdouts"
+  ],
+  "hypothesis": "The M495 natural belief matched-current surface is large enough to select a balanced targeted wrong-history pair surface for natural outcome proof gates.",
+  "success_criteria": [
+    "targeted_pair_count >= 240",
+    "probe_seed_count >= 6",
+    "obstacle_label_count >= 2",
+    "target_count >= 2",
+    "config_count >= 2",
+    "single_seed_share <= 0.50",
+    "single_label_share <= 0.70",
+    "single_config_share <= 0.70",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "targeted surface is too small",
+    "targeted surface is dominated by one seed label target config or obstacle bucket",
+    "actor contract changes",
+    "training or checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "targeted_pair_triage",
+      "command": "Run autodrift.wrong_history_targeted_pair_triage on runs/m495_natural_belief_matched_current_summary/combined_matched_pairs.csv."
+    },
+    {
+      "name": "config_balance_audit",
+      "command": "Audit targeted config distribution because the triage tool gates seed and label but not config balance directly."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m496-natural-belief-targeted-pair-triage.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m496_natural_belief_targeted_pair_triage/summary.json",
+      "type": "summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m495-natural-belief-matched-current-mining.md",
+    "runs/m495_natural_belief_matched_current_summary/combined_summary.json"
+  ],
+  "decision_rule": "M496 may admit natural wrong-history outcome gates only if targeted pairs remain source-diverse across seeds labels targets and configs; otherwise repair triage caps or mining parameters.",
+  "next_blocker": "pending M496 natural belief targeted pair triage"
+}

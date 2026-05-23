@@ -10576,3 +10576,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M494 adds `configs/m494_natural_belief_short_reveal_zero_relvel.json` and `configs/m494_natural_belief_warmup_capability_zero_relvel.json`. Both preserve the P0 human-view zero-relvel actor contract. Sampling stress over seed blocks `11800`, `11900`, and `12000` has `384/384` reset successes per config. Short-reveal has `2` labels with single-label share `0.747396`; warm-up capability has `3` labels with single-label share `0.565104`. Behavior smokes are nontrivial: short-reveal `m399` success is `0.515625` versus heuristic/random `0.046875`; warm-up capability `m399` success is `0.843750` versus heuristic `0.281250` and random `0.234375`. No proof mining, training, or checkpoint promotion is performed.
 - decision: `natural_belief_configs_sampling_pass_admit_m495_matched_current_mining`
 - next: `m495-natural-belief-matched-current-mining`
+## 20260523T234200Z - m495-natural-belief-matched-current-mining
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m495_natural_belief_matched_current_summary`
+- artifact: `docs/m495-natural-belief-matched-current-mining.md`
+- result: M495 runs matched-current ambiguity mining on both M494 natural belief configs. Initial seed blocks `11800`, `11900`, and `12000` produced large surfaces but only `3` probe seeds, so M495 added fresh source-diversity blocks `12100`, `12200`, and `12300` without retuning mining parameters. The combined surface has `5580` accepted pairs, `1620` physical pair proxies, `6` probe seeds, `3` labels, `3` targets, `2` configs, `2` seed windows, `54` left steps, single-seed share `0.174910`, and single-label share `0.479928`. This passes the M495 source-diversity gate but is not self-ID proof.
+- decision: `natural_belief_matched_surface_pass_admit_m496_targeted_pair_triage`
+- next: `m496-natural-belief-targeted-pair-triage`

@@ -52,7 +52,7 @@ public-gate base; M487-M492 did not train or promote a checkpoint.
 Current blocker:
 
 ```text
-m495-natural-belief-matched-current-mining
+m496-natural-belief-targeted-pair-triage
 ```
 
 Recent progress: M486-M492 is now closed as an artificial tail-forcing
@@ -72,9 +72,13 @@ and friction-step-before-reveal coverage. Short-reveal is harder
 (`m399` success `0.515625`), while warm-up capability is easier but still
 nontrivial (`m399` success `0.843750`).
 
-Next step: M495 should run source-diverse matched-current mining on both M494
-configs before any natural wrong-history outcome gate, proof expansion, or
-training.
+M495 passes that source-diversity gate. The combined natural belief
+matched-current surface has `5580` accepted pairs across `6` probe seeds,
+`3` labels, `3` targets, and `2` configs, with single-seed share `0.175` and
+single-label share `0.480`.
+
+Next step: M496 should select a balanced targeted wrong-history pair surface
+from the M495 combined surface before any natural outcome gate or training.
 
 ## Current Evidence
 

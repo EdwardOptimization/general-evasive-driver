@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 503,
+        "completed": 504,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m494-natural-belief-decision-config-implementation",
+        "task_id": "m495-natural-belief-matched-current-mining",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m494_natural_belief_decision_config_validation",
-        "command_log": "docs/m494-natural-belief-decision-config-implementation.md"
+        "run_dir": "runs/m495_natural_belief_matched_current_summary",
+        "command_log": "docs/m495-natural-belief-matched-current-mining.md"
     },
     "next_task": {
-        "id": "m495-natural-belief-matched-current-mining",
+        "id": "m496-natural-belief-targeted-pair-triage",
         "status": "pending",
-        "priority": 4900,
+        "priority": 4910,
         "kind": "gate",
-        "hypothesis": "M494 natural belief configs can produce source-diverse matched-current ambiguity surfaces before natural wrong-history outcome gates.",
-        "command": "see experiments/manifests/m495-natural-belief-matched-current-mining.json",
+        "hypothesis": "The M495 natural belief matched-current surface can yield a balanced targeted wrong-history pair surface.",
+        "command": "see experiments/manifests/m496-natural-belief-targeted-pair-triage.json",
         "success_artifact": "",
-        "notes": "Pending: mine natural matched-current ambiguity surfaces; no training or promotion"
+        "notes": "Pending: run targeted pair triage before any natural outcome gate"
     },
-    "updated_at_utc": "20260523T233549Z"
+    "updated_at_utc": "20260523T234157Z"
 }
