@@ -1,0 +1,83 @@
+{
+  "id": "m318-m317-protected-key-slack-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt"
+    ],
+    "parent_dataset": [
+      "runs/m133_zero_relvel_s60_strict_60ep_seed9900/outcome_sensitive_snippets.csv",
+      "runs/m133_zero_relvel_s60_strict_60ep_seed9920/outcome_sensitive_snippets.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m317-full-public-gate-for-m316-a0-0025.json",
+      "docs/m317-full-public-gate-for-m316-a0-0025.md"
+    ],
+    "parent_objective": [
+      "audit whether the old protected key should keep acting as a single hard trust-region veto after M317 leaves only micro slack"
+    ],
+    "derived_from": [
+      "m317-full-public-gate-for-m316-a0-0025"
+    ],
+    "blocked_by": [
+      "m317-full-public-gate-for-m316-a0-0025"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m318-m317-protected-key-slack-audit.md",
+  "public_gates": [
+    "do not run PPO",
+    "preserve human-view actor input contract",
+    "quantify remaining protected-key slack at M317 base",
+    "classify whether 9944 is stale singleton or representative saturated family",
+    "decide whether to refresh source-diverse protected surface before more PPO"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not bypass protected key without documented replacement evidence",
+    "do not run another PPO before the slack audit",
+    "do not change actor inputs",
+    "do not tune from private holdouts"
+  ],
+  "hypothesis": "After M317, the old 9944 protected key is so close to the normal-margin upper window that future PPO acceptance will be dominated by a single saturated row unless the protected surface is refreshed or converted to a source-diverse gate.",
+  "success_criteria": [
+    "quantify M317 slack for protected key 9944",
+    "compare old key behavior against current-family protected or wrong-history rows if available",
+    "produce a next decision: keep single key, refresh multi-key surface, or redesign protected-surface distribution gate",
+    "no training is run"
+  ],
+  "failure_criteria": [
+    "audit runs PPO or actor update",
+    "audit recommends bypassing 9944 without replacement evidence",
+    "audit changes actor input contract",
+    "audit cannot identify the next protected-surface decision"
+  ],
+  "commands": [
+    {
+      "name": "m318_slack_audit",
+      "command": "Audit M317 protected-key slack and decide whether to refresh the source-diverse protected surface before more PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m318-m317-protected-key-slack-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m317-full-public-gate-for-m316-a0-0025.md",
+    "runs/m317_full_public_gate_for_m316_a0_0025/full_gates/critical_key_seed9944/guard_results.csv"
+  ],
+  "decision_rule": "M318 should admit either a source-diverse protected-surface refresh or a clearly justified next PPO proposal only after the protected-key slack audit.",
+  "next_blocker": "pending M318 protected-key slack audit"
+}

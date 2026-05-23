@@ -8807,3 +8807,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M316 runs a fresh 1024-step PPO proposal from M314. Raw PPO regresses exact M297 by `+0.000779867` and exact M270 by `+0.000490844`; exact repair improves them by `-0.000117064` and `-0.000076056`. Protected key `9944` allows only alpha `0.0025`, with selected exact deltas `-0.000000477` and `-0.000000298`; the selected checkpoint passes M183/M170 and M267/M264 first replay gates with `17/17` success drops retained on both.
 - decision: `admit_m317_full_public_gate_for_m316_a0_0025`
 - next: `m317-full-public-gate-for-m316-a0-0025`
+
+## 20260523T054248Z - m317-full-public-gate-for-m316-a0-0025
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m317_full_public_gate_for_m316_a0_0025`
+- artifact: `docs/m317-full-public-gate-for-m316-a0-0025.md`
+- result: M317 promotes `runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt`. The candidate keeps exact M297/M270 non-regressing versus M314, passes all six replay surfaces, passes protected key `9944` while `m239_a750` fails, and retains behavior success `0.8625` on seeds `9505` and `9506`. The result is valid but tiny: protected-key normal margin is `0.199995`, leaving about `4.8e-6` slack to the `0.2` upper window.
+- decision: `promote_m316_a0_0025_public_gate_base`
+- next: `m318-m317-protected-key-slack-audit`

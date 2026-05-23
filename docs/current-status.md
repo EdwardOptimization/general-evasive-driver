@@ -42,15 +42,14 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m313_m307_to_m310_protected_key_bounded_interpolation/checkpoints/alpha_0_14.pt
+runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt
 ```
 
-Status: M314 promoted `m313_a140` as the current public-gate base. It is the
-protected-key-bounded interpolation from M307 toward the M310 repaired PPO
-proposal. It improves exact M297 rejected-history preference by `0.000017047`
-and exact M270 source-balanced outcome by `0.000010908` versus M307 while
-passing six public replay surfaces, protected key `9944`, and behavior seeds
-`9505`/`9506`.
+Status: M317 promoted `m316_a0_0025` as the current public-gate base. It is the
+protected-key-bounded interpolation from M314 toward the M316 repaired PPO
+proposal. It keeps exact M297 rejected-history preference and exact M270
+source-balanced outcome non-regressing versus M314 while passing six public
+replay surfaces, protected key `9944`, and behavior seeds `9505`/`9506`.
 
 M302 tried a 1024-step PPO smoke from M299 with a sampled rejected-history
 preference auxiliary loss. It is rejected: M302 raw regresses exact M297 by
@@ -62,7 +61,7 @@ post-PPO repair before any more PPO acceptance.
 Current blocker:
 
 ```text
-m317-full-public-gate-for-m316-a0-0025
+m318-m317-protected-key-slack-audit
 ```
 
 M305 implements deterministic exact M297/M270 repair or projection
@@ -123,14 +122,15 @@ acceptance needs exact repair plus a protected-key-bounded trust region.
 Current next task:
 
 ```text
-m317-full-public-gate-for-m316-a0-0025
+m318-m317-protected-key-slack-audit
 ```
 
-M316 completed the protected-key-aware PPO smoke. Raw PPO regressed exact
-M297/M270, exact repair recovered both, but protected key `9944` allowed only
-`alpha=0.0025`. That tiny selected alpha passes M183/M170 and M267/M264 first
-replay gates. M317 should run the full public promotion gate before any base
-change.
+M317 completed the full public promotion gate for M316 alpha `0.0025`. The new
+base is valid, but protected key `9944` is now effectively saturated: normal
+margin is `0.199995` against the `0.2` upper window. M318 should audit whether
+the old single protected key remains an appropriate hard veto or whether the
+project needs a refreshed source-diverse protected-surface gate before more
+PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -164,9 +164,9 @@ change.
 | repair repeat diagnostic | `runs/m308_exact_repair_from_raw_s40_seed10094/candidate_checkpoint.pt` | M308 repeats M306 exact deltas and first replay gates; not separately promoted |
 | next PPO proposal config | `configs/ppo_m310_exact_repaired_proposal_smoke.json` | M309 registered smoke PPO from M307 plus mandatory exact repair before replay |
 | rejected full-gate candidate | `runs/m310_exact_repair_from_raw_s40_seed10095/candidate_checkpoint.pt` | M311 rejects after protected-key failure despite exact and replay success |
-| current public-gate base | `runs/m313_m307_to_m310_protected_key_bounded_interpolation/checkpoints/alpha_0_14.pt` | M314 promoted after exact objectives full replay protected-key and behavior gates pass |
+| previous public-gate base | `runs/m313_m307_to_m310_protected_key_bounded_interpolation/checkpoints/alpha_0_14.pt` | M314 promoted after exact objectives full replay protected-key and behavior gates pass |
 | next protected-key-aware PPO config | `configs/ppo_m316_protected_key_aware_proposal_smoke.json` | M315 registered smoke PPO from M314 plus exact repair and protected-key-bounded acceptance before replay |
-| full-gate candidate | `runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt` | M316 selected the largest protected-key-passing alpha and passed M183/M170 plus M267/M264 first replay gates |
+| current public-gate base | `runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt` | M317 promoted after exact objectives full replay protected-key and behavior gates pass; protected-key slack is about `4.8e-6` |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -438,10 +438,10 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not promote M316 from first replay gates alone. M317 must run six replay
-surfaces, protected key, behavior seeds `9505`/`9506`, and research validation
-before `m316_a0_0025` can replace the M314 public-gate base. Do not change
-actor inputs.
+Do not run another PPO proposal before M318 audits protected-key slack. The
+current base is valid, but `9944|perturbed|28|28` is now so close to the
+normal-margin upper window that future acceptance may be dominated by one
+saturated row. Do not change actor inputs.
 
 ## Sensor Profile Policy
 
