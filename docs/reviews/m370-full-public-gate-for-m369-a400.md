@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260523T120839Z
+- Generated at UTC: 20260523T121344Z
 - Type: driver_candidate
 - Gate tier: promotion
-- Promotion decision: pending
-- Decision reason: M370 may promote M369 a400 only if full public replay, behavior seeds, old-key, source-diverse, and input-contract checks all pass.
+- Promotion decision: promote_m369_a400_hard_row_weighted_public_gate_base
+- Decision reason: M370 promotes M369 alpha 0.4 after old-key source-diverse six replay and behavior gates pass; alpha 0.6 remains the first tested old-key gap-p10 failure
 
 ## Hypothesis
 
@@ -65,8 +65,19 @@ The M369 a400 hard-row weighted repaired candidate may pass the full public prom
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m370-full-public-gate-for-m369-a400
+- type: driver_candidate
+- checkpoint: runs/m369_hard_row_repair_interpolation/checkpoints/alpha_0_4.pt
+- success_rate: 0.8625
+- termination_rate: 0.1375
+- clearance_margin_mean: 1.844239
+- reset_success: 0.8500
+- zero_wheel_success: None
+- zero_all_success: 0.8000
+- wheel_gain_mu: None
+- decision: promote_m369_a400_hard_row_weighted_public_gate_base
+- reason: M370 promotes M369 alpha 0.4 after old-key source-diverse six replay and behavior gates pass; alpha 0.6 remains the first tested old-key gap-p10 failure
 
 ## Next Blocker
 
-pending M370 full public gate
+m371-alpha06-old-key-gap-p10-audit

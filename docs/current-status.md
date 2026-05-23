@@ -42,20 +42,20 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m364_old_key_aware_repair_interpolation/checkpoints/alpha_0_1.pt
+runs/m369_hard_row_repair_interpolation/checkpoints/alpha_0_4.pt
 ```
 
-Status: M365 promotes M364 alpha `0.1` as the current public-gate base. It
+Status: M370 promotes M369 alpha `0.4` as the current public-gate base. It
 passes old-key replay, source-diverse protected gates `5/5`, all six public
 replay surfaces, and behavior seeds `9505`/`9506`. This remains a proof-safe
 incremental step rather than a large driver-performance improvement; alpha
-`0.2` from the same old-key-aware repair interpolation is the first tested
-old-key failure.
+`0.6` from the same hard-row weighted repair direction is the first tested
+old-key compact gap-p10 failure.
 
 Current blocker:
 
 ```text
-m370-full-public-gate-for-m369-a400
+m371-alpha06-old-key-gap-p10-audit
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -106,8 +106,9 @@ implements that path, exports a 40-row weighted old-key corpus with one hard
 row, and verifies no-update exact repair integration without changing actor
 inputs. M369 runs the no-PPO proof probe: the direct repaired endpoint fails
 old-key replay, but interpolation alpha `0.4` passes old-key, source-diverse,
-and first replay proof gates. M370 is the next full public gate before any
-promotion.
+and first replay proof gates. M370 promotes alpha `0.4` after the full public
+gate passes. M371 should audit the alpha `0.6` old-key compact gap-p10 failure
+before any more repair or PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
