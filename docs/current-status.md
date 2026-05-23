@@ -42,21 +42,20 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt
+runs/m364_old_key_aware_repair_interpolation/checkpoints/alpha_0_1.pt
 ```
 
-Status: M360 promotes M358 alpha `0.00025` as the current public-gate base. It
-passes exact M297/M270 no-regression versus the previous M352 base, the
-old-key neighborhood gate, source-diverse protected gates `5/5`, all six replay
-surfaces, and behavior seeds `9505`/`9506`. M361 classifies this as a
-proof-safe micro-step rather than meaningful driver improvement; the accepted
-movement is extremely small and the first tested larger alpha `0.0005` fails the
-old-key neighborhood gate.
+Status: M365 promotes M364 alpha `0.1` as the current public-gate base. It
+passes old-key replay, source-diverse protected gates `5/5`, all six public
+replay surfaces, and behavior seeds `9505`/`9506`. This remains a proof-safe
+incremental step rather than a large driver-performance improvement; alpha
+`0.2` from the same old-key-aware repair interpolation is the first tested
+old-key failure.
 
 Current blocker:
 
 ```text
-m365-full-public-gate-for-m364-alpha01
+m366-alpha02-old-key-regression-audit
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -99,7 +98,7 @@ exact-repair surrogate, exports a 40-row old-key corpus, and verifies the repair
 integration path with a no-update smoke. M364 runs the no-PPO proof probe:
 direct old-key-aware repair still fails old-key replay by one accepted
 regression, but interpolation alpha `0.1` passes old-key, source-diverse, and
-first replay gates. M365 must run a full public gate before any promotion.
+first replay gates. M365 promotes alpha `0.1` after the full public gate passes.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -176,7 +175,7 @@ first replay gates. M365 must run a full public gate before any promotion.
 | bounded micro-alpha candidate | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M358 finds alpha 0.00025 passes exact and old-key; alpha 0.0005 first fails old-key |
 | proof-gate-passing micro-alpha | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M359 passes source-diverse protected and first replay proof gates |
 | current public-gate base | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M360 promotes alpha 0.00025 after full public gate pass; movement is extremely small |
-| current blocker | `experiments/manifests/m365-full-public-gate-for-m364-alpha01.json` | M365 must run full replay and behavior gates for the M364 alpha 0.1 candidate before promotion |
+| current blocker | `experiments/manifests/m366-alpha02-old-key-regression-audit.json` | M366 must inspect the single alpha 0.2 old-key accepted regression before another repair or PPO step |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

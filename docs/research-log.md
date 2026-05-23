@@ -9284,3 +9284,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M364 probes old-key-aware repair without PPO. With default `1e-7` old-key tolerance, repair selects alpha `0.0`; with `1e-6`, it selects alpha `0.0025` toward the M356 candidate and improves exact M297/M270 while keeping old-key surrogate within tolerance. The direct repaired candidate fails closed-loop old-key replay by one accepted regression, but interpolation alpha `0.1` passes old-key replay, source-diverse protected gates `5/5`, and M183/M170 plus M267/M264 first replay gates `17/17`. Alpha `0.2` is the first failing tested old-key interpolation.
 - decision: `admit_m365_full_public_gate_for_m364_alpha01`
 - next: `m365-full-public-gate-for-m364-alpha01`
+
+## 20260523T112052Z - m365-full-public-gate-for-m364-alpha01
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m365_full_public_gate_for_m364_alpha01`
+- artifact: `docs/m365-full-public-gate-for-m364-alpha01.md`
+- result: M365 promotes `runs/m364_old_key_aware_repair_interpolation/checkpoints/alpha_0_1.pt`. It retains old-key proof from M364, source-diverse protected gates `5/5`, all six public replay surfaces, and behavior seeds `9505`/`9506`. Behavior success mean remains `0.8625`, termination mean `0.1375`, reset success mean `0.85`, and zero-all success mean `0.80`.
+- decision: `promote_m364_alpha01_old_key_aware_public_gate_base`
+- next: `m366-alpha02-old-key-regression-audit`

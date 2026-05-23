@@ -2,7 +2,7 @@
   "id": "m365-full-public-gate-for-m364-alpha01",
   "type": "driver_candidate",
   "gate_tier": "promotion",
-  "promotion_decision": "pending",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -78,6 +78,34 @@
     "docs/m364-old-key-aware-repair-probe.md",
     "runs/m364_old_key_aware_repair_probe/summary.json"
   ],
-  "decision_rule": "M365 promotes only if the M364 alpha 0.1 candidate passes all public replay and behavior retention gates without actor-input changes.",
-  "next_blocker": "pending M365 full public gate"
+  "results": {
+    "run_dir": "runs/m365_full_public_gate_for_m364_alpha01",
+    "candidate_policy": "m364a_0_1",
+    "candidate_checkpoint": "runs/m364_old_key_aware_repair_interpolation/checkpoints/alpha_0_1.pt",
+    "old_key_neighborhood_pass": true,
+    "old_key_first_failing_alpha_from_repair_candidate": 0.2,
+    "source_diverse_pass": true,
+    "source_diverse_replay_gates_passed": 5,
+    "source_diverse_replay_gate_count": 5,
+    "full_replay_gates_pass": true,
+    "m183_m168_success_drops": 16,
+    "m183_m170_success_drops": 17,
+    "m193_m189_success_drops": 14,
+    "m212_m204_success_drops": 17,
+    "m223_m219_success_drops": 17,
+    "m267_m264_success_drops": 17,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "behavior_success_mean": 0.8625,
+    "behavior_termination_mean": 0.1375,
+    "behavior_clearance_margin_mean": 1.8445377941897707,
+    "reset_success_mean": 0.85,
+    "zero_all_success_mean": 0.8,
+    "promotion_recommended": true,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "promote_m364_alpha01_old_key_aware_public_gate_base",
+  "decision_rule": "M365 promotes alpha 0.1 because old-key, source-diverse, all six replay surfaces, behavior seeds, and input-contract checks pass; promotion remains qualified as a proof-safe incremental step.",
+  "next_blocker": "m366-alpha02-old-key-regression-audit"
 }
