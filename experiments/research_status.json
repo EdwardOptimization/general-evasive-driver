@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 305,
+    "completed": 306,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m296-current-family-rejected-margin-objective-design.md",
+    "command_log": "docs/m297-current-family-rejected-preference-objective-implementation.md",
     "returncode": 0,
-    "run_dir": "runs/m296_current_family_rejected_margin_objective_design",
+    "run_dir": "runs/m297_current_family_rejected_preference_objective",
     "status": "completed",
-    "task_id": "m296-current-family-rejected-margin-objective-design"
+    "task_id": "m297-current-family-rejected-preference-objective-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m297-current-family-rejected-preference-objective-implementation.json",
-    "hypothesis": "A rejected-history preference loss with rejected_action and margin labels should distinguish M290 from M291/M294 proof-washout checkpoints better than preferred-action-only outcome loss.",
-    "id": "m297-current-family-rejected-preference-objective-implementation",
+    "command": "see experiments/manifests/m298-rejected-preference-objective-only-probe.json",
+    "hypothesis": "The M297 rejected-history preference loss has a useful no-PPO update direction that can improve the proof-washout objective while retaining exact M270 and replay surfaces.",
+    "id": "m298-rejected-preference-objective-only-probe",
     "kind": "objective_sanity",
-    "notes": "Pending: implement corpus/loss/evaluator and exact sanity checks without PPO",
-    "priority": 2920,
+    "notes": "Pending: no-PPO preference objective-only update or projection probe from M290",
+    "priority": 2930,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260523T002543Z"
+  "updated_at_utc": "20260523T004454Z"
 }

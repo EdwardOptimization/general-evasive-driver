@@ -76,7 +76,7 @@ def write_csv_rows(path: Path | str, rows: list[dict[str, Any]], fieldnames: lis
         fieldnames = keys
 
     with output.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
         for row in rows:
             writer.writerow({key: to_jsonable(row.get(key, "")) for key in fieldnames})

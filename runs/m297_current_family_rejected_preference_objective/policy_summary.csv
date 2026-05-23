@@ -1,0 +1,4 @@
+policy,checkpoint,rows,weighted_loss,combined_loss_mean,preferred_separation_mean,wrong_preference_mean,weight_mean
+m290x64_a500,runs/m290_row16_aware_balanced_repeat_fresh_seed/interpolation/checkpoints/alpha_0_5.pt,17,1.1917999982833862,1.4035425186157227,0.6887320876121521,0.7148104906082153,0.04998534545302391
+m291raw,runs/ppo_m291_row16_aware_guarded_smoke_seed5231/checkpoint.pt,17,1.192549705505371,1.404533863067627,0.6892215609550476,0.7153123021125793,0.04998534545302391
+m294raw,runs/ppo_m294_current_family_rejected_repair_smoke_seed5232/checkpoint.pt,17,1.19273042678833,1.4047479629516602,0.6893271207809448,0.7154209017753601,0.04998534545302391

@@ -2,7 +2,7 @@
   "id": "m297-current-family-rejected-preference-objective-implementation",
   "type": "objective_sanity",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -66,7 +66,7 @@
   "commands": [
     {
       "name": "m297_implementation",
-      "command": "Implement rejected-history preference corpus/loss/evaluator and run objective sanity only; do not train."
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.rejected_history_preference_objective --checkpoint-policy m290x64_a500=runs/m290_row16_aware_balanced_repeat_fresh_seed/interpolation/checkpoints/alpha_0_5.pt --checkpoint-policy m291raw=runs/ppo_m291_row16_aware_guarded_smoke_seed5231/checkpoint.pt --checkpoint-policy m294raw=runs/ppo_m294_current_family_rejected_repair_smoke_seed5232/checkpoint.pt --source-npz runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.npz --source-csv runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv --base-replay-csv runs/m294_current_family_rejected_repair_ppo_smoke/gates/raw_m267_m264/boundary_replay_rows.csv --base-policy m290x64_a500 --failed-row-ids 6,15,16 --recovered-row-ids 11 --failed-row-bonus 4.0 --recovered-row-bonus 2.0 --max-weight 100.0 --device cpu --run-dir runs/m297_current_family_rejected_preference_objective"
     }
   ],
   "required_artifacts": [
@@ -86,6 +86,23 @@
     "docs/m296-current-family-rejected-margin-objective-design.md",
     "runs/m296_current_family_rejected_margin_objective_design/summary.json"
   ],
+  "results": {
+    "run_dir": "runs/m297_current_family_rejected_preference_objective",
+    "corpus_rows": 17,
+    "m290x64_a500_loss": 1.1917999982833862,
+    "m291raw_loss": 1.192549705505371,
+    "m294raw_loss": 1.19273042678833,
+    "base_loss_lower_than_candidates": true,
+    "focused_rows": [
+      6,
+      11,
+      15,
+      16
+    ],
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
   "decision_rule": "M297 can only admit a later no-PPO objective-only update or projection probe if the exact preference loss ranks M290 ahead of the PPO washout checkpoints and all tests pass.",
-  "next_blocker": "pending M297 rejected-history preference objective implementation"
+  "decision": "admit_no_ppo_rejected_preference_objective_only_probe",
+  "next_blocker": "m298-rejected-preference-objective-only-probe"
 }

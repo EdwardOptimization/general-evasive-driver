@@ -1,0 +1,52 @@
+{
+  "actor_inputs_changed": false,
+  "base_loss_lower_than_candidates": true,
+  "base_policy": "m290x64_a500",
+  "checkpoint_policies": [
+    {
+      "label": "m290x64_a500",
+      "path": "runs/m290_row16_aware_balanced_repeat_fresh_seed/interpolation/checkpoints/alpha_0_5.pt"
+    },
+    {
+      "label": "m291raw",
+      "path": "runs/ppo_m291_row16_aware_guarded_smoke_seed5231/checkpoint.pt"
+    },
+    {
+      "label": "m294raw",
+      "path": "runs/ppo_m294_current_family_rejected_repair_smoke_seed5232/checkpoint.pt"
+    }
+  ],
+  "corpus_summary": {
+    "base_policy": "m290x64_a500",
+    "failed_rows": [
+      6,
+      15,
+      16
+    ],
+    "output_csv": "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.csv",
+    "output_npz": "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+    "recovered_rows": [
+      11
+    ],
+    "rows": 17,
+    "weight_max": 0.3274986147880554,
+    "weight_mean": 0.04998534545302391,
+    "weight_min": 0.01278961542993784
+  },
+  "device": "cpu",
+  "focused_row_losses_csv": "runs/m297_current_family_rejected_preference_objective/focused_row_losses.csv",
+  "loss_config": {
+    "preferred_logprob_margin": 0.05,
+    "wrong_logprob_margin": 0.05,
+    "wrong_preference_coef": 1.0
+  },
+  "losses": {
+    "m290x64_a500": 1.1917999982833862,
+    "m291raw": 1.192549705505371,
+    "m294raw": 1.19273042678833
+  },
+  "per_row_losses_csv": "runs/m297_current_family_rejected_preference_objective/per_row_losses.csv",
+  "policy_summary_csv": "runs/m297_current_family_rejected_preference_objective/policy_summary.csv",
+  "ppo_or_actor_update_run": false,
+  "run_type": "rejected_history_preference_objective_sanity"
+}

@@ -1,0 +1,90 @@
+{
+  "id": "m298-rejected-preference-objective-only-probe",
+  "type": "objective_sanity",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m290_row16_aware_balanced_repeat_fresh_seed/interpolation/checkpoints/alpha_0_5.pt"
+    ],
+    "parent_dataset": [
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.csv",
+      "runs/m297_current_family_rejected_preference_objective/policy_summary.csv",
+      "runs/m297_current_family_rejected_preference_objective/focused_row_losses.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m297-current-family-rejected-preference-objective-implementation.json",
+      "docs/m297-current-family-rejected-preference-objective-implementation.md"
+    ],
+    "parent_objective": [
+      "probe whether the M297 rejected-history preference loss has a useful no-PPO update direction"
+    ],
+    "derived_from": [
+      "m297-current-family-rejected-preference-objective-implementation"
+    ],
+    "blocked_by": [
+      "m297-current-family-rejected-preference-objective-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m298-rejected-preference-objective-only-probe.md",
+  "public_gates": [
+    "do not run PPO",
+    "preserve human-view actor input contract",
+    "run a small objective-only update or interpolation/projection probe from M290 using the M297 preference loss",
+    "evaluate exact M297 preference loss and exact M270 before any replay promotion",
+    "run M183/M170 and M267/M264 replay gates only if exact objectives are non-regressing"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M298",
+    "do not promote based on M297 loss alone",
+    "do not change actor inputs",
+    "do not use hidden vehicle parameters as actor inputs",
+    "do not skip exact M270 no-regression before replay gates"
+  ],
+  "hypothesis": "The M297 rejected-history preference loss has a useful no-PPO update direction that can improve the proof-washout objective while retaining exact M270 and replay surfaces.",
+  "success_criteria": [
+    "objective-only update or projection improves exact M297 preference loss versus M290",
+    "exact M270 does not regress versus M290",
+    "M183/M170 and M267/M264 replay gates pass if reached",
+    "no PPO or actor-input change occurs",
+    "results are documented with artifacts and failure taxonomy"
+  ],
+  "failure_criteria": [
+    "preference loss improves only by breaking exact M270",
+    "preference loss improves but M183/M170 or M267/M264 replay gates fail",
+    "no usable non-PPO update direction is found",
+    "PPO is run"
+  ],
+  "commands": [
+    {
+      "name": "m298_probe",
+      "command": "Run a no-PPO rejected-history preference objective-only update/projection probe from M290 and gate it before any PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m298-rejected-preference-objective-only-probe.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m298_rejected_preference_objective_only_probe/summary.json",
+      "type": "probe_summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m290_row16_aware_balanced_repeat_fresh_seed/interpolation/checkpoints/alpha_0_5.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m297-current-family-rejected-preference-objective-implementation.md",
+    "runs/m297_current_family_rejected_preference_objective/summary.json"
+  ],
+  "decision_rule": "M298 can only admit a later guarded actor update or PPO smoke if it improves M297 preference loss without exact-M270 or replay regression.",
+  "next_blocker": "pending M298 no-PPO rejected-history preference objective-only probe"
+}

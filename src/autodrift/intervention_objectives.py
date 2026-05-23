@@ -36,6 +36,29 @@ class OutcomeInterventionSnippets:
 
 
 @dataclass(frozen=True)
+class RejectedHistoryPreferenceSnippets:
+    observation: torch.Tensor
+    preferred_hidden: torch.Tensor
+    rejected_hidden: torch.Tensor
+    preferred_action: torch.Tensor
+    rejected_action: torch.Tensor
+    preferred_score: torch.Tensor
+    rejected_score: torch.Tensor
+    score_delta: torch.Tensor
+    normal_margin: torch.Tensor
+    wrong_history_margin: torch.Tensor
+    margin_floor: torch.Tensor
+    weight: torch.Tensor
+    row_id: torch.Tensor
+    group_index: torch.Tensor
+    target_index: torch.Tensor
+
+    @property
+    def size(self) -> int:
+        return int(self.observation.shape[0])
+
+
+@dataclass(frozen=True)
 class SnippetActionAnchor:
     observation: torch.Tensor
     preferred_hidden: torch.Tensor
@@ -211,6 +234,106 @@ def load_outcome_intervention_snippets(
     )
 
 
+def load_rejected_history_preference_snippets(
+    path: Path | str,
+    *,
+    device: torch.device,
+    obs_dim: int,
+    hidden_size: int,
+    act_dim: int,
+) -> RejectedHistoryPreferenceSnippets:
+    data = np.load(Path(path))
+    required = {
+        "observation",
+        "preferred_hidden",
+        "rejected_hidden",
+        "preferred_action",
+        "rejected_action",
+        "preferred_score",
+        "rejected_score",
+        "score_delta",
+        "normal_margin",
+        "wrong_history_margin",
+        "margin_floor",
+        "weight",
+        "row_id",
+        "group_index",
+        "target_index",
+    }
+    missing = sorted(required.difference(data.files))
+    if missing:
+        raise ValueError(f"rejected history preference npz missing fields: {missing}")
+
+    observation = np.asarray(data["observation"], dtype=np.float32)
+    preferred_hidden = np.asarray(data["preferred_hidden"], dtype=np.float32)
+    rejected_hidden = np.asarray(data["rejected_hidden"], dtype=np.float32)
+    preferred_action = np.asarray(data["preferred_action"], dtype=np.float32)
+    rejected_action = np.asarray(data["rejected_action"], dtype=np.float32)
+    rows = int(observation.shape[0])
+    if rows < 1:
+        raise ValueError("rejected history preference npz must contain at least one row")
+    if observation.ndim != 2 or observation.shape[1] != obs_dim:
+        raise ValueError(f"preference observations must have shape (N, {obs_dim}), got {observation.shape}")
+    if preferred_hidden.shape != rejected_hidden.shape:
+        raise ValueError("preferred and rejected hidden states must have matching shapes")
+    if preferred_hidden.ndim != 2 or preferred_hidden.shape[1] != hidden_size:
+        raise ValueError(f"preference hidden states must have shape (N, {hidden_size}), got {preferred_hidden.shape}")
+    for name, value in (("preferred_action", preferred_action), ("rejected_action", rejected_action)):
+        if value.ndim != 2 or value.shape[1] != act_dim:
+            raise ValueError(f"{name} must have shape (N, {act_dim}), got {value.shape}")
+        if int(value.shape[0]) != rows:
+            raise ValueError(f"{name} row count {value.shape[0]} does not match {rows}")
+
+    float_arrays = {
+        "preferred_score": np.asarray(data["preferred_score"], dtype=np.float32),
+        "rejected_score": np.asarray(data["rejected_score"], dtype=np.float32),
+        "score_delta": np.asarray(data["score_delta"], dtype=np.float32),
+        "normal_margin": np.asarray(data["normal_margin"], dtype=np.float32),
+        "wrong_history_margin": np.asarray(data["wrong_history_margin"], dtype=np.float32),
+        "margin_floor": np.asarray(data["margin_floor"], dtype=np.float32),
+        "weight": np.asarray(data["weight"], dtype=np.float32),
+    }
+    int_arrays = {
+        "row_id": np.asarray(data["row_id"], dtype=np.int64),
+        "group_index": np.asarray(data["group_index"], dtype=np.int64),
+        "target_index": np.asarray(data["target_index"], dtype=np.int64),
+    }
+    for name, value in {**float_arrays, **int_arrays}.items():
+        if value.ndim != 1 or int(value.shape[0]) != rows:
+            raise ValueError(f"{name} must have shape (N,), got {value.shape}")
+    for name, value in {
+        "observation": observation,
+        "preferred_hidden": preferred_hidden,
+        "rejected_hidden": rejected_hidden,
+        "preferred_action": preferred_action,
+        "rejected_action": rejected_action,
+        **float_arrays,
+    }.items():
+        if not np.all(np.isfinite(value)):
+            raise ValueError(f"{name} must be finite")
+    weight = np.clip(float_arrays["weight"], 0.0, None)
+    if float(np.max(weight)) <= 0.0:
+        raise ValueError("rejected history preference snippets require at least one positive weight")
+
+    return RejectedHistoryPreferenceSnippets(
+        observation=torch.as_tensor(observation, dtype=torch.float32, device=device),
+        preferred_hidden=torch.as_tensor(preferred_hidden, dtype=torch.float32, device=device),
+        rejected_hidden=torch.as_tensor(rejected_hidden, dtype=torch.float32, device=device),
+        preferred_action=torch.as_tensor(preferred_action, dtype=torch.float32, device=device),
+        rejected_action=torch.as_tensor(rejected_action, dtype=torch.float32, device=device),
+        preferred_score=torch.as_tensor(float_arrays["preferred_score"], dtype=torch.float32, device=device),
+        rejected_score=torch.as_tensor(float_arrays["rejected_score"], dtype=torch.float32, device=device),
+        score_delta=torch.as_tensor(float_arrays["score_delta"], dtype=torch.float32, device=device),
+        normal_margin=torch.as_tensor(float_arrays["normal_margin"], dtype=torch.float32, device=device),
+        wrong_history_margin=torch.as_tensor(float_arrays["wrong_history_margin"], dtype=torch.float32, device=device),
+        margin_floor=torch.as_tensor(float_arrays["margin_floor"], dtype=torch.float32, device=device),
+        weight=torch.as_tensor(weight, dtype=torch.float32, device=device),
+        row_id=torch.as_tensor(int_arrays["row_id"], dtype=torch.long, device=device),
+        group_index=torch.as_tensor(int_arrays["group_index"], dtype=torch.long, device=device),
+        target_index=torch.as_tensor(int_arrays["target_index"], dtype=torch.long, device=device),
+    )
+
+
 def load_trajectory_action_anchor(
     path: Path | str,
     *,
@@ -330,6 +453,64 @@ def outcome_weighted_intervention_loss(
     rejected_log_prob = squashed_action_log_prob(rejected_dist, preferred_action)
     penalty = torch.nn.functional.softplus(rejected_log_prob - preferred_log_prob + float(logprob_margin))
     return weighted_mean(penalty, weight.detach())
+
+
+def rejected_history_preference_components(
+    model: Any,
+    snippets: RejectedHistoryPreferenceSnippets,
+    indices: torch.Tensor,
+    *,
+    preferred_logprob_margin: float,
+    wrong_logprob_margin: float,
+    wrong_preference_coef: float,
+) -> dict[str, torch.Tensor]:
+    observation = snippets.observation[indices]
+    preferred_hidden = snippets.preferred_hidden[indices]
+    rejected_hidden = snippets.rejected_hidden[indices]
+    preferred_action = snippets.preferred_action[indices]
+    rejected_action = snippets.rejected_action[indices]
+
+    preferred_dist, _, _ = model.forward_recurrent(observation, preferred_hidden)
+    wrong_dist, _, _ = model.forward_recurrent(observation, rejected_hidden)
+    logp_cp = squashed_action_log_prob(preferred_dist, preferred_action)
+    logp_wp = squashed_action_log_prob(wrong_dist, preferred_action)
+    logp_wr = squashed_action_log_prob(wrong_dist, rejected_action)
+    preferred_separation = torch.nn.functional.softplus(
+        logp_wp - logp_cp + float(preferred_logprob_margin)
+    )
+    wrong_preference = torch.nn.functional.softplus(logp_wp - logp_wr + float(wrong_logprob_margin))
+    combined = preferred_separation + float(wrong_preference_coef) * wrong_preference
+    return {
+        "logp_correct_preferred": logp_cp,
+        "logp_wrong_preferred": logp_wp,
+        "logp_wrong_rejected": logp_wr,
+        "preferred_separation": preferred_separation,
+        "wrong_preference": wrong_preference,
+        "combined": combined,
+    }
+
+
+def rejected_history_preference_loss(
+    model: Any,
+    snippets: RejectedHistoryPreferenceSnippets,
+    *,
+    batch_size: int,
+    preferred_logprob_margin: float,
+    wrong_logprob_margin: float,
+    wrong_preference_coef: float,
+) -> torch.Tensor:
+    count = snippets.size
+    batch_count = max(1, min(int(batch_size), count))
+    indices = torch.randint(count, (batch_count,), device=snippets.observation.device)
+    components = rejected_history_preference_components(
+        model,
+        snippets,
+        indices,
+        preferred_logprob_margin=preferred_logprob_margin,
+        wrong_logprob_margin=wrong_logprob_margin,
+        wrong_preference_coef=wrong_preference_coef,
+    )
+    return weighted_mean(components["combined"], snippets.weight[indices].detach())
 
 
 def build_snippet_action_anchor(
