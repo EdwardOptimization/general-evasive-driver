@@ -79,6 +79,34 @@
     "docs/m357-m354-best-step-repair-proof-gate.md",
     "runs/m357_m354_best_step_old_key_replay_gate/summary.json"
   ],
-  "decision_rule": "M358 is complete when the M356 best-step repair direction is either bounded to a proof-gate-eligible alpha or classified as unusable for the next PPO escalation.",
-  "next_blocker": "pending M358 M354 best-step bounded interpolation probe"
+  "results": {
+    "run_dir": "runs/m358_m354_best_step_bounded_interpolation_probe",
+    "coarse_interpolation_run_dir": "runs/m358_m352_to_m354_best_step_interpolation",
+    "coarse_old_key_targeted_replay_run_dir": "runs/m358_m354_best_step_old_key_alpha_targeted_replay",
+    "micro_interpolation_run_dir": "runs/m358_m352_to_m354_best_step_micro_interpolation",
+    "micro_old_key_targeted_replay_run_dir": "runs/m358_m354_best_step_old_key_micro_targeted_replay",
+    "selected_policy": "m358_micro_a0_00025",
+    "selected_alpha": 0.00025,
+    "selected_checkpoint": "runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt",
+    "selected_exact_eval_run_dir": "runs/m358_m354_best_step_alpha00025_exact_eval",
+    "selected_m297_delta_vs_m352": -1.1920928955078125e-07,
+    "selected_m270_delta_vs_m352": -5.960464477539063e-08,
+    "selected_exact_lexicographic_pass": true,
+    "selected_old_key_gate_run_dir": "runs/m358_m354_best_step_old_key_micro_a00025_gate",
+    "selected_old_key_pass": true,
+    "selected_old_key_accepted_regressions": 0,
+    "selected_old_key_gap_p10": -1.0362204295797164e-06,
+    "selected_old_key_gap_min": -1.6202017340989638e-06,
+    "first_failing_alpha": 0.0005,
+    "first_failing_policy": "m358_micro_a0_0005",
+    "first_failing_old_key_gate_run_dir": "runs/m358_m354_best_step_old_key_micro_a0005_gate",
+    "first_failing_old_key_accepted_regressions": 1,
+    "promotion_recommended": false,
+    "admit_proof_gate": true,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m359_m354_best_step_micro_alpha_probe",
+  "decision_rule": "M358 admits a proof-gate probe because alpha 0.00025 is the largest tested old-key-neighborhood-passing nonzero interpolation and exact M297/M270 do not regress; alpha 0.0005 is the first failing old-key alpha.",
+  "next_blocker": "m359-m354-best-step-micro-alpha-proof-gate"
 }

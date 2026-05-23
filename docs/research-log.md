@@ -9214,3 +9214,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M357 evaluates the M356 best-step repaired candidate on the skipped proof gates and rejects direct acceptance. Source-diverse protected gates pass only `3/5`, failing the m317 and m314 continuity surfaces. Old-key neighborhood replay retains only `25/40` accepted rows with `15` accepted regressions and `3` normal-success regressions. M183/M170 first replay passes `17/17`, but M267/M264 first replay drops to `15/17`.
 - decision: `reject_m354_best_step_proof_washout`
 - next: `m358-m354-best-step-bounded-interpolation-probe`
+
+## 20260523T110840Z - m358-m354-best-step-bounded-interpolation-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m358_m354_best_step_bounded_interpolation_probe`
+- artifact: `docs/m358-m354-best-step-bounded-interpolation-probe.md`
+- result: M358 bounds the M356 best-step repair direction by interpolation from the M352 base. The coarse alpha grid shows `0.0025` already fails old-key neighborhood. A micro grid finds `alpha=0.00025` passes old-key with `0` accepted regressions and exact M297/M270 deltas `-0.000000119` and `-0.000000060`; `alpha=0.0005` is the first failing tested alpha with one accepted-case regression.
+- decision: `admit_m359_m354_best_step_micro_alpha_probe`
+- next: `m359-m354-best-step-micro-alpha-proof-gate`

@@ -1,0 +1,85 @@
+{
+  "id": "m359-m354-best-step-micro-alpha-proof-gate",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt",
+      "runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt"
+    ],
+    "parent_dataset": [
+      "runs/m358_m354_best_step_bounded_interpolation_probe/summary.json",
+      "runs/m358_m354_best_step_old_key_micro_a00025_gate/summary.json",
+      "runs/m358_m354_best_step_alpha00025_exact_eval/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m358-m354-best-step-bounded-interpolation-probe.json",
+      "docs/m358-m354-best-step-bounded-interpolation-probe.md"
+    ],
+    "parent_objective": [
+      "run source-diverse and first replay gates for the bounded M354 best-step micro alpha"
+    ],
+    "derived_from": [
+      "m358-m354-best-step-bounded-interpolation-probe"
+    ],
+    "blocked_by": [
+      "m358-m354-best-step-bounded-interpolation-probe"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m359-m354-best-step-micro-alpha-proof-gate.md",
+  "public_gates": [
+    "no PPO run",
+    "selected alpha exact M297/M270 no-regression retained",
+    "selected alpha old-key neighborhood pass retained",
+    "source-diverse protected gate pass",
+    "M183/M170 and M267/M264 first replay gates pass",
+    "do not promote directly"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not promote from proof gate alone",
+    "do not skip source-diverse protected gates",
+    "do not skip first replay gates",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "The M358 selected alpha 0.00025 may preserve source-diverse and first replay proof gates after passing exact objectives and old-key neighborhood replay.",
+  "success_criteria": [
+    "source-diverse protected gates pass",
+    "M183/M170 and M267/M264 first replay gates pass",
+    "exact and old-key results from M358 are cited",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "source-diverse protected gate fails",
+    "first replay gate fails",
+    "actor input contract changes",
+    "checkpoint is promoted directly"
+  ],
+  "commands": [
+    {
+      "name": "m359_proof_gates",
+      "command": "Run source-diverse protected and first replay proof gates for runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt; do not run PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m359-m354-best-step-micro-alpha-proof-gate.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m358-m354-best-step-bounded-interpolation-probe.md",
+    "runs/m358_m354_best_step_bounded_interpolation_probe/summary.json"
+  ],
+  "decision_rule": "M359 is complete when alpha 0.00025 is either admitted to full public gate or rejected with a classified proof-gate failure.",
+  "next_blocker": "pending M359 M354 best-step micro alpha proof gate"
+}

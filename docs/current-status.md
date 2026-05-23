@@ -55,7 +55,7 @@ neighborhood proof.
 Current blocker:
 
 ```text
-m358-m354-best-step-bounded-interpolation-probe
+m359-m354-best-step-micro-alpha-proof-gate
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -85,8 +85,10 @@ best-feasible checkpoint selection; the corrected M354 repair probe saves step
 `25` and passes exact M297/M270. M357 then rejects direct acceptance: the
 candidate passes M183/M170 but fails source-diverse protected gates `3/5`, old
 key neighborhood `25/40` accepted, and M267/M264 first replay `15/17`. M358
-should bound the M356 direction by interpolation from the M352 base before any
-new PPO.
+then bounds the M356 direction by interpolation: `alpha=0.00025` is the largest
+tested nonzero old-key-neighborhood-passing step, while `alpha=0.0005` is the
+first failing step. M359 should run source-diverse and first replay proof gates
+on `alpha=0.00025` before any full public gate.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -160,7 +162,8 @@ new PPO.
 | exact repair endpoint audit | `runs/m355_m354_repair_step39_diagnostic/summary.json` | M355 shows M354 had a feasible 39-step exact repair state; final-step selection crossed the M270 boundary |
 | exact repair best-step candidate | `runs/m356_m354_repair_best_step_probe/candidate_checkpoint.pt` | M356 fixes endpoint selection and selects step 25 with exact M297/M270 no-regression |
 | rejected proof-gate candidate | `runs/m356_m354_repair_best_step_probe/candidate_checkpoint.pt` | M357 rejects direct acceptance because source-diverse old-key and M267/M264 proof gates fail |
-| current blocker | `experiments/manifests/m358-m354-best-step-bounded-interpolation-probe.json` | M358 must bound the M356 direction with interpolation and old-key alpha probing |
+| bounded micro-alpha candidate | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M358 finds alpha 0.00025 passes exact and old-key; alpha 0.0005 first fails old-key |
+| current blocker | `experiments/manifests/m359-m354-best-step-micro-alpha-proof-gate.json` | M359 must run source-diverse protected and first replay proof gates before any full public gate |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
