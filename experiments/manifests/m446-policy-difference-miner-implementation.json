@@ -1,0 +1,84 @@
+{
+  "id": "m446-policy-difference-miner-implementation",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m444_proof_utility_generalization_seed9600/episodes.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m445-fresh-policy-difference-miner-design.json"
+    ],
+    "parent_objective": [
+      "policy-difference miner implementation"
+    ],
+    "derived_from": [
+      "m445-fresh-policy-difference-miner-design"
+    ],
+    "blocked_by": [
+      "m445-fresh-policy-difference-miner-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m446-policy-difference-miner-implementation.md",
+  "public_gates": [
+    "policy-difference miner smoke runs on M444 episodes",
+    "candidate and compact CSV artifacts written",
+    "summary JSON written",
+    "focused tests pass"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not make policy labels actor inputs",
+    "do not treat M444 as private holdout"
+  ],
+  "hypothesis": "A reusable policy-difference miner can turn broad benchmark episodes into source-diverse candidate rows for the next generalization surface.",
+  "success_criteria": [
+    "CLI reads benchmark episodes CSV and baseline policy",
+    "CLI exports accepted and compact policy-difference CSVs",
+    "CLI exports summary JSON with diversity counts",
+    "smoke run on M444 episodes completes",
+    "focused tests pass"
+  ],
+  "failure_criteria": [
+    "miner cannot handle no accepted rows",
+    "miner requires hidden/oracle actor inputs",
+    "miner promotes or trains a checkpoint",
+    "summary omits diversity accounting"
+  ],
+  "commands": [
+    {
+      "name": "implementation_smoke",
+      "command": "Implement policy_difference_miner.py and run it on runs/m444_proof_utility_generalization_seed9600/episodes.csv with baseline m399_base."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m446_policy_difference_miner_smoke/policy_difference_summary.json",
+      "type": "summary_json"
+    },
+    {
+      "path": "docs/m446-policy-difference-miner-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m445-fresh-policy-difference-miner-design.md"
+  ],
+  "decision_rule": "M446 passes if reusable miner tooling and a smoke artifact exist without training or promotion.",
+  "next_blocker": "pending M446 policy-difference miner implementation"
+}

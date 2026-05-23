@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M445 designs a source-diverse policy-difference miner with outcome margin and return divergence types after M444 aggregate tie",
+  "failure_criteria": [
+    "design falls back to active-boundary scalar tuning",
+    "design uses hidden/oracle actor inputs",
+    "design promotes a checkpoint from M444",
+    "design does not define diversity targets"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not tune from M444 and call it private holdout",
+    "do not add hidden or oracle actor inputs",
+    "do not make policy labels or proof labels actor inputs"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260523T192121Z",
+  "hypothesis": "After M444 found no aggregate broad success differences, the next useful evidence is a fresh source-diverse policy-difference miner that finds scenarios where candidates actually diverge in closed-loop behavior.",
+  "lineage": {
+    "blocked_by": [
+      "m444-proof-utility-generalization-audit"
+    ],
+    "derived_from": [
+      "m444-proof-utility-generalization-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m427_projected_recovery_ltraj1e13_s40_seed10156/candidate_checkpoint.pt",
+      "runs/m438_r0015_active_boundary_lactive1e12_s40_seed10161/candidate_checkpoint.pt",
+      "runs/m442_tail_r0010_active_boundary_v2_l1e12_s40_seed10162/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m444-proof-utility-generalization-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m444_proof_utility_generalization_seed9600/episodes.csv",
+      "runs/m444_proof_utility_generalization_seed9600/policy_summary.csv",
+      "runs/m444_proof_utility_generalization_seed9600/obstacle_label_summary.csv"
+    ],
+    "parent_objective": [
+      "fresh policy-difference mining design"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m445-fresh-policy-difference-miner-design",
+  "next_blocker": "m446-policy-difference-miner-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m446_policy_difference_miner_implementation",
+  "public_gates": [
+    "define source-diverse policy-difference mining schema",
+    "define outcome and margin divergence thresholds",
+    "define fresh scenario pool and diversity targets",
+    "no checkpoint promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m446_policy_difference_miner_implementation",
+    "milestone": "m445-fresh-policy-difference-miner-design",
+    "reason": "M445 designs a source-diverse policy-difference miner with outcome margin and return divergence types after M444 aggregate tie",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design specifies policy set and fresh seed pool",
+    "design specifies accepted divergence types",
+    "design specifies source-diversity and bucket limits",
+    "design specifies output artifacts for M446 implementation",
+    "design preserves the human-view actor contract"
+  ],
+  "type": "infrastructure"
+}

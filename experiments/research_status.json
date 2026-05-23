@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 453,
+        "completed": 454,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m444-proof-utility-generalization-audit",
+        "task_id": "m445-fresh-policy-difference-miner-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m444_proof_utility_generalization_seed9600",
-        "command_log": "docs/m444-proof-utility-generalization-audit.md"
+        "run_dir": "",
+        "command_log": "docs/m445-fresh-policy-difference-miner-design.md"
     },
     "next_task": {
-        "id": "m445-fresh-policy-difference-miner-design",
+        "id": "m446-policy-difference-miner-implementation",
         "status": "pending",
-        "priority": 4400,
+        "priority": 4410,
         "kind": "infrastructure",
-        "hypothesis": "Design fresh source-diverse policy-difference miner after M444 aggregate tie",
-        "command": "see experiments/manifests/m445-fresh-policy-difference-miner-design.json",
+        "hypothesis": "Implement reusable policy-difference miner and smoke on M444 episodes",
+        "command": "see experiments/manifests/m446-policy-difference-miner-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design miner for scenarios where candidate policies actually diverge in closed-loop behavior"
+        "notes": "Pending: add CLI tests and smoke artifacts without training or promotion"
     },
-    "updated_at_utc": "20260523T191738Z"
+    "updated_at_utc": "20260523T191946Z"
 }

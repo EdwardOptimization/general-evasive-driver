@@ -81,5 +81,20 @@
     "docs/m444-proof-utility-generalization-audit.md"
   ],
   "decision_rule": "M445 passes if it defines a concrete fresh policy-difference miner for M446 without training or promotion.",
-  "next_blocker": "pending M445 fresh policy-difference miner design"
+  "results": {
+    "decision": "admit_policy_difference_miner_implementation",
+    "initial_smoke_source": "runs/m444_proof_utility_generalization_seed9600/episodes.csv",
+    "future_fresh_pool_seed_start": 9700,
+    "future_fresh_pool_episodes": 1024,
+    "accepted_divergence_types": [
+      "success_flip",
+      "collision_flip",
+      "margin_sign_flip",
+      "near_boundary_margin_delta",
+      "large_margin_delta",
+      "return_delta"
+    ],
+    "next_direction": "implement miner and smoke on M444 episodes before a fresh full run"
+  },
+  "next_blocker": "m446-policy-difference-miner-implementation"
 }

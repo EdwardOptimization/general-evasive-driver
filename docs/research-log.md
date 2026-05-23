@@ -10084,3 +10084,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M444 runs a 160-episode fresh benchmark comparing M399 base, proof-safe active-boundary candidates, and proof-rejected high-recovery candidates. All checkpoint candidates tie M399 success `0.8625`, collision `0.1375`, and have zero per-seed success differences versus M399. M427 high-utility rejected does not show broad performance gain despite higher M406 recovery retained.
 - decision: `complete_no_broad_policy_difference_admit_miner`
 - next: `m445-fresh-policy-difference-miner-design`
+
+## 20260523T191946Z - m445-fresh-policy-difference-miner-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m445-fresh-policy-difference-miner-design.md`
+- result: M445 designs a reusable policy-difference miner. It should compare M399 against proof-safe and proof-rejected candidates, accept success flips, collision flips, margin sign flips, near-boundary margin deltas, large margin deltas, and return deltas, then select a source-diverse compact corpus. Hidden dynamics remain mining/logging fields only and never actor inputs.
+- decision: `admit_m446_policy_difference_miner_implementation`
+- next: `m446-policy-difference-miner-implementation`
