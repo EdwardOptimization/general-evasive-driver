@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 498,
+        "completed": 499,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m489-tail-action-sequence-amplification-design",
+        "task_id": "m490-tail-action-sequence-amplification-gate-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m489-tail-action-sequence-amplification-design.md"
+        "run_dir": "runs/m490_tail_action_sequence_amplification_summary",
+        "command_log": "docs/m490-tail-action-sequence-amplification-gate-implementation.md"
     },
     "next_task": {
-        "id": "m490-tail-action-sequence-amplification-gate-implementation",
+        "id": "m491-tail-action-replay-sufficiency-design",
         "status": "pending",
-        "priority": 4850,
+        "priority": 4860,
         "kind": "infrastructure",
-        "hypothesis": "If M487/M488 failed because wrong hidden is corrected too quickly, then short-horizon wrong_tail_hidden_hold_K variants will create source-diverse event or proof rows on the same critical-window tail states.",
-        "command": "see experiments/manifests/m490-tail-action-sequence-amplification-gate-implementation.json",
+        "hypothesis": "M490 hidden-hold events may be caused either by the wrong physical action sequence or by the artificially persistent wrong hidden state; a K-step action-replay diagnostic can separate these mechanisms.",
+        "command": "see experiments/manifests/m491-tail-action-replay-sufficiency-design.json",
         "success_artifact": "",
-        "notes": "Pending: implement and run diagnostic hidden-hold tail amplification gate; no training"
+        "notes": "Pending: design action-replay diagnostic after hidden-hold confirms quick-correction signal; no training"
     },
-    "updated_at_utc": "20260523T230631Z"
+    "updated_at_utc": "20260523T231357Z"
 }

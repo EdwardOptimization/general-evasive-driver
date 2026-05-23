@@ -2,7 +2,7 @@
   "id": "m490-tail-action-sequence-amplification-gate-implementation",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -99,5 +99,87 @@
     "runs/m488_critical_window_wrong_tail_no_effect_audit/summary.json"
   ],
   "decision_rule": "M490 should admit the quick-correction branch only if hidden-hold amplification creates source-diverse event or proof rows; otherwise rebuild the pair/task surface around terminal sensitivity.",
-  "next_blocker": "pending M490 tail action-sequence amplification gate implementation"
+  "next_blocker": "m491-tail-action-replay-sufficiency-design",
+  "results": {
+    "near_threshold_run_dir": "runs/m490_near_threshold_tail_action_sequence_amplification_gate",
+    "late_high_energy_run_dir": "runs/m490_late_high_energy_tail_action_sequence_amplification_gate",
+    "combined_summary_json": "runs/m490_tail_action_sequence_amplification_summary/combined_summary.json",
+    "combined_tail_amplification_outcomes_csv": "runs/m490_tail_action_sequence_amplification_summary/combined_tail_amplification_outcomes.csv",
+    "variant_summary_csv": "runs/m490_tail_action_sequence_amplification_summary/variant_summary.csv",
+    "combined_input_pair_count": 312,
+    "combined_valid_tail_pair_count": 1080,
+    "combined_invalid_tail_pair_count": 168,
+    "combined_outcome_row_count": 8640,
+    "wrong_tail_once_proof_candidate_count": 11,
+    "wrong_tail_once_event_rows": 0,
+    "hidden_hold_proof_candidate_count": 90,
+    "hidden_hold_event_rows": 4,
+    "hidden_hold_probe_seed_count": 6,
+    "hidden_hold_obstacle_label_count": 2,
+    "hidden_hold_target_count": 2,
+    "hidden_hold_config_count": 2,
+    "hidden_hold_single_seed_share": 0.5444444444444444,
+    "hidden_hold_single_label_share": 0.5444444444444444,
+    "hidden_hold_event_probe_seed_count": 3,
+    "hidden_hold_event_obstacle_label_count": 2,
+    "hidden_hold_event_target_count": 2,
+    "hidden_hold_event_config_count": 1,
+    "hidden_hold_event_single_seed_share": 0.5,
+    "hidden_hold_event_single_label_share": 0.75,
+    "hidden_hold_proof_by_config": {
+      "late_high_energy": 83,
+      "near_threshold": 7
+    },
+    "hidden_hold_event_by_config": {
+      "late_high_energy": 4
+    },
+    "hidden_hold_proof_by_variant": {
+      "wrong_tail_hidden_hold_12": 31,
+      "wrong_tail_hidden_hold_8": 27,
+      "wrong_tail_hidden_hold_4": 17,
+      "wrong_tail_hidden_hold_2": 15
+    },
+    "hidden_hold_event_by_variant": {
+      "wrong_tail_hidden_hold_12": 3,
+      "wrong_tail_hidden_hold_8": 1
+    },
+    "hidden_hold_proof_by_label": {
+      "unavoidable": 49,
+      "drift_required": 41
+    },
+    "hidden_hold_event_by_label": {
+      "unavoidable": 3,
+      "drift_required": 1
+    },
+    "hidden_hold_proof_by_target": {
+      "future_yaw_response": 50,
+      "future_braking_deceleration": 40
+    },
+    "hidden_hold_event_by_target": {
+      "future_braking_deceleration": 3,
+      "future_yaw_response": 1
+    },
+    "control_proof_candidate_count": 333,
+    "control_event_rows": 41,
+    "best_hidden_hold": {
+      "variant": "wrong_tail_hidden_hold_12",
+      "proof": 31,
+      "events": 3,
+      "probe_seed_count": 6,
+      "label_count": 2,
+      "target_count": 2,
+      "config_count": 2,
+      "single_seed_share": 0.6129032258064516,
+      "single_label_share": 0.5161290322580645,
+      "traj_mean": 0.09602800485057135,
+      "first_action_mean": 0.07887352763726893,
+      "margin_gap_max": 0.18404069158069514
+    },
+    "quick_correction_diagnostic_signal": true,
+    "source_diverse_signal": false,
+    "gate_pass": true,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "hidden_hold_confirms_quick_correction_diagnostic_admit_m491_action_replay_sufficiency_design"
+  }
 }

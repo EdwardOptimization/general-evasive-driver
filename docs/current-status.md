@@ -47,33 +47,31 @@ runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
 
 Status: M400 promotes M399 alpha `0.05` as the current public-gate base after
 six public replay surfaces and behavior seeds pass. This remains the latest
-public-gate base; M487-M488 did not train or promote a checkpoint.
+public-gate base; M487-M490 did not train or promote a checkpoint.
 
 Current blocker:
 
 ```text
-m490-tail-action-sequence-amplification-gate-implementation
+m491-tail-action-replay-sufficiency-design
 ```
 
-Recent progress: M484 added two P0-compatible critical-window zero-relvel
-configs, M485 mined `5802` critical-window matched-current pairs, M486 selected
-a balanced `312`-pair targeted wrong-history surface, and M487 ran tail-aligned
-one-shot wrong-history outcome gates on both critical configs. M487 was a
-negative natural proof gate: `wrong_tail_once` produced `11` margin-style proof
-rows, `0` event rows, and single-label share `0.909091`, while reset-tail and
-zero-current controls produced `333` proof rows and `41` event rows.
+Recent progress: M487 was a negative natural proof gate: `wrong_tail_once`
+produced `11` margin-style proof rows, `0` event rows, and single-label share
+`0.909091`, while reset-tail and zero-current controls produced `333` proof
+rows and `41` event rows. M488 showed the mechanism: wrong-tail first actions
+move, but trajectory deviation is small (`0.068261` mean), so the policy
+quickly corrects from current response.
 
-M488 audits the no-effect mechanism: wrong-tail hidden injection changes first
-actions, but sustained trajectory deviation is small: trajectory mean
-`0.068261`, only `6.7%` of reset-tail and `14.9%` of zero-current. M489 then
-clarifies that `wrong_tail_once` already closes the loop from a wrong initial
-hidden state, so the likely mechanism is fast recurrent correction.
+M490 implements the diagnostic action-sequence amplification gate. Natural
+`wrong_tail_once` remains `11` proof rows and `0` events, while artificial
+`wrong_tail_hidden_hold_K` variants produce `90` proof rows and `4` event rows
+across `6` probe seeds, `2` labels, `2` targets, and `2` configs. All event
+rows are from late high-energy, so this confirms quick correction
+diagnostically but is not deployable self-ID proof.
 
-Next step: M490 must implement and run a diagnostic tail action-sequence
-amplification gate. It should compare `normal_tail`, `wrong_tail_once`,
-`reset_tail`, `zero_current_tail`, and `wrong_tail_hidden_hold_K` for
-`K in {2,4,8,12}` on both M484 critical configs. Hidden-hold rows are
-diagnostic only, not deployable self-ID proof.
+Next step: M491 should design an action-replay sufficiency diagnostic. It must
+separate whether M490's hidden-hold events are caused by the wrong physical
+action sequence itself or by the artificially persistent wrong hidden state.
 
 ## Current Evidence
 

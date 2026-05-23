@@ -10531,3 +10531,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M489 clarifies that M487 `wrong_tail_once` already starts the continuation with the right-tail hidden state and then updates recurrent hidden normally from left-environment observations/actions. Therefore M488 shows quick closed-loop correction, not just a one-action replay limitation. M489 selects a diagnostic M490 gate with `wrong_tail_hidden_hold_K` variants for `K in {2,4,8,12}`, compared against `normal_tail`, `wrong_tail_once`, `reset_tail`, and `zero_current_tail`. Hidden-hold rows are diagnostic only and must not be claimed as deployable self-ID proof.
 - decision: `admit_m490_tail_action_sequence_amplification_gate_implementation`
 - next: `m490-tail-action-sequence-amplification-gate-implementation`
+## 20260524T004000Z - m490-tail-action-sequence-amplification-gate-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m490_tail_action_sequence_amplification_summary`
+- artifact: `docs/m490-tail-action-sequence-amplification-gate-implementation.md`
+- result: M490 implements `autodrift.tail_action_sequence_amplification_gate` plus focused tests and runs the diagnostic on both M484 critical-window configs. The combined result has `1080` valid tail pairs and `8640` outcome rows. Natural `wrong_tail_once` remains weak with `11` proof rows and `0` event rows. Diagnostic hidden-hold variants produce `90` proof rows and `4` event rows across `6` probe seeds, `2` labels, `2` targets, and `2` configs; all event rows are from late high-energy. Controls remain stronger with `333` proof rows and `41` event rows. This confirms the quick-correction mechanism diagnostically, but hidden-hold is artificial and is not deployable self-ID proof.
+- decision: `hidden_hold_confirms_quick_correction_diagnostic_admit_m491_action_replay_sufficiency_design`
+- next: `m491-tail-action-replay-sufficiency-design`
