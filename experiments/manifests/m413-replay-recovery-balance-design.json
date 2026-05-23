@@ -78,5 +78,20 @@
     "docs/m412-replay-aware-projection-utility-audit.md"
   ],
   "decision_rule": "M413 should admit implementation only if it creates a testable no-PPO residual balance that preserves proof gates without rewarding replay-anchor collapse.",
-  "next_blocker": "pending M413 replay/recovery balance design"
+  "next_blocker": "m414-source-weighted-replay-anchor-probe",
+  "results": {
+    "artifact": "docs/m413-replay-recovery-balance-design.md",
+    "design": "source_weighted_replay_anchor",
+    "m267_m264_effective_lambda": 1000000000000.0,
+    "old_key_effective_lambda": 10000000000000.0,
+    "global_lambda_replay_trajectory_anchor": 1000000000000.0,
+    "old_key_weight_multiplier": 10.0,
+    "recovery_retention_ratio_min": 0.20,
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m414-source-weighted-replay-anchor-probe"
+  },
+  "decision": "admit_m414_source_weighted_replay_anchor_probe"
 }

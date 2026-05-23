@@ -9764,3 +9764,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M412 rejects M411 as a useful chained candidate. M411 parameter L2 to M400 is only `0.003700` versus M406 `0.011096`, replay-anchor MSE is `2.168418e-08` versus M406 `7.238024e-05`, and retained old-key recovery improvement is only `0.058176` of M406. This means M411 passes proof gates primarily by returning the replay-failure surface to M400 behavior, not by keeping meaningful recovery movement.
 - decision: `reject_m411_promotion_admit_m413_replay_recovery_balance_design`
 - next: `m413-replay-recovery-balance-design`
+
+## 20260523T162949Z - m413-replay-recovery-balance-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m413-replay-recovery-balance-design.md`
+- result: M413 designs a source-weighted replay-anchor probe instead of another global coefficient increase. Since M411 showed `1e12` already repairs M267/M264 but leaves old-key compact at `37/40`, while global `1e13` repairs old-key but collapses recovery movement, M414 should keep M267/M264 at effective `1e12`, multiply only old-key trajectory-anchor weights by `10`, and run global `lambda_replay_trajectory_anchor=1e12`. The pre-registered utility gate requires retaining at least `20%` of M406 recovery improvement.
+- decision: `admit_m414_source_weighted_replay_anchor_probe`
+- next: `m414-source-weighted-replay-anchor-probe`

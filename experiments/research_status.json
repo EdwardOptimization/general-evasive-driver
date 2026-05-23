@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 421,
+        "completed": 422,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m412-replay-aware-projection-utility-audit",
+        "task_id": "m413-replay-recovery-balance-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m412_replay_aware_projection_utility_audit",
-        "command_log": "docs/m412-replay-aware-projection-utility-audit.md"
+        "run_dir": "",
+        "command_log": "docs/m413-replay-recovery-balance-design.md"
     },
     "next_task": {
-        "id": "m413-replay-recovery-balance-design",
+        "id": "m414-source-weighted-replay-anchor-probe",
         "status": "pending",
-        "priority": 4080,
-        "kind": "infrastructure",
-        "hypothesis": "Design selective replay/recovery residual balance after M412 retention-heavy audit",
-        "command": "see experiments/manifests/m413-replay-recovery-balance-design.json",
+        "priority": 4090,
+        "kind": "gate",
+        "hypothesis": "Probe source-weighted replay anchor to preserve proof without global collapse",
+        "command": "see experiments/manifests/m414-source-weighted-replay-anchor-probe.json",
         "success_artifact": "",
-        "notes": "Pending: define active-set replay residual and recovery-preservation acceptance rule before implementation"
+        "notes": "Pending: create weighted anchor run no-PPO exact projection first proof gates and recovery-retention audit"
     },
-    "updated_at_utc": "20260523T162605Z"
+    "updated_at_utc": "20260523T162949Z"
 }

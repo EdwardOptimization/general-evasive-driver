@@ -1,0 +1,89 @@
+{
+  "id": "m414-source-weighted-replay-anchor-probe",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m403_lrec1e10_interpolation/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m409_m407_m267_replay_failure_trajectory_anchor/rejected_trajectory_anchor.npz",
+      "runs/m410_old_key_replay_failure_trajectory_anchor/old_key_replay_failure_trajectory_anchor.npz",
+      "runs/m412_replay_aware_projection_utility_audit/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m413-replay-recovery-balance-design.json"
+    ],
+    "parent_objective": [
+      "source-weighted replay trajectory anchor to avoid global over-anchoring"
+    ],
+    "derived_from": [
+      "m413-replay-recovery-balance-design"
+    ],
+    "blocked_by": [
+      "m412-replay-aware-projection-utility-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m414-source-weighted-replay-anchor-probe.md",
+  "public_gates": [
+    "exact M297 no-regression",
+    "exact M270 no-regression",
+    "old-key surrogate no-regression",
+    "M267/M264 first replay",
+    "old-key compact replay",
+    "M183/M170 first replay if first gates pass",
+    "recovery improvement retained vs M406 >= 0.20"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not count retention-heavy projection as driver progress"
+  ],
+  "hypothesis": "Keeping M267/M264 replay pressure at effective 1e12 while increasing only old-key replay-failure rows to effective 1e13 can retain first proof gates with more recovery movement than global 1e13.",
+  "success_criteria": [
+    "weighted anchor artifact contains 669 M267/M264 rows and 290 old-key rows",
+    "old-key anchor weights are multiplied by 10 while M267/M264 weights are unchanged",
+    "candidate passes exact M297/M270/old-key no-regression",
+    "candidate passes M267/M264, old-key compact, and M183/M170 first proof gates",
+    "candidate retains at least 20% of M406 recovery improvement"
+  ],
+  "failure_criteria": [
+    "weighted anchor cannot be loaded",
+    "exact projection has positive exact regression",
+    "proof gates fail",
+    "recovery-retention ratio remains below 0.20",
+    "actor input or output contract changes"
+  ],
+  "commands": [
+    {
+      "name": "source_weighted_replay_anchor_probe",
+      "command": "Create source-weighted combined anchor and run no-PPO exact repair with lambda_replay_trajectory_anchor=1e12, then run first proof gates and M412-style utility audit."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m414-source-weighted-replay-anchor-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m411-combined-replay-aware-projection-probe.md",
+    "docs/m412-replay-aware-projection-utility-audit.md",
+    "docs/m413-replay-recovery-balance-design.md"
+  ],
+  "decision_rule": "M414 may admit a full public gate only if proof gates pass and recovery-retention ratio is at least 0.20; otherwise classify the active failure and redesign toward an active-set hinge residual.",
+  "next_blocker": "pending M414 source-weighted replay-anchor probe"
+}

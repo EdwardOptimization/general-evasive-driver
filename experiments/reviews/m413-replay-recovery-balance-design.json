@@ -1,0 +1,77 @@
+{
+  "decision_reason": "M413 designs a no-code source-weighted replay anchor probe with M267 effective lambda 1e12 old-key effective lambda 1e13 and recovery-retention ratio gate >=0.20",
+  "failure_criteria": [
+    "design relies on actor-input shortcuts",
+    "design treats scalar replay-anchor collapse as sufficient progress",
+    "design weakens exact or replay gates",
+    "design cannot be tested without PPO"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not count replay-anchor collapse as driver progress"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260523T163041Z",
+  "hypothesis": "A more selective replay/recovery balance can preserve M411 proof gates without collapsing the candidate back to M400 behavior.",
+  "lineage": {
+    "blocked_by": [
+      "m412-replay-aware-projection-utility-audit"
+    ],
+    "derived_from": [
+      "m412-replay-aware-projection-utility-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m411_combined_anchor_projection_ltraj1e13_s40_seed10144/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m412-replay-aware-projection-utility-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m412_replay_aware_projection_utility_audit/summary.json",
+      "runs/m412_replay_aware_projection_utility_audit/policy_surface_metrics.csv"
+    ],
+    "parent_objective": [
+      "redesign replay/recovery residual balance after retention-heavy projection"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m413-replay-recovery-balance-design",
+  "next_blocker": "m414-source-weighted-replay-anchor-probe",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m414_source_weighted_replay_anchor_probe",
+  "public_gates": [
+    "design only",
+    "no PPO run",
+    "no checkpoint promotion",
+    "no actor input/output change"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m414_source_weighted_replay_anchor_probe",
+    "milestone": "m413-replay-recovery-balance-design",
+    "reason": "M413 designs a no-code source-weighted replay anchor probe with M267 effective lambda 1e12 old-key effective lambda 1e13 and recovery-retention ratio gate >=0.20",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "define active-set replay residuals that only push rows or branches near replay failure",
+    "define recovery-preservation terms that retain M406 movement where replay gates are not threatened",
+    "define a measurable Pareto acceptance rule for replay retention versus recovery utility",
+    "pre-register the next no-PPO implementation or probe milestone"
+  ],
+  "type": "infrastructure"
+}
