@@ -42,20 +42,20 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt
+runs/m385_recovery_repair_micro_interpolation/checkpoints/alpha_0_00075.pt
 ```
 
-Status: M379 promotes M378 alpha `0.05` toward the v2 gap-tail final repair as
-the current public-gate base. It passes cumulative old-key replay,
-source-diverse protected gates `5/5`, all six public replay surfaces, and
-behavior seeds `9505`/`9506`. This remains a proof-safe incremental step rather
-than a large driver-performance improvement; alpha `0.1` toward the same final
-repair is the first tested cumulative old-key compact gap-p10 failure.
+Status: M386 promotes M385 micro alpha `0.00075` toward the local-action
+recovery repair endpoint as the current public-gate base. It passes exact
+M297/M270, cumulative old-key replay, source-diverse protected gates `5/5`, all
+six public replay surfaces, and behavior seeds `9505`/`9506`. This is a
+proof-safe micro promotion, not a large driver-performance improvement; alpha
+`0.001` is the first tested M267/M264 knife-edge failure.
 
 Current blocker:
 
 ```text
-m386-full-public-gate-for-m385-a00075
+m387-m386-micro-promotion-utility-audit
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -148,7 +148,11 @@ objectives but wash out proof retention, while micro alpha `0.00075` passes
 exact M297/M270, cumulative old-key replay, source-diverse protected gates
 `5/5`, and first replay gates M183/M170 plus M267/M264 `17/17`. Alpha `0.001`
 is the first tested M267/M264 knife-edge failure. M386 should run the full
-public promotion gate before any promotion or PPO continuation.
+public promotion gate before any promotion or PPO continuation. M386 promotes
+the micro-alpha candidate after all six public replay surfaces and behavior
+seeds pass. M387 should audit whether this micro promotion is useful enough to
+chain repair or PPO, or whether the objective needs redesign around the
+M267/M264 row15 boundary.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

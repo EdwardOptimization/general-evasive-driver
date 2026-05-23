@@ -1,0 +1,80 @@
+{
+  "id": "m387-m386-micro-promotion-utility-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m385_recovery_repair_micro_interpolation/checkpoints/alpha_0_00075.pt",
+      "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m386-full-public-gate-for-m385-a00075.md",
+      "runs/m386_full_public_gate_for_m385_a00075/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m386-full-public-gate-for-m385-a00075.json"
+    ],
+    "parent_objective": [
+      "audit whether the M386 micro promotion is useful enough to chain more repair or PPO"
+    ],
+    "derived_from": [
+      "m386-full-public-gate-for-m385-a00075"
+    ],
+    "blocked_by": [
+      "m386-full-public-gate-for-m385-a00075"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m387-m386-micro-promotion-utility-audit.md",
+  "public_gates": [
+    "no PPO run",
+    "audit step size and proof-boundary slack",
+    "decide whether to chain from M386 or redesign the objective",
+    "preserve actor contract"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote another checkpoint",
+    "do not lower M267/M264 success-drop requirement",
+    "do not change actor inputs or outputs"
+  ],
+  "hypothesis": "M386 may be a proof-safe but utility-small micro promotion; before chaining repair or PPO, audit whether alpha 0.00075 materially improves the active objectives or only records retention progress.",
+  "success_criteria": [
+    "classify M386 utility based on exact deltas, replay slack, first failing alpha, and behavior deltas",
+    "identify the next blocker without running training",
+    "document whether to chain from M386 or redesign the repair objective",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "audit omits the M267/M264 row15 boundary",
+    "audit recommends PPO based only on promotion status",
+    "actor contract changes",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "m386_utility_audit",
+      "command": "Summarize M385/M386 exact deltas, first failing alpha, replay slack, and behavior metrics; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m387-m386-micro-promotion-utility-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m385_recovery_repair_micro_interpolation/checkpoints/alpha_0_00075.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m386-full-public-gate-for-m385-a00075.md"
+  ],
+  "decision_rule": "M387 should decide whether the new public base is a useful chain point or merely a micro retention checkpoint that requires objective redesign before more PPO.",
+  "next_blocker": "pending M387 micro-promotion utility audit"
+}

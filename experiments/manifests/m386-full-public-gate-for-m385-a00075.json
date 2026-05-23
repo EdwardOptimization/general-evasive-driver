@@ -2,7 +2,7 @@
   "id": "m386-full-public-gate-for-m385-a00075",
   "type": "driver_candidate",
   "gate_tier": "promotion",
-  "promotion_decision": "pending",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -83,5 +83,37 @@
     "docs/m385-old-key-recovery-residual-repair-probe.md"
   ],
   "decision_rule": "Promote the M385 micro-alpha candidate only if all six replay surfaces and behavior retention pass after the proof gates already passed in M385.",
-  "next_blocker": "pending M386 full public gate"
+  "next_blocker": "m387-m386-micro-promotion-utility-audit",
+  "results": {
+    "run_dir": "runs/m386_full_public_gate_for_m385_a00075",
+    "candidate_policy": "m385micro_a0_00075",
+    "candidate_checkpoint": "runs/m385_recovery_repair_micro_interpolation/checkpoints/alpha_0_00075.pt",
+    "previous_public_base": "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt",
+    "exact_m297_m270_retained": true,
+    "cumulative_old_key_pass": true,
+    "source_diverse_pass": true,
+    "source_diverse_replay_gates_passed": 5,
+    "source_diverse_replay_gate_count": 5,
+    "full_replay_gates_pass": true,
+    "m183_m168_success_drops": 16,
+    "m183_m170_success_drops": 17,
+    "m193_m189_success_drops": 14,
+    "m212_m204_success_drops": 17,
+    "m223_m219_success_drops": 17,
+    "m267_m264_success_drops": 17,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "behavior_success_mean": 0.8625,
+    "behavior_termination_mean": 0.1375,
+    "behavior_clearance_margin_mean": 1.844183790825082,
+    "reset_success_mean": 0.85,
+    "zero_all_success_mean": 0.8,
+    "promotion_recommended": true,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false,
+    "micro_alpha_from_m385_repair_endpoint": 0.00075,
+    "first_failing_tested_alpha_m267_m264": 0.001,
+    "promotion_classification": "proof_safe_micro_promotion_not_meaningful_driver_improvement"
+  },
+  "decision": "promote_m385_micro_a00075_public_gate_base"
 }

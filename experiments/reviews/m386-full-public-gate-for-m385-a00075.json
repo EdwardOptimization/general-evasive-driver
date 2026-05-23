@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M386 promotes M385 micro alpha 0.00075 after exact cumulative old-key source-diverse six replay and behavior gates pass; proof-safe micro promotion",
+  "failure_criteria": [
+    "any public replay surface fails",
+    "behavior retention regresses",
+    "actor contract changes",
+    "research validation fails"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not lower replay or old-key thresholds",
+    "do not promote if any public replay or behavior gate fails",
+    "do not add hidden or oracle actor inputs",
+    "do not replace direct steer/throttle/brake output"
+  ],
+  "gate_tier": "promotion",
+  "generated_at_utc": "20260523T135452Z",
+  "hypothesis": "The M385 micro-alpha 0.00075 candidate can pass the full public promotion gate after exact, cumulative old-key, source-diverse, and first replay proof gates already passed.",
+  "lineage": {
+    "blocked_by": [
+      "m385-old-key-recovery-residual-repair-probe"
+    ],
+    "derived_from": [
+      "m385-old-key-recovery-residual-repair-probe"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m385_recovery_repair_micro_interpolation/checkpoints/alpha_0_00075.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m385-old-key-recovery-residual-repair-probe.json"
+    ],
+    "parent_dataset": [
+      "runs/m385_micro_a0_00075_exact_eval_vs_m378/summary.json",
+      "runs/m385_micro_a0_00075_old_key_replay_gate/summary.json",
+      "runs/m385_micro_a0_00075_source_diverse_protected_gate/summary.json",
+      "runs/m385_micro_a0_00075_m183_m170_first_replay/summary.json",
+      "runs/m385_micro_a0_00075_m267_m264_first_replay/summary.json"
+    ],
+    "parent_objective": [
+      "full public promotion gate for the M385 micro-alpha proof-gate candidate"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m386-full-public-gate-for-m385-a00075",
+  "next_blocker": "m387-m386-micro-promotion-utility-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "promote_m385_micro_a00075_public_gate_base",
+  "public_gates": [
+    "M385 exact M297/M270 no-regression retained",
+    "M385 cumulative old-key replay retained",
+    "M385 source-diverse protected gate retained",
+    "all six public replay surfaces pass versus m333_base",
+    "behavior seeds 9505 and 9506 retained",
+    "preserve actor input/output contract"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m385_recovery_repair_micro_interpolation/checkpoints/alpha_0_00075.pt",
+    "clearance_margin_mean": "1.844184",
+    "decision": "promote_m385_micro_a00075_public_gate_base",
+    "milestone": "m386-full-public-gate-for-m385-a00075",
+    "reason": "M386 promotes M385 micro alpha 0.00075 after exact cumulative old-key source-diverse six replay and behavior gates pass; proof-safe micro promotion",
+    "reset_success": "0.8500",
+    "success_rate": "0.8625",
+    "termination_rate": "0.1375",
+    "type": "driver_candidate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "0.8000",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "all six public replay surfaces pass with no success-drop regression",
+    "behavior seeds 9505 and 9506 do not regress versus current base",
+    "actor contract remains unchanged",
+    "artifacts and decision are documented",
+    "research validation passes"
+  ],
+  "type": "driver_candidate"
+}

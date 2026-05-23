@@ -9494,3 +9494,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M385 tests the M384 local-action recovery residual without PPO. The direct exact-repair endpoint improves exact M297 by `-0.014961360`, exact M270 by `-0.009343028`, and old-key surrogate by `-0.001996040`, but closed-loop cumulative old-key replay rejects it with `10` accepted regressions and `3` normal-success regressions. Ordinary interpolation alpha `0.01` passes old-key and source-diverse proof but fails M267/M264 first replay with only `15/17` success drops. The micro grid finds alpha `0.00075` passes exact M297/M270, cumulative old-key replay, source-diverse protected gates `5/5`, and M183/M170 plus M267/M264 first replay gates `17/17`; alpha `0.001` is the first tested M267/M264 row15 knife-edge failure.
 - decision: `admit_m386_full_public_gate_for_m385_micro_a00075`
 - next: `m386-full-public-gate-for-m385-a00075`
+
+## 20260523T135550Z - m386-full-public-gate-for-m385-a00075
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m386_full_public_gate_for_m385_a00075`
+- artifact: `docs/m386-full-public-gate-for-m385-a00075.md`
+- result: M386 promotes `runs/m385_recovery_repair_micro_interpolation/checkpoints/alpha_0_00075.pt`. It retains M385 exact, cumulative old-key, source-diverse, and first-replay proof, then passes all six public replay surfaces versus `m333_base`: M183/M168 `16/16`, M183/M170 `17/17`, M193/M189 `14/14`, M212/M204 `17/17`, M223/M219 `17/17`, and M267/M264 `17/17`. Behavior seeds `9505` and `9506` retain success mean `0.8625`, termination mean `0.1375`, clearance margin mean `1.844183791`, reset success mean `0.85`, and zero-all success mean `0.80`.
+- decision: `promote_m385_micro_a00075_public_gate_base`
+- next: `m387-m386-micro-promotion-utility-audit`
