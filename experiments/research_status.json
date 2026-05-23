@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 468,
+        "completed": 469,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m459-late-reveal-matched-current-mining",
+        "task_id": "m460-outcome-critical-matched-current-selector-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m459_late_reveal_matched_current_seed9600",
-        "command_log": "docs/m459-late-reveal-matched-current-mining.md"
+        "run_dir": "",
+        "command_log": "docs/m460-outcome-critical-matched-current-selector-design.md"
     },
     "next_task": {
-        "id": "m460-outcome-critical-matched-current-selector-design",
+        "id": "m461-outcome-critical-matched-current-selector-implementation",
         "status": "pending",
-        "priority": 4550,
+        "priority": 4560,
         "kind": "infrastructure",
-        "hypothesis": "Design an outcome-critical matched-current selector after M459 action-only signal",
-        "command": "see experiments/manifests/m460-outcome-critical-matched-current-selector-design.json",
+        "hypothesis": "Implement the outcome-critical matched-current selector and smoke it on M459 pairs",
+        "command": "see experiments/manifests/m461-outcome-critical-matched-current-selector-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design selector using continuation margin/success degradation before any training"
+        "notes": "Pending: implement selector that rejects action-only rows and exports outcome-critical candidates"
     },
-    "updated_at_utc": "20260523T203428Z"
+    "updated_at_utc": "20260523T203820Z"
 }

@@ -2,7 +2,7 @@
   "id": "m460-outcome-critical-matched-current-selector-design",
   "type": "infrastructure",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -82,5 +82,15 @@
     "runs/m459_late_reveal_matched_current_analysis/summary.json"
   ],
   "decision_rule": "M460 is a design milestone. It can admit an implementation of an outcome-critical selector but cannot promote a checkpoint.",
-  "next_blocker": "pending M460 outcome-critical matched-current selector design"
+  "results": {
+    "design_artifact": "docs/m460-outcome-critical-matched-current-selector-design.md",
+    "next_manifest": "experiments/manifests/m461-outcome-critical-matched-current-selector-implementation.json",
+    "selector_requires_matched_current_similarity": true,
+    "selector_requires_outcome_degradation": true,
+    "action_only_rows_are_diagnostic": true,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "admit_m461_outcome_critical_selector_implementation"
+  },
+  "next_blocker": "m461-outcome-critical-matched-current-selector-implementation"
 }

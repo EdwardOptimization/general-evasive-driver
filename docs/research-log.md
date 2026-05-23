@@ -10234,3 +10234,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M459 mines M457 late-reveal matched-current ambiguity with M399. It finds `503` accepted pairs from `74784` candidates, with `503` physical pairs, `36` left steps, and `33` source obstacle buckets. Target coverage is future braking decel `206`, yaw response `219`, and lateral accel response `78`. The action intervention gate is positive: reset-hidden action distance mean `0.708045`, zero-current `0.119922`, and wrong-history moves closer to the right-pair action in `0.630252` weighted rows. The outcome continuation gate is negative for proof: weighted success-drop is `0.0` for all interventions and margin gaps are not reliably normal-history positive.
 - decision: `action_surface_found_outcome_weak_admit_m460_outcome_critical_selector_design`
 - next: `m460-outcome-critical-matched-current-selector-design`
+
+## 20260523T203820Z - m460-outcome-critical-matched-current-selector-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m460-outcome-critical-matched-current-selector-design.md`
+- result: M460 designs an outcome-critical matched-current selector after M459's action-only surface. The design keeps matched-current response/context similarity as a hard constraint, uses action intervention only as a prefilter, and accepts compact rows only when continuation has success drop, positive margin gap, collision gap, or obstacle-completion drop. Action-only rows remain diagnostic. Pass thresholds require at least `16` outcome-critical rows, `3` seed windows, `2` obstacle labels, and no actor contract change before any proof gate or training is admitted.
+- decision: `admit_m461_outcome_critical_selector_implementation`
+- next: `m461-outcome-critical-matched-current-selector-implementation`

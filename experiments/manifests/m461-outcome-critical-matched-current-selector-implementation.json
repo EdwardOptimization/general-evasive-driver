@@ -1,0 +1,85 @@
+{
+  "id": "m461-outcome-critical-matched-current-selector-implementation",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m459_late_reveal_matched_current_seed9600/matched_pairs.csv",
+      "runs/m459_late_reveal_matched_history_action_gate/action_interventions.csv",
+      "runs/m459_late_reveal_matched_history_outcome_gate/outcome_interventions.csv"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m460-outcome-critical-matched-current-selector-design.json"
+    ],
+    "parent_objective": [
+      "outcome-critical matched-current selector implementation"
+    ],
+    "derived_from": [
+      "m460-outcome-critical-matched-current-selector-design"
+    ],
+    "blocked_by": [
+      "m460-outcome-critical-matched-current-selector-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m461-outcome-critical-matched-current-selector-implementation.md",
+  "public_gates": [
+    "implement an outcome-critical matched-current selector",
+    "reject action-only rows unless they also have continuation outcome degradation",
+    "write candidate compact and summary artifacts",
+    "add focused selector tests",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not treat action-distance-only rows as outcome-critical"
+  ],
+  "hypothesis": "Implementing outcome-critical selection will distinguish true matched-current self-ID candidates from M459's action-only surface and decide whether the M457 task family should continue.",
+  "success_criteria": [
+    "selector CLI writes candidates compact corpus and summary JSON",
+    "tests cover success-drop margin-gap action-only rejection and diversity caps",
+    "M459 pairs can be processed without sampling failure",
+    "documentation reports accepted outcome-critical rows or structured rejection",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "selector accepts action-only rows as outcome-critical",
+    "selector ignores matched-current similarity fields",
+    "selector cannot process M459 artifacts",
+    "actor contract changes"
+  ],
+  "commands": [
+    {
+      "name": "outcome_critical_selector_implementation",
+      "command": "Implement outcome-critical matched-current selector and smoke it on M459 pairs; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m461-outcome-critical-matched-current-selector-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m460-outcome-critical-matched-current-selector-design.md",
+    "runs/m459_late_reveal_matched_current_seed9600/matched_pairs.csv"
+  ],
+  "decision_rule": "M461 can admit an outcome-critical wrong-history gate only if selected rows show continuation margin or success degradation. It cannot promote a checkpoint.",
+  "next_blocker": "pending M461 outcome-critical matched-current selector implementation"
+}

@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m460-outcome-critical-matched-current-selector-design
+m461-outcome-critical-matched-current-selector-implementation
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -214,7 +214,13 @@ rows. However, the continuation outcome gate is negative for proof: success
 drop is `0.0` for every intervention and margin gaps are not reliably
 normal-history positive. The next blocker is M460: design an outcome-critical
 matched-current selector that filters by continuation margin/success
-degradation before implementation or training.
+degradation before implementation or training. M460 completes that design:
+matched-current response/context similarity remains a hard constraint, action
+intervention is only a prefilter, and selected compact rows must have
+continuation success drop, positive margin gap, collision gap, or
+obstacle-completion drop. Action-only rows stay diagnostic. The next blocker is
+M461: implement the selector and smoke it on M459 pairs without training or
+promotion.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key
