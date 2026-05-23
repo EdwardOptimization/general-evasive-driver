@@ -61,7 +61,7 @@ post-PPO repair before any more PPO acceptance.
 Current blocker:
 
 ```text
-m324-single-key-window-override-policy-design
+m325-source-diverse-policy-full-gate-for-m316-repaired
 ```
 
 M305 implements deterministic exact M297/M270 repair or projection
@@ -122,13 +122,16 @@ acceptance needs exact repair plus a protected-key-bounded trust region.
 Current next task:
 
 ```text
-m324-single-key-window-override-policy-design
+m325-source-diverse-policy-full-gate-for-m316-repaired
 ```
 
-M323 showed the M316 repaired endpoint passes the source-diverse protected gate
-but conflicts with old `9944` singleton-window acceptance. M324 should define
-the explicit handling policy for this case before any candidate is allowed to
-advance under the new gate.
+M324 defines the source-diverse protected policy: M320 source-diverse replay
+bundle is now the first-class protected proof gate, while old `9944` remains a
+diagnostic singleton and historical continuity check. A candidate that fails
+`9944` only by saturated normal-margin window may advance to full public-gate
+evaluation if exact objectives and source-diverse proof pass, but it cannot be
+promoted from that evidence alone. M325 should run the full public gate for the
+M316 repaired endpoint under this policy.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -170,6 +173,7 @@ advance under the new gate.
 | protected gate design | `docs/m321-source-diverse-protected-gate-design.md` | M321 defines M320 corpora as first-class protected acceptance bundle and keeps `9944` diagnostic |
 | protected gate wrapper | `src/autodrift/source_diverse_protected_gate.py` | M322 implements aggregate replay-gate wrapper and M320 sanity reproduction |
 | endpoint diagnostic | `runs/m323_source_diverse_gate_repaired_endpoint_probe/summary.json` | M323 shows M316 repaired passes source-diverse gates but old `9944` remains a singleton-window conflict |
+| protected-key policy | `docs/m324-single-key-window-override-policy-design.md` | M324 allows singleton-window saturation to advance to full public gate only after exact and source-diverse proof pass; `9944` remains diagnostic |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -441,9 +445,10 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not run another PPO proposal or promote the repaired endpoint before M324
-defines the source-diverse pass plus old-key singleton-window handling policy.
-M323 is diagnostic evidence only. Do not change actor inputs.
+Do not run another PPO proposal before M325 finishes the full public gate for
+the M316 repaired endpoint under the M324 source-diverse protected policy.
+Passing source-diverse proof plus old-key singleton-window classification is
+permission to evaluate, not permission to promote. Do not change actor inputs.
 
 ## Sensor Profile Policy
 

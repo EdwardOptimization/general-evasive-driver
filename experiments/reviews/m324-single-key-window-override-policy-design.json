@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M324 defines source-diverse protected bundle as first-class gate and keeps 9944 as diagnostic; singleton-window saturation can advance to full public gate but not promote alone",
+  "failure_criteria": [
+    "design deletes or ignores 9944",
+    "design allows promotion without full public gates",
+    "design changes actor inputs",
+    "M324 runs PPO"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not delete 9944",
+    "do not promote a candidate solely because source-diverse gate passes",
+    "do not run PPO in M324",
+    "do not change actor inputs"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260523T062158Z",
+  "hypothesis": "M323 shows the repaired endpoint passes refreshed source-diverse protected surfaces while failing the old saturated 9944 window, so the project needs an explicit override/audit policy before any candidate can progress under the new gate.",
+  "lineage": {
+    "blocked_by": [
+      "m323-source-diverse-gate-retrospective-endpoint-probe"
+    ],
+    "derived_from": [
+      "m323-source-diverse-gate-retrospective-endpoint-probe"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt",
+      "runs/m316_exact_repair_from_raw_s40_seed10096/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m323-source-diverse-gate-retrospective-endpoint-probe.json",
+      "docs/m323-source-diverse-gate-retrospective-endpoint-probe.md"
+    ],
+    "parent_dataset": [
+      "runs/m323_source_diverse_gate_repaired_endpoint_probe/summary.json",
+      "runs/m316_protected_key_sweep/guard_results.csv"
+    ],
+    "parent_objective": [
+      "define explicit policy for candidates that pass source-diverse protected gate but fail old singleton protected-key window"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m324-single-key-window-override-policy-design",
+  "next_blocker": "m325-source-diverse-policy-full-gate-for-m316-repaired",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m325_source_diverse_policy_full_gate_for_m316_repaired",
+  "public_gates": [
+    "do not run PPO",
+    "do not promote M316 repaired endpoint",
+    "preserve human-view actor input contract",
+    "define when old 9944 window failure is diagnostic-only versus hard failure",
+    "define required evidence before full public gate can be run under source-diverse protected policy"
+  ],
+  "scoreboard": {
+    "checkpoint": "not_applicable_infrastructure_task",
+    "clearance_margin_mean": "",
+    "decision": "admit_m325_source_diverse_policy_full_gate_for_m316_repaired",
+    "milestone": "m324-single-key-window-override-policy-design",
+    "reason": "M324 defines source-diverse protected bundle as first-class gate and keeps 9944 as diagnostic; singleton-window saturation can advance to full public gate but not promote alone",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "define single-key-window failure taxonomy and handling",
+    "define minimum source-diverse evidence required to override old-key hard veto",
+    "define promotion escalation order under the new protected policy",
+    "register the next diagnostic or full-gate milestone",
+    "no PPO is run"
+  ],
+  "type": "infrastructure"
+}

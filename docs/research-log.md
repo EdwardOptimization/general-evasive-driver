@@ -8877,3 +8877,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M323 probes the M316 repaired endpoint under the new wrapper. The endpoint passes `2/2` source-diverse protected replay gates with `17/17` success drops on both, improving normal margins by about `0.000195`. The old `9944` sweep remains a singleton-window conflict: only `3/13` policies are accepted and the sweep reaches normal margin `0.207388`.
 - decision: `admit_m324_single_key_window_override_policy_design`
 - next: `m324-single-key-window-override-policy-design`
+
+## 20260523T062018Z - m324-single-key-window-override-policy-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m324-single-key-window-override-policy-design.md`
+- result: M324 defines the protected-key handling policy. The M320 source-diverse protected bundle becomes the first-class protected gate. Old `9944` is retained as a diagnostic singleton and historical continuity check. If a candidate passes exact objectives and source-diverse proof but fails `9944` only by the saturated normal-margin window while retaining margin gap, classify it as `single_key_window_saturation`; this permits full public-gate evaluation, not promotion.
+- decision: `admit_m325_source_diverse_policy_full_gate_for_m316_repaired`
+- next: `m325-source-diverse-policy-full-gate-for-m316-repaired`
