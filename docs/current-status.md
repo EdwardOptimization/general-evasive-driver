@@ -203,7 +203,13 @@ margin remains negative. M397 audits that boundary and classifies it as an
 old-key normal-branch terminal-margin cliff, not wrong-history sensitivity loss.
 At alpha `0.4`, the direction broadens to two accepted regressions, so this is
 not a stale singleton to ignore. M398 should export current old-key
-normal-margin local recovery targets before any PPO.
+normal-margin local recovery targets before any PPO. M398 completes that export
+for the `9958|perturbed|39|36` active row and the `10004|perturbed|31|31`
+sibling row: both rows find accepted local recovery targets, with mean normal
+margin improvement `0.001788393`, and the no-update exact-repair smoke reports
+finite recovery loss with exact M297/M270/old-key surrogate deltas all `0.0`.
+M399 should now run a no-PPO exact repair/interpolation probe using the M398
+recovery corpus and the M393 current-family conflict corpus.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

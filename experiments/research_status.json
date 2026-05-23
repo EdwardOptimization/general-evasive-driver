@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 406,
+        "completed": 407,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m397-m395-alpha02-old-key-boundary-audit",
+        "task_id": "m398-old-key-normal-margin-recovery-target-export",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m397-m395-alpha02-old-key-boundary-audit.md"
+        "command_log": "docs/m398-old-key-normal-margin-recovery-target-export.md"
     },
     "next_task": {
-        "id": "m398-old-key-normal-margin-recovery-target-export",
+        "id": "m399-old-key-normal-margin-recovery-repair-probe",
         "status": "pending",
-        "priority": 3930,
-        "kind": "infrastructure",
-        "hypothesis": "Export local normal-branch recovery targets for current old-key terminal-margin cliffs",
-        "command": "see experiments/manifests/m398-old-key-normal-margin-recovery-target-export.json",
+        "priority": 3940,
+        "kind": "gate",
+        "hypothesis": "Probe no-PPO exact repair with refreshed old-key normal-margin recovery targets",
+        "command": "see experiments/manifests/m399-old-key-normal-margin-recovery-repair-probe.json",
         "success_artifact": "",
-        "notes": "Pending: export old-key normal-margin local recovery targets and verify no-update exact-repair loading; no PPO"
+        "notes": "Pending: run exact repair/interpolation with M398 recovery and M393 conflict corpora before any PPO"
     },
-    "updated_at_utc": "20260523T150359Z"
+    "updated_at_utc": "20260523T151153Z"
 }

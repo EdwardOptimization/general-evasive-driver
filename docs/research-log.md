@@ -9614,3 +9614,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M397 classifies the alpha `0.2` old-key failure as `old_key_normal_branch_terminal_margin_cliff`. The active row `9958|perturbed|39|36` keeps wrong-history collision-side margin and slightly improves gap, but normal margin crosses from `+0.000086` at alpha `0.1` to `-0.000089` at alpha `0.2`. Alpha `0.4` broadens the old-key stress to two accepted regressions, so the row is not a stale singleton to ignore.
 - decision: `admit_m398_old_key_normal_margin_recovery_target_export`
 - next: `m398-old-key-normal-margin-recovery-target-export`
+
+## 20260523T151153Z - m398-old-key-normal-margin-recovery-target-export
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m398_old_key_normal_margin_recovery_targets`
+- artifact: `docs/m398-old-key-normal-margin-recovery-target-export.md`
+- result: M398 exports two replay-selected old-key normal-margin recovery targets from `1188` local-action rollouts. Both requested rows recover: `9958|perturbed|39|36` improves normal margin from `0.000086` to `0.002443`, and `10004|perturbed|31|31` improves from `0.000145` to `0.001364`. The no-update exact-repair smoke loads the corpus with finite `old_key_recovery_loss=0.003866661` and exact M297/M270/old-key surrogate deltas all `0.0`.
+- decision: `admit_m399_old_key_normal_margin_recovery_repair_probe`
+- next: `m399-old-key-normal-margin-recovery-repair-probe`
