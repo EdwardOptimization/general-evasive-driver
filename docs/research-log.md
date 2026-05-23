@@ -9124,3 +9124,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M348 probes `m335_a010` after the M347 old-key neighborhood pass. Exact M297 and M270 both improve slightly versus current M336 base with deltas `-0.000000954` and `-0.000000477`. The source-diverse protected gate passes `5/5`; M183/M170 and M267/M264 first replay gates both retain `17/17` success drops. The M347 old-key neighborhood result remains the old-key proof source: `alpha=0.01` has `0` accepted regressions and `alpha=0.02` is the first failing alpha.
 - decision: `admit_m349_full_public_gate_for_m335_a010`
 - next: `m349-full-public-gate-for-m335-a010`
+
+## 20260523T102134Z - m349-full-public-gate-for-m335-a010
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m349_full_public_gate_for_m335_a010`
+- artifact: `docs/m349-full-public-gate-for-m335-a010.md`
+- result: M349 promotes `m335_a010`. Exact M297/M270 remain non-regressing versus M336 base; source-diverse protected gates pass `5/5`; M347 old-key neighborhood gate passes with `0` accepted regressions; all six public replay gates retain their success drops (`16/16`, `17/17`, `14/14`, `17/17`, `17/17`, `17/17`); behavior seeds `9505` and `9506` both keep success `0.8625`, reset success mean `0.85`, and zero-all success mean `0.80`.
+- decision: `promote_m335_a010_old_key_neighborhood_public_gate_base`
+- next: `m350-old-key-neighborhood-ppo-escalation-design`

@@ -42,20 +42,20 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt
+runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_01.pt
 ```
 
-Status: M336 promotes M335 alpha `0.0075` as the current public-gate
-base. It passes exact M297/M270 no-regression, source-diverse protected gates
-`5/5`, all six replay surfaces, old-key `9944` gap floor, and behavior seeds
-`9505`/`9506`. The promotion is intentionally small: the M335 repaired
-endpoint improves exact objectives much more, but collapses the old-key gap to
-`0.065360`, so the accepted alpha is bounded by the `0.09` floor.
+Status: M349 promotes M335 alpha `0.01` as the current public-gate base. It
+passes exact M297/M270 no-regression versus the previous M336 base,
+source-diverse protected gates `5/5`, the distributional old-key neighborhood
+gate, all six replay surfaces, and behavior seeds `9505`/`9506`. This replaces
+the stale singleton `9944` floor as the old-key acceptance bottleneck, while
+keeping `9944` visible through the old-key neighborhood diagnostics.
 
 Current blocker:
 
 ```text
-m349-full-public-gate-for-m335-a010
+m350-old-key-neighborhood-ppo-escalation-design
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -67,9 +67,10 @@ passing that distributional old-key gate, with `alpha=0.02` the first failing
 alpha.
 
 M348 checks `m335_a010` beyond old-key replay. It passes exact M297/M270
-no-regression versus the current M336 base, source-diverse protected gates
-`5/5`, and first replay gates M183/M170 plus M267/M264. M349 must now run the
-full public promotion gate before any checkpoint promotion or further PPO.
+no-regression versus the previous M336 base, source-diverse protected gates
+`5/5`, and first replay gates M183/M170 plus M267/M264. M349 then promotes it
+after all six public replay gates and behavior seeds pass. M350 should design
+the next PPO escalation from this new base before any training is run.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -122,7 +123,7 @@ full public promotion gate before any checkpoint promotion or further PPO.
 | current source-diverse public base | `runs/m332_m328_to_m330_gap_bounded_interpolation/checkpoints/alpha_0_45.pt` | M333 promotes alpha 0.45 after exact, source-diverse, replay, old-key gap floor, and behavior gates pass |
 | short PPO escalation config | `configs/ppo_m335_short_source_diverse_escalation.json` | M334 registers 4096-step PPO from M333 base with exact repair and bounded proof gates; no PPO run yet |
 | bounded short-PPO candidate | `runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt` | M335 exact repair improves objectives but old-key floor clips accepted movement to alpha 0.0075; first replay gates pass |
-| current source-diverse public base | `runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt` | M336 promotes alpha 0.0075 after exact, source-diverse, replay, old-key gap floor, and behavior gates pass |
+| previous source-diverse public base | `runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt` | M336 promotes alpha 0.0075 after exact, source-diverse, replay, old-key gap floor, and behavior gates pass |
 | old-key bottleneck audit | `runs/m337_old_key_gap_floor_bottleneck_audit/summary.json` | M337 shows M335 endpoint passes source-diverse gates but old-key gap collapses to 0.065360; next step is distributional gap-gate design |
 | old-key gap distribution design | `docs/m338-old-key-gap-distribution-refresh-design.md` | M338 keeps 9944 as diagnostic but designs source-diverse gap distribution to avoid singleton veto dominance |
 | old-key gap corpus refresh | `runs/m339_old_key_gap_distribution_refresh/summary.json` | M339 broad pool has 195 rows, but compact severity draft is source dominated, so it cannot replace singleton 9944 floor |
@@ -134,7 +135,8 @@ full public promotion gate before any checkpoint promotion or further PPO.
 | old-key alpha sweep design | `docs/m346-old-key-neighborhood-alpha-sweep-design.md` | M346 pre-registers a no-PPO alpha sweep over the M335 interpolation family using replayable old-key gate metrics |
 | old-key alpha sweep | `runs/m347_old_key_alpha_sweep/summary.json` | M347 finds `alpha=0.01` is the largest old-key-neighborhood-passing M335 interpolation alpha and `alpha=0.02` is the first failing alpha |
 | exact/source-diverse probe | `runs/m348_m335_a010_probe/summary.json` | M348 passes exact M297/M270, source-diverse protected gates, old-key neighborhood, and first replay gates for `m335_a010` |
-| current blocker | `experiments/manifests/m349-full-public-gate-for-m335-a010.json` | M349 must run all six public replay gates and behavior seeds for `m335_a010` before any promotion |
+| current public-gate base | `runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_01.pt` | M349 promotes alpha 0.01 after exact, source-diverse, old-key neighborhood, six replay, and behavior gates pass |
+| current blocker | `experiments/manifests/m350-old-key-neighborhood-ppo-escalation-design.json` | M350 must design the next PPO escalation from the M349 base before any training |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
