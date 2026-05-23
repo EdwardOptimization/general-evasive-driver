@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 418,
+        "completed": 419,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m409-replay-failure-trajectory-anchor-implementation",
+        "task_id": "m410-old-key-replay-failure-anchor-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m409_replay_trajectory_anchor_no_update_smoke",
-        "command_log": "docs/m409-replay-failure-trajectory-anchor-implementation.md"
+        "run_dir": "runs/m410_old_key_replay_trajectory_anchor_no_update_smoke",
+        "command_log": "docs/m410-old-key-replay-failure-anchor-implementation.md"
     },
     "next_task": {
-        "id": "m410-old-key-replay-failure-anchor-implementation",
+        "id": "m411-combined-replay-aware-projection-probe",
         "status": "pending",
-        "priority": 4050,
-        "kind": "infrastructure",
-        "hypothesis": "Implement old-key replay-failure trajectory anchor export",
-        "command": "see experiments/manifests/m410-old-key-replay-failure-anchor-implementation.json",
+        "priority": 4060,
+        "kind": "gate",
+        "hypothesis": "Probe combined M409/M410 replay-failure trajectory anchors in exact projection without PPO",
+        "command": "see experiments/manifests/m411-combined-replay-aware-projection-probe.json",
         "success_artifact": "",
-        "notes": "Pending: export old-key failed-row branch-specific anchor and no-update exact repair smoke; no PPO"
+        "notes": "Pending: combine current-family and old-key replay-failure anchors then run exact projection and first proof replay gates"
     },
-    "updated_at_utc": "20260523T160315Z"
+    "updated_at_utc": "20260523T161212Z"
 }

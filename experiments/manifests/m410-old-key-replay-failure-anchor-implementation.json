@@ -78,5 +78,32 @@
     "docs/m409-replay-failure-trajectory-anchor-implementation.md"
   ],
   "decision_rule": "M410 should admit the replay-aware projection probe only if old-key failed-row trajectory anchors are exported and load in exact repair without actor-contract changes.",
-  "next_blocker": "pending M410 old-key replay-failure anchor implementation"
+  "next_blocker": "m411-combined-replay-aware-projection-probe",
+  "results": {
+    "artifact": "docs/m410-old-key-replay-failure-anchor-implementation.md",
+    "code_paths": [
+      "src/autodrift/old_key_replay_failure_trajectory_anchor.py",
+      "tests/test_old_key_replay_failure_trajectory_anchor.py"
+    ],
+    "old_key_anchor_run": "runs/m410_old_key_replay_failure_trajectory_anchor",
+    "old_key_anchor_npz": "runs/m410_old_key_replay_failure_trajectory_anchor/old_key_replay_failure_trajectory_anchor.npz",
+    "old_key_failed_rows": 7,
+    "old_key_missing_rows": 0,
+    "old_key_branch_counts": {
+      "normal": 1,
+      "wrong_history": 6
+    },
+    "old_key_anchor_rows": 290,
+    "no_update_smoke_run": "runs/m410_old_key_replay_trajectory_anchor_no_update_smoke",
+    "no_update_smoke_exact_pass": true,
+    "no_update_smoke_replay_trajectory_anchor_rows": 290,
+    "no_update_smoke_replay_trajectory_anchor_loss": 6.694095029403631e-15,
+    "focused_tests": "20 passed",
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m411-combined-replay-aware-projection-probe"
+  },
+  "decision": "admit_m411_combined_replay_aware_projection_probe"
 }

@@ -1,0 +1,78 @@
+{
+  "decision_reason": "M410 exports 290 old-key replay-failure trajectory rows across 7 failed rows with branch split 1 normal and 6 wrong-history; no-update exact repair smoke loads them with exact no-regression",
+  "failure_criteria": [
+    "old-key failed rows cannot be reconstructed",
+    "anchor cannot be loaded by exact_post_ppo_repair",
+    "actor input or output contract changes",
+    "research validation fails"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make old-key replay labels actor inputs"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260523T161431Z",
+  "hypothesis": "Old-key compact replay failures need a branch-specific training-only trajectory anchor exporter before a full M409/M410 replay-aware projection probe can be fair.",
+  "lineage": {
+    "blocked_by": [
+      "m409-replay-failure-trajectory-anchor-implementation"
+    ],
+    "derived_from": [
+      "m409-replay-failure-trajectory-anchor-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m409-replay-failure-trajectory-anchor-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m407_projection_replay_failure_row_audit/old_key_accepted_regression_rows.csv",
+      "runs/m406_a01proj_old_key_replay_gate/old_key_replay_comparison_rows.csv",
+      "runs/m409_m407_m267_replay_failure_trajectory_anchor/rejected_trajectory_anchor.npz"
+    ],
+    "parent_objective": [
+      "implement old-key-specific replay-failure trajectory anchors"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m410-old-key-replay-failure-anchor-implementation",
+  "next_blocker": "m411-combined-replay-aware-projection-probe",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m411_combined_replay_aware_projection_probe",
+  "public_gates": [
+    "infrastructure smoke only",
+    "no PPO run",
+    "no checkpoint promotion",
+    "old-key failed rows export branch-specific trajectory anchor",
+    "trajectory anchor loads in exact_post_ppo_repair no-update smoke"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m411_combined_replay_aware_projection_probe",
+    "milestone": "m410-old-key-replay-failure-anchor-implementation",
+    "reason": "M410 exports 290 old-key replay-failure trajectory rows across 7 failed rows with branch split 1 normal and 6 wrong-history; no-update exact repair smoke loads them with exact no-regression",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "export wrong-history trajectory anchors for the six old-key wrong-history-safe regressions",
+    "export or explicitly represent the one old-key normal-branch failure with a successful normal trajectory or local recovery target",
+    "load the old-key anchor through exact_post_ppo_repair with finite trajectory loss",
+    "run focused tests and research validation"
+  ],
+  "type": "infrastructure"
+}

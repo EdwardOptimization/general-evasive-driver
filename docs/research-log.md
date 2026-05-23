@@ -9734,3 +9734,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M409 wires optional `--replay-trajectory-anchor-npz` and `--lambda-replay-trajectory-anchor` into `exact_post_ppo_repair`, with deterministic full-batch `exact_trajectory_action_anchor_loss`. It exports an M267/M264 replay-failure anchor from the M407 rows: all `16` required failed row ids are present, `669` rejected trajectory rows are saved, and a no-update exact repair smoke loads the anchor with finite near-zero loss while exact M297/M270/old-key deltas remain `0.0`. Focused tests pass (`27 passed`). Old-key compact replay-failure export is deferred.
 - decision: `admit_m410_old_key_replay_failure_anchor_implementation`
 - next: `m410-old-key-replay-failure-anchor-implementation`
+
+## 20260523T161212Z - m410-old-key-replay-failure-anchor-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m410_old_key_replay_trajectory_anchor_no_update_smoke`
+- artifact: `docs/m410-old-key-replay-failure-anchor-implementation.md`
+- result: M410 implements the old-key compact replay-failure trajectory-anchor exporter. It reconstructs all `7` M407 old-key failed rows with `0` missing rows, splits them into `1` normal-branch failure and `6` wrong-history-safe regressions, and exports `290` trajectory-anchor rows. A no-update exact repair smoke loads the anchor with near-zero trajectory loss `6.694095e-15`; exact M297/M270/old-key surrogate deltas remain `0.0` and exact lexicographic pass is `true`. Focused tests pass (`20 passed`).
+- decision: `admit_m411_combined_replay_aware_projection_probe`
+- next: `m411-combined-replay-aware-projection-probe`

@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m410-old-key-replay-failure-anchor-implementation
+m411-combined-replay-aware-projection-probe
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -256,7 +256,14 @@ feasibility. M409 should implement and smoke-test the anchor export/loading path
 without PPO or promotion. M409 completes the generic exact-repair loading path
 and the current-family M267/M264 export path: `669` replay-failure trajectory
 rows load with finite no-update loss and exact no-regression. Old-key compact
-failed-row export is explicitly deferred to M410.
+failed-row export is explicitly deferred to M410. M410 completes the old-key
+export path: all `7` M407 old-key failed rows reconstruct with `0` missing
+rows, split into `1` normal-branch failure and `6` wrong-history-safe
+regressions, and produce `290` trajectory-anchor rows. The no-update exact
+repair smoke loads the old-key anchor with near-zero loss `6.694095e-15`, while
+exact M297/M270/old-key deltas remain `0.0`. M411 should combine the M409 and
+M410 replay-failure anchors and run a no-PPO replay-aware exact projection
+probe before any PPO or promotion.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -335,7 +342,7 @@ failed-row export is explicitly deferred to M410.
 | current public-gate base | `runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt` | M379 promotes alpha `0.05` after cumulative old-key source-diverse six public replay surfaces and behavior seeds pass |
 | recovery residual infrastructure | `src/autodrift/exact_post_ppo_repair.py` | M383 implements optional old-key local-action recovery loss and verifies finite no-update smoke terms |
 | recovery target corpus | `runs/m384_old_key_local_recovery_targets/old_key_recovery_corpus.npz` | M384 exports 4 replay-selected recovery targets from 1008 local-action rollouts |
-| current blocker | `experiments/manifests/m385-old-key-recovery-residual-repair-probe.json` | M385 must test the M384 recovery residual in no-PPO exact repair before any PPO |
+| current blocker | `experiments/manifests/m411-combined-replay-aware-projection-probe.json` | M411 must combine the M409 and M410 replay-failure anchors and run a no-PPO exact projection plus first proof replay gates before any PPO |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
