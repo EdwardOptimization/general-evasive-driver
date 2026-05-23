@@ -9114,3 +9114,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M347 adds a targeted exact compact replay runner after the generic `critical_key_replay_guard` path proved too slow for this compact surface. The targeted sweep covers 40/40 compact rows for each alpha. `m335_a010` passes the replayable old-key gate with `0` accepted regressions, gap p10 `-0.000006`, and min gap `-0.000016`; `m335_a020` is the first failing alpha with one accepted-case regression. `m335_a1000` remains strongly rejected with `15` accepted regressions and `3` normal-success regressions.
 - decision: `admit_m348_exact_source_diverse_probe_for_m335_a010`
 - next: `m348-exact-source-diverse-probe-for-m335-a010`
+
+## 20260523T101221Z - m348-exact-source-diverse-probe-for-m335-a010
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m348_m335_a010_probe`
+- artifact: `docs/m348-exact-source-diverse-probe-for-m335-a010.md`
+- result: M348 probes `m335_a010` after the M347 old-key neighborhood pass. Exact M297 and M270 both improve slightly versus current M336 base with deltas `-0.000000954` and `-0.000000477`. The source-diverse protected gate passes `5/5`; M183/M170 and M267/M264 first replay gates both retain `17/17` success drops. The M347 old-key neighborhood result remains the old-key proof source: `alpha=0.01` has `0` accepted regressions and `alpha=0.02` is the first failing alpha.
+- decision: `admit_m349_full_public_gate_for_m335_a010`
+- next: `m349-full-public-gate-for-m335-a010`

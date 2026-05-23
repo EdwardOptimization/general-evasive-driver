@@ -2,7 +2,7 @@
   "id": "m348-exact-source-diverse-probe-for-m335-a010",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -82,6 +82,34 @@
     "docs/m347-old-key-neighborhood-alpha-sweep-run.md",
     "runs/m347_old_key_alpha_sweep/summary.json"
   ],
-  "decision_rule": "M348 may only admit a full public gate if exact objectives, source-diverse proof gates, old-key replay gate, and first replay gates pass. It cannot promote directly.",
-  "next_blocker": "pending M348 exact source-diverse probe for m335 alpha 0.01"
+  "results": {
+    "run_dir": "runs/m348_m335_a010_probe",
+    "selected_policy": "m335_a010",
+    "selected_checkpoint": "runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_01.pt",
+    "current_public_base_checkpoint": "runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt",
+    "exact_eval_run_dir": "runs/m348_m335_a010_exact_eval_vs_a0075",
+    "source_diverse_run_dir": "runs/m348_m335_a010_source_diverse_protected_gate",
+    "old_key_neighborhood_run_dir": "runs/m347_old_key_alpha_sweep",
+    "m183_m170_first_replay_run_dir": "runs/m348_m335_a010_m183_m170_first_replay",
+    "m267_m264_first_replay_run_dir": "runs/m348_m335_a010_m267_m264_first_replay",
+    "m297_preference_loss_delta_vs_current_base": -9.5367431640625e-07,
+    "exact_m270_loss_delta_vs_current_base": -4.76837158203125e-07,
+    "source_diverse_protected_pass": true,
+    "source_diverse_replay_gates_passed": 5,
+    "source_diverse_replay_gate_count": 5,
+    "old_key_neighborhood_pass": true,
+    "old_key_neighborhood_accepted_regressions": 0,
+    "old_key_neighborhood_gap_p10": -6.042473206440247e-06,
+    "old_key_neighborhood_gap_min": -1.6375533006700305e-05,
+    "first_replay_gates_pass": true,
+    "m183_m170_success_drops": 17,
+    "m267_m264_success_drops": 17,
+    "promotion_recommended": false,
+    "admit_full_public_gate": true,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m349_full_public_gate_for_m335_a010",
+  "decision_rule": "M348 admits a full public gate because exact objectives, source-diverse proof gates, old-key replay gate, and first replay gates pass. It does not promote directly.",
+  "next_blocker": "m349-full-public-gate-for-m335-a010"
 }

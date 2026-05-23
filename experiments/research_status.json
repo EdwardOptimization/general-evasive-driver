@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 356,
+        "completed": 357,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m347-old-key-neighborhood-alpha-sweep-run",
+        "task_id": "m348-exact-source-diverse-probe-for-m335-a010",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m347_old_key_alpha_sweep",
-        "command_log": "runs/m347_old_key_alpha_sweep/summary.json"
+        "run_dir": "runs/m348_m335_a010_probe",
+        "command_log": "runs/m348_m335_a010_probe/summary.json"
     },
     "next_task": {
-        "id": "m348-exact-source-diverse-probe-for-m335-a010",
+        "id": "m349-full-public-gate-for-m335-a010",
         "status": "pending",
-        "priority": 3430,
-        "kind": "gate",
-        "hypothesis": "M335 alpha 0.01 may pass the exact and source-diverse proof gates after passing the replayable old-key neighborhood gate, making it eligible for a later full public gate.",
-        "command": "see experiments/manifests/m348-exact-source-diverse-probe-for-m335-a010.json",
+        "priority": 3440,
+        "kind": "driver_candidate",
+        "hypothesis": "The M335 alpha 0.01 candidate may be promotable if it retains exact objectives, source-diverse protected proof, old-key neighborhood proof, all six replay surfaces, and behavior seeds.",
+        "command": "see experiments/manifests/m349-full-public-gate-for-m335-a010.json",
         "success_artifact": "",
-        "notes": "Pending: evaluate M297 M270 source-diverse protected and first replay gates before any full public gate"
+        "notes": "Pending: run six replay gates and behavior seeds before any promotion"
     },
-    "updated_at_utc": "20260523T100644Z"
+    "updated_at_utc": "20260523T101221Z"
 }

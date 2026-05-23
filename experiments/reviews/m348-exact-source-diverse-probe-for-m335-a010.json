@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M348 alpha 0.01 passes exact M297/M270 versus current base source-diverse protected gate old-key neighborhood gate and first replay gates; no promotion",
+  "failure_criteria": [
+    "exact M297 or M270 regresses",
+    "source-diverse protected gate fails",
+    "first replay gate fails",
+    "gate result depends on changing actor inputs",
+    "checkpoint is promoted directly"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not promote from M347 alpha sweep alone",
+    "do not skip exact objectives",
+    "do not skip source-diverse protected gates",
+    "do not hide 9944 diagnostic",
+    "do not change actor inputs"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260523T101510Z",
+  "hypothesis": "M335 alpha 0.01 may pass the exact and source-diverse proof gates after passing the replayable old-key neighborhood gate, making it eligible for a later full public gate.",
+  "lineage": {
+    "blocked_by": [
+      "m347-old-key-neighborhood-alpha-sweep-run"
+    ],
+    "derived_from": [
+      "m347-old-key-neighborhood-alpha-sweep-run"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_01.pt",
+      "runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m347-old-key-neighborhood-alpha-sweep-run.json",
+      "docs/m347-old-key-neighborhood-alpha-sweep-run.md"
+    ],
+    "parent_dataset": [
+      "runs/m347_old_key_alpha_sweep/summary.json",
+      "runs/m347_old_key_alpha_sweep/alpha_sweep_summary.csv"
+    ],
+    "parent_objective": [
+      "probe exact and source-diverse proof gates for the largest old-key-passing alpha"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m348-exact-source-diverse-probe-for-m335-a010",
+  "next_blocker": "m349-full-public-gate-for-m335-a010",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m349_full_public_gate_for_m335_a010",
+  "public_gates": [
+    "exact M297 rejected-history preference no-regression versus M336 base",
+    "exact M270 source-balanced outcome no-regression versus M336 base",
+    "source-diverse protected gate pass",
+    "old-key neighborhood replay gate pass from M347 retained",
+    "first replay gates pass before any full public gate",
+    "do not run PPO or promote a checkpoint"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_01.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m349_full_public_gate_for_m335_a010",
+    "milestone": "m348-exact-source-diverse-probe-for-m335-a010",
+    "reason": "M348 alpha 0.01 passes exact M297/M270 versus current base source-diverse protected gate old-key neighborhood gate and first replay gates; no promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "exact M297 and M270 do not regress versus m335_a0_0075",
+    "source-diverse protected gates pass",
+    "first replay gates pass",
+    "old-key replay gate result is cited from M347",
+    "research validation passes"
+  ],
+  "type": "gate"
+}

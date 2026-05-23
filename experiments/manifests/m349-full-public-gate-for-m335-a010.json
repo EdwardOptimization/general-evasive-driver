@@ -1,0 +1,107 @@
+{
+  "id": "m349-full-public-gate-for-m335-a010",
+  "type": "driver_candidate",
+  "gate_tier": "promotion",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt",
+      "runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_01.pt"
+    ],
+    "parent_dataset": [
+      "runs/m348_m335_a010_probe/summary.json",
+      "runs/m348_m335_a010_exact_eval_vs_a0075/summary.json",
+      "runs/m348_m335_a010_source_diverse_protected_gate/summary.json",
+      "runs/m348_m335_a010_m183_m170_first_replay/summary.json",
+      "runs/m348_m335_a010_m267_m264_first_replay/summary.json",
+      "runs/m347_old_key_alpha_sweep/summary.json",
+      "runs/m183_m168_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+      "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+      "runs/m193_m189_boundary_outcome_corpus_seed9630/boundary_outcome_corpus.csv",
+      "runs/m212_m204_boundary_outcome_corpus_seed10040/boundary_outcome_corpus.csv",
+      "runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m348-exact-source-diverse-probe-for-m335-a010.json",
+      "docs/m348-exact-source-diverse-probe-for-m335-a010.md"
+    ],
+    "parent_objective": [
+      "run full public promotion gate for M335 alpha 0.01 after M348 proof-gate pass"
+    ],
+    "derived_from": [
+      "m348-exact-source-diverse-probe-for-m335-a010"
+    ],
+    "blocked_by": [
+      "m348-exact-source-diverse-probe-for-m335-a010"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m349-full-public-gate-for-m335-a010.md",
+  "public_gates": [
+    "exact M297 and exact M270 remain non-regressing versus current M336 base",
+    "source-diverse protected gate remains passed",
+    "old-key neighborhood replay gate remains passed",
+    "M183/M168 replay gate versus M333",
+    "M183/M170 replay gate versus M333",
+    "M193/M189 replay gate versus M333",
+    "M212/M204 replay gate versus M333",
+    "M223/M219 replay gate versus M333",
+    "M267/M264 replay gate versus M333",
+    "behavior seeds 9505 and 9506",
+    "research validator"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not promote on first replay gates alone",
+    "do not restore singleton 9944 as a standalone veto when the old-key neighborhood gate passes",
+    "do not skip the old-key neighborhood gate",
+    "do not ignore source-diverse protected gate",
+    "do not change actor inputs",
+    "do not tune from private holdouts"
+  ],
+  "hypothesis": "The M335 alpha 0.01 candidate may be promotable if it retains exact objectives, source-diverse protected proof, old-key neighborhood proof, all six replay surfaces, and behavior seeds.",
+  "success_criteria": [
+    "candidate passes all six public replay gates versus M333",
+    "candidate retains exact M297 and exact M270 no-regression versus current M336 base",
+    "candidate keeps source-diverse protected proof",
+    "candidate keeps old-key neighborhood proof from M347/M348",
+    "candidate retains behavior on seeds 9505 and 9506",
+    "actor input contract remains unchanged"
+  ],
+  "failure_criteria": [
+    "any replay gate fails",
+    "exact M297 or exact M270 regresses versus current M336 base",
+    "source-diverse protected proof fails",
+    "old-key neighborhood proof fails",
+    "behavior seeds materially regress",
+    "actor observation inputs change"
+  ],
+  "commands": [
+    {
+      "name": "m349_full_public_gate",
+      "command": "Run full public proof and behavior gates for m335_a010 after the M348 proof-gate pass."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m349-full-public-gate-for-m335-a010.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt",
+    "runs/m332_m328_to_m330_gap_bounded_interpolation/checkpoints/alpha_0_45.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m348-exact-source-diverse-probe-for-m335-a010.md",
+    "runs/m348_m335_a010_probe/summary.json",
+    "runs/m347_old_key_alpha_sweep/summary.json"
+  ],
+  "decision_rule": "M349 may promote m335_a010 only if exact objectives, source-diverse protected gate, old-key neighborhood gate, all six public replay gates, behavior seeds, and input-contract checks pass.",
+  "next_blocker": "pending M349 full public gate for m335 alpha 0.01"
+}
