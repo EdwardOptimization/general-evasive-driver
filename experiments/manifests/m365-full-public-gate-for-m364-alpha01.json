@@ -1,0 +1,83 @@
+{
+  "id": "m365-full-public-gate-for-m364-alpha01",
+  "type": "driver_candidate",
+  "gate_tier": "promotion",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt",
+      "runs/m364_old_key_aware_repair_interpolation/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m364_old_key_aware_repair_probe/summary.json",
+      "runs/m364_alpha01_source_diverse_protected_gate/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m364-old-key-aware-repair-probe.json"
+    ],
+    "parent_objective": [
+      "run full public gate for M364 alpha 0.1 after proof-gate pass"
+    ],
+    "derived_from": [
+      "m364-old-key-aware-repair-probe"
+    ],
+    "blocked_by": [
+      "m364-old-key-aware-repair-probe"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m365-full-public-gate-for-m364-alpha01.md",
+  "public_gates": [
+    "exact and old-key surrogate from M364 retained",
+    "old-key neighborhood pass from M364 retained",
+    "source-diverse protected pass from M364 retained",
+    "all six public replay surfaces pass",
+    "behavior seeds 9505 and 9506 do not regress",
+    "promote only if full gate passes"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not promote from partial proof gates",
+    "do not skip behavior seeds",
+    "do not hide that alpha 0.2 already fails old-key replay",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "The M364 alpha 0.1 candidate may pass the full public promotion gate after preserving exact, old-key, source-diverse, and first replay proof gates.",
+  "success_criteria": [
+    "all six replay surfaces pass",
+    "behavior seeds 9505 and 9506 do not regress versus current public base",
+    "accepted-alpha limitation is documented",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "any public replay surface fails",
+    "behavior seeds regress",
+    "actor input contract changes",
+    "accepted-alpha limitation is omitted"
+  ],
+  "commands": [
+    {
+      "name": "m365_full_public_gate",
+      "command": "Run full public replay and behavior gates for runs/m364_old_key_aware_repair_interpolation/checkpoints/alpha_0_1.pt."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m365-full-public-gate-for-m364-alpha01.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m364-old-key-aware-repair-probe.md",
+    "runs/m364_old_key_aware_repair_probe/summary.json"
+  ],
+  "decision_rule": "M365 promotes only if the M364 alpha 0.1 candidate passes all public replay and behavior retention gates without actor-input changes.",
+  "next_blocker": "pending M365 full public gate"
+}

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 372,
+        "completed": 373,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m363-old-key-aware-repair-implementation",
+        "task_id": "m364-old-key-aware-repair-probe",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m363_old_key_preference_corpus",
-        "command_log": "docs/m363-old-key-aware-repair-implementation.md"
+        "run_dir": "runs/m364_old_key_aware_repair_probe",
+        "command_log": "docs/m364-old-key-aware-repair-probe.md"
     },
     "next_task": {
-        "id": "m364-old-key-aware-repair-probe",
+        "id": "m365-full-public-gate-for-m364-alpha01",
         "status": "pending",
-        "priority": 3590,
-        "kind": "gate",
-        "hypothesis": "Probe old-key-aware exact repair before more PPO",
-        "command": "see experiments/manifests/m364-old-key-aware-repair-probe.json",
+        "priority": 3600,
+        "kind": "driver_candidate",
+        "hypothesis": "Run full public gate for M364 alpha 0.1 candidate",
+        "command": "see experiments/manifests/m365-full-public-gate-for-m364-alpha01.json",
         "success_artifact": "",
-        "notes": "Pending: run no-PPO old-key-aware repair and proof gates"
+        "notes": "Pending: full replay and behavior gates before any promotion"
     },
     "updated_at_utc": "20260523T112052Z"
 }

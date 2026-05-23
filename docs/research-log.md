@@ -9274,3 +9274,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M363 adds `src/autodrift/old_key_preference_corpus.py` and extends `exact_post_ppo_repair` with optional old-key surrogate metrics and loss. It exports a 40-row old-key preference corpus from M341 compact rows and verifies the repair integration with `runs/m363_old_key_repair_smoke`, which records old-key surrogate deltas in the selection trace without any update. Focused tests report `11 passed`; compileall passes.
 - decision: `admit_m364_old_key_aware_repair_probe`
 - next: `m364-old-key-aware-repair-probe`
+
+## 20260523T112052Z - m364-old-key-aware-repair-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m364_old_key_aware_repair_probe`
+- artifact: `docs/m364-old-key-aware-repair-probe.md`
+- result: M364 probes old-key-aware repair without PPO. With default `1e-7` old-key tolerance, repair selects alpha `0.0`; with `1e-6`, it selects alpha `0.0025` toward the M356 candidate and improves exact M297/M270 while keeping old-key surrogate within tolerance. The direct repaired candidate fails closed-loop old-key replay by one accepted regression, but interpolation alpha `0.1` passes old-key replay, source-diverse protected gates `5/5`, and M183/M170 plus M267/M264 first replay gates `17/17`. Alpha `0.2` is the first failing tested old-key interpolation.
+- decision: `admit_m365_full_public_gate_for_m364_alpha01`
+- next: `m365-full-public-gate-for-m364-alpha01`
