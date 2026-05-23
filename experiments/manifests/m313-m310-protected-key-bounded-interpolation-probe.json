@@ -1,0 +1,98 @@
+{
+  "id": "m313-m310-protected-key-bounded-interpolation-probe",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt",
+      "runs/m310_exact_repair_from_raw_s40_seed10095/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "runs/m133_zero_relvel_s60_strict_60ep_seed9900/outcome_sensitive_snippets.csv",
+      "runs/m133_zero_relvel_s60_strict_60ep_seed9920/outcome_sensitive_snippets.csv",
+      "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m312-m310-protected-key-window-failure-audit.json",
+      "docs/m312-m310-protected-key-window-failure-audit.md"
+    ],
+    "parent_objective": [
+      "salvage the M310 exact-repaired PPO direction with a protected-key-bounded trust-region interpolation"
+    ],
+    "derived_from": [
+      "m312-m310-protected-key-window-failure-audit"
+    ],
+    "blocked_by": [
+      "m312-m310-protected-key-window-failure-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m313-m310-protected-key-bounded-interpolation-probe.md",
+  "public_gates": [
+    "preserve human-view actor input contract",
+    "generate M307-to-M310 interpolation checkpoints",
+    "exact M297 and M270 no-regression versus M307",
+    "protected key 9944 must pass and remain discriminative",
+    "selected alpha must pass M183/M170 first replay gate",
+    "selected alpha must pass M267/M264 first replay gate",
+    "do not promote before a separate full public gate"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not bypass the protected-key window",
+    "do not promote based on exact objectives alone",
+    "do not run PPO",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "A smaller interpolation from M307 toward the M310 repaired candidate can retain useful exact-objective movement while staying inside the protected-key normal-margin window.",
+  "success_criteria": [
+    "find an alpha greater than 0 that keeps exact M297 and M270 non-regressing versus M307",
+    "selected alpha passes protected key 9944",
+    "selected alpha passes M183/M170 and M267/M264 first replay gates",
+    "if selected alpha is meaningful, admit a separate full public-gate milestone"
+  ],
+  "failure_criteria": [
+    "no nonzero alpha passes protected key",
+    "only negligible alpha passes",
+    "selected alpha regresses exact M297 or M270",
+    "selected alpha loses first replay retention",
+    "actor input contract is changed"
+  ],
+  "commands": [
+    {
+      "name": "interpolation_sweep",
+      "command": "PYTHONPATH=src python -m autodrift.checkpoint_interpolation --base-checkpoint runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt --target-checkpoint runs/m310_exact_repair_from_raw_s40_seed10095/candidate_checkpoint.pt --alphas 0,0.05,0.1,0.12,0.14,0.15,0.16,0.18,0.2 --base-label m307_base --target-label m310_repaired --label-prefix m313 --run-dir runs/m313_m307_to_m310_protected_key_bounded_interpolation"
+    },
+    {
+      "name": "exact_line_search",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.exact_post_ppo_repair --base-checkpoint runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt --raw-checkpoint runs/m310_exact_repair_from_raw_s40_seed10095/candidate_checkpoint.pt --preference-npz runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz --outcome-npz runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz --device cpu --start-mode line_search_boundary --line-search-alphas 0,0.05,0.1,0.12,0.14,0.15,0.16,0.18,0.2 --steps 0 --run-dir runs/m313_m307_to_m310_exact_line_search"
+    },
+    {
+      "name": "protected_key_sweep",
+      "command": "Evaluate protected key 9944 on the interpolation checkpoints and select the largest exact-passing protected-key-passing alpha."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m313-m310-protected-key-bounded-interpolation-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m312-m310-protected-key-window-failure-audit.md",
+    "runs/m311_full_public_gate_for_m310_repaired/full_gates/critical_key_seed9944/guard_results.csv"
+  ],
+  "decision_rule": "M313 may admit full public gate only for a nonzero alpha that passes exact objectives protected key and first replay gates.",
+  "next_blocker": "pending M313 protected-key-bounded interpolation probe"
+}

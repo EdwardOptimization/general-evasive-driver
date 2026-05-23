@@ -8757,3 +8757,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M311 rejects M310 repaired as a public-gate base. It improves exact M297/M270 and passes all six replay surfaces versus M307, but protected key `9944|perturbed|28|28` fails: M310 repaired has normal margin `0.206337`, wrong-history margin `0.108747`, and margin gap `0.097590`, with `0/1` accepted cases. The guard remains valid because `m263_a005` and M307 pass while `m239_a750` fails. Behavior gates were not run after protected-key failure.
 - decision: `reject_m310_repaired_protected_key_window_failure`
 - next: `m312-m310-protected-key-window-failure-audit`
+
+## 20260523T051607Z - m312-m310-protected-key-window-failure-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m311_full_public_gate_for_m310_repaired/full_gates/critical_key_seed9944`
+- artifact: `docs/m312-m310-protected-key-window-failure-audit.md`
+- result: M312 classifies the M311 failure as a protected-key normal-margin window violation, not broad proof washout. M310's protected-key margin gap still passes (`0.097590`), but the normal margin `0.206337` exceeds the M133 `max_normal_margin=0.2`. M307 remains the public-gate base.
+- decision: `admit_m313_protected_key_bounded_interpolation_probe`
+- next: `m313-m310-protected-key-bounded-interpolation-probe`

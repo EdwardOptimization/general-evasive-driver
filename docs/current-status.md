@@ -61,7 +61,7 @@ post-PPO repair before any more PPO acceptance.
 Current blocker:
 
 ```text
-m312-m310-protected-key-window-failure-audit
+m313-m310-protected-key-bounded-interpolation-probe
 ```
 
 M305 implements deterministic exact M297/M270 repair or projection
@@ -105,15 +105,20 @@ surfaces pass, but protected key `9944|perturbed|28|28` fails for M310 repaired
 while M307 and the reference pass and `m239_a750` fails. Behavior gates are not
 run after the protected-key promotion failure.
 
+M312 classifies that failure as a protected-key normal-margin window violation,
+not broad proof washout. M310's margin gap still passes, but normal margin
+`0.206337` exceeds the M133 `max_normal_margin=0.2`. M307 remains the
+public-gate base.
+
 Current next task:
 
 ```text
-m312-m310-protected-key-window-failure-audit
+m313-m310-protected-key-bounded-interpolation-probe
 ```
 
-M312 should classify whether the M311 protected-key failure is stale singleton
-window saturation, a systematic protected-surface shift, or a missing term in
-the exact repair objective. M307 remains the public-gate base.
+M313 should sweep M307-to-M310 interpolation alphas, require exact M297/M270
+and protected-key retention first, then run first replay gates only for a
+nonzero protected-key-safe alpha.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

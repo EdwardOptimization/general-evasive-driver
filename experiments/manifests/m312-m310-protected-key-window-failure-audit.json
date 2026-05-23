@@ -79,6 +79,24 @@
     "runs/m311_full_public_gate_for_m310_repaired/full_gates/critical_key_seed9944/summary.json",
     "runs/m311_full_public_gate_for_m310_repaired/full_gates/critical_key_seed9944/guard_results.csv"
   ],
+  "results": {
+    "classification": [
+      "protected_key_window_failure",
+      "promotion_gate_failure"
+    ],
+    "protected_key": "9944|perturbed|28|28",
+    "max_normal_margin": 0.2,
+    "m307_normal_margin": 0.1988626354427483,
+    "m310_normal_margin": 0.20633718537030554,
+    "m310_wrong_history_margin": 0.10874707473057166,
+    "m310_margin_gap": 0.09759011063973388,
+    "m310_margin_gap_accept": true,
+    "m310_accepted_outcome_sensitive": false,
+    "failure_cause": "normal margin above protected-key max window",
+    "proof_washout_observed": false,
+    "recommended_next": "protected-key-bounded interpolation from M307 to M310"
+  },
+  "decision": "admit_m313_protected_key_bounded_interpolation_probe",
   "decision_rule": "M312 should produce an audit decision and next milestone without promoting M310 or running new PPO.",
-  "next_blocker": "pending M312 protected-key failure audit"
+  "next_blocker": "m313-m310-protected-key-bounded-interpolation-probe"
 }
