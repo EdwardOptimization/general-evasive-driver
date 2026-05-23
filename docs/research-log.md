@@ -9094,3 +9094,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M345 implements `autodrift.old_key_neighborhood_replay_gate`, which filters replay `guard_results.csv` to the M341 compact corpus and compares arbitrary baseline/candidate policies. `m335_a0075` versus itself passes with `0` candidate accepted regressions and `0.0` gap deltas. `m335_repaired` versus `m335_a0075` fails with `15` candidate accepted regressions, `3` normal-success regressions, candidate gap p10 `-0.004040`, and min gap `-0.050620`. M133/`9944` diagnostic visibility remains true.
 - decision: `admit_m346_old_key_neighborhood_alpha_sweep_design`
 - next: `m346-old-key-neighborhood-alpha-sweep-design`
+
+## 20260523T094858Z - m346-old-key-neighborhood-alpha-sweep-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `docs/m346-old-key-neighborhood-alpha-sweep-design.md`
+- artifact: `docs/m346-old-key-neighborhood-alpha-sweep-design.md`
+- result: M346 designs a no-PPO alpha sweep over the M335 interpolation family. It requires exact compact reference-case export from the M341 compact corpus, replay with `critical_key_replay_guard`, candidate evaluation with `old_key_neighborhood_replay_gate`, unchanged thresholds, and explicit largest-passing-alpha / first-failing-alpha reporting before any exact/source-diverse/full gate follow-up.
+- decision: `admit_m347_old_key_neighborhood_alpha_sweep_run`
+- next: `m347-old-key-neighborhood-alpha-sweep-run`

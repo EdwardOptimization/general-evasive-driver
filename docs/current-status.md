@@ -131,7 +131,8 @@ reusable gate before more PPO.
 | old-key neighborhood gate | `src/autodrift/old_key_neighborhood_gate.py` | M342 implements the reusable static gate and M343 confirms selected alpha passes while repaired endpoint is repair-needed |
 | old-key gate policy | `docs/m344-old-key-neighborhood-policy-integration-design.md` | M344 defines the neighborhood gate as the first-class old-key proof gate while keeping `9944` diagnostic visible |
 | old-key replay adapter | `src/autodrift/old_key_neighborhood_replay_gate.py` | M345 converts compact old-key replay guard results into candidate-level pass/fail metrics; M335 alpha passes and repaired endpoint fails |
-| current blocker | `experiments/manifests/m346-old-key-neighborhood-alpha-sweep-design.json` | M346 must design a no-PPO alpha sweep to test whether the distributional old-key gate allows more movement than the singleton `9944` floor |
+| old-key alpha sweep design | `docs/m346-old-key-neighborhood-alpha-sweep-design.md` | M346 pre-registers a no-PPO alpha sweep over the M335 interpolation family using replayable old-key gate metrics |
+| current blocker | `experiments/manifests/m347-old-key-neighborhood-alpha-sweep-run.json` | M347 must run the no-PPO alpha sweep and report the largest passing alpha before any more PPO |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

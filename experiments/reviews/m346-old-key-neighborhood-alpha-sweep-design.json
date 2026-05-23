@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M346 designs a no-PPO alpha sweep over M335 interpolation checkpoints using exact compact reference cases and replayable old-key neighborhood gate metrics",
+  "failure_criteria": [
+    "design skips replayable old-key gate",
+    "design treats static M343 selected/endpoint columns as future candidate proof",
+    "design allows promotion from alpha sweep alone",
+    "design starts PPO before old-key alpha sweep is evaluated"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not lower old-key neighborhood thresholds",
+    "do not hide singleton 9944 diagnostic",
+    "do not claim alpha-sweep success before replay rows exist",
+    "do not change actor inputs",
+    "do not run PPO"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260523T094926Z",
+  "hypothesis": "A no-PPO alpha sweep using the replayable old-key neighborhood gate can determine whether the M335 repaired direction has a larger acceptable trust region than the old singleton 9944 floor allowed.",
+  "lineage": {
+    "blocked_by": [
+      "m345-old-key-neighborhood-replay-gate-adapter"
+    ],
+    "derived_from": [
+      "m345-old-key-neighborhood-replay-gate-adapter"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt",
+      "runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_01.pt",
+      "runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_02.pt",
+      "runs/m335_exact_repair_from_raw_s40_seed10099/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m345-old-key-neighborhood-replay-gate-adapter.json",
+      "docs/m345-old-key-neighborhood-replay-gate-adapter.md"
+    ],
+    "parent_dataset": [
+      "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv",
+      "runs/m345_old_key_neighborhood_replay_gate_alpha/summary.json",
+      "runs/m345_old_key_neighborhood_replay_gate_repaired/summary.json"
+    ],
+    "parent_objective": [
+      "test whether the replayable distributional old-key gate allows more interpolation movement than the singleton 9944 floor"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m346-old-key-neighborhood-alpha-sweep-design",
+  "next_blocker": "m347-old-key-neighborhood-alpha-sweep-run",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m347_old_key_neighborhood_alpha_sweep_run",
+  "public_gates": [
+    "design a no-PPO alpha sweep over M335 interpolation checkpoints",
+    "use replayable old-key neighborhood gate metrics",
+    "keep exact and source-diverse gates in the admission order",
+    "state which alphas are evaluated and how failures are classified",
+    "do not train or promote a checkpoint"
+  ],
+  "scoreboard": {
+    "checkpoint": "not_applicable_infrastructure_task",
+    "clearance_margin_mean": "",
+    "decision": "admit_m347_old_key_neighborhood_alpha_sweep_run",
+    "milestone": "m346-old-key-neighborhood-alpha-sweep-design",
+    "reason": "M346 designs a no-PPO alpha sweep over M335 interpolation checkpoints using exact compact reference cases and replayable old-key neighborhood gate metrics",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "document alpha candidates and gate order",
+    "define critical_key_replay_guard or equivalent replay commands for compact old-key rows",
+    "define replayable gate commands using old_key_neighborhood_replay_gate",
+    "state acceptance and rejection thresholds before running the sweep",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}
