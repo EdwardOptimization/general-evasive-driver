@@ -10094,3 +10094,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M445 designs a reusable policy-difference miner. It should compare M399 against proof-safe and proof-rejected candidates, accept success flips, collision flips, margin sign flips, near-boundary margin deltas, large margin deltas, and return deltas, then select a source-diverse compact corpus. Hidden dynamics remain mining/logging fields only and never actor inputs.
 - decision: `admit_m446_policy_difference_miner_implementation`
 - next: `m446-policy-difference-miner-implementation`
+
+## 20260523T192445Z - m446-policy-difference-miner-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m446_policy_difference_miner_smoke`
+- artifact: `docs/m446-policy-difference-miner-implementation.md`
+- result: M446 adds `src/autodrift/policy_difference_miner.py` and focused tests. The smoke on M444 episodes compares 640 candidate rows and finds only 2 accepted rows, both `return_delta` on seed `9706`, with no success flips, collision flips, margin sign flips, near-boundary margin deltas, or large margin deltas.
+- decision: `admit_m447_fresh_policy_difference_mining_run`
+- next: `m447-fresh-policy-difference-mining-run`

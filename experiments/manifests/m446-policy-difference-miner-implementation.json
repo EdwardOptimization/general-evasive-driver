@@ -80,5 +80,21 @@
     "docs/m445-fresh-policy-difference-miner-design.md"
   ],
   "decision_rule": "M446 passes if reusable miner tooling and a smoke artifact exist without training or promotion.",
-  "next_blocker": "pending M446 policy-difference miner implementation"
+  "results": {
+    "run_dir": "runs/m446_policy_difference_miner_smoke",
+    "comparison_rows": 640,
+    "accepted_rows": 2,
+    "selected_rows": 1,
+    "accepted_by_divergence_type": {
+      "return_delta": 2
+    },
+    "selected_by_divergence_type": {
+      "return_delta": 1
+    },
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "ppo_or_actor_update_run": false,
+    "decision": "admit_fresh_policy_difference_mining_run"
+  },
+  "next_blocker": "m447-fresh-policy-difference-mining-run"
 }

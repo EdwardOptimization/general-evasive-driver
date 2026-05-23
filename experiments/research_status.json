@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 454,
+        "completed": 455,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m445-fresh-policy-difference-miner-design",
+        "task_id": "m446-policy-difference-miner-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m445-fresh-policy-difference-miner-design.md"
+        "run_dir": "runs/m446_policy_difference_miner_smoke",
+        "command_log": "docs/m446-policy-difference-miner-implementation.md"
     },
     "next_task": {
-        "id": "m446-policy-difference-miner-implementation",
+        "id": "m447-fresh-policy-difference-mining-run",
         "status": "pending",
-        "priority": 4410,
-        "kind": "infrastructure",
-        "hypothesis": "Implement reusable policy-difference miner and smoke on M444 episodes",
-        "command": "see experiments/manifests/m446-policy-difference-miner-implementation.json",
+        "priority": 4420,
+        "kind": "gate",
+        "hypothesis": "Run 512-episode fresh benchmark and mine policy differences",
+        "command": "see experiments/manifests/m447-fresh-policy-difference-mining-run.json",
         "success_artifact": "",
-        "notes": "Pending: add CLI tests and smoke artifacts without training or promotion"
+        "notes": "Pending: run fresh benchmark then policy-difference miner without promotion"
     },
-    "updated_at_utc": "20260523T191946Z"
+    "updated_at_utc": "20260523T192445Z"
 }

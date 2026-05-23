@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m446-policy-difference-miner-implementation
+m447-fresh-policy-difference-mining-run
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -129,7 +129,11 @@ actually diverge before more objective design. M445 designs that miner around
 success flips, collision flips, margin sign flips, near-boundary margin deltas,
 large margin deltas, return deltas, and source-diverse compact selection. The
 next blocker is M446: implement the reusable miner and smoke it on the M444
-benchmark rows without training or promotion.
+benchmark rows without training or promotion. M446 implements the miner and
+smokes it on M444: out of 640 candidate comparisons, it finds only 2 accepted
+rows, both `return_delta`, with no outcome or margin divergences. The next
+blocker is M447: run a larger 512-episode fresh benchmark and mine policy
+differences from that output.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

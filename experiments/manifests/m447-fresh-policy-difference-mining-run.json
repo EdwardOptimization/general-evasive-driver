@@ -1,0 +1,95 @@
+{
+  "id": "m447-fresh-policy-difference-mining-run",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m434_selective_10004_projection_r0010/candidate_checkpoint.pt",
+      "runs/m438_r0015_active_boundary_lactive1e12_s40_seed10161/candidate_checkpoint.pt",
+      "runs/m427_projected_recovery_ltraj1e13_s40_seed10156/candidate_checkpoint.pt",
+      "runs/m442_tail_r0010_active_boundary_v2_l1e12_s40_seed10162/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "configs/m121_human_view_zero_obstacle_relvel.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m446-policy-difference-miner-implementation.json"
+    ],
+    "parent_objective": [
+      "fresh policy-difference mining run"
+    ],
+    "derived_from": [
+      "m446-policy-difference-miner-implementation"
+    ],
+    "blocked_by": [
+      "m446-policy-difference-miner-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m447-fresh-policy-difference-mining-run.md",
+  "public_gates": [
+    "512-episode fresh benchmark seed 9700",
+    "policy-difference miner run",
+    "compact policy-difference corpus written",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not tune from this public diagnostic and call it private holdout",
+    "do not change actor input/output contract",
+    "do not lower proof gates"
+  ],
+  "hypothesis": "A larger fresh pool can reveal whether recent candidates have meaningful closed-loop policy differences that the 160-episode M444 aggregate benchmark missed.",
+  "success_criteria": [
+    "fresh benchmark completes",
+    "policy-difference miner completes",
+    "summary states whether accepted rows include outcome or margin divergences",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "benchmark or miner fails",
+    "result is used for promotion",
+    "result drives tuning without a new manifest",
+    "actor contract changes"
+  ],
+  "commands": [
+    {
+      "name": "fresh_benchmark",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m121_human_view_zero_obstacle_relvel.json --episodes 512 --seed 9700 --policies heuristic --checkpoint-policy m399_base=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --checkpoint-policy m434_r0010=runs/m434_selective_10004_projection_r0010/candidate_checkpoint.pt --checkpoint-policy m438_r0015=runs/m438_r0015_active_boundary_lactive1e12_s40_seed10161/candidate_checkpoint.pt --checkpoint-policy m427_high_utility=runs/m427_projected_recovery_ltraj1e13_s40_seed10156/candidate_checkpoint.pt --checkpoint-policy m442_tail_v2=runs/m442_tail_r0010_active_boundary_v2_l1e12_s40_seed10162/candidate_checkpoint.pt --device cpu --run-dir runs/m447_fresh_policy_difference_benchmark_seed9700"
+    },
+    {
+      "name": "mine_policy_differences",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.policy_difference_miner --episodes-csv runs/m447_fresh_policy_difference_benchmark_seed9700/episodes.csv --baseline-policy m399_base --candidate-policy m434_r0010 --candidate-policy m438_r0015 --candidate-policy m427_high_utility --candidate-policy m442_tail_v2 --run-dir runs/m447_fresh_policy_difference_mining_seed9700"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m447_fresh_policy_difference_benchmark_seed9700/policy_summary.csv",
+      "type": "benchmark_policy_summary"
+    },
+    {
+      "path": "runs/m447_fresh_policy_difference_mining_seed9700/policy_difference_summary.json",
+      "type": "summary_json"
+    },
+    {
+      "path": "docs/m447-fresh-policy-difference-mining-run.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m446-policy-difference-miner-implementation.md"
+  ],
+  "decision_rule": "M447 is diagnostic only. It may admit a new generalization surface or conclude the candidate family is indistinguishable, but it cannot promote a checkpoint.",
+  "next_blocker": "pending M447 fresh policy-difference mining run"
+}
