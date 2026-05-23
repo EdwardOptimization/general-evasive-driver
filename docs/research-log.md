@@ -10494,3 +10494,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M485 runs expanded matched-current mining on both M484 critical-window configs. The first seed window `11200,11300,11400` produced large surfaces but only `3` probe seeds, so fresh blocks `11500,11600,11700` were added to satisfy the pre-registered `>=6` seed gate. The combined surface has `5802` accepted pairs, `4321` physical pairs, `6` probe seeds, `3` obstacle labels, `3` targets, `2` configs, `2` seed windows, and `107` obstacle bucket proxies. Single-seed share is `0.177870`, single-label share is `0.546708`, and single-target share is `0.473630`, so the source-diversity gate passes.
 - decision: `critical_window_matched_surface_pass_admit_m486_targeted_wrong_history_triage`
 - next: `m486-critical-window-targeted-pair-triage`
+
+## 20260523T233000Z - m486-critical-window-targeted-pair-triage
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m486_critical_window_targeted_pair_triage`
+- artifact: `docs/m486-critical-window-targeted-pair-triage.md`
+- result: M486 runs targeted wrong-history triage on the combined M485 matched-current surface. It exports `312` targeted pairs from `5802` eligible rows. The targeted surface covers `6` probe seeds, `3` obstacle labels, and `3` targets, with single-seed share `0.195513` and single-label share `0.512821`. It is also balanced across critical configs: `157` near-threshold rows and `155` late-high-energy rows. This passes the targeted-surface gate and admits tail-aligned outcome testing.
+- decision: `critical_window_targeted_triage_pass_admit_m487_tail_aligned_outcome_gate`
+- next: `m487-critical-window-tail-aligned-outcome-gate`

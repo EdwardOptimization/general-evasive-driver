@@ -2,7 +2,7 @@
   "id": "m486-critical-window-targeted-pair-triage",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -87,5 +87,41 @@
     "runs/m485_critical_window_matched_current_summary/combined_summary.json"
   ],
   "decision_rule": "M486 may admit tail-aligned wrong-history outcome gates only if targeted pairs remain source-diverse; otherwise repair triage caps or mining parameters.",
-  "next_blocker": "pending M486 critical-window targeted pair triage"
+  "next_blocker": "m487-critical-window-tail-aligned-outcome-gate",
+  "results": {
+    "run_dir": "runs/m486_critical_window_targeted_pair_triage",
+    "summary_json": "runs/m486_critical_window_targeted_pair_triage/summary.json",
+    "targeted_pairs_csv": "runs/m486_critical_window_targeted_pair_triage/targeted_pairs.csv",
+    "candidate_pair_count": 5802,
+    "eligible_pair_count": 5802,
+    "targeted_pair_count": 312,
+    "targeted_probe_seed_count": 6,
+    "targeted_obstacle_label_count": 3,
+    "targeted_target_count": 3,
+    "single_seed_share": 0.1955128205128205,
+    "single_label_share": 0.5128205128205128,
+    "targeted_by_probe_seed": {
+      "11200": 60,
+      "11300": 44,
+      "11400": 44,
+      "11500": 61,
+      "11600": 46,
+      "11700": 57
+    },
+    "targeted_by_left_obstacle_label": {
+      "aes_feasible": 15,
+      "drift_required": 160,
+      "unavoidable": 137
+    },
+    "targeted_by_target": {
+      "future_braking_deceleration": 140,
+      "future_lateral_accel_response": 32,
+      "future_yaw_response": 140
+    },
+    "triage_pass": true,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "next_manifest": "experiments/manifests/m487-critical-window-tail-aligned-outcome-gate.json",
+    "decision": "critical_window_targeted_triage_pass_admit_m487_tail_aligned_outcome_gate"
+  }
 }
