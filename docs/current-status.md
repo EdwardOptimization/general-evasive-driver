@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m417-active-set-hinge-projection-probe
+m418-active-set-radius-calibration-design
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -286,8 +286,13 @@ and use `weight * relu(action_l2_to_reference - radius)^2`, tightly anchoring
 only M267 rows `6`/`15`, old-key cases `10004`/`9998`, and guard case `10023`.
 M416 implements the optional radius-aware hinge path, exports a `192`-row
 active-set hinge anchor, and verifies no-update exact repair loading with
-near-zero loss and exact no-regression. M417 should run the actual no-PPO proof
-probe from M403 alpha `0.1`.
+near-zero loss and exact no-regression. M417 runs the actual no-PPO proof probe
+from M403 alpha `0.1` and rejects the zero-radius active-set candidate family:
+`lambda_replay=1e12` retains recovery utility (`0.226007` of M406) but fails
+M267/M264 (`15/17`) and old-key proof, while `lambda_replay=1e13` passes
+M267/M264, old-key, and M183/M170 proof gates but retains only `0.054387` of
+M406 recovery movement. M418 should design nonzero per-row hinge radii before
+another projection probe.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -366,7 +371,7 @@ probe from M403 alpha `0.1`.
 | current public-gate base | `runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt` | M379 promotes alpha `0.05` after cumulative old-key source-diverse six public replay surfaces and behavior seeds pass |
 | recovery residual infrastructure | `src/autodrift/exact_post_ppo_repair.py` | M383 implements optional old-key local-action recovery loss and verifies finite no-update smoke terms |
 | recovery target corpus | `runs/m384_old_key_local_recovery_targets/old_key_recovery_corpus.npz` | M384 exports 4 replay-selected recovery targets from 1008 local-action rollouts |
-| current blocker | `experiments/manifests/m417-active-set-hinge-projection-probe.json` | M417 must test the active-set hinge anchor with exact repair, first proof gates, and recovery-retention utility |
+| current blocker | `experiments/manifests/m418-active-set-radius-calibration-design.json` | M418 must pre-register nonzero per-row hinge radii and no-PPO radius-sweep acceptance thresholds after the M417 proof/utility hard switch |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -638,10 +643,11 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not run more PPO until M339 exports and validates the source-diverse
-old-key/gap corpus. Do not lower the `0.09` singleton floor ad hoc and do not
-remove `9944` from diagnostics; replace singleton veto dominance with a
-pre-registered distributional gate. Do not change actor inputs.
+Do not run more PPO while the current blocker is the active-set replay/recovery
+balance. Do not promote M417 candidates: `1e12` fails proof, and `1e13` is
+retention-heavy. The next step is a no-PPO M418 radius calibration design and
+then a pre-registered radius-sweep probe. Do not lower proof thresholds, remove
+old-key diagnostics, or change actor inputs.
 
 ## Sensor Profile Policy
 

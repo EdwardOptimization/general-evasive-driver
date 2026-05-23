@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 425,
+        "completed": 426,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m416-active-set-hinge-anchor-implementation",
+        "task_id": "m417-active-set-hinge-projection-probe",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m416_active_set_hinge_anchor_no_update_smoke",
-        "command_log": "docs/m416-active-set-hinge-anchor-implementation.md"
+        "run_dir": "runs/m417_active_set_hinge_utility_audit",
+        "command_log": "docs/m417-active-set-hinge-projection-probe.md"
     },
     "next_task": {
-        "id": "m417-active-set-hinge-projection-probe",
+        "id": "m418-active-set-radius-calibration-design",
         "status": "pending",
-        "priority": 4120,
-        "kind": "gate",
-        "hypothesis": "Probe active-set hinge anchor in no-PPO exact projection",
-        "command": "see experiments/manifests/m417-active-set-hinge-projection-probe.json",
+        "priority": 4130,
+        "kind": "infrastructure",
+        "hypothesis": "Design nonzero per-row hinge radii after M417 proof/utility hard switch",
+        "command": "see experiments/manifests/m418-active-set-radius-calibration-design.json",
         "success_artifact": "",
-        "notes": "Pending: run exact projection from M403 alpha 0.1 with active-set hinge anchor then evaluate proof gates and recovery utility"
+        "notes": "Pending: define radius calibration from M417 action distances plus no-PPO radius-sweep acceptance thresholds"
     },
-    "updated_at_utc": "20260523T164250Z"
+    "updated_at_utc": "20260523T165053Z"
 }

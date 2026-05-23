@@ -9804,3 +9804,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M416 implements optional `radius` support for trajectory anchors and changes the trajectory residual to a radius hinge with backward-compatible zero-radius behavior. It exports a `192`-row active-set hinge anchor covering M267 rows `6` and `15`, old-key active cases `10004` and `9998`, and guard case `10023`. The no-update exact repair smoke loads the radius-aware anchor with near-zero loss `6.152432e-15` and exact M297/M270/old-key deltas remain `0.0`. Focused tests pass (`31 passed`).
 - decision: `admit_m417_active_set_hinge_projection_probe`
 - next: `m417-active-set-hinge-projection-probe`
+
+## 20260523T165053Z - m417-active-set-hinge-projection-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m417_active_set_hinge_utility_audit`
+- artifact: `docs/m417-active-set-hinge-projection-probe.md`
+- result: M417 tests the M416 active-set hinge anchor without PPO or promotion. `lambda_replay=1e12` passes exact M297/M270/old-key no-regression and retains `0.226007` of M406 recovery utility, but fails M267/M264 (`15/17`) and old-key compact proof (`35/40`). `lambda_replay=1e13` passes exact no-regression, M267/M264 `17/17`, old-key compact with `0` accepted regressions, and M183/M170 `17/17`, but retains only `0.054387` of M406 recovery movement. This classifies zero-radius active-set anchoring as a hard proof/utility switch.
+- decision: `reject_active_set_hinge_candidate_admit_m418_radius_calibration_design`
+- next: `m418-active-set-radius-calibration-design`

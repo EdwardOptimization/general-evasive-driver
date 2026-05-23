@@ -1,0 +1,85 @@
+{
+  "id": "m418-active-set-radius-calibration-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m417_active_set_hinge_projection_ltraj1e12_s40_seed10147/candidate_checkpoint.pt",
+      "runs/m417_active_set_hinge_projection_ltraj1e13_s40_seed10148/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m417_active_set_hinge_utility_audit/summary.json",
+      "runs/m417_hinge_m267_m264_first_replay/summary.json",
+      "runs/m417_hinge1e13_m267_m264_first_replay/summary.json",
+      "runs/m417_hinge_old_key_replay_gate/summary.json",
+      "runs/m417_hinge1e13_old_key_replay_gate/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m417-active-set-hinge-projection-probe.json"
+    ],
+    "parent_objective": [
+      "design nonzero radius calibration after zero-radius active-set proof/utility split"
+    ],
+    "derived_from": [
+      "m417-active-set-hinge-projection-probe"
+    ],
+    "blocked_by": [
+      "m417-active-set-hinge-projection-probe"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m418-active-set-radius-calibration-design.md",
+  "public_gates": [
+    "design only",
+    "no PPO run",
+    "no checkpoint promotion",
+    "no actor input/output change"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not tune against private holdout"
+  ],
+  "hypothesis": "Nonzero per-row hinge radii can avoid the M417 zero-radius proof/utility hard switch.",
+  "success_criteria": [
+    "define how to set per-row radii from M417 1e12 and 1e13 action distances",
+    "define a no-PPO radius-sweep probe with exact gates, proof gates, and recovery-retention utility",
+    "pre-register acceptance thresholds before running the probe"
+  ],
+  "failure_criteria": [
+    "design falls back to another scalar-only weight sweep",
+    "design weakens proof gates",
+    "design lacks recovery utility criterion",
+    "design requires PPO"
+  ],
+  "commands": [
+    {
+      "name": "active_set_radius_calibration_design",
+      "command": "Design a per-row radius calibration and no-PPO probe after M417 proof/utility split."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m418-active-set-radius-calibration-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m416-active-set-hinge-anchor-implementation.md",
+    "docs/m417-active-set-hinge-projection-probe.md"
+  ],
+  "decision_rule": "M418 should admit a radius-sweep probe only if radii and acceptance thresholds are pre-registered and the probe remains no-PPO.",
+  "next_blocker": "pending M418 active-set radius calibration design"
+}

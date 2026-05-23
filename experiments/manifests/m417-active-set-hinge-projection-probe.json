@@ -2,9 +2,10 @@
   "id": "m417-active-set-hinge-projection-probe",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "objective_overfit",
+    "promotion_gate_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -82,5 +83,57 @@
     "docs/m416-active-set-hinge-anchor-implementation.md"
   ],
   "decision_rule": "M417 may admit a full public gate only if exact gates, first proof gates, and recovery-retention utility all pass; otherwise classify proof failure versus utility collapse.",
-  "next_blocker": "pending M417 active-set hinge projection probe"
+  "next_blocker": "m418-active-set-radius-calibration-design",
+  "results": {
+    "artifact": "docs/m417-active-set-hinge-projection-probe.md",
+    "lambda_1e12": {
+      "projection_run": "runs/m417_active_set_hinge_projection_ltraj1e12_s40_seed10147",
+      "candidate_checkpoint": "runs/m417_active_set_hinge_projection_ltraj1e12_s40_seed10147/candidate_checkpoint.pt",
+      "exact_pass": true,
+      "exact_m297_delta_vs_base": -4.0531158447265625e-05,
+      "exact_m270_delta_vs_base": -1.4901161193847656e-05,
+      "old_key_surrogate_delta_vs_base": -0.00013494491577148438,
+      "active_set_hinge_loss": 6.00169983044907e-07,
+      "recovery_improvement_retained_vs_m406": 0.22600688889862572,
+      "m267_m264_run_dir": "runs/m417_hinge_m267_m264_first_replay",
+      "m267_m264_gate_pass": false,
+      "m267_m264_success_drops": 15,
+      "old_key_run_dir": "runs/m417_hinge_old_key_replay_gate",
+      "old_key_gate_pass": false,
+      "old_key_accepted_cases": 35,
+      "old_key_total_cases": 40,
+      "m183_m170_run_dir": "runs/m417_hinge_m183_m170_first_replay",
+      "m183_m170_gate_pass": true,
+      "m183_m170_success_drops": 17,
+      "classification": "utility_pass_proof_fail"
+    },
+    "lambda_1e13": {
+      "projection_run": "runs/m417_active_set_hinge_projection_ltraj1e13_s40_seed10148",
+      "candidate_checkpoint": "runs/m417_active_set_hinge_projection_ltraj1e13_s40_seed10148/candidate_checkpoint.pt",
+      "exact_pass": true,
+      "exact_m297_delta_vs_base": -2.288818359375e-05,
+      "exact_m270_delta_vs_base": -2.0682811737060547e-05,
+      "old_key_surrogate_delta_vs_base": -0.0031991004943847656,
+      "active_set_hinge_loss": 1.852823494630229e-08,
+      "recovery_improvement_retained_vs_m406": 0.05438733601533013,
+      "m267_m264_run_dir": "runs/m417_hinge1e13_m267_m264_first_replay",
+      "m267_m264_gate_pass": true,
+      "m267_m264_success_drops": 17,
+      "old_key_run_dir": "runs/m417_hinge1e13_old_key_replay_gate",
+      "old_key_gate_pass": true,
+      "old_key_accepted_regressions": 0,
+      "m183_m170_run_dir": "runs/m417_hinge1e13_m183_m170_first_replay",
+      "m183_m170_gate_pass": true,
+      "m183_m170_success_drops": 17,
+      "classification": "proof_pass_utility_fail"
+    },
+    "utility_audit_run": "runs/m417_active_set_hinge_utility_audit",
+    "classification": "proof_utility_hard_switch",
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m418-active-set-radius-calibration-design"
+  },
+  "decision": "reject_active_set_hinge_candidate_admit_m418_radius_calibration_design"
 }
