@@ -2,7 +2,7 @@
   "id": "m379-full-public-gate-for-m378-a005",
   "type": "driver_candidate",
   "gate_tier": "promotion",
-  "promotion_decision": "pending",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -81,6 +81,34 @@
   "baseline_artifacts": [
     "docs/m378-cumulative-gap-tail-v2-repair-probe.md"
   ],
-  "decision_rule": "M379 can promote M378 alpha 0.05 only if cumulative old-key proof, source-diverse proof, all six replay surfaces, behavior seeds, and input-contract checks pass.",
-  "next_blocker": "pending M379 full public gate"
+  "results": {
+    "run_dir": "runs/m379_full_public_gate_for_m378_a005",
+    "candidate_policy": "m378v2_a005",
+    "candidate_checkpoint": "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt",
+    "old_key_neighborhood_pass": true,
+    "old_key_gap_tail_first_failing_alpha_to_final_repair": 0.1,
+    "source_diverse_pass": true,
+    "source_diverse_replay_gates_passed": 5,
+    "source_diverse_replay_gate_count": 5,
+    "full_replay_gates_pass": true,
+    "m183_m168_success_drops": 16,
+    "m183_m170_success_drops": 17,
+    "m193_m189_success_drops": 14,
+    "m212_m204_success_drops": 17,
+    "m223_m219_success_drops": 17,
+    "m267_m264_success_drops": 17,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "behavior_success_mean": 0.8625,
+    "behavior_termination_mean": 0.1375,
+    "behavior_clearance_margin_mean": 1.844171520033897,
+    "reset_success_mean": 0.85,
+    "zero_all_success_mean": 0.8,
+    "promotion_recommended": true,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "promote_m378_a005_gap_tail_v2_public_gate_base",
+  "decision_rule": "M379 promotes M378 alpha 0.05 because cumulative old-key, source-diverse, all six replay surfaces, behavior seeds, and input-contract checks pass; promotion remains a bounded proof-safe step.",
+  "next_blocker": "m380-m378-alpha01-cumulative-old-key-boundary-audit"
 }

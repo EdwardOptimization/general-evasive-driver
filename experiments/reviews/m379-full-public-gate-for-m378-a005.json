@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M379 promotes M378 alpha 0.05 after cumulative old-key source-diverse six public replay surfaces and behavior seeds pass",
+  "failure_criteria": [
+    "any public replay surface fails",
+    "behavior seeds regress",
+    "actor input contract changes",
+    "research validation fails"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not promote without all six replay surfaces",
+    "do not ignore behavior regressions",
+    "do not hide that alpha 0.1 toward the final repair fails cumulative old-key gap p10",
+    "do not run PPO",
+    "do not change actor inputs"
+  ],
+  "gate_tier": "promotion",
+  "generated_at_utc": "20260523T130434Z",
+  "hypothesis": "The bounded M378 alpha 0.05 gap-tail v2 repair candidate may pass the full public promotion gate after preserving exact, cumulative old-key, source-diverse, and first replay proof gates.",
+  "lineage": {
+    "blocked_by": [
+      "m378-cumulative-gap-tail-v2-repair-probe"
+    ],
+    "derived_from": [
+      "m378-cumulative-gap-tail-v2-repair-probe"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m374_gap_tail_final_interpolation/checkpoints/alpha_0_1.pt",
+      "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m378-cumulative-gap-tail-v2-repair-probe.json"
+    ],
+    "parent_dataset": [
+      "runs/m378_v2_final_interp_a005_cumulative_old_key_replay_gate/summary.json",
+      "runs/m378_v2_a005_source_diverse_protected_gate/summary.json",
+      "runs/m378_v2_a005_m183_m170_first_replay/summary.json",
+      "runs/m378_v2_a005_m267_m264_first_replay/summary.json"
+    ],
+    "parent_objective": [
+      "run full public gate for the bounded M378 cumulative gap-tail v2 repair candidate"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m379-full-public-gate-for-m378-a005",
+  "next_blocker": "m380-m378-alpha01-cumulative-old-key-boundary-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "promote_m378_a005_gap_tail_v2_public_gate_base",
+  "public_gates": [
+    "cumulative old-key replay for M378 a005 retained",
+    "source-diverse protected pass from M378 retained",
+    "M183/M170 and M267/M264 first replay pass from M378 retained",
+    "all six public replay surfaces pass",
+    "behavior seeds 9505 and 9506 pass",
+    "no actor input contract change"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "1.844172",
+    "decision": "promote_m378_a005_gap_tail_v2_public_gate_base",
+    "milestone": "m379-full-public-gate-for-m378-a005",
+    "reason": "M379 promotes M378 alpha 0.05 after cumulative old-key source-diverse six public replay surfaces and behavior seeds pass",
+    "reset_success": "0.8500",
+    "success_rate": "0.8625",
+    "termination_rate": "0.1375",
+    "type": "driver_candidate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "0.8000",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "all six replay surfaces pass",
+    "behavior seeds 9505 and 9506 pass",
+    "old-key and source-diverse proof results from M378 are cited",
+    "candidate is promoted only if no proof or behavior regression is found",
+    "research validation passes"
+  ],
+  "type": "driver_candidate"
+}

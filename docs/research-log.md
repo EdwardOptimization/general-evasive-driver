@@ -9424,3 +9424,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M378 probes the v2 gap-tail repair path without PPO. The final repair endpoint improves exact M297/M270 and old-key surrogate, but closed-loop old-key replay bounds acceptable movement. Alpha `0.05` toward the final repair passes exact no-regression, cumulative old-key replay with gap p10 `-0.000488253`, source-diverse protected gates `5/5`, and M183/M170 plus M267/M264 first replay gates `17/17`; alpha `0.1` is the first tested cumulative old-key gap-p10 failure.
 - decision: `admit_m379_full_public_gate_for_m378_a005`
 - next: `m379-full-public-gate-for-m378-a005`
+
+## 20260523T131120Z - m379-full-public-gate-for-m378-a005
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m379_full_public_gate_for_m378_a005`
+- artifact: `docs/m379-full-public-gate-for-m378-a005.md`
+- result: M379 promotes `runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt`. It retains cumulative old-key proof from M378, source-diverse protected gates `5/5`, all six public replay surfaces, and behavior seeds `9505`/`9506`. Behavior success mean remains `0.8625`, termination mean `0.1375`, clearance margin mean `1.844171520`, reset success mean `0.85`, and zero-all success mean `0.80`. This is a bounded proof-safe promotion; alpha `0.1` toward the same final repair remains the first tested cumulative old-key gap-p10 failure.
+- decision: `promote_m378_a005_gap_tail_v2_public_gate_base`
+- next: `m380-m378-alpha01-cumulative-old-key-boundary-audit`

@@ -1,0 +1,83 @@
+{
+  "id": "m380-m378-alpha01-cumulative-old-key-boundary-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m378_v2_final_interp_a005_cumulative_old_key_replay_gate/summary.json",
+      "runs/m378_v2_final_interp_a010_cumulative_old_key_replay_gate/summary.json",
+      "docs/m379-full-public-gate-for-m378-a005.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m379-full-public-gate-for-m378-a005.json"
+    ],
+    "parent_objective": [
+      "audit the first cumulative old-key failure beyond the newly promoted M378 alpha 0.05 base"
+    ],
+    "derived_from": [
+      "m379-full-public-gate-for-m378-a005"
+    ],
+    "blocked_by": [
+      "m379-full-public-gate-for-m378-a005"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m380-m378-alpha01-cumulative-old-key-boundary-audit.md",
+  "public_gates": [
+    "audit only; no PPO run",
+    "keep M378 alpha 0.05 as current promoted base",
+    "do not lower cumulative old-key thresholds",
+    "classify whether alpha 0.1 fails by gap-tail erosion or accepted regression",
+    "preserve actor input contract"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote alpha 0.1",
+    "do not lower old-key thresholds",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "The first tested M378 alpha 0.1 failure is likely a cumulative old-key lower-tail boundary rather than broad proof washout; auditing row-level contributors can decide the next repair design.",
+  "success_criteria": [
+    "alpha 0.1 old-key failure type is classified",
+    "row-level normal/wrong/gap contributors are summarized",
+    "next milestone is registered based on the failure class",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "audit treats threshold failure as a reason to lower thresholds",
+    "audit changes actor inputs",
+    "audit promotes alpha 0.1 directly",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "boundary_audit",
+      "command": "Audit runs/m378_v2_final_interp_a010_cumulative_old_key_replay_gate and row-level comparison data; do not run PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m380-m378-alpha01-cumulative-old-key-boundary-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m379-full-public-gate-for-m378-a005.md",
+    "runs/m379_full_public_gate_for_m378_a005/summary.json"
+  ],
+  "decision_rule": "M380 classifies the first failing alpha 0.1 boundary before any more repair or PPO.",
+  "next_blocker": "pending M380 alpha 0.1 boundary audit"
+}

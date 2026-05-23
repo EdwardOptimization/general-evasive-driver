@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 387,
+        "completed": 388,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m378-cumulative-gap-tail-v2-repair-probe",
+        "task_id": "m379-full-public-gate-for-m378-a005",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m378_v2_final_interp_a005_cumulative_old_key_replay_gate",
-        "command_log": "docs/m378-cumulative-gap-tail-v2-repair-probe.md"
+        "run_dir": "runs/m379_full_public_gate_for_m378_a005",
+        "command_log": "docs/m379-full-public-gate-for-m378-a005.md"
     },
     "next_task": {
-        "id": "m379-full-public-gate-for-m378-a005",
+        "id": "m380-m378-alpha01-cumulative-old-key-boundary-audit",
         "status": "pending",
-        "priority": 3740,
-        "kind": "driver_candidate",
-        "hypothesis": "Run full public gate for the bounded M378 alpha 0.05 cumulative gap-tail v2 repair candidate",
-        "command": "see experiments/manifests/m379-full-public-gate-for-m378-a005.json",
+        "priority": 3750,
+        "kind": "gate",
+        "hypothesis": "Audit the first cumulative old-key failure beyond the newly promoted M378 alpha 0.05 base",
+        "command": "see experiments/manifests/m380-m378-alpha01-cumulative-old-key-boundary-audit.json",
         "success_artifact": "",
-        "notes": "Pending: run all six public replay surfaces and behavior seeds before any promotion"
+        "notes": "Pending: classify alpha 0.1 failure before more repair or PPO"
     },
-    "updated_at_utc": "20260523T125711Z"
+    "updated_at_utc": "20260523T131120Z"
 }
