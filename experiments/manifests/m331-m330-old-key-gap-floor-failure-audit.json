@@ -2,7 +2,7 @@
   "id": "m331-m330-old-key-gap-floor-failure-audit",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -82,6 +82,23 @@
     "runs/m330_critical_key_seed9944/guard_results.csv",
     "runs/m330_source_diverse_protected_gate/summary.json"
   ],
-  "decision_rule": "M331 should decide whether M330 needs rejection/repair, whether the old-key diagnostic floor needs redesign, or whether a new source-diverse fresh-seed repeat should be attempted.",
-  "next_blocker": "pending M331 old-key gap-floor failure audit"
+  "results": {
+    "run_dir": "runs/m331_m330_old_key_gap_floor_audit",
+    "summary_json": "runs/m331_m330_old_key_gap_floor_audit/summary.json",
+    "old_key_trend_csv": "runs/m331_m330_old_key_gap_floor_audit/old_key_trend.csv",
+    "source_diverse_comparison_csv": "runs/m331_m330_old_key_gap_floor_audit/source_diverse_comparison.csv",
+    "classification": "old_key_local_gap_erosion_not_source_diverse_washout",
+    "m330_old_key_margin_gap": 0.08690063195545505,
+    "m330_old_key_gap_shortfall": 0.0030993680445449423,
+    "m330_gap_delta_vs_m328": -0.005752129311737075,
+    "m330_normal_delta_vs_m328": 0.005812416537874565,
+    "m330_wrong_delta_vs_m328": 0.01156454584961164,
+    "source_diverse_all_pass": true,
+    "old_key_floor_lowered": false,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m332_m330_old_key_gap_bounded_interpolation_probe",
+  "decision_rule": "M331 keeps the 0.09 old-key diagnostic floor, rejects direct M330 acceptance, and admits a no-PPO M328-to-M330 interpolation probe to recover useful movement inside an old-key gap-bounded trust region.",
+  "next_blocker": "m332-m330-old-key-gap-bounded-interpolation-probe"
 }

@@ -8944,3 +8944,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M330 is a mixed negative repeat. Raw PPO completes and exact repair improves M297/M270 by `-0.000124812` and `-0.000080585`; source-diverse gates pass `4/4`. However old `9944` margin gap falls to `0.086901`, below the pre-registered `0.09` floor, so first replay gates are not run and the candidate is rejected.
 - decision: `reject_m330_old_key_gap_floor_failure`
 - next: `m331-m330-old-key-gap-floor-failure-audit`
+
+## 20260523T065328Z - m331-m330-old-key-gap-floor-failure-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m331_m330_old_key_gap_floor_audit`
+- artifact: `docs/m331-m330-old-key-gap-floor-failure-audit.md`
+- result: M331 audits the M330 old-key failure. Old `9944` gap trends `0.096982 -> 0.092653 -> 0.086901`; M330 shrinks the gap by `-0.005752` because wrong-history margin rises faster than normal margin. Source-diverse gates remain intact (`4/4` pass), so this is classified as `old_key_local_gap_erosion_not_source_diverse_washout`.
+- decision: `admit_m332_m330_old_key_gap_bounded_interpolation_probe`
+- next: `m332-m330-old-key-gap-bounded-interpolation-probe`

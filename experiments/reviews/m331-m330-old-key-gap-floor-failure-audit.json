@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M331 classifies M330 as old-key local gap erosion not source-diverse washout; keep 0.09 floor and probe gap-bounded interpolation from M328 to M330",
+  "failure_criteria": [
+    "audit ignores old-key gap floor",
+    "audit promotes M330",
+    "audit changes actor inputs",
+    "audit runs PPO"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not lower the old-key floor without audit",
+    "do not promote M330 from exact/source-diverse pass alone",
+    "do not run first replay retroactively before deciding whether the old-key stop was valid",
+    "do not change actor inputs"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260523T065509Z",
+  "hypothesis": "M330 passes exact and source-diverse gates but fails the old-key margin-gap floor, so the next task should audit whether the old-key floor is detecting real proof erosion or over-constraining a source-diverse-retained candidate.",
+  "lineage": {
+    "blocked_by": [
+      "m330-source-diverse-ppo-fresh-seed-repeat"
+    ],
+    "derived_from": [
+      "m330-source-diverse-ppo-fresh-seed-repeat"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m327_exact_repair_from_raw_s40_seed10097/candidate_checkpoint.pt",
+      "runs/m330_exact_repair_from_raw_s40_seed10098/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m330-source-diverse-ppo-fresh-seed-repeat.json",
+      "docs/m330-source-diverse-ppo-fresh-seed-repeat.md"
+    ],
+    "parent_dataset": [
+      "runs/m330_source_diverse_protected_gate/summary.json",
+      "runs/m330_critical_key_seed9944/guard_results.csv",
+      "runs/m328_full_public_gate_for_m327_repaired/full_gates/critical_key_seed9944/guard_results.csv"
+    ],
+    "parent_objective": [
+      "audit whether M330 old-key margin-gap floor failure is true proof erosion, stale threshold, or candidate-specific trajectory artifact"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m331-m330-old-key-gap-floor-failure-audit",
+  "next_blocker": "m332-m330-old-key-gap-bounded-interpolation-probe",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m332_m330_old_key_gap_bounded_interpolation_probe",
+  "public_gates": [
+    "do not run PPO",
+    "do not promote M330",
+    "compare M328 and M330 old-key margins and wrong-history branch behavior",
+    "compare old-key diagnostic against source-diverse protected pass",
+    "classify whether the 0.09 floor remains valid",
+    "define next safe milestone"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m330_exact_repair_from_raw_s40_seed10098/candidate_checkpoint.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m332_m330_old_key_gap_bounded_interpolation_probe",
+    "milestone": "m331-m330-old-key-gap-floor-failure-audit",
+    "reason": "M331 classifies M330 as old-key local gap erosion not source-diverse washout; keep 0.09 floor and probe gap-bounded interpolation from M328 to M330",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "audit compares M328 and M330 old-key normal/wrong/gap values",
+    "audit compares old-key result with source-diverse gate result",
+    "audit classifies the failure cause",
+    "audit decides whether to repair, reject, or redesign the old-key diagnostic floor",
+    "no PPO is run"
+  ],
+  "type": "gate"
+}

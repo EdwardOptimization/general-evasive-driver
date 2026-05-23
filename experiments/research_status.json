@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 339,
+        "completed": 340,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "command_log": "docs/m330-source-diverse-ppo-fresh-seed-repeat.md",
+        "command_log": "docs/m331-m330-old-key-gap-floor-failure-audit.md",
         "returncode": 0,
-        "run_dir": "runs/ppo_m330_source_diverse_protected_repeat_seed5237",
+        "run_dir": "runs/m331_m330_old_key_gap_floor_audit",
         "status": "completed",
-        "task_id": "m330-source-diverse-ppo-fresh-seed-repeat"
+        "task_id": "m331-m330-old-key-gap-floor-failure-audit"
     },
     "next_task": {
-        "command": "see experiments/manifests/m331-m330-old-key-gap-floor-failure-audit.json",
-        "hypothesis": "M330 passes exact and source-diverse gates but fails the old-key margin-gap floor, so the next task should audit whether the old-key floor is detecting real proof erosion or over-constraining a source-diverse-retained candidate.",
-        "id": "m331-m330-old-key-gap-floor-failure-audit",
-        "kind": "gate",
-        "notes": "Pending: classify true proof erosion versus stale threshold versus candidate-specific artifact; no PPO",
-        "priority": 3260,
+        "command": "see experiments/manifests/m332-m330-old-key-gap-bounded-interpolation-probe.json",
+        "hypothesis": "Interpolating from M328 base toward the M330 repaired candidate may recover useful exact/source-diverse improvement while keeping the old-key margin gap above the 0.09 diagnostic floor.",
+        "id": "m332-m330-old-key-gap-bounded-interpolation-probe",
+        "kind": "driver_candidate",
+        "notes": "Pending: no PPO interpolation and first replay gates; no promotion",
+        "priority": 3270,
         "status": "pending",
         "success_artifact": ""
     },
-    "updated_at_utc": "20260523T064819Z"
+    "updated_at_utc": "20260523T065328Z"
 }

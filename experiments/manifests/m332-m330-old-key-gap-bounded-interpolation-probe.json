@@ -1,0 +1,108 @@
+{
+  "id": "m332-m330-old-key-gap-bounded-interpolation-probe",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m327_exact_repair_from_raw_s40_seed10097/candidate_checkpoint.pt",
+      "runs/m330_exact_repair_from_raw_s40_seed10098/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m331_m330_old_key_gap_floor_audit/summary.json",
+      "runs/m330_source_diverse_protected_gate/summary.json",
+      "runs/m330_critical_key_seed9944/guard_results.csv",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m331-m330-old-key-gap-floor-failure-audit.json",
+      "docs/m331-m330-old-key-gap-floor-failure-audit.md"
+    ],
+    "parent_objective": [
+      "probe whether the useful M330 exact/source-diverse direction can be accepted inside an old-key gap-bounded trust region"
+    ],
+    "derived_from": [
+      "m331-m330-old-key-gap-floor-failure-audit"
+    ],
+    "blocked_by": [
+      "m331-m330-old-key-gap-floor-failure-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m332-m330-old-key-gap-bounded-interpolation-probe.md",
+  "public_gates": [
+    "do not run PPO",
+    "interpolate M328 base to M330 repaired",
+    "exact M297 and exact M270 no-regression versus M328",
+    "source-diverse protected replay bundle passes",
+    "old 9944 margin gap remains at least 0.09",
+    "M183/M170 first replay gate versus M328",
+    "M267/M264 first replay gate versus M328",
+    "no promotion in M332"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not lower the old-key floor",
+    "do not promote from M332",
+    "do not run PPO",
+    "do not skip source-diverse protected gates",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "Interpolating from M328 base toward the M330 repaired candidate may recover useful exact/source-diverse improvement while keeping the old-key margin gap above the 0.09 diagnostic floor.",
+  "success_criteria": [
+    "interpolation checkpoints are generated",
+    "one or more nonzero alphas pass exact M297/M270 no-regression",
+    "one or more nonzero alphas pass source-diverse protected gates",
+    "one or more nonzero alphas retain old-key margin_gap >= 0.09",
+    "selected alpha passes M183/M170 and M267/M264 first replay gates",
+    "actor input contract remains unchanged"
+  ],
+  "failure_criteria": [
+    "no nonzero alpha passes exact objectives",
+    "no nonzero alpha passes source-diverse protected gates",
+    "no nonzero alpha retains old-key margin gap floor",
+    "first replay gate fails for the selected alpha",
+    "actor observation inputs change"
+  ],
+  "commands": [
+    {
+      "name": "m332_interpolation",
+      "command": "PYTHONPATH=src python -m autodrift.checkpoint_interpolation --base-checkpoint runs/m327_exact_repair_from_raw_s40_seed10097/candidate_checkpoint.pt --target-checkpoint runs/m330_exact_repair_from_raw_s40_seed10098/candidate_checkpoint.pt --alphas 0,0.2,0.35,0.45,0.5,0.55,0.6,0.75,1.0 --base-label m328_base --target-label m330_repaired --label-prefix m332 --run-dir runs/m332_m328_to_m330_gap_bounded_interpolation"
+    },
+    {
+      "name": "m332_exact_line_search",
+      "command": "Evaluate exact M297/M270 over the interpolation alpha grid versus M328 base."
+    },
+    {
+      "name": "m332_old_key_sweep",
+      "command": "Run 9944 diagnostic over interpolation checkpoints and select the largest alpha with margin_gap >= 0.09."
+    },
+    {
+      "name": "m332_source_diverse_and_first_replay",
+      "command": "Run source-diverse protected gate plus M183/M170 and M267/M264 first replay gates for the selected alpha."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m332-m330-old-key-gap-bounded-interpolation-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m327_exact_repair_from_raw_s40_seed10097/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m331-m330-old-key-gap-floor-failure-audit.md",
+    "runs/m331_m330_old_key_gap_floor_audit/summary.json",
+    "runs/m330_critical_key_seed9944/guard_results.csv"
+  ],
+  "decision_rule": "M332 may only admit a full public gate if a nonzero interpolation alpha passes exact objectives, source-diverse protected gates, old-key margin-gap floor, and first replay gates. M332 itself cannot promote.",
+  "next_blocker": "pending M332 old-key gap-bounded interpolation probe"
+}

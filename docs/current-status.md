@@ -61,7 +61,7 @@ post-PPO repair before any more PPO acceptance.
 Current blocker:
 
 ```text
-m331-m330-old-key-gap-floor-failure-audit
+m332-m330-old-key-gap-bounded-interpolation-probe
 ```
 
 M305 implements deterministic exact M297/M270 repair or projection
@@ -122,14 +122,14 @@ acceptance needs exact repair plus a protected-key-bounded trust region.
 Current next task:
 
 ```text
-m331-m330-old-key-gap-floor-failure-audit
+m332-m330-old-key-gap-bounded-interpolation-probe
 ```
 
-M330 fresh-seed repeat is rejected before first replay. Exact repair improves
-M297/M270 and source-diverse gates pass `4/4`, but old `9944` margin gap falls
-to `0.086901`, below the pre-registered `0.09` diagnostic floor. M331 should
-audit whether this is true proof erosion, a stale scalar threshold, or a
-candidate-specific old-key artifact before any more PPO.
+M331 audits the M330 old-key gap-floor failure. It is local old-key gap erosion,
+not source-diverse washout: source-diverse gates pass `4/4`, but the old
+`9944` gap trends `0.096982 -> 0.092653 -> 0.086901`. M332 should probe
+M328-to-M330 interpolation and select only an exact/source-diverse-passing
+candidate that keeps old-key margin gap at or above `0.09`.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -177,6 +177,7 @@ candidate-specific old-key artifact before any more PPO.
 | current source-diverse public base | `runs/m327_exact_repair_from_raw_s40_seed10097/candidate_checkpoint.pt` | M328 promotes the M327 exact-repaired PPO proposal after exact, source-diverse, replay, old-key audit, and behavior gates pass |
 | fresh-seed repeat config | `configs/ppo_m330_source_diverse_protected_repeat_smoke.json` | M329 registers PPO seed 5237 from M328 base with exact repair and source-diverse proof gates |
 | rejected fresh-seed repeat | `runs/m330_exact_repair_from_raw_s40_seed10098/candidate_checkpoint.pt` | M330 exact/source-diverse pass but old-key margin gap floor fails, so first replay is not run |
+| old-key gap audit | `runs/m331_m330_old_key_gap_floor_audit/summary.json` | M331 classifies M330 as old-key local gap erosion and admits gap-bounded interpolation |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -448,8 +449,10 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not run more PPO or retroactively run first replay for M330 before M331
-audits the old-key gap-floor failure. Do not change actor inputs.
+Do not run more PPO or promote M330 directly. M332 may only run no-PPO
+interpolation from M328 to M330 and must preserve exact objectives,
+source-diverse gates, old-key gap floor, and first replay gates. Do not change
+actor inputs.
 
 ## Sensor Profile Policy
 
