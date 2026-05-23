@@ -4,7 +4,8 @@
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "protected_key_window_failure",
+    "objective_overfit"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -89,5 +90,21 @@
     "docs/m441-active-boundary-v2-residual-implementation.md"
   ],
   "decision_rule": "M442 should classify v2 as useful only if it improves proof-safe recovery beyond M438 r0015 without lowering any public proof gate threshold.",
-  "next_blocker": "pending M442 active-boundary v2 projection probe"
+  "results": {
+    "run_dir": "runs/m442_tail_r0010_active_boundary_v2_l1e12_s40_seed10162",
+    "candidate_checkpoint": "runs/m442_tail_r0010_active_boundary_v2_l1e12_s40_seed10162/candidate_checkpoint.pt",
+    "exact_lexicographic_pass": true,
+    "exact_m297_delta_vs_base": -0.0000007152557373046875,
+    "exact_m270_delta_vs_base": -0.000051021575927734375,
+    "old_key_surrogate_delta_vs_base": -0.0009818077087402344,
+    "active_boundary_v2_loss": 0.0059865377843379974,
+    "m267_m264_first_replay": "17/17",
+    "m183_m170_first_replay": "17/17",
+    "old_key_compact": "39/40",
+    "failed_old_key": "10004|perturbed|31|31",
+    "recovery_retained_vs_m406": 0.11189474560485141,
+    "minimum_useful_recovery_reference": 0.120957,
+    "decision": "reject"
+  },
+  "next_blocker": "m443-active-boundary-v2-stop-audit"
 }

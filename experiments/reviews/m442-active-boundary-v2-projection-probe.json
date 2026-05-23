@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M442 exact projection passes M267 and M183 but old-key compact is 39 of 40 and recovery retained 0.111895 is below M438 r0015 0.120957 so v2 branch is rejected",
+  "failure_criteria": [
+    "exact objectives regress before replay",
+    "active-boundary v2 exact loss improves while old-key normal success drops",
+    "M267/M264 wrong-history rows become safe",
+    "old-key compact exposes 10004 10023 or 9998 boundary failures",
+    "recovery retained remains at or below M438 r0015"
+  ],
+  "failure_types": [
+    "protected_key_window_failure",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260523T191244Z",
+  "hypothesis": "The v2 active-boundary residual can make a looser profile proof-safe while retaining more M406 recovery utility than M438 r0015.",
+  "lineage": {
+    "blocked_by": [
+      "m441-active-boundary-v2-residual-implementation"
+    ],
+    "derived_from": [
+      "m441-active-boundary-v2-residual-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m438_r0015_active_boundary_lactive1e12_s40_seed10161/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m441-active-boundary-v2-residual-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m441_active_boundary_v2_residual/active_boundary_v2_corpus.npz",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "runs/m377_cumulative_gap_tail_v2_old_key_preference_corpus/old_key_preference_corpus.npz",
+      "runs/m398_old_key_normal_margin_recovery_targets/old_key_recovery_corpus.npz",
+      "runs/m393_current_family_rejected_boundary_targets/current_family_conflict_corpus.npz"
+    ],
+    "parent_objective": [
+      "active-boundary v2 no-PPO projection"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m442-active-boundary-v2-projection-probe",
+  "next_blocker": "m443-active-boundary-v2-stop-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "reject_m442_v2_tail_candidate_stop_active_boundary_branch",
+  "public_gates": [
+    "exact M297/M270/old-key no-regression",
+    "active-boundary v2 residual tracked",
+    "M267/M264 first replay 17 of 17",
+    "old-key compact replay 40 of 40",
+    "old-key replay gate pass",
+    "M183/M170 first replay 17 of 17",
+    "recovery retained vs M406 compared with M438 r0015"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m442_tail_r0010_active_boundary_v2_l1e12_s40_seed10162/candidate_checkpoint.pt",
+    "clearance_margin_mean": "",
+    "decision": "reject_m442_v2_tail_candidate_stop_active_boundary_branch",
+    "milestone": "m442-active-boundary-v2-projection-probe",
+    "reason": "M442 exact projection passes M267 and M183 but old-key compact is 39 of 40 and recovery retained 0.111895 is below M438 r0015 0.120957 so v2 branch is rejected",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "candidate exact M297/M270/old-key no-regression passes",
+    "M267/M264 first replay remains 17 of 17",
+    "old-key compact replay remains 40 of 40",
+    "M183/M170 first replay remains 17 of 17",
+    "minimum useful if recovery retained vs M406 exceeds 0.120957",
+    "strong evidence if recovery retained vs M406 reaches at least 0.174354",
+    "primary pass if recovery retained vs M406 reaches at least 0.20"
+  ],
+  "type": "gate"
+}

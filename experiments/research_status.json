@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 450,
+        "completed": 451,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m441-active-boundary-v2-residual-implementation",
+        "task_id": "m442-active-boundary-v2-projection-probe",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m441_active_boundary_v2_no_update_smoke",
-        "command_log": "docs/m441-active-boundary-v2-residual-implementation.md"
+        "run_dir": "runs/m442_tail_r0010_active_boundary_v2_l1e12_s40_seed10162",
+        "command_log": "docs/m442-active-boundary-v2-projection-probe.md"
     },
     "next_task": {
-        "id": "m442-active-boundary-v2-projection-probe",
+        "id": "m443-active-boundary-v2-stop-audit",
         "status": "pending",
-        "priority": 4370,
+        "priority": 4380,
         "kind": "gate",
-        "hypothesis": "Probe active-boundary v2 residual in no-PPO exact projection",
-        "command": "see experiments/manifests/m442-active-boundary-v2-projection-probe.json",
+        "hypothesis": "Close or redirect the active-boundary v2 branch after M442 rejection",
+        "command": "see experiments/manifests/m443-active-boundary-v2-stop-audit.json",
         "success_artifact": "",
-        "notes": "Pending: run no-PPO v2 projection and evaluate exact replay recovery gates; no PPO or promotion"
+        "notes": "Pending: classify repeated proof utility bottleneck and choose next blocker without PPO or another scalar active-boundary sweep"
     },
-    "updated_at_utc": "20260523T190521Z"
+    "updated_at_utc": "20260523T191048Z"
 }

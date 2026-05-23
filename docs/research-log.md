@@ -10054,3 +10054,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M441 adds `active_boundary_v2_residual.py`, exports a 36-row v2 active-boundary trajectory-window corpus over active cases `10004`, `10023`, and `9998`, and wires v2 exact repair terms. The no-update smoke loads 36 rows and passes exact M297/M270/old-key no-regression with active_boundary_v2_loss `0.0059865140`.
 - decision: `admit_m442_active_boundary_v2_projection_probe`
 - next: `m442-active-boundary-v2-projection-probe`
+
+## 20260523T191048Z - m442-active-boundary-v2-projection-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m442_tail_r0010_active_boundary_v2_l1e12_s40_seed10162`
+- artifact: `docs/m442-active-boundary-v2-projection-probe.md`
+- result: M442 tests active-boundary v2 on the looser `tail_r0010` profile. Exact M297/M270/old-key surrogate objectives pass, and first replay gates M267/M264 plus M183/M170 both stay `17/17`. The candidate still fails old-key compact `39/40` at `10004|perturbed|31|31`, where wrong-history becomes safe, and recovery retained vs M406 is only `0.111895`, below M438 `r0015` `0.120957`.
+- decision: `reject_m442_v2_tail_candidate_stop_active_boundary_branch`
+- next: `m443-active-boundary-v2-stop-audit`
