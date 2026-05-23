@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 412,
+        "completed": 413,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m403-old-key-normal-recovery-weight-sweep",
+        "task_id": "m404-recovery-exact-conflict-row-audit",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m403-old-key-normal-recovery-weight-sweep.md"
+        "command_log": "docs/m404-recovery-exact-conflict-row-audit.md"
     },
     "next_task": {
-        "id": "m404-recovery-exact-conflict-row-audit",
+        "id": "m405-recovery-aware-exact-projection-design",
         "status": "pending",
-        "priority": 3990,
-        "kind": "gate",
-        "hypothesis": "Attribute exact M297/M270 row conflicts against recovery-heavy direction",
-        "command": "see experiments/manifests/m404-recovery-exact-conflict-row-audit.json",
+        "priority": 4000,
+        "kind": "infrastructure",
+        "hypothesis": "Design recovery-aware exact projection after broad exact-anchor conflict",
+        "command": "see experiments/manifests/m405-recovery-aware-exact-projection-design.json",
         "success_artifact": "",
-        "notes": "Pending: compute per-row exact loss regressions and classify sparse vs broad conflict; no PPO"
+        "notes": "Pending: design exact-feasible recovery projection without threshold or actor-contract changes; no PPO"
     },
-    "updated_at_utc": "20260523T153636Z"
+    "updated_at_utc": "20260523T154030Z"
 }

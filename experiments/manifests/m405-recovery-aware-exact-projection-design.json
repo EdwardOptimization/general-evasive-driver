@@ -1,0 +1,81 @@
+{
+  "id": "m405-recovery-aware-exact-projection-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m404_recovery_exact_conflict_row_audit/m297_row_deltas.csv",
+      "runs/m404_recovery_exact_conflict_row_audit/m270_row_deltas.csv",
+      "runs/m403_lrec1e10_interpolation_old_key_targeted_replay/guard_results.csv",
+      "runs/m403_r1e10a600_m267_m264_first_replay/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m404-recovery-exact-conflict-row-audit.json"
+    ],
+    "parent_objective": [
+      "design recovery-aware exact projection after broad exact-anchor conflict"
+    ],
+    "derived_from": [
+      "m404-recovery-exact-conflict-row-audit"
+    ],
+    "blocked_by": [
+      "m404-recovery-exact-conflict-row-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m405-recovery-aware-exact-projection-design.md",
+  "public_gates": [
+    "no PPO run",
+    "design only",
+    "preserve exact M297/M270 as hard feasibility objectives",
+    "use recovery movement only as secondary merit objective",
+    "retain old-key replay and M267/M264 as outer proof gates"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact thresholds",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "hypothesis": "Because recovery-heavy movement conflicts broadly with exact M297/M270, the next repair should be a recovery-aware exact projection design rather than another scalar weight sweep.",
+  "success_criteria": [
+    "define a projection objective that treats exact M297/M270 no-regression as hard feasibility",
+    "define recovery-target action movement as a secondary merit or tie-breaker",
+    "define how M267/M264 and old-key replay remain outer gates",
+    "pre-register the implementation or probe milestone"
+  ],
+  "failure_criteria": [
+    "design lowers exact or replay thresholds",
+    "design changes actor inputs or output contract",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "projection_design",
+      "command": "Design recovery-aware exact projection after broad exact conflict; no PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m405-recovery-aware-exact-projection-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m404-recovery-exact-conflict-row-audit.md"
+  ],
+  "decision_rule": "M405 should admit implementation or a probe only if the design keeps exact M297/M270 feasibility lexicographic and does not weaken the human-view actor contract.",
+  "next_blocker": "pending M405 recovery-aware exact projection design"
+}

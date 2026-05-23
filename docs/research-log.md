@@ -9674,3 +9674,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M403 finds no proof-safe recovery-weight candidate. `lambda_old_key_recovery=1e6` and `1e8` keep exact M297/M270 no-regression but continue moving away from the M398 recovery target. `1e9` and `1e10` move toward recovery and improve old-key compact behavior, but any nonzero interpolation alpha violates exact M297/M270; alpha `0.025` already has exact M297 delta `+0.000015497` and exact M270 delta `+0.000009298`. At alpha `0.60`, old-key compact replay passes but M267/M264 drops to `14/17` success drops, so the larger recovery-heavy direction also washes out current-family wrong-history proof.
 - decision: `admit_m404_recovery_exact_conflict_row_audit`
 - next: `m404-recovery-exact-conflict-row-audit`
+
+## 20260523T154030Z - m404-recovery-exact-conflict-row-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m404_recovery_exact_conflict_row_audit`
+- artifact: `docs/m404-recovery-exact-conflict-row-audit.md`
+- result: M404 attributes the recovery-heavy alpha `0.025` exact failure and finds a broad exact-anchor conflict. M297 has `17/17` positive-regression rows with total weighted delta `+0.000015497`; M270 has `99/99` positive-regression rows with total weighted delta `+0.000009298`. M297 rows `6`, `15`, and `11` are the largest contributors, but the conflict is not sparse enough for single-row reweighting.
+- decision: `admit_m405_recovery_aware_exact_projection_design`
+- next: `m405-recovery-aware-exact-projection-design`

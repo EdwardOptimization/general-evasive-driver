@@ -235,7 +235,12 @@ proof-safe candidate: low recovery weights still move away from the target, high
 recovery weights move toward the target and improve old-key compact replay but
 violate exact M297/M270 at the smallest tested alpha `0.025`; by alpha `0.60`,
 old-key compact still passes but M267/M264 drops to `14/17`. M404 should
-attribute the exact M297/M270 row conflicts before another repair design.
+attribute the exact M297/M270 row conflicts before another repair design. M404
+finds the conflict is broad: under recovery-heavy alpha `0.025`, `17/17` M297
+rows and `99/99` M270 rows regress, so this is not a single bad exact row.
+M405 should design a recovery-aware exact projection that keeps exact
+M297/M270 feasibility lexicographic and treats recovery movement only as a
+secondary merit objective.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

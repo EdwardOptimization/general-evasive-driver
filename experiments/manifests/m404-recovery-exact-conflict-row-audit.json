@@ -2,7 +2,7 @@
   "id": "m404-recovery-exact-conflict-row-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -77,5 +77,37 @@
     "docs/m403-old-key-normal-recovery-weight-sweep.md"
   ],
   "decision_rule": "M404 should admit the next task only after identifying the exact row conflict structure that blocks recovery-heavy repair.",
-  "next_blocker": "pending M404 recovery exact conflict row audit"
+  "next_blocker": "m405-recovery-aware-exact-projection-design",
+  "results": {
+    "artifact": "docs/m404-recovery-exact-conflict-row-audit.md",
+    "audit_run_dir": "runs/m404_recovery_exact_conflict_row_audit",
+    "candidate_checkpoint": "runs/m403_lrec1e10_interpolation/checkpoints/alpha_0_025.pt",
+    "candidate_alpha": 0.025,
+    "m297_rows": 17,
+    "m297_positive_rows": 17,
+    "m297_loss_delta_sum": 1.5497207641601562e-05,
+    "m297_positive_contribution_sum": 1.5497207641601562e-05,
+    "m297_top5_positive_contribution_sum": 1.1415e-05,
+    "m297_top_rows": [
+      6,
+      15,
+      11,
+      3,
+      2
+    ],
+    "m270_rows": 99,
+    "m270_positive_rows": 99,
+    "m270_loss_delta_sum": 9.298324584960938e-06,
+    "m270_positive_contribution_sum": 9.298324584960938e-06,
+    "m270_top5_positive_contribution_sum": 2.034e-06,
+    "classification": "broad_exact_anchor_conflict_with_recovery_direction",
+    "sparse_exact_row_conflict": false,
+    "single_bad_row": false,
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m405-recovery-aware-exact-projection-design"
+  },
+  "decision": "admit_m405_recovery_aware_exact_projection_design"
 }
