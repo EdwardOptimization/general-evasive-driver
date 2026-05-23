@@ -9624,3 +9624,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M398 exports two replay-selected old-key normal-margin recovery targets from `1188` local-action rollouts. Both requested rows recover: `9958|perturbed|39|36` improves normal margin from `0.000086` to `0.002443`, and `10004|perturbed|31|31` improves from `0.000145` to `0.001364`. The no-update exact-repair smoke loads the corpus with finite `old_key_recovery_loss=0.003866661` and exact M297/M270/old-key surrogate deltas all `0.0`.
 - decision: `admit_m399_old_key_normal_margin_recovery_repair_probe`
 - next: `m399-old-key-normal-margin-recovery-repair-probe`
+
+## 20260523T151933Z - m399-old-key-normal-margin-recovery-repair-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m399_s02_interpolation`
+- artifact: `docs/m399-old-key-normal-margin-recovery-repair-probe.md`
+- result: M399 uses the M398 recovery corpus and M393 conflict corpus in a no-PPO exact repair. The s02 endpoint improves exact losses and retains M267/M264 `17/17`, but fails cumulative old-key compact replay with `6` accepted regressions. A bounded alpha `0.05` interpolation passes exact M297/M270/old-key no-regression, old-key compact replay with zero accepted regressions, M267/M264 `17/17`, M183/M170 `17/17`, and source-diverse protected gates `5/5`. Alpha `0.10` first fails old-key case `9958|perturbed|39|36`.
+- decision: `admit_m400_full_public_gate_for_m399_s02a050`
+- next: `m400-full-public-gate-for-m399-s02a050`

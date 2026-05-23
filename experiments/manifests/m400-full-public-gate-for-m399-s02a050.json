@@ -1,0 +1,84 @@
+{
+  "id": "m400-full-public-gate-for-m399-s02a050",
+  "type": "driver_candidate",
+  "gate_tier": "promotion",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m399_s02a050_exact_eval/summary.json",
+      "runs/m399_s02a050_old_key_replay_gate/summary.json",
+      "runs/m399_s02a050_m267_m264_first_replay/summary.json",
+      "runs/m399_s02a050_m183_m170_first_replay/summary.json",
+      "runs/m399_s02a050_source_diverse_protected_gate/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m399-old-key-normal-margin-recovery-repair-probe.json"
+    ],
+    "parent_objective": [
+      "run full public gate for M399 alpha 0.05 proof-gate candidate"
+    ],
+    "derived_from": [
+      "m399-old-key-normal-margin-recovery-repair-probe"
+    ],
+    "blocked_by": [
+      "m399-old-key-normal-margin-recovery-repair-probe"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m400-full-public-gate-for-m399-s02a050.md",
+  "public_gates": [
+    "six public replay surfaces pass",
+    "cumulative old-key compact gate remains passed",
+    "behavior seeds 9505 and 9506 retain success and termination",
+    "no actor input/output contract change",
+    "promotion only if full public gate passes"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not lower replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not promote if behavior or replay proof regresses"
+  ],
+  "hypothesis": "The M399 alpha 0.05 proof-gate candidate can pass the full public promotion gate while preserving behavior seeds and all public replay surfaces.",
+  "success_criteria": [
+    "all six public replay surfaces pass",
+    "behavior seeds 9505 and 9506 do not regress versus the current public base",
+    "old-key compact replay remains pass",
+    "scoreboard records promotion decision and behavior metrics",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "any public replay surface fails",
+    "behavior success or termination regresses outside tolerance",
+    "actor contract changes",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "full_public_gate",
+      "command": "Run six public replay surfaces and behavior seeds for runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt; no PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m400-full-public-gate-for-m399-s02a050.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m394_s02_micro_interpolation/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m399-old-key-normal-margin-recovery-repair-probe.md"
+  ],
+  "decision_rule": "M400 may promote the M399 alpha 0.05 checkpoint only if the full public gate passes without behavior or proof regression.",
+  "next_blocker": "pending M400 full public gate"
+}

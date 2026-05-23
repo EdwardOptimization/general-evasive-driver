@@ -209,7 +209,13 @@ sibling row: both rows find accepted local recovery targets, with mean normal
 margin improvement `0.001788393`, and the no-update exact-repair smoke reports
 finite recovery loss with exact M297/M270/old-key surrogate deltas all `0.0`.
 M399 should now run a no-PPO exact repair/interpolation probe using the M398
-recovery corpus and the M393 current-family conflict corpus.
+recovery corpus and the M393 current-family conflict corpus. M399 finds the
+repair endpoint is too aggressive for cumulative old-key replay, but a bounded
+alpha `0.05` interpolation passes exact M297/M270/old-key no-regression,
+cumulative old-key compact replay, M267/M264 `17/17`, M183/M170 `17/17`, and
+source-diverse protected gates `5/5`. Alpha `0.10` first fails old-key case
+`9958|perturbed|39|36`, so M400 should run the full public gate for
+`runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt`.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
