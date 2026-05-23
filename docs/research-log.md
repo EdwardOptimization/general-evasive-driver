@@ -10074,3 +10074,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M443 closes the active-boundary v2 branch. The branch improved proof-safe recovery from M430/M434 to M438 `r0015` `0.120957`, but v2 does not beat that reference and still fails old-key `10004`. Repeated scalar/window active-boundary residuals now risk overfitting the same public old-key rows rather than discovering a better driver.
 - decision: `stop_active_boundary_v2_branch_admit_generalization_audit`
 - next: `m444-proof-utility-generalization-audit`
+
+## 20260523T191738Z - m444-proof-utility-generalization-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m444_proof_utility_generalization_seed9600`
+- artifact: `docs/m444-proof-utility-generalization-audit.md`
+- result: M444 runs a 160-episode fresh benchmark comparing M399 base, proof-safe active-boundary candidates, and proof-rejected high-recovery candidates. All checkpoint candidates tie M399 success `0.8625`, collision `0.1375`, and have zero per-seed success differences versus M399. M427 high-utility rejected does not show broad performance gain despite higher M406 recovery retained.
+- decision: `complete_no_broad_policy_difference_admit_miner`
+- next: `m445-fresh-policy-difference-miner-design`

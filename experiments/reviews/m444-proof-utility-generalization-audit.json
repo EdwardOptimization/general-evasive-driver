@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M444 broad benchmark finds all checkpoint candidates tie M399 success with zero per-seed success differences so fresh policy-difference mining is needed",
+  "failure_criteria": [
+    "benchmark does not complete",
+    "results are used to promote a checkpoint",
+    "results are used to justify more active-boundary scalar tuning without a new manifest",
+    "actor contract changes"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not promote checkpoint from this audit",
+    "do not report this public diagnostic benchmark as unbiased paper holdout evidence after tuning",
+    "do not tune active-boundary weights from this result and call the same benchmark holdout",
+    "do not lower proof gates",
+    "do not add hidden or oracle actor inputs",
+    "do not use proof labels as actor inputs"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260523T191909Z",
+  "hypothesis": "A fresh broad benchmark can tell whether proof-rejected high-recovery candidates have real scenario-distribution value or whether the old-key recovery target is a narrow surrogate.",
+  "lineage": {
+    "blocked_by": [
+      "m443-active-boundary-v2-stop-audit"
+    ],
+    "derived_from": [
+      "m443-active-boundary-v2-stop-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m434_selective_10004_projection_r0010/candidate_checkpoint.pt",
+      "runs/m438_r0015_active_boundary_lactive1e12_s40_seed10161/candidate_checkpoint.pt",
+      "runs/m427_projected_recovery_ltraj1e13_s40_seed10156/candidate_checkpoint.pt",
+      "runs/m442_tail_r0010_active_boundary_v2_l1e12_s40_seed10162/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m443-active-boundary-v2-stop-audit.json"
+    ],
+    "parent_dataset": [
+      "configs/m121_human_view_zero_obstacle_relvel.json",
+      "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv"
+    ],
+    "parent_objective": [
+      "non-promotion broad benchmark for proof/utility alignment"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m444-proof-utility-generalization-audit",
+  "next_blocker": "m445-fresh-policy-difference-miner-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "complete_no_broad_policy_difference_admit_miner",
+  "public_gates": [
+    "fresh randomized benchmark seed 9600",
+    "policy summary comparison",
+    "mu bucket summary",
+    "vehicle road bucket summary",
+    "no checkpoint promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "1.771655",
+    "decision": "complete_no_broad_policy_difference_admit_miner",
+    "milestone": "m444-proof-utility-generalization-audit",
+    "reason": "M444 broad benchmark finds all checkpoint candidates tie M399 success with zero per-seed success differences so fresh policy-difference mining is needed",
+    "reset_success": "",
+    "success_rate": "0.8625",
+    "termination_rate": "0.1375",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "benchmark completes for base proof-safe and proof-rejected candidates",
+    "policy summary and bucket summaries are saved",
+    "audit states whether broad performance aligns with recovery retained",
+    "no checkpoint is promoted"
+  ],
+  "type": "gate"
+}

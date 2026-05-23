@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m444-proof-utility-generalization-audit
+m445-fresh-policy-difference-miner-design
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -119,7 +119,13 @@ proof-safe active-boundary diagnostic, M427 remains the best high-recovery but
 proof-unsafe diagnostic, and M399 remains the public-gate base. The next
 blocker is M444: a non-promotion broad benchmark audit to test whether
 proof-rejected high-recovery candidates have real fresh-scenario value or
-whether the recovery target is too narrow.
+whether the recovery target is too narrow. M444 runs that benchmark over 160
+fresh randomized scenarios. All checkpoint candidates tie M399 success
+`0.8625`, collision `0.1375`, and have zero per-seed success differences.
+M427 high-utility rejected does not show broad performance gain despite higher
+M406 recovery retained. The next blocker is M445: design a fresh
+policy-difference miner to find source-diverse scenarios where policies
+actually diverge before more objective design.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

@@ -86,5 +86,24 @@
     "docs/m443-active-boundary-v2-stop-audit.md"
   ],
   "decision_rule": "M444 is diagnostic only. It can redirect the research branch but cannot promote a checkpoint.",
-  "next_blocker": "pending M444 broad proof utility generalization audit"
+  "results": {
+    "run_dir": "runs/m444_proof_utility_generalization_seed9600",
+    "episodes": 160,
+    "base_success_rate": 0.8625,
+    "base_collision_rate": 0.1375,
+    "candidate_success_delta_vs_base": {
+      "m427_high_utility": 0.0,
+      "m434_r0010": 0.0,
+      "m438_r0015": 0.0,
+      "m442_tail_v2": 0.0
+    },
+    "per_seed_success_diff_count_vs_base": {
+      "m427_high_utility": 0,
+      "m434_r0010": 0,
+      "m438_r0015": 0,
+      "m442_tail_v2": 0
+    },
+    "decision": "complete_no_broad_policy_difference"
+  },
+  "next_blocker": "m445-fresh-policy-difference-miner-design"
 }
