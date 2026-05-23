@@ -63,8 +63,19 @@
   ],
   "commands": [
     {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_old_key_recovery_targets.py tests/test_exact_post_ppo_repair.py",
+      "result": "13 passed"
+    },
+    {
       "name": "target_export",
-      "command": "Export replay-selected local recovery targets from M380 cumulative old-key gap-tail rows; no PPO."
+      "command": "PYTHONPATH=src python -m autodrift.old_key_recovery_targets --checkpoint runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt --reference-manifest runs/m341_old_key_neighborhood_block_a_seed9860/manifest.json --source-rows-csv runs/m380_alpha01_cumulative_old_key_boundary_audit/gap_tail_rows.csv --run-dir runs/m384_old_key_local_recovery_targets",
+      "result": "4/4 accepted recovery rows from 1008 candidate rollouts; no PPO"
+    },
+    {
+      "name": "no_update_smoke",
+      "command": "PYTHONPATH=src python -m autodrift.exact_post_ppo_repair --old-key-recovery-npz runs/m384_old_key_local_recovery_targets/old_key_recovery_corpus.npz --steps 0 --run-dir runs/m384_old_key_recovery_no_update_smoke",
+      "result": "finite old_key_recovery_loss=0.002272237; exact_lexicographic_pass=true; no PPO"
     }
   ],
   "required_artifacts": [
@@ -84,6 +95,39 @@
     "docs/m383-old-key-local-recovery-residual-implementation.md",
     "runs/m383_old_key_recovery_no_update_smoke/summary.json"
   ],
-  "decision_rule": "M384 can admit a no-PPO repair proof probe only if recovery targets are selected by replay/local-search terminal-margin evidence and the M383 recovery residual can read them without changing the actor contract.",
-  "next_blocker": "pending M384 old-key local recovery target export"
+  "decision_rule": "M384 completes when real replay-selected recovery targets are exported and no-update exact repair reads them with finite recovery terms while preserving the actor contract.",
+  "next_blocker": "m385-old-key-recovery-residual-repair-probe",
+  "results": {
+    "artifact": "docs/m384-old-key-local-recovery-target-export.md",
+    "implementation_files": [
+      "src/autodrift/old_key_recovery_targets.py",
+      "tests/test_old_key_recovery_targets.py"
+    ],
+    "target_export_run": "runs/m384_old_key_local_recovery_targets/summary.json",
+    "old_key_recovery_corpus_npz": "runs/m384_old_key_local_recovery_targets/old_key_recovery_corpus.npz",
+    "old_key_recovery_targets_csv": "runs/m384_old_key_local_recovery_targets/old_key_recovery_targets.csv",
+    "recovery_candidates_csv": "runs/m384_old_key_local_recovery_targets/recovery_candidates.csv",
+    "rows_requested": 4,
+    "candidate_rollouts": 1008,
+    "recovery_rows": 4,
+    "accepted_recovery_rows": 4,
+    "base_retention_rows": 0,
+    "skipped_rows": 0,
+    "accepted_margin_improvement_min": 0.0037606974121482395,
+    "accepted_margin_improvement_mean": 0.005159596957875601,
+    "accepted_margin_improvement_max": 0.006008820098987178,
+    "candidate_margin_improvement_max": 0.006553878954303594,
+    "no_update_smoke": "runs/m384_old_key_recovery_no_update_smoke/summary.json",
+    "old_key_recovery_loss": 0.0022722366265952587,
+    "old_key_recovery_preferred_loss": 0.002272167708724737,
+    "old_key_recovery_wrong_anchor_loss": 6.90130264047184e-08,
+    "exact_lexicographic_pass": true,
+    "focused_tests": "13 passed",
+    "checkpoint_promoted": false,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "target_source": "replay_selected_local_action_search"
+  },
+  "decision": "admit_m385_old_key_recovery_residual_repair_probe"
 }

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 392,
+        "completed": 393,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m383-old-key-local-recovery-residual-implementation",
+        "task_id": "m384-old-key-local-recovery-target-export",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m383_old_key_recovery_no_update_smoke",
-        "command_log": "docs/m383-old-key-local-recovery-residual-implementation.md"
+        "run_dir": "runs/m384_old_key_local_recovery_targets",
+        "command_log": "docs/m384-old-key-local-recovery-target-export.md"
     },
     "next_task": {
-        "id": "m384-old-key-local-recovery-target-export",
+        "id": "m385-old-key-recovery-residual-repair-probe",
         "status": "pending",
-        "priority": 3790,
-        "kind": "infrastructure",
-        "hypothesis": "Export replay-selected local recovery targets for old-key gap-tail rows",
-        "command": "see experiments/manifests/m384-old-key-local-recovery-target-export.json",
+        "priority": 3800,
+        "kind": "gate",
+        "hypothesis": "Probe exact repair with M384 old-key recovery residual before any PPO",
+        "command": "see experiments/manifests/m385-old-key-recovery-residual-repair-probe.json",
         "success_artifact": "",
-        "notes": "Pending: build real recovery corpus from replay/local-search terminal-margin evidence before any no-PPO repair proof probe"
+        "notes": "Pending: run no-PPO exact repair with M384 recovery corpus then cumulative old-key replay before broader proof gates"
     },
-    "updated_at_utc": "20260523T132248Z"
+    "updated_at_utc": "20260523T133215Z"
 }

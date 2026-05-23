@@ -55,7 +55,7 @@ repair is the first tested cumulative old-key compact gap-p10 failure.
 Current blocker:
 
 ```text
-m384-old-key-local-recovery-target-export
+m385-old-key-recovery-residual-repair-probe
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -137,7 +137,12 @@ old-key recovery corpus loader, exact repair loss terms, CLI wiring, and
 focused tests. A no-update smoke with a bootstrap four-row recovery corpus
 reports finite recovery terms and no actor input or output change. M384 should
 export real replay-selected local recovery targets before any no-PPO proof
-probe or PPO continuation.
+probe or PPO continuation. M384 completes that export: 4/4 M380 gap-tail rows
+receive accepted one-step local recovery actions from 1008 replay rollouts,
+with mean normal-margin improvement `0.005159597`, and the M383 residual reads
+the resulting corpus in a no-update exact repair smoke. M385 should now test
+whether exact repair can use those targets without regressing M297/M270 or
+closed-loop old-key proof.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -215,7 +220,8 @@ probe or PPO continuation.
 | proof-gate-passing micro-alpha | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M359 passes source-diverse protected and first replay proof gates |
 | current public-gate base | `runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt` | M379 promotes alpha `0.05` after cumulative old-key source-diverse six public replay surfaces and behavior seeds pass |
 | recovery residual infrastructure | `src/autodrift/exact_post_ppo_repair.py` | M383 implements optional old-key local-action recovery loss and verifies finite no-update smoke terms |
-| current blocker | `experiments/manifests/m384-old-key-local-recovery-target-export.json` | M384 must export replay-selected local recovery targets before any proof probe or PPO |
+| recovery target corpus | `runs/m384_old_key_local_recovery_targets/old_key_recovery_corpus.npz` | M384 exports 4 replay-selected recovery targets from 1008 local-action rollouts |
+| current blocker | `experiments/manifests/m385-old-key-recovery-residual-repair-probe.json` | M385 must test the M384 recovery residual in no-PPO exact repair before any PPO |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

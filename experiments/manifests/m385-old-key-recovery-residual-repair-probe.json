@@ -1,0 +1,91 @@
+{
+  "id": "m385-old-key-recovery-residual-repair-probe",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m384_old_key_local_recovery_targets/old_key_recovery_corpus.npz",
+      "runs/m377_cumulative_gap_tail_v2_old_key_preference_corpus/old_key_preference_corpus.npz",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m384-old-key-local-recovery-target-export.json"
+    ],
+    "parent_objective": [
+      "probe exact repair with replay-selected old-key recovery residual before any PPO continuation"
+    ],
+    "derived_from": [
+      "m384-old-key-local-recovery-target-export"
+    ],
+    "blocked_by": [
+      "m384-old-key-local-recovery-target-export"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m385-old-key-recovery-residual-repair-probe.md",
+  "public_gates": [
+    "no PPO run",
+    "exact M297 no-regression",
+    "exact M270 no-regression",
+    "old-key recovery residual decreases or remains bounded",
+    "cumulative old-key replay gate before source-diverse or first replay gates",
+    "preserve actor input contract"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote a checkpoint directly",
+    "do not lower old-key thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not replace direct steer/throttle/brake output",
+    "do not accept exact loss improvement without closed-loop replay"
+  ],
+  "hypothesis": "Exact repair using the replay-selected M384 old-key recovery residual can move beyond the M378 alpha 0.05 base toward the alpha 0.1 direction while improving gap-tail normal margins and preserving M297/M270 proof objectives.",
+  "success_criteria": [
+    "run exact repair with M384 old-key recovery corpus and no PPO",
+    "candidate or bounded interpolation passes exact M297/M270 no-regression",
+    "cumulative old-key replay gap-tail gate improves or no longer fails for the M380 rows",
+    "if cumulative old-key passes then source-diverse protected and first replay gates are admitted",
+    "all artifacts and failure classifications are documented",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "exact repair regresses M297 or M270",
+    "recovery residual improves but closed-loop cumulative old-key replay still fails",
+    "wrong-history branch is made safe by the repair",
+    "actor contract is changed",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "old_key_recovery_repair_probe",
+      "command": "Run exact_post_ppo_repair with --old-key-recovery-npz runs/m384_old_key_local_recovery_targets/old_key_recovery_corpus.npz; no PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m385-old-key-recovery-residual-repair-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m384-old-key-local-recovery-target-export.md",
+    "runs/m384_old_key_local_recovery_targets/summary.json",
+    "runs/m384_old_key_recovery_no_update_smoke/summary.json"
+  ],
+  "decision_rule": "M385 can admit broader proof gates only if exact repair with the M384 recovery corpus produces a candidate or bounded alpha that passes exact M297/M270 and improves the cumulative old-key replay tail without changing the actor contract.",
+  "next_blocker": "pending M385 old-key recovery residual repair proof probe"
+}

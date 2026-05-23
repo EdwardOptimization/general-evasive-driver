@@ -9474,3 +9474,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M383 implements the optional old-key recovery corpus loader and exact repair residual. Focused tests pass with `9 passed`. A bootstrap four-row recovery corpus from M377 gap-tail rows verifies the no-update path: `old_key_recovery_loss=4.268774e-07`, preferred loss `1.370522e-07`, wrong-anchor loss `2.898252e-07`, and exact lexicographic pass is true. This smoke does not run PPO, promote a checkpoint, change thresholds, or change actor inputs/outputs.
 - decision: `admit_m384_old_key_local_recovery_target_export`
 - next: `m384-old-key-local-recovery-target-export`
+
+## 20260523T133215Z - m384-old-key-local-recovery-target-export
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m384_old_key_local_recovery_targets`
+- artifact: `docs/m384-old-key-local-recovery-target-export.md`
+- result: M384 exports real replay-selected recovery targets for the four M380 cumulative old-key gap-tail rows. The exporter evaluates `1008` one-step local action rollouts from the M378 alpha `0.05` public-gate base and finds accepted recovery targets for `4/4` rows with mean normal-margin improvement `0.005159597` and no base-retention rows. The no-update exact repair smoke reads the corpus and reports `old_key_recovery_loss=0.002272237`, exact lexicographic pass true, no PPO, no promotion, and no actor input/output change.
+- decision: `admit_m385_old_key_recovery_residual_repair_probe`
+- next: `m385-old-key-recovery-residual-repair-probe`
