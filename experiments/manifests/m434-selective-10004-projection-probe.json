@@ -2,9 +2,10 @@
   "id": "m434-selective-10004-projection-probe",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "protected_key_window_failure",
+    "promotion_gate_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -66,6 +67,42 @@
       "command": "Run the M430 exact_post_ppo_repair projected-recovery recipe for r0005 r0010 r0015 r0020 tail_r0005 tail_r0010 anchors; no PPO or promotion."
     }
   ],
+  "results": {
+    "summary_run": "runs/m434_selective_10004_projection_summary",
+    "best_exact_utility_profile": "tail_r0010",
+    "best_exact_utility_recovery_retained_vs_m406": 0.1456265687579863,
+    "best_proof_passing_profile": "r0010",
+    "best_proof_passing_checkpoint": "runs/m434_selective_10004_projection_r0010/candidate_checkpoint.pt",
+    "best_proof_passing_recovery_retained_vs_m406": 0.10352863802074717,
+    "m430_recovery_retained_vs_m406": 0.06170209626752963,
+    "m427_recovery_retained_vs_m406": 0.17435400926925274,
+    "primary_utility_target": 0.20,
+    "proof_gates": {
+      "r0010_m267_m264": "17/17",
+      "r0010_old_key_compact": "40/40",
+      "r0010_old_key_gate": true,
+      "r0010_m183_m170": "17/17"
+    },
+    "first_old_key_failures": {
+      "r0015": [
+        "10023|perturbed|12|12"
+      ],
+      "r0020": [
+        "10004|perturbed|31|31",
+        "10023|perturbed|12|12"
+      ],
+      "tail_r0005": [
+        "10004|perturbed|31|31",
+        "10023|perturbed|12|12"
+      ],
+      "tail_r0010": [
+        "10004|perturbed|31|31",
+        "10023|perturbed|12|12",
+        "9998|perturbed|25|25"
+      ]
+    },
+    "conclusion": "r0010 is proof-safe and improves over M430 utility, but the selective radius family remains below M427 and below the 0.20 primary target; looser profiles fail old-key compact"
+  },
   "required_artifacts": [
     {
       "path": "docs/m434-selective-10004-projection-probe.md",
@@ -79,5 +116,5 @@
     "docs/m433-selective-10004-anchor-export.md"
   ],
   "decision_rule": "M434 can only admit downstream proof-gate replay or design work; it must not promote a checkpoint directly from selective-anchor projection.",
-  "next_blocker": "pending M434 selective 10004 projection probe"
+  "next_blocker": "m435-selective-boundary-failure-audit"
 }

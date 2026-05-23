@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m434-selective-10004-projection-probe
+m435-selective-boundary-failure-audit
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -79,8 +79,14 @@ guards, `10023`, and `9872` unchanged, and only relax `10004` via radii
 `0.0005`, `0.0010`, `0.0015`, `0.0020`, plus two terminal-only variants.
 M433 implements that exporter and writes six anchors. All six no-update exact
 repair smokes pass with exact deltas `0.0` and replay trajectory anchor loss
-`0.0`. M434 should run the no-PPO projected-recovery probe across those six
-profiles; no promotion or PPO is allowed from this probe.
+`0.0`. M434 runs the no-PPO projected-recovery probe across those six profiles.
+All exact gates pass and every profile keeps M267/M264 `17/17`, but old-key
+compact becomes the active boundary. `r0010` is the best proof-safe profile,
+passing old-key `40/40` and M183/M170 `17/17`, with recovery retained vs M406
+`0.103529`. This improves over M430 (`0.061702`) but remains below M427
+(`0.174354`) and the `0.20` target. `r0015` and looser profiles fail old-key
+compact, first at `10023`, then `10004`/`9998`. M435 should audit this
+multi-key boundary before any more projection or PPO.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

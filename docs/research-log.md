@@ -9974,3 +9974,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M433 adds `selective_10004_anchor.py`, exports six selective `10004` wrong-history profiles, and verifies each with a no-update exact repair smoke. All-row profiles `r0005`, `r0010`, `r0015`, and `r0020` keep `357` rows and all `37` `10004` rows. Tail profiles `tail_r0005` and `tail_r0010` keep `333` rows and `13` terminal `10004` rows. All six smokes pass with exact M297/M270/old-key deltas `0.0` and replay trajectory anchor loss `0.0`; focused tests pass (`2 passed`).
 - decision: `admit_m434_selective_10004_projection_probe`
 - next: `m434-selective-10004-projection-probe`
+
+## 20260523T181604Z - m434-selective-10004-projection-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m434_selective_10004_projection_summary`
+- artifact: `docs/m434-selective-10004-projection-probe.md`
+- result: M434 runs no-PPO projected recovery for six selective `10004` anchors. All exact gates pass and every profile keeps M267/M264 `17/17`. The highest exact-utility profile is `tail_r0010` with recovery retained `0.145627`, but it fails old-key compact `37/40`. The best proof-safe profile is `r0010`: old-key compact `40/40`, old-key replay gate pass, M183/M170 `17/17`, recovery retained `0.103529`. This improves over M430 `0.061702` but remains below M427 `0.174354` and the `0.20` target. `r0015` and looser profiles fail old-key compact, first at `10023`, then `10004`/`9998`.
+- decision: `reject_m434_primary_pass_admit_m435_selective_boundary_failure_audit`
+- next: `m435-selective-boundary-failure-audit`

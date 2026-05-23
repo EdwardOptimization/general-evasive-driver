@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 442,
+        "completed": 443,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m433-selective-10004-anchor-export",
+        "task_id": "m434-selective-10004-projection-probe",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m433_selective_10004_anchor_export",
-        "command_log": "docs/m433-selective-10004-anchor-export.md"
+        "run_dir": "runs/m434_selective_10004_projection_summary",
+        "command_log": "docs/m434-selective-10004-projection-probe.md"
     },
     "next_task": {
-        "id": "m434-selective-10004-projection-probe",
+        "id": "m435-selective-boundary-failure-audit",
         "status": "pending",
-        "priority": 4290,
+        "priority": 4300,
         "kind": "gate",
-        "hypothesis": "Probe selective 10004 anchors in no-PPO projected recovery",
-        "command": "see experiments/manifests/m434-selective-10004-projection-probe.json",
+        "hypothesis": "Audit active old-key boundary after selective 10004 probe",
+        "command": "see experiments/manifests/m435-selective-boundary-failure-audit.json",
         "success_artifact": "",
-        "notes": "Pending: run projected recovery across six selective profiles; no PPO or promotion"
+        "notes": "Pending: attribute r0015/r0020/tail failures and decide next residual design; no PPO or promotion"
     },
-    "updated_at_utc": "20260523T181604Z"
+    "updated_at_utc": "20260523T182216Z"
 }

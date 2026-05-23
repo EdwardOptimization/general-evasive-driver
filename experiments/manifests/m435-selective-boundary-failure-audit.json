@@ -1,0 +1,83 @@
+{
+  "id": "m435-selective-boundary-failure-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m434_selective_10004_projection_r0010/candidate_checkpoint.pt",
+      "runs/m434_selective_10004_projection_r0015/candidate_checkpoint.pt",
+      "runs/m434_selective_10004_projection_tail_r0010/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m434_selective_10004_projection_summary",
+      "runs/m434_r0015_old_key_targeted_replay/guard_results.csv",
+      "runs/m434_r0020_old_key_targeted_replay/guard_results.csv",
+      "runs/m434_tail_r0010_old_key_targeted_replay/guard_results.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m434-selective-10004-projection-probe.json"
+    ],
+    "parent_objective": [
+      "audit selective-radius proof/utility boundary"
+    ],
+    "derived_from": [
+      "m434-selective-10004-projection-probe"
+    ],
+    "blocked_by": [
+      "m434-selective-10004-projection-probe"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m435-selective-boundary-failure-audit.md",
+  "public_gates": [
+    "old-key failure row attribution for r0015 r0020 tail profiles",
+    "proof-safe utility ceiling comparison against M430 M427 and target 0.20",
+    "next residual design recommendation without PPO"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "hypothesis": "M434's selective radius family is limited by a multi-key old-key boundary, not only by 10004; the next useful residual should target terminal margin or rejected-branch preference rather than more radius tuning.",
+  "success_criteria": [
+    "attribute which old-key rows become active as 10004 is relaxed",
+    "explain why r0010 is proof-safe but below the utility target",
+    "decide whether to design terminal-margin/rejected-branch residuals or another radius export",
+    "do not claim a promoted base"
+  ],
+  "failure_criteria": [
+    "cannot identify the active boundary rows",
+    "audit recommends PPO before proof residual redesign",
+    "audit relies on lowered thresholds",
+    "actor input or output contract changes"
+  ],
+  "commands": [
+    {
+      "name": "selective_boundary_failure_audit",
+      "command": "Inspect M434 projection summaries and old-key failure rows for r0015/r0020/tail profiles; no PPO or promotion."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m435-selective-boundary-failure-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m434-selective-10004-projection-probe.md"
+  ],
+  "decision_rule": "M435 should admit a next design only if it identifies the active old-key boundary and preserves the no-PPO proof-first discipline.",
+  "next_blocker": "pending M435 selective boundary failure audit"
+}
