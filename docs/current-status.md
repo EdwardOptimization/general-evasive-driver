@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m435-selective-boundary-failure-audit
+m436-old-key-active-boundary-residual-design
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -85,8 +85,11 @@ compact becomes the active boundary. `r0010` is the best proof-safe profile,
 passing old-key `40/40` and M183/M170 `17/17`, with recovery retained vs M406
 `0.103529`. This improves over M430 (`0.061702`) but remains below M427
 (`0.174354`) and the `0.20` target. `r0015` and looser profiles fail old-key
-compact, first at `10023`, then `10004`/`9998`. M435 should audit this
-multi-key boundary before any more projection or PPO.
+compact, first at `10023`, then `10004`/`9998`. M435 audits this as a
+multi-key old-key boundary and rejects further radius-only tuning. M436 should
+design an active-boundary residual around `10004`, `10023`, and `9998` using
+rejected-history preference or terminal-margin slack instead of broad
+full-trajectory action anchoring.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

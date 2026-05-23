@@ -9984,3 +9984,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M434 runs no-PPO projected recovery for six selective `10004` anchors. All exact gates pass and every profile keeps M267/M264 `17/17`. The highest exact-utility profile is `tail_r0010` with recovery retained `0.145627`, but it fails old-key compact `37/40`. The best proof-safe profile is `r0010`: old-key compact `40/40`, old-key replay gate pass, M183/M170 `17/17`, recovery retained `0.103529`. This improves over M430 `0.061702` but remains below M427 `0.174354` and the `0.20` target. `r0015` and looser profiles fail old-key compact, first at `10023`, then `10004`/`9998`.
 - decision: `reject_m434_primary_pass_admit_m435_selective_boundary_failure_audit`
 - next: `m435-selective-boundary-failure-audit`
+
+## 20260523T182216Z - m435-selective-boundary-failure-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m435-selective-boundary-failure-audit.md`
+- result: M435 classifies M434's active boundary as multi-key, not a remaining single `10004` tuning problem. `r0010` is the largest proof-safe selective radius, retaining `0.103529` of M406 recovery. `r0015` first fails `10023` gap erosion; `r0020` fails `10004` and `10023`; terminal-only variants fail `10004`/`10023` and expose `9998`. This makes more radius-only tuning low leverage.
+- decision: `admit_m436_old_key_active_boundary_residual_design`
+- next: `m436-old-key-active-boundary-residual-design`

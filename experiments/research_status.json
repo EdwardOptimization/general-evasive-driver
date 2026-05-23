@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 443,
+        "completed": 444,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m434-selective-10004-projection-probe",
+        "task_id": "m435-selective-boundary-failure-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m434_selective_10004_projection_summary",
-        "command_log": "docs/m434-selective-10004-projection-probe.md"
+        "run_dir": "",
+        "command_log": "docs/m435-selective-boundary-failure-audit.md"
     },
     "next_task": {
-        "id": "m435-selective-boundary-failure-audit",
+        "id": "m436-old-key-active-boundary-residual-design",
         "status": "pending",
-        "priority": 4300,
-        "kind": "gate",
-        "hypothesis": "Audit active old-key boundary after selective 10004 probe",
-        "command": "see experiments/manifests/m435-selective-boundary-failure-audit.json",
+        "priority": 4310,
+        "kind": "infrastructure",
+        "hypothesis": "Design active-boundary old-key residual after selective radius ceiling",
+        "command": "see experiments/manifests/m436-old-key-active-boundary-residual-design.json",
         "success_artifact": "",
-        "notes": "Pending: attribute r0015/r0020/tail failures and decide next residual design; no PPO or promotion"
+        "notes": "Pending: design rejected-history preference or terminal-margin residual for 10004 10023 9998; no PPO"
     },
-    "updated_at_utc": "20260523T182216Z"
+    "updated_at_utc": "20260523T182506Z"
 }

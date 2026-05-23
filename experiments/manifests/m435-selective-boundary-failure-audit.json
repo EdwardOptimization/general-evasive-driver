@@ -66,6 +66,18 @@
       "command": "Inspect M434 projection summaries and old-key failure rows for r0015/r0020/tail profiles; no PPO or promotion."
     }
   ],
+  "results": {
+    "artifact": "docs/m435-selective-boundary-failure-audit.md",
+    "best_proof_safe_profile": "r0010",
+    "best_proof_safe_recovery_retained_vs_m406": 0.10352863802074717,
+    "active_boundary_order": [
+      "r0015 activates 10023 gap erosion",
+      "r0020 activates 10004 wrong-history safety and 10023 gap erosion",
+      "tail profiles activate 10004 and 10023, with tail_r0010 also exposing 9998"
+    ],
+    "conclusion": "The selective-radius path is bounded by a multi-key old-key boundary; the next residual should be outcome-aware rather than another full-trajectory action-radius tune.",
+    "recommended_next": "m436-old-key-active-boundary-residual-design"
+  },
   "required_artifacts": [
     {
       "path": "docs/m435-selective-boundary-failure-audit.md",
@@ -79,5 +91,5 @@
     "docs/m434-selective-10004-projection-probe.md"
   ],
   "decision_rule": "M435 should admit a next design only if it identifies the active old-key boundary and preserves the no-PPO proof-first discipline.",
-  "next_blocker": "pending M435 selective boundary failure audit"
+  "next_blocker": "m436-old-key-active-boundary-residual-design"
 }

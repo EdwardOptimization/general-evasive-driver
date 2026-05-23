@@ -1,0 +1,84 @@
+{
+  "id": "m436-old-key-active-boundary-residual-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m434_selective_10004_projection_r0010/candidate_checkpoint.pt",
+      "runs/m434_selective_10004_projection_r0015/candidate_checkpoint.pt",
+      "runs/m434_selective_10004_projection_r0020/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m434_selective_10004_projection_summary",
+      "runs/m434_r0015_old_key_targeted_replay/guard_results.csv",
+      "runs/m434_r0020_old_key_targeted_replay/guard_results.csv",
+      "runs/m434_tail_r0010_old_key_targeted_replay/guard_results.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m435-selective-boundary-failure-audit.json"
+    ],
+    "parent_objective": [
+      "active old-key boundary residual design"
+    ],
+    "derived_from": [
+      "m435-selective-boundary-failure-audit"
+    ],
+    "blocked_by": [
+      "m435-selective-boundary-failure-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m436-old-key-active-boundary-residual-design.md",
+  "public_gates": [
+    "design only; no PPO",
+    "active-boundary corpus specification for 10004 10023 9998",
+    "next implementation must preserve actor input/output contract",
+    "next probe must preserve exact M297/M270/old-key and replay gates"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "hypothesis": "An active-boundary residual using rejected-history preference or terminal-margin slack on 10004/10023/9998 will preserve old-key proof with less recovery-utility loss than full-trajectory action radii.",
+  "success_criteria": [
+    "specify active-boundary corpus fields",
+    "specify loss terms and gate order",
+    "state why the design is training-only and does not change deployable actor inputs",
+    "admit an implementation milestone only if the design avoids more radius-only tuning"
+  ],
+  "failure_criteria": [
+    "design still relies on broad full-trajectory action anchoring",
+    "design requires differentiating through closed-loop replay without implementation plan",
+    "design recommends PPO before proof residual implementation",
+    "actor input or output contract changes"
+  ],
+  "commands": [
+    {
+      "name": "old_key_active_boundary_residual_design",
+      "command": "Design active-boundary residual from M435 audit; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m436-old-key-active-boundary-residual-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m435-selective-boundary-failure-audit.md"
+  ],
+  "decision_rule": "M436 should only admit implementation if it defines a concrete active-boundary corpus and exact-repair residual that can be tested without PPO or actor-contract changes.",
+  "next_blocker": "pending M436 old-key active-boundary residual design"
+}
