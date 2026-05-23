@@ -10024,3 +10024,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M438 finds a proof-safe partial pass: `r0015` plus active-boundary lambda `1e12` passes exact M297/M270/old-key no-regression, M267/M264 first replay `17/17`, old-key compact `40/40`, old-key replay gate, and M183/M170 first replay `17/17`. Recovery retained vs M406 improves from M434 `r0010` `0.103529` to `0.120957`, but remains below M427 `0.174354` and the `0.20` target. Looser `tail_r0010` with lambda `1e12` keeps M267 but fails old-key `38/40`; lambda `1e14` creates normal-branch collisions.
 - decision: `partial_pass_admit_m439_active_boundary_residual_utility_audit`
 - next: `m439-active-boundary-residual-utility-audit`
+
+## 20260523T185234Z - m439-active-boundary-residual-utility-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m439_active_boundary_residual_utility_audit`
+- artifact: `docs/m439-active-boundary-residual-utility-audit.md`
+- result: M439 audits six policies across exact summaries and active old-key rows. Active-boundary v1 is useful but under-specified: it repairs M434 `r0015` to old-key `40/40` and recovery retained `0.120957`, but `tail_r0010` with active lambda `1e12` still fails `10004` and `10023`, while lambda `1e14` lowers exact active loss but creates normal-branch collisions and old-key `34/40`. Scalar active-boundary weight is therefore not enough.
+- decision: `admit_m440_active_boundary_v2_residual_design`
+- next: `m440-active-boundary-v2-residual-design`

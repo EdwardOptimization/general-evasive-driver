@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m439-active-boundary-residual-utility-audit
+m440-active-boundary-v2-residual-design
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -98,9 +98,14 @@ gates pass, M267/M264 stays `17/17`, old-key compact returns to `40/40`, and
 M183/M170 stays `17/17`. Recovery retained vs M406 improves from M434 `r0010`
 `0.103529` to `0.120957`, but remains below M427 `0.174354` and below the
 `0.20` target. Looser `tail_r0010` still fails old-key `38/40`, while active
-lambda `1e14` creates normal-branch collisions. The next blocker is M439:
-audit why `r0015` is repairable but `tail_r0010` is not, and decide whether an
-active-boundary v2 residual is justified before another projection.
+lambda `1e14` creates normal-branch collisions. M439 audits this row by row:
+active-boundary v1 can repair the first failing M434 profile, but its scalar
+one-step exact loss is not a reliable closed-loop proof proxy. `tail_r0010`
+fails `10004` wrong-history safety and `10023` gap erosion with almost the
+same exact active loss, and excessive active weight lowers exact loss while
+breaking normal success. The next blocker is M440: design a row-specific
+active-boundary v2 residual, or explicitly stop this branch, before any more
+projection.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

@@ -67,6 +67,31 @@
       "command": "Analyze M438 exact summaries and old-key replay rows; no PPO or promotion."
     }
   ],
+  "results": {
+    "artifact": "docs/m439-active-boundary-residual-utility-audit.md",
+    "run_dir": "runs/m439_active_boundary_residual_utility_audit",
+    "policy_utility_summary_csv": "runs/m439_active_boundary_residual_utility_audit/policy_utility_summary.csv",
+    "active_case_rows_csv": "runs/m439_active_boundary_residual_utility_audit/active_case_rows.csv",
+    "best_proof_safe_policy": "m438_r0015_lactive1e12",
+    "best_proof_safe_recovery_retained_vs_m406": 0.12095699114779722,
+    "m434_r0010_recovery_retained_vs_m406": 0.10352863802074717,
+    "m427_recovery_retained_vs_m406": 0.17435400926925274,
+    "primary_utility_target": 0.20,
+    "tail_r0010_active_1e12": {
+      "old_key_compact": "38/40",
+      "normal_success_cases": "40/40",
+      "recovery_retained_vs_m406": 0.14693164293441618,
+      "failure": "10004 wrong-history safety and 10023 gap erosion"
+    },
+    "tail_r0010_active_1e14": {
+      "old_key_compact": "34/40",
+      "normal_success_cases": "34/40",
+      "recovery_retained_vs_m406": -0.027593596535299546,
+      "failure": "normal-branch collisions from excessive active-boundary pressure"
+    },
+    "conclusion": "Active-boundary residual is useful for r0015 but scalar weighting is insufficient for tail_r0010 and excessive weight causes normal-branch collisions.",
+    "recommended_next": "m440-active-boundary-v2-residual-design"
+  },
   "required_artifacts": [
     {
       "path": "docs/m439-active-boundary-residual-utility-audit.md",
@@ -81,5 +106,5 @@
     "docs/m438-active-boundary-projection-probe.md"
   ],
   "decision_rule": "M439 should decide whether to implement active-boundary v2 or stop this branch, based on row-level objective/replay alignment rather than another scalar coefficient sweep.",
-  "next_blocker": "pending M439 active-boundary residual utility audit"
+  "next_blocker": "m440-active-boundary-v2-residual-design"
 }
