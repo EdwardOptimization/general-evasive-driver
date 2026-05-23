@@ -10513,3 +10513,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M487 splits the M486 targeted pairs across the two M484 critical-window configs and runs tail-aligned one-shot wrong-history outcome gates. The combined surface has `312` input pairs, `1080` valid tail pairs, and `4320` outcome rows. `wrong_tail_once` produces only `11` proof-candidate rows, `0` success/collision/completion event rows, `5` probe seeds, `2` labels, `2` targets, and single-label share `0.909091`. In contrast, reset-tail and zero-current controls produce `333` proof-candidate rows and `41` event rows on the same tail states. The task is sensitive, but the natural wrong-tail intervention is still too weak or not outcome-aligned.
 - decision: `critical_window_tail_gate_reject_wrong_tail_proof_admit_m488_no_effect_audit`
 - next: `m488-critical-window-wrong-tail-no-effect-audit`
+## 20260524T001500Z - m488-critical-window-wrong-tail-no-effect-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m488_critical_window_wrong_tail_no_effect_audit`
+- artifact: `docs/m488-critical-window-wrong-tail-no-effect-audit.md`
+- result: M488 audits all `4320` M487 outcome rows. `wrong_tail_once` is not ignored: first-action mean is `0.078874` and p90 is `0.145005`. But its trajectory mean is only `0.068261`, compared with reset-tail `1.015227` and zero-current `0.458910`. It has `11` proof rows and `0` event rows, while controls have `333` proof rows and `41` event rows. High-perturbation wrong-tail rows also remain non-event: `319` rows with first-action distance `>0.10` have `0` events. The dominant mechanism is quick correction or non-outcome-aligned selection, not task insensitivity.
+- decision: `wrong_tail_no_effect_audit_admit_m489_tail_action_sequence_amplification_design`
+- next: `m489-tail-action-sequence-amplification-design`

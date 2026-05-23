@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 496,
+        "completed": 497,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m487-critical-window-tail-aligned-outcome-gate",
+        "task_id": "m488-critical-window-wrong-tail-no-effect-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m487_critical_window_tail_aligned_outcome_summary",
-        "command_log": "docs/m487-critical-window-tail-aligned-outcome-gate.md"
+        "run_dir": "runs/m488_critical_window_wrong_tail_no_effect_audit",
+        "command_log": "docs/m488-critical-window-wrong-tail-no-effect-audit.md"
     },
     "next_task": {
-        "id": "m488-critical-window-wrong-tail-no-effect-audit",
+        "id": "m489-tail-action-sequence-amplification-design",
         "status": "pending",
-        "priority": 4830,
-        "kind": "gate",
-        "hypothesis": "M487 failed because tail-aligned one-shot wrong histories create much smaller or more quickly corrected action/trajectory perturbations than reset and zero-current controls, and M486 target scores do not yet select outcome-sensitive wrong histories.",
-        "command": "see experiments/manifests/m488-critical-window-wrong-tail-no-effect-audit.json",
+        "priority": 4840,
+        "kind": "infrastructure",
+        "hypothesis": "A short-horizon wrong-tail action sequence diagnostic can distinguish whether M487/M488 failed because wrong hidden is corrected too quickly or because the selected pairs are not outcome-sensitive even under forced wrong actions.",
+        "command": "see experiments/manifests/m489-tail-action-sequence-amplification-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit why M487 wrong_tail_once remains no-effect despite sensitive reset/zero-current controls; no training"
+        "notes": "Pending: design diagnostic forced/held wrong-tail action sequence gate; no training"
     },
-    "updated_at_utc": "20260523T225450Z"
+    "updated_at_utc": "20260523T230152Z"
 }

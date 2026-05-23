@@ -2,7 +2,7 @@
   "id": "m488-critical-window-wrong-tail-no-effect-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -83,5 +83,54 @@
     "runs/m487_critical_window_tail_aligned_outcome_summary/combined_summary.json"
   ],
   "decision_rule": "M488 should admit a new proof path only after classifying whether wrong_tail_once is too weak, too quickly corrected, source-misaligned, or task-family limited.",
-  "next_blocker": "pending M488 critical-window wrong-tail no-effect audit"
+  "next_blocker": "m489-tail-action-sequence-amplification-design",
+  "results": {
+    "run_dir": "runs/m488_critical_window_wrong_tail_no_effect_audit",
+    "summary_json": "runs/m488_critical_window_wrong_tail_no_effect_audit/summary.json",
+    "variant_summary_csv": "runs/m488_critical_window_wrong_tail_no_effect_audit/variant_mechanism_comparison.csv",
+    "wrong_tail_by_action_distance_bin_csv": "runs/m488_critical_window_wrong_tail_no_effect_audit/wrong_tail_by_action_distance_bin.csv",
+    "wrong_tail_by_trajectory_distance_bin_csv": "runs/m488_critical_window_wrong_tail_no_effect_audit/wrong_tail_by_trajectory_distance_bin.csv",
+    "wrong_tail_by_normal_margin_bin_csv": "runs/m488_critical_window_wrong_tail_no_effect_audit/wrong_tail_by_normal_margin_bin.csv",
+    "wrong_tail_proof_rows_csv": "runs/m488_critical_window_wrong_tail_no_effect_audit/wrong_tail_proof_rows.csv",
+    "row_count": 4320,
+    "wrong_tail_rows": 1080,
+    "control_rows": 2160,
+    "wrong_tail_proof_rows": 11,
+    "wrong_tail_event_rows": 0,
+    "control_proof_rows": 333,
+    "control_event_rows": 41,
+    "wrong_tail_first_action_mean": 0.07887352763726889,
+    "wrong_tail_first_action_p90": 0.14500549286603925,
+    "wrong_tail_first_action_max": 0.3870723843574524,
+    "wrong_tail_trajectory_mean": 0.0682614476942776,
+    "wrong_tail_trajectory_p90": 0.1531371861696243,
+    "wrong_tail_trajectory_max": 0.5475804209709167,
+    "wrong_tail_traj_mean_ratio_vs_reset_tail": 0.06723762248537486,
+    "wrong_tail_traj_mean_ratio_vs_zero_current_tail": 0.14874699551196682,
+    "wrong_tail_first_action_mean_ratio_vs_reset_tail": 0.08473041787719879,
+    "wrong_tail_first_action_mean_ratio_vs_zero_current_tail": 0.6471119443087159,
+    "wrong_tail_high_action_gt_0_10_count": 319,
+    "wrong_tail_high_action_gt_0_10_event_rows": 0,
+    "wrong_tail_high_action_gt_0_10_proof_rows": 8,
+    "wrong_tail_high_traj_gt_0_10_count": 261,
+    "wrong_tail_high_traj_gt_0_10_event_rows": 0,
+    "wrong_tail_high_traj_gt_0_10_proof_rows": 3,
+    "wrong_tail_proof_counts_by_config": {
+      "late_high_energy": 9,
+      "near_threshold": 2
+    },
+    "wrong_tail_proof_counts_by_label": {
+      "unavoidable": 10,
+      "drift_required": 1
+    },
+    "wrong_tail_proof_counts_by_target": {
+      "future_braking_deceleration": 8,
+      "future_yaw_response": 3
+    },
+    "dominant_mechanism": "tail_aligned_wrong_history_is_real_but_too_weak_or_too_quickly_corrected_and_m486_target_scores_are_not_outcome_aligned",
+    "recommended_next_path": "design_outcome_sensitivity_amplification_audit_before_training",
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "wrong_tail_no_effect_audit_admit_m489_tail_action_sequence_amplification_design"
+  }
 }

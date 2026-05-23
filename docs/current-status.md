@@ -47,35 +47,35 @@ runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
 
 Status: M400 promotes M399 alpha `0.05` as the current public-gate base after
 six public replay surfaces and behavior seeds pass. This remains the latest
-public-gate base; M487 did not train or promote a checkpoint.
+public-gate base; M487-M488 did not train or promote a checkpoint.
 
 Current blocker:
 
 ```text
-m488-critical-window-wrong-tail-no-effect-audit
+m489-tail-action-sequence-amplification-design
 ```
 
 Recent progress: M484 added two P0-compatible critical-window zero-relvel
-configs, both sampling-valid across `384/384` resets. M485 mined a large
-critical-window matched-current surface with `5802` accepted pairs across `6`
-probe seeds, `3` labels, `3` targets, and `2` configs. M486 selected a balanced
-`312`-pair targeted wrong-history surface from that pool.
+configs, M485 mined `5802` critical-window matched-current pairs, M486 selected
+a balanced `312`-pair targeted wrong-history surface, and M487 ran tail-aligned
+one-shot wrong-history outcome gates on both critical configs. M487 was a
+negative natural proof gate: `wrong_tail_once` produced `11` margin-style proof
+rows, `0` event rows, and single-label share `0.909091`, while reset-tail and
+zero-current controls produced `333` proof rows and `41` event rows.
 
-M487 then ran tail-aligned one-shot wrong-history outcome gates on the M486
-surface, split by critical config. The result is a negative proof gate: the
-combined `wrong_tail_once` intervention yields only `11` margin-style proof
-rows, `0` event rows, `5` probe seeds, `2` labels, `2` targets, and
-single-label share `0.909091`. The same tail states are not generally
-outcome-insensitive: reset-tail and zero-current controls produce `333` proof
-rows and `41` event rows. Therefore the current blocker is not environment
-insensitivity; it is that the natural one-shot wrong-history swap is too weak,
-too quickly corrected, or selected by a non-outcome-aligned target score.
+M488 audits the M487 no-effect mechanism. Wrong-tail hidden injection changes
+first actions (`0.078874` mean, `0.145005` p90), but sustained trajectory
+deviation is small: trajectory mean `0.068261`, only `6.7%` of reset-tail and
+`14.9%` of zero-current. Even `319` wrong-tail rows with first-action distance
+above `0.10` have `0` event rows. The current blocker is therefore quick
+closed-loop correction or non-outcome-aligned pair selection, not task
+insensitivity.
 
-Next step: M488 must audit M487 at row level before any training or gate
-expansion. It should compare wrong-tail action/trajectory distances against
-reset and zero-current controls, inspect proof/no-effect rows by config, label,
-target, offset, and normal margin, and choose the next proof path only after
-classifying the no-effect mechanism.
+Next step: M489 must design a diagnostic gate for short-horizon wrong-tail
+action-sequence amplification before any training. The gate should compare
+`wrong_tail_once`, forced `wrong_tail_action_replay_K`, diagnostic
+`wrong_tail_hidden_hold_K`, reset-tail, and zero-current controls to separate
+quick correction from genuinely non-outcome-sensitive pair selection.
 
 ## Current Evidence
 
