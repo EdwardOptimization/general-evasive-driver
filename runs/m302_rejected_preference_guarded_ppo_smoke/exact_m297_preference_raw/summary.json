@@ -1,0 +1,47 @@
+{
+  "actor_inputs_changed": false,
+  "base_loss_lower_than_candidates": null,
+  "base_policy": "m290x64_a500",
+  "checkpoint_policies": [
+    {
+      "label": "m298pref_a020",
+      "path": "runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt"
+    },
+    {
+      "label": "m302raw",
+      "path": "runs/ppo_m302_rejected_preference_guarded_smoke_seed5233/checkpoint.pt"
+    }
+  ],
+  "corpus_summary": {
+    "base_policy": "m290x64_a500",
+    "failed_rows": [
+      6,
+      15,
+      16
+    ],
+    "output_csv": "runs/m302_rejected_preference_guarded_ppo_smoke/exact_m297_preference_raw/rejected_history_preference_corpus.csv",
+    "output_npz": "runs/m302_rejected_preference_guarded_ppo_smoke/exact_m297_preference_raw/rejected_history_preference_corpus.npz",
+    "recovered_rows": [
+      11
+    ],
+    "rows": 17,
+    "weight_max": 0.3274986147880554,
+    "weight_mean": 0.04998534545302391,
+    "weight_min": 0.01278961542993784
+  },
+  "device": "cpu",
+  "focused_row_losses_csv": "runs/m302_rejected_preference_guarded_ppo_smoke/exact_m297_preference_raw/focused_row_losses.csv",
+  "loss_config": {
+    "preferred_logprob_margin": 0.05,
+    "wrong_logprob_margin": 0.05,
+    "wrong_preference_coef": 1.0
+  },
+  "losses": {
+    "m298pref_a020": 1.1896095275878906,
+    "m302raw": 1.1903092861175537
+  },
+  "per_row_losses_csv": "runs/m302_rejected_preference_guarded_ppo_smoke/exact_m297_preference_raw/per_row_losses.csv",
+  "policy_summary_csv": "runs/m302_rejected_preference_guarded_ppo_smoke/exact_m297_preference_raw/policy_summary.csv",
+  "ppo_or_actor_update_run": false,
+  "run_type": "rejected_history_preference_objective_sanity"
+}

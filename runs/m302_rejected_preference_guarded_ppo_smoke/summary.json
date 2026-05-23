@@ -1,0 +1,23 @@
+{
+  "actor_inputs_changed": false,
+  "decision": "reject_m302_exact_objective_regression",
+  "exact_m270_base": 0.6779459118843079,
+  "exact_m270_raw": 0.678388774394989,
+  "exact_m270_raw_delta": 0.00044286251068115234,
+  "exact_m297_base": 1.1896095275878906,
+  "exact_m297_raw": 1.1903092861175537,
+  "exact_m297_raw_delta": 0.0006997585296630859,
+  "failure_types": [
+    "objective_overfit"
+  ],
+  "interpolation_exact_m270_any_nonzero_pass": false,
+  "interpolation_exact_m297_any_nonzero_pass": false,
+  "next_task": "m303-m302-preference-guard-failure-audit",
+  "ppo_or_actor_update_run": true,
+  "promotion_recommended": false,
+  "raw_checkpoint": "runs/ppo_m302_rejected_preference_guarded_smoke_seed5233/checkpoint.pt",
+  "raw_run_dir": "runs/ppo_m302_rejected_preference_guarded_smoke_seed5233",
+  "raw_train_metric_rejected_history_preference_loss_mean": 1.1774653842051823,
+  "replay_gates_run": false,
+  "run_type": "rejected_preference_guarded_ppo_smoke"
+}

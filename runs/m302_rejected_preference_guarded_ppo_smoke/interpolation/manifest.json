@@ -1,0 +1,80 @@
+{
+  "base_checkpoint": "runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt",
+  "base_label": "m298pref_a020",
+  "checkpoints": [
+    {
+      "alpha": 0.0,
+      "base_checkpoint": "runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt",
+      "path": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0.pt",
+      "policy_label": "m302_a000",
+      "target_checkpoint": "runs/ppo_m302_rejected_preference_guarded_smoke_seed5233/checkpoint.pt"
+    },
+    {
+      "alpha": 0.001,
+      "base_checkpoint": "runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt",
+      "path": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_001.pt",
+      "policy_label": "m302_a001",
+      "target_checkpoint": "runs/ppo_m302_rejected_preference_guarded_smoke_seed5233/checkpoint.pt"
+    },
+    {
+      "alpha": 0.005,
+      "base_checkpoint": "runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt",
+      "path": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_005.pt",
+      "policy_label": "m302_a005",
+      "target_checkpoint": "runs/ppo_m302_rejected_preference_guarded_smoke_seed5233/checkpoint.pt"
+    },
+    {
+      "alpha": 0.01,
+      "base_checkpoint": "runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt",
+      "path": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_01.pt",
+      "policy_label": "m302_a010",
+      "target_checkpoint": "runs/ppo_m302_rejected_preference_guarded_smoke_seed5233/checkpoint.pt"
+    },
+    {
+      "alpha": 0.02,
+      "base_checkpoint": "runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt",
+      "path": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_02.pt",
+      "policy_label": "m302_a020",
+      "target_checkpoint": "runs/ppo_m302_rejected_preference_guarded_smoke_seed5233/checkpoint.pt"
+    },
+    {
+      "alpha": 0.05,
+      "base_checkpoint": "runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt",
+      "path": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_05.pt",
+      "policy_label": "m302_a050",
+      "target_checkpoint": "runs/ppo_m302_rejected_preference_guarded_smoke_seed5233/checkpoint.pt"
+    },
+    {
+      "alpha": 0.1,
+      "base_checkpoint": "runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt",
+      "path": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_1.pt",
+      "policy_label": "m302_a100",
+      "target_checkpoint": "runs/ppo_m302_rejected_preference_guarded_smoke_seed5233/checkpoint.pt"
+    },
+    {
+      "alpha": 0.2,
+      "base_checkpoint": "runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt",
+      "path": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_2.pt",
+      "policy_label": "m302_a200",
+      "target_checkpoint": "runs/ppo_m302_rejected_preference_guarded_smoke_seed5233/checkpoint.pt"
+    },
+    {
+      "alpha": 0.5,
+      "base_checkpoint": "runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt",
+      "path": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_5.pt",
+      "policy_label": "m302_a500",
+      "target_checkpoint": "runs/ppo_m302_rejected_preference_guarded_smoke_seed5233/checkpoint.pt"
+    },
+    {
+      "alpha": 1.0,
+      "base_checkpoint": "runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt",
+      "path": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_1.pt",
+      "policy_label": "m302_a1000",
+      "target_checkpoint": "runs/ppo_m302_rejected_preference_guarded_smoke_seed5233/checkpoint.pt"
+    }
+  ],
+  "count": 10,
+  "label_prefix": "m302",
+  "target_checkpoint": "runs/ppo_m302_rejected_preference_guarded_smoke_seed5233/checkpoint.pt",
+  "target_label": "m302raw"
+}

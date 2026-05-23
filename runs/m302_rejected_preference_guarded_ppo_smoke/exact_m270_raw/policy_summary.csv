@@ -1,0 +1,3 @@
+policy,checkpoint,snippet_npz,snippets,mode,batch_size,batches,seed,logprob_margin,loss_mean,loss_std,loss_min,loss_max
+m298pref_a020,runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt,runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz,99,exact,99,1,0,0.05,0.6779459118843079,0.0,0.6779459118843079,0.6779459118843079
+m302raw,runs/ppo_m302_rejected_preference_guarded_smoke_seed5233/checkpoint.pt,runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz,99,exact,99,1,0,0.05,0.678388774394989,0.0,0.678388774394989,0.678388774394989

@@ -1,0 +1,83 @@
+{
+  "id": "m303-m302-preference-guard-failure-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt",
+      "runs/ppo_m302_rejected_preference_guarded_smoke_seed5233/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz"
+    ],
+    "parent_config": [
+      "configs/ppo_m302_rejected_preference_guarded_smoke.json",
+      "experiments/manifests/m302-rejected-preference-guarded-ppo-smoke.json",
+      "docs/m302-rejected-preference-guarded-ppo-smoke.md"
+    ],
+    "parent_objective": [
+      "audit why M302 training-time rejected-history preference auxiliary loss did not protect exact M297 or exact M270"
+    ],
+    "derived_from": [
+      "m302-rejected-preference-guarded-ppo-smoke"
+    ],
+    "blocked_by": [
+      "m302-rejected-preference-guarded-ppo-smoke"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m303-m302-preference-guard-failure-audit.md",
+  "public_gates": [
+    "do not run PPO in M303",
+    "preserve human-view actor input contract",
+    "compare train-time sampled preference metric with exact M297 after PPO",
+    "inspect focused rows 6, 11, 15, and 16",
+    "decide whether the next repair is coefficient scaling, lexicographic projection, or post-PPO exact repair"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun PPO before classifying M302 failure",
+    "do not tune from private holdouts",
+    "do not change actor inputs",
+    "do not promote any M302 interpolation"
+  ],
+  "hypothesis": "M302 failed because the sampled training-time auxiliary loss was too weak or misaligned with the exact full-corpus M297/M270 gates, so the next repair should enforce exact objectives lexicographically rather than relying on a small PPO coefficient.",
+  "success_criteria": [
+    "explain why train metric improved or looked acceptable while exact M297 regressed",
+    "identify whether M297 and M270 regressions are row-local or broad",
+    "recommend a next repair path before another PPO smoke",
+    "record negative result and next milestone"
+  ],
+  "failure_criteria": [
+    "audit cannot distinguish coefficient weakness from metric artifact",
+    "audit requires hidden actor inputs",
+    "PPO is run in M303"
+  ],
+  "commands": [
+    {
+      "name": "m303_audit",
+      "command": "Audit M302 exact-objective regression and choose the next repair path without PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m303-m302-preference-guard-failure-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m302-rejected-preference-guarded-ppo-smoke.md",
+    "runs/m302_rejected_preference_guarded_ppo_smoke/summary.json"
+  ],
+  "decision_rule": "M303 should admit a repair only after classifying the M302 objective regression mechanism.",
+  "next_blocker": "pending M303 M302 preference guard failure audit"
+}

@@ -1,0 +1,50 @@
+{
+  "baseline_policy": "m298pref_a020",
+  "batch_losses_csv": "runs/m302_rejected_preference_guarded_ppo_smoke/exact_m270_raw/batch_losses.csv",
+  "batch_size": 128,
+  "batches": 20,
+  "device": "cpu",
+  "exact": true,
+  "logprob_margin": 0.05,
+  "mode": "exact",
+  "per_row_losses_csv": null,
+  "policies": [
+    {
+      "batch_size": 99,
+      "batches": 1,
+      "checkpoint": "runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt",
+      "logprob_margin": 0.05,
+      "loss_max": 0.6779459118843079,
+      "loss_mean": 0.6779459118843079,
+      "loss_min": 0.6779459118843079,
+      "loss_std": 0.0,
+      "mode": "exact",
+      "policy": "m298pref_a020",
+      "seed": 0,
+      "snippet_npz": "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "snippets": 99
+    },
+    {
+      "batch_size": 99,
+      "batches": 1,
+      "checkpoint": "runs/ppo_m302_rejected_preference_guarded_smoke_seed5233/checkpoint.pt",
+      "logprob_margin": 0.05,
+      "loss_max": 0.678388774394989,
+      "loss_mean": 0.678388774394989,
+      "loss_min": 0.678388774394989,
+      "loss_std": 0.0,
+      "mode": "exact",
+      "policy": "m302raw",
+      "seed": 0,
+      "snippet_npz": "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "snippets": 99
+    }
+  ],
+  "policy_summary_csv": "runs/m302_rejected_preference_guarded_ppo_smoke/exact_m270_raw/policy_summary.csv",
+  "run_type": "outcome_intervention_eval",
+  "seed": 0,
+  "snippet_npz": "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+  "source_npz": {},
+  "source_summary": [],
+  "source_summary_csv": null
+}

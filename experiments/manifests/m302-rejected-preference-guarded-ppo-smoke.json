@@ -2,9 +2,9 @@
   "id": "m302-rejected-preference-guarded-ppo-smoke",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "objective_overfit"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -83,6 +83,25 @@
     "docs/m299-full-public-gate-for-m298-a020.md",
     "docs/m301-rejected-preference-ppo-aux-loss-implementation.md"
   ],
-  "decision_rule": "M302 can promote only if exact objectives, first replay gates, full replay stack, protected key, and behavior seeds all pass; otherwise classify proof_washout or objective_overfit.",
-  "next_blocker": "pending M302 rejected-preference guarded PPO smoke"
+  "results": {
+    "run_dir": "runs/m302_rejected_preference_guarded_ppo_smoke",
+    "raw_run_dir": "runs/ppo_m302_rejected_preference_guarded_smoke_seed5233",
+    "raw_checkpoint": "runs/ppo_m302_rejected_preference_guarded_smoke_seed5233/checkpoint.pt",
+    "raw_train_metric_rejected_history_preference_loss_mean": 1.1774653842051823,
+    "exact_m297_base": 1.1896095275878906,
+    "exact_m297_raw": 1.1903092861175537,
+    "exact_m297_raw_delta": 0.0006997585296630859,
+    "exact_m270_base": 0.6779459118843079,
+    "exact_m270_raw": 0.678388774394989,
+    "exact_m270_raw_delta": 0.00044286251068115234,
+    "interpolation_exact_m297_any_nonzero_pass": false,
+    "interpolation_exact_m270_any_nonzero_pass": false,
+    "replay_gates_run": false,
+    "promotion_recommended": false,
+    "ppo_or_actor_update_run": true,
+    "actor_inputs_changed": false
+  },
+  "decision_rule": "M302 is rejected because raw PPO and every nonzero interpolation alpha regress exact M297 and exact M270, so replay promotion gates are not reached.",
+  "decision": "reject_m302_exact_objective_regression",
+  "next_blocker": "m303-m302-preference-guard-failure-audit"
 }

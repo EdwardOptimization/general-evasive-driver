@@ -1,0 +1,10 @@
+--checkpoint-policy m302_a000=runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0.pt
+--checkpoint-policy m302_a001=runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_001.pt
+--checkpoint-policy m302_a005=runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_005.pt
+--checkpoint-policy m302_a010=runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_01.pt
+--checkpoint-policy m302_a020=runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_02.pt
+--checkpoint-policy m302_a050=runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_05.pt
+--checkpoint-policy m302_a100=runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_1.pt
+--checkpoint-policy m302_a200=runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_2.pt
+--checkpoint-policy m302_a500=runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_5.pt
+--checkpoint-policy m302_a1000=runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_1.pt

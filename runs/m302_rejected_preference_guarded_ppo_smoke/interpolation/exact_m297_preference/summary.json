@@ -1,0 +1,87 @@
+{
+  "actor_inputs_changed": false,
+  "base_loss_lower_than_candidates": null,
+  "base_policy": "m290x64_a500",
+  "checkpoint_policies": [
+    {
+      "label": "m298pref_a020",
+      "path": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0.pt"
+    },
+    {
+      "label": "m302_a001",
+      "path": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_001.pt"
+    },
+    {
+      "label": "m302_a005",
+      "path": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_005.pt"
+    },
+    {
+      "label": "m302_a010",
+      "path": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_01.pt"
+    },
+    {
+      "label": "m302_a020",
+      "path": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_02.pt"
+    },
+    {
+      "label": "m302_a050",
+      "path": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_05.pt"
+    },
+    {
+      "label": "m302_a100",
+      "path": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_1.pt"
+    },
+    {
+      "label": "m302_a200",
+      "path": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_2.pt"
+    },
+    {
+      "label": "m302_a500",
+      "path": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_0_5.pt"
+    },
+    {
+      "label": "m302_a1000",
+      "path": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/checkpoints/alpha_1.pt"
+    }
+  ],
+  "corpus_summary": {
+    "base_policy": "m290x64_a500",
+    "failed_rows": [
+      6,
+      15,
+      16
+    ],
+    "output_csv": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/exact_m297_preference/rejected_history_preference_corpus.csv",
+    "output_npz": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/exact_m297_preference/rejected_history_preference_corpus.npz",
+    "recovered_rows": [
+      11
+    ],
+    "rows": 17,
+    "weight_max": 0.3274986147880554,
+    "weight_mean": 0.04998534545302391,
+    "weight_min": 0.01278961542993784
+  },
+  "device": "cpu",
+  "focused_row_losses_csv": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/exact_m297_preference/focused_row_losses.csv",
+  "loss_config": {
+    "preferred_logprob_margin": 0.05,
+    "wrong_logprob_margin": 0.05,
+    "wrong_preference_coef": 1.0
+  },
+  "losses": {
+    "m298pref_a020": 1.1896095275878906,
+    "m302_a001": 1.189610242843628,
+    "m302_a005": 1.1896129846572876,
+    "m302_a010": 1.1896165609359741,
+    "m302_a020": 1.1896235942840576,
+    "m302_a050": 1.1896443367004395,
+    "m302_a100": 1.189679503440857,
+    "m302_a1000": 1.1903092861175537,
+    "m302_a200": 1.1897492408752441,
+    "m302_a500": 1.1899590492248535
+  },
+  "per_row_losses_csv": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/exact_m297_preference/per_row_losses.csv",
+  "policy_summary_csv": "runs/m302_rejected_preference_guarded_ppo_smoke/interpolation/exact_m297_preference/policy_summary.csv",
+  "ppo_or_actor_update_run": false,
+  "run_type": "rejected_history_preference_objective_sanity"
+}
