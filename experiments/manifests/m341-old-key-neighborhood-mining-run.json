@@ -2,7 +2,7 @@
   "id": "m341-old-key-neighborhood-mining-run",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -83,6 +83,35 @@
     "docs/m340-old-key-neighborhood-mining-design.md",
     "runs/m339_old_key_gap_distribution_refresh/summary.json"
   ],
-  "decision_rule": "M341 may only produce a corpus/gate decision and admit an implementation/gate replacement milestone if diversity targets pass. It cannot promote or run PPO.",
-  "next_blocker": "pending M341 old-key neighborhood mining run"
+  "decision_rule": "M341 produces a source-diverse old-key neighborhood corpus that distinguishes selected alpha from repaired endpoint. It admits a gate implementation milestone only; no checkpoint is promoted and no PPO is run.",
+  "next_blocker": "m342-old-key-neighborhood-gate-implementation",
+  "results": {
+    "run_dir": "runs/m341_old_key_neighborhood_mining",
+    "candidate_pool_csv": "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_candidate_pool.csv",
+    "compact_corpus_csv": "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv",
+    "summary_json": "runs/m341_old_key_neighborhood_mining/summary.json",
+    "broad_pool_rows": 179,
+    "broad_pool_seed_blocks": 5,
+    "broad_pool_max_seed_block_dominance": 0.2346368715083799,
+    "broad_pool_passes_targets": true,
+    "compact_rows": 40,
+    "compact_seed_blocks": 5,
+    "compact_max_seed_block_dominance": 0.25,
+    "compact_max_physical_pair_dominance": 0.025,
+    "compact_passes_targets": true,
+    "selected_accepted_regressions": 0,
+    "selected_gap_p10": -1.8182213222738903e-05,
+    "selected_gap_min": -4.890090234161912e-05,
+    "endpoint_accepted_regressions": 15,
+    "endpoint_gap_p10": -0.004071152343563527,
+    "endpoint_gap_min": -0.05065990753654851,
+    "selected_alpha_passes": true,
+    "endpoint_repair_needed": true,
+    "replacement_gate_ready": true,
+    "m133_diagnostic_rows": 12,
+    "old_key_9944_included": true,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m342_old_key_neighborhood_gate_implementation"
 }

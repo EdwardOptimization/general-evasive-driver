@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 349,
+        "completed": 350,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m340-old-key-neighborhood-mining-design",
+        "task_id": "m341-old-key-neighborhood-mining-run",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "docs/m340-old-key-neighborhood-mining-design.md",
-        "command_log": "docs/m340-old-key-neighborhood-mining-design.md"
+        "run_dir": "runs/m341_old_key_neighborhood_mining",
+        "command_log": "runs/m341_old_key_neighborhood_mining/summary.json"
     },
     "next_task": {
-        "id": "m341-old-key-neighborhood-mining-run",
+        "id": "m342-old-key-neighborhood-gate-implementation",
         "status": "pending",
-        "priority": 3360,
-        "kind": "gate",
-        "hypothesis": "Wider current-base old-key-neighborhood mining can produce a source-diverse compact old-gap corpus that distinguishes M335 repaired endpoint from M335 alpha without relying on singleton 9944 dominance.",
-        "command": "see experiments/manifests/m341-old-key-neighborhood-mining-run.json",
+        "priority": 3370,
+        "kind": "infrastructure",
+        "hypothesis": "A reusable old-key neighborhood gate can replace singleton-veto dominance in the acceptance stack by checking the M341 compact corpus while preserving 9944 as a diagnostic row.",
+        "command": "see experiments/manifests/m342-old-key-neighborhood-gate-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: no-PPO old-key neighborhood mining and aggregation run"
+        "notes": "Pending: implement reusable old-key neighborhood gate from M341 corpus"
     },
-    "updated_at_utc": "20260523T074745Z"
+    "updated_at_utc": "20260523T092224Z"
 }

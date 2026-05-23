@@ -9044,3 +9044,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M340 designs a five seed-block no-PPO old-key neighborhood mining stage. It uses current-base snapshot-bank relocation with wider distances, lateral offsets, widths, and relaxed current-family margin bounds, then replays M333 base, M335 alpha `0.0075`, and M335 repaired endpoint. The design pre-registers broad and compact diversity targets and keeps `9944` active until a replacement corpus passes.
 - decision: `admit_m341_old_key_neighborhood_mining_run`
 - next: `m341-old-key-neighborhood-mining-run`
+
+## 20260523T092224Z - m341-old-key-neighborhood-mining-run
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m341_old_key_neighborhood_mining`
+- artifact: `docs/m341-old-key-neighborhood-mining-run.md`
+- result: M341 runs the no-PPO old-key neighborhood mining and replay. It mines `179` broad rows across `5` seed blocks and builds a `40` row compact corpus. The compact corpus passes diversity targets with max seed-block dominance `0.25` and max physical-pair dominance `0.025`. M335 alpha `0.0075` has `0` accepted regressions with gap p10 `-0.0000181822`, while the repaired endpoint has `15` accepted regressions, gap p10 `-0.004071`, and min gap `-0.050660`.
+- decision: `admit_m342_old_key_neighborhood_gate_implementation`
+- next: `m342-old-key-neighborhood-gate-implementation`

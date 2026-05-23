@@ -55,7 +55,7 @@ endpoint improves exact objectives much more, but collapses the old-key gap to
 Current blocker:
 
 ```text
-m341-old-key-neighborhood-mining-run
+m342-old-key-neighborhood-gate-implementation
 ```
 
 M337 classifies the active blocker as singleton old-key gap-floor bottleneck,
@@ -65,9 +65,11 @@ rows across `12` source families, but the compact severity draft has `26` rows
 with source-family dominance `0.461538`, above the `0.25` limit. Existing
 corpora therefore cannot replace the singleton `9944` floor yet.
 
-M340 designs a five seed-block no-PPO old-key neighborhood mining run. Until
-M341 produces a source-diverse old-key neighborhood corpus, do not run more PPO
-and do not lower the `9944` floor ad hoc.
+M340 designs a five seed-block no-PPO old-key neighborhood mining run. M341
+executes it and produces a valid replacement-gate corpus: `179` broad rows,
+`40` compact rows, `5` seed blocks, selected alpha `0` accepted regressions,
+and repaired endpoint `15` accepted regressions. M342 should implement the
+reusable gate before more PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -125,7 +127,8 @@ and do not lower the `9944` floor ad hoc.
 | old-key gap distribution design | `docs/m338-old-key-gap-distribution-refresh-design.md` | M338 keeps 9944 as diagnostic but designs source-diverse gap distribution to avoid singleton veto dominance |
 | old-key gap corpus refresh | `runs/m339_old_key_gap_distribution_refresh/summary.json` | M339 broad pool has 195 rows, but compact severity draft is source dominated, so it cannot replace singleton 9944 floor |
 | old-key neighborhood design | `docs/m340-old-key-neighborhood-mining-design.md` | M340 designs five no-PPO seed blocks plus explicit broad and compact diversity targets |
-| current blocker | `experiments/manifests/m341-old-key-neighborhood-mining-run.json` | M341 must execute old-key neighborhood mining and aggregation before gate replacement or PPO continuation |
+| old-key neighborhood corpus | `runs/m341_old_key_neighborhood_mining/summary.json` | M341 produces a valid 40-row compact corpus across 5 seed blocks; selected alpha passes and repaired endpoint fails |
+| current blocker | `experiments/manifests/m342-old-key-neighborhood-gate-implementation.json` | M342 must implement the reusable old-key neighborhood gate before PPO continuation |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

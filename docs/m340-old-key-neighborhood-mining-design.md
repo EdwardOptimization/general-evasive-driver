@@ -109,10 +109,10 @@ OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.snapshot_
   --episodes 40 \
   --seed 9860 \
   --device cpu \
-  --nominal-friction-mu-range 0.85 1.15 \
-  --perturbed-friction-mu-range 0.25 0.35 \
+  --nominal-friction-mu-range 0.85,1.15 \
+  --perturbed-friction-mu-range 0.25,0.35 \
   --obstacle-perception-reveal-distance 16.0 \
-  --bank-obstacle-distance-range 5.0 12.0 \
+  --bank-obstacle-distance-range 5.0,12.0 \
   --bank-stride-steps 3 \
   --bank-max-snapshots 40 \
   --bank-max-pairs-per-seed 4 \
