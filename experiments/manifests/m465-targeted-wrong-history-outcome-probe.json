@@ -2,7 +2,7 @@
   "id": "m465-targeted-wrong-history-outcome-probe",
   "type": "gate",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -81,5 +81,38 @@
     "runs/m464_wrong_history_targeted_pair_triage/targeted_pairs.csv"
   ],
   "decision_rule": "M465 can admit wrong-history gate expansion only if wrong-history evidence is source-diverse and includes outcome degradation beyond high-margin-only rows. Otherwise redesign the task family again.",
-  "next_blocker": "pending M465 targeted wrong-history outcome probe"
+  "results": {
+    "action_gate_run_dir": "runs/m465_targeted_wrong_history_action_gate",
+    "outcome_gate_run_dir": "runs/m465_targeted_wrong_history_outcome_gate",
+    "selector_run_dir": "runs/m465_targeted_wrong_history_selector",
+    "wrong_history_audit": "runs/m465_targeted_wrong_history_selector/wrong_history_evidence_audit.json",
+    "action_input_pairs": 199,
+    "action_intervention_rows": 995,
+    "outcome_input_pairs": 199,
+    "outcome_rows": 1194,
+    "selector_candidate_rows": 995,
+    "selector_outcome_critical_rows": 95,
+    "selector_accepted_rows": 34,
+    "selector_compact_rows": 34,
+    "selector_compact_variant_count": 3,
+    "wrong_history_accepted_rows": 7,
+    "wrong_history_compact_rows": 7,
+    "wrong_history_success_drop_rows": 0,
+    "wrong_history_collision_gap_rows": 0,
+    "wrong_history_obstacle_completion_drop_rows": 0,
+    "wrong_history_positive_margin_gap_rows": 7,
+    "wrong_history_labels": [
+      "aes_feasible"
+    ],
+    "wrong_history_probe_seeds": [
+      10300,
+      10400
+    ],
+    "wrong_history_normal_margin_min": 3.5484013279112925,
+    "wrong_history_normal_margin_max": 7.612637655783953,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "targeted_probe_reject_wrong_history_gate_admit_m466"
+  },
+  "next_blocker": "m466-near-boundary-wrong-history-redesign"
 }

@@ -10284,3 +10284,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M464 implements `autodrift.wrong_history_targeted_pair_triage` and focused tests for matched-current filtering, scoring, source caps, and pass criteria. The smoke over M462 `candidate_pairs.csv` starts from `73281` pairs, keeps `618` eligible pairs, and exports `209` targeted pairs. The targeted surface passes diversity thresholds with `3` probe seeds, `3` obstacle labels, `3` targets, single-seed share `0.377990`, and single-label share `0.574163`. Label coverage is drift-required `120`, aes-feasible `53`, and unavoidable `36`.
 - decision: `triage_pass_admit_m465_targeted_wrong_history_outcome_probe`
 - next: `m465-targeted-wrong-history-outcome-probe`
+
+## 20260523T210721Z - m465-targeted-wrong-history-outcome-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m465_targeted_wrong_history_selector`
+- artifact: `docs/m465-targeted-wrong-history-outcome-probe.md`
+- result: M465 runs action and continuation outcome gates on M464 targeted pairs. The selector processes `995` candidate rows, finds `95` outcome-critical rows, accepts `34`, and selects `34` compact rows across `3` variants. Wrong-history now enters compact with `7` rows, but all are high-slack margin-only: `0` success-drop, `0` collision-gap, `0` obstacle-completion-drop, `7` positive-margin rows, label `aes_feasible` only, and normal margins from `3.548402` to `7.612638`. This is not enough to expand a wrong-history proof gate.
+- decision: `targeted_probe_reject_wrong_history_gate_admit_m466`
+- next: `m466-near-boundary-wrong-history-redesign`

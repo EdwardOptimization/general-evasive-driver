@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m465-targeted-wrong-history-outcome-probe
+m466-near-boundary-wrong-history-redesign
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -253,6 +253,14 @@ labels, `3` targets, single-seed share `0.377990`, and single-label share
 `0.574163`. The next blocker is M465: run action and continuation outcome
 gates on this targeted pair surface and report wrong-history evidence
 separately from reset/zero-current diagnostics.
+M465 runs those gates. Wrong-history finally enters the compact corpus with
+`7` rows, but the evidence is still rejected for proof expansion: all
+wrong-history compact rows are `aes_feasible`, have `0` success-drop rows, `0`
+collision-gap rows, `0` obstacle-completion-drop rows, and normal margins from
+`3.548402` to `7.612638`. These are high-slack positive-margin rows, not
+near-boundary self-ID failures. The next blocker is M466: redesign
+wrong-history mining around low normal-margin near-boundary rows before another
+outcome probe.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

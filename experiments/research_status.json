@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 473,
+        "completed": 474,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m464-wrong-history-targeted-pair-triage",
+        "task_id": "m465-targeted-wrong-history-outcome-probe",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m464_wrong_history_targeted_pair_triage",
-        "command_log": "docs/m464-wrong-history-targeted-pair-triage.md"
+        "run_dir": "runs/m465_targeted_wrong_history_selector",
+        "command_log": "docs/m465-targeted-wrong-history-outcome-probe.md"
     },
     "next_task": {
-        "id": "m465-targeted-wrong-history-outcome-probe",
+        "id": "m466-near-boundary-wrong-history-redesign",
         "status": "pending",
-        "priority": 4600,
-        "kind": "gate",
-        "hypothesis": "The M464 targeted pair surface will produce more source-diverse and outcome-relevant wrong-history interventions",
-        "command": "see experiments/manifests/m465-targeted-wrong-history-outcome-probe.json",
+        "priority": 4610,
+        "kind": "infrastructure",
+        "hypothesis": "Wrong-history proof requires normal-margin-aware near-boundary mining before another outcome probe",
+        "command": "see experiments/manifests/m466-near-boundary-wrong-history-redesign.json",
         "success_artifact": "",
-        "notes": "Pending: run action/outcome gates on targeted pairs and summarize wrong-history separately"
+        "notes": "Pending: redesign around low normal-margin wrong-history rows; M465 high-slack margin-only rows are not proof"
     },
-    "updated_at_utc": "20260523T210317Z"
+    "updated_at_utc": "20260523T210721Z"
 }

@@ -1,0 +1,83 @@
+# m465-targeted-wrong-history-outcome-probe Research Review
+
+## Summary
+
+- Generated at UTC: 20260523T210822Z
+- Type: gate
+- Gate tier: generalization
+- Promotion decision: targeted_probe_reject_wrong_history_gate_admit_m466
+- Decision reason: M465 gets 7 wrong-history compact rows but all are aes-feasible high-slack margin-only with no success collision or completion drops
+
+## Hypothesis
+
+The M464 targeted pair surface will produce more source-diverse and outcome-relevant wrong-history interventions than the generic M461/M462 selector runs.
+
+## Lineage
+
+- parent_checkpoint: runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
+- parent_dataset: runs/m464_wrong_history_targeted_pair_triage/targeted_pairs.csv, runs/m464_wrong_history_targeted_pair_triage/summary.json
+- parent_config: configs/m457_history_necessity_late_reveal_zero_relvel.json, experiments/manifests/m464-wrong-history-targeted-pair-triage.json
+- parent_objective: targeted wrong-history action and continuation outcome probe
+- derived_from: m464-wrong-history-targeted-pair-triage
+- blocked_by: m464-wrong-history-targeted-pair-triage
+- supersedes: None
+- invalidates: None
+
+## Success Criteria
+
+- action and outcome gates complete on M464 targeted pairs
+- wrong-history action and outcome evidence are reported separately
+- wrong_history_compact or structured rejection is written
+- source diversity and success/collision/completion/margin evidence are reported separately
+- no checkpoint is promoted
+
+## Failure Criteria
+
+- probe only reports aggregate reset/zero-current counts
+- wrong-history absence is hidden in aggregate counts
+- high-margin-only wrong-history rows are treated as proof
+- actor contract changes
+
+## Evidence Gates
+
+- run action intervention gate on M464 targeted pairs
+- run continuation outcome gate on M464 targeted pairs
+- summarize wrong-history rows separately from reset/zero-current diagnostics
+- decide whether wrong-history proof expansion is justified
+- no checkpoint promotion
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not train
+- do not promote checkpoint
+- do not change actor input/output contract
+- do not add hidden or oracle actor inputs
+- do not count reset/zero-current rows as wrong-history proof
+- do not claim success from margin-only high-slack wrong-history rows
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m465-targeted-wrong-history-outcome-probe
+- type: gate
+- checkpoint: runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: targeted_probe_reject_wrong_history_gate_admit_m466
+- reason: M465 gets 7 wrong-history compact rows but all are aes-feasible high-slack margin-only with no success collision or completion drops
+
+## Next Blocker
+
+m466-near-boundary-wrong-history-redesign
