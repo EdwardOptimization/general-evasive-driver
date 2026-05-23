@@ -1,0 +1,85 @@
+{
+  "id": "m465-targeted-wrong-history-outcome-probe",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m464_wrong_history_targeted_pair_triage/targeted_pairs.csv",
+      "runs/m464_wrong_history_targeted_pair_triage/summary.json"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m464-wrong-history-targeted-pair-triage.json"
+    ],
+    "parent_objective": [
+      "targeted wrong-history action and continuation outcome probe"
+    ],
+    "derived_from": [
+      "m464-wrong-history-targeted-pair-triage"
+    ],
+    "blocked_by": [
+      "m464-wrong-history-targeted-pair-triage"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m465-targeted-wrong-history-outcome-probe.md",
+  "public_gates": [
+    "run action intervention gate on M464 targeted pairs",
+    "run continuation outcome gate on M464 targeted pairs",
+    "summarize wrong-history rows separately from reset/zero-current diagnostics",
+    "decide whether wrong-history proof expansion is justified",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not count reset/zero-current rows as wrong-history proof",
+    "do not claim success from margin-only high-slack wrong-history rows"
+  ],
+  "hypothesis": "The M464 targeted pair surface will produce more source-diverse and outcome-relevant wrong-history interventions than the generic M461/M462 selector runs.",
+  "success_criteria": [
+    "action and outcome gates complete on M464 targeted pairs",
+    "wrong-history action and outcome evidence are reported separately",
+    "wrong_history_compact or structured rejection is written",
+    "source diversity and success/collision/completion/margin evidence are reported separately",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "probe only reports aggregate reset/zero-current counts",
+    "wrong-history absence is hidden in aggregate counts",
+    "high-margin-only wrong-history rows are treated as proof",
+    "actor contract changes"
+  ],
+  "commands": [
+    {
+      "name": "targeted_wrong_history_outcome_probe",
+      "command": "Run matched_history_intervention_gate and matched_history_outcome_gate on runs/m464_wrong_history_targeted_pair_triage/targeted_pairs.csv, then summarize wrong-history evidence separately; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m465-targeted-wrong-history-outcome-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m464-wrong-history-targeted-pair-triage.md",
+    "runs/m464_wrong_history_targeted_pair_triage/targeted_pairs.csv"
+  ],
+  "decision_rule": "M465 can admit wrong-history gate expansion only if wrong-history evidence is source-diverse and includes outcome degradation beyond high-margin-only rows. Otherwise redesign the task family again.",
+  "next_blocker": "pending M465 targeted wrong-history outcome probe"
+}

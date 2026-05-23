@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m464-wrong-history-targeted-pair-triage
+m465-targeted-wrong-history-outcome-probe
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -246,6 +246,13 @@ compact corpus as a wrong-history pass condition, and target the full
 The next blocker is M464: implement targeted wrong-history pair triage that
 preserves matched-current similarity while selecting a source-diverse
 wrong-history surface for later outcome probing.
+M464 implements that triage tool and smokes it on the M462 full
+`candidate_pairs.csv` pool. It starts from `73281` pairs, keeps `618` eligible
+pairs, and exports `209` targeted pairs with `3` probe seeds, `3` obstacle
+labels, `3` targets, single-seed share `0.377990`, and single-label share
+`0.574163`. The next blocker is M465: run action and continuation outcome
+gates on this targeted pair surface and report wrong-history evidence
+separately from reset/zero-current diagnostics.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

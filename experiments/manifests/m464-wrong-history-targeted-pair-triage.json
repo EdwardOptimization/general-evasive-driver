@@ -2,7 +2,7 @@
   "id": "m464-wrong-history-targeted-pair-triage",
   "type": "infrastructure",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -84,5 +84,37 @@
     "runs/m462_late_reveal_matched_current_fresh_seed10200/candidate_pairs.csv"
   ],
   "decision_rule": "M464 can admit a wrong-history outcome probe only if triage produces a source-diverse targeted pair surface without changing actor inputs or using reset/zero-current evidence as proof.",
-  "next_blocker": "pending M464 wrong-history targeted pair triage"
+  "results": {
+    "module": "src/autodrift/wrong_history_targeted_pair_triage.py",
+    "test_file": "tests/test_wrong_history_targeted_pair_triage.py",
+    "run_dir": "runs/m464_wrong_history_targeted_pair_triage",
+    "candidate_pair_count": 73281,
+    "eligible_pair_count": 618,
+    "targeted_pair_count": 209,
+    "targeted_probe_seed_count": 3,
+    "targeted_obstacle_label_count": 3,
+    "targeted_target_count": 3,
+    "single_seed_share": 0.37799043062200954,
+    "single_label_share": 0.5741626794258373,
+    "targeted_by_probe_seed": {
+      "10200": 79,
+      "10300": 78,
+      "10400": 52
+    },
+    "targeted_by_left_obstacle_label": {
+      "aes_feasible": 53,
+      "drift_required": 120,
+      "unavoidable": 36
+    },
+    "targeted_by_target": {
+      "future_braking_deceleration": 74,
+      "future_lateral_accel_response": 45,
+      "future_yaw_response": 90
+    },
+    "triage_pass": true,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "triage_pass_admit_m465_targeted_wrong_history_outcome_probe"
+  },
+  "next_blocker": "m465-targeted-wrong-history-outcome-probe"
 }

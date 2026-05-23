@@ -10274,3 +10274,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M463 diagnoses the weak wrong-history evidence from M461/M462. The root causes are action-subtle wrong-history injections, large normal-margin slack in accepted wrong-history rows, a compact selector dominated by reset/zero-current variants, pair selection that optimizes matched-current ambiguity rather than harmful wrong-history belief, and missing source diversity. The redesign splits wrong-history proof from reset/zero-current diagnostics and requires a separate targeted pair triage over the full `candidate_pairs.csv` pool before any wrong-history gate expansion.
 - decision: `admit_m464_wrong_history_targeted_pair_triage`
 - next: `m464-wrong-history-targeted-pair-triage`
+
+## 20260523T210317Z - m464-wrong-history-targeted-pair-triage
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m464_wrong_history_targeted_pair_triage`
+- artifact: `docs/m464-wrong-history-targeted-pair-triage.md`
+- result: M464 implements `autodrift.wrong_history_targeted_pair_triage` and focused tests for matched-current filtering, scoring, source caps, and pass criteria. The smoke over M462 `candidate_pairs.csv` starts from `73281` pairs, keeps `618` eligible pairs, and exports `209` targeted pairs. The targeted surface passes diversity thresholds with `3` probe seeds, `3` obstacle labels, `3` targets, single-seed share `0.377990`, and single-label share `0.574163`. Label coverage is drift-required `120`, aes-feasible `53`, and unavoidable `36`.
+- decision: `triage_pass_admit_m465_targeted_wrong_history_outcome_probe`
+- next: `m465-targeted-wrong-history-outcome-probe`

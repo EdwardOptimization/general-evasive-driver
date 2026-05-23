@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 472,
+        "completed": 473,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m463-wrong-history-outcome-critical-redesign",
+        "task_id": "m464-wrong-history-targeted-pair-triage",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m463-wrong-history-outcome-critical-redesign.md"
+        "run_dir": "runs/m464_wrong_history_targeted_pair_triage",
+        "command_log": "docs/m464-wrong-history-targeted-pair-triage.md"
     },
     "next_task": {
-        "id": "m464-wrong-history-targeted-pair-triage",
+        "id": "m465-targeted-wrong-history-outcome-probe",
         "status": "pending",
-        "priority": 4590,
-        "kind": "infrastructure",
-        "hypothesis": "Targeted triage over the full M462 candidate-pair pool can build a more source-diverse wrong-history candidate surface",
-        "command": "see experiments/manifests/m464-wrong-history-targeted-pair-triage.json",
+        "priority": 4600,
+        "kind": "gate",
+        "hypothesis": "The M464 targeted pair surface will produce more source-diverse and outcome-relevant wrong-history interventions",
+        "command": "see experiments/manifests/m465-targeted-wrong-history-outcome-probe.json",
         "success_artifact": "",
-        "notes": "Pending: implement targeted wrong-history pair triage; no training or gate expansion"
+        "notes": "Pending: run action/outcome gates on targeted pairs and summarize wrong-history separately"
     },
-    "updated_at_utc": "20260523T205900Z"
+    "updated_at_utc": "20260523T210317Z"
 }
