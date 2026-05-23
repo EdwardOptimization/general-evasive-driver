@@ -8964,3 +8964,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M332 interpolates from M328 to M330 repaired and selects `alpha=0.45` as the largest old-key-gap-floor-passing alpha in the grid. `alpha=0.45` keeps old-key gap `0.090155`, improves exact M297/M270 by `-0.000056148` and `-0.000036240`, passes `4/4` source-diverse gates, and passes M183/M170 plus M267/M264 first replay gates.
 - decision: `admit_m333_full_public_gate_for_m332_a045`
 - next: `m333-full-public-gate-for-m332-a045`
+
+## 20260523T070543Z - m333-full-public-gate-for-m332-a045
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m333_full_public_gate_for_m332_a045`
+- artifact: `docs/m333-full-public-gate-for-m332-a045.md`
+- result: M333 promotes M332 alpha `0.45`. Exact M297/M270 improve by `-0.000056148` and `-0.000036240`; source-diverse protected gates pass `4/4`; old `9944` keeps margin gap `0.090155 >= 0.09`; all six replay surfaces pass; behavior seeds 9505 and 9506 retain `0.8625` success with reset `0.85` and zero-all `0.80`.
+- decision: `promote_m332_a045_source_diverse_public_gate_base`
+- next: `m334-short-source-diverse-ppo-escalation-design`

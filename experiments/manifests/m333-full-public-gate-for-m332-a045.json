@@ -2,7 +2,7 @@
   "id": "m333-full-public-gate-for-m332-a045",
   "type": "driver_candidate",
   "gate_tier": "promotion",
-  "promotion_decision": "pending",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -99,6 +99,36 @@
     "runs/m332_old_key_gap_sweep/guard_results.csv",
     "runs/m332_a045_source_diverse_protected_gate/summary.json"
   ],
-  "decision_rule": "Promote M332 alpha 0.45 only if exact objectives, source-diverse protected gate, old-key gap floor, all six replay gates, behavior seeds, and research validation pass.",
-  "next_blocker": "pending M333 full public gate"
+  "results": {
+    "run_dir": "runs/m333_full_public_gate_for_m332_a045",
+    "selected_policy": "m332_a045",
+    "selected_checkpoint": "runs/m332_m328_to_m330_gap_bounded_interpolation/checkpoints/alpha_0_45.pt",
+    "exact_eval_run_dir": "runs/m333_full_public_gate_for_m332_a045/exact_eval_vs_m328",
+    "source_diverse_run_dir": "runs/m333_full_public_gate_for_m332_a045/source_diverse_protected_gate",
+    "m297_preference_loss_delta": -5.614757537841797e-05,
+    "exact_m270_loss_delta": -3.62396240234375e-05,
+    "source_diverse_protected_pass": true,
+    "source_diverse_replay_gates_passed": 4,
+    "source_diverse_replay_gate_count": 4,
+    "full_replay_gates_pass": true,
+    "old_key_policy_pass": false,
+    "old_key_classification": "single_key_window_saturation_with_gap_floor_retained",
+    "old_key_normal_margin": 0.21660639308044183,
+    "old_key_wrong_history_margin": 0.12645160077278073,
+    "old_key_margin_gap": 0.0901547923076611,
+    "old_key_margin_gap_floor": 0.09,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "behavior_success_mean": 0.8625,
+    "behavior_termination_mean": 0.1375,
+    "behavior_clearance_margin_mean": 1.8445414943596472,
+    "reset_success_mean": 0.85,
+    "zero_all_success_mean": 0.8,
+    "promotion_recommended": true,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "promote_m332_a045_source_diverse_public_gate_base",
+  "decision_rule": "M333 promotes M332 alpha 0.45 because exact objectives, source-diverse protected proof, old-key gap floor, all six replay gates, behavior seeds, and input-contract checks pass under the M324/M331 policy.",
+  "next_blocker": "m334-short-source-diverse-ppo-escalation-design"
 }
