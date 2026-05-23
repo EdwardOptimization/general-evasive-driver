@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 505,
+        "completed": 506,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m496-natural-belief-targeted-pair-triage",
+        "task_id": "m497-natural-belief-decision-window-outcome-gate",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m496_natural_belief_targeted_pair_triage",
-        "command_log": "docs/m496-natural-belief-targeted-pair-triage.md"
+        "run_dir": "runs/m497_natural_belief_decision_window_outcome_summary",
+        "command_log": "docs/m497-natural-belief-decision-window-outcome-gate.md"
     },
     "next_task": {
-        "id": "m497-natural-belief-decision-window-outcome-gate",
+        "id": "m498-natural-belief-wrong-history-no-effect-audit",
         "status": "pending",
-        "priority": 4920,
+        "priority": 4930,
         "kind": "gate",
-        "hypothesis": "Early decision-window wrong-history interventions can test whether pre-reveal command-response belief affects outcomes before current-response correction dominates.",
-        "command": "see experiments/manifests/m497-natural-belief-decision-window-outcome-gate.json",
+        "hypothesis": "M497 wrong-history remains outcome-no-effect because one-shot wrong-history is weak or not outcome-aligned relative to reset and zero-current controls.",
+        "command": "see experiments/manifests/m498-natural-belief-wrong-history-no-effect-audit.json",
         "success_artifact": "",
-        "notes": "Pending: split targeted pairs by config and run early-offset outcome gates; no training or promotion"
+        "notes": "Pending: audit wrong-history action and trajectory distances against controls"
     },
-    "updated_at_utc": "20260523T234529Z"
+    "updated_at_utc": "20260523T234944Z"
 }

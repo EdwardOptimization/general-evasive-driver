@@ -1,0 +1,85 @@
+{
+  "id": "m498-natural-belief-wrong-history-no-effect-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m497_natural_belief_decision_window_outcome_summary/combined_summary.json",
+      "runs/m497_natural_belief_decision_window_outcome_summary/combined_tail_outcomes.csv"
+    ],
+    "parent_config": [
+      "configs/m494_natural_belief_short_reveal_zero_relvel.json",
+      "configs/m494_natural_belief_warmup_capability_zero_relvel.json",
+      "experiments/manifests/m497-natural-belief-decision-window-outcome-gate.json"
+    ],
+    "parent_objective": [
+      "natural decision-window wrong-history no-effect audit"
+    ],
+    "derived_from": [
+      "m497-natural-belief-decision-window-outcome-gate"
+    ],
+    "blocked_by": [
+      "m497-natural-belief-decision-window-outcome-gate"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m498-natural-belief-wrong-history-no-effect-audit.md",
+  "public_gates": [
+    "audit M497 wrong-history action and trajectory distances against reset and zero-current controls",
+    "compare proof-candidate and no-effect rows by config label target offset and normal margin",
+    "classify whether the blocker is weak wrong-history perturbation, source concentration, target-score misalignment, or task/intervention mismatch",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not use hidden-hold variants as deployable proof",
+    "do not tune from private holdouts"
+  ],
+  "hypothesis": "M497 rejected wrong-history event proof because the one-shot wrong-history branch remains too weak or not outcome-aligned relative to reset/zero-current controls, not because the natural decision-window rows are insensitive.",
+  "success_criteria": [
+    "report wrong-history action and trajectory distance distributions",
+    "report reset and zero-current control distance distributions",
+    "report proof and event rows by config label target offset and seed",
+    "classify the next blocker and next admissible step",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "M497 artifacts are insufficient for audit",
+    "audit cannot separate wrong-history no-effect from control sensitivity",
+    "actor contract changes",
+    "training or checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "no_effect_audit",
+      "command": "Analyze runs/m497_natural_belief_decision_window_outcome_summary/combined_tail_outcomes.csv and combined_summary.json."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m498-natural-belief-wrong-history-no-effect-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m497-natural-belief-decision-window-outcome-gate.md",
+    "runs/m497_natural_belief_decision_window_outcome_summary/combined_summary.json"
+  ],
+  "decision_rule": "M498 should admit the next step based on mechanism diagnosis: repair pair selection if wrong-history action movement is weak, design a different natural intervention if movement is real but corrected, or revise task construction if controls are not event-sensitive enough.",
+  "next_blocker": "pending M498 natural belief wrong-history no-effect audit"
+}

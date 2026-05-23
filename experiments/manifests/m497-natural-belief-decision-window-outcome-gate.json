@@ -2,7 +2,7 @@
   "id": "m497-natural-belief-decision-window-outcome-gate",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "reject",
   "failure_types": [
     "none"
   ],
@@ -96,5 +96,60 @@
     "runs/m496_natural_belief_targeted_pair_triage/summary.json"
   ],
   "decision_rule": "M497 should admit a proof expansion only if wrong-history outcome rows are source-diverse and include event rows; if only controls degrade, classify as control-only sensitivity and audit no-effect.",
-  "next_blocker": "pending M497 natural belief decision-window outcome gate"
+  "next_blocker": "pending M497 natural belief decision-window outcome gate",
+  "results": {
+    "run_dirs": {
+      "short_reveal": "runs/m497_short_reveal_decision_window_gate",
+      "warmup_capability": "runs/m497_warmup_capability_decision_window_gate"
+    },
+    "combined_summary_json": "runs/m497_natural_belief_decision_window_outcome_summary/combined_summary.json",
+    "combined_tail_outcomes_csv": "runs/m497_natural_belief_decision_window_outcome_summary/combined_tail_outcomes.csv",
+    "variant_summary_csv": "runs/m497_natural_belief_decision_window_outcome_summary/variant_summary.csv",
+    "input_pair_count": 294,
+    "valid_tail_pair_count": 1124,
+    "invalid_tail_pair_count": 52,
+    "wrong_tail_once_total_proof_candidate_count": 15,
+    "wrong_tail_once_total_event_rows": 0,
+    "wrong_tail_once_probe_seed_count": 3,
+    "wrong_tail_once_obstacle_label_count": 2,
+    "wrong_tail_once_target_count": 2,
+    "wrong_tail_once_config_count": 2,
+    "wrong_tail_once_single_seed_share": 0.6666666666666666,
+    "wrong_tail_once_single_label_share": 0.5333333333333333,
+    "wrong_tail_once_by_config": {
+      "short_reveal": 4,
+      "warmup_capability": 11
+    },
+    "wrong_tail_once_by_offset": {
+      "0": 4,
+      "2": 4,
+      "4": 3,
+      "8": 4
+    },
+    "wrong_tail_once_by_label": {
+      "drift_required": 8,
+      "unavoidable": 7
+    },
+    "wrong_tail_once_by_target": {
+      "future_lateral_accel_response": 3,
+      "future_yaw_response": 12
+    },
+    "control_total_proof_candidate_count": 472,
+    "control_total_event_rows": 17,
+    "control_by_variant": {
+      "reset_tail": 298,
+      "zero_current_tail": 174
+    },
+    "control_by_config": {
+      "short_reveal": 120,
+      "warmup_capability": 352
+    },
+    "wrong_history_event_proof_pass": false,
+    "control_sensitivity_present": true,
+    "classification": "control_only_sensitivity",
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "next_manifest": "experiments/manifests/m498-natural-belief-wrong-history-no-effect-audit.json",
+    "decision": "natural_decision_window_gate_reject_wrong_history_event_proof_admit_m498_no_effect_audit"
+  }
 }

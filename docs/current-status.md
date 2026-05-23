@@ -52,7 +52,7 @@ public-gate base; M487-M492 did not train or promote a checkpoint.
 Current blocker:
 
 ```text
-m497-natural-belief-decision-window-outcome-gate
+m498-natural-belief-wrong-history-no-effect-audit
 ```
 
 Recent progress: M486-M492 is now closed as an artificial tail-forcing
@@ -81,9 +81,12 @@ M496 passes targeted triage. It exports `294` pairs across `6` probe seeds,
 `3` labels, `3` targets, and `2` configs, with single-seed share `0.238`,
 single-label share `0.544`, and single-config share `0.605`.
 
-Next step: M497 should split the targeted pairs by config and run early-offset
-decision-window wrong-history outcome gates. This is still a diagnostic gate,
-not training or checkpoint promotion.
+M497 rejects wrong-history event proof on the natural decision-window surface.
+Wrong-history has `15` margin-only proof rows and `0` event rows, while
+reset/zero-current controls have `472` proof rows and `17` event rows.
+
+Next step: M498 should audit why wrong-history remains outcome-no-effect
+despite control sensitivity before changing the task or intervention.
 
 ## Current Evidence
 

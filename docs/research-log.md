@@ -10594,3 +10594,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M496 selects a targeted natural belief wrong-history pair surface from the M495 combined matched-current rows. The triage exports `294` targeted pairs from `5580` eligible pairs, covering `6` probe seeds, `3` labels, `3` targets, `2` configs, and `2` seed windows. Single-seed share is `0.238095`, single-label share is `0.544218`, and single-config share is `0.605442`; the full natural triage gate passes. This is still only a targeted pair surface, not outcome proof.
 - decision: `natural_belief_targeted_triage_pass_admit_m497_decision_window_outcome_gate`
 - next: `m497-natural-belief-decision-window-outcome-gate`
+## 20260524T000000Z - m497-natural-belief-decision-window-outcome-gate
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m497_natural_belief_decision_window_outcome_summary`
+- artifact: `docs/m497-natural-belief-decision-window-outcome-gate.md`
+- result: M497 splits M496 targeted pairs by natural belief config and runs early decision-window offsets `0`, `2`, `4`, and `8`. Wrong-history produces `15` proof candidates across `3` probe seeds, `2` labels, `2` targets, and `2` configs, but all are margin-only with `0` event rows. Reset/zero-current controls on the same rows produce `472` proof candidates and `17` event rows. The classification is `control_only_sensitivity`: the task/window is sensitive, but one-shot wrong-history is still not outcome-sensitive.
+- decision: `natural_decision_window_gate_reject_wrong_history_event_proof_admit_m498_no_effect_audit`
+- next: `m498-natural-belief-wrong-history-no-effect-audit`
