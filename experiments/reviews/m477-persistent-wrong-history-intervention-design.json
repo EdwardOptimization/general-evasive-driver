@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M477 designs diagnostic wrong_hold and wrong_late variants to test whether wrong belief persistence is the missing causal factor",
+  "failure_criteria": [
+    "design confuses diagnostic intervention with deployable actor input",
+    "design proposes training before intervention evidence",
+    "design counts reset/zero-current degradation as wrong-history proof",
+    "design relaxes normal-margin proof requirements"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not count artificial persistent intervention as deployable behavior proof without labeling it diagnostic",
+    "do not relax near-boundary normal-margin requirements"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260523T220544Z",
+  "hypothesis": "A one-shot wrong-history injection is corrected too quickly; persistent or later wrong-history intervention will distinguish whether recurrent belief can be outcome-critical when the wrong belief is active during the emergency decision window.",
+  "lineage": {
+    "blocked_by": [
+      "m476-wrong-history-no-effect-mechanism-audit"
+    ],
+    "derived_from": [
+      "m476-wrong-history-no-effect-mechanism-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m476-wrong-history-no-effect-mechanism-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m476_wrong_history_no_effect_mechanism_audit/summary.json",
+      "runs/m475_combined_adversarial_outcome_selector/candidates.csv"
+    ],
+    "parent_objective": [
+      "persistent or later wrong-history intervention design"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m477-persistent-wrong-history-intervention-design",
+  "next_blocker": "m478-persistent-wrong-history-intervention-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m478_persistent_wrong_history_intervention_implementation",
+  "public_gates": [
+    "design a persistent wrong-history intervention that keeps the wrong hidden belief active for K emergency steps",
+    "design a later-injection intervention at or after obstacle reveal",
+    "define pass/fail criteria against M475 reset/zero-current and wrong-history baselines",
+    "preserve P0 actor contract and no-privileged inputs",
+    "no checkpoint promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m478_persistent_wrong_history_intervention_implementation",
+    "milestone": "m477-persistent-wrong-history-intervention-design",
+    "reason": "M477 designs diagnostic wrong_hold and wrong_late variants to test whether wrong belief persistence is the missing causal factor",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "document the exact intervention variants to implement",
+    "define how persistent wrong hidden state is applied without changing actor inputs",
+    "define diagnostic pass criteria for action distance, trajectory distance, margin gap, success drop, and source diversity",
+    "pre-register implementation artifacts for the next milestone",
+    "no checkpoint is promoted"
+  ],
+  "type": "infrastructure"
+}

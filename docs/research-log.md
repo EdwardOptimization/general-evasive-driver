@@ -10404,3 +10404,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M476 audits the M475 no-effect result row by row. Wrong-history first-action distance is nonzero (`mean=0.053586`, `max=0.151947`, `131/197` action-prefilter pass), but trajectory perturbation is small (`mean=0.045794`) compared with reset-hidden (`0.883482`) and zero-current (`0.395153`). Even the `22` rows with wrong-history action distance above `0.10` have max margin gap only `0.004904`. There are `47` wrong-history rows with normal margin under `0.10 m`, but none produce success, collision, completion, or proof-margin degradation. The blocker is classified as wrong-history perturbations being too weak or too quickly corrected by current feedback.
 - decision: `wrong_history_no_effect_audit_admit_m477_persistent_intervention_design`
 - next: `m477-persistent-wrong-history-intervention-design`
+
+## 20260523T220350Z - m477-persistent-wrong-history-intervention-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m477-persistent-wrong-history-intervention-design.md`
+- result: M477 designs a diagnostic persistent/later wrong-history intervention gate. The proposed module is `autodrift.persistent_wrong_history_intervention_gate`, reusing M475/M476 snapshots but adding variants `wrong_hold_4`, `wrong_hold_8`, `wrong_hold_16`, `wrong_late_4_hold_4`, `wrong_late_8_hold_4`, `wrong_late_4_hold_8`, and optional `wrong_reseed_4`. The design explicitly labels the intervention as diagnostic, not deployable proof, and preserves the P0 actor input contract.
+- decision: `admit_m478_persistent_wrong_history_intervention_implementation`
+- next: `m478-persistent-wrong-history-intervention-implementation`

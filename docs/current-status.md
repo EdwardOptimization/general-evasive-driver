@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m477-persistent-wrong-history-intervention-design
+m478-persistent-wrong-history-intervention-implementation
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -316,6 +316,9 @@ trajectory perturbation is small (`0.045794` mean) compared with reset-hidden
 (`0.883482`) and zero-current (`0.395153`). Even high-action-distance
 wrong-history rows do not reach the `0.02` proof margin gap. The next blocker is
 M477: design a persistent or later wrong-history diagnostic intervention.
+M477 completes that design with `wrong_hold_K` and `wrong_late_S_hold_K`
+variants. The next blocker is M478: implement the diagnostic gate and smoke it
+on M474 adversarial pairs.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key
@@ -922,12 +925,11 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not run PPO or promote a checkpoint while the current blocker is M477
-persistent/later wrong-history intervention design. M476 classifies the current
-blocker as weak or quickly corrected wrong-history trajectory perturbation.
-M477 should stay diagnostic: keep the actor contract unchanged, do not claim an
-artificial persistent intervention as deployable behavior proof, and do not
-train before the intervention evidence is available.
+Do not run PPO or promote a checkpoint while the current blocker is M478
+persistent/later wrong-history intervention implementation. The M477 design is
+diagnostic only: keep the actor contract unchanged, do not claim artificial
+persistent hidden-state clamping as deployable behavior proof, and do not train
+before the intervention evidence is available.
 
 ## Sensor Profile Policy
 

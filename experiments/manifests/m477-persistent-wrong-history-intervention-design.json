@@ -2,7 +2,7 @@
   "id": "m477-persistent-wrong-history-intervention-design",
   "type": "infrastructure",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -80,5 +80,24 @@
     "runs/m476_wrong_history_no_effect_mechanism_audit/summary.json"
   ],
   "decision_rule": "M477 can admit implementation only if it keeps the intervention diagnostic, preserves actor contract, and explicitly tests whether wrong belief persistence is the missing causal factor.",
-  "next_blocker": "pending M477 persistent wrong-history intervention design"
+  "results": {
+    "design_doc": "docs/m477-persistent-wrong-history-intervention-design.md",
+    "selected_module": "autodrift.persistent_wrong_history_intervention_gate",
+    "selected_variants": [
+      "wrong_once",
+      "wrong_hold_4",
+      "wrong_hold_8",
+      "wrong_hold_16",
+      "wrong_late_4_hold_4",
+      "wrong_late_8_hold_4",
+      "wrong_late_4_hold_8",
+      "wrong_reseed_4"
+    ],
+    "diagnostic_only": true,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "next_manifest": "experiments/manifests/m478-persistent-wrong-history-intervention-implementation.json",
+    "decision": "admit_m478_persistent_wrong_history_intervention_implementation"
+  },
+  "next_blocker": "m478-persistent-wrong-history-intervention-implementation"
 }

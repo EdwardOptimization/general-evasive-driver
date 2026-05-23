@@ -1,0 +1,93 @@
+{
+  "id": "m478-persistent-wrong-history-intervention-implementation",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m474_combined_fresh_anchor_adversarial_search/adversarial_pairs.csv",
+      "runs/m476_wrong_history_no_effect_mechanism_audit/summary.json"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m477-persistent-wrong-history-intervention-design.json"
+    ],
+    "parent_objective": [
+      "persistent wrong-history diagnostic intervention implementation"
+    ],
+    "derived_from": [
+      "m477-persistent-wrong-history-intervention-design"
+    ],
+    "blocked_by": [
+      "m477-persistent-wrong-history-intervention-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m478-persistent-wrong-history-intervention-implementation.md",
+  "public_gates": [
+    "implement persistent_wrong_history_intervention_gate",
+    "add focused tests for wrong_hold and wrong_late variant semantics",
+    "run a no-training smoke on M474 adversarial pairs",
+    "report whether persistent/later wrong-hidden variants create source-diverse outcome degradation",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not count artificial persistent intervention as deployable behavior proof",
+    "do not relax near-boundary normal-margin requirements"
+  ],
+  "hypothesis": "If fast recurrent correction is the M475 blocker, then holding or late-injecting the wrong hidden state during the emergency window will create larger trajectory and terminal-margin degradation than one-shot wrong history.",
+  "success_criteria": [
+    "new diagnostic module and tests are added",
+    "smoke run completes on M474 adversarial pairs",
+    "wrong_once reproduces M475 no-effect baseline",
+    "at least one persistent/later variant reports whether proof-style degradation appears",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "implementation changes deployable actor inputs",
+    "persistent variant semantics are ambiguous or untested",
+    "smoke run cannot reconstruct snapshots",
+    "training or checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "Add autodrift.persistent_wrong_history_intervention_gate and focused tests."
+    },
+    {
+      "name": "diagnostic_smoke",
+      "command": "Run the new gate on runs/m474_combined_fresh_anchor_adversarial_search/adversarial_pairs.csv with M399 and M457 config."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m478-persistent-wrong-history-intervention-implementation.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m478_persistent_wrong_history_intervention_gate/summary.json",
+      "type": "summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m477-persistent-wrong-history-intervention-design.md",
+    "runs/m476_wrong_history_no_effect_mechanism_audit/summary.json"
+  ],
+  "decision_rule": "M478 can admit a diagnostic proof probe only if the new variants are implemented with tested semantics and no actor-contract changes.",
+  "next_blocker": "pending M478 persistent wrong-history intervention implementation"
+}

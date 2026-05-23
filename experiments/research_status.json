@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 485,
+        "completed": 486,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m476-wrong-history-no-effect-mechanism-audit",
+        "task_id": "m477-persistent-wrong-history-intervention-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m476_wrong_history_no_effect_mechanism_audit",
-        "command_log": "docs/m476-wrong-history-no-effect-mechanism-audit.md"
+        "run_dir": "",
+        "command_log": "docs/m477-persistent-wrong-history-intervention-design.md"
     },
     "next_task": {
-        "id": "m477-persistent-wrong-history-intervention-design",
+        "id": "m478-persistent-wrong-history-intervention-implementation",
         "status": "pending",
-        "priority": 4720,
+        "priority": 4730,
         "kind": "infrastructure",
-        "hypothesis": "A one-shot wrong-history injection is corrected too quickly; persistent or later wrong-history intervention will distinguish whether recurrent belief can be outcome-critical when the wrong belief is active during the emergency decision window",
-        "command": "see experiments/manifests/m477-persistent-wrong-history-intervention-design.json",
+        "hypothesis": "If fast recurrent correction is the M475 blocker, then holding or late-injecting the wrong hidden state during the emergency window will create larger trajectory and terminal-margin degradation than one-shot wrong history",
+        "command": "see experiments/manifests/m478-persistent-wrong-history-intervention-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design persistent/later wrong-history diagnostic intervention; no training"
+        "notes": "Pending: implement persistent_wrong_history_intervention_gate and smoke it on M474 pairs; no training"
     },
-    "updated_at_utc": "20260523T220013Z"
+    "updated_at_utc": "20260523T220350Z"
 }
