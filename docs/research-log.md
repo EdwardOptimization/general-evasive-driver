@@ -10540,3 +10540,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M490 implements `autodrift.tail_action_sequence_amplification_gate` plus focused tests and runs the diagnostic on both M484 critical-window configs. The combined result has `1080` valid tail pairs and `8640` outcome rows. Natural `wrong_tail_once` remains weak with `11` proof rows and `0` event rows. Diagnostic hidden-hold variants produce `90` proof rows and `4` event rows across `6` probe seeds, `2` labels, `2` targets, and `2` configs; all event rows are from late high-energy. Controls remain stronger with `333` proof rows and `41` event rows. This confirms the quick-correction mechanism diagnostically, but hidden-hold is artificial and is not deployable self-ID proof.
 - decision: `hidden_hold_confirms_quick_correction_diagnostic_admit_m491_action_replay_sufficiency_design`
 - next: `m491-tail-action-replay-sufficiency-design`
+## 20260524T005000Z - m491-tail-action-replay-sufficiency-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m491-tail-action-replay-sufficiency-design.md`
+- result: M491 designs the follow-up to M490's hidden-hold diagnostic. It defines `wrong_tail_action_replay_K` for `K in {2,4,8,12}` with observer-hidden resume semantics: generate the wrong K-step physical action sequence from the hidden-hold branch, replay those actions in a fresh left-tail environment, update an observer hidden from the left-tail hidden while ignoring its output actions, then resume normal control from that observer hidden. This separates wrong action-sequence sufficiency from persistent wrong-hidden forcing.
+- decision: `admit_m492_tail_action_replay_sufficiency_gate_implementation`
+- next: `m492-tail-action-replay-sufficiency-gate-implementation`

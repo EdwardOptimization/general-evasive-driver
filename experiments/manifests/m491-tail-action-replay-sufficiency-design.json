@@ -2,7 +2,7 @@
   "id": "m491-tail-action-replay-sufficiency-design",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -82,5 +82,19 @@
     "runs/m490_tail_action_sequence_amplification_summary/combined_summary.json"
   ],
   "decision_rule": "M491 should admit implementation only after defining whether replayed wrong actions resume with observer hidden, reset hidden, or branch hidden, and how each result should be interpreted.",
-  "next_blocker": "pending M491 tail action-replay sufficiency design"
+  "next_blocker": "m492-tail-action-replay-sufficiency-gate-implementation",
+  "results": {
+    "documentation": "docs/m491-tail-action-replay-sufficiency-design.md",
+    "selected_variants": [
+      "wrong_tail_action_replay_2",
+      "wrong_tail_action_replay_4",
+      "wrong_tail_action_replay_8",
+      "wrong_tail_action_replay_12"
+    ],
+    "resume_policy": "observer_hidden",
+    "diagnostic_only": true,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "admit_m492_tail_action_replay_sufficiency_gate_implementation"
+  }
 }

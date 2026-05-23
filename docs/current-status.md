@@ -52,26 +52,25 @@ public-gate base; M487-M490 did not train or promote a checkpoint.
 Current blocker:
 
 ```text
-m491-tail-action-replay-sufficiency-design
+m492-tail-action-replay-sufficiency-gate-implementation
 ```
 
 Recent progress: M487 was a negative natural proof gate: `wrong_tail_once`
-produced `11` margin-style proof rows, `0` event rows, and single-label share
-`0.909091`, while reset-tail and zero-current controls produced `333` proof
-rows and `41` event rows. M488 showed the mechanism: wrong-tail first actions
-move, but trajectory deviation is small (`0.068261` mean), so the policy
-quickly corrects from current response.
+produced `11` margin-style proof rows and `0` event rows. M488 showed the
+mechanism: wrong-tail first actions move, but trajectory deviation is small
+(`0.068261` mean), so the policy quickly corrects from current response. M490
+then confirmed this diagnostically: artificial `wrong_tail_hidden_hold_K`
+variants produce `90` proof rows and `4` event rows, while natural
+`wrong_tail_once` stays at `0` events.
 
-M490 implements the diagnostic action-sequence amplification gate. Natural
-`wrong_tail_once` remains `11` proof rows and `0` events, while artificial
-`wrong_tail_hidden_hold_K` variants produce `90` proof rows and `4` event rows
-across `6` probe seeds, `2` labels, `2` targets, and `2` configs. All event
-rows are from late high-energy, so this confirms quick correction
-diagnostically but is not deployable self-ID proof.
+M491 designs the next diagnostic. `wrong_tail_action_replay_K` will replay the
+K-step wrong physical action prefix in a fresh left-tail environment, update an
+observer hidden from the left-tail hidden while ignoring its own output actions,
+and then resume normal control from that observer hidden. This separates wrong
+action-sequence sufficiency from persistent wrong-hidden forcing.
 
-Next step: M491 should design an action-replay sufficiency diagnostic. It must
-separate whether M490's hidden-hold events are caused by the wrong physical
-action sequence itself or by the artificially persistent wrong hidden state.
+Next step: M492 should implement and run this observer-hidden action-replay
+gate on both critical-window configs. No training or checkpoint promotion.
 
 ## Current Evidence
 

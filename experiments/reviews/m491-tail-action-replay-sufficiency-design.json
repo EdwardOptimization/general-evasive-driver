@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M491 defines observer-hidden action replay to test whether M490 hidden-hold events come from wrong physical actions or persistent wrong hidden state",
+  "failure_criteria": [
+    "design cannot separate action-sequence sufficiency from persistent hidden-state forcing",
+    "design treats forced action replay as deployable proof",
+    "design omits hidden-hold and natural wrong-tail controls",
+    "actor contract changes",
+    "training or checkpoint promotion is proposed before the diagnostic"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not claim action replay as deployable self-ID proof",
+    "do not add privileged actor inputs",
+    "do not skip natural wrong_tail_once and hidden-hold controls"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260523T231644Z",
+  "hypothesis": "M490 hidden-hold events may be caused either by the wrong physical action sequence or by the artificially persistent wrong hidden state; a K-step action-replay diagnostic can separate these mechanisms.",
+  "lineage": {
+    "blocked_by": [
+      "m490-tail-action-sequence-amplification-gate-implementation"
+    ],
+    "derived_from": [
+      "m490-tail-action-sequence-amplification-gate-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/m484_critical_window_near_threshold_zero_relvel.json",
+      "configs/m484_critical_window_late_high_energy_zero_relvel.json",
+      "experiments/manifests/m490-tail-action-sequence-amplification-gate-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m490_tail_action_sequence_amplification_summary/combined_summary.json",
+      "runs/m490_tail_action_sequence_amplification_summary/combined_tail_amplification_outcomes.csv"
+    ],
+    "parent_objective": [
+      "tail action replay sufficiency diagnostic design"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m491-tail-action-replay-sufficiency-design",
+  "next_blocker": "m492-tail-action-replay-sufficiency-gate-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m492_tail_action_replay_sufficiency_gate_implementation",
+  "public_gates": [
+    "design a diagnostic that replays K-step wrong-tail physical action sequences without holding wrong hidden afterward",
+    "separate wrong action sufficiency from persistent wrong-hidden sufficiency",
+    "define observer-hidden resume semantics before implementation",
+    "do not train or promote checkpoint"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m492_tail_action_replay_sufficiency_gate_implementation",
+    "milestone": "m491-tail-action-replay-sufficiency-design",
+    "reason": "M491 defines observer-hidden action replay to test whether M490 hidden-hold events come from wrong physical actions or persistent wrong hidden state",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "define action-replay rollout semantics and hidden resume semantics",
+    "define comparison against wrong_tail_once and wrong_tail_hidden_hold_K",
+    "define event/proof/source-diversity thresholds for implementation",
+    "classify action replay rows as diagnostic only",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "type": "infrastructure"
+}
