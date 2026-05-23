@@ -54,28 +54,24 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m430-branch-split-nullspace-projection-probe
+m431-branch-split-utility-balance-audit
 ```
 
-M423 completes the mixed-radius projection probe without PPO or actor-contract
-changes. `mixed_a` and `mixed_b` pass exact M297/M270/old-key no-regression,
-M267/M264 `17/17`, old-key compact `40/40`, and M183/M170 `17/17`, but the
-best proof-passing candidate `mixed_b` retains only `0.133154` of M406 recovery
-utility, below the `0.20` threshold. `mixed_c` reaches `0.142650` utility but
-reopens M267/M264 rows `6` and `15` plus old-key case `10023`, so M423 is
-rejected as a promotable candidate. M424 classifies the follow-up as a
-radius-only utility ceiling: M267 rows `6` and `15` plus old-key `10023` bind
-before recovery retention reaches `0.20`, and `mixed_b` is already at an exact
-old-key surrogate boundary at the next optimizer step. M425 designs a
-source-coupled recovery/nullspace residual: recover M398 old-key normal-margin
-targets only through a projected gradient that does not first-order increase
-exact gates, M267 rows `6`/`15`, old-key `10023`, or spillover guards. M426
-implements per-source trajectory losses, projected recovery-gradient tooling,
-and a `197`-row hard-guard anchor excluding recovery rows. The default-disabled
-no-update smoke passes exact gates with zero replay loss. M427 then runs the
-first projected recovery probe: exact gates pass, M267/M264 stays `17/17`, and
-recovery retained rises to `0.174354`, but old-key compact falls to `36/40`.
-M428 should audit branch-specific old-key guards before another projection.
+M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
+could not retain `0.20` of the M406 old-key recovery utility because M267 rows
+`6`/`15` and old-key `10023` bound first. M425-M426 implemented source-coupled
+projected recovery gradients and a hard-guard trajectory anchor. M427 improved
+recovery retention to `0.174354` and preserved M267/M264 `17/17`, but old-key
+compact fell to `36/40`. M428 classified the failures as branch-specific:
+`10004` wrong-history branch became safe, `10023` lost gap, and two `9872`
+normal branches collided. M429 exported a `357`-row branch-split hard guard.
+M430 then restored all first proof gates: exact M297/M270/old-key pass,
+M267/M264 stays `17/17`, old-key compact returns to `40/40`, and M183/M170
+stays `17/17`. The M430 candidate is rejected because it is retention-heavy:
+recovery retained vs M406 drops to `0.061702`, below the `0.20` utility target,
+below M423 `mixed_b` (`0.133154`), and below M427 (`0.174354`). M431 should
+audit which branch-split rows dominate projection conflicts and design a
+selective source/branch balance before any more projection or PPO.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

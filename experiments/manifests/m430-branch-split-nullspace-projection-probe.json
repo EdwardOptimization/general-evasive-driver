@@ -2,9 +2,10 @@
   "id": "m430-branch-split-nullspace-projection-probe",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "objective_overfit",
+    "promotion_gate_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -66,9 +67,38 @@
   "commands": [
     {
       "name": "branch_split_nullspace_projection_probe",
-      "command": "Run exact_post_ppo_repair from M403 raw with --project-recovery-gradient and M429 branch-split guard anchor; no PPO or promotion."
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.exact_post_ppo_repair --base-checkpoint runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --raw-checkpoint runs/m403_lrec1e10_interpolation/checkpoints/alpha_0_1.pt --preference-npz runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz --outcome-npz runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz --old-key-preference-npz runs/m377_cumulative_gap_tail_v2_old_key_preference_corpus/old_key_preference_corpus.npz --old-key-recovery-npz runs/m398_old_key_normal_margin_recovery_targets/old_key_recovery_corpus.npz --current-family-conflict-npz runs/m393_current_family_rejected_boundary_targets/current_family_conflict_corpus.npz --replay-trajectory-anchor-npz runs/m429_branch_split_old_key_guard/branch_split_hard_guard_anchor.npz --start-mode repair_from_raw --steps 40 --learning-rate 0.000002 --seed 10157 --train-scope actor_coupling --lambda-m297 1000000000000 --lambda-m270 1000000000000 --lambda-old-key 1000000000000 --lambda-current-family-conflict 1000000000 --lambda-old-key-recovery 10000000000 --lambda-replay-trajectory-anchor 10000000000000 --lambda-action-anchor 100 --lambda-param-base 1 --lambda-param-raw 100 --project-recovery-gradient --device cpu --run-dir runs/m430_branch_split_projected_ltraj1e13_s40_seed10157"
+    },
+    {
+      "name": "m267_m264_first_replay",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_replay_gate --checkpoint-policy m400_base=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --checkpoint-policy m430_projected=runs/m430_branch_split_projected_ltraj1e13_s40_seed10157/candidate_checkpoint.pt --corpus-csv runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv --env-config configs/m121_human_view_zero_obstacle_relvel.json --max-continuation-steps 60 --baseline-policy m400_base --candidate-policy m430_projected --max-normal-success-drop 0.0 --max-normal-margin-regression 0.005 --max-margin-gap-regression 0.001 --max-success-drop-count-regression 0 --device cpu --run-dir runs/m430_branch_split_m267_m264_first_replay"
+    },
+    {
+      "name": "old_key_compact_replay",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.old_key_neighborhood_targeted_replay --reference-manifest runs/m341_old_key_neighborhood_block_a_seed9860/manifest.json --compact-corpus-csv runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv --checkpoint-policy m400_base=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --checkpoint-policy m430_projected=runs/m430_branch_split_projected_ltraj1e13_s40_seed10157/candidate_checkpoint.pt --device cpu --run-dir runs/m430_branch_split_old_key_targeted_replay"
+    },
+    {
+      "name": "old_key_compact_gate",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.old_key_neighborhood_replay_gate --compact-corpus-csv runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv --candidate-pool-csv runs/m341_old_key_neighborhood_mining/old_key_neighborhood_candidate_pool.csv --guard-results-csv runs/m430_branch_split_old_key_targeted_replay/guard_results.csv --baseline-policy m400_base --candidate-policy m430_projected --run-dir runs/m430_branch_split_old_key_replay_gate --pass-decision admit_m430_branch_split_old_key --fail-decision reject_m430_branch_split_old_key"
+    },
+    {
+      "name": "m183_m170_first_replay",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_replay_gate --checkpoint-policy m400_base=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --checkpoint-policy m430_projected=runs/m430_branch_split_projected_ltraj1e13_s40_seed10157/candidate_checkpoint.pt --corpus-csv runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv --env-config configs/m121_human_view_zero_obstacle_relvel.json --max-continuation-steps 60 --baseline-policy m400_base --candidate-policy m430_projected --max-normal-success-drop 0.0 --max-normal-margin-regression 0.005 --max-margin-gap-regression 0.001 --max-success-drop-count-regression 0 --device cpu --run-dir runs/m430_branch_split_m183_m170_first_replay"
     }
   ],
+  "results": {
+    "checkpoint": "runs/m430_branch_split_projected_ltraj1e13_s40_seed10157/candidate_checkpoint.pt",
+    "exact_m297_delta_vs_base": -0.00003552436828613281,
+    "exact_m270_delta_vs_base": -0.00007003545761108398,
+    "old_key_surrogate_delta_vs_base": -0.0004820823669433594,
+    "exact_lexicographic_pass": true,
+    "replay_trajectory_anchor_loss": 0.000000002546579835893681,
+    "recovery_retained_vs_m406": 0.06170209626752963,
+    "m267_m264_success_drops": "17/17",
+    "old_key_compact_accepted_cases": "40/40",
+    "m183_m170_success_drops": "17/17",
+    "conclusion": "proof-safe but retention-heavy; reject because recovery utility is below 0.20 and below M427"
+  },
   "required_artifacts": [
     {
       "path": "docs/m430-branch-split-nullspace-projection-probe.md",
@@ -82,5 +112,5 @@
     "docs/m429-branch-split-old-key-guard-implementation.md"
   ],
   "decision_rule": "M430 may admit a full public gate only if exact gates M267/M264 and old-key compact replay all pass; proof-pass utility below 0.20 is partial non-promotable evidence.",
-  "next_blocker": "pending M430 branch-split nullspace projection probe"
+  "next_blocker": "m431-branch-split-utility-balance-audit"
 }

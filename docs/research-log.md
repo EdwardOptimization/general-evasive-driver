@@ -9934,3 +9934,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M429 adds `branch_split_old_key_guard.py`, exports M427 failed old-key rows as branch-split trajectory guards, and combines them with the M426 hard guard. The final anchor has `357` rows: `197` M426 base hard-guard rows plus `160` branch-split old-key rows. Additions are `10004` wrong-history, `10023` wrong-history, and two `9872` normal-branch cases. No-update exact repair smoke passes with replay trajectory loss `0.0`; focused tests pass (`25 passed`).
 - decision: `admit_m430_branch_split_nullspace_projection_probe`
 - next: `m430-branch-split-nullspace-projection-probe`
+
+## 20260523T175954Z - m430-branch-split-nullspace-projection-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m430_branch_split_projected_ltraj1e13_s40_seed10157`
+- artifact: `docs/m430-branch-split-nullspace-projection-probe.md`
+- result: M430 applies projected recovery gradients with the M429 `357`-row branch-split hard guard. Exact M297/M270/old-key gates pass, M267/M264 first replay stays `17/17`, old-key compact replay returns to `40/40`, and M183/M170 first replay stays `17/17`. The proof repair is too conservative: recovery retained vs M406 is only `0.061702`, below the `0.20` target and below both M423 `mixed_b` (`0.133154`) and M427 (`0.174354`).
+- decision: `reject_m430_candidate_admit_m431_branch_split_utility_balance_audit`
+- next: `m431-branch-split-utility-balance-audit`

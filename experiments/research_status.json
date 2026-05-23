@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 438,
+        "completed": 439,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m429-branch-split-old-key-guard-implementation",
+        "task_id": "m430-branch-split-nullspace-projection-probe",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m429_branch_split_guard_no_update_smoke",
-        "command_log": "docs/m429-branch-split-old-key-guard-implementation.md"
+        "run_dir": "runs/m430_branch_split_projected_ltraj1e13_s40_seed10157",
+        "command_log": "docs/m430-branch-split-nullspace-projection-probe.md"
     },
     "next_task": {
-        "id": "m430-branch-split-nullspace-projection-probe",
+        "id": "m431-branch-split-utility-balance-audit",
         "status": "pending",
-        "priority": 4250,
+        "priority": 4260,
         "kind": "gate",
-        "hypothesis": "Probe branch-split old-key projected recovery without PPO",
-        "command": "see experiments/manifests/m430-branch-split-nullspace-projection-probe.json",
+        "hypothesis": "Audit why branch-split hard guard restores proof but collapses recovery utility",
+        "command": "see experiments/manifests/m431-branch-split-utility-balance-audit.json",
         "success_artifact": "",
-        "notes": "Pending: run exact repair with projected recovery and M429 branch-split guard; no PPO or promotion"
+        "notes": "Pending: attribute projection conflicts by source and branch; no PPO or promotion"
     },
-    "updated_at_utc": "20260523T175435Z"
+    "updated_at_utc": "20260523T175954Z"
 }
