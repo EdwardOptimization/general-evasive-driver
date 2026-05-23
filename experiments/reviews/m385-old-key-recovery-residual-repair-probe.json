@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M385 rejects direct recovery-repair endpoint and regular alphas by proof washout; micro alpha 0.00075 passes exact cumulative old-key source-diverse and first replay gates while alpha 0.001 first fails M267/M264",
+  "failure_criteria": [
+    "exact repair regresses M297 or M270",
+    "recovery residual improves but closed-loop cumulative old-key replay still fails",
+    "wrong-history branch is made safe by the repair",
+    "actor contract is changed",
+    "research validation fails"
+  ],
+  "failure_types": [
+    "proof_washout",
+    "protected_key_window_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote a checkpoint directly",
+    "do not lower old-key thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not replace direct steer/throttle/brake output",
+    "do not accept exact loss improvement without closed-loop replay"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260523T134953Z",
+  "hypothesis": "Exact repair using the replay-selected M384 old-key recovery residual can move beyond the M378 alpha 0.05 base toward the alpha 0.1 direction while improving gap-tail normal margins and preserving M297/M270 proof objectives.",
+  "lineage": {
+    "blocked_by": [
+      "m384-old-key-local-recovery-target-export"
+    ],
+    "derived_from": [
+      "m384-old-key-local-recovery-target-export"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m384-old-key-local-recovery-target-export.json"
+    ],
+    "parent_dataset": [
+      "runs/m384_old_key_local_recovery_targets/old_key_recovery_corpus.npz",
+      "runs/m377_cumulative_gap_tail_v2_old_key_preference_corpus/old_key_preference_corpus.npz",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz"
+    ],
+    "parent_objective": [
+      "probe exact repair with replay-selected old-key recovery residual before any PPO continuation"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m385-old-key-recovery-residual-repair-probe",
+  "next_blocker": "m386-full-public-gate-for-m385-a00075",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m386_full_public_gate_for_m385_micro_a00075",
+  "public_gates": [
+    "no PPO run",
+    "exact M297 no-regression",
+    "exact M270 no-regression",
+    "old-key recovery residual decreases or remains bounded",
+    "cumulative old-key replay gate before source-diverse or first replay gates",
+    "preserve actor input contract"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m385_recovery_repair_micro_interpolation/checkpoints/alpha_0_00075.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m386_full_public_gate_for_m385_micro_a00075",
+    "milestone": "m385-old-key-recovery-residual-repair-probe",
+    "reason": "M385 rejects direct recovery-repair endpoint and regular alphas by proof washout; micro alpha 0.00075 passes exact cumulative old-key source-diverse and first replay gates while alpha 0.001 first fails M267/M264",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "run exact repair with M384 old-key recovery corpus and no PPO",
+    "candidate or bounded interpolation passes exact M297/M270 no-regression",
+    "cumulative old-key replay gap-tail gate improves or no longer fails for the M380 rows",
+    "if cumulative old-key passes then source-diverse protected and first replay gates are admitted",
+    "all artifacts and failure classifications are documented",
+    "research validation passes"
+  ],
+  "type": "gate"
+}

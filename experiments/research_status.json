@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 393,
+        "completed": 394,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m384-old-key-local-recovery-target-export",
+        "task_id": "m385-old-key-recovery-residual-repair-probe",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m384_old_key_local_recovery_targets",
-        "command_log": "docs/m384-old-key-local-recovery-target-export.md"
+        "run_dir": "runs/m385_micro_a0_00075_old_key_replay_gate",
+        "command_log": "docs/m385-old-key-recovery-residual-repair-probe.md"
     },
     "next_task": {
-        "id": "m385-old-key-recovery-residual-repair-probe",
+        "id": "m386-full-public-gate-for-m385-a00075",
         "status": "pending",
-        "priority": 3800,
-        "kind": "gate",
-        "hypothesis": "Probe exact repair with M384 old-key recovery residual before any PPO",
-        "command": "see experiments/manifests/m385-old-key-recovery-residual-repair-probe.json",
+        "priority": 3810,
+        "kind": "driver_candidate",
+        "hypothesis": "Run full public promotion gate for M385 micro alpha 0.00075 after proof-gate pass",
+        "command": "see experiments/manifests/m386-full-public-gate-for-m385-a00075.json",
         "success_artifact": "",
-        "notes": "Pending: run no-PPO exact repair with M384 recovery corpus then cumulative old-key replay before broader proof gates"
+        "notes": "Pending: six public replay surfaces and behavior seeds; no PPO and no promotion unless all public gates pass"
     },
-    "updated_at_utc": "20260523T133215Z"
+    "updated_at_utc": "20260523T134550Z"
 }

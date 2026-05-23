@@ -9484,3 +9484,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M384 exports real replay-selected recovery targets for the four M380 cumulative old-key gap-tail rows. The exporter evaluates `1008` one-step local action rollouts from the M378 alpha `0.05` public-gate base and finds accepted recovery targets for `4/4` rows with mean normal-margin improvement `0.005159597` and no base-retention rows. The no-update exact repair smoke reads the corpus and reports `old_key_recovery_loss=0.002272237`, exact lexicographic pass true, no PPO, no promotion, and no actor input/output change.
 - decision: `admit_m385_old_key_recovery_residual_repair_probe`
 - next: `m385-old-key-recovery-residual-repair-probe`
+
+## 20260523T134550Z - m385-old-key-recovery-residual-repair-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m385_micro_a0_00075_old_key_replay_gate`
+- artifact: `docs/m385-old-key-recovery-residual-repair-probe.md`
+- result: M385 tests the M384 local-action recovery residual without PPO. The direct exact-repair endpoint improves exact M297 by `-0.014961360`, exact M270 by `-0.009343028`, and old-key surrogate by `-0.001996040`, but closed-loop cumulative old-key replay rejects it with `10` accepted regressions and `3` normal-success regressions. Ordinary interpolation alpha `0.01` passes old-key and source-diverse proof but fails M267/M264 first replay with only `15/17` success drops. The micro grid finds alpha `0.00075` passes exact M297/M270, cumulative old-key replay, source-diverse protected gates `5/5`, and M183/M170 plus M267/M264 first replay gates `17/17`; alpha `0.001` is the first tested M267/M264 row15 knife-edge failure.
+- decision: `admit_m386_full_public_gate_for_m385_micro_a00075`
+- next: `m386-full-public-gate-for-m385-a00075`

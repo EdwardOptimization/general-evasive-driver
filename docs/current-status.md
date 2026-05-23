@@ -55,7 +55,7 @@ repair is the first tested cumulative old-key compact gap-p10 failure.
 Current blocker:
 
 ```text
-m385-old-key-recovery-residual-repair-probe
+m386-full-public-gate-for-m385-a00075
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -142,7 +142,13 @@ receive accepted one-step local recovery actions from 1008 replay rollouts,
 with mean normal-margin improvement `0.005159597`, and the M383 residual reads
 the resulting corpus in a no-update exact repair smoke. M385 should now test
 whether exact repair can use those targets without regressing M297/M270 or
-closed-loop old-key proof.
+closed-loop old-key proof. M385 completes that no-PPO probe with a mixed
+result: the direct recovery-repair endpoint and ordinary alphas improve exact
+objectives but wash out proof retention, while micro alpha `0.00075` passes
+exact M297/M270, cumulative old-key replay, source-diverse protected gates
+`5/5`, and first replay gates M183/M170 plus M267/M264 `17/17`. Alpha `0.001`
+is the first tested M267/M264 knife-edge failure. M386 should run the full
+public promotion gate before any promotion or PPO continuation.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
