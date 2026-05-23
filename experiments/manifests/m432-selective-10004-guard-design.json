@@ -1,0 +1,82 @@
+{
+  "id": "m432-selective-10004-guard-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m427_projected_recovery_ltraj1e13_s40_seed10156/candidate_checkpoint.pt",
+      "runs/m430_branch_split_projected_ltraj1e13_s40_seed10157/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m429_branch_split_old_key_guard/branch_split_hard_guard_anchor.npz",
+      "runs/m431_branch_split_utility_balance_audit/branch_split_source_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m431-branch-split-utility-balance-audit.json"
+    ],
+    "parent_objective": [
+      "selective branch-specific guard design for 10004 wrong-history"
+    ],
+    "derived_from": [
+      "m431-branch-split-utility-balance-audit"
+    ],
+    "blocked_by": [
+      "m431-branch-split-utility-balance-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m432-selective-10004-guard-design.md",
+  "public_gates": [
+    "design only; no PPO",
+    "next probe must keep exact M297/M270/old-key no-regression",
+    "next probe must keep M267/M264 17/17 old-key compact 40/40 and M183/M170 17/17",
+    "next probe must evaluate recovery retained vs M406"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower replay or exact thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "hypothesis": "The M430 utility collapse can be relieved by treating 10004 wrong-history as a selective branch guard rather than a tiny-radius all-hard full-trajectory anchor, while keeping 10023 and 9872 proof guards intact.",
+  "success_criteria": [
+    "specify a selective 10004 guard profile or exporter change",
+    "keep 10023 wrong-history and 9872 normal guards hard in the first probe",
+    "pre-register a no-PPO projection probe with recovery retained vs M406 >= 0.20 as primary utility target",
+    "retain M427 recovery utility 0.174354 as the minimum useful comparison"
+  ],
+  "failure_criteria": [
+    "design requires lowering proof gates",
+    "design removes 10004 wrong-history protection entirely",
+    "design changes actor input/output contract",
+    "design recommends PPO before a no-PPO selective proof probe"
+  ],
+  "commands": [
+    {
+      "name": "selective_10004_guard_design",
+      "command": "Design source/branch-specific radius or hinge profiles for 10004 wrong-history based on M431 conflict attribution; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m432-selective-10004-guard-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m431-branch-split-utility-balance-audit.md"
+  ],
+  "decision_rule": "M432 should admit an implementation/probe only if the selective 10004 design preserves all M430 proof gates and gives a concrete no-PPO test path for recovering utility.",
+  "next_blocker": "pending M432 selective 10004 guard design"
+}

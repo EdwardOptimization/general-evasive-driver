@@ -9944,3 +9944,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M430 applies projected recovery gradients with the M429 `357`-row branch-split hard guard. Exact M297/M270/old-key gates pass, M267/M264 first replay stays `17/17`, old-key compact replay returns to `40/40`, and M183/M170 first replay stays `17/17`. The proof repair is too conservative: recovery retained vs M406 is only `0.061702`, below the `0.20` target and below both M423 `mixed_b` (`0.133154`) and M427 (`0.174354`).
 - decision: `reject_m430_candidate_admit_m431_branch_split_utility_balance_audit`
 - next: `m431-branch-split-utility-balance-audit`
+
+## 20260523T180230Z - m431-branch-split-utility-balance-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m431_branch_split_utility_balance_audit`
+- artifact: `docs/m431-branch-split-utility-balance-audit.md`
+- result: M431 attributes M430's utility collapse to `10004|perturbed|31|31|9.5|-1.0|0.8` wrong-history. At M427 this source has the largest branch-split anchor violation (`1.075796e-05`) and directly conflicts with recovery descent (cosine `-0.904241`). The `9872` normal-branch guards are aligned with recovery (cosines about `+0.93`), so they are not the main utility blocker. M430's all-hard branch-split guard overconstrains source `10004`, reducing recovery retained vs M406 from M427 `0.174354` to `0.061702`.
+- decision: `admit_m432_selective_10004_guard_design`
+- next: `m432-selective-10004-guard-design`

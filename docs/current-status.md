@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m431-branch-split-utility-balance-audit
+m432-selective-10004-guard-design
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -69,9 +69,13 @@ M430 then restored all first proof gates: exact M297/M270/old-key pass,
 M267/M264 stays `17/17`, old-key compact returns to `40/40`, and M183/M170
 stays `17/17`. The M430 candidate is rejected because it is retention-heavy:
 recovery retained vs M406 drops to `0.061702`, below the `0.20` utility target,
-below M423 `mixed_b` (`0.133154`), and below M427 (`0.174354`). M431 should
-audit which branch-split rows dominate projection conflicts and design a
-selective source/branch balance before any more projection or PPO.
+below M423 `mixed_b` (`0.133154`), and below M427 (`0.174354`). M431 audits
+the utility collapse and identifies `10004` wrong-history as the dominant
+conflict: it is the largest M427 branch-split loss (`1.075796e-05`) and its
+hard-gradient cosine with the recovery gradient is `-0.904241`. The `9872`
+normal guards are aligned with recovery and are not the main blocker. M432
+should design a selective `10004` wrong-history guard rather than another
+all-hard full-trajectory anchor.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

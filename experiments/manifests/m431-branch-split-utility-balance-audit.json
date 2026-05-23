@@ -61,9 +61,24 @@
   "commands": [
     {
       "name": "branch_split_utility_balance_audit",
-      "command": "Compare M427 and M430 projection/replay artifacts, inspect branch-split source losses and projection conflict diagnostics, and design a no-PPO selective balance probe."
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python audit script comparing M400/M423/M427/M430/M406/M403 on the M429 branch-split anchor and M398 recovery objective; output runs/m431_branch_split_utility_balance_audit"
     }
   ],
+  "results": {
+    "run_dir": "runs/m431_branch_split_utility_balance_audit",
+    "m423_recovery_retained_vs_m406": 0.13315430006232556,
+    "m427_recovery_retained_vs_m406": 0.17435400926925274,
+    "m430_recovery_retained_vs_m406": 0.06170209626752963,
+    "dominant_conflict_source": "10004|perturbed|31|31|9.500000|-1.000000|0.800000 wrong_history",
+    "dominant_conflict_weighted_loss_at_m427": 0.000010757960808405187,
+    "dominant_conflict_cosine_at_m427": -0.9042409094969763,
+    "secondary_conflict_source": "10023|perturbed|12|12|11.000000|-0.800000|1.200000 wrong_history",
+    "aligned_non_primary_sources": [
+      "9872|perturbed|21|18|12.000000|-1.200000|1.200000 normal",
+      "9872|perturbed|21|18|12.500000|-0.800000|1.300000 normal"
+    ],
+    "conclusion": "M430 is overconstrained mainly because 10004 wrong-history is both the largest branch-split violation and a direct negative-gradient conflict with recovery; 9872 normal guards are not the main blocker"
+  },
   "required_artifacts": [
     {
       "path": "docs/m431-branch-split-utility-balance-audit.md",
@@ -78,5 +93,5 @@
     "docs/m430-branch-split-nullspace-projection-probe.md"
   ],
   "decision_rule": "M431 only admits a no-PPO implementation or probe if it produces a specific source/branch balance hypothesis that preserves M430 proof gates without relying on private holdout or changed actor inputs.",
-  "next_blocker": "pending M431 branch-split utility balance audit"
+  "next_blocker": "m432-selective-10004-guard-design"
 }
