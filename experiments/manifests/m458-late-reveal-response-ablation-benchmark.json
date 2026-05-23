@@ -2,7 +2,7 @@
   "id": "m458-late-reveal-response-ablation-benchmark",
   "type": "gate",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -78,5 +78,24 @@
     "runs/m457_late_reveal_reset_stress/summary.json"
   ],
   "decision_rule": "M458 can admit matched-current mining if source-diverse ablation deltas are useful. It cannot promote a checkpoint.",
-  "next_blocker": "pending M458 late-reveal response ablation benchmark"
+  "results": {
+    "summary_artifact": "runs/m458_late_reveal_ablation_summary/summary.json",
+    "episodes_per_seed_variant": 64,
+    "seed_windows": [
+      9600,
+      9900,
+      10150
+    ],
+    "total_episodes": 768,
+    "base_success": 0.8125,
+    "reset_success": 0.817708,
+    "zero_current_success": 0.802083,
+    "zero_action_history_success": 0.822917,
+    "zero_current_return_delta_vs_base": -4.482009,
+    "base_success_to_zero_current_fail": 4,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "weak_aggregate_admit_m459_matched_current_mining"
+  },
+  "next_blocker": "m459-late-reveal-matched-current-mining"
 }

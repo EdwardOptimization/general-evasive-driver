@@ -1,0 +1,77 @@
+{
+  "decision_reason": "M458 late-reveal ablations show weak aggregate history necessity: zero-current success 0.802083 and no-action success 0.822917 so matched-current mining is next not training",
+  "failure_criteria": [
+    "scenario sampling fails",
+    "benchmark is only a single small smoke",
+    "results are interpreted as self-ID proof without intervention/matched-current evidence",
+    "actor contract changes"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not claim self-ID from aggregate success alone"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260523T203055Z",
+  "hypothesis": "The M457 late-reveal config may create more useful response/history ablation differences than the M451 robust configs, but this must be tested on source-diverse seeds before matched-current mining or training.",
+  "lineage": {
+    "blocked_by": [
+      "m457-history-necessity-config-implementation"
+    ],
+    "derived_from": [
+      "m457-history-necessity-config-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m457-history-necessity-config-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m457_late_reveal_reset_stress/summary.json"
+    ],
+    "parent_objective": [
+      "late-reveal response/history ablation benchmark"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m458-late-reveal-response-ablation-benchmark",
+  "next_blocker": "m459-late-reveal-matched-current-mining",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "weak_aggregate_admit_m459_matched_current_mining",
+  "public_gates": [
+    "run M399 base reset zero-current and zero-action ablations on M457 config",
+    "use source-diverse seed windows rather than a single 16-episode smoke",
+    "report aggregate success return termination and clearance deltas",
+    "decide whether to mine matched-current rows or redesign again",
+    "no checkpoint promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "2.107460",
+    "decision": "weak_aggregate_admit_m459_matched_current_mining",
+    "milestone": "m458-late-reveal-response-ablation-benchmark",
+    "reason": "M458 late-reveal ablations show weak aggregate history necessity: zero-current success 0.802083 and no-action success 0.822917 so matched-current mining is next not training",
+    "reset_success": "0.817708",
+    "success_rate": "0.812500",
+    "termination_rate": "0.187500",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "all planned ablation benchmarks complete without scenario sampling failure",
+    "results cover at least three seed windows",
+    "documentation reports whether ablation deltas are strong enough for matched-current mining",
+    "no checkpoint is promoted"
+  ],
+  "type": "gate"
+}

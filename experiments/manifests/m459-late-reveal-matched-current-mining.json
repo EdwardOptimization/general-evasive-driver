@@ -1,0 +1,84 @@
+{
+  "id": "m459-late-reveal-matched-current-mining",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m458_late_reveal_ablation_summary/summary.json",
+      "runs/m458_late_reveal_ablation_summary/success_flips.csv"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m458-late-reveal-response-ablation-benchmark.json"
+    ],
+    "parent_objective": [
+      "matched-current ambiguity mining after weak aggregate ablation evidence"
+    ],
+    "derived_from": [
+      "m458-late-reveal-response-ablation-benchmark"
+    ],
+    "blocked_by": [
+      "m458-late-reveal-response-ablation-benchmark"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m459-late-reveal-matched-current-mining.md",
+  "public_gates": [
+    "mine matched-current rows on the M457 late-reveal config",
+    "require visible current response and context similarity before comparing hidden-history differences",
+    "report action margin and outcome sensitivity for reset zero-current and wrong-history candidates where available",
+    "select a source-diverse compact corpus or explicitly reject the task family",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not treat aggregate M458 metrics as self-ID proof"
+  ],
+  "hypothesis": "Although aggregate M458 ablation deltas are weak, row-level matched-current mining may still find POMDP ambiguity cases where current observation is similar but history or hidden dynamics changes future margin or action.",
+  "success_criteria": [
+    "matched-current mining completes without scenario sampling failure",
+    "accepted rows report current-state similarity and hidden/history diversity",
+    "compact corpus is source-diverse if enough rows exist",
+    "documentation decides between wrong-history gate expansion and task-family redesign",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "miner only finds aggregate or unpaired hard seeds",
+    "current-state similarity is not enforced",
+    "accepted rows are dominated by one seed or label",
+    "actor contract changes"
+  ],
+  "commands": [
+    {
+      "name": "late_reveal_matched_current_mining",
+      "command": "Run or extend matched-current ambiguity mining on the M457 config and M458 episode evidence; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m459-late-reveal-matched-current-mining.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m458-late-reveal-response-ablation-benchmark.md",
+    "runs/m458_late_reveal_ablation_summary/summary.json"
+  ],
+  "decision_rule": "M459 can admit a wrong-history intervention gate only if matched-current rows show source-diverse action/margin/outcome sensitivity. It cannot promote a checkpoint.",
+  "next_blocker": "pending M459 late-reveal matched-current mining"
+}

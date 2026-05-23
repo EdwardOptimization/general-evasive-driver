@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 466,
+        "completed": 467,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m457-history-necessity-config-implementation",
+        "task_id": "m458-late-reveal-response-ablation-benchmark",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m457_late_reveal_reset_stress",
-        "command_log": "docs/m457-history-necessity-config-implementation.md"
+        "run_dir": "runs/m458_late_reveal_ablation_summary",
+        "command_log": "docs/m458-late-reveal-response-ablation-benchmark.md"
     },
     "next_task": {
-        "id": "m458-late-reveal-response-ablation-benchmark",
+        "id": "m459-late-reveal-matched-current-mining",
         "status": "pending",
-        "priority": 4530,
+        "priority": 4540,
         "kind": "gate",
-        "hypothesis": "Benchmark response/history ablations on the M457 late-reveal config",
-        "command": "see experiments/manifests/m458-late-reveal-response-ablation-benchmark.json",
+        "hypothesis": "Mine matched-current ambiguity rows after weak M458 aggregate evidence",
+        "command": "see experiments/manifests/m459-late-reveal-matched-current-mining.json",
         "success_artifact": "",
-        "notes": "Pending: run source-diverse M399 base/reset/zero-current/zero-action benchmarks on M457 config before matched-current mining"
+        "notes": "Pending: run or extend matched-current mining on M457/M458 evidence; no training or promotion"
     },
-    "updated_at_utc": "20260523T202442Z"
+    "updated_at_utc": "20260523T203007Z"
 }

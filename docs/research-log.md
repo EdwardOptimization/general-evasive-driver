@@ -10214,3 +10214,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M457 implements `configs/m457_history_necessity_late_reveal_zero_relvel.json`. The first strict draft failed reset stress with `71/384` sampling failures, so the final config uses obstacle distance `[12.0, 30.0]`, reveal distance `14.0`, zero obstacle relative velocity, and no extra min-time filter. The final config passes `384/384` reset stress across seed windows `9600`, `9900`, and `10150`; the obstacle is hidden at reset for `294/384` cases and labels cover aes-feasible, drift-required, and unavoidable. A 16-episode tiny smoke completes: M399 return `69.913729` versus heuristic `47.289250`, but reset/zero-current/no-action ablations do not show strong degradation.
 - decision: `late_reveal_config_validated_admit_m458`
 - next: `m458-late-reveal-response-ablation-benchmark`
+
+## 20260523T203007Z - m458-late-reveal-response-ablation-benchmark
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m458_late_reveal_ablation_summary`
+- artifact: `docs/m458-late-reveal-response-ablation-benchmark.md`
+- result: M458 evaluates M399 base, reset-recurrent, zero-current-response, and zero-action-history on the M457 config across seed windows `9600`, `9900`, and `10150`, with `64` episodes per seed/variant. All runs complete without sampling failure. Aggregate success is weak for history necessity: base `0.812500`, reset `0.817708`, zero-current `0.802083`, no-action `0.822917`. Zero-current lowers return by `-4.482009` versus base and has four base-success to ablation-fail flips, but success and clearance do not show a strong source-diverse degradation.
+- decision: `weak_aggregate_admit_m459_matched_current_mining`
+- next: `m459-late-reveal-matched-current-mining`

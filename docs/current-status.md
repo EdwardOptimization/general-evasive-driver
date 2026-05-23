@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m458-late-reveal-response-ablation-benchmark
+m459-late-reveal-matched-current-mining
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -198,7 +198,14 @@ is runnable and nontrivial: M399 return `69.913729` versus heuristic
 `47.289250`, but reset/zero-current/no-action ablations do not show strong
 degradation. The next blocker is M458: run a source-diverse response/history
 ablation benchmark on the M457 config before matched-current mining or any
-training.
+training. M458 runs that benchmark across seed windows `9600`, `9900`, and
+`10150`, with `64` episodes per seed/variant. Aggregate success remains weak
+for history necessity: base `0.812500`, reset `0.817708`, zero-current
+`0.802083`, and no-action `0.822917`. Zero-current lowers return by
+`-4.482009` versus base and produces four base-success to ablation-fail rows,
+but success and clearance do not show a strong source-diverse degradation. The
+next blocker is M459: mine matched-current ambiguity rows from the M457/M458
+evidence before any training.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key
