@@ -1,0 +1,85 @@
+{
+  "id": "m468-near-boundary-task-family-redesign",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m467_near_boundary_wrong_history_selector/summary.json",
+      "runs/m467_near_boundary_wrong_history_selector/near_boundary_no_effect.csv",
+      "runs/m467_near_boundary_wrong_history_selector/high_slack_diagnostics.csv"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m467-near-boundary-wrong-history-selector.json"
+    ],
+    "parent_objective": [
+      "near-boundary wrong-history task-family redesign"
+    ],
+    "derived_from": [
+      "m467-near-boundary-wrong-history-selector"
+    ],
+    "blocked_by": [
+      "m467-near-boundary-wrong-history-selector"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m468-near-boundary-task-family-redesign.md",
+  "public_gates": [
+    "analyze why M467 near-boundary rows show no wrong-history effect",
+    "design a task-family or intervention change that can create low-margin wrong-history failures",
+    "preserve the P0 actor contract",
+    "pre-register the next implementation and pass/fail criteria",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not loosen M467 by counting high-slack diagnostics as proof"
+  ],
+  "hypothesis": "Because M467 found 35 near-boundary no-effect wrong-history rows and zero proof rows, the task family or wrong-history intervention must be redesigned rather than retuning selector thresholds.",
+  "success_criteria": [
+    "document the M467 no-effect failure mode",
+    "select one concrete next implementation path",
+    "define expected artifacts and pass/fail criteria",
+    "preserve no-privileged-input actor contract",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "design treats high-slack diagnostics as proof",
+    "design skips near-boundary normal-margin requirements",
+    "design requires privileged actor inputs",
+    "design proposes PPO before objective/gate sanity"
+  ],
+  "commands": [
+    {
+      "name": "near_boundary_task_family_redesign",
+      "command": "Use M467 artifacts to design the next low-margin wrong-history task/intervention path; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m468-near-boundary-task-family-redesign.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m467-near-boundary-wrong-history-selector.md",
+    "runs/m467_near_boundary_wrong_history_selector/summary.json"
+  ],
+  "decision_rule": "M468 can admit implementation only if it targets low-normal-margin wrong-history outcome failures and keeps reset/zero-current diagnostics separate from wrong-history proof.",
+  "next_blocker": "pending M468 near-boundary task-family redesign"
+}

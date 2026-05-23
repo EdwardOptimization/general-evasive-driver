@@ -10304,3 +10304,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M466 audits the M465 wrong-history rows by normal-margin ceiling. Near-boundary normal-success rows exist: `8` rows under `0.25 m`, `22` under `0.50 m`, and `47` under `1.00 m`. None are accepted and none show success, collision, completion, or positive-margin degradation. The only accepted wrong-history rows are high-slack rows above `3.548402 m`. M466 therefore designs a normal-margin-aware selector that separates proof candidates, near-boundary no-effect rows, and high-slack diagnostics.
 - decision: `admit_m467_near_boundary_wrong_history_selector`
 - next: `m467-near-boundary-wrong-history-selector`
+
+## 20260523T211508Z - m467-near-boundary-wrong-history-selector
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m467_near_boundary_wrong_history_selector`
+- artifact: `docs/m467-near-boundary-wrong-history-selector.md`
+- result: M467 implements `autodrift.near_boundary_wrong_history_selector` and focused tests for near-boundary proof acceptance, high-slack rejection, no-effect classification, and source-diverse gate pass. Running it on M465 candidates classifies `199` wrong-history rows: `35` near-boundary candidates, `0` proof candidates, `35` near-boundary no-effect rows, and `7` high-slack diagnostics. Near-boundary rows cover drift-required `20` and unavoidable `15`; high-slack diagnostics are aes-feasible `7` with normal margin `3.548401` to `7.612638`.
+- decision: `reject_wrong_history_gate_admit_m468_task_family_redesign`
+- next: `m468-near-boundary-task-family-redesign`

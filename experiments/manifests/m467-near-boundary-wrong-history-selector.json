@@ -2,7 +2,7 @@
   "id": "m467-near-boundary-wrong-history-selector",
   "type": "infrastructure",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -80,5 +80,37 @@
     "runs/m465_targeted_wrong_history_selector/candidates.csv"
   ],
   "decision_rule": "M467 can admit wrong-history gate expansion only if proof candidates are source-diverse and contain low-normal-margin outcome degradation; otherwise it should admit task-family redesign.",
-  "next_blocker": "pending M467 near-boundary wrong-history selector"
+  "results": {
+    "module": "src/autodrift/near_boundary_wrong_history_selector.py",
+    "test_file": "tests/test_near_boundary_wrong_history_selector.py",
+    "run_dir": "runs/m467_near_boundary_wrong_history_selector",
+    "wrong_history_row_count": 199,
+    "near_boundary_candidate_count": 35,
+    "proof_candidate_count": 0,
+    "near_boundary_no_effect_count": 35,
+    "high_slack_diagnostic_count": 7,
+    "proof_success_drop_rows": 0,
+    "proof_collision_gap_rows": 0,
+    "proof_completion_degradation_rows": 0,
+    "proof_margin_degradation_rows": 0,
+    "near_boundary_by_left_obstacle_label": {
+      "drift_required": 20,
+      "unavoidable": 15
+    },
+    "near_boundary_by_probe_seed": {
+      "10200": 24,
+      "10300": 4,
+      "10400": 7
+    },
+    "high_slack_by_left_obstacle_label": {
+      "aes_feasible": 7
+    },
+    "high_slack_normal_margin_min": 3.5484013279112925,
+    "high_slack_normal_margin_max": 7.612637655783953,
+    "wrong_history_gate_pass": false,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "reject_wrong_history_gate_admit_m468_task_family_redesign"
+  },
+  "next_blocker": "m468-near-boundary-task-family-redesign"
 }

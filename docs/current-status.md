@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m467-near-boundary-wrong-history-selector
+m468-near-boundary-task-family-redesign
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -268,6 +268,13 @@ or positive-margin degradation. The only accepted wrong-history rows remain
 high-slack rows above `3.548402 m`. The next blocker is M467: implement a
 normal-margin-aware selector that separates proof candidates from near-boundary
 no-effect rows and high-slack diagnostics.
+M467 implements and runs that selector. It classifies `199` wrong-history rows:
+`35` near-boundary candidates, `0` proof candidates, `35` near-boundary
+no-effect rows, and `7` high-slack diagnostics. Near-boundary rows cover
+`drift_required` and `unavoidable`, but wrong history does not degrade them;
+the only margin-degraded rows are high-slack `aes_feasible` diagnostics. The
+next blocker is M468: redesign the task family or wrong-history intervention
+construction instead of retuning selector thresholds.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

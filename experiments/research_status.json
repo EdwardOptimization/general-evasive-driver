@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 475,
+        "completed": 476,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m466-near-boundary-wrong-history-redesign",
+        "task_id": "m467-near-boundary-wrong-history-selector",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m466-near-boundary-wrong-history-redesign.md"
+        "run_dir": "runs/m467_near_boundary_wrong_history_selector",
+        "command_log": "docs/m467-near-boundary-wrong-history-selector.md"
     },
     "next_task": {
-        "id": "m467-near-boundary-wrong-history-selector",
+        "id": "m468-near-boundary-task-family-redesign",
         "status": "pending",
-        "priority": 4620,
+        "priority": 4630,
         "kind": "infrastructure",
-        "hypothesis": "A normal-margin-aware selector will prevent high-slack wrong-history rows from contaminating proof gates",
-        "command": "see experiments/manifests/m467-near-boundary-wrong-history-selector.json",
+        "hypothesis": "The task family or wrong-history intervention must be redesigned because M467 found near-boundary no-effect rows and zero proof rows",
+        "command": "see experiments/manifests/m468-near-boundary-task-family-redesign.json",
         "success_artifact": "",
-        "notes": "Pending: implement selector over M465 candidates; no policy rollout or checkpoint promotion"
+        "notes": "Pending: design next low-margin wrong-history task/intervention path; no PPO"
     },
-    "updated_at_utc": "20260523T211023Z"
+    "updated_at_utc": "20260523T211508Z"
 }
