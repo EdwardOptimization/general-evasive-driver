@@ -61,7 +61,7 @@ post-PPO repair before any more PPO acceptance.
 Current blocker:
 
 ```text
-m309-exact-repaired-ppo-proposal-design
+m310-fresh-ppo-proposal-exact-repair-smoke
 ```
 
 M305 implements deterministic exact M297/M270 repair or projection
@@ -88,14 +88,20 @@ the same exact deltas plus M183/M170 and M267/M264 first replay retention. The
 repair optimizer seed is not the current blocker; the next uncertainty is the
 next PPO proposal direction.
 
+M309 designs that next PPO proposal without running PPO. M310 will start from
+the M307 base, use `configs/ppo_m310_exact_repaired_proposal_smoke.json`, route
+the raw PPO checkpoint through exact post-PPO repair, require exact M297/M270
+no-regression versus M307 before replay, and only then run M183/M170 plus
+M267/M264 first replay gates.
+
 Current next task:
 
 ```text
-m309-exact-repaired-ppo-proposal-design
+m310-fresh-ppo-proposal-exact-repair-smoke
 ```
 
-M309 should design the next smoke-scale PPO proposal from the M307 base with a
-mandatory exact repair/projection step before any replay or promotion decision.
+M310 should run the fresh smoke-scale PPO proposal from the M307 base, exact
+repair it, and stop before replay if either exact objective regresses.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -127,6 +133,7 @@ mandatory exact repair/projection step before any replay or promotion decision.
 | exact repair infrastructure | `src/autodrift/exact_post_ppo_repair.py` | M305 implemented deterministic exact M297/M270 repair summaries and line-search starts |
 | current public-gate base | `runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt` | M307 promoted after exact objectives full replay protected-key and behavior gates pass |
 | repair repeat diagnostic | `runs/m308_exact_repair_from_raw_s40_seed10094/candidate_checkpoint.pt` | M308 repeats M306 exact deltas and first replay gates; not separately promoted |
+| next PPO proposal config | `configs/ppo_m310_exact_repaired_proposal_smoke.json` | M309 registered smoke PPO from M307 plus mandatory exact repair before replay |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

@@ -2,7 +2,7 @@
   "id": "m309-exact-repaired-ppo-proposal-design",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -72,6 +72,14 @@
     {
       "path": "docs/m309-exact-repaired-ppo-proposal-design.md",
       "type": "documentation"
+    },
+    {
+      "path": "configs/ppo_m310_exact_repaired_proposal_smoke.json",
+      "type": "configuration"
+    },
+    {
+      "path": "experiments/manifests/m310-fresh-ppo-proposal-exact-repair-smoke.json",
+      "type": "manifest"
     }
   ],
   "baseline_checkpoints": [
@@ -81,6 +89,24 @@
     "docs/m307-full-public-gate-for-m306-raw-s40.md",
     "docs/m308-exact-repair-fresh-seed-repeat.md"
   ],
+  "results": {
+    "ppo_config": "configs/ppo_m310_exact_repaired_proposal_smoke.json",
+    "init_checkpoint": "runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt",
+    "raw_ppo_run_dir": "runs/ppo_m310_exact_repaired_proposal_smoke_seed5234",
+    "repair_run_dir": "runs/m310_exact_repair_from_raw_s40_seed10095",
+    "repair_base_checkpoint": "runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt",
+    "exact_gate_order": [
+      "M297 rejected-history preference no-regression versus M307",
+      "M270 source-balanced outcome no-regression versus M307"
+    ],
+    "first_replay_gate_order": [
+      "M183/M170 boundary replay versus M307",
+      "M267/M264 boundary replay versus M307"
+    ],
+    "ppo_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m310_fresh_ppo_proposal_exact_repair_smoke",
   "decision_rule": "M309 can only admit M310 after specifying PPO proposal plus exact repair gates without running PPO.",
-  "next_blocker": "pending M309 exact-repaired PPO proposal design"
+  "next_blocker": "m310-fresh-ppo-proposal-exact-repair-smoke"
 }

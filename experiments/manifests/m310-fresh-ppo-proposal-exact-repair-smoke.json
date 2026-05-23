@@ -1,0 +1,113 @@
+{
+  "id": "m310-fresh-ppo-proposal-exact-repair-smoke",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m310_exact_repaired_proposal_smoke.json",
+      "experiments/manifests/m309-exact-repaired-ppo-proposal-design.json",
+      "docs/m309-exact-repaired-ppo-proposal-design.md"
+    ],
+    "parent_objective": [
+      "run one fresh smoke-scale PPO proposal from M307 and accept only an exact-repaired candidate"
+    ],
+    "derived_from": [
+      "m309-exact-repaired-ppo-proposal-design"
+    ],
+    "blocked_by": [
+      "m309-exact-repaired-ppo-proposal-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m310-fresh-ppo-proposal-exact-repair-smoke.md",
+  "public_gates": [
+    "preserve human-view actor input contract",
+    "run smoke PPO from M307 only as a raw proposal",
+    "run exact post-PPO repair from raw proposal",
+    "exact M297 repaired candidate loss must not regress versus M307",
+    "exact M270 repaired candidate loss must not regress versus M307",
+    "M183/M170 first replay gate versus M307",
+    "M267/M264 first replay gate versus M307",
+    "do not run full public gate unless exact and first replay gates pass"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not promote raw PPO checkpoint",
+    "do not run replay for exact-regressing repaired candidates",
+    "do not change actor inputs",
+    "do not tune from private holdouts",
+    "do not skip M297 or M270 exact no-regression gates"
+  ],
+  "hypothesis": "A fresh smoke-scale PPO proposal from the M307 base can provide useful movement if it is accepted only through exact M297/M270 post-PPO repair before replay gates.",
+  "success_criteria": [
+    "raw PPO run completes from M307 base",
+    "exact repair candidate improves or retains exact M297 versus M307",
+    "exact repair candidate improves or retains exact M270 versus M307",
+    "exact repair candidate passes M183/M170 first replay gate versus M307",
+    "exact repair candidate passes M267/M264 first replay gate versus M307",
+    "if all first gates pass, admit a separate full public-gate milestone"
+  ],
+  "failure_criteria": [
+    "raw PPO cannot run or checkpoint is incompatible",
+    "repaired candidate regresses exact M297 or exact M270",
+    "repaired candidate loses M183/M170 or M267/M264 first replay retention",
+    "repair collapses to base-equivalent no-op and provides no useful movement",
+    "actor input contract is changed"
+  ],
+  "commands": [
+    {
+      "name": "train_raw_ppo_proposal",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_m310_exact_repaired_proposal_smoke.json --init-checkpoint runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt --run-dir runs/ppo_m310_exact_repaired_proposal_smoke_seed5234 --save runs/ppo_m310_exact_repaired_proposal_smoke_seed5234/checkpoint.pt --device cpu"
+    },
+    {
+      "name": "exact_repair_raw_proposal",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.exact_post_ppo_repair --base-checkpoint runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt --raw-checkpoint runs/ppo_m310_exact_repaired_proposal_smoke_seed5234/checkpoint.pt --preference-npz runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz --outcome-npz runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz --device cpu --start-mode repair_from_raw --steps 40 --learning-rate 5e-6 --lambda-param-raw 0.05 --lambda-param-base 1.0 --lambda-action-anchor 100.0 --run-dir runs/m310_exact_repair_from_raw_s40_seed10095 --seed 10095"
+    },
+    {
+      "name": "m183_m170_first_replay",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_replay_gate --checkpoint-policy m307_base=runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt --checkpoint-policy m310_repaired=runs/m310_exact_repair_from_raw_s40_seed10095/candidate_checkpoint.pt --corpus-csv runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv --env-config configs/m121_human_view_zero_obstacle_relvel.json --max-continuation-steps 60 --baseline-policy m307_base --candidate-policy m310_repaired --max-normal-success-drop 0.0 --max-normal-margin-regression 0.005 --max-margin-gap-regression 0.001 --max-success-drop-count-regression 0 --device cpu --run-dir runs/m310_repaired_m183_m170_first_replay"
+    },
+    {
+      "name": "m267_m264_first_replay",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_replay_gate --checkpoint-policy m307_base=runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt --checkpoint-policy m310_repaired=runs/m310_exact_repair_from_raw_s40_seed10095/candidate_checkpoint.pt --corpus-csv runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv --env-config configs/m121_human_view_zero_obstacle_relvel.json --max-continuation-steps 60 --baseline-policy m307_base --candidate-policy m310_repaired --max-normal-success-drop 0.0 --max-normal-margin-regression 0.005 --max-margin-gap-regression 0.001 --max-success-drop-count-regression 0 --device cpu --run-dir runs/m310_repaired_m267_m264_first_replay"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/ppo_m310_exact_repaired_proposal_smoke_seed5234/checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m310_exact_repair_from_raw_s40_seed10095/candidate_checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "docs/m310-fresh-ppo-proposal-exact-repair-smoke.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m307-full-public-gate-for-m306-raw-s40.md",
+    "docs/m308-exact-repair-fresh-seed-repeat.md",
+    "docs/m309-exact-repaired-ppo-proposal-design.md"
+  ],
+  "decision_rule": "M310 can admit full public gate only if exact M297 and exact M270 do not regress versus M307 and both first replay gates pass.",
+  "next_blocker": "pending M310 fresh PPO proposal exact repair smoke"
+}

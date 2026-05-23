@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 317,
+    "completed": 318,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m308-exact-repair-fresh-seed-repeat.md",
+    "command_log": "docs/m309-exact-repaired-ppo-proposal-design.md",
     "returncode": 0,
-    "run_dir": "runs/m308_exact_repair_from_raw_s40_seed10094",
+    "run_dir": "runs/m309_exact_repaired_ppo_proposal_design",
     "status": "completed",
-    "task_id": "m308-exact-repair-fresh-seed-repeat"
+    "task_id": "m309-exact-repaired-ppo-proposal-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m309-exact-repaired-ppo-proposal-design.json",
-    "hypothesis": "After M307 promotion and M308 deterministic repair repeat, the next progress path is a fresh smoke-scale PPO proposal from M307 followed by exact repair projection and lexicographic exact gates.",
-    "id": "m309-exact-repaired-ppo-proposal-design",
-    "kind": "infrastructure",
-    "notes": "Pending: specify M310 PPO proposal config exact repair command and gates without running PPO",
-    "priority": 3040,
+    "command": "see experiments/manifests/m310-fresh-ppo-proposal-exact-repair-smoke.json",
+    "hypothesis": "A fresh smoke-scale PPO proposal from the M307 base can provide useful movement if it is accepted only through exact M297/M270 post-PPO repair before replay gates.",
+    "id": "m310-fresh-ppo-proposal-exact-repair-smoke",
+    "kind": "driver_candidate",
+    "notes": "Pending: run PPO proposal then exact repair and only exact-passing candidate enters first replay gates",
+    "priority": 3050,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260523T045805Z"
+  "updated_at_utc": "20260523T050307Z"
 }

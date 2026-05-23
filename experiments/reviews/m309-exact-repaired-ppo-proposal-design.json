@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M309 registers M310 PPO proposal config exact repair command and gate order without running PPO",
+  "failure_criteria": [
+    "design promotes PPO raw directly",
+    "design omits exact repair or exact no-regression gates",
+    "design requires actor input contract changes",
+    "PPO is run in M309"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not return to naked PPO promotion",
+    "do not run replay for exact-regressing proposals",
+    "do not change actor inputs",
+    "do not tune from private holdouts"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260523T050620Z",
+  "hypothesis": "After M307 promotion and M308 deterministic repair repeat, the next progress path is a fresh smoke-scale PPO proposal from M307 followed by exact repair projection and lexicographic exact gates.",
+  "lineage": {
+    "blocked_by": [
+      "m308-exact-repair-fresh-seed-repeat"
+    ],
+    "derived_from": [
+      "m308-exact-repair-fresh-seed-repeat"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m308-exact-repair-fresh-seed-repeat.json",
+      "docs/m308-exact-repair-fresh-seed-repeat.md"
+    ],
+    "parent_dataset": [
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv"
+    ],
+    "parent_objective": [
+      "design the next PPO-as-proposal smoke from M307 base followed by exact repair before replay gates"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m309-exact-repaired-ppo-proposal-design",
+  "next_blocker": "m310-fresh-ppo-proposal-exact-repair-smoke",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m310_fresh_ppo_proposal_exact_repair_smoke",
+  "public_gates": [
+    "do not run PPO in M309",
+    "preserve human-view actor input contract",
+    "define PPO proposal config from M307 base",
+    "define exact repair step after PPO raw proposal",
+    "define exact M297/M270 gates before replay",
+    "define first replay and full promotion escalation order"
+  ],
+  "scoreboard": {
+    "checkpoint": "not_applicable_infrastructure_task",
+    "clearance_margin_mean": "",
+    "decision": "admit_m310_fresh_ppo_proposal_exact_repair_smoke",
+    "milestone": "m309-exact-repaired-ppo-proposal-design",
+    "reason": "M309 registers M310 PPO proposal config exact repair command and gate order without running PPO",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "specify the M310 PPO proposal config from M307 base",
+    "specify the M310 exact repair command and acceptance order",
+    "keep exact M297 and exact M270 no-regression before replay gates",
+    "register the next runnable smoke milestone",
+    "no PPO is run in M309"
+  ],
+  "type": "infrastructure"
+}
