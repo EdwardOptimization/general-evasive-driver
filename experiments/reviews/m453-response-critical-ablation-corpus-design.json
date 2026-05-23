@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M453 designs dependency and failure-class taxonomy so M452 rows become interpretable corpus evidence instead of aggregate success claims",
+  "failure_criteria": [
+    "design treats weak M452 aggregate deltas as promotion evidence",
+    "failure modes are conflated",
+    "actor contract changes",
+    "no next implementation step is defined"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not tune checkpoint behavior from M452 ablation rows"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260523T195523Z",
+  "hypothesis": "M452's weak aggregate ablation signal can still seed a useful response-critical corpus if the next mining pass separates current response, recurrent hidden state, action history, and failure mechanism.",
+  "lineage": {
+    "blocked_by": [
+      "m452-robust-challenge-response-ablation-benchmark"
+    ],
+    "derived_from": [
+      "m452-robust-challenge-response-ablation-benchmark"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/m451_challenge_near_threshold_robust_zero_relvel.json",
+      "configs/m451_challenge_late_high_energy_robust_zero_relvel.json",
+      "experiments/manifests/m452-robust-challenge-response-ablation-benchmark.json"
+    ],
+    "parent_dataset": [
+      "runs/m452_near_robust_ablation_seed9900/episodes.csv",
+      "runs/m452_late_robust_ablation_seed9900/episodes.csv",
+      "runs/m452_near_ablation_policy_difference_mining/policy_difference_candidates.csv",
+      "runs/m452_late_ablation_policy_difference_mining/policy_difference_candidates.csv"
+    ],
+    "parent_objective": [
+      "response-critical ablation corpus design"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m453-response-critical-ablation-corpus-design",
+  "next_blocker": "m454-response-critical-ablation-corpus-export",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m454_response_critical_ablation_corpus_export",
+  "public_gates": [
+    "separate current-response reset-hidden and action-history failure modes",
+    "define source-diverse response-critical mining criteria",
+    "define road-boundary versus obstacle-collision split",
+    "no checkpoint promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m454_response_critical_ablation_corpus_export",
+    "milestone": "m453-response-critical-ablation-corpus-design",
+    "reason": "M453 designs dependency and failure-class taxonomy so M452 rows become interpretable corpus evidence instead of aggregate success claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design specifies candidate selection criteria for response-critical rows",
+    "design separates road-boundary failures from obstacle-collision margin failures",
+    "design defines source-diverse compact corpus limits",
+    "next implementation task is preregistered",
+    "no checkpoint is promoted"
+  ],
+  "type": "infrastructure"
+}

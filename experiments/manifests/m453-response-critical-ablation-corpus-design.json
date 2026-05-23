@@ -81,5 +81,12 @@
     "docs/m452-robust-challenge-response-ablation-benchmark.md"
   ],
   "decision_rule": "M453 is a design milestone. It can admit a corpus export or challenge refinement implementation but cannot promote a checkpoint.",
-  "next_blocker": "pending M453 response-critical ablation corpus design"
+  "results": {
+    "design_artifact": "docs/m453-response-critical-ablation-corpus-design.md",
+    "next_manifest": "experiments/manifests/m454-response-critical-ablation-corpus-export.json",
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "admit_m454_response_critical_ablation_corpus_export"
+  },
+  "next_blocker": "m454-response-critical-ablation-corpus-export"
 }

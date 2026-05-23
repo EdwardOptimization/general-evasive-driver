@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 461,
+        "completed": 462,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m452-robust-challenge-response-ablation-benchmark",
+        "task_id": "m453-response-critical-ablation-corpus-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m452_near_robust_ablation_seed9900",
-        "command_log": "docs/m452-robust-challenge-response-ablation-benchmark.md"
+        "run_dir": "",
+        "command_log": "docs/m453-response-critical-ablation-corpus-design.md"
     },
     "next_task": {
-        "id": "m453-response-critical-ablation-corpus-design",
+        "id": "m454-response-critical-ablation-corpus-export",
         "status": "pending",
-        "priority": 4480,
+        "priority": 4490,
         "kind": "infrastructure",
-        "hypothesis": "Design a response-critical corpus expansion after weak M452 aggregate ablation signal",
-        "command": "see experiments/manifests/m453-response-critical-ablation-corpus-design.json",
+        "hypothesis": "Export a structured response-critical ablation corpus from M452 rows",
+        "command": "see experiments/manifests/m454-response-critical-ablation-corpus-export.json",
         "success_artifact": "",
-        "notes": "Pending: separate current-response recurrent-hidden action-history and failure-mechanism evidence before more training or challenge tuning"
+        "notes": "Pending: implement exporter separating dependency classes and failure classes without training"
     },
-    "updated_at_utc": "20260523T195020Z"
+    "updated_at_utc": "20260523T195322Z"
 }

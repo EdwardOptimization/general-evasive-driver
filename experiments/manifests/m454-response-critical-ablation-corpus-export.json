@@ -1,0 +1,85 @@
+{
+  "id": "m454-response-critical-ablation-corpus-export",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m452_near_robust_ablation_seed9900/episodes.csv",
+      "runs/m452_late_robust_ablation_seed9900/episodes.csv",
+      "runs/m452_near_ablation_policy_difference_mining/policy_difference_candidates.csv",
+      "runs/m452_late_ablation_policy_difference_mining/policy_difference_candidates.csv"
+    ],
+    "parent_config": [
+      "configs/m451_challenge_near_threshold_robust_zero_relvel.json",
+      "configs/m451_challenge_late_high_energy_robust_zero_relvel.json",
+      "experiments/manifests/m453-response-critical-ablation-corpus-design.json"
+    ],
+    "parent_objective": [
+      "response-critical ablation corpus export"
+    ],
+    "derived_from": [
+      "m453-response-critical-ablation-corpus-design"
+    ],
+    "blocked_by": [
+      "m453-response-critical-ablation-corpus-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m454-response-critical-ablation-corpus-export.md",
+  "public_gates": [
+    "implement response-critical ablation corpus exporter",
+    "export candidates and compact corpus for M452 near and late runs",
+    "summary separates dependency classes and failure classes",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not use corpus labels as actor inputs"
+  ],
+  "hypothesis": "A structured response-critical exporter can turn M452 ablation rows into an interpretable corpus that separates current-response dependence from recurrent-history and action-history dependence.",
+  "success_criteria": [
+    "exporter writes candidates CSV compact CSV and summary JSON",
+    "summary reports dependency-class counts",
+    "summary reports failure-class counts",
+    "documentation classifies the resulting corpus as strong moderate or weak evidence",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "exporter cannot read M452 episodes",
+    "dependency and failure modes remain conflated",
+    "actor contract changes",
+    "corpus labels are treated as deployable actor inputs"
+  ],
+  "commands": [
+    {
+      "name": "export_response_critical_corpus",
+      "command": "PYTHONPATH=src python -m autodrift.response_critical_ablation_corpus --episodes-csv runs/m452_near_robust_ablation_seed9900/episodes.csv --source-config near_robust --episodes-csv runs/m452_late_robust_ablation_seed9900/episodes.csv --source-config late_robust --baseline-policy m399_base --candidate-policy m399_reset --candidate-policy m399_zero_current --candidate-policy m399_zero_all --candidate-policy m399_noact --run-dir runs/m454_response_critical_ablation_corpus"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m454-response-critical-ablation-corpus-export.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m453-response-critical-ablation-corpus-design.md"
+  ],
+  "decision_rule": "M454 passes if it exports and documents the response-critical corpus honestly. It cannot promote a checkpoint.",
+  "next_blocker": "pending M454 response-critical ablation corpus export"
+}

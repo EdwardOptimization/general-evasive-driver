@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m453-response-critical-ablation-corpus-design
+m454-response-critical-ablation-corpus-export
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -166,7 +166,11 @@ reset/zero-response are `0.851562`, and no-action is `0.867188`. The result is
 not strong recurrent self-ID evidence. The next blocker is M453: design a
 response-critical ablation corpus that separates current-response,
 recurrent-hidden, action-history, road-boundary, and obstacle-collision failure
-modes before more training or challenge tuning.
+modes before more training or challenge tuning. M453 completes that design and
+explicitly separates dependency classes from failure classes. The next blocker
+is M454: implement a reusable response-critical ablation corpus exporter that
+writes candidates, compact corpus, and summary JSON from the M452 near/late
+episodes without training, promotion, or actor input changes.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

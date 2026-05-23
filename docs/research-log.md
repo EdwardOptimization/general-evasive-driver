@@ -10164,3 +10164,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M452 reruns M450-style response/history ablations on the M451 robust configs. Both 128-episode benchmarks complete. Near robust shows weak current-response sensitivity: zero-current/zero-all success drops from M399 base `0.906250` to `0.859375`, with six base-success to ablation-fail flips; reset drops to `0.882812`; no-action remains `0.906250`. Late robust is weaker: base `0.859375`, reset/zero-response `0.851562`, and no-action `0.867188`. Policy-difference mining produces source-diverse compact corpora, but aggregate evidence does not prove recurrent-history necessity.
 - decision: `weak_response_dependency_admit_m453`
 - next: `m453-response-critical-ablation-corpus-design`
+
+## 20260523T195322Z - m453-response-critical-ablation-corpus-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m453-response-critical-ablation-corpus-design.md`
+- result: M453 designs the response-critical ablation corpus step after M452. It separates dependency classes (`current_response_sensitive`, `recurrent_hidden_sensitive`, `action_history_sensitive`, `mixed_dependency`, `weak_behavior_shift`) from failure classes (`obstacle_collision_margin_crossing`, `near_boundary_obstacle_margin`, `road_boundary_failure`, `stability_failure`, `return_only_shift`, `ablation_rescue`). It defines a source-diverse compact corpus target and redirects the next task to reusable exporter implementation rather than training.
+- decision: `admit_m454_response_critical_ablation_corpus_export`
+- next: `m454-response-critical-ablation-corpus-export`
