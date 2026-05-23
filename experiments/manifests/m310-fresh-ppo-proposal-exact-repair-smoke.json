@@ -2,7 +2,7 @@
   "id": "m310-fresh-ppo-proposal-exact-repair-smoke",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -108,6 +108,35 @@
     "docs/m308-exact-repair-fresh-seed-repeat.md",
     "docs/m309-exact-repaired-ppo-proposal-design.md"
   ],
+  "results": {
+    "raw_ppo_run_dir": "runs/ppo_m310_exact_repaired_proposal_smoke_seed5234",
+    "raw_checkpoint": "runs/ppo_m310_exact_repaired_proposal_smoke_seed5234/checkpoint.pt",
+    "raw_eval_termination_rate": 0.2,
+    "raw_rollout_return_mean": 68.79547651132734,
+    "raw_rejected_history_preference_loss_mean": 1.1063768366972606,
+    "repair_run_dir": "runs/m310_exact_repair_from_raw_s40_seed10095",
+    "candidate_checkpoint": "runs/m310_exact_repair_from_raw_s40_seed10095/candidate_checkpoint.pt",
+    "base_exact_m297": 1.1894832849502563,
+    "raw_exact_m297": 1.1901353597640991,
+    "raw_exact_m297_delta_vs_base": 0.0006520748138427734,
+    "candidate_exact_m297": 1.18936026096344,
+    "candidate_exact_m297_delta_vs_base": -0.00012302398681640625,
+    "base_exact_m270": 0.6778655052185059,
+    "raw_exact_m270": 0.6782863140106201,
+    "raw_exact_m270_delta_vs_base": 0.0004208087921142578,
+    "candidate_exact_m270": 0.6777876615524292,
+    "candidate_exact_m270_delta_vs_base": -0.00007784366607666016,
+    "exact_lexicographic_pass": true,
+    "m183_m170_first_replay_pass": true,
+    "m183_m170_success_drops": 17,
+    "m183_m170_rows": 17,
+    "m267_m264_first_replay_pass": true,
+    "m267_m264_success_drops": 17,
+    "m267_m264_rows": 17,
+    "ppo_run": true,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m311_full_public_gate_for_m310_repaired_ppo_proposal",
   "decision_rule": "M310 can admit full public gate only if exact M297 and exact M270 do not regress versus M307 and both first replay gates pass.",
-  "next_blocker": "pending M310 fresh PPO proposal exact repair smoke"
+  "next_blocker": "m311-full-public-gate-for-m310-repaired-ppo-proposal"
 }

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 318,
+    "completed": 319,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m309-exact-repaired-ppo-proposal-design.md",
+    "command_log": "docs/m310-fresh-ppo-proposal-exact-repair-smoke.md",
     "returncode": 0,
-    "run_dir": "runs/m309_exact_repaired_ppo_proposal_design",
+    "run_dir": "runs/m310_exact_repair_from_raw_s40_seed10095",
     "status": "completed",
-    "task_id": "m309-exact-repaired-ppo-proposal-design"
+    "task_id": "m310-fresh-ppo-proposal-exact-repair-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m310-fresh-ppo-proposal-exact-repair-smoke.json",
-    "hypothesis": "A fresh smoke-scale PPO proposal from the M307 base can provide useful movement if it is accepted only through exact M297/M270 post-PPO repair before replay gates.",
-    "id": "m310-fresh-ppo-proposal-exact-repair-smoke",
+    "command": "see experiments/manifests/m311-full-public-gate-for-m310-repaired-ppo-proposal.json",
+    "hypothesis": "The M310 exact-repaired PPO proposal can pass the full public gate stack and become the next public-gate base.",
+    "id": "m311-full-public-gate-for-m310-repaired-ppo-proposal",
     "kind": "driver_candidate",
-    "notes": "Pending: run PPO proposal then exact repair and only exact-passing candidate enters first replay gates",
-    "priority": 3050,
+    "notes": "Pending: full replay protected-key and behavior gates before any promotion",
+    "priority": 3060,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260523T050307Z"
+  "updated_at_utc": "20260523T050825Z"
 }

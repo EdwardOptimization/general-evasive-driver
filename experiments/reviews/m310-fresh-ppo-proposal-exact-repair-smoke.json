@@ -1,0 +1,87 @@
+{
+  "decision_reason": "Raw PPO regresses exact M297/M270 but exact repair improves both versus M307 and passes M183/M170 plus M267/M264 first replay gates",
+  "failure_criteria": [
+    "raw PPO cannot run or checkpoint is incompatible",
+    "repaired candidate regresses exact M297 or exact M270",
+    "repaired candidate loses M183/M170 or M267/M264 first replay retention",
+    "repair collapses to base-equivalent no-op and provides no useful movement",
+    "actor input contract is changed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not promote raw PPO checkpoint",
+    "do not run replay for exact-regressing repaired candidates",
+    "do not change actor inputs",
+    "do not tune from private holdouts",
+    "do not skip M297 or M270 exact no-regression gates"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260523T051029Z",
+  "hypothesis": "A fresh smoke-scale PPO proposal from the M307 base can provide useful movement if it is accepted only through exact M297/M270 post-PPO repair before replay gates.",
+  "lineage": {
+    "blocked_by": [
+      "m309-exact-repaired-ppo-proposal-design"
+    ],
+    "derived_from": [
+      "m309-exact-repaired-ppo-proposal-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m310_exact_repaired_proposal_smoke.json",
+      "experiments/manifests/m309-exact-repaired-ppo-proposal-design.json",
+      "docs/m309-exact-repaired-ppo-proposal-design.md"
+    ],
+    "parent_dataset": [
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv"
+    ],
+    "parent_objective": [
+      "run one fresh smoke-scale PPO proposal from M307 and accept only an exact-repaired candidate"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m310-fresh-ppo-proposal-exact-repair-smoke",
+  "next_blocker": "m311-full-public-gate-for-m310-repaired-ppo-proposal",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m311_full_public_gate_for_m310_repaired_ppo_proposal",
+  "public_gates": [
+    "preserve human-view actor input contract",
+    "run smoke PPO from M307 only as a raw proposal",
+    "run exact post-PPO repair from raw proposal",
+    "exact M297 repaired candidate loss must not regress versus M307",
+    "exact M270 repaired candidate loss must not regress versus M307",
+    "M183/M170 first replay gate versus M307",
+    "M267/M264 first replay gate versus M307",
+    "do not run full public gate unless exact and first replay gates pass"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m310_exact_repair_from_raw_s40_seed10095/candidate_checkpoint.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m311_full_public_gate_for_m310_repaired_ppo_proposal",
+    "milestone": "m310-fresh-ppo-proposal-exact-repair-smoke",
+    "reason": "Raw PPO regresses exact M297/M270 but exact repair improves both versus M307 and passes M183/M170 plus M267/M264 first replay gates",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "driver_candidate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "raw PPO run completes from M307 base",
+    "exact repair candidate improves or retains exact M297 versus M307",
+    "exact repair candidate improves or retains exact M270 versus M307",
+    "exact repair candidate passes M183/M170 first replay gate versus M307",
+    "exact repair candidate passes M267/M264 first replay gate versus M307",
+    "if all first gates pass, admit a separate full public-gate milestone"
+  ],
+  "type": "driver_candidate"
+}

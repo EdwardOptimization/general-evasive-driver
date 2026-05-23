@@ -8737,3 +8737,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M309 registers the next PPO-as-proposal milestone without running PPO. M310 will start from the M307 public-gate base, use `configs/ppo_m310_exact_repaired_proposal_smoke.json`, route the raw PPO checkpoint through exact post-PPO repair, require exact M297 and exact M270 no-regression versus M307 before replay, then run M183/M170 and M267/M264 first replay gates.
 - decision: `admit_m310_fresh_ppo_proposal_exact_repair_smoke`
 - next: `m310-fresh-ppo-proposal-exact-repair-smoke`
+
+## 20260523T050825Z - m310-fresh-ppo-proposal-exact-repair-smoke
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m310_exact_repair_from_raw_s40_seed10095`
+- artifact: `docs/m310-fresh-ppo-proposal-exact-repair-smoke.md`
+- result: M310 runs a fresh 1024-step PPO proposal from M307. Raw PPO regresses exact M297 by `+0.000652075` and exact M270 by `+0.000420809`, so it is not promotable. Exact repair produces `runs/m310_exact_repair_from_raw_s40_seed10095/candidate_checkpoint.pt`, improves M297 by `-0.000123024` and M270 by `-0.000077844` versus M307, and passes M183/M170 plus M267/M264 first replay gates with `17/17` success drops retained on both surfaces.
+- decision: `admit_m311_full_public_gate_for_m310_repaired_ppo_proposal`
+- next: `m311-full-public-gate-for-m310-repaired-ppo-proposal`

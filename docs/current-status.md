@@ -61,7 +61,7 @@ post-PPO repair before any more PPO acceptance.
 Current blocker:
 
 ```text
-m310-fresh-ppo-proposal-exact-repair-smoke
+m311-full-public-gate-for-m310-repaired-ppo-proposal
 ```
 
 M305 implements deterministic exact M297/M270 repair or projection
@@ -94,14 +94,21 @@ the raw PPO checkpoint through exact post-PPO repair, require exact M297/M270
 no-regression versus M307 before replay, and only then run M183/M170 plus
 M267/M264 first replay gates.
 
+M310 completes that smoke. Raw PPO again regresses exact objectives, but exact
+repair improves exact M297 by `0.000123024` and exact M270 by `0.000077844`
+versus M307, then passes M183/M170 and M267/M264 first replay gates with
+`17/17` success drops retained on both surfaces. It is not promoted until full
+public gates pass.
+
 Current next task:
 
 ```text
-m310-fresh-ppo-proposal-exact-repair-smoke
+m311-full-public-gate-for-m310-repaired-ppo-proposal
 ```
 
-M310 should run the fresh smoke-scale PPO proposal from the M307 base, exact
-repair it, and stop before replay if either exact objective regresses.
+M311 should run the full replay stack, protected-key diagnostic, and behavior
+seeds before deciding whether the M310 repaired candidate becomes the next
+public-gate base.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -134,6 +141,7 @@ repair it, and stop before replay if either exact objective regresses.
 | current public-gate base | `runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt` | M307 promoted after exact objectives full replay protected-key and behavior gates pass |
 | repair repeat diagnostic | `runs/m308_exact_repair_from_raw_s40_seed10094/candidate_checkpoint.pt` | M308 repeats M306 exact deltas and first replay gates; not separately promoted |
 | next PPO proposal config | `configs/ppo_m310_exact_repaired_proposal_smoke.json` | M309 registered smoke PPO from M307 plus mandatory exact repair before replay |
+| full-gate candidate | `runs/m310_exact_repair_from_raw_s40_seed10095/candidate_checkpoint.pt` | M310 exact-repaired PPO proposal passes exact and first replay gates; awaits M311 full public gate |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
