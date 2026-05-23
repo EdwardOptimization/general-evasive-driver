@@ -1,0 +1,106 @@
+{
+  "id": "m327-source-diverse-protected-ppo-proposal-smoke",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m316_exact_repair_from_raw_s40_seed10096/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m320_m316_repaired_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+      "runs/m320_m316_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+      "runs/m320_m314_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+      "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz"
+    ],
+    "parent_config": [
+      "configs/ppo_m327_source_diverse_protected_proposal_smoke.json",
+      "experiments/manifests/m326-source-diverse-protected-ppo-proposal-design.json",
+      "docs/m326-source-diverse-protected-ppo-proposal-design.md"
+    ],
+    "parent_objective": [
+      "run smoke PPO proposal from M325 base, exact repair it, then test source-diverse protected acceptance and first replay gates"
+    ],
+    "derived_from": [
+      "m326-source-diverse-protected-ppo-proposal-design"
+    ],
+    "blocked_by": [
+      "m326-source-diverse-protected-ppo-proposal-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m327-source-diverse-protected-ppo-proposal-smoke.md",
+  "public_gates": [
+    "raw PPO is proposal only",
+    "exact M297 and exact M270 no-regression versus M325 after repair",
+    "source-diverse protected replay bundle passes",
+    "old 9944 diagnostic is classified explicitly",
+    "M183/M170 first replay gate versus M325",
+    "M267/M264 first replay gate versus M325",
+    "no promotion in M327"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not promote from M327",
+    "do not skip exact repair",
+    "do not skip source-diverse protected gates",
+    "do not delete 9944 diagnostic",
+    "do not change actor inputs",
+    "do not tune from private holdouts"
+  ],
+  "hypothesis": "A smoke PPO proposal from the M325 source-diverse public base can be exact-repaired and accepted by source-diverse protected gates plus first replay gates without returning to old 9944 alpha clipping.",
+  "success_criteria": [
+    "raw PPO completes and writes checkpoint",
+    "exact repair completes",
+    "repaired candidate does not regress exact M297 or exact M270 versus M325",
+    "source-diverse protected bundle passes",
+    "old 9944 diagnostic is reported and classified",
+    "M183/M170 and M267/M264 first replay gates pass",
+    "actor input contract remains unchanged"
+  ],
+  "failure_criteria": [
+    "raw PPO crashes",
+    "exact repair fails or exact objectives regress",
+    "source-diverse protected replay fails",
+    "old-key failure is not singleton-window-only",
+    "first replay gate fails",
+    "actor observation inputs change"
+  ],
+  "commands": [
+    {
+      "name": "m327_ppo_proposal",
+      "command": "Run smoke PPO from M325 base using configs/ppo_m327_source_diverse_protected_proposal_smoke.json."
+    },
+    {
+      "name": "m327_exact_repair",
+      "command": "Run exact_post_ppo_repair from raw PPO proposal with M325 base."
+    },
+    {
+      "name": "m327_source_diverse_and_first_gates",
+      "command": "Run source-diverse protected gate, old-key diagnostic, and M183/M170 plus M267/M264 first replay gates."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m327-source-diverse-protected-ppo-proposal-smoke.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m316_exact_repair_from_raw_s40_seed10096/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m326-source-diverse-protected-ppo-proposal-design.md",
+    "configs/ppo_m327_source_diverse_protected_proposal_smoke.json",
+    "docs/m325-source-diverse-policy-full-gate-for-m316-repaired.md"
+  ],
+  "decision_rule": "M327 may only admit a full public-gate milestone if exact repair, source-diverse protected gate, old-key diagnostic classification, and M183/M170 plus M267/M264 first replay gates pass.",
+  "next_blocker": "pending M327 smoke PPO proposal"
+}

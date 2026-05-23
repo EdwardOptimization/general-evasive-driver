@@ -2,7 +2,7 @@
   "id": "m326-source-diverse-protected-ppo-proposal-design",
   "type": "infrastructure",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -86,6 +86,18 @@
     "runs/m325_source_diverse_policy_gate/summary.json",
     "runs/m325_full_public_gate_for_m316_repaired/full_gates/critical_key_seed9944/guard_results.csv"
   ],
-  "decision_rule": "M326 may only admit a smoke PPO proposal milestone after pre-registering exact repair, source-diverse protected gates, old-key diagnostic handling, and staged replay/behavior acceptance.",
-  "next_blocker": "pending M326 source-diverse protected PPO proposal design"
+  "results": {
+    "design_doc": "docs/m326-source-diverse-protected-ppo-proposal-design.md",
+    "ppo_config": "configs/ppo_m327_source_diverse_protected_proposal_smoke.json",
+    "base_checkpoint": "runs/m316_exact_repair_from_raw_s40_seed10096/candidate_checkpoint.pt",
+    "ppo_seed": 5236,
+    "exact_repair_seed": 10097,
+    "source_diverse_gate_count": 3,
+    "old_key_deleted": false,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m327_source_diverse_protected_ppo_proposal_smoke",
+  "decision_rule": "M326 admits only a smoke PPO proposal milestone with mandatory exact repair, source-diverse protected gates, old-key diagnostic handling, and first replay gates before any full public promotion.",
+  "next_blocker": "m327-source-diverse-protected-ppo-proposal-smoke"
 }

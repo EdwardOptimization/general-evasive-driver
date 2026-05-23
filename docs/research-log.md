@@ -8896,3 +8896,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M325 promotes the M316 repaired endpoint under the M324 source-diverse protected policy. Exact M297/M270 improve versus M317 by `-0.000116587` and `-0.000075817`; the source-diverse protected bundle passes `2/2`; all six public replay gates pass; behavior seeds 9505/9506 retain `0.8625` success. Old `9944` fails the singleton normal-margin window at `0.207388`, but margin gap remains `0.096982`, so the failure is classified as `single_key_window_saturation`.
 - decision: `promote_m316_repaired_source_diverse_public_gate_base`
 - next: `m326-source-diverse-protected-ppo-proposal-design`
+
+## 20260523T063050Z - m326-source-diverse-protected-ppo-proposal-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m326-source-diverse-protected-ppo-proposal-design.md`
+- result: M326 registers the next smoke PPO proposal from the M325 base. The M327 config uses `1024` PPO steps, seed `5236`, and M325 as all action-anchor checkpoints. Acceptance requires exact M297/M270 repair, three M320 source-diverse protected replay gates, old `9944` diagnostic classification, and M183/M170 plus M267/M264 first replay gates. No PPO was run.
+- decision: `admit_m327_source_diverse_protected_ppo_proposal_smoke`
+- next: `m327-source-diverse-protected-ppo-proposal-smoke`
