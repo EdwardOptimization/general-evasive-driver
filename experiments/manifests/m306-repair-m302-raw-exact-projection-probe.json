@@ -2,7 +2,7 @@
   "id": "m306-repair-m302-raw-exact-projection-probe",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -82,6 +82,31 @@
     "docs/m305-exact-post-ppo-repair-projection-implementation.md",
     "runs/m305_exact_post_ppo_repair_projection_smoke/summary.json"
   ],
+  "results": {
+    "selected_run_dir": "runs/m306_exact_repair_from_raw_s40_seed10091",
+    "selected_checkpoint": "runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt",
+    "raw_start_exact_m297_delta": -0.00012624263763427734,
+    "raw_start_exact_m270_delta": -0.00008040666580200195,
+    "base_start_exact_m297_delta": -0.00007486343383789062,
+    "base_start_exact_m270_delta": -0.000041604042053222656,
+    "line_boundary_exact_m297_delta": -0.00007486343383789062,
+    "line_boundary_exact_m270_delta": -0.000041604042053222656,
+    "m183_m170_first_replay_pass": true,
+    "m183_m170_success_drops": 17,
+    "m183_m170_rows": 17,
+    "m183_m170_normal_margin_delta": 0.000211,
+    "m183_m170_margin_gap_delta": 0.000031,
+    "m267_m264_first_replay_pass": true,
+    "m267_m264_success_drops": 17,
+    "m267_m264_rows": 17,
+    "m267_m264_normal_margin_delta": 0.000188,
+    "m267_m264_margin_gap_delta": 0.000077,
+    "full_public_gates_run": false,
+    "promotion_recommended": false,
+    "ppo_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m307_full_public_gate_for_m306_raw_s40",
   "decision_rule": "M306 may only run replay gates for candidates that pass exact M297 and exact M270 no-regression versus M299.",
-  "next_blocker": "pending M306 exact repair probe"
+  "next_blocker": "m307-full-public-gate-for-m306-raw-s40"
 }

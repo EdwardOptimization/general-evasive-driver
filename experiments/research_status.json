@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 314,
+    "completed": 315,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m305-exact-post-ppo-repair-projection-implementation.md",
+    "command_log": "docs/m306-repair-m302-raw-exact-projection-probe.md",
     "returncode": 0,
-    "run_dir": "runs/m305_exact_post_ppo_repair_projection_smoke",
+    "run_dir": "runs/m306_exact_repair_from_raw_s40_seed10091",
     "status": "completed",
-    "task_id": "m305-exact-post-ppo-repair-projection-implementation"
+    "task_id": "m306-repair-m302-raw-exact-projection-probe"
   },
   "next_task": {
-    "command": "see experiments/manifests/m306-repair-m302-raw-exact-projection-probe.json",
-    "hypothesis": "The rejected M302 raw PPO proposal may contain useful movement that can be recovered by exact full-corpus repair while preserving M297 and M270 before replay gates.",
-    "id": "m306-repair-m302-raw-exact-projection-probe",
+    "command": "see experiments/manifests/m307-full-public-gate-for-m306-raw-s40.json",
+    "hypothesis": "The M306 raw-start exact repair candidate can pass the full public gate stack and become the next public-gate base.",
+    "id": "m307-full-public-gate-for-m306-raw-s40",
     "kind": "driver_candidate",
-    "notes": "Pending: run exact repair candidates and gate exact M297/M270 before replay",
-    "priority": 3010,
+    "notes": "Pending: run six replay gates protected key behavior seeds and exact objective retention before promotion",
+    "priority": 3020,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260523T044701Z"
+  "updated_at_utc": "20260523T045035Z"
 }

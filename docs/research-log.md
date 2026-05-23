@@ -8697,3 +8697,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M305 adds `autodrift.exact_post_ppo_repair`, deterministic full-batch exact M297 and M270 candidate summaries, line-search boundary starts, M299 action anchors, and parameter trust-region terms. A real-corpus `steps=0` smoke reproduces the exact base/raw values, selects alpha `0.0`, and confirms alpha `0.001` and `0.0025` still regress exact gates without repair.
 - decision: `admit_m306_exact_repair_probe`
 - next: `m306-repair-m302-raw-exact-projection-probe`
+
+## 20260523T045035Z - m306-repair-m302-raw-exact-projection-probe
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m306_exact_repair_from_raw_s40_seed10091`
+- artifact: `docs/m306-repair-m302-raw-exact-projection-probe.md`
+- result: M306 runs three exact repair candidates. The raw-start candidate improves exact M297 by `0.000126243` and exact M270 by `0.000080407` versus M299. It passes M183/M170 first replay with `17/17` success drops retained and M267/M264 first replay with `17/17` success drops retained. Full public gates are not run in M306.
+- decision: `admit_m307_full_public_gate_for_m306_raw_s40`
+- next: `m307-full-public-gate-for-m306-raw-s40`

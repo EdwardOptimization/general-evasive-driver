@@ -69,15 +69,25 @@ infrastructure in `autodrift.exact_post_ppo_repair`. The real-corpus `steps=0`
 smoke selects line-search alpha `0.0`, while alphas `0.001` and `0.0025` still
 regress exact M297/M270 without repair.
 
+M306 then ran actual exact repair candidates. The raw-start repair candidate:
+
+```text
+runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt
+```
+
+improves exact M297 by `0.000126243`, improves exact M270 by `0.000080407`,
+and passes the M183/M170 plus M267/M264 first replay gates with `17/17`
+success drops retained on both surfaces. It is not promoted yet.
+
 Current next task:
 
 ```text
-m306-repair-m302-raw-exact-projection-probe
+m307-full-public-gate-for-m306-raw-s40
 ```
 
-M306 should run actual exact repair candidates from M302 raw and M299 base.
-Do not run replay gates for exact-regressing candidates, and do not promote any
-checkpoint before exact no-regression and replay gates pass.
+M307 should run the full public gate stack for the M306 raw-start candidate.
+Do not promote before all six replay gates, the protected-key diagnostic,
+behavior seeds, and exact objective retention pass.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -107,6 +117,7 @@ checkpoint before exact no-regression and replay gates pass.
 | current public-gate base | `runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt` | M299 promoted after exact M297/M270 improvement and full public-gate pass |
 | rejected PPO proposal | `runs/ppo_m302_rejected_preference_guarded_smoke_seed5233/checkpoint.pt` | M302 regresses exact M297/M270 and is not promotable |
 | exact repair infrastructure | `src/autodrift/exact_post_ppo_repair.py` | M305 implemented deterministic exact M297/M270 repair summaries and line-search starts |
+| full-gate candidate | `runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt` | M306 exact repair from raw improves exact objectives and passes two first replay gates |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
