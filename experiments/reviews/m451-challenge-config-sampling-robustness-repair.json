@@ -1,0 +1,78 @@
+{
+  "decision_reason": "M451 robust near and late zero-relvel configs pass multi-seed reset stress and benchmark smokes without training or promotion",
+  "failure_criteria": [
+    "configs still fail sampling on seed blocks",
+    "configs become indistinguishable from M121 without noting the tradeoff",
+    "actor contract changes",
+    "M449 artifacts are rewritten without explanation"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not mutate M449 artifacts in place"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260523T194703Z",
+  "hypothesis": "Robust replacement challenge configs can preserve higher difficulty while avoiding seed-block sampling failures.",
+  "lineage": {
+    "blocked_by": [
+      "m450-challenge-response-ablation-benchmark"
+    ],
+    "derived_from": [
+      "m450-challenge-response-ablation-benchmark"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/m449_challenge_near_threshold_zero_relvel.json",
+      "configs/m449_challenge_late_high_energy_zero_relvel.json",
+      "experiments/manifests/m450-challenge-response-ablation-benchmark.json"
+    ],
+    "parent_dataset": [
+      "runs/m449_near_threshold_benchmark_seed9800/episodes.csv",
+      "runs/m449_late_high_energy_benchmark_seed9800/episodes.csv"
+    ],
+    "parent_objective": [
+      "challenge config sampling robustness repair"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m451-challenge-config-sampling-robustness-repair",
+  "next_blocker": "m452-robust-challenge-response-ablation-benchmark",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "robust_configs_validated_admit_m452",
+  "public_gates": [
+    "create robust near-threshold replacement config",
+    "create robust late high-energy replacement config",
+    "sampling smoke passes seed blocks 9800 9900 10000",
+    "no checkpoint promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "robust_configs_validated_admit_m452",
+    "milestone": "m451-challenge-config-sampling-robustness-repair",
+    "reason": "M451 robust near and late zero-relvel configs pass multi-seed reset stress and benchmark smokes without training or promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "new configs are committed under M451 names",
+    "sampling or tiny benchmark smoke passes seeds 9800 9900 and 10000",
+    "documentation records any difficulty tradeoff",
+    "no checkpoint is promoted"
+  ],
+  "type": "infrastructure"
+}

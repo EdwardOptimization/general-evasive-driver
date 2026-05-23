@@ -1,0 +1,49 @@
+{
+  "env": {
+    "track_kind": "circle",
+    "track_radius": 60.0,
+    "track_width": 8.2,
+    "history_length": 1,
+    "action_history_mode": "full",
+    "obstacle_relative_velocity_mode": "zero",
+    "road_lookahead_count": 8,
+    "road_lookahead_spacing": 5.0,
+    "obstacle_slots": 4,
+    "termination_penalty": 8.0,
+    "speed_range": [11.5, 16.5],
+    "beta_target_range": [0.04, 0.32],
+    "friction_limited_speed": false,
+    "friction_step": {
+      "enabled": true,
+      "step_range": [8, 40],
+      "mu_range": [0.25, 1.05],
+      "resample_speed_ref": false
+    },
+    "obstacle": {
+      "enabled": true,
+      "distance_range": [4.0, 28.0],
+      "half_width_range": [0.50, 1.20],
+      "collision_penalty": 25.0,
+      "require_aeb_infeasible": true,
+      "allowed_labels": ["aes_feasible", "drift_required", "unavoidable"],
+      "max_sample_attempts": 10000,
+      "finish_on_pass": true,
+      "pass_reward": 12.0,
+      "stable_aes_beta_limit": 0.18,
+      "stable_aes_sideslip_penalty": 2.8,
+      "stable_aes_drift_bonus_scale": 0.18,
+      "max_threshold_score": 0.20,
+      "min_time_after_friction_step": 0.0
+    },
+    "randomization": {
+      "mu_range": [0.22, 0.75],
+      "mass_scale_range": [0.80, 1.30],
+      "cg_shift_range": [-0.14, 0.14],
+      "inertia_scale_range": [0.80, 1.30],
+      "tire_stiffness_scale_range": [0.50, 1.40],
+      "drive_scale_range": [0.60, 1.30],
+      "brake_scale_range": [0.50, 1.35],
+      "actuator_tau_scale_range": [0.65, 3.20]
+    }
+  }
+}

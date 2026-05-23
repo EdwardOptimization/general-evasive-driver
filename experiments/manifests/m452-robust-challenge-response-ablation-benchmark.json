@@ -1,0 +1,92 @@
+{
+  "id": "m452-robust-challenge-response-ablation-benchmark",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m451_near_robust_smoke_seed9800/policy_summary.csv",
+      "runs/m451_near_robust_smoke_seed9900/policy_summary.csv",
+      "runs/m451_near_robust_smoke_seed10000/policy_summary.csv",
+      "runs/m451_late_robust_smoke_seed9800/policy_summary.csv",
+      "runs/m451_late_robust_smoke_seed9900/policy_summary.csv",
+      "runs/m451_late_robust_smoke_seed10000/policy_summary.csv"
+    ],
+    "parent_config": [
+      "configs/m451_challenge_near_threshold_robust_zero_relvel.json",
+      "configs/m451_challenge_late_high_energy_robust_zero_relvel.json",
+      "experiments/manifests/m451-challenge-config-sampling-robustness-repair.json"
+    ],
+    "parent_objective": [
+      "robust challenge response/history ablation benchmark"
+    ],
+    "derived_from": [
+      "m451-challenge-config-sampling-robustness-repair"
+    ],
+    "blocked_by": [
+      "m451-challenge-config-sampling-robustness-repair"
+    ],
+    "supersedes": [
+      "m450-challenge-response-ablation-benchmark"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m452-robust-challenge-response-ablation-benchmark.md",
+  "public_gates": [
+    "near robust response ablation benchmark",
+    "late robust response ablation benchmark",
+    "normal versus reset and zero-response comparison",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not tune checkpoints from ablation results"
+  ],
+  "hypothesis": "The M451 robust challenge configs can support the response/history ablation diagnostics that M450 could not run, revealing whether M399 depends on recurrent response/action history in harder zero-relvel scenarios.",
+  "success_criteria": [
+    "near and late robust benchmarks complete",
+    "normal versus ablated success and margin deltas are documented",
+    "decision states whether robust challenge configs are useful self-ID diagnostics",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "benchmark fails",
+    "ablation results are used for promotion",
+    "actor contract changes",
+    "no decision is made about diagnostic usefulness"
+  ],
+  "commands": [
+    {
+      "name": "near_robust_ablation_benchmark",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m451_challenge_near_threshold_robust_zero_relvel.json --episodes 128 --seed 9900 --policies heuristic --checkpoint-policy m399_base=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --checkpoint-policy m399_reset=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@reset_recurrent_state --checkpoint-policy m399_zero_current=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_current_response --checkpoint-policy m399_zero_all=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_all_response --checkpoint-policy m399_noact=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_action_history --device cpu --run-dir runs/m452_near_robust_ablation_seed9900"
+    },
+    {
+      "name": "late_robust_ablation_benchmark",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m451_challenge_late_high_energy_robust_zero_relvel.json --episodes 128 --seed 9900 --policies heuristic --checkpoint-policy m399_base=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --checkpoint-policy m399_reset=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@reset_recurrent_state --checkpoint-policy m399_zero_current=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_current_response --checkpoint-policy m399_zero_all=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_all_response --checkpoint-policy m399_noact=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_action_history --device cpu --run-dir runs/m452_late_robust_ablation_seed9900"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m452-robust-challenge-response-ablation-benchmark.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m451-challenge-config-sampling-robustness-repair.md"
+  ],
+  "decision_rule": "M452 is diagnostic only. It can admit challenge-distribution refinement or self-ID ablation follow-up but cannot promote a checkpoint.",
+  "next_blocker": "pending M452 robust challenge response ablation benchmark"
+}

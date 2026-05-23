@@ -10144,3 +10144,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M450 attempts M399 response/history ablation benchmarks on both M449 challenge configs at seed `9900`. Both fail during `env.reset()` with `RuntimeError: failed to sample an obstacle scenario matching the configured filters`, before any policy evaluation. The harness taxonomy is extended with `scenario_sampling_failure`.
 - decision: `reject_sampling_failure_admit_config_robustness_repair`
 - next: `m451-challenge-config-sampling-robustness-repair`
+
+## 20260523T194416Z - m451-challenge-config-sampling-robustness-repair
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m451_near_robust_smoke_seed9900`
+- artifact: `docs/m451-challenge-config-sampling-robustness-repair.md`
+- result: M451 adds robust near-threshold and late high-energy zero-relvel challenge configs without mutating M449 artifacts. Both configs pass 128-reset stress and 16-episode heuristic/M399 smoke across seed blocks `9800`, `9900`, and `10000`. The configs remain diagnostic: heuristic success is substantially below M399 in smokes while label distributions include `aes_feasible`, `drift_required`, and `unavoidable`.
+- decision: `robust_configs_validated_admit_m452`
+- next: `m452-robust-challenge-response-ablation-benchmark`

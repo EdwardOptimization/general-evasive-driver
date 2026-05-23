@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 459,
+        "completed": 460,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m450-challenge-response-ablation-benchmark",
+        "task_id": "m451-challenge-config-sampling-robustness-repair",
         "status": "completed",
-        "returncode": 1,
-        "run_dir": "runs/m450_near_threshold_ablation_seed9900",
-        "command_log": "docs/m450-challenge-response-ablation-benchmark.md"
+        "returncode": 0,
+        "run_dir": "runs/m451_near_robust_smoke_seed9900",
+        "command_log": "docs/m451-challenge-config-sampling-robustness-repair.md"
     },
     "next_task": {
-        "id": "m451-challenge-config-sampling-robustness-repair",
+        "id": "m452-robust-challenge-response-ablation-benchmark",
         "status": "pending",
-        "priority": 4460,
-        "kind": "infrastructure",
-        "hypothesis": "Create robust replacement challenge configs after M450 sampling failure",
-        "command": "see experiments/manifests/m451-challenge-config-sampling-robustness-repair.json",
+        "priority": 4470,
+        "kind": "gate",
+        "hypothesis": "Run response-history ablation diagnostics on the M451 robust challenge configs",
+        "command": "see experiments/manifests/m452-robust-challenge-response-ablation-benchmark.json",
         "success_artifact": "",
-        "notes": "Pending: create M451 configs and validate sampling across seed blocks 9800 9900 10000"
+        "notes": "Pending: rerun M450-style ablation benchmark on robust near and late challenge configs"
     },
-    "updated_at_utc": "20260523T193847Z"
+    "updated_at_utc": "20260523T194416Z"
 }
