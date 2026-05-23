@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m461-outcome-critical-matched-current-selector-implementation
+m462-outcome-critical-selector-repeat-audit
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -220,7 +220,14 @@ intervention is only a prefilter, and selected compact rows must have
 continuation success drop, positive margin gap, collision gap, or
 obstacle-completion drop. Action-only rows stay diagnostic. The next blocker is
 M461: implement the selector and smoke it on M459 pairs without training or
-promotion.
+promotion. M461 implements `autodrift.outcome_critical_matched_current_selector`
+and selects `20` compact outcome-critical rows from M459 artifacts. The compact
+corpus covers `3` probe seeds, `2` obstacle labels, `2` targets, and reset /
+zero-current variants. It is positive infrastructure evidence, but not
+wrong-history proof: selected rows include `0` wrong-history rows and `0`
+success-drop rows; `18` rows are positive-margin-gap and `2` are
+obstacle-completion-drop. The next blocker is M462: repeat the selector on
+fresh artifacts and explicitly audit wrong-history coverage.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

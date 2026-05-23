@@ -2,7 +2,7 @@
   "id": "m461-outcome-critical-matched-current-selector-implementation",
   "type": "infrastructure",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -81,5 +81,24 @@
     "runs/m459_late_reveal_matched_current_seed9600/matched_pairs.csv"
   ],
   "decision_rule": "M461 can admit an outcome-critical wrong-history gate only if selected rows show continuation margin or success degradation. It cannot promote a checkpoint.",
-  "next_blocker": "pending M461 outcome-critical matched-current selector implementation"
+  "results": {
+    "selector_module": "src/autodrift/outcome_critical_matched_current_selector.py",
+    "test_file": "tests/test_outcome_critical_matched_current_selector.py",
+    "run_dir": "runs/m461_outcome_critical_selector_m459_pairs",
+    "candidate_row_count": 900,
+    "action_only_count": 418,
+    "outcome_critical_count": 56,
+    "accepted_row_count": 23,
+    "compact_row_count": 20,
+    "compact_probe_seed_count": 3,
+    "compact_obstacle_label_count": 2,
+    "compact_wrong_history_rows": 0,
+    "compact_success_drop_rows": 0,
+    "compact_positive_margin_gap_rows": 18,
+    "compact_obstacle_completion_drop_rows": 2,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "selector_pass_admit_m462_fresh_repeat_wrong_history_audit"
+  },
+  "next_blocker": "m462-outcome-critical-selector-repeat-audit"
 }

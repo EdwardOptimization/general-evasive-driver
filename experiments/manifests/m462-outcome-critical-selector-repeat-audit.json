@@ -1,0 +1,84 @@
+{
+  "id": "m462-outcome-critical-selector-repeat-audit",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m461_outcome_critical_selector_m459_pairs/compact_corpus.csv",
+      "runs/m461_outcome_critical_selector_m459_pairs/summary.json"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m461-outcome-critical-matched-current-selector-implementation.json"
+    ],
+    "parent_objective": [
+      "fresh repeat and wrong-history coverage audit for outcome-critical selector"
+    ],
+    "derived_from": [
+      "m461-outcome-critical-matched-current-selector-implementation"
+    ],
+    "blocked_by": [
+      "m461-outcome-critical-matched-current-selector-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m462-outcome-critical-selector-repeat-audit.md",
+  "public_gates": [
+    "repeat outcome-critical selector on fresh source-diverse matched-current artifacts",
+    "audit whether wrong-history or delayed-history rows become outcome-critical",
+    "separate margin-gap-only evidence from success-drop evidence",
+    "decide between wrong-history gate expansion and task-family redesign",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not claim wrong-history proof from reset/zero-current rows"
+  ],
+  "hypothesis": "M461's selector can find outcome-critical reset/zero-current rows, but fresh repeat is needed to test robustness and determine whether wrong-history belief evidence exists.",
+  "success_criteria": [
+    "fresh repeat completes without scenario sampling failure",
+    "selector outputs compact corpus or structured rejection",
+    "wrong-history coverage is reported explicitly",
+    "success-drop and margin-gap evidence are reported separately",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "repeat only reuses M459 rows",
+    "wrong-history absence is hidden in aggregate counts",
+    "margin-gap-only evidence is treated as success proof",
+    "actor contract changes"
+  ],
+  "commands": [
+    {
+      "name": "outcome_critical_selector_repeat_audit",
+      "command": "Run fresh matched-current/action/outcome artifacts through the M461 selector and audit wrong-history coverage; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m462-outcome-critical-selector-repeat-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m461-outcome-critical-matched-current-selector-implementation.md",
+    "runs/m461_outcome_critical_selector_m459_pairs/summary.json"
+  ],
+  "decision_rule": "M462 can admit wrong-history gate expansion only if fresh selected rows include wrong-history outcome-critical evidence. It cannot promote a checkpoint.",
+  "next_blocker": "pending M462 outcome-critical selector repeat audit"
+}

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 469,
+        "completed": 470,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m460-outcome-critical-matched-current-selector-design",
+        "task_id": "m461-outcome-critical-matched-current-selector-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m460-outcome-critical-matched-current-selector-design.md"
+        "run_dir": "runs/m461_outcome_critical_selector_m459_pairs",
+        "command_log": "docs/m461-outcome-critical-matched-current-selector-implementation.md"
     },
     "next_task": {
-        "id": "m461-outcome-critical-matched-current-selector-implementation",
+        "id": "m462-outcome-critical-selector-repeat-audit",
         "status": "pending",
-        "priority": 4560,
-        "kind": "infrastructure",
-        "hypothesis": "Implement the outcome-critical matched-current selector and smoke it on M459 pairs",
-        "command": "see experiments/manifests/m461-outcome-critical-matched-current-selector-implementation.json",
+        "priority": 4570,
+        "kind": "gate",
+        "hypothesis": "Repeat the outcome-critical selector on fresh artifacts and audit wrong-history coverage",
+        "command": "see experiments/manifests/m462-outcome-critical-selector-repeat-audit.json",
         "success_artifact": "",
-        "notes": "Pending: implement selector that rejects action-only rows and exports outcome-critical candidates"
+        "notes": "Pending: fresh repeat selector audit; do not claim wrong-history proof from reset/zero-current rows"
     },
-    "updated_at_utc": "20260523T203820Z"
+    "updated_at_utc": "20260523T204658Z"
 }

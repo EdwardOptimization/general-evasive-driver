@@ -10244,3 +10244,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M460 designs an outcome-critical matched-current selector after M459's action-only surface. The design keeps matched-current response/context similarity as a hard constraint, uses action intervention only as a prefilter, and accepts compact rows only when continuation has success drop, positive margin gap, collision gap, or obstacle-completion drop. Action-only rows remain diagnostic. Pass thresholds require at least `16` outcome-critical rows, `3` seed windows, `2` obstacle labels, and no actor contract change before any proof gate or training is admitted.
 - decision: `admit_m461_outcome_critical_selector_implementation`
 - next: `m461-outcome-critical-matched-current-selector-implementation`
+
+## 20260523T204658Z - m461-outcome-critical-matched-current-selector-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m461_outcome_critical_selector_m459_pairs`
+- artifact: `docs/m461-outcome-critical-matched-current-selector-implementation.md`
+- result: M461 implements `autodrift.outcome_critical_matched_current_selector` and focused tests for action-only rejection, margin-gap acceptance, success-drop acceptance, and diversity caps. The M459 smoke processes `900` candidate variant rows: `441` pass action prefilter, `418` are action-only diagnostics, `56` are outcome-critical, `23` are accepted, and `20` are selected into compact corpus. Compact rows cover `3` probe seeds, `2` obstacle labels, `2` targets, and reset/zero-current variants. Evidence remains incomplete: compact corpus has `0` wrong-history rows and `0` success-drop rows; `18` rows are positive-margin-gap and `2` are obstacle-completion-drop.
+- decision: `selector_pass_admit_m462_fresh_repeat_wrong_history_audit`
+- next: `m462-outcome-critical-selector-repeat-audit`

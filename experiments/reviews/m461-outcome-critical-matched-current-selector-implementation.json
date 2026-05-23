@@ -1,0 +1,80 @@
+{
+  "decision_reason": "M461 selector selects 20 compact reset/zero-current outcome-critical rows but no wrong-history or success-drop rows so fresh repeat audit is next",
+  "failure_criteria": [
+    "selector accepts action-only rows as outcome-critical",
+    "selector ignores matched-current similarity fields",
+    "selector cannot process M459 artifacts",
+    "actor contract changes"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not treat action-distance-only rows as outcome-critical"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260523T204921Z",
+  "hypothesis": "Implementing outcome-critical selection will distinguish true matched-current self-ID candidates from M459's action-only surface and decide whether the M457 task family should continue.",
+  "lineage": {
+    "blocked_by": [
+      "m460-outcome-critical-matched-current-selector-design"
+    ],
+    "derived_from": [
+      "m460-outcome-critical-matched-current-selector-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m460-outcome-critical-matched-current-selector-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m459_late_reveal_matched_current_seed9600/matched_pairs.csv",
+      "runs/m459_late_reveal_matched_history_action_gate/action_interventions.csv",
+      "runs/m459_late_reveal_matched_history_outcome_gate/outcome_interventions.csv"
+    ],
+    "parent_objective": [
+      "outcome-critical matched-current selector implementation"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m461-outcome-critical-matched-current-selector-implementation",
+  "next_blocker": "m462-outcome-critical-selector-repeat-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "selector_pass_admit_m462_fresh_repeat_wrong_history_audit",
+  "public_gates": [
+    "implement an outcome-critical matched-current selector",
+    "reject action-only rows unless they also have continuation outcome degradation",
+    "write candidate compact and summary artifacts",
+    "add focused selector tests",
+    "no checkpoint promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "selector_pass_admit_m462_fresh_repeat_wrong_history_audit",
+    "milestone": "m461-outcome-critical-matched-current-selector-implementation",
+    "reason": "M461 selector selects 20 compact reset/zero-current outcome-critical rows but no wrong-history or success-drop rows so fresh repeat audit is next",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "selector CLI writes candidates compact corpus and summary JSON",
+    "tests cover success-drop margin-gap action-only rejection and diversity caps",
+    "M459 pairs can be processed without sampling failure",
+    "documentation reports accepted outcome-critical rows or structured rejection",
+    "no checkpoint is promoted"
+  ],
+  "type": "infrastructure"
+}
