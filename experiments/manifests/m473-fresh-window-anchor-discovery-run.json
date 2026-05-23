@@ -1,0 +1,108 @@
+{
+  "id": "m473-fresh-window-anchor-discovery-run",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m471_expanded_adversarial_wrong_history_search/summary.json",
+      "runs/m467_near_boundary_wrong_history_selector/near_boundary_no_effect.csv"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m472-fresh-window-near-boundary-anchor-design.json"
+    ],
+    "parent_objective": [
+      "fresh-window near-boundary anchor discovery"
+    ],
+    "derived_from": [
+      "m472-fresh-window-near-boundary-anchor-design"
+    ],
+    "blocked_by": [
+      "m471-expanded-adversarial-pool-run"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m473-fresh-window-anchor-discovery-run.md",
+  "public_gates": [
+    "run expanded matched-current mining on fresh seed windows 10500/10600/10700 and 10800/10900/11000",
+    "run wrong-history targeted pair triage on each fresh window",
+    "run action and continuation outcome gates on each fresh targeted surface",
+    "classify fresh near-boundary wrong-history anchors",
+    "decide whether source-diverse fresh anchors exist",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not outcome-probe M471's imbalanced adversarial surface",
+    "do not loosen single-seed balance requirements",
+    "do not add privileged actor inputs"
+  ],
+  "hypothesis": "Fresh seed windows will provide source-diverse near-boundary wrong-history anchors that can later be combined with M467 before adversarial right-history search.",
+  "success_criteria": [
+    "both fresh matched-current windows complete without sampling failure",
+    "each targeted triage exports at least 96 rows",
+    "combined near-boundary candidate count >= 64",
+    "combined near-boundary probe_seed_count >= 4",
+    "combined near-boundary obstacle_label_count >= 2",
+    "combined near-boundary target_count >= 2",
+    "combined single_seed_share <= 0.50",
+    "combined single_label_share <= 0.70",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "fresh windows fail scenario sampling",
+    "near-boundary candidates remain source-narrow",
+    "single_seed_share exceeds 0.50",
+    "only aes-feasible high-slack rows are found",
+    "actor contract changes",
+    "training or checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "fresh_window_a_pipeline",
+      "command": "Run matched-current mining, targeted pair triage, action gate, outcome gate, outcome selector, and near-boundary selector for seeds 10500,10600,10700."
+    },
+    {
+      "name": "fresh_window_b_pipeline",
+      "command": "Run matched-current mining, targeted pair triage, action gate, outcome gate, outcome selector, and near-boundary selector for seeds 10800,10900,11000."
+    },
+    {
+      "name": "fresh_window_anchor_summary",
+      "command": "Combine the two near-boundary selector summaries in the M473 milestone document; do not promote or train."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m473-fresh-window-anchor-discovery-run.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m473a_fresh_window_near_boundary_selector/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m473b_fresh_window_near_boundary_selector/summary.json",
+      "type": "summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m472-fresh-window-near-boundary-anchor-design.md",
+    "runs/m471_expanded_adversarial_wrong_history_search/summary.json"
+  ],
+  "decision_rule": "M473 can admit a combined adversarial search only if fresh near-boundary anchors are source-diverse under the pre-registered seed and label caps.",
+  "next_blocker": "pending M473 fresh-window anchor discovery run"
+}

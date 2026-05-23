@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M472 classifies M471 as count-pass balance-fail and designs fresh-window near-boundary anchor discovery before any adversarial outcome probe",
+  "failure_criteria": [
+    "design proposes outcome probing on M471's imbalanced surface",
+    "design relaxes seed-balance requirements",
+    "design requires privileged actor inputs",
+    "design proposes PPO before proof evidence"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not outcome-probe M471's imbalanced surface",
+    "do not loosen single-seed cap",
+    "do not add privileged actor inputs"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260523T214109Z",
+  "hypothesis": "M471 shows the same seed window can meet pair count but not seed balance; fresh windows need their own near-boundary anchor discovery before combining adversarial surfaces.",
+  "lineage": {
+    "blocked_by": [
+      "m471-expanded-adversarial-pool-run"
+    ],
+    "derived_from": [
+      "m471-expanded-adversarial-pool-run"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m471-expanded-adversarial-pool-run.json"
+    ],
+    "parent_dataset": [
+      "runs/m471_expanded_adversarial_wrong_history_search/summary.json",
+      "runs/m471_expanded_adversarial_wrong_history_search/adversarial_pairs.csv"
+    ],
+    "parent_objective": [
+      "fresh-window near-boundary anchor discovery design"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m472-fresh-window-near-boundary-anchor-design",
+  "next_blocker": "m473-fresh-window-anchor-discovery-run",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m473_fresh_window_anchor_discovery_run",
+  "public_gates": [
+    "analyze why M471 count passes but seed balance fails",
+    "design fresh-window near-boundary anchor discovery",
+    "preserve P0 actor contract and normal-margin proof requirements",
+    "pre-register the next implementation and pass/fail criteria",
+    "no checkpoint promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m473_fresh_window_anchor_discovery_run",
+    "milestone": "m472-fresh-window-near-boundary-anchor-design",
+    "reason": "M472 classifies M471 as count-pass balance-fail and designs fresh-window near-boundary anchor discovery before any adversarial outcome probe",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "document M471 count-pass balance-fail result",
+    "select a concrete fresh-window anchor discovery path",
+    "define expected artifacts and pass/fail criteria",
+    "preserve no-privileged-input actor contract",
+    "no checkpoint is promoted"
+  ],
+  "type": "infrastructure"
+}

@@ -2,7 +2,7 @@
   "id": "m472-fresh-window-near-boundary-anchor-design",
   "type": "infrastructure",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -80,5 +80,21 @@
     "runs/m471_expanded_adversarial_wrong_history_search/summary.json"
   ],
   "decision_rule": "M472 can admit implementation only if it discovers near-boundary anchors in fresh windows before adversarial outcome probing.",
-  "next_blocker": "pending M472 fresh-window near-boundary anchor design"
+  "results": {
+    "design_doc": "docs/m472-fresh-window-near-boundary-anchor-design.md",
+    "m471_adversarial_pair_count": 67,
+    "m471_near_boundary_left_state_count": 24,
+    "m471_single_seed_share": 0.6716417910447762,
+    "m471_search_pass": false,
+    "failure_classification": [
+      "seed_fragility",
+      "source_balance_failure"
+    ],
+    "selected_next_path": "fresh-window near-boundary anchor discovery on windows 10500/10600/10700 and 10800/10900/11000",
+    "next_manifest": "experiments/manifests/m473-fresh-window-anchor-discovery-run.json",
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "admit_m473_fresh_window_anchor_discovery_run"
+  },
+  "next_blocker": "m473-fresh-window-anchor-discovery-run"
 }

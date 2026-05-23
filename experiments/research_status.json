@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 480,
+        "completed": 481,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m471-expanded-adversarial-pool-run",
+        "task_id": "m472-fresh-window-near-boundary-anchor-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m471_expanded_adversarial_wrong_history_search",
-        "command_log": "docs/m471-expanded-adversarial-pool-run.md"
+        "run_dir": "",
+        "command_log": "docs/m472-fresh-window-near-boundary-anchor-design.md"
     },
     "next_task": {
-        "id": "m472-fresh-window-near-boundary-anchor-design",
+        "id": "m473-fresh-window-anchor-discovery-run",
         "status": "pending",
-        "priority": 4670,
-        "kind": "infrastructure",
-        "hypothesis": "Fresh windows need their own near-boundary anchor discovery before combining adversarial surfaces",
-        "command": "see experiments/manifests/m472-fresh-window-near-boundary-anchor-design.json",
+        "priority": 4680,
+        "kind": "gate",
+        "hypothesis": "Fresh seed windows will provide source-diverse near-boundary wrong-history anchors that can later be combined with M467 before adversarial right-history search",
+        "command": "see experiments/manifests/m473-fresh-window-anchor-discovery-run.json",
         "success_artifact": "",
-        "notes": "Pending: design fresh-window near-boundary anchor discovery; do not outcome-probe M471 imbalanced surface"
+        "notes": "Pending: run fresh-window anchor discovery; no PPO and no checkpoint promotion"
     },
-    "updated_at_utc": "20260523T213315Z"
+    "updated_at_utc": "20260523T213725Z"
 }

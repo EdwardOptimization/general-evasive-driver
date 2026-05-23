@@ -10354,3 +10354,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M471 expanded same-window mining completes without sampling failure. Candidate pairs increase to `380877`, accepted pairs to `1702`, and accepted physical pairs to `1608`. Adversarial search improves over M469 by reaching `67` adversarial pairs across `24` near-boundary left states, `3` probe seeds, `2` labels, and `3` targets. The surface still fails because single-seed share is `0.671642`, above the `0.50` cap; seed `10200` contributes `45/67` rows.
 - decision: `expanded_same_window_count_pass_balance_fail_admit_m472`
 - next: `m472-fresh-window-near-boundary-anchor-design`
+
+## 20260523T213725Z - m472-fresh-window-near-boundary-anchor-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m472-fresh-window-near-boundary-anchor-design.md`
+- result: M472 classifies the M471 failure as count-pass source-balance failure, not as permission to loosen gates. M471 reached `67` adversarial pairs but had single-seed share `0.671642`, with seed `10200` contributing `45/67` rows. The next step is fresh-window anchor discovery on seed windows `10500,10600,10700` and `10800,10900,11000`: expanded matched-current mining, targeted wrong-history pair triage, action and outcome gates, outcome-critical selection, and near-boundary wrong-history classification. The output is a fresh anchor surface, not a checkpoint promotion.
+- decision: `admit_m473_fresh_window_anchor_discovery_run`
+- next: `m473-fresh-window-anchor-discovery-run`

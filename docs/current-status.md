@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m472-fresh-window-near-boundary-anchor-design
+m473-fresh-window-anchor-discovery-run
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -294,9 +294,11 @@ forbidden unless the expanded adversarial surface passes source-diversity gates.
 M471 runs that expanded same-window pool. Candidate pairs increase to
 `380877`, accepted pairs to `1702`, and adversarial pairs to `67`, but the
 surface still fails because single-seed share is `0.671642` (`10200`
-contributes `45/67` rows). The next blocker is M472: design fresh-window
-near-boundary anchor discovery before combining adversarial surfaces or running
-outcome probes.
+contributes `45/67` rows). M472 classifies this as count-pass source-balance
+failure, not a reason to relax gates. The next blocker is M473: run fresh-window
+near-boundary anchor discovery on windows `10500,10600,10700` and
+`10800,10900,11000` before combining adversarial surfaces or running outcome
+probes.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key
@@ -903,19 +905,12 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not run more PPO while the current blocker is the active-set replay/recovery
-balance. M424 stops the radius-only profile path: it raises proof-safe utility
-from M420 conservative `0.115403` to `0.133154`, but loosening enough to reach
-`0.142650` reopens M267/M264 rows `6` and `15` plus old-key `10023`. The next
-step is M428, a branch-split old-key guard audit. M427 shows the projected
-recovery idea has utility signal, but the old-key guard set is incomplete.
-M428 attributes failures to three mechanisms: `10004` rejected-branch washout,
-`10023` gap erosion, and `9872` normal-branch collision. M429 implements a
-branch-split hard guard where `10004` normal recovery remains allowed but its
-rejected-history branch is guarded; the combined anchor has `357` rows and
-no-update exact smoke passes. M430 should run the no-PPO projected recovery
-probe with this branch-split guard. Do not lower proof thresholds, remove
-old-key diagnostics, run PPO, or change actor inputs.
+Do not run PPO or promote a checkpoint while the current blocker is fresh-window
+wrong-history anchor discovery. M471 showed that the same-window adversarial
+surface can reach the count threshold but still be dominated by one seed. M473
+must discover source-diverse near-boundary anchors in fresh seed windows before
+any combined adversarial search or outcome proof gate. Do not lower seed-balance
+thresholds, outcome-probe the imbalanced M471 surface, or change actor inputs.
 
 ## Sensor Profile Policy
 
