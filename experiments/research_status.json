@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 344,
+        "completed": 345,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "command_log": "docs/m335-short-source-diverse-ppo-escalation-run.md",
+        "command_log": "docs/m336-full-public-gate-for-m335-a0075.md",
         "returncode": 0,
-        "run_dir": "runs/m335_m333_to_repaired_gap_bounded_interpolation",
+        "run_dir": "runs/m336_full_public_gate_for_m335_a0075",
         "status": "completed",
-        "task_id": "m335-short-source-diverse-ppo-escalation-run"
+        "task_id": "m336-full-public-gate-for-m335-a0075"
     },
     "next_task": {
-        "command": "see experiments/manifests/m336-full-public-gate-for-m335-a0075.json",
-        "hypothesis": "The M335 alpha 0.0075 bounded short-PPO candidate may be promotable if it retains exact objectives, source-diverse protected proof, old-key gap floor, all six replay surfaces, and behavior seeds versus M333.",
-        "id": "m336-full-public-gate-for-m335-a0075",
-        "kind": "driver_candidate",
-        "notes": "Pending: six replay gates exact/source-diverse old-key floor behavior seeds; no PPO",
-        "priority": 3310,
+        "command": "see experiments/manifests/m337-old-key-gap-floor-bottleneck-audit.json",
+        "hypothesis": "The fixed old-key 9944 margin-gap floor has become the active bottleneck for PPO continuation: source-diverse proof remains intact, but repaired PPO endpoints erode the singleton gap and force micro-alpha promotions.",
+        "id": "m337-old-key-gap-floor-bottleneck-audit",
+        "kind": "gate",
+        "notes": "Pending: no-PPO audit of old-key gap bottleneck before further PPO escalation",
+        "priority": 3320,
         "status": "pending",
         "success_artifact": ""
     },
-    "updated_at_utc": "20260523T072233Z"
+    "updated_at_utc": "20260523T073020Z"
 }

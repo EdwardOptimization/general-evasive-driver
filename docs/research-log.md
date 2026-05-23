@@ -8994,3 +8994,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M335 runs the 4096-step short PPO escalation from M333 base. Raw PPO completes; exact repair improves M297/M270 by `-0.000355124` and `-0.000168264`, but the repaired endpoint erodes old-key gap to `0.065360`. Bounded interpolation selects `alpha=0.0075`, the largest tested alpha keeping old-key gap `0.090021 >= 0.09`; selected exact deltas are `-0.000002742` and `-0.000001252`; source-diverse gates pass `5/5`; M183/M170 and M267/M264 first replay gates pass.
 - decision: `admit_m336_full_public_gate_for_m335_a0075`
 - next: `m336-full-public-gate-for-m335-a0075`
+
+## 20260523T073020Z - m336-full-public-gate-for-m335-a0075
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m336_full_public_gate_for_m335_a0075`
+- artifact: `docs/m336-full-public-gate-for-m335-a0075.md`
+- result: M336 promotes M335 alpha `0.0075`. Exact M297/M270 improve by `-0.000002623` and `-0.000001252`; source-diverse gates pass `5/5`; old-key gap remains `0.090021 >= 0.09`; all six replay surfaces pass; behavior seeds 9505 and 9506 retain `0.8625` success with reset `0.85` and zero-all `0.80`.
+- decision: `promote_m335_a0075_short_ppo_public_gate_base`
+- next: `m337-old-key-gap-floor-bottleneck-audit`

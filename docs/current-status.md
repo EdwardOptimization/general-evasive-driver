@@ -61,7 +61,7 @@ post-PPO repair before any more PPO acceptance.
 Current blocker:
 
 ```text
-m336-full-public-gate-for-m335-a0075
+m337-old-key-gap-floor-bottleneck-audit
 ```
 
 M305 implements deterministic exact M297/M270 repair or projection
@@ -122,16 +122,15 @@ acceptance needs exact repair plus a protected-key-bounded trust region.
 Current next task:
 
 ```text
-m336-full-public-gate-for-m335-a0075
+m337-old-key-gap-floor-bottleneck-audit
 ```
 
-M333 promotes M332 alpha `0.45` as the new source-diverse public-gate base.
-The candidate improves exact M297/M270, passes `4/4` source-diverse gates,
-keeps old `9944` gap `0.090155 >= 0.09`, passes all six replay surfaces, and
-retains behavior seeds 9505/9506. M334 registers the next 4096-step short PPO
-escalation from this base. M335 runs it and exact repair improves strongly, but
-old-key gap floor clips the admissible movement to `alpha=0.0075`; M336 should
-run the full public promotion gate for that bounded candidate.
+M336 promotes M335 alpha `0.0075` as the new source-diverse public-gate base.
+The candidate passes exact/source-diverse/old-key/replay/behavior gates, but
+the accepted movement is micro-alpha bounded: M335 repaired endpoint improves
+exact objectives much more strongly while eroding old-key gap to `0.065360`.
+M337 should audit whether the fixed old `9944` gap floor is now the active PPO
+continuation bottleneck before any more PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -184,6 +183,7 @@ run the full public promotion gate for that bounded candidate.
 | current source-diverse public base | `runs/m332_m328_to_m330_gap_bounded_interpolation/checkpoints/alpha_0_45.pt` | M333 promotes alpha 0.45 after exact, source-diverse, replay, old-key gap floor, and behavior gates pass |
 | short PPO escalation config | `configs/ppo_m335_short_source_diverse_escalation.json` | M334 registers 4096-step PPO from M333 base with exact repair and bounded proof gates; no PPO run yet |
 | bounded short-PPO candidate | `runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt` | M335 exact repair improves objectives but old-key floor clips accepted movement to alpha 0.0075; first replay gates pass |
+| current source-diverse public base | `runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt` | M336 promotes alpha 0.0075 after exact, source-diverse, replay, old-key gap floor, and behavior gates pass |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -455,9 +455,10 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not promote M335 alpha 0.0075 before M336 full public gate. M336 must run
-all six replay gates, old-key floor check, source-diverse proof, behavior seeds,
-and research validation. Do not change actor inputs.
+Do not run more PPO until M337 audits the old-key gap-floor bottleneck. M337
+must classify whether this is singleton old-key saturation, broad
+source-diverse washout, or an objective-design gap, and should admit a no-PPO
+design or corpus refresh before further escalation. Do not change actor inputs.
 
 ## Sensor Profile Policy
 
