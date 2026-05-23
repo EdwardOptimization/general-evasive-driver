@@ -2,7 +2,7 @@
   "id": "m320-protected-surface-objective-replay-conversion",
   "type": "objective_sanity",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -91,6 +91,36 @@
     "docs/m319-m317-family-protected-surface-refresh.md",
     "runs/m319_m317_family_boundary_robustness_seed9520/summary.json"
   ],
+  "results": {
+    "m316_corpus_rows": 17,
+    "m316_physical_pairs": 13,
+    "m316_targets": 2,
+    "m316_objective_pass": true,
+    "m316_min_combined_improvement": 2.0546486377716064,
+    "m316_min_delta_improvement": 2.8474974632263184,
+    "m316_pairwise_accuracy_after": 1.0,
+    "m314_corpus_rows": 17,
+    "m314_physical_pairs": 13,
+    "m314_targets": 2,
+    "m314_objective_pass": true,
+    "m314_min_combined_improvement": 2.054630756378174,
+    "m314_min_delta_improvement": 2.847475051879883,
+    "m314_pairwise_accuracy_after": 1.0,
+    "m316_repaired_corpus_rows": 17,
+    "m316_repaired_physical_pairs": 13,
+    "m316_repaired_targets": 2,
+    "m316_repaired_objective_pass": true,
+    "m316_repaired_min_combined_improvement": 2.0677571296691895,
+    "m316_repaired_min_delta_improvement": 2.859304666519165,
+    "m316_repaired_pairwise_accuracy_after": 1.0,
+    "m316_replay_sanity_pass": true,
+    "m314_replay_sanity_pass": true,
+    "m316_repaired_replay_sanity_pass": true,
+    "all_replay_success_drop_counts": 17,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m321_source_diverse_protected_gate_design",
   "decision_rule": "M320 may not run PPO. Passing compact objective and replay sanity should admit design of a multi-key protected-surface gate or objective before more PPO.",
-  "next_blocker": "pending M320 protected-surface objective replay conversion"
+  "next_blocker": "m321-source-diverse-protected-gate-design"
 }

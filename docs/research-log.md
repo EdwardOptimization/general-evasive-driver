@@ -8837,3 +8837,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M319 refreshes the M317-family protected surface without training. Robustness passes with `180` accepted wrong-history rows, `13` physical pairs, `8` left steps, `3` checkpoints, `2` targets, `2` margin buckets, success-drop fraction `1.0`, mean normal margin `0.005901`, max normal margin `0.010152`, and mean margin gap `0.009568`. This supports the classification that `9944` is a saturated singleton rather than proof loss.
 - decision: `admit_m320_protected_surface_objective_replay_conversion`
 - next: `m320-protected-surface-objective-replay-conversion`
+
+## 20260523T060458Z - m320-protected-surface-objective-replay-conversion
+
+- status: `completed`
+- kind: `objective_sanity`
+- run dir: `runs/m320_m316_boundary_outcome_corpus_seed10080`
+- artifact: `docs/m320-protected-surface-objective-replay-conversion.md`
+- result: M320 converts the M319 source-diverse surface into compact corpora for `m316_a0_0025`, `m314_base`, and `m316_repaired`. Each corpus has `17` rows, `13` physical pairs, and `2` targets. Objective sanity passes on all three with pairwise accuracy `1.0`, and replay sanity preserves `17/17` success drops for all three source/adjacent comparisons.
+- decision: `admit_m321_source_diverse_protected_gate_design`
+- next: `m321-source-diverse-protected-gate-design`

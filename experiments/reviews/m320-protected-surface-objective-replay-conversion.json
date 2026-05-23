@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M320 converts M319 surface into compact 17-row 13-pair corpora for m316 m314 and m316_repaired; all objective and replay sanity gates pass with 17 of 17 success drops",
+  "failure_criteria": [
+    "compact corpus is duplicate dominated",
+    "objective sanity fails",
+    "replay sanity does not reproduce wrong-history success drops",
+    "M320 runs PPO or changes actor inputs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not use duplicate-dominated rows",
+    "do not admit PPO from objective-only success without replay sanity",
+    "do not change actor inputs",
+    "do not tune from private holdout evidence"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260523T060636Z",
+  "hypothesis": "The M319 source-diverse protected surface can be converted into compact boundary-outcome corpora that are replay-aligned for the M317 current base and adjacent proposal-family checkpoints.",
+  "lineage": {
+    "blocked_by": [
+      "m319-m317-family-protected-surface-refresh"
+    ],
+    "derived_from": [
+      "m319-m317-family-protected-surface-refresh"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m313_m307_to_m310_protected_key_bounded_interpolation/checkpoints/alpha_0_14.pt",
+      "runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt",
+      "runs/m316_exact_repair_from_raw_s40_seed10096/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m319-m317-family-protected-surface-refresh.json",
+      "docs/m319-m317-family-protected-surface-refresh.md"
+    ],
+    "parent_dataset": [
+      "runs/m319_m317_family_boundary_robustness_seed9520/accepted_wrong_history_rows.csv"
+    ],
+    "parent_objective": [
+      "convert refreshed M317-family protected surface into compact replay-aligned objective corpora before more PPO"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m320-protected-surface-objective-replay-conversion",
+  "next_blocker": "m321-source-diverse-protected-gate-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m321_source_diverse_protected_gate_design",
+  "public_gates": [
+    "build compact protected-surface corpora only from M319 robustness-passing accepted wrong-history rows",
+    "run objective sanity for current base and adjacent proposal-family checkpoints",
+    "run replay sanity so rows reproduce normal-history success plus wrong-history failure",
+    "do not run PPO",
+    "do not change actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m321_source_diverse_protected_gate_design",
+    "milestone": "m320-protected-surface-objective-replay-conversion",
+    "reason": "M320 converts M319 surface into compact 17-row 13-pair corpora for m316 m314 and m316_repaired; all objective and replay sanity gates pass with 17 of 17 success drops",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "objective_sanity",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "build compact corpora for m316_a0_0025, m314_base, and m316_repaired",
+    "each corpus keeps physical-pair diversity and at least two targets where possible",
+    "objective sanity passes for each source checkpoint",
+    "replay sanity preserves normal success and wrong-history failure",
+    "no PPO or actor update is run"
+  ],
+  "type": "objective_sanity"
+}

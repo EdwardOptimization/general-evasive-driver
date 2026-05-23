@@ -61,7 +61,7 @@ post-PPO repair before any more PPO acceptance.
 Current blocker:
 
 ```text
-m320-protected-surface-objective-replay-conversion
+m321-source-diverse-protected-gate-design
 ```
 
 M305 implements deterministic exact M297/M270 repair or projection
@@ -122,14 +122,14 @@ acceptance needs exact repair plus a protected-key-bounded trust region.
 Current next task:
 
 ```text
-m320-protected-surface-objective-replay-conversion
+m321-source-diverse-protected-gate-design
 ```
 
-M319 refreshed the M317-family protected surface. It found a source-diverse
-surface with `180` accepted wrong-history rows across `13` physical pairs,
-`8` left steps, `3` checkpoints, and `2` targets; max normal margin is only
-`0.010152`, far from the saturated old key's `0.2` window. M320 should convert
-this surface into compact replay-aligned objective corpora before more PPO.
+M320 converted the refreshed M317-family protected surface into compact
+replay-aligned objective corpora. The `m316_a0_0025`, `m314_base`, and
+`m316_repaired` corpora each have `17` rows across `13` physical pairs and pass
+objective plus replay sanity. M321 should design the source-diverse protected
+gate/objective before more PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -167,6 +167,7 @@ this surface into compact replay-aligned objective corpora before more PPO.
 | next protected-key-aware PPO config | `configs/ppo_m316_protected_key_aware_proposal_smoke.json` | M315 registered smoke PPO from M314 plus exact repair and protected-key-bounded acceptance before replay |
 | current public-gate base | `runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt` | M317 promoted after exact objectives full replay protected-key and behavior gates pass; protected-key slack is about `4.8e-6` |
 | refreshed protected surface | `runs/m319_m317_family_boundary_robustness_seed9520/accepted_wrong_history_rows.csv` | M319 found source-diverse accepted wrong-history rows away from the saturated old key |
+| refreshed protected corpora | `runs/m320_m316_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv` | M320 converted the M319 surface into compact replay-aligned corpora; all replay sanity gates pass |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -438,11 +439,10 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not run another PPO proposal before M320 converts the refreshed protected
-surface into replay-aligned objective corpora. The current base is valid, and
-M319 shows source-diverse proof rows still exist away from saturated `9944`;
-that evidence must become a usable gate/objective before more PPO. Do not
-change actor inputs.
+Do not run another PPO proposal before M321 defines the source-diverse
+protected gate/objective. M320 proves usable compact corpora exist; the next
+step is to make them first-class acceptance criteria while keeping `9944` as a
+diagnostic during transition. Do not change actor inputs.
 
 ## Sensor Profile Policy
 

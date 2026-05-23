@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 328,
+        "completed": 329,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "command_log": "docs/m319-m317-family-protected-surface-refresh.md",
+        "command_log": "docs/m320-protected-surface-objective-replay-conversion.md",
         "returncode": 0,
-        "run_dir": "runs/m319_m317_family_boundary_robustness_seed9520",
+        "run_dir": "runs/m320_m316_boundary_outcome_corpus_seed10080",
         "status": "completed",
-        "task_id": "m319-m317-family-protected-surface-refresh"
+        "task_id": "m320-protected-surface-objective-replay-conversion"
     },
     "next_task": {
-        "command": "see experiments/manifests/m320-protected-surface-objective-replay-conversion.json",
-        "hypothesis": "The M319 source-diverse protected surface can be converted into compact boundary-outcome corpora that are replay-aligned for the M317 current base and adjacent proposal-family checkpoints.",
-        "id": "m320-protected-surface-objective-replay-conversion",
-        "kind": "objective_sanity",
-        "notes": "Pending: build compact corpora objective sanity and replay sanity without PPO",
-        "priority": 3150,
+        "command": "see experiments/manifests/m321-source-diverse-protected-gate-design.json",
+        "hypothesis": "The M320 compact source-diverse protected corpora can replace single-key acceptance pressure with a multi-surface protected gate design while retaining 9944 as a diagnostic.",
+        "id": "m321-source-diverse-protected-gate-design",
+        "kind": "infrastructure",
+        "notes": "Pending: define exact objective replay gate and 9944 diagnostic transition before PPO",
+        "priority": 3160,
         "status": "pending",
         "success_artifact": ""
     },
-    "updated_at_utc": "20260523T060058Z"
+    "updated_at_utc": "20260523T060458Z"
 }
