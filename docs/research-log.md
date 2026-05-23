@@ -9304,3 +9304,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M366 identifies the single alpha `0.2` old-key accepted regression as case `9951|perturbed|35|32|10.000000|-1.200000|1.400000`. The normal branch improves, but wrong-history margin crosses from `-9.49e-8` at M360 to `-1.51e-8` at alpha `0.1` and `+8.72e-8` at alpha `0.2`. This is a wrong-history terminal-margin sign crossing, not a reason to lower old-key thresholds.
 - decision: `admit_m367_old_key_hard_row_weighting_design`
 - next: `m367-old-key-hard-row-weighting-design`
+
+## 20260523T115045Z - m367-old-key-hard-row-weighting-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m367-old-key-hard-row-weighting-design.md`
+- result: M367 designs hard-row feedback for old-key repair. It defines an optional overlay CSV keyed by `case_id`, with hard-row metadata and branch-weight multipliers. The design keeps closed-loop old-key replay as the authoritative gate, keeps actor inputs unchanged, and recommends stronger wrong-history/rejected-action pressure for the M366 sign-crossing row instead of lowering thresholds.
+- decision: `admit_m368_old_key_hard_row_feedback_implementation`
+- next: `m368-old-key-hard-row-feedback-implementation`

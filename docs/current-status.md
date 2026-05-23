@@ -55,7 +55,7 @@ old-key failure.
 Current blocker:
 
 ```text
-m367-old-key-hard-row-weighting-design
+m368-old-key-hard-row-feedback-implementation
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -100,7 +100,8 @@ direct old-key-aware repair still fails old-key replay by one accepted
 regression, but interpolation alpha `0.1` passes old-key, source-diverse, and
 first replay gates. M365 promotes alpha `0.1` after the full public gate passes.
 M366 audits the alpha `0.2` failure and finds a single wrong-history
-terminal-margin sign crossing, not normal-branch regression.
+terminal-margin sign crossing, not normal-branch regression. M367 designs a
+hard-row overlay and branch-weight feedback path for old-key repair.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -177,7 +178,7 @@ terminal-margin sign crossing, not normal-branch regression.
 | bounded micro-alpha candidate | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M358 finds alpha 0.00025 passes exact and old-key; alpha 0.0005 first fails old-key |
 | proof-gate-passing micro-alpha | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M359 passes source-diverse protected and first replay proof gates |
 | current public-gate base | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M360 promotes alpha 0.00025 after full public gate pass; movement is extremely small |
-| current blocker | `experiments/manifests/m367-old-key-hard-row-weighting-design.json` | M367 must design hard-row feedback from the alpha 0.2 old-key regression into the old-key repair corpus |
+| current blocker | `experiments/manifests/m368-old-key-hard-row-feedback-implementation.json` | M368 must implement hard-row overlay and branch-weight support for old-key repair without PPO |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

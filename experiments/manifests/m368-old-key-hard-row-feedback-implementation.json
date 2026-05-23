@@ -1,0 +1,89 @@
+{
+  "id": "m368-old-key-hard-row-feedback-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m364_old_key_aware_repair_interpolation/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m367-old-key-hard-row-weighting-design.md",
+      "runs/m364_old_key_aware_repair_alpha02_old_key_replay_gate/old_key_replay_comparison_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m367-old-key-hard-row-weighting-design.json"
+    ],
+    "parent_objective": [
+      "implement hard-row feedback overlay and branch-weight arrays for old-key preference corpus"
+    ],
+    "derived_from": [
+      "m367-old-key-hard-row-weighting-design"
+    ],
+    "blocked_by": [
+      "m367-old-key-hard-row-weighting-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m368-old-key-hard-row-feedback-implementation.md",
+  "public_gates": [
+    "infrastructure implementation only; no PPO run",
+    "hard-row overlay does not change actor inputs",
+    "old-key corpus remains backward-compatible when overlay absent",
+    "focused tests pass",
+    "research validation passes"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not lower old-key replay thresholds",
+    "do not add hidden vehicle parameters or oracle labels to actor inputs"
+  ],
+  "hypothesis": "A hard-row overlay and branch-weight arrays can make replay-discovered wrong-history sign crossings visible to the differentiable old-key repair surrogate while preserving actor-input contract and backward compatibility.",
+  "success_criteria": [
+    "old-key preference corpus accepts optional hard-row overlay CSV",
+    "corpus NPZ records hard_row wrong_branch_weight and preferred_branch_weight arrays",
+    "exact repair old-key surrogate uses branch weights when available",
+    "backward compatibility tests pass when hard-row arrays are absent",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "hard-row overlay changes deployable actor inputs",
+    "existing old-key corpus behavior changes when overlay is absent",
+    "tests fail",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_old_key_preference_corpus.py tests/test_exact_post_ppo_repair.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/old_key_preference_corpus.py",
+      "type": "code"
+    },
+    {
+      "path": "src/autodrift/exact_post_ppo_repair.py",
+      "type": "code"
+    },
+    {
+      "path": "docs/m368-old-key-hard-row-feedback-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m364_old_key_aware_repair_interpolation/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m367-old-key-hard-row-weighting-design.md"
+  ],
+  "decision_rule": "M368 completes when hard-row overlay support is implemented, tested, documented, and a no-PPO probe milestone is registered.",
+  "next_blocker": "pending M368 hard-row feedback implementation"
+}

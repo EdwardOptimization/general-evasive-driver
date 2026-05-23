@@ -75,6 +75,30 @@
   "baseline_artifacts": [
     "docs/m366-alpha02-old-key-regression-audit.md"
   ],
-  "decision_rule": "M367 is complete when hard-row feedback is designed and the next implementation/probe milestone is registered without changing actor inputs or old-key thresholds.",
-  "next_blocker": "pending M367 old-key hard-row weighting design"
+  "results": {
+    "design_artifact": "docs/m367-old-key-hard-row-weighting-design.md",
+    "hard_row_case_id": "9951|perturbed|35|32|10.000000|-1.200000|1.400000",
+    "hard_row_reason": "wrong_history_margin_sign_crossing",
+    "proposed_overlay_schema": [
+      "case_id",
+      "hard_row",
+      "hard_row_reason",
+      "hard_weight_multiplier",
+      "wrong_branch_weight_multiplier",
+      "preferred_branch_weight_multiplier",
+      "reference_wrong_history_margin",
+      "candidate_wrong_history_margin",
+      "candidate_accepted_regression"
+    ],
+    "recommended_hard_weight_multiplier": 8.0,
+    "recommended_wrong_branch_weight_multiplier": 16.0,
+    "recommended_preferred_branch_weight_multiplier": 1.0,
+    "threshold_lowering_recommended": false,
+    "implementation_milestone_registered": true,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m368_old_key_hard_row_feedback_implementation",
+  "decision_rule": "M367 completes by designing hard-row overlay and branch weighting feedback without running PPO, changing actor inputs, or lowering old-key thresholds.",
+  "next_blocker": "m368-old-key-hard-row-feedback-implementation"
 }
