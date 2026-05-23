@@ -1,0 +1,91 @@
+{
+  "id": "m329-source-diverse-ppo-fresh-seed-repeat-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m327_exact_repair_from_raw_s40_seed10097/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m328_full_public_gate_for_m327_repaired/full_gates",
+      "runs/m328_source_diverse_protected_gate/summary.json",
+      "runs/m328_m327_repaired_exact_eval_vs_m325/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m328-full-public-gate-for-m327-source-diverse-repaired.json",
+      "docs/m328-full-public-gate-for-m327-source-diverse-repaired.md"
+    ],
+    "parent_objective": [
+      "design a fresh-seed source-diverse protected PPO repeat from M328 base before lengthening PPO"
+    ],
+    "derived_from": [
+      "m328-full-public-gate-for-m327-source-diverse-repaired"
+    ],
+    "blocked_by": [
+      "m328-full-public-gate-for-m327-source-diverse-repaired"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m329-source-diverse-ppo-fresh-seed-repeat-design.md",
+  "public_gates": [
+    "do not run PPO in M329",
+    "preserve human-view actor input contract",
+    "register fresh optimizer/PPO seed",
+    "register exact repair command",
+    "register source-diverse protected gates",
+    "register old-key diagnostic classification",
+    "define first replay and full public gate escalation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not lengthen PPO before fresh-seed repeat",
+    "do not run PPO before the repeat design is committed",
+    "do not remove source-diverse protected gates",
+    "do not delete 9944 diagnostic",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "After M328 promotes one source-diverse protected smoke PPO result, the workflow should repeat the same smoke process with a fresh seed before any longer PPO escalation.",
+  "success_criteria": [
+    "design names M328 checkpoint as base",
+    "design registers a fresh-seed smoke PPO config only",
+    "design requires exact repair before replay gates",
+    "design requires source-diverse protected gate before full public promotion",
+    "design keeps 9944 diagnostic reporting",
+    "no PPO is run"
+  ],
+  "failure_criteria": [
+    "design skips fresh-seed repeat",
+    "design skips exact repair",
+    "design treats first gates as promotion",
+    "design deletes 9944 diagnostic",
+    "design changes actor inputs",
+    "M329 runs PPO"
+  ],
+  "commands": [
+    {
+      "name": "m329_design",
+      "command": "Design a fresh-seed repeat of the M327 source-diverse protected PPO smoke process from M328 base; no PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m329-source-diverse-ppo-fresh-seed-repeat-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m327_exact_repair_from_raw_s40_seed10097/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m328-full-public-gate-for-m327-source-diverse-repaired.md",
+    "runs/m328_source_diverse_protected_gate/summary.json",
+    "runs/m328_full_public_gate_for_m327_repaired/full_gates/critical_key_seed9944/guard_results.csv"
+  ],
+  "decision_rule": "M329 may only admit a fresh-seed smoke PPO repeat after pre-registering exact repair, source-diverse protected gates, old-key diagnostic handling, and staged replay/behavior acceptance.",
+  "next_blocker": "pending M329 fresh-seed repeat design"
+}

@@ -8915,3 +8915,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M327 runs smoke PPO from M325 base, exact-repairs the raw proposal, and passes the proof gates. The repaired candidate improves exact M297/M270 by `-0.000104308` and `-0.000066042`, passes `3/3` source-diverse protected gates, classifies old `9944` as `single_key_window_saturation` with margin gap `0.092653`, and passes M183/M170 plus M267/M264 first replay gates.
 - decision: `admit_m328_full_public_gate_for_m327_source_diverse_repaired`
 - next: `m328-full-public-gate-for-m327-source-diverse-repaired`
+
+## 20260523T064117Z - m328-full-public-gate-for-m327-source-diverse-repaired
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m328_full_public_gate_for_m327_repaired`
+- artifact: `docs/m328-full-public-gate-for-m327-source-diverse-repaired.md`
+- result: M328 promotes the M327 exact-repaired PPO proposal. Exact M297/M270 improve versus M325 by `-0.000104308` and `-0.000066042`; source-diverse protected gates pass `3/3`; all six public replay gates pass; behavior seeds 9505/9506 retain `0.8625` success. Old `9944` remains singleton-window saturation with margin gap `0.092653`.
+- decision: `promote_m327_source_diverse_repaired_public_gate_base`
+- next: `m329-source-diverse-ppo-fresh-seed-repeat-design`

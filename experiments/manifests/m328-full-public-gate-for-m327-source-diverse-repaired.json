@@ -2,7 +2,7 @@
   "id": "m328-full-public-gate-for-m327-source-diverse-repaired",
   "type": "driver_candidate",
   "gate_tier": "promotion",
-  "promotion_decision": "pending",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -98,6 +98,36 @@
     "runs/m327_source_diverse_protected_gate/summary.json",
     "runs/m327_critical_key_seed9944/guard_results.csv"
   ],
-  "decision_rule": "Promote M327 repaired only if exact objectives, source-diverse protected gate, all six replay gates, old-key singleton-window audit, behavior seeds, and research validation pass.",
-  "next_blocker": "pending M328 full public gate"
+  "results": {
+    "run_dir": "runs/m328_full_public_gate_for_m327_repaired",
+    "selected_policy": "m327_repaired",
+    "selected_checkpoint": "runs/m327_exact_repair_from_raw_s40_seed10097/candidate_checkpoint.pt",
+    "exact_eval_run_dir": "runs/m328_m327_repaired_exact_eval_vs_m325",
+    "source_diverse_run_dir": "runs/m328_source_diverse_protected_gate",
+    "m297_preference_loss_delta": -0.0001043081283569336,
+    "exact_m270_loss_delta": -6.604194641113281e-05,
+    "source_diverse_protected_pass": true,
+    "source_diverse_replay_gates_passed": 3,
+    "source_diverse_replay_gate_count": 3,
+    "full_replay_gates_pass": true,
+    "old_key_policy_pass": false,
+    "old_key_classification": "single_key_window_saturation",
+    "old_key_normal_margin": 0.21394359476151803,
+    "old_key_wrong_history_margin": 0.1212908334943259,
+    "old_key_margin_gap": 0.09265276126719213,
+    "old_key_margin_gap_floor": 0.09,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "behavior_success_mean": 0.8625,
+    "behavior_termination_mean": 0.1375,
+    "behavior_clearance_margin_mean": 1.8445386544336544,
+    "reset_success_mean": 0.85,
+    "zero_all_success_mean": 0.8,
+    "promotion_recommended": true,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "promote_m327_source_diverse_repaired_public_gate_base",
+  "decision_rule": "M328 promotes M327 repaired because exact objectives, source-diverse protected proof, all six replay gates, old-key singleton-window audit, behavior seeds, and input-contract checks pass under the M324 policy.",
+  "next_blocker": "m329-source-diverse-ppo-fresh-seed-repeat-design"
 }
