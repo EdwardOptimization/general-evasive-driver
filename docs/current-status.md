@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m452-robust-challenge-response-ablation-benchmark
+m453-response-critical-ablation-corpus-design
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -158,7 +158,15 @@ new M451 names and keeps the M449 failure artifacts intact. Both configs pass
 `drift_required`, and `unavoidable`, and heuristic success remains
 substantially below M399. The next blocker is M452: rerun the M450-style
 response/history ablation benchmark on the robust challenge configs without
-training or promotion.
+training or promotion. M452 completes those two 128-episode benchmarks. Near
+robust shows weak current-response sensitivity: M399 base success is
+`0.906250`, reset is `0.882812`, zero-current/zero-all are `0.859375`, and
+no-action remains `0.906250`. Late robust is weaker: base is `0.859375`,
+reset/zero-response are `0.851562`, and no-action is `0.867188`. The result is
+not strong recurrent self-ID evidence. The next blocker is M453: design a
+response-critical ablation corpus that separates current-response,
+recurrent-hidden, action-history, road-boundary, and obstacle-collision failure
+modes before more training or challenge tuning.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

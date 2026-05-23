@@ -2,7 +2,7 @@
   "id": "m452-robust-challenge-response-ablation-benchmark",
   "type": "gate",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -88,5 +88,26 @@
     "docs/m451-challenge-config-sampling-robustness-repair.md"
   ],
   "decision_rule": "M452 is diagnostic only. It can admit challenge-distribution refinement or self-ID ablation follow-up but cannot promote a checkpoint.",
-  "next_blocker": "pending M452 robust challenge response ablation benchmark"
+  "results": {
+    "near_run_dir": "runs/m452_near_robust_ablation_seed9900",
+    "late_run_dir": "runs/m452_late_robust_ablation_seed9900",
+    "near_policy_difference_run_dir": "runs/m452_near_ablation_policy_difference_mining",
+    "late_policy_difference_run_dir": "runs/m452_late_ablation_policy_difference_mining",
+    "near_m399_base_success": 0.90625,
+    "near_m399_reset_success": 0.8828125,
+    "near_m399_zero_response_success": 0.859375,
+    "near_m399_no_action_history_success": 0.90625,
+    "late_m399_base_success": 0.859375,
+    "late_m399_reset_success": 0.8515625,
+    "late_m399_zero_response_success": 0.8515625,
+    "late_m399_no_action_history_success": 0.8671875,
+    "near_base_success_to_zero_response_fail_flips": 6,
+    "near_base_success_to_reset_fail_flips": 3,
+    "late_base_success_to_zero_response_fail_flips": 1,
+    "late_base_success_to_reset_fail_flips": 1,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "weak_response_dependency_admit_m453_response_critical_corpus_design"
+  },
+  "next_blocker": "m453-response-critical-ablation-corpus-design"
 }

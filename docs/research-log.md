@@ -10154,3 +10154,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M451 adds robust near-threshold and late high-energy zero-relvel challenge configs without mutating M449 artifacts. Both configs pass 128-reset stress and 16-episode heuristic/M399 smoke across seed blocks `9800`, `9900`, and `10000`. The configs remain diagnostic: heuristic success is substantially below M399 in smokes while label distributions include `aes_feasible`, `drift_required`, and `unavoidable`.
 - decision: `robust_configs_validated_admit_m452`
 - next: `m452-robust-challenge-response-ablation-benchmark`
+
+## 20260523T195020Z - m452-robust-challenge-response-ablation-benchmark
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m452_near_robust_ablation_seed9900`
+- artifact: `docs/m452-robust-challenge-response-ablation-benchmark.md`
+- result: M452 reruns M450-style response/history ablations on the M451 robust configs. Both 128-episode benchmarks complete. Near robust shows weak current-response sensitivity: zero-current/zero-all success drops from M399 base `0.906250` to `0.859375`, with six base-success to ablation-fail flips; reset drops to `0.882812`; no-action remains `0.906250`. Late robust is weaker: base `0.859375`, reset/zero-response `0.851562`, and no-action `0.867188`. Policy-difference mining produces source-diverse compact corpora, but aggregate evidence does not prove recurrent-history necessity.
+- decision: `weak_response_dependency_admit_m453`
+- next: `m453-response-critical-ablation-corpus-design`
