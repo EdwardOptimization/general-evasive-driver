@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M441 exports a 36-row v2 active-boundary window corpus wires v2 exact repair terms and passes no-update smoke with exact no-regression",
+  "failure_criteria": [
+    "v2 corpus degenerates into broad full-trajectory imitation",
+    "implementation changes actor inputs or outputs",
+    "no-update smoke fails",
+    "implementation requires PPO or projection to validate"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not run projection",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260523T190609Z",
+  "hypothesis": "The active-boundary v2 trajectory-window corpus and row-specific exact terms can be implemented as training-only repair machinery without changing the deployable actor contract.",
+  "lineage": {
+    "blocked_by": [
+      "m440-active-boundary-v2-residual-design"
+    ],
+    "derived_from": [
+      "m440-active-boundary-v2-residual-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m438_r0015_active_boundary_lactive1e12_s40_seed10161/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m440-active-boundary-v2-residual-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m439_active_boundary_residual_utility_audit/policy_utility_summary.csv",
+      "runs/m439_active_boundary_residual_utility_audit/active_case_rows.csv",
+      "runs/m437_active_boundary_residual/active_boundary_corpus.npz"
+    ],
+    "parent_objective": [
+      "active-boundary v2 residual implementation"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m441-active-boundary-v2-residual-implementation",
+  "next_blocker": "m442-active-boundary-v2-projection-probe",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m442_active_boundary_v2_projection_probe",
+  "public_gates": [
+    "export active-boundary v2 trajectory-window corpus",
+    "loader and exact loss tests",
+    "no-update exact repair smoke",
+    "no actor input or output contract change"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m442_active_boundary_v2_projection_probe",
+    "milestone": "m441-active-boundary-v2-residual-implementation",
+    "reason": "M441 exports a 36-row v2 active-boundary window corpus wires v2 exact repair terms and passes no-update smoke with exact no-regression",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "export v2 rows for 10004 10023 and 9998 active cases when snapshots are present",
+    "loader validates trajectory-window shapes weights and finite fields",
+    "exact terms cover wrong-history safety gap erosion and normal safety families",
+    "no-update exact repair smoke loads v2 corpus and passes exact no-regression"
+  ],
+  "type": "infrastructure"
+}

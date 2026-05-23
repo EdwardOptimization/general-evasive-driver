@@ -1,0 +1,93 @@
+{
+  "id": "m442-active-boundary-v2-projection-probe",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m438_r0015_active_boundary_lactive1e12_s40_seed10161/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m441_active_boundary_v2_residual/active_boundary_v2_corpus.npz",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "runs/m377_cumulative_gap_tail_v2_old_key_preference_corpus/old_key_preference_corpus.npz",
+      "runs/m398_old_key_normal_margin_recovery_targets/old_key_recovery_corpus.npz",
+      "runs/m393_current_family_rejected_boundary_targets/current_family_conflict_corpus.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m441-active-boundary-v2-residual-implementation.json"
+    ],
+    "parent_objective": [
+      "active-boundary v2 no-PPO projection"
+    ],
+    "derived_from": [
+      "m441-active-boundary-v2-residual-implementation"
+    ],
+    "blocked_by": [
+      "m441-active-boundary-v2-residual-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m442-active-boundary-v2-projection-probe.md",
+  "public_gates": [
+    "exact M297/M270/old-key no-regression",
+    "active-boundary v2 residual tracked",
+    "M267/M264 first replay 17 of 17",
+    "old-key compact replay 40 of 40",
+    "old-key replay gate pass",
+    "M183/M170 first replay 17 of 17",
+    "recovery retained vs M406 compared with M438 r0015"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "hypothesis": "The v2 active-boundary residual can make a looser profile proof-safe while retaining more M406 recovery utility than M438 r0015.",
+  "success_criteria": [
+    "candidate exact M297/M270/old-key no-regression passes",
+    "M267/M264 first replay remains 17 of 17",
+    "old-key compact replay remains 40 of 40",
+    "M183/M170 first replay remains 17 of 17",
+    "minimum useful if recovery retained vs M406 exceeds 0.120957",
+    "strong evidence if recovery retained vs M406 reaches at least 0.174354",
+    "primary pass if recovery retained vs M406 reaches at least 0.20"
+  ],
+  "failure_criteria": [
+    "exact objectives regress before replay",
+    "active-boundary v2 exact loss improves while old-key normal success drops",
+    "M267/M264 wrong-history rows become safe",
+    "old-key compact exposes 10004 10023 or 9998 boundary failures",
+    "recovery retained remains at or below M438 r0015"
+  ],
+  "commands": [
+    {
+      "name": "active_boundary_v2_projection_probe",
+      "command": "Run no-PPO exact projection with active-boundary v2 residual and evaluate exact/replay/recovery gates; no promotion."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m442-active-boundary-v2-projection-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "runs/m438_r0015_active_boundary_lactive1e12_s40_seed10161/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m441-active-boundary-v2-residual-implementation.md"
+  ],
+  "decision_rule": "M442 should classify v2 as useful only if it improves proof-safe recovery beyond M438 r0015 without lowering any public proof gate threshold.",
+  "next_blocker": "pending M442 active-boundary v2 projection probe"
+}

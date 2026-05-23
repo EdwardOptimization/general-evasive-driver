@@ -116,6 +116,33 @@ class ActiveBoundarySnippets:
 
 
 @dataclass(frozen=True)
+class ActiveBoundaryV2Snippets:
+    observation: torch.Tensor
+    normal_hidden: torch.Tensor
+    wrong_hidden: torch.Tensor
+    proof_normal_action: torch.Tensor
+    proof_wrong_action: torch.Tensor
+    candidate_normal_action: torch.Tensor
+    candidate_wrong_action: torch.Tensor
+    normal_margin: torch.Tensor
+    wrong_history_margin: torch.Tensor
+    margin_gap: torch.Tensor
+    reference_wrong_history_margin: torch.Tensor
+    reference_margin_gap: torch.Tensor
+    wrong_safety_weight: torch.Tensor
+    gap_weight: torch.Tensor
+    normal_safety_weight: torch.Tensor
+    violation_type: torch.Tensor
+    row_id: torch.Tensor
+    profile_index: torch.Tensor
+    window_offset: torch.Tensor
+
+    @property
+    def size(self) -> int:
+        return int(self.observation.shape[0])
+
+
+@dataclass(frozen=True)
 class SnippetActionAnchor:
     observation: torch.Tensor
     preferred_hidden: torch.Tensor
@@ -701,6 +728,147 @@ def load_active_boundary_snippets(
         weight=torch.as_tensor(weight, dtype=torch.float32, device=device),
         row_id=torch.as_tensor(row_id, dtype=torch.long, device=device),
         profile_index=torch.as_tensor(profile_index, dtype=torch.long, device=device),
+    )
+
+
+def load_active_boundary_v2_snippets(
+    path: Path | str,
+    *,
+    device: torch.device,
+    obs_dim: int,
+    hidden_size: int,
+    act_dim: int,
+) -> ActiveBoundaryV2Snippets:
+    data = np.load(Path(path))
+    required = {
+        "observation",
+        "normal_hidden",
+        "wrong_hidden",
+        "proof_normal_action",
+        "proof_wrong_action",
+        "candidate_normal_action",
+        "candidate_wrong_action",
+        "normal_margin",
+        "wrong_history_margin",
+        "margin_gap",
+        "reference_wrong_history_margin",
+        "reference_margin_gap",
+        "wrong_safety_weight",
+        "gap_weight",
+        "normal_safety_weight",
+        "violation_type",
+        "row_id",
+        "profile_index",
+        "window_offset",
+    }
+    missing = sorted(required.difference(data.files))
+    if missing:
+        raise ValueError(f"active-boundary-v2 snippets missing fields: {missing}")
+    observation = np.asarray(data["observation"], dtype=np.float32)
+    normal_hidden = np.asarray(data["normal_hidden"], dtype=np.float32)
+    wrong_hidden = np.asarray(data["wrong_hidden"], dtype=np.float32)
+    proof_normal_action = np.asarray(data["proof_normal_action"], dtype=np.float32)
+    proof_wrong_action = np.asarray(data["proof_wrong_action"], dtype=np.float32)
+    candidate_normal_action = np.asarray(data["candidate_normal_action"], dtype=np.float32)
+    candidate_wrong_action = np.asarray(data["candidate_wrong_action"], dtype=np.float32)
+    normal_margin = np.asarray(data["normal_margin"], dtype=np.float32)
+    wrong_history_margin = np.asarray(data["wrong_history_margin"], dtype=np.float32)
+    margin_gap = np.asarray(data["margin_gap"], dtype=np.float32)
+    reference_wrong_history_margin = np.asarray(data["reference_wrong_history_margin"], dtype=np.float32)
+    reference_margin_gap = np.asarray(data["reference_margin_gap"], dtype=np.float32)
+    wrong_safety_weight = np.asarray(data["wrong_safety_weight"], dtype=np.float32)
+    gap_weight = np.asarray(data["gap_weight"], dtype=np.float32)
+    normal_safety_weight = np.asarray(data["normal_safety_weight"], dtype=np.float32)
+    violation_type = np.asarray(data["violation_type"], dtype=np.int64)
+    row_id = np.asarray(data["row_id"], dtype=np.int64)
+    profile_index = np.asarray(data["profile_index"], dtype=np.int64)
+    window_offset = np.asarray(data["window_offset"], dtype=np.int64)
+    rows = int(observation.shape[0])
+    if rows < 1:
+        raise ValueError("active-boundary-v2 snippets must contain at least one row")
+    if observation.ndim != 2 or observation.shape[1] != obs_dim:
+        raise ValueError(
+            f"active-boundary-v2 observations must have shape (N, {obs_dim}), got {observation.shape}"
+        )
+    for name, value in (("normal_hidden", normal_hidden), ("wrong_hidden", wrong_hidden)):
+        if value.ndim != 2 or value.shape[1] != hidden_size or int(value.shape[0]) != rows:
+            raise ValueError(f"active-boundary-v2 {name} must have shape (N, {hidden_size}), got {value.shape}")
+    for name, value in (
+        ("proof_normal_action", proof_normal_action),
+        ("proof_wrong_action", proof_wrong_action),
+        ("candidate_normal_action", candidate_normal_action),
+        ("candidate_wrong_action", candidate_wrong_action),
+    ):
+        if value.ndim != 2 or value.shape[1] != act_dim or int(value.shape[0]) != rows:
+            raise ValueError(f"active-boundary-v2 {name} must have shape (N, {act_dim}), got {value.shape}")
+        if np.any(np.abs(value) > 1.0 + 1e-6):
+            raise ValueError(f"active-boundary-v2 {name} values must be in [-1, 1]")
+    for name, value in (
+        ("normal_margin", normal_margin),
+        ("wrong_history_margin", wrong_history_margin),
+        ("margin_gap", margin_gap),
+        ("reference_wrong_history_margin", reference_wrong_history_margin),
+        ("reference_margin_gap", reference_margin_gap),
+        ("wrong_safety_weight", wrong_safety_weight),
+        ("gap_weight", gap_weight),
+        ("normal_safety_weight", normal_safety_weight),
+        ("violation_type", violation_type),
+        ("row_id", row_id),
+        ("profile_index", profile_index),
+        ("window_offset", window_offset),
+    ):
+        if value.ndim != 1 or int(value.shape[0]) != rows:
+            raise ValueError(f"active-boundary-v2 {name} must have shape (N,), got {value.shape}")
+    for name, value in (
+        ("observation", observation),
+        ("normal_hidden", normal_hidden),
+        ("wrong_hidden", wrong_hidden),
+        ("proof_normal_action", proof_normal_action),
+        ("proof_wrong_action", proof_wrong_action),
+        ("candidate_normal_action", candidate_normal_action),
+        ("candidate_wrong_action", candidate_wrong_action),
+        ("normal_margin", normal_margin),
+        ("wrong_history_margin", wrong_history_margin),
+        ("margin_gap", margin_gap),
+        ("reference_wrong_history_margin", reference_wrong_history_margin),
+        ("reference_margin_gap", reference_margin_gap),
+        ("wrong_safety_weight", wrong_safety_weight),
+        ("gap_weight", gap_weight),
+        ("normal_safety_weight", normal_safety_weight),
+    ):
+        if not np.all(np.isfinite(value)):
+            raise ValueError(f"active-boundary-v2 {name} must be finite")
+    if not set(int(value) for value in violation_type.tolist()).issubset({0, 1, 2}):
+        raise ValueError("active-boundary-v2 violation_type values must be 0, 1, or 2")
+    for name, value in (
+        ("wrong_safety_weight", wrong_safety_weight),
+        ("gap_weight", gap_weight),
+        ("normal_safety_weight", normal_safety_weight),
+    ):
+        if np.any(value < -1e-8):
+            raise ValueError(f"active-boundary-v2 {name} must be non-negative")
+    if float(np.max(wrong_safety_weight + gap_weight + normal_safety_weight)) <= 0.0:
+        raise ValueError("active-boundary-v2 snippets require at least one positive family weight")
+    return ActiveBoundaryV2Snippets(
+        observation=torch.as_tensor(observation, dtype=torch.float32, device=device),
+        normal_hidden=torch.as_tensor(normal_hidden, dtype=torch.float32, device=device),
+        wrong_hidden=torch.as_tensor(wrong_hidden, dtype=torch.float32, device=device),
+        proof_normal_action=torch.as_tensor(proof_normal_action, dtype=torch.float32, device=device),
+        proof_wrong_action=torch.as_tensor(proof_wrong_action, dtype=torch.float32, device=device),
+        candidate_normal_action=torch.as_tensor(candidate_normal_action, dtype=torch.float32, device=device),
+        candidate_wrong_action=torch.as_tensor(candidate_wrong_action, dtype=torch.float32, device=device),
+        normal_margin=torch.as_tensor(normal_margin, dtype=torch.float32, device=device),
+        wrong_history_margin=torch.as_tensor(wrong_history_margin, dtype=torch.float32, device=device),
+        margin_gap=torch.as_tensor(margin_gap, dtype=torch.float32, device=device),
+        reference_wrong_history_margin=torch.as_tensor(reference_wrong_history_margin, dtype=torch.float32, device=device),
+        reference_margin_gap=torch.as_tensor(reference_margin_gap, dtype=torch.float32, device=device),
+        wrong_safety_weight=torch.as_tensor(wrong_safety_weight, dtype=torch.float32, device=device),
+        gap_weight=torch.as_tensor(gap_weight, dtype=torch.float32, device=device),
+        normal_safety_weight=torch.as_tensor(normal_safety_weight, dtype=torch.float32, device=device),
+        violation_type=torch.as_tensor(violation_type, dtype=torch.long, device=device),
+        row_id=torch.as_tensor(row_id, dtype=torch.long, device=device),
+        profile_index=torch.as_tensor(profile_index, dtype=torch.long, device=device),
+        window_offset=torch.as_tensor(window_offset, dtype=torch.long, device=device),
     )
 
 

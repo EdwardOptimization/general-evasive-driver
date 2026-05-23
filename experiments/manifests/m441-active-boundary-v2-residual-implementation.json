@@ -66,6 +66,45 @@
       "command": "Implement active-boundary v2 corpus/export/loss/no-update smoke; no projection or PPO."
     }
   ],
+  "results": {
+    "artifact": "docs/m441-active-boundary-v2-residual-implementation.md",
+    "corpus_run_dir": "runs/m441_active_boundary_v2_residual",
+    "corpus_npz": "runs/m441_active_boundary_v2_residual/active_boundary_v2_corpus.npz",
+    "base_active_rows": 9,
+    "rows": 36,
+    "window_offsets": [
+      -6,
+      -4,
+      -2,
+      0
+    ],
+    "active_cases": [
+      "10004|perturbed|31|31|9.500000|-1.000000|0.800000",
+      "10023|perturbed|12|12|11.000000|-0.800000|1.200000",
+      "9998|perturbed|25|25|11.000000|-1.000000|1.400000"
+    ],
+    "violation_counts": {
+      "wrong_history_safe": 16,
+      "gap_erosion": 12,
+      "normal_collision": 8
+    },
+    "no_update_smoke_run_dir": "runs/m441_active_boundary_v2_no_update_smoke",
+    "no_update_smoke": {
+      "active_boundary_v2_loss": 0.005986514035612345,
+      "active_boundary_v2_wrong_loss": 0.004264322109520435,
+      "active_boundary_v2_gap_loss": 0.0017221756279468536,
+      "active_boundary_v2_normal_loss": 0.000000016527268442700915,
+      "exact_m297_delta_vs_base": 0.0,
+      "exact_m270_delta_vs_base": 0.0,
+      "old_key_surrogate_delta_vs_base": 0.0,
+      "exact_lexicographic_pass": true
+    },
+    "focused_tests": "23 passed in 1.06s",
+    "actor_inputs_changed": false,
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "recommended_next": "m442-active-boundary-v2-projection-probe"
+  },
   "required_artifacts": [
     {
       "path": "docs/m441-active-boundary-v2-residual-implementation.md",
@@ -79,5 +118,5 @@
     "docs/m440-active-boundary-v2-residual-design.md"
   ],
   "decision_rule": "M441 admits a projection probe only if v2 export/load/exact terms and no-update smoke pass without actor-contract changes.",
-  "next_blocker": "pending M441 active-boundary v2 residual implementation"
+  "next_blocker": "m442-active-boundary-v2-projection-probe"
 }

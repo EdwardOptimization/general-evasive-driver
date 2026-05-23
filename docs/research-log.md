@@ -10044,3 +10044,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M440 decides active-boundary v2 is worth one implementation/probe cycle, but only with row-specific trajectory-window terms. The design exports compact windows around active cases `10004`, `10023`, and `9998`, separates wrong-history safety, gap-erosion, and normal-safety row families, starts from global lambda `1e12`, and forbids another scalar weight sweep as the only next action.
 - decision: `admit_m441_active_boundary_v2_residual_implementation`
 - next: `m441-active-boundary-v2-residual-implementation`
+
+## 20260523T190521Z - m441-active-boundary-v2-residual-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m441_active_boundary_v2_no_update_smoke`
+- artifact: `docs/m441-active-boundary-v2-residual-implementation.md`
+- result: M441 adds `active_boundary_v2_residual.py`, exports a 36-row v2 active-boundary trajectory-window corpus over active cases `10004`, `10023`, and `9998`, and wires v2 exact repair terms. The no-update smoke loads 36 rows and passes exact M297/M270/old-key no-regression with active_boundary_v2_loss `0.0059865140`.
+- decision: `admit_m442_active_boundary_v2_projection_probe`
+- next: `m442-active-boundary-v2-projection-probe`

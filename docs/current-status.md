@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m441-active-boundary-v2-residual-implementation
+m442-active-boundary-v2-projection-probe
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -105,9 +105,12 @@ fails `10004` wrong-history safety and `10023` gap erosion with almost the
 same exact active loss, and excessive active weight lowers exact loss while
 breaking normal success. M440 decides v2 is worth exactly one
 implementation/probe cycle, but only as a row-specific trajectory-window
-residual with normal-safety guards, not as another scalar weight sweep. The next
-blocker is M441: implement the v2 exporter, loader, exact terms, focused tests,
-and no-update smoke without projection or PPO.
+residual with normal-safety guards, not as another scalar weight sweep. M441
+implements that v2 path: exports a 36-row window corpus over `10004`, `10023`,
+and `9998`, wires loader and exact terms, and passes a no-update smoke with
+active_boundary_v2_loss `0.0059865140` and exact deltas `0.0`. The next blocker
+is M442: run the first no-PPO v2 projection probe and compare proof-safe
+recovery retained against M438 `r0015` (`0.120957`).
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

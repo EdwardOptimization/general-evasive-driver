@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 449,
+        "completed": 450,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m440-active-boundary-v2-residual-design",
+        "task_id": "m441-active-boundary-v2-residual-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m440-active-boundary-v2-residual-design.md"
+        "run_dir": "runs/m441_active_boundary_v2_no_update_smoke",
+        "command_log": "docs/m441-active-boundary-v2-residual-implementation.md"
     },
     "next_task": {
-        "id": "m441-active-boundary-v2-residual-implementation",
+        "id": "m442-active-boundary-v2-projection-probe",
         "status": "pending",
-        "priority": 4360,
-        "kind": "infrastructure",
-        "hypothesis": "Implement active-boundary v2 residual and no-update smoke",
-        "command": "see experiments/manifests/m441-active-boundary-v2-residual-implementation.json",
+        "priority": 4370,
+        "kind": "gate",
+        "hypothesis": "Probe active-boundary v2 residual in no-PPO exact projection",
+        "command": "see experiments/manifests/m442-active-boundary-v2-projection-probe.json",
         "success_artifact": "",
-        "notes": "Pending: implement v2 trajectory-window corpus loader exact terms and no-update smoke; no projection PPO or promotion"
+        "notes": "Pending: run no-PPO v2 projection and evaluate exact replay recovery gates; no PPO or promotion"
     },
-    "updated_at_utc": "20260523T185541Z"
+    "updated_at_utc": "20260523T190521Z"
 }

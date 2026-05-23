@@ -15,6 +15,7 @@ from autodrift.artifacts import make_run_dir, to_jsonable, write_csv_rows, write
 from autodrift.checkpoints import load_actor_critic_checkpoint
 from autodrift.intervention_objectives import (
     ActiveBoundarySnippets,
+    ActiveBoundaryV2Snippets,
     CurrentFamilyConflictSnippets,
     OldKeyRecoverySnippets,
     OutcomeInterventionSnippets,
@@ -23,6 +24,7 @@ from autodrift.intervention_objectives import (
     TrajectoryActionAnchor,
     build_snippet_action_anchor,
     load_active_boundary_snippets,
+    load_active_boundary_v2_snippets,
     load_current_family_conflict_snippets,
     load_outcome_intervention_snippets,
     load_old_key_recovery_snippets,
@@ -59,6 +61,8 @@ class ExactRepairConfig:
     lambda_replay_trajectory_anchor: float = 0.0
     lambda_active_boundary: float = 0.0
     active_boundary_logprob_margin: float = 0.05
+    lambda_active_boundary_v2: float = 0.0
+    active_boundary_v2_logprob_margin: float = 0.05
     lambda_action_anchor: float = 100.0
     lambda_param_base: float = 1.0
     lambda_param_raw: float = 0.0
@@ -435,6 +439,43 @@ def exact_active_boundary_terms(
     }
 
 
+def exact_active_boundary_v2_terms(
+    model: torch.nn.Module,
+    snippets: ActiveBoundaryV2Snippets,
+    config: ExactRepairConfig,
+) -> dict[str, torch.Tensor]:
+    normal_dist, _, _ = model.forward_recurrent(snippets.observation, snippets.normal_hidden)  # type: ignore[attr-defined]
+    wrong_dist, _, _ = model.forward_recurrent(snippets.observation, snippets.wrong_hidden)  # type: ignore[attr-defined]
+    margin = float(config.active_boundary_v2_logprob_margin)
+
+    proof_wrong_log_prob = squashed_action_log_prob(wrong_dist, snippets.proof_wrong_action)
+    candidate_wrong_log_prob = squashed_action_log_prob(wrong_dist, snippets.candidate_wrong_action)
+    proof_normal_wrong_log_prob = squashed_action_log_prob(wrong_dist, snippets.proof_normal_action)
+    proof_normal_log_prob = squashed_action_log_prob(normal_dist, snippets.proof_normal_action)
+
+    wrong_preference = torch.nn.functional.softplus(candidate_wrong_log_prob - proof_wrong_log_prob + margin)
+    wrong_collision_side = torch.nn.functional.softplus(proof_normal_wrong_log_prob - proof_wrong_log_prob + margin)
+    wrong_loss_values = wrong_preference + wrong_collision_side
+
+    gap_separation = torch.nn.functional.softplus(proof_normal_wrong_log_prob - proof_normal_log_prob + margin)
+    gap_wrong_identity = wrong_preference
+    gap_loss_values = gap_separation + gap_wrong_identity
+
+    normal_action = torch.tanh(normal_dist.mean)
+    normal_safety_values = torch.square(normal_action - snippets.proof_normal_action.detach()).mean(dim=-1)
+
+    wrong_loss = weighted_mean(wrong_loss_values, snippets.wrong_safety_weight.detach())
+    gap_loss = weighted_mean(gap_loss_values, snippets.gap_weight.detach())
+    normal_loss = weighted_mean(normal_safety_values, snippets.normal_safety_weight.detach())
+    total = wrong_loss + gap_loss + normal_loss
+    return {
+        "active_boundary_v2_loss": total,
+        "active_boundary_v2_wrong_loss": wrong_loss,
+        "active_boundary_v2_gap_loss": gap_loss,
+        "active_boundary_v2_normal_loss": normal_loss,
+    }
+
+
 def trainable_parameter_items(
     model: torch.nn.Module,
     *,
@@ -558,6 +599,7 @@ def exact_loss_summary(
     current_family_conflict: CurrentFamilyConflictSnippets | None = None,
     replay_trajectory_anchor: TrajectoryActionAnchor | None = None,
     active_boundary: ActiveBoundarySnippets | None = None,
+    active_boundary_v2: ActiveBoundaryV2Snippets | None = None,
 ) -> dict[str, Any]:
     with torch.no_grad():
         m297 = exact_rejected_history_preference_loss(model, preference, config.preference)
@@ -585,6 +627,11 @@ def exact_loss_summary(
         active_boundary_terms = (
             exact_active_boundary_terms(model, active_boundary, config)
             if active_boundary is not None
+            else None
+        )
+        active_boundary_v2_terms = (
+            exact_active_boundary_v2_terms(model, active_boundary_v2, config)
+            if active_boundary_v2 is not None
             else None
         )
     summary = {
@@ -634,6 +681,13 @@ def exact_loss_summary(
                 **{name: float(value.detach().cpu().item()) for name, value in active_boundary_terms.items()},
             }
         )
+    if active_boundary_v2_terms is not None:
+        summary.update(
+            {
+                "active_boundary_v2_rows": int(active_boundary_v2.size) if active_boundary_v2 is not None else 0,
+                **{name: float(value.detach().cpu().item()) for name, value in active_boundary_v2_terms.items()},
+            }
+        )
     return summary
 
 
@@ -647,6 +701,7 @@ def repair_loss_terms(
     current_family_conflict: CurrentFamilyConflictSnippets | None = None,
     replay_trajectory_anchor: TrajectoryActionAnchor | None = None,
     active_boundary: ActiveBoundarySnippets | None = None,
+    active_boundary_v2: ActiveBoundaryV2Snippets | None = None,
     anchor: SnippetActionAnchor,
     base_m297: float,
     base_m270: float,
@@ -711,6 +766,16 @@ def repair_loss_terms(
             "active_boundary_gap_loss": torch.zeros((), dtype=torch.float32, device=device),
             "active_boundary_normal_loss": torch.zeros((), dtype=torch.float32, device=device),
         }
+    if active_boundary_v2 is not None:
+        active_boundary_v2_terms = exact_active_boundary_v2_terms(model, active_boundary_v2, config)
+    else:
+        device = m297.device
+        active_boundary_v2_terms = {
+            "active_boundary_v2_loss": torch.zeros((), dtype=torch.float32, device=device),
+            "active_boundary_v2_wrong_loss": torch.zeros((), dtype=torch.float32, device=device),
+            "active_boundary_v2_gap_loss": torch.zeros((), dtype=torch.float32, device=device),
+            "active_boundary_v2_normal_loss": torch.zeros((), dtype=torch.float32, device=device),
+        }
     action_anchor = exact_snippet_action_anchor_loss(model, anchor)
     param_base = parameter_l2_to_reference(model, base_state, trainable_names)
     param_raw = parameter_l2_to_reference(model, raw_state, trainable_names)
@@ -722,6 +787,7 @@ def repair_loss_terms(
         + float(config.lambda_current_family_conflict) * conflict_terms["current_family_conflict_loss"]
         + float(config.lambda_replay_trajectory_anchor) * replay_trajectory_anchor_loss
         + float(config.lambda_active_boundary) * active_boundary_terms["active_boundary_loss"]
+        + float(config.lambda_active_boundary_v2) * active_boundary_v2_terms["active_boundary_v2_loss"]
         + float(config.lambda_action_anchor) * action_anchor
         + float(config.lambda_param_base) * param_base
         + float(config.lambda_param_raw) * param_raw
@@ -738,6 +804,7 @@ def repair_loss_terms(
         **conflict_terms,
         "replay_trajectory_anchor_loss": replay_trajectory_anchor_loss,
         **active_boundary_terms,
+        **active_boundary_v2_terms,
         "action_anchor_loss": action_anchor,
         "param_l2_to_base": param_base,
         "param_l2_to_raw": param_raw,
@@ -902,6 +969,7 @@ def _line_search_rows(
     current_family_conflict: CurrentFamilyConflictSnippets | None,
     replay_trajectory_anchor: TrajectoryActionAnchor | None,
     active_boundary: ActiveBoundarySnippets | None,
+    active_boundary_v2: ActiveBoundaryV2Snippets | None,
     config: ExactRepairConfig,
     alphas: list[float],
     base_m297: float,
@@ -925,6 +993,7 @@ def _line_search_rows(
             current_family_conflict=current_family_conflict,
             replay_trajectory_anchor=replay_trajectory_anchor,
             active_boundary=active_boundary,
+            active_boundary_v2=active_boundary_v2,
             config=config,
         )
         m297_delta = float(summary["exact_m297_loss"]) - float(base_m297)
@@ -1004,6 +1073,7 @@ def optimize_exact_post_ppo_repair(
     current_family_conflict_npz: Path | None = None,
     replay_trajectory_anchor_npz: Path | None = None,
     active_boundary_npz: Path | None = None,
+    active_boundary_v2_npz: Path | None = None,
     device: str,
     start_mode: str,
     line_search_alphas: list[float],
@@ -1094,6 +1164,17 @@ def optimize_exact_post_ppo_repair(
         if active_boundary_npz is not None
         else None
     )
+    active_boundary_v2 = (
+        load_active_boundary_v2_snippets(
+            active_boundary_v2_npz,
+            device=next(base_model.parameters()).device,
+            obs_dim=obs_dim,
+            hidden_size=hidden_size,
+            act_dim=act_dim,
+        )
+        if active_boundary_v2_npz is not None
+        else None
+    )
     base_state = _load_state(base_source, next(base_model.parameters()).device)
     raw_state = _load_state({"model_state": raw_model.state_dict()}, next(base_model.parameters()).device)
 
@@ -1108,6 +1189,7 @@ def optimize_exact_post_ppo_repair(
         current_family_conflict=current_family_conflict,
         replay_trajectory_anchor=replay_trajectory_anchor,
         active_boundary=active_boundary,
+        active_boundary_v2=active_boundary_v2,
         config=config,
     )
     raw_summary = exact_loss_summary(
@@ -1121,6 +1203,7 @@ def optimize_exact_post_ppo_repair(
         current_family_conflict=current_family_conflict,
         replay_trajectory_anchor=replay_trajectory_anchor,
         active_boundary=active_boundary,
+        active_boundary_v2=active_boundary_v2,
         config=config,
     )
 
@@ -1146,6 +1229,7 @@ def optimize_exact_post_ppo_repair(
             current_family_conflict=current_family_conflict,
             replay_trajectory_anchor=replay_trajectory_anchor,
             active_boundary=active_boundary,
+            active_boundary_v2=active_boundary_v2,
             config=config,
             alphas=line_search_alphas,
             base_m297=float(base_summary["exact_m297_loss"]),
@@ -1180,6 +1264,7 @@ def optimize_exact_post_ppo_repair(
         current_family_conflict=current_family_conflict,
         replay_trajectory_anchor=replay_trajectory_anchor,
         active_boundary=active_boundary,
+        active_boundary_v2=active_boundary_v2,
         config=config,
     )
     base_m297 = float(base_summary["exact_m297_loss"])
@@ -1203,6 +1288,7 @@ def optimize_exact_post_ppo_repair(
             current_family_conflict=current_family_conflict,
             replay_trajectory_anchor=replay_trajectory_anchor,
             active_boundary=active_boundary,
+            active_boundary_v2=active_boundary_v2,
             anchor=anchor,
             base_m297=base_m297,
             base_m270=base_m270,
@@ -1237,6 +1323,7 @@ def optimize_exact_post_ppo_repair(
             current_family_conflict=current_family_conflict,
             replay_trajectory_anchor=replay_trajectory_anchor,
             active_boundary=active_boundary,
+            active_boundary_v2=active_boundary_v2,
             anchor=anchor,
             base_m297=base_m297,
             base_m270=base_m270,
@@ -1266,6 +1353,7 @@ def optimize_exact_post_ppo_repair(
                 current_family_conflict=current_family_conflict,
                 replay_trajectory_anchor=replay_trajectory_anchor,
                 active_boundary=active_boundary,
+                active_boundary_v2=active_boundary_v2,
                 anchor=anchor,
                 base_m297=base_m297,
                 base_m270=base_m270,
@@ -1310,6 +1398,7 @@ def optimize_exact_post_ppo_repair(
         current_family_conflict=current_family_conflict,
         replay_trajectory_anchor=replay_trajectory_anchor,
         active_boundary=active_boundary,
+        active_boundary_v2=active_boundary_v2,
         config=config,
     )
     _add_exact_gate_fields(
@@ -1338,6 +1427,7 @@ def optimize_exact_post_ppo_repair(
             "current_family_conflict_npz": current_family_conflict_npz,
             "replay_trajectory_anchor_npz": replay_trajectory_anchor_npz,
             "active_boundary_npz": active_boundary_npz,
+            "active_boundary_v2_npz": active_boundary_v2_npz,
             "start_mode": start_mode,
             "selected_alpha": selected_alpha,
             "steps": total_steps,
@@ -1362,6 +1452,7 @@ def optimize_exact_post_ppo_repair(
         current_family_conflict=current_family_conflict,
         replay_trajectory_anchor=replay_trajectory_anchor,
         active_boundary=active_boundary,
+        active_boundary_v2=active_boundary_v2,
         config=config,
     )
     _add_exact_gate_fields(
@@ -1395,6 +1486,7 @@ def optimize_exact_post_ppo_repair(
         "current_family_conflict_npz": current_family_conflict_npz,
         "replay_trajectory_anchor_npz": replay_trajectory_anchor_npz,
         "active_boundary_npz": active_boundary_npz,
+        "active_boundary_v2_npz": active_boundary_v2_npz,
         "old_key_rows": int(old_key.size) if old_key is not None else 0,
         "old_key_recovery_rows": int(old_key_recovery.size) if old_key_recovery is not None else 0,
         "current_family_conflict_rows": int(current_family_conflict.size)
@@ -1404,6 +1496,7 @@ def optimize_exact_post_ppo_repair(
         if replay_trajectory_anchor is not None
         else 0,
         "active_boundary_rows": int(active_boundary.size) if active_boundary is not None else 0,
+        "active_boundary_v2_rows": int(active_boundary_v2.size) if active_boundary_v2 is not None else 0,
         "device": str(resolved_device),
         "start_mode": start_mode,
         "selected_alpha": selected_alpha,
@@ -1447,6 +1540,7 @@ def main() -> None:
     parser.add_argument("--current-family-conflict-npz", type=Path, default=None)
     parser.add_argument("--replay-trajectory-anchor-npz", type=Path, default=None)
     parser.add_argument("--active-boundary-npz", type=Path, default=None)
+    parser.add_argument("--active-boundary-v2-npz", type=Path, default=None)
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="cpu")
     parser.add_argument(
         "--start-mode",
@@ -1480,6 +1574,8 @@ def main() -> None:
     parser.add_argument("--lambda-replay-trajectory-anchor", type=float, default=0.0)
     parser.add_argument("--lambda-active-boundary", type=float, default=0.0)
     parser.add_argument("--active-boundary-logprob-margin", type=float, default=0.05)
+    parser.add_argument("--lambda-active-boundary-v2", type=float, default=0.0)
+    parser.add_argument("--active-boundary-v2-logprob-margin", type=float, default=0.05)
     parser.add_argument("--lambda-action-anchor", type=float, default=100.0)
     parser.add_argument("--lambda-param-base", type=float, default=1.0)
     parser.add_argument("--lambda-param-raw", type=float, default=0.0)
@@ -1502,6 +1598,7 @@ def main() -> None:
         current_family_conflict_npz=args.current_family_conflict_npz,
         replay_trajectory_anchor_npz=args.replay_trajectory_anchor_npz,
         active_boundary_npz=args.active_boundary_npz,
+        active_boundary_v2_npz=args.active_boundary_v2_npz,
         device=args.device,
         start_mode=args.start_mode,
         line_search_alphas=args.line_search_alphas,
@@ -1536,6 +1633,8 @@ def main() -> None:
             lambda_replay_trajectory_anchor=args.lambda_replay_trajectory_anchor,
             lambda_active_boundary=args.lambda_active_boundary,
             active_boundary_logprob_margin=args.active_boundary_logprob_margin,
+            lambda_active_boundary_v2=args.lambda_active_boundary_v2,
+            active_boundary_v2_logprob_margin=args.active_boundary_v2_logprob_margin,
             lambda_action_anchor=args.lambda_action_anchor,
             lambda_param_base=args.lambda_param_base,
             lambda_param_raw=args.lambda_param_raw,

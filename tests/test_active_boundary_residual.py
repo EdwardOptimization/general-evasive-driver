@@ -10,8 +10,12 @@ from autodrift.active_boundary_residual import (
     active_boundary_weight,
     classify_active_boundary_violation,
 )
-from autodrift.exact_post_ppo_repair import ExactRepairConfig, exact_active_boundary_terms
-from autodrift.intervention_objectives import load_active_boundary_snippets
+from autodrift.exact_post_ppo_repair import (
+    ExactRepairConfig,
+    exact_active_boundary_terms,
+    exact_active_boundary_v2_terms,
+)
+from autodrift.intervention_objectives import load_active_boundary_snippets, load_active_boundary_v2_snippets
 
 
 class _TinyRecurrentPolicy(torch.nn.Module):
@@ -133,6 +137,79 @@ def test_active_boundary_loader_rejects_invalid_actions(tmp_path):
 
     with pytest.raises(ValueError, match="values must be in"):
         load_active_boundary_snippets(
+            path,
+            device=torch.device("cpu"),
+            obs_dim=72,
+            hidden_size=4,
+            act_dim=3,
+        )
+
+
+def _active_boundary_v2_arrays(**overrides):
+    arrays = _active_boundary_arrays()
+    v2_arrays = {
+        "observation": arrays["observation"],
+        "normal_hidden": arrays["normal_hidden"],
+        "wrong_hidden": arrays["wrong_hidden"],
+        "proof_normal_action": arrays["proof_normal_action"],
+        "proof_wrong_action": arrays["proof_wrong_action"],
+        "candidate_normal_action": arrays["candidate_normal_action"],
+        "candidate_wrong_action": arrays["candidate_wrong_action"],
+        "normal_margin": arrays["normal_margin"],
+        "wrong_history_margin": arrays["wrong_history_margin"],
+        "margin_gap": arrays["margin_gap"],
+        "reference_wrong_history_margin": np.asarray([-0.01, 0.04, -0.02], dtype=np.float32),
+        "reference_margin_gap": np.asarray([0.02, 0.02, 0.01], dtype=np.float32),
+        "wrong_safety_weight": np.asarray([1.0, 0.0, 0.5], dtype=np.float32),
+        "gap_weight": np.asarray([0.0, 2.0, 0.0], dtype=np.float32),
+        "normal_safety_weight": np.asarray([0.1, 0.0, 3.0], dtype=np.float32),
+        "violation_type": arrays["violation_type"],
+        "row_id": arrays["row_id"],
+        "profile_index": arrays["profile_index"],
+        "window_offset": np.asarray([-4, -2, 0], dtype=np.int64),
+    }
+    v2_arrays.update(overrides)
+    return v2_arrays
+
+
+def test_active_boundary_v2_loader_and_exact_terms_are_finite(tmp_path):
+    path = tmp_path / "active_boundary_v2.npz"
+    np.savez(path, **_active_boundary_v2_arrays())
+
+    snippets = load_active_boundary_v2_snippets(
+        path,
+        device=torch.device("cpu"),
+        obs_dim=72,
+        hidden_size=4,
+        act_dim=3,
+    )
+    assert snippets.size == 3
+
+    terms = exact_active_boundary_v2_terms(_TinyRecurrentPolicy(), snippets, ExactRepairConfig())
+    assert set(terms) == {
+        "active_boundary_v2_loss",
+        "active_boundary_v2_wrong_loss",
+        "active_boundary_v2_gap_loss",
+        "active_boundary_v2_normal_loss",
+    }
+    for value in terms.values():
+        assert torch.isfinite(value)
+        assert float(value.detach().cpu()) >= 0.0
+
+
+def test_active_boundary_v2_loader_requires_positive_family_weight(tmp_path):
+    path = tmp_path / "zero_weight_v2.npz"
+    np.savez(
+        path,
+        **_active_boundary_v2_arrays(
+            wrong_safety_weight=np.zeros(3, dtype=np.float32),
+            gap_weight=np.zeros(3, dtype=np.float32),
+            normal_safety_weight=np.zeros(3, dtype=np.float32),
+        ),
+    )
+
+    with pytest.raises(ValueError, match="positive family weight"):
+        load_active_boundary_v2_snippets(
             path,
             device=torch.device("cpu"),
             obs_dim=72,
