@@ -2,7 +2,7 @@
   "id": "m457-history-necessity-config-implementation",
   "type": "infrastructure",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -84,5 +84,20 @@
     "docs/m456-history-necessity-task-family-design.md"
   ],
   "decision_rule": "M457 passes if the late-reveal config is runnable and documented. It cannot prove self-ID or promote a checkpoint.",
-  "next_blocker": "pending M457 history-necessity config implementation"
+  "results": {
+    "env_config": "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+    "reset_stress_run_dir": "runs/m457_late_reveal_reset_stress",
+    "reset_total_requested": 384,
+    "reset_failures": 0,
+    "hidden_at_reset": 294,
+    "visible_at_reset": 90,
+    "tiny_benchmark_seed": 9900,
+    "tiny_benchmark_episodes_per_policy": 16,
+    "m399_return_mean": 69.913729,
+    "heuristic_return_mean": 47.289250,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "late_reveal_config_validated_admit_m458"
+  },
+  "next_blocker": "m458-late-reveal-response-ablation-benchmark"
 }

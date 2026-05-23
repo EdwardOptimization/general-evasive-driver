@@ -10204,3 +10204,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M456 designs a new history-necessity task family after M455's mixed-dependency result. The design has three layers: late-reveal warm-up challenges using existing obstacle reveal and friction-step controls, matched-current ambiguity mining, and wrong-history intervention gates. It preregisters that aggregate success is insufficient and that useful evidence requires source-diverse normal-vs-wrong/reset/delayed margin and action degradation. The next step is an M457 config implementation smoke, not training.
 - decision: `admit_m457_history_necessity_config_implementation`
 - next: `m457-history-necessity-config-implementation`
+
+## 20260523T202442Z - m457-history-necessity-config-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m457_late_reveal_reset_stress`
+- artifact: `docs/m457-history-necessity-config-implementation.md`
+- result: M457 implements `configs/m457_history_necessity_late_reveal_zero_relvel.json`. The first strict draft failed reset stress with `71/384` sampling failures, so the final config uses obstacle distance `[12.0, 30.0]`, reveal distance `14.0`, zero obstacle relative velocity, and no extra min-time filter. The final config passes `384/384` reset stress across seed windows `9600`, `9900`, and `10150`; the obstacle is hidden at reset for `294/384` cases and labels cover aes-feasible, drift-required, and unavoidable. A 16-episode tiny smoke completes: M399 return `69.913729` versus heuristic `47.289250`, but reset/zero-current/no-action ablations do not show strong degradation.
+- decision: `late_reveal_config_validated_admit_m458`
+- next: `m458-late-reveal-response-ablation-benchmark`

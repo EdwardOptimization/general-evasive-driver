@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 465,
+        "completed": 466,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m456-history-necessity-task-family-design",
+        "task_id": "m457-history-necessity-config-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m456-history-necessity-task-family-design.md"
+        "run_dir": "runs/m457_late_reveal_reset_stress",
+        "command_log": "docs/m457-history-necessity-config-implementation.md"
     },
     "next_task": {
-        "id": "m457-history-necessity-config-implementation",
+        "id": "m458-late-reveal-response-ablation-benchmark",
         "status": "pending",
-        "priority": 4520,
-        "kind": "infrastructure",
-        "hypothesis": "Implement a late-reveal history-necessity config and smoke it",
-        "command": "see experiments/manifests/m457-history-necessity-config-implementation.json",
+        "priority": 4530,
+        "kind": "gate",
+        "hypothesis": "Benchmark response/history ablations on the M457 late-reveal config",
+        "command": "see experiments/manifests/m458-late-reveal-response-ablation-benchmark.json",
         "success_artifact": "",
-        "notes": "Pending: create M457 late-reveal zero-relvel config and validate reset stress plus tiny benchmark"
+        "notes": "Pending: run source-diverse M399 base/reset/zero-current/zero-action benchmarks on M457 config before matched-current mining"
     },
-    "updated_at_utc": "20260523T201232Z"
+    "updated_at_utc": "20260523T202442Z"
 }

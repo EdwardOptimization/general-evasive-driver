@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m457-history-necessity-config-implementation
+m458-late-reveal-response-ablation-benchmark
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -188,7 +188,17 @@ recurrent command-response history uniquely informative, using late-reveal
 warm-up challenges, matched-current ambiguity mining, and wrong-history
 intervention gates. The next blocker is M457: implement the first late-reveal
 zero-relvel config and validate sampling, reveal timing, and difficulty smokes
-before any training.
+before any training. M457 implements that config. The first stricter draft
+fails reset stress with `71/384` scenario sampling failures, so the final
+M457 config relaxes to obstacle distance `[12.0, 30.0]`, reveal distance
+`14.0`, zero obstacle relative velocity, and no extra min-time filter. It
+passes `384/384` reset stress across seed windows `9600`, `9900`, and `10150`;
+the obstacle is hidden at reset for `294/384` cases. The tiny 16-episode smoke
+is runnable and nontrivial: M399 return `69.913729` versus heuristic
+`47.289250`, but reset/zero-current/no-action ablations do not show strong
+degradation. The next blocker is M458: run a source-diverse response/history
+ablation benchmark on the M457 config before matched-current mining or any
+training.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

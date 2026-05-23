@@ -1,0 +1,82 @@
+{
+  "id": "m458-late-reveal-response-ablation-benchmark",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m457_late_reveal_reset_stress/summary.json"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m457-history-necessity-config-implementation.json"
+    ],
+    "parent_objective": [
+      "late-reveal response/history ablation benchmark"
+    ],
+    "derived_from": [
+      "m457-history-necessity-config-implementation"
+    ],
+    "blocked_by": [
+      "m457-history-necessity-config-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m458-late-reveal-response-ablation-benchmark.md",
+  "public_gates": [
+    "run M399 base reset zero-current and zero-action ablations on M457 config",
+    "use source-diverse seed windows rather than a single 16-episode smoke",
+    "report aggregate success return termination and clearance deltas",
+    "decide whether to mine matched-current rows or redesign again",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not claim self-ID from aggregate success alone"
+  ],
+  "hypothesis": "The M457 late-reveal config may create more useful response/history ablation differences than the M451 robust configs, but this must be tested on source-diverse seeds before matched-current mining or training.",
+  "success_criteria": [
+    "all planned ablation benchmarks complete without scenario sampling failure",
+    "results cover at least three seed windows",
+    "documentation reports whether ablation deltas are strong enough for matched-current mining",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "scenario sampling fails",
+    "benchmark is only a single small smoke",
+    "results are interpreted as self-ID proof without intervention/matched-current evidence",
+    "actor contract changes"
+  ],
+  "commands": [
+    {
+      "name": "late_reveal_ablation_benchmark",
+      "command": "Evaluate M399 base reset-recurrent zero-current-response and zero-action-history on the M457 config across seed windows; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m458-late-reveal-response-ablation-benchmark.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m457-history-necessity-config-implementation.md",
+    "runs/m457_late_reveal_reset_stress/summary.json"
+  ],
+  "decision_rule": "M458 can admit matched-current mining if source-diverse ablation deltas are useful. It cannot promote a checkpoint.",
+  "next_blocker": "pending M458 late-reveal response ablation benchmark"
+}
