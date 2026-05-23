@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 411,
+        "completed": 412,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m402-old-key-normal-recovery-alignment-audit",
+        "task_id": "m403-old-key-normal-recovery-weight-sweep",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m402-old-key-normal-recovery-alignment-audit.md"
+        "command_log": "docs/m403-old-key-normal-recovery-weight-sweep.md"
     },
     "next_task": {
-        "id": "m403-old-key-normal-recovery-weight-sweep",
+        "id": "m404-recovery-exact-conflict-row-audit",
         "status": "pending",
-        "priority": 3980,
+        "priority": 3990,
         "kind": "gate",
-        "hypothesis": "Run no-PPO old-key normal-recovery residual weight sweep from M400 base",
-        "command": "see experiments/manifests/m403-old-key-normal-recovery-weight-sweep.json",
+        "hypothesis": "Attribute exact M297/M270 row conflicts against recovery-heavy direction",
+        "command": "see experiments/manifests/m404-recovery-exact-conflict-row-audit.json",
         "success_artifact": "",
-        "notes": "Pending: test stronger old-key recovery pressure while retaining exact old-key and M267/M264 gates; no PPO"
+        "notes": "Pending: compute per-row exact loss regressions and classify sparse vs broad conflict; no PPO"
     },
-    "updated_at_utc": "20260523T153030Z"
+    "updated_at_utc": "20260523T153636Z"
 }

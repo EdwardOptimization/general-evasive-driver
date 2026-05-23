@@ -230,7 +230,12 @@ the `9958` first action by `[-0.04, -0.06, +0.08]` and improve local terminal
 margin by `0.002358`. The M399 repair direction barely moves the action and
 slightly moves away from that target, so the current blocker is
 `recovery_residual_underweighted_vs_closed_loop_boundary`. M403 should run a
-no-PPO old-key normal-recovery weight sweep before any PPO.
+no-PPO old-key normal-recovery weight sweep before any PPO. M403 finds no
+proof-safe candidate: low recovery weights still move away from the target, high
+recovery weights move toward the target and improve old-key compact replay but
+violate exact M297/M270 at the smallest tested alpha `0.025`; by alpha `0.60`,
+old-key compact still passes but M267/M264 drops to `14/17`. M404 should
+attribute the exact M297/M270 row conflicts before another repair design.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

@@ -9664,3 +9664,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M402 shows the M398 recovery target is valid but underweighted in the M399 repair. For old-key `9958|perturbed|39|36`, the M398 recovery action changes first action by `[-0.04, -0.06, +0.08]` and improves local terminal margin by `0.002358`. The M399 s02 endpoint instead moves slightly toward more steer, more throttle, and less brake; alpha `0.05` and `0.10` remain about `0.108` away from the recovery action. Classify the blocker as `recovery_residual_underweighted_vs_closed_loop_boundary`.
 - decision: `admit_m403_old_key_normal_recovery_weight_sweep`
 - next: `m403-old-key-normal-recovery-weight-sweep`
+
+## 20260523T153636Z - m403-old-key-normal-recovery-weight-sweep
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m403_lrec1e10_interpolation`
+- artifact: `docs/m403-old-key-normal-recovery-weight-sweep.md`
+- result: M403 finds no proof-safe recovery-weight candidate. `lambda_old_key_recovery=1e6` and `1e8` keep exact M297/M270 no-regression but continue moving away from the M398 recovery target. `1e9` and `1e10` move toward recovery and improve old-key compact behavior, but any nonzero interpolation alpha violates exact M297/M270; alpha `0.025` already has exact M297 delta `+0.000015497` and exact M270 delta `+0.000009298`. At alpha `0.60`, old-key compact replay passes but M267/M264 drops to `14/17` success drops, so the larger recovery-heavy direction also washes out current-family wrong-history proof.
+- decision: `admit_m404_recovery_exact_conflict_row_audit`
+- next: `m404-recovery-exact-conflict-row-audit`

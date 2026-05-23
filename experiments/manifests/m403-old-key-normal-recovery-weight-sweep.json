@@ -2,9 +2,10 @@
   "id": "m403-old-key-normal-recovery-weight-sweep",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "repair",
   "failure_types": [
-    "none"
+    "objective_overfit",
+    "proof_washout"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -83,5 +84,37 @@
     "docs/m402-old-key-normal-recovery-alignment-audit.md"
   ],
   "decision_rule": "M403 should admit a full public gate only if a bounded no-PPO candidate moves the active old-key action toward the M398 recovery target and passes exact plus proof gates. Otherwise classify the active conflict and pre-register the next blocker.",
-  "next_blocker": "pending M403 old-key normal recovery weight sweep"
+  "next_blocker": "m404-recovery-exact-conflict-row-audit",
+  "results": {
+    "artifact": "docs/m403-old-key-normal-recovery-weight-sweep.md",
+    "base_checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "lrec1e6_run": "runs/m403_recovery_weight_s02_lrec1e6_seed10136/summary.json",
+    "lrec1e8_run": "runs/m403_recovery_weight_s02_lrec1e8_seed10136/summary.json",
+    "lrec1e9_run": "runs/m403_recovery_weight_s02_lrec1e9_seed10136/summary.json",
+    "lrec1e10_run": "runs/m403_recovery_weight_s02_lrec1e10_seed10136/summary.json",
+    "lrec1e6_exact_pass": true,
+    "lrec1e8_exact_pass": true,
+    "lrec1e9_exact_pass": false,
+    "lrec1e10_exact_pass": false,
+    "lrec1e6_distance_to_recovery": 0.109548,
+    "lrec1e8_distance_to_recovery": 0.109398,
+    "lrec1e10_distance_to_recovery": 0.106124,
+    "lrec1e10_interpolation": "runs/m403_lrec1e10_interpolation",
+    "lrec1e10_interpolation_old_key_targeted_replay": "runs/m403_lrec1e10_interpolation_old_key_targeted_replay",
+    "first_exact_failing_alpha": 0.025,
+    "alpha_0_025_exact_m297_delta": 1.5497207641601562e-05,
+    "alpha_0_025_exact_m270_delta": 9.298324584960938e-06,
+    "alpha_0_6_old_key_gate_pass": true,
+    "alpha_0_6_m267_m264_gate_pass": false,
+    "alpha_0_6_m267_m264_success_drops": 14,
+    "alpha_0_6_m267_m264_wrong_history_success_rate": 0.176471,
+    "classification": "exact_objective_conflict_with_recovery_direction",
+    "secondary_classification": "current_family_wrong_history_washout_at_large_alpha",
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m404-recovery-exact-conflict-row-audit"
+  },
+  "decision": "admit_m404_recovery_exact_conflict_row_audit"
 }
