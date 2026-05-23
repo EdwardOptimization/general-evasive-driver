@@ -1,0 +1,84 @@
+{
+  "id": "m479-natural-late-wrong-history-proof-path-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m478_persistent_wrong_history_intervention_gate/summary.json",
+      "runs/m478_persistent_wrong_history_intervention_gate/persistent_outcomes.csv"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m478-persistent-wrong-history-intervention-implementation.json"
+    ],
+    "parent_objective": [
+      "natural late wrong-history proof path design"
+    ],
+    "derived_from": [
+      "m478-persistent-wrong-history-intervention-implementation"
+    ],
+    "blocked_by": [
+      "m478-persistent-wrong-history-intervention-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m479-natural-late-wrong-history-proof-path-design.md",
+  "public_gates": [
+    "separate diagnostic clamped-hidden evidence from deployable self-ID evidence",
+    "design late one-shot wrong-history variants without persistent clamping",
+    "design pass/fail criteria comparing wrong_once, late_once, wrong_hold, reset, and zero-current",
+    "pre-register the next implementation or task-design step",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not claim clamped hidden-state intervention as deployable proof",
+    "do not add privileged actor inputs",
+    "do not relax near-boundary proof thresholds"
+  ],
+  "hypothesis": "Because clamped persistent wrong hidden is outcome-critical but one-shot wrong hidden is not, the least-artificial next test is a late one-shot wrong-history intervention at the critical decision window.",
+  "success_criteria": [
+    "document why M478 is positive diagnostic evidence but not deployable proof",
+    "define late one-shot variants such as wrong_late_4_once and wrong_late_8_once",
+    "define whether implementation should extend M478 or create a separate gate",
+    "define pass/fail criteria for natural-late evidence",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "design treats clamped hidden state as deployable proof",
+    "design proposes training before late-one-shot evidence",
+    "design changes actor inputs",
+    "design relaxes proof thresholds"
+  ],
+  "commands": [
+    {
+      "name": "natural_late_wrong_history_design",
+      "command": "Use M478 artifacts to design late one-shot wrong-history diagnostic variants; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m479-natural-late-wrong-history-proof-path-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m478-persistent-wrong-history-intervention-implementation.md",
+    "runs/m478_persistent_wrong_history_intervention_gate/summary.json"
+  ],
+  "decision_rule": "M479 should admit the next step only if it reduces artificial clamping while preserving actor contract and proof thresholds.",
+  "next_blocker": "pending M479 natural late wrong-history proof path design"
+}

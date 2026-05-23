@@ -1,0 +1,80 @@
+{
+  "decision_reason": "M478 implements the diagnostic gate and finds wrong_hold_16 gives 25 proof-style rows while wrong_once remains 0",
+  "failure_criteria": [
+    "implementation changes deployable actor inputs",
+    "persistent variant semantics are ambiguous or untested",
+    "smoke run cannot reconstruct snapshots",
+    "training or checkpoint promotion is performed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not count artificial persistent intervention as deployable behavior proof",
+    "do not relax near-boundary normal-margin requirements"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260523T221222Z",
+  "hypothesis": "If fast recurrent correction is the M475 blocker, then holding or late-injecting the wrong hidden state during the emergency window will create larger trajectory and terminal-margin degradation than one-shot wrong history.",
+  "lineage": {
+    "blocked_by": [
+      "m477-persistent-wrong-history-intervention-design"
+    ],
+    "derived_from": [
+      "m477-persistent-wrong-history-intervention-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m477-persistent-wrong-history-intervention-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m474_combined_fresh_anchor_adversarial_search/adversarial_pairs.csv",
+      "runs/m476_wrong_history_no_effect_mechanism_audit/summary.json"
+    ],
+    "parent_objective": [
+      "persistent wrong-history diagnostic intervention implementation"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m478-persistent-wrong-history-intervention-implementation",
+  "next_blocker": "m479-natural-late-wrong-history-proof-path-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "persistent_wrong_history_diagnostic_pass_admit_m479",
+  "public_gates": [
+    "implement persistent_wrong_history_intervention_gate",
+    "add focused tests for wrong_hold and wrong_late variant semantics",
+    "run a no-training smoke on M474 adversarial pairs",
+    "report whether persistent/later wrong-hidden variants create source-diverse outcome degradation",
+    "no checkpoint promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "persistent_wrong_history_diagnostic_pass_admit_m479",
+    "milestone": "m478-persistent-wrong-history-intervention-implementation",
+    "reason": "M478 implements the diagnostic gate and finds wrong_hold_16 gives 25 proof-style rows while wrong_once remains 0",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "new diagnostic module and tests are added",
+    "smoke run completes on M474 adversarial pairs",
+    "wrong_once reproduces M475 no-effect baseline",
+    "at least one persistent/later variant reports whether proof-style degradation appears",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "type": "infrastructure"
+}

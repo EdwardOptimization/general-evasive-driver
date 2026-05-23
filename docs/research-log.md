@@ -10414,3 +10414,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M477 designs a diagnostic persistent/later wrong-history intervention gate. The proposed module is `autodrift.persistent_wrong_history_intervention_gate`, reusing M475/M476 snapshots but adding variants `wrong_hold_4`, `wrong_hold_8`, `wrong_hold_16`, `wrong_late_4_hold_4`, `wrong_late_8_hold_4`, `wrong_late_4_hold_8`, and optional `wrong_reseed_4`. The design explicitly labels the intervention as diagnostic, not deployable proof, and preserves the P0 actor input contract.
 - decision: `admit_m478_persistent_wrong_history_intervention_implementation`
 - next: `m478-persistent-wrong-history-intervention-implementation`
+
+## 20260523T221028Z - m478-persistent-wrong-history-intervention-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m478_persistent_wrong_history_intervention_gate`
+- artifact: `docs/m478-persistent-wrong-history-intervention-implementation.md`
+- result: M478 implements `autodrift.persistent_wrong_history_intervention_gate` plus focused variant/summary tests, then runs a no-training smoke on the M474 adversarial pairs. The diagnostic is positive: `wrong_hold_16` produces `25` proof-style rows, including `10` success/collision/completion rows, across `6` probe seeds, `2` labels, and `2` targets. Late held variants also produce signal (`wrong_late_4_hold_8` has `19` proof rows and `wrong_late_8_hold_4` has `17`). The baseline `wrong_once` remains `0` proof rows, confirming that clamped persistence changes the mechanism.
+- decision: `persistent_wrong_history_diagnostic_pass_admit_m479`
+- next: `m479-natural-late-wrong-history-proof-path-design`

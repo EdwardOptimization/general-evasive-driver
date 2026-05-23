@@ -2,7 +2,7 @@
   "id": "m478-persistent-wrong-history-intervention-implementation",
   "type": "infrastructure",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -89,5 +89,26 @@
     "runs/m476_wrong_history_no_effect_mechanism_audit/summary.json"
   ],
   "decision_rule": "M478 can admit a diagnostic proof probe only if the new variants are implemented with tested semantics and no actor-contract changes.",
-  "next_blocker": "pending M478 persistent wrong-history intervention implementation"
+  "results": {
+    "module": "src/autodrift/persistent_wrong_history_intervention_gate.py",
+    "tests": "tests/test_persistent_wrong_history_intervention_gate.py",
+    "run_dir": "runs/m478_persistent_wrong_history_intervention_gate",
+    "input_pair_count": 197,
+    "outcome_row_count": 2167,
+    "variant_summary_rows": 33,
+    "best_variant": "wrong_hold_16",
+    "best_variant_proof_candidate_count": 25,
+    "best_variant_success_or_collision_or_completion_rows": 10,
+    "best_variant_probe_seed_count": 6,
+    "best_variant_obstacle_label_count": 2,
+    "best_variant_target_count": 2,
+    "best_variant_single_seed_share": 0.28,
+    "best_variant_single_label_share": 0.56,
+    "diagnostic_proof_rows_total": 65,
+    "wrong_once_proof_candidate_count": 0,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "persistent_wrong_history_diagnostic_pass_admit_m479"
+  },
+  "next_blocker": "m479-natural-late-wrong-history-proof-path-design"
 }

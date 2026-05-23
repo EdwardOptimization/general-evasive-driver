@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 486,
+        "completed": 487,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m477-persistent-wrong-history-intervention-design",
+        "task_id": "m478-persistent-wrong-history-intervention-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m477-persistent-wrong-history-intervention-design.md"
+        "run_dir": "runs/m478_persistent_wrong_history_intervention_gate",
+        "command_log": "docs/m478-persistent-wrong-history-intervention-implementation.md"
     },
     "next_task": {
-        "id": "m478-persistent-wrong-history-intervention-implementation",
+        "id": "m479-natural-late-wrong-history-proof-path-design",
         "status": "pending",
-        "priority": 4730,
+        "priority": 4740,
         "kind": "infrastructure",
-        "hypothesis": "If fast recurrent correction is the M475 blocker, then holding or late-injecting the wrong hidden state during the emergency window will create larger trajectory and terminal-margin degradation than one-shot wrong history",
-        "command": "see experiments/manifests/m478-persistent-wrong-history-intervention-implementation.json",
+        "hypothesis": "Because clamped persistent wrong hidden is outcome-critical but one-shot wrong hidden is not, the least-artificial next test is a late one-shot wrong-history intervention at the critical decision window",
+        "command": "see experiments/manifests/m479-natural-late-wrong-history-proof-path-design.json",
         "success_artifact": "",
-        "notes": "Pending: implement persistent_wrong_history_intervention_gate and smoke it on M474 pairs; no training"
+        "notes": "Pending: design late one-shot wrong-history diagnostic variants; no training"
     },
-    "updated_at_utc": "20260523T220350Z"
+    "updated_at_utc": "20260523T221028Z"
 }
