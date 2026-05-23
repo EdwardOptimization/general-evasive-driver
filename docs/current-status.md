@@ -55,7 +55,7 @@ old-key compact gap-p10 failure.
 Current blocker:
 
 ```text
-m371-alpha06-old-key-gap-p10-audit
+m372-old-key-gap-distribution-retention-design
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -108,7 +108,9 @@ inputs. M369 runs the no-PPO proof probe: the direct repaired endpoint fails
 old-key replay, but interpolation alpha `0.4` passes old-key, source-diverse,
 and first replay proof gates. M370 promotes alpha `0.4` after the full public
 gate passes. M371 should audit the alpha `0.6` old-key compact gap-p10 failure
-before any more repair or PPO.
+before any more repair or PPO. M371 classifies alpha `0.6` as old-key
+gap-distribution erosion without accepted regressions; M372 should design
+gap-tail retention feedback rather than lower thresholds or run PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

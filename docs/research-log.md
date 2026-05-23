@@ -9344,3 +9344,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M370 promotes `runs/m369_hard_row_repair_interpolation/checkpoints/alpha_0_4.pt`. It retains old-key proof from M369, source-diverse protected gates `5/5`, all six public replay surfaces, and behavior seeds `9505`/`9506`. Behavior success mean remains `0.8625`, termination mean `0.1375`, reset success mean `0.85`, and zero-all success mean `0.80`. This is a proof-safe incremental promotion; alpha `0.6` remains the first tested old-key compact gap-p10 failure.
 - decision: `promote_m369_a400_hard_row_weighted_public_gate_base`
 - next: `m371-alpha06-old-key-gap-p10-audit`
+
+## 20260523T121537Z - m371-alpha06-old-key-gap-p10-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m371_alpha06_gap_audit`
+- artifact: `docs/m371-alpha06-old-key-gap-p10-audit.md`
+- result: M371 audits alpha `0.6` and finds no accepted regressions and no normal-success regressions: `40/40` compact rows remain accepted. The failure is compact old-key gap-distribution erosion: gap p10 is `-0.000573217`, below the `-0.0005` floor, with five rows below the floor and seed `10033` dominating the lower tail. This is not a reason to lower thresholds or promote alpha `0.6`.
+- decision: `admit_m372_old_key_gap_distribution_retention_design`
+- next: `m372-old-key-gap-distribution-retention-design`

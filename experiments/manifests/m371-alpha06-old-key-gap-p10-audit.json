@@ -78,6 +78,29 @@
     "docs/m370-full-public-gate-for-m369-a400.md",
     "runs/m369_hard_row_interp_a600_old_key_replay_gate/summary.json"
   ],
-  "decision_rule": "M371 completes by classifying the alpha 0.6 old-key gap-p10 failure and registering the next blocker without training or threshold changes.",
-  "next_blocker": "pending M371 alpha 0.6 old-key gap-p10 audit"
+  "results": {
+    "run_dir": "runs/m371_alpha06_gap_audit",
+    "promoted_checkpoint": "runs/m369_hard_row_repair_interpolation/checkpoints/alpha_0_4.pt",
+    "rejected_checkpoint": "runs/m369_hard_row_repair_interpolation/checkpoints/alpha_0_6.pt",
+    "alpha04_accepted_cases": 40,
+    "alpha04_normal_success_cases": 40,
+    "alpha04_gap_mean_delta": -0.00006468189299905991,
+    "alpha04_gap_p10_delta": -0.00037970267739816213,
+    "alpha04_gap_min_delta": -0.0007961454886690998,
+    "alpha06_accepted_cases": 40,
+    "alpha06_normal_success_cases": 40,
+    "alpha06_gap_mean_delta": -0.0000988154279741976,
+    "alpha06_gap_p10_delta": -0.0005732167495121524,
+    "alpha06_gap_min_delta": -0.0011929344703494014,
+    "alpha06_rows_below_gap_floor": 5,
+    "new_gap_tail_crossing_case": "9907|perturbed|27|18|10.500000|-1.200000|0.700000",
+    "failure_classification": "old_key_gap_distribution_erosion",
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "thresholds_changed": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m372_old_key_gap_distribution_retention_design",
+  "decision_rule": "M371 completes by classifying alpha 0.6 as old-key gap-distribution erosion without accepted regressions and registering a gap-tail retention design step without training or threshold changes.",
+  "next_blocker": "m372-old-key-gap-distribution-retention-design"
 }

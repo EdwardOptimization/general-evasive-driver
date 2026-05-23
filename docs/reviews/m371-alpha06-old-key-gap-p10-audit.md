@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260523T121345Z
+- Generated at UTC: 20260523T121627Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M371 completes by classifying the alpha 0.6 old-key gap-p10 failure and registering the next blocker without training or threshold changes.
+- Promotion decision: admit_m372_old_key_gap_distribution_retention_design
+- Decision reason: M371 classifies alpha 0.6 as old-key gap-distribution erosion without accepted regressions; five compact rows drive gap p10 below threshold and thresholds remain unchanged
 
 ## Hypothesis
 
@@ -62,8 +62,19 @@ The alpha 0.6 old-key failure may be a gap-distribution erosion without accepted
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m371-alpha06-old-key-gap-p10-audit
+- type: gate
+- checkpoint: runs/m369_hard_row_repair_interpolation/checkpoints/alpha_0_4.pt
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: admit_m372_old_key_gap_distribution_retention_design
+- reason: M371 classifies alpha 0.6 as old-key gap-distribution erosion without accepted regressions; five compact rows drive gap p10 below threshold and thresholds remain unchanged
 
 ## Next Blocker
 
-pending M371 alpha 0.6 old-key gap-p10 audit
+m372-old-key-gap-distribution-retention-design

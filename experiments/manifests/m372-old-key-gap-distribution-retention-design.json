@@ -1,0 +1,82 @@
+{
+  "id": "m372-old-key-gap-distribution-retention-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m369_hard_row_repair_interpolation/checkpoints/alpha_0_4.pt",
+      "runs/m369_hard_row_repair_interpolation/checkpoints/alpha_0_6.pt"
+    ],
+    "parent_dataset": [
+      "docs/m371-alpha06-old-key-gap-p10-audit.md",
+      "runs/m371_alpha06_gap_audit/alpha04_alpha06_gap_audit_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m371-alpha06-old-key-gap-p10-audit.json"
+    ],
+    "parent_objective": [
+      "design old-key gap-distribution retention feedback for lower-tail gap erosion"
+    ],
+    "derived_from": [
+      "m371-alpha06-old-key-gap-p10-audit"
+    ],
+    "blocked_by": [
+      "m371-alpha06-old-key-gap-p10-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m372-old-key-gap-distribution-retention-design.md",
+  "public_gates": [
+    "design only; no PPO run",
+    "keep alpha 0.4 as current promoted base",
+    "do not lower old-key gap-p10 threshold",
+    "preserve actor input contract",
+    "define how replay-discovered gap-tail rows feed back into exact repair"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote alpha 0.6",
+    "do not lower old-key thresholds",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "hypothesis": "A gap-distribution retention overlay can make lower-tail old-key gap erosion visible to repair objectives without relying only on accepted-regression hard rows.",
+  "success_criteria": [
+    "design specifies overlay fields for gap-tail rows and target p10 protection",
+    "design separates accepted-regression hard rows from gap-tail retention rows",
+    "design keeps closed-loop old-key replay as the proof gate",
+    "design registers an implementation milestone",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design treats p10 failure as a reason to lower thresholds",
+    "design changes actor inputs",
+    "design skips closed-loop old-key replay",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "design_only",
+      "command": "Write the gap-distribution retention design; do not run PPO or promote a checkpoint."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m372-old-key-gap-distribution-retention-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m369_hard_row_repair_interpolation/checkpoints/alpha_0_4.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m371-alpha06-old-key-gap-p10-audit.md"
+  ],
+  "decision_rule": "M372 completes when the gap-tail retention design is documented and an implementation milestone is registered without changing thresholds or actor inputs.",
+  "next_blocker": "pending M372 old-key gap-distribution retention design"
+}

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 379,
+        "completed": 380,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m370-full-public-gate-for-m369-a400",
+        "task_id": "m371-alpha06-old-key-gap-p10-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m370_full_public_gate_for_m369_a400",
-        "command_log": "docs/m370-full-public-gate-for-m369-a400.md"
+        "run_dir": "runs/m371_alpha06_gap_audit",
+        "command_log": "docs/m371-alpha06-old-key-gap-p10-audit.md"
     },
     "next_task": {
-        "id": "m371-alpha06-old-key-gap-p10-audit",
+        "id": "m372-old-key-gap-distribution-retention-design",
         "status": "pending",
-        "priority": 3660,
-        "kind": "gate",
-        "hypothesis": "Audit alpha 0.6 old-key compact gap-p10 failure before more repair or PPO",
-        "command": "see experiments/manifests/m371-alpha06-old-key-gap-p10-audit.json",
+        "priority": 3670,
+        "kind": "infrastructure",
+        "hypothesis": "Design gap-distribution retention feedback for old-key lower-tail erosion",
+        "command": "see experiments/manifests/m372-old-key-gap-distribution-retention-design.json",
         "success_artifact": "",
-        "notes": "Pending: classify gap-distribution erosion without threshold changes"
+        "notes": "Pending: design overlay and repair feedback for gap-tail rows; no PPO"
     },
-    "updated_at_utc": "20260523T121237Z"
+    "updated_at_utc": "20260523T121537Z"
 }
