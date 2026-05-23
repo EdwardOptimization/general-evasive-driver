@@ -1,0 +1,88 @@
+{
+  "id": "m343-old-key-neighborhood-gate-probe",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt",
+      "runs/m335_exact_repair_from_raw_s40_seed10099/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_candidate_pool.csv",
+      "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m342-old-key-neighborhood-gate-implementation.json",
+      "docs/m342-old-key-neighborhood-gate-implementation.md"
+    ],
+    "parent_objective": [
+      "formalize old-key neighborhood gate evidence before replacing singleton-veto dominance"
+    ],
+    "derived_from": [
+      "m342-old-key-neighborhood-gate-implementation"
+    ],
+    "blocked_by": [
+      "m342-old-key-neighborhood-gate-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m343-old-key-neighborhood-gate-probe.md",
+  "public_gates": [
+    "run autodrift.old_key_neighborhood_gate on M341 candidate pool and compact corpus",
+    "selected alpha must pass broad and compact thresholds",
+    "M335 repaired endpoint must be classified repair-needed",
+    "M133/9944 diagnostic must remain visible",
+    "do not run PPO or promote a checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not hide old 9944 diagnostic",
+    "do not lower diversity thresholds after seeing failures",
+    "do not use this public gate as private holdout evidence",
+    "do not change actor inputs",
+    "do not train or repair a checkpoint"
+  ],
+  "hypothesis": "The M342 old-key neighborhood gate can formally distinguish the promoted M335 alpha from the repaired endpoint while preserving source diversity and 9944 diagnostic visibility.",
+  "success_criteria": [
+    "overall_pass is true for the M341 old-key neighborhood gate run",
+    "selected_alpha_passes is true",
+    "endpoint_repair_needed is true",
+    "failure_types is none",
+    "diagnostic_summary reports old_key_9944_included true",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "broad or compact diversity thresholds fail",
+    "selected alpha no longer passes",
+    "endpoint repair-needed is not detected",
+    "M133/9944 diagnostic is missing",
+    "any PPO actor update or checkpoint promotion is attempted"
+  ],
+  "commands": [
+    {
+      "name": "m343_gate_probe",
+      "command": "PYTHONPATH=src python -m autodrift.old_key_neighborhood_gate --candidate-pool-csv runs/m341_old_key_neighborhood_mining/old_key_neighborhood_candidate_pool.csv --compact-corpus-csv runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv --run-dir runs/m343_old_key_neighborhood_gate_probe"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m343-old-key-neighborhood-gate-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_candidate_pool.csv",
+    "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv",
+    "docs/m342-old-key-neighborhood-gate-implementation.md"
+  ],
+  "decision_rule": "M343 may only formalize the gate probe and admit a policy-integration milestone. It cannot promote a checkpoint or run PPO.",
+  "next_blocker": "pending M343 old-key neighborhood gate probe"
+}

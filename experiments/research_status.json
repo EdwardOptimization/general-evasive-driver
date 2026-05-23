@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 350,
+        "completed": 351,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m341-old-key-neighborhood-mining-run",
+        "task_id": "m342-old-key-neighborhood-gate-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m341_old_key_neighborhood_mining",
-        "command_log": "runs/m341_old_key_neighborhood_mining/summary.json"
+        "run_dir": "runs/m342_old_key_neighborhood_gate",
+        "command_log": "runs/m342_old_key_neighborhood_gate/summary.json"
     },
     "next_task": {
-        "id": "m342-old-key-neighborhood-gate-implementation",
+        "id": "m343-old-key-neighborhood-gate-probe",
         "status": "pending",
-        "priority": 3370,
-        "kind": "infrastructure",
-        "hypothesis": "A reusable old-key neighborhood gate can replace singleton-veto dominance in the acceptance stack by checking the M341 compact corpus while preserving 9944 as a diagnostic row.",
-        "command": "see experiments/manifests/m342-old-key-neighborhood-gate-implementation.json",
+        "priority": 3380,
+        "kind": "gate",
+        "hypothesis": "The M342 old-key neighborhood gate can formally distinguish the promoted M335 alpha from the repaired endpoint while preserving source diversity and 9944 diagnostic visibility.",
+        "command": "see experiments/manifests/m343-old-key-neighborhood-gate-probe.json",
         "success_artifact": "",
-        "notes": "Pending: implement reusable old-key neighborhood gate from M341 corpus"
+        "notes": "Pending: run M342 gate on M341 corpus and decide acceptance-stack integration"
     },
-    "updated_at_utc": "20260523T092224Z"
+    "updated_at_utc": "20260523T093156Z"
 }

@@ -9054,3 +9054,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M341 runs the no-PPO old-key neighborhood mining and replay. It mines `179` broad rows across `5` seed blocks and builds a `40` row compact corpus. The compact corpus passes diversity targets with max seed-block dominance `0.25` and max physical-pair dominance `0.025`. M335 alpha `0.0075` has `0` accepted regressions with gap p10 `-0.0000181822`, while the repaired endpoint has `15` accepted regressions, gap p10 `-0.004071`, and min gap `-0.050660`.
 - decision: `admit_m342_old_key_neighborhood_gate_implementation`
 - next: `m342-old-key-neighborhood-gate-implementation`
+
+## 20260523T093156Z - m342-old-key-neighborhood-gate-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m342_old_key_neighborhood_gate`
+- artifact: `docs/m342-old-key-neighborhood-gate-implementation.md`
+- result: M342 implements `autodrift.old_key_neighborhood_gate` and focused tests. The gate recomputes M341 broad and compact diversity metrics from CSV, confirms selected-alpha pass with `0` accepted regressions, classifies the repaired endpoint as repair-needed with `15` accepted regressions, and keeps the M133/`9944` diagnostic visible.
+- decision: `admit_m343_old_key_neighborhood_gate_probe`
+- next: `m343-old-key-neighborhood-gate-probe`

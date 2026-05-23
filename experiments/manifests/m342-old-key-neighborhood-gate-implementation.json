@@ -2,7 +2,7 @@
   "id": "m342-old-key-neighborhood-gate-implementation",
   "type": "infrastructure",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -82,5 +82,5 @@
     "runs/m341_old_key_neighborhood_mining/summary.json"
   ],
   "decision_rule": "M342 may only implement/test the gate and admit a follow-up gate-probe milestone. It cannot promote and cannot run PPO.",
-  "next_blocker": "pending M342 old-key neighborhood gate implementation"
+  "next_blocker": "m343-old-key-neighborhood-gate-probe"
 }

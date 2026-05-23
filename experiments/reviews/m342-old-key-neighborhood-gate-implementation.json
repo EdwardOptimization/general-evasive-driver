@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M342 implements the old-key neighborhood gate and reproduces M341 selected-alpha pass plus repaired-endpoint repair-needed classification with 9944 diagnostic visible",
+  "failure_criteria": [
+    "gate ignores compact diversity thresholds",
+    "gate hides 9944 diagnostics",
+    "gate changes actor input contract",
+    "gate allows PPO or promotion directly"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not lower 9944 floor ad hoc",
+    "do not promote a checkpoint",
+    "do not change actor inputs",
+    "do not use M341 as private holdout evidence"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260523T093254Z",
+  "hypothesis": "A reusable old-key neighborhood gate can replace singleton-veto dominance in the acceptance stack by checking the M341 compact corpus while preserving 9944 as a diagnostic row.",
+  "lineage": {
+    "blocked_by": [
+      "m341-old-key-neighborhood-mining-run"
+    ],
+    "derived_from": [
+      "m341-old-key-neighborhood-mining-run"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt",
+      "runs/m335_exact_repair_from_raw_s40_seed10099/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m341-old-key-neighborhood-mining-run.json",
+      "docs/m341-old-key-neighborhood-mining-run.md"
+    ],
+    "parent_dataset": [
+      "runs/m341_old_key_neighborhood_mining/summary.json",
+      "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_candidate_pool.csv",
+      "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv"
+    ],
+    "parent_objective": [
+      "implement a reusable gate for the M341 old-key neighborhood compact corpus"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m342-old-key-neighborhood-gate-implementation",
+  "next_blocker": "m343-old-key-neighborhood-gate-probe",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m343_old_key_neighborhood_gate_probe",
+  "public_gates": [
+    "do not run PPO",
+    "implement old-key neighborhood gate wrapper or evaluator",
+    "reproduce M341 selected-alpha pass and endpoint repair-needed classification",
+    "keep 9944 diagnostic visible",
+    "add focused tests for summary thresholds and CSV schema"
+  ],
+  "scoreboard": {
+    "checkpoint": "not_applicable_infrastructure_task",
+    "clearance_margin_mean": "",
+    "decision": "admit_m343_old_key_neighborhood_gate_probe",
+    "milestone": "m342-old-key-neighborhood-gate-implementation",
+    "reason": "M342 implements the old-key neighborhood gate and reproduces M341 selected-alpha pass plus repaired-endpoint repair-needed classification with 9944 diagnostic visible",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "gate reproduces M341 compact corpus pass for selected alpha",
+    "gate classifies M335 repaired endpoint repair-needed",
+    "gate reports broad and compact diversity metrics",
+    "gate keeps M133/9944 diagnostics visible",
+    "focused tests cover threshold pass and failure cases",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}
