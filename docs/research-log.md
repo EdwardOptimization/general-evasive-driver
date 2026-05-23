@@ -8934,3 +8934,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M329 registers a fresh-seed repeat of the source-diverse protected PPO smoke process from the M328 base. The M330 config uses PPO seed `5237`, exact repair seed `10098`, M328 as all action-anchor checkpoints, exact repair before replay, source-diverse protected gates, old `9944` diagnostic, and M183/M170 plus M267/M264 first replay gates. No PPO was run.
 - decision: `admit_m330_source_diverse_ppo_fresh_seed_repeat`
 - next: `m330-source-diverse-ppo-fresh-seed-repeat`
+
+## 20260523T064819Z - m330-source-diverse-ppo-fresh-seed-repeat
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/ppo_m330_source_diverse_protected_repeat_seed5237`
+- artifact: `docs/m330-source-diverse-ppo-fresh-seed-repeat.md`
+- result: M330 is a mixed negative repeat. Raw PPO completes and exact repair improves M297/M270 by `-0.000124812` and `-0.000080585`; source-diverse gates pass `4/4`. However old `9944` margin gap falls to `0.086901`, below the pre-registered `0.09` floor, so first replay gates are not run and the candidate is rejected.
+- decision: `reject_m330_old_key_gap_floor_failure`
+- next: `m331-m330-old-key-gap-floor-failure-audit`

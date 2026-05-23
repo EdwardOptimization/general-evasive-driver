@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 338,
+        "completed": 339,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "command_log": "docs/m329-source-diverse-ppo-fresh-seed-repeat-design.md",
+        "command_log": "docs/m330-source-diverse-ppo-fresh-seed-repeat.md",
         "returncode": 0,
-        "run_dir": "",
+        "run_dir": "runs/ppo_m330_source_diverse_protected_repeat_seed5237",
         "status": "completed",
-        "task_id": "m329-source-diverse-ppo-fresh-seed-repeat-design"
+        "task_id": "m330-source-diverse-ppo-fresh-seed-repeat"
     },
     "next_task": {
-        "command": "see experiments/manifests/m330-source-diverse-ppo-fresh-seed-repeat.json",
-        "hypothesis": "A fresh PPO seed from the M328 source-diverse public base can repeat the M327 pattern: exact repair, source-diverse protected proof, old-key singleton-window audit, and first replay gates all pass before any longer PPO.",
-        "id": "m330-source-diverse-ppo-fresh-seed-repeat",
-        "kind": "driver_candidate",
-        "notes": "Pending: run smoke PPO repeat and gates; no promotion",
-        "priority": 3250,
+        "command": "see experiments/manifests/m331-m330-old-key-gap-floor-failure-audit.json",
+        "hypothesis": "M330 passes exact and source-diverse gates but fails the old-key margin-gap floor, so the next task should audit whether the old-key floor is detecting real proof erosion or over-constraining a source-diverse-retained candidate.",
+        "id": "m331-m330-old-key-gap-floor-failure-audit",
+        "kind": "gate",
+        "notes": "Pending: classify true proof erosion versus stale threshold versus candidate-specific artifact; no PPO",
+        "priority": 3260,
         "status": "pending",
         "success_artifact": ""
     },
-    "updated_at_utc": "20260523T064412Z"
+    "updated_at_utc": "20260523T064819Z"
 }

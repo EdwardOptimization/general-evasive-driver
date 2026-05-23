@@ -2,9 +2,9 @@
   "id": "m330-source-diverse-ppo-fresh-seed-repeat",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "protected_key_window_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -101,6 +101,33 @@
     "configs/ppo_m330_source_diverse_protected_repeat_smoke.json",
     "docs/m328-full-public-gate-for-m327-source-diverse-repaired.md"
   ],
-  "decision_rule": "M330 may only admit a full public-gate repeat milestone if exact repair, source-diverse protected gate, old-key diagnostic classification, and M183/M170 plus M267/M264 first replay gates pass.",
-  "next_blocker": "pending M330 fresh-seed repeat"
+  "results": {
+    "ppo_run_dir": "runs/ppo_m330_source_diverse_protected_repeat_seed5237",
+    "raw_checkpoint": "runs/ppo_m330_source_diverse_protected_repeat_seed5237/checkpoint.pt",
+    "raw_rollout_return_mean": 65.41934104264023,
+    "raw_reward_mean": 1.037858009338379,
+    "raw_train_termination_rate": 0.25,
+    "raw_eval_return_mean": 59.6869373322494,
+    "raw_eval_termination_rate": 0.2,
+    "exact_repair_run_dir": "runs/m330_exact_repair_from_raw_s40_seed10098",
+    "candidate_checkpoint": "runs/m330_exact_repair_from_raw_s40_seed10098/candidate_checkpoint.pt",
+    "m297_preference_loss_delta": -0.00012481212615966797,
+    "exact_m270_loss_delta": -8.058547973632812e-05,
+    "source_diverse_run_dir": "runs/m330_source_diverse_protected_gate",
+    "source_diverse_gate_count": 4,
+    "source_diverse_gates_passed": 4,
+    "old_key_policy_pass": false,
+    "old_key_classification": "gap_floor_failure",
+    "old_key_normal_margin": 0.2197560112993926,
+    "old_key_wrong_history_margin": 0.13285537934393754,
+    "old_key_margin_gap": 0.08690063195545505,
+    "old_key_margin_gap_floor": 0.09,
+    "first_replay_run": false,
+    "promotion_recommended": false,
+    "ppo_or_actor_update_run": true,
+    "actor_inputs_changed": false
+  },
+  "decision": "reject_m330_old_key_gap_floor_failure",
+  "decision_rule": "M330 is rejected before first replay because the old-key diagnostic margin gap falls below the pre-registered 0.09 floor despite exact and source-diverse gates passing.",
+  "next_blocker": "m331-m330-old-key-gap-floor-failure-audit"
 }

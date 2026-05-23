@@ -1,0 +1,92 @@
+{
+  "decision_reason": "M330 exact and 4/4 source-diverse gates pass but old-key gap falls to 0.086901 below 0.09 so first replay is skipped and candidate is rejected pending audit",
+  "failure_criteria": [
+    "raw PPO crashes",
+    "exact repair fails or exact objectives regress",
+    "source-diverse protected replay fails",
+    "old-key failure is not singleton-window-only",
+    "first replay gate fails",
+    "actor observation inputs change"
+  ],
+  "failure_types": [
+    "protected_key_window_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not promote from M330",
+    "do not skip exact repair",
+    "do not skip source-diverse protected gates",
+    "do not delete 9944 diagnostic",
+    "do not change actor inputs",
+    "do not tune from private holdouts"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260523T064953Z",
+  "hypothesis": "A fresh PPO seed from the M328 source-diverse public base can repeat the M327 pattern: exact repair, source-diverse protected proof, old-key singleton-window audit, and first replay gates all pass before any longer PPO.",
+  "lineage": {
+    "blocked_by": [
+      "m329-source-diverse-ppo-fresh-seed-repeat-design"
+    ],
+    "derived_from": [
+      "m329-source-diverse-ppo-fresh-seed-repeat-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m327_exact_repair_from_raw_s40_seed10097/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m330_source_diverse_protected_repeat_smoke.json",
+      "experiments/manifests/m329-source-diverse-ppo-fresh-seed-repeat-design.json",
+      "docs/m329-source-diverse-ppo-fresh-seed-repeat-design.md"
+    ],
+    "parent_dataset": [
+      "runs/m320_m316_repaired_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+      "runs/m320_m316_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+      "runs/m320_m314_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+      "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz"
+    ],
+    "parent_objective": [
+      "run fresh-seed source-diverse protected PPO smoke repeat from M328 base"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m330-source-diverse-ppo-fresh-seed-repeat",
+  "next_blocker": "m331-m330-old-key-gap-floor-failure-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "reject_m330_old_key_gap_floor_failure",
+  "public_gates": [
+    "raw PPO is proposal only",
+    "exact M297 and exact M270 no-regression versus M328 after repair",
+    "source-diverse protected replay bundle passes",
+    "old 9944 diagnostic is classified explicitly",
+    "M183/M170 first replay gate versus M328",
+    "M267/M264 first replay gate versus M328",
+    "no promotion in M330"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m330_exact_repair_from_raw_s40_seed10098/candidate_checkpoint.pt",
+    "clearance_margin_mean": "",
+    "decision": "reject_m330_old_key_gap_floor_failure",
+    "milestone": "m330-source-diverse-ppo-fresh-seed-repeat",
+    "reason": "M330 exact and 4/4 source-diverse gates pass but old-key gap falls to 0.086901 below 0.09 so first replay is skipped and candidate is rejected pending audit",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "driver_candidate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "raw PPO completes and writes checkpoint",
+    "exact repair completes",
+    "repaired candidate does not regress exact M297 or exact M270 versus M328",
+    "source-diverse protected bundle passes",
+    "old 9944 diagnostic is reported and classified",
+    "M183/M170 and M267/M264 first replay gates pass",
+    "actor input contract remains unchanged"
+  ],
+  "type": "driver_candidate"
+}

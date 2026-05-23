@@ -1,0 +1,87 @@
+{
+  "id": "m331-m330-old-key-gap-floor-failure-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m327_exact_repair_from_raw_s40_seed10097/candidate_checkpoint.pt",
+      "runs/m330_exact_repair_from_raw_s40_seed10098/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m330_source_diverse_protected_gate/summary.json",
+      "runs/m330_critical_key_seed9944/guard_results.csv",
+      "runs/m328_full_public_gate_for_m327_repaired/full_gates/critical_key_seed9944/guard_results.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m330-source-diverse-ppo-fresh-seed-repeat.json",
+      "docs/m330-source-diverse-ppo-fresh-seed-repeat.md"
+    ],
+    "parent_objective": [
+      "audit whether M330 old-key margin-gap floor failure is true proof erosion, stale threshold, or candidate-specific trajectory artifact"
+    ],
+    "derived_from": [
+      "m330-source-diverse-ppo-fresh-seed-repeat"
+    ],
+    "blocked_by": [
+      "m330-source-diverse-ppo-fresh-seed-repeat"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m331-m330-old-key-gap-floor-failure-audit.md",
+  "public_gates": [
+    "do not run PPO",
+    "do not promote M330",
+    "compare M328 and M330 old-key margins and wrong-history branch behavior",
+    "compare old-key diagnostic against source-diverse protected pass",
+    "classify whether the 0.09 floor remains valid",
+    "define next safe milestone"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not lower the old-key floor without audit",
+    "do not promote M330 from exact/source-diverse pass alone",
+    "do not run first replay retroactively before deciding whether the old-key stop was valid",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "M330 passes exact and source-diverse gates but fails the old-key margin-gap floor, so the next task should audit whether the old-key floor is detecting real proof erosion or over-constraining a source-diverse-retained candidate.",
+  "success_criteria": [
+    "audit compares M328 and M330 old-key normal/wrong/gap values",
+    "audit compares old-key result with source-diverse gate result",
+    "audit classifies the failure cause",
+    "audit decides whether to repair, reject, or redesign the old-key diagnostic floor",
+    "no PPO is run"
+  ],
+  "failure_criteria": [
+    "audit ignores old-key gap floor",
+    "audit promotes M330",
+    "audit changes actor inputs",
+    "audit runs PPO"
+  ],
+  "commands": [
+    {
+      "name": "m331_audit",
+      "command": "Audit M330 old-key margin-gap floor failure using M328/M330 diagnostics and source-diverse results; no PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m331-m330-old-key-gap-floor-failure-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m327_exact_repair_from_raw_s40_seed10097/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m330-source-diverse-ppo-fresh-seed-repeat.md",
+    "runs/m330_critical_key_seed9944/guard_results.csv",
+    "runs/m330_source_diverse_protected_gate/summary.json"
+  ],
+  "decision_rule": "M331 should decide whether M330 needs rejection/repair, whether the old-key diagnostic floor needs redesign, or whether a new source-diverse fresh-seed repeat should be attempted.",
+  "next_blocker": "pending M331 old-key gap-floor failure audit"
+}
