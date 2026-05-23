@@ -1,0 +1,84 @@
+{
+  "id": "m412-replay-aware-projection-utility-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m411_combined_anchor_projection_ltraj1e13_s40_seed10144/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m411_combined_replay_failure_trajectory_anchor/combined_replay_failure_trajectory_anchor.npz",
+      "runs/m411_ltraj1e13_m267_m264_first_replay/summary.json",
+      "runs/m411_ltraj1e13_old_key_replay_gate/summary.json",
+      "runs/m411_ltraj1e13_m183_m170_first_replay/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m411-combined-replay-aware-projection-probe.json"
+    ],
+    "parent_objective": [
+      "replay-aware exact projection with strong trajectory-anchor residual"
+    ],
+    "derived_from": [
+      "m411-combined-replay-aware-projection-probe"
+    ],
+    "blocked_by": [
+      "m411-combined-replay-aware-projection-probe"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m412-replay-aware-projection-utility-audit.md",
+  "public_gates": [
+    "no PPO run",
+    "no checkpoint promotion",
+    "measure M411 movement from M400 base",
+    "measure retained recovery-target movement versus M406",
+    "classify as useful chained candidate or retention-only proof projection"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not count base-collapse as driver improvement"
+  ],
+  "hypothesis": "The M411 proof-passing lambda 1e13 projection may be retention-heavy, so utility must be audited before any full public gate or chained repair.",
+  "success_criteria": [
+    "quantify parameter and action movement from M400 base",
+    "quantify recovery-target movement retained versus M406 and M400",
+    "compare exact-objective improvement against replay-trajectory collapse",
+    "make an explicit decision: full public gate, redesign residual balance, or classify as retention-only"
+  ],
+  "failure_criteria": [
+    "candidate movement cannot be measured",
+    "audit tries to promote without full public gate",
+    "audit uses private holdout feedback",
+    "actor input or output contract changes"
+  ],
+  "commands": [
+    {
+      "name": "replay_aware_projection_utility_audit",
+      "command": "Audit M411 lambda 1e13 candidate movement, recovery loss, action deltas, and retention-heavy behavior; no PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m412-replay-aware-projection-utility-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m411-combined-replay-aware-projection-probe.md"
+  ],
+  "decision_rule": "M412 should admit a full public gate only if M411 has meaningful movement beyond M400 while retaining proof gates; otherwise classify it as retention-only and redesign the residual balance.",
+  "next_blocker": "pending M412 replay-aware projection utility audit"
+}

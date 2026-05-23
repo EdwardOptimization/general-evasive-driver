@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m411-combined-replay-aware-projection-probe
+m412-replay-aware-projection-utility-audit
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -263,7 +263,14 @@ regressions, and produce `290` trajectory-anchor rows. The no-update exact
 repair smoke loads the old-key anchor with near-zero loss `6.694095e-15`, while
 exact M297/M270/old-key deltas remain `0.0`. M411 should combine the M409 and
 M410 replay-failure anchors and run a no-PPO replay-aware exact projection
-probe before any PPO or promotion.
+probe before any PPO or promotion. M411 completes that probe: the combined
+`959`-row anchor has residual signal on the M406 replay-failed candidate, and
+`lambda_replay=1e13` produces a proof-passing candidate that preserves exact
+M297/M270/old-key no-regression, M267/M264 `17/17`, old-key compact with `0`
+accepted regressions, and M183/M170 `17/17`. The result is likely
+retention-heavy because replay trajectory loss is nearly zero and old-key
+recovery movement is close to the M400 base, so M412 should audit utility before
+any full public gate or chained repair.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -342,7 +349,7 @@ probe before any PPO or promotion.
 | current public-gate base | `runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt` | M379 promotes alpha `0.05` after cumulative old-key source-diverse six public replay surfaces and behavior seeds pass |
 | recovery residual infrastructure | `src/autodrift/exact_post_ppo_repair.py` | M383 implements optional old-key local-action recovery loss and verifies finite no-update smoke terms |
 | recovery target corpus | `runs/m384_old_key_local_recovery_targets/old_key_recovery_corpus.npz` | M384 exports 4 replay-selected recovery targets from 1008 local-action rollouts |
-| current blocker | `experiments/manifests/m411-combined-replay-aware-projection-probe.json` | M411 must combine the M409 and M410 replay-failure anchors and run a no-PPO exact projection plus first proof replay gates before any PPO |
+| current blocker | `experiments/manifests/m412-replay-aware-projection-utility-audit.json` | M412 must quantify whether the M411 proof-passing projection has meaningful movement beyond M400 or is only retention-heavy |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

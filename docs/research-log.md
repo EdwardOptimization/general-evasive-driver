@@ -9744,3 +9744,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M410 implements the old-key compact replay-failure trajectory-anchor exporter. It reconstructs all `7` M407 old-key failed rows with `0` missing rows, splits them into `1` normal-branch failure and `6` wrong-history-safe regressions, and exports `290` trajectory-anchor rows. A no-update exact repair smoke loads the anchor with near-zero trajectory loss `6.694095e-15`; exact M297/M270/old-key surrogate deltas remain `0.0` and exact lexicographic pass is `true`. Focused tests pass (`20 passed`).
 - decision: `admit_m411_combined_replay_aware_projection_probe`
 - next: `m411-combined-replay-aware-projection-probe`
+
+## 20260523T162054Z - m411-combined-replay-aware-projection-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m411_combined_anchor_projection_ltraj1e13_s40_seed10144`
+- artifact: `docs/m411-combined-replay-aware-projection-probe.md`
+- result: M411 combines the M409 `669`-row M267/M264 replay-failure anchor and M410 `290`-row old-key anchor into a `959`-row trajectory anchor. The M406 replay-failed candidate has combined trajectory loss `7.238024e-05`, confirming residual signal. `lambda_replay=1e11` improves but fails (`5/17` M267/M264, `34/40` old-key); `1e12` passes M267/M264 but leaves `3` old-key accepted regressions. `1e13` passes exact M297/M270/old-key, M267/M264 `17/17`, old-key compact with `0` accepted regressions, and M183/M170 `17/17`. This is proof-positive but likely retention-heavy: replay trajectory loss is `2.168418e-08` and old-key recovery loss `0.003813319`, close to the M400 base `0.003873642`.
+- decision: `admit_m412_replay_aware_projection_utility_audit`
+- next: `m412-replay-aware-projection-utility-audit`
