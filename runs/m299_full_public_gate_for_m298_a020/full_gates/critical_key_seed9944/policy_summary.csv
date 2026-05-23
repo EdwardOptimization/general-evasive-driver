@@ -1,0 +1,6 @@
+policy,checkpoint,cases,accepted_cases,policy_pass,candidate_rows,outcome_sensitive_pairs
+m263_a005,runs/m263_m261_to_projection_interpolation/checkpoints/alpha_0_005.pt,1,1,True,3,1
+m272_base,runs/m272_m264_to_m271_interpolation_boundary/checkpoints/alpha_0_01025.pt,1,1,True,3,1
+m290x64_a500,runs/m290_row16_aware_balanced_repeat_fresh_seed/interpolation/checkpoints/alpha_0_5.pt,1,1,True,3,1
+m298pref_a020,runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt,1,1,True,3,1
+m239_a750,runs/m239_m224_to_m237_interpolation/checkpoints/alpha_0_75.pt,1,0,False,3,0

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 307,
+    "completed": 308,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m298-rejected-preference-objective-only-probe.md",
+    "command_log": "docs/m299-full-public-gate-for-m298-a020.md",
     "returncode": 0,
-    "run_dir": "runs/m298_rejected_preference_objective_only_probe",
+    "run_dir": "runs/m299_full_public_gate_for_m298_a020",
     "status": "completed",
-    "task_id": "m298-rejected-preference-objective-only-probe"
+    "task_id": "m299-full-public-gate-for-m298-a020"
   },
   "next_task": {
-    "command": "see experiments/manifests/m299-full-public-gate-for-m298-a020.json",
-    "hypothesis": "The M298 alpha 0.02 checkpoint preserves the full public proof, protected-key, and behavior gate stack while improving exact objectives versus M290.",
-    "id": "m299-full-public-gate-for-m298-a020",
-    "kind": "driver_candidate",
-    "notes": "Pending: full replay protected-key and behavior gate for m298pref_a020",
-    "priority": 2940,
+    "command": "see experiments/manifests/m300-rejected-preference-ppo-guard-design.json",
+    "hypothesis": "The next PPO attempt should not merely restart from M299; it needs an explicit rejected-history preference guard so PPO cannot again make M267/M264 wrong-history rollouts safe.",
+    "id": "m300-rejected-preference-ppo-guard-design",
+    "kind": "infrastructure",
+    "notes": "Pending: design PPO guard using M297 preference exact M270 and replay retention before any new PPO",
+    "priority": 2950,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260523T005901Z"
+  "updated_at_utc": "20260523T010416Z"
 }
