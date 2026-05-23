@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 398,
+        "completed": 399,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m389-m267-row15-conflict-corpus-implementation",
+        "task_id": "m390-m267-conflict-residual-repair-probe",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m389_m267_row15_conflict_corpus",
-        "command_log": "docs/m389-m267-row15-conflict-corpus-implementation.md"
+        "run_dir": "runs/m390_step17_micro_interpolation",
+        "command_log": "docs/m390-m267-conflict-residual-repair-probe.md"
     },
     "next_task": {
-        "id": "m390-m267-conflict-residual-repair-probe",
+        "id": "m391-full-public-gate-for-m390-a005",
         "status": "pending",
-        "priority": 3850,
-        "kind": "gate",
-        "hypothesis": "Probe old-key recovery plus M267 conflict residual without PPO",
-        "command": "see experiments/manifests/m390-m267-conflict-residual-repair-probe.json",
+        "priority": 3860,
+        "kind": "driver_candidate",
+        "hypothesis": "Run full public promotion gate for M390 alpha 0.005 candidate",
+        "command": "see experiments/manifests/m391-full-public-gate-for-m390-a005.json",
         "success_artifact": "",
-        "notes": "Pending: run no-PPO exact repair/interpolation with M389 conflict corpus then gate M267/M264 before cumulative old-key"
+        "notes": "Pending: run six public replay gates plus behavior seeds 9505/9506 before any promotion"
     },
-    "updated_at_utc": "20260523T140949Z"
+    "updated_at_utc": "20260523T142133Z"
 }

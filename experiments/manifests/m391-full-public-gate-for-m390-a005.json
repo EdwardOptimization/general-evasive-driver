@@ -1,0 +1,83 @@
+{
+  "id": "m391-full-public-gate-for-m390-a005",
+  "type": "driver_candidate",
+  "gate_tier": "promotion",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m390_step17_micro_interpolation/checkpoints/alpha_0_005.pt",
+      "runs/m385_recovery_repair_micro_interpolation/checkpoints/alpha_0_00075.pt"
+    ],
+    "parent_dataset": [
+      "runs/m390_step17_a005_exact_eval/summary.json",
+      "runs/m390_step17_micro005_m267_m264_first_replay/summary.json",
+      "runs/m390_step17_a005_old_key_replay_gate/summary.json",
+      "runs/m390_step17_a005_source_diverse_protected_gate/summary.json",
+      "runs/m390_step17_a005_m183_m170_first_replay/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m390-m267-conflict-residual-repair-probe.json"
+    ],
+    "parent_objective": [
+      "run full public replay and behavior gates for the M390 alpha 0.005 bounded repair candidate"
+    ],
+    "derived_from": [
+      "m390-m267-conflict-residual-repair-probe"
+    ],
+    "blocked_by": [
+      "m390-m267-conflict-residual-repair-probe"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m391-full-public-gate-for-m390-a005.md",
+  "public_gates": [
+    "six public replay surfaces pass versus m333_base",
+    "behavior seeds 9505 and 9506 retain success and termination",
+    "M390 exact and proof-gate evidence retained",
+    "no actor input/output contract change"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not promote without all six replay gates",
+    "do not promote without behavior retention",
+    "do not lower replay thresholds",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "hypothesis": "The M390 alpha 0.005 bounded repair candidate can pass the full public promotion gate after exact objectives, M267/M264, cumulative old-key, source-diverse, and M183/M170 proof gates already passed.",
+  "success_criteria": [
+    "all six public replay gates pass",
+    "behavior seeds 9505 and 9506 do not regress aggregate success or termination versus the current public base",
+    "checkpoint is promoted only if proof and behavior retention both pass",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "any public replay surface fails",
+    "behavior retention regresses",
+    "actor contract changes",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "full_public_gate",
+      "command": "Run the six public replay gates plus behavior seeds 9505/9506 for runs/m390_step17_micro_interpolation/checkpoints/alpha_0_005.pt."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m391-full-public-gate-for-m390-a005.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m385_recovery_repair_micro_interpolation/checkpoints/alpha_0_00075.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m390-m267-conflict-residual-repair-probe.md"
+  ],
+  "decision_rule": "Promote M390 alpha 0.005 only if the full public replay stack and behavior seeds pass without actor-contract changes.",
+  "next_blocker": "pending M391 full public gate"
+}

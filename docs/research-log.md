@@ -9534,3 +9534,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M389 implements the M267/M264 current-family conflict corpus and optional exact-repair residual without PPO or promotion. The exporter writes a two-row row15/row6 corpus with weight sum `0.269177426`, boundary margins from `-0.000059669` to `-0.000001064`, and no actor-input change. The no-update exact-repair smoke reads the corpus with exact lexicographic pass true and near-zero conflict loss because anchors come from the same base. Alpha `0.001` gives a nonzero but tiny conflict signal (`3.564317e-11`), so closed-loop M267/M264 replay remains authoritative.
 - decision: `admit_m390_m267_conflict_residual_repair_probe`
 - next: `m390-m267-conflict-residual-repair-probe`
+
+## 20260523T142133Z - m390-m267-conflict-residual-repair-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m390_step17_micro_interpolation`
+- artifact: `docs/m390-m267-conflict-residual-repair-probe.md`
+- result: M390 tests old-key recovery plus the M389 conflict residual without PPO. The step17 exact-repair endpoint improves exact M297/M270 and old-key surrogate but fails M267/M264 with only `15/17` success drops. Interpolation alpha `0.01` still fails row15 with `16/17`, while alpha `0.005` passes M267/M264 `17/17`. The selected alpha `0.005` also passes exact M297/M270, cumulative old-key replay with zero accepted regressions, source-diverse protected gates `5/5`, and M183/M170 first replay `17/17`.
+- decision: `admit_m391_full_public_gate_for_m390_a005`
+- next: `m391-full-public-gate-for-m390-a005`

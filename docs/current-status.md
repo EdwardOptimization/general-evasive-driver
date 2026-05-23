@@ -55,7 +55,7 @@ proof-safe micro promotion, not a large driver-performance improvement; alpha
 Current blocker:
 
 ```text
-m390-m267-conflict-residual-repair-probe
+m391-full-public-gate-for-m390-a005
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -166,7 +166,11 @@ verifies a no-update exact-repair smoke, and shows alpha `0.001` has a tiny but
 nonzero conflict signal. M390 should now run a no-PPO repair/interpolation
 probe with old-key recovery plus current-family conflict residual, checking
 M267/M264 first replay before cumulative old-key replay because row15 is the
-active constraint.
+active constraint. M390 completes that no-PPO probe: the step17 endpoint and
+alpha `0.01` still fail M267/M264, but bounded alpha `0.005` passes exact
+M297/M270, M267/M264 `17/17`, cumulative old-key replay, source-diverse
+protected gates `5/5`, and M183/M170 `17/17`. M391 should run the full public
+gate for this alpha `0.005` candidate before any promotion.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
