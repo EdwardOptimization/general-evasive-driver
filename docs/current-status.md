@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m443-active-boundary-v2-stop-audit
+m444-proof-utility-generalization-audit
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -114,7 +114,12 @@ M267/M264 plus M183/M170 first replay stay `17/17`, but old-key compact still
 fails `39/40` at `10004|perturbed|31|31`, and recovery retained vs M406 is
 only `0.111895`, below M438 `r0015` (`0.120957`). The next blocker is M443:
 close or redirect the active-boundary v2 branch without PPO or another scalar
-active-boundary sweep.
+active-boundary sweep. M443 closes that branch. M438 `r0015` remains the best
+proof-safe active-boundary diagnostic, M427 remains the best high-recovery but
+proof-unsafe diagnostic, and M399 remains the public-gate base. The next
+blocker is M444: a non-promotion broad benchmark audit to test whether
+proof-rejected high-recovery candidates have real fresh-scenario value or
+whether the recovery target is too narrow.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

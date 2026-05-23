@@ -10064,3 +10064,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M442 tests active-boundary v2 on the looser `tail_r0010` profile. Exact M297/M270/old-key surrogate objectives pass, and first replay gates M267/M264 plus M183/M170 both stay `17/17`. The candidate still fails old-key compact `39/40` at `10004|perturbed|31|31`, where wrong-history becomes safe, and recovery retained vs M406 is only `0.111895`, below M438 `r0015` `0.120957`.
 - decision: `reject_m442_v2_tail_candidate_stop_active_boundary_branch`
 - next: `m443-active-boundary-v2-stop-audit`
+
+## 20260523T191409Z - m443-active-boundary-v2-stop-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m443-active-boundary-v2-stop-audit.md`
+- result: M443 closes the active-boundary v2 branch. The branch improved proof-safe recovery from M430/M434 to M438 `r0015` `0.120957`, but v2 does not beat that reference and still fails old-key `10004`. Repeated scalar/window active-boundary residuals now risk overfitting the same public old-key rows rather than discovering a better driver.
+- decision: `stop_active_boundary_v2_branch_admit_generalization_audit`
+- next: `m444-proof-utility-generalization-audit`

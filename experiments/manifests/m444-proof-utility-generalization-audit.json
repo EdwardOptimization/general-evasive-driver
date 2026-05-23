@@ -1,0 +1,90 @@
+{
+  "id": "m444-proof-utility-generalization-audit",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m434_selective_10004_projection_r0010/candidate_checkpoint.pt",
+      "runs/m438_r0015_active_boundary_lactive1e12_s40_seed10161/candidate_checkpoint.pt",
+      "runs/m427_projected_recovery_ltraj1e13_s40_seed10156/candidate_checkpoint.pt",
+      "runs/m442_tail_r0010_active_boundary_v2_l1e12_s40_seed10162/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "configs/m121_human_view_zero_obstacle_relvel.json",
+      "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m443-active-boundary-v2-stop-audit.json"
+    ],
+    "parent_objective": [
+      "non-promotion broad benchmark for proof/utility alignment"
+    ],
+    "derived_from": [
+      "m443-active-boundary-v2-stop-audit"
+    ],
+    "blocked_by": [
+      "m443-active-boundary-v2-stop-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m444-proof-utility-generalization-audit.md",
+  "public_gates": [
+    "fresh randomized benchmark seed 9600",
+    "policy summary comparison",
+    "mu bucket summary",
+    "vehicle road bucket summary",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not promote checkpoint from this audit",
+    "do not report this public diagnostic benchmark as unbiased paper holdout evidence after tuning",
+    "do not tune active-boundary weights from this result and call the same benchmark holdout",
+    "do not lower proof gates",
+    "do not add hidden or oracle actor inputs",
+    "do not use proof labels as actor inputs"
+  ],
+  "hypothesis": "A fresh broad benchmark can tell whether proof-rejected high-recovery candidates have real scenario-distribution value or whether the old-key recovery target is a narrow surrogate.",
+  "success_criteria": [
+    "benchmark completes for base proof-safe and proof-rejected candidates",
+    "policy summary and bucket summaries are saved",
+    "audit states whether broad performance aligns with recovery retained",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "benchmark does not complete",
+    "results are used to promote a checkpoint",
+    "results are used to justify more active-boundary scalar tuning without a new manifest",
+    "actor contract changes"
+  ],
+  "commands": [
+    {
+      "name": "proof_utility_generalization_benchmark",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m121_human_view_zero_obstacle_relvel.json --episodes 160 --seed 9600 --policies heuristic --checkpoint-policy m399_base=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --checkpoint-policy m434_r0010=runs/m434_selective_10004_projection_r0010/candidate_checkpoint.pt --checkpoint-policy m438_r0015=runs/m438_r0015_active_boundary_lactive1e12_s40_seed10161/candidate_checkpoint.pt --checkpoint-policy m427_high_utility=runs/m427_projected_recovery_ltraj1e13_s40_seed10156/candidate_checkpoint.pt --checkpoint-policy m442_tail_v2=runs/m442_tail_r0010_active_boundary_v2_l1e12_s40_seed10162/candidate_checkpoint.pt --device cpu --run-dir runs/m444_proof_utility_generalization_seed9600"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m444_proof_utility_generalization_seed9600/policy_summary.csv",
+      "type": "benchmark_policy_summary"
+    },
+    {
+      "path": "docs/m444-proof-utility-generalization-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m443-active-boundary-v2-stop-audit.md"
+  ],
+  "decision_rule": "M444 is diagnostic only. It can redirect the research branch but cannot promote a checkpoint.",
+  "next_blocker": "pending M444 broad proof utility generalization audit"
+}

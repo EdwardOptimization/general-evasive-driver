@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 451,
+        "completed": 452,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m442-active-boundary-v2-projection-probe",
+        "task_id": "m443-active-boundary-v2-stop-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m442_tail_r0010_active_boundary_v2_l1e12_s40_seed10162",
-        "command_log": "docs/m442-active-boundary-v2-projection-probe.md"
+        "run_dir": "",
+        "command_log": "docs/m443-active-boundary-v2-stop-audit.md"
     },
     "next_task": {
-        "id": "m443-active-boundary-v2-stop-audit",
+        "id": "m444-proof-utility-generalization-audit",
         "status": "pending",
-        "priority": 4380,
+        "priority": 4390,
         "kind": "gate",
-        "hypothesis": "Close or redirect the active-boundary v2 branch after M442 rejection",
-        "command": "see experiments/manifests/m443-active-boundary-v2-stop-audit.json",
+        "hypothesis": "Run non-promotion broad benchmark to test proof utility alignment",
+        "command": "see experiments/manifests/m444-proof-utility-generalization-audit.json",
         "success_artifact": "",
-        "notes": "Pending: classify repeated proof utility bottleneck and choose next blocker without PPO or another scalar active-boundary sweep"
+        "notes": "Pending: compare base proof-safe and proof-rejected high-utility candidates on fresh randomized scenarios"
     },
-    "updated_at_utc": "20260523T191048Z"
+    "updated_at_utc": "20260523T191409Z"
 }
