@@ -74,6 +74,49 @@
       "command": "Run no-PPO exact projection with active-boundary residual; then evaluate exact, M267/M264, old-key compact, M183/M170, and recovery utility."
     }
   ],
+  "results": {
+    "artifact": "docs/m438-active-boundary-projection-probe.md",
+    "selected_checkpoint": "runs/m438_r0015_active_boundary_lactive1e12_s40_seed10161/candidate_checkpoint.pt",
+    "selected_run_dir": "runs/m438_r0015_active_boundary_lactive1e12_s40_seed10161",
+    "selected_profile": "r0015",
+    "lambda_active_boundary": 1000000000000.0,
+    "selected_step": 38,
+    "exact_m297_delta_vs_base": -0.00005829334259033203,
+    "exact_m270_delta_vs_base": -0.00012099742889404297,
+    "old_key_surrogate_delta_vs_base": -0.0000152587890625,
+    "active_boundary_loss": 0.0010130817536264658,
+    "active_boundary_loss_base": 0.0010130878072232008,
+    "active_boundary_loss_delta_vs_base": -0.00000000605359673500061,
+    "recovery_retained_vs_m406": 0.12095699114779722,
+    "m434_r0010_recovery_retained_vs_m406": 0.10352863802074717,
+    "m427_recovery_retained_vs_m406": 0.17435400926925274,
+    "primary_utility_target": 0.20,
+    "proof_gates": {
+      "m267_m264_success_drops": "17/17",
+      "old_key_compact": "40/40",
+      "old_key_replay_gate": true,
+      "m183_m170_success_drops": "17/17"
+    },
+    "negative_probes": {
+      "tail_r0010_active_1e12": {
+        "recovery_retained_vs_m406": 0.14693164293441618,
+        "m267_m264_success_drops": "17/17",
+        "old_key_compact": "38/40",
+        "failed_keys": [
+          "10004|perturbed|31|31",
+          "10023|perturbed|12|12"
+        ]
+      },
+      "tail_r0010_active_1e14": {
+        "recovery_retained_vs_m406": -0.027593596535299546,
+        "old_key_compact": "34/40",
+        "normal_success_cases": "34/40",
+        "conclusion": "active-boundary pressure too high creates normal-branch collisions"
+      }
+    },
+    "conclusion": "Active-boundary residual enables r0015 to pass proof gates and improves utility over M434 r0010, but it is still below M427 and the 0.20 target; do not promote.",
+    "recommended_next": "m439-active-boundary-residual-utility-audit"
+  },
   "required_artifacts": [
     {
       "path": "docs/m438-active-boundary-projection-probe.md",
@@ -89,5 +132,5 @@
     "docs/m434-selective-10004-projection-probe.md"
   ],
   "decision_rule": "M438 should only admit the next blocker if it completes the no-PPO active-boundary projection probe and classifies proof/utility behavior without promotion.",
-  "next_blocker": "pending M438 active-boundary projection probe"
+  "next_blocker": "m439-active-boundary-residual-utility-audit"
 }

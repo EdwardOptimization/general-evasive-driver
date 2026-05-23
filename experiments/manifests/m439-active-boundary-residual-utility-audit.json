@@ -1,0 +1,85 @@
+{
+  "id": "m439-active-boundary-residual-utility-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m438_r0015_active_boundary_lactive1e12_s40_seed10161/candidate_checkpoint.pt",
+      "runs/m438_tail_r0010_active_boundary_lactive1e12_s40_seed10159/candidate_checkpoint.pt",
+      "runs/m438_tail_r0010_active_boundary_lactive1e14_s40_seed10160/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m437_active_boundary_residual/active_boundary_corpus.npz",
+      "runs/m438_r0015_lactive1e12_old_key_targeted_replay/guard_results.csv",
+      "runs/m438_tail_lactive1e12_old_key_targeted_replay/guard_results.csv",
+      "runs/m438_tail_lactive1e14_old_key_targeted_replay/guard_results.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m438-active-boundary-projection-probe.json"
+    ],
+    "parent_objective": [
+      "active-boundary residual utility and proof alignment audit"
+    ],
+    "derived_from": [
+      "m438-active-boundary-projection-probe"
+    ],
+    "blocked_by": [
+      "m438-active-boundary-projection-probe"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m439-active-boundary-residual-utility-audit.md",
+  "public_gates": [
+    "row-level comparison of r0015 pass and tail_r0010 failure",
+    "active-boundary loss and margin alignment audit",
+    "classification of whether next residual should use row-specific weights or margin terms",
+    "no PPO and no promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "hypothesis": "M438's active-boundary residual is useful but under-specified: it can repair r0015, but tail_r0010 still fails because the residual does not directly encode enough closed-loop margin slack for 10004 and 10023.",
+  "success_criteria": [
+    "explain why r0015 passes while tail_r0010 fails",
+    "measure whether active-boundary exact loss tracks closed-loop old-key failures",
+    "classify high active-boundary weight normal-branch collisions",
+    "recommend a concrete next residual or reject further active-boundary tuning"
+  ],
+  "failure_criteria": [
+    "audit cannot distinguish objective underweighting from objective misspecification",
+    "audit recommends another scalar sweep without row-level evidence",
+    "audit recommends PPO before proof residual design",
+    "actor input or output contract changes"
+  ],
+  "commands": [
+    {
+      "name": "active_boundary_residual_utility_audit",
+      "command": "Analyze M438 exact summaries and old-key replay rows; no PPO or promotion."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m439-active-boundary-residual-utility-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "runs/m438_r0015_active_boundary_lactive1e12_s40_seed10161/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m438-active-boundary-projection-probe.md"
+  ],
+  "decision_rule": "M439 should decide whether to implement active-boundary v2 or stop this branch, based on row-level objective/replay alignment rather than another scalar coefficient sweep.",
+  "next_blocker": "pending M439 active-boundary residual utility audit"
+}

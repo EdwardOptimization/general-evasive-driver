@@ -1,0 +1,85 @@
+# m438-active-boundary-projection-probe Research Review
+
+## Summary
+
+- Generated at UTC: 20260523T184932Z
+- Type: gate
+- Gate tier: proof
+- Promotion decision: partial_pass_admit_m439_active_boundary_residual_utility_audit
+- Decision reason: M438 r0015 active-boundary candidate passes exact M267 old-key and M183 gates and improves recovery retained to 0.120957 but remains below M427 and 0.20 target
+
+## Hypothesis
+
+Adding the active-boundary residual to no-PPO exact projection can recover more M406 utility than M434 r0010 while preserving current-family and old-key closed-loop proof gates.
+
+## Lineage
+
+- parent_checkpoint: runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt, runs/m434_selective_10004_projection_r0010/candidate_checkpoint.pt
+- parent_dataset: runs/m437_active_boundary_residual/active_boundary_corpus.npz, runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz, runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz, runs/m377_cumulative_gap_tail_v2_old_key_preference_corpus/old_key_preference_corpus.npz, runs/m398_old_key_normal_margin_recovery_targets/old_key_recovery_corpus.npz, runs/m393_current_family_rejected_boundary_targets/current_family_conflict_corpus.npz
+- parent_config: experiments/manifests/m437-active-boundary-residual-implementation.json
+- parent_objective: active-boundary exact repair residual, old-key recovery utility under exact proof feasibility
+- derived_from: m437-active-boundary-residual-implementation
+- blocked_by: m437-active-boundary-residual-implementation
+- supersedes: None
+- invalidates: None
+
+## Success Criteria
+
+- candidate exact M297/M270/old-key no-regression passes
+- active-boundary residual does not increase relative to M399 base
+- M267/M264 first replay remains 17 of 17
+- old-key compact replay remains 40 of 40
+- M183/M170 first replay remains 17 of 17
+- recovery retained vs M406 exceeds M434 r0010 0.103529, with target 0.20 if reachable
+
+## Failure Criteria
+
+- exact objectives regress before replay
+- M267/M264 wrong-history rows become safe
+- old-key compact exposes 10004 10023 or 9998 boundary failures
+- recovery utility remains retention-heavy at or below M434 r0010
+- actor input or output contract changes
+
+## Evidence Gates
+
+- exact M297/M270/old-key no-regression
+- active-boundary residual tracked
+- M267/M264 first replay 17 of 17
+- old-key compact replay 40 of 40
+- M183/M170 first replay 17 of 17
+- recovery retained vs M406 compared with M434 r0010 and 0.20 target
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run PPO
+- do not promote checkpoint
+- do not lower exact or replay thresholds
+- do not add hidden or oracle actor inputs
+- do not make replay labels actor inputs
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m438-active-boundary-projection-probe
+- type: gate
+- checkpoint: runs/m438_r0015_active_boundary_lactive1e12_s40_seed10161/candidate_checkpoint.pt
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: partial_pass_admit_m439_active_boundary_residual_utility_audit
+- reason: M438 r0015 active-boundary candidate passes exact M267 old-key and M183 gates and improves recovery retained to 0.120957 but remains below M427 and 0.20 target
+
+## Next Blocker
+
+m439-active-boundary-residual-utility-audit

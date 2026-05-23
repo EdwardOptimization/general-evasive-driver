@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m438-active-boundary-projection-probe
+m439-active-boundary-residual-utility-audit
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -92,10 +92,15 @@ rejected-history preference and gap-erosion branch separation instead of broad
 full-trajectory action anchoring. M437 implements that path: it exports a
 6-row active-boundary corpus covering `10004`, `10023`, and `9998`, wires the
 loader and exact repair terms, and passes a no-update exact repair smoke with
-exact M297/M270/old-key no-regression. The next blocker is M438: run a no-PPO
-projection probe with this residual and check whether it can recover more M406
-utility than M434 `r0010` (`0.103529`) while preserving M267/M264 `17/17`,
-old-key compact `40/40`, and M183/M170 `17/17`.
+exact M297/M270/old-key no-regression. M438 runs the no-PPO projection probe.
+The best proof-safe result is `r0015` plus active-boundary lambda `1e12`: exact
+gates pass, M267/M264 stays `17/17`, old-key compact returns to `40/40`, and
+M183/M170 stays `17/17`. Recovery retained vs M406 improves from M434 `r0010`
+`0.103529` to `0.120957`, but remains below M427 `0.174354` and below the
+`0.20` target. Looser `tail_r0010` still fails old-key `38/40`, while active
+lambda `1e14` creates normal-branch collisions. The next blocker is M439:
+audit why `r0015` is repairable but `tail_r0010` is not, and decide whether an
+active-boundary v2 residual is justified before another projection.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

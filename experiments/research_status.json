@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 446,
+        "completed": 447,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m437-active-boundary-residual-implementation",
+        "task_id": "m438-active-boundary-projection-probe",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m437_active_boundary_no_update_smoke",
-        "command_log": "docs/m437-active-boundary-residual-implementation.md"
+        "run_dir": "runs/m438_r0015_active_boundary_lactive1e12_s40_seed10161",
+        "command_log": "docs/m438-active-boundary-projection-probe.md"
     },
     "next_task": {
-        "id": "m438-active-boundary-projection-probe",
+        "id": "m439-active-boundary-residual-utility-audit",
         "status": "pending",
-        "priority": 4330,
+        "priority": 4340,
         "kind": "gate",
-        "hypothesis": "Probe active-boundary residual in no-PPO exact projection",
-        "command": "see experiments/manifests/m438-active-boundary-projection-probe.json",
+        "hypothesis": "Audit active-boundary residual utility and proof alignment",
+        "command": "see experiments/manifests/m439-active-boundary-residual-utility-audit.json",
         "success_artifact": "",
-        "notes": "Pending: run no-PPO projection with active-boundary residual and evaluate exact/replay/recovery gates; no PPO or promotion"
+        "notes": "Pending: explain why r0015 passes but tail_r0010 fails and decide whether active-boundary v2 is needed; no PPO or promotion"
     },
-    "updated_at_utc": "20260523T183911Z"
+    "updated_at_utc": "20260523T184715Z"
 }

@@ -10014,3 +10014,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M437 adds `active_boundary_residual.py`, exports a 6-row active-boundary corpus from M434 failed old-key guard rows, and wires active-boundary exact repair terms. The corpus covers `10004`, `10023`, and `9998`, with `3` wrong-history-safe rows and `3` gap-erosion rows. The no-update exact repair smoke loads the corpus and passes exact M297/M270/old-key no-regression with active_boundary_loss `0.0010130878`.
 - decision: `admit_m438_active_boundary_projection_probe`
 - next: `m438-active-boundary-projection-probe`
+
+## 20260523T184715Z - m438-active-boundary-projection-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m438_r0015_active_boundary_lactive1e12_s40_seed10161`
+- artifact: `docs/m438-active-boundary-projection-probe.md`
+- result: M438 finds a proof-safe partial pass: `r0015` plus active-boundary lambda `1e12` passes exact M297/M270/old-key no-regression, M267/M264 first replay `17/17`, old-key compact `40/40`, old-key replay gate, and M183/M170 first replay `17/17`. Recovery retained vs M406 improves from M434 `r0010` `0.103529` to `0.120957`, but remains below M427 `0.174354` and the `0.20` target. Looser `tail_r0010` with lambda `1e12` keeps M267 but fails old-key `38/40`; lambda `1e14` creates normal-branch collisions.
+- decision: `partial_pass_admit_m439_active_boundary_residual_utility_audit`
+- next: `m439-active-boundary-residual-utility-audit`
