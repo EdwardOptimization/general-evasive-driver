@@ -10384,3 +10384,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M474 combines `35` M467 anchors with `104` M473 fresh anchors and combines the M471/M473 candidate pools into `1142403` candidate pairs. The adversarial search passes the pre-registered source-diversity gates: `197` adversarial pairs, `82` near-boundary left states, `9` probe seeds, `2` labels, `3` targets, single-seed share `0.197970`, and single-label share `0.548223`. This fixes the M471 source-balance blocker but is not yet outcome proof.
 - decision: `combined_adversarial_surface_pass_admit_m475`
 - next: `m475-combined-adversarial-outcome-proof-probe`
+
+## 20260523T215614Z - m475-combined-adversarial-outcome-proof-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m475_combined_adversarial_near_boundary_selector`
+- artifact: `docs/m475-combined-adversarial-outcome-proof-probe.md`
+- result: M475 runs action/outcome probes and selectors on the M474 adversarial pairs. Action gate writes `985` rows and outcome gate writes `1182` rows. The outcome selector accepts `28` compact rows, all from reset-hidden or zero-current-response variants; no wrong-history rows are accepted. Near-boundary classification sees all `197` wrong-history rows as near-boundary no-effect rows, with `0` proof candidates, `0` success-drop rows, `0` collision-gap rows, and `0` completion-degradation rows. Wrong history is not action-null (`action_distance_mean=0.053586`, `124/197` closer to right action), but margin gap max is only `0.010044`, below the `0.02` proof threshold.
+- decision: `combined_adversarial_outcome_probe_reject_proof_admit_m476`
+- next: `m476-wrong-history-no-effect-mechanism-audit`

@@ -2,7 +2,7 @@
   "id": "m475-combined-adversarial-outcome-proof-probe",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -100,5 +100,41 @@
     "runs/m474_combined_fresh_anchor_adversarial_search/summary.json"
   ],
   "decision_rule": "M475 can expand wrong-history proof only if near-boundary proof rows show source-diverse closed-loop degradation; otherwise diagnose why adversarial histories still do not change outcomes.",
-  "next_blocker": "pending M475 combined adversarial outcome proof probe"
+  "results": {
+    "action_gate_run_dir": "runs/m475_combined_adversarial_action_gate",
+    "outcome_gate_run_dir": "runs/m475_combined_adversarial_outcome_gate",
+    "outcome_selector_run_dir": "runs/m475_combined_adversarial_outcome_selector",
+    "near_boundary_selector_run_dir": "runs/m475_combined_adversarial_near_boundary_selector",
+    "input_pair_count": 197,
+    "action_intervention_rows": 985,
+    "outcome_intervention_rows": 1182,
+    "selector_candidate_rows": 985,
+    "selector_outcome_critical_rows": 85,
+    "selector_accepted_rows": 28,
+    "selector_compact_rows": 28,
+    "selector_accepted_by_variant": {
+      "reset_hidden": 5,
+      "zero_current_response": 23
+    },
+    "wrong_history_row_count": 197,
+    "near_boundary_candidate_count": 197,
+    "proof_candidate_count": 0,
+    "near_boundary_no_effect_count": 197,
+    "high_slack_diagnostic_count": 0,
+    "proof_success_drop_rows": 0,
+    "proof_collision_gap_rows": 0,
+    "proof_completion_degradation_rows": 0,
+    "proof_margin_degradation_rows": 0,
+    "wrong_history_action_distance_mean": 0.053585562851557654,
+    "wrong_history_action_distance_max": 0.1519465849945645,
+    "wrong_history_action_prefilter_pass_rows": 131,
+    "wrong_history_closer_to_right_action_rows": 124,
+    "wrong_history_margin_gap_mean": -0.00046720462285017875,
+    "wrong_history_margin_gap_max": 0.0100436658478821,
+    "wrong_history_gate_pass": false,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "combined_adversarial_outcome_probe_reject_proof_admit_m476"
+  },
+  "next_blocker": "m476-wrong-history-no-effect-mechanism-audit"
 }

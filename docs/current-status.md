@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m475-combined-adversarial-outcome-proof-probe
+m476-wrong-history-no-effect-mechanism-audit
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -307,7 +307,11 @@ search before any outcome probe. M474 passes that search with `197`
 adversarial pairs across `82` near-boundary left states, `9` probe seeds, `2`
 labels, and `3` targets; single-seed share drops to `0.197970`. The next
 blocker is M475: run action/outcome probes and near-boundary proof selection on
-the M474 adversarial pairs.
+the M474 adversarial pairs. M475 rejects proof expansion: all `197`
+wrong-history rows are near-boundary no-effect rows with `0` proof candidates,
+while reset/zero-current variants do degrade outcomes on the same surface. The
+next blocker is M476: audit why wrong-history action perturbations do not
+translate into terminal outcome degradation.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key
@@ -914,12 +918,12 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not run PPO or promote a checkpoint while the current blocker is the M475
-wrong-history outcome proof probe. M474 finally produced a source-diverse
-adversarial pair surface, but that surface only admits outcome testing; it is
-not proof by itself. M475 must run action and continuation outcome gates, then
-near-boundary proof selection. Do not count high-slack diagnostics as proof, do
-not relax the normal-margin ceiling, and do not change actor inputs.
+Do not run PPO or promote a checkpoint while the current blocker is the M476
+wrong-history no-effect mechanism audit. M475 shows wrong matched history
+changes first actions weakly but does not change success, collision, completion,
+or terminal-margin outcomes. Reset and zero-current degradation on the same
+surface must not be counted as wrong-history proof. Do not design another
+training/update path until the no-effect mechanism is classified.
 
 ## Sensor Profile Policy
 

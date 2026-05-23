@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 483,
+        "completed": 484,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m474-combined-fresh-anchor-adversarial-search",
+        "task_id": "m475-combined-adversarial-outcome-proof-probe",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m474_combined_fresh_anchor_adversarial_search",
-        "command_log": "docs/m474-combined-fresh-anchor-adversarial-search.md"
+        "run_dir": "runs/m475_combined_adversarial_near_boundary_selector",
+        "command_log": "docs/m475-combined-adversarial-outcome-proof-probe.md"
     },
     "next_task": {
-        "id": "m475-combined-adversarial-outcome-proof-probe",
+        "id": "m476-wrong-history-no-effect-mechanism-audit",
         "status": "pending",
-        "priority": 4700,
+        "priority": 4710,
         "kind": "gate",
-        "hypothesis": "The M474 source-diverse adversarial pairs will contain near-boundary wrong-history interventions that produce closed-loop outcome degradation",
-        "command": "see experiments/manifests/m475-combined-adversarial-outcome-proof-probe.json",
+        "hypothesis": "M475 failed because wrong matched-history injections change first action but do not persist long enough or target terminal-sensitive directions strongly enough to change closed-loop outcome",
+        "command": "see experiments/manifests/m476-wrong-history-no-effect-mechanism-audit.json",
         "success_artifact": "",
-        "notes": "Pending: run action/outcome probes and near-boundary proof selector on M474 adversarial pairs"
+        "notes": "Pending: audit why source-diverse wrong-history interventions remain outcome-no-effect"
     },
-    "updated_at_utc": "20260523T215132Z"
+    "updated_at_utc": "20260523T215614Z"
 }

@@ -1,0 +1,87 @@
+{
+  "id": "m476-wrong-history-no-effect-mechanism-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m475_combined_adversarial_action_gate/action_interventions.csv",
+      "runs/m475_combined_adversarial_outcome_gate/outcome_interventions.csv",
+      "runs/m475_combined_adversarial_outcome_selector/candidates.csv",
+      "runs/m475_combined_adversarial_near_boundary_selector/wrong_history_classified.csv"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m475-combined-adversarial-outcome-proof-probe.json"
+    ],
+    "parent_objective": [
+      "wrong-history no-effect mechanism audit"
+    ],
+    "derived_from": [
+      "m475-combined-adversarial-outcome-proof-probe"
+    ],
+    "blocked_by": [
+      "m475-combined-adversarial-outcome-proof-probe"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m476-wrong-history-no-effect-mechanism-audit.md",
+  "public_gates": [
+    "audit wrong-history action distance versus outcome margin gap",
+    "compare wrong-history rows with reset/zero-current degradation rows on the same surface",
+    "identify whether the no-effect blocker is action weakness, fast recurrent correction, terminal slack, or selector metric mismatch",
+    "pre-register the next repair path",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not count reset/zero-current degradation as wrong-history proof",
+    "do not count high-slack diagnostics as proof",
+    "do not add privileged actor inputs"
+  ],
+  "hypothesis": "M475 failed because wrong matched-history injections change first action but do not persist long enough or target terminal-sensitive directions strongly enough to change closed-loop outcome.",
+  "success_criteria": [
+    "produce a row-level audit of wrong-history action distance, right-action closeness, terminal margin gap, return gap, and outcome-critical status",
+    "compare wrong-history against reset and zero-current rows on the same targets and labels",
+    "identify the dominant no-effect mechanism",
+    "choose the next path from persistent-history intervention, shorter-emergency task design, or stronger outcome-sensitive adversarial scoring",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "audit cannot explain why wrong-history rows are no-effect",
+    "audit treats reset/zero-current degradation as wrong-history proof",
+    "audit proposes training before mechanism diagnosis",
+    "actor contract changes"
+  ],
+  "commands": [
+    {
+      "name": "wrong_history_no_effect_audit",
+      "command": "Analyze M475 action/outcome/selector CSVs and write mechanism diagnosis; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m476-wrong-history-no-effect-mechanism-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m475-combined-adversarial-outcome-proof-probe.md",
+    "runs/m475_combined_adversarial_near_boundary_selector/summary.json"
+  ],
+  "decision_rule": "M476 should admit a new proof path only after identifying why source-diverse wrong-history interventions remain outcome-no-effect.",
+  "next_blocker": "pending M476 wrong-history no-effect mechanism audit"
+}
