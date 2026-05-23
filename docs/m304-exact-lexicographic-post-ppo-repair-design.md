@@ -111,8 +111,8 @@ The optimizer may use a weighted penalty, but acceptance is lexicographic. The
 candidate generator should support:
 
 ```text
-hinge297 = relu(L297(theta) - L297(base) + tol297)
-hinge270 = relu(L270(theta) - L270(base) + tol270)
+hinge297 = relu(L297(theta) - L297(base) - tol297)
+hinge270 = relu(L270(theta) - L270(base) - tol270)
 
 J(theta) =
   lambda297 * hinge297^2

@@ -2,7 +2,7 @@
   "id": "m305-exact-post-ppo-repair-projection-implementation",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -81,6 +81,24 @@
   "baseline_artifacts": [
     "docs/m304-exact-lexicographic-post-ppo-repair-design.md"
   ],
+  "results": {
+    "run_dir": "runs/m305_exact_post_ppo_repair_projection_smoke",
+    "implemented_module": "src/autodrift/exact_post_ppo_repair.py",
+    "focused_tests": "tests/test_exact_post_ppo_repair.py",
+    "smoke_steps": 0,
+    "base_exact_m297": 1.1896095275878906,
+    "base_exact_m270": 0.6779459118843079,
+    "raw_exact_m297": 1.1903092861175537,
+    "raw_exact_m270": 0.678388774394989,
+    "selected_line_search_alpha": 0.0,
+    "candidate_exact_m297": 1.1896095275878906,
+    "candidate_exact_m270": 0.6779459118843079,
+    "candidate_exact_lexicographic_pass": true,
+    "ppo_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m306_exact_repair_probe",
   "decision_rule": "M305 can only admit a repair probe after deterministic exact M297 and exact M270 candidate summaries are implemented and validated.",
-  "next_blocker": "pending M305 exact repair projection implementation"
+  "next_blocker": "m306-repair-m302-raw-exact-projection-probe"
 }

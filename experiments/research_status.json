@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 313,
+    "completed": 314,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m304-exact-lexicographic-post-ppo-repair-design.md",
+    "command_log": "docs/m305-exact-post-ppo-repair-projection-implementation.md",
     "returncode": 0,
-    "run_dir": "runs/m304_exact_lexicographic_post_ppo_repair_design",
+    "run_dir": "runs/m305_exact_post_ppo_repair_projection_smoke",
     "status": "completed",
-    "task_id": "m304-exact-lexicographic-post-ppo-repair-design"
+    "task_id": "m305-exact-post-ppo-repair-projection-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m305-exact-post-ppo-repair-projection-implementation.json",
-    "hypothesis": "A deterministic exact post-PPO repair or projection tool can generate candidates and exact M297/M270 summaries so M306 can test whether the rejected M302 PPO proposal is recoverable without relying on sampled auxiliary metrics.",
-    "id": "m305-exact-post-ppo-repair-projection-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement deterministic full-batch exact M297/M270 repair summaries before any PPO or replay",
-    "priority": 3000,
+    "command": "see experiments/manifests/m306-repair-m302-raw-exact-projection-probe.json",
+    "hypothesis": "The rejected M302 raw PPO proposal may contain useful movement that can be recovered by exact full-corpus repair while preserving M297 and M270 before replay gates.",
+    "id": "m306-repair-m302-raw-exact-projection-probe",
+    "kind": "driver_candidate",
+    "notes": "Pending: run exact repair candidates and gate exact M297/M270 before replay",
+    "priority": 3010,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260523T043434Z"
+  "updated_at_utc": "20260523T044701Z"
 }

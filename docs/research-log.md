@@ -8687,3 +8687,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M304 designs exact full-corpus lexicographic post-PPO repair. PPO is now only a proposal source; a candidate must pass exact M297 rejected-history preference no-regression and exact M270 source-balanced outcome no-regression before any M183/M170 or M267/M264 replay gate is run. The design uses M299 as anchor, treats M302 raw as a rejected proposal, and requires M305 to implement deterministic exact candidate summaries with trust-region or action-anchor terms.
 - decision: `admit_exact_repair_projection_implementation`
 - next: `m305-exact-post-ppo-repair-projection-implementation`
+
+## 20260523T044701Z - m305-exact-post-ppo-repair-projection-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m305_exact_post_ppo_repair_projection_smoke`
+- artifact: `docs/m305-exact-post-ppo-repair-projection-implementation.md`
+- result: M305 adds `autodrift.exact_post_ppo_repair`, deterministic full-batch exact M297 and M270 candidate summaries, line-search boundary starts, M299 action anchors, and parameter trust-region terms. A real-corpus `steps=0` smoke reproduces the exact base/raw values, selects alpha `0.0`, and confirms alpha `0.001` and `0.0025` still regress exact gates without repair.
+- decision: `admit_m306_exact_repair_probe`
+- next: `m306-repair-m302-raw-exact-projection-probe`

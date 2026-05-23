@@ -1,0 +1,695 @@
+"""Exact post-PPO repair/projection for proof-gated recurrent drivers."""
+
+from __future__ import annotations
+
+import argparse
+from dataclasses import asdict, dataclass, field
+from pathlib import Path
+from typing import Any
+
+import numpy as np
+import torch
+
+from autodrift.actor_coupling_optimize import actor_coupling_trainable_parameters
+from autodrift.artifacts import make_run_dir, to_jsonable, write_csv_rows, write_json
+from autodrift.checkpoints import load_actor_critic_checkpoint
+from autodrift.intervention_objectives import (
+    OutcomeInterventionSnippets,
+    RejectedHistoryPreferenceSnippets,
+    SnippetActionAnchor,
+    build_snippet_action_anchor,
+    load_outcome_intervention_snippets,
+    load_rejected_history_preference_snippets,
+    rejected_history_preference_components,
+    snippet_action_anchor_errors,
+    squashed_action_log_prob,
+    weighted_mean,
+)
+from autodrift.outcome_intervention_optimize import save_checkpoint_like
+from autodrift.rejected_history_preference_objective import PreferenceLossConfig
+from autodrift.train_ppo import resolve_device
+
+
+@dataclass(frozen=True)
+class ExactRepairConfig:
+    """Configuration for lexicographic exact repair candidate generation."""
+
+    preference: PreferenceLossConfig = field(default_factory=PreferenceLossConfig)
+    outcome_logprob_margin: float = 0.05
+    exact_m297_tolerance: float = 1e-7
+    exact_m270_tolerance: float = 1e-7
+    lambda_m297: float = 1_000_000.0
+    lambda_m270: float = 1_000_000.0
+    lambda_action_anchor: float = 100.0
+    lambda_param_base: float = 1.0
+    lambda_param_raw: float = 0.0
+    grad_clip_norm: float = 1.0
+
+
+@dataclass(frozen=True)
+class TrainableParameterSet:
+    parameters: list[torch.nn.Parameter]
+    names: list[str]
+
+
+def parse_alpha_list(raw: str) -> list[float]:
+    values = [float(part.strip()) for part in str(raw).split(",") if part.strip()]
+    if not values:
+        raise argparse.ArgumentTypeError("alpha list must contain at least one value")
+    for value in values:
+        if value < 0.0 or value > 1.0:
+            raise argparse.ArgumentTypeError("interpolation alphas must be in [0, 1]")
+    return values
+
+
+def exact_rejected_history_preference_loss(
+    model: torch.nn.Module,
+    snippets: RejectedHistoryPreferenceSnippets,
+    config: PreferenceLossConfig,
+) -> torch.Tensor:
+    """Evaluate M297-style rejected-history preference on every corpus row."""
+
+    indices = torch.arange(snippets.size, device=snippets.observation.device)
+    components = rejected_history_preference_components(
+        model,
+        snippets,
+        indices,
+        preferred_logprob_margin=config.preferred_logprob_margin,
+        wrong_logprob_margin=config.wrong_logprob_margin,
+        wrong_preference_coef=config.wrong_preference_coef,
+    )
+    return weighted_mean(components["combined"], snippets.weight.detach())
+
+
+def exact_outcome_intervention_loss(
+    model: torch.nn.Module,
+    snippets: OutcomeInterventionSnippets,
+    *,
+    logprob_margin: float,
+) -> torch.Tensor:
+    """Evaluate M270-style outcome intervention loss on every corpus row."""
+
+    preferred_dist, _, _ = model.forward_recurrent(snippets.observation, snippets.preferred_hidden)  # type: ignore[attr-defined]
+    rejected_dist, _, _ = model.forward_recurrent(snippets.observation, snippets.rejected_hidden)  # type: ignore[attr-defined]
+    preferred_log_prob = squashed_action_log_prob(preferred_dist, snippets.preferred_action)
+    rejected_log_prob = squashed_action_log_prob(rejected_dist, snippets.preferred_action)
+    penalty = torch.nn.functional.softplus(rejected_log_prob - preferred_log_prob + float(logprob_margin))
+    return weighted_mean(penalty, snippets.weight.detach())
+
+
+def exact_snippet_action_anchor_loss(
+    model: torch.nn.Module,
+    anchor: SnippetActionAnchor,
+) -> torch.Tensor:
+    indices = torch.arange(anchor.size, device=anchor.observation.device)
+    errors = snippet_action_anchor_errors(model, anchor, indices)
+    return weighted_mean(errors, anchor.weight.detach())
+
+
+def trainable_parameter_items(
+    model: torch.nn.Module,
+    *,
+    train_scope: str,
+    train_log_std: bool,
+) -> TrainableParameterSet:
+    if train_scope not in {"all", "actor_coupling"}:
+        raise ValueError("train_scope must be 'all' or 'actor_coupling'")
+    if train_scope == "actor_coupling":
+        for parameter in model.parameters():
+            parameter.requires_grad_(False)
+        selected = actor_coupling_trainable_parameters(model)  # type: ignore[arg-type]
+        selected_ids = {id(parameter) for parameter in selected}
+        names = []
+        parameters = []
+        for name, parameter in model.named_parameters():
+            if id(parameter) in selected_ids:
+                parameter.requires_grad_(True)
+                names.append(name)
+                parameters.append(parameter)
+        if train_log_std and hasattr(model, "log_std"):
+            log_std = getattr(model, "log_std")
+            log_std.requires_grad_(True)
+            if all(id(parameter) != id(log_std) for parameter in parameters):
+                names.append("log_std")
+                parameters.append(log_std)
+        return TrainableParameterSet(parameters=parameters, names=names)
+
+    for parameter in model.parameters():
+        parameter.requires_grad_(True)
+    if not train_log_std and hasattr(model, "log_std"):
+        getattr(model, "log_std").requires_grad_(False)
+    names = []
+    parameters = []
+    for name, parameter in model.named_parameters():
+        if parameter.requires_grad:
+            names.append(name)
+            parameters.append(parameter)
+    return TrainableParameterSet(parameters=parameters, names=names)
+
+
+def parameter_l2_to_reference(
+    model: torch.nn.Module,
+    reference_state: dict[str, torch.Tensor],
+    names: list[str],
+) -> torch.Tensor:
+    values = []
+    for name, parameter in model.named_parameters():
+        if name not in names:
+            continue
+        reference = reference_state[name].to(device=parameter.device, dtype=parameter.dtype)
+        values.append(torch.square(parameter - reference.detach()).mean())
+    if not values:
+        device = next(model.parameters()).device
+        return torch.zeros((), dtype=torch.float32, device=device)
+    return torch.stack(values).mean()
+
+
+def interpolate_model_state(
+    model: torch.nn.Module,
+    base_state: dict[str, torch.Tensor],
+    raw_state: dict[str, torch.Tensor],
+    *,
+    alpha: float,
+) -> None:
+    """Load base -> raw linear interpolation into ``model``."""
+
+    alpha_value = float(alpha)
+    if alpha_value < 0.0 or alpha_value > 1.0:
+        raise ValueError("alpha must be in [0, 1]")
+    interpolated: dict[str, torch.Tensor] = {}
+    for name, base_tensor in base_state.items():
+        if name not in raw_state:
+            raise ValueError(f"raw checkpoint is missing state key {name!r}")
+        raw_tensor = raw_state[name]
+        if base_tensor.shape != raw_tensor.shape:
+            raise ValueError(f"state shape mismatch for {name!r}: {base_tensor.shape} vs {raw_tensor.shape}")
+        if torch.is_floating_point(base_tensor):
+            interpolated[name] = (1.0 - alpha_value) * base_tensor + alpha_value * raw_tensor
+        else:
+            interpolated[name] = base_tensor.clone()
+    model.load_state_dict(interpolated)
+
+
+def load_repair_corpora(
+    *,
+    preference_npz: Path,
+    outcome_npz: Path,
+    device: torch.device,
+    obs_dim: int,
+    hidden_size: int,
+    act_dim: int,
+) -> tuple[RejectedHistoryPreferenceSnippets, OutcomeInterventionSnippets]:
+    preference = load_rejected_history_preference_snippets(
+        preference_npz,
+        device=device,
+        obs_dim=obs_dim,
+        hidden_size=hidden_size,
+        act_dim=act_dim,
+    )
+    outcome = load_outcome_intervention_snippets(
+        outcome_npz,
+        device=device,
+        obs_dim=obs_dim,
+        hidden_size=hidden_size,
+        act_dim=act_dim,
+    )
+    return preference, outcome
+
+
+def exact_loss_summary(
+    *,
+    label: str,
+    checkpoint: Path | str,
+    model: torch.nn.Module,
+    preference: RejectedHistoryPreferenceSnippets,
+    outcome: OutcomeInterventionSnippets,
+    config: ExactRepairConfig,
+) -> dict[str, Any]:
+    with torch.no_grad():
+        m297 = exact_rejected_history_preference_loss(model, preference, config.preference)
+        m270 = exact_outcome_intervention_loss(
+            model,
+            outcome,
+            logprob_margin=config.outcome_logprob_margin,
+        )
+    return {
+        "policy": label,
+        "checkpoint": str(checkpoint),
+        "exact_m297_loss": float(m297.detach().cpu().item()),
+        "exact_m270_loss": float(m270.detach().cpu().item()),
+        "preference_rows": int(preference.size),
+        "outcome_rows": int(outcome.size),
+    }
+
+
+def repair_loss_terms(
+    *,
+    model: torch.nn.Module,
+    preference: RejectedHistoryPreferenceSnippets,
+    outcome: OutcomeInterventionSnippets,
+    anchor: SnippetActionAnchor,
+    base_m297: float,
+    base_m270: float,
+    base_state: dict[str, torch.Tensor],
+    raw_state: dict[str, torch.Tensor],
+    trainable_names: list[str],
+    config: ExactRepairConfig,
+) -> dict[str, torch.Tensor]:
+    m297 = exact_rejected_history_preference_loss(model, preference, config.preference)
+    m270 = exact_outcome_intervention_loss(
+        model,
+        outcome,
+        logprob_margin=config.outcome_logprob_margin,
+    )
+    hinge297 = torch.relu(m297 - float(base_m297) - float(config.exact_m297_tolerance))
+    hinge270 = torch.relu(m270 - float(base_m270) - float(config.exact_m270_tolerance))
+    action_anchor = exact_snippet_action_anchor_loss(model, anchor)
+    param_base = parameter_l2_to_reference(model, base_state, trainable_names)
+    param_raw = parameter_l2_to_reference(model, raw_state, trainable_names)
+    total = (
+        float(config.lambda_m297) * hinge297.square()
+        + float(config.lambda_m270) * hinge270.square()
+        + float(config.lambda_action_anchor) * action_anchor
+        + float(config.lambda_param_base) * param_base
+        + float(config.lambda_param_raw) * param_raw
+    )
+    return {
+        "total_loss": total,
+        "exact_m297_loss": m297,
+        "exact_m270_loss": m270,
+        "hinge_m297": hinge297,
+        "hinge_m270": hinge270,
+        "action_anchor_loss": action_anchor,
+        "param_l2_to_base": param_base,
+        "param_l2_to_raw": param_raw,
+    }
+
+
+def _tensor_value(value: torch.Tensor) -> float:
+    return float(value.detach().cpu().item())
+
+
+def _load_state(checkpoint: dict[str, Any], device: torch.device) -> dict[str, torch.Tensor]:
+    return {name: tensor.detach().to(device=device) for name, tensor in checkpoint["model_state"].items()}
+
+
+def _line_search_rows(
+    *,
+    model: torch.nn.Module,
+    base_checkpoint: Path,
+    base_state: dict[str, torch.Tensor],
+    raw_state: dict[str, torch.Tensor],
+    preference: RejectedHistoryPreferenceSnippets,
+    outcome: OutcomeInterventionSnippets,
+    config: ExactRepairConfig,
+    alphas: list[float],
+    base_m297: float,
+    base_m270: float,
+) -> tuple[float, list[dict[str, Any]]]:
+    rows: list[dict[str, Any]] = []
+    best_alpha = 0.0
+    best_violation: float | None = None
+    best_pass_alpha = 0.0
+    for alpha in sorted(set(float(value) for value in alphas)):
+        interpolate_model_state(model, base_state, raw_state, alpha=alpha)
+        summary = exact_loss_summary(
+            label=f"line_alpha_{alpha:g}",
+            checkpoint=f"{base_checkpoint}@alpha={alpha:g}",
+            model=model,
+            preference=preference,
+            outcome=outcome,
+            config=config,
+        )
+        m297_delta = float(summary["exact_m297_loss"]) - float(base_m297)
+        m270_delta = float(summary["exact_m270_loss"]) - float(base_m270)
+        passes = (
+            m297_delta <= float(config.exact_m297_tolerance)
+            and m270_delta <= float(config.exact_m270_tolerance)
+        )
+        violation = max(0.0, m297_delta - float(config.exact_m297_tolerance)) + max(
+            0.0,
+            m270_delta - float(config.exact_m270_tolerance),
+        )
+        rows.append(
+            {
+                **summary,
+                "alpha": float(alpha),
+                "exact_m297_delta_vs_base": m297_delta,
+                "exact_m270_delta_vs_base": m270_delta,
+                "exact_gates_pass": bool(passes),
+                "positive_violation": float(violation),
+            }
+        )
+        if passes:
+            best_pass_alpha = float(alpha)
+        if best_violation is None or violation < best_violation:
+            best_violation = float(violation)
+            best_alpha = float(alpha)
+    return (best_pass_alpha if best_pass_alpha > 0.0 else best_alpha), rows
+
+
+def _write_policy_summaries(run_dir: Path, rows: list[dict[str, Any]]) -> None:
+    write_csv_rows(run_dir / "candidate_summary.csv", rows)
+    write_csv_rows(
+        run_dir / "exact_m297_policy_summary.csv",
+        [
+            {
+                "policy": row["policy"],
+                "checkpoint": row["checkpoint"],
+                "exact_m297_loss": row["exact_m297_loss"],
+                "preference_rows": row["preference_rows"],
+            }
+            for row in rows
+        ],
+    )
+    write_csv_rows(
+        run_dir / "exact_m270_policy_summary.csv",
+        [
+            {
+                "policy": row["policy"],
+                "checkpoint": row["checkpoint"],
+                "exact_m270_loss": row["exact_m270_loss"],
+                "outcome_rows": row["outcome_rows"],
+            }
+            for row in rows
+        ],
+    )
+
+
+def optimize_exact_post_ppo_repair(
+    *,
+    base_checkpoint: Path,
+    raw_checkpoint: Path,
+    preference_npz: Path,
+    outcome_npz: Path,
+    device: str,
+    start_mode: str,
+    line_search_alphas: list[float],
+    steps: int,
+    learning_rate: float,
+    seed: int,
+    train_scope: str,
+    train_log_std: bool,
+    config: ExactRepairConfig,
+    run_dir: Path,
+    log_interval: int = 10,
+) -> dict[str, Any]:
+    run_dir.mkdir(parents=True, exist_ok=True)
+    resolved_device = resolve_device(device)
+    torch.manual_seed(int(seed))
+    np.random.seed(int(seed))
+
+    base_model, base_source = load_actor_critic_checkpoint(base_checkpoint, device=str(resolved_device))
+    raw_model, raw_source = load_actor_critic_checkpoint(raw_checkpoint, device=str(resolved_device))
+    del raw_source
+    preference_arrays = np.load(preference_npz)
+    obs_dim = int(preference_arrays["observation"].shape[1])
+    act_dim = int(preference_arrays["preferred_action"].shape[1])
+    hidden_size = int(base_model.actor_mean.in_features)
+    preference, outcome = load_repair_corpora(
+        preference_npz=preference_npz,
+        outcome_npz=outcome_npz,
+        device=next(base_model.parameters()).device,
+        obs_dim=obs_dim,
+        hidden_size=hidden_size,
+        act_dim=act_dim,
+    )
+    base_state = _load_state(base_source, next(base_model.parameters()).device)
+    raw_state = _load_state({"model_state": raw_model.state_dict()}, next(base_model.parameters()).device)
+
+    base_summary = exact_loss_summary(
+        label="base",
+        checkpoint=base_checkpoint,
+        model=base_model,
+        preference=preference,
+        outcome=outcome,
+        config=config,
+    )
+    raw_summary = exact_loss_summary(
+        label="raw",
+        checkpoint=raw_checkpoint,
+        model=raw_model,
+        preference=preference,
+        outcome=outcome,
+        config=config,
+    )
+
+    model, source_checkpoint = load_actor_critic_checkpoint(base_checkpoint, device=str(resolved_device), obs_dim=obs_dim)
+    line_search_rows: list[dict[str, Any]] = []
+    selected_alpha: float | None = None
+    if start_mode == "repair_from_base":
+        model.load_state_dict(base_state)
+        start_label = "start_base"
+    elif start_mode == "repair_from_raw":
+        model.load_state_dict(raw_state)
+        start_label = "start_raw"
+    elif start_mode == "line_search_boundary":
+        selected_alpha, line_search_rows = _line_search_rows(
+            model=model,
+            base_checkpoint=base_checkpoint,
+            base_state=base_state,
+            raw_state=raw_state,
+            preference=preference,
+            outcome=outcome,
+            config=config,
+            alphas=line_search_alphas,
+            base_m297=float(base_summary["exact_m297_loss"]),
+            base_m270=float(base_summary["exact_m270_loss"]),
+        )
+        interpolate_model_state(model, base_state, raw_state, alpha=selected_alpha)
+        start_label = f"start_alpha_{selected_alpha:g}"
+    else:
+        raise ValueError("start_mode must be repair_from_base repair_from_raw or line_search_boundary")
+
+    trainable = trainable_parameter_items(model, train_scope=train_scope, train_log_std=train_log_std)
+    if not trainable.parameters:
+        raise RuntimeError("no trainable parameters are available for exact repair")
+    base_reference_model, _ = load_actor_critic_checkpoint(base_checkpoint, device=str(resolved_device), obs_dim=obs_dim)
+    anchor = build_snippet_action_anchor(
+        base_reference_model,
+        outcome,
+        include_rejected_hidden=True,
+    )
+
+    start_summary = exact_loss_summary(
+        label=start_label,
+        checkpoint=base_checkpoint if start_mode != "repair_from_raw" else raw_checkpoint,
+        model=model,
+        preference=preference,
+        outcome=outcome,
+        config=config,
+    )
+    metrics: list[dict[str, Any]] = []
+    optimizer = torch.optim.Adam(trainable.parameters, lr=float(learning_rate)) if int(steps) > 0 else None
+    model.train()
+    total_steps = max(0, int(steps))
+    interval = max(1, int(log_interval))
+    for step in range(1, total_steps + 1):
+        assert optimizer is not None
+        optimizer.zero_grad(set_to_none=True)
+        terms = repair_loss_terms(
+            model=model,
+            preference=preference,
+            outcome=outcome,
+            anchor=anchor,
+            base_m297=float(base_summary["exact_m297_loss"]),
+            base_m270=float(base_summary["exact_m270_loss"]),
+            base_state=base_state,
+            raw_state=raw_state,
+            trainable_names=trainable.names,
+            config=config,
+        )
+        terms["total_loss"].backward()
+        grad_norm = torch.nn.utils.clip_grad_norm_(trainable.parameters, max_norm=float(config.grad_clip_norm))
+        optimizer.step()
+        if step == 1 or step == total_steps or step % interval == 0:
+            metrics.append(
+                {
+                    "step": int(step),
+                    **{name: _tensor_value(value) for name, value in terms.items()},
+                    "grad_norm": float(
+                        grad_norm.detach().cpu().item() if isinstance(grad_norm, torch.Tensor) else grad_norm
+                    ),
+                    "learning_rate": float(learning_rate),
+                }
+            )
+    if total_steps == 0:
+        with torch.no_grad():
+            terms = repair_loss_terms(
+                model=model,
+                preference=preference,
+                outcome=outcome,
+                anchor=anchor,
+                base_m297=float(base_summary["exact_m297_loss"]),
+                base_m270=float(base_summary["exact_m270_loss"]),
+                base_state=base_state,
+                raw_state=raw_state,
+                trainable_names=trainable.names,
+                config=config,
+            )
+        metrics.append(
+            {
+                "step": 0,
+                **{name: _tensor_value(value) for name, value in terms.items()},
+                "grad_norm": 0.0,
+                "learning_rate": float(learning_rate),
+            }
+        )
+
+    candidate_path = run_dir / "candidate_checkpoint.pt"
+    save_checkpoint_like(
+        model=model,
+        source_checkpoint=source_checkpoint,
+        path=candidate_path,
+        metadata={
+            "run_type": "exact_post_ppo_repair",
+            "base_checkpoint": base_checkpoint,
+            "raw_checkpoint": raw_checkpoint,
+            "preference_npz": preference_npz,
+            "outcome_npz": outcome_npz,
+            "start_mode": start_mode,
+            "selected_alpha": selected_alpha,
+            "steps": total_steps,
+            "learning_rate": float(learning_rate),
+            "seed": int(seed),
+            "train_scope": train_scope,
+            "train_log_std": bool(train_log_std),
+            "config": asdict(config),
+        },
+    )
+    candidate_summary = exact_loss_summary(
+        label="candidate",
+        checkpoint=candidate_path,
+        model=model,
+        preference=preference,
+        outcome=outcome,
+        config=config,
+    )
+    candidate_summary["exact_m297_delta_vs_base"] = (
+        float(candidate_summary["exact_m297_loss"]) - float(base_summary["exact_m297_loss"])
+    )
+    candidate_summary["exact_m270_delta_vs_base"] = (
+        float(candidate_summary["exact_m270_loss"]) - float(base_summary["exact_m270_loss"])
+    )
+    candidate_summary["exact_m297_no_regression"] = bool(
+        float(candidate_summary["exact_m297_delta_vs_base"]) <= float(config.exact_m297_tolerance)
+    )
+    candidate_summary["exact_m270_no_regression"] = bool(
+        float(candidate_summary["exact_m270_delta_vs_base"]) <= float(config.exact_m270_tolerance)
+    )
+    candidate_summary["exact_lexicographic_pass"] = bool(
+        candidate_summary["exact_m297_no_regression"] and candidate_summary["exact_m270_no_regression"]
+    )
+
+    policy_rows = [base_summary, raw_summary, start_summary, candidate_summary]
+    _write_policy_summaries(run_dir, policy_rows)
+    write_csv_rows(run_dir / "train_metrics.csv", metrics)
+    if line_search_rows:
+        write_csv_rows(run_dir / "line_search_summary.csv", line_search_rows)
+
+    summary = {
+        "run_type": "exact_post_ppo_repair",
+        "base_checkpoint": base_checkpoint,
+        "raw_checkpoint": raw_checkpoint,
+        "candidate_checkpoint": candidate_path,
+        "preference_npz": preference_npz,
+        "outcome_npz": outcome_npz,
+        "device": str(resolved_device),
+        "start_mode": start_mode,
+        "selected_alpha": selected_alpha,
+        "line_search_summary_csv": run_dir / "line_search_summary.csv" if line_search_rows else None,
+        "steps": total_steps,
+        "learning_rate": float(learning_rate),
+        "seed": int(seed),
+        "train_scope": train_scope,
+        "train_log_std": bool(train_log_std),
+        "config": asdict(config),
+        "base": base_summary,
+        "raw": raw_summary,
+        "start": start_summary,
+        "candidate": candidate_summary,
+        "candidate_summary_csv": run_dir / "candidate_summary.csv",
+        "exact_m297_policy_summary_csv": run_dir / "exact_m297_policy_summary.csv",
+        "exact_m270_policy_summary_csv": run_dir / "exact_m270_policy_summary.csv",
+        "train_metrics_csv": run_dir / "train_metrics.csv",
+        "ppo_run": False,
+        "checkpoint_promoted": False,
+        "actor_inputs_changed": False,
+    }
+    write_json(run_dir / "summary.json", summary)
+    return summary
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--base-checkpoint", type=Path, required=True)
+    parser.add_argument("--raw-checkpoint", type=Path, required=True)
+    parser.add_argument("--preference-npz", type=Path, required=True)
+    parser.add_argument("--outcome-npz", type=Path, required=True)
+    parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="cpu")
+    parser.add_argument(
+        "--start-mode",
+        choices=["repair_from_base", "repair_from_raw", "line_search_boundary"],
+        default="line_search_boundary",
+    )
+    parser.add_argument("--line-search-alphas", type=parse_alpha_list, default=parse_alpha_list("0,0.001,0.0025,0.005,0.01"))
+    parser.add_argument("--steps", type=int, default=20)
+    parser.add_argument("--learning-rate", type=float, default=1e-5)
+    parser.add_argument("--seed", type=int, default=10090)
+    parser.add_argument("--train-scope", choices=["all", "actor_coupling"], default="actor_coupling")
+    parser.add_argument("--train-log-std", action="store_true")
+    parser.add_argument("--preferred-logprob-margin", type=float, default=0.05)
+    parser.add_argument("--wrong-logprob-margin", type=float, default=0.05)
+    parser.add_argument("--wrong-preference-coef", type=float, default=1.0)
+    parser.add_argument("--outcome-logprob-margin", type=float, default=0.05)
+    parser.add_argument("--exact-m297-tolerance", type=float, default=1e-7)
+    parser.add_argument("--exact-m270-tolerance", type=float, default=1e-7)
+    parser.add_argument("--lambda-m297", type=float, default=1_000_000.0)
+    parser.add_argument("--lambda-m270", type=float, default=1_000_000.0)
+    parser.add_argument("--lambda-action-anchor", type=float, default=100.0)
+    parser.add_argument("--lambda-param-base", type=float, default=1.0)
+    parser.add_argument("--lambda-param-raw", type=float, default=0.0)
+    parser.add_argument("--grad-clip-norm", type=float, default=1.0)
+    parser.add_argument("--log-interval", type=int, default=10)
+    parser.add_argument("--run-dir", type=Path, default=None)
+    args = parser.parse_args()
+
+    run_dir = args.run_dir or make_run_dir(prefix="exact_post_ppo_repair", seed=args.seed)
+    summary = optimize_exact_post_ppo_repair(
+        base_checkpoint=args.base_checkpoint,
+        raw_checkpoint=args.raw_checkpoint,
+        preference_npz=args.preference_npz,
+        outcome_npz=args.outcome_npz,
+        device=args.device,
+        start_mode=args.start_mode,
+        line_search_alphas=args.line_search_alphas,
+        steps=args.steps,
+        learning_rate=args.learning_rate,
+        seed=args.seed,
+        train_scope=args.train_scope,
+        train_log_std=args.train_log_std,
+        config=ExactRepairConfig(
+            preference=PreferenceLossConfig(
+                preferred_logprob_margin=args.preferred_logprob_margin,
+                wrong_logprob_margin=args.wrong_logprob_margin,
+                wrong_preference_coef=args.wrong_preference_coef,
+            ),
+            outcome_logprob_margin=args.outcome_logprob_margin,
+            exact_m297_tolerance=args.exact_m297_tolerance,
+            exact_m270_tolerance=args.exact_m270_tolerance,
+            lambda_m297=args.lambda_m297,
+            lambda_m270=args.lambda_m270,
+            lambda_action_anchor=args.lambda_action_anchor,
+            lambda_param_base=args.lambda_param_base,
+            lambda_param_raw=args.lambda_param_raw,
+            grad_clip_norm=args.grad_clip_norm,
+        ),
+        run_dir=run_dir,
+        log_interval=args.log_interval,
+    )
+    print(to_jsonable(summary["candidate"]))
+    print(f"run_dir={run_dir}")
+
+
+if __name__ == "__main__":
+    main()

@@ -64,9 +64,20 @@ Current blocker:
 m305-exact-post-ppo-repair-projection-implementation
 ```
 
-M305 must implement deterministic exact M297/M270 repair or projection
-infrastructure. Do not run another PPO smoke and do not promote any M302 raw or
-interpolated checkpoint before exact no-regression and replay gates pass.
+M305 implements deterministic exact M297/M270 repair or projection
+infrastructure in `autodrift.exact_post_ppo_repair`. The real-corpus `steps=0`
+smoke selects line-search alpha `0.0`, while alphas `0.001` and `0.0025` still
+regress exact M297/M270 without repair.
+
+Current next task:
+
+```text
+m306-repair-m302-raw-exact-projection-probe
+```
+
+M306 should run actual exact repair candidates from M302 raw and M299 base.
+Do not run replay gates for exact-regressing candidates, and do not promote any
+checkpoint before exact no-regression and replay gates pass.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -95,6 +106,7 @@ interpolated checkpoint before exact no-regression and replay gates pass.
 | rejected guarded stage2 from M219 | `runs/ppo_m220_stage2_from_m219_seed5217/checkpoint.pt` | improves fixed M212 and preserves replay/behavior, but fails protected key |
 | current public-gate base | `runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt` | M299 promoted after exact M297/M270 improvement and full public-gate pass |
 | rejected PPO proposal | `runs/ppo_m302_rejected_preference_guarded_smoke_seed5233/checkpoint.pt` | M302 regresses exact M297/M270 and is not promotable |
+| exact repair infrastructure | `src/autodrift/exact_post_ppo_repair.py` | M305 implemented deterministic exact M297/M270 repair summaries and line-search starts |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
