@@ -10444,3 +10444,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M480 adds `wrong_late_2_once`, `wrong_late_4_once`, `wrong_late_8_once`, and `wrong_late_12_once` variants to the persistent wrong-history diagnostic gate and runs them on the M474 adversarial pair surface. The clamped diagnostic remains strongest: `wrong_hold_16` has `25` proof-style rows with `10` success/collision/completion rows across `6` probe seeds. Late one-shot variants produce `16` proof-style rows, mostly `wrong_late_12_once`, but they are all margin-only, have `0` event rows, and cover only `2` probe seeds with single-seed share `0.625`.
 - decision: `late_once_margin_only_source_narrow_admit_m481_critical_window_design`
 - next: `m481-critical-window-history-necessity-design`
+
+## 20260523T222900Z - m481-critical-window-history-necessity-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m481-critical-window-history-necessity-design.md`
+- result: M481 designs the next critical-window diagnostic without changing actor inputs or training. It identifies a weakness in M480: late one-shot injection uses the original right hidden state at a later left physical state, so the wrong hidden can be stale. The selected M482 path is a tail-aligned one-shot gate that collects `left_step + S` and `right_step + S` snapshots for offsets `4`, `8`, `12`, and `16`, then swaps the aligned right hidden for one action only at the left tail state. Clamped or held rows remain diagnostic only.
+- decision: `admit_m482_tail_aligned_wrong_history_gate_implementation`
+- next: `m482-tail-aligned-wrong-history-gate-implementation`

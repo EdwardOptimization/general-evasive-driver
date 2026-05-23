@@ -1,0 +1,89 @@
+{
+  "id": "m482-tail-aligned-wrong-history-gate-implementation",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m480_late_once_wrong_history_intervention_gate/late_once_summary.json",
+      "runs/m474_combined_fresh_anchor_adversarial_search/adversarial_pairs.csv"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m481-critical-window-history-necessity-design.json"
+    ],
+    "parent_objective": [
+      "tail-aligned one-shot wrong-history diagnostic implementation"
+    ],
+    "derived_from": [
+      "m481-critical-window-history-necessity-design"
+    ],
+    "blocked_by": [
+      "m481-critical-window-history-necessity-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m482-tail-aligned-wrong-history-gate-implementation.md",
+  "public_gates": [
+    "collect left and right snapshots at matched tail offsets",
+    "run one-shot wrong-tail hidden intervention without hidden-state clamping",
+    "compare offsets 4 8 12 and 16 against reset and zero-current controls",
+    "report one-shot rows separately from any held diagnostic rows",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not count clamped rows as natural proof",
+    "do not relax source-diversity thresholds",
+    "do not hide invalid tail pairs that terminate before the requested offset"
+  ],
+  "hypothesis": "If M480 late-one-shot evidence was weakened by stale right hidden state, then tail-aligned wrong-history swaps at left_step+S/right_step+S will produce stronger source-diverse one-shot outcome degradation without hidden-state clamping.",
+  "success_criteria": [
+    "tail-aligned snapshots are collected for offsets 4 8 12 and 16",
+    "valid tail-pair counts are reported per offset",
+    "one-shot wrong-tail outcomes are reported separately from held diagnostics",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "tail alignment semantics are ambiguous or untested",
+    "implementation changes actor inputs",
+    "invalid tail pairs are silently counted as failures or successes",
+    "training or checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "tail_aligned_gate_implementation",
+      "command": "Implement a tail-aligned wrong-history diagnostic gate and smoke it on runs/m474_combined_fresh_anchor_adversarial_search/adversarial_pairs.csv."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m482-tail-aligned-wrong-history-gate-implementation.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m482_tail_aligned_wrong_history_gate/summary.json",
+      "type": "summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m481-critical-window-history-necessity-design.md",
+    "runs/m480_late_once_wrong_history_intervention_gate/late_once_summary.json"
+  ],
+  "decision_rule": "M482 should decide whether tail alignment converts the M480 timing signal into source-diverse event proof before any new environment config or training.",
+  "next_blocker": "pending M482 tail-aligned wrong-history gate implementation"
+}

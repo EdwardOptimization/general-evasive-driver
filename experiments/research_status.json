@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 489,
+        "completed": 490,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m480-late-once-wrong-history-implementation",
+        "task_id": "m481-critical-window-history-necessity-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m480_late_once_wrong_history_intervention_gate",
-        "command_log": "docs/m480-late-once-wrong-history-implementation.md"
+        "run_dir": "",
+        "command_log": "docs/m481-critical-window-history-necessity-design.md"
     },
     "next_task": {
-        "id": "m481-critical-window-history-necessity-design",
+        "id": "m482-tail-aligned-wrong-history-gate-implementation",
         "status": "pending",
-        "priority": 4760,
+        "priority": 4770,
         "kind": "infrastructure",
-        "hypothesis": "Because late one-shot wrong history creates only margin-only source-narrow degradation while clamped hold variants create event rows, the next useful test is a critical-window task or gate that reduces recovery time after a natural wrong-history perturbation.",
-        "command": "see experiments/manifests/m481-critical-window-history-necessity-design.json",
+        "hypothesis": "If M480 late-one-shot evidence was weakened by stale right hidden state, then tail-aligned wrong-history swaps at left_step+S/right_step+S will produce stronger source-diverse one-shot outcome degradation without hidden-state clamping.",
+        "command": "see experiments/manifests/m482-tail-aligned-wrong-history-gate-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design shorter or more critical emergency-window diagnostic; no training"
+        "notes": "Pending: implement tail-aligned one-shot wrong-history diagnostic; no training"
     },
-    "updated_at_utc": "20260523T222021Z"
+    "updated_at_utc": "20260523T222900Z"
 }

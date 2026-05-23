@@ -931,14 +931,15 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not run PPO or promote a checkpoint while the current blocker is M481
-critical-window history-necessity design. M480 implemented the less artificial
-late one-shot test and found a timing signal, but it is margin-only and
-source-narrow: `16` late-once proof-style rows, `0` event rows, and only `2`
-probe seeds. M478 remains positive diagnostic evidence that wrong belief can be
-outcome-critical if clamped, but clamped rows must stay separate from natural
-wrong-history proof. The next step is to design a shorter or more critical
-emergency-window diagnostic rather than train or promote.
+Do not run PPO or promote a checkpoint while the current blocker is M482
+tail-aligned wrong-history gate implementation. M480 implemented the less
+artificial late one-shot test and found a timing signal, but it is margin-only
+and source-narrow: `16` late-once proof-style rows, `0` event rows, and only `2`
+probe seeds. M481 therefore selected a cleaner critical-window diagnostic:
+collect `left_step + S` and `right_step + S` snapshots and do a one-shot wrong
+hidden swap at the aligned tail state. M478 remains positive diagnostic evidence
+that wrong belief can be outcome-critical if clamped, but clamped rows must stay
+separate from natural wrong-history proof.
 
 ## Sensor Profile Policy
 

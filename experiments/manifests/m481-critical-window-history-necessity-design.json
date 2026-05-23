@@ -2,7 +2,7 @@
   "id": "m481-critical-window-history-necessity-design",
   "type": "infrastructure",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -84,5 +84,25 @@
     "runs/m480_late_once_wrong_history_intervention_gate/late_once_summary.json"
   ],
   "decision_rule": "M481 should decide the next diagnostic design only after preserving the distinction between clamped diagnostic evidence and natural late-one-shot proof.",
-  "next_blocker": "pending M481 critical-window history-necessity design"
+  "next_blocker": "m482-tail-aligned-wrong-history-gate-implementation",
+  "results": {
+    "design_doc": "docs/m481-critical-window-history-necessity-design.md",
+    "m480_late_once_proof_candidate_count": 16,
+    "m480_late_once_event_row_count": 0,
+    "m480_late_once_probe_seed_count": 2,
+    "selected_next_path": "tail-aligned one-shot wrong-history gate",
+    "tail_offsets": [
+      4,
+      8,
+      12,
+      16
+    ],
+    "natural_proof_requires_hidden_clamping": false,
+    "keeps_clamped_rows_separate": true,
+    "diagnostic_only": true,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "next_manifest": "experiments/manifests/m482-tail-aligned-wrong-history-gate-implementation.json",
+    "decision": "admit_m482_tail_aligned_wrong_history_gate_implementation"
+  }
 }
