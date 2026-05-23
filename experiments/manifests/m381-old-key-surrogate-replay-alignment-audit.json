@@ -1,0 +1,81 @@
+{
+  "id": "m381-old-key-surrogate-replay-alignment-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m374_gap_tail_final_interpolation_old_key_targeted_replay/summary.json",
+      "runs/m378_v2_gap_tail_final_interpolation_old_key_targeted_replay/summary.json",
+      "runs/m380_alpha01_cumulative_old_key_boundary_audit/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m380-m378-alpha01-cumulative-old-key-boundary-audit.json"
+    ],
+    "parent_objective": [
+      "audit whether exact old-key surrogate improvements align with closed-loop cumulative old-key replay tail metrics"
+    ],
+    "derived_from": [
+      "m380-m378-alpha01-cumulative-old-key-boundary-audit"
+    ],
+    "blocked_by": [
+      "m380-m378-alpha01-cumulative-old-key-boundary-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m381-old-key-surrogate-replay-alignment-audit.md",
+  "public_gates": [
+    "audit only; no PPO run",
+    "compare exact old-key surrogate deltas against closed-loop old-key gap p10/min and accepted-regression metrics",
+    "include recent M374 and M378 interpolation families",
+    "preserve actor input contract"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not lower old-key thresholds",
+    "do not add another gap-tail overlay before checking alignment",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "Repeated old-key lower-tail failures may mean the exact old-key surrogate is only partially aligned with closed-loop replay tail metrics; measuring this alignment can decide whether the next repair should use another overlay or a terminal-margin/local-action recovery residual.",
+  "success_criteria": [
+    "alignment table includes exact old-key surrogate deltas and closed-loop old-key gap metrics for M374 and M378 interpolation families",
+    "audit identifies whether surrogate improvements correlate with replay tail safety",
+    "next milestone is registered based on the alignment result",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "audit treats exact surrogate improvement as sufficient without replay evidence",
+    "audit changes thresholds or actor inputs",
+    "audit promotes a checkpoint",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "alignment_audit",
+      "command": "Build an alignment table from existing exact summaries and old-key replay gates; do not run PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m381-old-key-surrogate-replay-alignment-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m380-m378-alpha01-cumulative-old-key-boundary-audit.md"
+  ],
+  "decision_rule": "M381 should choose between a v3 overlay refresh and a stronger terminal-margin or local-action recovery residual based on measured surrogate-vs-replay alignment.",
+  "next_blocker": "pending M381 old-key surrogate replay alignment audit"
+}

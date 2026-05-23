@@ -1,0 +1,78 @@
+{
+  "decision_reason": "M380 classifies alpha 0.1 as repeated cumulative old-key gap-tail erosion with zero accepted regressions and admits surrogate-vs-replay alignment audit before another overlay",
+  "failure_criteria": [
+    "audit treats threshold failure as a reason to lower thresholds",
+    "audit changes actor inputs",
+    "audit promotes alpha 0.1 directly",
+    "research validation fails"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote alpha 0.1",
+    "do not lower old-key thresholds",
+    "do not change actor inputs"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260523T130739Z",
+  "hypothesis": "The first tested M378 alpha 0.1 failure is likely a cumulative old-key lower-tail boundary rather than broad proof washout; auditing row-level contributors can decide the next repair design.",
+  "lineage": {
+    "blocked_by": [
+      "m379-full-public-gate-for-m378-a005"
+    ],
+    "derived_from": [
+      "m379-full-public-gate-for-m378-a005"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m379-full-public-gate-for-m378-a005.json"
+    ],
+    "parent_dataset": [
+      "runs/m378_v2_final_interp_a005_cumulative_old_key_replay_gate/summary.json",
+      "runs/m378_v2_final_interp_a010_cumulative_old_key_replay_gate/summary.json",
+      "docs/m379-full-public-gate-for-m378-a005.md"
+    ],
+    "parent_objective": [
+      "audit the first cumulative old-key failure beyond the newly promoted M378 alpha 0.05 base"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m380-m378-alpha01-cumulative-old-key-boundary-audit",
+  "next_blocker": "m381-old-key-surrogate-replay-alignment-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m381_old_key_surrogate_replay_alignment_audit",
+  "public_gates": [
+    "audit only; no PPO run",
+    "keep M378 alpha 0.05 as current promoted base",
+    "do not lower cumulative old-key thresholds",
+    "classify whether alpha 0.1 fails by gap-tail erosion or accepted regression",
+    "preserve actor input contract"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m381_old_key_surrogate_replay_alignment_audit",
+    "milestone": "m380-m378-alpha01-cumulative-old-key-boundary-audit",
+    "reason": "M380 classifies alpha 0.1 as repeated cumulative old-key gap-tail erosion with zero accepted regressions and admits surrogate-vs-replay alignment audit before another overlay",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "alpha 0.1 old-key failure type is classified",
+    "row-level normal/wrong/gap contributors are summarized",
+    "next milestone is registered based on the failure class",
+    "research validation passes"
+  ],
+  "type": "gate"
+}

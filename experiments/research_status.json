@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 388,
+        "completed": 389,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m379-full-public-gate-for-m378-a005",
+        "task_id": "m380-m378-alpha01-cumulative-old-key-boundary-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m379_full_public_gate_for_m378_a005",
-        "command_log": "docs/m379-full-public-gate-for-m378-a005.md"
+        "run_dir": "runs/m380_alpha01_cumulative_old_key_boundary_audit",
+        "command_log": "docs/m380-m378-alpha01-cumulative-old-key-boundary-audit.md"
     },
     "next_task": {
-        "id": "m380-m378-alpha01-cumulative-old-key-boundary-audit",
+        "id": "m381-old-key-surrogate-replay-alignment-audit",
         "status": "pending",
-        "priority": 3750,
+        "priority": 3760,
         "kind": "gate",
-        "hypothesis": "Audit the first cumulative old-key failure beyond the newly promoted M378 alpha 0.05 base",
-        "command": "see experiments/manifests/m380-m378-alpha01-cumulative-old-key-boundary-audit.json",
+        "hypothesis": "Audit whether exact old-key surrogate improvements align with closed-loop cumulative old-key replay tails",
+        "command": "see experiments/manifests/m381-old-key-surrogate-replay-alignment-audit.json",
         "success_artifact": "",
-        "notes": "Pending: classify alpha 0.1 failure before more repair or PPO"
+        "notes": "Pending: compare exact surrogate deltas with replay gap p10/min across recent interpolation families"
     },
-    "updated_at_utc": "20260523T131120Z"
+    "updated_at_utc": "20260523T130555Z"
 }

@@ -9425,7 +9425,7 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: `admit_m379_full_public_gate_for_m378_a005`
 - next: `m379-full-public-gate-for-m378-a005`
 
-## 20260523T131120Z - m379-full-public-gate-for-m378-a005
+## 20260523T130420Z - m379-full-public-gate-for-m378-a005
 
 - status: `completed`
 - kind: `driver_candidate`
@@ -9434,3 +9434,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M379 promotes `runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt`. It retains cumulative old-key proof from M378, source-diverse protected gates `5/5`, all six public replay surfaces, and behavior seeds `9505`/`9506`. Behavior success mean remains `0.8625`, termination mean `0.1375`, clearance margin mean `1.844171520`, reset success mean `0.85`, and zero-all success mean `0.80`. This is a bounded proof-safe promotion; alpha `0.1` toward the same final repair remains the first tested cumulative old-key gap-p10 failure.
 - decision: `promote_m378_a005_gap_tail_v2_public_gate_base`
 - next: `m380-m378-alpha01-cumulative-old-key-boundary-audit`
+
+## 20260523T130555Z - m380-m378-alpha01-cumulative-old-key-boundary-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m380_alpha01_cumulative_old_key_boundary_audit`
+- artifact: `docs/m380-m378-alpha01-cumulative-old-key-boundary-audit.md`
+- result: M380 audits alpha `0.1` and finds no accepted regressions and no normal-success regressions: `40/40` compact rows remain accepted. The failure is repeated cumulative old-key gap-tail erosion: gap p10 is `-0.000523942`, below the `-0.0005` floor, with four rows below the floor and one row below `-0.001`. Because the same lower-tail boundary recurs after two gap-tail weighting cycles, M381 should audit exact surrogate versus closed-loop replay alignment before another overlay.
+- decision: `admit_m381_old_key_surrogate_replay_alignment_audit`
+- next: `m381-old-key-surrogate-replay-alignment-audit`
