@@ -1,0 +1,83 @@
+{
+  "id": "m434-selective-10004-projection-probe",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m403_lrec1e10_interpolation/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m433_selective_10004_anchor_export"
+    ],
+    "parent_config": [
+      "experiments/manifests/m433-selective-10004-anchor-export.json"
+    ],
+    "parent_objective": [
+      "no-PPO projected recovery with selective 10004 wrong-history guards"
+    ],
+    "derived_from": [
+      "m433-selective-10004-anchor-export"
+    ],
+    "blocked_by": [
+      "m433-selective-10004-anchor-export"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m434-selective-10004-projection-probe.md",
+  "public_gates": [
+    "exact M297 no-regression",
+    "exact M270 no-regression",
+    "old-key surrogate no-regression",
+    "M267/M264 first replay 17/17",
+    "old-key compact replay 40/40",
+    "M183/M170 first replay 17/17",
+    "recovery retained vs M406"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "hypothesis": "One of the selective 10004 wrong-history guard profiles can recover more utility than M427 while preserving the exact and closed-loop proof gates restored by M430.",
+  "success_criteria": [
+    "at least one profile passes exact M297/M270/old-key no-regression",
+    "at least one exact-passing profile passes M267/M264 17/17 old-key compact 40/40 and M183/M170 17/17",
+    "primary pass if a proof-passing profile reaches recovery retained vs M406 >= 0.20",
+    "partial pass if a proof-passing profile exceeds M427 recovery retained 0.174354"
+  ],
+  "failure_criteria": [
+    "all profiles fail exact gates",
+    "all exact-passing profiles fail M267/M264 or old-key compact replay",
+    "all proof-passing profiles stay at or below M430 recovery retained 0.061702",
+    "actor input or output contract changes"
+  ],
+  "commands": [
+    {
+      "name": "selective_10004_projection_probe",
+      "command": "Run the M430 exact_post_ppo_repair projected-recovery recipe for r0005 r0010 r0015 r0020 tail_r0005 tail_r0010 anchors; no PPO or promotion."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m434-selective-10004-projection-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m433-selective-10004-anchor-export.md"
+  ],
+  "decision_rule": "M434 can only admit downstream proof-gate replay or design work; it must not promote a checkpoint directly from selective-anchor projection.",
+  "next_blocker": "pending M434 selective 10004 projection probe"
+}

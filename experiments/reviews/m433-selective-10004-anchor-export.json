@@ -1,0 +1,74 @@
+{
+  "decision_reason": "M433 exports six selective 10004 anchors and all no-update exact smokes pass",
+  "failure_criteria": [
+    "profile export corrupts trajectory anchor shapes",
+    "10004 wrong-history is removed completely",
+    "no-update smoke regresses exact objectives",
+    "actor input or output contract changes"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not remove 10004 wrong-history protection entirely",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260523T181619Z",
+  "hypothesis": "A profile exporter that selectively relaxes only 10004 wrong-history can create valid no-PPO probe anchors for testing proof-safe recovery utility without touching other guards.",
+  "lineage": {
+    "blocked_by": [
+      "m432-selective-10004-guard-design"
+    ],
+    "derived_from": [
+      "m432-selective-10004-guard-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m432-selective-10004-guard-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m429_branch_split_old_key_guard/branch_split_hard_guard_anchor.npz"
+    ],
+    "parent_objective": [
+      "selective 10004 wrong-history anchor profile export"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m433-selective-10004-anchor-export",
+  "next_blocker": "m434-selective-10004-projection-probe",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m434_selective_10004_projection_probe",
+  "public_gates": [
+    "export r0005 r0010 r0015 r0020 tail_r0005 tail_r0010 anchors",
+    "no-update exact repair smoke for each anchor",
+    "no actor input or output contract change"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m434_selective_10004_projection_probe",
+    "milestone": "m433-selective-10004-anchor-export",
+    "reason": "M433 exports six selective 10004 anchors and all no-update exact smokes pass",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "all six profile anchors are exported with source metadata",
+    "10023 and 9872 guard sources remain unchanged",
+    "10004 wrong-history remains present in every profile",
+    "no-update exact repair smoke passes for each profile"
+  ],
+  "type": "infrastructure"
+}

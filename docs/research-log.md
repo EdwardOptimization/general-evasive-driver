@@ -9964,3 +9964,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M432 designs a selective `10004` wrong-history guard family. Keep M426 base hard guards, `10023` wrong-history, and both `9872` normal-branch guards unchanged. Modify only `10004` wrong-history with all-row radius profiles `0.0005`, `0.0010`, `0.0015`, `0.0020` and terminal-third profiles `tail_r0005`, `tail_r0010`. The next projection must keep exact M297/M270/old-key no-regression, M267/M264 `17/17`, old-key compact `40/40`, and M183/M170 `17/17`; utility target remains recovery retained vs M406 `>= 0.20`.
 - decision: `admit_m433_selective_10004_anchor_export`
 - next: `m433-selective-10004-anchor-export`
+
+## 20260523T181120Z - m433-selective-10004-anchor-export
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m433_selective_10004_anchor_export`
+- artifact: `docs/m433-selective-10004-anchor-export.md`
+- result: M433 adds `selective_10004_anchor.py`, exports six selective `10004` wrong-history profiles, and verifies each with a no-update exact repair smoke. All-row profiles `r0005`, `r0010`, `r0015`, and `r0020` keep `357` rows and all `37` `10004` rows. Tail profiles `tail_r0005` and `tail_r0010` keep `333` rows and `13` terminal `10004` rows. All six smokes pass with exact M297/M270/old-key deltas `0.0` and replay trajectory anchor loss `0.0`; focused tests pass (`2 passed`).
+- decision: `admit_m434_selective_10004_projection_probe`
+- next: `m434-selective-10004-projection-probe`

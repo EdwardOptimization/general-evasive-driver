@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 441,
+        "completed": 442,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m432-selective-10004-guard-design",
+        "task_id": "m433-selective-10004-anchor-export",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m432-selective-10004-guard-design.md"
+        "run_dir": "runs/m433_selective_10004_anchor_export",
+        "command_log": "docs/m433-selective-10004-anchor-export.md"
     },
     "next_task": {
-        "id": "m433-selective-10004-anchor-export",
+        "id": "m434-selective-10004-projection-probe",
         "status": "pending",
-        "priority": 4280,
-        "kind": "infrastructure",
-        "hypothesis": "Export selective 10004 wrong-history guard profiles and no-update smokes",
-        "command": "see experiments/manifests/m433-selective-10004-anchor-export.json",
+        "priority": 4290,
+        "kind": "gate",
+        "hypothesis": "Probe selective 10004 anchors in no-PPO projected recovery",
+        "command": "see experiments/manifests/m434-selective-10004-projection-probe.json",
         "success_artifact": "",
-        "notes": "Pending: export r0005 r0010 r0015 r0020 tail_r0005 tail_r0010 anchors; no PPO or promotion"
+        "notes": "Pending: run projected recovery across six selective profiles; no PPO or promotion"
     },
-    "updated_at_utc": "20260523T180817Z"
+    "updated_at_utc": "20260523T181604Z"
 }

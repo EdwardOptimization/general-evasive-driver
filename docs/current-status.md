@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m433-selective-10004-anchor-export
+m434-selective-10004-projection-probe
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -77,8 +77,10 @@ normal guards are aligned with recovery and are not the main blocker. M432
 designs a selective `10004` wrong-history profile family: keep M426 base
 guards, `10023`, and `9872` unchanged, and only relax `10004` via radii
 `0.0005`, `0.0010`, `0.0015`, `0.0020`, plus two terminal-only variants.
-M433 should export those anchors and no-update smokes before any projection
-probe or PPO.
+M433 implements that exporter and writes six anchors. All six no-update exact
+repair smokes pass with exact deltas `0.0` and replay trajectory anchor loss
+`0.0`. M434 should run the no-PPO projected-recovery probe across those six
+profiles; no promotion or PPO is allowed from this probe.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

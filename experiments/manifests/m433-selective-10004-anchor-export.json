@@ -58,9 +58,67 @@
   "commands": [
     {
       "name": "selective_10004_anchor_export",
-      "command": "Export M432 selective 10004 branch profiles from the M429 anchor and run no-update exact repair smokes."
+      "command": "PYTHONPATH=src python -m autodrift.selective_10004_anchor --base-anchor-npz runs/m429_branch_split_old_key_guard/branch_split_hard_guard_anchor.npz --base-sources-csv runs/m429_branch_split_old_key_guard/branch_split_hard_guard_sources.csv --run-dir runs/m433_selective_10004_anchor_export"
+    },
+    {
+      "name": "no_update_exact_smokes",
+      "command": "Run exact_post_ppo_repair with steps=0 for r0005 r0010 r0015 r0020 tail_r0005 tail_r0010 profile anchors"
     }
   ],
+  "results": {
+    "artifact": "docs/m433-selective-10004-anchor-export.md",
+    "code_paths": [
+      "src/autodrift/selective_10004_anchor.py",
+      "tests/test_selective_10004_anchor.py"
+    ],
+    "export_run": "runs/m433_selective_10004_anchor_export",
+    "profile_count": 6,
+    "profiles": {
+      "r0005": {
+        "rows": 357,
+        "target_rows": 37,
+        "target_radius": 0.0005,
+        "smoke_pass": true
+      },
+      "r0010": {
+        "rows": 357,
+        "target_rows": 37,
+        "target_radius": 0.0010,
+        "smoke_pass": true
+      },
+      "r0015": {
+        "rows": 357,
+        "target_rows": 37,
+        "target_radius": 0.0015,
+        "smoke_pass": true
+      },
+      "r0020": {
+        "rows": 357,
+        "target_rows": 37,
+        "target_radius": 0.0020,
+        "smoke_pass": true
+      },
+      "tail_r0005": {
+        "rows": 333,
+        "target_rows": 13,
+        "target_radius": 0.0005,
+        "smoke_pass": true
+      },
+      "tail_r0010": {
+        "rows": 333,
+        "target_rows": 13,
+        "target_radius": 0.0010,
+        "smoke_pass": true
+      }
+    },
+    "all_no_update_smokes_pass": true,
+    "focused_tests": "2 passed",
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m434-selective-10004-projection-probe"
+  },
   "required_artifacts": [
     {
       "path": "docs/m433-selective-10004-anchor-export.md",
@@ -74,5 +132,5 @@
     "docs/m432-selective-10004-guard-design.md"
   ],
   "decision_rule": "M433 admits M434 no-PPO projection only if every exported profile loads and passes no-update exact smoke without changing actor contracts.",
-  "next_blocker": "pending M433 selective 10004 anchor export"
+  "next_blocker": "m434-selective-10004-projection-probe"
 }
