@@ -9574,3 +9574,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M393 exports replay-selected collision-side rejected-history local targets for M267/M264 row15 and row6 without PPO or promotion. The search evaluates `630` candidate rollouts and finds accepted targets for both rows. Row15 wrong-history margin decreases from `-0.000000469` to `-0.002112566`; row6 decreases from `-0.000059089` to `-0.002463502`. The refreshed two-row conflict corpus passes a no-update exact-repair smoke with exact M297/M270 and old-key surrogate deltas all `0.0`.
 - decision: `admit_m394_rejected_boundary_target_repair_probe`
 - next: `m394-rejected-boundary-target-repair-probe`
+
+## 20260523T145307Z - m394-rejected-boundary-target-repair-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m394_s02_micro_interpolation`
+- artifact: `docs/m394-rejected-boundary-target-repair-probe.md`
+- result: M394 tests the M393 rejected-boundary target residual without PPO. Direct repair endpoints are too aggressive: s80 and s10 fail M267/M264 normal-branch retention, while s05 and s02 fail old-key compact replay. A bounded `alpha=0.1` interpolation toward the s02 direction passes exact M297/M270 with deltas `-0.000048637` and `-0.000028133`, M267/M264 first replay `17/17`, old-key compact replay with zero accepted regressions, source-diverse protected gates `5/5`, and M183/M170 first replay `17/17`.
+- decision: `admit_m395_full_public_gate_for_m394_s02a010`
+- next: `m395-full-public-gate-for-m394-s02a010`

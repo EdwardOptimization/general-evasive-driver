@@ -56,7 +56,7 @@ along this direction.
 Current blocker:
 
 ```text
-m394-rejected-boundary-target-repair-probe
+m395-full-public-gate-for-m394-s02a010
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -184,7 +184,13 @@ accepted collision-side local rejected-history targets, row15 margin decreases
 from `-0.000000469` to `-0.002112566`, row6 decreases from `-0.000059089` to
 `-0.002463502`, and the refreshed two-row conflict corpus passes a no-update
 exact-repair smoke. M394 should now run a no-PPO exact repair/interpolation
-probe with the refreshed corpus before any full public gate.
+probe with the refreshed corpus before any full public gate. M394 finds that
+direct repair quickly damages either M267/M264 normal-branch success or the
+old-key compact surface, but a bounded `alpha=0.1` interpolation toward the
+step2 repair direction passes exact M297/M270, M267/M264 `17/17`, cumulative
+old-key compact replay, source-diverse protected gates `5/5`, and M183/M170
+`17/17`. M395 should run the full public promotion gate for
+`runs/m394_s02_micro_interpolation/checkpoints/alpha_0_1.pt`.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

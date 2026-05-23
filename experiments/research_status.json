@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 402,
+        "completed": 403,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m393-current-family-rejected-boundary-target-export",
+        "task_id": "m394-rejected-boundary-target-repair-probe",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m393_current_family_rejected_boundary_targets",
-        "command_log": "docs/m393-current-family-rejected-boundary-target-export.md"
+        "run_dir": "runs/m394_s02_micro_interpolation",
+        "command_log": "docs/m394-rejected-boundary-target-repair-probe.md"
     },
     "next_task": {
-        "id": "m394-rejected-boundary-target-repair-probe",
+        "id": "m395-full-public-gate-for-m394-s02a010",
         "status": "pending",
-        "priority": 3890,
-        "kind": "gate",
-        "hypothesis": "Probe no-PPO exact repair with M393 rejected-boundary targets",
-        "command": "see experiments/manifests/m394-rejected-boundary-target-repair-probe.json",
+        "priority": 3900,
+        "kind": "driver_candidate",
+        "hypothesis": "Run full public gate for M394 s02 alpha 0.1 candidate",
+        "command": "see experiments/manifests/m395-full-public-gate-for-m394-s02a010.json",
         "success_artifact": "",
-        "notes": "Pending: run exact repair/interpolation with M393 conflict corpus and proof gates before any full public gate"
+        "notes": "Pending: six public replay surfaces and behavior seeds before any promotion"
     },
-    "updated_at_utc": "20260523T143636Z"
+    "updated_at_utc": "20260523T145307Z"
 }
