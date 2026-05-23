@@ -1,0 +1,27 @@
+{
+  "actor_inputs_changed": false,
+  "after_loss": 1.0871225595474243,
+  "batch_size": 17,
+  "before_loss": 1.1917999982833862,
+  "device": "cpu",
+  "grad_clip_norm": 1.0,
+  "init_checkpoint": "runs/m290_row16_aware_balanced_repeat_fresh_seed/interpolation/checkpoints/alpha_0_5.pt",
+  "learning_rate": 1e-05,
+  "loss_config": {
+    "preferred_logprob_margin": 0.05,
+    "wrong_logprob_margin": 0.05,
+    "wrong_preference_coef": 1.0
+  },
+  "loss_improvement": 0.10467743873596191,
+  "optimized_checkpoint": "runs/m298_rejected_preference_objective_only_probe/preference_opt_seed10080/optimized_checkpoint.pt",
+  "passed_objective_sanity": true,
+  "policy_summary_csv": "runs/m298_rejected_preference_objective_only_probe/preference_opt_seed10080/policy_summary.csv",
+  "ppo_or_actor_update_run": false,
+  "preference_npz": "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+  "run_type": "rejected_history_preference_optimize",
+  "seed": 10080,
+  "steps": 40,
+  "train_log_std": false,
+  "train_metrics_csv": "runs/m298_rejected_preference_objective_only_probe/preference_opt_seed10080/train_metrics.csv",
+  "train_scope": "actor_coupling"
+}

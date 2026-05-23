@@ -1,0 +1,3 @@
+policy,checkpoint,rows,weighted_loss,combined_loss_mean,preferred_separation_mean,wrong_preference_mean,weight_mean
+before,runs/m290_row16_aware_balanced_repeat_fresh_seed/interpolation/checkpoints/alpha_0_5.pt,17,1.1917999982833862,1.4035425186157227,0.6887320876121521,0.7148104906082153,0.04998534545302391
+after,runs/m298_rejected_preference_objective_only_probe/preference_opt_seed10080/optimized_checkpoint.pt,17,1.0871225595474243,1.2794373035430908,0.6277154088020325,0.6517219543457031,0.04998534545302391

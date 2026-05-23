@@ -1,0 +1,3 @@
+policy,checkpoint,snippet_npz,snippets,mode,batch_size,batches,seed,logprob_margin,loss_mean,loss_std,loss_min,loss_max
+m290x64_a500,runs/m290_row16_aware_balanced_repeat_fresh_seed/interpolation/checkpoints/alpha_0_5.pt,runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz,99,exact,99,1,0,0.05,0.6792783737182617,0.0,0.6792783737182617,0.6792783737182617
+m298pref,runs/m298_rejected_preference_objective_only_probe/preference_opt_seed10080/optimized_checkpoint.pt,runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz,99,exact,99,1,0,0.05,0.6154728531837463,0.0,0.6154728531837463,0.6154728531837463

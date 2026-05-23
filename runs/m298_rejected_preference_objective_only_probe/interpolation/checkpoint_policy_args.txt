@@ -1,0 +1,10 @@
+--checkpoint-policy m298pref_a000=runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0.pt
+--checkpoint-policy m298pref_a001=runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_001.pt
+--checkpoint-policy m298pref_a005=runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_005.pt
+--checkpoint-policy m298pref_a010=runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_01.pt
+--checkpoint-policy m298pref_a020=runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt
+--checkpoint-policy m298pref_a050=runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_05.pt
+--checkpoint-policy m298pref_a100=runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_1.pt
+--checkpoint-policy m298pref_a200=runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_2.pt
+--checkpoint-policy m298pref_a500=runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_5.pt
+--checkpoint-policy m298pref_a1000=runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_1.pt

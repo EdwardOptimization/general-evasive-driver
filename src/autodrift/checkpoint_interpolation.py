@@ -177,7 +177,11 @@ def write_interpolation_sweep(
 
     output.mkdir(parents=True, exist_ok=True)
     with (output / "checkpoint_policies.csv").open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=["policy_label", "alpha", "path", "base_checkpoint", "target_checkpoint"])
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=["policy_label", "alpha", "path", "base_checkpoint", "target_checkpoint"],
+            lineterminator="\n",
+        )
         writer.writeheader()
         for row in rows:
             writer.writerow(row)

@@ -1,0 +1,50 @@
+{
+  "baseline_policy": "m290x64_a500",
+  "batch_losses_csv": "runs/m298_rejected_preference_objective_only_probe/exact_m270_seed10080/batch_losses.csv",
+  "batch_size": 128,
+  "batches": 20,
+  "device": "cpu",
+  "exact": true,
+  "logprob_margin": 0.05,
+  "mode": "exact",
+  "per_row_losses_csv": null,
+  "policies": [
+    {
+      "batch_size": 99,
+      "batches": 1,
+      "checkpoint": "runs/m290_row16_aware_balanced_repeat_fresh_seed/interpolation/checkpoints/alpha_0_5.pt",
+      "logprob_margin": 0.05,
+      "loss_max": 0.6792783737182617,
+      "loss_mean": 0.6792783737182617,
+      "loss_min": 0.6792783737182617,
+      "loss_std": 0.0,
+      "mode": "exact",
+      "policy": "m290x64_a500",
+      "seed": 0,
+      "snippet_npz": "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "snippets": 99
+    },
+    {
+      "batch_size": 99,
+      "batches": 1,
+      "checkpoint": "runs/m298_rejected_preference_objective_only_probe/preference_opt_seed10080/optimized_checkpoint.pt",
+      "logprob_margin": 0.05,
+      "loss_max": 0.6154728531837463,
+      "loss_mean": 0.6154728531837463,
+      "loss_min": 0.6154728531837463,
+      "loss_std": 0.0,
+      "mode": "exact",
+      "policy": "m298pref",
+      "seed": 0,
+      "snippet_npz": "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "snippets": 99
+    }
+  ],
+  "policy_summary_csv": "runs/m298_rejected_preference_objective_only_probe/exact_m270_seed10080/policy_summary.csv",
+  "run_type": "outcome_intervention_eval",
+  "seed": 0,
+  "snippet_npz": "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+  "source_npz": {},
+  "source_summary": [],
+  "source_summary_csv": null
+}
