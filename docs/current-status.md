@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m448-differentiating-challenge-distribution-design
+m449-challenge-distribution-config-implementation
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -138,7 +138,10 @@ candidate family is still functionally indistinguishable on M121: 2048
 candidate comparisons yield only 3 `return_delta` rows and no success,
 collision, margin-sign, near-boundary, or large-margin divergences. The next
 blocker is M448: design a more discriminative near-boundary challenge
-distribution before more objective design.
+distribution before more objective design. M448 designs two zero-relvel
+challenge configs: near-threshold and late high-energy. The next blocker is
+M449: implement those configs, run diagnostic 128-episode smokes, and mine
+policy differences without training or promotion.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

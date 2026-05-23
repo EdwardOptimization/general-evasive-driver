@@ -77,5 +77,16 @@
     "docs/m447-fresh-policy-difference-mining-run.md"
   ],
   "decision_rule": "M448 passes if it defines a concrete challenge distribution and M449 implementation/run path without training or promotion.",
-  "next_blocker": "pending M448 challenge distribution design"
+  "results": {
+    "decision": "admit_challenge_distribution_config_implementation",
+    "variants": [
+      "near_threshold",
+      "late_high_energy"
+    ],
+    "smoke_episodes": 128,
+    "smoke_seed": 9800,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false
+  },
+  "next_blocker": "m449-challenge-distribution-config-implementation"
 }

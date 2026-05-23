@@ -10114,3 +10114,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M447 runs a 512-episode fresh benchmark and mines 2048 candidate comparisons. All checkpoint candidates tie M399 success `0.876953` and collision `0.123047`; the miner accepts only 3 rows, all `return_delta`, with no success flips, collision flips, margin sign flips, near-boundary margin deltas, or large margin deltas.
 - decision: `candidate_family_indistinguishable_admit_challenge_distribution_design`
 - next: `m448-differentiating-challenge-distribution-design`
+
+## 20260523T193124Z - m448-differentiating-challenge-distribution-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m448-differentiating-challenge-distribution-design.md`
+- result: M448 designs two zero-relvel human-view challenge configs: a near-threshold variant with tighter obstacle threshold score and a late high-energy variant with higher speed shorter distance wider obstacles and broader hidden dynamics. The smoke plan benchmarks each over 128 episodes and then mines policy differences; no training or promotion is allowed.
+- decision: `admit_m449_challenge_distribution_config_implementation`
+- next: `m449-challenge-distribution-config-implementation`

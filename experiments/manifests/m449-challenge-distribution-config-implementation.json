@@ -1,0 +1,90 @@
+{
+  "id": "m449-challenge-distribution-config-implementation",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m447_fresh_policy_difference_benchmark_seed9700/episodes.csv",
+      "runs/m447_fresh_policy_difference_mining_seed9700/policy_difference_summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m448-differentiating-challenge-distribution-design.json"
+    ],
+    "parent_objective": [
+      "challenge distribution config implementation"
+    ],
+    "derived_from": [
+      "m448-differentiating-challenge-distribution-design"
+    ],
+    "blocked_by": [
+      "m448-differentiating-challenge-distribution-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m449-challenge-distribution-config-implementation.md",
+  "public_gates": [
+    "add challenge near-threshold config",
+    "add challenge late high-energy config",
+    "smoke benchmark each config",
+    "run policy-difference miner on each config",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not tune checkpoints from smoke results"
+  ],
+  "hypothesis": "Near-threshold and late high-energy challenge configs can produce meaningful policy-difference rows where M121 did not.",
+  "success_criteria": [
+    "both configs are valid and committed",
+    "smoke benchmark artifacts are produced",
+    "policy-difference mining artifacts are produced",
+    "documentation classifies whether either config separates policies",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "config sampling fails",
+    "both configs are all-success or all-fail without a clear next adjustment",
+    "miner artifacts are missing",
+    "actor contract changes"
+  ],
+  "commands": [
+    {
+      "name": "implement_configs_and_smoke",
+      "command": "Add challenge configs, run 128-episode benchmark and policy-difference miner for each; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "configs/m449_challenge_near_threshold_zero_relvel.json",
+      "type": "env_config"
+    },
+    {
+      "path": "configs/m449_challenge_late_high_energy_zero_relvel.json",
+      "type": "env_config"
+    },
+    {
+      "path": "docs/m449-challenge-distribution-config-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m448-differentiating-challenge-distribution-design.md"
+  ],
+  "decision_rule": "M449 passes if challenge configs and diagnostic artifacts exist without training or promotion.",
+  "next_blocker": "pending M449 challenge distribution config implementation"
+}
