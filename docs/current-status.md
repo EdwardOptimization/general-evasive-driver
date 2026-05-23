@@ -61,7 +61,7 @@ post-PPO repair before any more PPO acceptance.
 Current blocker:
 
 ```text
-m323-source-diverse-gate-retrospective-endpoint-probe
+m324-single-key-window-override-policy-design
 ```
 
 M305 implements deterministic exact M297/M270 repair or projection
@@ -122,14 +122,13 @@ acceptance needs exact repair plus a protected-key-bounded trust region.
 Current next task:
 
 ```text
-m323-source-diverse-gate-retrospective-endpoint-probe
+m324-single-key-window-override-policy-design
 ```
 
-M322 implemented `autodrift.source_diverse_protected_gate`, a wrapper that runs
-the M320 source-diverse protected replay bundle and ingests `9944` as a
-diagnostic. It reproduces M320 sanity with `3/3` replay gates passing. M323
-should run a diagnostic retrospective on the M316 repaired endpoint before any
-new PPO.
+M323 showed the M316 repaired endpoint passes the source-diverse protected gate
+but conflicts with old `9944` singleton-window acceptance. M324 should define
+the explicit handling policy for this case before any candidate is allowed to
+advance under the new gate.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -170,6 +169,7 @@ new PPO.
 | refreshed protected corpora | `runs/m320_m316_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv` | M320 converted the M319 surface into compact replay-aligned corpora; all replay sanity gates pass |
 | protected gate design | `docs/m321-source-diverse-protected-gate-design.md` | M321 defines M320 corpora as first-class protected acceptance bundle and keeps `9944` diagnostic |
 | protected gate wrapper | `src/autodrift/source_diverse_protected_gate.py` | M322 implements aggregate replay-gate wrapper and M320 sanity reproduction |
+| endpoint diagnostic | `runs/m323_source_diverse_gate_repaired_endpoint_probe/summary.json` | M323 shows M316 repaired passes source-diverse gates but old `9944` remains a singleton-window conflict |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -441,10 +441,9 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not run another PPO proposal before M323 uses the wrapper diagnostically on
-the repaired endpoint. M322 proves reproducible gate execution; the next step is
-to compare source-diverse protected-gate behavior against the old saturated
-`9944` diagnostic. Do not change actor inputs.
+Do not run another PPO proposal or promote the repaired endpoint before M324
+defines the source-diverse pass plus old-key singleton-window handling policy.
+M323 is diagnostic evidence only. Do not change actor inputs.
 
 ## Sensor Profile Policy
 

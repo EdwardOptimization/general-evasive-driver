@@ -25,6 +25,9 @@ def test_parse_replay_gate_spec_requires_name_corpus_and_policies():
     with pytest.raises(ValueError, match="NAME=CORPUS"):
         parse_replay_gate_spec("bad=only,two")
 
+    with pytest.raises(ValueError, match="different baseline and candidate"):
+        parse_replay_gate_spec("self=corpus.csv,same,same")
+
 
 def test_parse_diagnostic_csv_spec_requires_name_and_path():
     spec = parse_diagnostic_csv_spec("key=guard_results.csv")

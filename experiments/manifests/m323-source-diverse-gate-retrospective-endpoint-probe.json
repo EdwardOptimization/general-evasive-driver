@@ -2,7 +2,7 @@
   "id": "m323-source-diverse-gate-retrospective-endpoint-probe",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -80,6 +80,28 @@
     "docs/m322-source-diverse-protected-gate-implementation.md",
     "runs/m322_source_diverse_protected_gate_m320_sanity/summary.json"
   ],
+  "results": {
+    "run_dir": "runs/m323_source_diverse_gate_repaired_endpoint_probe",
+    "wrapper_hardened_against_self_gate": true,
+    "focused_tests_pass": true,
+    "candidate_checkpoint": "runs/m316_exact_repair_from_raw_s40_seed10096/candidate_checkpoint.pt",
+    "source_diverse_overall_pass": true,
+    "source_diverse_replay_gate_count": 2,
+    "source_diverse_replay_gates_passed": 2,
+    "current_vs_repaired_success_drops": 17,
+    "previous_vs_repaired_success_drops": 17,
+    "current_vs_repaired_normal_margin_delta": 0.00019479287196801608,
+    "previous_vs_repaired_normal_margin_delta": 0.00019531620154537594,
+    "old_key_diagnostic_rows": 13,
+    "old_key_diagnostic_accepted_rows": 3,
+    "old_key_diagnostic_accepted_fraction": 0.23076923076923078,
+    "old_key_normal_margin_max": 0.2073884411194939,
+    "old_key_margin_gap_min": 0.0969821935607928,
+    "classification": "source_diverse_pass_old_singleton_window_fail",
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m324_single_key_window_override_policy_design",
   "decision_rule": "M323 is diagnostic only. It may admit a future protected-gate acceptance policy design only after comparing source-diverse gate result with old-key diagnostic.",
-  "next_blocker": "pending M323 retrospective endpoint probe"
+  "next_blocker": "m324-single-key-window-override-policy-design"
 }

@@ -40,6 +40,8 @@ def parse_replay_gate_spec(raw: str) -> ReplayGateSpec:
     parts = [part.strip() for part in payload.split(",")]
     if len(parts) != 3 or not all(parts):
         raise ValueError(f"replay gate spec must be NAME=CORPUS,BASELINE,CANDIDATE, got {raw!r}")
+    if parts[1] == parts[2]:
+        raise ValueError(f"replay gate {label!r} must use different baseline and candidate policies")
     return ReplayGateSpec(
         label=label,
         corpus_csv=Path(parts[0]),

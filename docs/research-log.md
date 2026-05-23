@@ -8867,3 +8867,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M322 implements `autodrift.source_diverse_protected_gate`, adds focused tests, and reproduces the M320 sanity bundle. The wrapper passes `3/3` replay gates, reports `overall_pass=true`, and ingests the `9944` diagnostic with `3/4` accepted rows.
 - decision: `admit_m323_source_diverse_gate_retrospective_endpoint_probe`
 - next: `m323-source-diverse-gate-retrospective-endpoint-probe`
+
+## 20260523T061559Z - m323-source-diverse-gate-retrospective-endpoint-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m323_source_diverse_gate_repaired_endpoint_probe`
+- artifact: `docs/m323-source-diverse-gate-retrospective-endpoint-probe.md`
+- result: M323 probes the M316 repaired endpoint under the new wrapper. The endpoint passes `2/2` source-diverse protected replay gates with `17/17` success drops on both, improving normal margins by about `0.000195`. The old `9944` sweep remains a singleton-window conflict: only `3/13` policies are accepted and the sweep reaches normal margin `0.207388`.
+- decision: `admit_m324_single_key_window_override_policy_design`
+- next: `m324-single-key-window-override-policy-design`

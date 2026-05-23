@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 331,
+        "completed": 332,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "command_log": "docs/m322-source-diverse-protected-gate-implementation.md",
+        "command_log": "docs/m323-source-diverse-gate-retrospective-endpoint-probe.md",
         "returncode": 0,
-        "run_dir": "runs/m322_source_diverse_protected_gate_m320_sanity",
+        "run_dir": "runs/m323_source_diverse_gate_repaired_endpoint_probe",
         "status": "completed",
-        "task_id": "m322-source-diverse-protected-gate-implementation"
+        "task_id": "m323-source-diverse-gate-retrospective-endpoint-probe"
     },
     "next_task": {
-        "command": "see experiments/manifests/m323-source-diverse-gate-retrospective-endpoint-probe.json",
-        "hypothesis": "The repaired M316 endpoint may fail the old saturated 9944 key while still preserving the refreshed M320 source-diverse protected surface, clarifying whether future acceptance can rely on the multi-surface gate plus explicit singleton-window audit.",
-        "id": "m323-source-diverse-gate-retrospective-endpoint-probe",
-        "kind": "gate",
-        "notes": "Pending: run wrapper on repaired endpoint as diagnostic not promotion",
-        "priority": 3180,
+        "command": "see experiments/manifests/m324-single-key-window-override-policy-design.json",
+        "hypothesis": "M323 shows the repaired endpoint passes refreshed source-diverse protected surfaces while failing the old saturated 9944 window, so the project needs an explicit override/audit policy before any candidate can progress under the new gate.",
+        "id": "m324-single-key-window-override-policy-design",
+        "kind": "infrastructure",
+        "notes": "Pending: define override audit and promotion escalation rules without PPO",
+        "priority": 3190,
         "status": "pending",
         "success_artifact": ""
     },
-    "updated_at_utc": "20260523T061128Z"
+    "updated_at_utc": "20260523T061559Z"
 }
