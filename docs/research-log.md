@@ -8787,3 +8787,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M314 promotes `runs/m313_m307_to_m310_protected_key_bounded_interpolation/checkpoints/alpha_0_14.pt`. The candidate improves exact M297 by `-0.000017047` and exact M270 by `-0.000010908` versus M307, passes all six replay surfaces, passes protected key `9944` while `m239_a750` fails, and retains behavior success `0.8625` on seeds `9505` and `9506`.
 - decision: `promote_m313_a140_public_gate_base`
 - next: `m315-protected-key-aware-ppo-proposal-repeat-design`
+
+## 20260523T053053Z - m315-protected-key-aware-ppo-proposal-repeat-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m315_protected_key_aware_ppo_proposal_repeat_design`
+- artifact: `docs/m315-protected-key-aware-ppo-proposal-repeat-design.md`
+- result: M315 registers the M316 repeat from the M314 public-gate base without running PPO. M316 will use `configs/ppo_m316_protected_key_aware_proposal_smoke.json`, route raw PPO through exact M297/M270 repair, then apply a protected-key-bounded alpha sweep before first replay gates.
+- decision: `admit_m316_protected_key_aware_ppo_proposal_smoke`
+- next: `m316-protected-key-aware-ppo-proposal-smoke`
