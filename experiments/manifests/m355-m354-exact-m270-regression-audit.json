@@ -1,0 +1,83 @@
+{
+  "id": "m355-m354-exact-m270-regression-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt",
+      "runs/m354_exact_repair_from_raw_s40_seed10103/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m354_old_key_neighborhood_ppo_fresh_seed_repeat/summary.json",
+      "runs/m354_exact_repair_from_raw_s40_seed10103/summary.json",
+      "runs/ppo_m354_old_key_neighborhood_repeat_seed5240/eval_summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m354-old-key-neighborhood-ppo-fresh-seed-repeat.json",
+      "docs/m354-old-key-neighborhood-ppo-fresh-seed-repeat.md"
+    ],
+    "parent_objective": [
+      "audit why M354 exact repair improved M297 but regressed M270"
+    ],
+    "derived_from": [
+      "m354-old-key-neighborhood-ppo-fresh-seed-repeat"
+    ],
+    "blocked_by": [
+      "m354-old-key-neighborhood-ppo-fresh-seed-repeat"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m355-m354-exact-m270-regression-audit.md",
+  "public_gates": [
+    "audit only; no PPO run",
+    "do not run downstream replay gates for rejected candidate",
+    "classify M270 regression before another PPO attempt",
+    "preserve actor input contract"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat M354 as a candidate",
+    "do not skip the M270 regression audit",
+    "do not run longer PPO from M352 before audit",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "M354 may have failed because the exact repair objective overfit M297 while allowing M270 to regress, so the next step should audit the exact repair traces and decide whether a M270-dominant repair or different line search is needed.",
+  "success_criteria": [
+    "audit document identifies the immediate failure mode",
+    "audit states whether M354 should be retried with altered exact repair or archived",
+    "audit does not run PPO or promotion gates",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "audit treats M354 as promotable",
+    "audit runs downstream gates on a lexicographic-failing candidate",
+    "audit changes actor inputs",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "m355_audit",
+      "command": "Audit M354 exact repair failure and propose the next repair or archive decision; do not run PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m355-m354-exact-m270-regression-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m354-old-key-neighborhood-ppo-fresh-seed-repeat.md",
+    "runs/m354_old_key_neighborhood_ppo_fresh_seed_repeat/summary.json"
+  ],
+  "decision_rule": "M355 is complete when the M354 exact M270 regression is classified and the next repair/retry/archive step is registered without running PPO.",
+  "next_blocker": "pending M355 exact M270 regression audit"
+}

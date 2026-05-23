@@ -2,9 +2,9 @@
   "id": "m354-old-key-neighborhood-ppo-fresh-seed-repeat",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "objective_overfit"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -90,6 +90,24 @@
     "docs/m353-old-key-neighborhood-ppo-fresh-seed-repeat-design.md",
     "configs/ppo_m354_old_key_neighborhood_repeat.json"
   ],
-  "decision_rule": "M354 can only admit a full public gate after exact repair, source-diverse protected gates, old-key neighborhood gate, and first replay gates pass. It cannot promote directly.",
-  "next_blocker": "pending M354 old-key-neighborhood PPO fresh-seed repeat"
+  "results": {
+    "run_dir": "runs/m354_old_key_neighborhood_ppo_fresh_seed_repeat",
+    "raw_ppo_run_dir": "runs/ppo_m354_old_key_neighborhood_repeat_seed5240",
+    "exact_repair_run_dir": "runs/m354_exact_repair_from_raw_s40_seed10103",
+    "raw_eval_termination_rate": 0.2,
+    "raw_eval_return_mean": 52.562217524876075,
+    "candidate_checkpoint": "runs/m354_exact_repair_from_raw_s40_seed10103/candidate_checkpoint.pt",
+    "candidate_m297_preference_loss_delta_vs_m352": -2.300739288330078e-05,
+    "candidate_exact_m270_loss_delta_vs_m352": 4.0590763092041016e-05,
+    "candidate_exact_lexicographic_pass": false,
+    "source_diverse_run": false,
+    "old_key_neighborhood_run": false,
+    "first_replay_gates_run": false,
+    "promotion_recommended": false,
+    "ppo_or_actor_update_run": true,
+    "actor_inputs_changed": false
+  },
+  "decision": "reject_m354_exact_m270_regression",
+  "decision_rule": "M354 is rejected because exact repair regresses M270 versus M352. Source-diverse, old-key neighborhood, first replay, and promotion gates are intentionally skipped.",
+  "next_blocker": "m355-m354-exact-m270-regression-audit"
 }

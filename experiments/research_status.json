@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 362,
+        "completed": 363,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m353-old-key-neighborhood-ppo-fresh-seed-repeat-design",
+        "task_id": "m354-old-key-neighborhood-ppo-fresh-seed-repeat",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "docs/m353-old-key-neighborhood-ppo-fresh-seed-repeat-design.md",
-        "command_log": "docs/m353-old-key-neighborhood-ppo-fresh-seed-repeat-design.md"
+        "run_dir": "runs/m354_old_key_neighborhood_ppo_fresh_seed_repeat",
+        "command_log": "runs/m354_old_key_neighborhood_ppo_fresh_seed_repeat/summary.json"
     },
     "next_task": {
-        "id": "m354-old-key-neighborhood-ppo-fresh-seed-repeat",
+        "id": "m355-m354-exact-m270-regression-audit",
         "status": "pending",
-        "priority": 3490,
-        "kind": "driver_candidate",
-        "hypothesis": "A fresh-seed short PPO proposal from the M352 public base may repeat the M351 proof-preserving pattern before any longer PPO escalation.",
-        "command": "see experiments/manifests/m354-old-key-neighborhood-ppo-fresh-seed-repeat.json",
+        "priority": 3500,
+        "kind": "gate",
+        "hypothesis": "M354 may have failed because the exact repair objective overfit M297 while allowing M270 to regress, so the next step should audit the exact repair traces and decide whether a M270-dominant repair or different line search is needed.",
+        "command": "see experiments/manifests/m355-m354-exact-m270-regression-audit.json",
         "success_artifact": "",
-        "notes": "Pending: run PPO proposal exact repair old-key neighborhood and first replay gates"
+        "notes": "Pending: classify M354 M270 regression and register next repair or archive decision"
     },
-    "updated_at_utc": "20260523T103734Z"
+    "updated_at_utc": "20260523T104359Z"
 }

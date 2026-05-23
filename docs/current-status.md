@@ -55,7 +55,7 @@ neighborhood proof.
 Current blocker:
 
 ```text
-m354-old-key-neighborhood-ppo-fresh-seed-repeat
+m355-m354-exact-m270-regression-audit
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -76,7 +76,9 @@ objectives but fails source/old-key proof, while bounded `alpha=0.0075` passes
 exact, source-diverse, old-key neighborhood, and first replay gates. M352
 promotes the bounded candidate after all six public replay gates and behavior
 seeds pass. M353 registers a fresh-seed repeat before any longer PPO. M354 is
-the next proposal-only PPO repeat.
+the fresh-seed proposal-only PPO repeat: raw PPO runs, but exact repair improves
+M297 while regressing M270, so downstream gates are skipped. M355 should audit
+the exact M270 regression before another PPO attempt.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -146,7 +148,8 @@ the next proposal-only PPO repeat.
 | bounded PPO candidate | `runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt` | M351 selects alpha 0.0075 after repaired endpoint fails source/old-key proof but bounded alpha passes exact/source-diverse/old-key/first replay gates |
 | current public-gate base | `runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt` | M352 promotes alpha 0.0075 after exact, source-diverse, old-key neighborhood, six replay, and behavior gates pass |
 | fresh-seed repeat config | `configs/ppo_m354_old_key_neighborhood_repeat.json` | M353 registers seed 5240 short PPO repeat from M352 base before any longer PPO |
-| current blocker | `experiments/manifests/m354-old-key-neighborhood-ppo-fresh-seed-repeat.json` | M354 must run PPO as proposal only, then exact repair and proof gates before any full public gate |
+| rejected fresh-seed repeat | `runs/m354_exact_repair_from_raw_s40_seed10103/candidate_checkpoint.pt` | M354 exact repair improves M297 but regresses M270, so downstream gates are skipped |
+| current blocker | `experiments/manifests/m355-m354-exact-m270-regression-audit.json` | M355 must audit the M354 exact M270 regression before another PPO attempt |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

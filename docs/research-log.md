@@ -9174,3 +9174,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M353 registers a fresh-seed repeat before any longer PPO. The M354 config keeps the short `4096`-step PPO recipe, seed `5240`, and the existing guard coefficients, while updating baseline/snippet anchors to the M352 public base `runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt`. The gate order remains raw proposal, exact repair, source-diverse protected gate, old-key neighborhood gate, interpolation if needed, and first replay gates before any full public gate.
 - decision: `admit_m354_old_key_neighborhood_ppo_fresh_seed_repeat`
 - next: `m354-old-key-neighborhood-ppo-fresh-seed-repeat`
+
+## 20260523T104359Z - m354-old-key-neighborhood-ppo-fresh-seed-repeat
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m354_old_key_neighborhood_ppo_fresh_seed_repeat`
+- artifact: `docs/m354-old-key-neighborhood-ppo-fresh-seed-repeat.md`
+- result: M354 runs the fresh-seed short PPO repeat from M352 base. Raw PPO completes on CUDA with eval termination `0.20`. Exact repair improves M297 by `-0.000023007` but regresses M270 by `+0.000040591`, failing exact lexicographic no-regression. Source-diverse, old-key neighborhood, replay, and behavior gates are intentionally skipped.
+- decision: `reject_m354_exact_m270_regression`
+- next: `m355-m354-exact-m270-regression-audit`
