@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 335,
+        "completed": 336,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "command_log": "docs/m326-source-diverse-protected-ppo-proposal-design.md",
+        "command_log": "docs/m327-source-diverse-protected-ppo-proposal-smoke.md",
         "returncode": 0,
-        "run_dir": "",
+        "run_dir": "runs/ppo_m327_source_diverse_protected_proposal_smoke_seed5236",
         "status": "completed",
-        "task_id": "m326-source-diverse-protected-ppo-proposal-design"
+        "task_id": "m327-source-diverse-protected-ppo-proposal-smoke"
     },
     "next_task": {
-        "command": "see experiments/manifests/m327-source-diverse-protected-ppo-proposal-smoke.json",
-        "hypothesis": "A smoke PPO proposal from the M325 source-diverse public base can be exact-repaired and accepted by source-diverse protected gates plus first replay gates without returning to old 9944 alpha clipping.",
-        "id": "m327-source-diverse-protected-ppo-proposal-smoke",
+        "command": "see experiments/manifests/m328-full-public-gate-for-m327-source-diverse-repaired.json",
+        "hypothesis": "The M327 exact-repaired PPO proposal may be promotable if it retains exact objectives, source-diverse protected proof, all six replay surfaces, old-key singleton-window audit, and behavior seeds versus M325.",
+        "id": "m328-full-public-gate-for-m327-source-diverse-repaired",
         "kind": "driver_candidate",
-        "notes": "Pending: run smoke PPO proposal and gates; no promotion",
-        "priority": 3220,
+        "notes": "Pending: six replay gates exact/source-diverse audit behavior seeds; no PPO",
+        "priority": 3230,
         "status": "pending",
         "success_artifact": ""
     },
-    "updated_at_utc": "20260523T063050Z"
+    "updated_at_utc": "20260523T063607Z"
 }

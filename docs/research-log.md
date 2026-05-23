@@ -8905,3 +8905,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M326 registers the next smoke PPO proposal from the M325 base. The M327 config uses `1024` PPO steps, seed `5236`, and M325 as all action-anchor checkpoints. Acceptance requires exact M297/M270 repair, three M320 source-diverse protected replay gates, old `9944` diagnostic classification, and M183/M170 plus M267/M264 first replay gates. No PPO was run.
 - decision: `admit_m327_source_diverse_protected_ppo_proposal_smoke`
 - next: `m327-source-diverse-protected-ppo-proposal-smoke`
+
+## 20260523T063607Z - m327-source-diverse-protected-ppo-proposal-smoke
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/ppo_m327_source_diverse_protected_proposal_smoke_seed5236`
+- artifact: `docs/m327-source-diverse-protected-ppo-proposal-smoke.md`
+- result: M327 runs smoke PPO from M325 base, exact-repairs the raw proposal, and passes the proof gates. The repaired candidate improves exact M297/M270 by `-0.000104308` and `-0.000066042`, passes `3/3` source-diverse protected gates, classifies old `9944` as `single_key_window_saturation` with margin gap `0.092653`, and passes M183/M170 plus M267/M264 first replay gates.
+- decision: `admit_m328_full_public_gate_for_m327_source_diverse_repaired`
+- next: `m328-full-public-gate-for-m327-source-diverse-repaired`

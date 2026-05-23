@@ -61,7 +61,7 @@ post-PPO repair before any more PPO acceptance.
 Current blocker:
 
 ```text
-m327-source-diverse-protected-ppo-proposal-smoke
+m328-full-public-gate-for-m327-source-diverse-repaired
 ```
 
 M305 implements deterministic exact M297/M270 repair or projection
@@ -122,14 +122,14 @@ acceptance needs exact repair plus a protected-key-bounded trust region.
 Current next task:
 
 ```text
-m327-source-diverse-protected-ppo-proposal-smoke
+m328-full-public-gate-for-m327-source-diverse-repaired
 ```
 
-M326 registers the next smoke PPO proposal from the M325 base. The M327 config
-keeps the human-view actor contract, uses M325 as all action-anchor checkpoints,
-and requires exact repair plus three source-diverse protected replay gates
-before first replay gates. M327 should now run the smoke PPO proposal and stop
-before promotion; full public gate remains a separate milestone.
+M327 runs smoke PPO from M325, exact-repairs the proposal, and passes the
+pre-promotion proof stack: exact M297/M270 improve, three source-diverse
+protected gates pass, old `9944` remains singleton-window saturation with
+margin gap retained, and M183/M170 plus M267/M264 first replay gates pass.
+M328 should run the separate full public gate before any promotion.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -174,6 +174,7 @@ before promotion; full public gate remains a separate milestone.
 | protected-key policy | `docs/m324-single-key-window-override-policy-design.md` | M324 allows singleton-window saturation to advance to full public gate only after exact and source-diverse proof pass; `9944` remains diagnostic |
 | current source-diverse public base | `runs/m316_exact_repair_from_raw_s40_seed10096/candidate_checkpoint.pt` | M325 promotes the repaired endpoint after exact objectives, source-diverse proof, six replay gates, old-key audit, and behavior seeds pass |
 | next PPO config | `configs/ppo_m327_source_diverse_protected_proposal_smoke.json` | M326 registers smoke PPO from M325 with exact repair, source-diverse protected gates, old-key diagnostic, and first replay gates |
+| current PPO proposal candidate | `runs/m327_exact_repair_from_raw_s40_seed10097/candidate_checkpoint.pt` | M327 exact-repaired candidate passes exact, source-diverse, old-key audit, and first replay gates; awaiting M328 full public gate |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -445,10 +446,9 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-M327 may run only smoke-scale PPO from the M325 base. Raw PPO is a proposal
-only; exact repair, source-diverse protected gates, old-key diagnostic, and
-first replay gates decide whether a later full public gate is admitted. Do not
-change actor inputs.
+Do not promote M327 from the smoke milestone. M328 must run exact/source-diverse
+audit, all six replay gates, old-key diagnostic reporting, behavior seeds, and
+research validation before promotion. Do not change actor inputs.
 
 ## Sensor Profile Policy
 

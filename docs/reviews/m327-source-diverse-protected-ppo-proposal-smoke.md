@@ -1,0 +1,89 @@
+# m327-source-diverse-protected-ppo-proposal-smoke Research Review
+
+## Summary
+
+- Generated at UTC: 20260523T063747Z
+- Type: driver_candidate
+- Gate tier: proof
+- Promotion decision: admit_m328_full_public_gate_for_m327_source_diverse_repaired
+- Decision reason: M327 raw PPO exact repair improves M297/M270; 3/3 source-diverse gates pass; 9944 singleton-window gap 0.092653; M183/M170 and M267/M264 first replay gates pass
+
+## Hypothesis
+
+A smoke PPO proposal from the M325 source-diverse public base can be exact-repaired and accepted by source-diverse protected gates plus first replay gates without returning to old 9944 alpha clipping.
+
+## Lineage
+
+- parent_checkpoint: runs/m316_exact_repair_from_raw_s40_seed10096/candidate_checkpoint.pt
+- parent_dataset: runs/m320_m316_repaired_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv, runs/m320_m316_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv, runs/m320_m314_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv, runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv, runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv, runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz, runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz
+- parent_config: configs/ppo_m327_source_diverse_protected_proposal_smoke.json, experiments/manifests/m326-source-diverse-protected-ppo-proposal-design.json, docs/m326-source-diverse-protected-ppo-proposal-design.md
+- parent_objective: run smoke PPO proposal from M325 base, exact repair it, then test source-diverse protected acceptance and first replay gates
+- derived_from: m326-source-diverse-protected-ppo-proposal-design
+- blocked_by: m326-source-diverse-protected-ppo-proposal-design
+- supersedes: None
+- invalidates: None
+
+## Success Criteria
+
+- raw PPO completes and writes checkpoint
+- exact repair completes
+- repaired candidate does not regress exact M297 or exact M270 versus M325
+- source-diverse protected bundle passes
+- old 9944 diagnostic is reported and classified
+- M183/M170 and M267/M264 first replay gates pass
+- actor input contract remains unchanged
+
+## Failure Criteria
+
+- raw PPO crashes
+- exact repair fails or exact objectives regress
+- source-diverse protected replay fails
+- old-key failure is not singleton-window-only
+- first replay gate fails
+- actor observation inputs change
+
+## Evidence Gates
+
+- raw PPO is proposal only
+- exact M297 and exact M270 no-regression versus M325 after repair
+- source-diverse protected replay bundle passes
+- old 9944 diagnostic is classified explicitly
+- M183/M170 first replay gate versus M325
+- M267/M264 first replay gate versus M325
+- no promotion in M327
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not promote from M327
+- do not skip exact repair
+- do not skip source-diverse protected gates
+- do not delete 9944 diagnostic
+- do not change actor inputs
+- do not tune from private holdouts
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m327-source-diverse-protected-ppo-proposal-smoke
+- type: driver_candidate
+- checkpoint: runs/m327_exact_repair_from_raw_s40_seed10097/candidate_checkpoint.pt
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: admit_m328_full_public_gate_for_m327_source_diverse_repaired
+- reason: M327 raw PPO exact repair improves M297/M270; 3/3 source-diverse gates pass; 9944 singleton-window gap 0.092653; M183/M170 and M267/M264 first replay gates pass
+
+## Next Blocker
+
+m328-full-public-gate-for-m327-source-diverse-repaired
