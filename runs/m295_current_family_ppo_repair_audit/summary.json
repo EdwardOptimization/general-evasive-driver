@@ -1,0 +1,180 @@
+{
+  "actor_inputs_changed": false,
+  "audited_checkpoints": {
+    "m291raw": "runs/ppo_m291_row16_aware_guarded_smoke_seed5231/checkpoint.pt",
+    "m294raw": "runs/ppo_m294_current_family_rejected_repair_smoke_seed5232/checkpoint.pt"
+  },
+  "base_checkpoint": "runs/m290_row16_aware_balanced_repeat_fresh_seed/interpolation/checkpoints/alpha_0_5.pt",
+  "classification": [
+    "proof_washout",
+    "objective_overfit"
+  ],
+  "exact_m270": {
+    "base_loss": 0.6792783737182617,
+    "m291raw_delta_vs_base": 0.0005027055740356445,
+    "m291raw_loss": 0.6797810792922974,
+    "m294_minus_m291_delta": 0.00011259317398071289,
+    "m294raw_delta_vs_base": 0.0006152987480163574,
+    "m294raw_loss": 0.6798936724662781,
+    "nonzero_m294_interpolation_non_regressing": false
+  },
+  "failed_row_comparison": [
+    {
+      "base_normal_margin": 0.010836337460365941,
+      "base_wrong_history_margin": -9.334248041903415e-05,
+      "m291_normal_margin": 0.011799433671346948,
+      "m291_terminal_reason": "obstacle_completed",
+      "m291_wrong_first_brake": 0.09319975227117538,
+      "m291_wrong_first_steer": 0.6661406755447388,
+      "m291_wrong_first_throttle": -0.024093538522720337,
+      "m291_wrong_history_margin": 0.0006352154421604972,
+      "m291_wrong_history_success": true,
+      "m294_minus_m291_normal_margin": -0.00017927708493781225,
+      "m294_minus_m291_wrong_margin": -0.00018325936359220307,
+      "m294_normal_margin": 0.011620156586409136,
+      "m294_terminal_reason": "obstacle_completed",
+      "m294_wrong_first_brake": 0.09276359528303146,
+      "m294_wrong_first_steer": 0.6661818027496338,
+      "m294_wrong_first_throttle": -0.02410830929875374,
+      "m294_wrong_history_margin": 0.0004519560785682941,
+      "m294_wrong_history_success": true,
+      "physical_pair_key": "9530:15:9550:18",
+      "row_id": 6
+    },
+    {
+      "base_normal_margin": 0.006991843580097079,
+      "base_wrong_history_margin": -0.0004996122281903936,
+      "m291_normal_margin": 0.007575271310667375,
+      "m291_terminal_reason": "obstacle_completed",
+      "m291_wrong_first_brake": 0.08176075667142868,
+      "m291_wrong_first_steer": 0.6207982897758484,
+      "m291_wrong_first_throttle": 0.03296057879924774,
+      "m291_wrong_history_margin": 5.724272246121487e-05,
+      "m291_wrong_history_success": true,
+      "m294_minus_m291_normal_margin": -0.00014566869934018456,
+      "m294_minus_m291_wrong_margin": -0.00014091744540722928,
+      "m294_normal_margin": 0.007429602611327191,
+      "m294_terminal_reason": "collision",
+      "m294_wrong_first_brake": 0.08135231584310532,
+      "m294_wrong_first_steer": 0.620875358581543,
+      "m294_wrong_first_throttle": 0.032967597246170044,
+      "m294_wrong_history_margin": -8.367472294601441e-05,
+      "m294_wrong_history_success": false,
+      "physical_pair_key": "9537:24:9561:24",
+      "row_id": 11
+    },
+    {
+      "base_normal_margin": 0.005786416627075797,
+      "base_wrong_history_margin": -0.0003400770271841935,
+      "m291_normal_margin": 0.0068524373186336085,
+      "m291_terminal_reason": "obstacle_completed",
+      "m291_wrong_first_brake": 0.09421488642692566,
+      "m291_wrong_first_steer": 0.6586296558380127,
+      "m291_wrong_first_throttle": -0.013133433647453785,
+      "m291_wrong_history_margin": 0.0005799987066297252,
+      "m291_wrong_history_success": true,
+      "m294_minus_m291_normal_margin": -0.00017847434507811677,
+      "m294_minus_m291_wrong_margin": -0.00018279040924773504,
+      "m294_normal_margin": 0.006673962973555492,
+      "m294_terminal_reason": "obstacle_completed",
+      "m294_wrong_first_brake": 0.09378117322921753,
+      "m294_wrong_first_steer": 0.658673882484436,
+      "m294_wrong_first_throttle": -0.013141468167304993,
+      "m294_wrong_history_margin": 0.00039720829738199015,
+      "m294_wrong_history_success": true,
+      "physical_pair_key": "9530:21:9550:21",
+      "row_id": 15
+    },
+    {
+      "base_normal_margin": 0.005454009005550375,
+      "base_wrong_history_margin": -0.0006260745003630053,
+      "m291_normal_margin": 0.006369923456186699,
+      "m291_terminal_reason": "obstacle_completed",
+      "m291_wrong_first_brake": 0.016774700954556465,
+      "m291_wrong_first_steer": 0.7242026329040527,
+      "m291_wrong_first_throttle": -0.2015550136566162,
+      "m291_wrong_history_margin": 0.00018782178690268658,
+      "m291_wrong_history_success": true,
+      "m294_minus_m291_normal_margin": -0.00018728492752928538,
+      "m294_minus_m291_wrong_margin": -0.000184676824126484,
+      "m294_normal_margin": 0.006182638528657414,
+      "m294_terminal_reason": "obstacle_completed",
+      "m294_wrong_first_brake": 0.01634136401116848,
+      "m294_wrong_first_steer": 0.7242050766944885,
+      "m294_wrong_first_throttle": -0.201558917760849,
+      "m294_wrong_history_margin": 3.1449627762025756e-06,
+      "m294_wrong_history_success": true,
+      "physical_pair_key": "9530:6:9550:6",
+      "row_id": 16
+    }
+  ],
+  "failed_row_comparison_csv": "runs/m295_current_family_ppo_repair_audit/failed_row_comparison.csv",
+  "interpretation": "M294 anchor pressure partially moves the targeted current-family rejected-history rows in the right direction: row 11 returns from wrong-history obstacle completion to collision, and rows 6/15/16 wrong-history margins shrink. However rows 6/15/16 remain positive, so the proof washout is not fixed. Exact M270 worsens more than M291, and every nonzero M294 interpolation regresses exact M270. This makes stronger trajectory action anchoring a blunt, misaligned control variable rather than a promotable PPO repair.",
+  "m183_m170_gate": {
+    "m291raw_pass": true,
+    "m294raw_pass": true,
+    "success_drops": 17
+  },
+  "m267_m264_gate": {
+    "base_success_drops": 17,
+    "m291raw_failed_rows": [
+      6,
+      11,
+      15,
+      16
+    ],
+    "m291raw_success_drops": 13,
+    "m294_recovered_rows_vs_m291": [
+      11
+    ],
+    "m294raw_failed_rows": [
+      6,
+      15,
+      16
+    ],
+    "m294raw_success_drops": 14,
+    "still_failed_after_m294": [
+      6,
+      15,
+      16
+    ]
+  },
+  "next_recommended_task": "m296-current-family-rejected-margin-objective-design",
+  "no_ppo_run": true,
+  "repair_decision": "design_direct_current_family_rejected_history_margin_preference_objective",
+  "run_type": "m295_current_family_ppo_repair_audit",
+  "train_metrics_last_row": {
+    "m291": {
+      "baseline_action_anchor_loss_mean": 5.56412299109373e-06,
+      "curriculum_stage": "base",
+      "episode_count": 12.0,
+      "episode_length_mean": 60.666666666666664,
+      "num_envs": 8.0,
+      "outcome_intervention_loss_mean": 0.6787712126970291,
+      "response_prediction_loss_mean": 0.04339356441050768,
+      "reward_mean": 0.9977699518203735,
+      "rollout_return_mean": 59.44606672839916,
+      "snippet_action_anchor_loss_mean": 2.8575165530083285e-07,
+      "step": 1024.0,
+      "termination_rate": 0.3333333333333333,
+      "trajectory_action_anchor_loss_mean": 3.863105484924745e-05,
+      "update": 1.0
+    },
+    "m294": {
+      "baseline_action_anchor_loss_mean": 7.65833930316262e-06,
+      "curriculum_stage": "base",
+      "episode_count": 12.0,
+      "episode_length_mean": 60.5,
+      "num_envs": 8.0,
+      "outcome_intervention_loss_mean": 0.6799791753292084,
+      "response_prediction_loss_mean": 0.050380460607508816,
+      "reward_mean": 1.039097547531128,
+      "rollout_return_mean": 64.57012693386994,
+      "snippet_action_anchor_loss_mean": 3.863797789123898e-07,
+      "step": 1024.0,
+      "termination_rate": 0.25,
+      "trajectory_action_anchor_loss_mean": 1.2591565716017309e-05,
+      "update": 1.0
+    }
+  }
+}

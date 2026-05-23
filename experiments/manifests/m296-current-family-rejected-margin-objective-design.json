@@ -1,0 +1,84 @@
+{
+  "id": "m296-current-family-rejected-margin-objective-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m290_row16_aware_balanced_repeat_fresh_seed/interpolation/checkpoints/alpha_0_5.pt"
+    ],
+    "parent_dataset": [
+      "runs/m295_current_family_ppo_repair_audit/failed_row_comparison.csv",
+      "runs/m294_current_family_rejected_repair_ppo_smoke/gates/raw_m267_m264/boundary_replay_rows.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m295-current-family-ppo-repair-audit.json",
+      "docs/m295-current-family-ppo-repair-audit.md"
+    ],
+    "parent_objective": [
+      "design direct current-family rejected-history margin/preference objective after M294 trajectory action anchoring failed"
+    ],
+    "derived_from": [
+      "m295-current-family-ppo-repair-audit"
+    ],
+    "blocked_by": [
+      "m295-current-family-ppo-repair-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m296-current-family-rejected-margin-objective-design.md",
+  "public_gates": [
+    "do not run PPO",
+    "preserve human-view actor input contract",
+    "define the direct rejected-history margin/preference objective",
+    "define the exact M270 no-regression and M267/M264 retention gates required before PPO",
+    "state how the objective differs from stronger trajectory action anchoring"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train a driver in M296",
+    "do not promote M291 or M294",
+    "do not change actor inputs",
+    "do not use hidden vehicle parameters as actor inputs",
+    "do not treat a lower action-anchor loss as proof retention"
+  ],
+  "hypothesis": "M291 and M294 fail because action-anchor pressure is not a direct constraint on rejected-history outcomes; a margin/preference objective that scores correct-history versus wrong-history rollouts can target current-family proof retention before PPO.",
+  "success_criteria": [
+    "write a concrete objective design with inputs, labels, loss terms, and pass/fail gates",
+    "identify the exact artifacts needed for implementation",
+    "pre-register the next implementation or objective-sanity milestone",
+    "keep PPO blocked until the objective has a no-training sanity check"
+  ],
+  "failure_criteria": [
+    "objective is only another stronger action anchor",
+    "design requires privileged actor inputs",
+    "design lacks an exact M270 no-regression guard",
+    "PPO is run"
+  ],
+  "commands": [
+    {
+      "name": "m296_design",
+      "command": "Design the direct current-family rejected-history margin/preference objective and its no-PPO sanity gates."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m296-current-family-rejected-margin-objective-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m290_row16_aware_balanced_repeat_fresh_seed/interpolation/checkpoints/alpha_0_5.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m295-current-family-ppo-repair-audit.md",
+    "runs/m295_current_family_ppo_repair_audit/summary.json"
+  ],
+  "decision_rule": "M296 should produce an implementable no-PPO objective design; PPO remains blocked until a later objective-sanity milestone validates the new loss.",
+  "next_blocker": "pending M296 direct rejected-history margin/preference objective design"
+}

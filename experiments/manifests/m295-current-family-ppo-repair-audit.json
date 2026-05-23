@@ -2,9 +2,10 @@
   "id": "m295-current-family-ppo-repair-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "repair",
   "failure_types": [
-    "none"
+    "proof_washout",
+    "objective_overfit"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -86,5 +87,26 @@
     "runs/m294_current_family_rejected_repair_ppo_smoke/summary.json"
   ],
   "decision_rule": "M295 should not train; it should decide whether to build a direct rejected-history margin/preference objective.",
-  "next_blocker": "pending M295 current-family PPO repair audit"
+  "audit_result": {
+    "m291raw_failed_m267_rows": [
+      6,
+      11,
+      15,
+      16
+    ],
+    "m294raw_failed_m267_rows": [
+      6,
+      15,
+      16
+    ],
+    "m294_recovered_rows_vs_m291": [
+      11
+    ],
+    "m291raw_exact_m270_delta_vs_m290": 0.0005027055740356445,
+    "m294raw_exact_m270_delta_vs_m290": 0.0006152987480163574,
+    "m294_minus_m291_exact_m270_delta": 0.00011259317398071289,
+    "interpretation": "M294 anchor pressure partially restores current-family wrong-history rejection but every nonzero interpolation worsens exact M270, so stronger trajectory action anchoring is a misaligned PPO repair control variable."
+  },
+  "decision": "design_direct_current_family_rejected_history_margin_preference_objective",
+  "next_blocker": "m296 current-family rejected-history margin/preference objective design before any further PPO"
 }

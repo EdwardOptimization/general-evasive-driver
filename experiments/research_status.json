@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 303,
+    "completed": 304,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m294-current-family-rejected-repair-ppo-smoke.md",
+    "command_log": "docs/m295-current-family-ppo-repair-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m294_current_family_rejected_repair_ppo_smoke",
+    "run_dir": "runs/m295_current_family_ppo_repair_audit",
     "status": "completed",
-    "task_id": "m294-current-family-rejected-repair-ppo-smoke"
+    "task_id": "m295-current-family-ppo-repair-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m295-current-family-ppo-repair-audit.json",
-    "hypothesis": "M294 shows trajectory-anchor pressure helps M267 retention but is the wrong control variable for exact M270; the next repair needs a direct current-family rejected-history margin/preference objective.",
-    "id": "m295-current-family-ppo-repair-audit",
-    "kind": "gate",
-    "notes": "Pending: no-PPO M291 versus M294 repair audit",
-    "priority": 2900,
+    "command": "see experiments/manifests/m296-current-family-rejected-margin-objective-design.json",
+    "hypothesis": "M291 and M294 fail because action-anchor pressure is not a direct constraint on rejected-history outcomes; design a current-family margin/preference objective before PPO.",
+    "id": "m296-current-family-rejected-margin-objective-design",
+    "kind": "infrastructure",
+    "notes": "Pending: no-PPO objective design for direct current-family rejected-history proof retention",
+    "priority": 2910,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260522T200755Z"
+  "updated_at_utc": "20260523T002104Z"
 }
