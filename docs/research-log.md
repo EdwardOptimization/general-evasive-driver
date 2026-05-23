@@ -9904,3 +9904,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M426 adds per-row and per-source trajectory-anchor loss helpers, a deterministic projected recovery-gradient helper, and an optional `--project-recovery-gradient` exact-repair path. It exports a `197`-row hard-guard anchor containing M267 rows `6` and `15`, old-key `10023`, and spillover guards `9951`/`9939`, while excluding recovery-related old-key sources `10004` and `9998`. The default-disabled no-update smoke passes exact gates with replay trajectory loss `0.0`; focused tests pass (`32 passed`).
 - decision: `admit_m427_source_coupled_nullspace_projection_probe`
 - next: `m427-source-coupled-nullspace-projection-probe`
+
+## 20260523T174644Z - m427-source-coupled-nullspace-projection-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m427_projected_recovery_ltraj1e13_s40_seed10156`
+- artifact: `docs/m427-source-coupled-nullspace-projection-probe.md`
+- result: M427 enables projected recovery gradients with the M426 hard-guard anchor. Exact M297/M270/old-key gates pass and recovery retained vs M406 rises to `0.174354`, above M423 `mixed_b` but below the `0.20` primary target. M267/M264 first replay passes `17/17`, but old-key compact fails `36/40`: `10004` wrong-history branch becomes safe, `10023` loses gap, and two `9872` rows fail by normal-branch collision. M183/M170 is skipped because old-key failed first.
+- decision: `reject_m427_projected_candidate_admit_m428_old_key_branch_split_guard_audit`
+- next: `m428-old-key-branch-split-guard-audit`

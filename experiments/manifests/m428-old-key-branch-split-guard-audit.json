@@ -1,0 +1,82 @@
+{
+  "id": "m428-old-key-branch-split-guard-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m427_projected_recovery_ltraj1e13_s40_seed10156/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m427_projected_old_key_targeted_replay/guard_results.csv",
+      "runs/m426_source_coupled_hard_guard_anchor/hard_guard_anchor.npz",
+      "runs/m398_old_key_normal_margin_recovery_targets/old_key_recovery_corpus.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m427-source-coupled-nullspace-projection-probe.json"
+    ],
+    "parent_objective": [
+      "audit old-key failures after projected recovery improves utility but fails compact replay"
+    ],
+    "derived_from": [
+      "m427-source-coupled-nullspace-projection-probe"
+    ],
+    "blocked_by": [
+      "m427-source-coupled-nullspace-projection-probe"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m428-old-key-branch-split-guard-audit.md",
+  "public_gates": [
+    "no PPO run",
+    "no checkpoint promotion",
+    "classify M427 old-key failed rows by normal-branch vs wrong-history-branch regression",
+    "decide whether 10004 needs branch-split recovery and rejected-history guarding",
+    "decide whether 9872 requires added normal-branch hard guard"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "hypothesis": "M427 failed old-key because the M426 hard-guard set excluded branch-specific constraints on 10004 and omitted 9872 normal-branch guards, not because projected recovery is useless.",
+  "success_criteria": [
+    "attribute all M427 old-key failed cases to normal-branch or wrong-history-branch mechanisms",
+    "define whether 10004 should split normal recovery from rejected-history guard",
+    "define whether 9872 should be added as a normal-branch hard guard",
+    "pre-register the next implementation or stop the projected recovery path"
+  ],
+  "failure_criteria": [
+    "audit cannot explain the four old-key failures",
+    "audit recommends another projection without changing the hard guard set",
+    "audit changes actor inputs or output contract",
+    "audit lowers old-key thresholds"
+  ],
+  "commands": [
+    {
+      "name": "old_key_branch_split_guard_audit",
+      "command": "Analyze M427 old-key replay failures; no PPO or new projection run."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m428-old-key-branch-split-guard-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m427-source-coupled-nullspace-projection-probe.md"
+  ],
+  "decision_rule": "M428 should admit branch-split guard implementation only if the failed old-key rows have clear branch-specific mechanisms; otherwise stop the projected recovery path.",
+  "next_blocker": "pending M428 old-key branch-split guard audit"
+}

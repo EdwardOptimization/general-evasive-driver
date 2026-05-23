@@ -2,9 +2,11 @@
   "id": "m427-source-coupled-nullspace-projection-probe",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "protected_key_window_failure",
+    "proof_washout",
+    "promotion_gate_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -83,5 +85,39 @@
     "docs/m426-source-coupled-nullspace-implementation.md"
   ],
   "decision_rule": "M427 may admit a full public gate only if exact gates and first proof gates pass; proof-pass utility below 0.20 remains non-promotable partial evidence.",
-  "next_blocker": "pending M427 source-coupled nullspace projection probe"
+  "next_blocker": "m428-old-key-branch-split-guard-audit",
+  "results": {
+    "artifact": "docs/m427-source-coupled-nullspace-projection-probe.md",
+    "projection_run": "runs/m427_projected_recovery_ltraj1e13_s40_seed10156",
+    "candidate_checkpoint": "runs/m427_projected_recovery_ltraj1e13_s40_seed10156/candidate_checkpoint.pt",
+    "exact_pass": true,
+    "exact_m297_delta_vs_base": -1.0251998901367188e-05,
+    "exact_m270_delta_vs_base": -8.094310760498047e-05,
+    "old_key_surrogate_delta_vs_base": -0.00038814544677734375,
+    "replay_trajectory_anchor_loss": 2.1078827572296177e-09,
+    "old_key_recovery_preferred_loss": 0.0036920448765158653,
+    "recovery_improvement_retained_vs_m406": 0.17435400926925274,
+    "m267_m264_run_dir": "runs/m427_projected_m267_m264_first_replay",
+    "m267_m264_gate_pass": true,
+    "m267_m264_success_drops": 17,
+    "old_key_targeted_run_dir": "runs/m427_projected_old_key_targeted_replay",
+    "old_key_run_dir": "runs/m427_projected_old_key_replay_gate",
+    "old_key_gate_pass": false,
+    "old_key_accepted_cases": 36,
+    "old_key_total_cases": 40,
+    "old_key_failed_cases": [
+      "10004|perturbed|31|31",
+      "10023|perturbed|12|12",
+      "9872|perturbed|21|18"
+    ],
+    "m183_m170_run": false,
+    "m183_m170_skip_reason": "old-key compact replay failed first",
+    "classification": "projected_recovery_improves_utility_but_old_key_guard_set_incomplete",
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m428-old-key-branch-split-guard-audit"
+  },
+  "decision": "reject_m427_projected_candidate_admit_m428_old_key_branch_split_guard_audit"
 }

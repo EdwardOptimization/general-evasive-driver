@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 435,
+        "completed": 436,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m426-source-coupled-nullspace-implementation",
+        "task_id": "m427-source-coupled-nullspace-projection-probe",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m426_hard_guard_no_update_smoke",
-        "command_log": "docs/m426-source-coupled-nullspace-implementation.md"
+        "run_dir": "runs/m427_projected_recovery_ltraj1e13_s40_seed10156",
+        "command_log": "docs/m427-source-coupled-nullspace-projection-probe.md"
     },
     "next_task": {
-        "id": "m427-source-coupled-nullspace-projection-probe",
+        "id": "m428-old-key-branch-split-guard-audit",
         "status": "pending",
-        "priority": 4220,
+        "priority": 4230,
         "kind": "gate",
-        "hypothesis": "Probe source-coupled projected recovery without PPO",
-        "command": "see experiments/manifests/m427-source-coupled-nullspace-projection-probe.json",
+        "hypothesis": "Audit branch-specific old-key failures after projected recovery",
+        "command": "see experiments/manifests/m428-old-key-branch-split-guard-audit.json",
         "success_artifact": "",
-        "notes": "Pending: run exact repair with projected recovery gradient and M426 hard guard anchor; no PPO or promotion"
+        "notes": "Pending: classify M427 old-key failures and design branch-split guard update; no PPO or promotion"
     },
-    "updated_at_utc": "20260523T174108Z"
+    "updated_at_utc": "20260523T174644Z"
 }

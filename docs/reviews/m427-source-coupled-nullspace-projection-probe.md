@@ -1,0 +1,88 @@
+# m427-source-coupled-nullspace-projection-probe Research Review
+
+## Summary
+
+- Generated at UTC: 20260523T174859Z
+- Type: gate
+- Gate tier: proof
+- Promotion decision: reject_m427_projected_candidate_admit_m428_old_key_branch_split_guard_audit
+- Decision reason: M427 projected recovery improves utility to 17.4 percent and preserves M267 17 of 17 but fails old-key compact 36 of 40 because 10004 wrong branch 10023 gap and 9872 normal branch regress
+
+## Hypothesis
+
+Projected recovery gradients can recover more M398 utility than M423 mixed_b while preserving exact gates and active replay proof rows.
+
+## Lineage
+
+- parent_checkpoint: runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt, runs/m403_lrec1e10_interpolation/checkpoints/alpha_0_1.pt
+- parent_dataset: runs/m398_old_key_normal_margin_recovery_targets/old_key_recovery_corpus.npz, runs/m426_source_coupled_hard_guard_anchor/hard_guard_anchor.npz
+- parent_config: experiments/manifests/m426-source-coupled-nullspace-implementation.json
+- parent_objective: no-PPO exact projection with projected recovery gradient and source-coupled hard guards
+- derived_from: m426-source-coupled-nullspace-implementation
+- blocked_by: m424-mixed-radius-utility-ceiling-audit
+- supersedes: None
+- invalidates: None
+
+## Success Criteria
+
+- candidate passes exact M297/M270/old-key no-regression
+- candidate passes M267/M264 first replay with 17/17 success drops
+- candidate passes old-key compact replay with 40/40 accepted
+- candidate passes M183/M170 first replay with 17/17 success drops
+- candidate retains at least 20% of M406 recovery improvement for primary pass
+
+## Failure Criteria
+
+- exact gates regress
+- M267/M264 rows 6 or 15 become wrong-history successes
+- old-key 10023 or spillover guards fail
+- candidate remains below M423 mixed_b utility
+- actor input or output contract changes
+
+## Evidence Gates
+
+- exact M297 no-regression
+- exact M270 no-regression
+- old-key surrogate no-regression
+- M267/M264 first replay
+- old-key compact replay
+- M183/M170 first replay if first gates pass
+- recovery improvement retained vs M406 >= 0.20 for primary pass
+- recovery improvement retained vs M423 mixed_b must improve for partial pass
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run PPO
+- do not promote checkpoint
+- do not lower exact or replay thresholds
+- do not add hidden or oracle actor inputs
+- do not make replay labels actor inputs
+
+## Failure Taxonomy
+
+- protected_key_window_failure
+- proof_washout
+- promotion_gate_failure
+
+## Scoreboard
+
+- milestone: m427-source-coupled-nullspace-projection-probe
+- type: gate
+- checkpoint: runs/m427_projected_recovery_ltraj1e13_s40_seed10156/candidate_checkpoint.pt
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: reject_m427_projected_candidate_admit_m428_old_key_branch_split_guard_audit
+- reason: M427 projected recovery improves utility to 17.4 percent and preserves M267 17 of 17 but fails old-key compact 36 of 40 because 10004 wrong branch 10023 gap and 9872 normal branch regress
+
+## Next Blocker
+
+m428-old-key-branch-split-guard-audit
