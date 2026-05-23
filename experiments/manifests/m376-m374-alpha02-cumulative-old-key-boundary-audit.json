@@ -78,6 +78,30 @@
     "docs/m375-full-public-gate-for-m374-a010.md",
     "runs/m375_full_public_gate_for_m374_a010/summary.json"
   ],
-  "decision_rule": "M376 completes when the alpha 0.2 cumulative old-key boundary is classified and the next non-PPO repair or PPO decision is registered.",
-  "next_blocker": "pending M376 alpha 0.2 cumulative old-key boundary audit"
+  "results": {
+    "run_dir": "runs/m376_alpha02_cumulative_old_key_boundary_audit",
+    "promoted_checkpoint_unchanged": "runs/m374_gap_tail_final_interpolation/checkpoints/alpha_0_1.pt",
+    "failed_checkpoint": "runs/m374_gap_tail_final_interpolation/checkpoints/alpha_0_2.pt",
+    "candidate_gate_pass": false,
+    "candidate_accepted_regressions": 0,
+    "candidate_normal_success_regressions": 0,
+    "candidate_gap_mean": -0.00009367921268764256,
+    "candidate_gap_p10": -0.0005269527636010208,
+    "candidate_gap_min": -0.0011198534363200986,
+    "rows_gap_le_m0005": 4,
+    "rows_gap_le_m001": 1,
+    "worst_case_id": "10033|perturbed|29|23|9.500000|-1.200000|0.700000",
+    "worst_gap_delta": -0.00111985343632,
+    "worst_normal_delta": -0.000912754958789,
+    "worst_wrong_delta": 0.000207098477531,
+    "failure_class": "cumulative_old_key_gap_tail_erosion",
+    "broad_proof_washout": false,
+    "thresholds_changed": false,
+    "checkpoint_promoted": false,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m377_cumulative_gap_tail_v2_corpus_refresh",
+  "decision_rule": "M376 classifies alpha 0.2 as cumulative old-key gap-tail erosion with no accepted regressions, so the next step is a v2 gap-tail overlay/corpus refresh before more repair or PPO.",
+  "next_blocker": "m377-cumulative-gap-tail-v2-corpus-refresh"
 }

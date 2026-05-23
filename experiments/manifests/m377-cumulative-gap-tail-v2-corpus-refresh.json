@@ -1,0 +1,84 @@
+{
+  "id": "m377-cumulative-gap-tail-v2-corpus-refresh",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m374_gap_tail_final_interpolation/checkpoints/alpha_0_1.pt",
+      "runs/m374_gap_tail_final_interpolation/checkpoints/alpha_0_2.pt"
+    ],
+    "parent_dataset": [
+      "runs/m376_alpha02_cumulative_old_key_boundary_audit/gap_tail_rows.csv",
+      "runs/m376_alpha02_cumulative_old_key_boundary_audit/worst_gap_rows.csv",
+      "docs/m376-m374-alpha02-cumulative-old-key-boundary-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m376-m374-alpha02-cumulative-old-key-boundary-audit.json"
+    ],
+    "parent_objective": [
+      "refresh the old-key feedback overlay/corpus for the current M375 cumulative gap-tail boundary"
+    ],
+    "derived_from": [
+      "m376-m374-alpha02-cumulative-old-key-boundary-audit"
+    ],
+    "blocked_by": [
+      "m376-m374-alpha02-cumulative-old-key-boundary-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m377-cumulative-gap-tail-v2-corpus-refresh.md",
+  "public_gates": [
+    "infrastructure/corpus refresh only; no PPO run",
+    "keep M375 alpha 0.1 as current promoted base",
+    "export v2 overlay from M376 gap-tail rows",
+    "export old-key preference corpus from the current M375 base",
+    "verify no-update exact repair smoke reads the v2 corpus",
+    "preserve actor input contract"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not lower old-key thresholds",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "hypothesis": "Refreshing the old-key overlay/corpus with M376 alpha 0.2 gap-tail rows can make the current cumulative boundary visible to exact repair without changing actor inputs.",
+  "success_criteria": [
+    "v2 overlay records the M376 gap-tail rows and branch weights",
+    "v2 old-key preference corpus is exported from the M375 base",
+    "no-update exact repair smoke reads the v2 corpus",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "v2 overlay changes actor inputs",
+    "corpus export fails",
+    "no-update exact repair smoke fails",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "refresh_v2_overlay_and_corpus",
+      "command": "Export a v2 old-key feedback overlay/corpus from M376 alpha 0.2 gap-tail rows; do not run PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m377-cumulative-gap-tail-v2-corpus-refresh.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m374_gap_tail_final_interpolation/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m376-m374-alpha02-cumulative-old-key-boundary-audit.md",
+    "runs/m376_alpha02_cumulative_old_key_boundary_audit/summary.json"
+  ],
+  "decision_rule": "M377 completes when the M376 cumulative gap-tail boundary is converted into a v2 old-key corpus and verified by no-update exact repair.",
+  "next_blocker": "pending M377 cumulative gap-tail v2 corpus refresh"
+}

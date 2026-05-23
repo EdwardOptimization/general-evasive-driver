@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260523T124204Z
+- Generated at UTC: 20260523T124438Z
 - Type: gate
 - Gate tier: proof
-- Promotion decision: not_applicable
-- Decision reason: M376 completes when the alpha 0.2 cumulative old-key boundary is classified and the next non-PPO repair or PPO decision is registered.
+- Promotion decision: admit_m377_cumulative_gap_tail_v2_corpus_refresh
+- Decision reason: M376 classifies alpha 0.2 as cumulative old-key gap-tail erosion with zero accepted regressions four rows below -0.0005 and one row below -0.001
 
 ## Hypothesis
 
@@ -62,8 +62,19 @@ The first tested M374 alpha 0.2 failure is likely a cumulative old-key lower-tai
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m376-m374-alpha02-cumulative-old-key-boundary-audit
+- type: gate
+- checkpoint: runs/m374_gap_tail_final_interpolation/checkpoints/alpha_0_1.pt
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: admit_m377_cumulative_gap_tail_v2_corpus_refresh
+- reason: M376 classifies alpha 0.2 as cumulative old-key gap-tail erosion with zero accepted regressions four rows below -0.0005 and one row below -0.001
 
 ## Next Blocker
 
-pending M376 alpha 0.2 cumulative old-key boundary audit
+m377-cumulative-gap-tail-v2-corpus-refresh

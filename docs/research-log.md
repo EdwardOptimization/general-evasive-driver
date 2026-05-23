@@ -9394,3 +9394,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M375 promotes `runs/m374_gap_tail_final_interpolation/checkpoints/alpha_0_1.pt`. It retains cumulative old-key proof from M374, source-diverse protected gates `5/5`, all six public replay surfaces, and behavior seeds `9505`/`9506`. Behavior success mean remains `0.8625`, termination mean `0.1375`, clearance margin mean `1.844192756`, reset success mean `0.85`, and zero-all success mean `0.80`. This is a bounded proof-safe promotion; alpha `0.2` toward the same final repair remains the first tested cumulative old-key gap-p10 failure.
 - decision: `promote_m374_a010_gap_tail_weighted_public_gate_base`
 - next: `m376-m374-alpha02-cumulative-old-key-boundary-audit`
+
+## 20260523T124311Z - m376-m374-alpha02-cumulative-old-key-boundary-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m376_alpha02_cumulative_old_key_boundary_audit`
+- artifact: `docs/m376-m374-alpha02-cumulative-old-key-boundary-audit.md`
+- result: M376 audits the first tested failing alpha `0.2` beyond the M375 base. It has zero accepted regressions and zero normal-success regressions, but cumulative old-key gap p10 is `-0.000526953`, below the `-0.0005` floor. Four rows are below `-0.0005`, one row is below `-0.001`, and the worst row is `10033|perturbed|29|23|9.500000|-1.200000|0.700000` with gap delta `-0.001119853`.
+- decision: `admit_m377_cumulative_gap_tail_v2_corpus_refresh`
+- next: `m377-cumulative-gap-tail-v2-corpus-refresh`

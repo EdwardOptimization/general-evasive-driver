@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 384,
+        "completed": 385,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m375-full-public-gate-for-m374-a010",
+        "task_id": "m376-m374-alpha02-cumulative-old-key-boundary-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m375_full_public_gate_for_m374_a010",
-        "command_log": "docs/m375-full-public-gate-for-m374-a010.md"
+        "run_dir": "runs/m376_alpha02_cumulative_old_key_boundary_audit",
+        "command_log": "docs/m376-m374-alpha02-cumulative-old-key-boundary-audit.md"
     },
     "next_task": {
-        "id": "m376-m374-alpha02-cumulative-old-key-boundary-audit",
+        "id": "m377-cumulative-gap-tail-v2-corpus-refresh",
         "status": "pending",
-        "priority": 3710,
-        "kind": "gate",
-        "hypothesis": "Audit the first cumulative old-key failure beyond the newly promoted M375 alpha 0.1 base",
-        "command": "see experiments/manifests/m376-m374-alpha02-cumulative-old-key-boundary-audit.json",
+        "priority": 3720,
+        "kind": "infrastructure",
+        "hypothesis": "Refresh the cumulative old-key gap-tail overlay/corpus for the current M375 boundary",
+        "command": "see experiments/manifests/m377-cumulative-gap-tail-v2-corpus-refresh.json",
         "success_artifact": "",
-        "notes": "Pending: classify alpha 0.2 lower-tail boundary before more repair or PPO"
+        "notes": "Pending: export v2 overlay/corpus and no-update exact repair smoke before another repair probe"
     },
-    "updated_at_utc": "20260523T124026Z"
+    "updated_at_utc": "20260523T124311Z"
 }
