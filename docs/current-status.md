@@ -55,7 +55,7 @@ keeping `9944` visible through the old-key neighborhood diagnostics.
 Current blocker:
 
 ```text
-m350-old-key-neighborhood-ppo-escalation-design
+m351-old-key-neighborhood-ppo-escalation-run
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -69,8 +69,9 @@ alpha.
 M348 checks `m335_a010` beyond old-key replay. It passes exact M297/M270
 no-regression versus the previous M336 base, source-diverse protected gates
 `5/5`, and first replay gates M183/M170 plus M267/M264. M349 then promotes it
-after all six public replay gates and behavior seeds pass. M350 should design
-the next PPO escalation from this new base before any training is run.
+after all six public replay gates and behavior seeds pass. M350 registers the
+next short PPO escalation design from this new base without running training.
+M351 is the next proposal-only PPO run.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -136,7 +137,8 @@ the next PPO escalation from this new base before any training is run.
 | old-key alpha sweep | `runs/m347_old_key_alpha_sweep/summary.json` | M347 finds `alpha=0.01` is the largest old-key-neighborhood-passing M335 interpolation alpha and `alpha=0.02` is the first failing alpha |
 | exact/source-diverse probe | `runs/m348_m335_a010_probe/summary.json` | M348 passes exact M297/M270, source-diverse protected gates, old-key neighborhood, and first replay gates for `m335_a010` |
 | current public-gate base | `runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_01.pt` | M349 promotes alpha 0.01 after exact, source-diverse, old-key neighborhood, six replay, and behavior gates pass |
-| current blocker | `experiments/manifests/m350-old-key-neighborhood-ppo-escalation-design.json` | M350 must design the next PPO escalation from the M349 base before any training |
+| next PPO config | `configs/ppo_m351_old_key_neighborhood_escalation.json` | M350 registers a short proposal-only PPO continuation from M349 base with exact/source-diverse/old-key-neighborhood gates |
+| current blocker | `experiments/manifests/m351-old-key-neighborhood-ppo-escalation-run.json` | M351 must run PPO as proposal only, then exact repair and proof gates before any full public gate |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

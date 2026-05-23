@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 358,
+        "completed": 359,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m349-full-public-gate-for-m335-a010",
+        "task_id": "m350-old-key-neighborhood-ppo-escalation-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m349_full_public_gate_for_m335_a010",
-        "command_log": "runs/m349_full_public_gate_for_m335_a010/summary.json"
+        "run_dir": "docs/m350-old-key-neighborhood-ppo-escalation-design.md",
+        "command_log": "docs/m350-old-key-neighborhood-ppo-escalation-design.md"
     },
     "next_task": {
-        "id": "m350-old-key-neighborhood-ppo-escalation-design",
+        "id": "m351-old-key-neighborhood-ppo-escalation-run",
         "status": "pending",
-        "priority": 3450,
-        "kind": "infrastructure",
-        "hypothesis": "After M349 promotion, the next PPO continuation should be designed around exact repair plus source-diverse and old-key-neighborhood proof retention before any training is run.",
-        "command": "see experiments/manifests/m350-old-key-neighborhood-ppo-escalation-design.json",
+        "priority": 3460,
+        "kind": "driver_candidate",
+        "hypothesis": "A short PPO proposal from the M349 public base may yield an exact-repair candidate that preserves source-diverse proof and old-key neighborhood proof before first replay gates.",
+        "command": "see experiments/manifests/m351-old-key-neighborhood-ppo-escalation-run.json",
         "success_artifact": "",
-        "notes": "Pending: register PPO continuation design before any training"
+        "notes": "Pending: run PPO proposal exact repair old-key neighborhood and first replay gates"
     },
-    "updated_at_utc": "20260523T102134Z"
+    "updated_at_utc": "20260523T102202Z"
 }

@@ -9134,3 +9134,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M349 promotes `m335_a010`. Exact M297/M270 remain non-regressing versus M336 base; source-diverse protected gates pass `5/5`; M347 old-key neighborhood gate passes with `0` accepted regressions; all six public replay gates retain their success drops (`16/16`, `17/17`, `14/14`, `17/17`, `17/17`, `17/17`); behavior seeds `9505` and `9506` both keep success `0.8625`, reset success mean `0.85`, and zero-all success mean `0.80`.
 - decision: `promote_m335_a010_old_key_neighborhood_public_gate_base`
 - next: `m350-old-key-neighborhood-ppo-escalation-design`
+
+## 20260523T102202Z - m350-old-key-neighborhood-ppo-escalation-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `docs/m350-old-key-neighborhood-ppo-escalation-design.md`
+- artifact: `docs/m350-old-key-neighborhood-ppo-escalation-design.md`
+- result: M350 registers the next short PPO proposal from M349 base without running PPO. The M351 config keeps `4096` total steps, learning rate `5e-7`, seed `5239`, and the existing M335 guard coefficients, while updating baseline/snippet anchors to `runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_01.pt`. The planned gate order is raw PPO proposal, exact M297/M270 repair, source-diverse protected gates, old-key neighborhood targeted replay plus replay adapter, interpolation if needed, and first replay gates before any full public gate.
+- decision: `admit_m351_old_key_neighborhood_ppo_escalation_run`
+- next: `m351-old-key-neighborhood-ppo-escalation-run`

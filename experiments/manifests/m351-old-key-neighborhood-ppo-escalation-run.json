@@ -1,0 +1,95 @@
+{
+  "id": "m351-old-key-neighborhood-ppo-escalation-run",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_01.pt"
+    ],
+    "parent_dataset": [
+      "runs/m349_full_public_gate_for_m335_a010/summary.json",
+      "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz"
+    ],
+    "parent_config": [
+      "configs/ppo_m351_old_key_neighborhood_escalation.json",
+      "experiments/manifests/m350-old-key-neighborhood-ppo-escalation-design.json",
+      "docs/m350-old-key-neighborhood-ppo-escalation-design.md"
+    ],
+    "parent_objective": [
+      "run short PPO proposal from M349 base with exact repair and old-key neighborhood acceptance"
+    ],
+    "derived_from": [
+      "m350-old-key-neighborhood-ppo-escalation-design"
+    ],
+    "blocked_by": [
+      "m350-old-key-neighborhood-ppo-escalation-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m351-old-key-neighborhood-ppo-escalation-run.md",
+  "public_gates": [
+    "raw PPO is proposal-only",
+    "exact M297 and exact M270 no-regression versus M349",
+    "source-diverse protected gate pass",
+    "old-key neighborhood replay gate pass",
+    "M183/M170 and M267/M264 first replay gates pass before any full public gate",
+    "do not promote directly"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not promote raw PPO",
+    "do not skip exact repair",
+    "do not skip old-key neighborhood targeted replay",
+    "do not use singleton 9944 as the only old-key gate",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "A short PPO proposal from the M349 public base may yield an exact-repair candidate that preserves source-diverse proof and old-key neighborhood proof before first replay gates.",
+  "success_criteria": [
+    "raw PPO completes as proposal-only",
+    "exact repair candidate does not regress exact M297/M270 versus M349",
+    "selected candidate passes source-diverse protected gates",
+    "selected candidate passes old-key neighborhood replay gate",
+    "selected candidate passes M183/M170 and M267/M264 first replay gates",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "raw PPO cannot run",
+    "exact repair regresses M297 or M270",
+    "source-diverse protected gate fails",
+    "old-key neighborhood gate fails without a passing interpolation",
+    "first replay gate fails",
+    "actor input contract changes"
+  ],
+  "commands": [
+    {
+      "name": "raw_ppo",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_m351_old_key_neighborhood_escalation.json --init-checkpoint runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_01.pt --run-dir runs/ppo_m351_old_key_neighborhood_escalation_seed5239"
+    },
+    {
+      "name": "exact_repair",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.exact_post_ppo_repair --base-checkpoint runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_01.pt --raw-checkpoint runs/ppo_m351_old_key_neighborhood_escalation_seed5239/checkpoint.pt --preference-npz runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz --outcome-npz runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz --device cpu --start-mode repair_from_raw --steps 40 --seed 10101 --run-dir runs/m351_exact_repair_from_raw_s40_seed10101"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m351-old-key-neighborhood-ppo-escalation-run.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_01.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m350-old-key-neighborhood-ppo-escalation-design.md",
+    "configs/ppo_m351_old_key_neighborhood_escalation.json"
+  ],
+  "decision_rule": "M351 can only admit a full public gate after exact repair, source-diverse protected gates, old-key neighborhood gate, and first replay gates pass. It cannot promote directly.",
+  "next_blocker": "pending M351 old-key-neighborhood PPO escalation run"
+}
