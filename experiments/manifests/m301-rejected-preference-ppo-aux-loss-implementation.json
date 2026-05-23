@@ -2,7 +2,7 @@
   "id": "m301-rejected-preference-ppo-aux-loss-implementation",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -77,6 +77,28 @@
   "baseline_artifacts": [
     "docs/m300-rejected-preference-ppo-guard-design.md"
   ],
-  "decision_rule": "M301 may admit one smoke PPO only after implementation tests pass and the smoke manifest pre-registers exact M297, exact M270, replay, protected-key, and behavior gates.",
-  "next_blocker": "pending M301 rejected-preference PPO auxiliary-loss implementation"
+  "results": {
+    "implementation_files": [
+      "src/autodrift/train_ppo.py",
+      "tests/test_train_ppo_rejected_preference_aux.py",
+      "configs/ppo_m302_rejected_preference_guarded_smoke.json"
+    ],
+    "new_config_fields": [
+      "rejected_history_preference_aux_coef",
+      "rejected_history_preference_snapshot_npz",
+      "rejected_history_preference_batch_size",
+      "rejected_history_preference_preferred_logprob_margin",
+      "rejected_history_preference_wrong_logprob_margin",
+      "rejected_history_preference_wrong_preference_coef"
+    ],
+    "tests": [
+      "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_train_ppo_rejected_preference_aux.py tests/test_rejected_history_preference_objective.py"
+    ],
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false,
+    "next_task": "m302-rejected-preference-guarded-ppo-smoke"
+  },
+  "decision_rule": "M301 admits one M302 smoke PPO because the rejected-history preference auxiliary loss is implemented with tests and the smoke manifest is pre-registered.",
+  "decision": "admit_m302_rejected_preference_guarded_ppo_smoke",
+  "next_blocker": "m302-rejected-preference-guarded-ppo-smoke"
 }

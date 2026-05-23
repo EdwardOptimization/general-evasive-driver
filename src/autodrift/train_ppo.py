@@ -29,10 +29,12 @@ from autodrift.intervention_objectives import (
     build_snippet_action_anchor,
     load_outcome_intervention_snippets,
     load_paired_hidden_snapshots,
+    load_rejected_history_preference_snippets,
     load_trajectory_action_anchor,
     logprob_intervention_contrast_loss,
     outcome_weighted_intervention_loss,
     paired_hidden_action_contrast_loss,
+    rejected_history_preference_loss,
     snippet_action_anchor_loss,
     trajectory_action_anchor_loss,
 )
@@ -114,6 +116,46 @@ def normalize_outcome_intervention_source_losses(raw_sources: Any) -> list[dict[
     return normalized
 
 
+def validate_rejected_history_preference_aux_config(
+    config: "PPOConfig",
+    *,
+    uses_online_recurrent: bool,
+) -> None:
+    if config.rejected_history_preference_aux_coef < 0.0:
+        raise ValueError("rejected_history_preference_aux_coef cannot be negative")
+    if config.rejected_history_preference_aux_coef <= 0.0:
+        return
+    if not uses_online_recurrent or not config.recurrent_sequence_training:
+        raise ValueError("rejected-history preference auxiliary loss requires online recurrent sequence training")
+    if not str(config.rejected_history_preference_snapshot_npz).strip():
+        raise ValueError(
+            "rejected_history_preference_snapshot_npz is required when rejected-history preference auxiliary loss is enabled"
+        )
+    if config.rejected_history_preference_batch_size < 1:
+        raise ValueError("rejected_history_preference_batch_size must be positive")
+    if config.rejected_history_preference_preferred_logprob_margin < 0.0:
+        raise ValueError("rejected_history_preference_preferred_logprob_margin cannot be negative")
+    if config.rejected_history_preference_wrong_logprob_margin < 0.0:
+        raise ValueError("rejected_history_preference_wrong_logprob_margin cannot be negative")
+    if config.rejected_history_preference_wrong_preference_coef < 0.0:
+        raise ValueError("rejected_history_preference_wrong_preference_coef cannot be negative")
+
+
+def rejected_history_preference_auxiliary_loss(
+    model: nn.Module,
+    snippets: Any,
+    config: "PPOConfig",
+) -> torch.Tensor:
+    return rejected_history_preference_loss(
+        model,
+        snippets,
+        batch_size=config.rejected_history_preference_batch_size,
+        preferred_logprob_margin=config.rejected_history_preference_preferred_logprob_margin,
+        wrong_logprob_margin=config.rejected_history_preference_wrong_logprob_margin,
+        wrong_preference_coef=config.rejected_history_preference_wrong_preference_coef,
+    )
+
+
 @dataclass(frozen=True)
 class PPOConfig:
     total_steps: int = 50_000
@@ -155,6 +197,12 @@ class PPOConfig:
     outcome_intervention_batch_size: int = 128
     outcome_intervention_logprob_margin: float = 0.05
     outcome_intervention_source_losses: list[dict[str, Any]] = field(default_factory=list)
+    rejected_history_preference_aux_coef: float = 0.0
+    rejected_history_preference_snapshot_npz: str = ""
+    rejected_history_preference_batch_size: int = 128
+    rejected_history_preference_preferred_logprob_margin: float = 0.05
+    rejected_history_preference_wrong_logprob_margin: float = 0.05
+    rejected_history_preference_wrong_preference_coef: float = 1.0
     friction_bucket_aux_coef: float = 0.0
     friction_bucket_aux_observation_mask: str = "none"
     friction_bucket_aux_feature_source: str = "policy_features"
@@ -975,6 +1023,7 @@ def train(
     if outcome_intervention_source_configs:
         if not uses_online_recurrent or not config.recurrent_sequence_training:
             raise ValueError("outcome intervention source losses require online recurrent sequence training")
+    validate_rejected_history_preference_aux_config(config, uses_online_recurrent=uses_online_recurrent)
     if config.friction_bucket_aux_coef > 0.0:
         if not uses_online_recurrent or not config.recurrent_sequence_training:
             raise ValueError("friction bucket auxiliary loss requires online recurrent sequence training")
@@ -1122,6 +1171,22 @@ def train(
         )
         for source_config in outcome_intervention_source_configs
     ]
+    rejected_history_preference_snippets = (
+        load_rejected_history_preference_snippets(
+            config.rejected_history_preference_snapshot_npz,
+            device=device,
+            obs_dim=env.single_observation_space.shape[0],
+            hidden_size=config.hidden_size,
+            act_dim=env.single_action_space.shape[0],
+        )
+        if config.rejected_history_preference_aux_coef > 0.0
+        else None
+    )
+    if rejected_history_preference_snippets is not None:
+        print(
+            f"loaded_rejected_history_preference={config.rejected_history_preference_snapshot_npz} "
+            f"rows={rejected_history_preference_snippets.size}"
+        )
     snippet_action_anchor = None
     if config.snippet_action_anchor_coef > 0.0:
         snippet_anchor_npz = str(config.snippet_action_anchor_snapshot_npz).strip() or str(
@@ -1384,6 +1449,7 @@ def train(
             outcome_intervention_source_loss_values: dict[str, list[float]] = {
                 source_config["metric_token"]: [] for source_config, _ in outcome_intervention_source_snippets
             }
+            rejected_history_preference_loss_values: list[float] = []
             friction_bucket_loss_values: list[float] = []
             friction_bucket_accuracy_values: list[float] = []
             baseline_action_anchor_loss_values: list[float] = []
@@ -1490,6 +1556,17 @@ def train(
                         loss = loss + float(source_config["coef"]) * source_loss
                         outcome_intervention_source_loss_values[source_config["metric_token"]].append(
                             float(source_loss.detach().cpu().item())
+                        )
+                    if config.rejected_history_preference_aux_coef > 0.0:
+                        assert rejected_history_preference_snippets is not None
+                        preference_loss = rejected_history_preference_auxiliary_loss(
+                            model,
+                            rejected_history_preference_snippets,
+                            config,
+                        )
+                        loss = loss + config.rejected_history_preference_aux_coef * preference_loss
+                        rejected_history_preference_loss_values.append(
+                            float(preference_loss.detach().cpu().item())
                         )
                     if config.snippet_action_anchor_coef > 0.0:
                         assert snippet_action_anchor is not None
@@ -1695,6 +1772,17 @@ def train(
                 float(np.mean(values)) if values else float("nan")
             )
             row[f"outcome_intervention_source_{metric_token}_coef"] = float(source_config["coef"])
+        if (
+            config.rejected_history_preference_aux_coef > 0.0
+            and uses_online_recurrent
+            and config.recurrent_sequence_training
+        ):
+            row["rejected_history_preference_loss_mean"] = (
+                float(np.mean(rejected_history_preference_loss_values))
+                if rejected_history_preference_loss_values
+                else float("nan")
+            )
+            row["rejected_history_preference_aux_coef"] = float(config.rejected_history_preference_aux_coef)
         if config.friction_bucket_aux_coef > 0.0 and uses_online_recurrent and config.recurrent_sequence_training:
             row["friction_bucket_aux_loss_mean"] = (
                 float(np.mean(friction_bucket_loss_values)) if friction_bucket_loss_values else float("nan")

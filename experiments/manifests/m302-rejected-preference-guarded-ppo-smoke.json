@@ -1,0 +1,88 @@
+{
+  "id": "m302-rejected-preference-guarded-ppo-smoke",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt"
+    ],
+    "parent_dataset": [
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m302_rejected_preference_guarded_smoke.json",
+      "experiments/manifests/m301-rejected-preference-ppo-aux-loss-implementation.json",
+      "docs/m301-rejected-preference-ppo-aux-loss-implementation.md"
+    ],
+    "parent_objective": [
+      "run one smoke-scale PPO continuation from M299 with M297 rejected-history preference auxiliary loss"
+    ],
+    "derived_from": [
+      "m301-rejected-preference-ppo-aux-loss-implementation"
+    ],
+    "blocked_by": [
+      "m301-rejected-preference-ppo-aux-loss-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m302-rejected-preference-guarded-ppo-smoke.md",
+  "public_gates": [
+    "smoke-scale PPO only: 1024 steps",
+    "preserve human-view actor input contract",
+    "exact M297 rejected-preference no-regression before replay promotion",
+    "exact M270 no-regression before replay promotion",
+    "M183/M170 first replay gate",
+    "M267/M264 first replay gate",
+    "full replay protected-key and behavior gates only after first gates pass"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run medium or long PPO in M302",
+    "do not promote if exact M297 or exact M270 regresses",
+    "do not loosen M183/M170 or M267/M264 replay gates",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "Adding the M297 rejected-history preference auxiliary loss to smoke PPO from M299 will reduce M267/M264 wrong-history washout without regressing exact M270 or public replay surfaces.",
+  "success_criteria": [
+    "raw PPO or a non-micro interpolation improves or retains exact M297 and exact M270 versus M299",
+    "M183/M170 and M267/M264 first replay gates pass",
+    "full public replay protected-key and behavior gates pass before promotion",
+    "actor input contract remains unchanged"
+  ],
+  "failure_criteria": [
+    "exact M297 or exact M270 regresses for every nonzero candidate",
+    "M183/M170 loses any normal-success row",
+    "M267/M264 success drops fall below 17 / 17",
+    "safe interpolation collapses to a micro-alpha",
+    "PPO is lengthened beyond smoke scale"
+  ],
+  "commands": [
+    {
+      "name": "m302_smoke",
+      "command": "Run configs/ppo_m302_rejected_preference_guarded_smoke.json from m298pref_a020 for 1024 PPO steps, then exact-gate and replay-gate before any promotion."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m302-rejected-preference-guarded-ppo-smoke.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m299-full-public-gate-for-m298-a020.md",
+    "docs/m301-rejected-preference-ppo-aux-loss-implementation.md"
+  ],
+  "decision_rule": "M302 can promote only if exact objectives, first replay gates, full replay stack, protected key, and behavior seeds all pass; otherwise classify proof_washout or objective_overfit.",
+  "next_blocker": "pending M302 rejected-preference guarded PPO smoke"
+}

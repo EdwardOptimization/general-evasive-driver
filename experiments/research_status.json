@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 309,
+    "completed": 310,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m300-rejected-preference-ppo-guard-design.md",
+    "command_log": "docs/m301-rejected-preference-ppo-aux-loss-implementation.md",
     "returncode": 0,
-    "run_dir": "runs/m300_rejected_preference_ppo_guard_design",
+    "run_dir": "runs/m301_rejected_preference_ppo_aux_loss_implementation",
     "status": "completed",
-    "task_id": "m300-rejected-preference-ppo-guard-design"
+    "task_id": "m301-rejected-preference-ppo-aux-loss-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m301-rejected-preference-ppo-aux-loss-implementation.json",
-    "hypothesis": "A small, explicit rejected-history preference auxiliary loss can be added to PPO training so the next smoke run penalizes the exact M267/M264 washout mode that M291 and M294 exposed.",
-    "id": "m301-rejected-preference-ppo-aux-loss-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: add PPO aux-loss config loader metrics and tests without running PPO",
-    "priority": 2960,
+    "command": "see experiments/manifests/m302-rejected-preference-guarded-ppo-smoke.json",
+    "hypothesis": "Adding the M297 rejected-history preference auxiliary loss to smoke PPO from M299 will reduce M267/M264 wrong-history washout without regressing exact M270 or public replay surfaces.",
+    "id": "m302-rejected-preference-guarded-ppo-smoke",
+    "kind": "driver_candidate",
+    "notes": "Pending: 1024-step PPO smoke with exact M297 exact M270 first gates then replay protected-key behavior gates",
+    "priority": 2970,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260523T010701Z"
+  "updated_at_utc": "20260523T011217Z"
 }

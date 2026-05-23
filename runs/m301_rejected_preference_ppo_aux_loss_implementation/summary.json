@@ -1,0 +1,13 @@
+{
+  "actor_inputs_changed": false,
+  "config": "configs/ppo_m302_rejected_preference_guarded_smoke.json",
+  "decision": "admit_m302_rejected_preference_guarded_ppo_smoke",
+  "implementation_files": [
+    "src/autodrift/train_ppo.py",
+    "tests/test_train_ppo_rejected_preference_aux.py",
+    "configs/ppo_m302_rejected_preference_guarded_smoke.json"
+  ],
+  "next_task": "m302-rejected-preference-guarded-ppo-smoke",
+  "ppo_or_actor_update_run": false,
+  "run_type": "rejected_preference_ppo_aux_loss_implementation"
+}
