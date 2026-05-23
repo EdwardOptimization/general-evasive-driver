@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m449-challenge-distribution-config-implementation
+m450-challenge-response-ablation-benchmark
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -141,7 +141,12 @@ blocker is M448: design a more discriminative near-boundary challenge
 distribution before more objective design. M448 designs two zero-relvel
 challenge configs: near-threshold and late high-energy. The next blocker is
 M449: implement those configs, run diagnostic 128-episode smokes, and mine
-policy differences without training or promotion.
+policy differences without training or promotion. M449 implements both configs.
+The late high-energy config required one relaxation after an initial sampling
+failure. Both final configs run, but neither separates the recent candidate
+family: the miner finds zero accepted policy-difference rows for both. The next
+blocker is M450: run response/history ablations on M399 over the challenge
+configs to test whether they are useful self-identification diagnostics.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

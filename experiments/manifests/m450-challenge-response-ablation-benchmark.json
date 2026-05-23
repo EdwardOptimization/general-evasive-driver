@@ -1,0 +1,94 @@
+{
+  "id": "m450-challenge-response-ablation-benchmark",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m449_near_threshold_benchmark_seed9800/episodes.csv",
+      "runs/m449_late_high_energy_benchmark_seed9800/episodes.csv"
+    ],
+    "parent_config": [
+      "configs/m449_challenge_near_threshold_zero_relvel.json",
+      "configs/m449_challenge_late_high_energy_zero_relvel.json",
+      "experiments/manifests/m449-challenge-distribution-config-implementation.json"
+    ],
+    "parent_objective": [
+      "challenge response/history ablation benchmark"
+    ],
+    "derived_from": [
+      "m449-challenge-distribution-config-implementation"
+    ],
+    "blocked_by": [
+      "m449-challenge-distribution-config-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m450-challenge-response-ablation-benchmark.md",
+  "public_gates": [
+    "near-threshold response ablation benchmark",
+    "late high-energy response ablation benchmark",
+    "normal versus reset and zero-response comparison",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not tune checkpoints from ablation results"
+  ],
+  "hypothesis": "Even if recent checkpoint candidates are indistinguishable, the challenge configs may still reveal dependence on recurrent response/action history through M399 ablations.",
+  "success_criteria": [
+    "near and late benchmarks complete",
+    "normal versus ablated success and margin deltas are documented",
+    "decision states whether the challenge configs are useful self-ID diagnostics",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "benchmark fails",
+    "ablation results are used for promotion",
+    "actor contract changes",
+    "no decision is made about diagnostic usefulness"
+  ],
+  "commands": [
+    {
+      "name": "near_ablation_benchmark",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m449_challenge_near_threshold_zero_relvel.json --episodes 128 --seed 9900 --policies heuristic --checkpoint-policy m399_base=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --checkpoint-policy m399_reset=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@reset_recurrent_state --checkpoint-policy m399_zero_current=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_current_response --checkpoint-policy m399_zero_all=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_all_response --checkpoint-policy m399_noact=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_action_history --device cpu --run-dir runs/m450_near_threshold_ablation_seed9900"
+    },
+    {
+      "name": "late_ablation_benchmark",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m449_challenge_late_high_energy_zero_relvel.json --episodes 128 --seed 9900 --policies heuristic --checkpoint-policy m399_base=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --checkpoint-policy m399_reset=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@reset_recurrent_state --checkpoint-policy m399_zero_current=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_current_response --checkpoint-policy m399_zero_all=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_all_response --checkpoint-policy m399_noact=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_action_history --device cpu --run-dir runs/m450_late_high_energy_ablation_seed9900"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m450_near_threshold_ablation_seed9900/policy_summary.csv",
+      "type": "benchmark_policy_summary"
+    },
+    {
+      "path": "runs/m450_late_high_energy_ablation_seed9900/policy_summary.csv",
+      "type": "benchmark_policy_summary"
+    },
+    {
+      "path": "docs/m450-challenge-response-ablation-benchmark.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m449-challenge-distribution-config-implementation.md"
+  ],
+  "decision_rule": "M450 is diagnostic only. It can admit a self-ID challenge gate or a richer task-family design but cannot promote a checkpoint.",
+  "next_blocker": "pending M450 challenge response ablation benchmark"
+}

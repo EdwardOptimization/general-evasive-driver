@@ -86,5 +86,20 @@
     "docs/m448-differentiating-challenge-distribution-design.md"
   ],
   "decision_rule": "M449 passes if challenge configs and diagnostic artifacts exist without training or promotion.",
-  "next_blocker": "pending M449 challenge distribution config implementation"
+  "results": {
+    "near_threshold_config": "configs/m449_challenge_near_threshold_zero_relvel.json",
+    "late_high_energy_config": "configs/m449_challenge_late_high_energy_zero_relvel.json",
+    "near_threshold_benchmark": "runs/m449_near_threshold_benchmark_seed9800",
+    "late_high_energy_benchmark": "runs/m449_late_high_energy_benchmark_seed9800",
+    "near_threshold_mining": "runs/m449_near_threshold_policy_difference_mining_seed9800",
+    "late_high_energy_mining": "runs/m449_late_high_energy_policy_difference_mining_seed9800",
+    "near_base_success": 0.8828125,
+    "late_base_success": 0.828125,
+    "near_accepted_policy_difference_rows": 0,
+    "late_accepted_policy_difference_rows": 0,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "configs_valid_but_no_candidate_family_separation"
+  },
+  "next_blocker": "m450-challenge-response-ablation-benchmark"
 }

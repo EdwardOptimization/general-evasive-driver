@@ -10124,3 +10124,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M448 designs two zero-relvel human-view challenge configs: a near-threshold variant with tighter obstacle threshold score and a late high-energy variant with higher speed shorter distance wider obstacles and broader hidden dynamics. The smoke plan benchmarks each over 128 episodes and then mines policy differences; no training or promotion is allowed.
 - decision: `admit_m449_challenge_distribution_config_implementation`
 - next: `m449-challenge-distribution-config-implementation`
+
+## 20260523T193534Z - m449-challenge-distribution-config-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m449_late_high_energy_policy_difference_mining_seed9800`
+- artifact: `docs/m449-challenge-distribution-config-implementation.md`
+- result: M449 adds near-threshold and late high-energy zero-relvel challenge configs and runs 128-episode smokes plus policy-difference mining. Near-threshold M399 success is `0.882812`; late high-energy M399 success is `0.828125`. Both configs produce zero accepted policy-difference rows, so the recent candidate family remains indistinguishable even on harder distributions.
+- decision: `configs_valid_but_no_candidate_family_separation`
+- next: `m450-challenge-response-ablation-benchmark`

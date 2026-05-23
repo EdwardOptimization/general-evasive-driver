@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 457,
+        "completed": 458,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m448-differentiating-challenge-distribution-design",
+        "task_id": "m449-challenge-distribution-config-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m448-differentiating-challenge-distribution-design.md"
+        "run_dir": "runs/m449_late_high_energy_policy_difference_mining_seed9800",
+        "command_log": "docs/m449-challenge-distribution-config-implementation.md"
     },
     "next_task": {
-        "id": "m449-challenge-distribution-config-implementation",
+        "id": "m450-challenge-response-ablation-benchmark",
         "status": "pending",
-        "priority": 4440,
-        "kind": "infrastructure",
-        "hypothesis": "Implement challenge configs and run diagnostic smokes",
-        "command": "see experiments/manifests/m449-challenge-distribution-config-implementation.json",
+        "priority": 4450,
+        "kind": "gate",
+        "hypothesis": "Benchmark M399 response-history ablations on challenge configs",
+        "command": "see experiments/manifests/m450-challenge-response-ablation-benchmark.json",
         "success_artifact": "",
-        "notes": "Pending: add configs benchmark them and mine policy differences without training or promotion"
+        "notes": "Pending: run normal reset zero-response and no-action ablations on near and late challenge configs"
     },
-    "updated_at_utc": "20260523T193124Z"
+    "updated_at_utc": "20260523T193534Z"
 }
