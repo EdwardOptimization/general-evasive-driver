@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 403,
+        "completed": 404,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m394-rejected-boundary-target-repair-probe",
+        "task_id": "m395-full-public-gate-for-m394-s02a010",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m394_s02_micro_interpolation",
-        "command_log": "docs/m394-rejected-boundary-target-repair-probe.md"
+        "run_dir": "runs/m395_full_public_gate_for_m394_s02a010",
+        "command_log": "docs/m395-full-public-gate-for-m394-s02a010.md"
     },
     "next_task": {
-        "id": "m395-full-public-gate-for-m394-s02a010",
+        "id": "m396-m395-micro-promotion-utility-audit",
         "status": "pending",
-        "priority": 3900,
-        "kind": "driver_candidate",
-        "hypothesis": "Run full public gate for M394 s02 alpha 0.1 candidate",
-        "command": "see experiments/manifests/m395-full-public-gate-for-m394-s02a010.json",
+        "priority": 3910,
+        "kind": "gate",
+        "hypothesis": "Audit whether M395 promotion is useful enough to chain repair or PPO",
+        "command": "see experiments/manifests/m396-m395-micro-promotion-utility-audit.json",
         "success_artifact": "",
-        "notes": "Pending: six public replay surfaces and behavior seeds before any promotion"
+        "notes": "Pending: classify M395 utility and identify next active boundary; no PPO"
     },
-    "updated_at_utc": "20260523T145307Z"
+    "updated_at_utc": "20260523T145744Z"
 }

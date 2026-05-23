@@ -56,7 +56,7 @@ along this direction.
 Current blocker:
 
 ```text
-m395-full-public-gate-for-m394-s02a010
+m396-m395-micro-promotion-utility-audit
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -190,7 +190,12 @@ old-key compact surface, but a bounded `alpha=0.1` interpolation toward the
 step2 repair direction passes exact M297/M270, M267/M264 `17/17`, cumulative
 old-key compact replay, source-diverse protected gates `5/5`, and M183/M170
 `17/17`. M395 should run the full public promotion gate for
-`runs/m394_s02_micro_interpolation/checkpoints/alpha_0_1.pt`.
+`runs/m394_s02_micro_interpolation/checkpoints/alpha_0_1.pt`. M395 promotes
+that candidate after all six public replay surfaces and behavior seeds pass.
+Behavior success remains `0.8625`, termination remains `0.1375`, and mean
+clearance is `1.844089403`. This is still a proof-safe bounded promotion, so
+M396 should audit whether it is useful enough to chain another repair or PPO
+step.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

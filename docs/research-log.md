@@ -9584,3 +9584,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M394 tests the M393 rejected-boundary target residual without PPO. Direct repair endpoints are too aggressive: s80 and s10 fail M267/M264 normal-branch retention, while s05 and s02 fail old-key compact replay. A bounded `alpha=0.1` interpolation toward the s02 direction passes exact M297/M270 with deltas `-0.000048637` and `-0.000028133`, M267/M264 first replay `17/17`, old-key compact replay with zero accepted regressions, source-diverse protected gates `5/5`, and M183/M170 first replay `17/17`.
 - decision: `admit_m395_full_public_gate_for_m394_s02a010`
 - next: `m395-full-public-gate-for-m394-s02a010`
+
+## 20260523T145744Z - m395-full-public-gate-for-m394-s02a010
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m395_full_public_gate_for_m394_s02a010`
+- artifact: `docs/m395-full-public-gate-for-m394-s02a010.md`
+- result: M395 promotes `runs/m394_s02_micro_interpolation/checkpoints/alpha_0_1.pt`. It passes all six public replay gates versus `m333_base`: M183/M168 `16/16`, M183/M170 `17/17`, M193/M189 `14/14`, M212/M204 `17/17`, M223/M219 `17/17`, and M267/M264 `17/17`. Behavior seeds `9505` and `9506` retain success mean `0.8625`, termination mean `0.1375`, clearance margin mean `1.844089403`, reset success mean `0.85`, and zero-all success mean `0.80`.
+- decision: `promote_m394_s02a010_public_gate_base`
+- next: `m396-m395-micro-promotion-utility-audit`
