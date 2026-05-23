@@ -9654,3 +9654,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M401 classifies M400 as `proof_safe_bounded_promotion_not_meaningful_driver_improvement`: behavior success and termination deltas are `0.0`, clearance delta is only `-0.000049633`, and return delta is `+0.000928436`. The first known post-M400 boundary remains old-key `9958|perturbed|39|36` at alpha `0.10`, where normal margin is `-0.000085` and wrong-history margin remains `-0.002228`, so this is a normal-branch terminal-margin cliff rather than wrong-history sensitivity loss.
 - decision: `admit_m402_old_key_normal_recovery_alignment_audit`
 - next: `m402-old-key-normal-recovery-alignment-audit`
+
+## 20260523T153030Z - m402-old-key-normal-recovery-alignment-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m402_old_key_recovery_alignment_audit`
+- artifact: `docs/m402-old-key-normal-recovery-alignment-audit.md`
+- result: M402 shows the M398 recovery target is valid but underweighted in the M399 repair. For old-key `9958|perturbed|39|36`, the M398 recovery action changes first action by `[-0.04, -0.06, +0.08]` and improves local terminal margin by `0.002358`. The M399 s02 endpoint instead moves slightly toward more steer, more throttle, and less brake; alpha `0.05` and `0.10` remain about `0.108` away from the recovery action. Classify the blocker as `recovery_residual_underweighted_vs_closed_loop_boundary`.
+- decision: `admit_m403_old_key_normal_recovery_weight_sweep`
+- next: `m403-old-key-normal-recovery-weight-sweep`

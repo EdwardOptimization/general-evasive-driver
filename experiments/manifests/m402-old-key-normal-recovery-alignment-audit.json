@@ -2,7 +2,7 @@
   "id": "m402-old-key-normal-recovery-alignment-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -76,5 +76,39 @@
     "docs/m401-m400-bounded-promotion-utility-audit.md"
   ],
   "decision_rule": "M402 should admit the next task only after classifying the recovery residual versus closed-loop replay alignment failure.",
-  "next_blocker": "pending M402 old-key normal recovery alignment audit"
+  "next_blocker": "m403-old-key-normal-recovery-weight-sweep",
+  "results": {
+    "artifact": "docs/m402-old-key-normal-recovery-alignment-audit.md",
+    "audit_run_dir": "runs/m402_old_key_recovery_alignment_audit",
+    "alignment_rows_csv": "runs/m402_old_key_recovery_alignment_audit/alignment_rows.csv",
+    "case_id": "9958|perturbed|39|36|9.500000|-1.200000|0.900000",
+    "m398_base_action": [
+      0.6315757036209106,
+      0.12618975341320038,
+      0.17246590554714203
+    ],
+    "m398_recovery_action": [
+      0.5915756821632385,
+      0.06618975102901459,
+      0.2524659037590027
+    ],
+    "m398_recovery_action_l2": 0.107703,
+    "m398_target_margin_improvement": 0.0023578560491854805,
+    "m395_distance_to_recovery": 0.107703,
+    "alpha_0_05_distance_to_recovery": 0.107791,
+    "alpha_0_10_distance_to_recovery": 0.107879,
+    "endpoint_distance_to_recovery": 0.109463,
+    "alpha_0_05_normal_margin": 2.792092e-07,
+    "alpha_0_10_normal_margin": -8.508242e-05,
+    "endpoint_normal_margin": -0.00162464,
+    "classification": "recovery_residual_underweighted_vs_closed_loop_boundary",
+    "target_refresh_needed": false,
+    "wrong_history_sensitivity_loss": false,
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m403-old-key-normal-recovery-weight-sweep"
+  },
+  "decision": "admit_m403_old_key_normal_recovery_weight_sweep"
 }

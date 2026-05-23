@@ -225,7 +225,12 @@ boundary is still alpha `0.10` toward the M399 s02 endpoint on old-key case
 `9958|perturbed|39|36`: normal margin is `-0.000085` while wrong-history margin
 remains `-0.002228`. M402 should audit the alignment between the M398
 normal-margin recovery target and the closed-loop old-key replay boundary before
-another repair or PPO.
+another repair or PPO. M402 finds the M398 target itself is valid: it would move
+the `9958` first action by `[-0.04, -0.06, +0.08]` and improve local terminal
+margin by `0.002358`. The M399 repair direction barely moves the action and
+slightly moves away from that target, so the current blocker is
+`recovery_residual_underweighted_vs_closed_loop_boundary`. M403 should run a
+no-PPO old-key normal-recovery weight sweep before any PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
