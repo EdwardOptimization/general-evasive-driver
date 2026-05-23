@@ -2,9 +2,9 @@
   "id": "m450-challenge-response-ablation-benchmark",
   "type": "gate",
   "gate_tier": "generalization",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -71,14 +71,6 @@
   ],
   "required_artifacts": [
     {
-      "path": "runs/m450_near_threshold_ablation_seed9900/policy_summary.csv",
-      "type": "benchmark_policy_summary"
-    },
-    {
-      "path": "runs/m450_late_high_energy_ablation_seed9900/policy_summary.csv",
-      "type": "benchmark_policy_summary"
-    },
-    {
       "path": "docs/m450-challenge-response-ablation-benchmark.md",
       "type": "documentation"
     }
@@ -90,5 +82,15 @@
     "docs/m449-challenge-distribution-config-implementation.md"
   ],
   "decision_rule": "M450 is diagnostic only. It can admit a self-ID challenge gate or a richer task-family design but cannot promote a checkpoint.",
-  "next_blocker": "pending M450 challenge response ablation benchmark"
+  "results": {
+    "near_threshold_run_dir": "runs/m450_near_threshold_ablation_seed9900",
+    "late_high_energy_run_dir": "runs/m450_late_high_energy_ablation_seed9900",
+    "near_threshold_status": "failed_before_policy_eval",
+    "late_high_energy_status": "failed_before_policy_eval",
+    "error": "RuntimeError: failed to sample an obstacle scenario matching the configured filters",
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "reject_sampling_failure_admit_config_robustness_repair"
+  },
+  "next_blocker": "m451-challenge-config-sampling-robustness-repair"
 }

@@ -415,3 +415,62 @@ def test_process_v2_completed_reject_requires_failure_taxonomy_and_review(tmp_pa
 
     assert any("must classify failure_types" in issue.message for issue in issues)
     assert any("review_artifact is missing" in issue.message for issue in issues)
+
+
+def test_process_v2_accepts_scenario_sampling_failure_taxonomy(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    docs = tmp_path / "docs"
+    manifest_dir.mkdir()
+    docs.mkdir(parents=True)
+    (docs / "m227.md").write_text("done\n", encoding="utf-8")
+    (docs / "review.md").write_text("review\n", encoding="utf-8")
+    _write_queue(
+        queue,
+        [
+            {
+                "id": "m227",
+                "priority": 2220,
+                "status": "completed",
+                "kind": "gate",
+                "hypothesis": "challenge sampling audit",
+                "command": "see manifest",
+                "success_artifact": "docs/m227.md",
+                "notes": "",
+            }
+        ],
+    )
+    status.write_text(
+        json.dumps({"counts": {"planned": 0, "completed": 1, "failed": 0, "blocked": 0, "pending": 0, "running": 0}, "next_task": None}),
+        encoding="utf-8",
+    )
+    manifest = _process_v2_manifest("m227", artifact="docs/m227.md")
+    manifest["promotion_decision"] = "reject"
+    manifest["failure_types"] = ["scenario_sampling_failure"]
+    manifest["review_artifact"] = "docs/review.md"
+    (manifest_dir / "m227.json").write_text(json.dumps(manifest), encoding="utf-8")
+    _write_scoreboard(
+        scoreboard,
+        [
+            {
+                "milestone": "m227",
+                "type": "gate",
+                "checkpoint": "",
+                "success_rate": "",
+                "termination_rate": "",
+                "clearance_margin_mean": "",
+                "reset_success": "",
+                "zero_wheel_success": "",
+                "zero_all_success": "",
+                "wheel_gain_mu": "",
+                "decision": "reject",
+                "reason": "scenario sampling failed",
+            }
+        ],
+    )
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert issues == []

@@ -1,0 +1,78 @@
+{
+  "decision_reason": "M450 ablation benchmark fails before policy evaluation because both challenge configs cannot sample seed 9900 scenarios",
+  "failure_criteria": [
+    "benchmark fails",
+    "ablation results are used for promotion",
+    "actor contract changes",
+    "no decision is made about diagnostic usefulness"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not tune checkpoints from ablation results"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260523T193952Z",
+  "hypothesis": "Even if recent checkpoint candidates are indistinguishable, the challenge configs may still reveal dependence on recurrent response/action history through M399 ablations.",
+  "lineage": {
+    "blocked_by": [
+      "m449-challenge-distribution-config-implementation"
+    ],
+    "derived_from": [
+      "m449-challenge-distribution-config-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/m449_challenge_near_threshold_zero_relvel.json",
+      "configs/m449_challenge_late_high_energy_zero_relvel.json",
+      "experiments/manifests/m449-challenge-distribution-config-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m449_near_threshold_benchmark_seed9800/episodes.csv",
+      "runs/m449_late_high_energy_benchmark_seed9800/episodes.csv"
+    ],
+    "parent_objective": [
+      "challenge response/history ablation benchmark"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m450-challenge-response-ablation-benchmark",
+  "next_blocker": "m451-challenge-config-sampling-robustness-repair",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "reject_sampling_failure_admit_config_robustness_repair",
+  "public_gates": [
+    "near-threshold response ablation benchmark",
+    "late high-energy response ablation benchmark",
+    "normal versus reset and zero-response comparison",
+    "no checkpoint promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "reject_sampling_failure_admit_config_robustness_repair",
+    "milestone": "m450-challenge-response-ablation-benchmark",
+    "reason": "M450 ablation benchmark fails before policy evaluation because both challenge configs cannot sample seed 9900 scenarios",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "near and late benchmarks complete",
+    "normal versus ablated success and margin deltas are documented",
+    "decision states whether the challenge configs are useful self-ID diagnostics",
+    "no checkpoint is promoted"
+  ],
+  "type": "gate"
+}

@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m450-challenge-response-ablation-benchmark
+m451-challenge-config-sampling-robustness-repair
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -146,7 +146,11 @@ The late high-energy config required one relaxation after an initial sampling
 failure. Both final configs run, but neither separates the recent candidate
 family: the miner finds zero accepted policy-difference rows for both. The next
 blocker is M450: run response/history ablations on M399 over the challenge
-configs to test whether they are useful self-identification diagnostics.
+configs to test whether they are useful self-identification diagnostics. M450
+finds both M449 configs fail seed-block robustness at seed `9900`: ablation
+benchmarks fail during scenario sampling before policy evaluation. The next
+blocker is M451: create robust replacement challenge configs and validate
+sampling across multiple seed blocks before rerunning ablation diagnostics.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

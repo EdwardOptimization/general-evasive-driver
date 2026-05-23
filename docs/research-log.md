@@ -10134,3 +10134,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M449 adds near-threshold and late high-energy zero-relvel challenge configs and runs 128-episode smokes plus policy-difference mining. Near-threshold M399 success is `0.882812`; late high-energy M399 success is `0.828125`. Both configs produce zero accepted policy-difference rows, so the recent candidate family remains indistinguishable even on harder distributions.
 - decision: `configs_valid_but_no_candidate_family_separation`
 - next: `m450-challenge-response-ablation-benchmark`
+
+## 20260523T193847Z - m450-challenge-response-ablation-benchmark
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m450_near_threshold_ablation_seed9900`
+- artifact: `docs/m450-challenge-response-ablation-benchmark.md`
+- result: M450 attempts M399 response/history ablation benchmarks on both M449 challenge configs at seed `9900`. Both fail during `env.reset()` with `RuntimeError: failed to sample an obstacle scenario matching the configured filters`, before any policy evaluation. The harness taxonomy is extended with `scenario_sampling_failure`.
+- decision: `reject_sampling_failure_admit_config_robustness_repair`
+- next: `m451-challenge-config-sampling-robustness-repair`

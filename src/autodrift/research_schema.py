@@ -37,6 +37,7 @@ PROCESS_V2_FAILURE_TYPES = {
     "contract_violation",
     "metric_artifact",
     "training_instability",
+    "scenario_sampling_failure",
     "protected_key_window_failure",
     "promotion_gate_failure",
     "private_holdout_contamination",
