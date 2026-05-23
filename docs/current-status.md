@@ -42,12 +42,12 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt
+runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt
 ```
 
-Status: M299 promoted `m298pref_a020` as the current public-gate base. It
-improves exact M297 rejected-history preference loss by `0.002190` and exact
-M270 source-balanced outcome loss by `0.001332` versus M290 while passing six
+Status: M307 promoted `m306_raw_s40` as the current public-gate base. It
+improves exact M297 rejected-history preference loss by `0.000126243` and exact
+M270 source-balanced outcome loss by `0.000080407` versus M299 while passing six
 public replay surfaces, the protected-key diagnostic, and behavior seeds
 `9505`/`9506`.
 
@@ -82,12 +82,12 @@ success drops retained on both surfaces. It is not promoted yet.
 Current next task:
 
 ```text
-m307-full-public-gate-for-m306-raw-s40
+m308-exact-repair-fresh-seed-repeat
 ```
 
-M307 should run the full public gate stack for the M306 raw-start candidate.
-Do not promote before all six replay gates, the protected-key diagnostic,
-behavior seeds, and exact objective retention pass.
+M308 should repeat the exact repair recipe with a fresh optimizer seed before
+another PPO proposal, because M307 is a positive promotion but still one repair
+seed.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -117,7 +117,7 @@ behavior seeds, and exact objective retention pass.
 | current public-gate base | `runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt` | M299 promoted after exact M297/M270 improvement and full public-gate pass |
 | rejected PPO proposal | `runs/ppo_m302_rejected_preference_guarded_smoke_seed5233/checkpoint.pt` | M302 regresses exact M297/M270 and is not promotable |
 | exact repair infrastructure | `src/autodrift/exact_post_ppo_repair.py` | M305 implemented deterministic exact M297/M270 repair summaries and line-search starts |
-| full-gate candidate | `runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt` | M306 exact repair from raw improves exact objectives and passes two first replay gates |
+| current public-gate base | `runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt` | M307 promoted after exact objectives full replay protected-key and behavior gates pass |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

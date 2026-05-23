@@ -8707,3 +8707,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M306 runs three exact repair candidates. The raw-start candidate improves exact M297 by `0.000126243` and exact M270 by `0.000080407` versus M299. It passes M183/M170 first replay with `17/17` success drops retained and M267/M264 first replay with `17/17` success drops retained. Full public gates are not run in M306.
 - decision: `admit_m307_full_public_gate_for_m306_raw_s40`
 - next: `m307-full-public-gate-for-m306-raw-s40`
+
+## 20260523T045458Z - m307-full-public-gate-for-m306-raw-s40
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m307_full_public_gate_for_m306_raw_s40`
+- artifact: `docs/m307-full-public-gate-for-m306-raw-s40.md`
+- result: M307 promotes the M306 raw-start exact repair candidate. It improves exact M297 by `0.000126243` and exact M270 by `0.000080407` versus M299, passes all six replay surfaces, passes protected key `9944` while `m239_a750` still fails, and retains behavior success `0.8625` on seeds `9505` and `9506`.
+- decision: `promote_m306_raw_s40_public_gate_base`
+- next: `m308-exact-repair-fresh-seed-repeat`

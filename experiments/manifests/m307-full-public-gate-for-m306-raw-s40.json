@@ -2,7 +2,7 @@
   "id": "m307-full-public-gate-for-m306-raw-s40",
   "type": "driver_candidate",
   "gate_tier": "promotion",
-  "promotion_decision": "pending",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -93,6 +93,28 @@
     "runs/m306_raw_s40_m183_m170_first_replay/summary.json",
     "runs/m306_raw_s40_m267_m264_first_replay/summary.json"
   ],
+  "results": {
+    "run_dir": "runs/m307_full_public_gate_for_m306_raw_s40",
+    "selected_policy": "m306_raw_s40",
+    "selected_checkpoint": "runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt",
+    "m297_preference_loss_base": 1.1896095275878906,
+    "m297_preference_loss_selected": 1.1894832849502563,
+    "m297_preference_loss_delta": -0.00012624263763427734,
+    "exact_m270_loss_base": 0.6779459118843079,
+    "exact_m270_loss_selected": 0.6778655052185059,
+    "exact_m270_loss_delta": -0.00008040666580200195,
+    "full_replay_gates_pass": true,
+    "protected_key_guard_validated": true,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "behavior_success_mean": 0.8625,
+    "behavior_termination_mean": 0.1375,
+    "behavior_clearance_margin_mean": 1.844585,
+    "promotion_recommended": true,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "promote_m306_raw_s40_public_gate_base",
   "decision_rule": "M307 promotes m306_raw_s40 only if exact objectives full replay protected-key and behavior gates all pass versus M299.",
-  "next_blocker": "pending M307 full public gate"
+  "next_blocker": "m308-exact-repair-fresh-seed-repeat"
 }
