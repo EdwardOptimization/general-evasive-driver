@@ -10224,3 +10224,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M458 evaluates M399 base, reset-recurrent, zero-current-response, and zero-action-history on the M457 config across seed windows `9600`, `9900`, and `10150`, with `64` episodes per seed/variant. All runs complete without sampling failure. Aggregate success is weak for history necessity: base `0.812500`, reset `0.817708`, zero-current `0.802083`, no-action `0.822917`. Zero-current lowers return by `-4.482009` versus base and has four base-success to ablation-fail flips, but success and clearance do not show a strong source-diverse degradation.
 - decision: `weak_aggregate_admit_m459_matched_current_mining`
 - next: `m459-late-reveal-matched-current-mining`
+
+## 20260523T203428Z - m459-late-reveal-matched-current-mining
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m459_late_reveal_matched_current_seed9600`
+- artifact: `docs/m459-late-reveal-matched-current-mining.md`
+- result: M459 mines M457 late-reveal matched-current ambiguity with M399. It finds `503` accepted pairs from `74784` candidates, with `503` physical pairs, `36` left steps, and `33` source obstacle buckets. Target coverage is future braking decel `206`, yaw response `219`, and lateral accel response `78`. The action intervention gate is positive: reset-hidden action distance mean `0.708045`, zero-current `0.119922`, and wrong-history moves closer to the right-pair action in `0.630252` weighted rows. The outcome continuation gate is negative for proof: weighted success-drop is `0.0` for all interventions and margin gaps are not reliably normal-history positive.
+- decision: `action_surface_found_outcome_weak_admit_m460_outcome_critical_selector_design`
+- next: `m460-outcome-critical-matched-current-selector-design`

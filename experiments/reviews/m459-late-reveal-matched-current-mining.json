@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M459 finds 503 matched-current pairs and action intervention signal but continuation outcome success-drop is zero so outcome-critical selector design is next",
+  "failure_criteria": [
+    "miner only finds aggregate or unpaired hard seeds",
+    "current-state similarity is not enforced",
+    "accepted rows are dominated by one seed or label",
+    "actor contract changes"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not treat aggregate M458 metrics as self-ID proof"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260523T203606Z",
+  "hypothesis": "Although aggregate M458 ablation deltas are weak, row-level matched-current mining may still find POMDP ambiguity cases where current observation is similar but history or hidden dynamics changes future margin or action.",
+  "lineage": {
+    "blocked_by": [
+      "m458-late-reveal-response-ablation-benchmark"
+    ],
+    "derived_from": [
+      "m458-late-reveal-response-ablation-benchmark"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m458-late-reveal-response-ablation-benchmark.json"
+    ],
+    "parent_dataset": [
+      "runs/m458_late_reveal_ablation_summary/summary.json",
+      "runs/m458_late_reveal_ablation_summary/success_flips.csv"
+    ],
+    "parent_objective": [
+      "matched-current ambiguity mining after weak aggregate ablation evidence"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m459-late-reveal-matched-current-mining",
+  "next_blocker": "m460-outcome-critical-matched-current-selector-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "action_surface_found_outcome_weak_admit_m460_outcome_critical_selector_design",
+  "public_gates": [
+    "mine matched-current rows on the M457 late-reveal config",
+    "require visible current response and context similarity before comparing hidden-history differences",
+    "report action margin and outcome sensitivity for reset zero-current and wrong-history candidates where available",
+    "select a source-diverse compact corpus or explicitly reject the task family",
+    "no checkpoint promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "action_surface_found_outcome_weak_admit_m460_outcome_critical_selector_design",
+    "milestone": "m459-late-reveal-matched-current-mining",
+    "reason": "M459 finds 503 matched-current pairs and action intervention signal but continuation outcome success-drop is zero so outcome-critical selector design is next",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "matched-current mining completes without scenario sampling failure",
+    "accepted rows report current-state similarity and hidden/history diversity",
+    "compact corpus is source-diverse if enough rows exist",
+    "documentation decides between wrong-history gate expansion and task-family redesign",
+    "no checkpoint is promoted"
+  ],
+  "type": "gate"
+}

@@ -2,7 +2,7 @@
   "id": "m459-late-reveal-matched-current-mining",
   "type": "gate",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -80,5 +80,22 @@
     "runs/m458_late_reveal_ablation_summary/summary.json"
   ],
   "decision_rule": "M459 can admit a wrong-history intervention gate only if matched-current rows show source-diverse action/margin/outcome sensitivity. It cannot promote a checkpoint.",
-  "next_blocker": "pending M459 late-reveal matched-current mining"
+  "results": {
+    "matched_current_run_dir": "runs/m459_late_reveal_matched_current_seed9600",
+    "analysis_artifact": "runs/m459_late_reveal_matched_current_analysis/summary.json",
+    "candidate_pair_count": 74784,
+    "accepted_pair_count": 503,
+    "accepted_physical_pair_count": 503,
+    "accepted_left_step_count": 36,
+    "accepted_source_obstacle_bucket_count": 33,
+    "action_gate_run_dir": "runs/m459_late_reveal_matched_history_action_gate",
+    "wrong_history_action_distance_mean": 0.035114,
+    "wrong_history_closer_to_right_fraction": 0.630252,
+    "outcome_gate_run_dir": "runs/m459_late_reveal_matched_history_outcome_gate",
+    "outcome_success_drop_rate": 0.0,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "action_surface_found_outcome_weak_admit_m460_outcome_critical_selector_design"
+  },
+  "next_blocker": "m460-outcome-critical-matched-current-selector-design"
 }

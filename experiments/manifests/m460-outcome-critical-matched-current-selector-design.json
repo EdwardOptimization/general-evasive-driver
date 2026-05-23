@@ -1,0 +1,86 @@
+{
+  "id": "m460-outcome-critical-matched-current-selector-design",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m459_late_reveal_matched_current_seed9600/matched_pairs.csv",
+      "runs/m459_late_reveal_matched_history_action_gate/variant_summary.csv",
+      "runs/m459_late_reveal_matched_history_outcome_gate/outcome_summary.csv",
+      "runs/m459_late_reveal_matched_current_analysis/summary.json"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m459-late-reveal-matched-current-mining.json"
+    ],
+    "parent_objective": [
+      "outcome-critical matched-current selector design"
+    ],
+    "derived_from": [
+      "m459-late-reveal-matched-current-mining"
+    ],
+    "blocked_by": [
+      "m459-late-reveal-matched-current-mining"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m460-outcome-critical-matched-current-selector-design.md",
+  "public_gates": [
+    "design an outcome-critical selector for matched-current pairs",
+    "require continuation margin or success degradation under at least one history intervention",
+    "preserve matched-current response/context similarity and source-diverse caps",
+    "define implementation and pass/fail thresholds",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not treat M459 action-only signal as closed-loop proof"
+  ],
+  "hypothesis": "M459 found source-diverse matched-current response/action ambiguity but weak continuation outcomes, so the next useful step is to make continuation margin and success degradation first-class selection criteria.",
+  "success_criteria": [
+    "design specifies outcome-critical filtering metrics",
+    "design keeps matched-current similarity constraints",
+    "design includes source-diverse compact corpus rules",
+    "next implementation task is preregistered",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "design selects pairs only by future response target z-delta",
+    "design ignores outcome gate negative result",
+    "design jumps directly to training",
+    "actor contract changes"
+  ],
+  "commands": [
+    {
+      "name": "outcome_critical_selector_design",
+      "command": "Design a matched-current selector that filters by continuation margin/success degradation under history interventions; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m460-outcome-critical-matched-current-selector-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m459-late-reveal-matched-current-mining.md",
+    "runs/m459_late_reveal_matched_current_analysis/summary.json"
+  ],
+  "decision_rule": "M460 is a design milestone. It can admit an implementation of an outcome-critical selector but cannot promote a checkpoint.",
+  "next_blocker": "pending M460 outcome-critical matched-current selector design"
+}

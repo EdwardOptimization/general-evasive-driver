@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 467,
+        "completed": 468,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m458-late-reveal-response-ablation-benchmark",
+        "task_id": "m459-late-reveal-matched-current-mining",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m458_late_reveal_ablation_summary",
-        "command_log": "docs/m458-late-reveal-response-ablation-benchmark.md"
+        "run_dir": "runs/m459_late_reveal_matched_current_seed9600",
+        "command_log": "docs/m459-late-reveal-matched-current-mining.md"
     },
     "next_task": {
-        "id": "m459-late-reveal-matched-current-mining",
+        "id": "m460-outcome-critical-matched-current-selector-design",
         "status": "pending",
-        "priority": 4540,
-        "kind": "gate",
-        "hypothesis": "Mine matched-current ambiguity rows after weak M458 aggregate evidence",
-        "command": "see experiments/manifests/m459-late-reveal-matched-current-mining.json",
+        "priority": 4550,
+        "kind": "infrastructure",
+        "hypothesis": "Design an outcome-critical matched-current selector after M459 action-only signal",
+        "command": "see experiments/manifests/m460-outcome-critical-matched-current-selector-design.json",
         "success_artifact": "",
-        "notes": "Pending: run or extend matched-current mining on M457/M458 evidence; no training or promotion"
+        "notes": "Pending: design selector using continuation margin/success degradation before any training"
     },
-    "updated_at_utc": "20260523T203007Z"
+    "updated_at_utc": "20260523T203428Z"
 }

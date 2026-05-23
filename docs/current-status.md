@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m459-late-reveal-matched-current-mining
+m460-outcome-critical-matched-current-selector-design
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -205,7 +205,16 @@ for history necessity: base `0.812500`, reset `0.817708`, zero-current
 `-4.482009` versus base and produces four base-success to ablation-fail rows,
 but success and clearance do not show a strong source-diverse degradation. The
 next blocker is M459: mine matched-current ambiguity rows from the M457/M458
-evidence before any training.
+evidence before any training. M459 finds a source-diverse matched-current
+surface: `503` accepted pairs from `74784` candidates, `503` physical pairs,
+`36` left steps, and `33` obstacle buckets. Action interventions are positive:
+reset-hidden action distance mean `0.708045`, zero-current `0.119922`, and
+wrong-history moves closer to the right-pair action in `0.630252` weighted
+rows. However, the continuation outcome gate is negative for proof: success
+drop is `0.0` for every intervention and margin gaps are not reliably
+normal-history positive. The next blocker is M460: design an outcome-critical
+matched-current selector that filters by continuation margin/success
+degradation before implementation or training.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key
