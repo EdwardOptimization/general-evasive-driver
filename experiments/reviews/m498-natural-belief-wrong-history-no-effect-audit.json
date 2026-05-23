@@ -1,0 +1,80 @@
+{
+  "decision_reason": "M498 finds wrong-history trajectory mean is 0.055 versus reset 1.006 and zero-current 0.451 so one-shot wrong-history corrects quickly and target-z triage should be replaced by action-sensitive selection",
+  "failure_criteria": [
+    "M497 artifacts are insufficient for audit",
+    "audit cannot separate wrong-history no-effect from control sensitivity",
+    "actor contract changes",
+    "training or checkpoint promotion is performed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not use hidden-hold variants as deployable proof",
+    "do not tune from private holdouts"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260523T235354Z",
+  "hypothesis": "M497 rejected wrong-history event proof because the one-shot wrong-history branch remains too weak or not outcome-aligned relative to reset/zero-current controls, not because the natural decision-window rows are insensitive.",
+  "lineage": {
+    "blocked_by": [
+      "m497-natural-belief-decision-window-outcome-gate"
+    ],
+    "derived_from": [
+      "m497-natural-belief-decision-window-outcome-gate"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/m494_natural_belief_short_reveal_zero_relvel.json",
+      "configs/m494_natural_belief_warmup_capability_zero_relvel.json",
+      "experiments/manifests/m497-natural-belief-decision-window-outcome-gate.json"
+    ],
+    "parent_dataset": [
+      "runs/m497_natural_belief_decision_window_outcome_summary/combined_summary.json",
+      "runs/m497_natural_belief_decision_window_outcome_summary/combined_tail_outcomes.csv"
+    ],
+    "parent_objective": [
+      "natural decision-window wrong-history no-effect audit"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m498-natural-belief-wrong-history-no-effect-audit",
+  "next_blocker": "pending M498 natural belief wrong-history no-effect audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "audit_wrong_history_weak_or_margin_only_admit_m499_action_sensitive_selector_design",
+  "public_gates": [
+    "audit M497 wrong-history action and trajectory distances against reset and zero-current controls",
+    "compare proof-candidate and no-effect rows by config label target offset and normal margin",
+    "classify whether the blocker is weak wrong-history perturbation, source concentration, target-score misalignment, or task/intervention mismatch",
+    "do not train or promote checkpoint"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "audit_wrong_history_weak_or_margin_only_admit_m499_action_sensitive_selector_design",
+    "milestone": "m498-natural-belief-wrong-history-no-effect-audit",
+    "reason": "M498 finds wrong-history trajectory mean is 0.055 versus reset 1.006 and zero-current 0.451 so one-shot wrong-history corrects quickly and target-z triage should be replaced by action-sensitive selection",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "report wrong-history action and trajectory distance distributions",
+    "report reset and zero-current control distance distributions",
+    "report proof and event rows by config label target offset and seed",
+    "classify the next blocker and next admissible step",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "type": "gate"
+}

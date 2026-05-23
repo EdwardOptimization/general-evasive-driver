@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 506,
+        "completed": 507,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m497-natural-belief-decision-window-outcome-gate",
+        "task_id": "m498-natural-belief-wrong-history-no-effect-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m497_natural_belief_decision_window_outcome_summary",
-        "command_log": "docs/m497-natural-belief-decision-window-outcome-gate.md"
+        "run_dir": "runs/m498_natural_belief_wrong_history_no_effect_audit",
+        "command_log": "docs/m498-natural-belief-wrong-history-no-effect-audit.md"
     },
     "next_task": {
-        "id": "m498-natural-belief-wrong-history-no-effect-audit",
+        "id": "m499-natural-belief-action-sensitive-selector-design",
         "status": "pending",
-        "priority": 4930,
-        "kind": "gate",
-        "hypothesis": "M497 wrong-history remains outcome-no-effect because one-shot wrong-history is weak or not outcome-aligned relative to reset and zero-current controls.",
-        "command": "see experiments/manifests/m498-natural-belief-wrong-history-no-effect-audit.json",
+        "priority": 4940,
+        "kind": "infrastructure",
+        "hypothesis": "An action-sensitive selector can avoid M497 weak wrong-history trajectory signal by selecting rows where wrong-history changes short-horizon action trajectories.",
+        "command": "see experiments/manifests/m499-natural-belief-action-sensitive-selector-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit wrong-history action and trajectory distances against controls"
+        "notes": "Pending: design action-sensitive selector before implementation"
     },
-    "updated_at_utc": "20260523T234944Z"
+    "updated_at_utc": "20260523T235322Z"
 }

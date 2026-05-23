@@ -52,7 +52,7 @@ public-gate base; M487-M492 did not train or promote a checkpoint.
 Current blocker:
 
 ```text
-m498-natural-belief-wrong-history-no-effect-audit
+m499-natural-belief-action-sensitive-selector-design
 ```
 
 Recent progress: M486-M492 is now closed as an artificial tail-forcing
@@ -85,8 +85,14 @@ M497 rejects wrong-history event proof on the natural decision-window surface.
 Wrong-history has `15` margin-only proof rows and `0` event rows, while
 reset/zero-current controls have `472` proof rows and `17` event rows.
 
-Next step: M498 should audit why wrong-history remains outcome-no-effect
-despite control sensitivity before changing the task or intervention.
+M498 finds the blocker: one-shot wrong-history produces a weak closed-loop
+trajectory signal. Its trajectory distance mean is `0.055405`, only `5.5%` of
+reset-hidden and `12.3%` of zero-current-response. The first action can move,
+but the trajectory corrects quickly.
+
+Next step: M499 should design an action-sensitive selector over the full M495
+surface before another outcome gate. Repeating the M496 target-z selector
+unchanged is not justified.
 
 ## Current Evidence
 

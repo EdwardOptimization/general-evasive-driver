@@ -2,7 +2,7 @@
   "id": "m498-natural-belief-wrong-history-no-effect-audit",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -81,5 +81,34 @@
     "runs/m497_natural_belief_decision_window_outcome_summary/combined_summary.json"
   ],
   "decision_rule": "M498 should admit the next step based on mechanism diagnosis: repair pair selection if wrong-history action movement is weak, design a different natural intervention if movement is real but corrected, or revise task construction if controls are not event-sensitive enough.",
-  "next_blocker": "pending M498 natural belief wrong-history no-effect audit"
+  "next_blocker": "pending M498 natural belief wrong-history no-effect audit",
+  "results": {
+    "run_dir": "runs/m498_natural_belief_wrong_history_no_effect_audit",
+    "summary_json": "runs/m498_natural_belief_wrong_history_no_effect_audit/summary.json",
+    "variant_distance_summary_csv": "runs/m498_natural_belief_wrong_history_no_effect_audit/variant_distance_summary.csv",
+    "wrong_tail_rows": 1124,
+    "wrong_tail_proof_rows": 15,
+    "wrong_tail_event_rows": 0,
+    "control_rows": 2248,
+    "control_proof_rows": 472,
+    "control_event_rows": 17,
+    "wrong_tail_first_action_mean": 0.06984686745930163,
+    "reset_tail_first_action_mean": 0.9098148269585443,
+    "zero_current_tail_first_action_mean": 0.08333189320316355,
+    "wrong_tail_trajectory_mean": 0.05540474363042573,
+    "reset_tail_trajectory_mean": 1.0057235746992441,
+    "zero_current_tail_trajectory_mean": 0.45115503975690685,
+    "wrong_vs_reset_first_action_ratio": 0.07677042117767575,
+    "wrong_vs_zero_current_first_action_ratio": 0.8381768945176206,
+    "wrong_vs_reset_trajectory_ratio": 0.05508943513330112,
+    "wrong_vs_zero_current_trajectory_ratio": 0.1228064384701967,
+    "weak_wrong_history_action_signal": true,
+    "wrong_history_source_concentrated": true,
+    "wrong_history_margin_only": true,
+    "classification": "weak_wrong_history_trajectory_signal",
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "next_manifest": "experiments/manifests/m499-natural-belief-action-sensitive-selector-design.json",
+    "decision": "audit_wrong_history_weak_or_margin_only_admit_m499_action_sensitive_selector_design"
+  }
 }

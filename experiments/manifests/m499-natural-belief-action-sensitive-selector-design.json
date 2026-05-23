@@ -1,0 +1,86 @@
+{
+  "id": "m499-natural-belief-action-sensitive-selector-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m498_natural_belief_wrong_history_no_effect_audit/summary.json",
+      "runs/m497_natural_belief_decision_window_outcome_summary/combined_tail_outcomes.csv",
+      "runs/m495_natural_belief_matched_current_summary/combined_matched_pairs.csv"
+    ],
+    "parent_config": [
+      "configs/m494_natural_belief_short_reveal_zero_relvel.json",
+      "configs/m494_natural_belief_warmup_capability_zero_relvel.json",
+      "experiments/manifests/m498-natural-belief-wrong-history-no-effect-audit.json"
+    ],
+    "parent_objective": [
+      "action-sensitive natural wrong-history selector design"
+    ],
+    "derived_from": [
+      "m498-natural-belief-wrong-history-no-effect-audit"
+    ],
+    "blocked_by": [
+      "m498-natural-belief-wrong-history-no-effect-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m499-natural-belief-action-sensitive-selector-design.md",
+  "public_gates": [
+    "design an action-sensitive selector over the full M495 matched-current surface",
+    "rank rows by wrong-history first-action and short-horizon trajectory distance before outcome gates",
+    "preserve source diversity across seeds labels targets configs and offsets",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not use hidden-hold variants as deployable proof",
+    "do not repeat M496 target-z triage unchanged",
+    "do not tune from private holdouts"
+  ],
+  "hypothesis": "An action-sensitive selector can avoid M497's weak wrong-history trajectory signal by selecting natural matched-current rows where wrong-history changes the short-horizon closed-loop action trajectory before current-response correction dominates.",
+  "success_criteria": [
+    "define probe semantics for cheap action or short-horizon wrong-history scoring",
+    "define selection metrics and diversity caps",
+    "define outcome-gate admission thresholds",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "design repeats target-z-only triage",
+    "design requires privileged actor inputs",
+    "design relies on hidden-hold as deployable proof",
+    "training or checkpoint promotion is proposed"
+  ],
+  "commands": [
+    {
+      "name": "selector_design",
+      "command": "Use M498 audit results to design a natural action-sensitive selector before M500 implementation."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m499-natural-belief-action-sensitive-selector-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m498-natural-belief-wrong-history-no-effect-audit.md",
+    "runs/m498_natural_belief_wrong_history_no_effect_audit/summary.json"
+  ],
+  "decision_rule": "M499 should admit implementation only if the selector uses observed wrong-history action or short-horizon trajectory signal while preserving source-diversity and avoiding hidden-hold proof.",
+  "next_blocker": "pending M499 natural belief action-sensitive selector design"
+}

@@ -10603,3 +10603,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M497 splits M496 targeted pairs by natural belief config and runs early decision-window offsets `0`, `2`, `4`, and `8`. Wrong-history produces `15` proof candidates across `3` probe seeds, `2` labels, `2` targets, and `2` configs, but all are margin-only with `0` event rows. Reset/zero-current controls on the same rows produce `472` proof candidates and `17` event rows. The classification is `control_only_sensitivity`: the task/window is sensitive, but one-shot wrong-history is still not outcome-sensitive.
 - decision: `natural_decision_window_gate_reject_wrong_history_event_proof_admit_m498_no_effect_audit`
 - next: `m498-natural-belief-wrong-history-no-effect-audit`
+## 20260524T001000Z - m498-natural-belief-wrong-history-no-effect-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m498_natural_belief_wrong_history_no_effect_audit`
+- artifact: `docs/m498-natural-belief-wrong-history-no-effect-audit.md`
+- result: M498 audits M497 action and trajectory distances. Wrong-history has first-action mean `0.069847` and trajectory mean `0.055405`; reset-hidden has first-action mean `0.909815` and trajectory mean `1.005724`; zero-current has first-action mean `0.083332` and trajectory mean `0.451155`. Wrong-history trajectory distance is only `5.5%` of reset and `12.3%` of zero-current. The classification is `weak_wrong_history_trajectory_signal`: one-shot wrong-history is corrected quickly, and M496 target-z triage is not enough to select outcome-relevant wrong-history rows.
+- decision: `audit_wrong_history_weak_or_margin_only_admit_m499_action_sensitive_selector_design`
+- next: `m499-natural-belief-action-sensitive-selector-design`
