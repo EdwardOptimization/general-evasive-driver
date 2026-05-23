@@ -1,0 +1,78 @@
+{
+  "id": "m433-selective-10004-anchor-export",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m429_branch_split_old_key_guard/branch_split_hard_guard_anchor.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m432-selective-10004-guard-design.json"
+    ],
+    "parent_objective": [
+      "selective 10004 wrong-history anchor profile export"
+    ],
+    "derived_from": [
+      "m432-selective-10004-guard-design"
+    ],
+    "blocked_by": [
+      "m432-selective-10004-guard-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m433-selective-10004-anchor-export.md",
+  "public_gates": [
+    "export r0005 r0010 r0015 r0020 tail_r0005 tail_r0010 anchors",
+    "no-update exact repair smoke for each anchor",
+    "no actor input or output contract change"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not remove 10004 wrong-history protection entirely",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "hypothesis": "A profile exporter that selectively relaxes only 10004 wrong-history can create valid no-PPO probe anchors for testing proof-safe recovery utility without touching other guards.",
+  "success_criteria": [
+    "all six profile anchors are exported with source metadata",
+    "10023 and 9872 guard sources remain unchanged",
+    "10004 wrong-history remains present in every profile",
+    "no-update exact repair smoke passes for each profile"
+  ],
+  "failure_criteria": [
+    "profile export corrupts trajectory anchor shapes",
+    "10004 wrong-history is removed completely",
+    "no-update smoke regresses exact objectives",
+    "actor input or output contract changes"
+  ],
+  "commands": [
+    {
+      "name": "selective_10004_anchor_export",
+      "command": "Export M432 selective 10004 branch profiles from the M429 anchor and run no-update exact repair smokes."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m433-selective-10004-anchor-export.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m432-selective-10004-guard-design.md"
+  ],
+  "decision_rule": "M433 admits M434 no-PPO projection only if every exported profile loads and passes no-update exact smoke without changing actor contracts.",
+  "next_blocker": "pending M433 selective 10004 anchor export"
+}

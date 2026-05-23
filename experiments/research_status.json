@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 440,
+        "completed": 441,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m431-branch-split-utility-balance-audit",
+        "task_id": "m432-selective-10004-guard-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m431_branch_split_utility_balance_audit",
-        "command_log": "docs/m431-branch-split-utility-balance-audit.md"
+        "run_dir": "",
+        "command_log": "docs/m432-selective-10004-guard-design.md"
     },
     "next_task": {
-        "id": "m432-selective-10004-guard-design",
+        "id": "m433-selective-10004-anchor-export",
         "status": "pending",
-        "priority": 4270,
+        "priority": 4280,
         "kind": "infrastructure",
-        "hypothesis": "Design selective 10004 wrong-history guard after branch-split utility audit",
-        "command": "see experiments/manifests/m432-selective-10004-guard-design.json",
+        "hypothesis": "Export selective 10004 wrong-history guard profiles and no-update smokes",
+        "command": "see experiments/manifests/m433-selective-10004-anchor-export.json",
         "success_artifact": "",
-        "notes": "Pending: design source/branch-specific radius or hinge profile; no PPO or promotion"
+        "notes": "Pending: export r0005 r0010 r0015 r0020 tail_r0005 tail_r0010 anchors; no PPO or promotion"
     },
     "updated_at_utc": "20260523T180817Z"
 }

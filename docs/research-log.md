@@ -9954,3 +9954,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M431 attributes M430's utility collapse to `10004|perturbed|31|31|9.5|-1.0|0.8` wrong-history. At M427 this source has the largest branch-split anchor violation (`1.075796e-05`) and directly conflicts with recovery descent (cosine `-0.904241`). The `9872` normal-branch guards are aligned with recovery (cosines about `+0.93`), so they are not the main utility blocker. M430's all-hard branch-split guard overconstrains source `10004`, reducing recovery retained vs M406 from M427 `0.174354` to `0.061702`.
 - decision: `admit_m432_selective_10004_guard_design`
 - next: `m432-selective-10004-guard-design`
+
+## 20260523T180817Z - m432-selective-10004-guard-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m432-selective-10004-guard-design.md`
+- result: M432 designs a selective `10004` wrong-history guard family. Keep M426 base hard guards, `10023` wrong-history, and both `9872` normal-branch guards unchanged. Modify only `10004` wrong-history with all-row radius profiles `0.0005`, `0.0010`, `0.0015`, `0.0020` and terminal-third profiles `tail_r0005`, `tail_r0010`. The next projection must keep exact M297/M270/old-key no-regression, M267/M264 `17/17`, old-key compact `40/40`, and M183/M170 `17/17`; utility target remains recovery retained vs M406 `>= 0.20`.
+- decision: `admit_m433_selective_10004_anchor_export`
+- next: `m433-selective-10004-anchor-export`

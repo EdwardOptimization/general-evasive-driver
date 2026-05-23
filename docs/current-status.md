@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m432-selective-10004-guard-design
+m433-selective-10004-anchor-export
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -74,8 +74,11 @@ the utility collapse and identifies `10004` wrong-history as the dominant
 conflict: it is the largest M427 branch-split loss (`1.075796e-05`) and its
 hard-gradient cosine with the recovery gradient is `-0.904241`. The `9872`
 normal guards are aligned with recovery and are not the main blocker. M432
-should design a selective `10004` wrong-history guard rather than another
-all-hard full-trajectory anchor.
+designs a selective `10004` wrong-history profile family: keep M426 base
+guards, `10023`, and `9872` unchanged, and only relax `10004` via radii
+`0.0005`, `0.0010`, `0.0015`, `0.0020`, plus two terminal-only variants.
+M433 should export those anchors and no-update smokes before any projection
+probe or PPO.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key
