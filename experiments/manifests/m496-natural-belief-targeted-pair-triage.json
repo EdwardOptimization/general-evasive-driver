@@ -2,7 +2,7 @@
   "id": "m496-natural-belief-targeted-pair-triage",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -94,5 +94,55 @@
     "runs/m495_natural_belief_matched_current_summary/combined_summary.json"
   ],
   "decision_rule": "M496 may admit natural wrong-history outcome gates only if targeted pairs remain source-diverse across seeds labels targets and configs; otherwise repair triage caps or mining parameters.",
-  "next_blocker": "pending M496 natural belief targeted pair triage"
+  "next_blocker": "pending M496 natural belief targeted pair triage",
+  "results": {
+    "run_dir": "runs/m496_natural_belief_targeted_pair_triage",
+    "summary_json": "runs/m496_natural_belief_targeted_pair_triage/summary.json",
+    "targeted_pairs_csv": "runs/m496_natural_belief_targeted_pair_triage/targeted_pairs.csv",
+    "candidate_pair_count": 5580,
+    "eligible_pair_count": 5580,
+    "targeted_pair_count": 294,
+    "targeted_probe_seed_count": 6,
+    "targeted_obstacle_label_count": 3,
+    "targeted_target_count": 3,
+    "targeted_config_count": 2,
+    "targeted_seed_window_count": 2,
+    "single_seed_share": 0.23809523809523808,
+    "single_label_share": 0.54421768707483,
+    "single_config_share": 0.6054421768707483,
+    "single_window_share": 0.5238095238095238,
+    "targeted_by_probe_seed": {
+      "11800": 46,
+      "11900": 48,
+      "12000": 46,
+      "12100": 70,
+      "12200": 64,
+      "12300": 20
+    },
+    "targeted_by_left_obstacle_label": {
+      "aes_feasible": 12,
+      "drift_required": 160,
+      "unavoidable": 122
+    },
+    "targeted_by_target": {
+      "future_braking_deceleration": 140,
+      "future_lateral_accel_response": 14,
+      "future_yaw_response": 140
+    },
+    "targeted_by_config": {
+      "short_reveal": 116,
+      "warmup_capability": 178
+    },
+    "targeted_by_seed_window": {
+      "11800_12000": 140,
+      "12100_12300": 154
+    },
+    "triage_pass": true,
+    "config_balance_pass": true,
+    "full_natural_triage_pass": true,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "next_manifest": "experiments/manifests/m497-natural-belief-decision-window-outcome-gate.json",
+    "decision": "natural_belief_targeted_triage_pass_admit_m497_decision_window_outcome_gate"
+  }
 }

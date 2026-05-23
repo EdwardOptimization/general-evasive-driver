@@ -10585,3 +10585,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M495 runs matched-current ambiguity mining on both M494 natural belief configs. Initial seed blocks `11800`, `11900`, and `12000` produced large surfaces but only `3` probe seeds, so M495 added fresh source-diversity blocks `12100`, `12200`, and `12300` without retuning mining parameters. The combined surface has `5580` accepted pairs, `1620` physical pair proxies, `6` probe seeds, `3` labels, `3` targets, `2` configs, `2` seed windows, `54` left steps, single-seed share `0.174910`, and single-label share `0.479928`. This passes the M495 source-diversity gate but is not self-ID proof.
 - decision: `natural_belief_matched_surface_pass_admit_m496_targeted_pair_triage`
 - next: `m496-natural-belief-targeted-pair-triage`
+## 20260523T235000Z - m496-natural-belief-targeted-pair-triage
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m496_natural_belief_targeted_pair_triage`
+- artifact: `docs/m496-natural-belief-targeted-pair-triage.md`
+- result: M496 selects a targeted natural belief wrong-history pair surface from the M495 combined matched-current rows. The triage exports `294` targeted pairs from `5580` eligible pairs, covering `6` probe seeds, `3` labels, `3` targets, `2` configs, and `2` seed windows. Single-seed share is `0.238095`, single-label share is `0.544218`, and single-config share is `0.605442`; the full natural triage gate passes. This is still only a targeted pair surface, not outcome proof.
+- decision: `natural_belief_targeted_triage_pass_admit_m497_decision_window_outcome_gate`
+- next: `m497-natural-belief-decision-window-outcome-gate`

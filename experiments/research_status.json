@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 504,
+        "completed": 505,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m495-natural-belief-matched-current-mining",
+        "task_id": "m496-natural-belief-targeted-pair-triage",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m495_natural_belief_matched_current_summary",
-        "command_log": "docs/m495-natural-belief-matched-current-mining.md"
+        "run_dir": "runs/m496_natural_belief_targeted_pair_triage",
+        "command_log": "docs/m496-natural-belief-targeted-pair-triage.md"
     },
     "next_task": {
-        "id": "m496-natural-belief-targeted-pair-triage",
+        "id": "m497-natural-belief-decision-window-outcome-gate",
         "status": "pending",
-        "priority": 4910,
+        "priority": 4920,
         "kind": "gate",
-        "hypothesis": "The M495 natural belief matched-current surface can yield a balanced targeted wrong-history pair surface.",
-        "command": "see experiments/manifests/m496-natural-belief-targeted-pair-triage.json",
+        "hypothesis": "Early decision-window wrong-history interventions can test whether pre-reveal command-response belief affects outcomes before current-response correction dominates.",
+        "command": "see experiments/manifests/m497-natural-belief-decision-window-outcome-gate.json",
         "success_artifact": "",
-        "notes": "Pending: run targeted pair triage before any natural outcome gate"
+        "notes": "Pending: split targeted pairs by config and run early-offset outcome gates; no training or promotion"
     },
-    "updated_at_utc": "20260523T234157Z"
+    "updated_at_utc": "20260523T234529Z"
 }

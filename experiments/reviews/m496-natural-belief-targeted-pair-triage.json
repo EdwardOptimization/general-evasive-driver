@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M496 exports 294 targeted pairs across 6 seeds 3 labels 3 targets and 2 configs with single-seed share 0.238 single-label share 0.544 and single-config share 0.605",
+  "failure_criteria": [
+    "targeted surface is too small",
+    "targeted surface is dominated by one seed label target config or obstacle bucket",
+    "actor contract changes",
+    "training or checkpoint promotion is performed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not skip targeted source-diversity caps",
+    "do not run outcome gates if triage surface is source-narrow",
+    "do not tune from private holdouts"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260523T234613Z",
+  "hypothesis": "The M495 natural belief matched-current surface is large enough to select a balanced targeted wrong-history pair surface for natural outcome proof gates.",
+  "lineage": {
+    "blocked_by": [
+      "m495-natural-belief-matched-current-mining"
+    ],
+    "derived_from": [
+      "m495-natural-belief-matched-current-mining"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/m494_natural_belief_short_reveal_zero_relvel.json",
+      "configs/m494_natural_belief_warmup_capability_zero_relvel.json",
+      "experiments/manifests/m495-natural-belief-matched-current-mining.json"
+    ],
+    "parent_dataset": [
+      "runs/m495_natural_belief_matched_current_summary/combined_summary.json",
+      "runs/m495_natural_belief_matched_current_summary/combined_matched_pairs.csv"
+    ],
+    "parent_objective": [
+      "source-diverse natural targeted wrong-history pair triage"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m496-natural-belief-targeted-pair-triage",
+  "next_blocker": "pending M496 natural belief targeted pair triage",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "natural_belief_targeted_triage_pass_admit_m497_decision_window_outcome_gate",
+  "public_gates": [
+    "run wrong_history_targeted_pair_triage on the combined M495 matched-current surface",
+    "preserve source diversity across seeds labels targets configs and obstacle buckets",
+    "export targeted pairs for natural wrong-history outcome gates",
+    "do not train or promote checkpoint"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "natural_belief_targeted_triage_pass_admit_m497_decision_window_outcome_gate",
+    "milestone": "m496-natural-belief-targeted-pair-triage",
+    "reason": "M496 exports 294 targeted pairs across 6 seeds 3 labels 3 targets and 2 configs with single-seed share 0.238 single-label share 0.544 and single-config share 0.605",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "targeted_pair_count >= 240",
+    "probe_seed_count >= 6",
+    "obstacle_label_count >= 2",
+    "target_count >= 2",
+    "config_count >= 2",
+    "single_seed_share <= 0.50",
+    "single_label_share <= 0.70",
+    "single_config_share <= 0.70",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "type": "gate"
+}

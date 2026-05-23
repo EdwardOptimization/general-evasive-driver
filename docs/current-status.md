@@ -52,7 +52,7 @@ public-gate base; M487-M492 did not train or promote a checkpoint.
 Current blocker:
 
 ```text
-m496-natural-belief-targeted-pair-triage
+m497-natural-belief-decision-window-outcome-gate
 ```
 
 Recent progress: M486-M492 is now closed as an artificial tail-forcing
@@ -77,8 +77,13 @@ matched-current surface has `5580` accepted pairs across `6` probe seeds,
 `3` labels, `3` targets, and `2` configs, with single-seed share `0.175` and
 single-label share `0.480`.
 
-Next step: M496 should select a balanced targeted wrong-history pair surface
-from the M495 combined surface before any natural outcome gate or training.
+M496 passes targeted triage. It exports `294` pairs across `6` probe seeds,
+`3` labels, `3` targets, and `2` configs, with single-seed share `0.238`,
+single-label share `0.544`, and single-config share `0.605`.
+
+Next step: M497 should split the targeted pairs by config and run early-offset
+decision-window wrong-history outcome gates. This is still a diagnostic gate,
+not training or checkpoint promotion.
 
 ## Current Evidence
 
