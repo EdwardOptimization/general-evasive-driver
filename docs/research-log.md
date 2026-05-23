@@ -9594,3 +9594,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M395 promotes `runs/m394_s02_micro_interpolation/checkpoints/alpha_0_1.pt`. It passes all six public replay gates versus `m333_base`: M183/M168 `16/16`, M183/M170 `17/17`, M193/M189 `14/14`, M212/M204 `17/17`, M223/M219 `17/17`, and M267/M264 `17/17`. Behavior seeds `9505` and `9506` retain success mean `0.8625`, termination mean `0.1375`, clearance margin mean `1.844089403`, reset success mean `0.85`, and zero-all success mean `0.80`.
 - decision: `promote_m394_s02a010_public_gate_base`
 - next: `m396-m395-micro-promotion-utility-audit`
+
+## 20260523T150031Z - m396-m395-micro-promotion-utility-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m396-m395-micro-promotion-utility-audit.md`
+- result: M396 classifies M395 as `proof_safe_bounded_promotion_not_meaningful_driver_improvement`. Exact M297/M270 improve by `-0.000048637` and `-0.000028133`, but behavior success and termination are unchanged and mean clearance moves by only `-0.000102931`. The first known failing candidate after M395 is `s02 alpha 0.2`, which fails the cumulative old-key compact gate by one case, `9958|perturbed|39|36`, where normal margin crosses from `+0.000086` at alpha `0.1` to `-0.000089` at alpha `0.2`.
+- decision: `admit_m397_m395_alpha02_old_key_boundary_audit`
+- next: `m397-m395-alpha02-old-key-boundary-audit`

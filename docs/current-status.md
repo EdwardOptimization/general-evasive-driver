@@ -56,7 +56,7 @@ along this direction.
 Current blocker:
 
 ```text
-m396-m395-micro-promotion-utility-audit
+m397-m395-alpha02-old-key-boundary-audit
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -195,7 +195,11 @@ that candidate after all six public replay surfaces and behavior seeds pass.
 Behavior success remains `0.8625`, termination remains `0.1375`, and mean
 clearance is `1.844089403`. This is still a proof-safe bounded promotion, so
 M396 should audit whether it is useful enough to chain another repair or PPO
-step.
+step. M396 classifies it as proof-safe bounded promotion, not meaningful driver
+improvement. The first known post-M395 boundary is `s02 alpha 0.2` on cumulative
+old-key compact case `9958|perturbed|39|36`: normal margin crosses from
+`+0.000086` at alpha `0.1` to `-0.000089` at alpha `0.2`, while wrong-history
+margin remains negative. M397 should audit that boundary before any PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

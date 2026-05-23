@@ -1,0 +1,79 @@
+{
+  "id": "m397-m395-alpha02-old-key-boundary-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m394_s02_micro_interpolation/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m396-m395-micro-promotion-utility-audit.md",
+      "runs/m396_s02a020_old_key_replay_gate/old_key_replay_comparison_rows.csv",
+      "runs/m396_s02a020_old_key_replay_gate/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m396-m395-micro-promotion-utility-audit.json"
+    ],
+    "parent_objective": [
+      "audit alpha 0.2 cumulative old-key normal-branch boundary after M395"
+    ],
+    "derived_from": [
+      "m396-m395-micro-promotion-utility-audit"
+    ],
+    "blocked_by": [
+      "m396-m395-micro-promotion-utility-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m397-m395-alpha02-old-key-boundary-audit.md",
+  "public_gates": [
+    "no PPO run",
+    "audit active old-key case 9958|perturbed|39|36",
+    "classify normal-branch cliff versus wrong-history sensitivity loss",
+    "decide whether next task is local recovery target export, objective redesign, or broader surface refresh"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower old-key thresholds",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "hypothesis": "The first post-M395 boundary is a cumulative old-key normal-branch terminal-margin cliff on case 9958, not a broad loss of wrong-history sensitivity.",
+  "success_criteria": [
+    "quantify alpha 0.1 versus alpha 0.2 active-row margins and actions",
+    "determine whether the failure is singleton stale row or representative old-key surface behavior",
+    "decide the next no-PPO infrastructure or repair milestone",
+    "record all evidence in docs and manifests"
+  ],
+  "failure_criteria": [
+    "audit cannot reproduce or locate the active old-key row",
+    "audit changes actor inputs or thresholds",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "old_key_boundary_audit",
+      "command": "Inspect the alpha 0.2 old-key compact failure and classify the active boundary; no PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m397-m395-alpha02-old-key-boundary-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m394_s02_micro_interpolation/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m396-m395-micro-promotion-utility-audit.md"
+  ],
+  "decision_rule": "M397 should admit the next task only after classifying whether the alpha 0.2 old-key failure is a local recovery-target problem, a broader surface-refresh problem, or a reason to stop this repair direction.",
+  "next_blocker": "pending M397 alpha02 old-key boundary audit"
+}

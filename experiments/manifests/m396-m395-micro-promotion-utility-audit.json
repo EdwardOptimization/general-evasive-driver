@@ -2,7 +2,7 @@
   "id": "m396-m395-micro-promotion-utility-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -77,5 +77,34 @@
     "docs/m395-full-public-gate-for-m394-s02a010.md"
   ],
   "decision_rule": "M396 should admit the next task only after classifying whether the M395 promotion is meaningful enough to chain or whether another active-boundary/objective redesign is needed.",
-  "next_blocker": "pending M396 utility audit"
+  "next_blocker": "m397-m395-alpha02-old-key-boundary-audit",
+  "results": {
+    "artifact": "docs/m396-m395-micro-promotion-utility-audit.md",
+    "current_public_base": "runs/m394_s02_micro_interpolation/checkpoints/alpha_0_1.pt",
+    "previous_public_base": "runs/m390_step17_micro_interpolation/checkpoints/alpha_0_005.pt",
+    "classification": "proof_safe_bounded_promotion_not_meaningful_driver_improvement",
+    "exact_m297_delta_vs_previous_base": -4.863739013671875e-05,
+    "exact_m270_delta_vs_previous_base": -2.8133392333984375e-05,
+    "old_key_surrogate_delta_vs_previous_base": -0.00013065338134765625,
+    "current_family_conflict_loss_delta_vs_previous_base": -1.7316080629825592e-05,
+    "behavior_success_delta_vs_previous_base": 0.0,
+    "behavior_termination_delta_vs_previous_base": 0.0,
+    "behavior_clearance_margin_delta_vs_previous_base": -0.0001029311201990011,
+    "first_known_failing_candidate": "s02_alpha_0_2",
+    "active_surface": "cumulative_old_key_compact",
+    "active_case_id": "9958|perturbed|39|36|9.500000|-1.200000|0.900000",
+    "alpha_0_1_old_key_accepted_rows": 40,
+    "alpha_0_2_old_key_accepted_rows": 39,
+    "alpha_0_1_active_normal_margin": 8.6e-05,
+    "alpha_0_2_active_normal_margin": -8.9e-05,
+    "alpha_0_1_active_wrong_history_margin": -0.002055,
+    "alpha_0_2_active_wrong_history_margin": -0.002232,
+    "alpha_0_2_old_key_run_dir": "runs/m396_s02a020_old_key_replay_gate",
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m397-m395-alpha02-old-key-boundary-audit"
+  },
+  "decision": "admit_m397_m395_alpha02_old_key_boundary_audit"
 }
