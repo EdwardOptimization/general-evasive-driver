@@ -8777,3 +8777,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M313 sweeps M307-to-M310 interpolation. Exact objectives pass through alpha `0.2`, but protected key `9944` passes only through alpha `0.14`; alpha `0.15` already exceeds the normal-margin window. Selected `runs/m313_m307_to_m310_protected_key_bounded_interpolation/checkpoints/alpha_0_14.pt` improves exact M297 by `-0.000017047` and exact M270 by `-0.000010908`, passes protected key with normal margin `0.199976`, and passes M183/M170 plus M267/M264 first replay gates.
 - decision: `admit_m314_full_public_gate_for_m313_a140`
 - next: `m314-full-public-gate-for-m313-a140`
+
+## 20260523T052557Z - m314-full-public-gate-for-m313-a140
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m314_full_public_gate_for_m313_a140`
+- artifact: `docs/m314-full-public-gate-for-m313-a140.md`
+- result: M314 promotes `runs/m313_m307_to_m310_protected_key_bounded_interpolation/checkpoints/alpha_0_14.pt`. The candidate improves exact M297 by `-0.000017047` and exact M270 by `-0.000010908` versus M307, passes all six replay surfaces, passes protected key `9944` while `m239_a750` fails, and retains behavior success `0.8625` on seeds `9505` and `9506`.
+- decision: `promote_m313_a140_public_gate_base`
+- next: `m315-protected-key-aware-ppo-proposal-repeat-design`

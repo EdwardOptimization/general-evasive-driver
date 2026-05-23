@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 322,
+    "completed": 323,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m313-m310-protected-key-bounded-interpolation-probe.md",
+    "command_log": "docs/m314-full-public-gate-for-m313-a140.md",
     "returncode": 0,
-    "run_dir": "runs/m313_m307_to_m310_protected_key_bounded_interpolation",
+    "run_dir": "runs/m314_full_public_gate_for_m313_a140",
     "status": "completed",
-    "task_id": "m313-m310-protected-key-bounded-interpolation-probe"
+    "task_id": "m314-full-public-gate-for-m313-a140"
   },
   "next_task": {
-    "command": "see experiments/manifests/m314-full-public-gate-for-m313-a140.json",
-    "hypothesis": "The M313 alpha 0.14 protected-key-bounded interpolation candidate can pass the full public gate stack and become the next public-gate base.",
-    "id": "m314-full-public-gate-for-m313-a140",
-    "kind": "driver_candidate",
-    "notes": "Pending: full replay protected-key behavior gates before any promotion",
-    "priority": 3090,
+    "command": "see experiments/manifests/m315-protected-key-aware-ppo-proposal-repeat-design.json",
+    "hypothesis": "After M314 promotion, the next repeat should generate a fresh PPO proposal from the new base and treat protected-key-bounded interpolation as a required acceptance layer, not an after-the-fact repair.",
+    "id": "m315-protected-key-aware-ppo-proposal-repeat-design",
+    "kind": "infrastructure",
+    "notes": "Pending: specify next config exact repair protected-key interpolation and gates without running PPO",
+    "priority": 3100,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260523T052027Z"
+  "updated_at_utc": "20260523T052557Z"
 }

@@ -42,13 +42,14 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt
+runs/m313_m307_to_m310_protected_key_bounded_interpolation/checkpoints/alpha_0_14.pt
 ```
 
-Status: M307 promoted `m306_raw_s40` as the current public-gate base. It
-improves exact M297 rejected-history preference loss by `0.000126243` and exact
-M270 source-balanced outcome loss by `0.000080407` versus M299 while passing six
-public replay surfaces, the protected-key diagnostic, and behavior seeds
+Status: M314 promoted `m313_a140` as the current public-gate base. It is the
+protected-key-bounded interpolation from M307 toward the M310 repaired PPO
+proposal. It improves exact M297 rejected-history preference by `0.000017047`
+and exact M270 source-balanced outcome by `0.000010908` versus M307 while
+passing six public replay surfaces, protected key `9944`, and behavior seeds
 `9505`/`9506`.
 
 M302 tried a 1024-step PPO smoke from M299 with a sampled rejected-history
@@ -61,7 +62,7 @@ post-PPO repair before any more PPO acceptance.
 Current blocker:
 
 ```text
-m314-full-public-gate-for-m313-a140
+m315-protected-key-aware-ppo-proposal-repeat-design
 ```
 
 M305 implements deterministic exact M297/M270 repair or projection
@@ -115,14 +116,19 @@ tested alpha that keeps protected key `9944` inside the normal-margin window.
 It improves exact M297/M270 slightly and passes M183/M170 plus M267/M264 first
 replay gates. It is not promoted before full public gates.
 
+M314 promotes M313 alpha `0.14` after full replay, protected-key, and behavior
+gates pass. This confirms PPO proposals can still provide useful movement, but
+acceptance needs exact repair plus a protected-key-bounded trust region.
+
 Current next task:
 
 ```text
-m314-full-public-gate-for-m313-a140
+m315-protected-key-aware-ppo-proposal-repeat-design
 ```
 
-M314 should run the full replay stack, protected-key diagnostic, and behavior
-seeds for M313 alpha `0.14` before any promotion decision.
+M315 should design the next repeat from the new M314 base, making exact repair
+and protected-key-bounded acceptance part of the pre-registered PPO proposal
+workflow before any new PPO is run.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -149,14 +155,14 @@ seeds for M313 alpha `0.14` before any promotion decision.
 | current-best snippet-anchored actor update | `runs/m217_m204_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10054/optimized_checkpoint.pt` | M217 fresh repeat preserves old/current replay, behavior, and protected key |
 | current-best guarded PPO smoke repeat | `runs/ppo_m219_guarded_from_m217_seed5216/checkpoint.pt` | best retained M219 repeat; seed5215 fails protected-key margin window |
 | rejected guarded stage2 from M219 | `runs/ppo_m220_stage2_from_m219_seed5217/checkpoint.pt` | improves fixed M212 and preserves replay/behavior, but fails protected key |
-| current public-gate base | `runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt` | M299 promoted after exact M297/M270 improvement and full public-gate pass |
+| previous public-gate base | `runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt` | M299 promoted after exact M297/M270 improvement and full public-gate pass |
 | rejected PPO proposal | `runs/ppo_m302_rejected_preference_guarded_smoke_seed5233/checkpoint.pt` | M302 regresses exact M297/M270 and is not promotable |
 | exact repair infrastructure | `src/autodrift/exact_post_ppo_repair.py` | M305 implemented deterministic exact M297/M270 repair summaries and line-search starts |
-| current public-gate base | `runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt` | M307 promoted after exact objectives full replay protected-key and behavior gates pass |
+| previous public-gate base | `runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt` | M307 promoted after exact objectives full replay protected-key and behavior gates pass |
 | repair repeat diagnostic | `runs/m308_exact_repair_from_raw_s40_seed10094/candidate_checkpoint.pt` | M308 repeats M306 exact deltas and first replay gates; not separately promoted |
 | next PPO proposal config | `configs/ppo_m310_exact_repaired_proposal_smoke.json` | M309 registered smoke PPO from M307 plus mandatory exact repair before replay |
 | rejected full-gate candidate | `runs/m310_exact_repair_from_raw_s40_seed10095/candidate_checkpoint.pt` | M311 rejects after protected-key failure despite exact and replay success |
-| full-gate candidate | `runs/m313_m307_to_m310_protected_key_bounded_interpolation/checkpoints/alpha_0_14.pt` | M313 selected as protected-key-bounded interpolation; awaits M314 full public gate |
+| current public-gate base | `runs/m313_m307_to_m310_protected_key_bounded_interpolation/checkpoints/alpha_0_14.pt` | M314 promoted after exact objectives full replay protected-key and behavior gates pass |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
