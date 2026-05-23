@@ -2,9 +2,9 @@
   "id": "m339-old-key-gap-distribution-corpus-refresh",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "lineage_invalid"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -90,6 +90,38 @@
     "docs/m338-old-key-gap-distribution-refresh-design.md",
     "runs/m337_old_key_gap_floor_bottleneck_audit/summary.json"
   ],
-  "decision_rule": "M339 may only admit an implementation/gate milestone if it produces a source-diverse old-key/gap corpus or clearly documents why the corpus is insufficient. It cannot promote and cannot run PPO.",
-  "next_blocker": "pending M339 old-key gap distribution corpus refresh"
+  "decision_rule": "M339 completes the no-PPO refresh but does not create a source-diverse enough compact old-key/gap replacement gate. The singleton 9944 floor remains active until M340/M341 mines a less dominated neighborhood corpus.",
+  "next_blocker": "m340-old-key-neighborhood-mining-design",
+  "results": {
+    "run_dir": "runs/m339_old_key_gap_distribution_refresh",
+    "m133_all_old_key_guard_run_dir": "runs/m339_m133_all_old_key_guard",
+    "candidate_pool_csv": "runs/m339_old_key_gap_distribution_refresh/old_key_gap_candidate_pool.csv",
+    "compact_corpus_csv": "runs/m339_old_key_gap_distribution_refresh/old_key_gap_compact_corpus.csv",
+    "summary_json": "runs/m339_old_key_gap_distribution_refresh/summary.json",
+    "broad_pool_rows": 195,
+    "broad_pool_unique_physical_pairs_or_keys": 30,
+    "broad_pool_unique_source_steps": 19,
+    "broad_pool_unique_source_families": 12,
+    "broad_pool_max_source_family_dominance": 0.08717948717948718,
+    "compact_rows": 26,
+    "compact_unique_physical_pairs_or_keys": 19,
+    "compact_unique_source_steps": 15,
+    "compact_unique_source_families": 4,
+    "compact_max_source_family_dominance": 0.46153846153846156,
+    "compact_passes_all_m338_diversity_targets": false,
+    "endpoint_gap_delta_min": -0.02479489280545555,
+    "endpoint_gap_regression_rows_lt_0": 23,
+    "endpoint_gap_regression_rows_le_-0.001": 3,
+    "endpoint_success_drop_regression_rows": 2,
+    "endpoint_accepted_regression_rows": 1,
+    "m133_m333_base_accepted_cases": 7,
+    "m133_m335_a0075_accepted_cases": 7,
+    "m133_m335_repaired_accepted_cases": 6,
+    "old_key_9944_endpoint_gap_delta": -0.02479489280545555,
+    "old_key_9944_selected_gap_delta": -0.0001333911547165556,
+    "classification": "existing_corpora_insufficient_for_source_diverse_old_key_gap_replacement",
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m340_old_key_neighborhood_mining_design"
 }

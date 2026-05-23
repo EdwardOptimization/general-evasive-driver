@@ -1,0 +1,86 @@
+# m339-old-key-gap-distribution-corpus-refresh Research Review
+
+## Summary
+
+- Generated at UTC: 20260523T074537Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: admit_m340_old_key_neighborhood_mining_design
+- Decision reason: M339 broad pool has 195 rows and detects M335 endpoint via 9944/M133/replay diagnostics, but compact severity draft is source dominated at 46.15%, so it cannot replace singleton 9944 floor before wider mining
+
+## Hypothesis
+
+A source-diverse old-key/gap corpus can distinguish the M335 repaired endpoint from the M335 alpha 0.0075 bounded candidate, preserving old wrong-history evidence without relying on a singleton 9944 veto.
+
+## Lineage
+
+- parent_checkpoint: runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt, runs/m335_exact_repair_from_raw_s40_seed10099/candidate_checkpoint.pt
+- parent_dataset: runs/m337_old_key_gap_floor_bottleneck_audit/summary.json, runs/m337_old_key_gap_floor_bottleneck_audit/old_key_gap_trend.csv, runs/m337_old_key_gap_floor_bottleneck_audit/source_diverse_trend.csv, runs/m133_zero_relvel_s60_strict_60ep_seed9900/outcome_sensitive_snippets.csv, runs/m133_zero_relvel_s60_strict_60ep_seed9920/outcome_sensitive_snippets.csv, runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv, runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv, runs/m320_m316_repaired_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv
+- parent_config: experiments/manifests/m338-old-key-gap-distribution-refresh-design.json, docs/m338-old-key-gap-distribution-refresh-design.md
+- parent_objective: mine and validate a source-diverse old-key/gap distribution corpus before further PPO
+- derived_from: m338-old-key-gap-distribution-refresh-design
+- blocked_by: m338-old-key-gap-distribution-refresh-design
+- supersedes: None
+- invalidates: None
+
+## Success Criteria
+
+- candidate pool has at least 80 rows or clearly reports insufficiency
+- compact corpus has 20-40 rows or clearly reports insufficiency
+- compact corpus has at least 10 physical pairs or seeds
+- compact corpus has at least 5 source steps
+- compact corpus has at least 2 obstacle target buckets
+- max source dominance is <= 25%
+- 9944 remains included as diagnostic
+- M333/M336 promoted bases pass the proposed distributional gate
+- M335 repaired endpoint is classified unsafe or repair-needed
+
+## Failure Criteria
+
+- candidate pool is too duplicate-dominated for distributional gating
+- M335 endpoint cannot be distinguished from promoted bases
+- 9944 is dropped from diagnostics
+- audit recommends PPO continuation before gate exists
+
+## Evidence Gates
+
+- do not run PPO
+- export broad old-key/gap candidate pool
+- export compact source-diverse old-key/gap corpus
+- include 9944 as diagnostic row
+- report diversity and source dominance
+- test whether M333/M336 pass and M335 endpoint is detected as unsafe or repair-needed
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not lower 9944 floor ad hoc
+- do not remove 9944 diagnostic
+- do not run PPO
+- do not change actor inputs
+
+## Failure Taxonomy
+
+- lineage_invalid
+
+## Scoreboard
+
+- milestone: m339-old-key-gap-distribution-corpus-refresh
+- type: gate
+- checkpoint: runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: admit_m340_old_key_neighborhood_mining_design
+- reason: M339 broad pool has 195 rows and detects M335 endpoint via 9944/M133/replay diagnostics, but compact severity draft is source dominated at 46.15%, so it cannot replace singleton 9944 floor before wider mining
+
+## Next Blocker
+
+m340-old-key-neighborhood-mining-design

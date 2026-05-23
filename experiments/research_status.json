@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 347,
+        "completed": 348,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "command_log": "docs/m338-old-key-gap-distribution-refresh-design.md",
-        "returncode": 0,
-        "run_dir": "docs/m338-old-key-gap-distribution-refresh-design.md",
+        "task_id": "m339-old-key-gap-distribution-corpus-refresh",
         "status": "completed",
-        "task_id": "m338-old-key-gap-distribution-refresh-design"
+        "returncode": 0,
+        "run_dir": "runs/m339_old_key_gap_distribution_refresh",
+        "command_log": "runs/m339_old_key_gap_distribution_refresh/summary.json"
     },
     "next_task": {
-        "command": "see experiments/manifests/m339-old-key-gap-distribution-corpus-refresh.json",
-        "hypothesis": "A source-diverse old-key/gap corpus can distinguish the M335 repaired endpoint from the M335 alpha 0.0075 bounded candidate, preserving old wrong-history evidence without relying on a singleton 9944 veto.",
-        "id": "m339-old-key-gap-distribution-corpus-refresh",
-        "kind": "gate",
-        "notes": "Pending: no-PPO old-key gap candidate pool and compact corpus refresh",
-        "priority": 3340,
+        "id": "m340-old-key-neighborhood-mining-design",
         "status": "pending",
-        "success_artifact": ""
+        "priority": 3350,
+        "kind": "infrastructure",
+        "hypothesis": "A wider old-key-neighborhood mining plan can produce source-diverse old gap-retention rows around M133 and 9944-like cases, avoiding both singleton veto dominance and M133-only overfitting before further PPO.",
+        "command": "see experiments/manifests/m340-old-key-neighborhood-mining-design.json",
+        "success_artifact": "",
+        "notes": "Pending: no-PPO design for wider old-key neighborhood mining before gate replacement or more PPO"
     },
-    "updated_at_utc": "20260523T074000Z"
+    "updated_at_utc": "20260523T074209Z"
 }

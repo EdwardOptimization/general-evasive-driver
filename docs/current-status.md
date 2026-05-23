@@ -42,98 +42,31 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt
+runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt
 ```
 
-Status: M317 promoted `m316_a0_0025` as the current public-gate base. It is the
-protected-key-bounded interpolation from M314 toward the M316 repaired PPO
-proposal. It keeps exact M297 rejected-history preference and exact M270
-source-balanced outcome non-regressing versus M314 while passing six public
-replay surfaces, protected key `9944`, and behavior seeds `9505`/`9506`.
-
-M302 tried a 1024-step PPO smoke from M299 with a sampled rejected-history
-preference auxiliary loss. It is rejected: M302 raw regresses exact M297 by
-`0.000700` and exact M270 by `0.000443`, and every nonzero interpolation alpha
-also regresses both exact objectives. M303 classifies this as a sampled-metric
-artifact plus objective overfit. M304 selects exact full-corpus lexicographic
-post-PPO repair before any more PPO acceptance.
+Status: M336 promotes M335 alpha `0.0075` as the current public-gate
+base. It passes exact M297/M270 no-regression, source-diverse protected gates
+`5/5`, all six replay surfaces, old-key `9944` gap floor, and behavior seeds
+`9505`/`9506`. The promotion is intentionally small: the M335 repaired
+endpoint improves exact objectives much more, but collapses the old-key gap to
+`0.065360`, so the accepted alpha is bounded by the `0.09` floor.
 
 Current blocker:
 
 ```text
-m339-old-key-gap-distribution-corpus-refresh
+m340-old-key-neighborhood-mining-design
 ```
 
-M305 implements deterministic exact M297/M270 repair or projection
-infrastructure in `autodrift.exact_post_ppo_repair`. The real-corpus `steps=0`
-smoke selects line-search alpha `0.0`, while alphas `0.001` and `0.0025` still
-regress exact M297/M270 without repair.
+M337 classifies the active blocker as singleton old-key gap-floor bottleneck,
+not broad source-diverse proof washout. M338 designs a distributional old-key
+gap refresh. M339 runs the no-PPO corpus refresh: the broad pool has `195`
+rows across `12` source families, but the compact severity draft has `26` rows
+with source-family dominance `0.461538`, above the `0.25` limit. Existing
+corpora therefore cannot replace the singleton `9944` floor yet.
 
-M306 then ran actual exact repair candidates. The raw-start repair candidate:
-
-```text
-runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt
-```
-
-improves exact M297 by `0.000126243`, improves exact M270 by `0.000080407`,
-and passes the M183/M170 plus M267/M264 first replay gates with `17/17`
-success drops retained on both surfaces.
-
-M307 promotes that M306 raw-start exact repair candidate after the full public
-gate stack: six replay surfaces, the protected-key diagnostic, and behavior
-seeds `9505`/`9506`.
-
-M308 repeats the exact repair projection with fresh seed `10094` and reproduces
-the same exact deltas plus M183/M170 and M267/M264 first replay retention. The
-repair optimizer seed is not the current blocker; the next uncertainty is the
-next PPO proposal direction.
-
-M309 designs that next PPO proposal without running PPO. M310 will start from
-the M307 base, use `configs/ppo_m310_exact_repaired_proposal_smoke.json`, route
-the raw PPO checkpoint through exact post-PPO repair, require exact M297/M270
-no-regression versus M307 before replay, and only then run M183/M170 plus
-M267/M264 first replay gates.
-
-M310 completes that smoke. Raw PPO again regresses exact objectives, but exact
-repair improves exact M297 by `0.000123024` and exact M270 by `0.000077844`
-versus M307, then passes M183/M170 and M267/M264 first replay gates with
-`17/17` success drops retained on both surfaces. It is not promoted until full
-public gates pass.
-
-M311 runs the full public gate and rejects M310 repaired. All six replay
-surfaces pass, but protected key `9944|perturbed|28|28` fails for M310 repaired
-while M307 and the reference pass and `m239_a750` fails. Behavior gates are not
-run after the protected-key promotion failure.
-
-M312 classifies that failure as a protected-key normal-margin window violation,
-not broad proof washout. M310's margin gap still passes, but normal margin
-`0.206337` exceeds the M133 `max_normal_margin=0.2`. M307 remains the
-public-gate base.
-
-M313 sweeps M307-to-M310 interpolation and selects alpha `0.14`, the largest
-tested alpha that keeps protected key `9944` inside the normal-margin window.
-It improves exact M297/M270 slightly and passes M183/M170 plus M267/M264 first
-replay gates. It is not promoted before full public gates.
-
-M314 promotes M313 alpha `0.14` after full replay, protected-key, and behavior
-gates pass. This confirms PPO proposals can still provide useful movement, but
-acceptance needs exact repair plus a protected-key-bounded trust region.
-
-Current next task:
-
-```text
-m339-old-key-gap-distribution-corpus-refresh
-```
-
-M336 promotes M335 alpha `0.0075` as the new source-diverse public-gate base.
-The candidate passes exact/source-diverse/old-key/replay/behavior gates, but
-the accepted movement is micro-alpha bounded: M335 repaired endpoint improves
-exact objectives much more strongly while eroding old-key gap to `0.065360`.
-M337 audits this and classifies the blocker as a singleton old-key gap-floor
-bottleneck, not source-diverse washout: the M335 endpoint still passes
-source-diverse gates `5/5`. M338 designs a distributional old-key/gap gate;
-M339 should mine/export the actual candidate pool and compact corpus before any
-more PPO.
+Until M340/M341 produces a source-diverse old-key neighborhood corpus, do not
+run more PPO and do not lower the `9944` floor ad hoc.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -189,6 +122,8 @@ more PPO.
 | current source-diverse public base | `runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt` | M336 promotes alpha 0.0075 after exact, source-diverse, replay, old-key gap floor, and behavior gates pass |
 | old-key bottleneck audit | `runs/m337_old_key_gap_floor_bottleneck_audit/summary.json` | M337 shows M335 endpoint passes source-diverse gates but old-key gap collapses to 0.065360; next step is distributional gap-gate design |
 | old-key gap distribution design | `docs/m338-old-key-gap-distribution-refresh-design.md` | M338 keeps 9944 as diagnostic but designs source-diverse gap distribution to avoid singleton veto dominance |
+| old-key gap corpus refresh | `runs/m339_old_key_gap_distribution_refresh/summary.json` | M339 broad pool has 195 rows, but compact severity draft is source dominated, so it cannot replace singleton 9944 floor |
+| current blocker | `experiments/manifests/m340-old-key-neighborhood-mining-design.json` | M340 must design wider no-PPO old-key neighborhood mining before gate replacement or PPO continuation |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
