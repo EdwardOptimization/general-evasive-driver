@@ -67,6 +67,37 @@
       "command": "Design active-boundary residual from M435 audit; no training."
     }
   ],
+  "results": {
+    "artifact": "docs/m436-old-key-active-boundary-residual-design.md",
+    "active_cases": [
+      "10004|perturbed|31|31",
+      "10023|perturbed|12|12",
+      "9998|perturbed|25|25"
+    ],
+    "corpus_fields": [
+      "case_id",
+      "source_profile",
+      "branch",
+      "observation",
+      "normal_hidden",
+      "wrong_hidden",
+      "proof_normal_action",
+      "proof_wrong_action",
+      "candidate_normal_action",
+      "candidate_wrong_action",
+      "normal_margin",
+      "wrong_margin",
+      "margin_gap",
+      "violation_type",
+      "weight"
+    ],
+    "loss_terms": [
+      "wrong-history rejected-action preference",
+      "gap-erosion branch separation preference",
+      "optional normal-branch local safety anchor"
+    ],
+    "recommended_next": "m437-active-boundary-residual-implementation"
+  },
   "required_artifacts": [
     {
       "path": "docs/m436-old-key-active-boundary-residual-design.md",
@@ -80,5 +111,5 @@
     "docs/m435-selective-boundary-failure-audit.md"
   ],
   "decision_rule": "M436 should only admit implementation if it defines a concrete active-boundary corpus and exact-repair residual that can be tested without PPO or actor-contract changes.",
-  "next_blocker": "pending M436 old-key active-boundary residual design"
+  "next_blocker": "m437-active-boundary-residual-implementation"
 }

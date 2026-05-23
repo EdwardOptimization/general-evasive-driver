@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m436-old-key-active-boundary-residual-design
+m437-active-boundary-residual-implementation
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -89,7 +89,12 @@ compact, first at `10023`, then `10004`/`9998`. M435 audits this as a
 multi-key old-key boundary and rejects further radius-only tuning. M436 should
 design an active-boundary residual around `10004`, `10023`, and `9998` using
 rejected-history preference or terminal-margin slack instead of broad
-full-trajectory action anchoring.
+full-trajectory action anchoring. M436 completes that design: export a compact
+active-boundary corpus with proof/candidate actions, margins, violation type,
+and weights, then add exact repair loss terms for wrong-history rejected-action
+preference, gap-erosion branch separation, and optional normal safety anchors.
+M437 should implement/export/test this residual with a no-update smoke before
+any projection or PPO.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

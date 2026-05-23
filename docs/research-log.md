@@ -9994,3 +9994,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M435 classifies M434's active boundary as multi-key, not a remaining single `10004` tuning problem. `r0010` is the largest proof-safe selective radius, retaining `0.103529` of M406 recovery. `r0015` first fails `10023` gap erosion; `r0020` fails `10004` and `10023`; terminal-only variants fail `10004`/`10023` and expose `9998`. This makes more radius-only tuning low leverage.
 - decision: `admit_m436_old_key_active_boundary_residual_design`
 - next: `m436-old-key-active-boundary-residual-design`
+
+## 20260523T182506Z - m436-old-key-active-boundary-residual-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m436-old-key-active-boundary-residual-design.md`
+- result: M436 designs an active-boundary residual to replace broad full-trajectory radius tuning. The corpus should cover active old-key cases `10004`, `10023`, and `9998`, with proof and candidate actions, normal/wrong hidden states, terminal margins, violation type, and weights. Loss terms are wrong-history rejected-action preference, gap-erosion branch separation preference, and optional normal-branch local safety anchoring. The residual is training-only and does not enter actor inputs.
+- decision: `admit_m437_active_boundary_residual_implementation`
+- next: `m437-active-boundary-residual-implementation`
