@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 343,
+        "completed": 344,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "command_log": "docs/m334-short-source-diverse-ppo-escalation-design.md",
+        "command_log": "docs/m335-short-source-diverse-ppo-escalation-run.md",
         "returncode": 0,
-        "run_dir": "configs/ppo_m335_short_source_diverse_escalation.json",
+        "run_dir": "runs/m335_m333_to_repaired_gap_bounded_interpolation",
         "status": "completed",
-        "task_id": "m334-short-source-diverse-ppo-escalation-design"
+        "task_id": "m335-short-source-diverse-ppo-escalation-run"
     },
     "next_task": {
-        "command": "see experiments/manifests/m335-short-source-diverse-ppo-escalation-run.json",
-        "hypothesis": "A 4096-step short PPO escalation from the M333 source-diverse public base can provide useful proposal movement while retaining exact objectives, source-diverse protected proof, old-key gap floor, and first replay gates after exact repair or bounded interpolation.",
-        "id": "m335-short-source-diverse-ppo-escalation-run",
+        "command": "see experiments/manifests/m336-full-public-gate-for-m335-a0075.json",
+        "hypothesis": "The M335 alpha 0.0075 bounded short-PPO candidate may be promotable if it retains exact objectives, source-diverse protected proof, old-key gap floor, all six replay surfaces, and behavior seeds versus M333.",
+        "id": "m336-full-public-gate-for-m335-a0075",
         "kind": "driver_candidate",
-        "notes": "Pending: run short PPO proposal exact repair source-diverse old-key floor and first replay gates; no promotion",
-        "priority": 3300,
+        "notes": "Pending: six replay gates exact/source-diverse old-key floor behavior seeds; no PPO",
+        "priority": 3310,
         "status": "pending",
         "success_artifact": ""
     },
-    "updated_at_utc": "20260523T071145Z"
+    "updated_at_utc": "20260523T072233Z"
 }

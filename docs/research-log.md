@@ -8984,3 +8984,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M334 registers `configs/ppo_m335_short_source_diverse_escalation.json`, a 4096-step short PPO escalation from the M333 public base with seed `5238`. Acceptance remains proof-first: raw PPO is proposal-only, exact M297/M270 repair precedes replay, source-diverse protected gates and old-key `0.09` gap floor are required, and M183/M170 plus M267/M264 first replay gates must pass before any full public gate.
 - decision: `admit_m335_short_source_diverse_ppo_escalation_run`
 - next: `m335-short-source-diverse-ppo-escalation-run`
+
+## 20260523T072233Z - m335-short-source-diverse-ppo-escalation-run
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m335_m333_to_repaired_gap_bounded_interpolation`
+- artifact: `docs/m335-short-source-diverse-ppo-escalation-run.md`
+- result: M335 runs the 4096-step short PPO escalation from M333 base. Raw PPO completes; exact repair improves M297/M270 by `-0.000355124` and `-0.000168264`, but the repaired endpoint erodes old-key gap to `0.065360`. Bounded interpolation selects `alpha=0.0075`, the largest tested alpha keeping old-key gap `0.090021 >= 0.09`; selected exact deltas are `-0.000002742` and `-0.000001252`; source-diverse gates pass `5/5`; M183/M170 and M267/M264 first replay gates pass.
+- decision: `admit_m336_full_public_gate_for_m335_a0075`
+- next: `m336-full-public-gate-for-m335-a0075`

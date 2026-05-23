@@ -2,7 +2,7 @@
   "id": "m335-short-source-diverse-ppo-escalation-run",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -101,6 +101,42 @@
     "configs/ppo_m335_short_source_diverse_escalation.json",
     "docs/m333-full-public-gate-for-m332-a045.md"
   ],
-  "decision_rule": "M335 may only admit a full public gate if a selected repaired or bounded-interpolation candidate passes exact objectives, source-diverse protected gates, old-key margin-gap floor, and first replay gates. M335 itself cannot promote.",
-  "next_blocker": "pending M335 short PPO escalation run"
+  "results": {
+    "ppo_run_dir": "runs/ppo_m335_short_source_diverse_escalation_seed5238",
+    "raw_checkpoint": "runs/ppo_m335_short_source_diverse_escalation_seed5238/checkpoint.pt",
+    "raw_rollout_return_mean": 72.522298,
+    "raw_reward_mean": 1.074854,
+    "raw_train_termination_rate": 0.125,
+    "raw_eval_return_mean": 57.878071965039354,
+    "raw_eval_termination_rate": 0.2,
+    "exact_repair_run_dir": "runs/m335_exact_repair_from_raw_s40_seed10099",
+    "repaired_checkpoint": "runs/m335_exact_repair_from_raw_s40_seed10099/candidate_checkpoint.pt",
+    "repaired_m297_preference_loss_delta": -0.00035512447357177734,
+    "repaired_exact_m270_loss_delta": -0.00016826391220092773,
+    "repaired_old_key_margin_gap": 0.06535989950220555,
+    "interpolation_run_dir": "runs/m335_m333_to_repaired_gap_bounded_interpolation",
+    "exact_line_search_run_dir": "runs/m335_m333_to_repaired_exact_line_search",
+    "old_key_sweep_run_dir": "runs/m335_old_key_gap_sweep",
+    "selected_alpha": 0.0075,
+    "selected_checkpoint": "runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt",
+    "selected_exact_m297_delta_vs_base": -2.7418136596679688e-06,
+    "selected_exact_m270_delta_vs_base": -1.2516975402832031e-06,
+    "old_key_margin_gap": 0.09002140115294455,
+    "old_key_margin_gap_floor": 0.09,
+    "old_key_next_alpha": 0.01,
+    "old_key_next_alpha_margin_gap": 0.0899767094171311,
+    "source_diverse_run_dir": "runs/m335_a0075_source_diverse_protected_gate",
+    "source_diverse_gate_count": 5,
+    "source_diverse_gates_passed": 5,
+    "m183_m170_first_replay_pass": true,
+    "m183_m170_success_drops": 17,
+    "m267_m264_first_replay_pass": true,
+    "m267_m264_success_drops": 17,
+    "promotion_recommended": false,
+    "ppo_or_actor_update_run": true,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m336_full_public_gate_for_m335_a0075",
+  "decision_rule": "M335 admits a full public gate for alpha 0.0075 because the selected bounded-interpolation candidate passes exact objectives, source-diverse protected gates, old-key margin-gap floor, and M183/M170 plus M267/M264 first replay gates. M335 itself does not promote.",
+  "next_blocker": "m336-full-public-gate-for-m335-a0075"
 }
