@@ -1,0 +1,83 @@
+{
+  "id": "m408-replay-aware-projection-residual-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m406_repair_from_alpha01_s40_seed10137/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m407_projection_replay_failure_row_audit/summary.json",
+      "runs/m407_projection_replay_failure_row_audit/m267_m264_wrong_history_washout_rows.csv",
+      "runs/m407_projection_replay_failure_row_audit/old_key_accepted_regression_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m407-m406-projection-replay-failure-row-audit.json"
+    ],
+    "parent_objective": [
+      "design a replay-aware projection residual after exact-feasible closed-loop replay failure"
+    ],
+    "derived_from": [
+      "m407-m406-projection-replay-failure-row-audit"
+    ],
+    "blocked_by": [
+      "m407-m406-projection-replay-failure-row-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m408-replay-aware-projection-residual-design.md",
+  "public_gates": [
+    "design only",
+    "no PPO run",
+    "no checkpoint promotion",
+    "preserve exact M297/M270/old-key feasibility",
+    "use M407 failed closed-loop rows as replay-aware training-only residual candidates"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make M267/M264 or old-key replay labels actor inputs"
+  ],
+  "hypothesis": "Because M406 exact feasibility still failed closed-loop replay broadly, the next repair needs a training-only replay-aware or short-trajectory residual built from failed public proof rows, while keeping replay gates authoritative.",
+  "success_criteria": [
+    "define which M407 rows become training-only replay-aware residual inputs",
+    "define whether residual targets are one-step rejected actions, short trajectory anchors, or terminal-margin sign constraints",
+    "define lexicographic ordering relative to exact M297/M270/old-key feasibility",
+    "pre-register an implementation milestone without changing actor inputs"
+  ],
+  "failure_criteria": [
+    "design leaks replay labels or oracle outcomes into actor inputs",
+    "design treats the replay-aware residual as a replacement for closed-loop replay gates",
+    "design lowers thresholds",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "replay_aware_projection_residual_design",
+      "command": "Design a training-only replay-aware projection residual from M407 failed rows; no PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m408-replay-aware-projection-residual-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m407-m406-projection-replay-failure-row-audit.md"
+  ],
+  "decision_rule": "M408 should admit implementation only if the design keeps replay labels training-only, preserves the human-view actor contract, and keeps closed-loop replay as the outer gate.",
+  "next_blocker": "pending M408 replay-aware projection residual design"
+}

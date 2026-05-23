@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m407-m406-projection-replay-failure-row-audit
+m408-replay-aware-projection-residual-design
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -245,7 +245,11 @@ hold. M406 rejects that candidate: it is exact-feasible and moves both M398
 recovery targets closer, but M267/M264 replay retains only `1/17`
 wrong-history success drops and old-key compact replay has `7` accepted
 regressions. M407 should audit the failed replay rows before another repair
-design or PPO.
+design or PPO. M407 completes that audit: `16/17` M267/M264 rows become
+wrong-history successes across `13` physical pairs, with no normal-success
+regressions, while old-key has `6` wrong-history-safe regressions and one
+normal-branch failure. M408 should design a training-only replay-aware
+projection residual; replay gates remain authoritative.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

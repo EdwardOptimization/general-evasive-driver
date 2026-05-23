@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 415,
+        "completed": 416,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m406-recovery-aware-exact-projection-probe",
+        "task_id": "m407-m406-projection-replay-failure-row-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m406_repair_from_alpha01_s40_seed10137",
-        "command_log": "docs/m406-recovery-aware-exact-projection-probe.md"
+        "run_dir": "runs/m407_projection_replay_failure_row_audit",
+        "command_log": "docs/m407-m406-projection-replay-failure-row-audit.md"
     },
     "next_task": {
-        "id": "m407-m406-projection-replay-failure-row-audit",
+        "id": "m408-replay-aware-projection-residual-design",
         "status": "pending",
-        "priority": 4020,
-        "kind": "gate",
-        "hypothesis": "Audit M406 exact-feasible replay failures row by row",
-        "command": "see experiments/manifests/m407-m406-projection-replay-failure-row-audit.json",
+        "priority": 4030,
+        "kind": "infrastructure",
+        "hypothesis": "Design replay-aware projection residual after M406 exact-feasible replay failure",
+        "command": "see experiments/manifests/m408-replay-aware-projection-residual-design.json",
         "success_artifact": "",
-        "notes": "Pending: classify M267/M264 wrong-history washout and old-key accepted regressions; no PPO"
+        "notes": "Pending: design training-only replay-aware residual from M407 failed rows; no PPO"
     },
-    "updated_at_utc": "20260523T155156Z"
+    "updated_at_utc": "20260523T155612Z"
 }

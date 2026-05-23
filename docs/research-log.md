@@ -9704,3 +9704,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M406 finds an exact-feasible projection from recovery-heavy alpha `0.1` that moves toward both M398 recovery targets: 9958 distance drops from `0.107793` to `0.093004`, and 10004 distance drops from `0.107808` to `0.091358`. Exact M297/M270/old-key deltas are all non-positive. Closed-loop replay rejects it: M267/M264 retains only `1/17` wrong-history success drops, wrong-history success rises to `0.941176`, and old-key compact replay has `7` accepted regressions with gap p10 `-0.000947750`.
 - decision: `reject_m406_projection_candidate_admit_replay_failure_row_audit`
 - next: `m407-m406-projection-replay-failure-row-audit`
+
+## 20260523T155612Z - m407-m406-projection-replay-failure-row-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m407_projection_replay_failure_row_audit`
+- artifact: `docs/m407-m406-projection-replay-failure-row-audit.md`
+- result: M407 shows the M406 exact-feasible projection fails replay primarily by broad wrong-history washout. In M267/M264, `16/17` rows become wrong-history successes across `13` physical pairs, with `0` normal-success regressions and mean wrong-history margin delta `+0.008327`. Old-key has `7` accepted regressions: `6` wrong-history-safe regressions and one normal-branch failure. The failure is not sparse enough for another single-row exact reweight.
+- decision: `admit_m408_replay_aware_projection_residual_design`
+- next: `m408-replay-aware-projection-residual-design`

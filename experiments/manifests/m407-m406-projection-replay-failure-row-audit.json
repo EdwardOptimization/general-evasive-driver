@@ -4,7 +4,9 @@
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "proof_washout",
+    "objective_overfit",
+    "protected_key_window_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -78,5 +80,36 @@
     "docs/m406-recovery-aware-exact-projection-probe.md"
   ],
   "decision_rule": "M407 should not repair directly. It should classify whether M406 needs a replay-aware trajectory residual, a refreshed corpus, or a blocker report.",
-  "next_blocker": "pending M407 replay failure row audit"
+  "next_blocker": "m408-replay-aware-projection-residual-design",
+  "results": {
+    "artifact": "docs/m407-m406-projection-replay-failure-row-audit.md",
+    "run_dir": "runs/m407_projection_replay_failure_row_audit",
+    "summary_json": "runs/m407_projection_replay_failure_row_audit/summary.json",
+    "m267_failure_rows_csv": "runs/m407_projection_replay_failure_row_audit/m267_m264_wrong_history_washout_rows.csv",
+    "old_key_failure_rows_csv": "runs/m407_projection_replay_failure_row_audit/old_key_accepted_regression_rows.csv",
+    "m267_rows": 17,
+    "m267_wrong_history_washout_rows": 16,
+    "m267_normal_success_regressions": 0,
+    "m267_physical_pairs": 13,
+    "m267_candidate_wrong_margin_positive": 16,
+    "m267_mean_wrong_margin_delta": 0.00832691561349802,
+    "m267_mean_normal_margin_delta": 0.007927585652593869,
+    "m267_mean_wrong_first_steer_delta": -0.004782680422067642,
+    "m267_mean_wrong_first_throttle_delta": -0.008421314567385707,
+    "m267_mean_wrong_first_brake_delta": 0.009823308675549924,
+    "old_key_rows": 40,
+    "old_key_accepted_regressions": 7,
+    "old_key_wrong_history_safe_regressions": 6,
+    "old_key_normal_success_regressions": 1,
+    "old_key_gap_tail_rows_lt_minus_0_0005": 7,
+    "old_key_gap_tail_rows_lt_minus_0_002": 3,
+    "old_key_min_candidate_gap_delta": -0.0168697809999474,
+    "classification": "broad_wrong_history_washout_with_one_old_key_normal_branch_failure",
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m408-replay-aware-projection-residual-design"
+  },
+  "decision": "admit_m408_replay_aware_projection_residual_design"
 }
