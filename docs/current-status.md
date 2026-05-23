@@ -55,7 +55,7 @@ neighborhood proof.
 Current blocker:
 
 ```text
-m357-m354-best-step-repair-proof-gate
+m358-m354-best-step-bounded-interpolation-probe
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -82,8 +82,11 @@ failure and finds a feasible 39-step repair state; the saved 40-step endpoint
 failed because the repair tool logs pre-update metrics but saves the final
 post-update state. M356 implements post-update metrics and lexicographic
 best-feasible checkpoint selection; the corrected M354 repair probe saves step
-`25` and passes exact M297/M270. M357 should now run the skipped proof gates on
-that best-step repaired candidate before any full public gate.
+`25` and passes exact M297/M270. M357 then rejects direct acceptance: the
+candidate passes M183/M170 but fails source-diverse protected gates `3/5`, old
+key neighborhood `25/40` accepted, and M267/M264 first replay `15/17`. M358
+should bound the M356 direction by interpolation from the M352 base before any
+new PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -156,7 +159,8 @@ that best-step repaired candidate before any full public gate.
 | rejected fresh-seed repeat | `runs/m354_exact_repair_from_raw_s40_seed10103/candidate_checkpoint.pt` | M354 exact repair improves M297 but regresses M270, so downstream gates are skipped |
 | exact repair endpoint audit | `runs/m355_m354_repair_step39_diagnostic/summary.json` | M355 shows M354 had a feasible 39-step exact repair state; final-step selection crossed the M270 boundary |
 | exact repair best-step candidate | `runs/m356_m354_repair_best_step_probe/candidate_checkpoint.pt` | M356 fixes endpoint selection and selects step 25 with exact M297/M270 no-regression |
-| current blocker | `experiments/manifests/m357-m354-best-step-repair-proof-gate.json` | M357 must run source-diverse old-key neighborhood and first replay proof gates before any promotion |
+| rejected proof-gate candidate | `runs/m356_m354_repair_best_step_probe/candidate_checkpoint.pt` | M357 rejects direct acceptance because source-diverse old-key and M267/M264 proof gates fail |
+| current blocker | `experiments/manifests/m358-m354-best-step-bounded-interpolation-probe.json` | M358 must bound the M356 direction with interpolation and old-key alpha probing |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

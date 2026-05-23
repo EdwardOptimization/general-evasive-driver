@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 365,
+        "completed": 366,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m356-exact-repair-best-step-selection-implementation",
+        "task_id": "m357-m354-best-step-repair-proof-gate",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m356_m354_repair_best_step_probe",
-        "command_log": "docs/m356-exact-repair-best-step-selection-implementation.md"
+        "run_dir": "runs/m357_m354_best_step_proof_gate",
+        "command_log": "docs/m357-m354-best-step-repair-proof-gate.md"
     },
     "next_task": {
-        "id": "m357-m354-best-step-repair-proof-gate",
+        "id": "m358-m354-best-step-bounded-interpolation-probe",
         "status": "pending",
-        "priority": 3520,
+        "priority": 3530,
         "kind": "gate",
-        "hypothesis": "Run proof gates for M356 best-step repaired M354 candidate",
-        "command": "see experiments/manifests/m357-m354-best-step-repair-proof-gate.json",
+        "hypothesis": "Bound M356 best-step repair direction with no-PPO interpolation and old-key alpha probe",
+        "command": "see experiments/manifests/m358-m354-best-step-bounded-interpolation-probe.json",
         "success_artifact": "",
-        "notes": "Pending: evaluate source-diverse old-key neighborhood and first replay gates before any promotion"
+        "notes": "Pending: interpolate M352 base to M356 best-step candidate and run old-key neighborhood alpha probe"
     },
-    "updated_at_utc": "20260523T105748Z"
+    "updated_at_utc": "20260523T110224Z"
 }

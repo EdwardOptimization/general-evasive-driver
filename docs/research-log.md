@@ -9204,3 +9204,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M356 updates `exact_post_ppo_repair` to log post-update exact metrics, write `selection_trace.csv`, and save the best lexicographically feasible repair state by default. Replaying the M354 repair with the corrected selection chooses step `25` instead of the final step `40`; the saved candidate has exact deltas `-0.000157595` and `-0.000097871`, while the final optimizer state still fails M270 by `+0.000040591`.
 - decision: `admit_m357_m354_best_step_repair_proof_gate`
 - next: `m357-m354-best-step-repair-proof-gate`
+
+## 20260523T110224Z - m357-m354-best-step-repair-proof-gate
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m357_m354_best_step_proof_gate`
+- artifact: `docs/m357-m354-best-step-repair-proof-gate.md`
+- result: M357 evaluates the M356 best-step repaired candidate on the skipped proof gates and rejects direct acceptance. Source-diverse protected gates pass only `3/5`, failing the m317 and m314 continuity surfaces. Old-key neighborhood replay retains only `25/40` accepted rows with `15` accepted regressions and `3` normal-success regressions. M183/M170 first replay passes `17/17`, but M267/M264 first replay drops to `15/17`.
+- decision: `reject_m354_best_step_proof_washout`
+- next: `m358-m354-best-step-bounded-interpolation-probe`

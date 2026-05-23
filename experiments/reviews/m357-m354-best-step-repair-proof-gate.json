@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M357 rejects direct proof-gate acceptance because the M356 best-step candidate passes exact objectives but fails source-diverse 3/5 old-key 25/40 accepted and M267/M264 15/17 success-drop retention",
+  "failure_criteria": [
+    "exact objectives regress",
+    "source-diverse protected gate fails",
+    "old-key neighborhood gate fails",
+    "first replay gate fails",
+    "actor input contract changes"
+  ],
+  "failure_types": [
+    "proof_washout",
+    "protected_key_window_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not promote from proof gate alone",
+    "do not run full public behavior gates before proof gates pass",
+    "do not change actor inputs",
+    "do not relax exact or old-key thresholds"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260523T110332Z",
+  "hypothesis": "The M356 best-step repaired M354 candidate may preserve exact, source-diverse, old-key neighborhood, and first replay proof gates that the original final-step M354 candidate could not reach.",
+  "lineage": {
+    "blocked_by": [
+      "m356-exact-repair-best-step-selection-implementation"
+    ],
+    "derived_from": [
+      "m356-exact-repair-best-step-selection-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt",
+      "runs/m356_m354_repair_best_step_probe/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m356-exact-repair-best-step-selection-implementation.json",
+      "docs/m356-exact-repair-best-step-selection-implementation.md"
+    ],
+    "parent_dataset": [
+      "runs/m356_m354_repair_best_step_probe/summary.json",
+      "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz"
+    ],
+    "parent_objective": [
+      "run proof gates skipped by M354 on the corrected best-step repaired candidate"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m357-m354-best-step-repair-proof-gate",
+  "next_blocker": "m358-m354-best-step-bounded-interpolation-probe",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "reject_m354_best_step_proof_washout",
+  "public_gates": [
+    "no PPO run",
+    "candidate retains exact M297/M270 no-regression versus M352",
+    "source-diverse protected gate pass",
+    "old-key neighborhood replay gate pass",
+    "M183/M170 and M267/M264 first replay gates pass",
+    "do not promote directly"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m356_m354_repair_best_step_probe/candidate_checkpoint.pt",
+    "clearance_margin_mean": "",
+    "decision": "reject_m354_best_step_proof_washout",
+    "milestone": "m357-m354-best-step-repair-proof-gate",
+    "reason": "M357 rejects direct proof-gate acceptance because the M356 best-step candidate passes exact objectives but fails source-diverse 3/5 old-key 25/40 accepted and M267/M264 15/17 success-drop retention",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "exact M297/M270 remain non-regressing versus M352",
+    "source-diverse protected gates pass",
+    "old-key neighborhood replay gate passes",
+    "M183/M170 and M267/M264 first replay gates pass",
+    "research validation passes"
+  ],
+  "type": "gate"
+}

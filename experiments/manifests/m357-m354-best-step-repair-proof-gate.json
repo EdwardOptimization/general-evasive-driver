@@ -2,9 +2,10 @@
   "id": "m357-m354-best-step-repair-proof-gate",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "proof_washout",
+    "protected_key_window_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -83,6 +84,36 @@
     "docs/m356-exact-repair-best-step-selection-implementation.md",
     "runs/m356_m354_repair_best_step_probe/summary.json"
   ],
-  "decision_rule": "M357 is complete when the M356 best-step candidate is either admitted to a full public gate or rejected with a classified proof-gate failure.",
-  "next_blocker": "pending M357 M354 best-step repair proof gate"
+  "results": {
+    "run_dir": "runs/m357_m354_best_step_proof_gate",
+    "candidate_checkpoint": "runs/m356_m354_repair_best_step_probe/candidate_checkpoint.pt",
+    "source_diverse_run_dir": "runs/m357_m354_best_step_source_diverse_protected_gate",
+    "source_diverse_pass": false,
+    "source_diverse_replay_gates_passed": 3,
+    "source_diverse_replay_gate_count": 5,
+    "source_diverse_failed_gates": [
+      "m317_continuity_surface",
+      "m314_continuity_surface"
+    ],
+    "old_key_targeted_replay_run_dir": "runs/m357_m354_best_step_old_key_targeted_replay",
+    "old_key_replay_gate_run_dir": "runs/m357_m354_best_step_old_key_replay_gate",
+    "old_key_neighborhood_pass": false,
+    "old_key_accepted_regressions": 15,
+    "old_key_normal_success_regressions": 3,
+    "old_key_gap_p10": -0.00409845834123358,
+    "old_key_gap_min": -0.050838146863543196,
+    "m183_m170_first_replay_run_dir": "runs/m357_m354_best_step_m183_m170_first_replay",
+    "m183_m170_first_replay_pass": true,
+    "m183_m170_success_drops": 17,
+    "m267_m264_first_replay_run_dir": "runs/m357_m354_best_step_m267_m264_first_replay",
+    "m267_m264_first_replay_pass": false,
+    "m267_m264_success_drops": 15,
+    "promotion_recommended": false,
+    "admit_full_public_gate": false,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "reject_m354_best_step_proof_washout",
+  "decision_rule": "M357 rejects direct acceptance because the M356 best-step repaired candidate passes exact objectives but fails source-diverse protected gates, old-key neighborhood replay, and M267/M264 first replay success-drop retention.",
+  "next_blocker": "m358-m354-best-step-bounded-interpolation-probe"
 }
