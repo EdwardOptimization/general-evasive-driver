@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 353,
+        "completed": 354,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m344-old-key-neighborhood-policy-integration-design",
+        "task_id": "m345-old-key-neighborhood-replay-gate-adapter",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "docs/m344-old-key-neighborhood-policy-integration-design.md",
-        "command_log": "docs/m344-old-key-neighborhood-policy-integration-design.md"
+        "run_dir": "runs/m345_old_key_neighborhood_replay_gate_alpha",
+        "command_log": "runs/m345_old_key_neighborhood_replay_gate_repaired/summary.json"
     },
     "next_task": {
-        "id": "m345-old-key-neighborhood-replay-gate-adapter",
+        "id": "m346-old-key-neighborhood-alpha-sweep-design",
         "status": "pending",
-        "priority": 3400,
+        "priority": 3410,
         "kind": "infrastructure",
-        "hypothesis": "A replayable adapter can convert the M341 old-key neighborhood surface into a candidate-level proof gate so future PPO proposals can be checked without returning to singleton 9944 veto dominance.",
-        "command": "see experiments/manifests/m345-old-key-neighborhood-replay-gate-adapter.json",
+        "hypothesis": "A no-PPO alpha sweep using the replayable old-key neighborhood gate can determine whether the M335 repaired direction has a larger acceptable trust region than the old singleton 9944 floor allowed.",
+        "command": "see experiments/manifests/m346-old-key-neighborhood-alpha-sweep-design.json",
         "success_artifact": "",
-        "notes": "Pending: convert M341 old-key surface from static selected endpoint evidence into arbitrary-candidate replay gate"
+        "notes": "Pending: design alpha candidates replay commands and acceptance thresholds before running sweep"
     },
-    "updated_at_utc": "20260523T093857Z"
+    "updated_at_utc": "20260523T094539Z"
 }

@@ -2,7 +2,7 @@
   "id": "m345-old-key-neighborhood-replay-gate-adapter",
   "type": "infrastructure",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -83,5 +83,5 @@
     "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv"
   ],
   "decision_rule": "M345 may only build or formalize the replayable old-key neighborhood candidate gate and admit the next no-PPO probe or PPO-design milestone. It cannot promote and cannot run PPO.",
-  "next_blocker": "pending M345 old-key neighborhood replay gate adapter"
+  "next_blocker": "m346-old-key-neighborhood-alpha-sweep-design"
 }

@@ -130,7 +130,8 @@ reusable gate before more PPO.
 | old-key neighborhood corpus | `runs/m341_old_key_neighborhood_mining/summary.json` | M341 produces a valid 40-row compact corpus across 5 seed blocks; selected alpha passes and repaired endpoint fails |
 | old-key neighborhood gate | `src/autodrift/old_key_neighborhood_gate.py` | M342 implements the reusable static gate and M343 confirms selected alpha passes while repaired endpoint is repair-needed |
 | old-key gate policy | `docs/m344-old-key-neighborhood-policy-integration-design.md` | M344 defines the neighborhood gate as the first-class old-key proof gate while keeping `9944` diagnostic visible |
-| current blocker | `experiments/manifests/m345-old-key-neighborhood-replay-gate-adapter.json` | M345 must make the old-key neighborhood gate replayable for future arbitrary candidate checkpoints before more PPO |
+| old-key replay adapter | `src/autodrift/old_key_neighborhood_replay_gate.py` | M345 converts compact old-key replay guard results into candidate-level pass/fail metrics; M335 alpha passes and repaired endpoint fails |
+| current blocker | `experiments/manifests/m346-old-key-neighborhood-alpha-sweep-design.json` | M346 must design a no-PPO alpha sweep to test whether the distributional old-key gate allows more movement than the singleton `9944` floor |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

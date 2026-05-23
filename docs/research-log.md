@@ -9084,3 +9084,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M344 defines the old-key neighborhood gate as the first-class old-key proof gate and keeps singleton `9944` as a visible diagnostic instead of a standalone PPO-continuation veto. It also records a limitation: M342/M343 still read saved `selected_*` and `endpoint_*` columns, so future PPO candidates need a replayable old-key neighborhood candidate adapter before using the policy.
 - decision: `admit_m345_old_key_neighborhood_replay_gate_adapter`
 - next: `m345-old-key-neighborhood-replay-gate-adapter`
+
+## 20260523T094539Z - m345-old-key-neighborhood-replay-gate-adapter
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m345_old_key_neighborhood_replay_gate_alpha`
+- artifact: `docs/m345-old-key-neighborhood-replay-gate-adapter.md`
+- result: M345 implements `autodrift.old_key_neighborhood_replay_gate`, which filters replay `guard_results.csv` to the M341 compact corpus and compares arbitrary baseline/candidate policies. `m335_a0075` versus itself passes with `0` candidate accepted regressions and `0.0` gap deltas. `m335_repaired` versus `m335_a0075` fails with `15` candidate accepted regressions, `3` normal-success regressions, candidate gap p10 `-0.004040`, and min gap `-0.050620`. M133/`9944` diagnostic visibility remains true.
+- decision: `admit_m346_old_key_neighborhood_alpha_sweep_design`
+- next: `m346-old-key-neighborhood-alpha-sweep-design`
