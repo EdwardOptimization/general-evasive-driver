@@ -1,0 +1,84 @@
+{
+  "id": "m467-near-boundary-wrong-history-selector",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m465_targeted_wrong_history_selector/candidates.csv",
+      "runs/m465_targeted_wrong_history_selector/wrong_history_evidence_audit.json"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m466-near-boundary-wrong-history-redesign.json"
+    ],
+    "parent_objective": [
+      "normal-margin-aware wrong-history proof selector"
+    ],
+    "derived_from": [
+      "m466-near-boundary-wrong-history-redesign"
+    ],
+    "blocked_by": [
+      "m466-near-boundary-wrong-history-redesign"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m467-near-boundary-wrong-history-selector.md",
+  "public_gates": [
+    "implement near-boundary wrong-history selector over existing candidate rows",
+    "separate proof candidates from near-boundary no-effect and high-slack diagnostics",
+    "write summary and CSV artifacts",
+    "run selector on M465 candidates",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not count high-slack margin-only rows as proof"
+  ],
+  "hypothesis": "A normal-margin-aware selector will show whether M465 contains any proof-quality wrong-history rows and will prevent high-slack margin-only rows from contaminating proof gates.",
+  "success_criteria": [
+    "selector CLI writes near_boundary_candidates proof_candidates near_boundary_no_effect high_slack_diagnostics and summary artifacts",
+    "tests cover near-boundary proof acceptance and high-slack rejection",
+    "M465 candidates can be classified without rerunning policy rollouts",
+    "summary reports whether wrong-history proof expansion is admitted or rejected",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "selector accepts rows above the normal-margin ceiling as proof",
+    "selector hides near-boundary no-effect rows",
+    "selector requires privileged actor inputs",
+    "actor contract changes"
+  ],
+  "commands": [
+    {
+      "name": "near_boundary_wrong_history_selector",
+      "command": "Implement and run a normal-margin-aware wrong-history selector over runs/m465_targeted_wrong_history_selector/candidates.csv; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m467-near-boundary-wrong-history-selector.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m466-near-boundary-wrong-history-redesign.md",
+    "runs/m465_targeted_wrong_history_selector/candidates.csv"
+  ],
+  "decision_rule": "M467 can admit wrong-history gate expansion only if proof candidates are source-diverse and contain low-normal-margin outcome degradation; otherwise it should admit task-family redesign.",
+  "next_blocker": "pending M467 near-boundary wrong-history selector"
+}

@@ -2,7 +2,7 @@
   "id": "m466-near-boundary-wrong-history-redesign",
   "type": "infrastructure",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -80,5 +80,24 @@
     "runs/m465_targeted_wrong_history_selector/wrong_history_evidence_audit.json"
   ],
   "decision_rule": "M466 can admit implementation only if it requires low normal-margin wrong-history outcome evidence and preserves the actor contract.",
-  "next_blocker": "pending M466 near-boundary wrong-history redesign"
+  "results": {
+    "design_doc": "docs/m466-near-boundary-wrong-history-redesign.md",
+    "m465_wrong_history_compact_rows": 7,
+    "m465_wrong_history_success_drop_rows": 0,
+    "m465_wrong_history_collision_gap_rows": 0,
+    "m465_wrong_history_obstacle_completion_drop_rows": 0,
+    "m465_wrong_history_normal_margin_min": 3.5484013279112925,
+    "m465_wrong_history_normal_margin_max": 7.612637655783953,
+    "near_boundary_wrong_history_rows_margin_le_0_25": 8,
+    "near_boundary_wrong_history_rows_margin_le_0_50": 22,
+    "near_boundary_wrong_history_rows_margin_le_1_00": 47,
+    "near_boundary_accepted_rows_margin_le_1_00": 0,
+    "selected_next_path": "normal-margin-aware wrong-history selector",
+    "normal_margin_ceiling": 0.75,
+    "next_manifest": "experiments/manifests/m467-near-boundary-wrong-history-selector.json",
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "admit_m467_near_boundary_wrong_history_selector"
+  },
+  "next_blocker": "m467-near-boundary-wrong-history-selector"
 }

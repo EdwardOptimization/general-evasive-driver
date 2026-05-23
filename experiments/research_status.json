@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 474,
+        "completed": 475,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m465-targeted-wrong-history-outcome-probe",
+        "task_id": "m466-near-boundary-wrong-history-redesign",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m465_targeted_wrong_history_selector",
-        "command_log": "docs/m465-targeted-wrong-history-outcome-probe.md"
+        "run_dir": "",
+        "command_log": "docs/m466-near-boundary-wrong-history-redesign.md"
     },
     "next_task": {
-        "id": "m466-near-boundary-wrong-history-redesign",
+        "id": "m467-near-boundary-wrong-history-selector",
         "status": "pending",
-        "priority": 4610,
+        "priority": 4620,
         "kind": "infrastructure",
-        "hypothesis": "Wrong-history proof requires normal-margin-aware near-boundary mining before another outcome probe",
-        "command": "see experiments/manifests/m466-near-boundary-wrong-history-redesign.json",
+        "hypothesis": "A normal-margin-aware selector will prevent high-slack wrong-history rows from contaminating proof gates",
+        "command": "see experiments/manifests/m467-near-boundary-wrong-history-selector.json",
         "success_artifact": "",
-        "notes": "Pending: redesign around low normal-margin wrong-history rows; M465 high-slack margin-only rows are not proof"
+        "notes": "Pending: implement selector over M465 candidates; no policy rollout or checkpoint promotion"
     },
-    "updated_at_utc": "20260523T210721Z"
+    "updated_at_utc": "20260523T211023Z"
 }

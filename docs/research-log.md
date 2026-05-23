@@ -10294,3 +10294,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M465 runs action and continuation outcome gates on M464 targeted pairs. The selector processes `995` candidate rows, finds `95` outcome-critical rows, accepts `34`, and selects `34` compact rows across `3` variants. Wrong-history now enters compact with `7` rows, but all are high-slack margin-only: `0` success-drop, `0` collision-gap, `0` obstacle-completion-drop, `7` positive-margin rows, label `aes_feasible` only, and normal margins from `3.548402` to `7.612638`. This is not enough to expand a wrong-history proof gate.
 - decision: `targeted_probe_reject_wrong_history_gate_admit_m466`
 - next: `m466-near-boundary-wrong-history-redesign`
+
+## 20260523T211023Z - m466-near-boundary-wrong-history-redesign
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m466-near-boundary-wrong-history-redesign.md`
+- result: M466 audits the M465 wrong-history rows by normal-margin ceiling. Near-boundary normal-success rows exist: `8` rows under `0.25 m`, `22` under `0.50 m`, and `47` under `1.00 m`. None are accepted and none show success, collision, completion, or positive-margin degradation. The only accepted wrong-history rows are high-slack rows above `3.548402 m`. M466 therefore designs a normal-margin-aware selector that separates proof candidates, near-boundary no-effect rows, and high-slack diagnostics.
+- decision: `admit_m467_near_boundary_wrong_history_selector`
+- next: `m467-near-boundary-wrong-history-selector`
