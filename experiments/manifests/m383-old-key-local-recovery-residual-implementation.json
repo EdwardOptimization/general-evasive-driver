@@ -1,0 +1,81 @@
+{
+  "id": "m383-old-key-local-recovery-residual-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m380_alpha01_cumulative_old_key_boundary_audit/gap_tail_rows.csv",
+      "docs/m382-terminal-margin-recovery-residual-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m382-terminal-margin-recovery-residual-design.json"
+    ],
+    "parent_objective": [
+      "implement the training-only old-key local-action recovery residual described by M382"
+    ],
+    "derived_from": [
+      "m382-terminal-margin-recovery-residual-design"
+    ],
+    "blocked_by": [
+      "m382-terminal-margin-recovery-residual-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m383-old-key-local-recovery-residual-implementation.md",
+  "public_gates": [
+    "implementation only; no PPO run",
+    "export or load old-key recovery corpus",
+    "exact repair can include optional recovery residual",
+    "no-update smoke verifies finite recovery loss",
+    "preserve actor input contract"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not lower old-key thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not replace direct steer/throttle/brake output"
+  ],
+  "hypothesis": "A training-only old-key local-action recovery residual can be added to exact repair without changing deployed actor inputs or outputs, creating an objective path aligned with replay-tail recovery.",
+  "success_criteria": [
+    "new recovery corpus loader validates observation hidden action dimensions",
+    "exact repair exposes optional old-key recovery loss and logs it",
+    "focused tests cover no-corpus and recovery-corpus paths",
+    "no-update smoke reads a recovery corpus and reports finite recovery terms",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "implementation changes actor input or output contract",
+    "implementation treats recovery residual as a promotion gate without replay",
+    "tests or research validation fail"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "Implement optional old-key recovery residual and focused tests; no PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m383-old-key-local-recovery-residual-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m382-terminal-margin-recovery-residual-design.md"
+  ],
+  "decision_rule": "M383 can admit a no-PPO proof probe only if the recovery residual is implemented, tested, and smoke-verified without changing the actor contract.",
+  "next_blocker": "pending M383 old-key local recovery residual implementation"
+}

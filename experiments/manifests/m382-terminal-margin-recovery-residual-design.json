@@ -75,6 +75,21 @@
   "baseline_artifacts": [
     "docs/m381-old-key-surrogate-replay-alignment-audit.md"
   ],
-  "decision_rule": "M382 should admit implementation only if the design directly targets replay-tail terminal margin or recoverable local actions instead of merely increasing branch weights.",
-  "next_blocker": "pending M382 terminal-margin recovery residual design"
+  "results": {
+    "artifact": "docs/m382-terminal-margin-recovery-residual-design.md",
+    "chosen_option": "local_action_recovery_residual",
+    "rejected_options": [
+      "v3_branch_weight_overlay_only",
+      "differentiable_terminal_margin_through_simulator",
+      "new_actor_input_or_output_contract"
+    ],
+    "implementation_milestone": "m383-old-key-local-recovery-residual-implementation",
+    "checkpoint_promoted": false,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false
+  },
+  "decision": "admit_m383_old_key_local_recovery_residual_implementation",
+  "decision_rule": "M382 admits implementation because the design directly targets replay-tail terminal-margin recovery via offline local-action targets, while keeping deployment inputs and replay thresholds unchanged.",
+  "next_blocker": "m383-old-key-local-recovery-residual-implementation"
 }

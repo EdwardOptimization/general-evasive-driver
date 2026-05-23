@@ -9454,3 +9454,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M381 audits M374 and M378 interpolation families and finds exact old-key surrogate improvement is strongly misaligned with closed-loop old-key tail safety. Overall correlation between surrogate improvement and gap p10 is `-0.993196`, while correlation with gap-p10 erosion is `+0.991817`. In both families, the best surrogate endpoint fails replay and is also the worst lower-tail endpoint.
 - decision: `admit_m382_terminal_margin_recovery_residual_design`
 - next: `m382-terminal-margin-recovery-residual-design`
+
+## 20260523T131333Z - m382-terminal-margin-recovery-residual-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m382-terminal-margin-recovery-residual-design.md`
+- result: M382 designs the next exact-repair residual after M381. It rejects a v3 branch-weight overlay because M381 shows that objective moves opposite the replay tail, defers differentiable simulator margin and learned critic designs as too large for the current blocker, and chooses a training-only local-action recovery residual. The residual will export replay-tail recovery actions offline and add a preferred-branch recovery action loss plus wrong-history base-action anchor to exact repair without changing actor inputs or outputs.
+- decision: `admit_m383_old_key_local_recovery_residual_implementation`
+- next: `m383-old-key-local-recovery-residual-implementation`

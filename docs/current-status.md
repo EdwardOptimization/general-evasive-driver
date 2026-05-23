@@ -55,7 +55,7 @@ repair is the first tested cumulative old-key compact gap-p10 failure.
 Current blocker:
 
 ```text
-m382-terminal-margin-recovery-residual-design
+m383-old-key-local-recovery-residual-implementation
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -130,9 +130,10 @@ is the first tested cumulative old-key gap-p10 failure. M379 promotes alpha
 repeated cumulative old-key gap-tail erosion with zero accepted regressions.
 Because this lower-tail boundary recurs after two gap-tail weighting cycles,
 M381 audits exact old-key surrogate versus closed-loop replay alignment. It
-finds surrogate improvement is strongly aligned with worse replay-tail erosion,
-so M382 should design a terminal-margin or local-action recovery residual
-before another overlay or PPO.
+finds surrogate improvement is strongly aligned with worse replay-tail erosion.
+M382 rejects another branch-weight-only overlay and designs a training-only
+local-action recovery residual for exact repair. M383 should implement that
+optional recovery residual before any no-PPO proof probe or PPO continuation.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -209,7 +210,7 @@ before another overlay or PPO.
 | bounded micro-alpha candidate | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M358 finds alpha 0.00025 passes exact and old-key; alpha 0.0005 first fails old-key |
 | proof-gate-passing micro-alpha | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M359 passes source-diverse protected and first replay proof gates |
 | current public-gate base | `runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt` | M379 promotes alpha `0.05` after cumulative old-key source-diverse six public replay surfaces and behavior seeds pass |
-| current blocker | `experiments/manifests/m382-terminal-margin-recovery-residual-design.json` | M382 must design a terminal-margin or local-action recovery residual before another overlay or PPO |
+| current blocker | `experiments/manifests/m383-old-key-local-recovery-residual-implementation.json` | M383 must implement the optional old-key local-action recovery residual before any proof probe or PPO |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

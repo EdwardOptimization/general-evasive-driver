@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 390,
+        "completed": 391,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m381-old-key-surrogate-replay-alignment-audit",
+        "task_id": "m382-terminal-margin-recovery-residual-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m381_old_key_surrogate_replay_alignment_audit",
-        "command_log": "docs/m381-old-key-surrogate-replay-alignment-audit.md"
+        "run_dir": "",
+        "command_log": "docs/m382-terminal-margin-recovery-residual-design.md"
     },
     "next_task": {
-        "id": "m382-terminal-margin-recovery-residual-design",
+        "id": "m383-old-key-local-recovery-residual-implementation",
         "status": "pending",
-        "priority": 3770,
+        "priority": 3780,
         "kind": "infrastructure",
-        "hypothesis": "Design a terminal-margin or local-action recovery residual after old-key surrogate/replay misalignment",
-        "command": "see experiments/manifests/m382-terminal-margin-recovery-residual-design.json",
+        "hypothesis": "Implement optional old-key local-action recovery residual for exact repair",
+        "command": "see experiments/manifests/m383-old-key-local-recovery-residual-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design exact repair residual before implementation or PPO"
+        "notes": "Pending: add recovery corpus loader exact loss tests and no-update smoke without PPO"
     },
-    "updated_at_utc": "20260523T130952Z"
+    "updated_at_utc": "20260523T131333Z"
 }
