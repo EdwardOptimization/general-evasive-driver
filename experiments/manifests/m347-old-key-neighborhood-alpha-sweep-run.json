@@ -2,7 +2,7 @@
   "id": "m347-old-key-neighborhood-alpha-sweep-run",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -87,5 +87,5 @@
     "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv"
   ],
   "decision_rule": "M347 may only run the no-PPO old-key alpha sweep and admit a follow-up exact/source-diverse probe or repair design. It cannot promote a checkpoint or run PPO.",
-  "next_blocker": "pending M347 old-key neighborhood alpha sweep run"
+  "next_blocker": "m348-exact-source-diverse-probe-for-m335-a010"
 }

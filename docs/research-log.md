@@ -9104,3 +9104,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M346 designs a no-PPO alpha sweep over the M335 interpolation family. It requires exact compact reference-case export from the M341 compact corpus, replay with `critical_key_replay_guard`, candidate evaluation with `old_key_neighborhood_replay_gate`, unchanged thresholds, and explicit largest-passing-alpha / first-failing-alpha reporting before any exact/source-diverse/full gate follow-up.
 - decision: `admit_m347_old_key_neighborhood_alpha_sweep_run`
 - next: `m347-old-key-neighborhood-alpha-sweep-run`
+
+## 20260523T100644Z - m347-old-key-neighborhood-alpha-sweep-run
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m347_old_key_alpha_sweep`
+- artifact: `docs/m347-old-key-neighborhood-alpha-sweep-run.md`
+- result: M347 adds a targeted exact compact replay runner after the generic `critical_key_replay_guard` path proved too slow for this compact surface. The targeted sweep covers 40/40 compact rows for each alpha. `m335_a010` passes the replayable old-key gate with `0` accepted regressions, gap p10 `-0.000006`, and min gap `-0.000016`; `m335_a020` is the first failing alpha with one accepted-case regression. `m335_a1000` remains strongly rejected with `15` accepted regressions and `3` normal-success regressions.
+- decision: `admit_m348_exact_source_diverse_probe_for_m335_a010`
+- next: `m348-exact-source-diverse-probe-for-m335-a010`

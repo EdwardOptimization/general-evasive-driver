@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 355,
+        "completed": 356,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m346-old-key-neighborhood-alpha-sweep-design",
+        "task_id": "m347-old-key-neighborhood-alpha-sweep-run",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "docs/m346-old-key-neighborhood-alpha-sweep-design.md",
-        "command_log": "docs/m346-old-key-neighborhood-alpha-sweep-design.md"
+        "run_dir": "runs/m347_old_key_alpha_sweep",
+        "command_log": "runs/m347_old_key_alpha_sweep/summary.json"
     },
     "next_task": {
-        "id": "m347-old-key-neighborhood-alpha-sweep-run",
+        "id": "m348-exact-source-diverse-probe-for-m335-a010",
         "status": "pending",
-        "priority": 3420,
+        "priority": 3430,
         "kind": "gate",
-        "hypothesis": "The replayable old-key neighborhood gate may allow a larger interpolation alpha than the old singleton 9944 floor while still rejecting the repaired endpoint direction.",
-        "command": "see experiments/manifests/m347-old-key-neighborhood-alpha-sweep-run.json",
+        "hypothesis": "M335 alpha 0.01 may pass the exact and source-diverse proof gates after passing the replayable old-key neighborhood gate, making it eligible for a later full public gate.",
+        "command": "see experiments/manifests/m348-exact-source-diverse-probe-for-m335-a010.json",
         "success_artifact": "",
-        "notes": "Pending: replay selected M335 interpolation alphas on compact old-key surface and report largest passing alpha"
+        "notes": "Pending: evaluate M297 M270 source-diverse protected and first replay gates before any full public gate"
     },
-    "updated_at_utc": "20260523T094858Z"
+    "updated_at_utc": "20260523T100644Z"
 }

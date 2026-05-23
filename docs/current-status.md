@@ -132,7 +132,8 @@ reusable gate before more PPO.
 | old-key gate policy | `docs/m344-old-key-neighborhood-policy-integration-design.md` | M344 defines the neighborhood gate as the first-class old-key proof gate while keeping `9944` diagnostic visible |
 | old-key replay adapter | `src/autodrift/old_key_neighborhood_replay_gate.py` | M345 converts compact old-key replay guard results into candidate-level pass/fail metrics; M335 alpha passes and repaired endpoint fails |
 | old-key alpha sweep design | `docs/m346-old-key-neighborhood-alpha-sweep-design.md` | M346 pre-registers a no-PPO alpha sweep over the M335 interpolation family using replayable old-key gate metrics |
-| current blocker | `experiments/manifests/m347-old-key-neighborhood-alpha-sweep-run.json` | M347 must run the no-PPO alpha sweep and report the largest passing alpha before any more PPO |
+| old-key alpha sweep | `runs/m347_old_key_alpha_sweep/summary.json` | M347 finds `alpha=0.01` is the largest old-key-passing alpha and `alpha=0.02` is the first failing alpha |
+| current blocker | `experiments/manifests/m348-exact-source-diverse-probe-for-m335-a010.json` | M348 must run exact/source-diverse/first replay proof gates for `m335_a010` before any full public gate or PPO |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
