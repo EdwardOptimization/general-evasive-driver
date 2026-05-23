@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M454 exports 685 accepted and 86 compact response-critical rows with balanced source coverage but mostly mixed dependency evidence",
+  "failure_criteria": [
+    "exporter cannot read M452 episodes",
+    "dependency and failure modes remain conflated",
+    "actor contract changes",
+    "corpus labels are treated as deployable actor inputs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not use corpus labels as actor inputs"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260523T200203Z",
+  "hypothesis": "A structured response-critical exporter can turn M452 ablation rows into an interpretable corpus that separates current-response dependence from recurrent-history and action-history dependence.",
+  "lineage": {
+    "blocked_by": [
+      "m453-response-critical-ablation-corpus-design"
+    ],
+    "derived_from": [
+      "m453-response-critical-ablation-corpus-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/m451_challenge_near_threshold_robust_zero_relvel.json",
+      "configs/m451_challenge_late_high_energy_robust_zero_relvel.json",
+      "experiments/manifests/m453-response-critical-ablation-corpus-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m452_near_robust_ablation_seed9900/episodes.csv",
+      "runs/m452_late_robust_ablation_seed9900/episodes.csv",
+      "runs/m452_near_ablation_policy_difference_mining/policy_difference_candidates.csv",
+      "runs/m452_late_ablation_policy_difference_mining/policy_difference_candidates.csv"
+    ],
+    "parent_objective": [
+      "response-critical ablation corpus export"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m454-response-critical-ablation-corpus-export",
+  "next_blocker": "m455-response-critical-multiseed-expansion",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "moderate_response_critical_corpus_admit_m455",
+  "public_gates": [
+    "implement response-critical ablation corpus exporter",
+    "export candidates and compact corpus for M452 near and late runs",
+    "summary separates dependency classes and failure classes",
+    "no checkpoint promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "moderate_response_critical_corpus_admit_m455",
+    "milestone": "m454-response-critical-ablation-corpus-export",
+    "reason": "M454 exports 685 accepted and 86 compact response-critical rows with balanced source coverage but mostly mixed dependency evidence",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "exporter writes candidates CSV compact CSV and summary JSON",
+    "summary reports dependency-class counts",
+    "summary reports failure-class counts",
+    "documentation classifies the resulting corpus as strong moderate or weak evidence",
+    "no checkpoint is promoted"
+  ],
+  "type": "infrastructure"
+}

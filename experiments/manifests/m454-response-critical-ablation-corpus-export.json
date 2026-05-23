@@ -2,7 +2,7 @@
   "id": "m454-response-critical-ablation-corpus-export",
   "type": "infrastructure",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -65,7 +65,7 @@
   "commands": [
     {
       "name": "export_response_critical_corpus",
-      "command": "PYTHONPATH=src python -m autodrift.response_critical_ablation_corpus --episodes-csv runs/m452_near_robust_ablation_seed9900/episodes.csv --source-config near_robust --episodes-csv runs/m452_late_robust_ablation_seed9900/episodes.csv --source-config late_robust --baseline-policy m399_base --candidate-policy m399_reset --candidate-policy m399_zero_current --candidate-policy m399_zero_all --candidate-policy m399_noact --run-dir runs/m454_response_critical_ablation_corpus"
+      "command": "PYTHONPATH=src python -m autodrift.response_critical_ablation_corpus --episodes-csv runs/m452_near_robust_ablation_seed9900/episodes.csv --source-config near_robust --track-width 8.2 --episodes-csv runs/m452_late_robust_ablation_seed9900/episodes.csv --source-config late_robust --track-width 8.0 --baseline-policy m399_base --candidate-policy m399_reset --candidate-policy m399_zero_current --candidate-policy m399_zero_all --candidate-policy m399_noact --run-dir runs/m454_response_critical_ablation_corpus"
     }
   ],
   "required_artifacts": [
@@ -81,5 +81,33 @@
     "docs/m453-response-critical-ablation-corpus-design.md"
   ],
   "decision_rule": "M454 passes if it exports and documents the response-critical corpus honestly. It cannot promote a checkpoint.",
-  "next_blocker": "pending M454 response-critical ablation corpus export"
+  "results": {
+    "run_dir": "runs/m454_response_critical_ablation_corpus",
+    "rows_total": 1024,
+    "accepted_rows": 685,
+    "selected_rows": 86,
+    "selected_by_source_config": {
+      "late_robust": 43,
+      "near_robust": 43
+    },
+    "selected_by_dependency_class": {
+      "action_history_sensitive": 3,
+      "current_response_sensitive": 2,
+      "mixed_dependency": 79,
+      "recurrent_hidden_sensitive": 2
+    },
+    "selected_by_failure_class": {
+      "ablation_rescue": 1,
+      "clearance_margin_shift": 32,
+      "near_boundary_obstacle_margin": 32,
+      "obstacle_collision_margin_crossing": 4,
+      "return_only_shift": 7,
+      "road_boundary_failure": 10
+    },
+    "evidence_quality": "moderate",
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "moderate_response_critical_corpus_admit_m455_multiseed_expansion"
+  },
+  "next_blocker": "m455-response-critical-multiseed-expansion"
 }

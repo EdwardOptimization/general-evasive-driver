@@ -10174,3 +10174,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M453 designs the response-critical ablation corpus step after M452. It separates dependency classes (`current_response_sensitive`, `recurrent_hidden_sensitive`, `action_history_sensitive`, `mixed_dependency`, `weak_behavior_shift`) from failure classes (`obstacle_collision_margin_crossing`, `near_boundary_obstacle_margin`, `road_boundary_failure`, `stability_failure`, `return_only_shift`, `ablation_rescue`). It defines a source-diverse compact corpus target and redirects the next task to reusable exporter implementation rather than training.
 - decision: `admit_m454_response_critical_ablation_corpus_export`
 - next: `m454-response-critical-ablation-corpus-export`
+
+## 20260523T200006Z - m454-response-critical-ablation-corpus-export
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m454_response_critical_ablation_corpus`
+- artifact: `docs/m454-response-critical-ablation-corpus-export.md`
+- result: M454 implements `autodrift.response_critical_ablation_corpus` and exports M452 near/late rows. The exporter accepts `685/1024` comparisons and selects `86` compact rows, balanced as `43` near and `43` late. The compact corpus has `15` selected success flips, `5` collision flips, `5` margin sign flips, `10` lateral-boundary flips, and balanced label/mu coverage. Evidence quality is moderate: most selected rows are `mixed_dependency` (`79/86`), while standalone recurrent-hidden (`2`) and action-history (`3`) rows remain sparse.
+- decision: `moderate_response_critical_corpus_admit_m455`
+- next: `m455-response-critical-multiseed-expansion`

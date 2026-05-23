@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 462,
+        "completed": 463,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m453-response-critical-ablation-corpus-design",
+        "task_id": "m454-response-critical-ablation-corpus-export",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m453-response-critical-ablation-corpus-design.md"
+        "run_dir": "runs/m454_response_critical_ablation_corpus",
+        "command_log": "docs/m454-response-critical-ablation-corpus-export.md"
     },
     "next_task": {
-        "id": "m454-response-critical-ablation-corpus-export",
+        "id": "m455-response-critical-multiseed-expansion",
         "status": "pending",
-        "priority": 4490,
-        "kind": "infrastructure",
-        "hypothesis": "Export a structured response-critical ablation corpus from M452 rows",
-        "command": "see experiments/manifests/m454-response-critical-ablation-corpus-export.json",
+        "priority": 4500,
+        "kind": "gate",
+        "hypothesis": "Expand the response-critical corpus across additional seed blocks",
+        "command": "see experiments/manifests/m455-response-critical-multiseed-expansion.json",
         "success_artifact": "",
-        "notes": "Pending: implement exporter separating dependency classes and failure classes without training"
+        "notes": "Pending: run additional near and late robust ablation seed blocks and export a combined corpus"
     },
-    "updated_at_utc": "20260523T195322Z"
+    "updated_at_utc": "20260523T200006Z"
 }

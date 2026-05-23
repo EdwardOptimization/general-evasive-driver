@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m454-response-critical-ablation-corpus-export
+m455-response-critical-multiseed-expansion
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -170,7 +170,14 @@ modes before more training or challenge tuning. M453 completes that design and
 explicitly separates dependency classes from failure classes. The next blocker
 is M454: implement a reusable response-critical ablation corpus exporter that
 writes candidates, compact corpus, and summary JSON from the M452 near/late
-episodes without training, promotion, or actor input changes.
+episodes without training, promotion, or actor input changes. M454 implements
+that exporter and writes `685` accepted rows plus `86` compact rows. The compact
+corpus is balanced across near/late source configs and obstacle labels, but the
+evidence is moderate rather than strong: most selected rows are
+`mixed_dependency`, with only `2` standalone recurrent-hidden rows and `3`
+standalone action-history rows. The next blocker is M455: expand this corpus
+across additional M451 robust seed blocks before deciding between self-ID gate
+expansion and task-family redesign.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key
