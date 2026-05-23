@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260523T120147Z
+- Generated at UTC: 20260523T120839Z
 - Type: gate
 - Gate tier: proof
-- Promotion decision: not_applicable
-- Decision reason: M369 completes by running a no-PPO hard-row weighted repair probe, checking closed-loop old-key replay for feasible candidates, classifying the result, and registering the next blocker.
+- Promotion decision: admit_m370_full_public_gate_for_m369_a400
+- Decision reason: M369 hard-row weighted repair direct endpoint fails old-key replay but bounded alpha 0.4 passes old-key source-diverse and first replay proof gates; alpha 0.6 first tested old-key gap-p10 failure
 
 ## Hypothesis
 
@@ -67,8 +67,19 @@ Hard-row weighted old-key repair can recover or enlarge the alpha 0.2 direction 
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m369-hard-row-weighted-repair-probe
+- type: gate
+- checkpoint: runs/m369_hard_row_repair_interpolation/checkpoints/alpha_0_4.pt
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: admit_m370_full_public_gate_for_m369_a400
+- reason: M369 hard-row weighted repair direct endpoint fails old-key replay but bounded alpha 0.4 passes old-key source-diverse and first replay proof gates; alpha 0.6 first tested old-key gap-p10 failure
 
 ## Next Blocker
 
-pending M369 hard-row weighted repair probe
+m370-full-public-gate-for-m369-a400

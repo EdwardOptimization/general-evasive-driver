@@ -9324,3 +9324,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M368 implements hard-row overlay and branch-weight support for the old-key preference corpus and exact repair surrogate. It exports a weighted 40-row old-key corpus with one hard row, `wrong_branch_weight` sum `55.0`, and `preferred_branch_weight` sum `40.0`. A no-update exact repair smoke reads the weighted corpus and passes exact M297/M270/old-key lexicographic checks. Actor inputs remain unchanged.
 - decision: `admit_m369_hard_row_weighted_repair_probe`
 - next: `m369-hard-row-weighted-repair-probe`
+
+## 20260523T120746Z - m369-hard-row-weighted-repair-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m369_hard_row_interp_a400_old_key_replay_gate`
+- artifact: `docs/m369-hard-row-weighted-repair-probe.md`
+- result: M369 runs no-PPO hard-row weighted exact repair from the alpha `0.2` failing endpoint. The direct repaired endpoint improves exact M297 by `-0.000342`, exact M270 by `-0.000165`, and weighted old-key surrogate by `-0.021396`, but fails closed-loop old-key replay with `37/40` accepted. Interpolation alpha `0.4` from M365 base to the repaired endpoint passes old-key replay with zero accepted regressions, source-diverse protected gates `5/5`, and M183/M170 plus M267/M264 first replay gates `17/17`. Alpha `0.6` is the first tested old-key gate failure on compact gap p10, not accepted regressions.
+- decision: `admit_m370_full_public_gate_for_m369_a400`
+- next: `m370-full-public-gate-for-m369-a400`

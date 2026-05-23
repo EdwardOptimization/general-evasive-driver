@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 377,
+        "completed": 378,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m368-old-key-hard-row-feedback-implementation",
+        "task_id": "m369-hard-row-weighted-repair-probe",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m368_hard_row_repair_smoke",
-        "command_log": "docs/m368-old-key-hard-row-feedback-implementation.md"
+        "run_dir": "runs/m369_hard_row_interp_a400_old_key_replay_gate",
+        "command_log": "docs/m369-hard-row-weighted-repair-probe.md"
     },
     "next_task": {
-        "id": "m369-hard-row-weighted-repair-probe",
+        "id": "m370-full-public-gate-for-m369-a400",
         "status": "pending",
-        "priority": 3640,
-        "kind": "gate",
-        "hypothesis": "Probe hard-row weighted repair against the M366 alpha 0.2 wrong-history sign crossing",
-        "command": "see experiments/manifests/m369-hard-row-weighted-repair-probe.json",
+        "priority": 3650,
+        "kind": "driver_candidate",
+        "hypothesis": "Run full public gate for the M369 alpha 0.4 hard-row weighted repaired candidate",
+        "command": "see experiments/manifests/m370-full-public-gate-for-m369-a400.json",
         "success_artifact": "",
-        "notes": "Pending: run no-PPO hard-row weighted exact repair and closed-loop old-key replay"
+        "notes": "Pending: run all six replay surfaces and behavior seeds before any promotion"
     },
-    "updated_at_utc": "20260523T115849Z"
+    "updated_at_utc": "20260523T120746Z"
 }

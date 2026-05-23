@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M369 completes by running a no-PPO hard-row weighted repair probe, checking closed-loop old-key replay for feasible candidates, classifying the result, and registering the next blocker.",
+  "decision_reason": "M369 hard-row weighted repair direct endpoint fails old-key replay but bounded alpha 0.4 passes old-key source-diverse and first replay proof gates; alpha 0.6 first tested old-key gap-p10 failure",
   "failure_criteria": [
     "hard-row weighted repair cannot move beyond alpha 0.1 without old-key replay failure",
     "exact objectives regress",
@@ -18,7 +18,7 @@
     "do not change actor inputs"
   ],
   "gate_tier": "proof",
-  "generated_at_utc": "20260523T120147Z",
+  "generated_at_utc": "20260523T120839Z",
   "hypothesis": "Hard-row weighted old-key repair can recover or enlarge the alpha 0.2 direction by increasing wrong-history pressure on the M366 sign-crossing row while preserving exact M297/M270 and old-key surrogate gates.",
   "lineage": {
     "blocked_by": [
@@ -47,9 +47,9 @@
     "supersedes": []
   },
   "milestone": "m369-hard-row-weighted-repair-probe",
-  "next_blocker": "pending M369 hard-row weighted repair probe",
+  "next_blocker": "m370-full-public-gate-for-m369-a400",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "admit_m370_full_public_gate_for_m369_a400",
   "public_gates": [
     "no PPO run",
     "exact M297/M270 no-regression",
@@ -59,7 +59,20 @@
     "M183/M170 and M267/M264 first replay gates if proof gates pass",
     "preserve actor input contract"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "runs/m369_hard_row_repair_interpolation/checkpoints/alpha_0_4.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m370_full_public_gate_for_m369_a400",
+    "milestone": "m369-hard-row-weighted-repair-probe",
+    "reason": "M369 hard-row weighted repair direct endpoint fails old-key replay but bounded alpha 0.4 passes old-key source-diverse and first replay proof gates; alpha 0.6 first tested old-key gap-p10 failure",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "hard-row weighted repair candidate passes exact M297/M270 and weighted old-key surrogate gates",
     "closed-loop old-key replay has zero accepted regressions at an alpha greater than 0.1 or exposes a stronger repair candidate",
