@@ -79,6 +79,28 @@
     "docs/m355-m354-exact-m270-regression-audit.md",
     "runs/m355_m354_repair_step39_diagnostic/summary.json"
   ],
-  "decision_rule": "M356 is complete when exact repair has deterministic best-step selection, focused tests pass, and the next M354 repair retry is registered without changing actor inputs.",
-  "next_blocker": "pending M356 exact repair best-step selection implementation"
+  "results": {
+    "run_dir": "runs/m356_m354_repair_best_step_probe",
+    "code_changed": [
+      "src/autodrift/exact_post_ppo_repair.py",
+      "tests/test_exact_post_ppo_repair.py"
+    ],
+    "selection_policy_default": "best_feasible",
+    "final_optimizer_state_m297_delta_vs_m352": -2.300739288330078e-05,
+    "final_optimizer_state_m270_delta_vs_m352": 4.0590763092041016e-05,
+    "final_optimizer_state_exact_lexicographic_pass": false,
+    "selected_step": 25,
+    "selected_candidate": "runs/m356_m354_repair_best_step_probe/candidate_checkpoint.pt",
+    "selected_candidate_m297_delta_vs_m352": -0.0001575946807861328,
+    "selected_candidate_m270_delta_vs_m352": -9.78708267211914e-05,
+    "selected_candidate_exact_lexicographic_pass": true,
+    "focused_tests": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_exact_post_ppo_repair.py",
+    "focused_tests_result": "5 passed",
+    "compileall_result": "pass",
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m357_m354_best_step_repair_proof_gate",
+  "decision_rule": "M356 completes because exact repair now logs post-update metrics, records selection_trace.csv, and saves a best-feasible selected checkpoint; the M354 raw repair probe selects step 25 and passes exact M297/M270.",
+  "next_blocker": "m357-m354-best-step-repair-proof-gate"
 }

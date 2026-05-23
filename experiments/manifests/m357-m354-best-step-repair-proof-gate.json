@@ -1,0 +1,88 @@
+{
+  "id": "m357-m354-best-step-repair-proof-gate",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt",
+      "runs/m356_m354_repair_best_step_probe/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m356_m354_repair_best_step_probe/summary.json",
+      "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m356-exact-repair-best-step-selection-implementation.json",
+      "docs/m356-exact-repair-best-step-selection-implementation.md"
+    ],
+    "parent_objective": [
+      "run proof gates skipped by M354 on the corrected best-step repaired candidate"
+    ],
+    "derived_from": [
+      "m356-exact-repair-best-step-selection-implementation"
+    ],
+    "blocked_by": [
+      "m356-exact-repair-best-step-selection-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m357-m354-best-step-repair-proof-gate.md",
+  "public_gates": [
+    "no PPO run",
+    "candidate retains exact M297/M270 no-regression versus M352",
+    "source-diverse protected gate pass",
+    "old-key neighborhood replay gate pass",
+    "M183/M170 and M267/M264 first replay gates pass",
+    "do not promote directly"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not promote from proof gate alone",
+    "do not run full public behavior gates before proof gates pass",
+    "do not change actor inputs",
+    "do not relax exact or old-key thresholds"
+  ],
+  "hypothesis": "The M356 best-step repaired M354 candidate may preserve exact, source-diverse, old-key neighborhood, and first replay proof gates that the original final-step M354 candidate could not reach.",
+  "success_criteria": [
+    "exact M297/M270 remain non-regressing versus M352",
+    "source-diverse protected gates pass",
+    "old-key neighborhood replay gate passes",
+    "M183/M170 and M267/M264 first replay gates pass",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "exact objectives regress",
+    "source-diverse protected gate fails",
+    "old-key neighborhood gate fails",
+    "first replay gate fails",
+    "actor input contract changes"
+  ],
+  "commands": [
+    {
+      "name": "m357_proof_gates",
+      "command": "Evaluate source-diverse, old-key neighborhood, and first replay proof gates for runs/m356_m354_repair_best_step_probe/candidate_checkpoint.pt; do not run PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m357-m354-best-step-repair-proof-gate.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m356-exact-repair-best-step-selection-implementation.md",
+    "runs/m356_m354_repair_best_step_probe/summary.json"
+  ],
+  "decision_rule": "M357 is complete when the M356 best-step candidate is either admitted to a full public gate or rejected with a classified proof-gate failure.",
+  "next_blocker": "pending M357 M354 best-step repair proof gate"
+}

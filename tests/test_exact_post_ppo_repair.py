@@ -5,6 +5,8 @@ from torch.distributions import Normal
 
 from autodrift.exact_post_ppo_repair import (
     ExactRepairConfig,
+    _add_exact_gate_fields,
+    _select_best_repair_step,
     exact_outcome_intervention_loss,
     exact_rejected_history_preference_loss,
     exact_snippet_action_anchor_loss,
@@ -83,6 +85,94 @@ def test_parse_alpha_list_validates_range():
         parse_alpha_list("")
     with pytest.raises(Exception):
         parse_alpha_list("1.1")
+
+
+def test_best_repair_step_prefers_feasible_low_total_loss():
+    config = ExactRepairConfig(exact_m297_tolerance=1e-7, exact_m270_tolerance=1e-7)
+    rows = [
+        _add_exact_gate_fields(
+            {
+                "step": 38,
+                "metric_phase": "post_update",
+                "total_loss": 1.0e-5,
+                "param_l2_to_base": 3.0e-10,
+                "exact_m297_loss": 0.9999,
+                "exact_m270_loss": 0.9999,
+            },
+            base_m297=1.0,
+            base_m270=1.0,
+            config=config,
+        ),
+        _add_exact_gate_fields(
+            {
+                "step": 39,
+                "metric_phase": "post_update",
+                "total_loss": 3.0e-6,
+                "param_l2_to_base": 4.0e-10,
+                "exact_m297_loss": 0.99995,
+                "exact_m270_loss": 0.99995,
+            },
+            base_m297=1.0,
+            base_m270=1.0,
+            config=config,
+        ),
+        _add_exact_gate_fields(
+            {
+                "step": 40,
+                "metric_phase": "post_update",
+                "total_loss": 1.0e-6,
+                "param_l2_to_base": 5.0e-10,
+                "exact_m297_loss": 0.9998,
+                "exact_m270_loss": 1.00005,
+            },
+            base_m297=1.0,
+            base_m270=1.0,
+            config=config,
+        ),
+    ]
+
+    selected = _select_best_repair_step(rows)
+
+    assert selected["step"] == 39
+    assert selected["exact_lexicographic_pass"] is True
+
+
+def test_best_repair_step_falls_back_to_smallest_violation():
+    config = ExactRepairConfig(exact_m297_tolerance=1e-7, exact_m270_tolerance=1e-7)
+    rows = [
+        _add_exact_gate_fields(
+            {
+                "step": 1,
+                "metric_phase": "post_update",
+                "total_loss": 1.0e-6,
+                "param_l2_to_base": 1.0e-10,
+                "exact_m297_loss": 1.0002,
+                "exact_m270_loss": 1.0002,
+            },
+            base_m297=1.0,
+            base_m270=1.0,
+            config=config,
+        ),
+        _add_exact_gate_fields(
+            {
+                "step": 2,
+                "metric_phase": "post_update",
+                "total_loss": 5.0e-6,
+                "param_l2_to_base": 2.0e-10,
+                "exact_m297_loss": 1.00001,
+                "exact_m270_loss": 1.00001,
+            },
+            base_m297=1.0,
+            base_m270=1.0,
+            config=config,
+        ),
+    ]
+
+    selected = _select_best_repair_step(rows)
+
+    assert selected["step"] == 2
+    assert selected["exact_lexicographic_pass"] is False
+    assert selected["positive_violation"] < rows[0]["positive_violation"]
 
 
 def test_exact_losses_are_deterministic_full_batch(tmp_path):

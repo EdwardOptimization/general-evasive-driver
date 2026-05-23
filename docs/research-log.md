@@ -9194,3 +9194,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M355 audits the M354 exact repair trace and confirms the M354 PPO proposal had a feasible repaired state. A 39-step diagnostic repair exactly matches the original M354 pre-step-40 metrics and passes exact M297/M270 with deltas `-0.000179172` and `-0.000053346`. The saved 40-step candidate fails because `train_metrics.csv` records pre-update losses while the tool saves the final post-update state, and that final Adam step crosses the M270 boundary.
 - decision: `admit_m356_exact_repair_best_step_selection`
 - next: `m356-exact-repair-best-step-selection-implementation`
+
+## 20260523T105748Z - m356-exact-repair-best-step-selection-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m356_m354_repair_best_step_probe`
+- artifact: `docs/m356-exact-repair-best-step-selection-implementation.md`
+- result: M356 updates `exact_post_ppo_repair` to log post-update exact metrics, write `selection_trace.csv`, and save the best lexicographically feasible repair state by default. Replaying the M354 repair with the corrected selection chooses step `25` instead of the final step `40`; the saved candidate has exact deltas `-0.000157595` and `-0.000097871`, while the final optimizer state still fails M270 by `+0.000040591`.
+- decision: `admit_m357_m354_best_step_repair_proof_gate`
+- next: `m357-m354-best-step-repair-proof-gate`

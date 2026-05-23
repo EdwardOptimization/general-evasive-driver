@@ -293,6 +293,69 @@ def _load_state(checkpoint: dict[str, Any], device: torch.device) -> dict[str, t
     return {name: tensor.detach().to(device=device) for name, tensor in checkpoint["model_state"].items()}
 
 
+def _clone_model_state(model: torch.nn.Module) -> dict[str, torch.Tensor]:
+    return {name: tensor.detach().clone() for name, tensor in model.state_dict().items()}
+
+
+def _add_exact_gate_fields(
+    row: dict[str, Any],
+    *,
+    base_m297: float,
+    base_m270: float,
+    config: ExactRepairConfig,
+) -> dict[str, Any]:
+    m297_delta = float(row["exact_m297_loss"]) - float(base_m297)
+    m270_delta = float(row["exact_m270_loss"]) - float(base_m270)
+    row["exact_m297_delta_vs_base"] = m297_delta
+    row["exact_m270_delta_vs_base"] = m270_delta
+    row["exact_m297_no_regression"] = bool(m297_delta <= float(config.exact_m297_tolerance))
+    row["exact_m270_no_regression"] = bool(m270_delta <= float(config.exact_m270_tolerance))
+    row["exact_lexicographic_pass"] = bool(row["exact_m297_no_regression"] and row["exact_m270_no_regression"])
+    row["positive_violation"] = float(
+        max(0.0, m297_delta - float(config.exact_m297_tolerance))
+        + max(0.0, m270_delta - float(config.exact_m270_tolerance))
+    )
+    return row
+
+
+def _repair_metrics_row(
+    *,
+    step: int,
+    metric_phase: str,
+    terms: dict[str, torch.Tensor],
+    grad_norm: float,
+    learning_rate: float,
+    base_m297: float,
+    base_m270: float,
+    config: ExactRepairConfig,
+) -> dict[str, Any]:
+    row = {
+        "step": int(step),
+        "metric_phase": metric_phase,
+        **{name: _tensor_value(value) for name, value in terms.items()},
+        "grad_norm": float(grad_norm),
+        "learning_rate": float(learning_rate),
+    }
+    return _add_exact_gate_fields(row, base_m297=base_m297, base_m270=base_m270, config=config)
+
+
+def _repair_selection_key(row: dict[str, Any]) -> tuple[int, float, float, float, int]:
+    feasible_rank = 0 if bool(row.get("exact_lexicographic_pass")) else 1
+    return (
+        feasible_rank,
+        float(row.get("positive_violation", 0.0)),
+        float(row.get("total_loss", 0.0)),
+        float(row.get("param_l2_to_base", 0.0)),
+        int(row.get("step", 0)),
+    )
+
+
+def _select_best_repair_step(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    if not rows:
+        raise ValueError("repair selection requires at least one metric row")
+    return min(rows, key=_repair_selection_key)
+
+
 def _line_search_rows(
     *,
     model: torch.nn.Module,
@@ -393,8 +456,11 @@ def optimize_exact_post_ppo_repair(
     config: ExactRepairConfig,
     run_dir: Path,
     log_interval: int = 10,
+    selection_policy: str = "best_feasible",
 ) -> dict[str, Any]:
     run_dir.mkdir(parents=True, exist_ok=True)
+    if selection_policy not in {"best_feasible", "final"}:
+        raise ValueError("selection_policy must be 'best_feasible' or 'final'")
     resolved_device = resolve_device(device)
     torch.manual_seed(int(seed))
     np.random.seed(int(seed))
@@ -479,11 +545,41 @@ def optimize_exact_post_ppo_repair(
         outcome=outcome,
         config=config,
     )
+    base_m297 = float(base_summary["exact_m297_loss"])
+    base_m270 = float(base_summary["exact_m270_loss"])
     metrics: list[dict[str, Any]] = []
+    selection_trace: list[dict[str, Any]] = []
+    best_row: dict[str, Any] | None = None
+    best_state = _clone_model_state(model)
     optimizer = torch.optim.Adam(trainable.parameters, lr=float(learning_rate)) if int(steps) > 0 else None
     model.train()
     total_steps = max(0, int(steps))
     interval = max(1, int(log_interval))
+    with torch.no_grad():
+        start_terms = repair_loss_terms(
+            model=model,
+            preference=preference,
+            outcome=outcome,
+            anchor=anchor,
+            base_m297=base_m297,
+            base_m270=base_m270,
+            base_state=base_state,
+            raw_state=raw_state,
+            trainable_names=trainable.names,
+            config=config,
+        )
+    start_row = _repair_metrics_row(
+        step=0,
+        metric_phase="start",
+        terms=start_terms,
+        grad_norm=0.0,
+        learning_rate=float(learning_rate),
+        base_m297=base_m297,
+        base_m270=base_m270,
+        config=config,
+    )
+    selection_trace.append(start_row)
+    best_row = start_row
     for step in range(1, total_steps + 1):
         assert optimizer is not None
         optimizer.zero_grad(set_to_none=True)
@@ -492,8 +588,8 @@ def optimize_exact_post_ppo_repair(
             preference=preference,
             outcome=outcome,
             anchor=anchor,
-            base_m297=float(base_summary["exact_m297_loss"]),
-            base_m270=float(base_summary["exact_m270_loss"]),
+            base_m297=base_m297,
+            base_m270=base_m270,
             base_state=base_state,
             raw_state=raw_state,
             trainable_names=trainable.names,
@@ -502,39 +598,53 @@ def optimize_exact_post_ppo_repair(
         terms["total_loss"].backward()
         grad_norm = torch.nn.utils.clip_grad_norm_(trainable.parameters, max_norm=float(config.grad_clip_norm))
         optimizer.step()
-        if step == 1 or step == total_steps or step % interval == 0:
-            metrics.append(
-                {
-                    "step": int(step),
-                    **{name: _tensor_value(value) for name, value in terms.items()},
-                    "grad_norm": float(
-                        grad_norm.detach().cpu().item() if isinstance(grad_norm, torch.Tensor) else grad_norm
-                    ),
-                    "learning_rate": float(learning_rate),
-                }
-            )
-    if total_steps == 0:
+        grad_norm_value = float(grad_norm.detach().cpu().item() if isinstance(grad_norm, torch.Tensor) else grad_norm)
         with torch.no_grad():
-            terms = repair_loss_terms(
+            post_terms = repair_loss_terms(
                 model=model,
                 preference=preference,
                 outcome=outcome,
                 anchor=anchor,
-                base_m297=float(base_summary["exact_m297_loss"]),
-                base_m270=float(base_summary["exact_m270_loss"]),
+                base_m297=base_m297,
+                base_m270=base_m270,
                 base_state=base_state,
                 raw_state=raw_state,
                 trainable_names=trainable.names,
                 config=config,
             )
-        metrics.append(
-            {
-                "step": 0,
-                **{name: _tensor_value(value) for name, value in terms.items()},
-                "grad_norm": 0.0,
-                "learning_rate": float(learning_rate),
-            }
+        post_row = _repair_metrics_row(
+            step=step,
+            metric_phase="post_update",
+            terms=post_terms,
+            grad_norm=grad_norm_value,
+            learning_rate=float(learning_rate),
+            base_m297=base_m297,
+            base_m270=base_m270,
+            config=config,
         )
+        selection_trace.append(post_row)
+        if _repair_selection_key(post_row) < _repair_selection_key(best_row):
+            best_row = post_row
+            best_state = _clone_model_state(model)
+        if step == 1 or step == total_steps or step % interval == 0:
+            metrics.append(post_row)
+    if total_steps == 0:
+        metrics.append(start_row)
+    selected_row = selection_trace[-1] if selection_policy == "final" else _select_best_repair_step(selection_trace)
+    selected_step = int(selected_row["step"])
+    selected_metric_phase = str(selected_row["metric_phase"])
+
+    final_summary = exact_loss_summary(
+        label="final_optimizer_state",
+        checkpoint=f"{run_dir}/final_optimizer_state",
+        model=model,
+        preference=preference,
+        outcome=outcome,
+        config=config,
+    )
+    _add_exact_gate_fields(final_summary, base_m297=base_m297, base_m270=base_m270, config=config)
+    if selection_policy == "best_feasible":
+        model.load_state_dict(best_state)
 
     candidate_path = run_dir / "candidate_checkpoint.pt"
     save_checkpoint_like(
@@ -554,6 +664,9 @@ def optimize_exact_post_ppo_repair(
             "seed": int(seed),
             "train_scope": train_scope,
             "train_log_std": bool(train_log_std),
+            "selection_policy": selection_policy,
+            "selected_step": selected_step,
+            "selected_metric_phase": selected_metric_phase,
             "config": asdict(config),
         },
     )
@@ -565,25 +678,16 @@ def optimize_exact_post_ppo_repair(
         outcome=outcome,
         config=config,
     )
-    candidate_summary["exact_m297_delta_vs_base"] = (
-        float(candidate_summary["exact_m297_loss"]) - float(base_summary["exact_m297_loss"])
-    )
-    candidate_summary["exact_m270_delta_vs_base"] = (
-        float(candidate_summary["exact_m270_loss"]) - float(base_summary["exact_m270_loss"])
-    )
-    candidate_summary["exact_m297_no_regression"] = bool(
-        float(candidate_summary["exact_m297_delta_vs_base"]) <= float(config.exact_m297_tolerance)
-    )
-    candidate_summary["exact_m270_no_regression"] = bool(
-        float(candidate_summary["exact_m270_delta_vs_base"]) <= float(config.exact_m270_tolerance)
-    )
-    candidate_summary["exact_lexicographic_pass"] = bool(
-        candidate_summary["exact_m297_no_regression"] and candidate_summary["exact_m270_no_regression"]
-    )
+    _add_exact_gate_fields(candidate_summary, base_m297=base_m297, base_m270=base_m270, config=config)
+    candidate_summary["selection_policy"] = selection_policy
+    candidate_summary["selected_step"] = selected_step
+    candidate_summary["selected_metric_phase"] = selected_metric_phase
+    candidate_summary["selected_total_loss"] = float(selected_row["total_loss"])
 
-    policy_rows = [base_summary, raw_summary, start_summary, candidate_summary]
+    policy_rows = [base_summary, raw_summary, start_summary, final_summary, candidate_summary]
     _write_policy_summaries(run_dir, policy_rows)
     write_csv_rows(run_dir / "train_metrics.csv", metrics)
+    write_csv_rows(run_dir / "selection_trace.csv", selection_trace)
     if line_search_rows:
         write_csv_rows(run_dir / "line_search_summary.csv", line_search_rows)
 
@@ -603,15 +707,21 @@ def optimize_exact_post_ppo_repair(
         "seed": int(seed),
         "train_scope": train_scope,
         "train_log_std": bool(train_log_std),
+        "selection_policy": selection_policy,
+        "selected_step": selected_step,
+        "selected_metric_phase": selected_metric_phase,
+        "selected_trace_row": selected_row,
         "config": asdict(config),
         "base": base_summary,
         "raw": raw_summary,
         "start": start_summary,
+        "final": final_summary,
         "candidate": candidate_summary,
         "candidate_summary_csv": run_dir / "candidate_summary.csv",
         "exact_m297_policy_summary_csv": run_dir / "exact_m297_policy_summary.csv",
         "exact_m270_policy_summary_csv": run_dir / "exact_m270_policy_summary.csv",
         "train_metrics_csv": run_dir / "train_metrics.csv",
+        "selection_trace_csv": run_dir / "selection_trace.csv",
         "ppo_run": False,
         "checkpoint_promoted": False,
         "actor_inputs_changed": False,
@@ -651,6 +761,7 @@ def main() -> None:
     parser.add_argument("--lambda-param-raw", type=float, default=0.0)
     parser.add_argument("--grad-clip-norm", type=float, default=1.0)
     parser.add_argument("--log-interval", type=int, default=10)
+    parser.add_argument("--selection-policy", choices=["best_feasible", "final"], default="best_feasible")
     parser.add_argument("--run-dir", type=Path, default=None)
     args = parser.parse_args()
 
@@ -686,6 +797,7 @@ def main() -> None:
         ),
         run_dir=run_dir,
         log_interval=args.log_interval,
+        selection_policy=args.selection_policy,
     )
     print(to_jsonable(summary["candidate"]))
     print(f"run_dir={run_dir}")

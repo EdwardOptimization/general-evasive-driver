@@ -55,7 +55,7 @@ neighborhood proof.
 Current blocker:
 
 ```text
-m356-exact-repair-best-step-selection-implementation
+m357-m354-best-step-repair-proof-gate
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -80,9 +80,10 @@ the fresh-seed proposal-only PPO repeat: raw PPO runs, but exact repair improves
 M297 while regressing M270, so downstream gates are skipped. M355 audits that
 failure and finds a feasible 39-step repair state; the saved 40-step endpoint
 failed because the repair tool logs pre-update metrics but saves the final
-post-update state. M356 should implement post-update metrics and
-lexicographic best-feasible checkpoint selection before retrying the M354
-repair.
+post-update state. M356 implements post-update metrics and lexicographic
+best-feasible checkpoint selection; the corrected M354 repair probe saves step
+`25` and passes exact M297/M270. M357 should now run the skipped proof gates on
+that best-step repaired candidate before any full public gate.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -154,7 +155,8 @@ repair.
 | fresh-seed repeat config | `configs/ppo_m354_old_key_neighborhood_repeat.json` | M353 registers seed 5240 short PPO repeat from M352 base before any longer PPO |
 | rejected fresh-seed repeat | `runs/m354_exact_repair_from_raw_s40_seed10103/candidate_checkpoint.pt` | M354 exact repair improves M297 but regresses M270, so downstream gates are skipped |
 | exact repair endpoint audit | `runs/m355_m354_repair_step39_diagnostic/summary.json` | M355 shows M354 had a feasible 39-step exact repair state; final-step selection crossed the M270 boundary |
-| current blocker | `experiments/manifests/m356-exact-repair-best-step-selection-implementation.json` | M356 must add post-update metrics and best-feasible checkpoint selection before retrying M354 repair |
+| exact repair best-step candidate | `runs/m356_m354_repair_best_step_probe/candidate_checkpoint.pt` | M356 fixes endpoint selection and selects step 25 with exact M297/M270 no-regression |
+| current blocker | `experiments/manifests/m357-m354-best-step-repair-proof-gate.json` | M357 must run source-diverse old-key neighborhood and first replay proof gates before any promotion |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
