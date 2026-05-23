@@ -77,6 +77,21 @@
     "docs/m365-full-public-gate-for-m364-alpha01.md",
     "runs/m365_full_public_gate_for_m364_alpha01/summary.json"
   ],
-  "decision_rule": "M366 is complete when the alpha 0.2 old-key failure is classified and the next repair-design or stop decision is registered without training.",
-  "next_blocker": "pending M366 alpha0.2 old-key regression audit"
+  "results": {
+    "failing_rows": 1,
+    "failing_case_id": "9951|perturbed|35|32|10.000000|-1.200000|1.400000",
+    "failure_mode": "wrong_history_margin_sign_crossing",
+    "m360_wrong_history_margin": -9.48537758440016e-08,
+    "alpha01_wrong_history_margin": -1.5094316138683103e-08,
+    "alpha02_wrong_history_margin": 8.715030297637944e-08,
+    "alpha02_normal_margin": 0.0009396428845690328,
+    "normal_branch_regressed": false,
+    "old_key_threshold_lowering_recommended": false,
+    "hard_row_feedback_recommended": true,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m367_old_key_hard_row_weighting_design",
+  "decision_rule": "M366 completes by classifying the alpha 0.2 failure as a single wrong-history terminal-margin sign crossing and registering hard-row weighting design without training or threshold changes.",
+  "next_blocker": "m367-old-key-hard-row-weighting-design"
 }

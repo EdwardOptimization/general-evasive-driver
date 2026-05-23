@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 374,
+        "completed": 375,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m365-full-public-gate-for-m364-alpha01",
+        "task_id": "m366-alpha02-old-key-regression-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m365_full_public_gate_for_m364_alpha01",
-        "command_log": "docs/m365-full-public-gate-for-m364-alpha01.md"
+        "run_dir": "",
+        "command_log": "docs/m366-alpha02-old-key-regression-audit.md"
     },
     "next_task": {
-        "id": "m366-alpha02-old-key-regression-audit",
+        "id": "m367-old-key-hard-row-weighting-design",
         "status": "pending",
-        "priority": 3610,
-        "kind": "gate",
-        "hypothesis": "Audit alpha 0.2 old-key regression before another repair or PPO step",
-        "command": "see experiments/manifests/m366-alpha02-old-key-regression-audit.json",
+        "priority": 3620,
+        "kind": "infrastructure",
+        "hypothesis": "Design old-key hard-row weighting from alpha 0.2 regression",
+        "command": "see experiments/manifests/m367-old-key-hard-row-weighting-design.json",
         "success_artifact": "",
-        "notes": "Pending: inspect the single alpha 0.2 accepted regression and decide next repair design"
+        "notes": "Pending: feed replay hard-row metadata into old-key repair corpus design"
     },
     "updated_at_utc": "20260523T112052Z"
 }

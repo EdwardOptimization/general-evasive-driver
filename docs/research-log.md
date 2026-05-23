@@ -9294,3 +9294,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M365 promotes `runs/m364_old_key_aware_repair_interpolation/checkpoints/alpha_0_1.pt`. It retains old-key proof from M364, source-diverse protected gates `5/5`, all six public replay surfaces, and behavior seeds `9505`/`9506`. Behavior success mean remains `0.8625`, termination mean `0.1375`, reset success mean `0.85`, and zero-all success mean `0.80`.
 - decision: `promote_m364_alpha01_old_key_aware_public_gate_base`
 - next: `m366-alpha02-old-key-regression-audit`
+
+## 20260523T112052Z - m366-alpha02-old-key-regression-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m366-alpha02-old-key-regression-audit.md`
+- result: M366 identifies the single alpha `0.2` old-key accepted regression as case `9951|perturbed|35|32|10.000000|-1.200000|1.400000`. The normal branch improves, but wrong-history margin crosses from `-9.49e-8` at M360 to `-1.51e-8` at alpha `0.1` and `+8.72e-8` at alpha `0.2`. This is a wrong-history terminal-margin sign crossing, not a reason to lower old-key thresholds.
+- decision: `admit_m367_old_key_hard_row_weighting_design`
+- next: `m367-old-key-hard-row-weighting-design`
