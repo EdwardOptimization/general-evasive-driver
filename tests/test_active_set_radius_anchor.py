@@ -7,6 +7,7 @@ import pandas as pd
 import pytest
 
 from autodrift.active_set_radius_anchor import (
+    MIXED_RADIUS_PROFILES,
     RADIUS_PROFILES,
     _save_profile_anchor,
     build_spillover_failed_rows,
@@ -111,3 +112,11 @@ def test_save_profile_anchor_offsets_spillover_sources_and_writes_radius(tmp_pat
     assert summary["rows"] == 3
     assert data["source_index"].tolist() == [0, 4, 5]
     assert data["radius"].tolist() == pytest.approx([0.00030, 0.00035, 0.00015])
+
+
+def test_mixed_profiles_tighten_10023_without_globally_tightening() -> None:
+    assert MIXED_RADIUS_PROFILES["mixed_a"]["old_key_10023"] == RADIUS_PROFILES["conservative"]["old_key_10023"]
+    assert MIXED_RADIUS_PROFILES["mixed_a"]["old_key_10004"] == RADIUS_PROFILES["medium"]["old_key_10004"]
+    assert MIXED_RADIUS_PROFILES["mixed_b"]["old_key_10004"] == RADIUS_PROFILES["loose"]["old_key_10004"]
+    assert MIXED_RADIUS_PROFILES["mixed_c"]["m267_rows_6_15"] == RADIUS_PROFILES["loose"]["m267_rows_6_15"]
+    assert MIXED_RADIUS_PROFILES["mixed_c"]["old_key_9998"] == RADIUS_PROFILES["medium"]["old_key_9998"]

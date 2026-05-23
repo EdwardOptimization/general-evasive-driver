@@ -85,5 +85,53 @@
     "docs/m421-mixed-radius-boundary-design.md"
   ],
   "decision_rule": "M422 may admit M423 mixed-radius projection probe only if all three mixed anchors export and pass no-update exact repair smoke without actor-contract changes.",
-  "next_blocker": "pending M422 mixed radius anchor export implementation"
+  "next_blocker": "m423-mixed-radius-projection-probe",
+  "results": {
+    "artifact": "docs/m422-mixed-radius-anchor-export-implementation.md",
+    "code_paths": [
+      "src/autodrift/active_set_radius_anchor.py",
+      "tests/test_active_set_radius_anchor.py"
+    ],
+    "export_run": "runs/m422_mixed_radius_anchor",
+    "source_summary_csv": "runs/m422_mixed_radius_anchor/radius_anchor_sources.csv",
+    "profile_set": "mixed",
+    "spillover_anchor_rows": 82,
+    "profile_anchors": {
+      "mixed_a": {
+        "anchor_npz": "runs/m422_mixed_radius_anchor/mixed_a_radius_anchor.npz",
+        "rows": 274,
+        "radius_min": 0.00012,
+        "radius_max": 0.0005,
+        "no_update_smoke_run": "runs/m422_mixed_a_radius_anchor_no_update_smoke",
+        "no_update_smoke_exact_pass": true,
+        "no_update_smoke_replay_loss": 0.0
+      },
+      "mixed_b": {
+        "anchor_npz": "runs/m422_mixed_radius_anchor/mixed_b_radius_anchor.npz",
+        "rows": 274,
+        "radius_min": 0.00012,
+        "radius_max": 0.00065,
+        "no_update_smoke_run": "runs/m422_mixed_b_radius_anchor_no_update_smoke",
+        "no_update_smoke_exact_pass": true,
+        "no_update_smoke_replay_loss": 0.0
+      },
+      "mixed_c": {
+        "anchor_npz": "runs/m422_mixed_radius_anchor/mixed_c_radius_anchor.npz",
+        "rows": 274,
+        "radius_min": 0.00012,
+        "radius_max": 0.00065,
+        "no_update_smoke_run": "runs/m422_mixed_c_radius_anchor_no_update_smoke",
+        "no_update_smoke_exact_pass": true,
+        "no_update_smoke_replay_loss": 0.0
+      }
+    },
+    "focused_tests": "4 passed",
+    "ppo_or_actor_update_run": false,
+    "projection_probe_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m423-mixed-radius-projection-probe"
+  },
+  "decision": "admit_m423_mixed_radius_projection_probe"
 }

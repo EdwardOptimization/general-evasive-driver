@@ -9854,3 +9854,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M421 designs mixed per-case radius profiles after the M420 tradeoff. Since medium failed only old-key `10023` and the M398 recovery targets are `9958` and `10004`, the next profile should not globally tighten. `mixed_a` uses medium radii except conservative `10023`; `mixed_b` additionally loosens `10004`; `mixed_c` additionally loosens M267 rows `6`/`15` if proof remains safe. The primary future probe threshold remains recovery retained vs M406 `>=0.20`; partial evidence below that is not promotable.
 - decision: `admit_m422_mixed_radius_anchor_export_implementation`
 - next: `m422-mixed-radius-anchor-export-implementation`
+
+## 20260523T171821Z - m422-mixed-radius-anchor-export-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m422_mixed_radius_anchor`
+- artifact: `docs/m422-mixed-radius-anchor-export-implementation.md`
+- result: M422 extends `active_set_radius_anchor` with mixed profile sets and exports `mixed_a`, `mixed_b`, and `mixed_c` anchors. Each profile has `274` rows with the M419 active-set v2 sources and explicit radii. No-update exact repair smokes for all three profiles pass exact M297/M270/old-key no-regression with replay trajectory loss `0.0`. Focused tests pass (`4 passed`).
+- decision: `admit_m423_mixed_radius_projection_probe`
+- next: `m423-mixed-radius-projection-probe`

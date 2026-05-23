@@ -54,6 +54,42 @@ RADIUS_PROFILES = {
     },
 }
 
+MIXED_RADIUS_PROFILES = {
+    "mixed_a": {
+        "m267_rows_6_15": RADIUS_PROFILES["medium"]["m267_rows_6_15"],
+        "old_key_10004": RADIUS_PROFILES["medium"]["old_key_10004"],
+        "old_key_9998": RADIUS_PROFILES["medium"]["old_key_9998"],
+        "old_key_10023": RADIUS_PROFILES["conservative"]["old_key_10023"],
+        "old_key_spillover_guards": RADIUS_PROFILES["medium"]["old_key_spillover_guards"],
+    },
+    "mixed_b": {
+        "m267_rows_6_15": RADIUS_PROFILES["medium"]["m267_rows_6_15"],
+        "old_key_10004": RADIUS_PROFILES["loose"]["old_key_10004"],
+        "old_key_9998": RADIUS_PROFILES["medium"]["old_key_9998"],
+        "old_key_10023": RADIUS_PROFILES["conservative"]["old_key_10023"],
+        "old_key_spillover_guards": RADIUS_PROFILES["medium"]["old_key_spillover_guards"],
+    },
+    "mixed_c": {
+        "m267_rows_6_15": RADIUS_PROFILES["loose"]["m267_rows_6_15"],
+        "old_key_10004": RADIUS_PROFILES["loose"]["old_key_10004"],
+        "old_key_9998": RADIUS_PROFILES["medium"]["old_key_9998"],
+        "old_key_10023": RADIUS_PROFILES["conservative"]["old_key_10023"],
+        "old_key_spillover_guards": RADIUS_PROFILES["medium"]["old_key_spillover_guards"],
+    },
+}
+
+PROFILE_SETS = {
+    "base": RADIUS_PROFILES,
+    "mixed": MIXED_RADIUS_PROFILES,
+    "all": {**RADIUS_PROFILES, **MIXED_RADIUS_PROFILES},
+}
+
+PROFILE_ORDERS = {
+    "base": ["medium", "conservative", "loose"],
+    "mixed": ["mixed_a", "mixed_b", "mixed_c"],
+    "all": ["medium", "conservative", "loose", "mixed_a", "mixed_b", "mixed_c"],
+}
+
 _BOOL_TRUE = {"1", "true", "yes", "y"}
 
 
@@ -238,6 +274,7 @@ def export_active_set_radius_anchors(
     max_continuation_steps: int,
     wrong_history_weight: float,
     normal_weight: float,
+    profile_set: str,
     device: str,
     run_dir: Path,
 ) -> dict[str, Any]:
@@ -263,10 +300,13 @@ def export_active_set_radius_anchors(
 
     base_arrays = _load_npz_arrays(base_active_anchor_npz)
     spillover_arrays = _load_npz_arrays(Path(spillover_summary["anchor_npz"]))
+    if profile_set not in PROFILE_SETS:
+        raise ValueError(f"profile_set must be one of {sorted(PROFILE_SETS)}, got {profile_set!r}")
+    radius_profiles = PROFILE_SETS[profile_set]
     profile_summaries: dict[str, dict[str, Any]] = {}
     source_rows: list[dict[str, Any]] = []
     resolved_device = resolve_device(device)
-    for profile_name, profile in RADIUS_PROFILES.items():
+    for profile_name, profile in radius_profiles.items():
         profile_npz = run_dir / f"{profile_name}_radius_anchor.npz"
         profile_summary = _save_profile_anchor(
             output_npz=profile_npz,
@@ -307,8 +347,9 @@ def export_active_set_radius_anchors(
         "spillover_failed_rows_csv": spillover_rows_csv,
         "spillover_anchor_summary": spillover_summary,
         "source_summary_csv": source_summary_csv,
+        "profile_set": profile_set,
         "profiles": profile_summaries,
-        "profile_order_for_probe": ["medium", "conservative", "loose"],
+        "profile_order_for_probe": PROFILE_ORDERS[profile_set],
         "forbidden_shortcuts_used": False,
         "ppo_or_actor_update_run": False,
         "checkpoint_promoted": False,
@@ -330,6 +371,7 @@ def main() -> None:
     parser.add_argument("--max-continuation-steps", type=int, default=60)
     parser.add_argument("--wrong-history-weight", type=float, default=75.0)
     parser.add_argument("--normal-weight", type=float, default=75.0)
+    parser.add_argument("--profile-set", choices=sorted(PROFILE_SETS), default="base")
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="cpu")
     parser.add_argument("--run-dir", type=Path, required=True)
     args = parser.parse_args()
@@ -344,6 +386,7 @@ def main() -> None:
         max_continuation_steps=args.max_continuation_steps,
         wrong_history_weight=args.wrong_history_weight,
         normal_weight=args.normal_weight,
+        profile_set=args.profile_set,
         device=args.device,
         run_dir=args.run_dir,
     )

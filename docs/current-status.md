@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m422-mixed-radius-anchor-export-implementation
+m423-mixed-radius-projection-probe
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -308,7 +308,10 @@ than lower thresholds or run PPO. M421 completes that design: `mixed_a` starts
 from medium and tightens only old-key `10023`; `mixed_b` additionally loosens
 old-key `10004`, one of the M398 recovery targets; `mixed_c` additionally
 loosens M267 rows `6`/`15` if proof remains safe. M422 should export these
-mixed anchors and run no-update smokes only.
+mixed anchors and run no-update smokes only. M422 completes the exporter update
+and emits `mixed_a`, `mixed_b`, and `mixed_c` anchors, each with `274` rows.
+All three no-update exact repair smokes pass with replay loss `0.0` and zero
+exact deltas. M423 should now run the no-PPO mixed-radius projection probe.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -387,7 +390,7 @@ mixed anchors and run no-update smokes only.
 | current public-gate base | `runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt` | M379 promotes alpha `0.05` after cumulative old-key source-diverse six public replay surfaces and behavior seeds pass |
 | recovery residual infrastructure | `src/autodrift/exact_post_ppo_repair.py` | M383 implements optional old-key local-action recovery loss and verifies finite no-update smoke terms |
 | recovery target corpus | `runs/m384_old_key_local_recovery_targets/old_key_recovery_corpus.npz` | M384 exports 4 replay-selected recovery targets from 1008 local-action rollouts |
-| current blocker | `experiments/manifests/m422-mixed-radius-anchor-export-implementation.json` | M422 must export `mixed_a`, `mixed_b`, and `mixed_c` anchors and run no-update exact repair smokes only |
+| current blocker | `experiments/manifests/m423-mixed-radius-projection-probe.json` | M423 must run `mixed_a`, then branch to `mixed_b` or `mixed_c` according to M421; no PPO or promotion |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -663,9 +666,9 @@ Do not run more PPO while the current blocker is the active-set replay/recovery
 balance. Do not promote M417 candidates: `1e12` fails proof, and `1e13` is
 retention-heavy. M419 export-only radius-anchor infrastructure is complete.
 M420 gives proof-safe partial evidence but not enough utility. M421 mixed-radius
-design is complete. The next step is M422 export-only mixed-radius anchor
-infrastructure. Do not lower proof thresholds, remove old-key diagnostics, run
-PPO, or change actor inputs.
+design and M422 export-only mixed-radius infrastructure are complete. The next
+step is the M423 no-PPO mixed-radius projection probe. Do not lower proof
+thresholds, remove old-key diagnostics, run PPO, or change actor inputs.
 
 ## Sensor Profile Policy
 

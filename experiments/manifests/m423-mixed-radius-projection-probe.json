@@ -1,0 +1,88 @@
+{
+  "id": "m423-mixed-radius-projection-probe",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m403_lrec1e10_interpolation/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m422_mixed_radius_anchor/mixed_a_radius_anchor.npz",
+      "runs/m422_mixed_radius_anchor/mixed_b_radius_anchor.npz",
+      "runs/m422_mixed_radius_anchor/mixed_c_radius_anchor.npz",
+      "runs/m422_mixed_radius_anchor/radius_anchor_sources.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m422-mixed-radius-anchor-export-implementation.json"
+    ],
+    "parent_objective": [
+      "no-PPO exact projection with mixed per-case active-set radius anchors"
+    ],
+    "derived_from": [
+      "m422-mixed-radius-anchor-export-implementation"
+    ],
+    "blocked_by": [
+      "m420-active-set-radius-projection-probe"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m423-mixed-radius-projection-probe.md",
+  "public_gates": [
+    "exact M297 no-regression",
+    "exact M270 no-regression",
+    "old-key surrogate no-regression",
+    "M267/M264 first replay",
+    "old-key compact replay",
+    "M183/M170 first replay if first gates pass",
+    "recovery improvement retained vs M406 >= 0.20"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "hypothesis": "Mixed-radius profiles can preserve the M420 conservative proof pass while recovering more utility by tightening only old-key 10023 and loosening non-boundary rows.",
+  "success_criteria": [
+    "candidate passes exact M297/M270/old-key no-regression",
+    "candidate passes M267/M264 first replay with 17/17 success drops",
+    "candidate passes old-key compact replay with 0 accepted regressions",
+    "candidate passes M183/M170 first replay with 17/17 success drops",
+    "candidate retains at least 20% of M406 recovery improvement"
+  ],
+  "failure_criteria": [
+    "exact gates regress",
+    "M267/M264 or old-key proof gates fail",
+    "candidate passes proof but recovery-retention ratio is below 0.20",
+    "actor input or output contract changes"
+  ],
+  "commands": [
+    {
+      "name": "mixed_radius_projection_probe",
+      "command": "Run no-PPO exact projection from M403 alpha 0.1 using M422 mixed anchors at lambda_replay_trajectory_anchor=1e13; probe order mixed_a, mixed_b, mixed_c with stop-on-proof-failure."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m423-mixed-radius-projection-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m421-mixed-radius-boundary-design.md",
+    "docs/m422-mixed-radius-anchor-export-implementation.md"
+  ],
+  "decision_rule": "M423 may admit a full public gate only if exact gates, first proof gates, and recovery-retention utility all pass; proof-pass utility below 0.20 is partial non-promotable evidence.",
+  "next_blocker": "pending M423 mixed radius projection probe"
+}

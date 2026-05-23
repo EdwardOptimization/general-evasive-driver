@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 430,
+        "completed": 431,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m421-mixed-radius-boundary-design",
+        "task_id": "m422-mixed-radius-anchor-export-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m421-mixed-radius-boundary-design.md"
+        "run_dir": "runs/m422_mixed_radius_anchor",
+        "command_log": "docs/m422-mixed-radius-anchor-export-implementation.md"
     },
     "next_task": {
-        "id": "m422-mixed-radius-anchor-export-implementation",
+        "id": "m423-mixed-radius-projection-probe",
         "status": "pending",
-        "priority": 4170,
-        "kind": "infrastructure",
-        "hypothesis": "Export M421 mixed-radius anchors and no-update exact smokes",
-        "command": "see experiments/manifests/m422-mixed-radius-anchor-export-implementation.json",
+        "priority": 4180,
+        "kind": "gate",
+        "hypothesis": "Probe M422 mixed-radius anchors in no-PPO exact projection",
+        "command": "see experiments/manifests/m423-mixed-radius-projection-probe.json",
         "success_artifact": "",
-        "notes": "Pending: export mixed_a mixed_b mixed_c anchors and run no-update exact repair smokes only; no projection or PPO"
+        "notes": "Pending: run mixed_a then mixed_b or mixed_c according to M421 decision rule; no PPO or promotion"
     },
-    "updated_at_utc": "20260523T171425Z"
+    "updated_at_utc": "20260523T171821Z"
 }
