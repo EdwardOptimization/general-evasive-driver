@@ -89,6 +89,34 @@ DEFAULT_VARIANTS: tuple[PersistentVariantSpec, ...] = (
         clamp_hidden=True,
     ),
     PersistentVariantSpec(
+        name="wrong_late_2_once",
+        family="wrong_late_once",
+        injection_start_step=2,
+        hold_steps=1,
+        clamp_hidden=False,
+    ),
+    PersistentVariantSpec(
+        name="wrong_late_4_once",
+        family="wrong_late_once",
+        injection_start_step=4,
+        hold_steps=1,
+        clamp_hidden=False,
+    ),
+    PersistentVariantSpec(
+        name="wrong_late_8_once",
+        family="wrong_late_once",
+        injection_start_step=8,
+        hold_steps=1,
+        clamp_hidden=False,
+    ),
+    PersistentVariantSpec(
+        name="wrong_late_12_once",
+        family="wrong_late_once",
+        injection_start_step=12,
+        hold_steps=1,
+        clamp_hidden=False,
+    ),
+    PersistentVariantSpec(
         name="wrong_reseed_4",
         family="wrong_reseed",
         injection_start_step=0,
@@ -368,7 +396,9 @@ def summarize_proof_candidates(rows: list[dict[str, Any]]) -> dict[str, Any]:
             "best_variant_target_count": 0,
         }
     frame = pd.DataFrame(rows)
-    frame = frame[frame["variant_family"].isin(["wrong_hold", "wrong_late", "wrong_reseed", "wrong_once"])].copy()
+    frame = frame[
+        frame["variant_family"].isin(["wrong_hold", "wrong_late", "wrong_late_once", "wrong_reseed", "wrong_once"])
+    ].copy()
     best: dict[str, Any] | None = None
     for variant, group in frame.groupby("variant", observed=True):
         proof = group[group["proof_candidate"].astype(bool)]

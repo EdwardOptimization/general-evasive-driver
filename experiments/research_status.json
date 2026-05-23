@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 488,
+        "completed": 489,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m479-natural-late-wrong-history-proof-path-design",
+        "task_id": "m480-late-once-wrong-history-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m479-natural-late-wrong-history-proof-path-design.md"
+        "run_dir": "runs/m480_late_once_wrong_history_intervention_gate",
+        "command_log": "docs/m480-late-once-wrong-history-implementation.md"
     },
     "next_task": {
-        "id": "m480-late-once-wrong-history-implementation",
+        "id": "m481-critical-window-history-necessity-design",
         "status": "pending",
-        "priority": 4750,
+        "priority": 4760,
         "kind": "infrastructure",
-        "hypothesis": "If timing is the key blocker, a late one-shot wrong-history injection will create proof-style degradation without clamping hidden state across multiple steps",
-        "command": "see experiments/manifests/m480-late-once-wrong-history-implementation.json",
+        "hypothesis": "Because late one-shot wrong history creates only margin-only source-narrow degradation while clamped hold variants create event rows, the next useful test is a critical-window task or gate that reduces recovery time after a natural wrong-history perturbation.",
+        "command": "see experiments/manifests/m481-critical-window-history-necessity-design.json",
         "success_artifact": "",
-        "notes": "Pending: implement late-one-shot variants and rerun diagnostic gate; no training"
+        "notes": "Pending: design shorter or more critical emergency-window diagnostic; no training"
     },
-    "updated_at_utc": "20260523T221320Z"
+    "updated_at_utc": "20260523T222021Z"
 }

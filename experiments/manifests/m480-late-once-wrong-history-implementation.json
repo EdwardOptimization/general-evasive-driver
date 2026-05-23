@@ -2,7 +2,7 @@
   "id": "m480-late-once-wrong-history-implementation",
   "type": "infrastructure",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -88,5 +88,43 @@
     "runs/m478_persistent_wrong_history_intervention_gate/summary.json"
   ],
   "decision_rule": "M480 should decide whether late one-shot timing alone can produce source-diverse proof-style degradation, while keeping clamped rows separate.",
-  "next_blocker": "pending M480 late-once wrong-history implementation"
+  "next_blocker": "m481-critical-window-history-necessity-design",
+  "results": {
+    "implementation_files": [
+      "src/autodrift/persistent_wrong_history_intervention_gate.py",
+      "tests/test_persistent_wrong_history_intervention_gate.py"
+    ],
+    "run_dir": "runs/m480_late_once_wrong_history_intervention_gate",
+    "summary_json": "runs/m480_late_once_wrong_history_intervention_gate/summary.json",
+    "late_once_summary_json": "runs/m480_late_once_wrong_history_intervention_gate/late_once_summary.json",
+    "input_pair_count": 197,
+    "outcome_row_count": 2955,
+    "variant_summary_rows": 45,
+    "best_variant": "wrong_hold_16",
+    "best_variant_proof_candidate_count": 25,
+    "best_variant_success_or_collision_or_completion_rows": 10,
+    "best_variant_probe_seed_count": 6,
+    "best_variant_obstacle_label_count": 2,
+    "best_variant_target_count": 2,
+    "late_once_row_count": 788,
+    "late_once_proof_candidate_count": 16,
+    "late_once_event_row_count": 0,
+    "late_once_probe_seed_count": 2,
+    "late_once_obstacle_label_count": 2,
+    "late_once_target_count": 2,
+    "late_once_single_seed_share": 0.625,
+    "late_once_single_label_share": 0.625,
+    "late_once_by_variant": {
+      "wrong_late_12_once": 13,
+      "wrong_late_2_once": 1,
+      "wrong_late_4_once": 1,
+      "wrong_late_8_once": 1
+    },
+    "wrong_once_proof_candidate_count": 0,
+    "late_once_pass_source_diverse_event_gate": false,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "late_once_margin_only_source_narrow_admit_m481_critical_window_design",
+    "next_manifest": "experiments/manifests/m481-critical-window-history-necessity-design.json"
+  }
 }

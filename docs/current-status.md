@@ -931,11 +931,14 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not run PPO or promote a checkpoint while the current blocker is M480
-late-once wrong-history implementation. M478 is positive diagnostic evidence
-that wrong belief can be outcome-critical if clamped, but M479 requires a less
-artificial late one-shot test. Keep clamped rows separate from late-once rows and
-do not claim intervention evidence as deployable proof.
+Do not run PPO or promote a checkpoint while the current blocker is M481
+critical-window history-necessity design. M480 implemented the less artificial
+late one-shot test and found a timing signal, but it is margin-only and
+source-narrow: `16` late-once proof-style rows, `0` event rows, and only `2`
+probe seeds. M478 remains positive diagnostic evidence that wrong belief can be
+outcome-critical if clamped, but clamped rows must stay separate from natural
+wrong-history proof. The next step is to design a shorter or more critical
+emergency-window diagnostic rather than train or promote.
 
 ## Sensor Profile Policy
 

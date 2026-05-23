@@ -10434,3 +10434,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M479 separates M478's clamped-hidden diagnostic evidence from deployable self-ID proof. It selects late one-shot wrong-history variants `wrong_late_2_once`, `wrong_late_4_once`, `wrong_late_8_once`, and `wrong_late_12_once`, implemented as `hold_steps=1` and `clamp_hidden=false`, to test whether timing alone can make one-shot wrong belief outcome-critical.
 - decision: `admit_m480_late_once_wrong_history_implementation`
 - next: `m480-late-once-wrong-history-implementation`
+
+## 20260523T222021Z - m480-late-once-wrong-history-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m480_late_once_wrong_history_intervention_gate`
+- artifact: `docs/m480-late-once-wrong-history-implementation.md`
+- result: M480 adds `wrong_late_2_once`, `wrong_late_4_once`, `wrong_late_8_once`, and `wrong_late_12_once` variants to the persistent wrong-history diagnostic gate and runs them on the M474 adversarial pair surface. The clamped diagnostic remains strongest: `wrong_hold_16` has `25` proof-style rows with `10` success/collision/completion rows across `6` probe seeds. Late one-shot variants produce `16` proof-style rows, mostly `wrong_late_12_once`, but they are all margin-only, have `0` event rows, and cover only `2` probe seeds with single-seed share `0.625`.
+- decision: `late_once_margin_only_source_narrow_admit_m481_critical_window_design`
+- next: `m481-critical-window-history-necessity-design`

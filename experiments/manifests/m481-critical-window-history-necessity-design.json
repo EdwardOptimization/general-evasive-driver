@@ -1,0 +1,88 @@
+{
+  "id": "m481-critical-window-history-necessity-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m480_late_once_wrong_history_intervention_gate/summary.json",
+      "runs/m480_late_once_wrong_history_intervention_gate/late_once_summary.json",
+      "runs/m474_combined_fresh_anchor_adversarial_search/adversarial_pairs.csv"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m480-late-once-wrong-history-implementation.json"
+    ],
+    "parent_objective": [
+      "critical-window history-necessity task or gate design"
+    ],
+    "derived_from": [
+      "m480-late-once-wrong-history-implementation"
+    ],
+    "blocked_by": [
+      "m480-late-once-wrong-history-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m481-critical-window-history-necessity-design.md",
+  "public_gates": [
+    "treat M480 late-one-shot rows as margin-only source-narrow timing evidence",
+    "do not count clamped wrong_hold rows as deployable proof",
+    "design a shorter or more critical emergency-window task/gate",
+    "define how recovery time after wrong-history injection will be reduced",
+    "define pass/fail criteria before running any new diagnostic or training",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not relax source-diversity gates",
+    "do not claim margin-only source-narrow late-once rows as deployable proof",
+    "do not count clamped hidden-state rows as natural wrong-history evidence"
+  ],
+  "hypothesis": "Because late one-shot wrong history creates only margin-only source-narrow degradation while clamped hold variants create event rows, the next useful test is a critical-window task or gate that reduces recovery time after a natural wrong-history perturbation.",
+  "success_criteria": [
+    "document why M480 did not pass the natural-late proof gate",
+    "define a critical-window task or gate family that shortens the recovery horizon after wrong-history injection",
+    "define diagnostic variants and thresholds before implementation",
+    "preserve the P0 human-view actor-input contract",
+    "pre-register the next implementation or run manifest",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "design treats clamped hidden-state evidence as deployable proof",
+    "design proposes training before a critical-window diagnostic is specified",
+    "design changes actor inputs",
+    "design loosens source-diversity or event-proof thresholds to fit M480"
+  ],
+  "commands": [
+    {
+      "name": "critical_window_design",
+      "command": "Use M480 artifacts to design a shorter emergency-window history-necessity diagnostic; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m481-critical-window-history-necessity-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m480-late-once-wrong-history-implementation.md",
+    "runs/m480_late_once_wrong_history_intervention_gate/late_once_summary.json"
+  ],
+  "decision_rule": "M481 should decide the next diagnostic design only after preserving the distinction between clamped diagnostic evidence and natural late-one-shot proof.",
+  "next_blocker": "pending M481 critical-window history-necessity design"
+}

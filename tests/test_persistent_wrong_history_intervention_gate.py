@@ -53,9 +53,35 @@ def test_default_variants_include_baseline_hold_late_and_reseed():
     assert specs["wrong_once"].hold_steps == 1
     assert specs["wrong_hold_8"].clamp_hidden is True
     assert specs["wrong_late_8_hold_4"].injection_start_step == 8
+    assert specs["wrong_late_4_once"].hold_steps == 1
+    assert specs["wrong_late_4_once"].clamp_hidden is False
+    assert specs["wrong_late_4_once"].family == "wrong_late_once"
     assert specs["wrong_reseed_4"].clamp_hidden is False
     assert specs["reset_hidden"].reset_hidden is True
     assert specs["zero_current_response"].zero_current_response is True
+
+
+def test_late_once_variant_injects_for_one_step_only():
+    spec = PersistentVariantSpec(
+        name="wrong_late_8_once",
+        family="wrong_late_once",
+        injection_start_step=8,
+        hold_steps=1,
+        clamp_hidden=False,
+    )
+    assert [variant_injects_at_step(spec, step) for step in range(11)] == [
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+        True,
+        False,
+        False,
+    ]
 
 
 def test_summarize_persistent_outcomes_counts_proof_rows():
