@@ -1,0 +1,80 @@
+{
+  "id": "m398-old-key-normal-margin-recovery-target-export",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m394_s02_micro_interpolation/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m397-m395-alpha02-old-key-boundary-audit.md",
+      "runs/m396_s02a020_old_key_replay_gate/old_key_replay_comparison_rows.csv",
+      "runs/m397_s02a040_old_key_replay_gate/old_key_replay_comparison_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m397-m395-alpha02-old-key-boundary-audit.json"
+    ],
+    "parent_objective": [
+      "export local normal-branch recovery targets for current old-key terminal-margin cliffs"
+    ],
+    "derived_from": [
+      "m397-m395-alpha02-old-key-boundary-audit"
+    ],
+    "blocked_by": [
+      "m397-m395-alpha02-old-key-boundary-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m398-old-key-normal-margin-recovery-target-export.md",
+  "public_gates": [
+    "no PPO run",
+    "export local normal-branch recovery targets for old-key case 9958 and any current-family sibling rows when available",
+    "verify no-update exact repair can load the refreshed recovery corpus",
+    "preserve actor input/output contract"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower old-key thresholds",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "hypothesis": "The post-M395 old-key boundary can be better handled by exporting local normal-branch recovery targets for the current normal-margin cliff rows before another no-PPO repair probe.",
+  "success_criteria": [
+    "build a source row file for active old-key normal-branch cliff rows",
+    "search local first-action overrides that improve normal margin without leaving the action trust region",
+    "export a finite old-key recovery corpus readable by exact_post_ppo_repair",
+    "record target margins, action distances, and skipped rows"
+  ],
+  "failure_criteria": [
+    "no local recovery target can be found for case 9958",
+    "exported corpus violates shape finite value or action bounds",
+    "actor contract changes",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "old_key_normal_margin_target_export",
+      "command": "Export local normal-branch recovery targets for current old-key boundary rows; no PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m398-old-key-normal-margin-recovery-target-export.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m394_s02_micro_interpolation/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m397-m395-alpha02-old-key-boundary-audit.md"
+  ],
+  "decision_rule": "M398 should admit another no-PPO repair probe only if it exports finite local recovery targets and verifies no-update exact-repair loading.",
+  "next_blocker": "pending M398 old-key normal-margin target export"
+}

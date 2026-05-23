@@ -2,7 +2,7 @@
   "id": "m397-m395-alpha02-old-key-boundary-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -75,5 +75,34 @@
     "docs/m396-m395-micro-promotion-utility-audit.md"
   ],
   "decision_rule": "M397 should admit the next task only after classifying whether the alpha 0.2 old-key failure is a local recovery-target problem, a broader surface-refresh problem, or a reason to stop this repair direction.",
-  "next_blocker": "pending M397 alpha02 old-key boundary audit"
+  "next_blocker": "m398-old-key-normal-margin-recovery-target-export",
+  "results": {
+    "artifact": "docs/m397-m395-alpha02-old-key-boundary-audit.md",
+    "current_public_base": "runs/m394_s02_micro_interpolation/checkpoints/alpha_0_1.pt",
+    "first_known_failing_candidate": "runs/m394_s02_micro_interpolation/checkpoints/alpha_0_2.pt",
+    "active_surface": "cumulative_old_key_compact",
+    "active_case_id": "9958|perturbed|39|36|9.500000|-1.200000|0.900000",
+    "alpha_0_1_accepted_rows": 40,
+    "alpha_0_1_active_normal_success": true,
+    "alpha_0_1_active_normal_margin": 8.6e-05,
+    "alpha_0_1_active_wrong_history_margin": -0.002055,
+    "alpha_0_2_accepted_rows": 39,
+    "alpha_0_2_active_normal_success": false,
+    "alpha_0_2_active_normal_margin": -8.9e-05,
+    "alpha_0_2_active_wrong_history_margin": -0.002232,
+    "alpha_0_2_active_gap_delta": 5e-06,
+    "alpha_0_2_gate_run_dir": "runs/m396_s02a020_old_key_replay_gate",
+    "alpha_0_4_gate_run_dir": "runs/m397_s02a040_old_key_replay_gate",
+    "alpha_0_4_accepted_regressions": 2,
+    "alpha_0_4_normal_success_regressions": 2,
+    "classification": "old_key_normal_branch_terminal_margin_cliff",
+    "wrong_history_sensitivity_loss": false,
+    "gap_distribution_erosion": false,
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m398-old-key-normal-margin-recovery-target-export"
+  },
+  "decision": "admit_m398_old_key_normal_margin_recovery_target_export"
 }

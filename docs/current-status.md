@@ -199,7 +199,11 @@ step. M396 classifies it as proof-safe bounded promotion, not meaningful driver
 improvement. The first known post-M395 boundary is `s02 alpha 0.2` on cumulative
 old-key compact case `9958|perturbed|39|36`: normal margin crosses from
 `+0.000086` at alpha `0.1` to `-0.000089` at alpha `0.2`, while wrong-history
-margin remains negative. M397 should audit that boundary before any PPO.
+margin remains negative. M397 audits that boundary and classifies it as an
+old-key normal-branch terminal-margin cliff, not wrong-history sensitivity loss.
+At alpha `0.4`, the direction broadens to two accepted regressions, so this is
+not a stale singleton to ignore. M398 should export current old-key
+normal-margin local recovery targets before any PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

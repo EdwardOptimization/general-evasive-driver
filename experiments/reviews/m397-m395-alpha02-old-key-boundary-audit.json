@@ -1,0 +1,75 @@
+{
+  "decision_reason": "M397 classifies alpha 0.2 old-key failure as normal-branch terminal-margin cliff not wrong-history sensitivity loss; alpha 0.4 broadens to two accepted regressions",
+  "failure_criteria": [
+    "audit cannot reproduce or locate the active old-key row",
+    "audit changes actor inputs or thresholds",
+    "research validation fails"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower old-key thresholds",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260523T150904Z",
+  "hypothesis": "The first post-M395 boundary is a cumulative old-key normal-branch terminal-margin cliff on case 9958, not a broad loss of wrong-history sensitivity.",
+  "lineage": {
+    "blocked_by": [
+      "m396-m395-micro-promotion-utility-audit"
+    ],
+    "derived_from": [
+      "m396-m395-micro-promotion-utility-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m394_s02_micro_interpolation/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m396-m395-micro-promotion-utility-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m396-m395-micro-promotion-utility-audit.md",
+      "runs/m396_s02a020_old_key_replay_gate/old_key_replay_comparison_rows.csv",
+      "runs/m396_s02a020_old_key_replay_gate/summary.json"
+    ],
+    "parent_objective": [
+      "audit alpha 0.2 cumulative old-key normal-branch boundary after M395"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m397-m395-alpha02-old-key-boundary-audit",
+  "next_blocker": "m398-old-key-normal-margin-recovery-target-export",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m398_old_key_normal_margin_recovery_target_export",
+  "public_gates": [
+    "no PPO run",
+    "audit active old-key case 9958|perturbed|39|36",
+    "classify normal-branch cliff versus wrong-history sensitivity loss",
+    "decide whether next task is local recovery target export, objective redesign, or broader surface refresh"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m394_s02_micro_interpolation/checkpoints/alpha_0_1.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m398_old_key_normal_margin_recovery_target_export",
+    "milestone": "m397-m395-alpha02-old-key-boundary-audit",
+    "reason": "M397 classifies alpha 0.2 old-key failure as normal-branch terminal-margin cliff not wrong-history sensitivity loss; alpha 0.4 broadens to two accepted regressions",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "quantify alpha 0.1 versus alpha 0.2 active-row margins and actions",
+    "determine whether the failure is singleton stale row or representative old-key surface behavior",
+    "decide the next no-PPO infrastructure or repair milestone",
+    "record all evidence in docs and manifests"
+  ],
+  "type": "gate"
+}

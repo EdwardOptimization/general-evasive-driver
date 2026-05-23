@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 405,
+        "completed": 406,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m396-m395-micro-promotion-utility-audit",
+        "task_id": "m397-m395-alpha02-old-key-boundary-audit",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m396-m395-micro-promotion-utility-audit.md"
+        "command_log": "docs/m397-m395-alpha02-old-key-boundary-audit.md"
     },
     "next_task": {
-        "id": "m397-m395-alpha02-old-key-boundary-audit",
+        "id": "m398-old-key-normal-margin-recovery-target-export",
         "status": "pending",
-        "priority": 3920,
-        "kind": "gate",
-        "hypothesis": "Audit alpha 0.2 cumulative old-key normal-branch boundary after M395",
-        "command": "see experiments/manifests/m397-m395-alpha02-old-key-boundary-audit.json",
+        "priority": 3930,
+        "kind": "infrastructure",
+        "hypothesis": "Export local normal-branch recovery targets for current old-key terminal-margin cliffs",
+        "command": "see experiments/manifests/m398-old-key-normal-margin-recovery-target-export.json",
         "success_artifact": "",
-        "notes": "Pending: classify old-key case 9958 boundary and choose next no-PPO repair/infrastructure task"
+        "notes": "Pending: export old-key normal-margin local recovery targets and verify no-update exact-repair loading; no PPO"
     },
-    "updated_at_utc": "20260523T150031Z"
+    "updated_at_utc": "20260523T150359Z"
 }

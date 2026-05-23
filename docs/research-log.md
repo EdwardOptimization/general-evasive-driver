@@ -9604,3 +9604,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M396 classifies M395 as `proof_safe_bounded_promotion_not_meaningful_driver_improvement`. Exact M297/M270 improve by `-0.000048637` and `-0.000028133`, but behavior success and termination are unchanged and mean clearance moves by only `-0.000102931`. The first known failing candidate after M395 is `s02 alpha 0.2`, which fails the cumulative old-key compact gate by one case, `9958|perturbed|39|36`, where normal margin crosses from `+0.000086` at alpha `0.1` to `-0.000089` at alpha `0.2`.
 - decision: `admit_m397_m395_alpha02_old_key_boundary_audit`
 - next: `m397-m395-alpha02-old-key-boundary-audit`
+
+## 20260523T150359Z - m397-m395-alpha02-old-key-boundary-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m397_s02a040_old_key_replay_gate`
+- artifact: `docs/m397-m395-alpha02-old-key-boundary-audit.md`
+- result: M397 classifies the alpha `0.2` old-key failure as `old_key_normal_branch_terminal_margin_cliff`. The active row `9958|perturbed|39|36` keeps wrong-history collision-side margin and slightly improves gap, but normal margin crosses from `+0.000086` at alpha `0.1` to `-0.000089` at alpha `0.2`. Alpha `0.4` broadens the old-key stress to two accepted regressions, so the row is not a stale singleton to ignore.
+- decision: `admit_m398_old_key_normal_margin_recovery_target_export`
+- next: `m398-old-key-normal-margin-recovery-target-export`
