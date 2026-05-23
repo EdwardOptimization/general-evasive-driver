@@ -5,7 +5,7 @@ from __future__ import annotations
 import argparse
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
-from typing import Any
+from typing import Any, Sequence
 
 import numpy as np
 import torch
@@ -59,6 +59,8 @@ class ExactRepairConfig:
     lambda_param_base: float = 1.0
     lambda_param_raw: float = 0.0
     grad_clip_norm: float = 1.0
+    project_recovery_gradient: bool = False
+    recovery_projection_epsilon: float = 1e-12
 
 
 @dataclass(frozen=True)
@@ -121,7 +123,7 @@ def exact_snippet_action_anchor_loss(
     return weighted_mean(errors, anchor.weight.detach())
 
 
-def exact_trajectory_action_anchor_loss(
+def trajectory_action_anchor_errors(
     model: torch.nn.Module,
     anchor: TrajectoryActionAnchor,
 ) -> torch.Tensor:
@@ -133,7 +135,129 @@ def exact_trajectory_action_anchor_loss(
         error = torch.square(torch.clamp(action_distance - anchor.radius.detach(), min=0.0))
     else:
         error = action_mse
+    return error
+
+
+def exact_trajectory_action_anchor_loss(
+    model: torch.nn.Module,
+    anchor: TrajectoryActionAnchor,
+) -> torch.Tensor:
+    error = trajectory_action_anchor_errors(model, anchor)
     return weighted_mean(error, anchor.weight.detach())
+
+
+def exact_trajectory_action_anchor_loss_by_source(
+    model: torch.nn.Module,
+    anchor: TrajectoryActionAnchor,
+) -> dict[int, torch.Tensor]:
+    """Evaluate trajectory-anchor loss separately for each source index."""
+
+    error = trajectory_action_anchor_errors(model, anchor)
+    losses: dict[int, torch.Tensor] = {}
+    for source in torch.unique(anchor.source_index.detach()).detach().cpu().tolist():
+        source_index = int(source)
+        mask = anchor.source_index == source_index
+        losses[source_index] = weighted_mean(error[mask], anchor.weight[mask].detach())
+    return losses
+
+
+def project_flat_gradient_against_hard_constraints(
+    utility_gradient: torch.Tensor,
+    hard_gradients: Sequence[torch.Tensor],
+    *,
+    eps: float = 1e-12,
+) -> tuple[torch.Tensor, dict[str, Any]]:
+    """Remove utility-gradient components that would increase hard constraints.
+
+    For a gradient-descent update ``-g_u``, hard loss ``C_i`` increases to first
+    order when ``dot(grad(C_i), g_u) < 0``. In that case we project the utility
+    gradient away from the hard-gradient direction.
+    """
+
+    utility = utility_gradient.detach().reshape(-1)
+    projected = utility.clone()
+    input_norm = torch.linalg.vector_norm(projected)
+    conflict_count = 0
+    active_count = 0
+    dot_products: list[float] = []
+    conflicting: list[torch.Tensor] = []
+    for hard_gradient in hard_gradients:
+        hard = hard_gradient.detach().reshape(-1).to(device=projected.device, dtype=projected.dtype)
+        if hard.numel() != projected.numel():
+            raise ValueError("hard gradient must have the same flattened size as utility gradient")
+        hard_norm_sq = torch.dot(hard, hard)
+        if float(hard_norm_sq.detach().cpu().item()) <= float(eps):
+            dot_products.append(0.0)
+            continue
+        active_count += 1
+        dot = torch.dot(projected, hard)
+        dot_value = float(dot.detach().cpu().item())
+        dot_products.append(dot_value)
+        if dot_value < 0.0:
+            conflict_count += 1
+            conflicting.append(hard)
+    if conflicting:
+        basis = torch.stack(conflicting, dim=1)
+        gram = basis.T @ basis
+        eye = torch.eye(gram.shape[0], dtype=gram.dtype, device=gram.device)
+        coeff = torch.linalg.solve(gram + float(eps) * eye, basis.T @ utility)
+        projected = utility - basis @ coeff
+    output_norm = torch.linalg.vector_norm(projected)
+    retained_ratio = float(
+        (output_norm / torch.clamp(input_norm, min=float(eps))).detach().cpu().item()
+    )
+    diagnostics = {
+        "active_hard_gradients": int(active_count),
+        "conflict_count": int(conflict_count),
+        "input_norm": float(input_norm.detach().cpu().item()),
+        "output_norm": float(output_norm.detach().cpu().item()),
+        "retained_norm_ratio": retained_ratio,
+        "dot_products": dot_products,
+    }
+    return projected, diagnostics
+
+
+def _flatten_optional_gradients(
+    gradients: Sequence[torch.Tensor | None],
+    parameters: Sequence[torch.nn.Parameter],
+) -> torch.Tensor:
+    parts: list[torch.Tensor] = []
+    for gradient, parameter in zip(gradients, parameters):
+        if gradient is None:
+            parts.append(torch.zeros_like(parameter, memory_format=torch.preserve_format).reshape(-1))
+        else:
+            parts.append(gradient.reshape(-1))
+    if not parts:
+        return torch.zeros(0, dtype=torch.float32)
+    return torch.cat(parts)
+
+
+def _flat_autograd_gradient(
+    loss: torch.Tensor,
+    parameters: Sequence[torch.nn.Parameter],
+    *,
+    retain_graph: bool,
+) -> torch.Tensor:
+    gradients = torch.autograd.grad(loss, parameters, retain_graph=retain_graph, allow_unused=True)
+    return _flatten_optional_gradients(gradients, parameters)
+
+
+def _add_flat_gradient_to_parameters(
+    flat_gradient: torch.Tensor,
+    parameters: Sequence[torch.nn.Parameter],
+    *,
+    scale: float = 1.0,
+) -> None:
+    offset = 0
+    for parameter in parameters:
+        size = parameter.numel()
+        chunk = flat_gradient[offset : offset + size].view_as(parameter)
+        offset += size
+        if parameter.grad is None:
+            parameter.grad = torch.zeros_like(parameter, memory_format=torch.preserve_format)
+        parameter.grad.add_(chunk, alpha=float(scale))
+    if offset != int(flat_gradient.numel()):
+        raise ValueError("flat gradient size does not match trainable parameters")
 
 
 def exact_preference_action_anchor_loss(
@@ -616,6 +740,61 @@ def _repair_metrics_row(
     )
 
 
+def _backward_repair_terms(
+    *,
+    model: torch.nn.Module,
+    terms: dict[str, torch.Tensor],
+    trainable_parameters: Sequence[torch.nn.Parameter],
+    config: ExactRepairConfig,
+    replay_trajectory_anchor: TrajectoryActionAnchor | None,
+) -> dict[str, float | int]:
+    if not bool(config.project_recovery_gradient) or float(config.lambda_old_key_recovery) <= 0.0:
+        terms["total_loss"].backward()
+        return {}
+    utility_loss = terms["old_key_recovery_loss"]
+    if not bool(utility_loss.requires_grad):
+        terms["total_loss"].backward()
+        return {}
+
+    hard_total = terms["total_loss"] - float(config.lambda_old_key_recovery) * utility_loss
+    hard_total.backward(retain_graph=True)
+    utility_gradient = _flat_autograd_gradient(
+        utility_loss,
+        trainable_parameters,
+        retain_graph=True,
+    )
+    hard_losses = [
+        terms["hinge_m297"].square(),
+        terms["hinge_m270"].square(),
+        terms["hinge_old_key"].square(),
+        terms["current_family_conflict_loss"],
+    ]
+    if replay_trajectory_anchor is not None:
+        hard_losses.extend(exact_trajectory_action_anchor_loss_by_source(model, replay_trajectory_anchor).values())
+    hard_gradients = [
+        _flat_autograd_gradient(loss, trainable_parameters, retain_graph=True)
+        for loss in hard_losses
+        if bool(loss.requires_grad)
+    ]
+    projected, diagnostics = project_flat_gradient_against_hard_constraints(
+        utility_gradient,
+        hard_gradients,
+        eps=float(config.recovery_projection_epsilon),
+    )
+    _add_flat_gradient_to_parameters(
+        projected,
+        trainable_parameters,
+        scale=float(config.lambda_old_key_recovery),
+    )
+    return {
+        "recovery_projection_active_hard_gradients": int(diagnostics["active_hard_gradients"]),
+        "recovery_projection_conflict_count": int(diagnostics["conflict_count"]),
+        "recovery_projection_input_norm": float(diagnostics["input_norm"]),
+        "recovery_projection_output_norm": float(diagnostics["output_norm"]),
+        "recovery_projection_retained_norm_ratio": float(diagnostics["retained_norm_ratio"]),
+    }
+
+
 def _repair_selection_key(row: dict[str, Any]) -> tuple[int, float, float, float, int]:
     feasible_rank = 0 if bool(row.get("exact_lexicographic_pass")) else 1
     return (
@@ -970,7 +1149,13 @@ def optimize_exact_post_ppo_repair(
             trainable_names=trainable.names,
             config=config,
         )
-        terms["total_loss"].backward()
+        projection_diagnostics = _backward_repair_terms(
+            model=model,
+            terms=terms,
+            trainable_parameters=trainable.parameters,
+            config=config,
+            replay_trajectory_anchor=replay_trajectory_anchor,
+        )
         grad_norm = torch.nn.utils.clip_grad_norm_(trainable.parameters, max_norm=float(config.grad_clip_norm))
         optimizer.step()
         grad_norm_value = float(grad_norm.detach().cpu().item() if isinstance(grad_norm, torch.Tensor) else grad_norm)
@@ -1003,6 +1188,7 @@ def optimize_exact_post_ppo_repair(
             base_old_key=base_old_key,
             config=config,
         )
+        post_row.update(projection_diagnostics)
         selection_trace.append(post_row)
         if _repair_selection_key(post_row) < _repair_selection_key(best_row):
             best_row = post_row
@@ -1192,6 +1378,8 @@ def main() -> None:
     parser.add_argument("--lambda-param-base", type=float, default=1.0)
     parser.add_argument("--lambda-param-raw", type=float, default=0.0)
     parser.add_argument("--grad-clip-norm", type=float, default=1.0)
+    parser.add_argument("--project-recovery-gradient", action="store_true")
+    parser.add_argument("--recovery-projection-epsilon", type=float, default=1e-12)
     parser.add_argument("--log-interval", type=int, default=10)
     parser.add_argument("--selection-policy", choices=["best_feasible", "final"], default="best_feasible")
     parser.add_argument("--run-dir", type=Path, default=None)
@@ -1243,6 +1431,8 @@ def main() -> None:
             lambda_param_base=args.lambda_param_base,
             lambda_param_raw=args.lambda_param_raw,
             grad_clip_norm=args.grad_clip_norm,
+            project_recovery_gradient=args.project_recovery_gradient,
+            recovery_projection_epsilon=args.recovery_projection_epsilon,
         ),
         run_dir=run_dir,
         log_interval=args.log_interval,

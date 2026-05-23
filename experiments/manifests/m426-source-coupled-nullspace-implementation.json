@@ -79,5 +79,51 @@
     "docs/m425-source-coupled-recovery-nullspace-design.md"
   ],
   "decision_rule": "M426 may admit a no-PPO projection probe only if tooling tests pass and a no-update smoke shows exact repair defaults unchanged.",
-  "next_blocker": "pending M426 source-coupled nullspace implementation"
+  "next_blocker": "m427-source-coupled-nullspace-projection-probe",
+  "results": {
+    "artifact": "docs/m426-source-coupled-nullspace-implementation.md",
+    "code_paths": [
+      "src/autodrift/exact_post_ppo_repair.py",
+      "tests/test_exact_post_ppo_repair.py"
+    ],
+    "implemented_features": [
+      "trajectory_action_anchor_errors",
+      "exact_trajectory_action_anchor_loss_by_source",
+      "project_flat_gradient_against_hard_constraints",
+      "optional --project-recovery-gradient exact-repair path",
+      "hard-guard anchor artifact excluding recovery rows"
+    ],
+    "hard_guard_anchor": {
+      "anchor_npz": "runs/m426_source_coupled_hard_guard_anchor/hard_guard_anchor.npz",
+      "source_summary_csv": "runs/m426_source_coupled_hard_guard_anchor/hard_guard_anchor_sources.csv",
+      "rows": 197,
+      "included_sources": [
+        "m267_row_6",
+        "m267_row_15",
+        "old_key_10023",
+        "old_key_9951_spillover",
+        "old_key_9939_spillover"
+      ],
+      "excluded_sources": [
+        "old_key_10004",
+        "old_key_9998"
+      ]
+    },
+    "no_update_smoke": {
+      "run_dir": "runs/m426_hard_guard_no_update_smoke",
+      "exact_lexicographic_pass": true,
+      "exact_m297_delta_vs_base": 0.0,
+      "exact_m270_delta_vs_base": 5.960464477539063e-08,
+      "old_key_surrogate_delta_vs_base": 0.0,
+      "replay_trajectory_anchor_loss": 0.0,
+      "project_recovery_gradient": false
+    },
+    "focused_tests": "32 passed",
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m427-source-coupled-nullspace-projection-probe"
+  },
+  "decision": "admit_m427_source_coupled_nullspace_projection_probe"
 }

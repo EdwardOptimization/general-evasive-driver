@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m426-source-coupled-nullspace-implementation
+m427-source-coupled-nullspace-projection-probe
 ```
 
 M423 completes the mixed-radius projection probe without PPO or actor-contract
@@ -70,7 +70,10 @@ old-key surrogate boundary at the next optimizer step. M425 designs a
 source-coupled recovery/nullspace residual: recover M398 old-key normal-margin
 targets only through a projected gradient that does not first-order increase
 exact gates, M267 rows `6`/`15`, old-key `10023`, or spillover guards. M426
-should implement this tooling and tests before any new repair or PPO.
+implements per-source trajectory losses, projected recovery-gradient tooling,
+and a `197`-row hard-guard anchor excluding recovery rows. The default-disabled
+no-update smoke passes exact gates with zero replay loss. M427 should run the
+first no-PPO projected recovery probe.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key
@@ -681,9 +684,9 @@ Do not run more PPO while the current blocker is the active-set replay/recovery
 balance. M424 stops the radius-only profile path: it raises proof-safe utility
 from M420 conservative `0.115403` to `0.133154`, but loosening enough to reach
 `0.142650` reopens M267/M264 rows `6` and `15` plus old-key `10023`. The next
-step is M426, implementation-only projected recovery/nullspace tooling. Do not
-lower proof thresholds, remove old-key diagnostics, run PPO, or change actor
-inputs.
+step is M427, a no-PPO projected recovery probe using the M426 hard-guard
+anchor. Do not lower proof thresholds, remove old-key diagnostics, run PPO, or
+change actor inputs.
 
 ## Sensor Profile Policy
 

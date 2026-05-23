@@ -15,10 +15,13 @@ from autodrift.exact_post_ppo_repair import (
     exact_rejected_history_preference_loss,
     exact_snippet_action_anchor_loss,
     exact_trajectory_action_anchor_loss,
+    exact_trajectory_action_anchor_loss_by_source,
     load_repair_corpora,
     parameter_l2_to_reference,
     parse_alpha_list,
+    project_flat_gradient_against_hard_constraints,
     repair_loss_terms,
+    trajectory_action_anchor_errors,
 )
 from autodrift.intervention_objectives import (
     build_snippet_action_anchor,
@@ -689,3 +692,76 @@ def test_exact_trajectory_action_anchor_loss_uses_radius_hinge(tmp_path):
         expected = torch.square(torch.clamp(distance - trajectory_anchor.radius, min=0.0))
         expected = (expected * trajectory_anchor.weight).sum() / trajectory_anchor.weight.sum()
     assert torch.isclose(loss, expected)
+
+
+def test_trajectory_anchor_loss_by_source_matches_weighted_rows(tmp_path):
+    trajectory_npz = tmp_path / "trajectory_anchor_radius.npz"
+    _write_trajectory_anchor_npz(
+        trajectory_npz,
+        radius=np.asarray([0.05, 0.10, 0.15], dtype=np.float32),
+        weight=np.asarray([1.0, 3.0, 2.0], dtype=np.float32),
+    )
+    trajectory_anchor = load_trajectory_action_anchor(
+        trajectory_npz,
+        device=torch.device("cpu"),
+        obs_dim=72,
+        hidden_size=4,
+        act_dim=3,
+    )
+    model = _TinyRecurrentPolicy()
+
+    losses = exact_trajectory_action_anchor_loss_by_source(model, trajectory_anchor)
+
+    errors = trajectory_action_anchor_errors(model, trajectory_anchor)
+    expected_0 = (errors[:2] * trajectory_anchor.weight[:2]).sum() / trajectory_anchor.weight[:2].sum()
+    expected_1 = errors[2]
+    assert set(losses) == {0, 1}
+    assert torch.isclose(losses[0], expected_0)
+    assert torch.isclose(losses[1], expected_1)
+
+
+def test_project_flat_gradient_removes_conflicting_hard_component():
+    utility = torch.tensor([1.0, 2.0])
+    hard = torch.tensor([-1.0, 0.0])
+
+    projected, diagnostics = project_flat_gradient_against_hard_constraints(utility, [hard])
+
+    assert diagnostics["active_hard_gradients"] == 1
+    assert diagnostics["conflict_count"] == 1
+    assert torch.dot(projected, hard).item() == pytest.approx(0.0, abs=1e-7)
+    assert projected[1].item() == pytest.approx(2.0)
+
+
+def test_project_flat_gradient_keeps_non_conflicting_direction():
+    utility = torch.tensor([1.0, 2.0])
+    hard = torch.tensor([1.0, 0.0])
+
+    projected, diagnostics = project_flat_gradient_against_hard_constraints(utility, [hard])
+
+    assert diagnostics["active_hard_gradients"] == 1
+    assert diagnostics["conflict_count"] == 0
+    assert torch.allclose(projected, utility)
+
+
+def test_project_flat_gradient_ignores_zero_hard_gradients():
+    utility = torch.tensor([1.0, -2.0])
+    hard = torch.zeros(2)
+
+    projected, diagnostics = project_flat_gradient_against_hard_constraints(utility, [hard])
+
+    assert diagnostics["active_hard_gradients"] == 0
+    assert diagnostics["conflict_count"] == 0
+    assert torch.allclose(projected, utility)
+
+
+def test_project_flat_gradient_handles_multiple_conflicting_hard_constraints():
+    utility = torch.tensor([1.0, 1.0, 2.0])
+    hard_a = torch.tensor([-1.0, 0.0, 0.0])
+    hard_b = torch.tensor([0.0, -1.0, 0.0])
+
+    projected, diagnostics = project_flat_gradient_against_hard_constraints(utility, [hard_a, hard_b])
+
+    assert diagnostics["conflict_count"] == 2
+    assert torch.dot(projected, hard_a).item() == pytest.approx(0.0, abs=1e-7)
+    assert torch.dot(projected, hard_b).item() == pytest.approx(0.0, abs=1e-7)
+    assert projected[2].item() == pytest.approx(2.0)

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 434,
+        "completed": 435,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m425-source-coupled-recovery-nullspace-design",
+        "task_id": "m426-source-coupled-nullspace-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m425-source-coupled-recovery-nullspace-design.md"
+        "run_dir": "runs/m426_hard_guard_no_update_smoke",
+        "command_log": "docs/m426-source-coupled-nullspace-implementation.md"
     },
     "next_task": {
-        "id": "m426-source-coupled-nullspace-implementation",
+        "id": "m427-source-coupled-nullspace-projection-probe",
         "status": "pending",
-        "priority": 4210,
-        "kind": "infrastructure",
-        "hypothesis": "Implement source-coupled projected recovery tooling without changing actor inputs",
-        "command": "see experiments/manifests/m426-source-coupled-nullspace-implementation.json",
+        "priority": 4220,
+        "kind": "gate",
+        "hypothesis": "Probe source-coupled projected recovery without PPO",
+        "command": "see experiments/manifests/m427-source-coupled-nullspace-projection-probe.json",
         "success_artifact": "",
-        "notes": "Pending: add per-source guard losses projected recovery-gradient helper tests and no-update smoke; no PPO or promotion"
+        "notes": "Pending: run exact repair with projected recovery gradient and M426 hard guard anchor; no PPO or promotion"
     },
-    "updated_at_utc": "20260523T173427Z"
+    "updated_at_utc": "20260523T174108Z"
 }

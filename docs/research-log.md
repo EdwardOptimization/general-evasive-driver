@@ -9894,3 +9894,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M425 designs a source-coupled recovery/nullspace path instead of another radius profile. The recovery merit remains the M398 old-key recovery target loss, but exact M297/M270/old-key surrogate gates, M267/M264 rows `6` and `15`, old-key `10023`, and spillover guards become hard first-order constraints. The proposed implementation uses PCGrad-like projection: remove utility-gradient components that would first-order increase any active hard guard, then keep the existing exact and replay gates as authoritative candidate selection.
 - decision: `admit_m426_source_coupled_nullspace_implementation`
 - next: `m426-source-coupled-nullspace-implementation`
+
+## 20260523T174108Z - m426-source-coupled-nullspace-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m426_hard_guard_no_update_smoke`
+- artifact: `docs/m426-source-coupled-nullspace-implementation.md`
+- result: M426 adds per-row and per-source trajectory-anchor loss helpers, a deterministic projected recovery-gradient helper, and an optional `--project-recovery-gradient` exact-repair path. It exports a `197`-row hard-guard anchor containing M267 rows `6` and `15`, old-key `10023`, and spillover guards `9951`/`9939`, while excluding recovery-related old-key sources `10004` and `9998`. The default-disabled no-update smoke passes exact gates with replay trajectory loss `0.0`; focused tests pass (`32 passed`).
+- decision: `admit_m427_source_coupled_nullspace_projection_probe`
+- next: `m427-source-coupled-nullspace-projection-probe`

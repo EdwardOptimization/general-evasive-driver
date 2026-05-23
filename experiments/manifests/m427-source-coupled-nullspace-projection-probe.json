@@ -1,0 +1,87 @@
+{
+  "id": "m427-source-coupled-nullspace-projection-probe",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m403_lrec1e10_interpolation/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m398_old_key_normal_margin_recovery_targets/old_key_recovery_corpus.npz",
+      "runs/m426_source_coupled_hard_guard_anchor/hard_guard_anchor.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m426-source-coupled-nullspace-implementation.json"
+    ],
+    "parent_objective": [
+      "no-PPO exact projection with projected recovery gradient and source-coupled hard guards"
+    ],
+    "derived_from": [
+      "m426-source-coupled-nullspace-implementation"
+    ],
+    "blocked_by": [
+      "m424-mixed-radius-utility-ceiling-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m427-source-coupled-nullspace-projection-probe.md",
+  "public_gates": [
+    "exact M297 no-regression",
+    "exact M270 no-regression",
+    "old-key surrogate no-regression",
+    "M267/M264 first replay",
+    "old-key compact replay",
+    "M183/M170 first replay if first gates pass",
+    "recovery improvement retained vs M406 >= 0.20 for primary pass",
+    "recovery improvement retained vs M423 mixed_b must improve for partial pass"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "hypothesis": "Projected recovery gradients can recover more M398 utility than M423 mixed_b while preserving exact gates and active replay proof rows.",
+  "success_criteria": [
+    "candidate passes exact M297/M270/old-key no-regression",
+    "candidate passes M267/M264 first replay with 17/17 success drops",
+    "candidate passes old-key compact replay with 40/40 accepted",
+    "candidate passes M183/M170 first replay with 17/17 success drops",
+    "candidate retains at least 20% of M406 recovery improvement for primary pass"
+  ],
+  "failure_criteria": [
+    "exact gates regress",
+    "M267/M264 rows 6 or 15 become wrong-history successes",
+    "old-key 10023 or spillover guards fail",
+    "candidate remains below M423 mixed_b utility",
+    "actor input or output contract changes"
+  ],
+  "commands": [
+    {
+      "name": "source_coupled_nullspace_projection_probe",
+      "command": "Run exact_post_ppo_repair from M403 raw with --project-recovery-gradient and M426 hard guard anchor; no PPO or promotion."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m427-source-coupled-nullspace-projection-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m426-source-coupled-nullspace-implementation.md"
+  ],
+  "decision_rule": "M427 may admit a full public gate only if exact gates and first proof gates pass; proof-pass utility below 0.20 remains non-promotable partial evidence.",
+  "next_blocker": "pending M427 source-coupled nullspace projection probe"
+}
