@@ -2,7 +2,7 @@
   "id": "m296-current-family-rejected-margin-objective-design",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -70,6 +70,10 @@
     {
       "path": "docs/m296-current-family-rejected-margin-objective-design.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m296_current_family_rejected_margin_objective_design/summary.json",
+      "type": "design_summary"
     }
   ],
   "baseline_checkpoints": [
@@ -79,6 +83,19 @@
     "docs/m295-current-family-ppo-repair-audit.md",
     "runs/m295_current_family_ppo_repair_audit/summary.json"
   ],
+  "results": {
+    "run_dir": "runs/m296_current_family_rejected_margin_objective_design",
+    "selected_objective": "direct current-family rejected-history margin/preference objective",
+    "required_new_array": "rejected_action",
+    "loss_terms": [
+      "preferred-action separation under correct versus wrong history",
+      "wrong-history preference for rejected action over preferred action"
+    ],
+    "next_task": "m297-current-family-rejected-preference-objective-implementation",
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
   "decision_rule": "M296 should produce an implementable no-PPO objective design; PPO remains blocked until a later objective-sanity milestone validates the new loss.",
-  "next_blocker": "pending M296 direct rejected-history margin/preference objective design"
+  "decision": "implement_rejected_history_preference_objective_sanity",
+  "next_blocker": "m297-current-family-rejected-preference-objective-implementation"
 }

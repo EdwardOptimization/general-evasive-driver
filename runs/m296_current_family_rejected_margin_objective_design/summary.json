@@ -1,0 +1,56 @@
+{
+  "actor_inputs_changed": false,
+  "corpus_schema": {
+    "arrays": [
+      "observation",
+      "preferred_hidden",
+      "rejected_hidden",
+      "preferred_action",
+      "rejected_action",
+      "preferred_score",
+      "rejected_score",
+      "score_delta",
+      "normal_margin",
+      "wrong_history_margin",
+      "margin_floor",
+      "weight",
+      "row_id",
+      "group_index",
+      "target_index"
+    ],
+    "student_contract": "observation plus deployable recurrent hidden states; no hidden vehicle parameters or actor-input oracle labels"
+  },
+  "decision": "implement_rejected_history_preference_objective_sanity",
+  "initial_weighting": {
+    "failed_row_bonus": 4.0,
+    "failed_rows": [
+      6,
+      15,
+      16
+    ],
+    "max_weight": 100.0,
+    "recovered_row": 11,
+    "recovered_row_bonus": 2.0
+  },
+  "loss": {
+    "combined": "weighted_mean(pref_separation + lambda_wrong * wrong_preference)",
+    "logp_cp": "log pi(preferred_action | observation, preferred_hidden)",
+    "logp_wp": "log pi(preferred_action | observation, rejected_hidden)",
+    "logp_wr": "log pi(rejected_action | observation, rejected_hidden)",
+    "pref_separation": "softplus(logp_wp - logp_cp + m_pref)",
+    "wrong_preference": "softplus(logp_wp - logp_wr + m_wrong)"
+  },
+  "m297_required_checks": [
+    "loader validation",
+    "finite exact loss for M290 M291raw M294raw",
+    "M290 exact loss lower than M291raw and M294raw",
+    "per-row diagnostics for rows 6 11 15 16",
+    "no PPO or actor-input change"
+  ],
+  "next_recommended_task": "m297-current-family-rejected-preference-objective-implementation",
+  "no_ppo_run": true,
+  "problem": "M294 trajectory-action anchoring partially recovered row 11 but still lost rows 6/15/16 and worsened exact M270 more than M291.",
+  "run_type": "m296_current_family_rejected_margin_objective_design",
+  "selected_objective": "direct current-family rejected-history margin/preference objective",
+  "source_audit": "runs/m295_current_family_ppo_repair_audit/summary.json"
+}
