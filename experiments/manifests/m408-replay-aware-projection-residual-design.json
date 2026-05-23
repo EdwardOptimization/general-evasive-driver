@@ -79,5 +79,36 @@
     "docs/m407-m406-projection-replay-failure-row-audit.md"
   ],
   "decision_rule": "M408 should admit implementation only if the design keeps replay labels training-only, preserves the human-view actor contract, and keeps closed-loop replay as the outer gate.",
-  "next_blocker": "pending M408 replay-aware projection residual design"
+  "next_blocker": "m409-replay-failure-trajectory-anchor-implementation",
+  "results": {
+    "artifact": "docs/m408-replay-aware-projection-residual-design.md",
+    "classification": "design_complete",
+    "recommended_residual": "branch_specific_replay_failure_trajectory_anchor",
+    "m267_rows_to_anchor": 16,
+    "old_key_wrong_history_rows_to_anchor": 6,
+    "old_key_normal_branch_rows_to_recover": 1,
+    "lexicographic_hard_feasibility": [
+      "exact M297 no-regression",
+      "exact M270 no-regression",
+      "old-key surrogate no-regression"
+    ],
+    "secondary_residuals": [
+      "old_key_recovery",
+      "current_family_conflict",
+      "replay_failure_trajectory_anchor",
+      "action_anchor",
+      "parameter trust region"
+    ],
+    "outer_gates": [
+      "M267/M264 first replay",
+      "cumulative old-key compact replay",
+      "M183/M170 if previous gates pass"
+    ],
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m409-replay-failure-trajectory-anchor-implementation"
+  },
+  "decision": "admit_m409_replay_failure_trajectory_anchor_implementation"
 }

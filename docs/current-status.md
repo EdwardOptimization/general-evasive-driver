@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m408-replay-aware-projection-residual-design
+m409-replay-failure-trajectory-anchor-implementation
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -249,7 +249,11 @@ design or PPO. M407 completes that audit: `16/17` M267/M264 rows become
 wrong-history successes across `13` physical pairs, with no normal-success
 regressions, while old-key has `6` wrong-history-safe regressions and one
 normal-branch failure. M408 should design a training-only replay-aware
-projection residual; replay gates remain authoritative.
+projection residual; replay gates remain authoritative. M408 completes that
+design: use branch-specific replay-failure trajectory anchors as secondary
+projection residuals while keeping exact M297/M270/old-key no-regression as hard
+feasibility. M409 should implement and smoke-test the anchor export/loading path
+without PPO or promotion.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

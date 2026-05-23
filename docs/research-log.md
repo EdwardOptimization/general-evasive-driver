@@ -9714,3 +9714,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M407 shows the M406 exact-feasible projection fails replay primarily by broad wrong-history washout. In M267/M264, `16/17` rows become wrong-history successes across `13` physical pairs, with `0` normal-success regressions and mean wrong-history margin delta `+0.008327`. Old-key has `7` accepted regressions: `6` wrong-history-safe regressions and one normal-branch failure. The failure is not sparse enough for another single-row exact reweight.
 - decision: `admit_m408_replay_aware_projection_residual_design`
 - next: `m408-replay-aware-projection-residual-design`
+
+## 20260523T155822Z - m408-replay-aware-projection-residual-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m408-replay-aware-projection-residual-design.md`
+- result: M408 designs branch-specific replay-failure trajectory anchors as the next training-only projection residual. M267/M264 wrong-history washout rows should anchor rejected/wrong-history trajectories from the M400 base; old-key wrong-history-safe rows need the same branch-specific treatment, while the single old-key normal-branch failure needs a normal recovery or successful-trajectory target. Exact M297/M270/old-key no-regression remains lexicographic feasibility, and closed-loop replay remains the outer gate.
+- decision: `admit_m409_replay_failure_trajectory_anchor_implementation`
+- next: `m409-replay-failure-trajectory-anchor-implementation`
