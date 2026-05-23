@@ -52,7 +52,7 @@ public-gate base; M487-M492 did not train or promote a checkpoint.
 Current blocker:
 
 ```text
-m499-natural-belief-action-sensitive-selector-design
+m500-natural-action-sensitive-selector-implementation
 ```
 
 Recent progress: M486-M492 is now closed as an artificial tail-forcing
@@ -90,9 +90,13 @@ trajectory signal. Its trajectory distance mean is `0.055405`, only `5.5%` of
 reset-hidden and `12.3%` of zero-current-response. The first action can move,
 but the trajectory corrects quickly.
 
-Next step: M499 should design an action-sensitive selector over the full M495
-surface before another outcome gate. Repeating the M496 target-z selector
-unchanged is not justified.
+M499 designs that selector: first screen the full M495 surface by
+wrong-history first-action distance, then run a short-horizon trajectory probe,
+then select a source-diverse target set only if trajectory distance is
+materially above the M498 weak baseline.
+
+Next step: M500 should implement and run the action-sensitive selector. It
+should not train or promote a checkpoint.
 
 ## Current Evidence
 

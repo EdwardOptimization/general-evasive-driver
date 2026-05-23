@@ -2,7 +2,7 @@
   "id": "m499-natural-belief-action-sensitive-selector-design",
   "type": "infrastructure",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -82,5 +82,17 @@
     "runs/m498_natural_belief_wrong_history_no_effect_audit/summary.json"
   ],
   "decision_rule": "M499 should admit implementation only if the selector uses observed wrong-history action or short-horizon trajectory signal while preserving source-diversity and avoiding hidden-hold proof.",
-  "next_blocker": "pending M499 natural belief action-sensitive selector design"
+  "next_blocker": "pending M499 natural belief action-sensitive selector design",
+  "results": {
+    "artifact": "docs/m499-natural-belief-action-sensitive-selector-design.md",
+    "selected_next_path": "natural action-sensitive wrong-history selector implementation",
+    "stage1_first_action_threshold": 0.12,
+    "stage2_trajectory_mean_threshold": 0.12,
+    "stage2_trajectory_max_threshold": 0.25,
+    "source_diversity_required": true,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "next_manifest": "experiments/manifests/m500-natural-action-sensitive-selector-implementation.json",
+    "decision": "admit_m500_natural_action_sensitive_selector_implementation"
+  }
 }

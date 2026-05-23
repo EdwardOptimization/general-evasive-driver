@@ -10612,3 +10612,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M498 audits M497 action and trajectory distances. Wrong-history has first-action mean `0.069847` and trajectory mean `0.055405`; reset-hidden has first-action mean `0.909815` and trajectory mean `1.005724`; zero-current has first-action mean `0.083332` and trajectory mean `0.451155`. Wrong-history trajectory distance is only `5.5%` of reset and `12.3%` of zero-current. The classification is `weak_wrong_history_trajectory_signal`: one-shot wrong-history is corrected quickly, and M496 target-z triage is not enough to select outcome-relevant wrong-history rows.
 - decision: `audit_wrong_history_weak_or_margin_only_admit_m499_action_sensitive_selector_design`
 - next: `m499-natural-belief-action-sensitive-selector-design`
+## 20260524T002000Z - m499-natural-belief-action-sensitive-selector-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m499-natural-belief-action-sensitive-selector-design.md`
+- result: M499 converts the M498 blocker into a concrete selector design. The next selector should run over the full M495 surface, first screen by wrong-history first-action distance, then run an 8-step short-horizon trajectory probe, then select rows by trajectory distance while preserving source diversity across seeds, labels, targets, configs, and offsets. The design explicitly rejects repeating the M496 target-z triage unchanged and keeps hidden-hold out of deployable proof.
+- decision: `admit_m500_natural_action_sensitive_selector_implementation`
+- next: `m500-natural-action-sensitive-selector-implementation`

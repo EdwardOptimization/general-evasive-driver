@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 507,
+        "completed": 508,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m498-natural-belief-wrong-history-no-effect-audit",
+        "task_id": "m499-natural-belief-action-sensitive-selector-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m498_natural_belief_wrong_history_no_effect_audit",
-        "command_log": "docs/m498-natural-belief-wrong-history-no-effect-audit.md"
+        "run_dir": "",
+        "command_log": "docs/m499-natural-belief-action-sensitive-selector-design.md"
     },
     "next_task": {
-        "id": "m499-natural-belief-action-sensitive-selector-design",
+        "id": "m500-natural-action-sensitive-selector-implementation",
         "status": "pending",
-        "priority": 4940,
+        "priority": 4950,
         "kind": "infrastructure",
-        "hypothesis": "An action-sensitive selector can avoid M497 weak wrong-history trajectory signal by selecting rows where wrong-history changes short-horizon action trajectories.",
-        "command": "see experiments/manifests/m499-natural-belief-action-sensitive-selector-design.json",
+        "hypothesis": "The full M495 natural belief surface contains source-diverse rows with stronger one-shot wrong-history short-horizon action trajectory differences than M496 selected.",
+        "command": "see experiments/manifests/m500-natural-action-sensitive-selector-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design action-sensitive selector before implementation"
+        "notes": "Pending: implement and run action-sensitive selector; no training or promotion"
     },
-    "updated_at_utc": "20260523T235322Z"
+    "updated_at_utc": "20260523T235550Z"
 }
