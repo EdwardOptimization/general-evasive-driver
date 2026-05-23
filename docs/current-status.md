@@ -931,15 +931,15 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not run PPO or promote a checkpoint while the current blocker is M484
-critical-window config implementation. M482 implemented the tail-aligned
-one-shot diagnostic and improved over M480 by finding `14` proof-style rows and
-`3` event rows, but all event rows are the same physical source pair repeated
-across tail offsets. M483 therefore selected two critical-window zero-relvel
-configs for sampling validation before any new proof mining. M478 remains
-positive diagnostic evidence that wrong belief can be outcome-critical if
-clamped, but clamped rows and single-source tail events must stay separate from
-natural wrong-history proof.
+Do not run PPO or promote a checkpoint while the current blocker is M485
+critical-window matched-current mining. M484 added two critical-window
+zero-relvel configs and both pass sampling stress with zero reset failures,
+three obstacle labels, and acceptable label balance. Behavior smokes complete:
+near-threshold M399 success is about `0.797`, late high-energy M399 success is
+about `0.688`. These are usable proof-mining distributions, not self-ID proof.
+M478 remains positive diagnostic evidence that wrong belief can be
+outcome-critical if clamped, but clamped rows and single-source tail events must
+stay separate from natural wrong-history proof.
 
 ## Sensor Profile Policy
 

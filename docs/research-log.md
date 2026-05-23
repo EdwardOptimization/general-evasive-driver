@@ -10474,3 +10474,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M483 keeps the M482 event signal diagnostic-only and designs the next config/sampling step. It selects two P0-compatible zero-relvel configs for M484: a near-threshold critical-window config and a late high-energy critical-window config. M484 must first run reset/sampling stress on seed blocks `11200`, `11300`, and `11400` with `128` resets each, require zero sampling failures, at least two labels, and single-label share `<=0.80`, then run small M399 behavior smokes. Proof mining and training remain blocked until configs are robust.
 - decision: `admit_m484_critical_window_config_implementation`
 - next: `m484-critical-window-config-implementation`
+
+## 20260523T230500Z - m484-critical-window-config-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m484_critical_window_config_validation`
+- artifact: `docs/m484-critical-window-config-implementation.md`
+- result: M484 adds `configs/m484_critical_window_near_threshold_zero_relvel.json` and `configs/m484_critical_window_late_high_energy_zero_relvel.json`. Both pass sampling stress over seed blocks `11200`, `11300`, and `11400` with `384/384` reset successes, `3` labels, and single-label shares `0.557292` and `0.588542`. Small M399 behavior smokes complete on both configs. Aggregate M399 success is `0.796875` on near-threshold and `0.687500` on late high-energy, while heuristic/random remain much lower. Reset/zero-current deltas are weak, so M484 is config validation only, not self-ID proof.
+- decision: `critical_window_configs_sampling_pass_admit_m485_matched_current_mining`
+- next: `m485-critical-window-matched-current-mining`

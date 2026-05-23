@@ -2,7 +2,7 @@
   "id": "m484-critical-window-config-implementation",
   "type": "infrastructure",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -96,5 +96,52 @@
     "docs/m483-critical-window-config-design.md"
   ],
   "decision_rule": "M484 should admit proof mining only if config sampling and behavior smokes are robust; otherwise repair config ranges first.",
-  "next_blocker": "pending M484 critical-window config implementation"
+  "next_blocker": "m485-critical-window-matched-current-mining",
+  "results": {
+    "configs_added": [
+      "configs/m484_critical_window_near_threshold_zero_relvel.json",
+      "configs/m484_critical_window_late_high_energy_zero_relvel.json"
+    ],
+    "sampling_run_dir": "runs/m484_critical_window_config_validation",
+    "sampling_summary_json": "runs/m484_critical_window_config_validation/sampling_summary.json",
+    "all_configs_sampling_gate_pass": true,
+    "near_threshold_sampling": {
+      "rows": 384,
+      "reset_failures": 0,
+      "label_count": 3,
+      "single_label_share": 0.557292,
+      "label_counts": {
+        "drift_required": 214,
+        "unavoidable": 141,
+        "aes_feasible": 29
+      },
+      "threshold_score_mean": 0.109244,
+      "time_to_obstacle_mean": 1.210832
+    },
+    "late_high_energy_sampling": {
+      "rows": 384,
+      "reset_failures": 0,
+      "label_count": 3,
+      "single_label_share": 0.588542,
+      "label_counts": {
+        "unavoidable": 226,
+        "drift_required": 145,
+        "aes_feasible": 13
+      },
+      "threshold_score_mean": 0.200936,
+      "time_to_obstacle_mean": 1.146677
+    },
+    "behavior_summary_json": "runs/m484_critical_window_config_validation/behavior_summary.json",
+    "near_threshold_m399_success_mean": 0.796875,
+    "near_threshold_m399_reset_success_mean": 0.828125,
+    "near_threshold_m399_zero_current_success_mean": 0.8125,
+    "late_high_energy_m399_success_mean": 0.6875,
+    "late_high_energy_m399_reset_success_mean": 0.6875,
+    "late_high_energy_m399_zero_current_success_mean": 0.671875,
+    "actor_inputs_changed": false,
+    "proof_mining_performed": false,
+    "checkpoint_promoted": false,
+    "next_manifest": "experiments/manifests/m485-critical-window-matched-current-mining.json",
+    "decision": "critical_window_configs_sampling_pass_admit_m485_matched_current_mining"
+  }
 }
