@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m428-old-key-branch-split-guard-audit
+m429-branch-split-old-key-guard-implementation
 ```
 
 M423 completes the mixed-radius projection probe without PPO or actor-contract
@@ -687,10 +687,12 @@ balance. M424 stops the radius-only profile path: it raises proof-safe utility
 from M420 conservative `0.115403` to `0.133154`, but loosening enough to reach
 `0.142650` reopens M267/M264 rows `6` and `15` plus old-key `10023`. The next
 step is M428, a branch-split old-key guard audit. M427 shows the projected
-recovery idea has utility signal, but the old-key guard set is incomplete:
-`10004` needs rejected-history guarding while normal-history recovery remains
-allowed, and `9872` needs normal-branch protection. Do not lower proof
-thresholds, remove old-key diagnostics, run PPO, or change actor inputs.
+recovery idea has utility signal, but the old-key guard set is incomplete.
+M428 attributes failures to three mechanisms: `10004` rejected-branch washout,
+`10023` gap erosion, and `9872` normal-branch collision. M429 should implement
+a branch-split hard guard where `10004` normal recovery remains allowed but its
+rejected-history branch is guarded. Do not lower proof thresholds, remove
+old-key diagnostics, run PPO, or change actor inputs.
 
 ## Sensor Profile Policy
 

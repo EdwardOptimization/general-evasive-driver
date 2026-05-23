@@ -78,5 +78,40 @@
     "docs/m427-source-coupled-nullspace-projection-probe.md"
   ],
   "decision_rule": "M428 should admit branch-split guard implementation only if the failed old-key rows have clear branch-specific mechanisms; otherwise stop the projected recovery path.",
-  "next_blocker": "pending M428 old-key branch-split guard audit"
+  "next_blocker": "m429-branch-split-old-key-guard-implementation",
+  "results": {
+    "artifact": "docs/m428-old-key-branch-split-guard-audit.md",
+    "failed_rows": {
+      "10004|perturbed|31|31": {
+        "mechanism": "wrong_history_branch_became_safe",
+        "normal_success": true,
+        "normal_margin": 0.001654052329918665,
+        "wrong_history_margin": 0.0009532578452235985,
+        "recommended_guard": "keep normal recovery target but add rejected-history branch anchor"
+      },
+      "10023|perturbed|12|12": {
+        "mechanism": "old_key_gap_erosion",
+        "normal_success": true,
+        "normal_margin": 0.048193867557241976,
+        "wrong_history_margin": 0.04625587112035312,
+        "recommended_guard": "keep hard guard and report branch-specific source loss"
+      },
+      "9872|perturbed|21|18": {
+        "mechanism": "normal_branch_collision",
+        "normal_success": false,
+        "normal_margins": [
+          -0.0004580615165057367,
+          -0.0007530406289317781
+        ],
+        "recommended_guard": "add normal-branch hard guard rows"
+      }
+    },
+    "classification": "projected_recovery_guard_set_incomplete_branch_split_needed",
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m429-branch-split-old-key-guard-implementation"
+  },
+  "decision": "admit_m429_branch_split_old_key_guard_implementation"
 }

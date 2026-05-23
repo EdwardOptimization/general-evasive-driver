@@ -9914,3 +9914,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M427 enables projected recovery gradients with the M426 hard-guard anchor. Exact M297/M270/old-key gates pass and recovery retained vs M406 rises to `0.174354`, above M423 `mixed_b` but below the `0.20` primary target. M267/M264 first replay passes `17/17`, but old-key compact fails `36/40`: `10004` wrong-history branch becomes safe, `10023` loses gap, and two `9872` rows fail by normal-branch collision. M183/M170 is skipped because old-key failed first.
 - decision: `reject_m427_projected_candidate_admit_m428_old_key_branch_split_guard_audit`
 - next: `m428-old-key-branch-split-guard-audit`
+
+## 20260523T174956Z - m428-old-key-branch-split-guard-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m428-old-key-branch-split-guard-audit.md`
+- result: M428 classifies all M427 old-key failures. `10004|perturbed|31|31` is a rejected-history branch washout: normal margin improves to `0.001654` but wrong-history margin becomes positive `0.000953`. `10023|perturbed|12|12` remains normal-successful but loses old-key gap. `9872|perturbed|21|18` fails two compact cases by normal-branch collision. The next guard must be branch-split: allow `10004` normal recovery while guarding its rejected branch, and add `9872` normal-branch hard guards.
+- decision: `admit_m429_branch_split_old_key_guard_implementation`
+- next: `m429-branch-split-old-key-guard-implementation`
