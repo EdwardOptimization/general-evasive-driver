@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M437 exports a 6-row active-boundary corpus covering 10004 10023 and 9998 wires exact repair terms and passes no-update smoke with exact no-regression",
+  "failure_criteria": [
+    "corpus cannot represent gap erosion and wrong-history safety separately",
+    "implementation changes actor inputs or outputs",
+    "no-update exact repair smoke fails",
+    "implementation requires PPO to validate"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260523T184132Z",
+  "hypothesis": "A compact active-boundary preference residual can be implemented as training-only exact repair machinery without changing the deployable actor contract.",
+  "lineage": {
+    "blocked_by": [
+      "m436-old-key-active-boundary-residual-design"
+    ],
+    "derived_from": [
+      "m436-old-key-active-boundary-residual-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m434_selective_10004_projection_r0010/candidate_checkpoint.pt",
+      "runs/m434_selective_10004_projection_r0015/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m436-old-key-active-boundary-residual-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m434_r0015_old_key_targeted_replay/guard_results.csv",
+      "runs/m434_r0020_old_key_targeted_replay/guard_results.csv",
+      "runs/m434_tail_r0010_old_key_targeted_replay/guard_results.csv"
+    ],
+    "parent_objective": [
+      "active-boundary old-key residual implementation"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m437-active-boundary-residual-implementation",
+  "next_blocker": "m438-active-boundary-projection-probe",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m438_active_boundary_projection_probe",
+  "public_gates": [
+    "export active-boundary corpus",
+    "loader and exact loss tests",
+    "no-update exact repair smoke",
+    "no actor input or output contract change"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m438_active_boundary_projection_probe",
+    "milestone": "m437-active-boundary-residual-implementation",
+    "reason": "M437 exports a 6-row active-boundary corpus covering 10004 10023 and 9998 wires exact repair terms and passes no-update smoke with exact no-regression",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "corpus exporter writes finite active-boundary rows for 10004 10023 and 9998 when present",
+    "loader validates shapes and finite fields",
+    "exact loss terms are covered by focused tests",
+    "no-update exact repair smoke passes"
+  ],
+  "type": "infrastructure"
+}

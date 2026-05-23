@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m437-active-boundary-residual-implementation
+m438-active-boundary-projection-probe
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -86,15 +86,16 @@ passing old-key `40/40` and M183/M170 `17/17`, with recovery retained vs M406
 `0.103529`. This improves over M430 (`0.061702`) but remains below M427
 (`0.174354`) and the `0.20` target. `r0015` and looser profiles fail old-key
 compact, first at `10023`, then `10004`/`9998`. M435 audits this as a
-multi-key old-key boundary and rejects further radius-only tuning. M436 should
-design an active-boundary residual around `10004`, `10023`, and `9998` using
-rejected-history preference or terminal-margin slack instead of broad
-full-trajectory action anchoring. M436 completes that design: export a compact
-active-boundary corpus with proof/candidate actions, margins, violation type,
-and weights, then add exact repair loss terms for wrong-history rejected-action
-preference, gap-erosion branch separation, and optional normal safety anchors.
-M437 should implement/export/test this residual with a no-update smoke before
-any projection or PPO.
+multi-key old-key boundary and rejects further radius-only tuning. M436 designs
+an active-boundary residual around `10004`, `10023`, and `9998` using
+rejected-history preference and gap-erosion branch separation instead of broad
+full-trajectory action anchoring. M437 implements that path: it exports a
+6-row active-boundary corpus covering `10004`, `10023`, and `9998`, wires the
+loader and exact repair terms, and passes a no-update exact repair smoke with
+exact M297/M270/old-key no-regression. The next blocker is M438: run a no-PPO
+projection probe with this residual and check whether it can recover more M406
+utility than M434 `r0010` (`0.103529`) while preserving M267/M264 `17/17`,
+old-key compact `40/40`, and M183/M170 `17/17`.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

@@ -10004,3 +10004,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M436 designs an active-boundary residual to replace broad full-trajectory radius tuning. The corpus should cover active old-key cases `10004`, `10023`, and `9998`, with proof and candidate actions, normal/wrong hidden states, terminal margins, violation type, and weights. Loss terms are wrong-history rejected-action preference, gap-erosion branch separation preference, and optional normal-branch local safety anchoring. The residual is training-only and does not enter actor inputs.
 - decision: `admit_m437_active_boundary_residual_implementation`
 - next: `m437-active-boundary-residual-implementation`
+
+## 20260523T183911Z - m437-active-boundary-residual-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m437_active_boundary_no_update_smoke`
+- artifact: `docs/m437-active-boundary-residual-implementation.md`
+- result: M437 adds `active_boundary_residual.py`, exports a 6-row active-boundary corpus from M434 failed old-key guard rows, and wires active-boundary exact repair terms. The corpus covers `10004`, `10023`, and `9998`, with `3` wrong-history-safe rows and `3` gap-erosion rows. The no-update exact repair smoke loads the corpus and passes exact M297/M270/old-key no-regression with active_boundary_loss `0.0010130878`.
+- decision: `admit_m438_active_boundary_projection_probe`
+- next: `m438-active-boundary-projection-probe`

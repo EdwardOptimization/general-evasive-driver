@@ -66,6 +66,38 @@
       "command": "Implement active-boundary corpus/export/loss/no-update smoke; no PPO."
     }
   ],
+  "results": {
+    "artifact": "docs/m437-active-boundary-residual-implementation.md",
+    "corpus_run_dir": "runs/m437_active_boundary_residual",
+    "corpus_npz": "runs/m437_active_boundary_residual/active_boundary_corpus.npz",
+    "rows": 6,
+    "active_cases": [
+      "10004|perturbed|31|31|9.500000|-1.000000|0.800000",
+      "10023|perturbed|12|12|11.000000|-0.800000|1.200000",
+      "9998|perturbed|25|25|11.000000|-1.000000|1.400000"
+    ],
+    "violation_counts": {
+      "wrong_history_safe": 3,
+      "gap_erosion": 3,
+      "normal_collision": 0
+    },
+    "no_update_smoke_run_dir": "runs/m437_active_boundary_no_update_smoke",
+    "no_update_smoke": {
+      "active_boundary_loss": 0.0010130878072232008,
+      "active_boundary_wrong_loss": 0.0005824606632813811,
+      "active_boundary_gap_loss": 0.0004306272021494806,
+      "active_boundary_normal_loss": 0.0,
+      "exact_m297_delta_vs_base": 0.0,
+      "exact_m270_delta_vs_base": 0.0,
+      "old_key_surrogate_delta_vs_base": 0.0,
+      "exact_lexicographic_pass": true
+    },
+    "focused_tests": "21 passed in 2.18s",
+    "actor_inputs_changed": false,
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "recommended_next": "m438-active-boundary-projection-probe"
+  },
   "required_artifacts": [
     {
       "path": "docs/m437-active-boundary-residual-implementation.md",
@@ -79,5 +111,5 @@
     "docs/m436-old-key-active-boundary-residual-design.md"
   ],
   "decision_rule": "M437 admits a no-PPO projection probe only if the active-boundary residual is implemented, tested, and smoke-validated without actor-contract changes.",
-  "next_blocker": "pending M437 active-boundary residual implementation"
+  "next_blocker": "m438-active-boundary-projection-probe"
 }
