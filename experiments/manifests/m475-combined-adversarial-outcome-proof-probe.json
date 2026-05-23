@@ -1,0 +1,104 @@
+{
+  "id": "m475-combined-adversarial-outcome-proof-probe",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m474_combined_fresh_anchor_adversarial_search/adversarial_pairs.csv"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m474-combined-fresh-anchor-adversarial-search.json"
+    ],
+    "parent_objective": [
+      "combined adversarial wrong-history outcome proof probe"
+    ],
+    "derived_from": [
+      "m474-combined-fresh-anchor-adversarial-search"
+    ],
+    "blocked_by": [
+      "m474-combined-fresh-anchor-adversarial-search"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m475-combined-adversarial-outcome-proof-probe.md",
+  "public_gates": [
+    "run action intervention gate on M474 adversarial pairs",
+    "run continuation outcome gate on M474 adversarial pairs",
+    "run outcome-critical selector and near-boundary wrong-history proof selector",
+    "decide whether wrong-history outcome proof exists",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not relax near-boundary normal-margin ceiling",
+    "do not count high-slack diagnostics as proof",
+    "do not add privileged actor inputs"
+  ],
+  "hypothesis": "The M474 source-diverse adversarial pairs will contain near-boundary wrong-history interventions that produce closed-loop outcome degradation.",
+  "success_criteria": [
+    "action gate completes on M474 adversarial pairs",
+    "outcome gate completes on M474 adversarial pairs",
+    "outcome selector completes",
+    "near-boundary proof_candidate_count >= 16",
+    "proof_success_or_collision_or_completion_rows >= 4",
+    "proof_probe_seed_count >= 6",
+    "proof_obstacle_label_count >= 2",
+    "proof_target_count >= 2",
+    "proof_single_seed_share <= 0.50",
+    "proof_single_label_share <= 0.70",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "action or outcome gate fails",
+    "proof_candidate_count remains below 16",
+    "only high-slack diagnostics are found",
+    "proof rows are source-narrow",
+    "actor contract changes",
+    "training or checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "combined_adversarial_action_gate",
+      "command": "Run matched_history_intervention_gate on runs/m474_combined_fresh_anchor_adversarial_search/adversarial_pairs.csv."
+    },
+    {
+      "name": "combined_adversarial_outcome_gate",
+      "command": "Run matched_history_outcome_gate on runs/m474_combined_fresh_anchor_adversarial_search/adversarial_pairs.csv."
+    },
+    {
+      "name": "combined_adversarial_selectors",
+      "command": "Run outcome_critical_matched_current_selector followed by near_boundary_wrong_history_selector."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m475-combined-adversarial-outcome-proof-probe.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m475_combined_adversarial_near_boundary_selector/summary.json",
+      "type": "summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m474-combined-fresh-anchor-adversarial-search.md",
+    "runs/m474_combined_fresh_anchor_adversarial_search/summary.json"
+  ],
+  "decision_rule": "M475 can expand wrong-history proof only if near-boundary proof rows show source-diverse closed-loop degradation; otherwise diagnose why adversarial histories still do not change outcomes.",
+  "next_blocker": "pending M475 combined adversarial outcome proof probe"
+}

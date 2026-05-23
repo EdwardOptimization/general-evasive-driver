@@ -10374,3 +10374,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M473 runs the fresh-window pipeline on windows `10500,10600,10700` and `10800,10900,11000`. Both matched-current mining passes complete, with accepted pairs `1818` and `1661`; both targeted triage passes export `240` pairs with balanced seeds, labels, and targets. The near-boundary selectors find `53` and `51` fresh near-boundary candidates. Combined fresh anchors pass source-diversity criteria: `104` near-boundary candidates across `6` probe seeds, `2` labels, and `3` targets, with single-seed share `0.346154` and single-label share `0.567308`. All `104` are no-effect anchors and proof candidates remain `0`, so this is anchor-surface evidence, not wrong-history outcome proof.
 - decision: `fresh_window_anchor_discovery_pass_admit_m474`
 - next: `m474-combined-fresh-anchor-adversarial-search`
+
+## 20260523T215132Z - m474-combined-fresh-anchor-adversarial-search
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m474_combined_fresh_anchor_adversarial_search`
+- artifact: `docs/m474-combined-fresh-anchor-adversarial-search.md`
+- result: M474 combines `35` M467 anchors with `104` M473 fresh anchors and combines the M471/M473 candidate pools into `1142403` candidate pairs. The adversarial search passes the pre-registered source-diversity gates: `197` adversarial pairs, `82` near-boundary left states, `9` probe seeds, `2` labels, `3` targets, single-seed share `0.197970`, and single-label share `0.548223`. This fixes the M471 source-balance blocker but is not yet outcome proof.
+- decision: `combined_adversarial_surface_pass_admit_m475`
+- next: `m475-combined-adversarial-outcome-proof-probe`

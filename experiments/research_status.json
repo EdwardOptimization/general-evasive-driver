@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 482,
+        "completed": 483,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m473-fresh-window-anchor-discovery-run",
+        "task_id": "m474-combined-fresh-anchor-adversarial-search",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m473_combined_fresh_window_anchor_summary",
-        "command_log": "docs/m473-fresh-window-anchor-discovery-run.md"
+        "run_dir": "runs/m474_combined_fresh_anchor_adversarial_search",
+        "command_log": "docs/m474-combined-fresh-anchor-adversarial-search.md"
     },
     "next_task": {
-        "id": "m474-combined-fresh-anchor-adversarial-search",
+        "id": "m475-combined-adversarial-outcome-proof-probe",
         "status": "pending",
-        "priority": 4690,
+        "priority": 4700,
         "kind": "gate",
-        "hypothesis": "Combining M467 same-window anchors with M473 fresh-window anchors and candidate pools will produce a source-diverse adversarial wrong-history surface suitable for later outcome probing",
-        "command": "see experiments/manifests/m474-combined-fresh-anchor-adversarial-search.json",
+        "hypothesis": "The M474 source-diverse adversarial pairs will contain near-boundary wrong-history interventions that produce closed-loop outcome degradation",
+        "command": "see experiments/manifests/m475-combined-adversarial-outcome-proof-probe.json",
         "success_artifact": "",
-        "notes": "Pending: combine anchors and candidate pools, then run adversarial search; no outcome probe unless source-diverse surface passes"
+        "notes": "Pending: run action/outcome probes and near-boundary proof selector on M474 adversarial pairs"
     },
-    "updated_at_utc": "20260523T214718Z"
+    "updated_at_utc": "20260523T215132Z"
 }

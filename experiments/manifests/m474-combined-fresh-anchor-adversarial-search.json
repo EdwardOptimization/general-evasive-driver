@@ -2,7 +2,7 @@
   "id": "m474-combined-fresh-anchor-adversarial-search",
   "type": "gate",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -100,5 +100,42 @@
     "runs/m473_combined_fresh_window_anchor_summary/summary.json"
   ],
   "decision_rule": "M474 can admit action/outcome probing only if the combined adversarial surface passes source-diversity gates.",
-  "next_blocker": "pending M474 combined fresh-anchor adversarial search"
+  "results": {
+    "run_dir": "runs/m474_combined_fresh_anchor_adversarial_search",
+    "combined_anchor_count": 139,
+    "combined_candidate_pair_count": 1142403,
+    "search_candidate_count": 289,
+    "adversarial_pair_count": 197,
+    "near_boundary_left_state_count": 82,
+    "probe_seed_count": 9,
+    "left_obstacle_label_count": 2,
+    "target_count": 3,
+    "single_seed_share": 0.19796954314720813,
+    "single_label_share": 0.5482233502538071,
+    "adversarial_by_probe_seed": {
+      "10200": 31,
+      "10300": 9,
+      "10400": 13,
+      "10500": 33,
+      "10600": 8,
+      "10700": 39,
+      "10800": 22,
+      "10900": 5,
+      "11000": 37
+    },
+    "adversarial_by_left_obstacle_label": {
+      "drift_required": 89,
+      "unavoidable": 108
+    },
+    "adversarial_by_target": {
+      "future_braking_deceleration": 63,
+      "future_lateral_accel_response": 54,
+      "future_yaw_response": 80
+    },
+    "search_pass": true,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "combined_adversarial_surface_pass_admit_m475"
+  },
+  "next_blocker": "m475-combined-adversarial-outcome-proof-probe"
 }
