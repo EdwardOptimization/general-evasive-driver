@@ -42,20 +42,20 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_01.pt
+runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt
 ```
 
-Status: M349 promotes M335 alpha `0.01` as the current public-gate base. It
-passes exact M297/M270 no-regression versus the previous M336 base,
+Status: M352 promotes M351 alpha `0.0075` as the current public-gate base. It
+passes exact M297/M270 no-regression versus the previous M349 base,
 source-diverse protected gates `5/5`, the distributional old-key neighborhood
-gate, all six replay surfaces, and behavior seeds `9505`/`9506`. This replaces
-the stale singleton `9944` floor as the old-key acceptance bottleneck, while
-keeping `9944` visible through the old-key neighborhood diagnostics.
+gate, all six replay surfaces, and behavior seeds `9505`/`9506`. The repaired
+M351 endpoint remains rejected because it washes out source-diverse and old-key
+neighborhood proof.
 
 Current blocker:
 
 ```text
-m352-full-public-gate-for-m351-a0075
+m353-old-key-neighborhood-ppo-fresh-seed-repeat-design
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -73,8 +73,9 @@ after all six public replay gates and behavior seeds pass. M350 registers the
 next short PPO escalation design from this new base without running training.
 M351 runs the proposal-only PPO step: the repaired endpoint improves exact
 objectives but fails source/old-key proof, while bounded `alpha=0.0075` passes
-exact, source-diverse, old-key neighborhood, and first replay gates. M352 must
-run the full public gate before any promotion.
+exact, source-diverse, old-key neighborhood, and first replay gates. M352
+promotes the bounded candidate after all six public replay gates and behavior
+seeds pass. M353 should design a fresh-seed repeat before any longer PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -142,7 +143,8 @@ run the full public gate before any promotion.
 | current public-gate base | `runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_01.pt` | M349 promotes alpha 0.01 after exact, source-diverse, old-key neighborhood, six replay, and behavior gates pass |
 | next PPO config | `configs/ppo_m351_old_key_neighborhood_escalation.json` | M350 registers a short proposal-only PPO continuation from M349 base with exact/source-diverse/old-key-neighborhood gates |
 | bounded PPO candidate | `runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt` | M351 selects alpha 0.0075 after repaired endpoint fails source/old-key proof but bounded alpha passes exact/source-diverse/old-key/first replay gates |
-| current blocker | `experiments/manifests/m352-full-public-gate-for-m351-a0075.json` | M352 must run all six public replay gates and behavior seeds for `m351_a0075` before any promotion |
+| current public-gate base | `runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt` | M352 promotes alpha 0.0075 after exact, source-diverse, old-key neighborhood, six replay, and behavior gates pass |
+| current blocker | `experiments/manifests/m353-old-key-neighborhood-ppo-fresh-seed-repeat-design.json` | M353 should register a fresh-seed repeat from M352 before any longer PPO |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

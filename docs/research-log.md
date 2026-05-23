@@ -9154,3 +9154,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M351 runs the short PPO proposal from M349 base. Raw PPO completes on CUDA with eval termination `0.20`. Exact repair improves M297/M270 by `-0.000380516` and `-0.000209033`, but the repaired endpoint fails source-diverse gates `3/5` and old-key neighborhood replay with only `25/40` compact rows accepted. Interpolation selects `alpha=0.0075` as the largest old-key-neighborhood-passing alpha; `alpha=0.01` is the first failing alpha. The selected alpha passes exact deltas `-0.000002742` and `-0.000001490`, source-diverse gates `5/5`, and M183/M170 plus M267/M264 first replay gates.
 - decision: `admit_m352_full_public_gate_for_m351_a0075`
 - next: `m352-full-public-gate-for-m351-a0075`
+
+## 20260523T103445Z - m352-full-public-gate-for-m351-a0075
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m352_full_public_gate_for_m351_a0075`
+- artifact: `docs/m352-full-public-gate-for-m351-a0075.md`
+- result: M352 promotes `m351_a0075`. Exact M297/M270 remain non-regressing versus M349; source-diverse gates pass `5/5`; old-key neighborhood gate passes with `0` accepted regressions; all six public replay gates retain success drops (`16/16`, `17/17`, `14/14`, `17/17`, `17/17`, `17/17`); behavior seeds `9505` and `9506` keep success `0.8625`, reset success mean `0.85`, and zero-all success mean `0.80`.
+- decision: `promote_m351_a0075_old_key_neighborhood_public_gate_base`
+- next: `m353-old-key-neighborhood-ppo-fresh-seed-repeat-design`

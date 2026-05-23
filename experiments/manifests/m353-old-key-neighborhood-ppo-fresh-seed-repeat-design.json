@@ -1,0 +1,84 @@
+{
+  "id": "m353-old-key-neighborhood-ppo-fresh-seed-repeat-design",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt"
+    ],
+    "parent_dataset": [
+      "runs/m352_full_public_gate_for_m351_a0075/summary.json",
+      "runs/m351_old_key_neighborhood_ppo_escalation/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m352-full-public-gate-for-m351-a0075.json",
+      "docs/m352-full-public-gate-for-m351-a0075.md"
+    ],
+    "parent_objective": [
+      "design a fresh-seed repeat from the M352 public-gate base before longer PPO"
+    ],
+    "derived_from": [
+      "m352-full-public-gate-for-m351-a0075"
+    ],
+    "blocked_by": [
+      "m352-full-public-gate-for-m351-a0075"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m353-old-key-neighborhood-ppo-fresh-seed-repeat-design.md",
+  "public_gates": [
+    "design only; no PPO run",
+    "fresh PPO seed required before longer PPO",
+    "preserve exact M297/M270 repair",
+    "preserve source-diverse protected gates",
+    "preserve old-key neighborhood replay gate",
+    "preserve first replay before full public gate order"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not lengthen PPO before fresh-seed repeat",
+    "do not run PPO before manifest/config registration",
+    "do not change actor inputs",
+    "do not remove old-key neighborhood gate",
+    "do not promote from design alone"
+  ],
+  "hypothesis": "After M352 promotion, the next step should be a fresh-seed repeat of the short PPO proposal under the same exact/source-diverse/old-key-neighborhood acceptance stack before any longer PPO escalation.",
+  "success_criteria": [
+    "fresh-seed repeat design document is written",
+    "repeat config names the M352 base checkpoint",
+    "gate order remains exact repair, source-diverse, old-key neighborhood, first replay, full public gate",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "the design runs PPO before registration",
+    "the design omits old-key neighborhood acceptance",
+    "the design changes actor inputs",
+    "the design admits longer PPO before repeat"
+  ],
+  "commands": [
+    {
+      "name": "m353_design",
+      "command": "Write fresh-seed repeat design from M352 public-gate base; do not run PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m353-old-key-neighborhood-ppo-fresh-seed-repeat-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m352-full-public-gate-for-m351-a0075.md",
+    "runs/m352_full_public_gate_for_m351_a0075/summary.json"
+  ],
+  "decision_rule": "M353 is complete only when a fresh-seed repeat plan is registered without running PPO or changing actor inputs.",
+  "next_blocker": "pending M353 fresh-seed repeat design"
+}

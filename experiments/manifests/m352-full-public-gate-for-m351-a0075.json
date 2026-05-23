@@ -2,7 +2,7 @@
   "id": "m352-full-public-gate-for-m351-a0075",
   "type": "driver_candidate",
   "gate_tier": "promotion",
-  "promotion_decision": "pending",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -101,6 +101,36 @@
     "docs/m351-old-key-neighborhood-ppo-escalation-run.md",
     "runs/m351_old_key_neighborhood_ppo_escalation/summary.json"
   ],
-  "decision_rule": "M352 may promote m351_a0075 only if exact objectives, source-diverse protected gate, old-key neighborhood gate, all six public replay gates, behavior seeds, and input-contract checks pass.",
-  "next_blocker": "pending M352 full public gate for M351 alpha 0.0075"
+  "results": {
+    "run_dir": "runs/m352_full_public_gate_for_m351_a0075",
+    "selected_policy": "m351_a0075",
+    "selected_checkpoint": "runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt",
+    "previous_public_base_checkpoint": "runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_01.pt",
+    "exact_eval_run_dir": "runs/m351_a0075_exact_eval_vs_m349",
+    "source_diverse_run_dir": "runs/m351_a0075_source_diverse_protected_gate",
+    "old_key_neighborhood_run_dir": "runs/m351_old_key_neighborhood_alpha_sweep/gates_with_diagnostic/m351_a0075",
+    "m297_preference_loss_delta_vs_m349": -2.7418136596679688e-06,
+    "exact_m270_loss_delta_vs_m349": -1.4901161193847656e-06,
+    "source_diverse_protected_pass": true,
+    "source_diverse_replay_gates_passed": 5,
+    "source_diverse_replay_gate_count": 5,
+    "old_key_neighborhood_pass": true,
+    "old_key_neighborhood_accepted_regressions": 0,
+    "old_key_neighborhood_gap_p10": -1.7602837727919866e-05,
+    "old_key_neighborhood_gap_min": -4.8289393773898875e-05,
+    "full_replay_gates_pass": true,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "behavior_success_mean": 0.8625,
+    "behavior_termination_mean": 0.1375,
+    "behavior_clearance_margin_mean": 1.8445378444262243,
+    "reset_success_mean": 0.85,
+    "zero_all_success_mean": 0.8,
+    "promotion_recommended": true,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "promote_m351_a0075_old_key_neighborhood_public_gate_base",
+  "decision_rule": "M352 promotes m351_a0075 because exact objectives, source-diverse protected gate, old-key neighborhood gate, all six public replay gates, behavior seeds, and input-contract checks pass.",
+  "next_blocker": "m353-old-key-neighborhood-ppo-fresh-seed-repeat-design"
 }
