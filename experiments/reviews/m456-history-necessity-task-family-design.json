@@ -1,0 +1,80 @@
+{
+  "decision_reason": "M456 designs late-reveal warm-up matched-current and wrong-history task layers to make recurrent history uniquely informative",
+  "failure_criteria": [
+    "design ignores M455's mixed-dependency finding",
+    "design adds oracle actor inputs",
+    "design jumps directly to training",
+    "no implementation path is defined"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not treat mixed-dependency M455 rows as self-ID proof"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260523T201714Z",
+  "hypothesis": "Because M455 finds mostly mixed-dependency boundary rows, the next useful step is to design a task family that makes command-response history uniquely informative rather than continuing to mine the same challenge distribution.",
+  "lineage": {
+    "blocked_by": [
+      "m455-response-critical-multiseed-expansion"
+    ],
+    "derived_from": [
+      "m455-response-critical-multiseed-expansion"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/m451_challenge_near_threshold_robust_zero_relvel.json",
+      "configs/m451_challenge_late_high_energy_robust_zero_relvel.json",
+      "experiments/manifests/m455-response-critical-multiseed-expansion.json"
+    ],
+    "parent_dataset": [
+      "runs/m455_response_critical_multiseed_corpus/candidates.csv",
+      "runs/m455_response_critical_multiseed_corpus/compact_corpus.csv",
+      "runs/m455_response_critical_multiseed_corpus/summary.json"
+    ],
+    "parent_objective": [
+      "history-necessity task-family design"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m456-history-necessity-task-family-design",
+  "next_blocker": "m457-history-necessity-config-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m457_history_necessity_config_implementation",
+  "public_gates": [
+    "design a task family that creates clearer recurrent-history necessity",
+    "define matched-current or warm-up construction",
+    "define wrong-history and reset-hidden diagnostics",
+    "no checkpoint promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m457_history_necessity_config_implementation",
+    "milestone": "m456-history-necessity-task-family-design",
+    "reason": "M456 designs late-reveal warm-up matched-current and wrong-history task layers to make recurrent history uniquely informative",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design specifies how to create recurrent-history necessity",
+    "design includes reset-hidden wrong-history and no-action-history diagnostics",
+    "design states pass and redirect criteria",
+    "next implementation task is preregistered",
+    "no checkpoint is promoted"
+  ],
+  "type": "infrastructure"
+}

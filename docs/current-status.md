@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m456-history-necessity-task-family-design
+m457-history-necessity-config-implementation
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -183,10 +183,12 @@ The combined corpus accepts `1996/3072` rows and selects `96` compact rows with
 balanced source, policy, label, and mu coverage. However, aggregate ablation
 deltas remain small and the compact corpus is dominated by `mixed_dependency`
 (`94/96`). The current robust challenge family is therefore useful for boundary
-mining but not a strong self-ID gate. The next blocker is M456: design a task
-family that makes recurrent command-response history uniquely informative,
-using matched-current construction, warm-up, hidden-dynamics variation, or
-wrong-history interventions.
+mining but not a strong self-ID gate. M456 designs a task family that makes
+recurrent command-response history uniquely informative, using late-reveal
+warm-up challenges, matched-current ambiguity mining, and wrong-history
+intervention gates. The next blocker is M457: implement the first late-reveal
+zero-relvel config and validate sampling, reveal timing, and difficulty smokes
+before any training.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

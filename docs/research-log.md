@@ -10194,3 +10194,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M455 reruns the robust ablation diagnostic on disjoint seed windows `9600-9727`, `9900-10027`, and `10150-10277` after rejecting overlapping `9800/10000` windows as poor evidence discipline. All six near/late runs complete without sampling failure. Combined export accepts `1996/3072` rows and selects `96` compact rows with balanced source, policy, label, and mu coverage. Aggregate success deltas remain small: base `0.812500`, reset `0.805990`, zero-response `0.799479`, no-action `0.815104`. The compact corpus is dominated by `mixed_dependency` (`94/96`), so current robust challenges are better boundary-corpus sources than self-ID gates.
 - decision: `task_family_redesign_admit_m456`
 - next: `m456-history-necessity-task-family-design`
+
+## 20260523T201232Z - m456-history-necessity-task-family-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m456-history-necessity-task-family-design.md`
+- result: M456 designs a new history-necessity task family after M455's mixed-dependency result. The design has three layers: late-reveal warm-up challenges using existing obstacle reveal and friction-step controls, matched-current ambiguity mining, and wrong-history intervention gates. It preregisters that aggregate success is insufficient and that useful evidence requires source-diverse normal-vs-wrong/reset/delayed margin and action degradation. The next step is an M457 config implementation smoke, not training.
+- decision: `admit_m457_history_necessity_config_implementation`
+- next: `m457-history-necessity-config-implementation`

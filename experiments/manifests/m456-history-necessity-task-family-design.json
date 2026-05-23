@@ -80,5 +80,12 @@
     "docs/m455-response-critical-multiseed-expansion.md"
   ],
   "decision_rule": "M456 is a design milestone. It can admit a task-family implementation but cannot promote a checkpoint.",
-  "next_blocker": "pending M456 history-necessity task-family design"
+  "results": {
+    "design_artifact": "docs/m456-history-necessity-task-family-design.md",
+    "next_manifest": "experiments/manifests/m457-history-necessity-config-implementation.json",
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "admit_m457_history_necessity_config_implementation"
+  },
+  "next_blocker": "m457-history-necessity-config-implementation"
 }

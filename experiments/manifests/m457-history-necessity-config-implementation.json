@@ -1,0 +1,88 @@
+{
+  "id": "m457-history-necessity-config-implementation",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m455_response_critical_multiseed_corpus/candidates.csv",
+      "runs/m455_response_critical_multiseed_corpus/compact_corpus.csv",
+      "runs/m455_response_critical_multiseed_corpus/summary.json"
+    ],
+    "parent_config": [
+      "configs/m451_challenge_near_threshold_robust_zero_relvel.json",
+      "configs/m451_challenge_late_high_energy_robust_zero_relvel.json",
+      "experiments/manifests/m456-history-necessity-task-family-design.json"
+    ],
+    "parent_objective": [
+      "late-reveal history-necessity config implementation"
+    ],
+    "derived_from": [
+      "m456-history-necessity-task-family-design"
+    ],
+    "blocked_by": [
+      "m456-history-necessity-task-family-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m457-history-necessity-config-implementation.md",
+  "public_gates": [
+    "create late-reveal history-necessity config",
+    "run reset stress across multiple seed windows",
+    "run tiny benchmark smoke with base and ablations",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not claim self-ID from config smoke alone"
+  ],
+  "hypothesis": "A late-reveal obstacle config with pre-reveal friction evidence can create a runnable first layer for history-necessity mining without changing the P0 actor contract.",
+  "success_criteria": [
+    "new config is committed under an M457 name",
+    "reset stress passes seeds 9600 9900 and 10150",
+    "tiny benchmark completes without sampling failure",
+    "documentation reports reveal and difficulty tradeoffs",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "scenario sampling fails",
+    "obstacle reveal is effectively immediate for most rows",
+    "config becomes trivial or impossible",
+    "actor contract changes"
+  ],
+  "commands": [
+    {
+      "name": "implement_late_reveal_config",
+      "command": "Create configs/m457_history_necessity_late_reveal_zero_relvel.json and validate with reset stress and tiny benchmark; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "type": "env_config"
+    },
+    {
+      "path": "docs/m457-history-necessity-config-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m456-history-necessity-task-family-design.md"
+  ],
+  "decision_rule": "M457 passes if the late-reveal config is runnable and documented. It cannot prove self-ID or promote a checkpoint.",
+  "next_blocker": "pending M457 history-necessity config implementation"
+}
