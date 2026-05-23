@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 386,
+        "completed": 387,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m377-cumulative-gap-tail-v2-corpus-refresh",
+        "task_id": "m378-cumulative-gap-tail-v2-repair-probe",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m377_cumulative_gap_tail_v2_repair_smoke",
-        "command_log": "docs/m377-cumulative-gap-tail-v2-corpus-refresh.md"
+        "run_dir": "runs/m378_v2_final_interp_a005_cumulative_old_key_replay_gate",
+        "command_log": "docs/m378-cumulative-gap-tail-v2-repair-probe.md"
     },
     "next_task": {
-        "id": "m378-cumulative-gap-tail-v2-repair-probe",
+        "id": "m379-full-public-gate-for-m378-a005",
         "status": "pending",
-        "priority": 3730,
-        "kind": "gate",
-        "hypothesis": "Probe whether refreshed cumulative gap-tail v2 feedback can repair beyond the M375 alpha 0.1 base without PPO",
-        "command": "see experiments/manifests/m378-cumulative-gap-tail-v2-repair-probe.json",
+        "priority": 3740,
+        "kind": "driver_candidate",
+        "hypothesis": "Run full public gate for the bounded M378 alpha 0.05 cumulative gap-tail v2 repair candidate",
+        "command": "see experiments/manifests/m379-full-public-gate-for-m378-a005.json",
         "success_artifact": "",
-        "notes": "Pending: no-PPO exact repair then cumulative old-key replay before wider proof gates"
+        "notes": "Pending: run all six public replay surfaces and behavior seeds before any promotion"
     },
-    "updated_at_utc": "20260523T124607Z"
+    "updated_at_utc": "20260523T125711Z"
 }

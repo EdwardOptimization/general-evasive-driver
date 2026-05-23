@@ -55,7 +55,7 @@ the first tested cumulative old-key compact gap-p10 failure.
 Current blocker:
 
 ```text
-m378-cumulative-gap-tail-v2-repair-probe
+m379-full-public-gate-for-m378-a005
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -121,8 +121,12 @@ run the full public gate before any promotion. M375 promotes alpha `0.1` after
 the full public gate passes. M376 should audit the alpha `0.2` cumulative
 old-key boundary before more repair or PPO. M376 classifies alpha `0.2` as
 cumulative old-key gap-tail erosion with zero accepted regressions, so M377
-refreshes the v2 gap-tail overlay/corpus from the current boundary. M378 should
-run the no-PPO v2 repair probe before any PPO continuation.
+refreshes the v2 gap-tail overlay/corpus from the current boundary. M378 tests
+the v2 corpus in a no-PPO repair probe. The final repair endpoint is again too
+aggressive, but bounded alpha `0.05` toward that endpoint passes exact,
+cumulative old-key, source-diverse, and first replay proof gates. Alpha `0.1`
+is the first tested cumulative old-key gap-p10 failure. M379 should run the
+full public gate before any promotion or PPO continuation.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -199,7 +203,7 @@ run the no-PPO v2 repair probe before any PPO continuation.
 | bounded micro-alpha candidate | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M358 finds alpha 0.00025 passes exact and old-key; alpha 0.0005 first fails old-key |
 | proof-gate-passing micro-alpha | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M359 passes source-diverse protected and first replay proof gates |
 | current public-gate base | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M360 promotes alpha 0.00025 after full public gate pass; movement is extremely small |
-| current blocker | `experiments/manifests/m378-cumulative-gap-tail-v2-repair-probe.json` | M378 must run the v2 no-PPO repair probe and cumulative old-key replay before any PPO continuation |
+| current blocker | `experiments/manifests/m379-full-public-gate-for-m378-a005.json` | M379 must run the full public gate for M378 alpha `0.05` before any promotion or PPO continuation |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

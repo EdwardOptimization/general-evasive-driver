@@ -9414,3 +9414,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M377 refreshes the cumulative old-key gap-tail corpus for the current M375 boundary. The v2 overlay keeps one accepted-regression hard row and adds four M376 gap-tail rows. The exported 40-row corpus has preferred branch weight sum `76.765991`, wrong branch weight sum `56.656788`, and total sample weight sum `83.699730`. A no-update exact repair smoke reads the v2 corpus and passes exact lexicographic checks with old-key surrogate delta `-0.003332615`.
 - decision: `admit_m378_cumulative_gap_tail_v2_repair_probe`
 - next: `m378-cumulative-gap-tail-v2-repair-probe`
+
+## 20260523T125711Z - m378-cumulative-gap-tail-v2-repair-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m378_v2_final_interp_a005_cumulative_old_key_replay_gate`
+- artifact: `docs/m378-cumulative-gap-tail-v2-repair-probe.md`
+- result: M378 probes the v2 gap-tail repair path without PPO. The final repair endpoint improves exact M297/M270 and old-key surrogate, but closed-loop old-key replay bounds acceptable movement. Alpha `0.05` toward the final repair passes exact no-regression, cumulative old-key replay with gap p10 `-0.000488253`, source-diverse protected gates `5/5`, and M183/M170 plus M267/M264 first replay gates `17/17`; alpha `0.1` is the first tested cumulative old-key gap-p10 failure.
+- decision: `admit_m379_full_public_gate_for_m378_a005`
+- next: `m379-full-public-gate-for-m378-a005`

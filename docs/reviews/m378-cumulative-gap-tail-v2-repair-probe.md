@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260523T124734Z
+- Generated at UTC: 20260523T125948Z
 - Type: gate
 - Gate tier: proof
-- Promotion decision: not_applicable
-- Decision reason: M378 can admit a full proof or public gate only if a bounded v2 repair candidate passes cumulative old-key replay, source-diverse, and first replay gates; it cannot promote directly.
+- Promotion decision: admit_m379_full_public_gate_for_m378_a005
+- Decision reason: M378 bounded alpha 0.05 toward the v2 gap-tail final repair passes exact cumulative old-key source-diverse and first replay proof gates; alpha 0.1 first fails cumulative old-key gap p10
 
 ## Hypothesis
 
@@ -67,8 +67,19 @@ The v2 cumulative gap-tail old-key corpus can produce a bounded no-PPO repair ca
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m378-cumulative-gap-tail-v2-repair-probe
+- type: gate
+- checkpoint: runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: admit_m379_full_public_gate_for_m378_a005
+- reason: M378 bounded alpha 0.05 toward the v2 gap-tail final repair passes exact cumulative old-key source-diverse and first replay proof gates; alpha 0.1 first fails cumulative old-key gap p10
 
 ## Next Blocker
 
-pending M378 cumulative gap-tail v2 repair probe
+m379-full-public-gate-for-m378-a005
