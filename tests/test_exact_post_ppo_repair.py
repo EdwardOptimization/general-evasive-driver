@@ -8,6 +8,8 @@ from autodrift.exact_post_ppo_repair import (
     _add_exact_gate_fields,
     _select_best_repair_step,
     exact_outcome_intervention_loss,
+    exact_old_key_surrogate_terms,
+    exact_preference_action_anchor_loss,
     exact_rejected_history_preference_loss,
     exact_snippet_action_anchor_loss,
     load_repair_corpora,
@@ -245,3 +247,56 @@ def test_repair_loss_terms_hinge_and_base_anchor(tmp_path):
     assert terms["param_l2_to_raw"].item() > 0.0
     terms["total_loss"].backward()
     assert model.proj.weight.grad is not None
+
+
+def test_old_key_surrogate_terms_and_hinge(tmp_path):
+    preference_npz = tmp_path / "preference.npz"
+    outcome_npz = tmp_path / "outcome.npz"
+    _write_preference_npz(preference_npz)
+    _write_outcome_npz(outcome_npz)
+    preference, outcome = load_repair_corpora(
+        preference_npz=preference_npz,
+        outcome_npz=outcome_npz,
+        device=torch.device("cpu"),
+        obs_dim=72,
+        hidden_size=4,
+        act_dim=3,
+    )
+    model = _TinyRecurrentPolicy()
+    base_state = {name: value.detach().clone() for name, value in model.state_dict().items()}
+    raw_state = {name: value.detach().clone() + 0.1 for name, value in model.state_dict().items()}
+    anchor = build_snippet_action_anchor(model, outcome, include_rejected_hidden=True)
+    config = ExactRepairConfig(
+        exact_m297_tolerance=1e-6,
+        exact_m270_tolerance=1e-6,
+        exact_old_key_tolerance=1e-6,
+        lambda_old_key_anchor=0.25,
+    )
+    base_m297 = float(exact_rejected_history_preference_loss(model, preference, config.preference).item())
+    base_m270 = float(exact_outcome_intervention_loss(model, outcome, logprob_margin=0.05).item())
+    old_key_terms = exact_old_key_surrogate_terms(model, preference, config)
+    base_old_key = float(old_key_terms["old_key_surrogate_loss"].item())
+
+    assert old_key_terms["old_key_surrogate_loss"].item() == pytest.approx(
+        old_key_terms["old_key_preference_loss"].item()
+        + 0.25 * old_key_terms["old_key_action_anchor_loss"].item()
+    )
+    assert exact_preference_action_anchor_loss(model, preference).item() >= 0.0
+
+    terms = repair_loss_terms(
+        model=model,
+        preference=preference,
+        outcome=outcome,
+        old_key=preference,
+        anchor=anchor,
+        base_m297=base_m297,
+        base_m270=base_m270,
+        base_old_key=base_old_key,
+        base_state=base_state,
+        raw_state=raw_state,
+        trainable_names=["proj.weight"],
+        config=config,
+    )
+
+    assert terms["hinge_old_key"].item() == pytest.approx(0.0)
+    assert terms["old_key_surrogate_loss"].item() == pytest.approx(base_old_key)

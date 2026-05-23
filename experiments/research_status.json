@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 371,
+        "completed": 372,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m362-old-key-aware-exact-repair-design",
+        "task_id": "m363-old-key-aware-repair-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m362-old-key-aware-exact-repair-design.md"
+        "run_dir": "runs/m363_old_key_preference_corpus",
+        "command_log": "docs/m363-old-key-aware-repair-implementation.md"
     },
     "next_task": {
-        "id": "m363-old-key-aware-repair-implementation",
+        "id": "m364-old-key-aware-repair-probe",
         "status": "pending",
-        "priority": 3580,
-        "kind": "infrastructure",
-        "hypothesis": "Implement old-key-aware repair infrastructure without PPO",
-        "command": "see experiments/manifests/m363-old-key-aware-repair-implementation.json",
+        "priority": 3590,
+        "kind": "gate",
+        "hypothesis": "Probe old-key-aware exact repair before more PPO",
+        "command": "see experiments/manifests/m364-old-key-aware-repair-probe.json",
         "success_artifact": "",
-        "notes": "Pending: add old-key preference corpus optional exact repair loss and focused tests"
+        "notes": "Pending: run no-PPO old-key-aware repair and proof gates"
     },
     "updated_at_utc": "20260523T112052Z"
 }

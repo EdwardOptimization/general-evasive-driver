@@ -1,0 +1,92 @@
+{
+  "id": "m364-old-key-aware-repair-probe",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt",
+      "runs/m356_m354_repair_best_step_probe/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m363_old_key_preference_corpus/old_key_preference_corpus.npz",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m363-old-key-aware-repair-implementation.json"
+    ],
+    "parent_objective": [
+      "probe whether old-key-aware exact repair can move beyond retention-only alpha while preserving proof gates"
+    ],
+    "derived_from": [
+      "m363-old-key-aware-repair-implementation"
+    ],
+    "blocked_by": [
+      "m363-old-key-aware-repair-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m364-old-key-aware-repair-probe.md",
+  "public_gates": [
+    "no PPO run",
+    "exact M297/M270 no-regression",
+    "old-key surrogate no-regression",
+    "old-key neighborhood targeted replay and replay-gate adapter",
+    "source-diverse protected gates if old-key replay passes",
+    "M183/M170 and M267/M264 first replay gates if proof gates pass",
+    "preserve actor input contract"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not promote directly",
+    "do not run PPO",
+    "do not skip old-key targeted replay",
+    "do not treat surrogate success as proof without replay",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "Old-key-aware exact repair can generate a candidate that improves or preserves exact M297/M270 and old-key surrogate metrics without immediately requiring alpha 0.00025 clipping under old-key replay.",
+  "success_criteria": [
+    "old-key-aware repair candidate passes exact M297/M270 and old-key surrogate gates",
+    "old-key targeted replay has zero accepted regressions or exposes a larger safe alpha than M358",
+    "source-diverse and first replay gates are run if old-key replay passes",
+    "failure is classified if the direction remains retention-only",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "old-key-aware repair cannot move beyond base without exact or old-key surrogate regression",
+    "old-key replay fails at the same micro-alpha scale as M358",
+    "actor input contract changes",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "old_key_aware_repair",
+      "command": "Run exact_post_ppo_repair with --old-key-preference-npz from M363 and no PPO."
+    },
+    {
+      "name": "old_key_replay_gate",
+      "command": "Run old_key_neighborhood_targeted_replay and old_key_neighborhood_replay_gate for any exact-feasible candidate."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m364-old-key-aware-repair-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m363-old-key-aware-repair-implementation.md",
+    "runs/m363_old_key_preference_corpus/summary.json",
+    "runs/m363_old_key_repair_smoke/summary.json"
+  ],
+  "decision_rule": "M364 is complete when the old-key-aware repair probe either admits a proof-gate candidate for full replay or classifies the remaining repair bottleneck without promotion.",
+  "next_blocker": "pending M364 old-key-aware repair probe"
+}

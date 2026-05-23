@@ -84,6 +84,29 @@
   "baseline_artifacts": [
     "docs/m362-old-key-aware-exact-repair-design.md"
   ],
-  "decision_rule": "M363 is complete when old-key-aware repair infrastructure is implemented, tested, documented, and registered for a no-PPO probe milestone.",
-  "next_blocker": "pending M363 old-key-aware repair implementation"
+  "results": {
+    "code_files": [
+      "src/autodrift/old_key_preference_corpus.py",
+      "src/autodrift/exact_post_ppo_repair.py"
+    ],
+    "test_files": [
+      "tests/test_old_key_preference_corpus.py",
+      "tests/test_exact_post_ppo_repair.py"
+    ],
+    "old_key_preference_corpus_run_dir": "runs/m363_old_key_preference_corpus",
+    "old_key_preference_corpus_npz": "runs/m363_old_key_preference_corpus/old_key_preference_corpus.npz",
+    "old_key_preference_rows": 40,
+    "repair_smoke_run_dir": "runs/m363_old_key_repair_smoke",
+    "repair_smoke_selected_alpha": 0.0,
+    "repair_smoke_old_key_delta": 0.0,
+    "repair_smoke_exact_lexicographic_pass": true,
+    "focused_tests": "11 passed",
+    "compileall": "passed",
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m364_old_key_aware_repair_probe",
+  "decision_rule": "M363 completes when old-key-aware repair infrastructure is implemented, tested, documented, and registered for a no-PPO proof probe.",
+  "next_blocker": "m364-old-key-aware-repair-probe"
 }

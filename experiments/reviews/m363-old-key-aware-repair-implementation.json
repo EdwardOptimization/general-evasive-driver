@@ -1,0 +1,77 @@
+{
+  "decision_reason": "M363 implements old-key preference corpus and optional exact repair surrogate; exports 40-row corpus and verifies no-update repair smoke with old-key metrics",
+  "failure_criteria": [
+    "existing exact repair behavior changes when old-key corpus is omitted",
+    "old-key corpus includes privileged actor inputs",
+    "tests fail",
+    "research validation fails"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden parameters or oracle labels to actor inputs",
+    "do not replace closed-loop old-key replay gates with the surrogate"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260523T113626Z",
+  "hypothesis": "An optional old-key preference corpus and old-key surrogate loss can be added to exact post-PPO repair while preserving existing repair behavior when disabled.",
+  "lineage": {
+    "blocked_by": [
+      "m362-old-key-aware-exact-repair-design"
+    ],
+    "derived_from": [
+      "m362-old-key-aware-exact-repair-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m362-old-key-aware-exact-repair-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m362-old-key-aware-exact-repair-design.md",
+      "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv"
+    ],
+    "parent_objective": [
+      "implement old-key-aware exact repair/projection without PPO"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m363-old-key-aware-repair-implementation",
+  "next_blocker": "m364-old-key-aware-repair-probe",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m364_old_key_aware_repair_probe",
+  "public_gates": [
+    "infrastructure implementation only; no PPO run",
+    "old-key preference corpus validates without privileged actor inputs",
+    "exact repair remains backward-compatible when old-key corpus is absent",
+    "focused tests pass",
+    "research validation passes"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m364_old_key_aware_repair_probe",
+    "milestone": "m363-old-key-aware-repair-implementation",
+    "reason": "M363 implements old-key preference corpus and optional exact repair surrogate; exports 40-row corpus and verifies no-update repair smoke with old-key metrics",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "old-key preference corpus module exports and validates NPZ/metadata artifacts",
+    "exact_post_ppo_repair accepts optional old-key corpus arguments",
+    "selection trace records old-key surrogate metrics when enabled",
+    "backward compatibility tests pass",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

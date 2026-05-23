@@ -9264,3 +9264,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M362 designs an old-key-aware exact repair/projection stack. The design keeps exact M297/M270 as lexicographic no-regression objectives, adds an optional old-key differentiable surrogate built from the M341 compact old-key neighborhood rows, keeps closed-loop old-key replay as the authoritative proof gate, and rejects negligible-alpha directions as retention-only rather than PPO progress.
 - decision: `admit_m363_old_key_aware_repair_implementation`
 - next: `m363-old-key-aware-repair-implementation`
+
+## 20260523T112052Z - m363-old-key-aware-repair-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m363_old_key_preference_corpus`
+- artifact: `docs/m363-old-key-aware-repair-implementation.md`
+- result: M363 adds `src/autodrift/old_key_preference_corpus.py` and extends `exact_post_ppo_repair` with optional old-key surrogate metrics and loss. It exports a 40-row old-key preference corpus from M341 compact rows and verifies the repair integration with `runs/m363_old_key_repair_smoke`, which records old-key surrogate deltas in the selection trace without any update. Focused tests report `11 passed`; compileall passes.
+- decision: `admit_m364_old_key_aware_repair_probe`
+- next: `m364-old-key-aware-repair-probe`

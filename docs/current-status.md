@@ -56,7 +56,7 @@ old-key neighborhood gate.
 Current blocker:
 
 ```text
-m363-old-key-aware-repair-implementation
+m364-old-key-aware-repair-probe
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -94,7 +94,9 @@ M360 promotes `alpha=0.00025` after all six replay surfaces and behavior seeds
 pass. This is a proof-safe micro-step, not meaningful driver improvement. M361
 classifies it as retention-only progress. M362 designs old-key-aware exact
 repair, where old-key neighborhood proof becomes a first-class repair surrogate
-before more PPO.
+before more PPO. M363 implements the old-key preference corpus and optional
+exact-repair surrogate, exports a 40-row old-key corpus, and verifies the repair
+integration path with a no-update smoke.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -171,7 +173,7 @@ before more PPO.
 | bounded micro-alpha candidate | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M358 finds alpha 0.00025 passes exact and old-key; alpha 0.0005 first fails old-key |
 | proof-gate-passing micro-alpha | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M359 passes source-diverse protected and first replay proof gates |
 | current public-gate base | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M360 promotes alpha 0.00025 after full public gate pass; movement is extremely small |
-| current blocker | `experiments/manifests/m363-old-key-aware-repair-implementation.json` | M363 must implement the old-key preference corpus and optional exact-repair surrogate without running PPO |
+| current blocker | `experiments/manifests/m364-old-key-aware-repair-probe.json` | M364 must test whether old-key-aware exact repair can move beyond retention-only alpha without losing proof |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

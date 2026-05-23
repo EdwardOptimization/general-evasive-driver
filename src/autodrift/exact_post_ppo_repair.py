@@ -35,11 +35,15 @@ class ExactRepairConfig:
     """Configuration for lexicographic exact repair candidate generation."""
 
     preference: PreferenceLossConfig = field(default_factory=PreferenceLossConfig)
+    old_key_preference: PreferenceLossConfig = field(default_factory=PreferenceLossConfig)
     outcome_logprob_margin: float = 0.05
     exact_m297_tolerance: float = 1e-7
     exact_m270_tolerance: float = 1e-7
+    exact_old_key_tolerance: float = 1e-7
     lambda_m297: float = 1_000_000.0
     lambda_m270: float = 1_000_000.0
+    lambda_old_key: float = 1_000_000.0
+    lambda_old_key_anchor: float = 1.0
     lambda_action_anchor: float = 100.0
     lambda_param_base: float = 1.0
     lambda_param_raw: float = 0.0
@@ -104,6 +108,38 @@ def exact_snippet_action_anchor_loss(
     indices = torch.arange(anchor.size, device=anchor.observation.device)
     errors = snippet_action_anchor_errors(model, anchor, indices)
     return weighted_mean(errors, anchor.weight.detach())
+
+
+def exact_preference_action_anchor_loss(
+    model: torch.nn.Module,
+    snippets: RejectedHistoryPreferenceSnippets,
+) -> torch.Tensor:
+    indices = torch.arange(snippets.size, device=snippets.observation.device)
+    observation = snippets.observation[indices]
+    preferred_dist, _, _ = model.forward_recurrent(observation, snippets.preferred_hidden[indices])  # type: ignore[attr-defined]
+    rejected_dist, _, _ = model.forward_recurrent(observation, snippets.rejected_hidden[indices])  # type: ignore[attr-defined]
+    preferred_error = torch.square(
+        torch.tanh(preferred_dist.mean) - snippets.preferred_action[indices].detach()
+    ).mean(dim=-1)
+    rejected_error = torch.square(
+        torch.tanh(rejected_dist.mean) - snippets.rejected_action[indices].detach()
+    ).mean(dim=-1)
+    return weighted_mean(0.5 * (preferred_error + rejected_error), snippets.weight.detach())
+
+
+def exact_old_key_surrogate_terms(
+    model: torch.nn.Module,
+    snippets: RejectedHistoryPreferenceSnippets,
+    config: ExactRepairConfig,
+) -> dict[str, torch.Tensor]:
+    preference = exact_rejected_history_preference_loss(model, snippets, config.old_key_preference)
+    anchor = exact_preference_action_anchor_loss(model, snippets)
+    surrogate = preference + float(config.lambda_old_key_anchor) * anchor
+    return {
+        "old_key_surrogate_loss": surrogate,
+        "old_key_preference_loss": preference,
+        "old_key_action_anchor_loss": anchor,
+    }
 
 
 def trainable_parameter_items(
@@ -224,6 +260,7 @@ def exact_loss_summary(
     preference: RejectedHistoryPreferenceSnippets,
     outcome: OutcomeInterventionSnippets,
     config: ExactRepairConfig,
+    old_key: RejectedHistoryPreferenceSnippets | None = None,
 ) -> dict[str, Any]:
     with torch.no_grad():
         m297 = exact_rejected_history_preference_loss(model, preference, config.preference)
@@ -232,7 +269,8 @@ def exact_loss_summary(
             outcome,
             logprob_margin=config.outcome_logprob_margin,
         )
-    return {
+        old_key_terms = exact_old_key_surrogate_terms(model, old_key, config) if old_key is not None else None
+    summary = {
         "policy": label,
         "checkpoint": str(checkpoint),
         "exact_m297_loss": float(m297.detach().cpu().item()),
@@ -240,6 +278,14 @@ def exact_loss_summary(
         "preference_rows": int(preference.size),
         "outcome_rows": int(outcome.size),
     }
+    if old_key_terms is not None:
+        summary.update(
+            {
+                "old_key_rows": int(old_key.size) if old_key is not None else 0,
+                **{name: float(value.detach().cpu().item()) for name, value in old_key_terms.items()},
+            }
+        )
+    return summary
 
 
 def repair_loss_terms(
@@ -247,9 +293,11 @@ def repair_loss_terms(
     model: torch.nn.Module,
     preference: RejectedHistoryPreferenceSnippets,
     outcome: OutcomeInterventionSnippets,
+    old_key: RejectedHistoryPreferenceSnippets | None = None,
     anchor: SnippetActionAnchor,
     base_m297: float,
     base_m270: float,
+    base_old_key: float | None = None,
     base_state: dict[str, torch.Tensor],
     raw_state: dict[str, torch.Tensor],
     trainable_names: list[str],
@@ -263,12 +311,28 @@ def repair_loss_terms(
     )
     hinge297 = torch.relu(m297 - float(base_m297) - float(config.exact_m297_tolerance))
     hinge270 = torch.relu(m270 - float(base_m270) - float(config.exact_m270_tolerance))
+    if old_key is not None:
+        old_key_terms = exact_old_key_surrogate_terms(model, old_key, config)
+        old_key_surrogate = old_key_terms["old_key_surrogate_loss"]
+        base_old_key_value = float(base_old_key if base_old_key is not None else old_key_surrogate.detach().cpu().item())
+        hinge_old_key = torch.relu(
+            old_key_surrogate - base_old_key_value - float(config.exact_old_key_tolerance)
+        )
+    else:
+        device = m297.device
+        old_key_terms = {
+            "old_key_surrogate_loss": torch.zeros((), dtype=torch.float32, device=device),
+            "old_key_preference_loss": torch.zeros((), dtype=torch.float32, device=device),
+            "old_key_action_anchor_loss": torch.zeros((), dtype=torch.float32, device=device),
+        }
+        hinge_old_key = torch.zeros((), dtype=torch.float32, device=device)
     action_anchor = exact_snippet_action_anchor_loss(model, anchor)
     param_base = parameter_l2_to_reference(model, base_state, trainable_names)
     param_raw = parameter_l2_to_reference(model, raw_state, trainable_names)
     total = (
         float(config.lambda_m297) * hinge297.square()
         + float(config.lambda_m270) * hinge270.square()
+        + float(config.lambda_old_key) * hinge_old_key.square()
         + float(config.lambda_action_anchor) * action_anchor
         + float(config.lambda_param_base) * param_base
         + float(config.lambda_param_raw) * param_raw
@@ -279,6 +343,8 @@ def repair_loss_terms(
         "exact_m270_loss": m270,
         "hinge_m297": hinge297,
         "hinge_m270": hinge270,
+        "hinge_old_key": hinge_old_key,
+        **old_key_terms,
         "action_anchor_loss": action_anchor,
         "param_l2_to_base": param_base,
         "param_l2_to_raw": param_raw,
@@ -303,6 +369,7 @@ def _add_exact_gate_fields(
     base_m297: float,
     base_m270: float,
     config: ExactRepairConfig,
+    base_old_key: float | None = None,
 ) -> dict[str, Any]:
     m297_delta = float(row["exact_m297_loss"]) - float(base_m297)
     m270_delta = float(row["exact_m270_loss"]) - float(base_m270)
@@ -310,10 +377,21 @@ def _add_exact_gate_fields(
     row["exact_m270_delta_vs_base"] = m270_delta
     row["exact_m297_no_regression"] = bool(m297_delta <= float(config.exact_m297_tolerance))
     row["exact_m270_no_regression"] = bool(m270_delta <= float(config.exact_m270_tolerance))
-    row["exact_lexicographic_pass"] = bool(row["exact_m297_no_regression"] and row["exact_m270_no_regression"])
+    old_key_pass = True
+    old_key_violation = 0.0
+    if base_old_key is not None and "old_key_surrogate_loss" in row:
+        old_key_delta = float(row["old_key_surrogate_loss"]) - float(base_old_key)
+        row["old_key_surrogate_delta_vs_base"] = old_key_delta
+        row["old_key_surrogate_no_regression"] = bool(old_key_delta <= float(config.exact_old_key_tolerance))
+        old_key_pass = bool(row["old_key_surrogate_no_regression"])
+        old_key_violation = max(0.0, old_key_delta - float(config.exact_old_key_tolerance))
+    row["exact_lexicographic_pass"] = bool(
+        row["exact_m297_no_regression"] and row["exact_m270_no_regression"] and old_key_pass
+    )
     row["positive_violation"] = float(
         max(0.0, m297_delta - float(config.exact_m297_tolerance))
         + max(0.0, m270_delta - float(config.exact_m270_tolerance))
+        + old_key_violation
     )
     return row
 
@@ -327,6 +405,7 @@ def _repair_metrics_row(
     learning_rate: float,
     base_m297: float,
     base_m270: float,
+    base_old_key: float | None,
     config: ExactRepairConfig,
 ) -> dict[str, Any]:
     row = {
@@ -336,7 +415,13 @@ def _repair_metrics_row(
         "grad_norm": float(grad_norm),
         "learning_rate": float(learning_rate),
     }
-    return _add_exact_gate_fields(row, base_m297=base_m297, base_m270=base_m270, config=config)
+    return _add_exact_gate_fields(
+        row,
+        base_m297=base_m297,
+        base_m270=base_m270,
+        base_old_key=base_old_key,
+        config=config,
+    )
 
 
 def _repair_selection_key(row: dict[str, Any]) -> tuple[int, float, float, float, int]:
@@ -364,10 +449,12 @@ def _line_search_rows(
     raw_state: dict[str, torch.Tensor],
     preference: RejectedHistoryPreferenceSnippets,
     outcome: OutcomeInterventionSnippets,
+    old_key: RejectedHistoryPreferenceSnippets | None,
     config: ExactRepairConfig,
     alphas: list[float],
     base_m297: float,
     base_m270: float,
+    base_old_key: float | None,
 ) -> tuple[float, list[dict[str, Any]]]:
     rows: list[dict[str, Any]] = []
     best_alpha = 0.0
@@ -381,17 +468,27 @@ def _line_search_rows(
             model=model,
             preference=preference,
             outcome=outcome,
+            old_key=old_key,
             config=config,
         )
         m297_delta = float(summary["exact_m297_loss"]) - float(base_m297)
         m270_delta = float(summary["exact_m270_loss"]) - float(base_m270)
+        old_key_delta = (
+            float(summary["old_key_surrogate_loss"]) - float(base_old_key)
+            if base_old_key is not None and "old_key_surrogate_loss" in summary
+            else 0.0
+        )
         passes = (
             m297_delta <= float(config.exact_m297_tolerance)
             and m270_delta <= float(config.exact_m270_tolerance)
+            and old_key_delta <= float(config.exact_old_key_tolerance)
         )
         violation = max(0.0, m297_delta - float(config.exact_m297_tolerance)) + max(
             0.0,
             m270_delta - float(config.exact_m270_tolerance),
+        ) + max(
+            0.0,
+            old_key_delta - float(config.exact_old_key_tolerance),
         )
         rows.append(
             {
@@ -399,6 +496,7 @@ def _line_search_rows(
                 "alpha": float(alpha),
                 "exact_m297_delta_vs_base": m297_delta,
                 "exact_m270_delta_vs_base": m270_delta,
+                "old_key_surrogate_delta_vs_base": old_key_delta if base_old_key is not None else None,
                 "exact_gates_pass": bool(passes),
                 "positive_violation": float(violation),
             }
@@ -445,6 +543,7 @@ def optimize_exact_post_ppo_repair(
     raw_checkpoint: Path,
     preference_npz: Path,
     outcome_npz: Path,
+    old_key_preference_npz: Path | None = None,
     device: str,
     start_mode: str,
     line_search_alphas: list[float],
@@ -480,6 +579,17 @@ def optimize_exact_post_ppo_repair(
         hidden_size=hidden_size,
         act_dim=act_dim,
     )
+    old_key = (
+        load_rejected_history_preference_snippets(
+            old_key_preference_npz,
+            device=next(base_model.parameters()).device,
+            obs_dim=obs_dim,
+            hidden_size=hidden_size,
+            act_dim=act_dim,
+        )
+        if old_key_preference_npz is not None
+        else None
+    )
     base_state = _load_state(base_source, next(base_model.parameters()).device)
     raw_state = _load_state({"model_state": raw_model.state_dict()}, next(base_model.parameters()).device)
 
@@ -489,6 +599,7 @@ def optimize_exact_post_ppo_repair(
         model=base_model,
         preference=preference,
         outcome=outcome,
+        old_key=old_key,
         config=config,
     )
     raw_summary = exact_loss_summary(
@@ -497,6 +608,7 @@ def optimize_exact_post_ppo_repair(
         model=raw_model,
         preference=preference,
         outcome=outcome,
+        old_key=old_key,
         config=config,
     )
 
@@ -517,10 +629,14 @@ def optimize_exact_post_ppo_repair(
             raw_state=raw_state,
             preference=preference,
             outcome=outcome,
+            old_key=old_key,
             config=config,
             alphas=line_search_alphas,
             base_m297=float(base_summary["exact_m297_loss"]),
             base_m270=float(base_summary["exact_m270_loss"]),
+            base_old_key=(
+                float(base_summary["old_key_surrogate_loss"]) if "old_key_surrogate_loss" in base_summary else None
+            ),
         )
         interpolate_model_state(model, base_state, raw_state, alpha=selected_alpha)
         start_label = f"start_alpha_{selected_alpha:g}"
@@ -543,10 +659,12 @@ def optimize_exact_post_ppo_repair(
         model=model,
         preference=preference,
         outcome=outcome,
+        old_key=old_key,
         config=config,
     )
     base_m297 = float(base_summary["exact_m297_loss"])
     base_m270 = float(base_summary["exact_m270_loss"])
+    base_old_key = float(base_summary["old_key_surrogate_loss"]) if "old_key_surrogate_loss" in base_summary else None
     metrics: list[dict[str, Any]] = []
     selection_trace: list[dict[str, Any]] = []
     best_row: dict[str, Any] | None = None
@@ -560,9 +678,11 @@ def optimize_exact_post_ppo_repair(
             model=model,
             preference=preference,
             outcome=outcome,
+            old_key=old_key,
             anchor=anchor,
             base_m297=base_m297,
             base_m270=base_m270,
+            base_old_key=base_old_key,
             base_state=base_state,
             raw_state=raw_state,
             trainable_names=trainable.names,
@@ -576,6 +696,7 @@ def optimize_exact_post_ppo_repair(
         learning_rate=float(learning_rate),
         base_m297=base_m297,
         base_m270=base_m270,
+        base_old_key=base_old_key,
         config=config,
     )
     selection_trace.append(start_row)
@@ -587,9 +708,11 @@ def optimize_exact_post_ppo_repair(
             model=model,
             preference=preference,
             outcome=outcome,
+            old_key=old_key,
             anchor=anchor,
             base_m297=base_m297,
             base_m270=base_m270,
+            base_old_key=base_old_key,
             base_state=base_state,
             raw_state=raw_state,
             trainable_names=trainable.names,
@@ -604,9 +727,11 @@ def optimize_exact_post_ppo_repair(
                 model=model,
                 preference=preference,
                 outcome=outcome,
+                old_key=old_key,
                 anchor=anchor,
                 base_m297=base_m297,
                 base_m270=base_m270,
+                base_old_key=base_old_key,
                 base_state=base_state,
                 raw_state=raw_state,
                 trainable_names=trainable.names,
@@ -620,6 +745,7 @@ def optimize_exact_post_ppo_repair(
             learning_rate=float(learning_rate),
             base_m297=base_m297,
             base_m270=base_m270,
+            base_old_key=base_old_key,
             config=config,
         )
         selection_trace.append(post_row)
@@ -640,9 +766,16 @@ def optimize_exact_post_ppo_repair(
         model=model,
         preference=preference,
         outcome=outcome,
+        old_key=old_key,
         config=config,
     )
-    _add_exact_gate_fields(final_summary, base_m297=base_m297, base_m270=base_m270, config=config)
+    _add_exact_gate_fields(
+        final_summary,
+        base_m297=base_m297,
+        base_m270=base_m270,
+        base_old_key=base_old_key,
+        config=config,
+    )
     if selection_policy == "best_feasible":
         model.load_state_dict(best_state)
 
@@ -657,6 +790,7 @@ def optimize_exact_post_ppo_repair(
             "raw_checkpoint": raw_checkpoint,
             "preference_npz": preference_npz,
             "outcome_npz": outcome_npz,
+            "old_key_preference_npz": old_key_preference_npz,
             "start_mode": start_mode,
             "selected_alpha": selected_alpha,
             "steps": total_steps,
@@ -676,9 +810,16 @@ def optimize_exact_post_ppo_repair(
         model=model,
         preference=preference,
         outcome=outcome,
+        old_key=old_key,
         config=config,
     )
-    _add_exact_gate_fields(candidate_summary, base_m297=base_m297, base_m270=base_m270, config=config)
+    _add_exact_gate_fields(
+        candidate_summary,
+        base_m297=base_m297,
+        base_m270=base_m270,
+        base_old_key=base_old_key,
+        config=config,
+    )
     candidate_summary["selection_policy"] = selection_policy
     candidate_summary["selected_step"] = selected_step
     candidate_summary["selected_metric_phase"] = selected_metric_phase
@@ -698,6 +839,8 @@ def optimize_exact_post_ppo_repair(
         "candidate_checkpoint": candidate_path,
         "preference_npz": preference_npz,
         "outcome_npz": outcome_npz,
+        "old_key_preference_npz": old_key_preference_npz,
+        "old_key_rows": int(old_key.size) if old_key is not None else 0,
         "device": str(resolved_device),
         "start_mode": start_mode,
         "selected_alpha": selected_alpha,
@@ -736,6 +879,7 @@ def main() -> None:
     parser.add_argument("--raw-checkpoint", type=Path, required=True)
     parser.add_argument("--preference-npz", type=Path, required=True)
     parser.add_argument("--outcome-npz", type=Path, required=True)
+    parser.add_argument("--old-key-preference-npz", type=Path, default=None)
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="cpu")
     parser.add_argument(
         "--start-mode",
@@ -751,11 +895,17 @@ def main() -> None:
     parser.add_argument("--preferred-logprob-margin", type=float, default=0.05)
     parser.add_argument("--wrong-logprob-margin", type=float, default=0.05)
     parser.add_argument("--wrong-preference-coef", type=float, default=1.0)
+    parser.add_argument("--old-key-preferred-logprob-margin", type=float, default=0.05)
+    parser.add_argument("--old-key-wrong-logprob-margin", type=float, default=0.05)
+    parser.add_argument("--old-key-wrong-preference-coef", type=float, default=1.0)
     parser.add_argument("--outcome-logprob-margin", type=float, default=0.05)
     parser.add_argument("--exact-m297-tolerance", type=float, default=1e-7)
     parser.add_argument("--exact-m270-tolerance", type=float, default=1e-7)
+    parser.add_argument("--exact-old-key-tolerance", type=float, default=1e-7)
     parser.add_argument("--lambda-m297", type=float, default=1_000_000.0)
     parser.add_argument("--lambda-m270", type=float, default=1_000_000.0)
+    parser.add_argument("--lambda-old-key", type=float, default=1_000_000.0)
+    parser.add_argument("--lambda-old-key-anchor", type=float, default=1.0)
     parser.add_argument("--lambda-action-anchor", type=float, default=100.0)
     parser.add_argument("--lambda-param-base", type=float, default=1.0)
     parser.add_argument("--lambda-param-raw", type=float, default=0.0)
@@ -771,6 +921,7 @@ def main() -> None:
         raw_checkpoint=args.raw_checkpoint,
         preference_npz=args.preference_npz,
         outcome_npz=args.outcome_npz,
+        old_key_preference_npz=args.old_key_preference_npz,
         device=args.device,
         start_mode=args.start_mode,
         line_search_alphas=args.line_search_alphas,
@@ -785,11 +936,19 @@ def main() -> None:
                 wrong_logprob_margin=args.wrong_logprob_margin,
                 wrong_preference_coef=args.wrong_preference_coef,
             ),
+            old_key_preference=PreferenceLossConfig(
+                preferred_logprob_margin=args.old_key_preferred_logprob_margin,
+                wrong_logprob_margin=args.old_key_wrong_logprob_margin,
+                wrong_preference_coef=args.old_key_wrong_preference_coef,
+            ),
             outcome_logprob_margin=args.outcome_logprob_margin,
             exact_m297_tolerance=args.exact_m297_tolerance,
             exact_m270_tolerance=args.exact_m270_tolerance,
+            exact_old_key_tolerance=args.exact_old_key_tolerance,
             lambda_m297=args.lambda_m297,
             lambda_m270=args.lambda_m270,
+            lambda_old_key=args.lambda_old_key,
+            lambda_old_key_anchor=args.lambda_old_key_anchor,
             lambda_action_anchor=args.lambda_action_anchor,
             lambda_param_base=args.lambda_param_base,
             lambda_param_raw=args.lambda_param_raw,
