@@ -42,20 +42,21 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m385_recovery_repair_micro_interpolation/checkpoints/alpha_0_00075.pt
+runs/m390_step17_micro_interpolation/checkpoints/alpha_0_005.pt
 ```
 
-Status: M386 promotes M385 micro alpha `0.00075` toward the local-action
-recovery repair endpoint as the current public-gate base. It passes exact
-M297/M270, cumulative old-key replay, source-diverse protected gates `5/5`, all
-six public replay surfaces, and behavior seeds `9505`/`9506`. This is a
-proof-safe micro promotion, not a large driver-performance improvement; alpha
-`0.001` is the first tested M267/M264 knife-edge failure.
+Status: M391 promotes M390 alpha `0.005` toward the conflict-repaired step17
+endpoint as the current public-gate base. It passes exact M297/M270,
+M267/M264 first replay, cumulative old-key replay, source-diverse protected
+gates `5/5`, all six public replay surfaces, and behavior seeds `9505`/`9506`.
+This remains a proof-safe micro promotion, not a large driver-performance
+improvement; alpha `0.01` is the first tested M267/M264 knife-edge failure
+along this direction.
 
 Current blocker:
 
 ```text
-m391-full-public-gate-for-m390-a005
+m392-m391-micro-promotion-utility-audit
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -170,7 +171,10 @@ active constraint. M390 completes that no-PPO probe: the step17 endpoint and
 alpha `0.01` still fail M267/M264, but bounded alpha `0.005` passes exact
 M297/M270, M267/M264 `17/17`, cumulative old-key replay, source-diverse
 protected gates `5/5`, and M183/M170 `17/17`. M391 should run the full public
-gate for this alpha `0.005` candidate before any promotion.
+gate for this alpha `0.005` candidate before any promotion. M391 promotes that
+candidate after all six public replay surfaces and behavior seeds pass. M392
+should audit whether this micro promotion is useful enough to chain another
+repair or PPO step.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

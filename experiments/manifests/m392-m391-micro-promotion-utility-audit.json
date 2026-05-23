@@ -1,0 +1,81 @@
+{
+  "id": "m392-m391-micro-promotion-utility-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m390_step17_micro_interpolation/checkpoints/alpha_0_005.pt",
+      "runs/m385_recovery_repair_micro_interpolation/checkpoints/alpha_0_00075.pt"
+    ],
+    "parent_dataset": [
+      "docs/m391-full-public-gate-for-m390-a005.md",
+      "runs/m390_step17_a005_exact_eval/summary.json",
+      "runs/m391_full_public_gate_for_m390_a005/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m391-full-public-gate-for-m390-a005.json"
+    ],
+    "parent_objective": [
+      "audit whether the M391 public-gate promotion is useful enough to chain another repair or PPO step"
+    ],
+    "derived_from": [
+      "m391-full-public-gate-for-m390-a005"
+    ],
+    "blocked_by": [
+      "m391-full-public-gate-for-m390-a005"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m392-m391-micro-promotion-utility-audit.md",
+  "public_gates": [
+    "no PPO run",
+    "compare M391 movement size against M386 base",
+    "identify active first failing boundary",
+    "decide whether next step should be full-gate promotion continuation, objective redesign, or PPO block"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in the utility audit",
+    "do not treat a micro promotion as behavior improvement without evidence",
+    "do not lower proof thresholds",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "hypothesis": "M391 is likely another proof-safe micro promotion rather than meaningful driver improvement, so the next blocker should be decided by active-boundary utility rather than immediately chaining PPO.",
+  "success_criteria": [
+    "quantify exact objective deltas and behavior deltas versus the previous public base",
+    "record the first known failing alpha or boundary after M391",
+    "classify whether M391 is meaningful progress or only proof-safe retention",
+    "pre-register the next highest-leverage milestone"
+  ],
+  "failure_criteria": [
+    "audit cannot identify a next blocker",
+    "audit relies on unregistered private holdout tuning",
+    "actor contract changes",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "utility_audit",
+      "command": "Summarize M391 deltas, active boundaries, and next blocker; no PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m392-m391-micro-promotion-utility-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m390_step17_micro_interpolation/checkpoints/alpha_0_005.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m391-full-public-gate-for-m390-a005.md"
+  ],
+  "decision_rule": "M392 should admit the next task only after classifying whether the M391 promotion is meaningful enough to chain or whether another active-boundary/objective redesign is needed.",
+  "next_blocker": "pending M392 utility audit"
+}

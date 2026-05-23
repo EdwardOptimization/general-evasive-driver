@@ -9544,3 +9544,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M390 tests old-key recovery plus the M389 conflict residual without PPO. The step17 exact-repair endpoint improves exact M297/M270 and old-key surrogate but fails M267/M264 with only `15/17` success drops. Interpolation alpha `0.01` still fails row15 with `16/17`, while alpha `0.005` passes M267/M264 `17/17`. The selected alpha `0.005` also passes exact M297/M270, cumulative old-key replay with zero accepted regressions, source-diverse protected gates `5/5`, and M183/M170 first replay `17/17`.
 - decision: `admit_m391_full_public_gate_for_m390_a005`
 - next: `m391-full-public-gate-for-m390-a005`
+
+## 20260523T142628Z - m391-full-public-gate-for-m390-a005
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m391_full_public_gate_for_m390_a005`
+- artifact: `docs/m391-full-public-gate-for-m390-a005.md`
+- result: M391 promotes `runs/m390_step17_micro_interpolation/checkpoints/alpha_0_005.pt`. It passes all six public replay gates versus `m333_base`: M183/M168 `16/16`, M183/M170 `17/17`, M193/M189 `14/14`, M212/M204 `17/17`, M223/M219 `17/17`, and M267/M264 `17/17`. Behavior seeds `9505` and `9506` retain success mean `0.8625`, termination mean `0.1375`, clearance margin mean `1.844192334`, reset success mean `0.85`, and zero-all success mean `0.80`.
+- decision: `promote_m390_step17_a005_public_gate_base`
+- next: `m392-m391-micro-promotion-utility-audit`
