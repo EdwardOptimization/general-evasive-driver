@@ -9924,3 +9924,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M428 classifies all M427 old-key failures. `10004|perturbed|31|31` is a rejected-history branch washout: normal margin improves to `0.001654` but wrong-history margin becomes positive `0.000953`. `10023|perturbed|12|12` remains normal-successful but loses old-key gap. `9872|perturbed|21|18` fails two compact cases by normal-branch collision. The next guard must be branch-split: allow `10004` normal recovery while guarding its rejected branch, and add `9872` normal-branch hard guards.
 - decision: `admit_m429_branch_split_old_key_guard_implementation`
 - next: `m429-branch-split-old-key-guard-implementation`
+
+## 20260523T175435Z - m429-branch-split-old-key-guard-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m429_branch_split_guard_no_update_smoke`
+- artifact: `docs/m429-branch-split-old-key-guard-implementation.md`
+- result: M429 adds `branch_split_old_key_guard.py`, exports M427 failed old-key rows as branch-split trajectory guards, and combines them with the M426 hard guard. The final anchor has `357` rows: `197` M426 base hard-guard rows plus `160` branch-split old-key rows. Additions are `10004` wrong-history, `10023` wrong-history, and two `9872` normal-branch cases. No-update exact repair smoke passes with replay trajectory loss `0.0`; focused tests pass (`25 passed`).
+- decision: `admit_m430_branch_split_nullspace_projection_probe`
+- next: `m430-branch-split-nullspace-projection-probe`

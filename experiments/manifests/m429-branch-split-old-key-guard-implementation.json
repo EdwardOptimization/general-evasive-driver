@@ -84,5 +84,45 @@
     "docs/m428-old-key-branch-split-guard-audit.md"
   ],
   "decision_rule": "M429 may admit a second no-PPO projected recovery probe only if branch-split guard export and no-update smoke pass without actor-contract changes.",
-  "next_blocker": "pending M429 branch-split old-key guard implementation"
+  "next_blocker": "m430-branch-split-nullspace-projection-probe",
+  "results": {
+    "artifact": "docs/m429-branch-split-old-key-guard-implementation.md",
+    "code_paths": [
+      "src/autodrift/branch_split_old_key_guard.py",
+      "tests/test_branch_split_old_key_guard.py"
+    ],
+    "export_run": "runs/m429_branch_split_old_key_guard",
+    "failed_rows_csv": "runs/m429_branch_split_old_key_guard/branch_split_failed_rows.csv",
+    "branch_export_run": "runs/m429_branch_split_old_key_guard/branch_trajectory_export",
+    "anchor_npz": "runs/m429_branch_split_old_key_guard/branch_split_hard_guard_anchor.npz",
+    "source_summary_csv": "runs/m429_branch_split_old_key_guard/branch_split_hard_guard_sources.csv",
+    "rows": 357,
+    "base_rows": 197,
+    "branch_rows": 160,
+    "branch_counts": {
+      "wrong_history": 2,
+      "normal": 2
+    },
+    "branch_sources": [
+      "10004_wrong_history",
+      "10023_wrong_history",
+      "9872_normal_case_a",
+      "9872_normal_case_b"
+    ],
+    "no_update_smoke": {
+      "run_dir": "runs/m429_branch_split_guard_no_update_smoke",
+      "exact_lexicographic_pass": true,
+      "exact_m297_delta_vs_base": 0.0,
+      "exact_m270_delta_vs_base": 5.960464477539063e-08,
+      "old_key_surrogate_delta_vs_base": 0.0,
+      "replay_trajectory_anchor_loss": 0.0
+    },
+    "focused_tests": "25 passed",
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m430-branch-split-nullspace-projection-probe"
+  },
+  "decision": "admit_m430_branch_split_nullspace_projection_probe"
 }

@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M429 exports a 357-row branch-split hard guard with 10004 wrong-history 10023 wrong-history and 9872 normal guards and no-update exact smoke passes",
+  "failure_criteria": [
+    "10004 normal branch is accidentally hard-anchored",
+    "10004 rejected branch is not guarded",
+    "9872 normal branch cannot be reconstructed",
+    "implementation changes actor inputs or outputs",
+    "milestone runs PPO or promotes a checkpoint"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260523T175557Z",
+  "hypothesis": "A branch-split old-key guard can keep projected recovery's M267-retention benefit while preventing 10004 wrong-history safety and 9872 normal-branch collisions.",
+  "lineage": {
+    "blocked_by": [
+      "m427-source-coupled-nullspace-projection-probe"
+    ],
+    "derived_from": [
+      "m428-old-key-branch-split-guard-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m427_projected_recovery_ltraj1e13_s40_seed10156/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m428-old-key-branch-split-guard-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m427_projected_old_key_targeted_replay/guard_results.csv",
+      "runs/m398_old_key_normal_margin_recovery_targets/old_key_recovery_corpus.npz",
+      "runs/m426_source_coupled_hard_guard_anchor/hard_guard_anchor.npz"
+    ],
+    "parent_objective": [
+      "implement branch-split old-key hard guard after M427 projected recovery failure"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m429-branch-split-old-key-guard-implementation",
+  "next_blocker": "m430-branch-split-nullspace-projection-probe",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m430_branch_split_nullspace_projection_probe",
+  "public_gates": [
+    "export branch-split hard guard anchor",
+    "10004 rejected-history branch guarded while normal recovery remains utility",
+    "9872 normal-branch guard rows added",
+    "no-update exact repair smoke passes",
+    "focused tests for branch-split export",
+    "no PPO run",
+    "no checkpoint promotion",
+    "no actor input/output change"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m430_branch_split_nullspace_projection_probe",
+    "milestone": "m429-branch-split-old-key-guard-implementation",
+    "reason": "M429 exports a 357-row branch-split hard guard with 10004 wrong-history 10023 wrong-history and 9872 normal guards and no-update exact smoke passes",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "export a hard guard anchor with M267 rows 6 and 15 old-key 10023 spillovers 10004 rejected branch and 9872 normal branch",
+    "exclude 10004 normal branch from the hard guard so M398 recovery can still move it",
+    "write source metadata showing branch role for each old-key source",
+    "run no-update exact repair smoke with finite zero replay loss",
+    "run focused tests for branch filtering and source metadata"
+  ],
+  "type": "infrastructure"
+}

@@ -1,0 +1,86 @@
+{
+  "id": "m430-branch-split-nullspace-projection-probe",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m403_lrec1e10_interpolation/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m398_old_key_normal_margin_recovery_targets/old_key_recovery_corpus.npz",
+      "runs/m429_branch_split_old_key_guard/branch_split_hard_guard_anchor.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m429-branch-split-old-key-guard-implementation.json"
+    ],
+    "parent_objective": [
+      "no-PPO projected recovery with branch-split old-key hard guard"
+    ],
+    "derived_from": [
+      "m429-branch-split-old-key-guard-implementation"
+    ],
+    "blocked_by": [
+      "m427-source-coupled-nullspace-projection-probe"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m430-branch-split-nullspace-projection-probe.md",
+  "public_gates": [
+    "exact M297 no-regression",
+    "exact M270 no-regression",
+    "old-key surrogate no-regression",
+    "M267/M264 first replay",
+    "old-key compact replay",
+    "M183/M170 first replay if first gates pass",
+    "recovery improvement retained vs M406 >= 0.20 for primary pass"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "hypothesis": "Branch-split old-key hard guards can keep M427 projected recovery's utility improvement while repairing 10004 wrong-history safety and 9872 normal-branch collision.",
+  "success_criteria": [
+    "candidate passes exact M297/M270/old-key no-regression",
+    "candidate passes M267/M264 first replay with 17/17 success drops",
+    "candidate passes old-key compact replay with 40/40 accepted",
+    "candidate passes M183/M170 first replay with 17/17 success drops",
+    "candidate retains at least 20% of M406 recovery improvement for primary pass"
+  ],
+  "failure_criteria": [
+    "exact gates regress",
+    "M267/M264 rows 6 or 15 become wrong-history successes",
+    "old-key compact replay remains below 40/40",
+    "candidate falls below M427 recovery utility",
+    "actor input or output contract changes"
+  ],
+  "commands": [
+    {
+      "name": "branch_split_nullspace_projection_probe",
+      "command": "Run exact_post_ppo_repair from M403 raw with --project-recovery-gradient and M429 branch-split guard anchor; no PPO or promotion."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m430-branch-split-nullspace-projection-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m429-branch-split-old-key-guard-implementation.md"
+  ],
+  "decision_rule": "M430 may admit a full public gate only if exact gates M267/M264 and old-key compact replay all pass; proof-pass utility below 0.20 is partial non-promotable evidence.",
+  "next_blocker": "pending M430 branch-split nullspace projection probe"
+}

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 437,
+        "completed": 438,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m428-old-key-branch-split-guard-audit",
+        "task_id": "m429-branch-split-old-key-guard-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m428-old-key-branch-split-guard-audit.md"
+        "run_dir": "runs/m429_branch_split_guard_no_update_smoke",
+        "command_log": "docs/m429-branch-split-old-key-guard-implementation.md"
     },
     "next_task": {
-        "id": "m429-branch-split-old-key-guard-implementation",
+        "id": "m430-branch-split-nullspace-projection-probe",
         "status": "pending",
-        "priority": 4240,
-        "kind": "infrastructure",
-        "hypothesis": "Implement branch-split old-key hard guard after M427 failure",
-        "command": "see experiments/manifests/m429-branch-split-old-key-guard-implementation.json",
+        "priority": 4250,
+        "kind": "gate",
+        "hypothesis": "Probe branch-split old-key projected recovery without PPO",
+        "command": "see experiments/manifests/m430-branch-split-nullspace-projection-probe.json",
         "success_artifact": "",
-        "notes": "Pending: export branch-split hard guard with 10004 rejected branch and 9872 normal branch; no PPO or promotion"
+        "notes": "Pending: run exact repair with projected recovery and M429 branch-split guard; no PPO or promotion"
     },
-    "updated_at_utc": "20260523T174956Z"
+    "updated_at_utc": "20260523T175435Z"
 }
