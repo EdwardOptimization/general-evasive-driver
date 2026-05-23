@@ -332,6 +332,8 @@ def run_old_key_neighborhood_gate(
     compact_corpus_csv: Path,
     run_dir: Path,
     thresholds: OldKeyNeighborhoodThresholds = DEFAULT_THRESHOLDS,
+    pass_decision: str = "admit_m343_old_key_neighborhood_gate_probe",
+    fail_decision: str = "reject_old_key_neighborhood_gate",
 ) -> dict[str, Any]:
     """Run the M341 old-key neighborhood replacement gate from saved CSV artifacts."""
 
@@ -368,11 +370,7 @@ def run_old_key_neighborhood_gate(
         "endpoint_repair_needed": bool(compact_metrics["endpoint_repair_needed"]),
         "overall_pass": bool(overall_pass),
         "failure_types": failure_types,
-        "decision": (
-            "admit_m343_old_key_neighborhood_gate_probe"
-            if overall_pass
-            else "reject_old_key_neighborhood_gate"
-        ),
+        "decision": pass_decision if overall_pass else fail_decision,
     }
     broad_row = _flat_metrics_row("broad_pool", broad_metrics)
     compact_row = _flat_metrics_row("compact_corpus", compact_metrics)
@@ -507,6 +505,8 @@ def main() -> None:
         default=DEFAULT_THRESHOLDS.candidate.endpoint_repair_gap_min,
     )
     parser.add_argument("--allow-missing-old-key-9944", action="store_true")
+    parser.add_argument("--pass-decision", default="admit_m343_old_key_neighborhood_gate_probe")
+    parser.add_argument("--fail-decision", default="reject_old_key_neighborhood_gate")
     args = parser.parse_args()
 
     run_dir = args.run_dir or make_run_dir(prefix="old_key_neighborhood_gate")
@@ -515,6 +515,8 @@ def main() -> None:
         compact_corpus_csv=args.compact_corpus_csv,
         run_dir=run_dir,
         thresholds=_thresholds_from_args(args),
+        pass_decision=args.pass_decision,
+        fail_decision=args.fail_decision,
     )
     print(pd.Series({
         "overall_pass": result["overall_pass"],

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 351,
+        "completed": 352,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m342-old-key-neighborhood-gate-implementation",
+        "task_id": "m343-old-key-neighborhood-gate-probe",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m342_old_key_neighborhood_gate",
-        "command_log": "runs/m342_old_key_neighborhood_gate/summary.json"
+        "run_dir": "runs/m343_old_key_neighborhood_gate_probe",
+        "command_log": "runs/m343_old_key_neighborhood_gate_probe/summary.json"
     },
     "next_task": {
-        "id": "m343-old-key-neighborhood-gate-probe",
+        "id": "m344-old-key-neighborhood-policy-integration-design",
         "status": "pending",
-        "priority": 3380,
-        "kind": "gate",
-        "hypothesis": "The M342 old-key neighborhood gate can formally distinguish the promoted M335 alpha from the repaired endpoint while preserving source diversity and 9944 diagnostic visibility.",
-        "command": "see experiments/manifests/m343-old-key-neighborhood-gate-probe.json",
+        "priority": 3390,
+        "kind": "infrastructure",
+        "hypothesis": "The M343 old-key neighborhood gate can become the first-class old-key acceptance gate, with singleton 9944 retained as a diagnostic row instead of a standalone PPO-continuation veto.",
+        "command": "see experiments/manifests/m344-old-key-neighborhood-policy-integration-design.json",
         "success_artifact": "",
-        "notes": "Pending: run M342 gate on M341 corpus and decide acceptance-stack integration"
+        "notes": "Pending: define neighborhood gate order singleton 9944 diagnostic policy and next PPO/gate milestone"
     },
-    "updated_at_utc": "20260523T093156Z"
+    "updated_at_utc": "20260523T093526Z"
 }

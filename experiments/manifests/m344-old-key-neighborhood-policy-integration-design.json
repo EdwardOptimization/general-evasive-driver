@@ -1,0 +1,86 @@
+{
+  "id": "m344-old-key-neighborhood-policy-integration-design",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt"
+    ],
+    "parent_dataset": [
+      "runs/m343_old_key_neighborhood_gate_probe/summary.json",
+      "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_candidate_pool.csv",
+      "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m343-old-key-neighborhood-gate-probe.json",
+      "docs/m343-old-key-neighborhood-gate-probe.md"
+    ],
+    "parent_objective": [
+      "replace singleton old-key floor dominance with a source-diverse old-key neighborhood gate"
+    ],
+    "derived_from": [
+      "m343-old-key-neighborhood-gate-probe"
+    ],
+    "blocked_by": [
+      "m343-old-key-neighborhood-gate-probe"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m344-old-key-neighborhood-policy-integration-design.md",
+  "public_gates": [
+    "design acceptance-stack order using old-key neighborhood gate",
+    "define how singleton 9944 remains diagnostic without single-row veto dominance",
+    "define when neighborhood pass plus singleton warning may advance to full public gate",
+    "define when neighborhood failure blocks PPO or promotion",
+    "do not run PPO or promote a checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not remove 9944 visibility",
+    "do not lower old-key neighborhood thresholds",
+    "do not use public old-key rows as private holdout evidence",
+    "do not change actor inputs",
+    "do not train or repair a checkpoint"
+  ],
+  "hypothesis": "The M343 old-key neighborhood gate can become the first-class old-key acceptance gate, with singleton 9944 retained as a diagnostic row instead of a standalone PPO-continuation veto.",
+  "success_criteria": [
+    "document a concrete gate order for future PPO continuation",
+    "separate neighborhood distribution failure from singleton diagnostic warning",
+    "state promotion and no-promotion rules for candidates that pass neighborhood gate but warn on 9944",
+    "update roadmap/status/scoreboard with the next executable PPO or gate milestone",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "policy lets candidates hide 9944 diagnostics",
+    "policy allows promotion from old-key neighborhood pass alone",
+    "policy treats the M341 public corpus as private holdout evidence",
+    "policy changes actor input contract",
+    "policy starts PPO before gate order is documented"
+  ],
+  "commands": [
+    {
+      "name": "m344_policy_design",
+      "command": "Write docs/m344-old-key-neighborhood-policy-integration-design.md; no PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m344-old-key-neighborhood-policy-integration-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m343_old_key_neighborhood_gate_probe/summary.json",
+    "docs/m343-old-key-neighborhood-gate-probe.md"
+  ],
+  "decision_rule": "M344 may only define the acceptance-stack policy and admit the next executable PPO/gate milestone. It cannot promote a checkpoint or run PPO.",
+  "next_blocker": "pending M344 old-key neighborhood policy integration design"
+}

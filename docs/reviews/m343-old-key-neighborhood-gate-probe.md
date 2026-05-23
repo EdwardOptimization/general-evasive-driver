@@ -1,0 +1,84 @@
+# m343-old-key-neighborhood-gate-probe Research Review
+
+## Summary
+
+- Generated at UTC: 20260523T093600Z
+- Type: gate
+- Gate tier: proof
+- Promotion decision: admit_m344_old_key_neighborhood_policy_integration_design
+- Decision reason: M343 formal gate probe passes with 179 broad rows and 40 compact rows; selected alpha has 0 accepted regressions and repaired endpoint has 15 accepted regressions while 9944 diagnostic remains visible
+
+## Hypothesis
+
+The M342 old-key neighborhood gate can formally distinguish the promoted M335 alpha from the repaired endpoint while preserving source diversity and 9944 diagnostic visibility.
+
+## Lineage
+
+- parent_checkpoint: runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt, runs/m335_exact_repair_from_raw_s40_seed10099/candidate_checkpoint.pt
+- parent_dataset: runs/m341_old_key_neighborhood_mining/old_key_neighborhood_candidate_pool.csv, runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv
+- parent_config: experiments/manifests/m342-old-key-neighborhood-gate-implementation.json, docs/m342-old-key-neighborhood-gate-implementation.md
+- parent_objective: formalize old-key neighborhood gate evidence before replacing singleton-veto dominance
+- derived_from: m342-old-key-neighborhood-gate-implementation
+- blocked_by: m342-old-key-neighborhood-gate-implementation
+- supersedes: None
+- invalidates: None
+
+## Success Criteria
+
+- overall_pass is true for the M341 old-key neighborhood gate run
+- selected_alpha_passes is true
+- endpoint_repair_needed is true
+- failure_types is none
+- diagnostic_summary reports old_key_9944_included true
+- research validation passes
+
+## Failure Criteria
+
+- broad or compact diversity thresholds fail
+- selected alpha no longer passes
+- endpoint repair-needed is not detected
+- M133/9944 diagnostic is missing
+- any PPO actor update or checkpoint promotion is attempted
+
+## Evidence Gates
+
+- run autodrift.old_key_neighborhood_gate on M341 candidate pool and compact corpus
+- selected alpha must pass broad and compact thresholds
+- M335 repaired endpoint must be classified repair-needed
+- M133/9944 diagnostic must remain visible
+- do not run PPO or promote a checkpoint
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not hide old 9944 diagnostic
+- do not lower diversity thresholds after seeing failures
+- do not use this public gate as private holdout evidence
+- do not change actor inputs
+- do not train or repair a checkpoint
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m343-old-key-neighborhood-gate-probe
+- type: gate
+- checkpoint: not_applicable_gate_probe
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: admit_m344_old_key_neighborhood_policy_integration_design
+- reason: M343 formal gate probe passes with 179 broad rows and 40 compact rows; selected alpha has 0 accepted regressions and repaired endpoint has 15 accepted regressions while 9944 diagnostic remains visible
+
+## Next Blocker
+
+m344-old-key-neighborhood-policy-integration-design

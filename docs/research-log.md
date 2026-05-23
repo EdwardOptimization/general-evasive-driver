@@ -9064,3 +9064,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M342 implements `autodrift.old_key_neighborhood_gate` and focused tests. The gate recomputes M341 broad and compact diversity metrics from CSV, confirms selected-alpha pass with `0` accepted regressions, classifies the repaired endpoint as repair-needed with `15` accepted regressions, and keeps the M133/`9944` diagnostic visible.
 - decision: `admit_m343_old_key_neighborhood_gate_probe`
 - next: `m343-old-key-neighborhood-gate-probe`
+
+## 20260523T093526Z - m343-old-key-neighborhood-gate-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m343_old_key_neighborhood_gate_probe`
+- artifact: `docs/m343-old-key-neighborhood-gate-probe.md`
+- result: M343 formally runs the old-key neighborhood gate. The broad pool has `179` rows and the compact corpus has `40` rows with source-diversity targets passing. Selected alpha has `0` accepted regressions and compact gap p10 `-0.0000181822`; the repaired endpoint has `15` accepted regressions, compact gap p10 `-0.004071`, and min gap `-0.050660`. M133/`9944` diagnostic visibility remains true.
+- decision: `admit_m344_old_key_neighborhood_policy_integration_design`
+- next: `m344-old-key-neighborhood-policy-integration-design`
