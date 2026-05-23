@@ -10484,3 +10484,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M484 adds `configs/m484_critical_window_near_threshold_zero_relvel.json` and `configs/m484_critical_window_late_high_energy_zero_relvel.json`. Both pass sampling stress over seed blocks `11200`, `11300`, and `11400` with `384/384` reset successes, `3` labels, and single-label shares `0.557292` and `0.588542`. Small M399 behavior smokes complete on both configs. Aggregate M399 success is `0.796875` on near-threshold and `0.687500` on late high-energy, while heuristic/random remain much lower. Reset/zero-current deltas are weak, so M484 is config validation only, not self-ID proof.
 - decision: `critical_window_configs_sampling_pass_admit_m485_matched_current_mining`
 - next: `m485-critical-window-matched-current-mining`
+
+## 20260523T232200Z - m485-critical-window-matched-current-mining
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m485_critical_window_matched_current_summary`
+- artifact: `docs/m485-critical-window-matched-current-mining.md`
+- result: M485 runs expanded matched-current mining on both M484 critical-window configs. The first seed window `11200,11300,11400` produced large surfaces but only `3` probe seeds, so fresh blocks `11500,11600,11700` were added to satisfy the pre-registered `>=6` seed gate. The combined surface has `5802` accepted pairs, `4321` physical pairs, `6` probe seeds, `3` obstacle labels, `3` targets, `2` configs, `2` seed windows, and `107` obstacle bucket proxies. Single-seed share is `0.177870`, single-label share is `0.546708`, and single-target share is `0.473630`, so the source-diversity gate passes.
+- decision: `critical_window_matched_surface_pass_admit_m486_targeted_wrong_history_triage`
+- next: `m486-critical-window-targeted-pair-triage`

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 493,
+        "completed": 494,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m484-critical-window-config-implementation",
+        "task_id": "m485-critical-window-matched-current-mining",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m484_critical_window_config_validation",
-        "command_log": "docs/m484-critical-window-config-implementation.md"
+        "run_dir": "runs/m485_critical_window_matched_current_summary",
+        "command_log": "docs/m485-critical-window-matched-current-mining.md"
     },
     "next_task": {
-        "id": "m485-critical-window-matched-current-mining",
+        "id": "m486-critical-window-targeted-pair-triage",
         "status": "pending",
-        "priority": 4800,
+        "priority": 4810,
         "kind": "gate",
-        "hypothesis": "The M484 critical-window configs are robust enough to support source-diverse matched-current ambiguity mining before tail-aligned wrong-history proof gates.",
-        "command": "see experiments/manifests/m485-critical-window-matched-current-mining.json",
+        "hypothesis": "The M485 critical-window matched-current surface is large enough to select a balanced targeted wrong-history pair surface for tail-aligned outcome proof gates.",
+        "command": "see experiments/manifests/m486-critical-window-targeted-pair-triage.json",
         "success_artifact": "",
-        "notes": "Pending: run matched-current mining on both critical-window configs; no training"
+        "notes": "Pending: targeted wrong-history triage over combined M485 surface; no training"
     },
-    "updated_at_utc": "20260523T230500Z"
+    "updated_at_utc": "20260523T232200Z"
 }

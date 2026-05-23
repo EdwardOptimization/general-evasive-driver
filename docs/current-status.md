@@ -931,15 +931,15 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not run PPO or promote a checkpoint while the current blocker is M485
-critical-window matched-current mining. M484 added two critical-window
-zero-relvel configs and both pass sampling stress with zero reset failures,
-three obstacle labels, and acceptable label balance. Behavior smokes complete:
-near-threshold M399 success is about `0.797`, late high-energy M399 success is
-about `0.688`. These are usable proof-mining distributions, not self-ID proof.
-M478 remains positive diagnostic evidence that wrong belief can be
-outcome-critical if clamped, but clamped rows and single-source tail events must
-stay separate from natural wrong-history proof.
+Do not run PPO or promote a checkpoint while the current blocker is M486
+critical-window targeted pair triage. M485 produced a source-diverse
+matched-current surface from the two M484 configs: `5802` accepted pairs,
+`4321` physical pairs, `6` probe seeds, `3` labels, and `3` targets, with
+single-seed share `0.178` and single-label share `0.547`. This is still only a
+candidate surface. The next step is targeted wrong-history triage before any
+tail-aligned outcome gate. M478 remains positive diagnostic evidence that wrong
+belief can be outcome-critical if clamped, but clamped rows and single-source
+tail events must stay separate from natural wrong-history proof.
 
 ## Sensor Profile Policy
 

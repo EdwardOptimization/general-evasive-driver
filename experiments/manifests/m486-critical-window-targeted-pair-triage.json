@@ -1,0 +1,91 @@
+{
+  "id": "m486-critical-window-targeted-pair-triage",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m485_critical_window_matched_current_summary/combined_summary.json",
+      "runs/m485_critical_window_matched_current_summary/combined_matched_pairs.csv"
+    ],
+    "parent_config": [
+      "configs/m484_critical_window_near_threshold_zero_relvel.json",
+      "configs/m484_critical_window_late_high_energy_zero_relvel.json",
+      "experiments/manifests/m485-critical-window-matched-current-mining.json"
+    ],
+    "parent_objective": [
+      "source-diverse targeted wrong-history pair triage"
+    ],
+    "derived_from": [
+      "m485-critical-window-matched-current-mining"
+    ],
+    "blocked_by": [
+      "m485-critical-window-matched-current-mining"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m486-critical-window-targeted-pair-triage.md",
+  "public_gates": [
+    "run wrong_history_targeted_pair_triage on the combined M485 matched-current surface",
+    "preserve source diversity across seeds labels targets and obstacle buckets",
+    "export targeted pairs for tail-aligned wrong-history gate",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not skip targeted source-diversity caps",
+    "do not run outcome/tail gates if triage surface is source-narrow"
+  ],
+  "hypothesis": "The M485 critical-window matched-current surface is large enough to select a balanced targeted wrong-history pair surface for tail-aligned outcome proof gates.",
+  "success_criteria": [
+    "targeted_pair_count >= 240",
+    "probe_seed_count >= 6",
+    "obstacle_label_count >= 2",
+    "target_count >= 2",
+    "single_seed_share <= 0.50",
+    "single_label_share <= 0.70",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "targeted surface is too small",
+    "targeted surface is dominated by one seed label target or obstacle bucket",
+    "actor contract changes",
+    "training or checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "targeted_pair_triage",
+      "command": "Run autodrift.wrong_history_targeted_pair_triage on runs/m485_critical_window_matched_current_summary/combined_matched_pairs.csv."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m486-critical-window-targeted-pair-triage.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m486_critical_window_targeted_pair_triage/summary.json",
+      "type": "summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m485-critical-window-matched-current-mining.md",
+    "runs/m485_critical_window_matched_current_summary/combined_summary.json"
+  ],
+  "decision_rule": "M486 may admit tail-aligned wrong-history outcome gates only if targeted pairs remain source-diverse; otherwise repair triage caps or mining parameters.",
+  "next_blocker": "pending M486 critical-window targeted pair triage"
+}
