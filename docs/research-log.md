@@ -8954,3 +8954,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M331 audits the M330 old-key failure. Old `9944` gap trends `0.096982 -> 0.092653 -> 0.086901`; M330 shrinks the gap by `-0.005752` because wrong-history margin rises faster than normal margin. Source-diverse gates remain intact (`4/4` pass), so this is classified as `old_key_local_gap_erosion_not_source_diverse_washout`.
 - decision: `admit_m332_m330_old_key_gap_bounded_interpolation_probe`
 - next: `m332-m330-old-key-gap-bounded-interpolation-probe`
+
+## 20260523T065742Z - m332-m330-old-key-gap-bounded-interpolation-probe
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m332_m328_to_m330_gap_bounded_interpolation`
+- artifact: `docs/m332-m330-old-key-gap-bounded-interpolation-probe.md`
+- result: M332 interpolates from M328 to M330 repaired and selects `alpha=0.45` as the largest old-key-gap-floor-passing alpha in the grid. `alpha=0.45` keeps old-key gap `0.090155`, improves exact M297/M270 by `-0.000056148` and `-0.000036240`, passes `4/4` source-diverse gates, and passes M183/M170 plus M267/M264 first replay gates.
+- decision: `admit_m333_full_public_gate_for_m332_a045`
+- next: `m333-full-public-gate-for-m332-a045`

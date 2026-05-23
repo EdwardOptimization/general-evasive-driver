@@ -61,7 +61,7 @@ post-PPO repair before any more PPO acceptance.
 Current blocker:
 
 ```text
-m332-m330-old-key-gap-bounded-interpolation-probe
+m333-full-public-gate-for-m332-a045
 ```
 
 M305 implements deterministic exact M297/M270 repair or projection
@@ -122,14 +122,14 @@ acceptance needs exact repair plus a protected-key-bounded trust region.
 Current next task:
 
 ```text
-m332-m330-old-key-gap-bounded-interpolation-probe
+m333-full-public-gate-for-m332-a045
 ```
 
-M331 audits the M330 old-key gap-floor failure. It is local old-key gap erosion,
-not source-diverse washout: source-diverse gates pass `4/4`, but the old
-`9944` gap trends `0.096982 -> 0.092653 -> 0.086901`. M332 should probe
-M328-to-M330 interpolation and select only an exact/source-diverse-passing
-candidate that keeps old-key margin gap at or above `0.09`.
+M332 recovers useful M330 movement inside an old-key gap-bounded trust region.
+The selected candidate is `alpha=0.45` from M328 to M330 repaired; it keeps old
+`9944` gap `0.090155`, improves exact M297/M270, passes source-diverse gates,
+and passes M183/M170 plus M267/M264 first replay. M333 should run the full
+public promotion gate.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -178,6 +178,7 @@ candidate that keeps old-key margin gap at or above `0.09`.
 | fresh-seed repeat config | `configs/ppo_m330_source_diverse_protected_repeat_smoke.json` | M329 registers PPO seed 5237 from M328 base with exact repair and source-diverse proof gates |
 | rejected fresh-seed repeat | `runs/m330_exact_repair_from_raw_s40_seed10098/candidate_checkpoint.pt` | M330 exact/source-diverse pass but old-key margin gap floor fails, so first replay is not run |
 | old-key gap audit | `runs/m331_m330_old_key_gap_floor_audit/summary.json` | M331 classifies M330 as old-key local gap erosion and admits gap-bounded interpolation |
+| gap-bounded interpolation candidate | `runs/m332_m328_to_m330_gap_bounded_interpolation/checkpoints/alpha_0_45.pt` | M332 selects alpha 0.45 after exact/source-diverse/old-key floor and first replay gates pass |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -449,10 +450,9 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not run more PPO or promote M330 directly. M332 may only run no-PPO
-interpolation from M328 to M330 and must preserve exact objectives,
-source-diverse gates, old-key gap floor, and first replay gates. Do not change
-actor inputs.
+Do not promote M332 alpha 0.45 before M333 full public gate. M333 must run all
+six replay gates, old-key floor check, source-diverse proof, behavior seeds, and
+research validation. Do not change actor inputs.
 
 ## Sensor Profile Policy
 

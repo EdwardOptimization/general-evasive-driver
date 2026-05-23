@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 340,
+        "completed": 341,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "command_log": "docs/m331-m330-old-key-gap-floor-failure-audit.md",
+        "command_log": "docs/m332-m330-old-key-gap-bounded-interpolation-probe.md",
         "returncode": 0,
-        "run_dir": "runs/m331_m330_old_key_gap_floor_audit",
+        "run_dir": "runs/m332_m328_to_m330_gap_bounded_interpolation",
         "status": "completed",
-        "task_id": "m331-m330-old-key-gap-floor-failure-audit"
+        "task_id": "m332-m330-old-key-gap-bounded-interpolation-probe"
     },
     "next_task": {
-        "command": "see experiments/manifests/m332-m330-old-key-gap-bounded-interpolation-probe.json",
-        "hypothesis": "Interpolating from M328 base toward the M330 repaired candidate may recover useful exact/source-diverse improvement while keeping the old-key margin gap above the 0.09 diagnostic floor.",
-        "id": "m332-m330-old-key-gap-bounded-interpolation-probe",
+        "command": "see experiments/manifests/m333-full-public-gate-for-m332-a045.json",
+        "hypothesis": "The M332 alpha 0.45 interpolation candidate may be promotable if it retains exact objectives, source-diverse protected proof, old-key gap floor, all six replay surfaces, and behavior seeds versus M328.",
+        "id": "m333-full-public-gate-for-m332-a045",
         "kind": "driver_candidate",
-        "notes": "Pending: no PPO interpolation and first replay gates; no promotion",
-        "priority": 3270,
+        "notes": "Pending: six replay gates exact/source-diverse old-key floor behavior seeds; no PPO",
+        "priority": 3280,
         "status": "pending",
         "success_artifact": ""
     },
-    "updated_at_utc": "20260523T065328Z"
+    "updated_at_utc": "20260523T065742Z"
 }

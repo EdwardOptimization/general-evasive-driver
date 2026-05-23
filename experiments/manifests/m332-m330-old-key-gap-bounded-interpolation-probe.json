@@ -2,7 +2,7 @@
   "id": "m332-m330-old-key-gap-bounded-interpolation-probe",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -103,6 +103,32 @@
     "runs/m331_m330_old_key_gap_floor_audit/summary.json",
     "runs/m330_critical_key_seed9944/guard_results.csv"
   ],
-  "decision_rule": "M332 may only admit a full public gate if a nonzero interpolation alpha passes exact objectives, source-diverse protected gates, old-key margin-gap floor, and first replay gates. M332 itself cannot promote.",
-  "next_blocker": "pending M332 old-key gap-bounded interpolation probe"
+  "results": {
+    "interpolation_run_dir": "runs/m332_m328_to_m330_gap_bounded_interpolation",
+    "exact_line_search_run_dir": "runs/m332_m328_to_m330_exact_line_search",
+    "old_key_sweep_run_dir": "runs/m332_old_key_gap_sweep",
+    "selected_alpha": 0.45,
+    "selected_checkpoint": "runs/m332_m328_to_m330_gap_bounded_interpolation/checkpoints/alpha_0_45.pt",
+    "selected_exact_m297_delta_vs_base": -5.614757537841797e-05,
+    "selected_exact_m270_delta_vs_base": -3.62396240234375e-05,
+    "largest_exact_passing_alpha_tested": 1.0,
+    "largest_old_key_gap_floor_passing_alpha": 0.45,
+    "old_key_margin_gap": 0.0901547923076611,
+    "old_key_gap_floor": 0.09,
+    "old_key_next_alpha": 0.5,
+    "old_key_next_alpha_margin_gap": 0.08992455437718072,
+    "source_diverse_run_dir": "runs/m332_a045_source_diverse_protected_gate",
+    "source_diverse_gates_passed": 4,
+    "source_diverse_gate_count": 4,
+    "m183_m170_first_replay_pass": true,
+    "m183_m170_success_drops": 17,
+    "m267_m264_first_replay_pass": true,
+    "m267_m264_success_drops": 17,
+    "promotion_recommended": false,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m333_full_public_gate_for_m332_a045",
+  "decision_rule": "M332 admits a full public gate because alpha 0.45 passes exact objectives, source-diverse protected gates, old-key margin-gap floor, and M183/M170 plus M267/M264 first replay gates. M332 itself does not promote.",
+  "next_blocker": "m333-full-public-gate-for-m332-a045"
 }
