@@ -1,0 +1,77 @@
+{
+  "decision_reason": "M440 designs active-boundary v2 with active-case trajectory windows row-specific wrong/gap residuals and normal-safety guards before any projection",
+  "failure_criteria": [
+    "design is just another scalar weight sweep",
+    "design becomes broad full-trajectory imitation without row-level justification",
+    "design recommends PPO before proof residual implementation",
+    "actor input or output contract changes"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260523T185630Z",
+  "hypothesis": "A v2 active-boundary residual should use row-specific trajectory-window and normal-safety terms rather than a stronger scalar one-step active-boundary loss.",
+  "lineage": {
+    "blocked_by": [
+      "m439-active-boundary-residual-utility-audit"
+    ],
+    "derived_from": [
+      "m439-active-boundary-residual-utility-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m438_r0015_active_boundary_lactive1e12_s40_seed10161/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m439-active-boundary-residual-utility-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m439_active_boundary_residual_utility_audit/policy_utility_summary.csv",
+      "runs/m439_active_boundary_residual_utility_audit/active_case_rows.csv",
+      "runs/m437_active_boundary_residual/active_boundary_corpus.npz"
+    ],
+    "parent_objective": [
+      "active-boundary v2 residual design"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m440-active-boundary-v2-residual-design",
+  "next_blocker": "m441-active-boundary-v2-residual-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m441_active_boundary_v2_residual_implementation",
+  "public_gates": [
+    "design only; no PPO",
+    "active-case trajectory-window or margin-slack corpus specification",
+    "normal-safety guard for high active-boundary pressure",
+    "next implementation must preserve actor input/output contract"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m441_active_boundary_v2_residual_implementation",
+    "milestone": "m440-active-boundary-v2-residual-design",
+    "reason": "M440 designs active-boundary v2 with active-case trajectory windows row-specific wrong/gap residuals and normal-safety guards before any projection",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "specify whether active-boundary v2 is worth implementing",
+    "define corpus fields for trajectory-window or margin-slack active cases",
+    "define separate terms for 10004/9998 wrong-history safety and 10023 gap erosion",
+    "state gate order and stop conditions before another projection"
+  ],
+  "type": "infrastructure"
+}

@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m440-active-boundary-v2-residual-design
+m441-active-boundary-v2-residual-implementation
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -103,9 +103,11 @@ active-boundary v1 can repair the first failing M434 profile, but its scalar
 one-step exact loss is not a reliable closed-loop proof proxy. `tail_r0010`
 fails `10004` wrong-history safety and `10023` gap erosion with almost the
 same exact active loss, and excessive active weight lowers exact loss while
-breaking normal success. The next blocker is M440: design a row-specific
-active-boundary v2 residual, or explicitly stop this branch, before any more
-projection.
+breaking normal success. M440 decides v2 is worth exactly one
+implementation/probe cycle, but only as a row-specific trajectory-window
+residual with normal-safety guards, not as another scalar weight sweep. The next
+blocker is M441: implement the v2 exporter, loader, exact terms, focused tests,
+and no-update smoke without projection or PPO.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

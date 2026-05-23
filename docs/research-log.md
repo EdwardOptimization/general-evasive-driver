@@ -10034,3 +10034,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M439 audits six policies across exact summaries and active old-key rows. Active-boundary v1 is useful but under-specified: it repairs M434 `r0015` to old-key `40/40` and recovery retained `0.120957`, but `tail_r0010` with active lambda `1e12` still fails `10004` and `10023`, while lambda `1e14` lowers exact active loss but creates normal-branch collisions and old-key `34/40`. Scalar active-boundary weight is therefore not enough.
 - decision: `admit_m440_active_boundary_v2_residual_design`
 - next: `m440-active-boundary-v2-residual-design`
+
+## 20260523T185541Z - m440-active-boundary-v2-residual-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m440-active-boundary-v2-residual-design.md`
+- result: M440 decides active-boundary v2 is worth one implementation/probe cycle, but only with row-specific trajectory-window terms. The design exports compact windows around active cases `10004`, `10023`, and `9998`, separates wrong-history safety, gap-erosion, and normal-safety row families, starts from global lambda `1e12`, and forbids another scalar weight sweep as the only next action.
+- decision: `admit_m441_active_boundary_v2_residual_implementation`
+- next: `m441-active-boundary-v2-residual-implementation`

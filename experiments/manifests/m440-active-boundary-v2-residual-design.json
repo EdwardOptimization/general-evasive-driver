@@ -64,6 +64,42 @@
       "command": "Design or reject active-boundary v2 based on M439 row-level audit; no training."
     }
   ],
+  "results": {
+    "artifact": "docs/m440-active-boundary-v2-residual-design.md",
+    "decision": "implement active-boundary v2 for one implementation/probe cycle",
+    "v2_corpus": {
+      "active_cases": [
+        "10004|perturbed|31|31|9.500000|-1.000000|0.800000",
+        "10023|perturbed|12|12|11.000000|-0.800000|1.200000",
+        "9998|perturbed|25|25|11.000000|-1.000000|1.400000"
+      ],
+      "window_offsets": [
+        -6,
+        -4,
+        -2,
+        0
+      ],
+      "row_families": [
+        "wrong-history safety rows for 10004 and 9998",
+        "gap-erosion rows for 10023",
+        "normal-safety rows for near-zero normal margins and high-weight collision probes"
+      ]
+    },
+    "initial_global_lambda_active_boundary_v2": 1000000000000.0,
+    "targets": {
+      "minimum_useful_recovery_retained_vs_m406": 0.12095699114779722,
+      "strong_evidence_recovery_retained_vs_m406": 0.17435400926925274,
+      "primary_recovery_retained_vs_m406": 0.20
+    },
+    "stop_conditions": [
+      "v2 only reproduces M438 r0015 and cannot make a looser profile proof-safe",
+      "v2 makes tail_r0010 proof-safe but recovery retained remains at or below 0.120957",
+      "v2 requires broad full-trajectory imitation over the old-key compact set",
+      "v2 exact loss improves while old-key normal-success cases drop",
+      "another scalar coefficient sweep is the only proposed next action"
+    ],
+    "recommended_next": "m441-active-boundary-v2-residual-implementation"
+  },
   "required_artifacts": [
     {
       "path": "docs/m440-active-boundary-v2-residual-design.md",
@@ -78,5 +114,5 @@
     "docs/m439-active-boundary-residual-utility-audit.md"
   ],
   "decision_rule": "M440 should only admit implementation if v2 has a concrete row-level corpus and residual that can be tested without PPO or actor-contract changes.",
-  "next_blocker": "pending M440 active-boundary v2 residual design"
+  "next_blocker": "m441-active-boundary-v2-residual-implementation"
 }

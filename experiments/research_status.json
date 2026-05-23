@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 448,
+        "completed": 449,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m439-active-boundary-residual-utility-audit",
+        "task_id": "m440-active-boundary-v2-residual-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m439_active_boundary_residual_utility_audit",
-        "command_log": "docs/m439-active-boundary-residual-utility-audit.md"
+        "run_dir": "",
+        "command_log": "docs/m440-active-boundary-v2-residual-design.md"
     },
     "next_task": {
-        "id": "m440-active-boundary-v2-residual-design",
+        "id": "m441-active-boundary-v2-residual-implementation",
         "status": "pending",
-        "priority": 4350,
+        "priority": 4360,
         "kind": "infrastructure",
-        "hypothesis": "Design active-boundary v2 residual or stop this branch",
-        "command": "see experiments/manifests/m440-active-boundary-v2-residual-design.json",
+        "hypothesis": "Implement active-boundary v2 residual and no-update smoke",
+        "command": "see experiments/manifests/m441-active-boundary-v2-residual-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design row-specific trajectory-window and normal-safety active-boundary v2 residual; no PPO or promotion"
+        "notes": "Pending: implement v2 trajectory-window corpus loader exact terms and no-update smoke; no projection PPO or promotion"
     },
-    "updated_at_utc": "20260523T185234Z"
+    "updated_at_utc": "20260523T185541Z"
 }

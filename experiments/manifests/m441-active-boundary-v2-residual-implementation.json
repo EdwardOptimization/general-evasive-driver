@@ -1,0 +1,83 @@
+{
+  "id": "m441-active-boundary-v2-residual-implementation",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m438_r0015_active_boundary_lactive1e12_s40_seed10161/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m439_active_boundary_residual_utility_audit/policy_utility_summary.csv",
+      "runs/m439_active_boundary_residual_utility_audit/active_case_rows.csv",
+      "runs/m437_active_boundary_residual/active_boundary_corpus.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m440-active-boundary-v2-residual-design.json"
+    ],
+    "parent_objective": [
+      "active-boundary v2 residual implementation"
+    ],
+    "derived_from": [
+      "m440-active-boundary-v2-residual-design"
+    ],
+    "blocked_by": [
+      "m440-active-boundary-v2-residual-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m441-active-boundary-v2-residual-implementation.md",
+  "public_gates": [
+    "export active-boundary v2 trajectory-window corpus",
+    "loader and exact loss tests",
+    "no-update exact repair smoke",
+    "no actor input or output contract change"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not run projection",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "hypothesis": "The active-boundary v2 trajectory-window corpus and row-specific exact terms can be implemented as training-only repair machinery without changing the deployable actor contract.",
+  "success_criteria": [
+    "export v2 rows for 10004 10023 and 9998 active cases when snapshots are present",
+    "loader validates trajectory-window shapes weights and finite fields",
+    "exact terms cover wrong-history safety gap erosion and normal safety families",
+    "no-update exact repair smoke loads v2 corpus and passes exact no-regression"
+  ],
+  "failure_criteria": [
+    "v2 corpus degenerates into broad full-trajectory imitation",
+    "implementation changes actor inputs or outputs",
+    "no-update smoke fails",
+    "implementation requires PPO or projection to validate"
+  ],
+  "commands": [
+    {
+      "name": "active_boundary_v2_residual_implementation",
+      "command": "Implement active-boundary v2 corpus/export/loss/no-update smoke; no projection or PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m441-active-boundary-v2-residual-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m440-active-boundary-v2-residual-design.md"
+  ],
+  "decision_rule": "M441 admits a projection probe only if v2 export/load/exact terms and no-update smoke pass without actor-contract changes.",
+  "next_blocker": "pending M441 active-boundary v2 residual implementation"
+}
