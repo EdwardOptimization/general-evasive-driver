@@ -56,7 +56,7 @@ along this direction.
 Current blocker:
 
 ```text
-m392-m391-micro-promotion-utility-audit
+m393-current-family-rejected-boundary-target-export
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -174,7 +174,11 @@ protected gates `5/5`, and M183/M170 `17/17`. M391 should run the full public
 gate for this alpha `0.005` candidate before any promotion. M391 promotes that
 candidate after all six public replay surfaces and behavior seeds pass. M392
 should audit whether this micro promotion is useful enough to chain another
-repair or PPO step.
+repair or PPO step. M392 classifies it as proof-safe micro retention, not
+meaningful driver improvement: row15 wrong-history margin is now only
+`-4.7e-7`, and alpha `0.01` flips it positive. M393 should export
+rejected-history local collision-side targets for row15/row6, because anchoring
+the rejected branch to a near-cliff base action cannot create slack.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

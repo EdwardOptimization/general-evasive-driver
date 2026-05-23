@@ -2,7 +2,7 @@
   "id": "m392-m391-micro-promotion-utility-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -77,5 +77,30 @@
     "docs/m391-full-public-gate-for-m390-a005.md"
   ],
   "decision_rule": "M392 should admit the next task only after classifying whether the M391 promotion is meaningful enough to chain or whether another active-boundary/objective redesign is needed.",
-  "next_blocker": "pending M392 utility audit"
+  "next_blocker": "m393-current-family-rejected-boundary-target-export",
+  "results": {
+    "artifact": "docs/m392-m391-micro-promotion-utility-audit.md",
+    "current_public_base": "runs/m390_step17_micro_interpolation/checkpoints/alpha_0_005.pt",
+    "previous_public_base": "runs/m385_recovery_repair_micro_interpolation/checkpoints/alpha_0_00075.pt",
+    "classification": "proof_safe_micro_retention_not_meaningful_driver_improvement",
+    "exact_m297_delta_vs_previous_base": -1.1920928955078125e-06,
+    "exact_m270_delta_vs_previous_base": -2.980232238769531e-07,
+    "old_key_surrogate_delta_vs_previous_base": -6.198883056640625e-06,
+    "behavior_success_delta_vs_previous_base": 0.0,
+    "behavior_termination_delta_vs_previous_base": 0.0,
+    "behavior_clearance_margin_delta_vs_previous_base": 8.543437164597428e-06,
+    "first_known_failing_alpha_to_step17": 0.01,
+    "selected_alpha_to_step17": 0.005,
+    "active_surface": "M267/M264",
+    "active_row": 15,
+    "row15_previous_wrong_history_margin": -1.0638089380510252e-06,
+    "row15_current_wrong_history_margin": -4.6946002363638245e-07,
+    "row15_alpha_0_01_wrong_history_margin": 1.3146305621880572e-07,
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m393-current-family-rejected-boundary-target-export"
+  },
+  "decision": "admit_m393_current_family_rejected_boundary_target_export"
 }

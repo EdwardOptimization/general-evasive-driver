@@ -9554,3 +9554,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M391 promotes `runs/m390_step17_micro_interpolation/checkpoints/alpha_0_005.pt`. It passes all six public replay gates versus `m333_base`: M183/M168 `16/16`, M183/M170 `17/17`, M193/M189 `14/14`, M212/M204 `17/17`, M223/M219 `17/17`, and M267/M264 `17/17`. Behavior seeds `9505` and `9506` retain success mean `0.8625`, termination mean `0.1375`, clearance margin mean `1.844192334`, reset success mean `0.85`, and zero-all success mean `0.80`.
 - decision: `promote_m390_step17_a005_public_gate_base`
 - next: `m392-m391-micro-promotion-utility-audit`
+
+## 20260523T142902Z - m392-m391-micro-promotion-utility-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m392-m391-micro-promotion-utility-audit.md`
+- result: M392 classifies M391 as `proof_safe_micro_retention_not_meaningful_driver_improvement`. Exact improvements versus the previous base are tiny: exact M297 `-0.000001192`, exact M270 `-0.000000298`, and old-key surrogate `-0.000006199`; behavior success and termination are unchanged. M267/M264 row15 remains the active boundary: the M391 base wrong-history margin is only `-0.000000469`, and alpha `0.01` toward step17 flips it positive.
+- decision: `admit_m393_current_family_rejected_boundary_target_export`
+- next: `m393-current-family-rejected-boundary-target-export`

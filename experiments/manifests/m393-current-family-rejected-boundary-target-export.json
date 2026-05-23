@@ -1,0 +1,81 @@
+{
+  "id": "m393-current-family-rejected-boundary-target-export",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m390_step17_micro_interpolation/checkpoints/alpha_0_005.pt"
+    ],
+    "parent_dataset": [
+      "docs/m392-m391-micro-promotion-utility-audit.md",
+      "runs/m390_step17_micro005_m267_m264_first_replay/boundary_replay_rows.csv",
+      "runs/m390_step17_a001_m267_m264_first_replay/boundary_replay_rows.csv",
+      "runs/m389_m267_row15_conflict_corpus/current_family_conflict_corpus.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m392-m391-micro-promotion-utility-audit.json"
+    ],
+    "parent_objective": [
+      "export replay-selected rejected-history collision-side local action targets for the active M267/M264 boundary rows"
+    ],
+    "derived_from": [
+      "m392-m391-micro-promotion-utility-audit"
+    ],
+    "blocked_by": [
+      "m392-m391-micro-promotion-utility-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m393-current-family-rejected-boundary-target-export.md",
+  "public_gates": [
+    "no PPO run",
+    "export local wrong-history collision-side targets for row15 and row6 when available",
+    "no-update exact-repair smoke reads refreshed conflict corpus",
+    "preserve actor input/output contract"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower M267/M264 thresholds",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "hypothesis": "M391 remains bounded by M267/M264 row15 because the rejected-branch anchor uses a near-zero-margin base action; exporting local collision-side rejected-history targets should create a more useful conflict corpus for the next repair probe.",
+  "success_criteria": [
+    "search local wrong-history actions for M267/M264 row15 and row6 from the current public base",
+    "export a refreshed conflict corpus with rejected_boundary_action set to collision-side targets when found",
+    "record target margin improvement and action distance diagnostics",
+    "verify no-update exact repair can load the refreshed corpus"
+  ],
+  "failure_criteria": [
+    "no collision-side local target can be found for row15",
+    "exported corpus violates shape finite value or action bounds",
+    "actor contract changes",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "rejected_boundary_target_export",
+      "command": "Search local wrong-history action targets for M267/M264 row15/row6 and export a refreshed conflict corpus; no PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m393-current-family-rejected-boundary-target-export.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m390_step17_micro_interpolation/checkpoints/alpha_0_005.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m392-m391-micro-promotion-utility-audit.md"
+  ],
+  "decision_rule": "M393 should admit another no-PPO repair probe only if it exports a refreshed conflict corpus with finite local rejected-history targets and verifies the no-update exact-repair path.",
+  "next_blocker": "pending M393 rejected-boundary target export"
+}

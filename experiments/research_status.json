@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 400,
+        "completed": 401,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m391-full-public-gate-for-m390-a005",
+        "task_id": "m392-m391-micro-promotion-utility-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m391_full_public_gate_for_m390_a005",
-        "command_log": "docs/m391-full-public-gate-for-m390-a005.md"
+        "run_dir": "",
+        "command_log": "docs/m392-m391-micro-promotion-utility-audit.md"
     },
     "next_task": {
-        "id": "m392-m391-micro-promotion-utility-audit",
+        "id": "m393-current-family-rejected-boundary-target-export",
         "status": "pending",
-        "priority": 3870,
-        "kind": "gate",
-        "hypothesis": "Audit whether M391 micro promotion is useful enough to chain repair or PPO",
-        "command": "see experiments/manifests/m392-m391-micro-promotion-utility-audit.json",
+        "priority": 3880,
+        "kind": "infrastructure",
+        "hypothesis": "Export local rejected-history collision-side targets for current-family boundary rows",
+        "command": "see experiments/manifests/m393-current-family-rejected-boundary-target-export.json",
         "success_artifact": "",
-        "notes": "Pending: classify utility and active boundary before more repair or PPO"
+        "notes": "Pending: search row15/row6 wrong-history local actions and export refreshed conflict corpus; no PPO"
     },
-    "updated_at_utc": "20260523T142628Z"
+    "updated_at_utc": "20260523T142902Z"
 }
