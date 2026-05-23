@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m414-source-weighted-replay-anchor-probe
+m415-active-set-replay-hinge-design
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -277,7 +277,10 @@ M406. M413 should redesign the replay/recovery balance instead of sending M411
 to full public gate. M413 completes that design: keep M267/M264 replay pressure
 at effective `1e12`, multiply only old-key replay-failure anchor weights by
 `10` for effective old-key `1e13`, and require recovery-retention ratio
-`>=0.20` before any full public gate.
+`>=0.20` before any full public gate. M414 runs that probe: utility improves
+and recovery-retention reaches `0.230460`, but proof fails with M267/M264
+`15/17` and old-key compact `2` accepted regressions. M415 should design an
+active-set hinge residual rather than another scalar replay-anchor weighting.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -356,7 +359,7 @@ at effective `1e12`, multiply only old-key replay-failure anchor weights by
 | current public-gate base | `runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt` | M379 promotes alpha `0.05` after cumulative old-key source-diverse six public replay surfaces and behavior seeds pass |
 | recovery residual infrastructure | `src/autodrift/exact_post_ppo_repair.py` | M383 implements optional old-key local-action recovery loss and verifies finite no-update smoke terms |
 | recovery target corpus | `runs/m384_old_key_local_recovery_targets/old_key_recovery_corpus.npz` | M384 exports 4 replay-selected recovery targets from 1008 local-action rollouts |
-| current blocker | `experiments/manifests/m414-source-weighted-replay-anchor-probe.json` | M414 must test the source-weighted replay anchor with first proof gates and the recovery-retention utility gate |
+| current blocker | `experiments/manifests/m415-active-set-replay-hinge-design.json` | M415 must design a row/branch selective replay hinge residual after M414 improved utility but failed proof |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

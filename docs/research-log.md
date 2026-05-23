@@ -9774,3 +9774,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M413 designs a source-weighted replay-anchor probe instead of another global coefficient increase. Since M411 showed `1e12` already repairs M267/M264 but leaves old-key compact at `37/40`, while global `1e13` repairs old-key but collapses recovery movement, M414 should keep M267/M264 at effective `1e12`, multiply only old-key trajectory-anchor weights by `10`, and run global `lambda_replay_trajectory_anchor=1e12`. The pre-registered utility gate requires retaining at least `20%` of M406 recovery improvement.
 - decision: `admit_m414_source_weighted_replay_anchor_probe`
 - next: `m414-source-weighted-replay-anchor-probe`
+
+## 20260523T163306Z - m414-source-weighted-replay-anchor-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m414_source_weighted_projection_ltraj1e12_s40_seed10145`
+- artifact: `docs/m414-source-weighted-replay-anchor-probe.md`
+- result: M414 creates a source-weighted `959`-row anchor with old-key weights multiplied by `10`, then runs no-PPO exact projection with global replay lambda `1e12`. The candidate passes exact M297/M270/old-key no-regression and retains `0.230460` of M406 recovery improvement, clearing the utility floor. It fails proof gates: M267/M264 retains only `15/17` success drops, old-key compact has `2` accepted regressions, and M183/M170 remains `17/17`. This shows source weighting improves utility but does not solve the proof/utility tradeoff.
+- decision: `reject_source_weighted_probe_admit_m415_active_set_replay_hinge_design`
+- next: `m415-active-set-replay-hinge-design`

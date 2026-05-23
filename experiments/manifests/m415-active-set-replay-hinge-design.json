@@ -1,0 +1,84 @@
+{
+  "id": "m415-active-set-replay-hinge-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m414_source_weighted_projection_ltraj1e12_s40_seed10145/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m414_source_weighted_utility_audit/summary.json",
+      "runs/m414_source_weighted_m267_m264_first_replay/summary.json",
+      "runs/m414_source_weighted_old_key_replay_gate/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m414-source-weighted-replay-anchor-probe.json"
+    ],
+    "parent_objective": [
+      "design active-set replay hinge residual after source-weighted scalar tradeoff"
+    ],
+    "derived_from": [
+      "m414-source-weighted-replay-anchor-probe"
+    ],
+    "blocked_by": [
+      "m414-source-weighted-replay-anchor-probe"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m415-active-set-replay-hinge-design.md",
+  "public_gates": [
+    "design only",
+    "no PPO run",
+    "no checkpoint promotion",
+    "no actor input/output change"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not count utility improvement as sufficient without proof gates"
+  ],
+  "hypothesis": "A row/branch active-set hinge residual can preserve replay proof while allowing recovery movement better than scalar replay-anchor MSE.",
+  "success_criteria": [
+    "define row-level active-set construction from M411/M414 replay failures",
+    "define slack-radius action hinge residual for replay-safe rows",
+    "define tight anchors only for rows or branches that are near replay failure",
+    "define a no-PPO implementation/probe milestone with recovery-retention and proof gates"
+  ],
+  "failure_criteria": [
+    "design weakens proof gates",
+    "design uses replay labels as actor inputs",
+    "design cannot be evaluated without PPO",
+    "design lacks a utility acceptance rule"
+  ],
+  "commands": [
+    {
+      "name": "active_set_replay_hinge_design",
+      "command": "Design row/branch active-set replay hinge residual after M414 proof/utility tradeoff; no PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m415-active-set-replay-hinge-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m412-replay-aware-projection-utility-audit.md",
+    "docs/m413-replay-recovery-balance-design.md",
+    "docs/m414-source-weighted-replay-anchor-probe.md"
+  ],
+  "decision_rule": "M415 should admit implementation only if it produces a testable active-set hinge residual that can be evaluated with exact repair and first proof gates before any PPO.",
+  "next_blocker": "pending M415 active-set replay hinge design"
+}

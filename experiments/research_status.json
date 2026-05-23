@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 422,
+        "completed": 423,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m413-replay-recovery-balance-design",
+        "task_id": "m414-source-weighted-replay-anchor-probe",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m413-replay-recovery-balance-design.md"
+        "run_dir": "runs/m414_source_weighted_projection_ltraj1e12_s40_seed10145",
+        "command_log": "docs/m414-source-weighted-replay-anchor-probe.md"
     },
     "next_task": {
-        "id": "m414-source-weighted-replay-anchor-probe",
+        "id": "m415-active-set-replay-hinge-design",
         "status": "pending",
-        "priority": 4090,
-        "kind": "gate",
-        "hypothesis": "Probe source-weighted replay anchor to preserve proof without global collapse",
-        "command": "see experiments/manifests/m414-source-weighted-replay-anchor-probe.json",
+        "priority": 4100,
+        "kind": "infrastructure",
+        "hypothesis": "Design active-set replay hinge residual after M414 proof/utility tradeoff",
+        "command": "see experiments/manifests/m415-active-set-replay-hinge-design.json",
         "success_artifact": "",
-        "notes": "Pending: create weighted anchor run no-PPO exact projection first proof gates and recovery-retention audit"
+        "notes": "Pending: design row/branch selective hinge residual with replay slack and utility gate"
     },
-    "updated_at_utc": "20260523T162949Z"
+    "updated_at_utc": "20260523T163306Z"
 }

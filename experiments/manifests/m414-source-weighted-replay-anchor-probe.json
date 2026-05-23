@@ -2,9 +2,10 @@
   "id": "m414-source-weighted-replay-anchor-probe",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "proof_washout",
+    "protected_key_window_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -85,5 +86,39 @@
     "docs/m413-replay-recovery-balance-design.md"
   ],
   "decision_rule": "M414 may admit a full public gate only if proof gates pass and recovery-retention ratio is at least 0.20; otherwise classify the active failure and redesign toward an active-set hinge residual.",
-  "next_blocker": "pending M414 source-weighted replay-anchor probe"
+  "next_blocker": "m415-active-set-replay-hinge-design",
+  "results": {
+    "artifact": "docs/m414-source-weighted-replay-anchor-probe.md",
+    "weighted_anchor_run": "runs/m414_source_weighted_replay_failure_trajectory_anchor",
+    "weighted_anchor_npz": "runs/m414_source_weighted_replay_failure_trajectory_anchor/source_weighted_replay_failure_trajectory_anchor.npz",
+    "m267_m264_anchor_rows": 669,
+    "old_key_anchor_rows": 290,
+    "old_key_weight_multiplier": 10.0,
+    "projection_run": "runs/m414_source_weighted_projection_ltraj1e12_s40_seed10145",
+    "candidate_checkpoint": "runs/m414_source_weighted_projection_ltraj1e12_s40_seed10145/candidate_checkpoint.pt",
+    "exact_pass": true,
+    "exact_m297_delta_vs_base": -0.00012922286987304688,
+    "exact_m270_delta_vs_base": -0.0001500248908996582,
+    "old_key_surrogate_delta_vs_base": -0.00019884109497070312,
+    "replay_trajectory_anchor_loss": 7.80193488481018e-07,
+    "old_key_recovery_preferred_loss": 0.0036336095072329044,
+    "m267_m264_run_dir": "runs/m414_source_weighted_m267_m264_first_replay",
+    "m267_m264_gate_pass": false,
+    "m267_m264_success_drops": 15,
+    "old_key_run_dir": "runs/m414_source_weighted_old_key_replay_gate",
+    "old_key_gate_pass": false,
+    "old_key_accepted_regressions": 2,
+    "m183_m170_run_dir": "runs/m414_source_weighted_m183_m170_first_replay",
+    "m183_m170_gate_pass": true,
+    "m183_m170_success_drops": 17,
+    "utility_audit_run": "runs/m414_source_weighted_utility_audit",
+    "recovery_improvement_retained_vs_m406": 0.23045999315044607,
+    "classification": "utility_improved_but_proof_failed",
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m415-active-set-replay-hinge-design"
+  },
+  "decision": "reject_source_weighted_probe_admit_m415_active_set_replay_hinge_design"
 }
