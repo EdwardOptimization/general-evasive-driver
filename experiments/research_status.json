@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 369,
+        "completed": 370,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m360-full-public-gate-for-m358-a00025",
+        "task_id": "m361-micro-alpha-utility-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m360_full_public_gate_for_m358_a00025",
-        "command_log": "docs/m360-full-public-gate-for-m358-a00025.md"
+        "run_dir": "",
+        "command_log": "docs/m361-micro-alpha-utility-audit.md"
     },
     "next_task": {
-        "id": "m361-micro-alpha-utility-audit",
+        "id": "m362-old-key-aware-exact-repair-design",
         "status": "pending",
-        "priority": 3560,
-        "kind": "gate",
-        "hypothesis": "Audit whether M360 micro-alpha promotion is meaningful enough to chain PPO",
-        "command": "see experiments/manifests/m361-micro-alpha-utility-audit.json",
+        "priority": 3570,
+        "kind": "infrastructure",
+        "hypothesis": "Design old-key-aware exact repair/projection before more PPO",
+        "command": "see experiments/manifests/m362-old-key-aware-exact-repair-design.json",
         "success_artifact": "",
-        "notes": "Pending: classify micro-alpha utility before further PPO or repair redesign"
+        "notes": "Pending: make old-key neighborhood proof first-class in exact repair design"
     },
-    "updated_at_utc": "20260523T111719Z"
+    "updated_at_utc": "20260523T112052Z"
 }

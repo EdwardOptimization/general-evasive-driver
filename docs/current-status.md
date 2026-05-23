@@ -42,20 +42,21 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt
+runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt
 ```
 
-Status: M352 promotes M351 alpha `0.0075` as the current public-gate base. It
-passes exact M297/M270 no-regression versus the previous M349 base,
-source-diverse protected gates `5/5`, the distributional old-key neighborhood
-gate, all six replay surfaces, and behavior seeds `9505`/`9506`. The repaired
-M351 endpoint remains rejected because it washes out source-diverse and old-key
-neighborhood proof.
+Status: M360 promotes M358 alpha `0.00025` as the current public-gate base. It
+passes exact M297/M270 no-regression versus the previous M352 base, the
+old-key neighborhood gate, source-diverse protected gates `5/5`, all six replay
+surfaces, and behavior seeds `9505`/`9506`. M361 classifies this as a
+proof-safe micro-step rather than meaningful driver improvement; the accepted
+movement is extremely small and the first tested larger alpha `0.0005` fails the
+old-key neighborhood gate.
 
 Current blocker:
 
 ```text
-m361-micro-alpha-utility-audit
+m362-old-key-aware-exact-repair-design
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -90,9 +91,9 @@ tested nonzero old-key-neighborhood-passing step, while `alpha=0.0005` is the
 first failing step. M359 verifies `alpha=0.00025` passes source-diverse
 protected gates `5/5` and M183/M170 plus M267/M264 first replay gates `17/17`.
 M360 promotes `alpha=0.00025` after all six replay surfaces and behavior seeds
-pass. This is a proof-safe micro-step, not meaningful driver improvement; M361
-should audit whether this branch is worth chaining or whether the repair
-objective should be redesigned.
+pass. This is a proof-safe micro-step, not meaningful driver improvement. M361
+classifies it as retention-only progress and admits an old-key-aware exact
+repair design before more PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -169,7 +170,7 @@ objective should be redesigned.
 | bounded micro-alpha candidate | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M358 finds alpha 0.00025 passes exact and old-key; alpha 0.0005 first fails old-key |
 | proof-gate-passing micro-alpha | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M359 passes source-diverse protected and first replay proof gates |
 | current public-gate base | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M360 promotes alpha 0.00025 after full public gate pass; movement is extremely small |
-| current blocker | `experiments/manifests/m361-micro-alpha-utility-audit.json` | M361 must audit whether micro-alpha promotion should be chained or treated as retention-only |
+| current blocker | `experiments/manifests/m362-old-key-aware-exact-repair-design.json` | M362 must design an exact repair/projection objective that makes old-key neighborhood proof first-class before more PPO |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

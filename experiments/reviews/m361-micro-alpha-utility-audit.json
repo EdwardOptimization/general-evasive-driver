@@ -1,0 +1,78 @@
+{
+  "decision_reason": "M361 classifies M360 alpha 0.00025 as a proof-safe micro-step rather than meaningful driver improvement; next step is old-key-aware exact repair design before more PPO",
+  "failure_criteria": [
+    "audit ignores the micro-alpha limitation",
+    "audit starts PPO before deciding whether the branch is useful",
+    "actor input contract changes",
+    "research validation fails"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not treat micro-alpha promotion as meaningful driver improvement without evidence",
+    "do not start longer PPO before deciding whether this branch has usable movement",
+    "do not change actor inputs",
+    "do not hide the alpha 0.00025 limitation"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260523T112411Z",
+  "hypothesis": "Although M360 promotes alpha 0.00025, the movement may be too small to justify another PPO chain; a process audit should decide the next research direction before further training.",
+  "lineage": {
+    "blocked_by": [
+      "m360-full-public-gate-for-m358-a00025"
+    ],
+    "derived_from": [
+      "m360-full-public-gate-for-m358-a00025"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt",
+      "runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m360-full-public-gate-for-m358-a00025.json",
+      "docs/m360-full-public-gate-for-m358-a00025.md"
+    ],
+    "parent_dataset": [
+      "runs/m360_full_public_gate_for_m358_a00025/summary.json",
+      "docs/m360-full-public-gate-for-m358-a00025.md"
+    ],
+    "parent_objective": [
+      "audit whether the promoted micro-alpha is meaningful enough to chain PPO from"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m361-micro-alpha-utility-audit",
+  "next_blocker": "m362-old-key-aware-exact-repair-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m362_old_key_aware_exact_repair_design",
+  "public_gates": [
+    "process audit only; no PPO run",
+    "quantify exact-objective movement from M352 to M358 alpha 0.00025",
+    "quantify accepted alpha versus first failing alpha",
+    "decide whether to chain PPO, redesign repair objective, or refresh proof surfaces",
+    "preserve actor input contract"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m362_old_key_aware_exact_repair_design",
+    "milestone": "m361-micro-alpha-utility-audit",
+    "reason": "M361 classifies M360 alpha 0.00025 as a proof-safe micro-step rather than meaningful driver improvement; next step is old-key-aware exact repair design before more PPO",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "audit states whether alpha 0.00025 is meaningful progress or only retention",
+    "audit recommends the next blocker explicitly",
+    "audit does not run PPO",
+    "research validation passes"
+  ],
+  "type": "gate"
+}

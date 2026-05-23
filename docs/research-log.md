@@ -9244,3 +9244,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M360 promotes `alpha=0.00025`. Exact M297/M270, old-key neighborhood, source-diverse protected gates, all six replay surfaces, and behavior seeds `9505`/`9506` pass. Behavior success remains `0.8625`, reset success mean `0.85`, and zero-all success mean `0.80`. The promotion is explicitly qualified as a proof-safe micro-step: accepted alpha is `0.00025` and the first failing old-key alpha is `0.0005`.
 - decision: `promote_m358_a00025_old_key_neighborhood_public_gate_base`
 - next: `m361-micro-alpha-utility-audit`
+
+## 20260523T112052Z - m361-micro-alpha-utility-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m361-micro-alpha-utility-audit.md`
+- result: M361 classifies the M360 `alpha=0.00025` public-gate promotion as a proof-safe micro-step, not meaningful driver improvement. It remains useful as the public-gate base for lineage, but the exact-objective movement is only around `1e-7`, behavior is unchanged, and the first tested larger alpha `0.0005` already fails the old-key neighborhood gate.
+- decision: `admit_m362_old_key_aware_exact_repair_design`
+- next: `m362-old-key-aware-exact-repair-design`

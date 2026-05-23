@@ -78,6 +78,28 @@
     "docs/m360-full-public-gate-for-m358-a00025.md",
     "runs/m360_full_public_gate_for_m358_a00025/summary.json"
   ],
-  "decision_rule": "M361 is complete when the micro-alpha promotion is classified and the next training or redesign blocker is registered without running PPO.",
-  "next_blocker": "pending M361 micro-alpha utility audit"
+  "results": {
+    "run_dir": "runs/m360_full_public_gate_for_m358_a00025",
+    "candidate_checkpoint": "runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt",
+    "previous_public_base": "runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt",
+    "accepted_alpha": 0.00025,
+    "first_failing_old_key_alpha": 0.0005,
+    "exact_m297_delta_vs_m352": -1.1920928955078125e-07,
+    "exact_m270_delta_vs_m352": -5.960464477539063e-08,
+    "source_diverse_replay_gates_passed": 5,
+    "source_diverse_replay_gate_count": 5,
+    "full_replay_gates_passed": 6,
+    "full_replay_gate_count": 6,
+    "behavior_success_mean": 0.8625,
+    "behavior_termination_mean": 0.1375,
+    "behavior_clearance_margin_mean": 1.844537821078465,
+    "utility_classification": "proof_safe_micro_step",
+    "meaningful_driver_improvement": false,
+    "chain_longer_ppo_recommended": false,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m362_old_key_aware_exact_repair_design",
+  "decision_rule": "M361 completes the process audit by classifying M360 as a proof-safe micro-step rather than meaningful driver improvement; do not chain longer PPO until old-key neighborhood proof is first-class in the exact repair/projection design.",
+  "next_blocker": "m362-old-key-aware-exact-repair-design"
 }

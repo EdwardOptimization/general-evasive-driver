@@ -1,0 +1,84 @@
+{
+  "id": "m362-old-key-aware-exact-repair-design",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt",
+      "runs/m356_m354_repair_best_step_probe/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m361-micro-alpha-utility-audit.md",
+      "runs/m358_m354_best_step_old_key_micro_a00025_gate/summary.json",
+      "runs/m358_m354_best_step_old_key_micro_a0005_gate/summary.json",
+      "runs/m357_m354_best_step_proof_gate/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m361-micro-alpha-utility-audit.json"
+    ],
+    "parent_objective": [
+      "design old-key-aware exact repair/projection before further PPO"
+    ],
+    "derived_from": [
+      "m361-micro-alpha-utility-audit"
+    ],
+    "blocked_by": [
+      "m361-micro-alpha-utility-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m362-old-key-aware-exact-repair-design.md",
+  "public_gates": [
+    "process design only; no PPO run",
+    "preserve exact M297/M270 as lexicographic no-regression objectives",
+    "make old-key neighborhood proof first-class in the repair/projection design",
+    "include source-diverse protected proof and first replay gates in acceptance order",
+    "preserve actor input contract"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in the design milestone",
+    "do not accept alpha clipping to 0.00025 as a solved training recipe",
+    "do not remove old-key neighborhood proof from the acceptance stack",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "The M356/M358 failure mode can be addressed by designing exact repair/projection that treats old-key neighborhood proof as a first-class residual or constraint instead of relying on post-hoc interpolation after exact M297/M270.",
+  "success_criteria": [
+    "design specifies the repair objective terms and lexicographic acceptance order",
+    "design states how old-key neighborhood rows enter the repair or projection",
+    "design states how to reject negligible-alpha directions",
+    "next implementation milestone is registered",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design defers the old-key proof conflict to post-hoc promotion gates only",
+    "design starts PPO before the repair objective is specified",
+    "actor input contract changes",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "m362_design",
+      "command": "Design old-key-aware exact repair/projection for PPO proposals; do not run PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m362-old-key-aware-exact-repair-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m361-micro-alpha-utility-audit.md"
+  ],
+  "decision_rule": "M362 is complete when the old-key-aware exact repair/projection design is documented and the implementation milestone is registered without changing actor inputs or running PPO.",
+  "next_blocker": "pending M362 old-key-aware exact repair design"
+}
