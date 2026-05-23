@@ -10334,3 +10334,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M469 implements `autodrift.adversarial_wrong_history_pair_search` and focused tests for near-boundary anchoring, source caps, and rejection of small/imbalanced surfaces. The search over M467 near-boundary anchors and the M462 full candidate pool finds only `50` candidates/pairs. It covers `26` left states, `3` probe seeds, `2` labels, and `3` targets, but fails the pre-registered surface gate: adversarial pair count is below `64`, and single-seed share is `0.68` versus the `0.50` cap.
 - decision: `search_surface_too_small_admit_m470_expanded_pool_design`
 - next: `m470-expanded-adversarial-pool-design`
+
+## 20260523T212759Z - m470-expanded-adversarial-pool-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m470-expanded-adversarial-pool-design.md`
+- result: M470 treats M469 as a data-pool coverage failure, not as a reason to run outcome probing or relax gates. It designs M471 as an expanded same-window matched-current mining pass over seeds `10200`, `10300`, and `10400`, increasing episodes from `40` to `80`, max samples from `1200` to `2400`, and nearest-k from `12` to `32`, followed by the existing adversarial wrong-history search on M467 near-boundary anchors.
+- decision: `admit_m471_expanded_adversarial_pool_run`
+- next: `m471-expanded-adversarial-pool-run`

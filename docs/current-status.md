@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m470-expanded-adversarial-pool-design
+m471-expanded-adversarial-pool-run
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -286,6 +286,11 @@ covering `26` left states, `3` probe seeds, `2` labels, and `3` targets, but
 fails the surface gate: count is below the `64` minimum and single-seed share
 is `0.68`, above the `0.50` cap. The next blocker is M470: design an expanded
 near-boundary adversarial mining pool before any outcome probe.
+M470 completes that design. The next step is an expanded same-window
+matched-current mining run on seeds `10200`, `10300`, and `10400`, increasing
+episodes to `80`, max samples to `2400`, and nearest-k to `32`, then rerunning
+adversarial search on the M467 near-boundary anchors. Outcome probing remains
+forbidden unless the expanded adversarial surface passes source-diversity gates.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

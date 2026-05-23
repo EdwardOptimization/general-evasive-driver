@@ -1,0 +1,93 @@
+{
+  "id": "m471-expanded-adversarial-pool-run",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m467_near_boundary_wrong_history_selector/near_boundary_no_effect.csv",
+      "runs/m462_late_reveal_matched_current_fresh_seed10200/candidate_pairs.csv"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m470-expanded-adversarial-pool-design.json"
+    ],
+    "parent_objective": [
+      "expanded same-window adversarial candidate-pool run"
+    ],
+    "derived_from": [
+      "m470-expanded-adversarial-pool-design"
+    ],
+    "blocked_by": [
+      "m470-expanded-adversarial-pool-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m471-expanded-adversarial-pool-run.md",
+  "public_gates": [
+    "run expanded matched-current mining on seed window 10200/10300/10400",
+    "rerun adversarial wrong-history search on M467 near-boundary anchors",
+    "decide whether surface is source-diverse enough for outcome probing",
+    "write docs and artifacts",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not run outcome probe unless the adversarial surface passes source-diversity gates",
+    "do not loosen normal-margin requirements",
+    "do not add privileged actor inputs"
+  ],
+  "hypothesis": "A higher-sample matched-current mining pass on the same seed window will increase adversarial wrong-history coverage enough to justify a later outcome probe.",
+  "success_criteria": [
+    "expanded matched-current mining completes without sampling failure",
+    "adversarial search completes on the expanded candidate pool",
+    "adversarial_pairs >= 64",
+    "near_boundary_left_state_count >= 16",
+    "probe_seed_count >= 3",
+    "left_obstacle_label_count >= 2",
+    "target_count >= 2",
+    "single_seed_share <= 0.50",
+    "single_label_share <= 0.70",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "expanded mining fails scenario sampling",
+    "adversarial pair count remains below 64",
+    "single seed share remains above 0.50",
+    "actor contract changes"
+  ],
+  "commands": [
+    {
+      "name": "expanded_matched_current_mining",
+      "command": "Run matched_current_response_ambiguity with episodes=80 max_samples=2400 nearest_k=32 on seed window 10200,10300,10400."
+    },
+    {
+      "name": "expanded_adversarial_search",
+      "command": "Run adversarial_wrong_history_pair_search on M467 anchors and the expanded candidate_pairs.csv."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m471-expanded-adversarial-pool-run.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m470-expanded-adversarial-pool-design.md",
+    "runs/m467_near_boundary_wrong_history_selector/near_boundary_no_effect.csv"
+  ],
+  "decision_rule": "M471 can admit outcome probing only if the expanded adversarial surface passes source-diversity gates. Otherwise expand fresh seed windows or redesign the task family.",
+  "next_blocker": "pending M471 expanded adversarial pool run"
+}

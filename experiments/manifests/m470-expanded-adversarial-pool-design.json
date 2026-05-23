@@ -2,7 +2,7 @@
   "id": "m470-expanded-adversarial-pool-design",
   "type": "infrastructure",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -80,5 +80,16 @@
     "runs/m469_adversarial_wrong_history_pair_search/summary.json"
   ],
   "decision_rule": "M470 can admit implementation only if it increases source coverage for near-boundary adversarial wrong-history pairs before outcome probing.",
-  "next_blocker": "pending M470 expanded adversarial pool design"
+  "results": {
+    "design_doc": "docs/m470-expanded-adversarial-pool-design.md",
+    "m469_adversarial_pair_count": 50,
+    "m469_near_boundary_left_state_count": 26,
+    "m469_single_seed_share": 0.68,
+    "selected_next_path": "expanded same-window matched-current mining followed by adversarial search",
+    "next_manifest": "experiments/manifests/m471-expanded-adversarial-pool-run.json",
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "admit_m471_expanded_adversarial_pool_run"
+  },
+  "next_blocker": "m471-expanded-adversarial-pool-run"
 }

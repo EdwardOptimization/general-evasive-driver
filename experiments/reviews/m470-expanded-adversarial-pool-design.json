@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M470 designs expanded same-window matched-current mining before any outcome probe on adversarial pairs",
+  "failure_criteria": [
+    "design proposes outcome probing on the imbalanced M469 pool",
+    "design skips near-boundary anchors",
+    "design requires privileged actor inputs",
+    "design proposes PPO before proof evidence"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not run outcome probe on the imbalanced M469 surface",
+    "do not loosen normal-margin requirements",
+    "do not add privileged actor inputs"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260523T213008Z",
+  "hypothesis": "M469 failed because the M462 full candidate pool is too small around near-boundary anchors; the next step should expand the mining pool before outcome probing.",
+  "lineage": {
+    "blocked_by": [
+      "m469-adversarial-wrong-history-pair-search"
+    ],
+    "derived_from": [
+      "m469-adversarial-wrong-history-pair-search"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m469-adversarial-wrong-history-pair-search.json"
+    ],
+    "parent_dataset": [
+      "runs/m469_adversarial_wrong_history_pair_search/summary.json",
+      "runs/m469_adversarial_wrong_history_pair_search/adversarial_pairs.csv"
+    ],
+    "parent_objective": [
+      "expanded adversarial candidate-pool design"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m470-expanded-adversarial-pool-design",
+  "next_blocker": "m471-expanded-adversarial-pool-run",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m471_expanded_adversarial_pool_run",
+  "public_gates": [
+    "analyze why M469 pool coverage is too small and seed-imbalanced",
+    "design a larger fresh adversarial-pair mining pool",
+    "preserve P0 actor contract and near-boundary normal-margin requirement",
+    "pre-register the next implementation and pass/fail criteria",
+    "no checkpoint promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m471_expanded_adversarial_pool_run",
+    "milestone": "m470-expanded-adversarial-pool-design",
+    "reason": "M470 designs expanded same-window matched-current mining before any outcome probe on adversarial pairs",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "document the M469 pool-size and seed-balance failure",
+    "select a concrete expanded-pool implementation path",
+    "define expected artifacts and pass/fail criteria",
+    "preserve no-privileged-input actor contract",
+    "no checkpoint is promoted"
+  ],
+  "type": "infrastructure"
+}

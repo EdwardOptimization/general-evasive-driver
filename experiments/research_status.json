@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 478,
+        "completed": 479,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m469-adversarial-wrong-history-pair-search",
+        "task_id": "m470-expanded-adversarial-pool-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m469_adversarial_wrong_history_pair_search",
-        "command_log": "docs/m469-adversarial-wrong-history-pair-search.md"
+        "run_dir": "",
+        "command_log": "docs/m470-expanded-adversarial-pool-design.md"
     },
     "next_task": {
-        "id": "m470-expanded-adversarial-pool-design",
+        "id": "m471-expanded-adversarial-pool-run",
         "status": "pending",
-        "priority": 4650,
-        "kind": "infrastructure",
-        "hypothesis": "M469 failed because the M462 candidate pool is too small and seed-imbalanced around near-boundary anchors",
-        "command": "see experiments/manifests/m470-expanded-adversarial-pool-design.json",
+        "priority": 4660,
+        "kind": "gate",
+        "hypothesis": "A higher-sample same-window mining pass will expand adversarial wrong-history coverage enough for later outcome probing",
+        "command": "see experiments/manifests/m471-expanded-adversarial-pool-run.json",
         "success_artifact": "",
-        "notes": "Pending: design expanded adversarial mining pool; do not outcome-probe the imbalanced M469 surface"
+        "notes": "Pending: run expanded matched-current mining and adversarial search; no outcome probe unless source gates pass"
     },
-    "updated_at_utc": "20260523T212421Z"
+    "updated_at_utc": "20260523T212759Z"
 }
