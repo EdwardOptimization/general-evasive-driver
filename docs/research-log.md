@@ -10104,3 +10104,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M446 adds `src/autodrift/policy_difference_miner.py` and focused tests. The smoke on M444 episodes compares 640 candidate rows and finds only 2 accepted rows, both `return_delta` on seed `9706`, with no success flips, collision flips, margin sign flips, near-boundary margin deltas, or large margin deltas.
 - decision: `admit_m447_fresh_policy_difference_mining_run`
 - next: `m447-fresh-policy-difference-mining-run`
+
+## 20260523T192918Z - m447-fresh-policy-difference-mining-run
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m447_fresh_policy_difference_mining_seed9700`
+- artifact: `docs/m447-fresh-policy-difference-mining-run.md`
+- result: M447 runs a 512-episode fresh benchmark and mines 2048 candidate comparisons. All checkpoint candidates tie M399 success `0.876953` and collision `0.123047`; the miner accepts only 3 rows, all `return_delta`, with no success flips, collision flips, margin sign flips, near-boundary margin deltas, or large margin deltas.
+- decision: `candidate_family_indistinguishable_admit_challenge_distribution_design`
+- next: `m448-differentiating-challenge-distribution-design`

@@ -91,5 +91,37 @@
     "docs/m446-policy-difference-miner-implementation.md"
   ],
   "decision_rule": "M447 is diagnostic only. It may admit a new generalization surface or conclude the candidate family is indistinguishable, but it cannot promote a checkpoint.",
-  "next_blocker": "pending M447 fresh policy-difference mining run"
+  "results": {
+    "benchmark_run_dir": "runs/m447_fresh_policy_difference_benchmark_seed9700",
+    "mining_run_dir": "runs/m447_fresh_policy_difference_mining_seed9700",
+    "episodes": 512,
+    "comparison_rows": 2048,
+    "base_success_rate": 0.876953125,
+    "base_collision_rate": 0.123046875,
+    "accepted_rows": 3,
+    "selected_rows": 2,
+    "accepted_by_divergence_type": {
+      "return_delta": 3
+    },
+    "success_diff_count_vs_base": {
+      "m427_high_utility": 0,
+      "m434_r0010": 0,
+      "m438_r0015": 0,
+      "m442_tail_v2": 0
+    },
+    "collision_diff_count_vs_base": {
+      "m427_high_utility": 0,
+      "m434_r0010": 0,
+      "m438_r0015": 0,
+      "m442_tail_v2": 0
+    },
+    "margin_sign_diff_count_vs_base": {
+      "m427_high_utility": 0,
+      "m434_r0010": 0,
+      "m438_r0015": 0,
+      "m442_tail_v2": 0
+    },
+    "decision": "candidate_family_indistinguishable_on_m121"
+  },
+  "next_blocker": "m448-differentiating-challenge-distribution-design"
 }

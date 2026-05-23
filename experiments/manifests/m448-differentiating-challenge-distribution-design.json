@@ -1,0 +1,81 @@
+{
+  "id": "m448-differentiating-challenge-distribution-design",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m447_fresh_policy_difference_benchmark_seed9700/episodes.csv",
+      "runs/m447_fresh_policy_difference_mining_seed9700/policy_difference_summary.json"
+    ],
+    "parent_config": [
+      "configs/m121_human_view_zero_obstacle_relvel.json",
+      "experiments/manifests/m447-fresh-policy-difference-mining-run.json"
+    ],
+    "parent_objective": [
+      "differentiating challenge distribution design"
+    ],
+    "derived_from": [
+      "m447-fresh-policy-difference-mining-run"
+    ],
+    "blocked_by": [
+      "m447-fresh-policy-difference-mining-run"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m448-differentiating-challenge-distribution-design.md",
+  "public_gates": [
+    "design a harder fresh scenario distribution",
+    "preserve P0 human-view no-wheel actor contract",
+    "define smoke and mining acceptance criteria",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add hidden or oracle actor inputs",
+    "do not use planner/reference features",
+    "do not lower existing proof gates"
+  ],
+  "hypothesis": "The current M121 distribution is too insensitive to distinguish recent checkpoints, so the next step should design a more challenging near-boundary scenario distribution before more objective design.",
+  "success_criteria": [
+    "design specifies concrete config changes",
+    "design specifies smoke sampling checks",
+    "design specifies policy-difference mining gates",
+    "design does not change actor inputs"
+  ],
+  "failure_criteria": [
+    "design only proposes more active-boundary tuning",
+    "design uses hidden/oracle actor inputs",
+    "design lacks a way to test whether scenarios are more discriminative",
+    "design promotes a checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "Write differentiating challenge distribution design; no benchmark run."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m448-differentiating-challenge-distribution-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m447-fresh-policy-difference-mining-run.md"
+  ],
+  "decision_rule": "M448 passes if it defines a concrete challenge distribution and M449 implementation/run path without training or promotion.",
+  "next_blocker": "pending M448 challenge distribution design"
+}

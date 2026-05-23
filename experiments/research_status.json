@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 455,
+        "completed": 456,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m446-policy-difference-miner-implementation",
+        "task_id": "m447-fresh-policy-difference-mining-run",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m446_policy_difference_miner_smoke",
-        "command_log": "docs/m446-policy-difference-miner-implementation.md"
+        "run_dir": "runs/m447_fresh_policy_difference_mining_seed9700",
+        "command_log": "docs/m447-fresh-policy-difference-mining-run.md"
     },
     "next_task": {
-        "id": "m447-fresh-policy-difference-mining-run",
+        "id": "m448-differentiating-challenge-distribution-design",
         "status": "pending",
-        "priority": 4420,
-        "kind": "gate",
-        "hypothesis": "Run 512-episode fresh benchmark and mine policy differences",
-        "command": "see experiments/manifests/m447-fresh-policy-difference-mining-run.json",
+        "priority": 4430,
+        "kind": "infrastructure",
+        "hypothesis": "Design more discriminative near-boundary challenge distribution",
+        "command": "see experiments/manifests/m448-differentiating-challenge-distribution-design.json",
         "success_artifact": "",
-        "notes": "Pending: run fresh benchmark then policy-difference miner without promotion"
+        "notes": "Pending: design config and gates to make meaningful policy differences observable"
     },
-    "updated_at_utc": "20260523T192445Z"
+    "updated_at_utc": "20260523T192918Z"
 }

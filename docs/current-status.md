@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m447-fresh-policy-difference-mining-run
+m448-differentiating-challenge-distribution-design
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -133,7 +133,12 @@ benchmark rows without training or promotion. M446 implements the miner and
 smokes it on M444: out of 640 candidate comparisons, it finds only 2 accepted
 rows, both `return_delta`, with no outcome or margin divergences. The next
 blocker is M447: run a larger 512-episode fresh benchmark and mine policy
-differences from that output.
+differences from that output. M447 runs that larger pool and confirms the
+candidate family is still functionally indistinguishable on M121: 2048
+candidate comparisons yield only 3 `return_delta` rows and no success,
+collision, margin-sign, near-boundary, or large-margin divergences. The next
+blocker is M448: design a more discriminative near-boundary challenge
+distribution before more objective design.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key
