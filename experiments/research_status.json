@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 477,
+        "completed": 478,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m468-near-boundary-task-family-redesign",
+        "task_id": "m469-adversarial-wrong-history-pair-search",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m468-near-boundary-task-family-redesign.md"
+        "run_dir": "runs/m469_adversarial_wrong_history_pair_search",
+        "command_log": "docs/m469-adversarial-wrong-history-pair-search.md"
     },
     "next_task": {
-        "id": "m469-adversarial-wrong-history-pair-search",
+        "id": "m470-expanded-adversarial-pool-design",
         "status": "pending",
-        "priority": 4640,
+        "priority": 4650,
         "kind": "infrastructure",
-        "hypothesis": "Searching the full candidate-pair pool can produce stronger wrong histories around M467 near-boundary left states",
-        "command": "see experiments/manifests/m469-adversarial-wrong-history-pair-search.json",
+        "hypothesis": "M469 failed because the M462 candidate pool is too small and seed-imbalanced around near-boundary anchors",
+        "command": "see experiments/manifests/m470-expanded-adversarial-pool-design.json",
         "success_artifact": "",
-        "notes": "Pending: implement adversarial wrong-history pair search; no policy rollout or PPO"
+        "notes": "Pending: design expanded adversarial mining pool; do not outcome-probe the imbalanced M469 surface"
     },
-    "updated_at_utc": "20260523T211746Z"
+    "updated_at_utc": "20260523T212421Z"
 }

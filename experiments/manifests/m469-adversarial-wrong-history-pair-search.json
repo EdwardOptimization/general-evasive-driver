@@ -2,7 +2,7 @@
   "id": "m469-adversarial-wrong-history-pair-search",
   "type": "infrastructure",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -85,5 +85,36 @@
     "runs/m462_late_reveal_matched_current_fresh_seed10200/candidate_pairs.csv"
   ],
   "decision_rule": "M469 can admit outcome probing only if it produces a source-diverse adversarial pair surface anchored on low-normal-margin left states.",
-  "next_blocker": "pending M469 adversarial wrong-history pair search"
+  "results": {
+    "module": "src/autodrift/adversarial_wrong_history_pair_search.py",
+    "test_file": "tests/test_adversarial_wrong_history_pair_search.py",
+    "run_dir": "runs/m469_adversarial_wrong_history_pair_search",
+    "search_candidate_count": 50,
+    "adversarial_pair_count": 50,
+    "near_boundary_left_state_count": 26,
+    "probe_seed_count": 3,
+    "left_obstacle_label_count": 2,
+    "target_count": 3,
+    "single_seed_share": 0.68,
+    "single_label_share": 0.64,
+    "adversarial_by_probe_seed": {
+      "10200": 34,
+      "10300": 7,
+      "10400": 9
+    },
+    "adversarial_by_left_obstacle_label": {
+      "drift_required": 32,
+      "unavoidable": 18
+    },
+    "adversarial_by_target": {
+      "future_braking_deceleration": 11,
+      "future_lateral_accel_response": 16,
+      "future_yaw_response": 23
+    },
+    "search_pass": false,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "search_surface_too_small_admit_m470_expanded_pool_design"
+  },
+  "next_blocker": "m470-expanded-adversarial-pool-design"
 }

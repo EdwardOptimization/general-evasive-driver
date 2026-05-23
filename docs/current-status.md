@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m469-adversarial-wrong-history-pair-search
+m470-expanded-adversarial-pool-design
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -281,6 +281,11 @@ to the full M462 `candidate_pairs.csv` pool, and search for stronger right-side
 histories that still satisfy matched-current constraints. The next blocker is
 M469: implement this adversarial pair search and export a source-diverse pair
 surface before running another outcome probe.
+M469 implements and runs that search. It finds only `50` adversarial pairs,
+covering `26` left states, `3` probe seeds, `2` labels, and `3` targets, but
+fails the surface gate: count is below the `64` minimum and single-seed share
+is `0.68`, above the `0.50` cap. The next blocker is M470: design an expanded
+near-boundary adversarial mining pool before any outcome probe.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

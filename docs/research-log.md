@@ -10324,3 +10324,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M468 diagnoses the M467 result as weak injected histories rather than absent useful left states. The next path is adversarial wrong-history pair search: anchor on M467 near-boundary no-effect left states and search the full M462 `candidate_pairs.csv` pool for stronger right histories that preserve matched-current constraints but maximize hidden/current separation and dynamics contrast. M468 explicitly rejects selector-threshold retuning and PPO at this stage.
 - decision: `admit_m469_adversarial_wrong_history_pair_search`
 - next: `m469-adversarial-wrong-history-pair-search`
+
+## 20260523T212421Z - m469-adversarial-wrong-history-pair-search
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m469_adversarial_wrong_history_pair_search`
+- artifact: `docs/m469-adversarial-wrong-history-pair-search.md`
+- result: M469 implements `autodrift.adversarial_wrong_history_pair_search` and focused tests for near-boundary anchoring, source caps, and rejection of small/imbalanced surfaces. The search over M467 near-boundary anchors and the M462 full candidate pool finds only `50` candidates/pairs. It covers `26` left states, `3` probe seeds, `2` labels, and `3` targets, but fails the pre-registered surface gate: adversarial pair count is below `64`, and single-seed share is `0.68` versus the `0.50` cap.
+- decision: `search_surface_too_small_admit_m470_expanded_pool_design`
+- next: `m470-expanded-adversarial-pool-design`
