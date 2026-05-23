@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 359,
+        "completed": 360,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m350-old-key-neighborhood-ppo-escalation-design",
+        "task_id": "m351-old-key-neighborhood-ppo-escalation-run",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "docs/m350-old-key-neighborhood-ppo-escalation-design.md",
-        "command_log": "docs/m350-old-key-neighborhood-ppo-escalation-design.md"
+        "run_dir": "runs/m351_old_key_neighborhood_ppo_escalation",
+        "command_log": "runs/m351_old_key_neighborhood_ppo_escalation/summary.json"
     },
     "next_task": {
-        "id": "m351-old-key-neighborhood-ppo-escalation-run",
+        "id": "m352-full-public-gate-for-m351-a0075",
         "status": "pending",
-        "priority": 3460,
+        "priority": 3470,
         "kind": "driver_candidate",
-        "hypothesis": "A short PPO proposal from the M349 public base may yield an exact-repair candidate that preserves source-diverse proof and old-key neighborhood proof before first replay gates.",
-        "command": "see experiments/manifests/m351-old-key-neighborhood-ppo-escalation-run.json",
+        "hypothesis": "The M351 alpha 0.0075 bounded PPO candidate may be promotable if it retains exact objectives, source-diverse protected proof, old-key neighborhood proof, all six replay surfaces, and behavior seeds.",
+        "command": "see experiments/manifests/m352-full-public-gate-for-m351-a0075.json",
         "success_artifact": "",
-        "notes": "Pending: run PPO proposal exact repair old-key neighborhood and first replay gates"
+        "notes": "Pending: run six replay gates and behavior seeds before any promotion"
     },
-    "updated_at_utc": "20260523T102202Z"
+    "updated_at_utc": "20260523T102948Z"
 }

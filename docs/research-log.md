@@ -9144,3 +9144,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M350 registers the next short PPO proposal from M349 base without running PPO. The M351 config keeps `4096` total steps, learning rate `5e-7`, seed `5239`, and the existing M335 guard coefficients, while updating baseline/snippet anchors to `runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_01.pt`. The planned gate order is raw PPO proposal, exact M297/M270 repair, source-diverse protected gates, old-key neighborhood targeted replay plus replay adapter, interpolation if needed, and first replay gates before any full public gate.
 - decision: `admit_m351_old_key_neighborhood_ppo_escalation_run`
 - next: `m351-old-key-neighborhood-ppo-escalation-run`
+
+## 20260523T102948Z - m351-old-key-neighborhood-ppo-escalation-run
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m351_old_key_neighborhood_ppo_escalation`
+- artifact: `docs/m351-old-key-neighborhood-ppo-escalation-run.md`
+- result: M351 runs the short PPO proposal from M349 base. Raw PPO completes on CUDA with eval termination `0.20`. Exact repair improves M297/M270 by `-0.000380516` and `-0.000209033`, but the repaired endpoint fails source-diverse gates `3/5` and old-key neighborhood replay with only `25/40` compact rows accepted. Interpolation selects `alpha=0.0075` as the largest old-key-neighborhood-passing alpha; `alpha=0.01` is the first failing alpha. The selected alpha passes exact deltas `-0.000002742` and `-0.000001490`, source-diverse gates `5/5`, and M183/M170 plus M267/M264 first replay gates.
+- decision: `admit_m352_full_public_gate_for_m351_a0075`
+- next: `m352-full-public-gate-for-m351-a0075`

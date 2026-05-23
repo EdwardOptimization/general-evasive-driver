@@ -55,7 +55,7 @@ keeping `9944` visible through the old-key neighborhood diagnostics.
 Current blocker:
 
 ```text
-m351-old-key-neighborhood-ppo-escalation-run
+m352-full-public-gate-for-m351-a0075
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -71,7 +71,10 @@ no-regression versus the previous M336 base, source-diverse protected gates
 `5/5`, and first replay gates M183/M170 plus M267/M264. M349 then promotes it
 after all six public replay gates and behavior seeds pass. M350 registers the
 next short PPO escalation design from this new base without running training.
-M351 is the next proposal-only PPO run.
+M351 runs the proposal-only PPO step: the repaired endpoint improves exact
+objectives but fails source/old-key proof, while bounded `alpha=0.0075` passes
+exact, source-diverse, old-key neighborhood, and first replay gates. M352 must
+run the full public gate before any promotion.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -138,7 +141,8 @@ M351 is the next proposal-only PPO run.
 | exact/source-diverse probe | `runs/m348_m335_a010_probe/summary.json` | M348 passes exact M297/M270, source-diverse protected gates, old-key neighborhood, and first replay gates for `m335_a010` |
 | current public-gate base | `runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_01.pt` | M349 promotes alpha 0.01 after exact, source-diverse, old-key neighborhood, six replay, and behavior gates pass |
 | next PPO config | `configs/ppo_m351_old_key_neighborhood_escalation.json` | M350 registers a short proposal-only PPO continuation from M349 base with exact/source-diverse/old-key-neighborhood gates |
-| current blocker | `experiments/manifests/m351-old-key-neighborhood-ppo-escalation-run.json` | M351 must run PPO as proposal only, then exact repair and proof gates before any full public gate |
+| bounded PPO candidate | `runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt` | M351 selects alpha 0.0075 after repaired endpoint fails source/old-key proof but bounded alpha passes exact/source-diverse/old-key/first replay gates |
+| current blocker | `experiments/manifests/m352-full-public-gate-for-m351-a0075.json` | M352 must run all six public replay gates and behavior seeds for `m351_a0075` before any promotion |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
