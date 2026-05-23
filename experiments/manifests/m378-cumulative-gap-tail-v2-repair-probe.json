@@ -1,0 +1,92 @@
+{
+  "id": "m378-cumulative-gap-tail-v2-repair-probe",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m374_gap_tail_final_interpolation/checkpoints/alpha_0_1.pt",
+      "runs/m374_gap_tail_final_interpolation/checkpoints/alpha_0_2.pt"
+    ],
+    "parent_dataset": [
+      "runs/m377_cumulative_gap_tail_v2_old_key_preference_corpus/old_key_preference_corpus.npz",
+      "runs/m377_cumulative_gap_tail_v2_overlay/old_key_feedback_overlay.csv",
+      "docs/m377-cumulative-gap-tail-v2-corpus-refresh.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m377-cumulative-gap-tail-v2-corpus-refresh.json"
+    ],
+    "parent_objective": [
+      "probe whether refreshed cumulative gap-tail v2 feedback can repair beyond the M375 alpha 0.1 base without PPO"
+    ],
+    "derived_from": [
+      "m377-cumulative-gap-tail-v2-corpus-refresh"
+    ],
+    "blocked_by": [
+      "m377-cumulative-gap-tail-v2-corpus-refresh"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m378-cumulative-gap-tail-v2-repair-probe.md",
+  "public_gates": [
+    "no PPO run",
+    "exact M297/M270 no-regression",
+    "weighted old-key surrogate no-regression",
+    "cumulative old-key replay and replay-gate adapter",
+    "source-diverse protected gates if old-key replay passes",
+    "first replay gates if proof gates pass",
+    "preserve actor input contract"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not promote directly",
+    "do not run PPO",
+    "do not lower old-key thresholds",
+    "do not skip cumulative old-key replay",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "The v2 cumulative gap-tail old-key corpus can produce a bounded no-PPO repair candidate beyond M375 alpha 0.1 while retaining cumulative old-key lower-tail proof.",
+  "success_criteria": [
+    "v2 repair candidate passes exact M297/M270 and old-key surrogate gates",
+    "closed-loop cumulative old-key replay passes for a nonzero candidate beyond M375 alpha 0.1",
+    "source-diverse and first replay gates are run if cumulative old-key replay passes",
+    "failure is classified if exact surrogate improves but closed-loop lower tail still erodes",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "v2 repair cannot move beyond M375 alpha 0.1 without cumulative old-key replay failure",
+    "exact objectives regress",
+    "weighted old-key surrogate is insensitive to M376 gap-tail rows",
+    "actor input contract changes",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "v2_gap_tail_repair",
+      "command": "Run exact_post_ppo_repair with the M377 v2 old-key corpus and no PPO."
+    },
+    {
+      "name": "cumulative_old_key_replay",
+      "command": "Run old_key_neighborhood_targeted_replay and old_key_neighborhood_replay_gate for exact-feasible candidates."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m378-cumulative-gap-tail-v2-repair-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m374_gap_tail_final_interpolation/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m377-cumulative-gap-tail-v2-corpus-refresh.md",
+    "runs/m377_cumulative_gap_tail_v2_repair_smoke/summary.json"
+  ],
+  "decision_rule": "M378 can admit a full proof or public gate only if a bounded v2 repair candidate passes cumulative old-key replay, source-diverse, and first replay gates; it cannot promote directly.",
+  "next_blocker": "pending M378 cumulative gap-tail v2 repair probe"
+}

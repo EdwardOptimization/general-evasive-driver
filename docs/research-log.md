@@ -9404,3 +9404,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M376 audits the first tested failing alpha `0.2` beyond the M375 base. It has zero accepted regressions and zero normal-success regressions, but cumulative old-key gap p10 is `-0.000526953`, below the `-0.0005` floor. Four rows are below `-0.0005`, one row is below `-0.001`, and the worst row is `10033|perturbed|29|23|9.500000|-1.200000|0.700000` with gap delta `-0.001119853`.
 - decision: `admit_m377_cumulative_gap_tail_v2_corpus_refresh`
 - next: `m377-cumulative-gap-tail-v2-corpus-refresh`
+
+## 20260523T124607Z - m377-cumulative-gap-tail-v2-corpus-refresh
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m377_cumulative_gap_tail_v2_repair_smoke`
+- artifact: `docs/m377-cumulative-gap-tail-v2-corpus-refresh.md`
+- result: M377 refreshes the cumulative old-key gap-tail corpus for the current M375 boundary. The v2 overlay keeps one accepted-regression hard row and adds four M376 gap-tail rows. The exported 40-row corpus has preferred branch weight sum `76.765991`, wrong branch weight sum `56.656788`, and total sample weight sum `83.699730`. A no-update exact repair smoke reads the v2 corpus and passes exact lexicographic checks with old-key surrogate delta `-0.003332615`.
+- decision: `admit_m378_cumulative_gap_tail_v2_repair_probe`
+- next: `m378-cumulative-gap-tail-v2-repair-probe`

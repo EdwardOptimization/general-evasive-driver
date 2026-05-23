@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260523T124438Z
+- Generated at UTC: 20260523T124734Z
 - Type: infrastructure
 - Gate tier: infrastructure
-- Promotion decision: not_applicable
-- Decision reason: M377 completes when the M376 cumulative gap-tail boundary is converted into a v2 old-key corpus and verified by no-update exact repair.
+- Promotion decision: admit_m378_cumulative_gap_tail_v2_repair_probe
+- Decision reason: M377 exports a v2 old-key corpus with one hard row and four current gap-tail rows and verifies no-update exact repair integration
 
 ## Hypothesis
 
@@ -63,8 +63,19 @@ Refreshing the old-key overlay/corpus with M376 alpha 0.2 gap-tail rows can make
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m377-cumulative-gap-tail-v2-corpus-refresh
+- type: infrastructure
+- checkpoint: runs/m374_gap_tail_final_interpolation/checkpoints/alpha_0_1.pt
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: admit_m378_cumulative_gap_tail_v2_repair_probe
+- reason: M377 exports a v2 old-key corpus with one hard row and four current gap-tail rows and verifies no-update exact repair integration
 
 ## Next Blocker
 
-pending M377 cumulative gap-tail v2 corpus refresh
+m378-cumulative-gap-tail-v2-repair-probe

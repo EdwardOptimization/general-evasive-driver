@@ -79,6 +79,26 @@
     "docs/m376-m374-alpha02-cumulative-old-key-boundary-audit.md",
     "runs/m376_alpha02_cumulative_old_key_boundary_audit/summary.json"
   ],
+  "results": {
+    "overlay_csv": "runs/m377_cumulative_gap_tail_v2_overlay/old_key_feedback_overlay.csv",
+    "old_key_preference_corpus_npz": "runs/m377_cumulative_gap_tail_v2_old_key_preference_corpus/old_key_preference_corpus.npz",
+    "old_key_preference_corpus_summary": "runs/m377_cumulative_gap_tail_v2_old_key_preference_corpus/summary.json",
+    "no_update_exact_repair_smoke": "runs/m377_cumulative_gap_tail_v2_repair_smoke/summary.json",
+    "rows": 40,
+    "hard_rows": 1,
+    "gap_tail_rows": 4,
+    "preferred_branch_weight_sum": 76.7659912109375,
+    "wrong_branch_weight_sum": 56.65678787231445,
+    "weighted_corpus_weight_sum": 83.6997299194336,
+    "exact_m297_delta_vs_base": -0.000014185905456542969,
+    "exact_m270_delta_vs_base": -0.00000667572021484375,
+    "old_key_surrogate_delta_vs_base": -0.0033326148986816406,
+    "exact_lexicographic_pass": true,
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m378_cumulative_gap_tail_v2_repair_probe",
   "decision_rule": "M377 completes when the M376 cumulative gap-tail boundary is converted into a v2 old-key corpus and verified by no-update exact repair.",
-  "next_blocker": "pending M377 cumulative gap-tail v2 corpus refresh"
+  "next_blocker": "m378-cumulative-gap-tail-v2-repair-probe"
 }

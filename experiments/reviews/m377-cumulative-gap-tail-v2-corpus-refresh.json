@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M377 completes when the M376 cumulative gap-tail boundary is converted into a v2 old-key corpus and verified by no-update exact repair.",
+  "decision_reason": "M377 exports a v2 old-key corpus with one hard row and four current gap-tail rows and verifies no-update exact repair integration",
   "failure_criteria": [
     "v2 overlay changes actor inputs",
     "corpus export fails",
@@ -16,7 +16,7 @@
     "do not add hidden or oracle actor inputs"
   ],
   "gate_tier": "infrastructure",
-  "generated_at_utc": "20260523T124438Z",
+  "generated_at_utc": "20260523T124734Z",
   "hypothesis": "Refreshing the old-key overlay/corpus with M376 alpha 0.2 gap-tail rows can make the current cumulative boundary visible to exact repair without changing actor inputs.",
   "lineage": {
     "blocked_by": [
@@ -44,9 +44,9 @@
     "supersedes": []
   },
   "milestone": "m377-cumulative-gap-tail-v2-corpus-refresh",
-  "next_blocker": "pending M377 cumulative gap-tail v2 corpus refresh",
+  "next_blocker": "m378-cumulative-gap-tail-v2-repair-probe",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "admit_m378_cumulative_gap_tail_v2_repair_probe",
   "public_gates": [
     "infrastructure/corpus refresh only; no PPO run",
     "keep M375 alpha 0.1 as current promoted base",
@@ -55,7 +55,20 @@
     "verify no-update exact repair smoke reads the v2 corpus",
     "preserve actor input contract"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "runs/m374_gap_tail_final_interpolation/checkpoints/alpha_0_1.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m378_cumulative_gap_tail_v2_repair_probe",
+    "milestone": "m377-cumulative-gap-tail-v2-corpus-refresh",
+    "reason": "M377 exports a v2 old-key corpus with one hard row and four current gap-tail rows and verifies no-update exact repair integration",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "v2 overlay records the M376 gap-tail rows and branch weights",
     "v2 old-key preference corpus is exported from the M375 base",

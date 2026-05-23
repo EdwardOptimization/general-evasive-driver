@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 385,
+        "completed": 386,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m376-m374-alpha02-cumulative-old-key-boundary-audit",
+        "task_id": "m377-cumulative-gap-tail-v2-corpus-refresh",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m376_alpha02_cumulative_old_key_boundary_audit",
-        "command_log": "docs/m376-m374-alpha02-cumulative-old-key-boundary-audit.md"
+        "run_dir": "runs/m377_cumulative_gap_tail_v2_repair_smoke",
+        "command_log": "docs/m377-cumulative-gap-tail-v2-corpus-refresh.md"
     },
     "next_task": {
-        "id": "m377-cumulative-gap-tail-v2-corpus-refresh",
+        "id": "m378-cumulative-gap-tail-v2-repair-probe",
         "status": "pending",
-        "priority": 3720,
-        "kind": "infrastructure",
-        "hypothesis": "Refresh the cumulative old-key gap-tail overlay/corpus for the current M375 boundary",
-        "command": "see experiments/manifests/m377-cumulative-gap-tail-v2-corpus-refresh.json",
+        "priority": 3730,
+        "kind": "gate",
+        "hypothesis": "Probe whether refreshed cumulative gap-tail v2 feedback can repair beyond the M375 alpha 0.1 base without PPO",
+        "command": "see experiments/manifests/m378-cumulative-gap-tail-v2-repair-probe.json",
         "success_artifact": "",
-        "notes": "Pending: export v2 overlay/corpus and no-update exact repair smoke before another repair probe"
+        "notes": "Pending: no-PPO exact repair then cumulative old-key replay before wider proof gates"
     },
-    "updated_at_utc": "20260523T124311Z"
+    "updated_at_utc": "20260523T124607Z"
 }
