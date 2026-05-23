@@ -52,7 +52,7 @@ public-gate base; M487-M488 did not train or promote a checkpoint.
 Current blocker:
 
 ```text
-m489-tail-action-sequence-amplification-design
+m490-tail-action-sequence-amplification-gate-implementation
 ```
 
 Recent progress: M484 added two P0-compatible critical-window zero-relvel
@@ -63,19 +63,17 @@ negative natural proof gate: `wrong_tail_once` produced `11` margin-style proof
 rows, `0` event rows, and single-label share `0.909091`, while reset-tail and
 zero-current controls produced `333` proof rows and `41` event rows.
 
-M488 audits the M487 no-effect mechanism. Wrong-tail hidden injection changes
-first actions (`0.078874` mean, `0.145005` p90), but sustained trajectory
-deviation is small: trajectory mean `0.068261`, only `6.7%` of reset-tail and
-`14.9%` of zero-current. Even `319` wrong-tail rows with first-action distance
-above `0.10` have `0` event rows. The current blocker is therefore quick
-closed-loop correction or non-outcome-aligned pair selection, not task
-insensitivity.
+M488 audits the no-effect mechanism: wrong-tail hidden injection changes first
+actions, but sustained trajectory deviation is small: trajectory mean
+`0.068261`, only `6.7%` of reset-tail and `14.9%` of zero-current. M489 then
+clarifies that `wrong_tail_once` already closes the loop from a wrong initial
+hidden state, so the likely mechanism is fast recurrent correction.
 
-Next step: M489 must design a diagnostic gate for short-horizon wrong-tail
-action-sequence amplification before any training. The gate should compare
-`wrong_tail_once`, forced `wrong_tail_action_replay_K`, diagnostic
-`wrong_tail_hidden_hold_K`, reset-tail, and zero-current controls to separate
-quick correction from genuinely non-outcome-sensitive pair selection.
+Next step: M490 must implement and run a diagnostic tail action-sequence
+amplification gate. It should compare `normal_tail`, `wrong_tail_once`,
+`reset_tail`, `zero_current_tail`, and `wrong_tail_hidden_hold_K` for
+`K in {2,4,8,12}` on both M484 critical configs. Hidden-hold rows are
+diagnostic only, not deployable self-ID proof.
 
 ## Current Evidence
 

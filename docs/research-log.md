@@ -10522,3 +10522,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M488 audits all `4320` M487 outcome rows. `wrong_tail_once` is not ignored: first-action mean is `0.078874` and p90 is `0.145005`. But its trajectory mean is only `0.068261`, compared with reset-tail `1.015227` and zero-current `0.458910`. It has `11` proof rows and `0` event rows, while controls have `333` proof rows and `41` event rows. High-perturbation wrong-tail rows also remain non-event: `319` rows with first-action distance `>0.10` have `0` events. The dominant mechanism is quick correction or non-outcome-aligned selection, not task insensitivity.
 - decision: `wrong_tail_no_effect_audit_admit_m489_tail_action_sequence_amplification_design`
 - next: `m489-tail-action-sequence-amplification-design`
+## 20260524T002500Z - m489-tail-action-sequence-amplification-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m489-tail-action-sequence-amplification-design.md`
+- result: M489 clarifies that M487 `wrong_tail_once` already starts the continuation with the right-tail hidden state and then updates recurrent hidden normally from left-environment observations/actions. Therefore M488 shows quick closed-loop correction, not just a one-action replay limitation. M489 selects a diagnostic M490 gate with `wrong_tail_hidden_hold_K` variants for `K in {2,4,8,12}`, compared against `normal_tail`, `wrong_tail_once`, `reset_tail`, and `zero_current_tail`. Hidden-hold rows are diagnostic only and must not be claimed as deployable self-ID proof.
+- decision: `admit_m490_tail_action_sequence_amplification_gate_implementation`
+- next: `m490-tail-action-sequence-amplification-gate-implementation`

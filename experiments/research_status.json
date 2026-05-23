@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 497,
+        "completed": 498,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m488-critical-window-wrong-tail-no-effect-audit",
+        "task_id": "m489-tail-action-sequence-amplification-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m488_critical_window_wrong_tail_no_effect_audit",
-        "command_log": "docs/m488-critical-window-wrong-tail-no-effect-audit.md"
+        "run_dir": "",
+        "command_log": "docs/m489-tail-action-sequence-amplification-design.md"
     },
     "next_task": {
-        "id": "m489-tail-action-sequence-amplification-design",
+        "id": "m490-tail-action-sequence-amplification-gate-implementation",
         "status": "pending",
-        "priority": 4840,
+        "priority": 4850,
         "kind": "infrastructure",
-        "hypothesis": "A short-horizon wrong-tail action sequence diagnostic can distinguish whether M487/M488 failed because wrong hidden is corrected too quickly or because the selected pairs are not outcome-sensitive even under forced wrong actions.",
-        "command": "see experiments/manifests/m489-tail-action-sequence-amplification-design.json",
+        "hypothesis": "If M487/M488 failed because wrong hidden is corrected too quickly, then short-horizon wrong_tail_hidden_hold_K variants will create source-diverse event or proof rows on the same critical-window tail states.",
+        "command": "see experiments/manifests/m490-tail-action-sequence-amplification-gate-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design diagnostic forced/held wrong-tail action sequence gate; no training"
+        "notes": "Pending: implement and run diagnostic hidden-hold tail amplification gate; no training"
     },
-    "updated_at_utc": "20260523T230152Z"
+    "updated_at_utc": "20260523T230631Z"
 }

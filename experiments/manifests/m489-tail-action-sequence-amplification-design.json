@@ -2,7 +2,7 @@
   "id": "m489-tail-action-sequence-amplification-design",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -82,5 +82,24 @@
     "runs/m488_critical_window_wrong_tail_no_effect_audit/summary.json"
   ],
   "decision_rule": "M489 should admit an implementation only if the diagnostic explicitly separates forced wrong-action sufficiency from natural wrong-hidden proof.",
-  "next_blocker": "pending M489 tail action-sequence amplification design"
+  "next_blocker": "m490-tail-action-sequence-amplification-gate-implementation",
+  "results": {
+    "documentation": "docs/m489-tail-action-sequence-amplification-design.md",
+    "selected_variants": [
+      "normal_tail",
+      "wrong_tail_once",
+      "reset_tail",
+      "zero_current_tail",
+      "wrong_tail_hidden_hold_2",
+      "wrong_tail_hidden_hold_4",
+      "wrong_tail_hidden_hold_8",
+      "wrong_tail_hidden_hold_12"
+    ],
+    "optional_second_stage_variant": "wrong_tail_action_replay_K",
+    "selected_implementation": "tail_action_sequence_amplification_gate",
+    "diagnostic_only": true,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "admit_m490_tail_action_sequence_amplification_gate_implementation"
+  }
 }
