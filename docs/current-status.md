@@ -61,7 +61,7 @@ post-PPO repair before any more PPO acceptance.
 Current blocker:
 
 ```text
-m319-m317-family-protected-surface-refresh
+m320-protected-surface-objective-replay-conversion
 ```
 
 M305 implements deterministic exact M297/M270 repair or projection
@@ -122,14 +122,14 @@ acceptance needs exact repair plus a protected-key-bounded trust region.
 Current next task:
 
 ```text
-m319-m317-family-protected-surface-refresh
+m320-protected-surface-objective-replay-conversion
 ```
 
-M318 classified protected key `9944` as single-key window saturation after
-M317. The key remains discriminative, but it now has only about `4.8e-6`
-normal-margin slack and is the active reason accepted PPO movement collapsed to
-`alpha=0.0025`. M319 should refresh a source-diverse M317-family protected
-surface before more PPO.
+M319 refreshed the M317-family protected surface. It found a source-diverse
+surface with `180` accepted wrong-history rows across `13` physical pairs,
+`8` left steps, `3` checkpoints, and `2` targets; max normal margin is only
+`0.010152`, far from the saturated old key's `0.2` window. M320 should convert
+this surface into compact replay-aligned objective corpora before more PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -166,6 +166,7 @@ surface before more PPO.
 | previous public-gate base | `runs/m313_m307_to_m310_protected_key_bounded_interpolation/checkpoints/alpha_0_14.pt` | M314 promoted after exact objectives full replay protected-key and behavior gates pass |
 | next protected-key-aware PPO config | `configs/ppo_m316_protected_key_aware_proposal_smoke.json` | M315 registered smoke PPO from M314 plus exact repair and protected-key-bounded acceptance before replay |
 | current public-gate base | `runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt` | M317 promoted after exact objectives full replay protected-key and behavior gates pass; protected-key slack is about `4.8e-6` |
+| refreshed protected surface | `runs/m319_m317_family_boundary_robustness_seed9520/accepted_wrong_history_rows.csv` | M319 found source-diverse accepted wrong-history rows away from the saturated old key |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -437,11 +438,11 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not run another PPO proposal before M319 refreshes the protected surface.
-The current base is valid, but `9944|perturbed|28|28` is now so close to the
-normal-margin upper window that future acceptance may be dominated by one
-saturated row. M319 must mine and robustness-check a source-diverse protected
-surface before any more PPO. Do not change actor inputs.
+Do not run another PPO proposal before M320 converts the refreshed protected
+surface into replay-aligned objective corpora. The current base is valid, and
+M319 shows source-diverse proof rows still exist away from saturated `9944`;
+that evidence must become a usable gate/objective before more PPO. Do not
+change actor inputs.
 
 ## Sensor Profile Policy
 

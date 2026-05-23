@@ -1,0 +1,96 @@
+{
+  "id": "m320-protected-surface-objective-replay-conversion",
+  "type": "objective_sanity",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m313_m307_to_m310_protected_key_bounded_interpolation/checkpoints/alpha_0_14.pt",
+      "runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt",
+      "runs/m316_exact_repair_from_raw_s40_seed10096/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m319_m317_family_boundary_robustness_seed9520/accepted_wrong_history_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m319-m317-family-protected-surface-refresh.json",
+      "docs/m319-m317-family-protected-surface-refresh.md"
+    ],
+    "parent_objective": [
+      "convert refreshed M317-family protected surface into compact replay-aligned objective corpora before more PPO"
+    ],
+    "derived_from": [
+      "m319-m317-family-protected-surface-refresh"
+    ],
+    "blocked_by": [
+      "m319-m317-family-protected-surface-refresh"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m320-protected-surface-objective-replay-conversion.md",
+  "public_gates": [
+    "build compact protected-surface corpora only from M319 robustness-passing accepted wrong-history rows",
+    "run objective sanity for current base and adjacent proposal-family checkpoints",
+    "run replay sanity so rows reproduce normal-history success plus wrong-history failure",
+    "do not run PPO",
+    "do not change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not use duplicate-dominated rows",
+    "do not admit PPO from objective-only success without replay sanity",
+    "do not change actor inputs",
+    "do not tune from private holdout evidence"
+  ],
+  "hypothesis": "The M319 source-diverse protected surface can be converted into compact boundary-outcome corpora that are replay-aligned for the M317 current base and adjacent proposal-family checkpoints.",
+  "success_criteria": [
+    "build compact corpora for m316_a0_0025, m314_base, and m316_repaired",
+    "each corpus keeps physical-pair diversity and at least two targets where possible",
+    "objective sanity passes for each source checkpoint",
+    "replay sanity preserves normal success and wrong-history failure",
+    "no PPO or actor update is run"
+  ],
+  "failure_criteria": [
+    "compact corpus is duplicate dominated",
+    "objective sanity fails",
+    "replay sanity does not reproduce wrong-history success drops",
+    "M320 runs PPO or changes actor inputs"
+  ],
+  "commands": [
+    {
+      "name": "m320_m316_current_objective",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_corpus_objective --checkpoint-policy m316_a0_0025=runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --boundary-rows-csv runs/m319_m317_family_boundary_robustness_seed9520/accepted_wrong_history_rows.csv --delay-steps 10 --device cpu --max-rows-per-physical-pair 2 --optimization-seeds 10080,10081,10082 --steps 180 --batch-size 64 --learning-rate 0.0003 --weight-decay 0.001 --hidden-dim 96 --run-dir runs/m320_m316_boundary_outcome_corpus_seed10080"
+    },
+    {
+      "name": "m320_m314_objective",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_corpus_objective --checkpoint-policy m314_base=runs/m313_m307_to_m310_protected_key_bounded_interpolation/checkpoints/alpha_0_14.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --boundary-rows-csv runs/m319_m317_family_boundary_robustness_seed9520/accepted_wrong_history_rows.csv --delay-steps 10 --device cpu --max-rows-per-physical-pair 2 --optimization-seeds 10080,10081,10082 --steps 180 --batch-size 64 --learning-rate 0.0003 --weight-decay 0.001 --hidden-dim 96 --run-dir runs/m320_m314_boundary_outcome_corpus_seed10080"
+    },
+    {
+      "name": "m320_m316_repaired_objective",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_corpus_objective --checkpoint-policy m316_repaired=runs/m316_exact_repair_from_raw_s40_seed10096/candidate_checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --boundary-rows-csv runs/m319_m317_family_boundary_robustness_seed9520/accepted_wrong_history_rows.csv --delay-steps 10 --device cpu --max-rows-per-physical-pair 2 --optimization-seeds 10080,10081,10082 --steps 180 --batch-size 64 --learning-rate 0.0003 --weight-decay 0.001 --hidden-dim 96 --run-dir runs/m320_m316_repaired_boundary_outcome_corpus_seed10080"
+    },
+    {
+      "name": "m320_replay_sanity",
+      "command": "Run boundary_outcome_replay_gate on the compact corpora to verify normal-history success and wrong-history failure under the source and adjacent-family policies."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m320-protected-surface-objective-replay-conversion.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m319-m317-family-protected-surface-refresh.md",
+    "runs/m319_m317_family_boundary_robustness_seed9520/summary.json"
+  ],
+  "decision_rule": "M320 may not run PPO. Passing compact objective and replay sanity should admit design of a multi-key protected-surface gate or objective before more PPO.",
+  "next_blocker": "pending M320 protected-surface objective replay conversion"
+}

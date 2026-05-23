@@ -8827,3 +8827,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M318 classifies the old protected key `9944|perturbed|28|28` as single-key window saturation after M317. M317's normal margin is `0.1999952026`, leaving only `4.8e-6` slack to the `0.2` upper window; M316 exact objectives allowed alpha `1.0`, but protected key only allowed alpha `0.0025`. This is not wrong-history sensitivity loss because six replay surfaces and the key's margin gap remain discriminative.
 - decision: `admit_m319_m317_family_protected_surface_refresh`
 - next: `m319-m317-family-protected-surface-refresh`
+
+## 20260523T060058Z - m319-m317-family-protected-surface-refresh
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m319_m317_family_boundary_robustness_seed9520`
+- artifact: `docs/m319-m317-family-protected-surface-refresh.md`
+- result: M319 refreshes the M317-family protected surface without training. Robustness passes with `180` accepted wrong-history rows, `13` physical pairs, `8` left steps, `3` checkpoints, `2` targets, `2` margin buckets, success-drop fraction `1.0`, mean normal margin `0.005901`, max normal margin `0.010152`, and mean margin gap `0.009568`. This supports the classification that `9944` is a saturated singleton rather than proof loss.
+- decision: `admit_m320_protected_surface_objective_replay_conversion`
+- next: `m320-protected-surface-objective-replay-conversion`

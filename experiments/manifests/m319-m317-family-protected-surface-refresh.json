@@ -2,7 +2,7 @@
   "id": "m319-m317-family-protected-surface-refresh",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -108,6 +108,40 @@
     "docs/m318-m317-protected-key-slack-audit.md",
     "runs/m317_full_public_gate_for_m316_a0_0025/full_gates/critical_key_seed9944/guard_results.csv"
   ],
+  "results": {
+    "candidate_pair_count": 276465,
+    "accepted_pair_count": 2753,
+    "accepted_physical_pair_count": 282,
+    "accepted_left_step_count": 33,
+    "accepted_source_obstacle_bucket_count": 21,
+    "outcome_row_count": 16518,
+    "outcome_summary_rows": 54,
+    "boundary_row_count": 66745,
+    "accepted_wrong_history_rows": 180,
+    "accepted_wrong_history_pairs": 81,
+    "wrong_history_success_drop_count": 180,
+    "accepted_reset_rows": 3181,
+    "accepted_zero_current_rows": 3437,
+    "accepted_wrong_physical_pairs": 13,
+    "accepted_wrong_left_steps": 8,
+    "accepted_wrong_right_steps": 8,
+    "accepted_wrong_checkpoints": 3,
+    "accepted_wrong_targets": 2,
+    "accepted_wrong_normal_margin_buckets": 2,
+    "accepted_wrong_success_drop_fraction": 1.0,
+    "accepted_wrong_margin_gap_mean": 0.009568,
+    "accepted_wrong_margin_gap_max": 0.013187,
+    "accepted_wrong_normal_margin_mean": 0.005901,
+    "accepted_wrong_normal_margin_min": 0.002493,
+    "accepted_wrong_normal_margin_max": 0.010152,
+    "max_rows_per_physical_pair_fraction": 0.133333,
+    "control_accepted_wrong_rows": 0,
+    "robustness_passed": true,
+    "classification": "source_diverse_surface_exists_away_from_saturated_9944",
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m320_protected_surface_objective_replay_conversion",
   "decision_rule": "M319 may not promote a checkpoint. Passing robustness should admit conversion of the refreshed M317-family protected surface into replay/objective gates before any more PPO.",
-  "next_blocker": "pending M319 M317-family protected-surface refresh"
+  "next_blocker": "m320-protected-surface-objective-replay-conversion"
 }

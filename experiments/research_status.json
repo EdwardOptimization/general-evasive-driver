@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 327,
+        "completed": 328,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "command_log": "docs/m318-m317-protected-key-slack-audit.md",
+        "command_log": "docs/m319-m317-family-protected-surface-refresh.md",
         "returncode": 0,
-        "run_dir": "runs/m317_full_public_gate_for_m316_a0_0025/full_gates/critical_key_seed9944",
+        "run_dir": "runs/m319_m317_family_boundary_robustness_seed9520",
         "status": "completed",
-        "task_id": "m318-m317-protected-key-slack-audit"
+        "task_id": "m319-m317-family-protected-surface-refresh"
     },
     "next_task": {
-        "command": "see experiments/manifests/m319-m317-family-protected-surface-refresh.json",
-        "hypothesis": "A source-diverse M317-family protected-surface refresh can identify current protected rows away from the saturated old 9944 key, enabling a multi-key protected-surface gate before more PPO.",
-        "id": "m319-m317-family-protected-surface-refresh",
-        "kind": "gate",
-        "notes": "Pending: mine matched-current outcome boundary surface and robustness without PPO",
-        "priority": 3140,
+        "command": "see experiments/manifests/m320-protected-surface-objective-replay-conversion.json",
+        "hypothesis": "The M319 source-diverse protected surface can be converted into compact boundary-outcome corpora that are replay-aligned for the M317 current base and adjacent proposal-family checkpoints.",
+        "id": "m320-protected-surface-objective-replay-conversion",
+        "kind": "objective_sanity",
+        "notes": "Pending: build compact corpora objective sanity and replay sanity without PPO",
+        "priority": 3150,
         "status": "pending",
         "success_artifact": ""
     },
-    "updated_at_utc": "20260523T054720Z"
+    "updated_at_utc": "20260523T060058Z"
 }

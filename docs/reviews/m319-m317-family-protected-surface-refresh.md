@@ -1,0 +1,81 @@
+# m319-m317-family-protected-surface-refresh Research Review
+
+## Summary
+
+- Generated at UTC: 20260523T060251Z
+- Type: gate
+- Gate tier: proof
+- Promotion decision: admit_m320_protected_surface_objective_replay_conversion
+- Decision reason: M319 finds a source-diverse M317-family surface with 180 accepted wrong-history rows across 13 physical pairs 8 left steps 3 checkpoints 2 targets and max normal margin 0.010152 away from saturated 9944
+
+## Hypothesis
+
+A source-diverse M317-family protected-surface refresh can identify current protected rows away from the saturated old 9944 key, enabling a multi-key protected-surface gate before more PPO.
+
+## Lineage
+
+- parent_checkpoint: runs/m313_m307_to_m310_protected_key_bounded_interpolation/checkpoints/alpha_0_14.pt, runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt, runs/m316_exact_repair_from_raw_s40_seed10096/candidate_checkpoint.pt
+- parent_dataset: runs/m317_full_public_gate_for_m316_a0_0025/full_gates/critical_key_seed9944/guard_results.csv, runs/m266_m264_family_boundary_robustness_seed9520/accepted_wrong_history_rows.csv
+- parent_config: experiments/manifests/m318-m317-protected-key-slack-audit.json, docs/m318-m317-protected-key-slack-audit.md
+- parent_objective: refresh source-diverse protected rows around the M317 family before more PPO because old key 9944 is saturated
+- derived_from: m318-m317-protected-key-slack-audit
+- blocked_by: m318-m317-protected-key-slack-audit
+- supersedes: None
+- invalidates: None
+
+## Success Criteria
+
+- M319 mines or audits M317-family protected candidates without PPO
+- M319 reports accepted wrong-history rows and diversity metrics
+- M319 records whether 9944 is representative, stale, or part of a saturated family
+- M319 records a concrete next milestone decision before more PPO
+- actor input contract remains unchanged
+
+## Failure Criteria
+
+- candidate surface is duplicate-dominated or has zero accepted wrong-history outcome rows
+- audit cannot distinguish single-key saturation from broader proof loss
+- M319 starts PPO or changes actor inputs
+
+## Evidence Gates
+
+- mine M317-family protected surface candidates without PPO
+- check source diversity across physical pairs left steps checkpoints targets and margin buckets
+- require wrong-history outcome sensitivity rather than only action distance
+- classify whether old key 9944 is stale singleton or representative saturated family
+- do not admit PPO from a duplicate-dominated surface
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run PPO in M319
+- do not bypass the old protected key without replacement evidence
+- do not change actor inputs
+- do not tune from private holdout evidence
+- do not promote a checkpoint in M319
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m319-m317-family-protected-surface-refresh
+- type: gate
+- checkpoint: runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: admit_m320_protected_surface_objective_replay_conversion
+- reason: M319 finds a source-diverse M317-family surface with 180 accepted wrong-history rows across 13 physical pairs 8 left steps 3 checkpoints 2 targets and max normal margin 0.010152 away from saturated 9944
+
+## Next Blocker
+
+m320-protected-surface-objective-replay-conversion
