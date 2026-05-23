@@ -80,5 +80,34 @@
     "docs/m420-active-set-radius-projection-probe.md"
   ],
   "decision_rule": "M421 should admit a mixed-radius anchor export/probe only if it preserves all M420 proof thresholds and keeps the primary recovery-retention target at 0.20.",
-  "next_blocker": "pending M421 mixed radius boundary design"
+  "next_blocker": "m422-mixed-radius-anchor-export-implementation",
+  "results": {
+    "artifact": "docs/m421-mixed-radius-boundary-design.md",
+    "medium_failed_case": "10023|perturbed|12|12|11.000000|-0.800000|1.200000",
+    "medium_recovery_retained_vs_m406": 0.1434194654307663,
+    "conservative_recovery_retained_vs_m406": 0.1154033591428579,
+    "m398_recovery_targets": [
+      "9958|perturbed|39|36|9.500000|-1.200000|0.900000",
+      "10004|perturbed|31|31|9.500000|-1.000000|0.800000"
+    ],
+    "mixed_profiles": {
+      "mixed_a": "medium radii except conservative radius for 10023",
+      "mixed_b": "mixed_a plus loose radius for 10004",
+      "mixed_c": "mixed_b plus loose radius for M267 rows 6 and 15"
+    },
+    "future_primary_pass_criteria": [
+      "exact M297/M270/old-key no-regression",
+      "M267/M264 first replay 17/17",
+      "old-key compact replay 0 accepted regressions",
+      "M183/M170 first replay 17/17",
+      "recovery improvement retained vs M406 >= 0.20"
+    ],
+    "ppo_or_actor_update_run": false,
+    "projection_probe_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m422-mixed-radius-anchor-export-implementation"
+  },
+  "decision": "admit_m422_mixed_radius_anchor_export_implementation"
 }

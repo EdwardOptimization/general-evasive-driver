@@ -9844,3 +9844,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M420 runs the pre-registered no-PPO radius projection branch. Medium radius passes exact gates and M267/M264 `17/17`, retaining `0.143419` of M406 recovery utility, but old-key compact is `39/40` because case `10023|perturbed|12|12|11.000000|-0.800000|1.200000` remains accepted. Conservative radius passes exact gates, M267/M264 `17/17`, old-key compact `40/40`, and M183/M170 `17/17`, but retains only `0.115403` recovery utility, below the primary `0.20` threshold. Loose was not run because medium failed proof, so its pre-registered branch condition was not met.
 - decision: `reject_m420_radius_candidate_admit_m421_mixed_radius_boundary_design`
 - next: `m421-mixed-radius-boundary-design`
+
+## 20260523T171425Z - m421-mixed-radius-boundary-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m421-mixed-radius-boundary-design.md`
+- result: M421 designs mixed per-case radius profiles after the M420 tradeoff. Since medium failed only old-key `10023` and the M398 recovery targets are `9958` and `10004`, the next profile should not globally tighten. `mixed_a` uses medium radii except conservative `10023`; `mixed_b` additionally loosens `10004`; `mixed_c` additionally loosens M267 rows `6`/`15` if proof remains safe. The primary future probe threshold remains recovery retained vs M406 `>=0.20`; partial evidence below that is not promotable.
+- decision: `admit_m422_mixed_radius_anchor_export_implementation`
+- next: `m422-mixed-radius-anchor-export-implementation`
