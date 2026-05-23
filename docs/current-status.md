@@ -55,7 +55,7 @@ proof-safe micro promotion, not a large driver-performance improvement; alpha
 Current blocker:
 
 ```text
-m388-m267-row15-conflict-residual-design
+m389-m267-row15-conflict-corpus-implementation
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -156,7 +156,10 @@ M267/M264 row15 boundary. M387 classifies M386 as proof-safe micro retention,
 not meaningful driver improvement: selected alpha `0.00075` only slightly
 improves exact objectives, while alpha `0.001` flips M267/M264 row `15`
 wrong-history margin from collision to success. M388 should design an explicit
-row15-aware conflict residual before any more repair or PPO.
+row15-aware conflict residual before any more repair or PPO. M388 completes
+that design: the next implementation should export M267/M264 row15 and row6 as
+current-family wrong-history boundary constraints, add an optional exact-repair
+conflict residual, and run only a no-update smoke before any repair probe.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

@@ -9514,3 +9514,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M387 classifies M386 as `proof_safe_micro_retention_not_meaningful_driver_improvement`. The selected alpha is only `0.00075`, exact M297 improves by `-0.000011206`, exact M270 by `-0.000006974`, and old-key recovery loss by `-0.000001519`, while behavior metrics are unchanged. M267/M264 row `15` is the active boundary: base wrong-history margin is `-0.000015570`, selected alpha margin is `-0.000001064`, and alpha `0.001` crosses to `+0.000003801` with wrong-history success.
 - decision: `admit_m388_m267_row15_conflict_residual_design`
 - next: `m388-m267-row15-conflict-residual-design`
+
+## 20260523T140845Z - m388-m267-row15-conflict-residual-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m388-m267-row15-conflict-residual-design.md`
+- result: M388 designs a current-family conflict corpus and residual for the M267/M264 active boundary. The design treats row `15` and row `6` as replay-exported wrong-history boundary constraints, keeps M267/M264 first replay and cumulative old-key replay authoritative, and proposes an optional exact-repair residual with preferred-branch anchoring plus rejected-branch boundary anchoring. It explicitly rejects PPO, threshold relaxation, hidden actor inputs, and more old-key-only weighting for this blocker.
+- decision: `admit_m389_m267_row15_conflict_corpus_implementation`
+- next: `m389-m267-row15-conflict-corpus-implementation`

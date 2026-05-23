@@ -75,5 +75,32 @@
     "docs/m387-m386-micro-promotion-utility-audit.md"
   ],
   "decision_rule": "M388 should admit implementation only if the design directly addresses the old-key recovery versus M267 row15 wrong-history conflict without changing the deployable actor contract.",
-  "next_blocker": "pending M388 row15 conflict residual design"
+  "next_blocker": "m389-m267-row15-conflict-corpus-implementation",
+  "results": {
+    "artifact": "docs/m388-m267-row15-conflict-residual-design.md",
+    "design_classification": "current_family_wrong_history_boundary_conflict_residual",
+    "active_surface": "M267/M264",
+    "active_rows": [
+      15,
+      6
+    ],
+    "row15_base_wrong_margin": -1.557032863530594e-05,
+    "row15_first_failing_alpha": 0.001,
+    "proposed_schema": [
+      "observation",
+      "preferred_hidden",
+      "rejected_hidden",
+      "preferred_anchor_action",
+      "rejected_boundary_action",
+      "weight",
+      "row_id",
+      "source_surface",
+      "boundary_margin"
+    ],
+    "recommended_next": "m389-m267-row15-conflict-corpus-implementation",
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false
+  },
+  "decision": "admit_m389_m267_row15_conflict_corpus_implementation"
 }

@@ -1,0 +1,75 @@
+{
+  "decision_reason": "M388 designs current-family conflict corpus and residual for M267/M264 row15 and row6 so old-key recovery cannot make wrong-history rows safe",
+  "failure_criteria": [
+    "design relies on threshold relaxation",
+    "design relies on hidden actor inputs",
+    "design ignores cumulative old-key recovery",
+    "research validation fails"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not lower M267/M264 thresholds",
+    "do not make wrong-history rows safe",
+    "do not add hidden or oracle actor inputs",
+    "do not run PPO in the design milestone"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260523T140000Z",
+  "hypothesis": "A conflict-aware repair design can expose M267/M264 row15 as a first-class active constraint, preventing old-key recovery updates from making current-family wrong-history rollouts safe.",
+  "lineage": {
+    "blocked_by": [
+      "m387-m386-micro-promotion-utility-audit"
+    ],
+    "derived_from": [
+      "m387-m386-micro-promotion-utility-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m385_recovery_repair_micro_interpolation/checkpoints/alpha_0_00075.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m387-m386-micro-promotion-utility-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m387_m386_micro_promotion_utility_audit/summary.json",
+      "runs/m387_m386_micro_promotion_utility_audit/m267_row15_alpha_trace.csv"
+    ],
+    "parent_objective": [
+      "design a repair objective that treats M267/M264 row15 as an active wrong-history boundary while preserving old-key recovery"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m388-m267-row15-conflict-residual-design",
+  "next_blocker": "m389-m267-row15-conflict-corpus-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m389_m267_row15_conflict_corpus_implementation",
+  "public_gates": [
+    "no PPO run",
+    "preserve actor contract",
+    "design must keep M267/M264 success-drop retention authoritative",
+    "design must keep cumulative old-key replay authoritative"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m385_recovery_repair_micro_interpolation/checkpoints/alpha_0_00075.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m389_m267_row15_conflict_corpus_implementation",
+    "milestone": "m388-m267-row15-conflict-residual-design",
+    "reason": "M388 designs current-family conflict corpus and residual for M267/M264 row15 and row6 so old-key recovery cannot make wrong-history rows safe",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "define the residual or corpus needed for M267/M264 row15 and related rows",
+    "state how it composes with old-key recovery without changing actor inputs",
+    "pre-register acceptance gates before implementation",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}
