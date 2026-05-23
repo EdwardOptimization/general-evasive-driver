@@ -10567,3 +10567,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M493 closes the M486-M492 artificial tail-forcing branch. The branch shows useful mechanism evidence: wrong hidden is not ignored, natural `wrong_tail_once` corrects quickly, hidden-hold can create events, and observer-hidden action replay does not reproduce those events. This is not deployable self-ID proof. M493 selects a natural decision-window redesign: implement a short-reveal config and a warm-up capability-evidence config, validate sampling across seed blocks `11800`, `11900`, and `12000`, and only then mine natural matched-current belief rows.
 - decision: `admit_m494_natural_belief_decision_config_implementation`
 - next: `m494-natural-belief-decision-config-implementation`
+## 20260523T233328Z - m494-natural-belief-decision-config-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m494_natural_belief_decision_config_validation`
+- artifact: `docs/m494-natural-belief-decision-config-implementation.md`
+- result: M494 adds `configs/m494_natural_belief_short_reveal_zero_relvel.json` and `configs/m494_natural_belief_warmup_capability_zero_relvel.json`. Both preserve the P0 human-view zero-relvel actor contract. Sampling stress over seed blocks `11800`, `11900`, and `12000` has `384/384` reset successes per config. Short-reveal has `2` labels with single-label share `0.747396`; warm-up capability has `3` labels with single-label share `0.565104`. Behavior smokes are nontrivial: short-reveal `m399` success is `0.515625` versus heuristic/random `0.046875`; warm-up capability `m399` success is `0.843750` versus heuristic `0.281250` and random `0.234375`. No proof mining, training, or checkpoint promotion is performed.
+- decision: `natural_belief_configs_sampling_pass_admit_m495_matched_current_mining`
+- next: `m495-natural-belief-matched-current-mining`

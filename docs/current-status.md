@@ -52,7 +52,7 @@ public-gate base; M487-M492 did not train or promote a checkpoint.
 Current blocker:
 
 ```text
-m494-natural-belief-decision-config-implementation
+m495-natural-belief-matched-current-mining
 ```
 
 Recent progress: M486-M492 is now closed as an artificial tail-forcing
@@ -66,9 +66,15 @@ where command-response history forms belief before obstacle reveal, and the
 first few post-reveal actions matter before current-response correction can wash
 out the history effect.
 
-Next step: M494 should implement two P0-compatible configs, short-reveal and
-warm-up capability-evidence, then run reset sampling stress and tiny behavior
-smokes before any proof mining or training.
+M494 implements two P0-compatible natural belief configs. Both pass 384-reset
+sampling stress with hidden obstacles at reset, late reveal, label diversity,
+and friction-step-before-reveal coverage. Short-reveal is harder
+(`m399` success `0.515625`), while warm-up capability is easier but still
+nontrivial (`m399` success `0.843750`).
+
+Next step: M495 should run source-diverse matched-current mining on both M494
+configs before any natural wrong-history outcome gate, proof expansion, or
+training.
 
 ## Current Evidence
 

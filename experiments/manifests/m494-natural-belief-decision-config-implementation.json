@@ -2,7 +2,7 @@
   "id": "m494-natural-belief-decision-config-implementation",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -79,6 +79,14 @@
     {
       "path": "docs/m494-natural-belief-decision-config-implementation.md",
       "type": "documentation"
+    },
+    {
+      "path": "configs/m494_natural_belief_short_reveal_zero_relvel.json",
+      "type": "config"
+    },
+    {
+      "path": "configs/m494_natural_belief_warmup_capability_zero_relvel.json",
+      "type": "config"
     }
   ],
   "baseline_checkpoints": [
@@ -89,5 +97,77 @@
     "runs/m492_tail_action_replay_sufficiency_summary/combined_summary.json"
   ],
   "decision_rule": "M494 should admit natural matched-current mining only if at least one config is sampling-robust and non-saturated; otherwise repair configs before mining.",
-  "next_blocker": "pending M494 natural belief decision config implementation"
+  "next_blocker": "pending M494 natural belief decision config implementation",
+  "results": {
+    "configs_added": [
+      "configs/m494_natural_belief_short_reveal_zero_relvel.json",
+      "configs/m494_natural_belief_warmup_capability_zero_relvel.json"
+    ],
+    "sampling_run_dir": "runs/m494_natural_belief_decision_config_validation",
+    "sampling_summary_json": "runs/m494_natural_belief_decision_config_validation/sampling_summary.json",
+    "all_configs_sampling_gate_pass": true,
+    "short_reveal_sampling": {
+      "config": "short_reveal",
+      "estimated_steps_to_reveal_mean": 31.434895833333332,
+      "friction_step_before_reveal_count": 358,
+      "hidden_at_reset_count": 384,
+      "initial_visible_count": 0,
+      "label_count": 2,
+      "label_counts": {
+        "drift_required": 97,
+        "unavoidable": 287
+      },
+      "obstacle_distance_mean": 16.335788729356167,
+      "obstacle_time_after_friction_step_mean": 0.7184239498882944,
+      "reset_failures": 0,
+      "reset_ok": 384,
+      "rows": 384,
+      "sampling_gate_pass": true,
+      "single_label_share": 0.7473958333333334,
+      "speed_ref_mean": 15.92565889241808,
+      "threshold_score_max": 0.5498547877381946,
+      "threshold_score_mean": 0.29125278179674957,
+      "time_to_obstacle_mean": 1.0288926998882946
+    },
+    "warmup_capability_sampling": {
+      "config": "warmup_capability",
+      "estimated_steps_to_reveal_mean": 33.979166666666664,
+      "friction_step_before_reveal_count": 376,
+      "hidden_at_reset_count": 384,
+      "initial_visible_count": 0,
+      "label_count": 3,
+      "label_counts": {
+        "aes_feasible": 26,
+        "drift_required": 217,
+        "unavoidable": 141
+      },
+      "obstacle_distance_mean": 18.211088131167315,
+      "obstacle_time_after_friction_step_mean": 0.8980570556657064,
+      "reset_failures": 0,
+      "reset_ok": 384,
+      "rows": 384,
+      "sampling_gate_pass": true,
+      "single_label_share": 0.5651041666666666,
+      "speed_ref_mean": 15.229324448477804,
+      "threshold_score_max": 0.3916020725915508,
+      "threshold_score_mean": 0.19141765365932253,
+      "time_to_obstacle_mean": 1.1992028889990396
+    },
+    "behavior_summary_json": "runs/m494_natural_belief_decision_config_validation/behavior_summary.json",
+    "short_reveal_m399_success_mean": 0.515625,
+    "short_reveal_m399_reset_success_mean": 0.546875,
+    "short_reveal_m399_zero_current_success_mean": 0.546875,
+    "short_reveal_heuristic_success_mean": 0.046875,
+    "short_reveal_random_success_mean": 0.046875,
+    "warmup_capability_m399_success_mean": 0.84375,
+    "warmup_capability_m399_reset_success_mean": 0.859375,
+    "warmup_capability_m399_zero_current_success_mean": 0.8125,
+    "warmup_capability_heuristic_success_mean": 0.28125,
+    "warmup_capability_random_success_mean": 0.234375,
+    "actor_inputs_changed": false,
+    "proof_mining_performed": false,
+    "checkpoint_promoted": false,
+    "next_manifest": "experiments/manifests/m495-natural-belief-matched-current-mining.json",
+    "decision": "natural_belief_configs_sampling_pass_admit_m495_matched_current_mining"
+  }
 }
