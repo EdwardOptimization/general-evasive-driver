@@ -10424,3 +10424,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M478 implements `autodrift.persistent_wrong_history_intervention_gate` plus focused variant/summary tests, then runs a no-training smoke on the M474 adversarial pairs. The diagnostic is positive: `wrong_hold_16` produces `25` proof-style rows, including `10` success/collision/completion rows, across `6` probe seeds, `2` labels, and `2` targets. Late held variants also produce signal (`wrong_late_4_hold_8` has `19` proof rows and `wrong_late_8_hold_4` has `17`). The baseline `wrong_once` remains `0` proof rows, confirming that clamped persistence changes the mechanism.
 - decision: `persistent_wrong_history_diagnostic_pass_admit_m479`
 - next: `m479-natural-late-wrong-history-proof-path-design`
+
+## 20260523T221320Z - m479-natural-late-wrong-history-proof-path-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m479-natural-late-wrong-history-proof-path-design.md`
+- result: M479 separates M478's clamped-hidden diagnostic evidence from deployable self-ID proof. It selects late one-shot wrong-history variants `wrong_late_2_once`, `wrong_late_4_once`, `wrong_late_8_once`, and `wrong_late_12_once`, implemented as `hold_steps=1` and `clamp_hidden=false`, to test whether timing alone can make one-shot wrong belief outcome-critical.
+- decision: `admit_m480_late_once_wrong_history_implementation`
+- next: `m480-late-once-wrong-history-implementation`

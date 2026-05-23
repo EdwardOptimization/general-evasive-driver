@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m479-natural-late-wrong-history-proof-path-design
+m480-late-once-wrong-history-implementation
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -322,7 +322,9 @@ on M474 adversarial pairs. M478 implements that gate and finds diagnostic
 causal signal: `wrong_hold_16` gives `25` proof-style rows across `6` seeds,
 `2` labels, and `2` targets, while `wrong_once` remains `0`. The next blocker is
 M479: design the least-artificial late one-shot proof path instead of treating
-clamped hidden state as deployable proof.
+clamped hidden state as deployable proof. M479 selects `wrong_late_2_once`,
+`wrong_late_4_once`, `wrong_late_8_once`, and `wrong_late_12_once`; the next
+blocker is M480 implementation and smoke.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key
@@ -929,11 +931,11 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not run PPO or promote a checkpoint while the current blocker is M479 natural
-late wrong-history proof-path design. M478 is positive diagnostic evidence that
-wrong belief can be outcome-critical if clamped, but it is not deployable
-self-ID proof. The next step must reduce artificiality, such as late one-shot
-wrong-history injection, while preserving actor inputs and proof thresholds.
+Do not run PPO or promote a checkpoint while the current blocker is M480
+late-once wrong-history implementation. M478 is positive diagnostic evidence
+that wrong belief can be outcome-critical if clamped, but M479 requires a less
+artificial late one-shot test. Keep clamped rows separate from late-once rows and
+do not claim intervention evidence as deployable proof.
 
 ## Sensor Profile Policy
 

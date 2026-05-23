@@ -1,0 +1,92 @@
+{
+  "id": "m480-late-once-wrong-history-implementation",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m478_persistent_wrong_history_intervention_gate/summary.json",
+      "runs/m474_combined_fresh_anchor_adversarial_search/adversarial_pairs.csv"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m479-natural-late-wrong-history-proof-path-design.json"
+    ],
+    "parent_objective": [
+      "late one-shot wrong-history diagnostic implementation"
+    ],
+    "derived_from": [
+      "m479-natural-late-wrong-history-proof-path-design"
+    ],
+    "blocked_by": [
+      "m479-natural-late-wrong-history-proof-path-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m480-late-once-wrong-history-implementation.md",
+  "public_gates": [
+    "add wrong_late_2_once wrong_late_4_once wrong_late_8_once and wrong_late_12_once variants",
+    "add focused tests for late-one-shot semantics",
+    "rerun the persistent wrong-history diagnostic gate on M474 adversarial pairs",
+    "report late-one-shot proof counts separately from clamped hold counts",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not claim intervention evidence as deployable proof",
+    "do not count clamped hold rows as late-one-shot proof"
+  ],
+  "hypothesis": "If timing is the key blocker, a late one-shot wrong-history injection will create proof-style degradation without clamping hidden state across multiple steps.",
+  "success_criteria": [
+    "late-one-shot variants are implemented with tested semantics",
+    "smoke run completes on M474 adversarial pairs",
+    "wrong_late_*_once proof counts are reported separately",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "late-one-shot semantics are ambiguous or untested",
+    "implementation changes actor inputs",
+    "smoke run fails",
+    "training or checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "Extend persistent_wrong_history_intervention_gate with wrong_late_*_once variants and tests."
+    },
+    {
+      "name": "diagnostic_smoke",
+      "command": "Run the updated gate on runs/m474_combined_fresh_anchor_adversarial_search/adversarial_pairs.csv."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m480-late-once-wrong-history-implementation.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m480_late_once_wrong_history_intervention_gate/summary.json",
+      "type": "summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m479-natural-late-wrong-history-proof-path-design.md",
+    "runs/m478_persistent_wrong_history_intervention_gate/summary.json"
+  ],
+  "decision_rule": "M480 should decide whether late one-shot timing alone can produce source-diverse proof-style degradation, while keeping clamped rows separate.",
+  "next_blocker": "pending M480 late-once wrong-history implementation"
+}

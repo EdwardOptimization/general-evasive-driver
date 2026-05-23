@@ -2,7 +2,7 @@
   "id": "m479-natural-late-wrong-history-proof-path-design",
   "type": "infrastructure",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -80,5 +80,21 @@
     "runs/m478_persistent_wrong_history_intervention_gate/summary.json"
   ],
   "decision_rule": "M479 should admit the next step only if it reduces artificial clamping while preserving actor contract and proof thresholds.",
-  "next_blocker": "pending M479 natural late wrong-history proof path design"
+  "results": {
+    "design_doc": "docs/m479-natural-late-wrong-history-proof-path-design.md",
+    "selected_next_path": "extend persistent_wrong_history_intervention_gate with late one-shot variants",
+    "selected_variants": [
+      "wrong_late_2_once",
+      "wrong_late_4_once",
+      "wrong_late_8_once",
+      "wrong_late_12_once"
+    ],
+    "keeps_clamped_rows_separate": true,
+    "diagnostic_only": true,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "next_manifest": "experiments/manifests/m480-late-once-wrong-history-implementation.json",
+    "decision": "admit_m480_late_once_wrong_history_implementation"
+  },
+  "next_blocker": "m480-late-once-wrong-history-implementation"
 }
