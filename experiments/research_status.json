@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 413,
+        "completed": 414,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m404-recovery-exact-conflict-row-audit",
+        "task_id": "m405-recovery-aware-exact-projection-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m404-recovery-exact-conflict-row-audit.md"
+        "command_log": "docs/m405-recovery-aware-exact-projection-design.md"
     },
     "next_task": {
-        "id": "m405-recovery-aware-exact-projection-design",
+        "id": "m406-recovery-aware-exact-projection-probe",
         "status": "pending",
-        "priority": 4000,
-        "kind": "infrastructure",
-        "hypothesis": "Design recovery-aware exact projection after broad exact-anchor conflict",
-        "command": "see experiments/manifests/m405-recovery-aware-exact-projection-design.json",
+        "priority": 4010,
+        "kind": "gate",
+        "hypothesis": "Probe recovery-aware exact projection from recovery-heavy raw candidates",
+        "command": "see experiments/manifests/m406-recovery-aware-exact-projection-probe.json",
         "success_artifact": "",
-        "notes": "Pending: design exact-feasible recovery projection without threshold or actor-contract changes; no PPO"
+        "notes": "Pending: run repair_from_raw projection with exact feasibility and recovery movement checks; no PPO"
     },
-    "updated_at_utc": "20260523T154030Z"
+    "updated_at_utc": "20260523T154559Z"
 }

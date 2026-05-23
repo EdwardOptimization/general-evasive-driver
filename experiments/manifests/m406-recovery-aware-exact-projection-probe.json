@@ -1,0 +1,86 @@
+{
+  "id": "m406-recovery-aware-exact-projection-probe",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m403_lrec1e10_interpolation/checkpoints/alpha_0_1.pt",
+      "runs/m403_lrec1e10_interpolation/checkpoints/alpha_0_6.pt",
+      "runs/m398_old_key_normal_margin_recovery_targets/old_key_recovery_corpus.npz",
+      "runs/m393_current_family_rejected_boundary_targets/current_family_conflict_corpus.npz",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m405-recovery-aware-exact-projection-design.json"
+    ],
+    "parent_objective": [
+      "probe recovery-aware exact projection from recovery-heavy raw candidates"
+    ],
+    "derived_from": [
+      "m405-recovery-aware-exact-projection-design"
+    ],
+    "blocked_by": [
+      "m405-recovery-aware-exact-projection-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m406-recovery-aware-exact-projection-probe.md",
+  "public_gates": [
+    "no PPO run",
+    "exact M297/M270/old-key no-regression",
+    "distance to M398 recovery action on 9958 decreases versus M400 base",
+    "cumulative old-key compact replay passes",
+    "M267/M264 first replay retains 17/17"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint without a later full public gate",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "hypothesis": "A recovery-heavy raw proposal may be projected back to exact M297/M270 feasibility while retaining some movement toward the M398 recovery target.",
+  "success_criteria": [
+    "run no-PPO repair_from_raw projection from at least the alpha 0.1 recovery-heavy raw candidate",
+    "select a candidate only if exact M297/M270/old-key no-regression passes",
+    "verify movement toward the M398 recovery target on 9958",
+    "retain cumulative old-key compact replay and M267/M264 first replay",
+    "record collapse-to-base or replay failure if projection cannot produce a useful candidate"
+  ],
+  "failure_criteria": [
+    "projection collapses to the M400 base with no recovery movement",
+    "projection keeps recovery movement but exact remains violated",
+    "projection is exact-feasible but fails old-key or M267/M264 replay",
+    "actor contract changes",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "recovery_aware_exact_projection_probe",
+      "command": "Run exact_post_ppo_repair repair_from_raw projection from recovery-heavy raw candidates; no PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m406-recovery-aware-exact-projection-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m405-recovery-aware-exact-projection-design.md"
+  ],
+  "decision_rule": "M406 should admit a full public gate only if exact feasibility, recovery movement, old-key replay, and M267/M264 proof all pass. Otherwise classify the projection failure.",
+  "next_blocker": "pending M406 recovery-aware exact projection probe"
+}

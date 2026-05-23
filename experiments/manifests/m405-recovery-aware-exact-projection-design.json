@@ -2,7 +2,7 @@
   "id": "m405-recovery-aware-exact-projection-design",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -77,5 +77,31 @@
     "docs/m404-recovery-exact-conflict-row-audit.md"
   ],
   "decision_rule": "M405 should admit implementation or a probe only if the design keeps exact M297/M270 feasibility lexicographic and does not weaken the human-view actor contract.",
-  "next_blocker": "pending M405 recovery-aware exact projection design"
+  "next_blocker": "m406-recovery-aware-exact-projection-probe",
+  "results": {
+    "artifact": "docs/m405-recovery-aware-exact-projection-design.md",
+    "classification": "design_complete",
+    "projection_raw_candidates": [
+      "runs/m403_lrec1e10_interpolation/checkpoints/alpha_0_1.pt",
+      "runs/m403_lrec1e10_interpolation/checkpoints/alpha_0_6.pt"
+    ],
+    "projection_start_mode": "repair_from_raw",
+    "exact_feasibility_levels": [
+      "M297 no-regression",
+      "M270 no-regression",
+      "old-key surrogate no-regression"
+    ],
+    "secondary_merit": "retain movement toward M398 recovery target after exact feasibility",
+    "outer_gates": [
+      "cumulative old-key compact replay",
+      "M267/M264 first replay",
+      "M183/M170 first replay"
+    ],
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m406-recovery-aware-exact-projection-probe"
+  },
+  "decision": "admit_m406_recovery_aware_exact_projection_probe"
 }

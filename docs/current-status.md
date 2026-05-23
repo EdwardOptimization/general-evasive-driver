@@ -42,21 +42,19 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m390_step17_micro_interpolation/checkpoints/alpha_0_005.pt
+runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
 ```
 
-Status: M391 promotes M390 alpha `0.005` toward the conflict-repaired step17
-endpoint as the current public-gate base. It passes exact M297/M270,
-M267/M264 first replay, cumulative old-key replay, source-diverse protected
-gates `5/5`, all six public replay surfaces, and behavior seeds `9505`/`9506`.
-This remains a proof-safe micro promotion, not a large driver-performance
-improvement; alpha `0.01` is the first tested M267/M264 knife-edge failure
-along this direction.
+Status: M400 promotes M399 alpha `0.05` as the current public-gate base after
+six public replay surfaces and behavior seeds pass. Behavior success remains
+`0.8625`, termination remains `0.1375`, reset success remains `0.85`, and
+zero-all success remains `0.80`. This is a proof-safe bounded promotion, not a
+large driver-performance improvement.
 
 Current blocker:
 
 ```text
-m397-m395-alpha02-old-key-boundary-audit
+m406-recovery-aware-exact-projection-probe
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -238,9 +236,12 @@ old-key compact still passes but M267/M264 drops to `14/17`. M404 should
 attribute the exact M297/M270 row conflicts before another repair design. M404
 finds the conflict is broad: under recovery-heavy alpha `0.025`, `17/17` M297
 rows and `99/99` M270 rows regress, so this is not a single bad exact row.
-M405 should design a recovery-aware exact projection that keeps exact
-M297/M270 feasibility lexicographic and treats recovery movement only as a
-secondary merit objective.
+M405 designs a recovery-aware exact projection that keeps exact M297/M270 and
+old-key feasibility lexicographic while treating recovery movement only as a
+secondary merit objective. M406 should now run the no-PPO `repair_from_raw`
+projection probe from recovery-heavy candidates and accept progress only if
+exact feasibility, recovery movement, old-key replay, and M267/M264 proof all
+hold.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

@@ -9684,3 +9684,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M404 attributes the recovery-heavy alpha `0.025` exact failure and finds a broad exact-anchor conflict. M297 has `17/17` positive-regression rows with total weighted delta `+0.000015497`; M270 has `99/99` positive-regression rows with total weighted delta `+0.000009298`. M297 rows `6`, `15`, and `11` are the largest contributors, but the conflict is not sparse enough for single-row reweighting.
 - decision: `admit_m405_recovery_aware_exact_projection_design`
 - next: `m405-recovery-aware-exact-projection-design`
+
+## 20260523T154559Z - m405-recovery-aware-exact-projection-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m405-recovery-aware-exact-projection-design.md`
+- result: M405 designs recovery-aware exact projection after the M404 broad exact-anchor conflict. Exact M297/M270/old-key no-regression stays lexicographic hard feasibility, recovery movement toward the M398 target is secondary merit, and old-key compact plus M267/M264 remain outer gates. The first probe should use `repair_from_raw` from recovery-heavy alpha `0.1`, with alpha `0.6` only as stress.
+- decision: `admit_m406_recovery_aware_exact_projection_probe`
+- next: `m406-recovery-aware-exact-projection-probe`
