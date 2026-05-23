@@ -1,0 +1,79 @@
+{
+  "id": "m401-m400-bounded-promotion-utility-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m400_full_public_gate_for_m399_s02a050/summary.json",
+      "runs/m400_full_public_gate_for_m399_s02a050/full_gates/summary.json",
+      "runs/m400_full_public_gate_for_m399_s02a050/behavior_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m400-full-public-gate-for-m399-s02a050.json"
+    ],
+    "parent_objective": [
+      "audit whether the M400 promotion is useful enough to chain repair or PPO"
+    ],
+    "derived_from": [
+      "m400-full-public-gate-for-m399-s02a050"
+    ],
+    "blocked_by": [
+      "m400-full-public-gate-for-m399-s02a050"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m401-m400-bounded-promotion-utility-audit.md",
+  "public_gates": [
+    "no PPO run",
+    "audit proof-safe promotion utility",
+    "identify the first known post-M400 boundary",
+    "decide whether next task is repair, surface refresh, PPO smoke, or stop this direction"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower thresholds",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "hypothesis": "M400 is likely another proof-safe bounded promotion with no meaningful behavior improvement, so the next task should be chosen by auditing utility and the first active boundary.",
+  "success_criteria": [
+    "compare M400 behavior and exact/proof movement against the previous public base",
+    "identify the first known failing alpha or active protected boundary when available",
+    "classify whether M400 is useful enough to chain another repair or PPO step",
+    "record the next blocker in docs and manifests"
+  ],
+  "failure_criteria": [
+    "audit cannot locate M400 artifacts",
+    "audit changes actor inputs or thresholds",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "bounded_promotion_utility_audit",
+      "command": "Audit M400 public-gate promotion utility and identify next blocker; no PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m401-m400-bounded-promotion-utility-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m400-full-public-gate-for-m399-s02a050.md"
+  ],
+  "decision_rule": "M401 should admit the next research task only after classifying whether M400 is a useful bounded promotion and naming the active next boundary.",
+  "next_blocker": "pending M401 bounded promotion utility audit"
+}

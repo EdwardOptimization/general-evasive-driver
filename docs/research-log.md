@@ -9634,3 +9634,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M399 uses the M398 recovery corpus and M393 conflict corpus in a no-PPO exact repair. The s02 endpoint improves exact losses and retains M267/M264 `17/17`, but fails cumulative old-key compact replay with `6` accepted regressions. A bounded alpha `0.05` interpolation passes exact M297/M270/old-key no-regression, old-key compact replay with zero accepted regressions, M267/M264 `17/17`, M183/M170 `17/17`, and source-diverse protected gates `5/5`. Alpha `0.10` first fails old-key case `9958|perturbed|39|36`.
 - decision: `admit_m400_full_public_gate_for_m399_s02a050`
 - next: `m400-full-public-gate-for-m399-s02a050`
+
+## 20260523T152411Z - m400-full-public-gate-for-m399-s02a050
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m400_full_public_gate_for_m399_s02a050`
+- artifact: `docs/m400-full-public-gate-for-m399-s02a050.md`
+- result: M400 promotes `runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt`. All six public replay surfaces pass versus `m333_base`, behavior seeds `9505` and `9506` retain success mean `0.8625` and termination mean `0.1375`, reset success stays `0.85`, and zero-all success stays `0.80`. Mean clearance changes by `-0.000049633` versus the previous M395 base, so this is a proof-safe bounded promotion rather than driver-performance improvement.
+- decision: `promote_m399_s02a050_public_gate_base`
+- next: `m401-m400-bounded-promotion-utility-audit`

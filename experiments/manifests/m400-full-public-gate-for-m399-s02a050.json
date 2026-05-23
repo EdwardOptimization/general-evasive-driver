@@ -2,7 +2,7 @@
   "id": "m400-full-public-gate-for-m399-s02a050",
   "type": "driver_candidate",
   "gate_tier": "promotion",
-  "promotion_decision": "pending",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -80,5 +80,37 @@
     "docs/m399-old-key-normal-margin-recovery-repair-probe.md"
   ],
   "decision_rule": "M400 may promote the M399 alpha 0.05 checkpoint only if the full public gate passes without behavior or proof regression.",
-  "next_blocker": "pending M400 full public gate"
+  "next_blocker": "m401-m400-bounded-promotion-utility-audit",
+  "results": {
+    "artifact": "docs/m400-full-public-gate-for-m399-s02a050.md",
+    "promoted_checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "previous_public_base": "runs/m394_s02_micro_interpolation/checkpoints/alpha_0_1.pt",
+    "full_gate_run_dir": "runs/m400_full_public_gate_for_m399_s02a050/full_gates",
+    "full_replay_gate_pass": true,
+    "full_replay_gates_passed": 6,
+    "full_replay_gates_failed": 0,
+    "behavior_seed9505": "runs/m400_full_public_gate_for_m399_s02a050/behavior_seed9505",
+    "behavior_seed9506": "runs/m400_full_public_gate_for_m399_s02a050/behavior_seed9506",
+    "behavior_summary_csv": "runs/m400_full_public_gate_for_m399_s02a050/behavior_summary.csv",
+    "candidate_success_mean": 0.8625,
+    "candidate_termination_mean": 0.1375,
+    "candidate_clearance_margin_mean": 1.8440397700987152,
+    "candidate_return_mean": 66.08813045964599,
+    "base_success_mean": 0.8625,
+    "base_termination_mean": 0.1375,
+    "base_clearance_margin_mean": 1.8440894031420476,
+    "base_return_mean": 66.08720202374307,
+    "success_delta_vs_base": 0.0,
+    "termination_delta_vs_base": 0.0,
+    "clearance_delta_vs_base": -4.963304333243345e-05,
+    "return_delta_vs_base": 0.0009284359029209142,
+    "reset_success_mean": 0.85,
+    "zero_all_success_mean": 0.8,
+    "checkpoint_promoted": true,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m401-m400-bounded-promotion-utility-audit"
+  },
+  "decision": "promote_m399_s02a050_public_gate_base"
 }

@@ -215,7 +215,13 @@ alpha `0.05` interpolation passes exact M297/M270/old-key no-regression,
 cumulative old-key compact replay, M267/M264 `17/17`, M183/M170 `17/17`, and
 source-diverse protected gates `5/5`. Alpha `0.10` first fails old-key case
 `9958|perturbed|39|36`, so M400 should run the full public gate for
-`runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt`.
+`runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt`. M400 promotes that
+candidate after six public replay surfaces and behavior seeds pass. Behavior
+success remains `0.8625`, termination remains `0.1375`, reset success remains
+`0.85`, and zero-all success remains `0.80`; mean clearance shifts by only
+`-0.000049633` versus the previous base. This is another proof-safe bounded
+promotion, so M401 should audit utility and identify the first post-M400
+boundary before any PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

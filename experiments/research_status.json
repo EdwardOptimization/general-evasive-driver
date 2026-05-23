@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 408,
+        "completed": 409,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m399-old-key-normal-margin-recovery-repair-probe",
+        "task_id": "m400-full-public-gate-for-m399-s02a050",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m399-old-key-normal-margin-recovery-repair-probe.md"
+        "command_log": "docs/m400-full-public-gate-for-m399-s02a050.md"
     },
     "next_task": {
-        "id": "m400-full-public-gate-for-m399-s02a050",
+        "id": "m401-m400-bounded-promotion-utility-audit",
         "status": "pending",
-        "priority": 3950,
-        "kind": "driver_candidate",
-        "hypothesis": "Run full public gate for M399 alpha 0.05 candidate",
-        "command": "see experiments/manifests/m400-full-public-gate-for-m399-s02a050.json",
+        "priority": 3960,
+        "kind": "gate",
+        "hypothesis": "Audit whether M400 promotion is useful enough to chain repair or PPO",
+        "command": "see experiments/manifests/m401-m400-bounded-promotion-utility-audit.json",
         "success_artifact": "",
-        "notes": "Pending: run six replay surfaces and behavior seeds for alpha 0.05; no PPO"
+        "notes": "Pending: audit M400 utility and identify first post-M400 boundary; no PPO"
     },
-    "updated_at_utc": "20260523T151933Z"
+    "updated_at_utc": "20260523T152411Z"
 }
