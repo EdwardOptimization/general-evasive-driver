@@ -9254,3 +9254,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M361 classifies the M360 `alpha=0.00025` public-gate promotion as a proof-safe micro-step, not meaningful driver improvement. It remains useful as the public-gate base for lineage, but the exact-objective movement is only around `1e-7`, behavior is unchanged, and the first tested larger alpha `0.0005` already fails the old-key neighborhood gate.
 - decision: `admit_m362_old_key_aware_exact_repair_design`
 - next: `m362-old-key-aware-exact-repair-design`
+
+## 20260523T112052Z - m362-old-key-aware-exact-repair-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m362-old-key-aware-exact-repair-design.md`
+- result: M362 designs an old-key-aware exact repair/projection stack. The design keeps exact M297/M270 as lexicographic no-regression objectives, adds an optional old-key differentiable surrogate built from the M341 compact old-key neighborhood rows, keeps closed-loop old-key replay as the authoritative proof gate, and rejects negligible-alpha directions as retention-only rather than PPO progress.
+- decision: `admit_m363_old_key_aware_repair_implementation`
+- next: `m363-old-key-aware-repair-implementation`

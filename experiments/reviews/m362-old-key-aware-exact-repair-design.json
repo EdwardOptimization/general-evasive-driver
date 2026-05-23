@@ -1,0 +1,80 @@
+{
+  "decision_reason": "M362 designs old-key-aware exact repair using an old-key preference corpus and optional surrogate loss while keeping closed-loop old-key replay as the outer proof gate",
+  "failure_criteria": [
+    "design defers the old-key proof conflict to post-hoc promotion gates only",
+    "design starts PPO before the repair objective is specified",
+    "actor input contract changes",
+    "research validation fails"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO in the design milestone",
+    "do not accept alpha clipping to 0.00025 as a solved training recipe",
+    "do not remove old-key neighborhood proof from the acceptance stack",
+    "do not change actor inputs"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260523T112711Z",
+  "hypothesis": "The M356/M358 failure mode can be addressed by designing exact repair/projection that treats old-key neighborhood proof as a first-class residual or constraint instead of relying on post-hoc interpolation after exact M297/M270.",
+  "lineage": {
+    "blocked_by": [
+      "m361-micro-alpha-utility-audit"
+    ],
+    "derived_from": [
+      "m361-micro-alpha-utility-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt",
+      "runs/m356_m354_repair_best_step_probe/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m361-micro-alpha-utility-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m361-micro-alpha-utility-audit.md",
+      "runs/m358_m354_best_step_old_key_micro_a00025_gate/summary.json",
+      "runs/m358_m354_best_step_old_key_micro_a0005_gate/summary.json",
+      "runs/m357_m354_best_step_proof_gate/summary.json"
+    ],
+    "parent_objective": [
+      "design old-key-aware exact repair/projection before further PPO"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m362-old-key-aware-exact-repair-design",
+  "next_blocker": "m363-old-key-aware-repair-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m363_old_key_aware_repair_implementation",
+  "public_gates": [
+    "process design only; no PPO run",
+    "preserve exact M297/M270 as lexicographic no-regression objectives",
+    "make old-key neighborhood proof first-class in the repair/projection design",
+    "include source-diverse protected proof and first replay gates in acceptance order",
+    "preserve actor input contract"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m363_old_key_aware_repair_implementation",
+    "milestone": "m362-old-key-aware-exact-repair-design",
+    "reason": "M362 designs old-key-aware exact repair using an old-key preference corpus and optional surrogate loss while keeping closed-loop old-key replay as the outer proof gate",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design specifies the repair objective terms and lexicographic acceptance order",
+    "design states how old-key neighborhood rows enter the repair or projection",
+    "design states how to reject negligible-alpha directions",
+    "next implementation milestone is registered",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

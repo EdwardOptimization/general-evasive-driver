@@ -79,6 +79,23 @@
   "baseline_artifacts": [
     "docs/m361-micro-alpha-utility-audit.md"
   ],
-  "decision_rule": "M362 is complete when the old-key-aware exact repair/projection design is documented and the implementation milestone is registered without changing actor inputs or running PPO.",
-  "next_blocker": "pending M362 old-key-aware exact repair design"
+  "results": {
+    "design_artifact": "docs/m362-old-key-aware-exact-repair-design.md",
+    "old_key_corpus_source": "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv",
+    "proposed_new_module": "src/autodrift/old_key_preference_corpus.py",
+    "proposed_repair_extension": "src/autodrift/exact_post_ppo_repair.py",
+    "lexicographic_order": [
+      "exact_m297_no_regression",
+      "exact_m270_no_regression",
+      "old_key_surrogate_no_regression",
+      "old_key_action_anchor",
+      "param_l2_to_base"
+    ],
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false,
+    "implementation_milestone_registered": true
+  },
+  "decision": "admit_m363_old_key_aware_repair_implementation",
+  "decision_rule": "M362 completes when the old-key-aware repair design is documented, keeps old-key replay as the authoritative outer gate, and registers an implementation milestone without running PPO or changing actor inputs.",
+  "next_blocker": "m363-old-key-aware-repair-implementation"
 }

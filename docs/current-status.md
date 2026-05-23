@@ -56,7 +56,7 @@ old-key neighborhood gate.
 Current blocker:
 
 ```text
-m362-old-key-aware-exact-repair-design
+m363-old-key-aware-repair-implementation
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -92,8 +92,9 @@ first failing step. M359 verifies `alpha=0.00025` passes source-diverse
 protected gates `5/5` and M183/M170 plus M267/M264 first replay gates `17/17`.
 M360 promotes `alpha=0.00025` after all six replay surfaces and behavior seeds
 pass. This is a proof-safe micro-step, not meaningful driver improvement. M361
-classifies it as retention-only progress and admits an old-key-aware exact
-repair design before more PPO.
+classifies it as retention-only progress. M362 designs old-key-aware exact
+repair, where old-key neighborhood proof becomes a first-class repair surrogate
+before more PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -170,7 +171,7 @@ repair design before more PPO.
 | bounded micro-alpha candidate | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M358 finds alpha 0.00025 passes exact and old-key; alpha 0.0005 first fails old-key |
 | proof-gate-passing micro-alpha | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M359 passes source-diverse protected and first replay proof gates |
 | current public-gate base | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M360 promotes alpha 0.00025 after full public gate pass; movement is extremely small |
-| current blocker | `experiments/manifests/m362-old-key-aware-exact-repair-design.json` | M362 must design an exact repair/projection objective that makes old-key neighborhood proof first-class before more PPO |
+| current blocker | `experiments/manifests/m363-old-key-aware-repair-implementation.json` | M363 must implement the old-key preference corpus and optional exact-repair surrogate without running PPO |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
