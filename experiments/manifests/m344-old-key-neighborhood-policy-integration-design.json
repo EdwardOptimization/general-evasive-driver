@@ -2,7 +2,7 @@
   "id": "m344-old-key-neighborhood-policy-integration-design",
   "type": "infrastructure",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -82,5 +82,5 @@
     "docs/m343-old-key-neighborhood-gate-probe.md"
   ],
   "decision_rule": "M344 may only define the acceptance-stack policy and admit the next executable PPO/gate milestone. It cannot promote a checkpoint or run PPO.",
-  "next_blocker": "pending M344 old-key neighborhood policy integration design"
+  "next_blocker": "m345-old-key-neighborhood-replay-gate-adapter"
 }

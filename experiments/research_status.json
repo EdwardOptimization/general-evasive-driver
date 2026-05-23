@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 352,
+        "completed": 353,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m343-old-key-neighborhood-gate-probe",
+        "task_id": "m344-old-key-neighborhood-policy-integration-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m343_old_key_neighborhood_gate_probe",
-        "command_log": "runs/m343_old_key_neighborhood_gate_probe/summary.json"
+        "run_dir": "docs/m344-old-key-neighborhood-policy-integration-design.md",
+        "command_log": "docs/m344-old-key-neighborhood-policy-integration-design.md"
     },
     "next_task": {
-        "id": "m344-old-key-neighborhood-policy-integration-design",
+        "id": "m345-old-key-neighborhood-replay-gate-adapter",
         "status": "pending",
-        "priority": 3390,
+        "priority": 3400,
         "kind": "infrastructure",
-        "hypothesis": "The M343 old-key neighborhood gate can become the first-class old-key acceptance gate, with singleton 9944 retained as a diagnostic row instead of a standalone PPO-continuation veto.",
-        "command": "see experiments/manifests/m344-old-key-neighborhood-policy-integration-design.json",
+        "hypothesis": "A replayable adapter can convert the M341 old-key neighborhood surface into a candidate-level proof gate so future PPO proposals can be checked without returning to singleton 9944 veto dominance.",
+        "command": "see experiments/manifests/m345-old-key-neighborhood-replay-gate-adapter.json",
         "success_artifact": "",
-        "notes": "Pending: define neighborhood gate order singleton 9944 diagnostic policy and next PPO/gate milestone"
+        "notes": "Pending: convert M341 old-key surface from static selected endpoint evidence into arbitrary-candidate replay gate"
     },
-    "updated_at_utc": "20260523T093526Z"
+    "updated_at_utc": "20260523T093857Z"
 }

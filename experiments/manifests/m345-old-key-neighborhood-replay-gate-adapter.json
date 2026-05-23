@@ -1,0 +1,87 @@
+{
+  "id": "m345-old-key-neighborhood-replay-gate-adapter",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt",
+      "runs/m335_exact_repair_from_raw_s40_seed10099/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv",
+      "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_candidate_pool.csv",
+      "runs/m343_old_key_neighborhood_gate_probe/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m344-old-key-neighborhood-policy-integration-design.json",
+      "docs/m344-old-key-neighborhood-policy-integration-design.md"
+    ],
+    "parent_objective": [
+      "make the old-key neighborhood gate replayable for arbitrary future candidate checkpoints"
+    ],
+    "derived_from": [
+      "m344-old-key-neighborhood-policy-integration-design"
+    ],
+    "blocked_by": [
+      "m344-old-key-neighborhood-policy-integration-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m345-old-key-neighborhood-replay-gate-adapter.md",
+  "public_gates": [
+    "implement or formalize replayable candidate evaluation for M341 compact old-key rows",
+    "reproduce M335 alpha pass and M335 repaired endpoint failure or repair-needed classification",
+    "keep 9944 diagnostic visible",
+    "add focused tests for replayable schema and threshold aggregation",
+    "do not run PPO or promote a checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not claim M343 static saved columns certify future checkpoints",
+    "do not remove 9944 diagnostic visibility",
+    "do not lower old-key neighborhood thresholds",
+    "do not change actor inputs",
+    "do not train or repair a checkpoint"
+  ],
+  "hypothesis": "A replayable adapter can convert the M341 old-key neighborhood surface into a candidate-level proof gate so future PPO proposals can be checked without returning to singleton 9944 veto dominance.",
+  "success_criteria": [
+    "future-candidate gate schema is implemented or concretely formalized",
+    "M335 alpha is reproduced as pass under replayable candidate metrics",
+    "M335 repaired endpoint is reproduced as fail or repair-needed",
+    "tests cover schema validation and pass/fail threshold aggregation",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "adapter only reads saved selected/endpoint columns and cannot evaluate future candidates",
+    "adapter hides M133/9944 diagnostic visibility",
+    "adapter changes actor input contract",
+    "adapter runs PPO or promotes a checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "m345_adapter",
+      "command": "Implement and test replayable old-key neighborhood candidate gate; no PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m345-old-key-neighborhood-replay-gate-adapter.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt",
+    "runs/m335_exact_repair_from_raw_s40_seed10099/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m344-old-key-neighborhood-policy-integration-design.md",
+    "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv"
+  ],
+  "decision_rule": "M345 may only build or formalize the replayable old-key neighborhood candidate gate and admit the next no-PPO probe or PPO-design milestone. It cannot promote and cannot run PPO.",
+  "next_blocker": "pending M345 old-key neighborhood replay gate adapter"
+}

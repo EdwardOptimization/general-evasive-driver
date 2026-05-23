@@ -9074,3 +9074,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M343 formally runs the old-key neighborhood gate. The broad pool has `179` rows and the compact corpus has `40` rows with source-diversity targets passing. Selected alpha has `0` accepted regressions and compact gap p10 `-0.0000181822`; the repaired endpoint has `15` accepted regressions, compact gap p10 `-0.004071`, and min gap `-0.050660`. M133/`9944` diagnostic visibility remains true.
 - decision: `admit_m344_old_key_neighborhood_policy_integration_design`
 - next: `m344-old-key-neighborhood-policy-integration-design`
+
+## 20260523T093857Z - m344-old-key-neighborhood-policy-integration-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `docs/m344-old-key-neighborhood-policy-integration-design.md`
+- artifact: `docs/m344-old-key-neighborhood-policy-integration-design.md`
+- result: M344 defines the old-key neighborhood gate as the first-class old-key proof gate and keeps singleton `9944` as a visible diagnostic instead of a standalone PPO-continuation veto. It also records a limitation: M342/M343 still read saved `selected_*` and `endpoint_*` columns, so future PPO candidates need a replayable old-key neighborhood candidate adapter before using the policy.
+- decision: `admit_m345_old_key_neighborhood_replay_gate_adapter`
+- next: `m345-old-key-neighborhood-replay-gate-adapter`
