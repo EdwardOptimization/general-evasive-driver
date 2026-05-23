@@ -61,7 +61,7 @@ post-PPO repair before any more PPO acceptance.
 Current blocker:
 
 ```text
-m313-m310-protected-key-bounded-interpolation-probe
+m314-full-public-gate-for-m313-a140
 ```
 
 M305 implements deterministic exact M297/M270 repair or projection
@@ -110,15 +110,19 @@ not broad proof washout. M310's margin gap still passes, but normal margin
 `0.206337` exceeds the M133 `max_normal_margin=0.2`. M307 remains the
 public-gate base.
 
+M313 sweeps M307-to-M310 interpolation and selects alpha `0.14`, the largest
+tested alpha that keeps protected key `9944` inside the normal-margin window.
+It improves exact M297/M270 slightly and passes M183/M170 plus M267/M264 first
+replay gates. It is not promoted before full public gates.
+
 Current next task:
 
 ```text
-m313-m310-protected-key-bounded-interpolation-probe
+m314-full-public-gate-for-m313-a140
 ```
 
-M313 should sweep M307-to-M310 interpolation alphas, require exact M297/M270
-and protected-key retention first, then run first replay gates only for a
-nonzero protected-key-safe alpha.
+M314 should run the full replay stack, protected-key diagnostic, and behavior
+seeds for M313 alpha `0.14` before any promotion decision.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -152,6 +156,7 @@ nonzero protected-key-safe alpha.
 | repair repeat diagnostic | `runs/m308_exact_repair_from_raw_s40_seed10094/candidate_checkpoint.pt` | M308 repeats M306 exact deltas and first replay gates; not separately promoted |
 | next PPO proposal config | `configs/ppo_m310_exact_repaired_proposal_smoke.json` | M309 registered smoke PPO from M307 plus mandatory exact repair before replay |
 | rejected full-gate candidate | `runs/m310_exact_repair_from_raw_s40_seed10095/candidate_checkpoint.pt` | M311 rejects after protected-key failure despite exact and replay success |
+| full-gate candidate | `runs/m313_m307_to_m310_protected_key_bounded_interpolation/checkpoints/alpha_0_14.pt` | M313 selected as protected-key-bounded interpolation; awaits M314 full public gate |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

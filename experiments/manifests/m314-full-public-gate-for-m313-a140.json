@@ -1,0 +1,100 @@
+{
+  "id": "m314-full-public-gate-for-m313-a140",
+  "type": "driver_candidate",
+  "gate_tier": "promotion",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt",
+      "runs/m313_m307_to_m310_protected_key_bounded_interpolation/checkpoints/alpha_0_14.pt"
+    ],
+    "parent_dataset": [
+      "runs/m183_m168_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+      "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+      "runs/m193_m189_boundary_outcome_corpus_seed9630/boundary_outcome_corpus.csv",
+      "runs/m212_m204_boundary_outcome_corpus_seed10040/boundary_outcome_corpus.csv",
+      "runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "runs/m133_zero_relvel_s60_strict_60ep_seed9900/outcome_sensitive_snippets.csv",
+      "runs/m133_zero_relvel_s60_strict_60ep_seed9920/outcome_sensitive_snippets.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m313-m310-protected-key-bounded-interpolation-probe.json",
+      "docs/m313-m310-protected-key-bounded-interpolation-probe.md"
+    ],
+    "parent_objective": [
+      "run full public promotion gate for M313 protected-key-bounded alpha 0.14"
+    ],
+    "derived_from": [
+      "m313-m310-protected-key-bounded-interpolation-probe"
+    ],
+    "blocked_by": [
+      "m313-m310-protected-key-bounded-interpolation-probe"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m314-full-public-gate-for-m313-a140.md",
+  "public_gates": [
+    "candidate exact M297 and exact M270 remain non-regressing versus M307",
+    "M183/M168 replay gate versus M307",
+    "M183/M170 replay gate versus M307",
+    "M193/M189 replay gate versus M307",
+    "M212/M204 replay gate versus M307",
+    "M223/M219 replay gate versus M307",
+    "M267/M264 replay gate versus M307",
+    "protected key 9944 guard",
+    "behavior seeds 9505 and 9506",
+    "research validator"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not promote on first replay gates alone",
+    "do not loosen protected-key or behavior gates",
+    "do not change actor inputs",
+    "do not ignore exact M297 or exact M270 regression"
+  ],
+  "hypothesis": "The M313 alpha 0.14 protected-key-bounded interpolation candidate can pass the full public gate stack and become the next public-gate base.",
+  "success_criteria": [
+    "candidate passes all six public replay gates versus M307",
+    "candidate passes protected-key diagnostic",
+    "candidate retains behavior on seeds 9505 and 9506",
+    "candidate keeps exact M297 and exact M270 improvements versus M307",
+    "actor input contract remains unchanged"
+  ],
+  "failure_criteria": [
+    "any replay gate fails",
+    "protected key fails",
+    "behavior seeds materially regress",
+    "exact M297 or exact M270 regresses",
+    "actor observation inputs change"
+  ],
+  "commands": [
+    {
+      "name": "m314_full_public_gate",
+      "command": "Run full public proof and behavior gates for m313_a140 versus m307_base."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m314-full-public-gate-for-m313-a140.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m313-m310-protected-key-bounded-interpolation-probe.md",
+    "runs/m313_m310_protected_key_sweep/guard_results.csv",
+    "runs/m313_a140_m183_m170_first_replay/summary.json",
+    "runs/m313_a140_m267_m264_first_replay/summary.json"
+  ],
+  "decision_rule": "M314 promotes m313_a140 only if exact objectives full replay protected-key and behavior gates all pass versus M307.",
+  "next_blocker": "pending M314 full public gate"
+}

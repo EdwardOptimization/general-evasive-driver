@@ -8767,3 +8767,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M312 classifies the M311 failure as a protected-key normal-margin window violation, not broad proof washout. M310's protected-key margin gap still passes (`0.097590`), but the normal margin `0.206337` exceeds the M133 `max_normal_margin=0.2`. M307 remains the public-gate base.
 - decision: `admit_m313_protected_key_bounded_interpolation_probe`
 - next: `m313-m310-protected-key-bounded-interpolation-probe`
+
+## 20260523T052027Z - m313-m310-protected-key-bounded-interpolation-probe
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m313_m307_to_m310_protected_key_bounded_interpolation`
+- artifact: `docs/m313-m310-protected-key-bounded-interpolation-probe.md`
+- result: M313 sweeps M307-to-M310 interpolation. Exact objectives pass through alpha `0.2`, but protected key `9944` passes only through alpha `0.14`; alpha `0.15` already exceeds the normal-margin window. Selected `runs/m313_m307_to_m310_protected_key_bounded_interpolation/checkpoints/alpha_0_14.pt` improves exact M297 by `-0.000017047` and exact M270 by `-0.000010908`, passes protected key with normal margin `0.199976`, and passes M183/M170 plus M267/M264 first replay gates.
+- decision: `admit_m314_full_public_gate_for_m313_a140`
+- next: `m314-full-public-gate-for-m313-a140`

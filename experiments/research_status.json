@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 321,
+    "completed": 322,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m312-m310-protected-key-window-failure-audit.md",
+    "command_log": "docs/m313-m310-protected-key-bounded-interpolation-probe.md",
     "returncode": 0,
-    "run_dir": "runs/m311_full_public_gate_for_m310_repaired/full_gates/critical_key_seed9944",
+    "run_dir": "runs/m313_m307_to_m310_protected_key_bounded_interpolation",
     "status": "completed",
-    "task_id": "m312-m310-protected-key-window-failure-audit"
+    "task_id": "m313-m310-protected-key-bounded-interpolation-probe"
   },
   "next_task": {
-    "command": "see experiments/manifests/m313-m310-protected-key-bounded-interpolation-probe.json",
-    "hypothesis": "A smaller interpolation from M307 toward the M310 repaired candidate can retain useful exact-objective movement while staying inside the protected-key normal-margin window.",
-    "id": "m313-m310-protected-key-bounded-interpolation-probe",
+    "command": "see experiments/manifests/m314-full-public-gate-for-m313-a140.json",
+    "hypothesis": "The M313 alpha 0.14 protected-key-bounded interpolation candidate can pass the full public gate stack and become the next public-gate base.",
+    "id": "m314-full-public-gate-for-m313-a140",
     "kind": "driver_candidate",
-    "notes": "Pending: sweep alpha exact objectives protected key and first replay gates without PPO",
-    "priority": 3080,
+    "notes": "Pending: full replay protected-key behavior gates before any promotion",
+    "priority": 3090,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260523T051607Z"
+  "updated_at_utc": "20260523T052027Z"
 }
