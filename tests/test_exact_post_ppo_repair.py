@@ -661,3 +661,31 @@ def test_replay_trajectory_anchor_terms_feed_repair_loss(tmp_path):
     assert terms["replay_trajectory_anchor_loss"].item() == pytest.approx(trajectory_loss.item())
     terms["total_loss"].backward()
     assert model.proj.weight.grad is not None
+
+
+def test_exact_trajectory_action_anchor_loss_uses_radius_hinge(tmp_path):
+    trajectory_npz = tmp_path / "trajectory_anchor_radius.npz"
+    _write_trajectory_anchor_npz(
+        trajectory_npz,
+        reference_action=np.zeros((3, 3), dtype=np.float32),
+        radius=np.asarray([0.10, 0.50, 0.50], dtype=np.float32),
+    )
+    trajectory_anchor = load_trajectory_action_anchor(
+        trajectory_npz,
+        device=torch.device("cpu"),
+        obs_dim=72,
+        hidden_size=4,
+        act_dim=3,
+    )
+    model = _TinyRecurrentPolicy()
+
+    loss = exact_trajectory_action_anchor_loss(model, trajectory_anchor)
+
+    with torch.no_grad():
+        dist, _, _ = model.forward_recurrent(trajectory_anchor.observation, trajectory_anchor.hidden)
+        action = torch.tanh(dist.mean)
+        action_mse = torch.square(action - trajectory_anchor.reference_action).mean(dim=-1)
+        distance = torch.sqrt(torch.clamp(action_mse, min=0.0))
+        expected = torch.square(torch.clamp(distance - trajectory_anchor.radius, min=0.0))
+        expected = (expected * trajectory_anchor.weight).sum() / trajectory_anchor.weight.sum()
+    assert torch.isclose(loss, expected)

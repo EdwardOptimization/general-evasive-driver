@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 424,
+        "completed": 425,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m415-active-set-replay-hinge-design",
+        "task_id": "m416-active-set-hinge-anchor-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m415-active-set-replay-hinge-design.md"
+        "run_dir": "runs/m416_active_set_hinge_anchor_no_update_smoke",
+        "command_log": "docs/m416-active-set-hinge-anchor-implementation.md"
     },
     "next_task": {
-        "id": "m416-active-set-hinge-anchor-implementation",
+        "id": "m417-active-set-hinge-projection-probe",
         "status": "pending",
-        "priority": 4110,
-        "kind": "infrastructure",
-        "hypothesis": "Implement radius-aware active-set hinge anchor path",
-        "command": "see experiments/manifests/m416-active-set-hinge-anchor-implementation.json",
+        "priority": 4120,
+        "kind": "gate",
+        "hypothesis": "Probe active-set hinge anchor in no-PPO exact projection",
+        "command": "see experiments/manifests/m417-active-set-hinge-projection-probe.json",
         "success_artifact": "",
-        "notes": "Pending: add optional radius schema hinge loss active-set anchor export and no-update exact repair smoke"
+        "notes": "Pending: run exact projection from M403 alpha 0.1 with active-set hinge anchor then evaluate proof gates and recovery utility"
     },
-    "updated_at_utc": "20260523T163755Z"
+    "updated_at_utc": "20260523T164250Z"
 }

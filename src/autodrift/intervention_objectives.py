@@ -116,6 +116,7 @@ class TrajectoryActionAnchor:
     source_index: torch.Tensor
     step_index: torch.Tensor
     weight: torch.Tensor
+    radius: torch.Tensor | None = None
 
     @property
     def size(self) -> int:
@@ -598,6 +599,7 @@ def load_trajectory_action_anchor(
     source_index = np.asarray(data["source_index"], dtype=np.int64)
     step_index = np.asarray(data["step_index"], dtype=np.int64)
     weight = np.asarray(data["weight"], dtype=np.float32)
+    radius = np.asarray(data["radius"], dtype=np.float32) if "radius" in data.files else np.zeros_like(weight)
     if observation.ndim != 2 or observation.shape[1] != obs_dim:
         raise ValueError(f"trajectory observations must have shape (N, {obs_dim}), got {observation.shape}")
     if hidden.ndim != 2 or hidden.shape[1] != hidden_size:
@@ -613,8 +615,11 @@ def load_trajectory_action_anchor(
         ("source_index", source_index),
         ("step_index", step_index),
         ("weight", weight),
+        ("radius", radius),
     ):
         if value.ndim != 1 and name in {"source_index", "step_index", "weight"}:
+            raise ValueError(f"trajectory {name} must have shape (N,), got {value.shape}")
+        if value.ndim != 1 and name == "radius":
             raise ValueError(f"trajectory {name} must have shape (N,), got {value.shape}")
         if int(value.shape[0]) != rows:
             raise ValueError(f"trajectory {name} row count {value.shape[0]} does not match {rows}")
@@ -623,6 +628,7 @@ def load_trajectory_action_anchor(
         ("hidden", hidden),
         ("reference_action", reference_action),
         ("weight", weight),
+        ("radius", radius),
     ):
         if not np.all(np.isfinite(value)):
             raise ValueError(f"trajectory {name} must be finite")
@@ -635,6 +641,7 @@ def load_trajectory_action_anchor(
         source_index=torch.as_tensor(source_index, dtype=torch.long, device=device),
         step_index=torch.as_tensor(step_index, dtype=torch.long, device=device),
         weight=torch.as_tensor(np.clip(weight, 0.0, None), dtype=torch.float32, device=device),
+        radius=torch.as_tensor(np.clip(radius, 0.0, None), dtype=torch.float32, device=device),
     )
 
 
@@ -830,5 +837,11 @@ def trajectory_action_anchor_loss(
     weight = anchor.weight[indices]
     dist, _, _ = model.forward_recurrent(observation, hidden)
     action = torch.tanh(dist.mean)
-    error = torch.square(action - reference_action.detach()).mean(dim=-1)
+    action_mse = torch.square(action - reference_action.detach()).mean(dim=-1)
+    if anchor.radius is not None:
+        radius = anchor.radius[indices].detach()
+        action_distance = torch.sqrt(torch.clamp(action_mse, min=0.0))
+        error = torch.square(torch.clamp(action_distance - radius, min=0.0))
+    else:
+        error = action_mse
     return weighted_mean(error, weight.detach())

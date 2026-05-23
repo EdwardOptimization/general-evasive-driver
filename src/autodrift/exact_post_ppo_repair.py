@@ -127,7 +127,12 @@ def exact_trajectory_action_anchor_loss(
 ) -> torch.Tensor:
     dist, _, _ = model.forward_recurrent(anchor.observation, anchor.hidden)  # type: ignore[attr-defined]
     action = torch.tanh(dist.mean)
-    error = torch.square(action - anchor.reference_action.detach()).mean(dim=-1)
+    action_mse = torch.square(action - anchor.reference_action.detach()).mean(dim=-1)
+    if anchor.radius is not None:
+        action_distance = torch.sqrt(torch.clamp(action_mse, min=0.0))
+        error = torch.square(torch.clamp(action_distance - anchor.radius.detach(), min=0.0))
+    else:
+        error = action_mse
     return weighted_mean(error, anchor.weight.detach())
 
 

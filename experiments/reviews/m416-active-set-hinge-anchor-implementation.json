@@ -1,0 +1,80 @@
+{
+  "decision_reason": "M416 implements optional radius-aware trajectory hinge loss and exports a 192-row active-set hinge anchor that loads in no-update exact repair with exact no-regression",
+  "failure_criteria": [
+    "radius schema breaks existing trajectory anchors",
+    "hinge loss cannot be loaded by exact_post_ppo_repair",
+    "actor input or output contract changes",
+    "research validation fails"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260523T164436Z",
+  "hypothesis": "A radius-aware trajectory hinge residual can represent active-set replay constraints without globally penalizing harmless recovery movement.",
+  "lineage": {
+    "blocked_by": [
+      "m414-source-weighted-replay-anchor-probe"
+    ],
+    "derived_from": [
+      "m415-active-set-replay-hinge-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m415-active-set-replay-hinge-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m414_source_weighted_m267_m264_first_replay/boundary_replay_rows.csv",
+      "runs/m414_source_weighted_old_key_replay_gate/old_key_replay_comparison_rows.csv",
+      "runs/m409_m407_m267_replay_failure_trajectory_anchor/rejected_trajectory_anchor.npz",
+      "runs/m410_old_key_replay_failure_trajectory_anchor/old_key_replay_failure_trajectory_anchor.npz"
+    ],
+    "parent_objective": [
+      "implement optional radius-aware trajectory hinge residual and active-set anchor export"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m416-active-set-hinge-anchor-implementation",
+  "next_blocker": "m417-active-set-hinge-projection-probe",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m417_active_set_hinge_projection_probe",
+  "public_gates": [
+    "infrastructure smoke only",
+    "no PPO run",
+    "no checkpoint promotion",
+    "no actor input/output change",
+    "radius-aware trajectory anchor loads in exact_post_ppo_repair no-update smoke"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m417_active_set_hinge_projection_probe",
+    "milestone": "m416-active-set-hinge-anchor-implementation",
+    "reason": "M416 implements optional radius-aware trajectory hinge loss and exports a 192-row active-set hinge anchor that loads in no-update exact repair with exact no-regression",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "trajectory anchor loader supports optional radius with backward compatibility",
+    "hinge loss is zero inside radius and positive outside radius",
+    "active-set hinge anchor artifact includes M267 rows 6 and 15 plus old-key cases 10004, 9998, and 10023",
+    "no-update exact repair smoke loads the hinge anchor with finite loss",
+    "focused tests and research validation pass"
+  ],
+  "type": "infrastructure"
+}

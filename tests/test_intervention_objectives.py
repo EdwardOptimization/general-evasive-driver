@@ -1,6 +1,7 @@
 from types import SimpleNamespace
 
 import numpy as np
+import pytest
 import torch
 
 from autodrift.intervention_objectives import (
@@ -163,6 +164,33 @@ def test_load_trajectory_action_anchor_validates_and_converts_arrays(tmp_path):
     assert anchor.reference_action.shape == (2, 2)
     assert anchor.source_index.dtype == torch.long
     assert torch.isclose(anchor.weight.max(), torch.tensor(1.5))
+    assert anchor.radius is not None
+    assert torch.allclose(anchor.radius, torch.zeros(2))
+
+
+def test_load_trajectory_action_anchor_supports_radius(tmp_path):
+    path = tmp_path / "trajectory_anchor_radius.npz"
+    np.savez(
+        path,
+        observation=np.zeros((2, 3), dtype=np.float32),
+        hidden=np.zeros((2, 4), dtype=np.float32),
+        reference_action=np.zeros((2, 2), dtype=np.float32),
+        source_index=np.asarray([0, 1], dtype=np.int64),
+        step_index=np.asarray([0, 3], dtype=np.int64),
+        weight=np.asarray([0.5, 1.5], dtype=np.float32),
+        radius=np.asarray([0.1, 0.2], dtype=np.float32),
+    )
+
+    anchor = load_trajectory_action_anchor(
+        path,
+        device=torch.device("cpu"),
+        obs_dim=3,
+        hidden_size=4,
+        act_dim=2,
+    )
+
+    assert anchor.radius is not None
+    assert anchor.radius.tolist() == pytest.approx([0.1, 0.2])
 
 
 def test_paired_hidden_action_contrast_loss_uses_swapped_hidden_states():
@@ -239,6 +267,31 @@ def test_trajectory_action_anchor_loss_matches_reference_actions():
     loss = trajectory_action_anchor_loss(DummyModel(), anchor, batch_size=2)
 
     assert torch.isclose(loss, torch.tensor(0.0), atol=1e-6)
+
+
+def test_trajectory_action_anchor_loss_uses_radius_hinge():
+    class DummyModel:
+        def forward_recurrent(self, observation, hidden):
+            del hidden
+            mean = torch.atanh(torch.clamp(observation[:, :2], -0.95, 0.95))
+            return type("DummyDist", (), {"mean": mean})(), None, None
+
+    anchor = TrajectoryActionAnchor(
+        observation=torch.tensor([[0.3, 0.4, 0.0], [0.3, 0.4, 0.0]]),
+        hidden=torch.zeros((2, 4)),
+        reference_action=torch.zeros((2, 2)),
+        source_index=torch.tensor([0, 1]),
+        step_index=torch.tensor([0, 1]),
+        weight=torch.tensor([1.0, 1.0]),
+        radius=torch.tensor([0.25, 0.25]),
+    )
+
+    torch.manual_seed(4)
+    loss = trajectory_action_anchor_loss(DummyModel(), anchor, batch_size=2)
+
+    first_distance = torch.sqrt(torch.tensor((0.3**2 + 0.4**2) / 2.0))
+    expected = torch.square(torch.clamp(first_distance - 0.25, min=0.0))
+    assert torch.isclose(loss, expected, atol=1e-6)
 
 
 def test_squashed_action_log_prob_handles_bounded_actions():

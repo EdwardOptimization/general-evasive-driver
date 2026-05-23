@@ -80,5 +80,31 @@
     "docs/m415-active-set-replay-hinge-design.md"
   ],
   "decision_rule": "M416 should admit a no-PPO proof probe only if the radius-aware hinge anchor is tested and loads in exact repair without actor-contract changes.",
-  "next_blocker": "pending M416 active-set hinge anchor implementation"
+  "next_blocker": "m417-active-set-hinge-projection-probe",
+  "results": {
+    "artifact": "docs/m416-active-set-hinge-anchor-implementation.md",
+    "code_paths": [
+      "src/autodrift/intervention_objectives.py",
+      "src/autodrift/exact_post_ppo_repair.py",
+      "tests/test_intervention_objectives.py",
+      "tests/test_exact_post_ppo_repair.py"
+    ],
+    "active_set_anchor_run": "runs/m416_active_set_hinge_anchor",
+    "active_set_anchor_npz": "runs/m416_active_set_hinge_anchor/active_set_hinge_trajectory_anchor.npz",
+    "active_set_anchor_rows": 192,
+    "active_set_sources": 5,
+    "radius_min": 0.0,
+    "radius_max": 0.0,
+    "no_update_smoke_run": "runs/m416_active_set_hinge_anchor_no_update_smoke",
+    "no_update_smoke_exact_pass": true,
+    "no_update_smoke_replay_trajectory_anchor_rows": 192,
+    "no_update_smoke_replay_trajectory_anchor_loss": 6.1524318591946094e-15,
+    "focused_tests": "31 passed",
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m417-active-set-hinge-projection-probe"
+  },
+  "decision": "admit_m417_active_set_hinge_projection_probe"
 }

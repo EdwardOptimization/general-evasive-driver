@@ -9794,3 +9794,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M415 designs a radius-aware active-set hinge residual after M414's proof/utility tradeoff. The active set is M267/M264 rows `6` and `15`, old-key cases `10004` and `9998`, plus old-key guard case `10023`. The proposed loss is `weight * relu(action_l2_to_reference - radius)^2`, so active failures can be tightly anchored while replay-safe rows retain a nonzero action radius for recovery movement. M416 should implement optional `radius` support, hinge loss, active-set export, and a no-update exact repair smoke.
 - decision: `admit_m416_active_set_hinge_anchor_implementation`
 - next: `m416-active-set-hinge-anchor-implementation`
+
+## 20260523T164250Z - m416-active-set-hinge-anchor-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m416_active_set_hinge_anchor_no_update_smoke`
+- artifact: `docs/m416-active-set-hinge-anchor-implementation.md`
+- result: M416 implements optional `radius` support for trajectory anchors and changes the trajectory residual to a radius hinge with backward-compatible zero-radius behavior. It exports a `192`-row active-set hinge anchor covering M267 rows `6` and `15`, old-key active cases `10004` and `9998`, and guard case `10023`. The no-update exact repair smoke loads the radius-aware anchor with near-zero loss `6.152432e-15` and exact M297/M270/old-key deltas remain `0.0`. Focused tests pass (`31 passed`).
+- decision: `admit_m417_active_set_hinge_projection_probe`
+- next: `m417-active-set-hinge-projection-probe`
