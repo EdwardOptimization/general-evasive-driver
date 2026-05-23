@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m409-replay-failure-trajectory-anchor-implementation
+m410-old-key-replay-failure-anchor-implementation
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -253,7 +253,10 @@ projection residual; replay gates remain authoritative. M408 completes that
 design: use branch-specific replay-failure trajectory anchors as secondary
 projection residuals while keeping exact M297/M270/old-key no-regression as hard
 feasibility. M409 should implement and smoke-test the anchor export/loading path
-without PPO or promotion.
+without PPO or promotion. M409 completes the generic exact-repair loading path
+and the current-family M267/M264 export path: `669` replay-failure trajectory
+rows load with finite no-update loss and exact no-regression. Old-key compact
+failed-row export is explicitly deferred to M410.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

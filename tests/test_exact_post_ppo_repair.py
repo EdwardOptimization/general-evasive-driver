@@ -14,6 +14,7 @@ from autodrift.exact_post_ppo_repair import (
     exact_preference_action_anchor_loss,
     exact_rejected_history_preference_loss,
     exact_snippet_action_anchor_loss,
+    exact_trajectory_action_anchor_loss,
     load_repair_corpora,
     parameter_l2_to_reference,
     parse_alpha_list,
@@ -23,6 +24,7 @@ from autodrift.intervention_objectives import (
     build_snippet_action_anchor,
     load_current_family_conflict_snippets,
     load_old_key_recovery_snippets,
+    load_trajectory_action_anchor,
 )
 from autodrift.rejected_history_preference_objective import PreferenceLossConfig
 
@@ -122,6 +124,20 @@ def _write_conflict_npz(path, **extra_arrays):
     }
     conflict_arrays.update(extra_arrays)
     np.savez(path, **conflict_arrays)
+
+
+def _write_trajectory_anchor_npz(path, **extra_arrays):
+    arrays = _preference_arrays()
+    trajectory_arrays = {
+        "observation": arrays["observation"],
+        "hidden": arrays["rejected_hidden"],
+        "reference_action": arrays["rejected_action"],
+        "source_index": np.asarray([0, 0, 1], dtype=np.int64),
+        "step_index": np.asarray([0, 1, 0], dtype=np.int64),
+        "weight": arrays["weight"],
+    }
+    trajectory_arrays.update(extra_arrays)
+    np.savez(path, **trajectory_arrays)
 
 
 def test_parse_alpha_list_validates_range():
@@ -586,5 +602,62 @@ def test_current_family_conflict_terms_feed_repair_loss(tmp_path):
     )
     assert terms["current_family_conflict_preferred_loss"].item() >= 0.0
     assert terms["current_family_conflict_rejected_loss"].item() >= 0.0
+    terms["total_loss"].backward()
+    assert model.proj.weight.grad is not None
+
+
+def test_replay_trajectory_anchor_terms_feed_repair_loss(tmp_path):
+    preference_npz = tmp_path / "preference.npz"
+    outcome_npz = tmp_path / "outcome.npz"
+    trajectory_npz = tmp_path / "trajectory_anchor.npz"
+    _write_preference_npz(preference_npz)
+    _write_outcome_npz(outcome_npz)
+    _write_trajectory_anchor_npz(trajectory_npz)
+    preference, outcome = load_repair_corpora(
+        preference_npz=preference_npz,
+        outcome_npz=outcome_npz,
+        device=torch.device("cpu"),
+        obs_dim=72,
+        hidden_size=4,
+        act_dim=3,
+    )
+    trajectory_anchor = load_trajectory_action_anchor(
+        trajectory_npz,
+        device=torch.device("cpu"),
+        obs_dim=72,
+        hidden_size=4,
+        act_dim=3,
+    )
+    model = _TinyRecurrentPolicy()
+    base_state = {name: value.detach().clone() for name, value in model.state_dict().items()}
+    raw_state = {name: value.detach().clone() + 0.1 for name, value in model.state_dict().items()}
+    anchor = build_snippet_action_anchor(model, outcome, include_rejected_hidden=True)
+    config = ExactRepairConfig(
+        exact_m297_tolerance=1e-6,
+        exact_m270_tolerance=1e-6,
+        lambda_replay_trajectory_anchor=5.0,
+    )
+    base_m297 = float(exact_rejected_history_preference_loss(model, preference, config.preference).item())
+    base_m270 = float(exact_outcome_intervention_loss(model, outcome, logprob_margin=0.05).item())
+
+    trajectory_loss = exact_trajectory_action_anchor_loss(model, trajectory_anchor)
+    terms = repair_loss_terms(
+        model=model,
+        preference=preference,
+        outcome=outcome,
+        replay_trajectory_anchor=trajectory_anchor,
+        anchor=anchor,
+        base_m297=base_m297,
+        base_m270=base_m270,
+        base_state=base_state,
+        raw_state=raw_state,
+        trainable_names=["proj.weight"],
+        config=config,
+    )
+
+    assert trajectory_anchor.size == 3
+    assert torch.isfinite(trajectory_loss)
+    assert trajectory_loss.item() >= 0.0
+    assert terms["replay_trajectory_anchor_loss"].item() == pytest.approx(trajectory_loss.item())
     terms["total_loss"].backward()
     assert model.proj.weight.grad is not None

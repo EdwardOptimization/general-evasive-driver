@@ -78,5 +78,30 @@
     "docs/m408-replay-aware-projection-residual-design.md"
   ],
   "decision_rule": "M409 should admit a no-PPO projection probe only if the trajectory-anchor infrastructure is tested, loads in exact repair, and preserves the human-view contract.",
-  "next_blocker": "pending M409 replay-failure trajectory anchor implementation"
+  "next_blocker": "m410-old-key-replay-failure-anchor-implementation",
+  "results": {
+    "artifact": "docs/m409-replay-failure-trajectory-anchor-implementation.md",
+    "code_paths": [
+      "src/autodrift/exact_post_ppo_repair.py",
+      "tests/test_exact_post_ppo_repair.py"
+    ],
+    "m267_anchor_run": "runs/m409_m407_m267_replay_failure_trajectory_anchor",
+    "m267_rejected_anchor_npz": "runs/m409_m407_m267_replay_failure_trajectory_anchor/rejected_trajectory_anchor.npz",
+    "m267_required_rows_present": true,
+    "m267_rows_selected": 17,
+    "m267_rejected_trajectory_rows": 669,
+    "m267_combined_anchor_rows": 2559,
+    "no_update_smoke_run": "runs/m409_replay_trajectory_anchor_no_update_smoke",
+    "no_update_smoke_exact_pass": true,
+    "no_update_smoke_replay_trajectory_anchor_rows": 669,
+    "no_update_smoke_replay_trajectory_anchor_loss": 5.70035639920136e-15,
+    "focused_tests": "27 passed",
+    "old_key_export_status": "deferred_to_m410",
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m410-old-key-replay-failure-anchor-implementation"
+  },
+  "decision": "admit_m410_old_key_replay_failure_anchor_implementation"
 }

@@ -9724,3 +9724,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M408 designs branch-specific replay-failure trajectory anchors as the next training-only projection residual. M267/M264 wrong-history washout rows should anchor rejected/wrong-history trajectories from the M400 base; old-key wrong-history-safe rows need the same branch-specific treatment, while the single old-key normal-branch failure needs a normal recovery or successful-trajectory target. Exact M297/M270/old-key no-regression remains lexicographic feasibility, and closed-loop replay remains the outer gate.
 - decision: `admit_m409_replay_failure_trajectory_anchor_implementation`
 - next: `m409-replay-failure-trajectory-anchor-implementation`
+
+## 20260523T160315Z - m409-replay-failure-trajectory-anchor-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m409_replay_trajectory_anchor_no_update_smoke`
+- artifact: `docs/m409-replay-failure-trajectory-anchor-implementation.md`
+- result: M409 wires optional `--replay-trajectory-anchor-npz` and `--lambda-replay-trajectory-anchor` into `exact_post_ppo_repair`, with deterministic full-batch `exact_trajectory_action_anchor_loss`. It exports an M267/M264 replay-failure anchor from the M407 rows: all `16` required failed row ids are present, `669` rejected trajectory rows are saved, and a no-update exact repair smoke loads the anchor with finite near-zero loss while exact M297/M270/old-key deltas remain `0.0`. Focused tests pass (`27 passed`). Old-key compact replay-failure export is deferred.
+- decision: `admit_m410_old_key_replay_failure_anchor_implementation`
+- next: `m410-old-key-replay-failure-anchor-implementation`

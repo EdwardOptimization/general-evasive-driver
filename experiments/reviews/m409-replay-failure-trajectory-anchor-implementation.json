@@ -1,0 +1,78 @@
+{
+  "decision_reason": "M409 adds optional trajectory-anchor loss to exact repair and exports 669 M267/M264 replay-failure trajectory rows; old-key exporter remains next",
+  "failure_criteria": [
+    "anchor cannot be exported from M407 rows",
+    "exact repair cannot load the anchor",
+    "actor input or output contract changes",
+    "research validation fails"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260523T160438Z",
+  "hypothesis": "A training-only replay-failure trajectory anchor can be exported from M407 failed rows and wired into exact_post_ppo_repair without changing the actor contract.",
+  "lineage": {
+    "blocked_by": [
+      "m408-replay-aware-projection-residual-design"
+    ],
+    "derived_from": [
+      "m408-replay-aware-projection-residual-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m408-replay-aware-projection-residual-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m407_projection_replay_failure_row_audit/m267_m264_wrong_history_washout_rows.csv",
+      "runs/m407_projection_replay_failure_row_audit/old_key_accepted_regression_rows.csv"
+    ],
+    "parent_objective": [
+      "implement training-only replay-failure trajectory anchors for exact projection"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m409-replay-failure-trajectory-anchor-implementation",
+  "next_blocker": "m410-old-key-replay-failure-anchor-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m410_old_key_replay_failure_anchor_implementation",
+  "public_gates": [
+    "infrastructure smoke only",
+    "no PPO run",
+    "no checkpoint promotion",
+    "no actor input/output change",
+    "trajectory anchor loads in exact_post_ppo_repair no-update smoke"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m410_old_key_replay_failure_anchor_implementation",
+    "milestone": "m409-replay-failure-trajectory-anchor-implementation",
+    "reason": "M409 adds optional trajectory-anchor loss to exact repair and exports 669 M267/M264 replay-failure trajectory rows; old-key exporter remains next",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "export trajectory anchor rows for M407 M267/M264 wrong-history washout rows",
+    "handle or explicitly defer old-key failed-row trajectory export",
+    "add optional exact_post_ppo_repair trajectory-anchor loading and loss terms",
+    "run no-update smoke with finite trajectory anchor loss",
+    "run focused tests and research validation"
+  ],
+  "type": "infrastructure"
+}
