@@ -48,19 +48,13 @@ REQUIRED_ARRAYS = (
 )
 OPTIONAL_ARRAYS = (
     "hard_row",
+    "gap_tail_row",
     "preferred_branch_weight",
     "wrong_branch_weight",
 )
 STUDENT_INPUT_ARRAYS = ("observation", "preferred_hidden", "rejected_hidden")
 
-HARD_ROW_OVERLAY_COLUMNS = (
-    "case_id",
-    "hard_row",
-    "hard_row_reason",
-    "hard_weight_multiplier",
-    "wrong_branch_weight_multiplier",
-    "preferred_branch_weight_multiplier",
-)
+OVERLAY_REQUIRED_COLUMNS = ("case_id",)
 
 
 @dataclass(frozen=True)
@@ -133,50 +127,84 @@ def old_key_case_id(row: pd.Series | dict[str, Any]) -> str:
 
 
 def _bool_value(value: Any) -> bool:
+    if value is None:
+        return False
+    try:
+        if pd.isna(value):
+            return False
+    except TypeError:
+        pass
     if isinstance(value, bool):
         return value
     return str(value).strip().lower() in {"1", "true", "yes", "y"}
 
 
+def _float_value(row: pd.Series, name: str, default: float) -> float:
+    if name not in row.index or pd.isna(row[name]):
+        return float(default)
+    return float(row[name])
+
+
+def _string_value(row: pd.Series, name: str, default: str = "") -> str:
+    if name not in row.index or pd.isna(row[name]):
+        return default
+    return str(row[name])
+
+
 def load_hard_row_overlay(path: Path | str | None) -> dict[str, dict[str, Any]]:
-    """Load optional hard-row feedback keyed by old-key case id."""
+    """Load optional old-key feedback keyed by old-key case id."""
 
     if path is None:
         return {}
     frame = pd.read_csv(path)
-    _require_columns(frame, HARD_ROW_OVERLAY_COLUMNS, label="hard-row overlay")
+    _require_columns(frame, OVERLAY_REQUIRED_COLUMNS, label="old-key feedback overlay")
     overlay: dict[str, dict[str, Any]] = {}
     for _, row in frame.iterrows():
         case_id = str(row["case_id"])
         if not case_id:
-            raise ValueError("hard-row overlay contains an empty case_id")
+            raise ValueError("old-key feedback overlay contains an empty case_id")
         if case_id in overlay:
-            raise ValueError(f"hard-row overlay contains duplicate case_id {case_id!r}")
-        hard_weight = float(row["hard_weight_multiplier"])
-        wrong_weight = float(row["wrong_branch_weight_multiplier"])
-        preferred_weight = float(row["preferred_branch_weight_multiplier"])
-        if hard_weight < 0.0 or wrong_weight < 0.0 or preferred_weight < 0.0:
-            raise ValueError("hard-row overlay multipliers must be non-negative")
+            raise ValueError(f"old-key feedback overlay contains duplicate case_id {case_id!r}")
+        hard_weight = _float_value(row, "hard_weight_multiplier", 1.0)
+        gap_weight = _float_value(row, "gap_weight_multiplier", 1.0)
+        wrong_weight = _float_value(row, "wrong_branch_weight_multiplier", 1.0)
+        preferred_weight = _float_value(
+            row,
+            "preferred_branch_weight_multiplier",
+            _float_value(row, "normal_branch_weight_multiplier", 1.0),
+        )
+        if hard_weight < 0.0 or gap_weight < 0.0 or wrong_weight < 0.0 or preferred_weight < 0.0:
+            raise ValueError("old-key feedback overlay multipliers must be non-negative")
         overlay[case_id] = {
             "case_id": case_id,
-            "hard_row": _bool_value(row["hard_row"]),
-            "hard_row_reason": str(row["hard_row_reason"]),
+            "hard_row": _bool_value(row["hard_row"]) if "hard_row" in row.index else False,
+            "hard_row_reason": _string_value(row, "hard_row_reason"),
             "hard_weight_multiplier": hard_weight,
+            "gap_tail_row": _bool_value(row["gap_tail_row"]) if "gap_tail_row" in row.index else False,
+            "gap_tail_reason": _string_value(row, "gap_tail_reason"),
+            "gap_weight_multiplier": gap_weight,
             "wrong_branch_weight_multiplier": wrong_weight,
             "preferred_branch_weight_multiplier": preferred_weight,
-            "reference_wrong_history_margin": (
-                float(row["reference_wrong_history_margin"])
-                if "reference_wrong_history_margin" in frame.columns and pd.notna(row["reference_wrong_history_margin"])
-                else float("nan")
-            ),
-            "candidate_wrong_history_margin": (
-                float(row["candidate_wrong_history_margin"])
-                if "candidate_wrong_history_margin" in frame.columns and pd.notna(row["candidate_wrong_history_margin"])
-                else float("nan")
-            ),
+            "normal_branch_weight_multiplier": preferred_weight,
+            "reference_wrong_history_margin": _float_value(row, "reference_wrong_history_margin", float("nan")),
+            "candidate_wrong_history_margin": _float_value(row, "candidate_wrong_history_margin", float("nan")),
             "candidate_accepted_regression": (
                 _bool_value(row["candidate_accepted_regression"])
                 if "candidate_accepted_regression" in frame.columns
+                else False
+            ),
+            "reference_policy": _string_value(row, "reference_policy"),
+            "candidate_policy": _string_value(row, "candidate_policy"),
+            "reference_margin_gap": _float_value(row, "reference_margin_gap", float("nan")),
+            "candidate_margin_gap": _float_value(row, "candidate_margin_gap", float("nan")),
+            "candidate_gap_delta": _float_value(row, "candidate_gap_delta", float("nan")),
+            "candidate_normal_delta": _float_value(row, "candidate_normal_delta", float("nan")),
+            "candidate_wrong_delta": _float_value(row, "candidate_wrong_delta", float("nan")),
+            "target_gap_delta_floor": _float_value(row, "target_gap_delta_floor", float("nan")),
+            "target_gap_delta_buffer": _float_value(row, "target_gap_delta_buffer", float("nan")),
+            "candidate_gap_p10_regression": (
+                _bool_value(row["candidate_gap_p10_regression"])
+                if "candidate_gap_p10_regression" in frame.columns
                 else False
             ),
         }
@@ -273,7 +301,9 @@ def build_old_key_preference_examples(
         case_id = old_key_case_id(row)
         hard = overlay.get(case_id, {})
         hard_row = bool(hard.get("hard_row", False))
+        gap_tail_row = bool(hard.get("gap_tail_row", False))
         hard_weight_multiplier = float(hard.get("hard_weight_multiplier", 1.0))
+        gap_weight_multiplier = float(hard.get("gap_weight_multiplier", 1.0))
         preferred_branch_weight = float(hard.get("preferred_branch_weight_multiplier", 1.0))
         wrong_branch_weight = float(hard.get("wrong_branch_weight_multiplier", 1.0))
         examples.append(
@@ -302,11 +332,16 @@ def build_old_key_preference_examples(
                     reference_margin_gap=margin_gap,
                     reference_normal_margin=normal_margin,
                 )
-                * hard_weight_multiplier,
+                * hard_weight_multiplier
+                * gap_weight_multiplier,
                 "hard_row": hard_row,
                 "hard_row_reason": str(hard.get("hard_row_reason", "")),
                 "hard_weight_multiplier": hard_weight_multiplier,
+                "gap_tail_row": gap_tail_row,
+                "gap_tail_reason": str(hard.get("gap_tail_reason", "")),
+                "gap_weight_multiplier": gap_weight_multiplier,
                 "preferred_branch_weight_multiplier": preferred_branch_weight,
+                "normal_branch_weight_multiplier": preferred_branch_weight,
                 "wrong_branch_weight_multiplier": wrong_branch_weight,
                 "reference_wrong_history_margin": float(
                     hard.get("reference_wrong_history_margin", wrong_margin)
@@ -315,6 +350,16 @@ def build_old_key_preference_examples(
                     hard.get("candidate_wrong_history_margin", float("nan"))
                 ),
                 "candidate_accepted_regression": bool(hard.get("candidate_accepted_regression", False)),
+                "reference_policy": str(hard.get("reference_policy", "")),
+                "candidate_policy": str(hard.get("candidate_policy", "")),
+                "reference_margin_gap": float(hard.get("reference_margin_gap", margin_gap)),
+                "candidate_margin_gap": float(hard.get("candidate_margin_gap", float("nan"))),
+                "candidate_gap_delta": float(hard.get("candidate_gap_delta", float("nan"))),
+                "candidate_normal_delta": float(hard.get("candidate_normal_delta", float("nan"))),
+                "candidate_wrong_delta": float(hard.get("candidate_wrong_delta", float("nan"))),
+                "target_gap_delta_floor": float(hard.get("target_gap_delta_floor", float("nan"))),
+                "target_gap_delta_buffer": float(hard.get("target_gap_delta_buffer", float("nan"))),
+                "candidate_gap_p10_regression": bool(hard.get("candidate_gap_p10_regression", False)),
                 "student_input_contract": "observation plus deployable recurrent hidden states",
                 "observation": np.asarray(relocated.observation, dtype=np.float32).copy(),
                 "preferred_hidden": _hidden_array(model, preferred_hidden, device),
@@ -348,6 +393,7 @@ def old_key_preference_arrays(examples: list[dict[str, Any]]) -> dict[str, np.nd
     }
     uses_branch_weights = any(
         bool(example.get("hard_row", False))
+        or bool(example.get("gap_tail_row", False))
         or float(example.get("preferred_branch_weight_multiplier", 1.0)) != 1.0
         or float(example.get("wrong_branch_weight_multiplier", 1.0)) != 1.0
         for example in examples
@@ -356,6 +402,9 @@ def old_key_preference_arrays(examples: list[dict[str, Any]]) -> dict[str, np.nd
         arrays.update(
             {
                 "hard_row": np.asarray([bool(example.get("hard_row", False)) for example in examples], dtype=np.int64),
+                "gap_tail_row": np.asarray(
+                    [bool(example.get("gap_tail_row", False)) for example in examples], dtype=np.int64
+                ),
                 "preferred_branch_weight": np.asarray(
                     [example.get("preferred_branch_weight_multiplier", 1.0) for example in examples],
                     dtype=np.float32,
@@ -414,9 +463,9 @@ def validate_old_key_preference_arrays(
         value = np.asarray(arrays[name])
         if value.shape != (rows,):
             raise ValueError(f"{name} must have shape ({rows},), got {value.shape}")
-        if name != "hard_row" and not np.all(np.isfinite(value)):
+        if name not in {"hard_row", "gap_tail_row"} and not np.all(np.isfinite(value)):
             raise ValueError(f"{name} must be finite")
-        if name != "hard_row" and np.any(value < 0.0):
+        if name not in {"hard_row", "gap_tail_row"} and np.any(value < 0.0):
             raise ValueError(f"{name} must be non-negative")
     weight = np.asarray(arrays["weight"], dtype=np.float32)
     if np.any(weight < 0.0) or float(np.max(weight)) <= 0.0:
@@ -460,6 +509,7 @@ def write_old_key_preference_corpus(
         "old_key_preference_corpus_csv": metadata_path,
         "contract": asdict(contract),
         "hard_rows": int(np.asarray(arrays.get("hard_row", np.zeros(contract.rows, dtype=np.int64))).sum()),
+        "gap_tail_rows": int(np.asarray(arrays.get("gap_tail_row", np.zeros(contract.rows, dtype=np.int64))).sum()),
         "actor_inputs_changed": False,
         "ppo_or_actor_update_run": False,
     }
@@ -513,7 +563,7 @@ def main() -> None:
     parser.add_argument("--reference-manifest", type=Path, required=True)
     parser.add_argument("--compact-corpus-csv", type=Path, required=True)
     parser.add_argument("--base-checkpoint", type=Path, required=True)
-    parser.add_argument("--hard-row-overlay-csv", type=Path, default=None)
+    parser.add_argument("--hard-row-overlay-csv", "--old-key-overlay-csv", dest="hard_row_overlay_csv", type=Path, default=None)
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="cpu")
     parser.add_argument("--run-dir", type=Path, default=None)
     args = parser.parse_args()

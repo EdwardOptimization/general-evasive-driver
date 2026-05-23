@@ -55,7 +55,7 @@ old-key compact gap-p10 failure.
 Current blocker:
 
 ```text
-m373-old-key-gap-tail-feedback-implementation
+m374-gap-tail-weighted-repair-probe
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -112,7 +112,10 @@ before any more repair or PPO. M371 classifies alpha `0.6` as old-key
 gap-distribution erosion without accepted regressions; M372 should design
 gap-tail retention feedback rather than lower thresholds or run PPO. M372
 completes that design and admits M373 implementation of the gap-tail overlay
-path.
+path. M373 implements the overlay path, exports a 40-row hard-row plus gap-tail
+weighted old-key corpus, and verifies no-update exact repair integration. M374
+should now test the weighted corpus in a no-PPO repair probe, with closed-loop
+old-key replay still authoritative.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -189,7 +192,7 @@ path.
 | bounded micro-alpha candidate | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M358 finds alpha 0.00025 passes exact and old-key; alpha 0.0005 first fails old-key |
 | proof-gate-passing micro-alpha | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M359 passes source-diverse protected and first replay proof gates |
 | current public-gate base | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M360 promotes alpha 0.00025 after full public gate pass; movement is extremely small |
-| current blocker | `experiments/manifests/m368-old-key-hard-row-feedback-implementation.json` | M368 must implement hard-row overlay and branch-weight support for old-key repair without PPO |
+| current blocker | `experiments/manifests/m374-gap-tail-weighted-repair-probe.json` | M374 must probe the gap-tail weighted old-key repair path without PPO before any further continuation |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

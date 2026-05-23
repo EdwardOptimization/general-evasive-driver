@@ -315,6 +315,7 @@ def test_old_key_surrogate_uses_optional_branch_weights(tmp_path):
     _write_preference_npz(
         weighted_npz,
         hard_row=np.asarray([0, 1, 0], dtype=np.int64),
+        gap_tail_row=np.asarray([0, 0, 1], dtype=np.int64),
         preferred_branch_weight=np.asarray([1.0, 1.0, 1.0], dtype=np.float32),
         wrong_branch_weight=np.asarray([1.0, 16.0, 1.0], dtype=np.float32),
     )
@@ -344,7 +345,9 @@ def test_old_key_surrogate_uses_optional_branch_weights(tmp_path):
     assert unweighted.wrong_branch_weight is None
     assert weighted.wrong_branch_weight is not None
     assert weighted.hard_row is not None
+    assert weighted.gap_tail_row is not None
     assert weighted.hard_row.tolist() == [0, 1, 0]
+    assert weighted.gap_tail_row.tolist() == [0, 0, 1]
     assert weighted_terms["old_key_preference_loss"].item() > unweighted_terms["old_key_preference_loss"].item()
     assert weighted_terms["old_key_action_anchor_loss"].item() != pytest.approx(
         unweighted_terms["old_key_action_anchor_loss"].item()

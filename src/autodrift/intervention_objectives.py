@@ -53,6 +53,7 @@ class RejectedHistoryPreferenceSnippets:
     group_index: torch.Tensor
     target_index: torch.Tensor
     hard_row: torch.Tensor | None = None
+    gap_tail_row: torch.Tensor | None = None
     preferred_branch_weight: torch.Tensor | None = None
     wrong_branch_weight: torch.Tensor | None = None
 
@@ -307,9 +308,8 @@ def load_rejected_history_preference_snippets(
         if name in data.files
     }
     optional_int_arrays = {
-        "hard_row": np.asarray(data["hard_row"], dtype=np.int64)
-        if "hard_row" in data.files
-        else None
+        name: np.asarray(data[name], dtype=np.int64) if name in data.files else None
+        for name in ("hard_row", "gap_tail_row")
     }
     for name, value in {**float_arrays, **int_arrays}.items():
         if value.ndim != 1 or int(value.shape[0]) != rows:
@@ -359,6 +359,11 @@ def load_rejected_history_preference_snippets(
         hard_row=(
             torch.as_tensor(optional_int_arrays["hard_row"], dtype=torch.long, device=device)
             if optional_int_arrays["hard_row"] is not None
+            else None
+        ),
+        gap_tail_row=(
+            torch.as_tensor(optional_int_arrays["gap_tail_row"], dtype=torch.long, device=device)
+            if optional_int_arrays["gap_tail_row"] is not None
             else None
         ),
         preferred_branch_weight=(

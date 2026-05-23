@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260523T121858Z
+- Generated at UTC: 20260523T122736Z
 - Type: infrastructure
 - Gate tier: infrastructure
-- Promotion decision: not_applicable
-- Decision reason: M373 completes when gap-tail overlay support is implemented, tested, documented, and a no-PPO probe milestone is registered.
+- Promotion decision: admit_m374_gap_tail_weighted_repair_probe
+- Decision reason: M373 implements gap-tail overlay support exports a 40-row old-key corpus with one hard row and five gap-tail rows and verifies no-update exact repair integration without actor-input changes PPO or promotion
 
 ## Hypothesis
 
@@ -65,8 +65,19 @@ Gap-tail overlay support can make replay-discovered old-key lower-tail erosion v
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m373-old-key-gap-tail-feedback-implementation
+- type: infrastructure
+- checkpoint: runs/m369_hard_row_repair_interpolation/checkpoints/alpha_0_4.pt
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: admit_m374_gap_tail_weighted_repair_probe
+- reason: M373 implements gap-tail overlay support exports a 40-row old-key corpus with one hard row and five gap-tail rows and verifies no-update exact repair integration without actor-input changes PPO or promotion
 
 ## Next Blocker
 
-pending M373 gap-tail feedback implementation
+m374-gap-tail-weighted-repair-probe

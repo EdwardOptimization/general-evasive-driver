@@ -9364,3 +9364,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M372 designs gap-tail feedback for old-key lower-tail erosion. It separates accepted-regression hard rows from gap-tail retention rows, defines a `candidate_gap_delta < -0.0005` selection rule, recommends normal/wrong branch weights from the signed gap contributors, and keeps closed-loop old-key replay as the authoritative gate. No PPO, no threshold changes, no actor-input changes.
 - decision: `admit_m373_old_key_gap_tail_feedback_implementation`
 - next: `m373-old-key-gap-tail-feedback-implementation`
+
+## 20260523T122521Z - m373-old-key-gap-tail-feedback-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m373_gap_tail_repair_smoke`
+- artifact: `docs/m373-old-key-gap-tail-feedback-implementation.md`
+- result: M373 implements gap-tail old-key overlay support. It exports a 40-row old-key preference corpus with one accepted-regression hard row and five gap-tail rows, records `gap_tail_row`, `preferred_branch_weight`, and `wrong_branch_weight` arrays, and verifies no-update exact repair integration. The smoke has exact M297 delta `-0.000068545`, exact M270 delta `-0.000033081`, old-key surrogate delta `-0.004263401`, and exact lexicographic pass. No PPO, no promotion, no actor-input changes.
+- decision: `admit_m374_gap_tail_weighted_repair_probe`
+- next: `m374-gap-tail-weighted-repair-probe`

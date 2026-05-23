@@ -68,6 +68,7 @@ def test_arrays_validate_and_preserve_contract():
     assert contract.targets == 2
     assert contract.student_input_arrays == ("observation", "preferred_hidden", "rejected_hidden")
     assert "hard_row" not in arrays
+    assert "gap_tail_row" not in arrays
 
 
 def test_hard_row_arrays_are_optional_and_validated():
@@ -85,8 +86,29 @@ def test_hard_row_arrays_are_optional_and_validated():
 
     assert contract.rows == 2
     assert arrays["hard_row"].tolist() == [0, 1]
+    assert arrays["gap_tail_row"].tolist() == [0, 0]
     assert arrays["preferred_branch_weight"].tolist() == [1.0, 1.0]
     assert arrays["wrong_branch_weight"].tolist() == [1.0, 16.0]
+
+
+def test_gap_tail_arrays_are_optional_and_validated():
+    tail = _example(1, 0)
+    tail.update(
+        {
+            "gap_tail_row": True,
+            "gap_weight_multiplier": 4.0,
+            "preferred_branch_weight_multiplier": 7.4,
+            "wrong_branch_weight_multiplier": 4.0,
+        }
+    )
+    arrays = old_key_preference_arrays([_example(0, 0), tail])
+    contract = validate_old_key_preference_arrays(arrays, obs_dim=72, hidden_dim=4, act_dim=3)
+
+    assert contract.rows == 2
+    assert arrays["hard_row"].tolist() == [0, 0]
+    assert arrays["gap_tail_row"].tolist() == [0, 1]
+    assert arrays["preferred_branch_weight"].tolist() == pytest.approx([1.0, 7.4])
+    assert arrays["wrong_branch_weight"].tolist() == [1.0, 4.0]
 
 
 def test_metadata_drops_tensor_payloads():
@@ -114,6 +136,29 @@ def test_hard_row_overlay_loader_and_case_id(tmp_path):
     assert old_key_case_id(_example(1)) == "case-1|8.000000|1.500000|1.000000"
     assert loaded["case-1|8.000000|1.500000|1.000000"]["hard_row"] is True
     assert loaded["case-1|8.000000|1.500000|1.000000"]["wrong_branch_weight_multiplier"] == 16.0
+
+
+def test_gap_tail_overlay_loader_accepts_gap_only_schema(tmp_path):
+    overlay = tmp_path / "overlay.csv"
+    overlay.write_text(
+        "\n".join(
+            [
+                "case_id,gap_tail_row,gap_tail_reason,gap_weight_multiplier,normal_branch_weight_multiplier,wrong_branch_weight_multiplier,reference_policy,candidate_policy,reference_margin_gap,candidate_margin_gap,candidate_gap_delta,candidate_normal_delta,candidate_wrong_delta,target_gap_delta_floor,target_gap_delta_buffer,candidate_gap_p10_regression",
+                "case-1|8.000000|1.500000|1.000000,true,gap_p10_tail,4,7.4,4,m369hr_a400,m369hr_a600,0.021,0.020,-0.001,-0.0008,0.0002,-0.0005,0.0001,true",
+            ]
+        )
+        + "\n"
+    )
+
+    loaded = load_hard_row_overlay(overlay)
+    row = loaded["case-1|8.000000|1.500000|1.000000"]
+
+    assert row["hard_row"] is False
+    assert row["gap_tail_row"] is True
+    assert row["gap_weight_multiplier"] == 4.0
+    assert row["preferred_branch_weight_multiplier"] == 7.4
+    assert row["wrong_branch_weight_multiplier"] == 4.0
+    assert row["candidate_gap_p10_regression"] is True
 
 
 def test_write_old_key_preference_corpus(tmp_path):

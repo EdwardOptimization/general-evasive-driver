@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 381,
+        "completed": 382,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m372-old-key-gap-distribution-retention-design",
+        "task_id": "m373-old-key-gap-tail-feedback-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m372-old-key-gap-distribution-retention-design.md"
+        "run_dir": "runs/m373_gap_tail_repair_smoke",
+        "command_log": "docs/m373-old-key-gap-tail-feedback-implementation.md"
     },
     "next_task": {
-        "id": "m373-old-key-gap-tail-feedback-implementation",
+        "id": "m374-gap-tail-weighted-repair-probe",
         "status": "pending",
-        "priority": 3680,
-        "kind": "infrastructure",
-        "hypothesis": "Implement gap-tail old-key overlay support and branch-weight feedback",
-        "command": "see experiments/manifests/m373-old-key-gap-tail-feedback-implementation.json",
+        "priority": 3690,
+        "kind": "gate",
+        "hypothesis": "Probe whether gap-tail weighted old-key repair can move beyond alpha 0.4 without compact gap-tail erosion",
+        "command": "see experiments/manifests/m374-gap-tail-weighted-repair-probe.json",
         "success_artifact": "",
-        "notes": "Pending: add gap-tail overlay support to old-key corpus and exact repair surrogate"
+        "notes": "Pending: no-PPO gap-tail weighted repair probe; old-key replay remains authoritative"
     },
-    "updated_at_utc": "20260523T121804Z"
+    "updated_at_utc": "20260523T122521Z"
 }
