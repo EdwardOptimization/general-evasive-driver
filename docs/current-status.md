@@ -55,7 +55,7 @@ proof-safe micro promotion, not a large driver-performance improvement; alpha
 Current blocker:
 
 ```text
-m389-m267-row15-conflict-corpus-implementation
+m390-m267-conflict-residual-repair-probe
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -160,6 +160,13 @@ row15-aware conflict residual before any more repair or PPO. M388 completes
 that design: the next implementation should export M267/M264 row15 and row6 as
 current-family wrong-history boundary constraints, add an optional exact-repair
 conflict residual, and run only a no-update smoke before any repair probe.
+M389 completes that implementation without PPO or promotion: it exports a
+two-row row15/row6 conflict corpus, wires an optional exact-repair residual,
+verifies a no-update exact-repair smoke, and shows alpha `0.001` has a tiny but
+nonzero conflict signal. M390 should now run a no-PPO repair/interpolation
+probe with old-key recovery plus current-family conflict residual, checking
+M267/M264 first replay before cumulative old-key replay because row15 is the
+active constraint.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

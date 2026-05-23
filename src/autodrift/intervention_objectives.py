@@ -78,6 +78,22 @@ class OldKeyRecoverySnippets:
 
 
 @dataclass(frozen=True)
+class CurrentFamilyConflictSnippets:
+    observation: torch.Tensor
+    preferred_hidden: torch.Tensor
+    rejected_hidden: torch.Tensor
+    preferred_anchor_action: torch.Tensor
+    rejected_boundary_action: torch.Tensor
+    weight: torch.Tensor
+    row_id: torch.Tensor
+    boundary_margin: torch.Tensor
+
+    @property
+    def size(self) -> int:
+        return int(self.observation.shape[0])
+
+
+@dataclass(frozen=True)
 class SnippetActionAnchor:
     observation: torch.Tensor
     preferred_hidden: torch.Tensor
@@ -469,6 +485,90 @@ def load_old_key_recovery_snippets(
         rejected_anchor_action=torch.as_tensor(rejected_anchor_action, dtype=torch.float32, device=device),
         weight=torch.as_tensor(weight, dtype=torch.float32, device=device),
         row_id=torch.as_tensor(row_id, dtype=torch.long, device=device),
+    )
+
+
+def load_current_family_conflict_snippets(
+    path: Path | str,
+    *,
+    device: torch.device,
+    obs_dim: int,
+    hidden_size: int,
+    act_dim: int,
+) -> CurrentFamilyConflictSnippets:
+    data = np.load(Path(path))
+    required = {
+        "observation",
+        "preferred_hidden",
+        "rejected_hidden",
+        "preferred_anchor_action",
+        "rejected_boundary_action",
+        "weight",
+        "row_id",
+        "boundary_margin",
+    }
+    missing = sorted(required.difference(data.files))
+    if missing:
+        raise ValueError(f"current-family conflict npz missing fields: {missing}")
+    observation = np.asarray(data["observation"], dtype=np.float32)
+    preferred_hidden = np.asarray(data["preferred_hidden"], dtype=np.float32)
+    rejected_hidden = np.asarray(data["rejected_hidden"], dtype=np.float32)
+    preferred_anchor_action = np.asarray(data["preferred_anchor_action"], dtype=np.float32)
+    rejected_boundary_action = np.asarray(data["rejected_boundary_action"], dtype=np.float32)
+    weight = np.asarray(data["weight"], dtype=np.float32)
+    row_id = np.asarray(data["row_id"], dtype=np.int64)
+    boundary_margin = np.asarray(data["boundary_margin"], dtype=np.float32)
+    rows = int(observation.shape[0])
+    if rows < 1:
+        raise ValueError("current-family conflict npz must contain at least one row")
+    if observation.ndim != 2 or observation.shape[1] != obs_dim:
+        raise ValueError(
+            f"current-family conflict observations must have shape (N, {obs_dim}), got {observation.shape}"
+        )
+    if preferred_hidden.shape != rejected_hidden.shape:
+        raise ValueError("current-family conflict preferred and rejected hidden states must have matching shapes")
+    if preferred_hidden.ndim != 2 or preferred_hidden.shape[1] != hidden_size:
+        raise ValueError(
+            f"current-family conflict hidden states must have shape (N, {hidden_size}), got {preferred_hidden.shape}"
+        )
+    for name, value in (
+        ("preferred_anchor_action", preferred_anchor_action),
+        ("rejected_boundary_action", rejected_boundary_action),
+    ):
+        if value.ndim != 2 or value.shape[1] != act_dim:
+            raise ValueError(f"{name} must have shape (N, {act_dim}), got {value.shape}")
+        if int(value.shape[0]) != rows:
+            raise ValueError(f"{name} row count {value.shape[0]} does not match {rows}")
+    for name, value in (("weight", weight), ("row_id", row_id), ("boundary_margin", boundary_margin)):
+        if value.ndim != 1 or int(value.shape[0]) != rows:
+            raise ValueError(f"{name} must have shape (N,), got {value.shape}")
+    for name, value in (
+        ("observation", observation),
+        ("preferred_hidden", preferred_hidden),
+        ("rejected_hidden", rejected_hidden),
+        ("preferred_anchor_action", preferred_anchor_action),
+        ("rejected_boundary_action", rejected_boundary_action),
+        ("weight", weight),
+        ("boundary_margin", boundary_margin),
+    ):
+        if not np.all(np.isfinite(value)):
+            raise ValueError(f"{name} must be finite")
+    if np.any(np.abs(preferred_anchor_action) > 1.0 + 1e-6):
+        raise ValueError("preferred_anchor_action values must be in [-1, 1]")
+    if np.any(np.abs(rejected_boundary_action) > 1.0 + 1e-6):
+        raise ValueError("rejected_boundary_action values must be in [-1, 1]")
+    weight = np.clip(weight, 0.0, None)
+    if float(np.max(weight)) <= 0.0:
+        raise ValueError("current-family conflict snippets require at least one positive weight")
+    return CurrentFamilyConflictSnippets(
+        observation=torch.as_tensor(observation, dtype=torch.float32, device=device),
+        preferred_hidden=torch.as_tensor(preferred_hidden, dtype=torch.float32, device=device),
+        rejected_hidden=torch.as_tensor(rejected_hidden, dtype=torch.float32, device=device),
+        preferred_anchor_action=torch.as_tensor(preferred_anchor_action, dtype=torch.float32, device=device),
+        rejected_boundary_action=torch.as_tensor(rejected_boundary_action, dtype=torch.float32, device=device),
+        weight=torch.as_tensor(weight, dtype=torch.float32, device=device),
+        row_id=torch.as_tensor(row_id, dtype=torch.long, device=device),
+        boundary_margin=torch.as_tensor(boundary_margin, dtype=torch.float32, device=device),
     )
 
 

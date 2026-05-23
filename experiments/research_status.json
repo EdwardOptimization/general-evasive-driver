@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 397,
+        "completed": 398,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m388-m267-row15-conflict-residual-design",
+        "task_id": "m389-m267-row15-conflict-corpus-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m388-m267-row15-conflict-residual-design.md"
+        "run_dir": "runs/m389_m267_row15_conflict_corpus",
+        "command_log": "docs/m389-m267-row15-conflict-corpus-implementation.md"
     },
     "next_task": {
-        "id": "m389-m267-row15-conflict-corpus-implementation",
+        "id": "m390-m267-conflict-residual-repair-probe",
         "status": "pending",
-        "priority": 3840,
-        "kind": "infrastructure",
-        "hypothesis": "Implement M267/M264 row15 conflict corpus and optional exact-repair residual",
-        "command": "see experiments/manifests/m389-m267-row15-conflict-corpus-implementation.json",
+        "priority": 3850,
+        "kind": "gate",
+        "hypothesis": "Probe old-key recovery plus M267 conflict residual without PPO",
+        "command": "see experiments/manifests/m390-m267-conflict-residual-repair-probe.json",
         "success_artifact": "",
-        "notes": "Pending: exporter loader residual wiring tests and no-update smoke; no PPO"
+        "notes": "Pending: run no-PPO exact repair/interpolation with M389 conflict corpus then gate M267/M264 before cumulative old-key"
     },
-    "updated_at_utc": "20260523T140845Z"
+    "updated_at_utc": "20260523T140949Z"
 }

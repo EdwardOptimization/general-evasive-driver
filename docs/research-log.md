@@ -9524,3 +9524,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M388 designs a current-family conflict corpus and residual for the M267/M264 active boundary. The design treats row `15` and row `6` as replay-exported wrong-history boundary constraints, keeps M267/M264 first replay and cumulative old-key replay authoritative, and proposes an optional exact-repair residual with preferred-branch anchoring plus rejected-branch boundary anchoring. It explicitly rejects PPO, threshold relaxation, hidden actor inputs, and more old-key-only weighting for this blocker.
 - decision: `admit_m389_m267_row15_conflict_corpus_implementation`
 - next: `m389-m267-row15-conflict-corpus-implementation`
+
+## 20260523T140949Z - m389-m267-row15-conflict-corpus-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m389_m267_row15_conflict_corpus`
+- artifact: `docs/m389-m267-row15-conflict-corpus-implementation.md`
+- result: M389 implements the M267/M264 current-family conflict corpus and optional exact-repair residual without PPO or promotion. The exporter writes a two-row row15/row6 corpus with weight sum `0.269177426`, boundary margins from `-0.000059669` to `-0.000001064`, and no actor-input change. The no-update exact-repair smoke reads the corpus with exact lexicographic pass true and near-zero conflict loss because anchors come from the same base. Alpha `0.001` gives a nonzero but tiny conflict signal (`3.564317e-11`), so closed-loop M267/M264 replay remains authoritative.
+- decision: `admit_m390_m267_conflict_residual_repair_probe`
+- next: `m390-m267-conflict-residual-repair-probe`

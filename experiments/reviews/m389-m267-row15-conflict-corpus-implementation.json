@@ -1,0 +1,77 @@
+{
+  "decision_reason": "M389 exports a two-row M267/M264 row15-row6 conflict corpus wires optional exact-repair residual and verifies no-update smoke; no PPO promotion or actor-input change",
+  "failure_criteria": [
+    "corpus cannot reconstruct row15/row6 snapshots",
+    "loader accepts invalid shapes or nonfinite values",
+    "exact repair cannot read the optional residual",
+    "actor contract changes",
+    "research validation fails"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower M267/M264 thresholds",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260523T141324Z",
+  "hypothesis": "A replay-exported current-family conflict corpus can make M267/M264 row15 and row6 visible to exact repair as wrong-history boundary constraints without changing deployable actor inputs.",
+  "lineage": {
+    "blocked_by": [
+      "m388-m267-row15-conflict-residual-design"
+    ],
+    "derived_from": [
+      "m388-m267-row15-conflict-residual-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m385_recovery_repair_micro_interpolation/checkpoints/alpha_0_00075.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m388-m267-row15-conflict-residual-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m388-m267-row15-conflict-residual-design.md",
+      "runs/m387_m386_micro_promotion_utility_audit/m267_row15_alpha_trace.csv"
+    ],
+    "parent_objective": [
+      "implement current-family conflict corpus and residual wiring for M267/M264 row15 before more repair or PPO"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m389-m267-row15-conflict-corpus-implementation",
+  "next_blocker": "m390-m267-conflict-residual-repair-probe",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m390_m267_conflict_residual_repair_probe",
+  "public_gates": [
+    "no PPO run",
+    "loader/exporter tests pass",
+    "no-update exact-repair smoke reads conflict corpus",
+    "preserve actor input/output contract"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m385_recovery_repair_micro_interpolation/checkpoints/alpha_0_00075.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m390_m267_conflict_residual_repair_probe",
+    "milestone": "m389-m267-row15-conflict-corpus-implementation",
+    "reason": "M389 exports a two-row M267/M264 row15-row6 conflict corpus wires optional exact-repair residual and verifies no-update smoke; no PPO promotion or actor-input change",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "export a compact conflict corpus for row15 and row6",
+    "validate loader shape finite weight and action bounds",
+    "wire optional exact-repair conflict residual",
+    "run a no-update smoke with finite conflict loss",
+    "research validation and focused tests pass"
+  ],
+  "type": "infrastructure"
+}

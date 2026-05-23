@@ -77,5 +77,31 @@
     "docs/m388-m267-row15-conflict-residual-design.md"
   ],
   "decision_rule": "M389 admits a no-PPO repair probe only if the conflict corpus and optional residual are implemented with tests and a no-update exact-repair smoke.",
-  "next_blocker": "pending M389 conflict corpus implementation"
+  "next_blocker": "m390-m267-conflict-residual-repair-probe",
+  "results": {
+    "artifact": "docs/m389-m267-row15-conflict-corpus-implementation.md",
+    "conflict_corpus_run_dir": "runs/m389_m267_row15_conflict_corpus",
+    "conflict_corpus_npz": "runs/m389_m267_row15_conflict_corpus/current_family_conflict_corpus.npz",
+    "conflict_rows_csv": "runs/m389_m267_row15_conflict_corpus/current_family_conflict_rows.csv",
+    "rows": 2,
+    "row_ids": [
+      15,
+      6
+    ],
+    "weight_sum": 0.26917742586565446,
+    "boundary_margin_min": -5.9668735610474144e-05,
+    "boundary_margin_max": -1.0638089380510252e-06,
+    "no_update_smoke_run_dir": "runs/m389_current_family_conflict_no_update_smoke",
+    "no_update_exact_lexicographic_pass": true,
+    "no_update_conflict_loss": 3.832874484786071e-15,
+    "alpha001_signal_run_dir": "runs/m389_conflict_alpha001_signal_check",
+    "alpha001_conflict_loss": 3.5643168971866146e-11,
+    "focused_tests": "26 passed",
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m390-m267-conflict-residual-repair-probe"
+  },
+  "decision": "admit_m390_m267_conflict_residual_repair_probe"
 }

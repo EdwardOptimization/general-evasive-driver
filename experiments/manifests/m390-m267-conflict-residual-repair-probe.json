@@ -1,0 +1,88 @@
+{
+  "id": "m390-m267-conflict-residual-repair-probe",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m385_recovery_repair_micro_interpolation/checkpoints/alpha_0_00075.pt"
+    ],
+    "parent_dataset": [
+      "runs/m389_m267_row15_conflict_corpus/current_family_conflict_corpus.npz",
+      "runs/m384_old_key_local_recovery_targets/old_key_recovery_corpus.npz",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "runs/m377_cumulative_gap_tail_v2_old_key_preference_corpus/old_key_preference_corpus.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m389-m267-row15-conflict-corpus-implementation.json"
+    ],
+    "parent_objective": [
+      "test whether old-key recovery plus current-family conflict residual can move beyond the M386 micro base without making M267/M264 row15 safe"
+    ],
+    "derived_from": [
+      "m389-m267-row15-conflict-corpus-implementation"
+    ],
+    "blocked_by": [
+      "m387-m386-micro-promotion-utility-audit",
+      "m388-m267-row15-conflict-residual-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m390-m267-conflict-residual-repair-probe.md",
+  "public_gates": [
+    "no PPO run",
+    "exact M297/M270 no-regression",
+    "current-family conflict residual finite",
+    "M267/M264 first replay retains 17/17 success drops including row15",
+    "cumulative old-key replay passes",
+    "source-diverse protected gate passes",
+    "M183/M170 first replay passes"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint from exact losses alone",
+    "do not lower M267/M264 or old-key thresholds",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "hypothesis": "The M389 conflict residual can preserve the M267/M264 wrong-history boundary while the M384 old-key recovery residual improves cumulative old-key normal-margin slack, allowing a larger proof-safe no-PPO repair movement than M386's alpha 0.00075 micro step.",
+  "success_criteria": [
+    "produce one or more no-PPO repair/interpolation candidates from the M386 base",
+    "exact M297/M270 and old-key exact surrogate do not regress",
+    "M267/M264 first replay passes 17/17 success drops with row15 still colliding under wrong history",
+    "cumulative old-key replay passes after M267/M264 first replay",
+    "source-diverse protected gate and M183/M170 first replay pass before any full public gate is admitted"
+  ],
+  "failure_criteria": [
+    "conflict residual is too weak and M267/M264 row15 becomes safe",
+    "conflict residual is too strong and blocks old-key recovery movement",
+    "exact objectives pass but closed-loop replay fails",
+    "actor contract changes",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "no_ppo_conflict_repair_probe",
+      "command": "Run exact_post_ppo_repair with old-key recovery and current-family conflict corpus, then gate bounded candidates in M267/M264 and cumulative old-key replay; no PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m390-m267-conflict-residual-repair-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m385_recovery_repair_micro_interpolation/checkpoints/alpha_0_00075.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m389-m267-row15-conflict-corpus-implementation.md"
+  ],
+  "decision_rule": "M390 can admit a full public gate only if a no-PPO bounded repair candidate passes exact objectives, M267/M264 first replay, cumulative old-key replay, source-diverse proof, and M183/M170 first replay without actor-contract changes.",
+  "next_blocker": "pending M390 no-PPO conflict residual repair probe"
+}

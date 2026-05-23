@@ -7,6 +7,7 @@ from autodrift.exact_post_ppo_repair import (
     ExactRepairConfig,
     _add_exact_gate_fields,
     _select_best_repair_step,
+    exact_current_family_conflict_terms,
     exact_outcome_intervention_loss,
     exact_old_key_recovery_terms,
     exact_old_key_surrogate_terms,
@@ -18,7 +19,11 @@ from autodrift.exact_post_ppo_repair import (
     parse_alpha_list,
     repair_loss_terms,
 )
-from autodrift.intervention_objectives import build_snippet_action_anchor, load_old_key_recovery_snippets
+from autodrift.intervention_objectives import (
+    build_snippet_action_anchor,
+    load_current_family_conflict_snippets,
+    load_old_key_recovery_snippets,
+)
 from autodrift.rejected_history_preference_objective import PreferenceLossConfig
 
 
@@ -101,6 +106,22 @@ def _write_recovery_npz(path, **extra_arrays):
     }
     recovery_arrays.update(extra_arrays)
     np.savez(path, **recovery_arrays)
+
+
+def _write_conflict_npz(path, **extra_arrays):
+    arrays = _preference_arrays()
+    conflict_arrays = {
+        "observation": arrays["observation"],
+        "preferred_hidden": arrays["preferred_hidden"],
+        "rejected_hidden": arrays["rejected_hidden"],
+        "preferred_anchor_action": arrays["preferred_action"],
+        "rejected_boundary_action": arrays["rejected_action"],
+        "weight": arrays["weight"],
+        "row_id": arrays["row_id"],
+        "boundary_margin": arrays["wrong_history_margin"],
+    }
+    conflict_arrays.update(extra_arrays)
+    np.savez(path, **conflict_arrays)
 
 
 def test_parse_alpha_list_validates_range():
@@ -466,5 +487,104 @@ def test_old_key_recovery_terms_feed_repair_loss(tmp_path):
     )
     assert terms["old_key_recovery_preferred_loss"].item() >= 0.0
     assert terms["old_key_recovery_wrong_anchor_loss"].item() >= 0.0
+    terms["total_loss"].backward()
+    assert model.proj.weight.grad is not None
+
+
+def test_current_family_conflict_loader_validates_shapes_and_actions(tmp_path):
+    conflict_npz = tmp_path / "conflict.npz"
+    _write_conflict_npz(conflict_npz)
+
+    conflict = load_current_family_conflict_snippets(
+        conflict_npz,
+        device=torch.device("cpu"),
+        obs_dim=72,
+        hidden_size=4,
+        act_dim=3,
+    )
+
+    assert conflict.size == 3
+    assert conflict.observation.shape == (3, 72)
+    assert conflict.preferred_hidden.shape == (3, 4)
+    assert conflict.rejected_hidden.shape == (3, 4)
+    assert conflict.preferred_anchor_action.shape == (3, 3)
+    assert conflict.rejected_boundary_action.shape == (3, 3)
+    assert conflict.row_id.tolist() == [6, 11, 16]
+
+    invalid_npz = tmp_path / "invalid_conflict.npz"
+    _write_conflict_npz(
+        invalid_npz,
+        rejected_boundary_action=np.asarray(
+            [[-1.2, 0.0, 0.0], [-0.4, -0.1, 0.0], [-0.35, 0.0, -0.1]],
+            dtype=np.float32,
+        ),
+    )
+    with pytest.raises(ValueError, match="rejected_boundary_action values"):
+        load_current_family_conflict_snippets(
+            invalid_npz,
+            device=torch.device("cpu"),
+            obs_dim=72,
+            hidden_size=4,
+            act_dim=3,
+        )
+
+
+def test_current_family_conflict_terms_feed_repair_loss(tmp_path):
+    preference_npz = tmp_path / "preference.npz"
+    outcome_npz = tmp_path / "outcome.npz"
+    conflict_npz = tmp_path / "conflict.npz"
+    _write_preference_npz(preference_npz)
+    _write_outcome_npz(outcome_npz)
+    _write_conflict_npz(conflict_npz)
+    preference, outcome = load_repair_corpora(
+        preference_npz=preference_npz,
+        outcome_npz=outcome_npz,
+        device=torch.device("cpu"),
+        obs_dim=72,
+        hidden_size=4,
+        act_dim=3,
+    )
+    conflict = load_current_family_conflict_snippets(
+        conflict_npz,
+        device=torch.device("cpu"),
+        obs_dim=72,
+        hidden_size=4,
+        act_dim=3,
+    )
+    model = _TinyRecurrentPolicy()
+    base_state = {name: value.detach().clone() for name, value in model.state_dict().items()}
+    raw_state = {name: value.detach().clone() + 0.1 for name, value in model.state_dict().items()}
+    anchor = build_snippet_action_anchor(model, outcome, include_rejected_hidden=True)
+    config = ExactRepairConfig(
+        exact_m297_tolerance=1e-6,
+        exact_m270_tolerance=1e-6,
+        lambda_current_family_conflict=3.0,
+        lambda_current_family_conflict_rejected=2.0,
+    )
+    base_m297 = float(exact_rejected_history_preference_loss(model, preference, config.preference).item())
+    base_m270 = float(exact_outcome_intervention_loss(model, outcome, logprob_margin=0.05).item())
+
+    conflict_terms = exact_current_family_conflict_terms(model, conflict, config)
+    terms = repair_loss_terms(
+        model=model,
+        preference=preference,
+        outcome=outcome,
+        current_family_conflict=conflict,
+        anchor=anchor,
+        base_m297=base_m297,
+        base_m270=base_m270,
+        base_state=base_state,
+        raw_state=raw_state,
+        trainable_names=["proj.weight"],
+        config=config,
+    )
+
+    assert torch.isfinite(conflict_terms["current_family_conflict_loss"])
+    assert conflict_terms["current_family_conflict_loss"].item() >= 0.0
+    assert terms["current_family_conflict_loss"].item() == pytest.approx(
+        conflict_terms["current_family_conflict_loss"].item()
+    )
+    assert terms["current_family_conflict_preferred_loss"].item() >= 0.0
+    assert terms["current_family_conflict_rejected_loss"].item() >= 0.0
     terms["total_loss"].backward()
     assert model.proj.weight.grad is not None
