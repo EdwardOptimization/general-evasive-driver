@@ -82,5 +82,57 @@
     "docs/m418-active-set-radius-calibration-design.md"
   ],
   "decision_rule": "M419 may admit M420 radius projection probe only if all three radius anchors export and pass no-update exact repair smoke without actor-contract changes.",
-  "next_blocker": "pending M419 active-set radius anchor export implementation"
+  "next_blocker": "m420-active-set-radius-projection-probe",
+  "results": {
+    "artifact": "docs/m419-active-set-radius-anchor-export-implementation.md",
+    "code_paths": [
+      "src/autodrift/active_set_radius_anchor.py",
+      "tests/test_active_set_radius_anchor.py"
+    ],
+    "export_run": "runs/m419_active_set_radius_anchor",
+    "source_summary_csv": "runs/m419_active_set_radius_anchor/radius_anchor_sources.csv",
+    "spillover_failed_rows_csv": "runs/m419_active_set_radius_anchor/spillover_failed_rows.csv",
+    "spillover_anchor_rows": 82,
+    "spillover_cases": [
+      "9951|perturbed|35|32|10.000000|-1.200000|1.400000",
+      "9939|perturbed|27|27|12.500000|-0.800000|1.400000"
+    ],
+    "profile_anchors": {
+      "conservative": {
+        "anchor_npz": "runs/m419_active_set_radius_anchor/conservative_radius_anchor.npz",
+        "rows": 274,
+        "radius_min": 0.00008,
+        "radius_max": 0.00035,
+        "no_update_smoke_run": "runs/m419_conservative_radius_anchor_no_update_smoke",
+        "no_update_smoke_exact_pass": true,
+        "no_update_smoke_replay_loss": 0.0
+      },
+      "medium": {
+        "anchor_npz": "runs/m419_active_set_radius_anchor/medium_radius_anchor.npz",
+        "rows": 274,
+        "radius_min": 0.00012,
+        "radius_max": 0.0005,
+        "no_update_smoke_run": "runs/m419_medium_radius_anchor_no_update_smoke",
+        "no_update_smoke_exact_pass": true,
+        "no_update_smoke_replay_loss": 0.0
+      },
+      "loose": {
+        "anchor_npz": "runs/m419_active_set_radius_anchor/loose_radius_anchor.npz",
+        "rows": 274,
+        "radius_min": 0.00018,
+        "radius_max": 0.00065,
+        "no_update_smoke_run": "runs/m419_loose_radius_anchor_no_update_smoke",
+        "no_update_smoke_exact_pass": true,
+        "no_update_smoke_replay_loss": 0.0
+      }
+    },
+    "focused_tests": "3 passed",
+    "ppo_or_actor_update_run": false,
+    "projection_probe_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m420-active-set-radius-projection-probe"
+  },
+  "decision": "admit_m420_active_set_radius_projection_probe"
 }

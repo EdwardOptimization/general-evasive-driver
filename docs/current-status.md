@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m419-active-set-radius-anchor-export-implementation
+m420-active-set-radius-projection-probe
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -295,7 +295,11 @@ M406 recovery movement. M418 designs nonzero per-row hinge radii from the
 M417 action-distance bracket, keeps the active M267 rows `6`/`15`, keeps
 old-key `10004`/`9998`/`10023`, and adds old-key spillover guard rows `9951`
 and `9939`. M419 should export conservative, medium, and loose radius anchors
-and run no-update exact repair smokes only.
+and run no-update exact repair smokes only. M419 completes that export: each
+radius profile has `274` rows, adding `82` spillover old-key trajectory rows,
+and all three no-update exact repair smokes pass with replay loss `0.0` and
+zero exact deltas. M420 should now run the no-PPO radius projection probe in
+the M418 order.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -374,7 +378,7 @@ and run no-update exact repair smokes only.
 | current public-gate base | `runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt` | M379 promotes alpha `0.05` after cumulative old-key source-diverse six public replay surfaces and behavior seeds pass |
 | recovery residual infrastructure | `src/autodrift/exact_post_ppo_repair.py` | M383 implements optional old-key local-action recovery loss and verifies finite no-update smoke terms |
 | recovery target corpus | `runs/m384_old_key_local_recovery_targets/old_key_recovery_corpus.npz` | M384 exports 4 replay-selected recovery targets from 1008 local-action rollouts |
-| current blocker | `experiments/manifests/m419-active-set-radius-anchor-export-implementation.json` | M419 must export conservative, medium, and loose active-set v2 radius anchors with M417 spillover guards and no-update exact repair smokes |
+| current blocker | `experiments/manifests/m420-active-set-radius-projection-probe.json` | M420 must run the medium radius projection first, then conservative or loose according to the M418 decision rule; no PPO or promotion |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -648,8 +652,8 @@ m272-m271-interpolation-retention-probe
 
 Do not run more PPO while the current blocker is the active-set replay/recovery
 balance. Do not promote M417 candidates: `1e12` fails proof, and `1e13` is
-retention-heavy. The next step is M419 export-only radius-anchor
-infrastructure, then a pre-registered no-PPO radius projection probe. Do not
+retention-heavy. M419 export-only radius-anchor infrastructure is complete. The
+next step is the pre-registered no-PPO M420 radius projection probe. Do not
 lower proof thresholds, remove old-key diagnostics, or change actor inputs.
 
 ## Sensor Profile Policy

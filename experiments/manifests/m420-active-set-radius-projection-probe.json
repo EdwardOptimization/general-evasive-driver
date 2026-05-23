@@ -1,0 +1,88 @@
+{
+  "id": "m420-active-set-radius-projection-probe",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m403_lrec1e10_interpolation/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m419_active_set_radius_anchor/conservative_radius_anchor.npz",
+      "runs/m419_active_set_radius_anchor/medium_radius_anchor.npz",
+      "runs/m419_active_set_radius_anchor/loose_radius_anchor.npz",
+      "runs/m419_active_set_radius_anchor/radius_anchor_sources.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m419-active-set-radius-anchor-export-implementation.json"
+    ],
+    "parent_objective": [
+      "no-PPO exact projection with radius-calibrated active-set v2 replay anchor"
+    ],
+    "derived_from": [
+      "m419-active-set-radius-anchor-export-implementation"
+    ],
+    "blocked_by": [
+      "m417-active-set-hinge-projection-probe"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m420-active-set-radius-projection-probe.md",
+  "public_gates": [
+    "exact M297 no-regression",
+    "exact M270 no-regression",
+    "old-key surrogate no-regression",
+    "M267/M264 first replay",
+    "old-key compact replay",
+    "M183/M170 first replay if first gates pass",
+    "recovery improvement retained vs M406 >= 0.20"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "hypothesis": "A radius-calibrated active-set v2 anchor can keep M417 proof gates while retaining more recovery movement than the zero-radius lambda 1e13 candidate.",
+  "success_criteria": [
+    "candidate passes exact M297/M270/old-key no-regression",
+    "candidate passes M267/M264 first replay with 17/17 success drops",
+    "candidate passes old-key compact replay with 0 accepted regressions",
+    "candidate passes M183/M170 first replay with 17/17 success drops",
+    "candidate retains at least 20% of M406 recovery improvement"
+  ],
+  "failure_criteria": [
+    "exact gates regress",
+    "M267/M264 or old-key proof gates fail",
+    "candidate passes proof but recovery-retention ratio is below 0.20",
+    "actor input or output contract changes"
+  ],
+  "commands": [
+    {
+      "name": "active_set_radius_projection_probe",
+      "command": "Run no-PPO exact projection from M403 alpha 0.1 using M419 radius anchors at lambda_replay_trajectory_anchor=1e13; probe order medium, conservative if proof fails, loose if proof passes but utility is low."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m420-active-set-radius-projection-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m418-active-set-radius-calibration-design.md",
+    "docs/m419-active-set-radius-anchor-export-implementation.md"
+  ],
+  "decision_rule": "M420 may admit a full public gate only if exact gates, first proof gates, and recovery-retention utility all pass; proof-pass utility below 0.20 is partial non-promotable evidence.",
+  "next_blocker": "pending M420 active-set radius projection probe"
+}

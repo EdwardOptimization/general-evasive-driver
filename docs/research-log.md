@@ -9824,3 +9824,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M418 designs the radius-calibrated active-set v2 path. It uses M417 action-distance brackets to define conservative, medium, and loose radius profiles under fixed `lambda_replay=1e13`, keeps M267 rows `6`/`15` and old-key cases `10004`/`9998`/`10023`, and adds M417 old-key spillover guard rows `9951` and `9939`. The future projection probe must keep exact M297/M270/old-key no-regression, M267/M264 `17/17`, old-key compact `0` accepted regressions, M183/M170 `17/17`, and recovery retention `>=0.20` for a primary pass.
 - decision: `admit_m419_active_set_radius_anchor_export_implementation`
 - next: `m419-active-set-radius-anchor-export-implementation`
+
+## 20260523T170521Z - m419-active-set-radius-anchor-export-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m419_active_set_radius_anchor`
+- artifact: `docs/m419-active-set-radius-anchor-export-implementation.md`
+- result: M419 implements `src/autodrift/active_set_radius_anchor.py`, filters M417 old-key spillover guard rows `9951` and `9939`, reconstructs `82` wrong-history spillover trajectory rows from the M400 base, and exports conservative, medium, and loose active-set v2 radius anchors. Each profile contains `274` rows with explicit finite radii. No-update exact repair smokes for all three profiles pass exact M297/M270/old-key no-regression with replay trajectory loss `0.0`. Focused radius-export tests pass (`3 passed`).
+- decision: `admit_m420_active_set_radius_projection_probe`
+- next: `m420-active-set-radius-projection-probe`

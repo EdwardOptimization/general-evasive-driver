@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 427,
+        "completed": 428,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m418-active-set-radius-calibration-design",
+        "task_id": "m419-active-set-radius-anchor-export-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m418-active-set-radius-calibration-design.md"
+        "run_dir": "runs/m419_active_set_radius_anchor",
+        "command_log": "docs/m419-active-set-radius-anchor-export-implementation.md"
     },
     "next_task": {
-        "id": "m419-active-set-radius-anchor-export-implementation",
+        "id": "m420-active-set-radius-projection-probe",
         "status": "pending",
-        "priority": 4140,
-        "kind": "infrastructure",
-        "hypothesis": "Export M418 active-set v2 radius anchors and no-update exact smokes",
-        "command": "see experiments/manifests/m419-active-set-radius-anchor-export-implementation.json",
+        "priority": 4150,
+        "kind": "gate",
+        "hypothesis": "Probe M419 radius anchors in no-PPO exact projection",
+        "command": "see experiments/manifests/m420-active-set-radius-projection-probe.json",
         "success_artifact": "",
-        "notes": "Pending: implement/export conservative medium and loose radius anchors including M417 spillover guards; no projection or PPO"
+        "notes": "Pending: run medium radius projection first then conservative or loose according to M418 decision rule; no PPO or promotion"
     },
-    "updated_at_utc": "20260523T165821Z"
+    "updated_at_utc": "20260523T170521Z"
 }
