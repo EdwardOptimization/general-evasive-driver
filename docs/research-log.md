@@ -9814,3 +9814,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M417 tests the M416 active-set hinge anchor without PPO or promotion. `lambda_replay=1e12` passes exact M297/M270/old-key no-regression and retains `0.226007` of M406 recovery utility, but fails M267/M264 (`15/17`) and old-key compact proof (`35/40`). `lambda_replay=1e13` passes exact no-regression, M267/M264 `17/17`, old-key compact with `0` accepted regressions, and M183/M170 `17/17`, but retains only `0.054387` of M406 recovery movement. This classifies zero-radius active-set anchoring as a hard proof/utility switch.
 - decision: `reject_active_set_hinge_candidate_admit_m418_radius_calibration_design`
 - next: `m418-active-set-radius-calibration-design`
+
+## 20260523T165821Z - m418-active-set-radius-calibration-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m418-active-set-radius-calibration-design.md`
+- result: M418 designs the radius-calibrated active-set v2 path. It uses M417 action-distance brackets to define conservative, medium, and loose radius profiles under fixed `lambda_replay=1e13`, keeps M267 rows `6`/`15` and old-key cases `10004`/`9998`/`10023`, and adds M417 old-key spillover guard rows `9951` and `9939`. The future projection probe must keep exact M297/M270/old-key no-regression, M267/M264 `17/17`, old-key compact `0` accepted regressions, M183/M170 `17/17`, and recovery retention `>=0.20` for a primary pass.
+- decision: `admit_m419_active_set_radius_anchor_export_implementation`
+- next: `m419-active-set-radius-anchor-export-implementation`

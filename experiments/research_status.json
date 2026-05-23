@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 426,
+        "completed": 427,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m417-active-set-hinge-projection-probe",
+        "task_id": "m418-active-set-radius-calibration-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m417_active_set_hinge_utility_audit",
-        "command_log": "docs/m417-active-set-hinge-projection-probe.md"
+        "run_dir": "",
+        "command_log": "docs/m418-active-set-radius-calibration-design.md"
     },
     "next_task": {
-        "id": "m418-active-set-radius-calibration-design",
+        "id": "m419-active-set-radius-anchor-export-implementation",
         "status": "pending",
-        "priority": 4130,
+        "priority": 4140,
         "kind": "infrastructure",
-        "hypothesis": "Design nonzero per-row hinge radii after M417 proof/utility hard switch",
-        "command": "see experiments/manifests/m418-active-set-radius-calibration-design.json",
+        "hypothesis": "Export M418 active-set v2 radius anchors and no-update exact smokes",
+        "command": "see experiments/manifests/m419-active-set-radius-anchor-export-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: define radius calibration from M417 action distances plus no-PPO radius-sweep acceptance thresholds"
+        "notes": "Pending: implement/export conservative medium and loose radius anchors including M417 spillover guards; no projection or PPO"
     },
-    "updated_at_utc": "20260523T165053Z"
+    "updated_at_utc": "20260523T165821Z"
 }

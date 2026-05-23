@@ -1,0 +1,86 @@
+{
+  "id": "m419-active-set-radius-anchor-export-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m416_active_set_hinge_anchor/active_set_hinge_trajectory_anchor.npz",
+      "runs/m417_hinge_old_key_targeted_replay/guard_results.csv",
+      "docs/m418-active-set-radius-calibration-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m418-active-set-radius-calibration-design.json"
+    ],
+    "parent_objective": [
+      "export active-set v2 anchors with explicit per-row radius profiles"
+    ],
+    "derived_from": [
+      "m418-active-set-radius-calibration-design"
+    ],
+    "blocked_by": [
+      "m417-active-set-hinge-projection-probe"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m419-active-set-radius-anchor-export-implementation.md",
+  "public_gates": [
+    "no-update exact repair smoke for conservative radius anchor",
+    "no-update exact repair smoke for medium radius anchor",
+    "no-update exact repair smoke for loose radius anchor",
+    "no PPO run",
+    "no checkpoint promotion",
+    "no actor input/output change"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not run projection proof probe",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "hypothesis": "The M418 radius profiles can be exported as explicit trajectory-anchor radii, including M417 old-key spillover guard rows, without changing actor inputs or exact-repair feasibility.",
+  "success_criteria": [
+    "export conservative, medium, and loose radius anchor NPZs",
+    "each anchor contains M416 active rows plus M417 old-key spillover guards",
+    "each exported row has an explicit finite nonnegative radius",
+    "no-update exact repair smoke passes exact M297/M270/old-key no-regression for each profile",
+    "focused tests or validation cover the radius export path"
+  ],
+  "failure_criteria": [
+    "radius anchor export omits active or spillover rows",
+    "radius values are missing, nonfinite, or negative",
+    "no-update exact repair smoke regresses exact objectives",
+    "implementation changes actor inputs or outputs",
+    "milestone runs projection or PPO instead of export-only validation"
+  ],
+  "commands": [
+    {
+      "name": "active_set_radius_anchor_export",
+      "command": "Implement/export the M418 conservative/medium/loose active-set radius anchors and run no-update exact-repair smokes only."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m419-active-set-radius-anchor-export-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m418-active-set-radius-calibration-design.md"
+  ],
+  "decision_rule": "M419 may admit M420 radius projection probe only if all three radius anchors export and pass no-update exact repair smoke without actor-contract changes.",
+  "next_blocker": "pending M419 active-set radius anchor export implementation"
+}

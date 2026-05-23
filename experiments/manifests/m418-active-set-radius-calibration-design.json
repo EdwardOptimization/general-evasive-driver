@@ -81,5 +81,59 @@
     "docs/m417-active-set-hinge-projection-probe.md"
   ],
   "decision_rule": "M418 should admit a radius-sweep probe only if radii and acceptance thresholds are pre-registered and the probe remains no-PPO.",
-  "next_blocker": "pending M418 active-set radius calibration design"
+  "next_blocker": "m419-active-set-radius-anchor-export-implementation",
+  "results": {
+    "artifact": "docs/m418-active-set-radius-calibration-design.md",
+    "diagnosis": "M417 zero-radius active-set anchoring creates a hard switch: lambda 1e12 retains recovery utility but fails proof, while lambda 1e13 passes proof but is retention-heavy.",
+    "measured_action_distance_sources": [
+      "runs/m417_active_set_hinge_utility_audit/policy_surface_metrics.csv",
+      "runs/m416_active_set_hinge_anchor/active_set_hinge_trajectory_anchor.npz"
+    ],
+    "radius_profiles": {
+      "conservative": {
+        "m267_rows_6_15": 0.00015,
+        "old_key_10004": 0.00035,
+        "old_key_9998": 0.00008,
+        "old_key_10023": 0.0002,
+        "old_key_spillover_guards": 0.00008
+      },
+      "medium": {
+        "m267_rows_6_15": 0.0003,
+        "old_key_10004": 0.0005,
+        "old_key_9998": 0.00012,
+        "old_key_10023": 0.00035,
+        "old_key_spillover_guards": 0.00015
+      },
+      "loose": {
+        "m267_rows_6_15": 0.00045,
+        "old_key_10004": 0.00065,
+        "old_key_9998": 0.00018,
+        "old_key_10023": 0.0005,
+        "old_key_spillover_guards": 0.00025
+      }
+    },
+    "active_set_v2_additions": [
+      "old-key 9951|perturbed|35|32|10.000000|-1.200000|1.400000",
+      "old-key 9939|perturbed|27|27|12.500000|-0.800000|1.400000"
+    ],
+    "next_probe_order": [
+      "medium",
+      "conservative_if_medium_fails_proof",
+      "loose_if_medium_passes_proof_but_utility_retention_below_0.20"
+    ],
+    "primary_pass_criteria": [
+      "exact M297/M270/old-key no-regression",
+      "M267/M264 first replay 17/17",
+      "old-key compact replay 0 accepted regressions",
+      "M183/M170 first replay 17/17",
+      "recovery improvement retained vs M406 >= 0.20"
+    ],
+    "partial_evidence_not_promotable": "all proof gates pass and 0.10 <= recovery_retained_vs_m406 < 0.20",
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m419-active-set-radius-anchor-export-implementation"
+  },
+  "decision": "admit_m419_active_set_radius_anchor_export_implementation"
 }

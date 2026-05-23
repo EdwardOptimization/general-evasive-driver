@@ -1,0 +1,80 @@
+{
+  "decision_reason": "M418 designs active-set v2 radius profiles from M417 action-distance brackets and adds old-key spillover guards 9951 and 9939 before a no-PPO radius probe",
+  "failure_criteria": [
+    "design falls back to another scalar-only weight sweep",
+    "design weakens proof gates",
+    "design lacks recovery utility criterion",
+    "design requires PPO"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not tune against private holdout"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260523T165926Z",
+  "hypothesis": "Nonzero per-row hinge radii can avoid the M417 zero-radius proof/utility hard switch.",
+  "lineage": {
+    "blocked_by": [
+      "m417-active-set-hinge-projection-probe"
+    ],
+    "derived_from": [
+      "m417-active-set-hinge-projection-probe"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m417_active_set_hinge_projection_ltraj1e12_s40_seed10147/candidate_checkpoint.pt",
+      "runs/m417_active_set_hinge_projection_ltraj1e13_s40_seed10148/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m417-active-set-hinge-projection-probe.json"
+    ],
+    "parent_dataset": [
+      "runs/m417_active_set_hinge_utility_audit/summary.json",
+      "runs/m417_hinge_m267_m264_first_replay/summary.json",
+      "runs/m417_hinge1e13_m267_m264_first_replay/summary.json",
+      "runs/m417_hinge_old_key_replay_gate/summary.json",
+      "runs/m417_hinge1e13_old_key_replay_gate/summary.json"
+    ],
+    "parent_objective": [
+      "design nonzero radius calibration after zero-radius active-set proof/utility split"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m418-active-set-radius-calibration-design",
+  "next_blocker": "m419-active-set-radius-anchor-export-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m419_active_set_radius_anchor_export_implementation",
+  "public_gates": [
+    "design only",
+    "no PPO run",
+    "no checkpoint promotion",
+    "no actor input/output change"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m419_active_set_radius_anchor_export_implementation",
+    "milestone": "m418-active-set-radius-calibration-design",
+    "reason": "M418 designs active-set v2 radius profiles from M417 action-distance brackets and adds old-key spillover guards 9951 and 9939 before a no-PPO radius probe",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "define how to set per-row radii from M417 1e12 and 1e13 action distances",
+    "define a no-PPO radius-sweep probe with exact gates, proof gates, and recovery-retention utility",
+    "pre-register acceptance thresholds before running the probe"
+  ],
+  "type": "infrastructure"
+}
