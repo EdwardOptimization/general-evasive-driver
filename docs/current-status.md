@@ -61,7 +61,7 @@ post-PPO repair before any more PPO acceptance.
 Current blocker:
 
 ```text
-m318-m317-protected-key-slack-audit
+m319-m317-family-protected-surface-refresh
 ```
 
 M305 implements deterministic exact M297/M270 repair or projection
@@ -122,15 +122,14 @@ acceptance needs exact repair plus a protected-key-bounded trust region.
 Current next task:
 
 ```text
-m318-m317-protected-key-slack-audit
+m319-m317-family-protected-surface-refresh
 ```
 
-M317 completed the full public promotion gate for M316 alpha `0.0025`. The new
-base is valid, but protected key `9944` is now effectively saturated: normal
-margin is `0.199995` against the `0.2` upper window. M318 should audit whether
-the old single protected key remains an appropriate hard veto or whether the
-project needs a refreshed source-diverse protected-surface gate before more
-PPO.
+M318 classified protected key `9944` as single-key window saturation after
+M317. The key remains discriminative, but it now has only about `4.8e-6`
+normal-margin slack and is the active reason accepted PPO movement collapsed to
+`alpha=0.0025`. M319 should refresh a source-diverse M317-family protected
+surface before more PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -438,10 +437,11 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not run another PPO proposal before M318 audits protected-key slack. The
-current base is valid, but `9944|perturbed|28|28` is now so close to the
+Do not run another PPO proposal before M319 refreshes the protected surface.
+The current base is valid, but `9944|perturbed|28|28` is now so close to the
 normal-margin upper window that future acceptance may be dominated by one
-saturated row. Do not change actor inputs.
+saturated row. M319 must mine and robustness-check a source-diverse protected
+surface before any more PPO. Do not change actor inputs.
 
 ## Sensor Profile Policy
 

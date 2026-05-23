@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 326,
+        "completed": 327,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "command_log": "docs/m317-full-public-gate-for-m316-a0-0025.md",
+        "command_log": "docs/m318-m317-protected-key-slack-audit.md",
         "returncode": 0,
-        "run_dir": "runs/m317_full_public_gate_for_m316_a0_0025",
+        "run_dir": "runs/m317_full_public_gate_for_m316_a0_0025/full_gates/critical_key_seed9944",
         "status": "completed",
-        "task_id": "m317-full-public-gate-for-m316-a0-0025"
+        "task_id": "m318-m317-protected-key-slack-audit"
     },
     "next_task": {
-        "command": "see experiments/manifests/m318-m317-protected-key-slack-audit.json",
-        "hypothesis": "After M317, the old 9944 protected key is so close to the normal-margin upper window that future PPO acceptance will be dominated by a single saturated row unless the protected surface is refreshed or converted to a source-diverse gate.",
-        "id": "m318-m317-protected-key-slack-audit",
+        "command": "see experiments/manifests/m319-m317-family-protected-surface-refresh.json",
+        "hypothesis": "A source-diverse M317-family protected-surface refresh can identify current protected rows away from the saturated old 9944 key, enabling a multi-key protected-surface gate before more PPO.",
+        "id": "m319-m317-family-protected-surface-refresh",
         "kind": "gate",
-        "notes": "Pending: decide whether to refresh source-diverse protected surface or keep single protected key before more PPO",
-        "priority": 3130,
+        "notes": "Pending: mine matched-current outcome boundary surface and robustness without PPO",
+        "priority": 3140,
         "status": "pending",
         "success_artifact": ""
     },
-    "updated_at_utc": "20260523T054248Z"
+    "updated_at_utc": "20260523T054720Z"
 }

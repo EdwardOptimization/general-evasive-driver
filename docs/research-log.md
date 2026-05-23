@@ -8817,3 +8817,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M317 promotes `runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt`. The candidate keeps exact M297/M270 non-regressing versus M314, passes all six replay surfaces, passes protected key `9944` while `m239_a750` fails, and retains behavior success `0.8625` on seeds `9505` and `9506`. The result is valid but tiny: protected-key normal margin is `0.199995`, leaving about `4.8e-6` slack to the `0.2` upper window.
 - decision: `promote_m316_a0_0025_public_gate_base`
 - next: `m318-m317-protected-key-slack-audit`
+
+## 20260523T054720Z - m318-m317-protected-key-slack-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m317_full_public_gate_for_m316_a0_0025/full_gates/critical_key_seed9944`
+- artifact: `docs/m318-m317-protected-key-slack-audit.md`
+- result: M318 classifies the old protected key `9944|perturbed|28|28` as single-key window saturation after M317. M317's normal margin is `0.1999952026`, leaving only `4.8e-6` slack to the `0.2` upper window; M316 exact objectives allowed alpha `1.0`, but protected key only allowed alpha `0.0025`. This is not wrong-history sensitivity loss because six replay surfaces and the key's margin gap remain discriminative.
+- decision: `admit_m319_m317_family_protected_surface_refresh`
+- next: `m319-m317-family-protected-surface-refresh`

@@ -1,0 +1,113 @@
+{
+  "id": "m319-m317-family-protected-surface-refresh",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m313_m307_to_m310_protected_key_bounded_interpolation/checkpoints/alpha_0_14.pt",
+      "runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt",
+      "runs/m316_exact_repair_from_raw_s40_seed10096/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m317_full_public_gate_for_m316_a0_0025/full_gates/critical_key_seed9944/guard_results.csv",
+      "runs/m266_m264_family_boundary_robustness_seed9520/accepted_wrong_history_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m318-m317-protected-key-slack-audit.json",
+      "docs/m318-m317-protected-key-slack-audit.md"
+    ],
+    "parent_objective": [
+      "refresh source-diverse protected rows around the M317 family before more PPO because old key 9944 is saturated"
+    ],
+    "derived_from": [
+      "m318-m317-protected-key-slack-audit"
+    ],
+    "blocked_by": [
+      "m318-m317-protected-key-slack-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m319-m317-family-protected-surface-refresh.md",
+  "public_gates": [
+    "mine M317-family protected surface candidates without PPO",
+    "check source diversity across physical pairs left steps checkpoints targets and margin buckets",
+    "require wrong-history outcome sensitivity rather than only action distance",
+    "classify whether old key 9944 is stale singleton or representative saturated family",
+    "do not admit PPO from a duplicate-dominated surface"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in M319",
+    "do not bypass the old protected key without replacement evidence",
+    "do not change actor inputs",
+    "do not tune from private holdout evidence",
+    "do not promote a checkpoint in M319"
+  ],
+  "hypothesis": "A source-diverse M317-family protected-surface refresh can identify current protected rows away from the saturated old 9944 key, enabling a multi-key protected-surface gate before more PPO.",
+  "success_criteria": [
+    "M319 mines or audits M317-family protected candidates without PPO",
+    "M319 reports accepted wrong-history rows and diversity metrics",
+    "M319 records whether 9944 is representative, stale, or part of a saturated family",
+    "M319 records a concrete next milestone decision before more PPO",
+    "actor input contract remains unchanged"
+  ],
+  "failure_criteria": [
+    "candidate surface is duplicate-dominated or has zero accepted wrong-history outcome rows",
+    "audit cannot distinguish single-key saturation from broader proof loss",
+    "M319 starts PPO or changes actor inputs"
+  ],
+  "commands": [
+    {
+      "name": "m319_m317_family_matched_current",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_current_response_ambiguity --checkpoint-policy m314_base=runs/m313_m307_to_m310_protected_key_bounded_interpolation/checkpoints/alpha_0_14.pt --checkpoint-policy m316_a0_0025=runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt --checkpoint-policy m316_repaired=runs/m316_exact_repair_from_raw_s40_seed10096/candidate_checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --probe-seeds 9520,9521,9522,9523 --episodes 40 --horizon-steps 15 --sample-stride 3 --max-samples 1200 --nearest-k 12 --max-visible-quantile 0.05 --min-target-z-delta 1.0 --max-pairs-per-target 320 --max-pairs-per-physical-pair 1 --max-pairs-per-left-step 20 --max-pairs-per-source-obstacle-bucket 40 --obstacle-distance-bucket-width 5.0 --obstacle-lateral-bucket-width 1.0 --min-accepted-pairs 60 --device cpu --run-dir runs/m319_m317_family_matched_current_seed9520"
+    },
+    {
+      "name": "m319_m317_family_outcome_gate",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_history_outcome_gate --checkpoint-policy m314_base=runs/m313_m307_to_m310_protected_key_bounded_interpolation/checkpoints/alpha_0_14.pt --checkpoint-policy m316_a0_0025=runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt --checkpoint-policy m316_repaired=runs/m316_exact_repair_from_raw_s40_seed10096/candidate_checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --pairs-csv runs/m319_m317_family_matched_current_seed9520/matched_pairs.csv --delay-steps 10 --max-continuation-steps 60 --min-margin-gap 0.02 --max-pairs-per-checkpoint-target 0 --pair-label-mode matching --device cpu --run-dir runs/m319_m317_family_outcome_seed9520"
+    },
+    {
+      "name": "m319_m317_family_boundary_surface",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.wrong_history_boundary_relocation_surface --checkpoint-policy m314_base=runs/m313_m307_to_m310_protected_key_bounded_interpolation/checkpoints/alpha_0_14.pt --checkpoint-policy m316_a0_0025=runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt --checkpoint-policy m316_repaired=runs/m316_exact_repair_from_raw_s40_seed10096/candidate_checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --outcome-csv runs/m319_m317_family_outcome_seed9520/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 60 --max-pairs-per-checkpoint-target 0 --min-base-action-distance 0.0 --target-normal-margins 0.005,0.01,0.02,0.05,0.10,0.15,0.20 --half-width-inflations 0 --min-normal-margin 0.0 --max-normal-margin 0.20 --min-margin-gap 0.02 --min-accepted-wrong-rows 40 --report-variants wrong_matched_history,reset_hidden,zero_current_response,zero_action_history,delayed_history --device cpu --run-dir runs/m319_m317_family_boundary_surface_seed9520"
+    },
+    {
+      "name": "m319_m317_family_boundary_robustness",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_wrong_history_surface_robustness --boundary-rows-csv runs/m319_m317_family_boundary_surface_seed9520/boundary_relocation_rows.csv --control-checkpoint-label none --margin-bucket-width 0.01 --min-accepted-wrong-rows 40 --min-physical-pairs 10 --min-left-steps 5 --min-checkpoints 3 --min-targets 2 --min-margin-buckets 2 --min-success-drop-fraction 1.0 --max-rows-per-pair-fraction 0.25 --max-control-accepted-rows 0 --run-dir runs/m319_m317_family_boundary_robustness_seed9520"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m319-m317-family-protected-surface-refresh.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m319_m317_family_matched_current_seed9520/summary.json",
+      "type": "matched_current_summary"
+    },
+    {
+      "path": "runs/m319_m317_family_outcome_seed9520/summary.json",
+      "type": "outcome_summary"
+    },
+    {
+      "path": "runs/m319_m317_family_boundary_surface_seed9520/summary.json",
+      "type": "boundary_surface_summary"
+    },
+    {
+      "path": "runs/m319_m317_family_boundary_robustness_seed9520/summary.json",
+      "type": "robustness_summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m318-m317-protected-key-slack-audit.md",
+    "runs/m317_full_public_gate_for_m316_a0_0025/full_gates/critical_key_seed9944/guard_results.csv"
+  ],
+  "decision_rule": "M319 may not promote a checkpoint. Passing robustness should admit conversion of the refreshed M317-family protected surface into replay/objective gates before any more PPO.",
+  "next_blocker": "pending M319 M317-family protected-surface refresh"
+}
