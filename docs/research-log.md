@@ -9464,3 +9464,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M382 designs the next exact-repair residual after M381. It rejects a v3 branch-weight overlay because M381 shows that objective moves opposite the replay tail, defers differentiable simulator margin and learned critic designs as too large for the current blocker, and chooses a training-only local-action recovery residual. The residual will export replay-tail recovery actions offline and add a preferred-branch recovery action loss plus wrong-history base-action anchor to exact repair without changing actor inputs or outputs.
 - decision: `admit_m383_old_key_local_recovery_residual_implementation`
 - next: `m383-old-key-local-recovery-residual-implementation`
+
+## 20260523T132248Z - m383-old-key-local-recovery-residual-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m383_old_key_recovery_no_update_smoke`
+- artifact: `docs/m383-old-key-local-recovery-residual-implementation.md`
+- result: M383 implements the optional old-key recovery corpus loader and exact repair residual. Focused tests pass with `9 passed`. A bootstrap four-row recovery corpus from M377 gap-tail rows verifies the no-update path: `old_key_recovery_loss=4.268774e-07`, preferred loss `1.370522e-07`, wrong-anchor loss `2.898252e-07`, and exact lexicographic pass is true. This smoke does not run PPO, promote a checkpoint, change thresholds, or change actor inputs/outputs.
+- decision: `admit_m384_old_key_local_recovery_target_export`
+- next: `m384-old-key-local-recovery-target-export`

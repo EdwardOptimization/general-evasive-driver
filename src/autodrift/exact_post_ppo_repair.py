@@ -14,11 +14,13 @@ from autodrift.actor_coupling_optimize import actor_coupling_trainable_parameter
 from autodrift.artifacts import make_run_dir, to_jsonable, write_csv_rows, write_json
 from autodrift.checkpoints import load_actor_critic_checkpoint
 from autodrift.intervention_objectives import (
+    OldKeyRecoverySnippets,
     OutcomeInterventionSnippets,
     RejectedHistoryPreferenceSnippets,
     SnippetActionAnchor,
     build_snippet_action_anchor,
     load_outcome_intervention_snippets,
+    load_old_key_recovery_snippets,
     load_rejected_history_preference_snippets,
     rejected_history_preference_components,
     snippet_action_anchor_errors,
@@ -44,6 +46,8 @@ class ExactRepairConfig:
     lambda_m270: float = 1_000_000.0
     lambda_old_key: float = 1_000_000.0
     lambda_old_key_anchor: float = 1.0
+    lambda_old_key_recovery: float = 1.0
+    lambda_old_key_recovery_wrong_anchor: float = 1.0
     lambda_action_anchor: float = 100.0
     lambda_param_base: float = 1.0
     lambda_param_raw: float = 0.0
@@ -190,6 +194,27 @@ def exact_old_key_surrogate_terms(
     }
 
 
+def exact_old_key_recovery_terms(
+    model: torch.nn.Module,
+    snippets: OldKeyRecoverySnippets,
+    config: ExactRepairConfig,
+) -> dict[str, torch.Tensor]:
+    preferred_dist, _, _ = model.forward_recurrent(snippets.observation, snippets.preferred_hidden)  # type: ignore[attr-defined]
+    wrong_dist, _, _ = model.forward_recurrent(snippets.observation, snippets.rejected_hidden)  # type: ignore[attr-defined]
+    preferred_error = torch.square(torch.tanh(preferred_dist.mean) - snippets.recovery_action.detach()).mean(dim=-1)
+    wrong_anchor_error = torch.square(
+        torch.tanh(wrong_dist.mean) - snippets.rejected_anchor_action.detach()
+    ).mean(dim=-1)
+    preferred_loss = weighted_mean(preferred_error, snippets.weight.detach())
+    wrong_anchor_loss = weighted_mean(wrong_anchor_error, snippets.weight.detach())
+    recovery_loss = preferred_loss + float(config.lambda_old_key_recovery_wrong_anchor) * wrong_anchor_loss
+    return {
+        "old_key_recovery_loss": recovery_loss,
+        "old_key_recovery_preferred_loss": preferred_loss,
+        "old_key_recovery_wrong_anchor_loss": wrong_anchor_loss,
+    }
+
+
 def trainable_parameter_items(
     model: torch.nn.Module,
     *,
@@ -309,6 +334,7 @@ def exact_loss_summary(
     outcome: OutcomeInterventionSnippets,
     config: ExactRepairConfig,
     old_key: RejectedHistoryPreferenceSnippets | None = None,
+    old_key_recovery: OldKeyRecoverySnippets | None = None,
 ) -> dict[str, Any]:
     with torch.no_grad():
         m297 = exact_rejected_history_preference_loss(model, preference, config.preference)
@@ -318,6 +344,11 @@ def exact_loss_summary(
             logprob_margin=config.outcome_logprob_margin,
         )
         old_key_terms = exact_old_key_surrogate_terms(model, old_key, config) if old_key is not None else None
+        recovery_terms = (
+            exact_old_key_recovery_terms(model, old_key_recovery, config)
+            if old_key_recovery is not None
+            else None
+        )
     summary = {
         "policy": label,
         "checkpoint": str(checkpoint),
@@ -333,6 +364,13 @@ def exact_loss_summary(
                 **{name: float(value.detach().cpu().item()) for name, value in old_key_terms.items()},
             }
         )
+    if recovery_terms is not None:
+        summary.update(
+            {
+                "old_key_recovery_rows": int(old_key_recovery.size) if old_key_recovery is not None else 0,
+                **{name: float(value.detach().cpu().item()) for name, value in recovery_terms.items()},
+            }
+        )
     return summary
 
 
@@ -342,6 +380,7 @@ def repair_loss_terms(
     preference: RejectedHistoryPreferenceSnippets,
     outcome: OutcomeInterventionSnippets,
     old_key: RejectedHistoryPreferenceSnippets | None = None,
+    old_key_recovery: OldKeyRecoverySnippets | None = None,
     anchor: SnippetActionAnchor,
     base_m297: float,
     base_m270: float,
@@ -374,6 +413,15 @@ def repair_loss_terms(
             "old_key_action_anchor_loss": torch.zeros((), dtype=torch.float32, device=device),
         }
         hinge_old_key = torch.zeros((), dtype=torch.float32, device=device)
+    if old_key_recovery is not None:
+        recovery_terms = exact_old_key_recovery_terms(model, old_key_recovery, config)
+    else:
+        device = m297.device
+        recovery_terms = {
+            "old_key_recovery_loss": torch.zeros((), dtype=torch.float32, device=device),
+            "old_key_recovery_preferred_loss": torch.zeros((), dtype=torch.float32, device=device),
+            "old_key_recovery_wrong_anchor_loss": torch.zeros((), dtype=torch.float32, device=device),
+        }
     action_anchor = exact_snippet_action_anchor_loss(model, anchor)
     param_base = parameter_l2_to_reference(model, base_state, trainable_names)
     param_raw = parameter_l2_to_reference(model, raw_state, trainable_names)
@@ -381,6 +429,7 @@ def repair_loss_terms(
         float(config.lambda_m297) * hinge297.square()
         + float(config.lambda_m270) * hinge270.square()
         + float(config.lambda_old_key) * hinge_old_key.square()
+        + float(config.lambda_old_key_recovery) * recovery_terms["old_key_recovery_loss"]
         + float(config.lambda_action_anchor) * action_anchor
         + float(config.lambda_param_base) * param_base
         + float(config.lambda_param_raw) * param_raw
@@ -393,6 +442,7 @@ def repair_loss_terms(
         "hinge_m270": hinge270,
         "hinge_old_key": hinge_old_key,
         **old_key_terms,
+        **recovery_terms,
         "action_anchor_loss": action_anchor,
         "param_l2_to_base": param_base,
         "param_l2_to_raw": param_raw,
@@ -498,6 +548,7 @@ def _line_search_rows(
     preference: RejectedHistoryPreferenceSnippets,
     outcome: OutcomeInterventionSnippets,
     old_key: RejectedHistoryPreferenceSnippets | None,
+    old_key_recovery: OldKeyRecoverySnippets | None,
     config: ExactRepairConfig,
     alphas: list[float],
     base_m297: float,
@@ -517,6 +568,7 @@ def _line_search_rows(
             preference=preference,
             outcome=outcome,
             old_key=old_key,
+            old_key_recovery=old_key_recovery,
             config=config,
         )
         m297_delta = float(summary["exact_m297_loss"]) - float(base_m297)
@@ -592,6 +644,7 @@ def optimize_exact_post_ppo_repair(
     preference_npz: Path,
     outcome_npz: Path,
     old_key_preference_npz: Path | None = None,
+    old_key_recovery_npz: Path | None = None,
     device: str,
     start_mode: str,
     line_search_alphas: list[float],
@@ -638,6 +691,17 @@ def optimize_exact_post_ppo_repair(
         if old_key_preference_npz is not None
         else None
     )
+    old_key_recovery = (
+        load_old_key_recovery_snippets(
+            old_key_recovery_npz,
+            device=next(base_model.parameters()).device,
+            obs_dim=obs_dim,
+            hidden_size=hidden_size,
+            act_dim=act_dim,
+        )
+        if old_key_recovery_npz is not None
+        else None
+    )
     base_state = _load_state(base_source, next(base_model.parameters()).device)
     raw_state = _load_state({"model_state": raw_model.state_dict()}, next(base_model.parameters()).device)
 
@@ -648,6 +712,7 @@ def optimize_exact_post_ppo_repair(
         preference=preference,
         outcome=outcome,
         old_key=old_key,
+        old_key_recovery=old_key_recovery,
         config=config,
     )
     raw_summary = exact_loss_summary(
@@ -657,6 +722,7 @@ def optimize_exact_post_ppo_repair(
         preference=preference,
         outcome=outcome,
         old_key=old_key,
+        old_key_recovery=old_key_recovery,
         config=config,
     )
 
@@ -678,6 +744,7 @@ def optimize_exact_post_ppo_repair(
             preference=preference,
             outcome=outcome,
             old_key=old_key,
+            old_key_recovery=old_key_recovery,
             config=config,
             alphas=line_search_alphas,
             base_m297=float(base_summary["exact_m297_loss"]),
@@ -708,6 +775,7 @@ def optimize_exact_post_ppo_repair(
         preference=preference,
         outcome=outcome,
         old_key=old_key,
+        old_key_recovery=old_key_recovery,
         config=config,
     )
     base_m297 = float(base_summary["exact_m297_loss"])
@@ -727,6 +795,7 @@ def optimize_exact_post_ppo_repair(
             preference=preference,
             outcome=outcome,
             old_key=old_key,
+            old_key_recovery=old_key_recovery,
             anchor=anchor,
             base_m297=base_m297,
             base_m270=base_m270,
@@ -757,6 +826,7 @@ def optimize_exact_post_ppo_repair(
             preference=preference,
             outcome=outcome,
             old_key=old_key,
+            old_key_recovery=old_key_recovery,
             anchor=anchor,
             base_m297=base_m297,
             base_m270=base_m270,
@@ -776,6 +846,7 @@ def optimize_exact_post_ppo_repair(
                 preference=preference,
                 outcome=outcome,
                 old_key=old_key,
+                old_key_recovery=old_key_recovery,
                 anchor=anchor,
                 base_m297=base_m297,
                 base_m270=base_m270,
@@ -815,6 +886,7 @@ def optimize_exact_post_ppo_repair(
         preference=preference,
         outcome=outcome,
         old_key=old_key,
+        old_key_recovery=old_key_recovery,
         config=config,
     )
     _add_exact_gate_fields(
@@ -839,6 +911,7 @@ def optimize_exact_post_ppo_repair(
             "preference_npz": preference_npz,
             "outcome_npz": outcome_npz,
             "old_key_preference_npz": old_key_preference_npz,
+            "old_key_recovery_npz": old_key_recovery_npz,
             "start_mode": start_mode,
             "selected_alpha": selected_alpha,
             "steps": total_steps,
@@ -859,6 +932,7 @@ def optimize_exact_post_ppo_repair(
         preference=preference,
         outcome=outcome,
         old_key=old_key,
+        old_key_recovery=old_key_recovery,
         config=config,
     )
     _add_exact_gate_fields(
@@ -888,7 +962,9 @@ def optimize_exact_post_ppo_repair(
         "preference_npz": preference_npz,
         "outcome_npz": outcome_npz,
         "old_key_preference_npz": old_key_preference_npz,
+        "old_key_recovery_npz": old_key_recovery_npz,
         "old_key_rows": int(old_key.size) if old_key is not None else 0,
+        "old_key_recovery_rows": int(old_key_recovery.size) if old_key_recovery is not None else 0,
         "device": str(resolved_device),
         "start_mode": start_mode,
         "selected_alpha": selected_alpha,
@@ -928,6 +1004,7 @@ def main() -> None:
     parser.add_argument("--preference-npz", type=Path, required=True)
     parser.add_argument("--outcome-npz", type=Path, required=True)
     parser.add_argument("--old-key-preference-npz", type=Path, default=None)
+    parser.add_argument("--old-key-recovery-npz", type=Path, default=None)
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="cpu")
     parser.add_argument(
         "--start-mode",
@@ -954,6 +1031,8 @@ def main() -> None:
     parser.add_argument("--lambda-m270", type=float, default=1_000_000.0)
     parser.add_argument("--lambda-old-key", type=float, default=1_000_000.0)
     parser.add_argument("--lambda-old-key-anchor", type=float, default=1.0)
+    parser.add_argument("--lambda-old-key-recovery", type=float, default=1.0)
+    parser.add_argument("--lambda-old-key-recovery-wrong-anchor", type=float, default=1.0)
     parser.add_argument("--lambda-action-anchor", type=float, default=100.0)
     parser.add_argument("--lambda-param-base", type=float, default=1.0)
     parser.add_argument("--lambda-param-raw", type=float, default=0.0)
@@ -970,6 +1049,7 @@ def main() -> None:
         preference_npz=args.preference_npz,
         outcome_npz=args.outcome_npz,
         old_key_preference_npz=args.old_key_preference_npz,
+        old_key_recovery_npz=args.old_key_recovery_npz,
         device=args.device,
         start_mode=args.start_mode,
         line_search_alphas=args.line_search_alphas,
@@ -997,6 +1077,8 @@ def main() -> None:
             lambda_m270=args.lambda_m270,
             lambda_old_key=args.lambda_old_key,
             lambda_old_key_anchor=args.lambda_old_key_anchor,
+            lambda_old_key_recovery=args.lambda_old_key_recovery,
+            lambda_old_key_recovery_wrong_anchor=args.lambda_old_key_recovery_wrong_anchor,
             lambda_action_anchor=args.lambda_action_anchor,
             lambda_param_base=args.lambda_param_base,
             lambda_param_raw=args.lambda_param_raw,

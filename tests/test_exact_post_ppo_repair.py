@@ -8,6 +8,7 @@ from autodrift.exact_post_ppo_repair import (
     _add_exact_gate_fields,
     _select_best_repair_step,
     exact_outcome_intervention_loss,
+    exact_old_key_recovery_terms,
     exact_old_key_surrogate_terms,
     exact_preference_action_anchor_loss,
     exact_rejected_history_preference_loss,
@@ -17,7 +18,7 @@ from autodrift.exact_post_ppo_repair import (
     parse_alpha_list,
     repair_loss_terms,
 )
-from autodrift.intervention_objectives import build_snippet_action_anchor
+from autodrift.intervention_objectives import build_snippet_action_anchor, load_old_key_recovery_snippets
 from autodrift.rejected_history_preference_objective import PreferenceLossConfig
 
 
@@ -84,6 +85,22 @@ def _write_outcome_npz(path):
         preferred_action=np.asarray([[0.5, 0.0, 0.0], [0.4, 0.1, 0.0]], dtype=np.float32),
         weight=np.asarray([1.0, 2.0], dtype=np.float32),
     )
+
+
+def _write_recovery_npz(path, **extra_arrays):
+    arrays = _preference_arrays()
+    recovery_action = np.clip(arrays["preferred_action"] + 0.05, -1.0, 1.0).astype(np.float32)
+    recovery_arrays = {
+        "observation": arrays["observation"],
+        "preferred_hidden": arrays["preferred_hidden"],
+        "rejected_hidden": arrays["rejected_hidden"],
+        "recovery_action": recovery_action,
+        "rejected_anchor_action": arrays["rejected_action"],
+        "weight": arrays["weight"],
+        "row_id": arrays["row_id"],
+    }
+    recovery_arrays.update(extra_arrays)
+    np.savez(path, **recovery_arrays)
 
 
 def test_parse_alpha_list_validates_range():
@@ -250,6 +267,9 @@ def test_repair_loss_terms_hinge_and_base_anchor(tmp_path):
     assert exact_snippet_action_anchor_loss(model, anchor).item() == pytest.approx(0.0)
     assert parameter_l2_to_reference(model, base_state, ["proj.weight"]).item() == pytest.approx(0.0)
     assert terms["param_l2_to_raw"].item() > 0.0
+    assert terms["old_key_recovery_loss"].item() == pytest.approx(0.0)
+    assert terms["old_key_recovery_preferred_loss"].item() == pytest.approx(0.0)
+    assert terms["old_key_recovery_wrong_anchor_loss"].item() == pytest.approx(0.0)
     terms["total_loss"].backward()
     assert model.proj.weight.grad is not None
 
@@ -352,3 +372,99 @@ def test_old_key_surrogate_uses_optional_branch_weights(tmp_path):
     assert weighted_terms["old_key_action_anchor_loss"].item() != pytest.approx(
         unweighted_terms["old_key_action_anchor_loss"].item()
     )
+
+
+def test_old_key_recovery_loader_validates_shapes_and_actions(tmp_path):
+    recovery_npz = tmp_path / "recovery.npz"
+    _write_recovery_npz(recovery_npz)
+
+    recovery = load_old_key_recovery_snippets(
+        recovery_npz,
+        device=torch.device("cpu"),
+        obs_dim=72,
+        hidden_size=4,
+        act_dim=3,
+    )
+
+    assert recovery.size == 3
+    assert recovery.observation.shape == (3, 72)
+    assert recovery.preferred_hidden.shape == (3, 4)
+    assert recovery.rejected_hidden.shape == (3, 4)
+    assert recovery.recovery_action.shape == (3, 3)
+    assert recovery.rejected_anchor_action.shape == (3, 3)
+    assert recovery.row_id.tolist() == [6, 11, 16]
+
+    invalid_npz = tmp_path / "invalid_recovery.npz"
+    _write_recovery_npz(
+        invalid_npz,
+        recovery_action=np.asarray([[1.2, 0.0, 0.0], [0.4, 0.1, 0.0], [0.35, 0.0, 0.1]], dtype=np.float32),
+    )
+    with pytest.raises(ValueError, match="recovery_action values"):
+        load_old_key_recovery_snippets(
+            invalid_npz,
+            device=torch.device("cpu"),
+            obs_dim=72,
+            hidden_size=4,
+            act_dim=3,
+        )
+
+
+def test_old_key_recovery_terms_feed_repair_loss(tmp_path):
+    preference_npz = tmp_path / "preference.npz"
+    outcome_npz = tmp_path / "outcome.npz"
+    recovery_npz = tmp_path / "recovery.npz"
+    _write_preference_npz(preference_npz)
+    _write_outcome_npz(outcome_npz)
+    _write_recovery_npz(recovery_npz)
+    preference, outcome = load_repair_corpora(
+        preference_npz=preference_npz,
+        outcome_npz=outcome_npz,
+        device=torch.device("cpu"),
+        obs_dim=72,
+        hidden_size=4,
+        act_dim=3,
+    )
+    recovery = load_old_key_recovery_snippets(
+        recovery_npz,
+        device=torch.device("cpu"),
+        obs_dim=72,
+        hidden_size=4,
+        act_dim=3,
+    )
+    model = _TinyRecurrentPolicy()
+    base_state = {name: value.detach().clone() for name, value in model.state_dict().items()}
+    raw_state = {name: value.detach().clone() + 0.1 for name, value in model.state_dict().items()}
+    anchor = build_snippet_action_anchor(model, outcome, include_rejected_hidden=True)
+    config = ExactRepairConfig(
+        exact_m297_tolerance=1e-6,
+        exact_m270_tolerance=1e-6,
+        lambda_old_key_recovery=2.0,
+        lambda_old_key_recovery_wrong_anchor=0.5,
+    )
+    base_m297 = float(exact_rejected_history_preference_loss(model, preference, config.preference).item())
+    base_m270 = float(exact_outcome_intervention_loss(model, outcome, logprob_margin=0.05).item())
+
+    recovery_terms = exact_old_key_recovery_terms(model, recovery, config)
+    terms = repair_loss_terms(
+        model=model,
+        preference=preference,
+        outcome=outcome,
+        old_key_recovery=recovery,
+        anchor=anchor,
+        base_m297=base_m297,
+        base_m270=base_m270,
+        base_state=base_state,
+        raw_state=raw_state,
+        trainable_names=["proj.weight"],
+        config=config,
+    )
+
+    assert torch.isfinite(recovery_terms["old_key_recovery_loss"])
+    assert recovery_terms["old_key_recovery_loss"].item() > 0.0
+    assert terms["old_key_recovery_loss"].item() == pytest.approx(
+        recovery_terms["old_key_recovery_loss"].item()
+    )
+    assert terms["old_key_recovery_preferred_loss"].item() >= 0.0
+    assert terms["old_key_recovery_wrong_anchor_loss"].item() >= 0.0
+    terms["total_loss"].backward()
+    assert model.proj.weight.grad is not None

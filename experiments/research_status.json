@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 391,
+        "completed": 392,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m382-terminal-margin-recovery-residual-design",
+        "task_id": "m383-old-key-local-recovery-residual-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m382-terminal-margin-recovery-residual-design.md"
+        "run_dir": "runs/m383_old_key_recovery_no_update_smoke",
+        "command_log": "docs/m383-old-key-local-recovery-residual-implementation.md"
     },
     "next_task": {
-        "id": "m383-old-key-local-recovery-residual-implementation",
+        "id": "m384-old-key-local-recovery-target-export",
         "status": "pending",
-        "priority": 3780,
+        "priority": 3790,
         "kind": "infrastructure",
-        "hypothesis": "Implement optional old-key local-action recovery residual for exact repair",
-        "command": "see experiments/manifests/m383-old-key-local-recovery-residual-implementation.json",
+        "hypothesis": "Export replay-selected local recovery targets for old-key gap-tail rows",
+        "command": "see experiments/manifests/m384-old-key-local-recovery-target-export.json",
         "success_artifact": "",
-        "notes": "Pending: add recovery corpus loader exact loss tests and no-update smoke without PPO"
+        "notes": "Pending: build real recovery corpus from replay/local-search terminal-margin evidence before any no-PPO repair proof probe"
     },
-    "updated_at_utc": "20260523T131333Z"
+    "updated_at_utc": "20260523T132248Z"
 }

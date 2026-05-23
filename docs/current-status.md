@@ -55,7 +55,7 @@ repair is the first tested cumulative old-key compact gap-p10 failure.
 Current blocker:
 
 ```text
-m383-old-key-local-recovery-residual-implementation
+m384-old-key-local-recovery-target-export
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -132,8 +132,12 @@ Because this lower-tail boundary recurs after two gap-tail weighting cycles,
 M381 audits exact old-key surrogate versus closed-loop replay alignment. It
 finds surrogate improvement is strongly aligned with worse replay-tail erosion.
 M382 rejects another branch-weight-only overlay and designs a training-only
-local-action recovery residual for exact repair. M383 should implement that
-optional recovery residual before any no-PPO proof probe or PPO continuation.
+local-action recovery residual for exact repair. M383 implements the optional
+old-key recovery corpus loader, exact repair loss terms, CLI wiring, and
+focused tests. A no-update smoke with a bootstrap four-row recovery corpus
+reports finite recovery terms and no actor input or output change. M384 should
+export real replay-selected local recovery targets before any no-PPO proof
+probe or PPO continuation.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -210,7 +214,8 @@ optional recovery residual before any no-PPO proof probe or PPO continuation.
 | bounded micro-alpha candidate | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M358 finds alpha 0.00025 passes exact and old-key; alpha 0.0005 first fails old-key |
 | proof-gate-passing micro-alpha | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M359 passes source-diverse protected and first replay proof gates |
 | current public-gate base | `runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt` | M379 promotes alpha `0.05` after cumulative old-key source-diverse six public replay surfaces and behavior seeds pass |
-| current blocker | `experiments/manifests/m383-old-key-local-recovery-residual-implementation.json` | M383 must implement the optional old-key local-action recovery residual before any proof probe or PPO |
+| recovery residual infrastructure | `src/autodrift/exact_post_ppo_repair.py` | M383 implements optional old-key local-action recovery loss and verifies finite no-update smoke terms |
+| current blocker | `experiments/manifests/m384-old-key-local-recovery-target-export.json` | M384 must export replay-selected local recovery targets before any proof probe or PPO |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

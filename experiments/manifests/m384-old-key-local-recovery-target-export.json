@@ -1,0 +1,89 @@
+{
+  "id": "m384-old-key-local-recovery-target-export",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m380_alpha01_cumulative_old_key_boundary_audit/gap_tail_rows.csv",
+      "runs/m383_old_key_recovery_bootstrap_corpus/old_key_recovery_corpus.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m383-old-key-local-recovery-residual-implementation.json"
+    ],
+    "parent_objective": [
+      "export replay-selected local-action recovery targets for the M383 exact repair residual"
+    ],
+    "derived_from": [
+      "m383-old-key-local-recovery-residual-implementation"
+    ],
+    "blocked_by": [
+      "m383-old-key-local-recovery-residual-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m384-old-key-local-recovery-target-export.md",
+  "public_gates": [
+    "infrastructure only; no PPO run",
+    "recover target export preserves existing actor input contract",
+    "selected actions must come from replay/local-search margin improvement, not oracle actor inputs",
+    "exported corpus must load through the M383 recovery loader",
+    "no-update exact repair smoke must report finite recovery terms"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not lower old-key thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not replace direct steer/throttle/brake output",
+    "do not treat bootstrap preferred actions as recovered targets"
+  ],
+  "hypothesis": "Replay-selected one-step local action targets can be exported for the old-key gap-tail rows so the M383 recovery residual is aligned with actual terminal-margin recovery instead of the misaligned old-key surrogate.",
+  "success_criteria": [
+    "export a real old-key recovery corpus with observation hidden action weight and row-id arrays",
+    "record the candidate action grid or sampling rule and the selected terminal-margin improvement per row",
+    "reject rows that do not improve normal-history terminal margin or mark them as base-retention rows",
+    "the exported corpus loads through load_old_key_recovery_snippets",
+    "a no-update exact repair smoke reports finite recovery terms",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "exported targets are just copied preferred actions without replay selection",
+    "target search uses forbidden deployable actor inputs",
+    "loader or no-update smoke fails",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "target_export",
+      "command": "Export replay-selected local recovery targets from M380 cumulative old-key gap-tail rows; no PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m384-old-key-local-recovery-target-export.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m384_old_key_local_recovery_targets/old_key_recovery_corpus.npz",
+      "type": "npz"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m383-old-key-local-recovery-residual-implementation.md",
+    "runs/m383_old_key_recovery_no_update_smoke/summary.json"
+  ],
+  "decision_rule": "M384 can admit a no-PPO repair proof probe only if recovery targets are selected by replay/local-search terminal-margin evidence and the M383 recovery residual can read them without changing the actor contract.",
+  "next_blocker": "pending M384 old-key local recovery target export"
+}
