@@ -2,7 +2,7 @@
   "id": "m455-response-critical-multiseed-expansion",
   "type": "gate",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -64,24 +64,24 @@
   ],
   "commands": [
     {
-      "name": "near_seed9800_ablation",
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m451_challenge_near_threshold_robust_zero_relvel.json --episodes 128 --seed 9800 --policies heuristic --checkpoint-policy m399_base=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --checkpoint-policy m399_reset=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@reset_recurrent_state --checkpoint-policy m399_zero_current=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_current_response --checkpoint-policy m399_zero_all=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_all_response --checkpoint-policy m399_noact=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_action_history --device cpu --run-dir runs/m455_near_robust_ablation_seed9800"
+      "name": "near_seed9600_ablation",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m451_challenge_near_threshold_robust_zero_relvel.json --episodes 128 --seed 9600 --policies heuristic --checkpoint-policy m399_base=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --checkpoint-policy m399_reset=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@reset_recurrent_state --checkpoint-policy m399_zero_current=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_current_response --checkpoint-policy m399_zero_all=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_all_response --checkpoint-policy m399_noact=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_action_history --device cpu --run-dir runs/m455_near_robust_ablation_seed9600"
     },
     {
-      "name": "late_seed9800_ablation",
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m451_challenge_late_high_energy_robust_zero_relvel.json --episodes 128 --seed 9800 --policies heuristic --checkpoint-policy m399_base=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --checkpoint-policy m399_reset=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@reset_recurrent_state --checkpoint-policy m399_zero_current=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_current_response --checkpoint-policy m399_zero_all=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_all_response --checkpoint-policy m399_noact=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_action_history --device cpu --run-dir runs/m455_late_robust_ablation_seed9800"
+      "name": "late_seed9600_ablation",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m451_challenge_late_high_energy_robust_zero_relvel.json --episodes 128 --seed 9600 --policies heuristic --checkpoint-policy m399_base=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --checkpoint-policy m399_reset=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@reset_recurrent_state --checkpoint-policy m399_zero_current=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_current_response --checkpoint-policy m399_zero_all=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_all_response --checkpoint-policy m399_noact=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_action_history --device cpu --run-dir runs/m455_late_robust_ablation_seed9600"
     },
     {
-      "name": "near_seed10000_ablation",
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m451_challenge_near_threshold_robust_zero_relvel.json --episodes 128 --seed 10000 --policies heuristic --checkpoint-policy m399_base=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --checkpoint-policy m399_reset=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@reset_recurrent_state --checkpoint-policy m399_zero_current=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_current_response --checkpoint-policy m399_zero_all=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_all_response --checkpoint-policy m399_noact=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_action_history --device cpu --run-dir runs/m455_near_robust_ablation_seed10000"
+      "name": "near_seed10150_ablation",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m451_challenge_near_threshold_robust_zero_relvel.json --episodes 128 --seed 10150 --policies heuristic --checkpoint-policy m399_base=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --checkpoint-policy m399_reset=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@reset_recurrent_state --checkpoint-policy m399_zero_current=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_current_response --checkpoint-policy m399_zero_all=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_all_response --checkpoint-policy m399_noact=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_action_history --device cpu --run-dir runs/m455_near_robust_ablation_seed10150"
     },
     {
-      "name": "late_seed10000_ablation",
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m451_challenge_late_high_energy_robust_zero_relvel.json --episodes 128 --seed 10000 --policies heuristic --checkpoint-policy m399_base=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --checkpoint-policy m399_reset=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@reset_recurrent_state --checkpoint-policy m399_zero_current=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_current_response --checkpoint-policy m399_zero_all=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_all_response --checkpoint-policy m399_noact=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_action_history --device cpu --run-dir runs/m455_late_robust_ablation_seed10000"
+      "name": "late_seed10150_ablation",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m451_challenge_late_high_energy_robust_zero_relvel.json --episodes 128 --seed 10150 --policies heuristic --checkpoint-policy m399_base=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --checkpoint-policy m399_reset=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@reset_recurrent_state --checkpoint-policy m399_zero_current=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_current_response --checkpoint-policy m399_zero_all=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_all_response --checkpoint-policy m399_noact=runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt@zero_action_history --device cpu --run-dir runs/m455_late_robust_ablation_seed10150"
     },
     {
       "name": "combined_corpus_export",
-      "command": "PYTHONPATH=src python -m autodrift.response_critical_ablation_corpus --episodes-csv runs/m452_near_robust_ablation_seed9900/episodes.csv --source-config near_robust_9900 --track-width 8.2 --episodes-csv runs/m452_late_robust_ablation_seed9900/episodes.csv --source-config late_robust_9900 --track-width 8.0 --episodes-csv runs/m455_near_robust_ablation_seed9800/episodes.csv --source-config near_robust_9800 --track-width 8.2 --episodes-csv runs/m455_late_robust_ablation_seed9800/episodes.csv --source-config late_robust_9800 --track-width 8.0 --episodes-csv runs/m455_near_robust_ablation_seed10000/episodes.csv --source-config near_robust_10000 --track-width 8.2 --episodes-csv runs/m455_late_robust_ablation_seed10000/episodes.csv --source-config late_robust_10000 --track-width 8.0 --baseline-policy m399_base --candidate-policy m399_reset --candidate-policy m399_zero_current --candidate-policy m399_zero_all --candidate-policy m399_noact --max-rows 160 --max-rows-per-config 32 --run-dir runs/m455_response_critical_multiseed_corpus"
+      "command": "PYTHONPATH=src python -m autodrift.response_critical_ablation_corpus --episodes-csv runs/m455_near_robust_ablation_seed9600/episodes.csv --source-config near_robust_9600 --track-width 8.2 --episodes-csv runs/m455_late_robust_ablation_seed9600/episodes.csv --source-config late_robust_9600 --track-width 8.0 --episodes-csv runs/m452_near_robust_ablation_seed9900/episodes.csv --source-config near_robust_9900 --track-width 8.2 --episodes-csv runs/m452_late_robust_ablation_seed9900/episodes.csv --source-config late_robust_9900 --track-width 8.0 --episodes-csv runs/m455_near_robust_ablation_seed10150/episodes.csv --source-config near_robust_10150 --track-width 8.2 --episodes-csv runs/m455_late_robust_ablation_seed10150/episodes.csv --source-config late_robust_10150 --track-width 8.0 --baseline-policy m399_base --candidate-policy m399_reset --candidate-policy m399_zero_current --candidate-policy m399_zero_all --candidate-policy m399_noact --max-rows 160 --max-rows-per-config 32 --run-dir runs/m455_response_critical_multiseed_corpus"
     }
   ],
   "required_artifacts": [
@@ -97,5 +97,35 @@
     "docs/m454-response-critical-ablation-corpus-export.md"
   ],
   "decision_rule": "M455 is diagnostic only. It can admit a self-ID gate expansion if evidence strengthens or task-family redesign if evidence remains weak.",
-  "next_blocker": "pending M455 response-critical multiseed expansion"
+  "results": {
+    "seed_windows": [
+      "9600-9727",
+      "9900-10027",
+      "10150-10277"
+    ],
+    "run_dir": "runs/m455_response_critical_multiseed_corpus",
+    "rows_total": 3072,
+    "accepted_rows": 1996,
+    "selected_rows": 96,
+    "mean_m399_base_success": 0.8125,
+    "mean_m399_reset_success": 0.80599,
+    "mean_m399_zero_response_success": 0.799479,
+    "mean_m399_no_action_history_success": 0.815104,
+    "selected_by_dependency_class": {
+      "action_history_sensitive": 2,
+      "mixed_dependency": 94
+    },
+    "selected_by_failure_class": {
+      "ablation_rescue": 7,
+      "clearance_margin_shift": 32,
+      "near_boundary_obstacle_margin": 30,
+      "obstacle_collision_margin_crossing": 7,
+      "road_boundary_failure": 20
+    },
+    "evidence_quality": "weak_to_moderate_for_self_identification",
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "task_family_redesign_admit_m456_history_necessity_design"
+  },
+  "next_blocker": "m456-history-necessity-task-family-design"
 }

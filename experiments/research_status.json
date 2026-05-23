@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 463,
+        "completed": 464,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m454-response-critical-ablation-corpus-export",
+        "task_id": "m455-response-critical-multiseed-expansion",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m454_response_critical_ablation_corpus",
-        "command_log": "docs/m454-response-critical-ablation-corpus-export.md"
+        "run_dir": "runs/m455_response_critical_multiseed_corpus",
+        "command_log": "docs/m455-response-critical-multiseed-expansion.md"
     },
     "next_task": {
-        "id": "m455-response-critical-multiseed-expansion",
+        "id": "m456-history-necessity-task-family-design",
         "status": "pending",
-        "priority": 4500,
-        "kind": "gate",
-        "hypothesis": "Expand the response-critical corpus across additional seed blocks",
-        "command": "see experiments/manifests/m455-response-critical-multiseed-expansion.json",
+        "priority": 4510,
+        "kind": "infrastructure",
+        "hypothesis": "Design a task family that creates clearer recurrent-history necessity",
+        "command": "see experiments/manifests/m456-history-necessity-task-family-design.json",
         "success_artifact": "",
-        "notes": "Pending: run additional near and late robust ablation seed blocks and export a combined corpus"
+        "notes": "Pending: design matched-current or warm-up history-necessity diagnostics after M455 mixed-dependency result"
     },
-    "updated_at_utc": "20260523T200006Z"
+    "updated_at_utc": "20260523T200536Z"
 }

@@ -10184,3 +10184,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M454 implements `autodrift.response_critical_ablation_corpus` and exports M452 near/late rows. The exporter accepts `685/1024` comparisons and selects `86` compact rows, balanced as `43` near and `43` late. The compact corpus has `15` selected success flips, `5` collision flips, `5` margin sign flips, `10` lateral-boundary flips, and balanced label/mu coverage. Evidence quality is moderate: most selected rows are `mixed_dependency` (`79/86`), while standalone recurrent-hidden (`2`) and action-history (`3`) rows remain sparse.
 - decision: `moderate_response_critical_corpus_admit_m455`
 - next: `m455-response-critical-multiseed-expansion`
+
+## 20260523T200536Z - m455-response-critical-multiseed-expansion
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m455_response_critical_multiseed_corpus`
+- artifact: `docs/m455-response-critical-multiseed-expansion.md`
+- result: M455 reruns the robust ablation diagnostic on disjoint seed windows `9600-9727`, `9900-10027`, and `10150-10277` after rejecting overlapping `9800/10000` windows as poor evidence discipline. All six near/late runs complete without sampling failure. Combined export accepts `1996/3072` rows and selects `96` compact rows with balanced source, policy, label, and mu coverage. Aggregate success deltas remain small: base `0.812500`, reset `0.805990`, zero-response `0.799479`, no-action `0.815104`. The compact corpus is dominated by `mixed_dependency` (`94/96`), so current robust challenges are better boundary-corpus sources than self-ID gates.
+- decision: `task_family_redesign_admit_m456`
+- next: `m456-history-necessity-task-family-design`

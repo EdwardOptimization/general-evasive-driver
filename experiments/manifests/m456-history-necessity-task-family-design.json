@@ -1,0 +1,84 @@
+{
+  "id": "m456-history-necessity-task-family-design",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m455_response_critical_multiseed_corpus/candidates.csv",
+      "runs/m455_response_critical_multiseed_corpus/compact_corpus.csv",
+      "runs/m455_response_critical_multiseed_corpus/summary.json"
+    ],
+    "parent_config": [
+      "configs/m451_challenge_near_threshold_robust_zero_relvel.json",
+      "configs/m451_challenge_late_high_energy_robust_zero_relvel.json",
+      "experiments/manifests/m455-response-critical-multiseed-expansion.json"
+    ],
+    "parent_objective": [
+      "history-necessity task-family design"
+    ],
+    "derived_from": [
+      "m455-response-critical-multiseed-expansion"
+    ],
+    "blocked_by": [
+      "m455-response-critical-multiseed-expansion"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m456-history-necessity-task-family-design.md",
+  "public_gates": [
+    "design a task family that creates clearer recurrent-history necessity",
+    "define matched-current or warm-up construction",
+    "define wrong-history and reset-hidden diagnostics",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not treat mixed-dependency M455 rows as self-ID proof"
+  ],
+  "hypothesis": "Because M455 finds mostly mixed-dependency boundary rows, the next useful step is to design a task family that makes command-response history uniquely informative rather than continuing to mine the same challenge distribution.",
+  "success_criteria": [
+    "design specifies how to create recurrent-history necessity",
+    "design includes reset-hidden wrong-history and no-action-history diagnostics",
+    "design states pass and redirect criteria",
+    "next implementation task is preregistered",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "design ignores M455's mixed-dependency finding",
+    "design adds oracle actor inputs",
+    "design jumps directly to training",
+    "no implementation path is defined"
+  ],
+  "commands": [
+    {
+      "name": "history_necessity_task_family_design",
+      "command": "Design next task family after M455 weak-to-moderate self-ID evidence; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m456-history-necessity-task-family-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m455-response-critical-multiseed-expansion.md"
+  ],
+  "decision_rule": "M456 is a design milestone. It can admit a task-family implementation but cannot promote a checkpoint.",
+  "next_blocker": "pending M456 history-necessity task-family design"
+}

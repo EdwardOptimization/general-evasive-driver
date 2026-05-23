@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m455-response-critical-multiseed-expansion
+m456-history-necessity-task-family-design
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -177,7 +177,16 @@ evidence is moderate rather than strong: most selected rows are
 `mixed_dependency`, with only `2` standalone recurrent-hidden rows and `3`
 standalone action-history rows. The next blocker is M455: expand this corpus
 across additional M451 robust seed blocks before deciding between self-ID gate
-expansion and task-family redesign.
+expansion and task-family redesign. M455 uses disjoint seed windows
+`9600-9727`, `9900-10027`, and `10150-10277`; all six near/late runs complete.
+The combined corpus accepts `1996/3072` rows and selects `96` compact rows with
+balanced source, policy, label, and mu coverage. However, aggregate ablation
+deltas remain small and the compact corpus is dominated by `mixed_dependency`
+(`94/96`). The current robust challenge family is therefore useful for boundary
+mining but not a strong self-ID gate. The next blocker is M456: design a task
+family that makes recurrent command-response history uniquely informative,
+using matched-current construction, warm-up, hidden-dynamics variation, or
+wrong-history interventions.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key
