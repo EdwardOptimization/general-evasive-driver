@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 382,
+        "completed": 383,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m373-old-key-gap-tail-feedback-implementation",
+        "task_id": "m374-gap-tail-weighted-repair-probe",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m373_gap_tail_repair_smoke",
-        "command_log": "docs/m373-old-key-gap-tail-feedback-implementation.md"
+        "run_dir": "runs/m374_gap_tail_final_interp_a010_cumulative_old_key_replay_gate",
+        "command_log": "docs/m374-gap-tail-weighted-repair-probe.md"
     },
     "next_task": {
-        "id": "m374-gap-tail-weighted-repair-probe",
+        "id": "m375-full-public-gate-for-m374-a010",
         "status": "pending",
-        "priority": 3690,
-        "kind": "gate",
-        "hypothesis": "Probe whether gap-tail weighted old-key repair can move beyond alpha 0.4 without compact gap-tail erosion",
-        "command": "see experiments/manifests/m374-gap-tail-weighted-repair-probe.json",
+        "priority": 3700,
+        "kind": "driver_candidate",
+        "hypothesis": "Run full public promotion gate for the bounded M374 alpha 0.1 gap-tail weighted repair candidate",
+        "command": "see experiments/manifests/m375-full-public-gate-for-m374-a010.json",
         "success_artifact": "",
-        "notes": "Pending: no-PPO gap-tail weighted repair probe; old-key replay remains authoritative"
+        "notes": "Pending: all six replay surfaces and behavior seeds before any promotion"
     },
-    "updated_at_utc": "20260523T122521Z"
+    "updated_at_utc": "20260523T123503Z"
 }

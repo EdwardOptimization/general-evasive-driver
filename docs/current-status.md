@@ -55,7 +55,7 @@ old-key compact gap-p10 failure.
 Current blocker:
 
 ```text
-m374-gap-tail-weighted-repair-probe
+m375-full-public-gate-for-m374-a010
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -114,8 +114,10 @@ gap-tail retention feedback rather than lower thresholds or run PPO. M372
 completes that design and admits M373 implementation of the gap-tail overlay
 path. M373 implements the overlay path, exports a 40-row hard-row plus gap-tail
 weighted old-key corpus, and verifies no-update exact repair integration. M374
-should now test the weighted corpus in a no-PPO repair probe, with closed-loop
-old-key replay still authoritative.
+tests the weighted corpus in a no-PPO repair probe. The final repair endpoint
+is too aggressive, but bounded alpha `0.1` toward that endpoint passes exact,
+cumulative old-key, source-diverse, and first replay proof gates. M375 should
+run the full public gate before any promotion.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -192,7 +194,7 @@ old-key replay still authoritative.
 | bounded micro-alpha candidate | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M358 finds alpha 0.00025 passes exact and old-key; alpha 0.0005 first fails old-key |
 | proof-gate-passing micro-alpha | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M359 passes source-diverse protected and first replay proof gates |
 | current public-gate base | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M360 promotes alpha 0.00025 after full public gate pass; movement is extremely small |
-| current blocker | `experiments/manifests/m374-gap-tail-weighted-repair-probe.json` | M374 must probe the gap-tail weighted old-key repair path without PPO before any further continuation |
+| current blocker | `experiments/manifests/m375-full-public-gate-for-m374-a010.json` | M375 must run all public replay and behavior gates for the bounded M374 alpha 0.1 candidate before any promotion |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

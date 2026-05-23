@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M374 can admit a full proof or public gate only if the gap-tail weighted candidate passes closed-loop old-key replay, then source-diverse and first replay gates; it cannot promote directly.",
+  "decision_reason": "M374 bounded alpha 0.1 toward the gap-tail final repair passes exact cumulative old-key source-diverse and first replay proof gates; alpha 0.2 first fails cumulative old-key gap p10",
   "failure_criteria": [
     "gap-tail weighted repair cannot move beyond alpha 0.4 without old-key compact gap-p10 failure",
     "exact objectives regress",
@@ -18,7 +18,7 @@
     "do not change actor inputs"
   ],
   "gate_tier": "proof",
-  "generated_at_utc": "20260523T122736Z",
+  "generated_at_utc": "20260523T123646Z",
   "hypothesis": "Gap-tail weighted old-key repair can produce a candidate beyond the M370 alpha 0.4 base while retaining the old-key compact gap lower-tail distribution that rejected alpha 0.6.",
   "lineage": {
     "blocked_by": [
@@ -46,9 +46,9 @@
     "supersedes": []
   },
   "milestone": "m374-gap-tail-weighted-repair-probe",
-  "next_blocker": "pending M374 gap-tail weighted repair probe",
+  "next_blocker": "m375-full-public-gate-for-m374-a010",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "admit_m375_full_public_gate_for_m374_a010",
   "public_gates": [
     "no PPO run",
     "exact M297/M270 no-regression",
@@ -58,7 +58,20 @@
     "M183/M170 and M267/M264 first replay gates if proof gates pass",
     "preserve actor input contract"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "runs/m374_gap_tail_final_interpolation/checkpoints/alpha_0_1.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m375_full_public_gate_for_m374_a010",
+    "milestone": "m374-gap-tail-weighted-repair-probe",
+    "reason": "M374 bounded alpha 0.1 toward the gap-tail final repair passes exact cumulative old-key source-diverse and first replay proof gates; alpha 0.2 first fails cumulative old-key gap p10",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "gap-tail weighted repair candidate passes exact M297/M270 and weighted old-key surrogate gates",
     "closed-loop old-key replay has zero accepted regressions and compact gap p10 above the registered threshold at an alpha greater than 0.4 or exposes a bounded candidate",

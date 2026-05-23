@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260523T122736Z
+- Generated at UTC: 20260523T123646Z
 - Type: gate
 - Gate tier: proof
-- Promotion decision: not_applicable
-- Decision reason: M374 can admit a full proof or public gate only if the gap-tail weighted candidate passes closed-loop old-key replay, then source-diverse and first replay gates; it cannot promote directly.
+- Promotion decision: admit_m375_full_public_gate_for_m374_a010
+- Decision reason: M374 bounded alpha 0.1 toward the gap-tail final repair passes exact cumulative old-key source-diverse and first replay proof gates; alpha 0.2 first fails cumulative old-key gap p10
 
 ## Hypothesis
 
@@ -67,8 +67,19 @@ Gap-tail weighted old-key repair can produce a candidate beyond the M370 alpha 0
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m374-gap-tail-weighted-repair-probe
+- type: gate
+- checkpoint: runs/m374_gap_tail_final_interpolation/checkpoints/alpha_0_1.pt
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: admit_m375_full_public_gate_for_m374_a010
+- reason: M374 bounded alpha 0.1 toward the gap-tail final repair passes exact cumulative old-key source-diverse and first replay proof gates; alpha 0.2 first fails cumulative old-key gap p10
 
 ## Next Blocker
 
-pending M374 gap-tail weighted repair probe
+m375-full-public-gate-for-m374-a010

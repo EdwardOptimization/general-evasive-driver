@@ -9374,3 +9374,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M373 implements gap-tail old-key overlay support. It exports a 40-row old-key preference corpus with one accepted-regression hard row and five gap-tail rows, records `gap_tail_row`, `preferred_branch_weight`, and `wrong_branch_weight` arrays, and verifies no-update exact repair integration. The smoke has exact M297 delta `-0.000068545`, exact M270 delta `-0.000033081`, old-key surrogate delta `-0.004263401`, and exact lexicographic pass. No PPO, no promotion, no actor-input changes.
 - decision: `admit_m374_gap_tail_weighted_repair_probe`
 - next: `m374-gap-tail-weighted-repair-probe`
+
+## 20260523T123503Z - m374-gap-tail-weighted-repair-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m374_gap_tail_final_interp_a010_cumulative_old_key_replay_gate`
+- artifact: `docs/m374-gap-tail-weighted-repair-probe.md`
+- result: M374 probes the gap-tail weighted repair path without PPO. The unbounded final repair improves exact M297/M270 and old-key surrogate but fails closed-loop old-key rows, so the direction is bounded by interpolation from M370. Alpha `0.1` toward the final repair passes exact no-regression, cumulative old-key replay with gap p10 `-0.000452864`, source-diverse protected gates `5/5`, and M183/M170 plus M267/M264 first replay gates `17/17`; alpha `0.2` is the first tested cumulative old-key gap-p10 failure.
+- decision: `admit_m375_full_public_gate_for_m374_a010`
+- next: `m375-full-public-gate-for-m374-a010`
