@@ -55,7 +55,7 @@ neighborhood proof.
 Current blocker:
 
 ```text
-m360-full-public-gate-for-m358-a00025
+m361-micro-alpha-utility-audit
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -89,7 +89,10 @@ then bounds the M356 direction by interpolation: `alpha=0.00025` is the largest
 tested nonzero old-key-neighborhood-passing step, while `alpha=0.0005` is the
 first failing step. M359 verifies `alpha=0.00025` passes source-diverse
 protected gates `5/5` and M183/M170 plus M267/M264 first replay gates `17/17`.
-M360 should run the full public gate before any promotion.
+M360 promotes `alpha=0.00025` after all six replay surfaces and behavior seeds
+pass. This is a proof-safe micro-step, not meaningful driver improvement; M361
+should audit whether this branch is worth chaining or whether the repair
+objective should be redesigned.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -165,7 +168,8 @@ M360 should run the full public gate before any promotion.
 | rejected proof-gate candidate | `runs/m356_m354_repair_best_step_probe/candidate_checkpoint.pt` | M357 rejects direct acceptance because source-diverse old-key and M267/M264 proof gates fail |
 | bounded micro-alpha candidate | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M358 finds alpha 0.00025 passes exact and old-key; alpha 0.0005 first fails old-key |
 | proof-gate-passing micro-alpha | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M359 passes source-diverse protected and first replay proof gates |
-| current blocker | `experiments/manifests/m360-full-public-gate-for-m358-a00025.json` | M360 must run all six public replay surfaces and behavior seeds before promotion |
+| current public-gate base | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M360 promotes alpha 0.00025 after full public gate pass; movement is extremely small |
+| current blocker | `experiments/manifests/m361-micro-alpha-utility-audit.json` | M361 must audit whether micro-alpha promotion should be chained or treated as retention-only |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

@@ -2,7 +2,7 @@
   "id": "m360-full-public-gate-for-m358-a00025",
   "type": "driver_candidate",
   "gate_tier": "promotion",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -79,6 +79,41 @@
     "docs/m359-m354-best-step-micro-alpha-proof-gate.md",
     "runs/m359_m354_best_step_micro_alpha_proof_gate/summary.json"
   ],
-  "decision_rule": "M360 is complete when alpha 0.00025 is either promoted as the next public-gate base or rejected with a classified full-gate failure.",
-  "next_blocker": "pending M360 full public gate for M358 alpha 0.00025"
+  "results": {
+    "run_dir": "runs/m360_full_public_gate_for_m358_a00025",
+    "candidate_policy": "m358_a00025",
+    "candidate_checkpoint": "runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt",
+    "exact_eval_run_dir": "runs/m358_m354_best_step_alpha00025_exact_eval",
+    "exact_m297_delta_vs_m352": -1.1920928955078125e-07,
+    "exact_m270_delta_vs_m352": -5.960464477539063e-08,
+    "old_key_neighborhood_run_dir": "runs/m358_m354_best_step_old_key_micro_a00025_gate",
+    "old_key_neighborhood_pass": true,
+    "old_key_accepted_regressions": 0,
+    "first_failing_old_key_alpha": 0.0005,
+    "source_diverse_run_dir": "runs/m359_m354_best_step_micro_alpha_source_diverse_protected_gate",
+    "source_diverse_pass": true,
+    "source_diverse_replay_gates_passed": 5,
+    "source_diverse_replay_gate_count": 5,
+    "full_replay_gates_pass": true,
+    "m183_m168_success_drops": 16,
+    "m183_m170_success_drops": 17,
+    "m193_m189_success_drops": 14,
+    "m212_m204_success_drops": 17,
+    "m223_m219_success_drops": 17,
+    "m267_m264_success_drops": 17,
+    "behavior_seed9505_success": 0.8625,
+    "behavior_seed9506_success": 0.8625,
+    "behavior_success_mean": 0.8625,
+    "behavior_termination_mean": 0.1375,
+    "behavior_clearance_margin_mean": 1.844537821078465,
+    "reset_success_mean": 0.85,
+    "zero_all_success_mean": 0.8,
+    "accepted_alpha": 0.00025,
+    "promotion_recommended": true,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "promote_m358_a00025_old_key_neighborhood_public_gate_base",
+  "decision_rule": "M360 promotes alpha 0.00025 because exact objectives, old-key neighborhood, source-diverse protected gates, all six public replay surfaces, behavior seeds, and input-contract checks pass; promotion is explicitly qualified as a proof-safe micro-step.",
+  "next_blocker": "m361-micro-alpha-utility-audit"
 }

@@ -1,0 +1,83 @@
+{
+  "id": "m361-micro-alpha-utility-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt",
+      "runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt"
+    ],
+    "parent_dataset": [
+      "runs/m360_full_public_gate_for_m358_a00025/summary.json",
+      "docs/m360-full-public-gate-for-m358-a00025.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m360-full-public-gate-for-m358-a00025.json",
+      "docs/m360-full-public-gate-for-m358-a00025.md"
+    ],
+    "parent_objective": [
+      "audit whether the promoted micro-alpha is meaningful enough to chain PPO from"
+    ],
+    "derived_from": [
+      "m360-full-public-gate-for-m358-a00025"
+    ],
+    "blocked_by": [
+      "m360-full-public-gate-for-m358-a00025"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m361-micro-alpha-utility-audit.md",
+  "public_gates": [
+    "process audit only; no PPO run",
+    "quantify exact-objective movement from M352 to M358 alpha 0.00025",
+    "quantify accepted alpha versus first failing alpha",
+    "decide whether to chain PPO, redesign repair objective, or refresh proof surfaces",
+    "preserve actor input contract"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat micro-alpha promotion as meaningful driver improvement without evidence",
+    "do not start longer PPO before deciding whether this branch has usable movement",
+    "do not change actor inputs",
+    "do not hide the alpha 0.00025 limitation"
+  ],
+  "hypothesis": "Although M360 promotes alpha 0.00025, the movement may be too small to justify another PPO chain; a process audit should decide the next research direction before further training.",
+  "success_criteria": [
+    "audit states whether alpha 0.00025 is meaningful progress or only retention",
+    "audit recommends the next blocker explicitly",
+    "audit does not run PPO",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "audit ignores the micro-alpha limitation",
+    "audit starts PPO before deciding whether the branch is useful",
+    "actor input contract changes",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "m361_audit",
+      "command": "Audit M360 micro-alpha utility and choose the next research blocker; do not run PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m361-micro-alpha-utility-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m360-full-public-gate-for-m358-a00025.md",
+    "runs/m360_full_public_gate_for_m358_a00025/summary.json"
+  ],
+  "decision_rule": "M361 is complete when the micro-alpha promotion is classified and the next training or redesign blocker is registered without running PPO.",
+  "next_blocker": "pending M361 micro-alpha utility audit"
+}

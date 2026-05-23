@@ -9234,3 +9234,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M359 evaluates the M358 `alpha=0.00025` candidate on source-diverse and first replay proof gates. Source-diverse protected gates pass `5/5`; M183/M170 and M267/M264 first replay gates both retain `17/17` success drops. This is positive as proof-gate retention, but the accepted alpha is only `0.00025`.
 - decision: `admit_m360_full_public_gate_for_m354_micro_alpha`
 - next: `m360-full-public-gate-for-m358-a00025`
+
+## 20260523T111719Z - m360-full-public-gate-for-m358-a00025
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m360_full_public_gate_for_m358_a00025`
+- artifact: `docs/m360-full-public-gate-for-m358-a00025.md`
+- result: M360 promotes `alpha=0.00025`. Exact M297/M270, old-key neighborhood, source-diverse protected gates, all six replay surfaces, and behavior seeds `9505`/`9506` pass. Behavior success remains `0.8625`, reset success mean `0.85`, and zero-all success mean `0.80`. The promotion is explicitly qualified as a proof-safe micro-step: accepted alpha is `0.00025` and the first failing old-key alpha is `0.0005`.
+- decision: `promote_m358_a00025_old_key_neighborhood_public_gate_base`
+- next: `m361-micro-alpha-utility-audit`
