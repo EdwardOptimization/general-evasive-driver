@@ -79,6 +79,15 @@
     "docs/m352-full-public-gate-for-m351-a0075.md",
     "runs/m352_full_public_gate_for_m351_a0075/summary.json"
   ],
-  "decision_rule": "M353 is complete only when a fresh-seed repeat plan is registered without running PPO or changing actor inputs.",
-  "next_blocker": "pending M353 fresh-seed repeat design"
+  "results": {
+    "run_dir": "docs/m353-old-key-neighborhood-ppo-fresh-seed-repeat-design.md",
+    "registered_config": "configs/ppo_m354_old_key_neighborhood_repeat.json",
+    "base_checkpoint": "runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt",
+    "next_run_manifest": "experiments/manifests/m354-old-key-neighborhood-ppo-fresh-seed-repeat.json",
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m354_old_key_neighborhood_ppo_fresh_seed_repeat",
+  "decision_rule": "M353 completes because a fresh-seed repeat plan is registered without running PPO or changing actor inputs.",
+  "next_blocker": "m354-old-key-neighborhood-ppo-fresh-seed-repeat"
 }

@@ -9164,3 +9164,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M352 promotes `m351_a0075`. Exact M297/M270 remain non-regressing versus M349; source-diverse gates pass `5/5`; old-key neighborhood gate passes with `0` accepted regressions; all six public replay gates retain success drops (`16/16`, `17/17`, `14/14`, `17/17`, `17/17`, `17/17`); behavior seeds `9505` and `9506` keep success `0.8625`, reset success mean `0.85`, and zero-all success mean `0.80`.
 - decision: `promote_m351_a0075_old_key_neighborhood_public_gate_base`
 - next: `m353-old-key-neighborhood-ppo-fresh-seed-repeat-design`
+
+## 20260523T103734Z - m353-old-key-neighborhood-ppo-fresh-seed-repeat-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `docs/m353-old-key-neighborhood-ppo-fresh-seed-repeat-design.md`
+- artifact: `docs/m353-old-key-neighborhood-ppo-fresh-seed-repeat-design.md`
+- result: M353 registers a fresh-seed repeat before any longer PPO. The M354 config keeps the short `4096`-step PPO recipe, seed `5240`, and the existing guard coefficients, while updating baseline/snippet anchors to the M352 public base `runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt`. The gate order remains raw proposal, exact repair, source-diverse protected gate, old-key neighborhood gate, interpolation if needed, and first replay gates before any full public gate.
+- decision: `admit_m354_old_key_neighborhood_ppo_fresh_seed_repeat`
+- next: `m354-old-key-neighborhood-ppo-fresh-seed-repeat`

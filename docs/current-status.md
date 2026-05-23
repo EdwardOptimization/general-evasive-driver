@@ -55,7 +55,7 @@ neighborhood proof.
 Current blocker:
 
 ```text
-m353-old-key-neighborhood-ppo-fresh-seed-repeat-design
+m354-old-key-neighborhood-ppo-fresh-seed-repeat
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -75,7 +75,8 @@ M351 runs the proposal-only PPO step: the repaired endpoint improves exact
 objectives but fails source/old-key proof, while bounded `alpha=0.0075` passes
 exact, source-diverse, old-key neighborhood, and first replay gates. M352
 promotes the bounded candidate after all six public replay gates and behavior
-seeds pass. M353 should design a fresh-seed repeat before any longer PPO.
+seeds pass. M353 registers a fresh-seed repeat before any longer PPO. M354 is
+the next proposal-only PPO repeat.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -144,7 +145,8 @@ seeds pass. M353 should design a fresh-seed repeat before any longer PPO.
 | next PPO config | `configs/ppo_m351_old_key_neighborhood_escalation.json` | M350 registers a short proposal-only PPO continuation from M349 base with exact/source-diverse/old-key-neighborhood gates |
 | bounded PPO candidate | `runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt` | M351 selects alpha 0.0075 after repaired endpoint fails source/old-key proof but bounded alpha passes exact/source-diverse/old-key/first replay gates |
 | current public-gate base | `runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt` | M352 promotes alpha 0.0075 after exact, source-diverse, old-key neighborhood, six replay, and behavior gates pass |
-| current blocker | `experiments/manifests/m353-old-key-neighborhood-ppo-fresh-seed-repeat-design.json` | M353 should register a fresh-seed repeat from M352 before any longer PPO |
+| fresh-seed repeat config | `configs/ppo_m354_old_key_neighborhood_repeat.json` | M353 registers seed 5240 short PPO repeat from M352 base before any longer PPO |
+| current blocker | `experiments/manifests/m354-old-key-neighborhood-ppo-fresh-seed-repeat.json` | M354 must run PPO as proposal only, then exact repair and proof gates before any full public gate |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
