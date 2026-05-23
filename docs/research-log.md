@@ -9834,3 +9834,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M419 implements `src/autodrift/active_set_radius_anchor.py`, filters M417 old-key spillover guard rows `9951` and `9939`, reconstructs `82` wrong-history spillover trajectory rows from the M400 base, and exports conservative, medium, and loose active-set v2 radius anchors. Each profile contains `274` rows with explicit finite radii. No-update exact repair smokes for all three profiles pass exact M297/M270/old-key no-regression with replay trajectory loss `0.0`. Focused radius-export tests pass (`3 passed`).
 - decision: `admit_m420_active_set_radius_projection_probe`
 - next: `m420-active-set-radius-projection-probe`
+
+## 20260523T171120Z - m420-active-set-radius-projection-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m420_conservative_radius_projection_ltraj1e13_s40_seed10151`
+- artifact: `docs/m420-active-set-radius-projection-probe.md`
+- result: M420 runs the pre-registered no-PPO radius projection branch. Medium radius passes exact gates and M267/M264 `17/17`, retaining `0.143419` of M406 recovery utility, but old-key compact is `39/40` because case `10023|perturbed|12|12|11.000000|-0.800000|1.200000` remains accepted. Conservative radius passes exact gates, M267/M264 `17/17`, old-key compact `40/40`, and M183/M170 `17/17`, but retains only `0.115403` recovery utility, below the primary `0.20` threshold. Loose was not run because medium failed proof, so its pre-registered branch condition was not met.
+- decision: `reject_m420_radius_candidate_admit_m421_mixed_radius_boundary_design`
+- next: `m421-mixed-radius-boundary-design`

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 428,
+        "completed": 429,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m419-active-set-radius-anchor-export-implementation",
+        "task_id": "m420-active-set-radius-projection-probe",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m419_active_set_radius_anchor",
-        "command_log": "docs/m419-active-set-radius-anchor-export-implementation.md"
+        "run_dir": "runs/m420_conservative_radius_projection_ltraj1e13_s40_seed10151",
+        "command_log": "docs/m420-active-set-radius-projection-probe.md"
     },
     "next_task": {
-        "id": "m420-active-set-radius-projection-probe",
+        "id": "m421-mixed-radius-boundary-design",
         "status": "pending",
-        "priority": 4150,
-        "kind": "gate",
-        "hypothesis": "Probe M419 radius anchors in no-PPO exact projection",
-        "command": "see experiments/manifests/m420-active-set-radius-projection-probe.json",
+        "priority": 4160,
+        "kind": "infrastructure",
+        "hypothesis": "Design mixed per-case radii after M420 medium/conservative tradeoff",
+        "command": "see experiments/manifests/m421-mixed-radius-boundary-design.json",
         "success_artifact": "",
-        "notes": "Pending: run medium radius projection first then conservative or loose according to M418 decision rule; no PPO or promotion"
+        "notes": "Pending: tighten old-key 10023 while loosening non-boundary rows without changing proof thresholds; no PPO"
     },
-    "updated_at_utc": "20260523T170521Z"
+    "updated_at_utc": "20260523T171120Z"
 }

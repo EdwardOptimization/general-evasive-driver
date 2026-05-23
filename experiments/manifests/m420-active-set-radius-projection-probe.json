@@ -2,9 +2,10 @@
   "id": "m420-active-set-radius-projection-probe",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "protected_key_window_failure",
+    "promotion_gate_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -84,5 +85,59 @@
     "docs/m419-active-set-radius-anchor-export-implementation.md"
   ],
   "decision_rule": "M420 may admit a full public gate only if exact gates, first proof gates, and recovery-retention utility all pass; proof-pass utility below 0.20 is partial non-promotable evidence.",
-  "next_blocker": "pending M420 active-set radius projection probe"
+  "next_blocker": "m421-mixed-radius-boundary-design",
+  "results": {
+    "artifact": "docs/m420-active-set-radius-projection-probe.md",
+    "medium": {
+      "projection_run": "runs/m420_medium_radius_projection_ltraj1e13_s40_seed10150",
+      "candidate_checkpoint": "runs/m420_medium_radius_projection_ltraj1e13_s40_seed10150/candidate_checkpoint.pt",
+      "exact_pass": true,
+      "exact_m297_delta_vs_base": -1.33514404296875e-05,
+      "exact_m270_delta_vs_base": -6.520748138427734e-05,
+      "old_key_surrogate_delta_vs_base": -0.00015878677368164062,
+      "replay_trajectory_anchor_loss": 2.3549361571895133e-08,
+      "old_key_recovery_preferred_loss": 0.003724263748154044,
+      "recovery_improvement_retained_vs_m406": 0.1434194654307663,
+      "m267_m264_run_dir": "runs/m420_medium_m267_m264_first_replay",
+      "m267_m264_gate_pass": true,
+      "m267_m264_success_drops": 17,
+      "old_key_targeted_run_dir": "runs/m420_medium_old_key_targeted_replay",
+      "old_key_run_dir": "runs/m420_medium_old_key_replay_gate",
+      "old_key_gate_pass": false,
+      "old_key_accepted_cases": 39,
+      "old_key_total_cases": 40,
+      "old_key_failed_case": "10023|perturbed|12|12|11.000000|-0.800000|1.200000"
+    },
+    "conservative": {
+      "projection_run": "runs/m420_conservative_radius_projection_ltraj1e13_s40_seed10151",
+      "candidate_checkpoint": "runs/m420_conservative_radius_projection_ltraj1e13_s40_seed10151/candidate_checkpoint.pt",
+      "exact_pass": true,
+      "exact_m297_delta_vs_base": -1.1086463928222656e-05,
+      "exact_m270_delta_vs_base": -5.227327346801758e-05,
+      "old_key_surrogate_delta_vs_base": -0.00018739700317382812,
+      "replay_trajectory_anchor_loss": 2.3137840088338635e-08,
+      "old_key_recovery_preferred_loss": 0.0037534430157393217,
+      "recovery_improvement_retained_vs_m406": 0.1154033591428579,
+      "m267_m264_run_dir": "runs/m420_conservative_m267_m264_first_replay",
+      "m267_m264_gate_pass": true,
+      "m267_m264_success_drops": 17,
+      "old_key_targeted_run_dir": "runs/m420_conservative_old_key_targeted_replay",
+      "old_key_run_dir": "runs/m420_conservative_old_key_replay_gate",
+      "old_key_gate_pass": true,
+      "old_key_accepted_cases": 40,
+      "old_key_total_cases": 40,
+      "m183_m170_run_dir": "runs/m420_conservative_m183_m170_first_replay",
+      "m183_m170_gate_pass": true,
+      "m183_m170_success_drops": 17
+    },
+    "loose_run": false,
+    "loose_skip_reason": "medium failed old-key proof, so the M418 loose branch condition was not met",
+    "classification": "proof_pass_utility_below_primary_threshold",
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m421-mixed-radius-boundary-design"
+  },
+  "decision": "reject_m420_radius_candidate_admit_m421_mixed_radius_boundary_design"
 }

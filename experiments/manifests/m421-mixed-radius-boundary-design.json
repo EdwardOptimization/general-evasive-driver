@@ -1,0 +1,84 @@
+{
+  "id": "m421-mixed-radius-boundary-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m420_medium_radius_projection_ltraj1e13_s40_seed10150/candidate_checkpoint.pt",
+      "runs/m420_conservative_radius_projection_ltraj1e13_s40_seed10151/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m420_medium_old_key_targeted_replay/guard_results.csv",
+      "runs/m420_conservative_old_key_replay_gate/summary.json",
+      "runs/m420_conservative_m267_m264_first_replay/summary.json",
+      "runs/m420_conservative_m183_m170_first_replay/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m420-active-set-radius-projection-probe.json"
+    ],
+    "parent_objective": [
+      "design mixed per-case radius profile after medium old-key boundary and conservative utility shortfall"
+    ],
+    "derived_from": [
+      "m420-active-set-radius-projection-probe"
+    ],
+    "blocked_by": [
+      "m420-active-set-radius-projection-probe"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m421-mixed-radius-boundary-design.md",
+  "public_gates": [
+    "design only",
+    "no PPO run",
+    "no projection run",
+    "no checkpoint promotion",
+    "no actor input/output change"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "hypothesis": "A mixed per-case radius profile can preserve the M420 conservative proof pass while recovering more of the M420 medium utility movement by tightening only the active old-key 10023 boundary and loosening non-boundary rows.",
+  "success_criteria": [
+    "identify the exact M420 medium proof-failing row and branch",
+    "define a mixed radius profile with 10023 tightened and non-boundary rows allowed more slack",
+    "pre-register the next export/probe sequence without PPO",
+    "keep primary M420 proof and utility thresholds unchanged"
+  ],
+  "failure_criteria": [
+    "design lowers proof thresholds",
+    "design ignores the M420 medium old-key failure",
+    "design lacks utility-retention criterion",
+    "design requires PPO or actor input changes"
+  ],
+  "commands": [
+    {
+      "name": "mixed_radius_boundary_design",
+      "command": "Design a per-case mixed-radius profile after M420: medium failed only old-key 10023, conservative passed proof but retained only 11.5 percent recovery utility."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m421-mixed-radius-boundary-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m420-active-set-radius-projection-probe.md"
+  ],
+  "decision_rule": "M421 should admit a mixed-radius anchor export/probe only if it preserves all M420 proof thresholds and keeps the primary recovery-retention target at 0.20.",
+  "next_blocker": "pending M421 mixed radius boundary design"
+}
