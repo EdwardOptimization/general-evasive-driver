@@ -2,7 +2,7 @@
   "id": "m334-short-source-diverse-ppo-escalation-design",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -84,6 +84,21 @@
     "docs/m333-full-public-gate-for-m332-a045.md",
     "runs/m333_full_public_gate_for_m332_a045"
   ],
-  "decision_rule": "M334 may only admit a separate short PPO run milestone after registering config, seed, exact repair, source-diverse gate, old-key floor, and first replay gate order. M334 itself cannot promote.",
-  "next_blocker": "pending M334 design"
+  "results": {
+    "registered_config": "configs/ppo_m335_short_source_diverse_escalation.json",
+    "planned_run_milestone": "m335-short-source-diverse-ppo-escalation-run",
+    "planned_init_checkpoint": "runs/m332_m328_to_m330_gap_bounded_interpolation/checkpoints/alpha_0_45.pt",
+    "planned_total_steps": 4096,
+    "planned_rollout_steps": 128,
+    "planned_num_envs": 8,
+    "planned_seed": 5238,
+    "planned_exact_repair_seed": 10099,
+    "old_key_margin_gap_floor": 0.09,
+    "promotion_recommended": false,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m335_short_source_diverse_ppo_escalation_run",
+  "decision_rule": "M334 admits a separate short PPO run milestone after registering config, seed, exact repair, source-diverse gate, old-key floor, and first replay gate order. M334 itself does not promote.",
+  "next_blocker": "m335-short-source-diverse-ppo-escalation-run"
 }

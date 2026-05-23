@@ -1,0 +1,84 @@
+# m334-short-source-diverse-ppo-escalation-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260523T071157Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: admit_m335_short_source_diverse_ppo_escalation_run
+- Decision reason: M334 registers 4096-step short PPO escalation from M333 base with exact repair source-diverse old-key gap floor and first replay gates; no PPO run
+
+## Hypothesis
+
+After M328 and M333 promote two source-diverse smoke-scale PPO proposal directions, the next controlled step is a short PPO escalation from M333 base with exact repair, source-diverse protected proof, old-key gap floor, and first replay gates before any full promotion.
+
+## Lineage
+
+- parent_checkpoint: runs/m332_m328_to_m330_gap_bounded_interpolation/checkpoints/alpha_0_45.pt
+- parent_dataset: runs/m333_full_public_gate_for_m332_a045/exact_eval_vs_m328/summary.json, runs/m333_full_public_gate_for_m332_a045/source_diverse_protected_gate/summary.json, runs/m333_full_public_gate_for_m332_a045/full_gates/critical_key_seed9944/guard_results.csv, runs/m333_full_public_gate_for_m332_a045/full_gates/m183_m170_replay/summary.json, runs/m333_full_public_gate_for_m332_a045/full_gates/m267_m264_replay/summary.json
+- parent_config: experiments/manifests/m333-full-public-gate-for-m332-a045.json, docs/m333-full-public-gate-for-m332-a045.md
+- parent_objective: design a short PPO escalation after two source-diverse smoke-scale PPO proposal directions have been admitted through exact repair and bounded promotion gates
+- derived_from: m333-full-public-gate-for-m332-a045
+- blocked_by: m333-full-public-gate-for-m332-a045
+- supersedes: None
+- invalidates: None
+
+## Success Criteria
+
+- M334 registers a short PPO escalation config and gate order
+- the design names the M333 base checkpoint and planned PPO seed
+- the design keeps exact repair before replay gates
+- the design keeps source-diverse protected and old-key gap-floor checks
+- the design admits a separate run milestone only
+
+## Failure Criteria
+
+- the design would run PPO before registration
+- the design omits exact M297/M270 no-regression
+- the design omits old-key gap floor or source-diverse proof
+- the design changes actor observation inputs
+
+## Evidence Gates
+
+- do not run PPO in M334
+- register a short PPO escalation recipe from M333 base
+- exact M297 and exact M270 no-regression must precede replay gates
+- source-diverse protected gate must pass before first replay gates
+- old 9944 margin gap must remain at least 0.09
+- M183/M170 and M267/M264 first replay gates must pass before full public gate
+- no promotion in M334
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not lengthen PPO without a registered escalation ladder
+- do not lower the old-key gap floor
+- do not promote from a design milestone
+- do not skip exact full-corpus objectives
+- do not change actor inputs
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m334-short-source-diverse-ppo-escalation-design
+- type: infrastructure
+- checkpoint: not_applicable_infrastructure_task
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: admit_m335_short_source_diverse_ppo_escalation_run
+- reason: M334 registers 4096-step short PPO escalation from M333 base with exact repair source-diverse old-key gap floor and first replay gates; no PPO run
+
+## Next Blocker
+
+m335-short-source-diverse-ppo-escalation-run

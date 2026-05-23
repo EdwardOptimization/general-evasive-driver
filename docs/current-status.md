@@ -61,7 +61,7 @@ post-PPO repair before any more PPO acceptance.
 Current blocker:
 
 ```text
-m334-short-source-diverse-ppo-escalation-design
+m335-short-source-diverse-ppo-escalation-run
 ```
 
 M305 implements deterministic exact M297/M270 repair or projection
@@ -122,14 +122,15 @@ acceptance needs exact repair plus a protected-key-bounded trust region.
 Current next task:
 
 ```text
-m334-short-source-diverse-ppo-escalation-design
+m335-short-source-diverse-ppo-escalation-run
 ```
 
 M333 promotes M332 alpha `0.45` as the new source-diverse public-gate base.
 The candidate improves exact M297/M270, passes `4/4` source-diverse gates,
 keeps old `9944` gap `0.090155 >= 0.09`, passes all six replay surfaces, and
-retains behavior seeds 9505/9506. M334 should design the next short PPO
-escalation from this base without running PPO in the design milestone.
+retains behavior seeds 9505/9506. M334 registers the next 4096-step short PPO
+escalation from this base without running PPO; M335 should run it as a
+proposal-only milestone with exact repair and bounded proof gates.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -180,6 +181,7 @@ escalation from this base without running PPO in the design milestone.
 | old-key gap audit | `runs/m331_m330_old_key_gap_floor_audit/summary.json` | M331 classifies M330 as old-key local gap erosion and admits gap-bounded interpolation |
 | gap-bounded interpolation candidate | `runs/m332_m328_to_m330_gap_bounded_interpolation/checkpoints/alpha_0_45.pt` | M332 selects alpha 0.45 after exact/source-diverse/old-key floor and first replay gates pass |
 | current source-diverse public base | `runs/m332_m328_to_m330_gap_bounded_interpolation/checkpoints/alpha_0_45.pt` | M333 promotes alpha 0.45 after exact, source-diverse, replay, old-key gap floor, and behavior gates pass |
+| short PPO escalation config | `configs/ppo_m335_short_source_diverse_escalation.json` | M334 registers 4096-step PPO from M333 base with exact repair and bounded proof gates; no PPO run yet |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -451,10 +453,10 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not jump directly to medium or long PPO after M333. M334 should register a
-short PPO escalation recipe from the M333 base with exact repair,
-source-diverse protected gates, old-key gap floor, first replay gates, and a
-separate full public promotion gate. Do not change actor inputs.
+Do not promote directly from M335. M335 may run short PPO as a proposal only and
+must pass exact repair, source-diverse protected gates, old-key gap floor, and
+M183/M170 plus M267/M264 first replay gates before admitting a separate full
+public promotion gate. Do not change actor inputs.
 
 ## Sensor Profile Policy
 

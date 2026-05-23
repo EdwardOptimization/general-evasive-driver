@@ -1,0 +1,106 @@
+{
+  "id": "m335-short-source-diverse-ppo-escalation-run",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m332_m328_to_m330_gap_bounded_interpolation/checkpoints/alpha_0_45.pt"
+    ],
+    "parent_dataset": [
+      "runs/m320_m316_repaired_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+      "runs/m320_m316_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+      "runs/m320_m314_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+      "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz"
+    ],
+    "parent_config": [
+      "configs/ppo_m335_short_source_diverse_escalation.json",
+      "experiments/manifests/m334-short-source-diverse-ppo-escalation-design.json",
+      "docs/m334-short-source-diverse-ppo-escalation-design.md"
+    ],
+    "parent_objective": [
+      "run short source-diverse protected PPO escalation from M333 base with exact repair and bounded first proof gates"
+    ],
+    "derived_from": [
+      "m334-short-source-diverse-ppo-escalation-design"
+    ],
+    "blocked_by": [
+      "m334-short-source-diverse-ppo-escalation-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m335-short-source-diverse-ppo-escalation-run.md",
+  "public_gates": [
+    "raw PPO is proposal only",
+    "exact M297 and exact M270 no-regression versus M333 after repair",
+    "source-diverse protected replay bundle passes",
+    "old 9944 margin gap remains at least 0.09 or bounded interpolation selects an alpha that does",
+    "M183/M170 first replay gate versus M333",
+    "M267/M264 first replay gate versus M333",
+    "no promotion in M335"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not promote from M335",
+    "do not skip exact repair",
+    "do not skip source-diverse protected gates",
+    "do not lower the old-key gap floor",
+    "do not change actor inputs",
+    "do not tune from private holdouts"
+  ],
+  "hypothesis": "A 4096-step short PPO escalation from the M333 source-diverse public base can provide useful proposal movement while retaining exact objectives, source-diverse protected proof, old-key gap floor, and first replay gates after exact repair or bounded interpolation.",
+  "success_criteria": [
+    "raw PPO completes and writes checkpoint",
+    "exact repair completes",
+    "selected candidate does not regress exact M297 or exact M270 versus M333",
+    "source-diverse protected bundle passes",
+    "old 9944 margin gap is reported and remains at least 0.09 for the selected candidate",
+    "M183/M170 and M267/M264 first replay gates pass",
+    "actor input contract remains unchanged"
+  ],
+  "failure_criteria": [
+    "raw PPO crashes",
+    "exact repair fails or exact objectives regress",
+    "source-diverse protected replay fails",
+    "no endpoint or bounded interpolation candidate keeps old-key margin gap >= 0.09",
+    "first replay gate fails",
+    "actor observation inputs change"
+  ],
+  "commands": [
+    {
+      "name": "m335_short_ppo",
+      "command": "Run 4096-step PPO from M333 base using configs/ppo_m335_short_source_diverse_escalation.json."
+    },
+    {
+      "name": "m335_exact_repair",
+      "command": "Run exact_post_ppo_repair from the raw PPO proposal with M333 base."
+    },
+    {
+      "name": "m335_source_diverse_old_key_and_first_gates",
+      "command": "Run source-diverse protected gate, old-key gap-floor diagnostic or bounded interpolation, and M183/M170 plus M267/M264 first replay gates."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m335-short-source-diverse-ppo-escalation-run.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m332_m328_to_m330_gap_bounded_interpolation/checkpoints/alpha_0_45.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m334-short-source-diverse-ppo-escalation-design.md",
+    "configs/ppo_m335_short_source_diverse_escalation.json",
+    "docs/m333-full-public-gate-for-m332-a045.md"
+  ],
+  "decision_rule": "M335 may only admit a full public gate if a selected repaired or bounded-interpolation candidate passes exact objectives, source-diverse protected gates, old-key margin-gap floor, and first replay gates. M335 itself cannot promote.",
+  "next_blocker": "pending M335 short PPO escalation run"
+}

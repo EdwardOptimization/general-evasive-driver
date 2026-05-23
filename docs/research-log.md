@@ -8974,3 +8974,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M333 promotes M332 alpha `0.45`. Exact M297/M270 improve by `-0.000056148` and `-0.000036240`; source-diverse protected gates pass `4/4`; old `9944` keeps margin gap `0.090155 >= 0.09`; all six replay surfaces pass; behavior seeds 9505 and 9506 retain `0.8625` success with reset `0.85` and zero-all `0.80`.
 - decision: `promote_m332_a045_source_diverse_public_gate_base`
 - next: `m334-short-source-diverse-ppo-escalation-design`
+
+## 20260523T071145Z - m334-short-source-diverse-ppo-escalation-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `configs/ppo_m335_short_source_diverse_escalation.json`
+- artifact: `docs/m334-short-source-diverse-ppo-escalation-design.md`
+- result: M334 registers `configs/ppo_m335_short_source_diverse_escalation.json`, a 4096-step short PPO escalation from the M333 public base with seed `5238`. Acceptance remains proof-first: raw PPO is proposal-only, exact M297/M270 repair precedes replay, source-diverse protected gates and old-key `0.09` gap floor are required, and M183/M170 plus M267/M264 first replay gates must pass before any full public gate.
+- decision: `admit_m335_short_source_diverse_ppo_escalation_run`
+- next: `m335-short-source-diverse-ppo-escalation-run`
