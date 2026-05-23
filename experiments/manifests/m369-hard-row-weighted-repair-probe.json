@@ -1,0 +1,94 @@
+{
+  "id": "m369-hard-row-weighted-repair-probe",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m364_old_key_aware_repair_interpolation/checkpoints/alpha_0_1.pt",
+      "runs/m364_old_key_aware_repair_interpolation/checkpoints/alpha_0_2.pt"
+    ],
+    "parent_dataset": [
+      "runs/m368_old_key_preference_corpus_hard_row/old_key_preference_corpus.npz",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m368-old-key-hard-row-feedback-implementation.json"
+    ],
+    "parent_objective": [
+      "probe whether hard-row branch weights can repair the M366 alpha 0.2 wrong-history sign crossing without PPO"
+    ],
+    "derived_from": [
+      "m368-old-key-hard-row-feedback-implementation"
+    ],
+    "blocked_by": [
+      "m368-old-key-hard-row-feedback-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m369-hard-row-weighted-repair-probe.md",
+  "public_gates": [
+    "no PPO run",
+    "exact M297/M270 no-regression",
+    "weighted old-key surrogate no-regression",
+    "old-key neighborhood targeted replay and replay-gate adapter",
+    "source-diverse protected gates if old-key replay passes",
+    "M183/M170 and M267/M264 first replay gates if proof gates pass",
+    "preserve actor input contract"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not promote directly",
+    "do not run PPO",
+    "do not lower old-key replay thresholds",
+    "do not skip closed-loop old-key replay",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "Hard-row weighted old-key repair can recover or enlarge the alpha 0.2 direction by increasing wrong-history pressure on the M366 sign-crossing row while preserving exact M297/M270 and old-key surrogate gates.",
+  "success_criteria": [
+    "hard-row weighted repair candidate passes exact M297/M270 and weighted old-key surrogate gates",
+    "closed-loop old-key replay has zero accepted regressions at an alpha greater than 0.1 or exposes a stronger repair candidate",
+    "source-diverse and first replay gates are run if old-key replay passes",
+    "failure is classified if the weighted surrogate remains insensitive to the terminal sign crossing",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "hard-row weighted repair cannot move beyond alpha 0.1 without old-key replay failure",
+    "exact objectives regress",
+    "weighted old-key surrogate is insensitive to the M366 hard row",
+    "actor input contract changes",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "hard_row_weighted_repair",
+      "command": "Run exact_post_ppo_repair with the M368 hard-row weighted old-key corpus and no PPO."
+    },
+    {
+      "name": "old_key_replay_gate",
+      "command": "Run old_key_neighborhood_targeted_replay and old_key_neighborhood_replay_gate for any exact-feasible candidate."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m369-hard-row-weighted-repair-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m364_old_key_aware_repair_interpolation/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m368-old-key-hard-row-feedback-implementation.md",
+    "runs/m368_old_key_preference_corpus_hard_row/summary.json",
+    "runs/m368_hard_row_repair_smoke/summary.json"
+  ],
+  "decision_rule": "M369 completes by running a no-PPO hard-row weighted repair probe, checking closed-loop old-key replay for feasible candidates, classifying the result, and registering the next blocker.",
+  "next_blocker": "pending M369 hard-row weighted repair probe"
+}

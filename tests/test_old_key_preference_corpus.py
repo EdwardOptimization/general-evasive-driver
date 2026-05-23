@@ -2,6 +2,8 @@ import numpy as np
 import pytest
 
 from autodrift.old_key_preference_corpus import (
+    load_hard_row_overlay,
+    old_key_case_id,
     old_key_preference_arrays,
     old_key_preference_metadata,
     old_key_preference_weight,
@@ -13,6 +15,7 @@ from autodrift.old_key_preference_corpus import (
 def _example(row_id=0, target_index=0):
     return {
         "row_id": row_id,
+        "case_id": f"case-{row_id}|8.000000|1.500000|1.000000",
         "key": f"case-{row_id}",
         "seed": 9900 + row_id,
         "source_condition": "perturbed",
@@ -64,6 +67,26 @@ def test_arrays_validate_and_preserve_contract():
     assert contract.groups == 2
     assert contract.targets == 2
     assert contract.student_input_arrays == ("observation", "preferred_hidden", "rejected_hidden")
+    assert "hard_row" not in arrays
+
+
+def test_hard_row_arrays_are_optional_and_validated():
+    hard = _example(1, 0)
+    hard.update(
+        {
+            "hard_row": True,
+            "hard_weight_multiplier": 8.0,
+            "preferred_branch_weight_multiplier": 1.0,
+            "wrong_branch_weight_multiplier": 16.0,
+        }
+    )
+    arrays = old_key_preference_arrays([_example(0, 0), hard])
+    contract = validate_old_key_preference_arrays(arrays, obs_dim=72, hidden_dim=4, act_dim=3)
+
+    assert contract.rows == 2
+    assert arrays["hard_row"].tolist() == [0, 1]
+    assert arrays["preferred_branch_weight"].tolist() == [1.0, 1.0]
+    assert arrays["wrong_branch_weight"].tolist() == [1.0, 16.0]
 
 
 def test_metadata_drops_tensor_payloads():
@@ -72,6 +95,25 @@ def test_metadata_drops_tensor_payloads():
     assert "observation" not in metadata.columns
     assert "preferred_hidden" not in metadata.columns
     assert metadata.loc[0, "student_input_contract"] == "observation plus deployable recurrent hidden states"
+
+
+def test_hard_row_overlay_loader_and_case_id(tmp_path):
+    overlay = tmp_path / "overlay.csv"
+    overlay.write_text(
+        "\n".join(
+            [
+                "case_id,hard_row,hard_row_reason,hard_weight_multiplier,wrong_branch_weight_multiplier,preferred_branch_weight_multiplier,reference_wrong_history_margin,candidate_wrong_history_margin,candidate_accepted_regression",
+                "case-1|8.000000|1.500000|1.000000,true,wrong_history_margin_sign_crossing,8,16,1,-0.1,0.01,true",
+            ]
+        )
+        + "\n"
+    )
+
+    loaded = load_hard_row_overlay(overlay)
+
+    assert old_key_case_id(_example(1)) == "case-1|8.000000|1.500000|1.000000"
+    assert loaded["case-1|8.000000|1.500000|1.000000"]["hard_row"] is True
+    assert loaded["case-1|8.000000|1.500000|1.000000"]["wrong_branch_weight_multiplier"] == 16.0
 
 
 def test_write_old_key_preference_corpus(tmp_path):

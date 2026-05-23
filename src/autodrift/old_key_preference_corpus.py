@@ -46,7 +46,21 @@ REQUIRED_ARRAYS = (
     "group_index",
     "target_index",
 )
+OPTIONAL_ARRAYS = (
+    "hard_row",
+    "preferred_branch_weight",
+    "wrong_branch_weight",
+)
 STUDENT_INPUT_ARRAYS = ("observation", "preferred_hidden", "rejected_hidden")
+
+HARD_ROW_OVERLAY_COLUMNS = (
+    "case_id",
+    "hard_row",
+    "hard_row_reason",
+    "hard_weight_multiplier",
+    "wrong_branch_weight_multiplier",
+    "preferred_branch_weight_multiplier",
+)
 
 
 @dataclass(frozen=True)
@@ -109,12 +123,73 @@ def _target_key(row: pd.Series) -> str:
     )
 
 
+def old_key_case_id(row: pd.Series | dict[str, Any]) -> str:
+    return "{key}|{distance:.6f}|{lateral:.6f}|{half_width:.6f}".format(
+        key=str(row["key"]),
+        distance=float(row["target_obstacle_distance"]),
+        lateral=float(row["relocated_obstacle_body_y"]),
+        half_width=float(row["relocated_obstacle_half_width"]),
+    )
+
+
+def _bool_value(value: Any) -> bool:
+    if isinstance(value, bool):
+        return value
+    return str(value).strip().lower() in {"1", "true", "yes", "y"}
+
+
+def load_hard_row_overlay(path: Path | str | None) -> dict[str, dict[str, Any]]:
+    """Load optional hard-row feedback keyed by old-key case id."""
+
+    if path is None:
+        return {}
+    frame = pd.read_csv(path)
+    _require_columns(frame, HARD_ROW_OVERLAY_COLUMNS, label="hard-row overlay")
+    overlay: dict[str, dict[str, Any]] = {}
+    for _, row in frame.iterrows():
+        case_id = str(row["case_id"])
+        if not case_id:
+            raise ValueError("hard-row overlay contains an empty case_id")
+        if case_id in overlay:
+            raise ValueError(f"hard-row overlay contains duplicate case_id {case_id!r}")
+        hard_weight = float(row["hard_weight_multiplier"])
+        wrong_weight = float(row["wrong_branch_weight_multiplier"])
+        preferred_weight = float(row["preferred_branch_weight_multiplier"])
+        if hard_weight < 0.0 or wrong_weight < 0.0 or preferred_weight < 0.0:
+            raise ValueError("hard-row overlay multipliers must be non-negative")
+        overlay[case_id] = {
+            "case_id": case_id,
+            "hard_row": _bool_value(row["hard_row"]),
+            "hard_row_reason": str(row["hard_row_reason"]),
+            "hard_weight_multiplier": hard_weight,
+            "wrong_branch_weight_multiplier": wrong_weight,
+            "preferred_branch_weight_multiplier": preferred_weight,
+            "reference_wrong_history_margin": (
+                float(row["reference_wrong_history_margin"])
+                if "reference_wrong_history_margin" in frame.columns and pd.notna(row["reference_wrong_history_margin"])
+                else float("nan")
+            ),
+            "candidate_wrong_history_margin": (
+                float(row["candidate_wrong_history_margin"])
+                if "candidate_wrong_history_margin" in frame.columns and pd.notna(row["candidate_wrong_history_margin"])
+                else float("nan")
+            ),
+            "candidate_accepted_regression": (
+                _bool_value(row["candidate_accepted_regression"])
+                if "candidate_accepted_regression" in frame.columns
+                else False
+            ),
+        }
+    return overlay
+
+
 def build_old_key_preference_examples(
     *,
     model: ActorCritic,
     compact: pd.DataFrame,
     manifest: dict[str, Any],
     device: torch.device,
+    hard_row_overlay: dict[str, dict[str, Any]] | None = None,
 ) -> list[dict[str, Any]]:
     """Build old-key preference examples from compact rows and reconstructed snapshots."""
 
@@ -159,6 +234,7 @@ def build_old_key_preference_examples(
             )
 
     target_to_index = {key: index for index, key in enumerate(sorted({_target_key(row) for _, row in compact.iterrows()}))}
+    overlay = hard_row_overlay or {}
     examples: list[dict[str, Any]] = []
     for row_id, row in compact.reset_index(drop=True).iterrows():
         seed = int(row["seed"])
@@ -194,9 +270,16 @@ def build_old_key_preference_examples(
         normal_success = bool(normal_margin > 0.0)
         wrong_success = bool(wrong_margin > 0.0)
         target_key = _target_key(row)
+        case_id = old_key_case_id(row)
+        hard = overlay.get(case_id, {})
+        hard_row = bool(hard.get("hard_row", False))
+        hard_weight_multiplier = float(hard.get("hard_weight_multiplier", 1.0))
+        preferred_branch_weight = float(hard.get("preferred_branch_weight_multiplier", 1.0))
+        wrong_branch_weight = float(hard.get("wrong_branch_weight_multiplier", 1.0))
         examples.append(
             {
                 "row_id": int(row_id),
+                "case_id": case_id,
                 "key": str(row["key"]),
                 "seed": seed,
                 "source_condition": source,
@@ -218,7 +301,20 @@ def build_old_key_preference_examples(
                 "weight": old_key_preference_weight(
                     reference_margin_gap=margin_gap,
                     reference_normal_margin=normal_margin,
+                )
+                * hard_weight_multiplier,
+                "hard_row": hard_row,
+                "hard_row_reason": str(hard.get("hard_row_reason", "")),
+                "hard_weight_multiplier": hard_weight_multiplier,
+                "preferred_branch_weight_multiplier": preferred_branch_weight,
+                "wrong_branch_weight_multiplier": wrong_branch_weight,
+                "reference_wrong_history_margin": float(
+                    hard.get("reference_wrong_history_margin", wrong_margin)
                 ),
+                "candidate_wrong_history_margin": float(
+                    hard.get("candidate_wrong_history_margin", float("nan"))
+                ),
+                "candidate_accepted_regression": bool(hard.get("candidate_accepted_regression", False)),
                 "student_input_contract": "observation plus deployable recurrent hidden states",
                 "observation": np.asarray(relocated.observation, dtype=np.float32).copy(),
                 "preferred_hidden": _hidden_array(model, preferred_hidden, device),
@@ -233,7 +329,7 @@ def build_old_key_preference_examples(
 def old_key_preference_arrays(examples: list[dict[str, Any]]) -> dict[str, np.ndarray]:
     if not examples:
         return {}
-    return {
+    arrays = {
         "observation": np.stack([example["observation"] for example in examples]).astype(np.float32),
         "preferred_hidden": np.stack([example["preferred_hidden"] for example in examples]).astype(np.float32),
         "rejected_hidden": np.stack([example["rejected_hidden"] for example in examples]).astype(np.float32),
@@ -250,6 +346,27 @@ def old_key_preference_arrays(examples: list[dict[str, Any]]) -> dict[str, np.nd
         "group_index": np.asarray([example["group_index"] for example in examples], dtype=np.int64),
         "target_index": np.asarray([example["target_index"] for example in examples], dtype=np.int64),
     }
+    uses_branch_weights = any(
+        bool(example.get("hard_row", False))
+        or float(example.get("preferred_branch_weight_multiplier", 1.0)) != 1.0
+        or float(example.get("wrong_branch_weight_multiplier", 1.0)) != 1.0
+        for example in examples
+    )
+    if uses_branch_weights:
+        arrays.update(
+            {
+                "hard_row": np.asarray([bool(example.get("hard_row", False)) for example in examples], dtype=np.int64),
+                "preferred_branch_weight": np.asarray(
+                    [example.get("preferred_branch_weight_multiplier", 1.0) for example in examples],
+                    dtype=np.float32,
+                ),
+                "wrong_branch_weight": np.asarray(
+                    [example.get("wrong_branch_weight_multiplier", 1.0) for example in examples],
+                    dtype=np.float32,
+                ),
+            }
+        )
+    return arrays
 
 
 def old_key_preference_metadata(examples: list[dict[str, Any]]) -> pd.DataFrame:
@@ -291,6 +408,16 @@ def validate_old_key_preference_arrays(
             raise ValueError(f"{name} row count {value.shape[0]} does not match {rows}")
         if name not in {"row_id", "group_index", "target_index"} and not np.all(np.isfinite(value)):
             raise ValueError(f"{name} must be finite")
+    for name in OPTIONAL_ARRAYS:
+        if name not in arrays:
+            continue
+        value = np.asarray(arrays[name])
+        if value.shape != (rows,):
+            raise ValueError(f"{name} must have shape ({rows},), got {value.shape}")
+        if name != "hard_row" and not np.all(np.isfinite(value)):
+            raise ValueError(f"{name} must be finite")
+        if name != "hard_row" and np.any(value < 0.0):
+            raise ValueError(f"{name} must be non-negative")
     weight = np.asarray(arrays["weight"], dtype=np.float32)
     if np.any(weight < 0.0) or float(np.max(weight)) <= 0.0:
         raise ValueError("old-key preference weights must contain at least one positive non-negative value")
@@ -332,6 +459,7 @@ def write_old_key_preference_corpus(
         "old_key_preference_corpus_npz": npz_path,
         "old_key_preference_corpus_csv": metadata_path,
         "contract": asdict(contract),
+        "hard_rows": int(np.asarray(arrays.get("hard_row", np.zeros(contract.rows, dtype=np.int64))).sum()),
         "actor_inputs_changed": False,
         "ppo_or_actor_update_run": False,
     }
@@ -344,6 +472,7 @@ def export_old_key_preference_corpus(
     reference_manifest: Path,
     compact_corpus_csv: Path,
     base_checkpoint: Path,
+    hard_row_overlay_csv: Path | None,
     run_dir: Path,
     device: str,
 ) -> dict[str, Any]:
@@ -357,6 +486,7 @@ def export_old_key_preference_corpus(
         compact=compact,
         manifest=manifest,
         device=resolved_device,
+        hard_row_overlay=load_hard_row_overlay(hard_row_overlay_csv),
     )
     summary = write_old_key_preference_corpus(
         examples=examples,
@@ -369,6 +499,7 @@ def export_old_key_preference_corpus(
         {
             "reference_manifest": reference_manifest,
             "compact_corpus_csv": compact_corpus_csv,
+            "hard_row_overlay_csv": hard_row_overlay_csv,
             "base_checkpoint": base_checkpoint,
             "device": str(resolved_device),
         }
@@ -382,6 +513,7 @@ def main() -> None:
     parser.add_argument("--reference-manifest", type=Path, required=True)
     parser.add_argument("--compact-corpus-csv", type=Path, required=True)
     parser.add_argument("--base-checkpoint", type=Path, required=True)
+    parser.add_argument("--hard-row-overlay-csv", type=Path, default=None)
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="cpu")
     parser.add_argument("--run-dir", type=Path, default=None)
     args = parser.parse_args()
@@ -391,6 +523,7 @@ def main() -> None:
         reference_manifest=args.reference_manifest,
         compact_corpus_csv=args.compact_corpus_csv,
         base_checkpoint=args.base_checkpoint,
+        hard_row_overlay_csv=args.hard_row_overlay_csv,
         device=args.device,
         run_dir=run_dir,
     )

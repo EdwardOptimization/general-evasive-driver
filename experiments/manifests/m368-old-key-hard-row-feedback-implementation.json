@@ -62,6 +62,14 @@
     {
       "name": "focused_tests",
       "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_old_key_preference_corpus.py tests/test_exact_post_ppo_repair.py"
+    },
+    {
+      "name": "weighted_old_key_corpus_export",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.old_key_preference_corpus --reference-manifest runs/m341_old_key_neighborhood_block_a_seed9860/manifest.json --compact-corpus-csv runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv --base-checkpoint runs/m364_old_key_aware_repair_interpolation/checkpoints/alpha_0_1.pt --hard-row-overlay-csv runs/m368_hard_row_overlay/hard_row_overlay.csv --device cpu --run-dir runs/m368_old_key_preference_corpus_hard_row"
+    },
+    {
+      "name": "hard_row_repair_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.exact_post_ppo_repair --base-checkpoint runs/m364_old_key_aware_repair_interpolation/checkpoints/alpha_0_1.pt --raw-checkpoint runs/m364_old_key_aware_repair_interpolation/checkpoints/alpha_0_2.pt --preference-npz runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz --outcome-npz runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz --old-key-preference-npz runs/m368_old_key_preference_corpus_hard_row/old_key_preference_corpus.npz --device cpu --start-mode line_search_boundary --line-search-alphas 0,0.25,0.5,1.0 --steps 0 --exact-old-key-tolerance 1e-6 --seed 10107 --run-dir runs/m368_hard_row_repair_smoke"
     }
   ],
   "required_artifacts": [
@@ -84,6 +92,34 @@
   "baseline_artifacts": [
     "docs/m367-old-key-hard-row-weighting-design.md"
   ],
+  "results": {
+    "code_files": [
+      "src/autodrift/old_key_preference_corpus.py",
+      "src/autodrift/intervention_objectives.py",
+      "src/autodrift/exact_post_ppo_repair.py"
+    ],
+    "test_files": [
+      "tests/test_old_key_preference_corpus.py",
+      "tests/test_exact_post_ppo_repair.py"
+    ],
+    "hard_row_overlay_csv": "runs/m368_hard_row_overlay/hard_row_overlay.csv",
+    "weighted_old_key_corpus_run_dir": "runs/m368_old_key_preference_corpus_hard_row",
+    "weighted_old_key_corpus_npz": "runs/m368_old_key_preference_corpus_hard_row/old_key_preference_corpus.npz",
+    "weighted_old_key_rows": 40,
+    "hard_rows": 1,
+    "wrong_branch_weight_sum": 55.0,
+    "preferred_branch_weight_sum": 40.0,
+    "repair_smoke_run_dir": "runs/m368_hard_row_repair_smoke",
+    "repair_smoke_old_key_rows": 40,
+    "repair_smoke_exact_lexicographic_pass": true,
+    "repair_smoke_steps": 0,
+    "focused_tests": "14 passed",
+    "compileall": "passed",
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m369_hard_row_weighted_repair_probe",
   "decision_rule": "M368 completes when hard-row overlay support is implemented, tested, documented, and a no-PPO probe milestone is registered.",
-  "next_blocker": "pending M368 hard-row feedback implementation"
+  "next_blocker": "m369-hard-row-weighted-repair-probe"
 }

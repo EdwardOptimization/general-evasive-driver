@@ -9314,3 +9314,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M367 designs hard-row feedback for old-key repair. It defines an optional overlay CSV keyed by `case_id`, with hard-row metadata and branch-weight multipliers. The design keeps closed-loop old-key replay as the authoritative gate, keeps actor inputs unchanged, and recommends stronger wrong-history/rejected-action pressure for the M366 sign-crossing row instead of lowering thresholds.
 - decision: `admit_m368_old_key_hard_row_feedback_implementation`
 - next: `m368-old-key-hard-row-feedback-implementation`
+
+## 20260523T115849Z - m368-old-key-hard-row-feedback-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m368_hard_row_repair_smoke`
+- artifact: `docs/m368-old-key-hard-row-feedback-implementation.md`
+- result: M368 implements hard-row overlay and branch-weight support for the old-key preference corpus and exact repair surrogate. It exports a weighted 40-row old-key corpus with one hard row, `wrong_branch_weight` sum `55.0`, and `preferred_branch_weight` sum `40.0`. A no-update exact repair smoke reads the weighted corpus and passes exact M297/M270/old-key lexicographic checks. Actor inputs remain unchanged.
+- decision: `admit_m369_hard_row_weighted_repair_probe`
+- next: `m369-hard-row-weighted-repair-probe`

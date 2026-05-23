@@ -113,6 +113,8 @@ def exact_snippet_action_anchor_loss(
 def exact_preference_action_anchor_loss(
     model: torch.nn.Module,
     snippets: RejectedHistoryPreferenceSnippets,
+    *,
+    branch_weighted: bool = False,
 ) -> torch.Tensor:
     indices = torch.arange(snippets.size, device=snippets.observation.device)
     observation = snippets.observation[indices]
@@ -124,7 +126,28 @@ def exact_preference_action_anchor_loss(
     rejected_error = torch.square(
         torch.tanh(rejected_dist.mean) - snippets.rejected_action[indices].detach()
     ).mean(dim=-1)
+    if branch_weighted:
+        preferred_weight, wrong_weight = _old_key_branch_weights(snippets, indices)
+        return weighted_mean(
+            preferred_weight.detach() * preferred_error + wrong_weight.detach() * rejected_error,
+            snippets.weight.detach(),
+        )
     return weighted_mean(0.5 * (preferred_error + rejected_error), snippets.weight.detach())
+
+
+def _old_key_branch_weights(
+    snippets: RejectedHistoryPreferenceSnippets,
+    indices: torch.Tensor,
+) -> tuple[torch.Tensor, torch.Tensor]:
+    if snippets.preferred_branch_weight is None:
+        preferred = torch.ones_like(snippets.weight[indices])
+    else:
+        preferred = snippets.preferred_branch_weight[indices]
+    if snippets.wrong_branch_weight is None:
+        wrong = torch.ones_like(snippets.weight[indices])
+    else:
+        wrong = snippets.wrong_branch_weight[indices]
+    return preferred, wrong
 
 
 def exact_old_key_surrogate_terms(
@@ -132,8 +155,33 @@ def exact_old_key_surrogate_terms(
     snippets: RejectedHistoryPreferenceSnippets,
     config: ExactRepairConfig,
 ) -> dict[str, torch.Tensor]:
-    preference = exact_rejected_history_preference_loss(model, snippets, config.old_key_preference)
-    anchor = exact_preference_action_anchor_loss(model, snippets)
+    if snippets.preferred_branch_weight is None and snippets.wrong_branch_weight is None:
+        preference = exact_rejected_history_preference_loss(model, snippets, config.old_key_preference)
+        anchor = exact_preference_action_anchor_loss(model, snippets)
+        surrogate = preference + float(config.lambda_old_key_anchor) * anchor
+        return {
+            "old_key_surrogate_loss": surrogate,
+            "old_key_preference_loss": preference,
+            "old_key_action_anchor_loss": anchor,
+        }
+    indices = torch.arange(snippets.size, device=snippets.observation.device)
+    components = rejected_history_preference_components(
+        model,
+        snippets,
+        indices,
+        preferred_logprob_margin=config.old_key_preference.preferred_logprob_margin,
+        wrong_logprob_margin=config.old_key_preference.wrong_logprob_margin,
+        wrong_preference_coef=1.0,
+    )
+    preferred_weight, wrong_weight = _old_key_branch_weights(snippets, indices)
+    preference = weighted_mean(
+        preferred_weight.detach() * components["preferred_separation"]
+        + float(config.old_key_preference.wrong_preference_coef)
+        * wrong_weight.detach()
+        * components["wrong_preference"],
+        snippets.weight.detach(),
+    )
+    anchor = exact_preference_action_anchor_loss(model, snippets, branch_weighted=True)
     surrogate = preference + float(config.lambda_old_key_anchor) * anchor
     return {
         "old_key_surrogate_loss": surrogate,

@@ -52,6 +52,9 @@ class RejectedHistoryPreferenceSnippets:
     row_id: torch.Tensor
     group_index: torch.Tensor
     target_index: torch.Tensor
+    hard_row: torch.Tensor | None = None
+    preferred_branch_weight: torch.Tensor | None = None
+    wrong_branch_weight: torch.Tensor | None = None
 
     @property
     def size(self) -> int:
@@ -298,7 +301,29 @@ def load_rejected_history_preference_snippets(
         "group_index": np.asarray(data["group_index"], dtype=np.int64),
         "target_index": np.asarray(data["target_index"], dtype=np.int64),
     }
+    optional_float_arrays = {
+        name: np.asarray(data[name], dtype=np.float32)
+        for name in ("preferred_branch_weight", "wrong_branch_weight")
+        if name in data.files
+    }
+    optional_int_arrays = {
+        "hard_row": np.asarray(data["hard_row"], dtype=np.int64)
+        if "hard_row" in data.files
+        else None
+    }
     for name, value in {**float_arrays, **int_arrays}.items():
+        if value.ndim != 1 or int(value.shape[0]) != rows:
+            raise ValueError(f"{name} must have shape (N,), got {value.shape}")
+    for name, value in optional_float_arrays.items():
+        if value.ndim != 1 or int(value.shape[0]) != rows:
+            raise ValueError(f"{name} must have shape (N,), got {value.shape}")
+        if not np.all(np.isfinite(value)):
+            raise ValueError(f"{name} must be finite")
+        if np.any(value < 0.0):
+            raise ValueError(f"{name} must be non-negative")
+    for name, value in optional_int_arrays.items():
+        if value is None:
+            continue
         if value.ndim != 1 or int(value.shape[0]) != rows:
             raise ValueError(f"{name} must have shape (N,), got {value.shape}")
     for name, value in {
@@ -331,6 +356,21 @@ def load_rejected_history_preference_snippets(
         row_id=torch.as_tensor(int_arrays["row_id"], dtype=torch.long, device=device),
         group_index=torch.as_tensor(int_arrays["group_index"], dtype=torch.long, device=device),
         target_index=torch.as_tensor(int_arrays["target_index"], dtype=torch.long, device=device),
+        hard_row=(
+            torch.as_tensor(optional_int_arrays["hard_row"], dtype=torch.long, device=device)
+            if optional_int_arrays["hard_row"] is not None
+            else None
+        ),
+        preferred_branch_weight=(
+            torch.as_tensor(optional_float_arrays["preferred_branch_weight"], dtype=torch.float32, device=device)
+            if "preferred_branch_weight" in optional_float_arrays
+            else None
+        ),
+        wrong_branch_weight=(
+            torch.as_tensor(optional_float_arrays["wrong_branch_weight"], dtype=torch.float32, device=device)
+            if "wrong_branch_weight" in optional_float_arrays
+            else None
+        ),
     )
 
 

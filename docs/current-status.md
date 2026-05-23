@@ -55,7 +55,7 @@ old-key failure.
 Current blocker:
 
 ```text
-m368-old-key-hard-row-feedback-implementation
+m369-hard-row-weighted-repair-probe
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -101,7 +101,11 @@ regression, but interpolation alpha `0.1` passes old-key, source-diverse, and
 first replay gates. M365 promotes alpha `0.1` after the full public gate passes.
 M366 audits the alpha `0.2` failure and finds a single wrong-history
 terminal-margin sign crossing, not normal-branch regression. M367 designs a
-hard-row overlay and branch-weight feedback path for old-key repair.
+hard-row overlay and branch-weight feedback path for old-key repair. M368
+implements that path, exports a 40-row weighted old-key corpus with one hard
+row, and verifies no-update exact repair integration without changing actor
+inputs. M369 is the next no-PPO proof probe: actually attempt hard-row weighted
+repair and then check closed-loop old-key replay.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

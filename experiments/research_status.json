@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 376,
+        "completed": 377,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m367-old-key-hard-row-weighting-design",
+        "task_id": "m368-old-key-hard-row-feedback-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m367-old-key-hard-row-weighting-design.md"
+        "run_dir": "runs/m368_hard_row_repair_smoke",
+        "command_log": "docs/m368-old-key-hard-row-feedback-implementation.md"
     },
     "next_task": {
-        "id": "m368-old-key-hard-row-feedback-implementation",
+        "id": "m369-hard-row-weighted-repair-probe",
         "status": "pending",
-        "priority": 3630,
-        "kind": "infrastructure",
-        "hypothesis": "Implement old-key hard-row overlay and branch weights",
-        "command": "see experiments/manifests/m368-old-key-hard-row-feedback-implementation.json",
+        "priority": 3640,
+        "kind": "gate",
+        "hypothesis": "Probe hard-row weighted repair against the M366 alpha 0.2 wrong-history sign crossing",
+        "command": "see experiments/manifests/m369-hard-row-weighted-repair-probe.json",
         "success_artifact": "",
-        "notes": "Pending: add hard-row overlay support to old-key corpus and exact repair surrogate"
+        "notes": "Pending: run no-PPO hard-row weighted exact repair and closed-loop old-key replay"
     },
-    "updated_at_utc": "20260523T115045Z"
+    "updated_at_utc": "20260523T115849Z"
 }

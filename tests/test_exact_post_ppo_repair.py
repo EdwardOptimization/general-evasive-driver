@@ -43,31 +43,36 @@ class _TinyRecurrentPolicy(torch.nn.Module):
         return Normal(mean, scale), None, hidden
 
 
-def _write_preference_npz(path):
-    np.savez(
-        path,
-        observation=np.zeros((3, 72), dtype=np.float32),
-        preferred_hidden=np.asarray(
+def _preference_arrays():
+    return {
+        "observation": np.zeros((3, 72), dtype=np.float32),
+        "preferred_hidden": np.asarray(
             [[0.7, 0.0, 0.0, 0.1], [0.6, 0.1, 0.0, 0.2], [0.5, 0.0, 0.1, 0.3]],
             dtype=np.float32,
         ),
-        rejected_hidden=np.asarray(
+        "rejected_hidden": np.asarray(
             [[-0.7, 0.0, 0.0, 0.1], [-0.6, -0.1, 0.0, 0.2], [-0.5, 0.0, -0.1, 0.3]],
             dtype=np.float32,
         ),
-        preferred_action=np.asarray([[0.5, 0.0, 0.0], [0.4, 0.1, 0.0], [0.35, 0.0, 0.1]], dtype=np.float32),
-        rejected_action=np.asarray([[-0.5, 0.0, 0.0], [-0.4, -0.1, 0.0], [-0.35, 0.0, -0.1]], dtype=np.float32),
-        preferred_score=np.asarray([1.02, 1.01, 1.03], dtype=np.float32),
-        rejected_score=np.asarray([-0.01, -0.02, -0.03], dtype=np.float32),
-        score_delta=np.asarray([1.03, 1.03, 1.06], dtype=np.float32),
-        normal_margin=np.asarray([0.02, 0.01, 0.03], dtype=np.float32),
-        wrong_history_margin=np.asarray([-0.01, -0.02, -0.03], dtype=np.float32),
-        margin_floor=np.asarray([-0.01, -0.02, -0.03], dtype=np.float32),
-        weight=np.asarray([1.0, 2.0, 3.0], dtype=np.float32),
-        row_id=np.asarray([6, 11, 16], dtype=np.int64),
-        group_index=np.asarray([0, 1, 2], dtype=np.int64),
-        target_index=np.asarray([0, 0, 1], dtype=np.int64),
-    )
+        "preferred_action": np.asarray([[0.5, 0.0, 0.0], [0.4, 0.1, 0.0], [0.35, 0.0, 0.1]], dtype=np.float32),
+        "rejected_action": np.asarray([[-0.5, 0.0, 0.0], [-0.4, -0.1, 0.0], [-0.35, 0.0, -0.1]], dtype=np.float32),
+        "preferred_score": np.asarray([1.02, 1.01, 1.03], dtype=np.float32),
+        "rejected_score": np.asarray([-0.01, -0.02, -0.03], dtype=np.float32),
+        "score_delta": np.asarray([1.03, 1.03, 1.06], dtype=np.float32),
+        "normal_margin": np.asarray([0.02, 0.01, 0.03], dtype=np.float32),
+        "wrong_history_margin": np.asarray([-0.01, -0.02, -0.03], dtype=np.float32),
+        "margin_floor": np.asarray([-0.01, -0.02, -0.03], dtype=np.float32),
+        "weight": np.asarray([1.0, 2.0, 3.0], dtype=np.float32),
+        "row_id": np.asarray([6, 11, 16], dtype=np.int64),
+        "group_index": np.asarray([0, 1, 2], dtype=np.int64),
+        "target_index": np.asarray([0, 0, 1], dtype=np.int64),
+    }
+
+
+def _write_preference_npz(path, **extra_arrays):
+    arrays = _preference_arrays()
+    arrays.update(extra_arrays)
+    np.savez(path, **arrays)
 
 
 def _write_outcome_npz(path):
@@ -300,3 +305,47 @@ def test_old_key_surrogate_terms_and_hinge(tmp_path):
 
     assert terms["hinge_old_key"].item() == pytest.approx(0.0)
     assert terms["old_key_surrogate_loss"].item() == pytest.approx(base_old_key)
+
+
+def test_old_key_surrogate_uses_optional_branch_weights(tmp_path):
+    unweighted_npz = tmp_path / "unweighted.npz"
+    weighted_npz = tmp_path / "weighted.npz"
+    outcome_npz = tmp_path / "outcome.npz"
+    _write_preference_npz(unweighted_npz)
+    _write_preference_npz(
+        weighted_npz,
+        hard_row=np.asarray([0, 1, 0], dtype=np.int64),
+        preferred_branch_weight=np.asarray([1.0, 1.0, 1.0], dtype=np.float32),
+        wrong_branch_weight=np.asarray([1.0, 16.0, 1.0], dtype=np.float32),
+    )
+    _write_outcome_npz(outcome_npz)
+    unweighted, _ = load_repair_corpora(
+        preference_npz=unweighted_npz,
+        outcome_npz=outcome_npz,
+        device=torch.device("cpu"),
+        obs_dim=72,
+        hidden_size=4,
+        act_dim=3,
+    )
+    weighted, _ = load_repair_corpora(
+        preference_npz=weighted_npz,
+        outcome_npz=outcome_npz,
+        device=torch.device("cpu"),
+        obs_dim=72,
+        hidden_size=4,
+        act_dim=3,
+    )
+    model = _TinyRecurrentPolicy()
+    config = ExactRepairConfig(lambda_old_key_anchor=0.25)
+
+    unweighted_terms = exact_old_key_surrogate_terms(model, unweighted, config)
+    weighted_terms = exact_old_key_surrogate_terms(model, weighted, config)
+
+    assert unweighted.wrong_branch_weight is None
+    assert weighted.wrong_branch_weight is not None
+    assert weighted.hard_row is not None
+    assert weighted.hard_row.tolist() == [0, 1, 0]
+    assert weighted_terms["old_key_preference_loss"].item() > unweighted_terms["old_key_preference_loss"].item()
+    assert weighted_terms["old_key_action_anchor_loss"].item() != pytest.approx(
+        unweighted_terms["old_key_action_anchor_loss"].item()
+    )
