@@ -2,7 +2,7 @@
   "id": "m483-critical-window-config-design",
   "type": "infrastructure",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -83,5 +83,27 @@
     "runs/m482_tail_aligned_wrong_history_gate/summary.json"
   ],
   "decision_rule": "M483 should admit only config/sampling implementation work, not training, unless it preserves source-diversity discipline and actor input contract.",
-  "next_blocker": "pending M483 critical-window config design"
+  "next_blocker": "m484-critical-window-config-implementation",
+  "results": {
+    "design_doc": "docs/m483-critical-window-config-design.md",
+    "m482_wrong_tail_once_total_proof_candidate_count": 14,
+    "m482_wrong_tail_once_total_event_rows": 3,
+    "m482_event_rows_physical_pair_count": 1,
+    "selected_next_path": "critical-window config implementation and sampling validation",
+    "selected_configs": [
+      "configs/m484_critical_window_near_threshold_zero_relvel.json",
+      "configs/m484_critical_window_late_high_energy_zero_relvel.json"
+    ],
+    "sampling_stress_seed_blocks": [
+      11200,
+      11300,
+      11400
+    ],
+    "sampling_stress_resets_per_block": 128,
+    "proof_mining_allowed_in_m484": false,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "next_manifest": "experiments/manifests/m484-critical-window-config-implementation.json",
+    "decision": "admit_m484_critical_window_config_implementation"
+  }
 }

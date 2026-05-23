@@ -10464,3 +10464,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M482 implements `autodrift.tail_aligned_wrong_history_gate` and runs tail-aligned one-shot swaps on the M474 adversarial pairs. The run has `611` valid tail pairs, `177` invalid tail pairs, and `2444` outcome rows. Tail alignment improves over M480 by producing `14` proof-style rows and `3` event rows, but the best single offset has only `4` proof rows and `0` event rows. All event rows are pair `150`, probe seed `11000`, label `unavoidable`, target `future_yaw_response`, repeated at offsets `8`, `12`, and `16`. The natural proof gate fails because the signal is source-narrow.
 - decision: `tail_aligned_event_signal_source_narrow_admit_m483_critical_window_config_design`
 - next: `m483-critical-window-config-design`
+
+## 20260523T225000Z - m483-critical-window-config-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m483-critical-window-config-design.md`
+- result: M483 keeps the M482 event signal diagnostic-only and designs the next config/sampling step. It selects two P0-compatible zero-relvel configs for M484: a near-threshold critical-window config and a late high-energy critical-window config. M484 must first run reset/sampling stress on seed blocks `11200`, `11300`, and `11400` with `128` resets each, require zero sampling failures, at least two labels, and single-label share `<=0.80`, then run small M399 behavior smokes. Proof mining and training remain blocked until configs are robust.
+- decision: `admit_m484_critical_window_config_implementation`
+- next: `m484-critical-window-config-implementation`

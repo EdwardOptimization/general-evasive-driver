@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 491,
+        "completed": 492,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m482-tail-aligned-wrong-history-gate-implementation",
+        "task_id": "m483-critical-window-config-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m482_tail_aligned_wrong_history_gate",
-        "command_log": "docs/m482-tail-aligned-wrong-history-gate-implementation.md"
+        "run_dir": "",
+        "command_log": "docs/m483-critical-window-config-design.md"
     },
     "next_task": {
-        "id": "m483-critical-window-config-design",
+        "id": "m484-critical-window-config-implementation",
         "status": "pending",
-        "priority": 4780,
+        "priority": 4790,
         "kind": "infrastructure",
-        "hypothesis": "Because M482 tail-aligned wrong-history swaps create event rows only on a single source pair, a stricter critical-window task family is needed to reduce recovery time and expose source-diverse natural wrong-history event proof.",
-        "command": "see experiments/manifests/m483-critical-window-config-design.json",
+        "hypothesis": "Critical-window zero-relvel configs can be sampled robustly and create a harder but non-saturated diagnostic distribution before source-diverse tail-aligned proof mining.",
+        "command": "see experiments/manifests/m484-critical-window-config-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design critical-window config and sampling stress tests; no training"
+        "notes": "Pending: implement two critical-window configs and sampling/behavior smokes; no proof mining or training"
     },
-    "updated_at_utc": "20260523T224015Z"
+    "updated_at_utc": "20260523T225000Z"
 }

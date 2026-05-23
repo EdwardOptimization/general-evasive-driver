@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M483 designs near-threshold and late high-energy critical-window zero-relvel configs plus sampling stress before any proof mining or training",
+  "failure_criteria": [
+    "design treats single-pair M482 events as proof",
+    "design proposes training before config sampling validity is checked",
+    "design changes actor inputs",
+    "design loosens source-diversity gates"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not count single-pair repeated tail events as source-diverse proof",
+    "do not relax event/source-diversity thresholds",
+    "do not tune from private holdouts"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260523T223455Z",
+  "hypothesis": "Because M482 tail-aligned wrong-history swaps create event rows only on a single source pair, a stricter critical-window task family is needed to reduce recovery time and expose source-diverse natural wrong-history event proof.",
+  "lineage": {
+    "blocked_by": [
+      "m482-tail-aligned-wrong-history-gate-implementation"
+    ],
+    "derived_from": [
+      "m482-tail-aligned-wrong-history-gate-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m482-tail-aligned-wrong-history-gate-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m482_tail_aligned_wrong_history_gate/summary.json",
+      "runs/m482_tail_aligned_wrong_history_gate/tail_outcomes.csv",
+      "runs/m474_combined_fresh_anchor_adversarial_search/adversarial_pairs.csv"
+    ],
+    "parent_objective": [
+      "critical-window config design after source-narrow tail-aligned event signal"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m483-critical-window-config-design",
+  "next_blocker": "m484-critical-window-config-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m484_critical_window_config_implementation",
+  "public_gates": [
+    "treat M482 tail-aligned event rows as diagnostic because they are source-narrow",
+    "design critical-window config variants that reduce recovery time after obstacle reveal",
+    "preserve zero obstacle relative velocity and P0 human-view actor inputs",
+    "define sampling stress tests before any tail-aligned proof mining",
+    "no checkpoint promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m484_critical_window_config_implementation",
+    "milestone": "m483-critical-window-config-design",
+    "reason": "M483 designs near-threshold and late high-energy critical-window zero-relvel configs plus sampling stress before any proof mining or training",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "document why M482 remains diagnostic-only",
+    "define one or more critical-window config variants with concrete parameter changes",
+    "define reset/sampling stress tests before any proof run",
+    "define the next implementation manifest",
+    "preserve the P0 actor-input contract",
+    "no checkpoint is promoted"
+  ],
+  "type": "infrastructure"
+}
