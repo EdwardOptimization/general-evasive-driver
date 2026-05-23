@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 346,
+        "completed": 347,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "command_log": "docs/m337-old-key-gap-floor-bottleneck-audit.md",
+        "command_log": "docs/m338-old-key-gap-distribution-refresh-design.md",
         "returncode": 0,
-        "run_dir": "runs/m337_old_key_gap_floor_bottleneck_audit",
+        "run_dir": "docs/m338-old-key-gap-distribution-refresh-design.md",
         "status": "completed",
-        "task_id": "m337-old-key-gap-floor-bottleneck-audit"
+        "task_id": "m338-old-key-gap-distribution-refresh-design"
     },
     "next_task": {
-        "command": "see experiments/manifests/m338-old-key-gap-distribution-refresh-design.json",
-        "hypothesis": "Replacing the singleton old-key gap floor with a source-diverse old-key/gap distribution gate can retain old wrong-history evidence without forcing every PPO continuation through a single saturated scalar row.",
-        "id": "m338-old-key-gap-distribution-refresh-design",
-        "kind": "infrastructure",
-        "notes": "Pending: no-PPO design of source-diverse old-key gap distribution gate",
-        "priority": 3330,
+        "command": "see experiments/manifests/m339-old-key-gap-distribution-corpus-refresh.json",
+        "hypothesis": "A source-diverse old-key/gap corpus can distinguish the M335 repaired endpoint from the M335 alpha 0.0075 bounded candidate, preserving old wrong-history evidence without relying on a singleton 9944 veto.",
+        "id": "m339-old-key-gap-distribution-corpus-refresh",
+        "kind": "gate",
+        "notes": "Pending: no-PPO old-key gap candidate pool and compact corpus refresh",
+        "priority": 3340,
         "status": "pending",
         "success_artifact": ""
     },
-    "updated_at_utc": "20260523T073745Z"
+    "updated_at_utc": "20260523T074000Z"
 }

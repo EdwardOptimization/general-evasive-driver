@@ -9014,3 +9014,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M337 classifies the current blocker as `single_old_key_gap_floor_bottleneck_not_source_diverse_washout`. Old-key gap trends `0.096982 -> 0.092653 -> 0.090155`, then the M335 repaired endpoint collapses to `0.065360`, while the endpoint still passes source-diverse protected gate `5/5`. The bounded promoted alpha keeps gap `0.090021`.
 - decision: `admit_old_key_gap_distribution_refresh_design`
 - next: `m338-old-key-gap-distribution-refresh-design`
+
+## 20260523T074000Z - m338-old-key-gap-distribution-refresh-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `docs/m338-old-key-gap-distribution-refresh-design.md`
+- artifact: `docs/m338-old-key-gap-distribution-refresh-design.md`
+- result: M338 designs a distributional old-key/gap gate. It keeps `9944` as a diagnostic row, forbids ad hoc lowering of the old floor, and requires a source-diverse candidate pool plus compact corpus before more PPO. The intended replacement distinguishes singleton warning from broad old-proof erosion.
+- decision: `admit_old_key_gap_distribution_corpus_refresh`
+- next: `m339-old-key-gap-distribution-corpus-refresh`

@@ -2,7 +2,7 @@
   "id": "m338-old-key-gap-distribution-refresh-design",
   "type": "infrastructure",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -81,6 +81,28 @@
     "docs/m337-old-key-gap-floor-bottleneck-audit.md",
     "runs/m337_old_key_gap_floor_bottleneck_audit/summary.json"
   ],
-  "decision_rule": "M338 may only admit a no-PPO implementation or corpus-refresh milestone for a source-diverse old-key/gap gate. It cannot promote and cannot run PPO.",
-  "next_blocker": "pending M338 old-key gap distribution refresh design"
+  "results": {
+    "design_doc": "docs/m338-old-key-gap-distribution-refresh-design.md",
+    "planned_next_milestone": "m339-old-key-gap-distribution-corpus-refresh",
+    "planned_outputs": [
+      "runs/m339_old_key_gap_distribution_refresh/old_key_gap_candidate_pool.csv",
+      "runs/m339_old_key_gap_distribution_refresh/old_key_gap_compact_corpus.csv",
+      "runs/m339_old_key_gap_distribution_refresh/summary.json"
+    ],
+    "broad_pool_min_rows": 80,
+    "compact_corpus_row_range": [
+      20,
+      40
+    ],
+    "min_physical_pairs_or_seeds": 10,
+    "min_source_steps": 5,
+    "min_obstacle_target_buckets": 2,
+    "max_source_dominance": 0.25,
+    "keeps_9944_as_diagnostic": true,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_old_key_gap_distribution_corpus_refresh",
+  "decision_rule": "M338 designs a source-diverse old-key/gap distribution gate and admits a no-PPO corpus refresh milestone. The design keeps 9944 as diagnostic and forbids ad hoc floor lowering or further PPO before the new gate exists.",
+  "next_blocker": "m339-old-key-gap-distribution-corpus-refresh"
 }

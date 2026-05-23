@@ -61,7 +61,7 @@ post-PPO repair before any more PPO acceptance.
 Current blocker:
 
 ```text
-m338-old-key-gap-distribution-refresh-design
+m339-old-key-gap-distribution-corpus-refresh
 ```
 
 M305 implements deterministic exact M297/M270 repair or projection
@@ -122,7 +122,7 @@ acceptance needs exact repair plus a protected-key-bounded trust region.
 Current next task:
 
 ```text
-m338-old-key-gap-distribution-refresh-design
+m339-old-key-gap-distribution-corpus-refresh
 ```
 
 M336 promotes M335 alpha `0.0075` as the new source-diverse public-gate base.
@@ -131,8 +131,9 @@ the accepted movement is micro-alpha bounded: M335 repaired endpoint improves
 exact objectives much more strongly while eroding old-key gap to `0.065360`.
 M337 audits this and classifies the blocker as a singleton old-key gap-floor
 bottleneck, not source-diverse washout: the M335 endpoint still passes
-source-diverse gates `5/5`. M338 should design a source-diverse old-key/gap
-distribution gate before any more PPO.
+source-diverse gates `5/5`. M338 designs a distributional old-key/gap gate;
+M339 should mine/export the actual candidate pool and compact corpus before any
+more PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -187,6 +188,7 @@ distribution gate before any more PPO.
 | bounded short-PPO candidate | `runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt` | M335 exact repair improves objectives but old-key floor clips accepted movement to alpha 0.0075; first replay gates pass |
 | current source-diverse public base | `runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt` | M336 promotes alpha 0.0075 after exact, source-diverse, replay, old-key gap floor, and behavior gates pass |
 | old-key bottleneck audit | `runs/m337_old_key_gap_floor_bottleneck_audit/summary.json` | M337 shows M335 endpoint passes source-diverse gates but old-key gap collapses to 0.065360; next step is distributional gap-gate design |
+| old-key gap distribution design | `docs/m338-old-key-gap-distribution-refresh-design.md` | M338 keeps 9944 as diagnostic but designs source-diverse gap distribution to avoid singleton veto dominance |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -458,8 +460,8 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not run more PPO until M338 designs the source-diverse old-key/gap
-distribution gate. Do not lower the `0.09` singleton floor ad hoc and do not
+Do not run more PPO until M339 exports and validates the source-diverse
+old-key/gap corpus. Do not lower the `0.09` singleton floor ad hoc and do not
 remove `9944` from diagnostics; replace singleton veto dominance with a
 pre-registered distributional gate. Do not change actor inputs.
 
