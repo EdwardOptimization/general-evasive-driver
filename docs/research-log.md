@@ -10314,3 +10314,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M467 implements `autodrift.near_boundary_wrong_history_selector` and focused tests for near-boundary proof acceptance, high-slack rejection, no-effect classification, and source-diverse gate pass. Running it on M465 candidates classifies `199` wrong-history rows: `35` near-boundary candidates, `0` proof candidates, `35` near-boundary no-effect rows, and `7` high-slack diagnostics. Near-boundary rows cover drift-required `20` and unavoidable `15`; high-slack diagnostics are aes-feasible `7` with normal margin `3.548401` to `7.612638`.
 - decision: `reject_wrong_history_gate_admit_m468_task_family_redesign`
 - next: `m468-near-boundary-task-family-redesign`
+
+## 20260523T211746Z - m468-near-boundary-task-family-redesign
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m468-near-boundary-task-family-redesign.md`
+- result: M468 diagnoses the M467 result as weak injected histories rather than absent useful left states. The next path is adversarial wrong-history pair search: anchor on M467 near-boundary no-effect left states and search the full M462 `candidate_pairs.csv` pool for stronger right histories that preserve matched-current constraints but maximize hidden/current separation and dynamics contrast. M468 explicitly rejects selector-threshold retuning and PPO at this stage.
+- decision: `admit_m469_adversarial_wrong_history_pair_search`
+- next: `m469-adversarial-wrong-history-pair-search`

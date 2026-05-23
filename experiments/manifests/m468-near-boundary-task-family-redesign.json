@@ -2,7 +2,7 @@
   "id": "m468-near-boundary-task-family-redesign",
   "type": "infrastructure",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -81,5 +81,17 @@
     "runs/m467_near_boundary_wrong_history_selector/summary.json"
   ],
   "decision_rule": "M468 can admit implementation only if it targets low-normal-margin wrong-history outcome failures and keeps reset/zero-current diagnostics separate from wrong-history proof.",
-  "next_blocker": "pending M468 near-boundary task-family redesign"
+  "results": {
+    "design_doc": "docs/m468-near-boundary-task-family-redesign.md",
+    "m467_near_boundary_candidate_count": 35,
+    "m467_proof_candidate_count": 0,
+    "m467_near_boundary_no_effect_count": 35,
+    "m467_high_slack_diagnostic_count": 7,
+    "selected_next_path": "adversarial wrong-history pair search over full candidate_pairs.csv anchored on near-boundary left states",
+    "next_manifest": "experiments/manifests/m469-adversarial-wrong-history-pair-search.json",
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "admit_m469_adversarial_wrong_history_pair_search"
+  },
+  "next_blocker": "m469-adversarial-wrong-history-pair-search"
 }

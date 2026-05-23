@@ -1,0 +1,80 @@
+{
+  "decision_reason": "M468 selects adversarial right-history search over full candidate_pairs.csv anchored on M467 near-boundary left states",
+  "failure_criteria": [
+    "design treats high-slack diagnostics as proof",
+    "design skips near-boundary normal-margin requirements",
+    "design requires privileged actor inputs",
+    "design proposes PPO before objective/gate sanity"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not loosen M467 by counting high-slack diagnostics as proof"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260523T211926Z",
+  "hypothesis": "Because M467 found 35 near-boundary no-effect wrong-history rows and zero proof rows, the task family or wrong-history intervention must be redesigned rather than retuning selector thresholds.",
+  "lineage": {
+    "blocked_by": [
+      "m467-near-boundary-wrong-history-selector"
+    ],
+    "derived_from": [
+      "m467-near-boundary-wrong-history-selector"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m467-near-boundary-wrong-history-selector.json"
+    ],
+    "parent_dataset": [
+      "runs/m467_near_boundary_wrong_history_selector/summary.json",
+      "runs/m467_near_boundary_wrong_history_selector/near_boundary_no_effect.csv",
+      "runs/m467_near_boundary_wrong_history_selector/high_slack_diagnostics.csv"
+    ],
+    "parent_objective": [
+      "near-boundary wrong-history task-family redesign"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m468-near-boundary-task-family-redesign",
+  "next_blocker": "m469-adversarial-wrong-history-pair-search",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m469_adversarial_wrong_history_pair_search",
+  "public_gates": [
+    "analyze why M467 near-boundary rows show no wrong-history effect",
+    "design a task-family or intervention change that can create low-margin wrong-history failures",
+    "preserve the P0 actor contract",
+    "pre-register the next implementation and pass/fail criteria",
+    "no checkpoint promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m469_adversarial_wrong_history_pair_search",
+    "milestone": "m468-near-boundary-task-family-redesign",
+    "reason": "M468 selects adversarial right-history search over full candidate_pairs.csv anchored on M467 near-boundary left states",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "document the M467 no-effect failure mode",
+    "select one concrete next implementation path",
+    "define expected artifacts and pass/fail criteria",
+    "preserve no-privileged-input actor contract",
+    "no checkpoint is promoted"
+  ],
+  "type": "infrastructure"
+}

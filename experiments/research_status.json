@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 476,
+        "completed": 477,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m467-near-boundary-wrong-history-selector",
+        "task_id": "m468-near-boundary-task-family-redesign",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m467_near_boundary_wrong_history_selector",
-        "command_log": "docs/m467-near-boundary-wrong-history-selector.md"
+        "run_dir": "",
+        "command_log": "docs/m468-near-boundary-task-family-redesign.md"
     },
     "next_task": {
-        "id": "m468-near-boundary-task-family-redesign",
+        "id": "m469-adversarial-wrong-history-pair-search",
         "status": "pending",
-        "priority": 4630,
+        "priority": 4640,
         "kind": "infrastructure",
-        "hypothesis": "The task family or wrong-history intervention must be redesigned because M467 found near-boundary no-effect rows and zero proof rows",
-        "command": "see experiments/manifests/m468-near-boundary-task-family-redesign.json",
+        "hypothesis": "Searching the full candidate-pair pool can produce stronger wrong histories around M467 near-boundary left states",
+        "command": "see experiments/manifests/m469-adversarial-wrong-history-pair-search.json",
         "success_artifact": "",
-        "notes": "Pending: design next low-margin wrong-history task/intervention path; no PPO"
+        "notes": "Pending: implement adversarial wrong-history pair search; no policy rollout or PPO"
     },
-    "updated_at_utc": "20260523T211508Z"
+    "updated_at_utc": "20260523T211746Z"
 }

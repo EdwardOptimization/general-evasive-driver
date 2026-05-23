@@ -1,0 +1,89 @@
+{
+  "id": "m469-adversarial-wrong-history-pair-search",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m467_near_boundary_wrong_history_selector/near_boundary_no_effect.csv",
+      "runs/m462_late_reveal_matched_current_fresh_seed10200/candidate_pairs.csv"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m468-near-boundary-task-family-redesign.json"
+    ],
+    "parent_objective": [
+      "adversarial wrong-history pair search for near-boundary left states"
+    ],
+    "derived_from": [
+      "m468-near-boundary-task-family-redesign"
+    ],
+    "blocked_by": [
+      "m468-near-boundary-task-family-redesign"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m469-adversarial-wrong-history-pair-search.md",
+  "public_gates": [
+    "implement adversarial wrong-history search over full candidate_pairs.csv",
+    "anchor search on M467 near-boundary no-effect left states",
+    "preserve matched-current and normal-margin constraints",
+    "write adversarial_pairs.csv search_candidates.csv and summary.json",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not count high-slack diagnostics as proof"
+  ],
+  "hypothesis": "Searching the full candidate-pair pool for more adversarial right histories around M467 near-boundary left states can produce a stronger wrong-history probe surface than M464's one-pass targeted pair triage.",
+  "success_criteria": [
+    "adversarial pair search CLI writes search_candidates.csv adversarial_pairs.csv and summary.json",
+    "adversarial_pairs >= 64",
+    "near_boundary_left_state_count >= 16",
+    "probe_seed_count >= 3",
+    "left_obstacle_label_count >= 2",
+    "target_count >= 2",
+    "single_seed_share <= 0.50",
+    "single_label_share <= 0.70",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "search ignores normal-margin anchors",
+    "search drops matched-current similarity constraints",
+    "search returns only one seed or one label",
+    "search requires privileged actor inputs"
+  ],
+  "commands": [
+    {
+      "name": "adversarial_wrong_history_pair_search",
+      "command": "Implement and run adversarial wrong-history pair search over M467 near-boundary left states and M462 candidate_pairs.csv; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m469-adversarial-wrong-history-pair-search.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m468-near-boundary-task-family-redesign.md",
+    "runs/m467_near_boundary_wrong_history_selector/near_boundary_no_effect.csv",
+    "runs/m462_late_reveal_matched_current_fresh_seed10200/candidate_pairs.csv"
+  ],
+  "decision_rule": "M469 can admit outcome probing only if it produces a source-diverse adversarial pair surface anchored on low-normal-margin left states.",
+  "next_blocker": "pending M469 adversarial wrong-history pair search"
+}

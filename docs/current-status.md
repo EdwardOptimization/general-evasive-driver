@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m468-near-boundary-task-family-redesign
+m469-adversarial-wrong-history-pair-search
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -275,6 +275,12 @@ no-effect rows, and `7` high-slack diagnostics. Near-boundary rows cover
 the only margin-degraded rows are high-slack `aes_feasible` diagnostics. The
 next blocker is M468: redesign the task family or wrong-history intervention
 construction instead of retuning selector thresholds.
+M468 completes that redesign. The selected path is adversarial wrong-history
+pair search: anchor on the `35` M467 near-boundary no-effect left states, return
+to the full M462 `candidate_pairs.csv` pool, and search for stronger right-side
+histories that still satisfy matched-current constraints. The next blocker is
+M469: implement this adversarial pair search and export a source-diverse pair
+surface before running another outcome probe.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key
