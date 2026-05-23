@@ -9384,3 +9384,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M374 probes the gap-tail weighted repair path without PPO. The unbounded final repair improves exact M297/M270 and old-key surrogate but fails closed-loop old-key rows, so the direction is bounded by interpolation from M370. Alpha `0.1` toward the final repair passes exact no-regression, cumulative old-key replay with gap p10 `-0.000452864`, source-diverse protected gates `5/5`, and M183/M170 plus M267/M264 first replay gates `17/17`; alpha `0.2` is the first tested cumulative old-key gap-p10 failure.
 - decision: `admit_m375_full_public_gate_for_m374_a010`
 - next: `m375-full-public-gate-for-m374-a010`
+
+## 20260523T124026Z - m375-full-public-gate-for-m374-a010
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m375_full_public_gate_for_m374_a010`
+- artifact: `docs/m375-full-public-gate-for-m374-a010.md`
+- result: M375 promotes `runs/m374_gap_tail_final_interpolation/checkpoints/alpha_0_1.pt`. It retains cumulative old-key proof from M374, source-diverse protected gates `5/5`, all six public replay surfaces, and behavior seeds `9505`/`9506`. Behavior success mean remains `0.8625`, termination mean `0.1375`, clearance margin mean `1.844192756`, reset success mean `0.85`, and zero-all success mean `0.80`. This is a bounded proof-safe promotion; alpha `0.2` toward the same final repair remains the first tested cumulative old-key gap-p10 failure.
+- decision: `promote_m374_a010_gap_tail_weighted_public_gate_base`
+- next: `m376-m374-alpha02-cumulative-old-key-boundary-audit`

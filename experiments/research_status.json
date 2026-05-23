@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 383,
+        "completed": 384,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m374-gap-tail-weighted-repair-probe",
+        "task_id": "m375-full-public-gate-for-m374-a010",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m374_gap_tail_final_interp_a010_cumulative_old_key_replay_gate",
-        "command_log": "docs/m374-gap-tail-weighted-repair-probe.md"
+        "run_dir": "runs/m375_full_public_gate_for_m374_a010",
+        "command_log": "docs/m375-full-public-gate-for-m374-a010.md"
     },
     "next_task": {
-        "id": "m375-full-public-gate-for-m374-a010",
+        "id": "m376-m374-alpha02-cumulative-old-key-boundary-audit",
         "status": "pending",
-        "priority": 3700,
-        "kind": "driver_candidate",
-        "hypothesis": "Run full public promotion gate for the bounded M374 alpha 0.1 gap-tail weighted repair candidate",
-        "command": "see experiments/manifests/m375-full-public-gate-for-m374-a010.json",
+        "priority": 3710,
+        "kind": "gate",
+        "hypothesis": "Audit the first cumulative old-key failure beyond the newly promoted M375 alpha 0.1 base",
+        "command": "see experiments/manifests/m376-m374-alpha02-cumulative-old-key-boundary-audit.json",
         "success_artifact": "",
-        "notes": "Pending: all six replay surfaces and behavior seeds before any promotion"
+        "notes": "Pending: classify alpha 0.2 lower-tail boundary before more repair or PPO"
     },
-    "updated_at_utc": "20260523T123503Z"
+    "updated_at_utc": "20260523T124026Z"
 }

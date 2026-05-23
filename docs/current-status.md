@@ -42,20 +42,20 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m369_hard_row_repair_interpolation/checkpoints/alpha_0_4.pt
+runs/m374_gap_tail_final_interpolation/checkpoints/alpha_0_1.pt
 ```
 
-Status: M370 promotes M369 alpha `0.4` as the current public-gate base. It
-passes old-key replay, source-diverse protected gates `5/5`, all six public
-replay surfaces, and behavior seeds `9505`/`9506`. This remains a proof-safe
-incremental step rather than a large driver-performance improvement; alpha
-`0.6` from the same hard-row weighted repair direction is the first tested
-old-key compact gap-p10 failure.
+Status: M375 promotes M374 alpha `0.1` toward the gap-tail final repair as the
+current public-gate base. It passes cumulative old-key replay, source-diverse
+protected gates `5/5`, all six public replay surfaces, and behavior seeds
+`9505`/`9506`. This remains a proof-safe incremental step rather than a large
+driver-performance improvement; alpha `0.2` toward the same final repair is
+the first tested cumulative old-key compact gap-p10 failure.
 
 Current blocker:
 
 ```text
-m375-full-public-gate-for-m374-a010
+m376-m374-alpha02-cumulative-old-key-boundary-audit
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -117,7 +117,9 @@ weighted old-key corpus, and verifies no-update exact repair integration. M374
 tests the weighted corpus in a no-PPO repair probe. The final repair endpoint
 is too aggressive, but bounded alpha `0.1` toward that endpoint passes exact,
 cumulative old-key, source-diverse, and first replay proof gates. M375 should
-run the full public gate before any promotion.
+run the full public gate before any promotion. M375 promotes alpha `0.1` after
+the full public gate passes. M376 should audit the alpha `0.2` cumulative
+old-key boundary before more repair or PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -194,7 +196,7 @@ run the full public gate before any promotion.
 | bounded micro-alpha candidate | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M358 finds alpha 0.00025 passes exact and old-key; alpha 0.0005 first fails old-key |
 | proof-gate-passing micro-alpha | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M359 passes source-diverse protected and first replay proof gates |
 | current public-gate base | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M360 promotes alpha 0.00025 after full public gate pass; movement is extremely small |
-| current blocker | `experiments/manifests/m375-full-public-gate-for-m374-a010.json` | M375 must run all public replay and behavior gates for the bounded M374 alpha 0.1 candidate before any promotion |
+| current blocker | `experiments/manifests/m376-m374-alpha02-cumulative-old-key-boundary-audit.json` | M376 must audit the first failing cumulative old-key alpha 0.2 boundary before more repair or PPO |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

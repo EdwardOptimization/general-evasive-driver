@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260523T123646Z
+- Generated at UTC: 20260523T124204Z
 - Type: driver_candidate
 - Gate tier: promotion
-- Promotion decision: pending
-- Decision reason: M375 promotes M374 alpha 0.1 only if all public replay surfaces, behavior seeds, cumulative old-key, source-diverse, and input-contract checks pass.
+- Promotion decision: promote_m374_a010_gap_tail_weighted_public_gate_base
+- Decision reason: M375 promotes M374 alpha 0.1 after cumulative old-key source-diverse six public replay surfaces and behavior seeds pass
 
 ## Hypothesis
 
@@ -65,8 +65,19 @@ The bounded M374 alpha 0.1 gap-tail weighted repair candidate may pass the full 
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m375-full-public-gate-for-m374-a010
+- type: driver_candidate
+- checkpoint: runs/m374_gap_tail_final_interpolation/checkpoints/alpha_0_1.pt
+- success_rate: 0.8625
+- termination_rate: 0.1375
+- clearance_margin_mean: 1.844193
+- reset_success: 0.8500
+- zero_wheel_success: None
+- zero_all_success: 0.8000
+- wheel_gain_mu: None
+- decision: promote_m374_a010_gap_tail_weighted_public_gate_base
+- reason: M375 promotes M374 alpha 0.1 after cumulative old-key source-diverse six public replay surfaces and behavior seeds pass
 
 ## Next Blocker
 
-pending M375 full public gate
+m376-m374-alpha02-cumulative-old-key-boundary-audit

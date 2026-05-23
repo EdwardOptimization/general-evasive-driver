@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M375 promotes M374 alpha 0.1 only if all public replay surfaces, behavior seeds, cumulative old-key, source-diverse, and input-contract checks pass.",
+  "decision_reason": "M375 promotes M374 alpha 0.1 after cumulative old-key source-diverse six public replay surfaces and behavior seeds pass",
   "failure_criteria": [
     "any public replay surface fails",
     "behavior seeds regress",
@@ -17,7 +17,7 @@
     "do not change actor inputs"
   ],
   "gate_tier": "promotion",
-  "generated_at_utc": "20260523T123646Z",
+  "generated_at_utc": "20260523T124204Z",
   "hypothesis": "The bounded M374 alpha 0.1 gap-tail weighted repair candidate may pass the full public promotion gate after preserving exact, cumulative old-key, source-diverse, and first replay proof gates.",
   "lineage": {
     "blocked_by": [
@@ -46,9 +46,9 @@
     "supersedes": []
   },
   "milestone": "m375-full-public-gate-for-m374-a010",
-  "next_blocker": "pending M375 full public gate",
+  "next_blocker": "m376-m374-alpha02-cumulative-old-key-boundary-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "promote_m374_a010_gap_tail_weighted_public_gate_base",
   "public_gates": [
     "cumulative old-key replay for M374 a010 retained",
     "source-diverse protected pass from M374 retained",
@@ -57,7 +57,20 @@
     "behavior seeds 9505 and 9506 pass",
     "no actor input contract change"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "runs/m374_gap_tail_final_interpolation/checkpoints/alpha_0_1.pt",
+    "clearance_margin_mean": "1.844193",
+    "decision": "promote_m374_a010_gap_tail_weighted_public_gate_base",
+    "milestone": "m375-full-public-gate-for-m374-a010",
+    "reason": "M375 promotes M374 alpha 0.1 after cumulative old-key source-diverse six public replay surfaces and behavior seeds pass",
+    "reset_success": "0.8500",
+    "success_rate": "0.8625",
+    "termination_rate": "0.1375",
+    "type": "driver_candidate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "0.8000",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "all six replay surfaces pass",
     "behavior seeds 9505 and 9506 pass",
