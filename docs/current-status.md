@@ -62,7 +62,7 @@ post-PPO repair before any more PPO acceptance.
 Current blocker:
 
 ```text
-m316-protected-key-aware-ppo-proposal-smoke
+m317-full-public-gate-for-m316-a0-0025
 ```
 
 M305 implements deterministic exact M297/M270 repair or projection
@@ -123,13 +123,14 @@ acceptance needs exact repair plus a protected-key-bounded trust region.
 Current next task:
 
 ```text
-m316-protected-key-aware-ppo-proposal-smoke
+m317-full-public-gate-for-m316-a0-0025
 ```
 
-M315 completed the design-only repeat step from the M314 base. M316 should run
-the fresh smoke PPO proposal, repair it with exact M297/M270 objectives, then
-apply protected-key-bounded interpolation before any first replay gate or
-promotion escalation.
+M316 completed the protected-key-aware PPO smoke. Raw PPO regressed exact
+M297/M270, exact repair recovered both, but protected key `9944` allowed only
+`alpha=0.0025`. That tiny selected alpha passes M183/M170 and M267/M264 first
+replay gates. M317 should run the full public promotion gate before any base
+change.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -165,6 +166,7 @@ promotion escalation.
 | rejected full-gate candidate | `runs/m310_exact_repair_from_raw_s40_seed10095/candidate_checkpoint.pt` | M311 rejects after protected-key failure despite exact and replay success |
 | current public-gate base | `runs/m313_m307_to_m310_protected_key_bounded_interpolation/checkpoints/alpha_0_14.pt` | M314 promoted after exact objectives full replay protected-key and behavior gates pass |
 | next protected-key-aware PPO config | `configs/ppo_m316_protected_key_aware_proposal_smoke.json` | M315 registered smoke PPO from M314 plus exact repair and protected-key-bounded acceptance before replay |
+| full-gate candidate | `runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt` | M316 selected the largest protected-key-passing alpha and passed M183/M170 plus M267/M264 first replay gates |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -436,10 +438,10 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not promote raw PPO or exact-repaired PPO directly. From the M314 base, M316
-must treat PPO as a proposal only, then require exact M297/M270 no-regression,
-protected-key-bounded interpolation, and first replay retention before any full
-public-gate escalation. Do not change actor inputs.
+Do not promote M316 from first replay gates alone. M317 must run six replay
+surfaces, protected key, behavior seeds `9505`/`9506`, and research validation
+before `m316_a0_0025` can replace the M314 public-gate base. Do not change
+actor inputs.
 
 ## Sensor Profile Policy
 

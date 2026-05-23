@@ -1,0 +1,88 @@
+{
+  "decision_reason": "M316 raw PPO regresses exact M297/M270 but exact repair recovers both; protected key allows only alpha 0.0025 which passes M183/M170 and M267/M264 first replay gates",
+  "failure_criteria": [
+    "raw PPO cannot run or checkpoint is incompatible",
+    "repaired candidate regresses exact M297 or exact M270",
+    "no nonzero protected-key-safe alpha exists",
+    "selected alpha loses first replay retention",
+    "actor input contract is changed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not promote raw PPO checkpoint",
+    "do not run replay for exact-regressing candidates",
+    "do not run replay for protected-key-failing candidates",
+    "do not change actor inputs",
+    "do not tune from private holdouts"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260523T053945Z",
+  "hypothesis": "A fresh smoke-scale PPO proposal from the M314 base can produce useful movement if exact repair and protected-key-bounded interpolation are enforced before replay gates.",
+  "lineage": {
+    "blocked_by": [
+      "m315-protected-key-aware-ppo-proposal-repeat-design"
+    ],
+    "derived_from": [
+      "m315-protected-key-aware-ppo-proposal-repeat-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m313_m307_to_m310_protected_key_bounded_interpolation/checkpoints/alpha_0_14.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m316_protected_key_aware_proposal_smoke.json",
+      "experiments/manifests/m315-protected-key-aware-ppo-proposal-repeat-design.json",
+      "docs/m315-protected-key-aware-ppo-proposal-repeat-design.md"
+    ],
+    "parent_dataset": [
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "runs/m133_zero_relvel_s60_strict_60ep_seed9900/outcome_sensitive_snippets.csv",
+      "runs/m133_zero_relvel_s60_strict_60ep_seed9920/outcome_sensitive_snippets.csv",
+      "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv"
+    ],
+    "parent_objective": [
+      "run fresh smoke PPO proposal from M314 base and accept only through exact repair plus protected-key-bounded interpolation"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m316-protected-key-aware-ppo-proposal-smoke",
+  "next_blocker": "m317-full-public-gate-for-m316-a0-0025",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m317_full_public_gate_for_m316_a0_0025",
+  "public_gates": [
+    "preserve human-view actor input contract",
+    "run smoke PPO from M314 only as a raw proposal",
+    "run exact post-PPO repair from raw proposal",
+    "exact M297 and M270 must not regress versus M314",
+    "protected key 9944 must pass for selected alpha",
+    "M183/M170 first replay gate",
+    "M267/M264 first replay gate",
+    "do not run full public gate unless exact protected-key and first replay gates pass"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m317_full_public_gate_for_m316_a0_0025",
+    "milestone": "m316-protected-key-aware-ppo-proposal-smoke",
+    "reason": "M316 raw PPO regresses exact M297/M270 but exact repair recovers both; protected key allows only alpha 0.0025 which passes M183/M170 and M267/M264 first replay gates",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "driver_candidate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "raw PPO run completes from M314 base",
+    "exact repair candidate improves or retains exact M297 and exact M270 versus M314",
+    "a nonzero interpolation alpha passes exact objectives and protected key 9944",
+    "selected alpha passes M183/M170 and M267/M264 first replay gates",
+    "if first gates pass, admit a separate full public-gate milestone"
+  ],
+  "type": "driver_candidate"
+}

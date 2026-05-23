@@ -8797,3 +8797,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M315 registers the M316 repeat from the M314 public-gate base without running PPO. M316 will use `configs/ppo_m316_protected_key_aware_proposal_smoke.json`, route raw PPO through exact M297/M270 repair, then apply a protected-key-bounded alpha sweep before first replay gates.
 - decision: `admit_m316_protected_key_aware_ppo_proposal_smoke`
 - next: `m316-protected-key-aware-ppo-proposal-smoke`
+
+## 20260523T053857Z - m316-protected-key-aware-ppo-proposal-smoke
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m316_m314_to_repaired_protected_key_bounded_interpolation`
+- artifact: `docs/m316-protected-key-aware-ppo-proposal-smoke.md`
+- result: M316 runs a fresh 1024-step PPO proposal from M314. Raw PPO regresses exact M297 by `+0.000779867` and exact M270 by `+0.000490844`; exact repair improves them by `-0.000117064` and `-0.000076056`. Protected key `9944` allows only alpha `0.0025`, with selected exact deltas `-0.000000477` and `-0.000000298`; the selected checkpoint passes M183/M170 and M267/M264 first replay gates with `17/17` success drops retained on both.
+- decision: `admit_m317_full_public_gate_for_m316_a0_0025`
+- next: `m317-full-public-gate-for-m316-a0-0025`

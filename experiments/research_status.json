@@ -1,28 +1,28 @@
 {
-  "counts": {
-    "blocked": 1,
-    "completed": 324,
-    "failed": 0,
-    "pending": 1,
-    "planned": 0,
-    "running": 0
-  },
-  "last_result": {
-    "command_log": "docs/m315-protected-key-aware-ppo-proposal-repeat-design.md",
-    "returncode": 0,
-    "run_dir": "runs/m315_protected_key_aware_ppo_proposal_repeat_design",
-    "status": "completed",
-    "task_id": "m315-protected-key-aware-ppo-proposal-repeat-design"
-  },
-  "next_task": {
-    "command": "see experiments/manifests/m316-protected-key-aware-ppo-proposal-smoke.json",
-    "hypothesis": "A fresh smoke-scale PPO proposal from the M314 base can produce useful movement if exact repair and protected-key-bounded interpolation are enforced before replay gates.",
-    "id": "m316-protected-key-aware-ppo-proposal-smoke",
-    "kind": "driver_candidate",
-    "notes": "Pending: run PPO proposal then exact repair protected-key sweep and first replay gates",
-    "priority": 3110,
-    "status": "pending",
-    "success_artifact": ""
-  },
-  "updated_at_utc": "20260523T053053Z"
+    "counts": {
+        "blocked": 1,
+        "completed": 325,
+        "failed": 0,
+        "pending": 1,
+        "planned": 0,
+        "running": 0
+    },
+    "last_result": {
+        "command_log": "docs/m316-protected-key-aware-ppo-proposal-smoke.md",
+        "returncode": 0,
+        "run_dir": "runs/m316_m314_to_repaired_protected_key_bounded_interpolation",
+        "status": "completed",
+        "task_id": "m316-protected-key-aware-ppo-proposal-smoke"
+    },
+    "next_task": {
+        "command": "see experiments/manifests/m317-full-public-gate-for-m316-a0-0025.json",
+        "hypothesis": "The M316 alpha 0.0025 protected-key-bounded PPO proposal can pass the full public gate stack and become the next public-gate base despite its tiny step size.",
+        "id": "m317-full-public-gate-for-m316-a0-0025",
+        "kind": "driver_candidate",
+        "notes": "Pending: run full replay protected-key and behavior gates before any promotion",
+        "priority": 3120,
+        "status": "pending",
+        "success_artifact": ""
+    },
+    "updated_at_utc": "20260523T053857Z"
 }
