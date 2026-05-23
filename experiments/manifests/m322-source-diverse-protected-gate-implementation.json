@@ -1,0 +1,83 @@
+{
+  "id": "m322-source-diverse-protected-gate-implementation",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt"
+    ],
+    "parent_dataset": [
+      "runs/m320_m316_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+      "runs/m320_m314_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+      "runs/m320_m316_repaired_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m321-source-diverse-protected-gate-design.json",
+      "docs/m321-source-diverse-protected-gate-design.md"
+    ],
+    "parent_objective": [
+      "implement a source-diverse protected gate wrapper using M320 corpora and 9944 diagnostic before more PPO"
+    ],
+    "derived_from": [
+      "m321-source-diverse-protected-gate-design"
+    ],
+    "blocked_by": [
+      "m321-source-diverse-protected-gate-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m322-source-diverse-protected-gate-implementation.md",
+  "public_gates": [
+    "preserve human-view actor input contract",
+    "implement a reusable source-diverse protected gate wrapper",
+    "cover the wrapper with focused tests",
+    "validate the wrapper on the M320 replay-sanity setup",
+    "do not run PPO"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not use the wrapper to promote a checkpoint in M322",
+    "do not delete or loosen 9944",
+    "do not change actor inputs",
+    "do not tune from private holdouts"
+  ],
+  "hypothesis": "A small source-diverse protected gate wrapper can make the M320 corpora first-class proof gates and reduce manual replay-command errors before more PPO.",
+  "success_criteria": [
+    "wrapper can run multiple boundary_outcome_replay_gate specs and aggregate results",
+    "wrapper records 9944 as diagnostic or ingestible artifact",
+    "wrapper emits summary JSON/CSV with pass/fail and failure taxonomy",
+    "focused tests pass",
+    "M320 sanity setup reproduces pass results"
+  ],
+  "failure_criteria": [
+    "wrapper changes actor input contract",
+    "wrapper cannot reproduce M320 replay sanity",
+    "wrapper hides individual corpus failures",
+    "M322 runs PPO"
+  ],
+  "commands": [
+    {
+      "name": "m322_implementation",
+      "command": "Implement and test source-diverse protected gate wrapper without PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m322-source-diverse-protected-gate-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m321-source-diverse-protected-gate-design.md"
+  ],
+  "decision_rule": "M322 may admit a diagnostic probe only if the wrapper is tested, reproduces M320 replay sanity, keeps 9944 as diagnostic, and does not run PPO.",
+  "next_blocker": "pending M322 source-diverse protected gate implementation"
+}

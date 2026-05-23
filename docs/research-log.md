@@ -8847,3 +8847,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M320 converts the M319 source-diverse surface into compact corpora for `m316_a0_0025`, `m314_base`, and `m316_repaired`. Each corpus has `17` rows, `13` physical pairs, and `2` targets. Objective sanity passes on all three with pairwise accuracy `1.0`, and replay sanity preserves `17/17` success drops for all three source/adjacent comparisons.
 - decision: `admit_m321_source_diverse_protected_gate_design`
 - next: `m321-source-diverse-protected-gate-design`
+
+## 20260523T060721Z - m321-source-diverse-protected-gate-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m320_m316_boundary_replay_sanity_seed10080`
+- artifact: `docs/m321-source-diverse-protected-gate-design.md`
+- result: M321 defines the M320 compact corpora as the new source-diverse protected-surface acceptance bundle. The old key `9944` remains a diagnostic singleton and historical continuity check, but future candidates must pass the M320 protected replay bundle before more PPO or promotion. M321 admits a wrapper implementation so the bundle can be run as one reproducible gate.
+- decision: `admit_m322_source_diverse_protected_gate_implementation`
+- next: `m322-source-diverse-protected-gate-implementation`

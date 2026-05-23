@@ -2,7 +2,7 @@
   "id": "m321-source-diverse-protected-gate-design",
   "type": "infrastructure",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -81,6 +81,20 @@
     "runs/m320_m314_boundary_replay_sanity_seed10080/summary.json",
     "runs/m320_m316_repaired_boundary_replay_sanity_seed10080/summary.json"
   ],
+  "results": {
+    "protected_gate_bundle": [
+      "runs/m320_m316_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+      "runs/m320_m314_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+      "runs/m320_m316_repaired_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv"
+    ],
+    "old_key_role": "diagnostic_singleton_and_historical_continuity_check",
+    "new_gate_role": "source_diverse_protected_surface_acceptance_gate",
+    "acceptance_order_defined": true,
+    "implementation_needed": "source_diverse_protected_gate_cli_or_wrapper",
+    "ppo_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m322_source_diverse_protected_gate_implementation",
   "decision_rule": "M321 may only admit a runnable implementation or probe if it preserves actor inputs, keeps 9944 diagnostic, and makes M320 source-diverse protected corpora first-class proof gates before more PPO.",
-  "next_blocker": "pending M321 source-diverse protected gate design"
+  "next_blocker": "m322-source-diverse-protected-gate-implementation"
 }

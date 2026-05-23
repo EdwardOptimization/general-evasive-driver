@@ -61,7 +61,7 @@ post-PPO repair before any more PPO acceptance.
 Current blocker:
 
 ```text
-m321-source-diverse-protected-gate-design
+m322-source-diverse-protected-gate-implementation
 ```
 
 M305 implements deterministic exact M297/M270 repair or projection
@@ -122,14 +122,13 @@ acceptance needs exact repair plus a protected-key-bounded trust region.
 Current next task:
 
 ```text
-m321-source-diverse-protected-gate-design
+m322-source-diverse-protected-gate-implementation
 ```
 
-M320 converted the refreshed M317-family protected surface into compact
-replay-aligned objective corpora. The `m316_a0_0025`, `m314_base`, and
-`m316_repaired` corpora each have `17` rows across `13` physical pairs and pass
-objective plus replay sanity. M321 should design the source-diverse protected
-gate/objective before more PPO.
+M321 defined the M320 compact corpora as a source-diverse protected acceptance
+bundle, while keeping `9944` as a diagnostic singleton. M322 should implement a
+small wrapper so this bundle can be run as one reproducible gate before more
+PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -168,6 +167,7 @@ gate/objective before more PPO.
 | current public-gate base | `runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt` | M317 promoted after exact objectives full replay protected-key and behavior gates pass; protected-key slack is about `4.8e-6` |
 | refreshed protected surface | `runs/m319_m317_family_boundary_robustness_seed9520/accepted_wrong_history_rows.csv` | M319 found source-diverse accepted wrong-history rows away from the saturated old key |
 | refreshed protected corpora | `runs/m320_m316_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv` | M320 converted the M319 surface into compact replay-aligned corpora; all replay sanity gates pass |
+| protected gate design | `docs/m321-source-diverse-protected-gate-design.md` | M321 defines M320 corpora as first-class protected acceptance bundle and keeps `9944` diagnostic |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -439,10 +439,10 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not run another PPO proposal before M321 defines the source-diverse
-protected gate/objective. M320 proves usable compact corpora exist; the next
-step is to make them first-class acceptance criteria while keeping `9944` as a
-diagnostic during transition. Do not change actor inputs.
+Do not run another PPO proposal before M322 implements and validates the
+source-diverse protected gate wrapper. M320 proves usable compact corpora exist,
+and M321 defines their acceptance role; the next step is reproducible gate
+execution, not PPO. Do not change actor inputs.
 
 ## Sensor Profile Policy
 
