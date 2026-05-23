@@ -1,0 +1,88 @@
+{
+  "id": "m464-wrong-history-targeted-pair-triage",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m462_late_reveal_matched_current_fresh_seed10200/candidate_pairs.csv",
+      "runs/m462_outcome_critical_selector_fresh_seed10200/wrong_history_audit.json"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m463-wrong-history-outcome-critical-redesign.json"
+    ],
+    "parent_objective": [
+      "wrong-history targeted matched-current pair triage"
+    ],
+    "derived_from": [
+      "m463-wrong-history-outcome-critical-redesign"
+    ],
+    "blocked_by": [
+      "m463-wrong-history-outcome-critical-redesign"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m464-wrong-history-targeted-pair-triage.md",
+  "public_gates": [
+    "implement targeted wrong-history pair triage from candidate_pairs.csv",
+    "preserve matched-current similarity and target-z-delta constraints",
+    "score pairs by hidden-vs-current separation and near-boundary proxies",
+    "write targeted_pairs.csv and summary.json",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not use reset/zero-current rows as wrong-history proof",
+    "do not select single-seed or single-label singleton surfaces"
+  ],
+  "hypothesis": "A targeted pair triage over the full M462 candidate-pair pool can build a more source-diverse wrong-history candidate surface than the generic matched_pairs compact output.",
+  "success_criteria": [
+    "targeted pair triage CLI writes targeted_pairs.csv and summary.json",
+    "targeted pairs >= 180 on M462 candidate pairs",
+    "probe_seed_count >= 3",
+    "obstacle_label_count >= 2",
+    "target_count >= 3",
+    "single_seed_share <= 0.50",
+    "single_label_share <= 0.60",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "triage drops matched-current similarity constraints",
+    "triage selects only one seed or one label",
+    "triage requires privileged actor inputs",
+    "triage treats high-margin-only rows as proof"
+  ],
+  "commands": [
+    {
+      "name": "wrong_history_targeted_pair_triage",
+      "command": "Implement and smoke a targeted wrong-history pair triage over runs/m462_late_reveal_matched_current_fresh_seed10200/candidate_pairs.csv; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m464-wrong-history-targeted-pair-triage.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m463-wrong-history-outcome-critical-redesign.md",
+    "runs/m462_late_reveal_matched_current_fresh_seed10200/candidate_pairs.csv"
+  ],
+  "decision_rule": "M464 can admit a wrong-history outcome probe only if triage produces a source-diverse targeted pair surface without changing actor inputs or using reset/zero-current evidence as proof.",
+  "next_blocker": "pending M464 wrong-history targeted pair triage"
+}

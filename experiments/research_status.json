@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 471,
+        "completed": 472,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m462-outcome-critical-selector-repeat-audit",
+        "task_id": "m463-wrong-history-outcome-critical-redesign",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m462_outcome_critical_selector_fresh_seed10200",
-        "command_log": "docs/m462-outcome-critical-selector-repeat-audit.md"
+        "run_dir": "",
+        "command_log": "docs/m463-wrong-history-outcome-critical-redesign.md"
     },
     "next_task": {
-        "id": "m463-wrong-history-outcome-critical-redesign",
+        "id": "m464-wrong-history-targeted-pair-triage",
         "status": "pending",
-        "priority": 4580,
+        "priority": 4590,
         "kind": "infrastructure",
-        "hypothesis": "Design the next task or selector that makes wrong-history intervention outcome-critical with source-diverse evidence",
-        "command": "see experiments/manifests/m463-wrong-history-outcome-critical-redesign.json",
+        "hypothesis": "Targeted triage over the full M462 candidate-pair pool can build a more source-diverse wrong-history candidate surface",
+        "command": "see experiments/manifests/m464-wrong-history-targeted-pair-triage.json",
         "success_artifact": "",
-        "notes": "Pending: wrong-history outcome-critical redesign; M462 fresh repeat found reset/zero-current compact rows but wrong-history evidence remains weak and source-narrow"
+        "notes": "Pending: implement targeted wrong-history pair triage; no training or gate expansion"
     },
-    "updated_at_utc": "20260523T205310Z"
+    "updated_at_utc": "20260523T205900Z"
 }

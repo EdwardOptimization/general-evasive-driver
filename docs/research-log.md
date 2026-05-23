@@ -10264,3 +10264,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M462 repeats matched-current mining on fresh seed windows `10200`, `10300`, and `10400`. The fresh surface has `422` accepted pairs from `73281` candidates, covering `422` physical pairs, `31` left steps, and `32` obstacle buckets. The M461 selector processes `900` candidate variant rows, finds `140` outcome-critical rows, accepts `70`, and selects `34` compact rows over `3` probe seeds, `3` labels, and `3` targets. Reset/zero-current evidence repeats and now includes `6` success-drop and `6` collision-gap compact rows. Wrong-history remains weak: `8` raw accepted rows, `0` compact rows, `0` success-drop rows, `0` collision-gap rows, `1` obstacle-completion-drop row, and source coverage limited to seed `10300` and label `aes_feasible`.
 - decision: `fresh_repeat_pass_wrong_history_weak_admit_m463`
 - next: `m463-wrong-history-outcome-critical-redesign`
+
+## 20260523T205900Z - m463-wrong-history-outcome-critical-redesign
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m463-wrong-history-outcome-critical-redesign.md`
+- result: M463 diagnoses the weak wrong-history evidence from M461/M462. The root causes are action-subtle wrong-history injections, large normal-margin slack in accepted wrong-history rows, a compact selector dominated by reset/zero-current variants, pair selection that optimizes matched-current ambiguity rather than harmful wrong-history belief, and missing source diversity. The redesign splits wrong-history proof from reset/zero-current diagnostics and requires a separate targeted pair triage over the full `candidate_pairs.csv` pool before any wrong-history gate expansion.
+- decision: `admit_m464_wrong_history_targeted_pair_triage`
+- next: `m464-wrong-history-targeted-pair-triage`

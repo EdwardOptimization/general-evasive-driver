@@ -1,0 +1,80 @@
+{
+  "decision_reason": "M463 designs separate wrong-history proof from reset/zero diagnostics and sends M464 to targeted pair triage over candidate_pairs.csv",
+  "failure_criteria": [
+    "design treats M462 wrong-history raw accepted rows as sufficient proof",
+    "design mixes reset/zero-current compact rows into wrong-history pass criteria",
+    "design requires privileged actor inputs",
+    "design skips source-diversity requirements"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not change actor input/output contract",
+    "do not add hidden or oracle actor inputs",
+    "do not claim wrong-history proof from reset/zero-current rows",
+    "do not accept single-seed or single-label wrong-history margin-only rows as a proof gate"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260523T205923Z",
+  "hypothesis": "M462 shows the current late-reveal selector can find reset/zero-current outcome-critical rows, but wrong-history remains too weak and source-narrow; a redesigned task or selector should target wrong-history continuation failures explicitly.",
+  "lineage": {
+    "blocked_by": [
+      "m462-outcome-critical-selector-repeat-audit"
+    ],
+    "derived_from": [
+      "m462-outcome-critical-selector-repeat-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m462-outcome-critical-selector-repeat-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m462_outcome_critical_selector_fresh_seed10200/compact_corpus.csv",
+      "runs/m462_outcome_critical_selector_fresh_seed10200/wrong_history_audit.json"
+    ],
+    "parent_objective": [
+      "wrong-history outcome-critical task or selector redesign"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m463-wrong-history-outcome-critical-redesign",
+  "next_blocker": "m464-wrong-history-targeted-pair-triage",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m464_wrong_history_targeted_pair_triage",
+  "public_gates": [
+    "analyze why wrong-history rows remain weak after M461 and M462",
+    "design a next task or selector that makes wrong-history intervention outcome-critical",
+    "separate source-diverse wrong-history proof criteria from reset/zero-current diagnostics",
+    "pre-register pass/fail criteria for the next implementation",
+    "no checkpoint promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m464_wrong_history_targeted_pair_triage",
+    "milestone": "m463-wrong-history-outcome-critical-redesign",
+    "reason": "M463 designs separate wrong-history proof from reset/zero diagnostics and sends M464 to targeted pair triage over candidate_pairs.csv",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "document root causes for weak wrong-history coverage",
+    "choose one next implementation path with clear evidence discipline",
+    "define source-diverse wrong-history outcome criteria",
+    "define how reset/zero-current evidence remains diagnostic but separate",
+    "no checkpoint is promoted"
+  ],
+  "type": "infrastructure"
+}

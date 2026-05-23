@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m463-wrong-history-outcome-critical-redesign
+m464-wrong-history-targeted-pair-triage
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -239,7 +239,13 @@ gate expansion: only `8` raw accepted rows, `0` compact rows, `0` success-drop
 rows, `0` collision-gap rows, `1` obstacle-completion-drop row, and source
 coverage limited to seed `10300` and label `aes_feasible`. The next blocker is
 M463: redesign the wrong-history outcome-critical task or selector rather than
-claiming wrong-history proof from M462.
+claiming wrong-history proof from M462. M463 completes that redesign: split
+wrong-history proof from reset/zero-current diagnostics, stop using a joint
+compact corpus as a wrong-history pass condition, and target the full
+`candidate_pairs.csv` pool rather than only the already compact matched pairs.
+The next blocker is M464: implement targeted wrong-history pair triage that
+preserves matched-current similarity while selecting a source-diverse
+wrong-history surface for later outcome probing.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key

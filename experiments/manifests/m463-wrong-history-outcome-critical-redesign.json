@@ -2,7 +2,7 @@
   "id": "m463-wrong-history-outcome-critical-redesign",
   "type": "infrastructure",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -81,5 +81,25 @@
     "runs/m462_outcome_critical_selector_fresh_seed10200/wrong_history_audit.json"
   ],
   "decision_rule": "M463 can admit implementation only if it preserves the actor contract and requires source-diverse wrong-history outcome evidence rather than action-only or margin-only singleton rows.",
-  "next_blocker": "pending M463 wrong-history outcome-critical redesign"
+  "results": {
+    "design_doc": "docs/m463-wrong-history-outcome-critical-redesign.md",
+    "m461_wrong_history_compact_rows": 0,
+    "m462_wrong_history_raw_accepted_rows": 8,
+    "m462_wrong_history_compact_rows": 0,
+    "m462_wrong_history_success_drop_rows": 0,
+    "m462_wrong_history_collision_gap_rows": 0,
+    "m462_wrong_history_obstacle_completion_drop_rows": 1,
+    "m462_wrong_history_source_probe_seeds": [
+      10300
+    ],
+    "m462_wrong_history_source_labels": [
+      "aes_feasible"
+    ],
+    "selected_next_path": "wrong-history targeted pair triage over candidate_pairs.csv",
+    "next_manifest": "experiments/manifests/m464-wrong-history-targeted-pair-triage.json",
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "admit_m464_wrong_history_targeted_pair_triage"
+  },
+  "next_blocker": "m464-wrong-history-targeted-pair-triage"
 }
