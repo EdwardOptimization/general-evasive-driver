@@ -9184,3 +9184,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M354 runs the fresh-seed short PPO repeat from M352 base. Raw PPO completes on CUDA with eval termination `0.20`. Exact repair improves M297 by `-0.000023007` but regresses M270 by `+0.000040591`, failing exact lexicographic no-regression. Source-diverse, old-key neighborhood, replay, and behavior gates are intentionally skipped.
 - decision: `reject_m354_exact_m270_regression`
 - next: `m355-m354-exact-m270-regression-audit`
+
+## 20260523T104947Z - m355-m354-exact-m270-regression-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m355_m354_repair_step39_diagnostic`
+- artifact: `docs/m355-m354-exact-m270-regression-audit.md`
+- result: M355 audits the M354 exact repair trace and confirms the M354 PPO proposal had a feasible repaired state. A 39-step diagnostic repair exactly matches the original M354 pre-step-40 metrics and passes exact M297/M270 with deltas `-0.000179172` and `-0.000053346`. The saved 40-step candidate fails because `train_metrics.csv` records pre-update losses while the tool saves the final post-update state, and that final Adam step crosses the M270 boundary.
+- decision: `admit_m356_exact_repair_best_step_selection`
+- next: `m356-exact-repair-best-step-selection-implementation`

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 363,
+        "completed": 364,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m354-old-key-neighborhood-ppo-fresh-seed-repeat",
+        "task_id": "m355-m354-exact-m270-regression-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m354_old_key_neighborhood_ppo_fresh_seed_repeat",
-        "command_log": "runs/m354_old_key_neighborhood_ppo_fresh_seed_repeat/summary.json"
+        "run_dir": "runs/m355_m354_repair_step39_diagnostic",
+        "command_log": "docs/m355-m354-exact-m270-regression-audit.md"
     },
     "next_task": {
-        "id": "m355-m354-exact-m270-regression-audit",
+        "id": "m356-exact-repair-best-step-selection-implementation",
         "status": "pending",
-        "priority": 3500,
-        "kind": "gate",
-        "hypothesis": "M354 may have failed because the exact repair objective overfit M297 while allowing M270 to regress, so the next step should audit the exact repair traces and decide whether a M270-dominant repair or different line search is needed.",
-        "command": "see experiments/manifests/m355-m354-exact-m270-regression-audit.json",
+        "priority": 3510,
+        "kind": "infrastructure",
+        "hypothesis": "Implement exact repair best-step selection after M355 endpoint-selection audit",
+        "command": "see experiments/manifests/m356-exact-repair-best-step-selection-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: classify M354 M270 regression and register next repair or archive decision"
+        "notes": "Pending: add post-update metrics and lexicographic best-feasible checkpoint selection before retrying M354 repair"
     },
-    "updated_at_utc": "20260523T104359Z"
+    "updated_at_utc": "20260523T104947Z"
 }

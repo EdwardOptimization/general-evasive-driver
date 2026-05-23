@@ -1,0 +1,84 @@
+{
+  "id": "m356-exact-repair-best-step-selection-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt",
+      "runs/ppo_m354_old_key_neighborhood_repeat_seed5240/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m354_exact_repair_from_raw_s40_seed10103/train_metrics.csv",
+      "runs/m354_exact_repair_from_raw_s40_seed10103/summary.json",
+      "runs/m355_m354_repair_step39_diagnostic/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m355-m354-exact-m270-regression-audit.json",
+      "docs/m355-m354-exact-m270-regression-audit.md"
+    ],
+    "parent_objective": [
+      "fix exact repair endpoint selection so feasible intermediate steps are not discarded"
+    ],
+    "derived_from": [
+      "m355-m354-exact-m270-regression-audit"
+    ],
+    "blocked_by": [
+      "m355-m354-exact-m270-regression-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m356-exact-repair-best-step-selection-implementation.md",
+  "public_gates": [
+    "infrastructure only; no PPO run",
+    "post-update exact metrics are logged for repair steps",
+    "exact repair can select and save the best lexicographically feasible step",
+    "candidate summary describes the saved selected checkpoint",
+    "actor input contract remains unchanged"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not promote the M354 39-step diagnostic candidate",
+    "do not run downstream replay gates before the tool fix is validated",
+    "do not change actor inputs",
+    "do not hide exact M270 regressions by relaxing tolerances"
+  ],
+  "hypothesis": "The M354 M270 regression can be prevented at the infrastructure layer by making exact repair evaluate post-update losses and save the best lexicographically feasible checkpoint instead of the final optimizer step.",
+  "success_criteria": [
+    "exact_post_ppo_repair records post-update metrics consistently with saved checkpoints",
+    "exact_post_ppo_repair supports best-feasible checkpoint selection",
+    "tests cover best-step selection and candidate-summary consistency",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "implementation changes actor inputs",
+    "implementation only changes documentation while leaving final-step selection unchanged",
+    "tests do not exercise the M355 failure mode",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "m356_implementation",
+      "command": "Update exact_post_ppo_repair best-step selection and tests; do not run PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m356-exact-repair-best-step-selection-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m355-m354-exact-m270-regression-audit.md",
+    "runs/m355_m354_repair_step39_diagnostic/summary.json"
+  ],
+  "decision_rule": "M356 is complete when exact repair has deterministic best-step selection, focused tests pass, and the next M354 repair retry is registered without changing actor inputs.",
+  "next_blocker": "pending M356 exact repair best-step selection implementation"
+}

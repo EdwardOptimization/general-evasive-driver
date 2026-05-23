@@ -55,7 +55,7 @@ neighborhood proof.
 Current blocker:
 
 ```text
-m355-m354-exact-m270-regression-audit
+m356-exact-repair-best-step-selection-implementation
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -77,8 +77,12 @@ exact, source-diverse, old-key neighborhood, and first replay gates. M352
 promotes the bounded candidate after all six public replay gates and behavior
 seeds pass. M353 registers a fresh-seed repeat before any longer PPO. M354 is
 the fresh-seed proposal-only PPO repeat: raw PPO runs, but exact repair improves
-M297 while regressing M270, so downstream gates are skipped. M355 should audit
-the exact M270 regression before another PPO attempt.
+M297 while regressing M270, so downstream gates are skipped. M355 audits that
+failure and finds a feasible 39-step repair state; the saved 40-step endpoint
+failed because the repair tool logs pre-update metrics but saves the final
+post-update state. M356 should implement post-update metrics and
+lexicographic best-feasible checkpoint selection before retrying the M354
+repair.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -149,7 +153,8 @@ the exact M270 regression before another PPO attempt.
 | current public-gate base | `runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt` | M352 promotes alpha 0.0075 after exact, source-diverse, old-key neighborhood, six replay, and behavior gates pass |
 | fresh-seed repeat config | `configs/ppo_m354_old_key_neighborhood_repeat.json` | M353 registers seed 5240 short PPO repeat from M352 base before any longer PPO |
 | rejected fresh-seed repeat | `runs/m354_exact_repair_from_raw_s40_seed10103/candidate_checkpoint.pt` | M354 exact repair improves M297 but regresses M270, so downstream gates are skipped |
-| current blocker | `experiments/manifests/m355-m354-exact-m270-regression-audit.json` | M355 must audit the M354 exact M270 regression before another PPO attempt |
+| exact repair endpoint audit | `runs/m355_m354_repair_step39_diagnostic/summary.json` | M355 shows M354 had a feasible 39-step exact repair state; final-step selection crossed the M270 boundary |
+| current blocker | `experiments/manifests/m356-exact-repair-best-step-selection-implementation.json` | M356 must add post-update metrics and best-feasible checkpoint selection before retrying M354 repair |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

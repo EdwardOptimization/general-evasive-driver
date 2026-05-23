@@ -4,7 +4,7 @@
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "metric_artifact"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -78,6 +78,21 @@
     "docs/m354-old-key-neighborhood-ppo-fresh-seed-repeat.md",
     "runs/m354_old_key_neighborhood_ppo_fresh_seed_repeat/summary.json"
   ],
-  "decision_rule": "M355 is complete when the M354 exact M270 regression is classified and the next repair/retry/archive step is registered without running PPO.",
-  "next_blocker": "pending M355 exact M270 regression audit"
+  "results": {
+    "run_dir": "runs/m355_m354_repair_step39_diagnostic",
+    "m354_final_candidate": "runs/m354_exact_repair_from_raw_s40_seed10103/candidate_checkpoint.pt",
+    "m354_final_m297_delta_vs_m352": -2.300739288330078e-05,
+    "m354_final_m270_delta_vs_m352": 4.0590763092041016e-05,
+    "m354_final_exact_lexicographic_pass": false,
+    "diagnostic_step39_candidate": "runs/m355_m354_repair_step39_diagnostic/candidate_checkpoint.pt",
+    "diagnostic_step39_m297_delta_vs_m352": -0.00017917156219482422,
+    "diagnostic_step39_m270_delta_vs_m352": -5.334615707397461e-05,
+    "diagnostic_step39_exact_lexicographic_pass": true,
+    "root_cause": "train_metrics rows are pre-update losses while candidate_checkpoint is the final post-update model; the final Adam step crossed the M270 boundary after a feasible step39 state",
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m356_exact_repair_best_step_selection",
+  "decision_rule": "M355 classifies M354 as a repair endpoint-selection metric artifact: a 39-step diagnostic exact repair passes M297/M270, while the saved 40-step endpoint fails M270 because the final update crossed the boundary.",
+  "next_blocker": "m356-exact-repair-best-step-selection-implementation"
 }
