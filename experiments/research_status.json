@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 345,
+        "completed": 346,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "command_log": "docs/m336-full-public-gate-for-m335-a0075.md",
+        "command_log": "docs/m337-old-key-gap-floor-bottleneck-audit.md",
         "returncode": 0,
-        "run_dir": "runs/m336_full_public_gate_for_m335_a0075",
+        "run_dir": "runs/m337_old_key_gap_floor_bottleneck_audit",
         "status": "completed",
-        "task_id": "m336-full-public-gate-for-m335-a0075"
+        "task_id": "m337-old-key-gap-floor-bottleneck-audit"
     },
     "next_task": {
-        "command": "see experiments/manifests/m337-old-key-gap-floor-bottleneck-audit.json",
-        "hypothesis": "The fixed old-key 9944 margin-gap floor has become the active bottleneck for PPO continuation: source-diverse proof remains intact, but repaired PPO endpoints erode the singleton gap and force micro-alpha promotions.",
-        "id": "m337-old-key-gap-floor-bottleneck-audit",
-        "kind": "gate",
-        "notes": "Pending: no-PPO audit of old-key gap bottleneck before further PPO escalation",
-        "priority": 3320,
+        "command": "see experiments/manifests/m338-old-key-gap-distribution-refresh-design.json",
+        "hypothesis": "Replacing the singleton old-key gap floor with a source-diverse old-key/gap distribution gate can retain old wrong-history evidence without forcing every PPO continuation through a single saturated scalar row.",
+        "id": "m338-old-key-gap-distribution-refresh-design",
+        "kind": "infrastructure",
+        "notes": "Pending: no-PPO design of source-diverse old-key gap distribution gate",
+        "priority": 3330,
         "status": "pending",
         "success_artifact": ""
     },
-    "updated_at_utc": "20260523T073020Z"
+    "updated_at_utc": "20260523T073745Z"
 }

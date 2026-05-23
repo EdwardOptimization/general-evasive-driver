@@ -61,7 +61,7 @@ post-PPO repair before any more PPO acceptance.
 Current blocker:
 
 ```text
-m337-old-key-gap-floor-bottleneck-audit
+m338-old-key-gap-distribution-refresh-design
 ```
 
 M305 implements deterministic exact M297/M270 repair or projection
@@ -122,15 +122,17 @@ acceptance needs exact repair plus a protected-key-bounded trust region.
 Current next task:
 
 ```text
-m337-old-key-gap-floor-bottleneck-audit
+m338-old-key-gap-distribution-refresh-design
 ```
 
 M336 promotes M335 alpha `0.0075` as the new source-diverse public-gate base.
 The candidate passes exact/source-diverse/old-key/replay/behavior gates, but
 the accepted movement is micro-alpha bounded: M335 repaired endpoint improves
 exact objectives much more strongly while eroding old-key gap to `0.065360`.
-M337 should audit whether the fixed old `9944` gap floor is now the active PPO
-continuation bottleneck before any more PPO.
+M337 audits this and classifies the blocker as a singleton old-key gap-floor
+bottleneck, not source-diverse washout: the M335 endpoint still passes
+source-diverse gates `5/5`. M338 should design a source-diverse old-key/gap
+distribution gate before any more PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -184,6 +186,7 @@ continuation bottleneck before any more PPO.
 | short PPO escalation config | `configs/ppo_m335_short_source_diverse_escalation.json` | M334 registers 4096-step PPO from M333 base with exact repair and bounded proof gates; no PPO run yet |
 | bounded short-PPO candidate | `runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt` | M335 exact repair improves objectives but old-key floor clips accepted movement to alpha 0.0075; first replay gates pass |
 | current source-diverse public base | `runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt` | M336 promotes alpha 0.0075 after exact, source-diverse, replay, old-key gap floor, and behavior gates pass |
+| old-key bottleneck audit | `runs/m337_old_key_gap_floor_bottleneck_audit/summary.json` | M337 shows M335 endpoint passes source-diverse gates but old-key gap collapses to 0.065360; next step is distributional gap-gate design |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
@@ -455,10 +458,10 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not run more PPO until M337 audits the old-key gap-floor bottleneck. M337
-must classify whether this is singleton old-key saturation, broad
-source-diverse washout, or an objective-design gap, and should admit a no-PPO
-design or corpus refresh before further escalation. Do not change actor inputs.
+Do not run more PPO until M338 designs the source-diverse old-key/gap
+distribution gate. Do not lower the `0.09` singleton floor ad hoc and do not
+remove `9944` from diagnostics; replace singleton veto dominance with a
+pre-registered distributional gate. Do not change actor inputs.
 
 ## Sensor Profile Policy
 

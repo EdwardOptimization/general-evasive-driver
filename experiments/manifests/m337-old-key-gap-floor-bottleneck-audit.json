@@ -2,9 +2,9 @@
   "id": "m337-old-key-gap-floor-bottleneck-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "protected_key_window_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -82,6 +82,22 @@
     "runs/m335_old_key_gap_sweep/guard_results.csv",
     "runs/m336_full_public_gate_for_m335_a0075"
   ],
-  "decision_rule": "M337 must classify the old-key gap floor bottleneck and admit a no-PPO design or corpus refresh before any further PPO escalation.",
-  "next_blocker": "pending M337 old-key gap-floor bottleneck audit"
+  "results": {
+    "run_dir": "runs/m337_old_key_gap_floor_bottleneck_audit",
+    "old_key_gap_trend_csv": "runs/m337_old_key_gap_floor_bottleneck_audit/old_key_gap_trend.csv",
+    "source_diverse_trend_csv": "runs/m337_old_key_gap_floor_bottleneck_audit/source_diverse_trend.csv",
+    "summary_json": "runs/m337_old_key_gap_floor_bottleneck_audit/summary.json",
+    "m335_endpoint_source_diverse_run_dir": "runs/m337_m335_repaired_endpoint_source_diverse_gate",
+    "m335_endpoint_source_diverse_pass": true,
+    "m335_endpoint_old_key_margin_gap": 0.06535989950220555,
+    "m335_selected_old_key_margin_gap": 0.09002140115294455,
+    "old_key_margin_gap_floor": 0.09,
+    "classification": "single_old_key_gap_floor_bottleneck_not_source_diverse_washout",
+    "promotion_recommended": false,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_old_key_gap_distribution_refresh_design",
+  "decision_rule": "M337 classifies the blocker as a singleton old-key gap-floor bottleneck rather than broad source-diverse proof washout, so it admits no-PPO design work for a distributional old-key gap gate before further PPO escalation.",
+  "next_blocker": "m338-old-key-gap-distribution-refresh-design"
 }

@@ -9004,3 +9004,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M336 promotes M335 alpha `0.0075`. Exact M297/M270 improve by `-0.000002623` and `-0.000001252`; source-diverse gates pass `5/5`; old-key gap remains `0.090021 >= 0.09`; all six replay surfaces pass; behavior seeds 9505 and 9506 retain `0.8625` success with reset `0.85` and zero-all `0.80`.
 - decision: `promote_m335_a0075_short_ppo_public_gate_base`
 - next: `m337-old-key-gap-floor-bottleneck-audit`
+
+## 20260523T073745Z - m337-old-key-gap-floor-bottleneck-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m337_old_key_gap_floor_bottleneck_audit`
+- artifact: `docs/m337-old-key-gap-floor-bottleneck-audit.md`
+- result: M337 classifies the current blocker as `single_old_key_gap_floor_bottleneck_not_source_diverse_washout`. Old-key gap trends `0.096982 -> 0.092653 -> 0.090155`, then the M335 repaired endpoint collapses to `0.065360`, while the endpoint still passes source-diverse protected gate `5/5`. The bounded promoted alpha keeps gap `0.090021`.
+- decision: `admit_old_key_gap_distribution_refresh_design`
+- next: `m338-old-key-gap-distribution-refresh-design`
