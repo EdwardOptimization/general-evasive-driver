@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 316,
+    "completed": 317,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m307-full-public-gate-for-m306-raw-s40.md",
+    "command_log": "docs/m308-exact-repair-fresh-seed-repeat.md",
     "returncode": 0,
-    "run_dir": "runs/m307_full_public_gate_for_m306_raw_s40",
+    "run_dir": "runs/m308_exact_repair_from_raw_s40_seed10094",
     "status": "completed",
-    "task_id": "m307-full-public-gate-for-m306-raw-s40"
+    "task_id": "m308-exact-repair-fresh-seed-repeat"
   },
   "next_task": {
-    "command": "see experiments/manifests/m308-exact-repair-fresh-seed-repeat.json",
-    "hypothesis": "The M306 exact repair projection recipe is not a single optimizer-seed accident and can repeat exact-objective improvement plus first replay retention with a fresh seed.",
-    "id": "m308-exact-repair-fresh-seed-repeat",
-    "kind": "driver_candidate",
-    "notes": "Pending: repeat M306 repair recipe with fresh seed and first replay gates",
-    "priority": 3030,
+    "command": "see experiments/manifests/m309-exact-repaired-ppo-proposal-design.json",
+    "hypothesis": "After M307 promotion and M308 deterministic repair repeat, the next progress path is a fresh smoke-scale PPO proposal from M307 followed by exact repair projection and lexicographic exact gates.",
+    "id": "m309-exact-repaired-ppo-proposal-design",
+    "kind": "infrastructure",
+    "notes": "Pending: specify M310 PPO proposal config exact repair command and gates without running PPO",
+    "priority": 3040,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260523T045458Z"
+  "updated_at_utc": "20260523T045805Z"
 }

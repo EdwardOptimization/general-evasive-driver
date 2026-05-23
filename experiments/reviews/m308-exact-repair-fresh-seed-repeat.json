@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M308 fresh repair repeat matches M306 exact deltas and passes M183/M170 plus M267/M264 first replay gates so optimizer seed fragility is not the blocker",
+  "failure_criteria": [
+    "fresh repair candidate regresses exact M297 or exact M270",
+    "fresh repair candidate loses M183/M170 or M267/M264 first replay retention",
+    "fresh repair movement collapses to a base-equivalent no-op",
+    "actor input contract is changed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not assume M306 is seed-robust from one optimizer seed",
+    "do not run long PPO before fresh repair repeat",
+    "do not promote without exact and replay gates",
+    "do not change actor inputs"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260523T050120Z",
+  "hypothesis": "The M306 exact repair projection recipe is not a single optimizer-seed accident and can repeat exact-objective improvement plus first replay retention with a fresh seed.",
+  "lineage": {
+    "blocked_by": [
+      "m307-full-public-gate-for-m306-raw-s40"
+    ],
+    "derived_from": [
+      "m307-full-public-gate-for-m306-raw-s40"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt",
+      "runs/ppo_m302_rejected_preference_guarded_smoke_seed5233/checkpoint.pt",
+      "runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m307-full-public-gate-for-m306-raw-s40.json",
+      "docs/m307-full-public-gate-for-m306-raw-s40.md"
+    ],
+    "parent_dataset": [
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv"
+    ],
+    "parent_objective": [
+      "repeat the exact repair projection recipe with a fresh optimizer seed before more PPO proposals"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m308-exact-repair-fresh-seed-repeat",
+  "next_blocker": "m309-exact-repaired-ppo-proposal-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_exact_repaired_ppo_proposal_design",
+  "public_gates": [
+    "preserve human-view actor input contract",
+    "repeat exact_post_ppo_repair from M302 raw with a fresh optimizer seed",
+    "exact M297 candidate loss must not regress versus M299",
+    "exact M270 candidate loss must not regress versus M299",
+    "M183/M170 first replay gate",
+    "M267/M264 first replay gate",
+    "decide whether seed-repeat evidence is enough for another PPO proposal"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m308_exact_repair_from_raw_s40_seed10094/candidate_checkpoint.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_exact_repaired_ppo_proposal_design",
+    "milestone": "m308-exact-repair-fresh-seed-repeat",
+    "reason": "M308 fresh repair repeat matches M306 exact deltas and passes M183/M170 plus M267/M264 first replay gates so optimizer seed fragility is not the blocker",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "driver_candidate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "fresh repair candidate improves or retains exact M297 versus M299",
+    "fresh repair candidate improves or retains exact M270 versus M299",
+    "fresh repair candidate passes M183/M170 and M267/M264 first replay gates",
+    "document whether M307 promotion is seed-stable enough to admit another PPO proposal"
+  ],
+  "type": "driver_candidate"
+}

@@ -8717,3 +8717,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M307 promotes the M306 raw-start exact repair candidate. It improves exact M297 by `0.000126243` and exact M270 by `0.000080407` versus M299, passes all six replay surfaces, passes protected key `9944` while `m239_a750` still fails, and retains behavior success `0.8625` on seeds `9505` and `9506`.
 - decision: `promote_m306_raw_s40_public_gate_base`
 - next: `m308-exact-repair-fresh-seed-repeat`
+
+## 20260523T045805Z - m308-exact-repair-fresh-seed-repeat
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m308_exact_repair_from_raw_s40_seed10094`
+- artifact: `docs/m308-exact-repair-fresh-seed-repeat.md`
+- result: M308 repeats the exact repair projection from M302 raw with fresh seed `10094`. The candidate matches M306 exact deltas (`M297=-0.000126243`, `M270=-0.000080407`) and passes M183/M170 plus M267/M264 first replay gates with `17/17` success drops retained on both surfaces. Full-batch deterministic repair means optimizer seed is not the current fragility source.
+- decision: `admit_exact_repaired_ppo_proposal_design`
+- next: `m309-exact-repaired-ppo-proposal-design`

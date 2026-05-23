@@ -61,7 +61,7 @@ post-PPO repair before any more PPO acceptance.
 Current blocker:
 
 ```text
-m305-exact-post-ppo-repair-projection-implementation
+m309-exact-repaired-ppo-proposal-design
 ```
 
 M305 implements deterministic exact M297/M270 repair or projection
@@ -77,17 +77,25 @@ runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt
 
 improves exact M297 by `0.000126243`, improves exact M270 by `0.000080407`,
 and passes the M183/M170 plus M267/M264 first replay gates with `17/17`
-success drops retained on both surfaces. It is not promoted yet.
+success drops retained on both surfaces.
+
+M307 promotes that M306 raw-start exact repair candidate after the full public
+gate stack: six replay surfaces, the protected-key diagnostic, and behavior
+seeds `9505`/`9506`.
+
+M308 repeats the exact repair projection with fresh seed `10094` and reproduces
+the same exact deltas plus M183/M170 and M267/M264 first replay retention. The
+repair optimizer seed is not the current blocker; the next uncertainty is the
+next PPO proposal direction.
 
 Current next task:
 
 ```text
-m308-exact-repair-fresh-seed-repeat
+m309-exact-repaired-ppo-proposal-design
 ```
 
-M308 should repeat the exact repair recipe with a fresh optimizer seed before
-another PPO proposal, because M307 is a positive promotion but still one repair
-seed.
+M309 should design the next smoke-scale PPO proposal from the M307 base with a
+mandatory exact repair/projection step before any replay or promotion decision.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -118,6 +126,7 @@ seed.
 | rejected PPO proposal | `runs/ppo_m302_rejected_preference_guarded_smoke_seed5233/checkpoint.pt` | M302 regresses exact M297/M270 and is not promotable |
 | exact repair infrastructure | `src/autodrift/exact_post_ppo_repair.py` | M305 implemented deterministic exact M297/M270 repair summaries and line-search starts |
 | current public-gate base | `runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt` | M307 promoted after exact objectives full replay protected-key and behavior gates pass |
+| repair repeat diagnostic | `runs/m308_exact_repair_from_raw_s40_seed10094/candidate_checkpoint.pt` | M308 repeats M306 exact deltas and first replay gates; not separately promoted |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

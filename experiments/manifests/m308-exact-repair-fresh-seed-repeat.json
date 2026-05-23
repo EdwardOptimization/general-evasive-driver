@@ -2,7 +2,7 @@
   "id": "m308-exact-repair-fresh-seed-repeat",
   "type": "driver_candidate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -85,6 +85,22 @@
     "runs/m307_full_public_gate_for_m306_raw_s40/full_gates/behavior_seed9505/policy_summary.csv",
     "runs/m307_full_public_gate_for_m306_raw_s40/full_gates/behavior_seed9506/policy_summary.csv"
   ],
+  "results": {
+    "run_dir": "runs/m308_exact_repair_from_raw_s40_seed10094",
+    "candidate_checkpoint": "runs/m308_exact_repair_from_raw_s40_seed10094/candidate_checkpoint.pt",
+    "exact_m297_delta_vs_m299": -0.00012624263763427734,
+    "exact_m270_delta_vs_m299": -0.00008040666580200195,
+    "m183_m170_first_replay_pass": true,
+    "m183_m170_success_drops": 17,
+    "m183_m170_rows": 17,
+    "m267_m264_first_replay_pass": true,
+    "m267_m264_success_drops": 17,
+    "m267_m264_rows": 17,
+    "repair_seed_fragility_observed": false,
+    "ppo_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_exact_repaired_ppo_proposal_design",
   "decision_rule": "M308 admits another PPO proposal only if a fresh exact-repair seed keeps exact objectives and first replay gates.",
-  "next_blocker": "pending M308 exact repair fresh seed repeat"
+  "next_blocker": "m309-exact-repaired-ppo-proposal-design"
 }
