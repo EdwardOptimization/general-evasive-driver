@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 312,
+    "completed": 313,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m303-m302-preference-guard-failure-audit.md",
+    "command_log": "docs/m304-exact-lexicographic-post-ppo-repair-design.md",
     "returncode": 0,
-    "run_dir": "runs/m303_m302_preference_guard_failure_audit",
+    "run_dir": "runs/m304_exact_lexicographic_post_ppo_repair_design",
     "status": "completed",
-    "task_id": "m303-m302-preference-guard-failure-audit"
+    "task_id": "m304-exact-lexicographic-post-ppo-repair-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m304-exact-lexicographic-post-ppo-repair-design.json",
-    "hypothesis": "A post-PPO exact full-corpus repair/projection step is needed because scalar sampled PPO auxiliary loss did not preserve exact M297 or M270 objectives.",
-    "id": "m304-exact-lexicographic-post-ppo-repair-design",
+    "command": "see experiments/manifests/m305-exact-post-ppo-repair-projection-implementation.json",
+    "hypothesis": "A deterministic exact post-PPO repair or projection tool can generate candidates and exact M297/M270 summaries so M306 can test whether the rejected M302 PPO proposal is recoverable without relying on sampled auxiliary metrics.",
+    "id": "m305-exact-post-ppo-repair-projection-implementation",
     "kind": "infrastructure",
-    "notes": "Pending: specify full-batch exact M297/M270 repair trust-region and acceptance gates before any PPO",
-    "priority": 2990,
+    "notes": "Pending: implement deterministic full-batch exact M297/M270 repair summaries before any PPO or replay",
+    "priority": 3000,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260523T012032Z"
+  "updated_at_utc": "20260523T043434Z"
 }

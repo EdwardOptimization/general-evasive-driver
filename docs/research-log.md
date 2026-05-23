@@ -8677,3 +8677,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M271 improves the source-balanced M270 objective under sampled fixed eval (`0.681606` to `0.674872`) and exact eval (`0.681443` to `0.674680`), but replay gates fail for M183/M168, M183/M170, M193/M189, M212/M204, and M223/M219 before behavior or protected-key gates. M267/M264 remains retained.
 - decision: `reject_multi_surface_actor_update_proof_washout`
 - next: `m272-m271-interpolation-retention-probe`
+
+## 20260523T043434Z - m304-exact-lexicographic-post-ppo-repair-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m304_exact_lexicographic_post_ppo_repair_design`
+- artifact: `docs/m304-exact-lexicographic-post-ppo-repair-design.md`
+- result: M304 designs exact full-corpus lexicographic post-PPO repair. PPO is now only a proposal source; a candidate must pass exact M297 rejected-history preference no-regression and exact M270 source-balanced outcome no-regression before any M183/M170 or M267/M264 replay gate is run. The design uses M299 as anchor, treats M302 raw as a rejected proposal, and requires M305 to implement deterministic exact candidate summaries with trust-region or action-anchor terms.
+- decision: `admit_exact_repair_projection_implementation`
+- next: `m305-exact-post-ppo-repair-projection-implementation`

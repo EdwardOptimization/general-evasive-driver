@@ -42,21 +42,31 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m264_m263_to_raw_interpolation/checkpoints/alpha_0_001.pt
+runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt
 ```
 
-Status: M264 repaired stage2 repeat from M263. Raw PPO improves exact M223 and
-protected-key source losses, but protected-key replay promotes only
-`alpha=0.001`. `m264_a001` passes M183/M168, M183/M170, M193/M189, M212/M204,
-M223/M219 replay gates, protected key `9944|perturbed|28|28`, and behavior seeds
-`9505`/`9506`. M265 audits the protected-key normal-margin slack at `0.000029`.
-M266 refreshes the current-family protected surface and finds the old key is a
-saturated diagnostic singleton, not the only current proof surface. M267
-converts the refreshed surface into replay-aligned objective/proof corpora.
-M268 tried one small guarded actor update from M264 using the M267 M264 corpus.
-It improved the M267 objective but washed out old M183/M193 proof surfaces. PPO
-and further actor updates are blocked until a source-balanced multi-surface
-actor update size is reduced or redesigned.
+Status: M299 promoted `m298pref_a020` as the current public-gate base. It
+improves exact M297 rejected-history preference loss by `0.002190` and exact
+M270 source-balanced outcome loss by `0.001332` versus M290 while passing six
+public replay surfaces, the protected-key diagnostic, and behavior seeds
+`9505`/`9506`.
+
+M302 tried a 1024-step PPO smoke from M299 with a sampled rejected-history
+preference auxiliary loss. It is rejected: M302 raw regresses exact M297 by
+`0.000700` and exact M270 by `0.000443`, and every nonzero interpolation alpha
+also regresses both exact objectives. M303 classifies this as a sampled-metric
+artifact plus objective overfit. M304 selects exact full-corpus lexicographic
+post-PPO repair before any more PPO acceptance.
+
+Current blocker:
+
+```text
+m305-exact-post-ppo-repair-projection-implementation
+```
+
+M305 must implement deterministic exact M297/M270 repair or projection
+infrastructure. Do not run another PPO smoke and do not promote any M302 raw or
+interpolated checkpoint before exact no-regression and replay gates pass.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -83,6 +93,8 @@ actor update size is reduced or redesigned.
 | current-best snippet-anchored actor update | `runs/m217_m204_actor_coupling_snippet_pref_anchor100_s10_lr5e5_seed10054/optimized_checkpoint.pt` | M217 fresh repeat preserves old/current replay, behavior, and protected key |
 | current-best guarded PPO smoke repeat | `runs/ppo_m219_guarded_from_m217_seed5216/checkpoint.pt` | best retained M219 repeat; seed5215 fails protected-key margin window |
 | rejected guarded stage2 from M219 | `runs/ppo_m220_stage2_from_m219_seed5217/checkpoint.pt` | improves fixed M212 and preserves replay/behavior, but fails protected key |
+| current public-gate base | `runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt` | M299 promoted after exact M297/M270 improvement and full public-gate pass |
+| rejected PPO proposal | `runs/ppo_m302_rejected_preference_guarded_smoke_seed5233/checkpoint.pt` | M302 regresses exact M297/M270 and is not promotable |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.
