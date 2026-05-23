@@ -1,0 +1,87 @@
+{
+  "id": "m488-critical-window-wrong-tail-no-effect-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m487_critical_window_tail_aligned_outcome_summary/combined_summary.json",
+      "runs/m487_critical_window_tail_aligned_outcome_summary/combined_tail_outcomes.csv",
+      "runs/m487_critical_window_tail_aligned_outcome_summary/variant_summary.csv"
+    ],
+    "parent_config": [
+      "configs/m484_critical_window_near_threshold_zero_relvel.json",
+      "configs/m484_critical_window_late_high_energy_zero_relvel.json",
+      "experiments/manifests/m487-critical-window-tail-aligned-outcome-gate.json"
+    ],
+    "parent_objective": [
+      "critical-window wrong-tail no-effect mechanism audit"
+    ],
+    "derived_from": [
+      "m487-critical-window-tail-aligned-outcome-gate"
+    ],
+    "blocked_by": [
+      "m487-critical-window-tail-aligned-outcome-gate"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m488-critical-window-wrong-tail-no-effect-audit.md",
+  "public_gates": [
+    "audit M487 wrong_tail_once action and trajectory distances against reset_tail and zero_current_tail controls",
+    "compare proof-candidate and no-effect rows by config label target offset and normal margin",
+    "test whether wrong_tail_once failures are explained by weak perturbation magnitude, quick recurrent correction, source selection, or non-outcome-aligned target score",
+    "choose the next proof path before training or gate expansion",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not count reset or zero-current rows as wrong-history proof",
+    "do not add privileged actor inputs",
+    "do not select a new task before classifying the M487 no-effect mechanism"
+  ],
+  "hypothesis": "M487 failed because tail-aligned one-shot wrong histories create much smaller or more quickly corrected action/trajectory perturbations than reset and zero-current controls, and M486 target scores do not yet select outcome-sensitive wrong histories.",
+  "success_criteria": [
+    "produce row-level and aggregate audits for wrong_tail_once versus reset_tail and zero_current_tail",
+    "report action distance, trajectory distance, margin gap, event rows, normal margin, config, label, target, and offset distributions",
+    "identify the dominant no-effect mechanism",
+    "pre-register the next milestone based on the audit result",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "audit cannot distinguish weak perturbation from selector mismatch or task insensitivity",
+    "audit treats reset or zero-current controls as wrong-history proof",
+    "audit proposes training before mechanism diagnosis",
+    "actor contract changes"
+  ],
+  "commands": [
+    {
+      "name": "wrong_tail_no_effect_audit",
+      "command": "Analyze runs/m487_critical_window_tail_aligned_outcome_summary/combined_tail_outcomes.csv and variant_summary.csv; write mechanism diagnosis; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m488-critical-window-wrong-tail-no-effect-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m487-critical-window-tail-aligned-outcome-gate.md",
+    "runs/m487_critical_window_tail_aligned_outcome_summary/combined_summary.json"
+  ],
+  "decision_rule": "M488 should admit a new proof path only after classifying whether wrong_tail_once is too weak, too quickly corrected, source-misaligned, or task-family limited.",
+  "next_blocker": "pending M488 critical-window wrong-tail no-effect audit"
+}

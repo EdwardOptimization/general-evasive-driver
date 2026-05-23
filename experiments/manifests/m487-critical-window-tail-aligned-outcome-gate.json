@@ -2,7 +2,7 @@
   "id": "m487-critical-window-tail-aligned-outcome-gate",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -100,5 +100,47 @@
     "runs/m486_critical_window_targeted_pair_triage/summary.json"
   ],
   "decision_rule": "M487 may admit a proof-surface export only if wrong_tail_once itself passes source-diverse event or margin gates; otherwise diagnose config or pair-selection failure.",
-  "next_blocker": "pending M487 critical-window tail-aligned outcome gate"
+  "next_blocker": "m488-critical-window-wrong-tail-no-effect-audit",
+  "results": {
+    "summary_json": "runs/m487_critical_window_tail_aligned_outcome_summary/combined_summary.json",
+    "combined_tail_outcomes_csv": "runs/m487_critical_window_tail_aligned_outcome_summary/combined_tail_outcomes.csv",
+    "variant_summary_csv": "runs/m487_critical_window_tail_aligned_outcome_summary/variant_summary.csv",
+    "near_threshold_run_dir": "runs/m487_near_threshold_tail_aligned_gate",
+    "late_high_energy_run_dir": "runs/m487_late_high_energy_tail_aligned_gate",
+    "combined_input_pair_count": 312,
+    "combined_valid_tail_pair_count": 1080,
+    "combined_invalid_tail_pair_count": 168,
+    "wrong_tail_once_proof_candidate_count": 11,
+    "wrong_tail_once_event_rows": 0,
+    "wrong_tail_once_probe_seed_count": 5,
+    "wrong_tail_once_obstacle_label_count": 2,
+    "wrong_tail_once_target_count": 2,
+    "wrong_tail_once_config_count": 2,
+    "wrong_tail_once_single_seed_share": 0.36363636363636365,
+    "wrong_tail_once_single_label_share": 0.9090909090909091,
+    "wrong_tail_once_by_config": {
+      "late_high_energy": 9,
+      "near_threshold": 2
+    },
+    "wrong_tail_once_by_offset": {
+      "4": 1,
+      "8": 2,
+      "12": 4,
+      "16": 4
+    },
+    "wrong_tail_once_by_label": {
+      "unavoidable": 10,
+      "drift_required": 1
+    },
+    "wrong_tail_once_by_target": {
+      "future_braking_deceleration": 8,
+      "future_yaw_response": 3
+    },
+    "control_proof_candidate_count": 333,
+    "control_event_rows": 41,
+    "tail_gate_pass": false,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "critical_window_tail_gate_reject_wrong_tail_proof_admit_m488_no_effect_audit"
+  }
 }

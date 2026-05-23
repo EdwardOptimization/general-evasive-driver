@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 495,
+        "completed": 496,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m486-critical-window-targeted-pair-triage",
+        "task_id": "m487-critical-window-tail-aligned-outcome-gate",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m486_critical_window_targeted_pair_triage",
-        "command_log": "docs/m486-critical-window-targeted-pair-triage.md"
+        "run_dir": "runs/m487_critical_window_tail_aligned_outcome_summary",
+        "command_log": "docs/m487-critical-window-tail-aligned-outcome-gate.md"
     },
     "next_task": {
-        "id": "m487-critical-window-tail-aligned-outcome-gate",
+        "id": "m488-critical-window-wrong-tail-no-effect-audit",
         "status": "pending",
-        "priority": 4820,
+        "priority": 4830,
         "kind": "gate",
-        "hypothesis": "The M486 source-diverse critical-window targeted pairs will make tail-aligned one-shot wrong-history interventions produce source-diverse event or margin proof beyond the single-pair M482 signal.",
-        "command": "see experiments/manifests/m487-critical-window-tail-aligned-outcome-gate.json",
+        "hypothesis": "M487 failed because tail-aligned one-shot wrong histories create much smaller or more quickly corrected action/trajectory perturbations than reset and zero-current controls, and M486 target scores do not yet select outcome-sensitive wrong histories.",
+        "command": "see experiments/manifests/m488-critical-window-wrong-tail-no-effect-audit.json",
         "success_artifact": "",
-        "notes": "Pending: split targeted pairs by config and run tail-aligned outcome gates; no training"
+        "notes": "Pending: audit why M487 wrong_tail_once remains no-effect despite sensitive reset/zero-current controls; no training"
     },
-    "updated_at_utc": "20260523T233000Z"
+    "updated_at_utc": "20260523T225450Z"
 }

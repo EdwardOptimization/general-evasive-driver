@@ -10504,3 +10504,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M486 runs targeted wrong-history triage on the combined M485 matched-current surface. It exports `312` targeted pairs from `5802` eligible rows. The targeted surface covers `6` probe seeds, `3` obstacle labels, and `3` targets, with single-seed share `0.195513` and single-label share `0.512821`. It is also balanced across critical configs: `157` near-threshold rows and `155` late-high-energy rows. This passes the targeted-surface gate and admits tail-aligned outcome testing.
 - decision: `critical_window_targeted_triage_pass_admit_m487_tail_aligned_outcome_gate`
 - next: `m487-critical-window-tail-aligned-outcome-gate`
+## 20260524T000500Z - m487-critical-window-tail-aligned-outcome-gate
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m487_critical_window_tail_aligned_outcome_summary`
+- artifact: `docs/m487-critical-window-tail-aligned-outcome-gate.md`
+- result: M487 splits the M486 targeted pairs across the two M484 critical-window configs and runs tail-aligned one-shot wrong-history outcome gates. The combined surface has `312` input pairs, `1080` valid tail pairs, and `4320` outcome rows. `wrong_tail_once` produces only `11` proof-candidate rows, `0` success/collision/completion event rows, `5` probe seeds, `2` labels, `2` targets, and single-label share `0.909091`. In contrast, reset-tail and zero-current controls produce `333` proof-candidate rows and `41` event rows on the same tail states. The task is sensitive, but the natural wrong-tail intervention is still too weak or not outcome-aligned.
+- decision: `critical_window_tail_gate_reject_wrong_tail_proof_admit_m488_no_effect_audit`
+- next: `m488-critical-window-wrong-tail-no-effect-audit`
