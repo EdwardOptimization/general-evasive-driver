@@ -47,30 +47,30 @@ runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
 
 Status: M400 promotes M399 alpha `0.05` as the current public-gate base after
 six public replay surfaces and behavior seeds pass. This remains the latest
-public-gate base; M487-M490 did not train or promote a checkpoint.
+public-gate base; M487-M492 did not train or promote a checkpoint.
 
 Current blocker:
 
 ```text
-m492-tail-action-replay-sufficiency-gate-implementation
+m493-natural-belief-decision-window-redesign
 ```
 
 Recent progress: M487 was a negative natural proof gate: `wrong_tail_once`
-produced `11` margin-style proof rows and `0` event rows. M488 showed the
-mechanism: wrong-tail first actions move, but trajectory deviation is small
-(`0.068261` mean), so the policy quickly corrects from current response. M490
-then confirmed this diagnostically: artificial `wrong_tail_hidden_hold_K`
-variants produce `90` proof rows and `4` event rows, while natural
-`wrong_tail_once` stays at `0` events.
+produced `11` proof rows and `0` event rows. M488 showed the mechanism: the
+policy quickly corrects from current response. M490 confirmed this
+diagnostically: artificial `wrong_tail_hidden_hold_K` variants produce `90`
+proof rows and `4` event rows. M492 then tests whether the wrong physical
+action prefix is sufficient under observer-hidden replay; it is not. Action
+replay produces `21` proof rows and only `1` event row, all proof rows are
+`unavoidable`, while hidden-hold remains `90`/`4`.
 
-M491 designs the next diagnostic. `wrong_tail_action_replay_K` will replay the
-K-step wrong physical action prefix in a fresh left-tail environment, update an
-observer hidden from the left-tail hidden while ignoring its own output actions,
-and then resume normal control from that observer hidden. This separates wrong
-action-sequence sufficiency from persistent wrong-hidden forcing.
+Conclusion: the M486-M492 tail branch is useful mechanism evidence, but not a
+deployable self-ID proof path. Persistent wrong hidden forcing dominates; the
+natural actor corrects too quickly.
 
-Next step: M492 should implement and run this observer-hidden action-replay
-gate on both critical-window configs. No training or checkpoint promotion.
+Next step: M493 should close this artificial forcing branch and redesign toward
+a natural belief decision-window task or miner where command-response history
+matters before current-response correction can wash out the effect.
 
 ## Current Evidence
 

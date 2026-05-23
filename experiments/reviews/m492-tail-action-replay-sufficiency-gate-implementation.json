@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M492 action replay has 21 proof rows and 1 event while hidden-hold has 90 proof rows and 4 events so persistent wrong hidden not physical action prefix dominates",
+  "failure_criteria": [
+    "tool cannot generate forced wrong action prefixes from hidden-hold branches",
+    "observer-hidden resume semantics are ambiguous or mixed with wrong-hidden resume",
+    "variant accounting mixes action replay with deployable natural proof",
+    "actor contract changes",
+    "training or checkpoint promotion is performed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not claim action replay as deployable self-ID proof",
+    "do not resume from wrong hidden after forced actions in the primary replay mode",
+    "do not add privileged actor inputs"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260523T232414Z",
+  "hypothesis": "If M490 hidden-hold events are caused by the wrong physical action sequence itself, then K-step wrong_tail_action_replay_K with observer-hidden resume will reproduce source-diverse proof or event rows.",
+  "lineage": {
+    "blocked_by": [
+      "m491-tail-action-replay-sufficiency-design"
+    ],
+    "derived_from": [
+      "m491-tail-action-replay-sufficiency-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/m484_critical_window_near_threshold_zero_relvel.json",
+      "configs/m484_critical_window_late_high_energy_zero_relvel.json",
+      "experiments/manifests/m491-tail-action-replay-sufficiency-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m487_critical_window_tail_aligned_outcome_gate/targeted_pairs_near_threshold.csv",
+      "runs/m487_critical_window_tail_aligned_outcome_gate/targeted_pairs_late_high_energy.csv",
+      "runs/m490_tail_action_sequence_amplification_summary/combined_summary.json"
+    ],
+    "parent_objective": [
+      "tail action replay sufficiency gate implementation"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m492-tail-action-replay-sufficiency-gate-implementation",
+  "next_blocker": "m493-natural-belief-decision-window-redesign",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "action_replay_rejects_action_sequence_sufficiency_admit_m493_natural_belief_task_redesign",
+  "public_gates": [
+    "implement observer-hidden action replay diagnostics without changing actor inputs",
+    "run both critical-window splits with K in {2,4,8,12}",
+    "compare action replay against wrong_tail_once hidden-hold reset-tail and zero-current controls",
+    "write combined summary artifacts and classify action sufficiency versus hidden persistence",
+    "do not train or promote checkpoint"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "action_replay_rejects_action_sequence_sufficiency_admit_m493_natural_belief_task_redesign",
+    "milestone": "m492-tail-action-replay-sufficiency-gate-implementation",
+    "reason": "M492 action replay has 21 proof rows and 1 event while hidden-hold has 90 proof rows and 4 events so persistent wrong hidden not physical action prefix dominates",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "tool writes per-row outcomes, invalid rows, variant summary, and summary json",
+    "runs complete on near_threshold and late_high_energy splits",
+    "combined summary separates action replay from hidden-hold and natural wrong-tail variants",
+    "action replay event/proof rows are reported with seed label target and config coverage",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "type": "infrastructure"
+}

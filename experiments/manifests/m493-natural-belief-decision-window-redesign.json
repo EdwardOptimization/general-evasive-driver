@@ -1,0 +1,84 @@
+{
+  "id": "m493-natural-belief-decision-window-redesign",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m492_tail_action_replay_sufficiency_summary/combined_summary.json"
+    ],
+    "parent_config": [
+      "configs/m484_critical_window_near_threshold_zero_relvel.json",
+      "configs/m484_critical_window_late_high_energy_zero_relvel.json",
+      "experiments/manifests/m492-tail-action-replay-sufficiency-gate-implementation.json"
+    ],
+    "parent_objective": [
+      "natural belief decision-window task redesign"
+    ],
+    "derived_from": [
+      "m492-tail-action-replay-sufficiency-gate-implementation"
+    ],
+    "blocked_by": [
+      "m492-tail-action-replay-sufficiency-gate-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m493-natural-belief-decision-window-redesign.md",
+  "public_gates": [
+    "close the M486-M492 artificial tail-forcing branch without promoting proof",
+    "design a natural decision-window task where history-formed belief affects action before current-response correction dominates",
+    "define sampling and smoke-validation criteria before implementation",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not count hidden-hold or action-replay rows as deployable proof",
+    "do not keep adding artificial forcing on the same M486 surface without a new task rationale"
+  ],
+  "hypothesis": "The M486-M492 surface is useful for mechanism diagnosis but not deployable self-ID proof; the next path should create natural matched-current decision windows where command-response belief matters before current observations can correct wrong hidden state.",
+  "success_criteria": [
+    "summarize why the tail-forcing branch is closed",
+    "define a new task/pair-selection path with warm-up belief formation and short decision window",
+    "define reset/zero-current/wrong-history gates and source-diversity thresholds",
+    "define sampling stress before proof mining",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "design continues artificial hidden or action forcing without a natural proof path",
+    "design requires privileged actor inputs",
+    "design proposes training before sampling and gate validation",
+    "design cannot separate belief timing from task difficulty"
+  ],
+  "commands": [
+    {
+      "name": "natural_belief_decision_window_redesign",
+      "command": "Write M493 redesign and M494 implementation manifest; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m493-natural-belief-decision-window-redesign.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m492-tail-action-replay-sufficiency-gate-implementation.md",
+    "runs/m492_tail_action_replay_sufficiency_summary/combined_summary.json"
+  ],
+  "decision_rule": "M493 should admit a new config or miner only if it creates a natural decision-time belief test rather than another artificial hidden/action forcing variant.",
+  "next_blocker": "pending M493 natural belief decision-window redesign"
+}

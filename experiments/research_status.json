@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 500,
+        "completed": 501,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m491-tail-action-replay-sufficiency-design",
+        "task_id": "m492-tail-action-replay-sufficiency-gate-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m491-tail-action-replay-sufficiency-design.md"
+        "run_dir": "runs/m492_tail_action_replay_sufficiency_summary",
+        "command_log": "docs/m492-tail-action-replay-sufficiency-gate-implementation.md"
     },
     "next_task": {
-        "id": "m492-tail-action-replay-sufficiency-gate-implementation",
+        "id": "m493-natural-belief-decision-window-redesign",
         "status": "pending",
-        "priority": 4870,
+        "priority": 4880,
         "kind": "infrastructure",
-        "hypothesis": "If M490 hidden-hold events are caused by the wrong physical action sequence itself, then K-step wrong_tail_action_replay_K with observer-hidden resume will reproduce source-diverse proof or event rows.",
-        "command": "see experiments/manifests/m492-tail-action-replay-sufficiency-gate-implementation.json",
+        "hypothesis": "The M486-M492 surface is useful for mechanism diagnosis but not deployable self-ID proof; the next path should create natural matched-current decision windows where command-response belief matters before current observations can correct wrong hidden state.",
+        "command": "see experiments/manifests/m493-natural-belief-decision-window-redesign.json",
         "success_artifact": "",
-        "notes": "Pending: implement observer-hidden action replay diagnostic; no training"
+        "notes": "Pending: close artificial tail-forcing branch and design natural belief decision-window task; no training"
     },
-    "updated_at_utc": "20260523T231638Z"
+    "updated_at_utc": "20260523T232403Z"
 }

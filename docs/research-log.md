@@ -10549,3 +10549,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M491 designs the follow-up to M490's hidden-hold diagnostic. It defines `wrong_tail_action_replay_K` for `K in {2,4,8,12}` with observer-hidden resume semantics: generate the wrong K-step physical action sequence from the hidden-hold branch, replay those actions in a fresh left-tail environment, update an observer hidden from the left-tail hidden while ignoring its output actions, then resume normal control from that observer hidden. This separates wrong action-sequence sufficiency from persistent wrong-hidden forcing.
 - decision: `admit_m492_tail_action_replay_sufficiency_gate_implementation`
 - next: `m492-tail-action-replay-sufficiency-gate-implementation`
+## 20260524T011000Z - m492-tail-action-replay-sufficiency-gate-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m492_tail_action_replay_sufficiency_summary`
+- artifact: `docs/m492-tail-action-replay-sufficiency-gate-implementation.md`
+- result: M492 implements observer-hidden action replay and runs it on both critical-window configs. The combined result has `1080` valid tail pairs and `12960` outcome rows. Action replay produces `21` proof rows and `1` event row, all proof rows are `unavoidable`; hidden-hold on the same surface remains `90` proof rows and `4` event rows, while natural `wrong_tail_once` remains `11` proof rows and `0` events. This rejects action-sequence sufficiency on the current surface: persistent wrong hidden forcing, not the wrong physical prefix alone, dominates the M490 diagnostic events.
+- decision: `action_replay_rejects_action_sequence_sufficiency_admit_m493_natural_belief_task_redesign`
+- next: `m493-natural-belief-decision-window-redesign`
