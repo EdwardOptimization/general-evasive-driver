@@ -8925,3 +8925,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M328 promotes the M327 exact-repaired PPO proposal. Exact M297/M270 improve versus M325 by `-0.000104308` and `-0.000066042`; source-diverse protected gates pass `3/3`; all six public replay gates pass; behavior seeds 9505/9506 retain `0.8625` success. Old `9944` remains singleton-window saturation with margin gap `0.092653`.
 - decision: `promote_m327_source_diverse_repaired_public_gate_base`
 - next: `m329-source-diverse-ppo-fresh-seed-repeat-design`
+
+## 20260523T064412Z - m329-source-diverse-ppo-fresh-seed-repeat-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m329-source-diverse-ppo-fresh-seed-repeat-design.md`
+- result: M329 registers a fresh-seed repeat of the source-diverse protected PPO smoke process from the M328 base. The M330 config uses PPO seed `5237`, exact repair seed `10098`, M328 as all action-anchor checkpoints, exact repair before replay, source-diverse protected gates, old `9944` diagnostic, and M183/M170 plus M267/M264 first replay gates. No PPO was run.
+- decision: `admit_m330_source_diverse_ppo_fresh_seed_repeat`
+- next: `m330-source-diverse-ppo-fresh-seed-repeat`

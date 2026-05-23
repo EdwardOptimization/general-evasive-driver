@@ -2,7 +2,7 @@
   "id": "m329-source-diverse-ppo-fresh-seed-repeat-design",
   "type": "infrastructure",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -86,6 +86,18 @@
     "runs/m328_source_diverse_protected_gate/summary.json",
     "runs/m328_full_public_gate_for_m327_repaired/full_gates/critical_key_seed9944/guard_results.csv"
   ],
-  "decision_rule": "M329 may only admit a fresh-seed smoke PPO repeat after pre-registering exact repair, source-diverse protected gates, old-key diagnostic handling, and staged replay/behavior acceptance.",
-  "next_blocker": "pending M329 fresh-seed repeat design"
+  "results": {
+    "design_doc": "docs/m329-source-diverse-ppo-fresh-seed-repeat-design.md",
+    "ppo_config": "configs/ppo_m330_source_diverse_protected_repeat_smoke.json",
+    "base_checkpoint": "runs/m327_exact_repair_from_raw_s40_seed10097/candidate_checkpoint.pt",
+    "ppo_seed": 5237,
+    "exact_repair_seed": 10098,
+    "fresh_seed_repeat": true,
+    "old_key_deleted": false,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m330_source_diverse_ppo_fresh_seed_repeat",
+  "decision_rule": "M329 admits only a fresh-seed smoke PPO repeat with mandatory exact repair, source-diverse protected gates, old-key diagnostic handling, and first replay gates before any full public promotion.",
+  "next_blocker": "m330-source-diverse-ppo-fresh-seed-repeat"
 }
