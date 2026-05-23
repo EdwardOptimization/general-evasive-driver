@@ -61,7 +61,7 @@ post-PPO repair before any more PPO acceptance.
 Current blocker:
 
 ```text
-m311-full-public-gate-for-m310-repaired-ppo-proposal
+m312-m310-protected-key-window-failure-audit
 ```
 
 M305 implements deterministic exact M297/M270 repair or projection
@@ -100,15 +100,20 @@ versus M307, then passes M183/M170 and M267/M264 first replay gates with
 `17/17` success drops retained on both surfaces. It is not promoted until full
 public gates pass.
 
+M311 runs the full public gate and rejects M310 repaired. All six replay
+surfaces pass, but protected key `9944|perturbed|28|28` fails for M310 repaired
+while M307 and the reference pass and `m239_a750` fails. Behavior gates are not
+run after the protected-key promotion failure.
+
 Current next task:
 
 ```text
-m311-full-public-gate-for-m310-repaired-ppo-proposal
+m312-m310-protected-key-window-failure-audit
 ```
 
-M311 should run the full replay stack, protected-key diagnostic, and behavior
-seeds before deciding whether the M310 repaired candidate becomes the next
-public-gate base.
+M312 should classify whether the M311 protected-key failure is stale singleton
+window saturation, a systematic protected-surface shift, or a missing term in
+the exact repair objective. M307 remains the public-gate base.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -141,7 +146,7 @@ public-gate base.
 | current public-gate base | `runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt` | M307 promoted after exact objectives full replay protected-key and behavior gates pass |
 | repair repeat diagnostic | `runs/m308_exact_repair_from_raw_s40_seed10094/candidate_checkpoint.pt` | M308 repeats M306 exact deltas and first replay gates; not separately promoted |
 | next PPO proposal config | `configs/ppo_m310_exact_repaired_proposal_smoke.json` | M309 registered smoke PPO from M307 plus mandatory exact repair before replay |
-| full-gate candidate | `runs/m310_exact_repair_from_raw_s40_seed10095/candidate_checkpoint.pt` | M310 exact-repaired PPO proposal passes exact and first replay gates; awaits M311 full public gate |
+| rejected full-gate candidate | `runs/m310_exact_repair_from_raw_s40_seed10095/candidate_checkpoint.pt` | M311 rejects after protected-key failure despite exact and replay success |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

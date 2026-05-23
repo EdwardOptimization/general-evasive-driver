@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 319,
+    "completed": 320,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m310-fresh-ppo-proposal-exact-repair-smoke.md",
+    "command_log": "docs/m311-full-public-gate-for-m310-repaired-ppo-proposal.md",
     "returncode": 0,
-    "run_dir": "runs/m310_exact_repair_from_raw_s40_seed10095",
+    "run_dir": "runs/m311_full_public_gate_for_m310_repaired",
     "status": "completed",
-    "task_id": "m310-fresh-ppo-proposal-exact-repair-smoke"
+    "task_id": "m311-full-public-gate-for-m310-repaired-ppo-proposal"
   },
   "next_task": {
-    "command": "see experiments/manifests/m311-full-public-gate-for-m310-repaired-ppo-proposal.json",
-    "hypothesis": "The M310 exact-repaired PPO proposal can pass the full public gate stack and become the next public-gate base.",
-    "id": "m311-full-public-gate-for-m310-repaired-ppo-proposal",
-    "kind": "driver_candidate",
-    "notes": "Pending: full replay protected-key and behavior gates before any promotion",
-    "priority": 3060,
+    "command": "see experiments/manifests/m312-m310-protected-key-window-failure-audit.json",
+    "hypothesis": "M310 failed the protected key because exact repair shifted the protected-key margin outside the accepted window even though broad replay proof surfaces remained intact.",
+    "id": "m312-m310-protected-key-window-failure-audit",
+    "kind": "gate",
+    "notes": "Pending: classify protected-key window failure and register next repair or refresh milestone",
+    "priority": 3070,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260523T050825Z"
+  "updated_at_utc": "20260523T051230Z"
 }

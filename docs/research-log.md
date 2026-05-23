@@ -8747,3 +8747,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M310 runs a fresh 1024-step PPO proposal from M307. Raw PPO regresses exact M297 by `+0.000652075` and exact M270 by `+0.000420809`, so it is not promotable. Exact repair produces `runs/m310_exact_repair_from_raw_s40_seed10095/candidate_checkpoint.pt`, improves M297 by `-0.000123024` and M270 by `-0.000077844` versus M307, and passes M183/M170 plus M267/M264 first replay gates with `17/17` success drops retained on both surfaces.
 - decision: `admit_m311_full_public_gate_for_m310_repaired_ppo_proposal`
 - next: `m311-full-public-gate-for-m310-repaired-ppo-proposal`
+
+## 20260523T051230Z - m311-full-public-gate-for-m310-repaired-ppo-proposal
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m311_full_public_gate_for_m310_repaired`
+- artifact: `docs/m311-full-public-gate-for-m310-repaired-ppo-proposal.md`
+- result: M311 rejects M310 repaired as a public-gate base. It improves exact M297/M270 and passes all six replay surfaces versus M307, but protected key `9944|perturbed|28|28` fails: M310 repaired has normal margin `0.206337`, wrong-history margin `0.108747`, and margin gap `0.097590`, with `0/1` accepted cases. The guard remains valid because `m263_a005` and M307 pass while `m239_a750` fails. Behavior gates were not run after protected-key failure.
+- decision: `reject_m310_repaired_protected_key_window_failure`
+- next: `m312-m310-protected-key-window-failure-audit`

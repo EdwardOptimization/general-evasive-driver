@@ -1,0 +1,84 @@
+{
+  "id": "m312-m310-protected-key-window-failure-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt",
+      "runs/m310_exact_repair_from_raw_s40_seed10095/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m133_zero_relvel_s60_strict_60ep_seed9900/outcome_sensitive_snippets.csv",
+      "runs/m133_zero_relvel_s60_strict_60ep_seed9920/outcome_sensitive_snippets.csv",
+      "runs/m311_full_public_gate_for_m310_repaired/full_gates/critical_key_seed9944/guard_results.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m311-full-public-gate-for-m310-repaired-ppo-proposal.json",
+      "docs/m311-full-public-gate-for-m310-repaired-ppo-proposal.md"
+    ],
+    "parent_objective": [
+      "audit why exact-repaired PPO candidate passes replay surfaces but fails protected key window"
+    ],
+    "derived_from": [
+      "m311-full-public-gate-for-m310-repaired-ppo-proposal"
+    ],
+    "blocked_by": [
+      "m311-full-public-gate-for-m310-repaired-ppo-proposal"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m312-m310-protected-key-window-failure-audit.md",
+  "public_gates": [
+    "inspect protected key 9944 guard results",
+    "compare M307 M310 and known-failing M239 margins",
+    "classify stale singleton versus systematic protected-surface shift",
+    "decide whether next repair needs protected-key term or protected-surface refresh",
+    "do not promote M310"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not bypass the protected-key failure",
+    "do not promote M310 from replay gates alone",
+    "do not change actor inputs",
+    "do not run new PPO before the protected-key failure is classified"
+  ],
+  "hypothesis": "M310 failed the protected key because exact repair shifted the protected-key margin outside the accepted window even though broad replay proof surfaces remained intact.",
+  "success_criteria": [
+    "classify the M311 protected-key failure mechanism",
+    "identify whether the failure is singleton window saturation or a missing objective term",
+    "register the next repair or refresh milestone",
+    "preserve M307 as the public-gate base"
+  ],
+  "failure_criteria": [
+    "audit cannot reproduce or interpret the protected-key failure",
+    "audit proposes promotion despite protected-key failure",
+    "audit requires actor input changes"
+  ],
+  "commands": [
+    {
+      "name": "m312_audit",
+      "command": "Inspect M311 protected-key guard results and decide the next protected-key-safe repair path."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m312-m310-protected-key-window-failure-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m306_exact_repair_from_raw_s40_seed10091/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m311-full-public-gate-for-m310-repaired-ppo-proposal.md",
+    "runs/m311_full_public_gate_for_m310_repaired/full_gates/critical_key_seed9944/summary.json",
+    "runs/m311_full_public_gate_for_m310_repaired/full_gates/critical_key_seed9944/guard_results.csv"
+  ],
+  "decision_rule": "M312 should produce an audit decision and next milestone without promoting M310 or running new PPO.",
+  "next_blocker": "pending M312 protected-key failure audit"
+}
