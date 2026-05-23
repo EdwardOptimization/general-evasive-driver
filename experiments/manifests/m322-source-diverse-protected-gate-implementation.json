@@ -2,7 +2,7 @@
   "id": "m322-source-diverse-protected-gate-implementation",
   "type": "infrastructure",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -78,6 +78,22 @@
   "baseline_artifacts": [
     "docs/m321-source-diverse-protected-gate-design.md"
   ],
+  "results": {
+    "implemented_module": "src/autodrift/source_diverse_protected_gate.py",
+    "test_module": "tests/test_source_diverse_protected_gate.py",
+    "focused_tests_pass": true,
+    "m320_sanity_run_dir": "runs/m322_source_diverse_protected_gate_m320_sanity",
+    "replay_gate_count": 3,
+    "replay_gates_passed": 3,
+    "overall_pass": true,
+    "diagnostic_count": 1,
+    "protected_key_9944_ingested": true,
+    "protected_key_9944_accepted_rows": 3,
+    "protected_key_9944_rows": 4,
+    "ppo_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m323_source_diverse_gate_retrospective_endpoint_probe",
   "decision_rule": "M322 may admit a diagnostic probe only if the wrapper is tested, reproduces M320 replay sanity, keeps 9944 as diagnostic, and does not run PPO.",
-  "next_blocker": "pending M322 source-diverse protected gate implementation"
+  "next_blocker": "m323-source-diverse-gate-retrospective-endpoint-probe"
 }

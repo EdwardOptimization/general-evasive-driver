@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 330,
+        "completed": 331,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "command_log": "docs/m321-source-diverse-protected-gate-design.md",
+        "command_log": "docs/m322-source-diverse-protected-gate-implementation.md",
         "returncode": 0,
-        "run_dir": "runs/m320_m316_boundary_replay_sanity_seed10080",
+        "run_dir": "runs/m322_source_diverse_protected_gate_m320_sanity",
         "status": "completed",
-        "task_id": "m321-source-diverse-protected-gate-design"
+        "task_id": "m322-source-diverse-protected-gate-implementation"
     },
     "next_task": {
-        "command": "see experiments/manifests/m322-source-diverse-protected-gate-implementation.json",
-        "hypothesis": "A small source-diverse protected gate wrapper can make the M320 corpora first-class proof gates and reduce manual replay-command errors before more PPO.",
-        "id": "m322-source-diverse-protected-gate-implementation",
-        "kind": "infrastructure",
-        "notes": "Pending: implement wrapper tests and M320 sanity reproduction without PPO",
-        "priority": 3170,
+        "command": "see experiments/manifests/m323-source-diverse-gate-retrospective-endpoint-probe.json",
+        "hypothesis": "The repaired M316 endpoint may fail the old saturated 9944 key while still preserving the refreshed M320 source-diverse protected surface, clarifying whether future acceptance can rely on the multi-surface gate plus explicit singleton-window audit.",
+        "id": "m323-source-diverse-gate-retrospective-endpoint-probe",
+        "kind": "gate",
+        "notes": "Pending: run wrapper on repaired endpoint as diagnostic not promotion",
+        "priority": 3180,
         "status": "pending",
         "success_artifact": ""
     },
-    "updated_at_utc": "20260523T060721Z"
+    "updated_at_utc": "20260523T061128Z"
 }

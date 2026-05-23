@@ -1,0 +1,85 @@
+{
+  "id": "m323-source-diverse-gate-retrospective-endpoint-probe",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt",
+      "runs/m316_exact_repair_from_raw_s40_seed10096/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m320_m316_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+      "runs/m320_m314_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+      "runs/m320_m316_repaired_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m322-source-diverse-protected-gate-implementation.json",
+      "docs/m322-source-diverse-protected-gate-implementation.md"
+    ],
+    "parent_objective": [
+      "diagnose whether the M316 repaired endpoint passes the new source-diverse protected gate even though old 9944 is saturated"
+    ],
+    "derived_from": [
+      "m322-source-diverse-protected-gate-implementation"
+    ],
+    "blocked_by": [
+      "m322-source-diverse-protected-gate-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m323-source-diverse-gate-retrospective-endpoint-probe.md",
+  "public_gates": [
+    "run source-diverse protected wrapper on M316 repaired endpoint as candidate",
+    "ingest old 9944 diagnostic",
+    "do not promote a checkpoint",
+    "classify whether old-key failure is singleton-window-only or source-diverse proof failure",
+    "do not run PPO"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not promote M316 repaired in M323",
+    "do not ignore 9944 diagnostic",
+    "do not change actor inputs",
+    "do not tune from private holdouts"
+  ],
+  "hypothesis": "The repaired M316 endpoint may fail the old saturated 9944 key while still preserving the refreshed M320 source-diverse protected surface, clarifying whether future acceptance can rely on the multi-surface gate plus explicit singleton-window audit.",
+  "success_criteria": [
+    "source-diverse wrapper run completes",
+    "all M320 replay gates report pass or failures are classified",
+    "9944 diagnostic is recorded",
+    "decision is diagnostic only, not promotion",
+    "no PPO is run"
+  ],
+  "failure_criteria": [
+    "wrapper cannot evaluate the endpoint",
+    "source-diverse proof rows fail broadly",
+    "M323 promotes a checkpoint",
+    "M323 changes actor inputs"
+  ],
+  "commands": [
+    {
+      "name": "m323_endpoint_probe",
+      "command": "Run source_diverse_protected_gate with m316_repaired as candidate on M320 corpora and ingest 9944 diagnostic; no promotion."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m323-source-diverse-gate-retrospective-endpoint-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m316_m314_to_repaired_protected_key_bounded_interpolation/checkpoints/alpha_0_0025.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m322-source-diverse-protected-gate-implementation.md",
+    "runs/m322_source_diverse_protected_gate_m320_sanity/summary.json"
+  ],
+  "decision_rule": "M323 is diagnostic only. It may admit a future protected-gate acceptance policy design only after comparing source-diverse gate result with old-key diagnostic.",
+  "next_blocker": "pending M323 retrospective endpoint probe"
+}

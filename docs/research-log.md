@@ -8857,3 +8857,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M321 defines the M320 compact corpora as the new source-diverse protected-surface acceptance bundle. The old key `9944` remains a diagnostic singleton and historical continuity check, but future candidates must pass the M320 protected replay bundle before more PPO or promotion. M321 admits a wrapper implementation so the bundle can be run as one reproducible gate.
 - decision: `admit_m322_source_diverse_protected_gate_implementation`
 - next: `m322-source-diverse-protected-gate-implementation`
+
+## 20260523T061128Z - m322-source-diverse-protected-gate-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m322_source_diverse_protected_gate_m320_sanity`
+- artifact: `docs/m322-source-diverse-protected-gate-implementation.md`
+- result: M322 implements `autodrift.source_diverse_protected_gate`, adds focused tests, and reproduces the M320 sanity bundle. The wrapper passes `3/3` replay gates, reports `overall_pass=true`, and ingests the `9944` diagnostic with `3/4` accepted rows.
+- decision: `admit_m323_source_diverse_gate_retrospective_endpoint_probe`
+- next: `m323-source-diverse-gate-retrospective-endpoint-probe`
