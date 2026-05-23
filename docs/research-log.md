@@ -10344,3 +10344,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M470 treats M469 as a data-pool coverage failure, not as a reason to run outcome probing or relax gates. It designs M471 as an expanded same-window matched-current mining pass over seeds `10200`, `10300`, and `10400`, increasing episodes from `40` to `80`, max samples from `1200` to `2400`, and nearest-k from `12` to `32`, followed by the existing adversarial wrong-history search on M467 near-boundary anchors.
 - decision: `admit_m471_expanded_adversarial_pool_run`
 - next: `m471-expanded-adversarial-pool-run`
+
+## 20260523T213315Z - m471-expanded-adversarial-pool-run
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m471_expanded_adversarial_wrong_history_search`
+- artifact: `docs/m471-expanded-adversarial-pool-run.md`
+- result: M471 expanded same-window mining completes without sampling failure. Candidate pairs increase to `380877`, accepted pairs to `1702`, and accepted physical pairs to `1608`. Adversarial search improves over M469 by reaching `67` adversarial pairs across `24` near-boundary left states, `3` probe seeds, `2` labels, and `3` targets. The surface still fails because single-seed share is `0.671642`, above the `0.50` cap; seed `10200` contributes `45/67` rows.
+- decision: `expanded_same_window_count_pass_balance_fail_admit_m472`
+- next: `m472-fresh-window-near-boundary-anchor-design`

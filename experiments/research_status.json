@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 479,
+        "completed": 480,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m470-expanded-adversarial-pool-design",
+        "task_id": "m471-expanded-adversarial-pool-run",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m470-expanded-adversarial-pool-design.md"
+        "run_dir": "runs/m471_expanded_adversarial_wrong_history_search",
+        "command_log": "docs/m471-expanded-adversarial-pool-run.md"
     },
     "next_task": {
-        "id": "m471-expanded-adversarial-pool-run",
+        "id": "m472-fresh-window-near-boundary-anchor-design",
         "status": "pending",
-        "priority": 4660,
-        "kind": "gate",
-        "hypothesis": "A higher-sample same-window mining pass will expand adversarial wrong-history coverage enough for later outcome probing",
-        "command": "see experiments/manifests/m471-expanded-adversarial-pool-run.json",
+        "priority": 4670,
+        "kind": "infrastructure",
+        "hypothesis": "Fresh windows need their own near-boundary anchor discovery before combining adversarial surfaces",
+        "command": "see experiments/manifests/m472-fresh-window-near-boundary-anchor-design.json",
         "success_artifact": "",
-        "notes": "Pending: run expanded matched-current mining and adversarial search; no outcome probe unless source gates pass"
+        "notes": "Pending: design fresh-window near-boundary anchor discovery; do not outcome-probe M471 imbalanced surface"
     },
-    "updated_at_utc": "20260523T212759Z"
+    "updated_at_utc": "20260523T213315Z"
 }
