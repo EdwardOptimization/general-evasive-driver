@@ -2,7 +2,7 @@
   "id": "m393-current-family-rejected-boundary-target-export",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -77,5 +77,41 @@
     "docs/m392-m391-micro-promotion-utility-audit.md"
   ],
   "decision_rule": "M393 should admit another no-PPO repair probe only if it exports a refreshed conflict corpus with finite local rejected-history targets and verifies the no-update exact-repair path.",
-  "next_blocker": "pending M393 rejected-boundary target export"
+  "next_blocker": "m394-rejected-boundary-target-repair-probe",
+  "results": {
+    "artifact": "docs/m393-current-family-rejected-boundary-target-export.md",
+    "run_dir": "runs/m393_current_family_rejected_boundary_targets",
+    "current_public_base": "runs/m390_step17_micro_interpolation/checkpoints/alpha_0_005.pt",
+    "exported_rows": 2,
+    "accepted_target_rows": 2,
+    "skipped_rows": 0,
+    "candidate_rollouts": 630,
+    "accepted_candidates_per_row": {
+      "6": 153,
+      "15": 153
+    },
+    "row15_baseline_wrong_history_margin": -4.6945998821712465e-07,
+    "row15_selected_wrong_history_margin": -0.002112565594712068,
+    "row15_margin_decrease": 0.002112096134723851,
+    "row6_baseline_wrong_history_margin": -5.908879239635567e-05,
+    "row6_selected_wrong_history_margin": -0.0024635024179673337,
+    "row6_margin_decrease": 0.002404413625570978,
+    "selected_action_l2": 0.13114877209944814,
+    "selected_steer_delta": 0.06,
+    "selected_throttle_delta": 0.06,
+    "selected_brake_delta": -0.1,
+    "current_family_conflict_corpus_npz": "runs/m393_current_family_rejected_boundary_targets/current_family_conflict_corpus.npz",
+    "no_update_smoke_run_dir": "runs/m393_rejected_boundary_targets_no_update_smoke",
+    "no_update_exact_m297_delta_vs_base": 0.0,
+    "no_update_exact_m270_delta_vs_base": 0.0,
+    "no_update_old_key_surrogate_delta_vs_base": 0.0,
+    "no_update_exact_lexicographic_pass": true,
+    "no_update_current_family_conflict_loss": 0.006180852185934782,
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m394-rejected-boundary-target-repair-probe"
+  },
+  "decision": "admit_m394_rejected_boundary_target_repair_probe"
 }

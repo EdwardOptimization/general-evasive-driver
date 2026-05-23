@@ -9564,3 +9564,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M392 classifies M391 as `proof_safe_micro_retention_not_meaningful_driver_improvement`. Exact improvements versus the previous base are tiny: exact M297 `-0.000001192`, exact M270 `-0.000000298`, and old-key surrogate `-0.000006199`; behavior success and termination are unchanged. M267/M264 row15 remains the active boundary: the M391 base wrong-history margin is only `-0.000000469`, and alpha `0.01` toward step17 flips it positive.
 - decision: `admit_m393_current_family_rejected_boundary_target_export`
 - next: `m393-current-family-rejected-boundary-target-export`
+
+## 20260523T143636Z - m393-current-family-rejected-boundary-target-export
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m393_current_family_rejected_boundary_targets`
+- artifact: `docs/m393-current-family-rejected-boundary-target-export.md`
+- result: M393 exports replay-selected collision-side rejected-history local targets for M267/M264 row15 and row6 without PPO or promotion. The search evaluates `630` candidate rollouts and finds accepted targets for both rows. Row15 wrong-history margin decreases from `-0.000000469` to `-0.002112566`; row6 decreases from `-0.000059089` to `-0.002463502`. The refreshed two-row conflict corpus passes a no-update exact-repair smoke with exact M297/M270 and old-key surrogate deltas all `0.0`.
+- decision: `admit_m394_rejected_boundary_target_repair_probe`
+- next: `m394-rejected-boundary-target-repair-probe`

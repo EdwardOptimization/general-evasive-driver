@@ -1,0 +1,87 @@
+{
+  "id": "m394-rejected-boundary-target-repair-probe",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m390_step17_micro_interpolation/checkpoints/alpha_0_005.pt"
+    ],
+    "parent_dataset": [
+      "runs/m393_current_family_rejected_boundary_targets/current_family_conflict_corpus.npz",
+      "runs/m393_current_family_rejected_boundary_targets/current_family_conflict_rows.csv",
+      "runs/m384_old_key_local_recovery_targets/old_key_recovery_corpus.npz",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m393-current-family-rejected-boundary-target-export.json"
+    ],
+    "parent_objective": [
+      "no-PPO exact repair/interpolation using replay-selected current-family rejected-boundary targets"
+    ],
+    "derived_from": [
+      "m393-current-family-rejected-boundary-target-export"
+    ],
+    "blocked_by": [
+      "m393-current-family-rejected-boundary-target-export"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m394-rejected-boundary-target-repair-probe.md",
+  "public_gates": [
+    "no PPO run",
+    "exact M297/M270 no-regression versus current base",
+    "M267/M264 first replay retains 17/17 wrong-history success drops",
+    "cumulative old-key replay retains zero accepted regressions and gap floor",
+    "source-diverse protected gate retains 5/5",
+    "M183/M170 first replay retains 17/17"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote a checkpoint without a later full public gate",
+    "do not lower M267/M264 or old-key thresholds",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "hypothesis": "The M393 collision-side rejected-history targets give the current-family conflict residual a useful signal to create row15/row6 wrong-history collision slack while preserving exact M297/M270 and old-key proof.",
+  "success_criteria": [
+    "run exact repair from the current public base with M393 conflict corpus and M384 old-key recovery corpus",
+    "select a bounded candidate or interpolation alpha that passes exact M297/M270 no-regression",
+    "retain M267/M264 first replay 17/17",
+    "retain cumulative old-key, source-diverse protected, and M183/M170 proof gates",
+    "record the first failing alpha or boundary if no promotable proof candidate is found"
+  ],
+  "failure_criteria": [
+    "all nonzero repair or interpolation candidates fail exact M297/M270",
+    "M267/M264 row15 or row6 wrong-history rollout becomes successful",
+    "old-key proof regresses",
+    "candidate movement is indistinguishable from a no-op and requires another audit",
+    "actor contract changes",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "rejected_boundary_target_repair_probe",
+      "command": "Run no-PPO exact repair/interpolation with M393 conflict corpus, then proof gates before any full public gate."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m394-rejected-boundary-target-repair-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m390_step17_micro_interpolation/checkpoints/alpha_0_005.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m393-current-family-rejected-boundary-target-export.md"
+  ],
+  "decision_rule": "M394 should admit a full public gate only if a no-PPO repaired or interpolated candidate passes exact and proof gates without changing actor inputs. Otherwise it should classify the active failure and pre-register the next blocker.",
+  "next_blocker": "pending M394 rejected-boundary-target repair probe"
+}

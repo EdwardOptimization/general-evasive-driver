@@ -56,7 +56,7 @@ along this direction.
 Current blocker:
 
 ```text
-m393-current-family-rejected-boundary-target-export
+m394-rejected-boundary-target-repair-probe
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -178,7 +178,13 @@ repair or PPO step. M392 classifies it as proof-safe micro retention, not
 meaningful driver improvement: row15 wrong-history margin is now only
 `-4.7e-7`, and alpha `0.01` flips it positive. M393 should export
 rejected-history local collision-side targets for row15/row6, because anchoring
-the rejected branch to a near-cliff base action cannot create slack.
+the rejected branch to a near-cliff base action cannot create slack. M393
+completes that export without PPO or promotion: row15 and row6 both receive
+accepted collision-side local rejected-history targets, row15 margin decreases
+from `-0.000000469` to `-0.002112566`, row6 decreases from `-0.000059089` to
+`-0.002463502`, and the refreshed two-row conflict corpus passes a no-update
+exact-repair smoke. M394 should now run a no-PPO exact repair/interpolation
+probe with the refreshed corpus before any full public gate.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 401,
+        "completed": 402,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m392-m391-micro-promotion-utility-audit",
+        "task_id": "m393-current-family-rejected-boundary-target-export",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m392-m391-micro-promotion-utility-audit.md"
+        "run_dir": "runs/m393_current_family_rejected_boundary_targets",
+        "command_log": "docs/m393-current-family-rejected-boundary-target-export.md"
     },
     "next_task": {
-        "id": "m393-current-family-rejected-boundary-target-export",
+        "id": "m394-rejected-boundary-target-repair-probe",
         "status": "pending",
-        "priority": 3880,
-        "kind": "infrastructure",
-        "hypothesis": "Export local rejected-history collision-side targets for current-family boundary rows",
-        "command": "see experiments/manifests/m393-current-family-rejected-boundary-target-export.json",
+        "priority": 3890,
+        "kind": "gate",
+        "hypothesis": "Probe no-PPO exact repair with M393 rejected-boundary targets",
+        "command": "see experiments/manifests/m394-rejected-boundary-target-repair-probe.json",
         "success_artifact": "",
-        "notes": "Pending: search row15/row6 wrong-history local actions and export refreshed conflict corpus; no PPO"
+        "notes": "Pending: run exact repair/interpolation with M393 conflict corpus and proof gates before any full public gate"
     },
-    "updated_at_utc": "20260523T142902Z"
+    "updated_at_utc": "20260523T143636Z"
 }
