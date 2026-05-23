@@ -2,9 +2,10 @@
   "id": "m303-m302-preference-guard-failure-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "repair",
   "failure_types": [
-    "none"
+    "metric_artifact",
+    "objective_overfit"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -78,6 +79,25 @@
     "docs/m302-rejected-preference-guarded-ppo-smoke.md",
     "runs/m302_rejected_preference_guarded_ppo_smoke/summary.json"
   ],
-  "decision_rule": "M303 should admit a repair only after classifying the M302 objective regression mechanism.",
-  "next_blocker": "pending M303 M302 preference guard failure audit"
+  "results": {
+    "run_dir": "runs/m303_m302_preference_guard_failure_audit",
+    "m302_raw_train_metric_rejected_history_preference_loss_mean": 1.1774653842051823,
+    "m302_exact_m297_base": 1.1896095275878906,
+    "m302_exact_m297_raw": 1.1903092861175537,
+    "m302_exact_m297_raw_delta": 0.0006997585296630859,
+    "m302_exact_m270_base": 0.6779459118843079,
+    "m302_exact_m270_raw": 0.678388774394989,
+    "m302_exact_m270_raw_delta": 0.00044286251068115234,
+    "exact_m297_rows_regressed": 17,
+    "exact_m297_rows_total": 17,
+    "smallest_interpolation_alpha": 0.001,
+    "smallest_alpha_exact_m297_delta": 7.152557373046875e-7,
+    "smallest_alpha_exact_m270_delta": 3.5762786865234375e-7,
+    "recommended_repair": "exact lexicographic post-PPO repair or projection before another PPO smoke",
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision_rule": "M303 admits M304 exact lexicographic post-PPO repair design because M302 regressed all M297 rows and the sampled train metric was not a reliable exact gate.",
+  "decision": "repair_with_exact_lexicographic_post_ppo_projection",
+  "next_blocker": "m304-exact-lexicographic-post-ppo-repair-design"
 }
