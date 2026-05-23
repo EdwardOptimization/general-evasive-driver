@@ -10254,3 +10254,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M461 implements `autodrift.outcome_critical_matched_current_selector` and focused tests for action-only rejection, margin-gap acceptance, success-drop acceptance, and diversity caps. The M459 smoke processes `900` candidate variant rows: `441` pass action prefilter, `418` are action-only diagnostics, `56` are outcome-critical, `23` are accepted, and `20` are selected into compact corpus. Compact rows cover `3` probe seeds, `2` obstacle labels, `2` targets, and reset/zero-current variants. Evidence remains incomplete: compact corpus has `0` wrong-history rows and `0` success-drop rows; `18` rows are positive-margin-gap and `2` are obstacle-completion-drop.
 - decision: `selector_pass_admit_m462_fresh_repeat_wrong_history_audit`
 - next: `m462-outcome-critical-selector-repeat-audit`
+
+## 20260523T205310Z - m462-outcome-critical-selector-repeat-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m462_outcome_critical_selector_fresh_seed10200`
+- artifact: `docs/m462-outcome-critical-selector-repeat-audit.md`
+- result: M462 repeats matched-current mining on fresh seed windows `10200`, `10300`, and `10400`. The fresh surface has `422` accepted pairs from `73281` candidates, covering `422` physical pairs, `31` left steps, and `32` obstacle buckets. The M461 selector processes `900` candidate variant rows, finds `140` outcome-critical rows, accepts `70`, and selects `34` compact rows over `3` probe seeds, `3` labels, and `3` targets. Reset/zero-current evidence repeats and now includes `6` success-drop and `6` collision-gap compact rows. Wrong-history remains weak: `8` raw accepted rows, `0` compact rows, `0` success-drop rows, `0` collision-gap rows, `1` obstacle-completion-drop row, and source coverage limited to seed `10300` and label `aes_feasible`.
+- decision: `fresh_repeat_pass_wrong_history_weak_admit_m463`
+- next: `m463-wrong-history-outcome-critical-redesign`

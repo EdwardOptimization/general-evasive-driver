@@ -2,7 +2,7 @@
   "id": "m462-outcome-critical-selector-repeat-audit",
   "type": "gate",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -80,5 +80,41 @@
     "runs/m461_outcome_critical_selector_m459_pairs/summary.json"
   ],
   "decision_rule": "M462 can admit wrong-history gate expansion only if fresh selected rows include wrong-history outcome-critical evidence. It cannot promote a checkpoint.",
-  "next_blocker": "pending M462 outcome-critical selector repeat audit"
+  "results": {
+    "matched_current_run_dir": "runs/m462_late_reveal_matched_current_fresh_seed10200",
+    "action_gate_run_dir": "runs/m462_late_reveal_matched_history_action_gate",
+    "outcome_gate_run_dir": "runs/m462_late_reveal_matched_history_outcome_gate",
+    "selector_run_dir": "runs/m462_outcome_critical_selector_fresh_seed10200",
+    "wrong_history_audit": "runs/m462_outcome_critical_selector_fresh_seed10200/wrong_history_audit.json",
+    "fresh_probe_seeds": [
+      10200,
+      10300,
+      10400
+    ],
+    "matched_current_accepted_pairs": 422,
+    "matched_current_physical_pairs": 422,
+    "selector_candidate_rows": 900,
+    "selector_outcome_critical_rows": 140,
+    "selector_accepted_rows": 70,
+    "selector_compact_rows": 34,
+    "selector_compact_probe_seed_count": 3,
+    "selector_compact_obstacle_label_count": 3,
+    "selector_compact_variant_count": 2,
+    "selector_compact_wrong_history_rows": 0,
+    "wrong_history_raw_accepted_rows": 8,
+    "wrong_history_success_drop_rows": 0,
+    "wrong_history_collision_gap_rows": 0,
+    "wrong_history_obstacle_completion_drop_rows": 1,
+    "wrong_history_positive_margin_gap_rows": 7,
+    "wrong_history_source_probe_seeds": [
+      10300
+    ],
+    "wrong_history_source_labels": [
+      "aes_feasible"
+    ],
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "fresh_repeat_pass_wrong_history_weak_admit_m463"
+  },
+  "next_blocker": "m463-wrong-history-outcome-critical-redesign"
 }

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 470,
+        "completed": 471,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m461-outcome-critical-matched-current-selector-implementation",
+        "task_id": "m462-outcome-critical-selector-repeat-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m461_outcome_critical_selector_m459_pairs",
-        "command_log": "docs/m461-outcome-critical-matched-current-selector-implementation.md"
+        "run_dir": "runs/m462_outcome_critical_selector_fresh_seed10200",
+        "command_log": "docs/m462-outcome-critical-selector-repeat-audit.md"
     },
     "next_task": {
-        "id": "m462-outcome-critical-selector-repeat-audit",
+        "id": "m463-wrong-history-outcome-critical-redesign",
         "status": "pending",
-        "priority": 4570,
-        "kind": "gate",
-        "hypothesis": "Repeat the outcome-critical selector on fresh artifacts and audit wrong-history coverage",
-        "command": "see experiments/manifests/m462-outcome-critical-selector-repeat-audit.json",
+        "priority": 4580,
+        "kind": "infrastructure",
+        "hypothesis": "Design the next task or selector that makes wrong-history intervention outcome-critical with source-diverse evidence",
+        "command": "see experiments/manifests/m463-wrong-history-outcome-critical-redesign.json",
         "success_artifact": "",
-        "notes": "Pending: fresh repeat selector audit; do not claim wrong-history proof from reset/zero-current rows"
+        "notes": "Pending: wrong-history outcome-critical redesign; M462 fresh repeat found reset/zero-current compact rows but wrong-history evidence remains weak and source-narrow"
     },
-    "updated_at_utc": "20260523T204658Z"
+    "updated_at_utc": "20260523T205310Z"
 }

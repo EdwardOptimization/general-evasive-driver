@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m462-outcome-critical-selector-repeat-audit
+m463-wrong-history-outcome-critical-redesign
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -227,7 +227,19 @@ zero-current variants. It is positive infrastructure evidence, but not
 wrong-history proof: selected rows include `0` wrong-history rows and `0`
 success-drop rows; `18` rows are positive-margin-gap and `2` are
 obstacle-completion-drop. The next blocker is M462: repeat the selector on
-fresh artifacts and explicitly audit wrong-history coverage.
+fresh artifacts and explicitly audit wrong-history coverage. M462 repeats this
+on disjoint seed windows `10200`, `10300`, and `10400`. The fresh
+matched-current surface has `422` accepted pairs from `73281` candidates,
+covering `422` physical pairs, `31` left steps, and `32` obstacle buckets. The
+selector finds `140` outcome-critical rows, accepts `70`, and selects `34`
+compact rows across `3` probe seeds, `3` obstacle labels, and `3` targets.
+Reset/zero-current evidence repeats and includes `6` success-drop and `6`
+collision-gap compact rows. Wrong-history evidence is still too weak for a
+gate expansion: only `8` raw accepted rows, `0` compact rows, `0` success-drop
+rows, `0` collision-gap rows, `1` obstacle-completion-drop row, and source
+coverage limited to seed `10300` and label `aes_feasible`. The next blocker is
+M463: redesign the wrong-history outcome-critical task or selector rather than
+claiming wrong-history proof from M462.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key
