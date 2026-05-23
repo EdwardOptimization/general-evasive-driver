@@ -1,0 +1,91 @@
+{
+  "id": "m326-source-diverse-protected-ppo-proposal-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m316_exact_repair_from_raw_s40_seed10096/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m325_full_public_gate_for_m316_repaired/full_gates",
+      "runs/m325_source_diverse_policy_gate/summary.json",
+      "runs/m325_m316_repaired_exact_eval_vs_m317/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m325-source-diverse-policy-full-gate-for-m316-repaired.json",
+      "docs/m325-source-diverse-policy-full-gate-for-m316-repaired.md",
+      "docs/m324-single-key-window-override-policy-design.md"
+    ],
+    "parent_objective": [
+      "design the next PPO proposal from M325 base with mandatory exact repair and source-diverse protected acceptance"
+    ],
+    "derived_from": [
+      "m325-source-diverse-policy-full-gate-for-m316-repaired"
+    ],
+    "blocked_by": [
+      "m325-source-diverse-policy-full-gate-for-m316-repaired"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m326-source-diverse-protected-ppo-proposal-design.md",
+  "public_gates": [
+    "do not run PPO in M326",
+    "preserve human-view actor input contract",
+    "register PPO smoke config from M325 base",
+    "register exact repair command",
+    "register source-diverse protected acceptance gate",
+    "register old 9944 diagnostic classification",
+    "define first replay and full public gate escalation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO before the design is committed",
+    "do not remove source-diverse protected gates",
+    "do not delete 9944 diagnostic",
+    "do not change actor inputs",
+    "do not lengthen PPO before a smoke repeat passes"
+  ],
+  "hypothesis": "After M325 promotes the M316 repaired endpoint under source-diverse protected policy, the next PPO proposal should be designed around M325 as base, exact M297/M270 repair, source-diverse protected acceptance, old-key diagnostic classification, and staged replay/behavior gates.",
+  "success_criteria": [
+    "design names M325 checkpoint as base",
+    "design registers a smoke-scale PPO proposal only",
+    "design requires exact repair before replay gates",
+    "design requires source-diverse protected gate before full public promotion",
+    "design keeps 9944 diagnostic reporting",
+    "no PPO is run"
+  ],
+  "failure_criteria": [
+    "design skips exact repair",
+    "design treats source-diverse pass as promotion",
+    "design deletes 9944 diagnostic",
+    "design changes actor inputs",
+    "M326 runs PPO"
+  ],
+  "commands": [
+    {
+      "name": "m326_design",
+      "command": "Design M327 smoke PPO proposal from M325 base with exact repair and source-diverse protected acceptance; no PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m326-source-diverse-protected-ppo-proposal-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m316_exact_repair_from_raw_s40_seed10096/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m325-source-diverse-policy-full-gate-for-m316-repaired.md",
+    "runs/m325_source_diverse_policy_gate/summary.json",
+    "runs/m325_full_public_gate_for_m316_repaired/full_gates/critical_key_seed9944/guard_results.csv"
+  ],
+  "decision_rule": "M326 may only admit a smoke PPO proposal milestone after pre-registering exact repair, source-diverse protected gates, old-key diagnostic handling, and staged replay/behavior acceptance.",
+  "next_blocker": "pending M326 source-diverse protected PPO proposal design"
+}

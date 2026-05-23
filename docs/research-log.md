@@ -8886,3 +8886,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M324 defines the protected-key handling policy. The M320 source-diverse protected bundle becomes the first-class protected gate. Old `9944` is retained as a diagnostic singleton and historical continuity check. If a candidate passes exact objectives and source-diverse proof but fails `9944` only by the saturated normal-margin window while retaining margin gap, classify it as `single_key_window_saturation`; this permits full public-gate evaluation, not promotion.
 - decision: `admit_m325_source_diverse_policy_full_gate_for_m316_repaired`
 - next: `m325-source-diverse-policy-full-gate-for-m316-repaired`
+
+## 20260523T062607Z - m325-source-diverse-policy-full-gate-for-m316-repaired
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m325_full_public_gate_for_m316_repaired`
+- artifact: `docs/m325-source-diverse-policy-full-gate-for-m316-repaired.md`
+- result: M325 promotes the M316 repaired endpoint under the M324 source-diverse protected policy. Exact M297/M270 improve versus M317 by `-0.000116587` and `-0.000075817`; the source-diverse protected bundle passes `2/2`; all six public replay gates pass; behavior seeds 9505/9506 retain `0.8625` success. Old `9944` fails the singleton normal-margin window at `0.207388`, but margin gap remains `0.096982`, so the failure is classified as `single_key_window_saturation`.
+- decision: `promote_m316_repaired_source_diverse_public_gate_base`
+- next: `m326-source-diverse-protected-ppo-proposal-design`

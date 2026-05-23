@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 333,
+        "completed": 334,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "command_log": "docs/m324-single-key-window-override-policy-design.md",
+        "command_log": "docs/m325-source-diverse-policy-full-gate-for-m316-repaired.md",
         "returncode": 0,
-        "run_dir": "",
+        "run_dir": "runs/m325_full_public_gate_for_m316_repaired",
         "status": "completed",
-        "task_id": "m324-single-key-window-override-policy-design"
+        "task_id": "m325-source-diverse-policy-full-gate-for-m316-repaired"
     },
     "next_task": {
-        "command": "see experiments/manifests/m325-source-diverse-policy-full-gate-for-m316-repaired.json",
-        "hypothesis": "The M316 repaired endpoint may be promotable under the M324 source-diverse protected policy if it passes exact objectives, source-diverse protected proof, six replay surfaces, behavior seeds, and the old 9944 conflict is classified as single-key window saturation.",
-        "id": "m325-source-diverse-policy-full-gate-for-m316-repaired",
-        "kind": "driver_candidate",
-        "notes": "Pending: exact objectives source-diverse gate six replay gates 9944 audit and behavior seeds; no PPO",
-        "priority": 3200,
+        "command": "see experiments/manifests/m326-source-diverse-protected-ppo-proposal-design.json",
+        "hypothesis": "After M325 promotes the M316 repaired endpoint under source-diverse protected policy, the next PPO proposal should be designed around M325 as base, exact M297/M270 repair, source-diverse protected acceptance, old-key diagnostic classification, and staged replay/behavior gates.",
+        "id": "m326-source-diverse-protected-ppo-proposal-design",
+        "kind": "infrastructure",
+        "notes": "Pending: design only no PPO",
+        "priority": 3210,
         "status": "pending",
         "success_artifact": ""
     },
-    "updated_at_utc": "20260523T062018Z"
+    "updated_at_utc": "20260523T062607Z"
 }
