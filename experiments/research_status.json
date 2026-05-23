@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 490,
+        "completed": 491,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m481-critical-window-history-necessity-design",
+        "task_id": "m482-tail-aligned-wrong-history-gate-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m481-critical-window-history-necessity-design.md"
+        "run_dir": "runs/m482_tail_aligned_wrong_history_gate",
+        "command_log": "docs/m482-tail-aligned-wrong-history-gate-implementation.md"
     },
     "next_task": {
-        "id": "m482-tail-aligned-wrong-history-gate-implementation",
+        "id": "m483-critical-window-config-design",
         "status": "pending",
-        "priority": 4770,
+        "priority": 4780,
         "kind": "infrastructure",
-        "hypothesis": "If M480 late-one-shot evidence was weakened by stale right hidden state, then tail-aligned wrong-history swaps at left_step+S/right_step+S will produce stronger source-diverse one-shot outcome degradation without hidden-state clamping.",
-        "command": "see experiments/manifests/m482-tail-aligned-wrong-history-gate-implementation.json",
+        "hypothesis": "Because M482 tail-aligned wrong-history swaps create event rows only on a single source pair, a stricter critical-window task family is needed to reduce recovery time and expose source-diverse natural wrong-history event proof.",
+        "command": "see experiments/manifests/m483-critical-window-config-design.json",
         "success_artifact": "",
-        "notes": "Pending: implement tail-aligned one-shot wrong-history diagnostic; no training"
+        "notes": "Pending: design critical-window config and sampling stress tests; no training"
     },
-    "updated_at_utc": "20260523T222900Z"
+    "updated_at_utc": "20260523T224015Z"
 }

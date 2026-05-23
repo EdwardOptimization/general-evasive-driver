@@ -10454,3 +10454,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M481 designs the next critical-window diagnostic without changing actor inputs or training. It identifies a weakness in M480: late one-shot injection uses the original right hidden state at a later left physical state, so the wrong hidden can be stale. The selected M482 path is a tail-aligned one-shot gate that collects `left_step + S` and `right_step + S` snapshots for offsets `4`, `8`, `12`, and `16`, then swaps the aligned right hidden for one action only at the left tail state. Clamped or held rows remain diagnostic only.
 - decision: `admit_m482_tail_aligned_wrong_history_gate_implementation`
 - next: `m482-tail-aligned-wrong-history-gate-implementation`
+
+## 20260523T224015Z - m482-tail-aligned-wrong-history-gate-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m482_tail_aligned_wrong_history_gate`
+- artifact: `docs/m482-tail-aligned-wrong-history-gate-implementation.md`
+- result: M482 implements `autodrift.tail_aligned_wrong_history_gate` and runs tail-aligned one-shot swaps on the M474 adversarial pairs. The run has `611` valid tail pairs, `177` invalid tail pairs, and `2444` outcome rows. Tail alignment improves over M480 by producing `14` proof-style rows and `3` event rows, but the best single offset has only `4` proof rows and `0` event rows. All event rows are pair `150`, probe seed `11000`, label `unavoidable`, target `future_yaw_response`, repeated at offsets `8`, `12`, and `16`. The natural proof gate fails because the signal is source-narrow.
+- decision: `tail_aligned_event_signal_source_narrow_admit_m483_critical_window_config_design`
+- next: `m483-critical-window-config-design`

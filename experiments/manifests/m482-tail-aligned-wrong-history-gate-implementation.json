@@ -2,7 +2,7 @@
   "id": "m482-tail-aligned-wrong-history-gate-implementation",
   "type": "infrastructure",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -85,5 +85,43 @@
     "runs/m480_late_once_wrong_history_intervention_gate/late_once_summary.json"
   ],
   "decision_rule": "M482 should decide whether tail alignment converts the M480 timing signal into source-diverse event proof before any new environment config or training.",
-  "next_blocker": "pending M482 tail-aligned wrong-history gate implementation"
+  "next_blocker": "m483-critical-window-config-design",
+  "results": {
+    "implementation_files": [
+      "src/autodrift/tail_aligned_wrong_history_gate.py",
+      "tests/test_tail_aligned_wrong_history_gate.py"
+    ],
+    "run_dir": "runs/m482_tail_aligned_wrong_history_gate",
+    "summary_json": "runs/m482_tail_aligned_wrong_history_gate/summary.json",
+    "input_pair_count": 197,
+    "valid_tail_pair_count": 611,
+    "invalid_tail_pair_count": 177,
+    "outcome_row_count": 2444,
+    "tail_variant_summary_rows": 48,
+    "tail_offsets": [
+      4,
+      8,
+      12,
+      16
+    ],
+    "best_tail_offset": 4,
+    "best_tail_proof_candidate_count": 4,
+    "best_tail_success_or_collision_or_completion_rows": 0,
+    "best_tail_probe_seed_count": 2,
+    "best_tail_obstacle_label_count": 1,
+    "best_tail_target_count": 2,
+    "best_tail_single_seed_share": 0.75,
+    "best_tail_single_label_share": 1.0,
+    "wrong_tail_once_total_proof_candidate_count": 14,
+    "wrong_tail_once_total_event_rows": 3,
+    "event_rows_physical_pair_count": 1,
+    "event_rows_probe_seed_count": 1,
+    "event_rows_label_count": 1,
+    "event_rows_target_count": 1,
+    "natural_tail_aligned_proof_gate_passed": false,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "next_manifest": "experiments/manifests/m483-critical-window-config-design.json",
+    "decision": "tail_aligned_event_signal_source_narrow_admit_m483_critical_window_config_design"
+  }
 }
