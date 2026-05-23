@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 432,
+        "completed": 433,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m423-mixed-radius-projection-probe",
+        "task_id": "m424-mixed-radius-utility-ceiling-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m423_mixed_b_projection_ltraj1e13_s40_seed10154",
-        "command_log": "docs/m423-mixed-radius-projection-probe.md"
+        "run_dir": "",
+        "command_log": "docs/m424-mixed-radius-utility-ceiling-audit.md"
     },
     "next_task": {
-        "id": "m424-mixed-radius-utility-ceiling-audit",
+        "id": "m425-source-coupled-recovery-nullspace-design",
         "status": "pending",
-        "priority": 4190,
-        "kind": "gate",
-        "hypothesis": "Audit why mixed-radius proof-safe projection remains below the utility threshold",
-        "command": "see experiments/manifests/m424-mixed-radius-utility-ceiling-audit.json",
+        "priority": 4200,
+        "kind": "infrastructure",
+        "hypothesis": "Design a source-coupled recovery residual after radius-only utility ceiling",
+        "command": "see experiments/manifests/m425-source-coupled-recovery-nullspace-design.json",
         "success_artifact": "",
-        "notes": "Pending: compare M420/M423 active rows and decide whether to redesign residuals or stop radius-only path; no PPO or promotion"
+        "notes": "Pending: design a no-PPO residual path with M267 rows 6 and 15 plus old-key 10023 as hard active constraints"
     },
-    "updated_at_utc": "20260523T172624Z"
+    "updated_at_utc": "20260523T173128Z"
 }

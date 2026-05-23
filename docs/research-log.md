@@ -9874,3 +9874,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M423 tests `mixed_a`, `mixed_b`, and `mixed_c` no-PPO exact projections. `mixed_a` and `mixed_b` pass exact M297/M270/old-key no-regression, M267/M264 `17/17`, old-key compact `40/40`, and M183/M170 `17/17`; `mixed_b` is best proof-passing but retains only `0.133154` of M406 recovery utility. `mixed_c` reaches `0.142650` utility but fails M267/M264 (`15/17`) because rows `6` and `15` become wrong-history successes, and old-key compact falls to `39/40` on case `10023`.
 - decision: `reject_m423_mixed_radius_candidate_admit_m424_utility_ceiling_audit`
 - next: `m424-mixed-radius-utility-ceiling-audit`
+
+## 20260523T173128Z - m424-mixed-radius-utility-ceiling-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m424-mixed-radius-utility-ceiling-audit.md`
+- result: M424 compares M420 conservative/medium and M423 mixed profiles. The best proof-safe radius-only candidate remains `mixed_b` at `0.133154` recovery retained vs M406. M267 rows `6` and `15` cross from small negative wrong-history margins under `mixed_b` to positive wrong-history margins under `mixed_c`, and old-key `10023` fails under both M420 medium and M423 `mixed_c`. `mixed_b` is also at an exact old-key surrogate boundary because step `40` regresses the old-key surrogate by `+0.0000038147`.
+- decision: `stop_radius_only_path_admit_m425_source_coupled_recovery_nullspace_design`
+- next: `m425-source-coupled-recovery-nullspace-design`

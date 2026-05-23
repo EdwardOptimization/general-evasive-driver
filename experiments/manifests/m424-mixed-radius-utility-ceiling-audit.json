@@ -2,9 +2,12 @@
   "id": "m424-mixed-radius-utility-ceiling-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "objective_overfit",
+    "proof_washout",
+    "protected_key_window_failure",
+    "promotion_gate_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -82,5 +85,70 @@
     "docs/m423-mixed-radius-projection-probe.md"
   ],
   "decision_rule": "M424 should either admit a targeted residual redesign with explicit binding rows or stop the radius-only anchor path; it must not admit PPO directly.",
-  "next_blocker": "pending M424 mixed radius utility ceiling audit"
+  "next_blocker": "m425-source-coupled-recovery-nullspace-design",
+  "results": {
+    "artifact": "docs/m424-mixed-radius-utility-ceiling-audit.md",
+    "compared_profiles": [
+      "m420_conservative",
+      "m420_medium",
+      "m423_mixed_a",
+      "m423_mixed_b",
+      "m423_mixed_c"
+    ],
+    "utility_table": {
+      "m420_conservative": {
+        "proof_result": "pass",
+        "recovery_improvement_retained_vs_m406": 0.1154033591428579
+      },
+      "m420_medium": {
+        "proof_result": "old_key_39_of_40",
+        "recovery_improvement_retained_vs_m406": 0.1434194654307663,
+        "failed_case": "10023|perturbed|12|12"
+      },
+      "m423_mixed_a": {
+        "proof_result": "pass",
+        "recovery_improvement_retained_vs_m406": 0.12603335714879718
+      },
+      "m423_mixed_b": {
+        "proof_result": "pass",
+        "recovery_improvement_retained_vs_m406": 0.13315430006232556,
+        "selected_step": 39,
+        "step_40_exact_old_key_surrogate_delta_vs_base": 3.814697265625e-06
+      },
+      "m423_mixed_c": {
+        "proof_result": "m267_15_of_17_and_old_key_39_of_40",
+        "recovery_improvement_retained_vs_m406": 0.14265045545956842,
+        "m267_failed_rows": [
+          6,
+          15
+        ],
+        "old_key_failed_case": "10023|perturbed|12|12"
+      }
+    },
+    "binding_rows": {
+      "m267_row_6": {
+        "mixed_b_wrong_history_margin": -3.587441621988319e-05,
+        "mixed_c_wrong_history_margin": 3.267994121269879e-05
+      },
+      "m267_row_15": {
+        "mixed_b_wrong_history_margin": -3.37669701155896e-05,
+        "mixed_c_wrong_history_margin": 2.81105309052343e-05
+      },
+      "old_key_10023": {
+        "m420_medium_accepted": false,
+        "m420_conservative_accepted": true,
+        "m423_mixed_a_accepted": true,
+        "m423_mixed_b_accepted": true,
+        "m423_mixed_c_accepted": false
+      }
+    },
+    "classification": "radius_only_utility_ceiling",
+    "radius_only_path_status": "stop",
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m425-source-coupled-recovery-nullspace-design"
+  },
+  "decision": "stop_radius_only_path_admit_m425_source_coupled_recovery_nullspace_design"
 }

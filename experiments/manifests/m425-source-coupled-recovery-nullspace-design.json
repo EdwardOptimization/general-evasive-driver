@@ -1,0 +1,83 @@
+{
+  "id": "m425-source-coupled-recovery-nullspace-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m398_old_key_normal_margin_recovery_targets/old_key_recovery_corpus.npz",
+      "runs/m422_mixed_radius_anchor/mixed_b_radius_anchor.npz",
+      "runs/m423_mixed_b_projection_ltraj1e13_s40_seed10154",
+      "runs/m423_mixed_c_projection_ltraj1e13_s40_seed10155"
+    ],
+    "parent_config": [
+      "experiments/manifests/m424-mixed-radius-utility-ceiling-audit.json"
+    ],
+    "parent_objective": [
+      "design a source-coupled recovery utility residual after radius-only utility ceiling"
+    ],
+    "derived_from": [
+      "m424-mixed-radius-utility-ceiling-audit"
+    ],
+    "blocked_by": [
+      "m424-mixed-radius-utility-ceiling-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m425-source-coupled-recovery-nullspace-design.md",
+  "public_gates": [
+    "no PPO run",
+    "no checkpoint promotion",
+    "no actor input/output change",
+    "identify hard constraints M267 rows 6 and 15 plus old-key 10023",
+    "design a recovery merit that cannot loosen those hard constraints implicitly"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "hypothesis": "A source-coupled recovery/nullspace residual can target old-key recovery rows while keeping M267 rows 6 and 15 plus old-key 10023 as active constraints, unlike radius-only profiles that trade utility for proof loss.",
+  "success_criteria": [
+    "define hard active constraints for M267 rows 6 and 15 and old-key 10023",
+    "define a recovery merit tied to M398 recovery targets without relaxing hard constraints",
+    "define candidate selection order with exact gates before replay gates before utility",
+    "pre-register a no-PPO implementation/probe path"
+  ],
+  "failure_criteria": [
+    "design is equivalent to another per-source radius tweak",
+    "design admits PPO directly",
+    "design changes actor inputs or outputs",
+    "design removes old-key or M267 diagnostics"
+  ],
+  "commands": [
+    {
+      "name": "source_coupled_recovery_nullspace_design",
+      "command": "Design only; no training or projection run."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m425-source-coupled-recovery-nullspace-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m424-mixed-radius-utility-ceiling-audit.md"
+  ],
+  "decision_rule": "M425 may admit implementation only if it designs a residual that treats M267 rows 6 and 15 plus old-key 10023 as hard active constraints and does not reduce to another radius-only profile.",
+  "next_blocker": "pending M425 source-coupled recovery nullspace design"
+}
