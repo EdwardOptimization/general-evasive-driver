@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 367,
+        "completed": 368,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m358-m354-best-step-bounded-interpolation-probe",
+        "task_id": "m359-m354-best-step-micro-alpha-proof-gate",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m358_m354_best_step_bounded_interpolation_probe",
-        "command_log": "docs/m358-m354-best-step-bounded-interpolation-probe.md"
+        "run_dir": "runs/m359_m354_best_step_micro_alpha_proof_gate",
+        "command_log": "docs/m359-m354-best-step-micro-alpha-proof-gate.md"
     },
     "next_task": {
-        "id": "m359-m354-best-step-micro-alpha-proof-gate",
+        "id": "m360-full-public-gate-for-m358-a00025",
         "status": "pending",
-        "priority": 3540,
-        "kind": "gate",
-        "hypothesis": "Run source-diverse and first replay proof gates for M358 alpha 0.00025",
-        "command": "see experiments/manifests/m359-m354-best-step-micro-alpha-proof-gate.json",
+        "priority": 3550,
+        "kind": "driver_candidate",
+        "hypothesis": "Run full public gate for M358 alpha 0.00025 after proof-gate pass",
+        "command": "see experiments/manifests/m360-full-public-gate-for-m358-a00025.json",
         "success_artifact": "",
-        "notes": "Pending: evaluate source-diverse protected and first replay gates before any full public gate"
+        "notes": "Pending: run six public replay surfaces and behavior seeds before promotion"
     },
-    "updated_at_utc": "20260523T110840Z"
+    "updated_at_utc": "20260523T111212Z"
 }

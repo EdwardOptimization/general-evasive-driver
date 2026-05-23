@@ -9224,3 +9224,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M358 bounds the M356 best-step repair direction by interpolation from the M352 base. The coarse alpha grid shows `0.0025` already fails old-key neighborhood. A micro grid finds `alpha=0.00025` passes old-key with `0` accepted regressions and exact M297/M270 deltas `-0.000000119` and `-0.000000060`; `alpha=0.0005` is the first failing tested alpha with one accepted-case regression.
 - decision: `admit_m359_m354_best_step_micro_alpha_probe`
 - next: `m359-m354-best-step-micro-alpha-proof-gate`
+
+## 20260523T111212Z - m359-m354-best-step-micro-alpha-proof-gate
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m359_m354_best_step_micro_alpha_proof_gate`
+- artifact: `docs/m359-m354-best-step-micro-alpha-proof-gate.md`
+- result: M359 evaluates the M358 `alpha=0.00025` candidate on source-diverse and first replay proof gates. Source-diverse protected gates pass `5/5`; M183/M170 and M267/M264 first replay gates both retain `17/17` success drops. This is positive as proof-gate retention, but the accepted alpha is only `0.00025`.
+- decision: `admit_m360_full_public_gate_for_m354_micro_alpha`
+- next: `m360-full-public-gate-for-m358-a00025`

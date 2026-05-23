@@ -1,0 +1,84 @@
+{
+  "id": "m360-full-public-gate-for-m358-a00025",
+  "type": "driver_candidate",
+  "gate_tier": "promotion",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt",
+      "runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt"
+    ],
+    "parent_dataset": [
+      "runs/m358_m354_best_step_bounded_interpolation_probe/summary.json",
+      "runs/m359_m354_best_step_micro_alpha_proof_gate/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m359-m354-best-step-micro-alpha-proof-gate.json",
+      "docs/m359-m354-best-step-micro-alpha-proof-gate.md"
+    ],
+    "parent_objective": [
+      "run full public gate for alpha 0.00025 after proof-gate pass"
+    ],
+    "derived_from": [
+      "m359-m354-best-step-micro-alpha-proof-gate"
+    ],
+    "blocked_by": [
+      "m359-m354-best-step-micro-alpha-proof-gate"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m360-full-public-gate-for-m358-a00025.md",
+  "public_gates": [
+    "exact M297/M270 no-regression from M358 retained",
+    "old-key neighborhood pass from M358 retained",
+    "source-diverse protected pass from M359 retained",
+    "all six public replay surfaces pass",
+    "behavior seeds 9505 and 9506 do not regress",
+    "promote only if full gate passes"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not promote from partial proof gates",
+    "do not skip behavior seeds",
+    "do not change actor inputs",
+    "do not hide that accepted alpha is only 0.00025"
+  ],
+  "hypothesis": "The M358 alpha 0.00025 candidate may pass the full public gate after preserving exact, old-key, source-diverse, and first replay proof gates.",
+  "success_criteria": [
+    "all six replay surfaces pass",
+    "behavior seeds 9505 and 9506 do not regress versus M352 public base",
+    "accepted alpha limitation is documented",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "any public replay surface fails",
+    "behavior seeds regress",
+    "actor input contract changes",
+    "accepted micro-alpha limitation is omitted"
+  ],
+  "commands": [
+    {
+      "name": "m360_full_public_gate",
+      "command": "Run full public replay and behavior gates for runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m360-full-public-gate-for-m358-a00025.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m351_m349_to_repaired_old_key_neighborhood_interpolation/checkpoints/alpha_0_0075.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m359-m354-best-step-micro-alpha-proof-gate.md",
+    "runs/m359_m354_best_step_micro_alpha_proof_gate/summary.json"
+  ],
+  "decision_rule": "M360 is complete when alpha 0.00025 is either promoted as the next public-gate base or rejected with a classified full-gate failure.",
+  "next_blocker": "pending M360 full public gate for M358 alpha 0.00025"
+}
