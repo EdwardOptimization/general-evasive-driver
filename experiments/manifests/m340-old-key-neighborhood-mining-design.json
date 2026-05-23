@@ -2,7 +2,7 @@
   "id": "m340-old-key-neighborhood-mining-design",
   "type": "infrastructure",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -82,6 +82,93 @@
     "docs/m339-old-key-gap-distribution-corpus-refresh.md",
     "runs/m339_old_key_gap_distribution_refresh/summary.json"
   ],
-  "decision_rule": "M340 may only admit a no-PPO mining implementation/run milestone. It cannot promote and cannot relax old-key acceptance by itself.",
-  "next_blocker": "pending M340 old-key neighborhood mining design"
+  "decision_rule": "M340 completes the no-PPO design and admits a no-PPO mining run. It does not promote, does not lower 9944, and does not replace the singleton floor without M341 diversity evidence.",
+  "next_blocker": "m341-old-key-neighborhood-mining-run",
+  "results": {
+    "design_doc": "docs/m340-old-key-neighborhood-mining-design.md",
+    "planned_next_milestone": "m341-old-key-neighborhood-mining-run",
+    "seed_blocks": [
+      {
+        "label": "A",
+        "seed": 9860,
+        "episodes": 40
+      },
+      {
+        "label": "B",
+        "seed": 9900,
+        "episodes": 40
+      },
+      {
+        "label": "C",
+        "seed": 9940,
+        "episodes": 40
+      },
+      {
+        "label": "D",
+        "seed": 9980,
+        "episodes": 40
+      },
+      {
+        "label": "E",
+        "seed": 10020,
+        "episodes": 40
+      }
+    ],
+    "snapshot_relocation_distances": [
+      9.5,
+      10.0,
+      10.5,
+      11.0,
+      11.5,
+      12.0,
+      12.5
+    ],
+    "snapshot_relocation_lateral_offsets": [
+      -1.2,
+      -1.0,
+      -0.8
+    ],
+    "snapshot_relocation_half_widths": [
+      0.7,
+      0.8,
+      0.9,
+      1.0,
+      1.1,
+      1.2,
+      1.3,
+      1.4
+    ],
+    "broad_pool_targets": {
+      "rows": 80,
+      "seed_blocks": 4,
+      "physical_pairs_or_keys": 20,
+      "source_steps": 8,
+      "target_buckets": 4,
+      "max_seed_block_dominance": 0.25
+    },
+    "compact_corpus_targets": {
+      "rows_min": 20,
+      "rows_max": 40,
+      "seed_blocks": 4,
+      "physical_pairs_or_keys": 15,
+      "source_steps": 6,
+      "target_buckets": 4,
+      "max_seed_block_dominance": 0.25,
+      "max_physical_pair_dominance": 0.15
+    },
+    "endpoint_repair_needed_thresholds": {
+      "compact_gap_p10_lte": -0.001,
+      "compact_gap_min_lte": -0.01,
+      "accepted_or_success_drop_regressions_gte": 2
+    },
+    "selected_alpha_pass_thresholds": {
+      "accepted_or_success_drop_regressions": 0,
+      "gap_p10_gte": -0.0005,
+      "gap_min_gte": -0.002
+    },
+    "keeps_9944_floor_active_until_replacement_passes": true,
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m341_old_key_neighborhood_mining_run"
 }

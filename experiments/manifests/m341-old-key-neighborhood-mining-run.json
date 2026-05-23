@@ -1,0 +1,88 @@
+{
+  "id": "m341-old-key-neighborhood-mining-run",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt",
+      "runs/m335_exact_repair_from_raw_s40_seed10099/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m339_old_key_gap_distribution_refresh/summary.json",
+      "runs/m339_m133_all_old_key_guard/guard_results.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m340-old-key-neighborhood-mining-design.json",
+      "docs/m340-old-key-neighborhood-mining-design.md"
+    ],
+    "parent_objective": [
+      "execute wider old-key neighborhood mining and aggregation without PPO"
+    ],
+    "derived_from": [
+      "m340-old-key-neighborhood-mining-design"
+    ],
+    "blocked_by": [
+      "m340-old-key-neighborhood-mining-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m341-old-key-neighborhood-mining-run.md",
+  "public_gates": [
+    "do not run PPO",
+    "mine current-base old-key neighborhood seed blocks",
+    "evaluate m333_base m335_a0075 and m335_repaired on mined cases",
+    "export broad pool compact corpus and summary",
+    "report whether diversity targets pass before any gate replacement"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not lower 9944 floor",
+    "do not use M339 compact draft as replacement gate",
+    "do not promote any checkpoint",
+    "do not change actor inputs"
+  ],
+  "hypothesis": "Wider current-base old-key-neighborhood mining can produce a source-diverse compact old-gap corpus that distinguishes M335 repaired endpoint from M335 alpha without relying on singleton 9944 dominance.",
+  "success_criteria": [
+    "broad pool has at least 80 rows",
+    "broad pool covers at least 4 seed blocks",
+    "compact corpus has 20-40 rows",
+    "compact corpus covers at least 4 seed blocks and 15 physical pairs or keys",
+    "max compact seed-block dominance <= 25%",
+    "max compact physical-pair dominance <= 15%",
+    "M335 repaired endpoint is classified repair-needed by pre-registered thresholds",
+    "M335 alpha 0.0075 passes selected-alpha thresholds",
+    "9944 and M133 all-key rows remain diagnostics"
+  ],
+  "failure_criteria": [
+    "mined rows remain too source dominated",
+    "M335 endpoint cannot be distinguished from selected alpha",
+    "selected alpha fails the proposed replacement gate",
+    "the run requires PPO or actor changes"
+  ],
+  "commands": [
+    {
+      "name": "m341_mine_and_aggregate",
+      "command": "Run the M340 seed-block snapshot-bank relocation, protected-case replay, and aggregation commands without PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m341-old-key-neighborhood-mining-run.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m335_m333_to_repaired_gap_bounded_interpolation/checkpoints/alpha_0_0075.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m340-old-key-neighborhood-mining-design.md",
+    "runs/m339_old_key_gap_distribution_refresh/summary.json"
+  ],
+  "decision_rule": "M341 may only produce a corpus/gate decision and admit an implementation/gate replacement milestone if diversity targets pass. It cannot promote or run PPO.",
+  "next_blocker": "pending M341 old-key neighborhood mining run"
+}

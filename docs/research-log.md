@@ -9034,3 +9034,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M339 aggregates endpoint replay scans, source-diverse scans, selected-alpha scans, and an all-key M133 protected-case guard. The broad pool has `195` rows across `12` source families, but the severity compact draft has `26` rows with max source-family dominance `0.461538`, failing the `<= 0.25` diversity target. The M335 endpoint remains distinguishable by old-key `9944` gap collapse (`-0.024795`), one M133 accepted-case regression, and two M267/M264 success-drop regressions, but existing corpora are not source-diverse enough to replace the singleton floor.
 - decision: `admit_m340_old_key_neighborhood_mining_design`
 - next: `m340-old-key-neighborhood-mining-design`
+
+## 20260523T074745Z - m340-old-key-neighborhood-mining-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `docs/m340-old-key-neighborhood-mining-design.md`
+- artifact: `docs/m340-old-key-neighborhood-mining-design.md`
+- result: M340 designs a five seed-block no-PPO old-key neighborhood mining stage. It uses current-base snapshot-bank relocation with wider distances, lateral offsets, widths, and relaxed current-family margin bounds, then replays M333 base, M335 alpha `0.0075`, and M335 repaired endpoint. The design pre-registers broad and compact diversity targets and keeps `9944` active until a replacement corpus passes.
+- decision: `admit_m341_old_key_neighborhood_mining_run`
+- next: `m341-old-key-neighborhood-mining-run`

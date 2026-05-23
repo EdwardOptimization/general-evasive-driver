@@ -55,7 +55,7 @@ endpoint improves exact objectives much more, but collapses the old-key gap to
 Current blocker:
 
 ```text
-m340-old-key-neighborhood-mining-design
+m341-old-key-neighborhood-mining-run
 ```
 
 M337 classifies the active blocker as singleton old-key gap-floor bottleneck,
@@ -65,8 +65,9 @@ rows across `12` source families, but the compact severity draft has `26` rows
 with source-family dominance `0.461538`, above the `0.25` limit. Existing
 corpora therefore cannot replace the singleton `9944` floor yet.
 
-Until M340/M341 produces a source-diverse old-key neighborhood corpus, do not
-run more PPO and do not lower the `9944` floor ad hoc.
+M340 designs a five seed-block no-PPO old-key neighborhood mining run. Until
+M341 produces a source-diverse old-key neighborhood corpus, do not run more PPO
+and do not lower the `9944` floor ad hoc.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -123,7 +124,8 @@ run more PPO and do not lower the `9944` floor ad hoc.
 | old-key bottleneck audit | `runs/m337_old_key_gap_floor_bottleneck_audit/summary.json` | M337 shows M335 endpoint passes source-diverse gates but old-key gap collapses to 0.065360; next step is distributional gap-gate design |
 | old-key gap distribution design | `docs/m338-old-key-gap-distribution-refresh-design.md` | M338 keeps 9944 as diagnostic but designs source-diverse gap distribution to avoid singleton veto dominance |
 | old-key gap corpus refresh | `runs/m339_old_key_gap_distribution_refresh/summary.json` | M339 broad pool has 195 rows, but compact severity draft is source dominated, so it cannot replace singleton 9944 floor |
-| current blocker | `experiments/manifests/m340-old-key-neighborhood-mining-design.json` | M340 must design wider no-PPO old-key neighborhood mining before gate replacement or PPO continuation |
+| old-key neighborhood design | `docs/m340-old-key-neighborhood-mining-design.md` | M340 designs five no-PPO seed blocks plus explicit broad and compact diversity targets |
+| current blocker | `experiments/manifests/m341-old-key-neighborhood-mining-run.json` | M341 must execute old-key neighborhood mining and aggregation before gate replacement or PPO continuation |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

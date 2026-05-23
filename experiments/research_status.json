@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 348,
+        "completed": 349,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m339-old-key-gap-distribution-corpus-refresh",
+        "task_id": "m340-old-key-neighborhood-mining-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m339_old_key_gap_distribution_refresh",
-        "command_log": "runs/m339_old_key_gap_distribution_refresh/summary.json"
+        "run_dir": "docs/m340-old-key-neighborhood-mining-design.md",
+        "command_log": "docs/m340-old-key-neighborhood-mining-design.md"
     },
     "next_task": {
-        "id": "m340-old-key-neighborhood-mining-design",
+        "id": "m341-old-key-neighborhood-mining-run",
         "status": "pending",
-        "priority": 3350,
-        "kind": "infrastructure",
-        "hypothesis": "A wider old-key-neighborhood mining plan can produce source-diverse old gap-retention rows around M133 and 9944-like cases, avoiding both singleton veto dominance and M133-only overfitting before further PPO.",
-        "command": "see experiments/manifests/m340-old-key-neighborhood-mining-design.json",
+        "priority": 3360,
+        "kind": "gate",
+        "hypothesis": "Wider current-base old-key-neighborhood mining can produce a source-diverse compact old-gap corpus that distinguishes M335 repaired endpoint from M335 alpha without relying on singleton 9944 dominance.",
+        "command": "see experiments/manifests/m341-old-key-neighborhood-mining-run.json",
         "success_artifact": "",
-        "notes": "Pending: no-PPO design for wider old-key neighborhood mining before gate replacement or more PPO"
+        "notes": "Pending: no-PPO old-key neighborhood mining and aggregation run"
     },
-    "updated_at_utc": "20260523T074209Z"
+    "updated_at_utc": "20260523T074745Z"
 }
