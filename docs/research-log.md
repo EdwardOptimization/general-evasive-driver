@@ -10558,3 +10558,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M492 implements observer-hidden action replay and runs it on both critical-window configs. The combined result has `1080` valid tail pairs and `12960` outcome rows. Action replay produces `21` proof rows and `1` event row, all proof rows are `unavoidable`; hidden-hold on the same surface remains `90` proof rows and `4` event rows, while natural `wrong_tail_once` remains `11` proof rows and `0` events. This rejects action-sequence sufficiency on the current surface: persistent wrong hidden forcing, not the wrong physical prefix alone, dominates the M490 diagnostic events.
 - decision: `action_replay_rejects_action_sequence_sufficiency_admit_m493_natural_belief_task_redesign`
 - next: `m493-natural-belief-decision-window-redesign`
+## 20260524T012000Z - m493-natural-belief-decision-window-redesign
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m493-natural-belief-decision-window-redesign.md`
+- result: M493 closes the M486-M492 artificial tail-forcing branch. The branch shows useful mechanism evidence: wrong hidden is not ignored, natural `wrong_tail_once` corrects quickly, hidden-hold can create events, and observer-hidden action replay does not reproduce those events. This is not deployable self-ID proof. M493 selects a natural decision-window redesign: implement a short-reveal config and a warm-up capability-evidence config, validate sampling across seed blocks `11800`, `11900`, and `12000`, and only then mine natural matched-current belief rows.
+- decision: `admit_m494_natural_belief_decision_config_implementation`
+- next: `m494-natural-belief-decision-config-implementation`

@@ -52,25 +52,23 @@ public-gate base; M487-M492 did not train or promote a checkpoint.
 Current blocker:
 
 ```text
-m493-natural-belief-decision-window-redesign
+m494-natural-belief-decision-config-implementation
 ```
 
-Recent progress: M487 was a negative natural proof gate: `wrong_tail_once`
-produced `11` proof rows and `0` event rows. M488 showed the mechanism: the
-policy quickly corrects from current response. M490 confirmed this
-diagnostically: artificial `wrong_tail_hidden_hold_K` variants produce `90`
-proof rows and `4` event rows. M492 then tests whether the wrong physical
-action prefix is sufficient under observer-hidden replay; it is not. Action
-replay produces `21` proof rows and only `1` event row, all proof rows are
-`unavoidable`, while hidden-hold remains `90`/`4`.
+Recent progress: M486-M492 is now closed as an artificial tail-forcing
+mechanism branch. It showed that wrong hidden is not ignored, natural
+`wrong_tail_once` corrects quickly, hidden-hold can create diagnostic events,
+and observer-hidden action replay does not reproduce those events. This is
+mechanism evidence, not deployable self-ID proof.
 
-Conclusion: the M486-M492 tail branch is useful mechanism evidence, but not a
-deployable self-ID proof path. Persistent wrong hidden forcing dominates; the
-natural actor corrects too quickly.
+M493 redirects the research path toward natural belief decision windows: tasks
+where command-response history forms belief before obstacle reveal, and the
+first few post-reveal actions matter before current-response correction can wash
+out the history effect.
 
-Next step: M493 should close this artificial forcing branch and redesign toward
-a natural belief decision-window task or miner where command-response history
-matters before current-response correction can wash out the effect.
+Next step: M494 should implement two P0-compatible configs, short-reveal and
+warm-up capability-evidence, then run reset sampling stress and tiny behavior
+smokes before any proof mining or training.
 
 ## Current Evidence
 

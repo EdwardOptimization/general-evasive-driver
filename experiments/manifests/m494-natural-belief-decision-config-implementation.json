@@ -1,0 +1,93 @@
+{
+  "id": "m494-natural-belief-decision-config-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m492_tail_action_replay_sufficiency_summary/combined_summary.json"
+    ],
+    "parent_config": [
+      "configs/m484_critical_window_near_threshold_zero_relvel.json",
+      "configs/m484_critical_window_late_high_energy_zero_relvel.json",
+      "experiments/manifests/m493-natural-belief-decision-window-redesign.json"
+    ],
+    "parent_objective": [
+      "natural belief decision-window config implementation"
+    ],
+    "derived_from": [
+      "m493-natural-belief-decision-window-redesign"
+    ],
+    "blocked_by": [
+      "m493-natural-belief-decision-window-redesign"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m494-natural-belief-decision-config-implementation.md",
+  "public_gates": [
+    "implement two P0-compatible natural belief decision-window configs",
+    "run reset sampling stress on seed blocks 11800 11900 12000",
+    "run small behavior smokes for M399 and baselines if sampling passes",
+    "do not mine proof rows or train"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not run proof mining before sampling validation",
+    "do not tune from private holdout"
+  ],
+  "hypothesis": "A short-reveal and a warm-up capability-evidence config can create robust natural decision-window tasks where command-response history may matter before current-response correction dominates.",
+  "success_criteria": [
+    "both config files are created",
+    "each config has 384/384 reset successes across seed blocks 11800 11900 12000 or failures are documented",
+    "at least one config has >=2 labels and single-label share <=0.80",
+    "behavior smokes complete for at least one sampling-valid config",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "configs cannot sample robustly",
+    "label distribution collapses to one label",
+    "behavior smokes are saturated or fail to run",
+    "actor contract changes",
+    "training or proof mining is performed"
+  ],
+  "commands": [
+    {
+      "name": "config_implementation",
+      "command": "Add m494 short-reveal and warm-up capability-evidence zero-relvel configs."
+    },
+    {
+      "name": "sampling_validation",
+      "command": "Run 128 reset attempts for seed blocks 11800 11900 12000 on each config."
+    },
+    {
+      "name": "behavior_smokes",
+      "command": "Run small M399/reset/zero-current/heuristic/random smokes on sampling-valid configs."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m494-natural-belief-decision-config-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m493-natural-belief-decision-window-redesign.md",
+    "runs/m492_tail_action_replay_sufficiency_summary/combined_summary.json"
+  ],
+  "decision_rule": "M494 should admit natural matched-current mining only if at least one config is sampling-robust and non-saturated; otherwise repair configs before mining.",
+  "next_blocker": "pending M494 natural belief decision config implementation"
+}

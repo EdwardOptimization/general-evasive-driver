@@ -2,7 +2,7 @@
   "id": "m493-natural-belief-decision-window-redesign",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -80,5 +80,22 @@
     "runs/m492_tail_action_replay_sufficiency_summary/combined_summary.json"
   ],
   "decision_rule": "M493 should admit a new config or miner only if it creates a natural decision-time belief test rather than another artificial hidden/action forcing variant.",
-  "next_blocker": "pending M493 natural belief decision-window redesign"
+  "next_blocker": "m494-natural-belief-decision-config-implementation",
+  "results": {
+    "documentation": "docs/m493-natural-belief-decision-window-redesign.md",
+    "closed_branch": "m486-m492 artificial tail forcing diagnostics",
+    "selected_next_path": "natural_belief_decision_window_config_validation",
+    "candidate_configs": [
+      "short_reveal_decision_window",
+      "warm_up_capability_evidence"
+    ],
+    "sampling_seed_blocks": [
+      11800,
+      11900,
+      12000
+    ],
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "admit_m494_natural_belief_decision_config_implementation"
+  }
 }

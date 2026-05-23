@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 501,
+        "completed": 502,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m492-tail-action-replay-sufficiency-gate-implementation",
+        "task_id": "m493-natural-belief-decision-window-redesign",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m492_tail_action_replay_sufficiency_summary",
-        "command_log": "docs/m492-tail-action-replay-sufficiency-gate-implementation.md"
+        "run_dir": "",
+        "command_log": "docs/m493-natural-belief-decision-window-redesign.md"
     },
     "next_task": {
-        "id": "m493-natural-belief-decision-window-redesign",
+        "id": "m494-natural-belief-decision-config-implementation",
         "status": "pending",
-        "priority": 4880,
+        "priority": 4890,
         "kind": "infrastructure",
-        "hypothesis": "The M486-M492 surface is useful for mechanism diagnosis but not deployable self-ID proof; the next path should create natural matched-current decision windows where command-response belief matters before current observations can correct wrong hidden state.",
-        "command": "see experiments/manifests/m493-natural-belief-decision-window-redesign.json",
+        "hypothesis": "A short-reveal and a warm-up capability-evidence config can create robust natural decision-window tasks where command-response history may matter before current-response correction dominates.",
+        "command": "see experiments/manifests/m494-natural-belief-decision-config-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: close artificial tail-forcing branch and design natural belief decision-window task; no training"
+        "notes": "Pending: implement and sampling-validate natural belief decision-window configs; no proof mining or training"
     },
-    "updated_at_utc": "20260523T232403Z"
+    "updated_at_utc": "20260523T232711Z"
 }
