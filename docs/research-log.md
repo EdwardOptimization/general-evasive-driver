@@ -10394,3 +10394,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M475 runs action/outcome probes and selectors on the M474 adversarial pairs. Action gate writes `985` rows and outcome gate writes `1182` rows. The outcome selector accepts `28` compact rows, all from reset-hidden or zero-current-response variants; no wrong-history rows are accepted. Near-boundary classification sees all `197` wrong-history rows as near-boundary no-effect rows, with `0` proof candidates, `0` success-drop rows, `0` collision-gap rows, and `0` completion-degradation rows. Wrong history is not action-null (`action_distance_mean=0.053586`, `124/197` closer to right action), but margin gap max is only `0.010044`, below the `0.02` proof threshold.
 - decision: `combined_adversarial_outcome_probe_reject_proof_admit_m476`
 - next: `m476-wrong-history-no-effect-mechanism-audit`
+
+## 20260523T220013Z - m476-wrong-history-no-effect-mechanism-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m476_wrong_history_no_effect_mechanism_audit`
+- artifact: `docs/m476-wrong-history-no-effect-mechanism-audit.md`
+- result: M476 audits the M475 no-effect result row by row. Wrong-history first-action distance is nonzero (`mean=0.053586`, `max=0.151947`, `131/197` action-prefilter pass), but trajectory perturbation is small (`mean=0.045794`) compared with reset-hidden (`0.883482`) and zero-current (`0.395153`). Even the `22` rows with wrong-history action distance above `0.10` have max margin gap only `0.004904`. There are `47` wrong-history rows with normal margin under `0.10 m`, but none produce success, collision, completion, or proof-margin degradation. The blocker is classified as wrong-history perturbations being too weak or too quickly corrected by current feedback.
+- decision: `wrong_history_no_effect_audit_admit_m477_persistent_intervention_design`
+- next: `m477-persistent-wrong-history-intervention-design`

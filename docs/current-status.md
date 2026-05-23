@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m476-wrong-history-no-effect-mechanism-audit
+m477-persistent-wrong-history-intervention-design
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -311,7 +311,11 @@ the M474 adversarial pairs. M475 rejects proof expansion: all `197`
 wrong-history rows are near-boundary no-effect rows with `0` proof candidates,
 while reset/zero-current variants do degrade outcomes on the same surface. The
 next blocker is M476: audit why wrong-history action perturbations do not
-translate into terminal outcome degradation.
+translate into terminal outcome degradation. M476 finds that wrong-history
+trajectory perturbation is small (`0.045794` mean) compared with reset-hidden
+(`0.883482`) and zero-current (`0.395153`). Even high-action-distance
+wrong-history rows do not reach the `0.02` proof margin gap. The next blocker is
+M477: design a persistent or later wrong-history diagnostic intervention.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key
@@ -918,12 +922,12 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not run PPO or promote a checkpoint while the current blocker is the M476
-wrong-history no-effect mechanism audit. M475 shows wrong matched history
-changes first actions weakly but does not change success, collision, completion,
-or terminal-margin outcomes. Reset and zero-current degradation on the same
-surface must not be counted as wrong-history proof. Do not design another
-training/update path until the no-effect mechanism is classified.
+Do not run PPO or promote a checkpoint while the current blocker is M477
+persistent/later wrong-history intervention design. M476 classifies the current
+blocker as weak or quickly corrected wrong-history trajectory perturbation.
+M477 should stay diagnostic: keep the actor contract unchanged, do not claim an
+artificial persistent intervention as deployable behavior proof, and do not
+train before the intervention evidence is available.
 
 ## Sensor Profile Policy
 

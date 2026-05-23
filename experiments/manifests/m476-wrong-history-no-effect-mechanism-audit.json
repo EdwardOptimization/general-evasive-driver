@@ -2,7 +2,7 @@
   "id": "m476-wrong-history-no-effect-mechanism-audit",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -83,5 +83,33 @@
     "runs/m475_combined_adversarial_near_boundary_selector/summary.json"
   ],
   "decision_rule": "M476 should admit a new proof path only after identifying why source-diverse wrong-history interventions remain outcome-no-effect.",
-  "next_blocker": "pending M476 wrong-history no-effect mechanism audit"
+  "results": {
+    "run_dir": "runs/m476_wrong_history_no_effect_mechanism_audit",
+    "wrong_history_row_count": 197,
+    "wrong_history_action_prefilter_pass_count": 131,
+    "wrong_history_closer_to_right_count": 124,
+    "wrong_history_action_distance_mean": 0.053585562851557654,
+    "wrong_history_action_distance_max": 0.1519465849945645,
+    "wrong_history_trajectory_distance_mean": 0.04579364501299135,
+    "wrong_history_trajectory_distance_max": 0.2879077792167663,
+    "wrong_history_success_drop_count": 0,
+    "wrong_history_collision_gap_count": 0,
+    "wrong_history_completion_drop_count": 0,
+    "wrong_history_outcome_critical_count": 0,
+    "wrong_history_accepted_count": 0,
+    "wrong_history_margin_gap_mean": -0.00046720462285017875,
+    "wrong_history_margin_gap_max": 0.0100436658478821,
+    "wrong_history_high_action_gt_0_10_count": 22,
+    "wrong_history_high_action_gt_0_10_max_margin_gap": 0.0049044587451456,
+    "wrong_history_low_margin_le_0_10_count": 47,
+    "reset_hidden_success_drop_count": 10,
+    "zero_current_success_drop_count": 10,
+    "zero_action_success_drop_count": 1,
+    "dominant_mechanism": "wrong_history_action_and_trajectory_perturbations_are_too_weak_or_too_quickly_corrected_relative_to_reset_zero_current",
+    "recommended_next_path": "design persistent_or_later_wrong_history_intervention_probe_before_training",
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "wrong_history_no_effect_audit_admit_m477_persistent_intervention_design"
+  },
+  "next_blocker": "m477-persistent-wrong-history-intervention-design"
 }

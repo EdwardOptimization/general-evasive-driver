@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 484,
+        "completed": 485,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m475-combined-adversarial-outcome-proof-probe",
+        "task_id": "m476-wrong-history-no-effect-mechanism-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m475_combined_adversarial_near_boundary_selector",
-        "command_log": "docs/m475-combined-adversarial-outcome-proof-probe.md"
+        "run_dir": "runs/m476_wrong_history_no_effect_mechanism_audit",
+        "command_log": "docs/m476-wrong-history-no-effect-mechanism-audit.md"
     },
     "next_task": {
-        "id": "m476-wrong-history-no-effect-mechanism-audit",
+        "id": "m477-persistent-wrong-history-intervention-design",
         "status": "pending",
-        "priority": 4710,
-        "kind": "gate",
-        "hypothesis": "M475 failed because wrong matched-history injections change first action but do not persist long enough or target terminal-sensitive directions strongly enough to change closed-loop outcome",
-        "command": "see experiments/manifests/m476-wrong-history-no-effect-mechanism-audit.json",
+        "priority": 4720,
+        "kind": "infrastructure",
+        "hypothesis": "A one-shot wrong-history injection is corrected too quickly; persistent or later wrong-history intervention will distinguish whether recurrent belief can be outcome-critical when the wrong belief is active during the emergency decision window",
+        "command": "see experiments/manifests/m477-persistent-wrong-history-intervention-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit why source-diverse wrong-history interventions remain outcome-no-effect"
+        "notes": "Pending: design persistent/later wrong-history diagnostic intervention; no training"
     },
-    "updated_at_utc": "20260523T215614Z"
+    "updated_at_utc": "20260523T220013Z"
 }
