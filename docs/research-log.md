@@ -9444,3 +9444,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M380 audits alpha `0.1` and finds no accepted regressions and no normal-success regressions: `40/40` compact rows remain accepted. The failure is repeated cumulative old-key gap-tail erosion: gap p10 is `-0.000523942`, below the `-0.0005` floor, with four rows below the floor and one row below `-0.001`. Because the same lower-tail boundary recurs after two gap-tail weighting cycles, M381 should audit exact surrogate versus closed-loop replay alignment before another overlay.
 - decision: `admit_m381_old_key_surrogate_replay_alignment_audit`
 - next: `m381-old-key-surrogate-replay-alignment-audit`
+
+## 20260523T130952Z - m381-old-key-surrogate-replay-alignment-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m381_old_key_surrogate_replay_alignment_audit`
+- artifact: `docs/m381-old-key-surrogate-replay-alignment-audit.md`
+- result: M381 audits M374 and M378 interpolation families and finds exact old-key surrogate improvement is strongly misaligned with closed-loop old-key tail safety. Overall correlation between surrogate improvement and gap p10 is `-0.993196`, while correlation with gap-p10 erosion is `+0.991817`. In both families, the best surrogate endpoint fails replay and is also the worst lower-tail endpoint.
+- decision: `admit_m382_terminal_margin_recovery_residual_design`
+- next: `m382-terminal-margin-recovery-residual-design`

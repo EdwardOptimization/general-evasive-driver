@@ -1,0 +1,80 @@
+{
+  "id": "m382-terminal-margin-recovery-residual-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m381_old_key_surrogate_replay_alignment_audit/summary.json",
+      "runs/m380_alpha01_cumulative_old_key_boundary_audit/gap_tail_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m381-old-key-surrogate-replay-alignment-audit.json"
+    ],
+    "parent_objective": [
+      "design a terminal-margin or local-action recovery residual after M381 shows old-key surrogate and replay tails are misaligned"
+    ],
+    "derived_from": [
+      "m381-old-key-surrogate-replay-alignment-audit"
+    ],
+    "blocked_by": [
+      "m381-old-key-surrogate-replay-alignment-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m382-terminal-margin-recovery-residual-design.md",
+  "public_gates": [
+    "design only; no PPO run",
+    "preserve current M379 public-gate base",
+    "do not lower old-key thresholds",
+    "define how tail-row terminal margin or local-action recovery targets enter exact repair",
+    "preserve actor input contract"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not lower old-key thresholds",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "hypothesis": "A terminal-margin or local-action recovery residual can align exact repair with closed-loop old-key lower-tail safety better than stronger branch-weight preference overlays.",
+  "success_criteria": [
+    "design specifies target rows, target actions or margins, exact loss terms, and gate order",
+    "design explains how it avoids using oracle inputs in the deployable actor",
+    "next implementation milestone is registered",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design reuses only stronger old-key branch weighting despite M381 misalignment",
+    "design changes actor inputs",
+    "design lowers replay thresholds",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "Write design doc for terminal-margin or local-action recovery residual; no PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m382-terminal-margin-recovery-residual-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m381-old-key-surrogate-replay-alignment-audit.md"
+  ],
+  "decision_rule": "M382 should admit implementation only if the design directly targets replay-tail terminal margin or recoverable local actions instead of merely increasing branch weights.",
+  "next_blocker": "pending M382 terminal-margin recovery residual design"
+}

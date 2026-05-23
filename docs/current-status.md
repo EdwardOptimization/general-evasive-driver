@@ -55,7 +55,7 @@ repair is the first tested cumulative old-key compact gap-p10 failure.
 Current blocker:
 
 ```text
-m381-old-key-surrogate-replay-alignment-audit
+m382-terminal-margin-recovery-residual-design
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -129,7 +129,9 @@ is the first tested cumulative old-key gap-p10 failure. M379 promotes alpha
 `0.05` after the full public gate passes. M380 classifies alpha `0.1` as
 repeated cumulative old-key gap-tail erosion with zero accepted regressions.
 Because this lower-tail boundary recurs after two gap-tail weighting cycles,
-M381 should audit exact old-key surrogate versus closed-loop replay alignment
+M381 audits exact old-key surrogate versus closed-loop replay alignment. It
+finds surrogate improvement is strongly aligned with worse replay-tail erosion,
+so M382 should design a terminal-margin or local-action recovery residual
 before another overlay or PPO.
 
 | Role | Checkpoint | Status |
@@ -207,7 +209,7 @@ before another overlay or PPO.
 | bounded micro-alpha candidate | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M358 finds alpha 0.00025 passes exact and old-key; alpha 0.0005 first fails old-key |
 | proof-gate-passing micro-alpha | `runs/m358_m352_to_m354_best_step_micro_interpolation/checkpoints/alpha_0_00025.pt` | M359 passes source-diverse protected and first replay proof gates |
 | current public-gate base | `runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt` | M379 promotes alpha `0.05` after cumulative old-key source-diverse six public replay surfaces and behavior seeds pass |
-| current blocker | `experiments/manifests/m381-old-key-surrogate-replay-alignment-audit.json` | M381 must audit exact old-key surrogate versus closed-loop replay alignment before another overlay or PPO |
+| current blocker | `experiments/manifests/m382-terminal-margin-recovery-residual-design.json` | M382 must design a terminal-margin or local-action recovery residual before another overlay or PPO |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

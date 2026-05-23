@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 389,
+        "completed": 390,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m380-m378-alpha01-cumulative-old-key-boundary-audit",
+        "task_id": "m381-old-key-surrogate-replay-alignment-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m380_alpha01_cumulative_old_key_boundary_audit",
-        "command_log": "docs/m380-m378-alpha01-cumulative-old-key-boundary-audit.md"
+        "run_dir": "runs/m381_old_key_surrogate_replay_alignment_audit",
+        "command_log": "docs/m381-old-key-surrogate-replay-alignment-audit.md"
     },
     "next_task": {
-        "id": "m381-old-key-surrogate-replay-alignment-audit",
+        "id": "m382-terminal-margin-recovery-residual-design",
         "status": "pending",
-        "priority": 3760,
-        "kind": "gate",
-        "hypothesis": "Audit whether exact old-key surrogate improvements align with closed-loop cumulative old-key replay tails",
-        "command": "see experiments/manifests/m381-old-key-surrogate-replay-alignment-audit.json",
+        "priority": 3770,
+        "kind": "infrastructure",
+        "hypothesis": "Design a terminal-margin or local-action recovery residual after old-key surrogate/replay misalignment",
+        "command": "see experiments/manifests/m382-terminal-margin-recovery-residual-design.json",
         "success_artifact": "",
-        "notes": "Pending: compare exact surrogate deltas with replay gap p10/min across recent interpolation families"
+        "notes": "Pending: design exact repair residual before implementation or PPO"
     },
-    "updated_at_utc": "20260523T130555Z"
+    "updated_at_utc": "20260523T130952Z"
 }
