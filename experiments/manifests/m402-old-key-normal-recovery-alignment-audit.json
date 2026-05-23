@@ -1,0 +1,80 @@
+{
+  "id": "m402-old-key-normal-recovery-alignment-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m398_old_key_normal_margin_recovery_targets/old_key_recovery_targets.csv",
+      "runs/m399_s02a050_old_key_replay_gate/old_key_replay_comparison_rows.csv",
+      "runs/m399_s02a100_old_key_replay_gate/old_key_replay_comparison_rows.csv",
+      "runs/m399_s02a050_exact_eval/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m401-m400-bounded-promotion-utility-audit.json"
+    ],
+    "parent_objective": [
+      "audit alignment between M398 normal-margin recovery residual and closed-loop old-key replay"
+    ],
+    "derived_from": [
+      "m401-m400-bounded-promotion-utility-audit"
+    ],
+    "blocked_by": [
+      "m401-m400-bounded-promotion-utility-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m402-old-key-normal-recovery-alignment-audit.md",
+  "public_gates": [
+    "no PPO run",
+    "compare M398 target actions against M400/M399 alpha actions on case 9958",
+    "compare exact recovery loss movement against old-key replay terminal margins",
+    "classify whether next task should be target refresh, residual reweighting, trajectory residual, or repair stop"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower thresholds",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "hypothesis": "The M398 one-step normal-margin recovery residual may not fully align with the closed-loop old-key 9958 terminal-margin boundary, so the next repair should be chosen only after auditing action and replay alignment.",
+  "success_criteria": [
+    "quantify target action versus policy action differences for the 9958 boundary",
+    "quantify old-key replay margin movement from alpha 0.05 to alpha 0.10",
+    "classify whether the recovery target is too weak, the residual weight is wrong, or the one-step residual misses trajectory drift",
+    "pre-register the next no-PPO repair or infrastructure milestone"
+  ],
+  "failure_criteria": [
+    "audit cannot locate M398/M399/M400 artifacts",
+    "audit changes actor inputs or thresholds",
+    "research validation fails"
+  ],
+  "commands": [
+    {
+      "name": "old_key_recovery_alignment_audit",
+      "command": "Audit M398 recovery target alignment with alpha 0.05/0.10 old-key replay rows; no PPO."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m402-old-key-normal-recovery-alignment-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m401-m400-bounded-promotion-utility-audit.md"
+  ],
+  "decision_rule": "M402 should admit the next task only after classifying the recovery residual versus closed-loop replay alignment failure.",
+  "next_blocker": "pending M402 old-key normal recovery alignment audit"
+}

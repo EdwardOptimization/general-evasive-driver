@@ -9644,3 +9644,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M400 promotes `runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt`. All six public replay surfaces pass versus `m333_base`, behavior seeds `9505` and `9506` retain success mean `0.8625` and termination mean `0.1375`, reset success stays `0.85`, and zero-all success stays `0.80`. Mean clearance changes by `-0.000049633` versus the previous M395 base, so this is a proof-safe bounded promotion rather than driver-performance improvement.
 - decision: `promote_m399_s02a050_public_gate_base`
 - next: `m401-m400-bounded-promotion-utility-audit`
+
+## 20260523T152643Z - m401-m400-bounded-promotion-utility-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m401-m400-bounded-promotion-utility-audit.md`
+- result: M401 classifies M400 as `proof_safe_bounded_promotion_not_meaningful_driver_improvement`: behavior success and termination deltas are `0.0`, clearance delta is only `-0.000049633`, and return delta is `+0.000928436`. The first known post-M400 boundary remains old-key `9958|perturbed|39|36` at alpha `0.10`, where normal margin is `-0.000085` and wrong-history margin remains `-0.002228`, so this is a normal-branch terminal-margin cliff rather than wrong-history sensitivity loss.
+- decision: `admit_m402_old_key_normal_recovery_alignment_audit`
+- next: `m402-old-key-normal-recovery-alignment-audit`

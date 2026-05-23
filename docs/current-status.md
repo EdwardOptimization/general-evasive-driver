@@ -220,8 +220,12 @@ candidate after six public replay surfaces and behavior seeds pass. Behavior
 success remains `0.8625`, termination remains `0.1375`, reset success remains
 `0.85`, and zero-all success remains `0.80`; mean clearance shifts by only
 `-0.000049633` versus the previous base. This is another proof-safe bounded
-promotion, so M401 should audit utility and identify the first post-M400
-boundary before any PPO.
+promotion. M401 audits that utility and confirms the first known post-M400
+boundary is still alpha `0.10` toward the M399 s02 endpoint on old-key case
+`9958|perturbed|39|36`: normal margin is `-0.000085` while wrong-history margin
+remains `-0.002228`. M402 should audit the alignment between the M398
+normal-margin recovery target and the closed-loop old-key replay boundary before
+another repair or PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |

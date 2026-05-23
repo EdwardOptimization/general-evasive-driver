@@ -2,7 +2,7 @@
   "id": "m401-m400-bounded-promotion-utility-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -75,5 +75,33 @@
     "docs/m400-full-public-gate-for-m399-s02a050.md"
   ],
   "decision_rule": "M401 should admit the next research task only after classifying whether M400 is a useful bounded promotion and naming the active next boundary.",
-  "next_blocker": "pending M401 bounded promotion utility audit"
+  "next_blocker": "m402-old-key-normal-recovery-alignment-audit",
+  "results": {
+    "artifact": "docs/m401-m400-bounded-promotion-utility-audit.md",
+    "current_public_base": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "classification": "proof_safe_bounded_promotion_not_meaningful_driver_improvement",
+    "behavior_success_delta_vs_previous_base": 0.0,
+    "behavior_termination_delta_vs_previous_base": 0.0,
+    "behavior_clearance_delta_vs_previous_base": -4.963304333243345e-05,
+    "behavior_return_delta_vs_previous_base": 0.0009284359029209142,
+    "exact_m297_delta_vs_previous_base": -2.8371810913085938e-05,
+    "exact_m270_delta_vs_previous_base": -1.6450881958007812e-05,
+    "old_key_surrogate_delta_vs_previous_base": -4.7206878662109375e-05,
+    "old_key_recovery_loss": 0.0038736416026949883,
+    "first_known_failing_candidate": "runs/m399_s02_interpolation/checkpoints/alpha_0_1.pt",
+    "first_known_failing_alpha": 0.1,
+    "first_known_failing_gate": "runs/m399_s02a100_old_key_replay_gate",
+    "first_known_failing_case_id": "9958|perturbed|39|36|9.500000|-1.200000|0.900000",
+    "first_known_failing_normal_margin": -8.5e-05,
+    "first_known_failing_wrong_history_margin": -0.002228,
+    "first_known_failing_gap_delta": 2e-06,
+    "wrong_history_sensitivity_loss": false,
+    "normal_branch_terminal_margin_cliff": true,
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m402-old-key-normal-recovery-alignment-audit"
+  },
+  "decision": "admit_m402_old_key_normal_recovery_alignment_audit"
 }
