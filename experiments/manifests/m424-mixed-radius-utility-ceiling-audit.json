@@ -1,0 +1,86 @@
+{
+  "id": "m424-mixed-radius-utility-ceiling-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m423_mixed_a_projection_ltraj1e13_s40_seed10153/candidate_checkpoint.pt",
+      "runs/m423_mixed_b_projection_ltraj1e13_s40_seed10154/candidate_checkpoint.pt",
+      "runs/m423_mixed_c_projection_ltraj1e13_s40_seed10155/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m422_mixed_radius_anchor/mixed_a_radius_anchor.npz",
+      "runs/m422_mixed_radius_anchor/mixed_b_radius_anchor.npz",
+      "runs/m422_mixed_radius_anchor/mixed_c_radius_anchor.npz",
+      "runs/m422_mixed_radius_anchor/radius_anchor_sources.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m423-mixed-radius-projection-probe.json"
+    ],
+    "parent_objective": [
+      "mixed-radius no-PPO exact projection with active-set replay hinge anchors"
+    ],
+    "derived_from": [
+      "m423-mixed-radius-projection-probe"
+    ],
+    "blocked_by": [
+      "m423-mixed-radius-projection-probe"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m424-mixed-radius-utility-ceiling-audit.md",
+  "public_gates": [
+    "no PPO run",
+    "no checkpoint promotion",
+    "compare M420 conservative medium and M423 mixed_a mixed_b mixed_c",
+    "identify active proof failures and recovery-retention ceiling",
+    "recommend next residual or stop radius-only path"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "hypothesis": "The M423 proof-safe utility ceiling can be explained by specific active proof rows and recovery-target conflicts, deciding whether another per-row radius profile is justified or the radius-only path should stop.",
+  "success_criteria": [
+    "quantify recovery retention and proof failures across M420 conservative medium and M423 mixed_a mixed_b mixed_c",
+    "identify whether M267 rows 6 and 15 or old-key 10023 are the binding constraints",
+    "determine whether proof-safe utility below 0.20 is a radius-only limitation or an implementation artifact",
+    "produce a concrete next blocker with no actor-contract change"
+  ],
+  "failure_criteria": [
+    "audit cannot explain why mixed_b is proof-safe but below the utility threshold",
+    "audit recommends a new projection without identifying the binding rows",
+    "audit changes actor inputs or output contract",
+    "audit uses private holdout or threshold changes"
+  ],
+  "commands": [
+    {
+      "name": "mixed_radius_utility_ceiling_audit",
+      "command": "Compare M420 and M423 projection artifacts and replay gates; no PPO or candidate promotion."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m424-mixed-radius-utility-ceiling-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m420-active-set-radius-projection-probe.md",
+    "docs/m423-mixed-radius-projection-probe.md"
+  ],
+  "decision_rule": "M424 should either admit a targeted residual redesign with explicit binding rows or stop the radius-only anchor path; it must not admit PPO directly.",
+  "next_blocker": "pending M424 mixed radius utility ceiling audit"
+}

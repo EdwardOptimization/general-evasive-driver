@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M423 mixed_b is best proof-passing candidate with 13.3 percent recovery retained but below the 20 percent utility threshold while mixed_c reopens M267 row6 row15 and old-key 10023 proof failures",
+  "failure_criteria": [
+    "exact gates regress",
+    "M267/M264 or old-key proof gates fail",
+    "candidate passes proof but recovery-retention ratio is below 0.20",
+    "actor input or output contract changes"
+  ],
+  "failure_types": [
+    "proof_washout",
+    "protected_key_window_failure",
+    "promotion_gate_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260523T172817Z",
+  "hypothesis": "Mixed-radius profiles can preserve the M420 conservative proof pass while recovering more utility by tightening only old-key 10023 and loosening non-boundary rows.",
+  "lineage": {
+    "blocked_by": [
+      "m420-active-set-radius-projection-probe"
+    ],
+    "derived_from": [
+      "m422-mixed-radius-anchor-export-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m403_lrec1e10_interpolation/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m422-mixed-radius-anchor-export-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m422_mixed_radius_anchor/mixed_a_radius_anchor.npz",
+      "runs/m422_mixed_radius_anchor/mixed_b_radius_anchor.npz",
+      "runs/m422_mixed_radius_anchor/mixed_c_radius_anchor.npz",
+      "runs/m422_mixed_radius_anchor/radius_anchor_sources.csv"
+    ],
+    "parent_objective": [
+      "no-PPO exact projection with mixed per-case active-set radius anchors"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m423-mixed-radius-projection-probe",
+  "next_blocker": "m424-mixed-radius-utility-ceiling-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "reject_m423_mixed_radius_candidate_admit_m424_utility_ceiling_audit",
+  "public_gates": [
+    "exact M297 no-regression",
+    "exact M270 no-regression",
+    "old-key surrogate no-regression",
+    "M267/M264 first replay",
+    "old-key compact replay",
+    "M183/M170 first replay if first gates pass",
+    "recovery improvement retained vs M406 >= 0.20"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m423_mixed_b_projection_ltraj1e13_s40_seed10154/candidate_checkpoint.pt",
+    "clearance_margin_mean": "",
+    "decision": "reject_m423_mixed_radius_candidate_admit_m424_utility_ceiling_audit",
+    "milestone": "m423-mixed-radius-projection-probe",
+    "reason": "M423 mixed_b is best proof-passing candidate with 13.3 percent recovery retained but below the 20 percent utility threshold while mixed_c reopens M267 row6 row15 and old-key 10023 proof failures",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "candidate passes exact M297/M270/old-key no-regression",
+    "candidate passes M267/M264 first replay with 17/17 success drops",
+    "candidate passes old-key compact replay with 0 accepted regressions",
+    "candidate passes M183/M170 first replay with 17/17 success drops",
+    "candidate retains at least 20% of M406 recovery improvement"
+  ],
+  "type": "gate"
+}

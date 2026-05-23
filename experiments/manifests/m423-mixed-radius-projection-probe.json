@@ -2,9 +2,11 @@
   "id": "m423-mixed-radius-projection-probe",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "proof_washout",
+    "protected_key_window_failure",
+    "promotion_gate_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -84,5 +86,91 @@
     "docs/m422-mixed-radius-anchor-export-implementation.md"
   ],
   "decision_rule": "M423 may admit a full public gate only if exact gates, first proof gates, and recovery-retention utility all pass; proof-pass utility below 0.20 is partial non-promotable evidence.",
-  "next_blocker": "pending M423 mixed radius projection probe"
+  "next_blocker": "m424-mixed-radius-utility-ceiling-audit",
+  "results": {
+    "artifact": "docs/m423-mixed-radius-projection-probe.md",
+    "mixed_a": {
+      "projection_run": "runs/m423_mixed_a_projection_ltraj1e13_s40_seed10153",
+      "candidate_checkpoint": "runs/m423_mixed_a_projection_ltraj1e13_s40_seed10153/candidate_checkpoint.pt",
+      "exact_pass": true,
+      "exact_m297_delta_vs_base": -5.352497100830078e-05,
+      "exact_m270_delta_vs_base": -8.153915405273438e-05,
+      "old_key_surrogate_delta_vs_base": -9.34600830078125e-05,
+      "replay_trajectory_anchor_loss": 1.8301848925261766e-08,
+      "old_key_recovery_preferred_loss": 0.0037423716858029366,
+      "recovery_improvement_retained_vs_m406": 0.12603335714879718,
+      "m267_m264_run_dir": "runs/m423_mixed_a_m267_m264_first_replay",
+      "m267_m264_gate_pass": true,
+      "m267_m264_success_drops": 17,
+      "old_key_targeted_run_dir": "runs/m423_mixed_a_old_key_targeted_replay",
+      "old_key_run_dir": "runs/m423_mixed_a_old_key_replay_gate",
+      "old_key_gate_pass": true,
+      "old_key_accepted_cases": 40,
+      "old_key_total_cases": 40,
+      "m183_m170_run_dir": "runs/m423_mixed_a_m183_m170_first_replay",
+      "m183_m170_gate_pass": true,
+      "m183_m170_success_drops": 17
+    },
+    "mixed_b": {
+      "projection_run": "runs/m423_mixed_b_projection_ltraj1e13_s40_seed10154",
+      "candidate_checkpoint": "runs/m423_mixed_b_projection_ltraj1e13_s40_seed10154/candidate_checkpoint.pt",
+      "exact_pass": true,
+      "exact_m297_delta_vs_base": -4.744529724121094e-05,
+      "exact_m270_delta_vs_base": -7.82012939453125e-05,
+      "old_key_surrogate_delta_vs_base": -0.00010919570922851562,
+      "replay_trajectory_anchor_loss": 1.960652085131187e-08,
+      "old_key_recovery_preferred_loss": 0.003734955098479986,
+      "recovery_improvement_retained_vs_m406": 0.13315430006232556,
+      "m267_m264_run_dir": "runs/m423_mixed_b_m267_m264_first_replay",
+      "m267_m264_gate_pass": true,
+      "m267_m264_success_drops": 17,
+      "old_key_targeted_run_dir": "runs/m423_mixed_b_old_key_targeted_replay",
+      "old_key_run_dir": "runs/m423_mixed_b_old_key_replay_gate",
+      "old_key_gate_pass": true,
+      "old_key_accepted_cases": 40,
+      "old_key_total_cases": 40,
+      "m183_m170_run_dir": "runs/m423_mixed_b_m183_m170_first_replay",
+      "m183_m170_gate_pass": true,
+      "m183_m170_success_drops": 17
+    },
+    "mixed_c": {
+      "projection_run": "runs/m423_mixed_c_projection_ltraj1e13_s40_seed10155",
+      "candidate_checkpoint": "runs/m423_mixed_c_projection_ltraj1e13_s40_seed10155/candidate_checkpoint.pt",
+      "exact_pass": true,
+      "exact_m297_delta_vs_base": -2.2530555725097656e-05,
+      "exact_m270_delta_vs_base": -6.580352783203125e-05,
+      "old_key_surrogate_delta_vs_base": -4.1484832763671875e-05,
+      "replay_trajectory_anchor_loss": 1.9466055434236296e-08,
+      "old_key_recovery_preferred_loss": 0.0037250646855682135,
+      "recovery_improvement_retained_vs_m406": 0.14265045545956842,
+      "m267_m264_run_dir": "runs/m423_mixed_c_m267_m264_first_replay",
+      "m267_m264_gate_pass": false,
+      "m267_m264_success_drops": 15,
+      "m267_m264_failed_rows": [
+        6,
+        15
+      ],
+      "m267_m264_failed_row_margins": {
+        "6": 3.268e-05,
+        "15": 2.8111e-05
+      },
+      "old_key_targeted_run_dir": "runs/m423_mixed_c_old_key_targeted_replay",
+      "old_key_run_dir": "runs/m423_mixed_c_old_key_replay_gate",
+      "old_key_gate_pass": false,
+      "old_key_accepted_cases": 39,
+      "old_key_total_cases": 40,
+      "old_key_failed_case": "10023|perturbed|12|12|11.000000|-0.800000|1.200000",
+      "m183_m170_run": false,
+      "m183_m170_skip_reason": "M267/M264 and old-key proof gates failed first"
+    },
+    "best_proof_passing_candidate": "mixed_b",
+    "best_proof_passing_recovery_improvement_retained_vs_m406": 0.13315430006232556,
+    "classification": "proof_safe_utility_ceiling",
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m424-mixed-radius-utility-ceiling-audit"
+  },
+  "decision": "reject_m423_mixed_radius_candidate_admit_m424_utility_ceiling_audit"
 }

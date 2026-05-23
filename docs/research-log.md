@@ -9864,3 +9864,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M422 extends `active_set_radius_anchor` with mixed profile sets and exports `mixed_a`, `mixed_b`, and `mixed_c` anchors. Each profile has `274` rows with the M419 active-set v2 sources and explicit radii. No-update exact repair smokes for all three profiles pass exact M297/M270/old-key no-regression with replay trajectory loss `0.0`. Focused tests pass (`4 passed`).
 - decision: `admit_m423_mixed_radius_projection_probe`
 - next: `m423-mixed-radius-projection-probe`
+
+## 20260523T172624Z - m423-mixed-radius-projection-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m423_mixed_b_projection_ltraj1e13_s40_seed10154`
+- artifact: `docs/m423-mixed-radius-projection-probe.md`
+- result: M423 tests `mixed_a`, `mixed_b`, and `mixed_c` no-PPO exact projections. `mixed_a` and `mixed_b` pass exact M297/M270/old-key no-regression, M267/M264 `17/17`, old-key compact `40/40`, and M183/M170 `17/17`; `mixed_b` is best proof-passing but retains only `0.133154` of M406 recovery utility. `mixed_c` reaches `0.142650` utility but fails M267/M264 (`15/17`) because rows `6` and `15` become wrong-history successes, and old-key compact falls to `39/40` on case `10023`.
+- decision: `reject_m423_mixed_radius_candidate_admit_m424_utility_ceiling_audit`
+- next: `m424-mixed-radius-utility-ceiling-audit`

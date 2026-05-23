@@ -54,8 +54,18 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m423-mixed-radius-projection-probe
+m424-mixed-radius-utility-ceiling-audit
 ```
+
+M423 completes the mixed-radius projection probe without PPO or actor-contract
+changes. `mixed_a` and `mixed_b` pass exact M297/M270/old-key no-regression,
+M267/M264 `17/17`, old-key compact `40/40`, and M183/M170 `17/17`, but the
+best proof-passing candidate `mixed_b` retains only `0.133154` of M406 recovery
+utility, below the `0.20` threshold. `mixed_c` reaches `0.142650` utility but
+reopens M267/M264 rows `6` and `15` plus old-key case `10023`, so M423 is
+rejected as a promotable candidate. M424 should audit whether this is a
+radius-only utility ceiling or a residual-design issue before any new repair
+or PPO.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key
@@ -663,12 +673,12 @@ m272-m271-interpolation-retention-probe
 ## Near-Term Rule
 
 Do not run more PPO while the current blocker is the active-set replay/recovery
-balance. Do not promote M417 candidates: `1e12` fails proof, and `1e13` is
-retention-heavy. M419 export-only radius-anchor infrastructure is complete.
-M420 gives proof-safe partial evidence but not enough utility. M421 mixed-radius
-design and M422 export-only mixed-radius infrastructure are complete. The next
-step is the M423 no-PPO mixed-radius projection probe. Do not lower proof
-thresholds, remove old-key diagnostics, run PPO, or change actor inputs.
+balance. M423 shows that radius-only mixing raises proof-safe utility from
+M420 conservative `0.115403` to `0.133154`, but still misses the `0.20`
+recovery-retention threshold; loosening enough to reach `0.142650` reopens
+M267/M264 rows `6` and `15` plus old-key `10023`. The next step is M424, a
+no-PPO utility-ceiling audit. Do not lower proof thresholds, remove old-key
+diagnostics, run PPO, or change actor inputs.
 
 ## Sensor Profile Policy
 
