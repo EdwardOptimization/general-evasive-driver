@@ -2,9 +2,11 @@
   "id": "m406-recovery-aware-exact-projection-probe",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "objective_overfit",
+    "proof_washout",
+    "protected_key_window_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -82,5 +84,43 @@
     "docs/m405-recovery-aware-exact-projection-design.md"
   ],
   "decision_rule": "M406 should admit a full public gate only if exact feasibility, recovery movement, old-key replay, and M267/M264 proof all pass. Otherwise classify the projection failure.",
-  "next_blocker": "pending M406 recovery-aware exact projection probe"
+  "next_blocker": "m407-m406-projection-replay-failure-row-audit",
+  "results": {
+    "artifact": "docs/m406-recovery-aware-exact-projection-probe.md",
+    "base_checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "raw_checkpoint": "runs/m403_lrec1e10_interpolation/checkpoints/alpha_0_1.pt",
+    "projection_run": "runs/m406_repair_from_alpha01_s40_seed10137",
+    "candidate_checkpoint": "runs/m406_repair_from_alpha01_s40_seed10137/candidate_checkpoint.pt",
+    "candidate_exact_lexicographic_pass": true,
+    "candidate_exact_m297_delta_vs_base": -6.556510925292969e-05,
+    "candidate_exact_m270_delta_vs_base": -9.948015213012695e-05,
+    "candidate_old_key_surrogate_delta_vs_base": -0.00029087066650390625,
+    "base_old_key_recovery_loss": 0.0038736416026949883,
+    "candidate_old_key_recovery_loss": 0.0029193609952926636,
+    "case_9958_distance_to_recovery_base": 0.10779282595639957,
+    "case_9958_distance_to_recovery_candidate": 0.09300376374085033,
+    "case_10004_distance_to_recovery_base": 0.1078076842548139,
+    "case_10004_distance_to_recovery_candidate": 0.09135774184579558,
+    "m267_m264_replay_run": "runs/m406_a01proj_m267_m264_first_replay",
+    "m267_m264_gate_pass": false,
+    "m267_m264_candidate_success_drops": 1,
+    "m267_m264_baseline_success_drops": 17,
+    "m267_m264_candidate_wrong_history_success_rate": 0.9411764705882353,
+    "old_key_targeted_replay_run": "runs/m406_a01proj_old_key_targeted_replay",
+    "old_key_replay_gate_run": "runs/m406_a01proj_old_key_replay_gate",
+    "old_key_gate_pass": false,
+    "old_key_accepted_regressions": 7,
+    "old_key_normal_success_regressions": 1,
+    "old_key_gap_p10": -0.00094774983900082,
+    "old_key_gap_min": -0.0168697809999474,
+    "conservative_projection_run": "runs/m406_repair_from_alpha01_conservative_s40_seed10138",
+    "conservative_exact_lexicographic_pass": false,
+    "classification": "exact_feasible_replay_infeasible",
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m407-m406-projection-replay-failure-row-audit"
+  },
+  "decision": "reject_m406_projection_candidate_admit_replay_failure_row_audit"
 }

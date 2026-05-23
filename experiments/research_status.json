@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 414,
+        "completed": 415,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m405-recovery-aware-exact-projection-design",
+        "task_id": "m406-recovery-aware-exact-projection-probe",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m405-recovery-aware-exact-projection-design.md"
+        "run_dir": "runs/m406_repair_from_alpha01_s40_seed10137",
+        "command_log": "docs/m406-recovery-aware-exact-projection-probe.md"
     },
     "next_task": {
-        "id": "m406-recovery-aware-exact-projection-probe",
+        "id": "m407-m406-projection-replay-failure-row-audit",
         "status": "pending",
-        "priority": 4010,
+        "priority": 4020,
         "kind": "gate",
-        "hypothesis": "Probe recovery-aware exact projection from recovery-heavy raw candidates",
-        "command": "see experiments/manifests/m406-recovery-aware-exact-projection-probe.json",
+        "hypothesis": "Audit M406 exact-feasible replay failures row by row",
+        "command": "see experiments/manifests/m407-m406-projection-replay-failure-row-audit.json",
         "success_artifact": "",
-        "notes": "Pending: run repair_from_raw projection with exact feasibility and recovery movement checks; no PPO"
+        "notes": "Pending: classify M267/M264 wrong-history washout and old-key accepted regressions; no PPO"
     },
-    "updated_at_utc": "20260523T154559Z"
+    "updated_at_utc": "20260523T155156Z"
 }

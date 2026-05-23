@@ -9694,3 +9694,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M405 designs recovery-aware exact projection after the M404 broad exact-anchor conflict. Exact M297/M270/old-key no-regression stays lexicographic hard feasibility, recovery movement toward the M398 target is secondary merit, and old-key compact plus M267/M264 remain outer gates. The first probe should use `repair_from_raw` from recovery-heavy alpha `0.1`, with alpha `0.6` only as stress.
 - decision: `admit_m406_recovery_aware_exact_projection_probe`
 - next: `m406-recovery-aware-exact-projection-probe`
+
+## 20260523T155156Z - m406-recovery-aware-exact-projection-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m406_repair_from_alpha01_s40_seed10137`
+- artifact: `docs/m406-recovery-aware-exact-projection-probe.md`
+- result: M406 finds an exact-feasible projection from recovery-heavy alpha `0.1` that moves toward both M398 recovery targets: 9958 distance drops from `0.107793` to `0.093004`, and 10004 distance drops from `0.107808` to `0.091358`. Exact M297/M270/old-key deltas are all non-positive. Closed-loop replay rejects it: M267/M264 retains only `1/17` wrong-history success drops, wrong-history success rises to `0.941176`, and old-key compact replay has `7` accepted regressions with gap p10 `-0.000947750`.
+- decision: `reject_m406_projection_candidate_admit_replay_failure_row_audit`
+- next: `m407-m406-projection-replay-failure-row-audit`

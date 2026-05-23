@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m406-recovery-aware-exact-projection-probe
+m407-m406-projection-replay-failure-row-audit
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -241,7 +241,11 @@ old-key feasibility lexicographic while treating recovery movement only as a
 secondary merit objective. M406 should now run the no-PPO `repair_from_raw`
 projection probe from recovery-heavy candidates and accept progress only if
 exact feasibility, recovery movement, old-key replay, and M267/M264 proof all
-hold.
+hold. M406 rejects that candidate: it is exact-feasible and moves both M398
+recovery targets closer, but M267/M264 replay retains only `1/17`
+wrong-history success drops and old-key compact replay has `7` accepted
+regressions. M407 should audit the failed replay rows before another repair
+design or PPO.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
