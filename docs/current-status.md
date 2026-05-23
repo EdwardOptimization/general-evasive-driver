@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m415-active-set-replay-hinge-design
+m416-active-set-hinge-anchor-implementation
 ```
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
@@ -281,6 +281,9 @@ at effective `1e12`, multiply only old-key replay-failure anchor weights by
 and recovery-retention reaches `0.230460`, but proof fails with M267/M264
 `15/17` and old-key compact `2` accepted regressions. M415 should design an
 active-set hinge residual rather than another scalar replay-anchor weighting.
+M415 completes that design: add optional per-row `radius` to trajectory anchors
+and use `weight * relu(action_l2_to_reference - radius)^2`, tightly anchoring
+only M267 rows `6`/`15`, old-key cases `10004`/`9998`, and guard case `10023`.
 
 | Role | Checkpoint | Status |
 | --- | --- | --- |
@@ -359,7 +362,7 @@ active-set hinge residual rather than another scalar replay-anchor weighting.
 | current public-gate base | `runs/m378_v2_gap_tail_final_interpolation/checkpoints/alpha_0_05.pt` | M379 promotes alpha `0.05` after cumulative old-key source-diverse six public replay surfaces and behavior seeds pass |
 | recovery residual infrastructure | `src/autodrift/exact_post_ppo_repair.py` | M383 implements optional old-key local-action recovery loss and verifies finite no-update smoke terms |
 | recovery target corpus | `runs/m384_old_key_local_recovery_targets/old_key_recovery_corpus.npz` | M384 exports 4 replay-selected recovery targets from 1008 local-action rollouts |
-| current blocker | `experiments/manifests/m415-active-set-replay-hinge-design.json` | M415 must design a row/branch selective replay hinge residual after M414 improved utility but failed proof |
+| current blocker | `experiments/manifests/m416-active-set-hinge-anchor-implementation.json` | M416 must implement optional radius-aware trajectory hinge anchors and a no-update exact repair smoke |
 
 Do not replace M168 with M170 solely because M170 has better fixed objective or
 slightly stronger action-level sensitivity.

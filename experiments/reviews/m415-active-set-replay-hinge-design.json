@@ -1,0 +1,78 @@
+{
+  "decision_reason": "M415 designs radius-aware active-set hinge residual for M267 rows 6/15 and old-key active cases 10004/9998 with 10023 as guard",
+  "failure_criteria": [
+    "design weakens proof gates",
+    "design uses replay labels as actor inputs",
+    "design cannot be evaluated without PPO",
+    "design lacks a utility acceptance rule"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not count utility improvement as sufficient without proof gates"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260523T163911Z",
+  "hypothesis": "A row/branch active-set hinge residual can preserve replay proof while allowing recovery movement better than scalar replay-anchor MSE.",
+  "lineage": {
+    "blocked_by": [
+      "m414-source-weighted-replay-anchor-probe"
+    ],
+    "derived_from": [
+      "m414-source-weighted-replay-anchor-probe"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m414_source_weighted_projection_ltraj1e12_s40_seed10145/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m414-source-weighted-replay-anchor-probe.json"
+    ],
+    "parent_dataset": [
+      "runs/m414_source_weighted_utility_audit/summary.json",
+      "runs/m414_source_weighted_m267_m264_first_replay/summary.json",
+      "runs/m414_source_weighted_old_key_replay_gate/summary.json"
+    ],
+    "parent_objective": [
+      "design active-set replay hinge residual after source-weighted scalar tradeoff"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m415-active-set-replay-hinge-design",
+  "next_blocker": "m416-active-set-hinge-anchor-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m416_active_set_hinge_anchor_implementation",
+  "public_gates": [
+    "design only",
+    "no PPO run",
+    "no checkpoint promotion",
+    "no actor input/output change"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m416_active_set_hinge_anchor_implementation",
+    "milestone": "m415-active-set-replay-hinge-design",
+    "reason": "M415 designs radius-aware active-set hinge residual for M267 rows 6/15 and old-key active cases 10004/9998 with 10023 as guard",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "define row-level active-set construction from M411/M414 replay failures",
+    "define slack-radius action hinge residual for replay-safe rows",
+    "define tight anchors only for rows or branches that are near replay failure",
+    "define a no-PPO implementation/probe milestone with recovery-retention and proof gates"
+  ],
+  "type": "infrastructure"
+}

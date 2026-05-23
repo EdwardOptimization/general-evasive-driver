@@ -9784,3 +9784,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M414 creates a source-weighted `959`-row anchor with old-key weights multiplied by `10`, then runs no-PPO exact projection with global replay lambda `1e12`. The candidate passes exact M297/M270/old-key no-regression and retains `0.230460` of M406 recovery improvement, clearing the utility floor. It fails proof gates: M267/M264 retains only `15/17` success drops, old-key compact has `2` accepted regressions, and M183/M170 remains `17/17`. This shows source weighting improves utility but does not solve the proof/utility tradeoff.
 - decision: `reject_source_weighted_probe_admit_m415_active_set_replay_hinge_design`
 - next: `m415-active-set-replay-hinge-design`
+
+## 20260523T163755Z - m415-active-set-replay-hinge-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m415-active-set-replay-hinge-design.md`
+- result: M415 designs a radius-aware active-set hinge residual after M414's proof/utility tradeoff. The active set is M267/M264 rows `6` and `15`, old-key cases `10004` and `9998`, plus old-key guard case `10023`. The proposed loss is `weight * relu(action_l2_to_reference - radius)^2`, so active failures can be tightly anchored while replay-safe rows retain a nonzero action radius for recovery movement. M416 should implement optional `radius` support, hinge loss, active-set export, and a no-update exact repair smoke.
+- decision: `admit_m416_active_set_hinge_anchor_implementation`
+- next: `m416-active-set-hinge-anchor-implementation`

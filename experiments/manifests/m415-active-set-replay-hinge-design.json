@@ -80,5 +80,28 @@
     "docs/m414-source-weighted-replay-anchor-probe.md"
   ],
   "decision_rule": "M415 should admit implementation only if it produces a testable active-set hinge residual that can be evaluated with exact repair and first proof gates before any PPO.",
-  "next_blocker": "pending M415 active-set replay hinge design"
+  "next_blocker": "m416-active-set-hinge-anchor-implementation",
+  "results": {
+    "artifact": "docs/m415-active-set-replay-hinge-design.md",
+    "design": "active_set_replay_hinge",
+    "m267_m264_active_rows": [
+      6,
+      15
+    ],
+    "old_key_active_cases": [
+      "10004|perturbed|31|31|9.500000|-1.000000|0.800000",
+      "9998|perturbed|25|25|11.000000|-1.000000|1.400000"
+    ],
+    "old_key_guard_cases": [
+      "10023|perturbed|12|12|11.000000|-0.800000|1.200000"
+    ],
+    "hinge_loss": "weight * relu(action_l2_to_reference - radius)^2",
+    "recovery_retention_ratio_min": 0.20,
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m416-active-set-hinge-anchor-implementation"
+  },
+  "decision": "admit_m416_active_set_hinge_anchor_implementation"
 }
