@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 308,
+    "completed": 309,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m299-full-public-gate-for-m298-a020.md",
+    "command_log": "docs/m300-rejected-preference-ppo-guard-design.md",
     "returncode": 0,
-    "run_dir": "runs/m299_full_public_gate_for_m298_a020",
+    "run_dir": "runs/m300_rejected_preference_ppo_guard_design",
     "status": "completed",
-    "task_id": "m299-full-public-gate-for-m298-a020"
+    "task_id": "m300-rejected-preference-ppo-guard-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m300-rejected-preference-ppo-guard-design.json",
-    "hypothesis": "The next PPO attempt should not merely restart from M299; it needs an explicit rejected-history preference guard so PPO cannot again make M267/M264 wrong-history rollouts safe.",
-    "id": "m300-rejected-preference-ppo-guard-design",
+    "command": "see experiments/manifests/m301-rejected-preference-ppo-aux-loss-implementation.json",
+    "hypothesis": "A small, explicit rejected-history preference auxiliary loss can be added to PPO training so the next smoke run penalizes the exact M267/M264 washout mode that M291 and M294 exposed.",
+    "id": "m301-rejected-preference-ppo-aux-loss-implementation",
     "kind": "infrastructure",
-    "notes": "Pending: design PPO guard using M297 preference exact M270 and replay retention before any new PPO",
-    "priority": 2950,
+    "notes": "Pending: add PPO aux-loss config loader metrics and tests without running PPO",
+    "priority": 2960,
     "status": "pending",
     "success_artifact": ""
   },
-  "updated_at_utc": "20260523T010416Z"
+  "updated_at_utc": "20260523T010701Z"
 }

@@ -2,7 +2,7 @@
   "id": "m300-rejected-preference-ppo-guard-design",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -79,6 +79,16 @@
     "docs/m299-full-public-gate-for-m298-a020.md",
     "runs/m299_full_public_gate_for_m298_a020/summary.json"
   ],
-  "decision_rule": "M300 can only admit another PPO smoke after specifying how rejected-history preference, exact M270, replay, protected-key, and behavior retention will be enforced.",
-  "next_blocker": "pending M300 rejected-preference PPO guard design"
+  "results": {
+    "selected_base": "runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt",
+    "design_artifact": "docs/m300-rejected-preference-ppo-guard-design.md",
+    "selected_guard": "training-time rejected-history preference auxiliary loss plus exact M297/M270 no-regression gates before replay promotion",
+    "implementation_required": true,
+    "next_implementation_task": "m301-rejected-preference-ppo-aux-loss-implementation",
+    "ppo_or_actor_update_run": false,
+    "actor_inputs_changed": false
+  },
+  "decision_rule": "M300 admits M301 implementation of a rejected-history preference PPO auxiliary loss before any new PPO smoke.",
+  "decision": "implement_rejected_preference_ppo_aux_loss",
+  "next_blocker": "m301-rejected-preference-ppo-aux-loss-implementation"
 }

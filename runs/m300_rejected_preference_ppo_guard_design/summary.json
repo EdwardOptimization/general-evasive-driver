@@ -1,0 +1,12 @@
+{
+  "actor_inputs_changed": false,
+  "decision": "implement_rejected_preference_ppo_aux_loss",
+  "design_artifact": "docs/m300-rejected-preference-ppo-guard-design.md",
+  "implementation_required": true,
+  "next_task": "m301-rejected-preference-ppo-aux-loss-implementation",
+  "next_implementation_task": "m301-rejected-preference-ppo-aux-loss-implementation",
+  "ppo_or_actor_update_run": false,
+  "run_type": "rejected_preference_ppo_guard_design",
+  "selected_base": "runs/m298_rejected_preference_objective_only_probe/interpolation/checkpoints/alpha_0_02.pt",
+  "selected_guard": "training-time rejected-history preference auxiliary loss plus exact M297/M270 no-regression gates before replay promotion"
+}
