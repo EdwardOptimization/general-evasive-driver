@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260523T121627Z
+- Generated at UTC: 20260523T121858Z
 - Type: infrastructure
 - Gate tier: infrastructure
-- Promotion decision: not_applicable
-- Decision reason: M372 completes when the gap-tail retention design is documented and an implementation milestone is registered without changing thresholds or actor inputs.
+- Promotion decision: admit_m373_old_key_gap_tail_feedback_implementation
+- Decision reason: M372 designs gap-tail overlay and branch-weight feedback for old-key lower-tail erosion while keeping closed-loop old-key replay authoritative
 
 ## Hypothesis
 
@@ -63,8 +63,19 @@ A gap-distribution retention overlay can make lower-tail old-key gap erosion vis
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m372-old-key-gap-distribution-retention-design
+- type: infrastructure
+- checkpoint: runs/m369_hard_row_repair_interpolation/checkpoints/alpha_0_4.pt
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: admit_m373_old_key_gap_tail_feedback_implementation
+- reason: M372 designs gap-tail overlay and branch-weight feedback for old-key lower-tail erosion while keeping closed-loop old-key replay authoritative
 
 ## Next Blocker
 
-pending M372 old-key gap-distribution retention design
+m373-old-key-gap-tail-feedback-implementation

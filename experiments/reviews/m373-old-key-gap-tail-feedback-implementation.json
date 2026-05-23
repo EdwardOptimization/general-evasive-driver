@@ -1,0 +1,66 @@
+{
+  "decision_reason": "M373 completes when gap-tail overlay support is implemented, tested, documented, and a no-PPO probe milestone is registered.",
+  "failure_criteria": [
+    "gap-tail overlay changes deployable actor inputs",
+    "existing old-key corpus behavior changes when overlay is absent",
+    "hard-row overlay behavior regresses",
+    "tests fail",
+    "research validation fails"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not lower old-key thresholds",
+    "do not add hidden vehicle parameters or oracle labels to actor inputs"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260523T121858Z",
+  "hypothesis": "Gap-tail overlay support can make replay-discovered old-key lower-tail erosion visible to the differentiable repair surrogate while preserving actor-input contract and existing hard-row behavior.",
+  "lineage": {
+    "blocked_by": [
+      "m372-old-key-gap-distribution-retention-design"
+    ],
+    "derived_from": [
+      "m372-old-key-gap-distribution-retention-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m369_hard_row_repair_interpolation/checkpoints/alpha_0_4.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m372-old-key-gap-distribution-retention-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m372-old-key-gap-distribution-retention-design.md",
+      "runs/m371_alpha06_gap_audit/alpha04_alpha06_gap_audit_rows.csv"
+    ],
+    "parent_objective": [
+      "implement gap-tail old-key overlay support and branch-weight feedback"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m373-old-key-gap-tail-feedback-implementation",
+  "next_blocker": "pending M373 gap-tail feedback implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "infrastructure implementation only; no PPO run",
+    "gap-tail overlay does not change actor inputs",
+    "old-key corpus remains backward-compatible when overlay absent",
+    "hard-row overlay behavior from M368 remains valid",
+    "focused tests pass",
+    "research validation passes"
+  ],
+  "scoreboard": {},
+  "success_criteria": [
+    "old-key preference corpus accepts optional gap-tail overlay CSV",
+    "corpus NPZ records gap_tail_row and branch-weight arrays when overlay is present",
+    "hard-row-only and no-overlay corpora remain backward-compatible",
+    "exact repair branch-weighted surrogate works with gap-tail arrays",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

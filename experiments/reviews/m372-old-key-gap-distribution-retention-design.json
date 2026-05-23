@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M372 completes when the gap-tail retention design is documented and an implementation milestone is registered without changing thresholds or actor inputs.",
+  "decision_reason": "M372 designs gap-tail overlay and branch-weight feedback for old-key lower-tail erosion while keeping closed-loop old-key replay authoritative",
   "failure_criteria": [
     "design treats p10 failure as a reason to lower thresholds",
     "design changes actor inputs",
@@ -16,7 +16,7 @@
     "do not add hidden or oracle actor inputs"
   ],
   "gate_tier": "infrastructure",
-  "generated_at_utc": "20260523T121627Z",
+  "generated_at_utc": "20260523T121858Z",
   "hypothesis": "A gap-distribution retention overlay can make lower-tail old-key gap erosion visible to repair objectives without relying only on accepted-regression hard rows.",
   "lineage": {
     "blocked_by": [
@@ -43,9 +43,9 @@
     "supersedes": []
   },
   "milestone": "m372-old-key-gap-distribution-retention-design",
-  "next_blocker": "pending M372 old-key gap-distribution retention design",
+  "next_blocker": "m373-old-key-gap-tail-feedback-implementation",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "admit_m373_old_key_gap_tail_feedback_implementation",
   "public_gates": [
     "design only; no PPO run",
     "keep alpha 0.4 as current promoted base",
@@ -53,7 +53,20 @@
     "preserve actor input contract",
     "define how replay-discovered gap-tail rows feed back into exact repair"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "runs/m369_hard_row_repair_interpolation/checkpoints/alpha_0_4.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m373_old_key_gap_tail_feedback_implementation",
+    "milestone": "m372-old-key-gap-distribution-retention-design",
+    "reason": "M372 designs gap-tail overlay and branch-weight feedback for old-key lower-tail erosion while keeping closed-loop old-key replay authoritative",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "design specifies overlay fields for gap-tail rows and target p10 protection",
     "design separates accepted-regression hard rows from gap-tail retention rows",

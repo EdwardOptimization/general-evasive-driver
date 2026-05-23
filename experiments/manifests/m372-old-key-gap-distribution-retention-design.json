@@ -77,6 +77,19 @@
   "baseline_artifacts": [
     "docs/m371-alpha06-old-key-gap-p10-audit.md"
   ],
-  "decision_rule": "M372 completes when the gap-tail retention design is documented and an implementation milestone is registered without changing thresholds or actor inputs.",
-  "next_blocker": "pending M372 old-key gap-distribution retention design"
+  "results": {
+    "design_doc": "docs/m372-old-key-gap-distribution-retention-design.md",
+    "accepted_regression_hard_rows_separated_from_gap_tail_rows": true,
+    "gap_tail_selection_rule": "candidate_gap_delta < -0.0005",
+    "recommended_gap_weight_multiplier": 4.0,
+    "recommended_branch_weight_formula": "1.0 + 8.0 * clipped_margin_contribution",
+    "closed_loop_old_key_replay_remains_authoritative": true,
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "thresholds_changed": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "admit_m373_old_key_gap_tail_feedback_implementation",
+  "decision_rule": "M372 completes with a gap-tail retention overlay design that preserves old-key thresholds and actor inputs, and registers an implementation milestone.",
+  "next_blocker": "m373-old-key-gap-tail-feedback-implementation"
 }

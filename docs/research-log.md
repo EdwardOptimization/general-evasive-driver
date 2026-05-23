@@ -9354,3 +9354,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M371 audits alpha `0.6` and finds no accepted regressions and no normal-success regressions: `40/40` compact rows remain accepted. The failure is compact old-key gap-distribution erosion: gap p10 is `-0.000573217`, below the `-0.0005` floor, with five rows below the floor and seed `10033` dominating the lower tail. This is not a reason to lower thresholds or promote alpha `0.6`.
 - decision: `admit_m372_old_key_gap_distribution_retention_design`
 - next: `m372-old-key-gap-distribution-retention-design`
+
+## 20260523T121804Z - m372-old-key-gap-distribution-retention-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m372-old-key-gap-distribution-retention-design.md`
+- result: M372 designs gap-tail feedback for old-key lower-tail erosion. It separates accepted-regression hard rows from gap-tail retention rows, defines a `candidate_gap_delta < -0.0005` selection rule, recommends normal/wrong branch weights from the signed gap contributors, and keeps closed-loop old-key replay as the authoritative gate. No PPO, no threshold changes, no actor-input changes.
+- decision: `admit_m373_old_key_gap_tail_feedback_implementation`
+- next: `m373-old-key-gap-tail-feedback-implementation`
