@@ -10364,3 +10364,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M472 classifies the M471 failure as count-pass source-balance failure, not as permission to loosen gates. M471 reached `67` adversarial pairs but had single-seed share `0.671642`, with seed `10200` contributing `45/67` rows. The next step is fresh-window anchor discovery on seed windows `10500,10600,10700` and `10800,10900,11000`: expanded matched-current mining, targeted wrong-history pair triage, action and outcome gates, outcome-critical selection, and near-boundary wrong-history classification. The output is a fresh anchor surface, not a checkpoint promotion.
 - decision: `admit_m473_fresh_window_anchor_discovery_run`
 - next: `m473-fresh-window-anchor-discovery-run`
+
+## 20260523T214718Z - m473-fresh-window-anchor-discovery-run
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m473_combined_fresh_window_anchor_summary`
+- artifact: `docs/m473-fresh-window-anchor-discovery-run.md`
+- result: M473 runs the fresh-window pipeline on windows `10500,10600,10700` and `10800,10900,11000`. Both matched-current mining passes complete, with accepted pairs `1818` and `1661`; both targeted triage passes export `240` pairs with balanced seeds, labels, and targets. The near-boundary selectors find `53` and `51` fresh near-boundary candidates. Combined fresh anchors pass source-diversity criteria: `104` near-boundary candidates across `6` probe seeds, `2` labels, and `3` targets, with single-seed share `0.346154` and single-label share `0.567308`. All `104` are no-effect anchors and proof candidates remain `0`, so this is anchor-surface evidence, not wrong-history outcome proof.
+- decision: `fresh_window_anchor_discovery_pass_admit_m474`
+- next: `m474-combined-fresh-anchor-adversarial-search`

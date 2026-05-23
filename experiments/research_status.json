@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 481,
+        "completed": 482,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m472-fresh-window-near-boundary-anchor-design",
+        "task_id": "m473-fresh-window-anchor-discovery-run",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m472-fresh-window-near-boundary-anchor-design.md"
+        "run_dir": "runs/m473_combined_fresh_window_anchor_summary",
+        "command_log": "docs/m473-fresh-window-anchor-discovery-run.md"
     },
     "next_task": {
-        "id": "m473-fresh-window-anchor-discovery-run",
+        "id": "m474-combined-fresh-anchor-adversarial-search",
         "status": "pending",
-        "priority": 4680,
+        "priority": 4690,
         "kind": "gate",
-        "hypothesis": "Fresh seed windows will provide source-diverse near-boundary wrong-history anchors that can later be combined with M467 before adversarial right-history search",
-        "command": "see experiments/manifests/m473-fresh-window-anchor-discovery-run.json",
+        "hypothesis": "Combining M467 same-window anchors with M473 fresh-window anchors and candidate pools will produce a source-diverse adversarial wrong-history surface suitable for later outcome probing",
+        "command": "see experiments/manifests/m474-combined-fresh-anchor-adversarial-search.json",
         "success_artifact": "",
-        "notes": "Pending: run fresh-window anchor discovery; no PPO and no checkpoint promotion"
+        "notes": "Pending: combine anchors and candidate pools, then run adversarial search; no outcome probe unless source-diverse surface passes"
     },
-    "updated_at_utc": "20260523T213725Z"
+    "updated_at_utc": "20260523T214718Z"
 }

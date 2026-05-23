@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m473-fresh-window-anchor-discovery-run
+m474-combined-fresh-anchor-adversarial-search
 ```
 
 M423-M424 found a radius-only utility ceiling: proof-passing radius anchors
@@ -298,7 +298,12 @@ contributes `45/67` rows). M472 classifies this as count-pass source-balance
 failure, not a reason to relax gates. The next blocker is M473: run fresh-window
 near-boundary anchor discovery on windows `10500,10600,10700` and
 `10800,10900,11000` before combining adversarial surfaces or running outcome
-probes.
+probes. M473 runs that fresh-window pipeline. The two windows produce `104`
+combined near-boundary anchors across `6` probe seeds, `2` labels, and `3`
+targets with single-seed share `0.346154`, so anchor discovery passes. Proof
+candidates remain `0`, so the next blocker is M474: combine M467 and M473
+anchors plus M471/M473 candidate pools, then run adversarial wrong-history
+search before any outcome probe.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key
@@ -905,12 +910,14 @@ m272-m271-interpolation-retention-probe
 
 ## Near-Term Rule
 
-Do not run PPO or promote a checkpoint while the current blocker is fresh-window
-wrong-history anchor discovery. M471 showed that the same-window adversarial
-surface can reach the count threshold but still be dominated by one seed. M473
-must discover source-diverse near-boundary anchors in fresh seed windows before
-any combined adversarial search or outcome proof gate. Do not lower seed-balance
-thresholds, outcome-probe the imbalanced M471 surface, or change actor inputs.
+Do not run PPO or promote a checkpoint while the current blocker is combined
+fresh-anchor adversarial search. M473 found a source-diverse fresh anchor
+surface, but all `104` fresh near-boundary rows are no-effect anchors and proof
+candidates remain `0`. M474 must first combine M467/M473 anchors and M471/M473
+candidate pools, then rerun adversarial wrong-history search. Do not
+outcome-probe until the combined adversarial surface passes count and
+source-diversity gates; do not lower seed-balance thresholds or change actor
+inputs.
 
 ## Sensor Profile Policy
 

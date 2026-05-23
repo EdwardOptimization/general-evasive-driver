@@ -1,0 +1,104 @@
+{
+  "id": "m474-combined-fresh-anchor-adversarial-search",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m467_near_boundary_wrong_history_selector/near_boundary_no_effect.csv",
+      "runs/m471_expanded_matched_current_seed10200/candidate_pairs.csv",
+      "runs/m473_combined_fresh_window_anchor_summary/near_boundary_candidates_combined.csv",
+      "runs/m473a_fresh_window_matched_current_seed10500/candidate_pairs.csv",
+      "runs/m473b_fresh_window_matched_current_seed10800/candidate_pairs.csv"
+    ],
+    "parent_config": [
+      "configs/m457_history_necessity_late_reveal_zero_relvel.json",
+      "experiments/manifests/m473-fresh-window-anchor-discovery-run.json"
+    ],
+    "parent_objective": [
+      "combined source-diverse adversarial wrong-history search"
+    ],
+    "derived_from": [
+      "m473-fresh-window-anchor-discovery-run"
+    ],
+    "blocked_by": [
+      "m473-fresh-window-anchor-discovery-run"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m474-combined-fresh-anchor-adversarial-search.md",
+  "public_gates": [
+    "combine M467 and M473 near-boundary anchors",
+    "combine M471 and M473 candidate-pair pools",
+    "run adversarial wrong-history search on the combined surface",
+    "decide whether the adversarial surface is source-diverse enough for outcome probing",
+    "no checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not outcome-probe until the combined adversarial surface passes source-diversity gates",
+    "do not loosen single-seed balance requirements",
+    "do not add privileged actor inputs"
+  ],
+  "hypothesis": "Combining M467 same-window anchors with M473 fresh-window anchors and candidate pools will produce a source-diverse adversarial wrong-history surface suitable for later outcome probing.",
+  "success_criteria": [
+    "combined anchor CSV is created from M467 and M473 near-boundary no-effect anchors",
+    "combined candidate-pair CSV is created from M471 and M473 candidate pools",
+    "adversarial search completes on the combined CSVs",
+    "adversarial_pairs >= 96",
+    "near_boundary_left_state_count >= 32",
+    "probe_seed_count >= 6",
+    "left_obstacle_label_count >= 2",
+    "target_count >= 2",
+    "single_seed_share <= 0.50",
+    "single_label_share <= 0.70",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "combined CSVs cannot be built reproducibly",
+    "adversarial pair count remains below 96",
+    "single_seed_share exceeds 0.50",
+    "surface is dominated by one obstacle label",
+    "actor contract changes",
+    "training or checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "combine_anchor_and_candidate_csvs",
+      "command": "Build combined anchor and candidate-pair CSVs under runs/m474_combined_fresh_anchor_adversarial_search from M467/M471/M473 artifacts."
+    },
+    {
+      "name": "combined_adversarial_search",
+      "command": "Run autodrift.adversarial_wrong_history_pair_search on the combined anchor and candidate CSVs with min_adversarial_pairs=96 and source-diversity gates."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m474-combined-fresh-anchor-adversarial-search.md",
+      "type": "documentation"
+    },
+    {
+      "path": "runs/m474_combined_fresh_anchor_adversarial_search/summary.json",
+      "type": "summary"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m473-fresh-window-anchor-discovery-run.md",
+    "runs/m473_combined_fresh_window_anchor_summary/summary.json"
+  ],
+  "decision_rule": "M474 can admit action/outcome probing only if the combined adversarial surface passes source-diversity gates.",
+  "next_blocker": "pending M474 combined fresh-anchor adversarial search"
+}

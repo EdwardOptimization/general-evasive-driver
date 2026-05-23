@@ -1,0 +1,90 @@
+# m473-fresh-window-anchor-discovery-run Research Review
+
+## Summary
+
+- Generated at UTC: 20260523T214920Z
+- Type: gate
+- Gate tier: generalization
+- Promotion decision: fresh_window_anchor_discovery_pass_admit_m474
+- Decision reason: M473 finds 104 fresh near-boundary no-effect anchors across 6 seeds 2 labels and 3 targets with single-seed share 0.346154 but zero proof candidates
+
+## Hypothesis
+
+Fresh seed windows will provide source-diverse near-boundary wrong-history anchors that can later be combined with M467 before adversarial right-history search.
+
+## Lineage
+
+- parent_checkpoint: runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
+- parent_dataset: runs/m471_expanded_adversarial_wrong_history_search/summary.json, runs/m467_near_boundary_wrong_history_selector/near_boundary_no_effect.csv
+- parent_config: configs/m457_history_necessity_late_reveal_zero_relvel.json, experiments/manifests/m472-fresh-window-near-boundary-anchor-design.json
+- parent_objective: fresh-window near-boundary anchor discovery
+- derived_from: m472-fresh-window-near-boundary-anchor-design
+- blocked_by: m471-expanded-adversarial-pool-run
+- supersedes: None
+- invalidates: None
+
+## Success Criteria
+
+- both fresh matched-current windows complete without sampling failure
+- each targeted triage exports at least 96 rows
+- combined near-boundary candidate count >= 64
+- combined near-boundary probe_seed_count >= 4
+- combined near-boundary obstacle_label_count >= 2
+- combined near-boundary target_count >= 2
+- combined single_seed_share <= 0.50
+- combined single_label_share <= 0.70
+- actor inputs remain unchanged
+- no checkpoint is promoted
+
+## Failure Criteria
+
+- fresh windows fail scenario sampling
+- near-boundary candidates remain source-narrow
+- single_seed_share exceeds 0.50
+- only aes-feasible high-slack rows are found
+- actor contract changes
+- training or checkpoint promotion is performed
+
+## Evidence Gates
+
+- run expanded matched-current mining on fresh seed windows 10500/10600/10700 and 10800/10900/11000
+- run wrong-history targeted pair triage on each fresh window
+- run action and continuation outcome gates on each fresh targeted surface
+- classify fresh near-boundary wrong-history anchors
+- decide whether source-diverse fresh anchors exist
+- no checkpoint promotion
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not train
+- do not promote checkpoint
+- do not outcome-probe M471's imbalanced adversarial surface
+- do not loosen single-seed balance requirements
+- do not add privileged actor inputs
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m473-fresh-window-anchor-discovery-run
+- type: gate
+- checkpoint: runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: fresh_window_anchor_discovery_pass_admit_m474
+- reason: M473 finds 104 fresh near-boundary no-effect anchors across 6 seeds 2 labels and 3 targets with single-seed share 0.346154 but zero proof candidates
+
+## Next Blocker
+
+m474-combined-fresh-anchor-adversarial-search

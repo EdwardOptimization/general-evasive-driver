@@ -2,7 +2,7 @@
   "id": "m473-fresh-window-anchor-discovery-run",
   "type": "gate",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -104,5 +104,47 @@
     "runs/m471_expanded_adversarial_wrong_history_search/summary.json"
   ],
   "decision_rule": "M473 can admit a combined adversarial search only if fresh near-boundary anchors are source-diverse under the pre-registered seed and label caps.",
-  "next_blocker": "pending M473 fresh-window anchor discovery run"
+  "results": {
+    "window_a": {
+      "matched_current_run_dir": "runs/m473a_fresh_window_matched_current_seed10500",
+      "targeted_pair_triage_run_dir": "runs/m473a_fresh_window_targeted_pair_triage",
+      "action_gate_run_dir": "runs/m473a_fresh_window_action_gate",
+      "outcome_gate_run_dir": "runs/m473a_fresh_window_outcome_gate",
+      "outcome_selector_run_dir": "runs/m473a_fresh_window_outcome_selector",
+      "near_boundary_selector_run_dir": "runs/m473a_fresh_window_near_boundary_selector",
+      "accepted_pair_count": 1818,
+      "targeted_pair_count": 240,
+      "near_boundary_candidate_count": 53,
+      "proof_candidate_count": 0,
+      "near_boundary_no_effect_count": 53
+    },
+    "window_b": {
+      "matched_current_run_dir": "runs/m473b_fresh_window_matched_current_seed10800",
+      "targeted_pair_triage_run_dir": "runs/m473b_fresh_window_targeted_pair_triage",
+      "action_gate_run_dir": "runs/m473b_fresh_window_action_gate",
+      "outcome_gate_run_dir": "runs/m473b_fresh_window_outcome_gate",
+      "outcome_selector_run_dir": "runs/m473b_fresh_window_outcome_selector",
+      "near_boundary_selector_run_dir": "runs/m473b_fresh_window_near_boundary_selector",
+      "accepted_pair_count": 1661,
+      "targeted_pair_count": 240,
+      "near_boundary_candidate_count": 51,
+      "proof_candidate_count": 0,
+      "near_boundary_no_effect_count": 51
+    },
+    "combined_summary_run_dir": "runs/m473_combined_fresh_window_anchor_summary",
+    "combined_near_boundary_candidate_count": 104,
+    "combined_proof_candidate_count": 0,
+    "combined_near_boundary_no_effect_count": 104,
+    "combined_high_slack_diagnostic_count": 17,
+    "combined_probe_seed_count": 6,
+    "combined_obstacle_label_count": 2,
+    "combined_target_count": 3,
+    "combined_single_seed_share": 0.34615384615384615,
+    "combined_single_label_share": 0.5673076923076923,
+    "anchor_discovery_pass": true,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "decision": "fresh_window_anchor_discovery_pass_admit_m474"
+  },
+  "next_blocker": "m474-combined-fresh-anchor-adversarial-search"
 }
