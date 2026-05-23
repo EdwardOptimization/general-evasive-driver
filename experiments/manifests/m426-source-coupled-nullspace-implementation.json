@@ -1,0 +1,83 @@
+{
+  "id": "m426-source-coupled-nullspace-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m398_old_key_normal_margin_recovery_targets/old_key_recovery_corpus.npz",
+      "runs/m422_mixed_radius_anchor/mixed_b_radius_anchor.npz",
+      "runs/m422_mixed_radius_anchor/radius_anchor_sources.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m425-source-coupled-recovery-nullspace-design.json"
+    ],
+    "parent_objective": [
+      "implement source-coupled projected recovery tooling for exact repair"
+    ],
+    "derived_from": [
+      "m425-source-coupled-recovery-nullspace-design"
+    ],
+    "blocked_by": [
+      "m424-mixed-radius-utility-ceiling-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m426-source-coupled-nullspace-implementation.md",
+  "public_gates": [
+    "focused unit tests for per-source guard losses",
+    "focused unit tests for projected recovery gradient",
+    "no-update exact repair smoke with projected recovery disabled",
+    "no PPO run",
+    "no checkpoint promotion",
+    "no actor input/output change"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "hypothesis": "The exact repair tool can support source-coupled projected recovery gradients and per-source hard guard reporting without changing actor inputs or running a projection experiment.",
+  "success_criteria": [
+    "implement per-source trajectory guard loss reporting",
+    "implement projected recovery-gradient helper with deterministic tests",
+    "wire optional source-coupled projection config without changing default behavior",
+    "run a no-update smoke proving existing exact repair behavior remains unchanged"
+  ],
+  "failure_criteria": [
+    "default exact repair behavior changes",
+    "projection helper cannot keep hard-guard first-order loss from increasing in tests",
+    "implementation changes actor inputs or outputs",
+    "milestone runs PPO or promotes a checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "source_coupled_nullspace_implementation",
+      "command": "Implement tooling and tests only; no no-PPO projection probe yet."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m426-source-coupled-nullspace-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m425-source-coupled-recovery-nullspace-design.md"
+  ],
+  "decision_rule": "M426 may admit a no-PPO projection probe only if tooling tests pass and a no-update smoke shows exact repair defaults unchanged.",
+  "next_blocker": "pending M426 source-coupled nullspace implementation"
+}

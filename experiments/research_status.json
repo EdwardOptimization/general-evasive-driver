@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 433,
+        "completed": 434,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m424-mixed-radius-utility-ceiling-audit",
+        "task_id": "m425-source-coupled-recovery-nullspace-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m424-mixed-radius-utility-ceiling-audit.md"
+        "command_log": "docs/m425-source-coupled-recovery-nullspace-design.md"
     },
     "next_task": {
-        "id": "m425-source-coupled-recovery-nullspace-design",
+        "id": "m426-source-coupled-nullspace-implementation",
         "status": "pending",
-        "priority": 4200,
+        "priority": 4210,
         "kind": "infrastructure",
-        "hypothesis": "Design a source-coupled recovery residual after radius-only utility ceiling",
-        "command": "see experiments/manifests/m425-source-coupled-recovery-nullspace-design.json",
+        "hypothesis": "Implement source-coupled projected recovery tooling without changing actor inputs",
+        "command": "see experiments/manifests/m426-source-coupled-nullspace-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design a no-PPO residual path with M267 rows 6 and 15 plus old-key 10023 as hard active constraints"
+        "notes": "Pending: add per-source guard losses projected recovery-gradient helper tests and no-update smoke; no PPO or promotion"
     },
-    "updated_at_utc": "20260523T173128Z"
+    "updated_at_utc": "20260523T173427Z"
 }

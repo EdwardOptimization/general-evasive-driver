@@ -9884,3 +9884,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M424 compares M420 conservative/medium and M423 mixed profiles. The best proof-safe radius-only candidate remains `mixed_b` at `0.133154` recovery retained vs M406. M267 rows `6` and `15` cross from small negative wrong-history margins under `mixed_b` to positive wrong-history margins under `mixed_c`, and old-key `10023` fails under both M420 medium and M423 `mixed_c`. `mixed_b` is also at an exact old-key surrogate boundary because step `40` regresses the old-key surrogate by `+0.0000038147`.
 - decision: `stop_radius_only_path_admit_m425_source_coupled_recovery_nullspace_design`
 - next: `m425-source-coupled-recovery-nullspace-design`
+
+## 20260523T173427Z - m425-source-coupled-recovery-nullspace-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m425-source-coupled-recovery-nullspace-design.md`
+- result: M425 designs a source-coupled recovery/nullspace path instead of another radius profile. The recovery merit remains the M398 old-key recovery target loss, but exact M297/M270/old-key surrogate gates, M267/M264 rows `6` and `15`, old-key `10023`, and spillover guards become hard first-order constraints. The proposed implementation uses PCGrad-like projection: remove utility-gradient components that would first-order increase any active hard guard, then keep the existing exact and replay gates as authoritative candidate selection.
+- decision: `admit_m426_source_coupled_nullspace_implementation`
+- next: `m426-source-coupled-nullspace-implementation`

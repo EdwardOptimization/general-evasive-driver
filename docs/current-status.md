@@ -54,7 +54,7 @@ large driver-performance improvement.
 Current blocker:
 
 ```text
-m425-source-coupled-recovery-nullspace-design
+m426-source-coupled-nullspace-implementation
 ```
 
 M423 completes the mixed-radius projection probe without PPO or actor-contract
@@ -66,8 +66,11 @@ reopens M267/M264 rows `6` and `15` plus old-key case `10023`, so M423 is
 rejected as a promotable candidate. M424 classifies the follow-up as a
 radius-only utility ceiling: M267 rows `6` and `15` plus old-key `10023` bind
 before recovery retention reaches `0.20`, and `mixed_b` is already at an exact
-old-key surrogate boundary at the next optimizer step. M425 should design a
-source-coupled recovery/nullspace residual before any new repair or PPO.
+old-key surrogate boundary at the next optimizer step. M425 designs a
+source-coupled recovery/nullspace residual: recover M398 old-key normal-margin
+targets only through a projected gradient that does not first-order increase
+exact gates, M267 rows `6`/`15`, old-key `10023`, or spillover guards. M426
+should implement this tooling and tests before any new repair or PPO.
 
 M337 classified the bottleneck as singleton old-key gap-floor saturation, not
 broad source-diverse proof washout. M341 mined a source-diverse old-key
@@ -678,7 +681,7 @@ Do not run more PPO while the current blocker is the active-set replay/recovery
 balance. M424 stops the radius-only profile path: it raises proof-safe utility
 from M420 conservative `0.115403` to `0.133154`, but loosening enough to reach
 `0.142650` reopens M267/M264 rows `6` and `15` plus old-key `10023`. The next
-step is M425, a design-only source-coupled recovery/nullspace residual. Do not
+step is M426, implementation-only projected recovery/nullspace tooling. Do not
 lower proof thresholds, remove old-key diagnostics, run PPO, or change actor
 inputs.
 

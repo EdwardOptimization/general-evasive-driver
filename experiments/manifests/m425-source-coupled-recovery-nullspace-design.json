@@ -79,5 +79,34 @@
     "docs/m424-mixed-radius-utility-ceiling-audit.md"
   ],
   "decision_rule": "M425 may admit implementation only if it designs a residual that treats M267 rows 6 and 15 plus old-key 10023 as hard active constraints and does not reduce to another radius-only profile.",
-  "next_blocker": "pending M425 source-coupled recovery nullspace design"
+  "next_blocker": "m426-source-coupled-nullspace-implementation",
+  "results": {
+    "artifact": "docs/m425-source-coupled-recovery-nullspace-design.md",
+    "design_summary": "Use projected recovery gradients instead of another radius profile. Treat exact M297/M270/old-key surrogate plus M267 rows 6 and 15 and old-key 10023 trajectory guards as hard first-order constraints.",
+    "hard_constraints": [
+      "exact M297 no-regression",
+      "exact M270 no-regression",
+      "old-key surrogate no-regression",
+      "M267/M264 rows 6 and 15 wrong-history branch guards",
+      "old-key 10023 guard",
+      "old-key spillover guards 9951 and 9939"
+    ],
+    "recovery_merit": [
+      "M398 old-key recovery preferred action loss",
+      "wrong-history recovery branch anchor loss",
+      "normal-branch slack on 9958 and 10004 checked by replay after projection"
+    ],
+    "implementation_plan": [
+      "add per-source trajectory guard loss reporting",
+      "add optional recovery-gradient projection or PCGrad-style surgery in exact_post_ppo_repair",
+      "export hard guard anchor excluding recovery rows 9958 and 10004 from utility relaxation",
+      "run no-update smoke before any no-PPO projection probe"
+    ],
+    "ppo_or_actor_update_run": false,
+    "checkpoint_promoted": false,
+    "actor_inputs_changed": false,
+    "thresholds_changed": false,
+    "recommended_next": "m426-source-coupled-nullspace-implementation"
+  },
+  "decision": "admit_m426_source_coupled_nullspace_implementation"
 }

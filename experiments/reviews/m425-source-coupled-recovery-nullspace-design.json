@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M425 designs projected recovery-gradient tooling so M398 recovery utility can move only in directions that do not first-order damage exact gates M267 rows 6 and 15 or old-key 10023",
+  "failure_criteria": [
+    "design is equivalent to another per-source radius tweak",
+    "design admits PPO directly",
+    "design changes actor inputs or outputs",
+    "design removes old-key or M267 diagnostics"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower exact or replay thresholds",
+    "do not add hidden or oracle actor inputs",
+    "do not make replay labels actor inputs"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260523T173555Z",
+  "hypothesis": "A source-coupled recovery/nullspace residual can target old-key recovery rows while keeping M267 rows 6 and 15 plus old-key 10023 as active constraints, unlike radius-only profiles that trade utility for proof loss.",
+  "lineage": {
+    "blocked_by": [
+      "m424-mixed-radius-utility-ceiling-audit"
+    ],
+    "derived_from": [
+      "m424-mixed-radius-utility-ceiling-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m424-mixed-radius-utility-ceiling-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m398_old_key_normal_margin_recovery_targets/old_key_recovery_corpus.npz",
+      "runs/m422_mixed_radius_anchor/mixed_b_radius_anchor.npz",
+      "runs/m423_mixed_b_projection_ltraj1e13_s40_seed10154",
+      "runs/m423_mixed_c_projection_ltraj1e13_s40_seed10155"
+    ],
+    "parent_objective": [
+      "design a source-coupled recovery utility residual after radius-only utility ceiling"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m425-source-coupled-recovery-nullspace-design",
+  "next_blocker": "m426-source-coupled-nullspace-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m426_source_coupled_nullspace_implementation",
+  "public_gates": [
+    "no PPO run",
+    "no checkpoint promotion",
+    "no actor input/output change",
+    "identify hard constraints M267 rows 6 and 15 plus old-key 10023",
+    "design a recovery merit that cannot loosen those hard constraints implicitly"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m426_source_coupled_nullspace_implementation",
+    "milestone": "m425-source-coupled-recovery-nullspace-design",
+    "reason": "M425 designs projected recovery-gradient tooling so M398 recovery utility can move only in directions that do not first-order damage exact gates M267 rows 6 and 15 or old-key 10023",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "define hard active constraints for M267 rows 6 and 15 and old-key 10023",
+    "define a recovery merit tied to M398 recovery targets without relaxing hard constraints",
+    "define candidate selection order with exact gates before replay gates before utility",
+    "pre-register a no-PPO implementation/probe path"
+  ],
+  "type": "infrastructure"
+}
