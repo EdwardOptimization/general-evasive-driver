@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 551,
+        "completed": 552,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m542-matched-history-variance-route-pilot",
+        "task_id": "m543-m542-public-surface-eval",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m542_matched_history_variance_route_pilot_summary",
-        "command_log": "docs/m542-matched-history-variance-route-pilot.md"
+        "run_dir": "runs/m543_m542_public_surface_eval_aggregate",
+        "command_log": "docs/m543-m542-public-surface-eval.md"
     },
     "next_task": {
-        "id": "m543-m542-public-surface-eval",
+        "id": "m544-l3-variance-recipe-failure-audit",
         "status": "pending",
-        "priority": 5380,
+        "priority": 5390,
         "kind": "gate",
-        "hypothesis": "The M542 route-pilot checkpoints can be compared on the same public frozen-source natural surfaces; given M542 route metrics, L2 may remain stronger than L3 under paired public diagnostics.",
-        "command": "see experiments/manifests/m543-m542-public-surface-eval.json",
+        "hypothesis": "The M543 L3 regression is likely a recurrent recipe or optimization failure, not evidence against command-response history itself; a focused audit should identify whether L3 needs recipe repair before more training.",
+        "command": "see experiments/manifests/m544-l3-variance-recipe-failure-audit.json",
         "success_artifact": "",
-        "notes": "Pending: run M542 L0 L2 L3 checkpoints on M497/M487 public surfaces and aggregate paired deltas"
+        "notes": "Pending: compare configs metadata train metrics route summaries and public paired failures without training"
     },
-    "updated_at_utc": "20260524T073000Z"
+    "updated_at_utc": "20260524T074000Z"
 }

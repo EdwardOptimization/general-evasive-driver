@@ -61,13 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m543-m542-public-surface-eval
+m544-l3-variance-recipe-failure-audit
 ```
 
-M543 should evaluate the M542 seed-3540 L0/L2/L3 route-pilot checkpoints on the
-same public frozen-source natural surfaces used in M537, then report all-row and
-paired deltas. It must keep M526 event rows as public diagnostics and avoid any
-promotion claim.
+M544 should audit why the current L3 recurrent recipe regresses while L2
+finite-window is strong. It should compare configs, checkpoint metadata, train
+metrics, route summaries, and public paired failures before any more L3
+multi-seed training.
 
 ## Recent Evidence Line
 
@@ -156,15 +156,20 @@ promotion claim.
   favors L2 (`return_mean = 77.992665`, `termination_rate = 0.2`) over L0
   (`20.334296`, `1.0`) and L3 (`21.645978`, `1.0`), but this is route evidence
   only and not a stable ranking or promotion claim.
+- M543 evaluates those M542 checkpoints on the public M497/M487 frozen-source
+  natural surfaces. L2 dominates aggregate success/margin (`0.866310`/`1.777833`)
+  while L3 regresses below L0 (`0.670677`/`0.984809`). Paired L3-L2 deltas are
+  strongly negative: success `-0.195633`, collision `+0.190731`, margin
+  `-0.793024`. L3 is worst on every public surface, so the current recurrent
+  recipe should be audited before expanding seeds.
 
 ## Near-Term Rule
 
 Do not treat reset-hidden diagnostics, M528 smoke return, route eval, or
 M537-M539 public diagnostics as private generalization evidence. The next branch
-should run public frozen-source diagnostics on the M542 checkpoints before
-multi-seed expansion. Any later promotion requires proof retention,
-generalization retention, behavior retention, no contract violation, and clear
-lineage.
+should audit the L3 recipe failure before multi-seed expansion. Any later
+promotion requires proof retention, generalization retention, behavior
+retention, no contract violation, and clear lineage.
 
 ## Sensor Profile Policy
 

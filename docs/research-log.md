@@ -11008,3 +11008,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M542 runs all three 4096-step seed `3540` configs. All complete and write valid P0 history-baseline metadata. Route eval: L0 return/termination `20.334296`/`1.0`, L2 `77.992665`/`0.2`, L3 `21.645978`/`1.0`. L2 is much stronger on this route metric, but the result remains route evidence only, with no ranking or promotion claim.
 - decision: `matched_variance_route_pilot_pass_l2_strong_admit_m543_public_surface_eval`
 - next: `m543-m542-public-surface-eval`
+## 20260524T074000Z - m543-m542-public-surface-eval
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m543_public_eval_m497_short_reveal`, `runs/m543_public_eval_m497_warmup_capability`, `runs/m543_public_eval_m487_near_threshold`, `runs/m543_public_eval_m487_late_high_energy`, `runs/m543_m542_public_surface_eval_aggregate`
+- artifact: `docs/m543-m542-public-surface-eval.md`
+- result: M543 evaluates the M542 seed-3540 checkpoints on all four public frozen-source natural surfaces. L2 dominates: aggregate success/margin `0.866310`/`1.777833` versus L0 `0.800802`/`1.384059` and L3 `0.670677`/`0.984809`. Paired deltas are decisive: L2-L0 success/margin `+0.065508`/`+0.393774`, L3-L0 `-0.130125`/`-0.399250`, and L3-L2 `-0.195633`/`-0.793024`. L3 is worst on every public surface, so the route-pilot L3 recipe should be audited before any multi-seed expansion.
+- decision: `m542_public_eval_l2_dominant_l3_regression_admit_m544_l3_recipe_failure_audit`
+- next: `m544-l3-variance-recipe-failure-audit`

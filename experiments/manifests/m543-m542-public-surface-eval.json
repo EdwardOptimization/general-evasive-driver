@@ -2,9 +2,9 @@
   "id": "m543-m542-public-surface-eval",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "training_instability"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -38,10 +38,10 @@
   },
   "review_artifact": "docs/reviews/m543-m542-public-surface-eval.md",
   "public_gates": [
-    "run M542 L0 L2 L3 checkpoints on the four public frozen-source natural surfaces",
-    "report all-row and paired deltas",
-    "keep M526 event overlay public and separate",
-    "do not promote checkpoint"
+    "ran M542 L0 L2 L3 checkpoints on the four public frozen-source natural surfaces",
+    "reported all-row and paired deltas",
+    "kept M526 event overlay public and separate",
+    "did not promote checkpoint"
   ],
   "private_holdout_policy": "not_used",
   "forbidden_shortcuts": [
@@ -73,6 +73,14 @@
     {
       "path": "docs/m543-m542-public-surface-eval.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m543_m542_public_surface_eval_aggregate/summary.json",
+      "type": "aggregate_summary"
+    },
+    {
+      "path": "runs/m543_m542_public_surface_eval_aggregate/bootstrap_ci.csv",
+      "type": "diagnostic_table"
     }
   ],
   "baseline_checkpoints": [
@@ -82,6 +90,6 @@
     "docs/m542-matched-history-variance-route-pilot.md",
     "runs/m542_matched_history_variance_route_pilot_summary/summary.json"
   ],
-  "decision_rule": "M543 is a public diagnostic eval. It may admit multi-seed variance runs or recurrent-recipe repair, but it does not promote a checkpoint.",
-  "next_blocker": "pending M543 public frozen-source eval for M542 checkpoints"
+  "decision_rule": "M543 is a public diagnostic eval. L2 dominates and L3 broadly regresses on seed 3540, so the next step is recurrent-recipe failure audit rather than multi-seed expansion. It does not promote a checkpoint.",
+  "next_blocker": "m544-l3-variance-recipe-failure-audit"
 }

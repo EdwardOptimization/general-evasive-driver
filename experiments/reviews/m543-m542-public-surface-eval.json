@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M543 public frozen-source eval confirms L2 dominates and L3 regresses below L0 on seed3540; no checkpoint is promoted",
+  "failure_criteria": [
+    "any M542 checkpoint cannot be evaluated",
+    "metadata differs from the declared history level",
+    "public event rows are treated as private evidence",
+    "checkpoint promotion is performed"
+  ],
+  "failure_types": [
+    "training_instability"
+  ],
+  "forbidden_shortcuts": [
+    "do not tune M542 checkpoints from the public eval",
+    "do not promote a route-pilot checkpoint",
+    "do not treat M537/M543 public rows as private holdout"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T035216Z",
+  "hypothesis": "The M542 route-pilot checkpoints can be compared on the same public frozen-source natural surfaces; given M542 route metrics, L2 may remain stronger than L3 under paired public diagnostics.",
+  "lineage": {
+    "blocked_by": [
+      "m542-matched-history-variance-route-pilot"
+    ],
+    "derived_from": [
+      "m542-matched-history-variance-route-pilot",
+      "m537-full-public-natural-surface-eval"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+      "runs/m542_matched_l2_variance_seed3540/checkpoint.pt",
+      "runs/m542_matched_l3_variance_seed3540/checkpoint.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l0_variance_4096.json",
+      "configs/ppo_m541_matched_l2_variance_4096.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json"
+    ],
+    "parent_dataset": [
+      "runs/m497_natural_belief_decision_window_outcome_gate/targeted_pairs_short_reveal.csv",
+      "runs/m497_natural_belief_decision_window_outcome_gate/targeted_pairs_warmup_capability.csv",
+      "runs/m487_critical_window_tail_aligned_outcome_gate/targeted_pairs_near_threshold.csv",
+      "runs/m487_critical_window_tail_aligned_outcome_gate/targeted_pairs_late_high_energy.csv"
+    ],
+    "parent_objective": [
+      "evaluate M542 route-pilot checkpoints on public frozen-source natural surfaces"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m543-m542-public-surface-eval",
+  "next_blocker": "m544-l3-variance-recipe-failure-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "m542_public_eval_l2_dominant_l3_regression_admit_m544_l3_recipe_failure_audit",
+  "public_gates": [
+    "ran M542 L0 L2 L3 checkpoints on the four public frozen-source natural surfaces",
+    "reported all-row and paired deltas",
+    "kept M526 event overlay public and separate",
+    "did not promote checkpoint"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m543_m542_public_surface_eval_aggregate/summary.json",
+    "clearance_margin_mean": "1.777833",
+    "decision": "m542_public_eval_l2_dominant_l3_regression_admit_m544_l3_recipe_failure_audit",
+    "milestone": "m543-m542-public-surface-eval",
+    "reason": "M543 public frozen-source eval confirms L2 dominates and L3 regresses below L0 on seed3540; no checkpoint is promoted",
+    "reset_success": "",
+    "success_rate": "0.866310",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "all four public natural surface splits run or failures are diagnosed",
+    "all three checkpoint metadata validations pass",
+    "all-row and paired L3-L0/L3-L2 metrics are documented",
+    "no checkpoint promotion is performed",
+    "research validation passes"
+  ],
+  "type": "gate"
+}

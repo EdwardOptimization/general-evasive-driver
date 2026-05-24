@@ -1,0 +1,87 @@
+{
+  "id": "m544-l3-variance-recipe-failure-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m542_matched_l2_variance_seed3540/checkpoint.pt",
+      "runs/m542_matched_l3_variance_seed3540/checkpoint.pt",
+      "runs/m533_matched_l2_short_train_seed3531/checkpoint.pt",
+      "runs/m533_matched_l3_short_train_seed3531/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m543_m542_public_surface_eval_aggregate/summary.json",
+      "runs/m539_matched_history_seed_fragility_audit/summary.json"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l2_variance_4096.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/ppo_m531_matched_l2_short_train.json",
+      "configs/ppo_m531_matched_l3_short_train.json"
+    ],
+    "parent_objective": [
+      "diagnose why current L3 recurrent recipe regresses while L2 finite window remains strong"
+    ],
+    "derived_from": [
+      "m543-m542-public-surface-eval",
+      "m539-matched-history-seed-fragility-audit"
+    ],
+    "blocked_by": [
+      "m543-m542-public-surface-eval"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m544-l3-variance-recipe-failure-audit.md",
+  "public_gates": [
+    "compare L3 and L2 config/training metadata",
+    "compare train metric trajectories and eval summaries",
+    "inspect whether recurrent_sequence_training or hidden-state handling creates an optimization disadvantage",
+    "decide whether to repair L3 recipe or continue finite-window-first baseline work",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not hide the M543 L3 regression",
+    "do not expand L3 multi-seed runs before diagnosing recipe failure",
+    "do not tune from public rows and report the same rows as private evidence"
+  ],
+  "hypothesis": "The M543 L3 regression is likely a recurrent recipe or optimization failure, not evidence against command-response history itself; a focused audit should identify whether L3 needs recipe repair before more training.",
+  "success_criteria": [
+    "config and metadata differences between L2 and L3 are enumerated",
+    "train metric and route eval differences are summarized",
+    "public surface failure pattern is linked to candidate causes",
+    "next decision is explicit: repair L3 recipe, expand L2 baseline, or run controlled ablation",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "audit treats L3 regression as final without checking recipe path",
+    "audit launches training before documenting the blocker",
+    "public diagnostics are treated as private evidence"
+  ],
+  "commands": [
+    {
+      "name": "recipe_failure_audit",
+      "command": "Compare M541/M542 L2 and L3 configs, checkpoint metadata, train metrics, route summaries, and M543 paired failures; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m544-l3-variance-recipe-failure-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m543-m542-public-surface-eval.md",
+    "runs/m543_m542_public_surface_eval_aggregate/summary.json"
+  ],
+  "decision_rule": "M544 is a public diagnostic audit. It should choose a recurrent recipe repair or finite-window-first branch; it does not train or promote a checkpoint.",
+  "next_blocker": "pending M544 L3 recipe failure audit"
+}
