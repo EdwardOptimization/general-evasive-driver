@@ -11179,3 +11179,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M561 designs the L2-to-L3 distillation pivot after repeated L3 route-screen v2 failures. The design keeps L2 as a training-only teacher using finite-window P0 observations, keeps the deployable L3 actor as P0 online-GRU with canonical current 72-value frames and recurrent hidden state, and forbids public frozen-source rows, hidden dynamics, oracle labels, or L2 stack leakage into student inputs. It also rotates future selection away from M556/M560 route-screen seeds.
 - decision: `l2_to_l3_distillation_design_admit_m562_teacher_corpus_exporter`
 - next: `m562-l2-teacher-corpus-exporter`
+## 20260524T053000Z - m562-l2-teacher-corpus-exporter
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m562_l2_teacher_corpus_exporter_smoke`
+- artifact: `docs/m562-l2-teacher-corpus-exporter.md`
+- result: M562 implements `autodrift.l2_teacher_corpus` and focused tests. A real smoke export from `runs/m542_matched_l2_variance_seed3540/checkpoint.pt` on non-public seeds `18000:18001` produced `116` transitions. The corpus stores `student_obs_seq` `(116, 72)`, `teacher_action_seq` `(116, 3)`, done/start masks, seed/episode/step ids, and terminal diagnostics. It does not store `teacher_obs_stack_seq`, and `uses_public_frozen_source_rows = false`.
+- decision: `l2_teacher_corpus_exporter_pass_admit_m563_l3_bc_optimizer`
+- next: `m563-l3-behavior-cloning-optimizer`

@@ -1,0 +1,80 @@
+{
+  "id": "m563-l3-behavior-cloning-optimizer",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m542_matched_l2_variance_seed3540/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m562_l2_teacher_corpus_exporter_smoke/l2_teacher_corpus.npz",
+      "docs/m562-l2-teacher-corpus-exporter.md"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l3_variance_4096.json"
+    ],
+    "parent_objective": [
+      "offline behavior cloning from L2 teacher targets into an L3 online-GRU student"
+    ],
+    "derived_from": [
+      "m562-l2-teacher-corpus-exporter"
+    ],
+    "blocked_by": [
+      "m562-l2-teacher-corpus-exporter"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m563-l3-behavior-cloning-optimizer.md",
+  "public_gates": [
+    "implement offline L3 behavior-cloning optimizer from M562-style corpora",
+    "preserve P0 72-value student input and L3 online-GRU metadata",
+    "write train and validation action MSE artifacts",
+    "do not run PPO or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train from public frozen-source rows",
+    "do not feed L2 stacked observations into the L3 student",
+    "do not add hidden parameters or oracle labels",
+    "do not promote a checkpoint before route-screen v2"
+  ],
+  "hypothesis": "An offline behavior-cloning optimizer can transfer the strong L2 finite-window action prior into an L3 online-GRU actor while keeping the deployable P0 actor contract clean.",
+  "success_criteria": [
+    "optimizer loads M562-style student_obs_seq and teacher_action_seq arrays",
+    "optimizer trains an L3 online-GRU checkpoint with P0 72-value inputs",
+    "train and validation teacher-action MSE improve versus initialization",
+    "tests cover recurrent hidden reset masks and student input dimension checks",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "optimizer consumes teacher stacked observations as student input",
+    "checkpoint metadata no longer declares P0 L3 online-GRU",
+    "validation MSE does not improve in the smoke run",
+    "optimizer runs PPO or route-screen selection in this milestone"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "Implement offline L3 behavior-cloning optimizer and focused tests; no PPO or promotion."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m563-l3-behavior-cloning-optimizer.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m542_matched_l2_variance_seed3540/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m562-l2-teacher-corpus-exporter.md"
+  ],
+  "decision_rule": "M563 passes only if the offline L3 behavior-cloning optimizer improves teacher-action MSE on train and validation M562-style corpora without actor-input leakage, PPO, route-screen selection, or checkpoint promotion.",
+  "next_blocker": "pending M563 L3 behavior-cloning optimizer"
+}

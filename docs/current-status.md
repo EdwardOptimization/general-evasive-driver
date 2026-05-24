@@ -61,15 +61,15 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m562-l2-teacher-corpus-exporter
+m563-l3-behavior-cloning-optimizer
 ```
 
-M562 should implement the L2 teacher corpus exporter from the M561 design.
-Repeated from-scratch L3 PPO, PPO-stability, and reward-shaping branches remain
-contact-prone under route-screen v2, while L2 is consistently strong. The next
-step is not more PPO: export L2 teacher action targets paired with canonical
-72-value L3 student frames, with no L2 stack leakage into deployable actor
-inputs.
+M563 should implement the offline L3 behavior-cloning optimizer from
+M562-style corpora. Repeated from-scratch L3 PPO, PPO-stability, and
+reward-shaping branches remain contact-prone under route-screen v2, while L2 is
+consistently strong. The next step is still not PPO: first verify that an L3
+online-GRU student can reduce teacher-action MSE from canonical 72-value
+student frames without L2 stack leakage.
 
 ## Recent Evidence Line
 
@@ -251,16 +251,22 @@ inputs.
   current 72-value frames and recurrent hidden state. The next admitted step is
   M562: export `student_obs_seq`, `teacher_action_seq`, done masks, and terminal
   diagnostics on non-public route seeds without training or promotion.
+- M562 implements that exporter in `autodrift.l2_teacher_corpus`. The real
+  smoke export on non-public seeds `18000:18001` wrote `116` transitions with
+  `student_obs_seq` shape `(116, 72)`, `teacher_action_seq` shape `(116, 3)`,
+  done/start masks, and terminal diagnostics. The NPZ does not contain
+  `teacher_obs_stack_seq`, and `uses_public_frozen_source_rows = false`.
 
 ## Near-Term Rule
 
 Do not treat reset-hidden diagnostics, M528 smoke return, route eval, or
 M537-M543 public diagnostics as private generalization evidence. The L2-to-L3
-distillation branch must keep L2 finite-window stacks training-only and must use
-route-screen v2 before any public frozen-source eval. M550 remains public
-diagnostic evidence and cannot support a private generalization claim. Any later
-promotion requires proof retention, generalization retention, behavior
-retention, no contract violation, and clear lineage.
+distillation branch must keep L2 finite-window stacks training-only. Offline BC
+may optimize teacher-action MSE only; any checkpoint still needs route-screen v2
+before public frozen-source eval. M550 remains public diagnostic evidence and
+cannot support a private generalization claim. Any later promotion requires
+proof retention, generalization retention, behavior retention, no contract
+violation, and clear lineage.
 
 ## Sensor Profile Policy
 
