@@ -2,7 +2,7 @@
   "id": "m540-matched-history-training-variance-design",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -23,9 +23,9 @@
       "runs/m538_natural_surface_paired_advantage_audit/summary.json"
     ],
     "parent_config": [
-      "configs/m531_matched_l0_short_train.json",
-      "configs/m531_matched_l2_short_train.json",
-      "configs/m531_matched_l3_short_train.json"
+      "configs/ppo_m531_matched_l0_short_train.json",
+      "configs/ppo_m531_matched_l2_short_train.json",
+      "configs/ppo_m531_matched_l3_short_train.json"
     ],
     "parent_objective": [
       "design matched L0/L2/L3 training-variance escalation after L2 seed counterexample"
@@ -41,10 +41,10 @@
   },
   "review_artifact": "docs/reviews/m540-matched-history-training-variance-design.md",
   "public_gates": [
-    "pre-register identical-budget L0/L2/L3 variance ladder",
-    "include per-seed public paired diagnostics from M537/M538",
-    "define when L3 beats L2 versus when finite-window history remains competitive",
-    "do not train or promote checkpoint"
+    "pre-registered identical-budget L0/L2/L3 variance ladder",
+    "included per-seed public paired diagnostics from M537/M538",
+    "defined when L3 beats L2 versus when finite-window history remains competitive",
+    "did not train or promote checkpoint"
   ],
   "private_holdout_policy": "not_used",
   "forbidden_shortcuts": [
@@ -84,6 +84,6 @@
     "docs/m539-matched-history-seed-fragility-audit.md",
     "runs/m539_matched_history_seed_fragility_audit/summary.json"
   ],
-  "decision_rule": "M540 is a design milestone. Passing it admits matched training-variance runs; it does not train or promote a checkpoint.",
-  "next_blocker": "pending M540 matched training-variance design"
+  "decision_rule": "M540 is a design milestone. It admits a config-family implementation before matched training-variance runs; it does not train or promote a checkpoint.",
+  "next_blocker": "m541-matched-history-variance-config-family"
 }

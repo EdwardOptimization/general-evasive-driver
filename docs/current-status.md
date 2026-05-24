@@ -61,12 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m540-matched-history-training-variance-design
+m541-matched-history-variance-config-family
 ```
 
-M540 should pre-register the next matched L0/L2/L3 training-variance escalation.
-It must keep budgets, seeds, eval order, and public/private evidence boundaries
-identical across history levels before launching longer matched training.
+M541 should implement the matched 4096-step L0/L2/L3 variance config family and
+tests. It must not launch training until the configs are machine-checked for
+shared budgets, shared task distribution, approved history-level differences,
+and the P0 input contract.
 
 ## Recent Evidence Line
 
@@ -138,14 +139,19 @@ identical across history levels before launching longer matched training.
   rows carry the success/collision regression. L3 seed `3531` has a systematic
   first-action shift relative to L2, so the next step should address matched
   training variance rather than promote L3 from public diagnostics.
+- M540 designs the matched training-variance escalation. It keeps L2 as a real
+  finite-window baseline, defines a staged ladder starting with 4096-step
+  matched configs, separates L3-vs-L0 from L3-vs-L2 pass rules, and requires
+  public paired diagnostics before any fresh-holdout claim. It also corrects the
+  current lineage config paths to `configs/ppo_m531_matched_*_short_train.json`.
 
 ## Near-Term Rule
 
 Do not treat reset-hidden diagnostics, M528 smoke return, or M537-M539 public
-diagnostics as private generalization evidence. The next branch must design a
-matched training-variance escalation that keeps L2 as a serious finite-window
-baseline. Any later promotion requires proof retention, generalization
-retention, behavior retention, no contract violation, and clear lineage.
+diagnostics as private generalization evidence. The next branch must implement
+the matched variance configs before running longer training. Any later promotion
+requires proof retention, generalization retention, behavior retention, no
+contract violation, and clear lineage.
 
 ## Sensor Profile Policy
 

@@ -10981,3 +10981,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M539 localizes the seed `3531` L3-vs-L2 fragility. The counterexample is broad: all four surfaces have negative L3-L2 success and clearance-margin deltas, all target and tail-offset groups have negative mean margin deltas, and non-event rows carry the success/collision regression. There are `31` success regressions, all `obstacle_completed -> collision`, while margin is negative on `77.852%` of paired rows. L3 seed `3531` also has a systematic first-action shift relative to L2: steer delta `-0.136033`, throttle delta `-0.098220`, brake delta `-0.242059`.
 - decision: `seed3531_l2_counterexample_broad_admit_m540_training_variance_design`
 - next: `m540-matched-history-training-variance-design`
+## 20260524T071000Z - m540-matched-history-training-variance-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m540-matched-history-training-variance-design.md`
+- result: M540 pre-registers the next matched-history training-variance path after the broad seed-3531 L2 counterexample. The design keeps L2 as a serious finite-window baseline, defines a staged V0-V5 ladder starting with 4096-step matched L0/L2/L3 configs, requires public paired diagnostics before any fresh holdout, and separates L3-vs-L0 from L3-vs-L2 pass rules. It also fixes the lineage config paths to the real `configs/ppo_m531_matched_*_short_train.json` files.
+- decision: `matched_training_variance_design_admit_m541_variance_config_family`
+- next: `m541-matched-history-variance-config-family`

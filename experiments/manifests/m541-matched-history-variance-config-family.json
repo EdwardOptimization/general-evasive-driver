@@ -1,0 +1,78 @@
+{
+  "id": "m541-matched-history-variance-config-family",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m540-matched-history-training-variance-design.md"
+    ],
+    "parent_config": [
+      "configs/ppo_m531_matched_l0_short_train.json",
+      "configs/ppo_m531_matched_l2_short_train.json",
+      "configs/ppo_m531_matched_l3_short_train.json"
+    ],
+    "parent_objective": [
+      "implement matched 4096-step L0 L2 L3 variance config family"
+    ],
+    "derived_from": [
+      "m540-matched-history-training-variance-design"
+    ],
+    "blocked_by": [
+      "m540-matched-history-training-variance-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m541-matched-history-variance-config-family.md",
+  "public_gates": [
+    "add matched 4096-step L0 L2 L3 configs",
+    "test shared budget and approved history-level differences",
+    "preserve P0 input contract",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not change task distribution for one history level only",
+    "do not run training before config tests pass",
+    "do not tune L3 against public M537-M539 rows"
+  ],
+  "hypothesis": "A machine-checkable 4096-step matched config family can be added so the next variance run compares L0 L2 and L3 fairly after the M539 seed-fragility finding.",
+  "success_criteria": [
+    "three configs exist for L0 L2 and L3",
+    "only actor encoder history length recurrent flag and history baseline metadata differ by level",
+    "shared PPO budget and environment task distribution are tested",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "configs differ in unapproved per-level ways",
+    "P0 input contract changes",
+    "training or promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "config_family",
+      "command": "Create ppo_m541_matched_l0/l2/l3_variance_4096 configs and tests; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m541-matched-history-variance-config-family.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m540-matched-history-training-variance-design.md"
+  ],
+  "decision_rule": "M541 is an infrastructure milestone. Passing it admits V1 route-pilot training on one seed; it does not train or promote a checkpoint.",
+  "next_blocker": "pending M541 matched variance config family"
+}
