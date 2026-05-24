@@ -2,7 +2,7 @@
   "id": "m583-bc5660-recurrent-ablation-moderate-ood-eval",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -82,6 +82,6 @@
     "docs/m582-bc5660-recurrent-ablation-fresh-route-eval.md",
     "docs/m581-bc-recurrent-ablation-design.md"
   ],
-  "decision_rule": "M583 repeats the same M581 ablation thresholds on moderate-OOD route seeds and cannot promote a checkpoint by itself.",
+  "decision_rule": "M583 is positive for current response dependence on moderate-OOD route seeds: zero-current and zero-all reach strong margin degradation, while reset-hidden and zero-action remain weak. No checkpoint is promoted.",
   "next_blocker": "m584-bc-recurrent-ablation-audit"
 }

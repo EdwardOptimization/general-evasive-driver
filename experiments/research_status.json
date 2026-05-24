@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 591,
+        "completed": 592,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m582-bc5660-recurrent-ablation-fresh-route-eval",
+        "task_id": "m583-bc5660-recurrent-ablation-moderate-ood-eval",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m582_bc5660_recurrent_ablation_fresh_route_eval",
-        "command_log": "docs/m582-bc5660-recurrent-ablation-fresh-route-eval.md"
+        "run_dir": "runs/m583_bc5660_recurrent_ablation_moderate_ood_eval",
+        "command_log": "docs/m583-bc5660-recurrent-ablation-moderate-ood-eval.md"
     },
     "next_task": {
-        "id": "m583-bc5660-recurrent-ablation-moderate-ood-eval",
+        "id": "m584-bc-recurrent-ablation-audit",
         "status": "pending",
-        "priority": 5780,
+        "priority": 5790,
         "kind": "gate",
-        "hypothesis": "If the M582 response/action dependence is not only a same-distribution route artifact, BC5660 ablations should also degrade success, clearance margin, or collision rate on fresh moderate-OOD route seeds.",
-        "command": "see experiments/manifests/m583-bc5660-recurrent-ablation-moderate-ood-eval.json",
+        "hypothesis": "Because M582 and M583 show strong zero-current degradation but weak reset-hidden degradation, the next evidence layer should target causal history mismatch rather than treating current-response ablation as complete self-ID proof.",
+        "command": "see experiments/manifests/m584-bc-recurrent-ablation-audit.json",
         "success_artifact": "",
-        "notes": "Pending: repeat BC5660 recurrent ablation benchmark on moderate-OOD route seeds; no promotion"
+        "notes": "Pending: audit fresh-route and moderate-OOD ablation evidence and select next self-ID diagnostic; no promotion"
     },
-    "updated_at_utc": "20260524T090000Z"
+    "updated_at_utc": "20260524T091000Z"
 }

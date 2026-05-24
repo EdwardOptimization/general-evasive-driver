@@ -61,13 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m583-bc5660-recurrent-ablation-moderate-ood-eval
+m584-bc-recurrent-ablation-audit
 ```
 
-M583 should repeat the BC5660 recurrent-ablation benchmark on fresh
-moderate-OOD route seeds using the M574 L3 OOD config. M582 already showed
-fresh-route response/action ablation degradation, but accumulated hidden-state
-self-identification is not proven yet. Promotion and PPO remain blocked.
+M584 should audit M582/M583 ablation evidence and choose the next self-ID
+diagnostic. The current evidence supports deployable current-response
+dependence, but not complete accumulated-hidden belief proof. Promotion and PPO
+remain blocked.
 
 ## Recent Evidence Line
 
@@ -363,6 +363,13 @@ self-identification is not proven yet. Promotion and PPO remain blocked.
   drop and collision increase `0.027344`. `reset_recurrent_state` is only weak
   (`0.007812` success drop, `0.017594` margin drop), so the next step is the
   M583 moderate-OOD repeat rather than promotion or PPO.
+- M583 repeats the ablation on moderate-OOD seeds `24560..24815`. Normal
+  `BC5660` scores success/collision/margin `0.621094` / `0.378906` /
+  `0.985368`. `zero_current_response` and `zero_all_response` again degrade
+  behavior, with success drop and collision increase `0.035156` and margin drop
+  `0.100321`. `reset_recurrent_state` and `zero_action_history` remain below
+  meaningful thresholds on OOD. The next step is an audit to separate
+  current-response dependence from accumulated hidden-state self-ID claims.
 
 ## Near-Term Rule
 

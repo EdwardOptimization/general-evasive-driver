@@ -11368,3 +11368,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M582 runs the pre-registered BC5660 recurrent-ablation benchmark on fresh route seeds `23560..23815`, writing `1280` episode rows. Normal BC5660 scores success/collision/margin `0.691406` / `0.308594` / `1.068165`. `reset_recurrent_state` is weak with success drop `0.007812` and margin drop `0.017594`. `zero_action_history` reaches meaningful degradation through margin drop `0.052959`. `zero_current_response` and `zero_all_response` reach strong margin degradation `0.144810` and both drop success/increase collision by `0.027344`. This is positive deployable response/action evidence but not a complete accumulated hidden-state self-ID proof.
 - decision: `bc5660_fresh_route_response_ablation_positive_admit_m583_ood`
 - next: `m583-bc5660-recurrent-ablation-moderate-ood-eval`
+## 20260524T091000Z - m583-bc5660-recurrent-ablation-moderate-ood-eval
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m583_bc5660_recurrent_ablation_moderate_ood_eval`
+- artifact: `docs/m583-bc5660-recurrent-ablation-moderate-ood-eval.md`
+- result: M583 repeats the BC5660 recurrent-ablation benchmark on moderate-OOD seeds `24560..24815`, writing `1280` episode rows. Normal BC5660 scores success/collision/margin `0.621094` / `0.378906` / `0.985368`. `reset_recurrent_state` remains weak with success drop `0.003906` and margin drop `0.012892`. `zero_action_history` is also weak on OOD with margin drop `0.036946`. `zero_current_response` and `zero_all_response` reach strong margin degradation `0.100321`, with success drop and collision increase `0.035156`. This repeats the current-response dependence signal but still does not prove accumulated hidden-state self-ID.
+- decision: `bc5660_ood_response_ablation_positive_admit_m584_audit`
+- next: `m584-bc-recurrent-ablation-audit`

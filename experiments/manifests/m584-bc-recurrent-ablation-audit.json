@@ -1,0 +1,82 @@
+{
+  "id": "m584-bc-recurrent-ablation-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m582_bc5660_recurrent_ablation_fresh_route_eval/policy_summary.csv",
+      "runs/m583_bc5660_recurrent_ablation_moderate_ood_eval/policy_summary.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_objective": [
+      "audit fresh-route and moderate-OOD recurrent ablation evidence before sharper self-ID gates"
+    ],
+    "derived_from": [
+      "m583-bc5660-recurrent-ablation-moderate-ood-eval"
+    ],
+    "blocked_by": [
+      "m583-bc5660-recurrent-ablation-moderate-ood-eval"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m584-bc-recurrent-ablation-audit.md",
+  "public_gates": [
+    "audit M582 and M583 ablation deltas side by side",
+    "separate current-response dependence from accumulated-hidden dependence",
+    "decide whether to broaden BC seed-family ablations or move to wrong-history/delayed-history interventions",
+    "do not train evaluate or promote in audit milestone"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not claim complete recurrent self-identification from zero-current ablation alone",
+    "do not promote from ablation diagnostics alone",
+    "do not run PPO or behavior cloning",
+    "do not change actor inputs",
+    "do not tune M581 thresholds after seeing M582/M583"
+  ],
+  "hypothesis": "Because M582 and M583 show strong zero-current degradation but weak reset-hidden degradation, the next evidence layer should target causal history mismatch rather than treating current-response ablation as complete self-ID proof.",
+  "success_criteria": [
+    "audit summarizes M582 and M583 normal and ablation metrics",
+    "audit classifies which evidence supports current response dependence and which does not support accumulated hidden dependence",
+    "audit pre-registers the next diagnostic direction without promotion or PPO",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "audit overclaims hidden-belief proof from zero-current degradation",
+    "audit skips weak reset-hidden result",
+    "audit promotes a checkpoint",
+    "audit starts PPO before selecting the next proof gate"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "Write M582/M583 recurrent ablation evidence audit and next diagnostic plan; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m584-bc-recurrent-ablation-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m583-bc5660-recurrent-ablation-moderate-ood-eval.md",
+    "docs/m582-bc5660-recurrent-ablation-fresh-route-eval.md"
+  ],
+  "decision_rule": "M584 passes if it records the ablation evidence limits and pre-registers the next sharper self-ID diagnostic without promotion, PPO, or actor-contract changes.",
+  "next_blocker": "m585-bc5660-history-intervention-design"
+}
