@@ -1,0 +1,87 @@
+# m520-valid-offset-projection-outcome-gate Research Review
+
+## Summary
+
+- Generated at UTC: 20260524T021638Z
+- Type: gate
+- Gate tier: proof
+- Promotion decision: margin_only_projected_history_signal_admit_m521_history_value_ablation_design
+- Decision reason: M520 valid-offset replay is interpretable but wrong-history has only one source-narrow margin candidate and zero event rows so no positive outcome proof is established
+
+## Hypothesis
+
+Removing the globally invalid tail offset 8 from M518 can produce a valid projection-aware outcome classification for the M516 terminal-boundary mechanism surface.
+
+## Lineage
+
+- parent_checkpoint: runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
+- parent_dataset: runs/m516_boundary_mechanism_projection_selector/targeted_pairs.csv, runs/m518_projection_aware_boundary_outcome_gate/summary.json, runs/m518_projection_aware_boundary_outcome_gate/projected_invalid_pairs.csv
+- parent_config: configs/m502_natural_boundary_pressure_short_reveal_zero_relvel.json, configs/m502_natural_boundary_pressure_warmup_zero_relvel.json, experiments/manifests/m519-valid-offset-projection-outcome-redesign.json
+- parent_objective: valid-offset projection-aware boundary outcome gate
+- derived_from: m519-valid-offset-projection-outcome-redesign
+- blocked_by: m519-valid-offset-projection-outcome-redesign
+- supersedes: None
+- invalidates: None
+
+## Success Criteria
+
+- projection-aware outcome gate runs on M516 targeted rows with tail offsets 0,2,4
+- relocated obstacle geometry is preserved during replay
+- invalid-tail rows no longer dominate the gate
+- wrong-history and reset/zero controls are summarized separately
+- source/target/config/geometry diversity is reported
+- result classification is explicit
+- actor inputs remain unchanged
+- no checkpoint is promoted
+
+## Failure Criteria
+
+- valid offsets still produce too many invalid projected tail rows
+- gate uses original obstacle geometry instead of projected geometry
+- summary cannot separate wrong-history from reset/zero controls
+- actor contract changes
+- training or checkpoint promotion is performed
+
+## Evidence Gates
+
+- replay M516 targeted rows with tail offsets 0,2,4 while preserving projected obstacle geometry
+- report invalid-tail counts and reject only if invalid rows still dominate
+- separate wrong-history proof rows from reset and zero-current controls
+- classify positive proof, margin-only signal, control-only sensitivity, fast correction, no-effect, or invalid replay
+- do not train or promote checkpoint
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not train
+- do not promote checkpoint
+- do not add privileged actor inputs
+- do not replay original obstacle geometry for projected rows
+- do not hide invalid-tail counts
+- do not count reset or zero-current controls as wrong-history proof
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m520-valid-offset-projection-outcome-gate
+- type: gate
+- checkpoint: runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: margin_only_projected_history_signal_admit_m521_history_value_ablation_design
+- reason: M520 valid-offset replay is interpretable but wrong-history has only one source-narrow margin candidate and zero event rows so no positive outcome proof is established
+
+## Next Blocker
+
+M521 should design an L0/L1/L2/L3 history-value ablation because M520 produces only source-narrow margin-only wrong-history signal.

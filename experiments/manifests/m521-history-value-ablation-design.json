@@ -1,0 +1,95 @@
+{
+  "id": "m521-history-value-ablation-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m520_valid_offset_projection_outcome_gate/summary.json",
+      "runs/m520_valid_offset_projection_outcome_gate/projected_variant_summary.csv",
+      "runs/m516_boundary_mechanism_projection_selector/targeted_pairs.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m520-valid-offset-projection-outcome-gate.json",
+      "experiments/manifests/m517-projection-aware-boundary-outcome-gate-design.json"
+    ],
+    "parent_objective": [
+      "L0/L1/L2/L3 history-value ablation design"
+    ],
+    "derived_from": [
+      "m520-valid-offset-projection-outcome-gate"
+    ],
+    "blocked_by": [
+      "m520-valid-offset-projection-outcome-gate"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m521-history-value-ablation-design.md",
+  "public_gates": [
+    "design history-level ablations after margin-only one-shot wrong-history evidence",
+    "separate L3 recurrent belief value from one-shot wrong-history event proof",
+    "keep projected mechanism surfaces separate from natural scenario claims",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not claim projected mechanism rows prove broad scenario generalization",
+    "do not conflate reset or zero-current controls with wrong-history proof",
+    "do not overclaim L1 or L2 if the first implementation only supports L0 and L3"
+  ],
+  "hypothesis": "Because valid-offset projection replay shows only source-narrow margin-only wrong-history signal, the next useful evidence is a direct L0/L1/L2/L3 history-value ablation rather than more forced one-shot wrong-history outcome mining.",
+  "success_criteria": [
+    "define L0 current-observation, L1 one-step feedback, L2 finite-window, and L3 online-GRU levels",
+    "define initial diagnostic surfaces",
+    "define metrics for history value",
+    "state implementation guardrails and limitations",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "design treats M520 as positive source-diverse wrong-history proof",
+    "design adds privileged inputs",
+    "design mixes projected mechanism rows with broad scenario claims",
+    "design requires training before diagnostic ablation",
+    "training or checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "history_value_ablation_design",
+      "command": "Use M520 and prior natural/projection surfaces to design an L0/L1/L2/L3 history-value ablation before implementation."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m521-history-value-ablation-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m520-valid-offset-projection-outcome-gate.md",
+    "runs/m520_valid_offset_projection_outcome_gate/summary.json"
+  ],
+  "decision_rule": "M521 should admit M522 only if the next implementation first measures history value diagnostically without changing the actor contract or training a new checkpoint.",
+  "next_blocker": "M522 should implement a history-value ablation runner.",
+  "results": {
+    "artifact": "docs/m521-history-value-ablation-design.md",
+    "selected_next_path": "history_value_ablation_runner",
+    "next_task": "m522-history-value-ablation-runner",
+    "m520_classification": "margin_only_projected_history_signal",
+    "actor_contract_changed": false,
+    "training_or_promotion_performed": false
+  }
+}

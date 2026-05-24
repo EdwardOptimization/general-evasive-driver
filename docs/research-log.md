@@ -10801,3 +10801,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M519 redesigns the M520 rerun after M518 shows `tail_offset=8` is invalid for every input pair. The next gate should keep M517 projection-aware replay semantics but use tail offsets `0,2,4`, continue to report invalid-tail counts, and classify positive proof, margin-only signal, control-only sensitivity, fast correction, no-effect, or invalid replay without training or promotion. If valid-offset replay still shows no meaningful wrong-history outcome effect, the next branch should start an L0/L1/L2/L3 history-value ablation instead of forcing artificial wrong-history rows.
 - decision: `admit_m520_valid_offset_projection_outcome_gate`
 - next: `m520-valid-offset-projection-outcome-gate`
+## 20260524T035000Z - m520-valid-offset-projection-outcome-gate
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m520_valid_offset_projection_outcome_gate`
+- artifact: `docs/m520-valid-offset-projection-outcome-gate.md`
+- result: M520 reruns the projection-aware boundary outcome gate with valid offsets `0,2,4`. The run preserves relocated obstacle geometry and is no longer invalid: `239` input pairs produce `638` valid tail pairs and `79` invalid tail pairs. The classification is `margin_only_projected_history_signal`. Wrong-history has only `1` source-narrow margin proof candidate and `0` event rows; reset/zero controls have `10` proof candidates and `0` event rows. This confirms M518's invalidity was caused by offset `8`, but it still does not establish source-diverse wrong-history outcome proof.
+- decision: `margin_only_projected_history_signal_admit_m521_history_value_ablation_design`
+- next: `m521-history-value-ablation-design`
+## 20260524T040000Z - m521-history-value-ablation-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m521-history-value-ablation-design.md`
+- result: M521 redirects the evidence line from one-shot wrong-history event mining to direct history-value measurement. It defines L0 current-observation diagnostic, L1 one-step command-response feedback, L2 finite command-response window, and L3 online GRU recurrent belief. The first implementation should be diagnostic and non-training: compare the existing M399 L3 checkpoint against at least an L0 reset-hidden-each-step ablation on recent mechanism surfaces, document limitations, and avoid overclaiming L1/L2 until those approximations are implemented.
+- decision: `admit_m522_history_value_ablation_runner`
+- next: `m522-history-value-ablation-runner`

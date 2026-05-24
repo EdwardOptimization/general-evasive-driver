@@ -1,0 +1,84 @@
+{
+  "id": "m522-history-value-ablation-runner",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m520_valid_offset_projection_outcome_gate/summary.json",
+      "runs/m516_boundary_mechanism_projection_selector/targeted_pairs.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m521-history-value-ablation-design.json"
+    ],
+    "parent_objective": [
+      "history-value ablation runner"
+    ],
+    "derived_from": [
+      "m521-history-value-ablation-design"
+    ],
+    "blocked_by": [
+      "m521-history-value-ablation-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m522-history-value-ablation-runner.md",
+  "public_gates": [
+    "run a diagnostic history-value ablation without training",
+    "compare at least L3 normal recurrent rollout against L0 reset-hidden-each-step",
+    "report limitations of L1/L2 if not implemented yet",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not claim feedforward baseline parity without training a matched baseline",
+    "do not hide projected-vs-natural surface provenance"
+  ],
+  "hypothesis": "A diagnostic history-level ablation can measure whether the M399 online GRU recurrent belief state adds near-boundary control value beyond reset-hidden current-feedback rollouts.",
+  "success_criteria": [
+    "history-value ablation runner is implemented",
+    "L3 versus L0 diagnostic runs on at least one recent proof surface",
+    "per-row outcomes and summary tables are written",
+    "surface provenance and ablation limitations are documented",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "runner changes actor inputs",
+    "runner trains or promotes a checkpoint",
+    "runner cannot reproduce normal L3 baseline outcomes",
+    "summary omits surface provenance",
+    "L1/L2 approximations are overclaimed"
+  ],
+  "commands": [
+    {
+      "name": "history_value_ablation_runner",
+      "command": "Implement and run a diagnostic L3-vs-L0 history-value ablation over a compact recent proof surface."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m522-history-value-ablation-runner.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m521-history-value-ablation-design.md",
+    "runs/m520_valid_offset_projection_outcome_gate/summary.json"
+  ],
+  "decision_rule": "M522 is not a checkpoint promotion gate; it should establish whether the harness can measure L3 recurrent history value before any matched baseline training.",
+  "next_blocker": "pending M522 history-value ablation runner"
+}

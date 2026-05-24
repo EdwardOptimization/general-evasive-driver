@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 528,
+        "completed": 530,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m519-valid-offset-projection-outcome-redesign",
+        "task_id": "m521-history-value-ablation-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m519-valid-offset-projection-outcome-redesign.md"
+        "command_log": "docs/m521-history-value-ablation-design.md"
     },
     "next_task": {
-        "id": "m520-valid-offset-projection-outcome-gate",
+        "id": "m522-history-value-ablation-runner",
         "status": "pending",
-        "priority": 5150,
+        "priority": 5170,
         "kind": "gate",
-        "hypothesis": "Removing the globally invalid tail offset 8 from M518 can produce a valid projection-aware outcome classification for the M516 terminal-boundary mechanism surface.",
-        "command": "see experiments/manifests/m520-valid-offset-projection-outcome-gate.json",
+        "hypothesis": "A diagnostic history-level ablation can measure whether the M399 online GRU recurrent belief state adds near-boundary control value beyond reset-hidden current-feedback rollouts.",
+        "command": "see experiments/manifests/m522-history-value-ablation-runner.json",
         "success_artifact": "",
-        "notes": "Pending: run projection-aware outcome gate with tail offsets 0,2,4 without training or promotion"
+        "notes": "Pending: implement and run L3-vs-L0 diagnostic history-value ablation without training or promotion"
     },
-    "updated_at_utc": "20260524T034000Z"
+    "updated_at_utc": "20260524T040000Z"
 }

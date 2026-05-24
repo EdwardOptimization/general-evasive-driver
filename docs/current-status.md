@@ -47,12 +47,12 @@ runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
 
 Status: M400 promotes M399 alpha `0.05` as the current public-gate base after
 six public replay surfaces and behavior seeds pass. This remains the latest
-public-gate base; M487-M519 did not train or promote a checkpoint.
+public-gate base; M487-M521 did not train or promote a checkpoint.
 
 Current blocker:
 
 ```text
-m520-valid-offset-projection-outcome-gate
+m522-history-value-ablation-runner
 ```
 
 Recent progress: M486-M492 is now closed as an artificial tail-forcing
@@ -219,9 +219,24 @@ classify whether the result is positive wrong-history outcome proof,
 margin-only signal, control-only sensitivity, fast correction, no-effect, or
 still invalid replay.
 
-Next step: M520 should run the valid-offset projection-aware boundary outcome
-gate. It should not train, promote, or treat fast correction of wrong history as
-policy failure without evidence.
+M520 runs that valid-offset gate. It preserves relocated obstacle geometry and
+is no longer invalid: `239` input pairs produce `638` valid tail pairs and
+`79` invalid tail pairs. The classification is
+`margin_only_projected_history_signal`. Wrong-history has only `1`
+source-narrow margin candidate and `0` event rows; reset/zero controls have
+`10` proof candidates and `0` event rows. This confirms offset `8` was the M518
+validity problem, but it still does not establish positive source-diverse
+wrong-history outcome proof.
+
+M521 redirects the next evidence line. Rather than force more one-shot
+wrong-history event rows, it designs an L0/L1/L2/L3 history-value ablation:
+L0 current-only diagnostic, L1 one-step feedback, L2 finite command-response
+window, and L3 online GRU recurrent belief.
+
+Next step: M522 should implement and run a diagnostic history-value ablation
+runner, starting with L3 normal recurrent rollout versus L0
+reset-hidden-each-step on a recent proof surface. It should not train or
+promote.
 
 ## Current Evidence
 
