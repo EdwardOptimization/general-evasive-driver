@@ -141,7 +141,7 @@ def project_delta_sequence(
 
 
 def _raw_family(family: str) -> str:
-    return family.removeprefix("projected_")
+    return family.removeprefix("projected_").removeprefix("targeted_")
 
 
 def _structured_delta_sequence(
@@ -153,6 +153,35 @@ def _structured_delta_sequence(
     brake_delta: float,
 ) -> np.ndarray | None:
     raw_family = _raw_family(family)
+    if raw_family == "constant_delta":
+        return np.ones((base.shape[0], 1), dtype=np.float32) * np.asarray(
+            [steer_delta, throttle_delta, brake_delta],
+            dtype=np.float32,
+        )[None, :]
+    if raw_family == "decay_hold":
+        scales = np.linspace(1.0, 0.55, base.shape[0], dtype=np.float32)
+        delta = np.asarray([steer_delta, throttle_delta, brake_delta], dtype=np.float32)
+        return scales[:, None] * delta[None, :]
+    if raw_family == "late_brake_hold":
+        t = np.linspace(0.0, 1.0, base.shape[0], dtype=np.float32)
+        delta_sequence = np.zeros_like(base, dtype=np.float32)
+        delta_sequence[:, 0] = float(steer_delta)
+        delta_sequence[:, 1] = float(throttle_delta)
+        delta_sequence[:, 2] = (0.35 + 0.65 * t) * float(brake_delta)
+        return delta_sequence
+    if raw_family == "steer_build_brake_hold":
+        t = np.linspace(0.0, 1.0, base.shape[0], dtype=np.float32)
+        delta_sequence = np.zeros_like(base, dtype=np.float32)
+        delta_sequence[:, 0] = (0.25 + 0.75 * t) * float(steer_delta)
+        delta_sequence[:, 1] = float(throttle_delta)
+        delta_sequence[:, 2] = float(brake_delta)
+        return delta_sequence
+    if raw_family == "smoothstep_hold":
+        t = np.linspace(0.0, 1.0, base.shape[0], dtype=np.float32)
+        smooth = t * t * (3.0 - 2.0 * t)
+        scale = 0.35 + 0.65 * smooth
+        delta = np.asarray([steer_delta, throttle_delta, brake_delta], dtype=np.float32)
+        return scale[:, None] * delta[None, :]
     if raw_family in {"constant_delta", "decay_pulse", "linear_ramp", "half_sine_pulse", "s_curve_pulse"}:
         scales = projected_sequence_scales(base.shape[0], family)
         delta = np.asarray([steer_delta, throttle_delta, brake_delta], dtype=np.float32)

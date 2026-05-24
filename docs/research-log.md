@@ -11818,3 +11818,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M632 designs a no-training targeted projected shape search for source `8`. M630's top source-8 candidates show a local pattern: K=7 projected constant-delta, `throttle_delta=-0.06`, steer near `0.00` to `0.04`, and brake near `0.04`; best margin improvement is `0.018752`, only `0.001248` below threshold. M633 should run explicit source ids `8`, `0`, `7`, and `30`, treating source `8` as primary, source `0` as secondary, and sources `7` and `30` as regression sentinels. It should test local K=5/K7/K9 projected shape families without changing trust limits, thresholds, training, PPO, promotion, or optimizer admission.
 - decision: `targeted_source8_projected_shape_design_admit_m633`
 - next: `m633-targeted-source8-projected-shape-implementation`
+## 20260524T173000Z - m633-targeted-source8-projected-shape-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m633_targeted_source8_projected_shape`
+- artifact: `docs/m633-targeted-source8-projected-shape-implementation.md`
+- result: M633 implements and runs the explicit source-id targeted projected shape search. It evaluates `10080` candidates on sources `8`, `0`, `7`, and `30`, preserving all trust limits. Source `8` is recovered with best margin improvement `0.026789`, source `0` is recovered with `0.022995`, and source `30` is preserved/improved with `0.029507`. Source `7` regresses: best targeted improvement is `0.019965`, below the `0.02` threshold, leaving `0` accepted targeted candidates for that sentinel. This is a strong targeted diagnostic but not optimizer-ready.
+- decision: `targeted_source8_projected_shape_implementation_pass_admit_audit`
+- next: `m634-targeted-source8-projected-shape-audit`

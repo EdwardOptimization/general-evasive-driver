@@ -62,17 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m633-targeted-source8-projected-shape-implementation
+m634-targeted-source8-projected-shape-audit
 ```
 
-M633 should implement the no-training targeted source-8 projected shape search
-designed in M632. It should run only explicit source ids `8`, `0`, `7`, and
-`30`, with source `8` as primary, source `0` secondary, and sources `7` and
-`30` as regression sentinels. Trust limits and margin/risk thresholds stay
-unchanged.
+M634 should audit M633 before any combined-grid design or optimizer decision.
+M633 strongly recovers sources `8` and `0` and preserves source `30`, but it
+regresses source `7` just below threshold. The next decision is whether to
+design a combined source7-preserving grid; optimizer admission remains blocked.
 
 ## Recent Evidence Line
 
+- M633 implements and runs the source-8 targeted projected search. It evaluates
+  `10080` candidates, preserves trust limits, recovers source `8` with best
+  improvement `0.026789`, recovers source `0` with `0.022995`, and improves
+  source `30` with `0.029507`. Source `7` regresses from accepted to best
+  improvement `0.019965`, just below threshold, so this remains diagnostic and
+  requires M634 audit.
 - M632 designs a source-8 targeted projected shape search. Source `8` is only
   `0.001248` below the margin threshold after M630. The design focuses a local
   microgrid around K=7 constant-delta signs (`throttle_delta=-0.06`, steer near

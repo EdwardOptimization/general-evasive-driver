@@ -69,7 +69,7 @@
   "commands": [
     {
       "name": "targeted_source8",
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.targeted_projected_sequence_shape --checkpoint-policy bc5660=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --source-table runs/m616_expanded_sequence_source_miner/expanded_sequence_source_rows.csv --source-ids 8,0,7,30 --primary-source-id 8 --secondary-source-id 0 --sentinel-source-ids 7,30 --surface-config fresh=configs/ppo_m541_matched_l3_variance_4096.json --surface-config ood=configs/eval_m574_moderate_ood_l3.json --sequence-lengths 5,7,9 --run-dir runs/m633_targeted_source8_projected_shape"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.targeted_projected_sequence_shape --checkpoint-policy bc5660=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --source-table runs/m616_expanded_sequence_source_miner/expanded_sequence_source_rows.csv --baseline-source-summary runs/m630_trust_projected_sequence_shape/source_recovery_summary.csv --source-ids 8,0,7,30 --primary-source-id 8 --secondary-source-id 0 --sentinel-source-ids 7,30 --surface-config fresh=configs/ppo_m541_matched_l3_variance_4096.json --surface-config ood=configs/eval_m574_moderate_ood_l3.json --sequence-lengths 5,7,9 --run-dir runs/m633_targeted_source8_projected_shape"
     }
   ],
   "required_artifacts": [
