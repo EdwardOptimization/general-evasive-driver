@@ -10657,3 +10657,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M503 runs matched-current mining on both M502 boundary-pressure configs. The initial seed blocks `12400`, `12500`, and `12600` produce large surfaces but only `3` probe seeds, so M503 adds source-diversity blocks `12700`, `12800`, and `12900` without retuning mining parameters. The combined surface has `5727` accepted pairs, `3716` physical pair proxies, `6` probe seeds, `3` labels, `3` targets, `2` configs, `2` seed windows, `24` left steps, single-seed share `0.185088`, single-label share `0.479483`, and single-config share `0.507421`. The source-diversity gate passes.
 - decision: `boundary_pressure_matched_surface_pass_admit_m504_targeted_pair_triage`
 - next: `m504-boundary-action-sensitive-targeted-pair-triage`
+## 20260524T011000Z - m504-boundary-action-sensitive-targeted-pair-triage
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m504_boundary_action_sensitive_targeted_pair_triage`
+- artifact: `docs/m504-boundary-action-sensitive-targeted-pair-triage.md`
+- result: M504 runs the action-sensitive selector on the M503 combined surface. It scores `22786` valid decision-offset rows, with `1042` passing first-action threshold and `523` passing trajectory threshold. The targeted surface has `195` rows across `6` seeds, `3` labels, `3` targets, `2` configs, and `4` offsets, with trajectory mean `0.224056` and p90 `0.348210`. Source shares are acceptable, but terminal-boundary coverage fails: only `4` targeted rows have normal margin `<= 0.50`, only `6` have normal margin `<= 1.00`, and targeted count is below the `240` admission threshold.
+- decision: `reject_outcome_gate_admission`
+- next: `m505-terminal-boundary-alignment-redesign`

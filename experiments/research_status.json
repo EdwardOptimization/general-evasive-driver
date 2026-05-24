@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 512,
+        "completed": 513,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m503-natural-boundary-pressure-matched-current-mining",
+        "task_id": "m504-boundary-action-sensitive-targeted-pair-triage",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m503_natural_boundary_pressure_matched_current_summary",
-        "command_log": "docs/m503-natural-boundary-pressure-matched-current-mining.md"
+        "run_dir": "runs/m504_boundary_action_sensitive_targeted_pair_triage",
+        "command_log": "docs/m504-boundary-action-sensitive-targeted-pair-triage.md"
     },
     "next_task": {
-        "id": "m504-boundary-action-sensitive-targeted-pair-triage",
+        "id": "m505-terminal-boundary-alignment-redesign",
         "status": "pending",
-        "priority": 4990,
-        "kind": "gate",
-        "hypothesis": "The M503 boundary-pressure surface contains source-diverse pairs that are both wrong-history action-sensitive and terminal-boundary-sensitive.",
-        "command": "see experiments/manifests/m504-boundary-action-sensitive-targeted-pair-triage.json",
+        "priority": 5000,
+        "kind": "infrastructure",
+        "hypothesis": "M504 failed because action-sensitive rows remain terminal-boundary sparse; the next path should start from low-clearance normal-history states.",
+        "command": "see experiments/manifests/m505-terminal-boundary-alignment-redesign.json",
         "success_artifact": "",
-        "notes": "Pending: select boundary-action-sensitive targeted pairs before any outcome gate; no training or promotion"
+        "notes": "Pending: redesign terminal-boundary-aligned proof path before outcome gates; no training or promotion"
     },
-    "updated_at_utc": "20260524T010000Z"
+    "updated_at_utc": "20260524T011000Z"
 }
