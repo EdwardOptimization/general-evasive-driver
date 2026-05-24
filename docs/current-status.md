@@ -62,16 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m643-source-balanced-bc-v2-objective-design
+m644-source-balanced-bc-v2-objective-implementation
 ```
 
-M643 should design a source-balanced BC-v2 objective using the M641/M642 exact
-sequence corpus. It must keep the P0 actor input contract unchanged, separate
-train sources from source-heldout validation rows, and pre-register exact
-objective and retention gates before any actor update.
+M644 should implement the no-update source-balanced BC-v2 exact evaluator. It
+must load the M641 corpus and BC5660 checkpoint, compute normal-hidden and
+variant-hidden first-action target losses plus source-balanced sequence delta
+metrics, and confirm actor parameters do not change.
 
 ## Recent Evidence Line
 
+- M643 designs the source-balanced BC-v2 objective. The key constraint is that
+  M641 has initial observation/hidden plus target sequences, but not the
+  closed-loop post-target observation sequence. Therefore the next step is not
+  a direct full-actor update. The safe ladder is M644 exact evaluator, then a
+  frozen-actor shadow/head-only smoke, then only later a tightly gated adapter
+  or actor update. Metadata remains objective-only and cannot enter actor
+  inputs.
 - M642 runs exact objective sanity on the M641 sequence corpus. The NPZ and
   metadata align for `431` rows; all rows have nonzero target/base deltas;
   `outside_mask_abs_max` is `0.0`; weighted sequence MSE is `0.002039985`; and

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 651,
+        "completed": 652,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m642-sequence-corpus-exact-objective-sanity",
+        "task_id": "m643-source-balanced-bc-v2-objective-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m642_sequence_corpus_exact_objective_sanity",
-        "command_log": "docs/m642-sequence-corpus-exact-objective-sanity.md"
+        "run_dir": "",
+        "command_log": "docs/m643-source-balanced-bc-v2-objective-design.md"
     },
     "next_task": {
-        "id": "m643-source-balanced-bc-v2-objective-design",
+        "id": "m644-source-balanced-bc-v2-objective-implementation",
         "status": "pending",
-        "priority": 6380,
+        "priority": 6390,
         "kind": "infrastructure",
-        "hypothesis": "The M641/M642 corpus can support a conservative BC-v2 objective design that uses source-balanced masked sequence losses and exact pre/post gates before any actor update.",
-        "command": "see experiments/manifests/m643-source-balanced-bc-v2-objective-design.json",
+        "hypothesis": "The M641 corpus and BC5660 checkpoint can be evaluated by an exact BC-v2 objective that separates normal and variant hidden action losses without changing the actor.",
+        "command": "see experiments/manifests/m644-source-balanced-bc-v2-objective-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design no-oracle source-balanced masked BC-v2 objective and gate order; no training PPO promotion or actor update"
+        "notes": "Pending: implement exact no-update source-balanced BC-v2 objective evaluator; no training PPO promotion or actor update"
     },
-    "updated_at_utc": "20260524T190000Z"
+    "updated_at_utc": "20260524T191000Z"
 }

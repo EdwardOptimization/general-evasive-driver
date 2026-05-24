@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M643 designs a conservative BC-v2 ladder with exact evaluator before head-only smoke and rejects direct full-actor sequence imitation from initial-state sequence targets",
+  "failure_criteria": [
+    "design changes actor input contract",
+    "design allows training without exact objective gates",
+    "design uses source ids or target labels as actor inputs",
+    "design omits source-heldout validation discipline",
+    "design admits promotion from objective-only improvement"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not add source ids target labels or split labels to actor observations",
+    "do not tune on source-heldout validation and report it as unbiased promotion evidence",
+    "do not collapse source-balanced weights into raw row-count weights"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T123515Z",
+  "hypothesis": "The M641/M642 corpus can support a conservative BC-v2 objective design that uses source-balanced masked sequence losses and exact pre/post gates before any actor update.",
+  "lineage": {
+    "blocked_by": [
+      "m642-sequence-corpus-exact-objective-sanity"
+    ],
+    "derived_from": [
+      "m642-sequence-corpus-exact-objective-sanity"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m642-sequence-corpus-exact-objective-sanity.json"
+    ],
+    "parent_dataset": [
+      "runs/m641_source_diverse_sequence_target_corpus/balanced_sequence_target_corpus.npz",
+      "runs/m641_source_diverse_sequence_target_corpus/balanced_sequence_targets.csv",
+      "runs/m642_sequence_corpus_exact_objective_sanity/summary.json",
+      "docs/m642-sequence-corpus-exact-objective-sanity.md"
+    ],
+    "parent_objective": [
+      "design a source-balanced BC-v2 objective using the M641 exact sequence target corpus"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m643-source-balanced-bc-v2-objective-design",
+  "next_blocker": "m644-source-balanced-bc-v2-objective-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_balanced_bc_v2_objective_design_admit_m644",
+  "public_gates": [
+    "design objective terms before actor update",
+    "keep P0 human-view actor input contract unchanged",
+    "separate train source rows from source-heldout validation rows",
+    "pre-register exact objective non-regression gates",
+    "pre-register replay and behavior retention gates before any checkpoint promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m643-source-balanced-bc-v2-objective-design.md",
+    "clearance_margin_mean": "",
+    "decision": "source_balanced_bc_v2_objective_design_admit_m644",
+    "milestone": "m643-source-balanced-bc-v2-objective-design",
+    "reason": "M643 designs a conservative BC-v2 ladder with exact evaluator before head-only smoke and rejects direct full-actor sequence imitation from initial-state sequence targets",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design document specifies trainable scope and frozen components",
+    "design document specifies masked source-balanced objective terms",
+    "design document specifies exact sanity and retention gates",
+    "design document specifies source-heldout evaluation discipline",
+    "no actor update is run",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

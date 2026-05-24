@@ -11908,3 +11908,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M642 runs exact objective sanity on the M641 sequence corpus. The corpus has `431` rows, `9` sources, `72` observation dims, `64` hidden dims, and max sequence length `9`. All `431` rows have nonzero target/base deltas; weighted sequence MSE is `0.002039985`; weighted mean step L2 is `0.077348085`; max sequence step L2 is `0.099999994`; and `outside_mask_abs_max` is `0.0`. Source weights are balanced with max absolute source-weight error `8.28e-10`. Train and source-heldout validation weighted MSE are close at `0.002054882` and `0.002010192`. The corpus is exact-objective usable, but no actor update, PPO, optimizer admission, or promotion occurs.
 - decision: `sequence_corpus_exact_sanity_pass_admit_bc_v2_design`
 - next: `m643-source-balanced-bc-v2-objective-design`
+## 20260524T191000Z - m643-source-balanced-bc-v2-objective-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m643-source-balanced-bc-v2-objective-design.md`
+- result: M643 designs a conservative source-balanced BC-v2 objective path. Because the M641 corpus contains initial observation/hidden and target action sequences but not the post-target observation sequence, it rejects a direct full-actor sequence imitation update. The admitted ladder is M644 exact no-update evaluator, M645 frozen-actor shadow/head-only smoke, then only later tightly gated adapter or actor-update probes. Required M644 metrics include normal-hidden and variant-hidden first-action target losses, sequence delta target metrics, source/split/target summaries, and actor-parameter non-mutation checks. Training, PPO, promotion, and actor updates remain blocked.
+- decision: `source_balanced_bc_v2_objective_design_admit_m644`
+- next: `m644-source-balanced-bc-v2-objective-implementation`
