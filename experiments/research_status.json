@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 610,
+        "completed": 611,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m601-bc-capability-belief-intervention-probe",
+        "task_id": "m602-bc-capability-belief-intervention-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m601_bc_capability_belief_intervention_fresh",
-        "command_log": "docs/m601-bc-capability-belief-intervention-probe.md"
+        "run_dir": "",
+        "command_log": "docs/m602-bc-capability-belief-intervention-audit.md"
     },
     "next_task": {
-        "id": "m602-bc-capability-belief-intervention-audit",
+        "id": "m603-guarded-capability-action-coupling-design",
         "status": "pending",
-        "priority": 5970,
-        "kind": "gate",
-        "hypothesis": "M601 shows capability-belief movement under real-history interventions, but the mixed matched-wrong/delayed results and zero-current dominance must be audited before actor fine-tuning.",
-        "command": "see experiments/manifests/m602-bc-capability-belief-intervention-audit.json",
+        "priority": 5980,
+        "kind": "infrastructure",
+        "hypothesis": "Because M601 shows belief-level real-history movement while M591 shows weak action-level movement, the next repair should be a guarded capability-to-action coupling design rather than PPO or ungrounded action contrast.",
+        "command": "see experiments/manifests/m603-guarded-capability-action-coupling-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit M601 and choose the next no-oracle branch; no training, PPO, promotion, or driver-performance claim"
+        "notes": "Pending: design-only guarded action-coupling objective and exact evaluator; no training, PPO, promotion, or driver-performance claim"
     },
-    "updated_at_utc": "20260524T121000Z"
+    "updated_at_utc": "20260524T122000Z"
 }

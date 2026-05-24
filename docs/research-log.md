@@ -11539,3 +11539,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M601 implements and runs the capability-belief intervention probe from M600. The probe loads the frozen BC5660 actor and M598 capability head, reconstructs M586/M591 snapshots, and compares z-scored capability predictions under normal/reset/delayed/wrong/shuffled/scaled/random hidden and observation-control variants. Fresh has `329` pairs and OOD has `287` pairs. Real-history movement is present: `shuffled_history` passes the M600 rule on fresh and OOD, and `wrong_matched_history` passes on OOD. Fresh `wrong_matched_history` remains just below the mean rule and has only `8 / 329` above-threshold rows; `delayed_history` remains weak on both surfaces. Zero-current remains the strongest deployable positive control. No model is trained, no PPO is run, no checkpoint is promoted, and no driver-improvement claim is made.
 - decision: `bc_capability_belief_intervention_probe_pass_admit_audit`
 - next: `m602-bc-capability-belief-intervention-audit`
+## 20260524T122000Z - m602-bc-capability-belief-intervention-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m602-bc-capability-belief-intervention-audit.md`
+- result: M602 audits M601 before any actor update. The supported diagnosis is that BC5660 hidden state contains readable capability belief and real history substitutions can move that belief, while M591 still shows weak action-level coupling. The result is mixed: shuffled-history passes on fresh/OOD, wrong-matched passes only on OOD, delayed-history remains weak, and zero-current remains dominant. M602 rejects immediate actor fine-tuning, PPO, and ungrounded action separation, and admits a design-only guarded capability-to-action coupling objective with exact no-update evaluator.
+- decision: `bc_capability_belief_intervention_audit_admit_guarded_action_coupling_design`
+- next: `m603-guarded-capability-action-coupling-design`

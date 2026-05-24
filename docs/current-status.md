@@ -62,17 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m602-bc-capability-belief-intervention-audit
+m603-guarded-capability-action-coupling-design
 ```
 
-M602 should audit the M601 capability-belief intervention results before any
-actor update. M601 shows belief-level real-history movement, but the signal is
-mixed: shuffled-history passes on fresh/OOD, wrong-matched history passes on
-OOD but remains weak on fresh, delayed-history remains weak, and zero-current
-response still dominates. Promotion and PPO remain blocked.
+M603 should design a guarded no-oracle capability-to-action coupling objective.
+M602 audited M601 and concluded that belief-level signal exists but action
+coupling remains weak. Immediate actor training, PPO, promotion, and ungrounded
+action separation remain blocked.
 
 ## Recent Evidence Line
 
+- M602 audits M601. The supported diagnosis is belief-level signal without
+  action-use proof: hidden capability movement exists, but M591 still shows
+  real wrong/delayed histories barely move action. M602 admits a design-only
+  guarded action-coupling objective and keeps actor training, PPO, promotion,
+  and ungrounded action separation blocked.
 - M601 implements and runs that probe. Fresh has `329` pairs and OOD has `287`
   pairs. `shuffled_history` passes the admission rule on both surfaces, and
   `wrong_matched_history` passes on OOD with mean z-distance `0.140707` and
