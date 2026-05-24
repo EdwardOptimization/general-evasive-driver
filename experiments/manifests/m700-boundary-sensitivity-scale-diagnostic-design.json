@@ -1,0 +1,107 @@
+{
+  "id": "m700-boundary-sensitivity-scale-diagnostic-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m699-fresh-trajectory-boundary-sampler-audit.md",
+      "runs/m698_fresh_trajectory_boundary_sampler/summary.json",
+      "runs/m698_fresh_trajectory_boundary_sampler/prepass_rows.csv",
+      "runs/m698_fresh_trajectory_boundary_sampler/rejected_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m699-fresh-trajectory-boundary-sampler-audit.json"
+    ],
+    "parent_objective": [
+      "design perturbation-scale and window diagnostic for fresh boundary sampling"
+    ],
+    "derived_from": [
+      "m699-fresh-trajectory-boundary-sampler-audit"
+    ],
+    "blocked_by": [
+      "m699-fresh-trajectory-boundary-sampler-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m700-boundary-sensitivity-scale-diagnostic-design.md",
+  "public_gates": [
+    "design compares perturbation scales before objective design",
+    "design compares snapshot/window targets before objective design",
+    "design reports normal-failed too-safe and sensitivity ratios",
+    "design blocks actor update PPO and promotion",
+    "design preserves P0 actor input contract"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not call large action overrides a deployable policy",
+    "do not accept threshold loosening as source-positive without scale diagnostics",
+    "do not change actor inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "trajectory_terminal_boundary_source_mining",
+    "evidence_axis": "G_source_scale: diagnose windowing and perturbation scale for terminal-boundary source mining",
+    "evidence_increment": "designs a no-training sensitivity-scale diagnostic after M698 fresh sampling produced no accepted rows",
+    "claim_scope": "diagnostic design only, not source success, objective training, PPO, or promotion",
+    "stop_condition": [
+      "stop if design cannot distinguish plausible local perturbations from unrealistic overrides",
+      "stop before objective design unless a later implementation finds accepted rows at registered plausible scales",
+      "stop if the diagnostic would simply loosen thresholds on the same metrics"
+    ],
+    "fallback_plan": [
+      "if larger plausible scales still produce no sensitivity, pivot to scenario construction or base capability improvement",
+      "if only unrealistic scales produce sensitivity, do not admit objective design",
+      "if plausible scales produce rows, audit before objective design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "after scale diagnostic implementation and audit, or earlier if no evaluated rows are produced",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A registered window and perturbation-scale diagnostic can determine whether M698 was empty because the perturbations/window were too conservative or because the base-policy distribution lacks local terminal-boundary sensitivity.",
+  "success_criteria": [
+    "design defines target-obstacle-distance variants",
+    "design defines max-prepass-margin variants",
+    "design defines plausible and stress perturbation scales",
+    "design defines per-scale acceptance and rejection metrics",
+    "design defines negative-result interpretation",
+    "objective actor update PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "design only loosens thresholds without scale reporting",
+    "design admits objective training before source-positive evidence",
+    "design omits normal-failed or too-safe accounting",
+    "design omits perturbation realism boundaries",
+    "design changes actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m700-boundary-sensitivity-scale-diagnostic-design.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m700-boundary-sensitivity-scale-diagnostic-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m699-fresh-trajectory-boundary-sampler-audit.md",
+    "runs/m698_fresh_trajectory_boundary_sampler/summary.json"
+  ],
+  "decision_rule": "M700 is design-only and passes if it defines a no-training sensitivity-scale diagnostic with objective actor update PPO and promotion blocked.",
+  "next_blocker": "m700-boundary-sensitivity-scale-diagnostic-design"
+}

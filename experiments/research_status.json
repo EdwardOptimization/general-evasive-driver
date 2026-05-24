@@ -1,30 +1,29 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 707,
+        "completed": 708,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m698-fresh-trajectory-boundary-sampler-implementation",
+        "task_id": "m699-fresh-trajectory-boundary-sampler-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m698-fresh-trajectory-boundary-sampler-implementation.md",
-        "run_dir": "runs/m698_fresh_trajectory_boundary_sampler",
-        "result_class": "fresh_surface_empty",
-        "accepted_rows": 0
+        "command_log": "docs/m699-fresh-trajectory-boundary-sampler-audit.md",
+        "synthesis_decision": "continue",
+        "next_diagnostic": "boundary sensitivity scale"
     },
     "next_task": {
-        "id": "m699-fresh-trajectory-boundary-sampler-audit",
+        "id": "m700-boundary-sensitivity-scale-diagnostic-design",
         "status": "pending",
-        "priority": 6940,
-        "kind": "gate",
-        "hypothesis": "M698 fresh_surface_empty should be audited before another sampler change; the likely next step is a window/perturbation-scale design rather than objective training.",
-        "command": "see experiments/manifests/m699-fresh-trajectory-boundary-sampler-audit.json",
+        "priority": 6950,
+        "kind": "infrastructure",
+        "hypothesis": "A registered window and perturbation-scale diagnostic can determine whether M698 was empty because the perturbations/window were too conservative or because the base-policy distribution lacks local terminal-boundary sensitivity.",
+        "command": "see experiments/manifests/m700-boundary-sensitivity-scale-diagnostic-design.json",
         "success_artifact": "",
-        "notes": "Pending: synthesize whether next change should target windowing perturbation scale or base-policy distribution"
+        "notes": "Pending: design no-training sensitivity-scale diagnostic before any objective actor update or PPO"
     },
-    "updated_at_utc": "20260524T165659Z"
+    "updated_at_utc": "20260524T170054Z"
 }

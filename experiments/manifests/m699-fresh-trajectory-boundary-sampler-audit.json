@@ -114,5 +114,5 @@
     "docs/m698-fresh-trajectory-boundary-sampler-implementation.md"
   ],
   "decision_rule": "M699 must block objective design and decide whether to continue source mining with a registered window or perturbation-scale change.",
-  "next_blocker": "m699-fresh-trajectory-boundary-sampler-audit"
+  "next_blocker": "m700-boundary-sensitivity-scale-diagnostic-design"
 }
