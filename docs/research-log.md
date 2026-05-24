@@ -11377,3 +11377,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M583 repeats the BC5660 recurrent-ablation benchmark on moderate-OOD seeds `24560..24815`, writing `1280` episode rows. Normal BC5660 scores success/collision/margin `0.621094` / `0.378906` / `0.985368`. `reset_recurrent_state` remains weak with success drop `0.003906` and margin drop `0.012892`. `zero_action_history` is also weak on OOD with margin drop `0.036946`. `zero_current_response` and `zero_all_response` reach strong margin degradation `0.100321`, with success drop and collision increase `0.035156`. This repeats the current-response dependence signal but still does not prove accumulated hidden-state self-ID.
 - decision: `bc5660_ood_response_ablation_positive_admit_m584_audit`
 - next: `m584-bc-recurrent-ablation-audit`
+## 20260524T092000Z - m584-bc-recurrent-ablation-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m584-bc-recurrent-ablation-audit.md`
+- result: M584 audits M582/M583 and separates supported from unsupported claims. The supported claim is that BC5660 uses the current deployable ego/IMU-like response stream on both fresh route and moderate-OOD blocks. The unsupported claim is accumulated online-GRU hidden-state self-ID: `reset_recurrent_state` is weak in both runs, and `zero_action_history` only reaches the meaningful threshold on M582. The audit blocks promotion/PPO and admits a sharper history-intervention design using delayed or wrong recurrent history with outcome metrics.
+- decision: `bc_recurrent_ablation_audit_admit_history_intervention_design`
+- next: `m585-bc5660-history-intervention-design`

@@ -61,13 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m584-bc-recurrent-ablation-audit
+m585-bc5660-history-intervention-design
 ```
 
-M584 should audit M582/M583 ablation evidence and choose the next self-ID
-diagnostic. The current evidence supports deployable current-response
-dependence, but not complete accumulated-hidden belief proof. Promotion and PPO
-remain blocked.
+M585 should design a sharper BC5660 history-intervention gate. The current
+evidence supports deployable current-response dependence, but not complete
+accumulated-hidden belief proof. Promotion and PPO remain blocked.
 
 ## Recent Evidence Line
 
@@ -370,6 +369,11 @@ remain blocked.
   `0.100321`. `reset_recurrent_state` and `zero_action_history` remain below
   meaningful thresholds on OOD. The next step is an audit to separate
   current-response dependence from accumulated hidden-state self-ID claims.
+- M584 audits M582/M583. The supported claim is that BC5660 uses the current
+  deployable ego/IMU-like response stream on both fresh route and moderate-OOD
+  distributions. The unsupported claim is accumulated online-GRU hidden belief:
+  reset-hidden remains weak in both runs. M584 blocks promotion/PPO and admits a
+  sharper history-intervention design using delayed or wrong recurrent history.
 
 ## Near-Term Rule
 

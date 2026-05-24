@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 592,
+        "completed": 593,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m583-bc5660-recurrent-ablation-moderate-ood-eval",
+        "task_id": "m584-bc-recurrent-ablation-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m583_bc5660_recurrent_ablation_moderate_ood_eval",
-        "command_log": "docs/m583-bc5660-recurrent-ablation-moderate-ood-eval.md"
+        "run_dir": "",
+        "command_log": "docs/m584-bc-recurrent-ablation-audit.md"
     },
     "next_task": {
-        "id": "m584-bc-recurrent-ablation-audit",
+        "id": "m585-bc5660-history-intervention-design",
         "status": "pending",
-        "priority": 5790,
-        "kind": "gate",
-        "hypothesis": "Because M582 and M583 show strong zero-current degradation but weak reset-hidden degradation, the next evidence layer should target causal history mismatch rather than treating current-response ablation as complete self-ID proof.",
-        "command": "see experiments/manifests/m584-bc-recurrent-ablation-audit.json",
+        "priority": 5800,
+        "kind": "infrastructure",
+        "hypothesis": "Because current-response ablations are positive but reset-hidden ablations are weak, the next diagnostic should directly intervene on delayed or wrong recurrent history while holding current observation and scene as fixed as possible.",
+        "command": "see experiments/manifests/m585-bc5660-history-intervention-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit fresh-route and moderate-OOD ablation evidence and select next self-ID diagnostic; no promotion"
+        "notes": "Pending: design BC5660 history-intervention gate with outcome metrics and controls; no evaluation or promotion"
     },
-    "updated_at_utc": "20260524T091000Z"
+    "updated_at_utc": "20260524T092000Z"
 }

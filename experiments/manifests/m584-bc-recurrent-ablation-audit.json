@@ -2,7 +2,7 @@
   "id": "m584-bc-recurrent-ablation-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -77,6 +77,6 @@
     "docs/m583-bc5660-recurrent-ablation-moderate-ood-eval.md",
     "docs/m582-bc5660-recurrent-ablation-fresh-route-eval.md"
   ],
-  "decision_rule": "M584 passes if it records the ablation evidence limits and pre-registers the next sharper self-ID diagnostic without promotion, PPO, or actor-contract changes.",
+  "decision_rule": "M584 records that M582/M583 support current-response dependence but not accumulated hidden-state self-ID, and admits a sharper history-intervention design without promotion, PPO, or actor-contract changes.",
   "next_blocker": "m585-bc5660-history-intervention-design"
 }
