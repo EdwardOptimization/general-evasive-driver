@@ -1,0 +1,81 @@
+{
+  "id": "m553-route-screen-v2-runner-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m549_l3_repair_fast_select_ckpt256_seed3540/checkpoints/checkpoint_step_2816.pt"
+    ],
+    "parent_dataset": [
+      "docs/m552-route-screen-v2-retrospective.md",
+      "runs/m552_route_screen_v2_retrospective/summary.json"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l0_variance_4096.json",
+      "configs/ppo_m541_matched_l2_variance_4096.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/ppo_m548_l3_repair_fast_select_ckpt256_4096.json"
+    ],
+    "parent_objective": [
+      "make route-screen v2 reusable after retrospective validation"
+    ],
+    "derived_from": [
+      "m552-route-screen-v2-retrospective"
+    ],
+    "blocked_by": [
+      "m552-route-screen-v2-retrospective"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m553-route-screen-v2-runner-implementation.md",
+  "public_gates": [
+    "implement reusable route-screen v2 runner or selector",
+    "support level-matched env configs for L0/L2/L3 checkpoint observation contracts",
+    "write policy summary, episode rows, decision summary, and no-public-row provenance",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not hard-code M549-only checkpoint paths into core logic",
+    "do not use public frozen-source rows in route-screen v2",
+    "do not remove L0/L2 references"
+  ],
+  "hypothesis": "A reusable route-screen v2 runner will prevent future repair pilots from relying on ad hoc scripts and will enforce the public-neutral L0/L2-referenced pre-public gate.",
+  "success_criteria": [
+    "runner can reproduce the M552 retrospective decision",
+    "tests cover level-matched env configs and L0/L2 reference requirements",
+    "runner artifacts include decision and no-public-row provenance",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "implementation only works for the M549 checkpoint",
+    "implementation cannot evaluate L2 finite-window config",
+    "tests do not protect against public-row leakage"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "Implement route-screen v2 runner and tests; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m553-route-screen-v2-runner-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m552-route-screen-v2-retrospective.md",
+    "runs/m552_route_screen_v2_retrospective/summary.json"
+  ],
+  "decision_rule": "M553 passes only if route-screen v2 becomes reusable and tested. It does not train or promote a checkpoint.",
+  "next_blocker": "pending M553 route-screen v2 runner implementation"
+}

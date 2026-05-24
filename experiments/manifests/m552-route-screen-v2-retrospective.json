@@ -2,7 +2,7 @@
   "id": "m552-route-screen-v2-retrospective",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -18,6 +18,9 @@
       "runs/m550_m549_public_surface_diagnostic_aggregate/summary.json"
     ],
     "parent_config": [
+      "configs/ppo_m541_matched_l0_variance_4096.json",
+      "configs/ppo_m541_matched_l2_variance_4096.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json",
       "configs/ppo_m548_l3_repair_fast_select_ckpt256_4096.json"
     ],
     "parent_objective": [
@@ -84,5 +87,5 @@
     "docs/m550-m549-public-surface-diagnostic.md"
   ],
   "decision_rule": "M552 is a process gate. It validates or rejects the route-screen v2 workflow before more L3 repair training.",
-  "next_blocker": "pending M552 route-screen v2 retrospective"
+  "next_blocker": "m553-route-screen-v2-runner-implementation"
 }

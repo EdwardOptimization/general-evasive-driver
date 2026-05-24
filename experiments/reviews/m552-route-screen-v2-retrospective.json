@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M552 route-screen v2 rejects M549 selected L3 before public eval because success is below L0 and far below L2",
+  "failure_criteria": [
+    "screen uses public frozen-source rows",
+    "screen uses fewer than 64 episodes",
+    "screen lacks L0 and L2 references"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not use M550 public frozen-source rows as selection data",
+    "do not change route-screen v2 thresholds after seeing retrospective result",
+    "do not promote checkpoint from route-screen evidence"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260524T043707Z",
+  "hypothesis": "A stronger public-neutral route-screen v2 should reject the M549 selected checkpoint before public frozen-source diagnostics, preventing the M550 failure pattern.",
+  "lineage": {
+    "blocked_by": [
+      "m551-route-health-screen-redesign"
+    ],
+    "derived_from": [
+      "m551-route-health-screen-redesign"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m549_l3_repair_fast_select_ckpt256_seed3540/checkpoints/checkpoint_step_2816.pt",
+      "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+      "runs/m542_matched_l2_variance_seed3540/checkpoint.pt",
+      "runs/m542_matched_l3_variance_seed3540/checkpoint.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l0_variance_4096.json",
+      "configs/ppo_m541_matched_l2_variance_4096.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/ppo_m548_l3_repair_fast_select_ckpt256_4096.json"
+    ],
+    "parent_dataset": [
+      "docs/m551-route-health-screen-redesign.md",
+      "runs/m550_m549_public_surface_diagnostic_aggregate/summary.json"
+    ],
+    "parent_objective": [
+      "retrospectively test whether route-screen v2 would reject M549 selected checkpoint before public eval"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m552-route-screen-v2-retrospective",
+  "next_blocker": "m553-route-screen-v2-runner-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "route_screen_v2_rejects_m549_admit_m553_runner",
+  "public_gates": [
+    "evaluate L0, L2, original L3, and M549 selected L3 on a public-neutral route distribution",
+    "use at least 64 episodes and obstacle/collision/margin metrics from autodrift.evaluate",
+    "apply M551 route-screen v2 rule without public frozen-source rows",
+    "do not train or promote checkpoint"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m552_route_screen_v2_retrospective/summary.json",
+    "clearance_margin_mean": "0.213472",
+    "decision": "route_screen_v2_rejects_m549_admit_m553_runner",
+    "milestone": "m552-route-screen-v2-retrospective",
+    "reason": "M552 route-screen v2 rejects M549 selected L3 before public eval because success is below L0 and far below L2",
+    "reset_success": "",
+    "success_rate": "0.046875",
+    "termination_rate": "0.953125",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "route-screen v2 artifacts compare all four checkpoints on the same route seeds",
+    "decision clearly states whether M549 selected checkpoint would have been rejected",
+    "failure is classified if route-screen v2 still admits the public-failing checkpoint",
+    "research validation passes"
+  ],
+  "type": "gate"
+}

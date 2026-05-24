@@ -61,12 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m552-route-screen-v2-retrospective
+m553-route-screen-v2-runner-implementation
 ```
 
-M552 should retrospectively run route-screen v2 on L0, L2, original L3, and the
-M549 selected L3 checkpoint to test whether the new public-neutral screen would
-have rejected the public-failing checkpoint before M550.
+M553 should turn the route-screen v2 retrospective script into a reusable,
+tested runner so future repair pilots cannot bypass the public-neutral L0/L2
+pre-public gate.
 
 ## Recent Evidence Line
 
@@ -205,12 +205,16 @@ have rejected the public-failing checkpoint before M550.
   rank checkpoints by obstacle success, clearance margin, collision rate, then
   return. A candidate below L0 on route-screen v2 is blocked from public
   frozen-source eval.
+- M552 retrospectively validates route-screen v2. It uses level-matched env
+  configs so L2 keeps `history_length = 4`, evaluates 64 public-neutral route
+  episodes, and rejects M549 selected L3 before public eval: M549 success
+  `0.046875` is below L0 `0.062500` and far below L2 `0.609375`.
 
 ## Near-Term Rule
 
 Do not treat reset-hidden diagnostics, M528 smoke return, route eval, or
 M537-M543 public diagnostics as private generalization evidence. The next branch
-should run route-screen v2 retrospectively before more L3 repair training. M550
+should make route-screen v2 reusable before more L3 repair training. M550
 remains public diagnostic evidence and cannot support a private generalization
 claim. Any later promotion requires proof retention, generalization retention,
 behavior retention, no contract violation, and clear lineage.

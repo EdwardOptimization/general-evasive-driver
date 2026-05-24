@@ -11089,3 +11089,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M551 redesigns the pre-public route-health screen after M550 showed the 5-episode route pass was too weak. The new route-screen v2 requires a public-neutral route distribution with at least `64` episodes, L0/L2/original-L3 references, obstacle success/collision/margin metrics from `autodrift.evaluate`, and a lexicographic rule that rejects candidates below L0 before public frozen-source eval.
 - decision: `route_health_screen_redesign_admit_m552_retrospective`
 - next: `m552-route-screen-v2-retrospective`
+## 20260524T091000Z - m552-route-screen-v2-retrospective
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m552_route_screen_v2_retrospective`
+- artifact: `docs/m552-route-screen-v2-retrospective.md`
+- result: M552 runs a 64-episode public-neutral route-screen v2 on L0, L2, original L3, and the M549 selected L3. It uses level-matched env configs to preserve observation contracts. Route-screen v2 rejects M549 before public eval because M549 success `0.046875` is below L0 success `0.062500`, and far below L2 success `0.609375`; M549 margin is above L0 but below L2.
+- decision: `route_screen_v2_rejects_m549_admit_m553_runner`
+- next: `m553-route-screen-v2-runner-implementation`
