@@ -62,16 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m609-boundary-conditioned-source-miner-implementation
+m610-boundary-conditioned-grounded-target-miner
 ```
 
-M609 should implement and run the boundary/risk-conditioned source miner
-designed by M608. It should scan the full reconstructable M604 source pool and
-write source-screen artifacts only; action targets, actor training, PPO, and
-promotion remain blocked.
+M610 should run a limited no-training grounded target search on the `17` M609
+boundary rows. Accepted targets, if any, are diagnostic only until source
+diversity is expanded or repeated; actor training, PPO, optimizer admission,
+and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M609 implements and runs the boundary-conditioned source miner. It selects
+  `33` reconstructable full-pool source rows, admits `17` near-boundary rows,
+  and rejects `16` far rows. The `17` rows cover `16` physical pairs, `9` left
+  seeds, `2` surfaces, `2` variants, and `3` targets, but miss the desired
+  `24`-row threshold, so `diversity_pass=false`. A limited diagnostic target
+  search is admitted; training and optimizer admission remain blocked.
 - M608 designs the next source-screen step. M609 should scan the full
   reconstructable M604 source pool, initially `wrong_matched_history` and
   `delayed_history`, run an `80`-step normal baseline continuation, and admit

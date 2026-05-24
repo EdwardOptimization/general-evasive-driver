@@ -11602,3 +11602,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M608 designs the boundary/risk-conditioned source miner needed after M607. The next implementation should scan the full reconstructable M604 source pool, initially `wrong_matched_history` and `delayed_history`, reconstruct BC5660 snapshots, run an `80`-step normal baseline continuation, admit rows with collision, margin `<= 0.50`, or high baseline risk, and write source-rollout, boundary-source, rejected/far-row, and summary artifacts. Target mining, actor training, PPO, and promotion remain blocked until a source-diverse boundary set exists.
 - decision: `boundary_conditioned_grounded_source_design_admit_m609`
 - next: `m609-boundary-conditioned-source-miner-implementation`
+## 20260524T133000Z - m609-boundary-conditioned-source-miner-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m609_boundary_conditioned_source_miner`
+- artifact: `docs/m609-boundary-conditioned-source-miner-implementation.md`
+- result: M609 implements and runs the boundary/risk-conditioned source miner. From `6776` M604 rows it selects `33` reconstructable unique source rows, runs `33` baseline continuations, admits `17` boundary rows, and rejects `16` far rows. Boundary rows include `9` collision rows and `8` margin-window rows. Diversity is good except count: `16` unique physical pairs, `9` left seeds, `2` surfaces, `2` variants, `3` targets, max pair dominance `0.117647`, but total rows `17` is below the desired `24`; therefore `diversity_pass=false`.
+- decision: `boundary_conditioned_source_miner_partial_admit_limited_target_smoke`
+- next: `m610-boundary-conditioned-grounded-target-miner`

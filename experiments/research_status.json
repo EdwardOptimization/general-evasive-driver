@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 617,
+        "completed": 618,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m608-boundary-conditioned-grounded-source-design",
+        "task_id": "m609-boundary-conditioned-source-miner-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m608-boundary-conditioned-grounded-source-design.md"
+        "run_dir": "runs/m609_boundary_conditioned_source_miner",
+        "command_log": "docs/m609-boundary-conditioned-source-miner-implementation.md"
     },
     "next_task": {
-        "id": "m609-boundary-conditioned-source-miner-implementation",
+        "id": "m610-boundary-conditioned-grounded-target-miner",
         "status": "pending",
-        "priority": 6040,
+        "priority": 6050,
         "kind": "infrastructure",
-        "hypothesis": "Scanning the full reconstructable M604 belief-only source pool with baseline boundary/risk rollouts will identify source-diverse near-boundary rows suitable for a second grounded target miner.",
-        "command": "see experiments/manifests/m609-boundary-conditioned-source-miner-implementation.json",
+        "hypothesis": "Restricting grounded action target search to M609 near-boundary source rows will produce stronger simulator margin/risk improvements than the broad M606 belief-only source selection.",
+        "command": "see experiments/manifests/m610-boundary-conditioned-grounded-target-miner.json",
         "success_artifact": "",
-        "notes": "Pending: implement and run boundary-conditioned source miner; write source-screen artifacts only, no action targets, training, PPO, or promotion"
+        "notes": "Pending: run limited diagnostic target-search on 17 M609 boundary rows; no training, PPO, promotion, or optimizer admission"
     },
-    "updated_at_utc": "20260524T132000Z"
+    "updated_at_utc": "20260524T133000Z"
 }
