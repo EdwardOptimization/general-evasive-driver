@@ -11251,3 +11251,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M569 evaluates scaled BC seeds `5660`, `5661`, and `5662` with route-screen v2 on fresh seed `18560`. All three candidates pass L0 success, margin, and collision gates and are L2-competitive. Each has success `0.671875` and collision `0.328125`, matching L2. `BC5660` is selected because it has the best mean clearance margin (`0.950870`, versus L2 `0.936128`).
 - decision: `scaled_bc_route_screen_pass_admit_m570_public_surface_eval`
 - next: `m570-scaled-bc-public-natural-surface-eval`
+## 20260524T070000Z - m570-scaled-bc-public-natural-surface-eval
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m570_scaled_bc_public_natural_surface_eval_aggregate`
+- artifact: `docs/m570-scaled-bc-public-natural-surface-eval.md`
+- result: M570 evaluates selected `BC5660` on the same four public frozen-source natural surfaces used by M543/M550/M565. The aggregate has `8976` outcome rows and `2244` complete quad keys with no incomplete keys, actor-contract change, training, or promotion. `BC5660` matches L2 success/collision (`0.866310` / `0.133690`), has slightly higher mean margin (`1.782199` versus L2 `1.777833`), and strongly repairs original M542 L3 (`+0.195633` paired success, `-0.190731` paired collision, `+0.797390` paired margin). This remains public diagnostic evidence only.
+- decision: `scaled_bc_public_surface_pass_admit_fresh_route_generalization_design`
+- next: `m571-fresh-route-generalization-design`

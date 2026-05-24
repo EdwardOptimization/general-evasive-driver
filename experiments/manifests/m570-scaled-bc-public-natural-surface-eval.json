@@ -2,7 +2,7 @@
   "id": "m570-scaled-bc-public-natural-surface-eval",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -84,6 +84,6 @@
     "docs/m569-scaled-bc-route-screen-selection.md",
     "docs/m565-bc-public-natural-surface-eval.md"
   ],
-  "decision_rule": "M570 is a public diagnostic. It can admit fresh non-public generalization gates if BC5660 is L2-competitive, but it cannot promote the checkpoint.",
-  "next_blocker": "pending M570 scaled BC public natural-surface eval"
+  "decision_rule": "M570 passes as a public diagnostic because BC5660 is L2-competitive on success/collision/margin and repairs M542 L3; it admits M571 fresh route/generalization design but cannot promote a checkpoint.",
+  "next_blocker": "m571-fresh-route-generalization-design"
 }

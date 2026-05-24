@@ -61,12 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m570-scaled-bc-public-natural-surface-eval
+m571-fresh-route-generalization-design
 ```
 
-M570 should evaluate selected scaled checkpoint `BC5660` on the four public
-frozen-source natural surfaces. M569 admitted public diagnostics, but this is
-still not a private generalization claim or checkpoint promotion.
+M571 should design fresh non-public route/generalization gates for selected
+scaled checkpoint `BC5660`. M570 passed public frozen-source diagnostics, but
+this is still not a private generalization claim or checkpoint promotion.
 
 ## Recent Evidence Line
 
@@ -288,11 +288,17 @@ still not a private generalization claim or checkpoint promotion.
   clear route-screen, match L2 success/collision (`0.671875` / `0.328125`), and
   beat L2 mean margin slightly. `BC5660` is selected with mean margin
   `0.950870`, ahead of L2 `0.936128`. No checkpoint is promoted.
+- M570 evaluates selected `BC5660` on the four public frozen-source natural
+  surfaces used by M543/M550/M565. It matches L2 success/collision
+  (`0.866310` / `0.133690`), has slightly higher mean margin (`1.782199`
+  versus L2 `1.777833`), and strongly repairs original M542 L3 (`+0.195633`
+  paired success, `-0.190731` paired collision, `+0.797390` paired margin).
+  This is public diagnostic evidence only; no checkpoint is promoted.
 
 ## Near-Term Rule
 
 Do not treat reset-hidden diagnostics, M528 smoke return, route eval, or
-M537-M543 public diagnostics as private generalization evidence. The L2-to-L3
+M537-M570 public diagnostics as private generalization evidence. The L2-to-L3
 distillation branch must keep L2 finite-window stacks training-only. Offline BC
 may optimize teacher-action MSE only; any checkpoint still needs route-screen v2
 before public frozen-source eval. M550 remains public diagnostic evidence and
