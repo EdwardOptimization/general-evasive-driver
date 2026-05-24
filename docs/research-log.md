@@ -11593,3 +11593,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M607 audits the M606 zero-accepted target-mining result. The selected source rows are mostly far from the short-horizon boundary: median baseline margin `2.729036`, mean `2.833607`, only `3 / 23` rows with margin `< 0`, and `4 / 23` rows with margin `<= 0.5`. The best trust-region improvement is `0.013046`, below the pre-registered `0.02` threshold, and even a diagnostic `0.015` threshold would accept no rows. The blocker is classified as primarily source-row boundary-distance, secondarily first-action locality / weak short-horizon utility, and not primarily threshold artifact.
 - decision: `grounded_target_mining_audit_admit_boundary_conditioned_source_design`
 - next: `m608-boundary-conditioned-grounded-source-design`
+## 20260524T132000Z - m608-boundary-conditioned-grounded-source-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m608-boundary-conditioned-grounded-source-design.md`
+- result: M608 designs the boundary/risk-conditioned source miner needed after M607. The next implementation should scan the full reconstructable M604 source pool, initially `wrong_matched_history` and `delayed_history`, reconstruct BC5660 snapshots, run an `80`-step normal baseline continuation, admit rows with collision, margin `<= 0.50`, or high baseline risk, and write source-rollout, boundary-source, rejected/far-row, and summary artifacts. Target mining, actor training, PPO, and promotion remain blocked until a source-diverse boundary set exists.
+- decision: `boundary_conditioned_grounded_source_design_admit_m609`
+- next: `m609-boundary-conditioned-source-miner-implementation`

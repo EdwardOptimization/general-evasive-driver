@@ -62,15 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m608-boundary-conditioned-grounded-source-design
+m609-boundary-conditioned-source-miner-implementation
 ```
 
-M608 should design boundary/risk-conditioned source selection before rerunning
-grounded target mining. M607 found that M606 zero-accepted targets are primarily
-a source-row boundary-distance problem, not an acceptance-threshold artifact.
+M609 should implement and run the boundary/risk-conditioned source miner
+designed by M608. It should scan the full reconstructable M604 source pool and
+write source-screen artifacts only; action targets, actor training, PPO, and
+promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M608 designs the next source-screen step. M609 should scan the full
+  reconstructable M604 source pool, initially `wrong_matched_history` and
+  `delayed_history`, run an `80`-step normal baseline continuation, and admit
+  rows only when collision, margin `<= 0.50`, or high baseline risk makes them
+  boundary/risk candidates. M609 should write source-rollouts, boundary-source
+  rows, rejected/far rows, and summary artifacts, but no action targets.
 - M607 audits M606 and classifies the zero-accepted result as primarily
   source-row boundary-distance. Baseline source margins are mostly far from the
   short-horizon boundary: median `2.729036`, mean `2.833607`, only `3 / 23`
