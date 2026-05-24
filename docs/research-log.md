@@ -10927,3 +10927,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M533 repeats the frozen M531 configs on seeds `3531` and `3532` and aggregates them with M532 seed `3530`. All nine runs complete and write valid `history_baseline` metadata. Three-seed average return/termination is L0 `27.3016`/`0.8667`, L2 `39.9082`/`0.6667`, and L3 `45.7765`/`0.6`. L3 has the best aggregate, but L2 wins seed `3531`, so this remains preliminary route evidence rather than a final ranking.
 - decision: `matched_short_train_repeat_pass_admit_m534_natural_surface_eval_design`
 - next: `m534-matched-history-natural-surface-eval-design`
+## 20260524T061000Z - m534-matched-history-natural-surface-eval-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m534-matched-history-natural-surface-eval-design.md`
+- result: M534 designs a frozen source-surface evaluator for matched L0/L2/L3 natural history-value evaluation. Existing `tail_aligned_wrong_history_gate` is not sufficient because it requires an online recurrent checkpoint and reconstructs states using the evaluated policy. The next evaluator should use M399 to reconstruct public natural source states, then replay trained L0/L2/L3 checkpoints from the same frozen source env/observation/history. M526 event rows stay public diagnostic overlays, projected surfaces remain separate, and no promotion or private-holdout claim is admitted.
+- decision: `admit_m535_frozen_source_surface_eval_implementation`
+- next: `m535-frozen-source-surface-eval-implementation`

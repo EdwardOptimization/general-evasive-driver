@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 542,
+        "completed": 543,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m533-matched-short-train-repeat-seeds",
+        "task_id": "m534-matched-history-natural-surface-eval-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m533_matched_l3_short_train_seed3532",
-        "command_log": "docs/m533-matched-short-train-repeat-seeds.md"
+        "run_dir": "",
+        "command_log": "docs/m534-matched-history-natural-surface-eval-design.md"
     },
     "next_task": {
-        "id": "m534-matched-history-natural-surface-eval-design",
+        "id": "m535-frozen-source-surface-eval-implementation",
         "status": "pending",
-        "priority": 5290,
+        "priority": 5300,
         "kind": "infrastructure",
-        "hypothesis": "A natural-surface evaluation can be designed for the matched short-train checkpoints so the project measures whether trained L2/L3 policies preserve the M524/M526 history-value event advantage rather than only improving smoke returns.",
-        "command": "see experiments/manifests/m534-matched-history-natural-surface-eval-design.json",
+        "hypothesis": "A frozen source-surface evaluator can be implemented so trained L0, L2, and L3 baselines can be compared on matched natural source states rather than on divergent self-generated trajectories.",
+        "command": "see experiments/manifests/m535-frozen-source-surface-eval-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: define public diagnostic natural-surface eval mapping and metrics before execution"
+        "notes": "Pending: add evaluator and focused tests before running natural-surface smoke"
     },
-    "updated_at_utc": "20260524T060000Z"
+    "updated_at_utc": "20260524T061000Z"
 }

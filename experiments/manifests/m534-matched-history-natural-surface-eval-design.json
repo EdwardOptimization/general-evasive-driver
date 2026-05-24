@@ -2,7 +2,7 @@
   "id": "m534-matched-history-natural-surface-eval-design",
   "type": "infrastructure",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -42,10 +42,10 @@
   },
   "review_artifact": "docs/reviews/m534-matched-history-natural-surface-eval-design.md",
   "public_gates": [
-    "design natural history-value surface eval for trained L0/L2/L3 checkpoints",
-    "keep M526 natural event rows as public diagnostic surfaces",
-    "preserve projected-vs-natural provenance",
-    "do not promote a checkpoint from route metrics alone"
+    "designed natural history-value surface eval for trained L0/L2/L3 checkpoints",
+    "kept M526 natural event rows as public diagnostic surfaces",
+    "preserved projected-vs-natural provenance",
+    "no checkpoint promoted from route metrics alone"
   ],
   "private_holdout_policy": "not_used",
   "forbidden_shortcuts": [
@@ -70,7 +70,7 @@
   "commands": [
     {
       "name": "natural_surface_eval_design",
-      "command": "Design the matched L0/L2/L3 natural history-value surface evaluation after M533 repeat-seed route success."
+      "command": "Designed the frozen source-surface evaluator semantics for matched L0/L2/L3 natural history-value evaluation after M533 repeat-seed route success."
     }
   ],
   "required_artifacts": [
@@ -87,5 +87,7 @@
     "runs/m526_history_value_event_audit/summary.json"
   ],
   "decision_rule": "M534 is a design gate. It should not run the natural-surface evaluation until the trained-checkpoint mapping and evidence boundaries are explicit.",
-  "next_blocker": "pending M534 matched history natural surface eval design"
+  "scoreboard_decision": "admit_m535_frozen_source_surface_eval_implementation",
+  "scoreboard_reason": "M534 designs a frozen M399 source-surface evaluator so trained L0 L2 and L3 checkpoints can be compared on matched natural states without mixing projected surfaces or claiming private holdout evidence.",
+  "next_blocker": "m535-frozen-source-surface-eval-implementation"
 }

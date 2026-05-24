@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M534 designs frozen M399 source-surface evaluation so trained L0 L2 and L3 can be compared on matched natural states without projected-surface leakage",
+  "failure_criteria": [
+    "design uses projected rows as natural evidence",
+    "design tunes checkpoint selection from diagnostic rows before declaring evidence",
+    "design omits metadata checks",
+    "checkpoint promotion is performed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not tune checkpoint choice on the same natural diagnostic rows and call it unbiased",
+    "do not mix projected and natural rows in one claim",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260524T030620Z",
+  "hypothesis": "A natural-surface evaluation can be designed for the matched short-train checkpoints so the project measures whether trained L2/L3 policies preserve the M524/M526 history-value event advantage rather than only improving smoke returns.",
+  "lineage": {
+    "blocked_by": [
+      "m533-matched-short-train-repeat-seeds"
+    ],
+    "derived_from": [
+      "m533-matched-short-train-repeat-seeds",
+      "m526-history-value-event-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m532_matched_l0_short_train_seed3530/checkpoint.pt",
+      "runs/m532_matched_l2_short_train_seed3530/checkpoint.pt",
+      "runs/m532_matched_l3_short_train_seed3530/checkpoint.pt",
+      "runs/m533_matched_l0_short_train_seed3531/checkpoint.pt",
+      "runs/m533_matched_l2_short_train_seed3531/checkpoint.pt",
+      "runs/m533_matched_l3_short_train_seed3531/checkpoint.pt",
+      "runs/m533_matched_l0_short_train_seed3532/checkpoint.pt",
+      "runs/m533_matched_l2_short_train_seed3532/checkpoint.pt",
+      "runs/m533_matched_l3_short_train_seed3532/checkpoint.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m531_matched_l0_short_train.json",
+      "configs/ppo_m531_matched_l2_short_train.json",
+      "configs/ppo_m531_matched_l3_short_train.json"
+    ],
+    "parent_dataset": [
+      "runs/m526_history_value_event_audit/summary.json",
+      "runs/m524_natural_history_value_ablation/summary.json"
+    ],
+    "parent_objective": [
+      "matched baseline natural history-value surface evaluation"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m534-matched-history-natural-surface-eval-design",
+  "next_blocker": "m535-frozen-source-surface-eval-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m535_frozen_source_surface_eval_implementation",
+  "public_gates": [
+    "designed natural history-value surface eval for trained L0/L2/L3 checkpoints",
+    "kept M526 natural event rows as public diagnostic surfaces",
+    "preserved projected-vs-natural provenance",
+    "no checkpoint promoted from route metrics alone"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m535_frozen_source_surface_eval_implementation",
+    "milestone": "m534-matched-history-natural-surface-eval-design",
+    "reason": "M534 designs frozen M399 source-surface evaluation so trained L0 L2 and L3 can be compared on matched natural states without projected-surface leakage",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "define which natural surfaces and metrics to evaluate",
+    "define how to map trained L0/L2/L3 checkpoints into the evaluation harness",
+    "define public diagnostic versus future holdout usage",
+    "select the next executable natural-surface eval milestone"
+  ],
+  "type": "infrastructure"
+}

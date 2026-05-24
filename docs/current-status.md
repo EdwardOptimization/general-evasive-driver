@@ -61,13 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m534-matched-history-natural-surface-eval-design
+m535-frozen-source-surface-eval-implementation
 ```
 
-M534 should design the natural history-value surface evaluation for the matched
-short-train checkpoints. It must keep M524/M526 rows as public diagnostics,
-preserve projected-vs-natural provenance, and avoid checkpoint promotion or
-unbiased-holdout claims.
+M535 should implement the frozen source-surface evaluator designed in M534. The
+key requirement is to compare trained L0/L2/L3 checkpoints on the same M399
+natural source states rather than on divergent self-generated trajectories.
 
 ## Recent Evidence Line
 
@@ -104,6 +103,11 @@ unbiased-holdout claims.
   L2 is second (`39.9082`/`0.6667`), and L0 is third (`27.3016`/`0.8667`).
   This is preliminary route evidence only; natural history-value surface eval is
   the next evidence layer.
+- M534 designed that next layer. Existing recurrent-only tail gates are not
+  enough for matched L0/L2/L3 evaluation, so the next tool must reconstruct
+  natural source states with M399, replay L0/L2/L3 from the same frozen
+  state/history, keep M526 rows as public diagnostics, and exclude projected
+  surfaces from natural claims.
 
 ## Near-Term Rule
 
