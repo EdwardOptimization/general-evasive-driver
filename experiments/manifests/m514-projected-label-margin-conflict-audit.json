@@ -2,7 +2,7 @@
   "id": "m514-projected-label-margin-conflict-audit",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -80,5 +80,29 @@
     "runs/m512_label_targeted_projection_miner/summary.json"
   ],
   "decision_rule": "M514 is an audit milestone; it may not admit outcome testing directly.",
-  "next_blocker": "pending M514 projected label-margin conflict audit"
+  "next_blocker": "M515 should pre-register a proof/scenario gate split before another selector.",
+  "results": {
+    "run_dir": "runs/m514_projected_label_margin_conflict_audit",
+    "source_pair_count": 180,
+    "projected_candidate_count": 78490,
+    "scored_pair_count": 78490,
+    "projected_obstacle_label_count": 4,
+    "scored_by_projected_obstacle_label": {
+      "aeb_feasible": 1485,
+      "aes_feasible": 417,
+      "drift_required": 10609,
+      "unavoidable": 65979
+    },
+    "non_unavoidable_row_count": 12511,
+    "non_unavoidable_min_normal_margin": 6.505553184554325,
+    "low_margin_threshold": 2.0,
+    "low_margin_non_unavoidable_count": 0,
+    "soft_low_margin_non_unavoidable_count": 0,
+    "low_margin_non_unavoidable_exists": false,
+    "recommended_next_path": "pre_register_proof_scenario_gate_split",
+    "actor_contract_changed": false,
+    "training_or_promotion_performed": false,
+    "artifact": "docs/m514-projected-label-margin-conflict-audit.md",
+    "summary": "M514 confirms that projected scenario-label diversity exists only away from terminal-boundary low-margin rows under the current M502 source states and projection families."
+  }
 }

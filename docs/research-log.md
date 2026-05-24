@@ -10747,3 +10747,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M513 designs a label-margin conflict audit. The next task should test whether any broader diagnostic projection family can produce non-unavoidable projected rows with normal margin `<= 2.0` and nonzero wrong-history action signal. If not, the project should split mechanism proof admission from broad scenario-label diversity evaluation in a pre-registered way rather than relaxing M512 post hoc.
 - decision: `admit_m514_projected_label_margin_conflict_audit`
 - next: `m514-projected-label-margin-conflict-audit`
+## 20260524T025000Z - m514-projected-label-margin-conflict-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m514_projected_label_margin_conflict_audit`
+- artifact: `docs/m514-projected-label-margin-conflict-audit.md`
+- result: M514 implements and runs the projected label-margin conflict audit over `180` M508 source pairs and `78490` projected candidates. The scored table contains `4` projected labels: `65979` unavoidable, `10609` drift_required, `1485` aeb_feasible, and `417` aes_feasible. However, all rows with normal margin `<= 4.0` are still `unavoidable`; the lowest non-unavoidable normal margin is `6.505553`, and the low-margin non-unavoidable count at the pre-registered `2.0` threshold is `0`.
+- decision: `confirm_label_margin_conflict_admit_m515_gate_split`
+- next: `m515-proof-scenario-gate-split-design`
+## 20260524T030000Z - m515-proof-scenario-gate-split-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m515-proof-scenario-gate-split-design.md`
+- result: M515 pre-registers a split between terminal-boundary mechanism proof gates and broad scenario-distribution gates. Mechanism proof should use source, config, target, projected obstacle geometry, projection bucket diversity, and terminal-margin/action signal; projected scenario-label diversity is logged but not required for this proof surface because M514 shows it is structurally separated from low-margin rows. Scenario-label diversity moves to a separate distribution gate and cannot be used to tune or repair mechanism rows.
+- decision: `admit_m516_boundary_mechanism_projection_selector`
+- next: `m516-boundary-mechanism-projection-selector`

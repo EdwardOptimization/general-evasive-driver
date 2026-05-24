@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 522,
+        "completed": 524,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m513-projected-label-margin-conflict-design",
+        "task_id": "m515-proof-scenario-gate-split-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m513-projected-label-margin-conflict-design.md"
+        "command_log": "docs/m515-proof-scenario-gate-split-design.md"
     },
     "next_task": {
-        "id": "m514-projected-label-margin-conflict-audit",
+        "id": "m516-boundary-mechanism-projection-selector",
         "status": "pending",
-        "priority": 5090,
+        "priority": 5110,
         "kind": "gate",
-        "hypothesis": "A broader diagnostic projection grid can determine whether M512's label-diversity failure is structural or merely a missing projection-family issue.",
-        "command": "see experiments/manifests/m514-projected-label-margin-conflict-audit.json",
+        "hypothesis": "Using geometry/source diversity instead of projected-label diversity for terminal-boundary mechanism proof will yield a valid proof surface from M514 scored rows.",
+        "command": "see experiments/manifests/m516-boundary-mechanism-projection-selector.json",
         "success_artifact": "",
-        "notes": "Pending: run label-margin conflict audit without training promotion or outcome gate admission"
+        "notes": "Pending: implement and run a mechanism proof selector over M514 scored rows without training or promotion"
     },
-    "updated_at_utc": "20260524T024000Z"
+    "updated_at_utc": "20260524T030000Z"
 }

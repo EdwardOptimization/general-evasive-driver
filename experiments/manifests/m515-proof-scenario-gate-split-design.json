@@ -1,0 +1,89 @@
+{
+  "id": "m515-proof-scenario-gate-split-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m514_projected_label_margin_conflict_audit/summary.json",
+      "runs/m514_projected_label_margin_conflict_audit/label_margin_summary.csv",
+      "runs/m514_projected_label_margin_conflict_audit/margin_bucket_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m514-projected-label-margin-conflict-audit.json"
+    ],
+    "parent_objective": [
+      "proof/scenario gate split design"
+    ],
+    "derived_from": [
+      "m514-projected-label-margin-conflict-audit"
+    ],
+    "blocked_by": [
+      "m514-projected-label-margin-conflict-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m515-proof-scenario-gate-split-design.md",
+  "public_gates": [
+    "pre-register mechanism proof gate separate from scenario-label distribution gate",
+    "define geometry/source diversity requirements for terminal-boundary proof rows",
+    "define broad scenario distribution evidence as a separate gate",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not claim mechanism rows prove scenario-label generalization",
+    "do not use scenario labels as actor inputs"
+  ],
+  "hypothesis": "Because M514 confirms projected scenario labels and terminal-boundary low margins are structurally separated, proof admission should use geometry/source diversity while scenario-label diversity moves to a separate distribution gate.",
+  "success_criteria": [
+    "define mechanism proof gate criteria",
+    "define scenario distribution gate criteria",
+    "state what M516 should implement",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "design treats the split as a post-hoc success of M512",
+    "design removes diversity requirements instead of moving label diversity to a separate gate",
+    "design uses labels as actor inputs",
+    "actor contract changes",
+    "training or checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "proof_scenario_gate_split_design",
+      "command": "Use M514 artifacts to design a proof/scenario gate split before another selector."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m515-proof-scenario-gate-split-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m514-projected-label-margin-conflict-audit.md",
+    "runs/m514_projected_label_margin_conflict_audit/summary.json"
+  ],
+  "decision_rule": "M515 should admit M516 only if the next selector uses source/config/target/geometry diversity for mechanism proof and keeps scenario-label diversity as separate distribution evidence.",
+  "next_blocker": "M516 should implement a boundary mechanism projection selector over M514 scored rows.",
+  "results": {
+    "artifact": "docs/m515-proof-scenario-gate-split-design.md",
+    "selected_next_path": "boundary_mechanism_projection_selector",
+    "next_task": "m516-boundary-mechanism-projection-selector"
+  }
+}
