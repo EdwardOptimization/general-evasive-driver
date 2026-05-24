@@ -12876,3 +12876,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M758 implements and runs the no-training exact/offline objective sanity evaluator. It reconstructs `1213/1213` M755 positive groups with `0` metadata misses, `0` missing normal rows, `0` missing source snapshots, and `0` rejected rows. Exact metrics are finite: normal anchor MSE mean `0.0`, intervention anchor MSE mean `0.0`, normal-intervention gap mean `0.024908`, gap p10 `0.021141`, target gap mean `0.041716`, and gap deficit mean `0.016809`. Hard-negative availability remains sparse at `0.721352`, so result_class is `v4_sequence_objective_hard_negative_sparse`. Checkpoint loading was eval-only; no optimizer, PPO, promotion, or actor mutation occurred.
 - decision: `v4_sequence_objective_hard_negative_sparse_admit_audit`
 - next: `m759-v4-sequence-objective-sanity-audit`
+
+## 20260525T051000Z - m759-v4-sequence-objective-sanity-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m759-v4-sequence-objective-sanity-audit.md`
+- result: M759 audits M758 as a clean no-training exact objective sanity result, not a trained-driver improvement. It supports that the M755 corpus is reconstructable and numerically non-degenerate, while preserving the `scenario_sampling_failure` risk from hard-negative availability `0.721352`. The audit admits only no-PPO objective-only probe design with exact before/after M758 metrics, normal-history retention, first-action safety gates, sparse hard-negative handling, and no checkpoint promotion.
+- decision: `promote_to_v4_sequence_objective_only_probe_design`
+- next: `m760-v4-sequence-objective-only-probe-design`

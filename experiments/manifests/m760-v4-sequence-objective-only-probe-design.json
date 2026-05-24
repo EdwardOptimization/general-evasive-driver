@@ -1,0 +1,109 @@
+{
+  "id": "m760-v4-sequence-objective-only-probe-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m759-v4-sequence-objective-sanity-audit.md",
+      "runs/m758_v4_sequence_objective_sanity/summary.json",
+      "runs/m758_v4_sequence_objective_sanity/objective_rows.csv",
+      "runs/m758_v4_sequence_objective_sanity/objective_metrics.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m759-v4-sequence-objective-sanity-audit.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_objective": [
+      "design no-PPO objective-only probe from M758 exact sanity result"
+    ],
+    "derived_from": [
+      "m759-v4-sequence-objective-sanity-audit"
+    ],
+    "blocked_by": [
+      "m759-v4-sequence-objective-sanity-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m760-v4-sequence-objective-only-probe-design.md",
+  "public_gates": [
+    "M760 designs a small objective-only probe",
+    "M760 requires exact before/after M758 metrics",
+    "M760 requires normal-history and first-action retention gates",
+    "M760 keeps sparse hard-negative handling explicit",
+    "PPO and checkpoint promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not ignore hard-negative sparsity",
+    "do not allow hidden fault labels into actor observations",
+    "do not skip exact before/after objective metrics"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_sequence_objective_only_probe",
+    "evidence_axis": "G_actor_coupling: design no-PPO objective-only actor probe",
+    "evidence_increment": "designs a small-step actor-coupling probe guarded by M758 exact metrics and retention gates",
+    "claim_scope": "design only; no actor update or policy improvement claim",
+    "stop_condition": [
+      "stop if design cannot protect normal history",
+      "stop if design cannot report exact before/after M758 metrics",
+      "stop if design depends on complete hard negatives",
+      "stop if design admits PPO or promotion directly"
+    ],
+    "fallback_plan": [
+      "if normal retention cannot be gated, return to objective design",
+      "if hard negatives are too sparse, use positives-plus-normal probe only",
+      "if actor coupling risk is too high, design shadow-head probe first",
+      "if exact metrics are insufficient, extend M758 evaluator before actor update"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M759 admits objective-only probe design",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A small no-PPO objective-only probe can be designed with exact metrics and retention gates before any actor update is attempted.",
+  "success_criteria": [
+    "M760 defines objective-only update scope",
+    "M760 defines exact M758 before/after gates",
+    "M760 defines normal-history and first-action retention gates",
+    "M760 defines sparse hard-negative handling",
+    "M760 defines alpha/interpolation and stop rules",
+    "M760 admits only an implementation probe and blocks PPO promotion"
+  ],
+  "failure_criteria": [
+    "design admits PPO or promotion",
+    "design lacks exact before/after metrics",
+    "design ignores normal-history retention",
+    "design requires complete hard negatives",
+    "design leaks hidden labels into actor inputs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m760-v4-sequence-objective-only-probe-design.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m760-v4-sequence-objective-only-probe-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m758_v4_sequence_objective_sanity/summary.json",
+    "docs/m759-v4-sequence-objective-sanity-audit.md"
+  ],
+  "decision_rule": "M760 may only design a no-PPO objective-only probe. It must not implement actor updates PPO or promotion until a follow-up implementation manifest is registered.",
+  "next_blocker": "m761-v4-sequence-objective-only-probe-implementation"
+}

@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 767,
+        "completed": 768,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m758-v4-sequence-objective-sanity-implementation",
+        "task_id": "m759-v4-sequence-objective-sanity-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m758-v4-sequence-objective-sanity-implementation.md"
+        "command_log": "docs/m759-v4-sequence-objective-sanity-audit.md"
     },
     "next_task": {
-        "id": "m759-v4-sequence-objective-sanity-audit",
+        "id": "m760-v4-sequence-objective-only-probe-design",
         "status": "pending",
-        "priority": 7540,
-        "kind": "gate",
-        "hypothesis": "Audit exact v4 sequence objective sanity result",
-        "command": "see experiments/manifests/m759-v4-sequence-objective-sanity-audit.json",
-        "success_artifact": "docs/m759-v4-sequence-objective-sanity-audit.md",
-        "notes": "Pending: audit M758 reconstruction exact metrics hard-negative sparsity and no-training guarantees before objective-only probe design"
+        "priority": 7550,
+        "kind": "infrastructure",
+        "hypothesis": "Design no-PPO v4 sequence objective-only probe",
+        "command": "see experiments/manifests/m760-v4-sequence-objective-only-probe-design.json",
+        "success_artifact": "docs/m760-v4-sequence-objective-only-probe-design.md",
+        "notes": "Pending: design small objective-only actor probe with exact M758 metrics normal retention and no PPO"
     },
-    "updated_at_utc": "20260525T050000Z"
+    "updated_at_utc": "20260525T051000Z"
 }

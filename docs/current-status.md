@@ -62,16 +62,19 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m759-v4-sequence-objective-sanity-audit
+m760-v4-sequence-objective-only-probe-design
 ```
 
-M759 should audit M758's no-training exact/offline objective sanity result
-before any objective-only actor probe. M758 reconstructed `1213/1213` samples
-with finite exact metrics and no actor mutation, but hard-negative availability
-remains sparse at `0.721352`, so PPO/promotion remain blocked.
+M760 should design a small no-PPO objective-only actor probe with exact
+before/after M758 metrics, normal-history retention, first-action safety gates,
+and sparse hard-negative handling. PPO and checkpoint promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M759 audits M758 as a clean no-training exact objective sanity result, not a
+  trained-driver improvement. It admits only objective-only probe design with
+  exact before/after metrics and normal-retention gates. PPO/promotion remain
+  blocked.
 - M758 implements and runs the no-training exact/offline v4 sequence objective
   sanity evaluator. It reconstructs `1213/1213` M755 positive groups with no
   metadata misses, no missing normals, no missing snapshots, and no rejected
