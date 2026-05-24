@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 564,
+        "completed": 565,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m555-l3-repair-v2-config-family",
+        "task_id": "m556-l3-repair-v2-route-screen-selection",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m555-l3-repair-v2-config-family.md"
+        "run_dir": "runs/m556_l3_repair_v2_route_screen_selection",
+        "command_log": "docs/m556-l3-repair-v2-route-screen-selection.md"
     },
     "next_task": {
-        "id": "m556-l3-repair-v2-route-screen-selection",
+        "id": "m557-m556-route-screen-failure-audit",
         "status": "pending",
-        "priority": 5510,
+        "priority": 5520,
         "kind": "gate",
-        "hypothesis": "At least one M555 PPO-stability L3 variant may produce an interval checkpoint that clears route-screen v2 against L0 before public diagnostics.",
-        "command": "see experiments/manifests/m556-l3-repair-v2-route-screen-selection.json",
+        "hypothesis": "The M556 failure audit can identify whether the new L3 variants are simply more collision-prone near the obstacle, or whether route-screen v2 exposed a narrower margin-retention issue that should guide the next repair design.",
+        "command": "see experiments/manifests/m557-m556-route-screen-failure-audit.json",
         "success_artifact": "",
-        "notes": "Pending: train three M555 configs and run multi-candidate route-screen v2 before public diagnostics"
+        "notes": "Pending: analyze M556 route-screen artifacts before any more L3 training"
     },
-    "updated_at_utc": "20260524T094000Z"
+    "updated_at_utc": "20260524T095000Z"
 }

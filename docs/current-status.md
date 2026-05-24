@@ -61,12 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m556-l3-repair-v2-route-screen-selection
+m557-m556-route-screen-failure-audit
 ```
 
-M556 should train the three M555 L3 repair-v2 configs and run reusable
-route-screen v2 over all interval/final checkpoints as candidates before any
-public frozen-source diagnostic.
+M557 should audit why M556 L3 candidates pass L0 binary success but fail
+route-screen v2 margin and collision checks. No more L3 training or public
+frozen-source diagnostics should run before this failure is classified.
 
 ## Recent Evidence Line
 
@@ -223,6 +223,10 @@ public frozen-source diagnostic.
   L3 env/task distribution, P0 actor contract, and update-aligned
   `checkpoint_interval_steps = 256`; differences are limited to M554-approved
   PPO stability controls.
+- M556 trains those configs and evaluates `43` L3 interval/final candidates
+  with route-screen v2. No checkpoint is admitted. `35/43` candidates pass L0
+  binary success, but `0/43` pass L0 clearance margin and `0/43` pass collision
+  tolerance. Public frozen-source diagnostics are blocked.
 
 ## Near-Term Rule
 

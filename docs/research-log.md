@@ -11125,3 +11125,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M555 implements the M554-approved L3-only config family: `epoch1_clip01`, `longseq_epoch1`, and `lowentropy_epoch1`. Tests verify all three preserve the M548 L3 env/task distribution, P0 human-view/no-wheel/no-oracle contract, and update-aligned `checkpoint_interval_steps = 256`, with differences limited to approved PPO stability controls.
 - decision: `l3_repair_v2_config_family_pass_admit_m556_route_screen_selection`
 - next: `m556-l3-repair-v2-route-screen-selection`
+## 20260524T095000Z - m556-l3-repair-v2-route-screen-selection
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m556_l3_repair_v2_route_screen_selection`
+- artifact: `docs/m556-l3-repair-v2-route-screen-selection.md`
+- result: M556 trains the three M555 L3 repair-v2 configs and evaluates `43` interval/final L3 candidates plus L0/L2 references on a 64-episode public-neutral route-screen v2. No candidate is admitted: `35/43` candidates pass L0 binary success, but `0/43` pass L0 clearance margin and `0/43` pass collision tolerance. Best family candidates are `epoch1_s256`, `longseq_s512`, and `lowentropy_s256`; all have success `0.109375` but worse margin and collision than L0. Public frozen-source diagnostics are blocked.
+- decision: `l3_repair_v2_route_screen_reject_admit_m557_failure_audit`
+- next: `m557-m556-route-screen-failure-audit`
