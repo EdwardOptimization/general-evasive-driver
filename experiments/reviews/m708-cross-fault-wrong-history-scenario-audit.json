@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M708 classifies M707 as metric_artifact plus scenario_sampling_failure because wrong-history action gaps never reach threshold while reset-hidden action gaps do; source export PPO and promotion remain blocked",
+  "failure_criteria": [
+    "audit treats reset-only rows as wrong-history self-ID evidence",
+    "audit admits source export from empty accepted_rows.csv",
+    "audit omits model-fidelity limits",
+    "audit omits synthesis questions",
+    "audit changes actor input contract"
+  ],
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not treat reset-only rows as source-positive",
+    "do not export accepted_rows.csv because it is empty",
+    "do not lower wrong-history thresholds after seeing M707",
+    "do not run actor update",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels to actor inputs"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260524T185421Z",
+  "hypothesis": "M707 cross_fault_reset_only should block source export and synthesize whether the next step is stronger history incompatibility, active probing, or higher-fidelity fault modeling.",
+  "lineage": {
+    "blocked_by": [
+      "m707-cross-fault-wrong-history-scenario-implementation"
+    ],
+    "derived_from": [
+      "m707-cross-fault-wrong-history-scenario-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m707-cross-fault-wrong-history-scenario-implementation.json",
+      "configs/cross_fault_hidden_condition_scenarios.json"
+    ],
+    "parent_dataset": [
+      "runs/m707_cross_fault_wrong_history_scenario/summary.json",
+      "runs/m707_cross_fault_wrong_history_scenario/matched_cross_fault_pairs.csv",
+      "runs/m707_cross_fault_wrong_history_scenario/fault_family_pair_summary.csv",
+      "runs/m707_cross_fault_wrong_history_scenario/reset_only_rows.csv",
+      "docs/m707-cross-fault-wrong-history-scenario-implementation.md"
+    ],
+    "parent_objective": [
+      "audit cross_fault_reset_only result before any source export or training"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m708-cross-fault-wrong-history-scenario-audit",
+  "next_blocker": "m709-cross-fault-hidden-action-gap-audit-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "cross_fault_reset_only_audit_continue_hidden_action_localization",
+  "public_gates": [
+    "M707 implementation cleanliness is checked",
+    "wrong-history zero result is separated from reset-only evidence",
+    "fault-family pair summaries are audited",
+    "scenario coverage hypothesis is updated",
+    "model-fidelity limits are preserved",
+    "source export actor update PPO and promotion remain blocked unless the audit explicitly justifies otherwise",
+    "extreme_hidden_condition_scenario_generation branch receives a synthesis decision"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m708-cross-fault-wrong-history-scenario-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "cross_fault_reset_only_audit_continue_hidden_action_localization",
+    "milestone": "m708-cross-fault-wrong-history-scenario-audit",
+    "reason": "M708 classifies M707 as metric_artifact plus scenario_sampling_failure because wrong-history action gaps never reach threshold while reset-hidden action gaps do; source export PPO and promotion remain blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M707 summary metrics are recorded",
+    "fault-family pair reset-only concentration is recorded",
+    "wrong-history zero result is classified",
+    "scenario coverage hypothesis is updated",
+    "supported and falsified claims are recorded",
+    "failure taxonomy is assigned",
+    "next branch decision is explicit",
+    "source export actor update PPO and promotion remain blocked unless a new evidence path is justified"
+  ],
+  "type": "gate"
+}

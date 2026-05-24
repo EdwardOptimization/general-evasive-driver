@@ -12397,3 +12397,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M707 implements and runs cross-fault wrong-history pairing with `configs/cross_fault_hidden_condition_scenarios.json`. It generates `9728` scenarios, `33026` snapshots, and `2048` matched cross-fault pairs. The implementation is clean: actor checksum unchanged, no training, no PPO, and no promotion. Result is `cross_fault_reset_only`: `15` reset-history-critical rows and `0` wrong-history-critical rows. Reset-only rows concentrate around front-authority versus steering/combined fault contrasts, so source export and PPO remain blocked.
 - decision: `cross_fault_reset_only_not_source_positive`
 - next: `m708-cross-fault-wrong-history-scenario-audit`
+
+## 20260524T185103Z - m708-cross-fault-wrong-history-scenario-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m708-cross-fault-wrong-history-scenario-audit.md`
+- result: M708 audits M707 as `metric_artifact` plus `scenario_sampling_failure`. M707 broadens current-model extreme coverage, but wrong-history action gaps remain below threshold on all `2048` pairs (`max=0.0132044` versus threshold `0.015`) and wrong-history margin gaps are near zero (`max=0.00034936`). Reset-hidden action gaps are large on most rows and reset margin gaps pass threshold on `11` rows, so reset-only evidence remains real but not source-positive wrong-history self-ID evidence.
+- decision: `cross_fault_reset_only_audit_continue_hidden_action_localization`
+- next: `m709-cross-fault-hidden-action-gap-audit-design`

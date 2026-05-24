@@ -121,5 +121,5 @@
     "docs/m707-cross-fault-wrong-history-scenario-implementation.md"
   ],
   "decision_rule": "M708 must decide whether the extreme hidden-condition branch continues with stronger history-incompatibility diagnostics, pivots to active probing or higher-fidelity dynamics, or stops source mining; it must not admit training from reset-only rows.",
-  "next_blocker": "m709-to-be-selected-by-m708"
+  "next_blocker": "m709-cross-fault-hidden-action-gap-audit-design"
 }
