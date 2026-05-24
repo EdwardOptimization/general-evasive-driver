@@ -11098,3 +11098,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M552 runs a 64-episode public-neutral route-screen v2 on L0, L2, original L3, and the M549 selected L3. It uses level-matched env configs to preserve observation contracts. Route-screen v2 rejects M549 before public eval because M549 success `0.046875` is below L0 success `0.062500`, and far below L2 success `0.609375`; M549 margin is above L0 but below L2.
 - decision: `route_screen_v2_rejects_m549_admit_m553_runner`
 - next: `m553-route-screen-v2-runner-implementation`
+## 20260524T092000Z - m553-route-screen-v2-runner-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m553_route_screen_v2_runner_reproduce_m552`
+- artifact: `docs/m553-route-screen-v2-runner-implementation.md`
+- result: M553 adds `autodrift.route_screen_v2`, a reusable route-screen v2 runner/selector with named checkpoint policies, per-policy level-matched env configs, required L0/L2 references, candidate selection, `episodes.csv`, `policy_summary.csv`, `summary.json`, and explicit `uses_public_frozen_source_rows = false` provenance. Focused tests pass (`24 passed`). The runner reproduces the M552 result: M549 selected L3 is rejected before public eval because success is below L0 while L2 remains much stronger.
+- decision: `route_screen_v2_runner_pass_admit_m554_l3_repair_v2_design`
+- next: `m554-route-screen-gated-l3-repair-v2-design`

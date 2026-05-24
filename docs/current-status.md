@@ -61,12 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m553-route-screen-v2-runner-implementation
+m554-route-screen-gated-l3-repair-v2-design
 ```
 
-M553 should turn the route-screen v2 retrospective script into a reusable,
-tested runner so future repair pilots cannot bypass the public-neutral L0/L2
-pre-public gate.
+M554 should design the next L3 recurrent repair branch under the new reusable
+route-screen v2 admission rule. Future L3 repair checkpoints must pass
+route-screen v2 against L0 before public frozen-source diagnostics.
 
 ## Recent Evidence Line
 
@@ -209,15 +209,21 @@ pre-public gate.
   configs so L2 keeps `history_length = 4`, evaluates 64 public-neutral route
   episodes, and rejects M549 selected L3 before public eval: M549 success
   `0.046875` is below L0 `0.062500` and far below L2 `0.609375`.
+- M553 implements route-screen v2 as reusable harness infrastructure:
+  `autodrift.route_screen_v2` supports named checkpoint policies, per-policy
+  level-matched env configs, required L0/L2 references, candidate selection,
+  `episodes.csv`, `policy_summary.csv`, `summary.json`, and explicit
+  `uses_public_frozen_source_rows = false` provenance. The runner reproduces
+  the M552 rejection of M549 selected L3.
 
 ## Near-Term Rule
 
 Do not treat reset-hidden diagnostics, M528 smoke return, route eval, or
 M537-M543 public diagnostics as private generalization evidence. The next branch
-should make route-screen v2 reusable before more L3 repair training. M550
-remains public diagnostic evidence and cannot support a private generalization
-claim. Any later promotion requires proof retention, generalization retention,
-behavior retention, no contract violation, and clear lineage.
+must use route-screen v2 before any public frozen-source eval. M550 remains
+public diagnostic evidence and cannot support a private generalization claim.
+Any later promotion requires proof retention, generalization retention, behavior
+retention, no contract violation, and clear lineage.
 
 ## Sensor Profile Policy
 
