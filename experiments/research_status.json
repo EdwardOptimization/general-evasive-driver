@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 648,
+        "completed": 649,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m639-combined-shape-source-diversity-expansion-implementation",
+        "task_id": "m640-source-diverse-sequence-target-corpus-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m639_combined_shape_source_diversity_expansion",
-        "command_log": "docs/m639-combined-shape-source-diversity-expansion-implementation.md"
+        "run_dir": "",
+        "command_log": "docs/m640-source-diverse-sequence-target-corpus-design.md"
     },
     "next_task": {
-        "id": "m640-source-diverse-sequence-target-corpus-design",
+        "id": "m641-source-diverse-sequence-target-corpus-implementation",
         "status": "pending",
-        "priority": 6350,
+        "priority": 6360,
         "kind": "infrastructure",
-        "hypothesis": "M639's source-diverse accepted sequence candidates can be converted into a source-balanced target corpus without letting high-count sources dominate.",
-        "command": "see experiments/manifests/m640-source-diverse-sequence-target-corpus-design.json",
+        "hypothesis": "M639 accepted sequence candidates can be capped and materialized into a source-balanced sequence target corpus with heldout-source splits.",
+        "command": "see experiments/manifests/m641-source-diverse-sequence-target-corpus-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design source-balanced corpus caps splits and weights; no training PPO promotion or optimizer-corpus implementation yet"
+        "notes": "Pending: implement capped source-balanced CSV and NPZ target corpus; no training PPO promotion or actor update"
     },
-    "updated_at_utc": "20260524T183000Z"
+    "updated_at_utc": "20260524T184000Z"
 }

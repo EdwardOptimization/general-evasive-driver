@@ -11881,3 +11881,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M639 implements and runs the no-training broad source-diversity expansion. It selects `9` M627 trust-primary non-collision sources and accepts candidates for all `9`, with `9885` accepted candidates from `25596` candidate rollouts. Accepted evidence covers `8` physical pairs, `6` left seeds, `2` surfaces, `3` targets, and `2` variants; trust limits remain preserved. The pre-registered target-corpus admission-candidate gate passes, but training and optimizer admission remain blocked because the raw candidate count is unevenly distributed across sources. M640 should design a source-balanced sequence target corpus with caps and heldout-source rules.
 - decision: `combined_shape_source_diversity_expansion_pass_admit_corpus_design`
 - next: `m640-source-diverse-sequence-target-corpus-design`
+## 20260524T184000Z - m640-source-diverse-sequence-target-corpus-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m640-source-diverse-sequence-target-corpus-design.md`
+- result: M640 designs a source-balanced corpus from M639 accepted sequence candidates. The design caps rows per source, source/grid, source/family, and source/sequence length; uses equal total source weights; defines train sources `13`, `20`, `5`, `30`, `0`, and `8`; defines source-heldout validation sources `14`, `32`, and `7`; and requires M641 to write both CSV metadata and an NPZ sequence target corpus. Training, PPO, promotion, and optimizer admission remain blocked.
+- decision: `source_diverse_sequence_target_corpus_design_admit_m641`
+- next: `m641-source-diverse-sequence-target-corpus-implementation`

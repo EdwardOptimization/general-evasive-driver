@@ -62,16 +62,20 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m640-source-diverse-sequence-target-corpus-design
+m641-source-diverse-sequence-target-corpus-implementation
 ```
 
-M640 should design a source-balanced sequence target corpus from the M639
-accepted candidates. M639 passes the pre-registered source-diversity admission
-candidate gate, but raw candidate counts are uneven across sources, so corpus
-design must cap or weight by source/grid/target before any actor update.
+M641 should implement the source-balanced sequence target corpus designed in
+M640. It must cap rows per source/grid/family, write both CSV and NPZ sequence
+targets, preserve source-heldout split metadata, and keep actor training blocked.
 
 ## Recent Evidence Line
 
+- M640 designs the source-balanced sequence target corpus. M641 should cap M639
+  accepted candidates per source/grid/family, use equal source total weights,
+  and write both `balanced_sequence_targets.csv` and
+  `balanced_sequence_target_corpus.npz`. Source labels and target metadata
+  remain training metadata only and must not enter actor input.
 - M639 implements and runs the no-training broad source-diversity expansion.
   It selects `9` M627 trust-primary non-collision source rows and all `9` have
   accepted projected candidates. Accepted evidence covers `8` physical pairs,

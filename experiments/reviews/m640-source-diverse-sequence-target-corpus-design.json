@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M640 designs capped source-balanced CSV plus NPZ sequence target corpus with heldout-source split and keeps training blocked",
+  "failure_criteria": [
+    "design starts training",
+    "design promotes checkpoint",
+    "design uses raw accepted candidate count as sampling weights",
+    "design omits heldout sources",
+    "design violates actor input contract"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not feed source labels or target labels into actor input",
+    "do not let raw candidate count dominate corpus weights",
+    "do not skip source-heldout design",
+    "do not admit optimizer training directly"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T121600Z",
+  "hypothesis": "M639's source-diverse accepted sequence candidates can be converted into a source-balanced target corpus without letting high-count sources dominate.",
+  "lineage": {
+    "blocked_by": [
+      "m639-combined-shape-source-diversity-expansion-implementation"
+    ],
+    "derived_from": [
+      "m639-combined-shape-source-diversity-expansion-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m639-combined-shape-source-diversity-expansion-implementation.json",
+      "docs/m638-combined-shape-source-diversity-expansion-design.md"
+    ],
+    "parent_dataset": [
+      "runs/m639_combined_shape_source_diversity_expansion/summary.json",
+      "runs/m639_combined_shape_source_diversity_expansion/accepted_expanded_sequences.csv",
+      "runs/m639_combined_shape_source_diversity_expansion/source_recovery_summary.csv",
+      "runs/m639_combined_shape_source_diversity_expansion/source_diversity_summary.csv",
+      "docs/m639-combined-shape-source-diversity-expansion-implementation.md"
+    ],
+    "parent_objective": [
+      "design source-balanced sequence target corpus from M639 accepted candidates"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m640-source-diverse-sequence-target-corpus-design",
+  "next_blocker": "m641-source-diverse-sequence-target-corpus-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_diverse_sequence_target_corpus_design_admit_m641",
+  "public_gates": [
+    "define source-balanced sampling or caps for M639 accepted sequences",
+    "preserve source grid target and surface diversity",
+    "define train validation and source-heldout split rules",
+    "define corpus weights without changing actor inputs",
+    "keep actor training and PPO blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m640-source-diverse-sequence-target-corpus-design.md",
+    "clearance_margin_mean": "",
+    "decision": "source_diverse_sequence_target_corpus_design_admit_m641",
+    "milestone": "m640-source-diverse-sequence-target-corpus-design",
+    "reason": "M640 designs capped source-balanced CSV plus NPZ sequence target corpus with heldout-source split and keeps training blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design specifies per-source and per-grid caps",
+    "design specifies train validation and source-heldout splits",
+    "design specifies corpus fields and weighting rules",
+    "design keeps training PPO and promotion blocked",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}
