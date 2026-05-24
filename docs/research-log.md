@@ -12106,3 +12106,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M664 implements and runs the no-training broader action-critical wrong-history source miner. It builds `473` snapshots, scores `2400` compatible candidate pairs and `7200` sequence rows, and accepts `0` rows. This is more informative than M661: `5352` rows pass the first-action threshold, `60` pass the sequence threshold, `3` pass all action thresholds, and max sequence mean L2 reaches `0.010464`. However, `0` rows pass the margin threshold, success-drop rate is `0.000`, and all all-action-threshold rows are already normal-failed with negative normal margins and unchanged wrong-history margins. Actor checksum is unchanged and no checkpoint is written.
 - decision: `action_critical_wrong_history_source_miner_negative_admit_audit`
 - next: `m665-action-critical-source-miner-audit`
+## 20260524T234500Z - m665-action-critical-source-miner-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m665-action-critical-source-miner-audit.md`
+- result: M665 audits M664 as `action_gap_positive_outcome_gap_negative`. M664 improved over M661 by finding wrong-history action gaps, including `3` rows that cross all action thresholds, but those rows are already failed under normal history and have no success-drop or margin-gap evidence. The likely root cause is source-window quality: M664 sampled very close obstacle windows with obstacle-distance means around `2.3-2.5 m`, which exposes action sensitivity too late for usable preferred-branch supervision. Actor coupling, PPO, and training from the empty corpus remain blocked.
+- decision: `action_critical_source_miner_audit_admit_normal_success_boundary_design`
+- next: `m666-normal-success-boundary-source-mining-design`

@@ -1,0 +1,84 @@
+{
+  "id": "m666-normal-success-boundary-source-mining-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m664_action_critical_wrong_history_source_miner/summary.json",
+      "runs/m664_action_critical_wrong_history_source_miner/candidate_scores.csv",
+      "docs/m665-action-critical-source-miner-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m665-action-critical-source-miner-audit.json"
+    ],
+    "parent_objective": [
+      "design normal-success near-boundary source mining after M664 action-gap/outcome-gap split"
+    ],
+    "derived_from": [
+      "m665-action-critical-source-miner-audit"
+    ],
+    "blocked_by": [
+      "m665-action-critical-source-miner-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m666-normal-success-boundary-source-mining-design.md",
+  "public_gates": [
+    "design normal-history success and margin-band source filter",
+    "preserve action/outcome wrong-history acceptance thresholds",
+    "separate early-safe, near-boundary, and already-failed source windows",
+    "keep actor coupling, PPO, and promotion blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not accept normal-failed rows as preferred branches",
+    "do not weaken M664 action/outcome thresholds",
+    "do not use hidden parameters or labels as actor inputs"
+  ],
+  "hypothesis": "Filtering left snapshots by normal-history success and positive near-boundary margin before wrong-history pairing will produce usable action/outcome-critical wrong-history rows that M664 missed.",
+  "success_criteria": [
+    "design defines normal-success source filter",
+    "design defines positive margin bands and window diagnostics",
+    "design defines wrong-history pairing and acceptance thresholds",
+    "design defines required artifacts and negative-result interpretation",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design allows normal-failed preferred branches",
+    "design omits margin-band diagnostics",
+    "design weakens action/outcome thresholds",
+    "design admits actor coupling or PPO before source evidence exists"
+  ],
+  "commands": [
+    {
+      "name": "design_doc",
+      "command": "write docs/m666-normal-success-boundary-source-mining-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m666-normal-success-boundary-source-mining-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m664_action_critical_wrong_history_source_miner/summary.json",
+    "docs/m665-action-critical-source-miner-audit.md"
+  ],
+  "decision_rule": "M666 passes only if it designs a no-training normal-success near-boundary source miner without reclassifying M664's normal-failed action gaps as usable supervision.",
+  "next_blocker": "m667-normal-success-boundary-source-miner-implementation"
+}

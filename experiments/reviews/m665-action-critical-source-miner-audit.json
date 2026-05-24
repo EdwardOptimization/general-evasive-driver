@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M665 classifies M664 as action-gap positive but outcome-gap negative and admits normal-success boundary source mining design",
+  "failure_criteria": [
+    "audit treats action gap alone as success",
+    "audit ignores normal-margin-negative rows",
+    "audit admits training from empty corpus",
+    "audit omits actor checksum and no checkpoint evidence"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not weaken action or outcome thresholds after seeing M664",
+    "do not train from action-divergent but normal-failed rows"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T142030Z",
+  "hypothesis": "M664 found action-divergent wrong-history candidates, but they were not usable because they occurred in already-failed normal branches without success-drop or margin-gap evidence.",
+  "lineage": {
+    "blocked_by": [
+      "m664-action-critical-wrong-history-source-miner-implementation"
+    ],
+    "derived_from": [
+      "m664-action-critical-wrong-history-source-miner-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m664-action-critical-wrong-history-source-miner-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m664_action_critical_wrong_history_source_miner/summary.json",
+      "runs/m664_action_critical_wrong_history_source_miner/candidate_scores.csv",
+      "docs/m664-action-critical-wrong-history-source-miner-implementation.md"
+    ],
+    "parent_objective": [
+      "audit negative action-critical wrong-history source miner"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m665-action-critical-source-miner-audit",
+  "next_blocker": "m666-normal-success-boundary-source-mining-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "action_critical_source_miner_audit_admit_normal_success_boundary_design",
+  "public_gates": [
+    "classify why M664 accepted zero rows",
+    "separate action-gap improvement from outcome-gap failure",
+    "decide whether next branch needs normal-success near-boundary source filtering",
+    "keep actor coupling, PPO, and promotion blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m665-action-critical-source-miner-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "action_critical_source_miner_audit_admit_normal_success_boundary_design",
+    "milestone": "m665-action-critical-source-miner-audit",
+    "reason": "M665 classifies M664 as action-gap positive but outcome-gap negative and admits normal-success boundary source mining design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "audit records snapshot and candidate counts",
+    "audit records action-threshold pass counts",
+    "audit records margin and success-drop failures",
+    "audit decides whether source window filtering or representation design is next",
+    "actor coupling and PPO remain blocked",
+    "research validation passes"
+  ],
+  "type": "gate"
+}

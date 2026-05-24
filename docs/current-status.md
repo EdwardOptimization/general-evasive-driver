@@ -62,16 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m665-action-critical-source-miner-audit
+m666-normal-success-boundary-source-mining-design
 ```
 
-M665 should audit the negative M664 source-miner result. M664 found larger
-wrong-history action gaps than M661, but accepted `0` rows because rows crossing
-all action thresholds were already normal-failed and no success-drop or
-margin-gap evidence appeared. Actor updates, PPO, and promotion remain blocked.
+M666 should design a normal-success near-boundary source miner. M665 audited
+M664 as action-gap positive but outcome-gap negative: the broader miner found
+wrong-history action-sensitive rows, but the strongest rows were already failed
+under normal history. Actor updates, PPO, and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M665 audits M664 as `action_gap_positive_outcome_gap_negative`. M664 found
+  wrong-history action gaps, but the rows that crossed all action thresholds
+  were already failed under normal history and had no success-drop or
+  margin-gap evidence. The likely root cause is source-window quality:
+  close-obstacle windows expose action sensitivity too late. The next branch is
+  a normal-success near-boundary source filter before wrong-history pairing.
 - M664 implements and runs the broader no-training action-critical
   wrong-history source miner. It builds `473` snapshots and scores `7200`
   candidate sequence rows. The result is still negative: `0` accepted rows.

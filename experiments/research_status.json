@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 673,
+        "completed": 674,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m664-action-critical-wrong-history-source-miner-implementation",
+        "task_id": "m665-action-critical-source-miner-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m664_action_critical_wrong_history_source_miner",
-        "command_log": "docs/m664-action-critical-wrong-history-source-miner-implementation.md"
+        "run_dir": "",
+        "command_log": "docs/m665-action-critical-source-miner-audit.md"
     },
     "next_task": {
-        "id": "m665-action-critical-source-miner-audit",
+        "id": "m666-normal-success-boundary-source-mining-design",
         "status": "pending",
-        "priority": 6600,
-        "kind": "gate",
-        "hypothesis": "M664 found action-divergent wrong-history candidates, but they were not usable because they occurred in already-failed normal branches without success-drop or margin-gap evidence.",
-        "command": "see experiments/manifests/m665-action-critical-source-miner-audit.json",
+        "priority": 6610,
+        "kind": "infrastructure",
+        "hypothesis": "Filtering left snapshots by normal-history success and positive near-boundary margin before wrong-history pairing will produce usable action/outcome-critical wrong-history rows that M664 missed.",
+        "command": "see experiments/manifests/m666-normal-success-boundary-source-mining-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit M664 negative result and decide whether normal-success boundary source filtering is next"
+        "notes": "Pending: design normal-success near-boundary source miner before another implementation"
     },
-    "updated_at_utc": "20260524T233000Z"
+    "updated_at_utc": "20260524T234500Z"
 }
