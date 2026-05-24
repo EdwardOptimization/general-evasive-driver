@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M742 designs a source adapter source-balance sentinel policy sequence variants horizons and gates for no-training sequence interventions over M740 reset-only rows",
+  "failure_criteria": [
+    "design treats reset-only rows as wrong-history proof",
+    "design changes actor input contract",
+    "design omits sentinel false-positive checks",
+    "design admits PPO or checkpoint promotion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not treat reset-only rows as wrong-history proof",
+    "do not inject hidden fault labels into actor observations",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not claim true single-wheel physics from current single-track proxies"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T223624Z",
+  "hypothesis": "Persistent sequence-level command-response interventions over M740 v3 reset-only rows will expose outcome-sensitive history dependence that cross-fault wrong-history swapping did not.",
+  "lineage": {
+    "blocked_by": [
+      "m741-extreme-fault-distribution-v3-audit"
+    ],
+    "derived_from": [
+      "m741-extreme-fault-distribution-v3-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m741-extreme-fault-distribution-v3-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m741-extreme-fault-distribution-v3-audit.md",
+      "docs/m740-extreme-fault-distribution-v3-implementation.md",
+      "runs/m740_extreme_fault_distribution_v3/summary.json",
+      "runs/m740_extreme_fault_distribution_v3/reset_only_rows.csv",
+      "runs/m740_extreme_fault_distribution_v3/matched_cross_fault_pairs.csv",
+      "configs/extreme_fault_distribution_v3_scenarios.json"
+    ],
+    "parent_objective": [
+      "design sequence-level command-response interventions over M740 v3 reset-only source rows"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m742-v3-reset-source-sequence-intervention-design",
+  "next_blocker": "m743-v3-reset-source-sequence-intervention-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "v3_reset_source_sequence_intervention_design_admit_m743",
+  "public_gates": [
+    "M742 defines source adapter for M740 reset_only_rows",
+    "M742 defines source-balance and sentinel policy",
+    "M742 defines sequence intervention variants and horizons",
+    "M742 separates reset action outcome and wrong-history evidence",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m742-v3-reset-source-sequence-intervention-design.md",
+    "clearance_margin_mean": "",
+    "decision": "v3_reset_source_sequence_intervention_design_admit_m743",
+    "milestone": "m742-v3-reset-source-sequence-intervention-design",
+    "reason": "M742 designs a source adapter source-balance sentinel policy sequence variants horizons and gates for no-training sequence interventions over M740 reset-only rows",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M742 defines source adapter and source balance rules",
+    "M742 defines sequence intervention variants and horizons",
+    "M742 defines sentinel action and outcome gates",
+    "M742 blocks source export actor update PPO and promotion",
+    "M742 admits only a no-training M743 implementation"
+  ],
+  "type": "infrastructure"
+}

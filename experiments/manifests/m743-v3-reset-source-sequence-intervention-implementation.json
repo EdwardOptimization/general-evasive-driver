@@ -1,0 +1,145 @@
+{
+  "id": "m743-v3-reset-source-sequence-intervention-implementation",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m742-v3-reset-source-sequence-intervention-design.md",
+      "runs/m740_extreme_fault_distribution_v3/summary.json",
+      "runs/m740_extreme_fault_distribution_v3/reset_only_rows.csv",
+      "runs/m740_extreme_fault_distribution_v3/rejected_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m742-v3-reset-source-sequence-intervention-design.json",
+      "configs/extreme_fault_distribution_v3_scenarios.json"
+    ],
+    "parent_objective": [
+      "run no-training source-balanced sequence-level interventions over M740 reset-only rows"
+    ],
+    "derived_from": [
+      "m742-v3-reset-source-sequence-intervention-design"
+    ],
+    "blocked_by": [
+      "m742-v3-reset-source-sequence-intervention-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m743-v3-reset-source-sequence-intervention-implementation.md",
+  "public_gates": [
+    "M743 adapts M740 reset-only rows into source-balanced sequence sources",
+    "M743 includes sentinel rows from history-insensitive rejected rows",
+    "M743 reports action outcome and sentinel metrics separately",
+    "M743 keeps actor checksum and input contract unchanged",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat reset-only rows as wrong-history proof",
+    "do not inject hidden fault labels into actor observations",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not claim true single-wheel physics from current single-track proxies"
+  ],
+  "workflow_synthesis": {
+    "branch": "v3_reset_source_sequence_intervention",
+    "evidence_axis": "G_sequence_outcome: run sequence-level interventions on v3 reset source surface",
+    "evidence_increment": "tests whether persistent command-response interventions over M740 reset rows create outcome-sensitive rows",
+    "claim_scope": "diagnostic data wave only; no policy update or promotion",
+    "stop_condition": [
+      "stop if source balance fails",
+      "stop if sentinel false positives exceed threshold",
+      "stop if actor checksum or input contract changes",
+      "stop if training PPO or promotion starts"
+    ],
+    "fallback_plan": [
+      "if outcome rows appear, audit before corpus export",
+      "if action-only persists, audit before simulator fidelity branch",
+      "if source balance fails, repair source selection before rerun"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M742 admits v3 reset-source no-training implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Persistent sequence-level command-response interventions over M740 v3 reset-only rows will expose outcome sensitivity.",
+  "success_criteria": [
+    "M743 implements source adapter and focused tests",
+    "M743 runs smoke and registered no-training sequence intervention wave",
+    "M743 writes source rollout critical sentinel rejected and summary artifacts",
+    "M743 reports source-balance action outcome and sentinel metrics separately",
+    "actor checksum remains unchanged",
+    "no training PPO actor update or promotion occurs"
+  ],
+  "failure_criteria": [
+    "runner mutates actor observations with hidden fault labels",
+    "runner omits sentinel rows",
+    "runner combines action-only and outcome-positive claims",
+    "runner changes actor input contract",
+    "runner starts optimizer training PPO or checkpoint promotion"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "implement src/autodrift/v3_reset_source_sequence_intervention.py and focused tests"
+    },
+    {
+      "name": "smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v3_reset_source_sequence_intervention --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --config configs/extreme_fault_distribution_v3_scenarios.json --reset-rows runs/m740_extreme_fault_distribution_v3/reset_only_rows.csv --rejected-rows runs/m740_extreme_fault_distribution_v3/rejected_rows.csv --seed-start 73000 --seed-count 64 --max-source-rows 64 --horizons 2,4 --device cpu --run-dir runs/m743_v3_reset_source_sequence_intervention_smoke"
+    },
+    {
+      "name": "registered_run",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v3_reset_source_sequence_intervention --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --config configs/extreme_fault_distribution_v3_scenarios.json --reset-rows runs/m740_extreme_fault_distribution_v3/reset_only_rows.csv --rejected-rows runs/m740_extreme_fault_distribution_v3/rejected_rows.csv --seed-start 73000 --seed-count 512 --max-source-rows 512 --horizons 2,4,6,8 --device cpu --run-dir runs/m743_v3_reset_source_sequence_intervention"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v3_reset_source_sequence_intervention.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_v3_reset_source_sequence_intervention.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m743_v3_reset_source_sequence_intervention/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m743_v3_reset_source_sequence_intervention/source_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m743_v3_reset_source_sequence_intervention/intervention_rollouts.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m743_v3_reset_source_sequence_intervention/sequence_critical_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m743_v3_reset_source_sequence_intervention/sentinel_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m743-v3-reset-source-sequence-intervention-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m740_extreme_fault_distribution_v3/summary.json",
+    "docs/m742-v3-reset-source-sequence-intervention-design.md"
+  ],
+  "decision_rule": "M743 may only classify the no-training v3 reset-source sequence intervention wave. It must not admit source export objective design actor update PPO or promotion until an audit reviews the result.",
+  "next_blocker": "m744-v3-reset-source-sequence-intervention-audit"
+}

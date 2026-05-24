@@ -12716,3 +12716,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M741 audits M740 as broad clean reset-only evidence. M740's `744` reset rows span `21` seeds, `9` preferred fault families, `8` wrong fault families, and all four severity levels, but still contain `0` wrong-history action-critical rows. The failure class remains `scenario_sampling_failure` plus `metric_artifact` for the cross-fault wrong-history metric. Since M734 previously converted sequence-level command-response interventions into outcome rows, the next branch should run source-balanced sequence-level interventions over M740 reset-only rows before simulator fidelity or PPO.
 - decision: `promote_to_v3_reset_source_sequence_intervention`
 - next: `m742-v3-reset-source-sequence-intervention-design`
+
+## 20260525T022000Z - m742-v3-reset-source-sequence-intervention-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m742-v3-reset-source-sequence-intervention-design.md`
+- result: M742 designs a no-training sequence intervention branch over M740 reset-only rows. It defines a source adapter for `reset_only_rows.csv`, sentinel candidates from history-insensitive rejected rows, source-balance caps for the 744-row/21-seed surface, sequence variants and horizons, action/outcome/sentinel gates, and a no-training M743 implementation command. Actor update, PPO, source export, and promotion remain blocked.
+- decision: `v3_reset_source_sequence_intervention_design_admit_m743`
+- next: `m743-v3-reset-source-sequence-intervention-implementation`

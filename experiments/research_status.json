@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 750,
+        "completed": 751,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m741-extreme-fault-distribution-v3-audit",
+        "task_id": "m742-v3-reset-source-sequence-intervention-design",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m741-extreme-fault-distribution-v3-audit.md"
+        "command_log": "docs/m742-v3-reset-source-sequence-intervention-design.md"
     },
     "next_task": {
-        "id": "m742-v3-reset-source-sequence-intervention-design",
+        "id": "m743-v3-reset-source-sequence-intervention-implementation",
         "status": "pending",
-        "priority": 7370,
+        "priority": 7380,
         "kind": "infrastructure",
-        "hypothesis": "Design v3 reset-source sequence interventions",
-        "command": "see experiments/manifests/m742-v3-reset-source-sequence-intervention-design.json",
-        "success_artifact": "docs/m742-v3-reset-source-sequence-intervention-design.md",
-        "notes": "Pending: design source-balanced sequence-level command-response interventions over M740 reset-only rows"
+        "hypothesis": "Run v3 reset-source sequence interventions",
+        "command": "see experiments/manifests/m743-v3-reset-source-sequence-intervention-implementation.json",
+        "success_artifact": "docs/m743-v3-reset-source-sequence-intervention-implementation.md",
+        "notes": "Pending: implement and run no-training v3 reset-source sequence intervention wave"
     },
-    "updated_at_utc": "20260525T021000Z"
+    "updated_at_utc": "20260525T022000Z"
 }
