@@ -47,12 +47,12 @@ runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
 
 Status: M400 promotes M399 alpha `0.05` as the current public-gate base after
 six public replay surfaces and behavior seeds pass. This remains the latest
-public-gate base; M487-M523 did not train or promote a checkpoint.
+public-gate base; M487-M525 did not train or promote a checkpoint.
 
 Current blocker:
 
 ```text
-m524-multisurface-history-value-ablation-runner
+m526-history-value-event-audit
 ```
 
 Recent progress: M486-M492 is now closed as an artificial tail-forcing
@@ -244,8 +244,18 @@ M523 designs the next upgrade: configurable level-to-variant mappings and
 multisurface projected/natural provenance. The next runner should evaluate M520
 projected rows plus recent natural outcome surfaces such as M497 and M487.
 
-Next step: M524 should implement the configurable multisurface history-value
-ablation runner. It should not train or promote.
+M524 implements that upgrade. The M520 projected surface remains
+`margin_only_history_value_signal` with `8` L0 candidates and `0` event rows.
+The natural M497/M487 surfaces produce `event_history_value_signal`: `480` L0
+candidates and `18` event rows across `12` probe seeds, `2` configs, and `3`
+targets. These are obstacle-completion drops, not success or collision drops.
+
+M525 designs the required audit before stronger claims: export the M524 event
+rows, check source diversity and duplicates, verify event semantics, and keep
+projected rows out of the natural event claim.
+
+Next step: M526 should run the history-value event audit. It should not train
+or promote.
 
 ## Current Evidence
 

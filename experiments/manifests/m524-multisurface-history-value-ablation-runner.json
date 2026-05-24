@@ -2,7 +2,7 @@
   "id": "m524-multisurface-history-value-ablation-runner",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -64,8 +64,12 @@
   ],
   "commands": [
     {
-      "name": "multisurface_history_value_ablation_runner",
-      "command": "Implement configurable variant mapping and run history-value summaries over M520 plus recent natural outcome surfaces."
+      "name": "projected_history_value_ablation",
+      "command": "PYTHONPATH=src python -m autodrift.history_value_ablation_runner --surface-outcomes m520_projected=runs/m520_valid_offset_projection_outcome_gate/projected_outcomes.csv --level-variant L3_online_gru=normal_projected --level-variant L0_reset_hidden_each_step=reset_projected --min-margin-gap 0.02 --run-dir runs/m524_projected_history_value_ablation"
+    },
+    {
+      "name": "natural_history_value_ablation",
+      "command": "PYTHONPATH=src python -m autodrift.history_value_ablation_runner --surface-outcomes m497_natural_belief=runs/m497_natural_belief_decision_window_outcome_summary/combined_tail_outcomes.csv --surface-outcomes m487_critical_window=runs/m487_critical_window_tail_aligned_outcome_summary/combined_tail_outcomes.csv --level-variant L3_online_gru=normal_tail --level-variant L0_reset_hidden_each_step=reset_tail --min-margin-gap 0.02 --run-dir runs/m524_natural_history_value_ablation"
     }
   ],
   "required_artifacts": [
@@ -82,5 +86,36 @@
     "runs/m522_history_value_ablation_runner/summary.json"
   ],
   "decision_rule": "M524 is not a promotion gate; it should decide whether history-value evidence should expand to matched L0/L1/L2 training or better natural surface mining.",
-  "next_blocker": "pending M524 multisurface history-value ablation runner"
+  "next_blocker": "M525 should audit the natural event rows before stronger history-value claims or matched baseline training.",
+  "results": {
+    "projected_run_dir": "runs/m524_projected_history_value_ablation",
+    "projected_summary_json": "runs/m524_projected_history_value_ablation/summary.json",
+    "natural_run_dir": "runs/m524_natural_history_value_ablation",
+    "natural_summary_json": "runs/m524_natural_history_value_ablation/summary.json",
+    "projected_classification": "margin_only_history_value_signal",
+    "projected_l0_candidate_count": 8,
+    "projected_l0_event_row_count": 0,
+    "natural_classification": "event_history_value_signal",
+    "natural_l0_candidate_count": 480,
+    "natural_l0_event_row_count": 18,
+    "natural_l0_probe_seed_count": 12,
+    "natural_l0_config_count": 2,
+    "natural_l0_target_count": 3,
+    "natural_l0_single_seed_share": 0.19166666666666668,
+    "natural_l0_single_config_share": 0.4895833333333333,
+    "natural_surface_classifications": {
+      "m497_natural_belief": {
+        "classification": "event_history_value_signal",
+        "l0_candidate_count": 298,
+        "l0_event_row_count": 4
+      },
+      "m487_critical_window": {
+        "classification": "event_history_value_signal",
+        "l0_candidate_count": 182,
+        "l0_event_row_count": 14
+      }
+    },
+    "actor_contract_changed": false,
+    "training_or_promotion_performed": false
+  }
 }

@@ -13,7 +13,7 @@ from autodrift.artifacts import make_run_dir, write_csv_rows, write_json
 from autodrift.terminal_boundary_anchor_miner import _counts, _max_share
 
 
-LEVEL_VARIANTS = {
+DEFAULT_LEVEL_VARIANTS = {
     "L3_online_gru": "normal_projected",
     "L0_reset_hidden_each_step": "reset_projected",
 }
@@ -55,36 +55,76 @@ def _available_key_columns(frame: pd.DataFrame) -> list[str]:
     return [column for column in KEY_COLUMNS if column in frame.columns]
 
 
+def parse_level_variant(value: str) -> tuple[str, str]:
+    if "=" not in value:
+        raise argparse.ArgumentTypeError("level variants must be LEVEL=variant")
+    level, variant = value.split("=", 1)
+    level = level.strip()
+    variant = variant.strip()
+    if not level or not variant:
+        raise argparse.ArgumentTypeError("level variants must have non-empty LEVEL and variant")
+    return level, variant
+
+
+def parse_surface_outcomes(value: str) -> tuple[str, Path]:
+    if "=" not in value:
+        raise argparse.ArgumentTypeError("surface outcomes must be surface_name=path")
+    surface_name, path_text = value.split("=", 1)
+    surface_name = surface_name.strip()
+    path_text = path_text.strip()
+    if not surface_name or not path_text:
+        raise argparse.ArgumentTypeError("surface outcomes must have non-empty surface_name and path")
+    return surface_name, Path(path_text)
+
+
+def _success_value(row: pd.Series, *, l3: bool) -> bool:
+    if "success" in row:
+        return _as_bool(row.get("success"))
+    if not l3 and "variant_success" in row:
+        return _as_bool(row.get("variant_success"))
+    if "normal_success" in row:
+        return _as_bool(row.get("normal_success"))
+    if "variant_success" in row:
+        return _as_bool(row.get("variant_success"))
+    return False
+
+
 def build_history_value_rows(
     outcome_frame: pd.DataFrame,
     *,
     surface_name: str,
     min_margin_gap: float,
+    level_variants: dict[str, str] | None = None,
 ) -> list[dict[str, Any]]:
     """Compare diagnostic history levels against the L3 normal rollout."""
 
+    level_variants = dict(level_variants or DEFAULT_LEVEL_VARIANTS)
+    if "L3_online_gru" not in level_variants:
+        raise ValueError("level mapping must include L3_online_gru")
+    if "L0_reset_hidden_each_step" not in level_variants:
+        raise ValueError("level mapping must include L0_reset_hidden_each_step")
     if "variant" not in outcome_frame.columns:
         raise ValueError("outcome table must contain a variant column")
     key_columns = _available_key_columns(outcome_frame)
     if not key_columns:
         raise ValueError("outcome table does not contain any recognized key columns")
 
-    l3_variant = LEVEL_VARIANTS["L3_online_gru"]
+    l3_variant = level_variants["L3_online_gru"]
     l3_frame = outcome_frame[outcome_frame["variant"].astype(str) == l3_variant].copy()
     if l3_frame.empty:
         raise ValueError(f"outcome table contains no {l3_variant!r} rows")
 
     l3_by_key = {tuple(row[column] for column in key_columns): row for _, row in l3_frame.iterrows()}
     rows: list[dict[str, Any]] = []
-    for level, variant in LEVEL_VARIANTS.items():
+    for level, variant in level_variants.items():
         level_frame = outcome_frame[outcome_frame["variant"].astype(str) == variant].copy()
         for _, level_row in level_frame.iterrows():
             key = tuple(level_row[column] for column in key_columns)
             l3_row = l3_by_key.get(key)
             if l3_row is None:
                 continue
-            l3_success = _as_bool(l3_row.get("success", l3_row.get("variant_success", False)))
-            level_success = _as_bool(level_row.get("success", level_row.get("variant_success", False)))
+            l3_success = _success_value(l3_row, l3=True)
+            level_success = _success_value(level_row, l3=False)
             l3_collision = _as_bool(l3_row.get("collision", False))
             level_collision = _as_bool(level_row.get("collision", False))
             l3_completed = _as_bool(l3_row.get("obstacle_completed", False))
@@ -92,9 +132,11 @@ def build_history_value_rows(
             l3_margin = _finite(l3_row.get("min_clearance_margin", l3_row.get("normal_margin")))
             level_margin = _finite(level_row.get("min_clearance_margin", level_row.get("variant_margin")))
             margin_gap = l3_margin - level_margin if np.isfinite(l3_margin) and np.isfinite(level_margin) else float("nan")
-            success_drop = bool(l3_success and not level_success)
-            collision_gap = bool(not l3_collision and level_collision)
-            completion_drop = bool(l3_completed and not level_completed)
+            success_drop = _as_bool(level_row.get("success_drop", bool(l3_success and not level_success)))
+            collision_gap = _as_bool(level_row.get("collision_gap", bool(not l3_collision and level_collision)))
+            completion_drop = _as_bool(
+                level_row.get("obstacle_completion_drop", bool(l3_completed and not level_completed))
+            )
             margin_drop = bool(np.isfinite(margin_gap) and margin_gap >= float(min_margin_gap))
             history_value_candidate = bool(success_drop or collision_gap or completion_drop or margin_drop)
             row = {
@@ -225,30 +267,53 @@ def classify_history_value(rows: list[dict[str, Any]]) -> dict[str, Any]:
 
 def run_history_value_ablation(
     *,
-    outcomes_csv: Path,
-    surface_name: str,
+    surface_outcomes: list[tuple[str, Path]],
+    level_variants: dict[str, str],
     min_margin_gap: float,
     run_dir: Path,
 ) -> dict[str, Any]:
     run_dir.mkdir(parents=True, exist_ok=True)
-    outcome_frame = pd.read_csv(outcomes_csv)
-    rows = build_history_value_rows(
-        outcome_frame,
-        surface_name=surface_name,
-        min_margin_gap=min_margin_gap,
-    )
+    rows: list[dict[str, Any]] = []
+    invalid_surfaces: list[dict[str, Any]] = []
+    for surface_name, outcomes_csv in surface_outcomes:
+        try:
+            outcome_frame = pd.read_csv(outcomes_csv)
+            rows.extend(
+                build_history_value_rows(
+                    outcome_frame,
+                    surface_name=surface_name,
+                    min_margin_gap=min_margin_gap,
+                    level_variants=level_variants,
+                )
+            )
+        except (OSError, ValueError) as exc:
+            invalid_surfaces.append(
+                {
+                    "surface_name": surface_name,
+                    "outcomes_csv": str(outcomes_csv),
+                    "invalid_reason": str(exc),
+                }
+            )
     summary_rows = summarize_history_value_rows(rows)
     classification = classify_history_value(rows)
     write_csv_rows(run_dir / "history_value_rows.csv", rows)
     write_csv_rows(run_dir / "history_value_summary.csv", summary_rows)
+    write_csv_rows(run_dir / "invalid_surfaces.csv", invalid_surfaces)
+    surface_classifications = {
+        str(surface): classify_history_value(group.to_dict("records"))
+        for surface, group in pd.DataFrame(rows).groupby("surface_name", observed=True)
+    } if rows else {}
     summary = {
         "run_type": "history_value_ablation_runner",
-        "outcomes_csv": outcomes_csv,
-        "surface_name": surface_name,
+        "surface_outcomes": [{"surface_name": name, "outcomes_csv": path} for name, path in surface_outcomes],
         "min_margin_gap": float(min_margin_gap),
         "history_value_rows_csv": run_dir / "history_value_rows.csv",
         "history_value_summary_csv": run_dir / "history_value_summary.csv",
-        "source_variant_mapping": LEVEL_VARIANTS,
+        "invalid_surfaces_csv": run_dir / "invalid_surfaces.csv",
+        "source_variant_mapping": level_variants,
+        "surface_classifications": surface_classifications,
+        "invalid_surface_count": int(len(invalid_surfaces)),
+        "surface_count": int(len(surface_outcomes)),
         "diagnostic_limitations": [
             "L0_reset_hidden_each_step is a reset-hidden diagnostic over the existing recurrent actor, not a separately trained feedforward policy.",
             "L1 and L2 matched-capacity baselines are not implemented in this runner.",
@@ -264,16 +329,24 @@ def run_history_value_ablation(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Summarize diagnostic history-value ablations.")
-    parser.add_argument("--outcomes-csv", type=Path, required=True)
+    parser.add_argument("--outcomes-csv", type=Path, default=None)
     parser.add_argument("--surface-name", type=str, default="unknown_surface")
+    parser.add_argument("--surface-outcomes", action="append", type=parse_surface_outcomes, default=[])
+    parser.add_argument("--level-variant", action="append", type=parse_level_variant, default=[])
     parser.add_argument("--min-margin-gap", type=float, default=0.02)
     parser.add_argument("--run-dir", type=Path, default=None)
     args = parser.parse_args()
 
+    surface_outcomes = list(args.surface_outcomes)
+    if not surface_outcomes:
+        if args.outcomes_csv is None:
+            parser.error("--outcomes-csv is required when --surface-outcomes is not provided")
+        surface_outcomes = [(args.surface_name, args.outcomes_csv)]
+    level_variants = dict(args.level_variant) if args.level_variant else dict(DEFAULT_LEVEL_VARIANTS)
     run_dir = args.run_dir or make_run_dir(prefix="history_value_ablation")
     summary = run_history_value_ablation(
-        outcomes_csv=args.outcomes_csv,
-        surface_name=args.surface_name,
+        surface_outcomes=surface_outcomes,
+        level_variants=level_variants,
         min_margin_gap=args.min_margin_gap,
         run_dir=run_dir,
     )

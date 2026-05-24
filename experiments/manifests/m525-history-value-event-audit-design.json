@@ -1,0 +1,94 @@
+{
+  "id": "m525-history-value-event-audit-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m524_natural_history_value_ablation/summary.json",
+      "runs/m524_natural_history_value_ablation/history_value_rows.csv",
+      "runs/m524_natural_history_value_ablation/history_value_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m524-multisurface-history-value-ablation-runner.json"
+    ],
+    "parent_objective": [
+      "history-value event-row audit design"
+    ],
+    "derived_from": [
+      "m524-multisurface-history-value-ablation-runner"
+    ],
+    "blocked_by": [
+      "m524-multisurface-history-value-ablation-runner"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m525-history-value-event-audit-design.md",
+  "public_gates": [
+    "design an audit for M524 natural history-value event rows",
+    "separate obstacle-completion drops from success or collision drops",
+    "check source diversity and duplicate rate before stronger claims",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not mix projected rows into the natural event claim",
+    "do not hide duplicate or source-dominance findings",
+    "do not call obstacle-completion events collision or success events"
+  ],
+  "hypothesis": "M524 natural L3-vs-L0 event rows are promising, but they must be audited for source diversity, duplication, and event semantics before matched baseline training or stronger proof claims.",
+  "success_criteria": [
+    "define event-row audit inputs and outputs",
+    "define source-diversity and duplicate checks",
+    "define event semantics checks",
+    "define pass/fail classifications",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "design treats M524 events as final proof without audit",
+    "design conflates obstacle-completion drops with collisions or success drops",
+    "design mixes projected rows into the natural event claim",
+    "training or checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "history_value_event_audit_design",
+      "command": "Use M524 natural history-value artifacts to design an event-row audit before stronger history-value claims."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m525-history-value-event-audit-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m524-multisurface-history-value-ablation-runner.md",
+    "runs/m524_natural_history_value_ablation/summary.json"
+  ],
+  "decision_rule": "M525 should admit M526 only if the audit will verify event semantics and source diversity before any matched-baseline training.",
+  "next_blocker": "M526 should audit M524 natural history-value event rows.",
+  "results": {
+    "artifact": "docs/m525-history-value-event-audit-design.md",
+    "selected_next_path": "history_value_event_audit",
+    "next_task": "m526-history-value-event-audit",
+    "m524_natural_classification": "event_history_value_signal",
+    "m524_l0_event_row_count": 18,
+    "actor_contract_changed": false,
+    "training_or_promotion_performed": false
+  }
+}

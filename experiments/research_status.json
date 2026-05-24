@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 532,
+        "completed": 534,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m523-multisurface-history-value-ablation-design",
+        "task_id": "m525-history-value-event-audit-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m523-multisurface-history-value-ablation-design.md"
+        "command_log": "docs/m525-history-value-event-audit-design.md"
     },
     "next_task": {
-        "id": "m524-multisurface-history-value-ablation-runner",
+        "id": "m526-history-value-event-audit",
         "status": "pending",
-        "priority": 5190,
+        "priority": 5210,
         "kind": "gate",
-        "hypothesis": "A configurable multisurface history-value runner can reveal whether L3-vs-L0 diagnostic history value remains margin-only/source-narrow or becomes stronger on natural recent outcome surfaces.",
-        "command": "see experiments/manifests/m524-multisurface-history-value-ablation-runner.json",
+        "hypothesis": "M524 natural history-value event rows survive source-diversity and duplicate audits and represent real L3-vs-L0 obstacle-completion differences.",
+        "command": "see experiments/manifests/m526-history-value-event-audit.json",
         "success_artifact": "",
-        "notes": "Pending: implement configurable variant mapping and run L3-vs-L0 diagnostics on projected and natural surfaces without training or promotion"
+        "notes": "Pending: audit event semantics, source diversity, and duplicate rate before matched-baseline training"
     },
-    "updated_at_utc": "20260524T042000Z"
+    "updated_at_utc": "20260524T044000Z"
 }

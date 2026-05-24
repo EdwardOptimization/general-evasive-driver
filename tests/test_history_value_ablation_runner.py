@@ -3,6 +3,8 @@ import pandas as pd
 from autodrift.history_value_ablation_runner import (
     build_history_value_rows,
     classify_history_value,
+    parse_level_variant,
+    parse_surface_outcomes,
     summarize_history_value_rows,
 )
 
@@ -90,3 +92,32 @@ def test_classify_history_value_detects_event_signal() -> None:
 
     assert summary["classification"] == "event_history_value_signal"
     assert summary["l0_event_row_count"] == 1
+
+
+def test_build_history_value_rows_accepts_tail_variant_mapping() -> None:
+    normal = _base_row("normal_tail", success=True, margin=0.20)
+    reset = _base_row("reset_tail", success=False, margin=-0.05)
+    normal["variant_success"] = True
+    reset["variant_success"] = False
+    frame = pd.DataFrame([normal, reset])
+
+    rows = build_history_value_rows(
+        frame,
+        surface_name="natural",
+        min_margin_gap=0.02,
+        level_variants={
+            "L3_online_gru": "normal_tail",
+            "L0_reset_hidden_each_step": "reset_tail",
+        },
+    )
+
+    l0 = next(row for row in rows if row["history_level"] == "L0_reset_hidden_each_step")
+    assert l0["success_drop_vs_l3"] is True
+    assert l0["history_value_candidate"] is True
+
+
+def test_parse_mapping_helpers() -> None:
+    assert parse_level_variant("L3_online_gru=normal_tail") == ("L3_online_gru", "normal_tail")
+    surface, path = parse_surface_outcomes("m497=runs/outcomes.csv")
+    assert surface == "m497"
+    assert str(path) == "runs/outcomes.csv"

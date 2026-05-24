@@ -10837,3 +10837,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M523 designs the next runner upgrade. M524 should support configurable level-to-variant mappings such as `L3_online_gru=normal_projected` / `L0_reset_hidden_each_step=reset_projected` and `L3_online_gru=normal_tail` / `L0_reset_hidden_each_step=reset_tail`. It should run history-value diagnostics on M520 projected rows and recent natural outcome surfaces such as M497 and M487, preserve projected-vs-natural provenance, and report invalid mappings explicitly. No training or promotion is admitted.
 - decision: `admit_m524_multisurface_history_value_ablation_runner`
 - next: `m524-multisurface-history-value-ablation-runner`
+## 20260524T043000Z - m524-multisurface-history-value-ablation-runner
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m524_projected_history_value_ablation`, `runs/m524_natural_history_value_ablation`
+- artifact: `docs/m524-multisurface-history-value-ablation-runner.md`
+- result: M524 extends the history-value runner with configurable level-to-variant mappings and runs projected plus natural diagnostics. The M520 projected surface remains `margin_only_history_value_signal` with `8` L0 candidates and `0` event rows. The natural M497/M487 surfaces classify as `event_history_value_signal`: `2204` L0 rows, `480` L0 candidates, `18` event rows, `12` probe seeds, `2` configs, `3` targets, single-seed share `0.191667`, and single-config share `0.489583`. The events are obstacle-completion drops, not success or collision drops.
+- decision: `event_history_value_signal_admit_m525_history_value_event_audit_design`
+- next: `m525-history-value-event-audit-design`
+## 20260524T044000Z - m525-history-value-event-audit-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m525-history-value-event-audit-design.md`
+- result: M525 designs an audit before treating M524 as strong recurrent-history evidence. The audit must export event rows, summarize source diversity and duplicate rate, verify L3-vs-L0 terminal/obstacle-completion semantics, report margin and action distances, exclude projected rows from the natural event claim, and classify source-diverse events, source-narrow events, metric artifact, or invalid audit.
+- decision: `admit_m526_history_value_event_audit`
+- next: `m526-history-value-event-audit`

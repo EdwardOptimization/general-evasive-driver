@@ -1,0 +1,85 @@
+{
+  "id": "m526-history-value-event-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m524_natural_history_value_ablation/history_value_rows.csv",
+      "runs/m524_natural_history_value_ablation/history_value_summary.csv",
+      "runs/m524_natural_history_value_ablation/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m525-history-value-event-audit-design.json"
+    ],
+    "parent_objective": [
+      "history-value event-row audit"
+    ],
+    "derived_from": [
+      "m525-history-value-event-audit-design"
+    ],
+    "blocked_by": [
+      "m525-history-value-event-audit-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m526-history-value-event-audit.md",
+  "public_gates": [
+    "audit M524 natural L3-vs-L0 event rows",
+    "report event semantics, source diversity, and duplicate rate",
+    "preserve projected-vs-natural provenance",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not hide duplicate or source concentration",
+    "do not relabel obstacle-completion drops as collisions or success drops"
+  ],
+  "hypothesis": "M524 natural history-value event rows survive source-diversity and duplicate audits and represent real L3-vs-L0 obstacle-completion differences.",
+  "success_criteria": [
+    "event rows are exported",
+    "source and duplicate summaries are written",
+    "event semantics are reported explicitly",
+    "audit classification is explicit",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "event rows are source-narrow or duplicated",
+    "event semantics are inconsistent with M524 summaries",
+    "audit mixes projected and natural rows",
+    "actor contract changes",
+    "training or checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "history_value_event_audit",
+      "command": "Implement or run an audit over runs/m524_natural_history_value_ablation/history_value_rows.csv."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m526-history-value-event-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m525-history-value-event-audit-design.md",
+    "runs/m524_natural_history_value_ablation/summary.json"
+  ],
+  "decision_rule": "M526 is not a promotion gate; it should decide whether M524 event rows support matched-baseline training or require surface repair.",
+  "next_blocker": "pending M526 history-value event audit"
+}
