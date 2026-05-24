@@ -11458,3 +11458,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M592 designs the first no-oracle hidden-use repair branch after M591. It rejects ungrounded action separation and PPO because wrong/delayed hidden action sensitivity is absent. The selected repair is capability-supervised hidden training: keep the BC action anchor, add a training-only future-response regression head on recurrent hidden state, add matched-current capability ranking on M586-style pairs, and validate with hidden-envelope lift before any action-coupling or PPO step. Capability labels remain training/evaluation targets only and do not enter deployable actor inputs.
 - decision: `bc_hidden_use_repair_objective_design_admit_capability_objective_implementation`
 - next: `m593-bc-capability-repair-objective-implementation`
+## 20260524T105000Z - m593-bc-capability-repair-objective-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m593-bc-capability-repair-objective-implementation.md`
+- result: M593 implements the training-only capability objective utilities. The new module provides a hidden-state capability head, z-score SmoothL1 regression, matched-current ranking loss, action BC/anchor losses, weighted total loss, and metadata helper preserving P0 actor inputs while marking outputs unpromoted and non-PPO. Focused synthetic tests confirm regression loss decreases, ranking rewards correct order, total loss is differentiable, and metadata keeps `P0_human_view_no_wheel_no_oracle`. No real checkpoint training or driver-performance claim was made.
+- decision: `bc_capability_repair_objective_implementation_admit_corpus_design`
+- next: `m594-bc-capability-repair-corpus-design`

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 601,
+        "completed": 602,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m592-bc-hidden-use-repair-objective-design",
+        "task_id": "m593-bc-capability-repair-objective-implementation",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m592-bc-hidden-use-repair-objective-design.md"
+        "command_log": "docs/m593-bc-capability-repair-objective-implementation.md"
     },
     "next_task": {
-        "id": "m593-bc-capability-repair-objective-implementation",
+        "id": "m594-bc-capability-repair-corpus-design",
         "status": "pending",
-        "priority": 5880,
+        "priority": 5890,
         "kind": "infrastructure",
-        "hypothesis": "A capability-supervised repair objective can be implemented as a training-only auxiliary path that preserves P0 actor inputs and exposes regression/ranking/action-anchor metrics before any driver claim.",
-        "command": "see experiments/manifests/m593-bc-capability-repair-objective-implementation.json",
+        "hypothesis": "A real capability repair smoke needs a rollout corpus that stores P0 observations, recurrent hidden states, action anchors, teacher or base actions, and future-response capability labels without leaking those labels into actor inputs.",
+        "command": "see experiments/manifests/m594-bc-capability-repair-corpus-design.json",
         "success_artifact": "",
-        "notes": "Pending: implement tested capability-repair objective infrastructure; no PPO, promotion, or driver-performance claim"
+        "notes": "Pending: design real capability corpus/runner before smoke training; no PPO, promotion, or actor-input leakage"
     },
-    "updated_at_utc": "20260524T104000Z"
+    "updated_at_utc": "20260524T105000Z"
 }

@@ -1,0 +1,85 @@
+{
+  "id": "m594-bc-capability-repair-corpus-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m567_scaled_l2_teacher_corpus_train/l2_teacher_corpus.npz",
+      "runs/m567_scaled_l2_teacher_corpus_validation/l2_teacher_corpus.npz",
+      "runs/m586_bc5660_matched_current_fresh_seed25560/matched_pairs.csv",
+      "runs/m586_bc5660_matched_current_ood_seed25660/matched_pairs.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_objective": [
+      "design the real capability corpus and smoke runner after M593 objective utilities"
+    ],
+    "derived_from": [
+      "m593-bc-capability-repair-objective-implementation"
+    ],
+    "blocked_by": [
+      "m593-bc-capability-repair-objective-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m594-bc-capability-repair-corpus-design.md",
+  "public_gates": [
+    "design real rollout capability corpus before smoke training",
+    "define action anchors and future-response labels without actor input leakage",
+    "define train validation and pair-ranking splits",
+    "pre-register smoke metrics and blockers"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train or run PPO",
+    "do not promote checkpoint",
+    "do not reconstruct labels from hidden vehicle parameters as actor inputs",
+    "do not reuse private holdout for tuning",
+    "do not claim driver performance from corpus design"
+  ],
+  "hypothesis": "A real capability repair smoke needs a rollout corpus that stores P0 observations, recurrent hidden states, action anchors, teacher or base actions, and future-response capability labels without leaking those labels into actor inputs.",
+  "success_criteria": [
+    "design specifies how to collect train and validation capability rows",
+    "design specifies how M586 matched-current pairs become ranking rows or when they must be re-mined",
+    "design specifies action anchor source and metadata",
+    "design pre-registers smoke metrics for regression ranking action retention and P0 metadata",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design feeds capability labels into actor inputs",
+    "design starts real smoke training before corpus schema is registered",
+    "design omits validation split or action-retention checks",
+    "design promotes a checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "Write capability repair corpus/runner design; no training or promotion."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m594-bc-capability-repair-corpus-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m593-bc-capability-repair-objective-implementation.md",
+    "docs/m592-bc-hidden-use-repair-objective-design.md"
+  ],
+  "decision_rule": "M594 passes if it pre-registers the real capability corpus and smoke runner design without actor-input leakage, training, PPO, or promotion.",
+  "next_blocker": "m595-bc-capability-repair-corpus-runner-implementation"
+}

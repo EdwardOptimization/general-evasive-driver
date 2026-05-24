@@ -2,7 +2,7 @@
   "id": "m593-bc-capability-repair-objective-implementation",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -88,6 +88,6 @@
     "docs/m592-bc-hidden-use-repair-objective-design.md",
     "docs/m591-bc-hidden-action-sensitivity-probe.md"
   ],
-  "decision_rule": "M593 passes if it implements tested capability-repair objective infrastructure while preserving P0 actor inputs and without running PPO, promotion, or driver-performance claims.",
-  "next_blocker": "m594-bc-capability-repair-objective-smoke"
+  "decision_rule": "M593 passes because it implements tested capability-repair objective infrastructure while preserving P0 actor inputs and without running PPO, promotion, or driver-performance claims.",
+  "next_blocker": "m594-bc-capability-repair-corpus-design"
 }

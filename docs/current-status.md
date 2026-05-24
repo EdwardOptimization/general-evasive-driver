@@ -61,17 +61,23 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m593-bc-capability-repair-objective-implementation
+m594-bc-capability-repair-corpus-design
 ```
 
-M593 should implement the capability-supervised hidden repair objective
-infrastructure selected by M592. The current evidence supports deployable
+M594 should design the real capability repair corpus and smoke runner after the
+M593 objective utilities. The current evidence supports deployable
 current-response dependence and source-diverse pair availability, but
-M587-M592 do not support accumulated hidden-history causality. Promotion and
+M587-M593 do not support accumulated hidden-history causality. Promotion and
 PPO remain blocked.
 
 ## Recent Evidence Line
 
+- M593 implements the capability-repair objective utilities:
+  training-only capability head, z-score regression, matched-current ranking,
+  action BC/anchor losses, and metadata preservation. Synthetic tests pass, but
+  no real checkpoint training was run. M594 must design the corpus/runner that
+  aligns future-response labels with rollout hidden states before smoke
+  training.
 - M592 selects the first repair direction: train hidden state with
   training-only future-response/capability targets, using regression plus
   matched-current ranking and an action anchor. It explicitly rejects
