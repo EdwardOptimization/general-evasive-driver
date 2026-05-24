@@ -1,0 +1,110 @@
+{
+  "id": "m717-extreme-fault-coverage-refresh-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m716_extreme_fault_coverage_refresh/summary.json",
+      "runs/m716_extreme_fault_coverage_refresh/matched_cross_fault_pairs.csv",
+      "runs/m716_extreme_fault_coverage_refresh/reset_only_rows.csv",
+      "docs/m716-extreme-fault-coverage-refresh-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m716-extreme-fault-coverage-refresh-implementation.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit v2 extreme-fault coverage reset-only result before further mining, objective design, or model upgrade"
+    ],
+    "derived_from": [
+      "m716-extreme-fault-coverage-refresh-implementation"
+    ],
+    "blocked_by": [
+      "m716-extreme-fault-coverage-refresh-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m717-extreme-fault-coverage-refresh-audit.md",
+  "public_gates": [
+    "M716 result_class is classified without treating reset-only rows as wrong-history self-ID proof",
+    "coverage hypothesis is evaluated against M704/M707/M716 evidence",
+    "model-fidelity limits for true single-wheel asymmetric faults remain explicit",
+    "next branch decision compares delayed-history/action-response mismatch, actor-head objective design, and dynamics upgrade",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not call reset-only evidence source-positive wrong-history self-ID",
+    "do not run another current-model proxy wave without a new evidence axis",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not claim true single-wheel physics from v2 proxy faults"
+  ],
+  "workflow_synthesis": {
+    "branch": "extreme_fault_coverage_refresh",
+    "evidence_axis": "G_synthesis: audit M716 reset-only v2 coverage result and choose next branch",
+    "evidence_increment": "synthesizes M704 M707 M710 M713 and M716 to decide whether more current-model coverage remains high leverage",
+    "claim_scope": "process synthesis only; no checkpoint promotion or deployed self-ID claim",
+    "stop_condition": [
+      "stop current-model proxy coverage expansion if M716 confirms reset-only evidence with no wrong-history action-critical rows",
+      "stop direct source export because accepted wrong-history rows are zero",
+      "stop PPO and actor mutation until a new objective or model-fidelity branch is registered"
+    ],
+    "fallback_plan": [
+      "if coverage is exhausted for current-model proxies, pivot to delayed-history/action-response-mismatch or dynamics fidelity design",
+      "if M716 reset rows are useful, preserve them only as diagnostics for future gates",
+      "if actor-head signal remains the best current evidence, return to conservative residual objective design",
+      "if true wheel-asymmetric faults are required, pre-register a four-wheel or explicit yaw-disturbance model milestone"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M716 result_class=cross_fault_reset_only after v2 coverage refresh",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M716's cross_fault_reset_only result means current-model/proxy coverage expansion alone is not enough; M717 must decide the next evidence axis before any more mining or training.",
+  "success_criteria": [
+    "M716 metrics are summarized",
+    "supported and falsified coverage claims are recorded",
+    "failure taxonomy is assigned",
+    "public gate overfit risk is recorded",
+    "next branch decision is explicit",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "audit treats reset-only rows as source-positive wrong-history proof",
+    "audit ignores M713 actor-head coupling evidence",
+    "audit ignores true wheel-asymmetric model-fidelity limits",
+    "audit admits another current-model proxy sweep without a new evidence axis",
+    "audit admits PPO or promotion"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m717-extreme-fault-coverage-refresh-audit.md from M716 artifacts; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m717-extreme-fault-coverage-refresh-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m716_extreme_fault_coverage_refresh/summary.json",
+    "docs/m716-extreme-fault-coverage-refresh-implementation.md"
+  ],
+  "decision_rule": "M717 must decide whether to pivot to delayed-history/action-response mismatch, model-fidelity dynamics, or the M713 actor-head objective path. It must not admit PPO or promotion directly.",
+  "next_blocker": "m718-to-be-selected-by-m717"
+}

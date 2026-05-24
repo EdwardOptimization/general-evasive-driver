@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M716 runs 16896 scenarios and 4096 matched pairs with 58 reset-only rows but 0 wrong-history action-critical rows so source export actor update PPO and promotion remain blocked",
+  "failure_criteria": [
+    "runner fails to load the v2 config",
+    "actor inputs or observation shape change",
+    "run claims true wheel-asymmetric physics from current-model proxies",
+    "run omits fault-family and severity summaries",
+    "implementation promotes a checkpoint or admits PPO"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not add fault labels hidden params or oracle labels to actor observations",
+    "do not claim proxy faults are faithful single-wheel physics",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not tune thresholds after seeing the full run without registering a new manifest"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260524T194139Z",
+  "hypothesis": "The v2 extreme-fault coverage wave will expose more matched-history-sensitive cases than M704/M707 by broadening fault families, severity levels, surprise activations, and current-model proxy combinations.",
+  "lineage": {
+    "blocked_by": [
+      "m715-extreme-fault-coverage-refresh-design"
+    ],
+    "derived_from": [
+      "m715-extreme-fault-coverage-refresh-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m715-extreme-fault-coverage-refresh-design.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m715-extreme-fault-coverage-refresh-design.md",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_objective": [
+      "generate a broader no-training extreme-fault coverage discovery wave"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m716-extreme-fault-coverage-refresh-implementation",
+  "next_blocker": "m717-extreme-fault-coverage-refresh-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "cross_fault_reset_only_not_source_positive",
+  "public_gates": [
+    "runner uses configs/extreme_fault_coverage_v2_scenarios.json",
+    "run is no-training no-PPO no-promotion with actor checksum unchanged",
+    "summary reports scenario_count snapshot_count matched_pair_count accepted/reset/wrong rows",
+    "fault-family and severity summaries are written",
+    "current-model proxy and future-only fidelity boundaries are preserved",
+    "result class determines whether to export source rows, return to actor-head objective design, or design higher-fidelity dynamics"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m716_extreme_fault_coverage_refresh/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "cross_fault_reset_only_not_source_positive",
+    "milestone": "m716-extreme-fault-coverage-refresh-implementation",
+    "reason": "M716 runs 16896 scenarios and 4096 matched pairs with 58 reset-only rows but 0 wrong-history action-critical rows so source export actor update PPO and promotion remain blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "full run writes runs/m716_extreme_fault_coverage_refresh/summary.json",
+    "actor_parameters_changed is false",
+    "training_started is false or absent",
+    "ppo_used is false",
+    "promoted is false",
+    "result_class is recorded",
+    "failure taxonomy and next blocker are documented"
+  ],
+  "type": "infrastructure"
+}

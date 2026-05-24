@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 724,
+        "completed": 725,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m715-extreme-fault-coverage-refresh-design",
+        "task_id": "m716-extreme-fault-coverage-refresh-implementation",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m715-extreme-fault-coverage-refresh-design.md"
+        "command_log": "docs/m716-extreme-fault-coverage-refresh-implementation.md"
     },
     "next_task": {
-        "id": "m716-extreme-fault-coverage-refresh-implementation",
+        "id": "m717-extreme-fault-coverage-refresh-audit",
         "status": "pending",
-        "priority": 7110,
-        "kind": "infrastructure",
-        "hypothesis": "Run full v2 extreme-fault coverage discovery wave",
-        "command": "see experiments/manifests/m716-extreme-fault-coverage-refresh-implementation.json",
-        "success_artifact": "runs/m716_extreme_fault_coverage_refresh/summary.json",
-        "notes": "Pending: run no-training cross-fault v2 data wave and classify whether broader coverage yields wrong-history action-critical rows"
+        "priority": 7120,
+        "kind": "gate",
+        "hypothesis": "Audit M716 reset-only v2 coverage result",
+        "command": "see experiments/manifests/m717-extreme-fault-coverage-refresh-audit.json",
+        "success_artifact": "",
+        "notes": "Pending: synthesize whether to pivot to delayed-history action-response mismatch actor-head objective design or higher-fidelity dynamics"
     },
-    "updated_at_utc": "20260524T203500Z"
+    "updated_at_utc": "20260524T204500Z"
 }

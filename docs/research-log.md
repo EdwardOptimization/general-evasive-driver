@@ -12472,3 +12472,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M715 registers the hypothesis that the project may not have mined enough extreme hidden-condition coverage. It adds a v2 discovery config with `32` current-model/proxy fault specs across global friction, front/rear lateral authority, brake, drive, steering, mass/CG/inertia, delay, and combined faults, while explicitly keeping true single-wheel blowout, true split-mu, stuck-caliper pull, asymmetric half-shaft, and other per-wheel failures as future high-fidelity dynamics work. A one-seed config smoke ran successfully with `33` scenarios, `165` snapshots, `160` matched pairs, and unchanged actor parameters; the smoke is config validation only, not capability evidence.
 - decision: `extreme_fault_coverage_refresh_design_admit_m716`
 - next: `m716-extreme-fault-coverage-refresh-implementation`
+
+## 20260524T204500Z - m716-extreme-fault-coverage-refresh-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m716_extreme_fault_coverage_refresh`
+- artifact: `docs/m716-extreme-fault-coverage-refresh-implementation.md`
+- result: M716 runs the full v2 no-training extreme-fault coverage wave with `512` seeds, `32` fault specs, `16896` scenarios, `72056` snapshots, and `4096` matched cross-fault pairs. Result is `cross_fault_reset_only`: broader coverage increases reset-history evidence to `58` reset-only rows, but still finds `0` wrong-history action-critical rows. Wrong-history action gaps remain below the `0.015` threshold (`max=0.012664`), while reset action gaps are large (`mean=0.019987`). Actor checksum unchanged; no training, PPO, or promotion occurred.
+- decision: `cross_fault_reset_only_not_source_positive`
+- next: `m717-extreme-fault-coverage-refresh-audit`

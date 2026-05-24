@@ -4,7 +4,8 @@
   "gate_tier": "generalization",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure",
+    "metric_artifact"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -109,5 +110,5 @@
     "docs/m715-extreme-fault-coverage-refresh-design.md"
   ],
   "decision_rule": "M716 may admit source export only if wrong-history action-critical rows pass the v2 diversity gates. It may not admit PPO or promotion directly.",
-  "next_blocker": "m717-to-be-selected-by-m716"
+  "next_blocker": "m717-extreme-fault-coverage-refresh-audit"
 }
