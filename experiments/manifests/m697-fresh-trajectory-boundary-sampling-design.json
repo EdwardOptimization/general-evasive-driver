@@ -1,0 +1,110 @@
+{
+  "id": "m697-fresh-trajectory-boundary-sampling-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m696-trajectory-terminal-boundary-source-miner-audit.md",
+      "runs/m695_trajectory_terminal_boundary_source_miner/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m696-trajectory-terminal-boundary-source-miner-audit.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_objective": [
+      "design fresh broad scenario sampling for terminal-boundary source mining"
+    ],
+    "derived_from": [
+      "m696-trajectory-terminal-boundary-source-miner-audit"
+    ],
+    "blocked_by": [
+      "m696-trajectory-terminal-boundary-source-miner-audit"
+    ],
+    "supersedes": [
+      "m695 source rows limited to M692 replay surface"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m697-fresh-trajectory-boundary-sampling-design.md",
+  "public_gates": [
+    "design samples fresh scenarios rather than only M692 rows",
+    "design includes normal-history prepass and normal-failed rejection",
+    "design includes terminal-margin and risk sensitivity tests",
+    "design includes source-diversity and heldout rules",
+    "design blocks objective actor update PPO and promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not reuse M692 rows as the only source",
+    "do not accept already normal-failed rows as action-critical",
+    "do not change actor inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "trajectory_terminal_boundary_source_mining",
+    "evidence_axis": "G_source: fresh scenario sampling for terminal-margin-sensitive rows",
+    "evidence_increment": "designs a fresh scenario sampler after M695 showed inherited M692 rows are empty",
+    "claim_scope": "sampling design only, not mining result, objective training, PPO, or promotion",
+    "stop_condition": [
+      "stop if design still depends only on M692 replay rows",
+      "stop if design omits normal-failed rejection",
+      "stop before objective design until fresh mining produces accepted rows"
+    ],
+    "fallback_plan": [
+      "if fresh sampling is still empty, audit whether base actor is too weak or perturbation grid is too local",
+      "if fresh sampling is normal-failed-only, pivot to base capability improvement",
+      "if fresh sampling is trajectory-sensitive but history-insensitive, split base capability from self-ID claims"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "after fresh sampler implementation and audit, or earlier if accepted rows remain zero",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Fresh broad scenario sampling can find terminal-margin-sensitive rows that the M692 replay surface missed.",
+  "success_criteria": [
+    "design defines fresh seed and scenario sampling",
+    "design defines snapshot collection windows",
+    "design defines normal-history prepass",
+    "design defines perturbation sensitivity metrics",
+    "design defines wrong/counterfactual-history tests when available",
+    "design defines source-diversity and split rules",
+    "objective actor update PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "design only reuses M692 rows",
+    "design accepts normal-failed rows as action-critical",
+    "design omits terminal-margin or risk sensitivity",
+    "design omits diversity and heldout rules",
+    "design admits objective training before mining"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m697-fresh-trajectory-boundary-sampling-design.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m697-fresh-trajectory-boundary-sampling-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m696-trajectory-terminal-boundary-source-miner-audit.md",
+    "runs/m695_trajectory_terminal_boundary_source_miner/summary.json"
+  ],
+  "decision_rule": "M697 is design-only and passes if it defines fresh terminal-boundary sampling with actor update PPO and promotion blocked.",
+  "next_blocker": "m697-fresh-trajectory-boundary-sampling-design"
+}

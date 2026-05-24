@@ -1,30 +1,30 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 704,
+        "completed": 705,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m695-trajectory-terminal-boundary-source-miner-implementation",
+        "task_id": "m696-trajectory-terminal-boundary-source-miner-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m695-trajectory-terminal-boundary-source-miner-implementation.md",
-        "run_dir": "runs/m695_trajectory_terminal_boundary_source_miner",
-        "result_class": "surface_empty",
-        "accepted_rows": 0
+        "command_log": "docs/m696-trajectory-terminal-boundary-source-miner-audit.md",
+        "synthesis_decision": "continue",
+        "branch": "trajectory_terminal_boundary_source_mining",
+        "next_sampling": "fresh broad scenario sampling"
     },
     "next_task": {
-        "id": "m696-trajectory-terminal-boundary-source-miner-audit",
+        "id": "m697-fresh-trajectory-boundary-sampling-design",
         "status": "pending",
-        "priority": 6910,
-        "kind": "gate",
-        "hypothesis": "M695 surface_empty should be treated as old-source sampling failure, not proof that terminal-boundary mining is infeasible; the branch should continue only with broadened scenario sampling.",
-        "command": "see experiments/manifests/m696-trajectory-terminal-boundary-source-miner-audit.json",
+        "priority": 6920,
+        "kind": "infrastructure",
+        "hypothesis": "Fresh broad scenario sampling can find terminal-margin-sensitive rows that the M692 replay surface missed.",
+        "command": "see experiments/manifests/m697-fresh-trajectory-boundary-sampling-design.json",
         "success_artifact": "",
-        "notes": "Pending: synthesize empty-source result before broadening scenario sampling or pivoting"
+        "notes": "Pending: design fresh sampler that is not limited to M692 replay rows"
     },
-    "updated_at_utc": "20260524T163838Z"
+    "updated_at_utc": "20260524T164047Z"
 }
