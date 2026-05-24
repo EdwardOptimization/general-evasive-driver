@@ -11809,3 +11809,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M631 audits M630 as a narrow positive diagnostic. M630 preserves trust limits and recovers source `30`, but accepted evidence remains too narrow for optimizer admission: only sources `7` and `30`, `2` physical pairs, `2` left seeds, and `1` target. Source `8` is the best next target because it is a core-boundary OOD delayed-history row with zero accepted candidates and best projected margin improvement `0.018752`, only `0.001248` below threshold. M632 should design a targeted source-8 no-training shape search; training, PPO, promotion, threshold changes, and trust-region relaxation remain blocked.
 - decision: `trust_projected_sequence_shape_audit_admit_source8_shape_design`
 - next: `m632-targeted-source8-projected-shape-design`
+## 20260524T172000Z - m632-targeted-source8-projected-shape-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m632-targeted-source8-projected-shape-design.md`
+- result: M632 designs a no-training targeted projected shape search for source `8`. M630's top source-8 candidates show a local pattern: K=7 projected constant-delta, `throttle_delta=-0.06`, steer near `0.00` to `0.04`, and brake near `0.04`; best margin improvement is `0.018752`, only `0.001248` below threshold. M633 should run explicit source ids `8`, `0`, `7`, and `30`, treating source `8` as primary, source `0` as secondary, and sources `7` and `30` as regression sentinels. It should test local K=5/K7/K9 projected shape families without changing trust limits, thresholds, training, PPO, promotion, or optimizer admission.
+- decision: `targeted_source8_projected_shape_design_admit_m633`
+- next: `m633-targeted-source8-projected-shape-implementation`

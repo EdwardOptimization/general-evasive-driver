@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M632 designs source 8 targeted local projected shape search with source 0 secondary and sources 7 30 sentinels while preserving trust limits",
+  "failure_criteria": [
+    "design changes thresholds",
+    "design widens trust regions",
+    "design starts training",
+    "design promotes a checkpoint",
+    "design treats M630 as optimizer-ready",
+    "design ignores source-level diversity"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not widen trust regions",
+    "do not lower target thresholds",
+    "do not call source 7 or 30 breadth sufficient",
+    "do not merge collision-primary rows"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T110707Z",
+  "hypothesis": "Source 8 is close enough after M630 projection that a targeted local shape search may recover it without changing trust limits or thresholds.",
+  "lineage": {
+    "blocked_by": [
+      "m631-trust-projected-sequence-shape-audit"
+    ],
+    "derived_from": [
+      "m631-trust-projected-sequence-shape-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m631-trust-projected-sequence-shape-audit.json",
+      "docs/m630-trust-projected-sequence-shape-implementation.md"
+    ],
+    "parent_dataset": [
+      "runs/m630_trust_projected_sequence_shape/summary.json",
+      "runs/m630_trust_projected_sequence_shape/source_recovery_summary.csv",
+      "runs/m630_trust_projected_sequence_shape/projected_sequence_candidates.csv",
+      "docs/m631-trust-projected-sequence-shape-audit.md"
+    ],
+    "parent_objective": [
+      "design source-8 targeted projected sequence shape search after narrow positive M630"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m632-targeted-source8-projected-shape-design",
+  "next_blocker": "m633-targeted-source8-projected-shape-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "targeted_source8_projected_shape_design_admit_m633",
+  "public_gates": [
+    "define source-8 local candidate-shape search",
+    "preserve all trust limits and margin risk thresholds",
+    "keep source 0 as secondary diagnostic and collision sources separate",
+    "define artifacts for source-level recovery and raw versus targeted comparison",
+    "keep actor training and PPO blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m632-targeted-source8-projected-shape-design.md",
+    "clearance_margin_mean": "",
+    "decision": "targeted_source8_projected_shape_design_admit_m633",
+    "milestone": "m632-targeted-source8-projected-shape-design",
+    "reason": "M632 designs source 8 targeted local projected shape search with source 0 secondary and sources 7 30 sentinels while preserving trust limits",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design identifies source 8 as the primary target and source 0 as secondary",
+    "design specifies local projected candidate families and grids",
+    "design specifies no-training artifacts and source-level recovery metrics",
+    "design keeps optimizer admission training PPO promotion and threshold changes blocked",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

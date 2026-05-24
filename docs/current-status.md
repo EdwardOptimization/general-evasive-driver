@@ -62,17 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m632-targeted-source8-projected-shape-design
+m633-targeted-source8-projected-shape-implementation
 ```
 
-M632 should design a no-training source-8 targeted projected shape search.
-M631 classifies M630 as a narrow positive diagnostic: source `30` is recovered,
-source `7` improves, but source diversity is still far below optimizer
-admission. Source `8` is closest to the margin threshold and should be targeted
-without changing trust limits or thresholds.
+M633 should implement the no-training targeted source-8 projected shape search
+designed in M632. It should run only explicit source ids `8`, `0`, `7`, and
+`30`, with source `8` as primary, source `0` secondary, and sources `7` and
+`30` as regression sentinels. Trust limits and margin/risk thresholds stay
+unchanged.
 
 ## Recent Evidence Line
 
+- M632 designs a source-8 targeted projected shape search. Source `8` is only
+  `0.001248` below the margin threshold after M630. The design focuses a local
+  microgrid around K=7 constant-delta signs (`throttle_delta=-0.06`, steer near
+  `0.00` to `0.04`, brake near `0.04`) and adds K=5/K7/K9 targeted projected
+  shape families. Source `0` is secondary; sources `7` and `30` are sentinels.
 - M631 audits M630 as narrow diagnostic-positive but not optimizer-ready.
   Projection preserved all trust limits and recovered one zero-accepted source,
   but accepted evidence still covers only sources `7` and `30`, `2` physical

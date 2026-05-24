@@ -1,0 +1,98 @@
+{
+  "id": "m633-targeted-source8-projected-shape-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m630_trust_projected_sequence_shape/projected_sequence_candidates.csv",
+      "runs/m630_trust_projected_sequence_shape/source_recovery_summary.csv",
+      "docs/m632-targeted-source8-projected-shape-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m632-targeted-source8-projected-shape-design.json",
+      "docs/m631-trust-projected-sequence-shape-audit.md"
+    ],
+    "parent_objective": [
+      "implement source-8 targeted projected candidate-shape search"
+    ],
+    "derived_from": [
+      "m632-targeted-source8-projected-shape-design"
+    ],
+    "blocked_by": [
+      "m632-targeted-source8-projected-shape-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m633-targeted-source8-projected-shape-implementation.md",
+  "public_gates": [
+    "write targeted projected candidate artifacts",
+    "report source8 recovery and source0 secondary result",
+    "report source7 and source30 regression sentinels",
+    "preserve all trust limits and thresholds",
+    "keep actor training and PPO blocked",
+    "do not promote or admit optimizer training"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not widen trust regions",
+    "do not lower target thresholds",
+    "do not omit source 7 or 30 sentinels",
+    "do not include collision-primary sources"
+  ],
+  "hypothesis": "A source-8 local projected shape search can recover source 8 or improve it materially while preserving trust limits and sentinel sources.",
+  "success_criteria": [
+    "implementation writes targeted candidate and source summary artifacts",
+    "focused tests cover explicit source-id filtering and targeted families",
+    "real run preserves trust limits",
+    "summary records source8 source0 source7 and source30 outcomes",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "implementation changes thresholds",
+    "implementation starts training",
+    "implementation runs PPO",
+    "implementation promotes checkpoint",
+    "implementation admits optimizer training",
+    "implementation merges collision-primary rows"
+  ],
+  "commands": [
+    {
+      "name": "targeted_source8",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.targeted_projected_sequence_shape --checkpoint-policy bc5660=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --source-table runs/m616_expanded_sequence_source_miner/expanded_sequence_source_rows.csv --source-ids 8,0,7,30 --primary-source-id 8 --secondary-source-id 0 --sentinel-source-ids 7,30 --surface-config fresh=configs/ppo_m541_matched_l3_variance_4096.json --surface-config ood=configs/eval_m574_moderate_ood_l3.json --sequence-lengths 5,7,9 --run-dir runs/m633_targeted_source8_projected_shape"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m633_targeted_source8_projected_shape/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m633_targeted_source8_projected_shape/source_recovery_summary.csv",
+      "type": "data"
+    },
+    {
+      "path": "docs/m633-targeted-source8-projected-shape-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m632-targeted-source8-projected-shape-design.md",
+    "runs/m630_trust_projected_sequence_shape/source_recovery_summary.csv"
+  ],
+  "decision_rule": "M633 passes as infrastructure if it writes targeted no-training artifacts and preserves trust limits; recovery is diagnostic and must be audited separately.",
+  "next_blocker": "m634-targeted-source8-projected-shape-audit"
+}
