@@ -1,0 +1,77 @@
+{
+  "decision_reason": "M548 adds ckpt256 variants that differ from M546 only by checkpoint cadence so every PPO update step can be saved",
+  "failure_criteria": [
+    "configs alter actor inputs, reward, sampler, or environment distribution",
+    "configs change learning rates beyond the M546 variants",
+    "tests do not verify the checkpoint-cadence-only difference"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not use public frozen-source rows for checkpoint selection",
+    "do not change environment sampler ranges or reward terms",
+    "do not claim lower-LR repair success until route-health passes"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T041630Z",
+  "hypothesis": "Because M547 best training rollout steps were all unsaved at step 1792, update-aligned 256-step checkpoint cadence is needed before judging the L3 repair variants.",
+  "lineage": {
+    "blocked_by": [
+      "m547-l3-recurrent-repair-route-pilot"
+    ],
+    "derived_from": [
+      "m547-l3-recurrent-repair-route-pilot"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m547_l3_repair_fast_select_seed3540/checkpoints/checkpoint_step_1024.pt",
+      "runs/m547_l3_repair_lr1e4_seed3540/checkpoints/checkpoint_step_2048.pt",
+      "runs/m547_l3_repair_lr5e5_seed3540/checkpoints/checkpoint_step_4096.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m546_l3_repair_fast_select_4096.json",
+      "configs/ppo_m546_l3_repair_lr1e4_4096.json",
+      "configs/ppo_m546_l3_repair_lr5e5_4096.json"
+    ],
+    "parent_dataset": [
+      "runs/m547_l3_recurrent_repair_route_pilot_summary/summary.json",
+      "runs/m547_l3_recurrent_repair_route_pilot_summary/train_peak_summary.csv"
+    ],
+    "parent_objective": [
+      "implement update-aligned checkpoint cadence after M547 route-health failure"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m548-l3-update-aligned-checkpoint-config-family",
+  "next_blocker": "m549-update-aligned-l3-route-pilot",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "update_aligned_checkpoint_config_pass_admit_m549_route_pilot",
+  "public_gates": [
+    "add update-aligned L3 repair configs with checkpoint_interval_steps = 256",
+    "preserve M546 optimization variants and P0 environment contract",
+    "tests verify only checkpoint cadence changes from M546 variants",
+    "do not train or promote checkpoint"
+  ],
+  "scoreboard": {
+    "checkpoint": "configs/ppo_m548_l3_repair_fast_select_ckpt256_4096.json",
+    "clearance_margin_mean": "",
+    "decision": "update_aligned_checkpoint_config_pass_admit_m549_route_pilot",
+    "milestone": "m548-l3-update-aligned-checkpoint-config-family",
+    "reason": "M548 adds ckpt256 variants that differ from M546 only by checkpoint cadence so every PPO update step can be saved",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "update-aligned configs are added for fast-select, lr1e4, and lr5e5 variants",
+    "each config differs from its M546 parent only by checkpoint_interval_steps = 256",
+    "tests verify P0 contract and unchanged environment distribution",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

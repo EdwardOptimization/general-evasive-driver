@@ -2,7 +2,7 @@
   "id": "m548-l3-update-aligned-checkpoint-config-family",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -90,5 +90,5 @@
     "runs/m547_l3_recurrent_repair_route_pilot_summary/summary.json"
   ],
   "decision_rule": "M548 passes only if update-aligned checkpoint configs and tests exist. It does not train or promote a checkpoint.",
-  "next_blocker": "pending M548 update-aligned checkpoint config family"
+  "next_blocker": "m549-update-aligned-l3-route-pilot"
 }

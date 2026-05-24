@@ -1,0 +1,104 @@
+{
+  "id": "m549-update-aligned-l3-route-pilot",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m547_l3_repair_fast_select_seed3540/checkpoints/checkpoint_step_1024.pt",
+      "runs/m547_l3_repair_lr1e4_seed3540/checkpoints/checkpoint_step_2048.pt",
+      "runs/m547_l3_repair_lr5e5_seed3540/checkpoints/checkpoint_step_4096.pt"
+    ],
+    "parent_dataset": [
+      "docs/m547-l3-recurrent-repair-route-pilot.md",
+      "runs/m547_l3_recurrent_repair_route_pilot_summary/train_peak_summary.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m548_l3_repair_fast_select_ckpt256_4096.json",
+      "configs/ppo_m548_l3_repair_lr1e4_ckpt256_4096.json",
+      "configs/ppo_m548_l3_repair_lr5e5_ckpt256_4096.json"
+    ],
+    "parent_objective": [
+      "rerun L3 route pilot with update-aligned checkpoint cadence"
+    ],
+    "derived_from": [
+      "m548-l3-update-aligned-checkpoint-config-family"
+    ],
+    "blocked_by": [
+      "m548-l3-update-aligned-checkpoint-config-family"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m549-update-aligned-l3-route-pilot.md",
+  "public_gates": [
+    "run all three M548 update-aligned L3 configs on seed 3540",
+    "evaluate all saved interval checkpoints with the M545 route-only rule",
+    "determine whether the actual best training update passes route health",
+    "do not run public frozen-source eval unless route health passes"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not select checkpoint from public frozen-source rows",
+    "do not change route-health thresholds after seeing results",
+    "do not promote checkpoint from route evidence alone"
+  ],
+  "hypothesis": "Saving every PPO update will expose whether the M547 unsaved 1792-step peaks can pass deterministic route health.",
+  "success_criteria": [
+    "all three update-aligned repair training runs complete with valid P0 metadata",
+    "step-1792 checkpoint exists for all variants if the same peak recurs",
+    "route selection is based only on route eval artifacts",
+    "result either admits public diagnostics or cleanly classifies deterministic eval/training mismatch"
+  ],
+  "failure_criteria": [
+    "training run fails to produce valid metadata",
+    "checkpoint cadence still misses reported training metric steps",
+    "selection uses public frozen-source rows"
+  ],
+  "commands": [
+    {
+      "name": "train_fast_select_ckpt256",
+      "command": "PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_m548_l3_repair_fast_select_ckpt256_4096.json --run-dir runs/m549_l3_repair_fast_select_ckpt256_seed3540"
+    },
+    {
+      "name": "train_lr1e4_ckpt256",
+      "command": "PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_m548_l3_repair_lr1e4_ckpt256_4096.json --run-dir runs/m549_l3_repair_lr1e4_ckpt256_seed3540"
+    },
+    {
+      "name": "train_lr5e5_ckpt256",
+      "command": "PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_m548_l3_repair_lr5e5_ckpt256_4096.json --run-dir runs/m549_l3_repair_lr5e5_ckpt256_seed3540"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m549_l3_repair_fast_select_ckpt256_seed3540/checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m549_l3_repair_lr1e4_ckpt256_seed3540/checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m549_l3_repair_lr5e5_ckpt256_seed3540/checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "docs/m549-update-aligned-l3-route-pilot.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+    "runs/m542_matched_l2_variance_seed3540/checkpoint.pt",
+    "runs/m542_matched_l3_variance_seed3540/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m548-l3-update-aligned-checkpoint-config-family.md",
+    "docs/m547-l3-recurrent-repair-route-pilot.md"
+  ],
+  "decision_rule": "M549 is a route pilot. It admits public diagnostics only if a route-selected update-aligned L3 checkpoint passes M545 route-health criteria.",
+  "next_blocker": "pending M549 update-aligned L3 route pilot"
+}

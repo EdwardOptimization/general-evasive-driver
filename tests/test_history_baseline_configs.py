@@ -25,6 +25,12 @@ L3_REPAIR_4096_CONFIGS = {
     "lr5e5": Path("configs/ppo_m546_l3_repair_lr5e5_4096.json"),
 }
 
+L3_UPDATE_ALIGNED_REPAIR_4096_CONFIGS = {
+    "fast_select": Path("configs/ppo_m548_l3_repair_fast_select_ckpt256_4096.json"),
+    "lr1e4": Path("configs/ppo_m548_l3_repair_lr1e4_ckpt256_4096.json"),
+    "lr5e5": Path("configs/ppo_m548_l3_repair_lr5e5_ckpt256_4096.json"),
+}
+
 
 def _assert_history_baseline_config(
     *,
@@ -158,3 +164,41 @@ def test_m546_l3_repair_configs_only_change_approved_optimization_controls() -> 
         assert differences <= allowed_differences
         for key, value in expected[variant].items():
             assert repair_ppo[key] == value
+
+
+@pytest.mark.parametrize("variant,path", sorted(L3_UPDATE_ALIGNED_REPAIR_4096_CONFIGS.items()))
+def test_m548_update_aligned_configs_preserve_p0_l3_contract(variant: str, path: Path) -> None:
+    expected_learning_rates = {
+        "fast_select": 0.0003,
+        "lr1e4": 0.0001,
+        "lr5e5": 0.00005,
+    }
+    config = read_json(path)
+    _assert_history_baseline_config(
+        config=config,
+        level="L3_online_gru",
+        total_steps=4096,
+        seed=3540,
+        learning_rate=expected_learning_rates[variant],
+    )
+    assert config["ppo"]["recurrent_sequence_training"] is True
+    assert config["ppo"]["checkpoint_interval_steps"] == 256
+
+
+def test_m548_update_aligned_configs_preserve_m546_env_distribution() -> None:
+    for variant, path in L3_UPDATE_ALIGNED_REPAIR_4096_CONFIGS.items():
+        parent = read_json(L3_REPAIR_4096_CONFIGS[variant])
+        repair = read_json(path)
+        assert repair["env"] == parent["env"]
+
+
+def test_m548_update_aligned_configs_only_change_checkpoint_cadence_from_m546() -> None:
+    for variant, path in L3_UPDATE_ALIGNED_REPAIR_4096_CONFIGS.items():
+        parent = read_json(L3_REPAIR_4096_CONFIGS[variant])
+        repair = read_json(path)
+        parent_ppo = dict(parent["ppo"])
+        repair_ppo = dict(repair["ppo"])
+
+        assert parent_ppo.pop("checkpoint_interval_steps") == 512
+        assert repair_ppo.pop("checkpoint_interval_steps") == 256
+        assert repair_ppo == parent_ppo

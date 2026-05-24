@@ -61,12 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m548-l3-update-aligned-checkpoint-config-family
+m549-update-aligned-l3-route-pilot
 ```
 
-M548 should implement update-aligned `checkpoint_interval_steps = 256` variants
-for the M546 L3 repair configs. M547 showed all best rollout-return steps occur
-at step `1792`, which the 512-step checkpoint cadence does not save.
+M549 should run the M548 update-aligned L3 repair configs on seed `3540` and
+evaluate all saved interval checkpoints. Public frozen-source eval remains
+blocked unless a route-selected checkpoint passes M545 route health.
 
 ## Recent Evidence Line
 
@@ -184,13 +184,17 @@ at step `1792`, which the 512-step checkpoint cadence does not save.
   (`fast_select` step `1024`) has return `22.941196` with termination `1.0`.
   The useful diagnostic is that all three variants peak in training at step
   `1792`, but that step is unsaved by the 512-step checkpoint cadence.
+- M548 adds update-aligned `checkpoint_interval_steps = 256` configs for the
+  same three L3 repair variants. Tests verify the only PPO difference from each
+  M546 parent is checkpoint cadence, so every PPO update step can be saved and
+  evaluated in the next route pilot.
 
 ## Near-Term Rule
 
 Do not treat reset-hidden diagnostics, M528 smoke return, route eval, or
 M537-M543 public diagnostics as private generalization evidence. The next branch
-should implement update-aligned checkpoint configs before another repaired
-route pilot. Public frozen-source eval remains blocked until a route-selected
+should run the M548 update-aligned route pilot before any public frozen-source
+eval. Public frozen-source eval remains blocked until a route-selected
 checkpoint passes M545 route health. Any later promotion requires proof
 retention, generalization retention, behavior retention, no contract violation,
 and clear lineage.

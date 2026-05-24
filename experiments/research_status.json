@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 556,
+        "completed": 557,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m547-l3-recurrent-repair-route-pilot",
+        "task_id": "m548-l3-update-aligned-checkpoint-config-family",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m547_l3_recurrent_repair_route_pilot_summary",
-        "command_log": "docs/m547-l3-recurrent-repair-route-pilot.md"
+        "run_dir": "",
+        "command_log": "docs/m548-l3-update-aligned-checkpoint-config-family.md"
     },
     "next_task": {
-        "id": "m548-l3-update-aligned-checkpoint-config-family",
+        "id": "m549-update-aligned-l3-route-pilot",
         "status": "pending",
-        "priority": 5430,
-        "kind": "infrastructure",
-        "hypothesis": "Because M547 best training rollout steps were all unsaved at step 1792, update-aligned 256-step checkpoint cadence is needed before judging the L3 repair variants.",
-        "command": "see experiments/manifests/m548-l3-update-aligned-checkpoint-config-family.json",
+        "priority": 5440,
+        "kind": "gate",
+        "hypothesis": "Saving every PPO update will expose whether the M547 unsaved 1792-step peaks can pass deterministic route health.",
+        "command": "see experiments/manifests/m549-update-aligned-l3-route-pilot.json",
         "success_artifact": "",
-        "notes": "Pending: add ckpt256 variants and tests without training"
+        "notes": "Pending: train three ckpt256 configs and evaluate all interval checkpoints before public eval"
     },
-    "updated_at_utc": "20260524T082000Z"
+    "updated_at_utc": "20260524T083000Z"
 }

@@ -11053,3 +11053,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M547 runs all three M546 L3 repair configs and evaluates `27` saved interval/final checkpoints under the M545 route-only selection rule. No checkpoint passes route health: `route_health_pass_count = 0`, and the best selected checkpoint is `fast_select` step `1024` with return `22.941196` and termination `1.0`. The training metrics still show strong rollout peaks at step `1792` for all variants (`52.598733`, `67.155072`, `66.953277`), but that step is not saved by the 512-step checkpoint cadence.
 - decision: `route_health_reject_training_instability_admit_m548_update_aligned_checkpoint_configs`
 - next: `m548-l3-update-aligned-checkpoint-config-family`
+## 20260524T083000Z - m548-l3-update-aligned-checkpoint-config-family
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m548-l3-update-aligned-checkpoint-config-family.md`
+- result: M548 adds update-aligned `checkpoint_interval_steps = 256` variants for the three M546 L3 repair configs. Tests verify each M548 config preserves its M546 parent environment and PPO settings exactly except for changing checkpoint cadence from `512` to `256`, so every PPO update step can be saved and evaluated by the M545 route-only selection rule.
+- decision: `update_aligned_checkpoint_config_pass_admit_m549_route_pilot`
+- next: `m549-update-aligned-l3-route-pilot`
