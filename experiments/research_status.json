@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 608,
+        "completed": 609,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m599-bc-capability-head-smoke-audit",
+        "task_id": "m600-bc-capability-belief-intervention-probe-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m599-bc-capability-head-smoke-audit.md"
+        "command_log": "docs/m600-bc-capability-belief-intervention-probe-design.md"
     },
     "next_task": {
-        "id": "m600-bc-capability-belief-intervention-probe-design",
+        "id": "m601-bc-capability-belief-intervention-probe",
         "status": "pending",
-        "priority": 5950,
-        "kind": "infrastructure",
-        "hypothesis": "The M598 capability head may reveal belief-level sensitivity to wrong or delayed recurrent histories even though M591 showed action-level insensitivity; this must be tested before actor fine-tuning.",
-        "command": "see experiments/manifests/m600-bc-capability-belief-intervention-probe-design.json",
+        "priority": 5960,
+        "kind": "gate",
+        "hypothesis": "If M598 learned a meaningful hidden capability belief, wrong or delayed real histories may change capability predictions even though M591 showed action-level insensitivity.",
+        "command": "see experiments/manifests/m601-bc-capability-belief-intervention-probe.json",
         "success_artifact": "",
-        "notes": "Pending: design capability-belief intervention probe; no actor update, PPO, promotion, or driver-performance claim"
+        "notes": "Pending: implement and run capability-belief intervention probe; no training, PPO, promotion, or driver-performance claim"
     },
-    "updated_at_utc": "20260524T115000Z"
+    "updated_at_utc": "20260524T120000Z"
 }

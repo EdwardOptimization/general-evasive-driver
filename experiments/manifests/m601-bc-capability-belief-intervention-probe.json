@@ -1,0 +1,97 @@
+{
+  "id": "m601-bc-capability-belief-intervention-probe",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m598_bc_capability_repair_head_only_smoke/capability_head.pt",
+      "runs/m598_bc_capability_repair_head_only_smoke/summary.json",
+      "runs/m586_bc5660_matched_current_fresh_seed25560/matched_pairs.csv",
+      "runs/m586_bc5660_matched_current_ood_seed25660/matched_pairs.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_objective": [
+      "implement and run capability-belief intervention probe after M600 design"
+    ],
+    "derived_from": [
+      "m600-bc-capability-belief-intervention-probe-design"
+    ],
+    "blocked_by": [
+      "m600-bc-capability-belief-intervention-probe-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m601-bc-capability-belief-intervention-probe.md",
+  "public_gates": [
+    "run fresh capability-belief intervention surface",
+    "run OOD capability-belief intervention surface",
+    "summarize normal reset delayed wrong shuffled scaled random and observation-control variants",
+    "decide whether actor fine-tune design is admitted"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor or capability head",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not claim driver improvement from belief movement",
+    "do not treat random-hidden sensitivity as self-ID proof"
+  ],
+  "hypothesis": "If M598 learned a meaningful hidden capability belief, wrong or delayed real histories may change capability predictions even though M591 showed action-level insensitivity.",
+  "success_criteria": [
+    "fresh and OOD summary.json files exist",
+    "variant summaries include all M600 variants",
+    "capability z-distance threshold is 0.25",
+    "milestone doc applies the M600 interpretation rules",
+    "research validation and focused tests pass"
+  ],
+  "failure_criteria": [
+    "probe trains any model",
+    "probe omits wrong or delayed history variants",
+    "probe treats random hidden movement as self-ID proof",
+    "probe promotes a checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "fresh",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.bc_capability_belief_intervention_probe --checkpoint-policy bc5660=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --capability-head runs/m598_bc_capability_repair_head_only_smoke/capability_head.pt --capability-summary runs/m598_bc_capability_repair_head_only_smoke/summary.json --env-config configs/ppo_m541_matched_l3_variance_4096.json --pairs-csv runs/m586_bc5660_matched_current_fresh_seed25560/matched_pairs.csv --surface fresh --delay-steps 2 --min-capability-z-distance 0.25 --max-pairs-per-target 120 --device cpu --run-dir runs/m601_bc_capability_belief_intervention_fresh"
+    },
+    {
+      "name": "ood",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.bc_capability_belief_intervention_probe --checkpoint-policy bc5660=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --capability-head runs/m598_bc_capability_repair_head_only_smoke/capability_head.pt --capability-summary runs/m598_bc_capability_repair_head_only_smoke/summary.json --env-config configs/eval_m574_moderate_ood_l3.json --pairs-csv runs/m586_bc5660_matched_current_ood_seed25660/matched_pairs.csv --surface ood --delay-steps 2 --min-capability-z-distance 0.25 --max-pairs-per-target 120 --device cpu --run-dir runs/m601_bc_capability_belief_intervention_ood"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m601_bc_capability_belief_intervention_fresh/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m601_bc_capability_belief_intervention_ood/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "docs/m601-bc-capability-belief-intervention-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m600-bc-capability-belief-intervention-probe-design.md",
+    "runs/m598_bc_capability_repair_head_only_smoke/summary.json"
+  ],
+  "decision_rule": "M601 passes as a probe if it writes both capability-belief intervention surfaces and applies the pre-registered M600 admission rule without training or promotion.",
+  "next_blocker": "m602-bc-capability-belief-intervention-audit"
+}

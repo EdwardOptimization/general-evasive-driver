@@ -2,7 +2,7 @@
   "id": "m600-bc-capability-belief-intervention-probe-design",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -81,6 +81,6 @@
     "docs/m599-bc-capability-head-smoke-audit.md",
     "docs/m598-bc-capability-repair-objective-smoke-implementation.md"
   ],
-  "decision_rule": "M600 passes if it pre-registers a capability-belief intervention probe that distinguishes belief-use from action-use before actor fine-tuning.",
+  "decision_rule": "M600 passes because it pre-registers a capability-belief intervention probe that distinguishes belief-use from action-use before actor fine-tuning.",
   "next_blocker": "m601-bc-capability-belief-intervention-probe"
 }

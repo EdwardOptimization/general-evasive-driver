@@ -61,17 +61,21 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m600-bc-capability-belief-intervention-probe-design
+m601-bc-capability-belief-intervention-probe
 ```
 
-M600 should design a capability-belief intervention probe using the M598
-capability head before any actor fine-tuning. The current evidence supports
-deployable current-response dependence and source-diverse pair availability,
-but M587-M599 do not yet support accumulated hidden-history causality.
-Promotion and PPO remain blocked.
+M601 should implement and run the capability-belief intervention probe designed
+by M600. The current evidence supports deployable current-response dependence
+and source-diverse pair availability, but M587-M600 do not yet support
+accumulated hidden-history causality. Promotion and PPO remain blocked.
 
 ## Recent Evidence Line
 
+- M600 designs the capability-belief intervention probe. It uses the M598
+  capability head on recurrent `next_hidden` under M591-style hidden variants
+  and measures z-scored capability prediction distance. Actor fine-tuning is
+  admitted only if real-history variants show capability movement; random
+  hidden remains diagnostic only.
 - M599 audits M598: the frozen BC5660 hidden state contains learnable
   capability signal, but this is not driver improvement and does not show action
   use. Before actor fine-tuning, M600 should test whether the learned capability

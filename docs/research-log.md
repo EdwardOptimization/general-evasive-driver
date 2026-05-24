@@ -11521,3 +11521,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M599 audits M598 and separates the supported claim from overclaims. M598 proves future-response capability targets are learnable from frozen BC5660 hidden states, but it does not prove driver improvement, action use, wrong-history action sensitivity, route performance, or self-ID under counterfactual intervention. The next step should test whether the learned capability head changes predictions under wrong/delayed hidden interventions before any actor or recurrent fine-tune.
 - decision: `bc_capability_head_smoke_audit_admit_belief_intervention_design`
 - next: `m600-bc-capability-belief-intervention-probe-design`
+## 20260524T120000Z - m600-bc-capability-belief-intervention-probe-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m600-bc-capability-belief-intervention-probe-design.md`
+- result: M600 designs the capability-belief intervention probe. It will load the frozen BC5660 actor and M598 `CapabilityHead`, reconstruct M586/M591 snapshots, apply normal/reset/delayed/wrong/shuffled/scaled/random hidden variants, run the actor recurrent update for the current observation, then compare capability predictions in z-scored target space. Actor fine-tune design is admitted only if real-history variants have mean capability z-distance at least `0.10` and at least `16` above-threshold rows on one surface; random-hidden movement remains off-manifold diagnostic only.
+- decision: `bc_capability_belief_intervention_probe_design_admit_m601`
+- next: `m601-bc-capability-belief-intervention-probe`
