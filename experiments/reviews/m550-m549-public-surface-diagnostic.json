@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M550 selected L3 improves over original L3 but remains below L0 and L2 on all public surfaces",
+  "failure_criteria": [
+    "metadata or actor-contract validation fails",
+    "eval uses different source surfaces from M543",
+    "result is treated as private evidence or promotion"
+  ],
+  "failure_types": [
+    "behavior_regression"
+  ],
+  "forbidden_shortcuts": [
+    "do not use private holdout or claim private generalization",
+    "do not tune checkpoint selection from public frozen-source rows",
+    "do not promote without matched multi-seed repeat"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T042903Z",
+  "hypothesis": "The M549 route-selected L3 checkpoint may repair the M543 public-surface L3 regression enough to justify a matched repeat, but public diagnostics alone cannot promote it.",
+  "lineage": {
+    "blocked_by": [
+      "m549-update-aligned-l3-route-pilot"
+    ],
+    "derived_from": [
+      "m549-update-aligned-l3-route-pilot"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m549_l3_repair_fast_select_ckpt256_seed3540/checkpoints/checkpoint_step_2816.pt",
+      "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+      "runs/m542_matched_l2_variance_seed3540/checkpoint.pt",
+      "runs/m542_matched_l3_variance_seed3540/checkpoint.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m548_l3_repair_fast_select_ckpt256_4096.json",
+      "configs/ppo_m541_matched_l0_variance_4096.json",
+      "configs/ppo_m541_matched_l2_variance_4096.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json"
+    ],
+    "parent_dataset": [
+      "runs/m549_update_aligned_l3_route_pilot_summary/summary.json",
+      "runs/m497_natural_belief_decision_window_outcome_gate/targeted_pairs_short_reveal.csv",
+      "runs/m497_natural_belief_decision_window_outcome_gate/targeted_pairs_warmup_capability.csv",
+      "runs/m487_critical_window_tail_aligned_outcome_gate/targeted_pairs_near_threshold.csv",
+      "runs/m487_critical_window_tail_aligned_outcome_gate/targeted_pairs_late_high_energy.csv"
+    ],
+    "parent_objective": [
+      "public frozen-source diagnostic after M549 route-health pass"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m550-m549-public-surface-diagnostic",
+  "next_blocker": "m551-route-health-screen-redesign",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "public_surface_regression_reject_repair_admit_m551_route_health_redesign",
+  "public_gates": [
+    "evaluate the M549 selected checkpoint on the same four public M543 frozen-source surfaces",
+    "include M542 L0, M542 L2, original M542 L3, and M549 selected L3 in the same matrix",
+    "compare paired deltas against L0/L2 and original L3",
+    "do not promote checkpoint from public diagnostics alone"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m549_l3_repair_fast_select_ckpt256_seed3540/checkpoints/checkpoint_step_2816.pt",
+    "clearance_margin_mean": "1.148824",
+    "decision": "public_surface_regression_reject_repair_admit_m551_route_health_redesign",
+    "milestone": "m550-m549-public-surface-diagnostic",
+    "reason": "M550 selected L3 improves over original L3 but remains below L0 and L2 on all public surfaces",
+    "reset_success": "",
+    "success_rate": "0.724599",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "all four public frozen-source surface evals complete",
+    "aggregate and paired summaries compare selected M549 L3 against L0, L2, and original L3",
+    "the result either admits matched repeat or classifies public-surface regression",
+    "research validation passes"
+  ],
+  "type": "gate"
+}

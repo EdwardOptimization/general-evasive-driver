@@ -11071,3 +11071,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M549 reruns the three L3 repair variants with 256-step checkpoints and evaluates `51` saved interval/final checkpoints. The formerly missed step `1792` is saved for all variants but fails deterministic route health. One checkpoint passes: `fast_select_ckpt256` step `2816` with route return `27.858686`, termination `0.8`, and clearance margin `0.594595`. Lower-LR variants remain route-unhealthy on this seed.
 - decision: `route_health_pass_admit_m550_public_surface_diagnostic`
 - next: `m550-m549-public-surface-diagnostic`
+## 20260524T085000Z - m550-m549-public-surface-diagnostic
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m550_m549_public_surface_diagnostic_aggregate`
+- artifact: `docs/m550-m549-public-surface-diagnostic.md`
+- result: M550 evaluates the M549 selected L3 checkpoint on the same four public M543 frozen-source surfaces. It improves over original M542 L3 (`success +0.053922`, margin `+0.164015`) but remains below L0 (`success -0.076203`, margin `-0.235235`) and far below L2 (`success -0.141711`, margin `-0.629009`). The regression is broad across all surfaces, with `308` L2-completed to M549-collision rows.
+- decision: `public_surface_regression_reject_repair_admit_m551_route_health_redesign`
+- next: `m551-route-health-screen-redesign`

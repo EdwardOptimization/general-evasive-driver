@@ -61,12 +61,11 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m550-m549-public-surface-diagnostic
+m551-route-health-screen-redesign
 ```
 
-M550 should evaluate the M549 route-selected L3 checkpoint on the same public
-M497/M487 frozen-source natural surfaces used by M543. This remains public
-diagnostic evidence, not promotion or private generalization.
+M551 should redesign the pre-public route-health screen after M550 showed that
+a 5-episode route pass can still fail broad public frozen-source diagnostics.
 
 ## Recent Evidence Line
 
@@ -194,15 +193,22 @@ diagnostic evidence, not promotion or private generalization.
   `2816`, with route return `27.858686`, termination `0.8`, and mean clearance
   margin `0.594595`. Public frozen-source diagnostics are now admitted for that
   selected checkpoint, but no checkpoint is promoted.
+- M550 runs those public diagnostics. M549 selected L3 improves over original
+  M542 L3 (`success +0.053922`, margin `+0.164015`), but it still regresses
+  against L0 (`success -0.076203`, margin `-0.235235`) and L2 (`success
+  -0.141711`, margin `-0.629009`) on the same public surfaces. The next step is
+  to redesign route-health screening, not to promote or matched-repeat this
+  checkpoint.
 
 ## Near-Term Rule
 
 Do not treat reset-hidden diagnostics, M528 smoke return, route eval, or
 M537-M543 public diagnostics as private generalization evidence. The next branch
-should run public diagnostics for the M549 selected checkpoint against M542
-L0/L2/original-L3 on the same M543 surfaces. Any later promotion requires proof
-retention, generalization retention, behavior retention, no contract violation,
-and clear lineage.
+should redesign public-neutral route screening before more L3 repair training.
+M550 remains public diagnostic evidence and cannot support a private
+generalization claim. Any later promotion requires proof retention,
+generalization retention, behavior retention, no contract violation, and clear
+lineage.
 
 ## Sensor Profile Policy
 

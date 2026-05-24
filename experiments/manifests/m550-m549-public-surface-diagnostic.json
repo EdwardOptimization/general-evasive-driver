@@ -2,9 +2,9 @@
   "id": "m550-m549-public-surface-diagnostic",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "behavior_regression"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -87,6 +87,18 @@
       "type": "summary"
     },
     {
+      "path": "runs/m550_m549_public_surface_diagnostic_aggregate/paired_deltas.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m550_m549_public_surface_diagnostic_aggregate/terminal_pair_deltas.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m550_m549_public_surface_diagnostic_aggregate/first_action_deltas.csv",
+      "type": "csv"
+    },
+    {
       "path": "docs/m550-m549-public-surface-diagnostic.md",
       "type": "documentation"
     }
@@ -102,5 +114,5 @@
     "docs/m543-m542-public-surface-eval.md"
   ],
   "decision_rule": "M550 is a public diagnostic. It can admit a matched repeat or reject the repaired checkpoint, but it cannot promote a checkpoint.",
-  "next_blocker": "pending M550 public frozen-source diagnostic"
+  "next_blocker": "m551-route-health-screen-redesign"
 }
