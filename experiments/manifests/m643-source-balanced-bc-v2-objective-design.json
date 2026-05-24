@@ -1,0 +1,88 @@
+{
+  "id": "m643-source-balanced-bc-v2-objective-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m641_source_diverse_sequence_target_corpus/balanced_sequence_target_corpus.npz",
+      "runs/m641_source_diverse_sequence_target_corpus/balanced_sequence_targets.csv",
+      "runs/m642_sequence_corpus_exact_objective_sanity/summary.json",
+      "docs/m642-sequence-corpus-exact-objective-sanity.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m642-sequence-corpus-exact-objective-sanity.json"
+    ],
+    "parent_objective": [
+      "design a source-balanced BC-v2 objective using the M641 exact sequence target corpus"
+    ],
+    "derived_from": [
+      "m642-sequence-corpus-exact-objective-sanity"
+    ],
+    "blocked_by": [
+      "m642-sequence-corpus-exact-objective-sanity"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m643-source-balanced-bc-v2-objective-design.md",
+  "public_gates": [
+    "design objective terms before actor update",
+    "keep P0 human-view actor input contract unchanged",
+    "separate train source rows from source-heldout validation rows",
+    "pre-register exact objective non-regression gates",
+    "pre-register replay and behavior retention gates before any checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not add source ids target labels or split labels to actor observations",
+    "do not tune on source-heldout validation and report it as unbiased promotion evidence",
+    "do not collapse source-balanced weights into raw row-count weights"
+  ],
+  "hypothesis": "The M641/M642 corpus can support a conservative BC-v2 objective design that uses source-balanced masked sequence losses and exact pre/post gates before any actor update.",
+  "success_criteria": [
+    "design document specifies trainable scope and frozen components",
+    "design document specifies masked source-balanced objective terms",
+    "design document specifies exact sanity and retention gates",
+    "design document specifies source-heldout evaluation discipline",
+    "no actor update is run",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design changes actor input contract",
+    "design allows training without exact objective gates",
+    "design uses source ids or target labels as actor inputs",
+    "design omits source-heldout validation discipline",
+    "design admits promotion from objective-only improvement"
+  ],
+  "commands": [
+    {
+      "name": "design_doc",
+      "command": "write docs/m643-source-balanced-bc-v2-objective-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m643-source-balanced-bc-v2-objective-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m642_sequence_corpus_exact_objective_sanity/summary.json",
+    "runs/m641_source_diverse_sequence_target_corpus/balanced_sequence_target_corpus.npz"
+  ],
+  "decision_rule": "M643 passes as infrastructure only if it pre-registers a no-oracle source-balanced BC-v2 objective and gate order without running training.",
+  "next_blocker": "m644-source-balanced-bc-v2-objective-implementation"
+}

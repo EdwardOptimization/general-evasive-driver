@@ -62,16 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m642-sequence-corpus-exact-objective-sanity
+m643-source-balanced-bc-v2-objective-design
 ```
 
-M642 should run exact objective sanity on the M641 source-balanced sequence
-target corpus. It must load the metadata and NPZ corpus, report target/base
-sequence deltas, source-balanced loss contributions, and train versus
-source-heldout validation summaries, while keeping actor training blocked.
+M643 should design a source-balanced BC-v2 objective using the M641/M642 exact
+sequence corpus. It must keep the P0 actor input contract unchanged, separate
+train sources from source-heldout validation rows, and pre-register exact
+objective and retention gates before any actor update.
 
 ## Recent Evidence Line
 
+- M642 runs exact objective sanity on the M641 sequence corpus. The NPZ and
+  metadata align for `431` rows; all rows have nonzero target/base deltas;
+  `outside_mask_abs_max` is `0.0`; weighted sequence MSE is `0.002039985`; and
+  source weights are balanced with max absolute source-weight error
+  `8.28e-10`. Train and source-heldout validation objective scales are close:
+  weighted MSE `0.002054882` versus `0.002010192`. This admits BC-v2 objective
+  design, not training or promotion.
 - M641 implements and runs the source-balanced sequence target corpus builder.
   It selects `431` rows across `9` source rows, `8` physical pairs, `6` left
   seeds, `2` surfaces, `3` targets, and `2` variants. It writes

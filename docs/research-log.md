@@ -11899,3 +11899,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M641 implements and runs the source-balanced sequence target corpus builder. It selects `431` rows across `9` source rows, `8` physical pairs, `6` left seeds, `2` surfaces, `3` targets, and `2` variants. It writes `balanced_sequence_targets.csv`, `balanced_sequence_target_corpus.npz`, `top1_per_source.csv`, `topk_per_source.csv`, and `source_balance_summary.csv`. The materialized NPZ contains `observation (431, 72)`, `normal_hidden (431, 64)`, `variant_hidden (431, 64)`, `target_action_sequence (431, 9, 3)`, `normal_base_action_sequence (431, 9, 3)`, `sequence_mask (431, 9)`, and source-balanced weights. Train rows total `271`; source-heldout validation rows total `160`. Training, PPO, promotion, and optimizer admission remain blocked pending exact objective sanity.
 - decision: `source_diverse_sequence_target_corpus_pass_admit_exact_sanity`
 - next: `m642-sequence-corpus-exact-objective-sanity`
+## 20260524T190000Z - m642-sequence-corpus-exact-objective-sanity
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m642_sequence_corpus_exact_objective_sanity`
+- artifact: `docs/m642-sequence-corpus-exact-objective-sanity.md`
+- result: M642 runs exact objective sanity on the M641 sequence corpus. The corpus has `431` rows, `9` sources, `72` observation dims, `64` hidden dims, and max sequence length `9`. All `431` rows have nonzero target/base deltas; weighted sequence MSE is `0.002039985`; weighted mean step L2 is `0.077348085`; max sequence step L2 is `0.099999994`; and `outside_mask_abs_max` is `0.0`. Source weights are balanced with max absolute source-weight error `8.28e-10`. Train and source-heldout validation weighted MSE are close at `0.002054882` and `0.002010192`. The corpus is exact-objective usable, but no actor update, PPO, optimizer admission, or promotion occurs.
+- decision: `sequence_corpus_exact_sanity_pass_admit_bc_v2_design`
+- next: `m643-source-balanced-bc-v2-objective-design`
