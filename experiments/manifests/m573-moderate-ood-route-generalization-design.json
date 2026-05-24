@@ -82,6 +82,6 @@
     "docs/m572-fresh-route-generalization-eval.md",
     "docs/m571-fresh-route-generalization-design.md"
   ],
-  "decision_rule": "M573 passes only if it pre-registers moderate-OOD eval-only configs, seeds, and pass/fail criteria without training, promotion, public-row reuse, or actor-contract changes.",
+  "decision_rule": "M573 passes because it pre-registers moderate-OOD eval-only config deltas, seed range, command shape, and pass/fail criteria without training, promotion, public-row reuse, or actor-contract changes.",
   "next_blocker": "m574-moderate-ood-config-family"
 }

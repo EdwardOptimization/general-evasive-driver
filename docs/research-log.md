@@ -11278,3 +11278,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M572 runs the pre-registered `256`-episode fresh route/generalization gate on seeds `19560..19815`. It writes `768` episode rows for L0, L2, and BC5660 and reports `uses_public_frozen_source_rows=false`. `BC5660` passes the L0 gate and is L2-competitive: success `0.625000` versus L2 `0.621094`, collision `0.375000` versus L2 `0.378906`, and mean margin `1.064947` versus L2 `1.049135`. No training or promotion is performed.
 - decision: `fresh_route_generalization_pass_admit_m573_ood_design`
 - next: `m573-moderate-ood-route-generalization-design`
+## 20260524T073000Z - m573-moderate-ood-route-generalization-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m573-moderate-ood-route-generalization-design.md`
+- result: M573 pre-registers the moderate-OOD route/generalization layer. M574 should add eval-only L0/L2/L3 configs with identical OOD env deltas: speed `[14.5, 20.0]`, friction-step `mu [0.12, 1.00]`, randomized `mu [0.12, 0.72]`, wider mass/CG/inertia/tire/drive/brake/actuator ranges, obstacle distance `[4.0, 26.0]`, half-width `[0.60, 1.55]`, threshold `0.60`, and reveal distance `5.5`. M575 should later evaluate seeds `20560..20815` with no public rows, no training, no promotion, and relaxed OOD L2-competitiveness tolerances.
+- decision: `moderate_ood_route_design_admit_m574_config_family`
+- next: `m574-moderate-ood-config-family`
