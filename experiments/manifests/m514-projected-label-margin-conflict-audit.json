@@ -1,0 +1,84 @@
+{
+  "id": "m514-projected-label-margin-conflict-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m512_label_targeted_projection_miner/summary.json",
+      "runs/m512_label_targeted_projection_miner/scored_pairs.csv"
+    ],
+    "parent_config": [
+      "configs/m502_natural_boundary_pressure_short_reveal_zero_relvel.json",
+      "configs/m502_natural_boundary_pressure_warmup_zero_relvel.json",
+      "experiments/manifests/m513-projected-label-margin-conflict-design.json"
+    ],
+    "parent_objective": [
+      "projected label-margin conflict audit"
+    ],
+    "derived_from": [
+      "m513-projected-label-margin-conflict-design"
+    ],
+    "blocked_by": [
+      "m513-projected-label-margin-conflict-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m514-projected-label-margin-conflict-audit.md",
+  "public_gates": [
+    "audit projected label versus normal-margin overlap under a broader diagnostic projection grid",
+    "report whether low-margin non-unavoidable rows exist",
+    "recommend either a new selector family or a pre-registered proof/scenario gate split",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not claim projected rows as raw natural proof",
+    "do not use private holdouts"
+  ],
+  "hypothesis": "A broader diagnostic projection grid can determine whether M512's label-diversity failure is structural or merely a missing projection-family issue.",
+  "success_criteria": [
+    "audit runs on M512/M508 source pairs and both M502 configs",
+    "reports counts by projected label and normal-margin bucket",
+    "reports projection magnitude and half-width delta buckets",
+    "reports whether any non-unavoidable rows have normal_min_clearance_margin <= 2.0",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "audit admits an outcome gate directly",
+    "audit changes actor inputs",
+    "audit trains or promotes checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "label_margin_conflict_audit",
+      "command": "Implement and run a projected label-margin conflict audit using M513 parameters."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m514-projected-label-margin-conflict-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m513-projected-label-margin-conflict-design.md",
+    "runs/m512_label_targeted_projection_miner/summary.json"
+  ],
+  "decision_rule": "M514 is an audit milestone; it may not admit outcome testing directly.",
+  "next_blocker": "pending M514 projected label-margin conflict audit"
+}

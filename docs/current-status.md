@@ -47,12 +47,12 @@ runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
 
 Status: M400 promotes M399 alpha `0.05` as the current public-gate base after
 six public replay surfaces and behavior seeds pass. This remains the latest
-public-gate base; M487-M511 did not train or promote a checkpoint.
+public-gate base; M487-M513 did not train or promote a checkpoint.
 
 Current blocker:
 
 ```text
-m512-label-targeted-projection-miner
+m514-projected-label-margin-conflict-audit
 ```
 
 Recent progress: M486-M492 is now closed as an artificial tail-forcing
@@ -167,8 +167,19 @@ use projected scenario labels as offline mining/gate metadata, but projected
 labels remain forbidden actor inputs. Admission should require at least two
 projected labels plus projection magnitude and half-width change limits.
 
-Next step: M512 should implement and run label-targeted obstacle-boundary
-projection mining. It should not train or promote a checkpoint.
+M512 implements label-targeted projection mining. It finds `drift_required` and
+`aeb_feasible` projected labels in the scored table, but those labels only
+appear at high normal margins (`>= 7.45`). All low-margin rows remain
+`unavoidable`, so projected-label diversity and terminal-boundary proof do not
+overlap in the current projection family.
+
+M513 designs the next audit: test whether low-margin non-`unavoidable`
+projected rows exist under a broader diagnostic grid. If not, the workflow
+should pre-register a split between mechanism proof gates and broad
+scenario-label distribution gates instead of relaxing M512 after the fact.
+
+Next step: M514 should run the projected label-margin conflict audit. It should
+not train, promote, or admit an outcome gate directly.
 
 ## Current Evidence
 

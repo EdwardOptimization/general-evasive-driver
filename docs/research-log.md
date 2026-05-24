@@ -10729,3 +10729,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M511 designs a label-targeted projection miner. The next branch should enumerate body-frame obstacle distance, lateral offset, and half-width candidates, use projected scenario labels only as offline mining/gate metadata, and require at least two projected labels before outcome-gate admission. The actor still receives only P0 observations from the relocated simulator state. Projected rows must remain explicitly labelled projection proof, with projection magnitude and half-width change limits.
 - decision: `admit_m512_label_targeted_projection_miner`
 - next: `m512-label-targeted-projection-miner`
+## 20260524T023000Z - m512-label-targeted-projection-miner
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m512_label_targeted_projection_miner`
+- artifact: `docs/m512-label-targeted-projection-miner.md`
+- result: M512 implements and runs label-targeted projection mining over `300` source pairs and `35967` projected candidates. It finds multiple labels in the scored table (`33088` unavoidable, `2102` drift_required, `777` aeb_feasible), but all rows with normal margin `<= 4.0` are unavoidable. The selected source-capped surface has `123` rows, all `unavoidable`; `projection_l2_p50 = 1.672650`, p90 `3.075420`, `half_width_delta_abs_p90 = 0.339745`, and trajectory mean `0.066786`. Outcome-gate admission is rejected because projected-label diversity and low-margin terminal-boundary rows do not overlap.
+- decision: `reject_outcome_gate_admission`
+- next: `m513-projected-label-margin-conflict-design`
+## 20260524T024000Z - m513-projected-label-margin-conflict-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m513-projected-label-margin-conflict-design.md`
+- result: M513 designs a label-margin conflict audit. The next task should test whether any broader diagnostic projection family can produce non-unavoidable projected rows with normal margin `<= 2.0` and nonzero wrong-history action signal. If not, the project should split mechanism proof admission from broad scenario-label diversity evaluation in a pre-registered way rather than relaxing M512 post hoc.
+- decision: `admit_m514_projected_label_margin_conflict_audit`
+- next: `m514-projected-label-margin-conflict-audit`

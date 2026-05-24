@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 520,
+        "completed": 522,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m511-label-targeted-projection-design",
+        "task_id": "m513-projected-label-margin-conflict-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m511-label-targeted-projection-design.md"
+        "command_log": "docs/m513-projected-label-margin-conflict-design.md"
     },
     "next_task": {
-        "id": "m512-label-targeted-projection-miner",
+        "id": "m514-projected-label-margin-conflict-audit",
         "status": "pending",
-        "priority": 5070,
+        "priority": 5090,
         "kind": "gate",
-        "hypothesis": "Targeting projected scenario labels during offline mining can create a source-diverse projection-proof surface with at least two projected labels while preserving natural ego/history state.",
-        "command": "see experiments/manifests/m512-label-targeted-projection-miner.json",
+        "hypothesis": "A broader diagnostic projection grid can determine whether M512's label-diversity failure is structural or merely a missing projection-family issue.",
+        "command": "see experiments/manifests/m514-projected-label-margin-conflict-audit.json",
         "success_artifact": "",
-        "notes": "Pending: implement label-targeted projection miner and decide whether labelled projection proof outcome gate is admissible"
+        "notes": "Pending: run label-margin conflict audit without training promotion or outcome gate admission"
     },
-    "updated_at_utc": "20260524T022000Z"
+    "updated_at_utc": "20260524T024000Z"
 }
