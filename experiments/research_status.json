@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 760,
+        "completed": 761,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m751-v4-reset-source-sequence-intervention-design",
+        "task_id": "m752-v4-reset-source-sequence-intervention-implementation",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m751-v4-reset-source-sequence-intervention-design.md"
+        "command_log": "docs/m752-v4-reset-source-sequence-intervention-implementation.md"
     },
     "next_task": {
-        "id": "m752-v4-reset-source-sequence-intervention-implementation",
+        "id": "m753-v4-reset-source-sequence-intervention-audit",
         "status": "pending",
-        "priority": 7470,
-        "kind": "infrastructure",
-        "hypothesis": "Run v4 reset-source sequence interventions",
-        "command": "see experiments/manifests/m752-v4-reset-source-sequence-intervention-implementation.json",
-        "success_artifact": "docs/m752-v4-reset-source-sequence-intervention-implementation.md",
-        "notes": "Pending: implement v4 source adapter and run no-training sequence interventions over M749 reset-only rows"
+        "priority": 7480,
+        "kind": "gate",
+        "hypothesis": "Audit v4 reset-source sequence intervention positive result",
+        "command": "see experiments/manifests/m753-v4-reset-source-sequence-intervention-audit.json",
+        "success_artifact": "docs/m753-v4-reset-source-sequence-intervention-audit.md",
+        "notes": "Pending: audit M752 source balance sentinel contamination outcome diversity and claim boundary before corpus export"
     },
-    "updated_at_utc": "20260525T035000Z"
+    "updated_at_utc": "20260525T040000Z"
 }

@@ -12810,3 +12810,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M751 designs a no-training v4 sequence intervention branch over M749 reset-only rows. It defines a v4 source adapter preserving `source_kind=v4_reset_source`, source pools, reset/action/history gaps, pairing rule, and claim-boundary metadata. The design targets `512` source rows with about `461` primary rows and `51` sentinels. A precheck using M749 rows gives `31` source seeds, `9` preferred fault families, `7` wrong fault families, `21` fault-family pairs, max seed dominance `0.121094`, max preferred-family dominance `0.126953`, and sentinel fraction `0.099609`. Actor update, source export, objective training, PPO, and promotion remain blocked.
 - decision: `v4_reset_source_sequence_intervention_design_admit_m752`
 - next: `m752-v4-reset-source-sequence-intervention-implementation`
+
+## 20260525T040000Z - m752-v4-reset-source-sequence-intervention-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m752_v4_reset_source_sequence_intervention`
+- artifact: `docs/m752-v4-reset-source-sequence-intervention-implementation.md`
+- result: M752 implements the v4 reset-source sequence intervention runner and runs the registered no-training wave. It selects `512` source rows with `461` primary reset rows and `51` sentinels across `31` seeds, `9` preferred fault families, `7` wrong fault families, and `21` fault-family pairs. It evaluates `12288` rollout rows and finds `5429` sequence action-critical rows plus `1213` sequence outcome-critical rows across `27` seeds and `17` fault-family pairs. Outcome rows are dominated by `zero_command_obs` (`1044`) and grow with horizon (`H=2:25`, `H=4:168`, `H=6:455`, `H=8:565`). Sentinel false-positive rate is `0.0`; actor checksum is unchanged; no training/PPO/promotion occurs.
+- decision: `v4_reset_sequence_outcome_positive_admit_audit`
+- next: `m753-v4-reset-source-sequence-intervention-audit`

@@ -1,0 +1,108 @@
+{
+  "id": "m753-v4-reset-source-sequence-intervention-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m752-v4-reset-source-sequence-intervention-implementation.md",
+      "runs/m752_v4_reset_source_sequence_intervention/summary.json",
+      "runs/m752_v4_reset_source_sequence_intervention/source_rows.csv",
+      "runs/m752_v4_reset_source_sequence_intervention/sequence_critical_rows.csv",
+      "runs/m752_v4_reset_source_sequence_intervention/sentinel_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m752-v4-reset-source-sequence-intervention-implementation.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit no-training v4 reset-source sequence intervention outcome evidence before corpus export or objective design"
+    ],
+    "derived_from": [
+      "m752-v4-reset-source-sequence-intervention-implementation"
+    ],
+    "blocked_by": [
+      "m752-v4-reset-source-sequence-intervention-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m753-v4-reset-source-sequence-intervention-audit.md",
+  "public_gates": [
+    "M753 verifies M752 source balance and sentinel false-positive behavior",
+    "M753 separates diagnostic outcome evidence from training or promotion claims",
+    "M753 preserves current-model/proxy versus future-only fault claim boundary",
+    "M753 decides whether v4-aware corpus export is admissible",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat M752 as trained-driver improvement",
+    "do not treat current-model/proxy faults as true single-wheel physics",
+    "do not use sentinel rows as positive proof rows",
+    "do not start actor training",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_reset_source_sequence_intervention",
+    "evidence_axis": "G_sequence_outcome: audit v4 sequence-level outcome sensitivity",
+    "evidence_increment": "turns M752's raw v4 outcome-positive data wave into a reviewed branch decision",
+    "claim_scope": "process audit only; may admit corpus export but cannot claim policy improvement",
+    "stop_condition": [
+      "stop if sentinel false positives contaminate positives",
+      "stop if outcome rows are source-concentrated beyond the registered gate",
+      "stop if artifacts lack v4 claim-boundary metadata",
+      "stop if audit finds actor mutation training PPO or promotion"
+    ],
+    "fallback_plan": [
+      "if clean positive, design v4-aware corpus export",
+      "if source concentration dominates, design fresh holdout or source-balanced repeat",
+      "if claim-boundary metadata is incomplete, repair export before objective work",
+      "if evidence is action-only after recheck, pivot to simulator-fidelity branch"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M752 completed registered v4 reset-source sequence intervention",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M752 is a clean diagnostic-positive v4 sequence outcome result and can admit v4-aware corpus export after audit.",
+  "success_criteria": [
+    "M753 reviews M752 source balance, sentinel rows, outcome diversity, and claim boundary",
+    "M753 records supported and falsified claims",
+    "M753 classifies residual risks and failure taxonomy",
+    "M753 chooses the next branch before any corpus export objective training PPO or promotion"
+  ],
+  "failure_criteria": [
+    "audit skips source or sentinel contamination checks",
+    "audit claims trained policy improvement from a no-training data wave",
+    "audit ignores current-model/proxy fault limitation",
+    "audit admits objective training or PPO without corpus review"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m753-v4-reset-source-sequence-intervention-audit.md from M752 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m753-v4-reset-source-sequence-intervention-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m752_v4_reset_source_sequence_intervention/summary.json",
+    "docs/m752-v4-reset-source-sequence-intervention-implementation.md"
+  ],
+  "decision_rule": "M753 may only audit M752 and choose the next branch. It must not run objective training PPO actor updates or checkpoint promotion.",
+  "next_blocker": "m754-v4-sequence-outcome-corpus-export-design"
+}

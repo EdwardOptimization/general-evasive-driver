@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M752 runs source-balanced v4 reset-source sequence interventions with 1213 outcome-critical rows across 27 seeds and 17 fault-family pairs with zero sentinel false positives",
+  "failure_criteria": [
+    "runner mutates actor observations with hidden fault labels",
+    "runner omits sentinel rows",
+    "runner combines action-only and outcome-positive claims",
+    "runner changes actor input contract",
+    "runner starts optimizer training PPO or checkpoint promotion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not treat reset-only rows as wrong-history proof",
+    "do not inject hidden fault labels into actor observations",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not claim true single-wheel physics from current proxy faults"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260524T233442Z",
+  "hypothesis": "Persistent sequence-level command-response interventions over M749 v4 reset-only rows will expose outcome sensitivity.",
+  "lineage": {
+    "blocked_by": [
+      "m751-v4-reset-source-sequence-intervention-design"
+    ],
+    "derived_from": [
+      "m751-v4-reset-source-sequence-intervention-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m751-v4-reset-source-sequence-intervention-design.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m751-v4-reset-source-sequence-intervention-design.md",
+      "runs/m749_extreme_fault_distribution_v4/summary.json",
+      "runs/m749_extreme_fault_distribution_v4/reset_only_rows.csv",
+      "runs/m749_extreme_fault_distribution_v4/rejected_rows.csv"
+    ],
+    "parent_objective": [
+      "run no-training source-balanced sequence-level interventions over M749 v4 reset-only rows"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m752-v4-reset-source-sequence-intervention-implementation",
+  "next_blocker": "m753-v4-reset-source-sequence-intervention-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "v4_reset_sequence_outcome_positive",
+  "public_gates": [
+    "M752 adapts M749 reset-only rows into source-balanced sequence sources",
+    "M752 includes sentinel rows from history-insensitive rejected rows",
+    "M752 reports action outcome and sentinel metrics separately",
+    "M752 keeps actor checksum and input contract unchanged",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m752_v4_reset_source_sequence_intervention/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "v4_reset_sequence_outcome_positive",
+    "milestone": "m752-v4-reset-source-sequence-intervention-implementation",
+    "reason": "M752 runs source-balanced v4 reset-source sequence interventions with 1213 outcome-critical rows across 27 seeds and 17 fault-family pairs with zero sentinel false positives",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M752 implements v4 source adapter and focused tests",
+    "M752 runs smoke and registered no-training sequence intervention wave",
+    "M752 writes source rollout critical sentinel rejected and summary artifacts",
+    "M752 reports source-balance action outcome and sentinel metrics separately",
+    "actor checksum remains unchanged",
+    "no training PPO actor update or promotion occurs"
+  ],
+  "type": "infrastructure"
+}

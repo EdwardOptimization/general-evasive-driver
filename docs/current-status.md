@@ -55,24 +55,48 @@ Latest active diagnostic BC checkpoint:
 runs/m568_scaled_l3_bc_seed5660/checkpoint.pt
 ```
 
-Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M626
+Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M752
 diagnostics. It is not the public-gate base and is not promoted as the current
 driver checkpoint.
 
 ## Current Blocker
 
 ```text
-m690-gate-margin-response-amplification-audit
+m753-v4-reset-source-sequence-intervention-audit
 ```
 
-M690 should audit M689's positive exact diagnostic result before any closed-loop
-or actor-update branch. M689 passed exact response-amplification gates for
-`3/3` seeds with unchanged actor checksum, no PPO, and no promotion, but gate
-diagnostics show the normal gate is not actually closed. PPO, promotion, and
-actor-input changes remain blocked.
+M753 should audit M752's positive v4 reset-source sequence intervention result
+before any corpus export, objective design, actor update, or PPO. M752 found
+`1213` sequence outcome-critical rows across `27` seeds and `17`
+fault-family pairs with zero sentinel false positives, unchanged actor checksum,
+no PPO, and no promotion. The result supports the coverage-mining hypothesis but
+remains a no-training diagnostic over current-model/proxy faults.
 
 ## Recent Evidence Line
 
+- M752 implements and runs v4 reset-source sequence interventions over M749
+  reset-only rows. It selects `512` source rows with `461` primary rows and
+  `51` sentinels across `31` seeds, `9` preferred fault families, `7` wrong
+  fault families, and `21` fault-family pairs. It evaluates `12288` rollout
+  rows and finds `5429` action-critical rows plus `1213` outcome-critical rows
+  across `27` seeds and `17` fault-family pairs. Outcome rows are dominated by
+  `zero_command_obs` (`1044`) and grow with horizon (`H=2:25`, `H=4:168`,
+  `H=6:455`, `H=8:565`). Actor parameters are unchanged, sentinel
+  false-positive rate is `0.0`, and no training/PPO/promotion occurs.
+- M751 designs the v4 reset-source sequence intervention branch over M749
+  reset-only rows. It requires source-balanced selection, `10%` sentinels,
+  preserved `source_kind=v4_reset_source`, and `current_model_or_proxy` claim
+  boundary metadata before any source export or objective design.
+- M750 audits M749 as broad, clean reset-only v4 evidence rather than
+  wrong-history proof. V4 source generation increases reset rows from M740's
+  `744` to M749's `1171`, but wrong-history action-critical rows remain `0`.
+  The audit selects source-balanced v4 sequence intervention as the next
+  branch.
+- M749 runs the no-training v4 extreme-fault coverage wave with `28`
+  executable current/proxy faults and `14` future-only fault labels. It
+  generates `14848` scenarios, `100624` snapshots, `12288` matched pairs, and
+  `1171` reset-only rows. Actor parameters are unchanged and no training/PPO
+  occurs.
 - M689 implements gate-margin response amplification and passes exact
   actor-coupling gates for `3/3` seeds at `alpha=1.0`. Source-holdout selected
   metrics: normal mean `0.001380-0.001461`, gap mean `0.010731-0.011165`, gap
