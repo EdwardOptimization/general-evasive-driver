@@ -11827,3 +11827,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M633 implements and runs the explicit source-id targeted projected shape search. It evaluates `10080` candidates on sources `8`, `0`, `7`, and `30`, preserving all trust limits. Source `8` is recovered with best margin improvement `0.026789`, source `0` is recovered with `0.022995`, and source `30` is preserved/improved with `0.029507`. Source `7` regresses: best targeted improvement is `0.019965`, below the `0.02` threshold, leaving `0` accepted targeted candidates for that sentinel. This is a strong targeted diagnostic but not optimizer-ready.
 - decision: `targeted_source8_projected_shape_implementation_pass_admit_audit`
 - next: `m634-targeted-source8-projected-shape-audit`
+## 20260524T174000Z - m634-targeted-source8-projected-shape-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m634-targeted-source8-projected-shape-audit.md`
+- result: M634 audits M633 as strong targeted-positive with sentinel grid regression. M633 recovers sources `8` and `0`, preserves/improves source `30`, and preserves all trust limits, but regresses source `7`. The supported diagnosis is `grid_coverage_regression`: M633's source-8 grid capped steer at `0.06` and used negative throttle, while M630's source-7 accepted pattern used steer around `0.08`, throttle `0.00`, and brake `0.00` or `0.04`. M635 should design a combined no-training grid that restores source7 preservation while keeping source8/source0/source30 gains.
+- decision: `targeted_source8_projected_shape_audit_admit_combined_source7_preserving_design`
+- next: `m635-combined-source7-preserving-shape-design`

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 642,
+        "completed": 643,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m633-targeted-source8-projected-shape-implementation",
+        "task_id": "m634-targeted-source8-projected-shape-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m633_targeted_source8_projected_shape",
-        "command_log": "docs/m633-targeted-source8-projected-shape-implementation.md"
+        "run_dir": "",
+        "command_log": "docs/m634-targeted-source8-projected-shape-audit.md"
     },
     "next_task": {
-        "id": "m634-targeted-source8-projected-shape-audit",
+        "id": "m635-combined-source7-preserving-shape-design",
         "status": "pending",
-        "priority": 6290,
-        "kind": "gate",
-        "hypothesis": "M633 is a strong targeted positive result with source8 and source0 recovered, but source7 sentinel regression likely requires a combined preservation design before optimizer admission.",
-        "command": "see experiments/manifests/m634-targeted-source8-projected-shape-audit.json",
+        "priority": 6300,
+        "kind": "infrastructure",
+        "hypothesis": "A combined projected grid can keep source8 and source0 recovered while restoring source7 and preserving source30 without changing trust limits.",
+        "command": "see experiments/manifests/m635-combined-source7-preserving-shape-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit source8 source0 recovery and source7 regression; no training PPO promotion threshold changes or optimizer admission"
+        "notes": "Pending: design combined source8 recovery and source7 preservation grid; no training PPO promotion threshold changes or optimizer admission"
     },
-    "updated_at_utc": "20260524T173000Z"
+    "updated_at_utc": "20260524T174000Z"
 }

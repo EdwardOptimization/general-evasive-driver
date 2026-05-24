@@ -62,16 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m634-targeted-source8-projected-shape-audit
+m635-combined-source7-preserving-shape-design
 ```
 
-M634 should audit M633 before any combined-grid design or optimizer decision.
-M633 strongly recovers sources `8` and `0` and preserves source `30`, but it
-regresses source `7` just below threshold. The next decision is whether to
-design a combined source7-preserving grid; optimizer admission remains blocked.
+M635 should design a combined no-training projected search that keeps M633's
+source `8` and `0` recovery while restoring M630's source `7` preservation
+pattern and keeping source `30` preserved. Optimizer admission, training, PPO,
+promotion, threshold changes, and trust-region relaxation remain blocked.
 
 ## Recent Evidence Line
 
+- M634 audits M633 as strong targeted-positive with sentinel grid regression.
+  The source-7 failure is likely coverage, not a fundamental conflict: M633 did
+  not include M630's source-7 pattern around steer `0.08`, throttle `0.00`,
+  brake `0.00/0.04`. M635 should design a combined grid that merges source8
+  recovery and source7 preservation.
 - M633 implements and runs the source-8 targeted projected search. It evaluates
   `10080` candidates, preserves trust limits, recovers source `8` with best
   improvement `0.026789`, recovers source `0` with `0.022995`, and improves
