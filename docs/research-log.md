@@ -11755,3 +11755,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M625 audits M624. K=7 is classified as diagnostic-positive for longer-prefix utility but diagnostic-negative for source-diversity recovery. Accepted candidates rise to `607`, yet accepted source diversity remains `6` rows, `5` physical pairs, and `4` left seeds. Near misses show the next blocker: `7` unaccepted rows have best margin improvement `>= 0.02`, with `6` blocked by `outside_sequence_trust_region` and `1` by `candidate_collision`; at candidate level, `775` trust-blocked candidates exceed the margin threshold across `13` source rows. The next branch is a no-training near-miss trust-geometry design rather than threshold relaxation.
 - decision: `longer_low_amplitude_sequence_audit_admit_trust_geometry_design`
 - next: `m626-near-miss-trust-geometry-design`
+## 20260524T162000Z - m626-near-miss-trust-geometry-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m626-near-miss-trust-geometry-design.md`
+- result: M626 designs a no-training near-miss trust-geometry analyzer. M627 should read M624 `sequence_candidates.csv` and `unaccepted_rows.csv`, filter candidates that are unaccepted but meet margin/risk utility thresholds, compute mean/max/delta-delta L2 excess over the existing trust limits, preserve candidate safety flags, assign deterministic primary failure labels, aggregate by source row, and write near-miss candidate/source CSVs plus a summary. It explicitly forbids threshold changes, trust-region relaxation, training, PPO, promotion, or optimizer admission.
+- decision: `near_miss_trust_geometry_design_admit_m627`
+- next: `m627-near-miss-trust-geometry-analyzer`

@@ -55,22 +55,27 @@ Latest active diagnostic BC checkpoint:
 runs/m568_scaled_l3_bc_seed5660/checkpoint.pt
 ```
 
-Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M625
+Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M626
 diagnostics. It is not the public-gate base and is not promoted as the current
 driver checkpoint.
 
 ## Current Blocker
 
 ```text
-m626-near-miss-trust-geometry-design
+m627-near-miss-trust-geometry-analyzer
 ```
 
-M626 should design a no-training near-miss trust-geometry analyzer. It should
-classify which trust constraints block the M624 near misses before any new
-candidate-shape step, and it must not relax thresholds or trust regions.
+M627 should implement and run the no-training near-miss trust-geometry analyzer
+designed by M626. It should classify M624 near misses by trust-excess and
+safety blockers before any candidate-shape change, without relaxing thresholds
+or trust regions.
 
 ## Recent Evidence Line
 
+- M626 designs the near-miss trust-geometry analyzer. M627 should filter M624
+  unaccepted-but-useful candidates, compute mean/max/delta-delta L2 excess,
+  keep collision/off-road/spin flags visible, aggregate by source row, and
+  write near-miss candidate/source artifacts. This is still diagnostic-only.
 - M625 audits M624. K=7 is useful for stronger candidates but negative for
   source-diversity recovery: accepted sources stay at `6` rows, `5` physical
   pairs, and `4` left seeds. The next signal is near misses: `7` unaccepted rows

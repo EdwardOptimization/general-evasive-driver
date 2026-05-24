@@ -1,0 +1,100 @@
+{
+  "id": "m627-near-miss-trust-geometry-analyzer",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m624_longer_low_amplitude_sequence_miner/sequence_candidates.csv",
+      "runs/m624_longer_low_amplitude_sequence_miner/unaccepted_rows.csv",
+      "docs/m626-near-miss-trust-geometry-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m626-near-miss-trust-geometry-design.json",
+      "docs/m625-longer-low-amplitude-sequence-audit.md"
+    ],
+    "parent_objective": [
+      "implement and run no-training near-miss trust-geometry analyzer"
+    ],
+    "derived_from": [
+      "m626-near-miss-trust-geometry-design"
+    ],
+    "blocked_by": [
+      "m626-near-miss-trust-geometry-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m627-near-miss-trust-geometry-analyzer.md",
+  "public_gates": [
+    "write near_miss_candidates.csv",
+    "write near_miss_sources.csv",
+    "write summary.json",
+    "classify mean max delta-delta and safety failures",
+    "keep target thresholds and trust regions unchanged",
+    "keep actor training and PPO blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not widen trust regions",
+    "do not lower target thresholds",
+    "do not claim optimizer admission from near misses"
+  ],
+  "hypothesis": "The M624 near misses can be classified into trust-geometry and safety blockers, revealing whether a future candidate-shape design can preserve existing trust limits.",
+  "success_criteria": [
+    "near_miss_candidates.csv includes per-candidate trust excess fields and primary failure",
+    "near_miss_sources.csv aggregates source-level near-miss blockers",
+    "summary records source and candidate counts by failure category",
+    "focused tests and research validation pass",
+    "milestone doc interprets the result without changing thresholds"
+  ],
+  "failure_criteria": [
+    "analyzer trains a model",
+    "analyzer runs PPO",
+    "analyzer changes thresholds",
+    "analyzer widens trust regions",
+    "analyzer omits source-level aggregation"
+  ],
+  "commands": [
+    {
+      "name": "trust_geometry",
+      "command": "PYTHONPATH=src python -m autodrift.near_miss_trust_geometry --sequence-candidates runs/m624_longer_low_amplitude_sequence_miner/sequence_candidates.csv --unaccepted-rows runs/m624_longer_low_amplitude_sequence_miner/unaccepted_rows.csv --mean-l2-limit 0.08 --max-l2-limit 0.10 --delta-delta-l2-limit 0.08 --min-margin-improvement 0.02 --min-risk-improvement 0.05 --run-dir runs/m627_near_miss_trust_geometry"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m627_near_miss_trust_geometry/near_miss_candidates.csv",
+      "type": "data"
+    },
+    {
+      "path": "runs/m627_near_miss_trust_geometry/near_miss_sources.csv",
+      "type": "data"
+    },
+    {
+      "path": "runs/m627_near_miss_trust_geometry/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "docs/m627-near-miss-trust-geometry-analyzer.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m626-near-miss-trust-geometry-design.md",
+    "runs/m624_longer_low_amplitude_sequence_miner/summary.json"
+  ],
+  "decision_rule": "M627 passes if it writes near-miss trust geometry artifacts and keeps all constraints unchanged.",
+  "next_blocker": "m628-near-miss-trust-geometry-audit"
+}
