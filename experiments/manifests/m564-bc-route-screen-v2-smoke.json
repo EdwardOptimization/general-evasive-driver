@@ -1,0 +1,84 @@
+{
+  "id": "m564-bc-route-screen-v2-smoke",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m563_l3_behavior_cloning_smoke/checkpoint.pt",
+      "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+      "runs/m542_matched_l2_variance_seed3540/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m562_l2_teacher_corpus_exporter_smoke/l2_teacher_corpus.npz",
+      "runs/m563_l2_teacher_corpus_validation_smoke/l2_teacher_corpus.npz"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l0_variance_4096.json",
+      "configs/ppo_m541_matched_l2_variance_4096.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json"
+    ],
+    "parent_objective": [
+      "route-screen v2 diagnostic for the M563 L3 BC smoke checkpoint"
+    ],
+    "derived_from": [
+      "m563-l3-behavior-cloning-optimizer"
+    ],
+    "blocked_by": [
+      "m563-l3-behavior-cloning-optimizer"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m564-bc-route-screen-v2-smoke.md",
+  "public_gates": [
+    "evaluate M563 BC smoke checkpoint with route-screen v2 seed 17560",
+    "compare against level-matched L0 and L2 references",
+    "do not run public frozen-source diagnostics unless route-screen admits the candidate",
+    "do not promote checkpoint from this smoke alone"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not use M556 seed 15560 or M560 seed 16560 for selection",
+    "do not use public frozen-source rows",
+    "do not tune from route-screen output inside this milestone",
+    "do not promote without later proof/generalization gates"
+  ],
+  "hypothesis": "If L2-to-L3 behavior cloning transfers enough of the L2 safe action prior, the M563 BC checkpoint should clear at least the L0 route-screen v2 success, margin, and collision gates on fresh seed 17560.",
+  "success_criteria": [
+    "route-screen v2 artifact is written with uses_public_frozen_source_rows=false",
+    "M563 BC candidate is compared to L0 and L2 references under level-matched configs",
+    "candidate passes L0 binary success, L0 margin, and collision tolerance checks",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "candidate fails L0 route-screen v2 gates",
+    "route-screen uses public frozen-source rows",
+    "selection uses M556 or M560 route-screen seeds",
+    "checkpoint is promoted from this smoke alone"
+  ],
+  "commands": [
+    {
+      "name": "route_screen",
+      "command": "Run autodrift.route_screen_v2 on L0/L2/M563-BC with seed 17560."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m564-bc-route-screen-v2-smoke.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+    "runs/m542_matched_l2_variance_seed3540/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m563-l3-behavior-cloning-optimizer.md"
+  ],
+  "decision_rule": "M564 admits public diagnostics only if the M563 BC smoke checkpoint clears route-screen v2 against L0 on fresh seed 17560. A failure should be classified before scaling BC or trying PPO.",
+  "next_blocker": "pending M564 BC route-screen v2 smoke"
+}

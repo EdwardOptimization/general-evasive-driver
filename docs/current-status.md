@@ -61,15 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m563-l3-behavior-cloning-optimizer
+m564-bc-route-screen-v2-smoke
 ```
 
-M563 should implement the offline L3 behavior-cloning optimizer from
-M562-style corpora. Repeated from-scratch L3 PPO, PPO-stability, and
-reward-shaping branches remain contact-prone under route-screen v2, while L2 is
-consistently strong. The next step is still not PPO: first verify that an L3
-online-GRU student can reduce teacher-action MSE from canonical 72-value
-student frames without L2 stack leakage.
+M564 should run route-screen v2 on the M563 L3 behavior-cloning smoke
+checkpoint using fresh selection seed `17560`. The key question is whether the
+offline L2-to-L3 action imitation that improved MSE transfers to closed-loop
+route behavior. This remains a diagnostic gate, not a promotion.
 
 ## Recent Evidence Line
 
@@ -256,6 +254,12 @@ student frames without L2 stack leakage.
   `student_obs_seq` shape `(116, 72)`, `teacher_action_seq` shape `(116, 3)`,
   done/start masks, and terminal diagnostics. The NPZ does not contain
   `teacher_obs_stack_seq`, and `uses_public_frozen_source_rows = false`.
+- M563 implements offline L3 behavior cloning in
+  `autodrift.l3_behavior_cloning`. A smoke run trained on the M562 corpus and
+  validated on seeds `18128:18129`. It reduced train action MSE from `0.083840`
+  to `0.0000705` and validation action MSE from `0.076715` to `0.000131` while
+  saving a P0 `L3_online_gru` checkpoint with `ppo_used = false` and
+  `promoted = false`. Closed-loop route behavior is still untested.
 
 ## Near-Term Rule
 

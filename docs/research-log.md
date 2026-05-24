@@ -11188,3 +11188,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M562 implements `autodrift.l2_teacher_corpus` and focused tests. A real smoke export from `runs/m542_matched_l2_variance_seed3540/checkpoint.pt` on non-public seeds `18000:18001` produced `116` transitions. The corpus stores `student_obs_seq` `(116, 72)`, `teacher_action_seq` `(116, 3)`, done/start masks, seed/episode/step ids, and terminal diagnostics. It does not store `teacher_obs_stack_seq`, and `uses_public_frozen_source_rows = false`.
 - decision: `l2_teacher_corpus_exporter_pass_admit_m563_l3_bc_optimizer`
 - next: `m563-l3-behavior-cloning-optimizer`
+## 20260524T054000Z - m563-l3-behavior-cloning-optimizer
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m563_l3_behavior_cloning_smoke`
+- artifact: `docs/m563-l3-behavior-cloning-optimizer.md`
+- result: M563 implements `autodrift.l3_behavior_cloning` and focused tests. It first exports an independent validation corpus on non-public seeds `18128:18129` (`126` transitions), then trains an L3 online-GRU student from the M562 train corpus. The BC smoke reduces train action MSE from `0.083840` to `0.0000705` and validation action MSE from `0.076715` to `0.000131`. The saved checkpoint has `obs_dim=72`, `actor_encoder=human_view_online_gru`, `history_baseline.level=L3_online_gru`, `input_contract=P0_human_view_no_wheel_no_oracle`, `ppo_used=false`, and `promoted=false`.
+- decision: `l3_bc_optimizer_pass_admit_m564_route_screen_smoke`
+- next: `m564-bc-route-screen-v2-smoke`

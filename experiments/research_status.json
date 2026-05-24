@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 571,
+        "completed": 572,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-            "task_id": "m562-l2-teacher-corpus-exporter",
+            "task_id": "m563-l3-behavior-cloning-optimizer",
             "status": "completed",
             "returncode": 0,
-            "run_dir": "runs/m562_l2_teacher_corpus_exporter_smoke",
-            "command_log": "docs/m562-l2-teacher-corpus-exporter.md"
+            "run_dir": "runs/m563_l3_behavior_cloning_smoke",
+            "command_log": "docs/m563-l3-behavior-cloning-optimizer.md"
         },
         "next_task": {
-            "id": "m563-l3-behavior-cloning-optimizer",
+            "id": "m564-bc-route-screen-v2-smoke",
             "status": "pending",
-            "priority": 5580,
-            "kind": "infrastructure",
-            "hypothesis": "An offline behavior-cloning optimizer can transfer the strong L2 finite-window action prior into an L3 online-GRU actor while keeping the deployable P0 actor contract clean.",
-            "command": "see experiments/manifests/m563-l3-behavior-cloning-optimizer.json",
+            "priority": 5590,
+            "kind": "gate",
+            "hypothesis": "If L2-to-L3 behavior cloning transfers enough of the L2 safe action prior, the M563 BC checkpoint should clear at least the L0 route-screen v2 success, margin, and collision gates on fresh seed 17560.",
+            "command": "see experiments/manifests/m564-bc-route-screen-v2-smoke.json",
             "success_artifact": "",
-            "notes": "Pending: train only teacher-action MSE smoke and preserve P0 L3 metadata"
+            "notes": "Pending: route-screen v2 diagnostic only no public frozen-source eval unless admitted"
         },
-    "updated_at_utc": "20260524T053000Z"
+    "updated_at_utc": "20260524T054000Z"
 }
