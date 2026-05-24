@@ -1,0 +1,84 @@
+# m638-combined-shape-source-diversity-expansion-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260524T120147Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: combined_shape_source_diversity_expansion_design_admit_m639
+- Decision reason: M638 designs broader trust-primary non-collision source expansion and pre-registers M639 source-diversity gates before any target-corpus or training decision
+
+## Hypothesis
+
+The combined projected shape method should be tested on a broader trust-primary near-miss source set before any target-corpus or actor-update design.
+
+## Lineage
+
+- parent_checkpoint: runs/m568_scaled_l3_bc_seed5660/checkpoint.pt
+- parent_dataset: runs/m636_combined_source7_preserving_shape/summary.json, runs/m636_combined_source7_preserving_shape/source_recovery_summary.csv, runs/m627_near_miss_trust_geometry/near_miss_sources.csv, docs/m637-combined-source7-preserving-shape-audit.md
+- parent_config: experiments/manifests/m637-combined-source7-preserving-shape-audit.json, docs/m636-combined-source7-preserving-shape-implementation.md
+- parent_objective: design source-diversity expansion for combined projected shape method
+- derived_from: m637-combined-source7-preserving-shape-audit
+- blocked_by: m637-combined-source7-preserving-shape-audit
+- supersedes: m638-sequence-target-corpus-admission-design
+- invalidates: None
+
+## Success Criteria
+
+- design specifies expanded source filters and diversity thresholds
+- design specifies implementation artifacts and comparison against M636
+- design keeps optimizer admission training PPO promotion and threshold changes blocked
+- research validation passes
+
+## Failure Criteria
+
+- design starts training
+- design promotes a checkpoint
+- design changes thresholds
+- design treats M636 candidate count as source diversity
+- design omits source-diversity criteria
+
+## Evidence Gates
+
+- define broader trust-primary source set
+- define combined projected shape search on expanded sources
+- define source-diversity pass criteria before corpus admission
+- preserve trust limits and thresholds
+- keep actor training and PPO blocked
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not train
+- do not run PPO
+- do not promote checkpoint
+- do not widen trust regions
+- do not lower target thresholds
+- do not treat candidate count as source diversity
+- do not skip source-diversity gate
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m638-combined-shape-source-diversity-expansion-design
+- type: infrastructure
+- checkpoint: docs/m638-combined-shape-source-diversity-expansion-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: combined_shape_source_diversity_expansion_design_admit_m639
+- reason: M638 designs broader trust-primary non-collision source expansion and pre-registers M639 source-diversity gates before any target-corpus or training decision
+
+## Next Blocker
+
+m639-combined-shape-source-diversity-expansion-implementation

@@ -62,16 +62,24 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m638-combined-shape-source-diversity-expansion-design
+m639-combined-shape-source-diversity-expansion-implementation
 ```
 
-M638 should design a broader no-training source-diversity expansion for the
-combined projected shape method. M637 classifies M636 as strong positive but
-still source-narrow: all four focused sources pass, but four source rows are not
-enough for target-corpus admission or actor training.
+M639 should implement and run the no-training broad source-diversity expansion
+designed in M638. It should apply the M636 combined projected-shape method to
+the M627 trust-primary non-collision near-miss source set, preserve all trust
+limits, and report source-level diversity before any target-corpus or training
+decision.
 
 ## Recent Evidence Line
 
+- M638 designs the broader source-diversity expansion. M639 should select the
+  M627 trust-primary non-collision near-miss rows, run the combined projected
+  shape grids over that expanded set, and classify target-corpus admission only
+  if accepted evidence reaches at least `8` source rows, `6` physical pairs,
+  `6` left seeds, `2` surfaces, and `2` targets. If the result remains close to
+  the four-source M636 footprint, the branch should stop pure sequence-grid
+  mining and move to local QP / hidden-to-action forcing / BC-v2.
 - M637 audits M636 as strong positive but not source-diverse enough for target
   corpus admission. M636 proves projection plus local shape design can recover
   four focused sources, but accepted candidates still come from only `4` source

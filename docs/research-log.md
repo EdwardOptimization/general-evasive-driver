@@ -11863,3 +11863,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M637 audits M636 as strong positive but not target-corpus ready. M636 proves the combined projected-shape method can recover all four focused sources under unchanged trust limits, but source-level breadth is still only `4` source rows, `4` physical pairs, and `3` left seeds. Candidate count `1424` is not source diversity. Training, PPO, promotion, and optimizer admission remain blocked. M638 should design a broader no-training source-diversity expansion over trust-primary near-miss rows before any target-corpus or actor-update design.
 - decision: `combined_source7_preserving_shape_audit_admit_source_diversity_expansion`
 - next: `m638-combined-shape-source-diversity-expansion-design`
+## 20260524T182000Z - m638-combined-shape-source-diversity-expansion-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m638-combined-shape-source-diversity-expansion-design.md`
+- result: M638 designs a no-training broad source-diversity expansion for the combined projected-shape method. The primary M639 source set is the M627 trust-primary non-collision near-miss rows, expected source ids `13`, `14`, `20`, `32`, `5`, `30`, `7`, `0`, and `8`. M639 should preserve the existing sequence trust limits and target thresholds, report source-level diversity, and classify target-corpus admission only if accepted evidence reaches at least `8` source rows, `6` physical pairs, `6` left seeds, `2` surfaces, and `2` targets. Training, PPO, promotion, and optimizer admission remain blocked.
+- decision: `combined_shape_source_diversity_expansion_design_admit_m639`
+- next: `m639-combined-shape-source-diversity-expansion-implementation`

@@ -1,0 +1,107 @@
+{
+  "id": "m639-combined-shape-source-diversity-expansion-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m627_near_miss_trust_geometry/near_miss_sources.csv",
+      "runs/m616_expanded_sequence_source_miner/expanded_sequence_source_rows.csv",
+      "runs/m636_combined_source7_preserving_shape/source_recovery_summary.csv",
+      "docs/m638-combined-shape-source-diversity-expansion-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m638-combined-shape-source-diversity-expansion-design.json",
+      "docs/m637-combined-source7-preserving-shape-audit.md"
+    ],
+    "parent_objective": [
+      "implement no-training broad source-diversity expansion for combined projected shape method"
+    ],
+    "derived_from": [
+      "m638-combined-shape-source-diversity-expansion-design"
+    ],
+    "blocked_by": [
+      "m638-combined-shape-source-diversity-expansion-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m639-combined-shape-source-diversity-expansion-implementation.md",
+  "public_gates": [
+    "select M627 trust-primary non-collision near-miss sources",
+    "run combined projected shape grids over expanded source set",
+    "preserve trust limits and target thresholds",
+    "write source-level diversity summary",
+    "classify whether result is target-corpus admission candidate",
+    "keep actor training and PPO blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not widen trust regions",
+    "do not lower target thresholds",
+    "do not count collision-primary rows toward source-diversity admission",
+    "do not treat candidate count as source diversity",
+    "do not admit optimizer training directly"
+  ],
+  "hypothesis": "The M636 combined projected-shape method may recover a source-diverse trust-primary non-collision subset when applied to the broader M627 near-miss source set.",
+  "success_criteria": [
+    "implementation writes broad expansion artifacts",
+    "selected source rows include M627 trust-primary non-collision rows",
+    "real run preserves trust limits",
+    "summary reports accepted source rows physical pairs left seeds surfaces targets and variants",
+    "summary classifies target-corpus admission candidate using pre-registered thresholds",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "implementation changes thresholds",
+    "implementation starts training",
+    "implementation runs PPO",
+    "implementation promotes checkpoint",
+    "implementation counts collision-primary rows toward admission",
+    "implementation omits source-level diversity",
+    "implementation treats candidate count as source diversity"
+  ],
+  "commands": [
+    {
+      "name": "combined_shape_source_diversity_expansion",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.combined_shape_source_diversity_expansion --checkpoint-policy bc5660=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --source-table runs/m616_expanded_sequence_source_miner/expanded_sequence_source_rows.csv --near-miss-sources runs/m627_near_miss_trust_geometry/near_miss_sources.csv --surface-config fresh=configs/ppo_m541_matched_l3_variance_4096.json --surface-config ood=configs/eval_m574_moderate_ood_l3.json --run-dir runs/m639_combined_shape_source_diversity_expansion"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m639_combined_shape_source_diversity_expansion/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m639_combined_shape_source_diversity_expansion/source_recovery_summary.csv",
+      "type": "data"
+    },
+    {
+      "path": "runs/m639_combined_shape_source_diversity_expansion/source_diversity_summary.csv",
+      "type": "data"
+    },
+    {
+      "path": "docs/m639-combined-shape-source-diversity-expansion-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m638-combined-shape-source-diversity-expansion-design.md",
+    "runs/m627_near_miss_trust_geometry/near_miss_sources.csv",
+    "runs/m636_combined_source7_preserving_shape/source_recovery_summary.csv"
+  ],
+  "decision_rule": "M639 passes as infrastructure if it runs the no-training expansion and preserves trust limits; target-corpus admission candidate requires accepted_source_rows >= 8, accepted_unique_physical_pairs >= 6, accepted_unique_left_seeds >= 6, accepted_surfaces >= 2, and accepted_targets >= 2.",
+  "next_blocker": "m640-source-diverse-sequence-target-corpus-design-or-stronger-bridge-branch"
+}
