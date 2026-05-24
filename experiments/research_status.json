@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 733,
+        "completed": 734,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m724-fresh-source-balanced-temporal-wave-design",
+        "task_id": "m725-source-balanced-temporal-wave-implementation",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m724-fresh-source-balanced-temporal-wave-design.md"
+        "command_log": "docs/m725-source-balanced-temporal-wave-implementation.md"
     },
     "next_task": {
-        "id": "m725-source-balanced-temporal-wave-implementation",
+        "id": "m726-source-balanced-temporal-wave-audit",
         "status": "pending",
-        "priority": 7200,
-        "kind": "infrastructure",
-        "hypothesis": "Implement source-balanced temporal command-response wave",
-        "command": "see experiments/manifests/m725-source-balanced-temporal-wave-implementation.json",
-        "success_artifact": "docs/m725-source-balanced-temporal-wave-implementation.md",
-        "notes": "Pending: implement no-training pair proposal quota selection temporal interventions and source-balance summaries"
+        "priority": 7210,
+        "kind": "gate",
+        "hypothesis": "Audit source-balanced temporal wave quota-blocked result",
+        "command": "see experiments/manifests/m726-source-balanced-temporal-wave-audit.json",
+        "success_artifact": "docs/m726-source-balanced-temporal-wave-audit.md",
+        "notes": "Pending: audit M725 proposal coverage selected-pair quota blockage action-only evidence and next branch decision"
     },
-    "updated_at_utc": "20260524T230000Z"
+    "updated_at_utc": "20260524T233000Z"
 }

@@ -12556,3 +12556,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M724 designs a no-training source-balanced temporal wave to fix the M719/M722 early-seed saturation blocker. The design separates pair proposal generation, quota-based source-balanced selection, temporal intervention rollout, critical-row classification, and sentinel allocation. It requires per-seed, per-fault-family, source-role, step-bucket, and heldout-split quotas before temporal rollouts; full-wave targets include `selected_pair_count >= 3000`, `unique_selected_seeds >= 128`, `unique_fault_family_pairs >= 24`, `max_seed_dominance <= 0.02`, and sentinel false-positive rate `<= 0.05`. Action and outcome evidence remain separate, and source export/PPO/promotion remain blocked.
 - decision: `fresh_source_balanced_temporal_wave_design_admit_m725`
 - next: `m725-source-balanced-temporal-wave-implementation`
+
+## 20260524T233000Z - m725-source-balanced-temporal-wave-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m725_source_balanced_temporal_wave`
+- artifact: `docs/m725-source-balanced-temporal-wave-implementation.md`
+- result: M725 implements and runs the no-training source-balanced temporal wave. It generates `69591` pair proposals and selects `2048` quota-balanced pairs across `256` seeds. The selected wave has `1392` temporal action-critical rows but `0` temporal outcome-critical rows, with sentinel false-positive rate `0.0`. Result class is `source_balance_blocked`: source seed diversity improves substantially, but the registered `per_step_bucket_cap=1024` over-constrains selection to `2048` rows and preferred-family dominance remains `0.3125`, above the `0.25` gate. Actor checksum is unchanged; no training, PPO, or promotion occurs.
+- decision: `source_balance_blocked_admit_audit`
+- next: `m726-source-balanced-temporal-wave-audit`

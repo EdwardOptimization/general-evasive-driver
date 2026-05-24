@@ -1,0 +1,113 @@
+{
+  "id": "m726-source-balanced-temporal-wave-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m725-source-balanced-temporal-wave-implementation.md",
+      "runs/m725_source_balanced_temporal_wave/summary.json",
+      "runs/m725_source_balanced_temporal_wave/pair_proposals.csv",
+      "runs/m725_source_balanced_temporal_wave/selected_pair_proposals.csv",
+      "runs/m725_source_balanced_temporal_wave/intervention_rollouts.csv",
+      "runs/m725_source_balanced_temporal_wave/temporal_critical_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m725-source-balanced-temporal-wave-implementation.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit source_balance_blocked result before quota calibration boundary mining sequence interventions or dynamics fidelity"
+    ],
+    "derived_from": [
+      "m725-source-balanced-temporal-wave-implementation"
+    ],
+    "blocked_by": [
+      "m725-source-balanced-temporal-wave-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m726-source-balanced-temporal-wave-audit.md",
+  "public_gates": [
+    "M725 proposal and selected-pair source-balance metrics are summarized separately",
+    "quota overconstraint is distinguished from lack of proposal coverage",
+    "temporal action and outcome rows are summarized separately",
+    "sentinel false-positive result is recorded",
+    "next branch decision compares quota-calibrated rerun boundary mining sequence intervention and dynamics fidelity",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not claim source_balance_blocked is source-balanced success",
+    "do not export M725 action-only rows as source-positive outcome rows",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor input contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "fresh_source_balanced_temporal_wave",
+    "evidence_axis": "G_source_coverage: audit source-balanced temporal wave result and choose next branch",
+    "evidence_increment": "synthesizes M725 source-balance blocked result including proposal coverage quota caps temporal action rows and outcome absence",
+    "claim_scope": "process synthesis only; no checkpoint promotion or deployed self-ID claim",
+    "stop_condition": [
+      "stop source export because source-balance and outcome gates did not pass",
+      "stop PPO because no source-positive outcome corpus exists",
+      "stop boundary mining until source-balance gates are calibrated or explicitly rescaled",
+      "stop treating action-critical rows as closed-loop outcome proof"
+    ],
+    "fallback_plan": [
+      "if quota overconstraint is the blocker, design quota-calibrated source-balanced rerun",
+      "if proposal coverage is the blocker, design scenario coverage refresh",
+      "if source-balanced action rows remain outcome-neutral, design sequence-level interventions",
+      "if current single-track fidelity blocks the claim, design four-wheel or explicit-yaw-disturbance dynamics"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M725 result_class=source_balance_blocked",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M725 should be audited before rerunning; the audit can determine whether quota overconstraint rather than scenario absence caused source_balance_blocked.",
+  "success_criteria": [
+    "M725 source-balance metrics are recorded",
+    "proposal coverage and selected-pair coverage are compared",
+    "failure taxonomy is assigned",
+    "public gate overfit risk is recorded",
+    "next branch decision is explicit",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "audit treats M725 action-only rows as outcome-positive self-ID proof",
+    "audit ignores selected-pair cap failure",
+    "audit admits source export PPO or promotion",
+    "audit changes actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m726-source-balanced-temporal-wave-audit.md from M725 artifacts; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m726-source-balanced-temporal-wave-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m725_source_balanced_temporal_wave/summary.json",
+    "docs/m725-source-balanced-temporal-wave-implementation.md"
+  ],
+  "decision_rule": "M726 must decide whether to design a quota-calibrated rerun, a smaller registered scale, sequence-level intervention, or dynamics fidelity. It must not admit PPO or promotion directly.",
+  "next_blocker": "m727-quota-calibrated-source-balanced-temporal-wave-design"
+}
