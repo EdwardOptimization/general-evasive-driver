@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M735 audits M734 as clean diagnostic positive after sentinel filtering and selects compact sequence-outcome corpus export before objective design",
+  "failure_criteria": [
+    "audit treats M734 as trained policy improvement",
+    "audit ignores sentinel false positives",
+    "audit admits PPO or promotion directly",
+    "audit changes actor input contract"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not treat M734 as a trained driver improvement",
+    "do not skip audit before source export or objective design",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor input contract"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260524T220141Z",
+  "hypothesis": "M734's positive sequence-level result should be audited before converting it into a corpus or training objective.",
+  "lineage": {
+    "blocked_by": [
+      "m734-sequence-level-command-response-intervention-implementation"
+    ],
+    "derived_from": [
+      "m734-sequence-level-command-response-intervention-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m734-sequence-level-command-response-intervention-implementation.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m734-sequence-level-command-response-intervention-implementation.md",
+      "runs/m734_sequence_command_response_intervention/summary.json",
+      "runs/m734_sequence_command_response_intervention/intervention_rollouts.csv",
+      "runs/m734_sequence_command_response_intervention/sequence_critical_rows.csv",
+      "runs/m734_sequence_command_response_intervention/sentinel_rows.csv"
+    ],
+    "parent_objective": [
+      "audit positive sequence-level command-response intervention result before corpus export or objective design"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m735-sequence-level-command-response-intervention-audit",
+  "next_blocker": "m736-sequence-outcome-corpus-export-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "promote_to_sequence_outcome_corpus_export",
+  "public_gates": [
+    "M734 source-balance and outcome gates are audited",
+    "sentinel false positives are inspected",
+    "variant and horizon effects are summarized separately",
+    "next branch decision compares repeat validation corpus export and objective design",
+    "actor update PPO and promotion remain blocked unless separately designed"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m735-sequence-level-command-response-intervention-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "promote_to_sequence_outcome_corpus_export",
+    "milestone": "m735-sequence-level-command-response-intervention-audit",
+    "reason": "M735 audits M734 as clean diagnostic positive after sentinel filtering and selects compact sequence-outcome corpus export before objective design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M734 result metrics are recorded",
+    "supported and falsified claims are recorded",
+    "sentinel false positives are assessed",
+    "public gate overfit risk is recorded",
+    "next branch decision is explicit",
+    "actor update PPO and promotion remain blocked unless later designed"
+  ],
+  "type": "gate"
+}

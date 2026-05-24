@@ -67,7 +67,16 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M734 result_class=sequence_outcome_positive",
-    "synthesis_decision": "not_applicable"
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m735-sequence-level-command-response-intervention-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
   },
   "hypothesis": "M734's positive sequence-level result should be audited before converting it into a corpus or training objective.",
   "success_criteria": [
@@ -104,5 +113,5 @@
     "docs/m734-sequence-level-command-response-intervention-implementation.md"
   ],
   "decision_rule": "M735 must decide whether to design repeat validation compact corpus export sequence-preference objective or stricter sentinel-filtered rerun. It must not admit PPO or promotion directly.",
-  "next_blocker": "m736-sequence-outcome-positive-next-branch-design"
+  "next_blocker": "m736-sequence-outcome-corpus-export-design"
 }

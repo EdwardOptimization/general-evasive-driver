@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 743,
+        "completed": 744,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m734-sequence-level-command-response-intervention-implementation",
+        "task_id": "m735-sequence-level-command-response-intervention-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m734-sequence-level-command-response-intervention-implementation.md"
+        "command_log": "docs/m735-sequence-level-command-response-intervention-audit.md"
     },
     "next_task": {
-        "id": "m735-sequence-level-command-response-intervention-audit",
+        "id": "m736-sequence-outcome-corpus-export-design",
         "status": "pending",
-        "priority": 7300,
-        "kind": "gate",
-        "hypothesis": "Audit sequence-level command-response intervention positive result",
-        "command": "see experiments/manifests/m735-sequence-level-command-response-intervention-audit.json",
-        "success_artifact": "docs/m735-sequence-level-command-response-intervention-audit.md",
-        "notes": "Pending: audit M734 sequence_outcome_positive result sentinel false positives source diversity and next branch decision"
+        "priority": 7310,
+        "kind": "infrastructure",
+        "hypothesis": "Design sequence-outcome corpus export",
+        "command": "see experiments/manifests/m736-sequence-outcome-corpus-export-design.json",
+        "success_artifact": "docs/m736-sequence-outcome-corpus-export-design.md",
+        "notes": "Pending: design no-training sentinel-filtered compact corpus export from M734 positive sequence outcome rows"
     },
-    "updated_at_utc": "20260525T010000Z"
+    "updated_at_utc": "20260525T011000Z"
 }

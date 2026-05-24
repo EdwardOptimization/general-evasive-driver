@@ -12650,3 +12650,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M734 implements and runs the no-training sequence-level command-response intervention wave. It selects `512` source rows across `236` seeds, `8` preferred fault families, and `30` fault-family pairs. Result class is `sequence_outcome_positive`: `5262` sequence action-critical rows and `73` sequence outcome-critical rows across `28` seeds and `10` fault-family pairs. Outcome rows are dominated by `zero_command_obs` (`67`) and appear only at horizons `4`, `6`, and `8`, with the strongest count at `8`. Sentinel false-positive rate is `0.002451`; actor checksum is unchanged; no training, PPO, or promotion occurs.
 - decision: `sequence_outcome_positive_admit_audit`
 - next: `m735-sequence-level-command-response-intervention-audit`
+
+## 20260525T011000Z - m735-sequence-level-command-response-intervention-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m735-sequence-level-command-response-intervention-audit.md`
+- result: M735 audits M734 as a clean diagnostic positive, not a trained policy improvement. M734 has `73` sequence outcome rows across `28` seeds and `10` fault-family pairs; `3` are sentinel false positives with healthy margins and `70` remain non-sentinel outcome rows after filtering. Outcome rows are concentrated in `zero_command_obs` and horizons `4,6,8`, supporting the hypothesis that persistent command-history corruption exposes closed-loop outcome dependence.
+- decision: `promote_to_sequence_outcome_corpus_export`
+- next: `m736-sequence-outcome-corpus-export-design`
