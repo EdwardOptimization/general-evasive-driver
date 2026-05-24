@@ -2,7 +2,7 @@
   "id": "m582-bc5660-recurrent-ablation-fresh-route-eval",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -82,6 +82,6 @@
     "docs/m581-bc-recurrent-ablation-design.md",
     "docs/m580-bc-family-generalization-audit.md"
   ],
-  "decision_rule": "M582 classifies recurrent-dependence diagnostics using M581 thresholds and cannot promote a checkpoint by itself.",
+  "decision_rule": "M582 is positive for deployable response/action dependence on fresh route seeds: zero-action reaches meaningful margin degradation and zero-current/zero-all reach strong margin degradation, while reset-hidden is only weak. No checkpoint is promoted.",
   "next_blocker": "m583-bc5660-recurrent-ablation-moderate-ood-eval"
 }

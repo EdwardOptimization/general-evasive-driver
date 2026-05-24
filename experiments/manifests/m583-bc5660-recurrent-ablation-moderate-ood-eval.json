@@ -1,0 +1,87 @@
+{
+  "id": "m583-bc5660-recurrent-ablation-moderate-ood-eval",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m582_bc5660_recurrent_ablation_fresh_route_eval/policy_summary.csv",
+      "runs/m579_bc_family_moderate_ood_repeat_eval/summary.json"
+    ],
+    "parent_config": [
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_objective": [
+      "moderate-OOD recurrent-dependence ablation diagnostic for BC5660"
+    ],
+    "derived_from": [
+      "m582-bc5660-recurrent-ablation-fresh-route-eval"
+    ],
+    "blocked_by": [
+      "m582-bc5660-recurrent-ablation-fresh-route-eval"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m583-bc5660-recurrent-ablation-moderate-ood-eval.md",
+  "public_gates": [
+    "benchmark BC5660 normal reset zero-current zero-action and zero-all variants on moderate-OOD route seeds",
+    "use fresh moderate-OOD seed range 24560..24815",
+    "compute success margin and collision deltas against normal",
+    "classify recurrent-dependence diagnostic using the M581 thresholds without retuning",
+    "do not promote checkpoint from ablation diagnostics"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not change checkpoint weights or actor inputs",
+    "do not train or run PPO",
+    "do not tune thresholds after seeing M582 or M583 results",
+    "do not treat ablation results as promotion evidence by themselves",
+    "do not use public frozen-source rows"
+  ],
+  "hypothesis": "If the M582 response/action dependence is not only a same-distribution route artifact, BC5660 ablations should also degrade success, clearance margin, or collision rate on fresh moderate-OOD route seeds.",
+  "success_criteria": [
+    "benchmark completes for normal reset zero-current zero-action and zero-all policies",
+    "seed range is 24560..24815 and no public frozen-source rows are used",
+    "delta table reports success_drop margin_drop and collision_increase for every ablation",
+    "diagnostic interpretation follows the unchanged M581 thresholds",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "benchmark fails or omits an ablation",
+    "thresholds are changed after seeing results",
+    "checkpoint promotion is attempted",
+    "actor input contract changes"
+  ],
+  "commands": [
+    {
+      "name": "moderate_ood_recurrent_ablation",
+      "command": "PYTHONPATH=src python -m autodrift.benchmark --policies checkpoint --checkpoint-policy bc5660_normal=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --checkpoint-policy bc5660_reset=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt@reset_recurrent_state --checkpoint-policy bc5660_zero_current=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt@zero_current_response --checkpoint-policy bc5660_zero_action=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt@zero_action_history --checkpoint-policy bc5660_zero_all=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt@zero_all_response --episodes 256 --seed 24560 --device cpu --env-config configs/eval_m574_moderate_ood_l3.json --run-dir runs/m583_bc5660_recurrent_ablation_moderate_ood_eval"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m583_bc5660_recurrent_ablation_moderate_ood_eval/manifest.json",
+      "type": "summary"
+    },
+    {
+      "path": "docs/m583-bc5660-recurrent-ablation-moderate-ood-eval.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m582-bc5660-recurrent-ablation-fresh-route-eval.md",
+    "docs/m581-bc-recurrent-ablation-design.md"
+  ],
+  "decision_rule": "M583 repeats the same M581 ablation thresholds on moderate-OOD route seeds and cannot promote a checkpoint by itself.",
+  "next_blocker": "m584-bc-recurrent-ablation-audit"
+}

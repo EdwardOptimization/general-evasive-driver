@@ -11359,3 +11359,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M581 pre-registers the first recurrent-dependence diagnostic for scaled BC. M582 will benchmark BC5660 normal, `reset_recurrent_state`, `zero_current_response`, `zero_action_history`, and `zero_all_response` on fresh same-distribution route seeds `23560..23815`. M583 will later repeat on moderate-OOD seeds `24560..24815`. Meaningful degradation is defined before evaluation as success drop `>= 0.02`, margin drop `>= 0.05`, or collision increase `>= 0.02`; strong degradation uses `0.05`/`0.10`/`0.05`. No promotion or PPO is allowed.
 - decision: `bc_recurrent_ablation_design_admit_m582_fresh_route_eval`
 - next: `m582-bc5660-recurrent-ablation-fresh-route-eval`
+## 20260524T090000Z - m582-bc5660-recurrent-ablation-fresh-route-eval
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m582_bc5660_recurrent_ablation_fresh_route_eval`
+- artifact: `docs/m582-bc5660-recurrent-ablation-fresh-route-eval.md`
+- result: M582 runs the pre-registered BC5660 recurrent-ablation benchmark on fresh route seeds `23560..23815`, writing `1280` episode rows. Normal BC5660 scores success/collision/margin `0.691406` / `0.308594` / `1.068165`. `reset_recurrent_state` is weak with success drop `0.007812` and margin drop `0.017594`. `zero_action_history` reaches meaningful degradation through margin drop `0.052959`. `zero_current_response` and `zero_all_response` reach strong margin degradation `0.144810` and both drop success/increase collision by `0.027344`. This is positive deployable response/action evidence but not a complete accumulated hidden-state self-ID proof.
+- decision: `bc5660_fresh_route_response_ablation_positive_admit_m583_ood`
+- next: `m583-bc5660-recurrent-ablation-moderate-ood-eval`

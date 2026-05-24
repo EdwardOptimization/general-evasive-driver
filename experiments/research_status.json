@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 590,
+        "completed": 591,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m581-bc-recurrent-ablation-design",
+        "task_id": "m582-bc5660-recurrent-ablation-fresh-route-eval",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m581-bc-recurrent-ablation-design.md"
+        "run_dir": "runs/m582_bc5660_recurrent_ablation_fresh_route_eval",
+        "command_log": "docs/m582-bc5660-recurrent-ablation-fresh-route-eval.md"
     },
     "next_task": {
-        "id": "m582-bc5660-recurrent-ablation-fresh-route-eval",
+        "id": "m583-bc5660-recurrent-ablation-moderate-ood-eval",
         "status": "pending",
-        "priority": 5770,
+        "priority": 5780,
         "kind": "gate",
-        "hypothesis": "If BC5660 uses recurrent command-response history on fresh same-distribution route seeds, reset/zero-current/zero-action ablations should degrade success, clearance margin, or collision rate relative to normal.",
-        "command": "see experiments/manifests/m582-bc5660-recurrent-ablation-fresh-route-eval.json",
+        "hypothesis": "If the M582 response/action dependence is not only a same-distribution route artifact, BC5660 ablations should also degrade success, clearance margin, or collision rate on fresh moderate-OOD route seeds.",
+        "command": "see experiments/manifests/m583-bc5660-recurrent-ablation-moderate-ood-eval.json",
         "success_artifact": "",
-        "notes": "Pending: run BC5660 fresh-route recurrent ablation benchmark; no promotion"
+        "notes": "Pending: repeat BC5660 recurrent ablation benchmark on moderate-OOD route seeds; no promotion"
     },
-    "updated_at_utc": "20260524T085000Z"
+    "updated_at_utc": "20260524T090000Z"
 }

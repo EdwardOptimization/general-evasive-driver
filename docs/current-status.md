@@ -61,12 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m582-bc5660-recurrent-ablation-fresh-route-eval
+m583-bc5660-recurrent-ablation-moderate-ood-eval
 ```
 
-M582 should run the BC5660 recurrent-ablation benchmark on fresh
-same-distribution route seeds. M581 pre-registered normal/reset/zero-current/
-zero-action/zero-all controls and keeps promotion/PPO blocked.
+M583 should repeat the BC5660 recurrent-ablation benchmark on fresh
+moderate-OOD route seeds using the M574 L3 OOD config. M582 already showed
+fresh-route response/action ablation degradation, but accumulated hidden-state
+self-identification is not proven yet. Promotion and PPO remain blocked.
 
 ## Recent Evidence Line
 
@@ -355,6 +356,13 @@ zero-action/zero-all controls and keeps promotion/PPO blocked.
   `zero_all_response` on fresh seeds `23560..23815`. Meaningful degradation is
   pre-registered as success drop `>= 0.02`, margin drop `>= 0.05`, or collision
   increase `>= 0.02`.
+- M582 runs that fresh-route ablation. Normal `BC5660` scores success/collision/
+  margin `0.691406` / `0.308594` / `1.068165`. `zero_action_history` reaches
+  meaningful margin degradation (`0.052959`), while `zero_current_response` and
+  `zero_all_response` reach strong margin degradation (`0.144810`) plus success
+  drop and collision increase `0.027344`. `reset_recurrent_state` is only weak
+  (`0.007812` success drop, `0.017594` margin drop), so the next step is the
+  M583 moderate-OOD repeat rather than promotion or PPO.
 
 ## Near-Term Rule
 
