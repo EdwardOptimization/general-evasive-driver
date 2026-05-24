@@ -1,0 +1,96 @@
+{
+  "id": "m578-bc-family-fresh-route-repeat-eval",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m568_scaled_l3_bc_seed5661/checkpoint.pt",
+      "runs/m568_scaled_l3_bc_seed5662/checkpoint.pt",
+      "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+      "runs/m542_matched_l2_variance_seed3540/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m575_moderate_ood_route_generalization_eval/summary.json",
+      "runs/m572_fresh_route_generalization_eval/summary.json"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l0_variance_4096.json",
+      "configs/ppo_m541_matched_l2_variance_4096.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json"
+    ],
+    "parent_objective": [
+      "fresh same-distribution route repeat for BC seed family"
+    ],
+    "derived_from": [
+      "m577-bc-family-generalization-repeat-design"
+    ],
+    "blocked_by": [
+      "m577-bc-family-generalization-repeat-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m578-bc-family-fresh-route-repeat-eval.md",
+  "public_gates": [
+    "run route-screen v2 for L0 L2 and BC5660/5661/5662 on fresh route seeds 21560..21815",
+    "verify uses_public_frozen_source_rows is false",
+    "verify BC5660 remains L0-safe and L2-competitive",
+    "verify at least two of three BC seeds are L0-safe and L2-competitive",
+    "do not promote checkpoint from this repeat gate"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not reuse route seed starts 15560 16560 17560 18560 19560 or 20560",
+    "do not use public frozen-source natural-surface rows",
+    "do not tune BC candidates before reporting M578",
+    "do not run PPO or behavior cloning",
+    "do not change checkpoint weights or actor inputs"
+  ],
+  "hypothesis": "Because BC5660 passed public fresh-route and OOD diagnostics, at least two of the three scaled BC seeds should remain L0-safe and L2-competitive on a fresh same-distribution route repeat.",
+  "success_criteria": [
+    "route-screen v2 completes with episodes=256 and seed_list 21560..21815",
+    "summary reports uses_public_frozen_source_rows=false",
+    "BC5660 passes the L0 gate and L2 competitiveness tolerances",
+    "at least two of three BC seeds pass L0 and L2 competitiveness tolerances",
+    "collision deltas against L2 are computed for all BC candidates",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "BC5660 fails the repeat",
+    "fewer than two BC seeds pass the repeat",
+    "evaluation reuses old route seeds or public frozen-source rows",
+    "checkpoint promotion is attempted"
+  ],
+  "commands": [
+    {
+      "name": "bc_family_fresh_route_repeat",
+      "command": "PYTHONPATH=src python -m autodrift.route_screen_v2 --checkpoint-policy l0_s3540=runs/m542_matched_l0_variance_seed3540/checkpoint.pt --checkpoint-policy l2_s3540=runs/m542_matched_l2_variance_seed3540/checkpoint.pt --checkpoint-policy l3_bc5660=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --checkpoint-policy l3_bc5661=runs/m568_scaled_l3_bc_seed5661/checkpoint.pt --checkpoint-policy l3_bc5662=runs/m568_scaled_l3_bc_seed5662/checkpoint.pt --env-config-policy l0_s3540=configs/ppo_m541_matched_l0_variance_4096.json --env-config-policy l2_s3540=configs/ppo_m541_matched_l2_variance_4096.json --env-config-policy l3_bc5660=configs/ppo_m541_matched_l3_variance_4096.json --env-config-policy l3_bc5661=configs/ppo_m541_matched_l3_variance_4096.json --env-config-policy l3_bc5662=configs/ppo_m541_matched_l3_variance_4096.json --candidate-label l3_bc5660 --candidate-label l3_bc5661 --candidate-label l3_bc5662 --l0-label l0_s3540 --l2-label l2_s3540 --episodes 256 --seed 21560 --device cpu --run-dir runs/m578_bc_family_fresh_route_repeat_eval"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m578_bc_family_fresh_route_repeat_eval/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "docs/m578-bc-family-fresh-route-repeat-eval.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+    "runs/m568_scaled_l3_bc_seed5661/checkpoint.pt",
+    "runs/m568_scaled_l3_bc_seed5662/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m577-bc-family-generalization-repeat-design.md",
+    "docs/m576-moderate-ood-route-eval-audit.md"
+  ],
+  "decision_rule": "M578 passes only if BC5660 and at least one other BC seed are L0-safe and L2-competitive on the fresh route repeat; no promotion is allowed.",
+  "next_blocker": "m579-bc-family-moderate-ood-repeat-eval"
+}

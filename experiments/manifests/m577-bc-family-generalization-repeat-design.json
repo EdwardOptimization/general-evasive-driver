@@ -89,6 +89,6 @@
     "docs/m576-moderate-ood-route-eval-audit.md",
     "docs/m575-moderate-ood-route-generalization-eval.md"
   ],
-  "decision_rule": "M577 passes only if it pre-registers the BC seed-family repeat protocol without evaluation, training, promotion, or actor-contract changes.",
+  "decision_rule": "M577 passes because it pre-registers the BC seed-family repeat protocol without evaluation, training, promotion, or actor-contract changes.",
   "next_blocker": "m578-bc-family-fresh-route-repeat-eval"
 }

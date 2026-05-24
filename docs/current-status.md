@@ -61,12 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m577-bc-family-generalization-repeat-design
+m578-bc-family-fresh-route-repeat-eval
 ```
 
-M577 should design BC seed-family generalization repeats for scaled BC seeds
-`5660`, `5661`, and `5662`. M576 audited the positive BC5660 evidence and
-rejected immediate promotion/PPO until seed-family stability is checked.
+M578 should run the BC seed-family fresh route repeat for scaled BC seeds
+`5660`, `5661`, and `5662` against L0/L2. M577 pre-registered the repeat
+protocol and keeps promotion/PPO blocked until seed-family stability is checked.
 
 ## Recent Evidence Line
 
@@ -329,6 +329,11 @@ rejected immediate promotion/PPO until seed-family stability is checked.
   selected single-BC-seed result. Immediate promotion and PPO remain blocked;
   the next escalation is a BC seed-family repeat for seeds `5660`, `5661`, and
   `5662` on fresh same-distribution and moderate-OOD route blocks.
+- M577 designs that repeat. M578 will evaluate `BC5660`, `BC5661`, and
+  `BC5662` on fresh route seeds `21560..21815` using M541 configs. M579 will
+  use fresh OOD seeds `22560..22815` and M574 configs only if M578 passes.
+  Family pass requires BC5660 plus at least one other BC seed to remain L0-safe
+  and L2-competitive; no promotion is allowed.
 
 ## Near-Term Rule
 

@@ -11314,3 +11314,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M576 audits the scaled BC evidence. BC5660 matches or slightly exceeds L2 on M570 public natural surfaces (`0.866310` success, `1.782199` margin), M572 fresh route seeds (`0.625000` success, `1.064947` margin), and M575 moderate-OOD route seeds (`0.628906` success, `1.042773` margin). The audit rejects immediate promotion/PPO because only selected BC seed `5660` has been tested beyond route-screen and recurrent ablations are still missing. The next escalation is a BC seed-family repeat for `5660`, `5661`, and `5662`.
 - decision: `moderate_ood_audit_admit_bc_family_repeat_design`
 - next: `m577-bc-family-generalization-repeat-design`
+## 20260524T081000Z - m577-bc-family-generalization-repeat-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m577-bc-family-generalization-repeat-design.md`
+- result: M577 pre-registers the BC seed-family repeat. M578 will evaluate L0, L2, and BC seeds `5660/5661/5662` on fresh same-distribution route seeds `21560..21815`; M579 will evaluate the same policies on fresh moderate-OOD seeds `22560..22815` only if M578 passes. Family pass requires BC5660 and at least one other BC seed to be L0-safe and L2-competitive, with manual BC-vs-L2 collision checks, no public frozen-source rows, no training, and no promotion.
+- decision: `bc_family_repeat_design_admit_m578_fresh_route_repeat`
+- next: `m578-bc-family-fresh-route-repeat-eval`
