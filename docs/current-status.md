@@ -61,12 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m546-l3-recurrent-repair-config-family
+m547-l3-recurrent-repair-route-pilot
 ```
 
-M546 should implement the controlled L3 recurrent repair config family from the
-M545 design. It must add fast-select and lower-LR L3-only configs plus tests
-without training or promotion.
+M547 should run the three M546 L3 repair configs on seed `3540`, collect
+interval checkpoints, and apply the M545 route-only checkpoint-selection rule
+before any public frozen-source eval.
 
 ## Recent Evidence Line
 
@@ -173,14 +173,20 @@ without training or promotion.
   controls, pre-registers interval-checkpoint selection from route artifacts
   before public eval, and admits three M546 diagnostic configs: `fast_select`,
   `lr1e4`, and `lr5e5`. This is design-only and does not promote a checkpoint.
+- M546 implements those L3-only repair configs and tests. `fast_select` adds
+  `checkpoint_interval_steps = 512` while keeping `learning_rate = 0.0003`;
+  `lr1e4` and `lr5e5` lower recurrent update aggressiveness and set
+  `max_grad_norm = 0.25`. Tests verify all three keep the M541 L3 environment
+  exactly and differ only by approved optimization/checkpoint-selection fields.
 
 ## Near-Term Rule
 
 Do not treat reset-hidden diagnostics, M528 smoke return, route eval, or
 M537-M543 public diagnostics as private generalization evidence. The next branch
-should implement and test L3 repair configs before any repaired training run.
-Any later promotion requires proof retention, generalization retention, behavior
-retention, no contract violation, and clear lineage.
+should run the M546 L3 repair route pilot and select checkpoints only from route
+artifacts before any public frozen-source eval. Any later promotion requires
+proof retention, generalization retention, behavior retention, no contract
+violation, and clear lineage.
 
 ## Sensor Profile Policy
 

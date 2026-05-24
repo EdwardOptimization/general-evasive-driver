@@ -2,7 +2,7 @@
   "id": "m546-l3-recurrent-repair-config-family",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -87,5 +87,5 @@
     "configs/ppo_m541_matched_l3_variance_4096.json"
   ],
   "decision_rule": "M546 passes only if the repair config family and tests exist. It does not train or promote a checkpoint.",
-  "next_blocker": "pending M546 L3 recurrent repair config family"
+  "next_blocker": "m547-l3-recurrent-repair-route-pilot"
 }

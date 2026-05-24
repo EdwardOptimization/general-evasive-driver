@@ -19,6 +19,12 @@ MATCHED_VARIANCE_4096_CONFIGS = {
     "L3_online_gru": Path("configs/ppo_m541_matched_l3_variance_4096.json"),
 }
 
+L3_REPAIR_4096_CONFIGS = {
+    "fast_select": Path("configs/ppo_m546_l3_repair_fast_select_4096.json"),
+    "lr1e4": Path("configs/ppo_m546_l3_repair_lr1e4_4096.json"),
+    "lr5e5": Path("configs/ppo_m546_l3_repair_lr5e5_4096.json"),
+}
+
 
 def _assert_history_baseline_config(
     *,
@@ -26,6 +32,7 @@ def _assert_history_baseline_config(
     level: str,
     total_steps: int,
     seed: int,
+    learning_rate: float = 0.0003,
 ) -> None:
     ppo = config["ppo"]
     env_config = build_env_config(config["env"])
@@ -45,7 +52,7 @@ def _assert_history_baseline_config(
     assert ppo["update_epochs"] == 2
     assert ppo["minibatch_size"] == 128
     assert ppo["hidden_size"] == 64
-    assert ppo["learning_rate"] == 0.0003
+    assert ppo["learning_rate"] == learning_rate
     assert ppo["eval_episodes"] == 5
     assert ppo["seed"] == seed
     assert config["env"]["action_history_mode"] == "full"
@@ -98,3 +105,56 @@ def test_m541_variance_configs_only_change_budget_and_seed_from_m531() -> None:
         assert variance_ppo.pop("seed") == 3540
         assert short_ppo == variance_ppo
         assert short_config["env"] == variance_config["env"]
+
+
+@pytest.mark.parametrize("variant,path", sorted(L3_REPAIR_4096_CONFIGS.items()))
+def test_m546_l3_repair_configs_preserve_p0_l3_contract(variant: str, path: Path) -> None:
+    expected_learning_rates = {
+        "fast_select": 0.0003,
+        "lr1e4": 0.0001,
+        "lr5e5": 0.00005,
+    }
+    config = read_json(path)
+    _assert_history_baseline_config(
+        config=config,
+        level="L3_online_gru",
+        total_steps=4096,
+        seed=3540,
+        learning_rate=expected_learning_rates[variant],
+    )
+    assert config["ppo"]["recurrent_sequence_training"] is True
+    assert config["ppo"]["checkpoint_interval_steps"] == 512
+
+
+def test_m546_l3_repair_configs_preserve_m541_l3_env_distribution() -> None:
+    base = read_json(MATCHED_VARIANCE_4096_CONFIGS["L3_online_gru"])
+    for path in L3_REPAIR_4096_CONFIGS.values():
+        repair = read_json(path)
+        assert repair["env"] == base["env"]
+
+
+def test_m546_l3_repair_configs_only_change_approved_optimization_controls() -> None:
+    base = read_json(MATCHED_VARIANCE_4096_CONFIGS["L3_online_gru"])
+    allowed_differences = {
+        "checkpoint_interval_steps",
+        "learning_rate",
+        "max_grad_norm",
+    }
+    expected = {
+        "fast_select": {"learning_rate": 0.0003, "checkpoint_interval_steps": 512},
+        "lr1e4": {"learning_rate": 0.0001, "max_grad_norm": 0.25, "checkpoint_interval_steps": 512},
+        "lr5e5": {"learning_rate": 0.00005, "max_grad_norm": 0.25, "checkpoint_interval_steps": 512},
+    }
+
+    for variant, path in L3_REPAIR_4096_CONFIGS.items():
+        repair = read_json(path)
+        base_ppo = dict(base["ppo"])
+        repair_ppo = dict(repair["ppo"])
+        differences = {
+            key
+            for key in sorted(set(base_ppo) | set(repair_ppo))
+            if base_ppo.get(key) != repair_ppo.get(key)
+        }
+        assert differences <= allowed_differences
+        for key, value in expected[variant].items():
+            assert repair_ppo[key] == value

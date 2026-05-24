@@ -11035,3 +11035,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M545 designs a controlled L3 recurrent repair path after M544 confirmed the current L3 recipe instability. The design preserves the P0 actor contract and L2 finite-window baseline, admits only L3 optimization/checkpoint-selection repairs, pre-registers interval-checkpoint selection from route artifacts before any public eval, and defines route-health plus public diagnostic gates. Candidate M546 configs are `fast_select`, `lr1e4`, and `lr5e5`; none train or promote a checkpoint in M545.
 - decision: `l3_recurrent_repair_design_admit_m546_config_family`
 - next: `m546-l3-recurrent-repair-config-family`
+## 20260524T081000Z - m546-l3-recurrent-repair-config-family
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m546-l3-recurrent-repair-config-family.md`
+- result: M546 adds the controlled L3-only repair config family: `fast_select` keeps the original `0.0003` learning rate and adds `checkpoint_interval_steps = 512`, while `lr1e4` and `lr5e5` lower recurrent update aggressiveness with `max_grad_norm = 0.25`. Focused tests verify all three configs keep the M541 L3 environment exactly, preserve the `L3_online_gru` P0 contract, and differ from M541 only by approved optimization/checkpoint-selection controls.
+- decision: `l3_repair_config_family_pass_admit_m547_route_pilot`
+- next: `m547-l3-recurrent-repair-route-pilot`

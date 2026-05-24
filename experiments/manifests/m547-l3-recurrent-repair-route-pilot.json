@@ -1,0 +1,102 @@
+{
+  "id": "m547-l3-recurrent-repair-route-pilot",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m542_matched_l3_variance_seed3540/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m545-l3-recurrent-recipe-repair-design.md",
+      "docs/m546-l3-recurrent-repair-config-family.md"
+    ],
+    "parent_config": [
+      "configs/ppo_m546_l3_repair_fast_select_4096.json",
+      "configs/ppo_m546_l3_repair_lr1e4_4096.json",
+      "configs/ppo_m546_l3_repair_lr5e5_4096.json"
+    ],
+    "parent_objective": [
+      "run L3-only route pilot with pre-registered interval checkpoint selection"
+    ],
+    "derived_from": [
+      "m546-l3-recurrent-repair-config-family"
+    ],
+    "blocked_by": [
+      "m546-l3-recurrent-repair-config-family"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m547-l3-recurrent-repair-route-pilot.md",
+  "public_gates": [
+    "run all three M546 L3 repair configs on seed 3540",
+    "collect interval checkpoint route metrics before any public frozen-source eval",
+    "apply M545 route-only checkpoint selection rule",
+    "do not promote checkpoint or claim L3 beats L2"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not select checkpoint from public frozen-source rows",
+    "do not alter configs after seeing route results",
+    "do not compare repaired L3 as final evidence against L2 until a frozen matched rerun exists"
+  ],
+  "hypothesis": "At least one M546 L3 repair variant will pass route health by preserving interval checkpoints or reducing recurrent update aggressiveness, enabling a later public diagnostic eval.",
+  "success_criteria": [
+    "all three repair training runs complete with valid P0 metadata",
+    "interval checkpoint artifacts are available for route selection",
+    "a route-selected candidate satisfies M545 route-health criteria, or failure is classified as training_instability",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "training run fails to produce valid metadata",
+    "selection uses public frozen-source rows",
+    "no candidate can be evaluated under the pre-registered route rule"
+  ],
+  "commands": [
+    {
+      "name": "train_fast_select",
+      "command": "PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_m546_l3_repair_fast_select_4096.json --run-dir runs/m547_l3_repair_fast_select_seed3540"
+    },
+    {
+      "name": "train_lr1e4",
+      "command": "PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_m546_l3_repair_lr1e4_4096.json --run-dir runs/m547_l3_repair_lr1e4_seed3540"
+    },
+    {
+      "name": "train_lr5e5",
+      "command": "PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_m546_l3_repair_lr5e5_4096.json --run-dir runs/m547_l3_repair_lr5e5_seed3540"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m547_l3_repair_fast_select_seed3540/checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m547_l3_repair_lr1e4_seed3540/checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m547_l3_repair_lr5e5_seed3540/checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "docs/m547-l3-recurrent-repair-route-pilot.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+    "runs/m542_matched_l2_variance_seed3540/checkpoint.pt",
+    "runs/m542_matched_l3_variance_seed3540/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m545-l3-recurrent-recipe-repair-design.md",
+    "docs/m546-l3-recurrent-repair-config-family.md"
+  ],
+  "decision_rule": "M547 is a route pilot. It admits public diagnostics only if a route-selected repaired L3 candidate passes M545 route-health criteria.",
+  "next_blocker": "pending M547 L3 recurrent repair route pilot"
+}
