@@ -61,13 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m530-l0-baseline-smoke-repeat
+m531-matched-history-short-train-config-design
 ```
 
-M530 should run two fresh-seed L0 current-observation smokes using the M528
-config family and verify that `history_baseline` metadata is stable in
-`config.json` and checkpoint metadata. It must not promote a checkpoint or
-compare smoke returns as baseline evidence.
+M531 should pre-register the matched L0/L2/L3 short-train config family with
+shared budgets, seeds, configs, evaluation surfaces, and artifact retention
+rules before running any trained-baseline comparison. It must not promote a
+checkpoint or tune one baseline independently.
 
 ## Recent Evidence Line
 
@@ -88,6 +88,10 @@ compare smoke returns as baseline evidence.
 - M529 pre-registered the staged matched-baseline evaluation ladder so later
   L0/L2/L3 comparisons use shared budgets, seeds, configs, artifacts, and
   holdout discipline.
+- M530 repeated the L0 current-observation smoke on seeds `3530` and `3531`.
+  Both completed and wrote stable `L0_current_observation` plus
+  `P0_human_view_no_wheel_no_oracle` metadata. The smoke returns are not
+  interpreted as baseline evidence.
 
 ## Near-Term Rule
 

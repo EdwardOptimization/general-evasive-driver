@@ -1,0 +1,83 @@
+{
+  "id": "m531-matched-history-short-train-config-design",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m526_history_value_event_audit/summary.json",
+      "runs/m530_l0_current_observation_smoke_seed3530",
+      "runs/m530_l0_current_observation_smoke_seed3531"
+    ],
+    "parent_config": [
+      "configs/ppo_m528_l0_current_observation_smoke.json",
+      "experiments/manifests/m530-l0-baseline-smoke-repeat.json"
+    ],
+    "parent_objective": [
+      "matched L0/L2/L3 short-train config family"
+    ],
+    "derived_from": [
+      "m530-l0-baseline-smoke-repeat",
+      "m529-matched-history-baseline-eval-ladder-design"
+    ],
+    "blocked_by": [
+      "m530-l0-baseline-smoke-repeat"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m531-matched-history-short-train-config-design.md",
+  "public_gates": [
+    "define matched L0/L2/L3 short-train configs with shared budget and seeds",
+    "preserve P0 no-wheel no-privileged actor contract",
+    "define evaluation surfaces without claiming private holdout evidence",
+    "do not run long training or promote a checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not tune one baseline separately",
+    "do not add privileged inputs",
+    "do not interpret smoke returns as evidence",
+    "do not promote a baseline checkpoint"
+  ],
+  "hypothesis": "A matched short-train config family for L0, L2, and L3 can be pre-registered with shared budget, seeds, and evaluation surfaces before running any trained-baseline comparison.",
+  "success_criteria": [
+    "configs or config templates exist for L0, L2, and L3 short-train runs",
+    "all configs declare history_baseline_level and P0 actor contract",
+    "shared seeds and budgets are documented",
+    "the next executable milestone is a small matched short-train run"
+  ],
+  "failure_criteria": [
+    "configs use different budgets without justification",
+    "configs change actor inputs outside P0",
+    "design treats M526 public diagnostics as unbiased holdout",
+    "checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "matched_history_short_train_config_design",
+      "command": "Design the shared L0/L2/L3 short-train config family and next executable matched run."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m531-matched-history-short-train-config-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m529-matched-history-baseline-eval-ladder-design.md",
+    "docs/m530-l0-baseline-smoke-repeat.md"
+  ],
+  "decision_rule": "M531 is a config-design gate. It should not run the matched comparison itself; it should admit the smallest executable matched short-train run only after shared recipes are explicit.",
+  "next_blocker": "pending M531 matched history short-train config design"
+}

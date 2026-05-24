@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 538,
+        "completed": 539,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m529-matched-history-baseline-eval-ladder-design",
+        "task_id": "m530-l0-baseline-smoke-repeat",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m529-matched-history-baseline-eval-ladder-design.md"
+        "run_dir": "runs/m530_l0_current_observation_smoke_seed3531",
+        "command_log": "docs/m530-l0-baseline-smoke-repeat.md"
     },
     "next_task": {
-        "id": "m530-l0-baseline-smoke-repeat",
+        "id": "m531-matched-history-short-train-config-design",
         "status": "pending",
-        "priority": 5250,
+        "priority": 5260,
         "kind": "infrastructure",
-        "hypothesis": "The L0 current-observation baseline smoke route is repeatable across fresh seeds and consistently records matched-history metadata, making it safe to proceed toward matched L0/L2/L3 short-train comparisons.",
-        "command": "see experiments/manifests/m530-l0-baseline-smoke-repeat.json",
+        "hypothesis": "A matched short-train config family for L0, L2, and L3 can be pre-registered with shared budget, seeds, and evaluation surfaces before running any trained-baseline comparison.",
+        "command": "see experiments/manifests/m531-matched-history-short-train-config-design.json",
         "success_artifact": "",
-        "notes": "Pending: run two fresh-seed L0 smoke routes and verify metadata stability without promotion"
+        "notes": "Pending: pre-register shared L0/L2/L3 budget seeds configs and evaluation surfaces before matched short training"
     },
-    "updated_at_utc": "20260524T052000Z"
+    "updated_at_utc": "20260524T053000Z"
 }

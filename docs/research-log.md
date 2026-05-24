@@ -10891,3 +10891,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M529 pre-registers a staged baseline ladder: plumbing smoke, repeat smoke, matched short train, natural history-value eval, scenario-distribution eval, and later promotion-level evidence with holdout discipline. It requires shared budgets, seeds, configs, artifacts, P0 input contract, and no per-baseline tuning before comparison. M526 natural event rows remain public diagnostics rather than private holdout evidence.
 - decision: `admit_m530_l0_baseline_smoke_repeat`
 - next: `m530-l0-baseline-smoke-repeat`
+## 20260524T053000Z - m530-l0-baseline-smoke-repeat
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m530_l0_current_observation_smoke_seed3530`, `runs/m530_l0_current_observation_smoke_seed3531`
+- artifact: `docs/m530-l0-baseline-smoke-repeat.md`
+- result: M530 repeats the L0 current-observation smoke on fresh seeds `3530` and `3531`. Both runs complete `64` PPO steps, write checkpoints, and record stable `L0_current_observation` plus `P0_human_view_no_wheel_no_oracle` metadata in run config and checkpoint metadata. Eval returns differ (`4.1940` and `32.9497`) but are not interpreted because this is a route/metadata smoke only.
+- decision: `l0_smoke_repeat_pass_admit_m531_matched_short_train_config_design`
+- next: `m531-matched-history-short-train-config-design`

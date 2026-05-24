@@ -2,7 +2,7 @@
   "id": "m530-l0-baseline-smoke-repeat",
   "type": "infrastructure",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -32,10 +32,10 @@
   },
   "review_artifact": "docs/reviews/m530-l0-baseline-smoke-repeat.md",
   "public_gates": [
-    "repeat L0 current-observation smoke on fresh seeds",
-    "verify history_baseline metadata stability",
-    "preserve P0 no-wheel no-privileged input contract",
-    "do not make performance claims or promote a checkpoint"
+    "repeated L0 current-observation smoke on fresh seeds",
+    "verified history_baseline metadata stability",
+    "preserved P0 no-wheel no-privileged input contract",
+    "no performance claims or checkpoint promotion performed"
   ],
   "private_holdout_policy": "not_used",
   "forbidden_shortcuts": [
@@ -71,6 +71,14 @@
     {
       "path": "docs/m530-l0-baseline-smoke-repeat.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m530_l0_current_observation_smoke_seed3530/config.json",
+      "type": "run_config"
+    },
+    {
+      "path": "runs/m530_l0_current_observation_smoke_seed3531/config.json",
+      "type": "run_config"
     }
   ],
   "baseline_checkpoints": [
@@ -81,5 +89,10 @@
     "configs/ppo_m528_l0_current_observation_smoke.json"
   ],
   "decision_rule": "M530 is a process smoke repeat. Success admits matched short-train config design; it does not promote checkpoints or compare performance.",
-  "next_blocker": "pending M530 L0 baseline smoke repeat"
+  "scoreboard_metrics": {
+    "termination_rate": 1.0
+  },
+  "scoreboard_decision": "l0_smoke_repeat_pass_admit_m531_matched_short_train_config_design",
+  "scoreboard_reason": "M530 repeats the L0 current-observation smoke on seeds 3530 and 3531 and confirms stable L0/P0 metadata in run config and checkpoint metadata without performance claims.",
+  "next_blocker": "m531-matched-history-short-train-config-design"
 }
