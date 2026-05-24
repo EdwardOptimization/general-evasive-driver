@@ -34,6 +34,13 @@ from autodrift.terminal_margin_recovery_anchor import parse_float_list
 from autodrift.train_ppo import ActorCritic, resolve_device
 
 
+SOURCE_METADATA_FIELDNAMES = [
+    "source_tier",
+    "expansion_reason",
+    "original_m609_boundary",
+    "m613_accepted_sequence",
+]
+
 SEQUENCE_CANDIDATE_FIELDNAMES = [
     "source_index",
     "coupling_row_index",
@@ -72,7 +79,7 @@ SEQUENCE_CANDIDATE_FIELDNAMES = [
     "max_delta_delta_l2",
     "accepted",
     "rejection_reason",
-]
+] + SOURCE_METADATA_FIELDNAMES
 
 ACCEPTED_SEQUENCE_FIELDNAMES = [
     "source_index",
@@ -101,7 +108,7 @@ ACCEPTED_SEQUENCE_FIELDNAMES = [
     "max_delta_delta_l2",
     "acceptance_reason",
     "weight",
-]
+] + SOURCE_METADATA_FIELDNAMES
 
 UNACCEPTED_SEQUENCE_FIELDNAMES = [
     "source_index",
@@ -128,7 +135,7 @@ UNACCEPTED_SEQUENCE_FIELDNAMES = [
     "best_sequence_max_l2",
     "best_max_delta_delta_l2",
     "best_rejection_reason",
-]
+] + SOURCE_METADATA_FIELDNAMES
 
 
 @dataclass(frozen=True)
@@ -152,6 +159,26 @@ def parse_int_list(raw: str) -> tuple[int, ...]:
     if not values:
         raise argparse.ArgumentTypeError("int list must contain at least one value")
     return values
+
+
+def source_metadata(row: pd.Series | dict[str, Any]) -> dict[str, Any]:
+    output: dict[str, Any] = {}
+    for column in SOURCE_METADATA_FIELDNAMES:
+        value = row.get(column, "")
+        if pd.isna(value):
+            value = ""
+        output[column] = value
+    return output
+
+
+def accepted_candidate_rows(candidate_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [row for row in candidate_rows if bool(row.get("accepted", False))]
+
+
+def _value_counts(frame: pd.DataFrame, column: str) -> dict[str, int]:
+    if frame.empty or column not in frame.columns:
+        return {}
+    return {str(key): int(value) for key, value in frame[column].value_counts().to_dict().items()}
 
 
 def sequence_scales(length: int, family: str) -> np.ndarray:
@@ -673,6 +700,7 @@ def mine_sequences_for_surface(
                     "max_delta_delta_l2": float(candidate.max_delta_delta_l2),
                     "accepted": bool(accepted),
                     "rejection_reason": rejection_reason,
+                    **source_metadata(row),
                 }
                 candidate_rows.append(candidate_row)
                 row_candidate_rows.append(candidate_row)
@@ -720,6 +748,7 @@ def mine_sequences_for_surface(
                     "best_sequence_max_l2": float(best_any["sequence_max_l2"]),
                     "best_max_delta_delta_l2": float(best_any["max_delta_delta_l2"]),
                     "best_rejection_reason": str(best_any["rejection_reason"]),
+                    **source_metadata(row),
                 }
             )
             continue
@@ -751,6 +780,7 @@ def mine_sequences_for_surface(
                 "sequence_max_l2": float(best["sequence_max_l2"]),
                 "max_delta_delta_l2": float(best["max_delta_delta_l2"]),
                 "acceptance_reason": str(best["rejection_reason"]),
+                **source_metadata(row),
             }
         )
         accepted_sequences[source_index] = candidate_by_id[int(best["candidate_id"])]
@@ -857,11 +887,18 @@ def run_sequence_target_miner(
         )
 
     write_csv_rows(run_dir / "selected_boundary_source_rows.csv", source_rows.to_dict(orient="records"))
+    accepted_candidate_output_rows = accepted_candidate_rows(candidate_rows)
     write_csv_rows(run_dir / "sequence_candidates.csv", candidate_rows, fieldnames=SEQUENCE_CANDIDATE_FIELDNAMES)
+    write_csv_rows(
+        run_dir / "accepted_candidate_sequences.csv",
+        accepted_candidate_output_rows,
+        fieldnames=SEQUENCE_CANDIDATE_FIELDNAMES,
+    )
     write_csv_rows(run_dir / "accepted_sequences.csv", accepted_rows, fieldnames=ACCEPTED_SEQUENCE_FIELDNAMES)
     write_csv_rows(run_dir / "unaccepted_rows.csv", unaccepted_rows, fieldnames=UNACCEPTED_SEQUENCE_FIELDNAMES)
 
     candidate_frame = pd.DataFrame(candidate_rows)
+    accepted_candidate_frame = pd.DataFrame(accepted_candidate_output_rows)
     accepted_frame = pd.DataFrame(accepted_rows)
     unaccepted_frame = pd.DataFrame(unaccepted_rows)
     summary = {
@@ -887,6 +924,7 @@ def run_sequence_target_miner(
         "device": str(resolved_device),
         "source_rows": int(len(source_rows)),
         "candidate_rollouts": int(len(candidate_rows)),
+        "accepted_candidate_sequences": int(len(accepted_candidate_output_rows)),
         "accepted_sequences": int(len(accepted_rows)),
         "unaccepted_rows": int(len(unaccepted_rows)),
         "candidate_margin_improvement_max": _empty_float_stat(candidate_frame, "margin_improvement", "max"),
@@ -908,11 +946,16 @@ def run_sequence_target_miner(
             if not candidate_frame.empty
             else {}
         ),
+        "accepted_candidate_diversity": _diversity(accepted_candidate_frame),
+        "accepted_candidate_counts_by_family": _value_counts(accepted_candidate_frame, "family"),
+        "accepted_candidate_counts_by_tier": _value_counts(accepted_candidate_frame, "source_tier"),
+        "accepted_candidate_counts_by_sequence_length": _value_counts(accepted_candidate_frame, "sequence_length"),
         "accepted_sequence_counts_by_family": (
             accepted_frame["family"].value_counts().to_dict()
             if not accepted_frame.empty
             else {}
         ),
+        "accepted_sequence_counts_by_tier": _value_counts(accepted_frame, "source_tier"),
         "diagnostic_only": True,
         "labels_enter_actor_input": False,
         "actor_parameters_changed": False,
@@ -921,6 +964,7 @@ def run_sequence_target_miner(
         "optimizer_admission": False,
         "sequence_target_corpus_npz": target_corpus_path,
         "sequence_candidates_csv": run_dir / "sequence_candidates.csv",
+        "accepted_candidate_sequences_csv": run_dir / "accepted_candidate_sequences.csv",
         "accepted_sequences_csv": run_dir / "accepted_sequences.csv",
         "unaccepted_rows_csv": run_dir / "unaccepted_rows.csv",
         "selected_boundary_source_rows_csv": run_dir / "selected_boundary_source_rows.csv",

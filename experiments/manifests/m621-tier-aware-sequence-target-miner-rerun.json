@@ -1,0 +1,95 @@
+{
+  "id": "m621-tier-aware-sequence-target-miner-rerun",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m616_expanded_sequence_source_miner/expanded_sequence_source_rows.csv",
+      "docs/m620-sequence-tier-aware-miner-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m620-sequence-tier-aware-miner-implementation.json",
+      "docs/m619-expanded-sequence-diversity-design.md"
+    ],
+    "parent_objective": [
+      "rerun sequence target miner with tier-aware artifacts after M620 implementation"
+    ],
+    "derived_from": [
+      "m620-sequence-tier-aware-miner-implementation"
+    ],
+    "blocked_by": [
+      "m620-sequence-tier-aware-miner-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m621-tier-aware-sequence-target-miner-rerun.md",
+  "public_gates": [
+    "write accepted_candidate_sequences.csv",
+    "write tier-aware accepted_sequences.csv",
+    "write tier-aware unaccepted_rows.csv",
+    "record accepted candidate-set diversity",
+    "keep target thresholds and trust regions unchanged",
+    "keep actor training and PPO blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower target acceptance thresholds",
+    "do not widen action trust regions",
+    "do not treat candidate-level rows as independent source diversity"
+  ],
+  "hypothesis": "A formal rerun with the M620 tier-aware miner will reproduce M617 selected-sequence results while adding accepted candidate-set and source-tier summaries needed for the next audit.",
+  "success_criteria": [
+    "accepted selected sequence count matches the M617 diagnostic result within deterministic tolerance",
+    "accepted_candidate_sequences.csv is written",
+    "summary includes accepted_candidate_diversity and accepted_candidate_counts_by_tier",
+    "accepted_sequences.csv and unaccepted_rows.csv include source_tier",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "rerun changes model weights",
+    "rerun changes target thresholds or trust regions",
+    "rerun omits accepted candidate-set artifact",
+    "rerun loses source-tier metadata",
+    "rerun makes optimizer admission claim"
+  ],
+  "commands": [
+    {
+      "name": "tier_aware_rerun",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.sequence_target_miner --checkpoint-policy bc5660=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --boundary-source-rows runs/m616_expanded_sequence_source_miner/expanded_sequence_source_rows.csv --surface-config fresh=configs/ppo_m541_matched_l3_variance_4096.json --surface-config ood=configs/eval_m574_moderate_ood_l3.json --sequence-lengths 3,5 --family constant_delta --family decay_pulse --family brake_release_then_steer --family steer_then_brake --steer-deltas=-0.08,-0.04,0,0.04,0.08 --throttle-deltas=-0.06,0,0.03 --brake-deltas=-0.08,-0.04,0,0.04,0.08 --per-step-action-l2 0.10 --sequence-mean-l2-limit 0.08 --sequence-max-l2-limit 0.10 --max-delta-delta-l2-limit 0.08 --min-margin-improvement 0.02 --min-risk-improvement 0.05 --max-continuation-steps 80 --device cpu --run-dir runs/m621_tier_aware_sequence_target_miner"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m621_tier_aware_sequence_target_miner/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m621_tier_aware_sequence_target_miner/accepted_candidate_sequences.csv",
+      "type": "data"
+    },
+    {
+      "path": "docs/m621-tier-aware-sequence-target-miner-rerun.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m620-sequence-tier-aware-miner-implementation.md",
+    "runs/m620_tier_aware_sequence_target_miner_smoke/summary.json"
+  ],
+  "decision_rule": "M621 passes if the tier-aware rerun writes the new artifacts and preserves the M617 diagnostic result without training.",
+  "next_blocker": "m622-tier-aware-sequence-candidate-audit"
+}

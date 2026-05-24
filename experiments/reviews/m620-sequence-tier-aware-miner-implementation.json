@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M620 propagates source-tier metadata writes accepted_candidate_sequences.csv and shows 189 accepted candidates across only 5 physical pairs and 4 left seeds so optimizer admission remains blocked",
+  "failure_criteria": [
+    "implementation changes actor inputs",
+    "implementation trains a model",
+    "implementation runs PPO",
+    "implementation changes target acceptance thresholds",
+    "implementation breaks older source files"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not change actor inputs",
+    "do not lower target acceptance thresholds",
+    "do not widen action trust regions"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T100220Z",
+  "hypothesis": "Adding source-tier propagation and accepted candidate-set artifacts will make sequence target evidence auditable without changing model behavior or target thresholds.",
+  "lineage": {
+    "blocked_by": [
+      "m619-expanded-sequence-diversity-design"
+    ],
+    "derived_from": [
+      "m619-expanded-sequence-diversity-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m619-expanded-sequence-diversity-design.json",
+      "docs/m618-expanded-sequence-target-mining-audit.md"
+    ],
+    "parent_dataset": [
+      "runs/m617_expanded_sequence_target_miner/sequence_candidates.csv",
+      "runs/m617_expanded_sequence_target_miner/accepted_sequences.csv",
+      "docs/m619-expanded-sequence-diversity-design.md"
+    ],
+    "parent_objective": [
+      "implement source-tier metadata propagation and accepted candidate-set artifacts for sequence target miner"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m620-sequence-tier-aware-miner-implementation",
+  "next_blocker": "m621-tier-aware-sequence-target-miner-rerun",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "sequence_tier_aware_miner_pass_admit_rerun",
+  "public_gates": [
+    "propagate optional source metadata columns into sequence outputs",
+    "write accepted_candidate_sequences.csv",
+    "summarize accepted candidate-set diversity separately from selected sequence diversity",
+    "preserve backward compatibility for older source rows",
+    "keep actor training and PPO blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m620_tier_aware_sequence_target_miner_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "sequence_tier_aware_miner_pass_admit_rerun",
+    "milestone": "m620-sequence-tier-aware-miner-implementation",
+    "reason": "M620 propagates source-tier metadata writes accepted_candidate_sequences.csv and shows 189 accepted candidates across only 5 physical pairs and 4 left seeds so optimizer admission remains blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "sequence_candidates accepted_sequences and unaccepted_rows preserve source_tier metadata when present",
+    "accepted_candidate_sequences.csv is written with all accepted candidates",
+    "summary includes accepted_candidate_diversity and accepted candidate counts by family tier and sequence length",
+    "older source files without tier metadata still work",
+    "focused tests and research validation pass"
+  ],
+  "type": "infrastructure"
+}

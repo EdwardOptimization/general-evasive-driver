@@ -11701,3 +11701,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M619 designs the next no-training sequence diversity step. The immediate issue is evidence governance: M617 has `6` selected accepted sequences but `189` accepted candidate rows, and accepted source-tier interpretation required a manual join to M616. M619 therefore selects M620 as a tier-aware sequence miner implementation: propagate optional source metadata into sequence outputs, write `accepted_candidate_sequences.csv`, and summarize accepted candidate-set diversity separately from selected best-per-source diversity. Longer `K=7` low-amplitude sequence candidates may be considered later, but not before artifact provenance is clean.
 - decision: `expanded_sequence_diversity_design_admit_m620`
 - next: `m620-sequence-tier-aware-miner-implementation`
+## 20260524T152000Z - m620-sequence-tier-aware-miner-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m620_tier_aware_sequence_target_miner_smoke`
+- artifact: `docs/m620-sequence-tier-aware-miner-implementation.md`
+- result: M620 updates `sequence_target_miner` artifacts without changing rollout behavior, thresholds, actor inputs, training, or PPO. Optional source metadata (`source_tier`, `expansion_reason`, `original_m609_boundary`, `m613_accepted_sequence`) now propagates into candidate/accepted/unaccepted outputs. The miner also writes `accepted_candidate_sequences.csv` and summary-level accepted-candidate diversity counts. A real M616-table smoke reproduces the M617 selected result (`6` selected accepted sequences) and exposes `189` accepted candidate rows: family counts are decay_pulse `86`, constant_delta `64`, steer_then_brake `22`, brake_release_then_steer `17`; tier counts are support `98`, near `89`, core `2`. Candidate rows still cover only `5` physical pairs and `4` left seeds, so optimizer admission remains blocked.
+- decision: `sequence_tier_aware_miner_pass_admit_rerun`
+- next: `m621-tier-aware-sequence-target-miner-rerun`

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 628,
+        "completed": 629,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m619-expanded-sequence-diversity-design",
+        "task_id": "m620-sequence-tier-aware-miner-implementation",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m619-expanded-sequence-diversity-design.md"
+        "command_log": "docs/m620-sequence-tier-aware-miner-implementation.md"
     },
     "next_task": {
-        "id": "m620-sequence-tier-aware-miner-implementation",
+        "id": "m621-tier-aware-sequence-target-miner-rerun",
         "status": "pending",
-        "priority": 6150,
+        "priority": 6160,
         "kind": "infrastructure",
-        "hypothesis": "Adding source-tier propagation and accepted candidate-set artifacts will make sequence target evidence auditable without changing model behavior or target thresholds.",
-        "command": "see experiments/manifests/m620-sequence-tier-aware-miner-implementation.json",
+        "hypothesis": "A formal rerun with the M620 tier-aware miner will reproduce M617 selected-sequence results while adding accepted candidate-set and source-tier summaries needed for the next audit.",
+        "command": "see experiments/manifests/m621-tier-aware-sequence-target-miner-rerun.json",
         "success_artifact": "",
-        "notes": "Pending: implement sequence miner metadata propagation and accepted_candidate_sequences artifact; no training PPO promotion target-threshold or trust-region change"
+        "notes": "Pending: formal tier-aware sequence target rerun; no training PPO promotion target-threshold or trust-region change"
     },
-    "updated_at_utc": "20260524T151000Z"
+    "updated_at_utc": "20260524T152000Z"
 }

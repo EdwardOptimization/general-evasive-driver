@@ -55,22 +55,30 @@ Latest active diagnostic BC checkpoint:
 runs/m568_scaled_l3_bc_seed5660/checkpoint.pt
 ```
 
-Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M619
+Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M620
 diagnostics. It is not the public-gate base and is not promoted as the current
 driver checkpoint.
 
 ## Current Blocker
 
 ```text
-m620-sequence-tier-aware-miner-implementation
+m621-tier-aware-sequence-target-miner-rerun
 ```
 
-M620 should implement source-tier metadata propagation and accepted
-candidate-set artifacts in the sequence target miner. It must not change model
-behavior, target thresholds, action trust regions, actor inputs, or run PPO.
+M621 should run the formal tier-aware sequence target miner rerun on the M616
+expanded source table. M620 already verified the artifact shape in a smoke; M621
+should produce the official tier-aware run for the next audit without changing
+thresholds, trust regions, actor inputs, or model weights.
 
 ## Recent Evidence Line
 
+- M620 implements source-tier metadata propagation and
+  `accepted_candidate_sequences.csv` in `sequence_target_miner`. A real
+  tier-aware smoke on M616 expanded rows reproduces M617's `6` selected
+  accepted sequences and exposes `189` accepted candidate rows. Candidate-level
+  family diversity exists, but source-level diversity remains narrow: accepted
+  candidates still cover only `5` physical pairs and `4` left seeds. Optimizer
+  admission remains blocked.
 - M619 designs the next no-training sequence diversity step. M617 has `6`
   selected accepted sequences but `189` accepted candidate rows, and accepted
   source-tier interpretation required a manual join to M616. M620 should make

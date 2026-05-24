@@ -5,12 +5,16 @@ import pandas as pd
 import pytest
 
 from autodrift.sequence_target_miner import (
+    SOURCE_METADATA_FIELDNAMES,
+    SEQUENCE_CANDIDATE_FIELDNAMES,
+    accepted_candidate_rows,
     build_sequence_candidates,
     parse_int_list,
     sequence_acceptance,
     sequence_scales,
     sequence_trust_metrics,
     select_best_sequence,
+    source_metadata,
     write_sequence_target_corpus,
 )
 
@@ -170,3 +174,44 @@ def test_parse_int_list_rejects_empty():
     assert parse_int_list("3,5") == (3, 5)
     with pytest.raises(Exception, match="at least one"):
         parse_int_list("")
+
+
+def test_source_metadata_preserves_optional_tier_columns():
+    row = pd.Series(
+        {
+            "source_tier": "near_boundary",
+            "expansion_reason": "near_margin_window",
+            "original_m609_boundary": False,
+            "m613_accepted_sequence": True,
+        }
+    )
+
+    assert source_metadata(row) == {
+        "source_tier": "near_boundary",
+        "expansion_reason": "near_margin_window",
+        "original_m609_boundary": False,
+        "m613_accepted_sequence": True,
+    }
+
+
+def test_source_metadata_is_blank_for_legacy_rows():
+    metadata = source_metadata(pd.Series({"source_index": 1}))
+
+    assert metadata == {column: "" for column in SOURCE_METADATA_FIELDNAMES}
+
+
+def test_candidate_fieldnames_include_source_metadata():
+    for column in SOURCE_METADATA_FIELDNAMES:
+        assert column in SEQUENCE_CANDIDATE_FIELDNAMES
+
+
+def test_accepted_candidate_rows_filters_all_accepted_candidates():
+    rows = [
+        {"candidate_id": 1, "accepted": False},
+        {"candidate_id": 2, "accepted": True},
+        {"candidate_id": 3, "accepted": True},
+    ]
+
+    accepted = accepted_candidate_rows(rows)
+
+    assert [row["candidate_id"] for row in accepted] == [2, 3]
