@@ -62,16 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m657-wrong-history-fusion-boundary-probe-design
+m658-wrong-history-fusion-boundary-probe-implementation
 ```
 
-M657 should design a frozen feature-view comparison probe. It should compare
-diagnostic sequence-delta heads trained on fused actor features, next recurrent
-hidden state, and fused-plus-hidden features to test whether wrong-history
-separation is available before the response/context fusion boundary.
+M658 should implement the frozen feature-view comparison probe. It should train
+only diagnostic auxiliary heads for fused, next-hidden, and fused-plus-hidden
+views, then compare source-heldout wrong-history gaps without updating the actor
+or running PPO.
 
 ## Recent Evidence Line
 
+- M657 designs the fusion-boundary probe. The implementation should evaluate
+  three frozen feature views: fused actor features, next recurrent hidden state,
+  and their concatenation. The decision rule is diagnostic: if next-hidden or
+  fused-plus-hidden creates source-heldout wrong-history separation while fused
+  remains weak, the fusion boundary becomes the next design target; no actor
+  checkpoint may be written.
 - M656 audits M655 and admits a fusion-boundary probe design. The strongest
   interpretation is that wrong-history information exists in recurrent state
   and survives the current-response GRU update, but is too weak at the fused

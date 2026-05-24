@@ -12034,3 +12034,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M656 audits M655 as a fusion-boundary blocker rather than a missing-history blocker. The audit rejects the explanations that wrong-history hidden state is absent, that the GRU update fully erases it, or that M655 mutated the actor. It also rejects tuning the M652 fused-feature contrast coefficient as the next step, because the feature/action boundary itself provides only a small gap. The next branch is a frozen feature-view comparison probe over fused features, next hidden state, and fused-plus-hidden features.
 - decision: `wrong_history_feature_separability_audit_admit_fusion_boundary_probe_design`
 - next: `m657-wrong-history-fusion-boundary-probe-design`
+## 20260524T214500Z - m657-wrong-history-fusion-boundary-probe-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m657-wrong-history-fusion-boundary-probe-design.md`
+- result: M657 designs a frozen feature-view comparison probe after M655/M656 localized the blocker to the fusion/action boundary. M658 should train diagnostic auxiliary heads only, with BC5660 actor/recurrent/critic/log-std frozen, for three views: fused actor features, next recurrent hidden state, and fused-plus-next-hidden concatenation. Each view uses the M652 normal-target plus wrong-history contrast structure and reports normal retention plus source 30/source 32 wrong-history gaps. Actor updates, PPO, promotion, metadata-as-input, and interpreting auxiliary-head success as closed-loop self-ID proof remain forbidden.
+- decision: `wrong_history_fusion_boundary_probe_design_admit_m658`
+- next: `m658-wrong-history-fusion-boundary-probe-implementation`
