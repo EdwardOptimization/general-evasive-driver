@@ -61,14 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m539-matched-history-seed-fragility-audit
+m540-matched-history-training-variance-design
 ```
 
-M539 should diagnose the M538 seed-3531 L2-over-L3 counterexample. It should
-localize negative L3-L2 paired rows by surface, target, offset, terminal reason,
-event contribution, and first-action differences before deciding whether the
-next branch should be longer matched training, finite-window baseline
-escalation, or a recurrent training recipe change.
+M540 should pre-register the next matched L0/L2/L3 training-variance escalation.
+It must keep budgets, seeds, eval order, and public/private evidence boundaries
+identical across history levels before launching longer matched training.
 
 ## Recent Evidence Line
 
@@ -133,14 +131,21 @@ escalation, or a recurrent training recipe change.
   and margin delta `+0.144301`. L3-L2 is aggregate-positive and positive on all
   surfaces, but not seed-uniform: seed `3531` favors L2 with success delta
   `-0.013815` and margin delta `-0.143703`.
+- M539 diagnoses the seed `3531` L2-over-L3 counterexample. It is broad rather
+  than an event artifact: all four surfaces, all target groups, and all
+  tail-offset groups have negative mean L3-L2 margin deltas. The `31` success
+  regressions are all `L2 obstacle_completed -> L3 collision`, and non-event
+  rows carry the success/collision regression. L3 seed `3531` has a systematic
+  first-action shift relative to L2, so the next step should address matched
+  training variance rather than promote L3 from public diagnostics.
 
 ## Near-Term Rule
 
-Do not treat reset-hidden diagnostics, M528 smoke return, or M537/M538 public
-diagnostics as private generalization evidence. The next branch must explain the
-L3-vs-L2 seed fragility before fresh holdout mining or longer matched training.
-Any later promotion requires proof retention, generalization retention, behavior
-retention, no contract violation, and clear lineage.
+Do not treat reset-hidden diagnostics, M528 smoke return, or M537-M539 public
+diagnostics as private generalization evidence. The next branch must design a
+matched training-variance escalation that keeps L2 as a serious finite-window
+baseline. Any later promotion requires proof retention, generalization
+retention, behavior retention, no contract violation, and clear lineage.
 
 ## Sensor Profile Policy
 

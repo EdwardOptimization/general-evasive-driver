@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 547,
+        "completed": 548,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m538-natural-surface-paired-advantage-audit",
+        "task_id": "m539-matched-history-seed-fragility-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m538_natural_surface_paired_advantage_audit",
-        "command_log": "docs/m538-natural-surface-paired-advantage-audit.md"
+        "run_dir": "runs/m539_matched_history_seed_fragility_audit",
+        "command_log": "docs/m539-matched-history-seed-fragility-audit.md"
     },
     "next_task": {
-        "id": "m539-matched-history-seed-fragility-audit",
+        "id": "m540-matched-history-training-variance-design",
         "status": "pending",
-        "priority": 5340,
-        "kind": "gate",
-        "hypothesis": "The M538 L3-vs-L2 seed-3531 counterexample can be localized to specific surfaces, offsets, targets, or action/terminal patterns before deciding whether the next step should be longer matched training or finite-window baseline escalation.",
-        "command": "see experiments/manifests/m539-matched-history-seed-fragility-audit.json",
+        "priority": 5350,
+        "kind": "infrastructure",
+        "hypothesis": "Because M539 shows a broad seed-3531 L2-over-L3 counterexample, the next research step should pre-register a matched training-variance escalation before running longer baselines or fresh holdout claims.",
+        "command": "see experiments/manifests/m540-matched-history-training-variance-design.json",
         "success_artifact": "",
-        "notes": "Pending: localize negative L3-L2 seed3531 rows by surface target offset terminal reason event contribution and first actions"
+        "notes": "Pending: define identical-budget seeds gates and pass/fail thresholds before longer matched training"
     },
-    "updated_at_utc": "20260524T065000Z"
+    "updated_at_utc": "20260524T070000Z"
 }

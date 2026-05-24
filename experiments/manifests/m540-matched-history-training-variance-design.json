@@ -1,0 +1,89 @@
+{
+  "id": "m540-matched-history-training-variance-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m532_matched_l0_short_train_seed3530/checkpoint.pt",
+      "runs/m532_matched_l2_short_train_seed3530/checkpoint.pt",
+      "runs/m532_matched_l3_short_train_seed3530/checkpoint.pt",
+      "runs/m533_matched_l0_short_train_seed3531/checkpoint.pt",
+      "runs/m533_matched_l2_short_train_seed3531/checkpoint.pt",
+      "runs/m533_matched_l3_short_train_seed3531/checkpoint.pt",
+      "runs/m533_matched_l0_short_train_seed3532/checkpoint.pt",
+      "runs/m533_matched_l2_short_train_seed3532/checkpoint.pt",
+      "runs/m533_matched_l3_short_train_seed3532/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m539_matched_history_seed_fragility_audit/summary.json",
+      "runs/m538_natural_surface_paired_advantage_audit/summary.json"
+    ],
+    "parent_config": [
+      "configs/m531_matched_l0_short_train.json",
+      "configs/m531_matched_l2_short_train.json",
+      "configs/m531_matched_l3_short_train.json"
+    ],
+    "parent_objective": [
+      "design matched L0/L2/L3 training-variance escalation after L2 seed counterexample"
+    ],
+    "derived_from": [
+      "m539-matched-history-seed-fragility-audit"
+    ],
+    "blocked_by": [
+      "m539-matched-history-seed-fragility-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m540-matched-history-training-variance-design.md",
+  "public_gates": [
+    "pre-register identical-budget L0/L2/L3 variance ladder",
+    "include per-seed public paired diagnostics from M537/M538",
+    "define when L3 beats L2 versus when finite-window history remains competitive",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not tune one history level independently before comparison",
+    "do not discard L2 because aggregate M537 favored L3",
+    "do not promote any short-train baseline from public diagnostics"
+  ],
+  "hypothesis": "Because M539 shows a broad seed-3531 L2-over-L3 counterexample, the next research step should pre-register a matched training-variance escalation before running longer baselines or fresh holdout claims.",
+  "success_criteria": [
+    "defines matched seeds budgets configs and eval order for L0 L2 L3",
+    "defines public diagnostic gates and later fresh-holdout boundary",
+    "defines pass/fail thresholds for L3 over L0 and L3 over L2 separately",
+    "defines how to classify finite-window sufficiency versus recurrent instability",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design allows per-history-level tuning before comparison",
+    "design ignores the seed-3531 L2 counterexample",
+    "design treats M537/M538 public rows as private evidence"
+  ],
+  "commands": [
+    {
+      "name": "design_only",
+      "command": "Write a matched training-variance escalation plan and update the research queue/status without launching training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m540-matched-history-training-variance-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m539-matched-history-seed-fragility-audit.md",
+    "runs/m539_matched_history_seed_fragility_audit/summary.json"
+  ],
+  "decision_rule": "M540 is a design milestone. Passing it admits matched training-variance runs; it does not train or promote a checkpoint.",
+  "next_blocker": "pending M540 matched training-variance design"
+}

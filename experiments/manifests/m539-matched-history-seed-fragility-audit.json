@@ -2,9 +2,9 @@
   "id": "m539-matched-history-seed-fragility-audit",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "seed_fragility"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -35,10 +35,10 @@
   },
   "review_artifact": "docs/reviews/m539-matched-history-seed-fragility-audit.md",
   "public_gates": [
-    "isolate seed-3531 L2-over-L3 rows by surface target and tail offset",
-    "compare first-action and terminal-reason differences on negative L3-L2 deltas",
-    "check whether seed-3531 counterexample concentrates on event rows or broad rows",
-    "do not train or promote checkpoint"
+    "isolated seed-3531 L2-over-L3 rows by surface target and tail offset",
+    "compared first-action and terminal-reason differences on negative L3-L2 deltas",
+    "checked whether seed-3531 counterexample concentrates on event rows or broad rows",
+    "did not train or promote checkpoint"
   ],
   "private_holdout_policy": "not_used",
   "forbidden_shortcuts": [
@@ -69,6 +69,14 @@
     {
       "path": "docs/m539-matched-history-seed-fragility-audit.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m539_matched_history_seed_fragility_audit/summary.json",
+      "type": "aggregate_summary"
+    },
+    {
+      "path": "runs/m539_matched_history_seed_fragility_audit/success_regression_rows.csv",
+      "type": "diagnostic_table"
     }
   ],
   "baseline_checkpoints": [
@@ -78,6 +86,6 @@
     "docs/m538-natural-surface-paired-advantage-audit.md",
     "runs/m538_natural_surface_paired_advantage_audit/summary.json"
   ],
-  "decision_rule": "M539 is a public diagnostic audit. It should decide whether the L3-vs-L2 seed fragility points to training variance, finite-window sufficiency, or a required matched-training recipe change; it does not promote a checkpoint.",
-  "next_blocker": "pending M539 seed-fragility audit"
+  "decision_rule": "M539 is a public diagnostic audit. The seed-3531 L2 counterexample is broad and action-shifted, so the next step should design matched training-variance escalation; it does not promote a checkpoint.",
+  "next_blocker": "m540-matched-history-training-variance-design"
 }

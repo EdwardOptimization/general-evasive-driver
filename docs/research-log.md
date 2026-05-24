@@ -10972,3 +10972,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M538 joins all `20196` M537 outcome rows into `6732` complete L0/L2/L3 matched source/train triplets. L3-L0 is robust: paired success delta `+0.020351`, collision delta `-0.020351`, margin delta `+0.144301`, and all `4/4` surfaces plus `3/3` seeds are positive. L3-L2 is aggregate-positive with success delta `+0.018419` and margin delta `+0.113771`, and all surfaces are positive, but it is seed-fragile: seed `3531` has L3-L2 success delta `-0.013815` and margin delta `-0.143703`.
 - decision: `paired_l3_l0_pass_l3_l2_seed_fragile_admit_m539_seed_fragility_audit`
 - next: `m539-matched-history-seed-fragility-audit`
+## 20260524T070000Z - m539-matched-history-seed-fragility-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m539_matched_history_seed_fragility_audit`
+- artifact: `docs/m539-matched-history-seed-fragility-audit.md`
+- result: M539 localizes the seed `3531` L3-vs-L2 fragility. The counterexample is broad: all four surfaces have negative L3-L2 success and clearance-margin deltas, all target and tail-offset groups have negative mean margin deltas, and non-event rows carry the success/collision regression. There are `31` success regressions, all `obstacle_completed -> collision`, while margin is negative on `77.852%` of paired rows. L3 seed `3531` also has a systematic first-action shift relative to L2: steer delta `-0.136033`, throttle delta `-0.098220`, brake delta `-0.242059`.
+- decision: `seed3531_l2_counterexample_broad_admit_m540_training_variance_design`
+- next: `m540-matched-history-training-variance-design`
