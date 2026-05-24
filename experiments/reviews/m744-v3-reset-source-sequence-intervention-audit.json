@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M744 audits M743 as a clean diagnostic positive and selects sentinel-filtered v3-aware corpus export before objective design or PPO",
+  "failure_criteria": [
+    "audit treats M743 as trained policy improvement",
+    "audit ignores sentinel false positives",
+    "audit admits PPO or promotion directly",
+    "audit changes actor input contract"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not treat M743 as a trained driver improvement",
+    "do not skip audit before corpus export or objective design",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor input contract"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260524T224708Z",
+  "hypothesis": "M743's positive v3 reset-source sequence result should be audited before converting it into a corpus or objective.",
+  "lineage": {
+    "blocked_by": [
+      "m743-v3-reset-source-sequence-intervention-implementation"
+    ],
+    "derived_from": [
+      "m743-v3-reset-source-sequence-intervention-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m743-v3-reset-source-sequence-intervention-implementation.json",
+      "configs/extreme_fault_distribution_v3_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m743-v3-reset-source-sequence-intervention-implementation.md",
+      "runs/m743_v3_reset_source_sequence_intervention/summary.json",
+      "runs/m743_v3_reset_source_sequence_intervention/intervention_rollouts.csv",
+      "runs/m743_v3_reset_source_sequence_intervention/sequence_critical_rows.csv",
+      "runs/m743_v3_reset_source_sequence_intervention/sentinel_rows.csv"
+    ],
+    "parent_objective": [
+      "audit v3 reset-source sequence-outcome positive result before corpus export or objective design"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m744-v3-reset-source-sequence-intervention-audit",
+  "next_blocker": "m745-v3-sequence-outcome-corpus-export-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "promote_to_v3_sequence_outcome_corpus_export",
+  "public_gates": [
+    "M743 source-balance and outcome gates are audited",
+    "sentinel false positives are inspected",
+    "variant and horizon effects are summarized separately",
+    "next branch decision compares corpus export repeat validation simulator fidelity and objective design",
+    "actor training PPO and promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m744-v3-reset-source-sequence-intervention-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "promote_to_v3_sequence_outcome_corpus_export",
+    "milestone": "m744-v3-reset-source-sequence-intervention-audit",
+    "reason": "M744 audits M743 as a clean diagnostic positive and selects sentinel-filtered v3-aware corpus export before objective design or PPO",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M744 records M743 result metrics",
+    "M744 records supported and falsified claims",
+    "M744 assesses sentinel false positives",
+    "M744 records public gate overfit risk",
+    "M744 makes an explicit next branch decision",
+    "actor update PPO and promotion remain blocked unless later designed"
+  ],
+  "type": "gate"
+}

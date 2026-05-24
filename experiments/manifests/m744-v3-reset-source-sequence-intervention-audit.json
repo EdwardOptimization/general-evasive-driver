@@ -67,7 +67,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M743 result_class=v3_reset_sequence_outcome_positive",
-    "synthesis_decision": "not_applicable",
+    "synthesis_decision": "promote_to_next_branch",
     "synthesis_artifact": "docs/m744-v3-reset-source-sequence-intervention-audit.md",
     "synthesis_questions": [
       "evidence_summary",
@@ -113,5 +113,5 @@
     "docs/m743-v3-reset-source-sequence-intervention-implementation.md"
   ],
   "decision_rule": "M744 must decide whether to design repeat validation compact corpus export sequence-preference objective or stricter sentinel-filtered rerun. It must not admit PPO or promotion directly.",
-  "next_blocker": "m745-next-branch-pending"
+  "next_blocker": "m745-v3-sequence-outcome-corpus-export-design"
 }

@@ -12735,3 +12735,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M743 implements the v3 reset-source sequence intervention runner and finds a strong positive result. It selects `512` source rows with `461` primary reset rows and `51` sentinels across `25` seeds, `9` preferred fault families, `8` wrong fault families, and `30` fault-family pairs. It evaluates `12288` rollout rows and finds `5304` sequence action-critical rows plus `995` sequence outcome-critical rows across `20` seeds and `26` fault-family pairs. Outcome rows are dominated by `zero_command_obs` (`950`) and grow with horizon (`H=2:3`, `H=4:145`, `H=6:370`, `H=8:477`). Sentinel false-positive rate is `0.0`; actor checksum is unchanged; no training/PPO/promotion occurs.
 - decision: `v3_reset_sequence_outcome_positive_admit_audit`
 - next: `m744-v3-reset-source-sequence-intervention-audit`
+
+## 20260525T024000Z - m744-v3-reset-source-sequence-intervention-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m744-v3-reset-source-sequence-intervention-audit.md`
+- result: M744 audits M743 as a clean diagnostic positive, not a trained driver improvement. The result has `995` outcome-critical rows across `20` seeds and `26` fault-family pairs, `0` sentinel false positives, normal-history retention pass, and unchanged actor checksum. The strongest mechanism remains sustained `zero_command_obs` corruption at longer horizons. Public-gate overfit risk remains moderate, so objective design and PPO stay blocked.
+- decision: `promote_to_v3_sequence_outcome_corpus_export`
+- next: `m745-v3-sequence-outcome-corpus-export-design`

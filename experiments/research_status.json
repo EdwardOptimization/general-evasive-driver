@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 752,
+        "completed": 753,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m743-v3-reset-source-sequence-intervention-implementation",
+        "task_id": "m744-v3-reset-source-sequence-intervention-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m743-v3-reset-source-sequence-intervention-implementation.md"
+        "command_log": "docs/m744-v3-reset-source-sequence-intervention-audit.md"
     },
     "next_task": {
-        "id": "m744-v3-reset-source-sequence-intervention-audit",
+        "id": "m745-v3-sequence-outcome-corpus-export-design",
         "status": "pending",
-        "priority": 7390,
-        "kind": "gate",
-        "hypothesis": "Audit v3 reset-source sequence positive result",
-        "command": "see experiments/manifests/m744-v3-reset-source-sequence-intervention-audit.json",
-        "success_artifact": "docs/m744-v3-reset-source-sequence-intervention-audit.md",
-        "notes": "Pending: audit M743 positive result sentinel source diversity and next branch decision"
+        "priority": 7400,
+        "kind": "infrastructure",
+        "hypothesis": "Design v3 sequence-outcome corpus export",
+        "command": "see experiments/manifests/m745-v3-sequence-outcome-corpus-export-design.json",
+        "success_artifact": "docs/m745-v3-sequence-outcome-corpus-export-design.md",
+        "notes": "Pending: design sentinel-filtered v3-aware corpus export preserving source metadata from M743 positives"
     },
-    "updated_at_utc": "20260525T023000Z"
+    "updated_at_utc": "20260525T024000Z"
 }
