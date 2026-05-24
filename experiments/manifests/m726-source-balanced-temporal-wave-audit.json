@@ -72,7 +72,16 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M725 result_class=source_balance_blocked",
-    "synthesis_decision": "not_applicable"
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m726-source-balanced-temporal-wave-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
   },
   "hypothesis": "M725 should be audited before rerunning; the audit can determine whether quota overconstraint rather than scenario absence caused source_balance_blocked.",
   "success_criteria": [

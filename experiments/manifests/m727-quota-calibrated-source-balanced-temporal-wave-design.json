@@ -1,0 +1,110 @@
+{
+  "id": "m727-quota-calibrated-source-balanced-temporal-wave-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m726-source-balanced-temporal-wave-audit.md",
+      "docs/m725-source-balanced-temporal-wave-implementation.md",
+      "runs/m725_source_balanced_temporal_wave/summary.json",
+      "runs/m725_source_balanced_temporal_wave/pair_proposals.csv",
+      "runs/m725_source_balanced_temporal_wave/selected_pair_proposals.csv",
+      "runs/m725_source_balanced_temporal_wave/variant_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m726-source-balanced-temporal-wave-audit.json",
+      "experiments/manifests/m725-source-balanced-temporal-wave-implementation.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_objective": [
+      "design quota-calibrated source-balanced temporal wave after M725 selected-pair cap blockage"
+    ],
+    "derived_from": [
+      "m726-source-balanced-temporal-wave-audit"
+    ],
+    "blocked_by": [
+      "m726-source-balanced-temporal-wave-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m727-quota-calibrated-source-balanced-temporal-wave-design.md",
+  "public_gates": [
+    "M727 identifies the quota caps that blocked M725",
+    "M727 defines calibrated caps that can reach the registered selected-pair target",
+    "M727 keeps action and outcome gates separate",
+    "M727 preserves sentinel and source-balance checks",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not lower thresholds after seeing M727 implementation output",
+    "do not treat action-only temporal rows as outcome proof",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor input contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "fresh_source_balanced_temporal_wave",
+    "evidence_axis": "G_source_coverage: design quota-calibrated selected-pair wave",
+    "evidence_increment": "turns the M726 quota-overconstraint audit into a calibrated rerun plan",
+    "claim_scope": "design only; no new data wave result and no checkpoint claim",
+    "stop_condition": [
+      "stop if the design cannot preserve source-balance and sentinel checks",
+      "stop if the design would mix action-only and outcome evidence",
+      "stop if the design requires actor update PPO or promotion",
+      "stop if quota calibration would only optimize fixed public proof rows"
+    ],
+    "fallback_plan": [
+      "if quota calibration is insufficient, design sequence-level interventions",
+      "if source-balanced temporal rows stay outcome-neutral, design boundary mining or dynamics fidelity",
+      "if proposal coverage becomes the blocker, refresh the extreme fault scenario family"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M726 continues the fresh source-balanced temporal wave branch after quota overconstraint audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M725 source_balance_blocked can be addressed by calibrating selection quotas rather than changing the actor or training objective.",
+  "success_criteria": [
+    "M727 documents the exact M725 quota overconstraint",
+    "M727 defines calibrated source-balance thresholds and run command",
+    "M727 keeps source-balance pass separate from outcome proof",
+    "M727 blocks source export actor update PPO and promotion",
+    "M727 admits only a no-training M728 implementation"
+  ],
+  "failure_criteria": [
+    "design treats M725 action rows as closed-loop outcome proof",
+    "design removes source-balance checks to force a pass",
+    "design changes actor input contract",
+    "design admits PPO or checkpoint promotion"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m727-quota-calibrated-source-balanced-temporal-wave-design.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m727-quota-calibrated-source-balanced-temporal-wave-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m725_source_balanced_temporal_wave/summary.json",
+    "docs/m726-source-balanced-temporal-wave-audit.md"
+  ],
+  "decision_rule": "M727 may only design a no-training quota-calibrated M728 wave. It must not admit boundary mining source export PPO or promotion until M728 is run and audited.",
+  "next_blocker": "m728-quota-calibrated-source-balanced-temporal-wave-implementation"
+}

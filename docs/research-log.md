@@ -12566,3 +12566,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M725 implements and runs the no-training source-balanced temporal wave. It generates `69591` pair proposals and selects `2048` quota-balanced pairs across `256` seeds. The selected wave has `1392` temporal action-critical rows but `0` temporal outcome-critical rows, with sentinel false-positive rate `0.0`. Result class is `source_balance_blocked`: source seed diversity improves substantially, but the registered `per_step_bucket_cap=1024` over-constrains selection to `2048` rows and preferred-family dominance remains `0.3125`, above the `0.25` gate. Actor checksum is unchanged; no training, PPO, or promotion occurs.
 - decision: `source_balance_blocked_admit_audit`
 - next: `m726-source-balanced-temporal-wave-audit`
+
+## 20260524T234000Z - m726-source-balanced-temporal-wave-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m726-source-balanced-temporal-wave-audit.md`
+- result: M726 audits M725 as `scenario_sampling_failure` plus `metric_artifact`. The proposal table is broad (`69591` proposals across `9` preferred families and `40` family pairs), so M725 did not fail from lack of proposals. The selected-pair gate failed because `per_step_bucket_cap=1024` and only two populated step buckets hard-limit selection to `2048` rows. The temporal action signal survives source balancing (`1392` action-critical rows across `186` seeds), but outcome evidence remains absent (`0` outcome-critical rows), so source export, actor update, PPO, and promotion remain blocked.
+- decision: `continue_quota_calibrated_wave`
+- next: `m727-quota-calibrated-source-balanced-temporal-wave-design`
