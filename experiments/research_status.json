@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 540,
+        "completed": 541,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m531-matched-history-short-train-config-design",
+        "task_id": "m532-matched-short-train-single-seed",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m531-matched-history-short-train-config-design.md"
+        "run_dir": "runs/m532_matched_l3_short_train_seed3530",
+        "command_log": "docs/m532-matched-short-train-single-seed.md"
     },
     "next_task": {
-        "id": "m532-matched-short-train-single-seed",
+        "id": "m533-matched-short-train-repeat-seeds",
         "status": "pending",
-        "priority": 5270,
+        "priority": 5280,
         "kind": "gate",
-        "hypothesis": "The matched L0, L2, and L3 short-train configs can all execute on a shared seed and write comparable artifacts, enabling repeat-seed and natural-surface evaluation milestones next.",
-        "command": "see experiments/manifests/m532-matched-short-train-single-seed.json",
+        "hypothesis": "The frozen matched L0, L2, and L3 short-train configs remain executable across fresh seeds and preserve comparable metadata, giving enough evidence to move to natural history-value surface evaluation.",
+        "command": "see experiments/manifests/m533-matched-short-train-repeat-seeds.json",
         "success_artifact": "",
-        "notes": "Pending: execute all three short-train configs on seed 3530 and verify comparable artifacts without ranking claims"
+        "notes": "Pending: run frozen M531 configs on seeds 3531 and 3532 and summarize metadata/results without promotion"
     },
-    "updated_at_utc": "20260524T054000Z"
+    "updated_at_utc": "20260524T055000Z"
 }

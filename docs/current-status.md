@@ -61,12 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m532-matched-short-train-single-seed
+m533-matched-short-train-repeat-seeds
 ```
 
-M532 should execute the matched L0/L2/L3 short-train configs on shared seed
-`3530`, verify comparable artifacts and `history_baseline` metadata, and avoid
-any stable ranking or promotion claim from a single seed.
+M533 should repeat the frozen M531 L0/L2/L3 short-train configs on fresh seeds
+`3531` and `3532`, verify metadata for every run, and summarize aggregate route
+metrics without tuning configs, promoting checkpoints, or making paper-level
+claims.
 
 ## Recent Evidence Line
 
@@ -94,6 +95,10 @@ any stable ranking or promotion claim from a single seed.
 - M531 added machine-checkable L0/L2/L3 short-train configs with shared PPO
   budget, seed, task distribution, and P0 contract checks. L2 is the only config
   with `history_length = 4`; L0 and L3 use `history_length = 1`.
+- M532 ran all three short-train configs on seed `3530`. L0 and L2 terminated
+  in all eval episodes, while L3 had lower termination rate (`0.6`) and higher
+  return on this one seed. This is route/artifact evidence only; repeat seeds
+  and natural history-value surface evals are still required.
 
 ## Near-Term Rule
 

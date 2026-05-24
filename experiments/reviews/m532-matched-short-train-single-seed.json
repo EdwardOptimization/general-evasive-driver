@@ -1,0 +1,78 @@
+{
+  "decision_reason": "M532 runs L0 L2 and L3 short-train configs on shared seed 3530 and verifies comparable metadata; no stable ranking is claimed",
+  "failure_criteria": [
+    "any config fails to run",
+    "metadata does not match the declared baseline level",
+    "one config is modified after seeing another run result",
+    "checkpoint promotion is performed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not tune a config after seeing a sibling result",
+    "do not promote checkpoint",
+    "do not use privileged actor inputs",
+    "do not call a single seed comparison statistically meaningful"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260524T025806Z",
+  "hypothesis": "The matched L0, L2, and L3 short-train configs can all execute on a shared seed and write comparable artifacts, enabling repeat-seed and natural-surface evaluation milestones next.",
+  "lineage": {
+    "blocked_by": [
+      "m531-matched-history-short-train-config-design"
+    ],
+    "derived_from": [
+      "m531-matched-history-short-train-config-design",
+      "m530-l0-baseline-smoke-repeat"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m531_matched_l0_short_train.json",
+      "configs/ppo_m531_matched_l2_short_train.json",
+      "configs/ppo_m531_matched_l3_short_train.json"
+    ],
+    "parent_dataset": [
+      "runs/m526_history_value_event_audit/summary.json"
+    ],
+    "parent_objective": [
+      "single-seed matched L0/L2/L3 short-train route check"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m532-matched-short-train-single-seed",
+  "next_blocker": "m533-matched-short-train-repeat-seeds",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "matched_short_train_single_seed_pass_admit_m533_repeat_seed",
+  "public_gates": [
+    "ran L0 L2 and L3 matched short-train configs on seed 3530",
+    "verified history_baseline metadata for all runs",
+    "recorded train/eval artifacts for all runs",
+    "no stable baseline ranking or checkpoint promotion claimed"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m532_matched_l3_short_train_seed3530/checkpoint.pt",
+    "clearance_margin_mean": "",
+    "decision": "matched_short_train_single_seed_pass_admit_m533_repeat_seed",
+    "milestone": "m532-matched-short-train-single-seed",
+    "reason": "M532 runs L0 L2 and L3 short-train configs on shared seed 3530 and verifies comparable metadata; no stable ranking is claimed",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "0.6",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "L0 short-train completes",
+    "L2 short-train completes",
+    "L3 short-train completes",
+    "all runs record correct history_baseline metadata",
+    "research validation passes"
+  ],
+  "type": "gate"
+}

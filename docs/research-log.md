@@ -10909,3 +10909,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M531 adds machine-checkable matched short-train configs for `L0_current_observation`, `L2_finite_window`, and `L3_online_gru`. All configs share `1024` PPO steps, `64` rollout steps, `4` envs, `2` update epochs, `128` minibatch size, `64` hidden size, seed `3530`, and the same M502-style boundary-pressure short-reveal task distribution except for the intended history-length difference. `tests/test_history_baseline_configs.py` verifies the P0 baseline contract and shared budget.
 - decision: `admit_m532_matched_short_train_single_seed`
 - next: `m532-matched-short-train-single-seed`
+## 20260524T055000Z - m532-matched-short-train-single-seed
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m532_matched_l0_short_train_seed3530`, `runs/m532_matched_l2_short_train_seed3530`, `runs/m532_matched_l3_short_train_seed3530`
+- artifact: `docs/m532-matched-short-train-single-seed.md`
+- result: M532 runs all three matched short-train configs on seed `3530`. L0 eval return/termination is `15.8773`/`1.0`, L2 is `15.2473`/`1.0`, and L3 is `43.4736`/`0.6`. All runs record matching `history_baseline` metadata and the P0 actor contract. L3 looks better on this one seed, but the result is classified as route/artifact evidence only, not a stable baseline ranking.
+- decision: `matched_short_train_single_seed_pass_admit_m533_repeat_seed`
+- next: `m533-matched-short-train-repeat-seeds`

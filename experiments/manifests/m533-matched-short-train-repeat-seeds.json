@@ -1,0 +1,84 @@
+{
+  "id": "m533-matched-short-train-repeat-seeds",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m532_matched_l0_short_train_seed3530/checkpoint.pt",
+      "runs/m532_matched_l2_short_train_seed3530/checkpoint.pt",
+      "runs/m532_matched_l3_short_train_seed3530/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m526_history_value_event_audit/summary.json"
+    ],
+    "parent_config": [
+      "configs/ppo_m531_matched_l0_short_train.json",
+      "configs/ppo_m531_matched_l2_short_train.json",
+      "configs/ppo_m531_matched_l3_short_train.json"
+    ],
+    "parent_objective": [
+      "repeat-seed matched L0/L2/L3 short-train route check"
+    ],
+    "derived_from": [
+      "m532-matched-short-train-single-seed",
+      "m531-matched-history-short-train-config-design"
+    ],
+    "blocked_by": [
+      "m532-matched-short-train-single-seed"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m533-matched-short-train-repeat-seeds.md",
+  "public_gates": [
+    "repeat L0 L2 and L3 matched short-train configs on fresh seeds",
+    "do not change configs after seeing M532",
+    "verify metadata for every run",
+    "report aggregate summary without promotion or stable ranking claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not tune a config after seeing M532",
+    "do not promote checkpoint",
+    "do not use privileged actor inputs",
+    "do not treat repeat-seed route metrics as paper-level evidence"
+  ],
+  "hypothesis": "The frozen matched L0, L2, and L3 short-train configs remain executable across fresh seeds and preserve comparable metadata, giving enough evidence to move to natural history-value surface evaluation.",
+  "success_criteria": [
+    "all planned repeat-seed runs complete or failures are classified",
+    "all completed runs record correct history_baseline metadata",
+    "aggregate summary is written",
+    "no config is tuned after seeing M532",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "a baseline fails to run on repeat seeds",
+    "metadata does not match declared baseline level",
+    "configs are modified based on M532 outcomes",
+    "checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "repeat_seed_plan",
+      "command": "Run frozen M531 configs for L0/L2/L3 on seeds 3531 and 3532 with run-dir suffixes matching the baseline and seed."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m533-matched-short-train-repeat-seeds.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m532-matched-short-train-single-seed.md"
+  ],
+  "decision_rule": "M533 is a repeat-seed route and metadata gate. Success should admit natural history-value surface evaluation for the matched checkpoints, not checkpoint promotion.",
+  "next_blocker": "pending M533 matched short-train repeat seeds"
+}

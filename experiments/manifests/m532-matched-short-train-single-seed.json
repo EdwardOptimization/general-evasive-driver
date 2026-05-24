@@ -2,7 +2,7 @@
   "id": "m532-matched-short-train-single-seed",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -33,10 +33,10 @@
   },
   "review_artifact": "docs/reviews/m532-matched-short-train-single-seed.md",
   "public_gates": [
-    "run L0 L2 and L3 matched short-train configs on seed 3530",
-    "verify history_baseline metadata for all runs",
-    "record train/eval artifacts for all runs",
-    "do not claim stable baseline ranking or promote a checkpoint"
+    "ran L0 L2 and L3 matched short-train configs on seed 3530",
+    "verified history_baseline metadata for all runs",
+    "recorded train/eval artifacts for all runs",
+    "no stable baseline ranking or checkpoint promotion claimed"
   ],
   "private_holdout_policy": "not_used",
   "forbidden_shortcuts": [
@@ -77,6 +77,18 @@
     {
       "path": "docs/m532-matched-short-train-single-seed.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m532_matched_l0_short_train_seed3530/eval_summary.json",
+      "type": "eval_summary"
+    },
+    {
+      "path": "runs/m532_matched_l2_short_train_seed3530/eval_summary.json",
+      "type": "eval_summary"
+    },
+    {
+      "path": "runs/m532_matched_l3_short_train_seed3530/eval_summary.json",
+      "type": "eval_summary"
     }
   ],
   "baseline_checkpoints": [
@@ -86,5 +98,7 @@
     "docs/m531-matched-history-short-train-config-design.md"
   ],
   "decision_rule": "M532 is a single-seed route and artifact gate. Success admits repeat-seed matched short-train or natural-surface eval, but does not establish a baseline ranking.",
-  "next_blocker": "pending M532 matched short-train single-seed route check"
+  "scoreboard_decision": "matched_short_train_single_seed_pass_admit_m533_repeat_seed",
+  "scoreboard_reason": "M532 runs L0 L2 and L3 short-train configs on shared seed 3530 and verifies comparable L0/L2/L3 metadata; L3 is better on this one seed but no stable ranking is claimed.",
+  "next_blocker": "m533-matched-short-train-repeat-seeds"
 }
