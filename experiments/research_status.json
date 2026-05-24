@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 753,
+        "completed": 754,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m744-v3-reset-source-sequence-intervention-audit",
+        "task_id": "m745-v3-sequence-outcome-corpus-export-design",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m744-v3-reset-source-sequence-intervention-audit.md"
+        "command_log": "docs/m745-v3-sequence-outcome-corpus-export-design.md"
     },
     "next_task": {
-        "id": "m745-v3-sequence-outcome-corpus-export-design",
+        "id": "m746-v3-sequence-outcome-corpus-export-implementation",
         "status": "pending",
-        "priority": 7400,
+        "priority": 7410,
         "kind": "infrastructure",
-        "hypothesis": "Design v3 sequence-outcome corpus export",
-        "command": "see experiments/manifests/m745-v3-sequence-outcome-corpus-export-design.json",
-        "success_artifact": "docs/m745-v3-sequence-outcome-corpus-export-design.md",
-        "notes": "Pending: design sentinel-filtered v3-aware corpus export preserving source metadata from M743 positives"
+        "hypothesis": "Implement v3 sequence-outcome corpus export",
+        "command": "see experiments/manifests/m746-v3-sequence-outcome-corpus-export-implementation.json",
+        "success_artifact": "docs/m746-v3-sequence-outcome-corpus-export-implementation.md",
+        "notes": "Pending: implement deterministic no-training v3 corpus exporter and run registered M743 export"
     },
-    "updated_at_utc": "20260525T024000Z"
+    "updated_at_utc": "20260525T025000Z"
 }

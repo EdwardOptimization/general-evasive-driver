@@ -12744,3 +12744,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M744 audits M743 as a clean diagnostic positive, not a trained driver improvement. The result has `995` outcome-critical rows across `20` seeds and `26` fault-family pairs, `0` sentinel false positives, normal-history retention pass, and unchanged actor checksum. The strongest mechanism remains sustained `zero_command_obs` corruption at longer horizons. Public-gate overfit risk remains moderate, so objective design and PPO stay blocked.
 - decision: `promote_to_v3_sequence_outcome_corpus_export`
 - next: `m745-v3-sequence-outcome-corpus-export-design`
+
+## 20260525T025000Z - m745-v3-sequence-outcome-corpus-export-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m745-v3-sequence-outcome-corpus-export-design.md`
+- result: M745 designs a deterministic no-training v3-aware corpus export for M743's `995` non-sentinel sequence-outcome positives. The design requires matched normal rows, separates hard-negative action-only rows from proof positives, preserves `pair_id`, `pairing_rule`, reset/action/history gap fields, source kind, and fault fidelity metadata from `configs/extreme_fault_distribution_v3_scenarios.json`, and records current-model/proxy versus future-only claim boundaries. Precheck values show `20` positive seeds, `26` positive fault-family pairs, max seed dominance `0.169849`, `0` sentinel positives, `0` missing normal matches, and `992` capped hard-negative rows for `995` positives, so hard-negative sparsity is classified separately from core positive-corpus validity.
+- decision: `v3_sequence_outcome_corpus_export_design_admit_m746`
+- next: `m746-v3-sequence-outcome-corpus-export-implementation`
