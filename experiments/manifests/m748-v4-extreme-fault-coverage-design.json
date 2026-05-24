@@ -1,0 +1,106 @@
+{
+  "id": "m748-v4-extreme-fault-coverage-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint_used"
+    ],
+    "parent_dataset": [
+      "docs/m747-v3-sequence-outcome-corpus-export-audit.md",
+      "docs/m746-v3-sequence-outcome-corpus-export-implementation.md",
+      "runs/m746_v3_sequence_outcome_corpus_export/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m747-v3-sequence-outcome-corpus-export-audit.json",
+      "configs/extreme_fault_distribution_v3_scenarios.json"
+    ],
+    "parent_objective": [
+      "design v4 extreme-fault coverage taxonomy and data-wave plan before training from public v3 corpus"
+    ],
+    "derived_from": [
+      "m747-v3-sequence-outcome-corpus-export-audit"
+    ],
+    "blocked_by": [
+      "m747-v3-sequence-outcome-corpus-export-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m748-v4-extreme-fault-coverage-design.md",
+  "public_gates": [
+    "M748 defines v4 fault taxonomy with current proxy and future-fidelity claim levels",
+    "M748 covers blowout sudden grip loss split-mu brake drag brake loss halfshaft driveline sensor actuator suspension and combined failures",
+    "M748 defines which faults are implementable in the current single-track model and which require four-wheel or high-fidelity dynamics",
+    "M748 defines source balance sentinel and sequence-outcome gates for a later data wave",
+    "objective training PPO and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not claim current proxy faults are true per-wheel physics",
+    "do not add hidden fault labels to actor observations",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not skip claim-boundary metadata"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_extreme_fault_coverage",
+    "evidence_axis": "G_coverage: broaden extreme-fault scenario distribution before objective work",
+    "evidence_increment": "designs a v4 coverage taxonomy and data-wave plan motivated by M746 public-corpus overfit risk and the user's extreme-scenario hypothesis",
+    "claim_scope": "coverage design only; no training objective or checkpoint claim",
+    "stop_condition": [
+      "stop if true per-wheel faults are listed without four-wheel/high-fidelity claim boundary",
+      "stop if actor observations include hidden fault labels",
+      "stop if v4 design lacks source balance or sentinel gates",
+      "stop if the design admits PPO or checkpoint promotion"
+    ],
+    "fallback_plan": [
+      "if current dynamics cannot support a desired fault, classify it future_four_wheel_or_high_fidelity",
+      "if current proxies are too weak, design explicit-yaw-disturbance or four-wheel simulator branch",
+      "if v4 design is clean, implement a no-training v4 data wave"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M747 promotes to v4 coverage branch before objective training",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A v4 extreme-fault taxonomy can broaden scenario coverage while keeping honest claim boundaries between current single-track faults, proxy faults, and future four-wheel/high-fidelity faults.",
+  "success_criteria": [
+    "M748 defines fault categories and claim levels",
+    "M748 includes wheel blowout sudden grip loss split-mu brake faults halfshaft driveline sensor actuator suspension and combined failures",
+    "M748 maps each fault to current_model_fault current_model_proxy or future_four_wheel_or_high_fidelity",
+    "M748 defines no-training source generation and sequence-outcome mining gates for M749",
+    "M748 blocks objective training PPO and checkpoint promotion"
+  ],
+  "failure_criteria": [
+    "design overclaims true per-wheel physics from current single-track proxies",
+    "design injects hidden fault labels into actor observations",
+    "design omits sentinel or source-balance gates",
+    "design admits actor training PPO or checkpoint promotion"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m748-v4-extreme-fault-coverage-design.md and optionally configs/extreme_fault_distribution_v4_scenarios.json; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m748-v4-extreme-fault-coverage-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_checkpoint_used"
+  ],
+  "baseline_artifacts": [
+    "runs/m746_v3_sequence_outcome_corpus_export/summary.json",
+    "docs/m747-v3-sequence-outcome-corpus-export-audit.md"
+  ],
+  "decision_rule": "M748 may only design v4 coverage and no-training data-wave gates. It must not admit objective training PPO or checkpoint promotion until v4 data is implemented and audited.",
+  "next_blocker": "m749-v4-extreme-fault-coverage-implementation"
+}

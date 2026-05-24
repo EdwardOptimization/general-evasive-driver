@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M747 preserves M746 as a clean v3 positive corpus but blocks objective PPO and true per-wheel claims then promotes to v4 extreme-fault coverage design",
+  "failure_criteria": [
+    "audit treats sparse hard negatives as a complete contrast set",
+    "audit ignores sentinel normal-match or metadata checks",
+    "audit overclaims true per-wheel physics from proxy faults",
+    "audit admits PPO or promotion directly",
+    "audit changes actor input contract"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not treat sparse hard negatives as a complete contrast corpus",
+    "do not treat current-model proxy faults as true per-wheel physics",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor input contract"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260524T230308Z",
+  "hypothesis": "M746's positive v3 corpus is clean enough to preserve, but its hard-negative sparsity and proxy-fault claim boundary must be audited before objective or broader coverage work.",
+  "lineage": {
+    "blocked_by": [
+      "m746-v3-sequence-outcome-corpus-export-implementation"
+    ],
+    "derived_from": [
+      "m746-v3-sequence-outcome-corpus-export-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint_used"
+    ],
+    "parent_config": [
+      "experiments/manifests/m746-v3-sequence-outcome-corpus-export-implementation.json",
+      "configs/extreme_fault_distribution_v3_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m746-v3-sequence-outcome-corpus-export-implementation.md",
+      "runs/m746_v3_sequence_outcome_corpus_export/summary.json",
+      "runs/m746_v3_sequence_outcome_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m746_v3_sequence_outcome_corpus_export/contrast_rows.csv",
+      "runs/m746_v3_sequence_outcome_corpus_export/hard_negative_rows.csv",
+      "runs/m746_v3_sequence_outcome_corpus_export/source_balance.csv",
+      "runs/m746_v3_sequence_outcome_corpus_export/variant_horizon_balance.csv",
+      "runs/m746_v3_sequence_outcome_corpus_export/fault_family_balance.csv"
+    ],
+    "parent_objective": [
+      "audit v3 sequence-outcome corpus export and hard-negative sparsity before objective or new coverage branch"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m747-v3-sequence-outcome-corpus-export-audit",
+  "next_blocker": "m748-v4-extreme-fault-coverage-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "promote_to_v4_extreme_fault_coverage_design",
+  "public_gates": [
+    "M746 positive corpus gates are audited",
+    "M746 v3 metadata and claim-boundary preservation are audited",
+    "M746 hard-negative sparsity is audited separately",
+    "next branch decision compares objective design hard-negative repair v4 coverage and four-wheel fidelity",
+    "actor training PPO and promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m747-v3-sequence-outcome-corpus-export-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "promote_to_v4_extreme_fault_coverage_design",
+    "milestone": "m747-v3-sequence-outcome-corpus-export-audit",
+    "reason": "M747 preserves M746 as a clean v3 positive corpus but blocks objective PPO and true per-wheel claims then promotes to v4 extreme-fault coverage design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M747 records positive corpus pass/fail evidence",
+    "M747 records v3 metadata and claim-boundary evidence",
+    "M747 records hard-negative sparsity evidence",
+    "M747 records supported and falsified claims",
+    "M747 records public gate overfit risk",
+    "M747 makes an explicit next branch decision",
+    "actor update PPO and promotion remain blocked unless later designed"
+  ],
+  "type": "gate"
+}

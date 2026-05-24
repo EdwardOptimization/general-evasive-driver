@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 755,
+        "completed": 756,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m746-v3-sequence-outcome-corpus-export-implementation",
+        "task_id": "m747-v3-sequence-outcome-corpus-export-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m746-v3-sequence-outcome-corpus-export-implementation.md"
+        "command_log": "docs/m747-v3-sequence-outcome-corpus-export-audit.md"
     },
     "next_task": {
-        "id": "m747-v3-sequence-outcome-corpus-export-audit",
+        "id": "m748-v4-extreme-fault-coverage-design",
         "status": "pending",
-        "priority": 7420,
-        "kind": "gate",
-        "hypothesis": "Audit v3 sequence-outcome corpus export",
-        "command": "see experiments/manifests/m747-v3-sequence-outcome-corpus-export-audit.json",
-        "success_artifact": "docs/m747-v3-sequence-outcome-corpus-export-audit.md",
-        "notes": "Pending: audit M746 positive corpus hard-negative sparsity and proxy-fault claim boundary before objective or coverage branch"
+        "priority": 7430,
+        "kind": "infrastructure",
+        "hypothesis": "Design v4 extreme-fault coverage taxonomy",
+        "command": "see experiments/manifests/m748-v4-extreme-fault-coverage-design.json",
+        "success_artifact": "docs/m748-v4-extreme-fault-coverage-design.md",
+        "notes": "Pending: design v4 coverage taxonomy and no-training data-wave gates for blowout grip loss split-mu brake driveline sensor actuator suspension and combined faults"
     },
-    "updated_at_utc": "20260525T030000Z"
+    "updated_at_utc": "20260525T031000Z"
 }

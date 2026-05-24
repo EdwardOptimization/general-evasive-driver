@@ -12763,3 +12763,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M746 implements the deterministic v3-aware corpus exporter and runs the registered export. It writes `995` positive sequence-outcome rows, `995` matched normal rows, `992` capped hard-negative action-only rows, and balance artifacts. Core gates pass: `0` positive sentinel rows, `0` source-role sentinel positives, `0` duplicate positive keys, `0` missing normal matches, `0` missing v3 metadata rows, `0` missing fidelity metadata rows, `20` positive seeds, `26` fault-family pairs, max seed dominance `0.169849`, and v3 metadata gate pass. Hard-negative contrast is slightly sparse (`992 < 995`) with `90` positives lacking same-source/same-horizon hard-negative candidates, so result_class is `v3_sequence_outcome_corpus_hard_negative_sparse`. No actor training, checkpoint loading, PPO, or promotion occurs.
 - decision: `v3_sequence_outcome_corpus_hard_negative_sparse_admit_audit`
 - next: `m747-v3-sequence-outcome-corpus-export-audit`
+
+## 20260525T031000Z - m747-v3-sequence-outcome-corpus-export-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m747-v3-sequence-outcome-corpus-export-audit.md`
+- result: M747 audits M746 as a clean preserved v3 positive corpus but not a complete training or physics claim. The audit supports the coverage-mining hypothesis: M740 had `744` reset-only rows and `0` wrong-history action rows, while M743/M746 preserved `995` clean sequence-outcome positives. It classifies remaining hard-negative sparsity as `scenario_sampling_failure`, records moderate-to-high public-row overfit risk, and keeps objective training, PPO, promotion, and true per-wheel claims blocked.
+- decision: `promote_to_v4_extreme_fault_coverage_design`
+- next: `m748-v4-extreme-fault-coverage-design`
