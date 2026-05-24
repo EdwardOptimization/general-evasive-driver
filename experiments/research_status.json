@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 636,
+        "completed": 637,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m627-near-miss-trust-geometry-analyzer",
+        "task_id": "m628-near-miss-trust-geometry-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m627_near_miss_trust_geometry",
-        "command_log": "docs/m627-near-miss-trust-geometry-analyzer.md"
+        "run_dir": "",
+        "command_log": "docs/m628-near-miss-trust-geometry-audit.md"
     },
     "next_task": {
-        "id": "m628-near-miss-trust-geometry-audit",
+        "id": "m629-trust-projected-sequence-shape-design",
         "status": "pending",
-        "priority": 6230,
-        "kind": "gate",
-        "hypothesis": "M627 near-miss geometry can determine whether the next no-training step should design projected smoother sequence candidates or return to source re-mining and safety shaping.",
-        "command": "see experiments/manifests/m628-near-miss-trust-geometry-audit.json",
+        "priority": 6240,
+        "kind": "infrastructure",
+        "hypothesis": "Projected or smoother sequence candidates can test whether M627 trust-primary near misses can be converted into accepted source rows while preserving existing trust limits.",
+        "command": "see experiments/manifests/m629-trust-projected-sequence-shape-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit M627 trust and collision blockers; keep optimizer admission training PPO promotion thresholds and trust regions blocked"
+        "notes": "Pending: design source filters projection rules and artifacts; no training PPO promotion threshold changes or trust-region relaxation"
     },
-    "updated_at_utc": "20260524T163000Z"
+    "updated_at_utc": "20260524T164000Z"
 }

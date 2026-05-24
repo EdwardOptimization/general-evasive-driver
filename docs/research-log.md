@@ -11773,3 +11773,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M627 implements and runs the no-training near-miss trust-geometry analyzer on M624 `sequence_candidates.csv` and `unaccepted_rows.csv`. It scans `22140` candidates and finds `802` unaccepted-but-useful near-miss candidates across `13` source rows. Primary failures are mean L2 excess `542`, max L2 excess `185`, and candidate collision `75`; no off-road or spin-out near misses appear. Constraint flags show mean L2 failures `580`, max L2 failures `528`, and only `6` delta-delta failures, so the dominant blocker is candidate trust geometry rather than temporal smoothness. Training, PPO, promotion, optimizer admission, target-threshold changes, and trust-region relaxation remain blocked.
 - decision: `near_miss_trust_geometry_analyzer_pass_admit_audit`
 - next: `m628-near-miss-trust-geometry-audit`
+## 20260524T164000Z - m628-near-miss-trust-geometry-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m628-near-miss-trust-geometry-audit.md`
+- result: M628 audits M627 and selects the next no-training branch. Candidate-level near misses are dominated by trust geometry, but source-level evidence shows the strongest high-count near misses already have many accepted candidates. The diversity opportunity is in low/zero accepted sources: trust-primary rows `30`, `7`, `0`, and `8` should be targeted by projected or smoother sequence candidates, while collision-primary rows `1`, `2`, `15`, and `21` remain a separate safety branch. Optimizer admission, training, PPO, promotion, threshold changes, and trust-region relaxation remain blocked.
+- decision: `near_miss_trust_geometry_audit_admit_projected_shape_design`
+- next: `m629-trust-projected-sequence-shape-design`

@@ -62,17 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m628-near-miss-trust-geometry-audit
+m629-trust-projected-sequence-shape-design
 ```
 
-M628 should audit the M627 near-miss trust-geometry artifacts and choose the
-next no-training branch. The current evidence points to trust-geometry blockers
-dominated by mean/max L2 excess, with a smaller collision-primary branch. It
-should not relax thresholds, widen trust regions, start training, or admit an
-optimizer corpus.
+M629 should design a projected or smoother sequence candidate pass for M627
+trust-primary near misses. It should focus low/zero accepted source rows such
+as `30`, `7`, `0`, and `8`, keep collision-primary rows separate, and preserve
+the existing mean L2, max L2, delta-delta, margin, and risk thresholds. It is
+still design-only: no training, PPO, promotion, or optimizer admission.
 
 ## Recent Evidence Line
 
+- M628 audits M627 and chooses the next branch. The strongest high-count
+  near-miss sources already have many accepted candidates, so the diversity
+  opportunity is in low/zero accepted trust-primary sources. M628 selects a
+  design-only projected/smoother sequence-shape branch focused on sources
+  `30`, `7`, `0`, and `8`, while keeping collision-primary sources separate and
+  keeping optimizer admission blocked.
 - M627 implements and runs the no-training near-miss trust-geometry analyzer on
   M624 candidates. It finds `802` unaccepted-but-useful near-miss candidates
   across `13` source rows: primary failures are mean L2 excess `542`, max L2

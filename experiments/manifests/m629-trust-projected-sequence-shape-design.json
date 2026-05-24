@@ -1,0 +1,92 @@
+{
+  "id": "m629-trust-projected-sequence-shape-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m627_near_miss_trust_geometry/summary.json",
+      "runs/m627_near_miss_trust_geometry/near_miss_candidates.csv",
+      "runs/m627_near_miss_trust_geometry/near_miss_sources.csv",
+      "docs/m628-near-miss-trust-geometry-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m628-near-miss-trust-geometry-audit.json",
+      "docs/m627-near-miss-trust-geometry-analyzer.md"
+    ],
+    "parent_objective": [
+      "design projected or smoother sequence candidate pass after near-miss trust geometry audit"
+    ],
+    "derived_from": [
+      "m628-near-miss-trust-geometry-audit"
+    ],
+    "blocked_by": [
+      "m628-near-miss-trust-geometry-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m629-trust-projected-sequence-shape-design.md",
+  "public_gates": [
+    "define projected or smoother sequence candidate families",
+    "preserve sequence_mean_l2 max_l2 and delta_delta_l2 limits",
+    "focus trust-primary low or zero accepted sources separately from collision-primary sources",
+    "define artifacts for raw versus projected candidate utility",
+    "keep actor training and PPO blocked",
+    "do not claim optimizer admission from design"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not widen trust regions",
+    "do not lower target thresholds",
+    "do not mix collision-primary rows into trust-only projected candidates",
+    "do not treat candidate count as source-level diversity"
+  ],
+  "hypothesis": "Projected or smoother sequence candidates can test whether M627 trust-primary near misses can be converted into accepted source rows while preserving existing trust limits.",
+  "success_criteria": [
+    "design specifies source filters for trust-primary low or zero accepted rows",
+    "design specifies projection or shaping rules that preserve all trust limits",
+    "design specifies comparison metrics for raw versus projected candidate utility and source diversity",
+    "design keeps training PPO promotion optimizer admission threshold changes and trust-region relaxation blocked",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design relaxes trust limits",
+    "design lowers margin or risk thresholds",
+    "design starts training",
+    "design promotes a checkpoint",
+    "design ignores collision-primary separation",
+    "design uses candidate count as optimizer-admission evidence"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "Write projected/smoothed sequence shape design; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m629-trust-projected-sequence-shape-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m628-near-miss-trust-geometry-audit.md",
+    "runs/m627_near_miss_trust_geometry/near_miss_sources.csv",
+    "runs/m627_near_miss_trust_geometry/near_miss_candidates.csv"
+  ],
+  "decision_rule": "M629 passes if it pre-registers the projected candidate-shape pass without changing trust regions or admitting optimizer training.",
+  "next_blocker": "m630-trust-projected-sequence-shape-implementation"
+}
