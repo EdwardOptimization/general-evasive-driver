@@ -1,0 +1,91 @@
+{
+  "id": "m649-bc-v2-head-only-repeat-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m641_source_diverse_sequence_target_corpus/balanced_sequence_target_corpus.npz",
+      "runs/m646_bc_v2_head_only_smoke/summary.json",
+      "docs/m648-bc-v2-head-only-repeat-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m648-bc-v2-head-only-repeat-design.json"
+    ],
+    "parent_objective": [
+      "implement early-stopped multi-seed frozen-head repeat"
+    ],
+    "derived_from": [
+      "m648-bc-v2-head-only-repeat-design"
+    ],
+    "blocked_by": [
+      "m648-bc-v2-head-only-repeat-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m649-bc-v2-head-only-repeat-implementation.md",
+  "public_gates": [
+    "run seeds 6460 6461 6462",
+    "save best-validation and final head checkpoints for every seed",
+    "verify actor checksum unchanged for every seed",
+    "write seed source target and wrong-history summaries",
+    "write no actor checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not update actor parameters",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not use source-heldout as private promotion evidence",
+    "do not hide final-vs-best validation regression",
+    "do not omit wrong-history source summary"
+  ],
+  "hypothesis": "A three-seed best-validation frozen-head repeat will reproduce the M646 sequence-delta learnability result while controlling final-epoch overfit.",
+  "success_criteria": [
+    "at least two of three seeds meet repeat pass thresholds",
+    "all actor checksums are unchanged",
+    "all seeds write best-validation head checkpoints",
+    "no actor checkpoints are written",
+    "wrong-history source summaries are written",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "fewer than two seeds pass repeat thresholds",
+    "actor checksum changes",
+    "best-validation head is not saved",
+    "actor checkpoint is written",
+    "wrong-history summary is missing"
+  ],
+  "commands": [
+    {
+      "name": "bc_v2_head_only_repeat",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.bc_v2_head_only_repeat --corpus runs/m641_source_diverse_sequence_target_corpus/balanced_sequence_target_corpus.npz --metadata runs/m641_source_diverse_sequence_target_corpus/balanced_sequence_targets.csv --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --seeds 6460,6461,6462 --epochs 240 --learning-rate 0.001 --weight-decay 0.0001 --hidden-dim 64 --device cpu --run-dir runs/m649_bc_v2_head_only_repeat"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m649_bc_v2_head_only_repeat/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "docs/m649-bc-v2-head-only-repeat-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m641_source_diverse_sequence_target_corpus/balanced_sequence_target_corpus.npz",
+    "docs/m648-bc-v2-head-only-repeat-design.md"
+  ],
+  "decision_rule": "M649 passes as infrastructure only if at least two of three frozen-head seeds pass best-validation repeat thresholds without actor mutation.",
+  "next_blocker": "m650-bc-v2-head-only-repeat-audit"
+}

@@ -62,15 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m648-bc-v2-head-only-repeat-design
+m649-bc-v2-head-only-repeat-implementation
 ```
 
-M648 should design an early-stopped multi-seed frozen-head repeat. The repeat
-must save the best validation head, preserve actor checksum gates, keep actor
-coupling blocked, and audit weak wrong-history source separation.
+M649 should implement the early-stopped multi-seed frozen-head repeat. It must
+run seeds `6460`, `6461`, and `6462`, save best-validation and final head
+checkpoints, preserve actor checksum gates, write source/target/wrong-history
+summaries, and keep actor coupling blocked.
 
 ## Recent Evidence Line
 
+- M648 designs the early-stopped multi-seed head-only repeat. The next run
+  should use seeds `6460`, `6461`, and `6462`, save best-validation heads, use
+  a lower `240` epoch cap, and require at least `2/3` seeds to reach train
+  improvement `>= 30%`, validation improvement `>= 50%`, best validation MSE
+  `<= 0.00075`, and final-vs-best ratio `<= 3.0`. Actor coupling remains
+  blocked.
 - M647 audits M646 as `pass_with_overfit_caveat`. The correct best validation
   epoch is `120` with normal delta-MSE `0.000490287`; final epoch `300` is
   `0.001331890`, or `2.72x` the best value. Source-level summaries show

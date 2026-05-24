@@ -11953,3 +11953,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M647 audits M646 as `pass_with_overfit_caveat`. The head-only learnability result is real: train improves `97.28%`, source-heldout validation improves `84.50%`, and actor checksum remains unchanged. The caveat is validation overfit: best logged validation is epoch `120` at `0.000490287`, while final epoch `300` is `0.001331890`, `2.72x` worse than best. Source audit also shows weak wrong-history separation: source `32` has variant loss `0.001283` lower than normal loss `0.001540`, and source `30` has small prediction gap. M647 admits an early-stopped multi-seed head-only repeat, not actor coupling.
 - decision: `bc_v2_head_only_smoke_audit_pass_with_overfit_admit_repeat_design`
 - next: `m648-bc-v2-head-only-repeat-design`
+## 20260524T200000Z - m648-bc-v2-head-only-repeat-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m648-bc-v2-head-only-repeat-design.md`
+- result: M648 designs an early-stopped multi-seed frozen-head repeat after the M646/M647 overfit caveat. M649 should run seeds `6460`, `6461`, and `6462`, cap training at `240` epochs, save both final and best-validation head checkpoints, preserve actor checksum gates, and report source/target/wrong-history summaries. The repeat passes only if at least `2/3` seeds reach train improvement `>= 30%`, validation improvement `>= 50%`, best validation MSE `<= 0.00075`, final-vs-best validation ratio `<= 3.0`, and no actor checkpoint is written. Actor coupling and promotion remain blocked.
+- decision: `bc_v2_head_only_repeat_design_admit_m649`
+- next: `m649-bc-v2-head-only-repeat-implementation`
