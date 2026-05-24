@@ -68,7 +68,16 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M716 result_class=cross_fault_reset_only after v2 coverage refresh",
-    "synthesis_decision": "not_applicable"
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m717-extreme-fault-coverage-refresh-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
   },
   "hypothesis": "M716's cross_fault_reset_only result means current-model/proxy coverage expansion alone is not enough; M717 must decide the next evidence axis before any more mining or training.",
   "success_criteria": [
@@ -106,5 +115,5 @@
     "docs/m716-extreme-fault-coverage-refresh-implementation.md"
   ],
   "decision_rule": "M717 must decide whether to pivot to delayed-history/action-response mismatch, model-fidelity dynamics, or the M713 actor-head objective path. It must not admit PPO or promotion directly.",
-  "next_blocker": "m718-to-be-selected-by-m717"
+  "next_blocker": "m718-temporal-action-response-mismatch-design"
 }

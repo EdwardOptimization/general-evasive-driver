@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 725,
+        "completed": 726,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m716-extreme-fault-coverage-refresh-implementation",
+        "task_id": "m717-extreme-fault-coverage-refresh-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m716-extreme-fault-coverage-refresh-implementation.md"
+        "command_log": "docs/m717-extreme-fault-coverage-refresh-audit.md"
     },
     "next_task": {
-        "id": "m717-extreme-fault-coverage-refresh-audit",
+        "id": "m718-temporal-action-response-mismatch-design",
         "status": "pending",
-        "priority": 7120,
-        "kind": "gate",
-        "hypothesis": "Audit M716 reset-only v2 coverage result",
-        "command": "see experiments/manifests/m717-extreme-fault-coverage-refresh-audit.json",
-        "success_artifact": "",
-        "notes": "Pending: synthesize whether to pivot to delayed-history action-response mismatch actor-head objective design or higher-fidelity dynamics"
+        "priority": 7130,
+        "kind": "infrastructure",
+        "hypothesis": "Design delayed stale and action-response-mismatch interventions",
+        "command": "see experiments/manifests/m718-temporal-action-response-mismatch-design.json",
+        "success_artifact": "docs/m718-temporal-action-response-mismatch-design.md",
+        "notes": "Pending: design no-training temporal history interventions using M716 reset-only rows and M713 low-alpha rows"
     },
-    "updated_at_utc": "20260524T204500Z"
+    "updated_at_utc": "20260524T205000Z"
 }

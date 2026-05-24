@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M717 audits M716 as scenario_sampling_failure plus metric_artifact for wrong-history self-ID and pivots from current-model proxy coverage expansion to temporal action-response mismatch interventions",
+  "failure_criteria": [
+    "audit treats reset-only rows as source-positive wrong-history proof",
+    "audit ignores M713 actor-head coupling evidence",
+    "audit ignores true wheel-asymmetric model-fidelity limits",
+    "audit admits another current-model proxy sweep without a new evidence axis",
+    "audit admits PPO or promotion"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not call reset-only evidence source-positive wrong-history self-ID",
+    "do not run another current-model proxy wave without a new evidence axis",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not claim true single-wheel physics from v2 proxy faults"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260524T194415Z",
+  "hypothesis": "M716's cross_fault_reset_only result means current-model/proxy coverage expansion alone is not enough; M717 must decide the next evidence axis before any more mining or training.",
+  "lineage": {
+    "blocked_by": [
+      "m716-extreme-fault-coverage-refresh-implementation"
+    ],
+    "derived_from": [
+      "m716-extreme-fault-coverage-refresh-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m716-extreme-fault-coverage-refresh-implementation.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_dataset": [
+      "runs/m716_extreme_fault_coverage_refresh/summary.json",
+      "runs/m716_extreme_fault_coverage_refresh/matched_cross_fault_pairs.csv",
+      "runs/m716_extreme_fault_coverage_refresh/reset_only_rows.csv",
+      "docs/m716-extreme-fault-coverage-refresh-implementation.md"
+    ],
+    "parent_objective": [
+      "audit v2 extreme-fault coverage reset-only result before further mining, objective design, or model upgrade"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m717-extreme-fault-coverage-refresh-audit",
+  "next_blocker": "m718-temporal-action-response-mismatch-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "extreme_fault_coverage_refresh_pivot_temporal_mismatch",
+  "public_gates": [
+    "M716 result_class is classified without treating reset-only rows as wrong-history self-ID proof",
+    "coverage hypothesis is evaluated against M704/M707/M716 evidence",
+    "model-fidelity limits for true single-wheel asymmetric faults remain explicit",
+    "next branch decision compares delayed-history/action-response mismatch, actor-head objective design, and dynamics upgrade",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m717-extreme-fault-coverage-refresh-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "extreme_fault_coverage_refresh_pivot_temporal_mismatch",
+    "milestone": "m717-extreme-fault-coverage-refresh-audit",
+    "reason": "M717 audits M716 as scenario_sampling_failure plus metric_artifact for wrong-history self-ID and pivots from current-model proxy coverage expansion to temporal action-response mismatch interventions",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M716 metrics are summarized",
+    "supported and falsified coverage claims are recorded",
+    "failure taxonomy is assigned",
+    "public gate overfit risk is recorded",
+    "next branch decision is explicit",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "type": "gate"
+}

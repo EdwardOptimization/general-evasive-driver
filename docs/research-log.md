@@ -12482,3 +12482,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M716 runs the full v2 no-training extreme-fault coverage wave with `512` seeds, `32` fault specs, `16896` scenarios, `72056` snapshots, and `4096` matched cross-fault pairs. Result is `cross_fault_reset_only`: broader coverage increases reset-history evidence to `58` reset-only rows, but still finds `0` wrong-history action-critical rows. Wrong-history action gaps remain below the `0.015` threshold (`max=0.012664`), while reset action gaps are large (`mean=0.019987`). Actor checksum unchanged; no training, PPO, or promotion occurred.
 - decision: `cross_fault_reset_only_not_source_positive`
 - next: `m717-extreme-fault-coverage-refresh-audit`
+
+## 20260524T205000Z - m717-extreme-fault-coverage-refresh-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m717-extreme-fault-coverage-refresh-audit.md`
+- result: M717 audits M716 as `scenario_sampling_failure` plus `metric_artifact` for the wrong-history self-ID claim. M716 partially supports the coverage concern because reset-only rows increased from `15` in M707 to `58`, but it falsifies the stronger claim that M704/M707 were negative only because the current-model fault list was too small. Current-model proxy coverage expansion alone is no longer the highest-leverage step; reset-only rows remain diagnostic but not source-positive wrong-history proof.
+- decision: `extreme_fault_coverage_refresh_pivot_temporal_mismatch`
+- next: `m718-temporal-action-response-mismatch-design`
