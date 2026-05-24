@@ -11323,3 +11323,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M577 pre-registers the BC seed-family repeat. M578 will evaluate L0, L2, and BC seeds `5660/5661/5662` on fresh same-distribution route seeds `21560..21815`; M579 will evaluate the same policies on fresh moderate-OOD seeds `22560..22815` only if M578 passes. Family pass requires BC5660 and at least one other BC seed to be L0-safe and L2-competitive, with manual BC-vs-L2 collision checks, no public frozen-source rows, no training, and no promotion.
 - decision: `bc_family_repeat_design_admit_m578_fresh_route_repeat`
 - next: `m578-bc-family-fresh-route-repeat-eval`
+## 20260524T082000Z - m578-bc-family-fresh-route-repeat-eval
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m578_bc_family_fresh_route_repeat_eval`
+- artifact: `docs/m578-bc-family-fresh-route-repeat-eval.md`
+- result: M578 runs the BC seed-family fresh route repeat on seeds `21560..21815`, writing `1280` episode rows and reporting `uses_public_frozen_source_rows=false`. All three BC seeds pass L0 and L2 gates. Against L2 success/collision/margin `0.671875` / `0.328125` / `0.978128`, BC5660 scores `0.675781` / `0.324219` / `0.992939`, BC5661 scores `0.671875` / `0.328125` / `0.982097`, and BC5662 scores `0.675781` / `0.324219` / `0.991177`. No promotion is performed.
+- decision: `bc_family_fresh_route_repeat_pass_admit_m579_ood_repeat`
+- next: `m579-bc-family-moderate-ood-repeat-eval`

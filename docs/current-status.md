@@ -61,12 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m578-bc-family-fresh-route-repeat-eval
+m579-bc-family-moderate-ood-repeat-eval
 ```
 
-M578 should run the BC seed-family fresh route repeat for scaled BC seeds
-`5660`, `5661`, and `5662` against L0/L2. M577 pre-registered the repeat
-protocol and keeps promotion/PPO blocked until seed-family stability is checked.
+M579 should run the BC seed-family moderate-OOD repeat for scaled BC seeds
+`5660`, `5661`, and `5662` against L0/L2. M578 passed the same-distribution
+family repeat; promotion/PPO remain blocked until OOD family stability is
+checked.
 
 ## Recent Evidence Line
 
@@ -334,6 +335,11 @@ protocol and keeps promotion/PPO blocked until seed-family stability is checked.
   use fresh OOD seeds `22560..22815` and M574 configs only if M578 passes.
   Family pass requires BC5660 plus at least one other BC seed to remain L0-safe
   and L2-competitive; no promotion is allowed.
+- M578 runs the BC seed-family fresh route repeat. All three BC seeds pass:
+  `BC5660` success/collision/margin `0.675781` / `0.324219` / `0.992939`,
+  `BC5661` `0.671875` / `0.328125` / `0.982097`, and `BC5662` `0.675781` /
+  `0.324219` / `0.991177`, versus L2 `0.671875` / `0.328125` / `0.978128`.
+  No checkpoint is promoted.
 
 ## Near-Term Rule
 

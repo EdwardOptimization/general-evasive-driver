@@ -2,7 +2,7 @@
   "id": "m578-bc-family-fresh-route-repeat-eval",
   "type": "gate",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -91,6 +91,6 @@
     "docs/m577-bc-family-generalization-repeat-design.md",
     "docs/m576-moderate-ood-route-eval-audit.md"
   ],
-  "decision_rule": "M578 passes only if BC5660 and at least one other BC seed are L0-safe and L2-competitive on the fresh route repeat; no promotion is allowed.",
+  "decision_rule": "M578 passes because BC5660 and the full BC seed family are L0-safe and L2-competitive on the fresh route repeat; no promotion is allowed.",
   "next_blocker": "m579-bc-family-moderate-ood-repeat-eval"
 }
