@@ -61,13 +61,14 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m588-bc5660-history-action-screen-negative-audit
+m589-bc-hidden-use-objective-audit
 ```
 
-M588 should audit the negative M587 wrong/delayed-history action screen before
-choosing the next branch. The current evidence supports deployable current-
-response dependence and source-diverse pair availability, but not accumulated
-hidden-history causality. Promotion and PPO remain blocked.
+M589 should audit why the scaled L3 BC objective transfers behavior without
+creating wrong/delayed hidden-to-action sensitivity. The current evidence
+supports deployable current-response dependence and source-diverse pair
+availability, but not accumulated hidden-history causality. Promotion and PPO
+remain blocked.
 
 ## Recent Evidence Line
 
@@ -393,6 +394,11 @@ hidden-history causality. Promotion and PPO remain blocked.
   strong: `zero_current_response` is above threshold for all rows on both
   surfaces, and `zero_action_history` is often above threshold. Persistent
   outcome rollout is blocked until M588 audits the negative result.
+- M588 audits that negative result. The screen is live, so the likely issue is
+  not tool failure: BC5660 appears to transfer L2 behavior through current
+  response, previous commands, and scene context without materially using
+  accumulated hidden state. M588 blocks the persistent outcome gate and admits a
+  BC hidden-use/objective audit before any repair training.
 
 ## Near-Term Rule
 

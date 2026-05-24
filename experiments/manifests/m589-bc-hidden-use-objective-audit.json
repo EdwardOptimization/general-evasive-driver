@@ -1,0 +1,86 @@
+{
+  "id": "m589-bc-hidden-use-objective-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m567_scaled_l2_teacher_corpus_train/l2_teacher_corpus.npz",
+      "runs/m567_scaled_l2_teacher_corpus_validation/l2_teacher_corpus.npz",
+      "runs/m587_bc5660_history_action_screen_fresh_seed25560/variant_summary.csv",
+      "runs/m587_bc5660_history_action_screen_ood_seed25660/variant_summary.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_objective": [
+      "audit why scaled L3 BC transfers behavior without wrong/delayed hidden-action sensitivity"
+    ],
+    "derived_from": [
+      "m588-bc5660-history-action-screen-negative-audit"
+    ],
+    "blocked_by": [
+      "m588-bc5660-history-action-screen-negative-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m589-bc-hidden-use-objective-audit.md",
+  "public_gates": [
+    "inspect L3 BC objective and recurrent training path",
+    "audit whether hidden state has a structural and empirical action path in BC5660",
+    "audit whether the BC corpus creates matched-current history ambiguity for teacher actions",
+    "select a repair direction without training or promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train or run PPO",
+    "do not promote checkpoint",
+    "do not add hidden vehicle parameters to actor inputs",
+    "do not claim self-ID from route performance or zero-current sensitivity",
+    "do not change the BC objective before the audit is documented"
+  ],
+  "hypothesis": "The scaled L3 BC objective likely copied L2 route behavior through current response and previous-command features without creating causal hidden-to-action dependence; M589 should verify the objective and identify a repair path.",
+  "success_criteria": [
+    "audit documents the BC recurrent training path and its one-step teacher-action loss",
+    "audit identifies whether existing code can measure hidden-to-action sensitivity or needs a small probe",
+    "audit identifies whether the BC corpus has matched-current teacher-action ambiguity",
+    "audit pre-registers the next concrete repair or probe milestone without training",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "audit starts repair training before documenting the objective gap",
+    "audit treats M587 negative result as a runtime error without evidence",
+    "audit adds actor inputs or oracle targets",
+    "audit promotes a checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "Inspect L3 BC objective, checkpoint hidden-action sensitivity options, and corpus ambiguity; write next repair/probe plan with no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m589-bc-hidden-use-objective-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m588-bc5660-history-action-screen-negative-audit.md",
+    "docs/m587-bc5660-history-intervention-action-screen.md",
+    "docs/m563-l3-behavior-cloning-optimizer.md"
+  ],
+  "decision_rule": "M589 passes if it identifies the BC hidden-use bottleneck and pre-registers the next no-oracle repair or probe milestone before any training.",
+  "next_blocker": "m590-bc-hidden-action-sensitivity-probe-design"
+}

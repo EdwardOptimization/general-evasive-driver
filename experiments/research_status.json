@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 596,
+        "completed": 597,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m587-bc5660-history-intervention-action-screen",
+        "task_id": "m588-bc5660-history-action-screen-negative-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m587_bc5660_history_action_screen_fresh_seed25560",
-        "command_log": "docs/m587-bc5660-history-intervention-action-screen.md"
+        "run_dir": "",
+        "command_log": "docs/m588-bc5660-history-action-screen-negative-audit.md"
     },
     "next_task": {
-        "id": "m588-bc5660-history-action-screen-negative-audit",
+        "id": "m589-bc-hidden-use-objective-audit",
         "status": "pending",
-        "priority": 5830,
+        "priority": 5840,
         "kind": "gate",
-        "hypothesis": "Because wrong_matched_history and delayed_history have no above-threshold action rows on both M586 surfaces, BC5660 likely transferred L2 behavior without using accumulated online-GRU hidden state; the next step should audit training/objective or surface choices rather than force outcome rollout.",
-        "command": "see experiments/manifests/m588-bc5660-history-action-screen-negative-audit.json",
+        "hypothesis": "The scaled L3 BC objective likely copied L2 route behavior through current response and previous-command features without creating causal hidden-to-action dependence; M589 should verify the objective and identify a repair path.",
+        "command": "see experiments/manifests/m589-bc-hidden-use-objective-audit.json",
         "success_artifact": "",
-        "notes": "Pending: audit negative wrong/delayed history action screen and select next branch; no promotion"
+        "notes": "Pending: audit L3 BC hidden-use objective and select next no-oracle repair/probe; no training"
     },
-    "updated_at_utc": "20260524T095000Z"
+    "updated_at_utc": "20260524T100000Z"
 }

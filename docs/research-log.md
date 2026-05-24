@@ -11413,3 +11413,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M587 runs the action-level history-intervention screen on both M586 pair surfaces. The result is negative for hidden-history action sensitivity: `wrong_matched_history` and `delayed_history` have `0` above-threshold rows on both surfaces. Fresh aggregate mean action distances are `0.000552` for wrong history and `0.001658` for delayed history; OOD values are `0.000764` and `0.001218`. Positive controls confirm the screen is live: `zero_current_response` is above threshold for all rows on both surfaces, and `zero_action_history` is above threshold for `189/329` fresh rows and `166/287` OOD rows. Persistent outcome rollout is blocked.
 - decision: `bc5660_history_action_screen_negative_admit_failure_audit`
 - next: `m588-bc5660-history-action-screen-negative-audit`
+## 20260524T100000Z - m588-bc5660-history-action-screen-negative-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m588-bc5660-history-action-screen-negative-audit.md`
+- result: M588 audits the M587 negative result and confirms it is a real hidden-history no-signal diagnostic rather than a dead screen: zero-current and zero-action positive controls are strong, while wrong/delayed hidden interventions stay below threshold on both surfaces. The audit rejects persistent outcome rollout and identifies the likely bottleneck as the scaled L3 BC objective: it is recurrent and sequence-trained, but its loss is one-step L2 teacher-action MSE and does not require hidden state to encode capability or distinguish wrong/delayed histories. The next branch is a BC hidden-use/objective audit before any repair training.
+- decision: `bc5660_history_action_screen_negative_admit_hidden_use_objective_audit`
+- next: `m589-bc-hidden-use-objective-audit`
