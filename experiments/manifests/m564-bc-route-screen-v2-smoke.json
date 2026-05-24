@@ -2,7 +2,7 @@
   "id": "m564-bc-route-screen-v2-smoke",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -63,7 +63,7 @@
   "commands": [
     {
       "name": "route_screen",
-      "command": "Run autodrift.route_screen_v2 on L0/L2/M563-BC with seed 17560."
+      "command": "PYTHONPATH=src python -m autodrift.route_screen_v2 --checkpoint-policy L0=runs/m542_matched_l0_variance_seed3540/checkpoint.pt --checkpoint-policy L2=runs/m542_matched_l2_variance_seed3540/checkpoint.pt --checkpoint-policy M563_BC=runs/m563_l3_behavior_cloning_smoke/checkpoint.pt --env-config-policy L0=configs/ppo_m541_matched_l0_variance_4096.json --env-config-policy L2=configs/ppo_m541_matched_l2_variance_4096.json --env-config-policy M563_BC=configs/ppo_m541_matched_l3_variance_4096.json --candidate-label M563_BC --l0-label L0 --l2-label L2 --episodes 64 --seed 17560 --device cpu --run-dir runs/m564_bc_route_screen_v2_smoke"
     }
   ],
   "required_artifacts": [
@@ -79,6 +79,6 @@
   "baseline_artifacts": [
     "docs/m563-l3-behavior-cloning-optimizer.md"
   ],
-  "decision_rule": "M564 admits public diagnostics only if the M563 BC smoke checkpoint clears route-screen v2 against L0 on fresh seed 17560. A failure should be classified before scaling BC or trying PPO.",
-  "next_blocker": "pending M564 BC route-screen v2 smoke"
+  "decision_rule": "M564 admits public diagnostics because the M563 BC smoke checkpoint clears route-screen v2 against L0 and is L2-competitive on fresh seed 17560. It does not promote the checkpoint.",
+  "next_blocker": "m565-bc-public-natural-surface-eval"
 }

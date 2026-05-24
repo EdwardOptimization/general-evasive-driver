@@ -1,0 +1,89 @@
+{
+  "id": "m565-bc-public-natural-surface-eval",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m563_l3_behavior_cloning_smoke/checkpoint.pt",
+      "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+      "runs/m542_matched_l2_variance_seed3540/checkpoint.pt",
+      "runs/m542_matched_l3_variance_seed3540/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m497_natural_belief_decision_window_outcome_gate/targeted_pairs_short_reveal.csv",
+      "runs/m497_natural_belief_decision_window_outcome_gate/targeted_pairs_warmup_capability.csv",
+      "runs/m487_critical_window_tail_aligned_outcome_gate/targeted_pairs_near_threshold.csv",
+      "runs/m487_critical_window_tail_aligned_outcome_gate/targeted_pairs_late_high_energy.csv",
+      "runs/m564_bc_route_screen_v2_smoke/summary.json"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l0_variance_4096.json",
+      "configs/ppo_m541_matched_l2_variance_4096.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json"
+    ],
+    "parent_objective": [
+      "public frozen-source natural-surface diagnostic after M564 route-screen pass"
+    ],
+    "derived_from": [
+      "m564-bc-route-screen-v2-smoke"
+    ],
+    "blocked_by": [
+      "m564-bc-route-screen-v2-smoke"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m565-bc-public-natural-surface-eval.md",
+  "public_gates": [
+    "evaluate M563_BC on the same four public frozen-source natural surfaces used by M543/M550",
+    "include L0, L2, original M542 L3, and M563_BC in the same matrices",
+    "report aggregate and paired deltas against L0, L2, and original L3",
+    "do not promote checkpoint from public diagnostics alone"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat public frozen-source rows as private generalization",
+    "do not tune the M563 checkpoint from these public rows",
+    "do not promote without matched repeat and generalization gates"
+  ],
+  "hypothesis": "Because M563_BC passed route-screen v2 and is L2-competitive on fresh route seed 17560, it may repair the public natural-surface L3 regression observed in M543.",
+  "success_criteria": [
+    "all four public natural-surface evals complete",
+    "aggregate and paired summaries compare M563_BC against L0, L2, and original L3",
+    "result admits a larger distillation corpus or matched repeat if M563_BC is not worse than L2 within tolerance",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "metadata or actor-contract validation fails",
+    "M563_BC regresses below L0 or original L3 on public surfaces",
+    "public diagnostics are treated as private evidence or checkpoint promotion"
+  ],
+  "commands": [
+    {
+      "name": "public_surface_eval",
+      "command": "Run frozen_source_surface_eval for M563_BC on M497 short/warmup and M487 near/late public splits, then aggregate paired deltas."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m565-bc-public-natural-surface-eval.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+    "runs/m542_matched_l2_variance_seed3540/checkpoint.pt",
+    "runs/m542_matched_l3_variance_seed3540/checkpoint.pt",
+    "runs/m563_l3_behavior_cloning_smoke/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m564-bc-route-screen-v2-smoke.md",
+    "docs/m543-m542-public-surface-eval.md"
+  ],
+  "decision_rule": "M565 is a public diagnostic. It can admit larger L2-to-L3 distillation or matched repeat if M563_BC is L2-competitive on public natural surfaces, but it cannot promote the checkpoint.",
+  "next_blocker": "pending M565 BC public natural-surface eval"
+}

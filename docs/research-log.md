@@ -11197,3 +11197,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M563 implements `autodrift.l3_behavior_cloning` and focused tests. It first exports an independent validation corpus on non-public seeds `18128:18129` (`126` transitions), then trains an L3 online-GRU student from the M562 train corpus. The BC smoke reduces train action MSE from `0.083840` to `0.0000705` and validation action MSE from `0.076715` to `0.000131`. The saved checkpoint has `obs_dim=72`, `actor_encoder=human_view_online_gru`, `history_baseline.level=L3_online_gru`, `input_contract=P0_human_view_no_wheel_no_oracle`, `ppo_used=false`, and `promoted=false`.
 - decision: `l3_bc_optimizer_pass_admit_m564_route_screen_smoke`
 - next: `m564-bc-route-screen-v2-smoke`
+## 20260524T055000Z - m564-bc-route-screen-v2-smoke
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m564_bc_route_screen_v2_smoke`
+- artifact: `docs/m564-bc-route-screen-v2-smoke.md`
+- result: M564 evaluates L0, L2, and M563_BC on a 64-episode route-screen v2 using fresh selection seed `17560`. M563_BC clears the gate and is selected for public diagnostics: success `0.656250`, collision `0.343750`, mean margin `0.770803`, and return `62.557827`. It matches L2 success/collision, is slightly below L2 margin by `0.016314` within tolerance, and strongly beats L0 on success (`+0.625000`), collision (`-0.531250`), and margin (`+0.772682`).
+- decision: `bc_route_screen_v2_pass_admit_m565_public_surface_eval`
+- next: `m565-bc-public-natural-surface-eval`

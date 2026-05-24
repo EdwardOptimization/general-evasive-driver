@@ -61,13 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m564-bc-route-screen-v2-smoke
+m565-bc-public-natural-surface-eval
 ```
 
-M564 should run route-screen v2 on the M563 L3 behavior-cloning smoke
-checkpoint using fresh selection seed `17560`. The key question is whether the
-offline L2-to-L3 action imitation that improved MSE transfers to closed-loop
-route behavior. This remains a diagnostic gate, not a promotion.
+M565 should evaluate the M563 L3 behavior-cloning checkpoint on the same four
+public frozen-source natural surfaces used by M543/M550. M564 passed
+route-screen v2, so public diagnostics are admitted, but this is still not a
+promotion or private generalization claim.
 
 ## Recent Evidence Line
 
@@ -260,6 +260,11 @@ route behavior. This remains a diagnostic gate, not a promotion.
   to `0.0000705` and validation action MSE from `0.076715` to `0.000131` while
   saving a P0 `L3_online_gru` checkpoint with `ppo_used = false` and
   `promoted = false`. Closed-loop route behavior is still untested.
+- M564 runs route-screen v2 on fresh selection seed `17560`. M563_BC is
+  admitted for public diagnostics: success `0.656250`, collision `0.343750`,
+  and mean margin `0.770803`, matching L2 success/collision and remaining
+  within L2 margin tolerance while strongly outperforming L0. No checkpoint is
+  promoted from this route-screen smoke.
 
 ## Near-Term Rule
 
