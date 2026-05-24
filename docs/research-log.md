@@ -11557,3 +11557,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M603 designs the guarded capability-to-action coupling branch after M602. The design rejects PPO, immediate actor training, and ungrounded action separation. It pre-registers an exact no-update evaluator that joins M591 action movement and M601 capability movement on matched-current rows, classifies belief-only gaps, and reports real-history candidate counts. Future optimizer scope, if later admitted, should first freeze the recurrent observer and train only fusion/action layers with normal action anchors, grounded target losses, variant guards, and trust-region constraints.
 - decision: `guarded_capability_action_coupling_design_admit_m604_evaluator`
 - next: `m604-guarded-capability-action-coupling-evaluator`
+## 20260524T124000Z - m604-guarded-capability-action-coupling-evaluator
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m604_guarded_capability_action_coupling_evaluator`
+- artifact: `docs/m604-guarded-capability-action-coupling-evaluator.md`
+- result: M604 implements and runs an exact no-update evaluator that joins M591 action movement and M601 capability movement on matched-current rows. It writes `6776` coupling rows and finds `3033` total belief-only gaps, including `262` real-history belief-only gaps. Candidate counts are fresh shuffled `84`, fresh delayed `24`, fresh wrong-matched `8`, OOD shuffled `77`, OOD wrong-matched `49`, and OOD delayed `20`. The evaluator changes no weights, uses no PPO, promotes nothing, and treats candidates as requiring simulator-grounded target mining rather than labels.
+- decision: `guarded_capability_action_coupling_evaluator_pass_admit_grounded_target_design`
+- next: `m605-grounded-capability-action-target-mining-design`

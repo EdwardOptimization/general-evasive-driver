@@ -62,16 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m604-guarded-capability-action-coupling-evaluator
+m605-grounded-capability-action-target-mining-design
 ```
 
-M604 should implement and run the exact no-update capability-action coupling
-evaluator designed by M603. It should join M591 action movement with M601
-capability movement and classify belief-only gaps without training, PPO,
-promotion, or driver-performance claims.
+M605 should design simulator-grounded action target mining for the M604
+belief-only gaps. M604 found `262` real-history candidates where capability
+belief moves but action remains inactive; these are not labels and require
+local recovery or terminal-boundary grounding before any optimizer.
 
 ## Recent Evidence Line
 
+- M604 implements and runs the no-update evaluator. It joins `6776` rows and
+  finds `262` real-history `belief_only_gap` candidates: fresh shuffled `84`,
+  fresh delayed `24`, fresh wrong-matched `8`, OOD shuffled `77`, OOD
+  wrong-matched `49`, and OOD delayed `20`. These are grounding candidates,
+  not action labels.
 - M603 designs that guarded action-coupling branch. The immediate next step is
   an exact no-update evaluator that joins M591 action distances and M601
   capability z-distances, then classifies `belief_only_gap` rows before any

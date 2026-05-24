@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 612,
+        "completed": 613,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m603-guarded-capability-action-coupling-design",
+        "task_id": "m604-guarded-capability-action-coupling-evaluator",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m603-guarded-capability-action-coupling-design.md"
+        "run_dir": "runs/m604_guarded_capability_action_coupling_evaluator",
+        "command_log": "docs/m604-guarded-capability-action-coupling-evaluator.md"
     },
     "next_task": {
-        "id": "m604-guarded-capability-action-coupling-evaluator",
+        "id": "m605-grounded-capability-action-target-mining-design",
         "status": "pending",
-        "priority": 5990,
+        "priority": 6000,
         "kind": "infrastructure",
-        "hypothesis": "An exact no-update evaluator can localize rows where real hidden histories move decoded capability belief but not action, providing a grounded candidate set for later recovery or boundary target mining.",
-        "command": "see experiments/manifests/m604-guarded-capability-action-coupling-evaluator.json",
+        "hypothesis": "M604 belief-only gaps are useful only if local recovery or terminal-boundary search can ground them in action targets that improve margin or risk without violating the actor contract.",
+        "command": "see experiments/manifests/m605-grounded-capability-action-target-mining-design.json",
         "success_artifact": "",
-        "notes": "Pending: implement and run no-update coupling-gap evaluator; no training, PPO, promotion, or driver-performance claim"
+        "notes": "Pending: design simulator-grounded action target mining before any action-coupling optimizer; no training, PPO, promotion, or driver-performance claim"
     },
-    "updated_at_utc": "20260524T123000Z"
+    "updated_at_utc": "20260524T124000Z"
 }
