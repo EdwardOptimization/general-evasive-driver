@@ -12079,3 +12079,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M661 implements the no-training action-divergent wrong-history corpus miner and writes explicit preferred/rejected sequence artifacts, but the result is negative: `0/3207` candidates are accepted. Only `75` rows pass the first-action threshold, `0` pass the wrong-history sequence threshold, `0` pass the preferred-vs-rejected sequence threshold, and `0` pass the margin-gap threshold. The max wrong-history sequence mean L2 is `0.001850` versus the `0.006` threshold, max preferred-vs-rejected sequence mean L2 is `0.001850` versus the `0.010` threshold, and max margin gap is only `0.000031` versus `0.010`. Normal and wrong-history success rates are both `1.000`; actor checksum is unchanged and no actor checkpoint is written.
 - decision: `action_divergent_wrong_history_corpus_negative_admit_audit`
 - next: `m662-action-divergent-wrong-history-corpus-audit`
+## 20260524T230000Z - m662-action-divergent-wrong-history-corpus-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m662-action-divergent-wrong-history-corpus-audit.md`
+- result: M662 audits M661 as an implementation pass but corpus gate fail. The empty accepted corpus is valid evidence: M661 evaluated `3207` candidates, wrote explicit preferred/rejected fields and valid empty NPZ shapes, preserved actor checksum, and wrote no actor checkpoint. The limiting factor is that M586/M636 matched-current surfaces are hidden/feature-different but not action critical: wrong-history short-horizon action sequence L2 and margin gaps are orders of magnitude below the pre-registered thresholds, and both normal and wrong-history branches succeed at rate `1.000`.
+- decision: `action_divergent_wrong_history_corpus_audit_admit_action_critical_source_mining_design`
+- next: `m663-action-critical-wrong-history-source-mining-design`

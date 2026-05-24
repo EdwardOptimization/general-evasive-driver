@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 670,
+        "completed": 671,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m661-action-divergent-wrong-history-corpus-implementation",
+        "task_id": "m662-action-divergent-wrong-history-corpus-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m661_action_divergent_wrong_history_corpus",
-        "command_log": "docs/m661-action-divergent-wrong-history-corpus-implementation.md"
+        "run_dir": "",
+        "command_log": "docs/m662-action-divergent-wrong-history-corpus-audit.md"
     },
     "next_task": {
-        "id": "m662-action-divergent-wrong-history-corpus-audit",
+        "id": "m663-action-critical-wrong-history-source-mining-design",
         "status": "pending",
-        "priority": 6570,
-        "kind": "gate",
-        "hypothesis": "M661 failed because the M586/M636 matched-current surfaces are not action-divergent under BC5660 wrong-history replay, not because the corpus writer or actor checksum guard failed.",
-        "command": "see experiments/manifests/m662-action-divergent-wrong-history-corpus-audit.json",
+        "priority": 6580,
+        "kind": "infrastructure",
+        "hypothesis": "A broader action/outcome-first source miner can find wrong-history pairs that are both scene-compatible and action-critical, unlike the M586/M636 matched-current surfaces.",
+        "command": "see experiments/manifests/m663-action-critical-wrong-history-source-mining-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit zero accepted action-divergent rows and choose next source-mining branch without threshold laundering"
+        "notes": "Pending: design no-training action-critical wrong-history source miner with explicit action/outcome thresholds"
     },
-    "updated_at_utc": "20260524T224500Z"
+    "updated_at_utc": "20260524T230000Z"
 }

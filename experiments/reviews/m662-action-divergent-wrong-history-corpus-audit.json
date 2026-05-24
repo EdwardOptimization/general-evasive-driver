@@ -1,0 +1,80 @@
+{
+  "decision_reason": "M662 classifies M661 as implementation pass but corpus gate fail and selects broader action-critical wrong-history source mining",
+  "failure_criteria": [
+    "audit ignores the zero accepted rows",
+    "audit weakens thresholds inside the original M661 gate",
+    "audit admits actor coupling or PPO",
+    "audit omits no-training and actor checksum evidence"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not weaken M661 thresholds after seeing the negative result",
+    "do not treat hidden-distance-only rows as action-divergent supervision"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T140708Z",
+  "hypothesis": "M661 failed because the M586/M636 matched-current surfaces are not action-divergent under BC5660 wrong-history replay, not because the corpus writer or actor checksum guard failed.",
+  "lineage": {
+    "blocked_by": [
+      "m661-action-divergent-wrong-history-corpus-implementation"
+    ],
+    "derived_from": [
+      "m661-action-divergent-wrong-history-corpus-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m661-action-divergent-wrong-history-corpus-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m661_action_divergent_wrong_history_corpus/summary.json",
+      "runs/m661_action_divergent_wrong_history_corpus/candidate_scores.csv",
+      "runs/m661_action_divergent_wrong_history_corpus/action_divergent_corpus.npz",
+      "docs/m661-action-divergent-wrong-history-corpus-implementation.md"
+    ],
+    "parent_objective": [
+      "audit negative action-divergent wrong-history corpus mining result"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m662-action-divergent-wrong-history-corpus-audit",
+  "next_blocker": "m663-action-critical-wrong-history-source-mining-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "action_divergent_wrong_history_corpus_audit_admit_action_critical_source_mining_design",
+  "public_gates": [
+    "classify why M661 accepted zero rows",
+    "separate weak wrong-history action divergence from implementation failure",
+    "decide whether the next branch should broaden source mining or change objectives",
+    "keep actor coupling, PPO, and promotion blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m662-action-divergent-wrong-history-corpus-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "action_divergent_wrong_history_corpus_audit_admit_action_critical_source_mining_design",
+    "milestone": "m662-action-divergent-wrong-history-corpus-audit",
+    "reason": "M662 classifies M661 as implementation pass but corpus gate fail and selects broader action-critical wrong-history source mining",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "audit records candidate_rows and accepted_rows",
+    "audit records max wrong-history first-action and sequence action distances",
+    "audit records max margin gap and threshold pass counts",
+    "audit selects the next source-mining or objective branch explicitly",
+    "actor coupling and PPO remain blocked",
+    "research validation passes"
+  ],
+  "type": "gate"
+}
