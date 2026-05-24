@@ -2,9 +2,9 @@
   "id": "m500-natural-action-sensitive-selector-implementation",
   "type": "infrastructure",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -94,5 +94,33 @@
     "runs/m498_natural_belief_wrong_history_no_effect_audit/summary.json"
   ],
   "decision_rule": "M500 should admit another outcome gate only if action-sensitive targeted rows are source-diverse and materially stronger than the M498 weak-trajectory baseline; otherwise redesign task/intervention.",
-  "next_blocker": "pending M500 natural action-sensitive selector implementation"
+  "next_blocker": "M501 should audit and redesign the natural task or selector because M500 found stronger action trajectory rows but not a source-diverse or near-boundary action-sensitive surface.",
+  "results": {
+    "run_dir": "runs/m500_natural_action_sensitive_selector",
+    "summary_json": "runs/m500_natural_action_sensitive_selector/summary.json",
+    "action_sensitive_candidates_csv": "runs/m500_natural_action_sensitive_selector/action_sensitive_candidates.csv",
+    "targeted_pairs_csv": "runs/m500_natural_action_sensitive_selector/targeted_pairs.csv",
+    "invalid_snapshots_csv": "runs/m500_natural_action_sensitive_selector/invalid_snapshots.csv",
+    "candidate_row_count": 22133,
+    "invalid_snapshot_row_count": 187,
+    "stage1_pass_count": 885,
+    "trajectory_pass_count": 481,
+    "targeted_pair_count": 171,
+    "targeted_probe_seed_count": 6,
+    "targeted_obstacle_label_count": 3,
+    "targeted_target_count": 3,
+    "targeted_config_count": 2,
+    "targeted_offset_count": 4,
+    "single_seed_share": 0.26900584795321636,
+    "single_label_share": 0.5380116959064327,
+    "single_config_share": 0.7251461988304093,
+    "targeted_trajectory_mean": 0.22820332737868293,
+    "targeted_trajectory_p90": 0.36003804206848145,
+    "targeted_normal_margin_min": 0.9321881860120147,
+    "source_diversity_gate_pass": false,
+    "materially_stronger_than_baseline": true,
+    "action_sensitive_surface_found": false,
+    "outcome_gate_admitted": false,
+    "classification": "action_sensitive_but_high_margin_and_source_limited"
+  }
 }

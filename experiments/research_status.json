@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 508,
+        "completed": 509,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m499-natural-belief-action-sensitive-selector-design",
+        "task_id": "m500-natural-action-sensitive-selector-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m499-natural-belief-action-sensitive-selector-design.md"
+        "run_dir": "runs/m500_natural_action_sensitive_selector",
+        "command_log": "docs/m500-natural-action-sensitive-selector-implementation.md"
     },
     "next_task": {
-        "id": "m500-natural-action-sensitive-selector-implementation",
+        "id": "m501-natural-boundary-action-sensitive-redesign",
         "status": "pending",
-        "priority": 4950,
+        "priority": 4960,
         "kind": "infrastructure",
-        "hypothesis": "The full M495 natural belief surface contains source-diverse rows with stronger one-shot wrong-history short-horizon action trajectory differences than M496 selected.",
-        "command": "see experiments/manifests/m500-natural-action-sensitive-selector-implementation.json",
+        "hypothesis": "M500 failed because action-sensitive rows are high-margin and not source-diverse enough; the next proof path must jointly require wrong-history action sensitivity and terminal boundary sensitivity.",
+        "command": "see experiments/manifests/m501-natural-boundary-action-sensitive-redesign.json",
         "success_artifact": "",
-        "notes": "Pending: implement and run action-sensitive selector; no training or promotion"
+        "notes": "Pending: redesign selector/task before any outcome gate; no training or promotion"
     },
-    "updated_at_utc": "20260523T235550Z"
+    "updated_at_utc": "20260524T003000Z"
 }

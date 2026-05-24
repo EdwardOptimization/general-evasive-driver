@@ -47,12 +47,12 @@ runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
 
 Status: M400 promotes M399 alpha `0.05` as the current public-gate base after
 six public replay surfaces and behavior seeds pass. This remains the latest
-public-gate base; M487-M492 did not train or promote a checkpoint.
+public-gate base; M487-M500 did not train or promote a checkpoint.
 
 Current blocker:
 
 ```text
-m500-natural-action-sensitive-selector-implementation
+m501-natural-boundary-action-sensitive-redesign
 ```
 
 Recent progress: M486-M492 is now closed as an artificial tail-forcing
@@ -95,8 +95,17 @@ wrong-history first-action distance, then run a short-horizon trajectory probe,
 then select a source-diverse target set only if trajectory distance is
 materially above the M498 weak baseline.
 
-Next step: M500 should implement and run the action-sensitive selector. It
-should not train or promote a checkpoint.
+M500 implements and runs that selector. It finds stronger wrong-history action
+trajectory rows (`targeted_trajectory_mean = 0.228203` versus M498 baseline
+`0.055405`), but rejects outcome-gate admission: the selected surface has only
+`171` rows, single-config share `0.725146`, and high normal margins
+(`targeted_normal_margin_min = 0.932188`). This means action sensitivity alone
+is not enough; the next surface must also be terminal-boundary sensitive.
+
+Next step: M501 should redesign the natural proof path so the selector or task
+jointly requires one-shot wrong-history action sensitivity and low-slack
+outcome-boundary sensitivity before another outcome gate. It should not train
+or promote a checkpoint.
 
 ## Current Evidence
 

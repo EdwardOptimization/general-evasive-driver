@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M500 finds targeted trajectory mean 0.228 but only 171 targeted rows with single-config share 0.725 and normal margin min 0.932 so action-sensitive rows are high-margin/source-limited",
+  "failure_criteria": [
+    "implementation cannot reconstruct needed snapshots",
+    "selector finds no source-diverse action-sensitive surface",
+    "selected rows remain at M498-level weak trajectory distances",
+    "actor contract changes",
+    "training or checkpoint promotion is performed"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not use hidden-hold variants as deployable proof",
+    "do not repeat M496 target-z triage unchanged",
+    "do not tune from private holdouts"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T000821Z",
+  "hypothesis": "The full M495 natural belief surface contains source-diverse rows where one-shot wrong-history produces materially larger short-horizon action trajectory differences than the M496 targeted subset.",
+  "lineage": {
+    "blocked_by": [
+      "m499-natural-belief-action-sensitive-selector-design"
+    ],
+    "derived_from": [
+      "m499-natural-belief-action-sensitive-selector-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/m494_natural_belief_short_reveal_zero_relvel.json",
+      "configs/m494_natural_belief_warmup_capability_zero_relvel.json",
+      "experiments/manifests/m499-natural-belief-action-sensitive-selector-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m495_natural_belief_matched_current_summary/combined_matched_pairs.csv",
+      "runs/m498_natural_belief_wrong_history_no_effect_audit/summary.json"
+    ],
+    "parent_objective": [
+      "natural action-sensitive wrong-history selector implementation"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m500-natural-action-sensitive-selector-implementation",
+  "next_blocker": "M501 should audit and redesign the natural task or selector because M500 found stronger action trajectory rows but not a source-diverse or near-boundary action-sensitive surface.",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "reject_outcome_gate_admission",
+  "public_gates": [
+    "implement natural_wrong_history_action_sensitive_selector",
+    "run it on the full M495 matched-current surface",
+    "export action-sensitive candidate and targeted pair artifacts",
+    "require source diversity before admitting another outcome gate",
+    "do not train or promote checkpoint"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "reject_outcome_gate_admission",
+    "milestone": "m500-natural-action-sensitive-selector-implementation",
+    "reason": "M500 finds targeted trajectory mean 0.228 but only 171 targeted rows with single-config share 0.725 and normal margin min 0.932 so action-sensitive rows are high-margin/source-limited",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "selector implementation is tested",
+    "selector run completes on the full M495 surface",
+    "targeted_pair_count >= 240 if an action-sensitive surface exists",
+    "probe_seed_count >= 6",
+    "obstacle_label_count >= 2",
+    "target_count >= 2",
+    "config_count >= 2",
+    "single_seed_share <= 0.50",
+    "single_label_share <= 0.70",
+    "single_config_share <= 0.70",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "type": "infrastructure"
+}

@@ -1,0 +1,89 @@
+{
+  "id": "m501-natural-boundary-action-sensitive-redesign",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m500_natural_action_sensitive_selector/summary.json",
+      "runs/m500_natural_action_sensitive_selector/action_sensitive_candidates.csv",
+      "runs/m500_natural_action_sensitive_selector/targeted_pairs.csv"
+    ],
+    "parent_config": [
+      "configs/m494_natural_belief_short_reveal_zero_relvel.json",
+      "configs/m494_natural_belief_warmup_capability_zero_relvel.json",
+      "experiments/manifests/m500-natural-action-sensitive-selector-implementation.json"
+    ],
+    "parent_objective": [
+      "natural boundary action-sensitive redesign"
+    ],
+    "derived_from": [
+      "m500-natural-action-sensitive-selector-implementation"
+    ],
+    "blocked_by": [
+      "m500-natural-action-sensitive-selector-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m501-natural-boundary-action-sensitive-redesign.md",
+  "public_gates": [
+    "audit why M500 action-sensitive rows are high-margin and warmup-dominated",
+    "design a next selector or task change that jointly requires wrong-history action sensitivity and terminal boundary sensitivity",
+    "pre-register admission criteria before any outcome gate",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not use hidden-hold variants as deployable proof",
+    "do not relax M500 thresholds after seeing the result just to force an outcome gate",
+    "do not count high-margin action differences as self-ID outcome proof",
+    "do not tune from private holdouts"
+  ],
+  "hypothesis": "M500 failed because the selector optimized action trajectory distance without enough terminal boundary sensitivity; the next proof path should require both one-shot wrong-history action sensitivity and near-boundary or low-slack outcome sensitivity.",
+  "success_criteria": [
+    "summarize M500 high-margin and source-balance failure modes",
+    "define a boundary-action-sensitive selection or task-redesign path",
+    "include explicit admission thresholds for near-boundary rows and source diversity",
+    "state whether the next step should be selector repair or config redesign",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "redesign repeats M496 target-z triage or M500 action-only triage unchanged",
+    "redesign admits outcome gates on high-margin rows",
+    "redesign relies on hidden-hold or persistent wrong-history as deployable proof",
+    "actor contract changes",
+    "training or checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "redesign",
+      "command": "Use M500 summary and candidate distributions to design the next boundary-action-sensitive proof path."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m501-natural-boundary-action-sensitive-redesign.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m500-natural-action-sensitive-selector-implementation.md",
+    "runs/m500_natural_action_sensitive_selector/summary.json"
+  ],
+  "decision_rule": "M501 should admit implementation only if the next path explicitly joins wrong-history action sensitivity with terminal-boundary sensitivity; otherwise redesign the natural task family before more outcome gates.",
+  "next_blocker": "pending M501 natural boundary action-sensitive redesign"
+}

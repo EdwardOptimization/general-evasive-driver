@@ -10621,3 +10621,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M499 converts the M498 blocker into a concrete selector design. The next selector should run over the full M495 surface, first screen by wrong-history first-action distance, then run an 8-step short-horizon trajectory probe, then select rows by trajectory distance while preserving source diversity across seeds, labels, targets, configs, and offsets. The design explicitly rejects repeating the M496 target-z triage unchanged and keeps hidden-hold out of deployable proof.
 - decision: `admit_m500_natural_action_sensitive_selector_implementation`
 - next: `m500-natural-action-sensitive-selector-implementation`
+## 20260524T003000Z - m500-natural-action-sensitive-selector-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m500_natural_action_sensitive_selector`
+- artifact: `docs/m500-natural-action-sensitive-selector-implementation.md`
+- result: M500 implements and runs the action-sensitive selector on the full M495 natural belief surface. It scores `22133` valid decision-offset rows, with `885` passing the first-action screen and `481` passing the short-horizon trajectory screen. The selected surface has `171` rows across `6` probe seeds, `3` labels, `3` targets, `2` configs, and `4` offsets. It is materially stronger than M498 on trajectory distance (`0.228203` mean versus `0.055405` baseline), but fails source/admission gates because it has fewer than `240` rows, single-config share `0.725146`, and high normal margins (`targeted_normal_margin_min = 0.932188`).
+- decision: `reject_outcome_gate_admission`
+- next: `m501-natural-boundary-action-sensitive-redesign`
