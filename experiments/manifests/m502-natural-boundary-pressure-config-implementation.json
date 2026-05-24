@@ -1,0 +1,101 @@
+{
+  "id": "m502-natural-boundary-pressure-config-implementation",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m500_natural_action_sensitive_selector/summary.json",
+      "runs/m500_natural_action_sensitive_selector/action_sensitive_candidates.csv"
+    ],
+    "parent_config": [
+      "configs/m494_natural_belief_short_reveal_zero_relvel.json",
+      "configs/m494_natural_belief_warmup_capability_zero_relvel.json",
+      "experiments/manifests/m501-natural-boundary-action-sensitive-redesign.json"
+    ],
+    "parent_objective": [
+      "natural boundary-pressure config implementation"
+    ],
+    "derived_from": [
+      "m501-natural-boundary-action-sensitive-redesign"
+    ],
+    "blocked_by": [
+      "m501-natural-boundary-action-sensitive-redesign"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m502-natural-boundary-pressure-config-implementation.md",
+  "public_gates": [
+    "add two P0-compatible boundary-pressure natural belief configs",
+    "sampling-validate both configs before matched-current mining",
+    "run behavior smokes for m399, heuristic, and random",
+    "do not mine proof rows, train, or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not enable obstacle relative velocity",
+    "do not run matched-current mining before sampling passes",
+    "do not count config validation as self-ID proof",
+    "do not tune from private holdouts"
+  ],
+  "hypothesis": "Boundary-pressured natural belief configs can preserve pre-reveal command-response evidence while reducing terminal clearance slack enough to support later boundary-action-sensitive mining.",
+  "success_criteria": [
+    "both configs preserve P0 human-view zero-relvel actor contract",
+    "each config has 384/384 reset successes across seed blocks 12400 12500 12600",
+    "each config has label_count >= 2",
+    "each config has single_label_share <= 0.85",
+    "each config has hidden_at_reset_count == 384",
+    "each config has friction_step_before_reveal_count >= 300",
+    "behavior smoke runs for m399 heuristic and random",
+    "m399 success is nonzero and not saturated above 0.90",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "either config cannot sample enough valid resets",
+    "either config collapses to one label",
+    "m399 success is zero or saturated above 0.90",
+    "heuristic or random dominates m399",
+    "actor contract changes",
+    "training or checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "config_implementation",
+      "command": "Add configs/m502_natural_boundary_pressure_short_reveal_zero_relvel.json and configs/m502_natural_boundary_pressure_warmup_zero_relvel.json."
+    },
+    {
+      "name": "sampling_validation",
+      "command": "Reset both configs over seed blocks 12400, 12500, 12600 with 128 resets each."
+    },
+    {
+      "name": "behavior_smoke",
+      "command": "Run m399, heuristic, and random behavior smokes on both configs."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m502-natural-boundary-pressure-config-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m501-natural-boundary-action-sensitive-redesign.md",
+    "runs/m500_natural_action_sensitive_selector/summary.json"
+  ],
+  "decision_rule": "M502 should admit matched-current mining only if both boundary-pressure configs pass sampling and behavior gates without changing the actor contract.",
+  "next_blocker": "pending M502 natural boundary-pressure config implementation"
+}

@@ -10630,3 +10630,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M500 implements and runs the action-sensitive selector on the full M495 natural belief surface. It scores `22133` valid decision-offset rows, with `885` passing the first-action screen and `481` passing the short-horizon trajectory screen. The selected surface has `171` rows across `6` probe seeds, `3` labels, `3` targets, `2` configs, and `4` offsets. It is materially stronger than M498 on trajectory distance (`0.228203` mean versus `0.055405` baseline), but fails source/admission gates because it has fewer than `240` rows, single-config share `0.725146`, and high normal margins (`targeted_normal_margin_min = 0.932188`).
 - decision: `reject_outcome_gate_admission`
 - next: `m501-natural-boundary-action-sensitive-redesign`
+## 20260524T004000Z - m501-natural-boundary-action-sensitive-redesign
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m501-natural-boundary-action-sensitive-redesign.md`
+- result: M501 audits the M500 candidate table and rejects direct selector repair. At `normal_margin <= 0.25`, M500 has `325` boundary rows but only `5` first-action-pass rows and `0` trajectory-pass rows. At `normal_margin <= 1.0`, it has only `6` trajectory-pass rows from `1` seed and the `short_reveal` config. Even at `normal_margin <= 3.0`, the eligible pool is only `88` rows across `5` seeds. The next path must change the natural task distribution before more proof mining.
+- decision: `admit_m502_natural_boundary_pressure_config_implementation`
+- next: `m502-natural-boundary-pressure-config-implementation`

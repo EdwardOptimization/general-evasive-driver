@@ -52,7 +52,7 @@ public-gate base; M487-M500 did not train or promote a checkpoint.
 Current blocker:
 
 ```text
-m501-natural-boundary-action-sensitive-redesign
+m502-natural-boundary-pressure-config-implementation
 ```
 
 Recent progress: M486-M492 is now closed as an artificial tail-forcing
@@ -102,9 +102,15 @@ trajectory rows (`targeted_trajectory_mean = 0.228203` versus M498 baseline
 (`targeted_normal_margin_min = 0.932188`). This means action sensitivity alone
 is not enough; the next surface must also be terminal-boundary sensitive.
 
-Next step: M501 should redesign the natural proof path so the selector or task
-jointly requires one-shot wrong-history action sensitivity and low-slack
-outcome-boundary sensitivity before another outcome gate. It should not train
+M501 redesigns the natural proof path and rejects direct selector repair. In
+the M500 candidate table,
+`normal_margin <= 0.25` has `325` boundary rows but `0` trajectory-pass rows;
+`normal_margin <= 1.0` has only `6` trajectory-pass rows from `1` seed and
+`short_reveal` only. The current natural configs do not contain enough rows
+that are both action-sensitive and terminal-boundary-sensitive.
+
+Next step: M502 should implement and sampling-validate boundary-pressured
+natural belief configs before any mining or outcome gate. It should not train
 or promote a checkpoint.
 
 ## Current Evidence

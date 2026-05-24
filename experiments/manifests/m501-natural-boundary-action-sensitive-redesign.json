@@ -2,7 +2,7 @@
   "id": "m501-natural-boundary-action-sensitive-redesign",
   "type": "infrastructure",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -85,5 +85,17 @@
     "runs/m500_natural_action_sensitive_selector/summary.json"
   ],
   "decision_rule": "M501 should admit implementation only if the next path explicitly joins wrong-history action sensitivity with terminal-boundary sensitivity; otherwise redesign the natural task family before more outcome gates.",
-  "next_blocker": "pending M501 natural boundary action-sensitive redesign"
+  "next_blocker": "M502 should implement and sampling-validate boundary-pressured natural belief configs before any mining or outcome gate.",
+  "results": {
+    "artifact": "docs/m501-natural-boundary-action-sensitive-redesign.md",
+    "classification": "action_sensitive_without_terminal_boundary_sensitivity",
+    "direct_selector_repair_admitted": false,
+    "config_redesign_admitted": true,
+    "m500_targeted_pair_count": 171,
+    "m500_targeted_trajectory_mean": 0.22820332737868293,
+    "m500_targeted_normal_margin_min": 0.9321881860120147,
+    "m500_boundary_trajectory_pass_rows_margin_le_0_25": 0,
+    "m500_boundary_trajectory_pass_rows_margin_le_1_0": 6,
+    "next_task": "m502-natural-boundary-pressure-config-implementation"
+  }
 }
