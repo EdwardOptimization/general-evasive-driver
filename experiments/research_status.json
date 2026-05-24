@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 575,
+        "completed": 576,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-            "task_id": "m566-scaled-bc-repeat-design",
+            "task_id": "m567-scaled-teacher-corpus-export",
             "status": "completed",
             "returncode": 0,
-            "run_dir": "",
-            "command_log": "docs/m566-scaled-bc-repeat-design.md"
+            "run_dir": "runs/m567_scaled_l2_teacher_corpus_train",
+            "command_log": "docs/m567-scaled-teacher-corpus-export.md"
         },
         "next_task": {
-            "id": "m567-scaled-teacher-corpus-export",
+            "id": "m568-scaled-bc-training",
             "status": "pending",
-            "priority": 5620,
+            "priority": 5630,
             "kind": "infrastructure",
-            "hypothesis": "Scaled non-public L2 teacher corpora can be exported with the same clean teacher/student boundary as M562, enabling multi-seed L3 BC repeat without public-row contamination.",
-            "command": "see experiments/manifests/m567-scaled-teacher-corpus-export.json",
+            "hypothesis": "The scaled L2 teacher corpora should train a stable L3 online-GRU BC seed family with improved train and validation action MSE while preserving the clean P0 actor contract.",
+            "command": "see experiments/manifests/m568-scaled-bc-training.json",
             "success_artifact": "",
-            "notes": "Pending: export train/validation corpora and verify no teacher stack leakage"
+            "notes": "Pending: train BC seeds 5660 5661 5662 and verify MSE plus metadata"
         },
-    "updated_at_utc": "20260524T062000Z"
+    "updated_at_utc": "20260524T063000Z"
 }

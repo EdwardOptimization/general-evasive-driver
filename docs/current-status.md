@@ -61,13 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m567-scaled-teacher-corpus-export
+m568-scaled-bc-training
 ```
 
-M567 should export the scaled non-public L2 teacher corpora from the M566
-design. It should write train seeds `18200-18327` and validation seeds
-`18328-18391` with canonical 72-value L3 student frames and no L2 stack stored
-as student input. No training or promotion is allowed in M567.
+M568 should train the scaled L3 behavior-cloning seed family from the M567
+non-public corpora. It should train BC seeds `5660`, `5661`, and `5662`, verify
+train/validation action MSE improves, and preserve P0 L3 online-GRU metadata.
+No route-screen, PPO, or promotion is allowed in M568.
 
 ## Recent Evidence Line
 
@@ -275,6 +275,11 @@ as student input. No training or promotion is allowed in M567.
   `18328-18391`, BC optimizer seeds `5660/5661/5662`, and fresh route-screen
   seed `18560`. PPO remains blocked until scaled BC route/generalization
   evidence is stable.
+- M567 exports the scaled corpora. Train has `128` episodes and `8024`
+  transitions; validation has `64` episodes and `3900` transitions. Both corpora
+  keep `student_obs_seq` at 72 dimensions, store `teacher_action_seq` plus
+  done/start masks, omit `teacher_obs_stack_seq`, and report
+  `uses_public_frozen_source_rows = false`.
 
 ## Near-Term Rule
 

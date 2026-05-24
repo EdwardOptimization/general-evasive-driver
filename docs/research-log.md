@@ -11224,3 +11224,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M566 designs a scaled non-public L2-to-L3 BC repeat after the positive M563-M565 smoke path. It assigns train seeds `18200-18327`, validation seeds `18328-18391`, BC optimizer seeds `5660/5661/5662`, and fresh route-screen seed `18560`. The design keeps L2 stacks training-only, public frozen-source surfaces out of tuning, and PPO blocked until scaled BC route/generalization evidence is stable.
 - decision: `scaled_bc_repeat_design_admit_m567_scaled_teacher_corpus_export`
 - next: `m567-scaled-teacher-corpus-export`
+## 20260524T063000Z - m567-scaled-teacher-corpus-export
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m567_scaled_l2_teacher_corpus_train`, `runs/m567_scaled_l2_teacher_corpus_validation`
+- artifact: `docs/m567-scaled-teacher-corpus-export.md`
+- result: M567 exports scaled non-public L2 teacher corpora. The train corpus uses seeds `18200-18327`, producing `128` episodes and `8024` transitions. The validation corpus uses seeds `18328-18391`, producing `64` episodes and `3900` transitions. Both corpora have `student_obs_seq` with shape `(N, 72)`, `teacher_action_seq` with shape `(N, 3)`, done/start masks, no `teacher_obs_stack_seq`, and `uses_public_frozen_source_rows=false`.
+- decision: `scaled_teacher_corpus_export_pass_admit_m568_scaled_bc_training`
+- next: `m568-scaled-bc-training`

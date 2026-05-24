@@ -2,7 +2,7 @@
   "id": "m567-scaled-teacher-corpus-export",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -78,6 +78,6 @@
   "baseline_artifacts": [
     "docs/m566-scaled-bc-repeat-design.md"
   ],
-  "decision_rule": "M567 passes only if scaled train and validation corpora are exported with canonical 72-value student observations, absent teacher stack arrays, and no public frozen-source rows.",
-  "next_blocker": "pending M567 scaled teacher corpus export"
+  "decision_rule": "M567 passes because scaled train and validation corpora are exported with canonical 72-value student observations, absent teacher stack arrays, and no public frozen-source rows.",
+  "next_blocker": "m568-scaled-bc-training"
 }

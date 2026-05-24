@@ -1,0 +1,86 @@
+{
+  "id": "m568-scaled-bc-training",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m542_matched_l2_variance_seed3540/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m567_scaled_l2_teacher_corpus_train/l2_teacher_corpus.npz",
+      "runs/m567_scaled_l2_teacher_corpus_validation/l2_teacher_corpus.npz"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l3_variance_4096.json"
+    ],
+    "parent_objective": [
+      "train scaled L3 behavior-cloning seed family from non-public L2 teacher corpora"
+    ],
+    "derived_from": [
+      "m567-scaled-teacher-corpus-export"
+    ],
+    "blocked_by": [
+      "m567-scaled-teacher-corpus-export"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m568-scaled-bc-training.md",
+  "public_gates": [
+    "train BC seeds 5660 5661 5662",
+    "verify train and validation action MSE improve for every seed",
+    "preserve P0 L3 online-GRU checkpoint metadata",
+    "do not run PPO route-screen or checkpoint promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train on public frozen-source rows",
+    "do not use L2 stacked observations as student inputs",
+    "do not select by public diagnostics",
+    "do not run route-screen or PPO in this milestone"
+  ],
+  "hypothesis": "The scaled L2 teacher corpora should train a stable L3 online-GRU BC seed family with improved train and validation action MSE while preserving the clean P0 actor contract.",
+  "success_criteria": [
+    "three BC seed runs complete",
+    "train and validation MSE improve for all three seeds",
+    "all checkpoints declare P0 L3 online-GRU metadata",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "any seed fails to improve validation MSE",
+    "any checkpoint violates P0 L3 metadata",
+    "route-screen or PPO is run in this milestone"
+  ],
+  "commands": [
+    {
+      "name": "train_seed_5660",
+      "command": "PYTHONPATH=src python -m autodrift.l3_behavior_cloning --train-corpus runs/m567_scaled_l2_teacher_corpus_train/l2_teacher_corpus.npz --val-corpus runs/m567_scaled_l2_teacher_corpus_validation/l2_teacher_corpus.npz --student-env-config configs/ppo_m541_matched_l3_variance_4096.json --epochs 25 --learning-rate 0.001 --hidden-size 64 --seed 5660 --device cpu --run-dir runs/m568_scaled_l3_bc_seed5660"
+    },
+    {
+      "name": "train_seed_5661",
+      "command": "PYTHONPATH=src python -m autodrift.l3_behavior_cloning --train-corpus runs/m567_scaled_l2_teacher_corpus_train/l2_teacher_corpus.npz --val-corpus runs/m567_scaled_l2_teacher_corpus_validation/l2_teacher_corpus.npz --student-env-config configs/ppo_m541_matched_l3_variance_4096.json --epochs 25 --learning-rate 0.001 --hidden-size 64 --seed 5661 --device cpu --run-dir runs/m568_scaled_l3_bc_seed5661"
+    },
+    {
+      "name": "train_seed_5662",
+      "command": "PYTHONPATH=src python -m autodrift.l3_behavior_cloning --train-corpus runs/m567_scaled_l2_teacher_corpus_train/l2_teacher_corpus.npz --val-corpus runs/m567_scaled_l2_teacher_corpus_validation/l2_teacher_corpus.npz --student-env-config configs/ppo_m541_matched_l3_variance_4096.json --epochs 25 --learning-rate 0.001 --hidden-size 64 --seed 5662 --device cpu --run-dir runs/m568_scaled_l3_bc_seed5662"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m568-scaled-bc-training.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m563_l3_behavior_cloning_smoke/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m567-scaled-teacher-corpus-export.md"
+  ],
+  "decision_rule": "M568 passes only if all three scaled BC seed runs improve train/validation MSE and preserve P0 L3 online-GRU metadata without route-screen, PPO, or promotion.",
+  "next_blocker": "pending M568 scaled BC training"
+}
