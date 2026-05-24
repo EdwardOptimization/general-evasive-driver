@@ -62,16 +62,24 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m754-v4-sequence-outcome-corpus-export-design
+m755-v4-sequence-outcome-corpus-export-implementation
 ```
 
-M754 should design a sentinel-filtered v4-aware sequence-outcome corpus export
-from M752's positive diagnostic result. M753 audited M752 as clean enough to
-preserve as a corpus before objective design, while keeping actor updates, PPO,
-promotion, and true four-wheel/single-wheel fault claims blocked.
+M755 should implement the sentinel-filtered v4-aware sequence-outcome corpus
+export designed by M754. The implementation must preserve M752 positives,
+matched normal rows, hard-negative rows, v4 source metadata, and
+`current_model_or_proxy` claim-boundary fields before any objective design.
+Actor updates, PPO, promotion, and true four-wheel/single-wheel fault claims
+remain blocked.
 
 ## Recent Evidence Line
 
+- M754 designs a v4-aware deterministic corpus export for M752's non-sentinel
+  outcome positives. Precheck values are `1213` positives, `0` positive
+  sentinels, `27` positive seeds, `17` fault-family pairs, max seed dominance
+  `0.171476`, `0` missing normal matches, `source_kind=v4_reset_source`, and
+  `claim_boundary_level=current_model_or_proxy`. Hard negatives are useful but
+  sparse: `1009` capped hard negatives for `1213` positives.
 - M753 audits M752 as a clean diagnostic positive, not trained-driver
   improvement. It supports the coverage-mining hypothesis and promotes only to
   a v4-aware corpus export design. Objective training, PPO, promotion, and true

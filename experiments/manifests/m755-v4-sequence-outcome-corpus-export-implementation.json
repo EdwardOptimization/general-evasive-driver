@@ -1,0 +1,165 @@
+{
+  "id": "m755-v4-sequence-outcome-corpus-export-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint_used"
+    ],
+    "parent_dataset": [
+      "docs/m754-v4-sequence-outcome-corpus-export-design.md",
+      "docs/m753-v4-reset-source-sequence-intervention-audit.md",
+      "runs/m752_v4_reset_source_sequence_intervention/summary.json",
+      "runs/m752_v4_reset_source_sequence_intervention/intervention_rollouts.csv",
+      "runs/m752_v4_reset_source_sequence_intervention/sequence_critical_rows.csv",
+      "runs/m752_v4_reset_source_sequence_intervention/sentinel_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m754-v4-sequence-outcome-corpus-export-design.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_objective": [
+      "implement deterministic sentinel-filtered v4 sequence-outcome corpus export"
+    ],
+    "derived_from": [
+      "m754-v4-sequence-outcome-corpus-export-design"
+    ],
+    "blocked_by": [
+      "m754-v4-sequence-outcome-corpus-export-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m755-v4-sequence-outcome-corpus-export-implementation.md",
+  "public_gates": [
+    "M755 exports only non-sentinel sequence-outcome positives",
+    "M755 matches every positive with a normal row",
+    "M755 marks hard negatives separately from proof positives",
+    "M755 preserves v4 source pair reset margin history and claim-boundary metadata",
+    "actor training PPO checkpoint loading and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not export sentinel rows as positives",
+    "do not export action-only rows as positives",
+    "do not drop v4 source metadata",
+    "do not omit current-model versus proxy claim-boundary fields",
+    "do not instantiate actor training or PPO",
+    "do not load or promote a checkpoint",
+    "do not change actor input contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_sequence_outcome_corpus_export",
+    "evidence_axis": "G_sequence_corpus: implement v4-aware sequence-outcome corpus",
+    "evidence_increment": "implements deterministic corpus export preserving M752 non-sentinel outcome rows and v4 source metadata",
+    "claim_scope": "data infrastructure only; no objective training or checkpoint claim",
+    "stop_condition": [
+      "stop if fewer than 1000 non-sentinel positives remain",
+      "stop if any sentinel or action-only row is exported as positive",
+      "stop if normal matches are missing",
+      "stop if v4 source metadata or claim-boundary metadata is dropped",
+      "stop if the implementation starts training or checkpoint promotion"
+    ],
+    "fallback_plan": [
+      "if positives are sparse, design refreshed v4 sequence diagnostic before objective work",
+      "if v4 metadata cannot be reconstructed, audit M752 schema before export",
+      "if hard negatives are sparse, classify separately and audit before objective design",
+      "if export passes, audit before sequence-preference objective design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M754 admits no-training v4 corpus export implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M752's non-sentinel v4 sequence-outcome rows can be exported as a compact corpus with matched normal rows, separated hard negatives, and preserved v4 metadata.",
+  "success_criteria": [
+    "M755 implements deterministic v4-aware exporter and focused tests",
+    "M755 writes summary positive contrast hard-negative sentinel rejected and balance artifacts",
+    "positive_rows >= 1000",
+    "positive_sentinel_rows == 0",
+    "missing_normal_matches == 0",
+    "unique_positive_seeds >= 24",
+    "unique_positive_fault_family_pairs >= 16",
+    "max_positive_seed_dominance <= 0.20",
+    "v4 source claim-boundary and fault fidelity metadata are preserved",
+    "hard_negative_rows are marked separately from proof positives",
+    "no actor training PPO checkpoint loading or promotion occurs"
+  ],
+  "failure_criteria": [
+    "sentinel rows enter positive corpus",
+    "action-only rows enter positive corpus",
+    "normal matches are missing",
+    "v4 source metadata is dropped",
+    "fault fidelity or claim-boundary metadata is missing",
+    "source balance falls below registered gates",
+    "implementation starts optimizer training PPO checkpoint loading or promotion"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "implement src/autodrift/v4_sequence_outcome_corpus_export.py and tests/test_v4_sequence_outcome_corpus_export.py"
+    },
+    {
+      "name": "registered_export",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_sequence_outcome_corpus_export --summary runs/m752_v4_reset_source_sequence_intervention/summary.json --rollouts runs/m752_v4_reset_source_sequence_intervention/intervention_rollouts.csv --sequence-critical-rows runs/m752_v4_reset_source_sequence_intervention/sequence_critical_rows.csv --sentinel-rows runs/m752_v4_reset_source_sequence_intervention/sentinel_rows.csv --fault-config configs/extreme_fault_distribution_v4_scenarios.json --run-dir runs/m755_v4_sequence_outcome_corpus_export --max-hard-negatives-per-positive 2"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_sequence_outcome_corpus_export.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_v4_sequence_outcome_corpus_export.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m755_v4_sequence_outcome_corpus_export/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m755_v4_sequence_outcome_corpus_export/hard_negative_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m755_v4_sequence_outcome_corpus_export/excluded_sentinel_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m755_v4_sequence_outcome_corpus_export/source_balance.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m755_v4_sequence_outcome_corpus_export/variant_horizon_balance.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m755_v4_sequence_outcome_corpus_export/fault_family_balance.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m755-v4-sequence-outcome-corpus-export-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_checkpoint_used"
+  ],
+  "baseline_artifacts": [
+    "runs/m752_v4_reset_source_sequence_intervention/summary.json",
+    "docs/m754-v4-sequence-outcome-corpus-export-design.md"
+  ],
+  "decision_rule": "M755 may only export and classify the v4 corpus. It must not admit sequence objective training PPO or promotion until a follow-up audit reviews corpus quality and next branch choice.",
+  "next_blocker": "m756-v4-sequence-outcome-corpus-export-audit"
+}

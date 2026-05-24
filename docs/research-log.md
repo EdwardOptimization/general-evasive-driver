@@ -12829,3 +12829,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M753 audits M752 as a clean diagnostic positive, not trained-driver improvement. The result has `1213` outcome-critical rows across `27` seeds and `17` fault-family pairs, `0` sentinel false positives, normal-history retention pass, and unchanged actor checksum. The audit supports the coverage-mining hypothesis and keeps the claim boundary at current-model/proxy v4 faults rather than true four-wheel or single-wheel failure physics. Objective training, PPO, promotion, and true per-wheel claims remain blocked.
 - decision: `promote_to_v4_sequence_outcome_corpus_export`
 - next: `m754-v4-sequence-outcome-corpus-export-design`
+
+## 20260525T042000Z - m754-v4-sequence-outcome-corpus-export-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m754-v4-sequence-outcome-corpus-export-design.md`
+- result: M754 designs a no-training v4-aware deterministic corpus export for M752's non-sentinel outcome positives. Precheck values are `1213` positives, `0` positive sentinels, `27` positive seeds, `17` positive fault-family pairs, max seed dominance `0.171476`, `0` missing normal matches, `source_kind=v4_reset_source`, and `claim_boundary_level=current_model_or_proxy`. Hard negatives are useful but sparse: `4216` action-only rows, `1009` capped hard-negative candidates for `1213` positives, and `338` positives without same-source/same-horizon hard negatives. Objective training, PPO, checkpoint loading, and promotion remain blocked.
+- decision: `v4_sequence_outcome_corpus_export_design_admit_m755`
+- next: `m755-v4-sequence-outcome-corpus-export-implementation`
