@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M720 audits M719 as strong temporal command-response action coupling but metric_artifact for closed-loop proof and promotes to temporal action-boundary outcome mining",
+  "failure_criteria": [
+    "audit treats action-only rows as outcome-positive self-ID proof",
+    "audit ignores mismatch_zero_command_history dominance",
+    "audit admits source export PPO or promotion",
+    "audit omits synthesis questions",
+    "audit changes actor input contract"
+  ],
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not claim temporal_action_only is closed-loop self-ID proof",
+    "do not export temporal action rows as source-positive outcome rows",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels or oracle values to actor observations"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260524T201529Z",
+  "hypothesis": "M719 action-only temporal mismatch evidence is real but insufficient for closed-loop self-ID; M720 must choose the next evidence axis before training.",
+  "lineage": {
+    "blocked_by": [
+      "m719-temporal-action-response-mismatch-implementation"
+    ],
+    "derived_from": [
+      "m719-temporal-action-response-mismatch-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m719-temporal-action-response-mismatch-implementation.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_dataset": [
+      "runs/m719_temporal_action_response_mismatch/summary.json",
+      "runs/m719_temporal_action_response_mismatch/intervention_rollouts.csv",
+      "runs/m719_temporal_action_response_mismatch/temporal_critical_rows.csv",
+      "docs/m719-temporal-action-response-mismatch-implementation.md"
+    ],
+    "parent_objective": [
+      "audit temporal_action_only before source export objective design actor update PPO or promotion"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m720-temporal-action-only-audit",
+  "next_blocker": "m721-temporal-action-boundary-outcome-mining-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "temporal_action_only_promote_to_boundary_outcome_mining",
+  "public_gates": [
+    "M719 action-level temporal signal is summarized separately from outcome evidence",
+    "mismatch_zero_command_history dominance is analyzed",
+    "source export PPO and promotion remain blocked because temporal_outcome_critical_rows is zero",
+    "next branch decision compares outcome-critical scenario sharpening and actor-head objective design",
+    "actor input contract remains unchanged"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m720-temporal-action-only-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "temporal_action_only_promote_to_boundary_outcome_mining",
+    "milestone": "m720-temporal-action-only-audit",
+    "reason": "M720 audits M719 as strong temporal command-response action coupling but metric_artifact for closed-loop proof and promotes to temporal action-boundary outcome mining",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M719 metrics are recorded",
+    "supported and falsified claims are recorded",
+    "failure taxonomy is assigned",
+    "public gate overfit risk is recorded",
+    "next branch decision is explicit",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "type": "gate"
+}

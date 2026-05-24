@@ -12510,3 +12510,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M719 implements and runs the no-training temporal command-response mismatch runner. It evaluates `42994` rollout rows over `4096` matched pairs. Result is `temporal_action_only`: `3114` temporal action-critical rows but `0` temporal outcome-critical rows. The dominant signal is `mismatch_zero_command_history` with `3064` action-critical rows, action distance mean `0.021019`, and action distance max `0.036131`; reset hidden has `3140` action-critical rows. Cross-fault wrong hidden remains action-washed-out with `0` action-critical rows. Actor checksum unchanged; no training, PPO, or promotion occurred.
 - decision: `temporal_action_only_not_source_positive`
 - next: `m720-temporal-action-only-audit`
+
+## 20260524T214000Z - m720-temporal-action-only-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m720-temporal-action-only-audit.md`
+- result: M720 audits M719 as strong action-level temporal command-response coupling but `metric_artifact` for closed-loop self-ID if overclaimed. The actor clearly uses previous physical-command history: zeroing command-history inside the recurrent stream changes actions on `3064` rows, comparable to reset hidden. However, M719 has `0` outcome-critical rows, so source export, actor update, PPO, and promotion remain blocked.
+- decision: `temporal_action_only_promote_to_boundary_outcome_mining`
+- next: `m721-temporal-action-boundary-outcome-mining-design`

@@ -1,0 +1,109 @@
+{
+  "id": "m721-temporal-action-boundary-outcome-mining-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m720-temporal-action-only-audit.md",
+      "runs/m719_temporal_action_response_mismatch/summary.json",
+      "runs/m719_temporal_action_response_mismatch/temporal_critical_rows.csv",
+      "runs/m719_temporal_action_response_mismatch/intervention_rollouts.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m720-temporal-action-only-audit.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_objective": [
+      "design no-training miner that converts temporal action sensitivity into outcome-critical rows"
+    ],
+    "derived_from": [
+      "m720-temporal-action-only-audit"
+    ],
+    "blocked_by": [
+      "m720-temporal-action-only-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m721-temporal-action-boundary-outcome-mining-design.md",
+  "public_gates": [
+    "design starts from M719 temporal action-sensitive rows without treating them as outcome proof",
+    "design defines local obstacle timing lateral offset or boundary-margin search",
+    "acceptance requires temporal action delta and margin/success degradation",
+    "source diversity and normal-history retention gates are explicit",
+    "actor input contract remains unchanged",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not claim action-only rows are source-positive outcome rows",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add oracle labels hidden params or fault labels to actor observations",
+    "do not tune obstacle variants after seeing private holdout outcomes"
+  ],
+  "workflow_synthesis": {
+    "branch": "temporal_action_boundary_outcome_mining",
+    "evidence_axis": "G_action_to_outcome: design boundary mining that tests whether temporal action deltas affect closed-loop margin",
+    "evidence_increment": "pre-registers how to turn M719 action-only temporal rows into a no-training outcome-sensitive corpus search",
+    "claim_scope": "design only; no new source-positive or checkpoint-promotion claim",
+    "stop_condition": [
+      "stop if local obstacle perturbations merely create impossible normal-history failures",
+      "stop if temporal mismatch action deltas do not change margin under boundary scenarios",
+      "stop actor mutation until outcome-critical rows are source-diverse"
+    ],
+    "fallback_plan": [
+      "if outcome-critical rows are found, design source-balanced export and proof/generalization gates",
+      "if action deltas remain outcome-neutral, return to actor-head objective design only as action-level diagnostic",
+      "if local perturbations are too synthetic, pivot to higher-fidelity dynamics or active probing",
+      "if source diversity is weak, mine fresh seeds before objective design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "new branch after M720 promote_to_next_branch decision",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M719's temporal action deltas can become outcome-critical near obstacle/boundary decision surfaces; a no-training local boundary miner can find those rows without changing actor inputs or training.",
+  "success_criteria": [
+    "M721 defines source selection from M719 temporal action-critical rows",
+    "M721 defines local obstacle/boundary perturbation variables and limits",
+    "M721 defines normal-history retention and temporal mismatch outcome gates",
+    "M721 names M722 implementation artifacts",
+    "no training PPO actor update or promotion occurs"
+  ],
+  "failure_criteria": [
+    "design treats action-only rows as already outcome-positive",
+    "design omits normal-history retention",
+    "design lacks source diversity gates",
+    "design admits PPO or promotion",
+    "design changes actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m721-temporal-action-boundary-outcome-mining-design.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m721-temporal-action-boundary-outcome-mining-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m720-temporal-action-only-audit.md",
+    "runs/m719_temporal_action_response_mismatch/temporal_critical_rows.csv"
+  ],
+  "decision_rule": "M721 may admit only a no-training M722 miner implementation. It must not admit actor update, PPO, or promotion.",
+  "next_blocker": "m722-temporal-action-boundary-outcome-miner-implementation"
+}

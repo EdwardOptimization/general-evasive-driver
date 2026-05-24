@@ -67,7 +67,16 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M719 result_class=temporal_action_only",
-    "synthesis_decision": "not_applicable"
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m720-temporal-action-only-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
   },
   "hypothesis": "M719 action-only temporal mismatch evidence is real but insufficient for closed-loop self-ID; M720 must choose the next evidence axis before training.",
   "success_criteria": [
@@ -105,5 +114,5 @@
     "docs/m719-temporal-action-response-mismatch-implementation.md"
   ],
   "decision_rule": "M720 must decide whether to sharpen outcome-critical temporal scenarios, return to actor-head objective design, or pivot to dynamics fidelity. It must not admit PPO or promotion directly.",
-  "next_blocker": "m721-to-be-selected-by-m720"
+  "next_blocker": "m721-temporal-action-boundary-outcome-mining-design"
 }
