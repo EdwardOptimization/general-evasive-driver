@@ -1,0 +1,80 @@
+{
+  "decision_reason": "M647 classifies M646 as pass_with_overfit_caveat with best validation epoch 120 and weak wrong-history source separation so actor coupling remains blocked",
+  "failure_criteria": [
+    "audit ignores validation overfit",
+    "audit treats head-only loss as promotion evidence",
+    "audit admits actor update without exact retention gates",
+    "audit omits source/target summary review"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not treat head-only loss as closed-loop improvement",
+    "do not design actor coupling without addressing validation overfit"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T125621Z",
+  "hypothesis": "M646 proves frozen-feature sequence-delta learnability, but the validation curve and source/target balance must be audited before allowing any actor-coupling design.",
+  "lineage": {
+    "blocked_by": [
+      "m646-bc-v2-head-only-smoke-implementation"
+    ],
+    "derived_from": [
+      "m646-bc-v2-head-only-smoke-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m646-bc-v2-head-only-smoke-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m646_bc_v2_head_only_smoke/summary.json",
+      "runs/m646_bc_v2_head_only_smoke/train_metrics.csv",
+      "runs/m646_bc_v2_head_only_smoke/validation_metrics.csv",
+      "docs/m646-bc-v2-head-only-smoke-implementation.md"
+    ],
+    "parent_objective": [
+      "audit frozen-actor BC-v2 head-only smoke before any actor-coupling design"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m647-bc-v2-head-only-smoke-audit",
+  "next_blocker": "m648-bc-v2-head-only-repeat-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "bc_v2_head_only_smoke_audit_pass_with_overfit_admit_repeat_design",
+  "public_gates": [
+    "audit train and source-heldout improvement",
+    "audit validation overfit after best epoch",
+    "audit source and target summaries",
+    "confirm actor checksum remained unchanged",
+    "decide whether next branch is early-stopped repeat or actor-coupling design"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m647-bc-v2-head-only-smoke-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "bc_v2_head_only_smoke_audit_pass_with_overfit_admit_repeat_design",
+    "milestone": "m647-bc-v2-head-only-smoke-audit",
+    "reason": "M647 classifies M646 as pass_with_overfit_caveat with best validation epoch 120 and weak wrong-history source separation so actor coupling remains blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "audit classifies M646 as pass fail or pass-with-caveat",
+    "audit identifies best validation epoch and final-vs-best regression",
+    "audit checks actor checksum and no actor checkpoint",
+    "audit chooses next blocker explicitly",
+    "research validation passes"
+  ],
+  "type": "gate"
+}

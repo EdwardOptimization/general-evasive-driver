@@ -62,23 +62,28 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m647-bc-v2-head-only-smoke-audit
+m648-bc-v2-head-only-repeat-design
 ```
 
-M647 should audit the M646 frozen-actor head-only smoke before any
-actor-coupling design. It must classify the positive learnability result,
-handle the validation curve's final-vs-best regression, and choose whether the
-next branch is an early-stopped repeat or an actor-coupling design.
+M648 should design an early-stopped multi-seed frozen-head repeat. The repeat
+must save the best validation head, preserve actor checksum gates, keep actor
+coupling blocked, and audit weak wrong-history source separation.
 
 ## Recent Evidence Line
 
+- M647 audits M646 as `pass_with_overfit_caveat`. The correct best validation
+  epoch is `120` with normal delta-MSE `0.000490287`; final epoch `300` is
+  `0.001331890`, or `2.72x` the best value. Source-level summaries show
+  wrong-history source separation remains weak, especially source `32`, whose
+  variant loss is lower than normal loss. M647 admits an early-stopped
+  multi-seed head-only repeat, not actor coupling.
 - M646 implements and runs the frozen-actor BC-v2 sequence-delta head-only
   smoke. It passes the pre-registered gate: train delta-MSE improves
   `97.28%`, source-heldout validation improves `84.50%`, the actor checksum is
   unchanged, only `sequence_delta_head.pt` is written, and no actor checkpoint
-  or promotion occurs. Caveat: validation is best around epoch `180`
-  (`0.000517118`) and worsens by epoch `300` (`0.001331890`), so M647 must
-  audit before actor coupling.
+  or promotion occurs. Caveat: validation is best at epoch `120`
+  (`0.000490287`) and worsens by epoch `300` (`0.001331890`), so M647 must audit
+  before actor coupling.
 - M645 designs the frozen-actor head-only smoke. The later implementation may
   train only `SequenceDeltaHead(features) -> delta_action_sequence`; all BC5660
   actor/recurrent/critic parameters remain frozen. The pass criterion is

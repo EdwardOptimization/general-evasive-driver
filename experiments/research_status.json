@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 655,
+        "completed": 656,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m646-bc-v2-head-only-smoke-implementation",
+        "task_id": "m647-bc-v2-head-only-smoke-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m646_bc_v2_head_only_smoke",
-        "command_log": "docs/m646-bc-v2-head-only-smoke-implementation.md"
+        "run_dir": "",
+        "command_log": "docs/m647-bc-v2-head-only-smoke-audit.md"
     },
     "next_task": {
-        "id": "m647-bc-v2-head-only-smoke-audit",
+        "id": "m648-bc-v2-head-only-repeat-design",
         "status": "pending",
-        "priority": 6420,
-        "kind": "gate",
-        "hypothesis": "M646 proves frozen-feature sequence-delta learnability, but the validation curve and source/target balance must be audited before allowing any actor-coupling design.",
-        "command": "see experiments/manifests/m647-bc-v2-head-only-smoke-audit.json",
+        "priority": 6430,
+        "kind": "infrastructure",
+        "hypothesis": "A best-validation multi-seed frozen-head repeat can preserve the M646 learnability result while controlling head-level overfit before any actor-coupling design.",
+        "command": "see experiments/manifests/m648-bc-v2-head-only-repeat-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit M646 learnability and validation overfit; no training PPO promotion or actor update"
+        "notes": "Pending: design early-stopped multi-seed frozen-head repeat; no training PPO promotion or actor update"
     },
-    "updated_at_utc": "20260524T194000Z"
+    "updated_at_utc": "20260524T195000Z"
 }

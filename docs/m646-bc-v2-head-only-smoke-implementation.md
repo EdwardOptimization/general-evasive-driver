@@ -101,10 +101,10 @@ source_weight_balanced: true
 ## Training Curve Note
 
 M646 passes the pre-registered head-only smoke gate, but the validation curve is
-not monotonic. Validation reaches a better value around epoch `180`
-(`0.000517118`) and then rises to the final `0.001331890`. The final value is
-still much better than the initial `0.008592790`, but this curve should be
-audited before designing any actor-coupling update.
+not monotonic. The exact logged validation minimum is epoch `120`
+(`0.000490287`) and the value then rises to the final `0.001331890`. The final
+value is still much better than the initial `0.008592790`, but this curve should
+be audited before designing any actor-coupling update.
 
 ## Interpretation
 

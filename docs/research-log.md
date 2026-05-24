@@ -11941,6 +11941,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - kind: `infrastructure`
 - run dir: `runs/m646_bc_v2_head_only_smoke`
 - artifact: `docs/m646-bc-v2-head-only-smoke-implementation.md`
-- result: M646 implements and runs the frozen-actor BC-v2 sequence-delta head-only smoke. The auxiliary head reduces train delta-MSE from `0.008720258` to `0.000237071` (`97.28%` improvement) and source-heldout validation delta-MSE from `0.008592790` to `0.001331890` (`84.50%` improvement). Actor checksum is unchanged, no actor checkpoint is written, `sequence_delta_head.pt` is written, and `passed_head_only_smoke` is true. The validation curve is non-monotonic: best observed validation near epoch `180` is `0.000517118`, then final epoch `300` regresses to `0.001331890`. This is a positive learnability result with an overfit caveat, so the next step is an audit rather than actor coupling.
+- result: M646 implements and runs the frozen-actor BC-v2 sequence-delta head-only smoke. The auxiliary head reduces train delta-MSE from `0.008720258` to `0.000237071` (`97.28%` improvement) and source-heldout validation delta-MSE from `0.008592790` to `0.001331890` (`84.50%` improvement). Actor checksum is unchanged, no actor checkpoint is written, `sequence_delta_head.pt` is written, and `passed_head_only_smoke` is true. The validation curve is non-monotonic: best observed validation at epoch `120` is `0.000490287`, then final epoch `300` regresses to `0.001331890`. This is a positive learnability result with an overfit caveat, so the next step is an audit rather than actor coupling.
 - decision: `bc_v2_head_only_smoke_pass_admit_audit`
 - next: `m647-bc-v2-head-only-smoke-audit`
+## 20260524T195000Z - m647-bc-v2-head-only-smoke-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m647-bc-v2-head-only-smoke-audit.md`
+- result: M647 audits M646 as `pass_with_overfit_caveat`. The head-only learnability result is real: train improves `97.28%`, source-heldout validation improves `84.50%`, and actor checksum remains unchanged. The caveat is validation overfit: best logged validation is epoch `120` at `0.000490287`, while final epoch `300` is `0.001331890`, `2.72x` worse than best. Source audit also shows weak wrong-history separation: source `32` has variant loss `0.001283` lower than normal loss `0.001540`, and source `30` has small prediction gap. M647 admits an early-stopped multi-seed head-only repeat, not actor coupling.
+- decision: `bc_v2_head_only_smoke_audit_pass_with_overfit_admit_repeat_design`
+- next: `m648-bc-v2-head-only-repeat-design`

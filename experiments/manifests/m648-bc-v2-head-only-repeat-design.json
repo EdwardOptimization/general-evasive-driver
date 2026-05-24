@@ -1,0 +1,84 @@
+{
+  "id": "m648-bc-v2-head-only-repeat-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m646_bc_v2_head_only_smoke/summary.json",
+      "runs/m646_bc_v2_head_only_smoke/validation_metrics.csv",
+      "docs/m647-bc-v2-head-only-smoke-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m647-bc-v2-head-only-smoke-audit.json"
+    ],
+    "parent_objective": [
+      "design an early-stopped multi-seed frozen-actor head-only repeat after M646 validation overfit"
+    ],
+    "derived_from": [
+      "m647-bc-v2-head-only-smoke-audit"
+    ],
+    "blocked_by": [
+      "m647-bc-v2-head-only-smoke-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m648-bc-v2-head-only-repeat-design.md",
+  "public_gates": [
+    "design multi-seed frozen-head repeat",
+    "save best validation head rather than final epoch only",
+    "preserve source-balanced masked losses",
+    "verify actor checksum unchanged for every seed",
+    "keep actor coupling and promotion blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in design milestone",
+    "do not update actor parameters in later repeat",
+    "do not promote checkpoint",
+    "do not treat source-heldout as private evidence",
+    "do not ignore wrong-history source weakness"
+  ],
+  "hypothesis": "A best-validation multi-seed frozen-head repeat can preserve the M646 learnability result while controlling head-level overfit before any actor-coupling design.",
+  "success_criteria": [
+    "design specifies seeds and early-stopping rule",
+    "design specifies best-validation head artifact",
+    "design preserves actor checksum gate",
+    "design includes wrong-history source audit",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design allows actor coupling",
+    "design omits best-validation selection",
+    "design omits multi-seed repeat",
+    "design treats head-only result as promotion evidence"
+  ],
+  "commands": [
+    {
+      "name": "design_doc",
+      "command": "write docs/m648-bc-v2-head-only-repeat-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m648-bc-v2-head-only-repeat-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m646_bc_v2_head_only_smoke/summary.json",
+    "docs/m647-bc-v2-head-only-smoke-audit.md"
+  ],
+  "decision_rule": "M648 passes as design only if it defines a best-validation multi-seed head-only repeat and keeps actor coupling blocked.",
+  "next_blocker": "m649-bc-v2-head-only-repeat-implementation"
+}
