@@ -2,7 +2,7 @@
   "id": "m598-bc-capability-repair-objective-smoke-implementation",
   "type": "gate",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -86,6 +86,6 @@
     "runs/m596_bc_capability_corpus_train_smoke/summary.json",
     "runs/m596_bc_capability_corpus_validation_smoke/summary.json"
   ],
-  "decision_rule": "M598 passes if the frozen-actor capability-head smoke meets the pre-registered objective thresholds while keeping actor parameters unchanged and making no driver-performance claim.",
+  "decision_rule": "M598 passes because the frozen-actor capability-head smoke meets the pre-registered objective thresholds while keeping actor parameters unchanged and making no driver-performance claim.",
   "next_blocker": "m599-bc-capability-head-smoke-audit"
 }

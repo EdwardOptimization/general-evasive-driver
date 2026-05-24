@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 606,
+        "completed": 607,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m597-bc-capability-repair-objective-smoke-design",
+        "task_id": "m598-bc-capability-repair-objective-smoke-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m597-bc-capability-repair-objective-smoke-design.md"
+        "run_dir": "runs/m598_bc_capability_repair_head_only_smoke",
+        "command_log": "docs/m598-bc-capability-repair-objective-smoke-implementation.md"
     },
     "next_task": {
-        "id": "m598-bc-capability-repair-objective-smoke-implementation",
+        "id": "m599-bc-capability-head-smoke-audit",
         "status": "pending",
-        "priority": 5930,
+        "priority": 5940,
         "kind": "gate",
-        "hypothesis": "The M596 capability corpus contains learnable future-response signal in BC5660 base hidden states, so a frozen-actor capability head should reduce regression and ranking losses without changing policy behavior.",
-        "command": "see experiments/manifests/m598-bc-capability-repair-objective-smoke-implementation.json",
+        "hypothesis": "Because M598 shows capability targets are learnable from frozen BC5660 hidden states, the next meaningful repair is likely a tightly anchored recurrent-hidden or fusion fine-tune, but this must be designed before training.",
+        "command": "see experiments/manifests/m599-bc-capability-head-smoke-audit.json",
         "success_artifact": "",
-        "notes": "Pending: implement and run frozen-actor capability-head smoke; no actor update, PPO, route eval, or promotion"
+        "notes": "Pending: audit head-only smoke and choose next no-oracle repair branch; no training, PPO, or promotion"
     },
-    "updated_at_utc": "20260524T113000Z"
+    "updated_at_utc": "20260524T114000Z"
 }

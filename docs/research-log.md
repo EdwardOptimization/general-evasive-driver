@@ -11503,3 +11503,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M597 designs the first capability repair objective smoke. The scope is frozen-actor and head-only: train `CapabilityHead` on `base_next_hidden_seq` from the M596 corpora, with regression weight `1.0`, ranking weight `0.25`, epochs `200`, learning rate `0.003`, and CPU full-batch training. Actor parameters must remain unchanged; action-anchor MSE must stay `<= 1e-8`; the smoke may only claim objective wiring, not driver performance or hidden self-ID.
 - decision: `bc_capability_repair_smoke_design_admit_head_only_implementation`
 - next: `m598-bc-capability-repair-objective-smoke-implementation`
+## 20260524T114000Z - m598-bc-capability-repair-objective-smoke-implementation
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m598_bc_capability_repair_head_only_smoke`
+- artifact: `docs/m598-bc-capability-repair-objective-smoke-implementation.md`
+- result: M598 implements and runs the frozen-actor head-only capability objective smoke. Regression loss drops from `0.764369` to `0.159261` on train and `1.265884` to `0.420221` on validation. Rank loss drops from `0.831669` to `0.563961` on train and `0.871387` to `0.726029` on validation. Action-anchor MSE is `0.0` on both splits, actor parameters are unchanged, labels do not enter actor inputs, and no PPO or promotion occurs.
+- decision: `bc_capability_repair_head_only_smoke_pass_admit_audit`
+- next: `m599-bc-capability-head-smoke-audit`

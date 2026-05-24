@@ -1,0 +1,82 @@
+{
+  "id": "m599-bc-capability-head-smoke-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m598_bc_capability_repair_head_only_smoke/summary.json",
+      "runs/m596_bc_capability_corpus_train_smoke/summary.json",
+      "runs/m596_bc_capability_corpus_validation_smoke/summary.json"
+    ],
+    "parent_config": [
+      "docs/m597-bc-capability-repair-objective-smoke-design.md"
+    ],
+    "parent_objective": [
+      "audit head-only capability smoke before actor or hidden fine-tuning"
+    ],
+    "derived_from": [
+      "m598-bc-capability-repair-objective-smoke-implementation"
+    ],
+    "blocked_by": [
+      "m598-bc-capability-repair-objective-smoke-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m599-bc-capability-head-smoke-audit.md",
+  "public_gates": [
+    "audit what M598 proves and does not prove",
+    "decide whether recurrent hidden fine-tuning is admitted",
+    "pre-register next validation gates before actor updates",
+    "keep promotion and PPO blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in audit milestone",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not claim driver improvement from head-only objective loss",
+    "do not skip action-retention and M591-style hidden-action gates before actor updates"
+  ],
+  "hypothesis": "Because M598 shows capability targets are learnable from frozen BC5660 hidden states, the next meaningful repair is likely a tightly anchored recurrent-hidden or fusion fine-tune, but this must be designed before training.",
+  "success_criteria": [
+    "audit clearly separates data/objective signal from driver improvement",
+    "audit chooses the next branch and pre-registers blocker",
+    "audit keeps PPO promotion and route claims blocked",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "audit treats head-only loss improvement as driver improvement",
+    "audit starts actor training",
+    "audit skips behavior retention gates",
+    "audit promotes a checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "Write M598 head-only smoke audit and choose next branch; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m599-bc-capability-head-smoke-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m598-bc-capability-repair-objective-smoke-implementation.md",
+    "runs/m598_bc_capability_repair_head_only_smoke/summary.json"
+  ],
+  "decision_rule": "M599 passes if it audits the head-only smoke without overclaiming and selects the next no-oracle repair branch before actor training.",
+  "next_blocker": "m600-bc-capability-guided-hidden-finetune-design"
+}

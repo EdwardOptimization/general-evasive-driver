@@ -61,16 +61,21 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m598-bc-capability-repair-objective-smoke-implementation
+m599-bc-capability-head-smoke-audit
 ```
 
-M598 should implement and run the frozen-actor capability-head objective smoke
-designed by M597. The current evidence supports deployable current-response
-dependence and source-diverse pair availability, but M587-M597 do not support
-accumulated hidden-history causality. Promotion and PPO remain blocked.
+M599 should audit the frozen-actor capability-head smoke before any actor or
+hidden fine-tuning. The current evidence supports deployable current-response
+dependence and source-diverse pair availability, but M587-M598 do not yet
+support accumulated hidden-history causality. Promotion and PPO remain blocked.
 
 ## Recent Evidence Line
 
+- M598 implements and runs the frozen-actor capability-head smoke. Train/val
+  regression losses drop `79%` / `67%`, train rank loss drops `32%`, validation
+  rank loss also decreases, action-anchor MSE is `0`, actor parameters are
+  unchanged, and no checkpoint is promoted. This proves data/objective signal,
+  not driver improvement.
 - M597 designs the first capability repair objective smoke as a frozen-actor,
   head-only test. It trains only `CapabilityHead` on `base_next_hidden_seq` and
   M596 capability targets, uses regression plus pair ranking losses, and treats

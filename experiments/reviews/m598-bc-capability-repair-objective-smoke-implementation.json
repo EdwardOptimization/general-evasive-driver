@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M598 passes frozen-actor head-only objective smoke: train/validation regression drops 79/67 percent rank losses drop and actor/action anchors remain unchanged",
+  "failure_criteria": [
+    "actor parameters change",
+    "capability labels enter actor inputs",
+    "loss metrics do not meet smoke thresholds",
+    "checkpoint is promoted or PPO is run"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not update actor parameters",
+    "do not run PPO",
+    "do not run route evaluation",
+    "do not promote checkpoint",
+    "do not feed capability labels to actor inputs",
+    "do not claim driver improvement from head-only loss"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T075011Z",
+  "hypothesis": "The M596 capability corpus contains learnable future-response signal in BC5660 base hidden states, so a frozen-actor capability head should reduce regression and ranking losses without changing policy behavior.",
+  "lineage": {
+    "blocked_by": [
+      "m597-bc-capability-repair-objective-smoke-design"
+    ],
+    "derived_from": [
+      "m597-bc-capability-repair-objective-smoke-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "docs/m597-bc-capability-repair-objective-smoke-design.md"
+    ],
+    "parent_dataset": [
+      "runs/m596_bc_capability_corpus_train_smoke/capability_corpus.npz",
+      "runs/m596_bc_capability_corpus_validation_smoke/capability_corpus.npz",
+      "runs/m596_bc_capability_corpus_train_smoke/pairs.csv",
+      "runs/m596_bc_capability_corpus_validation_smoke/pairs.csv"
+    ],
+    "parent_objective": [
+      "implement and run frozen-actor head-only capability objective smoke"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m598-bc-capability-repair-objective-smoke-implementation",
+  "next_blocker": "m599-bc-capability-head-smoke-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "bc_capability_repair_head_only_smoke_pass_admit_audit",
+  "public_gates": [
+    "implement head-only smoke runner",
+    "train capability head on frozen BC5660 hidden state",
+    "write train and validation metrics",
+    "verify actor parameters are unchanged and output is unpromoted"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m598_bc_capability_repair_head_only_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "bc_capability_repair_head_only_smoke_pass_admit_audit",
+    "milestone": "m598-bc-capability-repair-objective-smoke-implementation",
+    "reason": "M598 passes frozen-actor head-only objective smoke: train/validation regression drops 79/67 percent rank losses drop and actor/action anchors remain unchanged",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runner writes capability_head.pt train_metrics.csv validation_metrics.csv and summary.json",
+    "train regression loss drops at least 30 percent",
+    "validation regression loss drops at least 10 percent",
+    "train ranking loss drops at least 10 percent",
+    "validation ranking loss does not increase more than 10 percent",
+    "actor_parameters_changed is false and action-anchor MSE is <= 1e-8"
+  ],
+  "type": "gate"
+}
