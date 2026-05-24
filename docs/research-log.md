@@ -12406,3 +12406,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M708 audits M707 as `metric_artifact` plus `scenario_sampling_failure`. M707 broadens current-model extreme coverage, but wrong-history action gaps remain below threshold on all `2048` pairs (`max=0.0132044` versus threshold `0.015`) and wrong-history margin gaps are near zero (`max=0.00034936`). Reset-hidden action gaps are large on most rows and reset margin gaps pass threshold on `11` rows, so reset-only evidence remains real but not source-positive wrong-history self-ID evidence.
 - decision: `cross_fault_reset_only_audit_continue_hidden_action_localization`
 - next: `m709-cross-fault-hidden-action-gap-audit-design`
+
+## 20260524T191500Z - m709-cross-fault-hidden-action-gap-audit-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m709-cross-fault-hidden-action-gap-audit-design.md`
+- result: M709 designs a no-training localization audit for M707/M708. The design measures raw hidden, next-hidden, fused feature, action, and margin gaps for normal-vs-wrong-history and normal-vs-reset-hidden variants, with front/steering reset-only rows as diagnostics only. It preserves actor inputs and blocks source export, actor update, PPO, and promotion unless a future implementation produces `history_incompatibility_positive`.
+- decision: `hidden_action_gap_audit_design_admit_m710`
+- next: `m710-cross-fault-hidden-action-gap-audit-implementation`

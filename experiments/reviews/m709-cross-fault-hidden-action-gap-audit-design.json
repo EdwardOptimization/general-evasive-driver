@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M709 designs a no-training cross-fault hidden/action localization audit measuring raw hidden next-hidden fused feature action and margin gaps while blocking source export PPO and promotion",
+  "failure_criteria": [
+    "design treats reset-only rows as source-positive",
+    "design relies on hidden fault labels as actor inputs",
+    "design omits fusion/action localization",
+    "design admits training before localization",
+    "design omits model-fidelity limits"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add fault labels to actor observations",
+    "do not treat raw-hidden separability alone as closed-loop proof",
+    "do not count reset-only rows as source-positive"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T185746Z",
+  "hypothesis": "A no-training hidden/action separability audit can localize why M707 cross-fault wrong histories produce reset-only but not wrong-history-critical evidence.",
+  "lineage": {
+    "blocked_by": [
+      "m708-cross-fault-wrong-history-scenario-audit"
+    ],
+    "derived_from": [
+      "m708-cross-fault-wrong-history-scenario-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m708-cross-fault-wrong-history-scenario-audit.json",
+      "configs/cross_fault_hidden_condition_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m708-cross-fault-wrong-history-scenario-audit.md",
+      "runs/m707_cross_fault_wrong_history_scenario/summary.json",
+      "runs/m707_cross_fault_wrong_history_scenario/matched_cross_fault_pairs.csv",
+      "runs/m707_cross_fault_wrong_history_scenario/reset_only_rows.csv"
+    ],
+    "parent_objective": [
+      "design no-training hidden-action separability audit for cross-fault wrong histories"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m709-cross-fault-hidden-action-gap-audit-design",
+  "next_blocker": "m710-cross-fault-hidden-action-gap-audit-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "hidden_action_gap_audit_design_admit_m710",
+  "public_gates": [
+    "audit design separates raw hidden next-hidden fusion feature action and outcome gaps",
+    "audit design focuses on front/steering reset-only sentinels without using reset-only rows as source-positive",
+    "audit design keeps hidden fault labels as logging only",
+    "audit design does not train or mutate actor",
+    "audit design blocks PPO and promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m709-cross-fault-hidden-action-gap-audit-design.md",
+    "clearance_margin_mean": "",
+    "decision": "hidden_action_gap_audit_design_admit_m710",
+    "milestone": "m709-cross-fault-hidden-action-gap-audit-design",
+    "reason": "M709 designs a no-training cross-fault hidden/action localization audit measuring raw hidden next-hidden fused feature action and margin gaps while blocking source export PPO and promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "raw hidden, next-hidden, fusion feature, action, and margin gap metrics are specified",
+    "front/steering reset-only sentinels are identified as focused cases",
+    "cross-fault broad rows remain included as distribution context",
+    "actor behavior and input contract are unchanged",
+    "no objective update actor update PPO or promotion is admitted"
+  ],
+  "type": "infrastructure"
+}

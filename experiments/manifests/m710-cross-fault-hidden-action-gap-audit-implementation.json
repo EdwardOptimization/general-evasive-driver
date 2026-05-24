@@ -1,0 +1,122 @@
+{
+  "id": "m710-cross-fault-hidden-action-gap-audit-implementation",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m709-cross-fault-hidden-action-gap-audit-design.md",
+      "docs/m708-cross-fault-wrong-history-scenario-audit.md",
+      "runs/m707_cross_fault_wrong_history_scenario/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m709-cross-fault-hidden-action-gap-audit-design.json",
+      "configs/cross_fault_hidden_condition_scenarios.json"
+    ],
+    "parent_objective": [
+      "implement no-training hidden-action separability audit for cross-fault wrong histories"
+    ],
+    "derived_from": [
+      "m709-cross-fault-hidden-action-gap-audit-design"
+    ],
+    "blocked_by": [
+      "m709-cross-fault-hidden-action-gap-audit-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m710-cross-fault-hidden-action-gap-audit-implementation.md",
+  "public_gates": [
+    "summary.json is written",
+    "row_hidden_action_gaps.csv is written",
+    "variant_summary.csv is written",
+    "fault_family_pair_variant_summary.csv is written",
+    "sentinel_summary.csv is written",
+    "raw hidden next-hidden fused feature action and margin gaps are separated",
+    "actor checksum unchanged",
+    "no objective actor update PPO or promotion occurs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels to actor observations",
+    "do not treat reset-only rows as source-positive",
+    "do not relax thresholds after seeing results",
+    "do not change actor input contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "extreme_hidden_condition_scenario_generation",
+    "evidence_axis": "G_history_incompatibility_localization: implement hidden/action gap audit after M707 wrong histories were action-indistinguishable",
+    "evidence_increment": "runs the no-training diagnostic that localizes wrong-history signal at raw hidden next-hidden fusion action and margin levels",
+    "claim_scope": "diagnostic implementation and result only, not source export, training, PPO, or promotion",
+    "stop_condition": [
+      "stop before source-corpus design unless result_class is history_incompatibility_positive",
+      "stop and audit if result_class is reset_disruption_only or fusion_washout",
+      "stop and audit if actor checksum changes"
+    ],
+    "fallback_plan": [
+      "if raw_hidden_collapse, design stronger warm-up or active probing",
+      "if fusion_washout or action_washout, design architecture/objective audit",
+      "if outcome_insensitive, design terminal-boundary refinement",
+      "if reset_disruption_only, audit whether the branch should pivot away from current-model scenario mining"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M709 design admits M710 no-training localization implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Cross-fault wrong histories either collapse before the actor action boundary or expose a specific hidden/action washout point that explains M707's reset-only result.",
+  "success_criteria": [
+    "summary.json is written",
+    "row_hidden_action_gaps.csv is written",
+    "variant_summary.csv is written",
+    "fault family pair variant summaries are written",
+    "sentinel summaries are written",
+    "result class is assigned",
+    "actor checksum unchanged",
+    "no objective actor update PPO or promotion"
+  ],
+  "failure_criteria": [
+    "implementation mutates or trains actor",
+    "implementation adds hidden fault labels to actor input",
+    "implementation counts reset-only rows as source-positive",
+    "implementation omits raw hidden or fused feature gap metrics",
+    "implementation admits objective design without source-positive audit"
+  ],
+  "commands": [
+    {
+      "name": "generate",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.cross_fault_hidden_action_gap_audit --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --config configs/cross_fault_hidden_condition_scenarios.json --seed-start 41000 --seed-count 512 --device cpu --run-dir runs/m710_cross_fault_hidden_action_gap_audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m710_cross_fault_hidden_action_gap_audit/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m710_cross_fault_hidden_action_gap_audit/row_hidden_action_gaps.csv",
+      "type": "metrics"
+    },
+    {
+      "path": "docs/m710-cross-fault-hidden-action-gap-audit-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m709-cross-fault-hidden-action-gap-audit-design.md",
+    "runs/m707_cross_fault_wrong_history_scenario/summary.json"
+  ],
+  "decision_rule": "M710 can only admit source-corpus design if it produces history_incompatibility_positive; otherwise it must be audited before new training or scenario-mining branches.",
+  "next_blocker": "m711-cross-fault-hidden-action-gap-audit"
+}
