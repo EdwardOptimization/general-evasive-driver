@@ -61,13 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m537-full-public-natural-surface-eval
+m538-natural-surface-paired-advantage-audit
 ```
 
-M537 should run the full public frozen-source natural-surface diagnostic on all
-nine matched checkpoints across M497 short/warmup and M487 near/late splits. It
-must report all-row metrics and M526 event-subset overlays separately, without
-promotion or private-holdout claims.
+M538 should audit the M537 L3 advantage with paired source-key deltas,
+seed/surface dominance checks, confidence intervals, and a separate public M526
+event overlay. It must not promote a checkpoint or turn public diagnostic rows
+into private-holdout evidence.
 
 ## Recent Evidence Line
 
@@ -118,14 +118,23 @@ promotion or private-holdout claims.
   rows total with one diagnosed short-reveal source-tail miss. L0/L2/L3 tied on
   success/completion/collision, while L3 had the best mean clearance margin.
   This is still route evidence only.
+- M537 ran the full public frozen-source natural-surface matrix across M497
+  short/warmup and M487 near/late splits. It produced `20196` valid outcome rows
+  and no metadata or actor-contract failures. L3 leads aggregate success
+  (`0.851901`), collision rate (`0.148099`), and mean clearance margin
+  (`1.654668`) versus both L0 and L2, and is best on every per-surface success
+  and margin table. The public M526 event overlay also favors L3, but this is
+  still public diagnostic evidence rather than private generalization or
+  checkpoint promotion.
 
 ## Near-Term Rule
 
-Do not treat reset-hidden diagnostics or M528 smoke return as trained baseline
-evidence. The next branch must first establish repeatable baseline plumbing,
-then move to matched short-train comparisons with shared recipes. Any later
-promotion requires proof retention, generalization retention, behavior
-retention, no contract violation, and clear lineage.
+Do not treat reset-hidden diagnostics, M528 smoke return, or M537 public
+diagnostics as private generalization evidence. The next branch must verify the
+M537 L3 advantage with paired source-key comparisons before fresh holdout mining
+or longer matched training. Any later promotion requires proof retention,
+generalization retention, behavior retention, no contract violation, and clear
+lineage.
 
 ## Sensor Profile Policy
 

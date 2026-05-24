@@ -2,7 +2,7 @@
   "id": "m537-full-public-natural-surface-eval",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -46,10 +46,10 @@
   },
   "review_artifact": "docs/reviews/m537-full-public-natural-surface-eval.md",
   "public_gates": [
-    "run all nine matched checkpoints on four public natural surface splits",
-    "preserve M497 and M487 provenance",
-    "report M526 event subset separately from all-row metrics",
-    "do not promote checkpoint or claim private-holdout evidence"
+    "ran all nine matched checkpoints on four public natural surface splits",
+    "preserved M497 and M487 provenance",
+    "reported M526 event subset separately from all-row metrics",
+    "did not promote checkpoint or claim private-holdout evidence"
   ],
   "private_holdout_policy": "not_used",
   "forbidden_shortcuts": [
@@ -94,6 +94,26 @@
     {
       "path": "docs/m537-full-public-natural-surface-eval.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m537_full_public_eval_m497_short_reveal/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m537_full_public_eval_m497_warmup_capability/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m537_full_public_eval_m487_near_threshold/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m537_full_public_eval_m487_late_high_energy/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m537_full_public_natural_surface_eval_aggregate/summary.json",
+      "type": "aggregate_summary"
     }
   ],
   "baseline_checkpoints": [
@@ -102,6 +122,6 @@
   "baseline_artifacts": [
     "docs/m536-frozen-source-natural-surface-matrix-smoke.md"
   ],
-  "decision_rule": "M537 is a public diagnostic proof gate. Passing it admits event-subset auditing and possibly fresh holdout mining; it does not promote a checkpoint.",
-  "next_blocker": "pending M537 full public natural-surface eval"
+  "decision_rule": "M537 is a public diagnostic proof gate. The full matrix passes and admits paired advantage auditing; it does not promote a checkpoint.",
+  "next_blocker": "m538-natural-surface-paired-advantage-audit"
 }

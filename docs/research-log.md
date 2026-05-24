@@ -10954,3 +10954,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M536 runs all nine matched short-train checkpoints on small M497 short-reveal and warmup natural subsets with tail offsets `0,2`. Short-reveal produces `135` outcome rows and `1` diagnosed `missing_source_tail_snapshot`; warmup produces `144` outcome rows and `0` invalid rows. Aggregate smoke metrics tie L0/L2/L3 on success/completion/collision, while L3 has the best mean clearance margin (`1.884178` versus L2 `1.757335` and L0 `1.754461`). This is matrix route evidence only.
 - decision: `matrix_smoke_pass_admit_m537_full_public_natural_eval`
 - next: `m537-full-public-natural-surface-eval`
+## 20260524T064000Z - m537-full-public-natural-surface-eval
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m537_full_public_eval_m497_short_reveal`, `runs/m537_full_public_eval_m497_warmup_capability`, `runs/m537_full_public_eval_m487_near_threshold`, `runs/m537_full_public_eval_m487_late_high_energy`, `runs/m537_full_public_natural_surface_eval_aggregate`
+- artifact: `docs/m537-full-public-natural-surface-eval.md`
+- result: M537 runs the full public frozen-source natural-surface matrix on all four M497/M487 splits and all nine matched short-train checkpoints. It produces `20196` valid outcome rows with diagnosed source-tail misses only. L3 leads aggregate success (`0.851901` vs L2 `0.833482` and L0 `0.831551`), collision rate (`0.148099` vs L2 `0.166518` and L0 `0.168449`), and mean clearance margin (`1.654668` vs L2 `1.540897` and L0 `1.510367`). L3 is also best on every per-surface success and margin table, and the public M526 event overlay remains favorable to L3 (`1.000000` event success and `3.207369` mean margin).
+- decision: `full_public_natural_eval_pass_admit_m538_paired_advantage_audit`
+- next: `m538-natural-surface-paired-advantage-audit`

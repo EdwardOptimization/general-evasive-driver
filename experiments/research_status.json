@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 545,
+        "completed": 546,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m536-frozen-source-natural-surface-matrix-smoke",
+        "task_id": "m537-full-public-natural-surface-eval",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m536_frozen_source_matrix_smoke_warmup_capability",
-        "command_log": "docs/m536-frozen-source-natural-surface-matrix-smoke.md"
+        "run_dir": "runs/m537_full_public_natural_surface_eval_aggregate",
+        "command_log": "docs/m537-full-public-natural-surface-eval.md"
     },
     "next_task": {
-        "id": "m537-full-public-natural-surface-eval",
+        "id": "m538-natural-surface-paired-advantage-audit",
         "status": "pending",
-        "priority": 5320,
+        "priority": 5330,
         "kind": "gate",
-        "hypothesis": "The frozen source evaluator can run the full public natural diagnostic matrix and reveal whether trained L3 or L2 baselines retain a natural-surface advantage beyond route smoke metrics.",
-        "command": "see experiments/manifests/m537-full-public-natural-surface-eval.json",
+        "hypothesis": "The L3 advantage observed in M537 remains positive under paired source-key comparisons and is not dominated by one seed, one surface, or the M526 event subset.",
+        "command": "see experiments/manifests/m538-natural-surface-paired-advantage-audit.json",
         "success_artifact": "",
-        "notes": "Pending: execute four public natural surface splits and report all-row plus M526 event-subset diagnostics"
+        "notes": "Pending: compute paired deltas confidence intervals and M526 event overlay without promotion"
     },
-    "updated_at_utc": "20260524T063000Z"
+    "updated_at_utc": "20260524T064000Z"
 }
