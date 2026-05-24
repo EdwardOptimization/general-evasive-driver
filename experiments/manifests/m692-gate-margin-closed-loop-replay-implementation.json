@@ -1,0 +1,123 @@
+{
+  "id": "m692-gate-margin-closed-loop-replay-implementation",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m689_gate_margin_response_amplification/summary.json",
+      "runs/m689_gate_margin_response_amplification/seed_view_summary.csv",
+      "runs/m671_response_amplification_shadow/shadow_corpus.npz",
+      "runs/m671_response_amplification_shadow/shadow_metadata.csv",
+      "docs/m691-gate-margin-closed-loop-replay-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m691-gate-margin-closed-loop-replay-design.json"
+    ],
+    "parent_objective": [
+      "implement no-training closed-loop replay admission for M689 residual heads"
+    ],
+    "derived_from": [
+      "m691-gate-margin-closed-loop-replay-design"
+    ],
+    "blocked_by": [
+      "m691-gate-margin-closed-loop-replay-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m692-gate-margin-closed-loop-replay-implementation.md",
+  "public_gates": [
+    "replay implementation reconstructs source-heldout rows or reports reconstruction failure",
+    "base and residual-corrected variants are compared",
+    "normal-history retention metrics are reported",
+    "wrong-history or boundary-risk utility metrics are reported",
+    "actor checksum remains unchanged",
+    "no base actor checkpoint is written",
+    "no training or PPO is used",
+    "no checkpoint is promoted"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train the actor",
+    "do not train the residual head",
+    "do not run PPO",
+    "do not write a base actor checkpoint",
+    "do not promote M689 residual heads",
+    "do not change actor observation inputs",
+    "do not replace replay evidence with exact output metrics"
+  ],
+  "workflow_synthesis": {
+    "branch": "response_amplification_actor_coupling",
+    "evidence_axis": "G_rollout: residual-head action correction must show trajectory-level utility before actor update",
+    "evidence_increment": "implements the no-training closed-loop replay admission gate designed in M691",
+    "claim_scope": "replay admission result only, not actor update, PPO, or promotion",
+    "stop_condition": [
+      "stop this branch if replay rows cannot be reconstructed from current artifacts",
+      "stop before actor update or PPO unless replay admission is replay_positive",
+      "stop or synthesize if replay is neutral after normal retention holds"
+    ],
+    "fallback_plan": [
+      "if reconstruction fails, design an offline trajectory-consistency audit",
+      "if normal regression occurs, return to first-action trust-region residual design",
+      "if replay is neutral, run branch synthesis before another residual-head objective"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "after M692 audit if replay is neutral or before any actor-update design",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M689 residual-head corrections can be replayed in short closed-loop continuations without normal-history regression and with measurable wrong-history or boundary-risk utility.",
+  "success_criteria": [
+    "summary.json is written",
+    "replay_rows.csv is written",
+    "normal retention metrics are finite",
+    "wrong-history or boundary-risk utility metrics are finite",
+    "actor checksum unchanged",
+    "no base actor checkpoint written",
+    "no training or PPO used",
+    "result is classified as replay_positive, replay_neutral, normal_regression, or surface_reconstruction_failure"
+  ],
+  "failure_criteria": [
+    "implementation trains actor or residual head",
+    "implementation writes a base actor checkpoint",
+    "implementation changes actor observation inputs",
+    "implementation omits normal retention metrics",
+    "implementation omits wrong-history or boundary-risk utility metrics",
+    "implementation hides reconstruction failures"
+  ],
+  "commands": [
+    {
+      "name": "replay_admission",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.gate_margin_replay_admission --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --shadow-corpus runs/m671_response_amplification_shadow/shadow_corpus.npz --metadata runs/m671_response_amplification_shadow/shadow_metadata.csv --residual-head runs/m689_gate_margin_response_amplification/seed_6890/residual_sequence_head.pt --residual-head runs/m689_gate_margin_response_amplification/seed_6891/residual_sequence_head.pt --residual-head runs/m689_gate_margin_response_amplification/seed_6892/residual_sequence_head.pt --alpha 1.0 --surface-config fresh=configs/ppo_m541_matched_l3_variance_4096.json --surface-config ood=configs/eval_m574_moderate_ood_l3.json --max-source-heldout-rows 120 --max-continuation-steps 40 --max-first-action-l2 0.006 --min-wrong-risk-improvement 0.01 --max-normal-margin-regression 0.005 --device cpu --run-dir runs/m692_gate_margin_closed_loop_replay"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m692_gate_margin_closed_loop_replay/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m692_gate_margin_closed_loop_replay/replay_rows.csv",
+      "type": "metrics"
+    },
+    {
+      "path": "docs/m692-gate-margin-closed-loop-replay-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m689_gate_margin_response_amplification/summary.json",
+    "docs/m691-gate-margin-closed-loop-replay-design.md"
+  ],
+  "decision_rule": "M692 passes as implementation if it writes replay artifacts without training or promotion; only replay_positive can admit a later actor-update design.",
+  "next_blocker": "m693-gate-margin-closed-loop-replay-audit"
+}
