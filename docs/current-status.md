@@ -62,16 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m652-bc-v2-wrong-history-contrast-implementation
+m653-bc-v2-wrong-history-contrast-audit
 ```
 
-M652 should implement the frozen-head wrong-history contrast objective. It must
-run seeds `6510`, `6511`, and `6512`, preserve normal sequence-delta learning,
-create wrong-history prediction gaps on sources `30` and `32`, and keep actor
-coupling blocked.
+M653 should audit the failed M652 wrong-history contrast smoke. It must separate
+normal-retention success from wrong-history gap failure, confirm actor checksum
+remained unchanged, and choose the next blocker without admitting actor
+coupling.
 
 ## Recent Evidence Line
 
+- M652 implements and runs the frozen-head wrong-history contrast smoke. It is
+  a clean negative result: `0/3` seeds pass. Normal validation MSE remains good
+  (`0.000491`, `0.000508`, `0.000509`), but wrong-history gaps stay near zero:
+  validation gap MSE is negative for all seeds and validation gap L2 is only
+  `0.000624-0.000748`, far below the `0.005` threshold. Actor checksum is
+  unchanged and no actor checkpoint is written.
 - M651 designs the frozen-head wrong-history contrast objective. It keeps actor
   parameters frozen and trains only the auxiliary head. The design uses normal
   target loss plus a wrong-history margin loss on `wrong_matched_history` rows,

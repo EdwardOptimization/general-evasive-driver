@@ -11989,3 +11989,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M651 designs a frozen-head wrong-history contrast objective. The objective preserves normal source-balanced sequence-delta learning while adding a wrong-history rejection margin for `wrong_matched_history` rows only. Delayed-history rows remain reporting-only. M652 should run seeds `6510`, `6511`, and `6512`, keep the actor frozen, use `margin_mse=0.00025`, `contrast_coef=1.0`, and `wrong_zero_coef=0.05`, and pass only if at least `2/3` seeds preserve normal validation MSE `<= 0.0010` while producing wrong-history train/heldout MSE and L2 gaps. Actor coupling and promotion remain blocked.
 - decision: `bc_v2_wrong_history_contrast_design_admit_m652`
 - next: `m652-bc-v2-wrong-history-contrast-implementation`
+## 20260524T204000Z - m652-bc-v2-wrong-history-contrast-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m652_bc_v2_wrong_history_contrast`
+- artifact: `docs/m652-bc-v2-wrong-history-contrast-implementation.md`
+- result: M652 implements and runs the frozen-head wrong-history contrast smoke with seeds `6510`, `6511`, and `6512`. The result is negative: `0/3` seeds pass. Normal target retention remains good, with validation MSE `0.000491`, `0.000508`, and `0.000509`, all below the `0.0010` threshold. Wrong-history gaps fail by a wide margin: train gap MSE is only `3e-6` to `5e-6`, validation gap MSE is negative for all seeds, train gap L2 is `0.000700-0.000940`, and validation gap L2 is `0.000624-0.000748`. Actor checksum is unchanged, best/final head checkpoints are written, no actor checkpoint is written, and actor coupling remains blocked.
+- decision: `bc_v2_wrong_history_contrast_negative_admit_feature_separability_audit`
+- next: `m653-bc-v2-wrong-history-contrast-audit`

@@ -1,0 +1,85 @@
+{
+  "id": "m653-bc-v2-wrong-history-contrast-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m652_bc_v2_wrong_history_contrast/summary.json",
+      "runs/m652_bc_v2_wrong_history_contrast/seed_summary.csv",
+      "runs/m652_bc_v2_wrong_history_contrast/history_variant_summary.csv",
+      "docs/m652-bc-v2-wrong-history-contrast-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m652-bc-v2-wrong-history-contrast-implementation.json"
+    ],
+    "parent_objective": [
+      "audit failed frozen-head wrong-history contrast smoke"
+    ],
+    "derived_from": [
+      "m652-bc-v2-wrong-history-contrast-implementation"
+    ],
+    "blocked_by": [
+      "m652-bc-v2-wrong-history-contrast-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m653-bc-v2-wrong-history-contrast-audit.md",
+  "public_gates": [
+    "classify the M652 negative result",
+    "separate normal-retention success from wrong-history gap failure",
+    "inspect whether feature separability or objective strength is the likely blocker",
+    "confirm actor checksum remained unchanged",
+    "choose next blocker explicitly"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not increase contrast coefficients before audit",
+    "do not claim self-ID separation from normal target retention"
+  ],
+  "hypothesis": "M652 failed because wrong-history recurrent features remain nearly inseparable under the frozen BC5660 representation, not because normal sequence-delta learning is unavailable.",
+  "success_criteria": [
+    "audit records 0/3 contrast pass",
+    "audit records normal validation retention",
+    "audit records wrong-history gap failure",
+    "audit chooses feature separability audit or revised objective branch",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "audit ignores wrong-history gap failure",
+    "audit treats normal retention as self-ID proof",
+    "audit admits actor coupling",
+    "audit omits actor checksum and no actor checkpoint checks"
+  ],
+  "commands": [
+    {
+      "name": "audit_doc",
+      "command": "write docs/m653-bc-v2-wrong-history-contrast-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m653-bc-v2-wrong-history-contrast-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m652_bc_v2_wrong_history_contrast/summary.json",
+    "runs/m652_bc_v2_wrong_history_contrast/history_variant_summary.csv"
+  ],
+  "decision_rule": "M653 passes as audit only if it classifies the wrong-history contrast failure without weakening actor-input or self-ID evidence standards.",
+  "next_blocker": "m654-wrong-history-feature-separability-audit-design"
+}

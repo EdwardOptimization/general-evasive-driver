@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 660,
+        "completed": 661,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m651-bc-v2-wrong-history-contrast-design",
+        "task_id": "m652-bc-v2-wrong-history-contrast-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m651-bc-v2-wrong-history-contrast-design.md"
+        "run_dir": "runs/m652_bc_v2_wrong_history_contrast",
+        "command_log": "docs/m652-bc-v2-wrong-history-contrast-implementation.md"
     },
     "next_task": {
-        "id": "m652-bc-v2-wrong-history-contrast-implementation",
+        "id": "m653-bc-v2-wrong-history-contrast-audit",
         "status": "pending",
-        "priority": 6470,
-        "kind": "infrastructure",
-        "hypothesis": "Adding a wrong-history rejection loss can preserve normal sequence-delta learning while increasing wrong-history prediction gaps on sources 30 and 32.",
-        "command": "see experiments/manifests/m652-bc-v2-wrong-history-contrast-implementation.json",
+        "priority": 6480,
+        "kind": "gate",
+        "hypothesis": "M652 failed because wrong-history recurrent features remain nearly inseparable under the frozen BC5660 representation, not because normal sequence-delta learning is unavailable.",
+        "command": "see experiments/manifests/m653-bc-v2-wrong-history-contrast-audit.json",
         "success_artifact": "",
-        "notes": "Pending: implement frozen-head wrong-history contrast smoke; no PPO promotion or actor update"
+        "notes": "Pending: audit M652 negative contrast result; no training PPO promotion or actor update"
     },
-    "updated_at_utc": "20260524T203000Z"
+    "updated_at_utc": "20260524T204000Z"
 }

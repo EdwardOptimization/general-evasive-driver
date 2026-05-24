@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M652 preserves normal validation loss but 0 of 3 seeds pass wrong-history gap thresholds so actor coupling remains blocked",
+  "failure_criteria": [
+    "fewer than two seeds pass",
+    "normal validation loss regresses beyond threshold",
+    "wrong-history gaps remain near zero",
+    "actor checksum changes",
+    "actor checkpoint is written"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not update actor parameters",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not include delayed-history rows in wrong-history rejection without audit",
+    "do not use metadata as actor input"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T132250Z",
+  "hypothesis": "Adding a wrong-history rejection loss can preserve normal sequence-delta learning while increasing wrong-history prediction gaps on sources 30 and 32.",
+  "lineage": {
+    "blocked_by": [
+      "m651-bc-v2-wrong-history-contrast-design"
+    ],
+    "derived_from": [
+      "m651-bc-v2-wrong-history-contrast-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m651-bc-v2-wrong-history-contrast-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m641_source_diverse_sequence_target_corpus/balanced_sequence_target_corpus.npz",
+      "runs/m649_bc_v2_head_only_repeat/wrong_history_source_summary.csv",
+      "docs/m651-bc-v2-wrong-history-contrast-design.md"
+    ],
+    "parent_objective": [
+      "implement frozen-head wrong-history contrast smoke"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m652-bc-v2-wrong-history-contrast-implementation",
+  "next_blocker": "m653-bc-v2-wrong-history-contrast-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "bc_v2_wrong_history_contrast_negative_admit_feature_separability_audit",
+  "public_gates": [
+    "train only frozen-head contrast objective",
+    "run seeds 6510 6511 6512",
+    "report normal target retention",
+    "report wrong-history train and source-heldout gaps",
+    "verify actor checksum unchanged",
+    "write no actor checkpoint"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m652_bc_v2_wrong_history_contrast/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "bc_v2_wrong_history_contrast_negative_admit_feature_separability_audit",
+    "milestone": "m652-bc-v2-wrong-history-contrast-implementation",
+    "reason": "M652 preserves normal validation loss but 0 of 3 seeds pass wrong-history gap thresholds so actor coupling remains blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "at least two of three seeds pass contrast thresholds",
+    "normal validation loss remains <= 0.0010",
+    "wrong-history train and validation gaps pass thresholds",
+    "actor checksum remains unchanged",
+    "no actor checkpoint is written",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}
