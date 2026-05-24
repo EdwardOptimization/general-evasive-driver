@@ -55,23 +55,30 @@ Latest active diagnostic BC checkpoint:
 runs/m568_scaled_l3_bc_seed5660/checkpoint.pt
 ```
 
-Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M615
+Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M616
 diagnostics. It is not the public-gate base and is not promoted as the current
 driver checkpoint.
 
 ## Current Blocker
 
 ```text
-m616-expanded-sequence-source-miner-implementation
+m617-expanded-sequence-target-miner
 ```
 
-M616 should implement the expanded sequence-source miner designed by M615. The
-task is to build a core / near / support boundary-tier source table from M609
-source rollouts, preserve deterministic hidden provenance, and keep training,
-PPO, promotion, and optimizer admission blocked.
+M617 should repeat diagnostic sequence target mining on the M616 expanded
+source table. It must keep M613 sequence families, trust regions, and
+margin/risk acceptance thresholds unchanged, and it must still make no
+training, PPO, promotion, or optimizer-admission claim.
 
 ## Recent Evidence Line
 
+- M616 implements and runs the expanded sequence-source miner. From `33` M609
+  source rollout rows it writes `30` expanded rows and `3` rejected rows. The
+  expanded set includes all `17` original M609 boundary rows plus `6` near
+  boundary and `7` support boundary rows; it covers `27` physical pairs, `15`
+  left seeds, `2` surfaces, `2` variants, and `3` targets with max pair
+  dominance `0.066667`. Diversity passes, so M617 can rerun the unchanged
+  sequence target miner on this expanded source table.
 - M615 designs source expansion before another sequence miner run. Lowering
   `min_capability_z_distance` is not useful on the current two-variant source
   pool: z thresholds from `0.10` down to `0.00` deduplicate to the same `33`

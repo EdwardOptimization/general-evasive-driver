@@ -11665,3 +11665,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M615 designs source expansion before repeating sequence target mining. Capability-threshold relaxation is not useful on the current M604 two-variant source pool because z thresholds from `0.10` down to `0.00` all deduplicate to the same `33` rows. The expansion should instead tier existing M609 `source_rollouts.csv` by baseline boundary window: core collision/margin `<= 0.50`, near margin `<= 1.00`, and support margin `<= 2.00`. This can expand from `17` original boundary rows to up to `30` rollout-backed rows while preserving deterministic wrong/delayed hidden provenance. Target acceptance thresholds remain unchanged and optimizer admission remains blocked.
 - decision: `sequence_source_expansion_design_admit_m616`
 - next: `m616-expanded-sequence-source-miner-implementation`
+## 20260524T144000Z - m616-expanded-sequence-source-miner-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m616_expanded_sequence_source_miner`
+- artifact: `docs/m616-expanded-sequence-source-miner-implementation.md`
+- result: M616 implements and runs the expanded sequence-source miner. It consumes M609 `source_rollouts.csv`, the original boundary rows, and the M613 accepted sequence index, then writes a tiered expanded source table. Result: `33` rollout rows produce `30` expanded rows and `3` rejected rows. The expanded rows include all `17` original M609 boundary rows and the one M613 accepted-sequence row. Tier counts are `17` core, `6` near, and `7` support. Diversity passes with `27` physical pairs, `15` left seeds, `2` surfaces, `2` variants, `3` targets, and max physical-pair dominance `0.066667`.
+- decision: `expanded_sequence_source_miner_pass_admit_m617`
+- next: `m617-expanded-sequence-target-miner`

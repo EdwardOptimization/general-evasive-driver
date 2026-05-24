@@ -1,0 +1,104 @@
+{
+  "id": "m617-expanded-sequence-target-miner",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m616_expanded_sequence_source_miner/expanded_sequence_source_rows.csv",
+      "docs/m616-expanded-sequence-source-miner-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m616-expanded-sequence-source-miner-implementation.json",
+      "docs/m615-sequence-source-expansion-design.md"
+    ],
+    "parent_objective": [
+      "repeat diagnostic sequence target mining on expanded source rows"
+    ],
+    "derived_from": [
+      "m616-expanded-sequence-source-miner-implementation"
+    ],
+    "blocked_by": [
+      "m616-expanded-sequence-source-miner-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m617-expanded-sequence-target-miner.md",
+  "public_gates": [
+    "write sequence_candidates.csv",
+    "write accepted_sequences.csv",
+    "write unaccepted_rows.csv",
+    "write summary with diagnostic_only true",
+    "keep M613 target acceptance thresholds unchanged",
+    "keep actor training and PPO blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower margin or risk target acceptance thresholds",
+    "do not add privileged actor inputs",
+    "do not hide unaccepted rows"
+  ],
+  "hypothesis": "Repeating the bounded K=3/5 sequence target miner on the M616 expanded source table will test whether the M613 sequence signal is repeatable across a broader source set.",
+  "success_criteria": [
+    "sequence candidates are evaluated on 30 expanded source rows",
+    "summary records diagnostic_only true actor_parameters_changed false ppo_used false promoted false optimizer_admission false",
+    "accepted and unaccepted rows are written",
+    "accepted sequence diversity is reported",
+    "research validation and focused tests pass"
+  ],
+  "failure_criteria": [
+    "miner trains any model",
+    "miner runs PPO",
+    "miner promotes a checkpoint",
+    "miner lowers the 0.02 margin or 0.05 risk thresholds",
+    "miner omits unaccepted rows",
+    "miner treats diagnostic accepted sequences as optimizer-ready without a later audit"
+  ],
+  "commands": [
+    {
+      "name": "sequence_mining",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.sequence_target_miner --checkpoint-policy bc5660=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --boundary-source-rows runs/m616_expanded_sequence_source_miner/expanded_sequence_source_rows.csv --surface-config fresh=configs/ppo_m541_matched_l3_variance_4096.json --surface-config ood=configs/eval_m574_moderate_ood_l3.json --sequence-lengths 3,5 --family constant_delta --family decay_pulse --family brake_release_then_steer --family steer_then_brake --steer-deltas=-0.08,-0.04,0,0.04,0.08 --throttle-deltas=-0.06,0,0.03 --brake-deltas=-0.08,-0.04,0,0.04,0.08 --per-step-action-l2 0.10 --sequence-mean-l2-limit 0.08 --sequence-max-l2-limit 0.10 --max-delta-delta-l2-limit 0.08 --min-margin-improvement 0.02 --min-risk-improvement 0.05 --max-continuation-steps 80 --device cpu --run-dir runs/m617_expanded_sequence_target_miner"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m617_expanded_sequence_target_miner/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m617_expanded_sequence_target_miner/sequence_candidates.csv",
+      "type": "data"
+    },
+    {
+      "path": "runs/m617_expanded_sequence_target_miner/accepted_sequences.csv",
+      "type": "data"
+    },
+    {
+      "path": "runs/m617_expanded_sequence_target_miner/unaccepted_rows.csv",
+      "type": "data"
+    },
+    {
+      "path": "docs/m617-expanded-sequence-target-miner.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m616-expanded-sequence-source-miner-implementation.md",
+    "runs/m616_expanded_sequence_source_miner/expanded_sequence_source_rows.csv"
+  ],
+  "decision_rule": "M617 passes if it repeats diagnostic sequence target mining on expanded rows without training and records accepted-sequence diversity for a later audit.",
+  "next_blocker": "m618-expanded-sequence-target-mining-audit"
+}

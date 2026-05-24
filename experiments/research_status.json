@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 624,
+        "completed": 625,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m615-sequence-source-expansion-design",
+        "task_id": "m616-expanded-sequence-source-miner-implementation",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m615-sequence-source-expansion-design.md"
+        "command_log": "docs/m616-expanded-sequence-source-miner-implementation.md"
     },
     "next_task": {
-        "id": "m616-expanded-sequence-source-miner-implementation",
+        "id": "m617-expanded-sequence-target-miner",
         "status": "pending",
-        "priority": 6110,
+        "priority": 6120,
         "kind": "infrastructure",
-        "hypothesis": "Expanding M609 source rollouts into core near and support boundary tiers can provide a source-diverse table for a repeat sequence target miner without changing model weights or target acceptance thresholds.",
-        "command": "see experiments/manifests/m616-expanded-sequence-source-miner-implementation.json",
+        "hypothesis": "Repeating the bounded K=3/5 sequence target miner on the M616 expanded source table will test whether the M613 sequence signal is repeatable across a broader source set.",
+        "command": "see experiments/manifests/m617-expanded-sequence-target-miner.json",
         "success_artifact": "",
-        "notes": "Pending: implement expanded sequence source table; no training, PPO, promotion, optimizer admission, or actor-input change"
+        "notes": "Pending: run unchanged sequence target miner on expanded source rows; no training, PPO, promotion, or optimizer admission"
     },
-    "updated_at_utc": "20260524T143000Z"
+    "updated_at_utc": "20260524T144000Z"
 }
