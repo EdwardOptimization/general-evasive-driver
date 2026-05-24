@@ -11233,3 +11233,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M567 exports scaled non-public L2 teacher corpora. The train corpus uses seeds `18200-18327`, producing `128` episodes and `8024` transitions. The validation corpus uses seeds `18328-18391`, producing `64` episodes and `3900` transitions. Both corpora have `student_obs_seq` with shape `(N, 72)`, `teacher_action_seq` with shape `(N, 3)`, done/start masks, no `teacher_obs_stack_seq`, and `uses_public_frozen_source_rows=false`.
 - decision: `scaled_teacher_corpus_export_pass_admit_m568_scaled_bc_training`
 - next: `m568-scaled-bc-training`
+## 20260524T064000Z - m568-scaled-bc-training
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m568_scaled_l3_bc_seed5660`, `runs/m568_scaled_l3_bc_seed5661`, `runs/m568_scaled_l3_bc_seed5662`
+- artifact: `docs/m568-scaled-bc-training.md`
+- result: M568 trains three scaled L3 BC seeds from the M567 corpora. All three improve train and validation action MSE. Final validation MSEs are `0.00003675` for seed `5660`, `0.00000855` for seed `5661`, and `0.00001963` for seed `5662`. All checkpoints keep `obs_dim=72`, `actor_encoder=human_view_online_gru`, `history_baseline.level=L3_online_gru`, `input_contract=P0_human_view_no_wheel_no_oracle`, `ppo_used=false`, and `promoted=false`.
+- decision: `scaled_bc_training_pass_admit_m569_route_screen_selection`
+- next: `m569-scaled-bc-route-screen-selection`

@@ -61,13 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m568-scaled-bc-training
+m569-scaled-bc-route-screen-selection
 ```
 
-M568 should train the scaled L3 behavior-cloning seed family from the M567
-non-public corpora. It should train BC seeds `5660`, `5661`, and `5662`, verify
-train/validation action MSE improves, and preserve P0 L3 online-GRU metadata.
-No route-screen, PPO, or promotion is allowed in M568.
+M569 should run route-screen v2 on the scaled BC seed family using fresh
+selection seed `18560`. It should compare BC seeds `5660`, `5661`, and `5662`
+against level-matched L0/L2 references. Public diagnostics remain blocked until
+a candidate clears route-screen; no checkpoint promotion is allowed.
 
 ## Recent Evidence Line
 
@@ -280,6 +280,11 @@ No route-screen, PPO, or promotion is allowed in M568.
   keep `student_obs_seq` at 72 dimensions, store `teacher_action_seq` plus
   done/start masks, omit `teacher_obs_stack_seq`, and report
   `uses_public_frozen_source_rows = false`.
+- M568 trains scaled BC seeds `5660`, `5661`, and `5662`. All three improve
+  train and validation MSE and save clean P0 L3 checkpoints. Final validation
+  MSEs are `0.00003675`, `0.00000855`, and `0.00001963`; all metadata reports
+  `L3_online_gru`, `P0_human_view_no_wheel_no_oracle`, `ppo_used = false`, and
+  `promoted = false`.
 
 ## Near-Term Rule
 

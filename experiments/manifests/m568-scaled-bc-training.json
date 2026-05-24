@@ -2,7 +2,7 @@
   "id": "m568-scaled-bc-training",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -81,6 +81,6 @@
   "baseline_artifacts": [
     "docs/m567-scaled-teacher-corpus-export.md"
   ],
-  "decision_rule": "M568 passes only if all three scaled BC seed runs improve train/validation MSE and preserve P0 L3 online-GRU metadata without route-screen, PPO, or promotion.",
-  "next_blocker": "pending M568 scaled BC training"
+  "decision_rule": "M568 passes because all three scaled BC seed runs improve train/validation MSE and preserve P0 L3 online-GRU metadata without route-screen, PPO, or promotion.",
+  "next_blocker": "m569-scaled-bc-route-screen-selection"
 }

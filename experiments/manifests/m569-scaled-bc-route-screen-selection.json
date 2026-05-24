@@ -1,0 +1,87 @@
+{
+  "id": "m569-scaled-bc-route-screen-selection",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m568_scaled_l3_bc_seed5661/checkpoint.pt",
+      "runs/m568_scaled_l3_bc_seed5662/checkpoint.pt",
+      "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+      "runs/m542_matched_l2_variance_seed3540/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m567_scaled_l2_teacher_corpus_train/l2_teacher_corpus.npz",
+      "runs/m567_scaled_l2_teacher_corpus_validation/l2_teacher_corpus.npz"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l0_variance_4096.json",
+      "configs/ppo_m541_matched_l2_variance_4096.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json"
+    ],
+    "parent_objective": [
+      "route-screen v2 selection for scaled L3 BC seed family"
+    ],
+    "derived_from": [
+      "m568-scaled-bc-training"
+    ],
+    "blocked_by": [
+      "m568-scaled-bc-training"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m569-scaled-bc-route-screen-selection.md",
+  "public_gates": [
+    "evaluate M568 BC seeds 5660 5661 5662 with route-screen v2 seed 18560",
+    "compare against level-matched L0 and L2 references",
+    "select only if candidate passes L0 success margin and collision gates",
+    "do not run public frozen-source diagnostics or promote checkpoint in this milestone"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not reuse route-screen seed 17560",
+    "do not use public frozen-source rows",
+    "do not tune M568 checkpoints from route-screen output inside this milestone",
+    "do not promote without later public/generalization gates"
+  ],
+  "hypothesis": "If scaled L2-to-L3 BC is stable, at least one M568 seed should clear route-screen v2 against L0 and remain L2-competitive on fresh selection seed 18560.",
+  "success_criteria": [
+    "route-screen v2 artifact is written with uses_public_frozen_source_rows=false",
+    "all three M568 candidates are compared to L0 and L2 under level-matched configs",
+    "at least one candidate passes L0 success margin and collision tolerance",
+    "selected candidate is recorded without checkpoint promotion",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "no candidate passes L0 route-screen v2 gates",
+    "route-screen reuses seed 17560",
+    "public frozen-source rows are used",
+    "checkpoint is promoted from route-screen alone"
+  ],
+  "commands": [
+    {
+      "name": "route_screen",
+      "command": "PYTHONPATH=src python -m autodrift.route_screen_v2 --checkpoint-policy L0=runs/m542_matched_l0_variance_seed3540/checkpoint.pt --checkpoint-policy L2=runs/m542_matched_l2_variance_seed3540/checkpoint.pt --checkpoint-policy BC5660=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --checkpoint-policy BC5661=runs/m568_scaled_l3_bc_seed5661/checkpoint.pt --checkpoint-policy BC5662=runs/m568_scaled_l3_bc_seed5662/checkpoint.pt --env-config-policy L0=configs/ppo_m541_matched_l0_variance_4096.json --env-config-policy L2=configs/ppo_m541_matched_l2_variance_4096.json --env-config-policy BC5660=configs/ppo_m541_matched_l3_variance_4096.json --env-config-policy BC5661=configs/ppo_m541_matched_l3_variance_4096.json --env-config-policy BC5662=configs/ppo_m541_matched_l3_variance_4096.json --candidate-label BC5660 --candidate-label BC5661 --candidate-label BC5662 --l0-label L0 --l2-label L2 --episodes 64 --seed 18560 --device cpu --run-dir runs/m569_scaled_bc_route_screen_selection"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m569-scaled-bc-route-screen-selection.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+    "runs/m542_matched_l2_variance_seed3540/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m568-scaled-bc-training.md"
+  ],
+  "decision_rule": "M569 admits public diagnostic repeat only if one scaled BC candidate clears route-screen v2 against L0 on fresh seed 18560. It cannot promote a checkpoint.",
+  "next_blocker": "pending M569 scaled BC route-screen selection"
+}
