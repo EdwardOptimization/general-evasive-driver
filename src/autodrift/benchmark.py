@@ -85,6 +85,24 @@ def parse_checkpoint_specs(specs: list[str] | None) -> list[tuple[str, Path, str
     return parsed
 
 
+def resolve_checkpoint_specs(
+    policies: list[str],
+    checkpoint: Path | None,
+    checkpoint_policy_specs: list[str] | None,
+) -> list[tuple[str, Path, str]]:
+    parsed = parse_checkpoint_specs(checkpoint_policy_specs)
+    if "checkpoint" not in policies:
+        return parsed
+    if checkpoint is None:
+        if not parsed:
+            raise ValueError(
+                "--checkpoint is required when --policies includes checkpoint "
+                "and no --checkpoint-policy entries are provided"
+            )
+        return parsed
+    return [("checkpoint", checkpoint, "none"), *parsed]
+
+
 def load_seed_csv(path: Path) -> list[int]:
     frame = pd.read_csv(path)
     if "seed" not in frame.columns:
@@ -187,11 +205,7 @@ def main() -> None:
         )
         all_rows.extend(rows)
         policy_summaries[policy] = summary
-    checkpoint_specs = parse_checkpoint_specs(args.checkpoint_policy)
-    if "checkpoint" in args.policies:
-        if args.checkpoint is None:
-            raise ValueError("--checkpoint is required when --policies includes checkpoint")
-        checkpoint_specs.insert(0, ("checkpoint", args.checkpoint, "none"))
+    checkpoint_specs = resolve_checkpoint_specs(args.policies, args.checkpoint, args.checkpoint_policy)
     for label, checkpoint_path, ablation in checkpoint_specs:
         rows, summary = evaluate_policy(
             policy_name="checkpoint",

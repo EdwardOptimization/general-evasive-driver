@@ -7,6 +7,7 @@ from autodrift.benchmark import (
     build_segment_frame,
     load_seed_csv,
     parse_checkpoint_specs,
+    resolve_checkpoint_specs,
     summarize,
     summarize_segments,
 )
@@ -166,6 +167,32 @@ def test_parse_checkpoint_specs_accepts_response_ablation():
 def test_parse_checkpoint_specs_accepts_wheel_ablation():
     assert parse_checkpoint_specs(["m81_zero_wheel=runs/a.pt@zero_wheel_response"]) == [
         ("m81_zero_wheel", Path("runs/a.pt"), "zero_wheel_response")
+    ]
+
+
+def test_resolve_checkpoint_specs_allows_named_checkpoint_policies_without_default():
+    assert resolve_checkpoint_specs(["checkpoint"], None, ["bc=runs/bc.pt"]) == [
+        ("bc", Path("runs/bc.pt"), "none")
+    ]
+
+
+def test_resolve_checkpoint_specs_requires_default_or_named_checkpoint_policy():
+    try:
+        resolve_checkpoint_specs(["checkpoint"], None, [])
+    except ValueError as error:
+        assert "no --checkpoint-policy entries" in str(error)
+    else:
+        raise AssertionError("expected missing checkpoint policy to fail")
+
+
+def test_resolve_checkpoint_specs_inserts_default_checkpoint_first():
+    assert resolve_checkpoint_specs(
+        ["checkpoint"],
+        Path("runs/default.pt"),
+        ["bc_reset=runs/bc.pt@reset_recurrent_state"],
+    ) == [
+        ("checkpoint", Path("runs/default.pt"), "none"),
+        ("bc_reset", Path("runs/bc.pt"), "reset_recurrent_state"),
     ]
 
 
