@@ -11287,3 +11287,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M573 pre-registers the moderate-OOD route/generalization layer. M574 should add eval-only L0/L2/L3 configs with identical OOD env deltas: speed `[14.5, 20.0]`, friction-step `mu [0.12, 1.00]`, randomized `mu [0.12, 0.72]`, wider mass/CG/inertia/tire/drive/brake/actuator ranges, obstacle distance `[4.0, 26.0]`, half-width `[0.60, 1.55]`, threshold `0.60`, and reveal distance `5.5`. M575 should later evaluate seeds `20560..20815` with no public rows, no training, no promotion, and relaxed OOD L2-competitiveness tolerances.
 - decision: `moderate_ood_route_design_admit_m574_config_family`
 - next: `m574-moderate-ood-config-family`
+## 20260524T074000Z - m574-moderate-ood-config-family
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m574-moderate-ood-config-family.md`
+- result: M574 adds `configs/eval_m574_moderate_ood_l0.json`, `configs/eval_m574_moderate_ood_l2.json`, and `configs/eval_m574_moderate_ood_l3.json`. The configs keep each M541 parent PPO section exactly, preserve L0/L2/L3 history contracts, and apply only the M573-approved OOD env deltas. Focused tests pass (`36 passed`) and verify shared distribution except `history_length` plus route-screen loader compatibility. No evaluation, training, or promotion is performed.
+- decision: `moderate_ood_config_family_pass_admit_m575_eval`
+- next: `m575-moderate-ood-route-generalization-eval`

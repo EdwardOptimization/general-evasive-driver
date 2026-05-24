@@ -91,6 +91,6 @@
     "docs/m573-moderate-ood-route-generalization-design.md",
     "docs/m572-fresh-route-generalization-eval.md"
   ],
-  "decision_rule": "M574 passes only if eval-only OOD configs and tests are added without evaluation, training, promotion, actor-contract changes, or unapproved per-level env differences.",
+  "decision_rule": "M574 passes because eval-only OOD configs and tests were added without evaluation, training, promotion, actor-contract changes, or unapproved per-level env differences.",
   "next_blocker": "m575-moderate-ood-route-generalization-eval"
 }

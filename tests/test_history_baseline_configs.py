@@ -1,9 +1,11 @@
+from copy import deepcopy
 from pathlib import Path
 
 import pytest
 
 from autodrift.artifacts import read_json
 from autodrift.config import build_env_config
+from autodrift.evaluate import load_env_config
 from autodrift.history_baselines import build_history_baseline_spec
 
 
@@ -42,6 +44,31 @@ L3_COLLISION_MARGIN_REPAIR_4096_CONFIGS = {
     "collision35_terminal4": Path("configs/ppo_m559_l3_collision35_terminal4_4096.json"),
     "collision45_terminal4": Path("configs/ppo_m559_l3_collision45_terminal4_4096.json"),
 }
+
+MODERATE_OOD_EVAL_CONFIGS = {
+    "L0_current_observation": Path("configs/eval_m574_moderate_ood_l0.json"),
+    "L2_finite_window": Path("configs/eval_m574_moderate_ood_l2.json"),
+    "L3_online_gru": Path("configs/eval_m574_moderate_ood_l3.json"),
+}
+
+
+def _m574_expected_ood_env(parent_env: dict) -> dict:
+    env = deepcopy(parent_env)
+    env["speed_range"] = [14.5, 20.0]
+    env["friction_step"]["mu_range"] = [0.12, 1.00]
+    env["obstacle"]["distance_range"] = [4.0, 26.0]
+    env["obstacle"]["half_width_range"] = [0.60, 1.55]
+    env["obstacle"]["max_threshold_score"] = 0.60
+    env["obstacle"]["perception_reveal_distance"] = 5.5
+    env["randomization"]["mu_range"] = [0.12, 0.72]
+    env["randomization"]["mass_scale_range"] = [0.80, 1.45]
+    env["randomization"]["cg_shift_range"] = [-0.20, 0.20]
+    env["randomization"]["inertia_scale_range"] = [0.75, 1.45]
+    env["randomization"]["tire_stiffness_scale_range"] = [0.35, 1.50]
+    env["randomization"]["drive_scale_range"] = [0.50, 1.40]
+    env["randomization"]["brake_scale_range"] = [0.35, 1.40]
+    env["randomization"]["actuator_tau_scale_range"] = [1.00, 4.80]
+    return env
 
 
 def _assert_history_baseline_config(
@@ -377,3 +404,31 @@ def test_m559_collision_margin_configs_only_change_m558_approved_obstacle_reward
         assert differences <= allowed_obstacle_differences
         for key, value in expected[variant].items():
             assert repair_obstacle[key] == value
+
+
+@pytest.mark.parametrize("level,path", sorted(MODERATE_OOD_EVAL_CONFIGS.items()))
+def test_m574_moderate_ood_eval_configs_preserve_history_baseline(level: str, path: Path) -> None:
+    config = read_json(path)
+    _assert_history_baseline_config(config=config, level=level, total_steps=4096, seed=3540)
+
+
+def test_m574_moderate_ood_eval_configs_share_distribution_except_history_length() -> None:
+    configs = {level: read_json(path) for level, path in MODERATE_OOD_EVAL_CONFIGS.items()}
+    _assert_shared_task_distribution_except_history_length(configs)
+
+
+def test_m574_moderate_ood_eval_configs_apply_only_approved_env_deltas() -> None:
+    for level, path in MODERATE_OOD_EVAL_CONFIGS.items():
+        parent = read_json(MATCHED_VARIANCE_4096_CONFIGS[level])
+        ood = read_json(path)
+        assert ood["ppo"] == parent["ppo"]
+        assert ood["env"] == _m574_expected_ood_env(parent["env"])
+
+
+@pytest.mark.parametrize("path", sorted(MODERATE_OOD_EVAL_CONFIGS.values()))
+def test_m574_moderate_ood_eval_configs_load_for_route_screen(path: Path) -> None:
+    env_config = load_env_config(path)
+    assert env_config.speed_range == (14.5, 20.0)
+    assert env_config.friction_step.mu_range == (0.12, 1.0)
+    assert env_config.obstacle.distance_range == (4.0, 26.0)
+    assert env_config.obstacle.perception_reveal_distance == 5.5

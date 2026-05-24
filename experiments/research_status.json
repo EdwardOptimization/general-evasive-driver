@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 582,
+        "completed": 583,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m573-moderate-ood-route-generalization-design",
+        "task_id": "m574-moderate-ood-config-family",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m573-moderate-ood-route-generalization-design.md"
+        "command_log": "docs/m574-moderate-ood-config-family.md"
     },
     "next_task": {
-        "id": "m574-moderate-ood-config-family",
+        "id": "m575-moderate-ood-route-generalization-eval",
         "status": "pending",
-        "priority": 5690,
-        "kind": "infrastructure",
-        "hypothesis": "Because M573 fixed the moderate-OOD profile, eval-only configs can be added with identical OOD env deltas across L0/L2/L3 while preserving each level's history contract.",
-        "command": "see experiments/manifests/m574-moderate-ood-config-family.json",
+        "priority": 5700,
+        "kind": "gate",
+        "hypothesis": "Because BC5660 passed same-distribution fresh route generalization, it should remain L0-safe and near the L2 finite-window reference on a moderate-OOD route profile.",
+        "command": "see experiments/manifests/m575-moderate-ood-route-generalization-eval.json",
         "success_artifact": "",
-        "notes": "Pending: implement eval-only moderate-OOD configs and tests; no evaluation or promotion"
+        "notes": "Pending: run moderate-OOD route/generalization eval; no PPO or promotion"
     },
-    "updated_at_utc": "20260524T073000Z"
+    "updated_at_utc": "20260524T074000Z"
 }

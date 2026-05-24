@@ -61,13 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m574-moderate-ood-config-family
+m575-moderate-ood-route-generalization-eval
 ```
 
-M574 should implement the eval-only moderate-OOD route/generalization config
-family from M573. M572 passed the fresh 256-episode route gate and M573 fixed
-the OOD profile, but there is still no OOD robustness claim, private
-generalization claim, or checkpoint promotion.
+M575 should run the moderate-OOD route/generalization gate for selected scaled
+checkpoint `BC5660` against L0/L2. M574 implemented the eval-only OOD configs,
+but there is still no OOD robustness claim, private generalization claim, or
+checkpoint promotion.
 
 ## Recent Evidence Line
 
@@ -313,6 +313,13 @@ generalization claim, or checkpoint promotion.
   contract. The later M575 OOD eval should use fresh seeds `20560..20815` and
   relaxed L2 competitiveness tolerances (`0.05` success/collision and `0.10`
   margin) because the distribution is deliberately shifted.
+- M574 implements those eval-only configs:
+  `configs/eval_m574_moderate_ood_l0.json`,
+  `configs/eval_m574_moderate_ood_l2.json`, and
+  `configs/eval_m574_moderate_ood_l3.json`. Focused tests verify exact parent
+  PPO sections, approved OOD env deltas, shared distribution except
+  `history_length`, and route-screen loader compatibility. No evaluation,
+  training, or promotion is performed.
 
 ## Near-Term Rule
 
