@@ -1,0 +1,118 @@
+{
+  "id": "m738-sequence-outcome-corpus-export-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint_used"
+    ],
+    "parent_dataset": [
+      "docs/m737-sequence-outcome-corpus-export-implementation.md",
+      "runs/m737_sequence_outcome_corpus_export/summary.json",
+      "runs/m737_sequence_outcome_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m737_sequence_outcome_corpus_export/contrast_rows.csv",
+      "runs/m737_sequence_outcome_corpus_export/hard_negative_rows.csv",
+      "runs/m737_sequence_outcome_corpus_export/excluded_sentinel_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m737-sequence-outcome-corpus-export-implementation.json"
+    ],
+    "parent_objective": [
+      "audit sequence-outcome corpus export and hard-negative sparsity before objective or coverage branch"
+    ],
+    "derived_from": [
+      "m737-sequence-outcome-corpus-export-implementation"
+    ],
+    "blocked_by": [
+      "m737-sequence-outcome-corpus-export-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m738-sequence-outcome-corpus-export-audit.md",
+  "public_gates": [
+    "M737 positive corpus gates are audited",
+    "M737 hard-negative sparsity is audited separately",
+    "sentinel filtering and normal matching are inspected",
+    "next branch decision compares objective design hard-negative repair and extreme-fault distribution refresh",
+    "actor training PPO and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat sparse hard negatives as a complete contrast corpus",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not ignore the extreme-fault coverage hypothesis",
+    "do not change actor input contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "sequence_outcome_corpus_export",
+    "evidence_axis": "G_sequence_corpus: audit exported sequence-outcome corpus",
+    "evidence_increment": "synthesizes positive corpus pass and hard-negative sparsity before next branch",
+    "claim_scope": "process synthesis only; no objective training or checkpoint claim",
+    "stop_condition": [
+      "stop objective design if hard-negative sparsity blocks contrast loss",
+      "stop corpus reuse if sentinel or normal-match artifacts are found",
+      "stop narrow public-row iteration if broader extreme-fault coverage is the next blocker",
+      "stop PPO and promotion until a later manifest explicitly admits them"
+    ],
+    "fallback_plan": [
+      "if positive corpus is clean but hard negatives are sparse, design hard-negative repair export or positive-only objective",
+      "if coverage is the blocker, design extreme-fault distribution v3 before objective work",
+      "if corpus is artifact-free and objective-ready, design sequence objective sanity only"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M737 result_class=sequence_outcome_corpus_hard_negative_sparse",
+    "synthesis_decision": "not_applicable",
+    "synthesis_artifact": "docs/m738-sequence-outcome-corpus-export-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "M737's positive corpus is clean enough to preserve, but its hard-negative sparsity must be audited before objective or broader coverage work.",
+  "success_criteria": [
+    "M738 records positive corpus pass/fail evidence",
+    "M738 records hard-negative sparsity evidence",
+    "M738 records supported and falsified claims",
+    "M738 records public gate overfit risk",
+    "M738 makes an explicit next branch decision",
+    "actor update PPO and promotion remain blocked unless later designed"
+  ],
+  "failure_criteria": [
+    "audit treats sparse hard negatives as a complete contrast set",
+    "audit ignores sentinel or normal-match checks",
+    "audit admits PPO or promotion directly",
+    "audit changes actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m738-sequence-outcome-corpus-export-audit.md from M737 artifacts; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m738-sequence-outcome-corpus-export-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_checkpoint_used"
+  ],
+  "baseline_artifacts": [
+    "runs/m737_sequence_outcome_corpus_export/summary.json",
+    "docs/m737-sequence-outcome-corpus-export-implementation.md"
+  ],
+  "decision_rule": "M738 must decide whether the next branch is sequence objective sanity hard-negative repair export or extreme-fault distribution v3. It must not admit PPO or checkpoint promotion directly.",
+  "next_blocker": "m739-next-branch-pending"
+}

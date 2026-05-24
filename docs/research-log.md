@@ -12668,3 +12668,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M736 designs a deterministic no-training corpus export for M734's `70` non-sentinel sequence-outcome rows. The design requires matched normal rows, separates hard-negative action-only rows from proof positives, writes sentinel and balance artifacts, and blocks objective training, PPO, checkpoint loading, and promotion. It also records that the user's extreme-fault coverage concern should become a later dedicated distribution branch after the M737 export and audit.
 - decision: `sequence_outcome_corpus_export_design_admit_m737`
 - next: `m737-sequence-outcome-corpus-export-implementation`
+
+## 20260525T013000Z - m737-sequence-outcome-corpus-export-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m737_sequence_outcome_corpus_export`
+- artifact: `docs/m737-sequence-outcome-corpus-export-implementation.md`
+- result: M737 implements a deterministic no-training exporter and writes a corpus from M734. It exports `70` non-sentinel sequence-outcome positives, `70` matched normal rows, and `63` same-source/same-horizon hard-negative action-only rows. Core positive gates pass: `0` exported sentinel positives, `0` duplicate positive keys, `0` missing normal matches, `28` positive seeds, `10` positive fault-family pairs, and max seed dominance `0.085714`. The stricter hard-negative contrast count is sparse (`63 < 70`), so result_class is `sequence_outcome_corpus_hard_negative_sparse`; objective training, PPO, and promotion remain blocked.
+- decision: `sequence_outcome_corpus_hard_negative_sparse_admit_audit`
+- next: `m738-sequence-outcome-corpus-export-audit`
