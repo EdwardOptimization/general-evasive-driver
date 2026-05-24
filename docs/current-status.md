@@ -62,17 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m679-branch-specific-response-amplification-design
+m680-branch-specific-response-amplification-implementation
 ```
 
-M679 should design branch-specific response amplification after M677 fixed
-first-step safety but suppressed wrong-history gap. The design should keep
-normal first-step safety constraints, add stronger wrong-history branch
-pressure, use detached-normal gap losses or equivalent, and preserve frozen
-backbone, P0 inputs, exact-first evaluation, no PPO, and no promotion.
+M680 should implement the branch-specific response-amplification probe designed
+in M679. It should extend the frozen-backbone actor-coupling path with
+detached-normal wrong-history gap losses, stronger wrong-history target
+pressure, hard low-gap row pressure, and the same alpha ladder and exact gates.
+PPO, promotion, actor-input changes, and normal safety gate weakening remain
+forbidden.
 
 ## Recent Evidence Line
 
+- M679 designs branch-specific response amplification. It keeps frozen BC5660,
+  fused-plus-next-hidden features, first-residual execution, alpha ladder,
+  exact-first evaluation, no PPO, no promotion, and no input changes, while
+  adding detached-normal gap losses, stronger wrong-history branch pressure,
+  wrong first/sequence gap hinges, and hard low-gap row pressure.
 - M678 audits M677 as `first_step_safety_positive_wrong_gap_suppressed`.
   First-step normal safety is now controllable, but wrong-history gap collapses.
   The next design target is branch-specific wrong-history pressure with

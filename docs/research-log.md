@@ -12232,3 +12232,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M678 audits M677 as `first_step_safety_positive_wrong_gap_suppressed`. The first-step anchor worked, so the next step is not more normal safety pressure or PPO. The likely blocker is shared-head branch interference: the same residual head learns near-zero normal residuals but lacks enough independent wrong-history pressure. M679 should design branch-specific wrong-history pressure with detached-normal gap losses while preserving the normal first-step drift gate, frozen backbone, P0 inputs, exact-first evaluation, no PPO, and no promotion.
 - decision: `first_step_safe_audit_admit_branch_specific_design`
 - next: `m679-branch-specific-response-amplification-design`
+## 20260525T033000Z - m679-branch-specific-response-amplification-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m679-branch-specific-response-amplification-design.md`
+- result: M679 designs branch-specific response amplification after M677 showed first-step safety positive but wrong-history gap suppressed. The next probe keeps frozen BC5660, fused-plus-next-hidden features, first-residual execution, alpha ladder, exact-first evaluation, no PPO, no promotion, and no actor-input changes. The design adds detached-normal gap losses so gap pressure moves the wrong branch instead of the normal branch, stronger wrong-history target pressure, wrong first-gap and sequence-gap hinges, and hard low-gap row pressure over the lowest `25%` current-batch wrong-history gaps.
+- decision: `branch_specific_response_amplification_design_admit_m680`
+- next: `m680-branch-specific-response-amplification-implementation`

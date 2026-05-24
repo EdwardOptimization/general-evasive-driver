@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 687,
+        "completed": 688,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m678-first-step-safe-response-amplification-audit",
+        "task_id": "m679-branch-specific-response-amplification-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m678-first-step-safe-response-amplification-audit.md"
+        "command_log": "docs/m679-branch-specific-response-amplification-design.md"
     },
     "next_task": {
-        "id": "m679-branch-specific-response-amplification-design",
+        "id": "m680-branch-specific-response-amplification-implementation",
         "status": "pending",
-        "priority": 6740,
+        "priority": 6750,
         "kind": "infrastructure",
-        "hypothesis": "Branch-specific wrong-history pressure with detached-normal gap losses can preserve M677's first-step normal safety while restoring wrong-history sequence separation.",
-        "command": "see experiments/manifests/m679-branch-specific-response-amplification-design.json",
+        "hypothesis": "Detached-normal branch-specific wrong-history pressure can preserve M677's normal first-step safety while restoring enough wrong-history sequence gap for a nonzero-alpha exact candidate.",
+        "command": "see experiments/manifests/m680-branch-specific-response-amplification-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design branch-specific exact objective; PPO promotion and actor-input changes remain blocked"
+        "notes": "Pending: implement branch-specific exact probe; PPO promotion and actor-input changes remain blocked"
     },
-    "updated_at_utc": "20260525T031500Z"
+    "updated_at_utc": "20260525T033000Z"
 }

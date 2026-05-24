@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M679 designs detached-normal branch-specific wrong-history gap losses plus hard low-gap row pressure while preserving first-step safety gates and blocking PPO promotion and input changes",
+  "failure_criteria": [
+    "design only reruns M677 with coefficient changes",
+    "design weakens normal first-action drift gate",
+    "design admits PPO or promotion",
+    "design changes actor observation inputs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run training in this design milestone",
+    "do not weaken normal first-action drift gate",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor input contract"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T151623Z",
+  "hypothesis": "Branch-specific wrong-history pressure with detached-normal gap losses can preserve M677's first-step normal safety while restoring wrong-history sequence separation.",
+  "lineage": {
+    "blocked_by": [
+      "m678-first-step-safe-response-amplification-audit"
+    ],
+    "derived_from": [
+      "m678-first-step-safe-response-amplification-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m678-first-step-safe-response-amplification-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m677_first_step_safe_response_amplification/summary.json",
+      "runs/m677_first_step_safe_response_amplification/alpha_summary.csv",
+      "docs/m678-first-step-safe-response-amplification-audit.md"
+    ],
+    "parent_objective": [
+      "design branch-specific response-amplification objective"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m679-branch-specific-response-amplification-design",
+  "next_blocker": "m680-branch-specific-response-amplification-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "branch_specific_response_amplification_design_admit_m680",
+  "public_gates": [
+    "design preserves normal first-step safety constraints",
+    "design adds branch-specific wrong-history pressure",
+    "design uses detached-normal gap losses or equivalent",
+    "design keeps frozen backbone and P0 actor inputs",
+    "PPO and promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m679-branch-specific-response-amplification-design.md",
+    "clearance_margin_mean": "",
+    "decision": "branch_specific_response_amplification_design_admit_m680",
+    "milestone": "m679-branch-specific-response-amplification-design",
+    "reason": "M679 designs detached-normal branch-specific wrong-history gap losses plus hard low-gap row pressure while preserving first-step safety gates and blocking PPO promotion and input changes",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "branch-specific losses are specified",
+    "detached-normal gap pressure is specified",
+    "hard wrong-gap row weighting is specified or explicitly rejected",
+    "implementation milestone is pre-registered",
+    "PPO and promotion remain blocked"
+  ],
+  "type": "infrastructure"
+}
