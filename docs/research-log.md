@@ -12359,3 +12359,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M703 designs a no-training extreme hidden-condition scenario corpus. It separates current-model faults (`global_mu_drop`, front/rear lateral authority loss, brake/drive authority loss, steering faults, mass/CG shifts, delay/noise, combined faults) from future four-wheel-only faults (single-wheel blowout, left/right split-mu, stuck caliper pull, true asymmetric half-shaft torque loss). It requires warm-up response evidence, matched visible current states, history-action-critical degradation under wrong/reset history, source diversity, and no actor input changes.
 - decision: `extreme_dynamics_scenario_corpus_design_admit_m704`
 - next: `m704-extreme-dynamics-scenario-corpus-implementation`
+
+## 20260524T182300Z - m704-extreme-dynamics-scenario-corpus-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m704_extreme_dynamics_scenario_corpus`
+- artifact: `docs/m704-extreme-dynamics-scenario-corpus-implementation.md`
+- result: M704 implements and runs the no-training extreme hidden-condition scenario corpus. It generates `5120` scenarios, `16917` snapshots, and `2048` matched pairs. The implementation is clean: actor checksum unchanged, no training, no PPO, and no promotion. Result is `extreme_reset_sparse`: `27` accepted rows across `5` fault families and `9` seeds are reset-history-critical, but `0` rows are wrong-history-critical, so this is recurrent-state evidence but not yet matched wrong-history self-ID evidence.
+- decision: `extreme_reset_sparse_not_source_positive_admit_audit`
+- next: `m705-extreme-dynamics-scenario-corpus-audit`

@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M704 generates 5120 scenarios and 2048 matched pairs with 27 reset-history-critical accepted rows across 5 fault families but 0 wrong-history-critical rows so source export PPO and promotion remain blocked",
+  "failure_criteria": [
+    "implementation mutates or trains actor",
+    "implementation adds hidden fault labels to actor input",
+    "implementation omits model-fidelity limits",
+    "implementation omits matched hidden-condition criteria",
+    "implementation admits objective design without source-positive audit"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor observation shape",
+    "do not add fault labels to actor input",
+    "do not call single-track proxies true single-wheel faults",
+    "do not export corpus before source-positive audit"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260524T182613Z",
+  "hypothesis": "Extreme hidden-condition scenario generation will produce source-diverse rows where command-response history affects the safe evasive action.",
+  "lineage": {
+    "blocked_by": [
+      "m703-extreme-dynamics-scenario-corpus-design"
+    ],
+    "derived_from": [
+      "m703-extreme-dynamics-scenario-corpus-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m703-extreme-dynamics-scenario-corpus-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m703-extreme-dynamics-scenario-corpus-design.md",
+      "docs/m702-boundary-sensitivity-scale-diagnostic-audit.md",
+      "runs/m701_boundary_sensitivity_scale_diagnostic/summary.json"
+    ],
+    "parent_objective": [
+      "implement no-training extreme hidden-condition scenario corpus"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m704-extreme-dynamics-scenario-corpus-implementation",
+  "next_blocker": "m705-extreme-dynamics-scenario-corpus-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "extreme_reset_sparse_not_source_positive",
+  "public_gates": [
+    "implementation writes fault family severity and scenario artifacts",
+    "implementation keeps hidden fault labels out of actor input",
+    "implementation separates current-model faults from future four-wheel-only faults",
+    "implementation reports matched hidden-condition rows",
+    "implementation reports history-action-critical rows",
+    "actor checksum unchanged",
+    "no objective actor update PPO or promotion occurs"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m704_extreme_dynamics_scenario_corpus/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "extreme_reset_sparse_not_source_positive",
+    "milestone": "m704-extreme-dynamics-scenario-corpus-implementation",
+    "reason": "M704 generates 5120 scenarios and 2048 matched pairs with 27 reset-history-critical accepted rows across 5 fault families but 0 wrong-history-critical rows so source export PPO and promotion remain blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary.json is written",
+    "scenario_summary.csv is written",
+    "fault_family_summary.csv is written",
+    "severity_summary.csv is written",
+    "matched_hidden_condition_pairs.csv is written",
+    "accepted_rows.csv is written",
+    "rejected_rows.csv is written",
+    "model_fidelity_limits.md is written",
+    "actor checksum unchanged",
+    "no objective actor update PPO or promotion"
+  ],
+  "type": "infrastructure"
+}

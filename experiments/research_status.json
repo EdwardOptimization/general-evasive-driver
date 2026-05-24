@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 712,
+        "completed": 713,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m703-extreme-dynamics-scenario-corpus-design",
+        "task_id": "m704-extreme-dynamics-scenario-corpus-implementation",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m703-extreme-dynamics-scenario-corpus-design.md"
+        "command_log": "docs/m704-extreme-dynamics-scenario-corpus-implementation.md"
     },
     "next_task": {
-        "id": "m704-extreme-dynamics-scenario-corpus-implementation",
+        "id": "m705-extreme-dynamics-scenario-corpus-audit",
         "status": "pending",
-        "priority": 6990,
-        "kind": "infrastructure",
-        "hypothesis": "Implement no-training extreme hidden-condition scenario corpus",
-        "command": "see experiments/manifests/m704-extreme-dynamics-scenario-corpus-implementation.json",
+        "priority": 7000,
+        "kind": "gate",
+        "hypothesis": "Audit M704 reset-sparse extreme hidden-condition corpus",
+        "command": "see experiments/manifests/m705-extreme-dynamics-scenario-corpus-audit.json",
         "success_artifact": "",
-        "notes": "Pending: generate matched hidden-condition fault scenarios before any objective actor update or PPO"
+        "notes": "Pending: synthesize reset-only sparse evidence and likely continue with cross-fault wrong-history pairing before any objective actor update or PPO"
     },
-    "updated_at_utc": "20260524T181300Z"
+    "updated_at_utc": "20260524T182300Z"
 }
