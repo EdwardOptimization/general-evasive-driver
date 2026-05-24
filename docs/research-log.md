@@ -11440,3 +11440,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M590 pre-registers a no-oracle hidden-action sensitivity probe before any repair training. M591 should write fusion weight chunk summaries for BC5660/5661/5662, then run BC5660 fresh and OOD hidden variants on the M586 matched-current surfaces. Required variants include reset, delayed, wrong matched, shuffled, scaled, random hidden, plus zero-current and zero-action positive observation controls. Required summaries include hidden-distance/action-distance correlations and explicit interpretation rules separating hidden-head ignorance, action-equivalent real hidden states, weak matched-current surfaces, and current-frame dominance.
 - decision: `bc_hidden_action_sensitivity_probe_design_admit_m591_probe`
 - next: `m591-bc-hidden-action-sensitivity-probe`
+## 20260524T103000Z - m591-bc-hidden-action-sensitivity-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m591_bc_hidden_action_sensitivity_probe_fresh`; `runs/m591_bc_hidden_action_sensitivity_probe_ood`
+- artifact: `docs/m591-bc-hidden-action-sensitivity-probe.md`
+- result: M591 implements and runs the hidden-action sensitivity probe. It writes weight chunk summaries for BC5660/5661/5662 and BC5660 action rows on fresh and OOD M586 matched-current surfaces. The fusion layer has non-trivial hidden shares around `0.31`-`0.32` and interaction shares around `0.36`, so the hidden path is structurally present. But real wrong/delayed hidden states remain action-equivalent: fresh wrong/delayed mean action distances are `0.000552` / `0.001658`, and OOD values are `0.000764` / `0.001218`, all with zero above-threshold rows. Zero-current remains dominant on both surfaces, and random unit hidden movement is treated as off-manifold diagnostic only.
+- decision: `bc_hidden_action_sensitivity_probe_negative_admit_hidden_use_objective_design`
+- next: `m592-bc-hidden-use-repair-objective-design`

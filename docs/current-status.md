@@ -61,16 +61,23 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m591-bc-hidden-action-sensitivity-probe
+m592-bc-hidden-use-repair-objective-design
 ```
 
-M591 should implement and run the hidden-action sensitivity probe designed in
-M590. The current evidence supports deployable current-response dependence and
-source-diverse pair availability, but M587-M590 do not support accumulated
-hidden-history causality. Promotion and PPO remain blocked.
+M592 should design a no-oracle hidden-use repair objective or corpus after the
+M591 probe. The current evidence supports deployable current-response
+dependence and source-diverse pair availability, but M587-M591 do not support
+accumulated hidden-history causality. Promotion and PPO remain blocked.
 
 ## Recent Evidence Line
 
+- M591 implements and runs the hidden-action sensitivity probe. Fusion weights
+  have non-trivial hidden/context/interaction shares for BC5660/5661/5662, but
+  BC5660 real wrong/delayed hidden states remain action-equivalent on fresh and
+  OOD matched-current surfaces. Fresh wrong/delayed mean action distances are
+  `0.000552` / `0.001658`; OOD values are `0.000764` / `0.001218`. Zero-current
+  stays dominant. The next step is hidden-use objective/corpus design, not
+  PPO, promotion, or outcome rollout.
 - M590 designs the hidden-action sensitivity probe needed after M589. M591
   should measure fusion weight chunk norms, real wrong/delayed hidden variants,
   shuffled/scaled/random hidden variants, positive observation controls, and

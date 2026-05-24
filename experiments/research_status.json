@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 599,
+        "completed": 600,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m590-bc-hidden-action-sensitivity-probe-design",
+        "task_id": "m591-bc-hidden-action-sensitivity-probe",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m590-bc-hidden-action-sensitivity-probe-design.md"
+        "run_dir": "runs/m591_bc_hidden_action_sensitivity_probe_fresh",
+        "command_log": "docs/m591-bc-hidden-action-sensitivity-probe.md"
     },
     "next_task": {
-        "id": "m591-bc-hidden-action-sensitivity-probe",
+        "id": "m592-bc-hidden-use-repair-objective-design",
         "status": "pending",
-        "priority": 5860,
-        "kind": "gate",
-        "hypothesis": "BC5660 will remain action-insensitive to real wrong/delayed rollout hidden states, but the probe should reveal whether that is due to hidden-head ignorance, action-equivalent real hidden states, or weak matched-current surfaces.",
-        "command": "see experiments/manifests/m591-bc-hidden-action-sensitivity-probe.json",
+        "priority": 5870,
+        "kind": "infrastructure",
+        "hypothesis": "Because M591 shows a structural hidden path but action-equivalent real rollout hidden states, the next repair should train hidden state to encode future response or capability on matched-current histories before PPO or action-level repair.",
+        "command": "see experiments/manifests/m592-bc-hidden-use-repair-objective-design.json",
         "success_artifact": "",
-        "notes": "Pending: implement and run hidden-action sensitivity probe; no training, PPO, promotion, or actor-input changes"
+        "notes": "Pending: design no-oracle hidden-use repair objective/corpus; no training, PPO, promotion, or actor-input changes"
     },
-    "updated_at_utc": "20260524T102000Z"
+    "updated_at_utc": "20260524T103000Z"
 }

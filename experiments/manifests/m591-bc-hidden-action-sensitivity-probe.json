@@ -2,7 +2,7 @@
   "id": "m591-bc-hidden-action-sensitivity-probe",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -95,6 +95,6 @@
     "docs/m589-bc-hidden-use-objective-audit.md",
     "docs/m587-bc5660-history-intervention-action-screen.md"
   ],
-  "decision_rule": "M591 passes if it produces the pre-registered hidden-action sensitivity artifacts and classifies the BC hidden-use bottleneck without training, promotion, actor-input changes, or private holdout use.",
-  "next_blocker": "m592-bc-hidden-use-repair-or-surface-refresh-design"
+  "decision_rule": "M591 passes because it produces the pre-registered hidden-action sensitivity artifacts and classifies the BC hidden-use bottleneck without training, promotion, actor-input changes, or private holdout use.",
+  "next_blocker": "m592-bc-hidden-use-repair-objective-design"
 }

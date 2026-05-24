@@ -1,0 +1,80 @@
+{
+  "decision_reason": "M591 finds non-trivial hidden fusion weights but real wrong/delayed hidden action distances remain tiny on fresh and OOD surfaces while zero-current dominates; M592 objective design admitted",
+  "failure_criteria": [
+    "probe cannot reconstruct M586 snapshots",
+    "probe changes actor input contract",
+    "probe reports random-hidden action movement as self-ID proof",
+    "probe promotes a checkpoint"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train or run PPO",
+    "do not promote checkpoint",
+    "do not change actor inputs",
+    "do not treat random-hidden sensitivity as self-ID proof",
+    "do not claim BC5661 or BC5662 matched-current wrong-history evidence from BC5660-only pair surfaces"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260524T072431Z",
+  "hypothesis": "BC5660 will remain action-insensitive to real wrong/delayed rollout hidden states, but the probe will reveal whether that is due to hidden-head ignorance, action-equivalent real hidden states, or weak matched-current surfaces.",
+  "lineage": {
+    "blocked_by": [
+      "m590-bc-hidden-action-sensitivity-probe-design"
+    ],
+    "derived_from": [
+      "m590-bc-hidden-action-sensitivity-probe-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m568_scaled_l3_bc_seed5661/checkpoint.pt",
+      "runs/m568_scaled_l3_bc_seed5662/checkpoint.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_dataset": [
+      "runs/m586_bc5660_matched_current_fresh_seed25560/matched_pairs.csv",
+      "runs/m586_bc5660_matched_current_ood_seed25660/matched_pairs.csv"
+    ],
+    "parent_objective": [
+      "measure hidden-action sensitivity after M590 design"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m591-bc-hidden-action-sensitivity-probe",
+  "next_blocker": "m592-bc-hidden-use-repair-objective-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "bc_hidden_action_sensitivity_probe_negative_admit_hidden_use_objective_design",
+  "public_gates": [
+    "write fusion weight chunk summaries for BC5660 BC5661 and BC5662",
+    "run BC5660 hidden-variant probe on M586 fresh and OOD matched-current surfaces",
+    "write hidden-distance action-distance correlation summaries",
+    "classify the hidden-use bottleneck without promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m591_bc_hidden_action_sensitivity_probe_fresh/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "bc_hidden_action_sensitivity_probe_negative_admit_hidden_use_objective_design",
+    "milestone": "m591-bc-hidden-action-sensitivity-probe",
+    "reason": "M591 finds non-trivial hidden fusion weights but real wrong/delayed hidden action distances remain tiny on fresh and OOD surfaces while zero-current dominates; M592 objective design admitted",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "probe writes summary.json weight_chunk_summary.csv action_sensitivity_rows.csv variant_summary.csv and correlation_summary.csv",
+    "all three scaled BC seeds have fusion weight chunk summaries",
+    "BC5660 fresh and OOD surfaces include normal reset delayed wrong shuffled scaled random zero-current and zero-action summaries",
+    "milestone doc applies the pre-registered M590 interpretation rules",
+    "research validation and focused tests pass"
+  ],
+  "type": "gate"
+}

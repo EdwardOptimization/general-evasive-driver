@@ -1,0 +1,86 @@
+{
+  "id": "m592-bc-hidden-use-repair-objective-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m591_bc_hidden_action_sensitivity_probe_fresh/variant_summary.csv",
+      "runs/m591_bc_hidden_action_sensitivity_probe_ood/variant_summary.csv",
+      "runs/m586_bc5660_matched_current_fresh_seed25560/matched_pairs.csv",
+      "runs/m586_bc5660_matched_current_ood_seed25660/matched_pairs.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_objective": [
+      "design a hidden-use repair objective after M591 finds action-equivalent real hidden states"
+    ],
+    "derived_from": [
+      "m591-bc-hidden-action-sensitivity-probe"
+    ],
+    "blocked_by": [
+      "m591-bc-hidden-action-sensitivity-probe"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m592-bc-hidden-use-repair-objective-design.md",
+  "public_gates": [
+    "design hidden-use objective or corpus before implementation",
+    "preserve P0 human-view no-wheel no-oracle actor inputs",
+    "avoid action-separation losses that are not tied to capability or outcome evidence",
+    "pre-register repair validation before training"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train or run PPO",
+    "do not promote checkpoint",
+    "do not add hidden vehicle parameters wheel slip tire force or oracle labels to actor inputs",
+    "do not push actions apart solely for the sake of hidden sensitivity",
+    "do not treat random-hidden sensitivity as self-ID proof"
+  ],
+  "hypothesis": "Because M591 shows a structural hidden path but action-equivalent real rollout hidden states, the next repair should train hidden state to encode future response or capability on matched-current histories before attempting PPO or action-level repair.",
+  "success_criteria": [
+    "design selects the first hidden-use repair objective or corpus",
+    "design specifies training-only targets and confirms they do not enter deployable actor inputs",
+    "design specifies exact validation gates for hidden prediction and action sensitivity",
+    "design blocks PPO and promotion until hidden-use evidence improves",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design adds oracle or wheel/slip inputs to the actor",
+    "design proposes action separation without capability or outcome grounding",
+    "design jumps directly to PPO continuation",
+    "design promotes a checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "Write hidden-use repair objective/corpus design after M591; no training or promotion."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m592-bc-hidden-use-repair-objective-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m591-bc-hidden-action-sensitivity-probe.md",
+    "docs/m590-bc-hidden-action-sensitivity-probe-design.md",
+    "docs/m589-bc-hidden-use-objective-audit.md"
+  ],
+  "decision_rule": "M592 passes if it defines a no-oracle hidden-use repair objective or corpus grounded in future response/capability evidence and pre-registers validation before implementation.",
+  "next_blocker": "m593-bc-hidden-use-repair-objective-implementation"
+}
