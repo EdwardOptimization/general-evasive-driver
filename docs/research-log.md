@@ -10945,3 +10945,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M535 implements `autodrift.frozen_source_surface_eval` plus focused tests. The evaluator reconstructs frozen M399 source states, stacks source-history observations for L2, builds L3 target hidden by replaying the source observation prefix, validates `history_baseline` metadata, and writes row/summary artifacts. A real smoke on `2` short-reveal pairs with L0/L2/L3 seed `3530` checkpoints produces `6` outcome rows and `0` invalid rows.
 - decision: `frozen_source_surface_eval_implementation_pass_admit_m536_matrix_smoke`
 - next: `m536-frozen-source-natural-surface-matrix-smoke`
+## 20260524T063000Z - m536-frozen-source-natural-surface-matrix-smoke
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m536_frozen_source_matrix_smoke_short_reveal`, `runs/m536_frozen_source_matrix_smoke_warmup_capability`
+- artifact: `docs/m536-frozen-source-natural-surface-matrix-smoke.md`
+- result: M536 runs all nine matched short-train checkpoints on small M497 short-reveal and warmup natural subsets with tail offsets `0,2`. Short-reveal produces `135` outcome rows and `1` diagnosed `missing_source_tail_snapshot`; warmup produces `144` outcome rows and `0` invalid rows. Aggregate smoke metrics tie L0/L2/L3 on success/completion/collision, while L3 has the best mean clearance margin (`1.884178` versus L2 `1.757335` and L0 `1.754461`). This is matrix route evidence only.
+- decision: `matrix_smoke_pass_admit_m537_full_public_natural_eval`
+- next: `m537-full-public-natural-surface-eval`

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 544,
+        "completed": 545,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m535-frozen-source-surface-eval-implementation",
+        "task_id": "m536-frozen-source-natural-surface-matrix-smoke",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m535_frozen_source_surface_eval_smoke",
-        "command_log": "docs/m535-frozen-source-surface-eval-implementation.md"
+        "run_dir": "runs/m536_frozen_source_matrix_smoke_warmup_capability",
+        "command_log": "docs/m536-frozen-source-natural-surface-matrix-smoke.md"
     },
     "next_task": {
-        "id": "m536-frozen-source-natural-surface-matrix-smoke",
+        "id": "m537-full-public-natural-surface-eval",
         "status": "pending",
-        "priority": 5310,
+        "priority": 5320,
         "kind": "gate",
-        "hypothesis": "The frozen source-surface evaluator can scale from the M535 3-checkpoint smoke to the full nine-checkpoint matched baseline matrix on small natural surface subsets.",
-        "command": "see experiments/manifests/m536-frozen-source-natural-surface-matrix-smoke.json",
+        "hypothesis": "The frozen source evaluator can run the full public natural diagnostic matrix and reveal whether trained L3 or L2 baselines retain a natural-surface advantage beyond route smoke metrics.",
+        "command": "see experiments/manifests/m537-full-public-natural-surface-eval.json",
         "success_artifact": "",
-        "notes": "Pending: evaluate all nine matched short-train checkpoints on short-reveal and warmup small natural subsets"
+        "notes": "Pending: execute four public natural surface splits and report all-row plus M526 event-subset diagnostics"
     },
-    "updated_at_utc": "20260524T062000Z"
+    "updated_at_utc": "20260524T063000Z"
 }

@@ -2,7 +2,7 @@
   "id": "m536-frozen-source-natural-surface-matrix-smoke",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -42,10 +42,10 @@
   },
   "review_artifact": "docs/reviews/m536-frozen-source-natural-surface-matrix-smoke.md",
   "public_gates": [
-    "run frozen source evaluator on all nine matched short-train checkpoints",
-    "cover short-reveal and warmup natural surfaces with small max_pairs",
-    "verify metadata and invalid-row counts",
-    "do not promote a checkpoint or claim final ranking"
+    "ran frozen source evaluator on all nine matched short-train checkpoints",
+    "covered short-reveal and warmup natural surfaces with small max_pairs",
+    "verified metadata and diagnosed invalid-row counts",
+    "no checkpoint promotion or final ranking claimed"
   ],
   "private_holdout_policy": "not_used",
   "forbidden_shortcuts": [
@@ -82,6 +82,14 @@
     {
       "path": "docs/m536-frozen-source-natural-surface-matrix-smoke.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m536_frozen_source_matrix_smoke_short_reveal/summary.json",
+      "type": "smoke_summary"
+    },
+    {
+      "path": "runs/m536_frozen_source_matrix_smoke_warmup_capability/summary.json",
+      "type": "smoke_summary"
     }
   ],
   "baseline_checkpoints": [
@@ -91,5 +99,7 @@
     "docs/m535-frozen-source-surface-eval-implementation.md"
   ],
   "decision_rule": "M536 is a matrix smoke gate. Passing it should admit a full public natural-surface diagnostic run, not a checkpoint promotion.",
-  "next_blocker": "pending M536 frozen source natural-surface matrix smoke"
+  "scoreboard_decision": "matrix_smoke_pass_admit_m537_full_public_natural_eval",
+  "scoreboard_reason": "M536 runs all nine matched checkpoints on small short-reveal and warmup natural subsets; warmup has 0 invalid rows, short-reveal has 1 diagnosed missing source tail, and no final ranking is claimed.",
+  "next_blocker": "m537-full-public-natural-surface-eval"
 }

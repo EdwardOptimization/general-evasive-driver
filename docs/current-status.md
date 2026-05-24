@@ -61,13 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m536-frozen-source-natural-surface-matrix-smoke
+m537-full-public-natural-surface-eval
 ```
 
-M536 should run the frozen source-surface evaluator on all nine matched
-short-train checkpoints over small short-reveal and warmup natural-surface
-subsets. It should verify scale-up and metadata, not promote or claim a final
-ranking.
+M537 should run the full public frozen-source natural-surface diagnostic on all
+nine matched checkpoints across M497 short/warmup and M487 near/late splits. It
+must report all-row metrics and M526 event-subset overlays separately, without
+promotion or private-holdout claims.
 
 ## Recent Evidence Line
 
@@ -113,6 +113,11 @@ ranking.
   current-first stacked history replay, and L3 hidden construction from source
   observation prefixes. Focused tests pass, and a real 2-pair short-reveal smoke
   produced `6` outcome rows with `0` invalid rows.
+- M536 scaled the evaluator to all nine matched short-train checkpoints on
+  small short-reveal and warmup natural subsets. It produced `279` valid outcome
+  rows total with one diagnosed short-reveal source-tail miss. L0/L2/L3 tied on
+  success/completion/collision, while L3 had the best mean clearance margin.
+  This is still route evidence only.
 
 ## Near-Term Rule
 
