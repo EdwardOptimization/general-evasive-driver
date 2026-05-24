@@ -55,22 +55,32 @@ Latest active diagnostic BC checkpoint:
 runs/m568_scaled_l3_bc_seed5660/checkpoint.pt
 ```
 
-Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M614
+Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M615
 diagnostics. It is not the public-gate base and is not promoted as the current
 driver checkpoint.
 
 ## Current Blocker
 
 ```text
-m615-sequence-source-expansion-design
+m616-expanded-sequence-source-miner-implementation
 ```
 
-M615 should design an expanded sequence-target source pool before repeating
-sequence mining. M614 audited M613 as a real but narrow sequence-target signal:
-one accepted sequence is not enough for optimizer admission or training.
+M616 should implement the expanded sequence-source miner designed by M615. The
+task is to build a core / near / support boundary-tier source table from M609
+source rollouts, preserve deterministic hidden provenance, and keep training,
+PPO, promotion, and optimizer admission blocked.
 
 ## Recent Evidence Line
 
+- M615 designs source expansion before another sequence miner run. Lowering
+  `min_capability_z_distance` is not useful on the current two-variant source
+  pool: z thresholds from `0.10` down to `0.00` deduplicate to the same `33`
+  rows. The next implementation should instead tier M609 `source_rollouts.csv`
+  by baseline boundary window: core collision/margin `<= 0.50`, near margin
+  `<= 1.00`, and support margin `<= 2.00`. This can expand from `17` original
+  boundary rows to up to `30` rollout-backed rows while preserving deterministic
+  wrong/delayed hidden provenance. Sequence target acceptance thresholds remain
+  unchanged.
 - M614 audits the M613 result and admits source expansion design. M613 produced
   a real sequence-target signal, but accepted diversity is only one source row,
   one physical pair, one left seed, one surface, one variant, and one target.

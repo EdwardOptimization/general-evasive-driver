@@ -11656,3 +11656,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M614 audits the M613 diagnostic-positive sequence result. The branch has a real signal: `5916` candidates produced `2` accepted candidate rows and `1` selected `K=5` `constant_delta` sequence with margin improvement `0.020817`. But the evidence is source-narrow: accepted diversity is one source row, one physical pair, one left seed, one surface, one variant, and one target. The best unaccepted candidates are blocked by sequence trust-region limits or candidate collision, so the correct next branch is source expansion rather than optimizer admission.
 - decision: `sequence_target_mining_audit_admit_source_expansion_design`
 - next: `m615-sequence-source-expansion-design`
+## 20260524T143000Z - m615-sequence-source-expansion-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m615-sequence-source-expansion-design.md`
+- result: M615 designs source expansion before repeating sequence target mining. Capability-threshold relaxation is not useful on the current M604 two-variant source pool because z thresholds from `0.10` down to `0.00` all deduplicate to the same `33` rows. The expansion should instead tier existing M609 `source_rollouts.csv` by baseline boundary window: core collision/margin `<= 0.50`, near margin `<= 1.00`, and support margin `<= 2.00`. This can expand from `17` original boundary rows to up to `30` rollout-backed rows while preserving deterministic wrong/delayed hidden provenance. Target acceptance thresholds remain unchanged and optimizer admission remains blocked.
+- decision: `sequence_source_expansion_design_admit_m616`
+- next: `m616-expanded-sequence-source-miner-implementation`
