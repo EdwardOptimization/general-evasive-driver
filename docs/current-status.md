@@ -62,17 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m684-normal-sequence-safe-response-amplification-audit
+m685-split-gated-response-amplification-design
 ```
 
-M684 should audit M683's clean negative result. M683 improved normal
-full-sequence retention but suppressed wrong-history gap below exact thresholds,
-so the next decision is whether this remains scalar-loss tuning or requires a
-split/gated wrong-amplifier structure. PPO, promotion, actor-input changes, and
-normal gate weakening remain blocked.
+M685 should design a split/gated residual response-amplification head after
+M684 classified M683 as a scalar-loss tradeoff. The design should separate
+"when to activate" from "what residual to emit" so normal-history residuals can
+stay inactive while wrong-history features can still amplify. PPO, promotion,
+actor-input changes, and normal gate weakening remain blocked.
 
 ## Recent Evidence Line
 
+- M684 audits M683 as `wrong_gap_suppressed_by_normal_sequence_anchor`. M680 and
+  M683 now bracket the scalar-loss conflict: wrong pressure can restore gap but
+  moves normal sequence residuals; normal sequence pressure improves retention
+  but suppresses wrong-history gap. The next design target is a split/gated
+  residual response amplifier, not PPO, gate weakening, or input changes.
 - M683 implements normal-sequence-safe branch-specific response amplification.
   It is implementation-clean: `648` rows, `216` sources, `3` residual heads,
   actor checksum unchanged, no base actor checkpoint, no PPO, and no promotion.

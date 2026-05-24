@@ -12277,3 +12277,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M683 implements and runs the normal-sequence-safe branch-specific response-amplification probe. The implementation is clean: `648` rows, `216` sources, `3` residual heads written, actor checksum unchanged, no base actor checkpoint, no PPO, no promotion. Exact gate still fails with `0` passed seeds. Normal retention improves versus M680 (`alpha=1.0` best normal mean `0.002769` versus M680 best `0.003753`), but wrong-history gap is suppressed (`alpha=1.0` best gap mean `0.008320`, ratio `2.895718`, wrong-target improvement `0.438964`, all below exact thresholds).
 - decision: `normal_sequence_safe_response_amplification_exact_gate_failed_admit_audit`
 - next: `m684-normal-sequence-safe-response-amplification-audit`
+## 20260525T044500Z - m684-normal-sequence-safe-response-amplification-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m684-normal-sequence-safe-response-amplification-audit.md`
+- result: M684 audits M683 as `wrong_gap_suppressed_by_normal_sequence_anchor`. M680 and M683 bracket the scalar-loss tradeoff: detached-normal wrong pressure can restore gap but moves normal sequence residuals, while normal sequence pressure improves retention but suppresses wrong-history amplification and still leaves normal mean slightly above gate at `alpha=1.0`. The next branch should test a split/gated residual response amplifier that separates activation from residual content, while preserving frozen BC5660, P0 inputs, exact gates, no PPO, and no promotion.
+- decision: `normal_sequence_safe_audit_admit_split_gated_design`
+- next: `m685-split-gated-response-amplification-design`

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 692,
+        "completed": 693,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m683-normal-sequence-safe-response-amplification-implementation",
+        "task_id": "m684-normal-sequence-safe-response-amplification-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m683_normal_sequence_safe_response_amplification",
-        "command_log": "docs/m683-normal-sequence-safe-response-amplification-implementation.md"
+        "run_dir": "",
+        "command_log": "docs/m684-normal-sequence-safe-response-amplification-audit.md"
     },
     "next_task": {
-        "id": "m684-normal-sequence-safe-response-amplification-audit",
+        "id": "m685-split-gated-response-amplification-design",
         "status": "pending",
-        "priority": 6790,
-        "kind": "gate",
-        "hypothesis": "M683 improved normal full-sequence retention but suppressed wrong-history gap; the audit should determine whether the single residual head is still a scalar-loss tuning problem or should be replaced by a split/gated wrong-amplifier design.",
-        "command": "see experiments/manifests/m684-normal-sequence-safe-response-amplification-audit.json",
+        "priority": 6800,
+        "kind": "infrastructure",
+        "hypothesis": "A split/gated residual head can keep normal-history residuals inactive while allowing wrong-history response amplification, avoiding the scalar-loss tradeoff observed in M680 and M683.",
+        "command": "see experiments/manifests/m685-split-gated-response-amplification-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit M683; PPO promotion and actor-input changes remain blocked"
+        "notes": "Pending: design split/gated exact probe; PPO promotion and actor-input changes remain blocked"
     },
-    "updated_at_utc": "20260525T043000Z"
+    "updated_at_utc": "20260525T044500Z"
 }

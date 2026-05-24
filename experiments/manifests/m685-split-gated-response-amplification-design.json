@@ -1,0 +1,86 @@
+{
+  "id": "m685-split-gated-response-amplification-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m683_normal_sequence_safe_response_amplification/summary.json",
+      "runs/m683_normal_sequence_safe_response_amplification/alpha_summary.csv",
+      "docs/m684-normal-sequence-safe-response-amplification-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m684-normal-sequence-safe-response-amplification-audit.json"
+    ],
+    "parent_objective": [
+      "design split/gated response-amplification residual head"
+    ],
+    "derived_from": [
+      "m684-normal-sequence-safe-response-amplification-audit"
+    ],
+    "blocked_by": [
+      "m684-normal-sequence-safe-response-amplification-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m685-split-gated-response-amplification-design.md",
+  "public_gates": [
+    "design keeps frozen BC5660 actor and P0 input contract",
+    "design separates activation gate from residual amplifier",
+    "design retains normal sequence and first-step safety gates",
+    "design retains detached-normal wrong-history gap pressure",
+    "design keeps alpha ladder exact metrics",
+    "PPO and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run training in this design milestone",
+    "do not weaken exact normal retention gates",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor observation inputs",
+    "do not use hidden physical parameters or labels as actor inputs"
+  ],
+  "hypothesis": "A split/gated residual head can keep normal-history residuals inactive while allowing wrong-history response amplification, avoiding the scalar-loss tradeoff observed in M680 and M683.",
+  "success_criteria": [
+    "split/gated residual architecture is specified",
+    "normal gate and residual safety losses are specified",
+    "wrong-history activation and gap losses are specified",
+    "implementation milestone is pre-registered",
+    "PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "design only retunes M683 scalar coefficients",
+    "design weakens normal retention gates",
+    "design changes actor observation inputs",
+    "design admits PPO or promotion"
+  ],
+  "commands": [
+    {
+      "name": "write_design",
+      "command": "write docs/m685-split-gated-response-amplification-design.md; no training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m685-split-gated-response-amplification-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m683_normal_sequence_safe_response_amplification/summary.json",
+    "docs/m684-normal-sequence-safe-response-amplification-audit.md"
+  ],
+  "decision_rule": "M685 passes if it defines an exact-gated split/gated residual-head implementation path that preserves P0 inputs, normal retention gates, no-PPO discipline, and no-promotion discipline.",
+  "next_blocker": "m686-split-gated-response-amplification-implementation"
+}
