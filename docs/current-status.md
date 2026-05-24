@@ -62,17 +62,20 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m756-v4-sequence-outcome-corpus-export-audit
+m757-v4-sequence-objective-design
 ```
 
-M756 should audit M755's v4 sequence-outcome corpus export before any objective
-design. M755 preserved `1213` clean positives with matched normals and complete
-v4 metadata, but hard negatives are sparse (`1009 < 1213`), so objective
-training, PPO, promotion, and true four-wheel/single-wheel fault claims remain
-blocked pending audit.
+M757 should design a constrained v4 sequence objective from the M755 corpus. It
+may use positives and matched normals as required contrast and sparse hard
+negatives as optional contrast, but it must not start actor updates, PPO, or
+promotion. True four-wheel/single-wheel fault claims remain blocked.
 
 ## Recent Evidence Line
 
+- M756 audits M755 as a valid v4 positive corpus export with sparse hard
+  negatives. It admits only constrained objective design: use positives and
+  matched normals as required contrast, treat hard negatives as optional sparse
+  contrast, preserve claim-boundary metadata, and keep PPO/promotion blocked.
 - M755 implements the deterministic v4-aware sequence-outcome corpus exporter
   and runs the registered export. It writes `1213` clean positive rows, `1213`
   matched normal rows, `1009` hard-negative action-only rows, and balance

@@ -12848,3 +12848,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M755 implements the deterministic v4-aware sequence-outcome corpus exporter and runs the registered export. It writes `1213` positive sequence-outcome rows, `1213` matched normal rows, `1009` capped hard-negative action-only rows, and balance artifacts. Core gates pass: `0` positive sentinel rows, `0` source-role sentinel positives, `0` duplicate positive keys, `0` missing normal matches, `0` missing v4 metadata rows, `0` missing fidelity metadata rows, `27` positive seeds, `17` fault-family pairs, max seed dominance `0.171476`, and v4 metadata gate pass. Hard-negative contrast is sparse (`1009 < 1213`) with `338` positives lacking same-source/same-horizon hard-negative candidates, so result_class is `v4_sequence_outcome_corpus_hard_negative_sparse`. No actor training, checkpoint loading, PPO, or promotion occurs.
 - decision: `v4_sequence_outcome_corpus_hard_negative_sparse_admit_audit`
 - next: `m756-v4-sequence-outcome-corpus-export-audit`
+
+## 20260525T044000Z - m756-v4-sequence-outcome-corpus-export-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m756-v4-sequence-outcome-corpus-export-audit.md`
+- result: M756 audits M755 as a valid v4 positive corpus export with sparse hard negatives. The audit supports the M749 -> M752 -> M755 coverage-mining chain and admits only a constrained objective-design branch: use positives and matched normals as required contrast, treat hard negatives as optional sparse contrast, preserve claim-boundary metadata, and keep PPO/promotion blocked. The failure taxonomy remains `scenario_sampling_failure` due hard-negative sparsity (`1009 < 1213`, `338` positives without same-source/same-horizon hard negatives).
+- decision: `promote_to_v4_sequence_objective_design`
+- next: `m757-v4-sequence-objective-design`

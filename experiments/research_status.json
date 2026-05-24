@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 764,
+        "completed": 765,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m755-v4-sequence-outcome-corpus-export-implementation",
+        "task_id": "m756-v4-sequence-outcome-corpus-export-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m755-v4-sequence-outcome-corpus-export-implementation.md"
+        "command_log": "docs/m756-v4-sequence-outcome-corpus-export-audit.md"
     },
     "next_task": {
-        "id": "m756-v4-sequence-outcome-corpus-export-audit",
+        "id": "m757-v4-sequence-objective-design",
         "status": "pending",
-        "priority": 7510,
-        "kind": "gate",
-        "hypothesis": "Audit v4 sequence-outcome corpus export",
-        "command": "see experiments/manifests/m756-v4-sequence-outcome-corpus-export-audit.json",
-        "success_artifact": "docs/m756-v4-sequence-outcome-corpus-export-audit.md",
-        "notes": "Pending: audit M755 positive corpus gates hard-negative sparsity metadata and claim boundary before objective design"
+        "priority": 7520,
+        "kind": "infrastructure",
+        "hypothesis": "Design constrained v4 sequence objective",
+        "command": "see experiments/manifests/m757-v4-sequence-objective-design.json",
+        "success_artifact": "docs/m757-v4-sequence-objective-design.md",
+        "notes": "Pending: design objective using M755 positives and matched normals with sparse hard-negative contrast before any actor update"
     },
-    "updated_at_utc": "20260525T043000Z"
+    "updated_at_utc": "20260525T044000Z"
 }

@@ -1,0 +1,112 @@
+{
+  "id": "m757-v4-sequence-objective-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint_used"
+    ],
+    "parent_dataset": [
+      "docs/m756-v4-sequence-outcome-corpus-export-audit.md",
+      "docs/m755-v4-sequence-outcome-corpus-export-implementation.md",
+      "runs/m755_v4_sequence_outcome_corpus_export/summary.json",
+      "runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv",
+      "runs/m755_v4_sequence_outcome_corpus_export/hard_negative_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m756-v4-sequence-outcome-corpus-export-audit.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_objective": [
+      "design constrained v4 sequence objective from clean positives with sparse hard negatives"
+    ],
+    "derived_from": [
+      "m756-v4-sequence-outcome-corpus-export-audit"
+    ],
+    "blocked_by": [
+      "m756-v4-sequence-outcome-corpus-export-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m757-v4-sequence-objective-design.md",
+  "public_gates": [
+    "M757 designs objective terms without training",
+    "M757 treats hard negatives as sparse optional contrast",
+    "M757 preserves normal-history behavior and first-step safety gates",
+    "M757 preserves v4 claim-boundary metadata",
+    "PPO checkpoint promotion and true four-wheel claims remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not assume every positive has a hard negative",
+    "do not drop matched normal rows",
+    "do not turn current-model/proxy labels into actor inputs",
+    "do not start actor training",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_sequence_objective_design",
+    "evidence_axis": "G_sequence_objective: design objective from v4 sequence corpus",
+    "evidence_increment": "defines objective terms and gates for M755 positives while respecting hard-negative sparsity",
+    "claim_scope": "design only; no actor update or driver improvement claim",
+    "stop_condition": [
+      "stop if objective requires complete hard negatives",
+      "stop if objective drops normal-history retention",
+      "stop if objective uses hidden fault labels as actor inputs",
+      "stop if the design admits PPO or promotion directly"
+    ],
+    "fallback_plan": [
+      "if hard-negative sparsity blocks contrastive design, use positives-plus-normal objective first",
+      "if normal retention cannot be expressed, return to corpus/audit before implementation",
+      "if objective would overfit public rows, design exact heldout split before implementation",
+      "if claim boundary is insufficient, pivot to simulator-fidelity planning"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M756 admits constrained objective design from M755 corpus",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A constrained v4 sequence objective can be designed from M755 positives and matched normals while treating hard negatives as optional sparse contrast.",
+  "success_criteria": [
+    "M757 specifies objective terms and exact metrics",
+    "M757 specifies normal retention first-step safety and source-balance gates",
+    "M757 specifies how sparse hard negatives are used without biasing the objective",
+    "M757 keeps actor inputs clean and claim-boundary metadata as training-time logging only",
+    "M757 admits only an offline/exact objective sanity implementation",
+    "M757 blocks PPO and promotion"
+  ],
+  "failure_criteria": [
+    "design requires hard negatives for every positive",
+    "design drops normal-history matched rows",
+    "design leaks hidden fault labels into actor observations",
+    "design admits PPO or checkpoint promotion directly",
+    "design ignores current-model/proxy claim boundary"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m757-v4-sequence-objective-design.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m757-v4-sequence-objective-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_checkpoint_used"
+  ],
+  "baseline_artifacts": [
+    "runs/m755_v4_sequence_outcome_corpus_export/summary.json",
+    "docs/m756-v4-sequence-outcome-corpus-export-audit.md"
+  ],
+  "decision_rule": "M757 may only design an offline v4 sequence objective. It must not implement actor updates PPO or promotion until a follow-up implementation/sanity gate is registered.",
+  "next_blocker": "m758-v4-sequence-objective-sanity-implementation"
+}
