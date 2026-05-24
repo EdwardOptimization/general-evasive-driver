@@ -61,12 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m571-fresh-route-generalization-design
+m572-fresh-route-generalization-eval
 ```
 
-M571 should design fresh non-public route/generalization gates for selected
-scaled checkpoint `BC5660`. M570 passed public frozen-source diagnostics, but
-this is still not a private generalization claim or checkpoint promotion.
+M572 should run the pre-registered 256-episode fresh route/generalization gate
+for selected scaled checkpoint `BC5660` against L0/L2. M570 passed public
+frozen-source diagnostics and M571 designed the fresh gate, but there is still
+no private generalization claim or checkpoint promotion.
 
 ## Recent Evidence Line
 
@@ -294,6 +295,12 @@ this is still not a private generalization claim or checkpoint promotion.
   versus L2 `1.777833`), and strongly repairs original M542 L3 (`+0.195633`
   paired success, `-0.190731` paired collision, `+0.797390` paired margin).
   This is public diagnostic evidence only; no checkpoint is promoted.
+- M571 designs the next fresh route/generalization gate. M572 will evaluate
+  `BC5660` versus L0/L2 on `256` fresh non-public route seeds
+  `19560..19815`, excluding prior route-screen seeds `15560`, `16560`,
+  `17560`, and `18560`. It must remain L0-safe and L2-competitive under
+  pre-registered success/margin/collision tolerances, with no PPO, no public-row
+  tuning, and no promotion.
 
 ## Near-Term Rule
 

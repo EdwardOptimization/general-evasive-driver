@@ -11260,3 +11260,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M570 evaluates selected `BC5660` on the same four public frozen-source natural surfaces used by M543/M550/M565. The aggregate has `8976` outcome rows and `2244` complete quad keys with no incomplete keys, actor-contract change, training, or promotion. `BC5660` matches L2 success/collision (`0.866310` / `0.133690`), has slightly higher mean margin (`1.782199` versus L2 `1.777833`), and strongly repairs original M542 L3 (`+0.195633` paired success, `-0.190731` paired collision, `+0.797390` paired margin). This remains public diagnostic evidence only.
 - decision: `scaled_bc_public_surface_pass_admit_fresh_route_generalization_design`
 - next: `m571-fresh-route-generalization-design`
+## 20260524T071000Z - m571-fresh-route-generalization-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m571-fresh-route-generalization-design.md`
+- result: M571 pre-registers the next fresh route/generalization evidence layer for `BC5660`. M572 will run route-screen v2 for L0, L2, and BC5660 on `256` fresh non-public route seeds `19560..19815`, excluding prior route-screen seeds `15560`, `16560`, `17560`, and `18560`. The pass rule requires no public frozen-source rows, unchanged P0 actor contract, L0-safe success/margin/collision, L2-competitive success within `0.02`, margin within `0.05`, and collision within `0.02`. M571 also sketches a later moderate-OOD route profile, but keeps that separate from M572.
+- decision: `fresh_route_generalization_design_admit_m572_eval`
+- next: `m572-fresh-route-generalization-eval`

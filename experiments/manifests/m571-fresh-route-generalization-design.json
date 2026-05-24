@@ -83,6 +83,6 @@
     "docs/m570-scaled-bc-public-natural-surface-eval.md",
     "docs/m569-scaled-bc-route-screen-selection.md"
   ],
-  "decision_rule": "M571 passes only if it pre-registers a fresh non-public/generalization evaluation protocol for BC5660 without training, public-row tuning, promotion, or actor-contract changes.",
+  "decision_rule": "M571 passes because it pre-registers the M572 fresh 256-episode route/generalization seed range, command, pass/fail criteria, and no-promotion boundary without training, public-row tuning, promotion, or actor-contract changes.",
   "next_blocker": "m572-fresh-route-generalization-eval"
 }

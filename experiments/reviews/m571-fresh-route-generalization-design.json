@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M571 pre-registers a fresh 256-episode route/generalization gate with seed range 19560..19815 and no PPO promotion or public-row tuning",
+  "failure_criteria": [
+    "design reuses public frozen-source rows as fresh evidence",
+    "design reuses prior route-screen seeds for generalization claims",
+    "design changes actor inputs or allows L2 stack leakage into L3 deployment",
+    "design allows promotion before fresh evaluation results exist"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not reuse route-screen seeds 15560 16560 17560 or 18560",
+    "do not tune from M543 M550 M565 or M570 public frozen-source residuals",
+    "do not run PPO or behavior cloning in this design milestone",
+    "do not promote BC5660 from M570 public diagnostics",
+    "do not change the P0 human-view no-wheel no-oracle actor contract"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T060701Z",
+  "hypothesis": "Because BC5660 passed route-screen v2 and matched L2 on public natural surfaces, the next reliable evidence layer should be a pre-registered fresh route/generalization gate rather than another public-surface iteration.",
+  "lineage": {
+    "blocked_by": [
+      "m570-scaled-bc-public-natural-surface-eval"
+    ],
+    "derived_from": [
+      "m570-scaled-bc-public-natural-surface-eval"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+      "runs/m542_matched_l2_variance_seed3540/checkpoint.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l0_variance_4096.json",
+      "configs/ppo_m541_matched_l2_variance_4096.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json"
+    ],
+    "parent_dataset": [
+      "runs/m570_scaled_bc_public_natural_surface_eval_aggregate/summary.json",
+      "runs/m569_scaled_bc_route_screen_selection/summary.json"
+    ],
+    "parent_objective": [
+      "design fresh route/generalization evidence after scaled BC public diagnostic pass"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m571-fresh-route-generalization-design",
+  "next_blocker": "m572-fresh-route-generalization-eval",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "fresh_route_generalization_design_admit_m572_eval",
+  "public_gates": [
+    "design fresh non-public route/generalization scenario seeds for BC5660 versus L0/L2",
+    "define OOD/randomization profile across speed friction obstacle timing road geometry and actuator lag",
+    "define pass/fail criteria before running evaluation",
+    "keep public frozen-source natural surfaces out of tuning and promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m571-fresh-route-generalization-design.md",
+    "clearance_margin_mean": "",
+    "decision": "fresh_route_generalization_design_admit_m572_eval",
+    "milestone": "m571-fresh-route-generalization-design",
+    "reason": "M571 pre-registers a fresh 256-episode route/generalization gate with seed range 19560..19815 and no PPO promotion or public-row tuning",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design specifies fresh evaluation seeds and excludes prior route-screen seeds",
+    "design specifies route/generalization randomization axes and scenario count",
+    "design specifies BC5660 versus L0/L2 pass/fail criteria before evaluation",
+    "design states that no promotion or PPO is allowed in M571",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}
