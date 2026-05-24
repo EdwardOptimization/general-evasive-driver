@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 631,
+        "completed": 632,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m622-tier-aware-sequence-candidate-audit",
+        "task_id": "m623-longer-low-amplitude-sequence-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m622-tier-aware-sequence-candidate-audit.md"
+        "command_log": "docs/m623-longer-low-amplitude-sequence-design.md"
     },
     "next_task": {
-        "id": "m623-longer-low-amplitude-sequence-design",
+        "id": "m624-longer-low-amplitude-sequence-miner",
         "status": "pending",
-        "priority": 6180,
+        "priority": 6190,
         "kind": "infrastructure",
-        "hypothesis": "A longer K=7 low-amplitude sequence diagnostic may recover additional source-diverse accepted sequences without widening action trust regions or lowering target thresholds.",
-        "command": "see experiments/manifests/m623-longer-low-amplitude-sequence-design.json",
+        "hypothesis": "Adding K=7 and intermediate low-amplitude steer deltas may recover additional source-diverse accepted sequences while preserving M621 trust regions and target thresholds.",
+        "command": "see experiments/manifests/m624-longer-low-amplitude-sequence-miner.json",
         "success_artifact": "",
-        "notes": "Pending: design K=7 low-amplitude sequence diagnostic; no training PPO promotion optimizer admission trust-region or threshold change"
+        "notes": "Pending: run no-training K=3/5/7 low-amplitude sequence diagnostic and compare against M621"
     },
-    "updated_at_utc": "20260524T154000Z"
+    "updated_at_utc": "20260524T155000Z"
 }

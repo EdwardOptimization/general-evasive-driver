@@ -11728,3 +11728,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M622 audits the M621 accepted candidate-set evidence. The `189` accepted candidate rows expose useful candidate-family diversity: decay_pulse `86`, constant_delta `64`, steer_then_brake `22`, and brake_release_then_steer `17`, with K=5 `108` and K=3 `81`. But candidate-level diversity does not solve source-level diversity: accepted candidates still cover only `5` physical pairs and `4` left seeds, with max physical-pair dominance `0.349206`, and core-boundary evidence is only `2` accepted candidates. Optimizer admission remains blocked. The next branch should design a K=7 low-amplitude diagnostic while keeping trust regions and target thresholds unchanged.
 - decision: `tier_aware_candidate_audit_admit_longer_sequence_design`
 - next: `m623-longer-low-amplitude-sequence-design`
+## 20260524T155000Z - m623-longer-low-amplitude-sequence-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m623-longer-low-amplitude-sequence-design.md`
+- result: M623 designs a no-training K=7 low-amplitude sequence diagnostic. The next run should compare directly against M621 by using the same M616 expanded source table and same acceptance thresholds, while adding `K=7` and intermediate steer deltas `±0.06`. The design keeps per-step action L2 `<= 0.10`, sequence mean L2 `<= 0.08`, sequence max L2 `<= 0.10`, max delta-delta L2 `<= 0.08`, margin threshold `0.02`, and risk threshold `0.05`. It explicitly blocks PPO, actor training, promotion, trust-region widening, and optimizer admission before a later audit.
+- decision: `longer_low_amplitude_sequence_design_admit_m624`
+- next: `m624-longer-low-amplitude-sequence-miner`

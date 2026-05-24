@@ -55,22 +55,28 @@ Latest active diagnostic BC checkpoint:
 runs/m568_scaled_l3_bc_seed5660/checkpoint.pt
 ```
 
-Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M622
+Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M623
 diagnostics. It is not the public-gate base and is not promoted as the current
 driver checkpoint.
 
 ## Current Blocker
 
 ```text
-m623-longer-low-amplitude-sequence-design
+m624-longer-low-amplitude-sequence-miner
 ```
 
-M623 should design a K=7 low-amplitude diagnostic sequence run. The design must
-keep action trust regions and margin/risk acceptance thresholds unchanged, and
-it must not admit optimizer training or PPO.
+M624 should run the no-training K=3/5/7 low-amplitude sequence diagnostic on
+the M616 expanded source rows and compare source-level accepted diversity
+against M621. Trust regions, target thresholds, actor inputs, model weights,
+PPO, and promotion remain unchanged/blocked.
 
 ## Recent Evidence Line
 
+- M623 designs a K=7 low-amplitude sequence diagnostic. M624 should use the
+  M616 expanded source table, add `K=7`, add intermediate steer deltas `±0.06`,
+  and keep all M621 trust-region and acceptance thresholds unchanged. The run
+  remains diagnostic-only and must compare source-level selected/candidate
+  diversity against M621 before any optimizer discussion.
 - M622 audits M621's `189` accepted candidate rows. They show useful
   candidate-family diversity but not enough source diversity: accepted
   candidates still cover only `5` physical pairs and `4` left seeds, and
