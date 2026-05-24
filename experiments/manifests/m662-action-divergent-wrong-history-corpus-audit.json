@@ -1,0 +1,85 @@
+{
+  "id": "m662-action-divergent-wrong-history-corpus-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m661_action_divergent_wrong_history_corpus/summary.json",
+      "runs/m661_action_divergent_wrong_history_corpus/candidate_scores.csv",
+      "runs/m661_action_divergent_wrong_history_corpus/action_divergent_corpus.npz",
+      "docs/m661-action-divergent-wrong-history-corpus-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m661-action-divergent-wrong-history-corpus-implementation.json"
+    ],
+    "parent_objective": [
+      "audit negative action-divergent wrong-history corpus mining result"
+    ],
+    "derived_from": [
+      "m661-action-divergent-wrong-history-corpus-implementation"
+    ],
+    "blocked_by": [
+      "m661-action-divergent-wrong-history-corpus-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m662-action-divergent-wrong-history-corpus-audit.md",
+  "public_gates": [
+    "classify why M661 accepted zero rows",
+    "separate weak wrong-history action divergence from implementation failure",
+    "decide whether the next branch should broaden source mining or change objectives",
+    "keep actor coupling, PPO, and promotion blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not weaken M661 thresholds after seeing the negative result",
+    "do not treat hidden-distance-only rows as action-divergent supervision"
+  ],
+  "hypothesis": "M661 failed because the M586/M636 matched-current surfaces are not action-divergent under BC5660 wrong-history replay, not because the corpus writer or actor checksum guard failed.",
+  "success_criteria": [
+    "audit records candidate_rows and accepted_rows",
+    "audit records max wrong-history first-action and sequence action distances",
+    "audit records max margin gap and threshold pass counts",
+    "audit selects the next source-mining or objective branch explicitly",
+    "actor coupling and PPO remain blocked",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "audit ignores the zero accepted rows",
+    "audit weakens thresholds inside the original M661 gate",
+    "audit admits actor coupling or PPO",
+    "audit omits no-training and actor checksum evidence"
+  ],
+  "commands": [
+    {
+      "name": "audit_doc",
+      "command": "write docs/m662-action-divergent-wrong-history-corpus-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m662-action-divergent-wrong-history-corpus-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m661_action_divergent_wrong_history_corpus/summary.json",
+    "docs/m661-action-divergent-wrong-history-corpus-implementation.md"
+  ],
+  "decision_rule": "M662 passes only if it records the negative M661 evidence without threshold laundering and chooses a next branch that can create genuinely action-divergent wrong-history rows.",
+  "next_blocker": "m663-action-critical-wrong-history-source-mining-design"
+}

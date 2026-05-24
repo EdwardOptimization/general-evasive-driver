@@ -12070,3 +12070,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M660 designs a no-training action-divergent wrong-history corpus after M658/M659 showed that feature-view changes are insufficient. The design requires wrong-history first-action divergence, short-horizon action-sequence divergence, explicit preferred and rejected action sequence fields, margin/risk gaps, source-diverse split rules, and no hidden-distance-only acceptance. M661 should mine from BC5660 matched-current fresh/OOD surfaces and preferred projected sequence artifacts while keeping actor updates, PPO, and promotion blocked.
 - decision: `action_divergent_wrong_history_corpus_design_admit_m661`
 - next: `m661-action-divergent-wrong-history-corpus-implementation`
+## 20260524T224500Z - m661-action-divergent-wrong-history-corpus-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m661_action_divergent_wrong_history_corpus`
+- artifact: `docs/m661-action-divergent-wrong-history-corpus-implementation.md`
+- result: M661 implements the no-training action-divergent wrong-history corpus miner and writes explicit preferred/rejected sequence artifacts, but the result is negative: `0/3207` candidates are accepted. Only `75` rows pass the first-action threshold, `0` pass the wrong-history sequence threshold, `0` pass the preferred-vs-rejected sequence threshold, and `0` pass the margin-gap threshold. The max wrong-history sequence mean L2 is `0.001850` versus the `0.006` threshold, max preferred-vs-rejected sequence mean L2 is `0.001850` versus the `0.010` threshold, and max margin gap is only `0.000031` versus `0.010`. Normal and wrong-history success rates are both `1.000`; actor checksum is unchanged and no actor checkpoint is written.
+- decision: `action_divergent_wrong_history_corpus_negative_admit_audit`
+- next: `m662-action-divergent-wrong-history-corpus-audit`

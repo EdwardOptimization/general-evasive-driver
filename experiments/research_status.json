@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 669,
+        "completed": 670,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m660-action-divergent-wrong-history-corpus-design",
+        "task_id": "m661-action-divergent-wrong-history-corpus-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m660-action-divergent-wrong-history-corpus-design.md"
+        "run_dir": "runs/m661_action_divergent_wrong_history_corpus",
+        "command_log": "docs/m661-action-divergent-wrong-history-corpus-implementation.md"
     },
     "next_task": {
-        "id": "m661-action-divergent-wrong-history-corpus-implementation",
+        "id": "m662-action-divergent-wrong-history-corpus-audit",
         "status": "pending",
-        "priority": 6560,
-        "kind": "infrastructure",
-        "hypothesis": "A source-diverse corpus requiring action and short-horizon divergence will produce stronger wrong-history supervision than M641's hidden-different rows.",
-        "command": "see experiments/manifests/m661-action-divergent-wrong-history-corpus-implementation.json",
+        "priority": 6570,
+        "kind": "gate",
+        "hypothesis": "M661 failed because the M586/M636 matched-current surfaces are not action-divergent under BC5660 wrong-history replay, not because the corpus writer or actor checksum guard failed.",
+        "command": "see experiments/manifests/m662-action-divergent-wrong-history-corpus-audit.json",
         "success_artifact": "",
-        "notes": "Pending: implement action-divergent wrong-history corpus; no actor update PPO promotion"
+        "notes": "Pending: audit zero accepted action-divergent rows and choose next source-mining branch without threshold laundering"
     },
-    "updated_at_utc": "20260524T223000Z"
+    "updated_at_utc": "20260524T224500Z"
 }

@@ -62,16 +62,26 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m661-action-divergent-wrong-history-corpus-implementation
+m662-action-divergent-wrong-history-corpus-audit
 ```
 
-M661 should implement the no-training action-divergent wrong-history corpus
-miner. It must require action and short-horizon divergence, write explicit
-preferred/rejected action sequences, preserve source-diverse splits, and leave
-actor/PPO updates blocked.
+M662 should audit the negative M661 action-divergent corpus result. M661 wrote
+the explicit preferred/rejected artifacts but accepted `0/3207` candidates
+because wrong-history sequence and margin divergence were far below thresholds.
+The audit must decide the next source-mining branch without weakening the M661
+gate or admitting actor/PPO updates.
 
 ## Recent Evidence Line
 
+- M661 implements and runs the no-training action-divergent wrong-history corpus
+  miner. It is a clean negative result: `0/3207` candidates accepted. The max
+  wrong-history sequence mean L2 is only `0.001850` versus the `0.006`
+  threshold, max preferred-vs-rejected sequence mean L2 is `0.001850` versus
+  `0.010`, max margin gap is `0.000031` versus `0.010`, and both normal and
+  wrong-history success rates are `1.000`. Actor checksum is unchanged and no
+  actor checkpoint is written. This means the existing M586/M636
+  matched-current surfaces are hidden/feature-different but not usable
+  action-divergent wrong-history supervision.
 - M660 designs the action-divergent wrong-history corpus. The next miner should
   stop accepting hidden-difference-only rows and require explicit
   preferred/rejected action sequences, first-action divergence, short-horizon
