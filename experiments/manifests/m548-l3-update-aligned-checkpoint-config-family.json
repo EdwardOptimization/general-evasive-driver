@@ -1,0 +1,94 @@
+{
+  "id": "m548-l3-update-aligned-checkpoint-config-family",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m547_l3_repair_fast_select_seed3540/checkpoints/checkpoint_step_1024.pt",
+      "runs/m547_l3_repair_lr1e4_seed3540/checkpoints/checkpoint_step_2048.pt",
+      "runs/m547_l3_repair_lr5e5_seed3540/checkpoints/checkpoint_step_4096.pt"
+    ],
+    "parent_dataset": [
+      "runs/m547_l3_recurrent_repair_route_pilot_summary/summary.json",
+      "runs/m547_l3_recurrent_repair_route_pilot_summary/train_peak_summary.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m546_l3_repair_fast_select_4096.json",
+      "configs/ppo_m546_l3_repair_lr1e4_4096.json",
+      "configs/ppo_m546_l3_repair_lr5e5_4096.json"
+    ],
+    "parent_objective": [
+      "implement update-aligned checkpoint cadence after M547 route-health failure"
+    ],
+    "derived_from": [
+      "m547-l3-recurrent-repair-route-pilot"
+    ],
+    "blocked_by": [
+      "m547-l3-recurrent-repair-route-pilot"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m548-l3-update-aligned-checkpoint-config-family.md",
+  "public_gates": [
+    "add update-aligned L3 repair configs with checkpoint_interval_steps = 256",
+    "preserve M546 optimization variants and P0 environment contract",
+    "tests verify only checkpoint cadence changes from M546 variants",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not use public frozen-source rows for checkpoint selection",
+    "do not change environment sampler ranges or reward terms",
+    "do not claim lower-LR repair success until route-health passes"
+  ],
+  "hypothesis": "Because M547 best training rollout steps were all unsaved at step 1792, update-aligned 256-step checkpoint cadence is needed before judging the L3 repair variants.",
+  "success_criteria": [
+    "update-aligned configs are added for fast-select, lr1e4, and lr5e5 variants",
+    "each config differs from its M546 parent only by checkpoint_interval_steps = 256",
+    "tests verify P0 contract and unchanged environment distribution",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "configs alter actor inputs, reward, sampler, or environment distribution",
+    "configs change learning rates beyond the M546 variants",
+    "tests do not verify the checkpoint-cadence-only difference"
+  ],
+  "commands": [
+    {
+      "name": "config_implementation",
+      "command": "Add update-aligned L3 repair configs and focused config tests; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "configs/ppo_m548_l3_repair_fast_select_ckpt256_4096.json",
+      "type": "config"
+    },
+    {
+      "path": "configs/ppo_m548_l3_repair_lr1e4_ckpt256_4096.json",
+      "type": "config"
+    },
+    {
+      "path": "configs/ppo_m548_l3_repair_lr5e5_ckpt256_4096.json",
+      "type": "config"
+    },
+    {
+      "path": "docs/m548-l3-update-aligned-checkpoint-config-family.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m547-l3-recurrent-repair-route-pilot.md",
+    "runs/m547_l3_recurrent_repair_route_pilot_summary/summary.json"
+  ],
+  "decision_rule": "M548 passes only if update-aligned checkpoint configs and tests exist. It does not train or promote a checkpoint.",
+  "next_blocker": "pending M548 update-aligned checkpoint config family"
+}

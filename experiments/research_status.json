@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 555,
+        "completed": 556,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m546-l3-recurrent-repair-config-family",
+        "task_id": "m547-l3-recurrent-repair-route-pilot",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m546-l3-recurrent-repair-config-family.md"
+        "run_dir": "runs/m547_l3_recurrent_repair_route_pilot_summary",
+        "command_log": "docs/m547-l3-recurrent-repair-route-pilot.md"
     },
     "next_task": {
-        "id": "m547-l3-recurrent-repair-route-pilot",
+        "id": "m548-l3-update-aligned-checkpoint-config-family",
         "status": "pending",
-        "priority": 5420,
-        "kind": "gate",
-        "hypothesis": "At least one M546 L3 repair variant will pass route health by preserving interval checkpoints or reducing recurrent update aggressiveness, enabling a later public diagnostic eval.",
-        "command": "see experiments/manifests/m547-l3-recurrent-repair-route-pilot.json",
+        "priority": 5430,
+        "kind": "infrastructure",
+        "hypothesis": "Because M547 best training rollout steps were all unsaved at step 1792, update-aligned 256-step checkpoint cadence is needed before judging the L3 repair variants.",
+        "command": "see experiments/manifests/m548-l3-update-aligned-checkpoint-config-family.json",
         "success_artifact": "",
-        "notes": "Pending: train three L3 repair configs on seed3540 and apply route-health selection before public eval"
+        "notes": "Pending: add ckpt256 variants and tests without training"
     },
-    "updated_at_utc": "20260524T081000Z"
+    "updated_at_utc": "20260524T082000Z"
 }

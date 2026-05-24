@@ -2,9 +2,9 @@
   "id": "m547-l3-recurrent-repair-route-pilot",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "training_instability"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -84,6 +84,18 @@
       "type": "checkpoint"
     },
     {
+      "path": "runs/m547_l3_recurrent_repair_route_pilot_summary/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m547_l3_recurrent_repair_route_pilot_summary/route_checkpoint_eval.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m547_l3_recurrent_repair_route_pilot_summary/train_peak_summary.csv",
+      "type": "csv"
+    },
+    {
       "path": "docs/m547-l3-recurrent-repair-route-pilot.md",
       "type": "documentation"
     }
@@ -98,5 +110,5 @@
     "docs/m546-l3-recurrent-repair-config-family.md"
   ],
   "decision_rule": "M547 is a route pilot. It admits public diagnostics only if a route-selected repaired L3 candidate passes M545 route-health criteria.",
-  "next_blocker": "pending M547 L3 recurrent repair route pilot"
+  "next_blocker": "m548-l3-update-aligned-checkpoint-config-family"
 }

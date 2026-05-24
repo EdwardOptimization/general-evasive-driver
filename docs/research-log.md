@@ -11044,3 +11044,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M546 adds the controlled L3-only repair config family: `fast_select` keeps the original `0.0003` learning rate and adds `checkpoint_interval_steps = 512`, while `lr1e4` and `lr5e5` lower recurrent update aggressiveness with `max_grad_norm = 0.25`. Focused tests verify all three configs keep the M541 L3 environment exactly, preserve the `L3_online_gru` P0 contract, and differ from M541 only by approved optimization/checkpoint-selection controls.
 - decision: `l3_repair_config_family_pass_admit_m547_route_pilot`
 - next: `m547-l3-recurrent-repair-route-pilot`
+## 20260524T082000Z - m547-l3-recurrent-repair-route-pilot
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m547_l3_recurrent_repair_route_pilot_summary`
+- artifact: `docs/m547-l3-recurrent-repair-route-pilot.md`
+- result: M547 runs all three M546 L3 repair configs and evaluates `27` saved interval/final checkpoints under the M545 route-only selection rule. No checkpoint passes route health: `route_health_pass_count = 0`, and the best selected checkpoint is `fast_select` step `1024` with return `22.941196` and termination `1.0`. The training metrics still show strong rollout peaks at step `1792` for all variants (`52.598733`, `67.155072`, `66.953277`), but that step is not saved by the 512-step checkpoint cadence.
+- decision: `route_health_reject_training_instability_admit_m548_update_aligned_checkpoint_configs`
+- next: `m548-l3-update-aligned-checkpoint-config-family`

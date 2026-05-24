@@ -61,12 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m547-l3-recurrent-repair-route-pilot
+m548-l3-update-aligned-checkpoint-config-family
 ```
 
-M547 should run the three M546 L3 repair configs on seed `3540`, collect
-interval checkpoints, and apply the M545 route-only checkpoint-selection rule
-before any public frozen-source eval.
+M548 should implement update-aligned `checkpoint_interval_steps = 256` variants
+for the M546 L3 repair configs. M547 showed all best rollout-return steps occur
+at step `1792`, which the 512-step checkpoint cadence does not save.
 
 ## Recent Evidence Line
 
@@ -178,15 +178,22 @@ before any public frozen-source eval.
   `lr1e4` and `lr5e5` lower recurrent update aggressiveness and set
   `max_grad_norm = 0.25`. Tests verify all three keep the M541 L3 environment
   exactly and differ only by approved optimization/checkpoint-selection fields.
+- M547 runs the three M546 repair configs and evaluates all saved interval/final
+  checkpoints under the route-only selection rule. The result is negative:
+  `0/27` saved checkpoints pass route health, and the best saved checkpoint
+  (`fast_select` step `1024`) has return `22.941196` with termination `1.0`.
+  The useful diagnostic is that all three variants peak in training at step
+  `1792`, but that step is unsaved by the 512-step checkpoint cadence.
 
 ## Near-Term Rule
 
 Do not treat reset-hidden diagnostics, M528 smoke return, route eval, or
 M537-M543 public diagnostics as private generalization evidence. The next branch
-should run the M546 L3 repair route pilot and select checkpoints only from route
-artifacts before any public frozen-source eval. Any later promotion requires
-proof retention, generalization retention, behavior retention, no contract
-violation, and clear lineage.
+should implement update-aligned checkpoint configs before another repaired
+route pilot. Public frozen-source eval remains blocked until a route-selected
+checkpoint passes M545 route health. Any later promotion requires proof
+retention, generalization retention, behavior retention, no contract violation,
+and clear lineage.
 
 ## Sensor Profile Policy
 
