@@ -2,7 +2,7 @@
   "id": "m541-matched-history-variance-config-family",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -32,10 +32,10 @@
   },
   "review_artifact": "docs/reviews/m541-matched-history-variance-config-family.md",
   "public_gates": [
-    "add matched 4096-step L0 L2 L3 configs",
-    "test shared budget and approved history-level differences",
-    "preserve P0 input contract",
-    "do not train or promote checkpoint"
+    "added matched 4096-step L0 L2 L3 configs",
+    "tested shared budget and approved history-level differences",
+    "preserved P0 input contract",
+    "did not train or promote checkpoint"
   ],
   "private_holdout_policy": "not_used",
   "forbidden_shortcuts": [
@@ -65,6 +65,18 @@
     {
       "path": "docs/m541-matched-history-variance-config-family.md",
       "type": "documentation"
+    },
+    {
+      "path": "configs/ppo_m541_matched_l0_variance_4096.json",
+      "type": "config"
+    },
+    {
+      "path": "configs/ppo_m541_matched_l2_variance_4096.json",
+      "type": "config"
+    },
+    {
+      "path": "configs/ppo_m541_matched_l3_variance_4096.json",
+      "type": "config"
     }
   ],
   "baseline_checkpoints": [
@@ -73,6 +85,6 @@
   "baseline_artifacts": [
     "docs/m540-matched-history-training-variance-design.md"
   ],
-  "decision_rule": "M541 is an infrastructure milestone. Passing it admits V1 route-pilot training on one seed; it does not train or promote a checkpoint.",
-  "next_blocker": "pending M541 matched variance config family"
+  "decision_rule": "M541 is an infrastructure milestone. The config family passes focused tests and admits V1 route-pilot training on one seed; it does not train or promote a checkpoint.",
+  "next_blocker": "m542-matched-history-variance-route-pilot"
 }

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 549,
+        "completed": 550,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m540-matched-history-training-variance-design",
+        "task_id": "m541-matched-history-variance-config-family",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m540-matched-history-training-variance-design.md"
+        "command_log": "docs/m541-matched-history-variance-config-family.md"
     },
     "next_task": {
-        "id": "m541-matched-history-variance-config-family",
+        "id": "m542-matched-history-variance-route-pilot",
         "status": "pending",
-        "priority": 5360,
-        "kind": "infrastructure",
-        "hypothesis": "A machine-checkable 4096-step matched config family can be added so the next variance run compares L0 L2 and L3 fairly after the M539 seed-fragility finding.",
-        "command": "see experiments/manifests/m541-matched-history-variance-config-family.json",
+        "priority": 5370,
+        "kind": "gate",
+        "hypothesis": "The matched 4096-step config family can run all three history levels on seed 3540 and produce valid metadata before multi-seed variance evaluation.",
+        "command": "see experiments/manifests/m542-matched-history-variance-route-pilot.json",
         "success_artifact": "",
-        "notes": "Pending: create machine-checkable configs and tests before any training"
+        "notes": "Pending: run seed3540 L0 L2 L3 route pilot and report metadata/eval without ranking claim"
     },
-    "updated_at_utc": "20260524T071000Z"
+    "updated_at_utc": "20260524T072000Z"
 }

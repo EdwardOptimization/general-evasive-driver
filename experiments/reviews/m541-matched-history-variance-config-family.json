@@ -1,0 +1,74 @@
+{
+  "decision_reason": "M541 adds machine-checkable matched 4096-step L0 L2 L3 configs and fairness tests without training",
+  "failure_criteria": [
+    "configs differ in unapproved per-level ways",
+    "P0 input contract changes",
+    "training or promotion is performed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not change task distribution for one history level only",
+    "do not run training before config tests pass",
+    "do not tune L3 against public M537-M539 rows"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T034332Z",
+  "hypothesis": "A machine-checkable 4096-step matched config family can be added so the next variance run compares L0 L2 and L3 fairly after the M539 seed-fragility finding.",
+  "lineage": {
+    "blocked_by": [
+      "m540-matched-history-training-variance-design"
+    ],
+    "derived_from": [
+      "m540-matched-history-training-variance-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m531_matched_l0_short_train.json",
+      "configs/ppo_m531_matched_l2_short_train.json",
+      "configs/ppo_m531_matched_l3_short_train.json"
+    ],
+    "parent_dataset": [
+      "docs/m540-matched-history-training-variance-design.md"
+    ],
+    "parent_objective": [
+      "implement matched 4096-step L0 L2 L3 variance config family"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m541-matched-history-variance-config-family",
+  "next_blocker": "m542-matched-history-variance-route-pilot",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "matched_variance_config_family_pass_admit_m542_route_pilot",
+  "public_gates": [
+    "added matched 4096-step L0 L2 L3 configs",
+    "tested shared budget and approved history-level differences",
+    "preserved P0 input contract",
+    "did not train or promote checkpoint"
+  ],
+  "scoreboard": {
+    "checkpoint": "configs/ppo_m541_matched_l3_variance_4096.json",
+    "clearance_margin_mean": "",
+    "decision": "matched_variance_config_family_pass_admit_m542_route_pilot",
+    "milestone": "m541-matched-history-variance-config-family",
+    "reason": "M541 adds machine-checkable matched 4096-step L0 L2 L3 configs and fairness tests without training",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "three configs exist for L0 L2 and L3",
+    "only actor encoder history length recurrent flag and history baseline metadata differ by level",
+    "shared PPO budget and environment task distribution are tested",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

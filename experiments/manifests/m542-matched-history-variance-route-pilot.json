@@ -1,0 +1,88 @@
+{
+  "id": "m542-matched-history-variance-route-pilot",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m541-matched-history-variance-config-family.md"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l0_variance_4096.json",
+      "configs/ppo_m541_matched_l2_variance_4096.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json"
+    ],
+    "parent_objective": [
+      "run one-seed 4096-step matched L0 L2 L3 variance route pilot"
+    ],
+    "derived_from": [
+      "m541-matched-history-variance-config-family"
+    ],
+    "blocked_by": [
+      "m541-matched-history-variance-config-family"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m542-matched-history-variance-route-pilot.md",
+  "public_gates": [
+    "run L0 L2 and L3 4096-step configs on seed 3540",
+    "validate checkpoint metadata and P0 input contract",
+    "report route/eval metrics without ranking claim",
+    "do not promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not tune configs after seeing one level's pilot result",
+    "do not compare levels until all three pilot runs complete",
+    "do not claim private generalization from route metrics"
+  ],
+  "hypothesis": "The matched 4096-step config family can run all three history levels on seed 3540 and produce valid metadata before multi-seed variance evaluation.",
+  "success_criteria": [
+    "L0 L2 and L3 runs complete",
+    "all checkpoints record expected history_baseline and P0 input_contract metadata",
+    "training summaries and eval summaries are documented",
+    "no checkpoint promotion is performed",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "any level cannot run from the matched config",
+    "metadata differs from the declared history level",
+    "P0 input contract changes",
+    "checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "l0_seed3540",
+      "command": "PYTHONPATH=src OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m autodrift.train_ppo --config configs/ppo_m541_matched_l0_variance_4096.json --run-dir runs/m542_matched_l0_variance_seed3540 --device cpu"
+    },
+    {
+      "name": "l2_seed3540",
+      "command": "PYTHONPATH=src OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m autodrift.train_ppo --config configs/ppo_m541_matched_l2_variance_4096.json --run-dir runs/m542_matched_l2_variance_seed3540 --device cpu"
+    },
+    {
+      "name": "l3_seed3540",
+      "command": "PYTHONPATH=src OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m autodrift.train_ppo --config configs/ppo_m541_matched_l3_variance_4096.json --run-dir runs/m542_matched_l3_variance_seed3540 --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m542-matched-history-variance-route-pilot.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m541-matched-history-variance-config-family.md"
+  ],
+  "decision_rule": "M542 is a route pilot. Passing it admits multi-seed variance pilot setup; it does not promote a checkpoint.",
+  "next_blocker": "pending M542 matched variance route pilot"
+}

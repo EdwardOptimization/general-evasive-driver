@@ -10990,3 +10990,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M540 pre-registers the next matched-history training-variance path after the broad seed-3531 L2 counterexample. The design keeps L2 as a serious finite-window baseline, defines a staged V0-V5 ladder starting with 4096-step matched L0/L2/L3 configs, requires public paired diagnostics before any fresh holdout, and separates L3-vs-L0 from L3-vs-L2 pass rules. It also fixes the lineage config paths to the real `configs/ppo_m531_matched_*_short_train.json` files.
 - decision: `matched_training_variance_design_admit_m541_variance_config_family`
 - next: `m541-matched-history-variance-config-family`
+## 20260524T072000Z - m541-matched-history-variance-config-family
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m541-matched-history-variance-config-family.md`
+- result: M541 adds matched 4096-step configs for L0, L2, and L3: `configs/ppo_m541_matched_l0_variance_4096.json`, `configs/ppo_m541_matched_l2_variance_4096.json`, and `configs/ppo_m541_matched_l3_variance_4096.json`. Tests verify P0 history-baseline metadata, shared budget/task distribution, and that M541 differs from M531 only by `total_steps` and default seed. Focused config tests pass (`9 passed`).
+- decision: `matched_variance_config_family_pass_admit_m542_route_pilot`
+- next: `m542-matched-history-variance-route-pilot`

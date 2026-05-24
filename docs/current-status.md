@@ -61,13 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m541-matched-history-variance-config-family
+m542-matched-history-variance-route-pilot
 ```
 
-M541 should implement the matched 4096-step L0/L2/L3 variance config family and
-tests. It must not launch training until the configs are machine-checked for
-shared budgets, shared task distribution, approved history-level differences,
-and the P0 input contract.
+M542 should run the one-seed 4096-step L0/L2/L3 variance route pilot on seed
+`3540`. It should report metadata and eval summaries for all three levels, but
+must not make a stable ranking claim or promote a checkpoint.
 
 ## Recent Evidence Line
 
@@ -144,14 +143,22 @@ and the P0 input contract.
   matched configs, separates L3-vs-L0 from L3-vs-L2 pass rules, and requires
   public paired diagnostics before any fresh-holdout claim. It also corrects the
   current lineage config paths to `configs/ppo_m531_matched_*_short_train.json`.
+- M541 implements the matched 4096-step variance config family:
+  `configs/ppo_m541_matched_l0_variance_4096.json`,
+  `configs/ppo_m541_matched_l2_variance_4096.json`, and
+  `configs/ppo_m541_matched_l3_variance_4096.json`. Tests verify valid P0
+  history-baseline metadata, shared task distribution, and that the new configs
+  differ from M531 only in `total_steps` and default seed. No training or
+  promotion was performed.
 
 ## Near-Term Rule
 
 Do not treat reset-hidden diagnostics, M528 smoke return, or M537-M539 public
-diagnostics as private generalization evidence. The next branch must implement
-the matched variance configs before running longer training. Any later promotion
-requires proof retention, generalization retention, behavior retention, no
-contract violation, and clear lineage.
+diagnostics as private generalization evidence. The next branch may run the
+seed-3540 route pilot, but it should not rank L0/L2/L3 until all three matched
+runs complete and later pass the same public paired diagnostics. Any later
+promotion requires proof retention, generalization retention, behavior
+retention, no contract violation, and clear lineage.
 
 ## Sensor Profile Policy
 
