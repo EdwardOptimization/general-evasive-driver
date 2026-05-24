@@ -1,0 +1,119 @@
+{
+  "id": "m749-v4-extreme-fault-coverage-implementation",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m748-v4-extreme-fault-coverage-design.md",
+      "runs/m746_v3_sequence_outcome_corpus_export/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m748-v4-extreme-fault-coverage-design.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_objective": [
+      "run no-training v4 extreme-fault source-mining wave before objective work"
+    ],
+    "derived_from": [
+      "m748-v4-extreme-fault-coverage-design"
+    ],
+    "blocked_by": [
+      "m748-v4-extreme-fault-coverage-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m749-v4-extreme-fault-coverage-implementation.md",
+  "public_gates": [
+    "M749 validates v4 config with supported current-model fault families",
+    "M749 runs a no-training v4 data wave",
+    "M749 reports source reset action outcome and sentinel metrics separately",
+    "M749 preserves future-fidelity faults as metadata only",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not claim proxy faults are true per-wheel physics",
+    "do not inject hidden fault labels into actor observations",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not lower gates after seeing M749 output"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_extreme_fault_coverage",
+    "evidence_axis": "G_coverage: run broader v4 extreme-fault source-mining wave",
+    "evidence_increment": "tests whether v4 coverage creates broader reset/action/outcome source surfaces than v3 before objective work",
+    "claim_scope": "diagnostic data wave only; no policy update or promotion",
+    "stop_condition": [
+      "stop if v4 config is incompatible with current runner",
+      "stop if future-only faults are counted as current-model evidence",
+      "stop if actor checksum or input contract changes",
+      "stop if training PPO or promotion starts"
+    ],
+    "fallback_plan": [
+      "if reset-only appears, audit before v4 sequence intervention",
+      "if action/outcome rows appear, audit before corpus export",
+      "if current proxies remain weak, design four-wheel or explicit-yaw-disturbance branch"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M748 admits v4 no-training data wave",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The v4 extreme-fault coverage config will produce broader reset, action, or outcome-sensitive command-response self-ID source rows than the v3 source wave alone.",
+  "success_criteria": [
+    "M749 validates v4 config",
+    "M749 runs the registered no-training v4 data wave",
+    "M749 writes scenario matched-pair accepted rejected and summary artifacts",
+    "M749 reports source diversity reset wrong-history action and outcome metrics separately",
+    "M749 records current-model proxy versus future-fidelity claim boundary",
+    "no training PPO actor update or promotion occurs"
+  ],
+  "failure_criteria": [
+    "future-fidelity faults are counted as current-model evidence",
+    "runner mutates actor observations with hidden fault labels",
+    "runner combines reset action and outcome claims",
+    "runner changes actor input contract",
+    "runner starts optimizer training PPO or checkpoint promotion"
+  ],
+  "commands": [
+    {
+      "name": "registered_run",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.extreme_dynamics_scenario_corpus --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --config configs/extreme_fault_distribution_v4_scenarios.json --pairing-mode cross_fault --seed-start 76000 --seed-count 512 --device cpu --run-dir runs/m749_extreme_fault_distribution_v4"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m749_extreme_fault_distribution_v4/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m749_extreme_fault_distribution_v4/scenarios.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m749_extreme_fault_distribution_v4/matched_pairs.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m749-v4-extreme-fault-coverage-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "configs/extreme_fault_distribution_v4_scenarios.json",
+    "docs/m748-v4-extreme-fault-coverage-design.md"
+  ],
+  "decision_rule": "M749 may only classify the no-training v4 source-mining wave. It must not admit objective design actor update PPO or promotion until an audit reviews the result.",
+  "next_blocker": "m750-v4-extreme-fault-coverage-audit"
+}

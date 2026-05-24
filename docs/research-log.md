@@ -12772,3 +12772,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M747 audits M746 as a clean preserved v3 positive corpus but not a complete training or physics claim. The audit supports the coverage-mining hypothesis: M740 had `744` reset-only rows and `0` wrong-history action rows, while M743/M746 preserved `995` clean sequence-outcome positives. It classifies remaining hard-negative sparsity as `scenario_sampling_failure`, records moderate-to-high public-row overfit risk, and keeps objective training, PPO, promotion, and true per-wheel claims blocked.
 - decision: `promote_to_v4_extreme_fault_coverage_design`
 - next: `m748-v4-extreme-fault-coverage-design`
+
+## 20260525T032000Z - m748-v4-extreme-fault-coverage-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m748-v4-extreme-fault-coverage-design.md`
+- config: `configs/extreme_fault_distribution_v4_scenarios.json`
+- result: M748 designs the v4 extreme-fault coverage branch. It adds a runnable current-model/proxy config with `28` executable fault specs, `26` pairing rules, and `14` future four-wheel/high-fidelity fault labels. The design covers sudden low-mu, front/rear corner grip collapse proxies, blowout proxies, split-mu proxies, brake fade/loss/pull proxies, halfshaft/driveline proxies, steering collapse/stuck proxies, mass/CG/inertia shifts, delay/sensor proxies, suspension proxies, and combined faults. It keeps true single-wheel blowout, true split-mu, stuck caliper, per-wheel brake/ABS, halfshaft, wheel-speed sensor, tire pressure/temperature, and suspension physical claims future-only unless a four-wheel or high-fidelity dynamics engine is added.
+- decision: `v4_extreme_fault_coverage_design_admit_m749`
+- next: `m749-v4-extreme-fault-coverage-implementation`
