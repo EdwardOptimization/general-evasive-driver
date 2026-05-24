@@ -11449,3 +11449,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M591 implements and runs the hidden-action sensitivity probe. It writes weight chunk summaries for BC5660/5661/5662 and BC5660 action rows on fresh and OOD M586 matched-current surfaces. The fusion layer has non-trivial hidden shares around `0.31`-`0.32` and interaction shares around `0.36`, so the hidden path is structurally present. But real wrong/delayed hidden states remain action-equivalent: fresh wrong/delayed mean action distances are `0.000552` / `0.001658`, and OOD values are `0.000764` / `0.001218`, all with zero above-threshold rows. Zero-current remains dominant on both surfaces, and random unit hidden movement is treated as off-manifold diagnostic only.
 - decision: `bc_hidden_action_sensitivity_probe_negative_admit_hidden_use_objective_design`
 - next: `m592-bc-hidden-use-repair-objective-design`
+## 20260524T104000Z - m592-bc-hidden-use-repair-objective-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m592-bc-hidden-use-repair-objective-design.md`
+- result: M592 designs the first no-oracle hidden-use repair branch after M591. It rejects ungrounded action separation and PPO because wrong/delayed hidden action sensitivity is absent. The selected repair is capability-supervised hidden training: keep the BC action anchor, add a training-only future-response regression head on recurrent hidden state, add matched-current capability ranking on M586-style pairs, and validate with hidden-envelope lift before any action-coupling or PPO step. Capability labels remain training/evaluation targets only and do not enter deployable actor inputs.
+- decision: `bc_hidden_use_repair_objective_design_admit_capability_objective_implementation`
+- next: `m593-bc-capability-repair-objective-implementation`

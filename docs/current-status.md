@@ -61,16 +61,23 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m592-bc-hidden-use-repair-objective-design
+m593-bc-capability-repair-objective-implementation
 ```
 
-M592 should design a no-oracle hidden-use repair objective or corpus after the
-M591 probe. The current evidence supports deployable current-response
-dependence and source-diverse pair availability, but M587-M591 do not support
-accumulated hidden-history causality. Promotion and PPO remain blocked.
+M593 should implement the capability-supervised hidden repair objective
+infrastructure selected by M592. The current evidence supports deployable
+current-response dependence and source-diverse pair availability, but
+M587-M592 do not support accumulated hidden-history causality. Promotion and
+PPO remain blocked.
 
 ## Recent Evidence Line
 
+- M592 selects the first repair direction: train hidden state with
+  training-only future-response/capability targets, using regression plus
+  matched-current ranking and an action anchor. It explicitly rejects
+  ungrounded action separation, PPO continuation, promotion, and any actor
+  input expansion. M593 should implement objective infrastructure and tests
+  only.
 - M591 implements and runs the hidden-action sensitivity probe. Fusion weights
   have non-trivial hidden/context/interaction shares for BC5660/5661/5662, but
   BC5660 real wrong/delayed hidden states remain action-equivalent on fresh and

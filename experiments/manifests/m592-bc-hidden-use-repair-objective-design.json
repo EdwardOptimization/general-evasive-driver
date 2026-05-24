@@ -2,7 +2,7 @@
   "id": "m592-bc-hidden-use-repair-objective-design",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -81,6 +81,6 @@
     "docs/m590-bc-hidden-action-sensitivity-probe-design.md",
     "docs/m589-bc-hidden-use-objective-audit.md"
   ],
-  "decision_rule": "M592 passes if it defines a no-oracle hidden-use repair objective or corpus grounded in future response/capability evidence and pre-registers validation before implementation.",
-  "next_blocker": "m593-bc-hidden-use-repair-objective-implementation"
+  "decision_rule": "M592 passes because it defines a no-oracle hidden-use repair objective grounded in future response/capability evidence and pre-registers validation before implementation.",
+  "next_blocker": "m593-bc-capability-repair-objective-implementation"
 }
