@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 639,
+        "completed": 640,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m630-trust-projected-sequence-shape-implementation",
+        "task_id": "m631-trust-projected-sequence-shape-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m630_trust_projected_sequence_shape",
-        "command_log": "docs/m630-trust-projected-sequence-shape-implementation.md"
+        "run_dir": "",
+        "command_log": "docs/m631-trust-projected-sequence-shape-audit.md"
     },
     "next_task": {
-        "id": "m631-trust-projected-sequence-shape-audit",
+        "id": "m632-targeted-source8-projected-shape-design",
         "status": "pending",
-        "priority": 6260,
-        "kind": "gate",
-        "hypothesis": "M630 projection is likely a narrow positive diagnostic: it preserves trust limits and recovers source 30, but source diversity may remain below optimizer admission.",
-        "command": "see experiments/manifests/m631-trust-projected-sequence-shape-audit.json",
+        "priority": 6270,
+        "kind": "infrastructure",
+        "hypothesis": "Source 8 is close enough after M630 projection that a targeted local shape search may recover it without changing trust limits or thresholds.",
+        "command": "see experiments/manifests/m632-targeted-source8-projected-shape-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit recovered and unrecovered focused sources; no training PPO promotion threshold changes or optimizer admission"
+        "notes": "Pending: design source-8 local projected shape search; no training PPO promotion threshold changes or optimizer admission"
     },
-    "updated_at_utc": "20260524T170000Z"
+    "updated_at_utc": "20260524T171000Z"
 }

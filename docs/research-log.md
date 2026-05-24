@@ -11800,3 +11800,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M630 implements and runs the no-training projected sequence candidate pass. It focuses source rows `0`, `7`, `8`, and `30`, evaluates `7596` projected candidates, preserves all trust limits, and accepts `9` candidates. Projection recovers source `30` from zero accepted candidates and improves source `7` from `3` to `5` accepted candidates, but sources `0` and `8` remain below threshold with best improvements `0.015290` and `0.018752`. Accepted projected evidence covers only `2` physical pairs, `2` left seeds, and `1` target, so optimizer admission remains blocked.
 - decision: `trust_projected_sequence_shape_implementation_pass_admit_audit`
 - next: `m631-trust-projected-sequence-shape-audit`
+## 20260524T171000Z - m631-trust-projected-sequence-shape-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m631-trust-projected-sequence-shape-audit.md`
+- result: M631 audits M630 as a narrow positive diagnostic. M630 preserves trust limits and recovers source `30`, but accepted evidence remains too narrow for optimizer admission: only sources `7` and `30`, `2` physical pairs, `2` left seeds, and `1` target. Source `8` is the best next target because it is a core-boundary OOD delayed-history row with zero accepted candidates and best projected margin improvement `0.018752`, only `0.001248` below threshold. M632 should design a targeted source-8 no-training shape search; training, PPO, promotion, threshold changes, and trust-region relaxation remain blocked.
+- decision: `trust_projected_sequence_shape_audit_admit_source8_shape_design`
+- next: `m632-targeted-source8-projected-shape-design`

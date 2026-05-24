@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M631 classifies M630 as narrow positive but not optimizer-ready and admits source 8 targeted no-training projected shape design",
+  "failure_criteria": [
+    "audit starts training",
+    "audit promotes a checkpoint",
+    "audit ignores trust limit preservation",
+    "audit treats candidate count as source diversity",
+    "audit changes thresholds",
+    "audit omits source 0 and 8 failures"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not widen trust regions",
+    "do not lower target thresholds",
+    "do not treat one recovered source as optimizer-ready",
+    "do not hide failed focused sources"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260524T110446Z",
+  "hypothesis": "M630 projection is likely a narrow positive diagnostic: it preserves trust limits and recovers source 30, but source diversity may remain below optimizer admission.",
+  "lineage": {
+    "blocked_by": [
+      "m630-trust-projected-sequence-shape-implementation"
+    ],
+    "derived_from": [
+      "m630-trust-projected-sequence-shape-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m630-trust-projected-sequence-shape-implementation.json",
+      "docs/m629-trust-projected-sequence-shape-design.md"
+    ],
+    "parent_dataset": [
+      "runs/m630_trust_projected_sequence_shape/summary.json",
+      "runs/m630_trust_projected_sequence_shape/projected_sequence_candidates.csv",
+      "runs/m630_trust_projected_sequence_shape/source_recovery_summary.csv",
+      "docs/m630-trust-projected-sequence-shape-implementation.md"
+    ],
+    "parent_objective": [
+      "audit projected sequence shape implementation before any optimizer or next candidate-shape branch"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m631-trust-projected-sequence-shape-audit",
+  "next_blocker": "m632-targeted-source8-projected-shape-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "trust_projected_sequence_shape_audit_admit_source8_shape_design",
+  "public_gates": [
+    "verify trust limits are preserved",
+    "compare recovered source diversity against optimizer-admission needs",
+    "classify whether projection result is positive narrow or negative",
+    "decide whether next branch is targeted source-8 shape design source mining or audit stop",
+    "keep actor training and PPO blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m631-trust-projected-sequence-shape-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "trust_projected_sequence_shape_audit_admit_source8_shape_design",
+    "milestone": "m631-trust-projected-sequence-shape-audit",
+    "reason": "M631 classifies M630 as narrow positive but not optimizer-ready and admits source 8 targeted no-training projected shape design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "audit records recovered and unrecovered focused sources",
+    "audit confirms trust_limits_preserved true",
+    "audit blocks optimizer admission unless source diversity is sufficient",
+    "audit selects the next no-training branch",
+    "research validation passes"
+  ],
+  "type": "gate"
+}

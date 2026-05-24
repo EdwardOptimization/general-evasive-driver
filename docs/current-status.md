@@ -62,17 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m631-trust-projected-sequence-shape-audit
+m632-targeted-source8-projected-shape-design
 ```
 
-M631 should audit M630 before any optimizer or next candidate-shape branch.
-M630 preserved all trust limits and recovered source `30`, but accepted
-projected candidates cover only sources `7` and `30`; sources `0` and `8` still
-miss the threshold. The likely conclusion is a narrow positive diagnostic, not
-optimizer admission.
+M632 should design a no-training source-8 targeted projected shape search.
+M631 classifies M630 as a narrow positive diagnostic: source `30` is recovered,
+source `7` improves, but source diversity is still far below optimizer
+admission. Source `8` is closest to the margin threshold and should be targeted
+without changing trust limits or thresholds.
 
 ## Recent Evidence Line
 
+- M631 audits M630 as narrow diagnostic-positive but not optimizer-ready.
+  Projection preserved all trust limits and recovered one zero-accepted source,
+  but accepted evidence still covers only sources `7` and `30`, `2` physical
+  pairs, and `1` target. Source `8` is near threshold with best projected
+  improvement `0.018752`, so M632 should design a targeted source-8 local shape
+  search before any optimizer discussion.
 - M630 implements and runs the trust-projected sequence pass. It evaluates
   `7596` candidates on focused sources `0`, `7`, `8`, and `30`, preserves all
   trust limits, accepts `9` projected candidates, and recovers source `30` from
