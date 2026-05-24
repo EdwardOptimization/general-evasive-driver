@@ -46,7 +46,7 @@ runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
 ```
 
 Status: M400 promoted M399 alpha `0.05` as the current public-gate base after
-six public replay surfaces and behavior seeds passed. M487-M601 did not promote
+six public replay surfaces and behavior seeds passed. M487-M606 did not promote
 a new public-gate driver checkpoint.
 
 Latest active diagnostic BC checkpoint:
@@ -55,23 +55,29 @@ Latest active diagnostic BC checkpoint:
 runs/m568_scaled_l3_bc_seed5660/checkpoint.pt
 ```
 
-Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M601
+Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M606
 diagnostics. It is not the public-gate base and is not promoted as the current
 driver checkpoint.
 
 ## Current Blocker
 
 ```text
-m606-grounded-capability-action-target-miner-implementation
+m607-grounded-target-mining-audit
 ```
 
-M606 should implement and run the bounded simulator-grounded action target
-miner designed by M605. The source is the M604 `belief_only_gap` candidate set;
-the output should be candidate rollouts, accepted targets, unaccepted rows, and
-a deployable-only target corpus if accepted targets exist.
+M607 should audit the negative M606 grounded target-mining result before any
+optimizer step. The immediate question is whether zero accepted targets came
+from source-row boundary distance, first-action search locality, thresholds, or
+non-actionable belief movement.
 
 ## Recent Evidence Line
 
+- M606 implements and runs the grounded target miner. It selects `23` unique
+  wrong/delayed source rows from M604 and evaluates `4508` first-action
+  candidate rollouts. Result: `0` accepted targets, `23` unaccepted rows, max
+  candidate margin/risk improvement `0.014268`, and max trust-region
+  improvement `0.013046`. No target corpus is written; actor training, PPO,
+  promotion, and direct use of belief-only gaps as labels remain blocked.
 - M605 designs the grounding step. M606 should run a local first-action search
   around M604 candidates and accept targets only when they improve simulator
   margin/risk within a small action trust region. Actor training, PPO, and

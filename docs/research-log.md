@@ -11575,3 +11575,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M605 designs simulator-grounded target mining for M604 belief-only gaps. It defines a bounded local first-action search around BC5660 base actions, prioritizes OOD wrong-matched lateral/yaw candidates, sets trust-region and margin/risk acceptance criteria, requires unaccepted rows to be logged, and defines deployable-only target corpus fields. M605 explicitly forbids using belief-only gaps as labels, actor training, PPO, promotion, private-holdout tuning, or privileged actor inputs.
 - decision: `grounded_capability_action_target_mining_design_admit_m606`
 - next: `m606-grounded-capability-action-target-miner-implementation`
+## 20260524T130000Z - m606-grounded-capability-action-target-miner-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m606_grounded_capability_action_target_miner`
+- artifact: `docs/m606-grounded-capability-action-target-miner-implementation.md`
+- result: M606 implements and runs the grounded capability-action target miner. The smoke selected `23` unique wrong/delayed source rows from M604, evaluated `4508` first-action candidate rollouts, wrote selected source rows, candidate rows, accepted target rows, unaccepted rows, and summary artifacts, and changed no model weights. No candidate met the pre-registered acceptance thresholds: accepted targets `0`, unaccepted rows `23`, max candidate margin/risk improvement `0.014268`, and max trust-region improvement `0.013046`. No `target_corpus.npz` was written.
+- decision: `grounded_capability_action_target_miner_negative_admit_audit`
+- next: `m607-grounded-target-mining-audit`

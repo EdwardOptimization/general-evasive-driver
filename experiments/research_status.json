@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 614,
+        "completed": 615,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m605-grounded-capability-action-target-mining-design",
+        "task_id": "m606-grounded-capability-action-target-miner-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m605-grounded-capability-action-target-mining-design.md"
+        "run_dir": "runs/m606_grounded_capability_action_target_miner",
+        "command_log": "docs/m606-grounded-capability-action-target-miner-implementation.md"
     },
     "next_task": {
-        "id": "m606-grounded-capability-action-target-miner-implementation",
+        "id": "m607-grounded-target-mining-audit",
         "status": "pending",
-        "priority": 6010,
-        "kind": "infrastructure",
-        "hypothesis": "A bounded first-action local search around M604 belief-only gap rows can find simulator-grounded target actions that improve short-horizon margin or risk while preserving the actor input contract.",
-        "command": "see experiments/manifests/m606-grounded-capability-action-target-miner-implementation.json",
+        "priority": 6020,
+        "kind": "gate",
+        "hypothesis": "M606 zero-accepted targets should be audited before any optimizer step; the audit should identify whether the blocker is source-row boundary distance, first-action search locality, thresholds, or non-actionable belief movement.",
+        "command": "see experiments/manifests/m607-grounded-target-mining-audit.json",
         "success_artifact": "",
-        "notes": "Pending: implement and run bounded target miner; no training, PPO, promotion, or driver-performance claim"
+        "notes": "Pending: audit the M606 zero-accepted grounded target mining result; no threshold retrofitting, training, PPO, or promotion"
     },
-    "updated_at_utc": "20260524T125000Z"
+    "updated_at_utc": "20260524T130000Z"
 }
