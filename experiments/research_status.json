@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 515,
+        "completed": 516,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m506-terminal-boundary-aware-selector",
+        "task_id": "m507-terminal-boundary-anchor-mining-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m506_terminal_boundary_aware_selector",
-        "command_log": "docs/m506-terminal-boundary-aware-selector.md"
+        "run_dir": "",
+        "command_log": "docs/m507-terminal-boundary-anchor-mining-design.md"
     },
     "next_task": {
-        "id": "m507-terminal-boundary-anchor-mining-design",
+        "id": "m508-terminal-boundary-anchor-miner",
         "status": "pending",
-        "priority": 5020,
-        "kind": "infrastructure",
-        "hypothesis": "The next candidate pool must be mined from low-clearance normal-history anchors first, then paired with adversarial wrong histories.",
-        "command": "see experiments/manifests/m507-terminal-boundary-anchor-mining-design.json",
+        "priority": 5030,
+        "kind": "gate",
+        "hypothesis": "Mining low-clearance normal-history anchors first will produce a larger source-diverse pool of wrong-history-sensitive boundary rows than selecting from the existing M504 pair table.",
+        "command": "see experiments/manifests/m508-terminal-boundary-anchor-miner.json",
         "success_artifact": "",
-        "notes": "Pending: design terminal-boundary anchor mining; no outcome gate training or promotion"
+        "notes": "Pending: implement and run anchor-first boundary miner; no outcome gate training or promotion"
     },
-    "updated_at_utc": "20260524T013000Z"
+    "updated_at_utc": "20260524T014000Z"
 }

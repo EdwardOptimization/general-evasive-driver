@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M507 chooses anchor-first mining of low-clearance normal-history states and reserves obstacle-boundary projection as fallback if natural anchors fail",
+  "failure_criteria": [
+    "design repeats M506 selector unchanged",
+    "design admits outcome gate on M506 rows",
+    "design uses persistent wrong hidden as deployable proof",
+    "actor contract changes",
+    "training or checkpoint promotion is performed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not use hidden-hold variants as deployable proof",
+    "do not relax source caps after seeing M506",
+    "do not run an outcome gate on M506's 101-row surface",
+    "do not tune from private holdouts"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T004844Z",
+  "hypothesis": "The next candidate pool must be mined from low-clearance normal-history anchors first, then paired with adversarial wrong histories; selecting from the existing M504 pair table is too source-capped.",
+  "lineage": {
+    "blocked_by": [
+      "m506-terminal-boundary-aware-selector"
+    ],
+    "derived_from": [
+      "m506-terminal-boundary-aware-selector"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/m502_natural_boundary_pressure_short_reveal_zero_relvel.json",
+      "configs/m502_natural_boundary_pressure_warmup_zero_relvel.json",
+      "experiments/manifests/m506-terminal-boundary-aware-selector.json"
+    ],
+    "parent_dataset": [
+      "runs/m506_terminal_boundary_aware_selector/summary.json",
+      "runs/m506_terminal_boundary_aware_selector/terminal_boundary_candidates.csv",
+      "runs/m506_terminal_boundary_aware_selector/targeted_pairs.csv"
+    ],
+    "parent_objective": [
+      "terminal-boundary anchor mining design"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m507-terminal-boundary-anchor-mining-design",
+  "next_blocker": "M508 should implement terminal-boundary anchor mining before any outcome gate.",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m508_terminal_boundary_anchor_miner",
+  "public_gates": [
+    "diagnose why M506 remains source-capped and small",
+    "design terminal-boundary anchor mining that starts from low-clearance normal-history states",
+    "define how to search wrong histories around those anchors without hidden-hold forcing",
+    "do not train or promote checkpoint"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m508_terminal_boundary_anchor_miner",
+    "milestone": "m507-terminal-boundary-anchor-mining-design",
+    "reason": "M507 chooses anchor-first mining of low-clearance normal-history states and reserves obstacle-boundary projection as fallback if natural anchors fail",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "classify whether M506 failed from candidate scarcity, caps, or label imbalance",
+    "select a concrete anchor-mining implementation path",
+    "define source-diversity and geometry/boundary admission thresholds",
+    "state fallback if anchor mining still cannot find enough wrong-history action perturbations",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "type": "infrastructure"
+}

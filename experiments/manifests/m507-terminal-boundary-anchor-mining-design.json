@@ -2,7 +2,7 @@
   "id": "m507-terminal-boundary-anchor-mining-design",
   "type": "infrastructure",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -85,5 +85,11 @@
     "runs/m506_terminal_boundary_aware_selector/summary.json"
   ],
   "decision_rule": "M507 should admit implementation only if the next path mines low-clearance anchors first and preserves source diversity without hidden-hold proof.",
-  "next_blocker": "pending M507 terminal-boundary anchor mining design"
+  "next_blocker": "M508 should implement terminal-boundary anchor mining before any outcome gate.",
+  "results": {
+    "artifact": "docs/m507-terminal-boundary-anchor-mining-design.md",
+    "selected_next_path": "terminal_boundary_anchor_mining",
+    "fallback_path": "obstacle_boundary_projection_if_anchor_mining_fails",
+    "next_task": "m508-terminal-boundary-anchor-miner"
+  }
 }

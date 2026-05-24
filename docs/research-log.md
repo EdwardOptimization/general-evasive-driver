@@ -10684,3 +10684,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M506 implements and runs a terminal-boundary-aware selector over the M504 candidate table. The candidate pool has `494` rows after boundary-first and soft-action filters. Source-capped selection returns `101` targeted rows across `6` seeds, `2` labels, `3` targets, and `2` configs. It improves boundary alignment versus M504 (`35` rows with normal margin `<= 0.50`, `76` with `<= 1.00`, `101` with `<= 2.00`) and keeps trajectory signal (`mean 0.084141`, p90 `0.138282`), but fails the pre-registered outcome admission gate because targeted count is too small, label share is `0.732673`, and low-margin bucket counts remain below thresholds.
 - decision: `reject_outcome_gate_admission`
 - next: `m507-terminal-boundary-anchor-mining-design`
+## 20260524T014000Z - m507-terminal-boundary-anchor-mining-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m507-terminal-boundary-anchor-mining-design.md`
+- result: M507 designs the next proof path after M506 shows the existing M504 pair table is too source-capped. The next path should mine low-clearance normal-history anchors first, then search source-diverse one-shot wrong histories around those anchors and score short-horizon action/margin effects. If natural anchor mining fails, the fallback is obstacle-boundary projection with geometry-change limits, explicitly labelled as projection proof rather than raw natural-scenario proof.
+- decision: `admit_m508_terminal_boundary_anchor_miner`
+- next: `m508-terminal-boundary-anchor-miner`
