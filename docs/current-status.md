@@ -62,17 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m636-combined-source7-preserving-shape-implementation
+m637-combined-source7-preserving-shape-audit
 ```
 
-M636 should implement the combined no-training projected search designed in
-M635. It should run two named grids: source8 recovery for sources `8`, `0`, and
-`30`, plus source7 preservation for source `7`. The goal is to keep all four
-sources accepted while preserving trust limits. Optimizer admission remains
-blocked pending audit.
+M637 should audit M636 before any optimizer-corpus or source-expansion decision.
+M636 is a strong positive diagnostic: all four focused sources `8`, `0`, `7`,
+and `30` have accepted projected candidates under unchanged trust limits. The
+open question is whether four focused sources are enough to design a target
+corpus, or whether source-diversity expansion must come first.
 
 ## Recent Evidence Line
 
+- M636 implements and runs the two-grid combined projected search. It evaluates
+  `7884` candidates, accepts `1424`, preserves trust limits, and produces
+  accepted candidates for all four focused sources: source `8` `664`, source
+  `30` `430`, source `0` `196`, and source `7` `134`. Accepted targets include
+  both `future_braking_deceleration` and `future_yaw_response`.
 - M635 designs a two-grid combined projected search. Grid A preserves M633's
   source8/source0/source30 recovery. Grid B restores M630's source7 pattern
   around steer `0.08`, throttle `0.00`, and brake `0.00/0.04`. M636 should

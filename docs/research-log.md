@@ -11845,3 +11845,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M635 designs a no-training combined projected search with two named grids. The source8 recovery grid reuses M633's source8/source0/source30 local search. The source7 preservation grid restores M630's pattern around steer `0.06/0.08/0.10`, throttle `-0.02/0.00/0.02`, brake `0.00/0.02/0.04`, and K `3/5/7/9`. M636 should combine the artifacts by source and grid name, preserve all trust limits and thresholds, and keep optimizer admission blocked pending audit.
 - decision: `combined_source7_preserving_shape_design_admit_m636`
 - next: `m636-combined-source7-preserving-shape-implementation`
+## 20260524T180000Z - m636-combined-source7-preserving-shape-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m636_combined_source7_preserving_shape`
+- artifact: `docs/m636-combined-source7-preserving-shape-implementation.md`
+- result: M636 implements and runs the combined source7-preserving projected search. It evaluates `7884` candidates and accepts `1424`, with accepted candidates for all four focused sources: source `8` has `664`, source `30` has `430`, source `0` has `196`, and source `7` has `134`. Trust limits remain preserved, accepted targets include both `future_braking_deceleration` and `future_yaw_response`, and no training, PPO, promotion, optimizer admission, threshold change, or trust-region relaxation occurs. This is the strongest positive diagnostic in the sequence-target branch, but M637 must audit whether four focused sources are sufficient for target-corpus design.
+- decision: `combined_source7_preserving_shape_implementation_pass_admit_audit`
+- next: `m637-combined-source7-preserving-shape-audit`

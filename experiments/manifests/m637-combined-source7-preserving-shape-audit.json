@@ -1,0 +1,91 @@
+{
+  "id": "m637-combined-source7-preserving-shape-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m636_combined_source7_preserving_shape/summary.json",
+      "runs/m636_combined_source7_preserving_shape/source_recovery_summary.csv",
+      "runs/m636_combined_source7_preserving_shape/accepted_combined_sequences.csv",
+      "docs/m636-combined-source7-preserving-shape-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m636-combined-source7-preserving-shape-implementation.json",
+      "docs/m635-combined-source7-preserving-shape-design.md"
+    ],
+    "parent_objective": [
+      "audit combined source7-preserving shape result before optimizer or expansion decision"
+    ],
+    "derived_from": [
+      "m636-combined-source7-preserving-shape-implementation"
+    ],
+    "blocked_by": [
+      "m636-combined-source7-preserving-shape-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m637-combined-source7-preserving-shape-audit.md",
+  "public_gates": [
+    "verify all four focused sources have acceptance",
+    "verify trust limits and thresholds are preserved",
+    "classify whether four focused sources are enough for target-corpus admission",
+    "decide between optimizer-corpus design and source-diversity expansion",
+    "keep actor training and PPO blocked unless a later manifest admits them"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not widen trust regions",
+    "do not lower target thresholds",
+    "do not treat candidate count as source diversity",
+    "do not skip source-diversity audit"
+  ],
+  "hypothesis": "M636 is a strong positive diagnostic with all four focused sources accepted, but source-diversity may still be below optimizer-corpus admission.",
+  "success_criteria": [
+    "audit records source-level and target-level breadth",
+    "audit confirms trust limits are preserved",
+    "audit classifies optimizer admission versus further source expansion",
+    "audit selects the next branch",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "audit starts training",
+    "audit promotes a checkpoint",
+    "audit ignores source-level breadth",
+    "audit changes thresholds",
+    "audit treats candidate count as independent source evidence",
+    "audit omits contract checks"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "Analyze M636 combined projected artifacts; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m637-combined-source7-preserving-shape-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m636_combined_source7_preserving_shape/summary.json",
+    "runs/m636_combined_source7_preserving_shape/source_recovery_summary.csv",
+    "docs/m636-combined-source7-preserving-shape-implementation.md"
+  ],
+  "decision_rule": "M637 passes if it audits M636 and chooses optimizer-corpus design or source-diversity expansion without starting training.",
+  "next_blocker": "m638-sequence-target-corpus-admission-design"
+}
