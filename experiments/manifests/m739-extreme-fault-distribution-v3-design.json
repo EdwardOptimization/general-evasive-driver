@@ -14,7 +14,8 @@
       "docs/m738-sequence-outcome-corpus-export-audit.md",
       "docs/m737-sequence-outcome-corpus-export-implementation.md",
       "runs/m737_sequence_outcome_corpus_export/summary.json",
-      "configs/extreme_fault_coverage_v2_scenarios.json"
+      "configs/extreme_fault_coverage_v2_scenarios.json",
+      "configs/extreme_fault_distribution_v3_scenarios.json"
     ],
     "parent_config": [
       "experiments/manifests/m738-sequence-outcome-corpus-export-audit.json"
@@ -88,13 +89,17 @@
   "commands": [
     {
       "name": "design",
-      "command": "write docs/m739-extreme-fault-distribution-v3-design.md; no training command"
+      "command": "write docs/m739-extreme-fault-distribution-v3-design.md and configs/extreme_fault_distribution_v3_scenarios.json; no training command"
     }
   ],
   "required_artifacts": [
     {
       "path": "docs/m739-extreme-fault-distribution-v3-design.md",
       "type": "documentation"
+    },
+    {
+      "path": "configs/extreme_fault_distribution_v3_scenarios.json",
+      "type": "json"
     }
   ],
   "baseline_checkpoints": [

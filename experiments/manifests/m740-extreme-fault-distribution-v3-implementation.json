@@ -1,0 +1,128 @@
+{
+  "id": "m740-extreme-fault-distribution-v3-implementation",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m739-extreme-fault-distribution-v3-design.md",
+      "configs/extreme_fault_distribution_v3_scenarios.json",
+      "docs/m738-sequence-outcome-corpus-export-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m739-extreme-fault-distribution-v3-design.json"
+    ],
+    "parent_objective": [
+      "run no-training v3 extreme-fault matched counterfactual data wave"
+    ],
+    "derived_from": [
+      "m739-extreme-fault-distribution-v3-design"
+    ],
+    "blocked_by": [
+      "m739-extreme-fault-distribution-v3-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m740-extreme-fault-distribution-v3-implementation.md",
+  "public_gates": [
+    "M740 uses v3 fault distribution config",
+    "M740 reports source generation and diversity metrics",
+    "M740 separates reset wrong-history action and outcome evidence",
+    "M740 respects current-model versus future-only claim boundary",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not inject hidden fault labels into actor observations",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not claim true single-wheel physics from current single-track proxies",
+    "do not lower gates after seeing M740 output"
+  ],
+  "workflow_synthesis": {
+    "branch": "extreme_fault_distribution_v3",
+    "evidence_axis": "G_scenario_coverage: run broadened extreme hidden-condition wave",
+    "evidence_increment": "tests whether v3 coverage produces broader action or outcome-sensitive self-ID rows",
+    "claim_scope": "diagnostic data wave only; no policy update or promotion",
+    "stop_condition": [
+      "stop if source generation or diversity gates fail",
+      "stop if actor checksum or input contract changes",
+      "stop if future-only faults are treated as current-model evidence",
+      "stop if training PPO or promotion starts"
+    ],
+    "fallback_plan": [
+      "if source gates pass and outcome rows appear, audit before corpus export",
+      "if action-only rows appear, audit before sequence-level interventions",
+      "if no useful rows appear, audit before simulator fidelity or disturbance-model branch"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M739 admits v3 no-training implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The v3 extreme-fault distribution will produce broader action or outcome-sensitive command-response self-ID rows than the M737 public corpus alone.",
+  "success_criteria": [
+    "M740 validates v3 config with a smoke run or registered run",
+    "M740 runs the no-training v3 data wave",
+    "M740 writes scenario matched-pair accepted rejected and summary artifacts",
+    "M740 reports source diversity reset wrong-history action and outcome metrics separately",
+    "M740 records current-model versus future-only claim boundary",
+    "actor checksum remains unchanged",
+    "no actor training PPO or promotion occurs"
+  ],
+  "failure_criteria": [
+    "v3 config fails to load",
+    "source generation diversity gates fail without classification",
+    "future-only faults are counted as current-model evidence",
+    "actor input contract changes",
+    "optimizer training PPO or checkpoint promotion starts"
+  ],
+  "commands": [
+    {
+      "name": "smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.extreme_dynamics_scenario_corpus --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --config configs/extreme_fault_distribution_v3_scenarios.json --pairing-mode cross_fault --seed-start 73000 --seed-count 1 --device cpu --run-dir runs/m740_extreme_fault_distribution_v3_smoke"
+    },
+    {
+      "name": "registered_run",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.extreme_dynamics_scenario_corpus --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --config configs/extreme_fault_distribution_v3_scenarios.json --pairing-mode cross_fault --seed-start 73000 --seed-count 512 --device cpu --run-dir runs/m740_extreme_fault_distribution_v3"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m740_extreme_fault_distribution_v3/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m740_extreme_fault_distribution_v3/scenario_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m740_extreme_fault_distribution_v3/matched_pairs.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m740_extreme_fault_distribution_v3/accepted_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m740-extreme-fault-distribution-v3-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "configs/extreme_fault_distribution_v3_scenarios.json",
+    "docs/m739-extreme-fault-distribution-v3-design.md"
+  ],
+  "decision_rule": "M740 may only run and classify the no-training v3 data wave. It must not admit objective design PPO or promotion until an audit reviews the result.",
+  "next_blocker": "m741-extreme-fault-distribution-v3-audit"
+}

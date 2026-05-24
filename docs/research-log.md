@@ -12687,3 +12687,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M738 audits M737 as a clean positive corpus but not a complete contrast corpus. The `70` positive rows are sentinel-free and normally matched, but same-horizon hard negatives remain sparse (`63 < 70`). This is classified as `scenario_sampling_failure`, not artifact or contract violation. Because repeated objective design on the fixed public corpus would raise overfit risk, the next branch is the user's coverage hypothesis: broaden extreme-fault scenario distribution before objective/PPO work.
 - decision: `promote_to_extreme_fault_distribution_v3`
 - next: `m739-extreme-fault-distribution-v3-design`
+
+## 20260525T015000Z - m739-extreme-fault-distribution-v3-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m739-extreme-fault-distribution-v3-design.md`
+- config: `configs/extreme_fault_distribution_v3_scenarios.json`
+- result: M739 designs the v3 extreme-fault coverage branch. It adds a config with `32` current-model or proxy faults, `12` future-only faults, and `40` cross-family pairing rules. The design separates honest single-track capability proxies from true per-wheel/four-wheel failures, defines matched counterfactual source generation, public/holdout policy, source/action/outcome gates, and keeps actor update, PPO, and promotion blocked.
+- decision: `extreme_fault_distribution_v3_design_admit_m740`
+- next: `m740-extreme-fault-distribution-v3-implementation`
