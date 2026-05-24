@@ -1,0 +1,83 @@
+{
+  "id": "m567-scaled-teacher-corpus-export",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m542_matched_l2_variance_seed3540/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m566-scaled-bc-repeat-design.md"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l2_variance_4096.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json"
+    ],
+    "parent_objective": [
+      "export scaled non-public L2 teacher corpora for L3 behavior cloning repeat"
+    ],
+    "derived_from": [
+      "m566-scaled-bc-repeat-design"
+    ],
+    "blocked_by": [
+      "m566-scaled-bc-repeat-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m567-scaled-teacher-corpus-export.md",
+  "public_gates": [
+    "export train corpus seeds 18200-18327",
+    "export validation corpus seeds 18328-18391",
+    "verify canonical 72-value student observations and absent teacher stack arrays",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not use public frozen-source rows",
+    "do not reuse M562/M563 smoke corpora as scaled repeat evidence",
+    "do not train a BC student in this milestone",
+    "do not store L2 stack as a student input"
+  ],
+  "hypothesis": "Scaled non-public L2 teacher corpora can be exported with the same clean teacher/student boundary as M562, enabling multi-seed L3 BC repeat without public-row contamination.",
+  "success_criteria": [
+    "train and validation corpora are exported",
+    "student_obs_dim is 72 for both corpora",
+    "teacher_stack_stored is false for both corpora",
+    "transition counts exceed the M562/M563 smoke corpora",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "exporter leaks teacher stack into student arrays",
+    "public frozen-source rows are used",
+    "corpus export fails or produces empty transition arrays"
+  ],
+  "commands": [
+    {
+      "name": "export_train",
+      "command": "PYTHONPATH=src python -m autodrift.l2_teacher_corpus --teacher-checkpoint runs/m542_matched_l2_variance_seed3540/checkpoint.pt --teacher-env-config configs/ppo_m541_matched_l2_variance_4096.json --seeds 18200:18327 --device cpu --run-dir runs/m567_scaled_l2_teacher_corpus_train"
+    },
+    {
+      "name": "export_validation",
+      "command": "PYTHONPATH=src python -m autodrift.l2_teacher_corpus --teacher-checkpoint runs/m542_matched_l2_variance_seed3540/checkpoint.pt --teacher-env-config configs/ppo_m541_matched_l2_variance_4096.json --seeds 18328:18391 --device cpu --run-dir runs/m567_scaled_l2_teacher_corpus_validation"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m567-scaled-teacher-corpus-export.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m542_matched_l2_variance_seed3540/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m566-scaled-bc-repeat-design.md"
+  ],
+  "decision_rule": "M567 passes only if scaled train and validation corpora are exported with canonical 72-value student observations, absent teacher stack arrays, and no public frozen-source rows.",
+  "next_blocker": "pending M567 scaled teacher corpus export"
+}

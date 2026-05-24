@@ -2,7 +2,7 @@
   "id": "m566-scaled-bc-repeat-design",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -76,6 +76,6 @@
   "baseline_artifacts": [
     "docs/m565-bc-public-natural-surface-eval.md"
   ],
-  "decision_rule": "M566 passes only if it defines a scaled non-public BC repeat and selection protocol without public-row tuning, seed reuse, PPO, or promotion.",
-  "next_blocker": "pending M566 scaled BC repeat design"
+  "decision_rule": "M566 passes because it defines a scaled non-public BC repeat and selection protocol without public-row tuning, seed reuse, PPO, or promotion.",
+  "next_blocker": "m567-scaled-teacher-corpus-export"
 }

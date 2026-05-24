@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 574,
+        "completed": 575,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-            "task_id": "m565-bc-public-natural-surface-eval",
+            "task_id": "m566-scaled-bc-repeat-design",
             "status": "completed",
             "returncode": 0,
-            "run_dir": "runs/m565_bc_public_natural_surface_eval_aggregate",
-            "command_log": "docs/m565-bc-public-natural-surface-eval.md"
+            "run_dir": "",
+            "command_log": "docs/m566-scaled-bc-repeat-design.md"
         },
         "next_task": {
-            "id": "m566-scaled-bc-repeat-design",
+            "id": "m567-scaled-teacher-corpus-export",
             "status": "pending",
-            "priority": 5610,
+            "priority": 5620,
             "kind": "infrastructure",
-            "hypothesis": "Because a tiny M563 BC smoke repaired the M543 public-surface L3 regression, a scaled non-public L2-to-L3 BC repeat should test whether the effect is stable across corpus size and optimizer seeds before PPO continuation.",
-            "command": "see experiments/manifests/m566-scaled-bc-repeat-design.json",
+            "hypothesis": "Scaled non-public L2 teacher corpora can be exported with the same clean teacher/student boundary as M562, enabling multi-seed L3 BC repeat without public-row contamination.",
+            "command": "see experiments/manifests/m567-scaled-teacher-corpus-export.json",
             "success_artifact": "",
-            "notes": "Pending: design larger corpora BC seed repeats and fresh route-screen selection without PPO"
+            "notes": "Pending: export train/validation corpora and verify no teacher stack leakage"
         },
-    "updated_at_utc": "20260524T061000Z"
+    "updated_at_utc": "20260524T062000Z"
 }

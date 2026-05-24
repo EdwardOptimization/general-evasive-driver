@@ -11215,3 +11215,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M565 evaluates M563_BC on the four public frozen-source natural surfaces from M543/M550. All four source runs complete with actor contract unchanged and no training/promotion. The aggregate has `8976` outcome rows and `2244` complete quad keys. M563_BC matches L2 success and collision exactly (`0.866310` success, `0.133690` collision), has mean margin `1.770749` versus L2 `1.777833`, and strongly repairs original M542 L3 (`+0.195633` paired success, `-0.190731` paired collision, `+0.785940` paired margin). This is public diagnostic evidence only.
 - decision: `bc_public_surface_eval_pass_admit_scaled_bc_repeat_design`
 - next: `m566-scaled-bc-repeat-design`
+## 20260524T062000Z - m566-scaled-bc-repeat-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m566-scaled-bc-repeat-design.md`
+- result: M566 designs a scaled non-public L2-to-L3 BC repeat after the positive M563-M565 smoke path. It assigns train seeds `18200-18327`, validation seeds `18328-18391`, BC optimizer seeds `5660/5661/5662`, and fresh route-screen seed `18560`. The design keeps L2 stacks training-only, public frozen-source surfaces out of tuning, and PPO blocked until scaled BC route/generalization evidence is stable.
+- decision: `scaled_bc_repeat_design_admit_m567_scaled_teacher_corpus_export`
+- next: `m567-scaled-teacher-corpus-export`

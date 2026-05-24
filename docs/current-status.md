@@ -61,13 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m566-scaled-bc-repeat-design
+m567-scaled-teacher-corpus-export
 ```
 
-M566 should design a scaled non-public L2-to-L3 BC repeat after M565's positive
-public diagnostic. The next step is not PPO or promotion: scale train/validation
-corpora, repeat BC seeds, rotate route-screen selection away from `17560`, and
-keep public frozen-source surfaces out of tuning.
+M567 should export the scaled non-public L2 teacher corpora from the M566
+design. It should write train seeds `18200-18327` and validation seeds
+`18328-18391` with canonical 72-value L3 student frames and no L2 stack stored
+as student input. No training or promotion is allowed in M567.
 
 ## Recent Evidence Line
 
@@ -270,6 +270,11 @@ keep public frozen-source surfaces out of tuning.
   has nearly identical mean margin (`1.770749` vs L2 `1.777833`), and strongly
   repairs original M542 L3 (`+0.195633` paired success, `+0.785940` paired
   margin). This is public diagnostic evidence only; no checkpoint is promoted.
+- M566 designs the scaled BC repeat. It freezes the L2-teacher/L3-student
+  boundary, assigns fresh non-public train seeds `18200-18327`, validation seeds
+  `18328-18391`, BC optimizer seeds `5660/5661/5662`, and fresh route-screen
+  seed `18560`. PPO remains blocked until scaled BC route/generalization
+  evidence is stable.
 
 ## Near-Term Rule
 
