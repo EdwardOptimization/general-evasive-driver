@@ -12313,3 +12313,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M687 audits M686 as `gate_collapse`. M686 strongly improves normal retention and has enough raw wrong-amplifier amplitude, but the wrong gate remains near the normal gate (`normal_gate_mean` about `0.098`, `wrong_gate_mean` about `0.102-0.105`) and does not open toward target `0.50`. The next branch should add detached-normal wrong-vs-normal gate margin and hard low-gate wrong-row pressure, while preserving exact normal gates, P0 inputs, no PPO, and no promotion.
 - decision: `split_gated_audit_admit_gate_margin_design`
 - next: `m688-gate-margin-response-amplification-design`
+## 20260525T054500Z - m688-gate-margin-response-amplification-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m688-gate-margin-response-amplification-design.md`
+- result: M688 designs a gate-margin response-amplification objective after M686 gate collapse. The design preserves the split/gated head and exact pass gates, but adds detached-normal wrong-vs-normal gate margin, hard low-gate wrong-row pressure, stronger wrong gate-open coefficient, and gate-margin diagnostics. PPO, promotion, actor-input changes, and normal gate weakening remain blocked.
+- decision: `gate_margin_response_amplification_design_admit_m689`
+- next: `m689-gate-margin-response-amplification-implementation`

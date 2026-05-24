@@ -1,0 +1,103 @@
+{
+  "id": "m689-gate-margin-response-amplification-implementation",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m671_response_amplification_shadow/shadow_corpus.npz",
+      "runs/m671_response_amplification_shadow/shadow_metadata.csv",
+      "docs/m688-gate-margin-response-amplification-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m688-gate-margin-response-amplification-design.json"
+    ],
+    "parent_objective": [
+      "implement gate-margin response-amplification objective"
+    ],
+    "derived_from": [
+      "m688-gate-margin-response-amplification-design"
+    ],
+    "blocked_by": [
+      "m688-gate-margin-response-amplification-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m689-gate-margin-response-amplification-implementation.md",
+  "public_gates": [
+    "gated residual head remains active",
+    "wrong gate margin and hard low-gate losses are active",
+    "normal gate and residual safety losses remain active",
+    "alpha ladder exact metrics are reported",
+    "gate margin diagnostics are reported",
+    "base actor checksum is unchanged",
+    "no base actor checkpoint is written",
+    "no PPO is used",
+    "no checkpoint is promoted"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not mutate base actor parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor observation inputs",
+    "do not weaken normal sequence retention gates",
+    "do not skip exact source-heldout metrics"
+  ],
+  "hypothesis": "Detached-normal gate-margin and hard low-gate wrong-row pressure can open wrong-history gates enough to restore wrong-history gap while preserving normal retention.",
+  "success_criteria": [
+    "gate-margin residual-head artifacts are written",
+    "at least one seed passes exact metrics at alpha > 0",
+    "normal_delta_l2_mean <= 0.0025 at selected alpha",
+    "normal_action_drift_first_l2_p95 <= 0.006 at selected alpha",
+    "source-heldout sequence gap mean >= 0.010 at selected alpha",
+    "gate margin diagnostics are reported",
+    "actor checksum unchanged",
+    "no base actor checkpoint written",
+    "no PPO used",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "wrong gate remains collapsed",
+    "wrong gate opens but normal retention fails",
+    "source-heldout gate margin overfits",
+    "actor checksum changes",
+    "base actor checkpoint is written"
+  ],
+  "commands": [
+    {
+      "name": "gate_margin_probe",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.response_amplification_actor_coupling --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --shadow-corpus runs/m671_response_amplification_shadow/shadow_corpus.npz --metadata runs/m671_response_amplification_shadow/shadow_metadata.csv --view fused_plus_next_hidden --seeds 6890,6891,6892 --alphas 0.02,0.05,0.10,0.20,0.50,1.00 --target-gap 0.010 --epochs 240 --learning-rate 0.001 --weight-decay 0.0001 --hidden-dim 64 --head-type gated --max-residual 0.04 --normal-sequence-mean-coef 4.0 --normal-sequence-mean-threshold 0.002 --normal-sequence-topk-coef 2.0 --normal-sequence-topk-threshold 0.0045 --normal-sequence-topk-fraction 0.10 --normal-first-coef 5.0 --normal-first-topk-coef 2.0 --normal-first-threshold 0.004 --normal-first-topk-fraction 0.10 --normal-gate-coef 1.0 --normal-gate-topk-coef 1.0 --normal-gate-threshold 0.10 --normal-gate-topk-fraction 0.10 --wrong-target-coef 2.0 --wrong-first-gap-coef 1.0 --wrong-first-target-gap 0.006 --branch-specific-gap --wrong-sequence-gap-coef 1.0 --wrong-sequence-target-gap 0.012 --wrong-hard-coef 0.5 --wrong-hard-fraction 0.25 --wrong-gate-open-coef 2.0 --wrong-gate-target 0.50 --wrong-gate-margin-coef 2.0 --wrong-gate-margin 0.30 --wrong-gate-hard-coef 1.0 --wrong-gate-hard-fraction 0.25 --raw-amplifier-l2-coef 0.01 --device cpu --run-dir runs/m689_gate_margin_response_amplification"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m689_gate_margin_response_amplification/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m689_gate_margin_response_amplification/alpha_summary.csv",
+      "type": "metrics"
+    },
+    {
+      "path": "docs/m689-gate-margin-response-amplification-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m686_split_gated_response_amplification/summary.json",
+    "docs/m688-gate-margin-response-amplification-design.md"
+  ],
+  "decision_rule": "M689 passes only if gate-margin training yields at least one nonzero-alpha exact candidate satisfying normal sequence retention, first-action drift, and wrong-history gap gates without changing the base actor.",
+  "next_blocker": "m690-gate-margin-response-amplification-audit"
+}

@@ -1,0 +1,80 @@
+{
+  "decision_reason": "M688 designs detached-normal wrong-vs-normal gate margin and hard low-gate wrong-row pressure while preserving exact gates and P0 inputs",
+  "failure_criteria": [
+    "design only reruns M686",
+    "design weakens normal retention gates",
+    "design changes actor observation inputs",
+    "design admits PPO or promotion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run training in this design milestone",
+    "do not weaken exact normal retention gates",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor observation inputs",
+    "do not use hidden physical parameters or labels as actor inputs"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T154813Z",
+  "hypothesis": "Explicit detached-normal gate-margin and hard low-gate wrong-row pressure can open wrong-history gates while preserving M686's strong normal retention.",
+  "lineage": {
+    "blocked_by": [
+      "m687-split-gated-response-amplification-audit"
+    ],
+    "derived_from": [
+      "m687-split-gated-response-amplification-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m687-split-gated-response-amplification-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m686_split_gated_response_amplification/summary.json",
+      "runs/m686_split_gated_response_amplification/alpha_summary.csv",
+      "docs/m687-split-gated-response-amplification-audit.md"
+    ],
+    "parent_objective": [
+      "design gate-margin response-amplification objective"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m688-gate-margin-response-amplification-design",
+  "next_blocker": "m689-gate-margin-response-amplification-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "gate_margin_response_amplification_design_admit_m689",
+  "public_gates": [
+    "design preserves split/gated head and P0 actor inputs",
+    "design adds detached-normal wrong-vs-normal gate margin",
+    "design adds hard low-gate wrong-row pressure",
+    "design keeps normal retention and first-step safety gates",
+    "design keeps exact alpha ladder metrics",
+    "PPO and promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m688-gate-margin-response-amplification-design.md",
+    "clearance_margin_mean": "",
+    "decision": "gate_margin_response_amplification_design_admit_m689",
+    "milestone": "m688-gate-margin-response-amplification-design",
+    "reason": "M688 designs detached-normal wrong-vs-normal gate margin and hard low-gate wrong-row pressure while preserving exact gates and P0 inputs",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "gate margin loss is specified",
+    "hard low-gate wrong-row pressure is specified",
+    "implementation milestone is pre-registered",
+    "PPO and promotion remain blocked"
+  ],
+  "type": "infrastructure"
+}

@@ -62,16 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m688-gate-margin-response-amplification-design
+m689-gate-margin-response-amplification-implementation
 ```
 
-M688 should design a gate-margin response-amplification objective after M687
-classified M686 as gate collapse. The next design should add detached-normal
-wrong-vs-normal gate margin and hard low-gate wrong-row pressure while keeping
-normal retention gates, P0 inputs, no PPO, and no promotion.
+M689 should implement the gate-margin response-amplification exact probe
+designed in M688. It should add detached-normal wrong-vs-normal gate margin,
+hard low-gate wrong-row pressure, stronger wrong gate-open pressure, and
+gate-margin diagnostics while preserving normal retention gates, P0 inputs, no
+PPO, and no promotion.
 
 ## Recent Evidence Line
 
+- M688 designs gate-margin response amplification after M686 gate collapse. It
+  keeps the split/gated head and exact gates, but adds detached-normal
+  wrong-vs-normal gate margin, hard low-gate wrong rows, stronger wrong
+  gate-open pressure, and gate-margin diagnostics. PPO and promotion remain
+  blocked.
 - M687 audits M686 as `gate_collapse`, not amplifier capacity failure. The raw
   wrong amplifier is large, but wrong gates stay near normal gates and do not
   open toward target `0.50`. The next branch should add explicit gate-margin

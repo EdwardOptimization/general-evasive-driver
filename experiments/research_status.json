@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 696,
+        "completed": 697,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m687-split-gated-response-amplification-audit",
+        "task_id": "m688-gate-margin-response-amplification-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m687-split-gated-response-amplification-audit.md"
+        "command_log": "docs/m688-gate-margin-response-amplification-design.md"
     },
     "next_task": {
-        "id": "m688-gate-margin-response-amplification-design",
+        "id": "m689-gate-margin-response-amplification-implementation",
         "status": "pending",
-        "priority": 6830,
+        "priority": 6840,
         "kind": "infrastructure",
-        "hypothesis": "Explicit detached-normal gate-margin and hard low-gate wrong-row pressure can open wrong-history gates while preserving M686's strong normal retention.",
-        "command": "see experiments/manifests/m688-gate-margin-response-amplification-design.json",
+        "hypothesis": "Detached-normal gate-margin and hard low-gate wrong-row pressure can open wrong-history gates enough to restore wrong-history gap while preserving normal retention.",
+        "command": "see experiments/manifests/m689-gate-margin-response-amplification-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design gate-margin exact probe; PPO promotion and actor-input changes remain blocked"
+        "notes": "Pending: implement gate-margin exact probe; PPO promotion and actor-input changes remain blocked"
     },
-    "updated_at_utc": "20260525T053000Z"
+    "updated_at_utc": "20260525T054500Z"
 }
