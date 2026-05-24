@@ -1,0 +1,113 @@
+{
+  "id": "m716-extreme-fault-coverage-refresh-implementation",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m715-extreme-fault-coverage-refresh-design.md",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m715-extreme-fault-coverage-refresh-design.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_objective": [
+      "generate a broader no-training extreme-fault coverage discovery wave"
+    ],
+    "derived_from": [
+      "m715-extreme-fault-coverage-refresh-design"
+    ],
+    "blocked_by": [
+      "m715-extreme-fault-coverage-refresh-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m716-extreme-fault-coverage-refresh-implementation.md",
+  "public_gates": [
+    "runner uses configs/extreme_fault_coverage_v2_scenarios.json",
+    "run is no-training no-PPO no-promotion with actor checksum unchanged",
+    "summary reports scenario_count snapshot_count matched_pair_count accepted/reset/wrong rows",
+    "fault-family and severity summaries are written",
+    "current-model proxy and future-only fidelity boundaries are preserved",
+    "result class determines whether to export source rows, return to actor-head objective design, or design higher-fidelity dynamics"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not add fault labels hidden params or oracle labels to actor observations",
+    "do not claim proxy faults are faithful single-wheel physics",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not tune thresholds after seeing the full run without registering a new manifest"
+  ],
+  "workflow_synthesis": {
+    "branch": "extreme_fault_coverage_refresh",
+    "evidence_axis": "G_scenario_coverage: full v2 extreme-fault discovery data wave",
+    "evidence_increment": "runs the registered v2 fault coverage corpus and classifies whether broader extreme coverage creates wrong-history action/outcome-critical rows",
+    "claim_scope": "no-training scenario-discovery evidence only; no actor capability promotion or PPO claim",
+    "stop_condition": [
+      "stop current-model coverage branch if v2 remains reset-only or history-insensitive",
+      "stop source export if wrong-history action-critical rows fail diversity thresholds",
+      "stop fidelity claims for true wheel-asymmetric faults in the single-track model"
+    ],
+    "fallback_plan": [
+      "if cross_fault_wrong_positive, design source-balanced export and proof/generalization gates",
+      "if action or feature positive but outcome negative, return to actor-head residual objective design with v2 rows",
+      "if reset-only, audit whether delayed-history or active warm-up is missing before model upgrade",
+      "if model_fidelity_blocked, design four-wheel or external-yaw-disturbance dynamics extension"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "after M716 result_class is known",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The v2 extreme-fault coverage wave will expose more matched-history-sensitive cases than M704/M707 by broadening fault families, severity levels, surprise activations, and current-model proxy combinations.",
+  "success_criteria": [
+    "full run writes runs/m716_extreme_fault_coverage_refresh/summary.json",
+    "actor_parameters_changed is false",
+    "training_started is false or absent",
+    "ppo_used is false",
+    "promoted is false",
+    "result_class is recorded",
+    "failure taxonomy and next blocker are documented"
+  ],
+  "failure_criteria": [
+    "runner fails to load the v2 config",
+    "actor inputs or observation shape change",
+    "run claims true wheel-asymmetric physics from current-model proxies",
+    "run omits fault-family and severity summaries",
+    "implementation promotes a checkpoint or admits PPO"
+  ],
+  "commands": [
+    {
+      "name": "full_v2_data_wave",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.extreme_dynamics_scenario_corpus --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --config configs/extreme_fault_coverage_v2_scenarios.json --pairing-mode cross_fault --seed-start 72000 --seed-count 512 --device cpu --run-dir runs/m716_extreme_fault_coverage_refresh"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m716_extreme_fault_coverage_refresh/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m716-extreme-fault-coverage-refresh-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "configs/extreme_fault_coverage_v2_scenarios.json",
+    "docs/m715-extreme-fault-coverage-refresh-design.md"
+  ],
+  "decision_rule": "M716 may admit source export only if wrong-history action-critical rows pass the v2 diversity gates. It may not admit PPO or promotion directly.",
+  "next_blocker": "m717-to-be-selected-by-m716"
+}

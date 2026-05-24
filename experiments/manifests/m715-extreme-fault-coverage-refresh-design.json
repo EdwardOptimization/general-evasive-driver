@@ -1,0 +1,116 @@
+{
+  "id": "m715-extreme-fault-coverage-refresh-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m714-actor-head-history-signal-coupling-audit.md",
+      "runs/m704_extreme_dynamics_scenario_corpus/summary.json",
+      "runs/m707_cross_fault_wrong_history_scenario/summary.json",
+      "runs/m710_cross_fault_hidden_action_gap_audit/summary.json",
+      "runs/m713_actor_head_history_signal_coupling/summary.json"
+    ],
+    "parent_config": [
+      "configs/extreme_hidden_condition_scenarios.json",
+      "configs/cross_fault_hidden_condition_scenarios.json"
+    ],
+    "parent_objective": [
+      "design a broader no-training extreme-fault coverage refresh before objective design or actor mutation"
+    ],
+    "derived_from": [
+      "m714-actor-head-history-signal-coupling-audit"
+    ],
+    "blocked_by": [
+      "m714-actor-head-history-signal-coupling-audit"
+    ],
+    "supersedes": [
+      "configs/cross_fault_hidden_condition_scenarios.json for future full-coverage discovery runs"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m715-extreme-fault-coverage-refresh-design.md",
+  "public_gates": [
+    "fault taxonomy separates current-model faults current-model proxies and future four-wheel-only faults",
+    "config covers road surface tire/axle authority brake drive steering vehicle-mass actuator-delay and combined faults",
+    "single-wheel blowout split-mu stuck-caliper and true asymmetric half-shaft faults are not claimed as faithful single-track physics",
+    "M716 full data wave is pre-registered with normal reset wrong and delayed-history comparisons",
+    "actor inputs remain P0 human-view no-wheel with no hidden fault labels",
+    "objective design PPO actor update and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not claim current-model proxies are true single-wheel or left-right physics",
+    "do not add fault family severity activation step or hidden vehicle parameters to actor inputs",
+    "do not train an actor from this config milestone",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not tune thresholds after inspecting private holdout evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "extreme_fault_coverage_refresh",
+    "evidence_axis": "G_scenario_coverage: broaden hidden-fault discovery coverage before objective design",
+    "evidence_increment": "pre-registers a broader fault taxonomy and v2 discovery config after M704/M707 reset-only evidence and M713 actor-head coupling positive evidence",
+    "claim_scope": "design and config readiness only; no new closed-loop source-positive claim and no checkpoint promotion",
+    "stop_condition": [
+      "stop claiming complete fault coverage if requested faults require four-wheel or high-fidelity dynamics",
+      "stop current-model-only mining if M716 again yields reset-only or history-insensitive evidence across the v2 taxonomy",
+      "stop actor objective design if full-coverage discovery shows no action or outcome sensitivity after matched-history interventions"
+    ],
+    "fallback_plan": [
+      "if v2 current-model proxies remain reset-only, pivot to four-wheel or external-yaw-disturbance model design",
+      "if v2 produces source-positive wrong-history rows, export a source-balanced corpus before any actor update",
+      "if v2 produces feature/action signal but no outcome signal, return to actor-head residual objective design with v2 rows",
+      "if all severe cases fail normal history, lower severity or move obstacle timing earlier rather than training on impossible rows"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "new branch after M714 promote_to_next_branch decision",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The project may not have mined enough extreme hidden-condition coverage; a broader current-model/proxy fault taxonomy can reveal matched-history intervention rows that M704/M707 did not expose.",
+  "success_criteria": [
+    "M715 documents the coverage gap hypothesis and model-fidelity boundary",
+    "M715 adds a validated v2 fault coverage config",
+    "M715 defines the M716 full data wave command and acceptance criteria",
+    "actor input contract remains unchanged",
+    "no training PPO actor update or promotion occurs"
+  ],
+  "failure_criteria": [
+    "design claims true single-wheel or left-right dynamics from the single-track model",
+    "design omits normal reset wrong or delayed-history interventions",
+    "design lacks source-diversity requirements",
+    "design admits actor update PPO or promotion before data generation",
+    "config cannot be loaded by the existing extreme dynamics corpus runner"
+  ],
+  "commands": [
+    {
+      "name": "config_validation_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.extreme_dynamics_scenario_corpus --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --config configs/extreme_fault_coverage_v2_scenarios.json --pairing-mode cross_fault --seed-start 72000 --seed-count 1 --device cpu --run-dir runs/m715_extreme_fault_coverage_v2_config_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m715-extreme-fault-coverage-refresh-design.md",
+      "type": "documentation"
+    },
+    {
+      "path": "configs/extreme_fault_coverage_v2_scenarios.json",
+      "type": "config"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m714-actor-head-history-signal-coupling-audit.md",
+    "configs/extreme_fault_coverage_v2_scenarios.json"
+  ],
+  "decision_rule": "M715 only admits a no-training M716 full data wave. It does not admit objective design, PPO, actor update, or checkpoint promotion.",
+  "next_blocker": "m716-extreme-fault-coverage-refresh-implementation"
+}

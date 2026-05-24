@@ -12453,3 +12453,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M713 implements and runs the no-training actor-head feature-line-search audit. The result is `actor_head_coupling_positive`: `164` wrong-history rows cross the action threshold by alpha `<=4` across `20` fault-pair groups, and `1079` cross by alpha `<=16`. Wrong-history directions are weaker than reset-hidden directions, but they are not actor-head-null; tanh attenuation is not the primary blocker. Actor checksum unchanged; no training, PPO, or promotion occurred.
 - decision: `actor_head_coupling_positive_admit_audit`
 - next: `m714-actor-head-history-signal-coupling-audit`
+
+## 20260524T203000Z - m714-actor-head-history-signal-coupling-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m714-actor-head-history-signal-coupling-audit.md`
+- result: M714 audits M713 as a positive but counterfactual actor-head coupling diagnostic. M713 proves the wrong-history fused directions are not actor-head-null, but it does not prove deployed closed-loop self-ID, margin improvement, PPO admissibility, promotion, or complete extreme-fault coverage. Objective/residual-head design remains admissible in principle, but direct actor update, PPO, and checkpoint promotion remain blocked.
+- decision: `actor_head_coupling_positive_promote_to_extreme_fault_coverage_refresh`
+- next: `m715-extreme-fault-coverage-refresh-design`
+
+## 20260524T203500Z - m715-extreme-fault-coverage-refresh-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m715-extreme-fault-coverage-refresh-design.md`
+- config: `configs/extreme_fault_coverage_v2_scenarios.json`
+- result: M715 registers the hypothesis that the project may not have mined enough extreme hidden-condition coverage. It adds a v2 discovery config with `32` current-model/proxy fault specs across global friction, front/rear lateral authority, brake, drive, steering, mass/CG/inertia, delay, and combined faults, while explicitly keeping true single-wheel blowout, true split-mu, stuck-caliper pull, asymmetric half-shaft, and other per-wheel failures as future high-fidelity dynamics work. A one-seed config smoke ran successfully with `33` scenarios, `165` snapshots, `160` matched pairs, and unchanged actor parameters; the smoke is config validation only, not capability evidence.
+- decision: `extreme_fault_coverage_refresh_design_admit_m716`
+- next: `m716-extreme-fault-coverage-refresh-implementation`
