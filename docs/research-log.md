@@ -11764,3 +11764,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M626 designs a no-training near-miss trust-geometry analyzer. M627 should read M624 `sequence_candidates.csv` and `unaccepted_rows.csv`, filter candidates that are unaccepted but meet margin/risk utility thresholds, compute mean/max/delta-delta L2 excess over the existing trust limits, preserve candidate safety flags, assign deterministic primary failure labels, aggregate by source row, and write near-miss candidate/source CSVs plus a summary. It explicitly forbids threshold changes, trust-region relaxation, training, PPO, promotion, or optimizer admission.
 - decision: `near_miss_trust_geometry_design_admit_m627`
 - next: `m627-near-miss-trust-geometry-analyzer`
+## 20260524T163000Z - m627-near-miss-trust-geometry-analyzer
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m627_near_miss_trust_geometry`
+- artifact: `docs/m627-near-miss-trust-geometry-analyzer.md`
+- result: M627 implements and runs the no-training near-miss trust-geometry analyzer on M624 `sequence_candidates.csv` and `unaccepted_rows.csv`. It scans `22140` candidates and finds `802` unaccepted-but-useful near-miss candidates across `13` source rows. Primary failures are mean L2 excess `542`, max L2 excess `185`, and candidate collision `75`; no off-road or spin-out near misses appear. Constraint flags show mean L2 failures `580`, max L2 failures `528`, and only `6` delta-delta failures, so the dominant blocker is candidate trust geometry rather than temporal smoothness. Training, PPO, promotion, optimizer admission, target-threshold changes, and trust-region relaxation remain blocked.
+- decision: `near_miss_trust_geometry_analyzer_pass_admit_audit`
+- next: `m628-near-miss-trust-geometry-audit`

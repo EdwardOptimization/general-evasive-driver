@@ -62,16 +62,24 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m627-near-miss-trust-geometry-analyzer
+m628-near-miss-trust-geometry-audit
 ```
 
-M627 should implement and run the no-training near-miss trust-geometry analyzer
-designed by M626. It should classify M624 near misses by trust-excess and
-safety blockers before any candidate-shape change, without relaxing thresholds
-or trust regions.
+M628 should audit the M627 near-miss trust-geometry artifacts and choose the
+next no-training branch. The current evidence points to trust-geometry blockers
+dominated by mean/max L2 excess, with a smaller collision-primary branch. It
+should not relax thresholds, widen trust regions, start training, or admit an
+optimizer corpus.
 
 ## Recent Evidence Line
 
+- M627 implements and runs the no-training near-miss trust-geometry analyzer on
+  M624 candidates. It finds `802` unaccepted-but-useful near-miss candidates
+  across `13` source rows: primary failures are mean L2 excess `542`, max L2
+  excess `185`, and collision `75`; off-road and spin are `0`. All `13` source
+  rows have trust near misses and `4` have collision near misses. This supports
+  a projected/smoother candidate-shape audit but does not admit optimizer
+  training, PPO, promotion, threshold changes, or trust-region relaxation.
 - M626 designs the near-miss trust-geometry analyzer. M627 should filter M624
   unaccepted-but-useful candidates, compute mean/max/delta-delta L2 excess,
   keep collision/off-road/spin flags visible, aggregate by source row, and

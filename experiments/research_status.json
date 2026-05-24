@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 635,
+        "completed": 636,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m626-near-miss-trust-geometry-design",
+        "task_id": "m627-near-miss-trust-geometry-analyzer",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m626-near-miss-trust-geometry-design.md"
+        "run_dir": "runs/m627_near_miss_trust_geometry",
+        "command_log": "docs/m627-near-miss-trust-geometry-analyzer.md"
     },
     "next_task": {
-        "id": "m627-near-miss-trust-geometry-analyzer",
+        "id": "m628-near-miss-trust-geometry-audit",
         "status": "pending",
-        "priority": 6220,
-        "kind": "infrastructure",
-        "hypothesis": "The M624 near misses can be classified into trust-geometry and safety blockers, revealing whether a future candidate-shape design can preserve existing trust limits.",
-        "command": "see experiments/manifests/m627-near-miss-trust-geometry-analyzer.json",
+        "priority": 6230,
+        "kind": "gate",
+        "hypothesis": "M627 near-miss geometry can determine whether the next no-training step should design projected smoother sequence candidates or return to source re-mining and safety shaping.",
+        "command": "see experiments/manifests/m628-near-miss-trust-geometry-audit.json",
         "success_artifact": "",
-        "notes": "Pending: implement no-training near-miss trust geometry analyzer; no threshold trust-region training PPO promotion or optimizer change"
+        "notes": "Pending: audit M627 trust and collision blockers; keep optimizer admission training PPO promotion thresholds and trust regions blocked"
     },
-    "updated_at_utc": "20260524T162000Z"
+    "updated_at_utc": "20260524T163000Z"
 }
