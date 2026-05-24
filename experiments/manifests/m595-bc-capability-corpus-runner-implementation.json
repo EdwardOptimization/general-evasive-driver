@@ -2,7 +2,7 @@
   "id": "m595-bc-capability-corpus-runner-implementation",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -84,6 +84,6 @@
     "docs/m594-bc-capability-repair-corpus-design.md",
     "src/autodrift/bc_capability_repair.py"
   ],
-  "decision_rule": "M595 passes if it implements tested corpus and pair-runner infrastructure without training, PPO, promotion, or actor-input leakage.",
+  "decision_rule": "M595 passes because it implements tested corpus and pair-runner infrastructure without training, PPO, promotion, or actor-input leakage.",
   "next_blocker": "m596-bc-capability-corpus-export-smoke"
 }

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 603,
+        "completed": 604,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m594-bc-capability-repair-corpus-design",
+        "task_id": "m595-bc-capability-corpus-runner-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m594-bc-capability-repair-corpus-design.md"
+        "run_dir": "runs/m595_bc_capability_corpus_pair_smoke",
+        "command_log": "docs/m595-bc-capability-corpus-runner-implementation.md"
     },
     "next_task": {
-        "id": "m595-bc-capability-corpus-runner-implementation",
+        "id": "m596-bc-capability-corpus-export-smoke",
         "status": "pending",
-        "priority": 5900,
-        "kind": "infrastructure",
-        "hypothesis": "A closed-loop BC5660 capability corpus runner can align P0 observations, base action anchors, recurrent state diagnostics, future-response labels, and matched-current pair-ranking rows without actor-input leakage.",
-        "command": "see experiments/manifests/m595-bc-capability-corpus-runner-implementation.json",
+        "priority": 5910,
+        "kind": "gate",
+        "hypothesis": "The M595 corpus runner can export separate train and validation capability corpora with non-empty same-corpus pair rows, preserving P0 actor inputs and producing enough data for a later objective smoke.",
+        "command": "see experiments/manifests/m596-bc-capability-corpus-export-smoke.json",
         "success_artifact": "",
-        "notes": "Pending: implement corpus/pair runner and tests; no repair training, PPO, promotion, or actor-input leakage"
+        "notes": "Pending: export train/validation capability corpora; no repair training, PPO, promotion, or actor-input leakage"
     },
-    "updated_at_utc": "20260524T110000Z"
+    "updated_at_utc": "20260524T111000Z"
 }

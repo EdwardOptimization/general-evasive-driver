@@ -61,17 +61,23 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m595-bc-capability-corpus-runner-implementation
+m596-bc-capability-corpus-export-smoke
 ```
 
-M595 should implement the closed-loop BC5660 capability corpus and
-matched-current pair runner designed by M594. The current evidence supports
-deployable current-response dependence and source-diverse pair availability,
-but M587-M594 do not support accumulated hidden-history causality. Promotion
-and PPO remain blocked.
+M596 should export separate train and validation BC capability corpora using
+the M595 runner before any repair optimizer smoke. The current evidence
+supports deployable current-response dependence and source-diverse pair
+availability, but M587-M595 do not support accumulated hidden-history
+causality. Promotion and PPO remain blocked.
 
 ## Recent Evidence Line
 
+- M595 implements `bc_capability_corpus`: closed-loop BC5660 corpus export with
+  P0 observations, base action anchors, future-response target labels,
+  recurrent hidden diagnostics, and same-corpus matched-current pair rows. A
+  real 3-seed smoke produced `24` rows and `18` pair rows with
+  `labels_enter_actor_input = false`. M596 should export train/validation
+  corpora; still no repair training or promotion.
 - M594 designs the real capability corpus/runner. It chooses closed-loop
   BC5660 rollout collection so P0 observation, recurrent hidden diagnostics,
   base action anchor, and future-response label correspond to the same state.

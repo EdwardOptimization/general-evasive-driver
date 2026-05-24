@@ -11476,3 +11476,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M594 designs the real capability repair corpus before smoke training. The corpus should be collected from closed-loop BC5660 rollouts rather than retrofitting labels onto the old L2 teacher corpus, so P0 observations, recurrent hidden diagnostics, base action anchors, and future-response labels all correspond to the same state. Matched-current ranking pairs should be mined from the new corpus row indices, not blindly imported from M586. The design registers corpus arrays, pair fields, train/validation split rules, smoke metrics, and actor-input leakage constraints.
 - decision: `bc_capability_repair_corpus_design_admit_runner_implementation`
 - next: `m595-bc-capability-corpus-runner-implementation`
+## 20260524T111000Z - m595-bc-capability-corpus-runner-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m595_bc_capability_corpus_pair_smoke`
+- artifact: `docs/m595-bc-capability-corpus-runner-implementation.md`
+- result: M595 implements the closed-loop BC capability corpus runner and same-corpus pair miner. Focused tests validate array schemas and pair row indices. A single-seed smoke writes `8` corpus rows and correctly has `0` cross-episode pairs; a three-seed smoke writes `24` corpus rows and `18` matched-current pair rows, with `6` pairs per target and target-z means `2.965795`, `4.125291`, and `3.586460`. The runner reports `student_obs_dim = 72`, `target_dim = 3`, `hidden_dim = 64`, `labels_enter_actor_input = false`, and `contains_privileged_actor_inputs = false`.
+- decision: `bc_capability_corpus_runner_implementation_admit_export_smoke`
+- next: `m596-bc-capability-corpus-export-smoke`
