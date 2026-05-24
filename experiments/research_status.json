@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 530,
+        "completed": 532,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m521-history-value-ablation-design",
+        "task_id": "m523-multisurface-history-value-ablation-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m521-history-value-ablation-design.md"
+        "command_log": "docs/m523-multisurface-history-value-ablation-design.md"
     },
     "next_task": {
-        "id": "m522-history-value-ablation-runner",
+        "id": "m524-multisurface-history-value-ablation-runner",
         "status": "pending",
-        "priority": 5170,
+        "priority": 5190,
         "kind": "gate",
-        "hypothesis": "A diagnostic history-level ablation can measure whether the M399 online GRU recurrent belief state adds near-boundary control value beyond reset-hidden current-feedback rollouts.",
-        "command": "see experiments/manifests/m522-history-value-ablation-runner.json",
+        "hypothesis": "A configurable multisurface history-value runner can reveal whether L3-vs-L0 diagnostic history value remains margin-only/source-narrow or becomes stronger on natural recent outcome surfaces.",
+        "command": "see experiments/manifests/m524-multisurface-history-value-ablation-runner.json",
         "success_artifact": "",
-        "notes": "Pending: implement and run L3-vs-L0 diagnostic history-value ablation without training or promotion"
+        "notes": "Pending: implement configurable variant mapping and run L3-vs-L0 diagnostics on projected and natural surfaces without training or promotion"
     },
-    "updated_at_utc": "20260524T040000Z"
+    "updated_at_utc": "20260524T042000Z"
 }

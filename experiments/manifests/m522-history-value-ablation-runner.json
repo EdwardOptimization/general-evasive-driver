@@ -2,7 +2,7 @@
   "id": "m522-history-value-ablation-runner",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -12,7 +12,7 @@
     ],
     "parent_dataset": [
       "runs/m520_valid_offset_projection_outcome_gate/summary.json",
-      "runs/m516_boundary_mechanism_projection_selector/targeted_pairs.csv"
+      "runs/m520_valid_offset_projection_outcome_gate/projected_outcomes.csv"
     ],
     "parent_config": [
       "experiments/manifests/m521-history-value-ablation-design.json"
@@ -63,7 +63,7 @@
   "commands": [
     {
       "name": "history_value_ablation_runner",
-      "command": "Implement and run a diagnostic L3-vs-L0 history-value ablation over a compact recent proof surface."
+      "command": "PYTHONPATH=src python -m autodrift.history_value_ablation_runner --outcomes-csv runs/m520_valid_offset_projection_outcome_gate/projected_outcomes.csv --surface-name m520_valid_offset_projection --min-margin-gap 0.02 --run-dir runs/m522_history_value_ablation_runner"
     }
   ],
   "required_artifacts": [
@@ -80,5 +80,31 @@
     "runs/m520_valid_offset_projection_outcome_gate/summary.json"
   ],
   "decision_rule": "M522 is not a checkpoint promotion gate; it should establish whether the harness can measure L3 recurrent history value before any matched baseline training.",
-  "next_blocker": "pending M522 history-value ablation runner"
+  "next_blocker": "M523 should design a multisurface history-value ablation because M522 is only a source-narrow projected-surface diagnostic.",
+  "results": {
+    "run_dir": "runs/m522_history_value_ablation_runner",
+    "summary_json": "runs/m522_history_value_ablation_runner/summary.json",
+    "history_value_rows_csv": "runs/m522_history_value_ablation_runner/history_value_rows.csv",
+    "history_value_summary_csv": "runs/m522_history_value_ablation_runner/history_value_summary.csv",
+    "classification": "margin_only_history_value_signal",
+    "history_levels": [
+      "L0_reset_hidden_each_step",
+      "L3_online_gru"
+    ],
+    "row_count": 1276,
+    "l0_row_count": 638,
+    "l0_candidate_count": 8,
+    "l0_event_row_count": 0,
+    "l0_probe_seed_count": 2,
+    "l0_config_count": 2,
+    "l0_target_count": 2,
+    "l0_single_seed_share": 0.625,
+    "l0_single_config_share": 0.625,
+    "l0_candidate_by_target": {
+      "future_braking_deceleration": 4,
+      "future_yaw_response": 4
+    },
+    "actor_contract_changed": false,
+    "training_or_promotion_performed": false
+  }
 }

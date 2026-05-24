@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M523 designs configurable variant mapping and multisurface projected/natural provenance before stronger history-value claims",
+  "failure_criteria": [
+    "design keeps the runner hard-coded to projected variants only",
+    "design hides surface provenance",
+    "design treats source-narrow M522 signal as strong proof",
+    "design requires training before multisurface diagnostics",
+    "training or checkpoint promotion is performed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not hide surfaces where variant mapping fails",
+    "do not claim projected mechanism rows prove natural scenario generalization",
+    "do not overclaim L1/L2 unless those variants are implemented"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T022249Z",
+  "hypothesis": "M522's runner can be turned into a more useful history-value diagnostic by supporting configurable variant mappings and multiple recent projected/natural outcome surfaces.",
+  "lineage": {
+    "blocked_by": [
+      "m522-history-value-ablation-runner"
+    ],
+    "derived_from": [
+      "m522-history-value-ablation-runner"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m522-history-value-ablation-runner.json"
+    ],
+    "parent_dataset": [
+      "runs/m522_history_value_ablation_runner/summary.json",
+      "runs/m522_history_value_ablation_runner/history_value_summary.csv",
+      "runs/m497_natural_belief_decision_window_outcome_summary/combined_tail_outcomes.csv",
+      "runs/m487_critical_window_tail_aligned_outcome_summary/combined_tail_outcomes.csv"
+    ],
+    "parent_objective": [
+      "multisurface history-value ablation design"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m523-multisurface-history-value-ablation-design",
+  "next_blocker": "M524 should implement a configurable multisurface history-value ablation runner.",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m524_multisurface_history_value_ablation_runner",
+  "public_gates": [
+    "design configurable history-level variant mappings",
+    "extend history-value diagnostics from M520 projected rows to natural recent outcome surfaces",
+    "preserve projected-vs-natural surface provenance",
+    "do not train or promote checkpoint"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m524_multisurface_history_value_ablation_runner",
+    "milestone": "m523-multisurface-history-value-ablation-design",
+    "reason": "M523 designs configurable variant mapping and multisurface projected/natural provenance before stronger history-value claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "define configurable level-to-variant mapping",
+    "define initial projected and natural surfaces for M524",
+    "define per-surface and combined metrics",
+    "define classification and guardrails",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "type": "infrastructure"
+}

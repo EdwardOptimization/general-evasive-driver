@@ -1,0 +1,86 @@
+{
+  "id": "m524-multisurface-history-value-ablation-runner",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m522_history_value_ablation_runner/summary.json",
+      "runs/m520_valid_offset_projection_outcome_gate/projected_outcomes.csv",
+      "runs/m497_natural_belief_decision_window_outcome_summary/combined_tail_outcomes.csv",
+      "runs/m487_critical_window_tail_aligned_outcome_summary/combined_tail_outcomes.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m523-multisurface-history-value-ablation-design.json"
+    ],
+    "parent_objective": [
+      "multisurface history-value ablation runner"
+    ],
+    "derived_from": [
+      "m523-multisurface-history-value-ablation-design"
+    ],
+    "blocked_by": [
+      "m523-multisurface-history-value-ablation-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m524-multisurface-history-value-ablation-runner.md",
+  "public_gates": [
+    "support configurable L3/L0 variant mappings",
+    "run history-value diagnostics on at least M520 projected and one natural surface",
+    "write per-surface and combined summaries",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not hide invalid variant mappings",
+    "do not merge projected and natural claims without provenance"
+  ],
+  "hypothesis": "A configurable multisurface history-value runner can reveal whether L3-vs-L0 diagnostic history value remains margin-only/source-narrow or becomes stronger on natural recent outcome surfaces.",
+  "success_criteria": [
+    "runner supports configurable level variants",
+    "runner evaluates at least two surfaces",
+    "combined summary preserves surface provenance",
+    "invalid mappings are reported explicitly",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "runner remains hard-coded to projected variants",
+    "runner silently drops incompatible surfaces",
+    "runner changes actor inputs",
+    "runner trains or promotes a checkpoint",
+    "summary omits surface provenance"
+  ],
+  "commands": [
+    {
+      "name": "multisurface_history_value_ablation_runner",
+      "command": "Implement configurable variant mapping and run history-value summaries over M520 plus recent natural outcome surfaces."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m524-multisurface-history-value-ablation-runner.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m523-multisurface-history-value-ablation-design.md",
+    "runs/m522_history_value_ablation_runner/summary.json"
+  ],
+  "decision_rule": "M524 is not a promotion gate; it should decide whether history-value evidence should expand to matched L0/L1/L2 training or better natural surface mining.",
+  "next_blocker": "pending M524 multisurface history-value ablation runner"
+}

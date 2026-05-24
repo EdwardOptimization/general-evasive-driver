@@ -10819,3 +10819,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M521 redirects the evidence line from one-shot wrong-history event mining to direct history-value measurement. It defines L0 current-observation diagnostic, L1 one-step command-response feedback, L2 finite command-response window, and L3 online GRU recurrent belief. The first implementation should be diagnostic and non-training: compare the existing M399 L3 checkpoint against at least an L0 reset-hidden-each-step ablation on recent mechanism surfaces, document limitations, and avoid overclaiming L1/L2 until those approximations are implemented.
 - decision: `admit_m522_history_value_ablation_runner`
 - next: `m522-history-value-ablation-runner`
+## 20260524T041000Z - m522-history-value-ablation-runner
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m522_history_value_ablation_runner`
+- artifact: `docs/m522-history-value-ablation-runner.md`
+- result: M522 implements a diagnostic history-value runner that reads M520 projected outcomes and maps `normal_projected` to `L3_online_gru` and `reset_projected` to `L0_reset_hidden_each_step`. The run writes `1276` history-value rows. L0 has `638` rows, `8` margin candidates, and `0` event rows. Candidate rows span `2` probe seeds, `2` configs, and `2` targets, with single-seed and single-config shares `0.625`. The classification is `margin_only_history_value_signal`; the runner works but the evidence remains source-narrow and projected-surface only.
+- decision: `margin_only_history_value_signal_admit_m523_multisurface_history_value_design`
+- next: `m523-multisurface-history-value-ablation-design`
+## 20260524T042000Z - m523-multisurface-history-value-ablation-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m523-multisurface-history-value-ablation-design.md`
+- result: M523 designs the next runner upgrade. M524 should support configurable level-to-variant mappings such as `L3_online_gru=normal_projected` / `L0_reset_hidden_each_step=reset_projected` and `L3_online_gru=normal_tail` / `L0_reset_hidden_each_step=reset_tail`. It should run history-value diagnostics on M520 projected rows and recent natural outcome surfaces such as M497 and M487, preserve projected-vs-natural provenance, and report invalid mappings explicitly. No training or promotion is admitted.
+- decision: `admit_m524_multisurface_history_value_ablation_runner`
+- next: `m524-multisurface-history-value-ablation-runner`

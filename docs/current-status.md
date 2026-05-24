@@ -47,12 +47,12 @@ runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
 
 Status: M400 promotes M399 alpha `0.05` as the current public-gate base after
 six public replay surfaces and behavior seeds pass. This remains the latest
-public-gate base; M487-M521 did not train or promote a checkpoint.
+public-gate base; M487-M523 did not train or promote a checkpoint.
 
 Current blocker:
 
 ```text
-m522-history-value-ablation-runner
+m524-multisurface-history-value-ablation-runner
 ```
 
 Recent progress: M486-M492 is now closed as an artificial tail-forcing
@@ -233,10 +233,19 @@ wrong-history event rows, it designs an L0/L1/L2/L3 history-value ablation:
 L0 current-only diagnostic, L1 one-step feedback, L2 finite command-response
 window, and L3 online GRU recurrent belief.
 
-Next step: M522 should implement and run a diagnostic history-value ablation
-runner, starting with L3 normal recurrent rollout versus L0
-reset-hidden-each-step on a recent proof surface. It should not train or
-promote.
+M522 implements the first diagnostic runner over M520 projected outcomes. It
+maps `normal_projected` to `L3_online_gru` and `reset_projected` to
+`L0_reset_hidden_each_step`. The result is
+`margin_only_history_value_signal`: L0 has `8` margin candidates and `0` event
+rows across `2` probe seeds, `2` configs, and `2` targets. This proves the
+runner works, but it is still source-narrow and projected-surface only.
+
+M523 designs the next upgrade: configurable level-to-variant mappings and
+multisurface projected/natural provenance. The next runner should evaluate M520
+projected rows plus recent natural outcome surfaces such as M497 and M487.
+
+Next step: M524 should implement the configurable multisurface history-value
+ablation runner. It should not train or promote.
 
 ## Current Evidence
 
