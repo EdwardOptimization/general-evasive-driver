@@ -1,0 +1,75 @@
+{
+  "decision_reason": "M551 defines route-screen v2 with 64-plus episodes L0/L2 references and obstacle success collision margin gates before public eval",
+  "failure_criteria": [
+    "design uses public rows as checkpoint-selection data",
+    "design ignores M550 L3-vs-L0/L2 regression",
+    "design allows promotion from route evidence alone"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not tune directly to M550 public rows and claim private evidence",
+    "do not lower route-health thresholds to admit a public-failing checkpoint",
+    "do not discard L2 after a route-only L3 pass"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T043124Z",
+  "hypothesis": "The current 5-episode route-health gate is too weak; the next L3 repair attempt needs a stronger public-neutral route/generalization screen before public frozen-source diagnostics.",
+  "lineage": {
+    "blocked_by": [
+      "m550-m549-public-surface-diagnostic"
+    ],
+    "derived_from": [
+      "m550-m549-public-surface-diagnostic"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m549_l3_repair_fast_select_ckpt256_seed3540/checkpoints/checkpoint_step_2816.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m548_l3_repair_fast_select_ckpt256_4096.json"
+    ],
+    "parent_dataset": [
+      "runs/m550_m549_public_surface_diagnostic_aggregate/summary.json",
+      "runs/m550_m549_public_surface_diagnostic_aggregate/paired_deltas.csv",
+      "runs/m550_m549_public_surface_diagnostic_aggregate/terminal_pair_deltas.csv",
+      "runs/m550_m549_public_surface_diagnostic_aggregate/first_action_deltas.csv"
+    ],
+    "parent_objective": [
+      "redesign route-health screen after M550 public-surface regression"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m551-route-health-screen-redesign",
+  "next_blocker": "m552-route-screen-v2-retrospective",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "route_health_screen_redesign_admit_m552_retrospective",
+  "public_gates": [
+    "design stronger pre-public route/generalization screen after M550 rejects 5-episode route-health",
+    "use M550 only as public diagnostic evidence, not private holdout evidence",
+    "preserve P0 actor contract and L2 as the finite-window baseline",
+    "do not train or promote checkpoint"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m551-route-health-screen-redesign.md",
+    "clearance_margin_mean": "",
+    "decision": "route_health_screen_redesign_admit_m552_retrospective",
+    "milestone": "m551-route-health-screen-redesign",
+    "reason": "M551 defines route-screen v2 with 64-plus episodes L0/L2 references and obstacle success collision margin gates before public eval",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "define a stronger route-screen v2 with more episodes or seed diversity",
+    "define how selected checkpoints compare against L0/L2 route baselines before public eval",
+    "define failure classifications for route pass but public regression",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

@@ -11080,3 +11080,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M550 evaluates the M549 selected L3 checkpoint on the same four public M543 frozen-source surfaces. It improves over original M542 L3 (`success +0.053922`, margin `+0.164015`) but remains below L0 (`success -0.076203`, margin `-0.235235`) and far below L2 (`success -0.141711`, margin `-0.629009`). The regression is broad across all surfaces, with `308` L2-completed to M549-collision rows.
 - decision: `public_surface_regression_reject_repair_admit_m551_route_health_redesign`
 - next: `m551-route-health-screen-redesign`
+## 20260524T090000Z - m551-route-health-screen-redesign
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m551-route-health-screen-redesign.md`
+- result: M551 redesigns the pre-public route-health screen after M550 showed the 5-episode route pass was too weak. The new route-screen v2 requires a public-neutral route distribution with at least `64` episodes, L0/L2/original-L3 references, obstacle success/collision/margin metrics from `autodrift.evaluate`, and a lexicographic rule that rejects candidates below L0 before public frozen-source eval.
+- decision: `route_health_screen_redesign_admit_m552_retrospective`
+- next: `m552-route-screen-v2-retrospective`

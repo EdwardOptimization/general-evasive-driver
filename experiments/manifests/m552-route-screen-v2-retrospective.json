@@ -1,0 +1,88 @@
+{
+  "id": "m552-route-screen-v2-retrospective",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m549_l3_repair_fast_select_ckpt256_seed3540/checkpoints/checkpoint_step_2816.pt",
+      "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+      "runs/m542_matched_l2_variance_seed3540/checkpoint.pt",
+      "runs/m542_matched_l3_variance_seed3540/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m551-route-health-screen-redesign.md",
+      "runs/m550_m549_public_surface_diagnostic_aggregate/summary.json"
+    ],
+    "parent_config": [
+      "configs/ppo_m548_l3_repair_fast_select_ckpt256_4096.json"
+    ],
+    "parent_objective": [
+      "retrospectively test whether route-screen v2 would reject M549 selected checkpoint before public eval"
+    ],
+    "derived_from": [
+      "m551-route-health-screen-redesign"
+    ],
+    "blocked_by": [
+      "m551-route-health-screen-redesign"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m552-route-screen-v2-retrospective.md",
+  "public_gates": [
+    "evaluate L0, L2, original L3, and M549 selected L3 on a public-neutral route distribution",
+    "use at least 64 episodes and obstacle/collision/margin metrics from autodrift.evaluate",
+    "apply M551 route-screen v2 rule without public frozen-source rows",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not use M550 public frozen-source rows as selection data",
+    "do not change route-screen v2 thresholds after seeing retrospective result",
+    "do not promote checkpoint from route-screen evidence"
+  ],
+  "hypothesis": "A stronger public-neutral route-screen v2 should reject the M549 selected checkpoint before public frozen-source diagnostics, preventing the M550 failure pattern.",
+  "success_criteria": [
+    "route-screen v2 artifacts compare all four checkpoints on the same route seeds",
+    "decision clearly states whether M549 selected checkpoint would have been rejected",
+    "failure is classified if route-screen v2 still admits the public-failing checkpoint",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "screen uses public frozen-source rows",
+    "screen uses fewer than 64 episodes",
+    "screen lacks L0 and L2 references"
+  ],
+  "commands": [
+    {
+      "name": "route_screen_v2_retrospective",
+      "command": "Evaluate L0/L2/original-L3/M549-selected-L3 on a 64-episode public-neutral route screen and apply M551 route-screen v2 rule."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m552_route_screen_v2_retrospective/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "docs/m552-route-screen-v2-retrospective.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+    "runs/m542_matched_l2_variance_seed3540/checkpoint.pt",
+    "runs/m542_matched_l3_variance_seed3540/checkpoint.pt",
+    "runs/m549_l3_repair_fast_select_ckpt256_seed3540/checkpoints/checkpoint_step_2816.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m551-route-health-screen-redesign.md",
+    "docs/m550-m549-public-surface-diagnostic.md"
+  ],
+  "decision_rule": "M552 is a process gate. It validates or rejects the route-screen v2 workflow before more L3 repair training.",
+  "next_blocker": "pending M552 route-screen v2 retrospective"
+}

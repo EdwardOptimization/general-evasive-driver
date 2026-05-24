@@ -61,11 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m551-route-health-screen-redesign
+m552-route-screen-v2-retrospective
 ```
 
-M551 should redesign the pre-public route-health screen after M550 showed that
-a 5-episode route pass can still fail broad public frozen-source diagnostics.
+M552 should retrospectively run route-screen v2 on L0, L2, original L3, and the
+M549 selected L3 checkpoint to test whether the new public-neutral screen would
+have rejected the public-failing checkpoint before M550.
 
 ## Recent Evidence Line
 
@@ -199,16 +200,20 @@ a 5-episode route pass can still fail broad public frozen-source diagnostics.
   -0.141711`, margin `-0.629009`) on the same public surfaces. The next step is
   to redesign route-health screening, not to promote or matched-repeat this
   checkpoint.
+- M551 redesigns the route-health screen. Route-screen v2 must use at least
+  `64` public-neutral route episodes, include L0/L2/original-L3 references, and
+  rank checkpoints by obstacle success, clearance margin, collision rate, then
+  return. A candidate below L0 on route-screen v2 is blocked from public
+  frozen-source eval.
 
 ## Near-Term Rule
 
 Do not treat reset-hidden diagnostics, M528 smoke return, route eval, or
 M537-M543 public diagnostics as private generalization evidence. The next branch
-should redesign public-neutral route screening before more L3 repair training.
-M550 remains public diagnostic evidence and cannot support a private
-generalization claim. Any later promotion requires proof retention,
-generalization retention, behavior retention, no contract violation, and clear
-lineage.
+should run route-screen v2 retrospectively before more L3 repair training. M550
+remains public diagnostic evidence and cannot support a private generalization
+claim. Any later promotion requires proof retention, generalization retention,
+behavior retention, no contract violation, and clear lineage.
 
 ## Sensor Profile Policy
 
