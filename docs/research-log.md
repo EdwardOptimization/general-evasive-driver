@@ -12575,3 +12575,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M726 audits M725 as `scenario_sampling_failure` plus `metric_artifact`. The proposal table is broad (`69591` proposals across `9` preferred families and `40` family pairs), so M725 did not fail from lack of proposals. The selected-pair gate failed because `per_step_bucket_cap=1024` and only two populated step buckets hard-limit selection to `2048` rows. The temporal action signal survives source balancing (`1392` action-critical rows across `186` seeds), but outcome evidence remains absent (`0` outcome-critical rows), so source export, actor update, PPO, and promotion remain blocked.
 - decision: `continue_quota_calibrated_wave`
 - next: `m727-quota-calibrated-source-balanced-temporal-wave-design`
+
+## 20260524T235000Z - m727-quota-calibrated-source-balanced-temporal-wave-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m727-quota-calibrated-source-balanced-temporal-wave-design.md`
+- result: M727 designs a no-training quota-calibrated M728 rerun. It preserves the `4096` selected-pair target, keeps `per_seed_pair_cap=8`, `per_fault_family_pair_cap=256`, and `per_preferred_family_cap=640`, and raises `per_step_bucket_cap` to `4096` to remove the M725 hard `2048` ceiling. The design keeps source-balance action evidence and outcome evidence separate, retains sentinel checks, and blocks source export, actor update, PPO, and promotion.
+- decision: `quota_calibrated_wave_design_admit_m728`
+- next: `m728-quota-calibrated-source-balanced-temporal-wave-implementation`

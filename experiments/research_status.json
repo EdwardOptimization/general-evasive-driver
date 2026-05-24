@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 735,
+        "completed": 736,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m726-source-balanced-temporal-wave-audit",
+        "task_id": "m727-quota-calibrated-source-balanced-temporal-wave-design",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m726-source-balanced-temporal-wave-audit.md"
+        "command_log": "docs/m727-quota-calibrated-source-balanced-temporal-wave-design.md"
     },
     "next_task": {
-        "id": "m727-quota-calibrated-source-balanced-temporal-wave-design",
+        "id": "m728-quota-calibrated-source-balanced-temporal-wave-implementation",
         "status": "pending",
-        "priority": 7220,
+        "priority": 7230,
         "kind": "infrastructure",
-        "hypothesis": "Design quota-calibrated source-balanced temporal wave",
-        "command": "see experiments/manifests/m727-quota-calibrated-source-balanced-temporal-wave-design.json",
-        "success_artifact": "docs/m727-quota-calibrated-source-balanced-temporal-wave-design.md",
-        "notes": "Pending: design calibrated selected-pair source-balance caps that can reach target without mixing action-only and outcome evidence"
+        "hypothesis": "Run quota-calibrated source-balanced temporal wave",
+        "command": "see experiments/manifests/m728-quota-calibrated-source-balanced-temporal-wave-implementation.json",
+        "success_artifact": "docs/m728-quota-calibrated-source-balanced-temporal-wave-implementation.md",
+        "notes": "Pending: run the registered no-training quota-calibrated source-balanced temporal wave and classify source balance action outcome evidence"
     },
-    "updated_at_utc": "20260524T234000Z"
+    "updated_at_utc": "20260524T235000Z"
 }
