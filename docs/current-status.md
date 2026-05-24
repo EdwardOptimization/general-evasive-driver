@@ -61,17 +61,23 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m596-bc-capability-corpus-export-smoke
+m597-bc-capability-repair-objective-smoke-design
 ```
 
-M596 should export separate train and validation BC capability corpora using
-the M595 runner before any repair optimizer smoke. The current evidence
-supports deployable current-response dependence and source-diverse pair
-availability, but M587-M595 do not support accumulated hidden-history
-causality. Promotion and PPO remain blocked.
+M597 should design the first capability repair objective smoke using the M596
+train/validation corpora. The current evidence supports deployable
+current-response dependence and source-diverse pair availability, but
+M587-M596 do not support accumulated hidden-history causality. Promotion and
+PPO remain blocked.
 
 ## Recent Evidence Line
 
+- M596 exports train and validation BC capability corpora. Train has `112`
+  rows and `240` pair rows; validation has `58` rows and `240` pair rows. Both
+  preserve `student_obs_dim = 72`, `target_dim = 3`,
+  `labels_enter_actor_input = false`, and
+  `contains_privileged_actor_inputs = false`. M597 should design the first
+  objective smoke before any training.
 - M595 implements `bc_capability_corpus`: closed-loop BC5660 corpus export with
   P0 observations, base action anchors, future-response target labels,
   recurrent hidden diagnostics, and same-corpus matched-current pair rows. A

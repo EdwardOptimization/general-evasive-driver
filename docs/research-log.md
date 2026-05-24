@@ -11485,3 +11485,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M595 implements the closed-loop BC capability corpus runner and same-corpus pair miner. Focused tests validate array schemas and pair row indices. A single-seed smoke writes `8` corpus rows and correctly has `0` cross-episode pairs; a three-seed smoke writes `24` corpus rows and `18` matched-current pair rows, with `6` pairs per target and target-z means `2.965795`, `4.125291`, and `3.586460`. The runner reports `student_obs_dim = 72`, `target_dim = 3`, `hidden_dim = 64`, `labels_enter_actor_input = false`, and `contains_privileged_actor_inputs = false`.
 - decision: `bc_capability_corpus_runner_implementation_admit_export_smoke`
 - next: `m596-bc-capability-corpus-export-smoke`
+## 20260524T112000Z - m596-bc-capability-corpus-export-smoke
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m596_bc_capability_corpus_train_smoke`; `runs/m596_bc_capability_corpus_validation_smoke`
+- artifact: `docs/m596-bc-capability-corpus-export-smoke.md`
+- result: M596 exports separate train and validation BC capability corpora. Train seeds `26000..26007` produce `112` rows and `240` same-corpus pair rows; validation seeds `26040..26043` produce `58` rows and `240` pair rows. Both corpora preserve `student_obs_dim = 72`, `action_dim = 3`, `target_dim = 3`, `hidden_dim = 64`, `labels_enter_actor_input = false`, and `contains_privileged_actor_inputs = false`. Pair rows are non-empty for all three targets in both splits.
+- decision: `bc_capability_corpus_export_smoke_admit_repair_smoke_design`
+- next: `m597-bc-capability-repair-objective-smoke-design`

@@ -2,7 +2,7 @@
   "id": "m596-bc-capability-corpus-export-smoke",
   "type": "gate",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -89,6 +89,6 @@
     "docs/m595-bc-capability-corpus-runner-implementation.md",
     "src/autodrift/bc_capability_corpus.py"
   ],
-  "decision_rule": "M596 passes if train and validation capability corpora export successfully with non-empty target and pair artifacts while preserving P0 actor inputs and without training or promotion.",
+  "decision_rule": "M596 passes because train and validation capability corpora export successfully with non-empty target and pair artifacts while preserving P0 actor inputs and without training or promotion.",
   "next_blocker": "m597-bc-capability-repair-objective-smoke-design"
 }

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 604,
+        "completed": 605,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m595-bc-capability-corpus-runner-implementation",
+        "task_id": "m596-bc-capability-corpus-export-smoke",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m595_bc_capability_corpus_pair_smoke",
-        "command_log": "docs/m595-bc-capability-corpus-runner-implementation.md"
+        "run_dir": "runs/m596_bc_capability_corpus_train_smoke",
+        "command_log": "docs/m596-bc-capability-corpus-export-smoke.md"
     },
     "next_task": {
-        "id": "m596-bc-capability-corpus-export-smoke",
+        "id": "m597-bc-capability-repair-objective-smoke-design",
         "status": "pending",
-        "priority": 5910,
-        "kind": "gate",
-        "hypothesis": "The M595 corpus runner can export separate train and validation capability corpora with non-empty same-corpus pair rows, preserving P0 actor inputs and producing enough data for a later objective smoke.",
-        "command": "see experiments/manifests/m596-bc-capability-corpus-export-smoke.json",
+        "priority": 5920,
+        "kind": "infrastructure",
+        "hypothesis": "The first repair smoke should optimize capability regression and pair ranking with a strong action anchor on the M596 train/validation corpora, then judge only objective wiring and metadata preservation.",
+        "command": "see experiments/manifests/m597-bc-capability-repair-objective-smoke-design.json",
         "success_artifact": "",
-        "notes": "Pending: export train/validation capability corpora; no repair training, PPO, promotion, or actor-input leakage"
+        "notes": "Pending: design first repair objective smoke; no training, PPO, promotion, or actor-input change"
     },
-    "updated_at_utc": "20260524T111000Z"
+    "updated_at_utc": "20260524T112000Z"
 }

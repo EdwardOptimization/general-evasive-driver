@@ -1,0 +1,77 @@
+{
+  "decision_reason": "M596 exports train and validation capability corpora with 112/58 rows and 240/240 pair rows while preserving P0 actor inputs and keeping labels as targets only",
+  "failure_criteria": [
+    "any corpus has zero rows",
+    "any corpus has zero pair rows",
+    "actor observation dim differs from 72",
+    "capability labels enter actor inputs",
+    "a checkpoint is trained or promoted"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train repair model",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not add capability labels or hidden physical parameters to actor observations",
+    "do not claim driver performance from corpus export"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T074156Z",
+  "hypothesis": "The M595 corpus runner can export separate train and validation capability corpora with non-empty same-corpus pair rows, preserving P0 actor inputs and producing enough data for a later objective smoke.",
+  "lineage": {
+    "blocked_by": [
+      "m595-bc-capability-corpus-runner-implementation"
+    ],
+    "derived_from": [
+      "m595-bc-capability-corpus-runner-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l3_variance_4096.json"
+    ],
+    "parent_dataset": [
+      "runs/m595_bc_capability_corpus_pair_smoke/summary.json"
+    ],
+    "parent_objective": [
+      "export train and validation capability corpora before repair optimizer smoke"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m596-bc-capability-corpus-export-smoke",
+  "next_blocker": "m597-bc-capability-repair-objective-smoke-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "bc_capability_corpus_export_smoke_admit_repair_smoke_design",
+  "public_gates": [
+    "export train capability corpus",
+    "export validation capability corpus",
+    "verify pair rows and target summaries are non-empty",
+    "verify labels remain targets only and actor observation dim is 72"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m596_bc_capability_corpus_train_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "bc_capability_corpus_export_smoke_admit_repair_smoke_design",
+    "milestone": "m596-bc-capability-corpus-export-smoke",
+    "reason": "M596 exports train and validation capability corpora with 112/58 rows and 240/240 pair rows while preserving P0 actor inputs and keeping labels as targets only",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "train and validation summary.json files exist",
+    "both corpora have student_obs_dim 72 action_dim 3 target_dim 3",
+    "both corpora report labels_enter_actor_input false",
+    "both pair counts are non-zero",
+    "research validation and focused tests pass"
+  ],
+  "type": "gate"
+}

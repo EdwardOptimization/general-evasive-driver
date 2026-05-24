@@ -1,0 +1,85 @@
+{
+  "id": "m597-bc-capability-repair-objective-smoke-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m596_bc_capability_corpus_train_smoke/capability_corpus.npz",
+      "runs/m596_bc_capability_corpus_validation_smoke/capability_corpus.npz",
+      "runs/m596_bc_capability_corpus_train_smoke/pairs.csv",
+      "runs/m596_bc_capability_corpus_validation_smoke/pairs.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l3_variance_4096.json"
+    ],
+    "parent_objective": [
+      "design first capability repair objective smoke after corpus export"
+    ],
+    "derived_from": [
+      "m596-bc-capability-corpus-export-smoke"
+    ],
+    "blocked_by": [
+      "m596-bc-capability-corpus-export-smoke"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m597-bc-capability-repair-objective-smoke-design.md",
+  "public_gates": [
+    "design objective smoke before training",
+    "define optimizer scope and freeze policy",
+    "define loss weights and action-anchor tolerance",
+    "define validation metrics and failure taxonomy"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run smoke training in design milestone",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not feed capability labels to actor inputs",
+    "do not claim driver performance from objective loss"
+  ],
+  "hypothesis": "The first repair smoke should optimize capability regression and pair ranking with a strong action anchor on the M596 train/validation corpora, then judge only objective wiring and metadata preservation.",
+  "success_criteria": [
+    "design specifies trainable modules and frozen modules",
+    "design specifies loss weights and action-anchor tolerance",
+    "design specifies metrics for train and validation regression ranking and action anchor losses",
+    "design blocks route evaluation PPO and promotion",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design starts training before smoke protocol is registered",
+    "design changes actor input contract",
+    "design omits validation objective checks",
+    "design promotes a checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "Write first capability repair objective smoke design; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m597-bc-capability-repair-objective-smoke-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m596-bc-capability-corpus-export-smoke.md",
+    "src/autodrift/bc_capability_repair.py",
+    "src/autodrift/bc_capability_corpus.py"
+  ],
+  "decision_rule": "M597 passes if it pre-registers a narrow objective smoke protocol with loss weights, module scope, action-anchor tolerance, validation metrics, and no driver-performance claims.",
+  "next_blocker": "m598-bc-capability-repair-objective-smoke-implementation"
+}
