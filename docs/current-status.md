@@ -55,22 +55,28 @@ Latest active diagnostic BC checkpoint:
 runs/m568_scaled_l3_bc_seed5660/checkpoint.pt
 ```
 
-Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M621
+Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M622
 diagnostics. It is not the public-gate base and is not promoted as the current
 driver checkpoint.
 
 ## Current Blocker
 
 ```text
-m622-tier-aware-sequence-candidate-audit
+m623-longer-low-amplitude-sequence-design
 ```
 
-M622 should audit the tier-aware accepted candidate-set evidence from M621. It
-must separate candidate-level family diversity from source-level diversity and
-keep optimizer admission blocked unless source-level thresholds are justified.
+M623 should design a K=7 low-amplitude diagnostic sequence run. The design must
+keep action trust regions and margin/risk acceptance thresholds unchanged, and
+it must not admit optimizer training or PPO.
 
 ## Recent Evidence Line
 
+- M622 audits M621's `189` accepted candidate rows. They show useful
+  candidate-family diversity but not enough source diversity: accepted
+  candidates still cover only `5` physical pairs and `4` left seeds, and
+  core-boundary evidence is only `2` accepted candidates. Optimizer admission
+  remains blocked. M623 should design a longer K=7 low-amplitude diagnostic
+  rather than widening trust regions or lowering thresholds.
 - M621 formally reruns the tier-aware sequence target miner. It reproduces M617
   selected metrics exactly and writes `accepted_candidate_sequences.csv` with
   `189` accepted candidate rows. Candidate-level family diversity exists

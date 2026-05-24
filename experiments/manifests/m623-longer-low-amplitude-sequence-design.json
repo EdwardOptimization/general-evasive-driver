@@ -1,0 +1,87 @@
+{
+  "id": "m623-longer-low-amplitude-sequence-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m621_tier_aware_sequence_target_miner/summary.json",
+      "runs/m621_tier_aware_sequence_target_miner/accepted_candidate_sequences.csv",
+      "docs/m622-tier-aware-sequence-candidate-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m622-tier-aware-sequence-candidate-audit.json",
+      "docs/m621-tier-aware-sequence-target-miner-rerun.md"
+    ],
+    "parent_objective": [
+      "design longer low-amplitude sequence diagnostic after candidate-level diversity remains source-narrow"
+    ],
+    "derived_from": [
+      "m622-tier-aware-sequence-candidate-audit"
+    ],
+    "blocked_by": [
+      "m622-tier-aware-sequence-candidate-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m623-longer-low-amplitude-sequence-design.md",
+  "public_gates": [
+    "define K=7 low-amplitude sequence candidate policy",
+    "keep action trust regions unchanged",
+    "keep target acceptance thresholds unchanged",
+    "define comparison against M621 K=3/5 baseline",
+    "keep actor training and PPO blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not widen action trust regions",
+    "do not lower target thresholds",
+    "do not treat candidate rows as independent source diversity"
+  ],
+  "hypothesis": "A longer K=7 low-amplitude sequence diagnostic may recover additional source-diverse accepted sequences without widening action trust regions or lowering target thresholds.",
+  "success_criteria": [
+    "design specifies K=7 candidate families and deltas",
+    "design preserves all M621 trust-region and target thresholds",
+    "design defines source-level success criteria and candidate-level diagnostics separately",
+    "design keeps optimizer admission training PPO and promotion blocked",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design starts training",
+    "design widens trust regions",
+    "design lowers target thresholds",
+    "design claims optimizer admission from M621 candidate rows",
+    "design omits comparison to M621"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "Write longer low-amplitude sequence diagnostic design; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m623-longer-low-amplitude-sequence-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m622-tier-aware-sequence-candidate-audit.md",
+    "runs/m621_tier_aware_sequence_target_miner/summary.json"
+  ],
+  "decision_rule": "M623 passes if it designs a no-training K=7 diagnostic without changing thresholds or trust regions.",
+  "next_blocker": "m624-longer-low-amplitude-sequence-miner"
+}

@@ -11719,3 +11719,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M621 formally reruns the tier-aware sequence target miner on the M616 expanded source table. It reproduces M617 selected-sequence metrics exactly: `30` source rows, `10440` candidates, `6` selected accepted sequences, `24` unaccepted rows, accepted mean/min/max margin improvement `0.056784` / `0.020817` / `0.093048`, and best unaccepted improvement `0.025914`. New artifact `accepted_candidate_sequences.csv` contains `189` accepted candidates with source-tier metadata. Accepted candidate family counts are decay_pulse `86`, constant_delta `64`, steer_then_brake `22`, brake_release_then_steer `17`; candidate tiers are support `98`, near `89`, core `2`. Source-level diversity remains `5` physical pairs and `4` left seeds, so optimizer admission remains blocked.
 - decision: `tier_aware_sequence_rerun_pass_admit_candidate_audit`
 - next: `m622-tier-aware-sequence-candidate-audit`
+## 20260524T154000Z - m622-tier-aware-sequence-candidate-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m622-tier-aware-sequence-candidate-audit.md`
+- result: M622 audits the M621 accepted candidate-set evidence. The `189` accepted candidate rows expose useful candidate-family diversity: decay_pulse `86`, constant_delta `64`, steer_then_brake `22`, and brake_release_then_steer `17`, with K=5 `108` and K=3 `81`. But candidate-level diversity does not solve source-level diversity: accepted candidates still cover only `5` physical pairs and `4` left seeds, with max physical-pair dominance `0.349206`, and core-boundary evidence is only `2` accepted candidates. Optimizer admission remains blocked. The next branch should design a K=7 low-amplitude diagnostic while keeping trust regions and target thresholds unchanged.
+- decision: `tier_aware_candidate_audit_admit_longer_sequence_design`
+- next: `m623-longer-low-amplitude-sequence-design`
