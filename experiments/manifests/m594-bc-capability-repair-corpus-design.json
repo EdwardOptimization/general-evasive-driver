@@ -2,7 +2,7 @@
   "id": "m594-bc-capability-repair-corpus-design",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -80,6 +80,6 @@
     "docs/m593-bc-capability-repair-objective-implementation.md",
     "docs/m592-bc-hidden-use-repair-objective-design.md"
   ],
-  "decision_rule": "M594 passes if it pre-registers the real capability corpus and smoke runner design without actor-input leakage, training, PPO, or promotion.",
-  "next_blocker": "m595-bc-capability-repair-corpus-runner-implementation"
+  "decision_rule": "M594 passes because it pre-registers the real capability corpus and smoke runner design without actor-input leakage, training, PPO, or promotion.",
+  "next_blocker": "m595-bc-capability-corpus-runner-implementation"
 }

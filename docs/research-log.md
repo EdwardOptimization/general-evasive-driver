@@ -11467,3 +11467,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M593 implements the training-only capability objective utilities. The new module provides a hidden-state capability head, z-score SmoothL1 regression, matched-current ranking loss, action BC/anchor losses, weighted total loss, and metadata helper preserving P0 actor inputs while marking outputs unpromoted and non-PPO. Focused synthetic tests confirm regression loss decreases, ranking rewards correct order, total loss is differentiable, and metadata keeps `P0_human_view_no_wheel_no_oracle`. No real checkpoint training or driver-performance claim was made.
 - decision: `bc_capability_repair_objective_implementation_admit_corpus_design`
 - next: `m594-bc-capability-repair-corpus-design`
+## 20260524T110000Z - m594-bc-capability-repair-corpus-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m594-bc-capability-repair-corpus-design.md`
+- result: M594 designs the real capability repair corpus before smoke training. The corpus should be collected from closed-loop BC5660 rollouts rather than retrofitting labels onto the old L2 teacher corpus, so P0 observations, recurrent hidden diagnostics, base action anchors, and future-response labels all correspond to the same state. Matched-current ranking pairs should be mined from the new corpus row indices, not blindly imported from M586. The design registers corpus arrays, pair fields, train/validation split rules, smoke metrics, and actor-input leakage constraints.
+- decision: `bc_capability_repair_corpus_design_admit_runner_implementation`
+- next: `m595-bc-capability-corpus-runner-implementation`

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 602,
+        "completed": 603,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m593-bc-capability-repair-objective-implementation",
+        "task_id": "m594-bc-capability-repair-corpus-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m593-bc-capability-repair-objective-implementation.md"
+        "command_log": "docs/m594-bc-capability-repair-corpus-design.md"
     },
     "next_task": {
-        "id": "m594-bc-capability-repair-corpus-design",
+        "id": "m595-bc-capability-corpus-runner-implementation",
         "status": "pending",
-        "priority": 5890,
+        "priority": 5900,
         "kind": "infrastructure",
-        "hypothesis": "A real capability repair smoke needs a rollout corpus that stores P0 observations, recurrent hidden states, action anchors, teacher or base actions, and future-response capability labels without leaking those labels into actor inputs.",
-        "command": "see experiments/manifests/m594-bc-capability-repair-corpus-design.json",
+        "hypothesis": "A closed-loop BC5660 capability corpus runner can align P0 observations, base action anchors, recurrent state diagnostics, future-response labels, and matched-current pair-ranking rows without actor-input leakage.",
+        "command": "see experiments/manifests/m595-bc-capability-corpus-runner-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design real capability corpus/runner before smoke training; no PPO, promotion, or actor-input leakage"
+        "notes": "Pending: implement corpus/pair runner and tests; no repair training, PPO, promotion, or actor-input leakage"
     },
-    "updated_at_utc": "20260524T105000Z"
+    "updated_at_utc": "20260524T110000Z"
 }

@@ -1,0 +1,89 @@
+{
+  "id": "m595-bc-capability-corpus-runner-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m594-bc-capability-repair-corpus-design.md"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l3_variance_4096.json"
+    ],
+    "parent_objective": [
+      "implement closed-loop capability corpus and matched-current pair runner after M594 design"
+    ],
+    "derived_from": [
+      "m594-bc-capability-repair-corpus-design"
+    ],
+    "blocked_by": [
+      "m594-bc-capability-repair-corpus-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m595-bc-capability-corpus-runner-implementation.md",
+  "public_gates": [
+    "implement corpus exporter and focused tests only",
+    "store P0 observations anchors and training-only capability labels",
+    "mine or export matched-current pair rows from the same corpus",
+    "preserve no-oracle actor input contract"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train repair model",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not add capability labels or hidden physical parameters to actor observations",
+    "do not claim driver performance from corpus export"
+  ],
+  "hypothesis": "A closed-loop BC5660 capability corpus runner can align P0 observations, base action anchors, recurrent state diagnostics, future-response labels, and matched-current pair-ranking rows without actor-input leakage.",
+  "success_criteria": [
+    "implementation writes capability_corpus.npz pairs.csv summaries and metadata",
+    "tests verify corpus arrays have expected shapes and exclude privileged actor inputs",
+    "tests verify pair rows reference valid corpus row indices and target deltas",
+    "tests verify future-response labels are stored as targets only",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "implementation feeds capability labels into actor observations",
+    "implementation writes invalid pair row indices",
+    "implementation trains or promotes a checkpoint",
+    "implementation lacks focused tests"
+  ],
+  "commands": [
+    {
+      "name": "tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_bc_capability_corpus.py tests/test_bc_capability_repair.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/bc_capability_corpus.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_bc_capability_corpus.py",
+      "type": "test"
+    },
+    {
+      "path": "docs/m595-bc-capability-corpus-runner-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m594-bc-capability-repair-corpus-design.md",
+    "src/autodrift/bc_capability_repair.py"
+  ],
+  "decision_rule": "M595 passes if it implements tested corpus and pair-runner infrastructure without training, PPO, promotion, or actor-input leakage.",
+  "next_blocker": "m596-bc-capability-corpus-export-smoke"
+}

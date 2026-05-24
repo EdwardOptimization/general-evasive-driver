@@ -61,17 +61,22 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m594-bc-capability-repair-corpus-design
+m595-bc-capability-corpus-runner-implementation
 ```
 
-M594 should design the real capability repair corpus and smoke runner after the
-M593 objective utilities. The current evidence supports deployable
-current-response dependence and source-diverse pair availability, but
-M587-M593 do not support accumulated hidden-history causality. Promotion and
-PPO remain blocked.
+M595 should implement the closed-loop BC5660 capability corpus and
+matched-current pair runner designed by M594. The current evidence supports
+deployable current-response dependence and source-diverse pair availability,
+but M587-M594 do not support accumulated hidden-history causality. Promotion
+and PPO remain blocked.
 
 ## Recent Evidence Line
 
+- M594 designs the real capability corpus/runner. It chooses closed-loop
+  BC5660 rollout collection so P0 observation, recurrent hidden diagnostics,
+  base action anchor, and future-response label correspond to the same state.
+  Matched-current ranking rows should be mined from the new corpus rather than
+  blindly reusing M586 indices. M595 should implement exporter and tests only.
 - M593 implements the capability-repair objective utilities:
   training-only capability head, z-score regression, matched-current ranking,
   action BC/anchor losses, and metadata preservation. Synthetic tests pass, but
