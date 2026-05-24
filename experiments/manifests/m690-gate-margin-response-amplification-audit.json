@@ -1,0 +1,86 @@
+{
+  "id": "m690-gate-margin-response-amplification-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m689_gate_margin_response_amplification/summary.json",
+      "runs/m689_gate_margin_response_amplification/alpha_summary.csv",
+      "runs/m689_gate_margin_response_amplification/seed_view_summary.csv",
+      "docs/m689-gate-margin-response-amplification-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m689-gate-margin-response-amplification-implementation.json"
+    ],
+    "parent_objective": [
+      "audit gate-margin response-amplification exact gate pass"
+    ],
+    "derived_from": [
+      "m689-gate-margin-response-amplification-implementation"
+    ],
+    "blocked_by": [
+      "m689-gate-margin-response-amplification-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m690-gate-margin-response-amplification-audit.md",
+  "public_gates": [
+    "M689 implementation cleanliness is checked",
+    "exact gate pass is quantified",
+    "normal retention and wrong gap are quantified",
+    "gate diagnostic caveat is recorded",
+    "PPO and promotion remain blocked",
+    "next step is selected without overclaiming deployment"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun training",
+    "do not promote residual head as a driver checkpoint",
+    "do not admit PPO without a design milestone",
+    "do not hide gate diagnostic caveat",
+    "do not change actor input contract"
+  ],
+  "hypothesis": "M689 is a valid exact-gated positive diagnostic result, but gate diagnostics show it should be audited before any closed-loop or actor-update branch.",
+  "success_criteria": [
+    "M689 exact pass is documented",
+    "gate diagnostic caveat is documented",
+    "audit distinguishes diagnostic residual-head pass from driver promotion",
+    "next design target is specified",
+    "PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "audit overclaims M689 as a deployable driver result",
+    "audit ignores normal gate not closing",
+    "audit promotes a checkpoint",
+    "audit admits PPO without a design milestone"
+  ],
+  "commands": [
+    {
+      "name": "write_audit",
+      "command": "write docs/m690-gate-margin-response-amplification-audit.md from M689 artifacts; no training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m690-gate-margin-response-amplification-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m689_gate_margin_response_amplification/summary.json",
+    "runs/m689_gate_margin_response_amplification/alpha_summary.csv"
+  ],
+  "decision_rule": "M690 passes if it admits the M689 exact diagnostic result with caveats and selects a next design without promotion, PPO, or actor-input changes.",
+  "next_blocker": "m691-gate-margin-response-amplification-next-step-design"
+}

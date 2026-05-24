@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M689 passes exact actor-coupling gates for 3 of 3 seeds with unchanged actor checksum no PPO no promotion and a gate diagnostic caveat",
+  "failure_criteria": [
+    "wrong gate remains collapsed",
+    "wrong gate opens but normal retention fails",
+    "source-heldout gate margin overfits",
+    "actor checksum changes",
+    "base actor checkpoint is written"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not mutate base actor parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor observation inputs",
+    "do not weaken normal sequence retention gates",
+    "do not skip exact source-heldout metrics"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T155320Z",
+  "hypothesis": "Detached-normal gate-margin and hard low-gate wrong-row pressure can open wrong-history gates enough to restore wrong-history gap while preserving normal retention.",
+  "lineage": {
+    "blocked_by": [
+      "m688-gate-margin-response-amplification-design"
+    ],
+    "derived_from": [
+      "m688-gate-margin-response-amplification-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m688-gate-margin-response-amplification-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m671_response_amplification_shadow/shadow_corpus.npz",
+      "runs/m671_response_amplification_shadow/shadow_metadata.csv",
+      "docs/m688-gate-margin-response-amplification-design.md"
+    ],
+    "parent_objective": [
+      "implement gate-margin response-amplification objective"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m689-gate-margin-response-amplification-implementation",
+  "next_blocker": "m690-gate-margin-response-amplification-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "gate_margin_response_amplification_exact_gate_passed_admit_audit",
+  "public_gates": [
+    "gated residual head remains active",
+    "wrong gate margin and hard low-gate losses are active",
+    "normal gate and residual safety losses remain active",
+    "alpha ladder exact metrics are reported",
+    "gate margin diagnostics are reported",
+    "base actor checksum is unchanged",
+    "no base actor checkpoint is written",
+    "no PPO is used",
+    "no checkpoint is promoted"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m689_gate_margin_response_amplification/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "gate_margin_response_amplification_exact_gate_passed_admit_audit",
+    "milestone": "m689-gate-margin-response-amplification-implementation",
+    "reason": "M689 passes exact actor-coupling gates for 3 of 3 seeds with unchanged actor checksum no PPO no promotion and a gate diagnostic caveat",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "gate-margin residual-head artifacts are written",
+    "at least one seed passes exact metrics at alpha > 0",
+    "normal_delta_l2_mean <= 0.0025 at selected alpha",
+    "normal_action_drift_first_l2_p95 <= 0.006 at selected alpha",
+    "source-heldout sequence gap mean >= 0.010 at selected alpha",
+    "gate margin diagnostics are reported",
+    "actor checksum unchanged",
+    "no base actor checkpoint written",
+    "no PPO used",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

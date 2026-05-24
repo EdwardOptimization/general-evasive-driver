@@ -62,17 +62,24 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m689-gate-margin-response-amplification-implementation
+m690-gate-margin-response-amplification-audit
 ```
 
-M689 should implement the gate-margin response-amplification exact probe
-designed in M688. It should add detached-normal wrong-vs-normal gate margin,
-hard low-gate wrong-row pressure, stronger wrong gate-open pressure, and
-gate-margin diagnostics while preserving normal retention gates, P0 inputs, no
-PPO, and no promotion.
+M690 should audit M689's positive exact diagnostic result before any closed-loop
+or actor-update branch. M689 passed exact response-amplification gates for
+`3/3` seeds with unchanged actor checksum, no PPO, and no promotion, but gate
+diagnostics show the normal gate is not actually closed. PPO, promotion, and
+actor-input changes remain blocked.
 
 ## Recent Evidence Line
 
+- M689 implements gate-margin response amplification and passes exact
+  actor-coupling gates for `3/3` seeds at `alpha=1.0`. Source-holdout selected
+  metrics: normal mean `0.001380-0.001461`, gap mean `0.010731-0.011165`, gap
+  ratio `3.734864-3.885905`, wrong-target improvement `0.782311-0.795998`,
+  first drift p95 `0.003748-0.004017`; actor checksum unchanged, no base actor
+  checkpoint, no PPO, no promotion. Caveat: normal gate remains moderately open,
+  so this is an exact diagnostic pass, not a clean gate-factorization claim.
 - M688 designs gate-margin response amplification after M686 gate collapse. It
   keeps the split/gated head and exact gates, but adds detached-normal
   wrong-vs-normal gate margin, hard low-gate wrong rows, stronger wrong

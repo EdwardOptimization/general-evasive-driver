@@ -276,6 +276,10 @@ def test_gated_head_training_reports_gate_terms_and_alpha_diagnostics():
         wrong_hard_fraction=0.25,
         wrong_gate_open_coef=0.25,
         wrong_gate_target=0.50,
+        wrong_gate_margin_coef=2.0,
+        wrong_gate_margin=0.30,
+        wrong_gate_hard_coef=1.0,
+        wrong_gate_hard_fraction=0.25,
         raw_amplifier_l2_coef=0.01,
         target_gap=0.004,
         device=torch.device("cpu"),
@@ -285,10 +289,17 @@ def test_gated_head_training_reports_gate_terms_and_alpha_diagnostics():
     assert summary["max_residual"] == 0.04
     assert summary["normal_gate_coef"] == 1.0
     assert summary["wrong_gate_open_coef"] == 0.25
+    assert summary["wrong_gate_margin_coef"] == 2.0
+    assert summary["wrong_gate_hard_coef"] == 1.0
+    assert summary["wrong_gate_margin_mean"] is not None
     assert summary["normal_gate_mean"] is not None
     assert summary["wrong_gate_mean"] is not None
     assert any("normal_gate_mean_loss" in row for row in metrics)
     assert any("wrong_gate_open_hinge" in row for row in metrics)
+    assert any("wrong_gate_margin_hinge" in row for row in metrics)
+    assert any("wrong_gate_hard_loss" in row for row in metrics)
+    assert any(row["hard_gate_row_count"] > 0 for row in metrics)
     assert any("raw_amplifier_l2" in row for row in metrics)
     assert any("normal_gate_mean" in row for row in alpha_rows)
     assert any("wrong_gate_mean" in row for row in alpha_rows)
+    assert any("wrong_gate_margin_mean" in row for row in alpha_rows)

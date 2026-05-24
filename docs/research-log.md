@@ -12322,3 +12322,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M688 designs a gate-margin response-amplification objective after M686 gate collapse. The design preserves the split/gated head and exact pass gates, but adds detached-normal wrong-vs-normal gate margin, hard low-gate wrong-row pressure, stronger wrong gate-open coefficient, and gate-margin diagnostics. PPO, promotion, actor-input changes, and normal gate weakening remain blocked.
 - decision: `gate_margin_response_amplification_design_admit_m689`
 - next: `m689-gate-margin-response-amplification-implementation`
+## 20260525T060000Z - m689-gate-margin-response-amplification-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m689_gate_margin_response_amplification`
+- artifact: `docs/m689-gate-margin-response-amplification-implementation.md`
+- result: M689 implements and runs the gate-margin response-amplification exact probe. This is the first positive exact result in the current response-amplification actor-coupling branch: `3/3` seeds pass at `alpha=1.0`, actor checksum unchanged, no base actor checkpoint, no PPO, no promotion. Source-holdout selected metrics: normal mean `0.001380-0.001461`, gap mean `0.010731-0.011165`, gap ratio `3.734864-3.885905`, wrong-target improvement `0.782311-0.795998`, first drift p95 `0.003748-0.004017`. Caveat: gate diagnostics are not clean; normal gate remains moderately open and pass comes from output-level separation through both gate and raw amplifier.
+- decision: `gate_margin_response_amplification_exact_gate_passed_admit_audit`
+- next: `m690-gate-margin-response-amplification-audit`

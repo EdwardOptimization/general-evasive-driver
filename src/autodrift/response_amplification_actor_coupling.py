@@ -249,6 +249,49 @@ def _wrong_gate_open_hinge(
     return _weighted_mean(per_row, weight)
 
 
+def _gate_margin_values(gate_normal: torch.Tensor, gate_wrong: torch.Tensor) -> torch.Tensor:
+    return _gate_row_values(gate_wrong) - _gate_row_values(gate_normal).detach()
+
+
+def _wrong_gate_margin_hinge(
+    gate_normal: torch.Tensor | None,
+    gate_wrong: torch.Tensor | None,
+    weight: torch.Tensor,
+    *,
+    margin: float,
+) -> torch.Tensor:
+    if gate_normal is None or gate_wrong is None:
+        return torch.zeros((), dtype=weight.dtype, device=weight.device)
+    per_row = torch.square(torch.relu(float(margin) - _gate_margin_values(gate_normal, gate_wrong)))
+    return _weighted_mean(per_row, weight)
+
+
+def _hard_wrong_gate_loss(
+    gate_normal: torch.Tensor | None,
+    gate_wrong: torch.Tensor | None,
+    weight: torch.Tensor,
+    *,
+    target: float,
+    margin: float,
+    fraction: float,
+) -> tuple[torch.Tensor, int]:
+    if gate_normal is None or gate_wrong is None:
+        return torch.zeros((), dtype=weight.dtype, device=weight.device), 0
+    gate_wrong_values = _gate_row_values(gate_wrong)
+    gate_margin = gate_wrong_values - _gate_row_values(gate_normal).detach()
+    if gate_margin.numel() == 0:
+        return torch.zeros((), dtype=weight.dtype, device=weight.device), 0
+    k = max(1, int(np.ceil(float(fraction) * int(gate_margin.numel()))))
+    k = min(k, int(gate_margin.numel()))
+    hard_indices = torch.topk(gate_margin, k=k, largest=False).indices
+    hard_weight = weight.index_select(0, hard_indices)
+    hard_wrong = gate_wrong_values.index_select(0, hard_indices)
+    hard_margin = gate_margin.index_select(0, hard_indices)
+    open_loss = _weighted_mean(torch.square(torch.relu(float(target) - hard_wrong)), hard_weight)
+    margin_loss = _weighted_mean(torch.square(torch.relu(float(margin) - hard_margin)), hard_weight)
+    return open_loss + margin_loss, k
+
+
 def _raw_amplifier_l2(
     raw_normal: torch.Tensor,
     raw_wrong: torch.Tensor,
@@ -356,6 +399,10 @@ def _coupling_loss_components(
     wrong_hard_fraction: float,
     wrong_gate_open_coef: float,
     wrong_gate_target: float,
+    wrong_gate_margin_coef: float,
+    wrong_gate_margin: float,
+    wrong_gate_hard_coef: float,
+    wrong_gate_hard_fraction: float,
     raw_amplifier_l2_coef: float,
     target_gap: float,
 ) -> dict[str, torch.Tensor]:
@@ -407,6 +454,20 @@ def _coupling_loss_components(
         weight,
         target=wrong_gate_target,
     )
+    wrong_gate_margin_loss = _wrong_gate_margin_hinge(
+        gate_normal,
+        gate_wrong,
+        weight,
+        margin=wrong_gate_margin,
+    )
+    hard_gate_loss, hard_gate_row_count = _hard_wrong_gate_loss(
+        gate_normal,
+        gate_wrong,
+        weight,
+        target=wrong_gate_target,
+        margin=wrong_gate_margin,
+        fraction=wrong_gate_hard_fraction,
+    )
     raw_l2 = _raw_amplifier_l2(raw_normal, raw_wrong, mask, weight)
     normal_first = _normal_first_mse(pred_normal, weight)
     normal_topk = _normal_first_topk_hinge(
@@ -446,6 +507,13 @@ def _coupling_loss_components(
     losses["normal_gate_mean_loss"] = normal_gate
     losses["normal_gate_topk_hinge"] = normal_gate_topk
     losses["wrong_gate_open_hinge"] = wrong_gate_open
+    losses["wrong_gate_margin_hinge"] = wrong_gate_margin_loss
+    losses["wrong_gate_hard_loss"] = hard_gate_loss
+    losses["hard_gate_row_count"] = torch.as_tensor(
+        float(hard_gate_row_count),
+        dtype=pred_wrong.dtype,
+        device=pred_wrong.device,
+    )
     losses["raw_amplifier_l2"] = raw_l2
     losses["gated_head_active"] = torch.as_tensor(
         float(gate_normal is not None and gate_wrong is not None),
@@ -471,6 +539,8 @@ def _coupling_loss_components(
         + float(wrong_sequence_gap_coef) * wrong_sequence_gap
         + float(wrong_hard_coef) * hard_wrong_loss
         + float(wrong_gate_open_coef) * wrong_gate_open
+        + float(wrong_gate_margin_coef) * wrong_gate_margin_loss
+        + float(wrong_gate_hard_coef) * hard_gate_loss
         + float(raw_amplifier_l2_coef) * raw_l2
     )
     return losses
@@ -482,6 +552,10 @@ def _first_l2(prediction: np.ndarray) -> np.ndarray:
 
 def _gate_values_np(gate: np.ndarray) -> np.ndarray:
     return np.asarray(gate, dtype=np.float64).reshape(gate.shape[0], -1).mean(axis=1)
+
+
+def _gate_margin_values_np(gate_normal: np.ndarray, gate_wrong: np.ndarray) -> np.ndarray:
+    return _gate_values_np(gate_wrong) - _gate_values_np(gate_normal)
 
 
 def _row_sequence_l2_np(prediction: np.ndarray, mask: np.ndarray) -> np.ndarray:
@@ -517,6 +591,11 @@ def evaluate_alpha_ladder(
     alpha_rows: list[dict[str, Any]] = []
     gate_normal_values = _gate_values_np(gate_normal) if gate_normal is not None else None
     gate_wrong_values = _gate_values_np(gate_wrong) if gate_wrong is not None else None
+    gate_margin_values = (
+        _gate_margin_values_np(gate_normal, gate_wrong)
+        if gate_normal is not None and gate_wrong is not None
+        else None
+    )
     for alpha in alphas:
         scaled_normal = prediction_normal * float(alpha)
         scaled_wrong = prediction_wrong * float(alpha)
@@ -535,6 +614,8 @@ def evaluate_alpha_ladder(
             row_metrics["normal_gate"] = gate_normal_values
         if gate_wrong_values is not None:
             row_metrics["wrong_gate"] = gate_wrong_values
+        if gate_margin_values is not None:
+            row_metrics["wrong_gate_margin"] = gate_margin_values
         for split_row in split_summary:
             split = str(split_row["split"])
             split_metrics = row_metrics[row_metrics["split"].astype(str) == split]
@@ -559,6 +640,11 @@ def evaluate_alpha_ladder(
                 output["wrong_gate_mean"] = float(split_metrics["wrong_gate"].mean())
                 output["wrong_gate_p10"] = float(
                     np.percentile(split_metrics["wrong_gate"].to_numpy(dtype=float), 10)
+                )
+            if gate_margin_values is not None:
+                output["wrong_gate_margin_mean"] = float(split_metrics["wrong_gate_margin"].mean())
+                output["wrong_gate_margin_p10"] = float(
+                    np.percentile(split_metrics["wrong_gate_margin"].to_numpy(dtype=float), 10)
                 )
             output["alpha_candidate_passed"] = alpha_candidate_passes(output)
             alpha_rows.append(output)
@@ -622,6 +708,10 @@ def train_actor_coupling_seed(
     wrong_hard_fraction: float = 0.25,
     wrong_gate_open_coef: float = 0.0,
     wrong_gate_target: float = 0.50,
+    wrong_gate_margin_coef: float = 0.0,
+    wrong_gate_margin: float = 0.30,
+    wrong_gate_hard_coef: float = 0.0,
+    wrong_gate_hard_fraction: float = 0.25,
     raw_amplifier_l2_coef: float = 0.0,
     target_gap: float,
     device: torch.device,
@@ -686,6 +776,10 @@ def train_actor_coupling_seed(
                     wrong_hard_fraction=wrong_hard_fraction,
                     wrong_gate_open_coef=wrong_gate_open_coef,
                     wrong_gate_target=wrong_gate_target,
+                    wrong_gate_margin_coef=wrong_gate_margin_coef,
+                    wrong_gate_margin=wrong_gate_margin,
+                    wrong_gate_hard_coef=wrong_gate_hard_coef,
+                    wrong_gate_hard_fraction=wrong_gate_hard_fraction,
                     raw_amplifier_l2_coef=raw_amplifier_l2_coef,
                     target_gap=target_gap,
                 )
@@ -729,6 +823,10 @@ def train_actor_coupling_seed(
             wrong_hard_fraction=wrong_hard_fraction,
             wrong_gate_open_coef=wrong_gate_open_coef,
             wrong_gate_target=wrong_gate_target,
+            wrong_gate_margin_coef=wrong_gate_margin_coef,
+            wrong_gate_margin=wrong_gate_margin,
+            wrong_gate_hard_coef=wrong_gate_hard_coef,
+            wrong_gate_hard_fraction=wrong_gate_hard_fraction,
             raw_amplifier_l2_coef=raw_amplifier_l2_coef,
             target_gap=target_gap,
         )
@@ -782,11 +880,18 @@ def train_actor_coupling_seed(
         "wrong_hard_fraction": float(wrong_hard_fraction),
         "wrong_gate_open_coef": float(wrong_gate_open_coef),
         "wrong_gate_target": float(wrong_gate_target),
+        "wrong_gate_margin_coef": float(wrong_gate_margin_coef),
+        "wrong_gate_margin": float(wrong_gate_margin),
+        "wrong_gate_hard_coef": float(wrong_gate_hard_coef),
+        "wrong_gate_hard_fraction": float(wrong_gate_hard_fraction),
         "raw_amplifier_l2_coef": float(raw_amplifier_l2_coef),
         "normal_raw_sequence_l2_mean": float(_row_sequence_l2_np(raw_normal, arrays["sequence_mask"]).mean()),
         "wrong_raw_sequence_l2_mean": float(_row_sequence_l2_np(raw_wrong, arrays["sequence_mask"]).mean()),
         "normal_gate_mean": float(_gate_values_np(gate_normal).mean()) if gate_normal is not None else None,
         "wrong_gate_mean": float(_gate_values_np(gate_wrong).mean()) if gate_wrong is not None else None,
+        "wrong_gate_margin_mean": float(_gate_margin_values_np(gate_normal, gate_wrong).mean())
+        if gate_normal is not None and gate_wrong is not None
+        else None,
         "target_gap": float(target_gap),
         **alpha_summary,
     }
@@ -843,6 +948,10 @@ def run_response_amplification_actor_coupling(
     wrong_hard_fraction: float,
     wrong_gate_open_coef: float,
     wrong_gate_target: float,
+    wrong_gate_margin_coef: float,
+    wrong_gate_margin: float,
+    wrong_gate_hard_coef: float,
+    wrong_gate_hard_fraction: float,
     raw_amplifier_l2_coef: float,
     device: str,
     run_dir: Path,
@@ -918,6 +1027,10 @@ def run_response_amplification_actor_coupling(
             wrong_hard_fraction=wrong_hard_fraction,
             wrong_gate_open_coef=wrong_gate_open_coef,
             wrong_gate_target=wrong_gate_target,
+            wrong_gate_margin_coef=wrong_gate_margin_coef,
+            wrong_gate_margin=wrong_gate_margin,
+            wrong_gate_hard_coef=wrong_gate_hard_coef,
+            wrong_gate_hard_fraction=wrong_gate_hard_fraction,
             raw_amplifier_l2_coef=raw_amplifier_l2_coef,
             target_gap=target_gap,
             device=resolved_device,
@@ -997,6 +1110,10 @@ def run_response_amplification_actor_coupling(
         "wrong_hard_fraction": float(wrong_hard_fraction),
         "wrong_gate_open_coef": float(wrong_gate_open_coef),
         "wrong_gate_target": float(wrong_gate_target),
+        "wrong_gate_margin_coef": float(wrong_gate_margin_coef),
+        "wrong_gate_margin": float(wrong_gate_margin),
+        "wrong_gate_hard_coef": float(wrong_gate_hard_coef),
+        "wrong_gate_hard_fraction": float(wrong_gate_hard_fraction),
         "raw_amplifier_l2_coef": float(raw_amplifier_l2_coef),
         "model_checksum_before": before_checksum,
         "model_checksum_after": after_checksum,
@@ -1060,6 +1177,10 @@ def main() -> None:
     parser.add_argument("--wrong-hard-fraction", type=float, default=0.25)
     parser.add_argument("--wrong-gate-open-coef", type=float, default=0.0)
     parser.add_argument("--wrong-gate-target", type=float, default=0.50)
+    parser.add_argument("--wrong-gate-margin-coef", type=float, default=0.0)
+    parser.add_argument("--wrong-gate-margin", type=float, default=0.30)
+    parser.add_argument("--wrong-gate-hard-coef", type=float, default=0.0)
+    parser.add_argument("--wrong-gate-hard-fraction", type=float, default=0.25)
     parser.add_argument("--raw-amplifier-l2-coef", type=float, default=0.0)
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="cpu")
     parser.add_argument("--batch-size", type=int, default=1024)
@@ -1105,6 +1226,10 @@ def main() -> None:
         wrong_hard_fraction=args.wrong_hard_fraction,
         wrong_gate_open_coef=args.wrong_gate_open_coef,
         wrong_gate_target=args.wrong_gate_target,
+        wrong_gate_margin_coef=args.wrong_gate_margin_coef,
+        wrong_gate_margin=args.wrong_gate_margin,
+        wrong_gate_hard_coef=args.wrong_gate_hard_coef,
+        wrong_gate_hard_fraction=args.wrong_gate_hard_fraction,
         raw_amplifier_l2_coef=args.raw_amplifier_l2_coef,
         device=args.device,
         run_dir=run_dir,

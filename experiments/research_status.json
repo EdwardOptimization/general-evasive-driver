@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 697,
+        "completed": 698,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m688-gate-margin-response-amplification-design",
+        "task_id": "m689-gate-margin-response-amplification-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m688-gate-margin-response-amplification-design.md"
+        "run_dir": "runs/m689_gate_margin_response_amplification",
+        "command_log": "docs/m689-gate-margin-response-amplification-implementation.md"
     },
     "next_task": {
-        "id": "m689-gate-margin-response-amplification-implementation",
+        "id": "m690-gate-margin-response-amplification-audit",
         "status": "pending",
-        "priority": 6840,
-        "kind": "infrastructure",
-        "hypothesis": "Detached-normal gate-margin and hard low-gate wrong-row pressure can open wrong-history gates enough to restore wrong-history gap while preserving normal retention.",
-        "command": "see experiments/manifests/m689-gate-margin-response-amplification-implementation.json",
+        "priority": 6850,
+        "kind": "gate",
+        "hypothesis": "M689 is a valid exact-gated positive diagnostic result, but gate diagnostics show it should be audited before any closed-loop or actor-update branch.",
+        "command": "see experiments/manifests/m690-gate-margin-response-amplification-audit.json",
         "success_artifact": "",
-        "notes": "Pending: implement gate-margin exact probe; PPO promotion and actor-input changes remain blocked"
+        "notes": "Pending: audit M689 exact pass; PPO promotion and actor-input changes remain blocked"
     },
-    "updated_at_utc": "20260525T054500Z"
+    "updated_at_utc": "20260525T060000Z"
 }
