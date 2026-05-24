@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 633,
+        "completed": 634,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m624-longer-low-amplitude-sequence-miner",
+        "task_id": "m625-longer-low-amplitude-sequence-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m624_longer_low_amplitude_sequence_miner",
-        "command_log": "docs/m624-longer-low-amplitude-sequence-miner.md"
+        "run_dir": "",
+        "command_log": "docs/m625-longer-low-amplitude-sequence-audit.md"
     },
     "next_task": {
-        "id": "m625-longer-low-amplitude-sequence-audit",
+        "id": "m626-near-miss-trust-geometry-design",
         "status": "pending",
-        "priority": 6200,
-        "kind": "gate",
-        "hypothesis": "M624 improves accepted candidate count and selected margin but not source-level diversity; the audit should classify this as diagnostic negative for source diversity and choose whether to inspect near-miss trust geometry or expand source mining.",
-        "command": "see experiments/manifests/m625-longer-low-amplitude-sequence-audit.json",
+        "priority": 6210,
+        "kind": "infrastructure",
+        "hypothesis": "A no-training trust-geometry analyzer can identify whether M624 near misses are blocked by mean L2 max L2 delta-delta collision or source geometry, guiding the next candidate-shape step without relaxing constraints.",
+        "command": "see experiments/manifests/m626-near-miss-trust-geometry-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit M624 K7 diagnostic; no training PPO promotion optimizer admission trust-region or threshold change"
+        "notes": "Pending: design near-miss trust geometry analyzer; no threshold trust-region training PPO promotion or optimizer change"
     },
-    "updated_at_utc": "20260524T160000Z"
+    "updated_at_utc": "20260524T161000Z"
 }

@@ -55,23 +55,29 @@ Latest active diagnostic BC checkpoint:
 runs/m568_scaled_l3_bc_seed5660/checkpoint.pt
 ```
 
-Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M624
+Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M625
 diagnostics. It is not the public-gate base and is not promoted as the current
 driver checkpoint.
 
 ## Current Blocker
 
 ```text
-m625-longer-low-amplitude-sequence-audit
+m626-near-miss-trust-geometry-design
 ```
 
-M625 should audit M624. K=7 improved accepted candidate count and selected
-margin on the same source rows, but did not improve source-level accepted
-diversity. Optimizer admission, training, PPO, promotion, threshold changes,
-and trust-region widening remain blocked.
+M626 should design a no-training near-miss trust-geometry analyzer. It should
+classify which trust constraints block the M624 near misses before any new
+candidate-shape step, and it must not relax thresholds or trust regions.
 
 ## Recent Evidence Line
 
+- M625 audits M624. K=7 is useful for stronger candidates but negative for
+  source-diversity recovery: accepted sources stay at `6` rows, `5` physical
+  pairs, and `4` left seeds. The next signal is near misses: `7` unaccepted rows
+  have best margin improvement `>= 0.02`, with `6` blocked by
+  `outside_sequence_trust_region` and `1` by collision; `775` trust-blocked
+  candidates exceed the margin threshold across `13` source rows. M626 should
+  design trust-geometry analysis without relaxing constraints.
 - M624 runs the K=3/5/7 low-amplitude sequence diagnostic. It increases
   accepted candidates from `189` to `607` and selected mean margin improvement
   from `0.056784` to `0.068523`, but source-level accepted diversity stays at

@@ -11746,3 +11746,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M624 runs the K=3/5/7 low-amplitude sequence diagnostic with unchanged trust regions and target thresholds. Relative to M621, candidate rollouts increase from `10440` to `22140`, accepted candidate sequences from `189` to `607`, selected margin improvement mean from `0.056784` to `0.068523`, and selected max improvement from `0.093048` to `0.121356`. However, source-level accepted diversity does not improve: selected accepted sequences remain `6`, physical pairs `5`, and left seeds `4`. Accepted candidates also remain source-narrow (`5` physical pairs, `4` left seeds), so optimizer admission remains blocked. The result is diagnostic-positive for stronger candidates but diagnostic-negative for source diversity.
 - decision: `longer_low_amplitude_sequence_miner_diagnostic_negative_admit_audit`
 - next: `m625-longer-low-amplitude-sequence-audit`
+## 20260524T161000Z - m625-longer-low-amplitude-sequence-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m625-longer-low-amplitude-sequence-audit.md`
+- result: M625 audits M624. K=7 is classified as diagnostic-positive for longer-prefix utility but diagnostic-negative for source-diversity recovery. Accepted candidates rise to `607`, yet accepted source diversity remains `6` rows, `5` physical pairs, and `4` left seeds. Near misses show the next blocker: `7` unaccepted rows have best margin improvement `>= 0.02`, with `6` blocked by `outside_sequence_trust_region` and `1` by `candidate_collision`; at candidate level, `775` trust-blocked candidates exceed the margin threshold across `13` source rows. The next branch is a no-training near-miss trust-geometry design rather than threshold relaxation.
+- decision: `longer_low_amplitude_sequence_audit_admit_trust_geometry_design`
+- next: `m626-near-miss-trust-geometry-design`
