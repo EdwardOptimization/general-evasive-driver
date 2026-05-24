@@ -1,0 +1,83 @@
+{
+  "id": "m659-wrong-history-fusion-boundary-probe-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m658_wrong_history_fusion_boundary_probe/summary.json",
+      "runs/m658_wrong_history_fusion_boundary_probe/seed_view_summary.csv",
+      "docs/m658-wrong-history-fusion-boundary-probe-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m658-wrong-history-fusion-boundary-probe-implementation.json"
+    ],
+    "parent_objective": [
+      "audit negative frozen feature-view comparison probe"
+    ],
+    "derived_from": [
+      "m658-wrong-history-fusion-boundary-probe-implementation"
+    ],
+    "blocked_by": [
+      "m658-wrong-history-fusion-boundary-probe-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m659-wrong-history-fusion-boundary-probe-audit.md",
+  "public_gates": [
+    "classify M658 as negative or partial positive",
+    "separate next_hidden L2 improvement from absolute wrong-history gap failure",
+    "decide whether next branch should mine stronger action-divergent wrong-history corpus or redesign objective",
+    "keep actor coupling and PPO blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not claim next_hidden auxiliary-head improvement as closed-loop self-ID proof",
+    "do not tune fused-only contrast coefficients"
+  ],
+  "hypothesis": "M658 shows next_hidden carries more wrong-history signal than fused features, but the current corpus/objective is still too weak to create a strong source-heldout rejected-history branch.",
+  "success_criteria": [
+    "audit records diagnostic_passed false",
+    "audit records next_hidden relative improvement and absolute threshold failure",
+    "audit selects next branch explicitly",
+    "actor coupling and PPO remain blocked",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "audit treats M658 as promotion evidence",
+    "audit ignores the negative gap_mse results",
+    "audit omits source-heldout source 32 weakness",
+    "audit admits actor coupling or PPO"
+  ],
+  "commands": [
+    {
+      "name": "audit_doc",
+      "command": "write docs/m659-wrong-history-fusion-boundary-probe-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m659-wrong-history-fusion-boundary-probe-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m658_wrong_history_fusion_boundary_probe/summary.json",
+    "docs/m658-wrong-history-fusion-boundary-probe-implementation.md"
+  ],
+  "decision_rule": "M659 passes only if it audits M658 without weakening evidence standards or admitting actor/PPO updates prematurely.",
+  "next_blocker": "m660-action-divergent-wrong-history-corpus-design"
+}

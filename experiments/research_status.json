@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 666,
+        "completed": 667,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m657-wrong-history-fusion-boundary-probe-design",
+        "task_id": "m658-wrong-history-fusion-boundary-probe-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m657-wrong-history-fusion-boundary-probe-design.md"
+        "run_dir": "runs/m658_wrong_history_fusion_boundary_probe",
+        "command_log": "docs/m658-wrong-history-fusion-boundary-probe-implementation.md"
     },
     "next_task": {
-        "id": "m658-wrong-history-fusion-boundary-probe-implementation",
+        "id": "m659-wrong-history-fusion-boundary-probe-audit",
         "status": "pending",
-        "priority": 6530,
-        "kind": "infrastructure",
-        "hypothesis": "A diagnostic head trained on next_hidden or fused_plus_next_hidden will create stronger wrong-history separation than one trained on fused actor features if M655's blocker is the response/context fusion boundary.",
-        "command": "see experiments/manifests/m658-wrong-history-fusion-boundary-probe-implementation.json",
+        "priority": 6540,
+        "kind": "gate",
+        "hypothesis": "M658 shows next_hidden carries more wrong-history signal than fused features, but the current corpus/objective is still too weak to create a strong source-heldout rejected-history branch.",
+        "command": "see experiments/manifests/m659-wrong-history-fusion-boundary-probe-audit.json",
         "success_artifact": "",
-        "notes": "Pending: implement frozen feature-view comparison; no actor update PPO promotion"
+        "notes": "Pending: audit negative M658 feature-view probe; no actor update PPO promotion"
     },
-    "updated_at_utc": "20260524T214500Z"
+    "updated_at_utc": "20260524T220000Z"
 }

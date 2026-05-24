@@ -12043,3 +12043,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M657 designs a frozen feature-view comparison probe after M655/M656 localized the blocker to the fusion/action boundary. M658 should train diagnostic auxiliary heads only, with BC5660 actor/recurrent/critic/log-std frozen, for three views: fused actor features, next recurrent hidden state, and fused-plus-next-hidden concatenation. Each view uses the M652 normal-target plus wrong-history contrast structure and reports normal retention plus source 30/source 32 wrong-history gaps. Actor updates, PPO, promotion, metadata-as-input, and interpreting auxiliary-head success as closed-loop self-ID proof remain forbidden.
 - decision: `wrong_history_fusion_boundary_probe_design_admit_m658`
 - next: `m658-wrong-history-fusion-boundary-probe-implementation`
+## 20260524T220000Z - m658-wrong-history-fusion-boundary-probe-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m658_wrong_history_fusion_boundary_probe`
+- artifact: `docs/m658-wrong-history-fusion-boundary-probe-implementation.md`
+- result: M658 implements and runs the frozen feature-view comparison probe over fused, next_hidden, and fused_plus_next_hidden views with seeds `6570`, `6571`, and `6572`. The result is negative: `diagnostic_passed=false` and no view passes. Normal validation retention remains good for all views (`0.000483-0.000491` mean by view), and next_hidden increases wrong-history prediction L2 by about `3.71x` over same-run fused on average, but absolute wrong-history L2 is only `0.001732`, below the `0.005` threshold, and wrong validation gap MSE remains negative on average. Actor checksum is unchanged, PPO is unused, and no actor checkpoint is written.
+- decision: `wrong_history_fusion_boundary_probe_negative_admit_audit`
+- next: `m659-wrong-history-fusion-boundary-probe-audit`

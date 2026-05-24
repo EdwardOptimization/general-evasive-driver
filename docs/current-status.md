@@ -62,16 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m658-wrong-history-fusion-boundary-probe-implementation
+m659-wrong-history-fusion-boundary-probe-audit
 ```
 
-M658 should implement the frozen feature-view comparison probe. It should train
-only diagnostic auxiliary heads for fused, next-hidden, and fused-plus-hidden
-views, then compare source-heldout wrong-history gaps without updating the actor
-or running PPO.
+M659 should audit the negative M658 feature-view probe. It must separate the
+relative next-hidden improvement from the absolute wrong-history gap failure and
+choose whether to mine stronger action-divergent wrong-history rows or redesign
+the rejected-history objective.
 
 ## Recent Evidence Line
 
+- M658 implements the frozen feature-view comparison probe. It is negative:
+  `diagnostic_passed=false`, with no passed views. `next_hidden` improves
+  wrong-history prediction L2 by about `3.71x` over fused on average, but only
+  reaches `0.001732`, below the `0.005` threshold, and wrong validation gap MSE
+  remains negative on average. Actor checksum is unchanged and no actor
+  checkpoint is written.
 - M657 designs the fusion-boundary probe. The implementation should evaluate
   three frozen feature views: fused actor features, next recurrent hidden state,
   and their concatenation. The decision rule is diagnostic: if next-hidden or
