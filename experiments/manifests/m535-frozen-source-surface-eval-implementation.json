@@ -2,7 +2,7 @@
   "id": "m535-frozen-source-surface-eval-implementation",
   "type": "infrastructure",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -41,10 +41,10 @@
   },
   "review_artifact": "docs/reviews/m535-frozen-source-surface-eval-implementation.md",
   "public_gates": [
-    "implement frozen source-surface evaluator for L0/L2/L3 checkpoints",
-    "validate checkpoint level metadata before evaluation",
-    "support source M399 state reconstruction and target-policy replay",
-    "write CSV and JSON artifacts without checkpoint promotion"
+    "implemented frozen source-surface evaluator for L0/L2/L3 checkpoints",
+    "validated checkpoint level metadata before evaluation",
+    "supported source M399 state reconstruction and target-policy replay",
+    "wrote CSV and JSON smoke artifacts without checkpoint promotion"
   ],
   "private_holdout_policy": "not_used",
   "forbidden_shortcuts": [
@@ -70,13 +70,21 @@
   "commands": [
     {
       "name": "implementation",
-      "command": "Implement the frozen source-surface evaluator and focused tests from M534."
+      "command": "PYTHONPATH=src OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m autodrift.frozen_source_surface_eval --source-checkpoint runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --baseline-checkpoint l0_s3530=L0_current_observation:runs/m532_matched_l0_short_train_seed3530/checkpoint.pt --baseline-checkpoint l2_s3530=L2_finite_window:runs/m532_matched_l2_short_train_seed3530/checkpoint.pt --baseline-checkpoint l3_s3530=L3_online_gru:runs/m532_matched_l3_short_train_seed3530/checkpoint.pt --env-config configs/m494_natural_belief_short_reveal_zero_relvel.json --pairs-csv runs/m497_natural_belief_decision_window_outcome_gate/targeted_pairs_short_reveal.csv --tail-offsets 0 --max-continuation-steps 20 --max-pairs 2 --device cpu --run-dir runs/m535_frozen_source_surface_eval_smoke"
     }
   ],
   "required_artifacts": [
     {
       "path": "docs/m535-frozen-source-surface-eval-implementation.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m535_frozen_source_surface_eval_smoke/summary.json",
+      "type": "smoke_summary"
+    },
+    {
+      "path": "runs/m535_frozen_source_surface_eval_smoke/surface_outcomes.csv",
+      "type": "smoke_rows"
     }
   ],
   "baseline_checkpoints": [
@@ -85,6 +93,8 @@
   "baseline_artifacts": [
     "docs/m534-matched-history-natural-surface-eval-design.md"
   ],
-  "decision_rule": "M535 is an implementation gate. It should add the evaluator and tests, then admit a small natural-surface smoke before the full diagnostic run.",
-  "next_blocker": "pending M535 frozen source-surface eval implementation"
+  "decision_rule": "M535 is an implementation gate. It adds the evaluator and tests, then admits a small natural-surface matrix smoke before the full diagnostic run.",
+  "scoreboard_decision": "frozen_source_surface_eval_implementation_pass_admit_m536_matrix_smoke",
+  "scoreboard_reason": "M535 implements the frozen source-surface evaluator, validates L0/L2/L3 checkpoint metadata, and runs a 2-pair smoke with 0 invalid rows and no promotion.",
+  "next_blocker": "m536-frozen-source-natural-surface-matrix-smoke"
 }

@@ -61,12 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m535-frozen-source-surface-eval-implementation
+m536-frozen-source-natural-surface-matrix-smoke
 ```
 
-M535 should implement the frozen source-surface evaluator designed in M534. The
-key requirement is to compare trained L0/L2/L3 checkpoints on the same M399
-natural source states rather than on divergent self-generated trajectories.
+M536 should run the frozen source-surface evaluator on all nine matched
+short-train checkpoints over small short-reveal and warmup natural-surface
+subsets. It should verify scale-up and metadata, not promote or claim a final
+ranking.
 
 ## Recent Evidence Line
 
@@ -108,6 +109,10 @@ natural source states rather than on divergent self-generated trajectories.
   natural source states with M399, replay L0/L2/L3 from the same frozen
   state/history, keep M526 rows as public diagnostics, and exclude projected
   surfaces from natural claims.
+- M535 implemented that evaluator. It supports L0 current-frame replay, L2
+  current-first stacked history replay, and L3 hidden construction from source
+  observation prefixes. Focused tests pass, and a real 2-pair short-reveal smoke
+  produced `6` outcome rows with `0` invalid rows.
 
 ## Near-Term Rule
 

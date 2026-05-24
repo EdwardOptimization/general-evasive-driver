@@ -10936,3 +10936,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M534 designs a frozen source-surface evaluator for matched L0/L2/L3 natural history-value evaluation. Existing `tail_aligned_wrong_history_gate` is not sufficient because it requires an online recurrent checkpoint and reconstructs states using the evaluated policy. The next evaluator should use M399 to reconstruct public natural source states, then replay trained L0/L2/L3 checkpoints from the same frozen source env/observation/history. M526 event rows stay public diagnostic overlays, projected surfaces remain separate, and no promotion or private-holdout claim is admitted.
 - decision: `admit_m535_frozen_source_surface_eval_implementation`
 - next: `m535-frozen-source-surface-eval-implementation`
+## 20260524T062000Z - m535-frozen-source-surface-eval-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m535_frozen_source_surface_eval_smoke`
+- artifact: `docs/m535-frozen-source-surface-eval-implementation.md`
+- result: M535 implements `autodrift.frozen_source_surface_eval` plus focused tests. The evaluator reconstructs frozen M399 source states, stacks source-history observations for L2, builds L3 target hidden by replaying the source observation prefix, validates `history_baseline` metadata, and writes row/summary artifacts. A real smoke on `2` short-reveal pairs with L0/L2/L3 seed `3530` checkpoints produces `6` outcome rows and `0` invalid rows.
+- decision: `frozen_source_surface_eval_implementation_pass_admit_m536_matrix_smoke`
+- next: `m536-frozen-source-natural-surface-matrix-smoke`

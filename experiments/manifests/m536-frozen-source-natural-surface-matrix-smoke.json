@@ -1,0 +1,95 @@
+{
+  "id": "m536-frozen-source-natural-surface-matrix-smoke",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m532_matched_l0_short_train_seed3530/checkpoint.pt",
+      "runs/m532_matched_l2_short_train_seed3530/checkpoint.pt",
+      "runs/m532_matched_l3_short_train_seed3530/checkpoint.pt",
+      "runs/m533_matched_l0_short_train_seed3531/checkpoint.pt",
+      "runs/m533_matched_l2_short_train_seed3531/checkpoint.pt",
+      "runs/m533_matched_l3_short_train_seed3531/checkpoint.pt",
+      "runs/m533_matched_l0_short_train_seed3532/checkpoint.pt",
+      "runs/m533_matched_l2_short_train_seed3532/checkpoint.pt",
+      "runs/m533_matched_l3_short_train_seed3532/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m497_natural_belief_decision_window_outcome_gate/targeted_pairs_short_reveal.csv",
+      "runs/m497_natural_belief_decision_window_outcome_gate/targeted_pairs_warmup_capability.csv"
+    ],
+    "parent_config": [
+      "configs/m494_natural_belief_short_reveal_zero_relvel.json",
+      "configs/m494_natural_belief_warmup_capability_zero_relvel.json"
+    ],
+    "parent_objective": [
+      "frozen source natural-surface matrix smoke"
+    ],
+    "derived_from": [
+      "m535-frozen-source-surface-eval-implementation",
+      "m534-matched-history-natural-surface-eval-design"
+    ],
+    "blocked_by": [
+      "m535-frozen-source-surface-eval-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m536-frozen-source-natural-surface-matrix-smoke.md",
+  "public_gates": [
+    "run frozen source evaluator on all nine matched short-train checkpoints",
+    "cover short-reveal and warmup natural surfaces with small max_pairs",
+    "verify metadata and invalid-row counts",
+    "do not promote a checkpoint or claim final ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not tune checkpoints or configs from smoke output",
+    "do not mix projected rows into natural claims",
+    "do not promote checkpoint",
+    "do not call smoke metrics paper-level evidence"
+  ],
+  "hypothesis": "The frozen source-surface evaluator can scale from the M535 3-checkpoint smoke to the full nine-checkpoint matched baseline matrix on small natural surface subsets.",
+  "success_criteria": [
+    "all nine checkpoints are evaluated on both small natural surface subsets",
+    "metadata validation passes for all checkpoints",
+    "invalid rows are zero or diagnosed",
+    "summary artifacts are written",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "any baseline level cannot be evaluated",
+    "metadata mismatch is accepted silently",
+    "invalid source snapshots dominate the smoke",
+    "checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "matrix_smoke_short_reveal",
+      "command": "Run frozen_source_surface_eval on all nine checkpoints, short_reveal surface, tail_offsets 0,2, max_pairs 8."
+    },
+    {
+      "name": "matrix_smoke_warmup_capability",
+      "command": "Run frozen_source_surface_eval on all nine checkpoints, warmup_capability surface, tail_offsets 0,2, max_pairs 8."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m536-frozen-source-natural-surface-matrix-smoke.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m535-frozen-source-surface-eval-implementation.md"
+  ],
+  "decision_rule": "M536 is a matrix smoke gate. Passing it should admit a full public natural-surface diagnostic run, not a checkpoint promotion.",
+  "next_blocker": "pending M536 frozen source natural-surface matrix smoke"
+}
