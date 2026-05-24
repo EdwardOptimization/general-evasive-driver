@@ -31,6 +31,12 @@ L3_UPDATE_ALIGNED_REPAIR_4096_CONFIGS = {
     "lr5e5": Path("configs/ppo_m548_l3_repair_lr5e5_ckpt256_4096.json"),
 }
 
+L3_REPAIR_V2_4096_CONFIGS = {
+    "epoch1_clip01": Path("configs/ppo_m555_l3_repair_epoch1_clip01_4096.json"),
+    "longseq_epoch1": Path("configs/ppo_m555_l3_repair_longseq_epoch1_4096.json"),
+    "lowentropy_epoch1": Path("configs/ppo_m555_l3_repair_lowentropy_epoch1_4096.json"),
+}
+
 
 def _assert_history_baseline_config(
     *,
@@ -202,3 +208,94 @@ def test_m548_update_aligned_configs_only_change_checkpoint_cadence_from_m546() 
         assert parent_ppo.pop("checkpoint_interval_steps") == 512
         assert repair_ppo.pop("checkpoint_interval_steps") == 256
         assert repair_ppo == parent_ppo
+
+
+@pytest.mark.parametrize("variant,path", sorted(L3_REPAIR_V2_4096_CONFIGS.items()))
+def test_m555_l3_repair_v2_configs_preserve_p0_l3_contract(variant: str, path: Path) -> None:
+    del variant
+    config = read_json(path)
+    ppo = config["ppo"]
+    env_config = build_env_config(config["env"])
+    spec = build_history_baseline_spec(
+        level=ppo["history_baseline_level"],
+        actor_encoder=ppo["actor_encoder"],
+        actor_history_length=ppo["actor_history_length"],
+        env_config=env_config,
+    )
+
+    assert spec.level == "L3_online_gru"
+    assert spec.input_contract == "P0_human_view_no_wheel_no_oracle"
+    assert ppo["actor_encoder"] == "human_view_online_gru"
+    assert ppo["actor_history_length"] == 1
+    assert ppo["history_baseline_level"] == "L3_online_gru"
+    assert ppo["recurrent_sequence_training"] is True
+    assert ppo["total_steps"] == 4096
+    assert ppo["num_envs"] == 4
+    assert ppo["hidden_size"] == 64
+    assert ppo["checkpoint_interval_steps"] == 256
+    assert ppo["eval_episodes"] == 5
+    assert ppo["seed"] == 3540
+    assert config["env"]["history_length"] == 1
+    assert config["env"]["action_history_mode"] == "full"
+    assert config["env"].get("wheel_observation_mode", "none") == "none"
+
+
+def test_m555_l3_repair_v2_configs_preserve_m548_l3_env_distribution() -> None:
+    base = read_json(L3_UPDATE_ALIGNED_REPAIR_4096_CONFIGS["fast_select"])
+    for path in L3_REPAIR_V2_4096_CONFIGS.values():
+        repair = read_json(path)
+        assert repair["env"] == base["env"]
+
+
+def test_m555_l3_repair_v2_configs_only_change_m554_approved_ppo_controls() -> None:
+    base = read_json(L3_UPDATE_ALIGNED_REPAIR_4096_CONFIGS["fast_select"])
+    allowed_differences = {
+        "clip_coef",
+        "ent_coef",
+        "freeze_log_std",
+        "learning_rate",
+        "log_std_init",
+        "max_grad_norm",
+        "minibatch_size",
+        "rollout_steps",
+        "update_epochs",
+    }
+    expected = {
+        "epoch1_clip01": {
+            "learning_rate": 0.0001,
+            "update_epochs": 1,
+            "clip_coef": 0.10,
+            "max_grad_norm": 0.25,
+        },
+        "longseq_epoch1": {
+            "rollout_steps": 128,
+            "minibatch_size": 128,
+            "learning_rate": 0.0001,
+            "update_epochs": 1,
+            "clip_coef": 0.10,
+            "max_grad_norm": 0.25,
+        },
+        "lowentropy_epoch1": {
+            "learning_rate": 0.0001,
+            "update_epochs": 1,
+            "clip_coef": 0.10,
+            "ent_coef": 0.0005,
+            "max_grad_norm": 0.25,
+            "freeze_log_std": True,
+            "log_std_init": -1.25,
+        },
+    }
+
+    assert set(L3_REPAIR_V2_4096_CONFIGS) == set(expected)
+    for variant, path in L3_REPAIR_V2_4096_CONFIGS.items():
+        repair = read_json(path)
+        base_ppo = dict(base["ppo"])
+        repair_ppo = dict(repair["ppo"])
+        differences = {
+            key
+            for key in sorted(set(base_ppo) | set(repair_ppo))
+            if base_ppo.get(key) != repair_ppo.get(key)
+        }
+        assert differences <= allowed_differences
+        for key, value in expected[variant].items():
+            assert repair_ppo[key] == value

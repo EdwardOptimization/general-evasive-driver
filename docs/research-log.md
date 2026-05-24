@@ -11116,3 +11116,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M554 designs the next L3 repair branch under route-screen v2 admission. It freezes the P0 actor contract and M541/M548 task distribution, restricts the next branch to PPO stability controls, and pre-registers three small L3-only variants: `epoch1_clip01`, `longseq_epoch1`, and `lowentropy_epoch1`. Any candidate must pass reusable route-screen v2 against L0 before public frozen-source diagnostics.
 - decision: `route_screen_gated_l3_repair_v2_design_admit_m555_config_family`
 - next: `m555-l3-repair-v2-config-family`
+## 20260524T094000Z - m555-l3-repair-v2-config-family
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m555-l3-repair-v2-config-family.md`
+- result: M555 implements the M554-approved L3-only config family: `epoch1_clip01`, `longseq_epoch1`, and `lowentropy_epoch1`. Tests verify all three preserve the M548 L3 env/task distribution, P0 human-view/no-wheel/no-oracle contract, and update-aligned `checkpoint_interval_steps = 256`, with differences limited to approved PPO stability controls.
+- decision: `l3_repair_v2_config_family_pass_admit_m556_route_screen_selection`
+- next: `m556-l3-repair-v2-route-screen-selection`

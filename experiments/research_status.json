@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 563,
+        "completed": 564,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m554-route-screen-gated-l3-repair-v2-design",
+        "task_id": "m555-l3-repair-v2-config-family",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m554-route-screen-gated-l3-repair-v2-design.md"
+        "command_log": "docs/m555-l3-repair-v2-config-family.md"
     },
     "next_task": {
-        "id": "m555-l3-repair-v2-config-family",
+        "id": "m556-l3-repair-v2-route-screen-selection",
         "status": "pending",
-        "priority": 5500,
-        "kind": "infrastructure",
-        "hypothesis": "A small L3-only config family that changes only PPO stability controls can test whether recurrent policy drift, not the P0 input contract, caused the M544-M550 L3 repair failure.",
-        "command": "see experiments/manifests/m555-l3-repair-v2-config-family.json",
+        "priority": 5510,
+        "kind": "gate",
+        "hypothesis": "At least one M555 PPO-stability L3 variant may produce an interval checkpoint that clears route-screen v2 against L0 before public diagnostics.",
+        "command": "see experiments/manifests/m556-l3-repair-v2-route-screen-selection.json",
         "success_artifact": "",
-        "notes": "Pending: add epoch1_clip01 longseq_epoch1 and lowentropy_epoch1 configs plus tests without training"
+        "notes": "Pending: train three M555 configs and run multi-candidate route-screen v2 before public diagnostics"
     },
-    "updated_at_utc": "20260524T093000Z"
+    "updated_at_utc": "20260524T094000Z"
 }

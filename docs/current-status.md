@@ -61,12 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m555-l3-repair-v2-config-family
+m556-l3-repair-v2-route-screen-selection
 ```
 
-M555 should implement the M554-approved L3 repair-v2 config family:
-`epoch1_clip01`, `longseq_epoch1`, and `lowentropy_epoch1`. This is config/test
-infrastructure only; no training or promotion.
+M556 should train the three M555 L3 repair-v2 configs and run reusable
+route-screen v2 over all interval/final checkpoints as candidates before any
+public frozen-source diagnostic.
 
 ## Recent Evidence Line
 
@@ -219,6 +219,10 @@ infrastructure only; no training or promotion.
   freezes P0/env/task boundaries, restricts repair v2 to PPO stability controls,
   and admits exactly three small L3-only variants for M555:
   `epoch1_clip01`, `longseq_epoch1`, and `lowentropy_epoch1`.
+- M555 implements those three L3-only configs and tests. All preserve the M548
+  L3 env/task distribution, P0 actor contract, and update-aligned
+  `checkpoint_interval_steps = 256`; differences are limited to M554-approved
+  PPO stability controls.
 
 ## Near-Term Rule
 

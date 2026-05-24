@@ -2,7 +2,7 @@
   "id": "m555-l3-repair-v2-config-family",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -58,6 +58,10 @@
     {
       "name": "implementation",
       "command": "Add M554-approved L3 repair-v2 configs and tests; no training."
+    },
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m pytest -q tests/test_history_baseline_configs.py"
     }
   ],
   "required_artifacts": [
@@ -72,6 +76,6 @@
   "baseline_artifacts": [
     "docs/m554-route-screen-gated-l3-repair-v2-design.md"
   ],
-  "decision_rule": "M555 passes only if the L3 repair-v2 config family preserves the P0/env boundary and changes only approved PPO stability controls. It does not train or promote a checkpoint.",
-  "next_blocker": "pending M555 L3 repair-v2 config family"
+  "decision_rule": "M555 passes because the three pre-registered L3 repair-v2 configs preserve the P0/env boundary and change only approved PPO stability controls. It does not train or promote a checkpoint.",
+  "next_blocker": "m556-l3-repair-v2-route-screen-selection"
 }

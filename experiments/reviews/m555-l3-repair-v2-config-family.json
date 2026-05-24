@@ -1,0 +1,73 @@
+{
+  "decision_reason": "M555 adds epoch1_clip01 longseq_epoch1 and lowentropy_epoch1 L3-only configs while preserving M548 L3 env and P0 contract",
+  "failure_criteria": [
+    "configs alter task distribution or actor input contract",
+    "configs omit update-aligned checkpointing",
+    "tests cannot distinguish approved PPO changes from hidden env changes"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not change env sampler or reward terms",
+    "do not add privileged actor inputs",
+    "do not add more config variants than M554 approved",
+    "do not run public frozen-source eval"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T045030Z",
+  "hypothesis": "A small L3-only config family that changes only PPO stability controls can test whether recurrent policy drift, not the P0 input contract, caused the M544-M550 L3 repair failure.",
+  "lineage": {
+    "blocked_by": [
+      "m554-route-screen-gated-l3-repair-v2-design"
+    ],
+    "derived_from": [
+      "m554-route-screen-gated-l3-repair-v2-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m542_matched_l3_variance_seed3540/checkpoint.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m548_l3_repair_fast_select_ckpt256_4096.json"
+    ],
+    "parent_dataset": [
+      "docs/m554-route-screen-gated-l3-repair-v2-design.md"
+    ],
+    "parent_objective": [
+      "implement route-screen-gated L3 recurrent repair v2 config family"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m555-l3-repair-v2-config-family",
+  "next_blocker": "m556-l3-repair-v2-route-screen-selection",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "l3_repair_v2_config_family_pass_admit_m556_route_screen_selection",
+  "public_gates": [
+    "add only the M554-approved L3 PPO-stability config variants",
+    "preserve M548 L3 env/task/P0 actor input contract",
+    "keep checkpoint_interval_steps = 256 for route-screen v2 selection",
+    "do not train or promote checkpoint"
+  ],
+  "scoreboard": {
+    "checkpoint": "configs/ppo_m555_l3_repair_epoch1_clip01_4096.json",
+    "clearance_margin_mean": "",
+    "decision": "l3_repair_v2_config_family_pass_admit_m556_route_screen_selection",
+    "milestone": "m555-l3-repair-v2-config-family",
+    "reason": "M555 adds epoch1_clip01 longseq_epoch1 and lowentropy_epoch1 L3-only configs while preserving M548 L3 env and P0 contract",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "configs implement epoch1_clip01, longseq_epoch1, and lowentropy_epoch1",
+    "tests verify the env section matches M548 L3 exactly",
+    "tests verify only M554-approved PPO keys differ",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}
