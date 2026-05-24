@@ -1,27 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 730,
+        "completed": 731,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m721-temporal-action-boundary-outcome-mining-design",
+        "task_id": "m722-temporal-action-boundary-outcome-miner-implementation",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m721-temporal-action-boundary-outcome-mining-design.md"
+        "run_dir": "runs/m722_temporal_action_boundary_outcome_miner",
+        "command_log": "docs/m722-temporal-action-boundary-outcome-miner-implementation.md"
     },
     "next_task": {
-        "id": "m722-temporal-action-boundary-outcome-miner-implementation",
+        "id": "m723-temporal-boundary-sparse-audit",
         "status": "pending",
-        "priority": 7170,
-        "kind": "infrastructure",
-        "hypothesis": "Implement no-training temporal action-boundary outcome miner",
-        "command": "see experiments/manifests/m722-temporal-action-boundary-outcome-miner-implementation.json",
-        "success_artifact": "docs/m722-temporal-action-boundary-outcome-miner-implementation.md",
-        "notes": "Pending: implement source-balanced local boundary miner and registered data wave from M719 temporal action rows"
+        "priority": 7180,
+        "kind": "gate",
+        "hypothesis": "Audit M722 temporal action-only boundary sparse result",
+        "command": "see experiments/manifests/m723-temporal-boundary-sparse-audit.json",
+        "success_artifact": "docs/m723-temporal-boundary-sparse-audit.md",
+        "notes": "Pending: audit source concentration normal-failure count sentinel false positives and choose next branch before more mining or objective design"
     },
-    "updated_at_utc": "20260524T215000Z"
+    "updated_at_utc": "20260524T222000Z"
 }

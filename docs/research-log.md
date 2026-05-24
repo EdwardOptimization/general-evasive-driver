@@ -12528,3 +12528,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M721 designs the next no-training miner around the coverage concern that M719's temporal action deltas may not have been evaluated near enough outcome boundaries. The design starts from source-balanced M719 temporal action-critical rows, especially `mismatch_zero_command_history`, and requires local obstacle timing, lateral offset, obstacle footprint, boundary slack, step-offset, and surprise fault-timing perturbations. Accepted rows must keep normal-history viability and show both `first_action_distance_from_normal >= 0.015` and success drop or `margin_gap_from_normal >= 0.02`. Sentinel false positives, source diversity, normal-history retention, unchanged actor checksum, and no training/PPO/promotion are mandatory.
 - decision: `temporal_action_boundary_outcome_mining_design_admit_m722`
 - next: `m722-temporal-action-boundary-outcome-miner-implementation`
+
+## 20260524T222000Z - m722-temporal-action-boundary-outcome-miner-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m722_temporal_action_boundary_outcome_miner`
+- artifact: `docs/m722-temporal-action-boundary-outcome-miner-implementation.md`
+- result: M722 implements and runs the no-training temporal action-boundary outcome miner. It selects `128` M719-derived source rows (`115` primary and `13` sentinel), evaluates `6984` relocated-boundary rollout variants, and finds `921` temporal action-critical rows but `0` temporal outcome-critical rows. Sentinel false-positive rate is `0.0`, normal-history retention passes, actor checksum is unchanged, and no training/PPO/promotion occurs. The result class is `temporal_action_only_boundary_sparse`; source export and objective design remain blocked pending audit.
+- decision: `temporal_action_only_boundary_sparse_admit_audit`
+- next: `m723-temporal-boundary-sparse-audit`

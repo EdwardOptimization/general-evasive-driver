@@ -1,0 +1,114 @@
+{
+  "id": "m723-temporal-boundary-sparse-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m722-temporal-action-boundary-outcome-miner-implementation.md",
+      "runs/m722_temporal_action_boundary_outcome_miner/summary.json",
+      "runs/m722_temporal_action_boundary_outcome_miner/source_rows.csv",
+      "runs/m722_temporal_action_boundary_outcome_miner/intervention_rollouts.csv",
+      "runs/m722_temporal_action_boundary_outcome_miner/accepted_rows.csv",
+      "runs/m722_temporal_action_boundary_outcome_miner/rejected_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m722-temporal-action-boundary-outcome-miner-implementation.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit temporal_action_only_boundary_sparse before another boundary miner data wave or objective design"
+    ],
+    "derived_from": [
+      "m722-temporal-action-boundary-outcome-miner-implementation"
+    ],
+    "blocked_by": [
+      "m722-temporal-action-boundary-outcome-miner-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m723-temporal-boundary-sparse-audit.md",
+  "public_gates": [
+    "M722 action-critical and outcome-critical counts are summarized separately",
+    "source seed concentration is analyzed",
+    "normal-history failure versus history-insensitive rejection is separated",
+    "sentinel false-positive result is recorded",
+    "next branch decision compares fresh source-balanced temporal wave boundary expansion sequence intervention and dynamics fidelity",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not claim temporal_action_only_boundary_sparse is closed-loop self-ID proof",
+    "do not export M722 action-only rows as source-positive outcome rows",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels or oracle values to actor observations"
+  ],
+  "workflow_synthesis": {
+    "branch": "temporal_action_boundary_outcome_mining",
+    "evidence_axis": "G_action_to_outcome: audit boundary miner sparse result and choose next branch",
+    "evidence_increment": "synthesizes M722 negative outcome result including source concentration sentinel false positives and local boundary grid limits",
+    "claim_scope": "process synthesis only; no checkpoint promotion or deployed self-ID claim",
+    "stop_condition": [
+      "stop source export because accepted outcome rows are zero",
+      "stop PPO because no source-positive outcome corpus exists",
+      "stop mining only M719 source rows if source seed concentration is the main blocker",
+      "stop treating action-critical rows as closed-loop outcome proof"
+    ],
+    "fallback_plan": [
+      "if source concentration is the dominant blocker, design a fresh source-balanced temporal data wave",
+      "if boundary grid severity is the dominant blocker, design a larger but normal-retention-controlled boundary search",
+      "if single-step action deltas are too weak, design sequence-level interventions",
+      "if single-track proxy fidelity is the blocker, design four-wheel or explicit-yaw-disturbance dynamics"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M722 result_class=temporal_action_only_boundary_sparse",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M722's sparse action-only boundary result should be audited before continuing; the audit can identify whether the next blocker is source concentration, local boundary search, sequence-level intervention, or dynamics fidelity.",
+  "success_criteria": [
+    "M722 result metrics are recorded",
+    "supported and falsified claims are recorded",
+    "failure taxonomy is assigned",
+    "public gate overfit risk is recorded",
+    "next branch decision is explicit",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "audit treats M722 action-only rows as outcome-positive self-ID proof",
+    "audit ignores source seed concentration",
+    "audit ignores normal-history failure count",
+    "audit admits source export PPO or promotion",
+    "audit changes actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m723-temporal-boundary-sparse-audit.md from M722 artifacts; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m723-temporal-boundary-sparse-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m722_temporal_action_boundary_outcome_miner/summary.json",
+    "docs/m722-temporal-action-boundary-outcome-miner-implementation.md"
+  ],
+  "decision_rule": "M723 must decide whether to regenerate temporal source coverage, expand boundary search, design sequence-level interventions, or pivot to dynamics fidelity. It must not admit PPO or promotion directly.",
+  "next_blocker": "m724-fresh-source-balanced-temporal-wave-design"
+}
