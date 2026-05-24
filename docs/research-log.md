@@ -12304,3 +12304,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M686 implements and runs the split/gated response-amplification exact probe. The implementation is clean: `648` rows, `216` sources, gated residual heads active, actor checksum unchanged, no base actor checkpoint, no PPO, no promotion. Exact gate still fails with `0` passed seeds. Normal retention is strongly positive (`alpha=1.0` normal mean `0.001097-0.001159`, p95 `0.002386-0.002562`), but gates collapse (`normal_gate_mean` about `0.098`, `wrong_gate_mean` about `0.102-0.105`) and wrong gap stays around `0.0064`, below threshold. Raw wrong amplifier magnitude is large, so this is gate collapse, not amplifier capacity failure.
 - decision: `split_gated_response_amplification_exact_gate_failed_admit_audit`
 - next: `m687-split-gated-response-amplification-audit`
+## 20260525T053000Z - m687-split-gated-response-amplification-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m687-split-gated-response-amplification-audit.md`
+- result: M687 audits M686 as `gate_collapse`. M686 strongly improves normal retention and has enough raw wrong-amplifier amplitude, but the wrong gate remains near the normal gate (`normal_gate_mean` about `0.098`, `wrong_gate_mean` about `0.102-0.105`) and does not open toward target `0.50`. The next branch should add detached-normal wrong-vs-normal gate margin and hard low-gate wrong-row pressure, while preserving exact normal gates, P0 inputs, no PPO, and no promotion.
+- decision: `split_gated_audit_admit_gate_margin_design`
+- next: `m688-gate-margin-response-amplification-design`

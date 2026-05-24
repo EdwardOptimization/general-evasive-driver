@@ -62,16 +62,20 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m687-split-gated-response-amplification-audit
+m688-gate-margin-response-amplification-design
 ```
 
-M687 should audit M686's clean negative split/gated result. M686 made normal
-retention very safe, but normal and wrong gates both collapsed near `0.10`, so
-wrong-history gap stayed below threshold despite a large raw amplifier. PPO,
-promotion, actor-input changes, and normal gate weakening remain blocked.
+M688 should design a gate-margin response-amplification objective after M687
+classified M686 as gate collapse. The next design should add detached-normal
+wrong-vs-normal gate margin and hard low-gate wrong-row pressure while keeping
+normal retention gates, P0 inputs, no PPO, and no promotion.
 
 ## Recent Evidence Line
 
+- M687 audits M686 as `gate_collapse`, not amplifier capacity failure. The raw
+  wrong amplifier is large, but wrong gates stay near normal gates and do not
+  open toward target `0.50`. The next branch should add explicit gate-margin
+  and hard low-gate wrong-row pressure.
 - M686 implements split/gated response amplification. It is implementation-clean
   with gated residual heads active and actor checksum unchanged. Normal
   retention is strong (`alpha=1.0` normal mean `0.001097-0.001159`), but gates
