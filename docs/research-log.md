@@ -12115,3 +12115,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M665 audits M664 as `action_gap_positive_outcome_gap_negative`. M664 improved over M661 by finding wrong-history action gaps, including `3` rows that cross all action thresholds, but those rows are already failed under normal history and have no success-drop or margin-gap evidence. The likely root cause is source-window quality: M664 sampled very close obstacle windows with obstacle-distance means around `2.3-2.5 m`, which exposes action sensitivity too late for usable preferred-branch supervision. Actor coupling, PPO, and training from the empty corpus remain blocked.
 - decision: `action_critical_source_miner_audit_admit_normal_success_boundary_design`
 - next: `m666-normal-success-boundary-source-mining-design`
+## 20260525T000000Z - m666-normal-success-boundary-source-mining-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m666-normal-success-boundary-source-mining-design.md`
+- result: M666 designs a no-training normal-success near-boundary source miner. It changes source selection rather than thresholds: build a wider obstacle decision-window bank, replay normal history first, classify snapshots into `near_boundary_preferred`, `early_safe_diagnostic`, and `already_failed_diagnostic`, then pair wrong histories only for normal-success positive-margin near-boundary preferred branches. It preserves M664 action/outcome thresholds, specifies required artifacts, and pre-registers separate negative-result interpretations for missing near-boundary windows, missing action gaps, or missing outcome gaps.
+- decision: `normal_success_boundary_source_mining_design_admit_m667`
+- next: `m667-normal-success-boundary-source-miner-implementation`

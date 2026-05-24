@@ -1,0 +1,101 @@
+{
+  "id": "m667-normal-success-boundary-source-miner-implementation",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m666-normal-success-boundary-source-mining-design.md",
+      "runs/m664_action_critical_wrong_history_source_miner/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m666-normal-success-boundary-source-mining-design.json"
+    ],
+    "parent_objective": [
+      "implement normal-success near-boundary source miner"
+    ],
+    "derived_from": [
+      "m666-normal-success-boundary-source-mining-design"
+    ],
+    "blocked_by": [
+      "m666-normal-success-boundary-source-mining-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m667-normal-success-boundary-source-miner-implementation.md",
+  "public_gates": [
+    "build wider obstacle decision-window snapshot bank",
+    "run normal-history prepass and classify source windows",
+    "pair wrong histories only for normal-success near-boundary left snapshots",
+    "write explicit preferred/rejected NPZ fields",
+    "verify actor checksum unchanged and no actor checkpoint written"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not update actor parameters",
+    "do not promote checkpoint",
+    "do not accept normal-failed preferred branches",
+    "do not accept hidden-distance-only rows",
+    "do not use hidden parameters or labels as actor inputs"
+  ],
+  "hypothesis": "Normal-history success and positive near-boundary margin filtering will isolate valid preferred branches before wrong-history pairing and produce usable action/outcome-critical rows.",
+  "success_criteria": [
+    "near_boundary_preferred left snapshots >= 40",
+    "accepted rows >= 40",
+    "accepted physical pairs >= 8",
+    "accepted left seeds >= 6",
+    "accepted right seeds >= 6",
+    "source-heldout split is nonempty",
+    "mean preferred_vs_rejected_action_mean_l2 >= 0.010",
+    "mean margin_gap >= 0.010 or accepted success_drop_rate >= 0.25",
+    "actor checksum unchanged",
+    "no actor checkpoint written",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "too few near-boundary normal-success source windows",
+    "too few accepted rows",
+    "normal-failed preferred branches are accepted",
+    "source diversity fails",
+    "actor checksum changes",
+    "actor checkpoint is written"
+  ],
+  "commands": [
+    {
+      "name": "normal_success_boundary_source_miner",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.normal_success_boundary_source_miner --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --surface-config fresh=configs/ppo_m541_matched_l3_variance_4096.json --surface-config ood=configs/eval_m574_moderate_ood_l3.json --surface-seed-range fresh=25560:25619 --surface-seed-range ood=25660:25719 --sequence-lengths 5,7,9 --obstacle-distance-min 0.0 --obstacle-distance-max 35.0 --normal-margin-min 0.0 --normal-margin-max 1.0 --max-right-candidates-per-left 64 --max-candidate-pairs-per-surface 1600 --context-distance-threshold 0.25 --response-distance-threshold 0.20 --obstacle-x-abs-delta 10.0 --obstacle-y-abs-delta 2.0 --step-abs-delta 30 --min-wrong-first-action-l2 0.002 --min-wrong-action-sequence-mean-l2 0.006 --min-preferred-rejected-action-mean-l2 0.010 --min-margin-gap 0.010 --device cpu --run-dir runs/m667_normal_success_boundary_source_miner"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m667_normal_success_boundary_source_miner/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m667_normal_success_boundary_source_miner/normal_success_boundary_corpus.npz",
+      "type": "corpus"
+    },
+    {
+      "path": "docs/m667-normal-success-boundary-source-miner-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m666-normal-success-boundary-source-mining-design.md",
+    "runs/m664_action_critical_wrong_history_source_miner/summary.json"
+  ],
+  "decision_rule": "M667 passes only if it finds source-diverse action/outcome-critical wrong-history rows from normal-success near-boundary preferred branches; otherwise audit the specific source-window failure mode.",
+  "next_blocker": "m668-normal-success-boundary-source-miner-audit"
+}

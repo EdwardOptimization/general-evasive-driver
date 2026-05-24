@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M666 designs normal-success near-boundary source mining with normal prepass margin bands wrong-history pairing gates and negative-result taxonomy",
+  "failure_criteria": [
+    "design allows normal-failed preferred branches",
+    "design omits margin-band diagnostics",
+    "design weakens action/outcome thresholds",
+    "design admits actor coupling or PPO before source evidence exists"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not accept normal-failed rows as preferred branches",
+    "do not weaken M664 action/outcome thresholds",
+    "do not use hidden parameters or labels as actor inputs"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T142328Z",
+  "hypothesis": "Filtering left snapshots by normal-history success and positive near-boundary margin before wrong-history pairing will produce usable action/outcome-critical wrong-history rows that M664 missed.",
+  "lineage": {
+    "blocked_by": [
+      "m665-action-critical-source-miner-audit"
+    ],
+    "derived_from": [
+      "m665-action-critical-source-miner-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m665-action-critical-source-miner-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m664_action_critical_wrong_history_source_miner/summary.json",
+      "runs/m664_action_critical_wrong_history_source_miner/candidate_scores.csv",
+      "docs/m665-action-critical-source-miner-audit.md"
+    ],
+    "parent_objective": [
+      "design normal-success near-boundary source mining after M664 action-gap/outcome-gap split"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m666-normal-success-boundary-source-mining-design",
+  "next_blocker": "m667-normal-success-boundary-source-miner-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "normal_success_boundary_source_mining_design_admit_m667",
+  "public_gates": [
+    "design normal-history success and margin-band source filter",
+    "preserve action/outcome wrong-history acceptance thresholds",
+    "separate early-safe, near-boundary, and already-failed source windows",
+    "keep actor coupling, PPO, and promotion blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m666-normal-success-boundary-source-mining-design.md",
+    "clearance_margin_mean": "",
+    "decision": "normal_success_boundary_source_mining_design_admit_m667",
+    "milestone": "m666-normal-success-boundary-source-mining-design",
+    "reason": "M666 designs normal-success near-boundary source mining with normal prepass margin bands wrong-history pairing gates and negative-result taxonomy",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design defines normal-success source filter",
+    "design defines positive margin bands and window diagnostics",
+    "design defines wrong-history pairing and acceptance thresholds",
+    "design defines required artifacts and negative-result interpretation",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

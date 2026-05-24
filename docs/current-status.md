@@ -62,16 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m666-normal-success-boundary-source-mining-design
+m667-normal-success-boundary-source-miner-implementation
 ```
 
-M666 should design a normal-success near-boundary source miner. M665 audited
-M664 as action-gap positive but outcome-gap negative: the broader miner found
-wrong-history action-sensitive rows, but the strongest rows were already failed
-under normal history. Actor updates, PPO, and promotion remain blocked.
+M667 should implement the normal-success near-boundary source miner designed in
+M666. It should replay normal history first, keep only normal-success
+positive-margin near-boundary preferred branches for wrong-history pairing, and
+report early-safe and already-failed windows as diagnostics. Actor updates, PPO,
+and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M666 designs a normal-success near-boundary source miner. The source order is
+  now: wider obstacle decision-window bank, normal-history prepass, margin-band
+  classification, then wrong-history pairing only for
+  `near_boundary_preferred` windows. This directly addresses M664's issue where
+  action-sensitive rows were already failed under normal history.
 - M665 audits M664 as `action_gap_positive_outcome_gap_negative`. M664 found
   wrong-history action gaps, but the rows that crossed all action thresholds
   were already failed under normal history and had no success-drop or
