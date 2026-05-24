@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 625,
+        "completed": 626,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m616-expanded-sequence-source-miner-implementation",
+        "task_id": "m617-expanded-sequence-target-miner",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m616-expanded-sequence-source-miner-implementation.md"
+        "run_dir": "runs/m617_expanded_sequence_target_miner",
+        "command_log": "docs/m617-expanded-sequence-target-miner.md"
     },
     "next_task": {
-        "id": "m617-expanded-sequence-target-miner",
+        "id": "m618-expanded-sequence-target-mining-audit",
         "status": "pending",
-        "priority": 6120,
-        "kind": "infrastructure",
-        "hypothesis": "Repeating the bounded K=3/5 sequence target miner on the M616 expanded source table will test whether the M613 sequence signal is repeatable across a broader source set.",
-        "command": "see experiments/manifests/m617-expanded-sequence-target-miner.json",
+        "priority": 6130,
+        "kind": "gate",
+        "hypothesis": "M617 is diagnostic-positive but likely still too narrow for optimizer admission; the audit should decide whether to expand diversity, adjust candidate families, or move to a shadow sequence-head design.",
+        "command": "see experiments/manifests/m618-expanded-sequence-target-mining-audit.json",
         "success_artifact": "",
-        "notes": "Pending: run unchanged sequence target miner on expanded source rows; no training, PPO, promotion, or optimizer admission"
+        "notes": "Pending: audit M617 accepted diversity and action-mode narrowness; no training, PPO, promotion, or optimizer admission"
     },
-    "updated_at_utc": "20260524T144000Z"
+    "updated_at_utc": "20260524T145000Z"
 }

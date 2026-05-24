@@ -1,0 +1,87 @@
+{
+  "id": "m618-expanded-sequence-target-mining-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m617_expanded_sequence_target_miner/summary.json",
+      "runs/m617_expanded_sequence_target_miner/accepted_sequences.csv",
+      "runs/m617_expanded_sequence_target_miner/unaccepted_rows.csv",
+      "docs/m617-expanded-sequence-target-miner.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m617-expanded-sequence-target-miner.json",
+      "docs/m616-expanded-sequence-source-miner-implementation.md"
+    ],
+    "parent_objective": [
+      "audit diagnostic-positive expanded sequence target mining result before optimizer or further expansion"
+    ],
+    "derived_from": [
+      "m617-expanded-sequence-target-miner"
+    ],
+    "blocked_by": [
+      "m617-expanded-sequence-target-miner"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m618-expanded-sequence-target-mining-audit.md",
+  "public_gates": [
+    "compare M617 against M613 repeatability",
+    "audit accepted sequence diversity",
+    "verify optimizer admission remains blocked or justify a later design",
+    "choose next no-training branch"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not treat six accepted sequences as optimizer-ready without auditing diversity",
+    "do not lower target acceptance thresholds",
+    "do not add privileged actor inputs"
+  ],
+  "hypothesis": "M617 is diagnostic-positive but likely still too narrow for optimizer admission; the audit should decide whether to expand diversity, adjust candidate families, or move to a shadow sequence-head design.",
+  "success_criteria": [
+    "audit summarizes M617 accepted and unaccepted evidence",
+    "audit explicitly compares accepted diversity against the pre-registered breadth target",
+    "audit blocks optimizer admission if diversity is insufficient",
+    "audit selects the next branch without training or PPO",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "audit starts training",
+    "audit promotes a checkpoint",
+    "audit treats narrow accepted sequences as training-ready",
+    "audit ignores action-mode narrowness",
+    "audit omits source-tier interpretation"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "Analyze M617 sequence target artifacts; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m618-expanded-sequence-target-mining-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m617-expanded-sequence-target-miner.md",
+    "runs/m617_expanded_sequence_target_miner/summary.json"
+  ],
+  "decision_rule": "M618 passes if it audits M617 repeatability and chooses the next no-training branch.",
+  "next_blocker": "m619-expanded-sequence-diversity-design"
+}

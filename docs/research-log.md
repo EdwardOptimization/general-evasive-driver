@@ -11674,3 +11674,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M616 implements and runs the expanded sequence-source miner. It consumes M609 `source_rollouts.csv`, the original boundary rows, and the M613 accepted sequence index, then writes a tiered expanded source table. Result: `33` rollout rows produce `30` expanded rows and `3` rejected rows. The expanded rows include all `17` original M609 boundary rows and the one M613 accepted-sequence row. Tier counts are `17` core, `6` near, and `7` support. Diversity passes with `27` physical pairs, `15` left seeds, `2` surfaces, `2` variants, `3` targets, and max physical-pair dominance `0.066667`.
 - decision: `expanded_sequence_source_miner_pass_admit_m617`
 - next: `m617-expanded-sequence-target-miner`
+## 20260524T145000Z - m617-expanded-sequence-target-miner
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m617_expanded_sequence_target_miner`
+- artifact: `docs/m617-expanded-sequence-target-miner.md`
+- result: M617 repeats the unchanged M613 sequence target miner on the M616 expanded source table. It evaluates `10440` sequence candidates across `30` source rows and selects `6` accepted sequences into `sequence_target_corpus.npz`. Compared with M613, accepted sequences increase from `1` to `6`, and accepted mean margin improvement rises to `0.056784` with max `0.093048`. Accepted diversity is still below objective-admission target: `6` accepted rows, `5` physical pairs, `4` left seeds, `2` surfaces, `2` variants, `3` targets, and max physical-pair dominance `0.333333`. All selected sequences are `K=5` `constant_delta` with `+0.08` steer, so action-mode narrowness remains a blocker.
+- decision: `expanded_sequence_target_miner_diagnostic_positive_admit_audit`
+- next: `m618-expanded-sequence-target-mining-audit`

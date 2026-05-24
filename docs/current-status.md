@@ -55,23 +55,31 @@ Latest active diagnostic BC checkpoint:
 runs/m568_scaled_l3_bc_seed5660/checkpoint.pt
 ```
 
-Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M616
+Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M617
 diagnostics. It is not the public-gate base and is not promoted as the current
 driver checkpoint.
 
 ## Current Blocker
 
 ```text
-m617-expanded-sequence-target-miner
+m618-expanded-sequence-target-mining-audit
 ```
 
-M617 should repeat diagnostic sequence target mining on the M616 expanded
-source table. It must keep M613 sequence families, trust regions, and
-margin/risk acceptance thresholds unchanged, and it must still make no
-training, PPO, promotion, or optimizer-admission claim.
+M618 should audit the M617 diagnostic-positive expanded sequence result.
+M617 improved repeatability from one accepted sequence to six, but accepted
+diversity and action-mode breadth are still below the pre-registered
+objective-admission target.
 
 ## Recent Evidence Line
 
+- M617 repeats the unchanged M613 sequence target miner on the M616 expanded
+  source table. It evaluates `10440` candidates across `30` source rows and
+  selects `6` accepted sequences with mean margin improvement `0.056784` and
+  max `0.093048`. This is a clear repeatability improvement over M613's one
+  accepted sequence, but it remains diagnostic-only: accepted diversity is `5`
+  physical pairs and `4` left seeds, and all selected sequences are `K=5`
+  `constant_delta` with `+0.08` steer. M618 should audit before any optimizer
+  or training design.
 - M616 implements and runs the expanded sequence-source miner. From `33` M609
   source rollout rows it writes `30` expanded rows and `3` rejected rows. The
   expanded set includes all `17` original M609 boundary rows plus `6` near
