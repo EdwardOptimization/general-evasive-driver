@@ -12259,3 +12259,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M681 audits M680 as `branch_specific_gap_partial_normal_sequence_retention_failure`. M680 validates detached-normal wrong-branch pressure because seed `6801` reaches wrong-history gap gates while first-step drift remains safe, but exact normal full-sequence mean fails. The next design should preserve M680 wrong-history pressure and add normal full-sequence mean/top-k retention pressure. PPO, promotion, actor-input changes, and normal gate weakening remain blocked.
 - decision: `branch_specific_audit_admit_normal_sequence_safe_design`
 - next: `m682-normal-sequence-safe-response-amplification-design`
+## 20260525T041500Z - m682-normal-sequence-safe-response-amplification-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m682-normal-sequence-safe-response-amplification-design.md`
+- result: M682 designs normal-sequence-safe branch-specific response amplification after M680 restored wrong-history gap but failed normal sequence retention. The design keeps frozen BC5660, fused-plus-next-hidden features, first-residual execution, branch-specific detached-normal wrong-history pressure, hard low-gap rows, alpha ladder, exact gates, no PPO, no promotion, and no actor-input changes. It adds full normal-sequence mean hinge and top-k/p95 hinge with initial thresholds `0.0020` mean and `0.0045` top-k.
+- decision: `normal_sequence_safe_response_amplification_design_admit_m683`
+- next: `m683-normal-sequence-safe-response-amplification-implementation`

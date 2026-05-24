@@ -1,0 +1,100 @@
+{
+  "id": "m683-normal-sequence-safe-response-amplification-implementation",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m671_response_amplification_shadow/shadow_corpus.npz",
+      "runs/m671_response_amplification_shadow/shadow_metadata.csv",
+      "docs/m682-normal-sequence-safe-response-amplification-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m682-normal-sequence-safe-response-amplification-design.json"
+    ],
+    "parent_objective": [
+      "implement normal-sequence-safe branch-specific response amplification"
+    ],
+    "derived_from": [
+      "m682-normal-sequence-safe-response-amplification-design"
+    ],
+    "blocked_by": [
+      "m682-normal-sequence-safe-response-amplification-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m683-normal-sequence-safe-response-amplification-implementation.md",
+  "public_gates": [
+    "normal sequence mean/top-k losses are active",
+    "branch-specific detached-normal gap losses remain active",
+    "alpha ladder exact metrics are reported",
+    "base actor checksum is unchanged",
+    "no base actor checkpoint is written",
+    "no PPO is used",
+    "no checkpoint is promoted"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not mutate base actor parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor observation inputs",
+    "do not weaken normal sequence retention gates",
+    "do not skip exact source-heldout metrics"
+  ],
+  "hypothesis": "Normal full-sequence mean/top-k retention pressure can preserve M680's branch-specific wrong-history gap while satisfying exact normal sequence retention and first-step safety gates.",
+  "success_criteria": [
+    "residual-head artifacts are written",
+    "at least one seed passes exact metrics at alpha > 0",
+    "normal_delta_l2_mean <= 0.0025 at selected alpha",
+    "normal_action_drift_first_l2_p95 <= 0.006 at selected alpha",
+    "source-heldout sequence gap mean >= 0.010 at selected alpha",
+    "actor checksum unchanged",
+    "no base actor checkpoint written",
+    "no PPO used",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "wrong-history gap is suppressed by normal sequence anchor",
+    "normal sequence retention still fails",
+    "source-heldout overfit appears",
+    "actor checksum changes",
+    "base actor checkpoint is written"
+  ],
+  "commands": [
+    {
+      "name": "normal_sequence_safe_probe",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.response_amplification_actor_coupling --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --shadow-corpus runs/m671_response_amplification_shadow/shadow_corpus.npz --metadata runs/m671_response_amplification_shadow/shadow_metadata.csv --view fused_plus_next_hidden --seeds 6830,6831,6832 --alphas 0.02,0.05,0.10,0.20,0.50,1.00 --target-gap 0.010 --epochs 240 --learning-rate 0.001 --weight-decay 0.0001 --hidden-dim 64 --normal-sequence-mean-coef 4.0 --normal-sequence-mean-threshold 0.002 --normal-sequence-topk-coef 2.0 --normal-sequence-topk-threshold 0.0045 --normal-sequence-topk-fraction 0.10 --normal-first-coef 5.0 --normal-first-topk-coef 2.0 --normal-first-threshold 0.004 --normal-first-topk-fraction 0.10 --wrong-target-coef 2.0 --wrong-first-gap-coef 1.0 --wrong-first-target-gap 0.006 --branch-specific-gap --wrong-sequence-gap-coef 1.0 --wrong-sequence-target-gap 0.012 --wrong-hard-coef 0.5 --wrong-hard-fraction 0.25 --device cpu --run-dir runs/m683_normal_sequence_safe_response_amplification"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m683_normal_sequence_safe_response_amplification/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m683_normal_sequence_safe_response_amplification/alpha_summary.csv",
+      "type": "metrics"
+    },
+    {
+      "path": "docs/m683-normal-sequence-safe-response-amplification-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m680_branch_specific_response_amplification/summary.json",
+    "docs/m682-normal-sequence-safe-response-amplification-design.md"
+  ],
+  "decision_rule": "M683 passes only if normal-sequence-safe branch-specific training yields at least one nonzero-alpha exact candidate satisfying normal sequence retention, first-action drift, and wrong-history gap gates without changing the base actor.",
+  "next_blocker": "m684-normal-sequence-safe-response-amplification-audit"
+}

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 690,
+        "completed": 691,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m681-branch-specific-response-amplification-audit",
+        "task_id": "m682-normal-sequence-safe-response-amplification-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m681-branch-specific-response-amplification-audit.md"
+        "command_log": "docs/m682-normal-sequence-safe-response-amplification-design.md"
     },
     "next_task": {
-        "id": "m682-normal-sequence-safe-response-amplification-design",
+        "id": "m683-normal-sequence-safe-response-amplification-implementation",
         "status": "pending",
-        "priority": 6770,
+        "priority": 6780,
         "kind": "infrastructure",
-        "hypothesis": "Adding normal full-sequence mean and top-k retention pressure can preserve M680's restored wrong-history gap while satisfying exact normal sequence retention and first-step safety gates.",
-        "command": "see experiments/manifests/m682-normal-sequence-safe-response-amplification-design.json",
+        "hypothesis": "Normal full-sequence mean/top-k retention pressure can preserve M680's branch-specific wrong-history gap while satisfying exact normal sequence retention and first-step safety gates.",
+        "command": "see experiments/manifests/m683-normal-sequence-safe-response-amplification-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design normal-sequence-safe exact objective; PPO promotion and actor-input changes remain blocked"
+        "notes": "Pending: implement normal-sequence-safe exact probe; PPO promotion and actor-input changes remain blocked"
     },
-    "updated_at_utc": "20260525T040000Z"
+    "updated_at_utc": "20260525T041500Z"
 }
