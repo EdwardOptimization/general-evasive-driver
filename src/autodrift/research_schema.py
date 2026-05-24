@@ -90,3 +90,12 @@ PROCESS_V3_SYNTHESIS_DECISIONS = {
     "stop",
     "promote_to_next_branch",
 }
+
+PROCESS_V3_SYNTHESIS_QUESTIONS = [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision",
+]

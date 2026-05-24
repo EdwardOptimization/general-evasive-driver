@@ -25,6 +25,7 @@ from autodrift.research_schema import (
     PROCESS_V3_SYNTHESIS_DECISIONS,
     PROCESS_V3_SYNTHESIS_ENFORCE_FROM_PRIORITY,
     PROCESS_V3_SYNTHESIS_FIELDS,
+    PROCESS_V3_SYNTHESIS_QUESTIONS,
     SCOREBOARD_FIELDS,
 )
 
@@ -109,6 +110,18 @@ def _has_lineage_value(value: Any) -> bool:
 def _path_exists(root: Path, path_text: str) -> bool:
     path = Path(path_text)
     return path.exists() if path.is_absolute() else (root / path).exists()
+
+
+def _required_artifact_paths(manifest: dict[str, Any]) -> set[str]:
+    paths: set[str] = set()
+    for artifact in manifest.get("required_artifacts", []):
+        if isinstance(artifact, dict):
+            path = artifact.get("path")
+        else:
+            path = artifact
+        if isinstance(path, str) and path.strip():
+            paths.add(path.strip())
+    return paths
 
 
 def normalize_next_task(value: Any) -> str | None:
@@ -336,6 +349,43 @@ def _validate_process_v3_manifest(task: ResearchTask, manifest: dict[str, Any]) 
                 f"{task.id}: workflow synthesis decision {decision!r} requires gate_tier='process'",
             )
         )
+    elif decision != "not_applicable":
+        synthesis_artifact = synthesis.get("synthesis_artifact")
+        if not _non_empty_text(synthesis_artifact):
+            issues.append(
+                ValidationIssue(
+                    "error",
+                    f"{task.id}: workflow_synthesis.synthesis_artifact must be non-empty text for synthesis milestones",
+                )
+            )
+        elif str(synthesis_artifact).strip() not in _required_artifact_paths(manifest):
+            issues.append(
+                ValidationIssue(
+                    "error",
+                    f"{task.id}: workflow_synthesis.synthesis_artifact must be listed in required_artifacts",
+                )
+            )
+
+        questions = synthesis.get("synthesis_questions")
+        if not _non_empty_list(questions) or not all(_non_empty_text(question) for question in questions):
+            issues.append(
+                ValidationIssue(
+                    "error",
+                    f"{task.id}: workflow_synthesis.synthesis_questions must be a non-empty list of non-empty text",
+                )
+            )
+        else:
+            question_set = {str(question).strip() for question in questions}
+            missing_questions = [
+                question for question in PROCESS_V3_SYNTHESIS_QUESTIONS if question not in question_set
+            ]
+            if missing_questions:
+                issues.append(
+                    ValidationIssue(
+                        "error",
+                        f"{task.id}: workflow_synthesis.synthesis_questions missing {missing_questions}",
+                    )
+                )
 
     return issues
 

@@ -322,6 +322,25 @@ research loops that do not declare branch stop, fallback, and synthesis rules.
 `continue`, `pivot`, `stop`, or `promote_to_next_branch` for explicit branch
 synthesis milestones.
 
+Explicit synthesis milestones must also declare:
+
+```text
+workflow_synthesis.synthesis_artifact
+workflow_synthesis.synthesis_questions
+```
+
+The synthesis artifact must be listed in `required_artifacts`. The required
+questions are:
+
+```text
+evidence_summary
+supported_claims
+falsified_claims
+failure_taxonomy_summary
+public_gate_overfit_risk
+next_branch_decision
+```
+
 The purpose is to force every branch to state:
 
 - what evidence axis it is advancing;

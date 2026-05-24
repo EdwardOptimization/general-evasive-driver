@@ -86,6 +86,25 @@ def _process_v3_manifest(task_id, artifact="docs/m690.md"):
     return manifest
 
 
+def _process_v3_synthesis_manifest(task_id, artifact="docs/m690-synthesis.md", decision="continue"):
+    manifest = _process_v3_manifest(task_id, artifact=artifact)
+    manifest["gate_tier"] = "process"
+    manifest["workflow_synthesis"]["synthesis_decision"] = decision
+    manifest["workflow_synthesis"]["evidence_increment"] = (
+        "synthesizes the branch evidence and selects whether to continue, pivot, stop, or promote"
+    )
+    manifest["workflow_synthesis"]["synthesis_artifact"] = artifact
+    manifest["workflow_synthesis"]["synthesis_questions"] = [
+        "evidence_summary",
+        "supported_claims",
+        "falsified_claims",
+        "failure_taxonomy_summary",
+        "public_gate_overfit_risk",
+        "next_branch_decision",
+    ]
+    return manifest
+
+
 def test_normalize_next_task_supports_string_and_object():
     assert normalize_next_task("m90") == "m90"
     assert normalize_next_task({"id": "m91"}) == "m91"
@@ -690,10 +709,7 @@ def test_process_v3_synthesis_decision_resets_branch_cadence(tmp_path):
         )
         manifest = _process_v3_manifest(task_id)
         if index == 10:
-            manifest["workflow_synthesis"]["synthesis_decision"] = "continue"
-            manifest["workflow_synthesis"]["evidence_increment"] = (
-                "synthesizes the first ten branch milestones and permits one more branch window"
-            )
+            manifest = _process_v3_synthesis_manifest(task_id)
         (manifest_dir / f"{task_id}.json").write_text(json.dumps(manifest), encoding="utf-8")
     _write_queue(queue, rows)
     status.write_text(
@@ -705,3 +721,74 @@ def test_process_v3_synthesis_decision_resets_branch_cadence(tmp_path):
     issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
 
     assert issues == []
+
+
+def test_process_v3_synthesis_decision_requires_artifact_and_questions(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    manifest_dir.mkdir()
+    _write_queue(
+        queue,
+        [
+            {
+                "id": "m690",
+                "priority": 6850,
+                "status": "pending",
+                "kind": "gate",
+                "hypothesis": "synthesize response amplification branch",
+                "command": "see manifest",
+                "success_artifact": "",
+                "notes": "",
+            }
+        ],
+    )
+    status.write_text(
+        json.dumps({"counts": {"planned": 0, "completed": 0, "failed": 0, "blocked": 0, "pending": 1, "running": 0}, "next_task": "m690"}),
+        encoding="utf-8",
+    )
+    manifest = _process_v3_manifest("m690")
+    manifest["workflow_synthesis"]["synthesis_decision"] = "continue"
+    (manifest_dir / "m690.json").write_text(json.dumps(manifest), encoding="utf-8")
+    _write_scoreboard(scoreboard, [])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert any("synthesis_artifact must be non-empty text" in issue.message for issue in issues)
+    assert any("synthesis_questions must be a non-empty list" in issue.message for issue in issues)
+
+
+def test_process_v3_synthesis_decision_requires_all_synthesis_questions(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    manifest_dir.mkdir()
+    _write_queue(
+        queue,
+        [
+            {
+                "id": "m690",
+                "priority": 6850,
+                "status": "pending",
+                "kind": "gate",
+                "hypothesis": "synthesize response amplification branch",
+                "command": "see manifest",
+                "success_artifact": "",
+                "notes": "",
+            }
+        ],
+    )
+    status.write_text(
+        json.dumps({"counts": {"planned": 0, "completed": 0, "failed": 0, "blocked": 0, "pending": 1, "running": 0}, "next_task": "m690"}),
+        encoding="utf-8",
+    )
+    manifest = _process_v3_synthesis_manifest("m690")
+    manifest["workflow_synthesis"]["synthesis_questions"] = ["evidence_summary"]
+    (manifest_dir / "m690.json").write_text(json.dumps(manifest), encoding="utf-8")
+    _write_scoreboard(scoreboard, [])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert any("synthesis_questions missing" in issue.message for issue in issues)
