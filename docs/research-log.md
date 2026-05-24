@@ -10711,3 +10711,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M509 designs the fallback proof path after M508. The next branch should start from M508 natural anchors, reconstruct the ego/history state, and minimally relocate only obstacle geometry in ego/body coordinates. Projected rows must be explicitly labelled `obstacle_boundary_projection`, report projection magnitudes, preserve natural ego state and recurrent hidden state, and must not be claimed as raw natural-scenario proof. Admission requires source diversity, low-margin/action-signal thresholds, and projection magnitude limits (`projection_l2_p50 <= 3.0`, `projection_l2_p90 <= 6.0`, primary projection share `>= 0.80`).
 - decision: `admit_m510_obstacle_boundary_projection_miner`
 - next: `m510-obstacle-boundary-projection-miner`
+## 20260524T021000Z - m510-obstacle-boundary-projection-miner
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m510_obstacle_boundary_projection_miner`
+- artifact: `docs/m510-obstacle-boundary-projection-miner.md`
+- result: M510 implements and runs bounded obstacle-boundary projection mining from M508 source pairs. It scores `5000` projected candidates and selects `102` source-capped rows. Projection magnitude is small (`projection_l2_p50 = 1.0`, p90 `1.118034`) and action signal is nonzero (`targeted_trajectory_mean = 0.089577`, p90 `0.125161`), but every scored and targeted projected row is classified `unavoidable`. The projected-label diversity gate fails (`obstacle_label_count = 1`, `single_label_share = 1.0`), so outcome-gate admission is rejected.
+- decision: `reject_outcome_gate_admission`
+- next: `m511-label-targeted-projection-design`
+## 20260524T022000Z - m511-label-targeted-projection-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m511-label-targeted-projection-design.md`
+- result: M511 designs a label-targeted projection miner. The next branch should enumerate body-frame obstacle distance, lateral offset, and half-width candidates, use projected scenario labels only as offline mining/gate metadata, and require at least two projected labels before outcome-gate admission. The actor still receives only P0 observations from the relocated simulator state. Projected rows must remain explicitly labelled projection proof, with projection magnitude and half-width change limits.
+- decision: `admit_m512_label_targeted_projection_miner`
+- next: `m512-label-targeted-projection-miner`

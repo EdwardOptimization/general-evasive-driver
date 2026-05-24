@@ -1,0 +1,93 @@
+{
+  "id": "m511-label-targeted-projection-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m510_obstacle_boundary_projection_miner/summary.json",
+      "runs/m510_obstacle_boundary_projection_miner/scored_pairs.csv",
+      "runs/m510_obstacle_boundary_projection_miner/targeted_pairs.csv"
+    ],
+    "parent_config": [
+      "configs/m502_natural_boundary_pressure_short_reveal_zero_relvel.json",
+      "configs/m502_natural_boundary_pressure_warmup_zero_relvel.json",
+      "experiments/manifests/m510-obstacle-boundary-projection-miner.json"
+    ],
+    "parent_objective": [
+      "label-targeted projection proof design"
+    ],
+    "derived_from": [
+      "m510-obstacle-boundary-projection-miner"
+    ],
+    "blocked_by": [
+      "m510-obstacle-boundary-projection-miner"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m511-label-targeted-projection-design.md",
+  "public_gates": [
+    "diagnose why M510 projected rows remain label-degenerate",
+    "define label-targeted projection families and metadata",
+    "define source-diversity and projection-magnitude admission gates",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not use hidden-hold variants as deployable proof",
+    "do not claim projected rows as raw natural proof",
+    "do not relax projected-label diversity after seeing M510"
+  ],
+  "hypothesis": "M510 fails because small local obstacle projections do not cross scenario-label boundaries, so a label-targeted projection miner is needed for a source-diverse projection-proof surface.",
+  "success_criteria": [
+    "classify the M510 failure as label degeneracy rather than action-signal absence",
+    "define target projected labels and candidate geometry grid",
+    "define projection magnitude and half-width change limits",
+    "state that projected labels are offline mining metadata only",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "design relaxes M510 label diversity after seeing the result",
+    "design uses projected label as actor input",
+    "design changes ego state or hidden dynamics",
+    "actor contract changes",
+    "training or checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "label_targeted_projection_design",
+      "command": "Use M510 summary and artifacts to design label-targeted projection mining before another outcome gate."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m511-label-targeted-projection-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m510-obstacle-boundary-projection-miner.md",
+    "runs/m510_obstacle_boundary_projection_miner/summary.json"
+  ],
+  "decision_rule": "M511 should admit M512 only if the next path keeps projected labels as offline metadata and requires projected-label diversity before outcome-gate admission.",
+  "next_blocker": "M512 should implement label-targeted projection mining before any outcome gate.",
+  "results": {
+    "artifact": "docs/m511-label-targeted-projection-design.md",
+    "selected_next_path": "label_targeted_obstacle_boundary_projection_mining",
+    "next_task": "m512-label-targeted-projection-miner"
+  }
+}

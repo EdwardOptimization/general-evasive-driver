@@ -47,12 +47,12 @@ runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
 
 Status: M400 promotes M399 alpha `0.05` as the current public-gate base after
 six public replay surfaces and behavior seeds pass. This remains the latest
-public-gate base; M487-M509 did not train or promote a checkpoint.
+public-gate base; M487-M511 did not train or promote a checkpoint.
 
 Current blocker:
 
 ```text
-m510-obstacle-boundary-projection-miner
+m512-label-targeted-projection-miner
 ```
 
 Recent progress: M486-M492 is now closed as an artificial tail-forcing
@@ -157,8 +157,18 @@ M508 natural anchors. The branch must preserve natural ego/history state,
 relocate only obstacle geometry, report projection magnitudes, and label the
 surface as projection proof rather than raw natural-scenario proof.
 
-Next step: M510 should implement and run the bounded obstacle-boundary
-projection miner. It should not train or promote a checkpoint.
+M510 implements that projection miner. Projection magnitude is small
+(`projection_l2_p50 = 1.0`, p90 `1.118034`) and wrong-history action signal is
+still present (`targeted_trajectory_mean = 0.089577`), but all selected rows are
+classified `unavoidable`, so projected-label diversity fails.
+
+M511 designs the next branch: label-targeted projection mining. The miner may
+use projected scenario labels as offline mining/gate metadata, but projected
+labels remain forbidden actor inputs. Admission should require at least two
+projected labels plus projection magnitude and half-width change limits.
+
+Next step: M512 should implement and run label-targeted obstacle-boundary
+projection mining. It should not train or promote a checkpoint.
 
 ## Current Evidence
 

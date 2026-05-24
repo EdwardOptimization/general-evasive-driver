@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 518,
+        "completed": 520,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m509-obstacle-boundary-projection-design",
+        "task_id": "m511-label-targeted-projection-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m509-obstacle-boundary-projection-design.md"
+        "command_log": "docs/m511-label-targeted-projection-design.md"
     },
     "next_task": {
-        "id": "m510-obstacle-boundary-projection-miner",
+        "id": "m512-label-targeted-projection-miner",
         "status": "pending",
-        "priority": 5050,
+        "priority": 5070,
         "kind": "gate",
-        "hypothesis": "Bounded obstacle projection around natural M508 anchors can create a source-diverse terminal-boundary wrong-history-sensitive projection surface while preserving natural ego/history state.",
-        "command": "see experiments/manifests/m510-obstacle-boundary-projection-miner.json",
+        "hypothesis": "Targeting projected scenario labels during offline mining can create a source-diverse projection-proof surface with at least two projected labels while preserving natural ego/history state.",
+        "command": "see experiments/manifests/m512-label-targeted-projection-miner.json",
         "success_artifact": "",
-        "notes": "Pending: implement projection miner and decide whether a labelled projection proof outcome gate is admissible"
+        "notes": "Pending: implement label-targeted projection miner and decide whether labelled projection proof outcome gate is admissible"
     },
-    "updated_at_utc": "20260524T020000Z"
+    "updated_at_utc": "20260524T022000Z"
 }
