@@ -1,0 +1,171 @@
+{
+  "id": "m725-source-balanced-temporal-wave-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m724-fresh-source-balanced-temporal-wave-design.md",
+      "docs/m723-temporal-boundary-sparse-audit.md",
+      "runs/m722_temporal_action_boundary_outcome_miner/summary.json",
+      "runs/m719_temporal_action_response_mismatch/temporal_critical_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m724-fresh-source-balanced-temporal-wave-design.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_objective": [
+      "implement a no-training source-balanced temporal command-response wave"
+    ],
+    "derived_from": [
+      "m724-fresh-source-balanced-temporal-wave-design"
+    ],
+    "blocked_by": [
+      "m724-fresh-source-balanced-temporal-wave-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m725-source-balanced-temporal-wave-implementation.md",
+  "public_gates": [
+    "runner writes pair proposals before selected-pair temporal rollouts",
+    "selected pair proposals obey per-seed and per-fault-family caps",
+    "summary reports source-balance metrics and temporal action/outcome metrics separately",
+    "sentinel rows and sentinel false-positive rate are written",
+    "actor input contract remains unchanged",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not simply raise max_pairs without quotas",
+    "do not treat action-only rows as outcome proof",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels or oracle values to actor observations"
+  ],
+  "workflow_synthesis": {
+    "branch": "fresh_source_balanced_temporal_wave",
+    "evidence_axis": "G_source_coverage: implement source-balanced temporal command-response data generation",
+    "evidence_increment": "runs a no-training source-balanced temporal wave that avoids M719 early-seed saturation",
+    "claim_scope": "diagnostic data wave only; source export objective design PPO and promotion remain blocked unless audited later",
+    "stop_condition": [
+      "stop if source-balance quotas fail",
+      "stop if sentinel false positives exceed threshold",
+      "stop if temporal action rows remain too sparse",
+      "stop if actor checksum or input contract changes"
+    ],
+    "fallback_plan": [
+      "if source-balanced temporal action rows are diverse, audit before boundary mining",
+      "if source-balanced temporal outcome rows are diverse, audit before source export or objective design",
+      "if temporal rows remain sparse, design sequence-level interventions",
+      "if source balance is blocked by current model coverage, design a dynamics-fidelity branch"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M724 admits no-training source-balanced temporal wave implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A no-training source-balanced temporal wave can remove M719/M722 source concentration and produce source-diverse temporal action rows for the next outcome-boundary audit.",
+  "success_criteria": [
+    "M725 implements source-balanced pair proposal and selection",
+    "M725 writes registered run artifacts",
+    "M725 reports source-balance and sentinel metrics",
+    "M725 keeps action and outcome evidence separate",
+    "actor checksum remains unchanged",
+    "no training PPO actor update or promotion occurs"
+  ],
+  "failure_criteria": [
+    "runner selects pairs in seed order until max_pairs is reached",
+    "runner omits sentinel rows",
+    "runner combines action-only and outcome-positive claims",
+    "runner changes actor input contract",
+    "runner starts optimizer training PPO or checkpoint promotion"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "implement src/autodrift/source_balanced_temporal_wave.py and focused tests"
+    },
+    {
+      "name": "registered_run",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_balanced_temporal_wave --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --config configs/extreme_fault_coverage_v2_scenarios.json --seed-start 72000 --seed-count 512 --selected-pair-count 4096 --per-seed-pair-cap 8 --device cpu --run-dir runs/m725_source_balanced_temporal_wave"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/source_balanced_temporal_wave.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_source_balanced_temporal_wave.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m725_source_balanced_temporal_wave/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m725_source_balanced_temporal_wave/pair_proposals.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m725_source_balanced_temporal_wave/selected_pair_proposals.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m725_source_balanced_temporal_wave/source_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m725_source_balanced_temporal_wave/intervention_rollouts.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m725_source_balanced_temporal_wave/temporal_critical_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m725_source_balanced_temporal_wave/sentinel_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m725_source_balanced_temporal_wave/rejected_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m725_source_balanced_temporal_wave/quota_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m725_source_balanced_temporal_wave/seed_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m725_source_balanced_temporal_wave/fault_family_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m725_source_balanced_temporal_wave/variant_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m725-source-balanced-temporal-wave-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m724-fresh-source-balanced-temporal-wave-design.md",
+    "runs/m722_temporal_action_boundary_outcome_miner/summary.json"
+  ],
+  "decision_rule": "M725 may only classify the no-training source-balanced temporal wave. It must not admit source export, actor update, PPO, or promotion until an audit reviews source balance and temporal evidence.",
+  "next_blocker": "m726-source-balanced-temporal-wave-audit"
+}

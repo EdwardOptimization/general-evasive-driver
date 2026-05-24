@@ -12547,3 +12547,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M723 audits M722 as `scenario_sampling_failure` plus `metric_artifact`. M722 cleanly preserves actor/input constraints and sentinel false positives are zero, but the evidence is still action-only: `921` temporal action-critical rows and `0` temporal outcome-critical rows. The audit identifies M719/M722 source concentration as the first-order blocker: the selected M722 source rows came from only `4` seeds, with seed `72000` contributing `50/128` rows. Source export, objective design, PPO, and promotion remain blocked.
 - decision: `promote_to_fresh_source_balanced_temporal_wave`
 - next: `m724-fresh-source-balanced-temporal-wave-design`
+
+## 20260524T230000Z - m724-fresh-source-balanced-temporal-wave-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m724-fresh-source-balanced-temporal-wave-design.md`
+- result: M724 designs a no-training source-balanced temporal wave to fix the M719/M722 early-seed saturation blocker. The design separates pair proposal generation, quota-based source-balanced selection, temporal intervention rollout, critical-row classification, and sentinel allocation. It requires per-seed, per-fault-family, source-role, step-bucket, and heldout-split quotas before temporal rollouts; full-wave targets include `selected_pair_count >= 3000`, `unique_selected_seeds >= 128`, `unique_fault_family_pairs >= 24`, `max_seed_dominance <= 0.02`, and sentinel false-positive rate `<= 0.05`. Action and outcome evidence remain separate, and source export/PPO/promotion remain blocked.
+- decision: `fresh_source_balanced_temporal_wave_design_admit_m725`
+- next: `m725-source-balanced-temporal-wave-implementation`

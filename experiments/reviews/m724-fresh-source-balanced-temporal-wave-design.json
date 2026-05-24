@@ -1,0 +1,85 @@
+{
+  "decision_reason": "no structured gates defined",
+  "failure_criteria": [
+    "design only increases max_pairs without source balancing",
+    "design treats action-only rows as outcome proof",
+    "design omits sentinel allocation",
+    "design admits PPO or promotion",
+    "design changes actor input contract"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not treat M722 action-only rows as source-positive",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels or oracle values to actor observations",
+    "do not simply raise max_pairs without source balancing"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T204145Z",
+  "hypothesis": "A fresh no-training temporal command-response wave with source-balanced pair selection can remove the M719/M722 seed-concentration bottleneck and produce a better basis for outcome boundary mining.",
+  "lineage": {
+    "blocked_by": [
+      "m723-temporal-boundary-sparse-audit"
+    ],
+    "derived_from": [
+      "m723-temporal-boundary-sparse-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m723-temporal-boundary-sparse-audit.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m723-temporal-boundary-sparse-audit.md",
+      "runs/m722_temporal_action_boundary_outcome_miner/summary.json",
+      "runs/m722_temporal_action_boundary_outcome_miner/source_rows.csv",
+      "runs/m719_temporal_action_response_mismatch/temporal_critical_rows.csv",
+      "runs/m719_temporal_action_response_mismatch/intervention_rollouts.csv"
+    ],
+    "parent_objective": [
+      "design fresh source-balanced temporal command-response wave after M722 source concentration audit"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m724-fresh-source-balanced-temporal-wave-design",
+  "next_blocker": "m725-source-balanced-temporal-wave-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "manual_review",
+  "public_gates": [
+    "design fixes M719 max_pairs early-seed saturation with source-balanced selection",
+    "design includes per-seed per-fault-family and source-role quotas",
+    "design preserves temporal action and outcome gates separately",
+    "design carries sentinel allocation into the wave rather than adding sentinels after the fact",
+    "design keeps actor input contract unchanged",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "not_applicable_infrastructure_task",
+    "clearance_margin_mean": "",
+    "decision": "manual_review",
+    "milestone": "m724-fresh-source-balanced-temporal-wave-design",
+    "reason": "no structured gates defined",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M724 defines source-balanced selection axes and quotas",
+    "M724 defines required M725 implementation artifacts",
+    "M724 keeps temporal action and outcome gates separate",
+    "M724 defines sentinel allocation and diversity thresholds",
+    "no training PPO actor update or promotion occurs"
+  ],
+  "type": "infrastructure"
+}
