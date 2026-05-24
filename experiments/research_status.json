@@ -1,30 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 705,
+        "completed": 706,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m696-trajectory-terminal-boundary-source-miner-audit",
+        "task_id": "m697-fresh-trajectory-boundary-sampling-design",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m696-trajectory-terminal-boundary-source-miner-audit.md",
-        "synthesis_decision": "continue",
-        "branch": "trajectory_terminal_boundary_source_mining",
-        "next_sampling": "fresh broad scenario sampling"
+        "command_log": "docs/m697-fresh-trajectory-boundary-sampling-design.md"
     },
     "next_task": {
-        "id": "m697-fresh-trajectory-boundary-sampling-design",
+        "id": "m698-fresh-trajectory-boundary-sampler-implementation",
         "status": "pending",
-        "priority": 6920,
+        "priority": 6930,
         "kind": "infrastructure",
-        "hypothesis": "Fresh broad scenario sampling can find terminal-margin-sensitive rows that the M692 replay surface missed.",
-        "command": "see experiments/manifests/m697-fresh-trajectory-boundary-sampling-design.json",
+        "hypothesis": "Fresh broad scenario sampling can find trajectory-sensitive terminal-boundary rows missed by the inherited M692 surface.",
+        "command": "see experiments/manifests/m698-fresh-trajectory-boundary-sampler-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design fresh sampler that is not limited to M692 replay rows"
+        "notes": "Pending: sample fresh scenarios for terminal-boundary rows outside the M692 replay surface"
     },
-    "updated_at_utc": "20260524T164047Z"
+    "updated_at_utc": "20260524T164310Z"
 }

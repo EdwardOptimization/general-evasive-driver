@@ -106,5 +106,5 @@
     "runs/m695_trajectory_terminal_boundary_source_miner/summary.json"
   ],
   "decision_rule": "M697 is design-only and passes if it defines fresh terminal-boundary sampling with actor update PPO and promotion blocked.",
-  "next_blocker": "m697-fresh-trajectory-boundary-sampling-design"
+  "next_blocker": "m698-fresh-trajectory-boundary-sampler-implementation"
 }

@@ -1,0 +1,124 @@
+{
+  "id": "m698-fresh-trajectory-boundary-sampler-implementation",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m697-fresh-trajectory-boundary-sampling-design.md",
+      "runs/m695_trajectory_terminal_boundary_source_miner/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m697-fresh-trajectory-boundary-sampling-design.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_objective": [
+      "implement fresh broad trajectory-boundary sampler"
+    ],
+    "derived_from": [
+      "m697-fresh-trajectory-boundary-sampling-design"
+    ],
+    "blocked_by": [
+      "m697-fresh-trajectory-boundary-sampling-design"
+    ],
+    "supersedes": [
+      "m695 M692-row-only source miner"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m698-fresh-trajectory-boundary-sampler-implementation.md",
+  "public_gates": [
+    "sampler uses fresh scenario seeds",
+    "sampler writes episode snapshot prepass perturbation accepted rejected and summary artifacts",
+    "normal-failed rows are rejected from action-critical acceptance",
+    "terminal-margin and risk sensitivity metrics are reported",
+    "source diversity metrics are reported",
+    "actor checksum is unchanged",
+    "no objective actor update PPO or promotion occurs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use M692 rows as the only source",
+    "do not accept already normal-failed rows as action-critical",
+    "do not change actor inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "trajectory_terminal_boundary_source_mining",
+    "evidence_axis": "G_source: fresh terminal-boundary trajectory sensitivity",
+    "evidence_increment": "implements fresh scenario sampling and classifies whether terminal-boundary rows exist outside M692",
+    "claim_scope": "fresh source-mining result only, not objective training, PPO, or promotion",
+    "stop_condition": [
+      "stop before objective design unless result_class is fresh_source_positive",
+      "stop and audit if accepted_rows is zero",
+      "stop if all sensitive rows are already normal-failed"
+    ],
+    "fallback_plan": [
+      "if fresh_surface_empty, audit windowing and perturbation scale before another miner",
+      "if normal_failed_only, pivot to base driver capability improvement",
+      "if history_insensitive, split base capability from self-ID mechanism evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "after M698 result if source is not fresh_source_positive",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Fresh broad scenario sampling can find trajectory-sensitive terminal-boundary rows missed by the inherited M692 surface.",
+  "success_criteria": [
+    "summary.json is written",
+    "episode_summary.csv is written",
+    "snapshot_candidates.csv is written",
+    "prepass_rows.csv is written",
+    "perturbation_rollouts.csv is written",
+    "accepted_rows.csv is written",
+    "rejected_rows.csv is written",
+    "terminal-margin and risk sensitivity metrics are finite",
+    "source diversity metrics are finite",
+    "actor checksum unchanged",
+    "no objective actor update PPO or promotion"
+  ],
+  "failure_criteria": [
+    "implementation depends only on M692 rows",
+    "implementation omits normal-failed rejection",
+    "implementation omits terminal-margin or risk sensitivity",
+    "implementation hides skipped/rejected rows",
+    "implementation admits objective design without fresh_source_positive"
+  ],
+  "commands": [
+    {
+      "name": "sample",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.fresh_trajectory_boundary_sampler --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --surface-config fresh=configs/ppo_m541_matched_l3_variance_4096.json --surface-config ood=configs/eval_m574_moderate_ood_l3.json --seed-start 30000 --seed-count 512 --snapshot-stride 3 --max-snapshots-per-episode 8 --max-continuation-steps 40 --device cpu --run-dir runs/m698_fresh_trajectory_boundary_sampler"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m698_fresh_trajectory_boundary_sampler/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m698_fresh_trajectory_boundary_sampler/accepted_rows.csv",
+      "type": "metrics"
+    },
+    {
+      "path": "docs/m698-fresh-trajectory-boundary-sampler-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m697-fresh-trajectory-boundary-sampling-design.md",
+    "runs/m695_trajectory_terminal_boundary_source_miner/summary.json"
+  ],
+  "decision_rule": "M698 passes as implementation if it writes complete fresh-sampling artifacts without actor mutation; only fresh_source_positive can admit objective design.",
+  "next_blocker": "m699-fresh-trajectory-boundary-sampler-audit"
+}
