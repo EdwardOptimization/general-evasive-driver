@@ -12659,3 +12659,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M735 audits M734 as a clean diagnostic positive, not a trained policy improvement. M734 has `73` sequence outcome rows across `28` seeds and `10` fault-family pairs; `3` are sentinel false positives with healthy margins and `70` remain non-sentinel outcome rows after filtering. Outcome rows are concentrated in `zero_command_obs` and horizons `4,6,8`, supporting the hypothesis that persistent command-history corruption exposes closed-loop outcome dependence.
 - decision: `promote_to_sequence_outcome_corpus_export`
 - next: `m736-sequence-outcome-corpus-export-design`
+
+## 20260525T012000Z - m736-sequence-outcome-corpus-export-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m736-sequence-outcome-corpus-export-design.md`
+- result: M736 designs a deterministic no-training corpus export for M734's `70` non-sentinel sequence-outcome rows. The design requires matched normal rows, separates hard-negative action-only rows from proof positives, writes sentinel and balance artifacts, and blocks objective training, PPO, checkpoint loading, and promotion. It also records that the user's extreme-fault coverage concern should become a later dedicated distribution branch after the M737 export and audit.
+- decision: `sequence_outcome_corpus_export_design_admit_m737`
+- next: `m737-sequence-outcome-corpus-export-implementation`
