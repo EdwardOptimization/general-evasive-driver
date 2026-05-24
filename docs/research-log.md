@@ -11629,3 +11629,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M611 audits the M610 zero-accepted result. Since M609 selected near-boundary rows and M610 used the same `80`-step horizon, the blocker is not primarily source distance or horizon length. M610 still had no accepted first-action target; non-collision trust-region candidates do not reach `0.015` margin improvement and the pre-registered `0.02` threshold remains unmet. The supported diagnosis is first-action locality / myopia: a one-step override followed by the unchanged BC5660 policy is too weak to create robust margin gains.
 - decision: `boundary_target_mining_audit_admit_sequence_target_design`
 - next: `m612-sequence-target-mining-design`
+## 20260524T140000Z - m612-sequence-target-mining-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m612-sequence-target-mining-design.md`
+- result: M612 designs diagnostic short-horizon sequence target mining after the M611 first-action locality blocker. The next miner should use M609 boundary rows, structured `K in {3, 5}` action-sequence candidate families, per-step action L2 `<= 0.10`, sequence mean L2 `<= 0.08`, sequence max L2 `<= 0.10`, and unchanged margin/risk acceptance thresholds. It must write sequence candidates, accepted sequences, unaccepted rows, summary, and optional NPZ artifacts while recording `diagnostic_only=true` and making no optimizer, PPO, or promotion claim.
+- decision: `sequence_target_mining_design_admit_m613`
+- next: `m613-sequence-target-miner-implementation`

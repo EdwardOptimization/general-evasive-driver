@@ -1,0 +1,92 @@
+{
+  "id": "m613-sequence-target-miner-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m609_boundary_conditioned_source_miner/boundary_source_rows.csv",
+      "docs/m612-sequence-target-mining-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m612-sequence-target-mining-design.json",
+      "docs/m611-boundary-target-mining-audit.md"
+    ],
+    "parent_objective": [
+      "implement diagnostic short-horizon sequence target miner"
+    ],
+    "derived_from": [
+      "m612-sequence-target-mining-design"
+    ],
+    "blocked_by": [
+      "m612-sequence-target-mining-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m613-sequence-target-miner-implementation.md",
+  "public_gates": [
+    "write sequence_candidates.csv",
+    "write accepted_sequences.csv",
+    "write unaccepted_rows.csv",
+    "write summary with diagnostic_only true",
+    "write sequence_target_corpus.npz when accepted sequences exist",
+    "prove no model weights are changed"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower M610 thresholds retroactively",
+    "do not emit privileged actor inputs",
+    "do not hide unaccepted rows"
+  ],
+  "hypothesis": "A bounded structured action-sequence prefix can improve margin or risk on M609 boundary rows where single first-action overrides failed.",
+  "success_criteria": [
+    "sequence_candidates.csv is written",
+    "accepted_sequences.csv is written",
+    "unaccepted_rows.csv is written",
+    "summary records diagnostic_only true actor_parameters_changed false ppo_used false promoted false optimizer_admission false",
+    "research validation and focused tests pass"
+  ],
+  "failure_criteria": [
+    "miner trains any model",
+    "miner runs PPO",
+    "miner promotes a checkpoint",
+    "miner omits rejected/unaccepted rows",
+    "miner writes privileged actor inputs",
+    "miner claims optimizer admission"
+  ],
+  "commands": [
+    {
+      "name": "smoke",
+      "command": "Implement and run diagnostic sequence target miner on M609 boundary rows."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m613_sequence_target_miner/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "docs/m613-sequence-target-miner-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m612-sequence-target-mining-design.md",
+    "runs/m609_boundary_conditioned_source_miner/boundary_source_rows.csv"
+  ],
+  "decision_rule": "M613 passes as infrastructure if it writes diagnostic sequence-target artifacts without training or promotion.",
+  "next_blocker": "m614-sequence-target-mining-audit"
+}

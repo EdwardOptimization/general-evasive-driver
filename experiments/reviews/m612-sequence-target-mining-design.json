@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M612 designs diagnostic K=3/5 structured action-sequence target mining with unchanged margin/risk thresholds and keeps PPO training and promotion blocked",
+  "failure_criteria": [
+    "design starts training",
+    "design runs PPO",
+    "design promotes a checkpoint",
+    "design drops unaccepted row logging",
+    "design creates actor inputs from privileged labels"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train in design milestone",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not reinterpret M610 first-action failures as accepted",
+    "do not add privileged actor inputs"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T090904Z",
+  "hypothesis": "M610 failed because single first-action overrides are too myopic; a short bounded action-sequence target miner may discover simulator-grounded maneuver targets on the same near-boundary rows.",
+  "lineage": {
+    "blocked_by": [
+      "m611-boundary-target-mining-audit"
+    ],
+    "derived_from": [
+      "m611-boundary-target-mining-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m611-boundary-target-mining-audit.json",
+      "docs/m610-boundary-conditioned-grounded-target-miner.md"
+    ],
+    "parent_dataset": [
+      "runs/m609_boundary_conditioned_source_miner/boundary_source_rows.csv",
+      "runs/m610_boundary_conditioned_grounded_target_miner/summary.json",
+      "docs/m611-boundary-target-mining-audit.md"
+    ],
+    "parent_objective": [
+      "design short-horizon sequence target mining after first-action locality blocker"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m612-sequence-target-mining-design",
+  "next_blocker": "m613-sequence-target-miner-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "sequence_target_mining_design_admit_m613",
+  "public_gates": [
+    "define sequence candidate families",
+    "define sequence trust region",
+    "define sequence acceptance thresholds",
+    "define diagnostic-only target corpus fields",
+    "keep actor training and PPO blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m612-sequence-target-mining-design.md",
+    "clearance_margin_mean": "",
+    "decision": "sequence_target_mining_design_admit_m613",
+    "milestone": "m612-sequence-target-mining-design",
+    "reason": "M612 designs diagnostic K=3/5 structured action-sequence target mining with unchanged margin/risk thresholds and keeps PPO training and promotion blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design specifies sequence length and candidate families",
+    "design specifies per-step and sequence trust regions",
+    "design specifies no-collision margin/risk acceptance criteria",
+    "design specifies artifacts for accepted and unaccepted sequence candidates",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

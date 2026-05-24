@@ -62,15 +62,20 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m612-sequence-target-mining-design
+m613-sequence-target-miner-implementation
 ```
 
-M612 should design short-horizon action-sequence target mining. M611 classified
-M610 as a first-action locality / myopia failure: near-boundary rows and an
-`80`-step horizon still produced zero accepted one-step targets.
+M613 should implement and run diagnostic short-horizon sequence target mining
+on M609 boundary rows. It must write sequence candidates, accepted sequences,
+unaccepted rows, summary, and optional NPZ artifacts without training, PPO,
+optimizer admission, or promotion.
 
 ## Recent Evidence Line
 
+- M612 designs the sequence target miner: structured `K in {3, 5}` action
+  prefixes, per-step action L2 `<= 0.10`, sequence mean L2 `<= 0.08`, sequence
+  max L2 `<= 0.10`, unchanged `0.02` margin / `0.05` risk acceptance
+  thresholds, and diagnostic-only artifacts.
 - M611 audits M610 and classifies the blocker as first-action locality / myopia,
   not source-boundary distance or horizon length. A single first-action
   override followed by unchanged BC5660 is too weak; M612 should design

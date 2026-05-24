@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 620,
+        "completed": 621,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m611-boundary-target-mining-audit",
+        "task_id": "m612-sequence-target-mining-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m611-boundary-target-mining-audit.md"
+        "command_log": "docs/m612-sequence-target-mining-design.md"
     },
     "next_task": {
-        "id": "m612-sequence-target-mining-design",
+        "id": "m613-sequence-target-miner-implementation",
         "status": "pending",
-        "priority": 6070,
+        "priority": 6080,
         "kind": "infrastructure",
-        "hypothesis": "M610 failed because single first-action overrides are too myopic; a short bounded action-sequence target miner may discover simulator-grounded maneuver targets on the same near-boundary rows.",
-        "command": "see experiments/manifests/m612-sequence-target-mining-design.json",
+        "hypothesis": "A bounded structured action-sequence prefix can improve margin or risk on M609 boundary rows where single first-action overrides failed.",
+        "command": "see experiments/manifests/m613-sequence-target-miner-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design short-horizon sequence target mining; no implementation, training, PPO, or promotion"
+        "notes": "Pending: implement diagnostic sequence target miner on M609 boundary rows; no training, PPO, promotion, or optimizer admission"
     },
-    "updated_at_utc": "20260524T135000Z"
+    "updated_at_utc": "20260524T140000Z"
 }
