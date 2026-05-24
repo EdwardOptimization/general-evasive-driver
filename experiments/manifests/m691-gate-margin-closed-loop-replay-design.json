@@ -1,0 +1,109 @@
+{
+  "id": "m691-gate-margin-closed-loop-replay-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m689_gate_margin_response_amplification/summary.json",
+      "runs/m689_gate_margin_response_amplification/alpha_summary.csv",
+      "runs/m689_gate_margin_response_amplification/seed_view_summary.csv",
+      "docs/m690-gate-margin-response-amplification-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m690-gate-margin-response-amplification-audit.json"
+    ],
+    "parent_objective": [
+      "design closed-loop replay admission for M689 residual heads"
+    ],
+    "derived_from": [
+      "m690-gate-margin-response-amplification-audit"
+    ],
+    "blocked_by": [
+      "m690-gate-margin-response-amplification-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m691-gate-margin-closed-loop-replay-design.md",
+  "public_gates": [
+    "design stays no-training and no-PPO",
+    "design compares base actor and M689 residual-corrected action",
+    "design includes normal-history retention gates",
+    "design includes wrong-history or boundary-risk utility gates",
+    "design uses source-heldout or source-diverse rows",
+    "design blocks promotion and actor update until replay gates pass",
+    "actor input contract remains P0 human-view no-wheel"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run training in this design milestone",
+    "do not promote M689 residual heads as driver checkpoints",
+    "do not admit PPO",
+    "do not change actor observation inputs",
+    "do not use oracle labels or hidden physical parameters as actor inputs",
+    "do not treat exact output gates as closed-loop evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "response_amplification_actor_coupling",
+    "evidence_axis": "G_rollout: residual-head action correction must show trajectory-level utility before actor update",
+    "evidence_increment": "designs a closed-loop replay admission gate for the positive M689 exact diagnostic residual heads",
+    "claim_scope": "design-only replay admission path, not closed-loop result or promotion",
+    "stop_condition": [
+      "stop this branch if no closed-loop or replay admission gate can be defined without weakening the exact output gates",
+      "stop before actor update or PPO unless replay admission proves normal retention and wrong-history or boundary-risk utility",
+      "stop after the branch cadence unless an explicit synthesis artifact selects continue or pivot"
+    ],
+    "fallback_plan": [
+      "if replay admission cannot be constructed from current artifacts, design a smaller offline trajectory-consistency audit",
+      "if residual correction fails normal retention, return to first-action trust-region residual design",
+      "if residual correction has no trajectory utility, pivot back to source-diverse terminal-boundary target mining"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "before any actor-update, PPO, or promotion milestone after the replay admission result",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A closed-loop replay admission design can test whether M689's exact residual-head output separation has trajectory-level utility without changing the base actor or admitting PPO.",
+  "success_criteria": [
+    "closed-loop replay variants are specified",
+    "normal-history retention gates are specified",
+    "wrong-history or boundary-risk utility gates are specified",
+    "source-heldout or source-diverse evaluation is specified",
+    "implementation milestone is pre-registered",
+    "PPO, actor update, and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "design treats M689 exact output gates as closed-loop evidence",
+    "design admits PPO or actor update",
+    "design omits normal-history retention gates",
+    "design omits wrong-history or boundary-risk utility gates",
+    "design changes actor observation inputs"
+  ],
+  "commands": [
+    {
+      "name": "write_design",
+      "command": "write docs/m691-gate-margin-closed-loop-replay-design.md; no training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m691-gate-margin-closed-loop-replay-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m689_gate_margin_response_amplification/summary.json",
+    "docs/m690-gate-margin-response-amplification-audit.md"
+  ],
+  "decision_rule": "M691 passes if it defines a no-training replay admission gate that can decide whether M689 residual corrections deserve any later actor-update branch while preserving P0 inputs and blocking PPO/promotion.",
+  "next_blocker": "m692-gate-margin-closed-loop-replay-implementation"
+}

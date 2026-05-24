@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M690 classifies M689 as a diagnostic exact-gate pass with gate-factorization caveat and admits only a no-training closed-loop replay design before any actor update PPO or promotion",
+  "failure_criteria": [
+    "audit overclaims M689 as a deployable driver result",
+    "audit ignores normal gate not closing",
+    "audit promotes a checkpoint",
+    "audit admits PPO without a design milestone"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun training",
+    "do not promote residual head as a driver checkpoint",
+    "do not admit PPO without a design milestone",
+    "do not hide gate diagnostic caveat",
+    "do not change actor input contract"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T161535Z",
+  "hypothesis": "M689 is a valid exact-gated positive diagnostic result, but gate diagnostics show it should be audited before any closed-loop or actor-update branch.",
+  "lineage": {
+    "blocked_by": [
+      "m689-gate-margin-response-amplification-implementation"
+    ],
+    "derived_from": [
+      "m689-gate-margin-response-amplification-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m689-gate-margin-response-amplification-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m689_gate_margin_response_amplification/summary.json",
+      "runs/m689_gate_margin_response_amplification/alpha_summary.csv",
+      "runs/m689_gate_margin_response_amplification/seed_view_summary.csv",
+      "docs/m689-gate-margin-response-amplification-implementation.md"
+    ],
+    "parent_objective": [
+      "audit gate-margin response-amplification exact gate pass"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m690-gate-margin-response-amplification-audit",
+  "next_blocker": "m691-gate-margin-closed-loop-replay-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "gate_margin_response_amplification_audit_admit_closed_loop_replay_design",
+  "public_gates": [
+    "M689 implementation cleanliness is checked",
+    "exact gate pass is quantified",
+    "normal retention and wrong gap are quantified",
+    "gate diagnostic caveat is recorded",
+    "PPO and promotion remain blocked",
+    "next step is selected without overclaiming deployment"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m690-gate-margin-response-amplification-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "gate_margin_response_amplification_audit_admit_closed_loop_replay_design",
+    "milestone": "m690-gate-margin-response-amplification-audit",
+    "reason": "M690 classifies M689 as a diagnostic exact-gate pass with gate-factorization caveat and admits only a no-training closed-loop replay design before any actor update PPO or promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M689 exact pass is documented",
+    "gate diagnostic caveat is documented",
+    "audit distinguishes diagnostic residual-head pass from driver promotion",
+    "next design target is specified",
+    "PPO and promotion remain blocked"
+  ],
+  "type": "gate"
+}

@@ -1,28 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 698,
+        "completed": 699,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m689-gate-margin-response-amplification-implementation",
+        "task_id": "m690-gate-margin-response-amplification-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m689_gate_margin_response_amplification",
-        "command_log": "docs/m689-gate-margin-response-amplification-implementation.md"
+        "command_log": "docs/m690-gate-margin-response-amplification-audit.md"
     },
     "next_task": {
-        "id": "m690-gate-margin-response-amplification-audit",
+        "id": "m691-gate-margin-closed-loop-replay-design",
         "status": "pending",
-        "priority": 6850,
-        "kind": "gate",
-        "hypothesis": "M689 is a valid exact-gated positive diagnostic result, but gate diagnostics show it should be audited before any closed-loop or actor-update branch.",
-        "command": "see experiments/manifests/m690-gate-margin-response-amplification-audit.json",
+        "priority": 6860,
+        "kind": "infrastructure",
+        "hypothesis": "A closed-loop replay admission design can test whether M689's exact residual-head output separation has trajectory-level utility without changing the base actor or admitting PPO.",
+        "command": "see experiments/manifests/m691-gate-margin-closed-loop-replay-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit M689 exact pass; PPO promotion and actor-input changes remain blocked"
+        "notes": "Pending: design no-training replay admission gate before actor update PPO or promotion"
     },
-    "updated_at_utc": "20260525T060000Z"
+    "updated_at_utc": "20260524T161334Z"
 }

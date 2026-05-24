@@ -101,5 +101,5 @@
     "runs/m689_gate_margin_response_amplification/alpha_summary.csv"
   ],
   "decision_rule": "M690 passes if it admits the M689 exact diagnostic result with caveats and selects a next design without promotion, PPO, or actor-input changes.",
-  "next_blocker": "m691-gate-margin-response-amplification-next-step-design"
+  "next_blocker": "m691-gate-margin-closed-loop-replay-design"
 }
