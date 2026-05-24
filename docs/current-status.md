@@ -61,13 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m544-l3-variance-recipe-failure-audit
+m545-l3-recurrent-recipe-repair-design
 ```
 
-M544 should audit why the current L3 recurrent recipe regresses while L2
-finite-window is strong. It should compare configs, checkpoint metadata, train
-metrics, route summaries, and public paired failures before any more L3
-multi-seed training.
+M545 should design controlled L3 recurrent recipe repairs before any more L3
+multi-seed training. It must preserve L2 as the finite-window baseline and
+define checkpoint-selection and route-health gates before public frozen-source
+eval.
 
 ## Recent Evidence Line
 
@@ -162,6 +162,13 @@ multi-seed training.
   strongly negative: success `-0.195633`, collision `+0.190731`, margin
   `-0.793024`. L3 is worst on every public surface, so the current recurrent
   recipe should be audited before expanding seeds.
+- M544 audits that L3 regression. There is no P0 contract violation: config and
+  metadata differences are the intended finite-window versus online-GRU fields.
+  The issue is training behavior: L3 peaks early (`best_return = 52.598733` at
+  step `1792`) but collapses late (`last4_return_mean = 23.259713`, final return
+  `15.771149`), while L2 improves late. M543 failures include `423` L2-completed
+  to L3-collision pairs and a large L3-L2 action shift. The next step is L3
+  recurrent recipe repair design, not more runs of the same L3 setup.
 
 ## Near-Term Rule
 

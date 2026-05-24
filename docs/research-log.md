@@ -11017,3 +11017,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M543 evaluates the M542 seed-3540 checkpoints on all four public frozen-source natural surfaces. L2 dominates: aggregate success/margin `0.866310`/`1.777833` versus L0 `0.800802`/`1.384059` and L3 `0.670677`/`0.984809`. Paired deltas are decisive: L2-L0 success/margin `+0.065508`/`+0.393774`, L3-L0 `-0.130125`/`-0.399250`, and L3-L2 `-0.195633`/`-0.793024`. L3 is worst on every public surface, so the route-pilot L3 recipe should be audited before any multi-seed expansion.
 - decision: `m542_public_eval_l2_dominant_l3_regression_admit_m544_l3_recipe_failure_audit`
 - next: `m544-l3-variance-recipe-failure-audit`
+## 20260524T075000Z - m544-l3-variance-recipe-failure-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m544_l3_variance_recipe_failure_audit`
+- artifact: `docs/m544-l3-variance-recipe-failure-audit.md`
+- result: M544 audits the M542/M543 L3 regression. Config and checkpoint metadata show no P0 contract violation: differences are the intended L2 finite-window versus L3 online-GRU fields. Training dynamics show L3 peaks early (`best_return = 52.598733` at step `1792`) but degrades by the final updates (`last4_return_mean = 23.259713`, final return `15.771149`), while L2 improves late (`last4_return_mean = 44.089672`). M543 L3-L2 public deltas are strongly negative (`success = -0.195633`, `margin = -0.793024`), with `423` L2-completed to L3-collision terminal pairs and a large action shift.
+- decision: `l3_recipe_failure_confirmed_admit_m545_recurrent_recipe_repair_design`
+- next: `m545-l3-recurrent-recipe-repair-design`

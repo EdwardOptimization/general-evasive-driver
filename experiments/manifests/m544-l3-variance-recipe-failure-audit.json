@@ -2,9 +2,9 @@
   "id": "m544-l3-variance-recipe-failure-audit",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "training_instability"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -38,11 +38,11 @@
   },
   "review_artifact": "docs/reviews/m544-l3-variance-recipe-failure-audit.md",
   "public_gates": [
-    "compare L3 and L2 config/training metadata",
-    "compare train metric trajectories and eval summaries",
-    "inspect whether recurrent_sequence_training or hidden-state handling creates an optimization disadvantage",
-    "decide whether to repair L3 recipe or continue finite-window-first baseline work",
-    "do not train or promote checkpoint"
+    "compared L3 and L2 config/training metadata",
+    "compared train metric trajectories and eval summaries",
+    "inspected whether recurrent_sequence_training or hidden-state handling creates an optimization disadvantage",
+    "decided to design L3 recurrent recipe repair while keeping L2 as the strong baseline",
+    "did not train or promote checkpoint"
   ],
   "private_holdout_policy": "not_used",
   "forbidden_shortcuts": [
@@ -73,6 +73,14 @@
     {
       "path": "docs/m544-l3-variance-recipe-failure-audit.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m544_l3_variance_recipe_failure_audit/summary.json",
+      "type": "aggregate_summary"
+    },
+    {
+      "path": "runs/m544_l3_variance_recipe_failure_audit/train_metric_summary.csv",
+      "type": "diagnostic_table"
     }
   ],
   "baseline_checkpoints": [
@@ -82,6 +90,6 @@
     "docs/m543-m542-public-surface-eval.md",
     "runs/m543_m542_public_surface_eval_aggregate/summary.json"
   ],
-  "decision_rule": "M544 is a public diagnostic audit. It should choose a recurrent recipe repair or finite-window-first branch; it does not train or promote a checkpoint.",
-  "next_blocker": "pending M544 L3 recipe failure audit"
+  "decision_rule": "M544 is a public diagnostic audit. It confirms current L3 recipe instability and admits recurrent recipe repair design while keeping L2 as a strong baseline; it does not train or promote a checkpoint.",
+  "next_blocker": "m545-l3-recurrent-recipe-repair-design"
 }

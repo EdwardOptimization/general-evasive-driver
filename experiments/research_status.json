@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 552,
+        "completed": 553,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m543-m542-public-surface-eval",
+        "task_id": "m544-l3-variance-recipe-failure-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m543_m542_public_surface_eval_aggregate",
-        "command_log": "docs/m543-m542-public-surface-eval.md"
+        "run_dir": "runs/m544_l3_variance_recipe_failure_audit",
+        "command_log": "docs/m544-l3-variance-recipe-failure-audit.md"
     },
     "next_task": {
-        "id": "m544-l3-variance-recipe-failure-audit",
+        "id": "m545-l3-recurrent-recipe-repair-design",
         "status": "pending",
-        "priority": 5390,
-        "kind": "gate",
-        "hypothesis": "The M543 L3 regression is likely a recurrent recipe or optimization failure, not evidence against command-response history itself; a focused audit should identify whether L3 needs recipe repair before more training.",
-        "command": "see experiments/manifests/m544-l3-variance-recipe-failure-audit.json",
+        "priority": 5400,
+        "kind": "infrastructure",
+        "hypothesis": "The next step should repair recurrent optimization and checkpoint-selection discipline for L3 before more matched variance training, while preserving L2 as the finite-window baseline.",
+        "command": "see experiments/manifests/m545-l3-recurrent-recipe-repair-design.json",
         "success_artifact": "",
-        "notes": "Pending: compare configs metadata train metrics route summaries and public paired failures without training"
+        "notes": "Pending: define repair configs checkpoint selection and route-health gates without training"
     },
-    "updated_at_utc": "20260524T074000Z"
+    "updated_at_utc": "20260524T075000Z"
 }
