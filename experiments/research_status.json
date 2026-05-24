@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 569,
+        "completed": 570,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m560-collision-margin-route-screen-selection",
-        "status": "completed",
-        "returncode": 0,
-        "run_dir": "runs/m560_collision_margin_route_screen_selection",
-        "command_log": "docs/m560-collision-margin-route-screen-selection.md"
-    },
-    "next_task": {
-        "id": "m561-l2-to-l3-distillation-design",
-        "status": "pending",
-        "priority": 5560,
-        "kind": "infrastructure",
-        "hypothesis": "Because L2 is consistently strong while from-scratch L3 PPO remains contact-prone, an L2-to-L3 behavior distillation design may provide the recurrent branch with a safer policy prior before PPO continuation.",
-        "command": "see experiments/manifests/m561-l2-to-l3-distillation-design.json",
-        "success_artifact": "",
-        "notes": "Pending: design distillation without actor input leakage or public-row selection"
-    },
-    "updated_at_utc": "20260524T103000Z"
+            "task_id": "m561-l2-to-l3-distillation-design",
+            "status": "completed",
+            "returncode": 0,
+            "run_dir": "",
+            "command_log": "docs/m561-l2-to-l3-distillation-design.md"
+        },
+        "next_task": {
+            "id": "m562-l2-teacher-corpus-exporter",
+            "status": "pending",
+            "priority": 5570,
+            "kind": "infrastructure",
+            "hypothesis": "A corpus exporter with explicit teacher/student boundaries can create safe L2-to-L3 distillation data without contaminating the deployable L3 actor input contract.",
+            "command": "see experiments/manifests/m562-l2-teacher-corpus-exporter.json",
+            "success_artifact": "",
+            "notes": "Pending: implement exporter and tests without student training or checkpoint promotion"
+        },
+    "updated_at_utc": "20260524T052000Z"
 }

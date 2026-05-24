@@ -1,0 +1,78 @@
+{
+  "id": "m562-l2-teacher-corpus-exporter",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m542_matched_l2_variance_seed3540/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m561-l2-to-l3-distillation-design.md"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l2_variance_4096.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json"
+    ],
+    "parent_objective": [
+      "export L2 teacher action targets for L3 recurrent student distillation"
+    ],
+    "derived_from": [
+      "m561-l2-to-l3-distillation-design"
+    ],
+    "blocked_by": [
+      "m561-l2-to-l3-distillation-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m562-l2-teacher-corpus-exporter.md",
+  "public_gates": [
+    "implement corpus exporter with L2 teacher targets and L3 72-value student observations",
+    "write tests that prevent L2 stack leakage into student input tensor",
+    "use non-public training/validation route seeds",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not use public frozen-source rows",
+    "do not store privileged hidden parameters as student inputs",
+    "do not feed L2 finite-window stack to deployed L3 actor",
+    "do not train a student in this milestone"
+  ],
+  "hypothesis": "A corpus exporter with explicit teacher/student boundaries can create safe L2-to-L3 distillation data without contaminating the deployable L3 actor input contract.",
+  "success_criteria": [
+    "exporter writes student_obs_seq, teacher_action_seq, done_seq, and diagnostics",
+    "tests verify student observation dimension is the canonical 72-value P0 frame",
+    "tests verify teacher stack is absent from student input arrays",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "exporter leaks L2 stacked observations into student input",
+    "exporter uses public frozen-source rows",
+    "exporter omits done masks needed for recurrent hidden reset"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "Implement L2 teacher corpus exporter and tests; no student training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m562-l2-teacher-corpus-exporter.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m542_matched_l2_variance_seed3540/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m561-l2-to-l3-distillation-design.md"
+  ],
+  "decision_rule": "M562 passes only if the exporter creates L2 teacher targets for L3 current-frame recurrent student inputs without actor-input leakage. It does not train or promote a checkpoint.",
+  "next_blocker": "pending M562 L2 teacher corpus exporter"
+}

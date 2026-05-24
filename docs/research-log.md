@@ -11170,3 +11170,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M560 trains the three M559 collision/margin reward configs and evaluates `51` interval/final L3 candidates on fresh route-screen seed `16560`. No candidate is admitted. All `51/51` candidates pass L0 binary success, but `0/51` pass L0 margin and `0/51` pass collision tolerance. Best candidates have success `0.125`, collision `0.875`, and margins around `0.011`-`0.013`, below L0 margin `0.080347` and above L0 collision `0.796875`.
 - decision: `collision_margin_route_screen_reject_admit_l2_to_l3_distillation_design`
 - next: `m561-l2-to-l3-distillation-design`
+## 20260524T052000Z - m561-l2-to-l3-distillation-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m561-l2-to-l3-distillation-design.md`
+- result: M561 designs the L2-to-L3 distillation pivot after repeated L3 route-screen v2 failures. The design keeps L2 as a training-only teacher using finite-window P0 observations, keeps the deployable L3 actor as P0 online-GRU with canonical current 72-value frames and recurrent hidden state, and forbids public frozen-source rows, hidden dynamics, oracle labels, or L2 stack leakage into student inputs. It also rotates future selection away from M556/M560 route-screen seeds.
+- decision: `l2_to_l3_distillation_design_admit_m562_teacher_corpus_exporter`
+- next: `m562-l2-teacher-corpus-exporter`

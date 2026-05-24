@@ -2,7 +2,7 @@
   "id": "m561-l2-to-l3-distillation-design",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -77,6 +77,6 @@
   "baseline_artifacts": [
     "docs/m560-collision-margin-route-screen-selection.md"
   ],
-  "decision_rule": "M561 passes only if it designs L2-to-L3 distillation without actor input leakage or public-row selection. It does not train or promote a checkpoint.",
-  "next_blocker": "pending M561 L2-to-L3 distillation design"
+  "decision_rule": "M561 passes because it defines an L2 teacher to L3 recurrent student distillation path without actor input leakage or public-row selection. It does not train or promote a checkpoint.",
+  "next_blocker": "m562-l2-teacher-corpus-exporter"
 }

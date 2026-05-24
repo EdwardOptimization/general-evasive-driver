@@ -61,12 +61,15 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m561-l2-to-l3-distillation-design
+m562-l2-teacher-corpus-exporter
 ```
 
-M561 should design L2 teacher to L3 recurrent student distillation. Repeated
-from-scratch L3 PPO, PPO-stability, and reward-shaping branches remain
-contact-prone under route-screen v2, while L2 is consistently strong.
+M562 should implement the L2 teacher corpus exporter from the M561 design.
+Repeated from-scratch L3 PPO, PPO-stability, and reward-shaping branches remain
+contact-prone under route-screen v2, while L2 is consistently strong. The next
+step is not more PPO: export L2 teacher action targets paired with canonical
+72-value L3 student frames, with no L2 stack leakage into deployable actor
+inputs.
 
 ## Recent Evidence Line
 
@@ -242,14 +245,21 @@ contact-prone under route-screen v2, while L2 is consistently strong.
   route-screen seed `16560`. No candidate is admitted. All candidates pass L0
   binary success, but all fail L0 margin and collision tolerance, so public
   frozen-source diagnostics remain blocked.
+- M561 designs the pivot from failed from-scratch L3 PPO branches to L2-to-L3
+  distillation. L2 remains a training-only teacher using finite-window P0
+  observations, while the deployable L3 student remains P0 online-GRU with
+  current 72-value frames and recurrent hidden state. The next admitted step is
+  M562: export `student_obs_seq`, `teacher_action_seq`, done masks, and terminal
+  diagnostics on non-public route seeds without training or promotion.
 
 ## Near-Term Rule
 
 Do not treat reset-hidden diagnostics, M528 smoke return, route eval, or
-M537-M543 public diagnostics as private generalization evidence. The next branch
-must use route-screen v2 before any public frozen-source eval. M550 remains
-public diagnostic evidence and cannot support a private generalization claim.
-Any later promotion requires proof retention, generalization retention, behavior
+M537-M543 public diagnostics as private generalization evidence. The L2-to-L3
+distillation branch must keep L2 finite-window stacks training-only and must use
+route-screen v2 before any public frozen-source eval. M550 remains public
+diagnostic evidence and cannot support a private generalization claim. Any later
+promotion requires proof retention, generalization retention, behavior
 retention, no contract violation, and clear lineage.
 
 ## Sensor Profile Policy
