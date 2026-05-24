@@ -12434,3 +12434,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M711 audits M710 as `metric_artifact`: raw/fused history separability is real, but feature distance alone is not closed-loop self-ID proof because the deployed actor action and margin evidence remain negative. The audit closes `extreme_hidden_condition_scenario_generation` as the active branch and pivots to `actor_head_history_signal_coupling`, since scenario-only expansion is now lower leverage than diagnosing actor-head projection, tanh attenuation, and feature-delta amplification.
 - decision: `action_washout_audit_pivot_actor_head_coupling`
 - next: `m712-actor-head-history-signal-coupling-design`
+
+## 20260524T200000Z - m712-actor-head-history-signal-coupling-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m712-actor-head-history-signal-coupling-design.md`
+- result: M712 designs the first no-training diagnostic in the new `actor_head_history_signal_coupling` branch. The design decomposes M710 action washout into fused feature delta size, actor-head pre-tanh projection, tanh attenuation, and feature-delta amplification line search. It compares wrong-history directions against reset-hidden directions and keeps amplified feature actions diagnostic only, with actor update, PPO, promotion, and actor input changes blocked.
+- decision: `actor_head_coupling_design_admit_m713`
+- next: `m713-actor-head-history-signal-coupling-implementation`

@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M712 designs a no-training actor-head sensitivity audit with projection tanh attenuation and feature-delta amplification line search while blocking actor update PPO and promotion",
+  "failure_criteria": [
+    "design changes actor inputs",
+    "design treats amplified counterfactual actions as deployed behavior",
+    "design omits projection or tanh attenuation",
+    "design admits training before no-training audit",
+    "design omits reset-hidden comparison"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels to actor observations",
+    "do not treat amplified feature actions as deployed behavior",
+    "do not claim closed-loop self-ID proof from actor-head projection alone"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T191138Z",
+  "hypothesis": "A no-training actor-head sensitivity audit can determine why M710 fused wrong-history feature differences do not produce action differences.",
+  "lineage": {
+    "blocked_by": [
+      "m711-cross-fault-hidden-action-gap-audit"
+    ],
+    "derived_from": [
+      "m711-cross-fault-hidden-action-gap-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m711-cross-fault-hidden-action-gap-audit.json",
+      "configs/cross_fault_hidden_condition_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m711-cross-fault-hidden-action-gap-audit.md",
+      "runs/m710_cross_fault_hidden_action_gap_audit/summary.json",
+      "runs/m710_cross_fault_hidden_action_gap_audit/row_hidden_action_gaps.csv"
+    ],
+    "parent_objective": [
+      "design no-training actor-head sensitivity audit for cross-fault fused history signal"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m712-actor-head-history-signal-coupling-design",
+  "next_blocker": "m713-actor-head-history-signal-coupling-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "actor_head_coupling_design_admit_m713",
+  "public_gates": [
+    "design separates feature-delta size projection tanh attenuation and action output",
+    "design compares wrong-history directions with reset-hidden directions",
+    "design includes feature-delta amplification line search",
+    "design keeps actor inputs unchanged",
+    "design blocks actor update PPO and promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m712-actor-head-history-signal-coupling-design.md",
+    "clearance_margin_mean": "",
+    "decision": "actor_head_coupling_design_admit_m713",
+    "milestone": "m712-actor-head-history-signal-coupling-design",
+    "reason": "M712 designs a no-training actor-head sensitivity audit with projection tanh attenuation and feature-delta amplification line search while blocking actor update PPO and promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "pre-tanh actor-head projection metrics are specified",
+    "tanh derivative attenuation metrics are specified",
+    "wrong-vs-reset direction comparison is specified",
+    "feature-delta amplification line search is specified",
+    "actor behavior and input contract are unchanged",
+    "no objective update actor update PPO or promotion is admitted"
+  ],
+  "type": "infrastructure"
+}

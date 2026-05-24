@@ -1,0 +1,122 @@
+{
+  "id": "m713-actor-head-history-signal-coupling-implementation",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m712-actor-head-history-signal-coupling-design.md",
+      "docs/m711-cross-fault-hidden-action-gap-audit.md",
+      "runs/m710_cross_fault_hidden_action_gap_audit/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m712-actor-head-history-signal-coupling-design.json",
+      "configs/cross_fault_hidden_condition_scenarios.json"
+    ],
+    "parent_objective": [
+      "implement no-training actor-head history-signal coupling audit"
+    ],
+    "derived_from": [
+      "m712-actor-head-history-signal-coupling-design"
+    ],
+    "blocked_by": [
+      "m712-actor-head-history-signal-coupling-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m713-actor-head-history-signal-coupling-implementation.md",
+  "public_gates": [
+    "summary.json is written",
+    "row_actor_head_coupling.csv is written",
+    "variant_summary.csv is written",
+    "fault_family_pair_variant_summary.csv is written",
+    "sentinel_summary.csv is written",
+    "alpha_summary.csv is written",
+    "feature projection tanh attenuation and alpha line-search metrics are separated",
+    "actor checksum unchanged",
+    "no objective actor update PPO or promotion occurs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels to actor observations",
+    "do not treat amplified feature actions as deployed behavior",
+    "do not relax alpha thresholds after seeing results",
+    "do not change actor input contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "actor_head_history_signal_coupling",
+    "evidence_axis": "G_action_head_coupling: implement actor-head projection tanh attenuation and feature amplification audit",
+    "evidence_increment": "runs the no-training diagnostic that decomposes M710 action_washout into projection attenuation or feature-amplitude causes",
+    "claim_scope": "diagnostic implementation and result only, not source export, training, PPO, or promotion",
+    "stop_condition": [
+      "stop before objective design unless result_class is actor_head_coupling_positive or near_threshold_action_washout",
+      "stop and audit if result_class is amplification_not_action_relevant",
+      "stop and audit if actor checksum changes"
+    ],
+    "fallback_plan": [
+      "if projection washout, design actor-head or residual objective audit",
+      "if tanh saturation washout, design action scaling or normalization audit",
+      "if feature delta too small, design feature amplification objective",
+      "if amplified directions remain outcome-insensitive, return to terminal-boundary refinement"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M712 design admits M713 no-training actor-head coupling implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M710 action_washout can be localized to actor-head projection, tanh attenuation, or feature delta amplitude using a no-training feature-line-search audit.",
+  "success_criteria": [
+    "summary.json is written",
+    "row_actor_head_coupling.csv is written",
+    "variant and fault-pair summaries are written",
+    "alpha line-search summaries are written",
+    "result class is assigned",
+    "actor checksum unchanged",
+    "no objective actor update PPO or promotion"
+  ],
+  "failure_criteria": [
+    "implementation mutates or trains actor",
+    "implementation adds hidden fault labels to actor input",
+    "implementation treats amplified counterfactual actions as deployed behavior",
+    "implementation omits projection or tanh attenuation metrics",
+    "implementation admits objective design without audit"
+  ],
+  "commands": [
+    {
+      "name": "generate",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.actor_head_history_signal_coupling_audit --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --config configs/cross_fault_hidden_condition_scenarios.json --seed-start 41000 --seed-count 512 --device cpu --run-dir runs/m713_actor_head_history_signal_coupling"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m713_actor_head_history_signal_coupling/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m713_actor_head_history_signal_coupling/row_actor_head_coupling.csv",
+      "type": "metrics"
+    },
+    {
+      "path": "docs/m713-actor-head-history-signal-coupling-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m712-actor-head-history-signal-coupling-design.md",
+    "runs/m710_cross_fault_hidden_action_gap_audit/summary.json"
+  ],
+  "decision_rule": "M713 can only admit objective design if it produces actor_head_coupling_positive or near_threshold_action_washout; otherwise it must be audited before training.",
+  "next_blocker": "m714-actor-head-history-signal-coupling-audit"
+}
