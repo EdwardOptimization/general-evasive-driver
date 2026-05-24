@@ -62,17 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m667-normal-success-boundary-source-miner-implementation
+m668-normal-success-boundary-source-miner-audit
 ```
 
-M667 should implement the normal-success near-boundary source miner designed in
-M666. It should replay normal history first, keep only normal-success
-positive-margin near-boundary preferred branches for wrong-history pairing, and
-report early-safe and already-failed windows as diagnostics. Actor updates, PPO,
-and promotion remain blocked.
+M668 should audit the negative M667 normal-success boundary miner. M667 found
+valid near-boundary preferred windows, but compatible wrong-history
+substitutions did not create sustained action-sequence or outcome degradation.
+Actor updates, PPO, and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M667 implements and runs the normal-success near-boundary source miner. It
+  finds `204` valid near-boundary preferred windows, so source-window coverage
+  is not the active blocker. It still accepts `0` rows: wrong history changes
+  first actions often, but only `4` rows pass the sequence threshold, `0` pass
+  preferred-vs-rejected `0.010`, `0` pass margin threshold, and success-drop
+  rate is `0.000`. Normal and wrong-history branches both succeed at rate
+  `1.000`.
 - M666 designs a normal-success near-boundary source miner. The source order is
   now: wider obstacle decision-window bank, normal-history prepass, margin-band
   classification, then wrong-history pairing only for

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 675,
+        "completed": 676,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m666-normal-success-boundary-source-mining-design",
+        "task_id": "m667-normal-success-boundary-source-miner-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m666-normal-success-boundary-source-mining-design.md"
+        "run_dir": "runs/m667_normal_success_boundary_source_miner",
+        "command_log": "docs/m667-normal-success-boundary-source-miner-implementation.md"
     },
     "next_task": {
-        "id": "m667-normal-success-boundary-source-miner-implementation",
+        "id": "m668-normal-success-boundary-source-miner-audit",
         "status": "pending",
-        "priority": 6620,
-        "kind": "infrastructure",
-        "hypothesis": "Normal-history success and positive near-boundary margin filtering will isolate valid preferred branches before wrong-history pairing and produce usable action/outcome-critical rows.",
-        "command": "see experiments/manifests/m667-normal-success-boundary-source-miner-implementation.json",
+        "priority": 6630,
+        "kind": "gate",
+        "hypothesis": "M667 shows valid near-boundary preferred windows exist, but compatible wrong-history substitutions still do not produce sustained action-sequence or outcome degradation.",
+        "command": "see experiments/manifests/m668-normal-success-boundary-source-miner-audit.json",
         "success_artifact": "",
-        "notes": "Pending: implement normal-success near-boundary source miner without actor update PPO or promotion"
+        "notes": "Pending: audit M667 negative result and choose next branch without training from empty corpus"
     },
-    "updated_at_utc": "20260525T000000Z"
+    "updated_at_utc": "20260525T001500Z"
 }

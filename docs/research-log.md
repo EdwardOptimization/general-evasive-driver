@@ -12124,3 +12124,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M666 designs a no-training normal-success near-boundary source miner. It changes source selection rather than thresholds: build a wider obstacle decision-window bank, replay normal history first, classify snapshots into `near_boundary_preferred`, `early_safe_diagnostic`, and `already_failed_diagnostic`, then pair wrong histories only for normal-success positive-margin near-boundary preferred branches. It preserves M664 action/outcome thresholds, specifies required artifacts, and pre-registers separate negative-result interpretations for missing near-boundary windows, missing action gaps, or missing outcome gaps.
 - decision: `normal_success_boundary_source_mining_design_admit_m667`
 - next: `m667-normal-success-boundary-source-miner-implementation`
+## 20260525T001500Z - m667-normal-success-boundary-source-miner-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m667_normal_success_boundary_source_miner`
+- artifact: `docs/m667-normal-success-boundary-source-miner-implementation.md`
+- result: M667 implements and runs the normal-success near-boundary source miner. It finds `204` valid `near_boundary_preferred` windows across fresh and OOD surfaces, so source-window coverage is not the blocker. It scores `3200` candidate pairs and `9600` sequence rows but accepts `0` rows: `8934` rows pass first-action threshold, only `4` pass sequence threshold, `0` pass preferred-vs-rejected `0.010`, `0` pass margin threshold, and success-drop rate is `0.000`. Normal and wrong-history branches both succeed at rate `1.000`, actor checksum is unchanged, and no checkpoint is written.
+- decision: `normal_success_boundary_source_miner_negative_admit_audit`
+- next: `m668-normal-success-boundary-source-miner-audit`

@@ -1,0 +1,88 @@
+{
+  "decision_reason": "M667 finds 204 valid near-boundary preferred windows but accepts 0 rows because wrong history creates no sustained action-sequence or outcome gap",
+  "failure_criteria": [
+    "too few near-boundary normal-success source windows",
+    "too few accepted rows",
+    "normal-failed preferred branches are accepted",
+    "source diversity fails",
+    "actor checksum changes",
+    "actor checkpoint is written"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not update actor parameters",
+    "do not promote checkpoint",
+    "do not accept normal-failed preferred branches",
+    "do not accept hidden-distance-only rows",
+    "do not use hidden parameters or labels as actor inputs"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T142938Z",
+  "hypothesis": "Normal-history success and positive near-boundary margin filtering will isolate valid preferred branches before wrong-history pairing and produce usable action/outcome-critical rows.",
+  "lineage": {
+    "blocked_by": [
+      "m666-normal-success-boundary-source-mining-design"
+    ],
+    "derived_from": [
+      "m666-normal-success-boundary-source-mining-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m666-normal-success-boundary-source-mining-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m666-normal-success-boundary-source-mining-design.md",
+      "runs/m664_action_critical_wrong_history_source_miner/summary.json"
+    ],
+    "parent_objective": [
+      "implement normal-success near-boundary source miner"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m667-normal-success-boundary-source-miner-implementation",
+  "next_blocker": "m668-normal-success-boundary-source-miner-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "normal_success_boundary_source_miner_negative_admit_audit",
+  "public_gates": [
+    "build wider obstacle decision-window snapshot bank",
+    "run normal-history prepass and classify source windows",
+    "pair wrong histories only for normal-success near-boundary left snapshots",
+    "write explicit preferred/rejected NPZ fields",
+    "verify actor checksum unchanged and no actor checkpoint written"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m667_normal_success_boundary_source_miner/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "normal_success_boundary_source_miner_negative_admit_audit",
+    "milestone": "m667-normal-success-boundary-source-miner-implementation",
+    "reason": "M667 finds 204 valid near-boundary preferred windows but accepts 0 rows because wrong history creates no sustained action-sequence or outcome gap",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "near_boundary_preferred left snapshots >= 40",
+    "accepted rows >= 40",
+    "accepted physical pairs >= 8",
+    "accepted left seeds >= 6",
+    "accepted right seeds >= 6",
+    "source-heldout split is nonempty",
+    "mean preferred_vs_rejected_action_mean_l2 >= 0.010",
+    "mean margin_gap >= 0.010 or accepted success_drop_rate >= 0.25",
+    "actor checksum unchanged",
+    "no actor checkpoint written",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}
