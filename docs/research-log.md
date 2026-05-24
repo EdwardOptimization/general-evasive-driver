@@ -12214,3 +12214,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M676 designs a first-step-safe residual objective to address M674's alpha conflict. The design keeps frozen BC5660, fused-plus-next-hidden features, residual sequence head, first-residual execution, alpha ladder, exact-first evaluation, no PPO, no promotion, and no actor-input changes. The key additions are `L_normal_first_zero`, a top-k/p95 hinge on normal first residual L2 with threshold `0.004`, a wrong-history first-gap hinge with target `0.006`, and the existing wrong-history sequence target and sequence-gap objective.
 - decision: `first_step_safe_response_amplification_design_admit_m677`
 - next: `m677-first-step-safe-response-amplification-implementation`
+## 20260525T030000Z - m677-first-step-safe-response-amplification-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m677_first_step_safe_response_amplification`
+- artifact: `docs/m677-first-step-safe-response-amplification-implementation.md`
+- result: M677 implements and runs the first-step-safe residual objective. The implementation is clean: `648` rows, `216` sources, `3` residual heads written, actor checksum unchanged, no base actor checkpoint, no PPO, no promotion. The exact gate still fails with `0` passed seeds, but the failure changed: first-step normal drift is fixed (`alpha=1.0` p95 drops from M674's `0.0094-0.0130` to `0.0025-0.0033`), while wrong-history sequence gap collapses (`alpha=1.0` gap mean drops from M674's `0.0121-0.0124` to `0.0036-0.0069`, ratio `1.25-2.40`).
+- decision: `first_step_safe_response_amplification_exact_gate_failed_admit_audit`
+- next: `m678-first-step-safe-response-amplification-audit`

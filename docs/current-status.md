@@ -62,18 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m677-first-step-safe-response-amplification-implementation
+m678-first-step-safe-response-amplification-audit
 ```
 
-M677 should implement the first-step-safe residual response-amplification probe
-designed in M676. It should extend the M674 frozen-backbone actor-coupling path
-with strong normal first-action anchor, top-k/p95 first residual hinge,
-wrong-history first-gap term, M671 wrong-history sequence target, and exact
-alpha ladder evaluation. PPO, promotion, actor-input changes, and base actor
-checkpoint writing remain forbidden.
+M678 should audit the failed M677 first-step-safe probe. M677 successfully
+reduced first-step normal drift but suppressed wrong-history sequence gap below
+threshold. The audit should classify this as first-step safety positive but
+wrong-gap suppressed, then choose a branch-specific redesign without admitting
+PPO, promotion, actor-input changes, or normal-drift gate weakening.
 
 ## Recent Evidence Line
 
+- M677 implements the first-step-safe residual objective. It is a clean negative
+  result: actor checksum unchanged, no base actor checkpoint, no PPO, no
+  promotion, but `0` seed/alpha candidates pass. It fixes first-step normal
+  drift (`alpha=1.0` p95 down to `0.0025-0.0033`) but suppresses wrong-history
+  sequence gap (`alpha=1.0` gap mean `0.0036-0.0069`, ratio `1.25-2.40`). The
+  next step is an audit and branch-specific redesign.
 - M676 designs the first-step-safe residual objective. It keeps frozen BC5660,
   fused-plus-next-hidden features, residual sequence head, first-residual
   execution, alpha ladder, and exact-first evaluation, but adds

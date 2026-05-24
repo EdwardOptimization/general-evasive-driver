@@ -1,0 +1,83 @@
+{
+  "id": "m678-first-step-safe-response-amplification-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m677_first_step_safe_response_amplification/summary.json",
+      "runs/m677_first_step_safe_response_amplification/alpha_summary.csv",
+      "docs/m677-first-step-safe-response-amplification-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m677-first-step-safe-response-amplification-implementation.json"
+    ],
+    "parent_objective": [
+      "audit failed first-step-safe residual objective"
+    ],
+    "derived_from": [
+      "m677-first-step-safe-response-amplification-implementation"
+    ],
+    "blocked_by": [
+      "m677-first-step-safe-response-amplification-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m678-first-step-safe-response-amplification-audit.md",
+  "public_gates": [
+    "M677 implementation cleanliness is checked",
+    "first-step safety improvement is quantified",
+    "wrong-history gap suppression is quantified",
+    "PPO and promotion remain blocked",
+    "next design addresses branch-specific wrong-history pressure"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun training",
+    "do not admit PPO",
+    "do not promote a checkpoint",
+    "do not weaken normal first-action drift gate",
+    "do not change actor input contract"
+  ],
+  "hypothesis": "M677 fixed first-step normal drift but suppressed wrong-history sequence gap; the next design should add branch-specific wrong-history pressure while preserving the first-step normal safety terms.",
+  "success_criteria": [
+    "M677 is classified from exact alpha evidence",
+    "audit distinguishes first-step safety success from wrong-gap failure",
+    "next design target is specified",
+    "PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "audit ignores M677 first-step safety improvement",
+    "audit treats M677 as total representation failure",
+    "audit admits PPO or promotion",
+    "audit weakens normal first-action drift gate"
+  ],
+  "commands": [
+    {
+      "name": "write_audit",
+      "command": "write docs/m678-first-step-safe-response-amplification-audit.md from M677 artifacts; no training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m678-first-step-safe-response-amplification-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m677_first_step_safe_response_amplification/summary.json",
+    "runs/m677_first_step_safe_response_amplification/alpha_summary.csv"
+  ],
+  "decision_rule": "M678 passes if it classifies M677 as first-step safety positive but wrong-gap suppressed and admits only a branch-specific exact redesign, not PPO or promotion.",
+  "next_blocker": "m679-branch-specific-response-amplification-design"
+}

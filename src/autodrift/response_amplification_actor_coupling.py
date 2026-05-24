@@ -69,6 +69,38 @@ def _sequence_smoothness(prediction: torch.Tensor, mask: torch.Tensor, weight: t
     return _weighted_mean(per_row / denom, weight)
 
 
+def _normal_first_mse(prediction_normal: torch.Tensor, weight: torch.Tensor) -> torch.Tensor:
+    per_row = torch.square(prediction_normal[:, 0, :]).mean(dim=1)
+    return _weighted_mean(per_row, weight)
+
+
+def _normal_first_topk_hinge(
+    prediction_normal: torch.Tensor,
+    *,
+    threshold: float,
+    fraction: float,
+) -> torch.Tensor:
+    first_l2 = torch.linalg.norm(prediction_normal[:, 0, :], dim=1)
+    hinge = torch.square(torch.relu(first_l2 - float(threshold)))
+    if hinge.numel() == 0:
+        return torch.zeros((), dtype=prediction_normal.dtype, device=prediction_normal.device)
+    k = max(1, int(np.ceil(float(fraction) * int(hinge.numel()))))
+    k = min(k, int(hinge.numel()))
+    return torch.topk(hinge, k=k, largest=True).values.mean()
+
+
+def _wrong_first_gap_hinge(
+    prediction_normal: torch.Tensor,
+    prediction_wrong: torch.Tensor,
+    weight: torch.Tensor,
+    *,
+    target_gap: float,
+) -> torch.Tensor:
+    first_gap = torch.linalg.norm(prediction_wrong[:, 0, :] - prediction_normal[:, 0, :], dim=1)
+    per_row = torch.square(torch.relu(float(target_gap) - first_gap))
+    return _weighted_mean(per_row, weight)
+
+
 def _coupling_loss_components(
     head: ResponseAmplifierHead,
     batch: dict[str, torch.Tensor],
@@ -77,6 +109,12 @@ def _coupling_loss_components(
     wrong_target_coef: float,
     gap_margin_coef: float,
     smoothness_coef: float,
+    normal_first_coef: float,
+    normal_first_topk_coef: float,
+    normal_first_threshold: float,
+    normal_first_topk_fraction: float,
+    wrong_first_gap_coef: float,
+    wrong_first_target_gap: float,
     target_gap: float,
 ) -> dict[str, torch.Tensor]:
     losses = _loss_components(
@@ -96,8 +134,29 @@ def _coupling_loss_components(
     smoothness = 0.5 * (
         _sequence_smoothness(pred_normal, mask, weight) + _sequence_smoothness(pred_wrong, mask, weight)
     )
+    normal_first = _normal_first_mse(pred_normal, weight)
+    normal_topk = _normal_first_topk_hinge(
+        pred_normal,
+        threshold=normal_first_threshold,
+        fraction=normal_first_topk_fraction,
+    )
+    wrong_first_gap = _wrong_first_gap_hinge(
+        pred_normal,
+        pred_wrong,
+        weight,
+        target_gap=wrong_first_target_gap,
+    )
     losses["sequence_smoothness_mse"] = smoothness
-    losses["total_loss"] = losses["total_loss"] + float(smoothness_coef) * smoothness
+    losses["normal_first_mse"] = normal_first
+    losses["normal_first_topk_hinge"] = normal_topk
+    losses["wrong_first_gap_hinge"] = wrong_first_gap
+    losses["total_loss"] = (
+        losses["total_loss"]
+        + float(smoothness_coef) * smoothness
+        + float(normal_first_coef) * normal_first
+        + float(normal_first_topk_coef) * normal_topk
+        + float(wrong_first_gap_coef) * wrong_first_gap
+    )
     return losses
 
 
@@ -195,6 +254,12 @@ def train_actor_coupling_seed(
     wrong_target_coef: float,
     gap_margin_coef: float,
     smoothness_coef: float,
+    normal_first_coef: float = 0.0,
+    normal_first_topk_coef: float = 0.0,
+    normal_first_threshold: float = 0.004,
+    normal_first_topk_fraction: float = 0.10,
+    wrong_first_gap_coef: float = 0.0,
+    wrong_first_target_gap: float = 0.006,
     target_gap: float,
     device: torch.device,
 ) -> tuple[ResponseAmplifierHead, list[dict[str, Any]], dict[str, Any], list[dict[str, Any]]]:
@@ -225,6 +290,12 @@ def train_actor_coupling_seed(
                     wrong_target_coef=wrong_target_coef,
                     gap_margin_coef=gap_margin_coef,
                     smoothness_coef=smoothness_coef,
+                    normal_first_coef=normal_first_coef,
+                    normal_first_topk_coef=normal_first_topk_coef,
+                    normal_first_threshold=normal_first_threshold,
+                    normal_first_topk_fraction=normal_first_topk_fraction,
+                    wrong_first_gap_coef=wrong_first_gap_coef,
+                    wrong_first_target_gap=wrong_first_target_gap,
                     target_gap=target_gap,
                 )
                 metric_rows.append(
@@ -245,6 +316,12 @@ def train_actor_coupling_seed(
             wrong_target_coef=wrong_target_coef,
             gap_margin_coef=gap_margin_coef,
             smoothness_coef=smoothness_coef,
+            normal_first_coef=normal_first_coef,
+            normal_first_topk_coef=normal_first_topk_coef,
+            normal_first_threshold=normal_first_threshold,
+            normal_first_topk_fraction=normal_first_topk_fraction,
+            wrong_first_gap_coef=wrong_first_gap_coef,
+            wrong_first_target_gap=wrong_first_target_gap,
             target_gap=target_gap,
         )
         losses["total_loss"].backward()
@@ -271,6 +348,12 @@ def train_actor_coupling_seed(
         "wrong_target_coef": float(wrong_target_coef),
         "gap_margin_coef": float(gap_margin_coef),
         "smoothness_coef": float(smoothness_coef),
+        "normal_first_coef": float(normal_first_coef),
+        "normal_first_topk_coef": float(normal_first_topk_coef),
+        "normal_first_threshold": float(normal_first_threshold),
+        "normal_first_topk_fraction": float(normal_first_topk_fraction),
+        "wrong_first_gap_coef": float(wrong_first_gap_coef),
+        "wrong_first_target_gap": float(wrong_first_target_gap),
         "target_gap": float(target_gap),
         **alpha_summary,
     }
@@ -303,6 +386,12 @@ def run_response_amplification_actor_coupling(
     wrong_target_coef: float,
     gap_margin_coef: float,
     smoothness_coef: float,
+    normal_first_coef: float,
+    normal_first_topk_coef: float,
+    normal_first_threshold: float,
+    normal_first_topk_fraction: float,
+    wrong_first_gap_coef: float,
+    wrong_first_target_gap: float,
     device: str,
     run_dir: Path,
     batch_size: int = 1024,
@@ -353,6 +442,12 @@ def run_response_amplification_actor_coupling(
             wrong_target_coef=wrong_target_coef,
             gap_margin_coef=gap_margin_coef,
             smoothness_coef=smoothness_coef,
+            normal_first_coef=normal_first_coef,
+            normal_first_topk_coef=normal_first_topk_coef,
+            normal_first_threshold=normal_first_threshold,
+            normal_first_topk_fraction=normal_first_topk_fraction,
+            wrong_first_gap_coef=wrong_first_gap_coef,
+            wrong_first_target_gap=wrong_first_target_gap,
             target_gap=target_gap,
             device=resolved_device,
         )
@@ -404,6 +499,12 @@ def run_response_amplification_actor_coupling(
         "wrong_target_coef": float(wrong_target_coef),
         "gap_margin_coef": float(gap_margin_coef),
         "smoothness_coef": float(smoothness_coef),
+        "normal_first_coef": float(normal_first_coef),
+        "normal_first_topk_coef": float(normal_first_topk_coef),
+        "normal_first_threshold": float(normal_first_threshold),
+        "normal_first_topk_fraction": float(normal_first_topk_fraction),
+        "wrong_first_gap_coef": float(wrong_first_gap_coef),
+        "wrong_first_target_gap": float(wrong_first_target_gap),
         "model_checksum_before": before_checksum,
         "model_checksum_after": after_checksum,
         "actor_parameters_changed": actor_changed,
@@ -442,6 +543,12 @@ def main() -> None:
     parser.add_argument("--wrong-target-coef", type=float, default=1.0)
     parser.add_argument("--gap-margin-coef", type=float, default=0.25)
     parser.add_argument("--smoothness-coef", type=float, default=0.05)
+    parser.add_argument("--normal-first-coef", type=float, default=0.0)
+    parser.add_argument("--normal-first-topk-coef", type=float, default=0.0)
+    parser.add_argument("--normal-first-threshold", type=float, default=0.004)
+    parser.add_argument("--normal-first-topk-fraction", type=float, default=0.10)
+    parser.add_argument("--wrong-first-gap-coef", type=float, default=0.0)
+    parser.add_argument("--wrong-first-target-gap", type=float, default=0.006)
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="cpu")
     parser.add_argument("--batch-size", type=int, default=1024)
     parser.add_argument("--run-dir", type=Path, default=None)
@@ -462,6 +569,12 @@ def main() -> None:
         wrong_target_coef=args.wrong_target_coef,
         gap_margin_coef=args.gap_margin_coef,
         smoothness_coef=args.smoothness_coef,
+        normal_first_coef=args.normal_first_coef,
+        normal_first_topk_coef=args.normal_first_topk_coef,
+        normal_first_threshold=args.normal_first_threshold,
+        normal_first_topk_fraction=args.normal_first_topk_fraction,
+        wrong_first_gap_coef=args.wrong_first_gap_coef,
+        wrong_first_target_gap=args.wrong_first_target_gap,
         device=args.device,
         run_dir=run_dir,
         batch_size=args.batch_size,

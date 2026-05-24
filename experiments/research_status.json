@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 685,
+        "completed": 686,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m676-first-step-safe-response-amplification-design",
+        "task_id": "m677-first-step-safe-response-amplification-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m676-first-step-safe-response-amplification-design.md"
+        "run_dir": "runs/m677_first_step_safe_response_amplification",
+        "command_log": "docs/m677-first-step-safe-response-amplification-implementation.md"
     },
     "next_task": {
-        "id": "m677-first-step-safe-response-amplification-implementation",
+        "id": "m678-first-step-safe-response-amplification-audit",
         "status": "pending",
-        "priority": 6720,
-        "kind": "infrastructure",
-        "hypothesis": "Adding strong normal first-step anchors and top-k p95 pressure resolves M674's alpha conflict, allowing a nonzero alpha residual candidate to satisfy both first-action normal drift and wrong-history sequence-gap exact gates.",
-        "command": "see experiments/manifests/m677-first-step-safe-response-amplification-implementation.json",
+        "priority": 6730,
+        "kind": "gate",
+        "hypothesis": "M677 fixed first-step normal drift but suppressed wrong-history sequence gap; the next design should add branch-specific wrong-history pressure while preserving the first-step normal safety terms.",
+        "command": "see experiments/manifests/m678-first-step-safe-response-amplification-audit.json",
         "success_artifact": "",
-        "notes": "Pending: implement first-step-safe no-PPO exact probe; preserve base actor checksum and forbid promotion"
+        "notes": "Pending: audit M677 as first-step safety positive but wrong-gap suppressed; PPO and promotion remain blocked"
     },
-    "updated_at_utc": "20260525T024500Z"
+    "updated_at_utc": "20260525T030000Z"
 }
