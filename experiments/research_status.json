@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 714,
+        "completed": 715,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m705-extreme-dynamics-scenario-corpus-audit",
+        "task_id": "m706-cross-fault-wrong-history-scenario-design",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m705-extreme-dynamics-scenario-corpus-audit.md"
+        "command_log": "docs/m706-cross-fault-wrong-history-scenario-design.md"
     },
     "next_task": {
-        "id": "m706-cross-fault-wrong-history-scenario-design",
+        "id": "m707-cross-fault-wrong-history-scenario-implementation",
         "status": "pending",
-        "priority": 7010,
+        "priority": 7020,
         "kind": "infrastructure",
-        "hypothesis": "Design cross-fault wrong-history scenario pairing after M704 reset-only result",
-        "command": "see experiments/manifests/m706-cross-fault-wrong-history-scenario-design.json",
+        "hypothesis": "Implement cross-fault wrong-history scenario pairing",
+        "command": "see experiments/manifests/m707-cross-fault-wrong-history-scenario-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design no-training cross-fault pairing matrix and wrong-history-specific gates"
+        "notes": "Pending: run no-training cross-fault wrong-history pairing before any source export actor update or PPO"
     },
-    "updated_at_utc": "20260524T183000Z"
+    "updated_at_utc": "20260524T183500Z"
 }

@@ -1,0 +1,121 @@
+{
+  "id": "m707-cross-fault-wrong-history-scenario-implementation",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m706-cross-fault-wrong-history-scenario-design.md",
+      "docs/m705-extreme-dynamics-scenario-corpus-audit.md",
+      "runs/m704_extreme_dynamics_scenario_corpus/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m706-cross-fault-wrong-history-scenario-design.json",
+      "configs/extreme_hidden_condition_scenarios.json"
+    ],
+    "parent_objective": [
+      "implement cross-fault wrong-history scenario pairing"
+    ],
+    "derived_from": [
+      "m706-cross-fault-wrong-history-scenario-design"
+    ],
+    "blocked_by": [
+      "m706-cross-fault-wrong-history-scenario-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m707-cross-fault-wrong-history-scenario-implementation.md",
+  "public_gates": [
+    "implementation writes cross-fault pair artifacts",
+    "implementation reports wrong-history and reset-history rows separately",
+    "implementation does not count reset-only rows as source-positive",
+    "implementation preserves hidden fault labels as logging only",
+    "actor checksum unchanged",
+    "no objective actor update PPO or promotion occurs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add fault labels to actor observations",
+    "do not count reset-only rows as source-positive",
+    "do not relax wrong-history thresholds after seeing results",
+    "do not change actor input contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "extreme_hidden_condition_scenario_generation",
+    "evidence_axis": "G_cross_fault_history: implement wrong-history-critical cross-fault scenario pairing",
+    "evidence_increment": "implements and runs cross-fault wrong-history pairing after M704 reset-only result",
+    "claim_scope": "scenario-pairing implementation and diagnostic result only, not training, PPO, or checkpoint promotion",
+    "stop_condition": [
+      "stop before objective design unless result_class is cross_fault_wrong_positive",
+      "stop and audit if result_class is cross_fault_reset_only or matched_state_empty",
+      "stop and audit if normal_failed_too_severe dominates"
+    ],
+    "fallback_plan": [
+      "if reset-only persists, design active warm-up/probing or stronger contrast",
+      "if matching is empty, redesign matching windows",
+      "if normal-failed dominates, reduce severity",
+      "if cross-fault wrong sparse, audit before corpus export"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "after M707 result unless cross_fault_wrong_positive with strong diversity",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Cross-fault wrong-history pairing will produce wrong-history-critical self-ID rows that nominal-vs-fault pairing missed.",
+  "success_criteria": [
+    "summary.json is written",
+    "matched_cross_fault_pairs.csv is written",
+    "fault_family_pair_summary.csv is written",
+    "accepted_rows.csv is written",
+    "reset_only_rows.csv is written",
+    "rejected_rows.csv is written",
+    "wrong-history and reset-history counts are separated",
+    "actor checksum unchanged",
+    "no objective actor update PPO or promotion"
+  ],
+  "failure_criteria": [
+    "implementation mutates or trains actor",
+    "implementation adds hidden fault labels to actor input",
+    "implementation counts reset-only rows as source-positive",
+    "implementation omits model-fidelity limits",
+    "implementation admits objective design without source-positive audit"
+  ],
+  "commands": [
+    {
+      "name": "generate",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.extreme_dynamics_scenario_corpus --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --config configs/extreme_hidden_condition_scenarios.json --seed-start 41000 --seed-count 512 --device cpu --run-dir runs/m707_cross_fault_wrong_history_scenario"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m707_cross_fault_wrong_history_scenario/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m707_cross_fault_wrong_history_scenario/fault_family_pair_summary.csv",
+      "type": "metrics"
+    },
+    {
+      "path": "docs/m707-cross-fault-wrong-history-scenario-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m706-cross-fault-wrong-history-scenario-design.md",
+    "runs/m704_extreme_dynamics_scenario_corpus/summary.json"
+  ],
+  "decision_rule": "M707 passes as implementation if complete no-training cross-fault artifacts are written and actor parameters are unchanged; only cross_fault_wrong_positive can admit source-corpus export design.",
+  "next_blocker": "m708-cross-fault-wrong-history-scenario-audit"
+}

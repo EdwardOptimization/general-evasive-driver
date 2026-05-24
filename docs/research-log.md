@@ -12378,3 +12378,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M705 audits M704 as `metric_artifact` plus `scenario_sampling_failure`: the result is meaningful reset-hidden evidence, but not wrong-history self-ID evidence. The audit blocks source export, objective update, PPO, and promotion. It continues the extreme hidden-condition branch with `G_cross_fault_history`, replacing nominal-only wrong histories with cross-fault histories such as front-authority versus rear-authority, low-mu versus steering fault, and brake-fade versus drive-loss.
 - decision: `extreme_reset_sparse_audit_continue_cross_fault_wrong_history_design`
 - next: `m706-cross-fault-wrong-history-scenario-design`
+
+## 20260524T183500Z - m706-cross-fault-wrong-history-scenario-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m706-cross-fault-wrong-history-scenario-design.md`
+- result: M706 designs cross-fault wrong-history pairing after M704 reset-only evidence. The design prioritizes wrong-history-critical rows, keeps reset-only rows diagnostic, defines directed pairs such as front/rear authority, low-mu/brake, low-mu/steering, and brake/drive contrasts, adds severity contrast requirements, and preserves no-training/no-PPO/no-promotion guardrails.
+- decision: `cross_fault_wrong_history_scenario_design_admit_m707`
+- next: `m707-cross-fault-wrong-history-scenario-implementation`
