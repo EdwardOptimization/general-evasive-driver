@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M750 audits M749 as broad reset-only v4 evidence and selects source-balanced v4 sequence interventions before objective PPO or four-wheel fidelity branch",
+  "failure_criteria": [
+    "audit treats reset-only rows as wrong-history proof",
+    "audit ignores future-fidelity claim boundary",
+    "audit admits PPO or promotion directly",
+    "audit changes actor input contract"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not treat reset-only rows as wrong-history proof",
+    "do not claim proxy faults are true per-wheel physics",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor input contract"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260524T232037Z",
+  "hypothesis": "M749's v4 wave should be audited as reset-only source evidence, and if clean should promote to v4 reset-source sequence intervention rather than objective training.",
+  "lineage": {
+    "blocked_by": [
+      "m749-v4-extreme-fault-coverage-implementation"
+    ],
+    "derived_from": [
+      "m749-v4-extreme-fault-coverage-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m749-v4-extreme-fault-coverage-implementation.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m749-v4-extreme-fault-coverage-implementation.md",
+      "runs/m749_extreme_fault_distribution_v4/summary.json",
+      "runs/m749_extreme_fault_distribution_v4/reset_only_rows.csv",
+      "runs/m749_extreme_fault_distribution_v4/rejected_rows.csv",
+      "runs/m749_extreme_fault_distribution_v4/fault_family_summary.csv",
+      "runs/m749_extreme_fault_distribution_v4/fault_family_pair_summary.csv"
+    ],
+    "parent_objective": [
+      "audit v4 extreme-fault source-mining wave before sequence intervention or objective work"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m750-v4-extreme-fault-coverage-audit",
+  "next_blocker": "m751-v4-reset-source-sequence-intervention-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "promote_to_v4_reset_source_sequence_intervention",
+  "public_gates": [
+    "M749 source generation and reset-surface gates are audited",
+    "M749 wrong-history zero-result is classified separately from reset evidence",
+    "M749 future-fidelity claim boundary is audited",
+    "next branch decision compares v4 sequence intervention four-wheel fidelity and objective work",
+    "actor training PPO and promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m750-v4-extreme-fault-coverage-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "promote_to_v4_reset_source_sequence_intervention",
+    "milestone": "m750-v4-extreme-fault-coverage-audit",
+    "reason": "M750 audits M749 as broad reset-only v4 evidence and selects source-balanced v4 sequence interventions before objective PPO or four-wheel fidelity branch",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M750 records M749 source generation metrics",
+    "M750 records reset-only and wrong-history evidence separately",
+    "M750 records source diversity and concentration",
+    "M750 records supported and falsified claims",
+    "M750 records next branch decision",
+    "actor update PPO and promotion remain blocked unless later designed"
+  ],
+  "type": "gate"
+}

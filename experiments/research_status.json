@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 758,
+        "completed": 759,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m749-v4-extreme-fault-coverage-implementation",
+        "task_id": "m750-v4-extreme-fault-coverage-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m749-v4-extreme-fault-coverage-implementation.md"
+        "command_log": "docs/m750-v4-extreme-fault-coverage-audit.md"
     },
     "next_task": {
-        "id": "m750-v4-extreme-fault-coverage-audit",
+        "id": "m751-v4-reset-source-sequence-intervention-design",
         "status": "pending",
-        "priority": 7450,
-        "kind": "gate",
-        "hypothesis": "Audit v4 extreme-fault coverage wave",
-        "command": "see experiments/manifests/m750-v4-extreme-fault-coverage-audit.json",
-        "success_artifact": "docs/m750-v4-extreme-fault-coverage-audit.md",
-        "notes": "Pending: audit M749 reset-only evidence and decide whether to run v4 reset-source sequence intervention"
+        "priority": 7460,
+        "kind": "infrastructure",
+        "hypothesis": "Design v4 reset-source sequence interventions",
+        "command": "see experiments/manifests/m751-v4-reset-source-sequence-intervention-design.json",
+        "success_artifact": "docs/m751-v4-reset-source-sequence-intervention-design.md",
+        "notes": "Pending: design source-balanced sequence interventions over M749 v4 reset-only rows with sentinel policy and claim-boundary preservation"
     },
-    "updated_at_utc": "20260525T033000Z"
+    "updated_at_utc": "20260525T034000Z"
 }

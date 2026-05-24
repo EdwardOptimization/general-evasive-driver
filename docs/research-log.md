@@ -12792,3 +12792,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M749 runs the no-training v4 source-mining wave with `28` executable current/proxy faults and `14` future-only fault labels. It generates `14848` scenarios, `100624` snapshots, and `12288` matched cross-fault pairs. Result class is `cross_fault_reset_only`: `1171` reset-only rows and `1171` reset-history action-critical rows, but `0` accepted wrong-history rows and `0` wrong-history action-critical rows. The reset surface is broader than M740 (`1171` vs `744`) and spans `27` reset seeds, `9` preferred fault families, `6` wrong fault families, and `17` fault-family pairs. Actor parameters are unchanged; no training, PPO, or promotion occurs.
 - decision: `cross_fault_reset_only_admit_audit`
 - next: `m750-v4-extreme-fault-coverage-audit`
+
+## 20260525T034000Z - m750-v4-extreme-fault-coverage-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m750-v4-extreme-fault-coverage-audit.md`
+- result: M750 audits M749 as broad, clean reset-only evidence rather than wrong-history proof. V4 source generation passes scale and safety checks, and reset-only rows increase from M740's `744` to M749's `1171`, but wrong-history action-critical rows remain `0`. The audit classifies this as `scenario_sampling_failure` plus `metric_artifact` for the cross-fault wrong-history metric, not a contract or training failure. It also records `361` sentinel candidates across `23` seeds for the next sequence branch.
+- decision: `promote_to_v4_reset_source_sequence_intervention`
+- next: `m751-v4-reset-source-sequence-intervention-design`
