@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 658,
+        "completed": 659,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m649-bc-v2-head-only-repeat-implementation",
+        "task_id": "m650-bc-v2-head-only-repeat-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m649_bc_v2_head_only_repeat",
-        "command_log": "docs/m649-bc-v2-head-only-repeat-implementation.md"
+        "run_dir": "",
+        "command_log": "docs/m650-bc-v2-head-only-repeat-audit.md"
     },
     "next_task": {
-        "id": "m650-bc-v2-head-only-repeat-audit",
+        "id": "m651-bc-v2-wrong-history-contrast-design",
         "status": "pending",
-        "priority": 6450,
-        "kind": "gate",
-        "hypothesis": "M649 repeats source-balanced frozen-feature learnability, but wrong-history source gaps must be audited before deciding whether actor coupling is appropriate.",
-        "command": "see experiments/manifests/m650-bc-v2-head-only-repeat-audit.json",
+        "priority": 6460,
+        "kind": "infrastructure",
+        "hypothesis": "A head-only contrast objective can preserve normal sequence-delta learnability while forcing wrong-history features not to predict the same corrective sequence.",
+        "command": "see experiments/manifests/m651-bc-v2-wrong-history-contrast-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit positive head-only repeat and negative wrong-history separation; no training PPO promotion or actor update"
+        "notes": "Pending: design frozen-head wrong-history contrast objective; no training PPO promotion or actor update"
     },
-    "updated_at_utc": "20260524T201000Z"
+    "updated_at_utc": "20260524T202000Z"
 }

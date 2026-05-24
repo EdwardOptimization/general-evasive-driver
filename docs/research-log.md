@@ -11971,3 +11971,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M649 implements and runs the three-seed best-validation frozen-head repeat. Seeds `6460`, `6461`, and `6462` all pass: best validation MSE is `0.000486`, `0.000458`, and `0.000502`, with validation improvements `94.34%`, `96.18%`, and `93.07%`; final-vs-best validation ratios are `1.60`, `1.19`, and `2.28`. Actor checksum is unchanged, all best/final head checkpoints are written, and no actor checkpoint is written. The important limitation is wrong-history separation: sources `30` and `32` show normal/variant prediction gaps only around `0.0005-0.0007`, so the repeat proves frozen-feature correction learnability but not self-ID separation. Audit is required before any actor coupling.
 - decision: `bc_v2_head_only_repeat_pass_admit_audit`
 - next: `m650-bc-v2-head-only-repeat-audit`
+## 20260524T202000Z - m650-bc-v2-head-only-repeat-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m650-bc-v2-head-only-repeat-audit.md`
+- result: M650 audits M649 as `pass_with_wrong_history_limitation`. The positive evidence is strong: all three frozen-head seeds pass best-validation repeat thresholds and the actor checksum is unchanged. The negative evidence blocks actor coupling: wrong-history sources `30` and `32` have normal/variant prediction gaps only around `0.0005-0.0007`, meaning the head predicts nearly the same corrective sequence under normal and wrong recurrent histories. The next branch is a frozen-head wrong-history contrast objective, not adapter or actor coupling.
+- decision: `bc_v2_head_only_repeat_audit_pass_with_wrong_history_limitation_admit_contrast_design`
+- next: `m651-bc-v2-wrong-history-contrast-design`

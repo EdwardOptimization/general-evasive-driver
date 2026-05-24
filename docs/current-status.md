@@ -62,16 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m650-bc-v2-head-only-repeat-audit
+m651-bc-v2-wrong-history-contrast-design
 ```
 
-M650 should audit the M649 repeat before any adapter or actor-coupling design.
-It must separate the positive 3/3 head-only learnability repeat from the
-negative wrong-history separation evidence, and choose the next branch
-explicitly.
+M651 should design a frozen-head wrong-history contrast objective. The goal is
+to preserve normal sequence-delta learnability while forcing wrong-history
+features not to predict the same corrective sequence. Actor coupling remains
+blocked.
 
 ## Recent Evidence Line
 
+- M650 audits M649 as `pass_with_wrong_history_limitation`. The 3/3 head-only
+  repeat proves frozen-feature sequence-delta learnability, but wrong-history
+  sources `30` and `32` have normal/variant prediction gaps around
+  `0.0005-0.0007`. This is not self-ID separation. M650 rejects direct adapter
+  or actor coupling and admits wrong-history contrast design.
 - M649 implements the early-stopped multi-seed frozen-head repeat. All three
   seeds pass best-validation thresholds, all best/final head checkpoints are
   written, and actor checksum remains unchanged. Best validation MSE is
