@@ -12612,3 +12612,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M730 designs a no-training source-balanced boundary miner from M728 action-critical rows. It identifies the M722 source concentration blocker, requires M731 to support M728 `proposal_id` and `selected_index` row schema, and registers a 512-row source-balanced boundary search with normal-history retention, sentinel false-positive, action/outcome separation, and no-training constraints. It blocks source export, actor update, PPO, and promotion.
 - decision: `source_balanced_boundary_mining_design_admit_m731`
 - next: `m731-source-balanced-boundary-outcome-miner-implementation`
+
+## 20260525T003000Z - m731-source-balanced-boundary-outcome-miner-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m731_source_balanced_boundary_outcome_miner`
+- artifact: `docs/m731-source-balanced-boundary-outcome-miner-implementation.md`
+- result: M731 patches the boundary miner source loader for M728 `proposal_id`/`selected_index` rows and replaces lexicographic group selection with balanced group interleaving. The final run selects `512` source rows across `237` seeds, `8` preferred fault families, and `30` fault-family pairs, with source max family dominance `0.126953` and sentinel false-positive rate `0.0`. It evaluates `37248` rollout rows and finds `5881` temporal action-critical rows but only `1` accepted temporal outcome row. Result class is `temporal_action_only_boundary_sparse`; source export, actor update, PPO, and promotion remain blocked.
+- decision: `temporal_action_only_boundary_sparse_admit_audit`
+- next: `m732-source-balanced-boundary-outcome-miner-audit`

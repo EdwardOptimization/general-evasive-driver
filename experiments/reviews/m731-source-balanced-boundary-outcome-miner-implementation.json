@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M731 fixes source selection and runs a 512-row source-balanced boundary miner with 5881 action-critical rows but only 1 accepted outcome row",
+  "failure_criteria": [
+    "runner collapses M728 rows because proposal_id is ignored",
+    "runner omits sentinel rows",
+    "runner combines action-only and outcome-positive claims",
+    "runner changes actor input contract",
+    "runner starts optimizer training PPO or checkpoint promotion"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not treat M728 action rows as outcome proof",
+    "do not mutate actor observations with hidden fault labels",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not lower outcome thresholds after seeing M731 output"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T213724Z",
+  "hypothesis": "M728 action-critical rows can produce outcome-critical rows when locally relocated near obstacle and terminal-margin boundaries under source-balanced selection.",
+  "lineage": {
+    "blocked_by": [
+      "m730-source-balanced-boundary-outcome-mining-design"
+    ],
+    "derived_from": [
+      "m730-source-balanced-boundary-outcome-mining-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m730-source-balanced-boundary-outcome-mining-design.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m730-source-balanced-boundary-outcome-mining-design.md",
+      "docs/m729-quota-calibrated-source-balanced-temporal-wave-audit.md",
+      "runs/m728_quota_calibrated_source_balanced_temporal_wave/summary.json",
+      "runs/m728_quota_calibrated_source_balanced_temporal_wave/temporal_critical_rows.csv"
+    ],
+    "parent_objective": [
+      "implement and run source-balanced boundary miner from M728 action-critical rows"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m731-source-balanced-boundary-outcome-miner-implementation",
+  "next_blocker": "m732-source-balanced-boundary-outcome-miner-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "temporal_action_only_boundary_sparse",
+  "public_gates": [
+    "loader supports M728 proposal_id selected_index schema",
+    "source rows are selected from M728 source-balanced action-critical rows",
+    "source-balance metrics and sentinel false positives are reported",
+    "temporal action and outcome rows are separated",
+    "actor checksum remains unchanged",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m731_source_balanced_boundary_outcome_miner/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "temporal_action_only_boundary_sparse",
+    "milestone": "m731-source-balanced-boundary-outcome-miner-implementation",
+    "reason": "M731 fixes source selection and runs a 512-row source-balanced boundary miner with 5881 action-critical rows but only 1 accepted outcome row",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M731 implements M728 schema-compatible source loading",
+    "M731 runs smoke and registered no-training boundary miner",
+    "M731 writes source candidate rollout accepted rejected and summary artifacts",
+    "M731 reports source-balance action outcome and sentinel metrics separately",
+    "actor checksum remains unchanged",
+    "no training PPO actor update or promotion occurs"
+  ],
+  "type": "infrastructure"
+}

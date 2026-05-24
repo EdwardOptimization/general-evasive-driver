@@ -1,0 +1,110 @@
+{
+  "id": "m732-source-balanced-boundary-outcome-miner-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m731-source-balanced-boundary-outcome-miner-implementation.md",
+      "runs/m731_source_balanced_boundary_outcome_miner/summary.json",
+      "runs/m731_source_balanced_boundary_outcome_miner/source_rows.csv",
+      "runs/m731_source_balanced_boundary_outcome_miner/intervention_rollouts.csv",
+      "runs/m731_source_balanced_boundary_outcome_miner/accepted_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m731-source-balanced-boundary-outcome-miner-implementation.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit source-balanced boundary miner action-only result before sequence intervention or dynamics fidelity"
+    ],
+    "derived_from": [
+      "m731-source-balanced-boundary-outcome-miner-implementation"
+    ],
+    "blocked_by": [
+      "m731-source-balanced-boundary-outcome-miner-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m732-source-balanced-boundary-outcome-miner-audit.md",
+  "public_gates": [
+    "M731 source-balance metrics are summarized",
+    "M731 action and outcome rows are summarized separately",
+    "the singleton accepted row is treated as diagnostic only",
+    "next branch decision compares sequence intervention and dynamics fidelity",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat M731 action rows as outcome-positive proof",
+    "do not treat the singleton accepted row as sufficient corpus",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor input contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "source_balanced_boundary_outcome_mining",
+    "evidence_axis": "G_action_to_outcome: audit source-balanced boundary miner",
+    "evidence_increment": "synthesizes M731 as broad action-critical evidence with insufficient outcome rows",
+    "claim_scope": "process synthesis only; no checkpoint promotion or deployed self-ID claim",
+    "stop_condition": [
+      "stop source export because accepted rows are insufficient",
+      "stop PPO because no outcome-positive corpus exists",
+      "stop another boundary miner unless audit identifies a specific boundary-grid artifact",
+      "stop treating action-critical rows as closed-loop proof"
+    ],
+    "fallback_plan": [
+      "if one-step intervention is the blocker, design sequence-level command-response interventions",
+      "if simulator fault symmetry is the blocker, design asymmetric/yaw-disturbance dynamics",
+      "if boundary grid is too mild, design one calibrated expansion with normal-retention gates"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M731 result_class=temporal_action_only_boundary_sparse",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M731 should be audited before continuing because it fixes source balance but still finds only one outcome row.",
+  "success_criteria": [
+    "M731 source-balance and outcome metrics are recorded",
+    "supported and falsified claims are recorded",
+    "failure taxonomy is assigned",
+    "public gate overfit risk is recorded",
+    "next branch decision is explicit",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "audit treats M731 action rows as outcome-positive self-ID proof",
+    "audit treats the singleton outcome row as a sufficient corpus",
+    "audit admits source export PPO or promotion",
+    "audit changes actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m732-source-balanced-boundary-outcome-miner-audit.md from M731 artifacts; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m732-source-balanced-boundary-outcome-miner-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m731_source_balanced_boundary_outcome_miner/summary.json",
+    "docs/m731-source-balanced-boundary-outcome-miner-implementation.md"
+  ],
+  "decision_rule": "M732 must decide whether to design sequence-level interventions dynamics fidelity or one calibrated boundary expansion. It must not admit PPO or promotion directly.",
+  "next_blocker": "m733-sequence-level-command-response-intervention-design"
+}

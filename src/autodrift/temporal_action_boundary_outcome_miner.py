@@ -67,6 +67,54 @@ def _dominance_fraction(values: list[str]) -> float:
     return float(max(counts.values()) / max(len(values), 1))
 
 
+def _source_row_identity(raw: dict[str, Any]) -> tuple[str, ...]:
+    for key in ("pair_id", "proposal_id", "selected_index"):
+        value = str(raw.get(key, "")).strip()
+        if value:
+            return (
+                key,
+                value,
+                str(raw.get("variant", "")),
+                str(raw.get("seed", "")),
+                str(raw.get("step", "")),
+            )
+    return (
+        "fallback",
+        str(raw.get("seed", "")),
+        str(raw.get("step", "")),
+        str(raw.get("variant", "")),
+        str(raw.get("preferred_fault", "")),
+        str(raw.get("wrong_fault", "")),
+        str(raw.get("fault_family_pair", "")),
+    )
+
+
+def _bucket_float(value: Any, *, width: float, missing: str = "missing") -> str:
+    number = _finite_float(value)
+    if not np.isfinite(number):
+        return missing
+    return str(int(np.floor(float(number) / float(width))))
+
+
+def _source_summary(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    seeds = [str(row.get("seed", "")) for row in rows]
+    preferred_families = [str(row.get("preferred_fault_family", "")) for row in rows]
+    fault_pairs = [
+        str(row.get("fault_family_pair", ""))
+        or f"{row.get('preferred_fault_family', '')}->{row.get('wrong_fault_family', '')}"
+        for row in rows
+    ]
+    sentinel_rows = [row for row in rows if str(row.get("source_role", "")) == "sentinel"]
+    return {
+        "source_unique_seeds": int(len(set(seeds))),
+        "source_unique_preferred_fault_families": int(len(set(preferred_families))),
+        "source_unique_fault_family_pairs": int(len(set(fault_pairs))),
+        "source_max_seed_dominance": float(_dominance_fraction(seeds)),
+        "source_max_preferred_family_dominance": float(_dominance_fraction(preferred_families)),
+        "source_sentinel_fraction": float(len(sentinel_rows) / max(len(rows), 1)),
+    }
+
+
 def classify_boundary_miner_result(
     *,
     candidate_variant_count: int,
@@ -149,7 +197,7 @@ def load_source_rows(
     seed_min = int(seed_start)
     seed_max = int(seed_start) + int(seed_count)
     grouped: dict[tuple[str, ...], list[dict[str, Any]]] = {}
-    seen_keys: set[tuple[str, str, str, str]] = set()
+    seen_keys: set[tuple[str, ...]] = set()
 
     def ingest(path: Path, *, sentinel_only: bool) -> None:
         if not path.exists():
@@ -162,12 +210,7 @@ def load_source_rows(
                 role = _source_role(raw, min_action_l2_gap)
                 if role is None or (sentinel_only and role != "sentinel"):
                     continue
-                dedup_key = (
-                    str(raw.get("pair_id", "")),
-                    str(raw.get("variant", "")),
-                    str(raw.get("seed", "")),
-                    str(raw.get("step", "")),
-                )
+                dedup_key = _source_row_identity(raw)
                 if dedup_key in seen_keys:
                     continue
                 seen_keys.add(dedup_key)
@@ -176,13 +219,21 @@ def load_source_rows(
                 score = _finite_float(row.get("first_action_distance_from_normal"), default=0.0)
                 normal_margin = _finite_float(row.get("normal_margin"), default=0.0)
                 row["_selection_score"] = float(score - 0.001 * max(normal_margin, 0.0))
+                step_bucket = str(row.get("step_bucket", "")).strip() or str(int(int(row.get("step", 0)) // 20))
+                margin_bucket = _bucket_float(normal_margin, width=0.05)
+                action_bucket = _bucket_float(score, width=0.005)
                 key = (
                     role,
                     str(row.get("seed", "")),
                     str(row.get("preferred_fault_family", "")),
                     str(row.get("wrong_fault_family", "")),
+                    str(row.get("fault_family_pair", "")),
                     str(row.get("preferred_fault_severity", "")),
                     str(row.get("source_pool", "")),
+                    step_bucket,
+                    margin_bucket,
+                    action_bucket,
+                    str(row.get("assigned_split", "")),
                 )
                 grouped.setdefault(key, []).append(row)
 
@@ -214,7 +265,7 @@ def load_source_rows(
 
 def _round_robin_take(groups: dict[tuple[str, ...], list[dict[str, Any]]], limit: int) -> list[dict[str, Any]]:
     selected: list[dict[str, Any]] = []
-    keys = sorted(groups)
+    keys = _balanced_group_order(list(groups))
     cursor = {key: 0 for key in keys}
     while len(selected) < int(limit):
         progressed = False
@@ -231,6 +282,33 @@ def _round_robin_take(groups: dict[tuple[str, ...], list[dict[str, Any]]], limit
         if not progressed:
             break
     return selected
+
+
+def _balanced_group_order(keys: list[tuple[str, ...]]) -> list[tuple[str, ...]]:
+    dimensions = (0, 2, 3, 4, 1, 7, 8, 9, 10, 5, 6)
+
+    def order(items: list[tuple[str, ...]], dims: tuple[int, ...]) -> list[tuple[str, ...]]:
+        if len(items) <= 1 or not dims:
+            return sorted(items)
+        dim = dims[0]
+        grouped: dict[str, list[tuple[str, ...]]] = {}
+        for item in items:
+            value = item[dim] if dim < len(item) else ""
+            grouped.setdefault(str(value), []).append(item)
+        ordered_groups = [order(grouped[value], dims[1:]) for value in sorted(grouped)]
+        result: list[tuple[str, ...]] = []
+        while ordered_groups:
+            next_groups: list[list[tuple[str, ...]]] = []
+            for group in ordered_groups:
+                if not group:
+                    continue
+                result.append(group[0])
+                if len(group) > 1:
+                    next_groups.append(group[1:])
+            ordered_groups = next_groups
+        return result
+
+    return order(keys, dimensions)
 
 
 def _snapshot_to_decision(snapshot: TemporalSnapshot) -> DecisionSnapshot:
@@ -438,6 +516,7 @@ def run_temporal_action_boundary_outcome_miner(
         max_source_rows=max_source_rows,
         min_action_l2_gap=min_action_l2_gap,
     )
+    source_balance_summary = _source_summary(source_rows)
     faults = [NOMINAL_FAULT, *config["faults"]]
     snapshots_by_seed: dict[int, list[TemporalSnapshot]] = {}
     for seed in sorted({int(row["seed"]) for row in source_rows}):
@@ -627,6 +706,7 @@ def run_temporal_action_boundary_outcome_miner(
             role: int(sum(1 for row in source_output_rows if str(row.get("source_role", "")) == role))
             for role in sorted({str(row.get("source_role", "")) for row in source_output_rows})
         },
+        **source_balance_summary,
         "thresholds": {
             "min_action_l2_gap": min_action_l2_gap,
             "min_history_margin_gap": min_history_margin_gap,
