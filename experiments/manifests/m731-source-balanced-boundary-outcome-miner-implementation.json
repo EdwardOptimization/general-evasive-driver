@@ -1,0 +1,150 @@
+{
+  "id": "m731-source-balanced-boundary-outcome-miner-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m730-source-balanced-boundary-outcome-mining-design.md",
+      "docs/m729-quota-calibrated-source-balanced-temporal-wave-audit.md",
+      "runs/m728_quota_calibrated_source_balanced_temporal_wave/summary.json",
+      "runs/m728_quota_calibrated_source_balanced_temporal_wave/temporal_critical_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m730-source-balanced-boundary-outcome-mining-design.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_objective": [
+      "implement and run source-balanced boundary miner from M728 action-critical rows"
+    ],
+    "derived_from": [
+      "m730-source-balanced-boundary-outcome-mining-design"
+    ],
+    "blocked_by": [
+      "m730-source-balanced-boundary-outcome-mining-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m731-source-balanced-boundary-outcome-miner-implementation.md",
+  "public_gates": [
+    "loader supports M728 proposal_id selected_index schema",
+    "source rows are selected from M728 source-balanced action-critical rows",
+    "source-balance metrics and sentinel false positives are reported",
+    "temporal action and outcome rows are separated",
+    "actor checksum remains unchanged",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat M728 action rows as outcome proof",
+    "do not mutate actor observations with hidden fault labels",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not lower outcome thresholds after seeing M731 output"
+  ],
+  "workflow_synthesis": {
+    "branch": "source_balanced_boundary_outcome_mining",
+    "evidence_axis": "G_action_to_outcome: run boundary miner from M728 action rows",
+    "evidence_increment": "tests whether source-balanced action-critical rows become outcome-critical near local obstacle boundaries",
+    "claim_scope": "diagnostic data wave only; no policy update or promotion",
+    "stop_condition": [
+      "stop if source-balance targets fail",
+      "stop if sentinel false positives exceed threshold",
+      "stop if normal-history retention fails",
+      "stop if actor checksum or input contract changes"
+    ],
+    "fallback_plan": [
+      "if outcome-positive rows appear, audit before corpus export",
+      "if action-only persists, audit before sequence-level intervention or dynamics fidelity",
+      "if source selection fails, repair loader and selection before rerun"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M730 admits source-balanced boundary outcome miner implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M728 action-critical rows can produce outcome-critical rows when locally relocated near obstacle and terminal-margin boundaries under source-balanced selection.",
+  "success_criteria": [
+    "M731 implements M728 schema-compatible source loading",
+    "M731 runs smoke and registered no-training boundary miner",
+    "M731 writes source candidate rollout accepted rejected and summary artifacts",
+    "M731 reports source-balance action outcome and sentinel metrics separately",
+    "actor checksum remains unchanged",
+    "no training PPO actor update or promotion occurs"
+  ],
+  "failure_criteria": [
+    "runner collapses M728 rows because proposal_id is ignored",
+    "runner omits sentinel rows",
+    "runner combines action-only and outcome-positive claims",
+    "runner changes actor input contract",
+    "runner starts optimizer training PPO or checkpoint promotion"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "patch temporal_action_boundary_outcome_miner source loader for M728 schema and add focused tests"
+    },
+    {
+      "name": "smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.temporal_action_boundary_outcome_miner --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --config configs/extreme_fault_coverage_v2_scenarios.json --temporal-rows runs/m728_quota_calibrated_source_balanced_temporal_wave/temporal_critical_rows.csv --seed-start 72000 --seed-count 16 --max-source-rows 32 --max-candidates-per-source 4 --obstacle-x-shifts=-16,-12,-8,-4,0,4,8 --obstacle-y-shifts=-1.00,-0.75,-0.50,-0.25,0,0.25,0.50,0.75,1.00 --half-width-deltas=0,0.10,0.20,0.30 --device cpu --run-dir runs/m731_source_balanced_boundary_outcome_miner_smoke"
+    },
+    {
+      "name": "registered_run",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.temporal_action_boundary_outcome_miner --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --config configs/extreme_fault_coverage_v2_scenarios.json --temporal-rows runs/m728_quota_calibrated_source_balanced_temporal_wave/temporal_critical_rows.csv --seed-start 72000 --seed-count 512 --max-source-rows 512 --max-candidates-per-source 16 --obstacle-x-shifts=-16,-12,-8,-4,0,4,8 --obstacle-y-shifts=-1.00,-0.75,-0.50,-0.25,0,0.25,0.50,0.75,1.00 --half-width-deltas=0,0.10,0.20,0.30 --device cpu --run-dir runs/m731_source_balanced_boundary_outcome_miner"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/temporal_action_boundary_outcome_miner.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_temporal_action_boundary_outcome_miner.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m731_source_balanced_boundary_outcome_miner/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m731_source_balanced_boundary_outcome_miner/source_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m731_source_balanced_boundary_outcome_miner/intervention_rollouts.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m731_source_balanced_boundary_outcome_miner/accepted_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m731_source_balanced_boundary_outcome_miner/rejected_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m731_source_balanced_boundary_outcome_miner/variant_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m731-source-balanced-boundary-outcome-miner-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m728_quota_calibrated_source_balanced_temporal_wave/summary.json",
+    "docs/m730-source-balanced-boundary-outcome-mining-design.md"
+  ],
+  "decision_rule": "M731 may only classify the no-training boundary miner. It must not admit source export objective design actor update PPO or promotion until an audit reviews the result.",
+  "next_blocker": "m732-source-balanced-boundary-outcome-miner-audit"
+}

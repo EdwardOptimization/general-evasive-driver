@@ -12603,3 +12603,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M729 audits M728 as `metric_artifact` plus `scenario_sampling_failure` for closed-loop self-ID. M728 fixes source balance and provides `2613` temporal action-critical rows across `351` seeds, but only one outcome row, so the blocker has moved from source coverage to action-to-outcome conversion. The singleton outcome row is preserved as a diagnostic seed, not a corpus. Source export, actor update, PPO, and promotion remain blocked.
 - decision: `promote_to_source_balanced_boundary_mining`
 - next: `m730-source-balanced-boundary-outcome-mining-design`
+
+## 20260525T002000Z - m730-source-balanced-boundary-outcome-mining-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m730-source-balanced-boundary-outcome-mining-design.md`
+- result: M730 designs a no-training source-balanced boundary miner from M728 action-critical rows. It identifies the M722 source concentration blocker, requires M731 to support M728 `proposal_id` and `selected_index` row schema, and registers a 512-row source-balanced boundary search with normal-history retention, sentinel false-positive, action/outcome separation, and no-training constraints. It blocks source export, actor update, PPO, and promotion.
+- decision: `source_balanced_boundary_mining_design_admit_m731`
+- next: `m731-source-balanced-boundary-outcome-miner-implementation`
