@@ -1,0 +1,118 @@
+{
+  "id": "m693-gate-margin-closed-loop-replay-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m692_gate_margin_closed_loop_replay/summary.json",
+      "runs/m692_gate_margin_closed_loop_replay/replay_rows.csv",
+      "runs/m692_gate_margin_closed_loop_replay/seed_summary.csv",
+      "runs/m692_gate_margin_closed_loop_replay/split_summary.csv",
+      "docs/m692-gate-margin-closed-loop-replay-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m692-gate-margin-closed-loop-replay-implementation.json"
+    ],
+    "parent_objective": [
+      "audit replay-neutral result and synthesize the response-amplification actor-coupling branch"
+    ],
+    "derived_from": [
+      "m692-gate-margin-closed-loop-replay-implementation"
+    ],
+    "blocked_by": [
+      "m692-gate-margin-closed-loop-replay-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m693-gate-margin-closed-loop-replay-audit.md",
+  "public_gates": [
+    "M692 implementation cleanliness is checked",
+    "replay-neutral result is separated from implementation pass",
+    "M689 exact output pass is not overclaimed as closed-loop utility",
+    "actor update PPO and promotion remain blocked",
+    "response-amplification actor-coupling branch receives a synthesis decision"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun residual-head training",
+    "do not run PPO",
+    "do not promote any checkpoint",
+    "do not ignore the replay-neutral result",
+    "do not create another narrow residual-head objective without synthesis",
+    "do not change actor input contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "response_amplification_actor_coupling",
+    "evidence_axis": "G_synthesis: decide whether exact residual-head output evidence should remain an active actor-coupling branch after replay-neutral closed-loop admission",
+    "evidence_increment": "synthesizes M669-M692 evidence and decides whether to pivot, stop, continue, or promote to a new branch",
+    "claim_scope": "process synthesis and next-branch decision only, not driver performance or checkpoint promotion",
+    "stop_condition": [
+      "stop response-amplification actor coupling if M692 replay-neutral means exact output residual heads are not trajectory-useful",
+      "stop before actor update or PPO unless the synthesis explicitly admits a new evidence axis with stronger trajectory-level targets",
+      "stop if the branch has become a public exact-gate optimization loop without closed-loop utility"
+    ],
+    "fallback_plan": [
+      "pivot to trajectory/terminal-boundary source mining if output residuals are not useful in closed loop",
+      "pivot to capability-envelope or scenario-distribution evaluation if no action-critical surface exists",
+      "archive M689 residual heads as diagnostic artifacts if no replay-positive path exists"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M692 replay_neutral after normal retention holds",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m693-gate-margin-closed-loop-replay-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "M692 replay-neutral result should close or pivot the response-amplification actor-coupling branch before any further residual-head tuning or PPO.",
+  "success_criteria": [
+    "M692 replay metrics are summarized",
+    "implementation pass is separated from replay-admission failure",
+    "failure taxonomy is assigned",
+    "supported and falsified claims are recorded",
+    "public gate overfit risk is recorded",
+    "next branch decision is explicit",
+    "actor update PPO and promotion remain blocked unless a new branch is pre-registered"
+  ],
+  "failure_criteria": [
+    "audit treats replay_neutral as replay_positive",
+    "audit admits actor update or PPO without new evidence",
+    "audit omits branch synthesis questions",
+    "audit fails to classify metric-artifact risk",
+    "audit creates a new narrow residual-head objective without a branch decision"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m693-gate-margin-closed-loop-replay-audit.md from M669-M692 artifacts; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m693-gate-margin-closed-loop-replay-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m692_gate_margin_closed_loop_replay/summary.json",
+    "docs/m692-gate-margin-closed-loop-replay-implementation.md"
+  ],
+  "decision_rule": "M693 must produce a process synthesis decision before any further response-amplification actor-coupling work; the pre-registered decision is pivot because M692 is replay_neutral.",
+  "next_blocker": "m693-gate-margin-closed-loop-replay-audit"
+}

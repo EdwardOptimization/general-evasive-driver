@@ -1,27 +1,30 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 700,
+        "completed": 701,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m691-gate-margin-closed-loop-replay-design",
+        "task_id": "m692-gate-margin-closed-loop-replay-implementation",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m691-gate-margin-closed-loop-replay-design.md"
+        "command_log": "docs/m692-gate-margin-closed-loop-replay-implementation.md",
+        "run_dir": "runs/m692_gate_margin_closed_loop_replay",
+        "result": "replay_neutral",
+        "replay_admission_passed": false
     },
     "next_task": {
-        "id": "m692-gate-margin-closed-loop-replay-implementation",
+        "id": "m693-gate-margin-closed-loop-replay-audit",
         "status": "pending",
-        "priority": 6870,
-        "kind": "infrastructure",
-        "hypothesis": "M689 residual-head corrections can be replayed in short closed-loop continuations without normal-history regression and with measurable wrong-history or boundary-risk utility.",
-        "command": "see experiments/manifests/m692-gate-margin-closed-loop-replay-implementation.json",
+        "priority": 6880,
+        "kind": "gate",
+        "hypothesis": "M692 replay-neutral result should close or pivot the response-amplification actor-coupling branch before any further residual-head tuning or PPO.",
+        "command": "see experiments/manifests/m693-gate-margin-closed-loop-replay-audit.json",
         "success_artifact": "",
-        "notes": "Pending: implement no-training replay admission artifacts without actor update PPO or promotion"
+        "notes": "Pending: process synthesis before any further residual-head tuning actor update or PPO"
     },
-    "updated_at_utc": "20260524T161746Z"
+    "updated_at_utc": "20260524T162438Z"
 }
