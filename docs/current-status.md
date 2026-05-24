@@ -46,31 +46,40 @@ runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
 ```
 
 Status: M400 promoted M399 alpha `0.05` as the current public-gate base after
-six public replay surfaces and behavior seeds passed. M487-M529 did not promote
-a new driver checkpoint.
+six public replay surfaces and behavior seeds passed. M487-M601 did not promote
+a new public-gate driver checkpoint.
 
-Latest infrastructure smoke checkpoint:
+Latest active diagnostic BC checkpoint:
 
 ```text
-runs/m528_l0_current_observation_smoke/checkpoint.pt
+runs/m568_scaled_l3_bc_seed5660/checkpoint.pt
 ```
 
-Status: M528 smoke-only L0 current-observation checkpoint. It validates
-baseline route and metadata, not driver performance.
+Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M601
+diagnostics. It is not the public-gate base and is not promoted as the current
+driver checkpoint.
 
 ## Current Blocker
 
 ```text
-m601-bc-capability-belief-intervention-probe
+m602-bc-capability-belief-intervention-audit
 ```
 
-M601 should implement and run the capability-belief intervention probe designed
-by M600. The current evidence supports deployable current-response dependence
-and source-diverse pair availability, but M587-M600 do not yet support
-accumulated hidden-history causality. Promotion and PPO remain blocked.
+M602 should audit the M601 capability-belief intervention results before any
+actor update. M601 shows belief-level real-history movement, but the signal is
+mixed: shuffled-history passes on fresh/OOD, wrong-matched history passes on
+OOD but remains weak on fresh, delayed-history remains weak, and zero-current
+response still dominates. Promotion and PPO remain blocked.
 
 ## Recent Evidence Line
 
+- M601 implements and runs that probe. Fresh has `329` pairs and OOD has `287`
+  pairs. `shuffled_history` passes the admission rule on both surfaces, and
+  `wrong_matched_history` passes on OOD with mean z-distance `0.140707` and
+  `49 / 287` above-threshold rows. Fresh `wrong_matched_history` is mixed
+  (`0.099081`, `8 / 329`), and `delayed_history` is weak on both surfaces.
+  This admits M602 audit but not actor training, PPO, promotion, or a driver
+  improvement claim.
 - M600 designs the capability-belief intervention probe. It uses the M598
   capability head on recurrent `next_hidden` under M591-style hidden variants
   and measures z-scored capability prediction distance. Actor fine-tuning is

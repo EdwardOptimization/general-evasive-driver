@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 609,
+        "completed": 610,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m600-bc-capability-belief-intervention-probe-design",
+        "task_id": "m601-bc-capability-belief-intervention-probe",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m600-bc-capability-belief-intervention-probe-design.md"
+        "run_dir": "runs/m601_bc_capability_belief_intervention_fresh",
+        "command_log": "docs/m601-bc-capability-belief-intervention-probe.md"
     },
     "next_task": {
-        "id": "m601-bc-capability-belief-intervention-probe",
+        "id": "m602-bc-capability-belief-intervention-audit",
         "status": "pending",
-        "priority": 5960,
+        "priority": 5970,
         "kind": "gate",
-        "hypothesis": "If M598 learned a meaningful hidden capability belief, wrong or delayed real histories may change capability predictions even though M591 showed action-level insensitivity.",
-        "command": "see experiments/manifests/m601-bc-capability-belief-intervention-probe.json",
+        "hypothesis": "M601 shows capability-belief movement under real-history interventions, but the mixed matched-wrong/delayed results and zero-current dominance must be audited before actor fine-tuning.",
+        "command": "see experiments/manifests/m602-bc-capability-belief-intervention-audit.json",
         "success_artifact": "",
-        "notes": "Pending: implement and run capability-belief intervention probe; no training, PPO, promotion, or driver-performance claim"
+        "notes": "Pending: audit M601 and choose the next no-oracle branch; no training, PPO, promotion, or driver-performance claim"
     },
-    "updated_at_utc": "20260524T120000Z"
+    "updated_at_utc": "20260524T121000Z"
 }

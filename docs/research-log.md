@@ -11530,3 +11530,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M600 designs the capability-belief intervention probe. It will load the frozen BC5660 actor and M598 `CapabilityHead`, reconstruct M586/M591 snapshots, apply normal/reset/delayed/wrong/shuffled/scaled/random hidden variants, run the actor recurrent update for the current observation, then compare capability predictions in z-scored target space. Actor fine-tune design is admitted only if real-history variants have mean capability z-distance at least `0.10` and at least `16` above-threshold rows on one surface; random-hidden movement remains off-manifold diagnostic only.
 - decision: `bc_capability_belief_intervention_probe_design_admit_m601`
 - next: `m601-bc-capability-belief-intervention-probe`
+## 20260524T121000Z - m601-bc-capability-belief-intervention-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m601_bc_capability_belief_intervention_fresh`; `runs/m601_bc_capability_belief_intervention_ood`
+- artifact: `docs/m601-bc-capability-belief-intervention-probe.md`
+- result: M601 implements and runs the capability-belief intervention probe from M600. The probe loads the frozen BC5660 actor and M598 capability head, reconstructs M586/M591 snapshots, and compares z-scored capability predictions under normal/reset/delayed/wrong/shuffled/scaled/random hidden and observation-control variants. Fresh has `329` pairs and OOD has `287` pairs. Real-history movement is present: `shuffled_history` passes the M600 rule on fresh and OOD, and `wrong_matched_history` passes on OOD. Fresh `wrong_matched_history` remains just below the mean rule and has only `8 / 329` above-threshold rows; `delayed_history` remains weak on both surfaces. Zero-current remains the strongest deployable positive control. No model is trained, no PPO is run, no checkpoint is promoted, and no driver-improvement claim is made.
+- decision: `bc_capability_belief_intervention_probe_pass_admit_audit`
+- next: `m602-bc-capability-belief-intervention-audit`

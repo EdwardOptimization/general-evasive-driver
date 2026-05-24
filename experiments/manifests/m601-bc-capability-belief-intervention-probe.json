@@ -2,7 +2,7 @@
   "id": "m601-bc-capability-belief-intervention-probe",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -92,6 +92,6 @@
     "docs/m600-bc-capability-belief-intervention-probe-design.md",
     "runs/m598_bc_capability_repair_head_only_smoke/summary.json"
   ],
-  "decision_rule": "M601 passes as a probe if it writes both capability-belief intervention surfaces and applies the pre-registered M600 admission rule without training or promotion.",
+  "decision_rule": "M601 passes as a probe because it writes both capability-belief intervention surfaces and applies the pre-registered M600 admission rule without training or promotion. Real-history capability movement is present, but M602 must audit the mixed matched-wrong/delayed results before actor fine-tuning.",
   "next_blocker": "m602-bc-capability-belief-intervention-audit"
 }

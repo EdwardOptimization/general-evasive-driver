@@ -1,0 +1,80 @@
+{
+  "decision_reason": "M601 finds belief-level real-history movement: shuffled passes on fresh and OOD and wrong-matched passes on OOD while delayed remains weak; no actor training PPO promotion or driver claim",
+  "failure_criteria": [
+    "probe trains any model",
+    "probe omits wrong or delayed history variants",
+    "probe treats random hidden movement as self-ID proof",
+    "probe promotes a checkpoint"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor or capability head",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not claim driver improvement from belief movement",
+    "do not treat random-hidden sensitivity as self-ID proof"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260524T081751Z",
+  "hypothesis": "If M598 learned a meaningful hidden capability belief, wrong or delayed real histories may change capability predictions even though M591 showed action-level insensitivity.",
+  "lineage": {
+    "blocked_by": [
+      "m600-bc-capability-belief-intervention-probe-design"
+    ],
+    "derived_from": [
+      "m600-bc-capability-belief-intervention-probe-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_dataset": [
+      "runs/m598_bc_capability_repair_head_only_smoke/capability_head.pt",
+      "runs/m598_bc_capability_repair_head_only_smoke/summary.json",
+      "runs/m586_bc5660_matched_current_fresh_seed25560/matched_pairs.csv",
+      "runs/m586_bc5660_matched_current_ood_seed25660/matched_pairs.csv"
+    ],
+    "parent_objective": [
+      "implement and run capability-belief intervention probe after M600 design"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m601-bc-capability-belief-intervention-probe",
+  "next_blocker": "m602-bc-capability-belief-intervention-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "bc_capability_belief_intervention_probe_pass_admit_audit",
+  "public_gates": [
+    "run fresh capability-belief intervention surface",
+    "run OOD capability-belief intervention surface",
+    "summarize normal reset delayed wrong shuffled scaled random and observation-control variants",
+    "decide whether actor fine-tune design is admitted"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m601_bc_capability_belief_intervention_fresh/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "bc_capability_belief_intervention_probe_pass_admit_audit",
+    "milestone": "m601-bc-capability-belief-intervention-probe",
+    "reason": "M601 finds belief-level real-history movement: shuffled passes on fresh and OOD and wrong-matched passes on OOD while delayed remains weak; no actor training PPO promotion or driver claim",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "fresh and OOD summary.json files exist",
+    "variant summaries include all M600 variants",
+    "capability z-distance threshold is 0.25",
+    "milestone doc applies the M600 interpretation rules",
+    "research validation and focused tests pass"
+  ],
+  "type": "gate"
+}
