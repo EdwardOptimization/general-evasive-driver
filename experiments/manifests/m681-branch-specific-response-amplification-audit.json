@@ -1,0 +1,83 @@
+{
+  "id": "m681-branch-specific-response-amplification-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m680_branch_specific_response_amplification/summary.json",
+      "runs/m680_branch_specific_response_amplification/alpha_summary.csv",
+      "docs/m680-branch-specific-response-amplification-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m680-branch-specific-response-amplification-implementation.json"
+    ],
+    "parent_objective": [
+      "audit branch-specific response-amplification exact gate failure"
+    ],
+    "derived_from": [
+      "m680-branch-specific-response-amplification-implementation"
+    ],
+    "blocked_by": [
+      "m680-branch-specific-response-amplification-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m681-branch-specific-response-amplification-audit.md",
+  "public_gates": [
+    "M680 implementation cleanliness is checked",
+    "wrong-gap restoration is quantified",
+    "normal sequence retention failure is quantified",
+    "PPO and promotion remain blocked",
+    "next design addresses normal-sequence safety explicitly"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun training",
+    "do not admit PPO",
+    "do not promote a checkpoint",
+    "do not weaken normal retention gates",
+    "do not change actor input contract"
+  ],
+  "hypothesis": "M680 partially restored wrong-history gap while preserving first-step safety, but failed exact gates because normal full-sequence residual mean moved too much; the next design should add normal-sequence retention pressure or split/gated wrong-amplifier structure.",
+  "success_criteria": [
+    "M680 is classified from exact alpha evidence",
+    "audit distinguishes wrong-gap partial recovery from normal sequence retention failure",
+    "next design target is specified",
+    "PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "audit ignores M680 wrong-gap improvement",
+    "audit treats M680 as complete failure without identifying new blocker",
+    "audit admits PPO or promotion",
+    "audit weakens normal retention gates"
+  ],
+  "commands": [
+    {
+      "name": "write_audit",
+      "command": "write docs/m681-branch-specific-response-amplification-audit.md from M680 artifacts; no training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m681-branch-specific-response-amplification-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m680_branch_specific_response_amplification/summary.json",
+    "runs/m680_branch_specific_response_amplification/alpha_summary.csv"
+  ],
+  "decision_rule": "M681 passes if it classifies M680 as branch-specific gap partial with normal-sequence retention failure and admits only a normal-sequence-safe redesign, not PPO or promotion.",
+  "next_blocker": "m682-normal-sequence-safe-response-amplification-design"
+}

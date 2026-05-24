@@ -62,18 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m680-branch-specific-response-amplification-implementation
+m681-branch-specific-response-amplification-audit
 ```
 
-M680 should implement the branch-specific response-amplification probe designed
-in M679. It should extend the frozen-backbone actor-coupling path with
-detached-normal wrong-history gap losses, stronger wrong-history target
-pressure, hard low-gap row pressure, and the same alpha ladder and exact gates.
-PPO, promotion, actor-input changes, and normal safety gate weakening remain
-forbidden.
+M681 should audit M680. M680 partially restored wrong-history gap and kept
+first-step safety, but failed exact gates because normal full-sequence residual
+mean exceeded the retention threshold. The next branch should address normal
+sequence retention explicitly without weakening gates, changing actor inputs,
+running PPO, or promoting a checkpoint.
 
 ## Recent Evidence Line
 
+- M680 implements branch-specific response amplification. It is a clean negative
+  result with progress: branch-specific pressure restores wrong-history gap
+  enough for seed `6801` at `alpha=1.0` to pass gap, p10, ratio, wrong-target,
+  and first-drift gates, but normal full-sequence mean is `0.003753`, above the
+  `0.0025` retention gate. The next blocker is normal sequence retention, not
+  first-step safety or missing wrong-history signal.
 - M679 designs branch-specific response amplification. It keeps frozen BC5660,
   fused-plus-next-hidden features, first-residual execution, alpha ladder,
   exact-first evaluation, no PPO, no promotion, and no input changes, while

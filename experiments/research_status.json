@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 688,
+        "completed": 689,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m679-branch-specific-response-amplification-design",
+        "task_id": "m680-branch-specific-response-amplification-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m679-branch-specific-response-amplification-design.md"
+        "run_dir": "runs/m680_branch_specific_response_amplification",
+        "command_log": "docs/m680-branch-specific-response-amplification-implementation.md"
     },
     "next_task": {
-        "id": "m680-branch-specific-response-amplification-implementation",
+        "id": "m681-branch-specific-response-amplification-audit",
         "status": "pending",
-        "priority": 6750,
-        "kind": "infrastructure",
-        "hypothesis": "Detached-normal branch-specific wrong-history pressure can preserve M677's normal first-step safety while restoring enough wrong-history sequence gap for a nonzero-alpha exact candidate.",
-        "command": "see experiments/manifests/m680-branch-specific-response-amplification-implementation.json",
+        "priority": 6760,
+        "kind": "gate",
+        "hypothesis": "M680 partially restored wrong-history gap while preserving first-step safety, but failed exact gates because normal full-sequence residual mean moved too much; the next design should add normal-sequence retention pressure or split/gated wrong-amplifier structure.",
+        "command": "see experiments/manifests/m681-branch-specific-response-amplification-audit.json",
         "success_artifact": "",
-        "notes": "Pending: implement branch-specific exact probe; PPO promotion and actor-input changes remain blocked"
+        "notes": "Pending: audit M680 and design next normal-sequence-safe branch; PPO promotion and actor-input changes remain blocked"
     },
-    "updated_at_utc": "20260525T033000Z"
+    "updated_at_utc": "20260525T034500Z"
 }

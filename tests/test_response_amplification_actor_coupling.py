@@ -138,3 +138,42 @@ def test_train_actor_coupling_seed_learns_synthetic_residual_and_alpha_passes():
     assert summary["selected_alpha"] > 0.0
     result = apply_actor_coupling_pass_rules([summary])
     assert result["actor_coupling_exact_passed"] is True
+
+
+def test_branch_specific_gap_training_reports_hard_row_terms():
+    arrays = _arrays()
+    metadata = _metadata()
+
+    _head, metrics, summary, _alpha_rows = train_actor_coupling_seed(
+        arrays=arrays,
+        metadata=metadata,
+        features_normal=arrays["normal_hidden"],
+        features_variant=arrays["variant_hidden"],
+        alphas=(1.0,),
+        hidden_dim=16,
+        epochs=20,
+        learning_rate=0.01,
+        weight_decay=0.0,
+        seed=19,
+        wrong_target_coef=2.0,
+        gap_margin_coef=0.1,
+        smoothness_coef=0.0,
+        normal_first_coef=5.0,
+        normal_first_topk_coef=2.0,
+        normal_first_threshold=0.004,
+        normal_first_topk_fraction=0.1,
+        wrong_first_gap_coef=1.0,
+        wrong_first_target_gap=0.006,
+        branch_specific_gap=True,
+        wrong_sequence_gap_coef=1.0,
+        wrong_sequence_target_gap=0.012,
+        wrong_hard_coef=0.5,
+        wrong_hard_fraction=0.25,
+        target_gap=0.004,
+        device=torch.device("cpu"),
+    )
+
+    assert summary["branch_specific_gap"] is True
+    assert summary["wrong_hard_fraction"] == 0.25
+    assert any("wrong_sequence_gap_hinge" in row for row in metrics)
+    assert any(row["hard_row_count"] > 0 for row in metrics)

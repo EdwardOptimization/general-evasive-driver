@@ -101,6 +101,60 @@ def _wrong_first_gap_hinge(
     return _weighted_mean(per_row, weight)
 
 
+def _row_sequence_gap(prediction_normal: torch.Tensor, prediction_wrong: torch.Tensor, mask: torch.Tensor) -> torch.Tensor:
+    step_l2 = torch.linalg.norm(prediction_wrong - prediction_normal, dim=2) * mask
+    valid = torch.clamp(mask.sum(dim=1), min=1.0)
+    return step_l2.sum(dim=1) / valid
+
+
+def _detached_sequence_gap_hinge(
+    prediction_normal: torch.Tensor,
+    prediction_wrong: torch.Tensor,
+    mask: torch.Tensor,
+    weight: torch.Tensor,
+    *,
+    target_gap: float,
+) -> torch.Tensor:
+    row_gap = _row_sequence_gap(prediction_normal.detach(), prediction_wrong, mask)
+    per_row = torch.square(torch.relu(float(target_gap) - row_gap))
+    return _weighted_mean(per_row, weight)
+
+
+def _hard_wrong_rows_loss(
+    prediction_normal: torch.Tensor,
+    prediction_wrong: torch.Tensor,
+    target_wrong: torch.Tensor,
+    mask: torch.Tensor,
+    weight: torch.Tensor,
+    *,
+    target_gap: float,
+    fraction: float,
+) -> tuple[torch.Tensor, int]:
+    if prediction_wrong.shape[0] == 0:
+        return torch.zeros((), dtype=prediction_wrong.dtype, device=prediction_wrong.device), 0
+    row_gap = _row_sequence_gap(prediction_normal.detach(), prediction_wrong, mask)
+    k = max(1, int(np.ceil(float(fraction) * int(row_gap.numel()))))
+    k = min(k, int(row_gap.numel()))
+    hard_indices = torch.topk(row_gap, k=k, largest=False).indices
+    hard_pred_normal = prediction_normal.index_select(0, hard_indices)
+    hard_pred_wrong = prediction_wrong.index_select(0, hard_indices)
+    hard_target_wrong = target_wrong.index_select(0, hard_indices)
+    hard_mask = mask.index_select(0, hard_indices)
+    hard_weight = weight.index_select(0, hard_indices)
+    target_loss = torch.square(hard_pred_wrong - hard_target_wrong) * hard_mask[:, :, None]
+    denom = torch.clamp(hard_mask.sum(dim=1) * hard_pred_wrong.shape[2], min=1.0)
+    row_loss = target_loss.sum(dim=(1, 2)) / denom
+    target_mse = _weighted_mean(row_loss, hard_weight)
+    gap_hinge = _detached_sequence_gap_hinge(
+        hard_pred_normal,
+        hard_pred_wrong,
+        hard_mask,
+        hard_weight,
+        target_gap=target_gap,
+    )
+    return target_mse + gap_hinge, k
+
+
 def _coupling_loss_components(
     head: ResponseAmplifierHead,
     batch: dict[str, torch.Tensor],
@@ -115,6 +169,11 @@ def _coupling_loss_components(
     normal_first_topk_fraction: float,
     wrong_first_gap_coef: float,
     wrong_first_target_gap: float,
+    branch_specific_gap: bool,
+    wrong_sequence_gap_coef: float,
+    wrong_sequence_target_gap: float,
+    wrong_hard_coef: float,
+    wrong_hard_fraction: float,
     target_gap: float,
 ) -> dict[str, torch.Tensor]:
     losses = _loss_components(
@@ -131,6 +190,7 @@ def _coupling_loss_components(
     pred_wrong = head(batch["features_variant"].index_select(0, index_t))
     mask = batch["mask"].index_select(0, index_t)
     weight = batch["weight"].index_select(0, index_t)
+    wrong_target = batch["target_delta_wrong"].index_select(0, index_t)
     smoothness = 0.5 * (
         _sequence_smoothness(pred_normal, mask, weight) + _sequence_smoothness(pred_wrong, mask, weight)
     )
@@ -140,22 +200,47 @@ def _coupling_loss_components(
         threshold=normal_first_threshold,
         fraction=normal_first_topk_fraction,
     )
+    normal_gap_ref = pred_normal.detach() if branch_specific_gap else pred_normal
     wrong_first_gap = _wrong_first_gap_hinge(
-        pred_normal,
+        normal_gap_ref,
         pred_wrong,
         weight,
         target_gap=wrong_first_target_gap,
+    )
+    wrong_sequence_gap = _detached_sequence_gap_hinge(
+        pred_normal,
+        pred_wrong,
+        mask,
+        weight,
+        target_gap=wrong_sequence_target_gap,
+    ) if branch_specific_gap else torch.zeros((), dtype=pred_wrong.dtype, device=pred_wrong.device)
+    hard_wrong_loss, hard_row_count = _hard_wrong_rows_loss(
+        pred_normal,
+        pred_wrong,
+        wrong_target,
+        mask,
+        weight,
+        target_gap=wrong_sequence_target_gap,
+        fraction=wrong_hard_fraction,
+    ) if branch_specific_gap else (
+        torch.zeros((), dtype=pred_wrong.dtype, device=pred_wrong.device),
+        0,
     )
     losses["sequence_smoothness_mse"] = smoothness
     losses["normal_first_mse"] = normal_first
     losses["normal_first_topk_hinge"] = normal_topk
     losses["wrong_first_gap_hinge"] = wrong_first_gap
+    losses["wrong_sequence_gap_hinge"] = wrong_sequence_gap
+    losses["hard_wrong_loss"] = hard_wrong_loss
+    losses["hard_row_count"] = torch.as_tensor(float(hard_row_count), dtype=pred_wrong.dtype, device=pred_wrong.device)
     losses["total_loss"] = (
         losses["total_loss"]
         + float(smoothness_coef) * smoothness
         + float(normal_first_coef) * normal_first
         + float(normal_first_topk_coef) * normal_topk
         + float(wrong_first_gap_coef) * wrong_first_gap
+        + float(wrong_sequence_gap_coef) * wrong_sequence_gap
+        + float(wrong_hard_coef) * hard_wrong_loss
     )
     return losses
 
@@ -260,6 +345,11 @@ def train_actor_coupling_seed(
     normal_first_topk_fraction: float = 0.10,
     wrong_first_gap_coef: float = 0.0,
     wrong_first_target_gap: float = 0.006,
+    branch_specific_gap: bool = False,
+    wrong_sequence_gap_coef: float = 0.0,
+    wrong_sequence_target_gap: float = 0.012,
+    wrong_hard_coef: float = 0.0,
+    wrong_hard_fraction: float = 0.25,
     target_gap: float,
     device: torch.device,
 ) -> tuple[ResponseAmplifierHead, list[dict[str, Any]], dict[str, Any], list[dict[str, Any]]]:
@@ -296,6 +386,11 @@ def train_actor_coupling_seed(
                     normal_first_topk_fraction=normal_first_topk_fraction,
                     wrong_first_gap_coef=wrong_first_gap_coef,
                     wrong_first_target_gap=wrong_first_target_gap,
+                    branch_specific_gap=branch_specific_gap,
+                    wrong_sequence_gap_coef=wrong_sequence_gap_coef,
+                    wrong_sequence_target_gap=wrong_sequence_target_gap,
+                    wrong_hard_coef=wrong_hard_coef,
+                    wrong_hard_fraction=wrong_hard_fraction,
                     target_gap=target_gap,
                 )
                 metric_rows.append(
@@ -322,6 +417,11 @@ def train_actor_coupling_seed(
             normal_first_topk_fraction=normal_first_topk_fraction,
             wrong_first_gap_coef=wrong_first_gap_coef,
             wrong_first_target_gap=wrong_first_target_gap,
+            branch_specific_gap=branch_specific_gap,
+            wrong_sequence_gap_coef=wrong_sequence_gap_coef,
+            wrong_sequence_target_gap=wrong_sequence_target_gap,
+            wrong_hard_coef=wrong_hard_coef,
+            wrong_hard_fraction=wrong_hard_fraction,
             target_gap=target_gap,
         )
         losses["total_loss"].backward()
@@ -354,6 +454,11 @@ def train_actor_coupling_seed(
         "normal_first_topk_fraction": float(normal_first_topk_fraction),
         "wrong_first_gap_coef": float(wrong_first_gap_coef),
         "wrong_first_target_gap": float(wrong_first_target_gap),
+        "branch_specific_gap": bool(branch_specific_gap),
+        "wrong_sequence_gap_coef": float(wrong_sequence_gap_coef),
+        "wrong_sequence_target_gap": float(wrong_sequence_target_gap),
+        "wrong_hard_coef": float(wrong_hard_coef),
+        "wrong_hard_fraction": float(wrong_hard_fraction),
         "target_gap": float(target_gap),
         **alpha_summary,
     }
@@ -392,6 +497,11 @@ def run_response_amplification_actor_coupling(
     normal_first_topk_fraction: float,
     wrong_first_gap_coef: float,
     wrong_first_target_gap: float,
+    branch_specific_gap: bool,
+    wrong_sequence_gap_coef: float,
+    wrong_sequence_target_gap: float,
+    wrong_hard_coef: float,
+    wrong_hard_fraction: float,
     device: str,
     run_dir: Path,
     batch_size: int = 1024,
@@ -448,6 +558,11 @@ def run_response_amplification_actor_coupling(
             normal_first_topk_fraction=normal_first_topk_fraction,
             wrong_first_gap_coef=wrong_first_gap_coef,
             wrong_first_target_gap=wrong_first_target_gap,
+            branch_specific_gap=branch_specific_gap,
+            wrong_sequence_gap_coef=wrong_sequence_gap_coef,
+            wrong_sequence_target_gap=wrong_sequence_target_gap,
+            wrong_hard_coef=wrong_hard_coef,
+            wrong_hard_fraction=wrong_hard_fraction,
             target_gap=target_gap,
             device=resolved_device,
         )
@@ -505,6 +620,11 @@ def run_response_amplification_actor_coupling(
         "normal_first_topk_fraction": float(normal_first_topk_fraction),
         "wrong_first_gap_coef": float(wrong_first_gap_coef),
         "wrong_first_target_gap": float(wrong_first_target_gap),
+        "branch_specific_gap": bool(branch_specific_gap),
+        "wrong_sequence_gap_coef": float(wrong_sequence_gap_coef),
+        "wrong_sequence_target_gap": float(wrong_sequence_target_gap),
+        "wrong_hard_coef": float(wrong_hard_coef),
+        "wrong_hard_fraction": float(wrong_hard_fraction),
         "model_checksum_before": before_checksum,
         "model_checksum_after": after_checksum,
         "actor_parameters_changed": actor_changed,
@@ -549,6 +669,11 @@ def main() -> None:
     parser.add_argument("--normal-first-topk-fraction", type=float, default=0.10)
     parser.add_argument("--wrong-first-gap-coef", type=float, default=0.0)
     parser.add_argument("--wrong-first-target-gap", type=float, default=0.006)
+    parser.add_argument("--branch-specific-gap", action="store_true")
+    parser.add_argument("--wrong-sequence-gap-coef", type=float, default=0.0)
+    parser.add_argument("--wrong-sequence-target-gap", type=float, default=0.012)
+    parser.add_argument("--wrong-hard-coef", type=float, default=0.0)
+    parser.add_argument("--wrong-hard-fraction", type=float, default=0.25)
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="cpu")
     parser.add_argument("--batch-size", type=int, default=1024)
     parser.add_argument("--run-dir", type=Path, default=None)
@@ -575,6 +700,11 @@ def main() -> None:
         normal_first_topk_fraction=args.normal_first_topk_fraction,
         wrong_first_gap_coef=args.wrong_first_gap_coef,
         wrong_first_target_gap=args.wrong_first_target_gap,
+        branch_specific_gap=args.branch_specific_gap,
+        wrong_sequence_gap_coef=args.wrong_sequence_gap_coef,
+        wrong_sequence_target_gap=args.wrong_sequence_target_gap,
+        wrong_hard_coef=args.wrong_hard_coef,
+        wrong_hard_fraction=args.wrong_hard_fraction,
         device=args.device,
         run_dir=run_dir,
         batch_size=args.batch_size,

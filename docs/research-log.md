@@ -12241,3 +12241,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M679 designs branch-specific response amplification after M677 showed first-step safety positive but wrong-history gap suppressed. The next probe keeps frozen BC5660, fused-plus-next-hidden features, first-residual execution, alpha ladder, exact-first evaluation, no PPO, no promotion, and no actor-input changes. The design adds detached-normal gap losses so gap pressure moves the wrong branch instead of the normal branch, stronger wrong-history target pressure, wrong first-gap and sequence-gap hinges, and hard low-gap row pressure over the lowest `25%` current-batch wrong-history gaps.
 - decision: `branch_specific_response_amplification_design_admit_m680`
 - next: `m680-branch-specific-response-amplification-implementation`
+## 20260525T034500Z - m680-branch-specific-response-amplification-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m680_branch_specific_response_amplification`
+- artifact: `docs/m680-branch-specific-response-amplification-implementation.md`
+- result: M680 implements and runs the branch-specific detached-normal response-amplification probe. The implementation is clean: `648` rows, `216` sources, `3` residual heads written, branch-specific gap active, actor checksum unchanged, no base actor checkpoint, no PPO, no promotion. Exact gate still fails with `0` passed seeds, but wrong-history gap is partially restored: seed `6801` at `alpha=1.0` reaches gap mean `0.010645`, p10 `0.007573`, ratio `3.704878`, wrong-target improvement `0.560882`, and first drift p95 `0.004210`; it fails because normal full-sequence mean is `0.003753` above the `0.0025` gate. The new blocker is normal sequence retention, not first-step safety.
+- decision: `branch_specific_response_amplification_exact_gate_failed_admit_audit`
+- next: `m681-branch-specific-response-amplification-audit`
