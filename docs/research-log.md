@@ -12584,3 +12584,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M727 designs a no-training quota-calibrated M728 rerun. It preserves the `4096` selected-pair target, keeps `per_seed_pair_cap=8`, `per_fault_family_pair_cap=256`, and `per_preferred_family_cap=640`, and raises `per_step_bucket_cap` to `4096` to remove the M725 hard `2048` ceiling. The design keeps source-balance action evidence and outcome evidence separate, retains sentinel checks, and blocks source export, actor update, PPO, and promotion.
 - decision: `quota_calibrated_wave_design_admit_m728`
 - next: `m728-quota-calibrated-source-balanced-temporal-wave-implementation`
+
+## 20260525T000000Z - m728-quota-calibrated-source-balanced-temporal-wave-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m728_quota_calibrated_source_balanced_temporal_wave`
+- artifact: `docs/m728-quota-calibrated-source-balanced-temporal-wave-implementation.md`
+- result: M728 runs the quota-calibrated no-training source-balanced temporal wave. It selects `3951` pairs across `494` seeds, `9` preferred fault families, and `33` fault-family pairs, with max preferred-family dominance `0.161984` and sentinel false-positive rate `0.0`. The result class is `source_balanced_temporal_action_only`: `2613` temporal action-critical rows across `351` seeds but only `1` temporal outcome-critical row. The single outcome row is `seed=72339`, `front_lateral_authority_drop->steering_fault`, `mismatch_zero_command_history`, normal margin `0.001388798`, variant margin `-0.000232400`. Actor checksum is unchanged; no training, PPO, or promotion occurs.
+- decision: `source_balanced_temporal_action_only_admit_audit`
+- next: `m729-quota-calibrated-source-balanced-temporal-wave-audit`

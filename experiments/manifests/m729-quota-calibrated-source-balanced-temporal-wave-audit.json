@@ -1,0 +1,111 @@
+{
+  "id": "m729-quota-calibrated-source-balanced-temporal-wave-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m728-quota-calibrated-source-balanced-temporal-wave-implementation.md",
+      "runs/m728_quota_calibrated_source_balanced_temporal_wave/summary.json",
+      "runs/m728_quota_calibrated_source_balanced_temporal_wave/selected_pair_proposals.csv",
+      "runs/m728_quota_calibrated_source_balanced_temporal_wave/temporal_critical_rows.csv",
+      "runs/m728_quota_calibrated_source_balanced_temporal_wave/variant_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m728-quota-calibrated-source-balanced-temporal-wave-implementation.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit source-balanced action-only temporal wave before boundary mining sequence intervention or dynamics fidelity"
+    ],
+    "derived_from": [
+      "m728-quota-calibrated-source-balanced-temporal-wave-implementation"
+    ],
+    "blocked_by": [
+      "m728-quota-calibrated-source-balanced-temporal-wave-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m729-quota-calibrated-source-balanced-temporal-wave-audit.md",
+  "public_gates": [
+    "M728 source-balance pass is separated from outcome proof",
+    "M728 temporal action and outcome counts are summarized separately",
+    "the single outcome row is identified as diagnostic not sufficient corpus",
+    "next branch decision compares boundary mining sequence intervention and dynamics fidelity",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat the single M728 outcome row as a sufficient source corpus",
+    "do not export M728 action-only rows as outcome-positive proof",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor input contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "fresh_source_balanced_temporal_wave",
+    "evidence_axis": "G_action_to_outcome: audit source-balanced action-only wave",
+    "evidence_increment": "synthesizes M728 as source-balanced action coupling with insufficient outcome rows",
+    "claim_scope": "process synthesis only; no checkpoint promotion or deployed self-ID claim",
+    "stop_condition": [
+      "stop source export because outcome-positive rows are insufficient",
+      "stop PPO because no outcome-positive corpus exists",
+      "stop quota-only reruns unless audit finds a concrete remaining source-balance blocker",
+      "stop treating action-critical rows as closed-loop outcome proof"
+    ],
+    "fallback_plan": [
+      "if boundary proximity is the blocker, design source-balanced boundary mining",
+      "if one-step interventions are too weak, design sequence-level interventions",
+      "if current model fidelity is the blocker, design asymmetric/yaw-disturbance dynamics",
+      "if the single outcome row is reliable, preserve it as a diagnostic seed only"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M728 result_class=source_balanced_temporal_action_only",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M728 should be audited before continuing because it passes source balance but remains action-only with only one outcome row.",
+  "success_criteria": [
+    "M728 result metrics are recorded",
+    "supported and falsified claims are recorded",
+    "failure taxonomy is assigned",
+    "public gate overfit risk is recorded",
+    "next branch decision is explicit",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "audit treats M728 action rows as outcome-positive self-ID proof",
+    "audit treats the single outcome row as a sufficient corpus",
+    "audit admits source export PPO or promotion",
+    "audit changes actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m729-quota-calibrated-source-balanced-temporal-wave-audit.md from M728 artifacts; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m729-quota-calibrated-source-balanced-temporal-wave-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m728_quota_calibrated_source_balanced_temporal_wave/summary.json",
+    "docs/m728-quota-calibrated-source-balanced-temporal-wave-implementation.md"
+  ],
+  "decision_rule": "M729 must decide whether to design source-balanced boundary mining sequence-level interventions or dynamics fidelity. It must not admit PPO or promotion directly.",
+  "next_blocker": "m730-source-balanced-action-only-next-branch-design"
+}
