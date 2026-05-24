@@ -11710,3 +11710,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M620 updates `sequence_target_miner` artifacts without changing rollout behavior, thresholds, actor inputs, training, or PPO. Optional source metadata (`source_tier`, `expansion_reason`, `original_m609_boundary`, `m613_accepted_sequence`) now propagates into candidate/accepted/unaccepted outputs. The miner also writes `accepted_candidate_sequences.csv` and summary-level accepted-candidate diversity counts. A real M616-table smoke reproduces the M617 selected result (`6` selected accepted sequences) and exposes `189` accepted candidate rows: family counts are decay_pulse `86`, constant_delta `64`, steer_then_brake `22`, brake_release_then_steer `17`; tier counts are support `98`, near `89`, core `2`. Candidate rows still cover only `5` physical pairs and `4` left seeds, so optimizer admission remains blocked.
 - decision: `sequence_tier_aware_miner_pass_admit_rerun`
 - next: `m621-tier-aware-sequence-target-miner-rerun`
+## 20260524T153000Z - m621-tier-aware-sequence-target-miner-rerun
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m621_tier_aware_sequence_target_miner`
+- artifact: `docs/m621-tier-aware-sequence-target-miner-rerun.md`
+- result: M621 formally reruns the tier-aware sequence target miner on the M616 expanded source table. It reproduces M617 selected-sequence metrics exactly: `30` source rows, `10440` candidates, `6` selected accepted sequences, `24` unaccepted rows, accepted mean/min/max margin improvement `0.056784` / `0.020817` / `0.093048`, and best unaccepted improvement `0.025914`. New artifact `accepted_candidate_sequences.csv` contains `189` accepted candidates with source-tier metadata. Accepted candidate family counts are decay_pulse `86`, constant_delta `64`, steer_then_brake `22`, brake_release_then_steer `17`; candidate tiers are support `98`, near `89`, core `2`. Source-level diversity remains `5` physical pairs and `4` left seeds, so optimizer admission remains blocked.
+- decision: `tier_aware_sequence_rerun_pass_admit_candidate_audit`
+- next: `m622-tier-aware-sequence-candidate-audit`

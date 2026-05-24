@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M621 reproduces M617 selected-sequence metrics and writes 189 accepted candidate rows with tier metadata while source-level diversity remains 5 physical pairs and 4 left seeds",
+  "failure_criteria": [
+    "rerun changes model weights",
+    "rerun changes target thresholds or trust regions",
+    "rerun omits accepted candidate-set artifact",
+    "rerun loses source-tier metadata",
+    "rerun makes optimizer admission claim"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower target acceptance thresholds",
+    "do not widen action trust regions",
+    "do not treat candidate-level rows as independent source diversity"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T100640Z",
+  "hypothesis": "A formal rerun with the M620 tier-aware miner will reproduce M617 selected-sequence results while adding accepted candidate-set and source-tier summaries needed for the next audit.",
+  "lineage": {
+    "blocked_by": [
+      "m620-sequence-tier-aware-miner-implementation"
+    ],
+    "derived_from": [
+      "m620-sequence-tier-aware-miner-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m620-sequence-tier-aware-miner-implementation.json",
+      "docs/m619-expanded-sequence-diversity-design.md"
+    ],
+    "parent_dataset": [
+      "runs/m616_expanded_sequence_source_miner/expanded_sequence_source_rows.csv",
+      "docs/m620-sequence-tier-aware-miner-implementation.md"
+    ],
+    "parent_objective": [
+      "rerun sequence target miner with tier-aware artifacts after M620 implementation"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m621-tier-aware-sequence-target-miner-rerun",
+  "next_blocker": "m622-tier-aware-sequence-candidate-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "tier_aware_sequence_rerun_pass_admit_candidate_audit",
+  "public_gates": [
+    "write accepted_candidate_sequences.csv",
+    "write tier-aware accepted_sequences.csv",
+    "write tier-aware unaccepted_rows.csv",
+    "record accepted candidate-set diversity",
+    "keep target thresholds and trust regions unchanged",
+    "keep actor training and PPO blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m621_tier_aware_sequence_target_miner/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "tier_aware_sequence_rerun_pass_admit_candidate_audit",
+    "milestone": "m621-tier-aware-sequence-target-miner-rerun",
+    "reason": "M621 reproduces M617 selected-sequence metrics and writes 189 accepted candidate rows with tier metadata while source-level diversity remains 5 physical pairs and 4 left seeds",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "accepted selected sequence count matches the M617 diagnostic result within deterministic tolerance",
+    "accepted_candidate_sequences.csv is written",
+    "summary includes accepted_candidate_diversity and accepted_candidate_counts_by_tier",
+    "accepted_sequences.csv and unaccepted_rows.csv include source_tier",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

@@ -55,23 +55,29 @@ Latest active diagnostic BC checkpoint:
 runs/m568_scaled_l3_bc_seed5660/checkpoint.pt
 ```
 
-Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M620
+Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M621
 diagnostics. It is not the public-gate base and is not promoted as the current
 driver checkpoint.
 
 ## Current Blocker
 
 ```text
-m621-tier-aware-sequence-target-miner-rerun
+m622-tier-aware-sequence-candidate-audit
 ```
 
-M621 should run the formal tier-aware sequence target miner rerun on the M616
-expanded source table. M620 already verified the artifact shape in a smoke; M621
-should produce the official tier-aware run for the next audit without changing
-thresholds, trust regions, actor inputs, or model weights.
+M622 should audit the tier-aware accepted candidate-set evidence from M621. It
+must separate candidate-level family diversity from source-level diversity and
+keep optimizer admission blocked unless source-level thresholds are justified.
 
 ## Recent Evidence Line
 
+- M621 formally reruns the tier-aware sequence target miner. It reproduces M617
+  selected metrics exactly and writes `accepted_candidate_sequences.csv` with
+  `189` accepted candidate rows. Candidate-level family diversity exists
+  (decay_pulse `86`, constant_delta `64`, steer_then_brake `22`,
+  brake_release_then_steer `17`), but accepted candidates still cover only `5`
+  physical pairs and `4` left seeds. M622 should audit before any longer K=7
+  diagnostic or optimizer design.
 - M620 implements source-tier metadata propagation and
   `accepted_candidate_sequences.csv` in `sequence_target_miner`. A real
   tier-aware smoke on M616 expanded rows reproduces M617's `6` selected

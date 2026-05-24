@@ -1,0 +1,87 @@
+{
+  "id": "m622-tier-aware-sequence-candidate-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m621_tier_aware_sequence_target_miner/summary.json",
+      "runs/m621_tier_aware_sequence_target_miner/accepted_candidate_sequences.csv",
+      "runs/m621_tier_aware_sequence_target_miner/accepted_sequences.csv",
+      "docs/m621-tier-aware-sequence-target-miner-rerun.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m621-tier-aware-sequence-target-miner-rerun.json",
+      "docs/m620-sequence-tier-aware-miner-implementation.md"
+    ],
+    "parent_objective": [
+      "audit tier-aware accepted candidate-set evidence before longer sequence families or optimizer design"
+    ],
+    "derived_from": [
+      "m621-tier-aware-sequence-target-miner-rerun"
+    ],
+    "blocked_by": [
+      "m621-tier-aware-sequence-target-miner-rerun"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m622-tier-aware-sequence-candidate-audit.md",
+  "public_gates": [
+    "audit accepted candidate-set diversity",
+    "separate source-level diversity from candidate-level diversity",
+    "verify optimizer admission remains blocked unless source-level thresholds pass",
+    "choose next no-training branch"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not treat 189 candidate rows as independent source diversity",
+    "do not lower target thresholds",
+    "do not widen trust regions"
+  ],
+  "hypothesis": "M621 candidate-set artifacts will show useful family diversity but insufficient source-level diversity; the audit should decide whether to run a longer K=7 low-amplitude diagnostic or expand source rows again.",
+  "success_criteria": [
+    "audit summarizes accepted candidate family tier and sequence-length diversity",
+    "audit explicitly distinguishes candidate-level and source-level diversity",
+    "audit blocks optimizer admission if source-level diversity remains insufficient",
+    "audit selects the next no-training branch",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "audit starts training",
+    "audit promotes a checkpoint",
+    "audit treats correlated candidate rows as independent source rows",
+    "audit ignores source-tier distribution",
+    "audit changes target thresholds or trust regions"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "Analyze M621 tier-aware accepted candidate artifacts; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m622-tier-aware-sequence-candidate-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m621-tier-aware-sequence-target-miner-rerun.md",
+    "runs/m621_tier_aware_sequence_target_miner/summary.json"
+  ],
+  "decision_rule": "M622 passes if it audits M621 candidate-set evidence and chooses the next no-training branch.",
+  "next_blocker": "m623-longer-low-amplitude-sequence-design"
+}
