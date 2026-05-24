@@ -17,7 +17,8 @@
     ],
     "parent_config": [
       "experiments/manifests/m706-cross-fault-wrong-history-scenario-design.json",
-      "configs/extreme_hidden_condition_scenarios.json"
+      "configs/extreme_hidden_condition_scenarios.json",
+      "configs/cross_fault_hidden_condition_scenarios.json"
     ],
     "parent_objective": [
       "implement cross-fault wrong-history scenario pairing"
@@ -92,7 +93,7 @@
   "commands": [
     {
       "name": "generate",
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.extreme_dynamics_scenario_corpus --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --config configs/extreme_hidden_condition_scenarios.json --seed-start 41000 --seed-count 512 --device cpu --run-dir runs/m707_cross_fault_wrong_history_scenario"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.extreme_dynamics_scenario_corpus --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --config configs/cross_fault_hidden_condition_scenarios.json --pairing-mode cross_fault --seed-start 41000 --seed-count 512 --device cpu --run-dir runs/m707_cross_fault_wrong_history_scenario"
     }
   ],
   "required_artifacts": [

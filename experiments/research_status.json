@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 715,
+        "completed": 716,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m706-cross-fault-wrong-history-scenario-design",
+        "task_id": "m707-cross-fault-wrong-history-scenario-implementation",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m706-cross-fault-wrong-history-scenario-design.md"
+        "command_log": "docs/m707-cross-fault-wrong-history-scenario-implementation.md"
     },
     "next_task": {
-        "id": "m707-cross-fault-wrong-history-scenario-implementation",
+        "id": "m708-cross-fault-wrong-history-scenario-audit",
         "status": "pending",
-        "priority": 7020,
-        "kind": "infrastructure",
-        "hypothesis": "Implement cross-fault wrong-history scenario pairing",
-        "command": "see experiments/manifests/m707-cross-fault-wrong-history-scenario-implementation.json",
+        "priority": 7030,
+        "kind": "gate",
+        "hypothesis": "Audit M707 cross-fault reset-only result",
+        "command": "see experiments/manifests/m708-cross-fault-wrong-history-scenario-audit.json",
         "success_artifact": "",
-        "notes": "Pending: run no-training cross-fault wrong-history pairing before any source export actor update or PPO"
+        "notes": "Pending: synthesize M707 before source export actor update PPO or further scenario mining"
     },
-    "updated_at_utc": "20260524T183500Z"
+    "updated_at_utc": "20260524T184838Z"
 }

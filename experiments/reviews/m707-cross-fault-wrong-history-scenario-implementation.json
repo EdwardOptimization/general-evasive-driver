@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M707 implements cross-fault pairing and generates 9728 scenarios 33026 snapshots and 2048 matched pairs with 15 reset-only rows but 0 wrong-history-critical rows so source export PPO and promotion remain blocked",
+  "failure_criteria": [
+    "implementation mutates or trains actor",
+    "implementation adds hidden fault labels to actor input",
+    "implementation counts reset-only rows as source-positive",
+    "implementation omits model-fidelity limits",
+    "implementation admits objective design without source-positive audit"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add fault labels to actor observations",
+    "do not count reset-only rows as source-positive",
+    "do not relax wrong-history thresholds after seeing results",
+    "do not change actor input contract"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260524T185103Z",
+  "hypothesis": "Cross-fault wrong-history pairing will produce wrong-history-critical self-ID rows that nominal-vs-fault pairing missed.",
+  "lineage": {
+    "blocked_by": [
+      "m706-cross-fault-wrong-history-scenario-design"
+    ],
+    "derived_from": [
+      "m706-cross-fault-wrong-history-scenario-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m706-cross-fault-wrong-history-scenario-design.json",
+      "configs/extreme_hidden_condition_scenarios.json",
+      "configs/cross_fault_hidden_condition_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m706-cross-fault-wrong-history-scenario-design.md",
+      "docs/m705-extreme-dynamics-scenario-corpus-audit.md",
+      "runs/m704_extreme_dynamics_scenario_corpus/summary.json"
+    ],
+    "parent_objective": [
+      "implement cross-fault wrong-history scenario pairing"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m707-cross-fault-wrong-history-scenario-implementation",
+  "next_blocker": "m708-cross-fault-wrong-history-scenario-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "cross_fault_reset_only_not_source_positive",
+  "public_gates": [
+    "implementation writes cross-fault pair artifacts",
+    "implementation reports wrong-history and reset-history rows separately",
+    "implementation does not count reset-only rows as source-positive",
+    "implementation preserves hidden fault labels as logging only",
+    "actor checksum unchanged",
+    "no objective actor update PPO or promotion occurs"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m707_cross_fault_wrong_history_scenario/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "cross_fault_reset_only_not_source_positive",
+    "milestone": "m707-cross-fault-wrong-history-scenario-implementation",
+    "reason": "M707 implements cross-fault pairing and generates 9728 scenarios 33026 snapshots and 2048 matched pairs with 15 reset-only rows but 0 wrong-history-critical rows so source export PPO and promotion remain blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary.json is written",
+    "matched_cross_fault_pairs.csv is written",
+    "fault_family_pair_summary.csv is written",
+    "accepted_rows.csv is written",
+    "reset_only_rows.csv is written",
+    "rejected_rows.csv is written",
+    "wrong-history and reset-history counts are separated",
+    "actor checksum unchanged",
+    "no objective actor update PPO or promotion"
+  ],
+  "type": "infrastructure"
+}

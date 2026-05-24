@@ -1,0 +1,430 @@
+{
+  "env_config": "configs/ppo_m541_matched_l3_variance_4096.json",
+  "future_only_faults": [
+    "single_wheel_grip_collapse",
+    "single_wheel_puncture_or_blowout",
+    "left_right_split_mu",
+    "stuck_caliper_or_single_wheel_brake_pull",
+    "true_asymmetric_half_shaft_torque_loss",
+    "wheel_speed_sensor_drop_or_bias",
+    "steering_pull_from_asymmetric_front_damage"
+  ],
+  "max_pairs": 2048,
+  "max_snapshots_per_scenario": 4,
+  "max_steps": 260,
+  "min_accepted_rows": 80,
+  "min_action_l2_gap": 0.015,
+  "min_history_margin_gap": 0.02,
+  "min_history_rows": 30,
+  "min_normal_margin": 0.0,
+  "min_step": 35,
+  "min_unique_fault_families": 4,
+  "min_unique_seeds": 30,
+  "min_unique_severities": 2,
+  "obstacle_longitudinal_max": 90.0,
+  "obstacle_longitudinal_min": -8.0,
+  "snapshot_stride": 5,
+  "faults": [
+    {
+      "activation_step": 0,
+      "family": "global_mu_drop",
+      "fidelity_class": "current_model_fault",
+      "name": "mu_drop_mild",
+      "params": {
+        "mu_scale": 0.78
+      },
+      "severity": "mild"
+    },
+    {
+      "activation_step": 0,
+      "family": "global_mu_drop",
+      "fidelity_class": "current_model_fault",
+      "name": "mu_drop_moderate",
+      "params": {
+        "mu_scale": 0.62
+      },
+      "severity": "moderate"
+    },
+    {
+      "activation_step": 25,
+      "family": "global_mu_drop",
+      "fidelity_class": "current_model_fault",
+      "name": "mu_drop_surprise_severe",
+      "params": {
+        "mu_scale": 0.42
+      },
+      "severity": "severe"
+    },
+    {
+      "activation_step": 0,
+      "family": "front_lateral_authority_drop",
+      "fidelity_class": "current_model_fault",
+      "name": "front_authority_moderate",
+      "params": {
+        "cf_scale": 0.45
+      },
+      "severity": "moderate"
+    },
+    {
+      "activation_step": 0,
+      "family": "front_lateral_authority_drop",
+      "fidelity_class": "current_model_fault",
+      "name": "front_authority_severe",
+      "params": {
+        "cf_scale": 0.25
+      },
+      "severity": "severe"
+    },
+    {
+      "activation_step": 0,
+      "family": "rear_lateral_authority_drop",
+      "fidelity_class": "current_model_fault",
+      "name": "rear_authority_moderate",
+      "params": {
+        "cr_scale": 0.45
+      },
+      "severity": "moderate"
+    },
+    {
+      "activation_step": 0,
+      "family": "rear_lateral_authority_drop",
+      "fidelity_class": "current_model_fault",
+      "name": "rear_authority_severe",
+      "params": {
+        "cr_scale": 0.25
+      },
+      "severity": "severe"
+    },
+    {
+      "activation_step": 0,
+      "family": "brake_authority_drop",
+      "fidelity_class": "current_model_fault",
+      "name": "brake_fade_moderate",
+      "params": {
+        "max_brake_force_scale": 0.62
+      },
+      "severity": "moderate"
+    },
+    {
+      "activation_step": 0,
+      "family": "brake_authority_drop",
+      "fidelity_class": "current_model_fault",
+      "name": "brake_fade_severe",
+      "params": {
+        "max_brake_force_scale": 0.38
+      },
+      "severity": "severe"
+    },
+    {
+      "activation_step": 0,
+      "family": "drive_authority_drop",
+      "fidelity_class": "current_model_proxy",
+      "name": "drive_loss_moderate",
+      "params": {
+        "max_drive_force_scale": 0.50
+      },
+      "severity": "moderate"
+    },
+    {
+      "activation_step": 0,
+      "family": "drive_authority_drop",
+      "fidelity_class": "current_model_proxy",
+      "name": "drive_loss_severe",
+      "params": {
+        "max_drive_force_scale": 0.20
+      },
+      "severity": "severe"
+    },
+    {
+      "activation_step": 0,
+      "family": "steering_fault",
+      "fidelity_class": "current_model_fault",
+      "name": "steering_lag_authority_moderate",
+      "params": {
+        "max_steer_rate_scale": 0.45,
+        "max_steer_scale": 0.70,
+        "steer_tau_scale": 2.40
+      },
+      "severity": "moderate"
+    },
+    {
+      "activation_step": 0,
+      "family": "steering_fault",
+      "fidelity_class": "current_model_fault",
+      "name": "steering_lag_authority_severe",
+      "params": {
+        "max_steer_rate_scale": 0.25,
+        "max_steer_scale": 0.45,
+        "steer_tau_scale": 3.40
+      },
+      "severity": "severe"
+    },
+    {
+      "activation_step": 0,
+      "family": "mass_cg_shift",
+      "fidelity_class": "current_model_fault",
+      "name": "heavy_front_cg_shift",
+      "params": {
+        "cg_shift": 0.18,
+        "inertia_scale": 1.25,
+        "mass_scale": 1.18
+      },
+      "severity": "moderate"
+    },
+    {
+      "activation_step": 20,
+      "family": "delay_noise_fault",
+      "fidelity_class": "current_model_proxy",
+      "name": "actuator_delay_proxy",
+      "params": {
+        "drive_tau_scale": 2.20,
+        "steer_tau_scale": 2.20
+      },
+      "severity": "moderate"
+    },
+    {
+      "activation_step": 20,
+      "family": "combined_fault",
+      "fidelity_class": "current_model_proxy",
+      "name": "low_mu_brake_steer_combo",
+      "params": {
+        "max_brake_force_scale": 0.58,
+        "mu_scale": 0.55,
+        "steer_tau_scale": 1.80
+      },
+      "severity": "severe"
+    },
+    {
+      "activation_step": 20,
+      "family": "combined_fault",
+      "fidelity_class": "current_model_proxy",
+      "name": "front_brake_combo",
+      "params": {
+        "cf_scale": 0.45,
+        "max_brake_force_scale": 0.58
+      },
+      "severity": "severe"
+    },
+    {
+      "activation_step": 20,
+      "family": "combined_fault",
+      "fidelity_class": "current_model_proxy",
+      "name": "rear_drive_combo",
+      "params": {
+        "cr_scale": 0.45,
+        "max_drive_force_scale": 0.35
+      },
+      "severity": "severe"
+    }
+  ],
+  "pairing_rules": [
+    {
+      "preferred_family": "front_lateral_authority_drop",
+      "wrong_family": "rear_lateral_authority_drop"
+    },
+    {
+      "preferred_family": "rear_lateral_authority_drop",
+      "wrong_family": "front_lateral_authority_drop"
+    },
+    {
+      "preferred_family": "front_lateral_authority_drop",
+      "wrong_family": "steering_fault"
+    },
+    {
+      "preferred_family": "steering_fault",
+      "wrong_family": "front_lateral_authority_drop"
+    },
+    {
+      "preferred_family": "rear_lateral_authority_drop",
+      "wrong_family": "steering_fault"
+    },
+    {
+      "preferred_family": "steering_fault",
+      "wrong_family": "rear_lateral_authority_drop"
+    },
+    {
+      "preferred_family": "global_mu_drop",
+      "wrong_family": "brake_authority_drop"
+    },
+    {
+      "preferred_family": "brake_authority_drop",
+      "wrong_family": "global_mu_drop"
+    },
+    {
+      "preferred_family": "global_mu_drop",
+      "wrong_family": "steering_fault"
+    },
+    {
+      "preferred_family": "steering_fault",
+      "wrong_family": "global_mu_drop"
+    },
+    {
+      "preferred_family": "brake_authority_drop",
+      "wrong_family": "drive_authority_drop"
+    },
+    {
+      "preferred_family": "drive_authority_drop",
+      "wrong_family": "brake_authority_drop"
+    },
+    {
+      "preferred_family": "combined_fault",
+      "wrong_family": "global_mu_drop"
+    },
+    {
+      "preferred_family": "combined_fault",
+      "wrong_family": "front_lateral_authority_drop"
+    },
+    {
+      "preferred_family": "combined_fault",
+      "wrong_family": "rear_lateral_authority_drop"
+    },
+    {
+      "preferred_family": "combined_fault",
+      "wrong_family": "brake_authority_drop"
+    },
+    {
+      "preferred_family": "combined_fault",
+      "wrong_family": "steering_fault"
+    },
+    {
+      "preferred_family": "global_mu_drop",
+      "wrong_family": "combined_fault"
+    },
+    {
+      "preferred_family": "front_lateral_authority_drop",
+      "wrong_family": "combined_fault"
+    },
+    {
+      "preferred_family": "rear_lateral_authority_drop",
+      "wrong_family": "combined_fault"
+    },
+    {
+      "preferred_family": "brake_authority_drop",
+      "wrong_family": "combined_fault"
+    },
+    {
+      "preferred_family": "steering_fault",
+      "wrong_family": "combined_fault"
+    },
+    {
+      "preferred_family": "global_mu_drop",
+      "preferred_severities": [
+        "moderate"
+      ],
+      "wrong_family": "global_mu_drop",
+      "wrong_severities": [
+        "severe"
+      ]
+    },
+    {
+      "preferred_family": "global_mu_drop",
+      "preferred_severities": [
+        "severe"
+      ],
+      "wrong_family": "global_mu_drop",
+      "wrong_severities": [
+        "moderate"
+      ]
+    },
+    {
+      "preferred_family": "front_lateral_authority_drop",
+      "preferred_severities": [
+        "moderate"
+      ],
+      "wrong_family": "front_lateral_authority_drop",
+      "wrong_severities": [
+        "severe"
+      ]
+    },
+    {
+      "preferred_family": "front_lateral_authority_drop",
+      "preferred_severities": [
+        "severe"
+      ],
+      "wrong_family": "front_lateral_authority_drop",
+      "wrong_severities": [
+        "moderate"
+      ]
+    },
+    {
+      "preferred_family": "rear_lateral_authority_drop",
+      "preferred_severities": [
+        "moderate"
+      ],
+      "wrong_family": "rear_lateral_authority_drop",
+      "wrong_severities": [
+        "severe"
+      ]
+    },
+    {
+      "preferred_family": "rear_lateral_authority_drop",
+      "preferred_severities": [
+        "severe"
+      ],
+      "wrong_family": "rear_lateral_authority_drop",
+      "wrong_severities": [
+        "moderate"
+      ]
+    },
+    {
+      "preferred_family": "brake_authority_drop",
+      "preferred_severities": [
+        "moderate"
+      ],
+      "wrong_family": "brake_authority_drop",
+      "wrong_severities": [
+        "severe"
+      ]
+    },
+    {
+      "preferred_family": "brake_authority_drop",
+      "preferred_severities": [
+        "severe"
+      ],
+      "wrong_family": "brake_authority_drop",
+      "wrong_severities": [
+        "moderate"
+      ]
+    },
+    {
+      "preferred_family": "drive_authority_drop",
+      "preferred_severities": [
+        "moderate"
+      ],
+      "wrong_family": "drive_authority_drop",
+      "wrong_severities": [
+        "severe"
+      ]
+    },
+    {
+      "preferred_family": "drive_authority_drop",
+      "preferred_severities": [
+        "severe"
+      ],
+      "wrong_family": "drive_authority_drop",
+      "wrong_severities": [
+        "moderate"
+      ]
+    },
+    {
+      "preferred_family": "steering_fault",
+      "preferred_severities": [
+        "moderate"
+      ],
+      "wrong_family": "steering_fault",
+      "wrong_severities": [
+        "severe"
+      ]
+    },
+    {
+      "preferred_family": "steering_fault",
+      "preferred_severities": [
+        "severe"
+      ],
+      "wrong_family": "steering_fault",
+      "wrong_severities": [
+        "moderate"
+      ]
+    }
+  ]
+}

@@ -2,8 +2,10 @@ from autodrift.dynamics import VehicleParams
 from autodrift.extreme_dynamics_scenario_corpus import (
     FaultSpec,
     apply_fault_params,
+    classify_cross_fault_result,
     classify_extreme_result,
     fault_from_dict,
+    pairing_rule_from_dict,
 )
 
 
@@ -132,3 +134,61 @@ def test_classify_extreme_result_separates_reset_only_sparse_rows():
     )
 
     assert result == "extreme_reset_sparse"
+
+
+def test_pairing_rule_from_dict_parses_optional_severities():
+    rule = pairing_rule_from_dict(
+        {
+            "preferred_family": "global_mu_drop",
+            "wrong_family": "brake_authority_drop",
+            "preferred_severities": ["moderate", "severe"],
+            "wrong_severities": ["severe"],
+        }
+    )
+
+    assert rule.preferred_family == "global_mu_drop"
+    assert rule.wrong_family == "brake_authority_drop"
+    assert rule.preferred_severities == ("moderate", "severe")
+    assert rule.wrong_severities == ("severe",)
+
+
+def test_classify_cross_fault_result_requires_wrong_history_rows():
+    result = classify_cross_fault_result(
+        matched_pair_count=100,
+        wrong_history_action_critical_rows=0,
+        reset_history_action_critical_rows=40,
+        normal_failed_rejected=0,
+        history_insensitive_rejected=60,
+        unique_preferred_fault_families=4,
+        unique_wrong_fault_families=4,
+        unique_severities=2,
+        unique_seeds=30,
+        min_accepted_rows=80,
+        min_history_rows=30,
+        min_unique_fault_families=4,
+        min_unique_severities=2,
+        min_unique_seeds=30,
+    )
+
+    assert result == "cross_fault_reset_only"
+
+
+def test_classify_cross_fault_result_positive_requires_source_diversity():
+    result = classify_cross_fault_result(
+        matched_pair_count=120,
+        wrong_history_action_critical_rows=90,
+        reset_history_action_critical_rows=10,
+        normal_failed_rejected=0,
+        history_insensitive_rejected=20,
+        unique_preferred_fault_families=4,
+        unique_wrong_fault_families=4,
+        unique_severities=2,
+        unique_seeds=30,
+        min_accepted_rows=80,
+        min_history_rows=30,
+        min_unique_fault_families=4,
+        min_unique_severities=2,
+        min_unique_seeds=30,
+    )
+
+    assert result == "cross_fault_wrong_positive"

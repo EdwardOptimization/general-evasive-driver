@@ -35,6 +35,14 @@ class FaultSpec:
     fidelity_class: str = "current_model_fault"
 
 
+@dataclass(frozen=True)
+class PairingRule:
+    preferred_family: str
+    wrong_family: str
+    preferred_severities: tuple[str, ...] = ()
+    wrong_severities: tuple[str, ...] = ()
+
+
 @dataclass
 class ExtremeSnapshot:
     snapshot_id: int
@@ -108,6 +116,21 @@ def fault_from_dict(data: dict[str, Any]) -> FaultSpec:
     )
 
 
+def pairing_rule_from_dict(data: dict[str, Any]) -> PairingRule:
+    preferred_family = str(data.get("preferred_family", "")).strip()
+    wrong_family = str(data.get("wrong_family", "")).strip()
+    if not preferred_family or not wrong_family:
+        raise ValueError(f"pairing rule must include preferred_family and wrong_family, got {data!r}")
+    preferred_severities = tuple(str(item).strip() for item in data.get("preferred_severities", []) if str(item).strip())
+    wrong_severities = tuple(str(item).strip() for item in data.get("wrong_severities", []) if str(item).strip())
+    return PairingRule(
+        preferred_family=preferred_family,
+        wrong_family=wrong_family,
+        preferred_severities=preferred_severities,
+        wrong_severities=wrong_severities,
+    )
+
+
 def load_scenario_config(path: Path | str) -> dict[str, Any]:
     data = read_json(path)
     if not isinstance(data, dict):
@@ -118,6 +141,7 @@ def load_scenario_config(path: Path | str) -> dict[str, Any]:
     return {
         **data,
         "faults": faults,
+        "pairing_rules": [pairing_rule_from_dict(item) for item in data.get("pairing_rules", [])],
         "future_only_faults": [str(item) for item in data.get("future_only_faults", DEFAULT_FUTURE_ONLY_FAULTS)],
     }
 
@@ -344,6 +368,42 @@ def find_nominal_match(snapshot: ExtremeSnapshot, nominal_snapshots: list[Extrem
     return best, best_distance
 
 
+def _rule_matches(rule: PairingRule, preferred: ExtremeSnapshot, wrong: ExtremeSnapshot) -> bool:
+    if preferred.fault.family != rule.preferred_family or wrong.fault.family != rule.wrong_family:
+        return False
+    if rule.preferred_severities and preferred.fault.severity not in rule.preferred_severities:
+        return False
+    if rule.wrong_severities and wrong.fault.severity not in rule.wrong_severities:
+        return False
+    return True
+
+
+def find_cross_fault_match(
+    snapshot: ExtremeSnapshot,
+    seed_snapshots: list[ExtremeSnapshot],
+    pairing_rules: tuple[PairingRule, ...],
+) -> tuple[ExtremeSnapshot | None, float, str]:
+    best: ExtremeSnapshot | None = None
+    best_distance = float("inf")
+    best_rule = ""
+    for candidate in seed_snapshots:
+        if candidate.snapshot_id == snapshot.snapshot_id:
+            continue
+        if candidate.fault.name == "nominal":
+            continue
+        matching_rule = next((rule for rule in pairing_rules if _rule_matches(rule, snapshot, candidate)), None)
+        if matching_rule is None:
+            continue
+        if not _within_match_window(snapshot, candidate):
+            continue
+        distance = _feature_distance(snapshot, candidate)
+        if distance < best_distance:
+            best = candidate
+            best_distance = distance
+            best_rule = f"{matching_rule.preferred_family}->{matching_rule.wrong_family}"
+    return best, best_distance, best_rule
+
+
 def _as_outcome_snapshot(snapshot: ExtremeSnapshot, hidden: torch.Tensor | None = None) -> OutcomeSnapshot:
     return OutcomeSnapshot(
         seed=snapshot.seed,
@@ -552,6 +612,43 @@ def _group_summary(rows: list[dict[str, Any]], key: str) -> list[dict[str, Any]]
     return output
 
 
+def _multi_group_summary(rows: list[dict[str, Any]], keys: tuple[str, ...]) -> list[dict[str, Any]]:
+    if not rows:
+        return []
+    groups: dict[tuple[str, ...], list[dict[str, Any]]] = {}
+    for row in rows:
+        group_key = tuple(str(row.get(key, "")) for key in keys)
+        groups.setdefault(group_key, []).append(row)
+    output: list[dict[str, Any]] = []
+    for group_key, group_rows in sorted(groups.items()):
+        accepted = [row for row in group_rows if bool(row.get("accepted", False))]
+        reset_only = [row for row in group_rows if bool(row.get("reset_only", False))]
+        item = {key: value for key, value in zip(keys, group_key, strict=True)}
+        item.update(
+            {
+                "rows": int(len(group_rows)),
+                "accepted_rows": int(len(accepted)),
+                "reset_only_rows": int(len(reset_only)),
+                "wrong_history_action_critical_rows": int(
+                    sum(1 for row in group_rows if bool(row.get("wrong_history_action_critical", False)))
+                ),
+                "reset_history_action_critical_rows": int(
+                    sum(1 for row in group_rows if bool(row.get("reset_history_action_critical", False)))
+                ),
+                "unique_seeds": int(len({int(row.get("seed", -1)) for row in group_rows})),
+                "normal_margin_mean": float(np.nanmean([_finite_float(row.get("normal_margin")) for row in group_rows])),
+                "history_margin_gap_mean": float(
+                    np.nanmean([_finite_float(row.get("history_margin_gap")) for row in group_rows])
+                ),
+                "reset_margin_gap_mean": float(
+                    np.nanmean([_finite_float(row.get("reset_margin_gap")) for row in group_rows])
+                ),
+            }
+        )
+        output.append(item)
+    return output
+
+
 def classify_extreme_result(
     *,
     matched_pair_count: int,
@@ -591,6 +688,42 @@ def classify_extreme_result(
     return "extreme_source_positive" if positive else "extreme_source_sparse"
 
 
+def classify_cross_fault_result(
+    *,
+    matched_pair_count: int,
+    wrong_history_action_critical_rows: int,
+    reset_history_action_critical_rows: int,
+    normal_failed_rejected: int,
+    history_insensitive_rejected: int,
+    unique_preferred_fault_families: int,
+    unique_wrong_fault_families: int,
+    unique_severities: int,
+    unique_seeds: int,
+    min_accepted_rows: int,
+    min_history_rows: int,
+    min_unique_fault_families: int,
+    min_unique_severities: int,
+    min_unique_seeds: int,
+) -> str:
+    if int(matched_pair_count) == 0:
+        return "matched_state_empty"
+    if int(wrong_history_action_critical_rows) == 0 and int(reset_history_action_critical_rows) > 0:
+        return "cross_fault_reset_only"
+    if int(wrong_history_action_critical_rows) == 0 and int(normal_failed_rejected) >= int(matched_pair_count):
+        return "normal_failed_too_severe"
+    if int(wrong_history_action_critical_rows) == 0 and int(history_insensitive_rejected) > 0:
+        return "history_insensitive_too_mild"
+    positive = (
+        int(wrong_history_action_critical_rows) >= int(min_history_rows)
+        and int(wrong_history_action_critical_rows) >= int(min_accepted_rows)
+        and int(unique_preferred_fault_families) >= int(min_unique_fault_families)
+        and int(unique_wrong_fault_families) >= int(min_unique_fault_families)
+        and int(unique_severities) >= int(min_unique_severities)
+        and int(unique_seeds) >= int(min_unique_seeds)
+    )
+    return "cross_fault_wrong_positive" if positive else "cross_fault_wrong_sparse"
+
+
 def run_extreme_dynamics_scenario_corpus(
     *,
     checkpoint_path: Path,
@@ -599,9 +732,15 @@ def run_extreme_dynamics_scenario_corpus(
     seed_count: int,
     device: str,
     run_dir: Path,
+    pairing_mode: str = "nominal",
 ) -> dict[str, Any]:
     run_dir.mkdir(parents=True, exist_ok=True)
     config = load_scenario_config(config_path)
+    if pairing_mode not in {"nominal", "cross_fault"}:
+        raise ValueError(f"unknown pairing_mode {pairing_mode!r}")
+    pairing_rules = tuple(config.get("pairing_rules", ()))
+    if pairing_mode == "cross_fault" and not pairing_rules:
+        raise ValueError("cross_fault pairing mode requires config pairing_rules")
     env_config = load_env_config(Path(config.get("env_config", "configs/ppo_m541_matched_l3_variance_4096.json")))
     resolved_device = resolve_device(device)
     model, _ = load_actor_critic_checkpoint(checkpoint_path, device=str(resolved_device))
@@ -649,6 +788,7 @@ def run_extreme_dynamics_scenario_corpus(
     pair_rows: list[dict[str, Any]] = []
     rollout_rows: list[dict[str, Any]] = []
     accepted_rows: list[dict[str, Any]] = []
+    reset_only_rows: list[dict[str, Any]] = []
     rejected_rows: list[dict[str, Any]] = []
     unmatched_rows: list[dict[str, Any]] = []
     pair_id = 0
@@ -658,7 +798,11 @@ def run_extreme_dynamics_scenario_corpus(
         for snapshot in fault_snapshots:
             if pair_id >= max_pairs:
                 break
-            matched, match_distance = find_nominal_match(snapshot, nominal_snapshots)
+            if pairing_mode == "cross_fault":
+                matched, match_distance, pairing_rule = find_cross_fault_match(snapshot, seed_snapshots, pairing_rules)
+            else:
+                matched, match_distance = find_nominal_match(snapshot, nominal_snapshots)
+                pairing_rule = "fault->nominal"
             if matched is None:
                 unmatched_rows.append(
                     {
@@ -667,6 +811,7 @@ def run_extreme_dynamics_scenario_corpus(
                         "fault_name": snapshot.fault.name,
                         "fault_family": snapshot.fault.family,
                         "fault_severity": snapshot.fault.severity,
+                        "pairing_mode": pairing_mode,
                         "rejection_reason": "matched_state_empty",
                     }
                 )
@@ -685,20 +830,43 @@ def run_extreme_dynamics_scenario_corpus(
                 device=resolved_device,
             )
             pair_row["match_distance"] = float(match_distance)
-            pair_row["accepted"] = accepted is not None
+            pair_row["pairing_mode"] = pairing_mode
+            pair_row["pairing_rule"] = pairing_rule
+            accepted_is_wrong = bool(accepted is not None and accepted.get("wrong_history_action_critical", False))
+            accepted_is_reset_only = bool(
+                accepted is not None
+                and not accepted.get("wrong_history_action_critical", False)
+                and accepted.get("reset_history_action_critical", False)
+            )
+            if pairing_mode == "nominal":
+                accepted_is_wrong = accepted is not None
+                accepted_is_reset_only = False
+            pair_row["accepted"] = accepted_is_wrong
+            pair_row["reset_only"] = accepted_is_reset_only
             pair_rows.append(pair_row)
             rollout_rows.extend(pair_rollouts)
-            if accepted is not None:
+            if accepted_is_wrong and accepted is not None:
                 accepted["match_distance"] = float(match_distance)
+                accepted["pairing_mode"] = pairing_mode
+                accepted["pairing_rule"] = pairing_rule
                 accepted_rows.append(accepted)
+            elif accepted_is_reset_only and accepted is not None:
+                accepted["match_distance"] = float(match_distance)
+                accepted["pairing_mode"] = pairing_mode
+                accepted["pairing_rule"] = pairing_rule
+                accepted["acceptance_reason"] = "reset_only_history_action_critical"
+                reset_only_rows.append(accepted)
             if rejected is not None:
                 rejected["match_distance"] = float(match_distance)
+                rejected["pairing_mode"] = pairing_mode
+                rejected["pairing_rule"] = pairing_rule
                 rejected_rows.append(rejected)
             pair_id += 1
         if pair_id >= max_pairs:
             break
 
     accepted_fault_families = {str(row.get("preferred_fault_family", "")) for row in accepted_rows}
+    accepted_wrong_fault_families = {str(row.get("wrong_fault_family", "")) for row in accepted_rows}
     accepted_severities = {str(row.get("preferred_fault_severity", "")) for row in accepted_rows}
     accepted_seeds = {int(row.get("seed", -1)) for row in accepted_rows}
     normal_failed_rejected = sum(1 for row in rejected_rows if row.get("rejection_reason") == "normal_failed")
@@ -706,28 +874,52 @@ def run_extreme_dynamics_scenario_corpus(
         1 for row in rejected_rows if row.get("rejection_reason") == "history_insensitive_too_mild"
     )
     model_fidelity_blocked = len(config.get("future_only_faults", []))
-    result_class = classify_extreme_result(
-        matched_pair_count=len(pair_rows),
-        accepted_rows=len(accepted_rows),
-        history_action_critical_rows=sum(1 for row in accepted_rows if bool(row.get("history_action_critical", False))),
-        wrong_history_action_critical_rows=sum(
-            1 for row in accepted_rows if bool(row.get("wrong_history_action_critical", False))
-        ),
-        reset_history_action_critical_rows=sum(
-            1 for row in accepted_rows if bool(row.get("reset_history_action_critical", False))
-        ),
-        unique_fault_families=len(accepted_fault_families),
-        unique_severities=len(accepted_severities),
-        unique_seeds=len(accepted_seeds),
-        normal_failed_rejected=normal_failed_rejected,
-        history_insensitive_rejected=history_insensitive_rejected,
-        model_fidelity_blocked=model_fidelity_blocked,
-        min_accepted_rows=int(config.get("min_accepted_rows", 80)),
-        min_history_rows=int(config.get("min_history_rows", 30)),
-        min_unique_fault_families=int(config.get("min_unique_fault_families", 4)),
-        min_unique_severities=int(config.get("min_unique_severities", 2)),
-        min_unique_seeds=int(config.get("min_unique_seeds", 30)),
-    )
+    if pairing_mode == "cross_fault":
+        result_class = classify_cross_fault_result(
+            matched_pair_count=len(pair_rows),
+            wrong_history_action_critical_rows=sum(
+                1 for row in accepted_rows if bool(row.get("wrong_history_action_critical", False))
+            ),
+            reset_history_action_critical_rows=sum(
+                1 for row in reset_only_rows if bool(row.get("reset_history_action_critical", False))
+            ),
+            normal_failed_rejected=normal_failed_rejected,
+            history_insensitive_rejected=history_insensitive_rejected,
+            unique_preferred_fault_families=len(accepted_fault_families),
+            unique_wrong_fault_families=len(accepted_wrong_fault_families),
+            unique_severities=len(accepted_severities),
+            unique_seeds=len(accepted_seeds),
+            min_accepted_rows=int(config.get("min_accepted_rows", 80)),
+            min_history_rows=int(config.get("min_history_rows", 30)),
+            min_unique_fault_families=int(config.get("min_unique_fault_families", 4)),
+            min_unique_severities=int(config.get("min_unique_severities", 2)),
+            min_unique_seeds=int(config.get("min_unique_seeds", 30)),
+        )
+    else:
+        result_class = classify_extreme_result(
+            matched_pair_count=len(pair_rows),
+            accepted_rows=len(accepted_rows),
+            history_action_critical_rows=sum(
+                1 for row in accepted_rows if bool(row.get("history_action_critical", False))
+            ),
+            wrong_history_action_critical_rows=sum(
+                1 for row in accepted_rows if bool(row.get("wrong_history_action_critical", False))
+            ),
+            reset_history_action_critical_rows=sum(
+                1 for row in accepted_rows if bool(row.get("reset_history_action_critical", False))
+            ),
+            unique_fault_families=len(accepted_fault_families),
+            unique_severities=len(accepted_severities),
+            unique_seeds=len(accepted_seeds),
+            normal_failed_rejected=normal_failed_rejected,
+            history_insensitive_rejected=history_insensitive_rejected,
+            model_fidelity_blocked=model_fidelity_blocked,
+            min_accepted_rows=int(config.get("min_accepted_rows", 80)),
+            min_history_rows=int(config.get("min_history_rows", 30)),
+            min_unique_fault_families=int(config.get("min_unique_fault_families", 4)),
+            min_unique_severities=int(config.get("min_unique_severities", 2)),
+            min_unique_seeds=int(config.get("min_unique_seeds", 30)),
+        )
     checksum_after = model_parameter_checksum(model)
     pair_summary_rows = []
     for row in pair_rows:
@@ -735,11 +927,19 @@ def run_extreme_dynamics_scenario_corpus(
             {
                 "preferred_fault_family": row.get("preferred_fault_family"),
                 "preferred_fault_severity": row.get("preferred_fault_severity"),
+                "wrong_fault_family": row.get("wrong_fault_family"),
+                "wrong_fault_severity": row.get("wrong_fault_severity"),
+                "fault_family_pair": f"{row.get('preferred_fault_family')}->{row.get('wrong_fault_family')}",
+                "severity_pair": f"{row.get('preferred_fault_severity')}->{row.get('wrong_fault_severity')}",
                 "seed": row.get("seed"),
                 "accepted": bool(row.get("accepted", False)),
+                "reset_only": bool(row.get("reset_only", False)),
                 "history_action_critical": bool(row.get("history_action_critical", False)),
+                "wrong_history_action_critical": bool(row.get("wrong_history_action_critical", False)),
+                "reset_history_action_critical": bool(row.get("reset_history_action_critical", False)),
                 "normal_margin": row.get("normal_margin"),
                 "history_margin_gap": row.get("history_margin_gap"),
+                "reset_margin_gap": row.get("reset_margin_gap"),
             }
         )
     future_only_faults = config.get("future_only_faults", [])
@@ -757,16 +957,36 @@ def run_extreme_dynamics_scenario_corpus(
     write_csv_rows(run_dir / "scenario_summary.csv", scenario_rows)
     write_csv_rows(run_dir / "snapshot_candidates.csv", [_snapshot_row(snapshot) for snapshot in snapshots])
     write_csv_rows(run_dir / "matched_hidden_condition_pairs.csv", pair_rows)
+    write_csv_rows(run_dir / "matched_cross_fault_pairs.csv", pair_rows if pairing_mode == "cross_fault" else [])
     write_csv_rows(run_dir / "intervention_rollouts.csv", rollout_rows)
     write_csv_rows(run_dir / "accepted_rows.csv", accepted_rows)
+    write_csv_rows(run_dir / "reset_only_rows.csv", reset_only_rows)
     write_csv_rows(run_dir / "rejected_rows.csv", [*rejected_rows, *unmatched_rows])
     write_csv_rows(run_dir / "fault_family_summary.csv", _group_summary(pair_summary_rows, "preferred_fault_family"))
     write_csv_rows(run_dir / "severity_summary.csv", _group_summary(pair_summary_rows, "preferred_fault_severity"))
+    write_csv_rows(run_dir / "fault_family_pair_summary.csv", _multi_group_summary(pair_summary_rows, ("fault_family_pair",)))
+    write_csv_rows(run_dir / "severity_pair_summary.csv", _multi_group_summary(pair_summary_rows, ("severity_pair",)))
+    write_csv_rows(
+        run_dir / "cross_fault_pair_summary.csv",
+        _multi_group_summary(pair_summary_rows, ("fault_family_pair", "severity_pair")),
+    )
     summary = {
-        "run_type": "extreme_dynamics_scenario_corpus",
+        "run_type": "cross_fault_wrong_history_scenario"
+        if pairing_mode == "cross_fault"
+        else "extreme_dynamics_scenario_corpus",
         "checkpoint": checkpoint_path,
         "config": config_path,
         "env_config": config.get("env_config"),
+        "pairing_mode": pairing_mode,
+        "pairing_rules": [
+            {
+                "preferred_family": rule.preferred_family,
+                "wrong_family": rule.wrong_family,
+                "preferred_severities": list(rule.preferred_severities),
+                "wrong_severities": list(rule.wrong_severities),
+            }
+            for rule in pairing_rules
+        ],
         "seed_start": int(seed_start),
         "seed_count": int(seed_count),
         "fault_count": int(len(faults) - 1),
@@ -776,19 +996,25 @@ def run_extreme_dynamics_scenario_corpus(
         "matched_pair_count": int(len(pair_rows)),
         "unmatched_rows": int(len(unmatched_rows)),
         "accepted_rows": int(len(accepted_rows)),
+        "reset_only_rows": int(len(reset_only_rows)),
         "rejected_rows": int(len(rejected_rows)),
         "normal_failed_rejected": int(normal_failed_rejected),
         "history_insensitive_rejected": int(history_insensitive_rejected),
         "history_action_critical_rows": int(
-            sum(1 for row in accepted_rows if bool(row.get("history_action_critical", False)))
+            sum(
+                1
+                for row in [*accepted_rows, *reset_only_rows]
+                if bool(row.get("history_action_critical", False))
+            )
         ),
         "wrong_history_action_critical_rows": int(
             sum(1 for row in accepted_rows if bool(row.get("wrong_history_action_critical", False)))
         ),
         "reset_history_action_critical_rows": int(
-            sum(1 for row in accepted_rows if bool(row.get("reset_history_action_critical", False)))
+            sum(1 for row in reset_only_rows if bool(row.get("reset_history_action_critical", False)))
         ),
         "unique_accepted_fault_families": int(len(accepted_fault_families)),
+        "unique_accepted_wrong_fault_families": int(len(accepted_wrong_fault_families)),
         "unique_accepted_severities": int(len(accepted_severities)),
         "unique_accepted_seeds": int(len(accepted_seeds)),
         "current_model_fault_families": sorted({fault.family for fault in config["faults"]}),
@@ -799,11 +1025,17 @@ def run_extreme_dynamics_scenario_corpus(
         "promoted": False,
         "result_class": result_class,
         "extreme_source_positive": bool(result_class == "extreme_source_positive"),
+        "wrong_history_source_positive": bool(result_class == "cross_fault_wrong_positive"),
         "scenario_summary_csv": run_dir / "scenario_summary.csv",
         "fault_family_summary_csv": run_dir / "fault_family_summary.csv",
+        "fault_family_pair_summary_csv": run_dir / "fault_family_pair_summary.csv",
         "severity_summary_csv": run_dir / "severity_summary.csv",
+        "severity_pair_summary_csv": run_dir / "severity_pair_summary.csv",
+        "cross_fault_pair_summary_csv": run_dir / "cross_fault_pair_summary.csv",
         "matched_hidden_condition_pairs_csv": run_dir / "matched_hidden_condition_pairs.csv",
+        "matched_cross_fault_pairs_csv": run_dir / "matched_cross_fault_pairs.csv",
         "accepted_rows_csv": run_dir / "accepted_rows.csv",
+        "reset_only_rows_csv": run_dir / "reset_only_rows.csv",
         "rejected_rows_csv": run_dir / "rejected_rows.csv",
         "model_fidelity_limits_md": run_dir / "model_fidelity_limits.md",
     }
@@ -815,6 +1047,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Generate extreme hidden-condition scenario corpus.")
     parser.add_argument("--checkpoint", type=Path, required=True)
     parser.add_argument("--config", type=Path, required=True)
+    parser.add_argument("--pairing-mode", choices=["nominal", "cross_fault"], default="nominal")
     parser.add_argument("--seed-start", type=int, default=40000)
     parser.add_argument("--seed-count", type=int, default=512)
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="cpu")
@@ -828,6 +1061,7 @@ def main() -> None:
         seed_count=args.seed_count,
         device=args.device,
         run_dir=run_dir,
+        pairing_mode=args.pairing_mode,
     )
     for key, value in summary.items():
         print(f"{key}: {value}")

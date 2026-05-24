@@ -12387,3 +12387,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M706 designs cross-fault wrong-history pairing after M704 reset-only evidence. The design prioritizes wrong-history-critical rows, keeps reset-only rows diagnostic, defines directed pairs such as front/rear authority, low-mu/brake, low-mu/steering, and brake/drive contrasts, adds severity contrast requirements, and preserves no-training/no-PPO/no-promotion guardrails.
 - decision: `cross_fault_wrong_history_scenario_design_admit_m707`
 - next: `m707-cross-fault-wrong-history-scenario-implementation`
+
+## 20260524T184838Z - m707-cross-fault-wrong-history-scenario-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m707_cross_fault_wrong_history_scenario`
+- artifact: `docs/m707-cross-fault-wrong-history-scenario-implementation.md`
+- result: M707 implements and runs cross-fault wrong-history pairing with `configs/cross_fault_hidden_condition_scenarios.json`. It generates `9728` scenarios, `33026` snapshots, and `2048` matched cross-fault pairs. The implementation is clean: actor checksum unchanged, no training, no PPO, and no promotion. Result is `cross_fault_reset_only`: `15` reset-history-critical rows and `0` wrong-history-critical rows. Reset-only rows concentrate around front-authority versus steering/combined fault contrasts, so source export and PPO remain blocked.
+- decision: `cross_fault_reset_only_not_source_positive`
+- next: `m708-cross-fault-wrong-history-scenario-audit`

@@ -1,0 +1,125 @@
+{
+  "id": "m708-cross-fault-wrong-history-scenario-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m707_cross_fault_wrong_history_scenario/summary.json",
+      "runs/m707_cross_fault_wrong_history_scenario/matched_cross_fault_pairs.csv",
+      "runs/m707_cross_fault_wrong_history_scenario/fault_family_pair_summary.csv",
+      "runs/m707_cross_fault_wrong_history_scenario/reset_only_rows.csv",
+      "docs/m707-cross-fault-wrong-history-scenario-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m707-cross-fault-wrong-history-scenario-implementation.json",
+      "configs/cross_fault_hidden_condition_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit cross_fault_reset_only result before any source export or training"
+    ],
+    "derived_from": [
+      "m707-cross-fault-wrong-history-scenario-implementation"
+    ],
+    "blocked_by": [
+      "m707-cross-fault-wrong-history-scenario-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m708-cross-fault-wrong-history-scenario-audit.md",
+  "public_gates": [
+    "M707 implementation cleanliness is checked",
+    "wrong-history zero result is separated from reset-only evidence",
+    "fault-family pair summaries are audited",
+    "scenario coverage hypothesis is updated",
+    "model-fidelity limits are preserved",
+    "source export actor update PPO and promotion remain blocked unless the audit explicitly justifies otherwise",
+    "extreme_hidden_condition_scenario_generation branch receives a synthesis decision"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat reset-only rows as source-positive",
+    "do not export accepted_rows.csv because it is empty",
+    "do not lower wrong-history thresholds after seeing M707",
+    "do not run actor update",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels to actor inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "extreme_hidden_condition_scenario_generation",
+    "evidence_axis": "G_synthesis: decide whether M707 cross-fault reset-only evidence means the branch needs stronger history incompatibility, active probing, or higher-fidelity dynamics",
+    "evidence_increment": "synthesizes M703-M707 extreme hidden-condition evidence after cross-fault wrong-history pairing still found zero wrong-history-critical rows",
+    "claim_scope": "process synthesis and next-branch decision only, not driver performance or checkpoint promotion",
+    "stop_condition": [
+      "stop source export because wrong_history_action_critical_rows is zero",
+      "stop direct objective design because accepted_rows is zero",
+      "stop simple scenario-coverage expansion if audit concludes M704/M707 already cover current-model extremes sufficiently"
+    ],
+    "fallback_plan": [
+      "audit whether wrong histories are action/fusion indistinguishable from preferred histories",
+      "design active warm-up or probing if reset-only evidence suggests history exists but is not fault-specific",
+      "design higher-fidelity four-wheel scenario work only if current-model faults are the limiting factor",
+      "pivot away from scenario mining if evidence says the actor architecture/objective cannot express wrong-history dependence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M707 result_class=cross_fault_reset_only with zero wrong-history-critical rows",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m708-cross-fault-wrong-history-scenario-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "M707 cross_fault_reset_only should block source export and synthesize whether the next step is stronger history incompatibility, active probing, or higher-fidelity fault modeling.",
+  "success_criteria": [
+    "M707 summary metrics are recorded",
+    "fault-family pair reset-only concentration is recorded",
+    "wrong-history zero result is classified",
+    "scenario coverage hypothesis is updated",
+    "supported and falsified claims are recorded",
+    "failure taxonomy is assigned",
+    "next branch decision is explicit",
+    "source export actor update PPO and promotion remain blocked unless a new evidence path is justified"
+  ],
+  "failure_criteria": [
+    "audit treats reset-only rows as wrong-history self-ID evidence",
+    "audit admits source export from empty accepted_rows.csv",
+    "audit omits model-fidelity limits",
+    "audit omits synthesis questions",
+    "audit changes actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m708-cross-fault-wrong-history-scenario-audit.md from M707 artifacts; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m708-cross-fault-wrong-history-scenario-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m707_cross_fault_wrong_history_scenario/summary.json",
+    "docs/m707-cross-fault-wrong-history-scenario-implementation.md"
+  ],
+  "decision_rule": "M708 must decide whether the extreme hidden-condition branch continues with stronger history-incompatibility diagnostics, pivots to active probing or higher-fidelity dynamics, or stops source mining; it must not admit training from reset-only rows.",
+  "next_blocker": "m709-to-be-selected-by-m708"
+}
