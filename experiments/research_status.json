@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 677,
+        "completed": 678,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m668-normal-success-boundary-source-miner-audit",
+        "task_id": "m669-action-boundary-response-amplification-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m668-normal-success-boundary-source-miner-audit.md"
+        "command_log": "docs/m669-action-boundary-response-amplification-design.md"
     },
     "next_task": {
-        "id": "m669-action-boundary-response-amplification-design",
+        "id": "m670-action-boundary-response-amplification-shadow-design",
         "status": "pending",
-        "priority": 6640,
+        "priority": 6650,
         "kind": "infrastructure",
-        "hypothesis": "M667 shows source windows exist but the current actor boundary attenuates wrong-history effects; a response-amplification design can create a gated path from diagnostic shadow objective to exact actor-coupling tests.",
-        "command": "see experiments/manifests/m669-action-boundary-response-amplification-design.json",
+        "hypothesis": "A frozen-actor shadow response-amplifier design can test whether fused/hidden feature views can support sustained wrong-history action separation while preserving normal near-boundary behavior.",
+        "command": "see experiments/manifests/m670-action-boundary-response-amplification-shadow-design.json",
         "success_artifact": "",
-        "notes": "Pending: design no-PPO action-boundary response amplification ladder"
+        "notes": "Pending: design frozen-actor shadow response-amplification objective before implementation"
     },
-    "updated_at_utc": "20260525T003000Z"
+    "updated_at_utc": "20260525T004500Z"
 }

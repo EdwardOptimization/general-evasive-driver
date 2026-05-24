@@ -62,17 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m669-action-boundary-response-amplification-design
+m670-action-boundary-response-amplification-shadow-design
 ```
 
-M669 should design a conservative action-boundary response-amplification branch.
-M668 audited M667 as near-boundary source available but wrong-history
-outcome-insensitive: first-action differences exist, but they do not persist as
-sequence/action or margin/success gaps. Actor updates, PPO, and promotion remain
-blocked until exact and replay gates are defined.
+M670 should design the frozen-actor shadow response-amplification objective.
+M669 defined the ladder: first test whether frozen feature views can support
+sustained wrong-history action-sequence separation while preserving normal
+near-boundary behavior; only later consider actor coupling behind exact and
+replay gates.
 
 ## Recent Evidence Line
 
+- M669 designs a conservative no-PPO action-boundary response-amplification
+  ladder. The next step is a frozen-actor shadow objective over fused,
+  next-hidden, and fused-plus-hidden feature views with normal-history anchors,
+  wrong-history sequence-separation targets, source-heldout exact evaluation,
+  and no actor mutation.
 - M668 audits M667 as `near_boundary_exists_but_wrong_history_outcome_insensitive`.
   Valid near-boundary preferred windows exist and first-action differences are
   common, but short-horizon action separation is weak and outcome gaps are

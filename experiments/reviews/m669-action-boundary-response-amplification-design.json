@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M669 designs a conservative no-PPO response-amplification ladder with frozen shadow head exact evaluator and actor-coupling admission gates",
+  "failure_criteria": [
+    "design admits PPO directly",
+    "design uses privileged or label inputs in actor",
+    "design treats first-action difference as sufficient proof",
+    "design omits normal-behavior retention gates",
+    "design omits negative-result interpretation"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train in the design milestone",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not use hidden parameters or labels as actor inputs",
+    "do not claim first-action separation alone as self-ID proof",
+    "do not skip exact/replay gates before actor update"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T143442Z",
+  "hypothesis": "M667 shows source windows exist but the current actor boundary attenuates wrong-history effects; a response-amplification design can create a gated path from diagnostic shadow objective to exact actor-coupling tests.",
+  "lineage": {
+    "blocked_by": [
+      "m668-normal-success-boundary-source-miner-audit"
+    ],
+    "derived_from": [
+      "m668-normal-success-boundary-source-miner-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m668-normal-success-boundary-source-miner-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m667_normal_success_boundary_source_miner/summary.json",
+      "runs/m667_normal_success_boundary_source_miner/normal_window_summary.csv",
+      "runs/m667_normal_success_boundary_source_miner/candidate_scores.csv",
+      "docs/m668-normal-success-boundary-source-miner-audit.md"
+    ],
+    "parent_objective": [
+      "design action-boundary response amplification after normal-success source miner negative result"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m669-action-boundary-response-amplification-design",
+  "next_blocker": "m670-action-boundary-response-amplification-shadow-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "action_boundary_response_amplification_design_admit_shadow_design",
+  "public_gates": [
+    "design a no-PPO action-boundary response amplification objective",
+    "anchor normal-history behavior on near-boundary preferred windows",
+    "separate shadow diagnostic from actor-update admission",
+    "pre-register exact objective and replay gates before any actor coupling"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m669-action-boundary-response-amplification-design.md",
+    "clearance_margin_mean": "",
+    "decision": "action_boundary_response_amplification_design_admit_shadow_design",
+    "milestone": "m669-action-boundary-response-amplification-design",
+    "reason": "M669 designs a conservative no-PPO response-amplification ladder with frozen shadow head exact evaluator and actor-coupling admission gates",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design defines normal-history anchor and wrong-history sequence separation terms",
+    "design defines shadow diagnostic before actor update",
+    "design defines exact no-update evaluator",
+    "design defines replay gates required before promotion",
+    "design preserves human-view actor input contract",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

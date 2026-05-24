@@ -1,0 +1,84 @@
+{
+  "id": "m670-action-boundary-response-amplification-shadow-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m667_normal_success_boundary_source_miner/summary.json",
+      "runs/m667_normal_success_boundary_source_miner/candidate_scores.csv",
+      "docs/m669-action-boundary-response-amplification-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m669-action-boundary-response-amplification-design.json"
+    ],
+    "parent_objective": [
+      "design frozen-actor shadow response-amplification objective"
+    ],
+    "derived_from": [
+      "m669-action-boundary-response-amplification-design"
+    ],
+    "blocked_by": [
+      "m669-action-boundary-response-amplification-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m670-action-boundary-response-amplification-shadow-design.md",
+  "public_gates": [
+    "design frozen actor shadow head objective",
+    "define feature views and source-heldout splits",
+    "define normal retention and wrong-history sequence-gap metrics",
+    "keep actor coupling, PPO, and promotion blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in the design milestone",
+    "do not mutate actor parameters",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not use privileged or label inputs in actor",
+    "do not treat shadow-head success as closed-loop proof"
+  ],
+  "hypothesis": "A frozen-actor shadow response-amplifier design can test whether fused/hidden feature views can support sustained wrong-history action separation while preserving normal near-boundary behavior.",
+  "success_criteria": [
+    "design defines shadow module and feature views",
+    "design defines normal anchor and wrong-history sequence-separation losses",
+    "design defines source-heldout split and multi-seed pass criteria",
+    "design defines exact evaluator required before actor coupling",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design mutates actor",
+    "design skips source-heldout metrics",
+    "design treats shadow success as promotion evidence",
+    "design omits negative-result taxonomy"
+  ],
+  "commands": [
+    {
+      "name": "design_doc",
+      "command": "write docs/m670-action-boundary-response-amplification-shadow-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m670-action-boundary-response-amplification-shadow-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m667_normal_success_boundary_source_miner/summary.json",
+    "docs/m669-action-boundary-response-amplification-design.md"
+  ],
+  "decision_rule": "M670 passes only if it designs a frozen-actor shadow objective that can be evaluated exactly before any actor update is admitted.",
+  "next_blocker": "m671-action-boundary-response-amplification-shadow-implementation"
+}

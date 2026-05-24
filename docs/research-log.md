@@ -12142,3 +12142,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M668 audits M667 as `near_boundary_exists_but_wrong_history_outcome_insensitive`: valid near-boundary preferred windows exist, wrong-history first-action sensitivity exists, but short-horizon action gap is weak and outcome gap is absent. The audit rejects more source mining with the same actor as the next highest-leverage step and selects a conservative action-boundary response-amplification design branch, with no PPO, no promotion, and exact/replay gates required before actor coupling.
 - decision: `normal_success_boundary_source_miner_audit_admit_action_boundary_amplification_design`
 - next: `m669-action-boundary-response-amplification-design`
+## 20260525T004500Z - m669-action-boundary-response-amplification-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m669-action-boundary-response-amplification-design.md`
+- result: M669 designs a conservative no-PPO response-amplification ladder after M667/M668 showed that source windows exist but the current actor boundary attenuates wrong-history effects. The ladder starts with a frozen-actor shadow objective, compares fused/next-hidden/fused-plus-hidden feature views, anchors normal-history action sequences, tests sustained wrong-history sequence separation, requires source-heldout exact evaluation, and keeps actor coupling blocked unless shadow evidence passes. Promotion remains blocked until later closed-loop replay/outcome gates.
+- decision: `action_boundary_response_amplification_design_admit_shadow_design`
+- next: `m670-action-boundary-response-amplification-shadow-design`
