@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 514,
+        "completed": 515,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m505-terminal-boundary-alignment-redesign",
+        "task_id": "m506-terminal-boundary-aware-selector",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m505-terminal-boundary-alignment-redesign.md"
+        "run_dir": "runs/m506_terminal_boundary_aware_selector",
+        "command_log": "docs/m506-terminal-boundary-aware-selector.md"
     },
     "next_task": {
-        "id": "m506-terminal-boundary-aware-selector",
+        "id": "m507-terminal-boundary-anchor-mining-design",
         "status": "pending",
-        "priority": 5010,
-        "kind": "gate",
-        "hypothesis": "Selecting low-margin normal-history rows first and then requiring smaller wrong-history action perturbations will yield a source-diverse targeted surface suitable for outcome testing.",
-        "command": "see experiments/manifests/m506-terminal-boundary-aware-selector.json",
+        "priority": 5020,
+        "kind": "infrastructure",
+        "hypothesis": "The next candidate pool must be mined from low-clearance normal-history anchors first, then paired with adversarial wrong histories.",
+        "command": "see experiments/manifests/m507-terminal-boundary-anchor-mining-design.json",
         "success_artifact": "",
-        "notes": "Pending: run terminal-boundary-aware selector; no outcome gate training or promotion"
+        "notes": "Pending: design terminal-boundary anchor mining; no outcome gate training or promotion"
     },
-    "updated_at_utc": "20260524T012000Z"
+    "updated_at_utc": "20260524T013000Z"
 }

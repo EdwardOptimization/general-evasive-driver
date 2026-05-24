@@ -10675,3 +10675,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M505 audits the full M504 candidate table and finds the selector order is wrong. Low-margin rows are source-diverse: `normal_margin <= 0.50` has `250` rows across `6` seeds, `2` labels, `3` targets, and `2` configs; `normal_margin <= 1.00` has `591` rows. The issue is that their wrong-history action perturbations are smaller than M500 thresholds. With soft action thresholds (`first_action >= 0.04`, `trajectory_mean >= 0.04`, or `trajectory_max >= 0.08`), M504 contains `65` rows at margin `<= 0.50`, `216` rows at margin `<= 1.00`, and `494` rows at margin `<= 2.00`.
 - decision: `admit_m506_terminal_boundary_aware_selector`
 - next: `m506-terminal-boundary-aware-selector`
+## 20260524T013000Z - m506-terminal-boundary-aware-selector
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m506_terminal_boundary_aware_selector`
+- artifact: `docs/m506-terminal-boundary-aware-selector.md`
+- result: M506 implements and runs a terminal-boundary-aware selector over the M504 candidate table. The candidate pool has `494` rows after boundary-first and soft-action filters. Source-capped selection returns `101` targeted rows across `6` seeds, `2` labels, `3` targets, and `2` configs. It improves boundary alignment versus M504 (`35` rows with normal margin `<= 0.50`, `76` with `<= 1.00`, `101` with `<= 2.00`) and keeps trajectory signal (`mean 0.084141`, p90 `0.138282`), but fails the pre-registered outcome admission gate because targeted count is too small, label share is `0.732673`, and low-margin bucket counts remain below thresholds.
+- decision: `reject_outcome_gate_admission`
+- next: `m507-terminal-boundary-anchor-mining-design`

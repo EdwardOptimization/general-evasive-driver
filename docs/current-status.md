@@ -47,12 +47,12 @@ runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
 
 Status: M400 promotes M399 alpha `0.05` as the current public-gate base after
 six public replay surfaces and behavior seeds pass. This remains the latest
-public-gate base; M487-M505 did not train or promote a checkpoint.
+public-gate base; M487-M506 did not train or promote a checkpoint.
 
 Current blocker:
 
 ```text
-m506-terminal-boundary-aware-selector
+m507-terminal-boundary-anchor-mining-design
 ```
 
 Recent progress: M486-M492 is now closed as an artificial tail-forcing
@@ -134,9 +134,15 @@ source-diverse, but their wrong-history action perturbations are smaller than
 the M500 thresholds. With softer action thresholds, there are `65` rows at
 normal margin `<= 0.50`, `216` at `<= 1.00`, and `494` at `<= 2.00`.
 
-Next step: M506 should select terminal-boundary rows first, then apply softer
-wrong-history action thresholds before any outcome gate. It should not train or
-promote a checkpoint.
+M506 implements that terminal-boundary-aware selector. It improves low-margin
+coverage versus M504 (`35` rows at margin `<= 0.50`, `76` at `<= 1.00`) and
+keeps nonzero trajectory signal (`mean 0.084141`, p90 `0.138282`), but rejects
+outcome-gate admission because the source-capped targeted surface has only
+`101` rows and label share `0.732673`.
+
+Next step: M507 should design terminal-boundary anchor mining: mine
+low-clearance normal-history anchors first, then search wrong histories around
+those anchors. It should not train or promote a checkpoint.
 
 ## Current Evidence
 
