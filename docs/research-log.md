@@ -11332,3 +11332,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M578 runs the BC seed-family fresh route repeat on seeds `21560..21815`, writing `1280` episode rows and reporting `uses_public_frozen_source_rows=false`. All three BC seeds pass L0 and L2 gates. Against L2 success/collision/margin `0.671875` / `0.328125` / `0.978128`, BC5660 scores `0.675781` / `0.324219` / `0.992939`, BC5661 scores `0.671875` / `0.328125` / `0.982097`, and BC5662 scores `0.675781` / `0.324219` / `0.991177`. No promotion is performed.
 - decision: `bc_family_fresh_route_repeat_pass_admit_m579_ood_repeat`
 - next: `m579-bc-family-moderate-ood-repeat-eval`
+## 20260524T083000Z - m579-bc-family-moderate-ood-repeat-eval
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m579_bc_family_moderate_ood_repeat_eval`
+- artifact: `docs/m579-bc-family-moderate-ood-repeat-eval.md`
+- result: M579 runs the BC seed-family moderate-OOD repeat on seeds `22560..22815`, writing `1280` episode rows and reporting `uses_public_frozen_source_rows=false`. All three BC seeds pass L0 and OOD-L2 gates. Against L2 success/collision/margin `0.574219` / `0.425781` / `0.913270`, BC5660 scores `0.582031` / `0.417969` / `0.921253`, BC5661 scores `0.574219` / `0.425781` / `0.914780`, and BC5662 scores `0.582031` / `0.417969` / `0.920871`. No promotion is performed.
+- decision: `bc_family_ood_repeat_pass_admit_m580_audit`
+- next: `m580-bc-family-generalization-audit`

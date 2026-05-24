@@ -1,0 +1,87 @@
+{
+  "id": "m580-bc-family-generalization-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m568_scaled_l3_bc_seed5661/checkpoint.pt",
+      "runs/m568_scaled_l3_bc_seed5662/checkpoint.pt",
+      "runs/m542_matched_l2_variance_seed3540/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m578_bc_family_fresh_route_repeat_eval/summary.json",
+      "runs/m579_bc_family_moderate_ood_repeat_eval/summary.json",
+      "runs/m575_moderate_ood_route_generalization_eval/summary.json",
+      "runs/m572_fresh_route_generalization_eval/summary.json"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_objective": [
+      "audit BC family route and OOD repeat evidence before recurrent-dependence gates"
+    ],
+    "derived_from": [
+      "m579-bc-family-moderate-ood-repeat-eval"
+    ],
+    "blocked_by": [
+      "m579-bc-family-moderate-ood-repeat-eval"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m580-bc-family-generalization-audit.md",
+  "public_gates": [
+    "audit BC family fresh-route and OOD repeat evidence",
+    "identify remaining evidence gaps before promotion",
+    "decide recurrent-dependence ablation/proof gate sequence",
+    "do not train evaluate or promote in audit milestone"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not promote from route/OOD family metrics alone",
+    "do not run PPO or behavior cloning",
+    "do not change actor inputs",
+    "do not skip recurrent-dependence diagnostics"
+  ],
+  "hypothesis": "Because the scaled BC family now passes fresh-route and moderate-OOD repeats, the next evidence layer should test recurrent command-response dependence before promotion or PPO.",
+  "success_criteria": [
+    "audit summarizes M578 and M579 family metrics",
+    "audit identifies remaining proof gaps",
+    "audit pre-registers next recurrent-dependence gate direction",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "audit treats family route/OOD metrics as sufficient for promotion",
+    "audit skips recurrent-dependence evidence",
+    "audit allows PPO before proof gaps are addressed"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "Write BC family evidence audit and next recurrent-dependence gate plan; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m580-bc-family-generalization-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+    "runs/m568_scaled_l3_bc_seed5661/checkpoint.pt",
+    "runs/m568_scaled_l3_bc_seed5662/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m579-bc-family-moderate-ood-repeat-eval.md",
+    "docs/m578-bc-family-fresh-route-repeat-eval.md"
+  ],
+  "decision_rule": "M580 passes only if it audits the BC family evidence and pre-registers recurrent-dependence diagnostics without promotion, PPO, or actor-contract changes.",
+  "next_blocker": "pending M580 audit"
+}

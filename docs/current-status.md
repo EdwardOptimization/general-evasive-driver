@@ -61,13 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m579-bc-family-moderate-ood-repeat-eval
+m580-bc-family-generalization-audit
 ```
 
-M579 should run the BC seed-family moderate-OOD repeat for scaled BC seeds
-`5660`, `5661`, and `5662` against L0/L2. M578 passed the same-distribution
-family repeat; promotion/PPO remain blocked until OOD family stability is
-checked.
+M580 should audit BC seed-family generalization evidence and choose
+recurrent-dependence proof gates. M579 passed the moderate-OOD family repeat;
+promotion/PPO remain blocked until recurrent command-response dependence is
+tested.
 
 ## Recent Evidence Line
 
@@ -340,6 +340,12 @@ checked.
   `BC5661` `0.671875` / `0.328125` / `0.982097`, and `BC5662` `0.675781` /
   `0.324219` / `0.991177`, versus L2 `0.671875` / `0.328125` / `0.978128`.
   No checkpoint is promoted.
+- M579 runs the BC seed-family moderate-OOD repeat. All three BC seeds pass:
+  `BC5660` success/collision/margin `0.582031` / `0.417969` / `0.921253`,
+  `BC5661` `0.574219` / `0.425781` / `0.914780`, and `BC5662` `0.582031` /
+  `0.417969` / `0.920871`, versus L2 `0.574219` / `0.425781` / `0.913270`.
+  This strengthens the scaled BC family but still does not prove recurrent
+  dependence.
 
 ## Near-Term Rule
 

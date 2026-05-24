@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M579 moderate-OOD family repeat passes all three BC seeds; selected BC5660 is slightly above L2 on success collision return and margin",
+  "failure_criteria": [
+    "BC5660 fails the OOD repeat",
+    "fewer than two BC seeds pass the OOD repeat",
+    "evaluation reuses old route seeds or public frozen-source rows",
+    "checkpoint promotion is attempted"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not reuse route seed starts 15560 16560 17560 18560 19560 20560 or 21560",
+    "do not use public frozen-source natural-surface rows",
+    "do not tune BC candidates before reporting M579",
+    "do not run PPO or behavior cloning",
+    "do not change checkpoint weights or actor inputs"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260524T063030Z",
+  "hypothesis": "Because all three scaled BC seeds passed the fresh route repeat, at least two should remain L0-safe and OOD-L2-competitive on a fresh moderate-OOD route repeat.",
+  "lineage": {
+    "blocked_by": [
+      "m578-bc-family-fresh-route-repeat-eval"
+    ],
+    "derived_from": [
+      "m578-bc-family-fresh-route-repeat-eval"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m568_scaled_l3_bc_seed5661/checkpoint.pt",
+      "runs/m568_scaled_l3_bc_seed5662/checkpoint.pt",
+      "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+      "runs/m542_matched_l2_variance_seed3540/checkpoint.pt"
+    ],
+    "parent_config": [
+      "configs/eval_m574_moderate_ood_l0.json",
+      "configs/eval_m574_moderate_ood_l2.json",
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_dataset": [
+      "runs/m578_bc_family_fresh_route_repeat_eval/summary.json",
+      "runs/m575_moderate_ood_route_generalization_eval/summary.json"
+    ],
+    "parent_objective": [
+      "moderate-OOD route repeat for BC seed family"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m579-bc-family-moderate-ood-repeat-eval",
+  "next_blocker": "m580-bc-family-generalization-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "bc_family_ood_repeat_pass_admit_m580_audit",
+  "public_gates": [
+    "run route-screen v2 for L0 L2 and BC5660/5661/5662 on fresh OOD seeds 22560..22815",
+    "verify uses_public_frozen_source_rows is false",
+    "verify BC5660 remains L0-safe and OOD-L2-competitive",
+    "verify at least two of three BC seeds are L0-safe and OOD-L2-competitive",
+    "do not promote checkpoint from this repeat gate"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m579_bc_family_moderate_ood_repeat_eval/summary.json",
+    "clearance_margin_mean": "0.921253",
+    "decision": "bc_family_ood_repeat_pass_admit_m580_audit",
+    "milestone": "m579-bc-family-moderate-ood-repeat-eval",
+    "reason": "M579 moderate-OOD family repeat passes all three BC seeds; selected BC5660 is slightly above L2 on success collision return and margin",
+    "reset_success": "",
+    "success_rate": "0.582031",
+    "termination_rate": "0.417969",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "route-screen v2 completes with episodes=256 and seed_list 22560..22815",
+    "summary reports uses_public_frozen_source_rows=false",
+    "BC5660 passes the L0 gate and OOD-L2 competitiveness tolerances",
+    "at least two of three BC seeds pass L0 and OOD-L2 competitiveness tolerances",
+    "collision deltas against L2 are computed for all BC candidates",
+    "research validation passes"
+  ],
+  "type": "gate"
+}

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 587,
+        "completed": 588,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m578-bc-family-fresh-route-repeat-eval",
+        "task_id": "m579-bc-family-moderate-ood-repeat-eval",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m578_bc_family_fresh_route_repeat_eval",
-        "command_log": "docs/m578-bc-family-fresh-route-repeat-eval.md"
+        "run_dir": "runs/m579_bc_family_moderate_ood_repeat_eval",
+        "command_log": "docs/m579-bc-family-moderate-ood-repeat-eval.md"
     },
     "next_task": {
-        "id": "m579-bc-family-moderate-ood-repeat-eval",
+        "id": "m580-bc-family-generalization-audit",
         "status": "pending",
-        "priority": 5740,
+        "priority": 5750,
         "kind": "gate",
-        "hypothesis": "Because all three scaled BC seeds passed the fresh route repeat, at least two should remain L0-safe and OOD-L2-competitive on a fresh moderate-OOD route repeat.",
-        "command": "see experiments/manifests/m579-bc-family-moderate-ood-repeat-eval.json",
+        "hypothesis": "Because the scaled BC family now passes fresh-route and moderate-OOD repeats, the next evidence layer should test recurrent command-response dependence before promotion or PPO.",
+        "command": "see experiments/manifests/m580-bc-family-generalization-audit.json",
         "success_artifact": "",
-        "notes": "Pending: run BC seed-family moderate-OOD repeat; no promotion"
+        "notes": "Pending: audit BC family generalization evidence and choose recurrent-dependence gates"
     },
-    "updated_at_utc": "20260524T082000Z"
+    "updated_at_utc": "20260524T083000Z"
 }
