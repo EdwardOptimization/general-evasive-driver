@@ -55,22 +55,27 @@ Latest active diagnostic BC checkpoint:
 runs/m568_scaled_l3_bc_seed5660/checkpoint.pt
 ```
 
-Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M618
+Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M619
 diagnostics. It is not the public-gate base and is not promoted as the current
 driver checkpoint.
 
 ## Current Blocker
 
 ```text
-m619-expanded-sequence-diversity-design
+m620-sequence-tier-aware-miner-implementation
 ```
 
-M619 should design the next no-training sequence diversity step. M618 audited
-M617 as repeatable but not optimizer-ready because accepted rows, physical
-pairs, left seeds, and selected action-mode breadth remain too narrow.
+M620 should implement source-tier metadata propagation and accepted
+candidate-set artifacts in the sequence target miner. It must not change model
+behavior, target thresholds, action trust regions, actor inputs, or run PPO.
 
 ## Recent Evidence Line
 
+- M619 designs the next no-training sequence diversity step. M617 has `6`
+  selected accepted sequences but `189` accepted candidate rows, and accepted
+  source-tier interpretation required a manual join to M616. M620 should make
+  the sequence miner source-tier and accepted-candidate-set aware before any
+  larger search, optimizer design, training, or PPO.
 - M618 audits M617 as diagnostic-positive but not optimizer-ready. M617
   increases selected accepted sequences from `1` to `6`, but it still misses
   the pre-registered breadth target: `6 < 8` accepted sequences, `5 < 6`

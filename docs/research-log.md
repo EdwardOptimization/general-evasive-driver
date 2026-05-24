@@ -11692,3 +11692,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M618 audits M617 as diagnostic-positive but not optimizer-ready. M617 validates repeatability of the sequence-target direction by increasing selected accepted sequences from `1` to `6`, but it misses the pre-registered breadth target: accepted sequences `6 < 8`, physical pairs `5 < 6`, left seeds `4 < 6`, and all selected sequences are `K=5` `constant_delta` with `+0.08` steer. The source-tier join shows `1` core, `3` near, and `2` support accepted rows, confirming M616 expansion helped but also that accepted evidence is partly less-fragile support behavior. Training and optimizer admission remain blocked.
 - decision: `expanded_sequence_target_audit_admit_diversity_design`
 - next: `m619-expanded-sequence-diversity-design`
+## 20260524T151000Z - m619-expanded-sequence-diversity-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m619-expanded-sequence-diversity-design.md`
+- result: M619 designs the next no-training sequence diversity step. The immediate issue is evidence governance: M617 has `6` selected accepted sequences but `189` accepted candidate rows, and accepted source-tier interpretation required a manual join to M616. M619 therefore selects M620 as a tier-aware sequence miner implementation: propagate optional source metadata into sequence outputs, write `accepted_candidate_sequences.csv`, and summarize accepted candidate-set diversity separately from selected best-per-source diversity. Longer `K=7` low-amplitude sequence candidates may be considered later, but not before artifact provenance is clean.
+- decision: `expanded_sequence_diversity_design_admit_m620`
+- next: `m620-sequence-tier-aware-miner-implementation`
