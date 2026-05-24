@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 526,
+        "completed": 528,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m517-projection-aware-boundary-outcome-gate-design",
+        "task_id": "m519-valid-offset-projection-outcome-redesign",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m517-projection-aware-boundary-outcome-gate-design.md"
+        "command_log": "docs/m519-valid-offset-projection-outcome-redesign.md"
     },
     "next_task": {
-        "id": "m518-projection-aware-boundary-outcome-gate",
+        "id": "m520-valid-offset-projection-outcome-gate",
         "status": "pending",
-        "priority": 5130,
+        "priority": 5150,
         "kind": "gate",
-        "hypothesis": "Projection-aware replay of M516 terminal-boundary rows can determine whether one-shot wrong-history affects near-boundary outcomes before current feedback corrects belief mismatch.",
-        "command": "see experiments/manifests/m518-projection-aware-boundary-outcome-gate.json",
+        "hypothesis": "Removing the globally invalid tail offset 8 from M518 can produce a valid projection-aware outcome classification for the M516 terminal-boundary mechanism surface.",
+        "command": "see experiments/manifests/m520-valid-offset-projection-outcome-gate.json",
         "success_artifact": "",
-        "notes": "Pending: implement and run projection-aware outcome gate without training or promotion"
+        "notes": "Pending: run projection-aware outcome gate with tail offsets 0,2,4 without training or promotion"
     },
-    "updated_at_utc": "20260524T032000Z"
+    "updated_at_utc": "20260524T034000Z"
 }

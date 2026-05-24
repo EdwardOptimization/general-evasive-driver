@@ -1,0 +1,105 @@
+{
+  "id": "m519-valid-offset-projection-outcome-redesign",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m518_projection_aware_boundary_outcome_gate/summary.json",
+      "runs/m518_projection_aware_boundary_outcome_gate/projected_invalid_pairs.csv",
+      "runs/m516_boundary_mechanism_projection_selector/targeted_pairs.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m517-projection-aware-boundary-outcome-gate-design.json",
+      "experiments/manifests/m518-projection-aware-boundary-outcome-gate.json"
+    ],
+    "parent_objective": [
+      "valid-offset projection-aware outcome gate redesign"
+    ],
+    "derived_from": [
+      "m518-projection-aware-boundary-outcome-gate"
+    ],
+    "blocked_by": [
+      "m518-projection-aware-boundary-outcome-gate"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m519-valid-offset-projection-outcome-redesign.md",
+  "public_gates": [
+    "design a valid-offset rerun of the projection-aware boundary outcome gate",
+    "preserve M517 relocated-obstacle replay semantics",
+    "do not reinterpret M518 invalid replay as controller failure",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not silently change M518 results",
+    "do not reuse original obstacle geometry for projected rows",
+    "do not count reset or zero-current controls as wrong-history proof"
+  ],
+  "hypothesis": "M518 failed because the pre-registered offset set included an invalid late tail offset for near-terminal left snapshots; rerunning the same projection-aware gate with valid offsets can produce an interpretable outcome classification.",
+  "success_criteria": [
+    "identify the M518 invalid offset pattern",
+    "pre-register the valid offset set for M520",
+    "preserve projection-aware replay semantics",
+    "define how M520 should classify fast correction versus margin-only or positive proof",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "redesign treats M518 invalid replay as controller failure",
+    "redesign changes actor inputs",
+    "redesign changes obstacle projection semantics",
+    "redesign omits invalid-tail reporting",
+    "training or checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "valid_offset_projection_outcome_redesign",
+      "command": "Use the M518 summary and invalid-tail audit to design the M520 valid-offset projection-aware outcome gate."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m519-valid-offset-projection-outcome-redesign.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m518-projection-aware-boundary-outcome-gate.md",
+    "runs/m518_projection_aware_boundary_outcome_gate/summary.json"
+  ],
+  "decision_rule": "M519 should admit M520 only if the next run keeps M517 semantics and removes the globally invalid tail offset without changing actor inputs or promotion state.",
+  "next_blocker": "M520 should rerun the projection-aware boundary outcome gate with tail offsets 0,2,4.",
+  "results": {
+    "artifact": "docs/m519-valid-offset-projection-outcome-redesign.md",
+    "selected_next_path": "valid_offset_projection_aware_boundary_outcome_gate",
+    "next_task": "m520-valid-offset-projection-outcome-gate",
+    "m518_classification": "invalid_projection_replay",
+    "m518_invalid_rows_by_tail_offset": {
+      "8": 239,
+      "4": 48,
+      "2": 31
+    },
+    "m520_tail_offsets": [
+      0,
+      2,
+      4
+    ],
+    "actor_contract_changed": false,
+    "training_or_promotion_performed": false
+  }
+}

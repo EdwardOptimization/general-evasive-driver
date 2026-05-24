@@ -10783,3 +10783,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M517 designs the next gate and rejects using the existing tail-aligned outcome gate unchanged because it would reconstruct original obstacle geometry instead of M516's relocated projection geometry. The next implementation must reconstruct natural left/right snapshots, relocate the left snapshot obstacle to `projected_obstacle_body_x/y`, replay normal/wrong/reset/zero variants, and classify positive proof, margin-only signal, control-only sensitivity, fast correction no-effect, or invalid projection replay. The design also records the L3 recurrent belief-policy implication: if wrong-history is quickly corrected without outcome effect, do not force artificial proof rows; add an L0/L1/L2/L3 history-value ablation line.
 - decision: `admit_m518_projection_aware_boundary_outcome_gate`
 - next: `m518-projection-aware-boundary-outcome-gate`
+## 20260524T033000Z - m518-projection-aware-boundary-outcome-gate
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m518_projection_aware_boundary_outcome_gate`
+- artifact: `docs/m518-projection-aware-boundary-outcome-gate.md`
+- result: M518 implements and runs the projection-aware outcome gate on M516 targeted rows. The implementation preserves relocated obstacle geometry and writes projected outcomes, invalid pairs, and variant summaries. The formal run is classified `invalid_projection_replay`: `239` input pairs produce `638` valid tail pairs and `318` invalid tail pairs. Invalid rows are entirely `missing_left_tail`; by offset they are `8: 239`, `4: 48`, and `2: 31`. Wrong-history has only `1` source-narrow margin proof candidate and `0` event rows, while reset/zero controls have `10` proof candidates and `0` event rows. This is an offset validity failure, not controller failure.
+- decision: `reject_invalid_projection_replay`
+- next: `m519-valid-offset-projection-outcome-redesign`
+## 20260524T034000Z - m519-valid-offset-projection-outcome-redesign
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m519-valid-offset-projection-outcome-redesign.md`
+- result: M519 redesigns the M520 rerun after M518 shows `tail_offset=8` is invalid for every input pair. The next gate should keep M517 projection-aware replay semantics but use tail offsets `0,2,4`, continue to report invalid-tail counts, and classify positive proof, margin-only signal, control-only sensitivity, fast correction, no-effect, or invalid replay without training or promotion. If valid-offset replay still shows no meaningful wrong-history outcome effect, the next branch should start an L0/L1/L2/L3 history-value ablation instead of forcing artificial wrong-history rows.
+- decision: `admit_m520_valid_offset_projection_outcome_gate`
+- next: `m520-valid-offset-projection-outcome-gate`

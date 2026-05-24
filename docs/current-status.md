@@ -47,12 +47,12 @@ runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
 
 Status: M400 promotes M399 alpha `0.05` as the current public-gate base after
 six public replay surfaces and behavior seeds pass. This remains the latest
-public-gate base; M487-M517 did not train or promote a checkpoint.
+public-gate base; M487-M519 did not train or promote a checkpoint.
 
 Current blocker:
 
 ```text
-m518-projection-aware-boundary-outcome-gate
+m520-valid-offset-projection-outcome-gate
 ```
 
 Recent progress: M486-M492 is now closed as an artificial tail-forcing
@@ -205,7 +205,21 @@ geometry. M518 must preserve projection geometry during normal/wrong/reset/zero
 replays and classify positive proof, margin-only signal, control-only
 sensitivity, fast correction no-effect, or invalid projection replay.
 
-Next step: M518 should implement and run the projection-aware boundary outcome
+M518 implements and runs that projection-aware gate. It preserves relocated
+obstacle geometry and produces valid replay rows, but the formal run is
+classified `invalid_projection_replay`: `tail_offset=8` is invalid for every
+one of the `239` input pairs, and all `318` invalid rows are
+`missing_left_tail`. Wrong-history has only `1` source-narrow margin candidate
+and `0` event rows; reset/zero controls have `10` proof candidates and `0`
+event rows. This is an offset validity failure, not controller failure.
+
+M519 redesigns the rerun. M520 should keep the M517 projection-aware semantics
+but use valid offsets `0,2,4`, continue reporting invalid-tail counts, and
+classify whether the result is positive wrong-history outcome proof,
+margin-only signal, control-only sensitivity, fast correction, no-effect, or
+still invalid replay.
+
+Next step: M520 should run the valid-offset projection-aware boundary outcome
 gate. It should not train, promote, or treat fast correction of wrong history as
 policy failure without evidence.
 
