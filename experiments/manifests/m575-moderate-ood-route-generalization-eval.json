@@ -2,7 +2,7 @@
   "id": "m575-moderate-ood-route-generalization-eval",
   "type": "gate",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -90,6 +90,6 @@
     "docs/m574-moderate-ood-config-family.md",
     "docs/m573-moderate-ood-route-generalization-design.md"
   ],
-  "decision_rule": "M575 passes only if BC5660 is L0-safe and OOD-L2-competitive on the fresh moderate-OOD route range; no promotion is allowed.",
+  "decision_rule": "M575 passes because BC5660 is L0-safe and OOD-L2-competitive on the fresh moderate-OOD route range; no promotion is allowed.",
   "next_blocker": "m576-moderate-ood-route-eval-audit"
 }

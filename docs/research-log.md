@@ -11296,3 +11296,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M574 adds `configs/eval_m574_moderate_ood_l0.json`, `configs/eval_m574_moderate_ood_l2.json`, and `configs/eval_m574_moderate_ood_l3.json`. The configs keep each M541 parent PPO section exactly, preserve L0/L2/L3 history contracts, and apply only the M573-approved OOD env deltas. Focused tests pass (`36 passed`) and verify shared distribution except `history_length` plus route-screen loader compatibility. No evaluation, training, or promotion is performed.
 - decision: `moderate_ood_config_family_pass_admit_m575_eval`
 - next: `m575-moderate-ood-route-generalization-eval`
+## 20260524T075000Z - m575-moderate-ood-route-generalization-eval
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m575_moderate_ood_route_generalization_eval`
+- artifact: `docs/m575-moderate-ood-route-generalization-eval.md`
+- result: M575 runs the pre-registered moderate-OOD route/generalization gate on seeds `20560..20815` using the M574 eval-only configs. It writes `768` episode rows and reports `uses_public_frozen_source_rows=false`. `BC5660` passes the L0 gate and is OOD-L2-competitive: success `0.628906` equals L2, collision `0.371094` equals L2, return `61.804108` is slightly above L2 `61.796892`, and mean margin `1.042773` is above L2 `1.036858`. No training or promotion is performed.
+- decision: `moderate_ood_route_generalization_pass_admit_m576_audit`
+- next: `m576-moderate-ood-route-eval-audit`

@@ -61,12 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m575-moderate-ood-route-generalization-eval
+m576-moderate-ood-route-eval-audit
 ```
 
-M575 should run the moderate-OOD route/generalization gate for selected scaled
-checkpoint `BC5660` against L0/L2. M574 implemented the eval-only OOD configs,
-but there is still no OOD robustness claim, private generalization claim, or
+M576 should audit the positive M570/M572/M575 scaled-BC evidence and choose the
+next escalation. M575 passed the moderate-OOD route gate, but there is still no
+private generalization claim, recurrent ablation evidence for this branch, or
 checkpoint promotion.
 
 ## Recent Evidence Line
@@ -320,6 +320,11 @@ checkpoint promotion.
   PPO sections, approved OOD env deltas, shared distribution except
   `history_length`, and route-screen loader compatibility. No evaluation,
   training, or promotion is performed.
+- M575 runs the moderate-OOD route gate on fresh seeds `20560..20815`.
+  `BC5660` passes: success `0.628906`, collision `0.371094`, return
+  `61.804108`, and mean margin `1.042773`, matching L2 success/collision and
+  slightly improving L2 return/margin (`61.796892`, `1.036858`). This is a
+  positive OOD diagnostic but still not promotion evidence by itself.
 
 ## Near-Term Rule
 
