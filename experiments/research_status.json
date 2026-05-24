@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 619,
+        "completed": 620,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m610-boundary-conditioned-grounded-target-miner",
+        "task_id": "m611-boundary-target-mining-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m610_boundary_conditioned_grounded_target_miner",
-        "command_log": "docs/m610-boundary-conditioned-grounded-target-miner.md"
+        "run_dir": "",
+        "command_log": "docs/m611-boundary-target-mining-audit.md"
     },
     "next_task": {
-        "id": "m611-boundary-target-mining-audit",
+        "id": "m612-sequence-target-mining-design",
         "status": "pending",
-        "priority": 6060,
-        "kind": "gate",
-        "hypothesis": "M610 zero-accepted results should be audited as evidence that local first-action targets are too weak, before designing sequence or trajectory target mining.",
-        "command": "see experiments/manifests/m611-boundary-target-mining-audit.json",
+        "priority": 6070,
+        "kind": "infrastructure",
+        "hypothesis": "M610 failed because single first-action overrides are too myopic; a short bounded action-sequence target miner may discover simulator-grounded maneuver targets on the same near-boundary rows.",
+        "command": "see experiments/manifests/m612-sequence-target-mining-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit zero accepted boundary-conditioned first-action targets; no threshold retrofitting, training, PPO, or promotion"
+        "notes": "Pending: design short-horizon sequence target mining; no implementation, training, PPO, or promotion"
     },
-    "updated_at_utc": "20260524T134000Z"
+    "updated_at_utc": "20260524T135000Z"
 }

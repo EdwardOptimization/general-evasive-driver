@@ -11620,3 +11620,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M610 implements and runs a diagnostic target search on the `17` M609 boundary rows with an `80`-step continuation horizon. It evaluates `3332` first-action candidates and accepts `0` targets. Rejection counts are candidate collision `1443`, insufficient margin/risk improvement `1283`, and outside action trust region `606`. Max candidate improvement is `0.017662`; max trust-region improvement is `0.015549`, below the pre-registered `0.02` threshold. No target corpus is written; no training, PPO, promotion, or optimizer admission occurs.
 - decision: `boundary_conditioned_target_miner_negative_admit_sequence_audit`
 - next: `m611-boundary-target-mining-audit`
+## 20260524T135000Z - m611-boundary-target-mining-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m611-boundary-target-mining-audit.md`
+- result: M611 audits the M610 zero-accepted result. Since M609 selected near-boundary rows and M610 used the same `80`-step horizon, the blocker is not primarily source distance or horizon length. M610 still had no accepted first-action target; non-collision trust-region candidates do not reach `0.015` margin improvement and the pre-registered `0.02` threshold remains unmet. The supported diagnosis is first-action locality / myopia: a one-step override followed by the unchanged BC5660 policy is too weak to create robust margin gains.
+- decision: `boundary_target_mining_audit_admit_sequence_target_design`
+- next: `m612-sequence-target-mining-design`

@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M611 classifies the zero-accepted boundary target search as first-action locality/myopia and admits short-horizon sequence target design while keeping training blocked",
+  "failure_criteria": [
+    "audit treats zero accepted targets as successful labels",
+    "audit starts training or PPO",
+    "audit promotes a checkpoint",
+    "audit omits the diagnostic-only limitation",
+    "audit ignores M609 source diversity limitation"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower thresholds and reinterpret M610 as accepted",
+    "do not claim optimizer admission from M610",
+    "do not add privileged actor inputs"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260524T090632Z",
+  "hypothesis": "M610 zero-accepted results should be audited as evidence that local first-action targets are too weak, before designing sequence or trajectory target mining.",
+  "lineage": {
+    "blocked_by": [
+      "m610-boundary-conditioned-grounded-target-miner"
+    ],
+    "derived_from": [
+      "m610-boundary-conditioned-grounded-target-miner"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m610-boundary-conditioned-grounded-target-miner.json",
+      "docs/m610-boundary-conditioned-grounded-target-miner.md"
+    ],
+    "parent_dataset": [
+      "runs/m609_boundary_conditioned_source_miner/boundary_source_rows.csv",
+      "runs/m610_boundary_conditioned_grounded_target_miner/target_candidates.csv",
+      "runs/m610_boundary_conditioned_grounded_target_miner/unaccepted_rows.csv",
+      "runs/m610_boundary_conditioned_grounded_target_miner/summary.json"
+    ],
+    "parent_objective": [
+      "audit zero-accepted first-action target search on boundary-conditioned rows"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m611-boundary-target-mining-audit",
+  "next_blocker": "m612-sequence-target-mining-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "boundary_target_mining_audit_admit_sequence_target_design",
+  "public_gates": [
+    "audit why boundary-conditioned first-action search still found zero targets",
+    "separate first-action locality from source-boundary and threshold artifacts",
+    "decide whether sequence targets are admitted",
+    "keep actor training and PPO blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m611-boundary-target-mining-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "boundary_target_mining_audit_admit_sequence_target_design",
+    "milestone": "m611-boundary-target-mining-audit",
+    "reason": "M611 classifies the zero-accepted boundary target search as first-action locality/myopia and admits short-horizon sequence target design while keeping training blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "audit summarizes M610 candidate and trust-region distributions",
+    "audit classifies whether the blocker is first-action locality",
+    "audit chooses the next branch without training or threshold retrofitting",
+    "research validation passes"
+  ],
+  "type": "gate"
+}

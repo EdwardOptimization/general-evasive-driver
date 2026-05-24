@@ -62,16 +62,19 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m611-boundary-target-mining-audit
+m612-sequence-target-mining-design
 ```
 
-M611 should audit why M610 still found zero accepted first-action targets on
-near-boundary rows. The likely blocker is first-action locality / myopia, so
-the next design should consider short sequence or trajectory targets; actor
-training, PPO, optimizer admission, and promotion remain blocked.
+M612 should design short-horizon action-sequence target mining. M611 classified
+M610 as a first-action locality / myopia failure: near-boundary rows and an
+`80`-step horizon still produced zero accepted one-step targets.
 
 ## Recent Evidence Line
 
+- M611 audits M610 and classifies the blocker as first-action locality / myopia,
+  not source-boundary distance or horizon length. A single first-action
+  override followed by unchanged BC5660 is too weak; M612 should design
+  bounded 3-5 step action-sequence targets before any training.
 - M610 runs diagnostic target search on the `17` M609 boundary rows using an
   `80`-step continuation horizon. It evaluates `3332` first-action candidates
   and accepts `0` targets. Max candidate improvement is `0.017662`, and max

@@ -1,0 +1,86 @@
+{
+  "id": "m612-sequence-target-mining-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m609_boundary_conditioned_source_miner/boundary_source_rows.csv",
+      "runs/m610_boundary_conditioned_grounded_target_miner/summary.json",
+      "docs/m611-boundary-target-mining-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m611-boundary-target-mining-audit.json",
+      "docs/m610-boundary-conditioned-grounded-target-miner.md"
+    ],
+    "parent_objective": [
+      "design short-horizon sequence target mining after first-action locality blocker"
+    ],
+    "derived_from": [
+      "m611-boundary-target-mining-audit"
+    ],
+    "blocked_by": [
+      "m611-boundary-target-mining-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m612-sequence-target-mining-design.md",
+  "public_gates": [
+    "define sequence candidate families",
+    "define sequence trust region",
+    "define sequence acceptance thresholds",
+    "define diagnostic-only target corpus fields",
+    "keep actor training and PPO blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in design milestone",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not reinterpret M610 first-action failures as accepted",
+    "do not add privileged actor inputs"
+  ],
+  "hypothesis": "M610 failed because single first-action overrides are too myopic; a short bounded action-sequence target miner may discover simulator-grounded maneuver targets on the same near-boundary rows.",
+  "success_criteria": [
+    "design specifies sequence length and candidate families",
+    "design specifies per-step and sequence trust regions",
+    "design specifies no-collision margin/risk acceptance criteria",
+    "design specifies artifacts for accepted and unaccepted sequence candidates",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design starts training",
+    "design runs PPO",
+    "design promotes a checkpoint",
+    "design drops unaccepted row logging",
+    "design creates actor inputs from privileged labels"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "Write sequence target mining design; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m612-sequence-target-mining-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m611-boundary-target-mining-audit.md",
+    "runs/m610_boundary_conditioned_grounded_target_miner/summary.json"
+  ],
+  "decision_rule": "M612 passes if it pre-registers sequence target mining before any implementation or optimizer step.",
+  "next_blocker": "m613-sequence-target-miner-implementation"
+}
