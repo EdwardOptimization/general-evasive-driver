@@ -2,7 +2,7 @@
   "id": "m502-natural-boundary-pressure-config-implementation",
   "type": "infrastructure",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -87,6 +87,14 @@
     {
       "path": "docs/m502-natural-boundary-pressure-config-implementation.md",
       "type": "documentation"
+    },
+    {
+      "path": "configs/m502_natural_boundary_pressure_short_reveal_zero_relvel.json",
+      "type": "config"
+    },
+    {
+      "path": "configs/m502_natural_boundary_pressure_warmup_zero_relvel.json",
+      "type": "config"
     }
   ],
   "baseline_checkpoints": [
@@ -97,5 +105,60 @@
     "runs/m500_natural_action_sensitive_selector/summary.json"
   ],
   "decision_rule": "M502 should admit matched-current mining only if both boundary-pressure configs pass sampling and behavior gates without changing the actor contract.",
-  "next_blocker": "pending M502 natural boundary-pressure config implementation"
+  "next_blocker": "M503 should mine matched-current ambiguity surfaces on both M502 boundary-pressure configs before any targeted triage or outcome gate.",
+  "results": {
+    "configs_added": [
+      "configs/m502_natural_boundary_pressure_short_reveal_zero_relvel.json",
+      "configs/m502_natural_boundary_pressure_warmup_zero_relvel.json"
+    ],
+    "sampling_run_dir": "runs/m502_natural_boundary_pressure_config_validation",
+    "sampling_summary_json": "runs/m502_natural_boundary_pressure_config_validation/sampling_summary.json",
+    "all_configs_sampling_gate_pass": true,
+    "boundary_short_reveal_sampling": {
+      "reset_ok": 384,
+      "reset_failures": 0,
+      "label_count": 3,
+      "label_counts": {
+        "aes_feasible": 11,
+        "drift_required": 154,
+        "unavoidable": 219
+      },
+      "single_label_share": 0.5703125,
+      "hidden_at_reset_count": 384,
+      "friction_step_before_reveal_count": 362,
+      "threshold_score_mean": 0.2296145944632214,
+      "threshold_score_max": 0.4992420249953772,
+      "time_to_obstacle_mean": 1.1452372300696063,
+      "sampling_gate_pass": true
+    },
+    "boundary_warmup_sampling": {
+      "reset_ok": 384,
+      "reset_failures": 0,
+      "label_count": 3,
+      "label_counts": {
+        "aes_feasible": 18,
+        "drift_required": 200,
+        "unavoidable": 166
+      },
+      "single_label_share": 0.5208333333333334,
+      "hidden_at_reset_count": 384,
+      "friction_step_before_reveal_count": 354,
+      "threshold_score_mean": 0.19102041948987836,
+      "threshold_score_max": 0.3748094501732744,
+      "time_to_obstacle_mean": 1.201365602579247,
+      "sampling_gate_pass": true
+    },
+    "behavior_summary_json": "runs/m502_natural_boundary_pressure_config_validation/behavior_summary.json",
+    "boundary_short_reveal_m399_success": 0.78125,
+    "boundary_short_reveal_heuristic_success": 0.21875,
+    "boundary_short_reveal_random_success": 0.125,
+    "boundary_warmup_m399_success": 0.875,
+    "boundary_warmup_heuristic_success": 0.34375,
+    "boundary_warmup_random_success": 0.15625,
+    "actor_inputs_changed": false,
+    "proof_mining_performed": false,
+    "checkpoint_promoted": false,
+    "next_manifest": "experiments/manifests/m503-natural-boundary-pressure-matched-current-mining.json",
+    "decision": "boundary_pressure_configs_sampling_pass_admit_m503_matched_current_mining"
+  }
 }

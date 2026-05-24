@@ -47,12 +47,12 @@ runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
 
 Status: M400 promotes M399 alpha `0.05` as the current public-gate base after
 six public replay surfaces and behavior seeds pass. This remains the latest
-public-gate base; M487-M500 did not train or promote a checkpoint.
+public-gate base; M487-M502 did not train or promote a checkpoint.
 
 Current blocker:
 
 ```text
-m502-natural-boundary-pressure-config-implementation
+m503-natural-boundary-pressure-matched-current-mining
 ```
 
 Recent progress: M486-M492 is now closed as an artificial tail-forcing
@@ -109,9 +109,16 @@ the M500 candidate table,
 `short_reveal` only. The current natural configs do not contain enough rows
 that are both action-sensitive and terminal-boundary-sensitive.
 
-Next step: M502 should implement and sampling-validate boundary-pressured
-natural belief configs before any mining or outcome gate. It should not train
-or promote a checkpoint.
+M502 implements and sampling-validates two boundary-pressured natural belief
+configs. Both pass `384/384` reset sampling with `3` labels and hidden
+obstacles at reset. Threshold-score means are `0.229615` and `0.191020`, at or
+below the M494 natural configs. Behavior smokes remain non-saturated:
+short-reveal `m399` success is `0.78125`; warmup `m399` success is `0.875`.
+M399 beats heuristic and random on both configs.
+
+Next step: M503 should mine matched-current ambiguity surfaces on both M502
+configs before targeted triage or outcome gates. It should not train or promote
+a checkpoint.
 
 ## Current Evidence
 

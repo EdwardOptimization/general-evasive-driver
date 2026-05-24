@@ -10639,3 +10639,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M501 audits the M500 candidate table and rejects direct selector repair. At `normal_margin <= 0.25`, M500 has `325` boundary rows but only `5` first-action-pass rows and `0` trajectory-pass rows. At `normal_margin <= 1.0`, it has only `6` trajectory-pass rows from `1` seed and the `short_reveal` config. Even at `normal_margin <= 3.0`, the eligible pool is only `88` rows across `5` seeds. The next path must change the natural task distribution before more proof mining.
 - decision: `admit_m502_natural_boundary_pressure_config_implementation`
 - next: `m502-natural-boundary-pressure-config-implementation`
+## 20260524T005000Z - m502-natural-boundary-pressure-config-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m502_natural_boundary_pressure_config_validation`
+- artifact: `docs/m502-natural-boundary-pressure-config-implementation.md`
+- result: M502 adds `configs/m502_natural_boundary_pressure_short_reveal_zero_relvel.json` and `configs/m502_natural_boundary_pressure_warmup_zero_relvel.json`. Both preserve the P0 human-view zero-relvel actor contract. Sampling validation over seed blocks `12400`, `12500`, and `12600` has `384/384` reset successes per config, `3` labels per config, hidden obstacles at reset, and friction-step-before-reveal counts `362` and `354`. Threshold-score means are `0.229615` and `0.191020`, at or below the M494 natural configs. Behavior smokes are non-saturated and M399 beats baselines: short-reveal `m399` success `0.78125` versus heuristic `0.21875` and random `0.125`; warmup `m399` success `0.875` versus heuristic `0.34375` and random `0.15625`.
+- decision: `boundary_pressure_configs_sampling_pass_admit_m503_matched_current_mining`
+- next: `m503-natural-boundary-pressure-matched-current-mining`

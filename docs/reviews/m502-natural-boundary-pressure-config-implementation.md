@@ -1,0 +1,90 @@
+# m502-natural-boundary-pressure-config-implementation Research Review
+
+## Summary
+
+- Generated at UTC: 20260524T002425Z
+- Type: infrastructure
+- Gate tier: proof
+- Promotion decision: boundary_pressure_configs_sampling_pass_admit_m503_matched_current_mining
+- Decision reason: M502 adds two P0 zero-relvel boundary-pressure configs; both pass 384/384 sampling with 3 labels and behavior smokes show m399 success 0.781/0.875 versus heuristic 0.219/0.344
+
+## Hypothesis
+
+Boundary-pressured natural belief configs can preserve pre-reveal command-response evidence while reducing terminal clearance slack enough to support later boundary-action-sensitive mining.
+
+## Lineage
+
+- parent_checkpoint: runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
+- parent_dataset: runs/m500_natural_action_sensitive_selector/summary.json, runs/m500_natural_action_sensitive_selector/action_sensitive_candidates.csv
+- parent_config: configs/m494_natural_belief_short_reveal_zero_relvel.json, configs/m494_natural_belief_warmup_capability_zero_relvel.json, experiments/manifests/m501-natural-boundary-action-sensitive-redesign.json
+- parent_objective: natural boundary-pressure config implementation
+- derived_from: m501-natural-boundary-action-sensitive-redesign
+- blocked_by: m501-natural-boundary-action-sensitive-redesign
+- supersedes: None
+- invalidates: None
+
+## Success Criteria
+
+- both configs preserve P0 human-view zero-relvel actor contract
+- each config has 384/384 reset successes across seed blocks 12400 12500 12600
+- each config has label_count >= 2
+- each config has single_label_share <= 0.85
+- each config has hidden_at_reset_count == 384
+- each config has friction_step_before_reveal_count >= 300
+- behavior smoke runs for m399 heuristic and random
+- m399 success is nonzero and not saturated above 0.90
+- actor inputs remain unchanged
+- no checkpoint is promoted
+
+## Failure Criteria
+
+- either config cannot sample enough valid resets
+- either config collapses to one label
+- m399 success is zero or saturated above 0.90
+- heuristic or random dominates m399
+- actor contract changes
+- training or checkpoint promotion is performed
+
+## Evidence Gates
+
+- add two P0-compatible boundary-pressure natural belief configs
+- sampling-validate both configs before matched-current mining
+- run behavior smokes for m399, heuristic, and random
+- do not mine proof rows, train, or promote checkpoint
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not train
+- do not promote checkpoint
+- do not add privileged actor inputs
+- do not enable obstacle relative velocity
+- do not run matched-current mining before sampling passes
+- do not count config validation as self-ID proof
+- do not tune from private holdouts
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m502-natural-boundary-pressure-config-implementation
+- type: infrastructure
+- checkpoint: runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: boundary_pressure_configs_sampling_pass_admit_m503_matched_current_mining
+- reason: M502 adds two P0 zero-relvel boundary-pressure configs; both pass 384/384 sampling with 3 labels and behavior smokes show m399 success 0.781/0.875 versus heuristic 0.219/0.344
+
+## Next Blocker
+
+M503 should mine matched-current ambiguity surfaces on both M502 boundary-pressure configs before any targeted triage or outcome gate.

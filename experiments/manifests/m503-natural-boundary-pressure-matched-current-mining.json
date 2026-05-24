@@ -1,0 +1,102 @@
+{
+  "id": "m503-natural-boundary-pressure-matched-current-mining",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m502_natural_boundary_pressure_config_validation/sampling_summary.json",
+      "runs/m502_natural_boundary_pressure_config_validation/behavior_summary.json"
+    ],
+    "parent_config": [
+      "configs/m502_natural_boundary_pressure_short_reveal_zero_relvel.json",
+      "configs/m502_natural_boundary_pressure_warmup_zero_relvel.json",
+      "experiments/manifests/m502-natural-boundary-pressure-config-implementation.json"
+    ],
+    "parent_objective": [
+      "natural boundary-pressure matched-current ambiguity mining"
+    ],
+    "derived_from": [
+      "m502-natural-boundary-pressure-config-implementation"
+    ],
+    "blocked_by": [
+      "m502-natural-boundary-pressure-config-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m503-natural-boundary-pressure-matched-current-mining.md",
+  "public_gates": [
+    "run matched-current mining on both M502 boundary-pressure configs",
+    "require source-diverse candidate surfaces before targeted triage",
+    "report accepted pairs, physical pairs, labels, targets, seed windows, visible distance, and target z delta",
+    "include boundary-pressure config source in combined artifacts",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not skip source-diversity checks before outcome gates",
+    "do not count aggregate behavior smoke as self-ID proof",
+    "do not tune from private holdouts"
+  ],
+  "hypothesis": "The M502 boundary-pressure configs can produce source-diverse matched-current ambiguity surfaces with lower terminal slack than M495, enabling later boundary-action-sensitive targeted pair selection.",
+  "success_criteria": [
+    "matched-current mining completes on both configs without sampling failure",
+    "combined accepted_pair_count >= 512",
+    "combined probe_seed_count >= 6",
+    "combined obstacle_label_count >= 2",
+    "combined target_count >= 2",
+    "combined config_count >= 2",
+    "combined single_seed_share <= 0.50",
+    "combined single_label_share <= 0.70",
+    "combined single_config_share <= 0.70",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "either config cannot produce enough matched-current candidates",
+    "candidate surface is source-narrow",
+    "only one obstacle label or target dominates",
+    "actor contract changes",
+    "training or checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "boundary_short_reveal_mining",
+      "command": "Run matched_current_response_ambiguity on configs/m502_natural_boundary_pressure_short_reveal_zero_relvel.json using seed blocks 12400 12500 12600; expand only for source-diversity if needed."
+    },
+    {
+      "name": "boundary_warmup_mining",
+      "command": "Run matched_current_response_ambiguity on configs/m502_natural_boundary_pressure_warmup_zero_relvel.json using seed blocks 12400 12500 12600; expand only for source-diversity if needed."
+    },
+    {
+      "name": "combined_surface_summary",
+      "command": "Summarize source diversity and boundary-pressure coverage before admitting targeted pair triage."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m503-natural-boundary-pressure-matched-current-mining.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m502-natural-boundary-pressure-config-implementation.md",
+    "runs/m502_natural_boundary_pressure_config_validation/sampling_summary.json",
+    "runs/m502_natural_boundary_pressure_config_validation/behavior_summary.json"
+  ],
+  "decision_rule": "M503 may admit boundary-action-sensitive targeted triage only if the combined matched-current candidate surface is source-diverse across seeds labels targets and both M502 configs.",
+  "next_blocker": "pending M503 natural boundary-pressure matched-current mining"
+}

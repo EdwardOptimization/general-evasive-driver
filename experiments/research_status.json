@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 510,
+        "completed": 511,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m501-natural-boundary-action-sensitive-redesign",
+        "task_id": "m502-natural-boundary-pressure-config-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m501-natural-boundary-action-sensitive-redesign.md"
+        "run_dir": "runs/m502_natural_boundary_pressure_config_validation",
+        "command_log": "docs/m502-natural-boundary-pressure-config-implementation.md"
     },
     "next_task": {
-        "id": "m502-natural-boundary-pressure-config-implementation",
+        "id": "m503-natural-boundary-pressure-matched-current-mining",
         "status": "pending",
-        "priority": 4970,
-        "kind": "infrastructure",
-        "hypothesis": "Boundary-pressured natural belief configs can preserve pre-reveal command-response evidence while reducing terminal clearance slack enough to support later boundary-action-sensitive mining.",
-        "command": "see experiments/manifests/m502-natural-boundary-pressure-config-implementation.json",
+        "priority": 4980,
+        "kind": "gate",
+        "hypothesis": "The M502 boundary-pressure configs can produce source-diverse matched-current ambiguity surfaces with lower terminal slack than M495.",
+        "command": "see experiments/manifests/m503-natural-boundary-pressure-matched-current-mining.json",
         "success_artifact": "",
-        "notes": "Pending: implement and sampling-validate boundary-pressure configs; no mining, training, or promotion"
+        "notes": "Pending: mine matched-current surfaces on both M502 configs; no training or promotion"
     },
-    "updated_at_utc": "20260524T004000Z"
+    "updated_at_utc": "20260524T005000Z"
 }
