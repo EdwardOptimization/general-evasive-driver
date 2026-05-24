@@ -11404,3 +11404,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M586 runs the pre-registered BC5660 matched-current mining commands on fresh route and moderate-OOD distributions. Both surfaces pass the source-diversity thresholds. Fresh route produces `85092` candidate pairs and `666` accepted pairs across `192` physical pairs, `15` left steps, and `14` obstacle buckets. Moderate-OOD produces `73812` candidate pairs and `403` accepted pairs across `152` physical pairs, `14` left steps, and `14` obstacle buckets. Accepted targets cover braking decel, yaw response, and lateral accel on both surfaces.
 - decision: `bc5660_matched_current_pair_mining_pass_admit_action_screen`
 - next: `m587-bc5660-history-intervention-action-screen`
+## 20260524T095000Z - m587-bc5660-history-intervention-action-screen
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m587_bc5660_history_action_screen_fresh_seed25560`; `runs/m587_bc5660_history_action_screen_ood_seed25660`
+- artifact: `docs/m587-bc5660-history-intervention-action-screen.md`
+- result: M587 runs the action-level history-intervention screen on both M586 pair surfaces. The result is negative for hidden-history action sensitivity: `wrong_matched_history` and `delayed_history` have `0` above-threshold rows on both surfaces. Fresh aggregate mean action distances are `0.000552` for wrong history and `0.001658` for delayed history; OOD values are `0.000764` and `0.001218`. Positive controls confirm the screen is live: `zero_current_response` is above threshold for all rows on both surfaces, and `zero_action_history` is above threshold for `189/329` fresh rows and `166/287` OOD rows. Persistent outcome rollout is blocked.
+- decision: `bc5660_history_action_screen_negative_admit_failure_audit`
+- next: `m588-bc5660-history-action-screen-negative-audit`

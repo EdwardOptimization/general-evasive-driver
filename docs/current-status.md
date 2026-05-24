@@ -61,13 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m587-bc5660-history-intervention-action-screen
+m588-bc5660-history-action-screen-negative-audit
 ```
 
-M587 should run action-level delayed/wrong-history screening on the M586
-matched-current pair surfaces. The current evidence supports deployable
-current-response dependence and source-diverse pair availability, but not yet
-outcome-level hidden-history causality. Promotion and PPO remain blocked.
+M588 should audit the negative M587 wrong/delayed-history action screen before
+choosing the next branch. The current evidence supports deployable current-
+response dependence and source-diverse pair availability, but not accumulated
+hidden-history causality. Promotion and PPO remain blocked.
 
 ## Recent Evidence Line
 
@@ -386,6 +386,13 @@ outcome-level hidden-history causality. Promotion and PPO remain blocked.
   `15` left steps, and `14` obstacle buckets; moderate-OOD yields `403`
   accepted pairs, `152` physical pairs, `14` left steps, and `14` obstacle
   buckets. M587 action screening is admitted; no checkpoint is promoted.
+- M587 runs action-level delayed/wrong-history screens on both M586 surfaces.
+  The result is negative for hidden-history action sensitivity:
+  `wrong_matched_history` and `delayed_history` have `0` above-threshold rows on
+  both fresh and OOD surfaces. The screen is valid because positive controls are
+  strong: `zero_current_response` is above threshold for all rows on both
+  surfaces, and `zero_action_history` is often above threshold. Persistent
+  outcome rollout is blocked until M588 audits the negative result.
 
 ## Near-Term Rule
 

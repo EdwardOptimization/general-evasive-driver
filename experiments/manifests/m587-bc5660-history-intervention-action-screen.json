@@ -2,7 +2,7 @@
   "id": "m587-bc5660-history-intervention-action-screen",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -91,6 +91,6 @@
     "docs/m586-bc5660-matched-current-pair-mining.md",
     "docs/m585-bc5660-history-intervention-design.md"
   ],
-  "decision_rule": "M587 admits persistent outcome intervention only if wrong_matched_history or delayed_history shows pre-registered action sensitivity on at least one M586 pair surface.",
-  "next_blocker": "m588-bc5660-persistent-history-outcome-gate"
+  "decision_rule": "M587 is a negative action-screen diagnostic: wrong_matched_history and delayed_history have zero above-threshold rows on both M586 surfaces, while zero-current remains a strong positive control. Persistent outcome rollout is not admitted.",
+  "next_blocker": "m588-bc5660-history-action-screen-negative-audit"
 }

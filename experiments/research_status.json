@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 595,
+        "completed": 596,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m586-bc5660-matched-current-pair-mining",
+        "task_id": "m587-bc5660-history-intervention-action-screen",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m586_bc5660_matched_current_fresh_seed25560",
-        "command_log": "docs/m586-bc5660-matched-current-pair-mining.md"
+        "run_dir": "runs/m587_bc5660_history_action_screen_fresh_seed25560",
+        "command_log": "docs/m587-bc5660-history-intervention-action-screen.md"
     },
     "next_task": {
-        "id": "m587-bc5660-history-intervention-action-screen",
+        "id": "m588-bc5660-history-action-screen-negative-audit",
         "status": "pending",
-        "priority": 5820,
+        "priority": 5830,
         "kind": "gate",
-        "hypothesis": "If the M586 matched-current surfaces contain history-sensitive decision points, wrong_matched_history or delayed_history should produce non-trivial action changes before outcome rollout.",
-        "command": "see experiments/manifests/m587-bc5660-history-intervention-action-screen.json",
+        "hypothesis": "Because wrong_matched_history and delayed_history have no above-threshold action rows on both M586 surfaces, BC5660 likely transferred L2 behavior without using accumulated online-GRU hidden state; the next step should audit training/objective or surface choices rather than force outcome rollout.",
+        "command": "see experiments/manifests/m588-bc5660-history-action-screen-negative-audit.json",
         "success_artifact": "",
-        "notes": "Pending: run action-level wrong/delayed history screen on M586 pair surfaces; no promotion"
+        "notes": "Pending: audit negative wrong/delayed history action screen and select next branch; no promotion"
     },
-    "updated_at_utc": "20260524T094000Z"
+    "updated_at_utc": "20260524T095000Z"
 }

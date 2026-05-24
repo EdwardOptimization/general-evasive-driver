@@ -1,0 +1,86 @@
+{
+  "id": "m588-bc5660-history-action-screen-negative-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m587_bc5660_history_action_screen_fresh_seed25560/variant_summary.csv",
+      "runs/m587_bc5660_history_action_screen_ood_seed25660/variant_summary.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_objective": [
+      "audit negative wrong/delayed-history action screen before any outcome rollout or training"
+    ],
+    "derived_from": [
+      "m587-bc5660-history-intervention-action-screen"
+    ],
+    "blocked_by": [
+      "m587-bc5660-history-intervention-action-screen"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "m588-bc5660-persistent-history-outcome-gate"
+    ]
+  },
+  "review_artifact": "docs/reviews/m588-bc5660-history-action-screen-negative-audit.md",
+  "public_gates": [
+    "audit M587 wrong/delayed action-screen failure",
+    "separate current-response and previous-command sensitivity from hidden-history sensitivity",
+    "decide whether the next path is training-objective repair, alternate surface mining, or alternate checkpoint-family testing",
+    "do not run persistent outcome rollout without action-screen admission",
+    "do not train update or promote a checkpoint in audit milestone"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not reinterpret zero-current action sensitivity as wrong-history sensitivity",
+    "do not run persistent outcome gate after action-screen rejection without a new manifest",
+    "do not change actor inputs",
+    "do not run PPO or behavior cloning",
+    "do not promote checkpoint"
+  ],
+  "hypothesis": "Because wrong_matched_history and delayed_history have no above-threshold action rows on both M586 surfaces, BC5660 likely transferred L2 behavior without using accumulated online-GRU hidden state; the next step should audit training/objective or surface choices rather than force outcome rollout.",
+  "success_criteria": [
+    "audit summarizes M587 negative wrong/delayed action results and positive controls",
+    "audit explains why persistent outcome rollout is blocked",
+    "audit selects the next research branch with a pre-registered blocker",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "audit overclaims self-ID from zero-current or zero-action sensitivity",
+    "audit proceeds to outcome rollout despite action-screen rejection",
+    "audit starts training without pre-registering the objective problem",
+    "audit promotes a checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "Write M587 negative action-screen audit and next-branch decision; no training or outcome rollout."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m588-bc5660-history-action-screen-negative-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m587-bc5660-history-intervention-action-screen.md",
+    "docs/m586-bc5660-matched-current-pair-mining.md",
+    "docs/m585-bc5660-history-intervention-design.md"
+  ],
+  "decision_rule": "M588 passes if it records the negative hidden-history action result and pre-registers a new branch without forcing persistent outcome rollout or promotion.",
+  "next_blocker": "m589-bc-hidden-use-objective-audit"
+}
