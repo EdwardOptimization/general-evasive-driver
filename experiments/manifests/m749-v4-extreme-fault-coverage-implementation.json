@@ -4,7 +4,8 @@
   "gate_tier": "generalization",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure",
+    "metric_artifact"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -95,11 +96,19 @@
       "type": "json"
     },
     {
-      "path": "runs/m749_extreme_fault_distribution_v4/scenarios.csv",
+      "path": "runs/m749_extreme_fault_distribution_v4/scenario_summary.csv",
       "type": "csv"
     },
     {
-      "path": "runs/m749_extreme_fault_distribution_v4/matched_pairs.csv",
+      "path": "runs/m749_extreme_fault_distribution_v4/matched_cross_fault_pairs.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m749_extreme_fault_distribution_v4/reset_only_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m749_extreme_fault_distribution_v4/rejected_rows.csv",
       "type": "csv"
     },
     {

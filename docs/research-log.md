@@ -12782,3 +12782,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M748 designs the v4 extreme-fault coverage branch. It adds a runnable current-model/proxy config with `28` executable fault specs, `26` pairing rules, and `14` future four-wheel/high-fidelity fault labels. The design covers sudden low-mu, front/rear corner grip collapse proxies, blowout proxies, split-mu proxies, brake fade/loss/pull proxies, halfshaft/driveline proxies, steering collapse/stuck proxies, mass/CG/inertia shifts, delay/sensor proxies, suspension proxies, and combined faults. It keeps true single-wheel blowout, true split-mu, stuck caliper, per-wheel brake/ABS, halfshaft, wheel-speed sensor, tire pressure/temperature, and suspension physical claims future-only unless a four-wheel or high-fidelity dynamics engine is added.
 - decision: `v4_extreme_fault_coverage_design_admit_m749`
 - next: `m749-v4-extreme-fault-coverage-implementation`
+
+## 20260525T033000Z - m749-v4-extreme-fault-coverage-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m749_extreme_fault_distribution_v4`
+- artifact: `docs/m749-v4-extreme-fault-coverage-implementation.md`
+- result: M749 runs the no-training v4 source-mining wave with `28` executable current/proxy faults and `14` future-only fault labels. It generates `14848` scenarios, `100624` snapshots, and `12288` matched cross-fault pairs. Result class is `cross_fault_reset_only`: `1171` reset-only rows and `1171` reset-history action-critical rows, but `0` accepted wrong-history rows and `0` wrong-history action-critical rows. The reset surface is broader than M740 (`1171` vs `744`) and spans `27` reset seeds, `9` preferred fault families, `6` wrong fault families, and `17` fault-family pairs. Actor parameters are unchanged; no training, PPO, or promotion occurs.
+- decision: `cross_fault_reset_only_admit_audit`
+- next: `m750-v4-extreme-fault-coverage-audit`

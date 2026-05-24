@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 757,
+        "completed": 758,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m748-v4-extreme-fault-coverage-design",
+        "task_id": "m749-v4-extreme-fault-coverage-implementation",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m748-v4-extreme-fault-coverage-design.md"
+        "command_log": "docs/m749-v4-extreme-fault-coverage-implementation.md"
     },
     "next_task": {
-        "id": "m749-v4-extreme-fault-coverage-implementation",
+        "id": "m750-v4-extreme-fault-coverage-audit",
         "status": "pending",
-        "priority": 7440,
-        "kind": "infrastructure",
-        "hypothesis": "Run v4 extreme-fault coverage wave",
-        "command": "see experiments/manifests/m749-v4-extreme-fault-coverage-implementation.json",
-        "success_artifact": "docs/m749-v4-extreme-fault-coverage-implementation.md",
-        "notes": "Pending: run no-training v4 extreme-fault source mining and classify reset action outcome evidence separately"
+        "priority": 7450,
+        "kind": "gate",
+        "hypothesis": "Audit v4 extreme-fault coverage wave",
+        "command": "see experiments/manifests/m750-v4-extreme-fault-coverage-audit.json",
+        "success_artifact": "docs/m750-v4-extreme-fault-coverage-audit.md",
+        "notes": "Pending: audit M749 reset-only evidence and decide whether to run v4 reset-source sequence intervention"
     },
-    "updated_at_utc": "20260525T032000Z"
+    "updated_at_utc": "20260525T033000Z"
 }
