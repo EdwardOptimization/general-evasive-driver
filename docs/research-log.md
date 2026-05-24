@@ -11143,3 +11143,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M557 audits the M556 route-screen failure using only public-neutral route artifacts. The failure is collision-dominated after a small binary success gain: for the best `epoch1_s256` candidate versus L0, it converts `5` L0 collisions to completions but also converts `7` L0 non-collision terminations to collisions and `3` L0 completions to collisions. Versus L2, `38` L2 completions become candidate collisions. The worst L0 margin losses are high/medium-mu and drift/aes-feasible cases, so this is not a pure low-friction capability issue.
 - decision: `audit_admit_targeted_collision_margin_repair_design`
 - next: `m558-targeted-collision-margin-repair-design`
+## 20260524T101000Z - m558-targeted-collision-margin-repair-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m558-targeted-collision-margin-repair-design.md`
+- result: M558 designs the next repair branch around existing obstacle collision and clearance-margin reward terms. It keeps P0 actor inputs and M555 `epoch1_clip01` PPO stability controls, rotates the next route-screen v2 selection seed from `15560` to `16560`, and admits exactly three M559 reward variants: `collision35_terminal4`, `collision35_dense002`, and `collision45_terminal4`.
+- decision: `targeted_collision_margin_repair_design_admit_m559_config_family`
+- next: `m559-targeted-collision-margin-config-family`

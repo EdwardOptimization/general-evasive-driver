@@ -2,7 +2,7 @@
   "id": "m558-targeted-collision-margin-repair-design",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -78,6 +78,6 @@
   "baseline_artifacts": [
     "docs/m557-m556-route-screen-failure-audit.md"
   ],
-  "decision_rule": "M558 passes only if the next repair design targets collision/margin failure without public-row selection or actor input changes. It does not train or promote a checkpoint.",
-  "next_blocker": "pending M558 targeted collision-margin repair design"
+  "decision_rule": "M558 passes because it targets collision/margin failure with existing obstacle reward terms, rotates the next route-screen seed, and preserves the P0 actor contract. It does not train or promote a checkpoint.",
+  "next_blocker": "m559-targeted-collision-margin-config-family"
 }

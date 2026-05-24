@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 566,
+        "completed": 567,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m557-m556-route-screen-failure-audit",
+        "task_id": "m558-targeted-collision-margin-repair-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m557_m556_route_screen_failure_audit",
-        "command_log": "docs/m557-m556-route-screen-failure-audit.md"
+        "run_dir": "",
+        "command_log": "docs/m558-targeted-collision-margin-repair-design.md"
     },
     "next_task": {
-        "id": "m558-targeted-collision-margin-repair-design",
+        "id": "m559-targeted-collision-margin-config-family",
         "status": "pending",
-        "priority": 5530,
+        "priority": 5540,
         "kind": "infrastructure",
-        "hypothesis": "A targeted collision/margin repair design can address the M557 failure mode by rewarding clearance and penalizing obstacle contact while avoiding overfit to the M556 route-screen seed block.",
-        "command": "see experiments/manifests/m558-targeted-collision-margin-repair-design.json",
+        "hypothesis": "A small collision/margin reward config family can test whether obstacle-contact shaping repairs the M557 route-screen failure without changing driver inputs.",
+        "command": "see experiments/manifests/m559-targeted-collision-margin-config-family.json",
         "success_artifact": "",
-        "notes": "Pending: design repair with fresh route-screen seed and no actor input changes"
+        "notes": "Pending: add three reward-shaping configs and tests without training"
     },
-    "updated_at_utc": "20260524T100000Z"
+    "updated_at_utc": "20260524T101000Z"
 }

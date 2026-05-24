@@ -61,12 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m558-targeted-collision-margin-repair-design
+m559-targeted-collision-margin-config-family
 ```
 
-M558 should design a targeted collision/clearance-margin repair branch after
-M557. It must rotate the next route-screen seed and keep M556 route-screen rows
-as diagnostics, not the next selection target.
+M559 should implement the M558-approved collision/clearance-margin reward config
+family and tests. This is config/test infrastructure only; no training or public
+frozen-source diagnostics.
 
 ## Recent Evidence Line
 
@@ -231,6 +231,10 @@ as diagnostics, not the next selection target.
   success gain. The best candidate converts `5` L0 collisions to completions,
   but also converts `7` L0 non-collision terminations and `3` L0 completions to
   collisions. Versus L2, `38` L2 completions become L3 collisions.
+- M558 designs a targeted repair branch using existing obstacle collision and
+  clearance-margin reward terms. It keeps P0 inputs, rotates the next
+  route-screen v2 selection seed to `16560`, and admits exactly three M559
+  reward variants.
 
 ## Near-Term Rule
 
