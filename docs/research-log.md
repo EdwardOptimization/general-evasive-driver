@@ -11791,3 +11791,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M629 designs a no-training projected/smoothed sequence-shape pass for the M627 trust-primary near misses. The focused source filter targets low/zero accepted trust-primary rows such as `30`, `7`, `0`, and `8`, while keeping collision-primary rows separate. The implementation should radially project raw sequence delta prefixes back into the existing `sequence_mean_l2 <= 0.08`, `sequence_max_l2 <= 0.10`, and `max_delta_delta_l2 <= 0.08` limits, compare projected and raw candidate utility, and write source-level recovery summaries. Training, PPO, promotion, optimizer admission, target-threshold changes, and trust-region relaxation remain blocked.
 - decision: `trust_projected_sequence_shape_design_admit_m630`
 - next: `m630-trust-projected-sequence-shape-implementation`
+## 20260524T170000Z - m630-trust-projected-sequence-shape-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m630_trust_projected_sequence_shape`
+- artifact: `docs/m630-trust-projected-sequence-shape-implementation.md`
+- result: M630 implements and runs the no-training projected sequence candidate pass. It focuses source rows `0`, `7`, `8`, and `30`, evaluates `7596` projected candidates, preserves all trust limits, and accepts `9` candidates. Projection recovers source `30` from zero accepted candidates and improves source `7` from `3` to `5` accepted candidates, but sources `0` and `8` remain below threshold with best improvements `0.015290` and `0.018752`. Accepted projected evidence covers only `2` physical pairs, `2` left seeds, and `1` target, so optimizer admission remains blocked.
+- decision: `trust_projected_sequence_shape_implementation_pass_admit_audit`
+- next: `m631-trust-projected-sequence-shape-audit`

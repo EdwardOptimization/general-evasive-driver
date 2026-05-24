@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 638,
+        "completed": 639,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m629-trust-projected-sequence-shape-design",
+        "task_id": "m630-trust-projected-sequence-shape-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m629-trust-projected-sequence-shape-design.md"
+        "run_dir": "runs/m630_trust_projected_sequence_shape",
+        "command_log": "docs/m630-trust-projected-sequence-shape-implementation.md"
     },
     "next_task": {
-        "id": "m630-trust-projected-sequence-shape-implementation",
+        "id": "m631-trust-projected-sequence-shape-audit",
         "status": "pending",
-        "priority": 6250,
-        "kind": "infrastructure",
-        "hypothesis": "Radially projected and smoother sequence candidates can recover some M627 trust-primary low or zero accepted sources without changing trust limits.",
-        "command": "see experiments/manifests/m630-trust-projected-sequence-shape-implementation.json",
+        "priority": 6260,
+        "kind": "gate",
+        "hypothesis": "M630 projection is likely a narrow positive diagnostic: it preserves trust limits and recovers source 30, but source diversity may remain below optimizer admission.",
+        "command": "see experiments/manifests/m631-trust-projected-sequence-shape-audit.json",
         "success_artifact": "",
-        "notes": "Pending: implement no-training projection pass and source recovery summary; no PPO promotion optimizer admission threshold changes or trust-region relaxation"
+        "notes": "Pending: audit recovered and unrecovered focused sources; no training PPO promotion threshold changes or optimizer admission"
     },
-    "updated_at_utc": "20260524T165000Z"
+    "updated_at_utc": "20260524T170000Z"
 }

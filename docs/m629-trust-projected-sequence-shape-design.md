@@ -56,7 +56,7 @@ The M630 implementation should read:
 runs/m627_near_miss_trust_geometry/near_miss_sources.csv
 runs/m627_near_miss_trust_geometry/near_miss_candidates.csv
 runs/m624_longer_low_amplitude_sequence_miner/sequence_candidates.csv
-runs/m616_expanded_sequence_source_miner/expanded_sources.csv
+runs/m616_expanded_sequence_source_miner/expanded_sequence_source_rows.csv
 ```
 
 Default focused source filter:

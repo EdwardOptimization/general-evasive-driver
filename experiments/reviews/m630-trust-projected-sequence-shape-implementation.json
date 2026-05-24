@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M630 preserves trust limits and recovers source 30 with 9 accepted projected candidates across sources 7 and 30 but remains source-narrow and not optimizer-ready",
+  "failure_criteria": [
+    "implementation changes thresholds",
+    "implementation starts training",
+    "implementation runs PPO",
+    "implementation promotes checkpoint",
+    "implementation merges collision-primary rows into trust-only recovery",
+    "implementation omits source-level recovery summary"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not widen trust regions",
+    "do not lower target thresholds",
+    "do not use collision-primary rows as trust-only successes",
+    "do not claim driver improvement"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T110227Z",
+  "hypothesis": "Radially projected and smoother sequence candidates can recover some M627 trust-primary low or zero accepted sources without changing trust limits.",
+  "lineage": {
+    "blocked_by": [
+      "m629-trust-projected-sequence-shape-design"
+    ],
+    "derived_from": [
+      "m629-trust-projected-sequence-shape-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m629-trust-projected-sequence-shape-design.json",
+      "docs/m628-near-miss-trust-geometry-audit.md"
+    ],
+    "parent_dataset": [
+      "runs/m627_near_miss_trust_geometry/near_miss_sources.csv",
+      "runs/m627_near_miss_trust_geometry/near_miss_candidates.csv",
+      "runs/m616_expanded_sequence_source_miner/expanded_sequence_source_rows.csv",
+      "docs/m629-trust-projected-sequence-shape-design.md"
+    ],
+    "parent_objective": [
+      "implement no-training projected sequence candidate pass"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m630-trust-projected-sequence-shape-implementation",
+  "next_blocker": "m631-trust-projected-sequence-shape-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "trust_projected_sequence_shape_implementation_pass_admit_audit",
+  "public_gates": [
+    "write projected_sequence_candidates.csv",
+    "write source_recovery_summary.csv",
+    "all accepted projected candidates preserve sequence trust limits",
+    "separate trust-primary and collision-primary source summaries",
+    "keep actor training and PPO blocked",
+    "do not promote or admit optimizer training"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m630_trust_projected_sequence_shape/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "trust_projected_sequence_shape_implementation_pass_admit_audit",
+    "milestone": "m630-trust-projected-sequence-shape-implementation",
+    "reason": "M630 preserves trust limits and recovers source 30 with 9 accepted projected candidates across sources 7 and 30 but remains source-narrow and not optimizer-ready",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "implementation writes candidate and source recovery artifacts",
+    "focused tests cover projection scaling and source filtering",
+    "real run preserves trust limits and reports source-level recovery",
+    "summary records whether sources 30 7 0 and 8 are recovered",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

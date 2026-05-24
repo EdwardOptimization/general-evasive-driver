@@ -62,18 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m630-trust-projected-sequence-shape-implementation
+m631-trust-projected-sequence-shape-audit
 ```
 
-M630 should implement the no-training trust-projected sequence candidate pass
-designed in M629. It should focus low/zero accepted trust-primary sources
-`30`, `7`, `0`, and `8`, radially project raw sequence deltas back inside the
-existing mean L2, max L2, and delta-delta limits, and write candidate/source
-recovery artifacts. It must not train, run PPO, promote, relax thresholds, or
-admit optimizer training.
+M631 should audit M630 before any optimizer or next candidate-shape branch.
+M630 preserved all trust limits and recovered source `30`, but accepted
+projected candidates cover only sources `7` and `30`; sources `0` and `8` still
+miss the threshold. The likely conclusion is a narrow positive diagnostic, not
+optimizer admission.
 
 ## Recent Evidence Line
 
+- M630 implements and runs the trust-projected sequence pass. It evaluates
+  `7596` candidates on focused sources `0`, `7`, `8`, and `30`, preserves all
+  trust limits, accepts `9` projected candidates, and recovers source `30` from
+  zero accepted candidates. Source `7` improves from `3` to `5` accepted
+  candidates, while sources `0` and `8` remain below the margin threshold. This
+  is diagnostic-positive but still source-narrow.
 - M629 designs the projected/smoother sequence-shape pass. It specifies a
   focused source filter (`accepted_candidate_count <= 3`, trust-primary best
   failure, no collision near miss), radial projection of raw `delta_sequence`
