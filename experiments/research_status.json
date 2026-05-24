@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 550,
+        "completed": 551,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m541-matched-history-variance-config-family",
+        "task_id": "m542-matched-history-variance-route-pilot",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m541-matched-history-variance-config-family.md"
+        "run_dir": "runs/m542_matched_history_variance_route_pilot_summary",
+        "command_log": "docs/m542-matched-history-variance-route-pilot.md"
     },
     "next_task": {
-        "id": "m542-matched-history-variance-route-pilot",
+        "id": "m543-m542-public-surface-eval",
         "status": "pending",
-        "priority": 5370,
+        "priority": 5380,
         "kind": "gate",
-        "hypothesis": "The matched 4096-step config family can run all three history levels on seed 3540 and produce valid metadata before multi-seed variance evaluation.",
-        "command": "see experiments/manifests/m542-matched-history-variance-route-pilot.json",
+        "hypothesis": "The M542 route-pilot checkpoints can be compared on the same public frozen-source natural surfaces; given M542 route metrics, L2 may remain stronger than L3 under paired public diagnostics.",
+        "command": "see experiments/manifests/m543-m542-public-surface-eval.json",
         "success_artifact": "",
-        "notes": "Pending: run seed3540 L0 L2 L3 route pilot and report metadata/eval without ranking claim"
+        "notes": "Pending: run M542 L0 L2 L3 checkpoints on M497/M487 public surfaces and aggregate paired deltas"
     },
-    "updated_at_utc": "20260524T072000Z"
+    "updated_at_utc": "20260524T073000Z"
 }

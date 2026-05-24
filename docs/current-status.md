@@ -61,12 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m542-matched-history-variance-route-pilot
+m543-m542-public-surface-eval
 ```
 
-M542 should run the one-seed 4096-step L0/L2/L3 variance route pilot on seed
-`3540`. It should report metadata and eval summaries for all three levels, but
-must not make a stable ranking claim or promote a checkpoint.
+M543 should evaluate the M542 seed-3540 L0/L2/L3 route-pilot checkpoints on the
+same public frozen-source natural surfaces used in M537, then report all-row and
+paired deltas. It must keep M526 event rows as public diagnostics and avoid any
+promotion claim.
 
 ## Recent Evidence Line
 
@@ -150,15 +151,20 @@ must not make a stable ranking claim or promote a checkpoint.
   history-baseline metadata, shared task distribution, and that the new configs
   differ from M531 only in `total_steps` and default seed. No training or
   promotion was performed.
+- M542 runs the seed-3540 4096-step route pilot for all three levels. All runs
+  complete and write valid P0 history-baseline metadata. Route eval strongly
+  favors L2 (`return_mean = 77.992665`, `termination_rate = 0.2`) over L0
+  (`20.334296`, `1.0`) and L3 (`21.645978`, `1.0`), but this is route evidence
+  only and not a stable ranking or promotion claim.
 
 ## Near-Term Rule
 
-Do not treat reset-hidden diagnostics, M528 smoke return, or M537-M539 public
-diagnostics as private generalization evidence. The next branch may run the
-seed-3540 route pilot, but it should not rank L0/L2/L3 until all three matched
-runs complete and later pass the same public paired diagnostics. Any later
-promotion requires proof retention, generalization retention, behavior
-retention, no contract violation, and clear lineage.
+Do not treat reset-hidden diagnostics, M528 smoke return, route eval, or
+M537-M539 public diagnostics as private generalization evidence. The next branch
+should run public frozen-source diagnostics on the M542 checkpoints before
+multi-seed expansion. Any later promotion requires proof retention,
+generalization retention, behavior retention, no contract violation, and clear
+lineage.
 
 ## Sensor Profile Policy
 

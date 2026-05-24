@@ -10999,3 +10999,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M541 adds matched 4096-step configs for L0, L2, and L3: `configs/ppo_m541_matched_l0_variance_4096.json`, `configs/ppo_m541_matched_l2_variance_4096.json`, and `configs/ppo_m541_matched_l3_variance_4096.json`. Tests verify P0 history-baseline metadata, shared budget/task distribution, and that M541 differs from M531 only by `total_steps` and default seed. Focused config tests pass (`9 passed`).
 - decision: `matched_variance_config_family_pass_admit_m542_route_pilot`
 - next: `m542-matched-history-variance-route-pilot`
+## 20260524T073000Z - m542-matched-history-variance-route-pilot
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m542_matched_l0_variance_seed3540`, `runs/m542_matched_l2_variance_seed3540`, `runs/m542_matched_l3_variance_seed3540`, `runs/m542_matched_history_variance_route_pilot_summary`
+- artifact: `docs/m542-matched-history-variance-route-pilot.md`
+- result: M542 runs all three 4096-step seed `3540` configs. All complete and write valid P0 history-baseline metadata. Route eval: L0 return/termination `20.334296`/`1.0`, L2 `77.992665`/`0.2`, L3 `21.645978`/`1.0`. L2 is much stronger on this route metric, but the result remains route evidence only, with no ranking or promotion claim.
+- decision: `matched_variance_route_pilot_pass_l2_strong_admit_m543_public_surface_eval`
+- next: `m543-m542-public-surface-eval`

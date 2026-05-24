@@ -2,7 +2,7 @@
   "id": "m542-matched-history-variance-route-pilot",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -32,10 +32,10 @@
   },
   "review_artifact": "docs/reviews/m542-matched-history-variance-route-pilot.md",
   "public_gates": [
-    "run L0 L2 and L3 4096-step configs on seed 3540",
-    "validate checkpoint metadata and P0 input contract",
-    "report route/eval metrics without ranking claim",
-    "do not promote checkpoint"
+    "ran L0 L2 and L3 4096-step configs on seed 3540",
+    "validated checkpoint metadata and P0 input contract",
+    "reported route/eval metrics without ranking claim",
+    "did not promote checkpoint"
   ],
   "private_holdout_policy": "not_used",
   "forbidden_shortcuts": [
@@ -75,6 +75,22 @@
     {
       "path": "docs/m542-matched-history-variance-route-pilot.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m542_matched_history_variance_route_pilot_summary/summary.json",
+      "type": "aggregate_summary"
+    },
+    {
+      "path": "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m542_matched_l2_variance_seed3540/checkpoint.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m542_matched_l3_variance_seed3540/checkpoint.pt",
+      "type": "checkpoint"
     }
   ],
   "baseline_checkpoints": [
@@ -83,6 +99,6 @@
   "baseline_artifacts": [
     "docs/m541-matched-history-variance-config-family.md"
   ],
-  "decision_rule": "M542 is a route pilot. Passing it admits multi-seed variance pilot setup; it does not promote a checkpoint.",
-  "next_blocker": "pending M542 matched variance route pilot"
+  "decision_rule": "M542 is a route pilot. All levels run and metadata is valid; L2 is strong on route eval, so the next step is public frozen-source surface eval before multi-seed expansion. No checkpoint is promoted.",
+  "next_blocker": "m543-m542-public-surface-eval"
 }

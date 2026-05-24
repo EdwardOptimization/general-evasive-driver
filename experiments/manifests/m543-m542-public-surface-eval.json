@@ -1,0 +1,87 @@
+{
+  "id": "m543-m542-public-surface-eval",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+      "runs/m542_matched_l2_variance_seed3540/checkpoint.pt",
+      "runs/m542_matched_l3_variance_seed3540/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m497_natural_belief_decision_window_outcome_gate/targeted_pairs_short_reveal.csv",
+      "runs/m497_natural_belief_decision_window_outcome_gate/targeted_pairs_warmup_capability.csv",
+      "runs/m487_critical_window_tail_aligned_outcome_gate/targeted_pairs_near_threshold.csv",
+      "runs/m487_critical_window_tail_aligned_outcome_gate/targeted_pairs_late_high_energy.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l0_variance_4096.json",
+      "configs/ppo_m541_matched_l2_variance_4096.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json"
+    ],
+    "parent_objective": [
+      "evaluate M542 route-pilot checkpoints on public frozen-source natural surfaces"
+    ],
+    "derived_from": [
+      "m542-matched-history-variance-route-pilot",
+      "m537-full-public-natural-surface-eval"
+    ],
+    "blocked_by": [
+      "m542-matched-history-variance-route-pilot"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m543-m542-public-surface-eval.md",
+  "public_gates": [
+    "run M542 L0 L2 L3 checkpoints on the four public frozen-source natural surfaces",
+    "report all-row and paired deltas",
+    "keep M526 event overlay public and separate",
+    "do not promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not tune M542 checkpoints from the public eval",
+    "do not promote a route-pilot checkpoint",
+    "do not treat M537/M543 public rows as private holdout"
+  ],
+  "hypothesis": "The M542 route-pilot checkpoints can be compared on the same public frozen-source natural surfaces; given M542 route metrics, L2 may remain stronger than L3 under paired public diagnostics.",
+  "success_criteria": [
+    "all four public natural surface splits run or failures are diagnosed",
+    "all three checkpoint metadata validations pass",
+    "all-row and paired L3-L0/L3-L2 metrics are documented",
+    "no checkpoint promotion is performed",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "any M542 checkpoint cannot be evaluated",
+    "metadata differs from the declared history level",
+    "public event rows are treated as private evidence",
+    "checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "public_surface_eval",
+      "command": "Run frozen_source_surface_eval on M542 L0/L2/L3 checkpoints across M497 short/warmup and M487 near/late public splits, then aggregate paired deltas."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m543-m542-public-surface-eval.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m542-matched-history-variance-route-pilot.md",
+    "runs/m542_matched_history_variance_route_pilot_summary/summary.json"
+  ],
+  "decision_rule": "M543 is a public diagnostic eval. It may admit multi-seed variance runs or recurrent-recipe repair, but it does not promote a checkpoint.",
+  "next_blocker": "pending M543 public frozen-source eval for M542 checkpoints"
+}
