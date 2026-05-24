@@ -12866,3 +12866,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M757 designs a constrained v4 sequence objective from the M755 corpus. It treats M755 as an index/evidence corpus rather than a tensor dataset and requires M758 to reconstruct objective samples from seed/fault/step/source metadata. The objective terms are normal behavior retention, lower-weight intervention branch anchor, outcome-weighted normal-vs-intervention gap preservation, and optional hard-negative calibration. Hard negatives are explicitly optional because M755 has `1009` hard negatives for `1213` positives. M758 is limited to no-training exact/offline objective sanity; actor update, PPO, and promotion remain blocked.
 - decision: `v4_sequence_objective_design_admit_m758`
 - next: `m758-v4-sequence-objective-sanity-implementation`
+
+## 20260525T050000Z - m758-v4-sequence-objective-sanity-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m758_v4_sequence_objective_sanity`
+- artifact: `docs/m758-v4-sequence-objective-sanity-implementation.md`
+- result: M758 implements and runs the no-training exact/offline objective sanity evaluator. It reconstructs `1213/1213` M755 positive groups with `0` metadata misses, `0` missing normal rows, `0` missing source snapshots, and `0` rejected rows. Exact metrics are finite: normal anchor MSE mean `0.0`, intervention anchor MSE mean `0.0`, normal-intervention gap mean `0.024908`, gap p10 `0.021141`, target gap mean `0.041716`, and gap deficit mean `0.016809`. Hard-negative availability remains sparse at `0.721352`, so result_class is `v4_sequence_objective_hard_negative_sparse`. Checkpoint loading was eval-only; no optimizer, PPO, promotion, or actor mutation occurred.
+- decision: `v4_sequence_objective_hard_negative_sparse_admit_audit`
+- next: `m759-v4-sequence-objective-sanity-audit`

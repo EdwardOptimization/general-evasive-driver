@@ -62,17 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m758-v4-sequence-objective-sanity-implementation
+m759-v4-sequence-objective-sanity-audit
 ```
 
-M758 should implement a no-training exact/offline sanity evaluator for the v4
-sequence objective designed in M757. It must reconstruct M755 samples from
-seed/fault/step/source metadata, compute exact metrics, report hard-negative
-sparsity, and avoid actor updates, PPO, checkpoint promotion, or true
-four-wheel/single-wheel physical claims.
+M759 should audit M758's no-training exact/offline objective sanity result
+before any objective-only actor probe. M758 reconstructed `1213/1213` samples
+with finite exact metrics and no actor mutation, but hard-negative availability
+remains sparse at `0.721352`, so PPO/promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M758 implements and runs the no-training exact/offline v4 sequence objective
+  sanity evaluator. It reconstructs `1213/1213` M755 positive groups with no
+  metadata misses, no missing normals, no missing snapshots, and no rejected
+  rows. Exact metrics are finite: gap mean `0.024908`, gap p10 `0.021141`,
+  target gap mean `0.041716`, gap deficit mean `0.016809`. The result is
+  `v4_sequence_objective_hard_negative_sparse` because hard-negative
+  availability is `0.721352`.
 - M757 designs a constrained v4 sequence objective from the M755 corpus. It
   treats M755 as an index/evidence corpus, not a tensor dataset, and requires
   M758 to reconstruct samples by replay. The objective keeps normal behavior

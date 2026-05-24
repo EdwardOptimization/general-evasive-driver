@@ -1,0 +1,106 @@
+{
+  "id": "m759-v4-sequence-objective-sanity-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m758-v4-sequence-objective-sanity-implementation.md",
+      "runs/m758_v4_sequence_objective_sanity/summary.json",
+      "runs/m758_v4_sequence_objective_sanity/objective_rows.csv",
+      "runs/m758_v4_sequence_objective_sanity/objective_metrics.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m758-v4-sequence-objective-sanity-implementation.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit exact/offline v4 sequence objective sanity before any actor update"
+    ],
+    "derived_from": [
+      "m758-v4-sequence-objective-sanity-implementation"
+    ],
+    "blocked_by": [
+      "m758-v4-sequence-objective-sanity-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m759-v4-sequence-objective-sanity-audit.md",
+  "public_gates": [
+    "M759 verifies M758 reconstruction and exact objective metrics",
+    "M759 keeps hard-negative sparsity visible",
+    "M759 checks no actor mutation PPO or promotion occurred",
+    "M759 decides whether objective-only probe design is admissible",
+    "PPO and checkpoint promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat M758 as trained-driver improvement",
+    "do not hide hard-negative sparsity",
+    "do not admit PPO directly",
+    "do not promote a checkpoint",
+    "do not claim true single-wheel or four-wheel physics"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_sequence_objective_design",
+    "evidence_axis": "G_sequence_objective: audit exact objective sanity",
+    "evidence_increment": "turns M758 exact objective sanity into a branch decision before actor coupling",
+    "claim_scope": "process audit only; may admit objective-only probe design but cannot claim policy improvement",
+    "stop_condition": [
+      "stop if reconstruction failed",
+      "stop if exact objective metrics are degenerate",
+      "stop if hard-negative sparsity is ignored",
+      "stop if training PPO or promotion occurred"
+    ],
+    "fallback_plan": [
+      "if sanity passes, design objective-only probe with exact gates",
+      "if hard-negative sparsity is blocking, design positives-plus-normal objective first",
+      "if metrics are degenerate, return to objective design",
+      "if reconstruction is fragile, repair replay/schema before actor coupling"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M758 completed exact/offline objective sanity implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M758 is a clean exact objective sanity result with sparse hard negatives and can admit a no-PPO objective-only probe design.",
+  "success_criteria": [
+    "M759 reviews reconstruction success and exact metrics",
+    "M759 records supported and falsified claims",
+    "M759 classifies hard-negative sparsity and residual risks",
+    "M759 chooses the next branch before actor update PPO or promotion"
+  ],
+  "failure_criteria": [
+    "audit treats M758 as a training result",
+    "audit ignores hard-negative sparsity",
+    "audit admits PPO or promotion directly",
+    "audit ignores claim-boundary limits"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m759-v4-sequence-objective-sanity-audit.md from M758 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m759-v4-sequence-objective-sanity-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m758_v4_sequence_objective_sanity/summary.json",
+    "docs/m758-v4-sequence-objective-sanity-implementation.md"
+  ],
+  "decision_rule": "M759 may only audit M758 and choose the next branch. It must not run actor updates PPO or checkpoint promotion.",
+  "next_blocker": "m760-v4-sequence-objective-only-probe-design"
+}
