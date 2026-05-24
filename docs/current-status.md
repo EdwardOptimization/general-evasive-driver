@@ -62,16 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m757-v4-sequence-objective-design
+m758-v4-sequence-objective-sanity-implementation
 ```
 
-M757 should design a constrained v4 sequence objective from the M755 corpus. It
-may use positives and matched normals as required contrast and sparse hard
-negatives as optional contrast, but it must not start actor updates, PPO, or
-promotion. True four-wheel/single-wheel fault claims remain blocked.
+M758 should implement a no-training exact/offline sanity evaluator for the v4
+sequence objective designed in M757. It must reconstruct M755 samples from
+seed/fault/step/source metadata, compute exact metrics, report hard-negative
+sparsity, and avoid actor updates, PPO, checkpoint promotion, or true
+four-wheel/single-wheel physical claims.
 
 ## Recent Evidence Line
 
+- M757 designs a constrained v4 sequence objective from the M755 corpus. It
+  treats M755 as an index/evidence corpus, not a tensor dataset, and requires
+  M758 to reconstruct samples by replay. The objective keeps normal behavior
+  retention, an intervention branch anchor, outcome-weighted gap preservation,
+  and optional hard-negative calibration. Actor update/PPO/promotion remain
+  blocked.
 - M756 audits M755 as a valid v4 positive corpus export with sparse hard
   negatives. It admits only constrained objective design: use positives and
   matched normals as required contrast, treat hard negatives as optional sparse

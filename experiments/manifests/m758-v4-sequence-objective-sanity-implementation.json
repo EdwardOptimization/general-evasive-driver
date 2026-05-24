@@ -1,0 +1,128 @@
+{
+  "id": "m758-v4-sequence-objective-sanity-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m757-v4-sequence-objective-design.md",
+      "runs/m755_v4_sequence_outcome_corpus_export/summary.json",
+      "runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m757-v4-sequence-objective-design.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_objective": [
+      "implement exact/offline v4 sequence objective sanity evaluator without actor update"
+    ],
+    "derived_from": [
+      "m757-v4-sequence-objective-design"
+    ],
+    "blocked_by": [
+      "m757-v4-sequence-objective-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m758-v4-sequence-objective-sanity-implementation.md",
+  "public_gates": [
+    "M758 reconstructs objective samples from M755 corpus rows",
+    "M758 computes exact full-corpus objective metrics without training",
+    "M758 reports hard-negative availability separately",
+    "M758 preserves v4 claim-boundary metadata",
+    "PPO actor update checkpoint promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use hidden fault labels as actor inputs",
+    "do not discard positives without hard negatives",
+    "do not treat action-only rows as outcome positives"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_sequence_objective_design",
+    "evidence_axis": "G_sequence_objective: exact sanity of v4 sequence objective",
+    "evidence_increment": "implements and runs no-training exact objective sanity over reconstructed M755 samples",
+    "claim_scope": "objective sanity only; no actor update or driver improvement claim",
+    "stop_condition": [
+      "stop if sample reconstruction fails",
+      "stop if objective metrics are non-finite or degenerate",
+      "stop if metadata or claim-boundary fields are missing",
+      "stop if training PPO or promotion starts"
+    ],
+    "fallback_plan": [
+      "if reconstruction fails, design replay/schema repair before objective work",
+      "if metrics are degenerate, audit objective design before actor coupling",
+      "if hard negatives are too sparse, keep positives-plus-normal objective only",
+      "if sanity passes, audit before any actor-update implementation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M757 admits exact/offline objective sanity implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M755 v4 corpus can be reconstructed into exact objective samples with finite normal retention and intervention-gap metrics without training the actor.",
+  "success_criteria": [
+    "M758 implements objective sanity evaluator and focused tests",
+    "M758 reconstructs M755 positive groups from seed fault step source metadata",
+    "sample_reconstruction_success_rate >= 0.98",
+    "metadata_missing_rows == 0",
+    "normal_intervention_gap_mean >= 0.02",
+    "exact losses are finite",
+    "hard-negative sparsity is reported not hidden",
+    "no actor training PPO or promotion occurs"
+  ],
+  "failure_criteria": [
+    "source snapshots cannot be reconstructed",
+    "normal rows or positive intervention rows cannot be matched",
+    "objective drops positives without hard negatives",
+    "v4 claim-boundary metadata is missing",
+    "implementation starts optimizer training PPO checkpoint writing or promotion"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "implement src/autodrift/v4_sequence_objective_sanity.py and focused tests"
+    },
+    {
+      "name": "registered_eval",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_sequence_objective_sanity --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --corpus-summary runs/m755_v4_sequence_outcome_corpus_export/summary.json --positive-rows runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv --contrast-rows runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv --fault-config configs/extreme_fault_distribution_v4_scenarios.json --scenario-config configs/extreme_fault_distribution_v4_scenarios.json --run-dir runs/m758_v4_sequence_objective_sanity --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_sequence_objective_sanity.py",
+      "type": "source"
+    },
+    {
+      "path": "runs/m758_v4_sequence_objective_sanity/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m758_v4_sequence_objective_sanity/objective_metrics.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m758-v4-sequence-objective-sanity-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m755_v4_sequence_outcome_corpus_export/summary.json",
+    "docs/m757-v4-sequence-objective-design.md"
+  ],
+  "decision_rule": "M758 may only compute exact/offline objective sanity metrics. It must not run actor updates PPO or checkpoint promotion until a follow-up audit admits implementation.",
+  "next_blocker": "m759-v4-sequence-objective-sanity-audit"
+}

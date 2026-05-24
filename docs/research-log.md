@@ -12857,3 +12857,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M756 audits M755 as a valid v4 positive corpus export with sparse hard negatives. The audit supports the M749 -> M752 -> M755 coverage-mining chain and admits only a constrained objective-design branch: use positives and matched normals as required contrast, treat hard negatives as optional sparse contrast, preserve claim-boundary metadata, and keep PPO/promotion blocked. The failure taxonomy remains `scenario_sampling_failure` due hard-negative sparsity (`1009 < 1213`, `338` positives without same-source/same-horizon hard negatives).
 - decision: `promote_to_v4_sequence_objective_design`
 - next: `m757-v4-sequence-objective-design`
+
+## 20260525T045000Z - m757-v4-sequence-objective-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m757-v4-sequence-objective-design.md`
+- result: M757 designs a constrained v4 sequence objective from the M755 corpus. It treats M755 as an index/evidence corpus rather than a tensor dataset and requires M758 to reconstruct objective samples from seed/fault/step/source metadata. The objective terms are normal behavior retention, lower-weight intervention branch anchor, outcome-weighted normal-vs-intervention gap preservation, and optional hard-negative calibration. Hard negatives are explicitly optional because M755 has `1009` hard negatives for `1213` positives. M758 is limited to no-training exact/offline objective sanity; actor update, PPO, and promotion remain blocked.
+- decision: `v4_sequence_objective_design_admit_m758`
+- next: `m758-v4-sequence-objective-sanity-implementation`

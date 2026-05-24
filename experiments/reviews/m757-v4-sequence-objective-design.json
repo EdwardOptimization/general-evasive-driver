@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M757 designs no-training exact/offline v4 sequence objective sanity over M755 positives matched normals and optional sparse hard negatives before any actor update",
+  "failure_criteria": [
+    "design requires hard negatives for every positive",
+    "design drops normal-history matched rows",
+    "design leaks hidden fault labels into actor observations",
+    "design admits PPO or checkpoint promotion directly",
+    "design ignores current-model/proxy claim boundary"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not assume every positive has a hard negative",
+    "do not drop matched normal rows",
+    "do not turn current-model/proxy labels into actor inputs",
+    "do not start actor training",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T234943Z",
+  "hypothesis": "A constrained v4 sequence objective can be designed from M755 positives and matched normals while treating hard negatives as optional sparse contrast.",
+  "lineage": {
+    "blocked_by": [
+      "m756-v4-sequence-outcome-corpus-export-audit"
+    ],
+    "derived_from": [
+      "m756-v4-sequence-outcome-corpus-export-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint_used"
+    ],
+    "parent_config": [
+      "experiments/manifests/m756-v4-sequence-outcome-corpus-export-audit.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m756-v4-sequence-outcome-corpus-export-audit.md",
+      "docs/m755-v4-sequence-outcome-corpus-export-implementation.md",
+      "runs/m755_v4_sequence_outcome_corpus_export/summary.json",
+      "runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv",
+      "runs/m755_v4_sequence_outcome_corpus_export/hard_negative_rows.csv"
+    ],
+    "parent_objective": [
+      "design constrained v4 sequence objective from clean positives with sparse hard negatives"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m757-v4-sequence-objective-design",
+  "next_blocker": "m758-v4-sequence-objective-sanity-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "v4_sequence_objective_design_admit_m758",
+  "public_gates": [
+    "M757 designs objective terms without training",
+    "M757 treats hard negatives as sparse optional contrast",
+    "M757 preserves normal-history behavior and first-step safety gates",
+    "M757 preserves v4 claim-boundary metadata",
+    "PPO checkpoint promotion and true four-wheel claims remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m757-v4-sequence-objective-design.md",
+    "clearance_margin_mean": "",
+    "decision": "v4_sequence_objective_design_admit_m758",
+    "milestone": "m757-v4-sequence-objective-design",
+    "reason": "M757 designs no-training exact/offline v4 sequence objective sanity over M755 positives matched normals and optional sparse hard negatives before any actor update",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M757 specifies objective terms and exact metrics",
+    "M757 specifies normal retention first-step safety and source-balance gates",
+    "M757 specifies how sparse hard negatives are used without biasing the objective",
+    "M757 keeps actor inputs clean and claim-boundary metadata as training-time logging only",
+    "M757 admits only an offline/exact objective sanity implementation",
+    "M757 blocks PPO and promotion"
+  ],
+  "type": "infrastructure"
+}

@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 765,
+        "completed": 766,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m756-v4-sequence-outcome-corpus-export-audit",
+        "task_id": "m757-v4-sequence-objective-design",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m756-v4-sequence-outcome-corpus-export-audit.md"
+        "command_log": "docs/m757-v4-sequence-objective-design.md"
     },
     "next_task": {
-        "id": "m757-v4-sequence-objective-design",
+        "id": "m758-v4-sequence-objective-sanity-implementation",
         "status": "pending",
-        "priority": 7520,
+        "priority": 7530,
         "kind": "infrastructure",
-        "hypothesis": "Design constrained v4 sequence objective",
-        "command": "see experiments/manifests/m757-v4-sequence-objective-design.json",
-        "success_artifact": "docs/m757-v4-sequence-objective-design.md",
-        "notes": "Pending: design objective using M755 positives and matched normals with sparse hard-negative contrast before any actor update"
+        "hypothesis": "Implement exact v4 sequence objective sanity evaluator",
+        "command": "see experiments/manifests/m758-v4-sequence-objective-sanity-implementation.json",
+        "success_artifact": "docs/m758-v4-sequence-objective-sanity-implementation.md",
+        "notes": "Pending: implement no-training exact objective sanity evaluator reconstructing M755 samples before actor update"
     },
-    "updated_at_utc": "20260525T044000Z"
+    "updated_at_utc": "20260525T045000Z"
 }
