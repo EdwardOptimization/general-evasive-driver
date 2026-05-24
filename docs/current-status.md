@@ -62,17 +62,25 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m664-action-critical-wrong-history-source-miner-implementation
+m665-action-critical-source-miner-audit
 ```
 
-M664 should implement the no-training action-critical wrong-history source
-miner designed in M663. It should build a broader BC5660 snapshot bank, pair
-compatible current scenes with many candidate wrong histories, and accept rows
-only when wrong history produces both action-sequence divergence and
-margin/success sensitivity. Actor updates, PPO, and promotion remain blocked.
+M665 should audit the negative M664 source-miner result. M664 found larger
+wrong-history action gaps than M661, but accepted `0` rows because rows crossing
+all action thresholds were already normal-failed and no success-drop or
+margin-gap evidence appeared. Actor updates, PPO, and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M664 implements and runs the broader no-training action-critical
+  wrong-history source miner. It builds `473` snapshots and scores `7200`
+  candidate sequence rows. The result is still negative: `0` accepted rows.
+  Compared with M661, action sensitivity improved (`5352` first-action
+  threshold rows, `60` sequence-threshold rows, `3` all-action-threshold rows,
+  max sequence mean L2 `0.010464`), but outcome sensitivity is absent: `0`
+  margin-threshold rows and success-drop rate `0.000`. The all-action-threshold
+  rows are already failed under normal history, so they are not usable
+  self-ID supervision.
 - M663 designs the action-critical wrong-history source miner. The key change
   is to invert source selection: first build a broader snapshot bank and test
   many compatible wrong-history candidates, then accept rows only when wrong

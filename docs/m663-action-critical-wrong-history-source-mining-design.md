@@ -133,6 +133,7 @@ obstacle_x_abs_delta <= 8.0 m
 obstacle_y_abs_delta <= 1.5 m
 step_abs_delta <= 20
 max right candidates per left snapshot: 64
+max scored candidate pairs per surface: 1200
 ```
 
 Ranking within compatible candidates:

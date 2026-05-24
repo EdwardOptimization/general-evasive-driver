@@ -12097,3 +12097,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M663 designs the next no-training source-mining branch after M661/M662. The key change is to invert selection order: build a broader BC5660 snapshot bank, pair compatible current scenes with many candidate wrong histories, and accept rows only when wrong history produces both short-horizon action-sequence divergence and margin/success sensitivity. The design pre-registers scene/current-state compatibility filters, strict action-critical thresholds, source-heldout split rules, source dominance caps, required NPZ/CSV fields, pass criteria, and a negative-result interpretation if no action-critical sources exist.
 - decision: `action_critical_wrong_history_source_mining_design_admit_m664`
 - next: `m664-action-critical-wrong-history-source-miner-implementation`
+## 20260524T233000Z - m664-action-critical-wrong-history-source-miner-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m664_action_critical_wrong_history_source_miner`
+- artifact: `docs/m664-action-critical-wrong-history-source-miner-implementation.md`
+- result: M664 implements and runs the no-training broader action-critical wrong-history source miner. It builds `473` snapshots, scores `2400` compatible candidate pairs and `7200` sequence rows, and accepts `0` rows. This is more informative than M661: `5352` rows pass the first-action threshold, `60` pass the sequence threshold, `3` pass all action thresholds, and max sequence mean L2 reaches `0.010464`. However, `0` rows pass the margin threshold, success-drop rate is `0.000`, and all all-action-threshold rows are already normal-failed with negative normal margins and unchanged wrong-history margins. Actor checksum is unchanged and no checkpoint is written.
+- decision: `action_critical_wrong_history_source_miner_negative_admit_audit`
+- next: `m665-action-critical-source-miner-audit`

@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M664 finds larger wrong-history action gaps but accepts 0 rows because action-threshold rows are already normal-failed and no margin or success-drop gap appears",
+  "failure_criteria": [
+    "too few accepted rows",
+    "action/outcome acceptance fails under scene compatibility constraints",
+    "source diversity fails",
+    "actor checksum changes",
+    "actor checkpoint is written",
+    "hidden-distance-only rows are accepted"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not update actor parameters",
+    "do not promote checkpoint",
+    "do not accept hidden-distance-only rows",
+    "do not use hidden parameters or labels as actor inputs"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T141815Z",
+  "hypothesis": "Action/outcome-first source mining over a broader snapshot bank can find source-diverse wrong-history pairs that M661's matched-current surfaces missed.",
+  "lineage": {
+    "blocked_by": [
+      "m663-action-critical-wrong-history-source-mining-design"
+    ],
+    "derived_from": [
+      "m663-action-critical-wrong-history-source-mining-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m663-action-critical-wrong-history-source-mining-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m663-action-critical-wrong-history-source-mining-design.md",
+      "runs/m661_action_divergent_wrong_history_corpus/summary.json"
+    ],
+    "parent_objective": [
+      "implement no-training action-critical wrong-history source miner"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m664-action-critical-wrong-history-source-miner-implementation",
+  "next_blocker": "m665-action-critical-wrong-history-source-miner-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "action_critical_wrong_history_source_miner_negative_admit_audit",
+  "public_gates": [
+    "build broader snapshot bank",
+    "pair compatible current scenes with many candidate wrong histories",
+    "score action-sequence and outcome divergence",
+    "write source-diverse accepted rows and explicit preferred/rejected NPZ fields",
+    "verify actor checksum unchanged and no actor checkpoint written"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m664_action_critical_wrong_history_source_miner/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "action_critical_wrong_history_source_miner_negative_admit_audit",
+    "milestone": "m664-action-critical-wrong-history-source-miner-implementation",
+    "reason": "M664 finds larger wrong-history action gaps but accepts 0 rows because action-threshold rows are already normal-failed and no margin or success-drop gap appears",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "accepted rows >= 40",
+    "accepted physical pairs >= 8",
+    "accepted left seeds >= 6",
+    "accepted right seeds >= 6",
+    "source-heldout split is nonempty",
+    "mean preferred_vs_rejected_action_mean_l2 >= 0.010",
+    "mean margin_gap >= 0.010 or accepted success_drop_rate >= 0.25",
+    "actor checksum unchanged",
+    "no actor checkpoint written",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

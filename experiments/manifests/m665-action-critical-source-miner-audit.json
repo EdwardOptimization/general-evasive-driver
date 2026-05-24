@@ -1,0 +1,84 @@
+{
+  "id": "m665-action-critical-source-miner-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m664_action_critical_wrong_history_source_miner/summary.json",
+      "runs/m664_action_critical_wrong_history_source_miner/candidate_scores.csv",
+      "docs/m664-action-critical-wrong-history-source-miner-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m664-action-critical-wrong-history-source-miner-implementation.json"
+    ],
+    "parent_objective": [
+      "audit negative action-critical wrong-history source miner"
+    ],
+    "derived_from": [
+      "m664-action-critical-wrong-history-source-miner-implementation"
+    ],
+    "blocked_by": [
+      "m664-action-critical-wrong-history-source-miner-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m665-action-critical-source-miner-audit.md",
+  "public_gates": [
+    "classify why M664 accepted zero rows",
+    "separate action-gap improvement from outcome-gap failure",
+    "decide whether next branch needs normal-success near-boundary source filtering",
+    "keep actor coupling, PPO, and promotion blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not weaken action or outcome thresholds after seeing M664",
+    "do not train from action-divergent but normal-failed rows"
+  ],
+  "hypothesis": "M664 found action-divergent wrong-history candidates, but they were not usable because they occurred in already-failed normal branches without success-drop or margin-gap evidence.",
+  "success_criteria": [
+    "audit records snapshot and candidate counts",
+    "audit records action-threshold pass counts",
+    "audit records margin and success-drop failures",
+    "audit decides whether source window filtering or representation design is next",
+    "actor coupling and PPO remain blocked",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "audit treats action gap alone as success",
+    "audit ignores normal-margin-negative rows",
+    "audit admits training from empty corpus",
+    "audit omits actor checksum and no checkpoint evidence"
+  ],
+  "commands": [
+    {
+      "name": "audit_doc",
+      "command": "write docs/m665-action-critical-source-miner-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m665-action-critical-source-miner-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m664_action_critical_wrong_history_source_miner/summary.json",
+    "docs/m664-action-critical-wrong-history-source-miner-implementation.md"
+  ],
+  "decision_rule": "M665 passes only if it audits M664 without treating action divergence in already-failed normal states as usable self-ID supervision.",
+  "next_blocker": "m666-normal-success-boundary-source-mining-design"
+}

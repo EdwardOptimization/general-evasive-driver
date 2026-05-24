@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 672,
+        "completed": 673,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m663-action-critical-wrong-history-source-mining-design",
+        "task_id": "m664-action-critical-wrong-history-source-miner-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m663-action-critical-wrong-history-source-mining-design.md"
+        "run_dir": "runs/m664_action_critical_wrong_history_source_miner",
+        "command_log": "docs/m664-action-critical-wrong-history-source-miner-implementation.md"
     },
     "next_task": {
-        "id": "m664-action-critical-wrong-history-source-miner-implementation",
+        "id": "m665-action-critical-source-miner-audit",
         "status": "pending",
-        "priority": 6590,
-        "kind": "infrastructure",
-        "hypothesis": "Action/outcome-first source mining over a broader snapshot bank can find source-diverse wrong-history pairs that M661's matched-current surfaces missed.",
-        "command": "see experiments/manifests/m664-action-critical-wrong-history-source-miner-implementation.json",
+        "priority": 6600,
+        "kind": "gate",
+        "hypothesis": "M664 found action-divergent wrong-history candidates, but they were not usable because they occurred in already-failed normal branches without success-drop or margin-gap evidence.",
+        "command": "see experiments/manifests/m665-action-critical-source-miner-audit.json",
         "success_artifact": "",
-        "notes": "Pending: implement no-training action-critical wrong-history source miner with explicit scene compatibility and action/outcome thresholds"
+        "notes": "Pending: audit M664 negative result and decide whether normal-success boundary source filtering is next"
     },
-    "updated_at_utc": "20260524T231500Z"
+    "updated_at_utc": "20260524T233000Z"
 }
