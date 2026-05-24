@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 719,
+        "completed": 720,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m710-cross-fault-hidden-action-gap-audit-implementation",
+        "task_id": "m711-cross-fault-hidden-action-gap-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m710-cross-fault-hidden-action-gap-audit-implementation.md"
+        "command_log": "docs/m711-cross-fault-hidden-action-gap-audit.md"
     },
     "next_task": {
-        "id": "m711-cross-fault-hidden-action-gap-audit",
+        "id": "m712-actor-head-history-signal-coupling-design",
         "status": "pending",
-        "priority": 7060,
-        "kind": "gate",
-        "hypothesis": "Audit M710 action-washout result",
-        "command": "see experiments/manifests/m711-cross-fault-hidden-action-gap-audit.json",
+        "priority": 7070,
+        "kind": "infrastructure",
+        "hypothesis": "Design actor-head history signal coupling audit",
+        "command": "see experiments/manifests/m712-actor-head-history-signal-coupling-design.json",
         "success_artifact": "",
-        "notes": "Pending: synthesize hidden-action localization before source export actor update PPO or further scenario mining"
+        "notes": "Pending: design no-training projection tanh attenuation and feature-amplification audit before any actor update or PPO"
     },
-    "updated_at_utc": "20260524T193100Z"
+    "updated_at_utc": "20260524T194500Z"
 }

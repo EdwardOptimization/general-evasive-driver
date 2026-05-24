@@ -1,0 +1,108 @@
+{
+  "id": "m712-actor-head-history-signal-coupling-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m711-cross-fault-hidden-action-gap-audit.md",
+      "runs/m710_cross_fault_hidden_action_gap_audit/summary.json",
+      "runs/m710_cross_fault_hidden_action_gap_audit/row_hidden_action_gaps.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m711-cross-fault-hidden-action-gap-audit.json",
+      "configs/cross_fault_hidden_condition_scenarios.json"
+    ],
+    "parent_objective": [
+      "design no-training actor-head sensitivity audit for cross-fault fused history signal"
+    ],
+    "derived_from": [
+      "m711-cross-fault-hidden-action-gap-audit"
+    ],
+    "blocked_by": [
+      "m711-cross-fault-hidden-action-gap-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m712-actor-head-history-signal-coupling-design.md",
+  "public_gates": [
+    "design separates feature-delta size projection tanh attenuation and action output",
+    "design compares wrong-history directions with reset-hidden directions",
+    "design includes feature-delta amplification line search",
+    "design keeps actor inputs unchanged",
+    "design blocks actor update PPO and promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels to actor observations",
+    "do not treat amplified feature actions as deployed behavior",
+    "do not claim closed-loop self-ID proof from actor-head projection alone"
+  ],
+  "workflow_synthesis": {
+    "branch": "actor_head_history_signal_coupling",
+    "evidence_axis": "G_action_head_coupling: design actor-head sensitivity audit after M710 action_washout",
+    "evidence_increment": "opens a new branch to localize whether fused cross-fault history directions are ignored by actor-head projection, tanh saturation, or insufficient feature amplitude",
+    "claim_scope": "design-only diagnostic plan, not driver performance, source export, PPO, or promotion",
+    "stop_condition": [
+      "stop before implementation if the design would require actor input changes",
+      "stop training because M711 blocked source export and PPO",
+      "stop closed-loop claims because this is an actor-head sensitivity design"
+    ],
+    "fallback_plan": [
+      "if projection washout is expected, design objective/head coupling audit",
+      "if tanh saturation is expected, design action-range or normalization audit",
+      "if feature amplitude is too small, design feature amplification objective before actor update",
+      "if amplified directions still do not affect outcome, return to terminal-boundary scenario refinement"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M711 pivot from extreme_hidden_condition_scenario_generation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A no-training actor-head sensitivity audit can determine why M710 fused wrong-history feature differences do not produce action differences.",
+  "success_criteria": [
+    "pre-tanh actor-head projection metrics are specified",
+    "tanh derivative attenuation metrics are specified",
+    "wrong-vs-reset direction comparison is specified",
+    "feature-delta amplification line search is specified",
+    "actor behavior and input contract are unchanged",
+    "no objective update actor update PPO or promotion is admitted"
+  ],
+  "failure_criteria": [
+    "design changes actor inputs",
+    "design treats amplified counterfactual actions as deployed behavior",
+    "design omits projection or tanh attenuation",
+    "design admits training before no-training audit",
+    "design omits reset-hidden comparison"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m712-actor-head-history-signal-coupling-design.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m712-actor-head-history-signal-coupling-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m711-cross-fault-hidden-action-gap-audit.md",
+    "runs/m710_cross_fault_hidden_action_gap_audit/summary.json"
+  ],
+  "decision_rule": "M712 passes only as a design for a no-training actor-head sensitivity audit; it must not admit actor update PPO or promotion.",
+  "next_blocker": "m713-actor-head-history-signal-coupling-implementation"
+}

@@ -12425,3 +12425,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M710 implements and runs the no-training hidden/action localization audit. The result is `action_washout`: wrong-history signal exists in recurrent and fused-feature space (`1653/2048` raw-positive rows, `1365/2048` fused-positive rows), but it produces `0` action-positive rows and `0` outcome-positive rows. Reset-hidden remains disruptive (`2014/2048` action-positive rows, `15/2048` outcome-positive rows). Actor checksum unchanged; no training, PPO, or promotion occurred.
 - decision: `action_washout_not_source_positive`
 - next: `m711-cross-fault-hidden-action-gap-audit`
+
+## 20260524T194500Z - m711-cross-fault-hidden-action-gap-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m711-cross-fault-hidden-action-gap-audit.md`
+- result: M711 audits M710 as `metric_artifact`: raw/fused history separability is real, but feature distance alone is not closed-loop self-ID proof because the deployed actor action and margin evidence remain negative. The audit closes `extreme_hidden_condition_scenario_generation` as the active branch and pivots to `actor_head_history_signal_coupling`, since scenario-only expansion is now lower leverage than diagnosing actor-head projection, tanh attenuation, and feature-delta amplification.
+- decision: `action_washout_audit_pivot_actor_head_coupling`
+- next: `m712-actor-head-history-signal-coupling-design`
