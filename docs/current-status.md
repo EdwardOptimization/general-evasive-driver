@@ -62,16 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m655-wrong-history-feature-separability-audit-implementation
+m656-wrong-history-feature-separability-audit
 ```
 
-M655 should implement the no-training wrong-history feature separability audit.
-It must measure whether normal-vs-wrong differences survive from stored hidden
-state into next hidden state, fused actor features, and actor actions, while
-keeping wrong-history and delayed-history rows separated.
+M656 should audit the M655 fusion-washout result. It must decide whether the
+next branch should target the response/context fusion boundary, refresh the
+wrong-history corpus, or inspect pre-fusion hidden dynamics before any actor
+coupling or PPO.
 
 ## Recent Evidence Line
 
+- M655 implements and runs the no-training feature separability audit. The
+  result is `fusion_washout`: wrong-history raw hidden L2 is `0.097340` and
+  next-hidden retention is `0.409547`, so the signal is not absent, but fused
+  feature L2 is only `0.014905` and actor action L2 is only `0.000685`.
+  Wrong-history feature/action gaps are only `20.27%` and `5.12%` of the
+  delayed-history gaps. Actor checksum is unchanged and no checkpoint is
+  written.
 - M654 designs the wrong-history feature separability audit. The next diagnostic
   should measure raw hidden, next hidden, fused feature, actor mean, and tanh
   action distances for normal versus variant histories, with group summaries by

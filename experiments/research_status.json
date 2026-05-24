@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 663,
+        "completed": 664,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m654-wrong-history-feature-separability-audit-design",
+        "task_id": "m655-wrong-history-feature-separability-audit-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m654-wrong-history-feature-separability-audit-design.md"
+        "run_dir": "runs/m655_wrong_history_feature_separability_audit",
+        "command_log": "docs/m655-wrong-history-feature-separability-audit-implementation.md"
     },
     "next_task": {
-        "id": "m655-wrong-history-feature-separability-audit-implementation",
+        "id": "m656-wrong-history-feature-separability-audit",
         "status": "pending",
-        "priority": 6500,
-        "kind": "infrastructure",
-        "hypothesis": "The M652 wrong-history contrast failure can be localized by measuring whether normal-vs-wrong differences survive from stored recurrent hidden state into next hidden state fused actor features and actor actions.",
-        "command": "see experiments/manifests/m655-wrong-history-feature-separability-audit-implementation.json",
+        "priority": 6510,
+        "kind": "gate",
+        "hypothesis": "M655 shows wrong-history information is present in recurrent hidden state but too compressed at the fused feature and actor-action boundary, so the next branch should address that boundary rather than tuning the frozen head loss.",
+        "command": "see experiments/manifests/m656-wrong-history-feature-separability-audit.json",
         "success_artifact": "",
-        "notes": "Pending: compute no-training wrong-history feature separability diagnostics; no training PPO promotion or actor update"
+        "notes": "Pending: audit M655 fusion-washout result; no training PPO promotion or actor update"
     },
-    "updated_at_utc": "20260524T210000Z"
+    "updated_at_utc": "20260524T211500Z"
 }

@@ -12016,3 +12016,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M654 designs a no-training wrong-history feature separability audit. M655 should measure normal-vs-variant distances at raw recurrent hidden, next hidden after the current response update, fused response/context actor features, actor mean, and tanh actor action. It must report row-level metrics and summaries by variant, split, source, source/split/variant, target, and surface while keeping `wrong_matched_history` rows separate from `delayed_history` rows. The interpretation matrix localizes collapse to weak stored intervention, GRU update washout, fusion washout, actor/action insensitivity, or auxiliary-head objective issues. Actor coupling, contrast tuning, PPO, and promotion remain blocked.
 - decision: `wrong_history_feature_separability_audit_design_admit_m655`
 - next: `m655-wrong-history-feature-separability-audit-implementation`
+## 20260524T211500Z - m655-wrong-history-feature-separability-audit-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m655_wrong_history_feature_separability_audit`
+- artifact: `docs/m655-wrong-history-feature-separability-audit-implementation.md`
+- result: M655 implements and runs the no-training wrong-history feature separability audit. The run writes row-level and group summaries for 431 rows and 9 sources, keeps actor checksum unchanged, writes no checkpoint, and classifies the result as `fusion_washout`. Wrong-history raw hidden L2 is `0.097340`, next hidden L2 is `0.039664`, fused feature L2 is `0.014905`, and actor action L2 is `0.000685`. The wrong-history signal is not absent from recurrent state and is not fully erased by the GRU update, but it is much weaker at fused features and actor actions: only `20.27%` of delayed-history feature L2 and `5.12%` of delayed-history action L2.
+- decision: `wrong_history_feature_separability_audit_implementation_fusion_washout_admit_m656`
+- next: `m656-wrong-history-feature-separability-audit`
