@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 668,
+        "completed": 669,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m659-wrong-history-fusion-boundary-probe-audit",
+        "task_id": "m660-action-divergent-wrong-history-corpus-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m659-wrong-history-fusion-boundary-probe-audit.md"
+        "command_log": "docs/m660-action-divergent-wrong-history-corpus-design.md"
     },
     "next_task": {
-        "id": "m660-action-divergent-wrong-history-corpus-design",
+        "id": "m661-action-divergent-wrong-history-corpus-implementation",
         "status": "pending",
-        "priority": 6550,
+        "priority": 6560,
         "kind": "infrastructure",
-        "hypothesis": "The current wrong-history supervision is too weak because rows are hidden-different but not action-divergent enough; a refreshed corpus with explicit rejected-history action targets is needed before further objectives.",
-        "command": "see experiments/manifests/m660-action-divergent-wrong-history-corpus-design.json",
+        "hypothesis": "A source-diverse corpus requiring action and short-horizon divergence will produce stronger wrong-history supervision than M641's hidden-different rows.",
+        "command": "see experiments/manifests/m661-action-divergent-wrong-history-corpus-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design action-divergent wrong-history corpus; no actor update PPO promotion"
+        "notes": "Pending: implement action-divergent wrong-history corpus; no actor update PPO promotion"
     },
-    "updated_at_utc": "20260524T221500Z"
+    "updated_at_utc": "20260524T223000Z"
 }

@@ -1,0 +1,100 @@
+{
+  "id": "m661-action-divergent-wrong-history-corpus-implementation",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m586_bc5660_matched_current_fresh_seed25560/matched_pairs.csv",
+      "runs/m586_bc5660_matched_current_ood_seed25660/matched_pairs.csv",
+      "runs/m636_combined_source7_preserving_shape/accepted_combined_sequences.csv",
+      "docs/m660-action-divergent-wrong-history-corpus-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m660-action-divergent-wrong-history-corpus-design.json"
+    ],
+    "parent_objective": [
+      "implement no-training action-divergent wrong-history corpus"
+    ],
+    "derived_from": [
+      "m660-action-divergent-wrong-history-corpus-design"
+    ],
+    "blocked_by": [
+      "m660-action-divergent-wrong-history-corpus-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m661-action-divergent-wrong-history-corpus-implementation.md",
+  "public_gates": [
+    "mine source-diverse action-divergent wrong-history rows",
+    "write explicit preferred and rejected action sequences",
+    "enforce action sequence and margin divergence thresholds",
+    "write source split and target summaries",
+    "verify actor checksum unchanged and no actor checkpoint written"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not update actor parameters",
+    "do not promote checkpoint",
+    "do not accept hidden-distance-only rows",
+    "do not omit rejected-history target/action fields"
+  ],
+  "hypothesis": "A source-diverse corpus requiring action and short-horizon divergence will produce stronger wrong-history supervision than M641's hidden-different rows.",
+  "success_criteria": [
+    "accepted rows >= 40",
+    "accepted physical pairs >= 8",
+    "accepted left seeds >= 6",
+    "targets >= 2",
+    "source-heldout split is nonempty",
+    "mean preferred_vs_rejected_action_mean_l2 >= 0.010",
+    "mean margin_gap >= 0.010",
+    "actor checksum unchanged",
+    "no actor checkpoint written",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "too few accepted rows",
+    "source diversity fails",
+    "rejected target/action fields are missing",
+    "actor checksum changes",
+    "actor checkpoint is written"
+  ],
+  "commands": [
+    {
+      "name": "action_divergent_wrong_history_corpus",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.action_divergent_wrong_history_corpus --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --surface-pairs fresh=runs/m586_bc5660_matched_current_fresh_seed25560/matched_pairs.csv --surface-pairs ood=runs/m586_bc5660_matched_current_ood_seed25660/matched_pairs.csv --surface-config fresh=configs/ppo_m541_matched_l3_variance_4096.json --surface-config ood=configs/eval_m574_moderate_ood_l3.json --preferred-sequences runs/m636_combined_source7_preserving_shape/accepted_combined_sequences.csv --sequence-lengths 5,7,9 --min-wrong-first-action-l2 0.002 --min-wrong-action-sequence-mean-l2 0.006 --min-preferred-rejected-action-mean-l2 0.010 --min-margin-gap 0.010 --device cpu --run-dir runs/m661_action_divergent_wrong_history_corpus"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m661_action_divergent_wrong_history_corpus/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m661_action_divergent_wrong_history_corpus/action_divergent_corpus.npz",
+      "type": "corpus"
+    },
+    {
+      "path": "docs/m661-action-divergent-wrong-history-corpus-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m660-action-divergent-wrong-history-corpus-design.md",
+    "runs/m658_wrong_history_fusion_boundary_probe/summary.json"
+  ],
+  "decision_rule": "M661 passes only if it creates a source-diverse no-training corpus with explicit preferred and rejected action sequences; otherwise audit the negative corpus mining result before new objectives.",
+  "next_blocker": "m662-action-divergent-wrong-history-corpus-audit"
+}

@@ -12061,3 +12061,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M659 audits M658 as `partial_relative_signal_but_absolute_wrong_history_gap_negative`. The audit preserves the nuance that next_hidden improves wrong-history L2 by about `3.71x` over fused, but rejects treating that as success because absolute L2 remains only `0.001732`, gap MSE remains negative on average, and source-heldout source 32 remains weak. Actor coupling, PPO, promotion, and further fused-only contrast tuning remain blocked. The next branch is an action-divergent wrong-history corpus design with explicit rejected-history target/action fields.
 - decision: `wrong_history_fusion_boundary_probe_audit_admit_action_divergent_corpus_design`
 - next: `m660-action-divergent-wrong-history-corpus-design`
+## 20260524T223000Z - m660-action-divergent-wrong-history-corpus-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m660-action-divergent-wrong-history-corpus-design.md`
+- result: M660 designs a no-training action-divergent wrong-history corpus after M658/M659 showed that feature-view changes are insufficient. The design requires wrong-history first-action divergence, short-horizon action-sequence divergence, explicit preferred and rejected action sequence fields, margin/risk gaps, source-diverse split rules, and no hidden-distance-only acceptance. M661 should mine from BC5660 matched-current fresh/OOD surfaces and preferred projected sequence artifacts while keeping actor updates, PPO, and promotion blocked.
+- decision: `action_divergent_wrong_history_corpus_design_admit_m661`
+- next: `m661-action-divergent-wrong-history-corpus-implementation`

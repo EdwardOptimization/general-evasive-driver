@@ -62,15 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m660-action-divergent-wrong-history-corpus-design
+m661-action-divergent-wrong-history-corpus-implementation
 ```
 
-M660 should design a stronger action-divergent wrong-history corpus. It must
-require first-action and short-horizon trajectory divergence, explicit
-rejected-history targets, source-diverse splits, and no actor/PPO updates.
+M661 should implement the no-training action-divergent wrong-history corpus
+miner. It must require action and short-horizon divergence, write explicit
+preferred/rejected action sequences, preserve source-diverse splits, and leave
+actor/PPO updates blocked.
 
 ## Recent Evidence Line
 
+- M660 designs the action-divergent wrong-history corpus. The next miner should
+  stop accepting hidden-difference-only rows and require explicit
+  preferred/rejected action sequences, first-action divergence, short-horizon
+  action divergence, margin gap, and source-heldout split coverage before any
+  new objective is considered.
 - M659 audits M658 as
   `partial_relative_signal_but_absolute_wrong_history_gap_negative`.
   `next_hidden` carries more wrong-history signal than fused features, but not
