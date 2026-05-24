@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 607,
+        "completed": 608,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m598-bc-capability-repair-objective-smoke-implementation",
+        "task_id": "m599-bc-capability-head-smoke-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m598_bc_capability_repair_head_only_smoke",
-        "command_log": "docs/m598-bc-capability-repair-objective-smoke-implementation.md"
+        "run_dir": "",
+        "command_log": "docs/m599-bc-capability-head-smoke-audit.md"
     },
     "next_task": {
-        "id": "m599-bc-capability-head-smoke-audit",
+        "id": "m600-bc-capability-belief-intervention-probe-design",
         "status": "pending",
-        "priority": 5940,
-        "kind": "gate",
-        "hypothesis": "Because M598 shows capability targets are learnable from frozen BC5660 hidden states, the next meaningful repair is likely a tightly anchored recurrent-hidden or fusion fine-tune, but this must be designed before training.",
-        "command": "see experiments/manifests/m599-bc-capability-head-smoke-audit.json",
+        "priority": 5950,
+        "kind": "infrastructure",
+        "hypothesis": "The M598 capability head may reveal belief-level sensitivity to wrong or delayed recurrent histories even though M591 showed action-level insensitivity; this must be tested before actor fine-tuning.",
+        "command": "see experiments/manifests/m600-bc-capability-belief-intervention-probe-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit head-only smoke and choose next no-oracle repair branch; no training, PPO, or promotion"
+        "notes": "Pending: design capability-belief intervention probe; no actor update, PPO, promotion, or driver-performance claim"
     },
-    "updated_at_utc": "20260524T114000Z"
+    "updated_at_utc": "20260524T115000Z"
 }

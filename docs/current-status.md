@@ -61,16 +61,22 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m599-bc-capability-head-smoke-audit
+m600-bc-capability-belief-intervention-probe-design
 ```
 
-M599 should audit the frozen-actor capability-head smoke before any actor or
-hidden fine-tuning. The current evidence supports deployable current-response
-dependence and source-diverse pair availability, but M587-M598 do not yet
-support accumulated hidden-history causality. Promotion and PPO remain blocked.
+M600 should design a capability-belief intervention probe using the M598
+capability head before any actor fine-tuning. The current evidence supports
+deployable current-response dependence and source-diverse pair availability,
+but M587-M599 do not yet support accumulated hidden-history causality.
+Promotion and PPO remain blocked.
 
 ## Recent Evidence Line
 
+- M599 audits M598: the frozen BC5660 hidden state contains learnable
+  capability signal, but this is not driver improvement and does not show action
+  use. Before actor fine-tuning, M600 should test whether the learned capability
+  belief changes under wrong/delayed hidden interventions on M586/M591-style
+  surfaces.
 - M598 implements and runs the frozen-actor capability-head smoke. Train/val
   regression losses drop `79%` / `67%`, train rank loss drops `32%`, validation
   rank loss also decreases, action-anchor MSE is `0`, actor parameters are

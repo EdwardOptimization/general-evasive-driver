@@ -11512,3 +11512,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M598 implements and runs the frozen-actor head-only capability objective smoke. Regression loss drops from `0.764369` to `0.159261` on train and `1.265884` to `0.420221` on validation. Rank loss drops from `0.831669` to `0.563961` on train and `0.871387` to `0.726029` on validation. Action-anchor MSE is `0.0` on both splits, actor parameters are unchanged, labels do not enter actor inputs, and no PPO or promotion occurs.
 - decision: `bc_capability_repair_head_only_smoke_pass_admit_audit`
 - next: `m599-bc-capability-head-smoke-audit`
+## 20260524T115000Z - m599-bc-capability-head-smoke-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m599-bc-capability-head-smoke-audit.md`
+- result: M599 audits M598 and separates the supported claim from overclaims. M598 proves future-response capability targets are learnable from frozen BC5660 hidden states, but it does not prove driver improvement, action use, wrong-history action sensitivity, route performance, or self-ID under counterfactual intervention. The next step should test whether the learned capability head changes predictions under wrong/delayed hidden interventions before any actor or recurrent fine-tune.
+- decision: `bc_capability_head_smoke_audit_admit_belief_intervention_design`
+- next: `m600-bc-capability-belief-intervention-probe-design`

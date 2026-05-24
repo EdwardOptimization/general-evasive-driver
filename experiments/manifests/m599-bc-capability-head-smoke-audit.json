@@ -2,7 +2,7 @@
   "id": "m599-bc-capability-head-smoke-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -33,7 +33,7 @@
   "review_artifact": "docs/reviews/m599-bc-capability-head-smoke-audit.md",
   "public_gates": [
     "audit what M598 proves and does not prove",
-    "decide whether recurrent hidden fine-tuning is admitted",
+    "decide whether capability-belief intervention design is needed before actor fine-tuning",
     "pre-register next validation gates before actor updates",
     "keep promotion and PPO blocked"
   ],
@@ -45,7 +45,7 @@
     "do not claim driver improvement from head-only objective loss",
     "do not skip action-retention and M591-style hidden-action gates before actor updates"
   ],
-  "hypothesis": "Because M598 shows capability targets are learnable from frozen BC5660 hidden states, the next meaningful repair is likely a tightly anchored recurrent-hidden or fusion fine-tune, but this must be designed before training.",
+  "hypothesis": "Because M598 shows capability targets are learnable from frozen BC5660 hidden states, the next step should test whether the learned capability belief changes under wrong/delayed hidden interventions before actor fine-tuning.",
   "success_criteria": [
     "audit clearly separates data/objective signal from driver improvement",
     "audit chooses the next branch and pre-registers blocker",
@@ -77,6 +77,6 @@
     "docs/m598-bc-capability-repair-objective-smoke-implementation.md",
     "runs/m598_bc_capability_repair_head_only_smoke/summary.json"
   ],
-  "decision_rule": "M599 passes if it audits the head-only smoke without overclaiming and selects the next no-oracle repair branch before actor training.",
-  "next_blocker": "m600-bc-capability-guided-hidden-finetune-design"
+  "decision_rule": "M599 passes because it audits the head-only smoke without overclaiming and selects a capability-belief intervention probe before actor training.",
+  "next_blocker": "m600-bc-capability-belief-intervention-probe-design"
 }
