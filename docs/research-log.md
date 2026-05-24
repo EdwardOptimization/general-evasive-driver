@@ -12169,3 +12169,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M671 implements and runs the frozen-actor response-amplification shadow objective. It reconstructs `648` source-balanced rows from M667 candidates across `216` sources and `100` physical pairs, with `528` train rows and `120` source-heldout rows. The actor checksum is unchanged, no actor checkpoint is written, and no PPO is used. The fused view fails; next-hidden creates enough wrong-history sequence gap but misses normal-retention mean. The fused-plus-next-hidden view passes in `2/3` seeds, with source-heldout gap means around `0.0121-0.0125`, p10 gaps above `0.0082`, gap ratios above `4.22`, and wrong-target MSE improvements around `0.90`.
 - decision: `response_amplification_shadow_positive_admit_audit`
 - next: `m672-response-amplification-shadow-audit`
+## 20260525T014500Z - m672-response-amplification-shadow-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m672-response-amplification-shadow-audit.md`
+- result: M672 audits M671 as `shadow_positive_representation_action_boundary_evidence`, not closed-loop self-ID proof. M671 shows that fused-plus-next-hidden supports source-heldout wrong-history sequence amplification in `2/3` seeds while fused alone fails and next-hidden alone misses normal-retention mean. The audit keeps PPO, promotion, and actor-input changes blocked, but admits a design-only actor-coupling milestone with exact normal-retention gates, bounded wrong-history sequence targets, trust-region/interpolation rules, and exact-first evaluation before replay.
+- decision: `response_amplification_shadow_audit_admit_actor_coupling_design`
+- next: `m673-response-amplification-actor-coupling-design`

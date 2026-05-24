@@ -62,19 +62,24 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m672-response-amplification-shadow-audit
+m673-response-amplification-actor-coupling-design
 ```
 
-M672 should audit the positive M671 frozen-shadow result before any actor
-coupling design. M671 showed that fused-plus-next-hidden can create
-source-heldout wrong-history sequence amplification while preserving normal
-actions in `2/3` seeds, with actor checksum unchanged and no actor checkpoint.
-This is representation/action-boundary evidence, not closed-loop replay proof.
-Actor updates, PPO, and promotion remain blocked until a conservative
-actor-coupling gate is designed and validated.
+M673 should design a conservative exact-gated actor-coupling probe from the
+positive M671 shadow evidence. The design must keep the P0 human-view actor
+input contract unchanged, forbid PPO and promotion, make normal-retention
+first-class, use bounded wrong-history sequence targets, and require exact
+metrics before replay gates. No training should run in M673.
 
 ## Recent Evidence Line
 
+- M672 audits M671 as
+  `shadow_positive_representation_action_boundary_evidence`, not closed-loop
+  self-ID proof. Fused-plus-next-hidden supports source-heldout wrong-history
+  sequence amplification in `2/3` seeds; fused alone fails and next-hidden
+  alone misses normal-retention mean. PPO, promotion, and actor-input changes
+  remain blocked. The next admitted step is a design-only exact-gated
+  actor-coupling milestone.
 - M671 implements and runs the frozen-actor response-amplification shadow
   objective. It reconstructs `648` source-balanced rows from M667 candidates
   across `216` sources and `100` physical pairs. The fused view fails, the

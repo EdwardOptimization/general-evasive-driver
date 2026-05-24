@@ -1,0 +1,78 @@
+{
+  "decision_reason": "M672 classifies M671 as shadow-positive representation/action-boundary evidence but not closed-loop proof and admits a design-only exact-gated actor-coupling milestone",
+  "failure_criteria": [
+    "M671 artifacts are missing or inconsistent",
+    "shadow pass is overstated as driver proof",
+    "audit admits PPO or promotion without actor-coupling gates"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not update actor",
+    "do not promote a checkpoint",
+    "do not treat shadow-head success as closed-loop replay proof",
+    "do not change actor input contract"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T145626Z",
+  "hypothesis": "M671 is a positive representation/action-boundary diagnostic: fused-plus-next-hidden can support source-heldout wrong-history sequence amplification, so a tightly gated actor-coupling design is now admissible while PPO and promotion remain blocked.",
+  "lineage": {
+    "blocked_by": [
+      "m671-action-boundary-response-amplification-shadow-implementation"
+    ],
+    "derived_from": [
+      "m671-action-boundary-response-amplification-shadow-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m671-action-boundary-response-amplification-shadow-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m671_response_amplification_shadow/summary.json",
+      "runs/m671_response_amplification_shadow/seed_view_summary.csv",
+      "runs/m671_response_amplification_shadow/shadow_corpus.npz",
+      "docs/m671-action-boundary-response-amplification-shadow-implementation.md"
+    ],
+    "parent_objective": [
+      "audit frozen response-amplification shadow result before actor coupling"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m672-response-amplification-shadow-audit",
+  "next_blocker": "m673-response-amplification-actor-coupling-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "response_amplification_shadow_audit_admit_actor_coupling_design",
+  "public_gates": [
+    "M671 shadow_passed is true",
+    "fused-plus-next-hidden passes in >= 2/3 seeds",
+    "actor checksum unchanged",
+    "no actor checkpoint written",
+    "classify whether actor-coupling design is admissible"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m672-response-amplification-shadow-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "response_amplification_shadow_audit_admit_actor_coupling_design",
+    "milestone": "m672-response-amplification-shadow-audit",
+    "reason": "M672 classifies M671 as shadow-positive representation/action-boundary evidence but not closed-loop proof and admits a design-only exact-gated actor-coupling milestone",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M671 summary and seed-view metrics are summarized",
+    "result is classified as shadow-positive but not closed-loop proof",
+    "actor-coupling admission criteria are specified",
+    "next milestone is design-only or exact-gated, not PPO or promotion"
+  ],
+  "type": "gate"
+}

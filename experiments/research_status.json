@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 680,
+        "completed": 681,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m671-action-boundary-response-amplification-shadow-implementation",
+        "task_id": "m672-response-amplification-shadow-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m671_response_amplification_shadow",
-        "command_log": "docs/m671-action-boundary-response-amplification-shadow-implementation.md"
+        "run_dir": "",
+        "command_log": "docs/m672-response-amplification-shadow-audit.md"
     },
     "next_task": {
-        "id": "m672-response-amplification-shadow-audit",
+        "id": "m673-response-amplification-actor-coupling-design",
         "status": "pending",
-        "priority": 6670,
-        "kind": "gate",
-        "hypothesis": "M671 is a positive representation/action-boundary diagnostic: fused-plus-next-hidden can support source-heldout wrong-history sequence amplification, so a tightly gated actor-coupling design is now admissible while PPO and promotion remain blocked.",
-        "command": "see experiments/manifests/m672-response-amplification-shadow-audit.json",
+        "priority": 6680,
+        "kind": "infrastructure",
+        "hypothesis": "A conservative no-PPO actor-coupling probe can be designed from M671 shadow evidence by using the same human-view actor inputs, exact normal-retention gates, bounded wrong-history sequence targets, and interpolation before replay.",
+        "command": "see experiments/manifests/m673-response-amplification-actor-coupling-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit M671 as shadow-positive but not closed-loop proof; define actor-coupling admission criteria"
+        "notes": "Pending: design exact-gated no-PPO actor-coupling objective; promotion remains blocked"
     },
-    "updated_at_utc": "20260525T013000Z"
+    "updated_at_utc": "20260525T014500Z"
 }

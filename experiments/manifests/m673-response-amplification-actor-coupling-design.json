@@ -1,0 +1,87 @@
+{
+  "id": "m673-response-amplification-actor-coupling-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m671_response_amplification_shadow/shadow_corpus.npz",
+      "runs/m671_response_amplification_shadow/shadow_metadata.csv",
+      "runs/m671_response_amplification_shadow/summary.json",
+      "docs/m672-response-amplification-shadow-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m672-response-amplification-shadow-audit.json"
+    ],
+    "parent_objective": [
+      "design conservative actor-coupling probe from positive shadow evidence"
+    ],
+    "derived_from": [
+      "m672-response-amplification-shadow-audit"
+    ],
+    "blocked_by": [
+      "m672-response-amplification-shadow-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m673-response-amplification-actor-coupling-design.md",
+  "public_gates": [
+    "design uses M671 shadow corpus and metrics",
+    "no PPO in first actor-coupling probe",
+    "normal-retention constraints are first-class",
+    "wrong-history sequence amplification is bounded",
+    "exact objective gate precedes replay gates",
+    "promotion remains forbidden"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run training in this design milestone",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor observation inputs",
+    "do not use privileged hidden parameters or labels as actor inputs",
+    "do not skip exact source-heldout metrics"
+  ],
+  "hypothesis": "A conservative no-PPO actor-coupling probe can be designed from M671 shadow evidence by using the same human-view actor inputs, exact normal-retention gates, bounded wrong-history sequence targets, and interpolation before replay.",
+  "success_criteria": [
+    "actor-coupling objective is specified",
+    "exact metrics and pass/fail thresholds are specified",
+    "trust-region and interpolation rules are specified",
+    "implementation milestone is pre-registered",
+    "PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "design changes actor input contract",
+    "design admits PPO before exact actor-coupling probe",
+    "design lacks normal-retention gates",
+    "design treats M671 shadow result as closed-loop proof"
+  ],
+  "commands": [
+    {
+      "name": "write_design",
+      "command": "write docs/m673-response-amplification-actor-coupling-design.md; no training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m673-response-amplification-actor-coupling-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m671_response_amplification_shadow/summary.json",
+    "docs/m672-response-amplification-shadow-audit.md"
+  ],
+  "decision_rule": "M673 passes if it defines a conservative exact-gated actor-coupling implementation path without PPO, promotion, or actor-input changes.",
+  "next_blocker": "m674-response-amplification-actor-coupling-implementation"
+}
