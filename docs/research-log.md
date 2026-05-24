@@ -10666,3 +10666,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M504 runs the action-sensitive selector on the M503 combined surface. It scores `22786` valid decision-offset rows, with `1042` passing first-action threshold and `523` passing trajectory threshold. The targeted surface has `195` rows across `6` seeds, `3` labels, `3` targets, `2` configs, and `4` offsets, with trajectory mean `0.224056` and p90 `0.348210`. Source shares are acceptable, but terminal-boundary coverage fails: only `4` targeted rows have normal margin `<= 0.50`, only `6` have normal margin `<= 1.00`, and targeted count is below the `240` admission threshold.
 - decision: `reject_outcome_gate_admission`
 - next: `m505-terminal-boundary-alignment-redesign`
+## 20260524T012000Z - m505-terminal-boundary-alignment-redesign
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m505-terminal-boundary-alignment-redesign.md`
+- result: M505 audits the full M504 candidate table and finds the selector order is wrong. Low-margin rows are source-diverse: `normal_margin <= 0.50` has `250` rows across `6` seeds, `2` labels, `3` targets, and `2` configs; `normal_margin <= 1.00` has `591` rows. The issue is that their wrong-history action perturbations are smaller than M500 thresholds. With soft action thresholds (`first_action >= 0.04`, `trajectory_mean >= 0.04`, or `trajectory_max >= 0.08`), M504 contains `65` rows at margin `<= 0.50`, `216` rows at margin `<= 1.00`, and `494` rows at margin `<= 2.00`.
+- decision: `admit_m506_terminal_boundary_aware_selector`
+- next: `m506-terminal-boundary-aware-selector`

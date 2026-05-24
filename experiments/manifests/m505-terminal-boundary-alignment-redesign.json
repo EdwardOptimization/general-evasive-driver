@@ -2,7 +2,7 @@
   "id": "m505-terminal-boundary-alignment-redesign",
   "type": "infrastructure",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -85,5 +85,16 @@
     "runs/m504_boundary_action_sensitive_targeted_pair_triage/summary.json"
   ],
   "decision_rule": "M505 should admit implementation only if the next task explicitly aligns terminal-boundary sensitivity with wrong-history action sensitivity before outcome testing.",
-  "next_blocker": "pending M505 terminal-boundary alignment redesign"
+  "next_blocker": "M506 should implement and run a terminal-boundary-aware selector over the M504 candidate table.",
+  "results": {
+    "artifact": "docs/m505-terminal-boundary-alignment-redesign.md",
+    "m504_candidates_csv": "runs/m504_boundary_action_sensitive_targeted_pair_triage/action_sensitive_candidates.csv",
+    "terminal_boundary_rows_margin_le_0_50": 250,
+    "terminal_boundary_rows_margin_le_1_00": 591,
+    "soft_action_rows_margin_le_0_50": 65,
+    "soft_action_rows_margin_le_1_00": 216,
+    "soft_action_rows_margin_le_2_00": 494,
+    "selected_next_path": "terminal_boundary_aware_selector",
+    "next_task": "m506-terminal-boundary-aware-selector"
+  }
 }

@@ -47,12 +47,12 @@ runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
 
 Status: M400 promotes M399 alpha `0.05` as the current public-gate base after
 six public replay surfaces and behavior seeds pass. This remains the latest
-public-gate base; M487-M504 did not train or promote a checkpoint.
+public-gate base; M487-M505 did not train or promote a checkpoint.
 
 Current blocker:
 
 ```text
-m505-terminal-boundary-alignment-redesign
+m506-terminal-boundary-aware-selector
 ```
 
 Recent progress: M486-M492 is now closed as an artificial tail-forcing
@@ -129,9 +129,14 @@ shares, but rejects outcome-gate admission: only `195` targeted rows are found,
 only `4` have normal margin `<= 0.50`, and only `6` have normal margin
 `<= 1.00`.
 
-Next step: M505 should redesign around terminal-boundary alignment: start from
-low-clearance normal-history states, then test whether wrong-history action
-sensitivity matters there. It should not train or promote a checkpoint.
+M505 audits the full M504 candidate table and finds that low-margin rows are
+source-diverse, but their wrong-history action perturbations are smaller than
+the M500 thresholds. With softer action thresholds, there are `65` rows at
+normal margin `<= 0.50`, `216` at `<= 1.00`, and `494` at `<= 2.00`.
+
+Next step: M506 should select terminal-boundary rows first, then apply softer
+wrong-history action thresholds before any outcome gate. It should not train or
+promote a checkpoint.
 
 ## Current Evidence
 
