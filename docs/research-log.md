@@ -11962,3 +11962,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M648 designs an early-stopped multi-seed frozen-head repeat after the M646/M647 overfit caveat. M649 should run seeds `6460`, `6461`, and `6462`, cap training at `240` epochs, save both final and best-validation head checkpoints, preserve actor checksum gates, and report source/target/wrong-history summaries. The repeat passes only if at least `2/3` seeds reach train improvement `>= 30%`, validation improvement `>= 50%`, best validation MSE `<= 0.00075`, final-vs-best validation ratio `<= 3.0`, and no actor checkpoint is written. Actor coupling and promotion remain blocked.
 - decision: `bc_v2_head_only_repeat_design_admit_m649`
 - next: `m649-bc-v2-head-only-repeat-implementation`
+## 20260524T201000Z - m649-bc-v2-head-only-repeat-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m649_bc_v2_head_only_repeat`
+- artifact: `docs/m649-bc-v2-head-only-repeat-implementation.md`
+- result: M649 implements and runs the three-seed best-validation frozen-head repeat. Seeds `6460`, `6461`, and `6462` all pass: best validation MSE is `0.000486`, `0.000458`, and `0.000502`, with validation improvements `94.34%`, `96.18%`, and `93.07%`; final-vs-best validation ratios are `1.60`, `1.19`, and `2.28`. Actor checksum is unchanged, all best/final head checkpoints are written, and no actor checkpoint is written. The important limitation is wrong-history separation: sources `30` and `32` show normal/variant prediction gaps only around `0.0005-0.0007`, so the repeat proves frozen-feature correction learnability but not self-ID separation. Audit is required before any actor coupling.
+- decision: `bc_v2_head_only_repeat_pass_admit_audit`
+- next: `m650-bc-v2-head-only-repeat-audit`

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 657,
+        "completed": 658,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m648-bc-v2-head-only-repeat-design",
+        "task_id": "m649-bc-v2-head-only-repeat-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m648-bc-v2-head-only-repeat-design.md"
+        "run_dir": "runs/m649_bc_v2_head_only_repeat",
+        "command_log": "docs/m649-bc-v2-head-only-repeat-implementation.md"
     },
     "next_task": {
-        "id": "m649-bc-v2-head-only-repeat-implementation",
+        "id": "m650-bc-v2-head-only-repeat-audit",
         "status": "pending",
-        "priority": 6440,
-        "kind": "infrastructure",
-        "hypothesis": "A three-seed best-validation frozen-head repeat will reproduce the M646 sequence-delta learnability result while controlling final-epoch overfit.",
-        "command": "see experiments/manifests/m649-bc-v2-head-only-repeat-implementation.json",
+        "priority": 6450,
+        "kind": "gate",
+        "hypothesis": "M649 repeats source-balanced frozen-feature learnability, but wrong-history source gaps must be audited before deciding whether actor coupling is appropriate.",
+        "command": "see experiments/manifests/m650-bc-v2-head-only-repeat-audit.json",
         "success_artifact": "",
-        "notes": "Pending: implement three-seed best-validation frozen-head repeat; no PPO promotion or actor update"
+        "notes": "Pending: audit positive head-only repeat and negative wrong-history separation; no training PPO promotion or actor update"
     },
-    "updated_at_utc": "20260524T200000Z"
+    "updated_at_utc": "20260524T201000Z"
 }

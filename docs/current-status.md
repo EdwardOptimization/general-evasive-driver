@@ -62,16 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m649-bc-v2-head-only-repeat-implementation
+m650-bc-v2-head-only-repeat-audit
 ```
 
-M649 should implement the early-stopped multi-seed frozen-head repeat. It must
-run seeds `6460`, `6461`, and `6462`, save best-validation and final head
-checkpoints, preserve actor checksum gates, write source/target/wrong-history
-summaries, and keep actor coupling blocked.
+M650 should audit the M649 repeat before any adapter or actor-coupling design.
+It must separate the positive 3/3 head-only learnability repeat from the
+negative wrong-history separation evidence, and choose the next branch
+explicitly.
 
 ## Recent Evidence Line
 
+- M649 implements the early-stopped multi-seed frozen-head repeat. All three
+  seeds pass best-validation thresholds, all best/final head checkpoints are
+  written, and actor checksum remains unchanged. Best validation MSE is
+  `0.000486`, `0.000458`, and `0.000502` for seeds `6460`, `6461`, and `6462`.
+  The limitation is wrong-history separation: sources `30` and `32` have
+  normal/variant prediction gaps only about `0.0005-0.0007`, so actor coupling
+  remains blocked pending M650 audit.
 - M648 designs the early-stopped multi-seed head-only repeat. The next run
   should use seeds `6460`, `6461`, and `6462`, save best-validation heads, use
   a lower `240` epoch cap, and require at least `2/3` seeds to reach train

@@ -1,0 +1,85 @@
+{
+  "id": "m650-bc-v2-head-only-repeat-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m649_bc_v2_head_only_repeat/summary.json",
+      "runs/m649_bc_v2_head_only_repeat/seed_summary.csv",
+      "runs/m649_bc_v2_head_only_repeat/wrong_history_source_summary.csv",
+      "docs/m649-bc-v2-head-only-repeat-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m649-bc-v2-head-only-repeat-implementation.json"
+    ],
+    "parent_objective": [
+      "audit multi-seed frozen-head repeat before adapter or actor-coupling design"
+    ],
+    "derived_from": [
+      "m649-bc-v2-head-only-repeat-implementation"
+    ],
+    "blocked_by": [
+      "m649-bc-v2-head-only-repeat-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m650-bc-v2-head-only-repeat-audit.md",
+  "public_gates": [
+    "audit 3/3 seed repeat pass",
+    "audit best-validation overfit control",
+    "audit wrong-history source separation",
+    "confirm actor checksum remained unchanged",
+    "decide whether next branch is wrong-history contrast design or adapter design"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not treat head-only repeat as closed-loop driver improvement",
+    "do not admit actor coupling if wrong-history separation remains weak"
+  ],
+  "hypothesis": "M649 repeats source-balanced frozen-feature learnability, but wrong-history source gaps must be audited before deciding whether actor coupling is appropriate.",
+  "success_criteria": [
+    "audit classifies M649 as pass fail or pass-with-limitation",
+    "audit records wrong-history gap evidence",
+    "audit confirms no actor checkpoint and unchanged checksum",
+    "audit chooses next blocker explicitly",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "audit ignores wrong-history source gap collapse",
+    "audit treats head-only repeat as promotion evidence",
+    "audit admits actor coupling without exact self-ID gate",
+    "audit omits seed-level repeat result"
+  ],
+  "commands": [
+    {
+      "name": "audit_doc",
+      "command": "write docs/m650-bc-v2-head-only-repeat-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m650-bc-v2-head-only-repeat-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m649_bc_v2_head_only_repeat/summary.json",
+    "runs/m649_bc_v2_head_only_repeat/wrong_history_source_summary.csv"
+  ],
+  "decision_rule": "M650 passes as audit only if it separates the positive learnability repeat from the negative wrong-history separation evidence.",
+  "next_blocker": "m651-bc-v2-wrong-history-contrast-design"
+}
