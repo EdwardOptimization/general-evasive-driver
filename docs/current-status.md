@@ -62,17 +62,24 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m683-normal-sequence-safe-response-amplification-implementation
+m684-normal-sequence-safe-response-amplification-audit
 ```
 
-M683 should implement the normal-sequence-safe branch-specific exact probe
-designed in M682. It should add normal sequence mean/top-k retention losses to
-the existing branch-specific detached-normal wrong-history pressure path and
-run the frozen-base alpha ladder. PPO, promotion, actor-input changes, and
+M684 should audit M683's clean negative result. M683 improved normal
+full-sequence retention but suppressed wrong-history gap below exact thresholds,
+so the next decision is whether this remains scalar-loss tuning or requires a
+split/gated wrong-amplifier structure. PPO, promotion, actor-input changes, and
 normal gate weakening remain blocked.
 
 ## Recent Evidence Line
 
+- M683 implements normal-sequence-safe branch-specific response amplification.
+  It is implementation-clean: `648` rows, `216` sources, `3` residual heads,
+  actor checksum unchanged, no base actor checkpoint, no PPO, and no promotion.
+  It improves normal retention versus M680 (`alpha=1.0` best normal mean
+  `0.002769` versus `0.003753`) but suppresses wrong-history gap (`alpha=1.0`
+  best gap mean `0.008320`, ratio `2.895718`, wrong-target improvement
+  `0.438964`), so no seed/alpha passes.
 - M682 designs normal-sequence-safe branch-specific response amplification. It
   preserves M680's detached-normal wrong-history pressure and adds full
   normal-sequence mean/top-k retention losses with initial thresholds `0.0020`

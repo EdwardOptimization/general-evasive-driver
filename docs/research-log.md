@@ -12268,3 +12268,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M682 designs normal-sequence-safe branch-specific response amplification after M680 restored wrong-history gap but failed normal sequence retention. The design keeps frozen BC5660, fused-plus-next-hidden features, first-residual execution, branch-specific detached-normal wrong-history pressure, hard low-gap rows, alpha ladder, exact gates, no PPO, no promotion, and no actor-input changes. It adds full normal-sequence mean hinge and top-k/p95 hinge with initial thresholds `0.0020` mean and `0.0045` top-k.
 - decision: `normal_sequence_safe_response_amplification_design_admit_m683`
 - next: `m683-normal-sequence-safe-response-amplification-implementation`
+## 20260525T043000Z - m683-normal-sequence-safe-response-amplification-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m683_normal_sequence_safe_response_amplification`
+- artifact: `docs/m683-normal-sequence-safe-response-amplification-implementation.md`
+- result: M683 implements and runs the normal-sequence-safe branch-specific response-amplification probe. The implementation is clean: `648` rows, `216` sources, `3` residual heads written, actor checksum unchanged, no base actor checkpoint, no PPO, no promotion. Exact gate still fails with `0` passed seeds. Normal retention improves versus M680 (`alpha=1.0` best normal mean `0.002769` versus M680 best `0.003753`), but wrong-history gap is suppressed (`alpha=1.0` best gap mean `0.008320`, ratio `2.895718`, wrong-target improvement `0.438964`, all below exact thresholds).
+- decision: `normal_sequence_safe_response_amplification_exact_gate_failed_admit_audit`
+- next: `m684-normal-sequence-safe-response-amplification-audit`

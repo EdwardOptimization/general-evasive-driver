@@ -1,0 +1,83 @@
+{
+  "id": "m684-normal-sequence-safe-response-amplification-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m683_normal_sequence_safe_response_amplification/summary.json",
+      "runs/m683_normal_sequence_safe_response_amplification/alpha_summary.csv",
+      "docs/m683-normal-sequence-safe-response-amplification-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m683-normal-sequence-safe-response-amplification-implementation.json"
+    ],
+    "parent_objective": [
+      "audit normal-sequence-safe response-amplification exact gate failure"
+    ],
+    "derived_from": [
+      "m683-normal-sequence-safe-response-amplification-implementation"
+    ],
+    "blocked_by": [
+      "m683-normal-sequence-safe-response-amplification-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m684-normal-sequence-safe-response-amplification-audit.md",
+  "public_gates": [
+    "M683 implementation cleanliness is checked",
+    "normal sequence retention improvement is quantified",
+    "wrong-history gap suppression is quantified",
+    "PPO and promotion remain blocked",
+    "next design decides scalar retuning versus split/gated structure"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun training",
+    "do not admit PPO",
+    "do not promote a checkpoint",
+    "do not weaken normal retention gates",
+    "do not change actor input contract"
+  ],
+  "hypothesis": "M683 improved normal full-sequence retention but suppressed wrong-history gap; the audit should determine whether the single residual head is still a scalar-loss tuning problem or should be replaced by a split/gated wrong-amplifier design.",
+  "success_criteria": [
+    "M683 is classified from exact alpha evidence",
+    "audit distinguishes normal-retention improvement from wrong-gap suppression",
+    "next design target is specified",
+    "PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "audit ignores wrong-gap regression",
+    "audit treats M683 as a reason to weaken exact gates",
+    "audit admits PPO or promotion",
+    "audit changes actor observation inputs"
+  ],
+  "commands": [
+    {
+      "name": "write_audit",
+      "command": "write docs/m684-normal-sequence-safe-response-amplification-audit.md from M683 artifacts; no training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m684-normal-sequence-safe-response-amplification-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m683_normal_sequence_safe_response_amplification/summary.json",
+    "runs/m683_normal_sequence_safe_response_amplification/alpha_summary.csv"
+  ],
+  "decision_rule": "M684 passes if it classifies M683 as normal-sequence improved but wrong-gap suppressed and admits only a targeted next design, not PPO, promotion, gate weakening, or input changes.",
+  "next_blocker": "m685-split-gated-response-amplification-design"
+}

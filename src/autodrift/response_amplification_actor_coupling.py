@@ -89,6 +89,40 @@ def _normal_first_topk_hinge(
     return torch.topk(hinge, k=k, largest=True).values.mean()
 
 
+def _row_sequence_l2(prediction: torch.Tensor, mask: torch.Tensor) -> torch.Tensor:
+    step_l2 = torch.linalg.norm(prediction, dim=2) * mask
+    valid = torch.clamp(mask.sum(dim=1), min=1.0)
+    return step_l2.sum(dim=1) / valid
+
+
+def _normal_sequence_mean_hinge(
+    prediction_normal: torch.Tensor,
+    mask: torch.Tensor,
+    weight: torch.Tensor,
+    *,
+    threshold: float,
+) -> torch.Tensor:
+    row_l2 = _row_sequence_l2(prediction_normal, mask)
+    per_row = torch.square(torch.relu(row_l2 - float(threshold)))
+    return _weighted_mean(per_row, weight)
+
+
+def _normal_sequence_topk_hinge(
+    prediction_normal: torch.Tensor,
+    mask: torch.Tensor,
+    *,
+    threshold: float,
+    fraction: float,
+) -> torch.Tensor:
+    row_l2 = _row_sequence_l2(prediction_normal, mask)
+    hinge = torch.square(torch.relu(row_l2 - float(threshold)))
+    if hinge.numel() == 0:
+        return torch.zeros((), dtype=prediction_normal.dtype, device=prediction_normal.device)
+    k = max(1, int(np.ceil(float(fraction) * int(hinge.numel()))))
+    k = min(k, int(hinge.numel()))
+    return torch.topk(hinge, k=k, largest=True).values.mean()
+
+
 def _wrong_first_gap_hinge(
     prediction_normal: torch.Tensor,
     prediction_wrong: torch.Tensor,
@@ -163,6 +197,11 @@ def _coupling_loss_components(
     wrong_target_coef: float,
     gap_margin_coef: float,
     smoothness_coef: float,
+    normal_sequence_mean_coef: float,
+    normal_sequence_mean_threshold: float,
+    normal_sequence_topk_coef: float,
+    normal_sequence_topk_threshold: float,
+    normal_sequence_topk_fraction: float,
     normal_first_coef: float,
     normal_first_topk_coef: float,
     normal_first_threshold: float,
@@ -193,6 +232,18 @@ def _coupling_loss_components(
     wrong_target = batch["target_delta_wrong"].index_select(0, index_t)
     smoothness = 0.5 * (
         _sequence_smoothness(pred_normal, mask, weight) + _sequence_smoothness(pred_wrong, mask, weight)
+    )
+    normal_sequence_mean = _normal_sequence_mean_hinge(
+        pred_normal,
+        mask,
+        weight,
+        threshold=normal_sequence_mean_threshold,
+    )
+    normal_sequence_topk = _normal_sequence_topk_hinge(
+        pred_normal,
+        mask,
+        threshold=normal_sequence_topk_threshold,
+        fraction=normal_sequence_topk_fraction,
     )
     normal_first = _normal_first_mse(pred_normal, weight)
     normal_topk = _normal_first_topk_hinge(
@@ -227,6 +278,8 @@ def _coupling_loss_components(
         0,
     )
     losses["sequence_smoothness_mse"] = smoothness
+    losses["normal_sequence_mean_hinge"] = normal_sequence_mean
+    losses["normal_sequence_topk_hinge"] = normal_sequence_topk
     losses["normal_first_mse"] = normal_first
     losses["normal_first_topk_hinge"] = normal_topk
     losses["wrong_first_gap_hinge"] = wrong_first_gap
@@ -236,6 +289,8 @@ def _coupling_loss_components(
     losses["total_loss"] = (
         losses["total_loss"]
         + float(smoothness_coef) * smoothness
+        + float(normal_sequence_mean_coef) * normal_sequence_mean
+        + float(normal_sequence_topk_coef) * normal_sequence_topk
         + float(normal_first_coef) * normal_first
         + float(normal_first_topk_coef) * normal_topk
         + float(wrong_first_gap_coef) * wrong_first_gap
@@ -339,6 +394,11 @@ def train_actor_coupling_seed(
     wrong_target_coef: float,
     gap_margin_coef: float,
     smoothness_coef: float,
+    normal_sequence_mean_coef: float = 0.0,
+    normal_sequence_mean_threshold: float = 0.002,
+    normal_sequence_topk_coef: float = 0.0,
+    normal_sequence_topk_threshold: float = 0.0045,
+    normal_sequence_topk_fraction: float = 0.10,
     normal_first_coef: float = 0.0,
     normal_first_topk_coef: float = 0.0,
     normal_first_threshold: float = 0.004,
@@ -380,6 +440,11 @@ def train_actor_coupling_seed(
                     wrong_target_coef=wrong_target_coef,
                     gap_margin_coef=gap_margin_coef,
                     smoothness_coef=smoothness_coef,
+                    normal_sequence_mean_coef=normal_sequence_mean_coef,
+                    normal_sequence_mean_threshold=normal_sequence_mean_threshold,
+                    normal_sequence_topk_coef=normal_sequence_topk_coef,
+                    normal_sequence_topk_threshold=normal_sequence_topk_threshold,
+                    normal_sequence_topk_fraction=normal_sequence_topk_fraction,
                     normal_first_coef=normal_first_coef,
                     normal_first_topk_coef=normal_first_topk_coef,
                     normal_first_threshold=normal_first_threshold,
@@ -411,6 +476,11 @@ def train_actor_coupling_seed(
             wrong_target_coef=wrong_target_coef,
             gap_margin_coef=gap_margin_coef,
             smoothness_coef=smoothness_coef,
+            normal_sequence_mean_coef=normal_sequence_mean_coef,
+            normal_sequence_mean_threshold=normal_sequence_mean_threshold,
+            normal_sequence_topk_coef=normal_sequence_topk_coef,
+            normal_sequence_topk_threshold=normal_sequence_topk_threshold,
+            normal_sequence_topk_fraction=normal_sequence_topk_fraction,
             normal_first_coef=normal_first_coef,
             normal_first_topk_coef=normal_first_topk_coef,
             normal_first_threshold=normal_first_threshold,
@@ -448,6 +518,11 @@ def train_actor_coupling_seed(
         "wrong_target_coef": float(wrong_target_coef),
         "gap_margin_coef": float(gap_margin_coef),
         "smoothness_coef": float(smoothness_coef),
+        "normal_sequence_mean_coef": float(normal_sequence_mean_coef),
+        "normal_sequence_mean_threshold": float(normal_sequence_mean_threshold),
+        "normal_sequence_topk_coef": float(normal_sequence_topk_coef),
+        "normal_sequence_topk_threshold": float(normal_sequence_topk_threshold),
+        "normal_sequence_topk_fraction": float(normal_sequence_topk_fraction),
         "normal_first_coef": float(normal_first_coef),
         "normal_first_topk_coef": float(normal_first_topk_coef),
         "normal_first_threshold": float(normal_first_threshold),
@@ -491,6 +566,11 @@ def run_response_amplification_actor_coupling(
     wrong_target_coef: float,
     gap_margin_coef: float,
     smoothness_coef: float,
+    normal_sequence_mean_coef: float,
+    normal_sequence_mean_threshold: float,
+    normal_sequence_topk_coef: float,
+    normal_sequence_topk_threshold: float,
+    normal_sequence_topk_fraction: float,
     normal_first_coef: float,
     normal_first_topk_coef: float,
     normal_first_threshold: float,
@@ -552,6 +632,11 @@ def run_response_amplification_actor_coupling(
             wrong_target_coef=wrong_target_coef,
             gap_margin_coef=gap_margin_coef,
             smoothness_coef=smoothness_coef,
+            normal_sequence_mean_coef=normal_sequence_mean_coef,
+            normal_sequence_mean_threshold=normal_sequence_mean_threshold,
+            normal_sequence_topk_coef=normal_sequence_topk_coef,
+            normal_sequence_topk_threshold=normal_sequence_topk_threshold,
+            normal_sequence_topk_fraction=normal_sequence_topk_fraction,
             normal_first_coef=normal_first_coef,
             normal_first_topk_coef=normal_first_topk_coef,
             normal_first_threshold=normal_first_threshold,
@@ -614,6 +699,11 @@ def run_response_amplification_actor_coupling(
         "wrong_target_coef": float(wrong_target_coef),
         "gap_margin_coef": float(gap_margin_coef),
         "smoothness_coef": float(smoothness_coef),
+        "normal_sequence_mean_coef": float(normal_sequence_mean_coef),
+        "normal_sequence_mean_threshold": float(normal_sequence_mean_threshold),
+        "normal_sequence_topk_coef": float(normal_sequence_topk_coef),
+        "normal_sequence_topk_threshold": float(normal_sequence_topk_threshold),
+        "normal_sequence_topk_fraction": float(normal_sequence_topk_fraction),
         "normal_first_coef": float(normal_first_coef),
         "normal_first_topk_coef": float(normal_first_topk_coef),
         "normal_first_threshold": float(normal_first_threshold),
@@ -663,6 +753,11 @@ def main() -> None:
     parser.add_argument("--wrong-target-coef", type=float, default=1.0)
     parser.add_argument("--gap-margin-coef", type=float, default=0.25)
     parser.add_argument("--smoothness-coef", type=float, default=0.05)
+    parser.add_argument("--normal-sequence-mean-coef", type=float, default=0.0)
+    parser.add_argument("--normal-sequence-mean-threshold", type=float, default=0.002)
+    parser.add_argument("--normal-sequence-topk-coef", type=float, default=0.0)
+    parser.add_argument("--normal-sequence-topk-threshold", type=float, default=0.0045)
+    parser.add_argument("--normal-sequence-topk-fraction", type=float, default=0.10)
     parser.add_argument("--normal-first-coef", type=float, default=0.0)
     parser.add_argument("--normal-first-topk-coef", type=float, default=0.0)
     parser.add_argument("--normal-first-threshold", type=float, default=0.004)
@@ -694,6 +789,11 @@ def main() -> None:
         wrong_target_coef=args.wrong_target_coef,
         gap_margin_coef=args.gap_margin_coef,
         smoothness_coef=args.smoothness_coef,
+        normal_sequence_mean_coef=args.normal_sequence_mean_coef,
+        normal_sequence_mean_threshold=args.normal_sequence_mean_threshold,
+        normal_sequence_topk_coef=args.normal_sequence_topk_coef,
+        normal_sequence_topk_threshold=args.normal_sequence_topk_threshold,
+        normal_sequence_topk_fraction=args.normal_sequence_topk_fraction,
         normal_first_coef=args.normal_first_coef,
         normal_first_topk_coef=args.normal_first_topk_coef,
         normal_first_threshold=args.normal_first_threshold,

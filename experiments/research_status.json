@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 691,
+        "completed": 692,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m682-normal-sequence-safe-response-amplification-design",
+        "task_id": "m683-normal-sequence-safe-response-amplification-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m682-normal-sequence-safe-response-amplification-design.md"
+        "run_dir": "runs/m683_normal_sequence_safe_response_amplification",
+        "command_log": "docs/m683-normal-sequence-safe-response-amplification-implementation.md"
     },
     "next_task": {
-        "id": "m683-normal-sequence-safe-response-amplification-implementation",
+        "id": "m684-normal-sequence-safe-response-amplification-audit",
         "status": "pending",
-        "priority": 6780,
-        "kind": "infrastructure",
-        "hypothesis": "Normal full-sequence mean/top-k retention pressure can preserve M680's branch-specific wrong-history gap while satisfying exact normal sequence retention and first-step safety gates.",
-        "command": "see experiments/manifests/m683-normal-sequence-safe-response-amplification-implementation.json",
+        "priority": 6790,
+        "kind": "gate",
+        "hypothesis": "M683 improved normal full-sequence retention but suppressed wrong-history gap; the audit should determine whether the single residual head is still a scalar-loss tuning problem or should be replaced by a split/gated wrong-amplifier design.",
+        "command": "see experiments/manifests/m684-normal-sequence-safe-response-amplification-audit.json",
         "success_artifact": "",
-        "notes": "Pending: implement normal-sequence-safe exact probe; PPO promotion and actor-input changes remain blocked"
+        "notes": "Pending: audit M683; PPO promotion and actor-input changes remain blocked"
     },
-    "updated_at_utc": "20260525T041500Z"
+    "updated_at_utc": "20260525T043000Z"
 }
