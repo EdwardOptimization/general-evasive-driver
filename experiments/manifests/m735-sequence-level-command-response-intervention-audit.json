@@ -1,0 +1,108 @@
+{
+  "id": "m735-sequence-level-command-response-intervention-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m734-sequence-level-command-response-intervention-implementation.md",
+      "runs/m734_sequence_command_response_intervention/summary.json",
+      "runs/m734_sequence_command_response_intervention/intervention_rollouts.csv",
+      "runs/m734_sequence_command_response_intervention/sequence_critical_rows.csv",
+      "runs/m734_sequence_command_response_intervention/sentinel_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m734-sequence-level-command-response-intervention-implementation.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit positive sequence-level command-response intervention result before corpus export or objective design"
+    ],
+    "derived_from": [
+      "m734-sequence-level-command-response-intervention-implementation"
+    ],
+    "blocked_by": [
+      "m734-sequence-level-command-response-intervention-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m735-sequence-level-command-response-intervention-audit.md",
+  "public_gates": [
+    "M734 source-balance and outcome gates are audited",
+    "sentinel false positives are inspected",
+    "variant and horizon effects are summarized separately",
+    "next branch decision compares repeat validation corpus export and objective design",
+    "actor update PPO and promotion remain blocked unless separately designed"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat M734 as a trained driver improvement",
+    "do not skip audit before source export or objective design",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor input contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "sequence_level_command_response_intervention",
+    "evidence_axis": "G_sequence_outcome: audit positive sequence-level diagnostic",
+    "evidence_increment": "synthesizes M734 sequence_outcome_positive result and chooses next branch",
+    "claim_scope": "process synthesis only; no checkpoint promotion or deployed self-ID claim",
+    "stop_condition": [
+      "stop direct PPO because M734 is diagnostic only",
+      "stop source export if sentinel false positives or source concentration invalidate rows",
+      "stop overclaiming because actor parameters were unchanged",
+      "stop before objective design if repeat or holdout validation is needed"
+    ],
+    "fallback_plan": [
+      "if M734 positive rows are clean, design compact corpus export or sequence-preference objective",
+      "if sentinel false positives are problematic, design stricter sentinel-filtered rerun",
+      "if source concentration appears, design repeat validation with refreshed source selection"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M734 result_class=sequence_outcome_positive",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M734's positive sequence-level result should be audited before converting it into a corpus or training objective.",
+  "success_criteria": [
+    "M734 result metrics are recorded",
+    "supported and falsified claims are recorded",
+    "sentinel false positives are assessed",
+    "public gate overfit risk is recorded",
+    "next branch decision is explicit",
+    "actor update PPO and promotion remain blocked unless later designed"
+  ],
+  "failure_criteria": [
+    "audit treats M734 as trained policy improvement",
+    "audit ignores sentinel false positives",
+    "audit admits PPO or promotion directly",
+    "audit changes actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m735-sequence-level-command-response-intervention-audit.md from M734 artifacts; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m735-sequence-level-command-response-intervention-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m734_sequence_command_response_intervention/summary.json",
+    "docs/m734-sequence-level-command-response-intervention-implementation.md"
+  ],
+  "decision_rule": "M735 must decide whether to design repeat validation compact corpus export sequence-preference objective or stricter sentinel-filtered rerun. It must not admit PPO or promotion directly.",
+  "next_blocker": "m736-sequence-outcome-positive-next-branch-design"
+}

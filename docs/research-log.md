@@ -12640,3 +12640,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M733 designs a no-training sequence-level command-response intervention runner. The design starts from M731 source rows and persists command/response/history corruptions over horizons `2,4,6,8` rather than changing only the initial hidden state or first action. It registers source-balance, sentinel, action, and outcome gates; actor inputs and parameters remain unchanged; source export, actor update, PPO, and promotion remain blocked.
 - decision: `sequence_level_intervention_design_admit_m734`
 - next: `m734-sequence-level-command-response-intervention-implementation`
+
+## 20260525T010000Z - m734-sequence-level-command-response-intervention-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m734_sequence_command_response_intervention`
+- artifact: `docs/m734-sequence-level-command-response-intervention-implementation.md`
+- result: M734 implements and runs the no-training sequence-level command-response intervention wave. It selects `512` source rows across `236` seeds, `8` preferred fault families, and `30` fault-family pairs. Result class is `sequence_outcome_positive`: `5262` sequence action-critical rows and `73` sequence outcome-critical rows across `28` seeds and `10` fault-family pairs. Outcome rows are dominated by `zero_command_obs` (`67`) and appear only at horizons `4`, `6`, and `8`, with the strongest count at `8`. Sentinel false-positive rate is `0.002451`; actor checksum is unchanged; no training, PPO, or promotion occurs.
+- decision: `sequence_outcome_positive_admit_audit`
+- next: `m735-sequence-level-command-response-intervention-audit`
