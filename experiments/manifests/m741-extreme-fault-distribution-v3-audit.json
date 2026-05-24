@@ -69,7 +69,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M740 result_class=cross_fault_reset_only",
-    "synthesis_decision": "not_applicable",
+    "synthesis_decision": "promote_to_next_branch",
     "synthesis_artifact": "docs/m741-extreme-fault-distribution-v3-audit.md",
     "synthesis_questions": [
       "evidence_summary",
@@ -115,5 +115,5 @@
     "docs/m740-extreme-fault-distribution-v3-implementation.md"
   ],
   "decision_rule": "M741 must decide whether the next branch is v3 sequence-level intervention source-balanced resampling or simulator-fidelity design. It must not admit PPO or checkpoint promotion directly.",
-  "next_blocker": "m742-next-branch-pending"
+  "next_blocker": "m742-v3-reset-source-sequence-intervention-design"
 }

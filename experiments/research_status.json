@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 749,
+        "completed": 750,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m740-extreme-fault-distribution-v3-implementation",
+        "task_id": "m741-extreme-fault-distribution-v3-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m740-extreme-fault-distribution-v3-implementation.md"
+        "command_log": "docs/m741-extreme-fault-distribution-v3-audit.md"
     },
     "next_task": {
-        "id": "m741-extreme-fault-distribution-v3-audit",
+        "id": "m742-v3-reset-source-sequence-intervention-design",
         "status": "pending",
-        "priority": 7360,
-        "kind": "gate",
-        "hypothesis": "Audit extreme-fault distribution v3",
-        "command": "see experiments/manifests/m741-extreme-fault-distribution-v3-audit.json",
-        "success_artifact": "docs/m741-extreme-fault-distribution-v3-audit.md",
-        "notes": "Pending: audit M740 reset-only result and decide v3 sequence-level intervention versus fidelity branch"
+        "priority": 7370,
+        "kind": "infrastructure",
+        "hypothesis": "Design v3 reset-source sequence interventions",
+        "command": "see experiments/manifests/m742-v3-reset-source-sequence-intervention-design.json",
+        "success_artifact": "docs/m742-v3-reset-source-sequence-intervention-design.md",
+        "notes": "Pending: design source-balanced sequence-level command-response interventions over M740 reset-only rows"
     },
-    "updated_at_utc": "20260525T020000Z"
+    "updated_at_utc": "20260525T021000Z"
 }

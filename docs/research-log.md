@@ -12707,3 +12707,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M740 runs the full no-training v3 extreme-fault data wave. The wave generates `16896` scenarios, `96715` snapshots, and `8192` matched cross-fault pairs with `12` future-only fault labels kept out of current-model evidence. It finds `744` reset-only rows and `744` reset-history action-critical rows, but `0` wrong-history action-critical rows and `0` accepted wrong-history rows. Actor parameters are unchanged and no training/PPO/promotion occurs. Result class is `cross_fault_reset_only`.
 - decision: `cross_fault_reset_only_admit_audit`
 - next: `m741-extreme-fault-distribution-v3-audit`
+
+## 20260525T021000Z - m741-extreme-fault-distribution-v3-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m741-extreme-fault-distribution-v3-audit.md`
+- result: M741 audits M740 as broad clean reset-only evidence. M740's `744` reset rows span `21` seeds, `9` preferred fault families, `8` wrong fault families, and all four severity levels, but still contain `0` wrong-history action-critical rows. The failure class remains `scenario_sampling_failure` plus `metric_artifact` for the cross-fault wrong-history metric. Since M734 previously converted sequence-level command-response interventions into outcome rows, the next branch should run source-balanced sequence-level interventions over M740 reset-only rows before simulator fidelity or PPO.
+- decision: `promote_to_v3_reset_source_sequence_intervention`
+- next: `m742-v3-reset-source-sequence-intervention-design`
