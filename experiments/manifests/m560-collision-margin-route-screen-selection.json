@@ -2,9 +2,10 @@
   "id": "m560-collision-margin-route-screen-selection",
   "type": "gate",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "reject",
   "failure_types": [
-    "none"
+    "training_instability",
+    "promotion_gate_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -63,6 +64,22 @@
     {
       "name": "train_and_route_screen",
       "command": "Train M559 configs, then run autodrift.route_screen_v2 with seed 16560 on all interval/final checkpoints."
+    },
+    {
+      "name": "collision35_terminal4_train",
+      "command": "PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_m559_l3_collision35_terminal4_4096.json --run-dir runs/m560_l3_collision35_terminal4_seed3540"
+    },
+    {
+      "name": "collision35_dense002_train",
+      "command": "PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_m559_l3_collision35_dense002_4096.json --run-dir runs/m560_l3_collision35_dense002_seed3540"
+    },
+    {
+      "name": "collision45_terminal4_train",
+      "command": "PYTHONPATH=src python -m autodrift.train_ppo --config configs/ppo_m559_l3_collision45_terminal4_4096.json --run-dir runs/m560_l3_collision45_terminal4_seed3540"
+    },
+    {
+      "name": "route_screen_v2",
+      "command": "PYTHONPATH=src python -m autodrift.route_screen_v2 --episodes 64 --seed 16560 --device cpu --run-dir runs/m560_collision_margin_route_screen_selection with L0/L2 references and all M560 interval/final checkpoints as candidates"
     }
   ],
   "required_artifacts": [
@@ -82,6 +99,6 @@
   "baseline_artifacts": [
     "docs/m559-targeted-collision-margin-config-family.md"
   ],
-  "decision_rule": "M560 admits public diagnostics only if fresh route-screen v2 seed 16560 selects an L3 candidate that clears L0. It does not promote a checkpoint.",
-  "next_blocker": "pending M560 collision-margin route-screen selection"
+  "decision_rule": "M560 rejects public diagnostics because no collision/margin reward checkpoint clears route-screen v2 against L0 on fresh seed 16560. It does not promote a checkpoint.",
+  "next_blocker": "m561-l2-to-l3-distillation-design"
 }

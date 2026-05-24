@@ -1,0 +1,82 @@
+{
+  "id": "m561-l2-to-l3-distillation-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m542_matched_l2_variance_seed3540/checkpoint.pt",
+      "runs/m560_l3_collision35_terminal4_seed3540/checkpoints/checkpoint_step_3584.pt",
+      "runs/m560_l3_collision35_dense002_seed3540/checkpoints/checkpoint_step_3328.pt"
+    ],
+    "parent_dataset": [
+      "docs/m560-collision-margin-route-screen-selection.md",
+      "runs/m560_collision_margin_route_screen_selection/summary.json"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l2_variance_4096.json",
+      "configs/ppo_m559_l3_collision35_terminal4_4096.json",
+      "configs/ppo_m559_l3_collision35_dense002_4096.json"
+    ],
+    "parent_objective": [
+      "design supervised L2-to-L3 behavior distillation after PPO and reward-shaping L3 branches fail route-screen v2"
+    ],
+    "derived_from": [
+      "m560-collision-margin-route-screen-selection"
+    ],
+    "blocked_by": [
+      "m560-collision-margin-route-screen-selection"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m561-l2-to-l3-distillation-design.md",
+  "public_gates": [
+    "design L2 teacher to L3 recurrent student distillation without actor input changes",
+    "keep teacher signals training-only and out of deployable actor inputs",
+    "rotate route-screen selection seed again before any new checkpoint admission",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not feed L2 stacked observations into the deployable L3 actor",
+    "do not add privileged hidden parameters or oracle labels",
+    "do not select checkpoints from public frozen-source rows",
+    "do not run public diagnostics before route-screen pass"
+  ],
+  "hypothesis": "Because L2 is consistently strong while from-scratch L3 PPO remains contact-prone, an L2-to-L3 behavior distillation design may provide the recurrent branch with a safer policy prior before PPO continuation.",
+  "success_criteria": [
+    "design defines teacher/student observation boundary",
+    "design defines distillation corpus and no-public-row selection discipline",
+    "design defines route-screen pass/fail conditions before implementation",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design leaks L2 finite-window stack into deployable L3 actor inputs",
+    "design uses public frozen-source rows for training or selection",
+    "design skips route-screen v2 before public diagnostics"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "Write L2-to-L3 distillation design; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m561-l2-to-l3-distillation-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m542_matched_l2_variance_seed3540/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m560-collision-margin-route-screen-selection.md"
+  ],
+  "decision_rule": "M561 passes only if it designs L2-to-L3 distillation without actor input leakage or public-row selection. It does not train or promote a checkpoint.",
+  "next_blocker": "pending M561 L2-to-L3 distillation design"
+}

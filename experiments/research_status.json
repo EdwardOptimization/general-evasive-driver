@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 568,
+        "completed": 569,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m559-targeted-collision-margin-config-family",
+        "task_id": "m560-collision-margin-route-screen-selection",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m559-targeted-collision-margin-config-family.md"
+        "run_dir": "runs/m560_collision_margin_route_screen_selection",
+        "command_log": "docs/m560-collision-margin-route-screen-selection.md"
     },
     "next_task": {
-        "id": "m560-collision-margin-route-screen-selection",
+        "id": "m561-l2-to-l3-distillation-design",
         "status": "pending",
-        "priority": 5550,
-        "kind": "gate",
-        "hypothesis": "Targeted collision and clearance-margin reward variants may produce an L3 checkpoint that clears fresh route-screen v2 against L0 without relying on M556 route-screen overfit.",
-        "command": "see experiments/manifests/m560-collision-margin-route-screen-selection.json",
+        "priority": 5560,
+        "kind": "infrastructure",
+        "hypothesis": "Because L2 is consistently strong while from-scratch L3 PPO remains contact-prone, an L2-to-L3 behavior distillation design may provide the recurrent branch with a safer policy prior before PPO continuation.",
+        "command": "see experiments/manifests/m561-l2-to-l3-distillation-design.json",
         "success_artifact": "",
-        "notes": "Pending: train reward-shaping configs and run route-screen v2 on fresh seed before public diagnostics"
+        "notes": "Pending: design distillation without actor input leakage or public-row selection"
     },
-    "updated_at_utc": "20260524T102000Z"
+    "updated_at_utc": "20260524T103000Z"
 }

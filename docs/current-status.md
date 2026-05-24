@@ -61,11 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m560-collision-margin-route-screen-selection
+m561-l2-to-l3-distillation-design
 ```
 
-M560 should train the M559 collision/margin reward configs and run route-screen
-v2 selection on fresh seed `16560`, not M556's diagnostic seed `15560`.
+M561 should design L2 teacher to L3 recurrent student distillation. Repeated
+from-scratch L3 PPO, PPO-stability, and reward-shaping branches remain
+contact-prone under route-screen v2, while L2 is consistently strong.
 
 ## Recent Evidence Line
 
@@ -237,6 +238,10 @@ v2 selection on fresh seed `16560`, not M556's diagnostic seed `15560`.
 - M559 implements those three reward configs and tests. P0 L3 actor inputs and
   M555 `epoch1_clip01` PPO controls are unchanged; only M558-approved obstacle
   reward fields differ.
+- M560 trains the reward configs and evaluates `51` L3 candidates on fresh
+  route-screen seed `16560`. No candidate is admitted. All candidates pass L0
+  binary success, but all fail L0 margin and collision tolerance, so public
+  frozen-source diagnostics remain blocked.
 
 ## Near-Term Rule
 

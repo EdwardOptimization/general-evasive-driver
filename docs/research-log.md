@@ -11161,3 +11161,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M559 implements the three M558 reward variants: `collision35_terminal4`, `collision35_dense002`, and `collision45_terminal4`. Tests verify the P0 L3 actor contract and M555 `epoch1_clip01` PPO controls are unchanged, and only M558-approved obstacle reward fields differ.
 - decision: `collision_margin_config_family_pass_admit_m560_route_screen_selection`
 - next: `m560-collision-margin-route-screen-selection`
+## 20260524T103000Z - m560-collision-margin-route-screen-selection
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m560_collision_margin_route_screen_selection`
+- artifact: `docs/m560-collision-margin-route-screen-selection.md`
+- result: M560 trains the three M559 collision/margin reward configs and evaluates `51` interval/final L3 candidates on fresh route-screen seed `16560`. No candidate is admitted. All `51/51` candidates pass L0 binary success, but `0/51` pass L0 margin and `0/51` pass collision tolerance. Best candidates have success `0.125`, collision `0.875`, and margins around `0.011`-`0.013`, below L0 margin `0.080347` and above L0 collision `0.796875`.
+- decision: `collision_margin_route_screen_reject_admit_l2_to_l3_distillation_design`
+- next: `m561-l2-to-l3-distillation-design`
