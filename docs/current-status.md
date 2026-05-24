@@ -62,17 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m681-branch-specific-response-amplification-audit
+m682-normal-sequence-safe-response-amplification-design
 ```
 
-M681 should audit M680. M680 partially restored wrong-history gap and kept
-first-step safety, but failed exact gates because normal full-sequence residual
-mean exceeded the retention threshold. The next branch should address normal
-sequence retention explicitly without weakening gates, changing actor inputs,
-running PPO, or promoting a checkpoint.
+M682 should design a normal-sequence-safe branch-specific objective after M680
+restored wrong-history gap partially but failed normal full-sequence retention.
+It should add normal sequence mean/top-k pressure while preserving M680's
+detached-normal wrong-history pressure and exact gates. PPO, promotion,
+actor-input changes, and normal gate weakening remain blocked.
 
 ## Recent Evidence Line
 
+- M681 audits M680 as
+  `branch_specific_gap_partial_normal_sequence_retention_failure`. M680's
+  branch-specific wrong-history pressure is useful, but normal full-sequence
+  retention is now the blocker. The next design should add normal sequence
+  mean/top-k pressure while keeping wrong-history pressure and first-step
+  safety.
 - M680 implements branch-specific response amplification. It is a clean negative
   result with progress: branch-specific pressure restores wrong-history gap
   enough for seed `6801` at `alpha=1.0` to pass gap, p10, ratio, wrong-target,
