@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 694,
+        "completed": 695,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m685-split-gated-response-amplification-design",
+        "task_id": "m686-split-gated-response-amplification-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m685-split-gated-response-amplification-design.md"
+        "run_dir": "runs/m686_split_gated_response_amplification",
+        "command_log": "docs/m686-split-gated-response-amplification-implementation.md"
     },
     "next_task": {
-        "id": "m686-split-gated-response-amplification-implementation",
+        "id": "m687-split-gated-response-amplification-audit",
         "status": "pending",
-        "priority": 6810,
-        "kind": "infrastructure",
-        "hypothesis": "A split/gated residual head can separate normal-history inactivity from wrong-history amplification and pass exact source-heldout response-amplification gates without changing the base actor.",
-        "command": "see experiments/manifests/m686-split-gated-response-amplification-implementation.json",
+        "priority": 6820,
+        "kind": "gate",
+        "hypothesis": "M686's gated head improved normal retention but failed because the wrong gate collapsed near the normal gate; the audit should decide whether to add explicit gate-margin and hard low-gate wrong-row pressure.",
+        "command": "see experiments/manifests/m687-split-gated-response-amplification-audit.json",
         "success_artifact": "",
-        "notes": "Pending: implement split/gated exact probe; PPO promotion and actor-input changes remain blocked"
+        "notes": "Pending: audit M686; PPO promotion and actor-input changes remain blocked"
     },
-    "updated_at_utc": "20260525T050000Z"
+    "updated_at_utc": "20260525T051500Z"
 }

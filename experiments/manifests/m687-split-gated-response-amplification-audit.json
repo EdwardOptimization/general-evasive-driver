@@ -1,0 +1,84 @@
+{
+  "id": "m687-split-gated-response-amplification-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m686_split_gated_response_amplification/summary.json",
+      "runs/m686_split_gated_response_amplification/alpha_summary.csv",
+      "docs/m686-split-gated-response-amplification-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m686-split-gated-response-amplification-implementation.json"
+    ],
+    "parent_objective": [
+      "audit split/gated response-amplification exact gate failure"
+    ],
+    "derived_from": [
+      "m686-split-gated-response-amplification-implementation"
+    ],
+    "blocked_by": [
+      "m686-split-gated-response-amplification-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m687-split-gated-response-amplification-audit.md",
+  "public_gates": [
+    "M686 implementation cleanliness is checked",
+    "normal retention improvement is quantified",
+    "gate collapse is quantified",
+    "wrong gap failure is quantified",
+    "PPO and promotion remain blocked",
+    "next design addresses wrong-gate opening explicitly"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun training",
+    "do not admit PPO",
+    "do not promote a checkpoint",
+    "do not weaken normal retention gates",
+    "do not change actor input contract"
+  ],
+  "hypothesis": "M686's gated head improved normal retention but failed because the wrong gate collapsed near the normal gate; the audit should decide whether to add explicit gate-margin and hard low-gate wrong-row pressure.",
+  "success_criteria": [
+    "M686 is classified from exact alpha and gate evidence",
+    "audit distinguishes gate collapse from amplifier capacity failure",
+    "next design target is specified",
+    "PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "audit ignores gate diagnostics",
+    "audit treats M686 as a reason to weaken normal gates",
+    "audit admits PPO or promotion",
+    "audit changes actor observation inputs"
+  ],
+  "commands": [
+    {
+      "name": "write_audit",
+      "command": "write docs/m687-split-gated-response-amplification-audit.md from M686 artifacts; no training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m687-split-gated-response-amplification-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m686_split_gated_response_amplification/summary.json",
+    "runs/m686_split_gated_response_amplification/alpha_summary.csv"
+  ],
+  "decision_rule": "M687 passes if it classifies M686 as gate collapse rather than amplifier capacity failure and admits only a targeted gate-margin design, not PPO, promotion, gate weakening, or input changes.",
+  "next_blocker": "m688-gate-margin-response-amplification-design"
+}

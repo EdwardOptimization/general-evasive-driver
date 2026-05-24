@@ -9,6 +9,7 @@ from typing import Any
 import numpy as np
 import pandas as pd
 import torch
+from torch import nn
 
 from autodrift.artifacts import make_run_dir, write_csv_rows, write_json
 from autodrift.bc_v2_head_only_repeat import parse_seed_list
@@ -17,7 +18,6 @@ from autodrift.checkpoints import load_actor_critic_checkpoint
 from autodrift.response_amplification_shadow import (
     ResponseAmplifierHead,
     _loss_components,
-    _predict,
     _split_indices,
     _tensor_batch,
     _weighted_mean,
@@ -36,7 +36,49 @@ from autodrift.wrong_history_fusion_boundary_probe import build_feature_views
 
 
 VALID_ACTOR_COUPLING_VIEWS = ("fused_plus_next_hidden",)
+VALID_HEAD_TYPES = ("mlp", "gated")
 EPS = 1e-12
+
+
+class GatedResponseAmplifierHead(nn.Module):
+    """Bounded residual sequence head with a separate activation gate."""
+
+    def __init__(
+        self,
+        feature_dim: int,
+        hidden_dim: int,
+        max_sequence_length: int,
+        action_dim: int = 3,
+        max_residual: float = 0.04,
+    ) -> None:
+        super().__init__()
+        self.max_sequence_length = int(max_sequence_length)
+        self.action_dim = int(action_dim)
+        self.max_residual = float(max_residual)
+        self.amplifier = nn.Sequential(
+            nn.Linear(int(feature_dim), int(hidden_dim)),
+            nn.Tanh(),
+            nn.Linear(int(hidden_dim), int(hidden_dim)),
+            nn.Tanh(),
+            nn.Linear(int(hidden_dim), self.max_sequence_length * self.action_dim),
+        )
+        self.gate_net = nn.Sequential(
+            nn.Linear(int(feature_dim), int(hidden_dim)),
+            nn.Tanh(),
+            nn.Linear(int(hidden_dim), 1),
+        )
+
+    def forward_with_aux(self, features: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+        raw_logits = self.amplifier(features)
+        raw = self.max_residual * torch.tanh(
+            raw_logits.reshape(features.shape[0], self.max_sequence_length, self.action_dim)
+        )
+        gate = torch.sigmoid(self.gate_net(features)).reshape(features.shape[0], 1, 1)
+        return gate * raw, raw, gate
+
+    def forward(self, features: torch.Tensor) -> torch.Tensor:
+        prediction, _raw, _gate = self.forward_with_aux(features)
+        return prediction
 
 
 def parse_alpha_list(raw: str) -> tuple[float, ...]:
@@ -57,6 +99,50 @@ def parse_actor_coupling_view(raw: str) -> str:
             "actor-coupling view must be one of: " + ", ".join(VALID_ACTOR_COUPLING_VIEWS)
         )
     return value
+
+
+def parse_head_type(raw: str) -> str:
+    value = str(raw).strip()
+    if value not in VALID_HEAD_TYPES:
+        raise argparse.ArgumentTypeError("head type must be one of: " + ", ".join(VALID_HEAD_TYPES))
+    return value
+
+
+def _head_forward_with_aux(
+    head: nn.Module,
+    features: torch.Tensor,
+) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor | None]:
+    if hasattr(head, "forward_with_aux"):
+        prediction, raw, gate = head.forward_with_aux(features)  # type: ignore[attr-defined]
+        return prediction, raw, gate
+    prediction = head(features)
+    return prediction, prediction, None
+
+
+def _predict_with_aux(
+    head: nn.Module,
+    features: np.ndarray,
+    device: torch.device,
+    batch_size: int = 4096,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray | None]:
+    head.eval()
+    predictions: list[np.ndarray] = []
+    raw_rows: list[np.ndarray] = []
+    gate_rows: list[np.ndarray] = []
+    has_gate = False
+    with torch.no_grad():
+        for start in range(0, int(features.shape[0]), int(batch_size)):
+            chunk = torch.as_tensor(features[start : start + int(batch_size)], dtype=torch.float32, device=device)
+            prediction, raw, gate = _head_forward_with_aux(head, chunk)
+            predictions.append(prediction.detach().cpu().numpy())
+            raw_rows.append(raw.detach().cpu().numpy())
+            if gate is not None:
+                has_gate = True
+                gate_rows.append(gate.detach().cpu().numpy())
+    prediction_np = np.concatenate(predictions, axis=0)
+    raw_np = np.concatenate(raw_rows, axis=0)
+    gate_np = np.concatenate(gate_rows, axis=0) if has_gate else None
+    return prediction_np, raw_np, gate_np
 
 
 def _sequence_smoothness(prediction: torch.Tensor, mask: torch.Tensor, weight: torch.Tensor) -> torch.Tensor:
@@ -121,6 +207,57 @@ def _normal_sequence_topk_hinge(
     k = max(1, int(np.ceil(float(fraction) * int(hinge.numel()))))
     k = min(k, int(hinge.numel()))
     return torch.topk(hinge, k=k, largest=True).values.mean()
+
+
+def _gate_row_values(gate: torch.Tensor) -> torch.Tensor:
+    return gate.reshape(gate.shape[0], -1).mean(dim=1)
+
+
+def _normal_gate_mean_loss(gate_normal: torch.Tensor | None, weight: torch.Tensor) -> torch.Tensor:
+    if gate_normal is None:
+        return torch.zeros((), dtype=weight.dtype, device=weight.device)
+    per_row = torch.square(_gate_row_values(gate_normal))
+    return _weighted_mean(per_row, weight)
+
+
+def _normal_gate_topk_hinge(
+    gate_normal: torch.Tensor | None,
+    weight: torch.Tensor,
+    *,
+    threshold: float,
+    fraction: float,
+) -> torch.Tensor:
+    if gate_normal is None:
+        return torch.zeros((), dtype=weight.dtype, device=weight.device)
+    hinge = torch.square(torch.relu(_gate_row_values(gate_normal) - float(threshold)))
+    if hinge.numel() == 0:
+        return torch.zeros((), dtype=weight.dtype, device=weight.device)
+    k = max(1, int(np.ceil(float(fraction) * int(hinge.numel()))))
+    k = min(k, int(hinge.numel()))
+    return torch.topk(hinge, k=k, largest=True).values.mean()
+
+
+def _wrong_gate_open_hinge(
+    gate_wrong: torch.Tensor | None,
+    weight: torch.Tensor,
+    *,
+    target: float,
+) -> torch.Tensor:
+    if gate_wrong is None:
+        return torch.zeros((), dtype=weight.dtype, device=weight.device)
+    per_row = torch.square(torch.relu(float(target) - _gate_row_values(gate_wrong)))
+    return _weighted_mean(per_row, weight)
+
+
+def _raw_amplifier_l2(
+    raw_normal: torch.Tensor,
+    raw_wrong: torch.Tensor,
+    mask: torch.Tensor,
+    weight: torch.Tensor,
+) -> torch.Tensor:
+    normal_row = torch.square(_row_sequence_l2(raw_normal, mask))
+    wrong_row = torch.square(_row_sequence_l2(raw_wrong, mask))
+    return 0.5 * (_weighted_mean(normal_row, weight) + _weighted_mean(wrong_row, weight))
 
 
 def _wrong_first_gap_hinge(
@@ -202,6 +339,10 @@ def _coupling_loss_components(
     normal_sequence_topk_coef: float,
     normal_sequence_topk_threshold: float,
     normal_sequence_topk_fraction: float,
+    normal_gate_coef: float,
+    normal_gate_topk_coef: float,
+    normal_gate_threshold: float,
+    normal_gate_topk_fraction: float,
     normal_first_coef: float,
     normal_first_topk_coef: float,
     normal_first_threshold: float,
@@ -213,6 +354,9 @@ def _coupling_loss_components(
     wrong_sequence_target_gap: float,
     wrong_hard_coef: float,
     wrong_hard_fraction: float,
+    wrong_gate_open_coef: float,
+    wrong_gate_target: float,
+    raw_amplifier_l2_coef: float,
     target_gap: float,
 ) -> dict[str, torch.Tensor]:
     losses = _loss_components(
@@ -225,8 +369,14 @@ def _coupling_loss_components(
         target_gap=target_gap,
     )
     index_t = torch.as_tensor(indices, dtype=torch.long, device=batch["mask"].device)
-    pred_normal = head(batch["features_normal"].index_select(0, index_t))
-    pred_wrong = head(batch["features_variant"].index_select(0, index_t))
+    pred_normal, raw_normal, gate_normal = _head_forward_with_aux(
+        head,
+        batch["features_normal"].index_select(0, index_t),
+    )
+    pred_wrong, raw_wrong, gate_wrong = _head_forward_with_aux(
+        head,
+        batch["features_variant"].index_select(0, index_t),
+    )
     mask = batch["mask"].index_select(0, index_t)
     weight = batch["weight"].index_select(0, index_t)
     wrong_target = batch["target_delta_wrong"].index_select(0, index_t)
@@ -245,6 +395,19 @@ def _coupling_loss_components(
         threshold=normal_sequence_topk_threshold,
         fraction=normal_sequence_topk_fraction,
     )
+    normal_gate = _normal_gate_mean_loss(gate_normal, weight)
+    normal_gate_topk = _normal_gate_topk_hinge(
+        gate_normal,
+        weight,
+        threshold=normal_gate_threshold,
+        fraction=normal_gate_topk_fraction,
+    )
+    wrong_gate_open = _wrong_gate_open_hinge(
+        gate_wrong,
+        weight,
+        target=wrong_gate_target,
+    )
+    raw_l2 = _raw_amplifier_l2(raw_normal, raw_wrong, mask, weight)
     normal_first = _normal_first_mse(pred_normal, weight)
     normal_topk = _normal_first_topk_hinge(
         pred_normal,
@@ -280,6 +443,15 @@ def _coupling_loss_components(
     losses["sequence_smoothness_mse"] = smoothness
     losses["normal_sequence_mean_hinge"] = normal_sequence_mean
     losses["normal_sequence_topk_hinge"] = normal_sequence_topk
+    losses["normal_gate_mean_loss"] = normal_gate
+    losses["normal_gate_topk_hinge"] = normal_gate_topk
+    losses["wrong_gate_open_hinge"] = wrong_gate_open
+    losses["raw_amplifier_l2"] = raw_l2
+    losses["gated_head_active"] = torch.as_tensor(
+        float(gate_normal is not None and gate_wrong is not None),
+        dtype=pred_wrong.dtype,
+        device=pred_wrong.device,
+    )
     losses["normal_first_mse"] = normal_first
     losses["normal_first_topk_hinge"] = normal_topk
     losses["wrong_first_gap_hinge"] = wrong_first_gap
@@ -291,17 +463,31 @@ def _coupling_loss_components(
         + float(smoothness_coef) * smoothness
         + float(normal_sequence_mean_coef) * normal_sequence_mean
         + float(normal_sequence_topk_coef) * normal_sequence_topk
+        + float(normal_gate_coef) * normal_gate
+        + float(normal_gate_topk_coef) * normal_gate_topk
         + float(normal_first_coef) * normal_first
         + float(normal_first_topk_coef) * normal_topk
         + float(wrong_first_gap_coef) * wrong_first_gap
         + float(wrong_sequence_gap_coef) * wrong_sequence_gap
         + float(wrong_hard_coef) * hard_wrong_loss
+        + float(wrong_gate_open_coef) * wrong_gate_open
+        + float(raw_amplifier_l2_coef) * raw_l2
     )
     return losses
 
 
 def _first_l2(prediction: np.ndarray) -> np.ndarray:
     return np.linalg.norm(prediction[:, 0, :].astype(np.float64), axis=1)
+
+
+def _gate_values_np(gate: np.ndarray) -> np.ndarray:
+    return np.asarray(gate, dtype=np.float64).reshape(gate.shape[0], -1).mean(axis=1)
+
+
+def _row_sequence_l2_np(prediction: np.ndarray, mask: np.ndarray) -> np.ndarray:
+    step_l2 = np.linalg.norm(np.asarray(prediction, dtype=np.float64), axis=2) * np.asarray(mask, dtype=np.float64)
+    valid = np.maximum(np.asarray(mask, dtype=np.float64).sum(axis=1), 1.0)
+    return step_l2.sum(axis=1) / valid
 
 
 def alpha_candidate_passes(row: dict[str, Any]) -> bool:
@@ -325,8 +511,12 @@ def evaluate_alpha_ladder(
     prediction_normal: np.ndarray,
     prediction_wrong: np.ndarray,
     alphas: tuple[float, ...],
+    gate_normal: np.ndarray | None = None,
+    gate_wrong: np.ndarray | None = None,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     alpha_rows: list[dict[str, Any]] = []
+    gate_normal_values = _gate_values_np(gate_normal) if gate_normal is not None else None
+    gate_wrong_values = _gate_values_np(gate_wrong) if gate_wrong is not None else None
     for alpha in alphas:
         scaled_normal = prediction_normal * float(alpha)
         scaled_wrong = prediction_wrong * float(alpha)
@@ -341,6 +531,10 @@ def evaluate_alpha_ladder(
         row_metrics = row_metrics.copy()
         row_metrics["normal_action_drift_first_l2"] = first_normal
         row_metrics["wrong_action_drift_first_l2"] = first_wrong
+        if gate_normal_values is not None:
+            row_metrics["normal_gate"] = gate_normal_values
+        if gate_wrong_values is not None:
+            row_metrics["wrong_gate"] = gate_wrong_values
         for split_row in split_summary:
             split = str(split_row["split"])
             split_metrics = row_metrics[row_metrics["split"].astype(str) == split]
@@ -356,6 +550,16 @@ def evaluate_alpha_ladder(
                     np.percentile(split_metrics["wrong_action_drift_first_l2"].to_numpy(dtype=float), 95)
                 ),
             }
+            if gate_normal_values is not None:
+                output["normal_gate_mean"] = float(split_metrics["normal_gate"].mean())
+                output["normal_gate_p95"] = float(
+                    np.percentile(split_metrics["normal_gate"].to_numpy(dtype=float), 95)
+                )
+            if gate_wrong_values is not None:
+                output["wrong_gate_mean"] = float(split_metrics["wrong_gate"].mean())
+                output["wrong_gate_p10"] = float(
+                    np.percentile(split_metrics["wrong_gate"].to_numpy(dtype=float), 10)
+                )
             output["alpha_candidate_passed"] = alpha_candidate_passes(output)
             alpha_rows.append(output)
     source_holdout_passes = [
@@ -391,6 +595,8 @@ def train_actor_coupling_seed(
     learning_rate: float,
     weight_decay: float,
     seed: int,
+    head_type: str = "mlp",
+    max_residual: float = 0.04,
     wrong_target_coef: float,
     gap_margin_coef: float,
     smoothness_coef: float,
@@ -399,6 +605,10 @@ def train_actor_coupling_seed(
     normal_sequence_topk_coef: float = 0.0,
     normal_sequence_topk_threshold: float = 0.0045,
     normal_sequence_topk_fraction: float = 0.10,
+    normal_gate_coef: float = 0.0,
+    normal_gate_topk_coef: float = 0.0,
+    normal_gate_threshold: float = 0.10,
+    normal_gate_topk_fraction: float = 0.10,
     normal_first_coef: float = 0.0,
     normal_first_topk_coef: float = 0.0,
     normal_first_threshold: float = 0.004,
@@ -410,9 +620,12 @@ def train_actor_coupling_seed(
     wrong_sequence_target_gap: float = 0.012,
     wrong_hard_coef: float = 0.0,
     wrong_hard_fraction: float = 0.25,
+    wrong_gate_open_coef: float = 0.0,
+    wrong_gate_target: float = 0.50,
+    raw_amplifier_l2_coef: float = 0.0,
     target_gap: float,
     device: torch.device,
-) -> tuple[ResponseAmplifierHead, list[dict[str, Any]], dict[str, Any], list[dict[str, Any]]]:
+) -> tuple[nn.Module, list[dict[str, Any]], dict[str, Any], list[dict[str, Any]]]:
     torch.manual_seed(int(seed))
     contract = validate_sequence_corpus_contract(arrays)
     train_indices = _split_indices(metadata, "train")
@@ -420,12 +633,23 @@ def train_actor_coupling_seed(
     if train_indices.size == 0 or val_indices.size == 0:
         raise ValueError("both train and source_holdout_validation splits are required")
     batch = _tensor_batch(arrays, features_normal, features_variant, device)
-    head = ResponseAmplifierHead(
-        feature_dim=int(features_normal.shape[1]),
-        hidden_dim=int(hidden_dim),
-        max_sequence_length=contract.max_sequence_length,
-        action_dim=contract.action_dim,
-    ).to(device)
+    if head_type == "mlp":
+        head: nn.Module = ResponseAmplifierHead(
+            feature_dim=int(features_normal.shape[1]),
+            hidden_dim=int(hidden_dim),
+            max_sequence_length=contract.max_sequence_length,
+            action_dim=contract.action_dim,
+        ).to(device)
+    elif head_type == "gated":
+        head = GatedResponseAmplifierHead(
+            feature_dim=int(features_normal.shape[1]),
+            hidden_dim=int(hidden_dim),
+            max_sequence_length=contract.max_sequence_length,
+            action_dim=contract.action_dim,
+            max_residual=max_residual,
+        ).to(device)
+    else:
+        raise ValueError(f"unsupported head type: {head_type}")
     optimizer = torch.optim.AdamW(head.parameters(), lr=float(learning_rate), weight_decay=float(weight_decay))
     metric_rows: list[dict[str, Any]] = []
     log_interval = max(1, int(epochs) // 10)
@@ -445,6 +669,10 @@ def train_actor_coupling_seed(
                     normal_sequence_topk_coef=normal_sequence_topk_coef,
                     normal_sequence_topk_threshold=normal_sequence_topk_threshold,
                     normal_sequence_topk_fraction=normal_sequence_topk_fraction,
+                    normal_gate_coef=normal_gate_coef,
+                    normal_gate_topk_coef=normal_gate_topk_coef,
+                    normal_gate_threshold=normal_gate_threshold,
+                    normal_gate_topk_fraction=normal_gate_topk_fraction,
                     normal_first_coef=normal_first_coef,
                     normal_first_topk_coef=normal_first_topk_coef,
                     normal_first_threshold=normal_first_threshold,
@@ -456,6 +684,9 @@ def train_actor_coupling_seed(
                     wrong_sequence_target_gap=wrong_sequence_target_gap,
                     wrong_hard_coef=wrong_hard_coef,
                     wrong_hard_fraction=wrong_hard_fraction,
+                    wrong_gate_open_coef=wrong_gate_open_coef,
+                    wrong_gate_target=wrong_gate_target,
+                    raw_amplifier_l2_coef=raw_amplifier_l2_coef,
                     target_gap=target_gap,
                 )
                 metric_rows.append(
@@ -481,6 +712,10 @@ def train_actor_coupling_seed(
             normal_sequence_topk_coef=normal_sequence_topk_coef,
             normal_sequence_topk_threshold=normal_sequence_topk_threshold,
             normal_sequence_topk_fraction=normal_sequence_topk_fraction,
+            normal_gate_coef=normal_gate_coef,
+            normal_gate_topk_coef=normal_gate_topk_coef,
+            normal_gate_threshold=normal_gate_threshold,
+            normal_gate_topk_fraction=normal_gate_topk_fraction,
             normal_first_coef=normal_first_coef,
             normal_first_topk_coef=normal_first_topk_coef,
             normal_first_threshold=normal_first_threshold,
@@ -492,6 +727,9 @@ def train_actor_coupling_seed(
             wrong_sequence_target_gap=wrong_sequence_target_gap,
             wrong_hard_coef=wrong_hard_coef,
             wrong_hard_fraction=wrong_hard_fraction,
+            wrong_gate_open_coef=wrong_gate_open_coef,
+            wrong_gate_target=wrong_gate_target,
+            raw_amplifier_l2_coef=raw_amplifier_l2_coef,
             target_gap=target_gap,
         )
         losses["total_loss"].backward()
@@ -499,17 +737,21 @@ def train_actor_coupling_seed(
         if epoch == int(epochs) or epoch % log_interval == 0:
             append_metrics(epoch)
 
-    prediction_normal = _predict(head, features_normal, device)
-    prediction_wrong = _predict(head, features_variant, device)
+    prediction_normal, raw_normal, gate_normal = _predict_with_aux(head, features_normal, device)
+    prediction_wrong, raw_wrong, gate_wrong = _predict_with_aux(head, features_variant, device)
     alpha_rows, alpha_summary = evaluate_alpha_ladder(
         arrays=arrays,
         metadata=metadata,
         prediction_normal=prediction_normal,
         prediction_wrong=prediction_wrong,
         alphas=alphas,
+        gate_normal=gate_normal,
+        gate_wrong=gate_wrong,
     )
     summary = {
         "seed": int(seed),
+        "head_type": head_type,
+        "max_residual": float(max_residual),
         "feature_dim": int(features_normal.shape[1]),
         "hidden_dim": int(hidden_dim),
         "epochs": int(epochs),
@@ -523,6 +765,10 @@ def train_actor_coupling_seed(
         "normal_sequence_topk_coef": float(normal_sequence_topk_coef),
         "normal_sequence_topk_threshold": float(normal_sequence_topk_threshold),
         "normal_sequence_topk_fraction": float(normal_sequence_topk_fraction),
+        "normal_gate_coef": float(normal_gate_coef),
+        "normal_gate_topk_coef": float(normal_gate_topk_coef),
+        "normal_gate_threshold": float(normal_gate_threshold),
+        "normal_gate_topk_fraction": float(normal_gate_topk_fraction),
         "normal_first_coef": float(normal_first_coef),
         "normal_first_topk_coef": float(normal_first_topk_coef),
         "normal_first_threshold": float(normal_first_threshold),
@@ -534,6 +780,13 @@ def train_actor_coupling_seed(
         "wrong_sequence_target_gap": float(wrong_sequence_target_gap),
         "wrong_hard_coef": float(wrong_hard_coef),
         "wrong_hard_fraction": float(wrong_hard_fraction),
+        "wrong_gate_open_coef": float(wrong_gate_open_coef),
+        "wrong_gate_target": float(wrong_gate_target),
+        "raw_amplifier_l2_coef": float(raw_amplifier_l2_coef),
+        "normal_raw_sequence_l2_mean": float(_row_sequence_l2_np(raw_normal, arrays["sequence_mask"]).mean()),
+        "wrong_raw_sequence_l2_mean": float(_row_sequence_l2_np(raw_wrong, arrays["sequence_mask"]).mean()),
+        "normal_gate_mean": float(_gate_values_np(gate_normal).mean()) if gate_normal is not None else None,
+        "wrong_gate_mean": float(_gate_values_np(gate_wrong).mean()) if gate_wrong is not None else None,
         "target_gap": float(target_gap),
         **alpha_summary,
     }
@@ -563,6 +816,8 @@ def run_response_amplification_actor_coupling(
     learning_rate: float,
     weight_decay: float,
     hidden_dim: int,
+    head_type: str,
+    max_residual: float,
     wrong_target_coef: float,
     gap_margin_coef: float,
     smoothness_coef: float,
@@ -571,6 +826,10 @@ def run_response_amplification_actor_coupling(
     normal_sequence_topk_coef: float,
     normal_sequence_topk_threshold: float,
     normal_sequence_topk_fraction: float,
+    normal_gate_coef: float,
+    normal_gate_topk_coef: float,
+    normal_gate_threshold: float,
+    normal_gate_topk_fraction: float,
     normal_first_coef: float,
     normal_first_topk_coef: float,
     normal_first_threshold: float,
@@ -582,6 +841,9 @@ def run_response_amplification_actor_coupling(
     wrong_sequence_target_gap: float,
     wrong_hard_coef: float,
     wrong_hard_fraction: float,
+    wrong_gate_open_coef: float,
+    wrong_gate_target: float,
+    raw_amplifier_l2_coef: float,
     device: str,
     run_dir: Path,
     batch_size: int = 1024,
@@ -629,6 +891,8 @@ def run_response_amplification_actor_coupling(
             learning_rate=learning_rate,
             weight_decay=weight_decay,
             seed=int(seed),
+            head_type=head_type,
+            max_residual=max_residual,
             wrong_target_coef=wrong_target_coef,
             gap_margin_coef=gap_margin_coef,
             smoothness_coef=smoothness_coef,
@@ -637,6 +901,10 @@ def run_response_amplification_actor_coupling(
             normal_sequence_topk_coef=normal_sequence_topk_coef,
             normal_sequence_topk_threshold=normal_sequence_topk_threshold,
             normal_sequence_topk_fraction=normal_sequence_topk_fraction,
+            normal_gate_coef=normal_gate_coef,
+            normal_gate_topk_coef=normal_gate_topk_coef,
+            normal_gate_threshold=normal_gate_threshold,
+            normal_gate_topk_fraction=normal_gate_topk_fraction,
             normal_first_coef=normal_first_coef,
             normal_first_topk_coef=normal_first_topk_coef,
             normal_first_threshold=normal_first_threshold,
@@ -648,6 +916,9 @@ def run_response_amplification_actor_coupling(
             wrong_sequence_target_gap=wrong_sequence_target_gap,
             wrong_hard_coef=wrong_hard_coef,
             wrong_hard_fraction=wrong_hard_fraction,
+            wrong_gate_open_coef=wrong_gate_open_coef,
+            wrong_gate_target=wrong_gate_target,
+            raw_amplifier_l2_coef=raw_amplifier_l2_coef,
             target_gap=target_gap,
             device=resolved_device,
         )
@@ -655,6 +926,9 @@ def run_response_amplification_actor_coupling(
         torch.save(
             {
                 "head_state": head.state_dict(),
+                "head_type": head_type,
+                "max_residual": float(max_residual),
+                "gate_diagnostics_available": bool(head_type == "gated"),
                 "view": view,
                 "seed": int(seed),
                 "feature_dim": int(features_normal.shape[1]),
@@ -696,6 +970,8 @@ def run_response_amplification_actor_coupling(
         "learning_rate": float(learning_rate),
         "weight_decay": float(weight_decay),
         "hidden_dim": int(hidden_dim),
+        "head_type": head_type,
+        "max_residual": float(max_residual),
         "wrong_target_coef": float(wrong_target_coef),
         "gap_margin_coef": float(gap_margin_coef),
         "smoothness_coef": float(smoothness_coef),
@@ -704,6 +980,10 @@ def run_response_amplification_actor_coupling(
         "normal_sequence_topk_coef": float(normal_sequence_topk_coef),
         "normal_sequence_topk_threshold": float(normal_sequence_topk_threshold),
         "normal_sequence_topk_fraction": float(normal_sequence_topk_fraction),
+        "normal_gate_coef": float(normal_gate_coef),
+        "normal_gate_topk_coef": float(normal_gate_topk_coef),
+        "normal_gate_threshold": float(normal_gate_threshold),
+        "normal_gate_topk_fraction": float(normal_gate_topk_fraction),
         "normal_first_coef": float(normal_first_coef),
         "normal_first_topk_coef": float(normal_first_topk_coef),
         "normal_first_threshold": float(normal_first_threshold),
@@ -715,6 +995,9 @@ def run_response_amplification_actor_coupling(
         "wrong_sequence_target_gap": float(wrong_sequence_target_gap),
         "wrong_hard_coef": float(wrong_hard_coef),
         "wrong_hard_fraction": float(wrong_hard_fraction),
+        "wrong_gate_open_coef": float(wrong_gate_open_coef),
+        "wrong_gate_target": float(wrong_gate_target),
+        "raw_amplifier_l2_coef": float(raw_amplifier_l2_coef),
         "model_checksum_before": before_checksum,
         "model_checksum_after": after_checksum,
         "actor_parameters_changed": actor_changed,
@@ -750,6 +1033,8 @@ def main() -> None:
     parser.add_argument("--learning-rate", type=float, default=0.001)
     parser.add_argument("--weight-decay", type=float, default=0.0001)
     parser.add_argument("--hidden-dim", type=int, default=64)
+    parser.add_argument("--head-type", type=parse_head_type, default="mlp")
+    parser.add_argument("--max-residual", type=float, default=0.04)
     parser.add_argument("--wrong-target-coef", type=float, default=1.0)
     parser.add_argument("--gap-margin-coef", type=float, default=0.25)
     parser.add_argument("--smoothness-coef", type=float, default=0.05)
@@ -758,6 +1043,10 @@ def main() -> None:
     parser.add_argument("--normal-sequence-topk-coef", type=float, default=0.0)
     parser.add_argument("--normal-sequence-topk-threshold", type=float, default=0.0045)
     parser.add_argument("--normal-sequence-topk-fraction", type=float, default=0.10)
+    parser.add_argument("--normal-gate-coef", type=float, default=0.0)
+    parser.add_argument("--normal-gate-topk-coef", type=float, default=0.0)
+    parser.add_argument("--normal-gate-threshold", type=float, default=0.10)
+    parser.add_argument("--normal-gate-topk-fraction", type=float, default=0.10)
     parser.add_argument("--normal-first-coef", type=float, default=0.0)
     parser.add_argument("--normal-first-topk-coef", type=float, default=0.0)
     parser.add_argument("--normal-first-threshold", type=float, default=0.004)
@@ -769,6 +1058,9 @@ def main() -> None:
     parser.add_argument("--wrong-sequence-target-gap", type=float, default=0.012)
     parser.add_argument("--wrong-hard-coef", type=float, default=0.0)
     parser.add_argument("--wrong-hard-fraction", type=float, default=0.25)
+    parser.add_argument("--wrong-gate-open-coef", type=float, default=0.0)
+    parser.add_argument("--wrong-gate-target", type=float, default=0.50)
+    parser.add_argument("--raw-amplifier-l2-coef", type=float, default=0.0)
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="cpu")
     parser.add_argument("--batch-size", type=int, default=1024)
     parser.add_argument("--run-dir", type=Path, default=None)
@@ -786,6 +1078,8 @@ def main() -> None:
         learning_rate=args.learning_rate,
         weight_decay=args.weight_decay,
         hidden_dim=args.hidden_dim,
+        head_type=args.head_type,
+        max_residual=args.max_residual,
         wrong_target_coef=args.wrong_target_coef,
         gap_margin_coef=args.gap_margin_coef,
         smoothness_coef=args.smoothness_coef,
@@ -794,6 +1088,10 @@ def main() -> None:
         normal_sequence_topk_coef=args.normal_sequence_topk_coef,
         normal_sequence_topk_threshold=args.normal_sequence_topk_threshold,
         normal_sequence_topk_fraction=args.normal_sequence_topk_fraction,
+        normal_gate_coef=args.normal_gate_coef,
+        normal_gate_topk_coef=args.normal_gate_topk_coef,
+        normal_gate_threshold=args.normal_gate_threshold,
+        normal_gate_topk_fraction=args.normal_gate_topk_fraction,
         normal_first_coef=args.normal_first_coef,
         normal_first_topk_coef=args.normal_first_topk_coef,
         normal_first_threshold=args.normal_first_threshold,
@@ -805,6 +1103,9 @@ def main() -> None:
         wrong_sequence_target_gap=args.wrong_sequence_target_gap,
         wrong_hard_coef=args.wrong_hard_coef,
         wrong_hard_fraction=args.wrong_hard_fraction,
+        wrong_gate_open_coef=args.wrong_gate_open_coef,
+        wrong_gate_target=args.wrong_gate_target,
+        raw_amplifier_l2_coef=args.raw_amplifier_l2_coef,
         device=args.device,
         run_dir=run_dir,
         batch_size=args.batch_size,

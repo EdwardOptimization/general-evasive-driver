@@ -62,17 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m686-split-gated-response-amplification-implementation
+m687-split-gated-response-amplification-audit
 ```
 
-M686 should implement the split/gated residual response-amplification exact
-probe designed in M685. It should add a bounded amplifier, sequence-level gate,
-normal gate close losses, wrong gate open loss, and gate diagnostics while
-leaving exact pass gates unchanged. PPO, promotion, actor-input changes, and
-normal gate weakening remain blocked.
+M687 should audit M686's clean negative split/gated result. M686 made normal
+retention very safe, but normal and wrong gates both collapsed near `0.10`, so
+wrong-history gap stayed below threshold despite a large raw amplifier. PPO,
+promotion, actor-input changes, and normal gate weakening remain blocked.
 
 ## Recent Evidence Line
 
+- M686 implements split/gated response amplification. It is implementation-clean
+  with gated residual heads active and actor checksum unchanged. Normal
+  retention is strong (`alpha=1.0` normal mean `0.001097-0.001159`), but gates
+  collapse (`normal_gate_mean` about `0.098`, `wrong_gate_mean` about
+  `0.102-0.105`) and wrong gap stays around `0.0064`, so no seed/alpha passes.
 - M685 designs a split/gated residual head after the M680/M683 scalar-loss
   tradeoff. The proposed head factors output into `gate(feature) *
   amplifier(feature)`, adds normal gate close and wrong gate open losses, keeps

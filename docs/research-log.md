@@ -12295,3 +12295,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M685 designs a split/gated response-amplification residual head after the M680/M683 scalar-loss tradeoff. The design adds a bounded amplifier and sequence-level sigmoid gate, normal gate close losses, wrong gate open loss, raw amplifier L2 guard, existing normal sequence/first-step safety losses, and existing detached-normal wrong-history gap/hard-row losses. Exact gates stay unchanged; gate metrics are diagnostic only. PPO, promotion, actor-input changes, and normal gate weakening remain blocked.
 - decision: `split_gated_response_amplification_design_admit_m686`
 - next: `m686-split-gated-response-amplification-implementation`
+## 20260525T051500Z - m686-split-gated-response-amplification-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m686_split_gated_response_amplification`
+- artifact: `docs/m686-split-gated-response-amplification-implementation.md`
+- result: M686 implements and runs the split/gated response-amplification exact probe. The implementation is clean: `648` rows, `216` sources, gated residual heads active, actor checksum unchanged, no base actor checkpoint, no PPO, no promotion. Exact gate still fails with `0` passed seeds. Normal retention is strongly positive (`alpha=1.0` normal mean `0.001097-0.001159`, p95 `0.002386-0.002562`), but gates collapse (`normal_gate_mean` about `0.098`, `wrong_gate_mean` about `0.102-0.105`) and wrong gap stays around `0.0064`, below threshold. Raw wrong amplifier magnitude is large, so this is gate collapse, not amplifier capacity failure.
+- decision: `split_gated_response_amplification_exact_gate_failed_admit_audit`
+- next: `m687-split-gated-response-amplification-audit`
