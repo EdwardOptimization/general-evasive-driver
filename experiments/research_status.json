@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 618,
+        "completed": 619,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m609-boundary-conditioned-source-miner-implementation",
+        "task_id": "m610-boundary-conditioned-grounded-target-miner",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m609_boundary_conditioned_source_miner",
-        "command_log": "docs/m609-boundary-conditioned-source-miner-implementation.md"
+        "run_dir": "runs/m610_boundary_conditioned_grounded_target_miner",
+        "command_log": "docs/m610-boundary-conditioned-grounded-target-miner.md"
     },
     "next_task": {
-        "id": "m610-boundary-conditioned-grounded-target-miner",
+        "id": "m611-boundary-target-mining-audit",
         "status": "pending",
-        "priority": 6050,
-        "kind": "infrastructure",
-        "hypothesis": "Restricting grounded action target search to M609 near-boundary source rows will produce stronger simulator margin/risk improvements than the broad M606 belief-only source selection.",
-        "command": "see experiments/manifests/m610-boundary-conditioned-grounded-target-miner.json",
+        "priority": 6060,
+        "kind": "gate",
+        "hypothesis": "M610 zero-accepted results should be audited as evidence that local first-action targets are too weak, before designing sequence or trajectory target mining.",
+        "command": "see experiments/manifests/m611-boundary-target-mining-audit.json",
         "success_artifact": "",
-        "notes": "Pending: run limited diagnostic target-search on 17 M609 boundary rows; no training, PPO, promotion, or optimizer admission"
+        "notes": "Pending: audit zero accepted boundary-conditioned first-action targets; no threshold retrofitting, training, PPO, or promotion"
     },
-    "updated_at_utc": "20260524T133000Z"
+    "updated_at_utc": "20260524T134000Z"
 }

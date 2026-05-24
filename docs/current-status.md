@@ -62,16 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m610-boundary-conditioned-grounded-target-miner
+m611-boundary-target-mining-audit
 ```
 
-M610 should run a limited no-training grounded target search on the `17` M609
-boundary rows. Accepted targets, if any, are diagnostic only until source
-diversity is expanded or repeated; actor training, PPO, optimizer admission,
-and promotion remain blocked.
+M611 should audit why M610 still found zero accepted first-action targets on
+near-boundary rows. The likely blocker is first-action locality / myopia, so
+the next design should consider short sequence or trajectory targets; actor
+training, PPO, optimizer admission, and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M610 runs diagnostic target search on the `17` M609 boundary rows using an
+  `80`-step continuation horizon. It evaluates `3332` first-action candidates
+  and accepts `0` targets. Max candidate improvement is `0.017662`, and max
+  trust-region improvement is `0.015549`, still below the `0.02` threshold.
+  No target corpus is written; sequence/trajectory target audit is admitted.
 - M609 implements and runs the boundary-conditioned source miner. It selects
   `33` reconstructable full-pool source rows, admits `17` near-boundary rows,
   and rejects `16` far rows. The `17` rows cover `16` physical pairs, `9` left

@@ -11611,3 +11611,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M609 implements and runs the boundary/risk-conditioned source miner. From `6776` M604 rows it selects `33` reconstructable unique source rows, runs `33` baseline continuations, admits `17` boundary rows, and rejects `16` far rows. Boundary rows include `9` collision rows and `8` margin-window rows. Diversity is good except count: `16` unique physical pairs, `9` left seeds, `2` surfaces, `2` variants, `3` targets, max pair dominance `0.117647`, but total rows `17` is below the desired `24`; therefore `diversity_pass=false`.
 - decision: `boundary_conditioned_source_miner_partial_admit_limited_target_smoke`
 - next: `m610-boundary-conditioned-grounded-target-miner`
+## 20260524T134000Z - m610-boundary-conditioned-grounded-target-miner
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m610_boundary_conditioned_grounded_target_miner`
+- artifact: `docs/m610-boundary-conditioned-grounded-target-miner.md`
+- result: M610 implements and runs a diagnostic target search on the `17` M609 boundary rows with an `80`-step continuation horizon. It evaluates `3332` first-action candidates and accepts `0` targets. Rejection counts are candidate collision `1443`, insufficient margin/risk improvement `1283`, and outside action trust region `606`. Max candidate improvement is `0.017662`; max trust-region improvement is `0.015549`, below the pre-registered `0.02` threshold. No target corpus is written; no training, PPO, promotion, or optimizer admission occurs.
+- decision: `boundary_conditioned_target_miner_negative_admit_sequence_audit`
+- next: `m611-boundary-target-mining-audit`

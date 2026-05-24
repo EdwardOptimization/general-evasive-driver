@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M610 runs diagnostic target search on 17 M609 boundary rows and still accepts 0 first-action targets; max trust-region improvement is 0.015549 so training remains blocked",
+  "failure_criteria": [
+    "miner trains any model",
+    "miner uses private holdout rows",
+    "miner omits unaccepted rows",
+    "miner writes privileged actor inputs",
+    "miner promotes a checkpoint",
+    "miner claims optimizer admission from the 17-row source set"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not treat M609's 17-row source set as sufficient optimizer corpus",
+    "do not lower M606 acceptance thresholds retroactively",
+    "do not add privileged actor inputs"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T090403Z",
+  "hypothesis": "Restricting grounded action target search to M609 near-boundary source rows will produce stronger simulator margin/risk improvements than the broad M606 belief-only source selection.",
+  "lineage": {
+    "blocked_by": [
+      "m609-boundary-conditioned-source-miner-implementation"
+    ],
+    "derived_from": [
+      "m609-boundary-conditioned-source-miner-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m609-boundary-conditioned-source-miner-implementation.json",
+      "docs/m609-boundary-conditioned-source-miner-implementation.md"
+    ],
+    "parent_dataset": [
+      "runs/m609_boundary_conditioned_source_miner/boundary_source_rows.csv",
+      "runs/m609_boundary_conditioned_source_miner/summary.json"
+    ],
+    "parent_objective": [
+      "run limited no-training grounded target search on boundary-conditioned M609 source rows"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m610-boundary-conditioned-grounded-target-miner",
+  "next_blocker": "m611-boundary-target-mining-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "boundary_conditioned_target_miner_negative_admit_sequence_audit",
+  "public_gates": [
+    "read M609 boundary_source_rows.csv",
+    "write target candidate rollouts",
+    "write accepted target rows",
+    "write unaccepted rows",
+    "treat accepted targets as diagnostic only unless diversity is later expanded",
+    "prove no model weights are changed"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m610_boundary_conditioned_grounded_target_miner/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "boundary_conditioned_target_miner_negative_admit_sequence_audit",
+    "milestone": "m610-boundary-conditioned-grounded-target-miner",
+    "reason": "M610 runs diagnostic target search on 17 M609 boundary rows and still accepts 0 first-action targets; max trust-region improvement is 0.015549 so training remains blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "target_candidates.csv is written",
+    "accepted_targets.csv is written",
+    "unaccepted_rows.csv is written",
+    "target_corpus.npz is written when accepted targets exist",
+    "summary records diagnostic_only true actor_parameters_changed false ppo_used false promoted false",
+    "research validation and focused tests pass"
+  ],
+  "type": "infrastructure"
+}
