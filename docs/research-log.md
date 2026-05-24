@@ -11782,3 +11782,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M628 audits M627 and selects the next no-training branch. Candidate-level near misses are dominated by trust geometry, but source-level evidence shows the strongest high-count near misses already have many accepted candidates. The diversity opportunity is in low/zero accepted sources: trust-primary rows `30`, `7`, `0`, and `8` should be targeted by projected or smoother sequence candidates, while collision-primary rows `1`, `2`, `15`, and `21` remain a separate safety branch. Optimizer admission, training, PPO, promotion, threshold changes, and trust-region relaxation remain blocked.
 - decision: `near_miss_trust_geometry_audit_admit_projected_shape_design`
 - next: `m629-trust-projected-sequence-shape-design`
+## 20260524T165000Z - m629-trust-projected-sequence-shape-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m629-trust-projected-sequence-shape-design.md`
+- result: M629 designs a no-training projected/smoothed sequence-shape pass for the M627 trust-primary near misses. The focused source filter targets low/zero accepted trust-primary rows such as `30`, `7`, `0`, and `8`, while keeping collision-primary rows separate. The implementation should radially project raw sequence delta prefixes back into the existing `sequence_mean_l2 <= 0.08`, `sequence_max_l2 <= 0.10`, and `max_delta_delta_l2 <= 0.08` limits, compare projected and raw candidate utility, and write source-level recovery summaries. Training, PPO, promotion, optimizer admission, target-threshold changes, and trust-region relaxation remain blocked.
+- decision: `trust_projected_sequence_shape_design_admit_m630`
+- next: `m630-trust-projected-sequence-shape-implementation`

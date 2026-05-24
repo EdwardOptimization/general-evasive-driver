@@ -1,0 +1,103 @@
+{
+  "id": "m630-trust-projected-sequence-shape-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m627_near_miss_trust_geometry/near_miss_sources.csv",
+      "runs/m627_near_miss_trust_geometry/near_miss_candidates.csv",
+      "runs/m624_longer_low_amplitude_sequence_miner/sequence_candidates.csv",
+      "docs/m629-trust-projected-sequence-shape-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m629-trust-projected-sequence-shape-design.json",
+      "docs/m628-near-miss-trust-geometry-audit.md"
+    ],
+    "parent_objective": [
+      "implement no-training projected sequence candidate pass"
+    ],
+    "derived_from": [
+      "m629-trust-projected-sequence-shape-design"
+    ],
+    "blocked_by": [
+      "m629-trust-projected-sequence-shape-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m630-trust-projected-sequence-shape-implementation.md",
+  "public_gates": [
+    "write projected_sequence_candidates.csv",
+    "write source_recovery_summary.csv",
+    "all accepted projected candidates preserve sequence trust limits",
+    "separate trust-primary and collision-primary source summaries",
+    "keep actor training and PPO blocked",
+    "do not promote or admit optimizer training"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not widen trust regions",
+    "do not lower target thresholds",
+    "do not use collision-primary rows as trust-only successes",
+    "do not claim driver improvement"
+  ],
+  "hypothesis": "Radially projected and smoother sequence candidates can recover some M627 trust-primary low or zero accepted sources without changing trust limits.",
+  "success_criteria": [
+    "implementation writes candidate and source recovery artifacts",
+    "focused tests cover projection scaling and source filtering",
+    "real run preserves trust limits and reports source-level recovery",
+    "summary records whether sources 30 7 0 and 8 are recovered",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "implementation changes thresholds",
+    "implementation starts training",
+    "implementation runs PPO",
+    "implementation promotes checkpoint",
+    "implementation merges collision-primary rows into trust-only recovery",
+    "implementation omits source-level recovery summary"
+  ],
+  "commands": [
+    {
+      "name": "projected_shape",
+      "command": "PYTHONPATH=src python -m autodrift.trust_projected_sequence_shape --near-miss-sources runs/m627_near_miss_trust_geometry/near_miss_sources.csv --near-miss-candidates runs/m627_near_miss_trust_geometry/near_miss_candidates.csv --source-table runs/m616_expanded_sequence_source_miner/expanded_sources.csv --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --sequence-lengths 3,5,7 --run-dir runs/m630_trust_projected_sequence_shape"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m630_trust_projected_sequence_shape/projected_sequence_candidates.csv",
+      "type": "data"
+    },
+    {
+      "path": "runs/m630_trust_projected_sequence_shape/source_recovery_summary.csv",
+      "type": "data"
+    },
+    {
+      "path": "runs/m630_trust_projected_sequence_shape/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "docs/m630-trust-projected-sequence-shape-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m629-trust-projected-sequence-shape-design.md",
+    "runs/m627_near_miss_trust_geometry/near_miss_sources.csv"
+  ],
+  "decision_rule": "M630 passes as infrastructure if it writes projected sequence artifacts and preserves all trust and no-training constraints; source recovery is diagnostic and must be audited separately.",
+  "next_blocker": "m631-trust-projected-sequence-shape-audit"
+}

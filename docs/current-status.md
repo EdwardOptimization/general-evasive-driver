@@ -62,17 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m629-trust-projected-sequence-shape-design
+m630-trust-projected-sequence-shape-implementation
 ```
 
-M629 should design a projected or smoother sequence candidate pass for M627
-trust-primary near misses. It should focus low/zero accepted source rows such
-as `30`, `7`, `0`, and `8`, keep collision-primary rows separate, and preserve
-the existing mean L2, max L2, delta-delta, margin, and risk thresholds. It is
-still design-only: no training, PPO, promotion, or optimizer admission.
+M630 should implement the no-training trust-projected sequence candidate pass
+designed in M629. It should focus low/zero accepted trust-primary sources
+`30`, `7`, `0`, and `8`, radially project raw sequence deltas back inside the
+existing mean L2, max L2, and delta-delta limits, and write candidate/source
+recovery artifacts. It must not train, run PPO, promote, relax thresholds, or
+admit optimizer training.
 
 ## Recent Evidence Line
 
+- M629 designs the projected/smoother sequence-shape pass. It specifies a
+  focused source filter (`accepted_candidate_count <= 3`, trust-primary best
+  failure, no collision near miss), radial projection of raw `delta_sequence`
+  into the existing trust limits, and source-level recovery artifacts. M630
+  should implement this as another diagnostic-only pass.
 - M628 audits M627 and chooses the next branch. The strongest high-count
   near-miss sources already have many accepted candidates, so the diversity
   opportunity is in low/zero accepted trust-primary sources. M628 selects a
