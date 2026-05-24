@@ -1,27 +1,30 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 706,
+        "completed": 707,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m697-fresh-trajectory-boundary-sampling-design",
+        "task_id": "m698-fresh-trajectory-boundary-sampler-implementation",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m697-fresh-trajectory-boundary-sampling-design.md"
+        "command_log": "docs/m698-fresh-trajectory-boundary-sampler-implementation.md",
+        "run_dir": "runs/m698_fresh_trajectory_boundary_sampler",
+        "result_class": "fresh_surface_empty",
+        "accepted_rows": 0
     },
     "next_task": {
-        "id": "m698-fresh-trajectory-boundary-sampler-implementation",
+        "id": "m699-fresh-trajectory-boundary-sampler-audit",
         "status": "pending",
-        "priority": 6930,
-        "kind": "infrastructure",
-        "hypothesis": "Fresh broad scenario sampling can find trajectory-sensitive terminal-boundary rows missed by the inherited M692 surface.",
-        "command": "see experiments/manifests/m698-fresh-trajectory-boundary-sampler-implementation.json",
+        "priority": 6940,
+        "kind": "gate",
+        "hypothesis": "M698 fresh_surface_empty should be audited before another sampler change; the likely next step is a window/perturbation-scale design rather than objective training.",
+        "command": "see experiments/manifests/m699-fresh-trajectory-boundary-sampler-audit.json",
         "success_artifact": "",
-        "notes": "Pending: sample fresh scenarios for terminal-boundary rows outside the M692 replay surface"
+        "notes": "Pending: synthesize whether next change should target windowing perturbation scale or base-policy distribution"
     },
-    "updated_at_utc": "20260524T164310Z"
+    "updated_at_utc": "20260524T165659Z"
 }

@@ -1,0 +1,118 @@
+{
+  "id": "m699-fresh-trajectory-boundary-sampler-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m698_fresh_trajectory_boundary_sampler/summary.json",
+      "runs/m698_fresh_trajectory_boundary_sampler/prepass_rows.csv",
+      "runs/m698_fresh_trajectory_boundary_sampler/perturbation_rollouts.csv",
+      "runs/m698_fresh_trajectory_boundary_sampler/rejected_rows.csv",
+      "docs/m698-fresh-trajectory-boundary-sampler-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m698-fresh-trajectory-boundary-sampler-implementation.json"
+    ],
+    "parent_objective": [
+      "audit fresh sampler empty-source result"
+    ],
+    "derived_from": [
+      "m698-fresh-trajectory-boundary-sampler-implementation"
+    ],
+    "blocked_by": [
+      "m698-fresh-trajectory-boundary-sampler-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m699-fresh-trajectory-boundary-sampler-audit.md",
+  "public_gates": [
+    "M698 implementation cleanliness is checked",
+    "fresh_surface_empty result is separated from implementation pass",
+    "normal-failed too-safe and low-sensitivity counts are quantified",
+    "objective actor update PPO and promotion remain blocked",
+    "trajectory_terminal_boundary_source_mining branch receives a synthesis decision"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not loosen thresholds and call the same run positive",
+    "do not design objective from accepted_rows=0",
+    "do not run actor update",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "trajectory_terminal_boundary_source_mining",
+    "evidence_axis": "G_synthesis: decide whether fresh_surface_empty is caused by windowing, perturbation scale, or base-policy bimodality",
+    "evidence_increment": "synthesizes M698 fresh sampling and chooses the next source-mining modification before another implementation run",
+    "claim_scope": "process synthesis and next sampling decision only, not objective training or driver performance",
+    "stop_condition": [
+      "stop objective design because M698 accepted_rows is zero",
+      "stop before actor update or PPO until a source-positive run exists",
+      "stop this branch if audit shows fresh sampling is purely normal-failed-only under reasonable windowing"
+    ],
+    "fallback_plan": [
+      "if windowing missed terminal boundary, design a closer obstacle-distance and terminal-margin prepass",
+      "if perturbation scale is too small, design a registered perturbation-scale ladder",
+      "if base policy is bimodal, pivot to base capability improvement or scenario-distribution evaluation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M698 result_class=fresh_surface_empty",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m699-fresh-trajectory-boundary-sampler-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "M698 fresh_surface_empty should be audited before another sampler change; the likely next step is a window/perturbation-scale design rather than objective training.",
+  "success_criteria": [
+    "M698 summary metrics are recorded",
+    "fresh_surface_empty result is classified",
+    "supported and falsified claims are recorded",
+    "public gate overfit risk is recorded",
+    "next branch decision is explicit",
+    "objective design actor update PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "audit treats accepted_rows=0 as source_positive",
+    "audit admits objective design without source rows",
+    "audit omits synthesis questions",
+    "audit fails to classify scenario_sampling_failure",
+    "audit changes actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m699-fresh-trajectory-boundary-sampler-audit.md from M698 artifacts; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m699-fresh-trajectory-boundary-sampler-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m698_fresh_trajectory_boundary_sampler/summary.json",
+    "docs/m698-fresh-trajectory-boundary-sampler-implementation.md"
+  ],
+  "decision_rule": "M699 must block objective design and decide whether to continue source mining with a registered window or perturbation-scale change.",
+  "next_blocker": "m699-fresh-trajectory-boundary-sampler-audit"
+}
