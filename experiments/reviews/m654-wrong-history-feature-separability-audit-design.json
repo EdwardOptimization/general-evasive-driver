@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M654 designs raw-hidden next-hidden fused-feature and actor-action distance audit to localize where wrong-history signal collapses before actor coupling",
+  "failure_criteria": [
+    "design admits training",
+    "design omits wrong-history feature metrics",
+    "design omits delayed-history comparison",
+    "design weakens actor input contract"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not update actor parameters",
+    "do not change contrast coefficients before separability audit",
+    "do not promote checkpoint"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T132938Z",
+  "hypothesis": "The M652 wrong-history contrast failure is caused by weak normal-vs-wrong separability in frozen BC5660 recurrent features.",
+  "lineage": {
+    "blocked_by": [
+      "m653-bc-v2-wrong-history-contrast-audit"
+    ],
+    "derived_from": [
+      "m653-bc-v2-wrong-history-contrast-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m653-bc-v2-wrong-history-contrast-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m652_bc_v2_wrong_history_contrast/summary.json",
+      "runs/m652_bc_v2_wrong_history_contrast/history_variant_summary.csv",
+      "docs/m653-bc-v2-wrong-history-contrast-audit.md"
+    ],
+    "parent_objective": [
+      "design wrong-history frozen-feature separability audit before changing contrast objective"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m654-wrong-history-feature-separability-audit-design",
+  "next_blocker": "m655-wrong-history-feature-separability-audit-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "wrong_history_feature_separability_audit_design_admit_m655",
+  "public_gates": [
+    "design no-training frozen-feature separability audit",
+    "measure normal-vs-wrong feature and hidden distances",
+    "report by source split and variant",
+    "compare wrong-history rows to delayed-history rows",
+    "keep actor coupling and contrast coefficient changes blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m654-wrong-history-feature-separability-audit-design.md",
+    "clearance_margin_mean": "",
+    "decision": "wrong_history_feature_separability_audit_design_admit_m655",
+    "milestone": "m654-wrong-history-feature-separability-audit-design",
+    "reason": "M654 designs raw-hidden next-hidden fused-feature and actor-action distance audit to localize where wrong-history signal collapses before actor coupling",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design specifies feature and hidden distance metrics",
+    "design specifies source split and variant breakdowns",
+    "design specifies comparison to delayed-history rows",
+    "design keeps actor coupling blocked",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

@@ -12007,3 +12007,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M653 audits M652 as `normal_retention_positive_wrong_history_gap_negative`. Normal validation MSE is retained across all seeds (`0.000491`, `0.000508`, `0.000509`), but wrong-history train gap MSE is only `0.000003-0.000005`, validation gap MSE is negative for all seeds, and wrong-history L2 gaps stay below `0.001`, far under thresholds. The likely blocker is weak normal-vs-wrong separability in frozen BC5660 recurrent features, not lack of sequence-delta learnability. M653 rejects actor coupling and rejects contrast-coefficient tuning before a feature separability audit.
 - decision: `bc_v2_wrong_history_contrast_audit_admit_feature_separability_design`
 - next: `m654-wrong-history-feature-separability-audit-design`
+## 20260524T210000Z - m654-wrong-history-feature-separability-audit-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m654-wrong-history-feature-separability-audit-design.md`
+- result: M654 designs a no-training wrong-history feature separability audit. M655 should measure normal-vs-variant distances at raw recurrent hidden, next hidden after the current response update, fused response/context actor features, actor mean, and tanh actor action. It must report row-level metrics and summaries by variant, split, source, source/split/variant, target, and surface while keeping `wrong_matched_history` rows separate from `delayed_history` rows. The interpretation matrix localizes collapse to weak stored intervention, GRU update washout, fusion washout, actor/action insensitivity, or auxiliary-head objective issues. Actor coupling, contrast tuning, PPO, and promotion remain blocked.
+- decision: `wrong_history_feature_separability_audit_design_admit_m655`
+- next: `m655-wrong-history-feature-separability-audit-implementation`

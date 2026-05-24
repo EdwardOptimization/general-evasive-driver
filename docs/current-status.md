@@ -62,16 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m654-wrong-history-feature-separability-audit-design
+m655-wrong-history-feature-separability-audit-implementation
 ```
 
-M654 should design a no-training wrong-history feature separability audit. It
-must measure normal-vs-wrong feature and hidden distances by source/split and
-compare them against delayed-history rows before any contrast tuning or actor
-coupling.
+M655 should implement the no-training wrong-history feature separability audit.
+It must measure whether normal-vs-wrong differences survive from stored hidden
+state into next hidden state, fused actor features, and actor actions, while
+keeping wrong-history and delayed-history rows separated.
 
 ## Recent Evidence Line
 
+- M654 designs the wrong-history feature separability audit. The next diagnostic
+  should measure raw hidden, next hidden, fused feature, actor mean, and tanh
+  action distances for normal versus variant histories, with group summaries by
+  variant, split, source, target, and surface. Actor coupling, contrast tuning,
+  PPO, and promotion remain blocked until M655 localizes where the
+  normal-vs-wrong signal collapses.
 - M653 audits M652 as `normal_retention_positive_wrong_history_gap_negative`.
   Normal validation retention is good, but wrong-history gap MSE/L2 are one to
   two orders of magnitude below threshold. The likely blocker is weak

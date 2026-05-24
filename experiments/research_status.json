@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 662,
+        "completed": 663,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m653-bc-v2-wrong-history-contrast-audit",
+        "task_id": "m654-wrong-history-feature-separability-audit-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m653-bc-v2-wrong-history-contrast-audit.md"
+        "command_log": "docs/m654-wrong-history-feature-separability-audit-design.md"
     },
     "next_task": {
-        "id": "m654-wrong-history-feature-separability-audit-design",
+        "id": "m655-wrong-history-feature-separability-audit-implementation",
         "status": "pending",
-        "priority": 6490,
+        "priority": 6500,
         "kind": "infrastructure",
-        "hypothesis": "The M652 wrong-history contrast failure is caused by weak normal-vs-wrong separability in frozen BC5660 recurrent features.",
-        "command": "see experiments/manifests/m654-wrong-history-feature-separability-audit-design.json",
+        "hypothesis": "The M652 wrong-history contrast failure can be localized by measuring whether normal-vs-wrong differences survive from stored recurrent hidden state into next hidden state fused actor features and actor actions.",
+        "command": "see experiments/manifests/m655-wrong-history-feature-separability-audit-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design no-training wrong-history feature separability audit; no training PPO promotion or actor update"
+        "notes": "Pending: compute no-training wrong-history feature separability diagnostics; no training PPO promotion or actor update"
     },
-    "updated_at_utc": "20260524T205000Z"
+    "updated_at_utc": "20260524T210000Z"
 }
