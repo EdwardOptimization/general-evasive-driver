@@ -2,7 +2,7 @@
   "id": "m576-moderate-ood-route-eval-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -79,6 +79,6 @@
     "docs/m572-fresh-route-generalization-eval.md",
     "docs/m570-scaled-bc-public-natural-surface-eval.md"
   ],
-  "decision_rule": "M576 passes only if it audits the positive scaled-BC evidence and pre-registers the next escalation without promotion, PPO, or actor-contract changes.",
-  "next_blocker": "pending M576 audit"
+  "decision_rule": "M576 passes because it audits the positive scaled-BC evidence and pre-registers BC seed-family repeats as the next escalation without promotion, PPO, or actor-contract changes.",
+  "next_blocker": "m577-bc-family-generalization-repeat-design"
 }

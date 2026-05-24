@@ -61,13 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m576-moderate-ood-route-eval-audit
+m577-bc-family-generalization-repeat-design
 ```
 
-M576 should audit the positive M570/M572/M575 scaled-BC evidence and choose the
-next escalation. M575 passed the moderate-OOD route gate, but there is still no
-private generalization claim, recurrent ablation evidence for this branch, or
-checkpoint promotion.
+M577 should design BC seed-family generalization repeats for scaled BC seeds
+`5660`, `5661`, and `5662`. M576 audited the positive BC5660 evidence and
+rejected immediate promotion/PPO until seed-family stability is checked.
 
 ## Recent Evidence Line
 
@@ -325,6 +324,11 @@ checkpoint promotion.
   `61.804108`, and mean margin `1.042773`, matching L2 success/collision and
   slightly improving L2 return/margin (`61.796892`, `1.036858`). This is a
   positive OOD diagnostic but still not promotion evidence by itself.
+- M576 audits M570/M572/M575. BC5660 is L2-competitive on public natural
+  surfaces, fresh route seeds, and moderate-OOD route seeds, but this is still a
+  selected single-BC-seed result. Immediate promotion and PPO remain blocked;
+  the next escalation is a BC seed-family repeat for seeds `5660`, `5661`, and
+  `5662` on fresh same-distribution and moderate-OOD route blocks.
 
 ## Near-Term Rule
 

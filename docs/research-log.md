@@ -11305,3 +11305,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M575 runs the pre-registered moderate-OOD route/generalization gate on seeds `20560..20815` using the M574 eval-only configs. It writes `768` episode rows and reports `uses_public_frozen_source_rows=false`. `BC5660` passes the L0 gate and is OOD-L2-competitive: success `0.628906` equals L2, collision `0.371094` equals L2, return `61.804108` is slightly above L2 `61.796892`, and mean margin `1.042773` is above L2 `1.036858`. No training or promotion is performed.
 - decision: `moderate_ood_route_generalization_pass_admit_m576_audit`
 - next: `m576-moderate-ood-route-eval-audit`
+## 20260524T080000Z - m576-moderate-ood-route-eval-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m576-moderate-ood-route-eval-audit.md`
+- result: M576 audits the scaled BC evidence. BC5660 matches or slightly exceeds L2 on M570 public natural surfaces (`0.866310` success, `1.782199` margin), M572 fresh route seeds (`0.625000` success, `1.064947` margin), and M575 moderate-OOD route seeds (`0.628906` success, `1.042773` margin). The audit rejects immediate promotion/PPO because only selected BC seed `5660` has been tested beyond route-screen and recurrent ablations are still missing. The next escalation is a BC seed-family repeat for `5660`, `5661`, and `5662`.
+- decision: `moderate_ood_audit_admit_bc_family_repeat_design`
+- next: `m577-bc-family-generalization-repeat-design`

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 584,
+        "completed": 585,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m575-moderate-ood-route-generalization-eval",
+        "task_id": "m576-moderate-ood-route-eval-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m575_moderate_ood_route_generalization_eval",
-        "command_log": "docs/m575-moderate-ood-route-generalization-eval.md"
+        "run_dir": "",
+        "command_log": "docs/m576-moderate-ood-route-eval-audit.md"
     },
     "next_task": {
-        "id": "m576-moderate-ood-route-eval-audit",
+        "id": "m577-bc-family-generalization-repeat-design",
         "status": "pending",
-        "priority": 5710,
-        "kind": "gate",
-        "hypothesis": "Because BC5660 now matches L2 on public fresh-route and moderate-OOD diagnostics, the next step should be chosen by an evidence audit rather than immediately promoting or running PPO.",
-        "command": "see experiments/manifests/m576-moderate-ood-route-eval-audit.json",
+        "priority": 5720,
+        "kind": "infrastructure",
+        "hypothesis": "Because selected BC5660 is L2-competitive on public fresh-route and moderate-OOD diagnostics, the next evidence layer should test whether the scaled BC seed family is stable before promotion or PPO.",
+        "command": "see experiments/manifests/m577-bc-family-generalization-repeat-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit positive scaled-BC evidence and choose next escalation"
+        "notes": "Pending: design BC seed-family generalization repeat; no evaluation or promotion"
     },
-    "updated_at_utc": "20260524T075000Z"
+    "updated_at_utc": "20260524T080000Z"
 }
