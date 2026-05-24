@@ -61,12 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m585-bc5660-history-intervention-design
+m586-bc5660-matched-current-pair-mining
 ```
 
-M585 should design a sharper BC5660 history-intervention gate. The current
-evidence supports deployable current-response dependence, but not complete
-accumulated-hidden belief proof. Promotion and PPO remain blocked.
+M586 should mine source-diverse BC5660 matched-current pair surfaces on fresh
+route and moderate-OOD distributions. The current evidence supports deployable
+current-response dependence, but not complete accumulated-hidden belief proof.
+Promotion and PPO remain blocked.
 
 ## Recent Evidence Line
 
@@ -374,6 +375,12 @@ accumulated-hidden belief proof. Promotion and PPO remain blocked.
   distributions. The unsupported claim is accumulated online-GRU hidden belief:
   reset-hidden remains weak in both runs. M584 blocks promotion/PPO and admits a
   sharper history-intervention design using delayed or wrong recurrent history.
+- M585 designs that sharper gate. Existing tooling is sufficient: use
+  `matched_current_response_ambiguity` to mine source-diverse pairs,
+  `matched_history_intervention_gate` for action-level screening, and
+  `persistent_wrong_history_intervention_gate` for outcome degradation. M586
+  will mine BC5660 pair surfaces on fresh route seeds `25560..25563` and
+  moderate-OOD seeds `25660..25663`.
 
 ## Near-Term Rule
 

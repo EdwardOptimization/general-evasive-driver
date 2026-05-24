@@ -11386,3 +11386,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M584 audits M582/M583 and separates supported from unsupported claims. The supported claim is that BC5660 uses the current deployable ego/IMU-like response stream on both fresh route and moderate-OOD blocks. The unsupported claim is accumulated online-GRU hidden-state self-ID: `reset_recurrent_state` is weak in both runs, and `zero_action_history` only reaches the meaningful threshold on M582. The audit blocks promotion/PPO and admits a sharper history-intervention design using delayed or wrong recurrent history with outcome metrics.
 - decision: `bc_recurrent_ablation_audit_admit_history_intervention_design`
 - next: `m585-bc5660-history-intervention-design`
+## 20260524T093000Z - m585-bc5660-history-intervention-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m585-bc5660-history-intervention-design.md`
+- result: M585 inspects the existing intervention tooling and decides no new tool is required before the next run. The staged path is `matched_current_response_ambiguity` for source-diverse pair mining, `matched_history_intervention_gate` for action-level screening, and `persistent_wrong_history_intervention_gate` for outcome-level wrong/delayed-history diagnostics. M586 is pre-registered to mine BC5660 matched-current pairs on fresh route seeds `25560..25563` and moderate-OOD seeds `25660..25663`, with accepted-pair and source-diversity thresholds fixed before any run.
+- decision: `bc5660_history_intervention_design_admit_pair_mining`
+- next: `m586-bc5660-matched-current-pair-mining`

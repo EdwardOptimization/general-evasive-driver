@@ -1,0 +1,78 @@
+{
+  "decision_reason": "M585 selects existing matched-current action-intervention and persistent wrong-history tools for a staged outcome-based BC5660 history diagnostic; M586 will mine source-diverse pairs",
+  "failure_criteria": [
+    "design relies on hidden vehicle parameters as deployable actor inputs",
+    "design only measures action distance and omits closed-loop outcome checks",
+    "design starts evaluation before thresholds are registered",
+    "design promotes a checkpoint"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not use hidden vehicle parameters as actor inputs",
+    "do not claim self-ID from action difference without outcome degradation",
+    "do not promote from design-only evidence",
+    "do not run PPO or behavior cloning",
+    "do not change actor inputs"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T065826Z",
+  "hypothesis": "Because current-response ablations are positive but reset-hidden ablations are weak, the next diagnostic should directly intervene on delayed or wrong recurrent history while holding current observation and scene as fixed as possible.",
+  "lineage": {
+    "blocked_by": [
+      "m584-bc-recurrent-ablation-audit"
+    ],
+    "derived_from": [
+      "m584-bc-recurrent-ablation-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_dataset": [
+      "runs/m582_bc5660_recurrent_ablation_fresh_route_eval/policy_summary.csv",
+      "runs/m583_bc5660_recurrent_ablation_moderate_ood_eval/policy_summary.csv"
+    ],
+    "parent_objective": [
+      "design a causal history-intervention diagnostic after reset-hidden ablation was weak"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m585-bc5660-history-intervention-design",
+  "next_blocker": "m586-bc5660-matched-current-pair-mining",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "bc5660_history_intervention_design_admit_pair_mining",
+  "public_gates": [
+    "inspect existing wrong-history delayed-history and persistent-intervention tooling",
+    "design a BC5660 history-intervention gate that holds current scene fixed as much as possible",
+    "pre-register source snapshots accepted-row thresholds controls and failure taxonomy",
+    "do not train evaluate or promote in design milestone"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m585-bc5660-history-intervention-design.md",
+    "clearance_margin_mean": "",
+    "decision": "bc5660_history_intervention_design_admit_pair_mining",
+    "milestone": "m585-bc5660-history-intervention-design",
+    "reason": "M585 selects existing matched-current action-intervention and persistent wrong-history tools for a staged outcome-based BC5660 history diagnostic; M586 will mine source-diverse pairs",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design identifies the concrete existing tool path or scoped tool gap for BC5660 history intervention",
+    "design specifies normal reset delayed wrong-history and zero-current controls",
+    "design specifies accepted-row and outcome-degradation thresholds before any run",
+    "design classifies possible negative outcomes without promotion or PPO",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 593,
+        "completed": 594,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m584-bc-recurrent-ablation-audit",
+        "task_id": "m585-bc5660-history-intervention-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m584-bc-recurrent-ablation-audit.md"
+        "command_log": "docs/m585-bc5660-history-intervention-design.md"
     },
     "next_task": {
-        "id": "m585-bc5660-history-intervention-design",
+        "id": "m586-bc5660-matched-current-pair-mining",
         "status": "pending",
-        "priority": 5800,
-        "kind": "infrastructure",
-        "hypothesis": "Because current-response ablations are positive but reset-hidden ablations are weak, the next diagnostic should directly intervene on delayed or wrong recurrent history while holding current observation and scene as fixed as possible.",
-        "command": "see experiments/manifests/m585-bc5660-history-intervention-design.json",
+        "priority": 5810,
+        "kind": "gate",
+        "hypothesis": "BC5660 should expose source-diverse matched-current pair surfaces on at least one of the fresh route or moderate-OOD distributions, enabling outcome-based delayed/wrong-history interventions.",
+        "command": "see experiments/manifests/m586-bc5660-matched-current-pair-mining.json",
         "success_artifact": "",
-        "notes": "Pending: design BC5660 history-intervention gate with outcome metrics and controls; no evaluation or promotion"
+        "notes": "Pending: mine BC5660 matched-current pair surfaces on fresh route and moderate-OOD distributions; no promotion"
     },
-    "updated_at_utc": "20260524T092000Z"
+    "updated_at_utc": "20260524T093000Z"
 }
