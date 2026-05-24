@@ -1,0 +1,84 @@
+{
+  "id": "m654-wrong-history-feature-separability-audit-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m652_bc_v2_wrong_history_contrast/summary.json",
+      "runs/m652_bc_v2_wrong_history_contrast/history_variant_summary.csv",
+      "docs/m653-bc-v2-wrong-history-contrast-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m653-bc-v2-wrong-history-contrast-audit.json"
+    ],
+    "parent_objective": [
+      "design wrong-history frozen-feature separability audit before changing contrast objective"
+    ],
+    "derived_from": [
+      "m653-bc-v2-wrong-history-contrast-audit"
+    ],
+    "blocked_by": [
+      "m653-bc-v2-wrong-history-contrast-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m654-wrong-history-feature-separability-audit-design.md",
+  "public_gates": [
+    "design no-training frozen-feature separability audit",
+    "measure normal-vs-wrong feature and hidden distances",
+    "report by source split and variant",
+    "compare wrong-history rows to delayed-history rows",
+    "keep actor coupling and contrast coefficient changes blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not update actor parameters",
+    "do not change contrast coefficients before separability audit",
+    "do not promote checkpoint"
+  ],
+  "hypothesis": "The M652 wrong-history contrast failure is caused by weak normal-vs-wrong separability in frozen BC5660 recurrent features.",
+  "success_criteria": [
+    "design specifies feature and hidden distance metrics",
+    "design specifies source split and variant breakdowns",
+    "design specifies comparison to delayed-history rows",
+    "design keeps actor coupling blocked",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design admits training",
+    "design omits wrong-history feature metrics",
+    "design omits delayed-history comparison",
+    "design weakens actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "design_doc",
+      "command": "write docs/m654-wrong-history-feature-separability-audit-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m654-wrong-history-feature-separability-audit-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m652_bc_v2_wrong_history_contrast/summary.json",
+    "docs/m653-bc-v2-wrong-history-contrast-audit.md"
+  ],
+  "decision_rule": "M654 passes as design only if it pre-registers a no-training feature separability audit before any contrast tuning or actor coupling.",
+  "next_blocker": "m655-wrong-history-feature-separability-audit-implementation"
+}

@@ -11998,3 +11998,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M652 implements and runs the frozen-head wrong-history contrast smoke with seeds `6510`, `6511`, and `6512`. The result is negative: `0/3` seeds pass. Normal target retention remains good, with validation MSE `0.000491`, `0.000508`, and `0.000509`, all below the `0.0010` threshold. Wrong-history gaps fail by a wide margin: train gap MSE is only `3e-6` to `5e-6`, validation gap MSE is negative for all seeds, train gap L2 is `0.000700-0.000940`, and validation gap L2 is `0.000624-0.000748`. Actor checksum is unchanged, best/final head checkpoints are written, no actor checkpoint is written, and actor coupling remains blocked.
 - decision: `bc_v2_wrong_history_contrast_negative_admit_feature_separability_audit`
 - next: `m653-bc-v2-wrong-history-contrast-audit`
+## 20260524T205000Z - m653-bc-v2-wrong-history-contrast-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m653-bc-v2-wrong-history-contrast-audit.md`
+- result: M653 audits M652 as `normal_retention_positive_wrong_history_gap_negative`. Normal validation MSE is retained across all seeds (`0.000491`, `0.000508`, `0.000509`), but wrong-history train gap MSE is only `0.000003-0.000005`, validation gap MSE is negative for all seeds, and wrong-history L2 gaps stay below `0.001`, far under thresholds. The likely blocker is weak normal-vs-wrong separability in frozen BC5660 recurrent features, not lack of sequence-delta learnability. M653 rejects actor coupling and rejects contrast-coefficient tuning before a feature separability audit.
+- decision: `bc_v2_wrong_history_contrast_audit_admit_feature_separability_design`
+- next: `m654-wrong-history-feature-separability-audit-design`

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 661,
+        "completed": 662,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m652-bc-v2-wrong-history-contrast-implementation",
+        "task_id": "m653-bc-v2-wrong-history-contrast-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m652_bc_v2_wrong_history_contrast",
-        "command_log": "docs/m652-bc-v2-wrong-history-contrast-implementation.md"
+        "run_dir": "",
+        "command_log": "docs/m653-bc-v2-wrong-history-contrast-audit.md"
     },
     "next_task": {
-        "id": "m653-bc-v2-wrong-history-contrast-audit",
+        "id": "m654-wrong-history-feature-separability-audit-design",
         "status": "pending",
-        "priority": 6480,
-        "kind": "gate",
-        "hypothesis": "M652 failed because wrong-history recurrent features remain nearly inseparable under the frozen BC5660 representation, not because normal sequence-delta learning is unavailable.",
-        "command": "see experiments/manifests/m653-bc-v2-wrong-history-contrast-audit.json",
+        "priority": 6490,
+        "kind": "infrastructure",
+        "hypothesis": "The M652 wrong-history contrast failure is caused by weak normal-vs-wrong separability in frozen BC5660 recurrent features.",
+        "command": "see experiments/manifests/m654-wrong-history-feature-separability-audit-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit M652 negative contrast result; no training PPO promotion or actor update"
+        "notes": "Pending: design no-training wrong-history feature separability audit; no training PPO promotion or actor update"
     },
-    "updated_at_utc": "20260524T204000Z"
+    "updated_at_utc": "20260524T205000Z"
 }

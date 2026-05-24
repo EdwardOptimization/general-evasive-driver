@@ -62,16 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m653-bc-v2-wrong-history-contrast-audit
+m654-wrong-history-feature-separability-audit-design
 ```
 
-M653 should audit the failed M652 wrong-history contrast smoke. It must separate
-normal-retention success from wrong-history gap failure, confirm actor checksum
-remained unchanged, and choose the next blocker without admitting actor
+M654 should design a no-training wrong-history feature separability audit. It
+must measure normal-vs-wrong feature and hidden distances by source/split and
+compare them against delayed-history rows before any contrast tuning or actor
 coupling.
 
 ## Recent Evidence Line
 
+- M653 audits M652 as `normal_retention_positive_wrong_history_gap_negative`.
+  Normal validation retention is good, but wrong-history gap MSE/L2 are one to
+  two orders of magnitude below threshold. The likely blocker is weak
+  normal-vs-wrong separability in frozen BC5660 recurrent features. M653 rejects
+  actor coupling and rejects increasing contrast coefficients before a feature
+  separability audit.
 - M652 implements and runs the frozen-head wrong-history contrast smoke. It is
   a clean negative result: `0/3` seeds pass. Normal validation MSE remains good
   (`0.000491`, `0.000508`, `0.000509`), but wrong-history gaps stay near zero:
