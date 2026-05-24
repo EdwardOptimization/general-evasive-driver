@@ -1,0 +1,120 @@
+{
+  "id": "m714-actor-head-history-signal-coupling-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m713_actor_head_history_signal_coupling/summary.json",
+      "runs/m713_actor_head_history_signal_coupling/row_actor_head_coupling.csv",
+      "runs/m713_actor_head_history_signal_coupling/alpha_summary.csv",
+      "docs/m713-actor-head-history-signal-coupling-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m713-actor-head-history-signal-coupling-implementation.json",
+      "configs/cross_fault_hidden_condition_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit actor_head_coupling_positive before any objective design or actor update"
+    ],
+    "derived_from": [
+      "m713-actor-head-history-signal-coupling-implementation"
+    ],
+    "blocked_by": [
+      "m713-actor-head-history-signal-coupling-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m714-actor-head-history-signal-coupling-audit.md",
+  "public_gates": [
+    "M713 implementation cleanliness is checked",
+    "feature-line-search positives are separated from deployed actor behavior",
+    "source diversity and alpha thresholds are summarized",
+    "objective-design admission is explicit",
+    "actor update PPO and promotion remain blocked unless the audit explicitly justifies otherwise",
+    "actor_head_history_signal_coupling branch receives a synthesis decision"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat amplified feature actions as deployed behavior",
+    "do not claim closed-loop self-ID proof from M713",
+    "do not run actor update",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels to actor inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "actor_head_history_signal_coupling",
+    "evidence_axis": "G_synthesis: audit M713 actor-head coupling positive result and decide whether to design an objective",
+    "evidence_increment": "synthesizes alpha line-search evidence after M713 finds source-diverse low-alpha wrong-history action coupling",
+    "claim_scope": "process synthesis and next-branch decision only, not deployed driver performance or checkpoint promotion",
+    "stop_condition": [
+      "stop promotion because no actor was updated and no deployed policy improved",
+      "stop PPO because no proof-retaining objective has been designed",
+      "stop direct training unless objective design preserves normal behavior and makes amplified directions actionable"
+    ],
+    "fallback_plan": [
+      "if positive result is accepted, design exact objective or residual-head audit",
+      "if line-search positives are too counterfactual, require closed-loop replay admission before training",
+      "if source diversity is weak, refine corpus before objective design",
+      "if alpha requirements are too high, design stronger representation objective instead"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M713 result_class=actor_head_coupling_positive",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m714-actor-head-history-signal-coupling-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "M713 actor_head_coupling_positive should admit a conservative objective-design milestone while blocking direct actor update PPO and promotion.",
+  "success_criteria": [
+    "M713 summary metrics are recorded",
+    "feature-line-search positives are classified",
+    "supported and falsified claims are recorded",
+    "failure taxonomy is assigned",
+    "public gate overfit risk is recorded",
+    "next branch decision is explicit",
+    "actor update PPO and promotion remain blocked unless a new objective design is pre-registered"
+  ],
+  "failure_criteria": [
+    "audit treats amplified counterfactual actions as deployed behavior",
+    "audit admits PPO without objective design",
+    "audit ignores source diversity or alpha thresholds",
+    "audit omits synthesis questions",
+    "audit changes actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m714-actor-head-history-signal-coupling-audit.md from M713 artifacts; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m714-actor-head-history-signal-coupling-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m713_actor_head_history_signal_coupling/summary.json",
+    "docs/m713-actor-head-history-signal-coupling-implementation.md"
+  ],
+  "decision_rule": "M714 must decide whether M713 admits a conservative exact objective or residual-head design; it must not admit PPO or promotion directly.",
+  "next_blocker": "m715-to-be-selected-by-m714"
+}

@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 721,
+        "completed": 722,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m712-actor-head-history-signal-coupling-design",
+        "task_id": "m713-actor-head-history-signal-coupling-implementation",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m712-actor-head-history-signal-coupling-design.md"
+        "command_log": "docs/m713-actor-head-history-signal-coupling-implementation.md"
     },
     "next_task": {
-        "id": "m713-actor-head-history-signal-coupling-implementation",
+        "id": "m714-actor-head-history-signal-coupling-audit",
         "status": "pending",
-        "priority": 7080,
-        "kind": "infrastructure",
-        "hypothesis": "Implement actor-head history signal coupling audit",
-        "command": "see experiments/manifests/m713-actor-head-history-signal-coupling-implementation.json",
+        "priority": 7090,
+        "kind": "gate",
+        "hypothesis": "Audit M713 actor-head coupling positive result",
+        "command": "see experiments/manifests/m714-actor-head-history-signal-coupling-audit.json",
         "success_artifact": "",
-        "notes": "Pending: run no-training feature projection tanh attenuation and alpha line-search audit before objective design"
+        "notes": "Pending: synthesize feature-line-search positive result before objective design actor update PPO or promotion"
     },
-    "updated_at_utc": "20260524T200000Z"
+    "updated_at_utc": "20260524T202000Z"
 }

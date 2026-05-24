@@ -12443,3 +12443,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M712 designs the first no-training diagnostic in the new `actor_head_history_signal_coupling` branch. The design decomposes M710 action washout into fused feature delta size, actor-head pre-tanh projection, tanh attenuation, and feature-delta amplification line search. It compares wrong-history directions against reset-hidden directions and keeps amplified feature actions diagnostic only, with actor update, PPO, promotion, and actor input changes blocked.
 - decision: `actor_head_coupling_design_admit_m713`
 - next: `m713-actor-head-history-signal-coupling-implementation`
+
+## 20260524T202000Z - m713-actor-head-history-signal-coupling-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m713_actor_head_history_signal_coupling`
+- artifact: `docs/m713-actor-head-history-signal-coupling-implementation.md`
+- result: M713 implements and runs the no-training actor-head feature-line-search audit. The result is `actor_head_coupling_positive`: `164` wrong-history rows cross the action threshold by alpha `<=4` across `20` fault-pair groups, and `1079` cross by alpha `<=16`. Wrong-history directions are weaker than reset-hidden directions, but they are not actor-head-null; tanh attenuation is not the primary blocker. Actor checksum unchanged; no training, PPO, or promotion occurred.
+- decision: `actor_head_coupling_positive_admit_audit`
+- next: `m714-actor-head-history-signal-coupling-audit`
