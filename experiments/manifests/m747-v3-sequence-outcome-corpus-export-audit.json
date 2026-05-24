@@ -1,0 +1,123 @@
+{
+  "id": "m747-v3-sequence-outcome-corpus-export-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint_used"
+    ],
+    "parent_dataset": [
+      "docs/m746-v3-sequence-outcome-corpus-export-implementation.md",
+      "runs/m746_v3_sequence_outcome_corpus_export/summary.json",
+      "runs/m746_v3_sequence_outcome_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m746_v3_sequence_outcome_corpus_export/contrast_rows.csv",
+      "runs/m746_v3_sequence_outcome_corpus_export/hard_negative_rows.csv",
+      "runs/m746_v3_sequence_outcome_corpus_export/source_balance.csv",
+      "runs/m746_v3_sequence_outcome_corpus_export/variant_horizon_balance.csv",
+      "runs/m746_v3_sequence_outcome_corpus_export/fault_family_balance.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m746-v3-sequence-outcome-corpus-export-implementation.json",
+      "configs/extreme_fault_distribution_v3_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit v3 sequence-outcome corpus export and hard-negative sparsity before objective or new coverage branch"
+    ],
+    "derived_from": [
+      "m746-v3-sequence-outcome-corpus-export-implementation"
+    ],
+    "blocked_by": [
+      "m746-v3-sequence-outcome-corpus-export-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m747-v3-sequence-outcome-corpus-export-audit.md",
+  "public_gates": [
+    "M746 positive corpus gates are audited",
+    "M746 v3 metadata and claim-boundary preservation are audited",
+    "M746 hard-negative sparsity is audited separately",
+    "next branch decision compares objective design hard-negative repair v4 coverage and four-wheel fidelity",
+    "actor training PPO and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat sparse hard negatives as a complete contrast corpus",
+    "do not treat current-model proxy faults as true per-wheel physics",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor input contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "v3_sequence_outcome_corpus_export",
+    "evidence_axis": "G_sequence_corpus: audit exported v3 sequence-outcome corpus",
+    "evidence_increment": "synthesizes positive corpus pass hard-negative sparsity and v3 claim-boundary preservation before next branch",
+    "claim_scope": "process synthesis only; no objective training or checkpoint claim",
+    "stop_condition": [
+      "stop objective design if hard-negative sparsity or public-row overfit risk blocks contrast loss",
+      "stop corpus reuse if sentinel normal-match or metadata artifacts are found",
+      "stop current-model physical claims if true per-wheel failures are needed",
+      "stop PPO and promotion until a later manifest explicitly admits them"
+    ],
+    "fallback_plan": [
+      "if positive corpus is clean but hard negatives are sparse, design hard-negative repair export or positive-only objective sanity",
+      "if claim boundary is the blocker, design v4/four-wheel-fidelity scenario branch",
+      "if corpus is artifact-free and objective-ready, design v3 sequence objective sanity only"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M746 result_class=v3_sequence_outcome_corpus_hard_negative_sparse",
+    "synthesis_decision": "not_applicable",
+    "synthesis_artifact": "docs/m747-v3-sequence-outcome-corpus-export-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "M746's positive v3 corpus is clean enough to preserve, but its hard-negative sparsity and proxy-fault claim boundary must be audited before objective or broader coverage work.",
+  "success_criteria": [
+    "M747 records positive corpus pass/fail evidence",
+    "M747 records v3 metadata and claim-boundary evidence",
+    "M747 records hard-negative sparsity evidence",
+    "M747 records supported and falsified claims",
+    "M747 records public gate overfit risk",
+    "M747 makes an explicit next branch decision",
+    "actor update PPO and promotion remain blocked unless later designed"
+  ],
+  "failure_criteria": [
+    "audit treats sparse hard negatives as a complete contrast set",
+    "audit ignores sentinel normal-match or metadata checks",
+    "audit overclaims true per-wheel physics from proxy faults",
+    "audit admits PPO or promotion directly",
+    "audit changes actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m747-v3-sequence-outcome-corpus-export-audit.md from M746 artifacts; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m747-v3-sequence-outcome-corpus-export-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_checkpoint_used"
+  ],
+  "baseline_artifacts": [
+    "runs/m746_v3_sequence_outcome_corpus_export/summary.json",
+    "docs/m746-v3-sequence-outcome-corpus-export-implementation.md"
+  ],
+  "decision_rule": "M747 must decide whether the next branch is v3 sequence objective sanity hard-negative repair export v4/four-wheel-fidelity coverage or repeat validation. It must not admit PPO or checkpoint promotion directly.",
+  "next_blocker": "m748-v3-sequence-outcome-corpus-audit-decision"
+}

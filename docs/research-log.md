@@ -12753,3 +12753,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M745 designs a deterministic no-training v3-aware corpus export for M743's `995` non-sentinel sequence-outcome positives. The design requires matched normal rows, separates hard-negative action-only rows from proof positives, preserves `pair_id`, `pairing_rule`, reset/action/history gap fields, source kind, and fault fidelity metadata from `configs/extreme_fault_distribution_v3_scenarios.json`, and records current-model/proxy versus future-only claim boundaries. Precheck values show `20` positive seeds, `26` positive fault-family pairs, max seed dominance `0.169849`, `0` sentinel positives, `0` missing normal matches, and `992` capped hard-negative rows for `995` positives, so hard-negative sparsity is classified separately from core positive-corpus validity.
 - decision: `v3_sequence_outcome_corpus_export_design_admit_m746`
 - next: `m746-v3-sequence-outcome-corpus-export-implementation`
+
+## 20260525T030000Z - m746-v3-sequence-outcome-corpus-export-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m746_v3_sequence_outcome_corpus_export`
+- artifact: `docs/m746-v3-sequence-outcome-corpus-export-implementation.md`
+- result: M746 implements the deterministic v3-aware corpus exporter and runs the registered export. It writes `995` positive sequence-outcome rows, `995` matched normal rows, `992` capped hard-negative action-only rows, and balance artifacts. Core gates pass: `0` positive sentinel rows, `0` source-role sentinel positives, `0` duplicate positive keys, `0` missing normal matches, `0` missing v3 metadata rows, `0` missing fidelity metadata rows, `20` positive seeds, `26` fault-family pairs, max seed dominance `0.169849`, and v3 metadata gate pass. Hard-negative contrast is slightly sparse (`992 < 995`) with `90` positives lacking same-source/same-horizon hard-negative candidates, so result_class is `v3_sequence_outcome_corpus_hard_negative_sparse`. No actor training, checkpoint loading, PPO, or promotion occurs.
+- decision: `v3_sequence_outcome_corpus_hard_negative_sparse_admit_audit`
+- next: `m747-v3-sequence-outcome-corpus-export-audit`

@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 754,
+        "completed": 755,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m745-v3-sequence-outcome-corpus-export-design",
+        "task_id": "m746-v3-sequence-outcome-corpus-export-implementation",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m745-v3-sequence-outcome-corpus-export-design.md"
+        "command_log": "docs/m746-v3-sequence-outcome-corpus-export-implementation.md"
     },
     "next_task": {
-        "id": "m746-v3-sequence-outcome-corpus-export-implementation",
+        "id": "m747-v3-sequence-outcome-corpus-export-audit",
         "status": "pending",
-        "priority": 7410,
-        "kind": "infrastructure",
-        "hypothesis": "Implement v3 sequence-outcome corpus export",
-        "command": "see experiments/manifests/m746-v3-sequence-outcome-corpus-export-implementation.json",
-        "success_artifact": "docs/m746-v3-sequence-outcome-corpus-export-implementation.md",
-        "notes": "Pending: implement deterministic no-training v3 corpus exporter and run registered M743 export"
+        "priority": 7420,
+        "kind": "gate",
+        "hypothesis": "Audit v3 sequence-outcome corpus export",
+        "command": "see experiments/manifests/m747-v3-sequence-outcome-corpus-export-audit.json",
+        "success_artifact": "docs/m747-v3-sequence-outcome-corpus-export-audit.md",
+        "notes": "Pending: audit M746 positive corpus hard-negative sparsity and proxy-fault claim boundary before objective or coverage branch"
     },
-    "updated_at_utc": "20260525T025000Z"
+    "updated_at_utc": "20260525T030000Z"
 }
