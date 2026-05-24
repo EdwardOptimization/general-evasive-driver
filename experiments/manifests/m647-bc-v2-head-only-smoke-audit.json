@@ -1,0 +1,85 @@
+{
+  "id": "m647-bc-v2-head-only-smoke-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m646_bc_v2_head_only_smoke/summary.json",
+      "runs/m646_bc_v2_head_only_smoke/train_metrics.csv",
+      "runs/m646_bc_v2_head_only_smoke/validation_metrics.csv",
+      "docs/m646-bc-v2-head-only-smoke-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m646-bc-v2-head-only-smoke-implementation.json"
+    ],
+    "parent_objective": [
+      "audit frozen-actor BC-v2 head-only smoke before any actor-coupling design"
+    ],
+    "derived_from": [
+      "m646-bc-v2-head-only-smoke-implementation"
+    ],
+    "blocked_by": [
+      "m646-bc-v2-head-only-smoke-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m647-bc-v2-head-only-smoke-audit.md",
+  "public_gates": [
+    "audit train and source-heldout improvement",
+    "audit validation overfit after best epoch",
+    "audit source and target summaries",
+    "confirm actor checksum remained unchanged",
+    "decide whether next branch is early-stopped repeat or actor-coupling design"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not treat head-only loss as closed-loop improvement",
+    "do not design actor coupling without addressing validation overfit"
+  ],
+  "hypothesis": "M646 proves frozen-feature sequence-delta learnability, but the validation curve and source/target balance must be audited before allowing any actor-coupling design.",
+  "success_criteria": [
+    "audit classifies M646 as pass fail or pass-with-caveat",
+    "audit identifies best validation epoch and final-vs-best regression",
+    "audit checks actor checksum and no actor checkpoint",
+    "audit chooses next blocker explicitly",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "audit ignores validation overfit",
+    "audit treats head-only loss as promotion evidence",
+    "audit admits actor update without exact retention gates",
+    "audit omits source/target summary review"
+  ],
+  "commands": [
+    {
+      "name": "audit_doc",
+      "command": "write docs/m647-bc-v2-head-only-smoke-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m647-bc-v2-head-only-smoke-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m646_bc_v2_head_only_smoke/summary.json",
+    "runs/m646_bc_v2_head_only_smoke/validation_metrics.csv"
+  ],
+  "decision_rule": "M647 passes as an audit only if it records the M646 learnability result and explicitly handles validation overfit before any actor-coupling branch.",
+  "next_blocker": "m648-bc-v2-head-only-repeat-design"
+}

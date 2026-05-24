@@ -11935,3 +11935,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M645 designs a frozen-actor BC-v2 sequence-delta head-only smoke. M646 may train only an auxiliary `SequenceDeltaHead` on frozen BC5660 recurrent features; response/context encoders, online GRU, fusion, actor mean, critic, and log standard deviation must remain frozen. The target is `target_action_sequence - normal_base_action_sequence` with `sequence_mask` and source-balanced weights. Required pass criteria are train delta-MSE improvement `>= 30%`, source-heldout validation not worse, finite source/split/target summaries, actor checksum unchanged, only a head checkpoint written, and no promotion.
 - decision: `bc_v2_head_only_smoke_design_admit_m646`
 - next: `m646-bc-v2-head-only-smoke-implementation`
+## 20260524T194000Z - m646-bc-v2-head-only-smoke-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m646_bc_v2_head_only_smoke`
+- artifact: `docs/m646-bc-v2-head-only-smoke-implementation.md`
+- result: M646 implements and runs the frozen-actor BC-v2 sequence-delta head-only smoke. The auxiliary head reduces train delta-MSE from `0.008720258` to `0.000237071` (`97.28%` improvement) and source-heldout validation delta-MSE from `0.008592790` to `0.001331890` (`84.50%` improvement). Actor checksum is unchanged, no actor checkpoint is written, `sequence_delta_head.pt` is written, and `passed_head_only_smoke` is true. The validation curve is non-monotonic: best observed validation near epoch `180` is `0.000517118`, then final epoch `300` regresses to `0.001331890`. This is a positive learnability result with an overfit caveat, so the next step is an audit rather than actor coupling.
+- decision: `bc_v2_head_only_smoke_pass_admit_audit`
+- next: `m647-bc-v2-head-only-smoke-audit`

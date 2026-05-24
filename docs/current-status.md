@@ -62,16 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m646-bc-v2-head-only-smoke-implementation
+m647-bc-v2-head-only-smoke-audit
 ```
 
-M646 should implement the frozen-actor BC-v2 sequence-delta head-only smoke.
-It may train only an auxiliary head on frozen BC5660 recurrent features, must
-preserve source-balanced masked losses and train/source-heldout reporting, and
-must verify the actor checksum remains unchanged.
+M647 should audit the M646 frozen-actor head-only smoke before any
+actor-coupling design. It must classify the positive learnability result,
+handle the validation curve's final-vs-best regression, and choose whether the
+next branch is an early-stopped repeat or an actor-coupling design.
 
 ## Recent Evidence Line
 
+- M646 implements and runs the frozen-actor BC-v2 sequence-delta head-only
+  smoke. It passes the pre-registered gate: train delta-MSE improves
+  `97.28%`, source-heldout validation improves `84.50%`, the actor checksum is
+  unchanged, only `sequence_delta_head.pt` is written, and no actor checkpoint
+  or promotion occurs. Caveat: validation is best around epoch `180`
+  (`0.000517118`) and worsens by epoch `300` (`0.001331890`), so M647 must
+  audit before actor coupling.
 - M645 designs the frozen-actor head-only smoke. The later implementation may
   train only `SequenceDeltaHead(features) -> delta_action_sequence`; all BC5660
   actor/recurrent/critic parameters remain frozen. The pass criterion is

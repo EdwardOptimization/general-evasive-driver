@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 654,
+        "completed": 655,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m645-bc-v2-head-only-smoke-design",
+        "task_id": "m646-bc-v2-head-only-smoke-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m645-bc-v2-head-only-smoke-design.md"
+        "run_dir": "runs/m646_bc_v2_head_only_smoke",
+        "command_log": "docs/m646-bc-v2-head-only-smoke-implementation.md"
     },
     "next_task": {
-        "id": "m646-bc-v2-head-only-smoke-implementation",
+        "id": "m647-bc-v2-head-only-smoke-audit",
         "status": "pending",
-        "priority": 6410,
-        "kind": "infrastructure",
-        "hypothesis": "A frozen BC5660 feature extractor plus a small sequence-delta head can reduce source-balanced masked sequence loss without mutating the actor.",
-        "command": "see experiments/manifests/m646-bc-v2-head-only-smoke-implementation.json",
+        "priority": 6420,
+        "kind": "gate",
+        "hypothesis": "M646 proves frozen-feature sequence-delta learnability, but the validation curve and source/target balance must be audited before allowing any actor-coupling design.",
+        "command": "see experiments/manifests/m647-bc-v2-head-only-smoke-audit.json",
         "success_artifact": "",
-        "notes": "Pending: implement frozen-actor sequence-delta head-only smoke; no PPO promotion or actor update"
+        "notes": "Pending: audit M646 learnability and validation overfit; no training PPO promotion or actor update"
     },
-    "updated_at_utc": "20260524T193000Z"
+    "updated_at_utc": "20260524T194000Z"
 }
