@@ -11548,3 +11548,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M602 audits M601 before any actor update. The supported diagnosis is that BC5660 hidden state contains readable capability belief and real history substitutions can move that belief, while M591 still shows weak action-level coupling. The result is mixed: shuffled-history passes on fresh/OOD, wrong-matched passes only on OOD, delayed-history remains weak, and zero-current remains dominant. M602 rejects immediate actor fine-tuning, PPO, and ungrounded action separation, and admits a design-only guarded capability-to-action coupling objective with exact no-update evaluator.
 - decision: `bc_capability_belief_intervention_audit_admit_guarded_action_coupling_design`
 - next: `m603-guarded-capability-action-coupling-design`
+## 20260524T123000Z - m603-guarded-capability-action-coupling-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m603-guarded-capability-action-coupling-design.md`
+- result: M603 designs the guarded capability-to-action coupling branch after M602. The design rejects PPO, immediate actor training, and ungrounded action separation. It pre-registers an exact no-update evaluator that joins M591 action movement and M601 capability movement on matched-current rows, classifies belief-only gaps, and reports real-history candidate counts. Future optimizer scope, if later admitted, should first freeze the recurrent observer and train only fusion/action layers with normal action anchors, grounded target losses, variant guards, and trust-region constraints.
+- decision: `guarded_capability_action_coupling_design_admit_m604_evaluator`
+- next: `m604-guarded-capability-action-coupling-evaluator`

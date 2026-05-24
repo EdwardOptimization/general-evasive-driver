@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 611,
+        "completed": 612,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m602-bc-capability-belief-intervention-audit",
+        "task_id": "m603-guarded-capability-action-coupling-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m602-bc-capability-belief-intervention-audit.md"
+        "command_log": "docs/m603-guarded-capability-action-coupling-design.md"
     },
     "next_task": {
-        "id": "m603-guarded-capability-action-coupling-design",
+        "id": "m604-guarded-capability-action-coupling-evaluator",
         "status": "pending",
-        "priority": 5980,
+        "priority": 5990,
         "kind": "infrastructure",
-        "hypothesis": "Because M601 shows belief-level real-history movement while M591 shows weak action-level movement, the next repair should be a guarded capability-to-action coupling design rather than PPO or ungrounded action contrast.",
-        "command": "see experiments/manifests/m603-guarded-capability-action-coupling-design.json",
+        "hypothesis": "An exact no-update evaluator can localize rows where real hidden histories move decoded capability belief but not action, providing a grounded candidate set for later recovery or boundary target mining.",
+        "command": "see experiments/manifests/m604-guarded-capability-action-coupling-evaluator.json",
         "success_artifact": "",
-        "notes": "Pending: design-only guarded action-coupling objective and exact evaluator; no training, PPO, promotion, or driver-performance claim"
+        "notes": "Pending: implement and run no-update coupling-gap evaluator; no training, PPO, promotion, or driver-performance claim"
     },
-    "updated_at_utc": "20260524T122000Z"
+    "updated_at_utc": "20260524T123000Z"
 }

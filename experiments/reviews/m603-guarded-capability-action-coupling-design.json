@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M603 designs an exact no-update coupling-gap evaluator and grounded action-coupling requirements before any actor update or PPO",
+  "failure_criteria": [
+    "design starts training",
+    "design adds privileged actor inputs",
+    "design treats capability movement as driver improvement",
+    "design omits action-retention anchors",
+    "design permits ungrounded action separation"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train in design milestone",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not add capability labels to actor inputs",
+    "do not force action separation without a grounded recovery or boundary target"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T082505Z",
+  "hypothesis": "Because M601 shows belief-level real-history movement while M591 shows weak action-level movement, the next repair should be a guarded capability-to-action coupling design rather than PPO or ungrounded action contrast.",
+  "lineage": {
+    "blocked_by": [
+      "m602-bc-capability-belief-intervention-audit"
+    ],
+    "derived_from": [
+      "m602-bc-capability-belief-intervention-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "docs/m602-bc-capability-belief-intervention-audit.md"
+    ],
+    "parent_dataset": [
+      "runs/m601_bc_capability_belief_intervention_fresh/summary.json",
+      "runs/m601_bc_capability_belief_intervention_ood/summary.json",
+      "runs/m591_bc_hidden_action_sensitivity_probe_fresh/summary.json",
+      "runs/m591_bc_hidden_action_sensitivity_probe_ood/summary.json"
+    ],
+    "parent_objective": [
+      "design a guarded no-oracle objective that couples decoded capability belief to action without ungrounded action separation"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m603-guarded-capability-action-coupling-design",
+  "next_blocker": "m604-guarded-capability-action-coupling-objective-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "guarded_capability_action_coupling_design_admit_m604_evaluator",
+  "public_gates": [
+    "define allowed training-only capability signals",
+    "define normal action-retention anchors",
+    "define grounded rows where action movement is allowed",
+    "define exact no-update sanity evaluator before any optimizer step",
+    "keep actor input contract unchanged"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m603-guarded-capability-action-coupling-design.md",
+    "clearance_margin_mean": "",
+    "decision": "guarded_capability_action_coupling_design_admit_m604_evaluator",
+    "milestone": "m603-guarded-capability-action-coupling-design",
+    "reason": "M603 designs an exact no-update coupling-gap evaluator and grounded action-coupling requirements before any actor update or PPO",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design states exact objective terms and forbidden shortcuts",
+    "design separates no-update evaluator from future optimizer step",
+    "design specifies which rows can request action movement and why",
+    "design keeps P0 actor inputs unchanged and PPO blocked",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

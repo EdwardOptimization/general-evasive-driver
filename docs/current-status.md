@@ -62,16 +62,20 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m603-guarded-capability-action-coupling-design
+m604-guarded-capability-action-coupling-evaluator
 ```
 
-M603 should design a guarded no-oracle capability-to-action coupling objective.
-M602 audited M601 and concluded that belief-level signal exists but action
-coupling remains weak. Immediate actor training, PPO, promotion, and ungrounded
-action separation remain blocked.
+M604 should implement and run the exact no-update capability-action coupling
+evaluator designed by M603. It should join M591 action movement with M601
+capability movement and classify belief-only gaps without training, PPO,
+promotion, or driver-performance claims.
 
 ## Recent Evidence Line
 
+- M603 designs that guarded action-coupling branch. The immediate next step is
+  an exact no-update evaluator that joins M591 action distances and M601
+  capability z-distances, then classifies `belief_only_gap` rows before any
+  grounded recovery/boundary target mining or optimizer step.
 - M602 audits M601. The supported diagnosis is belief-level signal without
   action-use proof: hidden capability movement exists, but M591 still shows
   real wrong/delayed histories barely move action. M602 admits a design-only

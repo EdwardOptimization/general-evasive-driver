@@ -1,0 +1,89 @@
+{
+  "id": "m604-guarded-capability-action-coupling-evaluator",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m601_bc_capability_belief_intervention_fresh/capability_intervention_rows.csv",
+      "runs/m601_bc_capability_belief_intervention_ood/capability_intervention_rows.csv",
+      "runs/m591_bc_hidden_action_sensitivity_probe_fresh/action_sensitivity_rows.csv",
+      "runs/m591_bc_hidden_action_sensitivity_probe_ood/action_sensitivity_rows.csv"
+    ],
+    "parent_config": [
+      "docs/m603-guarded-capability-action-coupling-design.md"
+    ],
+    "parent_objective": [
+      "implement exact no-update evaluator for capability-action coupling gaps"
+    ],
+    "derived_from": [
+      "m603-guarded-capability-action-coupling-design"
+    ],
+    "blocked_by": [
+      "m603-guarded-capability-action-coupling-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m604-guarded-capability-action-coupling-evaluator.md",
+  "public_gates": [
+    "join capability movement and action movement on matched-current rows",
+    "classify belief-only action-and-belief action-without-belief inactive rows",
+    "report real-history source-diverse candidate counts",
+    "prove no model weights are changed"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not add capability labels to actor inputs",
+    "do not treat belief-only gaps as action targets without grounding"
+  ],
+  "hypothesis": "An exact no-update evaluator can localize rows where real hidden histories move decoded capability belief but not action, providing a grounded candidate set for later recovery or boundary target mining.",
+  "success_criteria": [
+    "coupling_rows.csv is written",
+    "variant_summary.csv is written",
+    "belief-only gap counts are reported for real-history variants",
+    "summary records ppo_used false promoted false actor_parameters_changed false",
+    "research validation and focused tests pass"
+  ],
+  "failure_criteria": [
+    "evaluator trains any model",
+    "evaluator omits real-history variants",
+    "evaluator claims driver improvement",
+    "evaluator turns belief-only gaps into action targets"
+  ],
+  "commands": [
+    {
+      "name": "fresh_and_ood",
+      "command": "Implement and run exact no-update capability-action coupling evaluator using M591 and M601 artifacts."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m604_guarded_capability_action_coupling_evaluator/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "docs/m604-guarded-capability-action-coupling-evaluator.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m603-guarded-capability-action-coupling-design.md",
+    "runs/m601_bc_capability_belief_intervention_fresh/summary.json",
+    "runs/m601_bc_capability_belief_intervention_ood/summary.json"
+  ],
+  "decision_rule": "M604 passes if it implements and runs a no-update coupling-gap evaluator without turning belief movement into training targets.",
+  "next_blocker": "m605-grounded-capability-action-target-mining-design"
+}
