@@ -12350,3 +12350,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M702 audits M701 as `scenario_sampling_failure` plus `metric_artifact`. The branch tested inherited proof rows, fresh broad sampling, closer obstacle-distance windows, wider prepass windows, and larger perturbation scales, but found no source-positive or history-action-critical rows. The current single-track model can represent hidden capability faults such as global mu, front/rear tire authority, drive/brake authority, steering lag, mass/CG, and delay/noise; true single-wheel blowout, left/right split-mu, stuck caliper pull, and asymmetric half-shaft faults require future four-wheel dynamics or a higher-fidelity engine.
 - decision: `boundary_sensitivity_audit_pivot_to_extreme_hidden_condition_scenarios`
 - next: `m703-extreme-dynamics-scenario-corpus-design`
+
+## 20260524T181300Z - m703-extreme-dynamics-scenario-corpus-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m703-extreme-dynamics-scenario-corpus-design.md`
+- result: M703 designs a no-training extreme hidden-condition scenario corpus. It separates current-model faults (`global_mu_drop`, front/rear lateral authority loss, brake/drive authority loss, steering faults, mass/CG shifts, delay/noise, combined faults) from future four-wheel-only faults (single-wheel blowout, left/right split-mu, stuck caliper pull, true asymmetric half-shaft torque loss). It requires warm-up response evidence, matched visible current states, history-action-critical degradation under wrong/reset history, source diversity, and no actor input changes.
+- decision: `extreme_dynamics_scenario_corpus_design_admit_m704`
+- next: `m704-extreme-dynamics-scenario-corpus-implementation`

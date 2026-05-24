@@ -1,0 +1,122 @@
+{
+  "id": "m704-extreme-dynamics-scenario-corpus-implementation",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m703-extreme-dynamics-scenario-corpus-design.md",
+      "docs/m702-boundary-sensitivity-scale-diagnostic-audit.md",
+      "runs/m701_boundary_sensitivity_scale_diagnostic/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m703-extreme-dynamics-scenario-corpus-design.json"
+    ],
+    "parent_objective": [
+      "implement no-training extreme hidden-condition scenario corpus"
+    ],
+    "derived_from": [
+      "m703-extreme-dynamics-scenario-corpus-design"
+    ],
+    "blocked_by": [
+      "m703-extreme-dynamics-scenario-corpus-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m704-extreme-dynamics-scenario-corpus-implementation.md",
+  "public_gates": [
+    "implementation writes fault family severity and scenario artifacts",
+    "implementation keeps hidden fault labels out of actor input",
+    "implementation separates current-model faults from future four-wheel-only faults",
+    "implementation reports matched hidden-condition rows",
+    "implementation reports history-action-critical rows",
+    "actor checksum unchanged",
+    "no objective actor update PPO or promotion occurs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor observation shape",
+    "do not add fault labels to actor input",
+    "do not call single-track proxies true single-wheel faults",
+    "do not export corpus before source-positive audit"
+  ],
+  "workflow_synthesis": {
+    "branch": "extreme_hidden_condition_scenario_generation",
+    "evidence_axis": "G_extreme_source: test whether hidden fault scenario generation creates history-action-critical self-ID rows",
+    "evidence_increment": "implements and runs the first no-training extreme hidden-condition scenario corpus",
+    "claim_scope": "scenario-corpus implementation and diagnostic result only, not training, PPO, or checkpoint promotion",
+    "stop_condition": [
+      "stop before objective design unless result_class is extreme_source_positive",
+      "stop and audit if result_class is all_failed_too_severe or history_insensitive_too_mild",
+      "stop and audit if model_fidelity_blocked dominates requested fault families"
+    ],
+    "fallback_plan": [
+      "if all_failed_too_severe, reduce severity and add longer warm-up",
+      "if history_insensitive_too_mild, increase hidden-condition contrast",
+      "if matched_state_empty, redesign scenario matching or geometry timing",
+      "if model_fidelity_blocked, design a minimal four-wheel dynamics extension"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "after M704 result unless extreme_source_positive with strong diversity",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Extreme hidden-condition scenario generation will produce source-diverse rows where command-response history affects the safe evasive action.",
+  "success_criteria": [
+    "summary.json is written",
+    "scenario_summary.csv is written",
+    "fault_family_summary.csv is written",
+    "severity_summary.csv is written",
+    "matched_hidden_condition_pairs.csv is written",
+    "accepted_rows.csv is written",
+    "rejected_rows.csv is written",
+    "model_fidelity_limits.md is written",
+    "actor checksum unchanged",
+    "no objective actor update PPO or promotion"
+  ],
+  "failure_criteria": [
+    "implementation mutates or trains actor",
+    "implementation adds hidden fault labels to actor input",
+    "implementation omits model-fidelity limits",
+    "implementation omits matched hidden-condition criteria",
+    "implementation admits objective design without source-positive audit"
+  ],
+  "commands": [
+    {
+      "name": "generate",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.extreme_dynamics_scenario_corpus --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --config configs/extreme_hidden_condition_scenarios.json --seed-start 40000 --seed-count 512 --device cpu --run-dir runs/m704_extreme_dynamics_scenario_corpus"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m704_extreme_dynamics_scenario_corpus/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m704_extreme_dynamics_scenario_corpus/fault_family_summary.csv",
+      "type": "metrics"
+    },
+    {
+      "path": "docs/m704-extreme-dynamics-scenario-corpus-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m703-extreme-dynamics-scenario-corpus-design.md",
+    "docs/m702-boundary-sensitivity-scale-diagnostic-audit.md"
+  ],
+  "decision_rule": "M704 passes as implementation if complete no-training artifacts are written and actor parameters are unchanged; only extreme_source_positive can admit source-corpus export design.",
+  "next_blocker": "m705-extreme-dynamics-scenario-corpus-audit"
+}

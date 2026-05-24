@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 711,
+        "completed": 712,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m702-boundary-sensitivity-scale-diagnostic-audit",
+        "task_id": "m703-extreme-dynamics-scenario-corpus-design",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m702-boundary-sensitivity-scale-diagnostic-audit.md"
+        "command_log": "docs/m703-extreme-dynamics-scenario-corpus-design.md"
     },
     "next_task": {
-        "id": "m703-extreme-dynamics-scenario-corpus-design",
+        "id": "m704-extreme-dynamics-scenario-corpus-implementation",
         "status": "pending",
-        "priority": 6980,
+        "priority": 6990,
         "kind": "infrastructure",
-        "hypothesis": "Design extreme hidden-condition scenario corpus after M702 pivot",
-        "command": "see experiments/manifests/m703-extreme-dynamics-scenario-corpus-design.json",
+        "hypothesis": "Implement no-training extreme hidden-condition scenario corpus",
+        "command": "see experiments/manifests/m704-extreme-dynamics-scenario-corpus-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design no-training hidden fault scenario corpus with current-model proxies and future four-wheel-only faults separated"
+        "notes": "Pending: generate matched hidden-condition fault scenarios before any objective actor update or PPO"
     },
-    "updated_at_utc": "20260524T181000Z"
+    "updated_at_utc": "20260524T181300Z"
 }
