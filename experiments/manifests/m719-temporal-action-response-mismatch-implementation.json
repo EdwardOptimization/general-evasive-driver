@@ -1,0 +1,113 @@
+{
+  "id": "m719-temporal-action-response-mismatch-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m718-temporal-action-response-mismatch-design.md",
+      "runs/m716_extreme_fault_coverage_refresh/reset_only_rows.csv",
+      "runs/m713_actor_head_history_signal_coupling/row_actor_head_coupling.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m718-temporal-action-response-mismatch-design.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_objective": [
+      "implement a no-training temporal command-response mismatch intervention runner"
+    ],
+    "derived_from": [
+      "m718-temporal-action-response-mismatch-design"
+    ],
+    "blocked_by": [
+      "m718-temporal-action-response-mismatch-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m719-temporal-action-response-mismatch-implementation.md",
+  "public_gates": [
+    "implementation preserves actor input contract and does not mutate actor parameters",
+    "runner writes normal reset cross-fault delayed stale and action-response-mismatch variant rollouts",
+    "summary separates reset-only rows from temporal mismatch action/outcome-critical rows",
+    "normal-history retention is reported",
+    "result class is one of temporal_mismatch_positive temporal_reset_only temporal_neutral temporal_artifact",
+    "no actor update PPO or promotion occurs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not add hidden fault labels or hidden parameters to actor observations",
+    "do not classify reset-only rows as temporal mismatch positive",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not alter the base actor checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "temporal_action_response_mismatch",
+    "evidence_axis": "G_temporal_history: implement delayed stale and action-response-mismatch hidden interventions",
+    "evidence_increment": "tests whether temporal command-response consistency produces stronger action/outcome evidence than cross-fault hidden injection",
+    "claim_scope": "no-training diagnostic evidence only; no checkpoint promotion or deployed driver claim",
+    "stop_condition": [
+      "stop if implementation cannot reconstruct temporal histories without rerunning scenarios",
+      "stop if results are reset-only or temporal neutral across full run",
+      "stop actor mutation unless temporal mismatch rows pass action/outcome and diversity gates"
+    ],
+    "fallback_plan": [
+      "if temporal_mismatch_positive, design source export and exact proof/generalization gates",
+      "if temporal_reset_only, audit whether M713 actor-head objective should be next",
+      "if temporal_neutral, pivot to dynamics fidelity design or active probing",
+      "if temporal_artifact, repair the intervention construction before using results"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "after M719 result_class is known",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Delayed, stale, and action-response-mismatched histories will be more diagnostic of command-response self-identification than cross-fault hidden swaps alone.",
+  "success_criteria": [
+    "runner executes and writes summary.json",
+    "actor_parameters_changed is false",
+    "training_started is false",
+    "ppo_used is false",
+    "promoted is false",
+    "temporal mismatch rows are classified separately from reset-only rows"
+  ],
+  "failure_criteria": [
+    "implementation changes actor input contract",
+    "implementation cannot reproduce normal history retention",
+    "implementation collapses temporal mismatch variants into reset-hidden only",
+    "implementation omits action-response mismatch",
+    "implementation admits PPO or promotion"
+  ],
+  "commands": [
+    {
+      "name": "full_temporal_mismatch_run",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.temporal_action_response_mismatch --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --config configs/extreme_fault_coverage_v2_scenarios.json --seed-start 72000 --seed-count 512 --device cpu --run-dir runs/m719_temporal_action_response_mismatch"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m719_temporal_action_response_mismatch/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m719-temporal-action-response-mismatch-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m718-temporal-action-response-mismatch-design.md",
+    "configs/extreme_fault_coverage_v2_scenarios.json"
+  ],
+  "decision_rule": "M719 may admit source export only if temporal mismatch rows pass action/outcome and source-diversity gates. It must not admit actor update, PPO, or promotion directly.",
+  "next_blocker": "m720-to-be-selected-by-m719"
+}

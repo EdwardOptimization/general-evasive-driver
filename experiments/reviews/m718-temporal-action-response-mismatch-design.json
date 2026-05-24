@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M718 designs no-training delayed stale and action-response-mismatch hidden interventions using M716 reset-only rows M713 low-alpha rows and sentinels while blocking actor update PPO and promotion",
+  "failure_criteria": [
+    "design only rebrands reset-hidden ablation",
+    "design omits action-response mismatch",
+    "design lacks normal-history retention gates",
+    "design admits actor update PPO or promotion",
+    "design depends on fault labels as actor inputs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not add hidden fault labels or oracle values to actor inputs",
+    "do not treat reset-only rows as wrong-history proof",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not claim temporal mismatch evidence before implementation"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T194656Z",
+  "hypothesis": "Cross-fault hidden swaps may be too weak because they break identity but not temporal consistency; delayed, stale, and action-response-mismatched histories should more directly test whether the actor uses its own command-response sequence.",
+  "lineage": {
+    "blocked_by": [
+      "m717-extreme-fault-coverage-refresh-audit"
+    ],
+    "derived_from": [
+      "m717-extreme-fault-coverage-refresh-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m717-extreme-fault-coverage-refresh-audit.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m717-extreme-fault-coverage-refresh-audit.md",
+      "runs/m716_extreme_fault_coverage_refresh/summary.json",
+      "runs/m716_extreme_fault_coverage_refresh/reset_only_rows.csv",
+      "runs/m713_actor_head_history_signal_coupling/row_actor_head_coupling.csv"
+    ],
+    "parent_objective": [
+      "design temporal command-response mismatch interventions after current-model coverage refresh remains reset-only"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m718-temporal-action-response-mismatch-design",
+  "next_blocker": "m719-temporal-action-response-mismatch-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "temporal_action_response_mismatch_design_admit_m719",
+  "public_gates": [
+    "design uses M716 reset-only rows and M713 low-alpha rows without source export or training",
+    "interventions distinguish reset hidden wrong cross-fault hidden delayed hidden stale pre-fault hidden and action-response mismatch",
+    "acceptance criteria require action and margin changes beyond reset-only overclaiming",
+    "actor input contract remains unchanged",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m718-temporal-action-response-mismatch-design.md",
+    "clearance_margin_mean": "",
+    "decision": "temporal_action_response_mismatch_design_admit_m719",
+    "milestone": "m718-temporal-action-response-mismatch-design",
+    "reason": "M718 designs no-training delayed stale and action-response-mismatch hidden interventions using M716 reset-only rows M713 low-alpha rows and sentinels while blocking actor update PPO and promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M718 defines intervention variants and source rows",
+    "M718 defines exact action and margin gates",
+    "M718 names implementation artifacts for M719",
+    "actor input contract remains unchanged",
+    "no training PPO actor update or promotion occurs"
+  ],
+  "type": "infrastructure"
+}

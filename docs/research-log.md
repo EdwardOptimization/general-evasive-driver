@@ -12491,3 +12491,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M717 audits M716 as `scenario_sampling_failure` plus `metric_artifact` for the wrong-history self-ID claim. M716 partially supports the coverage concern because reset-only rows increased from `15` in M707 to `58`, but it falsifies the stronger claim that M704/M707 were negative only because the current-model fault list was too small. Current-model proxy coverage expansion alone is no longer the highest-leverage step; reset-only rows remain diagnostic but not source-positive wrong-history proof.
 - decision: `extreme_fault_coverage_refresh_pivot_temporal_mismatch`
 - next: `m718-temporal-action-response-mismatch-design`
+
+## 20260524T205500Z - m718-temporal-action-response-mismatch-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m718-temporal-action-response-mismatch-design.md`
+- result: M718 designs the next no-training branch: delayed, stale, and action-response-mismatched hidden-state interventions. The design uses three source pools: M716 reset-only rows, M713 low-alpha actor-head rows, and M716 rejected sentinels. It requires M719 to rerun scenarios in memory rather than reconstruct hidden tensors from CSV, evaluate normal/reset/cross-fault/delayed/pre-fault-stale/severity-stale/action-response-mismatch variants, and keep reset-only evidence separate from temporal mismatch action/outcome-critical rows.
+- decision: `temporal_action_response_mismatch_design_admit_m719`
+- next: `m719-temporal-action-response-mismatch-implementation`
