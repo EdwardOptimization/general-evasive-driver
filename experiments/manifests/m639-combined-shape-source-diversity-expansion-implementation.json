@@ -103,5 +103,5 @@
     "runs/m636_combined_source7_preserving_shape/source_recovery_summary.csv"
   ],
   "decision_rule": "M639 passes as infrastructure if it runs the no-training expansion and preserves trust limits; target-corpus admission candidate requires accepted_source_rows >= 8, accepted_unique_physical_pairs >= 6, accepted_unique_left_seeds >= 6, accepted_surfaces >= 2, and accepted_targets >= 2.",
-  "next_blocker": "m640-source-diverse-sequence-target-corpus-design-or-stronger-bridge-branch"
+  "next_blocker": "m640-source-diverse-sequence-target-corpus-design"
 }

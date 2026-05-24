@@ -11872,3 +11872,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M638 designs a no-training broad source-diversity expansion for the combined projected-shape method. The primary M639 source set is the M627 trust-primary non-collision near-miss rows, expected source ids `13`, `14`, `20`, `32`, `5`, `30`, `7`, `0`, and `8`. M639 should preserve the existing sequence trust limits and target thresholds, report source-level diversity, and classify target-corpus admission only if accepted evidence reaches at least `8` source rows, `6` physical pairs, `6` left seeds, `2` surfaces, and `2` targets. Training, PPO, promotion, and optimizer admission remain blocked.
 - decision: `combined_shape_source_diversity_expansion_design_admit_m639`
 - next: `m639-combined-shape-source-diversity-expansion-implementation`
+## 20260524T183000Z - m639-combined-shape-source-diversity-expansion-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m639_combined_shape_source_diversity_expansion`
+- artifact: `docs/m639-combined-shape-source-diversity-expansion-implementation.md`
+- result: M639 implements and runs the no-training broad source-diversity expansion. It selects `9` M627 trust-primary non-collision sources and accepts candidates for all `9`, with `9885` accepted candidates from `25596` candidate rollouts. Accepted evidence covers `8` physical pairs, `6` left seeds, `2` surfaces, `3` targets, and `2` variants; trust limits remain preserved. The pre-registered target-corpus admission-candidate gate passes, but training and optimizer admission remain blocked because the raw candidate count is unevenly distributed across sources. M640 should design a source-balanced sequence target corpus with caps and heldout-source rules.
+- decision: `combined_shape_source_diversity_expansion_pass_admit_corpus_design`
+- next: `m640-source-diverse-sequence-target-corpus-design`

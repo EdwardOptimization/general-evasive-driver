@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 647,
+        "completed": 648,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m638-combined-shape-source-diversity-expansion-design",
+        "task_id": "m639-combined-shape-source-diversity-expansion-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m638-combined-shape-source-diversity-expansion-design.md"
+        "run_dir": "runs/m639_combined_shape_source_diversity_expansion",
+        "command_log": "docs/m639-combined-shape-source-diversity-expansion-implementation.md"
     },
     "next_task": {
-        "id": "m639-combined-shape-source-diversity-expansion-implementation",
+        "id": "m640-source-diverse-sequence-target-corpus-design",
         "status": "pending",
-        "priority": 6340,
+        "priority": 6350,
         "kind": "infrastructure",
-        "hypothesis": "The M636 combined projected-shape method may recover a source-diverse trust-primary non-collision subset when applied to the broader M627 near-miss source set.",
-        "command": "see experiments/manifests/m639-combined-shape-source-diversity-expansion-implementation.json",
+        "hypothesis": "M639's source-diverse accepted sequence candidates can be converted into a source-balanced target corpus without letting high-count sources dominate.",
+        "command": "see experiments/manifests/m640-source-diverse-sequence-target-corpus-design.json",
         "success_artifact": "",
-        "notes": "Pending: implement no-training expanded source-diversity run; no training PPO promotion threshold changes or optimizer-corpus admission"
+        "notes": "Pending: design source-balanced corpus caps splits and weights; no training PPO promotion or optimizer-corpus implementation yet"
     },
-    "updated_at_utc": "20260524T182000Z"
+    "updated_at_utc": "20260524T183000Z"
 }

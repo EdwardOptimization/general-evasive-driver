@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M639 accepts all 9 trust-primary non-collision sources across 8 physical pairs 6 left seeds 2 surfaces and 3 targets while preserving trust limits",
+  "failure_criteria": [
+    "implementation changes thresholds",
+    "implementation starts training",
+    "implementation runs PPO",
+    "implementation promotes checkpoint",
+    "implementation counts collision-primary rows toward admission",
+    "implementation omits source-level diversity",
+    "implementation treats candidate count as source diversity"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not widen trust regions",
+    "do not lower target thresholds",
+    "do not count collision-primary rows toward source-diversity admission",
+    "do not treat candidate count as source diversity",
+    "do not admit optimizer training directly"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T121309Z",
+  "hypothesis": "The M636 combined projected-shape method may recover a source-diverse trust-primary non-collision subset when applied to the broader M627 near-miss source set.",
+  "lineage": {
+    "blocked_by": [
+      "m638-combined-shape-source-diversity-expansion-design"
+    ],
+    "derived_from": [
+      "m638-combined-shape-source-diversity-expansion-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m638-combined-shape-source-diversity-expansion-design.json",
+      "docs/m637-combined-source7-preserving-shape-audit.md"
+    ],
+    "parent_dataset": [
+      "runs/m627_near_miss_trust_geometry/near_miss_sources.csv",
+      "runs/m616_expanded_sequence_source_miner/expanded_sequence_source_rows.csv",
+      "runs/m636_combined_source7_preserving_shape/source_recovery_summary.csv",
+      "docs/m638-combined-shape-source-diversity-expansion-design.md"
+    ],
+    "parent_objective": [
+      "implement no-training broad source-diversity expansion for combined projected shape method"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m639-combined-shape-source-diversity-expansion-implementation",
+  "next_blocker": "m640-source-diverse-sequence-target-corpus-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "combined_shape_source_diversity_expansion_pass_admit_corpus_design",
+  "public_gates": [
+    "select M627 trust-primary non-collision near-miss sources",
+    "run combined projected shape grids over expanded source set",
+    "preserve trust limits and target thresholds",
+    "write source-level diversity summary",
+    "classify whether result is target-corpus admission candidate",
+    "keep actor training and PPO blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m639_combined_shape_source_diversity_expansion/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "combined_shape_source_diversity_expansion_pass_admit_corpus_design",
+    "milestone": "m639-combined-shape-source-diversity-expansion-implementation",
+    "reason": "M639 accepts all 9 trust-primary non-collision sources across 8 physical pairs 6 left seeds 2 surfaces and 3 targets while preserving trust limits",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "implementation writes broad expansion artifacts",
+    "selected source rows include M627 trust-primary non-collision rows",
+    "real run preserves trust limits",
+    "summary reports accepted source rows physical pairs left seeds surfaces targets and variants",
+    "summary classifies target-corpus admission candidate using pre-registered thresholds",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

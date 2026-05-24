@@ -62,17 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m639-combined-shape-source-diversity-expansion-implementation
+m640-source-diverse-sequence-target-corpus-design
 ```
 
-M639 should implement and run the no-training broad source-diversity expansion
-designed in M638. It should apply the M636 combined projected-shape method to
-the M627 trust-primary non-collision near-miss source set, preserve all trust
-limits, and report source-level diversity before any target-corpus or training
-decision.
+M640 should design a source-balanced sequence target corpus from the M639
+accepted candidates. M639 passes the pre-registered source-diversity admission
+candidate gate, but raw candidate counts are uneven across sources, so corpus
+design must cap or weight by source/grid/target before any actor update.
 
 ## Recent Evidence Line
 
+- M639 implements and runs the no-training broad source-diversity expansion.
+  It selects `9` M627 trust-primary non-collision source rows and all `9` have
+  accepted projected candidates. Accepted evidence covers `8` physical pairs,
+  `6` left seeds, `2` surfaces, `3` targets, and `2` variants, with trust limits
+  preserved. This passes the target-corpus admission-candidate gate, but it does
+  not yet admit training because raw accepted candidates are dominated by a few
+  high-count sources.
 - M638 designs the broader source-diversity expansion. M639 should select the
   M627 trust-primary non-collision near-miss rows, run the combined projected
   shape grids over that expanded set, and classify target-corpus admission only
