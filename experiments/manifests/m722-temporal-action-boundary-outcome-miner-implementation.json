@@ -1,0 +1,162 @@
+{
+  "id": "m722-temporal-action-boundary-outcome-miner-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m721-temporal-action-boundary-outcome-mining-design.md",
+      "runs/m719_temporal_action_response_mismatch/summary.json",
+      "runs/m719_temporal_action_response_mismatch/temporal_critical_rows.csv",
+      "runs/m719_temporal_action_response_mismatch/source_rows.csv",
+      "runs/m719_temporal_action_response_mismatch/intervention_rollouts.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m721-temporal-action-boundary-outcome-mining-design.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_objective": [
+      "implement no-training local boundary miner that converts temporal action sensitivity into closed-loop outcome-critical rows"
+    ],
+    "derived_from": [
+      "m721-temporal-action-boundary-outcome-mining-design"
+    ],
+    "blocked_by": [
+      "m721-temporal-action-boundary-outcome-mining-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m722-temporal-action-boundary-outcome-miner-implementation.md",
+  "public_gates": [
+    "runner starts from source-balanced M719 temporal action-sensitive rows",
+    "runner reruns scenarios in memory rather than reconstructing hidden tensors from CSV only",
+    "local obstacle timing lateral offset footprint boundary slack and surprise fault timing perturbations are logged",
+    "normal-history retention is required before accepting outcome-critical rows",
+    "accepted rows require first action distance >= 0.015 and success drop or margin gap >= 0.02",
+    "sentinel false positives are tracked",
+    "source diversity across seeds and fault families is reported",
+    "actor input contract remains unchanged",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not claim action-only rows are source-positive outcome rows",
+    "do not mutate actor observations with hidden fault labels or oracle values",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not accept rows where normal history already fails",
+    "do not use malformed obstacle placement or impossible scenario mutation as evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "temporal_action_boundary_outcome_mining",
+    "evidence_axis": "G_action_to_outcome: implement boundary mining that tests whether temporal action deltas affect closed-loop margin",
+    "evidence_increment": "runs a no-training miner over source-balanced M719 action-sensitive rows with local boundary perturbations and outcome gates",
+    "claim_scope": "diagnostic data wave only; source export objective design PPO and promotion remain blocked unless outcome-critical rows pass diversity and retention gates",
+    "stop_condition": [
+      "stop if accepted rows are below the registered threshold",
+      "stop if accepted rows are dominated by one seed or one fault family",
+      "stop if normal-history failures dominate local perturbations",
+      "stop if sentinel rows become positive at high rate",
+      "stop if actor checksum or input contract changes"
+    ],
+    "fallback_plan": [
+      "if temporal outcome rows are source-diverse, audit them before source export or objective design",
+      "if rows stay action-only, pivot to sequence or actor-head objective design only as action-level diagnostics",
+      "if current single-track proxy faults are insufficient, design a four-wheel or explicit-yaw-disturbance fidelity branch",
+      "if source diversity is weak, rerun coverage with source-balanced max-pair allocation before training"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M721 opens temporal action-boundary outcome mining branch after M720 temporal_action_only audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A source-balanced no-training local boundary miner can convert M719 temporal command-history action deltas into outcome-critical clearance or success gaps without changing actor inputs or training.",
+  "success_criteria": [
+    "M722 implements a reusable temporal action-boundary outcome miner",
+    "M722 writes source rows candidate variants intervention rollouts accepted rows rejected rows summaries and milestone documentation",
+    "accepted rows require normal-history viability and temporal mismatch outcome degradation",
+    "source diversity and sentinel false-positive rates are reported",
+    "actor checksum remains unchanged",
+    "no training PPO actor update or promotion occurs"
+  ],
+  "failure_criteria": [
+    "runner treats M719 action-only rows as source-positive without outcome gaps",
+    "runner accepts rows where normal history already fails",
+    "runner omits source diversity or sentinel false-positive reporting",
+    "runner changes actor input contract",
+    "runner starts optimizer training PPO or checkpoint promotion"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "implement src/autodrift/temporal_action_boundary_outcome_miner.py and focused tests"
+    },
+    {
+      "name": "registered_run",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.temporal_action_boundary_outcome_miner --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --config configs/extreme_fault_coverage_v2_scenarios.json --temporal-rows runs/m719_temporal_action_response_mismatch/temporal_critical_rows.csv --seed-start 72000 --seed-count 512 --device cpu --run-dir runs/m722_temporal_action_boundary_outcome_miner"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/temporal_action_boundary_outcome_miner.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_temporal_action_boundary_outcome_miner.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m722_temporal_action_boundary_outcome_miner/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m722_temporal_action_boundary_outcome_miner/source_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m722_temporal_action_boundary_outcome_miner/candidate_variants.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m722_temporal_action_boundary_outcome_miner/intervention_rollouts.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m722_temporal_action_boundary_outcome_miner/accepted_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m722_temporal_action_boundary_outcome_miner/rejected_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m722_temporal_action_boundary_outcome_miner/variant_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m722_temporal_action_boundary_outcome_miner/fault_family_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m722-temporal-action-boundary-outcome-miner-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m721-temporal-action-boundary-outcome-mining-design.md",
+    "runs/m719_temporal_action_response_mismatch/summary.json",
+    "runs/m719_temporal_action_response_mismatch/temporal_critical_rows.csv"
+  ],
+  "decision_rule": "M722 may only classify the no-training boundary mining result. It must not admit source export, actor update, PPO, or promotion until an audit reviews source diversity, normal-history retention, and sentinel false positives.",
+  "next_blocker": "m723-temporal-action-boundary-outcome-miner-audit"
+}

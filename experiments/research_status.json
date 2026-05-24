@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 729,
+        "completed": 730,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m720-temporal-action-only-audit",
+        "task_id": "m721-temporal-action-boundary-outcome-mining-design",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m720-temporal-action-only-audit.md"
+        "command_log": "docs/m721-temporal-action-boundary-outcome-mining-design.md"
     },
     "next_task": {
-        "id": "m721-temporal-action-boundary-outcome-mining-design",
+        "id": "m722-temporal-action-boundary-outcome-miner-implementation",
         "status": "pending",
-        "priority": 7160,
+        "priority": 7170,
         "kind": "infrastructure",
-        "hypothesis": "Design no-training miner to convert temporal action deltas into outcome-critical rows",
-        "command": "see experiments/manifests/m721-temporal-action-boundary-outcome-mining-design.json",
-        "success_artifact": "docs/m721-temporal-action-boundary-outcome-mining-design.md",
-        "notes": "Pending: design local obstacle timing lateral offset and boundary-margin mining from M719 temporal action-sensitive rows"
+        "hypothesis": "Implement no-training temporal action-boundary outcome miner",
+        "command": "see experiments/manifests/m722-temporal-action-boundary-outcome-miner-implementation.json",
+        "success_artifact": "docs/m722-temporal-action-boundary-outcome-miner-implementation.md",
+        "notes": "Pending: implement source-balanced local boundary miner and registered data wave from M719 temporal action rows"
     },
-    "updated_at_utc": "20260524T214000Z"
+    "updated_at_utc": "20260524T215000Z"
 }

@@ -12519,3 +12519,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M720 audits M719 as strong action-level temporal command-response coupling but `metric_artifact` for closed-loop self-ID if overclaimed. The actor clearly uses previous physical-command history: zeroing command-history inside the recurrent stream changes actions on `3064` rows, comparable to reset hidden. However, M719 has `0` outcome-critical rows, so source export, actor update, PPO, and promotion remain blocked.
 - decision: `temporal_action_only_promote_to_boundary_outcome_mining`
 - next: `m721-temporal-action-boundary-outcome-mining-design`
+
+## 20260524T215000Z - m721-temporal-action-boundary-outcome-mining-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m721-temporal-action-boundary-outcome-mining-design.md`
+- result: M721 designs the next no-training miner around the coverage concern that M719's temporal action deltas may not have been evaluated near enough outcome boundaries. The design starts from source-balanced M719 temporal action-critical rows, especially `mismatch_zero_command_history`, and requires local obstacle timing, lateral offset, obstacle footprint, boundary slack, step-offset, and surprise fault-timing perturbations. Accepted rows must keep normal-history viability and show both `first_action_distance_from_normal >= 0.015` and success drop or `margin_gap_from_normal >= 0.02`. Sentinel false positives, source diversity, normal-history retention, unchanged actor checksum, and no training/PPO/promotion are mandatory.
+- decision: `temporal_action_boundary_outcome_mining_design_admit_m722`
+- next: `m722-temporal-action-boundary-outcome-miner-implementation`
