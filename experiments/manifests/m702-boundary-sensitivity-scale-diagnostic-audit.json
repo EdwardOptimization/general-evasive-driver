@@ -1,0 +1,123 @@
+{
+  "id": "m702-boundary-sensitivity-scale-diagnostic-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m701_boundary_sensitivity_scale_diagnostic/summary.json",
+      "runs/m701_boundary_sensitivity_scale_diagnostic/variant_summary.csv",
+      "runs/m701_boundary_sensitivity_scale_diagnostic/scale_summary.csv",
+      "runs/m701_boundary_sensitivity_scale_diagnostic/window_summary.csv",
+      "docs/m701-boundary-sensitivity-scale-diagnostic-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m701-boundary-sensitivity-scale-diagnostic-implementation.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_objective": [
+      "audit scale-sparse boundary sensitivity diagnostic and decide whether to pivot from fresh sampling"
+    ],
+    "derived_from": [
+      "m701-boundary-sensitivity-scale-diagnostic-implementation"
+    ],
+    "blocked_by": [
+      "m701-boundary-sensitivity-scale-diagnostic-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m702-boundary-sensitivity-scale-diagnostic-audit.md",
+  "public_gates": [
+    "M701 implementation cleanliness is checked",
+    "scale_sparse_plausible is separated from scale_positive_plausible",
+    "history-insensitive accepted rows are not treated as source-positive evidence",
+    "scenario coverage hypothesis is evaluated",
+    "objective actor update PPO and promotion remain blocked",
+    "trajectory_terminal_boundary_source_mining branch receives a synthesis decision"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat sparse plausible rows as source-positive",
+    "do not lower sensitivity thresholds and call M701 positive",
+    "do not export a corpus from history-insensitive rows",
+    "do not run actor update",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "trajectory_terminal_boundary_source_mining",
+    "evidence_axis": "G_synthesis: decide whether M701 scale-sparse/history-insensitive result should stop fresh-sampling tweaks and pivot to extreme hidden-condition scenario generation",
+    "evidence_increment": "synthesizes M694-M701 trajectory-boundary source-mining evidence and decides whether continued sampling is justified",
+    "claim_scope": "process synthesis and next-branch decision only, not driver performance or checkpoint promotion",
+    "stop_condition": [
+      "stop repeated fresh sampling if no target/window/scale variant is source-positive",
+      "stop objective design because M701 has zero history-action-critical rows",
+      "stop perturbation-scale tuning because even stress and unrealistic probes remain history-insensitive"
+    ],
+    "fallback_plan": [
+      "pivot to explicit extreme dynamics and fault scenario generation",
+      "construct hidden-condition pairs where identical current scene requires different actions",
+      "keep hidden fault labels out of actor inputs and use them only for scenario generation, logging, and audits"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M701 result_class=scale_sparse_plausible with zero source-positive variants and zero history-action-critical rows",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m702-boundary-sensitivity-scale-diagnostic-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "M701 scale_sparse_plausible result should block objective design and pivot the branch toward explicit extreme dynamics and fault scenario construction.",
+  "success_criteria": [
+    "M701 summary metrics are recorded",
+    "scale_sparse_plausible is classified",
+    "history-insensitive accepted rows are separated from self-ID evidence",
+    "supported and falsified claims are recorded",
+    "scenario coverage hypothesis is addressed",
+    "next branch decision is explicit",
+    "objective design actor update PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "audit treats M701 as scale_positive_plausible",
+    "audit admits corpus export from history-insensitive rows",
+    "audit omits synthesis questions",
+    "audit fails to classify scenario_sampling_failure",
+    "audit changes actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m702-boundary-sensitivity-scale-diagnostic-audit.md from M701 artifacts; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m702-boundary-sensitivity-scale-diagnostic-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m701_boundary_sensitivity_scale_diagnostic/summary.json",
+    "docs/m701-boundary-sensitivity-scale-diagnostic-implementation.md"
+  ],
+  "decision_rule": "M702 must synthesize M694-M701 and block source-corpus export unless it can justify source-positive self-ID evidence; the pre-registered decision is pivot to extreme hidden-condition scenario generation.",
+  "next_blocker": "m703-extreme-dynamics-scenario-corpus-design"
+}

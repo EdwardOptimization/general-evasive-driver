@@ -1,0 +1,88 @@
+{
+  "decision_reason": "M701 runs 32 scale/window variants across 16384 episodes and finds 99 sparse accepted rows but 0 source-positive variants and 0 history-action-critical rows so objective actor update PPO and promotion remain blocked",
+  "failure_criteria": [
+    "implementation trains or mutates actor",
+    "implementation does not separate plausible stress and unrealistic scales",
+    "implementation lowers acceptance threshold instead of testing scale",
+    "implementation omits normal-failed or too-safe ratios",
+    "implementation admits objective design without audit"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not merge stress or unrealistic scales into deployable source-positive claims",
+    "do not lower acceptance thresholds during the diagnostic",
+    "do not change actor inputs"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T180810Z",
+  "hypothesis": "A perturbation/window scale ladder can determine whether terminal-boundary sensitivity appears at plausible first-action override scales.",
+  "lineage": {
+    "blocked_by": [
+      "m700-boundary-sensitivity-scale-diagnostic-design"
+    ],
+    "derived_from": [
+      "m700-boundary-sensitivity-scale-diagnostic-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m700-boundary-sensitivity-scale-diagnostic-design.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_dataset": [
+      "docs/m700-boundary-sensitivity-scale-diagnostic-design.md",
+      "runs/m698_fresh_trajectory_boundary_sampler/summary.json"
+    ],
+    "parent_objective": [
+      "implement boundary sensitivity scale diagnostic"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m701-boundary-sensitivity-scale-diagnostic-implementation",
+  "next_blocker": "m702-boundary-sensitivity-scale-diagnostic-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "scale_sparse_plausible_not_source_positive",
+  "public_gates": [
+    "diagnostic writes aggregate and per-variant artifacts",
+    "diagnostic compares window targets",
+    "diagnostic compares perturbation scales",
+    "diagnostic reports plausible stress and unrealistic scale classes separately",
+    "actor checksum is unchanged",
+    "no objective actor update PPO or promotion occurs"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m701_boundary_sensitivity_scale_diagnostic/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "scale_sparse_plausible_not_source_positive",
+    "milestone": "m701-boundary-sensitivity-scale-diagnostic-implementation",
+    "reason": "M701 runs 32 scale/window variants across 16384 episodes and finds 99 sparse accepted rows but 0 source-positive variants and 0 history-action-critical rows so objective actor update PPO and promotion remain blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary.json is written",
+    "variant_summary.csv is written",
+    "scale_summary.csv is written",
+    "window_summary.csv is written",
+    "accepted_rows.csv is written",
+    "rejected_rows.csv is written",
+    "per-scale result class is recorded",
+    "aggregate result_class is recorded",
+    "actor checksum unchanged",
+    "no objective actor update PPO or promotion"
+  ],
+  "type": "infrastructure"
+}

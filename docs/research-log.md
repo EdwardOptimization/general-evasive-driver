@@ -12331,3 +12331,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M689 implements and runs the gate-margin response-amplification exact probe. This is the first positive exact result in the current response-amplification actor-coupling branch: `3/3` seeds pass at `alpha=1.0`, actor checksum unchanged, no base actor checkpoint, no PPO, no promotion. Source-holdout selected metrics: normal mean `0.001380-0.001461`, gap mean `0.010731-0.011165`, gap ratio `3.734864-3.885905`, wrong-target improvement `0.782311-0.795998`, first drift p95 `0.003748-0.004017`. Caveat: gate diagnostics are not clean; normal gate remains moderately open and pass comes from output-level separation through both gate and raw amplifier.
 - decision: `gate_margin_response_amplification_exact_gate_passed_admit_audit`
 - next: `m690-gate-margin-response-amplification-audit`
+
+## 20260524T180625Z - m701-boundary-sensitivity-scale-diagnostic-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m701_boundary_sensitivity_scale_diagnostic`
+- artifact: `docs/m701-boundary-sensitivity-scale-diagnostic-implementation.md`
+- result: M701 implements and runs the no-training boundary sensitivity-scale diagnostic across `32` target/window/scale variants, `16384` episodes, `129792` snapshots, and `26112` perturbation-evaluated rows. The implementation is clean: actor checksum unchanged, no training, no PPO, and no promotion. Result is `scale_sparse_plausible`: `99` sparse accepted rows exist, but `0` source-positive variants and `0` history-action-critical rows. Plausible/stress/unrealistic accepted rows are all `history_insensitive`.
+- decision: `scale_sparse_plausible_not_source_positive_admit_audit`
+- next: `m702-boundary-sensitivity-scale-diagnostic-audit`

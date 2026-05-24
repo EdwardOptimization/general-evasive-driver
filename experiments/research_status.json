@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 709,
+        "completed": 710,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m700-boundary-sensitivity-scale-diagnostic-design",
+        "task_id": "m701-boundary-sensitivity-scale-diagnostic-implementation",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m700-boundary-sensitivity-scale-diagnostic-design.md"
+        "command_log": "docs/m701-boundary-sensitivity-scale-diagnostic-implementation.md"
     },
     "next_task": {
-        "id": "m701-boundary-sensitivity-scale-diagnostic-implementation",
+        "id": "m702-boundary-sensitivity-scale-diagnostic-audit",
         "status": "pending",
-        "priority": 6960,
-        "kind": "infrastructure",
-        "hypothesis": "A perturbation/window scale ladder can determine whether terminal-boundary sensitivity appears at plausible first-action override scales.",
-        "command": "see experiments/manifests/m701-boundary-sensitivity-scale-diagnostic-implementation.json",
+        "priority": 6970,
+        "kind": "gate",
+        "hypothesis": "Audit M701 scale-sparse history-insensitive diagnostic and decide branch pivot",
+        "command": "see experiments/manifests/m702-boundary-sensitivity-scale-diagnostic-audit.json",
         "success_artifact": "",
-        "notes": "Pending: run no-training perturbation/window scale ladder before any source objective actor update or PPO"
+        "notes": "Pending: synthesize M701 and likely pivot to extreme hidden-condition scenario generation before any objective actor update or PPO"
     },
-    "updated_at_utc": "20260524T170321Z"
+    "updated_at_utc": "20260524T180625Z"
 }
