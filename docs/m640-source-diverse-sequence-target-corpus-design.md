@@ -151,10 +151,10 @@ Primary split:
 
 ```text
 train sources:
-  13, 20, 5, 30, 0, 8
+  13, 14, 5, 30, 0, 8
 
 source_holdout_validation sources:
-  14, 32, 7
+  20, 32, 7
 ```
 
 Rationale:
@@ -166,8 +166,7 @@ train covers all three targets:
   future_braking_deceleration
 
 validation covers fresh and ood surfaces:
-  source 14: fresh yaw
-  source 32: ood yaw / wrong_matched_history
+  sources 20 and 32: ood yaw, same physical pair held out together
   source 7: fresh braking
 ```
 

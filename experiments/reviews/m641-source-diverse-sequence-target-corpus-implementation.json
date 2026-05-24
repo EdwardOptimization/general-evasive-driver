@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M641 writes a 431-row source-balanced CSV and NPZ sequence target corpus across 9 sources 8 physical pairs 6 left seeds 2 surfaces and 3 targets while keeping actor training blocked",
+  "failure_criteria": [
+    "implementation starts training",
+    "implementation writes no NPZ target sequences",
+    "implementation lets one source exceed cap",
+    "implementation uses raw candidate count as weight",
+    "implementation omits source-heldout split"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not feed metadata labels into actor inputs",
+    "do not use raw candidate count as corpus weight",
+    "do not split the same physical pair across train and validation",
+    "do not write CSV-only corpus if NPZ materialization fails"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T122647Z",
+  "hypothesis": "M639 accepted sequence candidates can be capped and materialized into a source-balanced sequence target corpus with heldout-source splits.",
+  "lineage": {
+    "blocked_by": [
+      "m640-source-diverse-sequence-target-corpus-design"
+    ],
+    "derived_from": [
+      "m640-source-diverse-sequence-target-corpus-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m640-source-diverse-sequence-target-corpus-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m639_combined_shape_source_diversity_expansion/accepted_expanded_sequences.csv",
+      "runs/m639_combined_shape_source_diversity_expansion/source_recovery_summary.csv",
+      "docs/m640-source-diverse-sequence-target-corpus-design.md"
+    ],
+    "parent_objective": [
+      "implement source-balanced capped sequence target corpus from M639 accepted candidates"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m641-source-diverse-sequence-target-corpus-implementation",
+  "next_blocker": "m642-sequence-corpus-exact-objective-sanity",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_diverse_sequence_target_corpus_pass_admit_exact_sanity",
+  "public_gates": [
+    "cap selected rows per source grid family and sequence length",
+    "write source-balanced CSV and NPZ corpus",
+    "write source balance summaries and top-k diagnostics",
+    "preserve source surface target and variant diversity",
+    "keep actor training and PPO blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m641_source_diverse_sequence_target_corpus/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "source_diverse_sequence_target_corpus_pass_admit_exact_sanity",
+    "milestone": "m641-source-diverse-sequence-target-corpus-implementation",
+    "reason": "M641 writes a 431-row source-balanced CSV and NPZ sequence target corpus across 9 sources 8 physical pairs 6 left seeds 2 surfaces and 3 targets while keeping actor training blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "balanced corpus CSV is written",
+    "balanced sequence target NPZ is written",
+    "selected sources physical pairs left seeds surfaces targets and variants meet M640 thresholds",
+    "source-balanced weights are written",
+    "training PPO and promotion remain blocked",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

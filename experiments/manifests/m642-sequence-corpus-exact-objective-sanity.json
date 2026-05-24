@@ -1,0 +1,94 @@
+{
+  "id": "m642-sequence-corpus-exact-objective-sanity",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m641_source_diverse_sequence_target_corpus/summary.json",
+      "runs/m641_source_diverse_sequence_target_corpus/balanced_sequence_targets.csv",
+      "runs/m641_source_diverse_sequence_target_corpus/balanced_sequence_target_corpus.npz",
+      "runs/m641_source_diverse_sequence_target_corpus/source_balance_summary.csv",
+      "docs/m641-source-diverse-sequence-target-corpus-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m641-source-diverse-sequence-target-corpus-implementation.json"
+    ],
+    "parent_objective": [
+      "check whether the M641 source-balanced sequence target corpus has usable exact objective geometry before any actor update"
+    ],
+    "derived_from": [
+      "m641-source-diverse-sequence-target-corpus-implementation"
+    ],
+    "blocked_by": [
+      "m641-source-diverse-sequence-target-corpus-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m642-sequence-corpus-exact-objective-sanity.md",
+  "public_gates": [
+    "load the M641 NPZ and metadata without mutation",
+    "compute target versus base sequence distances",
+    "report source-balanced loss contributions",
+    "report train and source-heldout validation splits separately",
+    "confirm no actor parameters change and no training starts"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not change actor inputs",
+    "do not use source or target metadata as actor observations",
+    "do not report aggregate loss without source-balanced and split-specific breakdowns"
+  ],
+  "hypothesis": "The M641 source-balanced sequence corpus is exact-objective usable: target sequences differ meaningfully from base sequences while loss mass remains source-balanced and auditable by split.",
+  "success_criteria": [
+    "NPZ and metadata load successfully",
+    "weighted source contributions are finite and balanced",
+    "target/base sequence deltas are nonzero and bounded by recorded masks",
+    "train and source-heldout validation summaries are written separately",
+    "no actor parameters are changed",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "NPZ cannot be loaded",
+    "metadata and NPZ row counts mismatch",
+    "source weights are not balanced",
+    "target/base sequence deltas are all zero or non-finite",
+    "split-specific summaries are missing",
+    "any optimizer or actor update is started"
+  ],
+  "commands": [
+    {
+      "name": "sequence_corpus_exact_objective_sanity",
+      "command": "PYTHONPATH=src python -m autodrift.sequence_corpus_exact_objective_sanity --corpus runs/m641_source_diverse_sequence_target_corpus/balanced_sequence_target_corpus.npz --metadata runs/m641_source_diverse_sequence_target_corpus/balanced_sequence_targets.csv --run-dir runs/m642_sequence_corpus_exact_objective_sanity"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m642_sequence_corpus_exact_objective_sanity/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "docs/m642-sequence-corpus-exact-objective-sanity.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m641_source_diverse_sequence_target_corpus/balanced_sequence_target_corpus.npz",
+    "runs/m641_source_diverse_sequence_target_corpus/balanced_sequence_targets.csv"
+  ],
+  "decision_rule": "M642 passes as a proof gate if it writes finite source-balanced and split-specific exact objective summaries without starting training or changing the actor.",
+  "next_blocker": "m643-source-balanced-bc-v2-objective-design"
+}

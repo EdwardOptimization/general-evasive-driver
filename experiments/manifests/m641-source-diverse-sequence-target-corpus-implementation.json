@@ -67,7 +67,7 @@
   "commands": [
     {
       "name": "source_diverse_sequence_target_corpus",
-      "command": "PYTHONPATH=src python -m autodrift.source_diverse_sequence_target_corpus --accepted-sequences runs/m639_combined_shape_source_diversity_expansion/accepted_expanded_sequences.csv --run-dir runs/m641_source_diverse_sequence_target_corpus"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_diverse_sequence_target_corpus --accepted-sequences runs/m639_combined_shape_source_diversity_expansion/accepted_expanded_sequences.csv --checkpoint-policy bc5660=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --source-table runs/m616_expanded_sequence_source_miner/expanded_sequence_source_rows.csv --surface-config fresh=configs/ppo_m541_matched_l3_variance_4096.json --surface-config ood=configs/eval_m574_moderate_ood_l3.json --run-dir runs/m641_source_diverse_sequence_target_corpus"
     }
   ],
   "required_artifacts": [

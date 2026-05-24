@@ -11887,6 +11887,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - kind: `infrastructure`
 - run dir: ``
 - artifact: `docs/m640-source-diverse-sequence-target-corpus-design.md`
-- result: M640 designs a source-balanced corpus from M639 accepted sequence candidates. The design caps rows per source, source/grid, source/family, and source/sequence length; uses equal total source weights; defines train sources `13`, `20`, `5`, `30`, `0`, and `8`; defines source-heldout validation sources `14`, `32`, and `7`; and requires M641 to write both CSV metadata and an NPZ sequence target corpus. Training, PPO, promotion, and optimizer admission remain blocked.
+- result: M640 designs a source-balanced corpus from M639 accepted sequence candidates. The design caps rows per source, source/grid, source/family, and source/sequence length; uses equal total source weights; defines train sources `13`, `14`, `5`, `30`, `0`, and `8`; defines source-heldout validation sources `20`, `32`, and `7`; and requires M641 to write both CSV metadata and an NPZ sequence target corpus. Training, PPO, promotion, and optimizer admission remain blocked.
 - decision: `source_diverse_sequence_target_corpus_design_admit_m641`
 - next: `m641-source-diverse-sequence-target-corpus-implementation`
+## 20260524T185000Z - m641-source-diverse-sequence-target-corpus-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m641_source_diverse_sequence_target_corpus`
+- artifact: `docs/m641-source-diverse-sequence-target-corpus-implementation.md`
+- result: M641 implements and runs the source-balanced sequence target corpus builder. It selects `431` rows across `9` source rows, `8` physical pairs, `6` left seeds, `2` surfaces, `3` targets, and `2` variants. It writes `balanced_sequence_targets.csv`, `balanced_sequence_target_corpus.npz`, `top1_per_source.csv`, `topk_per_source.csv`, and `source_balance_summary.csv`. The materialized NPZ contains `observation (431, 72)`, `normal_hidden (431, 64)`, `variant_hidden (431, 64)`, `target_action_sequence (431, 9, 3)`, `normal_base_action_sequence (431, 9, 3)`, `sequence_mask (431, 9)`, and source-balanced weights. Train rows total `271`; source-heldout validation rows total `160`. Training, PPO, promotion, and optimizer admission remain blocked pending exact objective sanity.
+- decision: `source_diverse_sequence_target_corpus_pass_admit_exact_sanity`
+- next: `m642-sequence-corpus-exact-objective-sanity`

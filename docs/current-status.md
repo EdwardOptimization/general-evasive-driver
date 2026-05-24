@@ -62,15 +62,26 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m641-source-diverse-sequence-target-corpus-implementation
+m642-sequence-corpus-exact-objective-sanity
 ```
 
-M641 should implement the source-balanced sequence target corpus designed in
-M640. It must cap rows per source/grid/family, write both CSV and NPZ sequence
-targets, preserve source-heldout split metadata, and keep actor training blocked.
+M642 should run exact objective sanity on the M641 source-balanced sequence
+target corpus. It must load the metadata and NPZ corpus, report target/base
+sequence deltas, source-balanced loss contributions, and train versus
+source-heldout validation summaries, while keeping actor training blocked.
 
 ## Recent Evidence Line
 
+- M641 implements and runs the source-balanced sequence target corpus builder.
+  It selects `431` rows across `9` source rows, `8` physical pairs, `6` left
+  seeds, `2` surfaces, `3` targets, and `2` variants. It writes
+  `balanced_sequence_targets.csv`, `balanced_sequence_target_corpus.npz`,
+  source-balance summaries, and top-k diagnostics. The split is group-aware:
+  train has `271` rows and source-heldout validation has `160` rows, with
+  sources `20` and `32` held out together because they share a physical pair.
+  Equal source total weights are written. This is corpus infrastructure only;
+  actor training, PPO, and promotion remain blocked pending exact objective
+  sanity.
 - M640 designs the source-balanced sequence target corpus. M641 should cap M639
   accepted candidates per source/grid/family, use equal source total weights,
   and write both `balanced_sequence_targets.csv` and
