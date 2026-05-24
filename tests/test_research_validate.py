@@ -66,6 +66,24 @@ def _process_v2_manifest(task_id, artifact="docs/m227.md"):
     return manifest
 
 
+def _process_v3_manifest(task_id, artifact="docs/m690.md"):
+    manifest = _process_v2_manifest(task_id, artifact=artifact)
+    manifest["workflow_synthesis"] = {
+        "branch": "response_amplification_actor_coupling",
+        "evidence_axis": "G_action",
+        "claim_scope": "diagnostic exact gate, not promotion",
+        "stop_condition": [
+            "stop before PPO unless the next manifest adds proof, behavior, and generalization gates"
+        ],
+        "fallback_plan": [
+            "if the branch fails closed-loop replay, return to source-diverse terminal-boundary target mining"
+        ],
+        "synthesis_cadence": 10,
+        "synthesis_trigger": "before any post-diagnostic actor-update continuation",
+    }
+    return manifest
+
+
 def test_normalize_next_task_supports_string_and_object():
     assert normalize_next_task("m90") == "m90"
     assert normalize_next_task({"id": "m91"}) == "m91"
@@ -474,3 +492,104 @@ def test_process_v2_accepts_scenario_sampling_failure_taxonomy(tmp_path):
     issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
 
     assert issues == []
+
+
+def test_process_v3_requires_workflow_synthesis_from_m690(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    manifest_dir.mkdir()
+    _write_queue(
+        queue,
+        [
+            {
+                "id": "m690",
+                "priority": 6850,
+                "status": "pending",
+                "kind": "gate",
+                "hypothesis": "audit response amplification branch",
+                "command": "see manifest",
+                "success_artifact": "",
+                "notes": "",
+            }
+        ],
+    )
+    status.write_text(
+        json.dumps({"counts": {"planned": 0, "completed": 0, "failed": 0, "blocked": 0, "pending": 1, "running": 0}, "next_task": "m690"}),
+        encoding="utf-8",
+    )
+    (manifest_dir / "m690.json").write_text(json.dumps(_process_v2_manifest("m690")), encoding="utf-8")
+    _write_scoreboard(scoreboard, [])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert any("process-v3 manifest missing fields" in issue.message for issue in issues)
+
+
+def test_process_v3_accepts_workflow_synthesis_manifest(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    manifest_dir.mkdir()
+    _write_queue(
+        queue,
+        [
+            {
+                "id": "m690",
+                "priority": 6850,
+                "status": "pending",
+                "kind": "gate",
+                "hypothesis": "audit response amplification branch",
+                "command": "see manifest",
+                "success_artifact": "",
+                "notes": "",
+            }
+        ],
+    )
+    status.write_text(
+        json.dumps({"counts": {"planned": 0, "completed": 0, "failed": 0, "blocked": 0, "pending": 1, "running": 0}, "next_task": "m690"}),
+        encoding="utf-8",
+    )
+    (manifest_dir / "m690.json").write_text(json.dumps(_process_v3_manifest("m690")), encoding="utf-8")
+    _write_scoreboard(scoreboard, [])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert issues == []
+
+
+def test_process_v3_rejects_out_of_range_synthesis_cadence(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    manifest_dir.mkdir()
+    _write_queue(
+        queue,
+        [
+            {
+                "id": "m690",
+                "priority": 6850,
+                "status": "pending",
+                "kind": "gate",
+                "hypothesis": "audit response amplification branch",
+                "command": "see manifest",
+                "success_artifact": "",
+                "notes": "",
+            }
+        ],
+    )
+    status.write_text(
+        json.dumps({"counts": {"planned": 0, "completed": 0, "failed": 0, "blocked": 0, "pending": 1, "running": 0}, "next_task": "m690"}),
+        encoding="utf-8",
+    )
+    manifest = _process_v3_manifest("m690")
+    manifest["workflow_synthesis"]["synthesis_cadence"] = 21
+    (manifest_dir / "m690.json").write_text(json.dumps(manifest), encoding="utf-8")
+    _write_scoreboard(scoreboard, [])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert any("synthesis_cadence must be between 10 and 20" in issue.message for issue in issues)

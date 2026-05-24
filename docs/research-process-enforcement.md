@@ -291,6 +291,43 @@ promotion or paper evidence, not routine repair. If a private holdout result is
 used to repair a candidate, the holdout must be rotated before being treated as
 unbiased evidence again.
 
+## Process V3: Workflow Synthesis
+
+The M690 workflow upgrade adds branch-synthesis enforcement. It starts at
+priority `6850`:
+
+```text
+m690-gate-margin-response-amplification-audit
+```
+
+M690+ manifests must declare:
+
+```text
+workflow_synthesis.branch
+workflow_synthesis.evidence_axis
+workflow_synthesis.claim_scope
+workflow_synthesis.stop_condition
+workflow_synthesis.fallback_plan
+workflow_synthesis.synthesis_cadence
+workflow_synthesis.synthesis_trigger
+```
+
+`stop_condition` and `fallback_plan` are non-empty lists. `synthesis_cadence`
+must be an integer from 10 to 20. The validator rejects new M690+ manifests
+that omit this section, so the pre-commit hook blocks narrow "just keep going"
+research loops that do not declare branch stop, fallback, and synthesis rules.
+
+The purpose is to force every branch to state:
+
+- what evidence axis it is advancing;
+- what claim scope is allowed;
+- when to stop local iteration;
+- what fallback path should be tried if the branch fails;
+- when to synthesize the branch instead of adding another narrow milestone.
+
+This implements the workflow-synthesis rule as repository state, not a
+prompt-only preference.
+
 ## Review Generator
 
 M227 also adds a deterministic review artifact generator:

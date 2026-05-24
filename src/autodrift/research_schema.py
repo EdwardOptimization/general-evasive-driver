@@ -4,6 +4,7 @@ from __future__ import annotations
 
 
 PROCESS_V2_ENFORCE_FROM_PRIORITY = 2220
+PROCESS_V3_SYNTHESIS_ENFORCE_FROM_PRIORITY = 6850
 
 SCOREBOARD_FIELDS = [
     "milestone",
@@ -68,4 +69,14 @@ PROCESS_V2_LINEAGE_FIELDS = [
     "blocked_by",
     "supersedes",
     "invalidates",
+]
+
+PROCESS_V3_SYNTHESIS_FIELDS = [
+    "branch",
+    "evidence_axis",
+    "claim_scope",
+    "stop_condition",
+    "fallback_plan",
+    "synthesis_cadence",
+    "synthesis_trigger",
 ]

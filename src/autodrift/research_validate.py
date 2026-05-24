@@ -22,6 +22,8 @@ from autodrift.research_schema import (
     PROCESS_V2_LINEAGE_FIELDS,
     PROCESS_V2_PRIVATE_HOLDOUT_POLICIES,
     PROCESS_V2_PROMOTION_DECISIONS,
+    PROCESS_V3_SYNTHESIS_ENFORCE_FROM_PRIORITY,
+    PROCESS_V3_SYNTHESIS_FIELDS,
     SCOREBOARD_FIELDS,
 )
 
@@ -50,6 +52,9 @@ PROCESS_V2_REQUIRED_FIELDS = (
     "private_holdout_policy",
     "forbidden_shortcuts",
 )
+PROCESS_V3_REQUIRED_FIELDS = (
+    "workflow_synthesis",
+)
 
 
 @dataclass(frozen=True)
@@ -64,6 +69,10 @@ def _is_enforced(task: ResearchTask, enforce_from_priority: int) -> bool:
 
 def _is_process_v2(task: ResearchTask, process_v2_from_priority: int) -> bool:
     return int(task.priority) >= int(process_v2_from_priority)
+
+
+def _is_process_v3(task: ResearchTask, process_v3_from_priority: int) -> bool:
+    return int(task.priority) >= int(process_v3_from_priority)
 
 
 def _manifest_path(manifest_dir: Path, task_id: str) -> Path:
@@ -143,7 +152,12 @@ def load_scoreboard(path: Path, *, reject_extra_fields_from_milestone: int | Non
         return rows
 
 
-def _validate_manifest(task: ResearchTask, manifest: dict[str, Any], process_v2: bool = False) -> list[ValidationIssue]:
+def _validate_manifest(
+    task: ResearchTask,
+    manifest: dict[str, Any],
+    process_v2: bool = False,
+    process_v3: bool = False,
+) -> list[ValidationIssue]:
     issues: list[ValidationIssue] = []
     missing = [field for field in MANIFEST_REQUIRED_FIELDS if field not in manifest]
     if missing:
@@ -165,6 +179,8 @@ def _validate_manifest(task: ResearchTask, manifest: dict[str, Any], process_v2:
     issues.extend(_validate_gates(task, manifest))
     if process_v2:
         issues.extend(_validate_process_v2_manifest(task, manifest))
+    if process_v3:
+        issues.extend(_validate_process_v3_manifest(task, manifest))
     return issues
 
 
@@ -242,6 +258,50 @@ def _validate_process_v2_manifest(task: ResearchTask, manifest: dict[str, Any]) 
         )
     if not _non_empty_list(manifest.get("forbidden_shortcuts")):
         issues.append(ValidationIssue("error", f"{task.id}: forbidden_shortcuts must be a non-empty list"))
+    return issues
+
+
+def _validate_process_v3_manifest(task: ResearchTask, manifest: dict[str, Any]) -> list[ValidationIssue]:
+    issues: list[ValidationIssue] = []
+    missing = [field for field in PROCESS_V3_REQUIRED_FIELDS if field not in manifest]
+    if missing:
+        issues.append(ValidationIssue("error", f"{task.id}: process-v3 manifest missing fields {missing}"))
+        return issues
+
+    synthesis = manifest.get("workflow_synthesis")
+    if not isinstance(synthesis, dict):
+        return [ValidationIssue("error", f"{task.id}: workflow_synthesis must be an object")]
+
+    missing_synthesis = [field for field in PROCESS_V3_SYNTHESIS_FIELDS if field not in synthesis]
+    if missing_synthesis:
+        issues.append(ValidationIssue("error", f"{task.id}: workflow_synthesis missing fields {missing_synthesis}"))
+        return issues
+
+    for field in ("branch", "evidence_axis", "claim_scope", "synthesis_trigger"):
+        if not _non_empty_text(synthesis.get(field)):
+            issues.append(ValidationIssue("error", f"{task.id}: workflow_synthesis.{field} must be non-empty text"))
+
+    for field in ("stop_condition", "fallback_plan"):
+        value = synthesis.get(field)
+        if not _non_empty_list(value) or not all(_non_empty_text(item) for item in value):
+            issues.append(
+                ValidationIssue(
+                    "error",
+                    f"{task.id}: workflow_synthesis.{field} must be a non-empty list of non-empty text",
+                )
+            )
+
+    cadence = synthesis.get("synthesis_cadence")
+    if not isinstance(cadence, int):
+        issues.append(ValidationIssue("error", f"{task.id}: workflow_synthesis.synthesis_cadence must be an integer"))
+    elif cadence < 10 or cadence > 20:
+        issues.append(
+            ValidationIssue(
+                "error",
+                f"{task.id}: workflow_synthesis.synthesis_cadence must be between 10 and 20 milestones",
+            )
+        )
+
     return issues
 
 
@@ -332,6 +392,7 @@ def validate_research_state(
     scoreboard_path: Path,
     enforce_from_priority: int = ENFORCE_FROM_PRIORITY,
     process_v2_from_priority: int = PROCESS_V2_ENFORCE_FROM_PRIORITY,
+    process_v3_from_priority: int = PROCESS_V3_SYNTHESIS_ENFORCE_FROM_PRIORITY,
 ) -> list[ValidationIssue]:
     issues: list[ValidationIssue] = []
     tasks = load_queue(queue_path)
@@ -389,7 +450,8 @@ def validate_research_state(
             continue
         manifest = read_json(path)
         process_v2 = _is_process_v2(task, process_v2_from_priority)
-        issues.extend(_validate_manifest(task, manifest, process_v2=process_v2))
+        process_v3 = _is_process_v3(task, process_v3_from_priority)
+        issues.extend(_validate_manifest(task, manifest, process_v2=process_v2, process_v3=process_v3))
         if task.status == "completed":
             if process_v2 and manifest.get("review_artifact") and not _path_exists(root, str(manifest["review_artifact"])):
                 issues.append(ValidationIssue("error", f"{task.id}: review_artifact is missing: {manifest['review_artifact']}"))
@@ -428,6 +490,11 @@ def main() -> None:
     parser.add_argument("--scoreboard", type=Path, default=Path("experiments/scoreboard.csv"))
     parser.add_argument("--enforce-from-priority", type=int, default=ENFORCE_FROM_PRIORITY)
     parser.add_argument("--process-v2-from-priority", type=int, default=PROCESS_V2_ENFORCE_FROM_PRIORITY)
+    parser.add_argument(
+        "--process-v3-from-priority",
+        type=int,
+        default=PROCESS_V3_SYNTHESIS_ENFORCE_FROM_PRIORITY,
+    )
     args = parser.parse_args()
 
     issues = validate_research_state(
@@ -438,6 +505,7 @@ def main() -> None:
         scoreboard_path=args.scoreboard,
         enforce_from_priority=args.enforce_from_priority,
         process_v2_from_priority=args.process_v2_from_priority,
+        process_v3_from_priority=args.process_v3_from_priority,
     )
     for issue in issues:
         print(f"{issue.severity}: {issue.message}")
@@ -447,7 +515,8 @@ def main() -> None:
     print(
         "research validation passed "
         f"(enforce_from_priority={args.enforce_from_priority}, enforced_tasks={enforced_count}, "
-        f"process_v2_from_priority={args.process_v2_from_priority})"
+        f"process_v2_from_priority={args.process_v2_from_priority}, "
+        f"process_v3_from_priority={args.process_v3_from_priority})"
     )
 
 

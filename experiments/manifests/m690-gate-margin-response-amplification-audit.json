@@ -48,6 +48,23 @@
     "do not hide gate diagnostic caveat",
     "do not change actor input contract"
   ],
+  "workflow_synthesis": {
+    "branch": "response_amplification_actor_coupling",
+    "evidence_axis": "G_action: recurrent capability signal to actuator-level correction",
+    "claim_scope": "diagnostic residual-head exact-gate pass, not promoted driver behavior",
+    "stop_condition": [
+      "stop this branch if the M690 audit cannot define a closed-loop replay or actor-update admission path without weakening exact gates",
+      "stop before PPO or promotion unless a new manifest explicitly adds proof, behavior, and generalization gates",
+      "stop after at most 10 additional response-amplification milestones without a synthesis artifact"
+    ],
+    "fallback_plan": [
+      "if gate diagnostics remain ambiguous, run a synthesis milestone that compares residual-head output separation against true closed-loop replay needs",
+      "if closed-loop replay fails despite M689 exact pass, audit whether the residual target is open-loop diagnostic only and return to source-diverse terminal-boundary target mining",
+      "if actor-update admission fails, design a smaller projection or adapter-only branch rather than extending PPO"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "after M690 audit and before any post-M689 closed-loop or actor-update continuation"
+  },
   "hypothesis": "M689 is a valid exact-gated positive diagnostic result, but gate diagnostics show it should be audited before any closed-loop or actor-update branch.",
   "success_criteria": [
     "M689 exact pass is documented",
