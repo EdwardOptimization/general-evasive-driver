@@ -11638,3 +11638,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M612 designs diagnostic short-horizon sequence target mining after the M611 first-action locality blocker. The next miner should use M609 boundary rows, structured `K in {3, 5}` action-sequence candidate families, per-step action L2 `<= 0.10`, sequence mean L2 `<= 0.08`, sequence max L2 `<= 0.10`, and unchanged margin/risk acceptance thresholds. It must write sequence candidates, accepted sequences, unaccepted rows, summary, and optional NPZ artifacts while recording `diagnostic_only=true` and making no optimizer, PPO, or promotion claim.
 - decision: `sequence_target_mining_design_admit_m613`
 - next: `m613-sequence-target-miner-implementation`
+## 20260524T141000Z - m613-sequence-target-miner-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m613_sequence_target_miner`
+- artifact: `docs/m613-sequence-target-miner-implementation.md`
+- result: M613 implements and runs the diagnostic sequence target miner. It evaluates `5916` structured sequence candidates across `17` M609 boundary rows. Two candidate rows pass the margin-improvement criterion, and the selected accepted sequence is a `K=5` `constant_delta` sequence on source index `7` (`fresh`, `delayed_history`, `future_braking_deceleration`) with `+0.08` steering, baseline margin `0.274439`, target margin `0.295255`, and margin improvement `0.020817`. `sequence_target_corpus.npz` is written with one padded sequence row. Accepted diversity is only one source/physical pair/surface/variant/target, so this is diagnostic signal only; optimizer admission, training, PPO, and promotion remain blocked.
+- decision: `sequence_target_miner_diagnostic_positive_admit_audit`
+- next: `m614-sequence-target-mining-audit`

@@ -62,16 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m613-sequence-target-miner-implementation
+m614-sequence-target-mining-audit
 ```
 
-M613 should implement and run diagnostic short-horizon sequence target mining
-on M609 boundary rows. It must write sequence candidates, accepted sequences,
-unaccepted rows, summary, and optional NPZ artifacts without training, PPO,
-optimizer admission, or promotion.
+M614 should audit the M613 diagnostic-positive sequence result. M613 found one
+accepted sequence, which supports the sequence-target direction but is far too
+narrow for optimizer admission or training.
 
 ## Recent Evidence Line
 
+- M613 implements and runs sequence target mining on M609 boundary rows. It
+  evaluates `5916` sequence candidates and selects one accepted `K=5`
+  `constant_delta` sequence on a fresh delayed braking row, with margin
+  improvement `0.020817`. `sequence_target_corpus.npz` is written, but accepted
+  diversity is one source/physical pair/surface/variant/target, so it is
+  diagnostic-only and cannot feed training.
 - M612 designs the sequence target miner: structured `K in {3, 5}` action
   prefixes, per-step action L2 `<= 0.10`, sequence mean L2 `<= 0.08`, sequence
   max L2 `<= 0.10`, unchanged `0.02` margin / `0.05` risk acceptance

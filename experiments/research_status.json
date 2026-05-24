@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 621,
+        "completed": 622,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m612-sequence-target-mining-design",
+        "task_id": "m613-sequence-target-miner-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m612-sequence-target-mining-design.md"
+        "run_dir": "runs/m613_sequence_target_miner",
+        "command_log": "docs/m613-sequence-target-miner-implementation.md"
     },
     "next_task": {
-        "id": "m613-sequence-target-miner-implementation",
+        "id": "m614-sequence-target-mining-audit",
         "status": "pending",
-        "priority": 6080,
-        "kind": "infrastructure",
-        "hypothesis": "A bounded structured action-sequence prefix can improve margin or risk on M609 boundary rows where single first-action overrides failed.",
-        "command": "see experiments/manifests/m613-sequence-target-miner-implementation.json",
+        "priority": 6090,
+        "kind": "gate",
+        "hypothesis": "M613 provides a real but narrow sequence-target signal; the audit should decide whether to expand source diversity or repeat sequence mining before any optimizer step.",
+        "command": "see experiments/manifests/m614-sequence-target-mining-audit.json",
         "success_artifact": "",
-        "notes": "Pending: implement diagnostic sequence target miner on M609 boundary rows; no training, PPO, promotion, or optimizer admission"
+        "notes": "Pending: audit the one accepted diagnostic sequence and choose next no-training branch; no optimizer admission"
     },
-    "updated_at_utc": "20260524T140000Z"
+    "updated_at_utc": "20260524T141000Z"
 }
