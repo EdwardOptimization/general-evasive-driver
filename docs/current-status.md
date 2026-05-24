@@ -62,17 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m685-split-gated-response-amplification-design
+m686-split-gated-response-amplification-implementation
 ```
 
-M685 should design a split/gated residual response-amplification head after
-M684 classified M683 as a scalar-loss tradeoff. The design should separate
-"when to activate" from "what residual to emit" so normal-history residuals can
-stay inactive while wrong-history features can still amplify. PPO, promotion,
-actor-input changes, and normal gate weakening remain blocked.
+M686 should implement the split/gated residual response-amplification exact
+probe designed in M685. It should add a bounded amplifier, sequence-level gate,
+normal gate close losses, wrong gate open loss, and gate diagnostics while
+leaving exact pass gates unchanged. PPO, promotion, actor-input changes, and
+normal gate weakening remain blocked.
 
 ## Recent Evidence Line
 
+- M685 designs a split/gated residual head after the M680/M683 scalar-loss
+  tradeoff. The proposed head factors output into `gate(feature) *
+  amplifier(feature)`, adds normal gate close and wrong gate open losses, keeps
+  normal sequence/first-step safety and detached-normal wrong-history gap
+  losses, and reports gate diagnostics without using them as promotion
+  evidence.
 - M684 audits M683 as `wrong_gap_suppressed_by_normal_sequence_anchor`. M680 and
   M683 now bracket the scalar-loss conflict: wrong pressure can restore gap but
   moves normal sequence residuals; normal sequence pressure improves retention

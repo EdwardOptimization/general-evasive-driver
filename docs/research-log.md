@@ -12286,3 +12286,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M684 audits M683 as `wrong_gap_suppressed_by_normal_sequence_anchor`. M680 and M683 bracket the scalar-loss tradeoff: detached-normal wrong pressure can restore gap but moves normal sequence residuals, while normal sequence pressure improves retention but suppresses wrong-history amplification and still leaves normal mean slightly above gate at `alpha=1.0`. The next branch should test a split/gated residual response amplifier that separates activation from residual content, while preserving frozen BC5660, P0 inputs, exact gates, no PPO, and no promotion.
 - decision: `normal_sequence_safe_audit_admit_split_gated_design`
 - next: `m685-split-gated-response-amplification-design`
+## 20260525T050000Z - m685-split-gated-response-amplification-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m685-split-gated-response-amplification-design.md`
+- result: M685 designs a split/gated response-amplification residual head after the M680/M683 scalar-loss tradeoff. The design adds a bounded amplifier and sequence-level sigmoid gate, normal gate close losses, wrong gate open loss, raw amplifier L2 guard, existing normal sequence/first-step safety losses, and existing detached-normal wrong-history gap/hard-row losses. Exact gates stay unchanged; gate metrics are diagnostic only. PPO, promotion, actor-input changes, and normal gate weakening remain blocked.
+- decision: `split_gated_response_amplification_design_admit_m686`
+- next: `m686-split-gated-response-amplification-implementation`
