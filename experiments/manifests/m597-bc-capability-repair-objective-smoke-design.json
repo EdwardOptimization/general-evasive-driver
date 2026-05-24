@@ -2,7 +2,7 @@
   "id": "m597-bc-capability-repair-objective-smoke-design",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -80,6 +80,6 @@
     "src/autodrift/bc_capability_repair.py",
     "src/autodrift/bc_capability_corpus.py"
   ],
-  "decision_rule": "M597 passes if it pre-registers a narrow objective smoke protocol with loss weights, module scope, action-anchor tolerance, validation metrics, and no driver-performance claims.",
+  "decision_rule": "M597 passes because it pre-registers a narrow objective smoke protocol with loss weights, module scope, action-anchor tolerance, validation metrics, and no driver-performance claims.",
   "next_blocker": "m598-bc-capability-repair-objective-smoke-implementation"
 }

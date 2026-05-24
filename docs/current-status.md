@@ -61,17 +61,21 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m597-bc-capability-repair-objective-smoke-design
+m598-bc-capability-repair-objective-smoke-implementation
 ```
 
-M597 should design the first capability repair objective smoke using the M596
-train/validation corpora. The current evidence supports deployable
-current-response dependence and source-diverse pair availability, but
-M587-M596 do not support accumulated hidden-history causality. Promotion and
-PPO remain blocked.
+M598 should implement and run the frozen-actor capability-head objective smoke
+designed by M597. The current evidence supports deployable current-response
+dependence and source-diverse pair availability, but M587-M597 do not support
+accumulated hidden-history causality. Promotion and PPO remain blocked.
 
 ## Recent Evidence Line
 
+- M597 designs the first capability repair objective smoke as a frozen-actor,
+  head-only test. It trains only `CapabilityHead` on `base_next_hidden_seq` and
+  M596 capability targets, uses regression plus pair ranking losses, and treats
+  action anchor as a near-zero drift metric. It explicitly makes no driver
+  improvement or self-ID claim.
 - M596 exports train and validation BC capability corpora. Train has `112`
   rows and `240` pair rows; validation has `58` rows and `240` pair rows. Both
   preserve `student_obs_dim = 72`, `target_dim = 3`,

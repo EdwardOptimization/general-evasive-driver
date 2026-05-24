@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M597 registers a frozen-actor head-only capability smoke using regression/ranking losses and action-anchor metrics without route evaluation PPO promotion or driver claims",
+  "failure_criteria": [
+    "design starts training before smoke protocol is registered",
+    "design changes actor input contract",
+    "design omits validation objective checks",
+    "design promotes a checkpoint"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run smoke training in design milestone",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not feed capability labels to actor inputs",
+    "do not claim driver performance from objective loss"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T074544Z",
+  "hypothesis": "The first repair smoke should optimize capability regression and pair ranking with a strong action anchor on the M596 train/validation corpora, then judge only objective wiring and metadata preservation.",
+  "lineage": {
+    "blocked_by": [
+      "m596-bc-capability-corpus-export-smoke"
+    ],
+    "derived_from": [
+      "m596-bc-capability-corpus-export-smoke"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l3_variance_4096.json"
+    ],
+    "parent_dataset": [
+      "runs/m596_bc_capability_corpus_train_smoke/capability_corpus.npz",
+      "runs/m596_bc_capability_corpus_validation_smoke/capability_corpus.npz",
+      "runs/m596_bc_capability_corpus_train_smoke/pairs.csv",
+      "runs/m596_bc_capability_corpus_validation_smoke/pairs.csv"
+    ],
+    "parent_objective": [
+      "design first capability repair objective smoke after corpus export"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m597-bc-capability-repair-objective-smoke-design",
+  "next_blocker": "m598-bc-capability-repair-objective-smoke-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "bc_capability_repair_smoke_design_admit_head_only_implementation",
+  "public_gates": [
+    "design objective smoke before training",
+    "define optimizer scope and freeze policy",
+    "define loss weights and action-anchor tolerance",
+    "define validation metrics and failure taxonomy"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m597-bc-capability-repair-objective-smoke-design.md",
+    "clearance_margin_mean": "",
+    "decision": "bc_capability_repair_smoke_design_admit_head_only_implementation",
+    "milestone": "m597-bc-capability-repair-objective-smoke-design",
+    "reason": "M597 registers a frozen-actor head-only capability smoke using regression/ranking losses and action-anchor metrics without route evaluation PPO promotion or driver claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design specifies trainable modules and frozen modules",
+    "design specifies loss weights and action-anchor tolerance",
+    "design specifies metrics for train and validation regression ranking and action anchor losses",
+    "design blocks route evaluation PPO and promotion",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

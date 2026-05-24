@@ -1,0 +1,91 @@
+{
+  "id": "m598-bc-capability-repair-objective-smoke-implementation",
+  "type": "gate",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m596_bc_capability_corpus_train_smoke/capability_corpus.npz",
+      "runs/m596_bc_capability_corpus_validation_smoke/capability_corpus.npz",
+      "runs/m596_bc_capability_corpus_train_smoke/pairs.csv",
+      "runs/m596_bc_capability_corpus_validation_smoke/pairs.csv"
+    ],
+    "parent_config": [
+      "docs/m597-bc-capability-repair-objective-smoke-design.md"
+    ],
+    "parent_objective": [
+      "implement and run frozen-actor head-only capability objective smoke"
+    ],
+    "derived_from": [
+      "m597-bc-capability-repair-objective-smoke-design"
+    ],
+    "blocked_by": [
+      "m597-bc-capability-repair-objective-smoke-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m598-bc-capability-repair-objective-smoke-implementation.md",
+  "public_gates": [
+    "implement head-only smoke runner",
+    "train capability head on frozen BC5660 hidden state",
+    "write train and validation metrics",
+    "verify actor parameters are unchanged and output is unpromoted"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not update actor parameters",
+    "do not run PPO",
+    "do not run route evaluation",
+    "do not promote checkpoint",
+    "do not feed capability labels to actor inputs",
+    "do not claim driver improvement from head-only loss"
+  ],
+  "hypothesis": "The M596 capability corpus contains learnable future-response signal in BC5660 base hidden states, so a frozen-actor capability head should reduce regression and ranking losses without changing policy behavior.",
+  "success_criteria": [
+    "runner writes capability_head.pt train_metrics.csv validation_metrics.csv and summary.json",
+    "train regression loss drops at least 30 percent",
+    "validation regression loss drops at least 10 percent",
+    "train ranking loss drops at least 10 percent",
+    "validation ranking loss does not increase more than 10 percent",
+    "actor_parameters_changed is false and action-anchor MSE is <= 1e-8"
+  ],
+  "failure_criteria": [
+    "actor parameters change",
+    "capability labels enter actor inputs",
+    "loss metrics do not meet smoke thresholds",
+    "checkpoint is promoted or PPO is run"
+  ],
+  "commands": [
+    {
+      "name": "smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.bc_capability_repair_smoke --train-corpus runs/m596_bc_capability_corpus_train_smoke/capability_corpus.npz --train-pairs runs/m596_bc_capability_corpus_train_smoke/pairs.csv --val-corpus runs/m596_bc_capability_corpus_validation_smoke/capability_corpus.npz --val-pairs runs/m596_bc_capability_corpus_validation_smoke/pairs.csv --base-checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --epochs 200 --learning-rate 0.003 --rank-loss-weight 0.25 --seed 5980 --device cpu --run-dir runs/m598_bc_capability_repair_head_only_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m598_bc_capability_repair_head_only_smoke/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "docs/m598-bc-capability-repair-objective-smoke-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m597-bc-capability-repair-objective-smoke-design.md",
+    "runs/m596_bc_capability_corpus_train_smoke/summary.json",
+    "runs/m596_bc_capability_corpus_validation_smoke/summary.json"
+  ],
+  "decision_rule": "M598 passes if the frozen-actor capability-head smoke meets the pre-registered objective thresholds while keeping actor parameters unchanged and making no driver-performance claim.",
+  "next_blocker": "m599-bc-capability-head-smoke-audit"
+}

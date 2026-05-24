@@ -11494,3 +11494,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M596 exports separate train and validation BC capability corpora. Train seeds `26000..26007` produce `112` rows and `240` same-corpus pair rows; validation seeds `26040..26043` produce `58` rows and `240` pair rows. Both corpora preserve `student_obs_dim = 72`, `action_dim = 3`, `target_dim = 3`, `hidden_dim = 64`, `labels_enter_actor_input = false`, and `contains_privileged_actor_inputs = false`. Pair rows are non-empty for all three targets in both splits.
 - decision: `bc_capability_corpus_export_smoke_admit_repair_smoke_design`
 - next: `m597-bc-capability-repair-objective-smoke-design`
+## 20260524T113000Z - m597-bc-capability-repair-objective-smoke-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m597-bc-capability-repair-objective-smoke-design.md`
+- result: M597 designs the first capability repair objective smoke. The scope is frozen-actor and head-only: train `CapabilityHead` on `base_next_hidden_seq` from the M596 corpora, with regression weight `1.0`, ranking weight `0.25`, epochs `200`, learning rate `0.003`, and CPU full-batch training. Actor parameters must remain unchanged; action-anchor MSE must stay `<= 1e-8`; the smoke may only claim objective wiring, not driver performance or hidden self-ID.
+- decision: `bc_capability_repair_smoke_design_admit_head_only_implementation`
+- next: `m598-bc-capability-repair-objective-smoke-implementation`
