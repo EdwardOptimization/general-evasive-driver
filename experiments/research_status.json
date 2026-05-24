@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 751,
+        "completed": 752,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m742-v3-reset-source-sequence-intervention-design",
+        "task_id": "m743-v3-reset-source-sequence-intervention-implementation",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m742-v3-reset-source-sequence-intervention-design.md"
+        "command_log": "docs/m743-v3-reset-source-sequence-intervention-implementation.md"
     },
     "next_task": {
-        "id": "m743-v3-reset-source-sequence-intervention-implementation",
+        "id": "m744-v3-reset-source-sequence-intervention-audit",
         "status": "pending",
-        "priority": 7380,
-        "kind": "infrastructure",
-        "hypothesis": "Run v3 reset-source sequence interventions",
-        "command": "see experiments/manifests/m743-v3-reset-source-sequence-intervention-implementation.json",
-        "success_artifact": "docs/m743-v3-reset-source-sequence-intervention-implementation.md",
-        "notes": "Pending: implement and run no-training v3 reset-source sequence intervention wave"
+        "priority": 7390,
+        "kind": "gate",
+        "hypothesis": "Audit v3 reset-source sequence positive result",
+        "command": "see experiments/manifests/m744-v3-reset-source-sequence-intervention-audit.json",
+        "success_artifact": "docs/m744-v3-reset-source-sequence-intervention-audit.md",
+        "notes": "Pending: audit M743 positive result sentinel source diversity and next branch decision"
     },
-    "updated_at_utc": "20260525T022000Z"
+    "updated_at_utc": "20260525T023000Z"
 }

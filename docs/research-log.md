@@ -12725,3 +12725,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M742 designs a no-training sequence intervention branch over M740 reset-only rows. It defines a source adapter for `reset_only_rows.csv`, sentinel candidates from history-insensitive rejected rows, source-balance caps for the 744-row/21-seed surface, sequence variants and horizons, action/outcome/sentinel gates, and a no-training M743 implementation command. Actor update, PPO, source export, and promotion remain blocked.
 - decision: `v3_reset_source_sequence_intervention_design_admit_m743`
 - next: `m743-v3-reset-source-sequence-intervention-implementation`
+
+## 20260525T023000Z - m743-v3-reset-source-sequence-intervention-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m743_v3_reset_source_sequence_intervention`
+- artifact: `docs/m743-v3-reset-source-sequence-intervention-implementation.md`
+- result: M743 implements the v3 reset-source sequence intervention runner and finds a strong positive result. It selects `512` source rows with `461` primary reset rows and `51` sentinels across `25` seeds, `9` preferred fault families, `8` wrong fault families, and `30` fault-family pairs. It evaluates `12288` rollout rows and finds `5304` sequence action-critical rows plus `995` sequence outcome-critical rows across `20` seeds and `26` fault-family pairs. Outcome rows are dominated by `zero_command_obs` (`950`) and grow with horizon (`H=2:3`, `H=4:145`, `H=6:370`, `H=8:477`). Sentinel false-positive rate is `0.0`; actor checksum is unchanged; no training/PPO/promotion occurs.
+- decision: `v3_reset_sequence_outcome_positive_admit_audit`
+- next: `m744-v3-reset-source-sequence-intervention-audit`
