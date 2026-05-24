@@ -1,0 +1,80 @@
+{
+  "decision_reason": "M526 audits 18 M524 natural event rows as obstacle-completion drops across 2 surfaces 5 seeds and 2 targets with no projected rows and full-key duplicate share zero",
+  "failure_criteria": [
+    "event rows are source-narrow or duplicated",
+    "event semantics are inconsistent with M524 summaries",
+    "audit mixes projected and natural rows",
+    "actor contract changes",
+    "training or checkpoint promotion is performed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not hide duplicate or source concentration",
+    "do not relabel obstacle-completion drops as collisions or success drops"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T023347Z",
+  "hypothesis": "M524 natural history-value event rows survive source-diversity and duplicate audits and represent real L3-vs-L0 obstacle-completion differences.",
+  "lineage": {
+    "blocked_by": [
+      "m525-history-value-event-audit-design"
+    ],
+    "derived_from": [
+      "m525-history-value-event-audit-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m525-history-value-event-audit-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m524_natural_history_value_ablation/history_value_rows.csv",
+      "runs/m524_natural_history_value_ablation/history_value_summary.csv",
+      "runs/m524_natural_history_value_ablation/summary.json"
+    ],
+    "parent_objective": [
+      "history-value event-row audit"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m526-history-value-event-audit",
+  "next_blocker": "M527 should design matched history baselines because M526 supports source-diverse event rows but only for a reset-hidden diagnostic.",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_diverse_history_value_events_admit_m527_matched_history_baseline_design",
+  "public_gates": [
+    "audit M524 natural L3-vs-L0 event rows",
+    "report event semantics, source diversity, and duplicate rate",
+    "preserve projected-vs-natural provenance",
+    "do not train or promote checkpoint"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "source_diverse_history_value_events_admit_m527_matched_history_baseline_design",
+    "milestone": "m526-history-value-event-audit",
+    "reason": "M526 audits 18 M524 natural event rows as obstacle-completion drops across 2 surfaces 5 seeds and 2 targets with no projected rows and full-key duplicate share zero",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "event rows are exported",
+    "source and duplicate summaries are written",
+    "event semantics are reported explicitly",
+    "audit classification is explicit",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "type": "gate"
+}

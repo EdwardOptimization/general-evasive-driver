@@ -47,12 +47,12 @@ runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
 
 Status: M400 promotes M399 alpha `0.05` as the current public-gate base after
 six public replay surfaces and behavior seeds pass. This remains the latest
-public-gate base; M487-M525 did not train or promote a checkpoint.
+public-gate base; M487-M527 did not train or promote a checkpoint.
 
 Current blocker:
 
 ```text
-m526-history-value-event-audit
+m528-matched-history-baseline-plumbing
 ```
 
 Recent progress: M486-M492 is now closed as an artificial tail-forcing
@@ -254,8 +254,20 @@ M525 designs the required audit before stronger claims: export the M524 event
 rows, check source diversity and duplicates, verify event semantics, and keep
 projected rows out of the natural event claim.
 
-Next step: M526 should run the history-value event audit. It should not train
-or promote.
+M526 runs that audit and classifies the rows as
+`source_diverse_history_value_events`. The audit finds `18`
+obstacle-completion-drop event rows across `2` natural surfaces, `5` probe
+seeds, `2` targets, and `5` tail offsets. There are no projected event rows and
+no full-key duplicates, but left-state duplicate share is `0.5` and the events
+are obstacle-completion drops, not success or collision drops.
+
+M527 designs the next evidence layer: matched deployable history baselines.
+L0 should be feedforward/current observation, L1 one-step command-response, L2
+finite command-response window, and L3 the current online GRU recurrent belief.
+The next step is plumbing/smoke validation, not long training.
+
+Next step: M528 should implement minimal matched-history baseline plumbing or a
+smoke path. It should not promote a checkpoint.
 
 ## Current Evidence
 

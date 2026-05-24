@@ -1,0 +1,77 @@
+{
+  "decision_reason": "M527 designs matched L0/L1/L2/L3 baseline plumbing before training so reset-hidden diagnostics are not overclaimed",
+  "failure_criteria": [
+    "design adds hidden or oracle inputs",
+    "design launches long training before plumbing and smoke validation",
+    "design treats reset-hidden diagnostic as final matched baseline evidence",
+    "training or checkpoint promotion is performed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not claim reset-hidden diagnostic equals a trained feedforward baseline",
+    "do not overclaim L1/L2 before implementation"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T023347Z",
+  "hypothesis": "After M526 validates source-diverse L3-vs-L0 diagnostic event rows, the next evidence layer should compare matched deployable history baselines rather than continuing reset-hidden diagnostics.",
+  "lineage": {
+    "blocked_by": [
+      "m526-history-value-event-audit"
+    ],
+    "derived_from": [
+      "m526-history-value-event-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m526-history-value-event-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m526_history_value_event_audit/summary.json",
+      "runs/m526_history_value_event_audit/event_rows.csv"
+    ],
+    "parent_objective": [
+      "matched history baseline design"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m527-matched-history-baseline-design",
+  "next_blocker": "M528 should implement matched history baseline plumbing.",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m528_matched_history_baseline_plumbing",
+  "public_gates": [
+    "design matched L0/L1/L2/L3 baselines after source-diverse diagnostic history-value events",
+    "preserve P0 no-wheel no-oracle input contract",
+    "preflight before long training",
+    "do not train or promote checkpoint"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m528_matched_history_baseline_plumbing",
+    "milestone": "m527-matched-history-baseline-design",
+    "reason": "M527 designs matched L0/L1/L2/L3 baseline plumbing before training so reset-hidden diagnostics are not overclaimed",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "define L0/L1/L2/L3 baseline levels",
+    "define training and evaluation discipline",
+    "define first plumbing milestone",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "type": "infrastructure"
+}

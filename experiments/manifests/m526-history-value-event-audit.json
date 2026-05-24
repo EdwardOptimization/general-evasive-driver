@@ -2,7 +2,7 @@
   "id": "m526-history-value-event-audit",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -64,7 +64,7 @@
   "commands": [
     {
       "name": "history_value_event_audit",
-      "command": "Implement or run an audit over runs/m524_natural_history_value_ablation/history_value_rows.csv."
+      "command": "PYTHONPATH=src python -m autodrift.history_value_event_audit --history-value-rows-csv runs/m524_natural_history_value_ablation/history_value_rows.csv --run-dir runs/m526_history_value_event_audit"
     }
   ],
   "required_artifacts": [
@@ -81,5 +81,32 @@
     "runs/m524_natural_history_value_ablation/summary.json"
   ],
   "decision_rule": "M526 is not a promotion gate; it should decide whether M524 event rows support matched-baseline training or require surface repair.",
-  "next_blocker": "pending M526 history-value event audit"
+  "next_blocker": "M527 should design matched history baselines because M526 supports source-diverse event rows but only for a reset-hidden diagnostic.",
+  "results": {
+    "run_dir": "runs/m526_history_value_event_audit",
+    "summary_json": "runs/m526_history_value_event_audit/summary.json",
+    "event_rows_csv": "runs/m526_history_value_event_audit/event_rows.csv",
+    "event_source_summary_csv": "runs/m526_history_value_event_audit/event_source_summary.csv",
+    "event_duplicate_summary_csv": "runs/m526_history_value_event_audit/event_duplicate_summary.csv",
+    "event_margin_action_summary_csv": "runs/m526_history_value_event_audit/event_margin_action_summary.csv",
+    "classification": "source_diverse_history_value_events",
+    "event_row_count": 18,
+    "event_surface_count": 2,
+    "event_probe_seed_count": 5,
+    "event_target_count": 2,
+    "event_tail_offset_count": 5,
+    "success_drop_event_count": 0,
+    "collision_gap_event_count": 0,
+    "obstacle_completion_drop_event_count": 18,
+    "projected_event_row_count": 0,
+    "single_seed_share": 0.3333333333333333,
+    "single_surface_share": 0.7777777777777778,
+    "single_target_share": 0.6111111111111112,
+    "full_event_duplicate_share": 0.0,
+    "left_state_duplicate_share": 0.5,
+    "left_target_duplicate_share": 0.4444444444444444,
+    "audit_source_duplicate_share": 0.3888888888888889,
+    "actor_contract_changed": false,
+    "training_or_promotion_performed": false
+  }
 }

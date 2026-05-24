@@ -1,0 +1,90 @@
+{
+  "id": "m527-matched-history-baseline-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m526_history_value_event_audit/summary.json",
+      "runs/m526_history_value_event_audit/event_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m526-history-value-event-audit.json"
+    ],
+    "parent_objective": [
+      "matched history baseline design"
+    ],
+    "derived_from": [
+      "m526-history-value-event-audit"
+    ],
+    "blocked_by": [
+      "m526-history-value-event-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m527-matched-history-baseline-design.md",
+  "public_gates": [
+    "design matched L0/L1/L2/L3 baselines after source-diverse diagnostic history-value events",
+    "preserve P0 no-wheel no-oracle input contract",
+    "preflight before long training",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not claim reset-hidden diagnostic equals a trained feedforward baseline",
+    "do not overclaim L1/L2 before implementation"
+  ],
+  "hypothesis": "After M526 validates source-diverse L3-vs-L0 diagnostic event rows, the next evidence layer should compare matched deployable history baselines rather than continuing reset-hidden diagnostics.",
+  "success_criteria": [
+    "define L0/L1/L2/L3 baseline levels",
+    "define training and evaluation discipline",
+    "define first plumbing milestone",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "design adds hidden or oracle inputs",
+    "design launches long training before plumbing and smoke validation",
+    "design treats reset-hidden diagnostic as final matched baseline evidence",
+    "training or checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "matched_history_baseline_design",
+      "command": "Use M526 event audit results to design matched history baseline training/evaluation before implementation."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m527-matched-history-baseline-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m526-history-value-event-audit.md",
+    "runs/m526_history_value_event_audit/summary.json"
+  ],
+  "decision_rule": "M527 should admit only baseline plumbing and smoke validation, not long training or promotion.",
+  "next_blocker": "M528 should implement matched history baseline plumbing.",
+  "results": {
+    "artifact": "docs/m527-matched-history-baseline-design.md",
+    "selected_next_path": "matched_history_baseline_plumbing",
+    "next_task": "m528-matched-history-baseline-plumbing",
+    "m526_classification": "source_diverse_history_value_events",
+    "actor_contract_changed": false,
+    "training_or_promotion_performed": false
+  }
+}

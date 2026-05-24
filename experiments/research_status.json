@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 534,
+        "completed": 536,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m525-history-value-event-audit-design",
+        "task_id": "m527-matched-history-baseline-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m525-history-value-event-audit-design.md"
+        "command_log": "docs/m527-matched-history-baseline-design.md"
     },
     "next_task": {
-        "id": "m526-history-value-event-audit",
+        "id": "m528-matched-history-baseline-plumbing",
         "status": "pending",
-        "priority": 5210,
-        "kind": "gate",
-        "hypothesis": "M524 natural history-value event rows survive source-diversity and duplicate audits and represent real L3-vs-L0 obstacle-completion differences.",
-        "command": "see experiments/manifests/m526-history-value-event-audit.json",
+        "priority": 5230,
+        "kind": "infrastructure",
+        "hypothesis": "Matched history baseline plumbing can be introduced without changing the P0 actor contract, enabling smoke-scale baseline comparisons after M526 diagnostic evidence.",
+        "command": "see experiments/manifests/m528-matched-history-baseline-plumbing.json",
         "success_artifact": "",
-        "notes": "Pending: audit event semantics, source diversity, and duplicate rate before matched-baseline training"
+        "notes": "Pending: implement baseline-level metadata or smallest L0/L2 smoke path without promotion"
     },
-    "updated_at_utc": "20260524T044000Z"
+    "updated_at_utc": "20260524T050000Z"
 }

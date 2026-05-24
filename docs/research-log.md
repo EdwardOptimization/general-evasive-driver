@@ -10855,3 +10855,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M525 designs an audit before treating M524 as strong recurrent-history evidence. The audit must export event rows, summarize source diversity and duplicate rate, verify L3-vs-L0 terminal/obstacle-completion semantics, report margin and action distances, exclude projected rows from the natural event claim, and classify source-diverse events, source-narrow events, metric artifact, or invalid audit.
 - decision: `admit_m526_history_value_event_audit`
 - next: `m526-history-value-event-audit`
+## 20260524T045000Z - m526-history-value-event-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m526_history_value_event_audit`
+- artifact: `docs/m526-history-value-event-audit.md`
+- result: M526 audits the M524 natural history-value event rows and classifies them as `source_diverse_history_value_events`. The audit finds `18` event rows across `2` surfaces, `5` probe seeds, `2` targets, and `5` tail offsets. All events are obstacle-completion drops (`18`); success-drop and collision-gap counts are `0`, and projected event rows are `0`. Full event keys have no duplicates, but left-state duplicate share is `0.5`, so this remains diagnostic evidence rather than final matched-baseline proof.
+- decision: `source_diverse_history_value_events_admit_m527_matched_history_baseline_design`
+- next: `m527-matched-history-baseline-design`
+## 20260524T050000Z - m527-matched-history-baseline-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m527-matched-history-baseline-design.md`
+- result: M527 designs the next evidence layer after M526. The project should compare matched deployable history baselines: L0 feedforward/current observation, L1 one-step command-response, L2 finite command-response window, and L3 online GRU recurrent belief. The next milestone should only implement baseline plumbing or a smoke path, record baseline-level metadata, preserve the P0 no-oracle actor contract, and avoid long training or promotion.
+- decision: `admit_m528_matched_history_baseline_plumbing`
+- next: `m528-matched-history-baseline-plumbing`

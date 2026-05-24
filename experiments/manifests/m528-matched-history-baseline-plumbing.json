@@ -1,0 +1,80 @@
+{
+  "id": "m528-matched-history-baseline-plumbing",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m526_history_value_event_audit/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m527-matched-history-baseline-design.json"
+    ],
+    "parent_objective": [
+      "matched history baseline plumbing"
+    ],
+    "derived_from": [
+      "m527-matched-history-baseline-design"
+    ],
+    "blocked_by": [
+      "m527-matched-history-baseline-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m528-matched-history-baseline-plumbing.md",
+  "public_gates": [
+    "implement or preflight configurable history baseline level metadata",
+    "support at least one L0 or L2 baseline smoke path",
+    "preserve actor input contract",
+    "do not run long training or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not run long training before smoke validation",
+    "do not overclaim incomplete L1/L2 support"
+  ],
+  "hypothesis": "Matched history baseline plumbing can be introduced without changing the P0 actor contract, enabling smoke-scale baseline comparisons after M526 diagnostic evidence.",
+  "success_criteria": [
+    "history baseline metadata or config path is implemented",
+    "at least one baseline level has a smoke train/eval or diagnostic path",
+    "artifacts record baseline level and input contract",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "baseline plumbing changes actor inputs",
+    "checkpoint loading or config validation breaks",
+    "training path cannot run a smoke",
+    "checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "matched_history_baseline_plumbing",
+      "command": "Implement the smallest matched history baseline plumbing or smoke path from M527."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m528-matched-history-baseline-plumbing.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m527-matched-history-baseline-design.md",
+    "runs/m526_history_value_event_audit/summary.json"
+  ],
+  "decision_rule": "M528 is not a promotion gate; it should only prove baseline plumbing is safe enough for later matched smoke training.",
+  "next_blocker": "pending M528 matched history baseline plumbing"
+}
