@@ -11134,3 +11134,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M556 trains the three M555 L3 repair-v2 configs and evaluates `43` interval/final L3 candidates plus L0/L2 references on a 64-episode public-neutral route-screen v2. No candidate is admitted: `35/43` candidates pass L0 binary success, but `0/43` pass L0 clearance margin and `0/43` pass collision tolerance. Best family candidates are `epoch1_s256`, `longseq_s512`, and `lowentropy_s256`; all have success `0.109375` but worse margin and collision than L0. Public frozen-source diagnostics are blocked.
 - decision: `l3_repair_v2_route_screen_reject_admit_m557_failure_audit`
 - next: `m557-m556-route-screen-failure-audit`
+## 20260524T100000Z - m557-m556-route-screen-failure-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m557_m556_route_screen_failure_audit`
+- artifact: `docs/m557-m556-route-screen-failure-audit.md`
+- result: M557 audits the M556 route-screen failure using only public-neutral route artifacts. The failure is collision-dominated after a small binary success gain: for the best `epoch1_s256` candidate versus L0, it converts `5` L0 collisions to completions but also converts `7` L0 non-collision terminations to collisions and `3` L0 completions to collisions. Versus L2, `38` L2 completions become candidate collisions. The worst L0 margin losses are high/medium-mu and drift/aes-feasible cases, so this is not a pure low-friction capability issue.
+- decision: `audit_admit_targeted_collision_margin_repair_design`
+- next: `m558-targeted-collision-margin-repair-design`

@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 565,
+        "completed": 566,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m556-l3-repair-v2-route-screen-selection",
+        "task_id": "m557-m556-route-screen-failure-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m556_l3_repair_v2_route_screen_selection",
-        "command_log": "docs/m556-l3-repair-v2-route-screen-selection.md"
+        "run_dir": "runs/m557_m556_route_screen_failure_audit",
+        "command_log": "docs/m557-m556-route-screen-failure-audit.md"
     },
     "next_task": {
-        "id": "m557-m556-route-screen-failure-audit",
+        "id": "m558-targeted-collision-margin-repair-design",
         "status": "pending",
-        "priority": 5520,
-        "kind": "gate",
-        "hypothesis": "The M556 failure audit can identify whether the new L3 variants are simply more collision-prone near the obstacle, or whether route-screen v2 exposed a narrower margin-retention issue that should guide the next repair design.",
-        "command": "see experiments/manifests/m557-m556-route-screen-failure-audit.json",
+        "priority": 5530,
+        "kind": "infrastructure",
+        "hypothesis": "A targeted collision/margin repair design can address the M557 failure mode by rewarding clearance and penalizing obstacle contact while avoiding overfit to the M556 route-screen seed block.",
+        "command": "see experiments/manifests/m558-targeted-collision-margin-repair-design.json",
         "success_artifact": "",
-        "notes": "Pending: analyze M556 route-screen artifacts before any more L3 training"
+        "notes": "Pending: design repair with fresh route-screen seed and no actor input changes"
     },
-    "updated_at_utc": "20260524T095000Z"
+    "updated_at_utc": "20260524T100000Z"
 }

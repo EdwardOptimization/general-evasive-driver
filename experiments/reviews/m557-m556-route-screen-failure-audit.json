@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M557 classifies M556 as collision-dominated margin failure after binary success gain and blocks public diagnostics",
+  "failure_criteria": [
+    "audit uses public frozen-source rows",
+    "audit changes thresholds after seeing M556",
+    "audit directly launches more training without diagnosing the gate failure"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not use public frozen-source rows",
+    "do not weaken route-screen v2 thresholds after failure",
+    "do not promote or select a checkpoint from this audit"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260524T045938Z",
+  "hypothesis": "The M556 failure audit can identify whether the new L3 variants are simply more collision-prone near the obstacle, or whether route-screen v2 exposed a narrower margin-retention issue that should guide the next repair design.",
+  "lineage": {
+    "blocked_by": [
+      "m556-l3-repair-v2-route-screen-selection"
+    ],
+    "derived_from": [
+      "m556-l3-repair-v2-route-screen-selection"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m556_l3_repair_epoch1_clip01_seed3540/checkpoints/checkpoint_step_256.pt",
+      "runs/m556_l3_repair_longseq_epoch1_seed3540/checkpoints/checkpoint_step_512.pt",
+      "runs/m556_l3_repair_lowentropy_epoch1_seed3540/checkpoints/checkpoint_step_256.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m555_l3_repair_epoch1_clip01_4096.json",
+      "configs/ppo_m555_l3_repair_longseq_epoch1_4096.json",
+      "configs/ppo_m555_l3_repair_lowentropy_epoch1_4096.json"
+    ],
+    "parent_dataset": [
+      "runs/m556_l3_repair_v2_route_screen_selection/summary.json",
+      "runs/m556_l3_repair_v2_route_screen_selection/episodes.csv",
+      "runs/m556_l3_repair_v2_route_screen_selection/candidate_decisions.csv",
+      "docs/m556-l3-repair-v2-route-screen-selection.md"
+    ],
+    "parent_objective": [
+      "audit why M556 candidates improve success over L0 but fail margin and collision route-screen checks"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m557-m556-route-screen-failure-audit",
+  "next_blocker": "m558-targeted-collision-margin-repair-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "audit_admit_targeted_collision_margin_repair_design",
+  "public_gates": [
+    "audit M556 route-screen terminal patterns before more training",
+    "compare best M556 family candidates against L0/L2 on shared route seeds",
+    "identify whether failure is margin-only, collision-dominated, or seed-clustered",
+    "do not run public frozen-source diagnostics"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m557_m556_route_screen_failure_audit/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "audit_admit_targeted_collision_margin_repair_design",
+    "milestone": "m557-m556-route-screen-failure-audit",
+    "reason": "M557 classifies M556 as collision-dominated margin failure after binary success gain and blocks public diagnostics",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "audit summarizes best family candidates versus L0/L2 on shared route-screen seeds",
+    "audit classifies the failure mode before any new training",
+    "audit recommends either targeted repair design or stopping the current L3 recipe family",
+    "research validation passes"
+  ],
+  "type": "gate"
+}

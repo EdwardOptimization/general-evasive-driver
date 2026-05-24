@@ -1,0 +1,83 @@
+{
+  "id": "m558-targeted-collision-margin-repair-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m556_l3_repair_epoch1_clip01_seed3540/checkpoints/checkpoint_step_256.pt",
+      "runs/m556_l3_repair_longseq_epoch1_seed3540/checkpoints/checkpoint_step_512.pt",
+      "runs/m556_l3_repair_lowentropy_epoch1_seed3540/checkpoints/checkpoint_step_256.pt"
+    ],
+    "parent_dataset": [
+      "docs/m557-m556-route-screen-failure-audit.md",
+      "runs/m557_m556_route_screen_failure_audit/summary.json"
+    ],
+    "parent_config": [
+      "configs/ppo_m555_l3_repair_epoch1_clip01_4096.json",
+      "configs/ppo_m555_l3_repair_longseq_epoch1_4096.json",
+      "configs/ppo_m555_l3_repair_lowentropy_epoch1_4096.json"
+    ],
+    "parent_objective": [
+      "design targeted collision and clearance-margin repair after M556 route-screen rejection"
+    ],
+    "derived_from": [
+      "m557-m556-route-screen-failure-audit"
+    ],
+    "blocked_by": [
+      "m557-m556-route-screen-failure-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m558-targeted-collision-margin-repair-design.md",
+  "public_gates": [
+    "design collision/margin repair without changing actor inputs",
+    "rotate route-screen v2 seed before any new selection",
+    "preserve L0/L2 references and no-public-row provenance",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train directly on M556 route-screen seeds as the next selection gate",
+    "do not weaken collision or margin route-screen thresholds",
+    "do not add privileged actor inputs",
+    "do not run public frozen-source diagnostics"
+  ],
+  "hypothesis": "A targeted collision/margin repair design can address the M557 failure mode by rewarding clearance and penalizing obstacle contact while avoiding overfit to the M556 route-screen seed block.",
+  "success_criteria": [
+    "design states which reward or PPO controls may change",
+    "design rotates the next route-screen seed and keeps M556 as diagnostic only",
+    "design defines pass/fail conditions before more training",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design simply repeats M555 PPO stability variants",
+    "design uses M556 route-screen rows as selection data again",
+    "design changes actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "Write targeted collision/margin repair design; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m558-targeted-collision-margin-repair-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+    "runs/m542_matched_l2_variance_seed3540/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m557-m556-route-screen-failure-audit.md"
+  ],
+  "decision_rule": "M558 passes only if the next repair design targets collision/margin failure without public-row selection or actor input changes. It does not train or promote a checkpoint.",
+  "next_blocker": "pending M558 targeted collision-margin repair design"
+}

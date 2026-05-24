@@ -61,12 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m557-m556-route-screen-failure-audit
+m558-targeted-collision-margin-repair-design
 ```
 
-M557 should audit why M556 L3 candidates pass L0 binary success but fail
-route-screen v2 margin and collision checks. No more L3 training or public
-frozen-source diagnostics should run before this failure is classified.
+M558 should design a targeted collision/clearance-margin repair branch after
+M557. It must rotate the next route-screen seed and keep M556 route-screen rows
+as diagnostics, not the next selection target.
 
 ## Recent Evidence Line
 
@@ -227,6 +227,10 @@ frozen-source diagnostics should run before this failure is classified.
   with route-screen v2. No checkpoint is admitted. `35/43` candidates pass L0
   binary success, but `0/43` pass L0 clearance margin and `0/43` pass collision
   tolerance. Public frozen-source diagnostics are blocked.
+- M557 classifies that failure as collision-dominated after a small binary
+  success gain. The best candidate converts `5` L0 collisions to completions,
+  but also converts `7` L0 non-collision terminations and `3` L0 completions to
+  collisions. Versus L2, `38` L2 completions become L3 collisions.
 
 ## Near-Term Rule
 
