@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 679,
+        "completed": 680,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m670-action-boundary-response-amplification-shadow-design",
+        "task_id": "m671-action-boundary-response-amplification-shadow-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m670-action-boundary-response-amplification-shadow-design.md"
+        "run_dir": "runs/m671_response_amplification_shadow",
+        "command_log": "docs/m671-action-boundary-response-amplification-shadow-implementation.md"
     },
     "next_task": {
-        "id": "m671-action-boundary-response-amplification-shadow-implementation",
+        "id": "m672-response-amplification-shadow-audit",
         "status": "pending",
-        "priority": 6660,
-        "kind": "infrastructure",
-        "hypothesis": "A frozen response-amplification shadow head can create sustained source-heldout wrong-history sequence separation from next-hidden or fused-plus-hidden views while preserving normal near-boundary actions.",
-        "command": "see experiments/manifests/m671-action-boundary-response-amplification-shadow-implementation.json",
+        "priority": 6670,
+        "kind": "gate",
+        "hypothesis": "M671 is a positive representation/action-boundary diagnostic: fused-plus-next-hidden can support source-heldout wrong-history sequence amplification, so a tightly gated actor-coupling design is now admissible while PPO and promotion remain blocked.",
+        "command": "see experiments/manifests/m672-response-amplification-shadow-audit.json",
         "success_artifact": "",
-        "notes": "Pending: implement frozen shadow objective and exact source-heldout metrics; no actor update PPO or promotion"
+        "notes": "Pending: audit M671 as shadow-positive but not closed-loop proof; define actor-coupling admission criteria"
     },
-    "updated_at_utc": "20260525T010000Z"
+    "updated_at_utc": "20260525T013000Z"
 }

@@ -62,17 +62,28 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m671-action-boundary-response-amplification-shadow-implementation
+m672-response-amplification-shadow-audit
 ```
 
-M671 should implement the frozen-actor response-amplification shadow objective
-designed in M670. It should reconstruct a shadow corpus from M667 candidate
-rows, train only shadow heads across fused/next-hidden/fused-plus-hidden views,
-and report source-heldout exact normal-retention and wrong-history sequence-gap
-metrics. Actor updates, PPO, and promotion remain blocked.
+M672 should audit the positive M671 frozen-shadow result before any actor
+coupling design. M671 showed that fused-plus-next-hidden can create
+source-heldout wrong-history sequence amplification while preserving normal
+actions in `2/3` seeds, with actor checksum unchanged and no actor checkpoint.
+This is representation/action-boundary evidence, not closed-loop replay proof.
+Actor updates, PPO, and promotion remain blocked until a conservative
+actor-coupling gate is designed and validated.
 
 ## Recent Evidence Line
 
+- M671 implements and runs the frozen-actor response-amplification shadow
+  objective. It reconstructs `648` source-balanced rows from M667 candidates
+  across `216` sources and `100` physical pairs. The fused view fails, the
+  next-hidden view has enough wrong-history gap but slightly too much normal
+  residual, and fused-plus-next-hidden passes in `2/3` seeds with source-heldout
+  gap ratios above `4.22` and wrong-target MSE improvements around `0.90`.
+  Actor checksum is unchanged, no actor checkpoint is written, no PPO is used,
+  and no checkpoint is promoted. The result is shadow-positive but not
+  closed-loop proof.
 - M670 designs the concrete frozen-actor response-amplification shadow
   objective. M671 should reconstruct source-heldout shadow data from M667
   candidates, anchor normal residuals to zero, amplify existing wrong-normal
