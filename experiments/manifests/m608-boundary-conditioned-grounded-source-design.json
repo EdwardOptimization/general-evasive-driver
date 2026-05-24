@@ -1,0 +1,88 @@
+{
+  "id": "m608-boundary-conditioned-grounded-source-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m604_guarded_capability_action_coupling_evaluator/coupling_rows.csv",
+      "runs/m606_grounded_capability_action_target_miner/target_candidates.csv",
+      "runs/m606_grounded_capability_action_target_miner/unaccepted_rows.csv",
+      "docs/m607-grounded-target-mining-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m607-grounded-target-mining-audit.json",
+      "docs/m605-grounded-capability-action-target-mining-design.md"
+    ],
+    "parent_objective": [
+      "design boundary/risk-conditioned source selection before another grounded target miner run"
+    ],
+    "derived_from": [
+      "m607-grounded-target-mining-audit"
+    ],
+    "blocked_by": [
+      "m607-grounded-target-mining-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m608-boundary-conditioned-grounded-source-design.md",
+  "public_gates": [
+    "define boundary/risk source-screen metrics",
+    "define source-diversity thresholds",
+    "define normal/variant branch preservation requirements",
+    "define when to rerun local target mining",
+    "keep actor training and PPO blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in design milestone",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not reuse M606 zero-accepted rows as labels",
+    "do not lower M606 thresholds retroactively",
+    "do not add privileged actor inputs"
+  ],
+  "hypothesis": "Grounded action targets require source rows that are already near a behaviorally meaningful margin/risk boundary; M608 should design that boundary-conditioned source screen before rerunning target mining.",
+  "success_criteria": [
+    "design specifies boundary margin and risk windows",
+    "design specifies how to preserve source diversity",
+    "design specifies how to avoid using labels as actor inputs",
+    "design specifies next implementation artifacts and pass/fail criteria",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design starts training",
+    "design uses M604 belief-only gaps directly as action labels",
+    "design ignores M606 zero-accepted evidence",
+    "design permits threshold retrofitting",
+    "design promotes a checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "Write boundary-conditioned source mining design; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m608-boundary-conditioned-grounded-source-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m607-grounded-target-mining-audit.md",
+    "runs/m606_grounded_capability_action_target_miner/summary.json"
+  ],
+  "decision_rule": "M608 passes if it pre-registers a boundary/risk-conditioned source selection design before another target-mining implementation.",
+  "next_blocker": "m609-boundary-conditioned-source-miner-implementation"
+}

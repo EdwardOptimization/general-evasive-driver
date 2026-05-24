@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M607 classifies M606 zero-accepted targets as primarily source-row boundary-distance with secondary first-action locality; threshold artifact is not primary and training remains blocked",
+  "failure_criteria": [
+    "audit treats zero accepted targets as successful action labels",
+    "audit changes thresholds and reinterprets M606 as accepted",
+    "audit starts training or PPO",
+    "audit promotes a checkpoint",
+    "audit omits unaccepted rows"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower thresholds after seeing results and call the same run accepted",
+    "do not use M604 belief-only gaps as action labels",
+    "do not add privileged actor inputs"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260524T084931Z",
+  "hypothesis": "M606 zero-accepted targets should be audited before any optimizer step; the audit should identify whether the blocker is source-row boundary distance, first-action search locality, thresholds, or non-actionable belief movement.",
+  "lineage": {
+    "blocked_by": [
+      "m606-grounded-capability-action-target-miner-implementation"
+    ],
+    "derived_from": [
+      "m606-grounded-capability-action-target-miner-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m606-grounded-capability-action-target-miner-implementation.json",
+      "docs/m605-grounded-capability-action-target-mining-design.md"
+    ],
+    "parent_dataset": [
+      "runs/m604_guarded_capability_action_coupling_evaluator/coupling_rows.csv",
+      "runs/m606_grounded_capability_action_target_miner/target_candidates.csv",
+      "runs/m606_grounded_capability_action_target_miner/unaccepted_rows.csv",
+      "runs/m606_grounded_capability_action_target_miner/summary.json"
+    ],
+    "parent_objective": [
+      "audit zero-accepted grounded target mining result before changing search or optimizer scope"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m607-grounded-target-mining-audit",
+  "next_blocker": "m608-grounded-target-search-escalation-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "grounded_target_mining_audit_admit_boundary_conditioned_source_design",
+  "public_gates": [
+    "audit why no targets were accepted",
+    "separate threshold issue from boundary-distance issue",
+    "decide whether to widen search horizon/grid or re-mine source rows",
+    "keep actor training and PPO blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m607-grounded-target-mining-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "grounded_target_mining_audit_admit_boundary_conditioned_source_design",
+    "milestone": "m607-grounded-target-mining-audit",
+    "reason": "M607 classifies M606 zero-accepted targets as primarily source-row boundary-distance with secondary first-action locality; threshold artifact is not primary and training remains blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "audit summarizes candidate margin and risk improvement distributions",
+    "audit classifies the zero-accepted result without changing thresholds retroactively",
+    "audit chooses exactly one next branch: wider grounded search, source re-mining, or abandon this target branch",
+    "actor training PPO and promotion remain blocked",
+    "research validation passes"
+  ],
+  "type": "gate"
+}

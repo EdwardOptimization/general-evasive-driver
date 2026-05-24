@@ -11584,3 +11584,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M606 implements and runs the grounded capability-action target miner. The smoke selected `23` unique wrong/delayed source rows from M604, evaluated `4508` first-action candidate rollouts, wrote selected source rows, candidate rows, accepted target rows, unaccepted rows, and summary artifacts, and changed no model weights. No candidate met the pre-registered acceptance thresholds: accepted targets `0`, unaccepted rows `23`, max candidate margin/risk improvement `0.014268`, and max trust-region improvement `0.013046`. No `target_corpus.npz` was written.
 - decision: `grounded_capability_action_target_miner_negative_admit_audit`
 - next: `m607-grounded-target-mining-audit`
+## 20260524T131000Z - m607-grounded-target-mining-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m607-grounded-target-mining-audit.md`
+- result: M607 audits the M606 zero-accepted target-mining result. The selected source rows are mostly far from the short-horizon boundary: median baseline margin `2.729036`, mean `2.833607`, only `3 / 23` rows with margin `< 0`, and `4 / 23` rows with margin `<= 0.5`. The best trust-region improvement is `0.013046`, below the pre-registered `0.02` threshold, and even a diagnostic `0.015` threshold would accept no rows. The blocker is classified as primarily source-row boundary-distance, secondarily first-action locality / weak short-horizon utility, and not primarily threshold artifact.
+- decision: `grounded_target_mining_audit_admit_boundary_conditioned_source_design`
+- next: `m608-boundary-conditioned-grounded-source-design`

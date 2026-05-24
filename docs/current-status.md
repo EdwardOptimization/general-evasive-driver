@@ -62,16 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m607-grounded-target-mining-audit
+m608-boundary-conditioned-grounded-source-design
 ```
 
-M607 should audit the negative M606 grounded target-mining result before any
-optimizer step. The immediate question is whether zero accepted targets came
-from source-row boundary distance, first-action search locality, thresholds, or
-non-actionable belief movement.
+M608 should design boundary/risk-conditioned source selection before rerunning
+grounded target mining. M607 found that M606 zero-accepted targets are primarily
+a source-row boundary-distance problem, not an acceptance-threshold artifact.
 
 ## Recent Evidence Line
 
+- M607 audits M606 and classifies the zero-accepted result as primarily
+  source-row boundary-distance. Baseline source margins are mostly far from the
+  short-horizon boundary: median `2.729036`, mean `2.833607`, only `3 / 23`
+  below zero, and `4 / 23` at or below `0.5`. A diagnostic `0.015` margin
+  threshold would still accept no rows. The next branch is boundary/risk-
+  conditioned source re-mining design; actor training and PPO remain blocked.
 - M606 implements and runs the grounded target miner. It selects `23` unique
   wrong/delayed source rows from M604 and evaluates `4508` first-action
   candidate rollouts. Result: `0` accepted targets, `23` unaccepted rows, max

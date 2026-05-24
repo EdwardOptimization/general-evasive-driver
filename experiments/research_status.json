@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 615,
+        "completed": 616,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m606-grounded-capability-action-target-miner-implementation",
+        "task_id": "m607-grounded-target-mining-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m606_grounded_capability_action_target_miner",
-        "command_log": "docs/m606-grounded-capability-action-target-miner-implementation.md"
+        "run_dir": "",
+        "command_log": "docs/m607-grounded-target-mining-audit.md"
     },
     "next_task": {
-        "id": "m607-grounded-target-mining-audit",
+        "id": "m608-boundary-conditioned-grounded-source-design",
         "status": "pending",
-        "priority": 6020,
-        "kind": "gate",
-        "hypothesis": "M606 zero-accepted targets should be audited before any optimizer step; the audit should identify whether the blocker is source-row boundary distance, first-action search locality, thresholds, or non-actionable belief movement.",
-        "command": "see experiments/manifests/m607-grounded-target-mining-audit.json",
+        "priority": 6030,
+        "kind": "infrastructure",
+        "hypothesis": "Grounded action targets require source rows that are already near a behaviorally meaningful margin/risk boundary; M608 should design that boundary-conditioned source screen before rerunning target mining.",
+        "command": "see experiments/manifests/m608-boundary-conditioned-grounded-source-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit the M606 zero-accepted grounded target mining result; no threshold retrofitting, training, PPO, or promotion"
+        "notes": "Pending: design boundary/risk-conditioned source selection before another grounded target miner run; no training, PPO, or promotion"
     },
-    "updated_at_utc": "20260524T130000Z"
+    "updated_at_utc": "20260524T131000Z"
 }
