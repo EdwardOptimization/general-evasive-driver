@@ -1,0 +1,157 @@
+{
+  "id": "m734-sequence-level-command-response-intervention-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m733-sequence-level-command-response-intervention-design.md",
+      "docs/m732-source-balanced-boundary-outcome-miner-audit.md",
+      "runs/m731_source_balanced_boundary_outcome_miner/summary.json",
+      "runs/m731_source_balanced_boundary_outcome_miner/source_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m733-sequence-level-command-response-intervention-design.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_objective": [
+      "implement and run no-training sequence-level command-response interventions"
+    ],
+    "derived_from": [
+      "m733-sequence-level-command-response-intervention-design"
+    ],
+    "blocked_by": [
+      "m733-sequence-level-command-response-intervention-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m734-sequence-level-command-response-intervention-implementation.md",
+  "public_gates": [
+    "runner uses source-balanced M731 rows",
+    "runner evaluates multi-step intervention horizons",
+    "source-balance action outcome and sentinel metrics are reported separately",
+    "actor checksum remains unchanged",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat action-only rows as outcome proof",
+    "do not inject hidden fault labels into actor observations",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not lower outcome thresholds after seeing M734 output"
+  ],
+  "workflow_synthesis": {
+    "branch": "sequence_level_command_response_intervention",
+    "evidence_axis": "G_sequence_outcome: run persistent command-response interventions",
+    "evidence_increment": "tests whether multi-step command-response corruptions create outcome-critical rows",
+    "claim_scope": "diagnostic data wave only; no policy update or promotion",
+    "stop_condition": [
+      "stop if source balance fails",
+      "stop if sentinel false positives exceed threshold",
+      "stop if actor checksum or input contract changes",
+      "stop if outcome rows remain sparse and audit before dynamics fidelity"
+    ],
+    "fallback_plan": [
+      "if outcome-positive rows appear, audit before corpus export",
+      "if action-only persists, audit before dynamics-fidelity branch",
+      "if source selection fails, repair source selection before rerun"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M733 admits sequence-level no-training implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Persistent multi-step command-response history interventions expose outcome differences that one-step interventions and boundary mining did not.",
+  "success_criteria": [
+    "M734 implements sequence-level intervention runner and focused tests",
+    "M734 runs smoke and registered no-training sequence intervention wave",
+    "M734 writes source rollout critical sentinel rejected and summary artifacts",
+    "M734 reports source-balance action outcome and sentinel metrics separately",
+    "actor checksum remains unchanged",
+    "no training PPO actor update or promotion occurs"
+  ],
+  "failure_criteria": [
+    "runner mutates actor observations with hidden fault labels",
+    "runner omits sentinel rows",
+    "runner combines action-only and outcome-positive claims",
+    "runner changes actor input contract",
+    "runner starts optimizer training PPO or checkpoint promotion"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "implement src/autodrift/sequence_command_response_intervention.py and focused tests"
+    },
+    {
+      "name": "smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.sequence_command_response_intervention --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --config configs/extreme_fault_coverage_v2_scenarios.json --source-rows runs/m731_source_balanced_boundary_outcome_miner/source_rows.csv --seed-start 72000 --seed-count 16 --max-source-rows 32 --horizons 2,4 --device cpu --run-dir runs/m734_sequence_command_response_intervention_smoke"
+    },
+    {
+      "name": "registered_run",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.sequence_command_response_intervention --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --config configs/extreme_fault_coverage_v2_scenarios.json --source-rows runs/m731_source_balanced_boundary_outcome_miner/source_rows.csv --seed-start 72000 --seed-count 512 --max-source-rows 512 --horizons 2,4,6,8 --device cpu --run-dir runs/m734_sequence_command_response_intervention"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/sequence_command_response_intervention.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_sequence_command_response_intervention.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m734_sequence_command_response_intervention/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m734_sequence_command_response_intervention/source_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m734_sequence_command_response_intervention/intervention_rollouts.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m734_sequence_command_response_intervention/sequence_critical_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m734_sequence_command_response_intervention/sentinel_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m734_sequence_command_response_intervention/rejected_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m734_sequence_command_response_intervention/variant_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m734_sequence_command_response_intervention/horizon_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m734-sequence-level-command-response-intervention-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m731_source_balanced_boundary_outcome_miner/summary.json",
+    "docs/m733-sequence-level-command-response-intervention-design.md"
+  ],
+  "decision_rule": "M734 may only classify the no-training sequence intervention wave. It must not admit source export objective design actor update PPO or promotion until an audit reviews the result.",
+  "next_blocker": "m735-sequence-level-command-response-intervention-audit"
+}

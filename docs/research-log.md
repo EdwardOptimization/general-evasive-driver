@@ -12631,3 +12631,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M732 audits M731 as a clean source-balanced action-only boundary result. Source balance is no longer the blocker: M731 covers `237` source seeds, `8` preferred fault families, and `30` fault-family pairs with zero sentinel false positives. However, one-step boundary mining still produces only `1` accepted outcome row, so source export, actor update, PPO, and promotion remain blocked.
 - decision: `promote_to_sequence_level_intervention`
 - next: `m733-sequence-level-command-response-intervention-design`
+
+## 20260525T005000Z - m733-sequence-level-command-response-intervention-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m733-sequence-level-command-response-intervention-design.md`
+- result: M733 designs a no-training sequence-level command-response intervention runner. The design starts from M731 source rows and persists command/response/history corruptions over horizons `2,4,6,8` rather than changing only the initial hidden state or first action. It registers source-balance, sentinel, action, and outcome gates; actor inputs and parameters remain unchanged; source export, actor update, PPO, and promotion remain blocked.
+- decision: `sequence_level_intervention_design_admit_m734`
+- next: `m734-sequence-level-command-response-intervention-implementation`
