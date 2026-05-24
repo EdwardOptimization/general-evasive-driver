@@ -12223,3 +12223,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M677 implements and runs the first-step-safe residual objective. The implementation is clean: `648` rows, `216` sources, `3` residual heads written, actor checksum unchanged, no base actor checkpoint, no PPO, no promotion. The exact gate still fails with `0` passed seeds, but the failure changed: first-step normal drift is fixed (`alpha=1.0` p95 drops from M674's `0.0094-0.0130` to `0.0025-0.0033`), while wrong-history sequence gap collapses (`alpha=1.0` gap mean drops from M674's `0.0121-0.0124` to `0.0036-0.0069`, ratio `1.25-2.40`).
 - decision: `first_step_safe_response_amplification_exact_gate_failed_admit_audit`
 - next: `m678-first-step-safe-response-amplification-audit`
+## 20260525T031500Z - m678-first-step-safe-response-amplification-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m678-first-step-safe-response-amplification-audit.md`
+- result: M678 audits M677 as `first_step_safety_positive_wrong_gap_suppressed`. The first-step anchor worked, so the next step is not more normal safety pressure or PPO. The likely blocker is shared-head branch interference: the same residual head learns near-zero normal residuals but lacks enough independent wrong-history pressure. M679 should design branch-specific wrong-history pressure with detached-normal gap losses while preserving the normal first-step drift gate, frozen backbone, P0 inputs, exact-first evaluation, no PPO, and no promotion.
+- decision: `first_step_safe_audit_admit_branch_specific_design`
+- next: `m679-branch-specific-response-amplification-design`

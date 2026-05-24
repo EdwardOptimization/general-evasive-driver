@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 686,
+        "completed": 687,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m677-first-step-safe-response-amplification-implementation",
+        "task_id": "m678-first-step-safe-response-amplification-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m677_first_step_safe_response_amplification",
-        "command_log": "docs/m677-first-step-safe-response-amplification-implementation.md"
+        "run_dir": "",
+        "command_log": "docs/m678-first-step-safe-response-amplification-audit.md"
     },
     "next_task": {
-        "id": "m678-first-step-safe-response-amplification-audit",
+        "id": "m679-branch-specific-response-amplification-design",
         "status": "pending",
-        "priority": 6730,
-        "kind": "gate",
-        "hypothesis": "M677 fixed first-step normal drift but suppressed wrong-history sequence gap; the next design should add branch-specific wrong-history pressure while preserving the first-step normal safety terms.",
-        "command": "see experiments/manifests/m678-first-step-safe-response-amplification-audit.json",
+        "priority": 6740,
+        "kind": "infrastructure",
+        "hypothesis": "Branch-specific wrong-history pressure with detached-normal gap losses can preserve M677's first-step normal safety while restoring wrong-history sequence separation.",
+        "command": "see experiments/manifests/m679-branch-specific-response-amplification-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit M677 as first-step safety positive but wrong-gap suppressed; PPO and promotion remain blocked"
+        "notes": "Pending: design branch-specific exact objective; PPO promotion and actor-input changes remain blocked"
     },
-    "updated_at_utc": "20260525T030000Z"
+    "updated_at_utc": "20260525T031500Z"
 }

@@ -62,17 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m678-first-step-safe-response-amplification-audit
+m679-branch-specific-response-amplification-design
 ```
 
-M678 should audit the failed M677 first-step-safe probe. M677 successfully
-reduced first-step normal drift but suppressed wrong-history sequence gap below
-threshold. The audit should classify this as first-step safety positive but
-wrong-gap suppressed, then choose a branch-specific redesign without admitting
-PPO, promotion, actor-input changes, or normal-drift gate weakening.
+M679 should design branch-specific response amplification after M677 fixed
+first-step safety but suppressed wrong-history gap. The design should keep
+normal first-step safety constraints, add stronger wrong-history branch
+pressure, use detached-normal gap losses or equivalent, and preserve frozen
+backbone, P0 inputs, exact-first evaluation, no PPO, and no promotion.
 
 ## Recent Evidence Line
 
+- M678 audits M677 as `first_step_safety_positive_wrong_gap_suppressed`.
+  First-step normal safety is now controllable, but wrong-history gap collapses.
+  The next design target is branch-specific wrong-history pressure with
+  detached-normal gap losses, not more normal anchoring, PPO, or gate weakening.
 - M677 implements the first-step-safe residual objective. It is a clean negative
   result: actor checksum unchanged, no base actor checkpoint, no PPO, no
   promotion, but `0` seed/alpha candidates pass. It fixes first-step normal
