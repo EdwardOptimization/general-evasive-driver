@@ -1,0 +1,111 @@
+{
+  "id": "m706-cross-fault-wrong-history-scenario-design",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m705-extreme-dynamics-scenario-corpus-audit.md",
+      "runs/m704_extreme_dynamics_scenario_corpus/summary.json",
+      "runs/m704_extreme_dynamics_scenario_corpus/accepted_rows.csv",
+      "runs/m704_extreme_dynamics_scenario_corpus/fault_family_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m705-extreme-dynamics-scenario-corpus-audit.json",
+      "configs/extreme_hidden_condition_scenarios.json"
+    ],
+    "parent_objective": [
+      "design cross-fault wrong-history scenario pairing after M704 reset-only result"
+    ],
+    "derived_from": [
+      "m705-extreme-dynamics-scenario-corpus-audit"
+    ],
+    "blocked_by": [
+      "m705-extreme-dynamics-scenario-corpus-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m706-cross-fault-wrong-history-scenario-design.md",
+  "public_gates": [
+    "design prioritizes wrong-history evidence over reset-only evidence",
+    "design specifies cross-fault pairing matrix",
+    "design defines severity contrast ladder",
+    "design keeps hidden fault labels out of actor input",
+    "design blocks actor update PPO and promotion",
+    "design defines no-training implementation artifacts"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add fault labels to actor observations",
+    "do not treat reset-only rows as source-positive",
+    "do not relax wrong-history gates after seeing results",
+    "do not change actor input contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "extreme_hidden_condition_scenario_generation",
+    "evidence_axis": "G_cross_fault_history: create wrong-history-critical rows by pairing incompatible hidden fault histories",
+    "evidence_increment": "designs the cross-fault wrong-history pairing step after M704 produced reset-only sparse evidence",
+    "claim_scope": "scenario-pairing design only, not implementation, training, PPO, or driver performance",
+    "stop_condition": [
+      "stop if design cannot make wrong-history evidence first-class",
+      "stop if reset-only rows would be promoted as source-positive",
+      "stop if proposed pairs cannot be matched on visible state"
+    ],
+    "fallback_plan": [
+      "if cross-fault matching is empty, relax state matching only through an audit",
+      "if wrong-history remains too mild, increase severity contrast",
+      "if normal-failed dominates, add warm-up or reduce severity",
+      "if current-model pairs remain insufficient, design a minimal four-wheel extension"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "after cross-fault implementation and audit determine whether wrong-history rows exist",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Cross-fault wrong-history pairing will produce stronger self-ID evidence than nominal-vs-fault pairing because the wrong hidden state will encode an incompatible capability belief.",
+  "success_criteria": [
+    "design defines cross-fault pairing matrix",
+    "design defines wrong-history-specific acceptance criteria",
+    "design defines severity contrast ladder",
+    "design defines no-training artifacts",
+    "design preserves model-fidelity limits",
+    "objective actor update PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "design treats reset-only rows as source-positive",
+    "design omits wrong-history-specific gates",
+    "design admits actor update or PPO before source-positive evidence",
+    "design changes actor input contract",
+    "design ignores model fidelity limits"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m706-cross-fault-wrong-history-scenario-design.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m706-cross-fault-wrong-history-scenario-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m705-extreme-dynamics-scenario-corpus-audit.md",
+    "runs/m704_extreme_dynamics_scenario_corpus/summary.json"
+  ],
+  "decision_rule": "M706 is design-only and passes if it defines a no-training cross-fault wrong-history pairing implementation while preserving the actor input contract and blocking actor update PPO and promotion.",
+  "next_blocker": "m707-cross-fault-wrong-history-scenario-implementation"
+}

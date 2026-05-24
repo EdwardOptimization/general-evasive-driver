@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 713,
+        "completed": 714,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m704-extreme-dynamics-scenario-corpus-implementation",
+        "task_id": "m705-extreme-dynamics-scenario-corpus-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m704-extreme-dynamics-scenario-corpus-implementation.md"
+        "command_log": "docs/m705-extreme-dynamics-scenario-corpus-audit.md"
     },
     "next_task": {
-        "id": "m705-extreme-dynamics-scenario-corpus-audit",
+        "id": "m706-cross-fault-wrong-history-scenario-design",
         "status": "pending",
-        "priority": 7000,
-        "kind": "gate",
-        "hypothesis": "Audit M704 reset-sparse extreme hidden-condition corpus",
-        "command": "see experiments/manifests/m705-extreme-dynamics-scenario-corpus-audit.json",
+        "priority": 7010,
+        "kind": "infrastructure",
+        "hypothesis": "Design cross-fault wrong-history scenario pairing after M704 reset-only result",
+        "command": "see experiments/manifests/m706-cross-fault-wrong-history-scenario-design.json",
         "success_artifact": "",
-        "notes": "Pending: synthesize reset-only sparse evidence and likely continue with cross-fault wrong-history pairing before any objective actor update or PPO"
+        "notes": "Pending: design no-training cross-fault pairing matrix and wrong-history-specific gates"
     },
-    "updated_at_utc": "20260524T182300Z"
+    "updated_at_utc": "20260524T183000Z"
 }

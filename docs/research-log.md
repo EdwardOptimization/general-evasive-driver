@@ -12369,3 +12369,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M704 implements and runs the no-training extreme hidden-condition scenario corpus. It generates `5120` scenarios, `16917` snapshots, and `2048` matched pairs. The implementation is clean: actor checksum unchanged, no training, no PPO, and no promotion. Result is `extreme_reset_sparse`: `27` accepted rows across `5` fault families and `9` seeds are reset-history-critical, but `0` rows are wrong-history-critical, so this is recurrent-state evidence but not yet matched wrong-history self-ID evidence.
 - decision: `extreme_reset_sparse_not_source_positive_admit_audit`
 - next: `m705-extreme-dynamics-scenario-corpus-audit`
+
+## 20260524T183000Z - m705-extreme-dynamics-scenario-corpus-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m705-extreme-dynamics-scenario-corpus-audit.md`
+- result: M705 audits M704 as `metric_artifact` plus `scenario_sampling_failure`: the result is meaningful reset-hidden evidence, but not wrong-history self-ID evidence. The audit blocks source export, objective update, PPO, and promotion. It continues the extreme hidden-condition branch with `G_cross_fault_history`, replacing nominal-only wrong histories with cross-fault histories such as front-authority versus rear-authority, low-mu versus steering fault, and brake-fade versus drive-loss.
+- decision: `extreme_reset_sparse_audit_continue_cross_fault_wrong_history_design`
+- next: `m706-cross-fault-wrong-history-scenario-design`

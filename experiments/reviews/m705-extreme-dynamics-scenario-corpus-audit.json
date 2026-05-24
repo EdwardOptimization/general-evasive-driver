@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M705 classifies M704 as reset-only sparse recurrent evidence rather than wrong-history self-ID evidence and continues toward cross-fault wrong-history pairing",
+  "failure_criteria": [
+    "audit treats reset-only rows as source-positive",
+    "audit admits objective design without wrong-history evidence",
+    "audit omits synthesis questions",
+    "audit omits model-fidelity limits",
+    "audit changes actor input contract"
+  ],
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not treat reset-only rows as source-positive",
+    "do not export accepted_rows.csv as a training corpus",
+    "do not hide model-fidelity limits",
+    "do not run actor update",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor inputs"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260524T182826Z",
+  "hypothesis": "M704 reset-only sparse result should continue the extreme hidden-condition branch but block source export and redirect the next design toward cross-fault wrong-history pairing.",
+  "lineage": {
+    "blocked_by": [
+      "m704-extreme-dynamics-scenario-corpus-implementation"
+    ],
+    "derived_from": [
+      "m704-extreme-dynamics-scenario-corpus-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m704-extreme-dynamics-scenario-corpus-implementation.json",
+      "configs/extreme_hidden_condition_scenarios.json"
+    ],
+    "parent_dataset": [
+      "runs/m704_extreme_dynamics_scenario_corpus/summary.json",
+      "runs/m704_extreme_dynamics_scenario_corpus/accepted_rows.csv",
+      "runs/m704_extreme_dynamics_scenario_corpus/fault_family_summary.csv",
+      "runs/m704_extreme_dynamics_scenario_corpus/severity_summary.csv",
+      "docs/m704-extreme-dynamics-scenario-corpus-implementation.md"
+    ],
+    "parent_objective": [
+      "audit extreme_reset_sparse scenario-corpus result before more implementation"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m705-extreme-dynamics-scenario-corpus-audit",
+  "next_blocker": "m706-cross-fault-wrong-history-scenario-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "extreme_reset_sparse_audit_continue_cross_fault_wrong_history_design",
+  "public_gates": [
+    "M704 implementation cleanliness is checked",
+    "reset-only accepted rows are separated from wrong-history self-ID evidence",
+    "fault-family and severity coverage are summarized",
+    "model-fidelity limits are preserved",
+    "objective actor update PPO and promotion remain blocked",
+    "extreme_hidden_condition_scenario_generation branch receives a synthesis decision"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m705-extreme-dynamics-scenario-corpus-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "extreme_reset_sparse_audit_continue_cross_fault_wrong_history_design",
+    "milestone": "m705-extreme-dynamics-scenario-corpus-audit",
+    "reason": "M705 classifies M704 as reset-only sparse recurrent evidence rather than wrong-history self-ID evidence and continues toward cross-fault wrong-history pairing",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M704 summary metrics are recorded",
+    "reset-history and wrong-history critical rows are separated",
+    "supported and falsified claims are recorded",
+    "failure taxonomy is assigned",
+    "public gate overfit risk is recorded",
+    "next branch decision is explicit",
+    "objective design actor update PPO and promotion remain blocked"
+  ],
+  "type": "gate"
+}
