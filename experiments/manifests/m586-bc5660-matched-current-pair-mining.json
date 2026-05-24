@@ -2,7 +2,7 @@
   "id": "m586-bc5660-matched-current-pair-mining",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -89,6 +89,6 @@
     "docs/m585-bc5660-history-intervention-design.md",
     "docs/m584-bc-recurrent-ablation-audit.md"
   ],
-  "decision_rule": "M586 admits M587 only if at least one source-diverse matched-current pair surface is found without changing thresholds or actor inputs.",
+  "decision_rule": "M586 passes because both fresh-route and moderate-OOD BC5660 matched-current mining runs found source-diverse pair surfaces above the pre-registered thresholds; M587 action screening is admitted without promotion.",
   "next_blocker": "m587-bc5660-history-intervention-action-screen"
 }

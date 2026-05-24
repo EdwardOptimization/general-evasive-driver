@@ -61,13 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m586-bc5660-matched-current-pair-mining
+m587-bc5660-history-intervention-action-screen
 ```
 
-M586 should mine source-diverse BC5660 matched-current pair surfaces on fresh
-route and moderate-OOD distributions. The current evidence supports deployable
-current-response dependence, but not complete accumulated-hidden belief proof.
-Promotion and PPO remain blocked.
+M587 should run action-level delayed/wrong-history screening on the M586
+matched-current pair surfaces. The current evidence supports deployable
+current-response dependence and source-diverse pair availability, but not yet
+outcome-level hidden-history causality. Promotion and PPO remain blocked.
 
 ## Recent Evidence Line
 
@@ -381,6 +381,11 @@ Promotion and PPO remain blocked.
   `persistent_wrong_history_intervention_gate` for outcome degradation. M586
   will mine BC5660 pair surfaces on fresh route seeds `25560..25563` and
   moderate-OOD seeds `25660..25663`.
+- M586 mines those pair surfaces. Both pass the pre-registered source-diversity
+  thresholds: fresh route yields `666` accepted pairs, `192` physical pairs,
+  `15` left steps, and `14` obstacle buckets; moderate-OOD yields `403`
+  accepted pairs, `152` physical pairs, `14` left steps, and `14` obstacle
+  buckets. M587 action screening is admitted; no checkpoint is promoted.
 
 ## Near-Term Rule
 

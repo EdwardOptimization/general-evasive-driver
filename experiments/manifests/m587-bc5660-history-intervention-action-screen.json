@@ -1,0 +1,96 @@
+{
+  "id": "m587-bc5660-history-intervention-action-screen",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m586_bc5660_matched_current_fresh_seed25560/matched_pairs.csv",
+      "runs/m586_bc5660_matched_current_ood_seed25660/matched_pairs.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_objective": [
+      "screen BC5660 matched-current pair surfaces for delayed or wrong-history action sensitivity"
+    ],
+    "derived_from": [
+      "m586-bc5660-matched-current-pair-mining"
+    ],
+    "blocked_by": [
+      "m586-bc5660-matched-current-pair-mining"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m587-bc5660-history-intervention-action-screen.md",
+  "public_gates": [
+    "run matched_history_intervention_gate on the M586 fresh route pair surface",
+    "run matched_history_intervention_gate on the M586 moderate-OOD pair surface",
+    "screen wrong_matched_history and delayed_history action distances before outcome rollout",
+    "do not claim self-ID from action distance alone",
+    "do not train update or promote a checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not use action distance alone as outcome proof",
+    "do not run persistent outcome intervention if both surfaces have no wrong/delayed action signal",
+    "do not change checkpoint weights or actor inputs",
+    "do not retune min-action-distance after seeing results",
+    "do not promote checkpoint from action screen"
+  ],
+  "hypothesis": "If the M586 matched-current surfaces contain history-sensitive decision points, wrong_matched_history or delayed_history should produce non-trivial action changes before outcome rollout.",
+  "success_criteria": [
+    "fresh and OOD action-screen commands complete",
+    "at least one surface has wrong_matched_history or delayed_history above_threshold_count >= 16 and action_distance_mean >= 0.02",
+    "zero_current_response is reported as a positive control",
+    "summary clearly states that M587 is an action screen only and cannot prove outcome self-ID",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "both surfaces have no wrong/delayed history action signal",
+    "action distance is treated as outcome proof",
+    "thresholds are changed after seeing results",
+    "checkpoint promotion is attempted"
+  ],
+  "commands": [
+    {
+      "name": "fresh_route_action_screen",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_history_intervention_gate --checkpoint-policy bc5660=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --env-config configs/ppo_m541_matched_l3_variance_4096.json --pairs-csv runs/m586_bc5660_matched_current_fresh_seed25560/matched_pairs.csv --delay-steps 2 --min-action-distance 0.02 --max-pairs-per-checkpoint-target 120 --pair-label-mode matching --device cpu --run-dir runs/m587_bc5660_history_action_screen_fresh_seed25560"
+    },
+    {
+      "name": "moderate_ood_action_screen",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_history_intervention_gate --checkpoint-policy bc5660=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --env-config configs/eval_m574_moderate_ood_l3.json --pairs-csv runs/m586_bc5660_matched_current_ood_seed25660/matched_pairs.csv --delay-steps 2 --min-action-distance 0.02 --max-pairs-per-checkpoint-target 120 --pair-label-mode matching --device cpu --run-dir runs/m587_bc5660_history_action_screen_ood_seed25660"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m587_bc5660_history_action_screen_fresh_seed25560/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m587_bc5660_history_action_screen_ood_seed25660/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "docs/m587-bc5660-history-intervention-action-screen.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m586-bc5660-matched-current-pair-mining.md",
+    "docs/m585-bc5660-history-intervention-design.md"
+  ],
+  "decision_rule": "M587 admits persistent outcome intervention only if wrong_matched_history or delayed_history shows pre-registered action sensitivity on at least one M586 pair surface.",
+  "next_blocker": "m588-bc5660-persistent-history-outcome-gate"
+}
