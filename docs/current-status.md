@@ -62,16 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m668-normal-success-boundary-source-miner-audit
+m669-action-boundary-response-amplification-design
 ```
 
-M668 should audit the negative M667 normal-success boundary miner. M667 found
-valid near-boundary preferred windows, but compatible wrong-history
-substitutions did not create sustained action-sequence or outcome degradation.
-Actor updates, PPO, and promotion remain blocked.
+M669 should design a conservative action-boundary response-amplification branch.
+M668 audited M667 as near-boundary source available but wrong-history
+outcome-insensitive: first-action differences exist, but they do not persist as
+sequence/action or margin/success gaps. Actor updates, PPO, and promotion remain
+blocked until exact and replay gates are defined.
 
 ## Recent Evidence Line
 
+- M668 audits M667 as `near_boundary_exists_but_wrong_history_outcome_insensitive`.
+  Valid near-boundary preferred windows exist and first-action differences are
+  common, but short-horizon action separation is weak and outcome gaps are
+  absent. The next branch should address the action boundary directly through a
+  no-PPO response-amplification design with exact/replay gates before any actor
+  coupling.
 - M667 implements and runs the normal-success near-boundary source miner. It
   finds `204` valid near-boundary preferred windows, so source-window coverage
   is not the active blocker. It still accepts `0` rows: wrong history changes

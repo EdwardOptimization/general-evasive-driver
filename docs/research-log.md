@@ -12133,3 +12133,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M667 implements and runs the normal-success near-boundary source miner. It finds `204` valid `near_boundary_preferred` windows across fresh and OOD surfaces, so source-window coverage is not the blocker. It scores `3200` candidate pairs and `9600` sequence rows but accepts `0` rows: `8934` rows pass first-action threshold, only `4` pass sequence threshold, `0` pass preferred-vs-rejected `0.010`, `0` pass margin threshold, and success-drop rate is `0.000`. Normal and wrong-history branches both succeed at rate `1.000`, actor checksum is unchanged, and no checkpoint is written.
 - decision: `normal_success_boundary_source_miner_negative_admit_audit`
 - next: `m668-normal-success-boundary-source-miner-audit`
+## 20260525T003000Z - m668-normal-success-boundary-source-miner-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m668-normal-success-boundary-source-miner-audit.md`
+- result: M668 audits M667 as `near_boundary_exists_but_wrong_history_outcome_insensitive`: valid near-boundary preferred windows exist, wrong-history first-action sensitivity exists, but short-horizon action gap is weak and outcome gap is absent. The audit rejects more source mining with the same actor as the next highest-leverage step and selects a conservative action-boundary response-amplification design branch, with no PPO, no promotion, and exact/replay gates required before actor coupling.
+- decision: `normal_success_boundary_source_miner_audit_admit_action_boundary_amplification_design`
+- next: `m669-action-boundary-response-amplification-design`

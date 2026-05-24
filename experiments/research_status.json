@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 676,
+        "completed": 677,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m667-normal-success-boundary-source-miner-implementation",
+        "task_id": "m668-normal-success-boundary-source-miner-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m667_normal_success_boundary_source_miner",
-        "command_log": "docs/m667-normal-success-boundary-source-miner-implementation.md"
+        "run_dir": "",
+        "command_log": "docs/m668-normal-success-boundary-source-miner-audit.md"
     },
     "next_task": {
-        "id": "m668-normal-success-boundary-source-miner-audit",
+        "id": "m669-action-boundary-response-amplification-design",
         "status": "pending",
-        "priority": 6630,
-        "kind": "gate",
-        "hypothesis": "M667 shows valid near-boundary preferred windows exist, but compatible wrong-history substitutions still do not produce sustained action-sequence or outcome degradation.",
-        "command": "see experiments/manifests/m668-normal-success-boundary-source-miner-audit.json",
+        "priority": 6640,
+        "kind": "infrastructure",
+        "hypothesis": "M667 shows source windows exist but the current actor boundary attenuates wrong-history effects; a response-amplification design can create a gated path from diagnostic shadow objective to exact actor-coupling tests.",
+        "command": "see experiments/manifests/m669-action-boundary-response-amplification-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit M667 negative result and choose next branch without training from empty corpus"
+        "notes": "Pending: design no-PPO action-boundary response amplification ladder"
     },
-    "updated_at_utc": "20260525T001500Z"
+    "updated_at_utc": "20260525T003000Z"
 }

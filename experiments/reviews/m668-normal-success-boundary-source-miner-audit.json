@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M668 classifies M667 as near-boundary source available but wrong-history outcome insensitive and selects action-boundary response amplification design",
+  "failure_criteria": [
+    "audit treats first-action differences as sufficient evidence",
+    "audit ignores the zero margin and success-drop result",
+    "audit admits actor coupling or PPO from empty corpus",
+    "audit omits actor checksum and no checkpoint evidence"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not weaken action or outcome thresholds after seeing M667",
+    "do not claim first-action differences as self-ID outcome evidence"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T143209Z",
+  "hypothesis": "M667 shows valid near-boundary preferred windows exist, but compatible wrong-history substitutions still do not produce sustained action-sequence or outcome degradation.",
+  "lineage": {
+    "blocked_by": [
+      "m667-normal-success-boundary-source-miner-implementation"
+    ],
+    "derived_from": [
+      "m667-normal-success-boundary-source-miner-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m667-normal-success-boundary-source-miner-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m667_normal_success_boundary_source_miner/summary.json",
+      "runs/m667_normal_success_boundary_source_miner/normal_window_summary.csv",
+      "runs/m667_normal_success_boundary_source_miner/candidate_scores.csv",
+      "docs/m667-normal-success-boundary-source-miner-implementation.md"
+    ],
+    "parent_objective": [
+      "audit negative normal-success near-boundary source miner"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m668-normal-success-boundary-source-miner-audit",
+  "next_blocker": "m669-action-boundary-response-amplification-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "normal_success_boundary_source_miner_audit_admit_action_boundary_amplification_design",
+  "public_gates": [
+    "classify M667 negative result",
+    "separate near-boundary source availability from wrong-history outcome insensitivity",
+    "decide whether longer/sharper outcome windows or representation/action-boundary design is next",
+    "keep actor coupling, PPO, and promotion blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m668-normal-success-boundary-source-miner-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "normal_success_boundary_source_miner_audit_admit_action_boundary_amplification_design",
+    "milestone": "m668-normal-success-boundary-source-miner-audit",
+    "reason": "M668 classifies M667 as near-boundary source available but wrong-history outcome insensitive and selects action-boundary response amplification design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "audit records near-boundary preferred count",
+    "audit records candidate action-threshold and outcome-threshold counts",
+    "audit classifies the active blocker explicitly",
+    "audit selects next branch without training from empty corpus",
+    "research validation passes"
+  ],
+  "type": "gate"
+}
