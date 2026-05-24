@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M738 preserves M737 clean positive corpus but treats hard-negative sparsity and user coverage hypothesis as reason to refresh extreme-fault distribution before objective work",
+  "failure_criteria": [
+    "audit treats sparse hard negatives as a complete contrast set",
+    "audit ignores sentinel or normal-match checks",
+    "audit admits PPO or promotion directly",
+    "audit changes actor input contract"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not treat sparse hard negatives as a complete contrast corpus",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not ignore the extreme-fault coverage hypothesis",
+    "do not change actor input contract"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260524T221437Z",
+  "hypothesis": "M737's positive corpus is clean enough to preserve, but its hard-negative sparsity must be audited before objective or broader coverage work.",
+  "lineage": {
+    "blocked_by": [
+      "m737-sequence-outcome-corpus-export-implementation"
+    ],
+    "derived_from": [
+      "m737-sequence-outcome-corpus-export-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint_used"
+    ],
+    "parent_config": [
+      "experiments/manifests/m737-sequence-outcome-corpus-export-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m737-sequence-outcome-corpus-export-implementation.md",
+      "runs/m737_sequence_outcome_corpus_export/summary.json",
+      "runs/m737_sequence_outcome_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m737_sequence_outcome_corpus_export/contrast_rows.csv",
+      "runs/m737_sequence_outcome_corpus_export/hard_negative_rows.csv",
+      "runs/m737_sequence_outcome_corpus_export/excluded_sentinel_rows.csv"
+    ],
+    "parent_objective": [
+      "audit sequence-outcome corpus export and hard-negative sparsity before objective or coverage branch"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m738-sequence-outcome-corpus-export-audit",
+  "next_blocker": "m739-extreme-fault-distribution-v3-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "promote_to_extreme_fault_distribution_v3",
+  "public_gates": [
+    "M737 positive corpus gates are audited",
+    "M737 hard-negative sparsity is audited separately",
+    "sentinel filtering and normal matching are inspected",
+    "next branch decision compares objective design hard-negative repair and extreme-fault distribution refresh",
+    "actor training PPO and promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m738-sequence-outcome-corpus-export-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "promote_to_extreme_fault_distribution_v3",
+    "milestone": "m738-sequence-outcome-corpus-export-audit",
+    "reason": "M738 preserves M737 clean positive corpus but treats hard-negative sparsity and user coverage hypothesis as reason to refresh extreme-fault distribution before objective work",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M738 records positive corpus pass/fail evidence",
+    "M738 records hard-negative sparsity evidence",
+    "M738 records supported and falsified claims",
+    "M738 records public gate overfit risk",
+    "M738 makes an explicit next branch decision",
+    "actor update PPO and promotion remain blocked unless later designed"
+  ],
+  "type": "gate"
+}

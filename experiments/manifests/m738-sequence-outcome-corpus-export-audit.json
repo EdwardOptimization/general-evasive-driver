@@ -68,7 +68,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M737 result_class=sequence_outcome_corpus_hard_negative_sparse",
-    "synthesis_decision": "not_applicable",
+    "synthesis_decision": "promote_to_next_branch",
     "synthesis_artifact": "docs/m738-sequence-outcome-corpus-export-audit.md",
     "synthesis_questions": [
       "evidence_summary",
@@ -114,5 +114,5 @@
     "docs/m737-sequence-outcome-corpus-export-implementation.md"
   ],
   "decision_rule": "M738 must decide whether the next branch is sequence objective sanity hard-negative repair export or extreme-fault distribution v3. It must not admit PPO or checkpoint promotion directly.",
-  "next_blocker": "m739-next-branch-pending"
+  "next_blocker": "m739-extreme-fault-distribution-v3-design"
 }

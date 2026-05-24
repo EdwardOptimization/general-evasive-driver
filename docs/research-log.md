@@ -12678,3 +12678,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M737 implements a deterministic no-training exporter and writes a corpus from M734. It exports `70` non-sentinel sequence-outcome positives, `70` matched normal rows, and `63` same-source/same-horizon hard-negative action-only rows. Core positive gates pass: `0` exported sentinel positives, `0` duplicate positive keys, `0` missing normal matches, `28` positive seeds, `10` positive fault-family pairs, and max seed dominance `0.085714`. The stricter hard-negative contrast count is sparse (`63 < 70`), so result_class is `sequence_outcome_corpus_hard_negative_sparse`; objective training, PPO, and promotion remain blocked.
 - decision: `sequence_outcome_corpus_hard_negative_sparse_admit_audit`
 - next: `m738-sequence-outcome-corpus-export-audit`
+
+## 20260525T014000Z - m738-sequence-outcome-corpus-export-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m738-sequence-outcome-corpus-export-audit.md`
+- result: M738 audits M737 as a clean positive corpus but not a complete contrast corpus. The `70` positive rows are sentinel-free and normally matched, but same-horizon hard negatives remain sparse (`63 < 70`). This is classified as `scenario_sampling_failure`, not artifact or contract violation. Because repeated objective design on the fixed public corpus would raise overfit risk, the next branch is the user's coverage hypothesis: broaden extreme-fault scenario distribution before objective/PPO work.
+- decision: `promote_to_extreme_fault_distribution_v3`
+- next: `m739-extreme-fault-distribution-v3-design`

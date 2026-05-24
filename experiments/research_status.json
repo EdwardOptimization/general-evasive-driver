@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 746,
+        "completed": 747,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m737-sequence-outcome-corpus-export-implementation",
+        "task_id": "m738-sequence-outcome-corpus-export-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m737-sequence-outcome-corpus-export-implementation.md"
+        "command_log": "docs/m738-sequence-outcome-corpus-export-audit.md"
     },
     "next_task": {
-        "id": "m738-sequence-outcome-corpus-export-audit",
+        "id": "m739-extreme-fault-distribution-v3-design",
         "status": "pending",
-        "priority": 7330,
-        "kind": "gate",
-        "hypothesis": "Audit sequence-outcome corpus export",
-        "command": "see experiments/manifests/m738-sequence-outcome-corpus-export-audit.json",
-        "success_artifact": "docs/m738-sequence-outcome-corpus-export-audit.md",
-        "notes": "Pending: audit positive corpus pass hard-negative sparsity and next branch objective hard-negative repair or extreme-fault v3"
+        "priority": 7340,
+        "kind": "infrastructure",
+        "hypothesis": "Design extreme-fault distribution v3",
+        "command": "see experiments/manifests/m739-extreme-fault-distribution-v3-design.json",
+        "success_artifact": "docs/m739-extreme-fault-distribution-v3-design.md",
+        "notes": "Pending: design broader matched counterfactual extreme-fault scenario distribution with proxy vs four-wheel-required taxonomy"
     },
-    "updated_at_utc": "20260525T013000Z"
+    "updated_at_utc": "20260525T014000Z"
 }
