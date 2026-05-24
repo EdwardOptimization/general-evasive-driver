@@ -1,0 +1,85 @@
+{
+  "id": "m530-l0-baseline-smoke-repeat",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m528_l0_current_observation_smoke/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m528_l0_current_observation_smoke"
+    ],
+    "parent_config": [
+      "configs/ppo_m528_l0_current_observation_smoke.json",
+      "experiments/manifests/m529-matched-history-baseline-eval-ladder-design.json"
+    ],
+    "parent_objective": [
+      "L0 baseline smoke repeat"
+    ],
+    "derived_from": [
+      "m529-matched-history-baseline-eval-ladder-design",
+      "m528-matched-history-baseline-plumbing"
+    ],
+    "blocked_by": [
+      "m529-matched-history-baseline-eval-ladder-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m530-l0-baseline-smoke-repeat.md",
+  "public_gates": [
+    "repeat L0 current-observation smoke on fresh seeds",
+    "verify history_baseline metadata stability",
+    "preserve P0 no-wheel no-privileged input contract",
+    "do not make performance claims or promote a checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not promote checkpoint",
+    "do not change actor inputs",
+    "do not tune the L0 recipe from smoke results",
+    "do not compare smoke returns as baseline evidence"
+  ],
+  "hypothesis": "The L0 current-observation baseline smoke route is repeatable across fresh seeds and consistently records matched-history metadata, making it safe to proceed toward matched L0/L2/L3 short-train comparisons.",
+  "success_criteria": [
+    "at least two fresh-seed L0 smoke runs complete",
+    "each run writes L0_current_observation metadata in config and checkpoint",
+    "tests and research validation pass",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "any smoke run fails due to config or checkpoint metadata plumbing",
+    "history_baseline metadata differs from the P0 L0 contract",
+    "the recipe is tuned after seeing smoke returns",
+    "a checkpoint is promoted"
+  ],
+  "commands": [
+    {
+      "name": "l0_seed_3530",
+      "command": "PYTHONPATH=src OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m autodrift.train_ppo --config configs/ppo_m528_l0_current_observation_smoke.json --device cpu --seed 3530 --run-dir runs/m530_l0_current_observation_smoke_seed3530"
+    },
+    {
+      "name": "l0_seed_3531",
+      "command": "PYTHONPATH=src OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m autodrift.train_ppo --config configs/ppo_m528_l0_current_observation_smoke.json --device cpu --seed 3531 --run-dir runs/m530_l0_current_observation_smoke_seed3531"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m530-l0-baseline-smoke-repeat.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m529-matched-history-baseline-eval-ladder-design.md",
+    "configs/ppo_m528_l0_current_observation_smoke.json"
+  ],
+  "decision_rule": "M530 is a process smoke repeat. Success admits matched short-train config design; it does not promote checkpoints or compare performance.",
+  "next_blocker": "pending M530 L0 baseline smoke repeat"
+}

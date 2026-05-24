@@ -23,6 +23,7 @@ from torch.optim import Adam
 from autodrift.artifacts import make_run_dir, read_json, to_jsonable, write_csv_rows, write_json
 from autodrift.config import build_curriculum, build_env_config, env_config_for_step
 from autodrift.env import AutoDriftEnv, DriftEnvConfig, FRONT_REAR_WHEEL_OBS_DIM
+from autodrift.history_baselines import build_history_baseline_spec, history_baseline_spec_to_dict
 from autodrift.intervention_objectives import (
     action_mean_margin_contrast_loss,
     baseline_action_anchor_loss,
@@ -177,6 +178,7 @@ class PPOConfig:
     freeze_log_std: bool = False
     actor_encoder: str = "mlp"
     actor_history_length: int = 1
+    history_baseline_level: str = "unspecified"
     action_sequence_horizon: int = 1
     sequence_aux_coef: float = 0.0
     recurrent_sequence_training: bool = False
@@ -895,6 +897,25 @@ def make_vector_env(
     raise ValueError("vector_env_mode must be one of: sync, parallel")
 
 
+def resolve_actor_history_config(config: PPOConfig, env_config: DriftEnvConfig) -> PPOConfig:
+    if config.actor_encoder == "temporal_gru" and config.actor_history_length != env_config.history_length:
+        return replace(config, actor_history_length=env_config.history_length)
+    return config
+
+
+def build_training_history_baseline(
+    config: PPOConfig,
+    env_config: DriftEnvConfig,
+) -> dict[str, Any]:
+    spec = build_history_baseline_spec(
+        level=config.history_baseline_level,
+        actor_encoder=config.actor_encoder,
+        actor_history_length=config.actor_history_length,
+        env_config=env_config,
+    )
+    return history_baseline_spec_to_dict(spec)
+
+
 def friction_bucket_labels_from_mu(mu_values: np.ndarray) -> np.ndarray:
     mu = np.asarray(mu_values, dtype=np.float32)
     labels = np.ones(mu.shape, dtype=np.int64)
@@ -977,8 +998,10 @@ def train(
     outcome_intervention_source_configs = normalize_outcome_intervention_source_losses(
         config.outcome_intervention_source_losses
     )
-    if config.actor_encoder == "temporal_gru" and config.actor_history_length != active_env_config.history_length:
-        config = replace(config, actor_history_length=active_env_config.history_length)
+    config = resolve_actor_history_config(config, active_env_config)
+    history_baseline_spec = build_training_history_baseline(config, active_env_config)
+    checkpoint_metadata = dict(checkpoint_metadata or {})
+    checkpoint_metadata["history_baseline"] = history_baseline_spec
     if uses_online_recurrent and active_env_config.history_length != 1:
         raise ValueError("online recurrent actors require env history_length=1; memory is carried in recurrent hidden state")
     if uses_online_recurrent and config.action_sequence_horizon > 1:
@@ -1269,6 +1292,7 @@ def train(
         if next_stage != active_stage:
             if uses_online_recurrent and next_env_config.history_length != 1:
                 raise ValueError("online recurrent actors require env history_length=1 in every curriculum stage")
+            build_training_history_baseline(config, next_env_config)
             active_env_config = next_env_config
             active_stage = next_stage
             env.close()
@@ -1927,6 +1951,9 @@ def main() -> None:
     env_data = raw_config.get("env", {})
     env_config = build_env_config(env_data)
     curriculum = build_curriculum(env_data, raw_config.get("curriculum", []))
+    active_env_config, _ = env_config_for_step(env_config, curriculum, 0)
+    config = resolve_actor_history_config(config, active_env_config)
+    history_baseline_spec = build_training_history_baseline(config, active_env_config)
     run_dir = args.run_dir or make_run_dir(prefix=args.run_name, seed=config.seed)
     save_path = args.save or run_dir / "checkpoint.pt"
     train_metrics_csv = run_dir / "train_metrics.csv"
@@ -1939,6 +1966,7 @@ def main() -> None:
             "ppo": config,
             "env": env_config,
             "curriculum": curriculum,
+            "history_baseline": history_baseline_spec,
             "eval_episodes": eval_episodes,
             "save_path": save_path,
             "init_checkpoint": args.init_checkpoint,
@@ -1951,7 +1979,7 @@ def main() -> None:
         metrics_csv_path=train_metrics_csv,
         env_config=env_config,
         curriculum=curriculum,
-        checkpoint_metadata={"env": env_config, "curriculum": curriculum},
+        checkpoint_metadata={"env": env_config, "curriculum": curriculum, "history_baseline": history_baseline_spec},
         init_checkpoint_path=args.init_checkpoint,
     )
     summary = evaluate_actor(model, eval_episodes, config.seed + 10_000, env_config=env_config)

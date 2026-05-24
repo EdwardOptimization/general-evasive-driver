@@ -1,0 +1,77 @@
+{
+  "decision_reason": "M529 pre-registers the staged matched-history baseline ladder and selects repeated L0 smoke before any performance comparison",
+  "failure_criteria": [
+    "design allows per-baseline tuning before comparison",
+    "design treats M528 smoke performance as evidence",
+    "design weakens the P0 input contract",
+    "design uses private holdout results for repair without rotation"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not promote checkpoint",
+    "do not compare separately tuned baselines as matched evidence",
+    "do not add privileged actor inputs",
+    "do not use reset-hidden diagnostics as a trained baseline replacement"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260524T024642Z",
+  "hypothesis": "A staged matched-history baseline evaluation ladder can be pre-registered so L0/L2/L3 smoke training and natural history-value evaluations remain comparable instead of becoming separately tuned runs.",
+  "lineage": {
+    "blocked_by": [
+      "m528-matched-history-baseline-plumbing"
+    ],
+    "derived_from": [
+      "m528-matched-history-baseline-plumbing",
+      "m527-matched-history-baseline-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m528_l0_current_observation_smoke.json",
+      "experiments/manifests/m528-matched-history-baseline-plumbing.json"
+    ],
+    "parent_dataset": [
+      "runs/m526_history_value_event_audit/summary.json",
+      "runs/m528_l0_current_observation_smoke"
+    ],
+    "parent_objective": [
+      "matched history baseline evaluation ladder"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m529-matched-history-baseline-eval-ladder-design",
+  "next_blocker": "m530-l0-baseline-smoke-repeat",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m530_l0_baseline_smoke_repeat",
+  "public_gates": [
+    "defined L0/L2/L3 matched smoke and evaluation ordering",
+    "separated plumbing smoke from performance claims",
+    "preserved P0 no-wheel no-privileged input contract",
+    "reserved M526 natural event rows as public diagnostic surfaces only"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m530_l0_baseline_smoke_repeat",
+    "milestone": "m529-matched-history-baseline-eval-ladder-design",
+    "reason": "M529 pre-registers the staged matched-history baseline ladder and selects repeated L0 smoke before any performance comparison",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "document baseline train/eval ordering",
+    "define seed and budget matching rules",
+    "define which artifacts must be retained for later paper-quality comparisons",
+    "identify the next executable smoke milestone"
+  ],
+  "type": "infrastructure"
+}

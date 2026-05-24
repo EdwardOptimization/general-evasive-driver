@@ -2,7 +2,7 @@
   "id": "m528-matched-history-baseline-plumbing",
   "type": "infrastructure",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -30,10 +30,10 @@
   },
   "review_artifact": "docs/reviews/m528-matched-history-baseline-plumbing.md",
   "public_gates": [
-    "implement or preflight configurable history baseline level metadata",
-    "support at least one L0 or L2 baseline smoke path",
-    "preserve actor input contract",
-    "do not run long training or promote checkpoint"
+    "implemented configurable history_baseline_level metadata",
+    "L0 current-observation smoke train/eval completed",
+    "P0 no-wheel no-privileged actor input contract preserved",
+    "no long training or checkpoint promotion performed"
   ],
   "private_holdout_policy": "not_used",
   "forbidden_shortcuts": [
@@ -59,13 +59,25 @@
   "commands": [
     {
       "name": "matched_history_baseline_plumbing",
-      "command": "Implement the smallest matched history baseline plumbing or smoke path from M527."
+      "command": "PYTHONPATH=src OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m autodrift.train_ppo --config configs/ppo_m528_l0_current_observation_smoke.json --device cpu --run-dir runs/m528_l0_current_observation_smoke"
     }
   ],
   "required_artifacts": [
     {
       "path": "docs/m528-matched-history-baseline-plumbing.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m528_l0_current_observation_smoke/config.json",
+      "type": "run_config"
+    },
+    {
+      "path": "runs/m528_l0_current_observation_smoke/checkpoint.pt",
+      "type": "checkpoint_artifact"
+    },
+    {
+      "path": "runs/m528_l0_current_observation_smoke/eval_summary.json",
+      "type": "eval_summary"
     }
   ],
   "baseline_checkpoints": [
@@ -75,6 +87,11 @@
     "docs/m527-matched-history-baseline-design.md",
     "runs/m526_history_value_event_audit/summary.json"
   ],
-  "decision_rule": "M528 is not a promotion gate; it should only prove baseline plumbing is safe enough for later matched smoke training.",
-  "next_blocker": "pending M528 matched history baseline plumbing"
+  "decision_rule": "M528 is not a promotion gate; it only proves baseline plumbing is safe enough for later matched smoke training.",
+  "scoreboard_metrics": {
+    "termination_rate": 1.0
+  },
+  "scoreboard_decision": "matched_history_baseline_plumbing_smoke_pass_admit_m529_eval_ladder",
+  "scoreboard_reason": "M528 adds explicit history_baseline_level metadata, validates P0/no-wheel/no-privileged inputs, and runs an L0 current-observation smoke without promotion; results are plumbing-only and not baseline performance evidence.",
+  "next_blocker": "m529-matched-history-baseline-eval-ladder-design"
 }

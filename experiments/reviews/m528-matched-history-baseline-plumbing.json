@@ -1,0 +1,75 @@
+{
+  "decision_reason": "M528 adds explicit history_baseline_level metadata validates P0 no-wheel no-privileged inputs and runs an L0 smoke without promotion",
+  "failure_criteria": [
+    "baseline plumbing changes actor inputs",
+    "checkpoint loading or config validation breaks",
+    "training path cannot run a smoke",
+    "checkpoint promotion is performed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not run long training before smoke validation",
+    "do not overclaim incomplete L1/L2 support"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T024642Z",
+  "hypothesis": "Matched history baseline plumbing can be introduced without changing the P0 actor contract, enabling smoke-scale baseline comparisons after M526 diagnostic evidence.",
+  "lineage": {
+    "blocked_by": [
+      "m527-matched-history-baseline-design"
+    ],
+    "derived_from": [
+      "m527-matched-history-baseline-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m527-matched-history-baseline-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m526_history_value_event_audit/summary.json"
+    ],
+    "parent_objective": [
+      "matched history baseline plumbing"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m528-matched-history-baseline-plumbing",
+  "next_blocker": "m529-matched-history-baseline-eval-ladder-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "matched_history_baseline_plumbing_smoke_pass_admit_m529_eval_ladder",
+  "public_gates": [
+    "implemented configurable history_baseline_level metadata",
+    "L0 current-observation smoke train/eval completed",
+    "P0 no-wheel no-privileged actor input contract preserved",
+    "no long training or checkpoint promotion performed"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m528_l0_current_observation_smoke/checkpoint.pt",
+    "clearance_margin_mean": "",
+    "decision": "matched_history_baseline_plumbing_smoke_pass_admit_m529_eval_ladder",
+    "milestone": "m528-matched-history-baseline-plumbing",
+    "reason": "M528 adds explicit history_baseline_level metadata validates P0 no-wheel no-privileged inputs and runs an L0 smoke without promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "1.0",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "history baseline metadata or config path is implemented",
+    "at least one baseline level has a smoke train/eval or diagnostic path",
+    "artifacts record baseline level and input contract",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "type": "infrastructure"
+}

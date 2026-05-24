@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 536,
+        "completed": 538,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m527-matched-history-baseline-design",
+        "task_id": "m529-matched-history-baseline-eval-ladder-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m527-matched-history-baseline-design.md"
+        "command_log": "docs/m529-matched-history-baseline-eval-ladder-design.md"
     },
     "next_task": {
-        "id": "m528-matched-history-baseline-plumbing",
+        "id": "m530-l0-baseline-smoke-repeat",
         "status": "pending",
-        "priority": 5230,
+        "priority": 5250,
         "kind": "infrastructure",
-        "hypothesis": "Matched history baseline plumbing can be introduced without changing the P0 actor contract, enabling smoke-scale baseline comparisons after M526 diagnostic evidence.",
-        "command": "see experiments/manifests/m528-matched-history-baseline-plumbing.json",
+        "hypothesis": "The L0 current-observation baseline smoke route is repeatable across fresh seeds and consistently records matched-history metadata, making it safe to proceed toward matched L0/L2/L3 short-train comparisons.",
+        "command": "see experiments/manifests/m530-l0-baseline-smoke-repeat.json",
         "success_artifact": "",
-        "notes": "Pending: implement baseline-level metadata or smallest L0/L2 smoke path without promotion"
+        "notes": "Pending: run two fresh-seed L0 smoke routes and verify metadata stability without promotion"
     },
-    "updated_at_utc": "20260524T050000Z"
+    "updated_at_utc": "20260524T052000Z"
 }

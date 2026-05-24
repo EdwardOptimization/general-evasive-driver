@@ -10873,3 +10873,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M527 designs the next evidence layer after M526. The project should compare matched deployable history baselines: L0 feedforward/current observation, L1 one-step command-response, L2 finite command-response window, and L3 online GRU recurrent belief. The next milestone should only implement baseline plumbing or a smoke path, record baseline-level metadata, preserve the P0 no-oracle actor contract, and avoid long training or promotion.
 - decision: `admit_m528_matched_history_baseline_plumbing`
 - next: `m528-matched-history-baseline-plumbing`
+## 20260524T051000Z - m528-matched-history-baseline-plumbing
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m528_l0_current_observation_smoke`
+- artifact: `docs/m528-matched-history-baseline-plumbing.md`
+- result: M528 adds explicit `history_baseline_level` plumbing and validation for matched history baselines. The training path now records history-baseline metadata in run config and checkpoint metadata, while checkpoint config stores `history_baseline_level`. The L0 current-observation smoke uses an MLP over the canonical P0 frame, completes `64` PPO steps, writes `runs/m528_l0_current_observation_smoke/checkpoint.pt`, and preserves the no-wheel/no-privileged/no-oracle input contract. Smoke eval has `termination_rate = 1.0`, but this is route validation only and not baseline performance evidence.
+- decision: `matched_history_baseline_plumbing_smoke_pass_admit_m529_eval_ladder`
+- next: `m529-matched-history-baseline-eval-ladder-design`
+## 20260524T052000Z - m529-matched-history-baseline-eval-ladder-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m529-matched-history-baseline-eval-ladder-design.md`
+- result: M529 pre-registers a staged baseline ladder: plumbing smoke, repeat smoke, matched short train, natural history-value eval, scenario-distribution eval, and later promotion-level evidence with holdout discipline. It requires shared budgets, seeds, configs, artifacts, P0 input contract, and no per-baseline tuning before comparison. M526 natural event rows remain public diagnostics rather than private holdout evidence.
+- decision: `admit_m530_l0_baseline_smoke_repeat`
+- next: `m530-l0-baseline-smoke-repeat`
