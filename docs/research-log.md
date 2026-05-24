@@ -12196,3 +12196,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M674 implements and runs the frozen-backbone residual sequence-head actor-coupling exact probe. The implementation is clean: `648` rows, `216` sources, `3` residual heads written, actor checksum unchanged, no base actor checkpoint, no PPO, no promotion. The exact gate fails with `0` passed seeds. The blocker is an alpha conflict: at `alpha=1.0`, source-heldout sequence gap passes (`~0.0121-0.0124`, ratio `~4.2`) but first-action normal drift p95 fails (`0.0094-0.0130`); at `alpha=0.5`, first-action drift is mostly safe (`0.0047-0.0065`) but gap mean is only `~0.0061` and ratio `~2.1`, below thresholds.
 - decision: `response_amplification_actor_coupling_exact_gate_failed_admit_audit`
 - next: `m675-response-amplification-actor-coupling-audit`
+## 20260525T023000Z - m675-response-amplification-actor-coupling-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m675-response-amplification-actor-coupling-audit.md`
+- result: M675 audits M674 as `first_action_drift_vs_sequence_gap_conflict`. M674 is not a representation failure because `alpha=1.0` has enough wrong-history sequence gap; it is not a PPO blocker because no PPO was used. The issue is that the sequence-level residual objective does not explicitly constrain the executed first residual enough. The next design should add a strong normal first-action anchor, p95/top-k first residual penalty, wrong-history sequence target, and wrong-history first-gap objective while keeping the frozen backbone, fused-plus-next-hidden view, alpha ladder, exact-first evaluation, no PPO, no promotion, and no actor-input changes.
+- decision: `response_amplification_actor_coupling_audit_admit_first_step_safe_design`
+- next: `m676-first-step-safe-response-amplification-design`

@@ -1,0 +1,77 @@
+{
+  "decision_reason": "M675 classifies M674 as first-action drift versus sequence-gap conflict and selects a first-step-safe residual objective design without PPO promotion or actor-input changes",
+  "failure_criteria": [
+    "audit treats M674 as a representation failure despite alpha=1 gap passing",
+    "audit admits PPO or promotion",
+    "audit ignores first-action drift gate",
+    "audit weakens normal-retention gates without replacement"
+  ],
+  "failure_types": [
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun training",
+    "do not weaken gates without documenting the reason",
+    "do not promote a checkpoint",
+    "do not admit PPO",
+    "do not change actor input contract"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T150601Z",
+  "hypothesis": "M674 failed because the residual sequence head can create wrong-history sequence separation only at alphas whose first executed normal residual violates the actor-coupling drift gate; the next design should constrain first-step normal drift explicitly.",
+  "lineage": {
+    "blocked_by": [
+      "m674-response-amplification-actor-coupling-implementation"
+    ],
+    "derived_from": [
+      "m674-response-amplification-actor-coupling-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m674-response-amplification-actor-coupling-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m674_response_amplification_actor_coupling/summary.json",
+      "runs/m674_response_amplification_actor_coupling/alpha_summary.csv",
+      "docs/m674-response-amplification-actor-coupling-implementation.md"
+    ],
+    "parent_objective": [
+      "audit failed frozen-backbone residual actor-coupling exact gate"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m675-response-amplification-actor-coupling-audit",
+  "next_blocker": "m676-first-step-safe-response-amplification-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "response_amplification_actor_coupling_audit_admit_first_step_safe_design",
+  "public_gates": [
+    "M674 implementation cleanliness is checked",
+    "alpha conflict is classified",
+    "PPO and promotion remain blocked",
+    "next design addresses first-step normal drift explicitly"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m675-response-amplification-actor-coupling-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "response_amplification_actor_coupling_audit_admit_first_step_safe_design",
+    "milestone": "m675-response-amplification-actor-coupling-audit",
+    "reason": "M675 classifies M674 as first-action drift versus sequence-gap conflict and selects a first-step-safe residual objective design without PPO promotion or actor-input changes",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M674 failure is classified from alpha-summary evidence",
+    "the audit distinguishes sequence diagnostic success from executable first-action safety",
+    "the next design target is specified",
+    "PPO and promotion remain blocked"
+  ],
+  "type": "gate"
+}

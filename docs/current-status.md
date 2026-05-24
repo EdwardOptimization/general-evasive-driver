@@ -62,17 +62,25 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m675-response-amplification-actor-coupling-audit
+m676-first-step-safe-response-amplification-design
 ```
 
-M675 should audit the failed M674 exact actor-coupling gate. M674 was
-implementation-clean, but no seed/alpha passed: `alpha=1.0` had enough
-wrong-history sequence gap but excessive first-action normal drift, while
-`alpha=0.5` was safer but below gap thresholds. PPO, promotion, actor-input
-changes, and base actor checkpoint writing remain forbidden.
+M676 should design a first-step-safe residual response-amplification objective.
+M674 showed that generic sequence residual training creates enough wrong-history
+gap only when the first executed normal residual is too large. The next design
+must add explicit normal first-action anchors and p95/top-k first residual
+penalties while preserving the M671 wrong-history sequence target. PPO,
+promotion, actor-input changes, and base actor checkpoint writing remain
+forbidden.
 
 ## Recent Evidence Line
 
+- M675 audits M674 as `first_action_drift_vs_sequence_gap_conflict`, not a
+  representation failure. The next step is a first-step-safe residual objective
+  with strong normal first-action anchoring, top-k/p95 first residual penalty,
+  wrong-history sequence target, and wrong-history first-gap objective. Frozen
+  backbone, fused-plus-next-hidden view, alpha ladder, exact-first evaluation,
+  no PPO, no promotion, and no actor-input changes remain required.
 - M674 implements the frozen-backbone residual sequence-head actor-coupling
   exact probe. It is a clean negative result: actor checksum unchanged, no base
   actor checkpoint, no PPO, no promotion, but `0` seed/alpha candidates pass.

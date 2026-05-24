@@ -1,0 +1,84 @@
+{
+  "id": "m676-first-step-safe-response-amplification-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m674_response_amplification_actor_coupling/summary.json",
+      "runs/m674_response_amplification_actor_coupling/alpha_summary.csv",
+      "docs/m675-response-amplification-actor-coupling-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m675-response-amplification-actor-coupling-audit.json"
+    ],
+    "parent_objective": [
+      "design first-step-safe residual actor-coupling objective"
+    ],
+    "derived_from": [
+      "m675-response-amplification-actor-coupling-audit"
+    ],
+    "blocked_by": [
+      "m675-response-amplification-actor-coupling-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m676-first-step-safe-response-amplification-design.md",
+  "public_gates": [
+    "design targets first-action normal drift explicitly",
+    "design keeps M671 wrong-history sequence target",
+    "design preserves frozen BC5660 backbone and P0 inputs",
+    "design keeps alpha ladder and exact-first evaluation",
+    "PPO and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run training in this design milestone",
+    "do not weaken normal first-action drift gate without replacement",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor input contract"
+  ],
+  "hypothesis": "A first-step-safe residual objective can resolve the M674 alpha conflict by strongly anchoring normal-history first residuals while preserving wrong-history sequence separation from fused-plus-next-hidden features.",
+  "success_criteria": [
+    "first-step-safe losses are specified",
+    "normal first-action p95/top-k gate is specified",
+    "wrong-history sequence target and first-gap objective are specified",
+    "implementation milestone is pre-registered",
+    "PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "design only reruns M674 without changing first-step constraints",
+    "design weakens normal-action safety gate",
+    "design admits PPO or promotion",
+    "design changes actor observation inputs"
+  ],
+  "commands": [
+    {
+      "name": "write_design",
+      "command": "write docs/m676-first-step-safe-response-amplification-design.md; no training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m676-first-step-safe-response-amplification-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m674_response_amplification_actor_coupling/summary.json",
+    "docs/m675-response-amplification-actor-coupling-audit.md"
+  ],
+  "decision_rule": "M676 passes if it defines a first-step-safe exact actor-coupling implementation path that directly addresses M674's alpha conflict without PPO, promotion, or actor-input changes.",
+  "next_blocker": "m677-first-step-safe-response-amplification-implementation"
+}
