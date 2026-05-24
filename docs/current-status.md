@@ -61,13 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m565-bc-public-natural-surface-eval
+m566-scaled-bc-repeat-design
 ```
 
-M565 should evaluate the M563 L3 behavior-cloning checkpoint on the same four
-public frozen-source natural surfaces used by M543/M550. M564 passed
-route-screen v2, so public diagnostics are admitted, but this is still not a
-promotion or private generalization claim.
+M566 should design a scaled non-public L2-to-L3 BC repeat after M565's positive
+public diagnostic. The next step is not PPO or promotion: scale train/validation
+corpora, repeat BC seeds, rotate route-screen selection away from `17560`, and
+keep public frozen-source surfaces out of tuning.
 
 ## Recent Evidence Line
 
@@ -265,6 +265,11 @@ promotion or private generalization claim.
   and mean margin `0.770803`, matching L2 success/collision and remaining
   within L2 margin tolerance while strongly outperforming L0. No checkpoint is
   promoted from this route-screen smoke.
+- M565 evaluates M563_BC on the four public frozen-source natural surfaces from
+  M543/M550. M563_BC matches L2 success/collision (`0.866310` / `0.133690`),
+  has nearly identical mean margin (`1.770749` vs L2 `1.777833`), and strongly
+  repairs original M542 L3 (`+0.195633` paired success, `+0.785940` paired
+  margin). This is public diagnostic evidence only; no checkpoint is promoted.
 
 ## Near-Term Rule
 

@@ -2,7 +2,7 @@
   "id": "m565-bc-public-natural-surface-eval",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -65,7 +65,7 @@
   "commands": [
     {
       "name": "public_surface_eval",
-      "command": "Run frozen_source_surface_eval for M563_BC on M497 short/warmup and M487 near/late public splits, then aggregate paired deltas."
+      "command": "Run frozen_source_surface_eval for M563_BC on M497 short/warmup and M487 near/late public splits, then aggregate paired deltas into runs/m565_bc_public_natural_surface_eval_aggregate."
     }
   ],
   "required_artifacts": [
@@ -84,6 +84,6 @@
     "docs/m564-bc-route-screen-v2-smoke.md",
     "docs/m543-m542-public-surface-eval.md"
   ],
-  "decision_rule": "M565 is a public diagnostic. It can admit larger L2-to-L3 distillation or matched repeat if M563_BC is L2-competitive on public natural surfaces, but it cannot promote the checkpoint.",
-  "next_blocker": "pending M565 BC public natural-surface eval"
+  "decision_rule": "M565 passes as a public diagnostic because M563_BC is L2-competitive on public natural surfaces and repairs the M542 L3 regression. It admits scaled BC repeat design but cannot promote the checkpoint.",
+  "next_blocker": "m566-scaled-bc-repeat-design"
 }

@@ -11206,3 +11206,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M564 evaluates L0, L2, and M563_BC on a 64-episode route-screen v2 using fresh selection seed `17560`. M563_BC clears the gate and is selected for public diagnostics: success `0.656250`, collision `0.343750`, mean margin `0.770803`, and return `62.557827`. It matches L2 success/collision, is slightly below L2 margin by `0.016314` within tolerance, and strongly beats L0 on success (`+0.625000`), collision (`-0.531250`), and margin (`+0.772682`).
 - decision: `bc_route_screen_v2_pass_admit_m565_public_surface_eval`
 - next: `m565-bc-public-natural-surface-eval`
+## 20260524T061000Z - m565-bc-public-natural-surface-eval
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m565_bc_public_natural_surface_eval_aggregate`
+- artifact: `docs/m565-bc-public-natural-surface-eval.md`
+- result: M565 evaluates M563_BC on the four public frozen-source natural surfaces from M543/M550. All four source runs complete with actor contract unchanged and no training/promotion. The aggregate has `8976` outcome rows and `2244` complete quad keys. M563_BC matches L2 success and collision exactly (`0.866310` success, `0.133690` collision), has mean margin `1.770749` versus L2 `1.777833`, and strongly repairs original M542 L3 (`+0.195633` paired success, `-0.190731` paired collision, `+0.785940` paired margin). This is public diagnostic evidence only.
+- decision: `bc_public_surface_eval_pass_admit_scaled_bc_repeat_design`
+- next: `m566-scaled-bc-repeat-design`

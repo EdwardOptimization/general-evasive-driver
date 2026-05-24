@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 573,
+        "completed": 574,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-            "task_id": "m564-bc-route-screen-v2-smoke",
+            "task_id": "m565-bc-public-natural-surface-eval",
             "status": "completed",
             "returncode": 0,
-            "run_dir": "runs/m564_bc_route_screen_v2_smoke",
-            "command_log": "docs/m564-bc-route-screen-v2-smoke.md"
+            "run_dir": "runs/m565_bc_public_natural_surface_eval_aggregate",
+            "command_log": "docs/m565-bc-public-natural-surface-eval.md"
         },
         "next_task": {
-            "id": "m565-bc-public-natural-surface-eval",
+            "id": "m566-scaled-bc-repeat-design",
             "status": "pending",
-            "priority": 5600,
-            "kind": "gate",
-            "hypothesis": "Because M563_BC passed route-screen v2 and is L2-competitive on fresh route seed 17560, it may repair the public natural-surface L3 regression observed in M543.",
-            "command": "see experiments/manifests/m565-bc-public-natural-surface-eval.json",
+            "priority": 5610,
+            "kind": "infrastructure",
+            "hypothesis": "Because a tiny M563 BC smoke repaired the M543 public-surface L3 regression, a scaled non-public L2-to-L3 BC repeat should test whether the effect is stable across corpus size and optimizer seeds before PPO continuation.",
+            "command": "see experiments/manifests/m566-scaled-bc-repeat-design.json",
             "success_artifact": "",
-            "notes": "Pending: public diagnostic only compare against L0 L2 and original M542 L3"
+            "notes": "Pending: design larger corpora BC seed repeats and fresh route-screen selection without PPO"
         },
-    "updated_at_utc": "20260524T055000Z"
+    "updated_at_utc": "20260524T061000Z"
 }
