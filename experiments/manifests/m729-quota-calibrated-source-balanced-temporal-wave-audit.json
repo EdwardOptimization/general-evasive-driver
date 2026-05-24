@@ -70,7 +70,16 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M728 result_class=source_balanced_temporal_action_only",
-    "synthesis_decision": "not_applicable"
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m729-quota-calibrated-source-balanced-temporal-wave-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
   },
   "hypothesis": "M728 should be audited before continuing because it passes source balance but remains action-only with only one outcome row.",
   "success_criteria": [
@@ -107,5 +116,5 @@
     "docs/m728-quota-calibrated-source-balanced-temporal-wave-implementation.md"
   ],
   "decision_rule": "M729 must decide whether to design source-balanced boundary mining sequence-level interventions or dynamics fidelity. It must not admit PPO or promotion directly.",
-  "next_blocker": "m730-source-balanced-action-only-next-branch-design"
+  "next_blocker": "m730-source-balanced-boundary-outcome-mining-design"
 }

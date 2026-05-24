@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 737,
+        "completed": 738,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m728-quota-calibrated-source-balanced-temporal-wave-implementation",
+        "task_id": "m729-quota-calibrated-source-balanced-temporal-wave-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m728-quota-calibrated-source-balanced-temporal-wave-implementation.md"
+        "command_log": "docs/m729-quota-calibrated-source-balanced-temporal-wave-audit.md"
     },
     "next_task": {
-        "id": "m729-quota-calibrated-source-balanced-temporal-wave-audit",
+        "id": "m730-source-balanced-boundary-outcome-mining-design",
         "status": "pending",
-        "priority": 7240,
-        "kind": "gate",
-        "hypothesis": "Audit quota-calibrated source-balanced temporal wave action-only result",
-        "command": "see experiments/manifests/m729-quota-calibrated-source-balanced-temporal-wave-audit.json",
-        "success_artifact": "docs/m729-quota-calibrated-source-balanced-temporal-wave-audit.md",
-        "notes": "Pending: audit M728 source-balanced action-only result and choose boundary mining sequence intervention or dynamics fidelity"
+        "priority": 7250,
+        "kind": "infrastructure",
+        "hypothesis": "Design source-balanced boundary outcome mining",
+        "command": "see experiments/manifests/m730-source-balanced-boundary-outcome-mining-design.json",
+        "success_artifact": "docs/m730-source-balanced-boundary-outcome-mining-design.md",
+        "notes": "Pending: design no-training boundary miner from M728 action-critical rows with normal retention source balance and sentinel gates"
     },
-    "updated_at_utc": "20260525T000000Z"
+    "updated_at_utc": "20260525T001000Z"
 }

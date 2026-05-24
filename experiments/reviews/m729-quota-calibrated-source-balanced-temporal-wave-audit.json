@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M729 audits M728 as source-balanced action-only evidence and selects boundary outcome mining before sequence intervention or dynamics fidelity",
+  "failure_criteria": [
+    "audit treats M728 action rows as outcome-positive self-ID proof",
+    "audit treats the single outcome row as a sufficient corpus",
+    "audit admits source export PPO or promotion",
+    "audit changes actor input contract"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not treat the single M728 outcome row as a sufficient source corpus",
+    "do not export M728 action-only rows as outcome-positive proof",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor input contract"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260524T211846Z",
+  "hypothesis": "M728 should be audited before continuing because it passes source balance but remains action-only with only one outcome row.",
+  "lineage": {
+    "blocked_by": [
+      "m728-quota-calibrated-source-balanced-temporal-wave-implementation"
+    ],
+    "derived_from": [
+      "m728-quota-calibrated-source-balanced-temporal-wave-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m728-quota-calibrated-source-balanced-temporal-wave-implementation.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m728-quota-calibrated-source-balanced-temporal-wave-implementation.md",
+      "runs/m728_quota_calibrated_source_balanced_temporal_wave/summary.json",
+      "runs/m728_quota_calibrated_source_balanced_temporal_wave/selected_pair_proposals.csv",
+      "runs/m728_quota_calibrated_source_balanced_temporal_wave/temporal_critical_rows.csv",
+      "runs/m728_quota_calibrated_source_balanced_temporal_wave/variant_summary.csv"
+    ],
+    "parent_objective": [
+      "audit source-balanced action-only temporal wave before boundary mining sequence intervention or dynamics fidelity"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m729-quota-calibrated-source-balanced-temporal-wave-audit",
+  "next_blocker": "m730-source-balanced-boundary-outcome-mining-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "promote_to_source_balanced_boundary_mining",
+  "public_gates": [
+    "M728 source-balance pass is separated from outcome proof",
+    "M728 temporal action and outcome counts are summarized separately",
+    "the single outcome row is identified as diagnostic not sufficient corpus",
+    "next branch decision compares boundary mining sequence intervention and dynamics fidelity",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m729-quota-calibrated-source-balanced-temporal-wave-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "promote_to_source_balanced_boundary_mining",
+    "milestone": "m729-quota-calibrated-source-balanced-temporal-wave-audit",
+    "reason": "M729 audits M728 as source-balanced action-only evidence and selects boundary outcome mining before sequence intervention or dynamics fidelity",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M728 result metrics are recorded",
+    "supported and falsified claims are recorded",
+    "failure taxonomy is assigned",
+    "public gate overfit risk is recorded",
+    "next branch decision is explicit",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "type": "gate"
+}

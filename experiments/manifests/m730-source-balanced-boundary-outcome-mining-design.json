@@ -1,0 +1,108 @@
+{
+  "id": "m730-source-balanced-boundary-outcome-mining-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m729-quota-calibrated-source-balanced-temporal-wave-audit.md",
+      "docs/m728-quota-calibrated-source-balanced-temporal-wave-implementation.md",
+      "runs/m728_quota_calibrated_source_balanced_temporal_wave/summary.json",
+      "runs/m728_quota_calibrated_source_balanced_temporal_wave/temporal_critical_rows.csv",
+      "runs/m728_quota_calibrated_source_balanced_temporal_wave/selected_pair_proposals.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m729-quota-calibrated-source-balanced-temporal-wave-audit.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_objective": [
+      "design source-balanced boundary mining from M728 action-critical rows"
+    ],
+    "derived_from": [
+      "m729-quota-calibrated-source-balanced-temporal-wave-audit"
+    ],
+    "blocked_by": [
+      "m729-quota-calibrated-source-balanced-temporal-wave-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m730-source-balanced-boundary-outcome-mining-design.md",
+  "public_gates": [
+    "M730 starts from M728 source-balanced action-critical rows",
+    "M730 defines boundary perturbations without actor input changes",
+    "M730 keeps normal-history retention sentinel and source-balance checks",
+    "M730 separates action-critical and outcome-critical claims",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not use the singleton M728 outcome row as a sufficient corpus",
+    "do not export action-only rows as outcome-positive proof",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor input contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "source_balanced_boundary_outcome_mining",
+    "evidence_axis": "G_action_to_outcome: convert source-balanced action rows into outcome rows",
+    "evidence_increment": "designs a no-training boundary miner using M728 action-critical rows as source pool",
+    "claim_scope": "design only; no new data wave result and no checkpoint claim",
+    "stop_condition": [
+      "stop if the design cannot preserve normal-history retention",
+      "stop if sentinel false positives are not part of the gate",
+      "stop if action-only and outcome-positive rows are mixed",
+      "stop if the design admits actor update PPO or promotion"
+    ],
+    "fallback_plan": [
+      "if boundary mining remains outcome-negative, design sequence-level interventions",
+      "if boundary mining exposes model-fidelity limits, design asymmetric/yaw-disturbance dynamics",
+      "if source concentration reappears, repair source selection before objective work"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M729 promotes from source-balanced temporal wave to boundary outcome mining",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M728 action-critical rows may become outcome-critical if evaluated near local obstacle and terminal-margin boundaries under source-balanced selection.",
+  "success_criteria": [
+    "M730 defines the M728 action-critical source pool",
+    "M730 defines local boundary perturbation axes",
+    "M730 defines normal-retention sentinel and outcome gates",
+    "M730 blocks source export actor update PPO and promotion",
+    "M730 admits only a no-training M731 implementation"
+  ],
+  "failure_criteria": [
+    "design treats action rows as outcome proof",
+    "design changes actor input contract",
+    "design omits sentinel false-positive checks",
+    "design admits PPO or checkpoint promotion"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m730-source-balanced-boundary-outcome-mining-design.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m730-source-balanced-boundary-outcome-mining-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m728_quota_calibrated_source_balanced_temporal_wave/summary.json",
+    "docs/m729-quota-calibrated-source-balanced-temporal-wave-audit.md"
+  ],
+  "decision_rule": "M730 may only design a no-training M731 boundary miner. It must not admit source export objective design actor update PPO or promotion until M731 is run and audited.",
+  "next_blocker": "m731-source-balanced-boundary-outcome-miner-implementation"
+}

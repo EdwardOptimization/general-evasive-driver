@@ -12594,3 +12594,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M728 runs the quota-calibrated no-training source-balanced temporal wave. It selects `3951` pairs across `494` seeds, `9` preferred fault families, and `33` fault-family pairs, with max preferred-family dominance `0.161984` and sentinel false-positive rate `0.0`. The result class is `source_balanced_temporal_action_only`: `2613` temporal action-critical rows across `351` seeds but only `1` temporal outcome-critical row. The single outcome row is `seed=72339`, `front_lateral_authority_drop->steering_fault`, `mismatch_zero_command_history`, normal margin `0.001388798`, variant margin `-0.000232400`. Actor checksum is unchanged; no training, PPO, or promotion occurs.
 - decision: `source_balanced_temporal_action_only_admit_audit`
 - next: `m729-quota-calibrated-source-balanced-temporal-wave-audit`
+
+## 20260525T001000Z - m729-quota-calibrated-source-balanced-temporal-wave-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m729-quota-calibrated-source-balanced-temporal-wave-audit.md`
+- result: M729 audits M728 as `metric_artifact` plus `scenario_sampling_failure` for closed-loop self-ID. M728 fixes source balance and provides `2613` temporal action-critical rows across `351` seeds, but only one outcome row, so the blocker has moved from source coverage to action-to-outcome conversion. The singleton outcome row is preserved as a diagnostic seed, not a corpus. Source export, actor update, PPO, and promotion remain blocked.
+- decision: `promote_to_source_balanced_boundary_mining`
+- next: `m730-source-balanced-boundary-outcome-mining-design`
