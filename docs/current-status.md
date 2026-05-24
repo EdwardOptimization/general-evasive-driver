@@ -62,18 +62,20 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m753-v4-reset-source-sequence-intervention-audit
+m754-v4-sequence-outcome-corpus-export-design
 ```
 
-M753 should audit M752's positive v4 reset-source sequence intervention result
-before any corpus export, objective design, actor update, or PPO. M752 found
-`1213` sequence outcome-critical rows across `27` seeds and `17`
-fault-family pairs with zero sentinel false positives, unchanged actor checksum,
-no PPO, and no promotion. The result supports the coverage-mining hypothesis but
-remains a no-training diagnostic over current-model/proxy faults.
+M754 should design a sentinel-filtered v4-aware sequence-outcome corpus export
+from M752's positive diagnostic result. M753 audited M752 as clean enough to
+preserve as a corpus before objective design, while keeping actor updates, PPO,
+promotion, and true four-wheel/single-wheel fault claims blocked.
 
 ## Recent Evidence Line
 
+- M753 audits M752 as a clean diagnostic positive, not trained-driver
+  improvement. It supports the coverage-mining hypothesis and promotes only to
+  a v4-aware corpus export design. Objective training, PPO, promotion, and true
+  per-wheel/four-wheel fault claims remain blocked.
 - M752 implements and runs v4 reset-source sequence interventions over M749
   reset-only rows. It selects `512` source rows with `461` primary rows and
   `51` sentinels across `31` seeds, `9` preferred fault families, `7` wrong

@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 761,
+        "completed": 762,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m752-v4-reset-source-sequence-intervention-implementation",
+        "task_id": "m753-v4-reset-source-sequence-intervention-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m752-v4-reset-source-sequence-intervention-implementation.md"
+        "command_log": "docs/m753-v4-reset-source-sequence-intervention-audit.md"
     },
     "next_task": {
-        "id": "m753-v4-reset-source-sequence-intervention-audit",
+        "id": "m754-v4-sequence-outcome-corpus-export-design",
         "status": "pending",
-        "priority": 7480,
-        "kind": "gate",
-        "hypothesis": "Audit v4 reset-source sequence intervention positive result",
-        "command": "see experiments/manifests/m753-v4-reset-source-sequence-intervention-audit.json",
-        "success_artifact": "docs/m753-v4-reset-source-sequence-intervention-audit.md",
-        "notes": "Pending: audit M752 source balance sentinel contamination outcome diversity and claim boundary before corpus export"
+        "priority": 7490,
+        "kind": "infrastructure",
+        "hypothesis": "Design v4 sequence-outcome corpus export",
+        "command": "see experiments/manifests/m754-v4-sequence-outcome-corpus-export-design.json",
+        "success_artifact": "docs/m754-v4-sequence-outcome-corpus-export-design.md",
+        "notes": "Pending: design sentinel-filtered v4-aware corpus export preserving source and claim-boundary metadata before objective work"
     },
-    "updated_at_utc": "20260525T040000Z"
+    "updated_at_utc": "20260525T041000Z"
 }

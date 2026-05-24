@@ -12820,3 +12820,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M752 implements the v4 reset-source sequence intervention runner and runs the registered no-training wave. It selects `512` source rows with `461` primary reset rows and `51` sentinels across `31` seeds, `9` preferred fault families, `7` wrong fault families, and `21` fault-family pairs. It evaluates `12288` rollout rows and finds `5429` sequence action-critical rows plus `1213` sequence outcome-critical rows across `27` seeds and `17` fault-family pairs. Outcome rows are dominated by `zero_command_obs` (`1044`) and grow with horizon (`H=2:25`, `H=4:168`, `H=6:455`, `H=8:565`). Sentinel false-positive rate is `0.0`; actor checksum is unchanged; no training/PPO/promotion occurs.
 - decision: `v4_reset_sequence_outcome_positive_admit_audit`
 - next: `m753-v4-reset-source-sequence-intervention-audit`
+
+## 20260525T041000Z - m753-v4-reset-source-sequence-intervention-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m753-v4-reset-source-sequence-intervention-audit.md`
+- result: M753 audits M752 as a clean diagnostic positive, not trained-driver improvement. The result has `1213` outcome-critical rows across `27` seeds and `17` fault-family pairs, `0` sentinel false positives, normal-history retention pass, and unchanged actor checksum. The audit supports the coverage-mining hypothesis and keeps the claim boundary at current-model/proxy v4 faults rather than true four-wheel or single-wheel failure physics. Objective training, PPO, promotion, and true per-wheel claims remain blocked.
+- decision: `promote_to_v4_sequence_outcome_corpus_export`
+- next: `m754-v4-sequence-outcome-corpus-export-design`
