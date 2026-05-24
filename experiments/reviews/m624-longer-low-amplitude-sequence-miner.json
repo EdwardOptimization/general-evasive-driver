@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M624 increases accepted candidates from 189 to 607 and selected margin mean to 0.068523 but source-level accepted diversity remains 6 rows 5 pairs and 4 left seeds",
+  "failure_criteria": [
+    "miner trains a model",
+    "miner runs PPO",
+    "miner promotes a checkpoint",
+    "miner lowers target thresholds",
+    "miner widens trust regions",
+    "miner omits M621 comparison"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not widen action trust regions",
+    "do not lower target thresholds",
+    "do not claim optimizer admission before a later audit"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T102310Z",
+  "hypothesis": "Adding K=7 and intermediate low-amplitude steer deltas may recover additional source-diverse accepted sequences while preserving M621 trust regions and target thresholds.",
+  "lineage": {
+    "blocked_by": [
+      "m623-longer-low-amplitude-sequence-design"
+    ],
+    "derived_from": [
+      "m623-longer-low-amplitude-sequence-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m623-longer-low-amplitude-sequence-design.json",
+      "docs/m622-tier-aware-sequence-candidate-audit.md"
+    ],
+    "parent_dataset": [
+      "runs/m616_expanded_sequence_source_miner/expanded_sequence_source_rows.csv",
+      "runs/m621_tier_aware_sequence_target_miner/summary.json",
+      "docs/m623-longer-low-amplitude-sequence-design.md"
+    ],
+    "parent_objective": [
+      "run K=3/5/7 low-amplitude sequence diagnostic without changing thresholds or trust regions"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m624-longer-low-amplitude-sequence-miner",
+  "next_blocker": "m625-longer-low-amplitude-sequence-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "longer_low_amplitude_sequence_miner_diagnostic_negative_admit_audit",
+  "public_gates": [
+    "run K=3/5/7 sequence mining on M616 expanded source rows",
+    "write tier-aware accepted_candidate_sequences.csv",
+    "compare source-level diversity against M621",
+    "keep target thresholds unchanged",
+    "keep action trust regions unchanged",
+    "keep actor training and PPO blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m624_longer_low_amplitude_sequence_miner/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "longer_low_amplitude_sequence_miner_diagnostic_negative_admit_audit",
+    "milestone": "m624-longer-low-amplitude-sequence-miner",
+    "reason": "M624 increases accepted candidates from 189 to 607 and selected margin mean to 0.068523 but source-level accepted diversity remains 6 rows 5 pairs and 4 left seeds",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary records diagnostic_only true actor_parameters_changed false ppo_used false promoted false optimizer_admission false",
+    "sequence_lengths includes 3 5 and 7",
+    "accepted_candidate_sequences.csv is written",
+    "accepted selected sequence diversity and accepted candidate diversity are reported",
+    "result is compared against M621 in the milestone doc",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

@@ -55,23 +55,28 @@ Latest active diagnostic BC checkpoint:
 runs/m568_scaled_l3_bc_seed5660/checkpoint.pt
 ```
 
-Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M623
+Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M624
 diagnostics. It is not the public-gate base and is not promoted as the current
 driver checkpoint.
 
 ## Current Blocker
 
 ```text
-m624-longer-low-amplitude-sequence-miner
+m625-longer-low-amplitude-sequence-audit
 ```
 
-M624 should run the no-training K=3/5/7 low-amplitude sequence diagnostic on
-the M616 expanded source rows and compare source-level accepted diversity
-against M621. Trust regions, target thresholds, actor inputs, model weights,
-PPO, and promotion remain unchanged/blocked.
+M625 should audit M624. K=7 improved accepted candidate count and selected
+margin on the same source rows, but did not improve source-level accepted
+diversity. Optimizer admission, training, PPO, promotion, threshold changes,
+and trust-region widening remain blocked.
 
 ## Recent Evidence Line
 
+- M624 runs the K=3/5/7 low-amplitude sequence diagnostic. It increases
+  accepted candidates from `189` to `607` and selected mean margin improvement
+  from `0.056784` to `0.068523`, but source-level accepted diversity stays at
+  `6` selected rows, `5` physical pairs, and `4` left seeds. K=7 strengthens
+  already-accepted source rows but does not solve the source-diversity blocker.
 - M623 designs a K=7 low-amplitude sequence diagnostic. M624 should use the
   M616 expanded source table, add `K=7`, add intermediate steer deltas `±0.06`,
   and keep all M621 trust-region and acceptance thresholds unchanged. The run

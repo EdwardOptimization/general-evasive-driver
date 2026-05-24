@@ -11737,3 +11737,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M623 designs a no-training K=7 low-amplitude sequence diagnostic. The next run should compare directly against M621 by using the same M616 expanded source table and same acceptance thresholds, while adding `K=7` and intermediate steer deltas `±0.06`. The design keeps per-step action L2 `<= 0.10`, sequence mean L2 `<= 0.08`, sequence max L2 `<= 0.10`, max delta-delta L2 `<= 0.08`, margin threshold `0.02`, and risk threshold `0.05`. It explicitly blocks PPO, actor training, promotion, trust-region widening, and optimizer admission before a later audit.
 - decision: `longer_low_amplitude_sequence_design_admit_m624`
 - next: `m624-longer-low-amplitude-sequence-miner`
+## 20260524T160000Z - m624-longer-low-amplitude-sequence-miner
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m624_longer_low_amplitude_sequence_miner`
+- artifact: `docs/m624-longer-low-amplitude-sequence-miner.md`
+- result: M624 runs the K=3/5/7 low-amplitude sequence diagnostic with unchanged trust regions and target thresholds. Relative to M621, candidate rollouts increase from `10440` to `22140`, accepted candidate sequences from `189` to `607`, selected margin improvement mean from `0.056784` to `0.068523`, and selected max improvement from `0.093048` to `0.121356`. However, source-level accepted diversity does not improve: selected accepted sequences remain `6`, physical pairs `5`, and left seeds `4`. Accepted candidates also remain source-narrow (`5` physical pairs, `4` left seeds), so optimizer admission remains blocked. The result is diagnostic-positive for stronger candidates but diagnostic-negative for source diversity.
+- decision: `longer_low_amplitude_sequence_miner_diagnostic_negative_admit_audit`
+- next: `m625-longer-low-amplitude-sequence-audit`
