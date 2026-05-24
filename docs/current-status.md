@@ -61,13 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m580-bc-family-generalization-audit
+m581-bc-recurrent-ablation-design
 ```
 
-M580 should audit BC seed-family generalization evidence and choose
-recurrent-dependence proof gates. M579 passed the moderate-OOD family repeat;
-promotion/PPO remain blocked until recurrent command-response dependence is
-tested.
+M581 should design recurrent-dependence ablation benchmarks for the scaled BC
+branch. M580 audited the positive route/OOD family evidence and keeps
+promotion/PPO blocked until command-response hidden-state dependence is tested.
 
 ## Recent Evidence Line
 
@@ -346,6 +345,11 @@ tested.
   `0.417969` / `0.920871`, versus L2 `0.574219` / `0.425781` / `0.913270`.
   This strengthens the scaled BC family but still does not prove recurrent
   dependence.
+- M580 audits the BC family evidence. The route/OOD transfer claim is now
+  strong, but recurrent self-ID is not yet proven. The next layer should use
+  checkpoint ablations such as `reset_recurrent_state`,
+  `zero_current_response`, and `zero_action_history` to test whether the L3
+  online-GRU policy actually depends on recurrent command-response history.
 
 ## Near-Term Rule
 

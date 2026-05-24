@@ -11341,3 +11341,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M579 runs the BC seed-family moderate-OOD repeat on seeds `22560..22815`, writing `1280` episode rows and reporting `uses_public_frozen_source_rows=false`. All three BC seeds pass L0 and OOD-L2 gates. Against L2 success/collision/margin `0.574219` / `0.425781` / `0.913270`, BC5660 scores `0.582031` / `0.417969` / `0.921253`, BC5661 scores `0.574219` / `0.425781` / `0.914780`, and BC5662 scores `0.582031` / `0.417969` / `0.920871`. No promotion is performed.
 - decision: `bc_family_ood_repeat_pass_admit_m580_audit`
 - next: `m580-bc-family-generalization-audit`
+## 20260524T084000Z - m580-bc-family-generalization-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m580-bc-family-generalization-audit.md`
+- result: M580 audits the BC family evidence after M578/M579. All three scaled BC seeds are L0-safe and L2-competitive on fresh route and moderate-OOD repeat blocks, so the L2-to-L3 BC transfer claim is now strong. The remaining gap is mechanistic: route/OOD metrics do not prove that the L3 online-GRU actor uses recurrent command-response history. M580 admits an ablation design using `reset_recurrent_state`, `zero_current_response`, and `zero_action_history`, and keeps promotion/PPO blocked.
+- decision: `bc_family_generalization_audit_admit_recurrent_ablation_design`
+- next: `m581-bc-recurrent-ablation-design`

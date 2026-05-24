@@ -2,7 +2,7 @@
   "id": "m580-bc-family-generalization-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -82,6 +82,6 @@
     "docs/m579-bc-family-moderate-ood-repeat-eval.md",
     "docs/m578-bc-family-fresh-route-repeat-eval.md"
   ],
-  "decision_rule": "M580 passes only if it audits the BC family evidence and pre-registers recurrent-dependence diagnostics without promotion, PPO, or actor-contract changes.",
-  "next_blocker": "pending M580 audit"
+  "decision_rule": "M580 passes because it audits the BC family evidence and pre-registers recurrent-dependence diagnostics without promotion, PPO, or actor-contract changes.",
+  "next_blocker": "m581-bc-recurrent-ablation-design"
 }

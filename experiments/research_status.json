@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 588,
+        "completed": 589,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m579-bc-family-moderate-ood-repeat-eval",
+        "task_id": "m580-bc-family-generalization-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m579_bc_family_moderate_ood_repeat_eval",
-        "command_log": "docs/m579-bc-family-moderate-ood-repeat-eval.md"
+        "run_dir": "",
+        "command_log": "docs/m580-bc-family-generalization-audit.md"
     },
     "next_task": {
-        "id": "m580-bc-family-generalization-audit",
+        "id": "m581-bc-recurrent-ablation-design",
         "status": "pending",
-        "priority": 5750,
-        "kind": "gate",
-        "hypothesis": "Because the scaled BC family now passes fresh-route and moderate-OOD repeats, the next evidence layer should test recurrent command-response dependence before promotion or PPO.",
-        "command": "see experiments/manifests/m580-bc-family-generalization-audit.json",
+        "priority": 5760,
+        "kind": "infrastructure",
+        "hypothesis": "Because the scaled BC family transfers L2 behavior reliably, the next diagnostic should test whether the deployed L3 actor depends on recurrent command-response history.",
+        "command": "see experiments/manifests/m581-bc-recurrent-ablation-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit BC family generalization evidence and choose recurrent-dependence gates"
+        "notes": "Pending: design recurrent-dependence ablation benchmarks; no evaluation or promotion"
     },
-    "updated_at_utc": "20260524T083000Z"
+    "updated_at_utc": "20260524T084000Z"
 }
