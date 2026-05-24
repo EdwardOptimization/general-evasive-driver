@@ -62,18 +62,25 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m755-v4-sequence-outcome-corpus-export-implementation
+m756-v4-sequence-outcome-corpus-export-audit
 ```
 
-M755 should implement the sentinel-filtered v4-aware sequence-outcome corpus
-export designed by M754. The implementation must preserve M752 positives,
-matched normal rows, hard-negative rows, v4 source metadata, and
-`current_model_or_proxy` claim-boundary fields before any objective design.
-Actor updates, PPO, promotion, and true four-wheel/single-wheel fault claims
-remain blocked.
+M756 should audit M755's v4 sequence-outcome corpus export before any objective
+design. M755 preserved `1213` clean positives with matched normals and complete
+v4 metadata, but hard negatives are sparse (`1009 < 1213`), so objective
+training, PPO, promotion, and true four-wheel/single-wheel fault claims remain
+blocked pending audit.
 
 ## Recent Evidence Line
 
+- M755 implements the deterministic v4-aware sequence-outcome corpus exporter
+  and runs the registered export. It writes `1213` clean positive rows, `1213`
+  matched normal rows, `1009` hard-negative action-only rows, and balance
+  artifacts. Positive corpus gates pass with `0` sentinel positives, `0`
+  missing normals, `0` missing metadata rows, `27` seeds, `17` fault-family
+  pairs, max seed dominance `0.171476`, and
+  `claim_boundary_level=current_model_or_proxy`. Hard-negative contrast remains
+  sparse, so objective work remains blocked pending M756 audit.
 - M754 designs a v4-aware deterministic corpus export for M752's non-sentinel
   outcome positives. Precheck values are `1213` positives, `0` positive
   sentinels, `27` positive seeds, `17` fault-family pairs, max seed dominance

@@ -1,0 +1,94 @@
+{
+  "decision_reason": "M755 exports 1213 clean v4 sequence-outcome positives with matched normals preserved v4 metadata and 1009 sparse hard negatives so objective work remains blocked pending audit",
+  "failure_criteria": [
+    "sentinel rows enter positive corpus",
+    "action-only rows enter positive corpus",
+    "normal matches are missing",
+    "v4 source metadata is dropped",
+    "fault fidelity or claim-boundary metadata is missing",
+    "source balance falls below registered gates",
+    "implementation starts optimizer training PPO checkpoint loading or promotion"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not export sentinel rows as positives",
+    "do not export action-only rows as positives",
+    "do not drop v4 source metadata",
+    "do not omit current-model versus proxy claim-boundary fields",
+    "do not instantiate actor training or PPO",
+    "do not load or promote a checkpoint",
+    "do not change actor input contract"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T234438Z",
+  "hypothesis": "M752's non-sentinel v4 sequence-outcome rows can be exported as a compact corpus with matched normal rows, separated hard negatives, and preserved v4 metadata.",
+  "lineage": {
+    "blocked_by": [
+      "m754-v4-sequence-outcome-corpus-export-design"
+    ],
+    "derived_from": [
+      "m754-v4-sequence-outcome-corpus-export-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint_used"
+    ],
+    "parent_config": [
+      "experiments/manifests/m754-v4-sequence-outcome-corpus-export-design.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m754-v4-sequence-outcome-corpus-export-design.md",
+      "docs/m753-v4-reset-source-sequence-intervention-audit.md",
+      "runs/m752_v4_reset_source_sequence_intervention/summary.json",
+      "runs/m752_v4_reset_source_sequence_intervention/intervention_rollouts.csv",
+      "runs/m752_v4_reset_source_sequence_intervention/sequence_critical_rows.csv",
+      "runs/m752_v4_reset_source_sequence_intervention/sentinel_rows.csv"
+    ],
+    "parent_objective": [
+      "implement deterministic sentinel-filtered v4 sequence-outcome corpus export"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m755-v4-sequence-outcome-corpus-export-implementation",
+  "next_blocker": "m756-v4-sequence-outcome-corpus-export-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "v4_sequence_outcome_corpus_hard_negative_sparse",
+  "public_gates": [
+    "M755 exports only non-sentinel sequence-outcome positives",
+    "M755 matches every positive with a normal row",
+    "M755 marks hard negatives separately from proof positives",
+    "M755 preserves v4 source pair reset margin history and claim-boundary metadata",
+    "actor training PPO checkpoint loading and promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m755_v4_sequence_outcome_corpus_export/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "v4_sequence_outcome_corpus_hard_negative_sparse",
+    "milestone": "m755-v4-sequence-outcome-corpus-export-implementation",
+    "reason": "M755 exports 1213 clean v4 sequence-outcome positives with matched normals preserved v4 metadata and 1009 sparse hard negatives so objective work remains blocked pending audit",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M755 implements deterministic v4-aware exporter and focused tests",
+    "M755 writes summary positive contrast hard-negative sentinel rejected and balance artifacts",
+    "positive_rows >= 1000",
+    "positive_sentinel_rows == 0",
+    "missing_normal_matches == 0",
+    "unique_positive_seeds >= 24",
+    "unique_positive_fault_family_pairs >= 16",
+    "max_positive_seed_dominance <= 0.20",
+    "v4 source claim-boundary and fault fidelity metadata are preserved",
+    "hard_negative_rows are marked separately from proof positives",
+    "no actor training PPO checkpoint loading or promotion occurs"
+  ],
+  "type": "infrastructure"
+}

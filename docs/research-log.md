@@ -12838,3 +12838,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M754 designs a no-training v4-aware deterministic corpus export for M752's non-sentinel outcome positives. Precheck values are `1213` positives, `0` positive sentinels, `27` positive seeds, `17` positive fault-family pairs, max seed dominance `0.171476`, `0` missing normal matches, `source_kind=v4_reset_source`, and `claim_boundary_level=current_model_or_proxy`. Hard negatives are useful but sparse: `4216` action-only rows, `1009` capped hard-negative candidates for `1213` positives, and `338` positives without same-source/same-horizon hard negatives. Objective training, PPO, checkpoint loading, and promotion remain blocked.
 - decision: `v4_sequence_outcome_corpus_export_design_admit_m755`
 - next: `m755-v4-sequence-outcome-corpus-export-implementation`
+
+## 20260525T043000Z - m755-v4-sequence-outcome-corpus-export-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m755_v4_sequence_outcome_corpus_export`
+- artifact: `docs/m755-v4-sequence-outcome-corpus-export-implementation.md`
+- result: M755 implements the deterministic v4-aware sequence-outcome corpus exporter and runs the registered export. It writes `1213` positive sequence-outcome rows, `1213` matched normal rows, `1009` capped hard-negative action-only rows, and balance artifacts. Core gates pass: `0` positive sentinel rows, `0` source-role sentinel positives, `0` duplicate positive keys, `0` missing normal matches, `0` missing v4 metadata rows, `0` missing fidelity metadata rows, `27` positive seeds, `17` fault-family pairs, max seed dominance `0.171476`, and v4 metadata gate pass. Hard-negative contrast is sparse (`1009 < 1213`) with `338` positives lacking same-source/same-horizon hard-negative candidates, so result_class is `v4_sequence_outcome_corpus_hard_negative_sparse`. No actor training, checkpoint loading, PPO, or promotion occurs.
+- decision: `v4_sequence_outcome_corpus_hard_negative_sparse_admit_audit`
+- next: `m756-v4-sequence-outcome-corpus-export-audit`

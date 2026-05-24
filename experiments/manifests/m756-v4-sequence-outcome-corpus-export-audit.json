@@ -1,0 +1,108 @@
+{
+  "id": "m756-v4-sequence-outcome-corpus-export-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint_used"
+    ],
+    "parent_dataset": [
+      "docs/m755-v4-sequence-outcome-corpus-export-implementation.md",
+      "docs/m754-v4-sequence-outcome-corpus-export-design.md",
+      "runs/m755_v4_sequence_outcome_corpus_export/summary.json",
+      "runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv",
+      "runs/m755_v4_sequence_outcome_corpus_export/hard_negative_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m755-v4-sequence-outcome-corpus-export-implementation.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit deterministic sentinel-filtered v4 sequence-outcome corpus export before objective design"
+    ],
+    "derived_from": [
+      "m755-v4-sequence-outcome-corpus-export-implementation"
+    ],
+    "blocked_by": [
+      "m755-v4-sequence-outcome-corpus-export-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m756-v4-sequence-outcome-corpus-export-audit.md",
+  "public_gates": [
+    "M756 verifies M755 positive corpus gates",
+    "M756 classifies hard-negative sparsity separately from corpus validity",
+    "M756 checks v4 metadata and claim-boundary preservation",
+    "M756 decides whether objective design is admissible",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat hard-negative sparse corpus as complete contrast data",
+    "do not treat current-model/proxy faults as true single-wheel physics",
+    "do not start actor training",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_sequence_outcome_corpus_export",
+    "evidence_axis": "G_sequence_corpus: audit v4-aware sequence-outcome corpus",
+    "evidence_increment": "turns M755 export result into a reviewed branch decision before objective work",
+    "claim_scope": "process audit only; may admit objective design but cannot claim policy improvement",
+    "stop_condition": [
+      "stop if positive corpus gates fail",
+      "stop if v4 metadata or claim-boundary fields are missing",
+      "stop if hard-negative sparsity is ignored",
+      "stop if audit admits PPO or promotion directly"
+    ],
+    "fallback_plan": [
+      "if corpus is clean but hard negatives are sparse, decide whether objective can use positives-only preference first",
+      "if metadata is missing, repair exporter before objective design",
+      "if source concentration dominates, design fresh holdout or repeat export",
+      "if claim boundary is insufficient, pivot to four-wheel/high-fidelity simulator planning"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M755 exported v4 sequence-outcome corpus",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M755 is a clean positive v4 corpus export with sparse hard negatives and can admit a constrained objective-design branch after audit.",
+  "success_criteria": [
+    "M756 reviews positive corpus gates and hard-negative sparsity",
+    "M756 records supported and falsified claims",
+    "M756 classifies residual risks and failure taxonomy",
+    "M756 chooses the next branch before objective training PPO or promotion"
+  ],
+  "failure_criteria": [
+    "audit treats sparse hard negatives as complete",
+    "audit ignores claim-boundary metadata",
+    "audit claims trained policy improvement from exported data",
+    "audit admits PPO or promotion without objective sanity gates"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m756-v4-sequence-outcome-corpus-export-audit.md from M755 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m756-v4-sequence-outcome-corpus-export-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_checkpoint_used"
+  ],
+  "baseline_artifacts": [
+    "runs/m755_v4_sequence_outcome_corpus_export/summary.json",
+    "docs/m755-v4-sequence-outcome-corpus-export-implementation.md"
+  ],
+  "decision_rule": "M756 may only audit M755 and choose the next branch. It must not run objective training PPO actor updates or checkpoint promotion.",
+  "next_blocker": "m757-v4-sequence-objective-design"
+}
