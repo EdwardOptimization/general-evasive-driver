@@ -93,7 +93,7 @@
   "commands": [
     {
       "name": "mine",
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.trajectory_terminal_boundary_source_miner --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --surface-config fresh=configs/ppo_m541_matched_l3_variance_4096.json --surface-config ood=configs/eval_m574_moderate_ood_l3.json --max-scenarios 256 --max-boundary-margin 0.15 --min-margin-sensitivity 0.02 --min-risk-sensitivity 0.02 --max-continuation-steps 40 --device cpu --run-dir runs/m695_trajectory_terminal_boundary_source_miner"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.trajectory_terminal_boundary_source_miner --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --source-rows runs/m692_gate_margin_closed_loop_replay/replay_rows.csv --surface-config fresh=configs/ppo_m541_matched_l3_variance_4096.json --surface-config ood=configs/eval_m574_moderate_ood_l3.json --max-scenarios 256 --max-boundary-margin 0.15 --min-margin-sensitivity 0.02 --min-risk-sensitivity 0.02 --max-continuation-steps 40 --device cpu --run-dir runs/m695_trajectory_terminal_boundary_source_miner"
     }
   ],
   "required_artifacts": [

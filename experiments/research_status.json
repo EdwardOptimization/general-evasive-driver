@@ -1,27 +1,30 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 703,
+        "completed": 704,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m694-trajectory-terminal-boundary-source-mining-design",
+        "task_id": "m695-trajectory-terminal-boundary-source-miner-implementation",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m694-trajectory-terminal-boundary-source-mining-design.md"
+        "command_log": "docs/m695-trajectory-terminal-boundary-source-miner-implementation.md",
+        "run_dir": "runs/m695_trajectory_terminal_boundary_source_miner",
+        "result_class": "surface_empty",
+        "accepted_rows": 0
     },
     "next_task": {
-        "id": "m695-trajectory-terminal-boundary-source-miner-implementation",
+        "id": "m696-trajectory-terminal-boundary-source-miner-audit",
         "status": "pending",
-        "priority": 6900,
-        "kind": "infrastructure",
-        "hypothesis": "Closed-loop perturbation replay can identify terminal-margin-sensitive rows that are not already normal-failed and are diverse enough to support a later objective.",
-        "command": "see experiments/manifests/m695-trajectory-terminal-boundary-source-miner-implementation.json",
+        "priority": 6910,
+        "kind": "gate",
+        "hypothesis": "M695 surface_empty should be treated as old-source sampling failure, not proof that terminal-boundary mining is infeasible; the branch should continue only with broadened scenario sampling.",
+        "command": "see experiments/manifests/m696-trajectory-terminal-boundary-source-miner-audit.json",
         "success_artifact": "",
-        "notes": "Pending: mine action-critical terminal-boundary rows before any objective actor update or PPO"
+        "notes": "Pending: synthesize empty-source result before broadening scenario sampling or pivoting"
     },
-    "updated_at_utc": "20260524T163056Z"
+    "updated_at_utc": "20260524T163838Z"
 }

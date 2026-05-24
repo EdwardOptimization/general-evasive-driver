@@ -1,0 +1,117 @@
+{
+  "id": "m696-trajectory-terminal-boundary-source-miner-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m695_trajectory_terminal_boundary_source_miner/summary.json",
+      "runs/m695_trajectory_terminal_boundary_source_miner/candidate_rows.csv",
+      "runs/m695_trajectory_terminal_boundary_source_miner/rejected_rows.csv",
+      "docs/m695-trajectory-terminal-boundary-source-miner-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m695-trajectory-terminal-boundary-source-miner-implementation.json"
+    ],
+    "parent_objective": [
+      "audit empty trajectory-terminal boundary source result"
+    ],
+    "derived_from": [
+      "m695-trajectory-terminal-boundary-source-miner-implementation"
+    ],
+    "blocked_by": [
+      "m695-trajectory-terminal-boundary-source-miner-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m696-trajectory-terminal-boundary-source-miner-audit.md",
+  "public_gates": [
+    "M695 implementation cleanliness is checked",
+    "surface_empty result is separated from implementation pass",
+    "normal-failed rejection and low sensitivity are quantified",
+    "objective design actor update PPO and promotion remain blocked",
+    "trajectory_terminal_boundary_source_mining branch receives a synthesis decision"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun mining with looser thresholds and call it positive without a new manifest",
+    "do not design objective from accepted_rows=0",
+    "do not run actor update",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "trajectory_terminal_boundary_source_mining",
+    "evidence_axis": "G_synthesis: decide whether surface_empty came from old-source sampling or branch infeasibility",
+    "evidence_increment": "synthesizes the first source-miner result and chooses whether to broaden scenario sampling before another miner",
+    "claim_scope": "process synthesis and next sampling decision only, not driver performance or objective design",
+    "stop_condition": [
+      "stop objective design because M695 accepted_rows is zero",
+      "stop using M692 replay rows as the only source surface",
+      "stop before PPO or actor update until fresh trajectory-sensitive rows exist"
+    ],
+    "fallback_plan": [
+      "continue branch with broadened scenario sampling if M695 failed because M692 source rows were stale or insensitive",
+      "pivot to base driver capability improvement if broadened sampling is also normal-failed-only",
+      "pivot to broad scenario evaluation if wrong-history sensitivity remains absent after fresh boundary mining"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M695 result_class=surface_empty",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m696-trajectory-terminal-boundary-source-miner-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "M695 surface_empty should be treated as old-source sampling failure, not proof that terminal-boundary mining is infeasible; the branch should continue only with broadened scenario sampling.",
+  "success_criteria": [
+    "M695 summary metrics are recorded",
+    "surface_empty result is classified",
+    "supported and falsified claims are recorded",
+    "public gate overfit risk is recorded",
+    "next branch decision is explicit",
+    "objective design actor update PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "audit treats accepted_rows=0 as source_positive",
+    "audit admits objective design without fresh source rows",
+    "audit omits synthesis questions",
+    "audit fails to classify scenario_sampling_failure",
+    "audit changes actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m696-trajectory-terminal-boundary-source-miner-audit.md from M695 artifacts; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m696-trajectory-terminal-boundary-source-miner-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m695_trajectory_terminal_boundary_source_miner/summary.json",
+    "docs/m695-trajectory-terminal-boundary-source-miner-implementation.md"
+  ],
+  "decision_rule": "M696 must block objective design and either continue with broadened scenario sampling or pivot away from source mining.",
+  "next_blocker": "m696-trajectory-terminal-boundary-source-miner-audit"
+}
