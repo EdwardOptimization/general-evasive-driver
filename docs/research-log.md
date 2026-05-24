@@ -12052,3 +12052,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M658 implements and runs the frozen feature-view comparison probe over fused, next_hidden, and fused_plus_next_hidden views with seeds `6570`, `6571`, and `6572`. The result is negative: `diagnostic_passed=false` and no view passes. Normal validation retention remains good for all views (`0.000483-0.000491` mean by view), and next_hidden increases wrong-history prediction L2 by about `3.71x` over same-run fused on average, but absolute wrong-history L2 is only `0.001732`, below the `0.005` threshold, and wrong validation gap MSE remains negative on average. Actor checksum is unchanged, PPO is unused, and no actor checkpoint is written.
 - decision: `wrong_history_fusion_boundary_probe_negative_admit_audit`
 - next: `m659-wrong-history-fusion-boundary-probe-audit`
+## 20260524T221500Z - m659-wrong-history-fusion-boundary-probe-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m659-wrong-history-fusion-boundary-probe-audit.md`
+- result: M659 audits M658 as `partial_relative_signal_but_absolute_wrong_history_gap_negative`. The audit preserves the nuance that next_hidden improves wrong-history L2 by about `3.71x` over fused, but rejects treating that as success because absolute L2 remains only `0.001732`, gap MSE remains negative on average, and source-heldout source 32 remains weak. Actor coupling, PPO, promotion, and further fused-only contrast tuning remain blocked. The next branch is an action-divergent wrong-history corpus design with explicit rejected-history target/action fields.
+- decision: `wrong_history_fusion_boundary_probe_audit_admit_action_divergent_corpus_design`
+- next: `m660-action-divergent-wrong-history-corpus-design`

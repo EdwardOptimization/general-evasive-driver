@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 667,
+        "completed": 668,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m658-wrong-history-fusion-boundary-probe-implementation",
+        "task_id": "m659-wrong-history-fusion-boundary-probe-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m658_wrong_history_fusion_boundary_probe",
-        "command_log": "docs/m658-wrong-history-fusion-boundary-probe-implementation.md"
+        "run_dir": "",
+        "command_log": "docs/m659-wrong-history-fusion-boundary-probe-audit.md"
     },
     "next_task": {
-        "id": "m659-wrong-history-fusion-boundary-probe-audit",
+        "id": "m660-action-divergent-wrong-history-corpus-design",
         "status": "pending",
-        "priority": 6540,
-        "kind": "gate",
-        "hypothesis": "M658 shows next_hidden carries more wrong-history signal than fused features, but the current corpus/objective is still too weak to create a strong source-heldout rejected-history branch.",
-        "command": "see experiments/manifests/m659-wrong-history-fusion-boundary-probe-audit.json",
+        "priority": 6550,
+        "kind": "infrastructure",
+        "hypothesis": "The current wrong-history supervision is too weak because rows are hidden-different but not action-divergent enough; a refreshed corpus with explicit rejected-history action targets is needed before further objectives.",
+        "command": "see experiments/manifests/m660-action-divergent-wrong-history-corpus-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit negative M658 feature-view probe; no actor update PPO promotion"
+        "notes": "Pending: design action-divergent wrong-history corpus; no actor update PPO promotion"
     },
-    "updated_at_utc": "20260524T220000Z"
+    "updated_at_utc": "20260524T221500Z"
 }

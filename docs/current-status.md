@@ -62,16 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m659-wrong-history-fusion-boundary-probe-audit
+m660-action-divergent-wrong-history-corpus-design
 ```
 
-M659 should audit the negative M658 feature-view probe. It must separate the
-relative next-hidden improvement from the absolute wrong-history gap failure and
-choose whether to mine stronger action-divergent wrong-history rows or redesign
-the rejected-history objective.
+M660 should design a stronger action-divergent wrong-history corpus. It must
+require first-action and short-horizon trajectory divergence, explicit
+rejected-history targets, source-diverse splits, and no actor/PPO updates.
 
 ## Recent Evidence Line
 
+- M659 audits M658 as
+  `partial_relative_signal_but_absolute_wrong_history_gap_negative`.
+  `next_hidden` carries more wrong-history signal than fused features, but not
+  enough: wrong-history L2 remains below threshold and mean gap MSE is negative.
+  The next blocker is corpus/target design, not actor coupling or more fused
+  contrast tuning.
 - M658 implements the frozen feature-view comparison probe. It is negative:
   `diagnostic_passed=false`, with no passed views. `next_hidden` improves
   wrong-history prediction L2 by about `3.71x` over fused on average, but only

@@ -1,0 +1,87 @@
+{
+  "id": "m660-action-divergent-wrong-history-corpus-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m658_wrong_history_fusion_boundary_probe/summary.json",
+      "runs/m586_bc5660_matched_current_fresh_seed25560/matched_pairs.csv",
+      "runs/m586_bc5660_matched_current_ood_seed25660/matched_pairs.csv",
+      "docs/m659-wrong-history-fusion-boundary-probe-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m659-wrong-history-fusion-boundary-probe-audit.json"
+    ],
+    "parent_objective": [
+      "design action-divergent wrong-history corpus after M658 weak-view result"
+    ],
+    "derived_from": [
+      "m659-wrong-history-fusion-boundary-probe-audit"
+    ],
+    "blocked_by": [
+      "m659-wrong-history-fusion-boundary-probe-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m660-action-divergent-wrong-history-corpus-design.md",
+  "public_gates": [
+    "design source-diverse action-divergent wrong-history corpus",
+    "require first-action and short-horizon trajectory divergence",
+    "include explicit normal target and rejected-history target/action fields",
+    "define source-heldout split and source dominance limits",
+    "keep actor coupling PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not update actor parameters",
+    "do not promote checkpoint",
+    "do not use metadata as actor input",
+    "do not reuse M641 wrong-history rows without action-divergence filtering"
+  ],
+  "hypothesis": "The current wrong-history supervision is too weak because rows are hidden-different but not action-divergent enough; a refreshed corpus with explicit rejected-history action targets is needed before further objectives.",
+  "success_criteria": [
+    "design defines candidate inputs and selection thresholds",
+    "design defines first-action and short-horizon divergence metrics",
+    "design defines explicit rejected-history target fields",
+    "design defines source-diversity and heldout split rules",
+    "design keeps actor coupling and PPO blocked",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design admits actor training",
+    "design omits rejected-history target/action fields",
+    "design omits source-heldout evaluation",
+    "design only repeats M641 hidden-difference selection"
+  ],
+  "commands": [
+    {
+      "name": "design_doc",
+      "command": "write docs/m660-action-divergent-wrong-history-corpus-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m660-action-divergent-wrong-history-corpus-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m658_wrong_history_fusion_boundary_probe/summary.json",
+    "docs/m659-wrong-history-fusion-boundary-probe-audit.md"
+  ],
+  "decision_rule": "M660 passes as design only if it pre-registers a stronger wrong-history corpus with action-divergent and short-horizon divergence requirements before any new training objective.",
+  "next_blocker": "m661-action-divergent-wrong-history-corpus-implementation"
+}
