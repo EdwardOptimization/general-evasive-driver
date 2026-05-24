@@ -10918,3 +10918,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M532 runs all three matched short-train configs on seed `3530`. L0 eval return/termination is `15.8773`/`1.0`, L2 is `15.2473`/`1.0`, and L3 is `43.4736`/`0.6`. All runs record matching `history_baseline` metadata and the P0 actor contract. L3 looks better on this one seed, but the result is classified as route/artifact evidence only, not a stable baseline ranking.
 - decision: `matched_short_train_single_seed_pass_admit_m533_repeat_seed`
 - next: `m533-matched-short-train-repeat-seeds`
+## 20260524T060000Z - m533-matched-short-train-repeat-seeds
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m533_matched_l0_short_train_seed3531`, `runs/m533_matched_l2_short_train_seed3531`, `runs/m533_matched_l3_short_train_seed3531`, `runs/m533_matched_l0_short_train_seed3532`, `runs/m533_matched_l2_short_train_seed3532`, `runs/m533_matched_l3_short_train_seed3532`
+- artifact: `docs/m533-matched-short-train-repeat-seeds.md`
+- result: M533 repeats the frozen M531 configs on seeds `3531` and `3532` and aggregates them with M532 seed `3530`. All nine runs complete and write valid `history_baseline` metadata. Three-seed average return/termination is L0 `27.3016`/`0.8667`, L2 `39.9082`/`0.6667`, and L3 `45.7765`/`0.6`. L3 has the best aggregate, but L2 wins seed `3531`, so this remains preliminary route evidence rather than a final ranking.
+- decision: `matched_short_train_repeat_pass_admit_m534_natural_surface_eval_design`
+- next: `m534-matched-history-natural-surface-eval-design`

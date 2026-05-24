@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 541,
+        "completed": 542,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m532-matched-short-train-single-seed",
+        "task_id": "m533-matched-short-train-repeat-seeds",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m532_matched_l3_short_train_seed3530",
-        "command_log": "docs/m532-matched-short-train-single-seed.md"
+        "run_dir": "runs/m533_matched_l3_short_train_seed3532",
+        "command_log": "docs/m533-matched-short-train-repeat-seeds.md"
     },
     "next_task": {
-        "id": "m533-matched-short-train-repeat-seeds",
+        "id": "m534-matched-history-natural-surface-eval-design",
         "status": "pending",
-        "priority": 5280,
-        "kind": "gate",
-        "hypothesis": "The frozen matched L0, L2, and L3 short-train configs remain executable across fresh seeds and preserve comparable metadata, giving enough evidence to move to natural history-value surface evaluation.",
-        "command": "see experiments/manifests/m533-matched-short-train-repeat-seeds.json",
+        "priority": 5290,
+        "kind": "infrastructure",
+        "hypothesis": "A natural-surface evaluation can be designed for the matched short-train checkpoints so the project measures whether trained L2/L3 policies preserve the M524/M526 history-value event advantage rather than only improving smoke returns.",
+        "command": "see experiments/manifests/m534-matched-history-natural-surface-eval-design.json",
         "success_artifact": "",
-        "notes": "Pending: run frozen M531 configs on seeds 3531 and 3532 and summarize metadata/results without promotion"
+        "notes": "Pending: define public diagnostic natural-surface eval mapping and metrics before execution"
     },
-    "updated_at_utc": "20260524T055000Z"
+    "updated_at_utc": "20260524T060000Z"
 }

@@ -61,13 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m533-matched-short-train-repeat-seeds
+m534-matched-history-natural-surface-eval-design
 ```
 
-M533 should repeat the frozen M531 L0/L2/L3 short-train configs on fresh seeds
-`3531` and `3532`, verify metadata for every run, and summarize aggregate route
-metrics without tuning configs, promoting checkpoints, or making paper-level
-claims.
+M534 should design the natural history-value surface evaluation for the matched
+short-train checkpoints. It must keep M524/M526 rows as public diagnostics,
+preserve projected-vs-natural provenance, and avoid checkpoint promotion or
+unbiased-holdout claims.
 
 ## Recent Evidence Line
 
@@ -99,6 +99,11 @@ claims.
   in all eval episodes, while L3 had lower termination rate (`0.6`) and higher
   return on this one seed. This is route/artifact evidence only; repeat seeds
   and natural history-value surface evals are still required.
+- M533 repeated the frozen configs on seeds `3531` and `3532`. Across seeds
+  `3530`-`3532`, L3 has the best average return/termination (`45.7765`/`0.6`),
+  L2 is second (`39.9082`/`0.6667`), and L0 is third (`27.3016`/`0.8667`).
+  This is preliminary route evidence only; natural history-value surface eval is
+  the next evidence layer.
 
 ## Near-Term Rule
 

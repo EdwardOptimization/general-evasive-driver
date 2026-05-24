@@ -1,0 +1,91 @@
+{
+  "id": "m534-matched-history-natural-surface-eval-design",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m532_matched_l0_short_train_seed3530/checkpoint.pt",
+      "runs/m532_matched_l2_short_train_seed3530/checkpoint.pt",
+      "runs/m532_matched_l3_short_train_seed3530/checkpoint.pt",
+      "runs/m533_matched_l0_short_train_seed3531/checkpoint.pt",
+      "runs/m533_matched_l2_short_train_seed3531/checkpoint.pt",
+      "runs/m533_matched_l3_short_train_seed3531/checkpoint.pt",
+      "runs/m533_matched_l0_short_train_seed3532/checkpoint.pt",
+      "runs/m533_matched_l2_short_train_seed3532/checkpoint.pt",
+      "runs/m533_matched_l3_short_train_seed3532/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m526_history_value_event_audit/summary.json",
+      "runs/m524_natural_history_value_ablation/summary.json"
+    ],
+    "parent_config": [
+      "configs/ppo_m531_matched_l0_short_train.json",
+      "configs/ppo_m531_matched_l2_short_train.json",
+      "configs/ppo_m531_matched_l3_short_train.json"
+    ],
+    "parent_objective": [
+      "matched baseline natural history-value surface evaluation"
+    ],
+    "derived_from": [
+      "m533-matched-short-train-repeat-seeds",
+      "m526-history-value-event-audit"
+    ],
+    "blocked_by": [
+      "m533-matched-short-train-repeat-seeds"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m534-matched-history-natural-surface-eval-design.md",
+  "public_gates": [
+    "design natural history-value surface eval for trained L0/L2/L3 checkpoints",
+    "keep M526 natural event rows as public diagnostic surfaces",
+    "preserve projected-vs-natural provenance",
+    "do not promote a checkpoint from route metrics alone"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not tune checkpoint choice on the same natural diagnostic rows and call it unbiased",
+    "do not mix projected and natural rows in one claim",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs"
+  ],
+  "hypothesis": "A natural-surface evaluation can be designed for the matched short-train checkpoints so the project measures whether trained L2/L3 policies preserve the M524/M526 history-value event advantage rather than only improving smoke returns.",
+  "success_criteria": [
+    "define which natural surfaces and metrics to evaluate",
+    "define how to map trained L0/L2/L3 checkpoints into the evaluation harness",
+    "define public diagnostic versus future holdout usage",
+    "select the next executable natural-surface eval milestone"
+  ],
+  "failure_criteria": [
+    "design uses projected rows as natural evidence",
+    "design tunes checkpoint selection from diagnostic rows before declaring evidence",
+    "design omits metadata checks",
+    "checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "natural_surface_eval_design",
+      "command": "Design the matched L0/L2/L3 natural history-value surface evaluation after M533 repeat-seed route success."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m534-matched-history-natural-surface-eval-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m533-matched-short-train-repeat-seeds.md",
+    "runs/m526_history_value_event_audit/summary.json"
+  ],
+  "decision_rule": "M534 is a design gate. It should not run the natural-surface evaluation until the trained-checkpoint mapping and evidence boundaries are explicit.",
+  "next_blocker": "pending M534 matched history natural surface eval design"
+}
