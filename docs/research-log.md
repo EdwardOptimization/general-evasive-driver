@@ -11854,3 +11854,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M636 implements and runs the combined source7-preserving projected search. It evaluates `7884` candidates and accepts `1424`, with accepted candidates for all four focused sources: source `8` has `664`, source `30` has `430`, source `0` has `196`, and source `7` has `134`. Trust limits remain preserved, accepted targets include both `future_braking_deceleration` and `future_yaw_response`, and no training, PPO, promotion, optimizer admission, threshold change, or trust-region relaxation occurs. This is the strongest positive diagnostic in the sequence-target branch, but M637 must audit whether four focused sources are sufficient for target-corpus design.
 - decision: `combined_source7_preserving_shape_implementation_pass_admit_audit`
 - next: `m637-combined-source7-preserving-shape-audit`
+## 20260524T181000Z - m637-combined-source7-preserving-shape-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m637-combined-source7-preserving-shape-audit.md`
+- result: M637 audits M636 as strong positive but not target-corpus ready. M636 proves the combined projected-shape method can recover all four focused sources under unchanged trust limits, but source-level breadth is still only `4` source rows, `4` physical pairs, and `3` left seeds. Candidate count `1424` is not source diversity. Training, PPO, promotion, and optimizer admission remain blocked. M638 should design a broader no-training source-diversity expansion over trust-primary near-miss rows before any target-corpus or actor-update design.
+- decision: `combined_source7_preserving_shape_audit_admit_source_diversity_expansion`
+- next: `m638-combined-shape-source-diversity-expansion-design`

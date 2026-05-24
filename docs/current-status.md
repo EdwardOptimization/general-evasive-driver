@@ -62,17 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m637-combined-source7-preserving-shape-audit
+m638-combined-shape-source-diversity-expansion-design
 ```
 
-M637 should audit M636 before any optimizer-corpus or source-expansion decision.
-M636 is a strong positive diagnostic: all four focused sources `8`, `0`, `7`,
-and `30` have accepted projected candidates under unchanged trust limits. The
-open question is whether four focused sources are enough to design a target
-corpus, or whether source-diversity expansion must come first.
+M638 should design a broader no-training source-diversity expansion for the
+combined projected shape method. M637 classifies M636 as strong positive but
+still source-narrow: all four focused sources pass, but four source rows are not
+enough for target-corpus admission or actor training.
 
 ## Recent Evidence Line
 
+- M637 audits M636 as strong positive but not source-diverse enough for target
+  corpus admission. M636 proves projection plus local shape design can recover
+  four focused sources, but accepted candidates still come from only `4` source
+  rows, `4` physical pairs, and `3` left seeds. M638 should expand the source
+  set before any optimizer or actor-update design.
 - M636 implements and runs the two-grid combined projected search. It evaluates
   `7884` candidates, accepts `1424`, preserves trust limits, and produces
   accepted candidates for all four focused sources: source `8` `664`, source

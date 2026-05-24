@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 645,
+        "completed": 646,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m636-combined-source7-preserving-shape-implementation",
+        "task_id": "m637-combined-source7-preserving-shape-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m636_combined_source7_preserving_shape",
-        "command_log": "docs/m636-combined-source7-preserving-shape-implementation.md"
+        "run_dir": "",
+        "command_log": "docs/m637-combined-source7-preserving-shape-audit.md"
     },
     "next_task": {
-        "id": "m637-combined-source7-preserving-shape-audit",
+        "id": "m638-combined-shape-source-diversity-expansion-design",
         "status": "pending",
-        "priority": 6320,
-        "kind": "gate",
-        "hypothesis": "M636 is a strong positive diagnostic with all four focused sources accepted, but source-diversity may still be below optimizer-corpus admission.",
-        "command": "see experiments/manifests/m637-combined-source7-preserving-shape-audit.json",
+        "priority": 6330,
+        "kind": "infrastructure",
+        "hypothesis": "The combined projected shape method should be tested on a broader trust-primary near-miss source set before any target-corpus or actor-update design.",
+        "command": "see experiments/manifests/m638-combined-shape-source-diversity-expansion-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit M636 source breadth and choose optimizer-corpus design or further source expansion; no training PPO promotion threshold changes"
+        "notes": "Pending: design source-diversity expansion and gates; no training PPO promotion threshold changes or optimizer-corpus admission"
     },
-    "updated_at_utc": "20260524T180000Z"
+    "updated_at_utc": "20260524T181000Z"
 }

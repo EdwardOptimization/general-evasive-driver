@@ -87,5 +87,5 @@
     "docs/m636-combined-source7-preserving-shape-implementation.md"
   ],
   "decision_rule": "M637 passes if it audits M636 and chooses optimizer-corpus design or source-diversity expansion without starting training.",
-  "next_blocker": "m638-sequence-target-corpus-admission-design"
+  "next_blocker": "m638-combined-shape-source-diversity-expansion-design"
 }
