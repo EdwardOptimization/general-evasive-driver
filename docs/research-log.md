@@ -12500,3 +12500,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M718 designs the next no-training branch: delayed, stale, and action-response-mismatched hidden-state interventions. The design uses three source pools: M716 reset-only rows, M713 low-alpha actor-head rows, and M716 rejected sentinels. It requires M719 to rerun scenarios in memory rather than reconstruct hidden tensors from CSV, evaluate normal/reset/cross-fault/delayed/pre-fault-stale/severity-stale/action-response-mismatch variants, and keep reset-only evidence separate from temporal mismatch action/outcome-critical rows.
 - decision: `temporal_action_response_mismatch_design_admit_m719`
 - next: `m719-temporal-action-response-mismatch-implementation`
+
+## 20260524T213500Z - m719-temporal-action-response-mismatch-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m719_temporal_action_response_mismatch`
+- artifact: `docs/m719-temporal-action-response-mismatch-implementation.md`
+- result: M719 implements and runs the no-training temporal command-response mismatch runner. It evaluates `42994` rollout rows over `4096` matched pairs. Result is `temporal_action_only`: `3114` temporal action-critical rows but `0` temporal outcome-critical rows. The dominant signal is `mismatch_zero_command_history` with `3064` action-critical rows, action distance mean `0.021019`, and action distance max `0.036131`; reset hidden has `3140` action-critical rows. Cross-fault wrong hidden remains action-washed-out with `0` action-critical rows. Actor checksum unchanged; no training, PPO, or promotion occurred.
+- decision: `temporal_action_only_not_source_positive`
+- next: `m720-temporal-action-only-audit`

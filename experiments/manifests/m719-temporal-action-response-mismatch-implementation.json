@@ -4,7 +4,7 @@
   "gate_tier": "infrastructure",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "metric_artifact"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -37,7 +37,7 @@
     "runner writes normal reset cross-fault delayed stale and action-response-mismatch variant rollouts",
     "summary separates reset-only rows from temporal mismatch action/outcome-critical rows",
     "normal-history retention is reported",
-    "result class is one of temporal_mismatch_positive temporal_reset_only temporal_neutral temporal_artifact",
+    "result class is one of temporal_mismatch_positive temporal_action_only temporal_reset_only temporal_neutral temporal_artifact",
     "no actor update PPO or promotion occurs"
   ],
   "private_holdout_policy": "not_used",
@@ -61,6 +61,7 @@
     ],
     "fallback_plan": [
       "if temporal_mismatch_positive, design source export and exact proof/generalization gates",
+      "if temporal_action_only, audit whether action-level temporal signal needs sharper outcome-critical scenarios or actor-head objective design",
       "if temporal_reset_only, audit whether M713 actor-head objective should be next",
       "if temporal_neutral, pivot to dynamics fidelity design or active probing",
       "if temporal_artifact, repair the intervention construction before using results"
@@ -109,5 +110,5 @@
     "configs/extreme_fault_coverage_v2_scenarios.json"
   ],
   "decision_rule": "M719 may admit source export only if temporal mismatch rows pass action/outcome and source-diversity gates. It must not admit actor update, PPO, or promotion directly.",
-  "next_blocker": "m720-to-be-selected-by-m719"
+  "next_blocker": "m720-temporal-action-only-audit"
 }

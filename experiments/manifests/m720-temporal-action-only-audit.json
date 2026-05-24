@@ -1,0 +1,109 @@
+{
+  "id": "m720-temporal-action-only-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m719_temporal_action_response_mismatch/summary.json",
+      "runs/m719_temporal_action_response_mismatch/intervention_rollouts.csv",
+      "runs/m719_temporal_action_response_mismatch/temporal_critical_rows.csv",
+      "docs/m719-temporal-action-response-mismatch-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m719-temporal-action-response-mismatch-implementation.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit temporal_action_only before source export objective design actor update PPO or promotion"
+    ],
+    "derived_from": [
+      "m719-temporal-action-response-mismatch-implementation"
+    ],
+    "blocked_by": [
+      "m719-temporal-action-response-mismatch-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m720-temporal-action-only-audit.md",
+  "public_gates": [
+    "M719 action-level temporal signal is summarized separately from outcome evidence",
+    "mismatch_zero_command_history dominance is analyzed",
+    "source export PPO and promotion remain blocked because temporal_outcome_critical_rows is zero",
+    "next branch decision compares outcome-critical scenario sharpening and actor-head objective design",
+    "actor input contract remains unchanged"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not claim temporal_action_only is closed-loop self-ID proof",
+    "do not export temporal action rows as source-positive outcome rows",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels or oracle values to actor observations"
+  ],
+  "workflow_synthesis": {
+    "branch": "temporal_action_response_mismatch",
+    "evidence_axis": "G_synthesis: audit temporal action-only result and choose next branch",
+    "evidence_increment": "synthesizes M719 action-only temporal mismatch evidence and decides whether to pursue outcome-critical scenarios or objective design",
+    "claim_scope": "process synthesis only; no checkpoint promotion or deployed self-ID claim",
+    "stop_condition": [
+      "stop source export because outcome-critical rows are zero",
+      "stop PPO because no proof-retaining temporal objective has been designed",
+      "stop treating reset or action-only rows as closed-loop self-ID evidence"
+    ],
+    "fallback_plan": [
+      "if action-only signal is useful, design action-to-outcome boundary mining around zero-command-history mismatch",
+      "if outcome mining looks low leverage, return to actor-head residual objective design",
+      "if temporal rows are too synthetic, keep them as diagnostics and pivot to model fidelity",
+      "if branch is overfitting public rows, require fresh held-out temporal scenario sampling"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M719 result_class=temporal_action_only",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M719 action-only temporal mismatch evidence is real but insufficient for closed-loop self-ID; M720 must choose the next evidence axis before training.",
+  "success_criteria": [
+    "M719 metrics are recorded",
+    "supported and falsified claims are recorded",
+    "failure taxonomy is assigned",
+    "public gate overfit risk is recorded",
+    "next branch decision is explicit",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "audit treats action-only rows as outcome-positive self-ID proof",
+    "audit ignores mismatch_zero_command_history dominance",
+    "audit admits source export PPO or promotion",
+    "audit omits synthesis questions",
+    "audit changes actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m720-temporal-action-only-audit.md from M719 artifacts; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m720-temporal-action-only-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m719_temporal_action_response_mismatch/summary.json",
+    "docs/m719-temporal-action-response-mismatch-implementation.md"
+  ],
+  "decision_rule": "M720 must decide whether to sharpen outcome-critical temporal scenarios, return to actor-head objective design, or pivot to dynamics fidelity. It must not admit PPO or promotion directly.",
+  "next_blocker": "m721-to-be-selected-by-m720"
+}
