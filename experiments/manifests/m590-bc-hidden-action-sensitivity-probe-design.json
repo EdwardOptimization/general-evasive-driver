@@ -2,7 +2,7 @@
   "id": "m590-bc-hidden-action-sensitivity-probe-design",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -85,6 +85,6 @@
     "docs/m588-bc5660-history-action-screen-negative-audit.md",
     "docs/m587-bc5660-history-intervention-action-screen.md"
   ],
-  "decision_rule": "M590 passes if it pre-registers a no-oracle hidden-action sensitivity probe that distinguishes hidden-path ignorance, hidden-state collapse, weak matched-current surfaces, and current-frame dominance before implementation.",
+  "decision_rule": "M590 passes because it pre-registers a no-oracle hidden-action sensitivity probe that distinguishes hidden-path ignorance, hidden-state collapse, weak matched-current surfaces, and current-frame dominance before implementation.",
   "next_blocker": "m591-bc-hidden-action-sensitivity-probe"
 }

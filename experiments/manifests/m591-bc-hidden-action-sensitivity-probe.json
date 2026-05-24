@@ -1,0 +1,100 @@
+{
+  "id": "m591-bc-hidden-action-sensitivity-probe",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m568_scaled_l3_bc_seed5661/checkpoint.pt",
+      "runs/m568_scaled_l3_bc_seed5662/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m586_bc5660_matched_current_fresh_seed25560/matched_pairs.csv",
+      "runs/m586_bc5660_matched_current_ood_seed25660/matched_pairs.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_objective": [
+      "measure hidden-action sensitivity after M590 design"
+    ],
+    "derived_from": [
+      "m590-bc-hidden-action-sensitivity-probe-design"
+    ],
+    "blocked_by": [
+      "m590-bc-hidden-action-sensitivity-probe-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m591-bc-hidden-action-sensitivity-probe.md",
+  "public_gates": [
+    "write fusion weight chunk summaries for BC5660 BC5661 and BC5662",
+    "run BC5660 hidden-variant probe on M586 fresh and OOD matched-current surfaces",
+    "write hidden-distance action-distance correlation summaries",
+    "classify the hidden-use bottleneck without promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train or run PPO",
+    "do not promote checkpoint",
+    "do not change actor inputs",
+    "do not treat random-hidden sensitivity as self-ID proof",
+    "do not claim BC5661 or BC5662 matched-current wrong-history evidence from BC5660-only pair surfaces"
+  ],
+  "hypothesis": "BC5660 will remain action-insensitive to real wrong/delayed rollout hidden states, but the probe will reveal whether that is due to hidden-head ignorance, action-equivalent real hidden states, or weak matched-current surfaces.",
+  "success_criteria": [
+    "probe writes summary.json weight_chunk_summary.csv action_sensitivity_rows.csv variant_summary.csv and correlation_summary.csv",
+    "all three scaled BC seeds have fusion weight chunk summaries",
+    "BC5660 fresh and OOD surfaces include normal reset delayed wrong shuffled scaled random zero-current and zero-action summaries",
+    "milestone doc applies the pre-registered M590 interpretation rules",
+    "research validation and focused tests pass"
+  ],
+  "failure_criteria": [
+    "probe cannot reconstruct M586 snapshots",
+    "probe changes actor input contract",
+    "probe reports random-hidden action movement as self-ID proof",
+    "probe promotes a checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "fresh",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.bc_hidden_action_sensitivity_probe --checkpoint-policy bc5660=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --checkpoint-policy bc5661=runs/m568_scaled_l3_bc_seed5661/checkpoint.pt --checkpoint-policy bc5662=runs/m568_scaled_l3_bc_seed5662/checkpoint.pt --env-config configs/ppo_m541_matched_l3_variance_4096.json --pairs-csv runs/m586_bc5660_matched_current_fresh_seed25560/matched_pairs.csv --surface fresh --delay-steps 2 --min-action-distance 0.02 --max-pairs-per-target 120 --device cpu --run-dir runs/m591_bc_hidden_action_sensitivity_probe_fresh"
+    },
+    {
+      "name": "ood",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.bc_hidden_action_sensitivity_probe --checkpoint-policy bc5660=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --checkpoint-policy bc5661=runs/m568_scaled_l3_bc_seed5661/checkpoint.pt --checkpoint-policy bc5662=runs/m568_scaled_l3_bc_seed5662/checkpoint.pt --env-config configs/eval_m574_moderate_ood_l3.json --pairs-csv runs/m586_bc5660_matched_current_ood_seed25660/matched_pairs.csv --surface ood --delay-steps 2 --min-action-distance 0.02 --max-pairs-per-target 120 --device cpu --run-dir runs/m591_bc_hidden_action_sensitivity_probe_ood"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m591_bc_hidden_action_sensitivity_probe_fresh/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m591_bc_hidden_action_sensitivity_probe_ood/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "docs/m591-bc-hidden-action-sensitivity-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+    "runs/m568_scaled_l3_bc_seed5661/checkpoint.pt",
+    "runs/m568_scaled_l3_bc_seed5662/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m590-bc-hidden-action-sensitivity-probe-design.md",
+    "docs/m589-bc-hidden-use-objective-audit.md",
+    "docs/m587-bc5660-history-intervention-action-screen.md"
+  ],
+  "decision_rule": "M591 passes if it produces the pre-registered hidden-action sensitivity artifacts and classifies the BC hidden-use bottleneck without training, promotion, actor-input changes, or private holdout use.",
+  "next_blocker": "m592-bc-hidden-use-repair-or-surface-refresh-design"
+}

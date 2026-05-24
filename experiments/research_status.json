@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 598,
+        "completed": 599,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m589-bc-hidden-use-objective-audit",
+        "task_id": "m590-bc-hidden-action-sensitivity-probe-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m589-bc-hidden-use-objective-audit.md"
+        "command_log": "docs/m590-bc-hidden-action-sensitivity-probe-design.md"
     },
     "next_task": {
-        "id": "m590-bc-hidden-action-sensitivity-probe-design",
+        "id": "m591-bc-hidden-action-sensitivity-probe",
         "status": "pending",
-        "priority": 5850,
-        "kind": "infrastructure",
-        "hypothesis": "A hidden-action sensitivity probe should distinguish whether BC5660 ignores hidden features, real rollout hidden states are action-equivalent, or the M586/M587 matched-current surface is too weak.",
-        "command": "see experiments/manifests/m590-bc-hidden-action-sensitivity-probe-design.json",
+        "priority": 5860,
+        "kind": "gate",
+        "hypothesis": "BC5660 will remain action-insensitive to real wrong/delayed rollout hidden states, but the probe should reveal whether that is due to hidden-head ignorance, action-equivalent real hidden states, or weak matched-current surfaces.",
+        "command": "see experiments/manifests/m591-bc-hidden-action-sensitivity-probe.json",
         "success_artifact": "",
-        "notes": "Pending: design hidden-action sensitivity probe before any implementation, repair training, PPO, or promotion"
+        "notes": "Pending: implement and run hidden-action sensitivity probe; no training, PPO, promotion, or actor-input changes"
     },
-    "updated_at_utc": "20260524T101000Z"
+    "updated_at_utc": "20260524T102000Z"
 }

@@ -11431,3 +11431,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M589 audits the scaled L3 BC objective after the negative M587 history-action screen. The actor architecture does contain a structural hidden-to-action path: response features update the online GRU, and the fused policy features include hidden, context, and hidden-times-context terms before `actor_mean`. The BC optimizer is also recurrent and resets hidden state per episode, but its loss is only one-step teacher-action MSE. The scaled corpora preserve the P0 contract by storing 72-value student frames and 3-value teacher actions without teacher stacks, but they do not provide matched-current history-contrast or capability targets. This explains why route behavior transfers while wrong/delayed recurrent history has no action signal.
 - decision: `bc_hidden_use_objective_audit_admit_sensitivity_probe`
 - next: `m590-bc-hidden-action-sensitivity-probe-design`
+## 20260524T102000Z - m590-bc-hidden-action-sensitivity-probe-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m590-bc-hidden-action-sensitivity-probe-design.md`
+- result: M590 pre-registers a no-oracle hidden-action sensitivity probe before any repair training. M591 should write fusion weight chunk summaries for BC5660/5661/5662, then run BC5660 fresh and OOD hidden variants on the M586 matched-current surfaces. Required variants include reset, delayed, wrong matched, shuffled, scaled, random hidden, plus zero-current and zero-action positive observation controls. Required summaries include hidden-distance/action-distance correlations and explicit interpretation rules separating hidden-head ignorance, action-equivalent real hidden states, weak matched-current surfaces, and current-frame dominance.
+- decision: `bc_hidden_action_sensitivity_probe_design_admit_m591_probe`
+- next: `m591-bc-hidden-action-sensitivity-probe`
