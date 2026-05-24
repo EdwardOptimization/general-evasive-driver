@@ -1,0 +1,103 @@
+{
+  "id": "m504-boundary-action-sensitive-targeted-pair-triage",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m503_natural_boundary_pressure_matched_current_summary/combined_summary.json",
+      "runs/m503_natural_boundary_pressure_matched_current_summary/combined_matched_pairs.csv"
+    ],
+    "parent_config": [
+      "configs/m502_natural_boundary_pressure_short_reveal_zero_relvel.json",
+      "configs/m502_natural_boundary_pressure_warmup_zero_relvel.json",
+      "experiments/manifests/m503-natural-boundary-pressure-matched-current-mining.json"
+    ],
+    "parent_objective": [
+      "boundary-action-sensitive targeted pair triage"
+    ],
+    "derived_from": [
+      "m503-natural-boundary-pressure-matched-current-mining"
+    ],
+    "blocked_by": [
+      "m503-natural-boundary-pressure-matched-current-mining"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m504-boundary-action-sensitive-targeted-pair-triage.md",
+  "public_gates": [
+    "select targeted rows from the M503 boundary-pressure matched-current surface",
+    "jointly require wrong-history action sensitivity and low terminal clearance slack",
+    "require source diversity before any outcome gate",
+    "do not run outcome gates, train, or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not use hidden-hold variants as deployable proof",
+    "do not repeat M496 target-z triage unchanged",
+    "do not repeat M500 action-only selection unchanged",
+    "do not admit high-margin rows to outcome gates",
+    "do not tune from private holdouts"
+  ],
+  "hypothesis": "The M503 boundary-pressure surface contains source-diverse pairs where one-shot wrong-history changes the short-horizon action trajectory and the normal branch is close enough to the terminal boundary for those differences to matter.",
+  "success_criteria": [
+    "targeted pair selection runs on the M503 combined surface",
+    "targeted_pair_count >= 240",
+    "probe_seed_count >= 6",
+    "obstacle_label_count >= 2",
+    "target_count >= 2",
+    "config_count >= 2",
+    "single_seed_share <= 0.50",
+    "single_label_share <= 0.70",
+    "single_config_share <= 0.70",
+    "rows with normal_min_clearance_margin <= 0.50 >= 40",
+    "rows with normal_min_clearance_margin <= 1.00 >= 100",
+    "targeted_trajectory_mean >= 0.12",
+    "targeted_trajectory_p90 >= 0.20",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "selected rows are action-sensitive but high-margin like M500",
+    "selected rows are near-boundary but not action-sensitive",
+    "candidate surface is source-narrow",
+    "actor contract changes",
+    "training or checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "boundary_action_sensitive_selector",
+      "command": "Run or extend natural_wrong_history_action_sensitive_selector on runs/m503_natural_boundary_pressure_matched_current_summary/combined_matched_pairs.csv with boundary-aware admission thresholds."
+    },
+    {
+      "name": "source_diversity_summary",
+      "command": "Summarize targeted rows by seed label target config offset and normal-margin buckets before admitting any outcome gate."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m504-boundary-action-sensitive-targeted-pair-triage.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m503-natural-boundary-pressure-matched-current-mining.md",
+    "runs/m503_natural_boundary_pressure_matched_current_summary/combined_summary.json",
+    "runs/m503_natural_boundary_pressure_matched_current_summary/combined_matched_pairs.csv"
+  ],
+  "decision_rule": "M504 may admit a boundary-pressure outcome gate only if targeted rows are both action-sensitive and terminal-boundary-sensitive with source diversity; otherwise redesign the selector or task before outcome testing.",
+  "next_blocker": "pending M504 boundary-action-sensitive targeted pair triage"
+}

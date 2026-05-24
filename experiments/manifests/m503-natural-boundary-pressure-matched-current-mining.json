@@ -2,7 +2,7 @@
   "id": "m503-natural-boundary-pressure-matched-current-mining",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -98,5 +98,50 @@
     "runs/m502_natural_boundary_pressure_config_validation/behavior_summary.json"
   ],
   "decision_rule": "M503 may admit boundary-action-sensitive targeted triage only if the combined matched-current candidate surface is source-diverse across seeds labels targets and both M502 configs.",
-  "next_blocker": "pending M503 natural boundary-pressure matched-current mining"
+  "next_blocker": "M504 should select targeted boundary-action-sensitive pairs from the M503 combined surface before any outcome gate.",
+  "results": {
+    "run_dirs": {
+      "boundary_short_reveal_12400_12600": "runs/m503_boundary_short_reveal_matched_current",
+      "boundary_warmup_12400_12600": "runs/m503_boundary_warmup_matched_current",
+      "boundary_short_reveal_12700_12900": "runs/m503_boundary_short_reveal_matched_current_fresh12700",
+      "boundary_warmup_12700_12900": "runs/m503_boundary_warmup_matched_current_fresh12700"
+    },
+    "combined_summary_json": "runs/m503_natural_boundary_pressure_matched_current_summary/combined_summary.json",
+    "combined_matched_pairs_csv": "runs/m503_natural_boundary_pressure_matched_current_summary/combined_matched_pairs.csv",
+    "per_run_summary_csv": "runs/m503_natural_boundary_pressure_matched_current_summary/per_run_summary.csv",
+    "combined_accepted_pair_count": 5727,
+    "combined_accepted_physical_pair_count": 3716,
+    "combined_probe_seed_count": 6,
+    "combined_obstacle_label_count": 3,
+    "combined_target_count": 3,
+    "combined_config_count": 2,
+    "combined_seed_window_count": 2,
+    "combined_left_step_count": 24,
+    "combined_obstacle_bucket_proxy_count": 26,
+    "combined_single_seed_share": 0.1850881788021652,
+    "combined_single_label_share": 0.47948314999126945,
+    "combined_single_target_share": 0.5199930155404225,
+    "combined_single_config_share": 0.5074209883010302,
+    "combined_single_window_share": 0.5037541470228741,
+    "label_counts": {
+      "aes_feasible": 331,
+      "drift_required": 2650,
+      "unavoidable": 2746
+    },
+    "target_counts": {
+      "future_braking_deceleration": 2343,
+      "future_lateral_accel_response": 406,
+      "future_yaw_response": 2978
+    },
+    "config_counts": {
+      "boundary_short_reveal": 2906,
+      "boundary_warmup": 2821
+    },
+    "left_obstacle_distance_mean": 13.509874326939144,
+    "surface_gate_pass": true,
+    "actor_inputs_changed": false,
+    "checkpoint_promoted": false,
+    "next_manifest": "experiments/manifests/m504-boundary-action-sensitive-targeted-pair-triage.json",
+    "decision": "boundary_pressure_matched_surface_pass_admit_m504_targeted_pair_triage"
+  }
 }

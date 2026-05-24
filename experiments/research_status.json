@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 511,
+        "completed": 512,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m502-natural-boundary-pressure-config-implementation",
+        "task_id": "m503-natural-boundary-pressure-matched-current-mining",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m502_natural_boundary_pressure_config_validation",
-        "command_log": "docs/m502-natural-boundary-pressure-config-implementation.md"
+        "run_dir": "runs/m503_natural_boundary_pressure_matched_current_summary",
+        "command_log": "docs/m503-natural-boundary-pressure-matched-current-mining.md"
     },
     "next_task": {
-        "id": "m503-natural-boundary-pressure-matched-current-mining",
+        "id": "m504-boundary-action-sensitive-targeted-pair-triage",
         "status": "pending",
-        "priority": 4980,
+        "priority": 4990,
         "kind": "gate",
-        "hypothesis": "The M502 boundary-pressure configs can produce source-diverse matched-current ambiguity surfaces with lower terminal slack than M495.",
-        "command": "see experiments/manifests/m503-natural-boundary-pressure-matched-current-mining.json",
+        "hypothesis": "The M503 boundary-pressure surface contains source-diverse pairs that are both wrong-history action-sensitive and terminal-boundary-sensitive.",
+        "command": "see experiments/manifests/m504-boundary-action-sensitive-targeted-pair-triage.json",
         "success_artifact": "",
-        "notes": "Pending: mine matched-current surfaces on both M502 configs; no training or promotion"
+        "notes": "Pending: select boundary-action-sensitive targeted pairs before any outcome gate; no training or promotion"
     },
-    "updated_at_utc": "20260524T005000Z"
+    "updated_at_utc": "20260524T010000Z"
 }

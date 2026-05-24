@@ -10648,3 +10648,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M502 adds `configs/m502_natural_boundary_pressure_short_reveal_zero_relvel.json` and `configs/m502_natural_boundary_pressure_warmup_zero_relvel.json`. Both preserve the P0 human-view zero-relvel actor contract. Sampling validation over seed blocks `12400`, `12500`, and `12600` has `384/384` reset successes per config, `3` labels per config, hidden obstacles at reset, and friction-step-before-reveal counts `362` and `354`. Threshold-score means are `0.229615` and `0.191020`, at or below the M494 natural configs. Behavior smokes are non-saturated and M399 beats baselines: short-reveal `m399` success `0.78125` versus heuristic `0.21875` and random `0.125`; warmup `m399` success `0.875` versus heuristic `0.34375` and random `0.15625`.
 - decision: `boundary_pressure_configs_sampling_pass_admit_m503_matched_current_mining`
 - next: `m503-natural-boundary-pressure-matched-current-mining`
+## 20260524T010000Z - m503-natural-boundary-pressure-matched-current-mining
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m503_natural_boundary_pressure_matched_current_summary`
+- artifact: `docs/m503-natural-boundary-pressure-matched-current-mining.md`
+- result: M503 runs matched-current mining on both M502 boundary-pressure configs. The initial seed blocks `12400`, `12500`, and `12600` produce large surfaces but only `3` probe seeds, so M503 adds source-diversity blocks `12700`, `12800`, and `12900` without retuning mining parameters. The combined surface has `5727` accepted pairs, `3716` physical pair proxies, `6` probe seeds, `3` labels, `3` targets, `2` configs, `2` seed windows, `24` left steps, single-seed share `0.185088`, single-label share `0.479483`, and single-config share `0.507421`. The source-diversity gate passes.
+- decision: `boundary_pressure_matched_surface_pass_admit_m504_targeted_pair_triage`
+- next: `m504-boundary-action-sensitive-targeted-pair-triage`
