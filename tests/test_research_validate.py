@@ -71,6 +71,7 @@ def _process_v3_manifest(task_id, artifact="docs/m690.md"):
     manifest["workflow_synthesis"] = {
         "branch": "response_amplification_actor_coupling",
         "evidence_axis": "G_action",
+        "evidence_increment": "audits whether the latest exact gate changes branch admissibility",
         "claim_scope": "diagnostic exact gate, not promotion",
         "stop_condition": [
             "stop before PPO unless the next manifest adds proof, behavior, and generalization gates"
@@ -80,6 +81,7 @@ def _process_v3_manifest(task_id, artifact="docs/m690.md"):
         ],
         "synthesis_cadence": 10,
         "synthesis_trigger": "before any post-diagnostic actor-update continuation",
+        "synthesis_decision": "not_applicable",
     }
     return manifest
 
@@ -593,3 +595,113 @@ def test_process_v3_rejects_out_of_range_synthesis_cadence(tmp_path):
     issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
 
     assert any("synthesis_cadence must be between 10 and 20" in issue.message for issue in issues)
+
+
+def test_process_v3_rejects_synthesis_decision_on_non_process_gate(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    manifest_dir.mkdir()
+    _write_queue(
+        queue,
+        [
+            {
+                "id": "m690",
+                "priority": 6850,
+                "status": "pending",
+                "kind": "gate",
+                "hypothesis": "synthesize response amplification branch",
+                "command": "see manifest",
+                "success_artifact": "",
+                "notes": "",
+            }
+        ],
+    )
+    status.write_text(
+        json.dumps({"counts": {"planned": 0, "completed": 0, "failed": 0, "blocked": 0, "pending": 1, "running": 0}, "next_task": "m690"}),
+        encoding="utf-8",
+    )
+    manifest = _process_v3_manifest("m690")
+    manifest["gate_tier"] = "proof"
+    manifest["workflow_synthesis"]["synthesis_decision"] = "continue"
+    (manifest_dir / "m690.json").write_text(json.dumps(manifest), encoding="utf-8")
+    _write_scoreboard(scoreboard, [])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert any("requires gate_tier='process'" in issue.message for issue in issues)
+
+
+def test_process_v3_rejects_branch_after_cadence_without_synthesis(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    manifest_dir.mkdir()
+    rows = []
+    for index in range(11):
+        task_id = f"m69{index}"
+        rows.append(
+            {
+                "id": task_id,
+                "priority": 6850 + index * 10,
+                "status": "pending",
+                "kind": "gate",
+                "hypothesis": "continue response amplification branch",
+                "command": "see manifest",
+                "success_artifact": "",
+                "notes": "",
+            }
+        )
+        (manifest_dir / f"{task_id}.json").write_text(json.dumps(_process_v3_manifest(task_id)), encoding="utf-8")
+    _write_queue(queue, rows)
+    status.write_text(
+        json.dumps({"counts": {"planned": 0, "completed": 0, "failed": 0, "blocked": 0, "pending": 11, "running": 0}, "next_task": "m690"}),
+        encoding="utf-8",
+    )
+    _write_scoreboard(scoreboard, [])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert any("non-synthesis milestones since the last synthesis" in issue.message for issue in issues)
+
+
+def test_process_v3_synthesis_decision_resets_branch_cadence(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    manifest_dir.mkdir()
+    rows = []
+    for index in range(12):
+        task_id = f"m69{index}"
+        rows.append(
+            {
+                "id": task_id,
+                "priority": 6850 + index * 10,
+                "status": "pending",
+                "kind": "gate",
+                "hypothesis": "continue or synthesize response amplification branch",
+                "command": "see manifest",
+                "success_artifact": "",
+                "notes": "",
+            }
+        )
+        manifest = _process_v3_manifest(task_id)
+        if index == 10:
+            manifest["workflow_synthesis"]["synthesis_decision"] = "continue"
+            manifest["workflow_synthesis"]["evidence_increment"] = (
+                "synthesizes the first ten branch milestones and permits one more branch window"
+            )
+        (manifest_dir / f"{task_id}.json").write_text(json.dumps(manifest), encoding="utf-8")
+    _write_queue(queue, rows)
+    status.write_text(
+        json.dumps({"counts": {"planned": 0, "completed": 0, "failed": 0, "blocked": 0, "pending": 12, "running": 0}, "next_task": "m690"}),
+        encoding="utf-8",
+    )
+    _write_scoreboard(scoreboard, [])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert issues == []

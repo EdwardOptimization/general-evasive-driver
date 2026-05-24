@@ -22,6 +22,7 @@ from autodrift.research_schema import (
     PROCESS_V2_LINEAGE_FIELDS,
     PROCESS_V2_PRIVATE_HOLDOUT_POLICIES,
     PROCESS_V2_PROMOTION_DECISIONS,
+    PROCESS_V3_SYNTHESIS_DECISIONS,
     PROCESS_V3_SYNTHESIS_ENFORCE_FROM_PRIORITY,
     PROCESS_V3_SYNTHESIS_FIELDS,
     SCOREBOARD_FIELDS,
@@ -261,6 +262,23 @@ def _validate_process_v2_manifest(task: ResearchTask, manifest: dict[str, Any]) 
     return issues
 
 
+def _workflow_synthesis(manifest: dict[str, Any]) -> dict[str, Any] | None:
+    synthesis = manifest.get("workflow_synthesis")
+    return synthesis if isinstance(synthesis, dict) else None
+
+
+def _workflow_synthesis_decision(manifest: dict[str, Any]) -> str:
+    synthesis = _workflow_synthesis(manifest)
+    if synthesis is None:
+        return "not_applicable"
+    decision = synthesis.get("synthesis_decision")
+    return str(decision) if isinstance(decision, str) else ""
+
+
+def _is_workflow_synthesis_milestone(manifest: dict[str, Any]) -> bool:
+    return _workflow_synthesis_decision(manifest) != "not_applicable"
+
+
 def _validate_process_v3_manifest(task: ResearchTask, manifest: dict[str, Any]) -> list[ValidationIssue]:
     issues: list[ValidationIssue] = []
     missing = [field for field in PROCESS_V3_REQUIRED_FIELDS if field not in manifest]
@@ -268,7 +286,7 @@ def _validate_process_v3_manifest(task: ResearchTask, manifest: dict[str, Any]) 
         issues.append(ValidationIssue("error", f"{task.id}: process-v3 manifest missing fields {missing}"))
         return issues
 
-    synthesis = manifest.get("workflow_synthesis")
+    synthesis = _workflow_synthesis(manifest)
     if not isinstance(synthesis, dict):
         return [ValidationIssue("error", f"{task.id}: workflow_synthesis must be an object")]
 
@@ -277,7 +295,7 @@ def _validate_process_v3_manifest(task: ResearchTask, manifest: dict[str, Any]) 
         issues.append(ValidationIssue("error", f"{task.id}: workflow_synthesis missing fields {missing_synthesis}"))
         return issues
 
-    for field in ("branch", "evidence_axis", "claim_scope", "synthesis_trigger"):
+    for field in ("branch", "evidence_axis", "evidence_increment", "claim_scope", "synthesis_trigger"):
         if not _non_empty_text(synthesis.get(field)):
             issues.append(ValidationIssue("error", f"{task.id}: workflow_synthesis.{field} must be non-empty text"))
 
@@ -301,6 +319,72 @@ def _validate_process_v3_manifest(task: ResearchTask, manifest: dict[str, Any]) 
                 f"{task.id}: workflow_synthesis.synthesis_cadence must be between 10 and 20 milestones",
             )
         )
+
+    decision = synthesis.get("synthesis_decision")
+    if decision not in PROCESS_V3_SYNTHESIS_DECISIONS:
+        issues.append(
+            ValidationIssue(
+                "error",
+                f"{task.id}: workflow_synthesis.synthesis_decision must be one of "
+                f"{sorted(PROCESS_V3_SYNTHESIS_DECISIONS)}",
+            )
+        )
+    elif decision != "not_applicable" and manifest.get("gate_tier") != "process":
+        issues.append(
+            ValidationIssue(
+                "error",
+                f"{task.id}: workflow synthesis decision {decision!r} requires gate_tier='process'",
+            )
+        )
+
+    return issues
+
+
+def _validate_process_v3_branch_cadence(records: list[tuple[ResearchTask, dict[str, Any]]]) -> list[ValidationIssue]:
+    issues: list[ValidationIssue] = []
+    branch_counts: dict[str, int] = {}
+    branch_closed_by: dict[str, str] = {}
+    sorted_records = sorted(records, key=lambda item: (item[0].priority, item[0].id))
+
+    for task, manifest in sorted_records:
+        synthesis = _workflow_synthesis(manifest)
+        if synthesis is None:
+            continue
+        branch = synthesis.get("branch")
+        cadence = synthesis.get("synthesis_cadence")
+        decision = synthesis.get("synthesis_decision")
+        if not _non_empty_text(branch) or not isinstance(cadence, int) or decision not in PROCESS_V3_SYNTHESIS_DECISIONS:
+            continue
+
+        branch_text = str(branch)
+        if branch_text in branch_closed_by:
+            issues.append(
+                ValidationIssue(
+                    "error",
+                    f"{task.id}: workflow_synthesis.branch {branch_text!r} was closed by "
+                    f"{branch_closed_by[branch_text]}; use a new branch before continuing",
+                )
+            )
+            continue
+
+        if _is_workflow_synthesis_milestone(manifest):
+            if decision == "continue":
+                branch_counts[branch_text] = 0
+            else:
+                branch_closed_by[branch_text] = task.id
+            continue
+
+        branch_counts[branch_text] = branch_counts.get(branch_text, 0) + 1
+        if branch_counts[branch_text] > cadence:
+            issues.append(
+                ValidationIssue(
+                    "error",
+                    f"{task.id}: workflow_synthesis.branch {branch_text!r} has "
+                    f"{branch_counts[branch_text]} non-synthesis milestones since the last synthesis; "
+                    f"cadence is {cadence}, so add a gate_tier='process' synthesis milestone with "
+                    "workflow_synthesis.synthesis_decision before continuing",
+                )
+            )
 
     return issues
 
@@ -436,6 +520,7 @@ def validate_research_state(
     if len(scoreboard_ids) != len(set(scoreboard_ids)):
         issues.append(ValidationIssue("error", "experiments/scoreboard.csv contains duplicate milestone rows"))
 
+    process_v3_records: list[tuple[ResearchTask, dict[str, Any]]] = []
     for task in tasks:
         if task.status not in ALLOWED_STATUSES:
             issues.append(ValidationIssue("error", f"{task.id}: unknown status {task.status!r}"))
@@ -452,6 +537,8 @@ def validate_research_state(
         process_v2 = _is_process_v2(task, process_v2_from_priority)
         process_v3 = _is_process_v3(task, process_v3_from_priority)
         issues.extend(_validate_manifest(task, manifest, process_v2=process_v2, process_v3=process_v3))
+        if process_v3:
+            process_v3_records.append((task, manifest))
         if task.status == "completed":
             if process_v2 and manifest.get("review_artifact") and not _path_exists(root, str(manifest["review_artifact"])):
                 issues.append(ValidationIssue("error", f"{task.id}: review_artifact is missing: {manifest['review_artifact']}"))
@@ -478,6 +565,7 @@ def validate_research_state(
                                 f"structured gate decision {expected.decision!r}",
                             )
                         )
+    issues.extend(_validate_process_v3_branch_cadence(process_v3_records))
     return issues
 
 

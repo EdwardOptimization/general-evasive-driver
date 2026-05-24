@@ -74,9 +74,19 @@ PROCESS_V2_LINEAGE_FIELDS = [
 PROCESS_V3_SYNTHESIS_FIELDS = [
     "branch",
     "evidence_axis",
+    "evidence_increment",
     "claim_scope",
     "stop_condition",
     "fallback_plan",
     "synthesis_cadence",
     "synthesis_trigger",
+    "synthesis_decision",
 ]
+
+PROCESS_V3_SYNTHESIS_DECISIONS = {
+    "not_applicable",
+    "continue",
+    "pivot",
+    "stop",
+    "promote_to_next_branch",
+}

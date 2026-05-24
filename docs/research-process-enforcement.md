@@ -305,21 +305,27 @@ M690+ manifests must declare:
 ```text
 workflow_synthesis.branch
 workflow_synthesis.evidence_axis
+workflow_synthesis.evidence_increment
 workflow_synthesis.claim_scope
 workflow_synthesis.stop_condition
 workflow_synthesis.fallback_plan
 workflow_synthesis.synthesis_cadence
 workflow_synthesis.synthesis_trigger
+workflow_synthesis.synthesis_decision
 ```
 
 `stop_condition` and `fallback_plan` are non-empty lists. `synthesis_cadence`
 must be an integer from 10 to 20. The validator rejects new M690+ manifests
 that omit this section, so the pre-commit hook blocks narrow "just keep going"
 research loops that do not declare branch stop, fallback, and synthesis rules.
+`synthesis_decision` is `not_applicable` for ordinary milestones and one of
+`continue`, `pivot`, `stop`, or `promote_to_next_branch` for explicit branch
+synthesis milestones.
 
 The purpose is to force every branch to state:
 
 - what evidence axis it is advancing;
+- what evidence state this milestone changes;
 - what claim scope is allowed;
 - when to stop local iteration;
 - what fallback path should be tried if the branch fails;
@@ -327,6 +333,14 @@ The purpose is to force every branch to state:
 
 This implements the workflow-synthesis rule as repository state, not a
 prompt-only preference.
+
+The validator also enforces branch cadence. For each
+`workflow_synthesis.branch`, it counts non-synthesis milestones since the last
+explicit synthesis decision. If the count exceeds `synthesis_cadence`, the next
+manifest is rejected unless it is a `gate_tier: process` synthesis milestone.
+A synthesis milestone with `synthesis_decision: continue` resets the counter.
+`pivot`, `stop`, and `promote_to_next_branch` close the branch; later work must
+use a new branch name instead of silently extending the old local loop.
 
 ## Review Generator
 
