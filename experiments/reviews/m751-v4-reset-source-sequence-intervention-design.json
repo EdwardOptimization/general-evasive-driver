@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M751 designs source-balanced v4 sequence interventions over M749 reset-only rows with sentinel policy v4 metadata and no-training M752 implementation",
+  "failure_criteria": [
+    "design treats reset-only rows as wrong-history proof",
+    "design lacks sentinel rows",
+    "design drops v4 claim-boundary metadata",
+    "design admits source export objective training PPO or checkpoint promotion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not treat reset-only rows as wrong-history proof",
+    "do not inject hidden fault labels into actor observations",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not claim true single-wheel physics from current proxy faults"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T232330Z",
+  "hypothesis": "M749's v4 reset-only rows can be source-balanced and tested with persistent sequence-level command-response interventions before objective work.",
+  "lineage": {
+    "blocked_by": [
+      "m750-v4-extreme-fault-coverage-audit"
+    ],
+    "derived_from": [
+      "m750-v4-extreme-fault-coverage-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m750-v4-extreme-fault-coverage-audit.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m750-v4-extreme-fault-coverage-audit.md",
+      "runs/m749_extreme_fault_distribution_v4/summary.json",
+      "runs/m749_extreme_fault_distribution_v4/reset_only_rows.csv",
+      "runs/m749_extreme_fault_distribution_v4/rejected_rows.csv"
+    ],
+    "parent_objective": [
+      "design source-balanced sequence-level interventions over M749 v4 reset-only rows"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m751-v4-reset-source-sequence-intervention-design",
+  "next_blocker": "m752-v4-reset-source-sequence-intervention-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "v4_reset_source_sequence_intervention_design_admit_m752",
+  "public_gates": [
+    "M751 designs v4 reset-source adapter and source-balance policy",
+    "M751 includes sentinel rows from history-insensitive rejected rows",
+    "M751 defines sequence intervention variants horizons and gates",
+    "M751 preserves current/proxy versus future-fidelity claim boundary",
+    "source export objective training PPO and promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m751-v4-reset-source-sequence-intervention-design.md",
+    "clearance_margin_mean": "",
+    "decision": "v4_reset_source_sequence_intervention_design_admit_m752",
+    "milestone": "m751-v4-reset-source-sequence-intervention-design",
+    "reason": "M751 designs source-balanced v4 sequence interventions over M749 reset-only rows with sentinel policy v4 metadata and no-training M752 implementation",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M751 defines v4 source adapter fields",
+    "M751 defines source-balance caps and sentinel policy",
+    "M751 defines sequence variants and horizons",
+    "M751 defines action outcome sentinel and actor-safety gates",
+    "M751 blocks source export objective training PPO and promotion",
+    "M751 admits only a no-training M752 implementation"
+  ],
+  "type": "infrastructure"
+}

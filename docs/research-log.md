@@ -12801,3 +12801,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M750 audits M749 as broad, clean reset-only evidence rather than wrong-history proof. V4 source generation passes scale and safety checks, and reset-only rows increase from M740's `744` to M749's `1171`, but wrong-history action-critical rows remain `0`. The audit classifies this as `scenario_sampling_failure` plus `metric_artifact` for the cross-fault wrong-history metric, not a contract or training failure. It also records `361` sentinel candidates across `23` seeds for the next sequence branch.
 - decision: `promote_to_v4_reset_source_sequence_intervention`
 - next: `m751-v4-reset-source-sequence-intervention-design`
+
+## 20260525T035000Z - m751-v4-reset-source-sequence-intervention-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m751-v4-reset-source-sequence-intervention-design.md`
+- result: M751 designs a no-training v4 sequence intervention branch over M749 reset-only rows. It defines a v4 source adapter preserving `source_kind=v4_reset_source`, source pools, reset/action/history gaps, pairing rule, and claim-boundary metadata. The design targets `512` source rows with about `461` primary rows and `51` sentinels. A precheck using M749 rows gives `31` source seeds, `9` preferred fault families, `7` wrong fault families, `21` fault-family pairs, max seed dominance `0.121094`, max preferred-family dominance `0.126953`, and sentinel fraction `0.099609`. Actor update, source export, objective training, PPO, and promotion remain blocked.
+- decision: `v4_reset_source_sequence_intervention_design_admit_m752`
+- next: `m752-v4-reset-source-sequence-intervention-implementation`
