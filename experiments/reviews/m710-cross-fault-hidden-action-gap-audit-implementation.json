@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M710 finds wrong-history signal at raw hidden and fused feature levels but 0 wrong action-positive and 0 wrong outcome-positive rows so source export PPO and promotion remain blocked",
+  "failure_criteria": [
+    "implementation mutates or trains actor",
+    "implementation adds hidden fault labels to actor input",
+    "implementation counts reset-only rows as source-positive",
+    "implementation omits raw hidden or fused feature gap metrics",
+    "implementation admits objective design without source-positive audit"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels to actor observations",
+    "do not treat reset-only rows as source-positive",
+    "do not relax thresholds after seeing results",
+    "do not change actor input contract"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260524T190559Z",
+  "hypothesis": "Cross-fault wrong histories either collapse before the actor action boundary or expose a specific hidden/action washout point that explains M707's reset-only result.",
+  "lineage": {
+    "blocked_by": [
+      "m709-cross-fault-hidden-action-gap-audit-design"
+    ],
+    "derived_from": [
+      "m709-cross-fault-hidden-action-gap-audit-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m709-cross-fault-hidden-action-gap-audit-design.json",
+      "configs/cross_fault_hidden_condition_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m709-cross-fault-hidden-action-gap-audit-design.md",
+      "docs/m708-cross-fault-wrong-history-scenario-audit.md",
+      "runs/m707_cross_fault_wrong_history_scenario/summary.json"
+    ],
+    "parent_objective": [
+      "implement no-training hidden-action separability audit for cross-fault wrong histories"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m710-cross-fault-hidden-action-gap-audit-implementation",
+  "next_blocker": "m711-cross-fault-hidden-action-gap-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "action_washout_not_source_positive",
+  "public_gates": [
+    "summary.json is written",
+    "row_hidden_action_gaps.csv is written",
+    "variant_summary.csv is written",
+    "fault_family_pair_variant_summary.csv is written",
+    "sentinel_summary.csv is written",
+    "raw hidden next-hidden fused feature action and margin gaps are separated",
+    "actor checksum unchanged",
+    "no objective actor update PPO or promotion occurs"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m710_cross_fault_hidden_action_gap_audit/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "action_washout_not_source_positive",
+    "milestone": "m710-cross-fault-hidden-action-gap-audit-implementation",
+    "reason": "M710 finds wrong-history signal at raw hidden and fused feature levels but 0 wrong action-positive and 0 wrong outcome-positive rows so source export PPO and promotion remain blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary.json is written",
+    "row_hidden_action_gaps.csv is written",
+    "variant_summary.csv is written",
+    "fault family pair variant summaries are written",
+    "sentinel summaries are written",
+    "result class is assigned",
+    "actor checksum unchanged",
+    "no objective actor update PPO or promotion"
+  ],
+  "type": "infrastructure"
+}

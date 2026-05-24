@@ -12415,3 +12415,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M709 designs a no-training localization audit for M707/M708. The design measures raw hidden, next-hidden, fused feature, action, and margin gaps for normal-vs-wrong-history and normal-vs-reset-hidden variants, with front/steering reset-only rows as diagnostics only. It preserves actor inputs and blocks source export, actor update, PPO, and promotion unless a future implementation produces `history_incompatibility_positive`.
 - decision: `hidden_action_gap_audit_design_admit_m710`
 - next: `m710-cross-fault-hidden-action-gap-audit-implementation`
+
+## 20260524T193100Z - m710-cross-fault-hidden-action-gap-audit-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m710_cross_fault_hidden_action_gap_audit`
+- artifact: `docs/m710-cross-fault-hidden-action-gap-audit-implementation.md`
+- result: M710 implements and runs the no-training hidden/action localization audit. The result is `action_washout`: wrong-history signal exists in recurrent and fused-feature space (`1653/2048` raw-positive rows, `1365/2048` fused-positive rows), but it produces `0` action-positive rows and `0` outcome-positive rows. Reset-hidden remains disruptive (`2014/2048` action-positive rows, `15/2048` outcome-positive rows). Actor checksum unchanged; no training, PPO, or promotion occurred.
+- decision: `action_washout_not_source_positive`
+- next: `m711-cross-fault-hidden-action-gap-audit`

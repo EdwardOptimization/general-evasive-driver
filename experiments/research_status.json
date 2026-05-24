@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 718,
+        "completed": 719,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m709-cross-fault-hidden-action-gap-audit-design",
+        "task_id": "m710-cross-fault-hidden-action-gap-audit-implementation",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m709-cross-fault-hidden-action-gap-audit-design.md"
+        "command_log": "docs/m710-cross-fault-hidden-action-gap-audit-implementation.md"
     },
     "next_task": {
-        "id": "m710-cross-fault-hidden-action-gap-audit-implementation",
+        "id": "m711-cross-fault-hidden-action-gap-audit",
         "status": "pending",
-        "priority": 7050,
-        "kind": "infrastructure",
-        "hypothesis": "Implement cross-fault hidden-action gap audit",
-        "command": "see experiments/manifests/m710-cross-fault-hidden-action-gap-audit-implementation.json",
+        "priority": 7060,
+        "kind": "gate",
+        "hypothesis": "Audit M710 action-washout result",
+        "command": "see experiments/manifests/m711-cross-fault-hidden-action-gap-audit.json",
         "success_artifact": "",
-        "notes": "Pending: run no-training hidden-action gap localization before any source export actor update or PPO"
+        "notes": "Pending: synthesize hidden-action localization before source export actor update PPO or further scenario mining"
     },
-    "updated_at_utc": "20260524T191500Z"
+    "updated_at_utc": "20260524T193100Z"
 }

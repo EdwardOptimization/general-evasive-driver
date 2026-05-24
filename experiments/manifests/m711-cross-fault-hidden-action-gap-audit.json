@@ -1,0 +1,120 @@
+{
+  "id": "m711-cross-fault-hidden-action-gap-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m710_cross_fault_hidden_action_gap_audit/summary.json",
+      "runs/m710_cross_fault_hidden_action_gap_audit/row_hidden_action_gaps.csv",
+      "runs/m710_cross_fault_hidden_action_gap_audit/variant_summary.csv",
+      "docs/m710-cross-fault-hidden-action-gap-audit-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m710-cross-fault-hidden-action-gap-audit-implementation.json",
+      "configs/cross_fault_hidden_condition_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit action_washout hidden-action gap result before any actor update or PPO"
+    ],
+    "derived_from": [
+      "m710-cross-fault-hidden-action-gap-audit-implementation"
+    ],
+    "blocked_by": [
+      "m710-cross-fault-hidden-action-gap-audit-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m711-cross-fault-hidden-action-gap-audit.md",
+  "public_gates": [
+    "M710 implementation cleanliness is checked",
+    "action_washout is separated from source-positive history incompatibility",
+    "raw hidden fused feature and action gaps are summarized",
+    "reset-hidden disruption is not treated as wrong-history proof",
+    "source export actor update PPO and promotion remain blocked unless the audit explicitly justifies otherwise",
+    "extreme_hidden_condition_scenario_generation branch receives a synthesis decision if needed"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat raw or fused feature gap alone as closed-loop self-ID proof",
+    "do not train actor from M710 rows without an audit",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels to actor inputs",
+    "do not ignore reset-only overclaim risk"
+  ],
+  "workflow_synthesis": {
+    "branch": "extreme_hidden_condition_scenario_generation",
+    "evidence_axis": "G_synthesis: audit M710 action_washout and decide whether next branch targets actor-head sensitivity, objective design, or scenario boundary refinement",
+    "evidence_increment": "synthesizes hidden/action localization evidence after cross-fault wrong histories survive to fused features but not action",
+    "claim_scope": "process synthesis and next-branch decision only, not source export, PPO, promotion, or driver performance",
+    "stop_condition": [
+      "stop source export because history_incompatibility_positive is false",
+      "stop scenario-only expansion if action_washout explains M707 better than missing scenario coverage",
+      "stop PPO because no proof-retaining objective has been designed"
+    ],
+    "fallback_plan": [
+      "if action_washout is confirmed, design actor-head sensitivity or objective audit",
+      "if feature gaps are too weak for action, design feature amplification or contrast objective before training",
+      "if action gaps are near threshold in specific families, design focused terminal-boundary refinement",
+      "if current-model evidence is exhausted, pivot to higher-fidelity four-wheel dynamics planning"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M710 result_class=action_washout",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m711-cross-fault-hidden-action-gap-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "M710 action_washout should block source export and redirect the next step toward actor-head or objective-level handling of existing fused history signal.",
+  "success_criteria": [
+    "M710 summary metrics are recorded",
+    "action_washout is classified",
+    "supported and falsified claims are recorded",
+    "failure taxonomy is assigned",
+    "public gate overfit risk is recorded",
+    "next branch decision is explicit",
+    "source export actor update PPO and promotion remain blocked unless a new evidence path is justified"
+  ],
+  "failure_criteria": [
+    "audit treats raw hidden or fused feature gap as source-positive proof",
+    "audit admits PPO without proof-retaining objective design",
+    "audit ignores reset-only overclaim risk",
+    "audit omits synthesis questions",
+    "audit changes actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m711-cross-fault-hidden-action-gap-audit.md from M710 artifacts; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m711-cross-fault-hidden-action-gap-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m710_cross_fault_hidden_action_gap_audit/summary.json",
+    "docs/m710-cross-fault-hidden-action-gap-audit-implementation.md"
+  ],
+  "decision_rule": "M711 must decide whether the next branch targets actor-head sensitivity, feature/objective amplification, terminal-boundary refinement, or higher-fidelity dynamics; it must not admit training from M710 rows without a new design.",
+  "next_blocker": "m712-to-be-selected-by-m711"
+}
