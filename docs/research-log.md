@@ -12178,3 +12178,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M672 audits M671 as `shadow_positive_representation_action_boundary_evidence`, not closed-loop self-ID proof. M671 shows that fused-plus-next-hidden supports source-heldout wrong-history sequence amplification in `2/3` seeds while fused alone fails and next-hidden alone misses normal-retention mean. The audit keeps PPO, promotion, and actor-input changes blocked, but admits a design-only actor-coupling milestone with exact normal-retention gates, bounded wrong-history sequence targets, trust-region/interpolation rules, and exact-first evaluation before replay.
 - decision: `response_amplification_shadow_audit_admit_actor_coupling_design`
 - next: `m673-response-amplification-actor-coupling-design`
+## 20260525T020000Z - m673-response-amplification-actor-coupling-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m673-response-amplification-actor-coupling-design.md`
+- result: M673 designs the first conservative actor-coupling probe after the positive M671 shadow result. The design keeps the BC5660 actor backbone frozen and trains only a deployable residual sequence head on fused-plus-next-hidden features from the same P0 human-view observation and recurrent hidden state. The candidate executes only the first residual in closed loop, with alpha ladder `0.02,0.05,0.10,0.20,0.50,1.00`, exact source-heldout normal-retention and wrong-history gap metrics before replay, and no PPO, promotion, actor-input change, or base actor checkpoint.
+- decision: `response_amplification_actor_coupling_design_admit_m674`
+- next: `m674-response-amplification-actor-coupling-implementation`

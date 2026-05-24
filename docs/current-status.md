@@ -62,17 +62,25 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m673-response-amplification-actor-coupling-design
+m674-response-amplification-actor-coupling-implementation
 ```
 
-M673 should design a conservative exact-gated actor-coupling probe from the
-positive M671 shadow evidence. The design must keep the P0 human-view actor
-input contract unchanged, forbid PPO and promotion, make normal-retention
-first-class, use bounded wrong-history sequence targets, and require exact
-metrics before replay gates. No training should run in M673.
+M674 should implement the conservative actor-coupling probe designed in M673:
+freeze the BC5660 actor backbone, train only a residual sequence head on
+fused-plus-next-hidden features from the M671 shadow corpus, evaluate an alpha
+ladder with exact source-heldout metrics, and preserve the base actor checksum.
+PPO, promotion, actor-input changes, and base actor checkpoint writing remain
+forbidden.
 
 ## Recent Evidence Line
 
+- M673 designs the first conservative actor-coupling probe after the positive
+  M671 shadow result. The probe freezes the BC5660 actor backbone and trains
+  only a residual sequence head on fused-plus-next-hidden features. It predicts
+  a short residual sequence but executes only the first residual in closed loop,
+  with alpha ladder `0.02,0.05,0.10,0.20,0.50,1.00`. Exact source-heldout
+  metrics must pass before replay; PPO, promotion, actor-input changes, and
+  base actor checkpoint writing remain forbidden.
 - M672 audits M671 as
   `shadow_positive_representation_action_boundary_evidence`, not closed-loop
   self-ID proof. Fused-plus-next-hidden supports source-heldout wrong-history

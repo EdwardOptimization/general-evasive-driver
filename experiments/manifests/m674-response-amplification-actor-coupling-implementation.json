@@ -1,0 +1,100 @@
+{
+  "id": "m674-response-amplification-actor-coupling-implementation",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m671_response_amplification_shadow/shadow_corpus.npz",
+      "runs/m671_response_amplification_shadow/shadow_metadata.csv",
+      "docs/m673-response-amplification-actor-coupling-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m673-response-amplification-actor-coupling-design.json"
+    ],
+    "parent_objective": [
+      "implement frozen-backbone residual sequence-head actor-coupling exact probe"
+    ],
+    "derived_from": [
+      "m673-response-amplification-actor-coupling-design"
+    ],
+    "blocked_by": [
+      "m673-response-amplification-actor-coupling-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m674-response-amplification-actor-coupling-implementation.md",
+  "public_gates": [
+    "frozen BC5660 checksum unchanged",
+    "residual head trains on fused-plus-next-hidden only",
+    "source-heldout exact metrics are reported",
+    "alpha ladder is evaluated before replay",
+    "no base actor checkpoint is written",
+    "no PPO is used",
+    "no checkpoint is promoted"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not mutate base actor parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor observation inputs",
+    "do not use privileged hidden parameters or labels as actor inputs",
+    "do not skip exact source-heldout metrics",
+    "do not run replay before exact alpha gate passes"
+  ],
+  "hypothesis": "A frozen-backbone residual sequence head using fused-plus-next-hidden features can preserve normal actions while producing bounded source-heldout wrong-history action separation, admitting only alpha-scaled candidates that pass exact metrics.",
+  "success_criteria": [
+    "residual-head artifacts are written",
+    "source-heldout split is nonempty",
+    "at least one seed passes exact metrics at an alpha > 0",
+    "normal_action_drift_first_l2_p95 <= 0.006 at selected alpha",
+    "actor checksum unchanged",
+    "no base actor checkpoint written",
+    "no PPO used",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "normal-retention exact gate fails for all alphas",
+    "wrong-history sequence gap fails for all alphas",
+    "residual head overfits train split and fails source-heldout",
+    "actor checksum changes",
+    "base actor checkpoint is written"
+  ],
+  "commands": [
+    {
+      "name": "actor_coupling_probe",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.response_amplification_actor_coupling --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --shadow-corpus runs/m671_response_amplification_shadow/shadow_corpus.npz --metadata runs/m671_response_amplification_shadow/shadow_metadata.csv --view fused_plus_next_hidden --seeds 6740,6741,6742 --alphas 0.02,0.05,0.10,0.20,0.50,1.00 --target-gap 0.010 --epochs 240 --learning-rate 0.001 --weight-decay 0.0001 --hidden-dim 64 --device cpu --run-dir runs/m674_response_amplification_actor_coupling"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m674_response_amplification_actor_coupling/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m674_response_amplification_actor_coupling/alpha_summary.csv",
+      "type": "metrics"
+    },
+    {
+      "path": "docs/m674-response-amplification-actor-coupling-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m671_response_amplification_shadow/summary.json",
+    "docs/m673-response-amplification-actor-coupling-design.md"
+  ],
+  "decision_rule": "M674 passes only if a frozen-backbone residual head satisfies exact source-heldout normal-retention and wrong-history sequence-gap metrics for a nonzero alpha without changing the base actor.",
+  "next_blocker": "m675-response-amplification-actor-coupling-audit"
+}
