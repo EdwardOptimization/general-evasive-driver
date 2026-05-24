@@ -11836,3 +11836,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M634 audits M633 as strong targeted-positive with sentinel grid regression. M633 recovers sources `8` and `0`, preserves/improves source `30`, and preserves all trust limits, but regresses source `7`. The supported diagnosis is `grid_coverage_regression`: M633's source-8 grid capped steer at `0.06` and used negative throttle, while M630's source-7 accepted pattern used steer around `0.08`, throttle `0.00`, and brake `0.00` or `0.04`. M635 should design a combined no-training grid that restores source7 preservation while keeping source8/source0/source30 gains.
 - decision: `targeted_source8_projected_shape_audit_admit_combined_source7_preserving_design`
 - next: `m635-combined-source7-preserving-shape-design`
+## 20260524T175000Z - m635-combined-source7-preserving-shape-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m635-combined-source7-preserving-shape-design.md`
+- result: M635 designs a no-training combined projected search with two named grids. The source8 recovery grid reuses M633's source8/source0/source30 local search. The source7 preservation grid restores M630's pattern around steer `0.06/0.08/0.10`, throttle `-0.02/0.00/0.02`, brake `0.00/0.02/0.04`, and K `3/5/7/9`. M636 should combine the artifacts by source and grid name, preserve all trust limits and thresholds, and keep optimizer admission blocked pending audit.
+- decision: `combined_source7_preserving_shape_design_admit_m636`
+- next: `m636-combined-source7-preserving-shape-implementation`

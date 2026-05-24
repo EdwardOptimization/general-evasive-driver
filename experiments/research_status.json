@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 643,
+        "completed": 644,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m634-targeted-source8-projected-shape-audit",
+        "task_id": "m635-combined-source7-preserving-shape-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m634-targeted-source8-projected-shape-audit.md"
+        "command_log": "docs/m635-combined-source7-preserving-shape-design.md"
     },
     "next_task": {
-        "id": "m635-combined-source7-preserving-shape-design",
+        "id": "m636-combined-source7-preserving-shape-implementation",
         "status": "pending",
-        "priority": 6300,
+        "priority": 6310,
         "kind": "infrastructure",
-        "hypothesis": "A combined projected grid can keep source8 and source0 recovered while restoring source7 and preserving source30 without changing trust limits.",
-        "command": "see experiments/manifests/m635-combined-source7-preserving-shape-design.json",
+        "hypothesis": "A combined two-grid projected search can recover source8 and source0 while restoring source7 and preserving source30 under unchanged trust limits.",
+        "command": "see experiments/manifests/m636-combined-source7-preserving-shape-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design combined source8 recovery and source7 preservation grid; no training PPO promotion threshold changes or optimizer admission"
+        "notes": "Pending: implement combined two-grid projected runner and artifacts; no training PPO promotion threshold changes or optimizer admission"
     },
-    "updated_at_utc": "20260524T174000Z"
+    "updated_at_utc": "20260524T175000Z"
 }

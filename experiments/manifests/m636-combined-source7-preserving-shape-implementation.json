@@ -1,0 +1,97 @@
+{
+  "id": "m636-combined-source7-preserving-shape-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m633_targeted_source8_projected_shape/source_recovery_summary.csv",
+      "runs/m630_trust_projected_sequence_shape/accepted_projected_sequences.csv",
+      "docs/m635-combined-source7-preserving-shape-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m635-combined-source7-preserving-shape-design.json",
+      "docs/m634-targeted-source8-projected-shape-audit.md"
+    ],
+    "parent_objective": [
+      "implement combined source8 recovery and source7 preservation projected grid"
+    ],
+    "derived_from": [
+      "m635-combined-source7-preserving-shape-design"
+    ],
+    "blocked_by": [
+      "m635-combined-source7-preserving-shape-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m636-combined-source7-preserving-shape-implementation.md",
+  "public_gates": [
+    "write combined candidate and source recovery artifacts",
+    "report source8 source0 source7 and source30 outcomes",
+    "preserve all trust limits and thresholds",
+    "keep actor training and PPO blocked",
+    "do not promote or admit optimizer training"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not widen trust regions",
+    "do not lower target thresholds",
+    "do not drop source7 from evaluation",
+    "do not treat four source rows as sufficient for optimizer admission without audit"
+  ],
+  "hypothesis": "A combined two-grid projected search can recover source8 and source0 while restoring source7 and preserving source30 under unchanged trust limits.",
+  "success_criteria": [
+    "implementation writes combined artifacts",
+    "focused tests cover grid group definitions and combined source summary",
+    "real run preserves trust limits",
+    "summary reports all four source outcomes",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "implementation changes thresholds",
+    "implementation starts training",
+    "implementation runs PPO",
+    "implementation promotes checkpoint",
+    "implementation admits optimizer training",
+    "implementation omits source-level summary"
+  ],
+  "commands": [
+    {
+      "name": "combined_source7_preserving",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.combined_projected_sequence_shape --checkpoint-policy bc5660=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --source-table runs/m616_expanded_sequence_source_miner/expanded_sequence_source_rows.csv --baseline-source-summary runs/m633_targeted_source8_projected_shape/source_recovery_summary.csv --surface-config fresh=configs/ppo_m541_matched_l3_variance_4096.json --surface-config ood=configs/eval_m574_moderate_ood_l3.json --run-dir runs/m636_combined_source7_preserving_shape"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m636_combined_source7_preserving_shape/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m636_combined_source7_preserving_shape/source_recovery_summary.csv",
+      "type": "data"
+    },
+    {
+      "path": "docs/m636-combined-source7-preserving-shape-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m635-combined-source7-preserving-shape-design.md",
+    "runs/m633_targeted_source8_projected_shape/source_recovery_summary.csv"
+  ],
+  "decision_rule": "M636 passes as infrastructure if it writes combined no-training artifacts and preserves trust limits; optimizer admission remains blocked pending audit.",
+  "next_blocker": "m637-combined-source7-preserving-shape-audit"
+}

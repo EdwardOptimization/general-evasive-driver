@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M635 designs a two-grid combined projected search to keep source8 source0 source30 gains while restoring source7 preservation",
+  "failure_criteria": [
+    "design changes thresholds",
+    "design widens trust regions",
+    "design starts training",
+    "design promotes a checkpoint",
+    "design treats M633 as optimizer-ready",
+    "design omits source7 preservation"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not widen trust regions",
+    "do not lower target thresholds",
+    "do not ignore source7 regression",
+    "do not treat candidate count as source diversity"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T113132Z",
+  "hypothesis": "A combined projected grid can keep source8 and source0 recovered while restoring source7 and preserving source30 without changing trust limits.",
+  "lineage": {
+    "blocked_by": [
+      "m634-targeted-source8-projected-shape-audit"
+    ],
+    "derived_from": [
+      "m634-targeted-source8-projected-shape-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m634-targeted-source8-projected-shape-audit.json",
+      "docs/m633-targeted-source8-projected-shape-implementation.md"
+    ],
+    "parent_dataset": [
+      "runs/m633_targeted_source8_projected_shape/summary.json",
+      "runs/m633_targeted_source8_projected_shape/source_recovery_summary.csv",
+      "runs/m630_trust_projected_sequence_shape/accepted_projected_sequences.csv",
+      "docs/m634-targeted-source8-projected-shape-audit.md"
+    ],
+    "parent_objective": [
+      "design combined source8 recovery and source7 preservation projected shape search"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m635-combined-source7-preserving-shape-design",
+  "next_blocker": "m636-combined-source7-preserving-shape-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "combined_source7_preserving_shape_design_admit_m636",
+  "public_gates": [
+    "define combined source8 recovery and source7 preservation grids",
+    "preserve all trust limits and thresholds",
+    "define source-level pass criteria for sources 8 0 7 and 30",
+    "keep actor training and PPO blocked",
+    "do not claim optimizer admission from design"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m635-combined-source7-preserving-shape-design.md",
+    "clearance_margin_mean": "",
+    "decision": "combined_source7_preserving_shape_design_admit_m636",
+    "milestone": "m635-combined-source7-preserving-shape-design",
+    "reason": "M635 designs a two-grid combined projected search to keep source8 source0 source30 gains while restoring source7 preservation",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design specifies source8 recovery grid and source7 preservation grid",
+    "design specifies implementation artifacts and pass criteria",
+    "design keeps optimizer admission training PPO promotion threshold changes and trust-region relaxation blocked",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

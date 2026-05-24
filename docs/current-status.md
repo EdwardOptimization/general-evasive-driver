@@ -62,16 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m635-combined-source7-preserving-shape-design
+m636-combined-source7-preserving-shape-implementation
 ```
 
-M635 should design a combined no-training projected search that keeps M633's
-source `8` and `0` recovery while restoring M630's source `7` preservation
-pattern and keeping source `30` preserved. Optimizer admission, training, PPO,
-promotion, threshold changes, and trust-region relaxation remain blocked.
+M636 should implement the combined no-training projected search designed in
+M635. It should run two named grids: source8 recovery for sources `8`, `0`, and
+`30`, plus source7 preservation for source `7`. The goal is to keep all four
+sources accepted while preserving trust limits. Optimizer admission remains
+blocked pending audit.
 
 ## Recent Evidence Line
 
+- M635 designs a two-grid combined projected search. Grid A preserves M633's
+  source8/source0/source30 recovery. Grid B restores M630's source7 pattern
+  around steer `0.08`, throttle `0.00`, and brake `0.00/0.04`. M636 should
+  implement this as a no-training artifact pass with source-level outcomes for
+  all four sources.
 - M634 audits M633 as strong targeted-positive with sentinel grid regression.
   The source-7 failure is likely coverage, not a fundamental conflict: M633 did
   not include M630's source-7 pattern around steer `0.08`, throttle `0.00`,
