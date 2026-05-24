@@ -1,0 +1,92 @@
+{
+  "id": "m606-grounded-capability-action-target-miner-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m604_guarded_capability_action_coupling_evaluator/coupling_rows.csv",
+      "runs/m604_guarded_capability_action_coupling_evaluator/summary.json"
+    ],
+    "parent_config": [
+      "docs/m605-grounded-capability-action-target-mining-design.md",
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_objective": [
+      "implement grounded local action target miner for M604 belief-only gaps"
+    ],
+    "derived_from": [
+      "m605-grounded-capability-action-target-mining-design"
+    ],
+    "blocked_by": [
+      "m605-grounded-capability-action-target-mining-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m606-grounded-capability-action-target-miner-implementation.md",
+  "public_gates": [
+    "write target candidate rollouts",
+    "write accepted target rows",
+    "write unaccepted rows",
+    "write deployable-only target corpus",
+    "prove no model weights are changed"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not hide unaccepted rows",
+    "do not convert ungrounded belief-only gaps into targets"
+  ],
+  "hypothesis": "A bounded first-action local search around M604 belief-only gap rows can find simulator-grounded target actions that improve short-horizon margin or risk while preserving the actor input contract.",
+  "success_criteria": [
+    "target_candidates.csv is written",
+    "accepted_targets.csv is written",
+    "unaccepted_rows.csv is written",
+    "target_corpus.npz is written when accepted targets exist",
+    "summary records labels_enter_actor_input false ppo_used false promoted false actor_parameters_changed false",
+    "research validation and focused tests pass"
+  ],
+  "failure_criteria": [
+    "miner trains any model",
+    "miner uses private holdout rows",
+    "miner omits unaccepted rows",
+    "miner writes privileged actor inputs",
+    "miner promotes a checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "smoke",
+      "command": "Implement and run grounded target miner on a bounded M604 candidate subset."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m606_grounded_capability_action_target_miner/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "docs/m606-grounded-capability-action-target-miner-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m605-grounded-capability-action-target-mining-design.md",
+    "runs/m604_guarded_capability_action_coupling_evaluator/summary.json"
+  ],
+  "decision_rule": "M606 passes as infrastructure if it writes the grounded target-mining artifacts without training; later optimizer admission depends on accepted target diversity and margin improvement.",
+  "next_blocker": "m607-grounded-target-mining-audit"
+}

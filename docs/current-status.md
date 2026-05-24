@@ -62,16 +62,20 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m605-grounded-capability-action-target-mining-design
+m606-grounded-capability-action-target-miner-implementation
 ```
 
-M605 should design simulator-grounded action target mining for the M604
-belief-only gaps. M604 found `262` real-history candidates where capability
-belief moves but action remains inactive; these are not labels and require
-local recovery or terminal-boundary grounding before any optimizer.
+M606 should implement and run the bounded simulator-grounded action target
+miner designed by M605. The source is the M604 `belief_only_gap` candidate set;
+the output should be candidate rollouts, accepted targets, unaccepted rows, and
+a deployable-only target corpus if accepted targets exist.
 
 ## Recent Evidence Line
 
+- M605 designs the grounding step. M606 should run a local first-action search
+  around M604 candidates and accept targets only when they improve simulator
+  margin/risk within a small action trust region. Actor training, PPO, and
+  direct use of belief-only gaps as labels remain blocked.
 - M604 implements and runs the no-update evaluator. It joins `6776` rows and
   finds `262` real-history `belief_only_gap` candidates: fresh shuffled `84`,
   fresh delayed `24`, fresh wrong-matched `8`, OOD shuffled `77`, OOD

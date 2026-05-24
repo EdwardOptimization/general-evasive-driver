@@ -11566,3 +11566,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M604 implements and runs an exact no-update evaluator that joins M591 action movement and M601 capability movement on matched-current rows. It writes `6776` coupling rows and finds `3033` total belief-only gaps, including `262` real-history belief-only gaps. Candidate counts are fresh shuffled `84`, fresh delayed `24`, fresh wrong-matched `8`, OOD shuffled `77`, OOD wrong-matched `49`, and OOD delayed `20`. The evaluator changes no weights, uses no PPO, promotes nothing, and treats candidates as requiring simulator-grounded target mining rather than labels.
 - decision: `guarded_capability_action_coupling_evaluator_pass_admit_grounded_target_design`
 - next: `m605-grounded-capability-action-target-mining-design`
+## 20260524T125000Z - m605-grounded-capability-action-target-mining-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m605-grounded-capability-action-target-mining-design.md`
+- result: M605 designs simulator-grounded target mining for M604 belief-only gaps. It defines a bounded local first-action search around BC5660 base actions, prioritizes OOD wrong-matched lateral/yaw candidates, sets trust-region and margin/risk acceptance criteria, requires unaccepted rows to be logged, and defines deployable-only target corpus fields. M605 explicitly forbids using belief-only gaps as labels, actor training, PPO, promotion, private-holdout tuning, or privileged actor inputs.
+- decision: `grounded_capability_action_target_mining_design_admit_m606`
+- next: `m606-grounded-capability-action-target-miner-implementation`

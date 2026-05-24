@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 613,
+        "completed": 614,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m604-guarded-capability-action-coupling-evaluator",
+        "task_id": "m605-grounded-capability-action-target-mining-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m604_guarded_capability_action_coupling_evaluator",
-        "command_log": "docs/m604-guarded-capability-action-coupling-evaluator.md"
+        "run_dir": "",
+        "command_log": "docs/m605-grounded-capability-action-target-mining-design.md"
     },
     "next_task": {
-        "id": "m605-grounded-capability-action-target-mining-design",
+        "id": "m606-grounded-capability-action-target-miner-implementation",
         "status": "pending",
-        "priority": 6000,
+        "priority": 6010,
         "kind": "infrastructure",
-        "hypothesis": "M604 belief-only gaps are useful only if local recovery or terminal-boundary search can ground them in action targets that improve margin or risk without violating the actor contract.",
-        "command": "see experiments/manifests/m605-grounded-capability-action-target-mining-design.json",
+        "hypothesis": "A bounded first-action local search around M604 belief-only gap rows can find simulator-grounded target actions that improve short-horizon margin or risk while preserving the actor input contract.",
+        "command": "see experiments/manifests/m606-grounded-capability-action-target-miner-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design simulator-grounded action target mining before any action-coupling optimizer; no training, PPO, promotion, or driver-performance claim"
+        "notes": "Pending: implement and run bounded target miner; no training, PPO, promotion, or driver-performance claim"
     },
-    "updated_at_utc": "20260524T124000Z"
+    "updated_at_utc": "20260524T125000Z"
 }
