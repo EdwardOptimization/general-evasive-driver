@@ -12205,3 +12205,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M675 audits M674 as `first_action_drift_vs_sequence_gap_conflict`. M674 is not a representation failure because `alpha=1.0` has enough wrong-history sequence gap; it is not a PPO blocker because no PPO was used. The issue is that the sequence-level residual objective does not explicitly constrain the executed first residual enough. The next design should add a strong normal first-action anchor, p95/top-k first residual penalty, wrong-history sequence target, and wrong-history first-gap objective while keeping the frozen backbone, fused-plus-next-hidden view, alpha ladder, exact-first evaluation, no PPO, no promotion, and no actor-input changes.
 - decision: `response_amplification_actor_coupling_audit_admit_first_step_safe_design`
 - next: `m676-first-step-safe-response-amplification-design`
+## 20260525T024500Z - m676-first-step-safe-response-amplification-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m676-first-step-safe-response-amplification-design.md`
+- result: M676 designs a first-step-safe residual objective to address M674's alpha conflict. The design keeps frozen BC5660, fused-plus-next-hidden features, residual sequence head, first-residual execution, alpha ladder, exact-first evaluation, no PPO, no promotion, and no actor-input changes. The key additions are `L_normal_first_zero`, a top-k/p95 hinge on normal first residual L2 with threshold `0.004`, a wrong-history first-gap hinge with target `0.006`, and the existing wrong-history sequence target and sequence-gap objective.
+- decision: `first_step_safe_response_amplification_design_admit_m677`
+- next: `m677-first-step-safe-response-amplification-implementation`

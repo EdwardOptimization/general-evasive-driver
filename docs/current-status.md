@@ -62,19 +62,25 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m676-first-step-safe-response-amplification-design
+m677-first-step-safe-response-amplification-implementation
 ```
 
-M676 should design a first-step-safe residual response-amplification objective.
-M674 showed that generic sequence residual training creates enough wrong-history
-gap only when the first executed normal residual is too large. The next design
-must add explicit normal first-action anchors and p95/top-k first residual
-penalties while preserving the M671 wrong-history sequence target. PPO,
-promotion, actor-input changes, and base actor checkpoint writing remain
-forbidden.
+M677 should implement the first-step-safe residual response-amplification probe
+designed in M676. It should extend the M674 frozen-backbone actor-coupling path
+with strong normal first-action anchor, top-k/p95 first residual hinge,
+wrong-history first-gap term, M671 wrong-history sequence target, and exact
+alpha ladder evaluation. PPO, promotion, actor-input changes, and base actor
+checkpoint writing remain forbidden.
 
 ## Recent Evidence Line
 
+- M676 designs the first-step-safe residual objective. It keeps frozen BC5660,
+  fused-plus-next-hidden features, residual sequence head, first-residual
+  execution, alpha ladder, and exact-first evaluation, but adds
+  `L_normal_first_zero`, top-k/p95 normal first-residual hinge
+  (`threshold=0.004`, fraction `0.10`), and wrong-history first-gap target
+  `0.006` while preserving the M671 sequence target. PPO and promotion remain
+  blocked.
 - M675 audits M674 as `first_action_drift_vs_sequence_gap_conflict`, not a
   representation failure. The next step is a first-step-safe residual objective
   with strong normal first-action anchoring, top-k/p95 first residual penalty,
