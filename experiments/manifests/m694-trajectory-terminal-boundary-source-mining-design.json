@@ -1,0 +1,109 @@
+{
+  "id": "m694-trajectory-terminal-boundary-source-mining-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m693-gate-margin-closed-loop-replay-audit.md",
+      "runs/m692_gate_margin_closed_loop_replay/summary.json",
+      "runs/m692_gate_margin_closed_loop_replay/replay_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m693-gate-margin-closed-loop-replay-audit.json"
+    ],
+    "parent_objective": [
+      "design trajectory and terminal-margin sensitive source mining after response-amplification pivot"
+    ],
+    "derived_from": [
+      "m693-gate-margin-closed-loop-replay-audit"
+    ],
+    "blocked_by": [
+      "m693-gate-margin-closed-loop-replay-audit"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "further response_amplification_actor_coupling milestones without a new replay-positive source surface"
+    ]
+  },
+  "review_artifact": "docs/reviews/m694-trajectory-terminal-boundary-source-mining-design.md",
+  "public_gates": [
+    "design defines terminal-margin sensitivity before objective training",
+    "design distinguishes normal-failed rows from action-critical rows",
+    "design includes source-diversity rules",
+    "design blocks actor update PPO and promotion",
+    "design keeps P0 human-view actor inputs unchanged"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not reuse exact output residual metrics as replay evidence",
+    "do not accept rows that are already normal-failed as action-critical",
+    "do not change actor observation inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "trajectory_terminal_boundary_source_mining",
+    "evidence_axis": "G_source: find closed-loop terminal-margin-sensitive action-critical rows before objective or PPO design",
+    "evidence_increment": "designs the first miner in the post-response-amplification branch with terminal-margin sensitivity as the primary evidence axis",
+    "claim_scope": "source-mining design only, not training, actor update, PPO, or checkpoint promotion",
+    "stop_condition": [
+      "stop if the design cannot separate normal-failed rows from action-critical boundary rows",
+      "stop if no source-diversity or holdout policy is defined",
+      "stop before objective design unless mining can report terminal-margin sensitivity metrics"
+    ],
+    "fallback_plan": [
+      "if trajectory-sensitive rows are sparse, broaden scenario sampling before objective design",
+      "if all sensitive rows are normal-failed, return to base driver capability improvement rather than self-ID proof",
+      "if wrong-history remains outcome-insensitive, pivot to capability-envelope or broad scenario evaluation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "after the first miner implementation and audit, or earlier if accepted rows are zero",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A trajectory/terminal-boundary source miner can define a better source surface than M671/M689 by selecting rows where small first-action perturbations or counterfactual histories measurably affect terminal margin, risk, collision, or recovery.",
+  "success_criteria": [
+    "design identifies candidate source artifacts and scenario configs",
+    "design defines terminal-margin sensitivity metrics",
+    "design defines normal-success or near-boundary filters",
+    "design defines wrong/counterfactual-history outcome tests",
+    "design defines source-diversity and heldout split rules",
+    "design defines negative-result interpretations",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "design accepts output-only residual metrics as sufficient",
+    "design cannot distinguish normal-failed from action-critical rows",
+    "design omits terminal-margin or risk sensitivity metrics",
+    "design omits source-diversity rules",
+    "design admits actor update or PPO before mining"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m694-trajectory-terminal-boundary-source-mining-design.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m694-trajectory-terminal-boundary-source-mining-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m693-gate-margin-closed-loop-replay-audit.md",
+    "runs/m692_gate_margin_closed_loop_replay/summary.json"
+  ],
+  "decision_rule": "M694 is design-only and passes if it defines a terminal-margin-sensitive source-mining protocol with actor update PPO and promotion blocked.",
+  "next_blocker": "m694-trajectory-terminal-boundary-source-mining-design"
+}

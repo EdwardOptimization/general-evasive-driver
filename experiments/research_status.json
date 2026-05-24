@@ -1,30 +1,30 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 701,
+        "completed": 702,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m692-gate-margin-closed-loop-replay-implementation",
+        "task_id": "m693-gate-margin-closed-loop-replay-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m692-gate-margin-closed-loop-replay-implementation.md",
-        "run_dir": "runs/m692_gate_margin_closed_loop_replay",
-        "result": "replay_neutral",
-        "replay_admission_passed": false
+        "command_log": "docs/m693-gate-margin-closed-loop-replay-audit.md",
+        "synthesis_decision": "pivot",
+        "closed_branch": "response_amplification_actor_coupling",
+        "next_branch": "trajectory_terminal_boundary_source_mining"
     },
     "next_task": {
-        "id": "m693-gate-margin-closed-loop-replay-audit",
+        "id": "m694-trajectory-terminal-boundary-source-mining-design",
         "status": "pending",
-        "priority": 6880,
-        "kind": "gate",
-        "hypothesis": "M692 replay-neutral result should close or pivot the response-amplification actor-coupling branch before any further residual-head tuning or PPO.",
-        "command": "see experiments/manifests/m693-gate-margin-closed-loop-replay-audit.json",
+        "priority": 6890,
+        "kind": "infrastructure",
+        "hypothesis": "A trajectory/terminal-boundary source miner can define a better source surface than M671/M689 by selecting rows where small first-action perturbations or counterfactual histories measurably affect terminal margin, risk, collision, or recovery.",
+        "command": "see experiments/manifests/m694-trajectory-terminal-boundary-source-mining-design.json",
         "success_artifact": "",
-        "notes": "Pending: process synthesis before any further residual-head tuning actor update or PPO"
+        "notes": "Pending: design source miner with terminal-margin sensitivity before any objective actor update or PPO"
     },
-    "updated_at_utc": "20260524T162438Z"
+    "updated_at_utc": "20260524T162826Z"
 }

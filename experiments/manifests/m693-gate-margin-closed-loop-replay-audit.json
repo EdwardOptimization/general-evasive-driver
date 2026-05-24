@@ -114,5 +114,5 @@
     "docs/m692-gate-margin-closed-loop-replay-implementation.md"
   ],
   "decision_rule": "M693 must produce a process synthesis decision before any further response-amplification actor-coupling work; the pre-registered decision is pivot because M692 is replay_neutral.",
-  "next_blocker": "m693-gate-margin-closed-loop-replay-audit"
+  "next_blocker": "m694-trajectory-terminal-boundary-source-mining-design"
 }
