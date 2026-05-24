@@ -62,16 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m644-source-balanced-bc-v2-objective-implementation
+m645-bc-v2-head-only-smoke-design
 ```
 
-M644 should implement the no-update source-balanced BC-v2 exact evaluator. It
-must load the M641 corpus and BC5660 checkpoint, compute normal-hidden and
-variant-hidden first-action target losses plus source-balanced sequence delta
-metrics, and confirm actor parameters do not change.
+M645 should design a frozen-actor head-only smoke for the BC-v2 sequence-delta
+objective. It must keep the actor and recurrent encoder frozen, train only an
+auxiliary head in the later implementation, report train/source-heldout splits,
+and reject checkpoint promotion from head-only loss.
 
 ## Recent Evidence Line
 
+- M644 implements and runs the exact no-update BC-v2 evaluator. Normal-hidden
+  first-action loss is `0.002101438`; variant-hidden first-action loss is
+  `0.002599709`; sequence-delta target MSE is `0.002039985`; and actor checksum
+  is unchanged. Normal actions reconstruct stored base first actions to
+  `4.04e-8` weighted mean L2, confirming the evaluator is live and no-update.
+  Wrong-history sources still have very small normal/variant action gaps, so
+  M644 admits only a frozen-actor head-only smoke design, not an actor update.
 - M643 designs the source-balanced BC-v2 objective. The key constraint is that
   M641 has initial observation/hidden plus target sequences, but not the
   closed-loop post-target observation sequence. Therefore the next step is not

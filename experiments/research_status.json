@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 652,
+        "completed": 653,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m643-source-balanced-bc-v2-objective-design",
+        "task_id": "m644-source-balanced-bc-v2-objective-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m643-source-balanced-bc-v2-objective-design.md"
+        "run_dir": "runs/m644_source_balanced_bc_v2_objective",
+        "command_log": "docs/m644-source-balanced-bc-v2-objective-implementation.md"
     },
     "next_task": {
-        "id": "m644-source-balanced-bc-v2-objective-implementation",
+        "id": "m645-bc-v2-head-only-smoke-design",
         "status": "pending",
-        "priority": 6390,
+        "priority": 6400,
         "kind": "infrastructure",
-        "hypothesis": "The M641 corpus and BC5660 checkpoint can be evaluated by an exact BC-v2 objective that separates normal and variant hidden action losses without changing the actor.",
-        "command": "see experiments/manifests/m644-source-balanced-bc-v2-objective-implementation.json",
+        "hypothesis": "A frozen-actor auxiliary sequence-delta head can test whether BC5660 features contain the M641 local correction signal before any actor coupling update.",
+        "command": "see experiments/manifests/m645-bc-v2-head-only-smoke-design.json",
         "success_artifact": "",
-        "notes": "Pending: implement exact no-update source-balanced BC-v2 objective evaluator; no training PPO promotion or actor update"
+        "notes": "Pending: design frozen-actor source-balanced sequence-delta head-only smoke; no PPO promotion or actor update"
     },
-    "updated_at_utc": "20260524T191000Z"
+    "updated_at_utc": "20260524T192000Z"
 }

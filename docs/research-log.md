@@ -11917,3 +11917,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M643 designs a conservative source-balanced BC-v2 objective path. Because the M641 corpus contains initial observation/hidden and target action sequences but not the post-target observation sequence, it rejects a direct full-actor sequence imitation update. The admitted ladder is M644 exact no-update evaluator, M645 frozen-actor shadow/head-only smoke, then only later tightly gated adapter or actor-update probes. Required M644 metrics include normal-hidden and variant-hidden first-action target losses, sequence delta target metrics, source/split/target summaries, and actor-parameter non-mutation checks. Training, PPO, promotion, and actor updates remain blocked.
 - decision: `source_balanced_bc_v2_objective_design_admit_m644`
 - next: `m644-source-balanced-bc-v2-objective-implementation`
+## 20260524T192000Z - m644-source-balanced-bc-v2-objective-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m644_source_balanced_bc_v2_objective`
+- artifact: `docs/m644-source-balanced-bc-v2-objective-implementation.md`
+- result: M644 implements and runs the exact no-update BC-v2 objective evaluator. It reports `431` rows and `9` sources with finite metrics. First-action normal loss is `0.002101438`, variant loss is `0.002599709`, base loss is `0.002101438`, sequence-delta target MSE is `0.002039985`, and weighted normal/variant gap L2 is `0.010549`. Normal actions reconstruct stored base first actions to `4.04e-8` weighted mean L2, variant actions reconstruct stored variant actions to `3.65e-8`, and the actor checksum is unchanged. Wrong-history sources retain very small normal/variant gaps, so the next admitted step is a frozen-actor head-only smoke design, not an actor update.
+- decision: `source_balanced_bc_v2_objective_implementation_pass_admit_head_only_design`
+- next: `m645-bc-v2-head-only-smoke-design`
