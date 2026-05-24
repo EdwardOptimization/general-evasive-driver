@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M614 audits M613 as a real but narrow sequence-target signal and keeps optimizer admission training PPO and promotion blocked pending source expansion",
+  "failure_criteria": [
+    "audit treats one accepted sequence as training-ready",
+    "audit starts training or PPO",
+    "audit promotes a checkpoint",
+    "audit omits diagnostic-only limitation",
+    "audit ignores source-diversity failure"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not treat the one accepted sequence as sufficient corpus",
+    "do not add privileged actor inputs",
+    "do not hide unaccepted rows"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260524T092631Z",
+  "hypothesis": "M613 provides a real but narrow sequence-target signal; the audit should decide whether to expand source diversity or repeat sequence mining before any optimizer step.",
+  "lineage": {
+    "blocked_by": [
+      "m613-sequence-target-miner-implementation"
+    ],
+    "derived_from": [
+      "m613-sequence-target-miner-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m613-sequence-target-miner-implementation.json",
+      "docs/m613-sequence-target-miner-implementation.md"
+    ],
+    "parent_dataset": [
+      "runs/m613_sequence_target_miner/summary.json",
+      "runs/m613_sequence_target_miner/accepted_sequences.csv",
+      "runs/m613_sequence_target_miner/unaccepted_rows.csv",
+      "runs/m613_sequence_target_miner/sequence_target_corpus.npz"
+    ],
+    "parent_objective": [
+      "audit diagnostic-positive sequence target result before source expansion or optimizer design"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m614-sequence-target-mining-audit",
+  "next_blocker": "m615-sequence-source-expansion-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "sequence_target_mining_audit_admit_source_expansion_design",
+  "public_gates": [
+    "audit whether accepted sequence signal is too narrow",
+    "verify optimizer admission remains blocked",
+    "choose next branch: source expansion, repeatability check, or sequence-head shadow probe",
+    "keep actor training and PPO blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m614-sequence-target-mining-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "sequence_target_mining_audit_admit_source_expansion_design",
+    "milestone": "m614-sequence-target-mining-audit",
+    "reason": "M614 audits M613 as a real but narrow sequence-target signal and keeps optimizer admission training PPO and promotion blocked pending source expansion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "audit summarizes accepted and unaccepted sequence evidence",
+    "audit explicitly blocks optimizer admission from one accepted sequence",
+    "audit selects the next branch without training or PPO",
+    "research validation passes"
+  ],
+  "type": "gate"
+}

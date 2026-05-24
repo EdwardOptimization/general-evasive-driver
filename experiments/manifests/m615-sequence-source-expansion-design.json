@@ -1,0 +1,87 @@
+{
+  "id": "m615-sequence-source-expansion-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m609_boundary_conditioned_source_miner/boundary_source_rows.csv",
+      "runs/m613_sequence_target_miner/accepted_sequences.csv",
+      "docs/m614-sequence-target-mining-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m614-sequence-target-mining-audit.json",
+      "docs/m612-sequence-target-mining-design.md"
+    ],
+    "parent_objective": [
+      "design source expansion before repeating sequence target mining"
+    ],
+    "derived_from": [
+      "m614-sequence-target-mining-audit"
+    ],
+    "blocked_by": [
+      "m614-sequence-target-mining-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m615-sequence-source-expansion-design.md",
+  "public_gates": [
+    "define expanded source-screen policy",
+    "define deterministic hidden provenance requirements",
+    "define sequence-mining repeat thresholds",
+    "keep target acceptance thresholds unchanged",
+    "keep actor training and PPO blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in design milestone",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower target acceptance thresholds",
+    "do not treat one accepted M613 sequence as sufficient corpus",
+    "do not add privileged actor inputs"
+  ],
+  "hypothesis": "M613 sequence-target signal is real but too narrow; expanding boundary source diversity before repeating sequence mining may produce enough accepted sequences for a later objective design.",
+  "success_criteria": [
+    "design specifies expanded source rows and boundary windows",
+    "design specifies deterministic provenance for any new history variants",
+    "design specifies minimum accepted-sequence diversity for later objective admission",
+    "design keeps training and PPO blocked",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design starts training",
+    "design lowers target acceptance thresholds",
+    "design permits optimizer admission from one accepted row",
+    "design uses privileged actor inputs",
+    "design promotes a checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "Write sequence source expansion design; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m615-sequence-source-expansion-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m614-sequence-target-mining-audit.md",
+    "runs/m613_sequence_target_miner/summary.json"
+  ],
+  "decision_rule": "M615 passes if it pre-registers source expansion before another sequence target miner run.",
+  "next_blocker": "m616-expanded-sequence-source-miner-implementation"
+}

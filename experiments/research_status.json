@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 622,
+        "completed": 623,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m613-sequence-target-miner-implementation",
+        "task_id": "m614-sequence-target-mining-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m613_sequence_target_miner",
-        "command_log": "docs/m613-sequence-target-miner-implementation.md"
+        "run_dir": "",
+        "command_log": "docs/m614-sequence-target-mining-audit.md"
     },
     "next_task": {
-        "id": "m614-sequence-target-mining-audit",
+        "id": "m615-sequence-source-expansion-design",
         "status": "pending",
-        "priority": 6090,
-        "kind": "gate",
-        "hypothesis": "M613 provides a real but narrow sequence-target signal; the audit should decide whether to expand source diversity or repeat sequence mining before any optimizer step.",
-        "command": "see experiments/manifests/m614-sequence-target-mining-audit.json",
+        "priority": 6100,
+        "kind": "infrastructure",
+        "hypothesis": "M613 sequence-target signal is real but too narrow; expanding boundary source diversity before repeating sequence mining may produce enough accepted sequences for a later objective design.",
+        "command": "see experiments/manifests/m615-sequence-source-expansion-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit the one accepted diagnostic sequence and choose next no-training branch; no optimizer admission"
+        "notes": "Pending: design expanded sequence-target source mining; no training, PPO, promotion, or optimizer admission"
     },
-    "updated_at_utc": "20260524T141000Z"
+    "updated_at_utc": "20260524T142000Z"
 }

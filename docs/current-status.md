@@ -55,22 +55,28 @@ Latest active diagnostic BC checkpoint:
 runs/m568_scaled_l3_bc_seed5660/checkpoint.pt
 ```
 
-Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M606
+Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M614
 diagnostics. It is not the public-gate base and is not promoted as the current
 driver checkpoint.
 
 ## Current Blocker
 
 ```text
-m614-sequence-target-mining-audit
+m615-sequence-source-expansion-design
 ```
 
-M614 should audit the M613 diagnostic-positive sequence result. M613 found one
-accepted sequence, which supports the sequence-target direction but is far too
-narrow for optimizer admission or training.
+M615 should design an expanded sequence-target source pool before repeating
+sequence mining. M614 audited M613 as a real but narrow sequence-target signal:
+one accepted sequence is not enough for optimizer admission or training.
 
 ## Recent Evidence Line
 
+- M614 audits the M613 result and admits source expansion design. M613 produced
+  a real sequence-target signal, but accepted diversity is only one source row,
+  one physical pair, one left seed, one surface, one variant, and one target.
+  Optimizer admission, training, PPO, and promotion remain blocked; M615 should
+  expand source diversity and repeatability criteria before another sequence
+  mining run.
 - M613 implements and runs sequence target mining on M609 boundary rows. It
   evaluates `5916` sequence candidates and selects one accepted `K=5`
   `constant_delta` sequence on a fresh delayed braking row, with margin

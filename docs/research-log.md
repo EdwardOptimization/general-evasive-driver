@@ -11647,3 +11647,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M613 implements and runs the diagnostic sequence target miner. It evaluates `5916` structured sequence candidates across `17` M609 boundary rows. Two candidate rows pass the margin-improvement criterion, and the selected accepted sequence is a `K=5` `constant_delta` sequence on source index `7` (`fresh`, `delayed_history`, `future_braking_deceleration`) with `+0.08` steering, baseline margin `0.274439`, target margin `0.295255`, and margin improvement `0.020817`. `sequence_target_corpus.npz` is written with one padded sequence row. Accepted diversity is only one source/physical pair/surface/variant/target, so this is diagnostic signal only; optimizer admission, training, PPO, and promotion remain blocked.
 - decision: `sequence_target_miner_diagnostic_positive_admit_audit`
 - next: `m614-sequence-target-mining-audit`
+## 20260524T142000Z - m614-sequence-target-mining-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m614-sequence-target-mining-audit.md`
+- result: M614 audits the M613 diagnostic-positive sequence result. The branch has a real signal: `5916` candidates produced `2` accepted candidate rows and `1` selected `K=5` `constant_delta` sequence with margin improvement `0.020817`. But the evidence is source-narrow: accepted diversity is one source row, one physical pair, one left seed, one surface, one variant, and one target. The best unaccepted candidates are blocked by sequence trust-region limits or candidate collision, so the correct next branch is source expansion rather than optimizer admission.
+- decision: `sequence_target_mining_audit_admit_source_expansion_design`
+- next: `m615-sequence-source-expansion-design`
