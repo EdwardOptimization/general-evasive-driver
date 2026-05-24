@@ -61,12 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m554-route-screen-gated-l3-repair-v2-design
+m555-l3-repair-v2-config-family
 ```
 
-M554 should design the next L3 recurrent repair branch under the new reusable
-route-screen v2 admission rule. Future L3 repair checkpoints must pass
-route-screen v2 against L0 before public frozen-source diagnostics.
+M555 should implement the M554-approved L3 repair-v2 config family:
+`epoch1_clip01`, `longseq_epoch1`, and `lowentropy_epoch1`. This is config/test
+infrastructure only; no training or promotion.
 
 ## Recent Evidence Line
 
@@ -215,6 +215,10 @@ route-screen v2 against L0 before public frozen-source diagnostics.
   `episodes.csv`, `policy_summary.csv`, `summary.json`, and explicit
   `uses_public_frozen_source_rows = false` provenance. The runner reproduces
   the M552 rejection of M549 selected L3.
+- M554 designs the next L3 recurrent repair branch under route-screen v2. It
+  freezes P0/env/task boundaries, restricts repair v2 to PPO stability controls,
+  and admits exactly three small L3-only variants for M555:
+  `epoch1_clip01`, `longseq_epoch1`, and `lowentropy_epoch1`.
 
 ## Near-Term Rule
 

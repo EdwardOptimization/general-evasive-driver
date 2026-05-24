@@ -11107,3 +11107,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M553 adds `autodrift.route_screen_v2`, a reusable route-screen v2 runner/selector with named checkpoint policies, per-policy level-matched env configs, required L0/L2 references, candidate selection, `episodes.csv`, `policy_summary.csv`, `summary.json`, and explicit `uses_public_frozen_source_rows = false` provenance. Focused tests pass (`24 passed`). The runner reproduces the M552 result: M549 selected L3 is rejected before public eval because success is below L0 while L2 remains much stronger.
 - decision: `route_screen_v2_runner_pass_admit_m554_l3_repair_v2_design`
 - next: `m554-route-screen-gated-l3-repair-v2-design`
+## 20260524T093000Z - m554-route-screen-gated-l3-repair-v2-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m554-route-screen-gated-l3-repair-v2-design.md`
+- result: M554 designs the next L3 repair branch under route-screen v2 admission. It freezes the P0 actor contract and M541/M548 task distribution, restricts the next branch to PPO stability controls, and pre-registers three small L3-only variants: `epoch1_clip01`, `longseq_epoch1`, and `lowentropy_epoch1`. Any candidate must pass reusable route-screen v2 against L0 before public frozen-source diagnostics.
+- decision: `route_screen_gated_l3_repair_v2_design_admit_m555_config_family`
+- next: `m555-l3-repair-v2-config-family`

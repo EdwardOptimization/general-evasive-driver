@@ -1,0 +1,77 @@
+{
+  "id": "m555-l3-repair-v2-config-family",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m542_matched_l3_variance_seed3540/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m554-route-screen-gated-l3-repair-v2-design.md"
+    ],
+    "parent_config": [
+      "configs/ppo_m548_l3_repair_fast_select_ckpt256_4096.json"
+    ],
+    "parent_objective": [
+      "implement route-screen-gated L3 recurrent repair v2 config family"
+    ],
+    "derived_from": [
+      "m554-route-screen-gated-l3-repair-v2-design"
+    ],
+    "blocked_by": [
+      "m554-route-screen-gated-l3-repair-v2-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m555-l3-repair-v2-config-family.md",
+  "public_gates": [
+    "add only the M554-approved L3 PPO-stability config variants",
+    "preserve M548 L3 env/task/P0 actor input contract",
+    "keep checkpoint_interval_steps = 256 for route-screen v2 selection",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not change env sampler or reward terms",
+    "do not add privileged actor inputs",
+    "do not add more config variants than M554 approved",
+    "do not run public frozen-source eval"
+  ],
+  "hypothesis": "A small L3-only config family that changes only PPO stability controls can test whether recurrent policy drift, not the P0 input contract, caused the M544-M550 L3 repair failure.",
+  "success_criteria": [
+    "configs implement epoch1_clip01, longseq_epoch1, and lowentropy_epoch1",
+    "tests verify the env section matches M548 L3 exactly",
+    "tests verify only M554-approved PPO keys differ",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "configs alter task distribution or actor input contract",
+    "configs omit update-aligned checkpointing",
+    "tests cannot distinguish approved PPO changes from hidden env changes"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "Add M554-approved L3 repair-v2 configs and tests; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m555-l3-repair-v2-config-family.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m554-route-screen-gated-l3-repair-v2-design.md"
+  ],
+  "decision_rule": "M555 passes only if the L3 repair-v2 config family preserves the P0/env boundary and changes only approved PPO stability controls. It does not train or promote a checkpoint.",
+  "next_blocker": "pending M555 L3 repair-v2 config family"
+}

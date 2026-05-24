@@ -2,7 +2,7 @@
   "id": "m554-route-screen-gated-l3-repair-v2-design",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -82,6 +82,6 @@
     "docs/m550-m549-public-surface-diagnostic.md",
     "docs/m553-route-screen-v2-runner-implementation.md"
   ],
-  "decision_rule": "M554 passes only if the next L3 repair plan is route-screen-v2-gated and preserves the P0 input contract. It does not train or promote a checkpoint.",
-  "next_blocker": "pending M554 route-screen-gated L3 repair v2 design"
+  "decision_rule": "M554 passes because it freezes the P0/task boundaries, restricts the next branch to PPO stability controls, and requires route-screen v2 before public diagnostics. It does not train or promote a checkpoint.",
+  "next_blocker": "m555-l3-repair-v2-config-family"
 }

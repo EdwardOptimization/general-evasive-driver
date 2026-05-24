@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 562,
+        "completed": 563,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m553-route-screen-v2-runner-implementation",
+        "task_id": "m554-route-screen-gated-l3-repair-v2-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m553_route_screen_v2_runner_reproduce_m552",
-        "command_log": "docs/m553-route-screen-v2-runner-implementation.md"
+        "run_dir": "",
+        "command_log": "docs/m554-route-screen-gated-l3-repair-v2-design.md"
     },
     "next_task": {
-        "id": "m554-route-screen-gated-l3-repair-v2-design",
+        "id": "m555-l3-repair-v2-config-family",
         "status": "pending",
-        "priority": 5490,
+        "priority": 5500,
         "kind": "infrastructure",
-        "hypothesis": "A route-screen-gated L3 repair design can prevent another weak recurrent checkpoint from reaching public diagnostics while targeting the L3 training instability found in M544-M550.",
-        "command": "see experiments/manifests/m554-route-screen-gated-l3-repair-v2-design.json",
+        "hypothesis": "A small L3-only config family that changes only PPO stability controls can test whether recurrent policy drift, not the P0 input contract, caused the M544-M550 L3 repair failure.",
+        "command": "see experiments/manifests/m555-l3-repair-v2-config-family.json",
         "success_artifact": "",
-        "notes": "Pending: design L3 repair v2 with route-screen v2 selection before public diagnostics"
+        "notes": "Pending: add epoch1_clip01 longseq_epoch1 and lowentropy_epoch1 configs plus tests without training"
     },
-    "updated_at_utc": "20260524T092000Z"
+    "updated_at_utc": "20260524T093000Z"
 }
