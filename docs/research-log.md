@@ -11926,3 +11926,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M644 implements and runs the exact no-update BC-v2 objective evaluator. It reports `431` rows and `9` sources with finite metrics. First-action normal loss is `0.002101438`, variant loss is `0.002599709`, base loss is `0.002101438`, sequence-delta target MSE is `0.002039985`, and weighted normal/variant gap L2 is `0.010549`. Normal actions reconstruct stored base first actions to `4.04e-8` weighted mean L2, variant actions reconstruct stored variant actions to `3.65e-8`, and the actor checksum is unchanged. Wrong-history sources retain very small normal/variant gaps, so the next admitted step is a frozen-actor head-only smoke design, not an actor update.
 - decision: `source_balanced_bc_v2_objective_implementation_pass_admit_head_only_design`
 - next: `m645-bc-v2-head-only-smoke-design`
+## 20260524T193000Z - m645-bc-v2-head-only-smoke-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m645-bc-v2-head-only-smoke-design.md`
+- result: M645 designs a frozen-actor BC-v2 sequence-delta head-only smoke. M646 may train only an auxiliary `SequenceDeltaHead` on frozen BC5660 recurrent features; response/context encoders, online GRU, fusion, actor mean, critic, and log standard deviation must remain frozen. The target is `target_action_sequence - normal_base_action_sequence` with `sequence_mask` and source-balanced weights. Required pass criteria are train delta-MSE improvement `>= 30%`, source-heldout validation not worse, finite source/split/target summaries, actor checksum unchanged, only a head checkpoint written, and no promotion.
+- decision: `bc_v2_head_only_smoke_design_admit_m646`
+- next: `m646-bc-v2-head-only-smoke-implementation`

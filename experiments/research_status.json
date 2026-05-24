@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 653,
+        "completed": 654,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m644-source-balanced-bc-v2-objective-implementation",
+        "task_id": "m645-bc-v2-head-only-smoke-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m644_source_balanced_bc_v2_objective",
-        "command_log": "docs/m644-source-balanced-bc-v2-objective-implementation.md"
+        "run_dir": "",
+        "command_log": "docs/m645-bc-v2-head-only-smoke-design.md"
     },
     "next_task": {
-        "id": "m645-bc-v2-head-only-smoke-design",
+        "id": "m646-bc-v2-head-only-smoke-implementation",
         "status": "pending",
-        "priority": 6400,
+        "priority": 6410,
         "kind": "infrastructure",
-        "hypothesis": "A frozen-actor auxiliary sequence-delta head can test whether BC5660 features contain the M641 local correction signal before any actor coupling update.",
-        "command": "see experiments/manifests/m645-bc-v2-head-only-smoke-design.json",
+        "hypothesis": "A frozen BC5660 feature extractor plus a small sequence-delta head can reduce source-balanced masked sequence loss without mutating the actor.",
+        "command": "see experiments/manifests/m646-bc-v2-head-only-smoke-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design frozen-actor source-balanced sequence-delta head-only smoke; no PPO promotion or actor update"
+        "notes": "Pending: implement frozen-actor sequence-delta head-only smoke; no PPO promotion or actor update"
     },
-    "updated_at_utc": "20260524T192000Z"
+    "updated_at_utc": "20260524T193000Z"
 }

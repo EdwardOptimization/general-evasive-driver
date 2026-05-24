@@ -62,16 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m645-bc-v2-head-only-smoke-design
+m646-bc-v2-head-only-smoke-implementation
 ```
 
-M645 should design a frozen-actor head-only smoke for the BC-v2 sequence-delta
-objective. It must keep the actor and recurrent encoder frozen, train only an
-auxiliary head in the later implementation, report train/source-heldout splits,
-and reject checkpoint promotion from head-only loss.
+M646 should implement the frozen-actor BC-v2 sequence-delta head-only smoke.
+It may train only an auxiliary head on frozen BC5660 recurrent features, must
+preserve source-balanced masked losses and train/source-heldout reporting, and
+must verify the actor checksum remains unchanged.
 
 ## Recent Evidence Line
 
+- M645 designs the frozen-actor head-only smoke. The later implementation may
+  train only `SequenceDeltaHead(features) -> delta_action_sequence`; all BC5660
+  actor/recurrent/critic parameters remain frozen. The pass criterion is
+  train delta-MSE improvement `>= 30%`, source-heldout validation not worse,
+  actor checksum unchanged, only a head checkpoint written, and no promotion.
 - M644 implements and runs the exact no-update BC-v2 evaluator. Normal-hidden
   first-action loss is `0.002101438`; variant-hidden first-action loss is
   `0.002599709`; sequence-delta target MSE is `0.002039985`; and actor checksum
