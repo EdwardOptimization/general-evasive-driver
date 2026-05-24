@@ -12622,3 +12622,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M731 patches the boundary miner source loader for M728 `proposal_id`/`selected_index` rows and replaces lexicographic group selection with balanced group interleaving. The final run selects `512` source rows across `237` seeds, `8` preferred fault families, and `30` fault-family pairs, with source max family dominance `0.126953` and sentinel false-positive rate `0.0`. It evaluates `37248` rollout rows and finds `5881` temporal action-critical rows but only `1` accepted temporal outcome row. Result class is `temporal_action_only_boundary_sparse`; source export, actor update, PPO, and promotion remain blocked.
 - decision: `temporal_action_only_boundary_sparse_admit_audit`
 - next: `m732-source-balanced-boundary-outcome-miner-audit`
+
+## 20260525T004000Z - m732-source-balanced-boundary-outcome-miner-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m732-source-balanced-boundary-outcome-miner-audit.md`
+- result: M732 audits M731 as a clean source-balanced action-only boundary result. Source balance is no longer the blocker: M731 covers `237` source seeds, `8` preferred fault families, and `30` fault-family pairs with zero sentinel false positives. However, one-step boundary mining still produces only `1` accepted outcome row, so source export, actor update, PPO, and promotion remain blocked.
+- decision: `promote_to_sequence_level_intervention`
+- next: `m733-sequence-level-command-response-intervention-design`

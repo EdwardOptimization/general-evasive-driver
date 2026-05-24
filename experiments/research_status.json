@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 740,
+        "completed": 741,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m731-source-balanced-boundary-outcome-miner-implementation",
+        "task_id": "m732-source-balanced-boundary-outcome-miner-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m731-source-balanced-boundary-outcome-miner-implementation.md"
+        "command_log": "docs/m732-source-balanced-boundary-outcome-miner-audit.md"
     },
     "next_task": {
-        "id": "m732-source-balanced-boundary-outcome-miner-audit",
+        "id": "m733-sequence-level-command-response-intervention-design",
         "status": "pending",
-        "priority": 7270,
-        "kind": "gate",
-        "hypothesis": "Audit source-balanced boundary outcome miner action-only result",
-        "command": "see experiments/manifests/m732-source-balanced-boundary-outcome-miner-audit.json",
-        "success_artifact": "docs/m732-source-balanced-boundary-outcome-miner-audit.md",
-        "notes": "Pending: audit M731 source-balanced action-only boundary result and decide sequence intervention dynamics fidelity or calibrated boundary expansion"
+        "priority": 7280,
+        "kind": "infrastructure",
+        "hypothesis": "Design sequence-level command-response interventions",
+        "command": "see experiments/manifests/m733-sequence-level-command-response-intervention-design.json",
+        "success_artifact": "docs/m733-sequence-level-command-response-intervention-design.md",
+        "notes": "Pending: design no-training multi-step command-response history interventions with source balance normal retention sentinel and outcome gates"
     },
-    "updated_at_utc": "20260525T003000Z"
+    "updated_at_utc": "20260525T004000Z"
 }

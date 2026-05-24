@@ -1,0 +1,108 @@
+{
+  "id": "m733-sequence-level-command-response-intervention-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m732-source-balanced-boundary-outcome-miner-audit.md",
+      "docs/m731-source-balanced-boundary-outcome-miner-implementation.md",
+      "runs/m731_source_balanced_boundary_outcome_miner/summary.json",
+      "runs/m731_source_balanced_boundary_outcome_miner/source_rows.csv",
+      "runs/m728_quota_calibrated_source_balanced_temporal_wave/temporal_critical_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m732-source-balanced-boundary-outcome-miner-audit.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_objective": [
+      "design sequence-level command-response interventions after source-balanced boundary mining stayed action-only"
+    ],
+    "derived_from": [
+      "m732-source-balanced-boundary-outcome-miner-audit"
+    ],
+    "blocked_by": [
+      "m732-source-balanced-boundary-outcome-miner-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m733-sequence-level-command-response-intervention-design.md",
+  "public_gates": [
+    "M733 starts from source-balanced M728 or M731 action rows",
+    "M733 defines multi-step intervention horizons",
+    "M733 keeps actor inputs and parameters unchanged",
+    "M733 keeps action and outcome evidence separate",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat action-only rows as outcome proof",
+    "do not inject hidden fault labels into actor observations",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor input contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "sequence_level_command_response_intervention",
+    "evidence_axis": "G_sequence_outcome: test persistent command-response history interventions",
+    "evidence_increment": "designs sequence-level no-training interventions after one-step boundary mining remained outcome-sparse",
+    "claim_scope": "design only; no new data wave result and no checkpoint claim",
+    "stop_condition": [
+      "stop if the design changes actor observations",
+      "stop if the design trains or updates actor parameters",
+      "stop if action and outcome claims are mixed",
+      "stop if source balance or sentinel checks are omitted"
+    ],
+    "fallback_plan": [
+      "if sequence-level interventions remain outcome-sparse, design asymmetric/yaw-disturbance dynamics fidelity",
+      "if source selection fails, repair source balance before running sequence interventions",
+      "if outcome rows appear, audit before corpus export or objective design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M732 promotes from one-step boundary mining to sequence-level interventions",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Persistent multi-step command-response history interventions will expose outcome differences that one-step action mismatches did not.",
+  "success_criteria": [
+    "M733 defines source rows and sequence horizons",
+    "M733 defines normal-retention sentinel action and outcome gates",
+    "M733 defines implementation artifacts and command",
+    "M733 blocks source export actor update PPO and promotion",
+    "M733 admits only a no-training M734 implementation"
+  ],
+  "failure_criteria": [
+    "design treats action rows as outcome proof",
+    "design changes actor input contract",
+    "design omits sentinel false-positive checks",
+    "design admits PPO or checkpoint promotion"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m733-sequence-level-command-response-intervention-design.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m733-sequence-level-command-response-intervention-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m731_source_balanced_boundary_outcome_miner/summary.json",
+    "docs/m732-source-balanced-boundary-outcome-miner-audit.md"
+  ],
+  "decision_rule": "M733 may only design a no-training sequence-level intervention runner. It must not admit source export objective design actor update PPO or promotion until M734 is run and audited.",
+  "next_blocker": "m734-sequence-level-command-response-intervention-implementation"
+}
