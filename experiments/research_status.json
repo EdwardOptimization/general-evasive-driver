@@ -1,28 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 731,
+        "completed": 732,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m722-temporal-action-boundary-outcome-miner-implementation",
+        "task_id": "m723-temporal-boundary-sparse-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m722_temporal_action_boundary_outcome_miner",
-        "command_log": "docs/m722-temporal-action-boundary-outcome-miner-implementation.md"
+        "command_log": "docs/m723-temporal-boundary-sparse-audit.md"
     },
     "next_task": {
-        "id": "m723-temporal-boundary-sparse-audit",
+        "id": "m724-fresh-source-balanced-temporal-wave-design",
         "status": "pending",
-        "priority": 7180,
-        "kind": "gate",
-        "hypothesis": "Audit M722 temporal action-only boundary sparse result",
-        "command": "see experiments/manifests/m723-temporal-boundary-sparse-audit.json",
-        "success_artifact": "docs/m723-temporal-boundary-sparse-audit.md",
-        "notes": "Pending: audit source concentration normal-failure count sentinel false positives and choose next branch before more mining or objective design"
+        "priority": 7190,
+        "kind": "infrastructure",
+        "hypothesis": "Design fresh source-balanced temporal command-response wave",
+        "command": "see experiments/manifests/m724-fresh-source-balanced-temporal-wave-design.json",
+        "success_artifact": "docs/m724-fresh-source-balanced-temporal-wave-design.md",
+        "notes": "Pending: design per-seed per-fault-family source-balanced temporal wave to remove M719 early max-pairs saturation"
     },
-    "updated_at_utc": "20260524T222000Z"
+    "updated_at_utc": "20260524T224000Z"
 }

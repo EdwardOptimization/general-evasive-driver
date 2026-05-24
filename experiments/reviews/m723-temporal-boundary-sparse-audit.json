@@ -1,0 +1,88 @@
+{
+  "decision_reason": "M723 audits M722 as source-concentrated action-only evidence with zero outcome rows and selects a fresh source-balanced temporal wave before more boundary mining",
+  "failure_criteria": [
+    "audit treats M722 action-only rows as outcome-positive self-ID proof",
+    "audit ignores source seed concentration",
+    "audit ignores normal-history failure count",
+    "audit admits source export PPO or promotion",
+    "audit changes actor input contract"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not claim temporal_action_only_boundary_sparse is closed-loop self-ID proof",
+    "do not export M722 action-only rows as source-positive outcome rows",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels or oracle values to actor observations"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260524T203832Z",
+  "hypothesis": "M722's sparse action-only boundary result should be audited before continuing; the audit can identify whether the next blocker is source concentration, local boundary search, sequence-level intervention, or dynamics fidelity.",
+  "lineage": {
+    "blocked_by": [
+      "m722-temporal-action-boundary-outcome-miner-implementation"
+    ],
+    "derived_from": [
+      "m722-temporal-action-boundary-outcome-miner-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m722-temporal-action-boundary-outcome-miner-implementation.json",
+      "configs/extreme_fault_coverage_v2_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m722-temporal-action-boundary-outcome-miner-implementation.md",
+      "runs/m722_temporal_action_boundary_outcome_miner/summary.json",
+      "runs/m722_temporal_action_boundary_outcome_miner/source_rows.csv",
+      "runs/m722_temporal_action_boundary_outcome_miner/intervention_rollouts.csv",
+      "runs/m722_temporal_action_boundary_outcome_miner/accepted_rows.csv",
+      "runs/m722_temporal_action_boundary_outcome_miner/rejected_rows.csv"
+    ],
+    "parent_objective": [
+      "audit temporal_action_only_boundary_sparse before another boundary miner data wave or objective design"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m723-temporal-boundary-sparse-audit",
+  "next_blocker": "m724-fresh-source-balanced-temporal-wave-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "promote_to_fresh_source_balanced_temporal_wave",
+  "public_gates": [
+    "M722 action-critical and outcome-critical counts are summarized separately",
+    "source seed concentration is analyzed",
+    "normal-history failure versus history-insensitive rejection is separated",
+    "sentinel false-positive result is recorded",
+    "next branch decision compares fresh source-balanced temporal wave boundary expansion sequence intervention and dynamics fidelity",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m723-temporal-boundary-sparse-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "promote_to_fresh_source_balanced_temporal_wave",
+    "milestone": "m723-temporal-boundary-sparse-audit",
+    "reason": "M723 audits M722 as source-concentrated action-only evidence with zero outcome rows and selects a fresh source-balanced temporal wave before more boundary mining",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M722 result metrics are recorded",
+    "supported and falsified claims are recorded",
+    "failure taxonomy is assigned",
+    "public gate overfit risk is recorded",
+    "next branch decision is explicit",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "type": "gate"
+}

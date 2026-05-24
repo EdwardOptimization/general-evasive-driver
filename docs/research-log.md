@@ -12538,3 +12538,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M722 implements and runs the no-training temporal action-boundary outcome miner. It selects `128` M719-derived source rows (`115` primary and `13` sentinel), evaluates `6984` relocated-boundary rollout variants, and finds `921` temporal action-critical rows but `0` temporal outcome-critical rows. Sentinel false-positive rate is `0.0`, normal-history retention passes, actor checksum is unchanged, and no training/PPO/promotion occurs. The result class is `temporal_action_only_boundary_sparse`; source export and objective design remain blocked pending audit.
 - decision: `temporal_action_only_boundary_sparse_admit_audit`
 - next: `m723-temporal-boundary-sparse-audit`
+
+## 20260524T224000Z - m723-temporal-boundary-sparse-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m723-temporal-boundary-sparse-audit.md`
+- result: M723 audits M722 as `scenario_sampling_failure` plus `metric_artifact`. M722 cleanly preserves actor/input constraints and sentinel false positives are zero, but the evidence is still action-only: `921` temporal action-critical rows and `0` temporal outcome-critical rows. The audit identifies M719/M722 source concentration as the first-order blocker: the selected M722 source rows came from only `4` seeds, with seed `72000` contributing `50/128` rows. Source export, objective design, PPO, and promotion remain blocked.
+- decision: `promote_to_fresh_source_balanced_temporal_wave`
+- next: `m724-fresh-source-balanced-temporal-wave-design`
