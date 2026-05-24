@@ -12088,3 +12088,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M662 audits M661 as an implementation pass but corpus gate fail. The empty accepted corpus is valid evidence: M661 evaluated `3207` candidates, wrote explicit preferred/rejected fields and valid empty NPZ shapes, preserved actor checksum, and wrote no actor checkpoint. The limiting factor is that M586/M636 matched-current surfaces are hidden/feature-different but not action critical: wrong-history short-horizon action sequence L2 and margin gaps are orders of magnitude below the pre-registered thresholds, and both normal and wrong-history branches succeed at rate `1.000`.
 - decision: `action_divergent_wrong_history_corpus_audit_admit_action_critical_source_mining_design`
 - next: `m663-action-critical-wrong-history-source-mining-design`
+## 20260524T231500Z - m663-action-critical-wrong-history-source-mining-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m663-action-critical-wrong-history-source-mining-design.md`
+- result: M663 designs the next no-training source-mining branch after M661/M662. The key change is to invert selection order: build a broader BC5660 snapshot bank, pair compatible current scenes with many candidate wrong histories, and accept rows only when wrong history produces both short-horizon action-sequence divergence and margin/success sensitivity. The design pre-registers scene/current-state compatibility filters, strict action-critical thresholds, source-heldout split rules, source dominance caps, required NPZ/CSV fields, pass criteria, and a negative-result interpretation if no action-critical sources exist.
+- decision: `action_critical_wrong_history_source_mining_design_admit_m664`
+- next: `m664-action-critical-wrong-history-source-miner-implementation`

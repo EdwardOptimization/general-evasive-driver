@@ -1,0 +1,99 @@
+{
+  "id": "m664-action-critical-wrong-history-source-miner-implementation",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m663-action-critical-wrong-history-source-mining-design.md",
+      "runs/m661_action_divergent_wrong_history_corpus/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m663-action-critical-wrong-history-source-mining-design.json"
+    ],
+    "parent_objective": [
+      "implement no-training action-critical wrong-history source miner"
+    ],
+    "derived_from": [
+      "m663-action-critical-wrong-history-source-mining-design"
+    ],
+    "blocked_by": [
+      "m663-action-critical-wrong-history-source-mining-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m664-action-critical-wrong-history-source-miner-implementation.md",
+  "public_gates": [
+    "build broader snapshot bank",
+    "pair compatible current scenes with many candidate wrong histories",
+    "score action-sequence and outcome divergence",
+    "write source-diverse accepted rows and explicit preferred/rejected NPZ fields",
+    "verify actor checksum unchanged and no actor checkpoint written"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not update actor parameters",
+    "do not promote checkpoint",
+    "do not accept hidden-distance-only rows",
+    "do not use hidden parameters or labels as actor inputs"
+  ],
+  "hypothesis": "Action/outcome-first source mining over a broader snapshot bank can find source-diverse wrong-history pairs that M661's matched-current surfaces missed.",
+  "success_criteria": [
+    "accepted rows >= 40",
+    "accepted physical pairs >= 8",
+    "accepted left seeds >= 6",
+    "accepted right seeds >= 6",
+    "source-heldout split is nonempty",
+    "mean preferred_vs_rejected_action_mean_l2 >= 0.010",
+    "mean margin_gap >= 0.010 or accepted success_drop_rate >= 0.25",
+    "actor checksum unchanged",
+    "no actor checkpoint written",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "too few accepted rows",
+    "action/outcome acceptance fails under scene compatibility constraints",
+    "source diversity fails",
+    "actor checksum changes",
+    "actor checkpoint is written",
+    "hidden-distance-only rows are accepted"
+  ],
+  "commands": [
+    {
+      "name": "action_critical_wrong_history_source_miner",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.action_critical_wrong_history_source_miner --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --surface-config fresh=configs/ppo_m541_matched_l3_variance_4096.json --surface-config ood=configs/eval_m574_moderate_ood_l3.json --surface-seed-range fresh=25560:25619 --surface-seed-range ood=25660:25719 --sequence-lengths 5,7,9 --max-right-candidates-per-left 64 --context-distance-threshold 0.25 --response-distance-threshold 0.20 --obstacle-x-abs-delta 8.0 --obstacle-y-abs-delta 1.5 --step-abs-delta 20 --min-wrong-first-action-l2 0.002 --min-wrong-action-sequence-mean-l2 0.006 --min-preferred-rejected-action-mean-l2 0.010 --min-margin-gap 0.010 --device cpu --run-dir runs/m664_action_critical_wrong_history_source_miner"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m664_action_critical_wrong_history_source_miner/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m664_action_critical_wrong_history_source_miner/action_critical_corpus.npz",
+      "type": "corpus"
+    },
+    {
+      "path": "docs/m664-action-critical-wrong-history-source-miner-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m663-action-critical-wrong-history-source-mining-design.md",
+    "runs/m661_action_divergent_wrong_history_corpus/summary.json"
+  ],
+  "decision_rule": "M664 passes only if it finds source-diverse action/outcome-critical wrong-history rows without actor mutation or threshold weakening; otherwise audit the negative source-mining result.",
+  "next_blocker": "m665-action-critical-wrong-history-source-miner-audit"
+}

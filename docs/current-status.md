@@ -62,17 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m663-action-critical-wrong-history-source-mining-design
+m664-action-critical-wrong-history-source-miner-implementation
 ```
 
-M663 should design a no-training action-critical wrong-history source miner.
-M662 audited M661 as implementation pass but corpus gate fail: the existing
-M586/M636 matched-current surfaces are hidden/feature-different but not
-action-critical. The next design must select candidate wrong-history sources by
-observed action-sequence and outcome sensitivity, not hidden distance alone.
+M664 should implement the no-training action-critical wrong-history source
+miner designed in M663. It should build a broader BC5660 snapshot bank, pair
+compatible current scenes with many candidate wrong histories, and accept rows
+only when wrong history produces both action-sequence divergence and
+margin/success sensitivity. Actor updates, PPO, and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M663 designs the action-critical wrong-history source miner. The key change
+  is to invert source selection: first build a broader snapshot bank and test
+  many compatible wrong-history candidates, then accept rows only when wrong
+  history creates explicit short-horizon action-sequence divergence plus
+  margin/success sensitivity. Hidden distance may rank proposals but cannot be
+  an acceptance criterion.
 - M662 audits M661 as implementation pass but corpus gate fail. M661 evaluated
   `3207` candidates and wrote valid preferred/rejected artifacts, but the
   existing matched-current surfaces produce neither meaningful wrong-history
