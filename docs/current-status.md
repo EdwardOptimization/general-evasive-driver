@@ -61,12 +61,11 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m559-targeted-collision-margin-config-family
+m560-collision-margin-route-screen-selection
 ```
 
-M559 should implement the M558-approved collision/clearance-margin reward config
-family and tests. This is config/test infrastructure only; no training or public
-frozen-source diagnostics.
+M560 should train the M559 collision/margin reward configs and run route-screen
+v2 selection on fresh seed `16560`, not M556's diagnostic seed `15560`.
 
 ## Recent Evidence Line
 
@@ -235,6 +234,9 @@ frozen-source diagnostics.
   clearance-margin reward terms. It keeps P0 inputs, rotates the next
   route-screen v2 selection seed to `16560`, and admits exactly three M559
   reward variants.
+- M559 implements those three reward configs and tests. P0 L3 actor inputs and
+  M555 `epoch1_clip01` PPO controls are unchanged; only M558-approved obstacle
+  reward fields differ.
 
 ## Near-Term Rule
 

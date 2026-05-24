@@ -37,6 +37,12 @@ L3_REPAIR_V2_4096_CONFIGS = {
     "lowentropy_epoch1": Path("configs/ppo_m555_l3_repair_lowentropy_epoch1_4096.json"),
 }
 
+L3_COLLISION_MARGIN_REPAIR_4096_CONFIGS = {
+    "collision35_dense002": Path("configs/ppo_m559_l3_collision35_dense002_4096.json"),
+    "collision35_terminal4": Path("configs/ppo_m559_l3_collision35_terminal4_4096.json"),
+    "collision45_terminal4": Path("configs/ppo_m559_l3_collision45_terminal4_4096.json"),
+}
+
 
 def _assert_history_baseline_config(
     *,
@@ -299,3 +305,75 @@ def test_m555_l3_repair_v2_configs_only_change_m554_approved_ppo_controls() -> N
         assert differences <= allowed_differences
         for key, value in expected[variant].items():
             assert repair_ppo[key] == value
+
+
+@pytest.mark.parametrize("variant,path", sorted(L3_COLLISION_MARGIN_REPAIR_4096_CONFIGS.items()))
+def test_m559_collision_margin_configs_preserve_p0_l3_contract(variant: str, path: Path) -> None:
+    del variant
+    config = read_json(path)
+    ppo = config["ppo"]
+    env_config = build_env_config(config["env"])
+    spec = build_history_baseline_spec(
+        level=ppo["history_baseline_level"],
+        actor_encoder=ppo["actor_encoder"],
+        actor_history_length=ppo["actor_history_length"],
+        env_config=env_config,
+    )
+
+    assert spec.level == "L3_online_gru"
+    assert spec.input_contract == "P0_human_view_no_wheel_no_oracle"
+    assert ppo == read_json(L3_REPAIR_V2_4096_CONFIGS["epoch1_clip01"])["ppo"]
+    assert config["env"]["history_length"] == 1
+    assert config["env"].get("wheel_observation_mode", "none") == "none"
+
+
+def test_m559_collision_margin_configs_only_change_m558_approved_obstacle_reward_fields() -> None:
+    base = read_json(L3_REPAIR_V2_4096_CONFIGS["epoch1_clip01"])
+    allowed_obstacle_differences = {
+        "clearance_margin_reward_clip",
+        "clearance_margin_reward_scale",
+        "collision_penalty",
+        "dense_clearance_margin_reward_clip",
+        "dense_clearance_margin_reward_scale",
+        "dense_clearance_margin_reward_window",
+    }
+    expected = {
+        "collision35_terminal4": {
+            "collision_penalty": 35.0,
+            "clearance_margin_reward_scale": 4.0,
+            "clearance_margin_reward_clip": 0.50,
+        },
+        "collision35_dense002": {
+            "collision_penalty": 35.0,
+            "clearance_margin_reward_scale": 4.0,
+            "clearance_margin_reward_clip": 0.50,
+            "dense_clearance_margin_reward_scale": 0.02,
+            "dense_clearance_margin_reward_clip": 0.50,
+            "dense_clearance_margin_reward_window": 8.0,
+        },
+        "collision45_terminal4": {
+            "collision_penalty": 45.0,
+            "clearance_margin_reward_scale": 4.0,
+            "clearance_margin_reward_clip": 0.50,
+        },
+    }
+
+    assert set(L3_COLLISION_MARGIN_REPAIR_4096_CONFIGS) == set(expected)
+    for variant, path in L3_COLLISION_MARGIN_REPAIR_4096_CONFIGS.items():
+        repair = read_json(path)
+        assert repair["ppo"] == base["ppo"]
+
+        base_env = dict(base["env"])
+        repair_env = dict(repair["env"])
+        base_obstacle = dict(base_env.pop("obstacle"))
+        repair_obstacle = dict(repair_env.pop("obstacle"))
+        assert repair_env == base_env
+
+        differences = {
+            key
+            for key in sorted(set(base_obstacle) | set(repair_obstacle))
+            if base_obstacle.get(key) != repair_obstacle.get(key)
+        }
+        assert differences <= allowed_obstacle_differences
+        for key, value in expected[variant].items():
+            assert repair_obstacle[key] == value

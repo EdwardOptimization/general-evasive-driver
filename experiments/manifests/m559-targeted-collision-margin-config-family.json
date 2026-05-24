@@ -2,7 +2,7 @@
   "id": "m559-targeted-collision-margin-config-family",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -58,6 +58,10 @@
     {
       "name": "implementation",
       "command": "Add M558-approved collision/margin reward configs and tests; no training."
+    },
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m pytest -q tests/test_history_baseline_configs.py"
     }
   ],
   "required_artifacts": [
@@ -72,6 +76,6 @@
   "baseline_artifacts": [
     "docs/m558-targeted-collision-margin-repair-design.md"
   ],
-  "decision_rule": "M559 passes only if the config family changes only M558-approved reward fields while preserving P0 L3 controls. It does not train or promote a checkpoint.",
-  "next_blocker": "pending M559 targeted collision-margin config family"
+  "decision_rule": "M559 passes because the config family changes only M558-approved reward fields while preserving P0 L3 controls. It does not train or promote a checkpoint.",
+  "next_blocker": "m560-collision-margin-route-screen-selection"
 }

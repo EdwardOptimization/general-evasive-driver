@@ -1,0 +1,73 @@
+{
+  "ppo": {
+    "total_steps": 4096,
+    "rollout_steps": 64,
+    "num_envs": 4,
+    "update_epochs": 1,
+    "minibatch_size": 128,
+    "hidden_size": 64,
+    "learning_rate": 0.0001,
+    "clip_coef": 0.10,
+    "max_grad_norm": 0.25,
+    "log_std_init": -1.0,
+    "log_std_max": -0.5,
+    "actor_encoder": "human_view_online_gru",
+    "actor_history_length": 1,
+    "history_baseline_level": "L3_online_gru",
+    "recurrent_sequence_training": true,
+    "checkpoint_interval_steps": 256,
+    "eval_episodes": 5,
+    "seed": 3540,
+    "device": "cpu"
+  },
+  "env": {
+    "track_kind": "circle",
+    "track_radius": 60.0,
+    "track_width": 7.5,
+    "history_length": 1,
+    "action_history_mode": "full",
+    "obstacle_relative_velocity_mode": "zero",
+    "road_lookahead_count": 8,
+    "road_lookahead_spacing": 5.0,
+    "obstacle_slots": 4,
+    "termination_penalty": 8.0,
+    "speed_range": [13.8, 18.0],
+    "beta_target_range": [0.04, 0.32],
+    "friction_limited_speed": false,
+    "friction_step": {
+      "enabled": true,
+      "step_range": [4, 28],
+      "mu_range": [0.16, 1.00],
+      "resample_speed_ref": false
+    },
+    "obstacle": {
+      "enabled": true,
+      "distance_range": [4.5, 24.0],
+      "half_width_range": [0.65, 1.45],
+      "collision_penalty": 45.0,
+      "require_aeb_infeasible": true,
+      "allowed_labels": ["aes_feasible", "drift_required", "unavoidable"],
+      "max_sample_attempts": 30000,
+      "finish_on_pass": true,
+      "pass_reward": 12.0,
+      "stable_aes_beta_limit": 0.18,
+      "stable_aes_sideslip_penalty": 2.8,
+      "stable_aes_drift_bonus_scale": 0.18,
+      "max_threshold_score": 0.50,
+      "min_time_after_friction_step": 0.20,
+      "perception_reveal_distance": 6.0,
+      "clearance_margin_reward_scale": 4.0,
+      "clearance_margin_reward_clip": 0.50
+    },
+    "randomization": {
+      "mu_range": [0.16, 0.68],
+      "mass_scale_range": [0.85, 1.38],
+      "cg_shift_range": [-0.16, 0.16],
+      "inertia_scale_range": [0.80, 1.38],
+      "tire_stiffness_scale_range": [0.40, 1.35],
+      "drive_scale_range": [0.60, 1.30],
+      "brake_scale_range": [0.40, 1.30],
+      "actuator_tau_scale_range": [1.00, 4.20]
+    }
+  }
+}

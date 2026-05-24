@@ -11152,3 +11152,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M558 designs the next repair branch around existing obstacle collision and clearance-margin reward terms. It keeps P0 actor inputs and M555 `epoch1_clip01` PPO stability controls, rotates the next route-screen v2 selection seed from `15560` to `16560`, and admits exactly three M559 reward variants: `collision35_terminal4`, `collision35_dense002`, and `collision45_terminal4`.
 - decision: `targeted_collision_margin_repair_design_admit_m559_config_family`
 - next: `m559-targeted-collision-margin-config-family`
+## 20260524T102000Z - m559-targeted-collision-margin-config-family
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m559-targeted-collision-margin-config-family.md`
+- result: M559 implements the three M558 reward variants: `collision35_terminal4`, `collision35_dense002`, and `collision45_terminal4`. Tests verify the P0 L3 actor contract and M555 `epoch1_clip01` PPO controls are unchanged, and only M558-approved obstacle reward fields differ.
+- decision: `collision_margin_config_family_pass_admit_m560_route_screen_selection`
+- next: `m560-collision-margin-route-screen-selection`
