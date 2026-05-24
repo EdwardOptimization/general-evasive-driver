@@ -61,13 +61,14 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m538-natural-surface-paired-advantage-audit
+m539-matched-history-seed-fragility-audit
 ```
 
-M538 should audit the M537 L3 advantage with paired source-key deltas,
-seed/surface dominance checks, confidence intervals, and a separate public M526
-event overlay. It must not promote a checkpoint or turn public diagnostic rows
-into private-holdout evidence.
+M539 should diagnose the M538 seed-3531 L2-over-L3 counterexample. It should
+localize negative L3-L2 paired rows by surface, target, offset, terminal reason,
+event contribution, and first-action differences before deciding whether the
+next branch should be longer matched training, finite-window baseline
+escalation, or a recurrent training recipe change.
 
 ## Recent Evidence Line
 
@@ -126,15 +127,20 @@ into private-holdout evidence.
   and margin table. The public M526 event overlay also favors L3, but this is
   still public diagnostic evidence rather than private generalization or
   checkpoint promotion.
+- M538 converted the M537 result into exact paired source-key deltas. The join
+  is complete (`6732` triplets, `0` incomplete). L3-L0 is robust across all
+  surfaces and all three training seeds, with paired success delta `+0.020351`
+  and margin delta `+0.144301`. L3-L2 is aggregate-positive and positive on all
+  surfaces, but not seed-uniform: seed `3531` favors L2 with success delta
+  `-0.013815` and margin delta `-0.143703`.
 
 ## Near-Term Rule
 
-Do not treat reset-hidden diagnostics, M528 smoke return, or M537 public
-diagnostics as private generalization evidence. The next branch must verify the
-M537 L3 advantage with paired source-key comparisons before fresh holdout mining
-or longer matched training. Any later promotion requires proof retention,
-generalization retention, behavior retention, no contract violation, and clear
-lineage.
+Do not treat reset-hidden diagnostics, M528 smoke return, or M537/M538 public
+diagnostics as private generalization evidence. The next branch must explain the
+L3-vs-L2 seed fragility before fresh holdout mining or longer matched training.
+Any later promotion requires proof retention, generalization retention, behavior
+retention, no contract violation, and clear lineage.
 
 ## Sensor Profile Policy
 

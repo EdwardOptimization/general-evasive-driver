@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 546,
+        "completed": 547,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m537-full-public-natural-surface-eval",
+        "task_id": "m538-natural-surface-paired-advantage-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m537_full_public_natural_surface_eval_aggregate",
-        "command_log": "docs/m537-full-public-natural-surface-eval.md"
+        "run_dir": "runs/m538_natural_surface_paired_advantage_audit",
+        "command_log": "docs/m538-natural-surface-paired-advantage-audit.md"
     },
     "next_task": {
-        "id": "m538-natural-surface-paired-advantage-audit",
+        "id": "m539-matched-history-seed-fragility-audit",
         "status": "pending",
-        "priority": 5330,
+        "priority": 5340,
         "kind": "gate",
-        "hypothesis": "The L3 advantage observed in M537 remains positive under paired source-key comparisons and is not dominated by one seed, one surface, or the M526 event subset.",
-        "command": "see experiments/manifests/m538-natural-surface-paired-advantage-audit.json",
+        "hypothesis": "The M538 L3-vs-L2 seed-3531 counterexample can be localized to specific surfaces, offsets, targets, or action/terminal patterns before deciding whether the next step should be longer matched training or finite-window baseline escalation.",
+        "command": "see experiments/manifests/m539-matched-history-seed-fragility-audit.json",
         "success_artifact": "",
-        "notes": "Pending: compute paired deltas confidence intervals and M526 event overlay without promotion"
+        "notes": "Pending: localize negative L3-L2 seed3531 rows by surface target offset terminal reason event contribution and first actions"
     },
-    "updated_at_utc": "20260524T064000Z"
+    "updated_at_utc": "20260524T065000Z"
 }

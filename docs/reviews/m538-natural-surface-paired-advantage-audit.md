@@ -1,0 +1,82 @@
+# m538-natural-surface-paired-advantage-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260524T033142Z
+- Type: gate
+- Gate tier: proof
+- Promotion decision: paired_l3_l0_pass_l3_l2_seed_fragile_admit_m539_seed_fragility_audit
+- Decision reason: M538 exact paired audit confirms L3-L0 robust advantage and aggregate L3-L2 advantage but seed 3531 favors L2 so no promotion
+
+## Hypothesis
+
+The L3 advantage observed in M537 remains positive under paired source-key comparisons and is not dominated by one seed, one surface, or the M526 event subset.
+
+## Lineage
+
+- parent_checkpoint: runs/m532_matched_l0_short_train_seed3530/checkpoint.pt, runs/m532_matched_l2_short_train_seed3530/checkpoint.pt, runs/m532_matched_l3_short_train_seed3530/checkpoint.pt, runs/m533_matched_l0_short_train_seed3531/checkpoint.pt, runs/m533_matched_l2_short_train_seed3531/checkpoint.pt, runs/m533_matched_l3_short_train_seed3531/checkpoint.pt, runs/m533_matched_l0_short_train_seed3532/checkpoint.pt, runs/m533_matched_l2_short_train_seed3532/checkpoint.pt, runs/m533_matched_l3_short_train_seed3532/checkpoint.pt
+- parent_dataset: runs/m537_full_public_eval_m497_short_reveal/surface_outcomes.csv, runs/m537_full_public_eval_m497_warmup_capability/surface_outcomes.csv, runs/m537_full_public_eval_m487_near_threshold/surface_outcomes.csv, runs/m537_full_public_eval_m487_late_high_energy/surface_outcomes.csv, runs/m526_history_value_event_audit/event_rows.csv
+- parent_config: experiments/manifests/m537-full-public-natural-surface-eval.json
+- parent_objective: paired public natural-surface history-level advantage audit
+- derived_from: m537-full-public-natural-surface-eval, m526-history-value-event-audit
+- blocked_by: m537-full-public-natural-surface-eval
+- supersedes: None
+- invalidates: None
+
+## Success Criteria
+
+- paired source-key joins are valid for L0/L2/L3 comparisons
+- L3-L0 and L3-L2 margin deltas remain positive on aggregate
+- success and completion deltas are reported with paired uncertainty
+- surface and seed dominance are reported
+- M526 event rows are reported as public diagnostic overlays only
+- research validation passes
+
+## Failure Criteria
+
+- paired joins are ambiguous or missing for a substantial fraction of rows
+- L3 advantage is dominated by a single surface or training seed
+- M526 event overlay is treated as private evidence
+- checkpoint promotion is performed
+
+## Evidence Gates
+
+- computed paired L3-L0 and L3-L2 deltas on matched source keys
+- reported per-surface and per-training-seed dominance
+- reported bootstrap confidence intervals for success and clearance margin deltas
+- reported M526 event-subset paired deltas separately
+- did not promote checkpoint or treat public rows as private holdout
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not tune checkpoints from M537 outcomes
+- do not collapse public diagnostic rows into private evidence
+- do not rank baselines using unmatched aggregate means only
+- do not promote checkpoint
+
+## Failure Taxonomy
+
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m538-natural-surface-paired-advantage-audit
+- type: gate
+- checkpoint: runs/m538_natural_surface_paired_advantage_audit/summary.json
+- success_rate: 0.020351
+- termination_rate: None
+- clearance_margin_mean: 0.144301
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: paired_l3_l0_pass_l3_l2_seed_fragile_admit_m539_seed_fragility_audit
+- reason: M538 exact paired audit confirms L3-L0 robust advantage and aggregate L3-L2 advantage but seed 3531 favors L2 so no promotion
+
+## Next Blocker
+
+m539-matched-history-seed-fragility-audit

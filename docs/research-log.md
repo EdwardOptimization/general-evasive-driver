@@ -10963,3 +10963,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M537 runs the full public frozen-source natural-surface matrix on all four M497/M487 splits and all nine matched short-train checkpoints. It produces `20196` valid outcome rows with diagnosed source-tail misses only. L3 leads aggregate success (`0.851901` vs L2 `0.833482` and L0 `0.831551`), collision rate (`0.148099` vs L2 `0.166518` and L0 `0.168449`), and mean clearance margin (`1.654668` vs L2 `1.540897` and L0 `1.510367`). L3 is also best on every per-surface success and margin table, and the public M526 event overlay remains favorable to L3 (`1.000000` event success and `3.207369` mean margin).
 - decision: `full_public_natural_eval_pass_admit_m538_paired_advantage_audit`
 - next: `m538-natural-surface-paired-advantage-audit`
+## 20260524T065000Z - m538-natural-surface-paired-advantage-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m538_natural_surface_paired_advantage_audit`
+- artifact: `docs/m538-natural-surface-paired-advantage-audit.md`
+- result: M538 joins all `20196` M537 outcome rows into `6732` complete L0/L2/L3 matched source/train triplets. L3-L0 is robust: paired success delta `+0.020351`, collision delta `-0.020351`, margin delta `+0.144301`, and all `4/4` surfaces plus `3/3` seeds are positive. L3-L2 is aggregate-positive with success delta `+0.018419` and margin delta `+0.113771`, and all surfaces are positive, but it is seed-fragile: seed `3531` has L3-L2 success delta `-0.013815` and margin delta `-0.143703`.
+- decision: `paired_l3_l0_pass_l3_l2_seed_fragile_admit_m539_seed_fragility_audit`
+- next: `m539-matched-history-seed-fragility-audit`

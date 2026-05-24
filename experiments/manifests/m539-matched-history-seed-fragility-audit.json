@@ -1,0 +1,83 @@
+{
+  "id": "m539-matched-history-seed-fragility-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m533_matched_l2_short_train_seed3531/checkpoint.pt",
+      "runs/m533_matched_l3_short_train_seed3531/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m538_natural_surface_paired_advantage_audit/paired_deltas.csv",
+      "runs/m537_full_public_eval_m497_short_reveal/surface_outcomes.csv",
+      "runs/m537_full_public_eval_m497_warmup_capability/surface_outcomes.csv",
+      "runs/m537_full_public_eval_m487_near_threshold/surface_outcomes.csv",
+      "runs/m537_full_public_eval_m487_late_high_energy/surface_outcomes.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m538-natural-surface-paired-advantage-audit.json"
+    ],
+    "parent_objective": [
+      "diagnose L3-vs-L2 seed-3531 public paired counterexample"
+    ],
+    "derived_from": [
+      "m538-natural-surface-paired-advantage-audit"
+    ],
+    "blocked_by": [
+      "m538-natural-surface-paired-advantage-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m539-matched-history-seed-fragility-audit.md",
+  "public_gates": [
+    "isolate seed-3531 L2-over-L3 rows by surface target and tail offset",
+    "compare first-action and terminal-reason differences on negative L3-L2 deltas",
+    "check whether seed-3531 counterexample concentrates on event rows or broad rows",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not tune L3 using seed-3531 rows",
+    "do not hide L2 counterexample when reporting M537/M538",
+    "do not promote any baseline from public diagnostic rows"
+  ],
+  "hypothesis": "The M538 L3-vs-L2 seed-3531 counterexample can be localized to specific surfaces, offsets, targets, or action/terminal patterns before deciding whether the next step should be longer matched training or finite-window baseline escalation.",
+  "success_criteria": [
+    "seed-3531 negative L3-L2 rows are summarized by surface target tail offset and terminal reason",
+    "first-action differences are reported for the largest negative margin rows",
+    "event versus non-event contribution is reported",
+    "a concrete next decision is selected without training or promotion",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "seed-3531 rows cannot be joined back to outcomes",
+    "diagnostic treats public rows as private holdout",
+    "checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "seed3531_counterexample_audit",
+      "command": "Filter M538 paired deltas to L3_minus_L2 and train_seed 3531; join M537 L2/L3 outcome rows; summarize surfaces, targets, offsets, terminal reasons, event contribution, and first-action deltas."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m539-matched-history-seed-fragility-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m538-natural-surface-paired-advantage-audit.md",
+    "runs/m538_natural_surface_paired_advantage_audit/summary.json"
+  ],
+  "decision_rule": "M539 is a public diagnostic audit. It should decide whether the L3-vs-L2 seed fragility points to training variance, finite-window sufficiency, or a required matched-training recipe change; it does not promote a checkpoint.",
+  "next_blocker": "pending M539 seed-fragility audit"
+}

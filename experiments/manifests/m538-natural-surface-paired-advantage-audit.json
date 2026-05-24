@@ -2,9 +2,9 @@
   "id": "m538-natural-surface-paired-advantage-audit",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "seed_fragility"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -43,11 +43,11 @@
   },
   "review_artifact": "docs/reviews/m538-natural-surface-paired-advantage-audit.md",
   "public_gates": [
-    "compute paired L3-L0 and L3-L2 deltas on matched source keys",
-    "report per-surface and per-training-seed dominance",
-    "report bootstrap or paired confidence intervals for success and clearance margin deltas",
-    "report M526 event-subset paired deltas separately",
-    "do not promote checkpoint or treat public rows as private holdout"
+    "computed paired L3-L0 and L3-L2 deltas on matched source keys",
+    "reported per-surface and per-training-seed dominance",
+    "reported bootstrap confidence intervals for success and clearance margin deltas",
+    "reported M526 event-subset paired deltas separately",
+    "did not promote checkpoint or treat public rows as private holdout"
   ],
   "private_holdout_policy": "not_used",
   "forbidden_shortcuts": [
@@ -81,6 +81,14 @@
     {
       "path": "docs/m538-natural-surface-paired-advantage-audit.md",
       "type": "documentation"
+    },
+    {
+      "path": "runs/m538_natural_surface_paired_advantage_audit/summary.json",
+      "type": "aggregate_summary"
+    },
+    {
+      "path": "runs/m538_natural_surface_paired_advantage_audit/bootstrap_ci.csv",
+      "type": "diagnostic_table"
     }
   ],
   "baseline_checkpoints": [
@@ -90,6 +98,6 @@
     "docs/m537-full-public-natural-surface-eval.md",
     "runs/m537_full_public_natural_surface_eval_aggregate/summary.json"
   ],
-  "decision_rule": "M538 is a public diagnostic audit. If L3 advantage survives paired and dominance checks, it admits fresh holdout mining or longer matched training; it does not promote a checkpoint.",
-  "next_blocker": "pending M538 paired public natural-surface audit"
+  "decision_rule": "M538 is a public diagnostic audit. L3-L0 passes robust paired checks, while L3-L2 is aggregate-positive but seed-fragile; it does not promote a checkpoint.",
+  "next_blocker": "m539-matched-history-seed-fragility-audit"
 }
