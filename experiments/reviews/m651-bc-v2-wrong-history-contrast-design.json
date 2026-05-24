@@ -1,0 +1,80 @@
+{
+  "decision_reason": "M651 designs a frozen-head contrast objective with normal target retention and wrong-history rejection while keeping actor coupling blocked",
+  "failure_criteria": [
+    "design admits actor coupling",
+    "design ignores wrong-history rows",
+    "design collapses delayed and wrong variants without justification",
+    "design omits source-balanced weighting",
+    "design changes actor inputs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train in design milestone",
+    "do not update actor parameters in later head-only contrast smoke",
+    "do not force delayed-history rows to behave like wrong-history rows without audit",
+    "do not promote checkpoint",
+    "do not use source ids target labels or split labels as actor inputs"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T131341Z",
+  "hypothesis": "A head-only contrast objective can preserve normal sequence-delta learnability while forcing wrong-history features not to predict the same corrective sequence.",
+  "lineage": {
+    "blocked_by": [
+      "m650-bc-v2-head-only-repeat-audit"
+    ],
+    "derived_from": [
+      "m650-bc-v2-head-only-repeat-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m650-bc-v2-head-only-repeat-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m649_bc_v2_head_only_repeat/summary.json",
+      "runs/m649_bc_v2_head_only_repeat/wrong_history_source_summary.csv",
+      "docs/m650-bc-v2-head-only-repeat-audit.md"
+    ],
+    "parent_objective": [
+      "design wrong-history contrast objective before any actor coupling"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m651-bc-v2-wrong-history-contrast-design",
+  "next_blocker": "m652-bc-v2-wrong-history-contrast-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "bc_v2_wrong_history_contrast_design_admit_m652",
+  "public_gates": [
+    "design normal-target and wrong-history rejection losses",
+    "separate wrong_matched_history rows from delayed_history rows",
+    "preserve frozen-actor head-only scope",
+    "pre-register normal-target retention and wrong-history gap thresholds",
+    "keep actor coupling and promotion blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m651-bc-v2-wrong-history-contrast-design.md",
+    "clearance_margin_mean": "",
+    "decision": "bc_v2_wrong_history_contrast_design_admit_m652",
+    "milestone": "m651-bc-v2-wrong-history-contrast-design",
+    "reason": "M651 designs a frozen-head contrast objective with normal target retention and wrong-history rejection while keeping actor coupling blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design specifies contrast loss for wrong_matched_history rows",
+    "design specifies normal target retention thresholds",
+    "design specifies wrong-history gap thresholds",
+    "design preserves frozen actor checksum gate",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

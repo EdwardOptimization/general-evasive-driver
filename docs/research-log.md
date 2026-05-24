@@ -11980,3 +11980,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M650 audits M649 as `pass_with_wrong_history_limitation`. The positive evidence is strong: all three frozen-head seeds pass best-validation repeat thresholds and the actor checksum is unchanged. The negative evidence blocks actor coupling: wrong-history sources `30` and `32` have normal/variant prediction gaps only around `0.0005-0.0007`, meaning the head predicts nearly the same corrective sequence under normal and wrong recurrent histories. The next branch is a frozen-head wrong-history contrast objective, not adapter or actor coupling.
 - decision: `bc_v2_head_only_repeat_audit_pass_with_wrong_history_limitation_admit_contrast_design`
 - next: `m651-bc-v2-wrong-history-contrast-design`
+## 20260524T203000Z - m651-bc-v2-wrong-history-contrast-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m651-bc-v2-wrong-history-contrast-design.md`
+- result: M651 designs a frozen-head wrong-history contrast objective. The objective preserves normal source-balanced sequence-delta learning while adding a wrong-history rejection margin for `wrong_matched_history` rows only. Delayed-history rows remain reporting-only. M652 should run seeds `6510`, `6511`, and `6512`, keep the actor frozen, use `margin_mse=0.00025`, `contrast_coef=1.0`, and `wrong_zero_coef=0.05`, and pass only if at least `2/3` seeds preserve normal validation MSE `<= 0.0010` while producing wrong-history train/heldout MSE and L2 gaps. Actor coupling and promotion remain blocked.
+- decision: `bc_v2_wrong_history_contrast_design_admit_m652`
+- next: `m652-bc-v2-wrong-history-contrast-implementation`

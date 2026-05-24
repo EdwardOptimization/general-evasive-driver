@@ -62,16 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m651-bc-v2-wrong-history-contrast-design
+m652-bc-v2-wrong-history-contrast-implementation
 ```
 
-M651 should design a frozen-head wrong-history contrast objective. The goal is
-to preserve normal sequence-delta learnability while forcing wrong-history
-features not to predict the same corrective sequence. Actor coupling remains
-blocked.
+M652 should implement the frozen-head wrong-history contrast objective. It must
+run seeds `6510`, `6511`, and `6512`, preserve normal sequence-delta learning,
+create wrong-history prediction gaps on sources `30` and `32`, and keep actor
+coupling blocked.
 
 ## Recent Evidence Line
 
+- M651 designs the frozen-head wrong-history contrast objective. It keeps actor
+  parameters frozen and trains only the auxiliary head. The design uses normal
+  target loss plus a wrong-history margin loss on `wrong_matched_history` rows,
+  with delayed-history rows reported but not forced into the rejection loss.
+  M652 must preserve normal validation MSE `<= 0.0010` while creating
+  wrong-history train/heldout gap thresholds.
 - M650 audits M649 as `pass_with_wrong_history_limitation`. The 3/3 head-only
   repeat proves frozen-feature sequence-delta learnability, but wrong-history
   sources `30` and `32` have normal/variant prediction gaps around

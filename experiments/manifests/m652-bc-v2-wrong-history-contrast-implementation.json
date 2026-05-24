@@ -1,0 +1,91 @@
+{
+  "id": "m652-bc-v2-wrong-history-contrast-implementation",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m641_source_diverse_sequence_target_corpus/balanced_sequence_target_corpus.npz",
+      "runs/m649_bc_v2_head_only_repeat/wrong_history_source_summary.csv",
+      "docs/m651-bc-v2-wrong-history-contrast-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m651-bc-v2-wrong-history-contrast-design.json"
+    ],
+    "parent_objective": [
+      "implement frozen-head wrong-history contrast smoke"
+    ],
+    "derived_from": [
+      "m651-bc-v2-wrong-history-contrast-design"
+    ],
+    "blocked_by": [
+      "m651-bc-v2-wrong-history-contrast-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m652-bc-v2-wrong-history-contrast-implementation.md",
+  "public_gates": [
+    "train only frozen-head contrast objective",
+    "run seeds 6510 6511 6512",
+    "report normal target retention",
+    "report wrong-history train and source-heldout gaps",
+    "verify actor checksum unchanged",
+    "write no actor checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not update actor parameters",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not include delayed-history rows in wrong-history rejection without audit",
+    "do not use metadata as actor input"
+  ],
+  "hypothesis": "Adding a wrong-history rejection loss can preserve normal sequence-delta learning while increasing wrong-history prediction gaps on sources 30 and 32.",
+  "success_criteria": [
+    "at least two of three seeds pass contrast thresholds",
+    "normal validation loss remains <= 0.0010",
+    "wrong-history train and validation gaps pass thresholds",
+    "actor checksum remains unchanged",
+    "no actor checkpoint is written",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "fewer than two seeds pass",
+    "normal validation loss regresses beyond threshold",
+    "wrong-history gaps remain near zero",
+    "actor checksum changes",
+    "actor checkpoint is written"
+  ],
+  "commands": [
+    {
+      "name": "bc_v2_wrong_history_contrast",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.bc_v2_wrong_history_contrast --corpus runs/m641_source_diverse_sequence_target_corpus/balanced_sequence_target_corpus.npz --metadata runs/m641_source_diverse_sequence_target_corpus/balanced_sequence_targets.csv --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --seeds 6510,6511,6512 --epochs 240 --learning-rate 0.001 --weight-decay 0.0001 --hidden-dim 64 --contrast-coef 1.0 --wrong-zero-coef 0.05 --margin-mse 0.00025 --device cpu --run-dir runs/m652_bc_v2_wrong_history_contrast"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m652_bc_v2_wrong_history_contrast/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "docs/m652-bc-v2-wrong-history-contrast-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m649_bc_v2_head_only_repeat/wrong_history_source_summary.csv",
+    "docs/m651-bc-v2-wrong-history-contrast-design.md"
+  ],
+  "decision_rule": "M652 passes only if the frozen-head contrast objective preserves normal correction learning and creates wrong-history separation in at least two seeds.",
+  "next_blocker": "m653-bc-v2-wrong-history-contrast-audit"
+}

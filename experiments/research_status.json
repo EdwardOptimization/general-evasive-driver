@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 659,
+        "completed": 660,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m650-bc-v2-head-only-repeat-audit",
+        "task_id": "m651-bc-v2-wrong-history-contrast-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m650-bc-v2-head-only-repeat-audit.md"
+        "command_log": "docs/m651-bc-v2-wrong-history-contrast-design.md"
     },
     "next_task": {
-        "id": "m651-bc-v2-wrong-history-contrast-design",
+        "id": "m652-bc-v2-wrong-history-contrast-implementation",
         "status": "pending",
-        "priority": 6460,
+        "priority": 6470,
         "kind": "infrastructure",
-        "hypothesis": "A head-only contrast objective can preserve normal sequence-delta learnability while forcing wrong-history features not to predict the same corrective sequence.",
-        "command": "see experiments/manifests/m651-bc-v2-wrong-history-contrast-design.json",
+        "hypothesis": "Adding a wrong-history rejection loss can preserve normal sequence-delta learning while increasing wrong-history prediction gaps on sources 30 and 32.",
+        "command": "see experiments/manifests/m652-bc-v2-wrong-history-contrast-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design frozen-head wrong-history contrast objective; no training PPO promotion or actor update"
+        "notes": "Pending: implement frozen-head wrong-history contrast smoke; no PPO promotion or actor update"
     },
-    "updated_at_utc": "20260524T202000Z"
+    "updated_at_utc": "20260524T203000Z"
 }
