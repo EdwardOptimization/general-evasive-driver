@@ -103,5 +103,5 @@
     "runs/m698_fresh_trajectory_boundary_sampler/summary.json"
   ],
   "decision_rule": "M700 is design-only and passes if it defines a no-training sensitivity-scale diagnostic with objective actor update PPO and promotion blocked.",
-  "next_blocker": "m700-boundary-sensitivity-scale-diagnostic-design"
+  "next_blocker": "m701-boundary-sensitivity-scale-diagnostic-implementation"
 }

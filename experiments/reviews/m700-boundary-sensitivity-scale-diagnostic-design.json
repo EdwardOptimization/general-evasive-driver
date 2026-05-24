@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M700 designs a no-training window and perturbation-scale ladder with plausible stress and unrealistic classes before any objective actor update PPO or promotion",
+  "failure_criteria": [
+    "design only loosens thresholds without scale reporting",
+    "design admits objective training before source-positive evidence",
+    "design omits normal-failed or too-safe accounting",
+    "design omits perturbation realism boundaries",
+    "design changes actor input contract"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not call large action overrides a deployable policy",
+    "do not accept threshold loosening as source-positive without scale diagnostics",
+    "do not change actor inputs"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T170504Z",
+  "hypothesis": "A registered window and perturbation-scale diagnostic can determine whether M698 was empty because the perturbations/window were too conservative or because the base-policy distribution lacks local terminal-boundary sensitivity.",
+  "lineage": {
+    "blocked_by": [
+      "m699-fresh-trajectory-boundary-sampler-audit"
+    ],
+    "derived_from": [
+      "m699-fresh-trajectory-boundary-sampler-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m699-fresh-trajectory-boundary-sampler-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m699-fresh-trajectory-boundary-sampler-audit.md",
+      "runs/m698_fresh_trajectory_boundary_sampler/summary.json",
+      "runs/m698_fresh_trajectory_boundary_sampler/prepass_rows.csv",
+      "runs/m698_fresh_trajectory_boundary_sampler/rejected_rows.csv"
+    ],
+    "parent_objective": [
+      "design perturbation-scale and window diagnostic for fresh boundary sampling"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m700-boundary-sensitivity-scale-diagnostic-design",
+  "next_blocker": "m701-boundary-sensitivity-scale-diagnostic-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "boundary_sensitivity_scale_diagnostic_design_admit_m701",
+  "public_gates": [
+    "design compares perturbation scales before objective design",
+    "design compares snapshot/window targets before objective design",
+    "design reports normal-failed too-safe and sensitivity ratios",
+    "design blocks actor update PPO and promotion",
+    "design preserves P0 actor input contract"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m700-boundary-sensitivity-scale-diagnostic-design.md",
+    "clearance_margin_mean": "",
+    "decision": "boundary_sensitivity_scale_diagnostic_design_admit_m701",
+    "milestone": "m700-boundary-sensitivity-scale-diagnostic-design",
+    "reason": "M700 designs a no-training window and perturbation-scale ladder with plausible stress and unrealistic classes before any objective actor update PPO or promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design defines target-obstacle-distance variants",
+    "design defines max-prepass-margin variants",
+    "design defines plausible and stress perturbation scales",
+    "design defines per-scale acceptance and rejection metrics",
+    "design defines negative-result interpretation",
+    "objective actor update PPO and promotion remain blocked"
+  ],
+  "type": "infrastructure"
+}

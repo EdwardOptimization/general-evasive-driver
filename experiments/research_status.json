@@ -1,29 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 708,
+        "completed": 709,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m699-fresh-trajectory-boundary-sampler-audit",
+        "task_id": "m700-boundary-sensitivity-scale-diagnostic-design",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m699-fresh-trajectory-boundary-sampler-audit.md",
-        "synthesis_decision": "continue",
-        "next_diagnostic": "boundary sensitivity scale"
+        "command_log": "docs/m700-boundary-sensitivity-scale-diagnostic-design.md"
     },
     "next_task": {
-        "id": "m700-boundary-sensitivity-scale-diagnostic-design",
+        "id": "m701-boundary-sensitivity-scale-diagnostic-implementation",
         "status": "pending",
-        "priority": 6950,
+        "priority": 6960,
         "kind": "infrastructure",
-        "hypothesis": "A registered window and perturbation-scale diagnostic can determine whether M698 was empty because the perturbations/window were too conservative or because the base-policy distribution lacks local terminal-boundary sensitivity.",
-        "command": "see experiments/manifests/m700-boundary-sensitivity-scale-diagnostic-design.json",
+        "hypothesis": "A perturbation/window scale ladder can determine whether terminal-boundary sensitivity appears at plausible first-action override scales.",
+        "command": "see experiments/manifests/m701-boundary-sensitivity-scale-diagnostic-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design no-training sensitivity-scale diagnostic before any objective actor update or PPO"
+        "notes": "Pending: run no-training perturbation/window scale ladder before any source objective actor update or PPO"
     },
-    "updated_at_utc": "20260524T170054Z"
+    "updated_at_utc": "20260524T170321Z"
 }

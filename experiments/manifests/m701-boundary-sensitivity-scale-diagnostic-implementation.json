@@ -1,0 +1,120 @@
+{
+  "id": "m701-boundary-sensitivity-scale-diagnostic-implementation",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m700-boundary-sensitivity-scale-diagnostic-design.md",
+      "runs/m698_fresh_trajectory_boundary_sampler/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m700-boundary-sensitivity-scale-diagnostic-design.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_objective": [
+      "implement boundary sensitivity scale diagnostic"
+    ],
+    "derived_from": [
+      "m700-boundary-sensitivity-scale-diagnostic-design"
+    ],
+    "blocked_by": [
+      "m700-boundary-sensitivity-scale-diagnostic-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m701-boundary-sensitivity-scale-diagnostic-implementation.md",
+  "public_gates": [
+    "diagnostic writes aggregate and per-variant artifacts",
+    "diagnostic compares window targets",
+    "diagnostic compares perturbation scales",
+    "diagnostic reports plausible stress and unrealistic scale classes separately",
+    "actor checksum is unchanged",
+    "no objective actor update PPO or promotion occurs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not merge stress or unrealistic scales into deployable source-positive claims",
+    "do not lower acceptance thresholds during the diagnostic",
+    "do not change actor inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "trajectory_terminal_boundary_source_mining",
+    "evidence_axis": "G_source_scale: perturbation/window sensitivity map",
+    "evidence_increment": "implements the no-training scale diagnostic and classifies whether plausible terminal-boundary source rows exist",
+    "claim_scope": "diagnostic result only, not objective training, PPO, or checkpoint promotion",
+    "stop_condition": [
+      "stop before objective design unless result_class is scale_positive_plausible",
+      "stop and audit if only stress or unrealistic scales produce accepted rows",
+      "stop if all variants are windowing_failure or scale_empty"
+    ],
+    "fallback_plan": [
+      "if scale_empty, pivot to scenario construction or base capability improvement",
+      "if windowing_failure, redesign snapshot windowing",
+      "if plausible positive, audit source diversity before corpus export"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "after M701 result unless scale_positive_plausible with strong diversity",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A perturbation/window scale ladder can determine whether terminal-boundary sensitivity appears at plausible first-action override scales.",
+  "success_criteria": [
+    "summary.json is written",
+    "variant_summary.csv is written",
+    "scale_summary.csv is written",
+    "window_summary.csv is written",
+    "accepted_rows.csv is written",
+    "rejected_rows.csv is written",
+    "per-scale result class is recorded",
+    "aggregate result_class is recorded",
+    "actor checksum unchanged",
+    "no objective actor update PPO or promotion"
+  ],
+  "failure_criteria": [
+    "implementation trains or mutates actor",
+    "implementation does not separate plausible stress and unrealistic scales",
+    "implementation lowers acceptance threshold instead of testing scale",
+    "implementation omits normal-failed or too-safe ratios",
+    "implementation admits objective design without audit"
+  ],
+  "commands": [
+    {
+      "name": "diagnose",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_sensitivity_scale_diagnostic --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --surface-config fresh=configs/ppo_m541_matched_l3_variance_4096.json --surface-config ood=configs/eval_m574_moderate_ood_l3.json --seed-start 30000 --seed-count 512 --target-obstacle-distance 2.0 --target-obstacle-distance 1.0 --target-obstacle-distance 0.0 --target-obstacle-distance -1.0 --max-prepass-margin 0.50 --max-prepass-margin 1.00 --scale local=0.04,0.06,0.06 --scale plausible=0.08,0.12,0.12 --scale stress=0.12,0.20,0.20 --scale unrealistic_probe=0.20,0.35,0.35 --snapshot-stride 3 --max-snapshots-per-episode 8 --max-continuation-steps 40 --device cpu --run-dir runs/m701_boundary_sensitivity_scale_diagnostic"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m701_boundary_sensitivity_scale_diagnostic/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m701_boundary_sensitivity_scale_diagnostic/variant_summary.csv",
+      "type": "metrics"
+    },
+    {
+      "path": "docs/m701-boundary-sensitivity-scale-diagnostic-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m700-boundary-sensitivity-scale-diagnostic-design.md",
+    "runs/m698_fresh_trajectory_boundary_sampler/summary.json"
+  ],
+  "decision_rule": "M701 passes as implementation if it writes complete scale diagnostic artifacts without actor mutation; only scale_positive_plausible can admit source-corpus export design.",
+  "next_blocker": "m702-boundary-sensitivity-scale-diagnostic-audit"
+}
