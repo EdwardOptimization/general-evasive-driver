@@ -1,0 +1,88 @@
+{
+  "id": "m619-expanded-sequence-diversity-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m617_expanded_sequence_target_miner/summary.json",
+      "runs/m617_expanded_sequence_target_miner/sequence_candidates.csv",
+      "runs/m617_expanded_sequence_target_miner/accepted_sequences.csv",
+      "docs/m618-expanded-sequence-target-mining-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m618-expanded-sequence-target-mining-audit.json",
+      "docs/m617-expanded-sequence-target-miner.md"
+    ],
+    "parent_objective": [
+      "design the next no-training sequence diversity step after M617 remains diagnostic-positive but not optimizer-ready"
+    ],
+    "derived_from": [
+      "m618-expanded-sequence-target-mining-audit"
+    ],
+    "blocked_by": [
+      "m618-expanded-sequence-target-mining-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m619-expanded-sequence-diversity-design.md",
+  "public_gates": [
+    "define source-tier propagation requirements",
+    "define accepted candidate-set audit requirements",
+    "define any new sequence families without lowering trust regions",
+    "keep target acceptance thresholds unchanged",
+    "keep actor training and PPO blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not lower target acceptance thresholds",
+    "do not widen action trust regions without a separate audit",
+    "do not treat M617 six accepted rows as optimizer-ready"
+  ],
+  "hypothesis": "M617 shows repeatable sequence signal but narrow accepted-source and action-mode diversity; the next no-training design should improve artifact provenance and candidate/source diversity before any optimizer step.",
+  "success_criteria": [
+    "design specifies source-tier metadata propagation into sequence miner outputs",
+    "design specifies accepted candidate-set diversity audit",
+    "design specifies whether to add longer low-amplitude sequence families without changing acceptance thresholds",
+    "design keeps optimizer admission training PPO and promotion blocked",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design starts training",
+    "design promotes a checkpoint",
+    "design lowers target thresholds",
+    "design widens trust regions without a separate audit",
+    "design ignores M617 action-mode narrowness"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "Write expanded sequence diversity design; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m619-expanded-sequence-diversity-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m618-expanded-sequence-target-mining-audit.md",
+    "runs/m617_expanded_sequence_target_miner/summary.json"
+  ],
+  "decision_rule": "M619 passes if it pre-registers the next no-training sequence diversity step without optimizer admission.",
+  "next_blocker": "m620-sequence-tier-aware-miner-implementation"
+}

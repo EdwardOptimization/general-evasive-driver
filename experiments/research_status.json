@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 626,
+        "completed": 627,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m617-expanded-sequence-target-miner",
+        "task_id": "m618-expanded-sequence-target-mining-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m617_expanded_sequence_target_miner",
-        "command_log": "docs/m617-expanded-sequence-target-miner.md"
+        "run_dir": "",
+        "command_log": "docs/m618-expanded-sequence-target-mining-audit.md"
     },
     "next_task": {
-        "id": "m618-expanded-sequence-target-mining-audit",
+        "id": "m619-expanded-sequence-diversity-design",
         "status": "pending",
-        "priority": 6130,
-        "kind": "gate",
-        "hypothesis": "M617 is diagnostic-positive but likely still too narrow for optimizer admission; the audit should decide whether to expand diversity, adjust candidate families, or move to a shadow sequence-head design.",
-        "command": "see experiments/manifests/m618-expanded-sequence-target-mining-audit.json",
+        "priority": 6140,
+        "kind": "infrastructure",
+        "hypothesis": "M617 shows repeatable sequence signal but narrow accepted-source and action-mode diversity; the next no-training design should improve artifact provenance and candidate/source diversity before any optimizer step.",
+        "command": "see experiments/manifests/m619-expanded-sequence-diversity-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit M617 accepted diversity and action-mode narrowness; no training, PPO, promotion, or optimizer admission"
+        "notes": "Pending: design source-tier propagation accepted-candidate audit and longer low-amplitude sequence families; no training PPO promotion or optimizer admission"
     },
-    "updated_at_utc": "20260524T145000Z"
+    "updated_at_utc": "20260524T150000Z"
 }

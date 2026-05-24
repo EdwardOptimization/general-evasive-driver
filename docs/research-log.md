@@ -11683,3 +11683,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M617 repeats the unchanged M613 sequence target miner on the M616 expanded source table. It evaluates `10440` sequence candidates across `30` source rows and selects `6` accepted sequences into `sequence_target_corpus.npz`. Compared with M613, accepted sequences increase from `1` to `6`, and accepted mean margin improvement rises to `0.056784` with max `0.093048`. Accepted diversity is still below objective-admission target: `6` accepted rows, `5` physical pairs, `4` left seeds, `2` surfaces, `2` variants, `3` targets, and max physical-pair dominance `0.333333`. All selected sequences are `K=5` `constant_delta` with `+0.08` steer, so action-mode narrowness remains a blocker.
 - decision: `expanded_sequence_target_miner_diagnostic_positive_admit_audit`
 - next: `m618-expanded-sequence-target-mining-audit`
+## 20260524T150000Z - m618-expanded-sequence-target-mining-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m618-expanded-sequence-target-mining-audit.md`
+- result: M618 audits M617 as diagnostic-positive but not optimizer-ready. M617 validates repeatability of the sequence-target direction by increasing selected accepted sequences from `1` to `6`, but it misses the pre-registered breadth target: accepted sequences `6 < 8`, physical pairs `5 < 6`, left seeds `4 < 6`, and all selected sequences are `K=5` `constant_delta` with `+0.08` steer. The source-tier join shows `1` core, `3` near, and `2` support accepted rows, confirming M616 expansion helped but also that accepted evidence is partly less-fragile support behavior. Training and optimizer admission remain blocked.
+- decision: `expanded_sequence_target_audit_admit_diversity_design`
+- next: `m619-expanded-sequence-diversity-design`
