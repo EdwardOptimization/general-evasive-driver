@@ -61,17 +61,23 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m589-bc-hidden-use-objective-audit
+m590-bc-hidden-action-sensitivity-probe-design
 ```
 
-M589 should audit why the scaled L3 BC objective transfers behavior without
-creating wrong/delayed hidden-to-action sensitivity. The current evidence
+M590 should design a hidden-action sensitivity probe that separates structural
+hidden-path availability from empirical hidden-state use. The current evidence
 supports deployable current-response dependence and source-diverse pair
-availability, but not accumulated hidden-history causality. Promotion and PPO
-remain blocked.
+availability, but M587-M589 do not support accumulated hidden-history
+causality. Promotion and PPO remain blocked.
 
 ## Recent Evidence Line
 
+- M589 audits the scaled L3 BC objective after the negative M587
+  wrong/delayed-history action screen. The `human_view_online_gru` actor has a
+  structural hidden-to-action path, but the BC optimizer trains only recurrent
+  one-step teacher-action MSE and the corpus lacks matched-current
+  history-contrast targets. M590 should design a hidden-action sensitivity
+  probe before any repair training.
 - M520 valid-offset projected replay produced only a margin-only projected
   history signal: `1` source-narrow wrong-history proof candidate and `0` event
   rows.

@@ -1,0 +1,90 @@
+{
+  "id": "m590-bc-hidden-action-sensitivity-probe-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m568_scaled_l3_bc_seed5661/checkpoint.pt",
+      "runs/m568_scaled_l3_bc_seed5662/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m586_bc5660_matched_current_fresh_seed25560/matched_pairs.csv",
+      "runs/m586_bc5660_matched_current_ood_seed25660/matched_pairs.csv",
+      "runs/m587_bc5660_history_action_screen_fresh_seed25560/variant_summary.csv",
+      "runs/m587_bc5660_history_action_screen_ood_seed25660/variant_summary.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_objective": [
+      "design a hidden-action sensitivity probe after M589 finds a one-step BC objective bottleneck"
+    ],
+    "derived_from": [
+      "m589-bc-hidden-use-objective-audit"
+    ],
+    "blocked_by": [
+      "m589-bc-hidden-use-objective-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m590-bc-hidden-action-sensitivity-probe-design.md",
+  "public_gates": [
+    "design hidden perturbation metrics before implementation",
+    "separate structural hidden path from empirical hidden-state use",
+    "pre-register normal reset zero delayed wrong shuffled scaled and random hidden variants",
+    "preserve the P0 human-view no-wheel no-oracle actor contract"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train or run PPO",
+    "do not promote checkpoint",
+    "do not add hidden vehicle parameters or wheel/slip features to actor inputs",
+    "do not claim self-ID from route performance or random-hidden sensitivity alone",
+    "do not use private holdout evidence for probe tuning"
+  ],
+  "hypothesis": "A targeted hidden-action sensitivity probe can explain whether BC5660 lacks hidden-history action signal because the actor head ignores hidden features, real rollout hidden states are action-equivalent, or the M586/M587 matched-current surface is too weak.",
+  "success_criteria": [
+    "design specifies exact hidden perturbation variants and metrics",
+    "design specifies how to compute fusion weight chunk norms and hidden/action distance correlations",
+    "design specifies comparison across BC5660 BC5661 and BC5662",
+    "design states pass/fail interpretations before any probe run",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design changes the actor input contract",
+    "design treats random-hidden action sensitivity as sufficient self-ID proof",
+    "design starts repair training before measuring hidden-use sensitivity",
+    "design promotes a checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "Write BC hidden-action sensitivity probe design; no evaluation, training, or promotion."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m590-bc-hidden-action-sensitivity-probe-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+    "runs/m568_scaled_l3_bc_seed5661/checkpoint.pt",
+    "runs/m568_scaled_l3_bc_seed5662/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m589-bc-hidden-use-objective-audit.md",
+    "docs/m588-bc5660-history-action-screen-negative-audit.md",
+    "docs/m587-bc5660-history-intervention-action-screen.md"
+  ],
+  "decision_rule": "M590 passes if it pre-registers a no-oracle hidden-action sensitivity probe that distinguishes hidden-path ignorance, hidden-state collapse, weak matched-current surfaces, and current-frame dominance before implementation.",
+  "next_blocker": "m591-bc-hidden-action-sensitivity-probe"
+}

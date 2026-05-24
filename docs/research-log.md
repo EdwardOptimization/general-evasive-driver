@@ -11422,3 +11422,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M588 audits the M587 negative result and confirms it is a real hidden-history no-signal diagnostic rather than a dead screen: zero-current and zero-action positive controls are strong, while wrong/delayed hidden interventions stay below threshold on both surfaces. The audit rejects persistent outcome rollout and identifies the likely bottleneck as the scaled L3 BC objective: it is recurrent and sequence-trained, but its loss is one-step L2 teacher-action MSE and does not require hidden state to encode capability or distinguish wrong/delayed histories. The next branch is a BC hidden-use/objective audit before any repair training.
 - decision: `bc5660_history_action_screen_negative_admit_hidden_use_objective_audit`
 - next: `m589-bc-hidden-use-objective-audit`
+## 20260524T101000Z - m589-bc-hidden-use-objective-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m589-bc-hidden-use-objective-audit.md`
+- result: M589 audits the scaled L3 BC objective after the negative M587 history-action screen. The actor architecture does contain a structural hidden-to-action path: response features update the online GRU, and the fused policy features include hidden, context, and hidden-times-context terms before `actor_mean`. The BC optimizer is also recurrent and resets hidden state per episode, but its loss is only one-step teacher-action MSE. The scaled corpora preserve the P0 contract by storing 72-value student frames and 3-value teacher actions without teacher stacks, but they do not provide matched-current history-contrast or capability targets. This explains why route behavior transfers while wrong/delayed recurrent history has no action signal.
+- decision: `bc_hidden_use_objective_audit_admit_sensitivity_probe`
+- next: `m590-bc-hidden-action-sensitivity-probe-design`

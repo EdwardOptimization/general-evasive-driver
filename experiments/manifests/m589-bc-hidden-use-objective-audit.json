@@ -2,7 +2,7 @@
   "id": "m589-bc-hidden-use-objective-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -81,6 +81,6 @@
     "docs/m587-bc5660-history-intervention-action-screen.md",
     "docs/m563-l3-behavior-cloning-optimizer.md"
   ],
-  "decision_rule": "M589 passes if it identifies the BC hidden-use bottleneck and pre-registers the next no-oracle repair or probe milestone before any training.",
+  "decision_rule": "M589 passes because it identifies a structural hidden-to-action path but a one-step BC objective gap, and pre-registers a hidden-action sensitivity probe before any repair training.",
   "next_blocker": "m590-bc-hidden-action-sensitivity-probe-design"
 }
