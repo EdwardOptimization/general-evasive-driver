@@ -47,12 +47,12 @@ runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
 
 Status: M400 promotes M399 alpha `0.05` as the current public-gate base after
 six public replay surfaces and behavior seeds pass. This remains the latest
-public-gate base; M487-M507 did not train or promote a checkpoint.
+public-gate base; M487-M509 did not train or promote a checkpoint.
 
 Current blocker:
 
 ```text
-m508-terminal-boundary-anchor-miner
+m510-obstacle-boundary-projection-miner
 ```
 
 Recent progress: M486-M492 is now closed as an artificial tail-forcing
@@ -145,8 +145,20 @@ then search source-diverse one-shot wrong histories around those anchors. If
 natural anchor mining fails, the fallback is obstacle-boundary projection with
 strict geometry-change limits and an explicit projection-proof label.
 
-Next step: M508 should implement and run the terminal-boundary anchor miner. It
-should not train or promote a checkpoint.
+M508 implements and runs that anchor-first miner. It finds many natural
+low-margin anchors (`3246`) and real one-shot wrong-history action signal
+(`targeted_trajectory_mean = 0.092899`, p90 `0.130059`), but rejects outcome
+admission because the source-capped targeted surface has only `104` rows and
+single-label share `0.826923`. The audit shows eligible rows collapse into only
+`5` obstacle geometry buckets, mostly `unavoidable`.
+
+M509 designs the fallback branch: bounded obstacle-boundary projection from
+M508 natural anchors. The branch must preserve natural ego/history state,
+relocate only obstacle geometry, report projection magnitudes, and label the
+surface as projection proof rather than raw natural-scenario proof.
+
+Next step: M510 should implement and run the bounded obstacle-boundary
+projection miner. It should not train or promote a checkpoint.
 
 ## Current Evidence
 

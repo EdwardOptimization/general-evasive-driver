@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 516,
+        "completed": 518,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m507-terminal-boundary-anchor-mining-design",
+        "task_id": "m509-obstacle-boundary-projection-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m507-terminal-boundary-anchor-mining-design.md"
+        "command_log": "docs/m509-obstacle-boundary-projection-design.md"
     },
     "next_task": {
-        "id": "m508-terminal-boundary-anchor-miner",
+        "id": "m510-obstacle-boundary-projection-miner",
         "status": "pending",
-        "priority": 5030,
+        "priority": 5050,
         "kind": "gate",
-        "hypothesis": "Mining low-clearance normal-history anchors first will produce a larger source-diverse pool of wrong-history-sensitive boundary rows than selecting from the existing M504 pair table.",
-        "command": "see experiments/manifests/m508-terminal-boundary-anchor-miner.json",
+        "hypothesis": "Bounded obstacle projection around natural M508 anchors can create a source-diverse terminal-boundary wrong-history-sensitive projection surface while preserving natural ego/history state.",
+        "command": "see experiments/manifests/m510-obstacle-boundary-projection-miner.json",
         "success_artifact": "",
-        "notes": "Pending: implement and run anchor-first boundary miner; no outcome gate training or promotion"
+        "notes": "Pending: implement projection miner and decide whether a labelled projection proof outcome gate is admissible"
     },
-    "updated_at_utc": "20260524T014000Z"
+    "updated_at_utc": "20260524T020000Z"
 }

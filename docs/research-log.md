@@ -10693,3 +10693,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M507 designs the next proof path after M506 shows the existing M504 pair table is too source-capped. The next path should mine low-clearance normal-history anchors first, then search source-diverse one-shot wrong histories around those anchors and score short-horizon action/margin effects. If natural anchor mining fails, the fallback is obstacle-boundary projection with geometry-change limits, explicitly labelled as projection proof rather than raw natural-scenario proof.
 - decision: `admit_m508_terminal_boundary_anchor_miner`
 - next: `m508-terminal-boundary-anchor-miner`
+## 20260524T015000Z - m508-terminal-boundary-anchor-miner
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m508_terminal_boundary_anchor_miner`
+- artifact: `docs/m508-terminal-boundary-anchor-miner.md`
+- result: M508 implements and runs the anchor-first terminal-boundary miner on both M502 boundary-pressure configs. It collects `25081` source rows, scores `9600` normal-history anchor candidates, and finds `3246` low-margin anchors. It then scores `3000` one-shot wrong-history pairs. The targeted surface has strong action signal (`targeted_trajectory_mean = 0.092899`, p90 `0.130059`) and enough low-margin rows (`97` at margin `<= 0.50`, `104` at `<= 1.00`), but fails the pre-registered admission gate because source-capped `pair_count = 104 < 240` and `single_label_share = 0.826923 > 0.70`. Audit shows the eligible rows collapse into only `5` obstacle geometry buckets, mostly `unavoidable`.
+- decision: `reject_outcome_gate_admission`
+- next: `m509-obstacle-boundary-projection-design`
+## 20260524T020000Z - m509-obstacle-boundary-projection-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m509-obstacle-boundary-projection-design.md`
+- result: M509 designs the fallback proof path after M508. The next branch should start from M508 natural anchors, reconstruct the ego/history state, and minimally relocate only obstacle geometry in ego/body coordinates. Projected rows must be explicitly labelled `obstacle_boundary_projection`, report projection magnitudes, preserve natural ego state and recurrent hidden state, and must not be claimed as raw natural-scenario proof. Admission requires source diversity, low-margin/action-signal thresholds, and projection magnitude limits (`projection_l2_p50 <= 3.0`, `projection_l2_p90 <= 6.0`, primary projection share `>= 0.80`).
+- decision: `admit_m510_obstacle_boundary_projection_miner`
+- next: `m510-obstacle-boundary-projection-miner`

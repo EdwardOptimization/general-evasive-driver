@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M509 designs bounded obstacle-boundary projection from M508 natural anchors as labelled projection proof with projection magnitude limits and no actor contract change",
+  "failure_criteria": [
+    "design relaxes M508 caps after seeing the result",
+    "design claims projection rows as raw natural proof",
+    "design changes ego state or hidden dynamics instead of obstacle geometry",
+    "actor contract changes",
+    "training or checkpoint promotion is performed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not use hidden-hold variants as deployable proof",
+    "do not claim projected rows as raw natural proof",
+    "do not tune from private holdouts"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260524T010714Z",
+  "hypothesis": "Because M508 has many low-clearance anchors and action signal but few source-capped natural geometry buckets, bounded obstacle projection around natural anchors is the next admissible diagnostic proof path.",
+  "lineage": {
+    "blocked_by": [
+      "m508-terminal-boundary-anchor-miner"
+    ],
+    "derived_from": [
+      "m508-terminal-boundary-anchor-miner"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "configs/m502_natural_boundary_pressure_short_reveal_zero_relvel.json",
+      "configs/m502_natural_boundary_pressure_warmup_zero_relvel.json",
+      "experiments/manifests/m508-terminal-boundary-anchor-miner.json"
+    ],
+    "parent_dataset": [
+      "runs/m508_terminal_boundary_anchor_miner/summary.json",
+      "runs/m508_terminal_boundary_anchor_miner/anchors.csv",
+      "runs/m508_terminal_boundary_anchor_miner/scored_pairs.csv",
+      "runs/m508_terminal_boundary_anchor_miner/targeted_pairs.csv"
+    ],
+    "parent_objective": [
+      "obstacle-boundary projection proof design"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m509-obstacle-boundary-projection-design",
+  "next_blocker": "M510 should implement bounded obstacle-boundary projection mining before any outcome gate.",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m510_obstacle_boundary_projection_miner",
+  "public_gates": [
+    "diagnose why M508 anchor-first mining still fails source-capped admission",
+    "define obstacle-boundary projection as explicitly labelled projection proof",
+    "define projection magnitude metadata and admission limits",
+    "do not train or promote checkpoint"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "clearance_margin_mean": "",
+    "decision": "admit_m510_obstacle_boundary_projection_miner",
+    "milestone": "m509-obstacle-boundary-projection-design",
+    "reason": "M509 designs bounded obstacle-boundary projection from M508 natural anchors as labelled projection proof with projection magnitude limits and no actor contract change",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "classify the M508 failure as geometry/label concentration rather than absence of action signal",
+    "define projection metadata and geometry-change constraints",
+    "define source-diversity and projection-magnitude admission gates",
+    "state that projected rows are projection proof, not raw natural proof",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "type": "infrastructure"
+}
