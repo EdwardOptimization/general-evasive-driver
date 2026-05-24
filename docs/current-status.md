@@ -61,12 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m581-bc-recurrent-ablation-design
+m582-bc5660-recurrent-ablation-fresh-route-eval
 ```
 
-M581 should design recurrent-dependence ablation benchmarks for the scaled BC
-branch. M580 audited the positive route/OOD family evidence and keeps
-promotion/PPO blocked until command-response hidden-state dependence is tested.
+M582 should run the BC5660 recurrent-ablation benchmark on fresh
+same-distribution route seeds. M581 pre-registered normal/reset/zero-current/
+zero-action/zero-all controls and keeps promotion/PPO blocked.
 
 ## Recent Evidence Line
 
@@ -350,6 +350,11 @@ promotion/PPO blocked until command-response hidden-state dependence is tested.
   checkpoint ablations such as `reset_recurrent_state`,
   `zero_current_response`, and `zero_action_history` to test whether the L3
   online-GRU policy actually depends on recurrent command-response history.
+- M581 designs that ablation layer. M582 will compare `BC5660` normal against
+  `reset_recurrent_state`, `zero_current_response`, `zero_action_history`, and
+  `zero_all_response` on fresh seeds `23560..23815`. Meaningful degradation is
+  pre-registered as success drop `>= 0.02`, margin drop `>= 0.05`, or collision
+  increase `>= 0.02`.
 
 ## Near-Term Rule
 

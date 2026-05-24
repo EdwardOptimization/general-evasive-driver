@@ -78,6 +78,6 @@
     "docs/m580-bc-family-generalization-audit.md",
     "docs/m579-bc-family-moderate-ood-repeat-eval.md"
   ],
-  "decision_rule": "M581 passes only if it pre-registers recurrent-dependence ablation diagnostics without evaluation, training, promotion, or actor-contract changes.",
+  "decision_rule": "M581 passes because it pre-registers recurrent-dependence ablation diagnostics without evaluation, training, promotion, or actor-contract changes.",
   "next_blocker": "m582-bc5660-recurrent-ablation-fresh-route-eval"
 }

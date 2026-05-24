@@ -11350,3 +11350,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M580 audits the BC family evidence after M578/M579. All three scaled BC seeds are L0-safe and L2-competitive on fresh route and moderate-OOD repeat blocks, so the L2-to-L3 BC transfer claim is now strong. The remaining gap is mechanistic: route/OOD metrics do not prove that the L3 online-GRU actor uses recurrent command-response history. M580 admits an ablation design using `reset_recurrent_state`, `zero_current_response`, and `zero_action_history`, and keeps promotion/PPO blocked.
 - decision: `bc_family_generalization_audit_admit_recurrent_ablation_design`
 - next: `m581-bc-recurrent-ablation-design`
+## 20260524T085000Z - m581-bc-recurrent-ablation-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m581-bc-recurrent-ablation-design.md`
+- result: M581 pre-registers the first recurrent-dependence diagnostic for scaled BC. M582 will benchmark BC5660 normal, `reset_recurrent_state`, `zero_current_response`, `zero_action_history`, and `zero_all_response` on fresh same-distribution route seeds `23560..23815`. M583 will later repeat on moderate-OOD seeds `24560..24815`. Meaningful degradation is defined before evaluation as success drop `>= 0.02`, margin drop `>= 0.05`, or collision increase `>= 0.02`; strong degradation uses `0.05`/`0.10`/`0.05`. No promotion or PPO is allowed.
+- decision: `bc_recurrent_ablation_design_admit_m582_fresh_route_eval`
+- next: `m582-bc5660-recurrent-ablation-fresh-route-eval`

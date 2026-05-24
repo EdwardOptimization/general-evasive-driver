@@ -1,0 +1,87 @@
+{
+  "id": "m582-bc5660-recurrent-ablation-fresh-route-eval",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m578_bc_family_fresh_route_repeat_eval/summary.json",
+      "runs/m579_bc_family_moderate_ood_repeat_eval/summary.json"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l3_variance_4096.json"
+    ],
+    "parent_objective": [
+      "fresh-route recurrent-dependence ablation diagnostic for BC5660"
+    ],
+    "derived_from": [
+      "m581-bc-recurrent-ablation-design"
+    ],
+    "blocked_by": [
+      "m581-bc-recurrent-ablation-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m582-bc5660-recurrent-ablation-fresh-route-eval.md",
+  "public_gates": [
+    "benchmark BC5660 normal reset zero-current zero-action and zero-all variants",
+    "use fresh same-distribution seed range 23560..23815",
+    "compute success margin and collision deltas against normal",
+    "classify recurrent-dependence diagnostic as positive or negative",
+    "do not promote checkpoint from ablation diagnostics"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not change checkpoint weights or actor inputs",
+    "do not train or run PPO",
+    "do not tune thresholds after seeing ablation results",
+    "do not treat ablation results as promotion evidence by themselves",
+    "do not use public frozen-source rows"
+  ],
+  "hypothesis": "If BC5660 uses recurrent command-response history on fresh same-distribution route seeds, reset/zero-current/zero-action ablations should degrade success, clearance margin, or collision rate relative to normal.",
+  "success_criteria": [
+    "benchmark completes for normal reset zero-current zero-action and zero-all policies",
+    "seed range is 23560..23815 and no public frozen-source rows are used",
+    "delta table reports success_drop margin_drop and collision_increase for every ablation",
+    "diagnostic interpretation follows M581 thresholds",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "benchmark fails or omits an ablation",
+    "thresholds are changed after seeing results",
+    "checkpoint promotion is attempted",
+    "actor input contract changes"
+  ],
+  "commands": [
+    {
+      "name": "fresh_route_recurrent_ablation",
+      "command": "PYTHONPATH=src python -m autodrift.benchmark --policies checkpoint --checkpoint-policy bc5660_normal=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --checkpoint-policy bc5660_reset=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt@reset_recurrent_state --checkpoint-policy bc5660_zero_current=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt@zero_current_response --checkpoint-policy bc5660_zero_action=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt@zero_action_history --checkpoint-policy bc5660_zero_all=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt@zero_all_response --episodes 256 --seed 23560 --device cpu --env-config configs/ppo_m541_matched_l3_variance_4096.json --run-dir runs/m582_bc5660_recurrent_ablation_fresh_route_eval"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m582_bc5660_recurrent_ablation_fresh_route_eval/manifest.json",
+      "type": "summary"
+    },
+    {
+      "path": "docs/m582-bc5660-recurrent-ablation-fresh-route-eval.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m581-bc-recurrent-ablation-design.md",
+    "docs/m580-bc-family-generalization-audit.md"
+  ],
+  "decision_rule": "M582 classifies recurrent-dependence diagnostics using M581 thresholds and cannot promote a checkpoint by itself.",
+  "next_blocker": "m583-bc5660-recurrent-ablation-moderate-ood-eval"
+}

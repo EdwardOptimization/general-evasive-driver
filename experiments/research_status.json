@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 589,
+        "completed": 590,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m580-bc-family-generalization-audit",
+        "task_id": "m581-bc-recurrent-ablation-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m580-bc-family-generalization-audit.md"
+        "command_log": "docs/m581-bc-recurrent-ablation-design.md"
     },
     "next_task": {
-        "id": "m581-bc-recurrent-ablation-design",
+        "id": "m582-bc5660-recurrent-ablation-fresh-route-eval",
         "status": "pending",
-        "priority": 5760,
-        "kind": "infrastructure",
-        "hypothesis": "Because the scaled BC family transfers L2 behavior reliably, the next diagnostic should test whether the deployed L3 actor depends on recurrent command-response history.",
-        "command": "see experiments/manifests/m581-bc-recurrent-ablation-design.json",
+        "priority": 5770,
+        "kind": "gate",
+        "hypothesis": "If BC5660 uses recurrent command-response history on fresh same-distribution route seeds, reset/zero-current/zero-action ablations should degrade success, clearance margin, or collision rate relative to normal.",
+        "command": "see experiments/manifests/m582-bc5660-recurrent-ablation-fresh-route-eval.json",
         "success_artifact": "",
-        "notes": "Pending: design recurrent-dependence ablation benchmarks; no evaluation or promotion"
+        "notes": "Pending: run BC5660 fresh-route recurrent ablation benchmark; no promotion"
     },
-    "updated_at_utc": "20260524T084000Z"
+    "updated_at_utc": "20260524T085000Z"
 }
