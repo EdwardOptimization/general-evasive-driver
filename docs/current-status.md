@@ -61,13 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m569-scaled-bc-route-screen-selection
+m570-scaled-bc-public-natural-surface-eval
 ```
 
-M569 should run route-screen v2 on the scaled BC seed family using fresh
-selection seed `18560`. It should compare BC seeds `5660`, `5661`, and `5662`
-against level-matched L0/L2 references. Public diagnostics remain blocked until
-a candidate clears route-screen; no checkpoint promotion is allowed.
+M570 should evaluate selected scaled checkpoint `BC5660` on the four public
+frozen-source natural surfaces. M569 admitted public diagnostics, but this is
+still not a private generalization claim or checkpoint promotion.
 
 ## Recent Evidence Line
 
@@ -285,6 +284,10 @@ a candidate clears route-screen; no checkpoint promotion is allowed.
   MSEs are `0.00003675`, `0.00000855`, and `0.00001963`; all metadata reports
   `L3_online_gru`, `P0_human_view_no_wheel_no_oracle`, `ppo_used = false`, and
   `promoted = false`.
+- M569 runs route-screen v2 with fresh seed `18560`. All three scaled BC seeds
+  clear route-screen, match L2 success/collision (`0.671875` / `0.328125`), and
+  beat L2 mean margin slightly. `BC5660` is selected with mean margin
+  `0.950870`, ahead of L2 `0.936128`. No checkpoint is promoted.
 
 ## Near-Term Rule
 

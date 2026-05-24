@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 577,
+        "completed": 578,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-            "task_id": "m568-scaled-bc-training",
+            "task_id": "m569-scaled-bc-route-screen-selection",
             "status": "completed",
             "returncode": 0,
-            "run_dir": "runs/m568_scaled_l3_bc_seed5661",
-            "command_log": "docs/m568-scaled-bc-training.md"
+            "run_dir": "runs/m569_scaled_bc_route_screen_selection",
+            "command_log": "docs/m569-scaled-bc-route-screen-selection.md"
         },
         "next_task": {
-            "id": "m569-scaled-bc-route-screen-selection",
+            "id": "m570-scaled-bc-public-natural-surface-eval",
             "status": "pending",
-            "priority": 5640,
+            "priority": 5650,
             "kind": "gate",
-            "hypothesis": "If scaled L2-to-L3 BC is stable, at least one M568 seed should clear route-screen v2 against L0 and remain L2-competitive on fresh selection seed 18560.",
-            "command": "see experiments/manifests/m569-scaled-bc-route-screen-selection.json",
+            "hypothesis": "Because the scaled BC family passed route-screen v2 on fresh seed 18560, selected BC5660 should at least match the M563_BC public natural-surface repair and remain L2-competitive.",
+            "command": "see experiments/manifests/m570-scaled-bc-public-natural-surface-eval.json",
             "success_artifact": "",
-            "notes": "Pending: route-screen only no public diagnostics or promotion unless admitted"
+            "notes": "Pending: public diagnostic only no promotion"
         },
-    "updated_at_utc": "20260524T064000Z"
+    "updated_at_utc": "20260524T065000Z"
 }

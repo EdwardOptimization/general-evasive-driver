@@ -11242,3 +11242,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M568 trains three scaled L3 BC seeds from the M567 corpora. All three improve train and validation action MSE. Final validation MSEs are `0.00003675` for seed `5660`, `0.00000855` for seed `5661`, and `0.00001963` for seed `5662`. All checkpoints keep `obs_dim=72`, `actor_encoder=human_view_online_gru`, `history_baseline.level=L3_online_gru`, `input_contract=P0_human_view_no_wheel_no_oracle`, `ppo_used=false`, and `promoted=false`.
 - decision: `scaled_bc_training_pass_admit_m569_route_screen_selection`
 - next: `m569-scaled-bc-route-screen-selection`
+## 20260524T065000Z - m569-scaled-bc-route-screen-selection
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m569_scaled_bc_route_screen_selection`
+- artifact: `docs/m569-scaled-bc-route-screen-selection.md`
+- result: M569 evaluates scaled BC seeds `5660`, `5661`, and `5662` with route-screen v2 on fresh seed `18560`. All three candidates pass L0 success, margin, and collision gates and are L2-competitive. Each has success `0.671875` and collision `0.328125`, matching L2. `BC5660` is selected because it has the best mean clearance margin (`0.950870`, versus L2 `0.936128`).
+- decision: `scaled_bc_route_screen_pass_admit_m570_public_surface_eval`
+- next: `m570-scaled-bc-public-natural-surface-eval`

@@ -1,0 +1,89 @@
+{
+  "id": "m570-scaled-bc-public-natural-surface-eval",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+      "runs/m542_matched_l2_variance_seed3540/checkpoint.pt",
+      "runs/m542_matched_l3_variance_seed3540/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m497_natural_belief_decision_window_outcome_gate/targeted_pairs_short_reveal.csv",
+      "runs/m497_natural_belief_decision_window_outcome_gate/targeted_pairs_warmup_capability.csv",
+      "runs/m487_critical_window_tail_aligned_outcome_gate/targeted_pairs_near_threshold.csv",
+      "runs/m487_critical_window_tail_aligned_outcome_gate/targeted_pairs_late_high_energy.csv",
+      "runs/m569_scaled_bc_route_screen_selection/summary.json"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l0_variance_4096.json",
+      "configs/ppo_m541_matched_l2_variance_4096.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json"
+    ],
+    "parent_objective": [
+      "public frozen-source natural-surface diagnostic after scaled BC route-screen pass"
+    ],
+    "derived_from": [
+      "m569-scaled-bc-route-screen-selection"
+    ],
+    "blocked_by": [
+      "m569-scaled-bc-route-screen-selection"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m570-scaled-bc-public-natural-surface-eval.md",
+  "public_gates": [
+    "evaluate selected BC5660 on the same four public frozen-source natural surfaces used by M543/M550/M565",
+    "include L0 L2 original M542 L3 and BC5660 in the same matrices",
+    "report aggregate and paired deltas against L0 L2 and original L3",
+    "do not promote checkpoint from public diagnostics alone"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat public frozen-source rows as private generalization",
+    "do not tune BC5660 from public-surface residuals",
+    "do not promote without fresh generalization and matched-repeat gates"
+  ],
+  "hypothesis": "Because the scaled BC family passed route-screen v2 on fresh seed 18560, selected BC5660 should at least match the M563_BC public natural-surface repair and remain L2-competitive.",
+  "success_criteria": [
+    "all four public natural-surface evals complete",
+    "aggregate and paired summaries compare BC5660 against L0 L2 and original L3",
+    "BC5660 is L2-competitive on success collision and margin",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "metadata or actor-contract validation fails",
+    "BC5660 regresses below L0 or original L3 on public surfaces",
+    "public diagnostics are treated as private evidence or checkpoint promotion"
+  ],
+  "commands": [
+    {
+      "name": "public_surface_eval",
+      "command": "Run frozen_source_surface_eval for selected BC5660 on M497 short/warmup and M487 near/late public splits, then aggregate paired deltas."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m570-scaled-bc-public-natural-surface-eval.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+    "runs/m542_matched_l2_variance_seed3540/checkpoint.pt",
+    "runs/m542_matched_l3_variance_seed3540/checkpoint.pt",
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m569-scaled-bc-route-screen-selection.md",
+    "docs/m565-bc-public-natural-surface-eval.md"
+  ],
+  "decision_rule": "M570 is a public diagnostic. It can admit fresh non-public generalization gates if BC5660 is L2-competitive, but it cannot promote the checkpoint.",
+  "next_blocker": "pending M570 scaled BC public natural-surface eval"
+}

@@ -2,7 +2,7 @@
   "id": "m569-scaled-bc-route-screen-selection",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -82,6 +82,6 @@
   "baseline_artifacts": [
     "docs/m568-scaled-bc-training.md"
   ],
-  "decision_rule": "M569 admits public diagnostic repeat only if one scaled BC candidate clears route-screen v2 against L0 on fresh seed 18560. It cannot promote a checkpoint.",
-  "next_blocker": "pending M569 scaled BC route-screen selection"
+  "decision_rule": "M569 admits public diagnostic repeat because all three scaled BC candidates clear route-screen v2 against L0 on fresh seed 18560. It selects BC5660 and cannot promote a checkpoint.",
+  "next_blocker": "m570-scaled-bc-public-natural-surface-eval"
 }
