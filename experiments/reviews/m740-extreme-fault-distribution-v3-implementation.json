@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M740 runs 16896 v3 scenarios and 8192 matched pairs producing 744 reset-only rows but 0 wrong-history action-critical rows so PPO and objective work remain blocked pending audit",
+  "failure_criteria": [
+    "v3 config fails to load",
+    "source generation diversity gates fail without classification",
+    "future-only faults are counted as current-model evidence",
+    "actor input contract changes",
+    "optimizer training PPO or checkpoint promotion starts"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not inject hidden fault labels into actor observations",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not claim true single-wheel physics from current single-track proxies",
+    "do not lower gates after seeing M740 output"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260524T222902Z",
+  "hypothesis": "The v3 extreme-fault distribution will produce broader action or outcome-sensitive command-response self-ID rows than the M737 public corpus alone.",
+  "lineage": {
+    "blocked_by": [
+      "m739-extreme-fault-distribution-v3-design"
+    ],
+    "derived_from": [
+      "m739-extreme-fault-distribution-v3-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m739-extreme-fault-distribution-v3-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m739-extreme-fault-distribution-v3-design.md",
+      "configs/extreme_fault_distribution_v3_scenarios.json",
+      "docs/m738-sequence-outcome-corpus-export-audit.md"
+    ],
+    "parent_objective": [
+      "run no-training v3 extreme-fault matched counterfactual data wave"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m740-extreme-fault-distribution-v3-implementation",
+  "next_blocker": "m741-extreme-fault-distribution-v3-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "cross_fault_reset_only",
+  "public_gates": [
+    "M740 uses v3 fault distribution config",
+    "M740 reports source generation and diversity metrics",
+    "M740 separates reset wrong-history action and outcome evidence",
+    "M740 respects current-model versus future-only claim boundary",
+    "actor update PPO and promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m740_extreme_fault_distribution_v3/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "cross_fault_reset_only",
+    "milestone": "m740-extreme-fault-distribution-v3-implementation",
+    "reason": "M740 runs 16896 v3 scenarios and 8192 matched pairs producing 744 reset-only rows but 0 wrong-history action-critical rows so PPO and objective work remain blocked pending audit",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M740 validates v3 config with a smoke run or registered run",
+    "M740 runs the no-training v3 data wave",
+    "M740 writes scenario matched-pair accepted rejected and summary artifacts",
+    "M740 reports source diversity reset wrong-history action and outcome metrics separately",
+    "M740 records current-model versus future-only claim boundary",
+    "actor checksum remains unchanged",
+    "no actor training PPO or promotion occurs"
+  ],
+  "type": "infrastructure"
+}

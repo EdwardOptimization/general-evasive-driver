@@ -1,0 +1,119 @@
+{
+  "id": "m741-extreme-fault-distribution-v3-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m740-extreme-fault-distribution-v3-implementation.md",
+      "runs/m740_extreme_fault_distribution_v3/summary.json",
+      "runs/m740_extreme_fault_distribution_v3/reset_only_rows.csv",
+      "runs/m740_extreme_fault_distribution_v3/matched_cross_fault_pairs.csv",
+      "runs/m740_extreme_fault_distribution_v3/rejected_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m740-extreme-fault-distribution-v3-implementation.json",
+      "configs/extreme_fault_distribution_v3_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit v3 extreme-fault data wave reset-only result before sequence intervention or fidelity branch"
+    ],
+    "derived_from": [
+      "m740-extreme-fault-distribution-v3-implementation"
+    ],
+    "blocked_by": [
+      "m740-extreme-fault-distribution-v3-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m741-extreme-fault-distribution-v3-audit.md",
+  "public_gates": [
+    "M740 source generation and diversity are audited",
+    "M740 reset-only result is separated from wrong-history evidence",
+    "model-fidelity boundary is checked",
+    "next branch decision compares v3 sequence-level intervention simulator fidelity and objective work",
+    "actor training PPO and promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat reset-only rows as wrong-history proof",
+    "do not train an actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not claim true single-wheel physics from current single-track proxies",
+    "do not change actor input contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "extreme_fault_distribution_v3",
+    "evidence_axis": "G_scenario_coverage: audit broadened extreme hidden-condition wave",
+    "evidence_increment": "synthesizes M740 reset-only source-positive result and chooses next branch",
+    "claim_scope": "process synthesis only; no objective training or checkpoint claim",
+    "stop_condition": [
+      "stop direct objective/PPO because M740 is reset-only",
+      "stop wrong-history claims because accepted_rows == 0",
+      "stop simulator-fidelity escalation until reset-source sequence intervention is considered",
+      "stop promotion until a later manifest explicitly admits it"
+    ],
+    "fallback_plan": [
+      "if reset-only rows are source-diverse, design v3 sequence-level interventions",
+      "if reset-only rows are concentrated, design source-balanced v3 resampling",
+      "if v3 source generation is artifacted, repair config or runner before continuing"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M740 result_class=cross_fault_reset_only",
+    "synthesis_decision": "not_applicable",
+    "synthesis_artifact": "docs/m741-extreme-fault-distribution-v3-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "M740's broad v3 reset-only source surface should be audited before deciding whether to run sequence-level interventions or change simulator fidelity.",
+  "success_criteria": [
+    "M741 records M740 source generation evidence",
+    "M741 records reset-only versus wrong-history evidence",
+    "M741 records supported and falsified claims",
+    "M741 records public gate overfit risk",
+    "M741 makes an explicit next branch decision",
+    "actor update PPO and promotion remain blocked unless later designed"
+  ],
+  "failure_criteria": [
+    "audit treats reset-only rows as wrong-history proof",
+    "audit ignores model-fidelity boundary",
+    "audit admits PPO or promotion directly",
+    "audit changes actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m741-extreme-fault-distribution-v3-audit.md from M740 artifacts; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m741-extreme-fault-distribution-v3-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m740_extreme_fault_distribution_v3/summary.json",
+    "docs/m740-extreme-fault-distribution-v3-implementation.md"
+  ],
+  "decision_rule": "M741 must decide whether the next branch is v3 sequence-level intervention source-balanced resampling or simulator-fidelity design. It must not admit PPO or checkpoint promotion directly.",
+  "next_blocker": "m742-next-branch-pending"
+}

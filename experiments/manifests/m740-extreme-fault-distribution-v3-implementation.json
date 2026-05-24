@@ -4,7 +4,8 @@
   "gate_tier": "generalization",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure",
+    "metric_artifact"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -100,11 +101,11 @@
       "type": "json"
     },
     {
-      "path": "runs/m740_extreme_fault_distribution_v3/scenario_rows.csv",
+      "path": "runs/m740_extreme_fault_distribution_v3/scenario_summary.csv",
       "type": "csv"
     },
     {
-      "path": "runs/m740_extreme_fault_distribution_v3/matched_pairs.csv",
+      "path": "runs/m740_extreme_fault_distribution_v3/matched_hidden_condition_pairs.csv",
       "type": "csv"
     },
     {
