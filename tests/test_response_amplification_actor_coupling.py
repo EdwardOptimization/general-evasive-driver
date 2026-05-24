@@ -1,0 +1,140 @@
+import argparse
+
+import numpy as np
+import pandas as pd
+import pytest
+import torch
+
+from autodrift.response_amplification_actor_coupling import (
+    alpha_candidate_passes,
+    apply_actor_coupling_pass_rules,
+    evaluate_alpha_ladder,
+    parse_actor_coupling_view,
+    parse_alpha_list,
+    train_actor_coupling_seed,
+)
+
+
+def _arrays(rows: int = 20) -> dict[str, np.ndarray]:
+    normal_hidden = np.zeros((rows, 5), dtype=np.float32)
+    variant_hidden = np.ones((rows, 5), dtype=np.float32) * 0.2
+    normal_base = np.zeros((rows, 3, 3), dtype=np.float32)
+    target_wrong = np.zeros_like(normal_base)
+    target_wrong[:, :, 0] = 0.012
+    return {
+        "observation": np.zeros((rows, 72), dtype=np.float32),
+        "normal_hidden": normal_hidden,
+        "variant_hidden": variant_hidden,
+        "normal_base_action_sequence": normal_base,
+        "variant_base_action_sequence": normal_base + 0.001,
+        "normal_action_sequence": normal_base,
+        "wrong_action_sequence": normal_base + 0.001,
+        "target_action_sequence": normal_base,
+        "target_delta_normal": np.zeros_like(normal_base),
+        "target_delta_wrong": target_wrong,
+        "wrong_target_action_sequence": normal_base + target_wrong,
+        "sequence_mask": np.ones((rows, 3), dtype=np.float32),
+        "variant_base_action": np.zeros((rows, 3), dtype=np.float32),
+        "weight": np.full(rows, 1.0 / rows, dtype=np.float32),
+        "row_id": np.arange(rows, dtype=np.int64),
+        "source_index": np.repeat(np.array([1, 2], dtype=np.int64), rows // 2),
+        "sequence_length": np.full(rows, 3, dtype=np.int64),
+    }
+
+
+def _metadata(rows: int = 20) -> pd.DataFrame:
+    return pd.DataFrame(
+        {
+            "source_index": np.repeat([1, 2], rows // 2),
+            "split": ["train"] * (rows // 2) + ["source_holdout_validation"] * (rows // 2),
+            "surface": ["fresh"] * rows,
+            "target": ["drift_required"] * rows,
+            "variant": ["wrong_matched_history"] * rows,
+            "grid_name": ["response_amplification_shadow"] * rows,
+            "physical_pair_key": ["p1"] * (rows // 2) + ["p2"] * (rows // 2),
+            "sequence_length": [3] * rows,
+            "corpus_weight": [1.0 / rows] * rows,
+        }
+    )
+
+
+def test_parse_alpha_list_sorts_and_rejects_invalid():
+    assert parse_alpha_list("0.5,0.1") == (0.1, 0.5)
+    with pytest.raises(argparse.ArgumentTypeError):
+        parse_alpha_list("-0.1")
+    with pytest.raises(argparse.ArgumentTypeError):
+        parse_alpha_list("0.1,0.1")
+
+
+def test_parse_actor_coupling_view_is_restricted():
+    assert parse_actor_coupling_view("fused_plus_next_hidden") == "fused_plus_next_hidden"
+    with pytest.raises(argparse.ArgumentTypeError):
+        parse_actor_coupling_view("fused")
+
+
+def test_alpha_candidate_passes_requires_source_holdout_and_thresholds():
+    row = {
+        "split": "source_holdout_validation",
+        "alpha": 1.0,
+        "normal_delta_l2_mean": 0.001,
+        "normal_delta_l2_p95": 0.002,
+        "predicted_normal_wrong_gap_l2_mean": 0.012,
+        "predicted_normal_wrong_gap_l2_p10": 0.005,
+        "gap_improvement_ratio": 4.0,
+        "wrong_target_mse_improvement": 0.8,
+        "normal_action_drift_first_l2_p95": 0.003,
+    }
+
+    assert alpha_candidate_passes(row)
+    row["split"] = "train"
+    assert not alpha_candidate_passes(row)
+
+
+def test_evaluate_alpha_ladder_selects_largest_passing_alpha():
+    arrays = _arrays(rows=4)
+    metadata = _metadata(rows=4)
+    prediction_normal = np.zeros((4, 3, 3), dtype=np.float32)
+    prediction_wrong = arrays["target_delta_wrong"].copy()
+
+    rows, summary = evaluate_alpha_ladder(
+        arrays=arrays,
+        metadata=metadata,
+        prediction_normal=prediction_normal,
+        prediction_wrong=prediction_wrong,
+        alphas=(0.5, 1.0),
+    )
+
+    assert rows
+    assert summary["alpha_passed"] is True
+    assert summary["selected_alpha"] == 1.0
+
+
+def test_train_actor_coupling_seed_learns_synthetic_residual_and_alpha_passes():
+    arrays = _arrays()
+    metadata = _metadata()
+
+    head, metrics, summary, alpha_rows = train_actor_coupling_seed(
+        arrays=arrays,
+        metadata=metadata,
+        features_normal=arrays["normal_hidden"],
+        features_variant=arrays["variant_hidden"],
+        alphas=(0.5, 1.0),
+        hidden_dim=16,
+        epochs=120,
+        learning_rate=0.01,
+        weight_decay=0.0,
+        seed=17,
+        wrong_target_coef=1.0,
+        gap_margin_coef=0.1,
+        smoothness_coef=0.0,
+        target_gap=0.004,
+        device=torch.device("cpu"),
+    )
+
+    assert head.max_sequence_length == 3
+    assert metrics[0]["epoch"] == 0
+    assert alpha_rows
+    assert summary["alpha_passed"] is True
+    assert summary["selected_alpha"] > 0.0
+    result = apply_actor_coupling_pass_rules([summary])
+    assert result["actor_coupling_exact_passed"] is True

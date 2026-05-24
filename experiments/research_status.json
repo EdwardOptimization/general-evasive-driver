@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 682,
+        "completed": 683,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m673-response-amplification-actor-coupling-design",
+        "task_id": "m674-response-amplification-actor-coupling-implementation",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m673-response-amplification-actor-coupling-design.md"
+        "run_dir": "runs/m674_response_amplification_actor_coupling",
+        "command_log": "docs/m674-response-amplification-actor-coupling-implementation.md"
     },
     "next_task": {
-        "id": "m674-response-amplification-actor-coupling-implementation",
+        "id": "m675-response-amplification-actor-coupling-audit",
         "status": "pending",
-        "priority": 6690,
-        "kind": "infrastructure",
-        "hypothesis": "A frozen-backbone residual sequence head using fused-plus-next-hidden features can preserve normal actions while producing bounded source-heldout wrong-history action separation, admitting only alpha-scaled candidates that pass exact metrics.",
-        "command": "see experiments/manifests/m674-response-amplification-actor-coupling-implementation.json",
+        "priority": 6700,
+        "kind": "gate",
+        "hypothesis": "M674 failed because the residual sequence head can create wrong-history sequence separation only at alphas whose first executed normal residual violates the actor-coupling drift gate; the next design should constrain first-step normal drift explicitly.",
+        "command": "see experiments/manifests/m675-response-amplification-actor-coupling-audit.json",
         "success_artifact": "",
-        "notes": "Pending: implement no-PPO residual sequence-head exact probe; preserve base actor checksum and forbid promotion"
+        "notes": "Pending: audit M674 alpha conflict and choose first-step-safe redesign; PPO and promotion remain blocked"
     },
-    "updated_at_utc": "20260525T020000Z"
+    "updated_at_utc": "20260525T021500Z"
 }

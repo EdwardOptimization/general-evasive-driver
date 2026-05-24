@@ -62,18 +62,24 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m674-response-amplification-actor-coupling-implementation
+m675-response-amplification-actor-coupling-audit
 ```
 
-M674 should implement the conservative actor-coupling probe designed in M673:
-freeze the BC5660 actor backbone, train only a residual sequence head on
-fused-plus-next-hidden features from the M671 shadow corpus, evaluate an alpha
-ladder with exact source-heldout metrics, and preserve the base actor checksum.
-PPO, promotion, actor-input changes, and base actor checkpoint writing remain
-forbidden.
+M675 should audit the failed M674 exact actor-coupling gate. M674 was
+implementation-clean, but no seed/alpha passed: `alpha=1.0` had enough
+wrong-history sequence gap but excessive first-action normal drift, while
+`alpha=0.5` was safer but below gap thresholds. PPO, promotion, actor-input
+changes, and base actor checkpoint writing remain forbidden.
 
 ## Recent Evidence Line
 
+- M674 implements the frozen-backbone residual sequence-head actor-coupling
+  exact probe. It is a clean negative result: actor checksum unchanged, no base
+  actor checkpoint, no PPO, no promotion, but `0` seed/alpha candidates pass.
+  The blocker is an alpha conflict: `alpha=1.0` has enough sequence gap but
+  first-action normal drift p95 fails; `alpha=0.5` is mostly safe but sequence
+  gap and gap ratio are below threshold. The next step is an audit and a
+  first-step-safe redesign, not PPO.
 - M673 designs the first conservative actor-coupling probe after the positive
   M671 shadow result. The probe freezes the BC5660 actor backbone and trains
   only a residual sequence head on fused-plus-next-hidden features. It predicts

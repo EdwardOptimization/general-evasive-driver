@@ -12187,3 +12187,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M673 designs the first conservative actor-coupling probe after the positive M671 shadow result. The design keeps the BC5660 actor backbone frozen and trains only a deployable residual sequence head on fused-plus-next-hidden features from the same P0 human-view observation and recurrent hidden state. The candidate executes only the first residual in closed loop, with alpha ladder `0.02,0.05,0.10,0.20,0.50,1.00`, exact source-heldout normal-retention and wrong-history gap metrics before replay, and no PPO, promotion, actor-input change, or base actor checkpoint.
 - decision: `response_amplification_actor_coupling_design_admit_m674`
 - next: `m674-response-amplification-actor-coupling-implementation`
+## 20260525T021500Z - m674-response-amplification-actor-coupling-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m674_response_amplification_actor_coupling`
+- artifact: `docs/m674-response-amplification-actor-coupling-implementation.md`
+- result: M674 implements and runs the frozen-backbone residual sequence-head actor-coupling exact probe. The implementation is clean: `648` rows, `216` sources, `3` residual heads written, actor checksum unchanged, no base actor checkpoint, no PPO, no promotion. The exact gate fails with `0` passed seeds. The blocker is an alpha conflict: at `alpha=1.0`, source-heldout sequence gap passes (`~0.0121-0.0124`, ratio `~4.2`) but first-action normal drift p95 fails (`0.0094-0.0130`); at `alpha=0.5`, first-action drift is mostly safe (`0.0047-0.0065`) but gap mean is only `~0.0061` and ratio `~2.1`, below thresholds.
+- decision: `response_amplification_actor_coupling_exact_gate_failed_admit_audit`
+- next: `m675-response-amplification-actor-coupling-audit`
