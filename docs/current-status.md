@@ -47,12 +47,12 @@ runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
 
 Status: M400 promotes M399 alpha `0.05` as the current public-gate base after
 six public replay surfaces and behavior seeds pass. This remains the latest
-public-gate base; M487-M515 did not train or promote a checkpoint.
+public-gate base; M487-M517 did not train or promote a checkpoint.
 
 Current blocker:
 
 ```text
-m516-boundary-mechanism-projection-selector
+m518-projection-aware-boundary-outcome-gate
 ```
 
 Recent progress: M486-M492 is now closed as an artificial tail-forcing
@@ -190,9 +190,24 @@ diversity. Scenario-label diversity remains important, but it moves to a
 separate broad scenario-distribution gate and cannot be used to tune mechanism
 rows.
 
-Next step: M516 should implement and run a boundary mechanism projection
-selector over M514 scored rows. It should not train, promote, or claim
-scenario-label generalization from mechanism proof rows.
+M516 implements the mechanism selector and passes the gate. It selects `292`
+terminal-boundary projected rows across `6` probe seeds, `3` targets, `2`
+configs, `12` projected obstacle buckets, and `46` projection buckets. The
+selected rows keep strong wrong-history action signal (`trajectory mean =
+0.080304`, p90 `0.124239`) and enough terminal-boundary rows (`236` at margin
+`<= 0.50`, `275` at `<= 1.00`). Scenario labels remain all `unavoidable`, which
+is reported but not used as a mechanism-gate veto after M514/M515.
+
+M517 designs the required projection-aware outcome gate. The existing
+tail-aligned gate cannot be reused unchanged because it would reconstruct
+original obstacle geometry rather than replay M516's relocated obstacle
+geometry. M518 must preserve projection geometry during normal/wrong/reset/zero
+replays and classify positive proof, margin-only signal, control-only
+sensitivity, fast correction no-effect, or invalid projection replay.
+
+Next step: M518 should implement and run the projection-aware boundary outcome
+gate. It should not train, promote, or treat fast correction of wrong history as
+policy failure without evidence.
 
 ## Current Evidence
 

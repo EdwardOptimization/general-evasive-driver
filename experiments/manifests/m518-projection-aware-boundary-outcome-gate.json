@@ -1,0 +1,88 @@
+{
+  "id": "m518-projection-aware-boundary-outcome-gate",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m516_boundary_mechanism_projection_selector/targeted_pairs.csv",
+      "runs/m516_boundary_mechanism_projection_selector/summary.json"
+    ],
+    "parent_config": [
+      "configs/m502_natural_boundary_pressure_short_reveal_zero_relvel.json",
+      "configs/m502_natural_boundary_pressure_warmup_zero_relvel.json",
+      "experiments/manifests/m517-projection-aware-boundary-outcome-gate-design.json"
+    ],
+    "parent_objective": [
+      "projection-aware boundary outcome gate"
+    ],
+    "derived_from": [
+      "m517-projection-aware-boundary-outcome-gate-design"
+    ],
+    "blocked_by": [
+      "m517-projection-aware-boundary-outcome-gate-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m518-projection-aware-boundary-outcome-gate.md",
+  "public_gates": [
+    "replay M516 targeted rows while preserving projected obstacle geometry",
+    "report wrong-history proof rows and reset/zero controls",
+    "classify positive proof, margin-only signal, control-only sensitivity, fast correction, or invalid replay",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not replay original obstacle geometry for projected rows",
+    "do not use hidden-hold variants as deployable proof",
+    "do not count reset or zero-current controls as wrong-history proof"
+  ],
+  "hypothesis": "Projection-aware replay of M516 terminal-boundary rows can determine whether one-shot wrong-history affects near-boundary outcomes before current feedback corrects belief mismatch.",
+  "success_criteria": [
+    "projection-aware outcome gate implementation runs on M516 targeted rows",
+    "relocated obstacle geometry is preserved during replay",
+    "wrong-history and reset/zero controls are summarized separately",
+    "source/target/config/geometry diversity is reported",
+    "result classification is explicit",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "too many rows fail snapshot reconstruction or relocation",
+    "gate uses original obstacle geometry instead of projected geometry",
+    "summary cannot separate wrong-history from reset/zero controls",
+    "actor contract changes",
+    "training or checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "projection_aware_boundary_outcome_gate",
+      "command": "Implement and run a projection-aware outcome gate over runs/m516_boundary_mechanism_projection_selector/targeted_pairs.csv."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m518-projection-aware-boundary-outcome-gate.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m517-projection-aware-boundary-outcome-gate-design.md",
+    "runs/m516_boundary_mechanism_projection_selector/targeted_pairs.csv"
+  ],
+  "decision_rule": "M518 is not a checkpoint promotion gate; it should decide whether the M516 mechanism surface gives positive wrong-history outcome proof or instead motivates L3 history-value ablation.",
+  "next_blocker": "pending M518 projection-aware boundary outcome gate"
+}

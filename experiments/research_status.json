@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 524,
+        "completed": 526,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m515-proof-scenario-gate-split-design",
+        "task_id": "m517-projection-aware-boundary-outcome-gate-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m515-proof-scenario-gate-split-design.md"
+        "command_log": "docs/m517-projection-aware-boundary-outcome-gate-design.md"
     },
     "next_task": {
-        "id": "m516-boundary-mechanism-projection-selector",
+        "id": "m518-projection-aware-boundary-outcome-gate",
         "status": "pending",
-        "priority": 5110,
+        "priority": 5130,
         "kind": "gate",
-        "hypothesis": "Using geometry/source diversity instead of projected-label diversity for terminal-boundary mechanism proof will yield a valid proof surface from M514 scored rows.",
-        "command": "see experiments/manifests/m516-boundary-mechanism-projection-selector.json",
+        "hypothesis": "Projection-aware replay of M516 terminal-boundary rows can determine whether one-shot wrong-history affects near-boundary outcomes before current feedback corrects belief mismatch.",
+        "command": "see experiments/manifests/m518-projection-aware-boundary-outcome-gate.json",
         "success_artifact": "",
-        "notes": "Pending: implement and run a mechanism proof selector over M514 scored rows without training or promotion"
+        "notes": "Pending: implement and run projection-aware outcome gate without training or promotion"
     },
-    "updated_at_utc": "20260524T030000Z"
+    "updated_at_utc": "20260524T032000Z"
 }

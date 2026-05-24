@@ -10765,3 +10765,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M515 pre-registers a split between terminal-boundary mechanism proof gates and broad scenario-distribution gates. Mechanism proof should use source, config, target, projected obstacle geometry, projection bucket diversity, and terminal-margin/action signal; projected scenario-label diversity is logged but not required for this proof surface because M514 shows it is structurally separated from low-margin rows. Scenario-label diversity moves to a separate distribution gate and cannot be used to tune or repair mechanism rows.
 - decision: `admit_m516_boundary_mechanism_projection_selector`
 - next: `m516-boundary-mechanism-projection-selector`
+## 20260524T031000Z - m516-boundary-mechanism-projection-selector
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m516_boundary_mechanism_projection_selector`
+- artifact: `docs/m516-boundary-mechanism-projection-selector.md`
+- result: M516 implements and runs a coverage-first mechanism selector over M514 scored rows. It selects `292` terminal-boundary projected rows from `20488` candidates across `6` probe seeds, `3` targets, `2` configs, `12` projected obstacle buckets, and `46` projection buckets. Gate metrics pass: single-seed/share `0.273973`, single-config share `0.650685`, single-target share `0.445205`, single-obstacle-bucket share `0.239726`, rows with normal margin `<= 0.50` count `236`, rows `<= 1.00` count `275`, trajectory mean `0.080304`, and trajectory p90 `0.124239`. Scenario labels are all `unavoidable`, but label diversity is intentionally outside the mechanism gate after M514/M515.
+- decision: `boundary_mechanism_projection_gate_pass_admit_m517_projection_aware_outcome_gate_design`
+- next: `m517-projection-aware-boundary-outcome-gate-design`
+## 20260524T032000Z - m517-projection-aware-boundary-outcome-gate-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m517-projection-aware-boundary-outcome-gate-design.md`
+- result: M517 designs the next gate and rejects using the existing tail-aligned outcome gate unchanged because it would reconstruct original obstacle geometry instead of M516's relocated projection geometry. The next implementation must reconstruct natural left/right snapshots, relocate the left snapshot obstacle to `projected_obstacle_body_x/y`, replay normal/wrong/reset/zero variants, and classify positive proof, margin-only signal, control-only sensitivity, fast correction no-effect, or invalid projection replay. The design also records the L3 recurrent belief-policy implication: if wrong-history is quickly corrected without outcome effect, do not force artificial proof rows; add an L0/L1/L2/L3 history-value ablation line.
+- decision: `admit_m518_projection_aware_boundary_outcome_gate`
+- next: `m518-projection-aware-boundary-outcome-gate`

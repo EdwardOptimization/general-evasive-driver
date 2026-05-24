@@ -1,0 +1,94 @@
+{
+  "id": "m517-projection-aware-boundary-outcome-gate-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m516_boundary_mechanism_projection_selector/targeted_pairs.csv",
+      "runs/m516_boundary_mechanism_projection_selector/summary.json"
+    ],
+    "parent_config": [
+      "configs/m502_natural_boundary_pressure_short_reveal_zero_relvel.json",
+      "configs/m502_natural_boundary_pressure_warmup_zero_relvel.json",
+      "experiments/manifests/m516-boundary-mechanism-projection-selector.json"
+    ],
+    "parent_objective": [
+      "projection-aware boundary outcome gate design"
+    ],
+    "derived_from": [
+      "m516-boundary-mechanism-projection-selector"
+    ],
+    "blocked_by": [
+      "m516-boundary-mechanism-projection-selector"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m517-projection-aware-boundary-outcome-gate-design.md",
+  "public_gates": [
+    "design an outcome gate that preserves M516 relocated obstacle geometry",
+    "separate wrong-history rows from reset and zero-current controls",
+    "pre-register result classifications including fast-correction no-effect",
+    "do not train or promote checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not promote checkpoint",
+    "do not add privileged actor inputs",
+    "do not replay original obstacle geometry for projected rows",
+    "do not treat scenario labels as actor inputs",
+    "do not treat fast correction as policy failure without evidence"
+  ],
+  "hypothesis": "A valid downstream outcome gate for M516 must be projection-aware because old tail-aligned replay would reconstruct original obstacle geometry and lose the projected terminal-boundary proof surface.",
+  "success_criteria": [
+    "define projection-aware replay semantics",
+    "define variants and offsets",
+    "define metrics and result classifications",
+    "define how wrong-history proof differs from reset and zero-current controls",
+    "record the relation to L3 recurrent belief policy evidence",
+    "actor inputs remain unchanged",
+    "no checkpoint is promoted"
+  ],
+  "failure_criteria": [
+    "design reuses original-geometry replay for projected rows",
+    "design uses projected labels as actor inputs",
+    "design conflates wrong-history and reset or zero-current controls",
+    "design treats fast correction as a policy failure without evidence",
+    "actor contract changes",
+    "training or checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "projection_aware_boundary_outcome_gate_design",
+      "command": "Use M516 artifacts to design a projection-aware outcome gate before implementation."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m517-projection-aware-boundary-outcome-gate-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m516-boundary-mechanism-projection-selector.md",
+    "runs/m516_boundary_mechanism_projection_selector/summary.json"
+  ],
+  "decision_rule": "M517 should admit M518 only if the next gate preserves projected obstacle geometry and classifies wrong-history no-effect separately from controller failure.",
+  "next_blocker": "M518 should implement and run the projection-aware boundary outcome gate.",
+  "results": {
+    "artifact": "docs/m517-projection-aware-boundary-outcome-gate-design.md",
+    "selected_next_path": "projection_aware_boundary_outcome_gate",
+    "next_task": "m518-projection-aware-boundary-outcome-gate"
+  }
+}
