@@ -11026,3 +11026,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M544 audits the M542/M543 L3 regression. Config and checkpoint metadata show no P0 contract violation: differences are the intended L2 finite-window versus L3 online-GRU fields. Training dynamics show L3 peaks early (`best_return = 52.598733` at step `1792`) but degrades by the final updates (`last4_return_mean = 23.259713`, final return `15.771149`), while L2 improves late (`last4_return_mean = 44.089672`). M543 L3-L2 public deltas are strongly negative (`success = -0.195633`, `margin = -0.793024`), with `423` L2-completed to L3-collision terminal pairs and a large action shift.
 - decision: `l3_recipe_failure_confirmed_admit_m545_recurrent_recipe_repair_design`
 - next: `m545-l3-recurrent-recipe-repair-design`
+## 20260524T080000Z - m545-l3-recurrent-recipe-repair-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m545-l3-recurrent-recipe-repair-design.md`
+- result: M545 designs a controlled L3 recurrent repair path after M544 confirmed the current L3 recipe instability. The design preserves the P0 actor contract and L2 finite-window baseline, admits only L3 optimization/checkpoint-selection repairs, pre-registers interval-checkpoint selection from route artifacts before any public eval, and defines route-health plus public diagnostic gates. Candidate M546 configs are `fast_select`, `lr1e4`, and `lr5e5`; none train or promote a checkpoint in M545.
+- decision: `l3_recurrent_repair_design_admit_m546_config_family`
+- next: `m546-l3-recurrent-repair-config-family`

@@ -2,9 +2,9 @@
   "id": "m545-l3-recurrent-recipe-repair-design",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "training_instability"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -76,5 +76,5 @@
     "runs/m544_l3_variance_recipe_failure_audit/summary.json"
   ],
   "decision_rule": "M545 is a design milestone. Passing it admits controlled L3 repair configs; it does not train or promote a checkpoint.",
-  "next_blocker": "pending M545 L3 recurrent recipe repair design"
+  "next_blocker": "m546-l3-recurrent-repair-config-family"
 }

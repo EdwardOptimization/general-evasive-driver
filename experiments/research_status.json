@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 553,
+        "completed": 554,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m544-l3-variance-recipe-failure-audit",
+        "task_id": "m545-l3-recurrent-recipe-repair-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m544_l3_variance_recipe_failure_audit",
-        "command_log": "docs/m544-l3-variance-recipe-failure-audit.md"
+        "run_dir": "",
+        "command_log": "docs/m545-l3-recurrent-recipe-repair-design.md"
     },
     "next_task": {
-        "id": "m545-l3-recurrent-recipe-repair-design",
+        "id": "m546-l3-recurrent-repair-config-family",
         "status": "pending",
-        "priority": 5400,
+        "priority": 5410,
         "kind": "infrastructure",
-        "hypothesis": "The next step should repair recurrent optimization and checkpoint-selection discipline for L3 before more matched variance training, while preserving L2 as the finite-window baseline.",
-        "command": "see experiments/manifests/m545-l3-recurrent-recipe-repair-design.json",
+        "hypothesis": "Controlled L3 repair configs can test whether checkpoint selection and lower recurrent update aggressiveness fix the M544 instability without changing the P0 input contract or task distribution.",
+        "command": "see experiments/manifests/m546-l3-recurrent-repair-config-family.json",
         "success_artifact": "",
-        "notes": "Pending: define repair configs checkpoint selection and route-health gates without training"
+        "notes": "Pending: add fast-select and lower-LR L3 repair configs plus tests without training"
     },
-    "updated_at_utc": "20260524T075000Z"
+    "updated_at_utc": "20260524T080000Z"
 }

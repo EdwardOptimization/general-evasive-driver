@@ -1,0 +1,75 @@
+{
+  "decision_reason": "M545 defines controlled L3-only recurrent repair configs checkpoint-selection route-health gates and re-matching boundaries without training",
+  "failure_criteria": [
+    "design allows unbounded per-level tuning without later re-matching",
+    "design ignores M543/M544 L3 regression",
+    "design treats public rows as private evidence"
+  ],
+  "failure_types": [
+    "training_instability"
+  ],
+  "forbidden_shortcuts": [
+    "do not tune L3 directly to M543 public rows and then claim private evidence",
+    "do not discard L2 because the target is recurrent belief",
+    "do not run repaired training before repair criteria are documented"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260524T040241Z",
+  "hypothesis": "The next step should repair recurrent optimization and checkpoint-selection discipline for L3 before more matched variance training, while preserving L2 as the finite-window baseline.",
+  "lineage": {
+    "blocked_by": [
+      "m544-l3-variance-recipe-failure-audit"
+    ],
+    "derived_from": [
+      "m544-l3-variance-recipe-failure-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m542_matched_l3_variance_seed3540/checkpoint.pt",
+      "runs/m542_matched_l2_variance_seed3540/checkpoint.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/ppo_m541_matched_l2_variance_4096.json"
+    ],
+    "parent_dataset": [
+      "runs/m544_l3_variance_recipe_failure_audit/summary.json",
+      "runs/m543_m542_public_surface_eval_aggregate/summary.json"
+    ],
+    "parent_objective": [
+      "design L3 recurrent recipe repair after M543/M544 instability evidence"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m545-l3-recurrent-recipe-repair-design",
+  "next_blocker": "m546-l3-recurrent-repair-config-family",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "l3_recurrent_repair_design_admit_m546_config_family",
+  "public_gates": [
+    "pre-register L3 repair candidates and diagnostic controls",
+    "define checkpoint selection and route-health gates before public frozen-source eval",
+    "preserve L2 as the finite-window baseline",
+    "do not train or promote checkpoint"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m545-l3-recurrent-recipe-repair-design.md",
+    "clearance_margin_mean": "",
+    "decision": "l3_recurrent_repair_design_admit_m546_config_family",
+    "milestone": "m545-l3-recurrent-recipe-repair-design",
+    "reason": "M545 defines controlled L3-only recurrent repair configs checkpoint-selection route-health gates and re-matching boundaries without training",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "repair candidates are listed with allowed config changes",
+    "route-health and public diagnostic gates are defined",
+    "comparison back to L0/L2 is explicitly required after repair",
+    "research validation passes"
+  ],
+  "type": "infrastructure"
+}

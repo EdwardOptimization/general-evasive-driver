@@ -61,13 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m545-l3-recurrent-recipe-repair-design
+m546-l3-recurrent-repair-config-family
 ```
 
-M545 should design controlled L3 recurrent recipe repairs before any more L3
-multi-seed training. It must preserve L2 as the finite-window baseline and
-define checkpoint-selection and route-health gates before public frozen-source
-eval.
+M546 should implement the controlled L3 recurrent repair config family from the
+M545 design. It must add fast-select and lower-LR L3-only configs plus tests
+without training or promotion.
 
 ## Recent Evidence Line
 
@@ -169,13 +168,18 @@ eval.
   `15.771149`), while L2 improves late. M543 failures include `423` L2-completed
   to L3-collision pairs and a large L3-L2 action shift. The next step is L3
   recurrent recipe repair design, not more runs of the same L3 setup.
+- M545 designs that repair path. It keeps P0 inputs and L2 as a serious
+  finite-window baseline, allows only L3 optimization/checkpoint-selection
+  controls, pre-registers interval-checkpoint selection from route artifacts
+  before public eval, and admits three M546 diagnostic configs: `fast_select`,
+  `lr1e4`, and `lr5e5`. This is design-only and does not promote a checkpoint.
 
 ## Near-Term Rule
 
 Do not treat reset-hidden diagnostics, M528 smoke return, route eval, or
-M537-M539 public diagnostics as private generalization evidence. The next branch
-should audit the L3 recipe failure before multi-seed expansion. Any later
-promotion requires proof retention, generalization retention, behavior
+M537-M543 public diagnostics as private generalization evidence. The next branch
+should implement and test L3 repair configs before any repaired training run.
+Any later promotion requires proof retention, generalization retention, behavior
 retention, no contract violation, and clear lineage.
 
 ## Sensor Profile Policy
