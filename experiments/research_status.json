@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 557,
+        "completed": 558,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m548-l3-update-aligned-checkpoint-config-family",
+        "task_id": "m549-update-aligned-l3-route-pilot",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m548-l3-update-aligned-checkpoint-config-family.md"
+        "run_dir": "runs/m549_update_aligned_l3_route_pilot_summary",
+        "command_log": "docs/m549-update-aligned-l3-route-pilot.md"
     },
     "next_task": {
-        "id": "m549-update-aligned-l3-route-pilot",
+        "id": "m550-m549-public-surface-diagnostic",
         "status": "pending",
-        "priority": 5440,
+        "priority": 5450,
         "kind": "gate",
-        "hypothesis": "Saving every PPO update will expose whether the M547 unsaved 1792-step peaks can pass deterministic route health.",
-        "command": "see experiments/manifests/m549-update-aligned-l3-route-pilot.json",
+        "hypothesis": "The M549 route-selected L3 checkpoint may repair the M543 public-surface L3 regression enough to justify a matched repeat, but public diagnostics alone cannot promote it.",
+        "command": "see experiments/manifests/m550-m549-public-surface-diagnostic.json",
         "success_artifact": "",
-        "notes": "Pending: train three ckpt256 configs and evaluate all interval checkpoints before public eval"
+        "notes": "Pending: run four public surface evals with L0 L2 original L3 and M549 selected L3"
     },
-    "updated_at_utc": "20260524T083000Z"
+    "updated_at_utc": "20260524T084000Z"
 }

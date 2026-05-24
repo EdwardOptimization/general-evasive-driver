@@ -61,12 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m549-update-aligned-l3-route-pilot
+m550-m549-public-surface-diagnostic
 ```
 
-M549 should run the M548 update-aligned L3 repair configs on seed `3540` and
-evaluate all saved interval checkpoints. Public frozen-source eval remains
-blocked unless a route-selected checkpoint passes M545 route health.
+M550 should evaluate the M549 route-selected L3 checkpoint on the same public
+M497/M487 frozen-source natural surfaces used by M543. This remains public
+diagnostic evidence, not promotion or private generalization.
 
 ## Recent Evidence Line
 
@@ -188,14 +188,19 @@ blocked unless a route-selected checkpoint passes M545 route health.
   same three L3 repair variants. Tests verify the only PPO difference from each
   M546 parent is checkpoint cadence, so every PPO update step can be saved and
   evaluated in the next route pilot.
+- M549 runs that update-aligned route pilot. The previously missed step `1792`
+  is now saved but fails deterministic route health for all variants. One saved
+  checkpoint passes the M545 route-health gate: `fast_select_ckpt256` step
+  `2816`, with route return `27.858686`, termination `0.8`, and mean clearance
+  margin `0.594595`. Public frozen-source diagnostics are now admitted for that
+  selected checkpoint, but no checkpoint is promoted.
 
 ## Near-Term Rule
 
 Do not treat reset-hidden diagnostics, M528 smoke return, route eval, or
 M537-M543 public diagnostics as private generalization evidence. The next branch
-should run the M548 update-aligned route pilot before any public frozen-source
-eval. Public frozen-source eval remains blocked until a route-selected
-checkpoint passes M545 route health. Any later promotion requires proof
+should run public diagnostics for the M549 selected checkpoint against M542
+L0/L2/original-L3 on the same M543 surfaces. Any later promotion requires proof
 retention, generalization retention, behavior retention, no contract violation,
 and clear lineage.
 

@@ -1,0 +1,106 @@
+{
+  "id": "m550-m549-public-surface-diagnostic",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m549_l3_repair_fast_select_ckpt256_seed3540/checkpoints/checkpoint_step_2816.pt",
+      "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+      "runs/m542_matched_l2_variance_seed3540/checkpoint.pt",
+      "runs/m542_matched_l3_variance_seed3540/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m549_update_aligned_l3_route_pilot_summary/summary.json",
+      "runs/m497_natural_belief_decision_window_outcome_gate/targeted_pairs_short_reveal.csv",
+      "runs/m497_natural_belief_decision_window_outcome_gate/targeted_pairs_warmup_capability.csv",
+      "runs/m487_critical_window_tail_aligned_outcome_gate/targeted_pairs_near_threshold.csv",
+      "runs/m487_critical_window_tail_aligned_outcome_gate/targeted_pairs_late_high_energy.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m548_l3_repair_fast_select_ckpt256_4096.json",
+      "configs/ppo_m541_matched_l0_variance_4096.json",
+      "configs/ppo_m541_matched_l2_variance_4096.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json"
+    ],
+    "parent_objective": [
+      "public frozen-source diagnostic after M549 route-health pass"
+    ],
+    "derived_from": [
+      "m549-update-aligned-l3-route-pilot"
+    ],
+    "blocked_by": [
+      "m549-update-aligned-l3-route-pilot"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m550-m549-public-surface-diagnostic.md",
+  "public_gates": [
+    "evaluate the M549 selected checkpoint on the same four public M543 frozen-source surfaces",
+    "include M542 L0, M542 L2, original M542 L3, and M549 selected L3 in the same matrix",
+    "compare paired deltas against L0/L2 and original L3",
+    "do not promote checkpoint from public diagnostics alone"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not use private holdout or claim private generalization",
+    "do not tune checkpoint selection from public frozen-source rows",
+    "do not promote without matched multi-seed repeat"
+  ],
+  "hypothesis": "The M549 route-selected L3 checkpoint may repair the M543 public-surface L3 regression enough to justify a matched repeat, but public diagnostics alone cannot promote it.",
+  "success_criteria": [
+    "all four public frozen-source surface evals complete",
+    "aggregate and paired summaries compare selected M549 L3 against L0, L2, and original L3",
+    "the result either admits matched repeat or classifies public-surface regression",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "metadata or actor-contract validation fails",
+    "eval uses different source surfaces from M543",
+    "result is treated as private evidence or promotion"
+  ],
+  "commands": [
+    {
+      "name": "m497_short_reveal",
+      "command": "PYTHONPATH=src python -m autodrift.frozen_source_surface_eval --source-checkpoint runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --baseline-checkpoint l0_s3540=L0_current_observation:runs/m542_matched_l0_variance_seed3540/checkpoint.pt --baseline-checkpoint l2_s3540=L2_finite_window:runs/m542_matched_l2_variance_seed3540/checkpoint.pt --baseline-checkpoint l3_m542_s3540=L3_online_gru:runs/m542_matched_l3_variance_seed3540/checkpoint.pt --baseline-checkpoint l3_m549_fast2816=L3_online_gru:runs/m549_l3_repair_fast_select_ckpt256_seed3540/checkpoints/checkpoint_step_2816.pt --env-config configs/m494_natural_belief_short_reveal_zero_relvel.json --pairs-csv runs/m497_natural_belief_decision_window_outcome_gate/targeted_pairs_short_reveal.csv --tail-offsets 0,2,4,8 --max-continuation-steps 80 --max-pairs 0 --device cpu --run-dir runs/m550_public_eval_m497_short_reveal"
+    },
+    {
+      "name": "m497_warmup_capability",
+      "command": "PYTHONPATH=src python -m autodrift.frozen_source_surface_eval --source-checkpoint runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --baseline-checkpoint l0_s3540=L0_current_observation:runs/m542_matched_l0_variance_seed3540/checkpoint.pt --baseline-checkpoint l2_s3540=L2_finite_window:runs/m542_matched_l2_variance_seed3540/checkpoint.pt --baseline-checkpoint l3_m542_s3540=L3_online_gru:runs/m542_matched_l3_variance_seed3540/checkpoint.pt --baseline-checkpoint l3_m549_fast2816=L3_online_gru:runs/m549_l3_repair_fast_select_ckpt256_seed3540/checkpoints/checkpoint_step_2816.pt --env-config configs/m494_natural_belief_warmup_capability_zero_relvel.json --pairs-csv runs/m497_natural_belief_decision_window_outcome_gate/targeted_pairs_warmup_capability.csv --tail-offsets 0,2,4,8 --max-continuation-steps 80 --max-pairs 0 --device cpu --run-dir runs/m550_public_eval_m497_warmup_capability"
+    },
+    {
+      "name": "m487_near_threshold",
+      "command": "PYTHONPATH=src python -m autodrift.frozen_source_surface_eval --source-checkpoint runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --baseline-checkpoint l0_s3540=L0_current_observation:runs/m542_matched_l0_variance_seed3540/checkpoint.pt --baseline-checkpoint l2_s3540=L2_finite_window:runs/m542_matched_l2_variance_seed3540/checkpoint.pt --baseline-checkpoint l3_m542_s3540=L3_online_gru:runs/m542_matched_l3_variance_seed3540/checkpoint.pt --baseline-checkpoint l3_m549_fast2816=L3_online_gru:runs/m549_l3_repair_fast_select_ckpt256_seed3540/checkpoints/checkpoint_step_2816.pt --env-config configs/m484_critical_window_near_threshold_zero_relvel.json --pairs-csv runs/m487_critical_window_tail_aligned_outcome_gate/targeted_pairs_near_threshold.csv --tail-offsets 4,8,12,16 --max-continuation-steps 80 --max-pairs 0 --device cpu --run-dir runs/m550_public_eval_m487_near_threshold"
+    },
+    {
+      "name": "m487_late_high_energy",
+      "command": "PYTHONPATH=src python -m autodrift.frozen_source_surface_eval --source-checkpoint runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --baseline-checkpoint l0_s3540=L0_current_observation:runs/m542_matched_l0_variance_seed3540/checkpoint.pt --baseline-checkpoint l2_s3540=L2_finite_window:runs/m542_matched_l2_variance_seed3540/checkpoint.pt --baseline-checkpoint l3_m542_s3540=L3_online_gru:runs/m542_matched_l3_variance_seed3540/checkpoint.pt --baseline-checkpoint l3_m549_fast2816=L3_online_gru:runs/m549_l3_repair_fast_select_ckpt256_seed3540/checkpoints/checkpoint_step_2816.pt --env-config configs/m484_critical_window_late_high_energy_zero_relvel.json --pairs-csv runs/m487_critical_window_tail_aligned_outcome_gate/targeted_pairs_late_high_energy.csv --tail-offsets 4,8,12,16 --max-continuation-steps 80 --max-pairs 0 --device cpu --run-dir runs/m550_public_eval_m487_late_high_energy"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m550_m549_public_surface_diagnostic_aggregate/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "docs/m550-m549-public-surface-diagnostic.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+    "runs/m542_matched_l2_variance_seed3540/checkpoint.pt",
+    "runs/m542_matched_l3_variance_seed3540/checkpoint.pt",
+    "runs/m549_l3_repair_fast_select_ckpt256_seed3540/checkpoints/checkpoint_step_2816.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m549-update-aligned-l3-route-pilot.md",
+    "docs/m543-m542-public-surface-eval.md"
+  ],
+  "decision_rule": "M550 is a public diagnostic. It can admit a matched repeat or reject the repaired checkpoint, but it cannot promote a checkpoint.",
+  "next_blocker": "pending M550 public frozen-source diagnostic"
+}

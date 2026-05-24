@@ -2,7 +2,7 @@
   "id": "m549-update-aligned-l3-route-pilot",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -86,6 +86,18 @@
       "type": "checkpoint"
     },
     {
+      "path": "runs/m549_update_aligned_l3_route_pilot_summary/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m549_update_aligned_l3_route_pilot_summary/route_checkpoint_eval.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m549_update_aligned_l3_route_pilot_summary/train_peak_summary.csv",
+      "type": "csv"
+    },
+    {
       "path": "docs/m549-update-aligned-l3-route-pilot.md",
       "type": "documentation"
     }
@@ -100,5 +112,5 @@
     "docs/m547-l3-recurrent-repair-route-pilot.md"
   ],
   "decision_rule": "M549 is a route pilot. It admits public diagnostics only if a route-selected update-aligned L3 checkpoint passes M545 route-health criteria.",
-  "next_blocker": "pending M549 update-aligned L3 route pilot"
+  "next_blocker": "m550-m549-public-surface-diagnostic"
 }

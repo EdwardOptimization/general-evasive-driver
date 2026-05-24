@@ -11062,3 +11062,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M548 adds update-aligned `checkpoint_interval_steps = 256` variants for the three M546 L3 repair configs. Tests verify each M548 config preserves its M546 parent environment and PPO settings exactly except for changing checkpoint cadence from `512` to `256`, so every PPO update step can be saved and evaluated by the M545 route-only selection rule.
 - decision: `update_aligned_checkpoint_config_pass_admit_m549_route_pilot`
 - next: `m549-update-aligned-l3-route-pilot`
+## 20260524T084000Z - m549-update-aligned-l3-route-pilot
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m549_update_aligned_l3_route_pilot_summary`
+- artifact: `docs/m549-update-aligned-l3-route-pilot.md`
+- result: M549 reruns the three L3 repair variants with 256-step checkpoints and evaluates `51` saved interval/final checkpoints. The formerly missed step `1792` is saved for all variants but fails deterministic route health. One checkpoint passes: `fast_select_ckpt256` step `2816` with route return `27.858686`, termination `0.8`, and clearance margin `0.594595`. Lower-LR variants remain route-unhealthy on this seed.
+- decision: `route_health_pass_admit_m550_public_surface_diagnostic`
+- next: `m550-m549-public-surface-diagnostic`
