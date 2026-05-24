@@ -105,5 +105,5 @@
     "runs/m692_gate_margin_closed_loop_replay/summary.json"
   ],
   "decision_rule": "M694 is design-only and passes if it defines a terminal-margin-sensitive source-mining protocol with actor update PPO and promotion blocked.",
-  "next_blocker": "m694-trajectory-terminal-boundary-source-mining-design"
+  "next_blocker": "m695-trajectory-terminal-boundary-source-miner-implementation"
 }

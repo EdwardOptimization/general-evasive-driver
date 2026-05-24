@@ -1,30 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 702,
+        "completed": 703,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m693-gate-margin-closed-loop-replay-audit",
+        "task_id": "m694-trajectory-terminal-boundary-source-mining-design",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m693-gate-margin-closed-loop-replay-audit.md",
-        "synthesis_decision": "pivot",
-        "closed_branch": "response_amplification_actor_coupling",
-        "next_branch": "trajectory_terminal_boundary_source_mining"
+        "command_log": "docs/m694-trajectory-terminal-boundary-source-mining-design.md"
     },
     "next_task": {
-        "id": "m694-trajectory-terminal-boundary-source-mining-design",
+        "id": "m695-trajectory-terminal-boundary-source-miner-implementation",
         "status": "pending",
-        "priority": 6890,
+        "priority": 6900,
         "kind": "infrastructure",
-        "hypothesis": "A trajectory/terminal-boundary source miner can define a better source surface than M671/M689 by selecting rows where small first-action perturbations or counterfactual histories measurably affect terminal margin, risk, collision, or recovery.",
-        "command": "see experiments/manifests/m694-trajectory-terminal-boundary-source-mining-design.json",
+        "hypothesis": "Closed-loop perturbation replay can identify terminal-margin-sensitive rows that are not already normal-failed and are diverse enough to support a later objective.",
+        "command": "see experiments/manifests/m695-trajectory-terminal-boundary-source-miner-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design source miner with terminal-margin sensitivity before any objective actor update or PPO"
+        "notes": "Pending: mine action-critical terminal-boundary rows before any objective actor update or PPO"
     },
-    "updated_at_utc": "20260524T162826Z"
+    "updated_at_utc": "20260524T163056Z"
 }

@@ -1,0 +1,122 @@
+{
+  "id": "m695-trajectory-terminal-boundary-source-miner-implementation",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m694-trajectory-terminal-boundary-source-mining-design.md",
+      "runs/m692_gate_margin_closed_loop_replay/replay_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m694-trajectory-terminal-boundary-source-mining-design.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_objective": [
+      "implement trajectory and terminal-margin sensitive source miner"
+    ],
+    "derived_from": [
+      "m694-trajectory-terminal-boundary-source-mining-design"
+    ],
+    "blocked_by": [
+      "m694-trajectory-terminal-boundary-source-mining-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m695-trajectory-terminal-boundary-source-miner-implementation.md",
+  "public_gates": [
+    "miner writes summary candidate perturbation accepted source split and rejected artifacts",
+    "normal-failed rows are rejected from action-critical acceptance",
+    "terminal-margin and risk sensitivity metrics are reported",
+    "source diversity metrics are reported",
+    "result class is recorded",
+    "actor checksum is unchanged",
+    "no actor update PPO or promotion occurs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not accept output-only exact residual metrics as source evidence",
+    "do not accept already normal-failed rows as action-critical",
+    "do not change actor inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "trajectory_terminal_boundary_source_mining",
+    "evidence_axis": "G_source: closed-loop terminal-margin sensitivity and history/action criticality",
+    "evidence_increment": "implements the first post-pivot source miner and classifies whether a trajectory-sensitive source exists",
+    "claim_scope": "source-mining result only, not objective training or driver promotion",
+    "stop_condition": [
+      "stop before objective design unless result_class is source_positive",
+      "stop and audit if accepted_rows is zero",
+      "stop if all sensitive rows are already normal-failed"
+    ],
+    "fallback_plan": [
+      "if source_sparse, broaden scenario sampling before objective design",
+      "if normal_failed_only, improve base driver capability before self-ID proof",
+      "if history_insensitive, separate base trajectory-boundary training from self-ID evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "after M695 result if source is empty sparse or normal-failed-only",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Closed-loop perturbation replay can identify terminal-margin-sensitive rows that are not already normal-failed and are diverse enough to support a later objective.",
+  "success_criteria": [
+    "summary.json is written",
+    "candidate_rows.csv is written",
+    "perturbation_rollouts.csv is written",
+    "accepted_rows.csv is written",
+    "source_summary.csv is written",
+    "split_summary.csv is written",
+    "normal-failed rejection counts are reported",
+    "terminal-margin sensitivity metrics are finite",
+    "source diversity metrics are finite",
+    "actor checksum unchanged",
+    "no actor update PPO or promotion"
+  ],
+  "failure_criteria": [
+    "implementation trains or mutates the actor",
+    "implementation omits terminal-margin sensitivity metrics",
+    "implementation accepts normal-failed rows as action-critical",
+    "implementation hides rejected/skipped rows",
+    "implementation admits objective training without source_positive result"
+  ],
+  "commands": [
+    {
+      "name": "mine",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.trajectory_terminal_boundary_source_miner --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --surface-config fresh=configs/ppo_m541_matched_l3_variance_4096.json --surface-config ood=configs/eval_m574_moderate_ood_l3.json --max-scenarios 256 --max-boundary-margin 0.15 --min-margin-sensitivity 0.02 --min-risk-sensitivity 0.02 --max-continuation-steps 40 --device cpu --run-dir runs/m695_trajectory_terminal_boundary_source_miner"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m695_trajectory_terminal_boundary_source_miner/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m695_trajectory_terminal_boundary_source_miner/accepted_rows.csv",
+      "type": "metrics"
+    },
+    {
+      "path": "docs/m695-trajectory-terminal-boundary-source-miner-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m694-trajectory-terminal-boundary-source-mining-design.md",
+    "runs/m692_gate_margin_closed_loop_replay/summary.json"
+  ],
+  "decision_rule": "M695 passes as implementation if it writes complete mining artifacts without actor mutation; only result_class=source_positive can admit objective design.",
+  "next_blocker": "m696-trajectory-terminal-boundary-source-miner-audit"
+}
