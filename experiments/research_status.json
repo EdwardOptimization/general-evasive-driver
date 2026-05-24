@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 664,
+        "completed": 665,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m655-wrong-history-feature-separability-audit-implementation",
+        "task_id": "m656-wrong-history-feature-separability-audit",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m655_wrong_history_feature_separability_audit",
-        "command_log": "docs/m655-wrong-history-feature-separability-audit-implementation.md"
+        "run_dir": "",
+        "command_log": "docs/m656-wrong-history-feature-separability-audit.md"
     },
     "next_task": {
-        "id": "m656-wrong-history-feature-separability-audit",
+        "id": "m657-wrong-history-fusion-boundary-probe-design",
         "status": "pending",
-        "priority": 6510,
-        "kind": "gate",
-        "hypothesis": "M655 shows wrong-history information is present in recurrent hidden state but too compressed at the fused feature and actor-action boundary, so the next branch should address that boundary rather than tuning the frozen head loss.",
-        "command": "see experiments/manifests/m656-wrong-history-feature-separability-audit.json",
+        "priority": 6520,
+        "kind": "infrastructure",
+        "hypothesis": "If M655 is a fusion-boundary blocker, a diagnostic head trained on next_hidden or fused_plus_next_hidden should create stronger wrong-history separation than a head trained on fused actor features alone.",
+        "command": "see experiments/manifests/m657-wrong-history-fusion-boundary-probe-design.json",
         "success_artifact": "",
-        "notes": "Pending: audit M655 fusion-washout result; no training PPO promotion or actor update"
+        "notes": "Pending: design frozen feature-view comparison; no actor update PPO promotion"
     },
-    "updated_at_utc": "20260524T211500Z"
+    "updated_at_utc": "20260524T213000Z"
 }

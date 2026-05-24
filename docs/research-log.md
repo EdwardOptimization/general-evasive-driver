@@ -12025,3 +12025,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M655 implements and runs the no-training wrong-history feature separability audit. The run writes row-level and group summaries for 431 rows and 9 sources, keeps actor checksum unchanged, writes no checkpoint, and classifies the result as `fusion_washout`. Wrong-history raw hidden L2 is `0.097340`, next hidden L2 is `0.039664`, fused feature L2 is `0.014905`, and actor action L2 is `0.000685`. The wrong-history signal is not absent from recurrent state and is not fully erased by the GRU update, but it is much weaker at fused features and actor actions: only `20.27%` of delayed-history feature L2 and `5.12%` of delayed-history action L2.
 - decision: `wrong_history_feature_separability_audit_implementation_fusion_washout_admit_m656`
 - next: `m656-wrong-history-feature-separability-audit`
+## 20260524T213000Z - m656-wrong-history-feature-separability-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: ``
+- artifact: `docs/m656-wrong-history-feature-separability-audit.md`
+- result: M656 audits M655 as a fusion-boundary blocker rather than a missing-history blocker. The audit rejects the explanations that wrong-history hidden state is absent, that the GRU update fully erases it, or that M655 mutated the actor. It also rejects tuning the M652 fused-feature contrast coefficient as the next step, because the feature/action boundary itself provides only a small gap. The next branch is a frozen feature-view comparison probe over fused features, next hidden state, and fused-plus-hidden features.
+- decision: `wrong_history_feature_separability_audit_admit_fusion_boundary_probe_design`
+- next: `m657-wrong-history-fusion-boundary-probe-design`

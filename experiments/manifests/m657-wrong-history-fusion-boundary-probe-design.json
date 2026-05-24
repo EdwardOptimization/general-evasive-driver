@@ -1,0 +1,83 @@
+{
+  "id": "m657-wrong-history-fusion-boundary-probe-design",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m655_wrong_history_feature_separability_audit/summary.json",
+      "docs/m656-wrong-history-feature-separability-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m656-wrong-history-feature-separability-audit.json"
+    ],
+    "parent_objective": [
+      "design frozen feature-view comparison probe after M655 fusion washout"
+    ],
+    "derived_from": [
+      "m656-wrong-history-feature-separability-audit"
+    ],
+    "blocked_by": [
+      "m656-wrong-history-feature-separability-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m657-wrong-history-fusion-boundary-probe-design.md",
+  "public_gates": [
+    "design frozen auxiliary probe comparing fused feature next-hidden and concat views",
+    "keep BC5660 actor frozen",
+    "reuse M641 source-balanced sequence corpus",
+    "report normal retention and wrong-history gaps by view source and split",
+    "keep actor coupling PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not update actor parameters",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not use metadata as actor input",
+    "do not treat auxiliary head success as closed-loop self-ID proof"
+  ],
+  "hypothesis": "If M655 is a fusion-boundary blocker, a diagnostic head trained on next_hidden or fused_plus_next_hidden should create stronger wrong-history separation than a head trained on fused actor features alone.",
+  "success_criteria": [
+    "design defines fused next_hidden and concat feature views",
+    "design defines normal target and wrong-history contrast metrics for each view",
+    "design defines source-heldout comparison against M652 fused-feature baseline",
+    "design keeps actor coupling and PPO blocked",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design admits actor updates",
+    "design omits the fused-feature baseline",
+    "design omits source 30 versus source 32 reporting",
+    "design claims promotion from auxiliary probe results"
+  ],
+  "commands": [
+    {
+      "name": "design_doc",
+      "command": "write docs/m657-wrong-history-fusion-boundary-probe-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m657-wrong-history-fusion-boundary-probe-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m655_wrong_history_feature_separability_audit/summary.json",
+    "docs/m656-wrong-history-feature-separability-audit.md"
+  ],
+  "decision_rule": "M657 passes as design only if it pre-registers a frozen no-actor-update feature-view comparison before any fusion-boundary objective or actor coupling.",
+  "next_blocker": "m658-wrong-history-fusion-boundary-probe-implementation"
+}

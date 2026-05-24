@@ -62,16 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m656-wrong-history-feature-separability-audit
+m657-wrong-history-fusion-boundary-probe-design
 ```
 
-M656 should audit the M655 fusion-washout result. It must decide whether the
-next branch should target the response/context fusion boundary, refresh the
-wrong-history corpus, or inspect pre-fusion hidden dynamics before any actor
-coupling or PPO.
+M657 should design a frozen feature-view comparison probe. It should compare
+diagnostic sequence-delta heads trained on fused actor features, next recurrent
+hidden state, and fused-plus-hidden features to test whether wrong-history
+separation is available before the response/context fusion boundary.
 
 ## Recent Evidence Line
 
+- M656 audits M655 and admits a fusion-boundary probe design. The strongest
+  interpretation is that wrong-history information exists in recurrent state
+  and survives the current-response GRU update, but is too weak at the fused
+  feature and actor-action boundary. The next branch should compare fused,
+  next-hidden, and fused-plus-hidden diagnostic heads before actor coupling or
+  PPO.
 - M655 implements and runs the no-training feature separability audit. The
   result is `fusion_washout`: wrong-history raw hidden L2 is `0.097340` and
   next-hidden retention is `0.409547`, so the signal is not absent, but fused
