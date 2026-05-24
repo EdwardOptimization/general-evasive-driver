@@ -11269,3 +11269,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M571 pre-registers the next fresh route/generalization evidence layer for `BC5660`. M572 will run route-screen v2 for L0, L2, and BC5660 on `256` fresh non-public route seeds `19560..19815`, excluding prior route-screen seeds `15560`, `16560`, `17560`, and `18560`. The pass rule requires no public frozen-source rows, unchanged P0 actor contract, L0-safe success/margin/collision, L2-competitive success within `0.02`, margin within `0.05`, and collision within `0.02`. M571 also sketches a later moderate-OOD route profile, but keeps that separate from M572.
 - decision: `fresh_route_generalization_design_admit_m572_eval`
 - next: `m572-fresh-route-generalization-eval`
+## 20260524T072000Z - m572-fresh-route-generalization-eval
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m572_fresh_route_generalization_eval`
+- artifact: `docs/m572-fresh-route-generalization-eval.md`
+- result: M572 runs the pre-registered `256`-episode fresh route/generalization gate on seeds `19560..19815`. It writes `768` episode rows for L0, L2, and BC5660 and reports `uses_public_frozen_source_rows=false`. `BC5660` passes the L0 gate and is L2-competitive: success `0.625000` versus L2 `0.621094`, collision `0.375000` versus L2 `0.378906`, and mean margin `1.064947` versus L2 `1.049135`. No training or promotion is performed.
+- decision: `fresh_route_generalization_pass_admit_m573_ood_design`
+- next: `m573-moderate-ood-route-generalization-design`

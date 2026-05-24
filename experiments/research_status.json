@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 580,
+        "completed": 581,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m571-fresh-route-generalization-design",
+        "task_id": "m572-fresh-route-generalization-eval",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "",
-        "command_log": "docs/m571-fresh-route-generalization-design.md"
+        "run_dir": "runs/m572_fresh_route_generalization_eval",
+        "command_log": "docs/m572-fresh-route-generalization-eval.md"
     },
     "next_task": {
-        "id": "m572-fresh-route-generalization-eval",
+        "id": "m573-moderate-ood-route-generalization-design",
         "status": "pending",
-        "priority": 5670,
-        "kind": "gate",
-        "hypothesis": "Because BC5660 matches L2 on public natural surfaces and passed fresh route-screen selection, it should remain L2-competitive on a larger fresh non-public route/generalization seed range.",
-        "command": "see experiments/manifests/m572-fresh-route-generalization-eval.json",
+        "priority": 5680,
+        "kind": "infrastructure",
+        "hypothesis": "Because BC5660 passed a larger fresh route/generalization gate, the next evidence layer should test moderate OOD route robustness with pre-registered eval-only configs before any PPO continuation.",
+        "command": "see experiments/manifests/m573-moderate-ood-route-generalization-design.json",
         "success_artifact": "",
-        "notes": "Pending: run 256-episode fresh route/generalization eval; no PPO or promotion"
+        "notes": "Pending: design moderate-OOD route/generalization configs; no PPO or promotion"
     },
-    "updated_at_utc": "20260524T071000Z"
+    "updated_at_utc": "20260524T072000Z"
 }

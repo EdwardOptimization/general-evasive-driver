@@ -61,13 +61,13 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m572-fresh-route-generalization-eval
+m573-moderate-ood-route-generalization-design
 ```
 
-M572 should run the pre-registered 256-episode fresh route/generalization gate
-for selected scaled checkpoint `BC5660` against L0/L2. M570 passed public
-frozen-source diagnostics and M571 designed the fresh gate, but there is still
-no private generalization claim or checkpoint promotion.
+M573 should design moderate-OOD route/generalization configs and gates for
+selected scaled checkpoint `BC5660`. M572 passed the fresh 256-episode route
+gate, but there is still no OOD robustness claim, private generalization claim,
+or checkpoint promotion.
 
 ## Recent Evidence Line
 
@@ -301,6 +301,12 @@ no private generalization claim or checkpoint promotion.
   `17560`, and `18560`. It must remain L0-safe and L2-competitive under
   pre-registered success/margin/collision tolerances, with no PPO, no public-row
   tuning, and no promotion.
+- M572 runs that fresh route/generalization gate. `BC5660` passes: success
+  `0.625000`, collision `0.375000`, and mean margin `1.064947`, slightly ahead
+  of L2 (`0.621094`, `0.378906`, `1.049135`) and far ahead of L0
+  (`0.050781`, `0.867188`, `-0.044399`). The run used `256` fresh seeds
+  `19560..19815`, `uses_public_frozen_source_rows=false`, and performs no
+  training or promotion.
 
 ## Near-Term Rule
 

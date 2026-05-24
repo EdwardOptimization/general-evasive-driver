@@ -1,0 +1,87 @@
+{
+  "id": "m573-moderate-ood-route-generalization-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+      "runs/m542_matched_l2_variance_seed3540/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m572_fresh_route_generalization_eval/summary.json",
+      "runs/m570_scaled_bc_public_natural_surface_eval_aggregate/summary.json"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l0_variance_4096.json",
+      "configs/ppo_m541_matched_l2_variance_4096.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json"
+    ],
+    "parent_objective": [
+      "design moderate-OOD route/generalization profile after M572 fresh route pass"
+    ],
+    "derived_from": [
+      "m572-fresh-route-generalization-eval"
+    ],
+    "blocked_by": [
+      "m572-fresh-route-generalization-eval"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m573-moderate-ood-route-generalization-design.md",
+  "public_gates": [
+    "design eval-only moderate-OOD route configs for L0 L2 and BC5660",
+    "widen speed friction obstacle and hidden-vehicle randomization without changing actor inputs",
+    "pre-register fresh OOD seed range and pass/fail criteria",
+    "do not train or promote in design milestone"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not tune from M572 failures before reporting M573 design",
+    "do not reuse route-screen seeds 15560 16560 17560 18560 or 19560",
+    "do not use public frozen-source natural-surface rows",
+    "do not run PPO or behavior cloning",
+    "do not change the P0 human-view no-wheel no-oracle actor contract"
+  ],
+  "hypothesis": "Because BC5660 passed a larger fresh route/generalization gate, the next evidence layer should test moderate OOD route robustness with pre-registered eval-only configs before any PPO continuation.",
+  "success_criteria": [
+    "design specifies eval-only L0 L2 and L3 config deltas for moderate OOD route evaluation",
+    "design specifies fresh OOD seed range and scenario count",
+    "design specifies BC5660 versus L0/L2 pass/fail criteria before evaluation",
+    "design keeps actor inputs and checkpoint weights unchanged",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "design changes actor inputs or L2/L3 history contract",
+    "design uses public frozen-source rows or prior route seeds as OOD evidence",
+    "design allows training or promotion before OOD results exist"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "Write moderate-OOD route/generalization design; no training."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m573-moderate-ood-route-generalization-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+    "runs/m542_matched_l0_variance_seed3540/checkpoint.pt",
+    "runs/m542_matched_l2_variance_seed3540/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m572-fresh-route-generalization-eval.md",
+    "docs/m571-fresh-route-generalization-design.md"
+  ],
+  "decision_rule": "M573 passes only if it pre-registers moderate-OOD eval-only configs, seeds, and pass/fail criteria without training, promotion, public-row reuse, or actor-contract changes.",
+  "next_blocker": "m574-moderate-ood-config-family"
+}
