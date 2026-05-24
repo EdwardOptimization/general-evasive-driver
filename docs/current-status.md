@@ -61,13 +61,12 @@ baseline route and metadata, not driver performance.
 ## Current Blocker
 
 ```text
-m531-matched-history-short-train-config-design
+m532-matched-short-train-single-seed
 ```
 
-M531 should pre-register the matched L0/L2/L3 short-train config family with
-shared budgets, seeds, configs, evaluation surfaces, and artifact retention
-rules before running any trained-baseline comparison. It must not promote a
-checkpoint or tune one baseline independently.
+M532 should execute the matched L0/L2/L3 short-train configs on shared seed
+`3530`, verify comparable artifacts and `history_baseline` metadata, and avoid
+any stable ranking or promotion claim from a single seed.
 
 ## Recent Evidence Line
 
@@ -92,6 +91,9 @@ checkpoint or tune one baseline independently.
   Both completed and wrote stable `L0_current_observation` plus
   `P0_human_view_no_wheel_no_oracle` metadata. The smoke returns are not
   interpreted as baseline evidence.
+- M531 added machine-checkable L0/L2/L3 short-train configs with shared PPO
+  budget, seed, task distribution, and P0 contract checks. L2 is the only config
+  with `history_length = 4`; L0 and L3 use `history_length = 1`.
 
 ## Near-Term Rule
 

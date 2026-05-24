@@ -2,7 +2,7 @@
   "id": "m531-matched-history-short-train-config-design",
   "type": "infrastructure",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -34,10 +34,10 @@
   },
   "review_artifact": "docs/reviews/m531-matched-history-short-train-config-design.md",
   "public_gates": [
-    "define matched L0/L2/L3 short-train configs with shared budget and seeds",
-    "preserve P0 no-wheel no-privileged actor contract",
-    "define evaluation surfaces without claiming private holdout evidence",
-    "do not run long training or promote a checkpoint"
+    "defined matched L0/L2/L3 short-train configs with shared budget and seeds",
+    "preserved P0 no-wheel no-privileged actor contract",
+    "defined evaluation order without claiming private holdout evidence",
+    "no long training or checkpoint promotion performed"
   ],
   "private_holdout_policy": "not_used",
   "forbidden_shortcuts": [
@@ -62,13 +62,25 @@
   "commands": [
     {
       "name": "matched_history_short_train_config_design",
-      "command": "Design the shared L0/L2/L3 short-train config family and next executable matched run."
+      "command": "Designed shared L0/L2/L3 short-train configs and selected M532 single-seed matched short-train as the next executable run."
     }
   ],
   "required_artifacts": [
     {
       "path": "docs/m531-matched-history-short-train-config-design.md",
       "type": "documentation"
+    },
+    {
+      "path": "configs/ppo_m531_matched_l0_short_train.json",
+      "type": "config"
+    },
+    {
+      "path": "configs/ppo_m531_matched_l2_short_train.json",
+      "type": "config"
+    },
+    {
+      "path": "configs/ppo_m531_matched_l3_short_train.json",
+      "type": "config"
     }
   ],
   "baseline_checkpoints": [
@@ -79,5 +91,7 @@
     "docs/m530-l0-baseline-smoke-repeat.md"
   ],
   "decision_rule": "M531 is a config-design gate. It should not run the matched comparison itself; it should admit the smallest executable matched short-train run only after shared recipes are explicit.",
-  "next_blocker": "pending M531 matched history short-train config design"
+  "scoreboard_decision": "admit_m532_matched_short_train_single_seed",
+  "scoreboard_reason": "M531 adds machine-checkable L0 L2 and L3 short-train configs with shared budget seeds and task distribution while preserving the P0 actor contract.",
+  "next_blocker": "m532-matched-short-train-single-seed"
 }

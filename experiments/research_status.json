@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 539,
+        "completed": 540,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m530-l0-baseline-smoke-repeat",
+        "task_id": "m531-matched-history-short-train-config-design",
         "status": "completed",
         "returncode": 0,
-        "run_dir": "runs/m530_l0_current_observation_smoke_seed3531",
-        "command_log": "docs/m530-l0-baseline-smoke-repeat.md"
+        "run_dir": "",
+        "command_log": "docs/m531-matched-history-short-train-config-design.md"
     },
     "next_task": {
-        "id": "m531-matched-history-short-train-config-design",
+        "id": "m532-matched-short-train-single-seed",
         "status": "pending",
-        "priority": 5260,
-        "kind": "infrastructure",
-        "hypothesis": "A matched short-train config family for L0, L2, and L3 can be pre-registered with shared budget, seeds, and evaluation surfaces before running any trained-baseline comparison.",
-        "command": "see experiments/manifests/m531-matched-history-short-train-config-design.json",
+        "priority": 5270,
+        "kind": "gate",
+        "hypothesis": "The matched L0, L2, and L3 short-train configs can all execute on a shared seed and write comparable artifacts, enabling repeat-seed and natural-surface evaluation milestones next.",
+        "command": "see experiments/manifests/m532-matched-short-train-single-seed.json",
         "success_artifact": "",
-        "notes": "Pending: pre-register shared L0/L2/L3 budget seeds configs and evaluation surfaces before matched short training"
+        "notes": "Pending: execute all three short-train configs on seed 3530 and verify comparable artifacts without ranking claims"
     },
-    "updated_at_utc": "20260524T053000Z"
+    "updated_at_utc": "20260524T054000Z"
 }

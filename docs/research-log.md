@@ -10900,3 +10900,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M530 repeats the L0 current-observation smoke on fresh seeds `3530` and `3531`. Both runs complete `64` PPO steps, write checkpoints, and record stable `L0_current_observation` plus `P0_human_view_no_wheel_no_oracle` metadata in run config and checkpoint metadata. Eval returns differ (`4.1940` and `32.9497`) but are not interpreted because this is a route/metadata smoke only.
 - decision: `l0_smoke_repeat_pass_admit_m531_matched_short_train_config_design`
 - next: `m531-matched-history-short-train-config-design`
+## 20260524T054000Z - m531-matched-history-short-train-config-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m531-matched-history-short-train-config-design.md`
+- result: M531 adds machine-checkable matched short-train configs for `L0_current_observation`, `L2_finite_window`, and `L3_online_gru`. All configs share `1024` PPO steps, `64` rollout steps, `4` envs, `2` update epochs, `128` minibatch size, `64` hidden size, seed `3530`, and the same M502-style boundary-pressure short-reveal task distribution except for the intended history-length difference. `tests/test_history_baseline_configs.py` verifies the P0 baseline contract and shared budget.
+- decision: `admit_m532_matched_short_train_single_seed`
+- next: `m532-matched-short-train-single-seed`

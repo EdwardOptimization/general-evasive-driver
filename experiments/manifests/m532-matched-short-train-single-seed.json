@@ -1,0 +1,90 @@
+{
+  "id": "m532-matched-short-train-single-seed",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m526_history_value_event_audit/summary.json"
+    ],
+    "parent_config": [
+      "configs/ppo_m531_matched_l0_short_train.json",
+      "configs/ppo_m531_matched_l2_short_train.json",
+      "configs/ppo_m531_matched_l3_short_train.json"
+    ],
+    "parent_objective": [
+      "single-seed matched L0/L2/L3 short-train route check"
+    ],
+    "derived_from": [
+      "m531-matched-history-short-train-config-design",
+      "m530-l0-baseline-smoke-repeat"
+    ],
+    "blocked_by": [
+      "m531-matched-history-short-train-config-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m532-matched-short-train-single-seed.md",
+  "public_gates": [
+    "run L0 L2 and L3 matched short-train configs on seed 3530",
+    "verify history_baseline metadata for all runs",
+    "record train/eval artifacts for all runs",
+    "do not claim stable baseline ranking or promote a checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not tune a config after seeing a sibling result",
+    "do not promote checkpoint",
+    "do not use privileged actor inputs",
+    "do not call a single seed comparison statistically meaningful"
+  ],
+  "hypothesis": "The matched L0, L2, and L3 short-train configs can all execute on a shared seed and write comparable artifacts, enabling repeat-seed and natural-surface evaluation milestones next.",
+  "success_criteria": [
+    "L0 short-train completes",
+    "L2 short-train completes",
+    "L3 short-train completes",
+    "all runs record correct history_baseline metadata",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "any config fails to run",
+    "metadata does not match the declared baseline level",
+    "one config is modified after seeing another run result",
+    "checkpoint promotion is performed"
+  ],
+  "commands": [
+    {
+      "name": "matched_l0_seed3530",
+      "command": "PYTHONPATH=src OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m autodrift.train_ppo --config configs/ppo_m531_matched_l0_short_train.json --device cpu --run-dir runs/m532_matched_l0_short_train_seed3530"
+    },
+    {
+      "name": "matched_l2_seed3530",
+      "command": "PYTHONPATH=src OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m autodrift.train_ppo --config configs/ppo_m531_matched_l2_short_train.json --device cpu --run-dir runs/m532_matched_l2_short_train_seed3530"
+    },
+    {
+      "name": "matched_l3_seed3530",
+      "command": "PYTHONPATH=src OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m autodrift.train_ppo --config configs/ppo_m531_matched_l3_short_train.json --device cpu --run-dir runs/m532_matched_l3_short_train_seed3530"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m532-matched-short-train-single-seed.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m531-matched-history-short-train-config-design.md"
+  ],
+  "decision_rule": "M532 is a single-seed route and artifact gate. Success admits repeat-seed matched short-train or natural-surface eval, but does not establish a baseline ranking.",
+  "next_blocker": "pending M532 matched short-train single-seed route check"
+}
