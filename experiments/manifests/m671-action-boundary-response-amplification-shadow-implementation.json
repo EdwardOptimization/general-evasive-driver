@@ -1,0 +1,98 @@
+{
+  "id": "m671-action-boundary-response-amplification-shadow-implementation",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m667_normal_success_boundary_source_miner/candidate_scores.csv",
+      "runs/m667_normal_success_boundary_source_miner/summary.json",
+      "docs/m670-action-boundary-response-amplification-shadow-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m670-action-boundary-response-amplification-shadow-design.json"
+    ],
+    "parent_objective": [
+      "implement frozen-actor response-amplification shadow objective"
+    ],
+    "derived_from": [
+      "m670-action-boundary-response-amplification-shadow-design"
+    ],
+    "blocked_by": [
+      "m670-action-boundary-response-amplification-shadow-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m671-action-boundary-response-amplification-shadow-implementation.md",
+  "public_gates": [
+    "reconstruct shadow corpus from M667 candidates",
+    "train frozen-actor shadow heads for fused, next-hidden, and fused-plus-next-hidden views",
+    "report exact source-heldout normal retention and wrong-history sequence-gap metrics",
+    "verify actor checksum unchanged and no actor checkpoint written"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not mutate actor parameters",
+    "do not run PPO",
+    "do not promote checkpoint",
+    "do not use privileged or label inputs in actor",
+    "do not treat shadow-head success as closed-loop proof",
+    "do not skip source-heldout exact metrics"
+  ],
+  "hypothesis": "A frozen response-amplification shadow head can create sustained source-heldout wrong-history sequence separation from next-hidden or fused-plus-hidden views while preserving normal near-boundary actions.",
+  "success_criteria": [
+    "shadow corpus rows > 0",
+    "source-heldout split is nonempty",
+    "at least one non-fused view passes in >= 2/3 seeds",
+    "source-heldout normal_delta_l2_mean <= 0.0025",
+    "source-heldout predicted_normal_wrong_gap_l2_mean >= 0.010",
+    "source-heldout gap_improvement_ratio >= 3.0",
+    "actor checksum unchanged",
+    "no actor checkpoint written",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "corpus reconstruction fails",
+    "normal anchor fails",
+    "wrong-history sequence gap fails",
+    "source-heldout overfit appears",
+    "actor checksum changes",
+    "actor checkpoint is written"
+  ],
+  "commands": [
+    {
+      "name": "response_amplification_shadow",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.response_amplification_shadow --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --candidate-rows runs/m667_normal_success_boundary_source_miner/candidate_scores.csv --surface-config fresh=configs/ppo_m541_matched_l3_variance_4096.json --surface-config ood=configs/eval_m574_moderate_ood_l3.json --views fused,next_hidden,fused_plus_next_hidden --seeds 6700,6701,6702 --sequence-lengths 5,7,9 --max-rows 768 --max-rows-per-physical-pair 18 --max-rows-per-left-seed 36 --target-wrong-sequence-mean-l2 0.012 --max-abs-delta 0.03 --target-gap 0.010 --epochs 240 --learning-rate 0.001 --weight-decay 0.0001 --hidden-dim 64 --device cpu --run-dir runs/m671_response_amplification_shadow"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m671_response_amplification_shadow/summary.json",
+      "type": "summary"
+    },
+    {
+      "path": "runs/m671_response_amplification_shadow/shadow_corpus.npz",
+      "type": "corpus"
+    },
+    {
+      "path": "docs/m671-action-boundary-response-amplification-shadow-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m667_normal_success_boundary_source_miner/summary.json",
+    "docs/m670-action-boundary-response-amplification-shadow-design.md"
+  ],
+  "decision_rule": "M671 passes only if a frozen shadow head creates source-heldout sustained wrong-history sequence separation while preserving normal actions and actor checksum.",
+  "next_blocker": "m672-response-amplification-shadow-audit"
+}

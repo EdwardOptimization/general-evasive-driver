@@ -12151,3 +12151,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M669 designs a conservative no-PPO response-amplification ladder after M667/M668 showed that source windows exist but the current actor boundary attenuates wrong-history effects. The ladder starts with a frozen-actor shadow objective, compares fused/next-hidden/fused-plus-hidden feature views, anchors normal-history action sequences, tests sustained wrong-history sequence separation, requires source-heldout exact evaluation, and keeps actor coupling blocked unless shadow evidence passes. Promotion remains blocked until later closed-loop replay/outcome gates.
 - decision: `action_boundary_response_amplification_design_admit_shadow_design`
 - next: `m670-action-boundary-response-amplification-shadow-design`
+## 20260525T010000Z - m670-action-boundary-response-amplification-shadow-design
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: ``
+- artifact: `docs/m670-action-boundary-response-amplification-shadow-design.md`
+- result: M670 designs the concrete frozen-actor response-amplification shadow objective. M671 should reconstruct a source-heldout shadow corpus from M667 candidate rows, compare fused, next-hidden, and fused-plus-next-hidden views, train only shadow heads, anchor normal residuals to zero, amplify existing wrong-normal action-delta directions to a bounded target gap, and report exact source-heldout normal-retention and wrong-history sequence-gap metrics. Actor mutation, PPO, and promotion remain forbidden.
+- decision: `response_amplification_shadow_design_admit_m671`
+- next: `m671-action-boundary-response-amplification-shadow-implementation`

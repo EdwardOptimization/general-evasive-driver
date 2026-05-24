@@ -1,28 +1,28 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 678,
+        "completed": 679,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m669-action-boundary-response-amplification-design",
+        "task_id": "m670-action-boundary-response-amplification-shadow-design",
         "status": "completed",
         "returncode": 0,
         "run_dir": "",
-        "command_log": "docs/m669-action-boundary-response-amplification-design.md"
+        "command_log": "docs/m670-action-boundary-response-amplification-shadow-design.md"
     },
     "next_task": {
-        "id": "m670-action-boundary-response-amplification-shadow-design",
+        "id": "m671-action-boundary-response-amplification-shadow-implementation",
         "status": "pending",
-        "priority": 6650,
+        "priority": 6660,
         "kind": "infrastructure",
-        "hypothesis": "A frozen-actor shadow response-amplifier design can test whether fused/hidden feature views can support sustained wrong-history action separation while preserving normal near-boundary behavior.",
-        "command": "see experiments/manifests/m670-action-boundary-response-amplification-shadow-design.json",
+        "hypothesis": "A frozen response-amplification shadow head can create sustained source-heldout wrong-history sequence separation from next-hidden or fused-plus-hidden views while preserving normal near-boundary actions.",
+        "command": "see experiments/manifests/m671-action-boundary-response-amplification-shadow-implementation.json",
         "success_artifact": "",
-        "notes": "Pending: design frozen-actor shadow response-amplification objective before implementation"
+        "notes": "Pending: implement frozen shadow objective and exact source-heldout metrics; no actor update PPO or promotion"
     },
-    "updated_at_utc": "20260525T004500Z"
+    "updated_at_utc": "20260525T010000Z"
 }

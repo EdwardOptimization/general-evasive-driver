@@ -62,17 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m670-action-boundary-response-amplification-shadow-design
+m671-action-boundary-response-amplification-shadow-implementation
 ```
 
-M670 should design the frozen-actor shadow response-amplification objective.
-M669 defined the ladder: first test whether frozen feature views can support
-sustained wrong-history action-sequence separation while preserving normal
-near-boundary behavior; only later consider actor coupling behind exact and
-replay gates.
+M671 should implement the frozen-actor response-amplification shadow objective
+designed in M670. It should reconstruct a shadow corpus from M667 candidate
+rows, train only shadow heads across fused/next-hidden/fused-plus-hidden views,
+and report source-heldout exact normal-retention and wrong-history sequence-gap
+metrics. Actor updates, PPO, and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M670 designs the concrete frozen-actor response-amplification shadow
+  objective. M671 should reconstruct source-heldout shadow data from M667
+  candidates, anchor normal residuals to zero, amplify existing wrong-normal
+  action-delta directions to a bounded target gap, compare fused/next-hidden/
+  fused-plus-hidden views, and require exact source-heldout metrics before any
+  actor coupling is considered.
 - M669 designs a conservative no-PPO action-boundary response-amplification
   ladder. The next step is a frozen-actor shadow objective over fused,
   next-hidden, and fused-plus-hidden feature views with normal-history anchors,
