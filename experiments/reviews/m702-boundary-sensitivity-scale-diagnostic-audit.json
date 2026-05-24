@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M702 classifies M701 as scenario sampling failure plus metric artifact and closes repeated same-distribution source mining in favor of explicit extreme hidden-condition scenario generation",
+  "failure_criteria": [
+    "audit treats M701 as scale_positive_plausible",
+    "audit admits corpus export from history-insensitive rows",
+    "audit omits synthesis questions",
+    "audit fails to classify scenario_sampling_failure",
+    "audit changes actor input contract"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not treat sparse plausible rows as source-positive",
+    "do not lower sensitivity thresholds and call M701 positive",
+    "do not export a corpus from history-insensitive rows",
+    "do not run actor update",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor inputs"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260524T181126Z",
+  "hypothesis": "M701 scale_sparse_plausible result should block objective design and pivot the branch toward explicit extreme dynamics and fault scenario construction.",
+  "lineage": {
+    "blocked_by": [
+      "m701-boundary-sensitivity-scale-diagnostic-implementation"
+    ],
+    "derived_from": [
+      "m701-boundary-sensitivity-scale-diagnostic-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m701-boundary-sensitivity-scale-diagnostic-implementation.json",
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_dataset": [
+      "runs/m701_boundary_sensitivity_scale_diagnostic/summary.json",
+      "runs/m701_boundary_sensitivity_scale_diagnostic/variant_summary.csv",
+      "runs/m701_boundary_sensitivity_scale_diagnostic/scale_summary.csv",
+      "runs/m701_boundary_sensitivity_scale_diagnostic/window_summary.csv",
+      "docs/m701-boundary-sensitivity-scale-diagnostic-implementation.md"
+    ],
+    "parent_objective": [
+      "audit scale-sparse boundary sensitivity diagnostic and decide whether to pivot from fresh sampling"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m702-boundary-sensitivity-scale-diagnostic-audit",
+  "next_blocker": "m703-extreme-dynamics-scenario-corpus-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "boundary_sensitivity_audit_pivot_to_extreme_hidden_condition_scenarios",
+  "public_gates": [
+    "M701 implementation cleanliness is checked",
+    "scale_sparse_plausible is separated from scale_positive_plausible",
+    "history-insensitive accepted rows are not treated as source-positive evidence",
+    "scenario coverage hypothesis is evaluated",
+    "objective actor update PPO and promotion remain blocked",
+    "trajectory_terminal_boundary_source_mining branch receives a synthesis decision"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m702-boundary-sensitivity-scale-diagnostic-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "boundary_sensitivity_audit_pivot_to_extreme_hidden_condition_scenarios",
+    "milestone": "m702-boundary-sensitivity-scale-diagnostic-audit",
+    "reason": "M702 classifies M701 as scenario sampling failure plus metric artifact and closes repeated same-distribution source mining in favor of explicit extreme hidden-condition scenario generation",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M701 summary metrics are recorded",
+    "scale_sparse_plausible is classified",
+    "history-insensitive accepted rows are separated from self-ID evidence",
+    "supported and falsified claims are recorded",
+    "scenario coverage hypothesis is addressed",
+    "next branch decision is explicit",
+    "objective design actor update PPO and promotion remain blocked"
+  ],
+  "type": "gate"
+}

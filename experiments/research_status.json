@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 710,
+        "completed": 711,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m701-boundary-sensitivity-scale-diagnostic-implementation",
+        "task_id": "m702-boundary-sensitivity-scale-diagnostic-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m701-boundary-sensitivity-scale-diagnostic-implementation.md"
+        "command_log": "docs/m702-boundary-sensitivity-scale-diagnostic-audit.md"
     },
     "next_task": {
-        "id": "m702-boundary-sensitivity-scale-diagnostic-audit",
+        "id": "m703-extreme-dynamics-scenario-corpus-design",
         "status": "pending",
-        "priority": 6970,
-        "kind": "gate",
-        "hypothesis": "Audit M701 scale-sparse history-insensitive diagnostic and decide branch pivot",
-        "command": "see experiments/manifests/m702-boundary-sensitivity-scale-diagnostic-audit.json",
+        "priority": 6980,
+        "kind": "infrastructure",
+        "hypothesis": "Design extreme hidden-condition scenario corpus after M702 pivot",
+        "command": "see experiments/manifests/m703-extreme-dynamics-scenario-corpus-design.json",
         "success_artifact": "",
-        "notes": "Pending: synthesize M701 and likely pivot to extreme hidden-condition scenario generation before any objective actor update or PPO"
+        "notes": "Pending: design no-training hidden fault scenario corpus with current-model proxies and future four-wheel-only faults separated"
     },
-    "updated_at_utc": "20260524T180625Z"
+    "updated_at_utc": "20260524T181000Z"
 }

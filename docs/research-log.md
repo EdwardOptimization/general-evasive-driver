@@ -12341,3 +12341,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M701 implements and runs the no-training boundary sensitivity-scale diagnostic across `32` target/window/scale variants, `16384` episodes, `129792` snapshots, and `26112` perturbation-evaluated rows. The implementation is clean: actor checksum unchanged, no training, no PPO, and no promotion. Result is `scale_sparse_plausible`: `99` sparse accepted rows exist, but `0` source-positive variants and `0` history-action-critical rows. Plausible/stress/unrealistic accepted rows are all `history_insensitive`.
 - decision: `scale_sparse_plausible_not_source_positive_admit_audit`
 - next: `m702-boundary-sensitivity-scale-diagnostic-audit`
+
+## 20260524T181000Z - m702-boundary-sensitivity-scale-diagnostic-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m702-boundary-sensitivity-scale-diagnostic-audit.md`
+- result: M702 audits M701 as `scenario_sampling_failure` plus `metric_artifact`. The branch tested inherited proof rows, fresh broad sampling, closer obstacle-distance windows, wider prepass windows, and larger perturbation scales, but found no source-positive or history-action-critical rows. The current single-track model can represent hidden capability faults such as global mu, front/rear tire authority, drive/brake authority, steering lag, mass/CG, and delay/noise; true single-wheel blowout, left/right split-mu, stuck caliper pull, and asymmetric half-shaft faults require future four-wheel dynamics or a higher-fidelity engine.
+- decision: `boundary_sensitivity_audit_pivot_to_extreme_hidden_condition_scenarios`
+- next: `m703-extreme-dynamics-scenario-corpus-design`

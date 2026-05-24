@@ -1,0 +1,110 @@
+{
+  "id": "m703-extreme-dynamics-scenario-corpus-design",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m702-boundary-sensitivity-scale-diagnostic-audit.md",
+      "runs/m701_boundary_sensitivity_scale_diagnostic/summary.json",
+      "runs/m701_boundary_sensitivity_scale_diagnostic/scale_summary.csv",
+      "runs/m701_boundary_sensitivity_scale_diagnostic/window_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m702-boundary-sensitivity-scale-diagnostic-audit.json"
+    ],
+    "parent_objective": [
+      "design extreme hidden-condition scenario corpus after source-mining branch pivot"
+    ],
+    "derived_from": [
+      "m702-boundary-sensitivity-scale-diagnostic-audit"
+    ],
+    "blocked_by": [
+      "m702-boundary-sensitivity-scale-diagnostic-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m703-extreme-dynamics-scenario-corpus-design.md",
+  "public_gates": [
+    "design covers current-model hidden capability faults",
+    "design distinguishes current single-track proxies from future true four-wheel faults",
+    "design keeps hidden fault labels out of actor input",
+    "design specifies matched hidden-condition ambiguity requirements",
+    "design blocks actor update PPO and promotion",
+    "design defines no-training corpus artifacts and acceptance criteria"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add fault labels to actor observations",
+    "do not call single-track proxies true single-wheel failures",
+    "do not generate only hard scenarios without matched hidden-condition ambiguity",
+    "do not reintroduce reference-path or TTC oracle inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "extreme_hidden_condition_scenario_generation",
+    "evidence_axis": "G_extreme_source: create hidden-condition scenario distributions that make online command-response self-identification necessary",
+    "evidence_increment": "designs the first no-training extreme hidden-condition scenario corpus after M702 pivot",
+    "claim_scope": "scenario-corpus design only, not implementation, training, PPO, or driver performance",
+    "stop_condition": [
+      "stop if the design cannot separate hidden generation labels from actor inputs",
+      "stop if all proposed faults require four-wheel physics before any current-model proxy can be tested",
+      "stop if matched hidden-condition ambiguity is not part of the acceptance criteria"
+    ],
+    "fallback_plan": [
+      "if current single-track proxies are insufficient, design a minimal four-wheel dynamics extension branch",
+      "if faults are too severe and all rows are normal-failed, add staged warm-up and severity ladders",
+      "if faults are too mild and history-insensitive, increase hidden-condition contrast before objective design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "after an implementation and audit determine whether extreme hidden-condition rows are source-positive",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A designed extreme hidden-condition scenario corpus can create matched current-state cases where online command-response history is necessary for evasive driving decisions.",
+  "success_criteria": [
+    "design defines current-model-compatible fault families",
+    "design defines future four-wheel-only fault families separately",
+    "design defines severity ladders and warm-up timing",
+    "design defines matched hidden-condition pair criteria",
+    "design defines no-training artifacts",
+    "design defines source-positive and negative-result classifications",
+    "objective actor update PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "design adds hidden fault labels to actor input",
+    "design treats true single-wheel failures as available in the current single-track model",
+    "design omits matched hidden-condition ambiguity",
+    "design admits actor update or PPO before source-positive evidence",
+    "design changes actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m703-extreme-dynamics-scenario-corpus-design.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m703-extreme-dynamics-scenario-corpus-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m702-boundary-sensitivity-scale-diagnostic-audit.md",
+    "runs/m701_boundary_sensitivity_scale_diagnostic/summary.json"
+  ],
+  "decision_rule": "M703 is design-only and passes if it specifies a no-training extreme hidden-condition scenario corpus while preserving the P0 actor input contract and blocking actor update PPO and promotion.",
+  "next_blocker": "m704-extreme-dynamics-scenario-corpus-implementation"
+}
