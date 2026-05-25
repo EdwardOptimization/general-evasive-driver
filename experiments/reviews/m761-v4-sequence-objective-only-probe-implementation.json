@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M761 residual-only frozen-backbone probe reconstructs 1213 of 1213 rows with unchanged actor checksum and candidate alphas 0.2 0.5 1.0 while PPO and promotion remain blocked",
+  "failure_criteria": [
+    "base actor parameters change",
+    "PPO runs",
+    "checkpoint is promoted",
+    "fault labels leak into residual inputs",
+    "normal drift or gap metrics are not reported",
+    "hard-negative sparsity is hidden"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train base actor parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use hidden fault labels as residual inputs",
+    "do not hide hard-negative sparsity",
+    "do not skip exact alpha metrics"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T001241Z",
+  "hypothesis": "A frozen-backbone residual objective-only probe can improve M758 exact gap metrics while keeping normal-history behavior within retention gates.",
+  "lineage": {
+    "blocked_by": [
+      "m760-v4-sequence-objective-only-probe-design"
+    ],
+    "derived_from": [
+      "m760-v4-sequence-objective-only-probe-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m760-v4-sequence-objective-only-probe-design.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m760-v4-sequence-objective-only-probe-design.md",
+      "runs/m758_v4_sequence_objective_sanity/summary.json",
+      "runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv"
+    ],
+    "parent_objective": [
+      "implement no-PPO residual objective-only probe with exact alpha gates"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m761-v4-sequence-objective-only-probe-implementation",
+  "next_blocker": "m762-v4-sequence-objective-only-probe-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "v4_sequence_objective_probe_candidate",
+  "public_gates": [
+    "M761 freezes base actor parameters",
+    "M761 trains only residual probe parameters",
+    "M761 evaluates exact alpha ladder with M758-style metrics",
+    "M761 reports normal drift and gap lift separately",
+    "PPO and checkpoint promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m761_v4_sequence_objective_probe/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "v4_sequence_objective_probe_candidate",
+    "milestone": "m761-v4-sequence-objective-only-probe-implementation",
+    "reason": "M761 residual-only frozen-backbone probe reconstructs 1213 of 1213 rows with unchanged actor checksum and candidate alphas 0.2 0.5 1.0 while PPO and promotion remain blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M761 implements residual probe and focused tests",
+    "base actor checksum remains unchanged",
+    "residual-only training artifacts are written separately",
+    "exact alpha metrics are written for all registered alphas",
+    "at least one result class is assigned without PPO or promotion",
+    "hard-negative sparsity is reported"
+  ],
+  "type": "infrastructure"
+}

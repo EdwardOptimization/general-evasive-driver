@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 769,
+        "completed": 770,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m760-v4-sequence-objective-only-probe-design",
+        "task_id": "m761-v4-sequence-objective-only-probe-implementation",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m760-v4-sequence-objective-only-probe-design.md"
+        "command_log": "runs/m761_v4_sequence_objective_probe/summary.json"
     },
     "next_task": {
-        "id": "m761-v4-sequence-objective-only-probe-implementation",
+        "id": "m762-v4-sequence-objective-only-probe-audit",
         "status": "pending",
-        "priority": 7560,
-        "kind": "infrastructure",
-        "hypothesis": "Implement no-PPO v4 sequence objective-only probe",
-        "command": "see experiments/manifests/m761-v4-sequence-objective-only-probe-implementation.json",
-        "success_artifact": "docs/m761-v4-sequence-objective-only-probe-implementation.md",
-        "notes": "Pending: implement frozen-backbone residual probe with exact alpha metrics and no PPO"
+        "priority": 7570,
+        "kind": "gate",
+        "hypothesis": "Audit no-PPO v4 sequence objective-only probe before closed-loop replay or PPO",
+        "command": "see experiments/manifests/m762-v4-sequence-objective-only-probe-audit.json",
+        "success_artifact": "docs/m762-v4-sequence-objective-only-probe-audit.md",
+        "notes": "Pending: audit M761 residual-only positive result and decide whether closed-loop residual replay is admissible"
     },
-    "updated_at_utc": "20260525T052000Z"
+    "updated_at_utc": "20260525T053000Z"
 }

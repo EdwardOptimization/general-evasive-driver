@@ -12894,3 +12894,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M760 designs a conservative no-PPO objective-only probe. The design freezes the BC5660 actor backbone, trains only a bounded residual head, requires normal-history residual target zero, preserves/amplifies existing normal-vs-intervention direction, treats hard negatives as optional sparse calibration, and evaluates an alpha ladder `0.02,0.05,0.10,0.20,0.50,1.00` with exact M758 metrics. Passing requires normal first-action drift gates, gap lift over base `0.024908`, lower gap deficit than base `0.016809`, unchanged actor backbone checksum, no PPO, and no promotion.
 - decision: `v4_sequence_objective_only_probe_design_admit_m761`
 - next: `m761-v4-sequence-objective-only-probe-implementation`
+
+## 20260525T053000Z - m761-v4-sequence-objective-only-probe-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m761_v4_sequence_objective_probe`
+- artifact: `docs/m761-v4-sequence-objective-only-probe-implementation.md`
+- result: M761 implements and runs the no-PPO frozen-backbone residual objective probe. It reconstructs `1213/1213` M755 positive rows with `0` metadata misses and `0` rejected rows, trains only a `4355`-parameter residual head for `40` epochs, and keeps the base actor checksum unchanged. Result class is `v4_sequence_objective_probe_candidate`: alpha `0.2`, `0.5`, and `1.0` pass exact candidate gates. At alpha `0.2`, normal first-action drift mean/p95 is `0.000480/0.000939`, gap mean/p10 is `0.029079/0.023874`, and gap deficit mean is `0.012637`. At alpha `1.0`, gap mean reaches `0.047347` and gap deficit mean drops to `0.000000337` while normal drift remains within gates. No PPO or checkpoint promotion occurred.
+- decision: `v4_sequence_objective_probe_candidate_admit_audit`
+- next: `m762-v4-sequence-objective-only-probe-audit`
