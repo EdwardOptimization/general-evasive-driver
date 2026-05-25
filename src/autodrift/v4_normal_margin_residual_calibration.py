@@ -48,17 +48,19 @@ ACTIVE_BOUNDARY_STEP = 24
 class ResidualGate(nn.Module):
     """Small scalar gate over deployable actor features."""
 
-    def __init__(self, feature_dim: int, hidden_dim: int = 32) -> None:
+    def __init__(self, feature_dim: int, hidden_dim: int = 32, initial_gate: float = 0.5) -> None:
         super().__init__()
         self.feature_dim = int(feature_dim)
         self.hidden_dim = int(hidden_dim)
+        initial_gate = float(np.clip(float(initial_gate), 1e-4, 1.0 - 1e-4))
+        self.initial_gate = initial_gate
         self.net = nn.Sequential(
             nn.Linear(self.feature_dim, self.hidden_dim),
             nn.Tanh(),
             nn.Linear(self.hidden_dim, 1),
         )
         nn.init.zeros_(self.net[-1].weight)
-        nn.init.zeros_(self.net[-1].bias)
+        nn.init.constant_(self.net[-1].bias, float(np.log(initial_gate / (1.0 - initial_gate))))
 
     def forward(self, features: torch.Tensor) -> torch.Tensor:
         return torch.sigmoid(self.net(features))
@@ -134,14 +136,20 @@ def _train_calibrator(
     seed: int,
     lr: float,
     alpha_train: float,
+    objective_mode: str,
+    initial_gate: float,
     margin_reference: float,
     margin_weight_max: float,
+    low_margin_cutoff: float,
     gap_lift: float,
+    high_default_gate: float,
+    active_normal_gate_max: float,
     intervention_gate_floor: float,
+    gate_contrast_margin: float,
 ) -> tuple[ResidualGate, list[dict[str, Any]]]:
     torch.manual_seed(int(seed))
     feature_dim = int(samples["normal_features"].shape[1])
-    calibrator = ResidualGate(feature_dim=feature_dim)
+    calibrator = ResidualGate(feature_dim=feature_dim, initial_gate=initial_gate)
     optimizer = torch.optim.Adam(calibrator.parameters(), lr=float(lr))
     normal_features = samples["normal_features"]
     intervention_features = samples["intervention_features"]
@@ -159,6 +167,11 @@ def _train_calibrator(
         target_gap = torch.clamp(base_gap + float(gap_lift), max=0.08)
         safe_margin = torch.clamp(torch.nan_to_num(margins, nan=1.0, posinf=1.0, neginf=1e-5), min=1e-5)
         margin_weights = 1.0 + torch.clamp(float(margin_reference) / safe_margin, min=0.0, max=float(margin_weight_max))
+        low_margin_weight = torch.clamp(
+            (float(low_margin_cutoff) - torch.clamp(margins, min=0.0)) / max(float(low_margin_cutoff), 1e-6),
+            min=0.0,
+            max=1.0,
+        ).pow(2)
     history: list[dict[str, Any]] = []
     for epoch in range(int(epochs)):
         optimizer.zero_grad()
@@ -166,13 +179,34 @@ def _train_calibrator(
         gate_intervention = calibrator(intervention_features).squeeze(-1)
         scaled_normal_delta = gate_normal.unsqueeze(-1) * normal_delta
         scaled_intervention_delta = gate_intervention.unsqueeze(-1) * intervention_delta
-        normal_suppression = (margin_weights * torch.sum(scaled_normal_delta.pow(2), dim=-1)).mean()
-        if float(boundary_mask.sum().item()) > 0.0:
-            boundary_guard = (
-                boundary_mask * torch.sum(scaled_normal_delta.pow(2), dim=-1)
-            ).sum() / torch.clamp(boundary_mask.sum(), min=1.0)
+        normal_delta_norm = torch.sum(scaled_normal_delta.pow(2), dim=-1)
+        if objective_mode == "asymmetric_gate":
+            normal_suppression = (low_margin_weight * normal_delta_norm).mean()
+            high_default_normal = (
+                (1.0 - low_margin_weight) * torch.relu(float(high_default_gate) - gate_normal).pow(2)
+            ).mean()
+            high_default_intervention = torch.relu(float(high_default_gate) - gate_intervention).pow(2).mean()
+            if float(boundary_mask.sum().item()) > 0.0:
+                boundary_guard = (
+                    boundary_mask * torch.relu(gate_normal - float(active_normal_gate_max)).pow(2)
+                ).sum() / torch.clamp(boundary_mask.sum(), min=1.0)
+            else:
+                boundary_guard = torch.zeros((), dtype=torch.float32)
+            gate_contrast_loss = (
+                low_margin_weight
+                * torch.relu(float(gate_contrast_margin) - (gate_intervention - gate_normal)).pow(2)
+            ).mean()
         else:
-            boundary_guard = torch.zeros((), dtype=torch.float32)
+            normal_suppression = (margin_weights * normal_delta_norm).mean()
+            high_default_normal = torch.zeros((), dtype=torch.float32)
+            high_default_intervention = torch.zeros((), dtype=torch.float32)
+            if float(boundary_mask.sum().item()) > 0.0:
+                boundary_guard = (
+                    boundary_mask * normal_delta_norm
+                ).sum() / torch.clamp(boundary_mask.sum(), min=1.0)
+            else:
+                boundary_guard = torch.zeros((), dtype=torch.float32)
+            gate_contrast_loss = torch.zeros((), dtype=torch.float32)
         adjusted_normal = torch.clamp(normal_actions + float(alpha_train) * scaled_normal_delta, -1.0, 1.0)
         adjusted_intervention = torch.clamp(
             intervention_actions + float(alpha_train) * scaled_intervention_delta,
@@ -187,14 +221,27 @@ def _train_calibrator(
         l2_loss = torch.zeros((), dtype=torch.float32)
         for parameter in calibrator.parameters():
             l2_loss = l2_loss + parameter.pow(2).mean()
-        loss = (
-            2.0 * normal_suppression
-            + 4.0 * boundary_guard
-            + 1.0 * gap_loss
-            + 0.25 * gate_floor_loss
-            + 0.10 * hard_loss
-            + 1e-4 * l2_loss
-        )
+        if objective_mode == "asymmetric_gate":
+            loss = (
+                2.0 * normal_suppression
+                + 0.25 * high_default_normal
+                + 1.0 * high_default_intervention
+                + 4.0 * boundary_guard
+                + 2.0 * gate_floor_loss
+                + 2.0 * gate_contrast_loss
+                + 1.0 * gap_loss
+                + 0.10 * hard_loss
+                + 1e-4 * l2_loss
+            )
+        else:
+            loss = (
+                2.0 * normal_suppression
+                + 4.0 * boundary_guard
+                + 1.0 * gap_loss
+                + 0.25 * gate_floor_loss
+                + 0.10 * hard_loss
+                + 1e-4 * l2_loss
+            )
         loss.backward()
         optimizer.step()
         history.append(
@@ -203,8 +250,11 @@ def _train_calibrator(
                 "loss": float(loss.detach().item()),
                 "normal_margin_suppression_loss": float(normal_suppression.detach().item()),
                 "boundary_guard_loss": float(boundary_guard.detach().item()),
+                "high_default_normal_loss": float(high_default_normal.detach().item()),
+                "high_default_intervention_loss": float(high_default_intervention.detach().item()),
                 "gap_loss": float(gap_loss.detach().item()),
                 "intervention_gate_floor_loss": float(gate_floor_loss.detach().item()),
+                "gate_contrast_loss": float(gate_contrast_loss.detach().item()),
                 "hard_negative_loss": float(hard_loss.detach().item()),
                 "l2_loss": float(l2_loss.detach().item()),
                 "gate_normal_mean": float(gate_normal.detach().mean().item()),
@@ -465,6 +515,14 @@ def run_v4_normal_margin_residual_calibration(
     alphas: tuple[float, ...] = DEFAULT_ALPHAS,
     max_rows: int | None = None,
     alpha_train: float = 0.2,
+    objective_mode: str = "margin_suppression",
+    initial_gate: float = 0.5,
+    low_margin_cutoff: float = 0.001,
+    gap_lift: float = 0.002,
+    high_default_gate: float = 0.85,
+    active_normal_gate_max: float = 0.55,
+    intervention_gate_floor: float = 0.5,
+    gate_contrast_margin: float = 0.20,
 ) -> dict[str, Any]:
     run_dir.mkdir(parents=True, exist_ok=True)
     scenario_config = load_scenario_config(scenario_config_path)
@@ -509,18 +567,26 @@ def run_v4_normal_margin_residual_calibration(
             seed=seed,
             lr=lr,
             alpha_train=alpha_train,
+            objective_mode=str(objective_mode),
+            initial_gate=float(initial_gate),
             margin_reference=0.001,
             margin_weight_max=50.0,
-            gap_lift=0.002,
-            intervention_gate_floor=0.5,
+            low_margin_cutoff=float(low_margin_cutoff),
+            gap_lift=float(gap_lift),
+            high_default_gate=float(high_default_gate),
+            active_normal_gate_max=float(active_normal_gate_max),
+            intervention_gate_floor=float(intervention_gate_floor),
+            gate_contrast_margin=float(gate_contrast_margin),
         )
     torch.save(
         {
             "state_dict": calibrator.state_dict(),
             "feature_dim": int(feature_dim),
             "hidden_dim": int(calibrator.hidden_dim),
+            "initial_gate": float(calibrator.initial_gate),
             "seed": int(seed),
             "alpha_train": float(alpha_train),
+            "objective_mode": str(objective_mode),
             "checkpoint": str(checkpoint_path),
             "residual_head": str(residual_head_path),
         },
@@ -691,6 +757,14 @@ def run_v4_normal_margin_residual_calibration(
         "seed": int(seed),
         "lr": float(lr),
         "alpha_train": float(alpha_train),
+        "objective_mode": str(objective_mode),
+        "initial_gate": float(initial_gate),
+        "low_margin_cutoff": float(low_margin_cutoff),
+        "gap_lift": float(gap_lift),
+        "high_default_gate": float(high_default_gate),
+        "active_normal_gate_max": float(active_normal_gate_max),
+        "intervention_gate_floor": float(intervention_gate_floor),
+        "gate_contrast_margin": float(gate_contrast_margin),
         "alphas": [float(alpha) for alpha in alphas],
         "candidate_alpha_count": int(len(candidate_rows)),
         "candidate_alphas": [float(row.get("alpha")) for row in candidate_rows],
@@ -738,6 +812,14 @@ def main() -> None:
     parser.add_argument("--seed", type=int, default=7830)
     parser.add_argument("--lr", type=float, default=1e-3)
     parser.add_argument("--alpha-train", type=float, default=0.2)
+    parser.add_argument("--objective-mode", choices=["margin_suppression", "asymmetric_gate"], default="margin_suppression")
+    parser.add_argument("--initial-gate", type=float, default=0.5)
+    parser.add_argument("--low-margin-cutoff", type=float, default=0.001)
+    parser.add_argument("--gap-lift", type=float, default=0.002)
+    parser.add_argument("--high-default-gate", type=float, default=0.85)
+    parser.add_argument("--active-normal-gate-max", type=float, default=0.55)
+    parser.add_argument("--intervention-gate-floor", type=float, default=0.5)
+    parser.add_argument("--gate-contrast-margin", type=float, default=0.20)
     parser.add_argument("--alphas", type=_parse_float_list, default=DEFAULT_ALPHAS)
     parser.add_argument("--max-rows", type=int, default=None)
     args = parser.parse_args()
@@ -756,6 +838,14 @@ def main() -> None:
         alphas=tuple(args.alphas),
         max_rows=args.max_rows,
         alpha_train=args.alpha_train,
+        objective_mode=args.objective_mode,
+        initial_gate=args.initial_gate,
+        low_margin_cutoff=args.low_margin_cutoff,
+        gap_lift=args.gap_lift,
+        high_default_gate=args.high_default_gate,
+        active_normal_gate_max=args.active_normal_gate_max,
+        intervention_gate_floor=args.intervention_gate_floor,
+        gate_contrast_margin=args.gate_contrast_margin,
     )
     for key, value in summary.items():
         print(f"{key}: {value}")

@@ -13128,3 +13128,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M785 designs the second scalar-gate calibration probe. It keeps the M568 actor and M761 residual head frozen, keeps deploy-time inputs clean, and changes the objective so high gate is the default rather than a value the optimizer must discover from a `0.5` start. The proposed M786 gate initializes at about `0.85`, applies strong suppression only to low-margin normal rows and the active boundary source, adds high-default priors for non-low-margin normal and intervention rows, requires active/outcome intervention gate retention, adds a low-margin gate contrast term, and keeps the original intervention gap threshold instead of weakening the M783 near miss. M786 should evaluate alphas `0.0`, `0.125`, `0.15`, `0.2` and explicitly report whether the gate escaped global half-scaling.
 - decision: `asymmetric_gate_design_admit_m786`
 - next: `m786-v4-asymmetric-residual-gate-implementation`
+
+## 20260525T100000Z - m786-v4-asymmetric-residual-gate-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m786_v4_asymmetric_residual_gate`
+- artifact: `docs/m786-v4-asymmetric-residual-gate-implementation.md`
+- result: M786 extends the frozen-actor frozen-residual calibrator with a high-default asymmetric scalar-gate objective and runs the registered no-PPO probe. It reconstructs `2640/2652` rows with `0` metadata misses and the same `12` unsupported `command_shift_obs` rejects, writes `21120` replay rows and `10560` objective rows, and confirms base actor and M761 residual-head checksums unchanged. Only the 2113-parameter calibrator is trained. Result class is `v4_normal_margin_calibration_candidate` with one candidate alpha: `0.15`. Alpha `0.15` keeps normal success `1.0`, collision `0.0`, improves intervention action gap mean/p10 to `0.043397/0.026649` versus base `0.040348/0.025782`, and keeps active source margin `+0.000028` versus M780 alpha `0.125` reference `+0.000009`. Alpha `0.2` still fails strict normal retention with normal success `0.995455`, collision `0.004545`, and the same active source margin crossing to `-0.000005`. Final gate means are `0.670088` normal and `0.683384` intervention, so M786 partially escapes M783's global half-gate but does not achieve the intended high-default asymmetric behavior.
+- decision: `v4_normal_margin_calibration_candidate_limited_alpha_015`
+- next: `m787-v4-asymmetric-residual-gate-audit`

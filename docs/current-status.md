@@ -62,15 +62,31 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m786-v4-asymmetric-residual-gate-implementation
+m787-v4-asymmetric-residual-gate-audit
 ```
 
-M786 should implement the high-default asymmetric residual gate designed by
-M785. Base actor mutation, M761 residual-head mutation, PPO, and promotion
-remain blocked.
+M787 should audit the M786 alpha `0.15` asymmetric gate candidate before any
+further calibration, PPO, or promotion. Base actor mutation, M761 residual-head
+mutation, PPO, and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M786 extends the frozen-actor frozen-residual calibrator with a high-default
+  asymmetric scalar-gate objective and runs the registered no-PPO probe. It
+  reconstructs `2640/2652` rows with `0` metadata misses and the same `12`
+  unsupported `command_shift_obs` rejects, writes `21120` replay rows and
+  `10560` objective rows, and confirms base actor and M761 residual-head
+  checksums unchanged. Only the 2113-parameter calibrator is trained. Result
+  class is `v4_normal_margin_calibration_candidate` with one candidate alpha:
+  `0.15`. Alpha `0.15` keeps normal success `1.0`, collision `0.0`, improves
+  intervention action gap mean/p10 to `0.043397/0.026649` versus base
+  `0.040348/0.025782`, and keeps active source margin `+0.000028` versus M780
+  alpha `0.125` reference `+0.000009`. Alpha `0.2` still fails strict normal
+  retention with normal success `0.995455`, collision `0.004545`, and the same
+  active source margin crossing to `-0.000005`. Final gate means are
+  `0.670088` normal and `0.683384` intervention, so M786 partially escapes
+  M783's global half-gate but does not achieve the intended high-default
+  asymmetric behavior. M787 must audit before repair, PPO, or promotion.
 - M785 designs the second scalar-gate calibration probe. It keeps the M568
   actor and M761 residual head frozen, keeps deploy-time inputs clean, and
   changes the objective so high gate is the default rather than a value the

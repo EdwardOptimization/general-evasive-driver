@@ -1,0 +1,115 @@
+{
+  "id": "m787-v4-asymmetric-residual-gate-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "repair",
+  "failure_types": [
+    "behavior_regression",
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m786-v4-asymmetric-residual-gate-implementation.md",
+      "runs/m786_v4_asymmetric_residual_gate/summary.json",
+      "runs/m786_v4_asymmetric_residual_gate/alpha_metrics.csv",
+      "runs/m786_v4_asymmetric_residual_gate/training_metrics.csv",
+      "runs/m786_v4_asymmetric_residual_gate/objective_rows.csv",
+      "docs/m785-v4-asymmetric-residual-gate-design.md",
+      "docs/m784-v4-normal-margin-aware-residual-calibration-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m786-v4-asymmetric-residual-gate-implementation.json",
+      "experiments/manifests/m785-v4-asymmetric-residual-gate-design.json"
+    ],
+    "parent_objective": [
+      "audit high-default asymmetric residual gate candidate before any further calibration PPO or promotion"
+    ],
+    "derived_from": [
+      "m786-v4-asymmetric-residual-gate-implementation"
+    ],
+    "blocked_by": [
+      "m786-v4-asymmetric-residual-gate-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m787-v4-asymmetric-residual-gate-audit.md",
+  "public_gates": [
+    "M787 audits M786 alpha 0.15 candidate",
+    "M787 separates diagnostic candidate status from PPO or promotion readiness",
+    "M787 records alpha 0.2 active-source failure",
+    "M787 classifies whether M786 escaped M783 global half-scaling enough to continue scalar gating",
+    "PPO training and checkpoint promotion remain blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not call alpha 0.15 robust without auditing its small active-source margin",
+    "do not hide alpha 0.2 normal collision",
+    "do not claim broad generalization or true four-wheel physical fidelity"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_residual_normal_margin_calibration",
+    "evidence_axis": "G_action: audit asymmetric residual gate candidate",
+    "evidence_increment": "audits whether M786's alpha 0.15 candidate is enough to continue scalar-gate calibration or should pivot to vector residual calibration",
+    "claim_scope": "audit only; no replay, repair, PPO, or driver promotion",
+    "stop_condition": [
+      "stop if audit admits PPO or promotion",
+      "stop if audit ignores alpha 0.15 small active-source margin",
+      "stop if audit hides alpha 0.2 collision on source_index 12",
+      "stop if audit treats moderate global scaling as proven self-ID gating"
+    ],
+    "fallback_plan": [
+      "if alpha 0.15 is accepted only as limited feasibility, design source-diverse gate validation before training",
+      "if alpha 0.2 failure dominates, design stronger active-source margin calibration",
+      "if gate semantics remain too close to alpha scaling, pivot to vector residual calibration",
+      "if scalar gating has no next evidence increment, stop the scalar-gate branch"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M786 produces a narrow alpha 0.15 scalar-gate candidate",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M786 should be audited as a limited diagnostic positive: alpha 0.15 passes strict normal retention and gap gates, but alpha 0.2 still fails and the gate behavior remains only moderately asymmetric.",
+  "success_criteria": [
+    "M787 records alpha 0.15 candidate status",
+    "M787 records alpha 0.2 active-source normal collision",
+    "M787 compares M786 gate behavior against M783 and intended M785 high-default design",
+    "M787 classifies residual risks without PPO or promotion",
+    "M787 admits only one next blocker"
+  ],
+  "failure_criteria": [
+    "audit promotes a checkpoint",
+    "audit admits PPO",
+    "audit ignores normal-boundary margin",
+    "audit treats alpha 0.15 as robust promotion evidence",
+    "audit hides M773 hard-negative and current-model/proxy caveats"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m787-v4-asymmetric-residual-gate-audit.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m787-v4-asymmetric-residual-gate-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m786-v4-asymmetric-residual-gate-implementation.md",
+    "runs/m786_v4_asymmetric_residual_gate/summary.json",
+    "runs/m786_v4_asymmetric_residual_gate/alpha_metrics.csv"
+  ],
+  "decision_rule": "M787 may only audit M786. It must not run replay, train, run PPO, mutate actor or residual parameters, or promote a checkpoint. The audit must decide whether to continue scalar gating, pivot to vector residual calibration, or stop this calibration branch.",
+  "next_blocker": "m788-v4-asymmetric-residual-gate-next-step"
+}
