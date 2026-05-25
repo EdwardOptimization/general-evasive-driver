@@ -62,16 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m806-v4-low-margin-boundary-axis-expansion-design
+m807-v4-low-margin-boundary-axis-expansion-implementation
 ```
 
-M806 should design source-diverse boundary-axis expansion after the M805 audit
-rejected M804 as a guard-corpus pass. Further active-steer residual
-calibration, PPO, promotion, base actor mutation, and M761 residual-head
-mutation remain blocked.
+M807 should implement and run the no-training source-diverse boundary-axis
+expansion designed in M806. Further active-steer residual calibration, PPO,
+promotion, base actor mutation, and M761 residual-head mutation remain blocked.
 
 ## Recent Evidence Line
 
+- M806 designs the next no-training boundary-axis expansion. It preserves the
+  M804 closed-loop replay discipline but adds obstacle lateral offset,
+  source-step neighborhood replay, fault activation micro-sweeps, fault
+  severity micro-sweeps, and bracketed distance/width bisection. M806 also adds
+  axis-balance gates: at least `3` retarget axes, max axis dominance `0.60`,
+  and at least `10` accepted rows from at least `3` axes, while keeping the
+  primary `0.0 <= margin <= 0.00005`, alpha `0.2`, source-dominance, checksum,
+  no-training, no-PPO, and no-promotion constraints unchanged.
 - M805 audits M804 as a clean geometry-only diagnostic. M804 proves the primary
   low-margin window is reachable by closed-loop public geometry retargeting and
   preserves intervention sensitivity, but it is not source-diverse or

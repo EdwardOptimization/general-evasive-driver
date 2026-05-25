@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 814,
+        "completed": 815,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m805-v4-low-margin-boundary-window-retarget-audit",
+        "task_id": "m806-v4-low-margin-boundary-axis-expansion-design",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m805-v4-low-margin-boundary-window-retarget-audit.md"
+        "command_log": "docs/m806-v4-low-margin-boundary-axis-expansion-design.md"
     },
     "next_task": {
-        "id": "m806-v4-low-margin-boundary-axis-expansion-design",
+        "id": "m807-v4-low-margin-boundary-axis-expansion-implementation",
         "status": "pending",
-        "priority": 8010,
+        "priority": 8020,
         "kind": "infrastructure",
-        "hypothesis": "Design source-diverse boundary-axis expansion after M804 geometry-only diagnostic",
-        "command": "see experiments/manifests/m806-v4-low-margin-boundary-axis-expansion-design.json",
-        "success_artifact": "docs/m806-v4-low-margin-boundary-axis-expansion-design.md",
-        "notes": "Pending: design axis-diverse retargeting without weakening primary low-margin or source-diversity gates"
+        "hypothesis": "Implement no-training source-diverse boundary-axis expansion after M806 design",
+        "command": "see experiments/manifests/m807-v4-low-margin-boundary-axis-expansion-implementation.json",
+        "success_artifact": "docs/m807-v4-low-margin-boundary-axis-expansion-implementation.md",
+        "notes": "Pending: implement axis-diverse retargeting without weakening primary low-margin or source-diversity gates; calibration PPO and promotion remain blocked"
     },
-    "updated_at_utc": "20260525T150000Z"
+    "updated_at_utc": "20260525T151500Z"
 }

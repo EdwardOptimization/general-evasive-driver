@@ -1,0 +1,88 @@
+{
+  "decision_reason": "M806 designs source-diverse boundary-axis expansion with lateral source-step fault-axis and bracketed retargeting plus axis-balance gates",
+  "failure_criteria": [
+    "design only repeats obstacle half-width retargeting",
+    "design weakens source-diversity or primary margin thresholds",
+    "design uses oracle deploy-time inputs",
+    "design admits training, PPO, or promotion",
+    "design ignores workflow synthesis risk"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not implement the axis expansion tool",
+    "do not run another retarget wave",
+    "do not train any parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not weaken seed or fault-pair dominance thresholds",
+    "do not treat M804 geometry-only rows as source-diverse pass",
+    "do not use private holdout feedback for public retargeting"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T061908Z",
+  "hypothesis": "A source-diverse boundary-axis expansion design can address M804's geometry-only and dominance failures without weakening the primary low-margin gate.",
+  "lineage": {
+    "blocked_by": [
+      "m804-v4-low-margin-boundary-window-retarget-implementation"
+    ],
+    "derived_from": [
+      "m805-v4-low-margin-boundary-window-retarget-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m805-v4-low-margin-boundary-window-retarget-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m805-v4-low-margin-boundary-window-retarget-audit.md",
+      "docs/m804-v4-low-margin-boundary-window-retarget-implementation.md",
+      "runs/m804_v4_low_margin_boundary_window_retarget/summary.json",
+      "runs/m804_v4_low_margin_boundary_window_retarget/accepted_low_margin_window_rows.csv",
+      "runs/m804_v4_low_margin_boundary_window_retarget/diagnostic_axis_summary.csv",
+      "runs/m804_v4_low_margin_boundary_window_retarget/retarget_replay_rows.csv"
+    ],
+    "parent_objective": [
+      "design source-diverse boundary-axis expansion after M804 geometry-only diagnostic"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m806-v4-low-margin-boundary-axis-expansion-design",
+  "next_blocker": "m807-v4-low-margin-boundary-axis-expansion-implementation",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "boundary_axis_expansion_design_admit_m807",
+  "public_gates": [
+    "M806 designs only; it does not implement or run a new retarget wave",
+    "M806 preserves the P0 human-view actor contract",
+    "M806 keeps alpha 0.2 and the primary <=0.00005 margin threshold unchanged",
+    "M806 adds axis-diversity and source-diversity requirements",
+    "M806 blocks residual calibration, PPO, and promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m806-v4-low-margin-boundary-axis-expansion-design.md",
+    "clearance_margin_mean": "",
+    "decision": "boundary_axis_expansion_design_admit_m807",
+    "milestone": "m806-v4-low-margin-boundary-axis-expansion-design",
+    "reason": "M806 designs source-diverse boundary-axis expansion with lateral source-step fault-axis and bracketed retargeting plus axis-balance gates",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M806 documents an axis expansion design",
+    "M806 specifies lateral, source-step, fault-activation, fault-severity, and distance-bisection retarget axes",
+    "M806 specifies source-diversity, axis-diversity, and closed-loop replay acceptance gates",
+    "M806 keeps the primary low-margin threshold unchanged",
+    "M806 keeps residual calibration, PPO, and promotion blocked"
+  ],
+  "type": "infrastructure"
+}

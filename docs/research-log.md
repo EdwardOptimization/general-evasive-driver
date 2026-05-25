@@ -13315,3 +13315,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M805 audits M804 as a clean no-training geometry-only diagnostic. It accepts the useful finding that the primary low-margin window is reachable and that accepted rows preserve intervention sensitivity, but rejects treating the `252` obstacle-half-width rows as a source-diverse guard pass because they cover only `3` seeds, have max seed dominance `0.428571`, max fault-pair dominance `0.714286`, and use one retarget axis. Calibration, PPO, promotion, threshold weakening, and geometry-only pass claims remain blocked.
 - decision: `admit_low_margin_boundary_axis_expansion_design`
 - next: `m806-v4-low-margin-boundary-axis-expansion-design`
+
+## 20260525T151500Z - m806-v4-low-margin-boundary-axis-expansion-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m806-v4-low-margin-boundary-axis-expansion-design.md`
+- result: M806 designs source-diverse boundary-axis expansion after M805. The design keeps M804's closed-loop replay and checksum discipline but adds obstacle lateral offset, source-step neighborhood replay, fault activation step micro-sweeps, fault severity micro-sweeps, and bracketed distance/width bisection. It also adds axis-balance gates: accepted rows must cover at least `3` retarget axes, max retarget-axis dominance must be `<= 0.60`, and at least `10` accepted rows must come from at least `3` axes. The primary low-margin threshold, alpha `0.2`, source/fault dominance gates, no-training invariant, no-PPO invariant, and no-promotion invariant remain unchanged.
+- decision: `boundary_axis_expansion_design_admit_m807`
+- next: `m807-v4-low-margin-boundary-axis-expansion-implementation`
