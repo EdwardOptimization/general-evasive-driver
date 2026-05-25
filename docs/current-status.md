@@ -62,17 +62,33 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m878-v4-deduped-pair-delta-objective-readiness-audit
+m880-v4-pair-delta-objective-target-enrichment-implementation
 ```
 
-M877 implemented no-training dedup/resplit for the M873 pair-delta corpus.
-The transformed corpus passes its registered infrastructure gates, but source
-holdout still has no new M873 rows. M878 must audit transformed corpus
-objective readiness before any objective design, actor update, PPO, promotion,
-base actor mutation, or M761 residual-head mutation.
+M879 designed the no-training target-action enrichment route needed before
+objective loss design. Existing M877 evidence must join to M867 sequence rows,
+while new M873 evidence joins to M873 sequence rows. M880 must implement that
+enrichment and verify every deduplicated/split row has concrete normal,
+right-hidden, and first-override action target fields before any objective
+design, actor update, PPO, promotion, base actor mutation, or M761 residual-head
+mutation.
 
 ## Recent Evidence Line
 
+- M879 designs the no-training target-action enrichment route. The important
+  correction is that M877's `existing_m867_or_m870` rows recover action targets
+  from M867 sequence rows, while `new_m873` rows recover action targets from
+  M873 sequence rows. A live identity-key check gives `247/247` unique sequence
+  matches, but this is still corpus infrastructure only. Objective training,
+  actor update, PPO, and promotion remain blocked until M880 implements and
+  audits the enriched artifacts.
+- M878 audits M877 transformed corpus as structurally cleaner but not ready for
+  loss design. M877 fixed duplicate-axis pressure and split coverage, but
+  deduplicated accepted rows do not carry the action target fields needed for a
+  future objective, such as normal first action, right first action, and first
+  override action. Those fields exist in M873 sequence rows, so the next step is
+  no-training target enrichment by joining M877 dedup signatures back to M873
+  sequence rows. Objective training, PPO, and promotion remain blocked.
 - M877 implements the no-training dedup/resplit transformation. It reduces the
   corpus from `273` raw accepted rows to `247` deduplicated rows and collapses
   new M873 evidence from `39` rows to `13` closed-loop signatures, reducing new

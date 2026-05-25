@@ -13985,3 +13985,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M877 implements the no-training dedup/resplit transformation. It reduces the corpus from `273` raw accepted rows to `247` deduplicated rows and collapses new M873 evidence from `39` rows to `13` closed-loop signatures, reducing new duplicate factor from `3.0` to `1.0`. The transformed objective train split has `124` rows including `8` new rows, eval has `22` rows including `2` new rows, source holdout has `98` existing-only rows, and new-signature holdout has `3` rows. The `78055` caveat remains and new source holdout is unavailable, so objective training, PPO, and promotion remain blocked pending audit.
 - decision: `v4_pair_delta_corpus_dedup_resplit_pass`
 - next: `m878-v4-deduped-pair-delta-objective-readiness-audit`
+
+## 20260525T184628Z - m878-v4-deduped-pair-delta-objective-readiness-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m878-v4-deduped-pair-delta-objective-readiness-audit.md`
+- result: M878 audits M877 transformed corpus as structurally cleaner but not ready for loss design. M877 fixed duplicate-axis pressure and split coverage, but deduplicated accepted rows do not carry the action target fields needed for a future objective, such as normal first action, right first action, and first override action. Those fields exist in M873 sequence rows, so the next step is no-training target enrichment by joining M877 dedup signatures back to M873 sequence rows. Objective training, PPO, and promotion remain blocked.
+- decision: `route_to_pair_delta_objective_target_enrichment_design`
+- next: `m879-v4-pair-delta-objective-target-enrichment-design`
+
+## 20260525T185138Z - m879-v4-pair-delta-objective-target-enrichment-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m879-v4-pair-delta-objective-target-enrichment-design.md`
+- result: M879 designs the no-training enrichment route required before objective loss design. The key correction is that existing M877 evidence must join to M867 sequence rows, while new M873 evidence joins to M873 sequence rows; a primary identity key over pair id, candidate ids, source groups, steps, direction, hold steps, epsilon, and margins gives `247/247` unique matches in the live artifacts. The design requires preserving split labels, duplicate metadata, 78055 caveat, and new-source-holdout limitation while adding normal/right/override first-action fields and sequence diagnostics.
+- decision: `pair_delta_objective_target_enrichment_design_admit_m880`
+- next: `m880-v4-pair-delta-objective-target-enrichment-implementation`

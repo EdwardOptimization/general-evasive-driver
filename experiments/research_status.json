@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 886,
+    "completed": 888,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m877-v4-pair-delta-corpus-dedup-resplit-implementation",
+    "task_id": "m879-v4-pair-delta-objective-target-enrichment-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m877-v4-pair-delta-corpus-dedup-resplit-implementation.md"
+    "command_log": "docs/m879-v4-pair-delta-objective-target-enrichment-design.md"
   },
   "next_task": {
-    "id": "m878-v4-deduped-pair-delta-objective-readiness-audit",
+    "id": "m880-v4-pair-delta-objective-target-enrichment-implementation",
     "status": "pending",
-    "priority": 8730,
-    "kind": "gate",
-    "hypothesis": "Audit transformed M877 corpus before any objective design actor update PPO or promotion",
-    "command": "see experiments/manifests/m878-v4-deduped-pair-delta-objective-readiness-audit.json",
-    "success_artifact": "docs/m878-v4-deduped-pair-delta-objective-readiness-audit.md",
-    "notes": "Pending: audit deduped corpus split limitations and decide whether objective design is admissible"
+    "priority": 8750,
+    "kind": "infrastructure",
+    "hypothesis": "Implement no-training target-action enrichment for M877 deduped pair-delta rows before objective loss design",
+    "command": "see experiments/manifests/m880-v4-pair-delta-objective-target-enrichment-implementation.json",
+    "success_artifact": "runs/m880_v4_pair_delta_objective_target_enrichment/summary.json",
+    "notes": "Pending: implement enrichment join from M877 rows to M867 and M873 sequence rows"
   },
-  "updated_at_utc": "20260525T184401Z"
+  "updated_at_utc": "20260525T185138Z"
 }

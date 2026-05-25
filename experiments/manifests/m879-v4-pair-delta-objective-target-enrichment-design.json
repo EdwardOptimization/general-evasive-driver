@@ -1,0 +1,115 @@
+{
+  "id": "m879-v4-pair-delta-objective-target-enrichment-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m878-v4-deduped-pair-delta-objective-readiness-audit.md",
+      "runs/m877_v4_pair_delta_corpus_dedup_resplit/dedup_pair_delta_rows.csv",
+      "runs/m877_v4_pair_delta_corpus_dedup_resplit/objective_train_public_rows.csv",
+      "runs/m877_v4_pair_delta_corpus_dedup_resplit/objective_eval_public_rows.csv",
+      "runs/m877_v4_pair_delta_corpus_dedup_resplit/source_holdout_public_rows.csv",
+      "runs/m877_v4_pair_delta_corpus_dedup_resplit/new_signature_holdout_public_rows.csv",
+      "runs/m867_v4_generated_boundary_pair_delta_refresh/pair_delta_sequence_rows.csv",
+      "runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh/pair_delta_sequence_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m878-v4-deduped-pair-delta-objective-readiness-audit.json"
+    ],
+    "parent_objective": [
+      "design no-training objective target enrichment before objective loss design"
+    ],
+    "derived_from": [
+      "m878-v4-deduped-pair-delta-objective-readiness-audit"
+    ],
+    "blocked_by": [
+      "M878 found transformed corpus lacks objective target action fields"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m879-v4-pair-delta-objective-target-enrichment-design.md",
+  "public_gates": [
+    "M879 must be design-only",
+    "M879 must design join from dedup signatures to M867 and M873 sequence rows",
+    "M879 must preserve train eval holdout split labels",
+    "M879 must include action target fields required by future objectives",
+    "M879 must keep objective training PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not design a loss before target enrichment",
+    "do not hide new source holdout limitation or 78055 caveat"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_objective_readiness",
+    "evidence_axis": "G_objective: target-action enrichment design",
+    "evidence_increment": "designs the no-training join needed to add action targets to existing M867-origin and new M873-origin deduped pair-delta rows",
+    "claim_scope": "design only; no replay, training, PPO, promotion, or learned driver claim",
+    "stop_condition": [
+      "stop if join key is undefined",
+      "stop if action target fields are not listed",
+      "stop if design admits objective training directly",
+      "stop if split labels are not preserved"
+    ],
+    "fallback_plan": [
+      "if enrichment is feasible, pre-register no-training implementation",
+      "if join is ambiguous, design an exact replay regeneration route",
+      "if target fields are insufficient, return to corpus generation in a new branch",
+      "if caveats dominate, synthesize before continuing"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M878 routes from transformed corpus audit to target enrichment",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A no-training enrichment join can add the missing action-target fields to M877 deduped rows by matching existing rows against M867 sequence rows and new rows against M873 sequence rows, enabling a later objective design audit.",
+  "success_criteria": [
+    "M879 defines join keys from dedup signatures to M867 and M873 sequence rows",
+    "M879 defines required action target fields",
+    "M879 defines enriched train eval holdout artifacts",
+    "M879 keeps objective training PPO and promotion blocked",
+    "M879 pre-registers implementation only"
+  ],
+  "failure_criteria": [
+    "M879 trains actor or residual-head parameters",
+    "M879 runs PPO",
+    "M879 promotes a checkpoint",
+    "M879 designs objective loss before enrichment",
+    "M879 hides corpus caveats"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m879-v4-pair-delta-objective-target-enrichment-design.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m879-v4-pair-delta-objective-target-enrichment-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m878-v4-deduped-pair-delta-objective-readiness-audit.md",
+    "runs/m877_v4_pair_delta_corpus_dedup_resplit/summary.json"
+  ],
+  "decision_rule": "M879 may only design no-training target enrichment. It must not train, run PPO, promote, or design the final objective loss.",
+  "next_blocker": "Pair-delta objective target enrichment has not yet been designed"
+}
