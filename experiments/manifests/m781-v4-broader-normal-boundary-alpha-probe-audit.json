@@ -2,7 +2,7 @@
   "id": "m781-v4-broader-normal-boundary-alpha-probe-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "repair",
   "failure_types": [
     "behavior_regression",
     "scenario_sampling_failure"
@@ -108,6 +108,6 @@
     "runs/m780_v4_broader_normal_boundary_alpha_probe/summary.json",
     "runs/m780_v4_broader_normal_boundary_alpha_probe/alpha_metrics.csv"
   ],
-  "decision_rule": "M781 may only audit M780. It must not run replay, train, run PPO, mutate actor or residual parameters, or promote a checkpoint.",
-  "next_blocker": "pending_audit_decision"
+  "decision_rule": "M781 may only audit M780. It must not run replay, train, run PPO, mutate actor or residual parameters, or promote a checkpoint. The audit admits normal-margin-aware residual calibration design only.",
+  "next_blocker": "m782-v4-normal-margin-aware-residual-calibration-design"
 }

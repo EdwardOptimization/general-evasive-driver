@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 789,
+        "completed": 790,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m780-v4-broader-normal-boundary-alpha-probe-implementation",
+        "task_id": "m781-v4-broader-normal-boundary-alpha-probe-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m780-v4-broader-normal-boundary-alpha-probe-implementation.md"
+        "command_log": "docs/m781-v4-broader-normal-boundary-alpha-probe-audit.md"
     },
     "next_task": {
-        "id": "m781-v4-broader-normal-boundary-alpha-probe-audit",
+        "id": "m782-v4-normal-margin-aware-residual-calibration-design",
         "status": "pending",
-        "priority": 7760,
-        "kind": "gate",
-        "hypothesis": "Audit alpha 0.125 limited feasibility and boundary-margin risk before repair PPO or promotion",
-        "command": "see experiments/manifests/m781-v4-broader-normal-boundary-alpha-probe-audit.json",
-        "success_artifact": "docs/m781-v4-broader-normal-boundary-alpha-probe-audit.md",
-        "notes": "Pending: audit M780 alpha 0.125 candidate; no PPO or promotion"
+        "priority": 7770,
+        "kind": "infrastructure",
+        "hypothesis": "Design normal-margin-aware residual calibration after alpha 0.125 limited feasibility",
+        "command": "see experiments/manifests/m782-v4-normal-margin-aware-residual-calibration-design.json",
+        "success_artifact": "docs/m782-v4-normal-margin-aware-residual-calibration-design.md",
+        "notes": "Pending: design calibration objective before residual training PPO or promotion"
     },
-    "updated_at_utc": "20260525T084000Z"
+    "updated_at_utc": "20260525T085000Z"
 }

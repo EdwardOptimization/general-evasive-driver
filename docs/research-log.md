@@ -13082,3 +13082,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M780 runs the pre-registered no-training alpha ladder `0.0`, `0.05`, `0.1`, `0.125`, `0.15`, `0.175`, `0.2` on the broader M773 corpus. It reconstructs `2640/2652` rows with `0` metadata misses and `12` rejected `unsupported_variant:command_shift_obs` rows, writes `36960` replay rows and `18480` objective rows, and keeps actor checksum unchanged. Alpha `0.125` is the best script-level candidate and the only tested alpha that both passes strict normal retention and script closed-loop candidate criteria: normal success `1.0`, normal collision `0.0`, intervention action gap mean/p10 `0.044047/0.026886` versus base `0.040348/0.025782`, margin gap mean `0.032352` versus base `0.029796`, and outcome sensitivity retention `1.0`. Alphas `0.15`, `0.175`, and `0.2` all collide on the same `seed 77025`, `source_index 12` source; the source margin crosses from `+0.000009` at alpha `0.125` to `-0.000014` at alpha `0.15`. This supports a narrow alpha-boundary interpretation, but alpha `0.125` remains a tiny-margin diagnostic candidate, not a promotion result.
 - decision: `v4_residual_alpha_0125_boundary_candidate`
 - next: `m781-v4-broader-normal-boundary-alpha-probe-audit`
+
+## 20260525T085000Z - m781-v4-broader-normal-boundary-alpha-probe-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m781-v4-broader-normal-boundary-alpha-probe-audit.md`
+- result: M781 audits M780 as a limited lower-alpha feasibility positive. Alpha `0.125` preserves strict normal retention and improves intervention action-gap and margin-gap metrics on M773, showing that M777's alpha `0.2` failure was a narrow residual-scale boundary rather than broad normal collapse. The audit blocks promotion and PPO because the active normal source margin at alpha `0.125` is only about `9e-6`, and alpha `0.15` already crosses into collision on the same source. M781 concludes that more dense alpha sweeps would only refine the crossing point; the next scientific blocker is how to preserve intervention-sensitive residual corrections while explicitly protecting low-margin normal branches.
+- decision: `promote_to_normal_margin_aware_residual_calibration_design`
+- next: `m782-v4-normal-margin-aware-residual-calibration-design`

@@ -62,16 +62,26 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m781-v4-broader-normal-boundary-alpha-probe-audit
+m782-v4-normal-margin-aware-residual-calibration-design
 ```
 
-M781 should audit M780's alpha `0.125` boundary candidate. Repair, PPO,
-training, and promotion remain blocked until the audit decides whether alpha
-`0.125` is only a limited feasibility diagnostic or whether the next branch
-should redesign the residual objective with explicit normal-margin retention.
+M782 should design a normal-margin-aware residual calibration objective after
+M781 audited alpha `0.125` as a limited feasibility positive with too little
+boundary margin for promotion. Repair implementation, PPO, training, and
+promotion remain blocked until the calibration design is registered.
 
 ## Recent Evidence Line
 
+- M781 audits M780 as a limited lower-alpha feasibility positive. Alpha
+  `0.125` preserves strict normal retention and improves intervention
+  action-gap and margin-gap metrics on M773, showing that M777's alpha `0.2`
+  failure was a narrow residual-scale boundary rather than broad normal
+  collapse. The audit blocks promotion and PPO because the active normal source
+  margin at alpha `0.125` is only about `9e-6`, and alpha `0.15` already
+  crosses into collision on the same source. M781 concludes that more dense
+  alpha sweeps would only refine the crossing point; the next scientific
+  blocker is how to preserve intervention-sensitive residual corrections while
+  explicitly protecting low-margin normal branches.
 - M780 runs the pre-registered no-training alpha ladder `0.0`, `0.05`, `0.1`,
   `0.125`, `0.15`, `0.175`, `0.2` on the broader M773 corpus. It reconstructs
   `2640/2652` rows with `0` metadata misses and `12` rejected
