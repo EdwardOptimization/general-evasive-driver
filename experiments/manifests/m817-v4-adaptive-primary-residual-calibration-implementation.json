@@ -1,0 +1,129 @@
+{
+  "id": "m817-v4-adaptive-primary-residual-calibration-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "metric_artifact",
+    "contract_violation",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m816-v4-adaptive-primary-residual-calibration-design.md",
+      "runs/m814_v4_adaptive_boundary_bracketing/accepted_primary_rows.csv",
+      "runs/m814_v4_adaptive_boundary_bracketing/intervention_replay_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m816-v4-adaptive-primary-residual-calibration-design.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_objective": [
+      "implement source-heldout residual calibration probe"
+    ],
+    "derived_from": [
+      "m816-v4-adaptive-primary-residual-calibration-design"
+    ],
+    "blocked_by": [
+      "need source-heldout calibration implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m817-v4-adaptive-primary-residual-calibration-implementation.md",
+  "public_gates": [
+    "M817 may train only a separate residual calibrator",
+    "M817 must not update actor or M761 residual-head parameters",
+    "M817 must create and respect source-heldout split before optimization",
+    "M817 must run train and holdout exact gates",
+    "M817 must keep PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add oracle deploy-time inputs",
+    "do not widen the primary 0.00005 margin threshold",
+    "do not train on holdout rows",
+    "do not tune from private holdout failures",
+    "do not claim true wheel-level faults from current proxy data"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_new_data_route",
+    "evidence_axis": "G_distribution: source-heldout adaptive primary residual calibration implementation",
+    "evidence_increment": "tests whether a separate residual calibrator can preserve M814 primary rows and intervention sensitivity under source-heldout exact gates",
+    "claim_scope": "calibrator probe only; no PPO or driver promotion",
+    "stop_condition": [
+      "stop if split is invalid",
+      "stop if actor or residual-head checksum changes",
+      "stop if holdout normal rows regress",
+      "stop if intervention sensitivity collapses",
+      "stop if old replay or behavior gates regress"
+    ],
+    "fallback_plan": [
+      "if split is invalid, design a larger adaptive corpus wave",
+      "if holdout regresses, audit objective overfit before another calibrator",
+      "if intervention sensitivity collapses, return to objective design",
+      "if old gates regress, require retention repair design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M817 implements the design from M816",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A small separate residual calibrator can preserve M814 primary normal rows and intervention sensitivity on a source-heldout split without changing actor or residual-head weights.",
+  "success_criteria": [
+    "M817 writes split training evaluation calibrator summary and documentation artifacts",
+    "M817 confirms actor and M761 residual-head checksums unchanged",
+    "M817 reports train and holdout normal/intervention exact metrics",
+    "M817 reports old replay or behavior retention metrics",
+    "M817 classifies the result without promoting a checkpoint"
+  ],
+  "failure_criteria": [
+    "implementation updates actor weights",
+    "implementation updates M761 residual-head weights",
+    "implementation trains on holdout rows",
+    "implementation runs PPO",
+    "implementation promotes a checkpoint",
+    "implementation weakens the primary margin threshold"
+  ],
+  "commands": [
+    {
+      "name": "calibration_probe",
+      "command": "implement and run source-heldout residual calibration probe; expected run dir runs/m817_v4_adaptive_primary_residual_calibration"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_adaptive_primary_residual_calibration.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_v4_adaptive_primary_residual_calibration.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m817_v4_adaptive_primary_residual_calibration/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "docs/m817-v4-adaptive-primary-residual-calibration-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m816-v4-adaptive-primary-residual-calibration-design.md",
+    "runs/m814_v4_adaptive_boundary_bracketing/summary.json",
+    "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+  ],
+  "decision_rule": "M817 may produce only a calibrator probe candidate or a classified negative result. It must not run PPO or promote.",
+  "next_blocker": "m818-v4-adaptive-primary-residual-calibration-audit"
+}

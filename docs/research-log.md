@@ -13408,3 +13408,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M815 audits M814 as a valid source-axis-diverse primary corpus and not a driver promotion. It confirms `85` balanced rows across `9` seeds, `55` source groups, `8` fault-family pairs, `4` warm-up modes, and `3` axes, with unchanged checksums and no training/PPO/promotion. Intervention diagnostics remain mechanism-positive: reset-hidden variants collide on `69/101` raw accepted rows and zero-command intervention collides on `67/101`. M815 admits only a residual calibration design with source-heldout split and retention gates.
 - decision: `admit_adaptive_primary_residual_calibration_design_with_holdout_guard`
 - next: `m816-v4-adaptive-primary-residual-calibration-design`
+
+## 20260525T174500Z - m816-v4-adaptive-primary-residual-calibration-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m816-v4-adaptive-primary-residual-calibration-design.md`
+- result: M816 designs a source-heldout residual calibration route using the M814 adaptive primary corpus. The design allows training only a separate scalar/vector residual gate initialized near identity, keeps the M568 actor and M761 residual head frozen, requires disjoint source-group heldout rows before optimization, and defines exact gates for normal primary retention, intervention-sensitivity retention, old residual replay/behavior retention, checksum invariants, no PPO, and no promotion.
+- decision: `adaptive_primary_residual_calibration_design_admit_m817`
+- next: `m817-v4-adaptive-primary-residual-calibration-implementation`

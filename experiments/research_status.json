@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 824,
+        "completed": 825,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m815-v4-adaptive-boundary-bracketing-audit",
+        "task_id": "m816-v4-adaptive-primary-residual-calibration-design",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m815-v4-adaptive-boundary-bracketing-audit.md"
+        "command_log": "docs/m816-v4-adaptive-primary-residual-calibration-design.md"
     },
     "next_task": {
-        "id": "m816-v4-adaptive-primary-residual-calibration-design",
+        "id": "m817-v4-adaptive-primary-residual-calibration-implementation",
         "status": "pending",
-        "priority": 8110,
+        "priority": 8120,
         "kind": "infrastructure",
-        "hypothesis": "Design source-heldout residual calibration using M814 adaptive primary corpus",
-        "command": "see experiments/manifests/m816-v4-adaptive-primary-residual-calibration-design.json",
-        "success_artifact": "docs/m816-v4-adaptive-primary-residual-calibration-design.md",
-        "notes": "Pending: design calibration objective and gates with actor update PPO and promotion blocked"
+        "hypothesis": "Implement source-heldout residual calibrator probe using M814 adaptive primary corpus",
+        "command": "see experiments/manifests/m817-v4-adaptive-primary-residual-calibration-implementation.json",
+        "success_artifact": "docs/m817-v4-adaptive-primary-residual-calibration-implementation.md",
+        "notes": "Pending: implement calibrator probe with actor residual-head PPO and promotion blocked"
     },
-    "updated_at_utc": "20260525T173000Z"
+    "updated_at_utc": "20260525T174500Z"
 }
