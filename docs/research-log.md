@@ -13743,3 +13743,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M851 audits M850 as a useful raw pair-delta improvement but not an objective-ready corpus. M850 improves accepted pair-delta rows from `17` to `50`, but balanced rows remain `24 < 30` with only `3` left source groups, `2` left seeds, `3` left fault families, and zero source-holdout rows. The audit classifies the blocker as scenario-sampling failure plus metric-artifact risk: pair-delta override evidence is real but still direct controllability, not learned self-ID. Because the M843-M851 branch has now spent a full data-mining window on source-diverse sequence and pair-delta corpus construction, M851 routes to branch synthesis before any expanded-boundary implementation or objective design.
 - decision: `route_to_branch_synthesis_before_boundary_expansion`
 - next: `m852-v4-source-diverse-sequence-effective-corpus-branch-synthesis`
+
+## 20260525T140620Z - m852-v4-source-diverse-sequence-effective-corpus-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m852-v4-source-diverse-sequence-effective-corpus-branch-synthesis.md`
+- result: M852 synthesizes the M843-M851 source-diverse sequence-effective corpus branch. Supported claims: sequence-level controllability is real, cross-source pair construction works, pair-delta sequence directions can change terminal outcome, and pair-delta-first mining improves raw yield (`17 -> 50` accepted pair-delta rows). Falsified or weakened claims: self-pair component rows are enough for objective design, M847/M850 are objective-ready, and PPO/promotion is justified by direct override rows. Primary failure taxonomy remains `scenario_sampling_failure`; `metric_artifact` remains a risk because direct sequence overrides are diagnostics, not learned self-ID. Public overfit risk remains high because rows are public-corpus, direct-intervention, and M850 has no source holdout. Decision is `promote_to_next_branch`: start `v4_pair_delta_boundary_expansion` to expand low-margin boundary sources for underrepresented source/fault/seed families before another pair-delta mining pass.
+- decision: `promote_to_pair_delta_boundary_expansion`
+- next: `m853-v4-pair-delta-boundary-expansion-design`

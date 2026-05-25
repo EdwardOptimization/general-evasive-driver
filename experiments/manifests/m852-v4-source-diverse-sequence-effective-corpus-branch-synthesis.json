@@ -70,7 +70,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M851 routes to synthesis after M850 source-limited pair-delta-focused mining result",
-    "synthesis_decision": "continue",
+    "synthesis_decision": "promote_to_next_branch",
     "synthesis_artifact": "docs/m852-v4-source-diverse-sequence-effective-corpus-branch-synthesis.md",
     "synthesis_questions": [
       "evidence_summary",

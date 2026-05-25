@@ -1,0 +1,113 @@
+{
+  "id": "m853-v4-pair-delta-boundary-expansion-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m852-v4-source-diverse-sequence-effective-corpus-branch-synthesis.md",
+      "docs/m850-v4-pair-delta-focused-source-balanced-mining-implementation.md",
+      "runs/m850_v4_pair_delta_focused_source_balanced_mining/summary.json",
+      "runs/m850_v4_pair_delta_focused_source_balanced_mining/accepted_pair_delta_rows.csv",
+      "runs/m844_v4_source_diverse_sequence_effective_corpus/boundary_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m852-v4-source-diverse-sequence-effective-corpus-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design expanded boundary bracketing over underrepresented pair-delta source/fault families"
+    ],
+    "derived_from": [
+      "m852-v4-source-diverse-sequence-effective-corpus-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M850 pair-delta-first mining improves raw yield but remains source-limited"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m853-v4-pair-delta-boundary-expansion-design.md",
+  "public_gates": [
+    "M853 must remain design-only",
+    "M853 must target underrepresented pair-delta source seed and fault families",
+    "M853 must define boundary expansion gates before pair-delta replay",
+    "M853 must keep direct sequence evidence separate from learned self-ID proof",
+    "M853 must keep PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run replay in M853",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat M850 pair-delta rows as learned self-ID proof",
+    "do not tune boundary thresholds around current positives"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_boundary_expansion",
+    "evidence_axis": "G_data: expanded boundary bracketing for pair-delta source coverage",
+    "evidence_increment": "starts a new branch after M852 synthesis to expand low-margin boundary sources before pair-delta mining",
+    "claim_scope": "design only; no replay, PPO, learned policy claim, or driver promotion",
+    "stop_condition": [
+      "stop if the design cannot target sources absent from M850 balanced pair-delta rows",
+      "stop if it would train parameters",
+      "stop if it treats direct pair-delta overrides as learned self-ID proof",
+      "stop if it only replays the same M850 active set"
+    ],
+    "fallback_plan": [
+      "if expanded boundary bracketing is feasible, implement it",
+      "if source rows are insufficient, return to scenario source generation",
+      "if expansion still concentrates positives, synthesize before objective design",
+      "if a broad boundary surface emerges, run pair-delta-focused mining as the next branch step"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M852 promotes to pair-delta boundary expansion after source-limited pair-delta mining",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Expanded boundary bracketing over underrepresented source/fault/seed families can expose broader pair-delta-positive low-margin states than M850.",
+  "success_criteria": [
+    "M853 writes a design document for pair-delta boundary expansion",
+    "M853 defines underrepresented source/fault/seed targets",
+    "M853 defines boundary expansion artifacts and gates",
+    "M853 keeps direct pair-delta evidence separate from learned self-ID proof",
+    "M853 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M853 admits PPO or promotion",
+    "M853 trains actor or residual parameters",
+    "M853 ignores M850 source limitations",
+    "M853 designs another replay of the same source-concentrated active set"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m853-v4-pair-delta-boundary-expansion-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m853-v4-pair-delta-boundary-expansion-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m852-v4-source-diverse-sequence-effective-corpus-branch-synthesis.md",
+    "runs/m850_v4_pair_delta_focused_source_balanced_mining/summary.json",
+    "runs/m850_v4_pair_delta_focused_source_balanced_mining/diversity_summary.json"
+  ],
+  "decision_rule": "M853 may only design no-training expanded boundary bracketing. It must not run replay, train, run PPO, or promote.",
+  "next_blocker": "pair-delta positives are real but current boundary sources are too concentrated"
+}
