@@ -62,16 +62,24 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m863-v4-pair-delta-boundary-expansion-branch-synthesis
+m864-v4-generated-boundary-refinement-implementation
 ```
 
-M863 should synthesize the M853-M862 pair-delta boundary expansion branch before
-generated-boundary refinement implementation or any pivot. PPO, promotion, base
-actor mutation, M761 residual-head mutation, and pair-delta sequence replay
-remain blocked.
+M864 should implement no-training bisection/refinement of M860 generated
+wide/negative brackets before any pair-delta replay, objective training, PPO,
+promotion, or broader source generation. PPO, promotion, base actor mutation,
+M761 residual-head mutation, and pair-delta sequence replay remain blocked.
 
 ## Recent Evidence Line
 
+- M863 synthesizes the M853-M862 branch and continues it into one
+  generated-boundary refinement implementation. Supported claims are limited to
+  no-training data construction: source targeting and snapshot reconstruction
+  work, trace diagnostics identify all-safe-wide blocker, closer obstacle
+  generation opens `17` new boundary rows, and M860 contains `13`
+  refinement-ready wide/negative bracket groups. Unsupported claims remain
+  pair-delta outcome evidence, objective-ready self-ID corpus, PPO admission,
+  learned policy improvement, or promotion.
 - M862 designs the no-training generated-boundary refinement route. The next
   implementation should select M860 same-source same-axis generated
   wide/negative brackets, prioritize groups with no M860 accepted boundary row,

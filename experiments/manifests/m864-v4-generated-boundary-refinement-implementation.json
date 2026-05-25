@@ -1,0 +1,160 @@
+{
+  "id": "m864-v4-generated-boundary-refinement-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m863-v4-pair-delta-boundary-expansion-branch-synthesis.md",
+      "docs/m862-v4-generated-boundary-refinement-design.md",
+      "runs/m860_v4_closer_obstacle_source_generation/summary.json",
+      "runs/m860_v4_closer_obstacle_source_generation/generation_plan_rows.csv",
+      "runs/m860_v4_closer_obstacle_source_generation/generated_replay_rows.csv",
+      "runs/m860_v4_closer_obstacle_source_generation/accepted_generated_boundary_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m863-v4-pair-delta-boundary-expansion-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "implement no-training refinement of M860 generated wide/negative brackets"
+    ],
+    "derived_from": [
+      "m863-v4-pair-delta-boundary-expansion-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M860 generated brackets have not yet been refined into accepted boundary rows"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m864-v4-generated-boundary-refinement-implementation.md",
+  "public_gates": [
+    "M864 must implement no-training generated-boundary refinement only",
+    "M864 must select M860 same-source same-axis wide/negative brackets",
+    "M864 must write refined and combined accepted boundary artifacts",
+    "M864 must preserve actor and residual-head checksums",
+    "M864 must not run pair-delta sequence replay train or promote"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels or oracle fields to actor input",
+    "do not replay pair-delta sequences in M864",
+    "do not count M860 duplicate accepted rows as new refined coverage"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_boundary_expansion",
+    "evidence_axis": "G_data: generated boundary refinement implementation",
+    "evidence_increment": "implements no-training bisection/refinement from M860 generated wide/negative brackets to seek sparse combined generated-boundary coverage after branch synthesis",
+    "claim_scope": "no-training generated-boundary diagnostics only; no pair-delta outcome claim, PPO, learned policy claim, or driver promotion",
+    "stop_condition": [
+      "stop if actor or residual-head checksums change",
+      "stop if pair-delta sequence replay is run",
+      "stop if M860 duplicate accepted rows are counted as new refined coverage",
+      "stop if generated refined rows are treated as learned self-ID proof"
+    ],
+    "fallback_plan": [
+      "if combined sparse generated-boundary passes, audit before pair-delta mining",
+      "if refined-only is positive but combined sparse fails, audit before another targeted generation route",
+      "if all-weak persists, audit before broader scenario generation",
+      "if artifacts are incomplete, repair implementation before interpreting"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M863 synthesis continues the branch into one generated-boundary refinement implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "No-training refinement of M860 generated wide/negative brackets can lift combined generated-boundary coverage to sparse gate before pair-delta mining.",
+  "success_criteria": [
+    "M864 implements bracket selection from M860 generated replay rows",
+    "M864 writes refined and combined boundary artifacts",
+    "M864 verifies actor and residual-head checksums unchanged",
+    "M864 classifies refined and combined generated-boundary coverage without pair-delta replay",
+    "M864 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M864 trains actor or residual-head parameters",
+    "M864 runs PPO",
+    "M864 promotes a checkpoint",
+    "M864 runs pair-delta sequence replay",
+    "M864 mutates actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "generated_boundary_refinement",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_generated_boundary_refinement --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --residual-head runs/m761_v4_sequence_objective_probe/residual_head.pt --scenario-config configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json --m860-generation-plan-rows runs/m860_v4_closer_obstacle_source_generation/generation_plan_rows.csv --m860-generated-replay-rows runs/m860_v4_closer_obstacle_source_generation/generated_replay_rows.csv --m860-accepted-boundary-rows runs/m860_v4_closer_obstacle_source_generation/accepted_generated_boundary_rows.csv --source-rows runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv --candidate-plan-rows runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv --run-dir runs/m864_v4_generated_boundary_refinement --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_generated_boundary_refinement.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_v4_generated_boundary_refinement.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m864_v4_generated_boundary_refinement/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m864_v4_generated_boundary_refinement/bracket_seed_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m864_v4_generated_boundary_refinement/refinement_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m864_v4_generated_boundary_refinement/accepted_refined_boundary_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m864_v4_generated_boundary_refinement/combined_generated_boundary_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m864_v4_generated_boundary_refinement/pairability_projection_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m864_v4_generated_boundary_refinement/refinement_summary.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m864_v4_generated_boundary_refinement/gate_summary.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m864_v4_generated_boundary_refinement/rejected_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "docs/m864-v4-generated-boundary-refinement-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m863-v4-pair-delta-boundary-expansion-branch-synthesis.md",
+    "docs/m862-v4-generated-boundary-refinement-design.md",
+    "runs/m860_v4_closer_obstacle_source_generation/generated_replay_rows.csv"
+  ],
+  "decision_rule": "M864 may only produce a no-training generated-boundary refinement diagnostic classification. It must not train, run PPO, run pair-delta sequence replay, promote, or claim learned self-ID.",
+  "next_blocker": "generated-boundary refinement from M860 brackets has not yet been implemented"
+}

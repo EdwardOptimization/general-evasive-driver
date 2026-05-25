@@ -117,5 +117,5 @@
     "runs/m860_v4_closer_obstacle_source_generation/summary.json"
   ],
   "decision_rule": "M863 may only synthesize the M853-M862 branch and pre-register a continuation or pivot. It must not run replay, train, run PPO, run pair-delta sequence replay, or promote.",
-  "next_blocker": "M853-M862 branch has reached synthesis cadence before generated-boundary refinement implementation"
+  "next_blocker": "generated-boundary refinement from M860 brackets has not yet been implemented"
 }

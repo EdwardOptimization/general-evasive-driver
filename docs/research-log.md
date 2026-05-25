@@ -13845,3 +13845,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M862 designs a no-training generated-boundary refinement route from M860 generated replay rows. The design selects same-source same-step same-axis `all_safe_closer_obstacle` groups with adjacent wide/negative endpoints, prioritizes groups with no M860 accepted boundary row, reconstructs the original M825 temporal snapshot, and performs bounded normal closed-loop bisection/refinement between endpoint parameters. The next implementation must report refined-only accepted rows and combined M860+refined coverage, because the actual question is whether generation plus refinement can cross sparse generated-boundary gates. Pairability remains a cheap projection only; pair-delta replay, objective training, PPO, actor mutation, M761 mutation, and promotion remain blocked. Validation requires branch synthesis before another implementation because M853-M862 has reached the 10-milestone cadence.
 - decision: `route_to_branch_synthesis_before_generated_boundary_refinement`
 - next: `m863-v4-pair-delta-boundary-expansion-branch-synthesis`
+
+## 20260525T163507Z - m863-v4-pair-delta-boundary-expansion-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m863-v4-pair-delta-boundary-expansion-branch-synthesis.md`
+- result: M863 synthesizes the M853-M862 `v4_pair_delta_boundary_expansion` branch. Supported claims: underrepresented source targeting and snapshot reconstruction work; boundary-new-to-M844 sources were mostly all-safe-wide under the first grid; closer obstacle/source generation opens real new boundary rows; and M860 generated replay contains `13` refinement-ready wide/negative bracket groups. Falsified or weakened claims: M850 pair-delta rows are objective-ready without broader boundary generation, original-grid retargeting is enough, boundary-new failures are reconstruction failures, M860 single-axis generation is enough for pair-delta replay, and pairability projection is outcome evidence. Primary failure taxonomy remains `scenario_sampling_failure`; `metric_artifact` remains a risk because generated rows and projections are data-construction artifacts, not learned self-ID proof. Decision is `continue`: run one no-training generated-boundary refinement implementation before any pair-delta replay, objective training, PPO, or promotion.
+- decision: `continue_to_generated_boundary_refinement`
+- next: `m864-v4-generated-boundary-refinement-implementation`

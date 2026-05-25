@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M863 synthesizes M853-M862 and continues the branch into no-training generated-boundary refinement implementation before pair-delta replay objective training or PPO",
+  "failure_criteria": [
+    "M863 runs replay or training",
+    "M863 admits PPO or promotion",
+    "M863 treats generated boundary rows as learned self-ID proof",
+    "M863 continues the branch without a synthesis decision"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not run replay in M863",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat generated boundary rows as learned self-ID proof",
+    "do not continue narrow milestones without a synthesis decision"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260525T164125Z",
+  "hypothesis": "The M853-M862 branch has established that generated boundary refinement is the right no-training continuation, but synthesis is required before another narrow implementation.",
+  "lineage": {
+    "blocked_by": [
+      "branch cadence reached after M853-M862 and M862 admits another narrow implementation"
+    ],
+    "derived_from": [
+      "m862-v4-generated-boundary-refinement-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m862-v4-generated-boundary-refinement-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m852-v4-source-diverse-sequence-effective-corpus-branch-synthesis.md",
+      "docs/m854-v4-pair-delta-boundary-expansion-implementation.md",
+      "docs/m857-v4-boundary-new-to-m844-bracket-trace-implementation.md",
+      "docs/m860-v4-closer-obstacle-source-generation-implementation.md",
+      "docs/m861-v4-closer-obstacle-source-generation-audit.md",
+      "docs/m862-v4-generated-boundary-refinement-design.md",
+      "runs/m860_v4_closer_obstacle_source_generation/summary.json",
+      "runs/m860_v4_closer_obstacle_source_generation/generated_replay_rows.csv"
+    ],
+    "parent_objective": [
+      "synthesize M853-M862 pair-delta boundary expansion branch before further continuation"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m863-v4-pair-delta-boundary-expansion-branch-synthesis",
+  "next_blocker": "generated-boundary refinement from M860 brackets has not yet been implemented",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "continue_to_generated_boundary_refinement",
+  "public_gates": [
+    "M863 must synthesize M853-M862 before further narrow continuation",
+    "M863 must separate boundary/source generation evidence from pair-delta outcome evidence",
+    "M863 must decide whether to continue with generated-boundary refinement or pivot to broader scenario generation",
+    "M863 must keep PPO and promotion blocked unless evidence explicitly supports admission"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m863-v4-pair-delta-boundary-expansion-branch-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "continue_to_generated_boundary_refinement",
+    "milestone": "m863-v4-pair-delta-boundary-expansion-branch-synthesis",
+    "reason": "M863 synthesizes M853-M862 and continues the branch into no-training generated-boundary refinement implementation before pair-delta replay objective training or PPO",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M863 writes a synthesis document covering M853-M862",
+    "M863 answers the required synthesis questions",
+    "M863 records supported and falsified claims",
+    "M863 classifies failure taxonomy across the branch",
+    "M863 pre-registers the next branch decision without PPO promotion or pair-delta replay unless explicitly justified"
+  ],
+  "type": "gate"
+}
