@@ -62,16 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m907-v4-pair-delta-public-base-feature-dim-compatibility-audit
+m908-v4-public-base-compatible-residual-head-probe-design
 ```
 
-M906 found a public-base compatibility blocker: M761 residual head
-`feature_dim=64` does not match M399 public-base actor `feature_dim=128`. M907
-must classify this mismatch and choose a compatibility route before any update,
-replay, PPO, or promotion.
+M907 classified M906 as an internal feature-basis compatibility blocker, not a
+P0 actor-input contract violation. M908 must design an M399-rooted 128-dim
+residual-head objective probe before any exact execution, replay, PPO, or
+promotion.
 
 ## Recent Evidence Line
 
+- M907 audits the M906 mismatch. M399 public base and M568 diagnostic BC both
+  use `human_view_online_gru`, `obs_dim=72`, `response_dim=12`, and
+  `context_dim=60`, but M399 actor_feature_dim is `128` while M568/M761 are
+  `64`. M761 is therefore M568-feature-specific. Force-loading, padding,
+  truncation, or actor-input edits are rejected; next is a 128-dim public-base
+  residual-head design.
 - M906 attempts exact no-update pair-delta sanity on M399 public base and fails
   before reconstruction: `residual feature_dim=64 does not match actor
   feature_dim=128`. No training/replay/PPO/promotion occurred. Direct

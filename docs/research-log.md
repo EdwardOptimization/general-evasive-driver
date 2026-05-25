@@ -14254,3 +14254,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M906 attempts exact no-update pair-delta objective sanity on the current public-gate base M399 and fails before reconstruction with `ValueError: residual feature_dim=64 does not match actor feature_dim=128`. No training, replay, PPO, promotion, or actor parameter mutation occurred. This blocks direct public-base objective application with the M761 residual head and routes to feature-dimension compatibility audit.
 - decision: `public_base_exact_compatibility_blocked_feature_dim_mismatch`
 - next: `m907-v4-pair-delta-public-base-feature-dim-compatibility-audit`
+
+## 20260525T205603Z - m907-v4-pair-delta-public-base-feature-dim-compatibility-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m907-v4-pair-delta-public-base-feature-dim-compatibility-audit.md`
+- result: M907 audits the M906 failure as an internal actor-feature mismatch, not an actor-input contract violation. M399 public base and M568 diagnostic BC both use the P0 human-view 72-dim online GRU contract with response_dim 12 and context_dim 60, but M399 actor_feature_dim is 128 while M568 and M761 residual head are 64. Force-loading, padding, truncation, or actor-input changes are rejected.
+- decision: `public_base_feature_dim_compatibility_route_to_128dim_residual_design`
+- next: `m908-v4-public-base-compatible-residual-head-probe-design`

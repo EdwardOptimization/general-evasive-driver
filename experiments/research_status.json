@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 915,
+    "completed": 916,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m906-v4-pair-delta-public-base-exact-compatibility-audit",
+    "task_id": "m907-v4-pair-delta-public-base-feature-dim-compatibility-audit",
     "status": "completed",
-    "returncode": 1,
-    "command_log": "docs/m906-v4-pair-delta-public-base-exact-compatibility-audit.md"
+    "returncode": 0,
+    "command_log": "docs/m907-v4-pair-delta-public-base-feature-dim-compatibility-audit.md"
   },
   "next_task": {
-    "id": "m907-v4-pair-delta-public-base-feature-dim-compatibility-audit",
+    "id": "m908-v4-public-base-compatible-residual-head-probe-design",
     "status": "pending",
-    "priority": 9020,
-    "kind": "gate",
-    "hypothesis": "Audit public-base residual-head feature dimension mismatch and choose compatibility route",
-    "command": "see experiments/manifests/m907-v4-pair-delta-public-base-feature-dim-compatibility-audit.json",
-    "success_artifact": "docs/m907-v4-pair-delta-public-base-feature-dim-compatibility-audit.md",
-    "notes": "Pending: classify feature_dim mismatch before any public-base update, replay, PPO, or promotion"
+    "priority": 9030,
+    "kind": "infrastructure",
+    "hypothesis": "Design an M399-rooted 128-dim residual-head objective probe before exact execution",
+    "command": "see experiments/manifests/m908-v4-public-base-compatible-residual-head-probe-design.json",
+    "success_artifact": "docs/m908-v4-public-base-compatible-residual-head-probe-design.md",
+    "notes": "Pending: design public-base-compatible residual-head probe; no exact execution, replay, PPO, or promotion"
   },
-  "updated_at_utc": "20260525T205335Z"
+  "updated_at_utc": "20260525T205603Z"
 }

@@ -1,0 +1,110 @@
+{
+  "id": "m908-v4-public-base-compatible-residual-head-probe-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+    ],
+    "parent_dataset": [
+      "docs/m907-v4-pair-delta-public-base-feature-dim-compatibility-audit.md",
+      "docs/m906-v4-pair-delta-public-base-exact-compatibility-audit.md",
+      "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_train_public_rows.csv",
+      "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_eval_public_rows.csv",
+      "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_source_holdout_public_rows.csv",
+      "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_new_signature_holdout_public_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m907-v4-pair-delta-public-base-feature-dim-compatibility-audit.json",
+      "experiments/manifests/m906-v4-pair-delta-public-base-exact-compatibility-audit.json"
+    ],
+    "parent_objective": [
+      "design a public-base-compatible 128-dim residual-head objective probe after M906 feature-dim mismatch"
+    ],
+    "derived_from": [
+      "m907-v4-pair-delta-public-base-feature-dim-compatibility-audit"
+    ],
+    "blocked_by": [
+      "M399 public-base actor feature_dim 128 cannot use M761 residual head feature_dim 64"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m908-v4-public-base-compatible-residual-head-probe-design.md",
+  "public_gates": [
+    "M908 must keep M399 as the public-base actor",
+    "M908 must design a residual head with feature_dim=128",
+    "M908 must keep M568/M761 as diagnostic lineage only",
+    "M908 must require exact split metrics before replay",
+    "M908 must block actor update, replay execution, PPO, and promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in M908",
+    "do not force-load M761 residual head into M399",
+    "do not pad, truncate, or project residual features without a registered objective",
+    "do not modify actor inputs",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_public_base_integration_readiness",
+    "evidence_axis": "G_compatibility_design: design public-base-compatible residual objective route",
+    "evidence_increment": "turns M907 feature-dim audit into a concrete 128-dim public-base residual-head probe design",
+    "claim_scope": "design only; no residual training, actor update, exact execution, replay, PPO, public-base integration claim, or promotion",
+    "stop_condition": [
+      "stop if the design force-loads the M761 residual head",
+      "stop if the design modifies actor inputs",
+      "stop if exact holdout gates are omitted",
+      "stop if replay, PPO, or promotion is admitted before exact objective evidence"
+    ],
+    "fallback_plan": [
+      "if M399-compatible residual target design is unsafe, route to residual-free public-base objective sanity",
+      "if target lineage is too M568-specific, route to public-base target regeneration design",
+      "if exact-only design is accepted, route to implementation with no replay or PPO"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M907 selects 128-dim public-base residual design route",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A design-only milestone can specify a safe public-base-compatible residual-head objective probe rooted at M399 without using the M761 64-dim residual head or changing actor inputs.",
+  "success_criteria": [
+    "M908 specifies a 128-dim residual head route for M399",
+    "M908 specifies exact split metrics and holdout non-regression gates",
+    "M908 keeps M568/M761 evidence diagnostic-only",
+    "M908 blocks replay, PPO, and promotion"
+  ],
+  "failure_criteria": [
+    "M908 force-loads M761 residual head into M399",
+    "M908 modifies actor inputs",
+    "M908 admits replay or PPO before exact objective evidence",
+    "M908 omits target-lineage or holdout safeguards"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m908-v4-public-base-compatible-residual-head-probe-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m908-v4-public-base-compatible-residual-head-probe-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m907-v4-pair-delta-public-base-feature-dim-compatibility-audit.md"
+  ],
+  "decision_rule": "M908 may only design the public-base-compatible residual-head probe. It must not train, run exact evaluation, run replay, run PPO, or promote.",
+  "next_blocker": "Public-base-compatible 128-dim residual-head probe has not yet been designed"
+}
