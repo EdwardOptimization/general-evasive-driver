@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m943-v4-public-base-controlled-fusion-candidate-compatibility-design
+m944-v4-public-base-controlled-fusion-candidate-compatibility-implementation
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -93,6 +93,12 @@ alphas `0.0675`, `0.0700`, and `0.0725`.
 
 ## Recent Evidence Line
 
+- M943 designs exact no-update compatibility for the M942 candidates. The
+  primary alpha is `0.0725`, with `0.0675` and `0.0700` as backups. M944 should
+  materialize all three checkpoints, re-run exact objective metrics from normal
+  checkpoint loading at alpha `1.0`, and aggregate whether the primary remains
+  an exact candidate. Replay, PPO, private holdout, and promotion remain
+  blocked.
 - M942 runs the no-training micro-alpha audit of the M940 raw direction.
   It finds `strict_candidate_count=3` at alphas `0.0675`, `0.0700`, and
   `0.0725`, with forbidden parameters unchanged and training/replay/PPO/

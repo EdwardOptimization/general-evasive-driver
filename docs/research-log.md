@@ -14593,3 +14593,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M942 runs the no-training fine alpha sweep allowed by M941. It reconstructs `1213/1213`, joins `122/122`, confirms the M940 raw checkpoint differs from M399 only on `actor_mean` plus `response_context_fusion.0`, and keeps training, replay, PPO, and promotion blocked. It finds `strict_candidate_count=3`, `low_tail_effect_candidate_count=3`, and `target_tolerance_candidate_count=3` at alphas `0.0675`, `0.0700`, and `0.0725`. The best normal-retaining candidate is alpha `0.0725` with `normal_anchor_mse_mean=0.0000038589`, `normal_intervention_gap_p10=0.0113417562`, `gap_deficit_mean=0.0129708514`, and `low_tail_fraction=0.3264633119`.
 - decision: `public_base_controlled_fusion_raw_direction_feasibility_candidate_route_to_exact_compatibility_design`
 - next: `m943-v4-public-base-controlled-fusion-candidate-compatibility-design`
+
+## 20260525T233146Z - m943-v4-public-base-controlled-fusion-candidate-compatibility-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m943-v4-public-base-controlled-fusion-candidate-compatibility-design.md`
+- result: M943 designs exact no-update compatibility for the M942 candidates. It selects alpha `0.0725` as the primary candidate because it is the best normal-retaining row by low-tail fraction and deficit, with `0.0675` and `0.0700` as backups. M944 should materialize all three interpolated checkpoints, re-run exact objective metrics from ordinary checkpoint loading at alpha `1.0`, verify forbidden parameters remain unchanged, and aggregate pass/fail. Training, replay, PPO, private holdout, and promotion remain blocked.
+- decision: `controlled_fusion_candidate_compatibility_design_admit_m944`
+- next: `m944-v4-public-base-controlled-fusion-candidate-compatibility-implementation`

@@ -1,0 +1,112 @@
+{
+  "id": "m944-v4-public-base-controlled-fusion-candidate-compatibility-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m940_v4_public_base_controlled_fusion_boundary_objective/checkpoints/raw_boundary_objective_update.pt"
+    ],
+    "parent_dataset": [
+      "docs/m943-v4-public-base-controlled-fusion-candidate-compatibility-design.md",
+      "runs/m942_v4_public_base_controlled_fusion_micro_boundary_audit/summary.json",
+      "runs/m942_v4_public_base_controlled_fusion_micro_boundary_audit/alpha_metrics.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m943-v4-public-base-controlled-fusion-candidate-compatibility-design.json"
+    ],
+    "parent_objective": [
+      "materialize M942 candidate checkpoints and re-run exact no-update objective compatibility"
+    ],
+    "derived_from": [
+      "m943-v4-public-base-controlled-fusion-candidate-compatibility-design"
+    ],
+    "blocked_by": [
+      "candidate checkpoint materialization and exact compatibility have not yet run"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m944-v4-public-base-controlled-fusion-candidate-compatibility-implementation.md",
+  "public_gates": [
+    "M944 must materialize candidate checkpoints for alphas 0.0675 0.0700 0.0725",
+    "M944 must re-run exact objective metrics from materialized checkpoints",
+    "M944 must keep forbidden parameters unchanged",
+    "M944 must keep training replay PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor inputs",
+    "do not unfreeze response_encoder context_encoder or online_gru_cell"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_controlled_fusion_surface",
+    "evidence_axis": "G_compatibility: materialized candidate exact no-update compatibility",
+    "evidence_increment": "checks whether M942 candidate alphas remain exact candidates after materialized checkpoint loading",
+    "claim_scope": "checkpoint materialization and exact objective compatibility only; no replay, PPO, driver improvement claim, or promotion",
+    "stop_condition": [
+      "stop if materialized candidate metrics fail",
+      "stop if forbidden parameters change",
+      "stop if replay PPO or promotion is attempted"
+    ],
+    "fallback_plan": [
+      "if exact compatibility passes, route to replay/proof retention design",
+      "if exact compatibility fails, route to controlled-fusion candidate compatibility audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M943 admits exact no-update compatibility implementation for M942 candidates",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M942 candidate alphas remain exact candidates after materializing them as ordinary loadable checkpoints.",
+  "success_criteria": [
+    "summary.json exists",
+    "materialized_checkpoint_count is 3",
+    "exact_candidate_count >= 1",
+    "primary_candidate_exact_pass is true",
+    "forbidden_parameter_changed is false",
+    "training_started optimizer_started replay_used ppo_used and promoted are false"
+  ],
+  "failure_criteria": [
+    "candidate checkpoint materialization fails",
+    "primary candidate no longer passes exact metrics after loading",
+    "forbidden parameters change",
+    "M944 runs replay PPO or promotion"
+  ],
+  "commands": [
+    {
+      "name": "run_candidate_compatibility",
+      "command": "PYTHONPATH=src python -m autodrift.public_base_controlled_fusion_candidate_compatibility --base-checkpoint runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --raw-checkpoint runs/m940_v4_public_base_controlled_fusion_boundary_objective/checkpoints/raw_boundary_objective_update.pt --positive-rows runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv --contrast-rows runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv --scenario-config configs/extreme_fault_distribution_v4_scenarios.json --target-rows runs/m919_v4_public_base_expanded_target_regeneration/accepted_target_rows.csv --m912-summary runs/m912_v4_public_base_sequence_recalibration_audit/summary.json --low-tail-rows runs/m912_v4_public_base_sequence_recalibration_audit/low_tail_rows.csv --run-dir runs/m944_v4_public_base_controlled_fusion_candidate_compatibility --device cpu --candidate-alphas 0.0675,0.0700,0.0725 --primary-alpha 0.0725"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/interpolation/manifest.json",
+      "type": "data"
+    },
+    {
+      "path": "docs/m944-v4-public-base-controlled-fusion-candidate-compatibility-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "runs/m940_v4_public_base_controlled_fusion_boundary_objective/checkpoints/raw_boundary_objective_update.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m943-v4-public-base-controlled-fusion-candidate-compatibility-design.md"
+  ],
+  "decision_rule": "M944 may only materialize candidate checkpoints and run exact no-update compatibility. It must not train, run replay, run PPO, or promote.",
+  "next_blocker": "candidate compatibility has not yet run"
+}
