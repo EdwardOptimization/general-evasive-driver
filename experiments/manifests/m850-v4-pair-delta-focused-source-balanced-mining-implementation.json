@@ -1,0 +1,125 @@
+{
+  "id": "m850-v4-pair-delta-focused-source-balanced-mining-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m849-v4-pair-delta-focused-source-balanced-mining-design.md",
+      "runs/m847_v4_cross_source_sequence_effective_pair_refresh/pair_candidate_rows.csv",
+      "runs/m847_v4_cross_source_sequence_effective_pair_refresh/accepted_pair_delta_rows.csv",
+      "runs/m844_v4_source_diverse_sequence_effective_corpus/boundary_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m849-v4-pair-delta-focused-source-balanced-mining-design.json"
+    ],
+    "parent_objective": [
+      "implement no-training pair-delta-focused source-balanced mining"
+    ],
+    "derived_from": [
+      "m849-v4-pair-delta-focused-source-balanced-mining-design"
+    ],
+    "blocked_by": [
+      "M847 pair-delta positives are real but source/fault concentrated"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m850-v4-pair-delta-focused-source-balanced-mining-implementation.md",
+  "public_gates": [
+    "M850 must implement no-training pair-delta-focused mining only",
+    "M850 must replay pair-delta directions before component controls",
+    "M850 must write balanced pair-delta artifacts",
+    "M850 must preserve actor and residual-head checksums",
+    "M850 must not train or promote"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels or oracle fields to actor input",
+    "do not count component rows as pair-delta primary rows",
+    "do not treat direct pair-delta overrides as learned self-ID proof"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_source_diverse_sequence_effective_corpus",
+    "evidence_axis": "G_data: pair-delta-focused source-balanced mining implementation",
+    "evidence_increment": "implements the M849 miner to broaden M847 pair-delta positives before objective design",
+    "claim_scope": "no-training corpus diagnostics only; no PPO, learned policy claim, or driver promotion",
+    "stop_condition": [
+      "stop if actor or residual-head checksums change",
+      "stop if component rows satisfy pair-delta gates",
+      "stop if pair-delta rows are unavailable",
+      "stop if direct overrides are treated as learned self-ID proof"
+    ],
+    "fallback_plan": [
+      "if strong pair-delta corpus gate passes, audit before objective sanity",
+      "if sparse pair-delta positive, audit before restricted objective design",
+      "if source-limited, design expanded boundary bracketing",
+      "if all-weak, synthesize before continuing"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M849 admits one pair-delta-focused mining implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A no-training pair-delta-focused miner can broaden M847's source-concentrated pair-delta evidence by scanning pair-delta outcomes first and balancing accepted rows afterward.",
+  "success_criteria": [
+    "M850 implements pair-delta-first sequence mining",
+    "M850 writes accepted and balanced pair-delta artifacts",
+    "M850 reports source/fault/seed diversity gates",
+    "M850 verifies actor and residual-head checksums unchanged",
+    "M850 classifies the result without PPO or promotion"
+  ],
+  "failure_criteria": [
+    "M850 trains actor or residual-head parameters",
+    "M850 runs PPO",
+    "M850 promotes a checkpoint",
+    "M850 mutates actor input contract",
+    "M850 counts component rows as pair-delta evidence"
+  ],
+  "commands": [
+    {
+      "name": "pair_delta_focused_source_balanced_mining",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_pair_delta_focused_source_balanced_mining --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --residual-head runs/m761_v4_sequence_objective_probe/residual_head.pt --scenario-config configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json --pair-candidate-rows runs/m847_v4_cross_source_sequence_effective_pair_refresh/pair_candidate_rows.csv --source-rows runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv --candidate-plan-rows runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv --run-dir runs/m850_v4_pair_delta_focused_source_balanced_mining --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_pair_delta_focused_source_balanced_mining.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_v4_pair_delta_focused_source_balanced_mining.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m850_v4_pair_delta_focused_source_balanced_mining/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "docs/m850-v4-pair-delta-focused-source-balanced-mining-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m849-v4-pair-delta-focused-source-balanced-mining-design.md",
+    "runs/m847_v4_cross_source_sequence_effective_pair_refresh/summary.json",
+    "runs/m847_v4_cross_source_sequence_effective_pair_refresh/pair_candidate_rows.csv"
+  ],
+  "decision_rule": "M850 may produce a no-training pair-delta corpus diagnostic classification only. It must not train, run PPO, promote, or claim learned self-ID.",
+  "next_blocker": "pair-delta evidence is real but currently source/fault concentrated"
+}

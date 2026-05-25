@@ -13715,3 +13715,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M848 audits M847 as a real pair-delta positive but source-concentrated result. The audit supports that real cross-source pairing works and pair-delta sequence controllability exists (`912` pair-delta rows, `17` accepted pair-delta rows), resolving M844's structural gap. It does not support objective training yet: the pair-delta accepted subset has only `3` left source groups, `2` left seeds, `2` left fault families, and max left source/seed dominance `0.7059`; the full accepted set is component-heavy (`97` throttle-axis rows versus `17` pair-delta rows). The next branch should mine pair-delta outcomes first and apply source/fault/seed balancing after observing pair-delta acceptance, with component directions retained only as controls.
 - decision: `admit_pair_delta_focused_source_balanced_mining_design`
 - next: `m849-v4-pair-delta-focused-source-balanced-mining-design`
+
+## 20260525T134404Z - m849-v4-pair-delta-focused-source-balanced-mining-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m849-v4-pair-delta-focused-source-balanced-mining-design.md`
+- result: M849 designs a no-training pair-delta-first miner after M847/M848 found real but concentrated pair-delta evidence. The design starts from M847 `pair_candidate_rows.csv`, replays only `pair_delta_positive` and `pair_delta_negative` first over hold steps `[4, 6]` and epsilons `[0.025, 0.05, 0.075]`, then balances accepted pair-delta rows by source group, seed, fault family, fault-family pair, hold step, and direction. Component directions are allowed only as controls after a balanced pair-delta subset exists and cannot satisfy primary gates. Strong corpus requires at least `60` balanced pair-delta rows with source/fault/seed diversity; sparse positive requires at least `30`. M850 implementation is admitted; PPO, promotion, actor/residual training, and objective training remain blocked.
+- decision: `pair_delta_focused_source_balanced_mining_design_admit_m850`
+- next: `m850-v4-pair-delta-focused-source-balanced-mining-implementation`
