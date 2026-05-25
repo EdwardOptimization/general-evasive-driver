@@ -14460,3 +14460,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M928 classifies M927 as `promotion_gate_failure`: no residual mixture can be admitted toward exact compatibility because tail lift requires action drift outside the normal-retention gate. The residual-head bridge has reached a local stop condition. The next branch is policy-level trust-region design, not another residual-head objective variant.
 - decision: `public_base_trust_region_feasibility_audit_route_to_policy_level_trust_region_design`
 - next: `m929-v4-public-base-policy-level-trust-region-design`
+
+## 20260525T221919Z - m929-v4-public-base-policy-level-trust-region-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m929-v4-public-base-policy-level-trust-region-design.md`
+- result: M929 designs an objective-only actor_mean trust-region probe after residual bridge infeasibility. M930 may update only `model.actor_mean`; feature/recurrent encoders, critic, log_std, actor inputs, replay, PPO, and promotion remain blocked. Candidate alphas must satisfy the same normal-retention, low-tail, and target-action gates before any exact/replay work.
+- decision: `public_base_policy_level_trust_region_design_admit_m930`
+- next: `m930-v4-public-base-policy-head-trust-region-probe-implementation`

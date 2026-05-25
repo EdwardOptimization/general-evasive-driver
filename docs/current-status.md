@@ -62,17 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m929-v4-public-base-policy-level-trust-region-design
+m930-v4-public-base-policy-head-trust-region-probe-implementation
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
 alpha/mix candidate. M928 audits this as a residual-bridge trust-region
-conflict and routes to policy-level trust-region design. M929 must design
-actor-level objective sanity and proof-retention gates before any training,
-replay, PPO, or promotion.
+conflict and routes to policy-level trust-region design. M929 designs an
+actor_mean-only objective sanity probe. M930 must train only the policy mean
+head, freeze feature/recurrent encoders, critic, and log_std, and evaluate
+objective gates before replay, PPO, or promotion.
 
 ## Recent Evidence Line
 
+- M929 designs the policy-level trust-region route. M930 may update only
+  `actor_mean` while freezing feature/recurrent encoders, critic, and log_std.
+  It must use objective sanity and interpolation gates before any replay, PPO,
+  or promotion. The P0 human-view no-wheel input contract remains unchanged.
 - M928 audits M927 as `promotion_gate_failure`: existing residual directions
   can produce tail lift or normal retention, but not both at the same alpha/mix
   point. The next route is `v4_public_base_policy_level_trust_region`, not

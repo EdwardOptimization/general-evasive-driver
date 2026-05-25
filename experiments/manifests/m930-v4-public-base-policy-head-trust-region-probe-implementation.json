@@ -1,0 +1,116 @@
+{
+  "id": "m930-v4-public-base-policy-head-trust-region-probe-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m929-v4-public-base-policy-level-trust-region-design.md",
+      "runs/m919_v4_public_base_expanded_target_regeneration/accepted_target_rows.csv",
+      "runs/m927_v4_public_base_residual_direction_feasibility/summary.json",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/summary.json",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/low_tail_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m929-v4-public-base-policy-level-trust-region-design.json"
+    ],
+    "parent_objective": [
+      "implement objective-only actor_mean trust-region probe after residual bridge infeasibility"
+    ],
+    "derived_from": [
+      "m929-v4-public-base-policy-level-trust-region-design"
+    ],
+    "blocked_by": [
+      "policy-head trust-region probe has not yet been implemented"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m930-v4-public-base-policy-head-trust-region-probe-implementation.md",
+  "public_gates": [
+    "M930 may update only actor_mean",
+    "M930 must preserve P0 actor input contract",
+    "M930 must keep feature backbone critic and log_std unchanged",
+    "M930 must block replay PPO and promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not change actor inputs",
+    "do not update feature backbone or recurrent encoders",
+    "do not update critic",
+    "do not update log_std",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_policy_level_trust_region",
+    "evidence_axis": "G_policy_update: execute policy-head trust-region objective sanity",
+    "evidence_increment": "tests whether actor_mean-only update can satisfy objective gates after residual infeasibility",
+    "claim_scope": "objective-only policy-head probe; no replay, PPO, driver improvement claim, or promotion",
+    "stop_condition": [
+      "stop if non-actor_mean parameters change",
+      "stop if candidate_alpha_count is zero",
+      "stop if replay PPO or promotion is attempted"
+    ],
+    "fallback_plan": [
+      "if candidate exists, route to exact no-update compatibility design",
+      "if no candidate exists, route to policy-level trust-region audit before broader actor update"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M929 admits policy-head trust-region probe implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A tightly constrained actor_mean-only update can produce an objective candidate where residual directions were infeasible, while preserving feature and recurrent encoders.",
+  "success_criteria": [
+    "summary.json exists",
+    "training_started is true",
+    "actor_mean_changed is true",
+    "feature_backbone_changed is false",
+    "critic_changed is false",
+    "log_std_changed is false",
+    "sample_reconstruction_success_rate >= 0.98",
+    "candidate_alpha_count >= 1",
+    "replay_used ppo_used and promoted are false"
+  ],
+  "failure_criteria": [
+    "actor input contract changes",
+    "non-actor_mean parameters change",
+    "candidate_alpha_count == 0",
+    "M930 runs replay PPO or promotion"
+  ],
+  "commands": [
+    {
+      "name": "run_policy_head_trust_region_probe",
+      "command": "PYTHONPATH=src python -m autodrift.public_base_policy_head_trust_region_probe --checkpoint runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --positive-rows runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv --contrast-rows runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv --scenario-config configs/extreme_fault_distribution_v4_scenarios.json --target-rows runs/m919_v4_public_base_expanded_target_regeneration/accepted_target_rows.csv --m912-summary runs/m912_v4_public_base_sequence_recalibration_audit/summary.json --low-tail-rows runs/m912_v4_public_base_sequence_recalibration_audit/low_tail_rows.csv --run-dir runs/m930_v4_public_base_policy_head_trust_region_probe --device cpu --epochs 40 --seed 9300"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m930_v4_public_base_policy_head_trust_region_probe/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m930_v4_public_base_policy_head_trust_region_probe/alpha_metrics.csv",
+      "type": "data"
+    },
+    {
+      "path": "docs/m930-v4-public-base-policy-head-trust-region-probe-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m929-v4-public-base-policy-level-trust-region-design.md"
+  ],
+  "decision_rule": "M930 may only run objective-only actor_mean training and interpolation metrics. It must not run replay, PPO, or promote.",
+  "next_blocker": "policy-head trust-region probe has not yet been implemented"
+}

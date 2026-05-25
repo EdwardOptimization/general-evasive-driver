@@ -1,0 +1,77 @@
+{
+  "decision_reason": "M929 designs actor_mean-only objective sanity with frozen feature backbone critic and log_std after residual bridge infeasibility",
+  "failure_criteria": [
+    "M929 starts training",
+    "M929 changes actor inputs",
+    "M929 admits replay PPO or promotion before objective sanity"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train in M929",
+    "do not change actor inputs",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not weaken M927 normal-retention gates"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T222227Z",
+  "hypothesis": "After residual bridge infeasibility, the next controlled route is a design-only actor-level trust-region objective with exact proof gates before replay or PPO.",
+  "lineage": {
+    "blocked_by": [
+      "policy-level trust-region design has not yet been written"
+    ],
+    "derived_from": [
+      "m928-v4-public-base-trust-region-feasibility-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m928-v4-public-base-trust-region-feasibility-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m928-v4-public-base-trust-region-feasibility-audit.md",
+      "runs/m927_v4_public_base_residual_direction_feasibility/summary.json",
+      "runs/m919_v4_public_base_expanded_target_regeneration/accepted_target_rows.csv"
+    ],
+    "parent_objective": [
+      "design actor-level trust-region objective after residual bridge infeasibility"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m929-v4-public-base-policy-level-trust-region-design",
+  "next_blocker": "policy-level trust-region design has not yet been written",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "public_base_policy_level_trust_region_design_admit_m930",
+  "public_gates": [
+    "M929 must be design-only",
+    "M929 must preserve P0 actor input contract",
+    "M929 must pre-register objective sanity and proof-retention gates before any actor update",
+    "M929 must block replay PPO and promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m929-v4-public-base-policy-level-trust-region-design.md",
+    "clearance_margin_mean": "",
+    "decision": "public_base_policy_level_trust_region_design_admit_m930",
+    "milestone": "m929-v4-public-base-policy-level-trust-region-design",
+    "reason": "M929 designs actor_mean-only objective sanity with frozen feature backbone critic and log_std after residual bridge infeasibility",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m929-v4-public-base-policy-level-trust-region-design.md exists",
+    "M929 pre-registers actor-level objective sanity and proof-retention gates",
+    "M929 preserves P0 input contract",
+    "M929 blocks replay PPO and promotion"
+  ],
+  "type": "infrastructure"
+}
