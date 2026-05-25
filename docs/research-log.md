@@ -14076,3 +14076,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M887 audits M886 as clean enough for replay/proof gate design. The run preserved the actor input contract, left the M761 residual head unchanged, used no PPO, and promoted no checkpoint. M887 selects `runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/alpha_0_1.pt` as the next candidate because it is the largest exact-admissible interpolation with the best train objective delta and nonpositive exact holdout deltas; `alpha_0_05.pt` is the fallback if replay/proof gates hit a boundary cliff. No closed-loop replay, PPO, or promotion is admitted yet.
 - decision: `v4_enriched_pair_delta_objective_only_probe_audit_admit_replay_gate`
 - next: `m888-v4-enriched-pair-delta-replay-proof-gate-design`
+
+## 20260525T194202Z - m888-v4-enriched-pair-delta-replay-proof-gate-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m888-v4-enriched-pair-delta-replay-proof-gate-design.md`
+- result: M888 designs the M889 replay/proof gate stack for `alpha_0_1.pt` versus M568, with `alpha_0_05.pt` as fallback. The gate order is exact objective recheck, first replay gates for M183/M170 and M267/M264, all six public replay surfaces, then behavior seeds 9505 and 9506 only if replay passes. The design explicitly keeps PPO and promotion blocked and routes failures to exact/objective audit, proof-washout audit, or behavior-retention audit depending on where they occur.
+- decision: `v4_enriched_pair_delta_replay_proof_gate_design_admit_m889`
+- next: `m889-v4-enriched-pair-delta-replay-proof-gate-implementation`

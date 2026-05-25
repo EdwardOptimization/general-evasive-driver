@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260525T193802Z
+- Generated at UTC: 20260525T194320Z
 - Type: infrastructure
 - Gate tier: proof
-- Promotion decision: not_applicable
-- Decision reason: M888 may only design replay/proof evaluation. It must not train, run PPO, promote, or claim closed-loop improvement.
+- Promotion decision: v4_enriched_pair_delta_replay_proof_gate_design_admit_m889
+- Decision reason: M888 designs exact recheck first replay six-surface replay and behavior-retention gates for M886 alpha_0_1 while keeping PPO and promotion blocked
 
 ## Hypothesis
 
@@ -69,7 +69,18 @@ A minimal closed-loop replay/proof gate can be designed for the M886 alpha_0_1 o
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m888-v4-enriched-pair-delta-replay-proof-gate-design
+- type: infrastructure
+- checkpoint: docs/m888-v4-enriched-pair-delta-replay-proof-gate-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: v4_enriched_pair_delta_replay_proof_gate_design_admit_m889
+- reason: M888 designs exact recheck first replay six-surface replay and behavior-retention gates for M886 alpha_0_1 while keeping PPO and promotion blocked
 
 ## Next Blocker
 

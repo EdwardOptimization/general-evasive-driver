@@ -62,17 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m888-v4-enriched-pair-delta-replay-proof-gate-design
+m889-v4-enriched-pair-delta-replay-proof-gate-implementation
 ```
 
-M887 audited the M886 exact-admissible objective-only candidates and selected
-`alpha_0_1.pt` for replay/proof gate design, with `alpha_0_05.pt` as fallback.
-M888 must design the smallest closed-loop replay/proof gate stack before any
-execution. PPO, checkpoint promotion, actor input changes, and M761 residual-head
-mutation remain blocked.
+M888 designed the smallest closed-loop replay/proof gate stack for the M886
+`alpha_0_1.pt` candidate versus M568, with `alpha_0_05.pt` as fallback. M889
+must execute exact recheck, first replay gates, six public replay surfaces, and
+behavior-retention checks before any PPO or promotion.
 
 ## Recent Evidence Line
 
+- M888 designs the M889 replay/proof gate stack for
+  `runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/alpha_0_1.pt`
+  versus M568. The order is exact objective recheck, first replay gates
+  `M183/M170` and `M267/M264`, all six public replay surfaces, then behavior
+  seeds `9505` and `9506` only if replay passes. `alpha_0_05.pt` is the
+  fallback. PPO and promotion remain blocked.
 - M887 audits the M886 objective-only result as clean exact-objective evidence
   and admits replay/proof gate design. It selects
   `runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/alpha_0_1.pt`
