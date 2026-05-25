@@ -62,16 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m859-v4-closer-obstacle-source-generation-design
+m860-v4-closer-obstacle-source-generation-implementation
 ```
 
-M859 should design a no-training closer obstacle/source generation route from
-M857 all-safe-wide traces before pair-delta replay. PPO, promotion, base actor
-mutation, M761 residual-head mutation, and pair-delta sequence replay remain
-blocked.
+M860 should implement the M859 no-training closer obstacle/source generation
+route from M857 all-safe-wide traces before pair-delta replay. PPO, promotion,
+base actor mutation, M761 residual-head mutation, and pair-delta sequence replay
+remain blocked.
 
 ## Recent Evidence Line
 
+- M859 designs the closer obstacle/source generation route. All-safe-wide
+  source axes should generate bounded closer-obstacle extrapolations from their
+  closest wide-safe trace rows, with combined tightening for very wide margins.
+  All-collision axes should use safer-side candidates and source-step
+  neighborhood shifts. M860 may only run normal closed-loop generated candidate
+  replay and must not run pair-delta sequence replay.
 - M858 audits M857 as valid no-training trace evidence and confirms the primary
   blocker is scenario sampling: boundary-new-to-M844 rows are mostly too
   safe/wide under the tested grids. Recovered controls validate the trace

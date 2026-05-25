@@ -1,0 +1,127 @@
+{
+  "id": "m860-v4-closer-obstacle-source-generation-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m859-v4-closer-obstacle-source-generation-design.md",
+      "runs/m857_v4_boundary_new_to_m844_bracket_trace/summary.json",
+      "runs/m857_v4_boundary_new_to_m844_bracket_trace/axis_trace_summary.csv",
+      "runs/m857_v4_boundary_new_to_m844_bracket_trace/bracket_trace_rows.csv",
+      "runs/m857_v4_boundary_new_to_m844_bracket_trace/target_trace_source_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m859-v4-closer-obstacle-source-generation-design.json"
+    ],
+    "parent_objective": [
+      "implement no-training closer obstacle/source generation from all-safe-wide traces"
+    ],
+    "derived_from": [
+      "m859-v4-closer-obstacle-source-generation-design"
+    ],
+    "blocked_by": [
+      "M857 all-safe-wide traces need closer generated obstacle/source candidates"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m860-v4-closer-obstacle-source-generation-implementation.md",
+  "public_gates": [
+    "M860 must implement no-training source/obstacle generation only",
+    "M860 must target M857 primary boundary-new-to-M844 all-safe-wide sources",
+    "M860 must write generated replay and accepted boundary artifacts",
+    "M860 must preserve actor and residual-head checksums",
+    "M860 must not run pair-delta sequence replay, train, or promote"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels or oracle fields to actor input",
+    "do not replay pair-delta sequences in M860",
+    "do not count recovered controls as primary boundary-new-to-M844 accepted rows"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_boundary_expansion",
+    "evidence_axis": "G_data: closer obstacle/source generated boundary implementation",
+    "evidence_increment": "implements no-training candidate generation from M857 all-safe-wide traces to seek new low-margin boundary rows",
+    "claim_scope": "no-training generated boundary diagnostics only; no pair-delta outcome claim, PPO, learned policy claim, or driver promotion",
+    "stop_condition": [
+      "stop if actor or residual-head checksums change",
+      "stop if pair-delta sequence replay is run",
+      "stop if controls are counted as primary accepted rows",
+      "stop if generated rows are treated as learned self-ID proof"
+    ],
+    "fallback_plan": [
+      "if strong/sparse generated boundary passes, audit before pair-delta mining",
+      "if all-weak safe-wide persists, audit before broader scenario generation",
+      "if all-weak collision dominates, audit before safer-side source-step generation",
+      "if artifacts are incomplete, repair implementation before interpreting"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M859 admits one closer obstacle/source generation implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "No-training closer obstacle/source generation from M857 all-safe-wide traces can create a broader boundary-new-to-M844 low-margin surface before pair-delta mining.",
+  "success_criteria": [
+    "M860 implements generation plan construction from M857 traces",
+    "M860 writes generated replay and accepted boundary artifacts",
+    "M860 verifies actor and residual-head checksums unchanged",
+    "M860 classifies generated boundary surface without pair-delta replay",
+    "M860 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M860 trains actor or residual-head parameters",
+    "M860 runs PPO",
+    "M860 promotes a checkpoint",
+    "M860 runs pair-delta sequence replay",
+    "M860 mutates actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "closer_obstacle_source_generation",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_closer_obstacle_source_generation --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --residual-head runs/m761_v4_sequence_objective_probe/residual_head.pt --scenario-config configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json --m857-axis-summary runs/m857_v4_boundary_new_to_m844_bracket_trace/axis_trace_summary.csv --m857-trace-rows runs/m857_v4_boundary_new_to_m844_bracket_trace/bracket_trace_rows.csv --m857-target-trace-source-rows runs/m857_v4_boundary_new_to_m844_bracket_trace/target_trace_source_rows.csv --source-rows runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv --candidate-plan-rows runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv --run-dir runs/m860_v4_closer_obstacle_source_generation --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_closer_obstacle_source_generation.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_v4_closer_obstacle_source_generation.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m860_v4_closer_obstacle_source_generation/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "docs/m860-v4-closer-obstacle-source-generation-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m859-v4-closer-obstacle-source-generation-design.md",
+    "runs/m857_v4_boundary_new_to_m844_bracket_trace/summary.json",
+    "runs/m857_v4_boundary_new_to_m844_bracket_trace/cause_summary.json"
+  ],
+  "decision_rule": "M860 may only produce a no-training generated boundary diagnostic classification. It must not train, run PPO, run pair-delta sequence replay, promote, or claim learned self-ID.",
+  "next_blocker": "closer obstacle/source generation from all-safe-wide traces has not yet been implemented"
+}

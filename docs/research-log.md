@@ -13808,3 +13808,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M858 audits M857 as a valid trace diagnostic and confirms the primary blocker is scenario sampling: boundary-new-to-M844 rows are mostly too safe/wide under the tested grids. M857's controls validate the trace runner, but controls are not counted as new-source evidence. Supported claims are limited to no-training data-route evidence: target source reconstruction works, full trace classification works, same-source axis widening is not the best next move, and closer obstacle/source generation is now justified. Unsupported claims remain learned self-ID, pair-delta outcome evidence, objective-ready corpus, PPO admission, and checkpoint promotion.
 - decision: `admit_closer_obstacle_source_generation_design`
 - next: `m859-v4-closer-obstacle-source-generation-design`
+
+## 20260525T150837Z - m859-v4-closer-obstacle-source-generation-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m859-v4-closer-obstacle-source-generation-design.md`
+- result: M859 designs a no-training closer obstacle/source generation route from M857 all-safe-wide traces. The design separates all-safe-wide and all-collision source-axis families: all-safe-wide rows generate bounded closer-obstacle extrapolations from the closest wide-safe trace point, including optional combined tightening for very wide margins; all-collision rows generate safer-side candidates and source-step neighborhood shifts. M860 must replay only normal closed-loop generated candidates, accept only primary boundary-new-to-M844 successful non-collision rows with `0 <= margin <= 0.05`, and may compute cheap pairability projection only after accepted generated boundary rows exist. Pair-delta replay, objective training, PPO, promotion, actor mutation, and M761 mutation remain blocked.
+- decision: `closer_obstacle_source_generation_design_admit_m860`
+- next: `m860-v4-closer-obstacle-source-generation-implementation`
