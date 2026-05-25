@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M777 alpha 0.2 improves intervention gap and margin gap but fails strict M775 normal retention due one concentrated normal collision source; audit required before repair retuning PPO or promotion",
+  "failure_criteria": [
+    "reconstruction fails",
+    "normal retention metrics are missing",
+    "alpha 0.2 is not evaluated as primary",
+    "training or PPO starts",
+    "checkpoint is promoted"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not tune alpha after seeing M773 or M777 results",
+    "do not call this a promotion gate",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not hide normal-regression or intervention-collision rows",
+    "do not claim true four-wheel or single-wheel physical fidelity"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260525T015210Z",
+  "hypothesis": "The M761 residual head will preserve normal behavior and increase intervention sensitivity on the broader M773 corpus at conservative alpha 0.2.",
+  "lineage": {
+    "blocked_by": [
+      "m776-v4-residual-source-holdout-replay-synthesis"
+    ],
+    "derived_from": [
+      "m776-v4-residual-source-holdout-replay-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m776-v4-residual-source-holdout-replay-synthesis.json",
+      "configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m776-v4-residual-source-holdout-replay-synthesis.md",
+      "docs/m775-v4-limited-broader-residual-replay-design.md",
+      "runs/m773_v4_broader_source_holdout_corpus_export/summary.json",
+      "runs/m773_v4_broader_source_holdout_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/contrast_rows.csv",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+    ],
+    "parent_objective": [
+      "run limited no-PPO residual replay on broader M773 corpus after workflow synthesis"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m777-v4-limited-broader-residual-replay-implementation",
+  "next_blocker": "m778-v4-limited-broader-residual-replay-audit",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "v4_residual_closed_loop_replay_candidate_but_strict_retention_failed",
+  "public_gates": [
+    "M777 runs no-PPO residual replay on M773 broader corpus after synthesis",
+    "M777 treats alpha 0.2 as primary and 0.5 1.0 as diagnostic",
+    "M777 reports M773 source concentration and hard-negative caveats",
+    "M777 checks normal retention and intervention sensitivity",
+    "PPO training and checkpoint promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m777_v4_limited_broader_residual_replay/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "v4_residual_closed_loop_replay_candidate_but_strict_retention_failed",
+    "milestone": "m777-v4-limited-broader-residual-replay-implementation",
+    "reason": "M777 alpha 0.2 improves intervention gap and margin gap but fails strict M775 normal retention due one concentrated normal collision source; audit required before repair retuning PPO or promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "generalization",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M777 runs the registered no-PPO replay command",
+    "M777 reconstructs at least 0.98 of broader corpus rows",
+    "M777 writes summary alpha replay objective and rejected rows",
+    "M777 reports alpha-specific normal retention and intervention sensitivity",
+    "M777 does not train, run PPO, or promote"
+  ],
+  "type": "infrastructure"
+}

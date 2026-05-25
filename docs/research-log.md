@@ -13044,3 +13044,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M776 performs the required workflow synthesis for the `v4_residual_source_holdout_replay` branch after validation blocked direct implementation. The synthesis records that M761-M775 support a limited continuation: the residual mechanism survived public closed-loop replay and sparse fresh-holdout replay, and broader M773 source mining materially expanded positives from `995` to `2652` while reducing concentration. It also records unresolved risks: M773 still misses strict broad gates on fault-family-pair count (`17 < 18`) and seed dominance (`0.171569 > 0.15`), hard negatives are sparse, and current faults remain current_model_or_proxy rather than true per-wheel physics. Synthesis decision is `continue`, but only to one limited no-PPO broader residual replay implementation; PPO, promotion, and broad generalization remain blocked.
 - decision: `continue_to_limited_broader_residual_replay`
 - next: `m777-v4-limited-broader-residual-replay-implementation`
+
+## 20260525T081000Z - m777-v4-limited-broader-residual-replay-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m777_v4_limited_broader_residual_replay`
+- artifact: `docs/m777-v4-limited-broader-residual-replay-implementation.md`
+- result: M777 runs no-PPO residual replay on the broader M773 corpus. It reconstructs `2640/2652` rows with `0` metadata misses and `12` rejected `unsupported_variant:command_shift_obs` rows, writes `21120` replay rows and `10560` objective rows, and keeps actor checksum unchanged. Script-level result_class is `v4_residual_closed_loop_replay_candidate` with candidate alphas `0.2`, `0.5`, and `1.0`. Alpha `0.2` improves intervention action gap mean from base `0.040348` to `0.046317` and margin gap mean from `0.029796` to `0.033918`, with outcome sensitivity retention `1.0`. However, M775's stricter normal-retention gate fails: alpha `0.2` normal success is `0.995455` and normal collision rate is `0.004545`, caused by one unique concentrated normal collision source (`seed 77025`, `source_index 12`, `halfshaft_torque_loss_proxy`, `drive_authority_drop->rear_lateral_authority_drop`). This is mechanism-positive but strict-normal-retention-failed; no training, PPO, or promotion occurred.
+- decision: `v4_residual_closed_loop_replay_candidate_but_strict_retention_failed`
+- next: `m778-v4-limited-broader-residual-replay-audit`

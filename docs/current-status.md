@@ -62,16 +62,32 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m777-v4-limited-broader-residual-replay-implementation
+m778-v4-limited-broader-residual-replay-audit
 ```
 
-M777 should run the registered no-PPO residual replay on the broader M773
-corpus after M776 synthesis. It may only test the fixed M761 residual head at
-alphas `0.0,0.2,0.5,1.0`; PPO, actor/residual training, and promotion remain
-blocked.
+M778 should audit M777's broader residual replay. M777 is mechanism-positive
+but failed the stricter M775 normal-retention gate at alpha `0.2` due one
+concentrated normal collision source. Repair, alpha retuning, PPO, training,
+and promotion remain blocked until audit.
 
 ## Recent Evidence Line
 
+- M777 runs no-PPO residual replay on the broader M773 corpus. It reconstructs
+  `2640/2652` rows with `0` metadata misses and `12` rejected
+  `unsupported_variant:command_shift_obs` rows, writes `21120` replay rows and
+  `10560` objective rows, and keeps actor checksum unchanged. Script-level
+  result_class is `v4_residual_closed_loop_replay_candidate` with candidate
+  alphas `0.2`, `0.5`, and `1.0`. Alpha `0.2` improves intervention action gap
+  mean from base `0.040348` to `0.046317` and margin gap mean from `0.029796`
+  to `0.033918`, with outcome sensitivity retention `1.0`. However, M775's
+  stricter normal-retention gate fails: alpha `0.2` normal success is
+  `0.995455` and normal collision rate is `0.004545`, caused by one unique
+  concentrated normal collision source (`seed 77025`, `source_index 12`,
+  `halfshaft_torque_loss_proxy`,
+  `drive_authority_drop->rear_lateral_authority_drop`). This is
+  mechanism-positive but strict-normal-retention-failed; no training, PPO, or
+  promotion occurred. M778 must audit before repair, alpha retuning, PPO, or
+  promotion.
 - M776 performs the required workflow synthesis for the
   `v4_residual_source_holdout_replay` branch after validation blocked direct
   implementation. The synthesis records that M761-M775 support limited

@@ -1,0 +1,111 @@
+{
+  "id": "m778-v4-limited-broader-residual-replay-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "behavior_regression",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m777-v4-limited-broader-residual-replay-implementation.md",
+      "runs/m777_v4_limited_broader_residual_replay/summary.json",
+      "runs/m777_v4_limited_broader_residual_replay/alpha_metrics.csv",
+      "runs/m777_v4_limited_broader_residual_replay/replay_rows.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m777-v4-limited-broader-residual-replay-implementation.json",
+      "configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit broader residual replay normal-retention regression before repair or retuning"
+    ],
+    "derived_from": [
+      "m777-v4-limited-broader-residual-replay-implementation"
+    ],
+    "blocked_by": [
+      "m777-v4-limited-broader-residual-replay-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m778-v4-limited-broader-residual-replay-audit.md",
+  "public_gates": [
+    "M778 audits M777 broader residual replay",
+    "M778 separates script candidate status from stricter M775 normal-retention gate",
+    "M778 classifies the normal-branch collision source",
+    "M778 decides whether to repair near-boundary normal retention or re-mine sources",
+    "PPO training alpha retuning and checkpoint promotion remain blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not tune alpha in the audit",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not hide alpha 0.2 normal collisions",
+    "do not claim broad generalization"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_residual_source_holdout_replay",
+    "evidence_axis": "G_generalization: audit broader residual replay regression",
+    "evidence_increment": "audits M777 result and classifies normal-retention failure before any repair or retuning",
+    "claim_scope": "audit only; no repair, PPO, or driver promotion",
+    "stop_condition": [
+      "stop if audit admits PPO or promotion",
+      "stop if audit ignores normal-branch collision rows",
+      "stop if audit retroactively changes alpha policy",
+      "stop if audit hides source concentration"
+    ],
+    "fallback_plan": [
+      "if one near-boundary source explains the regression, design boundary-source audit or repair",
+      "if regression is systematic, return to residual objective normal-retention design",
+      "if source concentration dominates, design targeted source-balanced mining",
+      "if alpha is too aggressive, design a pre-registered lower-alpha sweep only after audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M777 alpha 0.2 script candidate but strict M775 normal-retention gate fails",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M777's alpha 0.2 broader replay result should be audited as mechanism-positive but strict-normal-retention-failed due to a concentrated near-boundary source.",
+  "success_criteria": [
+    "M778 records alpha 0.2 action-gap and margin-gap improvements",
+    "M778 records strict normal-retention failure",
+    "M778 identifies collision concentration",
+    "M778 classifies failure taxonomy",
+    "M778 admits only one next blocker without PPO promotion or alpha retuning"
+  ],
+  "failure_criteria": [
+    "audit treats script candidate pass as strict pass",
+    "audit hides normal collisions",
+    "audit tunes alpha retroactively",
+    "audit admits PPO or promotion"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m778-v4-limited-broader-residual-replay-audit.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m778-v4-limited-broader-residual-replay-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m777-v4-limited-broader-residual-replay-implementation.md",
+    "runs/m777_v4_limited_broader_residual_replay/summary.json",
+    "runs/m777_v4_limited_broader_residual_replay/alpha_metrics.csv"
+  ],
+  "decision_rule": "M778 may only audit M777. It must not tune alpha, run replay, train, run PPO, mutate actor or residual parameters, or promote a checkpoint.",
+  "next_blocker": "pending_audit_decision"
+}
