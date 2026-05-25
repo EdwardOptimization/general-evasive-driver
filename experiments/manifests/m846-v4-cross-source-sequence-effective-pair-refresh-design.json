@@ -1,0 +1,115 @@
+{
+  "id": "m846-v4-cross-source-sequence-effective-pair-refresh-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m845-v4-source-diverse-sequence-effective-corpus-audit.md",
+      "docs/m844-v4-source-diverse-sequence-effective-corpus-implementation.md",
+      "runs/m844_v4_source_diverse_sequence_effective_corpus/summary.json",
+      "runs/m844_v4_source_diverse_sequence_effective_corpus/boundary_rows.csv",
+      "runs/m844_v4_source_diverse_sequence_effective_corpus/accepted_sequence_effective_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m845-v4-source-diverse-sequence-effective-corpus-audit.json"
+    ],
+    "parent_objective": [
+      "design real cross-source sequence-effective pair refresh after M844 source-limited self-pair result"
+    ],
+    "derived_from": [
+      "m845-v4-source-diverse-sequence-effective-corpus-audit"
+    ],
+    "blocked_by": [
+      "M844 lacks pair-delta rows and remains below strong source/fault corpus gates"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m846-v4-cross-source-sequence-effective-pair-refresh-design.md",
+  "public_gates": [
+    "M846 must remain design-only",
+    "M846 must define real cross-source pairing criteria",
+    "M846 must include pair-delta sequence directions",
+    "M846 must preserve direct sequence evidence as controllability-only",
+    "M846 must keep PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run replay in M846",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat M844 direct sequence overrides as learned self-ID proof",
+    "do not ignore missing pair-delta evidence",
+    "do not add hidden fault labels or oracle fields to actor input"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_source_diverse_sequence_effective_corpus",
+    "evidence_axis": "G_data: real cross-source pair-delta sequence corpus design",
+    "evidence_increment": "designs the paired refresh needed after M844 improved source coverage but lacked pair-delta coverage",
+    "claim_scope": "design only; no replay, PPO, learned policy claim, or driver promotion",
+    "stop_condition": [
+      "stop if valid cross-source pairs cannot be defined from existing artifacts",
+      "stop if the design would train parameters",
+      "stop if pair-delta directions are again unavailable",
+      "stop if direct sequence override evidence is treated as learned self-ID proof"
+    ],
+    "fallback_plan": [
+      "if real pairs are feasible, implement cross-source pair refresh",
+      "if real pairs are too sparse, design expanded boundary bracketing over underrepresented sources",
+      "if pair-delta remains outcome-weak, synthesize before objective design",
+      "if paired corpus becomes strong, audit before any outcome-coupled objective sanity"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M845 admits cross-source pair refresh design after M844 source-limited result",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A real cross-source paired refresh can add pair-delta sequence-effectiveness evidence that M844 self-pair construction could not test.",
+  "success_criteria": [
+    "M846 writes a design document for cross-source sequence-effective pair refresh",
+    "M846 defines pair construction and diversity gates",
+    "M846 specifies pair-delta and component sequence scans",
+    "M846 specifies source-aware split discipline",
+    "M846 keeps direct sequence evidence separate from learned self-ID proof",
+    "M846 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M846 admits PPO or promotion",
+    "M846 trains actor or residual parameters",
+    "M846 ignores missing pair-delta evidence",
+    "M846 treats direct sequence override rows as learned policy proof"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m846-v4-cross-source-sequence-effective-pair-refresh-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m846-v4-cross-source-sequence-effective-pair-refresh-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m845-v4-source-diverse-sequence-effective-corpus-audit.md",
+    "runs/m844_v4_source_diverse_sequence_effective_corpus/summary.json",
+    "runs/m844_v4_source_diverse_sequence_effective_corpus/diversity_summary.json"
+  ],
+  "decision_rule": "M846 may only design a no-training cross-source sequence-effective pair refresh. It must not run replay, train, run PPO, or promote.",
+  "next_blocker": "M844 improved source diversity but did not test pair-delta sequence-effectiveness"
+}

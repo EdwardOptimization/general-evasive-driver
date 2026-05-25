@@ -13678,3 +13678,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M844 implements the no-training source-diverse sequence-effective corpus refresh. It reuses the `39` M832 accepted boundary rows as self-pair/component-sequence states, reconstructs `20` snapshots, evaluates `1404` sequence rows over component directions, hold steps `[4, 6]`, and epsilons `[0.025, 0.05, 0.075]`, and preserves actor/M761 checksums. The result improves source diversity over M841: accepted unique left source groups increase from `4` to `10`, and max left source dominance improves to `0.2807 <= 0.30`. It remains `v4_source_diverse_sequence_effective_corpus_source_limited`: accepted rows are `57`, below the `120` strong target, with only `3` left seeds, `4` left fault families, and `4` fault-family pairs. Source-aware splits were written (`train 41`, `eval 11`, `source_holdout 5`). Pair-delta rows were unavailable because this first refresh used self-pairs. Next is an audit before deciding whether to expand bracketing or construct real cross-source pairs.
 - decision: `v4_source_diverse_sequence_effective_corpus_source_limited`
 - next: `m845-v4-source-diverse-sequence-effective-corpus-audit`
+
+## 20260525T131503Z - m845-v4-source-diverse-sequence-effective-corpus-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m845-v4-source-diverse-sequence-effective-corpus-audit.md`
+- result: M845 audits M844 as a useful but source-limited data result. M844 produced complete no-training artifacts, preserved actor/M761 checksums, and improved accepted source coverage over M841 (`unique_left_source_group_count 4 -> 10`, max source dominance `0.5616 -> 0.2807`). It still fails strong corpus criteria: only `57 < 120` accepted primary sequence-effective rows, `3 < 4` left seeds, `4 < 5` left fault families, `4 < 8` fault-family pairs, and max left seed dominance `0.4211 > 0.35`. M844 also has no pair-delta rows because it used self-pair boundary rows. The audit classifies this as scenario-sampling limitation plus metric-artifact risk, not a contract violation. Next step is a design-only real cross-source sequence-effective pair refresh to test pair-delta sequence directions before objective training or PPO.
+- decision: `admit_cross_source_sequence_effective_pair_refresh_design`
+- next: `m846-v4-cross-source-sequence-effective-pair-refresh-design`
