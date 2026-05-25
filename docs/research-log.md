@@ -13957,3 +13957,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M874 synthesizes M864-M873 and closes the `v4_pair_delta_boundary_expansion` branch. The branch supports that no-training generated boundary data can be converted into real pair-delta outcome evidence, and that M873's boundary-preserving normal-window search materially improves coverage to `56` balanced rows across `4` left seeds. It does not support learned self-ID or promotion, and the `78055` caveat remains. Public-gate overfit risk is moderate because all evidence is still corpus construction on public surfaces. Objective training, PPO, and promotion remain blocked until the new objective-readiness branch audits duplicate pressure, source split quality, and caveats.
 - decision: `promote_to_next_branch`
 - next: `m875-v4-pair-delta-objective-readiness-audit`
+
+## 20260525T183423Z - m875-v4-pair-delta-objective-readiness-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m875-v4-pair-delta-objective-readiness-audit.md`
+- result: M875 audits M873 corpus objective readiness and rejects direct objective design from the raw split. M873 remains a positive corpus result, but the `39` new accepted rows compress to `13` unique closed-loop signatures, all have `retarget_delta = 0.0`, and axis labels create a `3.0x` duplication factor. The current split is not objective-ready: train has `28` rows and `0` new M873 rows, eval has `16` rows all from new M873 rows, and holdout has `12` rows and `0` new M873 rows. The `78055` caveat remains. Objective training, PPO, and promotion stay blocked.
+- decision: `route_to_pair_delta_corpus_dedup_resplit_design`
+- next: `m876-v4-pair-delta-corpus-dedup-resplit-design`

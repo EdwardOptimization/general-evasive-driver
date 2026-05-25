@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 883,
+    "completed": 884,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m874-v4-pair-delta-boundary-expansion-second-branch-synthesis",
+    "task_id": "m875-v4-pair-delta-objective-readiness-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m874-v4-pair-delta-boundary-expansion-second-branch-synthesis.md"
+    "command_log": "docs/m875-v4-pair-delta-objective-readiness-audit.md"
   },
   "next_task": {
-    "id": "m875-v4-pair-delta-objective-readiness-audit",
+    "id": "m876-v4-pair-delta-corpus-dedup-resplit-design",
     "status": "pending",
-    "priority": 8700,
-    "kind": "gate",
-    "hypothesis": "Audit M873 pair-delta corpus objective readiness before any actor update objective design PPO or promotion",
-    "command": "see experiments/manifests/m875-v4-pair-delta-objective-readiness-audit.json",
-    "success_artifact": "docs/m875-v4-pair-delta-objective-readiness-audit.md",
-    "notes": "Pending: audit duplicate pressure source split quality and 78055 caveat before objective design"
+    "priority": 8710,
+    "kind": "infrastructure",
+    "hypothesis": "Design no-training dedup and resplit for M873 pair-delta corpus before objective design",
+    "command": "see experiments/manifests/m876-v4-pair-delta-corpus-dedup-resplit-design.json",
+    "success_artifact": "docs/m876-v4-pair-delta-corpus-dedup-resplit-design.md",
+    "notes": "Pending: design dedup/resplit after M875 rejected direct objective design from raw M873 split"
   },
-  "updated_at_utc": "20260525T183117Z"
+  "updated_at_utc": "20260525T183423Z"
 }

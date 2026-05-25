@@ -1,0 +1,114 @@
+{
+  "id": "m876-v4-pair-delta-corpus-dedup-resplit-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m875-v4-pair-delta-objective-readiness-audit.md",
+      "runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh/new_accepted_pair_delta_rows.csv",
+      "runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh/balanced_pair_delta_rows.csv",
+      "runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh/train_public_rows.csv",
+      "runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh/eval_public_rows.csv",
+      "runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh/source_holdout_public_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m875-v4-pair-delta-objective-readiness-audit.json"
+    ],
+    "parent_objective": [
+      "design no-training dedup and resplit before objective design"
+    ],
+    "derived_from": [
+      "m875-v4-pair-delta-objective-readiness-audit"
+    ],
+    "blocked_by": [
+      "M875 found duplicate pressure and a split where train and holdout contain zero new M873 rows"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m876-v4-pair-delta-corpus-dedup-resplit-design.md",
+  "public_gates": [
+    "M876 must be design-only",
+    "M876 must design deduplication before objective work",
+    "M876 must design source-aware splits with explicit purpose",
+    "M876 must keep the 78055 caveat visible",
+    "M876 must keep objective training PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat duplicate axis labels as independent samples",
+    "do not hide 78055 caveat",
+    "do not perform objective design before dedup/resplit audit"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_objective_readiness",
+    "evidence_axis": "G_objective: corpus deduplication and split readiness",
+    "evidence_increment": "designs the no-training dedup/resplit transformation required before objective design",
+    "claim_scope": "design only; no replay, training, PPO, promotion, or learned driver claim",
+    "stop_condition": [
+      "stop if dedup key is not defined",
+      "stop if transformed split purpose is unclear",
+      "stop if design treats M873 duplicates as independent evidence",
+      "stop if objective training is admitted before transformed corpus audit"
+    ],
+    "fallback_plan": [
+      "if dedup leaves too few rows, return to data construction in a new branch",
+      "if split cannot carry new rows safely, design an exact objective on full corpus with separate holdout",
+      "if transformed corpus looks viable, pre-register implementation",
+      "if caveats dominate, audit branch direction before continuing"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M875 rejects direct objective design from raw M873 split",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A no-training dedup/resplit design can convert M873's positive but duplicate-heavy corpus into a cleaner objective-readiness candidate without actor updates.",
+  "success_criteria": [
+    "M876 defines closed-loop signature or geometry dedup keys",
+    "M876 defines transformed train/eval/holdout split policy",
+    "M876 preserves existing and new evidence distinctions",
+    "M876 keeps 78055 caveat explicit",
+    "M876 pre-registers implementation only if objective design remains blocked"
+  ],
+  "failure_criteria": [
+    "M876 trains actor or residual-head parameters",
+    "M876 runs PPO",
+    "M876 promotes a checkpoint",
+    "M876 designs an objective without dedup",
+    "M876 hides duplicate pressure or 78055 caveat"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m876-v4-pair-delta-corpus-dedup-resplit-design.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m876-v4-pair-delta-corpus-dedup-resplit-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m875-v4-pair-delta-objective-readiness-audit.md",
+    "runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh/summary.json"
+  ],
+  "decision_rule": "M876 may only design no-training dedup/resplit. It must not train, run PPO, promote, or admit objective design directly.",
+  "next_blocker": "Pair-delta corpus dedup/resplit has not yet been designed"
+}

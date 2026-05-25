@@ -62,19 +62,25 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m875-v4-pair-delta-objective-readiness-audit
+m876-v4-pair-delta-corpus-dedup-resplit-design
 ```
 
-M874 synthesized M864-M873 and closed the
-`v4_pair_delta_boundary_expansion` branch. M873 produced a positive
-no-training corpus result, but it is not a learned-driver or promotion claim.
-The next branch is `v4_pair_delta_objective_readiness`; M875 must audit
-duplicate pressure, source split quality, and the `78055` caveat before any
-objective design, actor update, PPO, promotion, base actor mutation, or M761
-residual-head mutation.
+M875 audited M873 corpus objective readiness and rejected direct objective
+design from the raw split. The new rows are duplicate-heavy and the current
+train/holdout splits contain zero new M873 rows. M876 must design a no-training
+dedup/resplit transformation before any objective design, actor update, PPO,
+promotion, base actor mutation, or M761 residual-head mutation.
 
 ## Recent Evidence Line
 
+- M875 audits M873 corpus objective readiness and rejects direct objective
+  design from the raw split. M873 remains a positive corpus result, but the
+  `39` new accepted rows compress to `13` unique closed-loop signatures, all
+  have `retarget_delta = 0.0`, and axis labels create a `3.0x` duplication
+  factor. The current split is not objective-ready: train has `28` rows and
+  `0` new M873 rows, eval has `16` rows all from new M873 rows, and holdout has
+  `12` rows and `0` new M873 rows. The `78055` caveat remains. Objective
+  training, PPO, and promotion stay blocked.
 - M874 synthesizes M864-M873 and closes the
   `v4_pair_delta_boundary_expansion` branch. The branch supports that
   no-training generated boundary data can be converted into real pair-delta
