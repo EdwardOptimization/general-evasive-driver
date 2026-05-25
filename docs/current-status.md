@@ -62,17 +62,25 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m876-v4-pair-delta-corpus-dedup-resplit-design
+m877-v4-pair-delta-corpus-dedup-resplit-implementation
 ```
 
-M875 audited M873 corpus objective readiness and rejected direct objective
-design from the raw split. The new rows are duplicate-heavy and the current
-train/holdout splits contain zero new M873 rows. M876 must design a no-training
-dedup/resplit transformation before any objective design, actor update, PPO,
-promotion, base actor mutation, or M761 residual-head mutation.
+M876 designed a no-training dedup/resplit transformation for the M873
+pair-delta corpus. M877 must implement transformed corpus artifacts by
+closed-loop signature deduplication and purpose-specific train/eval/holdout
+splits before any objective design, actor update, PPO, promotion, base actor
+mutation, or M761 residual-head mutation.
 
 ## Recent Evidence Line
 
+- M876 designs a no-training corpus transformation before objective design. The
+  plan deduplicates by closed-loop signature, explicitly excludes retarget-axis
+  labels from the dedup key, preserves duplicate metadata, separates existing
+  M867/M870 evidence from new M873 evidence, and writes purpose-specific
+  objective train/eval/source-holdout plus new-signature holdout splits. The
+  design keeps the `78055` caveat visible and makes objective training, PPO,
+  and promotion remain blocked until the transformed corpus is implemented and
+  audited.
 - M875 audits M873 corpus objective readiness and rejects direct objective
   design from the raw split. M873 remains a positive corpus result, but the
   `39` new accepted rows compress to `13` unique closed-loop signatures, all

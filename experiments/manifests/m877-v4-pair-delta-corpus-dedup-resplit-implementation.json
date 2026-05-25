@@ -1,0 +1,144 @@
+{
+  "id": "m877-v4-pair-delta-corpus-dedup-resplit-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m876-v4-pair-delta-corpus-dedup-resplit-design.md",
+      "runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh/accepted_pair_delta_rows.csv",
+      "runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh/new_accepted_pair_delta_rows.csv",
+      "runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh/balanced_pair_delta_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m876-v4-pair-delta-corpus-dedup-resplit-design.json"
+    ],
+    "parent_objective": [
+      "implement no-training pair-delta corpus dedup and resplit before objective design"
+    ],
+    "derived_from": [
+      "m876-v4-pair-delta-corpus-dedup-resplit-design"
+    ],
+    "blocked_by": [
+      "M875 rejected direct objective design because raw M873 split is duplicate-heavy and lacks new rows in train and holdout"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m877-v4-pair-delta-corpus-dedup-resplit-implementation.md",
+  "public_gates": [
+    "M877 must implement no-training corpus transformation only",
+    "M877 must deduplicate rows by closed-loop signature",
+    "M877 must preserve existing-vs-new evidence origin",
+    "M877 must write objective train eval holdout and new-signature holdout splits",
+    "M877 must keep objective training PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat duplicate axis labels as independent samples",
+    "do not hide 78055 caveat",
+    "do not admit objective design without a later audit"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_objective_readiness",
+    "evidence_axis": "G_objective: corpus deduplication and split implementation",
+    "evidence_increment": "implements the no-training transformed corpus required before objective design can be audited",
+    "claim_scope": "no-training corpus infrastructure only; no actor update, PPO, promotion, or learned driver claim",
+    "stop_condition": [
+      "stop if dedup rows are empty",
+      "stop if new M873 evidence is removed entirely",
+      "stop if split contains no new rows in train or eval",
+      "stop if implementation claims objective readiness without audit"
+    ],
+    "fallback_plan": [
+      "if transformed corpus passes, route to objective-readiness audit",
+      "if too sparse, return to data construction in a new branch",
+      "if split limited, audit whether full-corpus exact objective is preferable",
+      "if artifacts are inconsistent, repair before objective work"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M876 admits one no-training dedup/resplit implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Deduplicating by closed-loop signature and re-splitting by evidence purpose can convert M873's duplicate-heavy corpus into a cleaner objective-readiness candidate without actor updates.",
+  "success_criteria": [
+    "M877 writes deduped pair-delta rows and duplicate group rows",
+    "M877 writes objective train eval source holdout and new signature holdout rows",
+    "M877 reduces new-row duplicate pressure",
+    "M877 records the 78055 caveat",
+    "M877 keeps objective training PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M877 trains actor or residual-head parameters",
+    "M877 runs PPO",
+    "M877 promotes a checkpoint",
+    "M877 treats duplicate axis labels as independent evidence",
+    "M877 hides split limitations"
+  ],
+  "commands": [
+    {
+      "name": "dedup_resplit",
+      "command": "PYTHONPATH=src python -m autodrift.v4_pair_delta_corpus_dedup_resplit --accepted-pair-delta-rows runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh/accepted_pair_delta_rows.csv --new-accepted-pair-delta-rows runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh/new_accepted_pair_delta_rows.csv --run-dir runs/m877_v4_pair_delta_corpus_dedup_resplit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_pair_delta_corpus_dedup_resplit.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_v4_pair_delta_corpus_dedup_resplit.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m877_v4_pair_delta_corpus_dedup_resplit/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m877_v4_pair_delta_corpus_dedup_resplit/dedup_pair_delta_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m877_v4_pair_delta_corpus_dedup_resplit/duplicate_group_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m877_v4_pair_delta_corpus_dedup_resplit/objective_train_public_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m877_v4_pair_delta_corpus_dedup_resplit/objective_eval_public_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m877_v4_pair_delta_corpus_dedup_resplit/new_signature_holdout_public_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "docs/m877-v4-pair-delta-corpus-dedup-resplit-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m876-v4-pair-delta-corpus-dedup-resplit-design.md",
+    "runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh/summary.json"
+  ],
+  "decision_rule": "M877 may only produce a no-training transformed corpus. It must not train, run PPO, promote, or claim objective readiness without a later audit.",
+  "next_blocker": "Pair-delta corpus dedup/resplit has not yet been implemented"
+}

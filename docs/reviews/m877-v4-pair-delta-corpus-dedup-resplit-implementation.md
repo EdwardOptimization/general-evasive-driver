@@ -1,0 +1,77 @@
+# m877-v4-pair-delta-corpus-dedup-resplit-implementation Research Review
+
+## Summary
+
+- Generated at UTC: 20260525T184013Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: not_applicable
+- Decision reason: M877 may only produce a no-training transformed corpus. It must not train, run PPO, promote, or claim objective readiness without a later audit.
+
+## Hypothesis
+
+Deduplicating by closed-loop signature and re-splitting by evidence purpose can convert M873's duplicate-heavy corpus into a cleaner objective-readiness candidate without actor updates.
+
+## Lineage
+
+- parent_checkpoint: runs/m568_scaled_l3_bc_seed5660/checkpoint.pt
+- parent_dataset: docs/m876-v4-pair-delta-corpus-dedup-resplit-design.md, runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh/accepted_pair_delta_rows.csv, runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh/new_accepted_pair_delta_rows.csv, runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh/balanced_pair_delta_rows.csv
+- parent_config: experiments/manifests/m876-v4-pair-delta-corpus-dedup-resplit-design.json
+- parent_objective: implement no-training pair-delta corpus dedup and resplit before objective design
+- derived_from: m876-v4-pair-delta-corpus-dedup-resplit-design
+- blocked_by: M875 rejected direct objective design because raw M873 split is duplicate-heavy and lacks new rows in train and holdout
+- supersedes: None
+- invalidates: None
+
+## Success Criteria
+
+- M877 writes deduped pair-delta rows and duplicate group rows
+- M877 writes objective train eval source holdout and new signature holdout rows
+- M877 reduces new-row duplicate pressure
+- M877 records the 78055 caveat
+- M877 keeps objective training PPO and promotion blocked
+
+## Failure Criteria
+
+- M877 trains actor or residual-head parameters
+- M877 runs PPO
+- M877 promotes a checkpoint
+- M877 treats duplicate axis labels as independent evidence
+- M877 hides split limitations
+
+## Evidence Gates
+
+- M877 must implement no-training corpus transformation only
+- M877 must deduplicate rows by closed-loop signature
+- M877 must preserve existing-vs-new evidence origin
+- M877 must write objective train eval holdout and new-signature holdout splits
+- M877 must keep objective training PPO and promotion blocked
+
+## Holdout Policy
+
+- promotion_only
+
+## Forbidden Shortcuts
+
+- do not train actor parameters
+- do not train M761 residual-head parameters
+- do not run PPO
+- do not promote a checkpoint
+- do not treat duplicate axis labels as independent samples
+- do not hide 78055 caveat
+- do not admit objective design without a later audit
+
+## Failure Taxonomy
+
+- objective_overfit
+- scenario_sampling_failure
+- metric_artifact
+- contract_violation
+
+## Scoreboard
+
+- No scoreboard row recorded.
+
+## Next Blocker
+
+Pair-delta corpus dedup/resplit has not yet been implemented
