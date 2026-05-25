@@ -13454,3 +13454,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M820 synthesizes M810-M819 with decision `continue`. The branch turned M811's sparse fixed-grid result (`0` primary rows but `48` collision/safe brackets) into M814's valid source-axis-diverse primary corpus (`85` balanced rows across `9` seeds, `55` source groups, `8` fault-family pairs, `4` warm-up modes, and `3` axes). M815 confirmed intervention sensitivity (`69/101` reset-hidden collisions and `67/101` zero-command collisions). M817/M818 validated source-heldout calibration infrastructure but showed the scalar calibrator was near identity (`gate_mean 0.998986`) and not performance-improving. M819 therefore defines a fixed scalar/vector calibration-grid follow-up. M820 continues only into that exact non-PPO grid implementation; actor training, M761 residual-head training, learned adaptive calibrator training, PPO, promotion, holdout optimization, and threshold relaxation stay blocked.
 - decision: `v4_low_margin_new_data_route_continue_to_calibration_grid`
 - next: `m821-v4-adaptive-primary-calibration-grid-implementation`
+
+## 20260525T185500Z - m821-v4-adaptive-primary-calibration-grid-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m821_v4_adaptive_primary_calibration_grid`
+- artifact: `docs/m821-v4-adaptive-primary-calibration-grid-implementation.md`
+- result: M821 implements and runs the exact non-PPO fixed-gate calibration grid. It evaluates `53` identity/scalar/vector/template gate candidates over `85` source-heldout rows, producing `4505` normal replay rows and `13515` intervention replay rows. The merge preserves `57` train rows and `28` holdout rows with disjoint source groups and complete snapshot reconstruction (`110` lookup rows). Train-only selection picks identity (`rank 1`); the best nonidentity candidates have negative p05 margin lift (`scalar 0.999 train -1.07e-7 holdout -6.67e-7`, `scalar 0.980 train -2.18e-6 holdout -1.35e-5`). Identity preserves normal and intervention gates (`train intervention 0.678363`, `holdout intervention 0.702381`) with unchanged actor and M761 residual-head checksums. Result class is `v4_adaptive_primary_calibration_identity_only`.
+- decision: `v4_adaptive_primary_calibration_identity_only`
+- next: `m822-v4-adaptive-primary-calibration-grid-audit`

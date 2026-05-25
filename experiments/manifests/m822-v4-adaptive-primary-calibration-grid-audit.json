@@ -1,0 +1,112 @@
+{
+  "id": "m822-v4-adaptive-primary-calibration-grid-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "objective_overfit",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m821_v4_adaptive_primary_calibration_grid/summary.json",
+      "runs/m821_v4_adaptive_primary_calibration_grid/candidate_grid.csv",
+      "runs/m821_v4_adaptive_primary_calibration_grid/train_candidate_metrics.csv",
+      "runs/m821_v4_adaptive_primary_calibration_grid/holdout_candidate_metrics.csv",
+      "runs/m821_v4_adaptive_primary_calibration_grid/intervention_candidate_metrics.csv",
+      "docs/m821-v4-adaptive-primary-calibration-grid-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m821-v4-adaptive-primary-calibration-grid-implementation.json"
+    ],
+    "parent_objective": [
+      "audit fixed scalar/vector calibration grid identity-only result"
+    ],
+    "derived_from": [
+      "m821-v4-adaptive-primary-calibration-grid-implementation"
+    ],
+    "blocked_by": [
+      "M821 selected identity and found no strong fixed-gate candidate"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m822-v4-adaptive-primary-calibration-grid-audit.md",
+  "public_gates": [
+    "M822 must audit M821 before any further calibration design",
+    "M822 must not train or run PPO",
+    "M822 must not promote a checkpoint",
+    "M822 must distinguish identity retention from fixed-gate improvement",
+    "M822 must decide whether to stop this calibration route pivot to data or design another objective"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not train a calibrator",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not reinterpret identity-only as performance improvement",
+    "do not tune from holdout failures",
+    "do not widen the primary 0.00005 margin threshold"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_new_data_route",
+    "evidence_axis": "G_distribution: audit exact calibration grid identity-only result",
+    "evidence_increment": "classifies whether M821 fixed-gate identity-only result closes residual scaling on this corpus or admits another route",
+    "claim_scope": "audit-only; no training, PPO, or driver promotion",
+    "stop_condition": [
+      "stop if M821 artifacts are missing or inconsistent",
+      "stop if actor or residual-head checksums changed",
+      "stop if fixed-gate candidate claim is unsupported",
+      "stop if next design would tune the same public corpus without new evidence"
+    ],
+    "fallback_plan": [
+      "if identity-only is confirmed, stop fixed-gate calibration on this corpus",
+      "if artifact inconsistency is found, repair the grid implementation before interpretation",
+      "if nonidentity candidates have useful localized signal, design a diagnostic-only audit before training",
+      "if no route remains, pivot back to data generation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M821 completed the first post-synthesis exact grid implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M821 is a clean identity-only fixed-gate negative, so further calibration on the same corpus should not proceed without a new objective or data route.",
+  "success_criteria": [
+    "M822 documents M821 candidate ranking train and holdout metrics",
+    "M822 records supported and falsified claims",
+    "M822 preserves no-training no-PPO and no-promotion blocks",
+    "M822 names the next blocker explicitly"
+  ],
+  "failure_criteria": [
+    "M822 treats identity-only as a fixed-gate candidate",
+    "M822 starts training or PPO",
+    "M822 promotes a checkpoint",
+    "M822 ignores M821 holdout or intervention metrics",
+    "M822 weakens threshold or selection rules"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "inspect M821 artifacts and write docs/m822-v4-adaptive-primary-calibration-grid-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m822-v4-adaptive-primary-calibration-grid-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m821_v4_adaptive_primary_calibration_grid/summary.json",
+    "docs/m821-v4-adaptive-primary-calibration-grid-implementation.md"
+  ],
+  "decision_rule": "M822 may admit only an audit-backed next design or pivot. It must not train, run PPO, or promote.",
+  "next_blocker": "m823-v4-adaptive-primary-calibration-next-route-design"
+}
