@@ -13612,3 +13612,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M837 designs a no-training local first-action effectiveness probe to resolve the ambiguity left by M835: whether response/history interventions are weak because the policy is not sensitive enough or because the M832 near-boundary states are not first-action controllable enough. The design reuses M832/M825 artifacts, keeps the actor contract unchanged, and applies bounded first-step direct action overrides before resuming normal policy control. Directions include pair-derived action delta and component axes for steer, throttle, and brake with `epsilon_l2_grid [0.014, 0.025, 0.05, 0.075]`. Acceptance requires near-boundary normal rows and either `abs_margin_delta >= 0.01` or success/collision flip. Direct override evidence is explicitly limited to local controllability; it cannot count as learned policy self-ID proof. M838 implementation is admitted while PPO, promotion, actor/residual training, and threshold relaxation remain blocked.
 - decision: `near_boundary_action_effectiveness_probe_design_admit_m838`
 - next: `m838-v4-near-boundary-action-effectiveness-probe-implementation`
+
+## 20260525T230000Z - m838-v4-near-boundary-action-effectiveness-probe-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m838_v4_near_boundary_action_effectiveness_probe`
+- artifact: `docs/m838-v4-near-boundary-action-effectiveness-probe-implementation.md`
+- result: M838 implements the bounded direct first-action override probe. It reuses the M832 near-boundary pair set (`60` pairs, `16` reconstructed snapshots), evaluates `1920` first-step override rows across pair-delta, steer, throttle, and brake directions with epsilon grid `[0.014, 0.025, 0.05, 0.075]`, and preserves actor/M761 residual-head checksums. The result class is `v4_near_boundary_action_effectiveness_first_step_insensitive`: accepted primary action-effective rows are `0`, directional degradation/improvement rows are `0`, success/collision flips are `0`, and max absolute terminal-margin movement is only `0.0026495` versus the `0.01` gate. The strongest direction is throttle-positive (`max_abs_margin_delta 0.0026495`), still far below threshold. This indicates M832 states are not useful first-step action-effectiveness surfaces; the next audit should decide between short-horizon sequence-effectiveness probing and fresh action-leverage boundary mining.
+- decision: `v4_near_boundary_action_effectiveness_first_step_insensitive`
+- next: `m839-v4-near-boundary-action-effectiveness-probe-audit`
