@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 950,
+    "completed": 951,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m941-v4-public-base-controlled-fusion-branch-synthesis",
+    "task_id": "m942-v4-public-base-controlled-fusion-micro-boundary-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m941-v4-public-base-controlled-fusion-branch-synthesis.md"
+    "command_log": "runs/m942_v4_public_base_controlled_fusion_micro_boundary_audit/summary.json"
   },
   "next_task": {
-    "id": "m942-v4-public-base-controlled-fusion-micro-boundary-audit",
+    "id": "m943-v4-public-base-controlled-fusion-candidate-compatibility-design",
     "status": "pending",
-    "priority": 9370,
+    "priority": 9380,
     "kind": "infrastructure",
-    "hypothesis": "The M940 raw direction may contain a narrow alpha between 0.05 and 0.075 that satisfies both normal retention and tail lift",
-    "command": "see experiments/manifests/m942-v4-public-base-controlled-fusion-micro-boundary-audit.json",
-    "success_artifact": "runs/m942_v4_public_base_controlled_fusion_micro_boundary_audit/summary.json",
-    "notes": "Pending: no-training micro-alpha audit only; no training, replay, PPO, or promotion"
+    "hypothesis": "The M942 objective-level candidate can be checked safely by first materializing interpolated checkpoints and reproducing exact no-update objective metrics before any replay or PPO",
+    "command": "see experiments/manifests/m943-v4-public-base-controlled-fusion-candidate-compatibility-design.json",
+    "success_artifact": "docs/m943-v4-public-base-controlled-fusion-candidate-compatibility-design.md",
+    "notes": "Pending: design exact no-update compatibility for alphas 0.0675 0.0700 0.0725; replay, PPO, and promotion blocked"
   },
-  "updated_at_utc": "20260525T232407Z"
+  "updated_at_utc": "20260525T232720Z"
 }

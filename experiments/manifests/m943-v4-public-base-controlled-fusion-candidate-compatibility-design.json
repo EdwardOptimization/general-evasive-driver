@@ -1,0 +1,103 @@
+{
+  "id": "m943-v4-public-base-controlled-fusion-candidate-compatibility-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m940_v4_public_base_controlled_fusion_boundary_objective/checkpoints/raw_boundary_objective_update.pt"
+    ],
+    "parent_dataset": [
+      "docs/m942-v4-public-base-controlled-fusion-micro-boundary-audit.md",
+      "runs/m942_v4_public_base_controlled_fusion_micro_boundary_audit/summary.json",
+      "runs/m942_v4_public_base_controlled_fusion_micro_boundary_audit/alpha_metrics.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m942-v4-public-base-controlled-fusion-micro-boundary-audit.json"
+    ],
+    "parent_objective": [
+      "design exact no-update compatibility for M942 candidate controlled-fusion alphas"
+    ],
+    "derived_from": [
+      "m942-v4-public-base-controlled-fusion-micro-boundary-audit"
+    ],
+    "blocked_by": [
+      "candidate alphas must be materialized and exact-checked before replay or PPO"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m943-v4-public-base-controlled-fusion-candidate-compatibility-design.md",
+  "public_gates": [
+    "M943 must design candidate checkpoint materialization for alphas 0.0675 0.0700 0.0725",
+    "M943 must keep exact compatibility before replay",
+    "M943 must keep training replay PPO and promotion blocked",
+    "M943 must preserve the P0 actor input contract"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in M943",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor inputs",
+    "do not unfreeze response_encoder context_encoder or online_gru_cell"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_controlled_fusion_surface",
+    "evidence_axis": "G_compatibility: design exact no-update compatibility for M942 candidates",
+    "evidence_increment": "converts the objective-level candidate into a checkpoint-materialization and exact-compatibility plan before replay",
+    "claim_scope": "design only; no checkpoint creation, replay, PPO, driver improvement claim, or promotion",
+    "stop_condition": [
+      "stop if design omits candidate checkpoint materialization",
+      "stop if design allows replay before exact compatibility",
+      "stop if training PPO or promotion is attempted"
+    ],
+    "fallback_plan": [
+      "if design is accepted, route to candidate materialization and exact no-update compatibility implementation",
+      "if exact compatibility cannot be defined cleanly, route to compatibility-tooling audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M942 found strict candidate alphas that require exact compatibility before replay",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M942 objective-level candidate can be checked safely by first materializing interpolated checkpoints and reproducing exact no-update objective metrics before any replay or PPO.",
+  "success_criteria": [
+    "M943 defines primary and backup candidate alphas",
+    "M943 defines checkpoint materialization artifacts",
+    "M943 defines exact no-update compatibility metrics",
+    "M943 blocks replay PPO and promotion",
+    "M943 preserves the P0 actor contract"
+  ],
+  "failure_criteria": [
+    "M943 omits exact compatibility before replay",
+    "M943 admits replay PPO or promotion",
+    "M943 changes actor inputs",
+    "M943 unfreezes forbidden model components"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m943-v4-public-base-controlled-fusion-candidate-compatibility-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m943-v4-public-base-controlled-fusion-candidate-compatibility-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "runs/m940_v4_public_base_controlled_fusion_boundary_objective/checkpoints/raw_boundary_objective_update.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m942-v4-public-base-controlled-fusion-micro-boundary-audit.md"
+  ],
+  "decision_rule": "M943 may only design exact no-update compatibility for M942 candidates. It must not train, run replay, run PPO, or promote.",
+  "next_blocker": "m944-v4-public-base-controlled-fusion-candidate-compatibility-implementation"
+}

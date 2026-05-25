@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M942 no-training micro-alpha audit finds exact objective-level strict candidates at alphas 0.0675 0.0700 and 0.0725 while keeping training replay PPO and promotion blocked",
+  "failure_criteria": [
+    "M942 trains or updates a checkpoint",
+    "actor input contract changes",
+    "forbidden parameters differ between checkpoints",
+    "M942 runs replay PPO or promotion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not change actor inputs",
+    "do not update any checkpoint",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T232933Z",
+  "hypothesis": "The M940 raw direction may contain a narrow alpha between 0.05 and 0.075 that satisfies both normal retention and tail lift.",
+  "lineage": {
+    "blocked_by": [
+      "M940 alpha 0.05 is normal-retained but not tail-lift, while alpha 0.075 tail-lifts just outside normal retention"
+    ],
+    "derived_from": [
+      "m941-v4-public-base-controlled-fusion-branch-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m940_v4_public_base_controlled_fusion_boundary_objective/checkpoints/raw_boundary_objective_update.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m941-v4-public-base-controlled-fusion-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m941-v4-public-base-controlled-fusion-branch-synthesis.md",
+      "runs/m940_v4_public_base_controlled_fusion_boundary_objective/summary.json",
+      "runs/m940_v4_public_base_controlled_fusion_boundary_objective/alpha_metrics.csv"
+    ],
+    "parent_objective": [
+      "no-training fine alpha audit of the M940 raw boundary-objective direction"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m942-v4-public-base-controlled-fusion-micro-boundary-audit",
+  "next_blocker": "m943-v4-public-base-controlled-fusion-candidate-compatibility-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "public_base_controlled_fusion_raw_direction_feasibility_candidate_route_to_exact_compatibility_design",
+  "public_gates": [
+    "M942 must compare M399 base against the M940 raw checkpoint",
+    "M942 must run no training",
+    "M942 must report whether any micro-alpha is a strict candidate",
+    "M942 must keep replay PPO and promotion blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m942_v4_public_base_controlled_fusion_micro_boundary_audit/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "public_base_controlled_fusion_raw_direction_feasibility_candidate_route_to_exact_compatibility_design",
+    "milestone": "m942-v4-public-base-controlled-fusion-micro-boundary-audit",
+    "reason": "M942 no-training micro-alpha audit finds exact objective-level strict candidates at alphas 0.0675 0.0700 and 0.0725 while keeping training replay PPO and promotion blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary.json exists",
+    "training_started is false",
+    "forbidden_parameter_changed_between_checkpoints is false",
+    "sample_reconstruction_success_rate >= 0.98",
+    "strict_candidate_count is reported",
+    "replay_used ppo_used and promoted are false"
+  ],
+  "type": "infrastructure"
+}

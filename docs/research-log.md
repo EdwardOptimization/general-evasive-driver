@@ -14583,3 +14583,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M941 synthesizes M936-M940. Supported claims: the controlled-fusion surface has real low-tail leverage, M940 preserves the P0 actor-input and trainable-surface contract, and boundary-aware interpolation training is implemented. Falsified claims: the M939 train-alpha objective did not close the alpha `0.15` near miss, and M940 does not justify exact compatibility, replay, PPO, or promotion. Failure taxonomy is `promotion_gate_failure` plus `objective_overfit`. Public-gate overfit risk remains high because the same M912/M919 rows are being used for objective diagnosis. M941 allows exactly one no-training micro-alpha audit because alpha `0.05` is normal-retained with low-tail trend and alpha `0.075` tail-lifts just outside normal retention.
 - decision: `continue`
 - next: `m942-v4-public-base-controlled-fusion-micro-boundary-audit`
+
+## 20260525T232720Z - m942-v4-public-base-controlled-fusion-micro-boundary-audit
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m942_v4_public_base_controlled_fusion_micro_boundary_audit`
+- artifact: `docs/m942-v4-public-base-controlled-fusion-micro-boundary-audit.md`
+- result: M942 runs the no-training fine alpha sweep allowed by M941. It reconstructs `1213/1213`, joins `122/122`, confirms the M940 raw checkpoint differs from M399 only on `actor_mean` plus `response_context_fusion.0`, and keeps training, replay, PPO, and promotion blocked. It finds `strict_candidate_count=3`, `low_tail_effect_candidate_count=3`, and `target_tolerance_candidate_count=3` at alphas `0.0675`, `0.0700`, and `0.0725`. The best normal-retaining candidate is alpha `0.0725` with `normal_anchor_mse_mean=0.0000038589`, `normal_intervention_gap_p10=0.0113417562`, `gap_deficit_mean=0.0129708514`, and `low_tail_fraction=0.3264633119`.
+- decision: `public_base_controlled_fusion_raw_direction_feasibility_candidate_route_to_exact_compatibility_design`
+- next: `m943-v4-public-base-controlled-fusion-candidate-compatibility-design`

@@ -108,5 +108,5 @@
     "docs/m941-v4-public-base-controlled-fusion-branch-synthesis.md"
   ],
   "decision_rule": "M942 may only run a no-training micro-alpha audit. It must not train, run replay, run PPO, or promote.",
-  "next_blocker": "M942 micro-boundary result unknown"
+  "next_blocker": "m943-v4-public-base-controlled-fusion-candidate-compatibility-design"
 }

@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m942-v4-public-base-controlled-fusion-micro-boundary-audit
+m943-v4-public-base-controlled-fusion-candidate-compatibility-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -88,10 +88,19 @@ only `actor_mean` plus `response_context_fusion.0`, but still finds no strict
 candidate: alpha `0.05` is a normal-safe low-tail trend, while alpha `0.075`
 tail-lifts just outside normal retention. M941 synthesizes the branch and
 allows exactly one no-training micro-alpha audit before any broader actor
-update.
+update. M942 runs that audit and finds strict objective-level candidates at
+alphas `0.0675`, `0.0700`, and `0.0725`.
 
 ## Recent Evidence Line
 
+- M942 runs the no-training micro-alpha audit of the M940 raw direction.
+  It finds `strict_candidate_count=3` at alphas `0.0675`, `0.0700`, and
+  `0.0725`, with forbidden parameters unchanged and training/replay/PPO/
+  promotion blocked. The primary candidate is alpha `0.0725`
+  (`normal_anchor_mse_mean=0.0000038589`,
+  `gap_deficit_mean=0.0129708514`, `low_tail_fraction=0.3264633119`).
+  M943 should design materialized candidate checkpoints and exact no-update
+  compatibility before any replay.
 - M941 synthesizes M936-M940 and decides to continue exactly one no-training
   micro-alpha audit of the M940 raw direction. The justification is narrow:
   alpha `0.05` is normal-retained with low-tail trend, while alpha `0.075`
