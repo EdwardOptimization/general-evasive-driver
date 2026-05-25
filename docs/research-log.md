@@ -13827,3 +13827,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M860 implements the no-training closer obstacle/source generation runner and focused tests. It generates `660` candidate plans across `44` primary source groups, `8` seeds, and `9` fault families, reconstructs all requested snapshots, and preserves actor/M761 checksums. The run opens `17` accepted successful non-collision boundary-new-to-M844 rows and `38` primary pairability projection rows, which is a real improvement over M857's zero generated boundaries but remains below sparse gate (`32` accepted rows and `40` pairability rows). Accepted rows are all from `all_safe_closer_obstacle`; `all_collision_safer_side` and half-width-only generation produce zero accepted rows. M860 is therefore `v4_closer_obstacle_source_generation_source_limited`, not a contract failure and not pair-delta outcome evidence.
 - decision: `v4_closer_obstacle_source_generation_source_limited`
 - next: `m861-v4-closer-obstacle-source-generation-audit`
+
+## 20260525T154616Z - m861-v4-closer-obstacle-source-generation-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m861-v4-closer-obstacle-source-generation-audit.md`
+- result: M861 audits M860 as source-limited but refinement-ready. M860 generated broad plans and `17` accepted boundary-new-to-M844 rows, but sparse gates still fail (`17 < 32` accepted rows, `38 < 40` primary pairability rows, `4 < 5` seeds). Route-specific evidence shows all accepted rows came from `all_safe_closer_obstacle`, while all-collision safer-side rows remained negative and half-width-only rows produced zero accepted rows. The important new finding is that M860 generated replay contains `13` same-source same-axis groups with wide/negative brackets but no accepted boundary row, in addition to `17` groups with accepted rows. This makes no-training generated-boundary refinement a better next step than direct pair-delta replay or broad scenario generation.
+- decision: `admit_generated_boundary_refinement_design`
+- next: `m862-v4-generated-boundary-refinement-design`

@@ -62,16 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m861-v4-closer-obstacle-source-generation-audit
+m862-v4-generated-boundary-refinement-design
 ```
 
-M861 should audit the M860 source-limited generated-boundary result before any
-pair-delta replay, objective training, PPO, promotion, or broader source
-generation. PPO, promotion, base actor mutation, M761 residual-head mutation,
-and pair-delta sequence replay remain blocked.
+M862 should design no-training refinement of M860 generated wide/negative
+brackets before any pair-delta replay, objective training, PPO, promotion, or
+broader source generation. PPO, promotion, base actor mutation, M761
+residual-head mutation, and pair-delta sequence replay remain blocked.
 
 ## Recent Evidence Line
 
+- M861 audits M860 as source-limited but refinement-ready. Sparse gates still
+  fail (`17 < 32` accepted generated boundary rows, `38 < 40` primary
+  pairability rows, `4 < 5` seeds), so pair-delta replay is still blocked. But
+  M860 generated replay contains `13` same-source same-axis groups with
+  wide/negative brackets and no accepted boundary row, plus `17` groups with
+  accepted rows. The next route is therefore no-training generated-boundary
+  refinement, not direct pair-delta replay or broad source generation.
 - M860 implements the no-training closer obstacle/source generation runner. It
   generates `660` candidate plans from M857 traces across `44` primary source
   groups, `8` seeds, and `9` fault families, reconstructs all requested

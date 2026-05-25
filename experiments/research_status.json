@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 869,
+    "completed": 870,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m860-v4-closer-obstacle-source-generation-implementation",
+    "task_id": "m861-v4-closer-obstacle-source-generation-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m860-v4-closer-obstacle-source-generation-implementation.md"
+    "command_log": "docs/m861-v4-closer-obstacle-source-generation-audit.md"
   },
   "next_task": {
-    "id": "m861-v4-closer-obstacle-source-generation-audit",
+    "id": "m862-v4-generated-boundary-refinement-design",
     "status": "pending",
-    "priority": 8560,
-    "kind": "gate",
-    "hypothesis": "Audit M860 source-limited generated boundary result",
-    "command": "see experiments/manifests/m861-v4-closer-obstacle-source-generation-audit.json",
-    "success_artifact": "docs/m861-v4-closer-obstacle-source-generation-audit.md",
-    "notes": "Pending: audit M860 before pair-delta replay objective training PPO or broader generation"
+    "priority": 8570,
+    "kind": "infrastructure",
+    "hypothesis": "Design no-training refinement of M860 generated wide negative brackets",
+    "command": "see experiments/manifests/m862-v4-generated-boundary-refinement-design.json",
+    "success_artifact": "docs/m862-v4-generated-boundary-refinement-design.md",
+    "notes": "Pending: design generated-boundary refinement before pair-delta replay objective training PPO or broader generation"
   },
-  "updated_at_utc": "20260525T152912Z"
+  "updated_at_utc": "20260525T154616Z"
 }

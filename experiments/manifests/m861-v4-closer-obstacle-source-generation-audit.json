@@ -111,5 +111,5 @@
     "runs/m860_v4_closer_obstacle_source_generation/source_generation_summary.csv"
   ],
   "decision_rule": "M861 may only audit M860 and pre-register the next no-training route. It must not run replay, train, run PPO, run pair-delta sequence replay, or promote.",
-  "next_blocker": "M860 single-axis closer obstacle/source generation is source-limited and below sparse generated-boundary gate"
+  "next_blocker": "M860 generated wide/negative brackets have not yet been refined into accepted generated boundary rows"
 }
