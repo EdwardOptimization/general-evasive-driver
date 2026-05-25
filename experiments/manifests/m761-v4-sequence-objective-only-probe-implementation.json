@@ -1,0 +1,127 @@
+{
+  "id": "m761-v4-sequence-objective-only-probe-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m760-v4-sequence-objective-only-probe-design.md",
+      "runs/m758_v4_sequence_objective_sanity/summary.json",
+      "runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m760-v4-sequence-objective-only-probe-design.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_objective": [
+      "implement no-PPO residual objective-only probe with exact alpha gates"
+    ],
+    "derived_from": [
+      "m760-v4-sequence-objective-only-probe-design"
+    ],
+    "blocked_by": [
+      "m760-v4-sequence-objective-only-probe-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m761-v4-sequence-objective-only-probe-implementation.md",
+  "public_gates": [
+    "M761 freezes base actor parameters",
+    "M761 trains only residual probe parameters",
+    "M761 evaluates exact alpha ladder with M758-style metrics",
+    "M761 reports normal drift and gap lift separately",
+    "PPO and checkpoint promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train base actor parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use hidden fault labels as residual inputs",
+    "do not hide hard-negative sparsity",
+    "do not skip exact alpha metrics"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_sequence_objective_only_probe",
+    "evidence_axis": "G_actor_coupling: run no-PPO residual objective probe",
+    "evidence_increment": "tests whether a frozen-backbone residual head can improve exact M758 gap metrics without normal-history drift",
+    "claim_scope": "diagnostic actor-coupling probe only; no driver promotion or PPO claim",
+    "stop_condition": [
+      "stop if actor backbone changes",
+      "stop if normal drift gates fail for all alphas",
+      "stop if gap lift fails for all alphas",
+      "stop if training PPO or promotion starts"
+    ],
+    "fallback_plan": [
+      "if normal drift fails, redesign normal-zero residual objective",
+      "if gap lift fails, audit target direction and features",
+      "if reconstruction fails, return to M758 evaluator repair",
+      "if a candidate passes, audit before any replay or actor-update branch"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M760 admits no-PPO objective-only probe implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A frozen-backbone residual objective-only probe can improve M758 exact gap metrics while keeping normal-history behavior within retention gates.",
+  "success_criteria": [
+    "M761 implements residual probe and focused tests",
+    "base actor checksum remains unchanged",
+    "residual-only training artifacts are written separately",
+    "exact alpha metrics are written for all registered alphas",
+    "at least one result class is assigned without PPO or promotion",
+    "hard-negative sparsity is reported"
+  ],
+  "failure_criteria": [
+    "base actor parameters change",
+    "PPO runs",
+    "checkpoint is promoted",
+    "fault labels leak into residual inputs",
+    "normal drift or gap metrics are not reported",
+    "hard-negative sparsity is hidden"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "implement src/autodrift/v4_sequence_objective_probe.py and focused tests"
+    },
+    {
+      "name": "registered_probe",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_sequence_objective_probe --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --corpus-summary runs/m755_v4_sequence_outcome_corpus_export/summary.json --positive-rows runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv --contrast-rows runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv --scenario-config configs/extreme_fault_distribution_v4_scenarios.json --run-dir runs/m761_v4_sequence_objective_probe --device cpu --epochs 40 --seed 7610"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_sequence_objective_probe.py",
+      "type": "source"
+    },
+    {
+      "path": "runs/m761_v4_sequence_objective_probe/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m761_v4_sequence_objective_probe/alpha_metrics.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m761-v4-sequence-objective-only-probe-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m758_v4_sequence_objective_sanity/summary.json",
+    "docs/m760-v4-sequence-objective-only-probe-design.md"
+  ],
+  "decision_rule": "M761 may only run a no-PPO residual objective probe. It must not promote a checkpoint or admit PPO until a follow-up audit reviews exact metrics.",
+  "next_blocker": "m762-v4-sequence-objective-only-probe-audit"
+}

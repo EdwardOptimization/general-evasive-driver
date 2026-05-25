@@ -12885,3 +12885,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M759 audits M758 as a clean no-training exact objective sanity result, not a trained-driver improvement. It supports that the M755 corpus is reconstructable and numerically non-degenerate, while preserving the `scenario_sampling_failure` risk from hard-negative availability `0.721352`. The audit admits only no-PPO objective-only probe design with exact before/after M758 metrics, normal-history retention, first-action safety gates, sparse hard-negative handling, and no checkpoint promotion.
 - decision: `promote_to_v4_sequence_objective_only_probe_design`
 - next: `m760-v4-sequence-objective-only-probe-design`
+
+## 20260525T052000Z - m760-v4-sequence-objective-only-probe-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m760-v4-sequence-objective-only-probe-design.md`
+- result: M760 designs a conservative no-PPO objective-only probe. The design freezes the BC5660 actor backbone, trains only a bounded residual head, requires normal-history residual target zero, preserves/amplifies existing normal-vs-intervention direction, treats hard negatives as optional sparse calibration, and evaluates an alpha ladder `0.02,0.05,0.10,0.20,0.50,1.00` with exact M758 metrics. Passing requires normal first-action drift gates, gap lift over base `0.024908`, lower gap deficit than base `0.016809`, unchanged actor backbone checksum, no PPO, and no promotion.
+- decision: `v4_sequence_objective_only_probe_design_admit_m761`
+- next: `m761-v4-sequence-objective-only-probe-implementation`

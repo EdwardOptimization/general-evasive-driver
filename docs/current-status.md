@@ -62,15 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m760-v4-sequence-objective-only-probe-design
+m761-v4-sequence-objective-only-probe-implementation
 ```
 
-M760 should design a small no-PPO objective-only actor probe with exact
-before/after M758 metrics, normal-history retention, first-action safety gates,
-and sparse hard-negative handling. PPO and checkpoint promotion remain blocked.
+M761 should implement the no-PPO frozen-backbone residual objective probe
+designed in M760. It must train only residual probe parameters, evaluate an
+alpha ladder with exact M758 metrics, keep the base actor checksum unchanged,
+and avoid PPO or checkpoint promotion.
 
 ## Recent Evidence Line
 
+- M760 designs a conservative no-PPO objective-only probe: frozen BC5660 actor
+  backbone, bounded residual head, normal residual target zero, existing
+  intervention direction preservation/amplification, optional sparse
+  hard-negative calibration, and alpha ladder `0.02,0.05,0.10,0.20,0.50,1.00`
+  with exact M758 metrics. No PPO or promotion is allowed.
 - M759 audits M758 as a clean no-training exact objective sanity result, not a
   trained-driver improvement. It admits only objective-only probe design with
   exact before/after metrics and normal-retention gates. PPO/promotion remain

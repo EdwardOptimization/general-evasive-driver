@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M760 designs frozen-backbone residual no-PPO objective-only probe with exact alpha gates normal retention sparse hard-negative handling and no promotion",
+  "failure_criteria": [
+    "design admits PPO or promotion",
+    "design lacks exact before/after metrics",
+    "design ignores normal-history retention",
+    "design requires complete hard negatives",
+    "design leaks hidden labels into actor inputs"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not ignore hard-negative sparsity",
+    "do not allow hidden fault labels into actor observations",
+    "do not skip exact before/after objective metrics"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T000119Z",
+  "hypothesis": "A small no-PPO objective-only probe can be designed with exact metrics and retention gates before any actor update is attempted.",
+  "lineage": {
+    "blocked_by": [
+      "m759-v4-sequence-objective-sanity-audit"
+    ],
+    "derived_from": [
+      "m759-v4-sequence-objective-sanity-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m759-v4-sequence-objective-sanity-audit.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m759-v4-sequence-objective-sanity-audit.md",
+      "runs/m758_v4_sequence_objective_sanity/summary.json",
+      "runs/m758_v4_sequence_objective_sanity/objective_rows.csv",
+      "runs/m758_v4_sequence_objective_sanity/objective_metrics.csv"
+    ],
+    "parent_objective": [
+      "design no-PPO objective-only probe from M758 exact sanity result"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m760-v4-sequence-objective-only-probe-design",
+  "next_blocker": "m761-v4-sequence-objective-only-probe-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "v4_sequence_objective_only_probe_design_admit_m761",
+  "public_gates": [
+    "M760 designs a small objective-only probe",
+    "M760 requires exact before/after M758 metrics",
+    "M760 requires normal-history and first-action retention gates",
+    "M760 keeps sparse hard-negative handling explicit",
+    "PPO and checkpoint promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m760-v4-sequence-objective-only-probe-design.md",
+    "clearance_margin_mean": "",
+    "decision": "v4_sequence_objective_only_probe_design_admit_m761",
+    "milestone": "m760-v4-sequence-objective-only-probe-design",
+    "reason": "M760 designs frozen-backbone residual no-PPO objective-only probe with exact alpha gates normal retention sparse hard-negative handling and no promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M760 defines objective-only update scope",
+    "M760 defines exact M758 before/after gates",
+    "M760 defines normal-history and first-action retention gates",
+    "M760 defines sparse hard-negative handling",
+    "M760 defines alpha/interpolation and stop rules",
+    "M760 admits only an implementation probe and blocks PPO promotion"
+  ],
+  "type": "infrastructure"
+}
