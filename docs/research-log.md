@@ -12960,3 +12960,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M767 runs the disjoint-seed source-holdout pipeline for seed range `76512..77023`. Stage 1 produces `390` reset-only rows with result_class `cross_fault_reset_only`. Stage 2 selects `441` source rows and finds `995` sequence outcome-critical rows with `0` sentinel false positives, but result_class is `v4_reset_source_balance_blocked`. Stage 3 exports `995` clean positives, `995` normal rows, and `1028` hard-negative rows with no missing metadata, no sentinel positives, and no missing normal matches. The fresh corpus gate fails as `v4_sequence_outcome_corpus_sparse`: positive rows `995 < 1000`, fault-family pairs `13 < 16`, and max seed dominance `0.247236 > 0.2`. No residual replay, training, PPO, promotion, or actor mutation occurred.
 - decision: `v4_sequence_outcome_corpus_sparse_admit_audit`
 - next: `m768-v4-fresh-source-holdout-wave-audit`
+
+## 20260525T064000Z - m768-v4-fresh-source-holdout-wave-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m768-v4-fresh-source-holdout-wave-audit.md`
+- result: M768 audits M767 as fresh, clean, but sparse. The corpus fails strict exporter gates, but passes M766 limited-holdout minimums: `995` positives, `25` seeds, `13` fault-family pairs, max seed dominance `0.247236 <= 0.25`, no sentinel positives, no missing normal matches, no metadata misses, and `current_model_or_proxy` claim boundary. The audit admits only limited residual holdout replay design with caveats; it does not admit broad generalization, PPO, or promotion.
+- decision: `promote_to_limited_residual_holdout_replay_design`
+- next: `m769-v4-limited-residual-holdout-replay-design`

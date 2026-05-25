@@ -62,16 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m768-v4-fresh-source-holdout-wave-audit
+m769-v4-limited-residual-holdout-replay-design
 ```
 
-M768 should audit the sparse fresh source-holdout corpus from M767. It must
-decide whether `995` clean fresh positives are sufficient for a limited
-residual holdout replay with caveats, or whether source balancing / another
-fresh wave is required before residual replay.
+M769 should design limited no-PPO residual replay on the sparse fresh M767
+holdout corpus. It should use alpha `0.2` as primary, keep `0.5` and `1.0`
+diagnostic, report all evidence as limited holdout only, and keep training,
+PPO, and promotion blocked.
 
 ## Recent Evidence Line
 
+- M768 audits M767 as fresh, clean, but sparse. The corpus fails strict
+  exporter gates, but passes M766 limited-holdout minimums: `995` positives,
+  `25` seeds, `13` fault-family pairs, max seed dominance `0.247236 <= 0.25`,
+  no sentinel positives, no missing normal matches, no metadata misses, and
+  `current_model_or_proxy` claim boundary. The audit admits only limited
+  residual holdout replay design with caveats; it does not admit broad
+  generalization, PPO, or promotion.
 - M767 runs the disjoint-seed source-holdout pipeline for seed range
   `76512..77023`. Stage 1 produces `390` reset-only rows with result_class
   `cross_fault_reset_only`. Stage 2 selects `441` source rows and finds `995`
