@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M774 audits M773 as materially supporting the coverage-limited hypothesis while preserving strict broad-gate misses hard-negative sparsity and source concentration caveats before limited no-PPO residual replay design",
+  "failure_criteria": [
+    "audit admits PPO or promotion",
+    "audit hides source concentration or hard-negative sparsity",
+    "audit overclaims broad generalization",
+    "audit treats current-model proxies as true per-wheel physics"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not run residual replay in the audit",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not hide strict broad-gate misses",
+    "do not claim true four-wheel or single-wheel physical fidelity"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260525T013349Z",
+  "hypothesis": "M773's broader corpus should be audited before deciding whether to run limited residual replay or further improve source coverage.",
+  "lineage": {
+    "blocked_by": [
+      "m773-v4-broader-source-holdout-wave-implementation"
+    ],
+    "derived_from": [
+      "m773-v4-broader-source-holdout-wave-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m773-v4-broader-source-holdout-wave-implementation.json",
+      "configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m773-v4-broader-source-holdout-wave-implementation.md",
+      "runs/m773_v4_broader_source_holdout_extreme_faults/summary.json",
+      "runs/m773_v4_broader_source_holdout_sequence_intervention/summary.json",
+      "runs/m773_v4_broader_source_holdout_corpus_export/summary.json",
+      "runs/m773_v4_broader_source_holdout_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/contrast_rows.csv"
+    ],
+    "parent_objective": [
+      "audit broader source-holdout corpus before residual replay or further source mining"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m774-v4-broader-source-holdout-wave-audit",
+  "next_blocker": "m775-v4-limited-broader-residual-replay-design",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "promote_to_limited_broader_residual_replay_design",
+  "public_gates": [
+    "M774 audits M773 broader source wave against M772 broad gates",
+    "M774 separates ordinary corpus validity from stricter broad-coverage adequacy",
+    "M774 audits hard-negative sparsity and source dominance",
+    "M774 decides between limited residual replay and more source-balancing work",
+    "PPO training and checkpoint promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m774-v4-broader-source-holdout-wave-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "promote_to_limited_broader_residual_replay_design",
+    "milestone": "m774-v4-broader-source-holdout-wave-audit",
+    "reason": "M774 audits M773 as materially supporting the coverage-limited hypothesis while preserving strict broad-gate misses hard-negative sparsity and source concentration caveats before limited no-PPO residual replay design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M774 records which M772 broad gates passed and failed",
+    "M774 records source and fault-family concentration",
+    "M774 records hard-negative sparsity",
+    "M774 records supported and falsified claims",
+    "M774 admits only one next blocker without PPO or promotion"
+  ],
+  "type": "gate"
+}

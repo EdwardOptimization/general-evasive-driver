@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 782,
+        "completed": 783,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m773-v4-broader-source-holdout-wave-implementation",
+        "task_id": "m774-v4-broader-source-holdout-wave-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m773-v4-broader-source-holdout-wave-implementation.md"
+        "command_log": "docs/m774-v4-broader-source-holdout-wave-audit.md"
     },
     "next_task": {
-        "id": "m774-v4-broader-source-holdout-wave-audit",
+        "id": "m775-v4-limited-broader-residual-replay-design",
         "status": "pending",
-        "priority": 7690,
-        "kind": "gate",
-        "hypothesis": "Audit broader fresh source-holdout wave before residual replay or further source mining",
-        "command": "see experiments/manifests/m774-v4-broader-source-holdout-wave-audit.json",
-        "success_artifact": "docs/m774-v4-broader-source-holdout-wave-audit.md",
-        "notes": "Pending: audit M773 broad positive but partial strict broad-gate miss before residual replay or more source mining"
+        "priority": 7700,
+        "kind": "infrastructure",
+        "hypothesis": "Design limited no-PPO residual replay on broader M773 corpus",
+        "command": "see experiments/manifests/m775-v4-limited-broader-residual-replay-design.json",
+        "success_artifact": "docs/m775-v4-limited-broader-residual-replay-design.md",
+        "notes": "Pending: design limited broader residual replay with alpha 0.2 primary while preserving M773 caveats"
     },
-    "updated_at_utc": "20260525T073000Z"
+    "updated_at_utc": "20260525T074000Z"
 }

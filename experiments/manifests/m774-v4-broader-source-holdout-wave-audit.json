@@ -2,7 +2,7 @@
   "id": "m774-v4-broader-source-holdout-wave-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "scenario_sampling_failure"
   ],
@@ -106,5 +106,5 @@
     "runs/m773_v4_broader_source_holdout_corpus_export/summary.json"
   ],
   "decision_rule": "M774 may only audit M773. It must not run residual replay, train, run PPO, mutate actor parameters, or promote a checkpoint.",
-  "next_blocker": "pending_audit_decision"
+  "next_blocker": "m775-v4-limited-broader-residual-replay-design"
 }

@@ -62,16 +62,28 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m774-v4-broader-source-holdout-wave-audit
+m775-v4-limited-broader-residual-replay-design
 ```
 
-M774 should audit the broader fresh source-holdout coverage wave from M773
-before residual replay or more source mining. M773 strongly supports the
-coverage-limited hypothesis but still has partial strict broad-gate misses, so
-the next decision must be an audit rather than residual replay or PPO.
+M775 should design a limited no-PPO residual replay on the broader M773 corpus
+using the M761 residual head. Alpha `0.2` remains the primary conservative
+candidate. PPO, actor/residual training, and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M774 audits M773 as materially supporting the coverage-limited hypothesis.
+  M773 is much broader than M767: `2652` positives versus `995`, `49` positive
+  seeds versus `25`, `17` positive fault-family pairs versus `13`, and max seed
+  dominance `0.171569` versus `0.247236`. Artifact gates are clean: no
+  sentinel positives, no missing normal matches, no missing metadata, and no
+  mutation/training/PPO flags. The audit preserves caveats: strict broad gates
+  still miss by one fault-family pair (`17 < 18`) and seed dominance
+  (`0.171569 > 0.15`), and hard negatives remain incomplete (`2134` hard
+  negatives for `2652` positives, `872` positives without hard negatives).
+  Because ordinary corpus validity is clean and the strict misses are small
+  relative to the coverage improvement, M774 admits only limited no-PPO
+  residual replay design on M773 with alpha `0.2` primary. PPO, training, and
+  promotion remain blocked.
 - M773 runs the broader disjoint-seed source wave from M772. Stage 1 reaches
   `24576` matched pairs and `1389` reset-only rows with result_class
   `cross_fault_reset_only`, compared with M767's `390` reset-only rows. Stage 2

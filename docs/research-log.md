@@ -13017,3 +13017,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M773 runs the broader disjoint-seed source wave from M772. Stage 1 reaches `24576` matched pairs and `1389` reset-only rows with result_class `cross_fault_reset_only`. Stage 2 selects `1024` source rows across `63` seeds and `22` source fault-family pairs and finds `2652` sequence outcome-critical rows with `0` sentinel false positives and result_class `v4_reset_sequence_outcome_positive`. Stage 3 exports `2652` clean positives, `2652` normal rows, and `2134` hard-negative rows with no sentinel positives, no missing normals, no missing metadata, and `current_model_or_proxy` claim boundary. The ordinary positive corpus gate passes, but the result is `v4_sequence_outcome_corpus_hard_negative_sparse`; strict M772 broad gates pass for positive rows, positive seeds, and pair dominance, but miss by `1` pair (`17 < 18`) and max seed dominance (`0.171569 > 0.15`). No actor mutation, training, PPO, residual replay, or promotion occurred.
 - decision: `v4_sequence_outcome_corpus_hard_negative_sparse_admit_audit`
 - next: `m774-v4-broader-source-holdout-wave-audit`
+
+## 20260525T074000Z - m774-v4-broader-source-holdout-wave-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m774-v4-broader-source-holdout-wave-audit.md`
+- result: M774 audits M773 as materially supporting the coverage-limited hypothesis. M773 is much broader than M767 (`2652` positives versus `995`, `49` positive seeds versus `25`, `17` positive fault-family pairs versus `13`, and max seed dominance `0.171569` versus `0.247236`), with clean artifact gates and no mutation/training/PPO flags. The audit preserves caveats: strict broad gates still miss by one fault-family pair and seed dominance, and hard negatives remain incomplete (`2134` hard negatives for `2652` positives, `872` positives without hard negatives). Because ordinary corpus validity is clean and the strict misses are small relative to the coverage improvement, M774 admits only a limited no-PPO residual replay design on M773 with alpha `0.2` primary. PPO, training, and promotion remain blocked.
+- decision: `promote_to_limited_broader_residual_replay_design`
+- next: `m775-v4-limited-broader-residual-replay-design`

@@ -1,0 +1,110 @@
+{
+  "id": "m775-v4-limited-broader-residual-replay-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m774-v4-broader-source-holdout-wave-audit.md",
+      "runs/m773_v4_broader_source_holdout_corpus_export/summary.json",
+      "runs/m773_v4_broader_source_holdout_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/contrast_rows.csv",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m774-v4-broader-source-holdout-wave-audit.json",
+      "configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json"
+    ],
+    "parent_objective": [
+      "design limited no-PPO residual replay on broader M773 corpus"
+    ],
+    "derived_from": [
+      "m774-v4-broader-source-holdout-wave-audit"
+    ],
+    "blocked_by": [
+      "m774-v4-broader-source-holdout-wave-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m775-v4-limited-broader-residual-replay-design.md",
+  "public_gates": [
+    "M775 designs limited no-PPO residual replay on M773 broader corpus",
+    "M775 uses alpha 0.2 as primary and 0.5 1.0 as diagnostic",
+    "M775 preserves M773 concentration and hard-negative caveats",
+    "M775 requires normal branch retention and intervention sensitivity metrics",
+    "training PPO and checkpoint promotion remain blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not tune alpha from M773 results before replay",
+    "do not hide broad-gate misses or hard-negative sparsity",
+    "do not claim true four-wheel or single-wheel physical fidelity"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_residual_source_holdout_replay",
+    "evidence_axis": "G_generalization: design residual replay on broader corpus",
+    "evidence_increment": "designs a limited no-PPO residual replay diagnostic after broader source-holdout audit",
+    "claim_scope": "design only; no residual replay result, PPO claim, or driver promotion",
+    "stop_condition": [
+      "stop if design admits PPO or promotion",
+      "stop if design ignores M773 strict broad-gate misses",
+      "stop if design changes actor or residual weights",
+      "stop if design omits concentration stratification"
+    ],
+    "fallback_plan": [
+      "if replay fails, audit before further source mining",
+      "if replay passes but concentration remains high, keep claim limited",
+      "if replay passes cleanly, audit before any broader replay or source-balanced refinement",
+      "if hard negatives block interpretation, keep contrast optional and report sparsity"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M774 admits limited broader residual replay design",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A limited no-PPO residual replay on the broader M773 corpus can test whether the M761 residual mechanism transfers beyond the sparse M767 holdout.",
+  "success_criteria": [
+    "M775 fixes replay inputs to M761 residual head and M773 positive/contrast rows",
+    "M775 sets alpha 0.2 as the primary conservative candidate",
+    "M775 keeps 0.5 and 1.0 diagnostic",
+    "M775 requires seed fault-family variant and horizon stratification",
+    "M775 blocks PPO training and promotion"
+  ],
+  "failure_criteria": [
+    "design admits PPO or promotion",
+    "design changes actor or residual weights",
+    "design tunes alpha from M773 outcomes",
+    "design hides M773 source concentration or hard-negative sparsity"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m775-v4-limited-broader-residual-replay-design.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m775-v4-limited-broader-residual-replay-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m774-v4-broader-source-holdout-wave-audit.md",
+    "runs/m773_v4_broader_source_holdout_corpus_export/summary.json",
+    "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+  ],
+  "decision_rule": "M775 may only design limited broader residual replay. It must not run replay, train, run PPO, mutate actor or residual parameters, or promote a checkpoint.",
+  "next_blocker": "m776-v4-limited-broader-residual-replay-implementation"
+}
