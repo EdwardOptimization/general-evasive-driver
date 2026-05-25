@@ -62,16 +62,24 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m771-v4-limited-residual-holdout-replay-audit
+m772-v4-broader-source-holdout-wave-design
 ```
 
-M771 should audit the M770 limited fresh holdout replay result. It should decide
-whether the limited holdout positive supports a broader source-holdout wave, or
-whether source sparsity and intervention collision concentration require source
-balancing before further residual replay. PPO and promotion remain blocked.
+M772 should design broader fresh source-holdout coverage after M770's limited
+holdout positive. The goal is to reduce source concentration and raise
+fault-family-pair diversity before stronger generalization, PPO, or promotion
+claims.
 
 ## Recent Evidence Line
 
+- M771 audits M770 as a limited source-holdout mechanism positive. It supports
+  the coverage-mining hypothesis: v4 coverage produced source rows, sequence
+  outcome rows, residual objective signal, public closed-loop replay, and now a
+  limited disjoint-seed holdout replay where primary alpha `0.2` passes while
+  normal branch success remains `995/995`. The audit also preserves caveats:
+  the holdout corpus is sparse/source-concentrated and intervention collisions
+  concentrate in a few seeds/fault pairs. It selects broader source-holdout
+  coverage before stronger generalization, PPO, or promotion claims.
 - M770 runs limited no-PPO residual replay on the sparse fresh M767 holdout
   corpus. It reconstructs `995/995` rows with `0` metadata misses and `0`
   rejected rows, writes `7960` replay rows and `3980` objective rows, and keeps

@@ -12988,3 +12988,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M770 runs limited no-PPO residual replay on the sparse fresh M767 holdout corpus. It reconstructs `995/995` rows with `0` metadata misses and `0` rejected rows, writes `7960` replay rows and `3980` objective rows, and keeps the base actor checksum unchanged. Result class is `v4_residual_closed_loop_replay_candidate`: alpha `0.2`, `0.5`, and `1.0` pass. Normal branch success is `995/995` and normal collision rate is `0` for all alphas. Primary alpha `0.2` raises intervention action gap mean/p10 from base `0.043862/0.039491` to `0.050473/0.045717` and margin gap mean from `0.026641` to `0.030329`, with normal first-action drift mean/p95 `0.000553/0.001208`. Base intervention branch already has `20/995` collisions; alpha `0.2` has `23/995`, alpha `1.0` has `31/995`, concentrated in a few seeds/fault pairs. No optimizer, training, PPO, promotion, or actor mutation occurred.
 - decision: `limited_residual_holdout_replay_candidate_admit_audit`
 - next: `m771-v4-limited-residual-holdout-replay-audit`
+
+## 20260525T071000Z - m771-v4-limited-residual-holdout-replay-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m771-v4-limited-residual-holdout-replay-audit.md`
+- result: M771 audits M770 as a limited source-holdout mechanism positive. It supports the coverage-mining hypothesis: v4 coverage produced source rows, sequence outcome rows, residual objective signal, public closed-loop replay, and now a limited disjoint-seed holdout replay where primary alpha `0.2` passes while normal branch success remains `995/995`. The audit also preserves caveats: the holdout corpus is sparse/source-concentrated and intervention collisions concentrate in a few seeds/fault pairs. It selects broader source-holdout coverage before stronger generalization, PPO, or promotion claims.
+- decision: `promote_to_broader_source_holdout_wave_design`
+- next: `m772-v4-broader-source-holdout-wave-design`
