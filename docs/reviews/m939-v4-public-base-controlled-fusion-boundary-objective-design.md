@@ -1,0 +1,82 @@
+# m939-v4-public-base-controlled-fusion-boundary-objective-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260525T230831Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: controlled_fusion_boundary_objective_design_admit_m940
+- Decision reason: M939 designs differentiable interpolation loss at alpha 0.125 0.150 0.175 to close the M938 deficit near miss without widening trainable surface
+
+## Hypothesis
+
+A boundary-aware controlled-fusion objective trained at normal-retained interpolation alphas can close the deficit gap without widening the trainable surface.
+
+## Lineage
+
+- parent_checkpoint: runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
+- parent_dataset: docs/m938-v4-public-base-controlled-fusion-alpha-boundary-audit.md, runs/m938_v4_public_base_controlled_fusion_alpha_boundary/summary.json, runs/m938_v4_public_base_controlled_fusion_alpha_boundary/alpha_metrics.csv
+- parent_config: experiments/manifests/m938-v4-public-base-controlled-fusion-alpha-boundary-audit.json
+- parent_objective: design interpolation-aware controlled-fusion objective focused on normal-retained boundary alphas
+- derived_from: m938-v4-public-base-controlled-fusion-alpha-boundary-audit
+- blocked_by: boundary-aware controlled-fusion objective has not yet been designed
+- supersedes: None
+- invalidates: None
+
+## Success Criteria
+
+- docs/m939-v4-public-base-controlled-fusion-boundary-objective-design.md exists
+- M939 keeps trainable surface actor_mean plus response_context_fusion.0
+- M939 pre-registers boundary alpha objective terms
+- M939 blocks replay PPO and promotion
+
+## Failure Criteria
+
+- M939 starts training
+- M939 changes actor inputs
+- M939 widens trainable surface
+- M939 admits replay PPO or promotion
+
+## Evidence Gates
+
+- M939 must be design-only
+- M939 must preserve P0 actor input contract
+- M939 must keep trainable surface limited to actor_mean and response_context_fusion.0
+- M939 must pre-register boundary alpha objective and normal-retention penalties
+- M939 must block replay PPO and promotion
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not train in M939
+- do not change actor inputs
+- do not widen trainable surface
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m939-v4-public-base-controlled-fusion-boundary-objective-design
+- type: infrastructure
+- checkpoint: docs/m939-v4-public-base-controlled-fusion-boundary-objective-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: controlled_fusion_boundary_objective_design_admit_m940
+- reason: M939 designs differentiable interpolation loss at alpha 0.125 0.150 0.175 to close the M938 deficit near miss without widening trainable surface
+
+## Next Blocker
+
+boundary-aware controlled-fusion objective has not yet been designed

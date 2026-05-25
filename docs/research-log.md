@@ -14555,3 +14555,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M938 runs a no-training fine alpha sweep of the saved M937 raw controlled-fusion direction. It reconstructs `1213/1213`, joins `122/122`, confirms the raw checkpoint differs only on the allowed surface, and finds no alpha with both normal retention and tail lift. However, alpha `0.15` is a normal-retained near miss: p10 gap and low-tail fraction move strongly, while gap-deficit mean remains slightly short. No training, exact compatibility, replay, PPO, or promotion occurred.
 - decision: `controlled_fusion_alpha_boundary_near_miss_route_to_boundary_objective_design`
 - next: `m939-v4-public-base-controlled-fusion-boundary-objective-design`
+
+## 20260525T230730Z - m939-v4-public-base-controlled-fusion-boundary-objective-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m939-v4-public-base-controlled-fusion-boundary-objective-design.md`
+- result: M939 designs a boundary-aware controlled-fusion objective focused on M938's alpha `0.15` near miss. M940 should train the same allowed surface with differentiable interpolation at alphas `0.125`, `0.150`, and `0.175`, emphasizing low-tail deficit closure and explicit normal-retention hinges. Response/context encoders, GRU, critic, log_std, actor inputs, replay, PPO, and promotion remain blocked.
+- decision: `controlled_fusion_boundary_objective_design_admit_m940`
+- next: `m940-v4-public-base-controlled-fusion-boundary-objective-implementation`

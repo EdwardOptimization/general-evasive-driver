@@ -1,0 +1,117 @@
+{
+  "id": "m940-v4-public-base-controlled-fusion-boundary-objective-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m939-v4-public-base-controlled-fusion-boundary-objective-design.md",
+      "runs/m938_v4_public_base_controlled_fusion_alpha_boundary/summary.json",
+      "runs/m938_v4_public_base_controlled_fusion_alpha_boundary/alpha_metrics.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m939-v4-public-base-controlled-fusion-boundary-objective-design.json"
+    ],
+    "parent_objective": [
+      "implement differentiable boundary-alpha controlled-fusion objective"
+    ],
+    "derived_from": [
+      "m939-v4-public-base-controlled-fusion-boundary-objective-design"
+    ],
+    "blocked_by": [
+      "boundary-aware controlled-fusion implementation has not yet run"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m940-v4-public-base-controlled-fusion-boundary-objective-implementation.md",
+  "public_gates": [
+    "M940 may update only actor_mean and response_context_fusion.0",
+    "M940 must preserve P0 actor input contract",
+    "M940 must train with boundary-alpha interpolation",
+    "M940 must report strict candidate and boundary near-miss diagnostics",
+    "M940 must block replay PPO and promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not change actor inputs",
+    "do not update response_encoder",
+    "do not update context_encoder",
+    "do not update online_gru_cell",
+    "do not update critic",
+    "do not update log_std",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_controlled_fusion_surface",
+    "evidence_axis": "G_policy_update: test boundary-aware controlled-fusion objective",
+    "evidence_increment": "tests whether explicit interpolation loss at alpha 0.125-0.175 can close the M938 deficit near miss",
+    "claim_scope": "objective-only boundary probe; no replay, PPO, driver improvement claim, or promotion",
+    "stop_condition": [
+      "stop if forbidden parameters change",
+      "stop if boundary interpolation is not used",
+      "stop if useful alphas violate normal retention",
+      "stop if replay PPO or promotion is attempted"
+    ],
+    "fallback_plan": [
+      "if strict candidate exists, route to exact no-update compatibility design",
+      "if near-miss remains, route to controlled fusion branch audit",
+      "if trust-region conflict persists, synthesize before touching encoders or GRU"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M939 admits one boundary-aware controlled-fusion implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Differentiable boundary-alpha objective training can reduce the alpha-0.15 deficit miss without widening the trainable surface or breaking normal retention.",
+  "success_criteria": [
+    "summary.json exists",
+    "training_started is true",
+    "boundary_interpolation_used is true",
+    "forbidden_parameter_changed is false",
+    "sample_reconstruction_success_rate >= 0.98",
+    "boundary diagnostics are reported",
+    "replay_used ppo_used and promoted are false"
+  ],
+  "failure_criteria": [
+    "actor input contract changes",
+    "forbidden parameters change",
+    "M940 omits boundary interpolation",
+    "M940 runs replay PPO or promotion"
+  ],
+  "commands": [
+    {
+      "name": "run_boundary_objective_probe",
+      "command": "PYTHONPATH=src python -m autodrift.public_base_controlled_fusion_boundary_objective_probe --checkpoint runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --positive-rows runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv --contrast-rows runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv --scenario-config configs/extreme_fault_distribution_v4_scenarios.json --target-rows runs/m919_v4_public_base_expanded_target_regeneration/accepted_target_rows.csv --m912-summary runs/m912_v4_public_base_sequence_recalibration_audit/summary.json --low-tail-rows runs/m912_v4_public_base_sequence_recalibration_audit/low_tail_rows.csv --run-dir runs/m940_v4_public_base_controlled_fusion_boundary_objective --device cpu --epochs 80 --seed 9400 --lr 0.0005 --train-alphas 0.125,0.150,0.175 --alphas 0.050,0.075,0.100,0.125,0.150,0.175,0.200,0.225,0.250,0.275,0.300,0.325,0.350,0.500,0.750,1.000"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m940_v4_public_base_controlled_fusion_boundary_objective/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m940_v4_public_base_controlled_fusion_boundary_objective/alpha_metrics.csv",
+      "type": "data"
+    },
+    {
+      "path": "docs/m940-v4-public-base-controlled-fusion-boundary-objective-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m939-v4-public-base-controlled-fusion-boundary-objective-design.md"
+  ],
+  "decision_rule": "M940 may only run objective-only boundary-aware controlled-fusion training and diagnostics. It must not run replay, PPO, or promote.",
+  "next_blocker": "boundary-aware controlled-fusion implementation has not yet run"
+}

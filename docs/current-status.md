@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m939-v4-public-base-controlled-fusion-boundary-objective-design
+m940-v4-public-base-controlled-fusion-boundary-objective-implementation
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -81,11 +81,17 @@ response/context encoders, GRU, critic, log_std, replay, PPO, and promotion
 blocked. M937 validates the trainable-surface contract and finds strong
 low-tail leverage, but only outside normal retention on the coarse alpha grid.
 M938 fine alpha-boundary audit finds no exact overlap, but alpha `0.15` is a
-normal-retained near miss. M939 should design a boundary-aware controlled-fusion
-objective before widening the surface.
+normal-retained near miss. M939 designs a boundary-aware controlled-fusion
+objective using differentiable interpolation at alphas `0.125`, `0.150`, and
+`0.175`.
 
 ## Recent Evidence Line
 
+- M939 designs the boundary-aware controlled-fusion objective. M940 should
+  train with differentiable interpolation at boundary alphas `0.125`, `0.150`,
+  and `0.175`, keep the trainable surface unchanged, and report strict
+  candidate plus boundary near-miss diagnostics. Replay, PPO, and promotion
+  remain blocked.
 - M938 runs a no-training fine alpha-boundary audit of the M937 raw direction.
   It confirms no exact normal-retained tail-lift overlap, but alpha `0.15`
   is a near miss: normal retention passes, p10/fraction move strongly, and the
