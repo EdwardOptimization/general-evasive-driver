@@ -14142,3 +14142,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M894 synthesizes M885-M893 and closes `v4_pair_delta_objective_probe`. The branch supports a narrow but real result: the no-PPO enriched pair-delta objective-only update repeats across two optimizer/minibatch seeds, selects alpha `0.1` both times, and preserves exact/replay/behavior proof gates versus M568 for both candidates. The synthesis explicitly rejects promotion, PPO admission, generalization claims, and meaningful driver-improvement claims because the movement is tiny and all gates are public workflow artifacts.
 - decision: `promote_to_next_branch`
 - next: `m895-v4-pair-delta-objective-effect-size-budget-audit`
+
+## 20260525T201114Z - m895-v4-pair-delta-objective-effect-size-budget-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m895-v4-pair-delta-objective-effect-size-budget-audit.md`
+- result: M895 audits M886/M891/M889/M893 effect size using existing artifacts only. Accepted alpha `0.1` is proof-safe but marginal: action L2 mean is about `1.2e-4`, behavior success and termination are retention ties versus M568, and clearance movement is about `+0.00049`. Raw candidates have roughly `10x` larger action movement (`~0.0012`) and still have negative exact holdout deltas, but they have no replay evidence and were not directly admitted by M885. The correct next step is controlled raw-candidate scaling design, not PPO, promotion, or fresh generalization.
+- decision: `effect_size_marginal_route_to_controlled_scaling_design`
+- next: `m896-v4-pair-delta-controlled-scaling-replay-design`

@@ -62,16 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m895-v4-pair-delta-objective-effect-size-budget-audit
+m896-v4-pair-delta-controlled-scaling-replay-design
 ```
 
-M894 closed the `v4_pair_delta_objective_probe` branch after two objective-only
-seeds and two replay/proof positives. M895 must quantify whether that
-proof-safe movement is large enough to justify scaling, fresh-corpus work, or
-later PPO.
+M895 classified accepted alpha `0.1` movement as proof-safe but marginal. M896
+must design exact-first replay/proof gates for the larger existing raw
+objective-only candidates before any execution, PPO, or promotion.
 
 ## Recent Evidence Line
 
+- M895 audits effect size from existing M886/M891/M889/M893 artifacts. Accepted
+  alpha `0.1` is repeatable and proof-safe but too small for performance claims:
+  action L2 mean is about `1.2e-4`, success and termination are retention ties,
+  and behavior clearance movement is about `+0.00049`. Raw candidates are about
+  `10x` larger in action movement and keep negative exact holdout deltas, but
+  they have no replay evidence and require controlled scaling gates first.
 - M894 synthesizes M885-M893 and opens `v4_pair_delta_objective_effect_size`.
   The supported claim is narrow: the no-PPO enriched pair-delta objective-only
   update repeats across two optimizer/minibatch seeds, selects alpha `0.1` both

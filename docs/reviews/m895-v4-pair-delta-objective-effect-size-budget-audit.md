@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260525T200842Z
+- Generated at UTC: 20260525T201215Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M895 may only audit existing effect-size artifacts and choose scaling, fresh-corpus, or stop routing. It must not run replay, train, run PPO, or promote.
+- Promotion decision: effect_size_marginal_route_to_controlled_scaling_design
+- Decision reason: M895 classifies alpha_0_1 movement as marginal with action L2 about 1.2e-4 and routes to controlled raw-candidate scaling design
 
 ## Hypothesis
 
@@ -72,7 +72,18 @@ The repeated objective-only candidates are proof-safe, but their action and beha
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m895-v4-pair-delta-objective-effect-size-budget-audit
+- type: gate
+- checkpoint: docs/m895-v4-pair-delta-objective-effect-size-budget-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: effect_size_marginal_route_to_controlled_scaling_design
+- reason: M895 classifies alpha_0_1 movement as marginal with action L2 about 1.2e-4 and routes to controlled raw-candidate scaling design
 
 ## Next Blocker
 

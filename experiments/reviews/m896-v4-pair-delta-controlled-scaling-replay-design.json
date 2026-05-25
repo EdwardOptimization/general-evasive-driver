@@ -1,0 +1,77 @@
+{
+  "decision_reason": "M896 may only design the controlled scaling replay/proof gate. It must not run replay, train, run PPO, or promote.",
+  "failure_criteria": [
+    "M896 runs replay or training",
+    "M896 admits PPO or promotion",
+    "M896 treats exact metrics as replay proof",
+    "M896 omits one of the two raw candidate seeds",
+    "M896 omits failure routing"
+  ],
+  "failure_types": [
+    "proof_washout",
+    "behavior_regression",
+    "objective_overfit",
+    "metric_artifact",
+    "contract_violation",
+    "lineage_invalid"
+  ],
+  "forbidden_shortcuts": [
+    "do not run replay in M896",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not accept raw candidates solely from exact metrics",
+    "do not change actor inputs or residual head"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260525T201215Z",
+  "hypothesis": "The raw objective-only candidates may provide a larger but still controlled movement budget; M896 should design exact-first replay/proof evaluation before any execution or stronger claim.",
+  "lineage": {
+    "blocked_by": [
+      "M895 found alpha_0.1 proof-safe but too small; raw candidates have larger exact-objective movement but no replay evidence"
+    ],
+    "derived_from": [
+      "m895-v4-pair-delta-objective-effect-size-budget-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/raw_candidate.pt",
+      "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/raw_candidate.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m895-v4-pair-delta-objective-effect-size-budget-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m895-v4-pair-delta-objective-effect-size-budget-audit.md",
+      "runs/m886_v4_enriched_pair_delta_objective_only_probe/candidate_metrics.csv",
+      "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/candidate_metrics.csv",
+      "runs/m886_v4_enriched_pair_delta_objective_only_probe/action_drift_metrics.csv",
+      "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/action_drift_metrics.csv"
+    ],
+    "parent_objective": [
+      "design a controlled exact-first replay/proof gate for larger existing objective-only candidates before any scaling, PPO, or promotion"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m896-v4-pair-delta-controlled-scaling-replay-design",
+  "next_blocker": "Raw candidate controlled scaling replay/proof gate has not yet been designed",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M896 must design exact-first evaluation for both raw candidates",
+    "M896 must require first replay gates before full replay stack",
+    "M896 must require behavior seeds only if replay passes",
+    "M896 must define failure routing for raw-candidate proof washout",
+    "M896 must keep PPO and promotion blocked"
+  ],
+  "scoreboard": {},
+  "success_criteria": [
+    "M896 writes a design document for raw-candidate exact/replay/behavior gates",
+    "M896 names both raw candidate checkpoints and M568 baseline",
+    "M896 specifies gate order and thresholds",
+    "M896 defines failure routing",
+    "M896 keeps replay execution, PPO, and promotion blocked"
+  ],
+  "type": "infrastructure"
+}

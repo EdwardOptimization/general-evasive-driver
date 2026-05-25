@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M895 may only audit existing effect-size artifacts and choose scaling, fresh-corpus, or stop routing. It must not run replay, train, run PPO, or promote.",
+  "decision_reason": "M895 classifies alpha_0_1 movement as marginal with action L2 about 1.2e-4 and routes to controlled raw-candidate scaling design",
   "failure_criteria": [
     "M895 runs training or replay",
     "M895 admits PPO or promotion",
@@ -25,7 +25,7 @@
     "do not tune alpha after seeing private holdout results"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260525T200842Z",
+  "generated_at_utc": "20260525T201215Z",
   "hypothesis": "The repeated objective-only candidates are proof-safe, but their action and behavior movement may be too small; M895 should quantify the movement budget and route the next branch before any scaling or PPO.",
   "lineage": {
     "blocked_by": [
@@ -64,7 +64,7 @@
   "milestone": "m895-v4-pair-delta-objective-effect-size-budget-audit",
   "next_blocker": "The proof-safe objective-only branch has not yet quantified whether its movement is large enough to justify scaling or fresh-source work",
   "private_holdout_policy": "promotion_only",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "effect_size_marginal_route_to_controlled_scaling_design",
   "public_gates": [
     "M895 must aggregate M886/M891 interpolation and action-drift metrics",
     "M895 must aggregate M889/M893 replay and behavior deltas",
@@ -72,7 +72,20 @@
     "M895 must choose scaling, fresh-corpus, or stop routing",
     "M895 must keep PPO and promotion blocked"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m895-v4-pair-delta-objective-effect-size-budget-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "effect_size_marginal_route_to_controlled_scaling_design",
+    "milestone": "m895-v4-pair-delta-objective-effect-size-budget-audit",
+    "reason": "M895 classifies alpha_0_1 movement as marginal with action L2 about 1.2e-4 and routes to controlled raw-candidate scaling design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "M895 records exact-objective deltas by seed and alpha",
     "M895 records action-drift magnitudes by seed and alpha",
