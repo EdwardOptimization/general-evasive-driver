@@ -13724,3 +13724,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M849 designs a no-training pair-delta-first miner after M847/M848 found real but concentrated pair-delta evidence. The design starts from M847 `pair_candidate_rows.csv`, replays only `pair_delta_positive` and `pair_delta_negative` first over hold steps `[4, 6]` and epsilons `[0.025, 0.05, 0.075]`, then balances accepted pair-delta rows by source group, seed, fault family, fault-family pair, hold step, and direction. Component directions are allowed only as controls after a balanced pair-delta subset exists and cannot satisfy primary gates. Strong corpus requires at least `60` balanced pair-delta rows with source/fault/seed diversity; sparse positive requires at least `30`. M850 implementation is admitted; PPO, promotion, actor/residual training, and objective training remain blocked.
 - decision: `pair_delta_focused_source_balanced_mining_design_admit_m850`
 - next: `m850-v4-pair-delta-focused-source-balanced-mining-implementation`
+
+## 20260525T135435Z - m850-v4-pair-delta-focused-source-balanced-mining-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m850_v4_pair_delta_focused_source_balanced_mining`
+- artifact: `docs/m850-v4-pair-delta-focused-source-balanced-mining-implementation.md`
+- result: M850 implements the no-training pair-delta-first miner. It replays `160` pairs from M847 candidates, produces `1920` pair-delta sequence rows, and increases raw accepted pair-delta rows from M847's `17` to `50`. Frozen actor/M761 checksums are unchanged and no PPO/training runs. The result remains `v4_pair_delta_focused_source_balanced_mining_source_limited`: after source/fault/seed caps only `24` balanced pair-delta rows remain, below the sparse `30` gate, with only `3` left source groups, `2` left seeds, `3` left fault families, and no source-holdout rows. The data route confirms pair-delta evidence is real but still concentrated; next is an audit before any objective design.
+- decision: `v4_pair_delta_focused_source_balanced_mining_source_limited`
+- next: `m851-v4-pair-delta-focused-source-balanced-mining-audit`

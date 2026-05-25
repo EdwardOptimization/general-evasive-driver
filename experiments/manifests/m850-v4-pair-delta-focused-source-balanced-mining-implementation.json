@@ -91,7 +91,7 @@
   "commands": [
     {
       "name": "pair_delta_focused_source_balanced_mining",
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_pair_delta_focused_source_balanced_mining --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --residual-head runs/m761_v4_sequence_objective_probe/residual_head.pt --scenario-config configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json --pair-candidate-rows runs/m847_v4_cross_source_sequence_effective_pair_refresh/pair_candidate_rows.csv --source-rows runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv --candidate-plan-rows runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv --run-dir runs/m850_v4_pair_delta_focused_source_balanced_mining --device cpu"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_pair_delta_focused_source_balanced_mining --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --residual-head runs/m761_v4_sequence_objective_probe/residual_head.pt --scenario-config configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json --pair-candidate-rows runs/m847_v4_cross_source_sequence_effective_pair_refresh/pair_candidate_rows.csv --boundary-rows runs/m844_v4_source_diverse_sequence_effective_corpus/boundary_rows.csv --source-rows runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv --candidate-plan-rows runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv --run-dir runs/m850_v4_pair_delta_focused_source_balanced_mining --device cpu"
     }
   ],
   "required_artifacts": [

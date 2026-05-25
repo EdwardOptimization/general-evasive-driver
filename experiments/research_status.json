@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 858,
+    "completed": 859,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m849-v4-pair-delta-focused-source-balanced-mining-design",
+    "task_id": "m850-v4-pair-delta-focused-source-balanced-mining-implementation",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m849-v4-pair-delta-focused-source-balanced-mining-design.md"
+    "command_log": "runs/m850_v4_pair_delta_focused_source_balanced_mining/summary.json"
   },
   "next_task": {
-    "id": "m850-v4-pair-delta-focused-source-balanced-mining-implementation",
+    "id": "m851-v4-pair-delta-focused-source-balanced-mining-audit",
     "status": "pending",
-    "priority": 8450,
-    "kind": "infrastructure",
-    "hypothesis": "Implement pair-delta-focused source-balanced mining",
-    "command": "see experiments/manifests/m850-v4-pair-delta-focused-source-balanced-mining-implementation.json",
-    "success_artifact": "docs/m850-v4-pair-delta-focused-source-balanced-mining-implementation.md",
-    "notes": "Pending: M849 designs pair-delta-first mining using M847 candidates before objective training or PPO"
+    "priority": 8460,
+    "kind": "gate",
+    "hypothesis": "Audit source-limited pair-delta-focused mining result",
+    "command": "see experiments/manifests/m851-v4-pair-delta-focused-source-balanced-mining-audit.json",
+    "success_artifact": "docs/m851-v4-pair-delta-focused-source-balanced-mining-audit.md",
+    "notes": "Pending: M850 improves raw pair-delta yield but balanced corpus remains source-limited"
   },
-  "updated_at_utc": "20260525T134404Z"
+  "updated_at_utc": "20260525T135435Z"
 }

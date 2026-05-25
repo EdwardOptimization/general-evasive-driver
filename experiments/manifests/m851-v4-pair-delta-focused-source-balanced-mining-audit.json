@@ -1,0 +1,109 @@
+{
+  "id": "m851-v4-pair-delta-focused-source-balanced-mining-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m850-v4-pair-delta-focused-source-balanced-mining-implementation.md",
+      "runs/m850_v4_pair_delta_focused_source_balanced_mining/summary.json",
+      "runs/m850_v4_pair_delta_focused_source_balanced_mining/diversity_summary.json",
+      "runs/m850_v4_pair_delta_focused_source_balanced_mining/accepted_pair_delta_rows.csv",
+      "runs/m850_v4_pair_delta_focused_source_balanced_mining/balanced_pair_delta_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m850-v4-pair-delta-focused-source-balanced-mining-implementation.json"
+    ],
+    "parent_objective": [
+      "audit source-limited pair-delta-focused mining result"
+    ],
+    "derived_from": [
+      "m850-v4-pair-delta-focused-source-balanced-mining-implementation"
+    ],
+    "blocked_by": [
+      "M850 improves raw pair-delta yield but balanced pair-delta rows remain source/seed limited"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m851-v4-pair-delta-focused-source-balanced-mining-audit.md",
+  "public_gates": [
+    "M851 must audit M850 before further implementation",
+    "M851 must separate raw pair-delta yield from balanced objective-ready corpus quality",
+    "M851 must decide whether to expand boundary bracketing or synthesize",
+    "M851 must keep PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run replay in M851",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat M850 direct pair-delta rows as learned self-ID proof",
+    "do not ignore source-holdout absence"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_source_diverse_sequence_effective_corpus",
+    "evidence_axis": "G_data: pair-delta-focused source-limited result audit",
+    "evidence_increment": "audits whether M850 raw pair-delta yield is enough or whether the branch needs boundary expansion/synthesis",
+    "claim_scope": "audit only; no replay, training, PPO, learned policy claim, or driver promotion",
+    "stop_condition": [
+      "stop if M850 artifacts are incomplete",
+      "stop if raw accepted pair-delta rows are treated as objective-ready",
+      "stop if source-holdout absence is ignored",
+      "stop if PPO is admitted before corpus quality is sufficient"
+    ],
+    "fallback_plan": [
+      "if source-limited, design expanded boundary bracketing over underrepresented sources",
+      "if unexpectedly objective-ready after audit, design objective sanity without PPO",
+      "if branch has reached cadence, synthesize before further continuation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M850 returns source-limited pair-delta-focused mining result",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M850 improves raw pair-delta yield but still needs audit because the balanced corpus is source-limited.",
+  "success_criteria": [
+    "M851 writes an audit document for M850",
+    "M851 verifies M850 artifact completeness and frozen checksums",
+    "M851 classifies source-limited pair-delta evidence and failure taxonomy",
+    "M851 selects the next no-training branch or synthesis blocker",
+    "M851 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M851 admits PPO or promotion",
+    "M851 trains actor or residual parameters",
+    "M851 ignores M850 source/fault limitations",
+    "M851 treats direct sequence override rows as learned self-ID proof"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m851-v4-pair-delta-focused-source-balanced-mining-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m851-v4-pair-delta-focused-source-balanced-mining-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m850-v4-pair-delta-focused-source-balanced-mining-implementation.md",
+    "runs/m850_v4_pair_delta_focused_source_balanced_mining/summary.json",
+    "runs/m850_v4_pair_delta_focused_source_balanced_mining/diversity_summary.json"
+  ],
+  "decision_rule": "M851 may only audit M850 and pre-register the next branch. It must not run replay, train, run PPO, or promote.",
+  "next_blocker": "M850 raw pair-delta yield improved but balanced pair-delta corpus remains source-limited"
+}
