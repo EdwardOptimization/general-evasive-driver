@@ -1,0 +1,88 @@
+{
+  "decision_reason": "M917 accepts 67 of 67 reconstructed strict low-tail targets but fails accepted target seed and source concentration gates because the strict source pool has only 21 seeds",
+  "failure_criteria": [
+    "M917 trains or mutates actor parameters",
+    "accepted_targets < 80",
+    "distinct_fault_family_pairs < 8",
+    "max_fault_family_pair_fraction > 0.25",
+    "M917 runs M880 exact compatibility, replay, PPO, or promotion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train in M917",
+    "do not update actor parameters",
+    "do not run M880 exact compatibility",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat mined targets as deployed rules"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T214154Z",
+  "hypothesis": "No-training local action target mining can find source-diverse M399-rooted targets for the broad low-tail set without actor mutation, replay, PPO, or promotion.",
+  "lineage": {
+    "blocked_by": [
+      "M399-rooted regenerated targets do not yet exist"
+    ],
+    "derived_from": [
+      "m916-v4-public-base-target-regeneration-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m916-v4-public-base-target-regeneration-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m916-v4-public-base-target-regeneration-design.md",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/low_tail_rows.csv",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/group_deficit_summary.csv",
+      "runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv"
+    ],
+    "parent_objective": [
+      "implement no-training M399-rooted target regeneration over low-tail states"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m917-v4-public-base-target-regeneration-implementation",
+  "next_blocker": "M399-rooted target regeneration has not yet been run",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "public_base_target_regeneration_route_to_source_expansion_design",
+  "public_gates": [
+    "M917 must not train",
+    "M917 must keep actor parameters unchanged",
+    "M917 must export selected, candidate, accepted, and rejected target rows",
+    "M917 must enforce source diversity gates",
+    "M917 must block residual training, M880 exact compatibility, replay, PPO, and promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m917_v4_public_base_target_regeneration/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "public_base_target_regeneration_route_to_source_expansion_design",
+    "milestone": "m917-v4-public-base-target-regeneration-implementation",
+    "reason": "M917 accepts 67 of 67 reconstructed strict low-tail targets but fails accepted target seed and source concentration gates because the strict source pool has only 21 seeds",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary.json exists",
+    "accepted_target_rows.csv exists",
+    "rejected_target_rows.csv exists",
+    "accepted_targets >= 80",
+    "distinct_fault_family_pairs >= 8",
+    "distinct_seeds >= 24",
+    "max_fault_family_pair_fraction <= 0.25",
+    "training_started and ppo_used are false",
+    "promoted is false"
+  ],
+  "type": "infrastructure"
+}

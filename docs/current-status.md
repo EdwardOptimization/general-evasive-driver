@@ -62,15 +62,31 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m917-v4-public-base-target-regeneration-implementation
+m919-v4-public-base-expanded-target-regeneration-implementation
 ```
 
-M916 designed M399-rooted target regeneration. M917 must run no-training local
-action target mining over source-diverse low-tail states before any residual
-training, M880 exact compatibility, replay, PPO, or promotion.
+M917 ran M399-rooted target regeneration over strict low-tail states and found
+that target search works for selected rows but the source pool is too sparse
+and concentrated. M918 therefore designs a coverage-first near-tail source
+expansion. M919 must run no-training expanded target regeneration before any
+residual training, M880 exact compatibility, replay, PPO, or promotion.
 
 ## Recent Evidence Line
 
+- M918 designs target source expansion. M919 should join M909 near-base
+  objective rows with M912 strict low-tail labels, add near-tail source
+  coverage from the full M755 corpus, and accept a regenerated target corpus
+  only if it reaches at least `96` accepted targets, at least `60` strict
+  low-tail accepted targets, at least `24` seeds, at least `10`
+  fault-family pairs, and `max_fault_family_pair_fraction <= 0.25`.
+- M917 implements no-training M399 target regeneration over the strict M912
+  low-tail source. It reconstructs `67/67` selected sources and accepts
+  `67/67` local targets, with no actor parameter change and no training,
+  replay, PPO, or promotion. It fails the pre-registered source gates:
+  `accepted_targets=67 < 80`, `distinct_seeds=19 < 24`, and
+  `max_fault_family_pair_fraction=0.3582089552238806 > 0.25`. The strict
+  low-tail input itself has only `21` distinct seeds, so the next route is
+  source expansion rather than residual training.
 - M916 designs target regeneration. M917 should select up to `256`
   source-diverse low-tail states, search bounded local action overrides around
   the M399 base action, accept only targets with bounded action drift and

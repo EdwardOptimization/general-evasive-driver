@@ -14347,3 +14347,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M916 designs no-training M399-rooted target regeneration. M917 should select up to `256` source-diverse low-tail states, evaluate bounded local action overrides around the M399 base action, accept only action-drift-bounded targets that reduce deficit and clear low-tail status, and require diversity gates before any residual objective design. Residual training, M880 exact compatibility, replay, PPO, and promotion remain blocked.
 - decision: `public_base_target_regeneration_design_admit_m917`
 - next: `m917-v4-public-base-target-regeneration-implementation`
+
+## 20260525T213831Z - m917-v4-public-base-target-regeneration-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m917_v4_public_base_target_regeneration`
+- artifact: `docs/m917-v4-public-base-target-regeneration-implementation.md`
+- result: M917 implements and runs no-training target regeneration over the strict M912 low-tail source. It reconstructs `67/67` selected sources and accepts `67/67` local targets with actor checksum unchanged. The pre-registered diversity gates fail: `accepted_targets=67 < 80`, `distinct_seeds=19 < 24`, and `max_fault_family_pair_fraction=0.3582089552238806 > 0.25`. The source audit shows the strict low-tail input has only `21` seeds total, so the M917 diversity gate is impossible from strict low-tail rows alone.
+- decision: `public_base_target_regeneration_route_to_source_expansion_design`
+- next: `m918-v4-public-base-target-source-expansion-design`
+
+## 20260525T213831Z - m918-v4-public-base-target-source-expansion-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m918-v4-public-base-target-source-expansion-design.md`
+- result: M918 designs coverage-first near-tail source expansion. M919 should join M909 near-base objective rows with M912 strict low-tail membership, use strict low-tail rows plus near-tail coverage rows from underrepresented seeds and fault-family pairs, and rerun bounded local action target generation. Residual training, M880 exact compatibility, replay, PPO, and promotion remain blocked until the expanded target corpus passes source gates.
+- decision: `public_base_target_source_expansion_design_admit_m919`
+- next: `m919-v4-public-base-expanded-target-regeneration-implementation`
