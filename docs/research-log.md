@@ -13734,3 +13734,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M850 implements the no-training pair-delta-first miner. It replays `160` pairs from M847 candidates, produces `1920` pair-delta sequence rows, and increases raw accepted pair-delta rows from M847's `17` to `50`. Frozen actor/M761 checksums are unchanged and no PPO/training runs. The result remains `v4_pair_delta_focused_source_balanced_mining_source_limited`: after source/fault/seed caps only `24` balanced pair-delta rows remain, below the sparse `30` gate, with only `3` left source groups, `2` left seeds, `3` left fault families, and no source-holdout rows. The data route confirms pair-delta evidence is real but still concentrated; next is an audit before any objective design.
 - decision: `v4_pair_delta_focused_source_balanced_mining_source_limited`
 - next: `m851-v4-pair-delta-focused-source-balanced-mining-audit`
+
+## 20260525T140147Z - m851-v4-pair-delta-focused-source-balanced-mining-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m851-v4-pair-delta-focused-source-balanced-mining-audit.md`
+- result: M851 audits M850 as a useful raw pair-delta improvement but not an objective-ready corpus. M850 improves accepted pair-delta rows from `17` to `50`, but balanced rows remain `24 < 30` with only `3` left source groups, `2` left seeds, `3` left fault families, and zero source-holdout rows. The audit classifies the blocker as scenario-sampling failure plus metric-artifact risk: pair-delta override evidence is real but still direct controllability, not learned self-ID. Because the M843-M851 branch has now spent a full data-mining window on source-diverse sequence and pair-delta corpus construction, M851 routes to branch synthesis before any expanded-boundary implementation or objective design.
+- decision: `route_to_branch_synthesis_before_boundary_expansion`
+- next: `m852-v4-source-diverse-sequence-effective-corpus-branch-synthesis`

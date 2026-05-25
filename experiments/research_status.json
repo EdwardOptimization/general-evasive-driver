@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 859,
+    "completed": 860,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m850-v4-pair-delta-focused-source-balanced-mining-implementation",
+    "task_id": "m851-v4-pair-delta-focused-source-balanced-mining-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m850_v4_pair_delta_focused_source_balanced_mining/summary.json"
+    "command_log": "docs/m851-v4-pair-delta-focused-source-balanced-mining-audit.md"
   },
   "next_task": {
-    "id": "m851-v4-pair-delta-focused-source-balanced-mining-audit",
+    "id": "m852-v4-source-diverse-sequence-effective-corpus-branch-synthesis",
     "status": "pending",
-    "priority": 8460,
+    "priority": 8470,
     "kind": "gate",
-    "hypothesis": "Audit source-limited pair-delta-focused mining result",
-    "command": "see experiments/manifests/m851-v4-pair-delta-focused-source-balanced-mining-audit.json",
-    "success_artifact": "docs/m851-v4-pair-delta-focused-source-balanced-mining-audit.md",
-    "notes": "Pending: M850 improves raw pair-delta yield but balanced corpus remains source-limited"
+    "hypothesis": "Synthesize source-diverse sequence-effective corpus branch",
+    "command": "see experiments/manifests/m852-v4-source-diverse-sequence-effective-corpus-branch-synthesis.json",
+    "success_artifact": "docs/m852-v4-source-diverse-sequence-effective-corpus-branch-synthesis.md",
+    "notes": "Pending: M851 routes to branch synthesis before expanded boundary bracketing or objective design"
   },
-  "updated_at_utc": "20260525T135435Z"
+  "updated_at_utc": "20260525T140147Z"
 }

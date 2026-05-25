@@ -1,0 +1,121 @@
+{
+  "id": "m852-v4-source-diverse-sequence-effective-corpus-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m842-v4-low-margin-new-data-route-third-branch-synthesis.md",
+      "docs/m844-v4-source-diverse-sequence-effective-corpus-implementation.md",
+      "docs/m847-v4-cross-source-sequence-effective-pair-refresh-implementation.md",
+      "docs/m850-v4-pair-delta-focused-source-balanced-mining-implementation.md",
+      "docs/m851-v4-pair-delta-focused-source-balanced-mining-audit.md",
+      "runs/m850_v4_pair_delta_focused_source_balanced_mining/summary.json",
+      "runs/m850_v4_pair_delta_focused_source_balanced_mining/diversity_summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m851-v4-pair-delta-focused-source-balanced-mining-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize M843-M851 source-diverse sequence-effective corpus branch before further continuation"
+    ],
+    "derived_from": [
+      "m851-v4-pair-delta-focused-source-balanced-mining-audit"
+    ],
+    "blocked_by": [
+      "M850 pair-delta mining improved raw yield but remains source-limited, and the branch is at synthesis cadence"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m852-v4-source-diverse-sequence-effective-corpus-branch-synthesis.md",
+  "public_gates": [
+    "M852 must synthesize M843-M851 before further narrow continuation",
+    "M852 must separate direct sequence controllability from learned self-ID claims",
+    "M852 must decide between expanded boundary bracketing restricted objective sanity pivot or stop",
+    "M852 must keep PPO and promotion blocked unless evidence explicitly supports admission"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run replay in M852",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat direct pair-delta overrides as learned self-ID proof",
+    "do not continue narrow milestones without a synthesis decision"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_source_diverse_sequence_effective_corpus",
+    "evidence_axis": "G_data synthesis: source-diverse sequence and pair-delta controllability",
+    "evidence_increment": "synthesizes M843-M851 after pair-delta-first mining reaches source-limited result near branch cadence",
+    "claim_scope": "branch synthesis only; no replay, training, PPO, learned policy claim, or driver promotion",
+    "stop_condition": [
+      "stop if synthesis questions are not answered",
+      "stop if direct sequence overrides are treated as learned policy self-ID",
+      "stop if no next branch decision is made",
+      "stop if PPO is admitted without objective-ready evidence"
+    ],
+    "fallback_plan": [
+      "if data coverage is the blocker, continue into expanded boundary bracketing over underrepresented sources",
+      "if pair-delta corpus is sufficient, design objective sanity without PPO",
+      "if sequence evidence is too public-corpus-specific, pivot to fresh scenario distribution mining",
+      "if artifacts are inconsistent, audit or repair before continuation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M851 routes to synthesis after M850 source-limited pair-delta-focused mining result",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m852-v4-source-diverse-sequence-effective-corpus-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "The M843-M851 branch has established pair-delta sequence controllability but remains source-limited, so synthesis should decide whether the next branch is expanded boundary bracketing or objective sanity.",
+  "success_criteria": [
+    "M852 writes a synthesis document covering M843-M851",
+    "M852 answers the required synthesis questions",
+    "M852 records supported and falsified claims",
+    "M852 classifies failure taxonomy across the branch",
+    "M852 pre-registers the next branch decision without PPO or promotion unless explicitly justified"
+  ],
+  "failure_criteria": [
+    "M852 runs replay or training",
+    "M852 admits PPO without evidence",
+    "M852 treats direct sequence override evidence as learned self-ID proof",
+    "M852 continues the same branch without synthesis decision"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m852-v4-source-diverse-sequence-effective-corpus-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m852-v4-source-diverse-sequence-effective-corpus-branch-synthesis.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m842-v4-low-margin-new-data-route-third-branch-synthesis.md",
+    "docs/m851-v4-pair-delta-focused-source-balanced-mining-audit.md",
+    "runs/m850_v4_pair_delta_focused_source_balanced_mining/summary.json",
+    "runs/m850_v4_pair_delta_focused_source_balanced_mining/diversity_summary.json"
+  ],
+  "decision_rule": "M852 may only synthesize and pre-register the next branch. It must not run replay, train, run PPO, or promote.",
+  "next_blocker": "M843-M851 source-diverse sequence-effective corpus branch needs synthesis before further continuation"
+}
