@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 875,
+    "completed": 876,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m866-v4-generated-boundary-pair-delta-refresh-design",
+    "task_id": "m867-v4-generated-boundary-pair-delta-refresh-implementation",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m866-v4-generated-boundary-pair-delta-refresh-design.md"
+    "command_log": "docs/m867-v4-generated-boundary-pair-delta-refresh-implementation.md"
   },
   "next_task": {
-    "id": "m867-v4-generated-boundary-pair-delta-refresh-implementation",
+    "id": "m868-v4-generated-boundary-pair-delta-refresh-audit",
     "status": "pending",
-    "priority": 8620,
-    "kind": "infrastructure",
-    "hypothesis": "Implement source-aware no-training pair-delta refresh over M864 combined generated-boundary rows",
-    "command": "see experiments/manifests/m867-v4-generated-boundary-pair-delta-refresh-implementation.json",
-    "success_artifact": "docs/m867-v4-generated-boundary-pair-delta-refresh-implementation.md",
-    "notes": "Pending: implement pair-delta sequence replay before objective training PPO or promotion"
+    "priority": 8630,
+    "kind": "gate",
+    "hypothesis": "Audit M867 source-limited pair-delta outcome evidence before objective design PPO or promotion",
+    "command": "see experiments/manifests/m868-v4-generated-boundary-pair-delta-refresh-audit.json",
+    "success_artifact": "docs/m868-v4-generated-boundary-pair-delta-refresh-audit.md",
+    "notes": "Pending: audit whether M867 admits limited objective conversion or needs more data generation"
   },
-  "updated_at_utc": "20260525T171911Z"
+  "updated_at_utc": "20260525T173711Z"
 }

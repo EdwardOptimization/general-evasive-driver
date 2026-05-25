@@ -165,5 +165,5 @@
     "runs/m864_v4_generated_boundary_refinement/combined_generated_boundary_rows.csv"
   ],
   "decision_rule": "M867 may only produce a no-training pair-delta refresh diagnostic classification. It must not train, run PPO, promote, or claim learned self-ID.",
-  "next_blocker": "generated-boundary pair-delta refresh has not yet been implemented"
+  "next_blocker": "M867 generated-boundary pair-delta refresh is source-limited and has not yet been audited before objective design or another data-generation pass"
 }

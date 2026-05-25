@@ -1,0 +1,115 @@
+{
+  "id": "m868-v4-generated-boundary-pair-delta-refresh-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m867-v4-generated-boundary-pair-delta-refresh-implementation.md",
+      "runs/m867_v4_generated_boundary_pair_delta_refresh/summary.json",
+      "runs/m867_v4_generated_boundary_pair_delta_refresh/pair_candidate_rows.csv",
+      "runs/m867_v4_generated_boundary_pair_delta_refresh/pair_delta_sequence_rows.csv",
+      "runs/m867_v4_generated_boundary_pair_delta_refresh/accepted_pair_delta_rows.csv",
+      "runs/m867_v4_generated_boundary_pair_delta_refresh/balanced_pair_delta_rows.csv",
+      "runs/m867_v4_generated_boundary_pair_delta_refresh/component_control_rows.csv",
+      "runs/m867_v4_generated_boundary_pair_delta_refresh/diversity_summary.json",
+      "runs/m867_v4_generated_boundary_pair_delta_refresh/gate_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m867-v4-generated-boundary-pair-delta-refresh-implementation.json"
+    ],
+    "parent_objective": [
+      "audit source-limited generated-boundary pair-delta refresh before objective training PPO or promotion"
+    ],
+    "derived_from": [
+      "m867-v4-generated-boundary-pair-delta-refresh-implementation"
+    ],
+    "blocked_by": [
+      "M867 produced real pair-delta outcome rows but the balanced accepted corpus is source/seed/direction limited"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m868-v4-generated-boundary-pair-delta-refresh-audit.md",
+  "public_gates": [
+    "M868 must audit M867 without replay training or promotion",
+    "M868 must separate raw accepted pair-delta evidence from balanced-corpus admissibility",
+    "M868 must treat component-control rows as diagnostics only",
+    "M868 must decide whether limited objective design is admissible or whether another data-generation/refinement route is needed",
+    "M868 must keep actor and residual-head mutation blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not count component-control rows as primary pair-delta rows",
+    "do not claim learned self-ID from M867 pair-delta diagnostics"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_boundary_expansion",
+    "evidence_axis": "G_pair_delta: audit source-limited generated-boundary pair-delta outcome evidence",
+    "evidence_increment": "audits whether M867's real but source-limited pair-delta rows can admit limited objective design or require another source-generation pass",
+    "claim_scope": "audit/route decision only; no objective training, PPO, learned policy claim, or checkpoint promotion",
+    "stop_condition": [
+      "stop if M867 artifacts are incomplete",
+      "stop if component controls are counted as primary evidence",
+      "stop if source-limited accepted rows are treated as promotion evidence",
+      "stop if audit result would start training without a new manifest"
+    ],
+    "fallback_plan": [
+      "if M867 is objective-limited but useful, design a constrained corpus conversion milestone",
+      "if source/seed/direction concentration is too high, design targeted boundary generation for missing accepted seeds and directions",
+      "if component controls dominate the interpretation, audit metric-artifact risk before objective design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M867 source-limited result requires audit before another implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M867's source-limited but real pair-delta sequence outcome rows can be audited into a clear next route before any objective training or PPO.",
+  "success_criteria": [
+    "M868 documents M867 artifact completeness and checksum preservation",
+    "M868 explains why M867 is source-limited rather than all-weak",
+    "M868 separates raw accepted pair-delta rows from balanced corpus admissibility",
+    "M868 decides whether to design limited objective conversion or more data generation",
+    "M868 keeps training PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M868 trains actor or residual-head parameters",
+    "M868 runs PPO",
+    "M868 promotes a checkpoint",
+    "M868 counts component-control rows as primary pair-delta evidence",
+    "M868 claims learned self-ID from a diagnostic replay surface"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m868-v4-generated-boundary-pair-delta-refresh-audit.md from M867 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m868-v4-generated-boundary-pair-delta-refresh-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m867_v4_generated_boundary_pair_delta_refresh/summary.json",
+    "runs/m867_v4_generated_boundary_pair_delta_refresh/accepted_pair_delta_rows.csv",
+    "runs/m867_v4_generated_boundary_pair_delta_refresh/balanced_pair_delta_rows.csv"
+  ],
+  "decision_rule": "M868 may only produce an audit/route decision. It must not train, run PPO, promote, or claim learned self-ID.",
+  "next_blocker": "M867 pair-delta refresh is source-limited and needs audit before objective design or another data-generation pass"
+}

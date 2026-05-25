@@ -13882,3 +13882,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M866 designs a source-aware no-training pair-delta refresh over M864 combined generated-boundary rows. M867 should build pair candidates from successful non-collision boundary rows, cap pairs by source/seed/fault/axis pair, replay only `pair_delta_positive` and `pair_delta_negative` directions over hold steps `4,6` and epsilon L2 values `0.025,0.05,0.075`, and then select a balanced pair-delta corpus. Pairability projection remains only a candidate filter; actual pair-delta sequence replay is required before any pair-delta outcome claim. Component controls may be replayed only after accepted pair-delta rows exist and cannot satisfy primary gates. Actor mutation, M761 mutation, objective training, PPO, and promotion remain blocked.
 - decision: `generated_boundary_pair_delta_refresh_design_admit_m867`
 - next: `m867-v4-generated-boundary-pair-delta-refresh-implementation`
+
+## 20260525T173711Z - m867-v4-generated-boundary-pair-delta-refresh-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m867_v4_generated_boundary_pair_delta_refresh`
+- artifact: `docs/m867-v4-generated-boundary-pair-delta-refresh-implementation.md`
+- result: M867 implements no-training source-aware pair-delta sequence replay over M864 combined generated-boundary rows. Candidate selection is now diverse enough for the design gates (`1332` raw candidates, `118` selected replay pairs, `27` left source groups, `5` left seeds, `9` left fault families), and actual pair-delta replay produces real outcome signal (`1416` sequence rows, `234` accepted rows, `97` success/collision flips, max absolute margin delta `0.04554687977030536`). The balanced corpus remains source-limited: `32` rows across `5` left source groups but only `2` left seeds, with direction dominance `0.75` and axis-pair dominance `0.96875`. Actor and M761 checksums are unchanged; no training, PPO, or promotion occurs.
+- decision: `v4_generated_boundary_pair_delta_refresh_source_limited`
+- next: `m868-v4-generated-boundary-pair-delta-refresh-audit`

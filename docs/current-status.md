@@ -62,15 +62,27 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m867-v4-generated-boundary-pair-delta-refresh-implementation
+m868-v4-generated-boundary-pair-delta-refresh-audit
 ```
 
-M867 should implement source-aware no-training pair-delta sequence replay over
-M864 combined generated-boundary rows. Objective training, PPO, promotion, base
-actor mutation, and M761 residual-head mutation remain blocked.
+M867 converted M864 pairability projection into actual pair-delta sequence
+outcome evidence, but the balanced accepted corpus is source/seed/direction
+limited. M868 should audit whether this admits limited objective conversion or
+requires another data-generation route. Objective training, PPO, promotion,
+base actor mutation, and M761 residual-head mutation remain blocked.
 
 ## Recent Evidence Line
 
+- M867 implements the no-training generated-boundary pair-delta refresh.
+  Candidate selection passes design gates with `1332` raw pair candidates,
+  `118` selected replay pairs, `27` left source groups, `5` left seeds, and
+  `9` left fault families. Actual pair-delta replay produces real outcome
+  signal: `1416` pair-delta sequence rows, `234` accepted pair-delta rows, and
+  `97` success/collision flips. The result is still source-limited because
+  the balanced corpus has only `32` rows across `2` left seeds, with direction
+  dominance `0.75` and axis-pair dominance `0.96875`. Actor and M761 checksums
+  are unchanged; no training, PPO, or promotion occurs. M868 must audit before
+  objective design.
 - M866 designs the source-aware no-training pair-delta refresh over M864
   combined generated-boundary rows. M867 should convert pairability projection
   into actual sequence outcome evidence by replaying only pair-delta directions
