@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 897,
+    "completed": 898,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m888-v4-enriched-pair-delta-replay-proof-gate-design",
+    "task_id": "m889-v4-enriched-pair-delta-replay-proof-gate-implementation",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m888-v4-enriched-pair-delta-replay-proof-gate-design.md"
+    "command_log": "docs/m889-v4-enriched-pair-delta-replay-proof-gate-implementation.md"
   },
   "next_task": {
-    "id": "m889-v4-enriched-pair-delta-replay-proof-gate-implementation",
+    "id": "m890-v4-enriched-pair-delta-replay-proof-gate-audit",
     "status": "pending",
-    "priority": 8840,
+    "priority": 8850,
     "kind": "gate",
-    "hypothesis": "Run exact recheck and closed-loop replay/proof gates for M886 alpha_0_1 versus M568",
-    "command": "see experiments/manifests/m889-v4-enriched-pair-delta-replay-proof-gate-implementation.json",
-    "success_artifact": "runs/m889_m886_a010_replay_proof_gate/summary.json",
-    "notes": "Pending: execute exact recheck and replay/proof gate stack before any PPO or promotion"
+    "hypothesis": "Audit M889 proof-gate positive result and choose repeat generalization or stop routing",
+    "command": "see experiments/manifests/m890-v4-enriched-pair-delta-replay-proof-gate-audit.json",
+    "success_artifact": "docs/m890-v4-enriched-pair-delta-replay-proof-gate-audit.md",
+    "notes": "Pending: audit exact replay and behavior positive result before any repeat generalization PPO or promotion"
   },
-  "updated_at_utc": "20260525T194202Z"
+  "updated_at_utc": "20260525T194719Z"
 }

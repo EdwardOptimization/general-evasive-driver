@@ -1,0 +1,113 @@
+{
+  "id": "m890-v4-enriched-pair-delta-replay-proof-gate-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "proof_washout",
+    "behavior_regression",
+    "metric_artifact",
+    "lineage_invalid"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m889-v4-enriched-pair-delta-replay-proof-gate-implementation.md",
+      "runs/m889_alpha_0_1_exact_recheck/summary.json",
+      "runs/m889_m886_a010_replay_proof_gate/summary.json",
+      "runs/m889_m886_a010_behavior_seed9505/policy_summary.csv",
+      "runs/m889_m886_a010_behavior_seed9506/policy_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m889-v4-enriched-pair-delta-replay-proof-gate-implementation.json"
+    ],
+    "parent_objective": [
+      "audit M889 proof-gate positive and choose the next branch action"
+    ],
+    "derived_from": [
+      "m889-v4-enriched-pair-delta-replay-proof-gate-implementation"
+    ],
+    "blocked_by": [
+      "M889 passed proof gates but no audit has decided whether to repeat, generalize, or stop"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m890-v4-enriched-pair-delta-replay-proof-gate-audit.md",
+  "public_gates": [
+    "M890 must be audit-only",
+    "M890 must summarize exact replay and behavior evidence",
+    "M890 must not promote from M889",
+    "M890 must choose repeat generalization or stop routing",
+    "M890 must preserve the distinction between proof retention and driver improvement"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not claim meaningful driver-performance improvement from retention metrics",
+    "do not ignore that the branch is rooted at M568 diagnostic BC"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_objective_probe",
+    "evidence_axis": "G_replay_retention: audit proof-gate positive result",
+    "evidence_increment": "decides whether M889's proof-gate positive result justifies repeat or generalization work",
+    "claim_scope": "audit only; no training, PPO, promotion, or learned driver claim",
+    "stop_condition": [
+      "stop if M889 artifacts are inconsistent",
+      "stop if movement is too small to justify another branch step",
+      "stop if no repeat/generalization route is defined",
+      "stop if branch cadence requires synthesis before further work"
+    ],
+    "fallback_plan": [
+      "if M889 is clean and useful, pre-register repeat or generalization gate",
+      "if movement is too small, synthesize or stop the branch",
+      "if evidence is inconsistent, route to metric-artifact audit",
+      "if cadence is reached, synthesize before continuing"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M889 passed exact replay and behavior retention gates",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M889 is a clean proof-gate positive but requires audit before any repeat, generalization, PPO, or promotion decision.",
+  "success_criteria": [
+    "M890 records M889 exact replay and behavior outcomes",
+    "M890 states what claim is supported and not supported",
+    "M890 selects repeat generalization or stop routing",
+    "M890 pre-registers any next milestone",
+    "M890 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M890 promotes a checkpoint",
+    "M890 runs PPO",
+    "M890 treats M889 as generalization evidence",
+    "M890 omits branch routing"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m890-v4-enriched-pair-delta-replay-proof-gate-audit.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m890-v4-enriched-pair-delta-replay-proof-gate-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+    "runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m889-v4-enriched-pair-delta-replay-proof-gate-implementation.md",
+    "runs/m889_m886_a010_replay_proof_gate/summary.json"
+  ],
+  "decision_rule": "M890 may only audit M889 and choose the next route. It must not train, run PPO, promote, or claim generalization.",
+  "next_blocker": "M889 proof-gate positive result has not been audited for repeat/generalization routing"
+}

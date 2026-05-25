@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260525T194348Z
+- Generated at UTC: 20260525T194857Z
 - Type: gate
 - Gate tier: proof
-- Promotion decision: not_applicable
-- Decision reason: M889 may only execute proof gates. It must not promote, run PPO, or claim driver improvement.
+- Promotion decision: v4_enriched_pair_delta_replay_proof_gate_pass
+- Decision reason: M889 passes exact recheck six replay proof surfaces and behavior seeds 9505/9506 for M886 alpha_0_1 versus M568 with success and termination retained
 
 ## Hypothesis
 
@@ -70,7 +70,18 @@ The M886 alpha_0_1 exact-admissible objective-only checkpoint can preserve M568-
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m889-v4-enriched-pair-delta-replay-proof-gate-implementation
+- type: gate
+- checkpoint: runs/m889_m886_a010_replay_proof_gate/summary.json
+- success_rate: 0.8125
+- termination_rate: 0.1875
+- clearance_margin_mean: 1.472734
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: v4_enriched_pair_delta_replay_proof_gate_pass
+- reason: M889 passes exact recheck six replay proof surfaces and behavior seeds 9505/9506 for M886 alpha_0_1 versus M568 with success and termination retained
 
 ## Next Blocker
 

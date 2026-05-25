@@ -14085,3 +14085,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M888 designs the M889 replay/proof gate stack for `alpha_0_1.pt` versus M568, with `alpha_0_05.pt` as fallback. The gate order is exact objective recheck, first replay gates for M183/M170 and M267/M264, all six public replay surfaces, then behavior seeds 9505 and 9506 only if replay passes. The design explicitly keeps PPO and promotion blocked and routes failures to exact/objective audit, proof-washout audit, or behavior-retention audit depending on where they occur.
 - decision: `v4_enriched_pair_delta_replay_proof_gate_design_admit_m889`
 - next: `m889-v4-enriched-pair-delta-replay-proof-gate-implementation`
+
+## 20260525T194719Z - m889-v4-enriched-pair-delta-replay-proof-gate-implementation
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m889_m886_a010_replay_proof_gate`
+- artifact: `docs/m889-v4-enriched-pair-delta-replay-proof-gate-implementation.md`
+- result: M889 passes the registered proof-gate stack for M886 `alpha_0_1.pt` versus M568. Exact recheck reconstructs `247/247` rows with finite losses and nonpositive split deltas versus M568/M883. All six replay/proof surfaces pass with zero candidate success-drop regression. Behavior seeds 9505 and 9506 retain success `0.8125` and termination `0.1875`; aggregate clearance margin improves by `0.0004892324201435372` while return changes by `-0.003998606511459002`. PPO and promotion remain blocked.
+- decision: `v4_enriched_pair_delta_replay_proof_gate_pass`
+- next: `m890-v4-enriched-pair-delta-replay-proof-gate-audit`

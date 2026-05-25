@@ -62,16 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m889-v4-enriched-pair-delta-replay-proof-gate-implementation
+m890-v4-enriched-pair-delta-replay-proof-gate-audit
 ```
 
-M888 designed the smallest closed-loop replay/proof gate stack for the M886
-`alpha_0_1.pt` candidate versus M568, with `alpha_0_05.pt` as fallback. M889
-must execute exact recheck, first replay gates, six public replay surfaces, and
-behavior-retention checks before any PPO or promotion.
+M889 passed the registered M568-relative proof-gate stack for the M886
+`alpha_0_1.pt` candidate. M890 must audit whether this proof-positive but small
+diagnostic movement should be repeated, generalized, or stopped. PPO and
+promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M889 passes the exact/replay/behavior proof-gate stack for M886
+  `alpha_0_1.pt` versus M568. Exact recheck reconstructs `247/247` rows and
+  keeps exact deltas nonpositive. All six replay/proof surfaces pass with zero
+  candidate success-drop regression. Behavior seeds `9505` and `9506` retain
+  success `0.8125` and termination `0.1875`; aggregate clearance margin delta
+  is `+0.0004892324201435372`. This is proof retention from the M568 diagnostic
+  branch, not public-base promotion.
 - M888 designs the M889 replay/proof gate stack for
   `runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/alpha_0_1.pt`
   versus M568. The order is exact objective recheck, first replay gates
