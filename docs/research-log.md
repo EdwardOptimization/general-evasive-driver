@@ -13603,3 +13603,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M836 audits M835 as a clean all-weak result, not a runtime or contract failure. M835 produced complete artifacts (`60` pairs, `540` replay rows, `0` rejected rows) and preserved actor/M761 checksums, but no intervention variant creates outcome evidence. Some variants cross the action threshold (`wrong_response_action_hidden max_action 0.0196`, `wrong_action_history_hidden max_action 0.0172`, threshold `0.014`), yet all margin gaps remain far below the `0.01` gate (`wrong_response_action_hidden max_gap 0.000302`, `zero_command_obs max_gap 0.00467`). The audit classifies this as a metric-artifact negative: action drift is visible but not outcome-effective. The next control variable is local first-action effectiveness: before objective or architecture changes, test whether bounded direct action overrides can change terminal margin on M832 near-boundary states.
 - decision: `admit_near_boundary_action_effectiveness_probe_design`
 - next: `m837-v4-near-boundary-action-effectiveness-probe-design`
+
+## 20260525T224500Z - m837-v4-near-boundary-action-effectiveness-probe-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m837-v4-near-boundary-action-effectiveness-probe-design.md`
+- result: M837 designs a no-training local first-action effectiveness probe to resolve the ambiguity left by M835: whether response/history interventions are weak because the policy is not sensitive enough or because the M832 near-boundary states are not first-action controllable enough. The design reuses M832/M825 artifacts, keeps the actor contract unchanged, and applies bounded first-step direct action overrides before resuming normal policy control. Directions include pair-derived action delta and component axes for steer, throttle, and brake with `epsilon_l2_grid [0.014, 0.025, 0.05, 0.075]`. Acceptance requires near-boundary normal rows and either `abs_margin_delta >= 0.01` or success/collision flip. Direct override evidence is explicitly limited to local controllability; it cannot count as learned policy self-ID proof. M838 implementation is admitted while PPO, promotion, actor/residual training, and threshold relaxation remain blocked.
+- decision: `near_boundary_action_effectiveness_probe_design_admit_m838`
+- next: `m838-v4-near-boundary-action-effectiveness-probe-implementation`
