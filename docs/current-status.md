@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m945-v4-public-base-controlled-fusion-candidate-replay-gate-design
+m946-v4-public-base-controlled-fusion-candidate-replay-gate-implementation
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -101,8 +101,11 @@ loading.
   `backup_candidate_exact_pass_count=2`, and
   `forbidden_parameter_changed=false`. The primary candidate is
   `runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/interpolation/checkpoints/alpha_0_0725.pt`.
-  M945 should design closed-loop replay/proof retention before any PPO or
-  promotion.
+  M945 designs closed-loop replay/proof retention before any PPO or promotion.
+- M945 designs a no-training replay/proof-retention gate for the materialized
+  alpha `0.0725` candidate. M946 should evaluate six public replay surfaces,
+  source-diverse/old-key diagnostics where compatible, behavior seeds `9505`
+  and `9506`, and input-contract retention. PPO and promotion remain blocked.
 - M943 designs exact no-update compatibility for the M942 candidates. The
   primary alpha is `0.0725`, with `0.0675` and `0.0700` as backups. M944 should
   materialize all three checkpoints, re-run exact objective metrics from normal

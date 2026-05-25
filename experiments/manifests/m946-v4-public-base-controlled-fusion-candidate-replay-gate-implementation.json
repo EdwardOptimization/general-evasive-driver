@@ -1,0 +1,108 @@
+{
+  "id": "m946-v4-public-base-controlled-fusion-candidate-replay-gate-implementation",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/interpolation/checkpoints/alpha_0_0725.pt"
+    ],
+    "parent_dataset": [
+      "docs/m945-v4-public-base-controlled-fusion-candidate-replay-gate-design.md",
+      "runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/summary.json",
+      "runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/candidate_compatibility.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m945-v4-public-base-controlled-fusion-candidate-replay-gate-design.json"
+    ],
+    "parent_objective": [
+      "run no-training closed-loop replay/proof retention for materialized M944 primary candidate"
+    ],
+    "derived_from": [
+      "m945-v4-public-base-controlled-fusion-candidate-replay-gate-design"
+    ],
+    "blocked_by": [
+      "materialized exact candidate has not yet been checked on closed-loop replay/proof surfaces"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m946-v4-public-base-controlled-fusion-candidate-replay-gate-implementation.md",
+  "public_gates": [
+    "M946 must run no-training replay/proof retention",
+    "M946 must evaluate six public replay surfaces",
+    "M946 must evaluate behavior seeds 9505 and 9506",
+    "M946 must keep PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor inputs",
+    "do not treat exact objective compatibility as closed-loop proof"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_controlled_fusion_surface",
+    "evidence_axis": "G_replay: closed-loop proof retention for materialized exact candidate",
+    "evidence_increment": "tests whether the exact-compatible M944 candidate retains public replay/proof behavior",
+    "claim_scope": "proof gate only; no PPO, private holdout, generalization claim, or promotion",
+    "stop_condition": [
+      "stop if any replay surface fails",
+      "stop if behavior seeds regress materially",
+      "stop if PPO or promotion is attempted"
+    ],
+    "fallback_plan": [
+      "if gates pass, route to promotion/generalization design",
+      "if replay fails, route to failing-surface audit",
+      "if behavior fails, route to behavior-retention audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M945 admits replay/proof retention implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M944 alpha 0.0725 candidate may retain closed-loop proof and behavior surfaces while improving the public objective surface.",
+  "success_criteria": [
+    "summary.json exists",
+    "all six public replay surfaces are evaluated",
+    "behavior seeds 9505 and 9506 are evaluated",
+    "actor_inputs_changed is false",
+    "training_started is false",
+    "ppo_used and promoted are false"
+  ],
+  "failure_criteria": [
+    "any replay surface fails",
+    "behavior seeds materially regress",
+    "actor inputs change",
+    "M946 runs PPO or promotion"
+  ],
+  "commands": [
+    {
+      "name": "run_replay_gate",
+      "command": "Run no-training replay/proof and behavior gates for runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/interpolation/checkpoints/alpha_0_0725.pt versus runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt, then write the summary and milestone doc."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m946_v4_public_base_controlled_fusion_candidate_replay_gate/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "docs/m946-v4-public-base-controlled-fusion-candidate-replay-gate-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/interpolation/checkpoints/alpha_0_0725.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m945-v4-public-base-controlled-fusion-candidate-replay-gate-design.md"
+  ],
+  "decision_rule": "M946 may only run no-training proof replay and behavior gates. It must not train, run PPO, or promote.",
+  "next_blocker": "candidate replay/proof gate has not yet run"
+}

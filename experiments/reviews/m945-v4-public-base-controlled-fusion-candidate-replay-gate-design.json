@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M945 designs no-training replay/proof retention for the materialized alpha 0.0725 candidate including six public replay surfaces behavior seeds and PPO promotion blocked",
+  "failure_criteria": [
+    "M945 allows promotion from exact objective metrics alone",
+    "M945 omits replay/proof retention",
+    "M945 admits PPO before replay proof",
+    "M945 changes actor inputs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train in M945",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor inputs",
+    "do not treat exact objective compatibility as closed-loop proof"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260525T234230Z",
+  "hypothesis": "The materialized M944 primary candidate should be checked on closed-loop replay/proof surfaces before any PPO or promotion path.",
+  "lineage": {
+    "blocked_by": [
+      "materialized exact candidate has not yet been checked on closed-loop replay/proof surfaces"
+    ],
+    "derived_from": [
+      "m944-v4-public-base-controlled-fusion-candidate-compatibility-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/interpolation/checkpoints/alpha_0_0725.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m944-v4-public-base-controlled-fusion-candidate-compatibility-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m944-v4-public-base-controlled-fusion-candidate-compatibility-implementation.md",
+      "runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/summary.json",
+      "runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/candidate_compatibility.csv"
+    ],
+    "parent_objective": [
+      "design no-training replay/proof retention for materialized controlled-fusion candidate"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m945-v4-public-base-controlled-fusion-candidate-replay-gate-design",
+  "next_blocker": "m946-v4-public-base-controlled-fusion-candidate-replay-gate-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "controlled_fusion_candidate_replay_gate_design_admit_m946",
+  "public_gates": [
+    "M945 must design replay/proof retention before any promotion",
+    "M945 must keep PPO blocked",
+    "M945 must preserve P0 actor input contract",
+    "M945 must identify primary and backup checkpoints"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m945-v4-public-base-controlled-fusion-candidate-replay-gate-design.md",
+    "clearance_margin_mean": "",
+    "decision": "controlled_fusion_candidate_replay_gate_design_admit_m946",
+    "milestone": "m945-v4-public-base-controlled-fusion-candidate-replay-gate-design",
+    "reason": "M945 designs no-training replay/proof retention for the materialized alpha 0.0725 candidate including six public replay surfaces behavior seeds and PPO promotion blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M945 names the primary candidate checkpoint",
+    "M945 defines replay/proof retention gates",
+    "M945 defines behavior-retention checks",
+    "M945 blocks PPO and promotion",
+    "M945 defines route logic for pass/fail"
+  ],
+  "type": "gate"
+}

@@ -14612,3 +14612,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M944 materializes the M942 candidate alphas as ordinary checkpoints and re-runs exact objective metrics from checkpoint loading. It creates three materialized checkpoints, all three remain exact candidates, the primary alpha `0.0725` passes, both backups pass, and forbidden parameters remain unchanged. Summary: `materialized_checkpoint_count=3`, `exact_candidate_count=3`, `primary_candidate_exact_pass=true`, `backup_candidate_exact_pass_count=2`, `forbidden_parameter_changed=false`, and result class is `public_base_controlled_fusion_candidate_compatibility_primary_candidate`. The primary checkpoint is `runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/interpolation/checkpoints/alpha_0_0725.pt`.
 - decision: `public_base_controlled_fusion_candidate_compatibility_primary_candidate_route_to_replay_gate_design`
 - next: `m945-v4-public-base-controlled-fusion-candidate-replay-gate-design`
+
+## 20260525T234122Z - m945-v4-public-base-controlled-fusion-candidate-replay-gate-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m945-v4-public-base-controlled-fusion-candidate-replay-gate-design.md`
+- result: M945 designs no-training closed-loop replay/proof retention for the materialized M944 alpha `0.0725` candidate. M946 should compare the candidate against M399 base on six public replay surfaces, source-diverse protected diagnostics if compatible, old key `9944` as diagnostic-only, behavior seeds `9505` and `9506`, reset/zero-all ordering, and input-contract retention. M945 explicitly blocks PPO and promotion; exact objective compatibility alone is not treated as closed-loop proof.
+- decision: `controlled_fusion_candidate_replay_gate_design_admit_m946`
+- next: `m946-v4-public-base-controlled-fusion-candidate-replay-gate-implementation`
