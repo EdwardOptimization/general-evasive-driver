@@ -77,6 +77,37 @@ class ResidualGate(nn.Module):
         return torch.sigmoid(self.net(features))
 
 
+class SteerAttributedResidualGate(nn.Module):
+    """Two-output steer/brake gate with fixed-zero throttle residual."""
+
+    def __init__(
+        self,
+        feature_dim: int,
+        hidden_dim: int = 32,
+        initial_gate: float = 0.85,
+    ) -> None:
+        super().__init__()
+        self.feature_dim = int(feature_dim)
+        self.hidden_dim = int(hidden_dim)
+        self.output_dim = 3
+        self.learned_output_dim = 2
+        self.throttle_mode = "fixed_zero"
+        initial_gate = float(np.clip(float(initial_gate), 1e-4, 1.0 - 1e-4))
+        self.initial_gate = initial_gate
+        self.net = nn.Sequential(
+            nn.Linear(self.feature_dim, self.hidden_dim),
+            nn.Tanh(),
+            nn.Linear(self.hidden_dim, self.learned_output_dim),
+        )
+        nn.init.zeros_(self.net[-1].weight)
+        nn.init.constant_(self.net[-1].bias, float(np.log(initial_gate / (1.0 - initial_gate))))
+
+    def forward(self, features: torch.Tensor) -> torch.Tensor:
+        steer_brake = torch.sigmoid(self.net(features))
+        throttle = torch.zeros_like(steer_brake[:, :1])
+        return torch.cat([steer_brake[:, :1], throttle, steer_brake[:, 1:2]], dim=-1)
+
+
 def _nonfinite_to(value: float, default: float) -> float:
     return float(value) if np.isfinite(float(value)) else float(default)
 
@@ -181,11 +212,15 @@ def _train_calibrator(
     active_normal_gate_max: float,
     intervention_gate_floor: float,
     gate_contrast_margin: float,
-) -> tuple[ResidualGate, list[dict[str, Any]]]:
+) -> tuple[nn.Module, list[dict[str, Any]]]:
     torch.manual_seed(int(seed))
     feature_dim = int(samples["normal_features"].shape[1])
-    output_dim = 3 if str(objective_mode) == "vector_gate" else 1
-    calibrator = ResidualGate(feature_dim=feature_dim, initial_gate=initial_gate, output_dim=output_dim)
+    if str(objective_mode) == "vector_gate":
+        calibrator: nn.Module = ResidualGate(feature_dim=feature_dim, initial_gate=initial_gate, output_dim=3)
+    elif str(objective_mode) == "steer_attributed_gate":
+        calibrator = SteerAttributedResidualGate(feature_dim=feature_dim, initial_gate=initial_gate)
+    else:
+        calibrator = ResidualGate(feature_dim=feature_dim, initial_gate=initial_gate, output_dim=1)
     optimizer = torch.optim.Adam(calibrator.parameters(), lr=float(lr))
     normal_features = samples["normal_features"]
     intervention_features = samples["intervention_features"]
@@ -222,7 +257,33 @@ def _train_calibrator(
         scaled_normal_delta = gate_normal_for_scale * normal_delta
         scaled_intervention_delta = gate_intervention_for_scale * intervention_delta
         normal_delta_norm = torch.sum(scaled_normal_delta.pow(2), dim=-1)
-        if objective_mode == "vector_gate":
+        if objective_mode == "steer_attributed_gate":
+            steer_index = ACTION_COMPONENTS.index("steer")
+            brake_index = ACTION_COMPONENTS.index("brake")
+            steer_normal_gate = raw_gate_normal[:, steer_index]
+            steer_intervention_gate = raw_gate_intervention[:, steer_index]
+            steer_normal_delta = normal_delta[:, steer_index]
+            normal_suppression = (low_margin_weight * (steer_normal_gate * steer_normal_delta).pow(2)).mean()
+            useful_normal_gates = raw_gate_normal[:, [steer_index, brake_index]]
+            useful_intervention_gates = raw_gate_intervention[:, [steer_index, brake_index]]
+            high_default_normal = (
+                (1.0 - low_margin_weight).unsqueeze(-1)
+                * torch.relu(float(high_default_gate) - useful_normal_gates).pow(2)
+            ).mean()
+            high_default_intervention = torch.relu(
+                float(high_default_gate) - useful_intervention_gates
+            ).pow(2).mean()
+            if float(boundary_mask.sum().item()) > 0.0:
+                boundary_guard = (
+                    boundary_mask * torch.relu(steer_normal_gate - float(active_normal_gate_max)).pow(2)
+                ).sum() / torch.clamp(boundary_mask.sum(), min=1.0)
+            else:
+                boundary_guard = torch.zeros((), dtype=torch.float32)
+            gate_contrast_loss = (
+                low_margin_weight
+                * torch.relu(float(gate_contrast_margin) - (steer_intervention_gate - steer_normal_gate)).pow(2)
+            ).mean()
+        elif objective_mode == "vector_gate":
             low_weight_matrix = low_margin_weight.unsqueeze(-1)
             nonlow_weight_matrix = (1.0 - low_margin_weight).unsqueeze(-1)
             normal_suppression = (low_weight_matrix * scaled_normal_delta.pow(2)).sum(dim=-1).mean()
@@ -280,7 +341,13 @@ def _train_calibrator(
         )
         calibrated_gap = torch.linalg.norm(adjusted_intervention - adjusted_normal, dim=-1)
         gap_loss = (outcome_weights * torch.relu(target_gap - calibrated_gap).pow(2)).mean()
-        if objective_mode == "vector_gate":
+        if objective_mode == "steer_attributed_gate":
+            useful_intervention_gates = raw_gate_intervention[:, [
+                ACTION_COMPONENTS.index("steer"),
+                ACTION_COMPONENTS.index("brake"),
+            ]]
+            gate_floor_loss = torch.relu(float(intervention_gate_floor) - useful_intervention_gates).pow(2).mean()
+        elif objective_mode == "vector_gate":
             gate_floor_loss = _masked_mean(
                 torch.relu(float(intervention_gate_floor) - raw_gate_intervention).pow(2),
                 intervention_component_mask,
@@ -292,7 +359,19 @@ def _train_calibrator(
         l2_loss = torch.zeros((), dtype=torch.float32)
         for parameter in calibrator.parameters():
             l2_loss = l2_loss + parameter.pow(2).mean()
-        if objective_mode in {"asymmetric_gate", "vector_gate"}:
+        if objective_mode == "steer_attributed_gate":
+            loss = (
+                3.0 * normal_suppression
+                + 0.25 * high_default_normal
+                + 1.0 * high_default_intervention
+                + 6.0 * boundary_guard
+                + 2.0 * gate_floor_loss
+                + 3.0 * gate_contrast_loss
+                + 1.0 * gap_loss
+                + 0.10 * hard_loss
+                + 1e-4 * l2_loss
+            )
+        elif objective_mode in {"asymmetric_gate", "vector_gate"}:
             loss = (
                 2.0 * normal_suppression
                 + 0.25 * high_default_normal
@@ -355,7 +434,7 @@ def _train_calibrator(
 def calibrated_action_from_hidden(
     model: ActorCritic,
     residual_head: nn.Module,
-    calibrator: ResidualGate,
+    calibrator: nn.Module,
     observation: np.ndarray,
     hidden: torch.Tensor,
     *,
@@ -385,7 +464,7 @@ def replay_calibrated_sequence_variant(
     *,
     model: ActorCritic,
     residual_head: nn.Module,
-    calibrator: ResidualGate,
+    calibrator: nn.Module,
     snapshot: Any,
     env_config: Any,
     variant: str,
@@ -555,8 +634,17 @@ def _augment_alpha_rows(
         for component in ACTION_COMPONENTS:
             normal_values = [_finite_float(item.get(f"normal_gate_mean_{component}")) for item in subset]
             intervention_values = [_finite_float(item.get(f"intervention_gate_mean_{component}")) for item in subset]
+            active_normal_values = [_finite_float(item.get(f"normal_gate_mean_{component}")) for item in active]
+            active_intervention_values = [
+                _finite_float(item.get(f"intervention_gate_mean_{component}"))
+                for item in active
+            ]
             component_gate_fields[f"normal_gate_mean_{component}"] = _mean(normal_values)
             component_gate_fields[f"intervention_gate_mean_{component}"] = _mean(intervention_values)
+            component_gate_fields[f"active_source_normal_gate_mean_{component}"] = _mean(active_normal_values)
+            component_gate_fields[f"active_source_intervention_gate_mean_{component}"] = _mean(
+                active_intervention_values
+            )
             component_gate_fields[f"component_contrast_mean_{component}"] = _mean(
                 [
                     _finite_float(item.get(f"intervention_gate_mean_{component}"))
@@ -592,6 +680,43 @@ def _augment_alpha_rows(
             and vector_pareto_gap_pass
             and vector_pareto_margin_pass
         )
+        steer_active_gate = _finite_float(component_gate_fields.get("active_source_normal_gate_mean_steer"))
+        steer_active_intervention_gate = _finite_float(
+            component_gate_fields.get("active_source_intervention_gate_mean_steer")
+        )
+        steer_intervention_gate = _finite_float(component_gate_fields.get("intervention_gate_mean_steer"))
+        brake_intervention_gate = _finite_float(component_gate_fields.get("intervention_gate_mean_brake"))
+        steer_contrast = (
+            steer_active_intervention_gate - steer_active_gate
+            if np.isfinite(steer_active_intervention_gate) and np.isfinite(steer_active_gate)
+            else _finite_float(component_gate_fields.get("component_contrast_mean_steer"))
+        )
+        component_gate_fields["active_source_steer_gate_contrast"] = steer_contrast
+        steer_selectivity_pass = bool(
+            np.isfinite(steer_active_gate)
+            and steer_active_gate <= 0.55 + 1e-12
+            and np.isfinite(steer_intervention_gate)
+            and steer_intervention_gate >= 0.70 - 1e-12
+            and np.isfinite(brake_intervention_gate)
+            and brake_intervention_gate >= 0.70 - 1e-12
+            and np.isfinite(steer_contrast)
+            and steer_contrast >= 0.15 - 1e-12
+        )
+        steer_strong_candidate = bool(
+            abs(alpha - 0.2) <= 1e-12
+            and strict_normal_pass
+            and np.isfinite(active_min_margin)
+            and active_min_margin + 1e-12 >= M786_ALPHA_015_ACTIVE_MARGIN
+            and np.isfinite(gap_mean)
+            and gap_mean + 1e-12 >= M780_ALPHA_0125_GAP_MEAN
+            and steer_selectivity_pass
+        )
+        steer_limited_candidate = bool(
+            strict_normal_pass
+            and vector_pareto_gap_pass
+            and vector_pareto_margin_pass
+            and steer_selectivity_pass
+        )
         new_row = {
             **row,
             "strict_normal_retention_pass": strict_normal_pass,
@@ -607,10 +732,17 @@ def _augment_alpha_rows(
             "vector_pareto_margin_pass": vector_pareto_margin_pass,
             "vector_strong_candidate": vector_strong_candidate,
             "vector_limited_candidate": vector_limited_candidate,
+            "steer_component_selectivity_pass": steer_selectivity_pass,
+            "steer_strong_candidate": steer_strong_candidate,
+            "steer_limited_candidate": steer_limited_candidate,
             "component_gate_std_mean": _mean(component_std_values),
             **component_gate_fields,
         }
-        if str(candidate_mode) == "vector_gate":
+        if str(candidate_mode) == "steer_attributed_gate":
+            new_row["normal_margin_calibration_candidate"] = bool(
+                steer_strong_candidate or steer_limited_candidate
+            )
+        elif str(candidate_mode) == "vector_gate":
             new_row["normal_margin_calibration_candidate"] = bool(
                 vector_strong_candidate or vector_limited_candidate
             )
@@ -691,6 +823,41 @@ def classify_v4_vector_residual_calibration(
     return "v4_vector_residual_calibration_no_pareto_lift"
 
 
+def classify_v4_steer_attributed_residual_calibration(
+    *,
+    actor_changed: bool,
+    residual_changed: bool,
+    reconstruction_success_rate: float,
+    metadata_missing_rows: int,
+    strong_candidate_count: int,
+    limited_candidate_count: int,
+    any_gap_lift: bool,
+    any_normal_regression: bool,
+    component_collapse: bool,
+    ppo_used: bool,
+    promoted: bool,
+) -> str:
+    if (
+        bool(actor_changed)
+        or bool(residual_changed)
+        or bool(ppo_used)
+        or bool(promoted)
+        or int(metadata_missing_rows) > 0
+    ):
+        return "v4_steer_attributed_calibration_metadata_artifact"
+    if float(reconstruction_success_rate) < 0.98:
+        return "v4_steer_attributed_calibration_reconstruction_blocked"
+    if int(strong_candidate_count) > 0:
+        return "v4_steer_attributed_calibration_strong_candidate"
+    if int(limited_candidate_count) > 0:
+        return "v4_steer_attributed_calibration_limited_candidate"
+    if bool(component_collapse):
+        return "v4_steer_attributed_calibration_component_collapse"
+    if bool(any_gap_lift) and bool(any_normal_regression):
+        return "v4_steer_attributed_calibration_normal_retention_failed"
+    return "v4_steer_attributed_calibration_no_gap_lift"
+
+
 def run_v4_normal_margin_residual_calibration(
     *,
     checkpoint_path: Path,
@@ -747,11 +914,20 @@ def run_v4_normal_margin_residual_calibration(
     )
     rejected_rows = [*upfront_rejected_rows, *sample_rejected_rows]
     if len(meta_rows) == 0:
-        calibrator = ResidualGate(
-            feature_dim=feature_dim,
-            initial_gate=float(initial_gate),
-            output_dim=3 if str(objective_mode) == "vector_gate" else 1,
-        )
+        if str(objective_mode) == "vector_gate":
+            calibrator: nn.Module = ResidualGate(
+                feature_dim=feature_dim,
+                initial_gate=float(initial_gate),
+                output_dim=3,
+            )
+        elif str(objective_mode) == "steer_attributed_gate":
+            calibrator = SteerAttributedResidualGate(feature_dim=feature_dim, initial_gate=float(initial_gate))
+        else:
+            calibrator = ResidualGate(
+                feature_dim=feature_dim,
+                initial_gate=float(initial_gate),
+                output_dim=1,
+            )
         train_rows: list[dict[str, Any]] = []
     else:
         calibrator, train_rows = _train_calibrator(
@@ -780,6 +956,8 @@ def run_v4_normal_margin_residual_calibration(
             "feature_dim": int(feature_dim),
             "hidden_dim": int(calibrator.hidden_dim),
             "output_dim": int(calibrator.output_dim),
+            "learned_output_dim": int(getattr(calibrator, "learned_output_dim", calibrator.output_dim)),
+            "throttle_mode": str(getattr(calibrator, "throttle_mode", "trainable_or_scalar")),
             "initial_gate": float(calibrator.initial_gate),
             "seed": int(seed),
             "alpha_train": float(alpha_train),
@@ -917,15 +1095,25 @@ def run_v4_normal_margin_residual_calibration(
                 }
             )
     reconstruction_rate = float(len({str(row["contrast_group_id"]) for row in objective_rows}) / max(len(all_positives), 1))
+    if str(objective_mode) == "steer_attributed_gate":
+        candidate_mode = "steer_attributed_gate"
+    elif str(objective_mode) == "vector_gate":
+        candidate_mode = "vector_gate"
+    else:
+        candidate_mode = "normal_margin"
     alpha_rows = _augment_alpha_rows(
         _alpha_summary_rows(objective_rows, alphas=alphas),
         objective_rows,
         active_alpha_0125_margin=active_alpha_0125_margin,
-        candidate_mode="vector_gate" if str(objective_mode) == "vector_gate" else "normal_margin",
+        candidate_mode=candidate_mode,
     )
     candidate_rows = [row for row in alpha_rows if _bool(row.get("normal_margin_calibration_candidate", False))]
-    strong_candidate_rows = [row for row in alpha_rows if _bool(row.get("vector_strong_candidate", False))]
-    limited_candidate_rows = [row for row in alpha_rows if _bool(row.get("vector_limited_candidate", False))]
+    if str(objective_mode) == "steer_attributed_gate":
+        strong_candidate_rows = [row for row in alpha_rows if _bool(row.get("steer_strong_candidate", False))]
+        limited_candidate_rows = [row for row in alpha_rows if _bool(row.get("steer_limited_candidate", False))]
+    else:
+        strong_candidate_rows = [row for row in alpha_rows if _bool(row.get("vector_strong_candidate", False))]
+        limited_candidate_rows = [row for row in alpha_rows if _bool(row.get("vector_limited_candidate", False))]
     any_gap_lift = any(_bool(row.get("closed_loop_gap_pass", False)) for row in alpha_rows)
     any_normal_regression = any(not _bool(row.get("strict_normal_retention_pass", False)) for row in alpha_rows if float(row.get("alpha", 0.0)) > 0.0)
     calibrator_collapse = bool(
@@ -937,10 +1125,30 @@ def run_v4_normal_margin_residual_calibration(
         and alpha_rows
         and max(_finite_float(row.get("component_gate_std_mean"), default=0.0) for row in alpha_rows) <= 0.02
     )
+    steer_component_collapse = bool(
+        str(objective_mode) == "steer_attributed_gate"
+        and alpha_rows
+        and max(_finite_float(row.get("active_source_steer_gate_contrast"), default=0.0) for row in alpha_rows)
+        < 0.05
+    )
     actor_checksum_after = model_parameter_checksum(model)
     residual_checksum_after = model_parameter_checksum(residual_head)
     calibrator_checksum = model_parameter_checksum(calibrator)
-    if str(objective_mode) == "vector_gate":
+    if str(objective_mode) == "steer_attributed_gate":
+        result_class = classify_v4_steer_attributed_residual_calibration(
+            actor_changed=bool(actor_checksum_before != actor_checksum_after),
+            residual_changed=bool(residual_checksum_before != residual_checksum_after),
+            reconstruction_success_rate=reconstruction_rate,
+            metadata_missing_rows=metadata_missing_rows,
+            strong_candidate_count=len(strong_candidate_rows),
+            limited_candidate_count=len(limited_candidate_rows),
+            any_gap_lift=any_gap_lift,
+            any_normal_regression=any_normal_regression,
+            component_collapse=steer_component_collapse,
+            ppo_used=False,
+            promoted=False,
+        )
+    elif str(objective_mode) == "vector_gate":
         result_class = classify_v4_vector_residual_calibration(
             actor_changed=bool(actor_checksum_before != actor_checksum_after),
             residual_changed=bool(residual_checksum_before != residual_checksum_after),
@@ -967,14 +1175,54 @@ def run_v4_normal_margin_residual_calibration(
             ppo_used=False,
             promoted=False,
         )
+    active_source_rows = [row for row in objective_rows if _active_boundary_key(row)]
+    component_gate_rows = []
+    for row in alpha_rows:
+        for component in ACTION_COMPONENTS:
+            component_gate_rows.append(
+                {
+                    "alpha": row.get("alpha"),
+                    "component": component,
+                    "normal_gate_mean": row.get(f"normal_gate_mean_{component}"),
+                    "intervention_gate_mean": row.get(f"intervention_gate_mean_{component}"),
+                    "active_source_normal_gate_mean": row.get(f"active_source_normal_gate_mean_{component}"),
+                    "active_source_intervention_gate_mean": row.get(f"active_source_intervention_gate_mean_{component}"),
+                    "component_contrast_mean": row.get(f"component_contrast_mean_{component}"),
+                    "active_source_steer_gate_contrast": row.get("active_source_steer_gate_contrast"),
+                }
+            )
+    gate_metric_rows = [
+        {
+            "alpha": row.get("alpha"),
+            "strict_normal_retention_pass": row.get("strict_normal_retention_pass"),
+            "normal_success_rate": row.get("normal_success_rate"),
+            "normal_collision_rate": row.get("normal_collision_rate"),
+            "intervention_action_gap_mean_vs_normal": row.get("intervention_action_gap_mean_vs_normal"),
+            "active_source_min_margin": row.get("active_source_min_margin"),
+            "active_source_collision_count": row.get("active_source_collision_count"),
+            "steer_component_selectivity_pass": row.get("steer_component_selectivity_pass"),
+            "steer_strong_candidate": row.get("steer_strong_candidate"),
+            "steer_limited_candidate": row.get("steer_limited_candidate"),
+            "active_source_steer_gate_contrast": row.get("active_source_steer_gate_contrast"),
+            "component_gate_std_mean": row.get("component_gate_std_mean"),
+        }
+        for row in alpha_rows
+    ]
     write_csv_rows(run_dir / "training_metrics.csv", train_rows)
     write_csv_rows(run_dir / "calibration_metrics.csv", train_rows[-1:] if train_rows else [])
     write_csv_rows(run_dir / "replay_rows.csv", replay_rows)
     write_csv_rows(run_dir / "objective_rows.csv", objective_rows)
     write_csv_rows(run_dir / "alpha_metrics.csv", alpha_rows)
+    write_csv_rows(run_dir / "gate_metrics.csv", gate_metric_rows)
+    write_csv_rows(run_dir / "component_gate_metrics.csv", component_gate_rows)
+    write_csv_rows(run_dir / "active_source_metrics.csv", active_source_rows)
     write_csv_rows(run_dir / "rejected_rows.csv", rejected_rows)
     summary = {
-        "run_type": "v4_normal_margin_residual_calibration",
+        "run_type": (
+            "v4_steer_attributed_residual_calibration"
+            if str(objective_mode) == "steer_attributed_gate"
+            else "v4_normal_margin_residual_calibration"
+        ),
         "checkpoint": checkpoint_path,
         "residual_head": residual_head_path,
         "parent_replay_rows": parent_replay_rows_path,
@@ -1010,6 +1258,15 @@ def run_v4_normal_margin_residual_calibration(
         "limited_candidate_alphas": [float(row.get("alpha")) for row in limited_candidate_rows],
         "best_candidate": candidate_rows[0] if candidate_rows else {},
         "component_collapse": component_collapse,
+        "steer_component_collapse": steer_component_collapse,
+        "steer_component_selectivity_alpha_count": int(
+            sum(1 for row in alpha_rows if _bool(row.get("steer_component_selectivity_pass")))
+        ),
+        "steer_component_selectivity_alphas": [
+            float(row.get("alpha"))
+            for row in alpha_rows
+            if _bool(row.get("steer_component_selectivity_pass"))
+        ],
         "active_alpha_0125_margin_reference": active_alpha_0125_margin,
         "m780_alpha_0125_gap_reference": M780_ALPHA_0125_GAP_MEAN,
         "m786_alpha_015_gap_reference": M786_ALPHA_015_GAP_MEAN,
@@ -1023,6 +1280,8 @@ def run_v4_normal_margin_residual_calibration(
         "calibrator_checksum": calibrator_checksum,
         "calibrator_parameter_count": int(sum(parameter.numel() for parameter in calibrator.parameters())),
         "calibrator_output_dim": int(calibrator.output_dim),
+        "calibrator_learned_output_dim": int(getattr(calibrator, "learned_output_dim", calibrator.output_dim)),
+        "gate_throttle_mode": str(getattr(calibrator, "throttle_mode", "trainable_or_scalar")),
         "optimizer_started": bool(len(meta_rows) > 0),
         "training_started": bool(len(meta_rows) > 0),
         "optimizer_updates_only_calibrator": True,
@@ -1032,6 +1291,9 @@ def run_v4_normal_margin_residual_calibration(
         "result_class": result_class,
         "summary_json": run_dir / "summary.json",
         "alpha_metrics_csv": run_dir / "alpha_metrics.csv",
+        "gate_metrics_csv": run_dir / "gate_metrics.csv",
+        "component_gate_metrics_csv": run_dir / "component_gate_metrics.csv",
+        "active_source_metrics_csv": run_dir / "active_source_metrics.csv",
         "calibration_metrics_csv": run_dir / "calibration_metrics.csv",
         "training_metrics_csv": run_dir / "training_metrics.csv",
         "replay_rows_csv": run_dir / "replay_rows.csv",
@@ -1059,7 +1321,7 @@ def main() -> None:
     parser.add_argument("--alpha-train", type=float, default=0.2)
     parser.add_argument(
         "--objective-mode",
-        choices=["margin_suppression", "asymmetric_gate", "vector_gate"],
+        choices=["margin_suppression", "asymmetric_gate", "vector_gate", "steer_attributed_gate"],
         default="margin_suppression",
     )
     parser.add_argument("--initial-gate", type=float, default=0.5)

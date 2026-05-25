@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 803,
+        "completed": 804,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m794-v4-steer-attributed-residual-calibration-design",
+        "task_id": "m795-v4-steer-attributed-residual-calibration-implementation",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m794-v4-steer-attributed-residual-calibration-design.md"
+        "command_log": "docs/m795-v4-steer-attributed-residual-calibration-implementation.md"
     },
     "next_task": {
-        "id": "m795-v4-steer-attributed-residual-calibration-implementation",
+        "id": "m796-v4-steer-attributed-residual-calibration-audit",
         "status": "pending",
-        "priority": 7900,
-        "kind": "infrastructure",
-        "hypothesis": "Implement no-PPO steer-attributed residual calibration from M794 design",
-        "command": "see experiments/manifests/m795-v4-steer-attributed-residual-calibration-implementation.json",
-        "success_artifact": "docs/m795-v4-steer-attributed-residual-calibration-implementation.md",
-        "notes": "Pending: implement no-PPO steer-specific normal-boundary residual calibration; actor/residual training PPO and promotion remain blocked"
+        "priority": 7910,
+        "kind": "gate",
+        "hypothesis": "Audit M795 steer-attributed calibration clean negative before another residual objective",
+        "command": "see experiments/manifests/m796-v4-steer-attributed-residual-calibration-audit.json",
+        "success_artifact": "docs/m796-v4-steer-attributed-residual-calibration-audit.md",
+        "notes": "Pending: audit M795 active-margin miss and steer-selectivity collapse; PPO and promotion remain blocked"
     },
-    "updated_at_utc": "20260525T113000Z"
+    "updated_at_utc": "20260525T120000Z"
 }

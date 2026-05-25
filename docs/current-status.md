@@ -62,15 +62,30 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m795-v4-steer-attributed-residual-calibration-implementation
+m796-v4-steer-attributed-residual-calibration-audit
 ```
 
-M795 should implement and run the no-PPO steer-attributed normal-boundary
-residual calibration diagnostic from the M794 design. Base actor mutation, M761
-residual-head mutation, PPO, and promotion remain blocked.
+M796 should audit the M795 clean negative before any further residual
+calibration objective. Base actor mutation, M761 residual-head mutation, PPO,
+and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M795 extends `v4_normal_margin_residual_calibration.py` with
+  `--objective-mode steer_attributed_gate`, a 2146-parameter
+  `SteerAttributedResidualGate` that learns steer/brake gates and fixes
+  throttle residual to zero, plus focused tests and component gate artifacts.
+  The no-PPO run reconstructs `2640/2652` rows, writes `21120` replay rows and
+  `10560` objective rows, and confirms M568 actor and M761 residual-head
+  checksums unchanged. Result class is
+  `v4_steer_attributed_calibration_component_collapse`: alpha `0.2` passes
+  strict normal retention and reaches gap mean `0.044080`, slightly above the
+  M780 alpha `0.125` gap reference, but active-source margin is only
+  `+0.000003618`, below the M786 alpha `0.15` active-margin reference
+  `+0.000028246`. Gate evidence explains the miss: active normal steer gate is
+  `0.668225`, active intervention steer gate is `0.665187`, so active steer
+  contrast is negative instead of selective. M795 is a clean negative and
+  admits M796 audit only.
 - M794 designs the next no-PPO residual calibration probe around M792's
   component attribution. The design keeps the M568 actor and M761 residual head
   frozen and adds only a deployable-feature

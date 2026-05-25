@@ -13212,3 +13212,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M794 designs the next no-PPO residual calibration probe around M792's component attribution. The design keeps the M568 actor and M761 residual head frozen and adds only a deployable-feature `SteerAttributedResidualGate(feature) -> [g_steer, g_brake]`, with throttle fixed to zero in the primary mode because M792 found no throttle role. The objective makes high residual retention the default, applies steering-specific suppression to low-normal-margin normal rows and the active source, retains steering on intervention-sensitive rows, retains brake as a useful-only component, and adds a steer contrast term between low-margin normal and intervention rows. Candidate rules keep the M786 alpha `0.15` active-margin and gap references plus the M780 alpha `0.125` strong-gap reference, and require component selectivity to avoid another scalar/vector collapse. M795 is admitted as implementation diagnostic only; PPO and promotion remain blocked.
 - decision: `steer_attributed_calibration_design_admit_m795`
 - next: `m795-v4-steer-attributed-residual-calibration-implementation`
+
+## 20260525T120000Z - m795-v4-steer-attributed-residual-calibration-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m795_v4_steer_attributed_residual_calibration`
+- artifact: `docs/m795-v4-steer-attributed-residual-calibration-implementation.md`
+- result: M795 extends `v4_normal_margin_residual_calibration.py` with `--objective-mode steer_attributed_gate`, a 2146-parameter `SteerAttributedResidualGate` that learns steer/brake gates and fixes throttle residual to zero, plus focused tests and component gate artifacts. The no-PPO run reconstructs `2640/2652` rows, writes `21120` replay rows and `10560` objective rows, and confirms M568 actor and M761 residual-head checksums unchanged. Result class is `v4_steer_attributed_calibration_component_collapse`: alpha `0.2` passes strict normal retention and reaches gap mean `0.044080`, slightly above the M780 alpha `0.125` gap reference, but active-source margin is only `+0.000003618`, below the M786 alpha `0.15` active-margin reference `+0.000028246`. Gate evidence explains the miss: active normal steer gate is `0.668225`, active intervention steer gate is `0.665187`, so active steer contrast is negative instead of selective. M795 is a clean negative and admits M796 audit only.
+- decision: `v4_steer_attributed_calibration_component_collapse`
+- next: `m796-v4-steer-attributed-residual-calibration-audit`

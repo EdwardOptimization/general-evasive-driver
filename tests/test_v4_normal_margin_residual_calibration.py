@@ -3,8 +3,10 @@ import torch
 
 from autodrift.v4_normal_margin_residual_calibration import (
     ResidualGate,
+    SteerAttributedResidualGate,
     _augment_alpha_rows,
     calibrated_action_from_hidden,
+    classify_v4_steer_attributed_residual_calibration,
     classify_v4_normal_margin_calibration,
     classify_v4_vector_residual_calibration,
 )
@@ -130,6 +132,17 @@ def test_residual_gate_can_emit_vector_gate():
     assert torch.allclose(output, torch.ones(4, 3) * 0.85, atol=1e-6)
 
 
+def test_steer_attributed_gate_fixes_throttle_zero():
+    gate = SteerAttributedResidualGate(feature_dim=2, initial_gate=0.85)
+    output = gate(torch.zeros(4, 2))
+
+    assert output.shape == (4, 3)
+    assert torch.allclose(output[:, 0], torch.ones(4) * 0.85, atol=1e-6)
+    assert torch.allclose(output[:, 1], torch.zeros(4), atol=1e-6)
+    assert torch.allclose(output[:, 2], torch.ones(4) * 0.85, atol=1e-6)
+    assert gate.throttle_mode == "fixed_zero"
+
+
 def test_augment_alpha_rows_vector_mode_requires_pareto_lift():
     alpha_rows = [
         {
@@ -179,6 +192,45 @@ def test_augment_alpha_rows_vector_mode_requires_pareto_lift():
     assert by_alpha[0.2]["vector_strong_candidate"] is True
 
 
+def test_augment_alpha_rows_steer_mode_requires_selectivity():
+    alpha_rows = [
+        {
+            "alpha": 0.2,
+            "normal_success_rate": 1.0,
+            "normal_collision_rate": 0.0,
+            "closed_loop_gap_pass": True,
+            "intervention_action_gap_mean_vs_normal": 0.0441,
+        },
+    ]
+    objective_rows = [
+        {
+            "alpha": 0.2,
+            "seed": 77025,
+            "source_index": 12,
+            "step": 24,
+            "normal_margin": 0.00003,
+            "normal_collision": False,
+            "normal_gate_mean_steer": 0.4,
+            "normal_gate_mean_throttle": 0.0,
+            "normal_gate_mean_brake": 0.85,
+            "intervention_gate_mean_steer": 0.8,
+            "intervention_gate_mean_throttle": 0.0,
+            "intervention_gate_mean_brake": 0.85,
+        }
+    ]
+
+    augmented = _augment_alpha_rows(
+        alpha_rows,
+        objective_rows,
+        active_alpha_0125_margin=0.000009,
+        candidate_mode="steer_attributed_gate",
+    )
+
+    assert augmented[0]["steer_component_selectivity_pass"] is True
+    assert augmented[0]["steer_strong_candidate"] is True
+    assert augmented[0]["normal_margin_calibration_candidate"] is True
+
+
 def test_classify_vector_calibration_strong_candidate():
     assert (
         classify_v4_vector_residual_calibration(
@@ -195,4 +247,23 @@ def test_classify_vector_calibration_strong_candidate():
             promoted=False,
         )
         == "v4_vector_residual_calibration_strong_candidate"
+    )
+
+
+def test_classify_steer_attributed_calibration_component_collapse():
+    assert (
+        classify_v4_steer_attributed_residual_calibration(
+            actor_changed=False,
+            residual_changed=False,
+            reconstruction_success_rate=1.0,
+            metadata_missing_rows=0,
+            strong_candidate_count=0,
+            limited_candidate_count=0,
+            any_gap_lift=True,
+            any_normal_regression=False,
+            component_collapse=True,
+            ppo_used=False,
+            promoted=False,
+        )
+        == "v4_steer_attributed_calibration_component_collapse"
     )
