@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M809 closes the M800-M808 low-margin source-diverse corpus refresh branch and pivots to a new data route instead of more fixed-anchor retargeting",
+  "failure_criteria": [
+    "synthesis omits required questions",
+    "synthesis admits PPO or promotion",
+    "synthesis hides scenario_sampling_failure risk",
+    "synthesis treats half-width-only rows as source-diverse evidence"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not run replay in the synthesis",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not ignore the geometry-only evidence",
+    "do not treat half-width-only rows as a source-diverse pass"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260525T064858Z",
+  "hypothesis": "The low-margin source-diverse corpus branch should pivot away from narrow retarget-axis expansion after M807's geometry-only diagnostic.",
+  "lineage": {
+    "blocked_by": [
+      "m807-v4-low-margin-boundary-axis-expansion-implementation",
+      "workflow synthesis trigger"
+    ],
+    "derived_from": [
+      "m808-v4-low-margin-boundary-axis-expansion-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m808-v4-low-margin-boundary-axis-expansion-audit.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m800-v4-low-margin-source-diverse-corpus-refresh-design.md",
+      "docs/m801-v4-low-margin-source-diverse-corpus-refresh-implementation.md",
+      "docs/m802-v4-low-margin-source-diverse-corpus-refresh-audit.md",
+      "docs/m803-v4-low-margin-boundary-window-retarget-design.md",
+      "docs/m804-v4-low-margin-boundary-window-retarget-implementation.md",
+      "docs/m805-v4-low-margin-boundary-window-retarget-audit.md",
+      "docs/m806-v4-low-margin-boundary-axis-expansion-design.md",
+      "docs/m807-v4-low-margin-boundary-axis-expansion-implementation.md",
+      "docs/m808-v4-low-margin-boundary-axis-expansion-audit.md",
+      "runs/m807_v4_low_margin_boundary_axis_expansion/summary.json"
+    ],
+    "parent_objective": [
+      "synthesize low-margin source-diverse corpus refresh branch before another implementation milestone"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m809-v4-low-margin-source-diverse-branch-synthesis",
+  "next_blocker": "m810-v4-low-margin-new-data-route-design",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "pivot_to_low_margin_new_data_route",
+  "public_gates": [
+    "M809 synthesizes the M800-M808 low-margin source-diverse corpus branch",
+    "M809 records supported and falsified claims",
+    "M809 records public-gate overfit and scenario-sampling risks",
+    "M809 decides whether the next branch should continue pivot stop or promote_to_next_branch",
+    "PPO training and checkpoint promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m809-v4-low-margin-source-diverse-branch-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "pivot_to_low_margin_new_data_route",
+    "milestone": "m809-v4-low-margin-source-diverse-branch-synthesis",
+    "reason": "M809 closes the M800-M808 low-margin source-diverse corpus refresh branch and pivots to a new data route instead of more fixed-anchor retargeting",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M809 summarizes evidence from M800 through M808",
+    "M809 answers all required synthesis questions",
+    "M809 records whether to continue pivot stop or promote_to_next_branch",
+    "M809 preserves the M807 geometry-only caveat",
+    "M809 admits no PPO or promotion"
+  ],
+  "type": "gate"
+}

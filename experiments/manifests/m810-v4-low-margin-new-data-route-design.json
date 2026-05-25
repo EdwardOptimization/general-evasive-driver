@@ -1,0 +1,111 @@
+{
+  "id": "m810-v4-low-margin-new-data-route-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m809-v4-low-margin-source-diverse-branch-synthesis.md",
+      "docs/m808-v4-low-margin-boundary-axis-expansion-audit.md",
+      "runs/m807_v4_low_margin_boundary_axis_expansion/summary.json",
+      "runs/m804_v4_low_margin_boundary_window_retarget/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m809-v4-low-margin-source-diverse-branch-synthesis.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_objective": [
+      "design a new low-margin data route after closing the geometry-only retarget branch"
+    ],
+    "derived_from": [
+      "m809-v4-low-margin-source-diverse-branch-synthesis"
+    ],
+    "blocked_by": [
+      "m809-v4-low-margin-source-diverse-branch-synthesis"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m810-v4-low-margin-new-data-route-design.md",
+  "public_gates": [
+    "M810 designs only a new data route",
+    "M810 does not weaken the primary low-margin threshold",
+    "M810 preserves the P0 human-view no-wheel actor contract",
+    "M810 keeps M804/M807 half-width rows as limited debug data only",
+    "M810 blocks residual calibration, PPO, and promotion"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not weaken the primary 0.00005 margin threshold",
+    "do not treat M804 or M807 half-width rows as a source-diverse pass",
+    "do not claim true wheel-level faults from current single-track proxy data",
+    "do not tune from private holdout failures"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_new_data_route",
+    "evidence_axis": "G_distribution: new source-diverse near-boundary data route design",
+    "evidence_increment": "designs a fresh route after the M800-M809 branch pivot instead of extending fixed-anchor retargeting",
+    "claim_scope": "design only; no replay calibration PPO or promotion",
+    "stop_condition": [
+      "stop if the design is just another narrow retarget-axis tweak",
+      "stop if it weakens the primary low-margin threshold",
+      "stop if it requires deploy-time oracle inputs",
+      "stop if it claims real wheel-level failures without simulator support"
+    ],
+    "fallback_plan": [
+      "if active diagnostic history is infeasible, design terminal local correction data instead",
+      "if current simulator cannot generate source diversity, write simulator-fidelity planning",
+      "if design is too broad, split implementation into no-training corpus export before any calibration"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M809 pivots away from the geometry-only low-margin retarget branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A new data route that combines active diagnostic history, joint obstacle/fault timing, and source-balanced near-boundary mining can target the missing low-margin source diversity better than more fixed-anchor retargeting.",
+  "success_criteria": [
+    "M810 designs a concrete no-training data route",
+    "M810 defines source fault and axis diversity gates before implementation",
+    "M810 defines how active diagnostic history or warm-up evidence is collected without oracle actor inputs",
+    "M810 records current-model proxy limits for future wheel-level faults",
+    "M810 keeps residual calibration, PPO, and promotion blocked"
+  ],
+  "failure_criteria": [
+    "design admits calibration or PPO directly",
+    "design reuses M804/M807 half-width rows as if they were source-diverse",
+    "design weakens the primary low-margin threshold",
+    "design adds deploy-time privileged inputs",
+    "design overclaims current single-track proxy faults as true wheel-level physics"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m810-v4-low-margin-new-data-route-design.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m810-v4-low-margin-new-data-route-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m809-v4-low-margin-source-diverse-branch-synthesis.md",
+    "docs/m808-v4-low-margin-boundary-axis-expansion-audit.md",
+    "runs/m807_v4_low_margin_boundary_axis_expansion/summary.json"
+  ],
+  "decision_rule": "M810 may only design the next data route. It must not train, run PPO, mutate actor or residual parameters, or promote a checkpoint.",
+  "next_blocker": "m811-v4-low-margin-new-data-route-implementation"
+}

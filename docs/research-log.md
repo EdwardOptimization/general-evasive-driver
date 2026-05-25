@@ -13343,3 +13343,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M808 audits M807 as a clean no-training diagnostic and rejects further calibration from the current half-width-only primary rows. M807 did exercise all planned axis families, but accepted rows remained `252` raw and `48` capped rows from `obstacle_half_width` only, with `0` accepted rows from lateral, source-step, fault activation, fault severity, or bracketed distance/width axes. M808 classifies the blocker as scenario sampling failure plus metric-artifact/objective-overfit risk if those geometry-only rows are treated as a pass.
 - decision: `admit_low_margin_branch_synthesis`
 - next: `m809-v4-low-margin-source-diverse-branch-synthesis`
+
+## 20260525T160000Z - m809-v4-low-margin-source-diverse-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m809-v4-low-margin-source-diverse-branch-synthesis.md`
+- result: M809 synthesizes M800-M808 and closes the `v4_low_margin_source_diverse_corpus_refresh` branch with decision `pivot`. The branch proved the strict primary low-margin band is reachable, but only through obstacle-half-width geometry retargeting on a concentrated public surface. Broad source refresh, boundary-window retargeting, and multi-axis retargeting did not create source-diverse or axis-diverse primary rows. M804/M807 rows remain useful only as limited debug data, not as calibration, PPO, or promotion evidence.
+- decision: `pivot_to_low_margin_new_data_route`
+- next: `m810-v4-low-margin-new-data-route-design`
