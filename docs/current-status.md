@@ -62,15 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m903-v4-pair-delta-raw-scaling-challenge-generalization-benchmark
+m904-v4-pair-delta-objective-effect-size-branch-synthesis
 ```
 
-M902 designed the robust challenge-family benchmark. M903 must run the
-near-threshold and late high-energy challenge checks plus seed-delta audit
-before any integration, PPO, or promotion.
+M903 passed robust challenge-family margin gates with no success/termination
+regression. M904 must synthesize M895-M903 before integration design, corpus
+work, PPO, or promotion.
 
 ## Recent Evidence Line
 
+- M903 passes robust challenge-family benchmarks. Near-threshold robust keeps
+  raw success `0.843750` and termination `0.156250`, with clearance deltas
+  about `+0.00370`. Late high-energy robust keeps raw success `0.781250` and
+  termination `0.218750`, with clearance deltas about `+0.00337`. Seed-delta
+  audit shows no success flips. This is a second margin-only public
+  generalization positive, not PPO or promotion.
 - M902 designs M903 challenge-family benchmark on
   `m451_challenge_near_threshold_robust_zero_relvel` and
   `m451_challenge_late_high_energy_robust_zero_relvel`, `128` episodes each.

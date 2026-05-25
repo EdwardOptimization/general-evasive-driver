@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 911,
+    "completed": 912,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m902-v4-pair-delta-raw-scaling-challenge-generalization-design",
+    "task_id": "m903-v4-pair-delta-raw-scaling-challenge-generalization-benchmark",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m902-v4-pair-delta-raw-scaling-challenge-generalization-design.md"
+    "command_log": "docs/m903-v4-pair-delta-raw-scaling-challenge-generalization-benchmark.md"
   },
   "next_task": {
-    "id": "m903-v4-pair-delta-raw-scaling-challenge-generalization-benchmark",
+    "id": "m904-v4-pair-delta-objective-effect-size-branch-synthesis",
     "status": "pending",
-    "priority": 8980,
+    "priority": 8990,
     "kind": "gate",
-    "hypothesis": "Run robust challenge-family generalization benchmark for raw scaling candidates",
-    "command": "see experiments/manifests/m903-v4-pair-delta-raw-scaling-challenge-generalization-benchmark.json",
-    "success_artifact": "runs/m903_raw_scaling_challenge_seed_delta/policy_delta_summary.csv",
-    "notes": "Pending: benchmark robust near-threshold and late high-energy challenge configs"
+    "hypothesis": "Synthesize M895-M903 objective-effect-size branch before next branch",
+    "command": "see experiments/manifests/m904-v4-pair-delta-objective-effect-size-branch-synthesis.json",
+    "success_artifact": "docs/m904-v4-pair-delta-objective-effect-size-branch-synthesis.md",
+    "notes": "Pending: branch synthesis before integration design, corpus work, PPO, or promotion"
   },
-  "updated_at_utc": "20260525T203619Z"
+  "updated_at_utc": "20260525T204013Z"
 }

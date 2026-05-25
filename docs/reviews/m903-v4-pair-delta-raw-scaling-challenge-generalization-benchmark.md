@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260525T203839Z
+- Generated at UTC: 20260525T204227Z
 - Type: gate
 - Gate tier: generalization
-- Promotion decision: not_applicable
-- Decision reason: M903 may only execute the no-training challenge benchmarks and seed-delta audit. It must not train, run PPO, or promote.
+- Promotion decision: raw_scaling_challenge_generalization_benchmark_pass_margin_only
+- Decision reason: M903 raw candidates retain success termination and positive clearance on robust near-threshold and late high-energy challenge families with no success flips
 
 ## Hypothesis
 
@@ -74,7 +74,18 @@ Raw candidates will preserve success/termination and retain positive margin move
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m903-v4-pair-delta-raw-scaling-challenge-generalization-benchmark
+- type: gate
+- checkpoint: runs/m903_raw_scaling_challenge_seed_delta/policy_delta_summary.csv
+- success_rate: 0.843750
+- termination_rate: 0.156250
+- clearance_margin_mean: 1.827309
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: raw_scaling_challenge_generalization_benchmark_pass_margin_only
+- reason: M903 raw candidates retain success termination and positive clearance on robust near-threshold and late high-energy challenge families with no success flips
 
 ## Next Blocker
 

@@ -1,0 +1,131 @@
+{
+  "id": "m904-v4-pair-delta-objective-effect-size-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "objective_overfit",
+    "behavior_regression",
+    "proof_washout",
+    "scenario_sampling_failure",
+    "contract_violation",
+    "lineage_invalid"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/raw_candidate.pt",
+      "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/raw_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/m895-v4-pair-delta-objective-effect-size-budget-audit.md",
+      "docs/m896-v4-pair-delta-controlled-scaling-replay-design.md",
+      "docs/m897-v4-pair-delta-raw-candidate-controlled-scaling-gate.md",
+      "docs/m898-v4-pair-delta-raw-scaling-gate-audit.md",
+      "docs/m899-v4-pair-delta-raw-scaling-fresh-generalization-design.md",
+      "docs/m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark.md",
+      "docs/m901-v4-pair-delta-raw-scaling-fresh-result-audit.md",
+      "docs/m902-v4-pair-delta-raw-scaling-challenge-generalization-design.md",
+      "docs/m903-v4-pair-delta-raw-scaling-challenge-generalization-benchmark.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m903-v4-pair-delta-raw-scaling-challenge-generalization-benchmark.json"
+    ],
+    "parent_objective": [
+      "synthesize M895-M903 objective-effect-size branch before integration, PPO, or further scenario-family work"
+    ],
+    "derived_from": [
+      "m903-v4-pair-delta-raw-scaling-challenge-generalization-benchmark"
+    ],
+    "blocked_by": [
+      "M895-M903 reached branch cadence after raw scaling passed public proof, fresh, and challenge margin gates"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m904-v4-pair-delta-objective-effect-size-branch-synthesis.md",
+  "public_gates": [
+    "M904 must synthesize M895-M903",
+    "M904 must separate margin-only evidence from success improvement",
+    "M904 must decide next branch before integration, PPO, or more scenario work",
+    "M904 must record public-gate overfit risk",
+    "M904 must keep promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run benchmark in M904",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not claim private holdout generalization",
+    "do not skip synthesis before next branch"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_objective_effect_size",
+    "evidence_axis": "G_effect_size synthesis: raw objective-only scaling through public proof, fresh, and challenge margin gates",
+    "evidence_increment": "synthesizes M895-M903 and chooses whether to move to integration design, corpus work, or another scenario family",
+    "claim_scope": "branch synthesis only; no benchmark execution, training, PPO, public-base integration, private holdout claim, or promotion",
+    "stop_condition": [
+      "stop if synthesis questions are not answered",
+      "stop if margin-only evidence is treated as success improvement",
+      "stop if no next branch decision is made",
+      "stop if PPO or promotion is admitted"
+    ],
+    "fallback_plan": [
+      "if margin evidence is sufficient, promote to public-base integration-readiness design branch",
+      "if success improvement is required, pivot to richer pair-delta corpus design",
+      "if public overfit risk dominates, design broader scenario-family checks",
+      "if artifacts are inconsistent, audit before continuation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M903 completes public proof, fresh, and challenge margin checks in the effect-size branch",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m904-v4-pair-delta-objective-effect-size-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "M895-M903 have enough margin-only public evidence to close the effect-size branch and choose a next branch, while keeping success-improvement, PPO, and promotion claims blocked.",
+  "success_criteria": [
+    "M904 writes a synthesis document covering M895-M903",
+    "M904 answers required synthesis questions",
+    "M904 records proof/fresh/challenge evidence and caveats",
+    "M904 chooses the next branch",
+    "M904 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M904 runs benchmark or training",
+    "M904 admits PPO or promotion",
+    "M904 treats margin-only evidence as success improvement",
+    "M904 omits public overfit risk",
+    "M904 skips next-branch decision"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m904-v4-pair-delta-objective-effect-size-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m904-v4-pair-delta-objective-effect-size-branch-synthesis.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+    "runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/raw_candidate.pt",
+    "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/raw_candidate.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m903-v4-pair-delta-raw-scaling-challenge-generalization-benchmark.md"
+  ],
+  "decision_rule": "M904 may only synthesize the M895-M903 branch and choose the next branch. It must not run benchmark, train, run PPO, or promote.",
+  "next_blocker": "M895-M903 effect-size branch synthesis has not yet been written"
+}

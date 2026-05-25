@@ -14216,3 +14216,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M902 designs the second public scenario-family check for raw scaling. M903 will run `configs/m451_challenge_near_threshold_robust_zero_relvel.json` and `configs/m451_challenge_late_high_energy_robust_zero_relvel.json`, `128` episodes each, comparing M568, alpha `0.1`, raw candidates, heuristic, and random. Acceptance requires raw success and termination non-regression within `0.01` on each family, nonnegative raw clearance on each family, and combined raw clearance at least `+0.001`. PPO and promotion remain blocked.
 - decision: `raw_scaling_challenge_generalization_design_admit_m903`
 - next: `m903-v4-pair-delta-raw-scaling-challenge-generalization-benchmark`
+
+## 20260525T204013Z - m903-v4-pair-delta-raw-scaling-challenge-generalization-benchmark
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m903_raw_scaling_challenge_seed_delta`
+- artifact: `docs/m903-v4-pair-delta-raw-scaling-challenge-generalization-benchmark.md`
+- result: M903 runs the robust challenge-family benchmarks and passes the registered gates. On near-threshold robust, raw candidates retain success `0.843750` and termination `0.156250` with clearance deltas about `+0.00370`. On late high-energy robust, raw candidates retain success `0.781250` and termination `0.218750` with clearance deltas about `+0.00337`. Seed-delta audit shows no success flips. The result is a second margin-only public generalization positive, not success improvement, PPO admission, or promotion.
+- decision: `raw_scaling_challenge_generalization_benchmark_pass_margin_only`
+- next: `m904-v4-pair-delta-objective-effect-size-branch-synthesis`
