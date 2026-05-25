@@ -156,5 +156,5 @@
     "runs/m860_v4_closer_obstacle_source_generation/generated_replay_rows.csv"
   ],
   "decision_rule": "M864 may only produce a no-training generated-boundary refinement diagnostic classification. It must not train, run PPO, run pair-delta sequence replay, promote, or claim learned self-ID.",
-  "next_blocker": "generated-boundary refinement from M860 brackets has not yet been implemented"
+  "next_blocker": "M864 sparse generated-boundary result has not yet been audited before pair-delta refresh"
 }

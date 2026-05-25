@@ -13854,3 +13854,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M863 synthesizes the M853-M862 `v4_pair_delta_boundary_expansion` branch. Supported claims: underrepresented source targeting and snapshot reconstruction work; boundary-new-to-M844 sources were mostly all-safe-wide under the first grid; closer obstacle/source generation opens real new boundary rows; and M860 generated replay contains `13` refinement-ready wide/negative bracket groups. Falsified or weakened claims: M850 pair-delta rows are objective-ready without broader boundary generation, original-grid retargeting is enough, boundary-new failures are reconstruction failures, M860 single-axis generation is enough for pair-delta replay, and pairability projection is outcome evidence. Primary failure taxonomy remains `scenario_sampling_failure`; `metric_artifact` remains a risk because generated rows and projections are data-construction artifacts, not learned self-ID proof. Decision is `continue`: run one no-training generated-boundary refinement implementation before any pair-delta replay, objective training, PPO, or promotion.
 - decision: `continue_to_generated_boundary_refinement`
 - next: `m864-v4-generated-boundary-refinement-implementation`
+
+## 20260525T165821Z - m864-v4-generated-boundary-refinement-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m864_v4_generated_boundary_refinement`
+- artifact: `docs/m864-v4-generated-boundary-refinement-implementation.md`
+- result: M864 implements no-training generated-boundary refinement from M860 wide/negative brackets. It selects `25` bracket seeds, including `13` no-M860-boundary brackets, reconstructs all `25` snapshots, and produces `120` refinement rows. The result is strongly positive: `42` accepted refined boundary rows, `33` accepted no-M860-boundary rows, `20` refined source groups, `9` refined fault families, and combined M860+M864 coverage of `59` boundary-new-to-M844 rows across `27` source groups, `5` seeds, and `9` fault families. Combined pairability projection jumps to `365` primary rows. Actor and M761 checksums are unchanged; no training, PPO, promotion, or pair-delta sequence replay occurs. Result class is `v4_generated_boundary_refinement_sparse_useful`: sparse generated-boundary gate passes, but strong gate still misses due to `59 < 60` rows, `27 < 32` source groups, and `5 < 8` seeds.
+- decision: `v4_generated_boundary_refinement_sparse_useful`
+- next: `m865-v4-generated-boundary-refinement-audit`

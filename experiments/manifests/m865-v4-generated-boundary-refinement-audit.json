@@ -1,0 +1,114 @@
+{
+  "id": "m865-v4-generated-boundary-refinement-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m864-v4-generated-boundary-refinement-implementation.md",
+      "runs/m864_v4_generated_boundary_refinement/summary.json",
+      "runs/m864_v4_generated_boundary_refinement/bracket_seed_rows.csv",
+      "runs/m864_v4_generated_boundary_refinement/accepted_refined_boundary_rows.csv",
+      "runs/m864_v4_generated_boundary_refinement/combined_generated_boundary_rows.csv",
+      "runs/m864_v4_generated_boundary_refinement/pairability_projection_rows.csv",
+      "runs/m864_v4_generated_boundary_refinement/refinement_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m864-v4-generated-boundary-refinement-implementation.json"
+    ],
+    "parent_objective": [
+      "audit sparse-useful generated-boundary refinement result"
+    ],
+    "derived_from": [
+      "m864-v4-generated-boundary-refinement-implementation"
+    ],
+    "blocked_by": [
+      "M864 passes sparse generated-boundary gates but remains axis and seed concentrated"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m865-v4-generated-boundary-refinement-audit.md",
+  "public_gates": [
+    "M865 must audit M864 before pair-delta mining or objective training",
+    "M865 must separate sparse generated-boundary coverage from pair-delta outcome evidence",
+    "M865 must classify residual axis seed and source limitations",
+    "M865 must decide whether to admit limited pair-delta refresh design or require another boundary-generation pass",
+    "M865 must keep PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run replay in M865",
+    "do not train actor or residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not run pair-delta sequence replay",
+    "do not treat M864 pairability projection as pair-delta outcome evidence",
+    "do not treat M864 generated-boundary rows as learned self-ID proof"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_boundary_expansion",
+    "evidence_axis": "G_data: sparse generated-boundary refinement audit",
+    "evidence_increment": "audits whether M864 sparse-useful generated-boundary coverage is sufficient to admit limited pair-delta refresh design",
+    "claim_scope": "audit only; no replay, training, PPO, pair-delta outcome claim, learned policy claim, or driver promotion",
+    "stop_condition": [
+      "stop if M864 artifacts are incomplete",
+      "stop if sparse boundary coverage is treated as pair-delta outcome evidence",
+      "stop if pairability projection is treated as sequence replay evidence",
+      "stop if PPO or objective training is admitted directly from generated-boundary rows"
+    ],
+    "fallback_plan": [
+      "if sparse coverage is sufficient, design a limited pair-delta refresh over combined M864 rows",
+      "if axis/seed concentration is too high, design another boundary-generation pass",
+      "if pairability evidence is misleading, audit pairability before replay",
+      "if artifacts are inconsistent, repair implementation before continuation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M864 returns sparse-useful generated-boundary refinement result",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M864 is a clean sparse-useful generated-boundary result that needs audit before deciding between limited pair-delta refresh and additional boundary generation.",
+  "success_criteria": [
+    "M865 writes an audit document for M864",
+    "M865 verifies M864 artifact completeness and frozen checksums",
+    "M865 classifies sparse pass and strong-gate limitations",
+    "M865 selects the next no-training route",
+    "M865 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M865 admits PPO or promotion",
+    "M865 trains actor or residual parameters",
+    "M865 treats pairability projection as pair-delta outcome evidence",
+    "M865 ignores M864 axis or seed concentration"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m865-v4-generated-boundary-refinement-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m865-v4-generated-boundary-refinement-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m864-v4-generated-boundary-refinement-implementation.md",
+    "runs/m864_v4_generated_boundary_refinement/summary.json",
+    "runs/m864_v4_generated_boundary_refinement/combined_generated_boundary_rows.csv"
+  ],
+  "decision_rule": "M865 may only audit M864 and pre-register the next no-training route. It must not run replay, train, run PPO, run pair-delta sequence replay, or promote.",
+  "next_blocker": "M864 sparse generated-boundary result has not yet been audited before pair-delta refresh"
+}

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 872,
+    "completed": 873,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m863-v4-pair-delta-boundary-expansion-branch-synthesis",
+    "task_id": "m864-v4-generated-boundary-refinement-implementation",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m863-v4-pair-delta-boundary-expansion-branch-synthesis.md"
+    "command_log": "docs/m864-v4-generated-boundary-refinement-implementation.md"
   },
   "next_task": {
-    "id": "m864-v4-generated-boundary-refinement-implementation",
+    "id": "m865-v4-generated-boundary-refinement-audit",
     "status": "pending",
-    "priority": 8590,
-    "kind": "infrastructure",
-    "hypothesis": "Implement no-training refinement of M860 generated wide negative brackets",
-    "command": "see experiments/manifests/m864-v4-generated-boundary-refinement-implementation.json",
-    "success_artifact": "docs/m864-v4-generated-boundary-refinement-implementation.md",
-    "notes": "Pending: implement generated-boundary refinement before pair-delta replay objective training PPO or broader generation"
+    "priority": 8600,
+    "kind": "gate",
+    "hypothesis": "Audit M864 sparse-useful generated-boundary refinement result",
+    "command": "see experiments/manifests/m865-v4-generated-boundary-refinement-audit.json",
+    "success_artifact": "docs/m865-v4-generated-boundary-refinement-audit.md",
+    "notes": "Pending: audit before pair-delta refresh objective training PPO or broader generation"
   },
-  "updated_at_utc": "20260525T163507Z"
+  "updated_at_utc": "20260525T165821Z"
 }

@@ -62,16 +62,24 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m864-v4-generated-boundary-refinement-implementation
+m865-v4-generated-boundary-refinement-audit
 ```
 
-M864 should implement no-training bisection/refinement of M860 generated
-wide/negative brackets before any pair-delta replay, objective training, PPO,
-promotion, or broader source generation. PPO, promotion, base actor mutation,
-M761 residual-head mutation, and pair-delta sequence replay remain blocked.
+M865 should audit the M864 sparse-useful generated-boundary refinement result
+before pair-delta refresh, objective training, PPO, promotion, or another
+boundary-generation pass. PPO, promotion, base actor mutation, M761
+residual-head mutation, and pair-delta sequence replay remain blocked.
 
 ## Recent Evidence Line
 
+- M864 implements no-training generated-boundary refinement from M860 brackets.
+  It selects `25` bracket seeds, including `13` no-M860-boundary brackets,
+  reconstructs all `25` snapshots, and produces `42` accepted refined rows.
+  Combined M860+M864 coverage reaches `59` boundary-new-to-M844 rows across
+  `27` source groups, `5` seeds, and `9` fault families; primary pairability
+  projection rises to `365`. This passes sparse generated-boundary gate but not
+  strong gate because rows/source groups/seeds remain below strong thresholds.
+  Pair-delta replay and PPO remain blocked until audit.
 - M863 synthesizes the M853-M862 branch and continues it into one
   generated-boundary refinement implementation. Supported claims are limited to
   no-training data construction: source targeting and snapshot reconstruction
