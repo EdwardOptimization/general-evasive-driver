@@ -13194,3 +13194,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M792 adds `src/autodrift/v4_residual_component_sensitivity.py` and focused tests, then runs the no-training fixed-mask component sensitivity probe over the M773 broader source-holdout corpus. It reconstructs `2640/2652` rows with `0` metadata misses and the same `12` unsupported `command_shift_obs` rejects, writes `168960` replay rows, `84480` objective rows, `384` active-source rows, and confirms the M568 actor and M761 residual-head checksums unchanged. No optimizer, PPO, or promotion is used. Result class is `v4_residual_component_sensitivity_attribution_found`: no fixed mask is actionable, but component roles are identifiable. Steer is both useful and harmful: at alpha `0.2`, `steer_only` reaches gap mean `0.044286` but collides on the active source with margin `-0.000049`, while `throttle_brake` / no-steer stays safe with margin `+0.000112` but gap mean only `0.042545`. Brake is useful-only with lower gap, and throttle has no meaningful role. M792 therefore blocks PPO/promotion and admits M793 audit before any steer-specific objective.
 - decision: `v4_residual_component_sensitivity_attribution_found`
 - next: `m793-v4-residual-component-sensitivity-audit`
+
+## 20260525T111500Z - m793-v4-residual-component-sensitivity-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m793-v4-residual-component-sensitivity-audit.md`
+- result: M793 audits M792 as a clean attribution-only result, not an actionable mask or promotion result. M792 preserves no-training invariants, reconstructs `2640/2652` rows, and reports no actor or residual-head mutation. The audit accepts the main component finding: steering residual is both useful and harmful, because it carries intervention gap but also drives the active-source alpha `0.2` normal collision; brake is useful-only and throttle is inactive on this diagnostic. M793 blocks generic vector-gate continuation, PPO, and promotion. It selects a new design-only blocker: steer-attributed normal-boundary residual calibration that can suppress harmful steering residual on low-normal-margin branches while retaining steering and brake contribution where intervention separation is needed.
+- decision: `admit_steer_attributed_calibration_design`
+- next: `m794-v4-steer-attributed-residual-calibration-design`

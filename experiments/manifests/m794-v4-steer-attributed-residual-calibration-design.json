@@ -1,0 +1,115 @@
+{
+  "id": "m794-v4-steer-attributed-residual-calibration-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "behavior_regression",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m793-v4-residual-component-sensitivity-audit.md",
+      "docs/m792-v4-residual-component-sensitivity-implementation.md",
+      "runs/m792_v4_residual_component_sensitivity/summary.json",
+      "runs/m792_v4_residual_component_sensitivity/mask_alpha_metrics.csv",
+      "runs/m792_v4_residual_component_sensitivity/component_role_metrics.csv",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m793-v4-residual-component-sensitivity-audit.json"
+    ],
+    "parent_objective": [
+      "design a steer-attributed residual calibration branch after M792 component attribution"
+    ],
+    "derived_from": [
+      "m793-v4-residual-component-sensitivity-audit"
+    ],
+    "blocked_by": [
+      "m793-v4-residual-component-sensitivity-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m794-v4-steer-attributed-residual-calibration-design.md",
+  "public_gates": [
+    "M794 designs only; it does not implement or train",
+    "M794 preserves the P0 human-view actor contract",
+    "M794 targets steer-specific normal-boundary attenuation",
+    "M794 preserves M786 and M780 comparison thresholds",
+    "M794 blocks PPO and promotion"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not implement the calibrator",
+    "do not train any parameters",
+    "do not run replay as a result claim",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add oracle deploy-time inputs",
+    "do not weaken M786 or M780 thresholds",
+    "do not claim broad generalization from public M773 rows"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_steer_attributed_residual_calibration",
+    "evidence_axis": "G_action: steer-attributed residual calibration design",
+    "evidence_increment": "moves from fixed-mask component attribution to a design for steer-specific low-normal-margin residual attenuation",
+    "claim_scope": "design only; no implementation training PPO or driver promotion",
+    "stop_condition": [
+      "stop if design does not directly use M792 steer useful/harmful evidence",
+      "stop if design becomes another generic vector gate",
+      "stop if design depends on oracle deploy-time inputs",
+      "stop if design admits promotion"
+    ],
+    "fallback_plan": [
+      "if steer-specific objective is under-specified, require a trajectory-time steering residual probe first",
+      "if public overfit risk is too high, design a fresh-source active-boundary audit before training",
+      "if no clean deployable feature can separate useful from harmful steer residual, stop residual calibration and return to corpus or architecture evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M793 selects steer-attributed calibration as next branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A steer-attributed residual calibration design can use M792 evidence to protect low-normal-margin steering residual while preserving intervention separation.",
+  "success_criteria": [
+    "M794 documents a steer-specific no-PPO calibration design",
+    "M794 states how harmful steering residual is identified and suppressed",
+    "M794 states how useful steering and brake residual signal is retained",
+    "M794 preserves actor and residual-head input contracts",
+    "M794 keeps training PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "design ignores M792 steer useful/harmful attribution",
+    "design becomes another generic vector gate",
+    "design uses oracle deploy-time inputs",
+    "design weakens M786 or M780 thresholds",
+    "design admits PPO or promotion"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m794-v4-steer-attributed-residual-calibration-design.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m794-v4-steer-attributed-residual-calibration-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m793-v4-residual-component-sensitivity-audit.md",
+    "runs/m792_v4_residual_component_sensitivity/summary.json",
+    "runs/m792_v4_residual_component_sensitivity/component_role_metrics.csv",
+    "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+  ],
+  "decision_rule": "M794 may only design a steer-attributed residual calibration branch. It must not implement, train, run PPO, mutate actor or residual parameters, or promote a checkpoint.",
+  "next_blocker": "m795-v4-steer-attributed-residual-calibration-implementation"
+}

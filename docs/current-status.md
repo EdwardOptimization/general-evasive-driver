@@ -62,15 +62,26 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m793-v4-residual-component-sensitivity-audit
+m794-v4-steer-attributed-residual-calibration-design
 ```
 
-M793 should audit the M792 attribution-only fixed-mask residual component
-sensitivity result before any steer-specific objective. Base actor mutation,
+M794 should design a no-PPO steer-attributed normal-boundary residual
+calibration branch from the M792/M793 component evidence. Base actor mutation,
 M761 residual-head mutation, PPO, and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M793 audits M792 as a clean attribution-only result, not an actionable mask
+  or promotion result. M792 preserves no-training invariants, reconstructs
+  `2640/2652` rows, and reports no actor or residual-head mutation. The audit
+  accepts the main component finding: steering residual is both useful and
+  harmful, because it carries intervention gap but also drives the active-source
+  alpha `0.2` normal collision; brake is useful-only and throttle is inactive
+  on this diagnostic. M793 blocks generic vector-gate continuation, PPO, and
+  promotion. It selects a new design-only blocker: steer-attributed
+  normal-boundary residual calibration that can suppress harmful steering
+  residual on low-normal-margin branches while retaining steering and brake
+  contribution where intervention separation is needed.
 - M792 adds `src/autodrift/v4_residual_component_sensitivity.py` and focused
   tests, then runs the no-training fixed-mask component sensitivity probe over
   the M773 broader source-holdout corpus. It reconstructs `2640/2652` rows with
