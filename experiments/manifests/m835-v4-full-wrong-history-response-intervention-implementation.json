@@ -1,0 +1,127 @@
+{
+  "id": "m835-v4-full-wrong-history-response-intervention-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m834-v4-full-wrong-history-response-intervention-design.md",
+      "runs/m832_v4_near_boundary_wrong_history_pair_mining/near_boundary_pair_rows.csv",
+      "runs/m832_v4_near_boundary_wrong_history_pair_mining/accepted_boundary_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m834-v4-full-wrong-history-response-intervention-design.json"
+    ],
+    "parent_objective": [
+      "implement no-training full wrong-history response/action observation intervention"
+    ],
+    "derived_from": [
+      "m834-v4-full-wrong-history-response-intervention-design"
+    ],
+    "blocked_by": [
+      "full wrong-history response/action intervention is not yet implemented"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m835-v4-full-wrong-history-response-intervention-implementation.md",
+  "public_gates": [
+    "M835 must implement no-training response/action observation interventions only",
+    "M835 must keep left scene context and left environment dynamics fixed",
+    "M835 must separate hidden-only ego-response-only action-history-only and response-plus-hidden variants",
+    "M835 must preserve actor and M761 residual-head checksums",
+    "M835 must not run PPO or promote a checkpoint"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not train a calibrator",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels or oracle fields to actor input",
+    "do not count zero-command-only degradation as wrong-history proof",
+    "do not relax M832/M834 thresholds"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_new_data_route",
+    "evidence_axis": "G_intervention: full wrong-history response/action implementation",
+    "evidence_increment": "implements the M834 diagnostic to localize response-history sensitivity across hidden current-response and previous-command streams",
+    "claim_scope": "no-training intervention diagnostics only; no PPO or driver promotion",
+    "stop_condition": [
+      "stop if actor or residual-head checksums change",
+      "stop if implementation changes scene context rather than response/action stream",
+      "stop if variants cannot separate component attribution",
+      "stop if zero-command dominates all accepted rows",
+      "stop if all response variants are weak"
+    ],
+    "fallback_plan": [
+      "if response variants pass, audit before any objective or PPO",
+      "if zero-command dominates, pivot to input/ablation artifact analysis",
+      "if all variants are weak, pivot to objective/architecture evidence",
+      "if artifacts are incomplete, repair implementation before interpreting"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M834 admits one no-training full response intervention implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Swapping deployable response/action observation fields from matched wrong-history sources will expose stronger counterfactual sensitivity than hidden-only injection.",
+  "success_criteria": [
+    "M835 implements response/action observation intervention variants",
+    "M835 runs on M832 near-boundary pairs",
+    "M835 writes pair replay accepted variant component diversity gate and summary artifacts",
+    "M835 verifies actor and residual-head checksums unchanged",
+    "M835 classifies the result without PPO or promotion"
+  ],
+  "failure_criteria": [
+    "M835 trains actor or residual-head parameters",
+    "M835 runs PPO",
+    "M835 promotes a checkpoint",
+    "M835 mutates actor input contract",
+    "M835 counts zero-command-only effects as wrong-history proof"
+  ],
+  "commands": [
+    {
+      "name": "full_wrong_history_response_intervention",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_full_wrong_history_response_intervention --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --residual-head runs/m761_v4_sequence_objective_probe/residual_head.pt --scenario-config configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json --near-boundary-pairs runs/m832_v4_near_boundary_wrong_history_pair_mining/near_boundary_pair_rows.csv --accepted-boundary-rows runs/m832_v4_near_boundary_wrong_history_pair_mining/accepted_boundary_rows.csv --source-rows runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv --candidate-plan-rows runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv --run-dir runs/m835_v4_full_wrong_history_response_intervention --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_full_wrong_history_response_intervention.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_v4_full_wrong_history_response_intervention.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m835_v4_full_wrong_history_response_intervention/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "docs/m835-v4-full-wrong-history-response-intervention-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m834-v4-full-wrong-history-response-intervention-design.md",
+    "runs/m832_v4_near_boundary_wrong_history_pair_mining/summary.json",
+    "runs/m832_v4_near_boundary_wrong_history_pair_mining/near_boundary_pair_rows.csv"
+  ],
+  "decision_rule": "M835 may produce a no-training diagnostic classification only. It must not train, run PPO, or promote.",
+  "next_blocker": "response/action stream wrong-history sensitivity has not yet been measured"
+}

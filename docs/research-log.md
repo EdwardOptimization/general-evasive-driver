@@ -13575,3 +13575,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M833 audits M832 as a clean no-training negative with two separate findings. Boundary-first mining worked: accepted boundary margins are truly near-boundary (`39` rows, min `0.0000494`, median `0.009952`) and fix M828's wide-margin issue. But matched pairs are still sparse (`60/80`) and hidden-only wrong-history remains far below proof thresholds even on those near-boundary pairs: wrong-hidden action drift max `0.00665 < 0.014`, margin gap max `0.0000369 << 0.01`, and accepted wrong-history rows `0`. The audit concludes that simply expanding hidden-only pair mining is not the best immediate control variable; the next diagnostic should swap deployable response/action observation fields to separate hidden-memory weakness from current-response-stream dependence.
 - decision: `admit_full_wrong_history_response_intervention_design`
 - next: `m834-v4-full-wrong-history-response-intervention-design`
+
+## 20260525T220000Z - m834-v4-full-wrong-history-response-intervention-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m834-v4-full-wrong-history-response-intervention-design.md`
+- result: M834 designs the no-training full wrong-history response/action intervention after M833 found hidden-only injection too weak. The design preserves the P0 72-dim actor contract and treats all swaps as offline counterfactuals on deployable fields. It separates `wrong_hidden_only`, `wrong_ego_response_obs`, `wrong_action_history_obs`, `wrong_response_action_obs`, and corresponding hidden-combined variants, while keeping left scene context and left environment dynamics fixed. Acceptance gates require normal near-boundary success, wrong-history response/action margin gap `>=0.01` or outcome drop, action drift `>=0.014`, source/fault/warm-up/onset diversity, and zero-command separation. M835 is admitted as no-training implementation only; PPO, training, promotion, hidden labels, oracle fields, and threshold relaxation remain blocked.
+- decision: `full_wrong_history_response_intervention_design_admit_m835`
+- next: `m835-v4-full-wrong-history-response-intervention-implementation`
