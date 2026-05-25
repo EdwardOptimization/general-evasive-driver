@@ -62,16 +62,27 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m860-v4-closer-obstacle-source-generation-implementation
+m861-v4-closer-obstacle-source-generation-audit
 ```
 
-M860 should implement the M859 no-training closer obstacle/source generation
-route from M857 all-safe-wide traces before pair-delta replay. PPO, promotion,
-base actor mutation, M761 residual-head mutation, and pair-delta sequence replay
-remain blocked.
+M861 should audit the M860 source-limited generated-boundary result before any
+pair-delta replay, objective training, PPO, promotion, or broader source
+generation. PPO, promotion, base actor mutation, M761 residual-head mutation,
+and pair-delta sequence replay remain blocked.
 
 ## Recent Evidence Line
 
+- M860 implements the no-training closer obstacle/source generation runner. It
+  generates `660` candidate plans from M857 traces across `44` primary source
+  groups, `8` seeds, and `9` fault families, reconstructs all requested
+  snapshots, and preserves actor/M761 checksums. The run opens `17` accepted
+  boundary-new-to-M844 rows and `38` primary pairability projection rows. This
+  improves over M857's zero generated boundary rows but remains below sparse
+  gate (`32` accepted rows and `40` pairability rows). Accepted rows come only
+  from `all_safe_closer_obstacle`; `all_collision_safer_side` and
+  half-width-only generation contribute zero accepted rows. M860 is
+  `v4_closer_obstacle_source_generation_source_limited`, not pair-delta
+  outcome evidence and not PPO admission.
 - M859 designs the closer obstacle/source generation route. All-safe-wide
   source axes should generate bounded closer-obstacle extrapolations from their
   closest wide-safe trace rows, with combined tightening for very wide margins.

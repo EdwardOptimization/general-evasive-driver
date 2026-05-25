@@ -1,0 +1,115 @@
+{
+  "id": "m861-v4-closer-obstacle-source-generation-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m860-v4-closer-obstacle-source-generation-implementation.md",
+      "runs/m860_v4_closer_obstacle_source_generation/summary.json",
+      "runs/m860_v4_closer_obstacle_source_generation/generation_plan_rows.csv",
+      "runs/m860_v4_closer_obstacle_source_generation/generated_replay_rows.csv",
+      "runs/m860_v4_closer_obstacle_source_generation/accepted_generated_boundary_rows.csv",
+      "runs/m860_v4_closer_obstacle_source_generation/pairability_projection_rows.csv",
+      "runs/m860_v4_closer_obstacle_source_generation/source_generation_summary.csv",
+      "runs/m860_v4_closer_obstacle_source_generation/gate_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m860-v4-closer-obstacle-source-generation-implementation.json"
+    ],
+    "parent_objective": [
+      "audit source-limited closer obstacle/source generation result"
+    ],
+    "derived_from": [
+      "m860-v4-closer-obstacle-source-generation-implementation"
+    ],
+    "blocked_by": [
+      "M860 generated 660 plans but accepted only 17 boundary-new-to-M844 rows and 38 primary pairability rows"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m861-v4-closer-obstacle-source-generation-audit.md",
+  "public_gates": [
+    "M861 must audit M860 before pair-delta mining or objective training",
+    "M861 must separate generation-plan coverage from accepted boundary coverage",
+    "M861 must classify all-safe closer-obstacle positives versus all-collision and half-width negatives",
+    "M861 must decide whether to design combined tightening source generation or broaden scenario generation",
+    "M861 must keep PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run replay in M861",
+    "do not train actor or residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not run pair-delta sequence replay",
+    "do not treat M860 pairability projection as pair-delta outcome evidence",
+    "do not treat M860 accepted rows as an objective-ready self-ID corpus"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_boundary_expansion",
+    "evidence_axis": "G_data: source-limited generated boundary audit",
+    "evidence_increment": "audits whether M860 single-axis closer obstacle/source generation created enough boundary-new-to-M844 coverage for pair-delta mining",
+    "claim_scope": "audit only; no replay, training, PPO, pair-delta outcome claim, learned policy claim, or driver promotion",
+    "stop_condition": [
+      "stop if M860 artifacts are incomplete",
+      "stop if generation-plan coverage is confused with accepted-boundary coverage",
+      "stop if pairability projection is treated as sequence outcome evidence",
+      "stop if PPO or objective training is admitted from source-limited generated rows"
+    ],
+    "fallback_plan": [
+      "if M860 is near sparse and all-safe positives dominate, design bounded combined tightening for very wide safe traces",
+      "if collision-side rows are all negative, design source-step safer-side neighborhoods before replay",
+      "if all generated rows remain source-limited, audit before broader scenario generation",
+      "if branch cadence is reached, synthesize before another narrow implementation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M860 returns source-limited generated boundary evidence below sparse gate",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M860 is a clean source-limited generated-boundary result that needs audit before choosing combined tightening, broader source generation, or any pair-delta mining.",
+  "success_criteria": [
+    "M861 writes an audit document for M860",
+    "M861 verifies M860 artifact completeness and frozen checksums",
+    "M861 classifies the all-safe closer-obstacle positive and all-collision/half-width negative routes",
+    "M861 selects the next no-training route",
+    "M861 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M861 admits PPO or promotion",
+    "M861 trains actor or residual parameters",
+    "M861 treats pairability projection as pair-delta outcome evidence",
+    "M861 ignores M860 sparse-gate failures"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m861-v4-closer-obstacle-source-generation-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m861-v4-closer-obstacle-source-generation-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m860-v4-closer-obstacle-source-generation-implementation.md",
+    "runs/m860_v4_closer_obstacle_source_generation/summary.json",
+    "runs/m860_v4_closer_obstacle_source_generation/source_generation_summary.csv"
+  ],
+  "decision_rule": "M861 may only audit M860 and pre-register the next no-training route. It must not run replay, train, run PPO, run pair-delta sequence replay, or promote.",
+  "next_blocker": "M860 single-axis closer obstacle/source generation is source-limited and below sparse generated-boundary gate"
+}

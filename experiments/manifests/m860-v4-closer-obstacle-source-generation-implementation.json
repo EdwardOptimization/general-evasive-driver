@@ -110,6 +110,34 @@
       "type": "run_summary"
     },
     {
+      "path": "runs/m860_v4_closer_obstacle_source_generation/generation_plan_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m860_v4_closer_obstacle_source_generation/generated_replay_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m860_v4_closer_obstacle_source_generation/accepted_generated_boundary_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m860_v4_closer_obstacle_source_generation/pairability_projection_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m860_v4_closer_obstacle_source_generation/source_generation_summary.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m860_v4_closer_obstacle_source_generation/gate_summary.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m860_v4_closer_obstacle_source_generation/rejected_rows.csv",
+      "type": "run_artifact"
+    },
+    {
       "path": "docs/m860-v4-closer-obstacle-source-generation-implementation.md",
       "type": "documentation"
     }
@@ -123,5 +151,5 @@
     "runs/m857_v4_boundary_new_to_m844_bracket_trace/cause_summary.json"
   ],
   "decision_rule": "M860 may only produce a no-training generated boundary diagnostic classification. It must not train, run PPO, run pair-delta sequence replay, promote, or claim learned self-ID.",
-  "next_blocker": "closer obstacle/source generation from all-safe-wide traces has not yet been implemented"
+  "next_blocker": "M860 single-axis closer obstacle/source generation remains source-limited and below sparse generated-boundary gate"
 }

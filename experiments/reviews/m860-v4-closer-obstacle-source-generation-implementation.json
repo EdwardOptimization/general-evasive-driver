@@ -1,0 +1,88 @@
+{
+  "decision_reason": "M860 generates 660 no-training candidates from M857 traces and opens 17 boundary-new-to-M844 accepted rows with 38 primary pairability rows but remains below sparse gate so audit is required before replay",
+  "failure_criteria": [
+    "M860 trains actor or residual-head parameters",
+    "M860 runs PPO",
+    "M860 promotes a checkpoint",
+    "M860 runs pair-delta sequence replay",
+    "M860 mutates actor input contract"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels or oracle fields to actor input",
+    "do not replay pair-delta sequences in M860",
+    "do not count recovered controls as primary boundary-new-to-M844 accepted rows"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T153245Z",
+  "hypothesis": "No-training closer obstacle/source generation from M857 all-safe-wide traces can create a broader boundary-new-to-M844 low-margin surface before pair-delta mining.",
+  "lineage": {
+    "blocked_by": [
+      "M857 all-safe-wide traces need closer generated obstacle/source candidates"
+    ],
+    "derived_from": [
+      "m859-v4-closer-obstacle-source-generation-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m859-v4-closer-obstacle-source-generation-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m859-v4-closer-obstacle-source-generation-design.md",
+      "runs/m857_v4_boundary_new_to_m844_bracket_trace/summary.json",
+      "runs/m857_v4_boundary_new_to_m844_bracket_trace/axis_trace_summary.csv",
+      "runs/m857_v4_boundary_new_to_m844_bracket_trace/bracket_trace_rows.csv",
+      "runs/m857_v4_boundary_new_to_m844_bracket_trace/target_trace_source_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv"
+    ],
+    "parent_objective": [
+      "implement no-training closer obstacle/source generation from all-safe-wide traces"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m860-v4-closer-obstacle-source-generation-implementation",
+  "next_blocker": "M860 single-axis closer obstacle/source generation remains source-limited and below sparse generated-boundary gate",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "v4_closer_obstacle_source_generation_source_limited",
+  "public_gates": [
+    "M860 must implement no-training source/obstacle generation only",
+    "M860 must target M857 primary boundary-new-to-M844 all-safe-wide sources",
+    "M860 must write generated replay and accepted boundary artifacts",
+    "M860 must preserve actor and residual-head checksums",
+    "M860 must not run pair-delta sequence replay, train, or promote"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m860_v4_closer_obstacle_source_generation/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "v4_closer_obstacle_source_generation_source_limited",
+    "milestone": "m860-v4-closer-obstacle-source-generation-implementation",
+    "reason": "M860 generates 660 no-training candidates from M857 traces and opens 17 boundary-new-to-M844 accepted rows with 38 primary pairability rows but remains below sparse gate so audit is required before replay",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M860 implements generation plan construction from M857 traces",
+    "M860 writes generated replay and accepted boundary artifacts",
+    "M860 verifies actor and residual-head checksums unchanged",
+    "M860 classifies generated boundary surface without pair-delta replay",
+    "M860 keeps PPO and promotion blocked"
+  ],
+  "type": "infrastructure"
+}

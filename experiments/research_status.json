@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 868,
+    "completed": 869,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m859-v4-closer-obstacle-source-generation-design",
+    "task_id": "m860-v4-closer-obstacle-source-generation-implementation",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m859-v4-closer-obstacle-source-generation-design.md"
+    "command_log": "docs/m860-v4-closer-obstacle-source-generation-implementation.md"
   },
   "next_task": {
-    "id": "m860-v4-closer-obstacle-source-generation-implementation",
+    "id": "m861-v4-closer-obstacle-source-generation-audit",
     "status": "pending",
-    "priority": 8550,
-    "kind": "infrastructure",
-    "hypothesis": "Implement closer obstacle/source generation from all-safe-wide traces",
-    "command": "see experiments/manifests/m860-v4-closer-obstacle-source-generation-implementation.json",
-    "success_artifact": "docs/m860-v4-closer-obstacle-source-generation-implementation.md",
-    "notes": "Pending: implement no-training generated boundary diagnostic before pair-delta replay"
+    "priority": 8560,
+    "kind": "gate",
+    "hypothesis": "Audit M860 source-limited generated boundary result",
+    "command": "see experiments/manifests/m861-v4-closer-obstacle-source-generation-audit.json",
+    "success_artifact": "docs/m861-v4-closer-obstacle-source-generation-audit.md",
+    "notes": "Pending: audit M860 before pair-delta replay objective training PPO or broader generation"
   },
-  "updated_at_utc": "20260525T150837Z"
+  "updated_at_utc": "20260525T152912Z"
 }

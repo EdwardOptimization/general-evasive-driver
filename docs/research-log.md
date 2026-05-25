@@ -13817,3 +13817,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M859 designs a no-training closer obstacle/source generation route from M857 all-safe-wide traces. The design separates all-safe-wide and all-collision source-axis families: all-safe-wide rows generate bounded closer-obstacle extrapolations from the closest wide-safe trace point, including optional combined tightening for very wide margins; all-collision rows generate safer-side candidates and source-step neighborhood shifts. M860 must replay only normal closed-loop generated candidates, accept only primary boundary-new-to-M844 successful non-collision rows with `0 <= margin <= 0.05`, and may compute cheap pairability projection only after accepted generated boundary rows exist. Pair-delta replay, objective training, PPO, promotion, actor mutation, and M761 mutation remain blocked.
 - decision: `closer_obstacle_source_generation_design_admit_m860`
 - next: `m860-v4-closer-obstacle-source-generation-implementation`
+
+## 20260525T152912Z - m860-v4-closer-obstacle-source-generation-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m860_v4_closer_obstacle_source_generation`
+- artifact: `docs/m860-v4-closer-obstacle-source-generation-implementation.md`
+- result: M860 implements the no-training closer obstacle/source generation runner and focused tests. It generates `660` candidate plans across `44` primary source groups, `8` seeds, and `9` fault families, reconstructs all requested snapshots, and preserves actor/M761 checksums. The run opens `17` accepted successful non-collision boundary-new-to-M844 rows and `38` primary pairability projection rows, which is a real improvement over M857's zero generated boundaries but remains below sparse gate (`32` accepted rows and `40` pairability rows). Accepted rows are all from `all_safe_closer_obstacle`; `all_collision_safer_side` and half-width-only generation produce zero accepted rows. M860 is therefore `v4_closer_obstacle_source_generation_source_limited`, not a contract failure and not pair-delta outcome evidence.
+- decision: `v4_closer_obstacle_source_generation_source_limited`
+- next: `m861-v4-closer-obstacle-source-generation-audit`
