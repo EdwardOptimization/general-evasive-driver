@@ -62,16 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m805-v4-low-margin-boundary-window-retarget-audit
+m806-v4-low-margin-boundary-axis-expansion-design
 ```
 
-M805 should audit the M804 geometry-only diagnostic before any active-steer
-residual calibration or further retargeting. Further active-steer residual
+M806 should design source-diverse boundary-axis expansion after the M805 audit
+rejected M804 as a guard-corpus pass. Further active-steer residual
 calibration, PPO, promotion, base actor mutation, and M761 residual-head
 mutation remain blocked.
 
 ## Recent Evidence Line
 
+- M805 audits M804 as a clean geometry-only diagnostic. M804 proves the primary
+  low-margin window is reachable by closed-loop public geometry retargeting and
+  preserves intervention sensitivity, but it is not source-diverse or
+  axis-diverse enough for the active-steer guard corpus. M805 rejects
+  calibration, PPO, promotion, and threshold weakening, and routes next to
+  source-diverse boundary-axis expansion design.
 - M804 implements and runs the no-training boundary-window retarget tool.
   Closed-loop retargeting creates `252` accepted primary-window rows with
   margins from `0.000004953` to `0.000046264`, no reconstruction failures, and

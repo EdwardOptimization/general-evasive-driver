@@ -13306,3 +13306,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M804 implements and runs no-training boundary-window retargeting. It selects `136` anchors and replays `672` retarget candidates with zero reconstruction failures and unchanged actor/residual checksums. The run creates `252` primary-window rows with margins from `0.000004953` to `0.000046264`, and accepted-row interventions all collide, preserving local history sensitivity. However all `252` accepted rows come from `obstacle_half_width` retargeting; obstacle-distance retargeting creates `0`. Accepted rows cover only `3` seeds with max seed dominance `0.428571` and max fault-pair dominance `0.714286`, so the result is classified as `v4_low_margin_boundary_window_geometry_only_diagnostic`, not a source-diverse guard pass.
 - decision: `v4_low_margin_boundary_window_geometry_only_diagnostic`
 - next: `m805-v4-low-margin-boundary-window-retarget-audit`
+
+## 20260525T150000Z - m805-v4-low-margin-boundary-window-retarget-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m805-v4-low-margin-boundary-window-retarget-audit.md`
+- result: M805 audits M804 as a clean no-training geometry-only diagnostic. It accepts the useful finding that the primary low-margin window is reachable and that accepted rows preserve intervention sensitivity, but rejects treating the `252` obstacle-half-width rows as a source-diverse guard pass because they cover only `3` seeds, have max seed dominance `0.428571`, max fault-pair dominance `0.714286`, and use one retarget axis. Calibration, PPO, promotion, threshold weakening, and geometry-only pass claims remain blocked.
+- decision: `admit_low_margin_boundary_axis_expansion_design`
+- next: `m806-v4-low-margin-boundary-axis-expansion-design`

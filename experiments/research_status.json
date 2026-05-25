@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 813,
+        "completed": 814,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m804-v4-low-margin-boundary-window-retarget-implementation",
+        "task_id": "m805-v4-low-margin-boundary-window-retarget-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m804-v4-low-margin-boundary-window-retarget-implementation.md"
+        "command_log": "docs/m805-v4-low-margin-boundary-window-retarget-audit.md"
     },
     "next_task": {
-        "id": "m805-v4-low-margin-boundary-window-retarget-audit",
+        "id": "m806-v4-low-margin-boundary-axis-expansion-design",
         "status": "pending",
-        "priority": 8000,
-        "kind": "gate",
-        "hypothesis": "Audit M804 geometry-only boundary-window retarget result",
-        "command": "see experiments/manifests/m805-v4-low-margin-boundary-window-retarget-audit.json",
-        "success_artifact": "docs/m805-v4-low-margin-boundary-window-retarget-audit.md",
-        "notes": "Pending: audit geometry-only primary-window rows before calibration PPO or further retargeting"
+        "priority": 8010,
+        "kind": "infrastructure",
+        "hypothesis": "Design source-diverse boundary-axis expansion after M804 geometry-only diagnostic",
+        "command": "see experiments/manifests/m806-v4-low-margin-boundary-axis-expansion-design.json",
+        "success_artifact": "docs/m806-v4-low-margin-boundary-axis-expansion-design.md",
+        "notes": "Pending: design axis-diverse retargeting without weakening primary low-margin or source-diversity gates"
     },
-    "updated_at_utc": "20260525T144500Z"
+    "updated_at_utc": "20260525T150000Z"
 }
