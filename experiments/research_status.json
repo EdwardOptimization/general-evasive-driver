@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 909,
+    "completed": 910,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark",
+    "task_id": "m901-v4-pair-delta-raw-scaling-fresh-result-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark.md"
+    "command_log": "docs/m901-v4-pair-delta-raw-scaling-fresh-result-audit.md"
   },
   "next_task": {
-    "id": "m901-v4-pair-delta-raw-scaling-fresh-result-audit",
+    "id": "m902-v4-pair-delta-raw-scaling-challenge-generalization-design",
     "status": "pending",
-    "priority": 8960,
-    "kind": "gate",
-    "hypothesis": "Audit M900 margin-only fresh pass and choose next route",
-    "command": "see experiments/manifests/m901-v4-pair-delta-raw-scaling-fresh-result-audit.json",
-    "success_artifact": "docs/m901-v4-pair-delta-raw-scaling-fresh-result-audit.md",
-    "notes": "Pending: decide second fresh scenario family, public-base integration design, corpus work, or stop"
+    "priority": 8970,
+    "kind": "infrastructure",
+    "hypothesis": "Design challenge-family generalization benchmark for raw scaling candidates",
+    "command": "see experiments/manifests/m902-v4-pair-delta-raw-scaling-challenge-generalization-design.json",
+    "success_artifact": "docs/m902-v4-pair-delta-raw-scaling-challenge-generalization-design.md",
+    "notes": "Pending: design near-threshold and late high-energy robust challenge benchmarks"
   },
-  "updated_at_utc": "20260525T202733Z"
+  "updated_at_utc": "20260525T203330Z"
 }

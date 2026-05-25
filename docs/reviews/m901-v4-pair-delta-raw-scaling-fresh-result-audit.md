@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260525T203253Z
+- Generated at UTC: 20260525T203542Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M901 may only audit M900 and choose the next route. It must not run benchmark, train, run PPO, or promote.
+- Promotion decision: margin_only_fresh_pass_route_to_challenge_generalization_design
+- Decision reason: M901 audits M900 as margin-only fresh pass and routes to challenge-family generalization design before integration PPO or promotion
 
 ## Hypothesis
 
@@ -69,7 +69,18 @@ M900 provides a useful margin-only fresh signal, but it must be audited before d
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m901-v4-pair-delta-raw-scaling-fresh-result-audit
+- type: gate
+- checkpoint: docs/m901-v4-pair-delta-raw-scaling-fresh-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: margin_only_fresh_pass_route_to_challenge_generalization_design
+- reason: M901 audits M900 as margin-only fresh pass and routes to challenge-family generalization design before integration PPO or promotion
 
 ## Next Blocker
 

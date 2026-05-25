@@ -14198,3 +14198,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M900 runs the no-training fresh public diagnostic benchmark on seeds `9705` and `9706`, `256` episodes each. Raw candidates retain success `0.761719` and termination `0.238281` versus M568, pass the raw clearance threshold with deltas `+0.003236` for M886 raw and `+0.003250` for M891 raw, and outperform alpha `0.1` clearance movement (`~+0.000425`). Seed-delta audit shows no success flips: improved seeds `0`, regressed seeds `0`. The result is a margin-only fresh pass, not promotion or PPO admission.
 - decision: `raw_scaling_fresh_generalization_benchmark_pass_margin_only`
 - next: `m901-v4-pair-delta-raw-scaling-fresh-result-audit`
+
+## 20260525T203330Z - m901-v4-pair-delta-raw-scaling-fresh-result-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m901-v4-pair-delta-raw-scaling-fresh-result-audit.md`
+- result: M901 audits M900 as useful but margin-only. The raw candidates retain success and termination and exceed the fresh clearance threshold, but seed-delta audit shows no success flips, so the result is not enough for public-base integration, PPO, or promotion. The next route is a second public scenario family: robust near-threshold and late high-energy challenge benchmarks.
+- decision: `margin_only_fresh_pass_route_to_challenge_generalization_design`
+- next: `m902-v4-pair-delta-raw-scaling-challenge-generalization-design`

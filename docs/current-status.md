@@ -62,15 +62,20 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m901-v4-pair-delta-raw-scaling-fresh-result-audit
+m902-v4-pair-delta-raw-scaling-challenge-generalization-design
 ```
 
-M900 passed the fresh public diagnostic threshold for raw candidates, but only
-as margin/clearance movement with no success flips. M901 must audit that result
-and choose the next route before any integration, PPO, or promotion.
+M901 audited M900 as a useful but margin-only fresh pass. M902 must design a
+second public scenario-family benchmark on robust near-threshold and late
+high-energy challenge configs before any integration, PPO, or promotion.
 
 ## Recent Evidence Line
 
+- M901 audits M900 as margin-only fresh evidence. Raw candidates retained
+  success/termination and exceeded the fresh clearance threshold, but seed-delta
+  audit showed no success flips. The next route is a second scenario-family
+  design using robust near-threshold and late high-energy challenge configs,
+  not public-base integration or PPO.
 - M900 runs the no-training fresh benchmark on seeds `9705`/`9706`, `256`
   episodes each. Raw candidates retain success `0.761719` and termination
   `0.238281` versus M568 and pass the clearance threshold: `m886_raw`
