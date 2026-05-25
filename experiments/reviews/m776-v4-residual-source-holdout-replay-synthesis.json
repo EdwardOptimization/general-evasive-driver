@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M776 synthesis continues the branch to one limited no-PPO broader residual replay implementation while keeping PPO promotion and broad generalization blocked",
+  "failure_criteria": [
+    "synthesis omits required questions",
+    "synthesis admits PPO or promotion",
+    "synthesis hides scenario_sampling_failure risk",
+    "synthesis ignores M773 source concentration and hard-negative sparsity"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not run residual replay in the synthesis",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not ignore workflow cadence",
+    "do not hide M773 strict broad-gate misses"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260525T014301Z",
+  "hypothesis": "The v4 residual source-holdout branch has enough evidence to continue to one limited broader residual replay implementation, but not enough for PPO or promotion.",
+  "lineage": {
+    "blocked_by": [
+      "workflow synthesis cadence"
+    ],
+    "derived_from": [
+      "m775-v4-limited-broader-residual-replay-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m775-v4-limited-broader-residual-replay-design.json",
+      "configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m775-v4-limited-broader-residual-replay-design.md",
+      "docs/m774-v4-broader-source-holdout-wave-audit.md",
+      "docs/m773-v4-broader-source-holdout-wave-implementation.md",
+      "docs/m770-v4-limited-residual-holdout-replay-implementation.md",
+      "runs/m773_v4_broader_source_holdout_corpus_export/summary.json",
+      "runs/m770_v4_limited_residual_holdout_replay/summary.json"
+    ],
+    "parent_objective": [
+      "synthesize v4 residual source-holdout replay branch before another implementation milestone"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m776-v4-residual-source-holdout-replay-synthesis",
+  "next_blocker": "m777-v4-limited-broader-residual-replay-implementation",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "continue_to_limited_broader_residual_replay",
+  "public_gates": [
+    "M776 synthesizes the M761-M775 v4 residual source-holdout branch",
+    "M776 decides whether limited broader residual replay remains the right next branch",
+    "M776 records supported and falsified claims",
+    "M776 records public-gate overfit and scenario-sampling risks",
+    "PPO training and checkpoint promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m776-v4-residual-source-holdout-replay-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "continue_to_limited_broader_residual_replay",
+    "milestone": "m776-v4-residual-source-holdout-replay-synthesis",
+    "reason": "M776 synthesis continues the branch to one limited no-PPO broader residual replay implementation while keeping PPO promotion and broad generalization blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M776 summarizes evidence from M761 through M775",
+    "M776 answers all required synthesis questions",
+    "M776 records whether to continue pivot stop or promote_to_next_branch",
+    "M776 preserves M773 broad-gate caveats",
+    "M776 admits no PPO or promotion"
+  ],
+  "type": "gate"
+}

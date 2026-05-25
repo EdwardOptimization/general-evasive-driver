@@ -13035,3 +13035,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M775 designs a limited no-PPO residual replay on the broader M773 corpus using the fixed M568 actor checkpoint, fixed M761 residual head, M773 `2652` positive rows and contrast rows, and `configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json`. It pre-registers alpha `0.2` as the primary conservative candidate with `0.5` and `1.0` diagnostic, requires reconstruction and normal-retention metrics, intervention action-gap and margin-gap metrics, seed/fault-family/variant/horizon stratification, hard-negative sparsity caveat, and current_model_or_proxy claim boundary. It blocks alpha retuning, training, PPO, residual retraining, actor mutation, and promotion. Research validation required workflow synthesis before another implementation milestone, so M775 routes the branch to synthesis first.
 - decision: `limited_broader_residual_replay_design_admit_synthesis`
 - next: `m776-v4-residual-source-holdout-replay-synthesis`
+
+## 20260525T080000Z - m776-v4-residual-source-holdout-replay-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m776-v4-residual-source-holdout-replay-synthesis.md`
+- result: M776 performs the required workflow synthesis for the `v4_residual_source_holdout_replay` branch after validation blocked direct implementation. The synthesis records that M761-M775 support a limited continuation: the residual mechanism survived public closed-loop replay and sparse fresh-holdout replay, and broader M773 source mining materially expanded positives from `995` to `2652` while reducing concentration. It also records unresolved risks: M773 still misses strict broad gates on fault-family-pair count (`17 < 18`) and seed dominance (`0.171569 > 0.15`), hard negatives are sparse, and current faults remain current_model_or_proxy rather than true per-wheel physics. Synthesis decision is `continue`, but only to one limited no-PPO broader residual replay implementation; PPO, promotion, and broad generalization remain blocked.
+- decision: `continue_to_limited_broader_residual_replay`
+- next: `m777-v4-limited-broader-residual-replay-implementation`

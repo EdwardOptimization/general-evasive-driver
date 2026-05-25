@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 784,
+        "completed": 785,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m775-v4-limited-broader-residual-replay-design",
+        "task_id": "m776-v4-residual-source-holdout-replay-synthesis",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m775-v4-limited-broader-residual-replay-design.md"
+        "command_log": "docs/m776-v4-residual-source-holdout-replay-synthesis.md"
     },
     "next_task": {
-        "id": "m776-v4-residual-source-holdout-replay-synthesis",
+        "id": "m777-v4-limited-broader-residual-replay-implementation",
         "status": "pending",
-        "priority": 7710,
-        "kind": "gate",
-        "hypothesis": "Synthesize v4 residual source-holdout replay branch before further implementation",
-        "command": "see experiments/manifests/m776-v4-residual-source-holdout-replay-synthesis.json",
-        "success_artifact": "docs/m776-v4-residual-source-holdout-replay-synthesis.md",
-        "notes": "Pending: workflow synthesis required before further residual replay implementation"
+        "priority": 7720,
+        "kind": "infrastructure",
+        "hypothesis": "Run limited no-PPO residual replay on broader M773 corpus after synthesis",
+        "command": "see experiments/manifests/m777-v4-limited-broader-residual-replay-implementation.json",
+        "success_artifact": "docs/m777-v4-limited-broader-residual-replay-implementation.md",
+        "notes": "Pending: run registered no-PPO residual replay on M773 broader corpus after synthesis"
     },
-    "updated_at_utc": "20260525T075000Z"
+    "updated_at_utc": "20260525T080000Z"
 }

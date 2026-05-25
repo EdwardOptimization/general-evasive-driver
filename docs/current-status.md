@@ -62,16 +62,28 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m776-v4-residual-source-holdout-replay-synthesis
+m777-v4-limited-broader-residual-replay-implementation
 ```
 
-M776 should synthesize the v4 residual source-holdout replay branch before
-another implementation milestone. Research validation blocked direct residual
-replay because the branch reached workflow synthesis cadence. PPO,
-actor/residual training, and promotion remain blocked.
+M777 should run the registered no-PPO residual replay on the broader M773
+corpus after M776 synthesis. It may only test the fixed M761 residual head at
+alphas `0.0,0.2,0.5,1.0`; PPO, actor/residual training, and promotion remain
+blocked.
 
 ## Recent Evidence Line
 
+- M776 performs the required workflow synthesis for the
+  `v4_residual_source_holdout_replay` branch after validation blocked direct
+  implementation. The synthesis records that M761-M775 support limited
+  continuation: the residual mechanism survived public closed-loop replay and
+  sparse fresh-holdout replay, and broader M773 source mining materially
+  expanded positives from `995` to `2652` while reducing concentration.
+  Unresolved risks remain: M773 misses strict broad gates on fault-family-pair
+  count (`17 < 18`) and seed dominance (`0.171569 > 0.15`), hard negatives are
+  sparse, and current faults remain `current_model_or_proxy` rather than true
+  per-wheel physics. Synthesis decision is `continue`, but only to one limited
+  no-PPO broader residual replay implementation. PPO, promotion, and broad
+  generalization remain blocked.
 - M775 designs a limited no-PPO residual replay on the broader M773 corpus. It
   fixes inputs to the M568 actor checkpoint, the M761 residual head, M773
   `2652` positive rows and contrast rows, and

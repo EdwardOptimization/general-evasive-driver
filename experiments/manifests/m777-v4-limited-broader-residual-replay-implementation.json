@@ -1,0 +1,121 @@
+{
+  "id": "m777-v4-limited-broader-residual-replay-implementation",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m776-v4-residual-source-holdout-replay-synthesis.md",
+      "docs/m775-v4-limited-broader-residual-replay-design.md",
+      "runs/m773_v4_broader_source_holdout_corpus_export/summary.json",
+      "runs/m773_v4_broader_source_holdout_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/contrast_rows.csv",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m776-v4-residual-source-holdout-replay-synthesis.json",
+      "configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json"
+    ],
+    "parent_objective": [
+      "run limited no-PPO residual replay on broader M773 corpus after workflow synthesis"
+    ],
+    "derived_from": [
+      "m776-v4-residual-source-holdout-replay-synthesis"
+    ],
+    "blocked_by": [
+      "m776-v4-residual-source-holdout-replay-synthesis"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m777-v4-limited-broader-residual-replay-implementation.md",
+  "public_gates": [
+    "M777 runs no-PPO residual replay on M773 broader corpus after synthesis",
+    "M777 treats alpha 0.2 as primary and 0.5 1.0 as diagnostic",
+    "M777 reports M773 source concentration and hard-negative caveats",
+    "M777 checks normal retention and intervention sensitivity",
+    "PPO training and checkpoint promotion remain blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not tune alpha after seeing M773 or M777 results",
+    "do not call this a promotion gate",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not hide normal-regression or intervention-collision rows",
+    "do not claim true four-wheel or single-wheel physical fidelity"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_residual_source_holdout_replay",
+    "evidence_axis": "G_generalization: run residual replay on broader source holdout after synthesis",
+    "evidence_increment": "tests M761 residual head on broader M773 corpus after synthesis reset without training or promotion",
+    "claim_scope": "limited broader source-holdout mechanism replay only; no PPO or driver promotion",
+    "stop_condition": [
+      "stop if reconstruction fails",
+      "stop if alpha 0.2 fails normal retention",
+      "stop if only aggressive diagnostic alphas pass",
+      "stop if optimizer PPO or promotion starts"
+    ],
+    "fallback_plan": [
+      "if alpha 0.2 passes, audit before stronger claims",
+      "if only 0.5 or 1.0 passes, classify as diagnostic tradeoff",
+      "if all alphas fail, audit source concentration versus residual overfit",
+      "if normal regresses, return to residual objective design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M776 synthesis decision continue",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M761 residual head will preserve normal behavior and increase intervention sensitivity on the broader M773 corpus at conservative alpha 0.2.",
+  "success_criteria": [
+    "M777 runs the registered no-PPO replay command",
+    "M777 reconstructs at least 0.98 of broader corpus rows",
+    "M777 writes summary alpha replay objective and rejected rows",
+    "M777 reports alpha-specific normal retention and intervention sensitivity",
+    "M777 does not train, run PPO, or promote"
+  ],
+  "failure_criteria": [
+    "reconstruction fails",
+    "normal retention metrics are missing",
+    "alpha 0.2 is not evaluated as primary",
+    "training or PPO starts",
+    "checkpoint is promoted"
+  ],
+  "commands": [
+    {
+      "name": "registered_replay",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_residual_closed_loop_replay --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --residual-head runs/m761_v4_sequence_objective_probe/residual_head.pt --positive-rows runs/m773_v4_broader_source_holdout_corpus_export/positive_sequence_outcomes.csv --contrast-rows runs/m773_v4_broader_source_holdout_corpus_export/contrast_rows.csv --scenario-config configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json --run-dir runs/m777_v4_limited_broader_residual_replay --device cpu --alphas 0.0,0.2,0.5,1.0"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m777_v4_limited_broader_residual_replay/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m777_v4_limited_broader_residual_replay/alpha_metrics.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m777-v4-limited-broader-residual-replay-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m776-v4-residual-source-holdout-replay-synthesis.md",
+    "runs/m773_v4_broader_source_holdout_corpus_export/summary.json",
+    "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+  ],
+  "decision_rule": "M777 may only run limited no-PPO residual replay. It must not train, run PPO, mutate actor or residual parameters, or promote a checkpoint.",
+  "next_blocker": "m778-v4-limited-broader-residual-replay-audit"
+}

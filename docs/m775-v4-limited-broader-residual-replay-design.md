@@ -76,7 +76,7 @@ OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_residu
   --positive-rows runs/m773_v4_broader_source_holdout_corpus_export/positive_sequence_outcomes.csv \
   --contrast-rows runs/m773_v4_broader_source_holdout_corpus_export/contrast_rows.csv \
   --scenario-config configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json \
-  --run-dir runs/m776_v4_limited_broader_residual_replay \
+  --run-dir runs/m777_v4_limited_broader_residual_replay \
   --device cpu \
   --alphas 0.0,0.2,0.5,1.0
 ```
