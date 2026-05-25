@@ -1,0 +1,112 @@
+{
+  "id": "m869-v4-generated-boundary-pair-delta-coverage-expansion-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m868-v4-generated-boundary-pair-delta-refresh-audit.md",
+      "runs/m867_v4_generated_boundary_pair_delta_refresh/summary.json",
+      "runs/m867_v4_generated_boundary_pair_delta_refresh/pair_delta_sequence_rows.csv",
+      "runs/m867_v4_generated_boundary_pair_delta_refresh/accepted_pair_delta_rows.csv",
+      "runs/m867_v4_generated_boundary_pair_delta_refresh/balanced_pair_delta_rows.csv",
+      "runs/m867_v4_generated_boundary_pair_delta_refresh/diversity_summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m868-v4-generated-boundary-pair-delta-refresh-audit.json"
+    ],
+    "parent_objective": [
+      "design targeted no-training expansion for accepted pair-delta coverage"
+    ],
+    "derived_from": [
+      "m868-v4-generated-boundary-pair-delta-refresh-audit"
+    ],
+    "blocked_by": [
+      "M867 accepted pair-delta rows are concentrated in two left seeds and pair_delta_negative/lateral-offset axes"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m869-v4-generated-boundary-pair-delta-coverage-expansion-design.md",
+  "public_gates": [
+    "M869 must be design-only",
+    "M869 must target accepted pair-delta coverage rather than raw pairability projection",
+    "M869 must keep component controls diagnostic-only",
+    "M869 must preserve actor and residual-head mutation blocks",
+    "M869 must keep objective training PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run replay in M869",
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat component-control rows as primary pair-delta evidence",
+    "do not claim learned self-ID from diagnostic pair-delta coverage"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_boundary_expansion",
+    "evidence_axis": "G_pair_delta: design expansion for accepted pair-delta coverage diversity",
+    "evidence_increment": "designs the next no-training route to expand M867 accepted pair-delta coverage across missing seeds directions and axes",
+    "claim_scope": "design only; no replay, no objective training, no PPO, no learned policy claim, and no promotion",
+    "stop_condition": [
+      "stop if design admits objective training before balanced accepted coverage improves",
+      "stop if component-control rows are allowed to satisfy primary gates",
+      "stop if pairability projection is treated as outcome evidence",
+      "stop if design ignores missing seed/direction/axis coverage"
+    ],
+    "fallback_plan": [
+      "if targeted obstacle retargeting is insufficient, design broader source generation for missing accepted seeds",
+      "if pair-delta remains weak on missing seeds, audit whether those seeds are intrinsically insensitive under current maneuver horizon",
+      "if direction dominance persists, separate positive/negative direction gates before objective conversion"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M868 routes to one targeted accepted-coverage expansion design",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A targeted no-training coverage-expansion design can address M867's accepted pair-delta seed/direction/axis concentration before objective training.",
+  "success_criteria": [
+    "M869 writes a design document for accepted pair-delta coverage expansion",
+    "M869 names target gaps from M867: missing accepted seeds 78048 78055 78057, direction dominance, and axis dominance",
+    "M869 defines source-aware gates for the next implementation",
+    "M869 keeps component controls diagnostic-only",
+    "M869 keeps objective training PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M869 runs replay",
+    "M869 trains actor or residual-head parameters",
+    "M869 runs PPO",
+    "M869 promotes a checkpoint",
+    "M869 treats pairability projection or component controls as primary pair-delta outcome evidence"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m869-v4-generated-boundary-pair-delta-coverage-expansion-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m869-v4-generated-boundary-pair-delta-coverage-expansion-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m868-v4-generated-boundary-pair-delta-refresh-audit.md",
+    "runs/m867_v4_generated_boundary_pair_delta_refresh/summary.json"
+  ],
+  "decision_rule": "M869 may only design the next no-training accepted pair-delta coverage expansion. It must not replay, train, run PPO, promote, or claim learned self-ID.",
+  "next_blocker": "M867 accepted pair-delta coverage concentration has not yet been addressed by a targeted expansion design"
+}

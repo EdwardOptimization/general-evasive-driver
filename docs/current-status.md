@@ -62,17 +62,26 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m868-v4-generated-boundary-pair-delta-refresh-audit
+m869-v4-generated-boundary-pair-delta-coverage-expansion-design
 ```
 
-M867 converted M864 pairability projection into actual pair-delta sequence
-outcome evidence, but the balanced accepted corpus is source/seed/direction
-limited. M868 should audit whether this admits limited objective conversion or
-requires another data-generation route. Objective training, PPO, promotion,
-base actor mutation, and M761 residual-head mutation remain blocked.
+M868 rejected immediate objective conversion from M867 because accepted
+pair-delta rows are concentrated in two left seeds and direction/axis dominance
+is high. M869 should design targeted no-training coverage expansion for missing
+accepted seeds, directions, and axes. Objective training, PPO, promotion, base
+actor mutation, and M761 residual-head mutation remain blocked.
 
 ## Recent Evidence Line
 
+- M868 audits M867 as real pair-delta outcome evidence but not objective-ready.
+  Candidate selection passed, so pair construction is not the active blocker.
+  The blocker is accepted outcome sensitivity concentration: accepted rows
+  appear only for left seeds `78058` and `78050`; seeds `78048`, `78055`, and
+  `78057` have no flips and max absolute margin deltas below `0.003`. The
+  balanced corpus has `32` rows but only `2` left seeds, direction dominance
+  `0.75`, and axis-pair dominance `0.96875`. M869 should design targeted
+  accepted-coverage expansion; objective training, PPO, and promotion remain
+  blocked.
 - M867 implements the no-training generated-boundary pair-delta refresh.
   Candidate selection passes design gates with `1332` raw pair candidates,
   `118` selected replay pairs, `27` left source groups, `5` left seeds, and

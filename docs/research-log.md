@@ -13892,3 +13892,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M867 implements no-training source-aware pair-delta sequence replay over M864 combined generated-boundary rows. Candidate selection is now diverse enough for the design gates (`1332` raw candidates, `118` selected replay pairs, `27` left source groups, `5` left seeds, `9` left fault families), and actual pair-delta replay produces real outcome signal (`1416` sequence rows, `234` accepted rows, `97` success/collision flips, max absolute margin delta `0.04554687977030536`). The balanced corpus remains source-limited: `32` rows across `5` left source groups but only `2` left seeds, with direction dominance `0.75` and axis-pair dominance `0.96875`. Actor and M761 checksums are unchanged; no training, PPO, or promotion occurs.
 - decision: `v4_generated_boundary_pair_delta_refresh_source_limited`
 - next: `m868-v4-generated-boundary-pair-delta-refresh-audit`
+
+## 20260525T174553Z - m868-v4-generated-boundary-pair-delta-refresh-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m868-v4-generated-boundary-pair-delta-refresh-audit.md`
+- result: M868 audits M867 as real pair-delta outcome evidence but not objective-ready. Candidate selection passed (`1332` raw candidates, `118` selected replay pairs, `27` left source groups, `5` left seeds, `9` left fault families), so pair construction is not the active blocker. The blocker is accepted outcome sensitivity concentration: accepted rows appear only for left seeds `78058` and `78050`; seeds `78048`, `78055`, and `78057` have no flips and max absolute margin deltas below `0.003`. The balanced corpus has `32` rows but only `2` left seeds, direction dominance `0.75`, and axis-pair dominance `0.96875`. Component controls remain diagnostic-only. Objective training, PPO, and promotion remain blocked.
+- decision: `route_to_generated_boundary_pair_delta_coverage_expansion_design`
+- next: `m869-v4-generated-boundary-pair-delta-coverage-expansion-design`

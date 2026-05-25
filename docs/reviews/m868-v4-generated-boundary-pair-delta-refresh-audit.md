@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260525T174002Z
+- Generated at UTC: 20260525T174642Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M868 may only produce an audit/route decision. It must not train, run PPO, promote, or claim learned self-ID.
+- Promotion decision: route_to_generated_boundary_pair_delta_coverage_expansion_design
+- Decision reason: M868 audits M867 as real pair-delta outcome evidence but rejects immediate objective conversion because accepted rows are concentrated in seeds 78058 and 78050 with direction and axis dominance
 
 ## Hypothesis
 
@@ -68,7 +68,18 @@ M867's source-limited but real pair-delta sequence outcome rows can be audited i
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m868-v4-generated-boundary-pair-delta-refresh-audit
+- type: gate
+- checkpoint: docs/m868-v4-generated-boundary-pair-delta-refresh-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: route_to_generated_boundary_pair_delta_coverage_expansion_design
+- reason: M868 audits M867 as real pair-delta outcome evidence but rejects immediate objective conversion because accepted rows are concentrated in seeds 78058 and 78050 with direction and axis dominance
 
 ## Next Blocker
 
