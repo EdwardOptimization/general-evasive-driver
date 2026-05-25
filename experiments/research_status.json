@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 788,
+        "completed": 789,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m779-v4-broader-normal-boundary-alpha-probe-design",
+        "task_id": "m780-v4-broader-normal-boundary-alpha-probe-implementation",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m779-v4-broader-normal-boundary-alpha-probe-design.md"
+        "command_log": "docs/m780-v4-broader-normal-boundary-alpha-probe-implementation.md"
     },
     "next_task": {
-        "id": "m780-v4-broader-normal-boundary-alpha-probe-implementation",
+        "id": "m781-v4-broader-normal-boundary-alpha-probe-audit",
         "status": "pending",
-        "priority": 7750,
-        "kind": "generalization",
-        "hypothesis": "Run pre-registered lower-alpha normal-boundary probe after M777 strict normal-retention failure",
-        "command": "see experiments/manifests/m780-v4-broader-normal-boundary-alpha-probe-implementation.json",
-        "success_artifact": "docs/m780-v4-broader-normal-boundary-alpha-probe-implementation.md",
-        "notes": "Pending: no-training alpha-boundary replay before repair retuning PPO or promotion"
+        "priority": 7760,
+        "kind": "gate",
+        "hypothesis": "Audit alpha 0.125 limited feasibility and boundary-margin risk before repair PPO or promotion",
+        "command": "see experiments/manifests/m781-v4-broader-normal-boundary-alpha-probe-audit.json",
+        "success_artifact": "docs/m781-v4-broader-normal-boundary-alpha-probe-audit.md",
+        "notes": "Pending: audit M780 alpha 0.125 candidate; no PPO or promotion"
     },
-    "updated_at_utc": "20260525T083000Z"
+    "updated_at_utc": "20260525T084000Z"
 }

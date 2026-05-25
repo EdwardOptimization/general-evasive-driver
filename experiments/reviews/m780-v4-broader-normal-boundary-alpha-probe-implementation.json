@@ -1,0 +1,88 @@
+{
+  "decision_reason": "M780 finds alpha 0.125 keeps normal success 1.0 collision 0.0 and improves intervention gap and margin over base while alpha 0.15 and above collide at the same seed 77025 source_index 12 near-boundary source",
+  "failure_criteria": [
+    "implementation changes the alpha ladder",
+    "implementation trains actor or residual parameters",
+    "implementation runs PPO",
+    "implementation promotes a checkpoint",
+    "implementation omits normal-retention metrics",
+    "implementation hides alpha 0.2 failure"
+  ],
+  "failure_types": [
+    "behavior_regression",
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not add or remove alphas after seeing results",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not lower strict normal-retention criteria",
+    "do not hide seed 77025/source_index 12",
+    "do not claim broad generalization or true four-wheel physical fidelity"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260525T021742Z",
+  "hypothesis": "A lower residual alpha may preserve strict normal retention on the broader M773 corpus while retaining a measurable intervention action-gap and margin-gap improvement.",
+  "lineage": {
+    "blocked_by": [
+      "m779-v4-broader-normal-boundary-alpha-probe-design"
+    ],
+    "derived_from": [
+      "m779-v4-broader-normal-boundary-alpha-probe-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m779-v4-broader-normal-boundary-alpha-probe-design.json",
+      "configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m779-v4-broader-normal-boundary-alpha-probe-design.md",
+      "docs/m778-v4-limited-broader-residual-replay-audit.md",
+      "runs/m777_v4_limited_broader_residual_replay/summary.json",
+      "runs/m773_v4_broader_source_holdout_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/contrast_rows.csv",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+    ],
+    "parent_objective": [
+      "run pre-registered lower-alpha normal-boundary probe without training or promotion"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m780-v4-broader-normal-boundary-alpha-probe-implementation",
+  "next_blocker": "m781-v4-broader-normal-boundary-alpha-probe-audit",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "v4_residual_alpha_0125_boundary_candidate",
+  "public_gates": [
+    "M780 runs the pre-registered lower-alpha ladder on M773 broader corpus",
+    "M780 keeps alpha 0.2 as failed reference",
+    "M780 reports strict normal-retention and intervention-sensitivity metrics",
+    "M780 stratifies seed 77025/source_index 12 normal boundary source",
+    "M780 does not train mutate actor or residual parameters run PPO or promote"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m780_v4_broader_normal_boundary_alpha_probe/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "v4_residual_alpha_0125_boundary_candidate",
+    "milestone": "m780-v4-broader-normal-boundary-alpha-probe-implementation",
+    "reason": "M780 finds alpha 0.125 keeps normal success 1.0 collision 0.0 and improves intervention gap and margin over base while alpha 0.15 and above collide at the same seed 77025 source_index 12 near-boundary source",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "generalization",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M780 runs the registered command with alphas 0.0 0.05 0.1 0.125 0.15 0.175 0.2",
+    "M780 reconstructs at least 0.98 of M773 rows with no metadata misses",
+    "M780 reports alpha-specific normal retention and intervention sensitivity",
+    "M780 reports source 77025/source_index 12 normal boundary metrics",
+    "M780 records actor/training/PPO/promotion flags as false"
+  ],
+  "type": "infrastructure"
+}

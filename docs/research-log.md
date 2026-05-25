@@ -13072,3 +13072,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M779 designs the pre-registered no-training alpha-boundary probe admitted by M778. It fixes inputs to the M568 diagnostic actor, M761 residual head, M773 positive/contrast rows, and broader scenario config, and registers alpha ladder `0.0`, `0.05`, `0.1`, `0.125`, `0.15`, `0.175`, `0.2`. Alpha `0.2` remains the failed reference; lower alphas are not a retroactive pass. M780 must require strict normal retention (`normal_success_rate == 1.0`, `normal_collision_rate == 0.0`), intervention action-gap and margin-gap improvement over base, outcome sensitivity retention `1.0`, no metadata misses, and no actor/training/PPO/promotion mutation. It must stratify `seed 77025`, `source_index 12`, `step 24` to decide whether M777 is a narrow alpha-boundary issue or requires explicit normal-margin retention/objective repair.
 - decision: `normal_boundary_alpha_probe_design_admit_m780`
 - next: `m780-v4-broader-normal-boundary-alpha-probe-implementation`
+
+## 20260525T084000Z - m780-v4-broader-normal-boundary-alpha-probe-implementation
+
+- status: `completed`
+- kind: `generalization`
+- run dir: `runs/m780_v4_broader_normal_boundary_alpha_probe`
+- artifact: `docs/m780-v4-broader-normal-boundary-alpha-probe-implementation.md`
+- result: M780 runs the pre-registered no-training alpha ladder `0.0`, `0.05`, `0.1`, `0.125`, `0.15`, `0.175`, `0.2` on the broader M773 corpus. It reconstructs `2640/2652` rows with `0` metadata misses and `12` rejected `unsupported_variant:command_shift_obs` rows, writes `36960` replay rows and `18480` objective rows, and keeps actor checksum unchanged. Alpha `0.125` is the best script-level candidate and the only tested alpha that both passes strict normal retention and script closed-loop candidate criteria: normal success `1.0`, normal collision `0.0`, intervention action gap mean/p10 `0.044047/0.026886` versus base `0.040348/0.025782`, margin gap mean `0.032352` versus base `0.029796`, and outcome sensitivity retention `1.0`. Alphas `0.15`, `0.175`, and `0.2` all collide on the same `seed 77025`, `source_index 12` source; the source margin crosses from `+0.000009` at alpha `0.125` to `-0.000014` at alpha `0.15`. This supports a narrow alpha-boundary interpretation, but alpha `0.125` remains a tiny-margin diagnostic candidate, not a promotion result.
+- decision: `v4_residual_alpha_0125_boundary_candidate`
+- next: `m781-v4-broader-normal-boundary-alpha-probe-audit`

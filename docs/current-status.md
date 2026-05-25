@@ -62,16 +62,32 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m780-v4-broader-normal-boundary-alpha-probe-implementation
+m781-v4-broader-normal-boundary-alpha-probe-audit
 ```
 
-M780 should run the pre-registered lower-alpha normal-boundary probe designed
-by M779. Repair, alpha retuning, PPO, training, and promotion remain blocked
-until this no-training replay determines whether a lower alpha can preserve
-strict normal retention while retaining intervention sensitivity.
+M781 should audit M780's alpha `0.125` boundary candidate. Repair, PPO,
+training, and promotion remain blocked until the audit decides whether alpha
+`0.125` is only a limited feasibility diagnostic or whether the next branch
+should redesign the residual objective with explicit normal-margin retention.
 
 ## Recent Evidence Line
 
+- M780 runs the pre-registered no-training alpha ladder `0.0`, `0.05`, `0.1`,
+  `0.125`, `0.15`, `0.175`, `0.2` on the broader M773 corpus. It reconstructs
+  `2640/2652` rows with `0` metadata misses and `12` rejected
+  `unsupported_variant:command_shift_obs` rows, writes `36960` replay rows and
+  `18480` objective rows, and keeps actor checksum unchanged. Alpha `0.125` is
+  the best script-level candidate and the only tested alpha that both passes
+  strict normal retention and script closed-loop candidate criteria: normal
+  success `1.0`, normal collision `0.0`, intervention action gap mean/p10
+  `0.044047/0.026886` versus base `0.040348/0.025782`, margin gap mean
+  `0.032352` versus base `0.029796`, and outcome sensitivity retention `1.0`.
+  Alphas `0.15`, `0.175`, and `0.2` all collide on the same `seed 77025`,
+  `source_index 12` source; the source margin crosses from `+0.000009` at
+  alpha `0.125` to `-0.000014` at alpha `0.15`. This supports a narrow
+  alpha-boundary interpretation, but alpha `0.125` remains a tiny-margin
+  diagnostic candidate, not a promotion result. M781 must audit before repair,
+  PPO, or promotion.
 - M779 designs the pre-registered no-training alpha-boundary probe admitted by
   M778. It fixes inputs to the M568 diagnostic actor, M761 residual head, M773
   positive/contrast rows, and broader scenario config, and registers alpha
