@@ -13920,3 +13920,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M870 implements the no-training accepted pair-delta coverage expansion. Construction gates pass with `24` target weak-seed rows across missing seeds `78048`, `78055`, and `78057`, `96` retarget candidates, and `1728` pair-delta sequence replay rows. Actor and M761 residual-head checksums are unchanged and no training, PPO, or promotion occurs. The result remains source-limited: `new_accepted_pair_delta_rows` is `0`, accepted coverage remains the original `234` rows, and the balanced corpus has `40` rows but only `2` left seeds. Existing accepted rows rebalance better on direction and axis (`0.525` dominance each), but missing-seed retargets mostly create sensitivity on colliding-normal rows, so they cannot count as accepted primary pair-delta evidence.
 - decision: `v4_generated_boundary_pair_delta_coverage_expansion_source_limited`
 - next: `m871-v4-generated-boundary-pair-delta-coverage-expansion-audit`
+
+## 20260525T181456Z - m871-v4-generated-boundary-pair-delta-coverage-expansion-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m871-v4-generated-boundary-pair-delta-coverage-expansion-audit.md`
+- result: M871 audits M870 as clean but not objective-ready. M870 construction worked and targeted all missing seeds, but accepted-row failure is explained by normal-branch window miss: `0/1728` retarget replay rows satisfy the accepted normal branch condition, while `1152` rows are already colliding and `576` rows are too safe (`normal_margin > 0.03`). The largest missing-seed margin deltas are real diagnostics but occur on non-primary rows, so they cannot become objective data. Objective training, PPO, and promotion remain blocked.
+- decision: `route_to_boundary_preserving_missing_seed_pair_delta_refresh_design`
+- next: `m872-v4-boundary-preserving-missing-seed-pair-delta-refresh-design`

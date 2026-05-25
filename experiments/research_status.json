@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 879,
+    "completed": 880,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m870-v4-generated-boundary-pair-delta-coverage-expansion-implementation",
+    "task_id": "m871-v4-generated-boundary-pair-delta-coverage-expansion-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m870-v4-generated-boundary-pair-delta-coverage-expansion-implementation.md"
+    "command_log": "docs/m871-v4-generated-boundary-pair-delta-coverage-expansion-audit.md"
   },
   "next_task": {
-    "id": "m871-v4-generated-boundary-pair-delta-coverage-expansion-audit",
+    "id": "m872-v4-boundary-preserving-missing-seed-pair-delta-refresh-design",
     "status": "pending",
-    "priority": 8660,
-    "kind": "gate",
-    "hypothesis": "Audit M870 clean source-limited accepted pair-delta coverage expansion result before further implementation or objective training",
-    "command": "see experiments/manifests/m871-v4-generated-boundary-pair-delta-coverage-expansion-audit.json",
-    "success_artifact": "docs/m871-v4-generated-boundary-pair-delta-coverage-expansion-audit.md",
-    "notes": "Pending: audit M870 zero-new-accepted retarget result and decide whether to route to boundary-aware missing-seed refresh or branch synthesis"
+    "priority": 8670,
+    "kind": "infrastructure",
+    "hypothesis": "Design a normal-branch boundary-preserving missing-seed pair-delta refresh after M870 retargets missed the accepted normal-margin window",
+    "command": "see experiments/manifests/m872-v4-boundary-preserving-missing-seed-pair-delta-refresh-design.json",
+    "success_artifact": "docs/m872-v4-boundary-preserving-missing-seed-pair-delta-refresh-design.md",
+    "notes": "Pending: design boundary-preserving missing-seed refresh before another implementation objective training PPO or promotion"
   },
-  "updated_at_utc": "20260525T180949Z"
+  "updated_at_utc": "20260525T181456Z"
 }

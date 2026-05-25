@@ -62,18 +62,26 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m871-v4-generated-boundary-pair-delta-coverage-expansion-audit
+m872-v4-boundary-preserving-missing-seed-pair-delta-refresh-design
 ```
 
-M870 implemented targeted no-training accepted pair-delta coverage expansion.
-Construction worked, but no new accepted pair-delta rows were produced for
-missing left seeds `78048`, `78055`, or `78057`; accepted coverage remains
-limited to two left seeds. M871 must audit this result before any further
-narrow implementation, objective training, PPO, promotion, base actor mutation,
-or M761 residual-head mutation.
+M871 audited M870 as clean but not objective-ready. M870 targeted all missing
+left seeds, but `0/1728` retarget replay rows stayed inside the accepted
+normal-branch margin window: retargets were either already colliding or too
+safe. M872 should design a normal-branch boundary-preserving missing-seed
+refresh before any further implementation, objective training, PPO, promotion,
+base actor mutation, or M761 residual-head mutation.
 
 ## Recent Evidence Line
 
+- M871 audits M870 as clean but not objective-ready. Construction worked and
+  targeted all missing seeds, but accepted-row failure is explained by normal
+  branch window miss: `0/1728` retarget replay rows satisfy the accepted normal
+  branch condition, while `1152` rows are already colliding and `576` rows are
+  too safe (`normal_margin > 0.03`). The largest missing-seed margin deltas are
+  real diagnostics but occur on non-primary rows, so they cannot become
+  objective data. Objective training, PPO, and promotion remain blocked. M872
+  should design boundary-preserving missing-seed refresh.
 - M870 implements the no-training accepted pair-delta coverage expansion.
   Construction gates pass with `24` target weak-seed rows across missing seeds
   `78048`, `78055`, and `78057`, `96` retarget candidates, and `1728`

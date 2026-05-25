@@ -1,0 +1,111 @@
+{
+  "id": "m872-v4-boundary-preserving-missing-seed-pair-delta-refresh-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m871-v4-generated-boundary-pair-delta-coverage-expansion-audit.md",
+      "docs/m870-v4-generated-boundary-pair-delta-coverage-expansion-implementation.md",
+      "runs/m870_v4_generated_boundary_pair_delta_coverage_expansion/summary.json",
+      "runs/m870_v4_generated_boundary_pair_delta_coverage_expansion/pair_delta_sequence_rows.csv",
+      "runs/m870_v4_generated_boundary_pair_delta_coverage_expansion/target_weak_seed_rows.csv",
+      "runs/m870_v4_generated_boundary_pair_delta_coverage_expansion/retarget_candidate_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m871-v4-generated-boundary-pair-delta-coverage-expansion-audit.json"
+    ],
+    "parent_objective": [
+      "design boundary-preserving missing-seed refresh after M870 retarget grid missed accepted normal-margin window"
+    ],
+    "derived_from": [
+      "m871-v4-generated-boundary-pair-delta-coverage-expansion-audit"
+    ],
+    "blocked_by": [
+      "M870 retarget replay produced zero rows with accepted normal branch window despite nonzero outcome sensitivity"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m872-v4-boundary-preserving-missing-seed-pair-delta-refresh-design.md",
+  "public_gates": [
+    "M872 must be design-only",
+    "M872 must preserve no-training no-PPO no-promotion discipline",
+    "M872 must explicitly separate normal-boundary bracketing from pair-delta outcome replay",
+    "M872 must keep accepted-row thresholds unchanged",
+    "M872 must include branch-synthesis fallback because cadence is near"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not lower accepted-row thresholds",
+    "do not count colliding-normal rows as accepted pair-delta evidence",
+    "do not merge normal-boundary search and pair-delta evidence without separate artifacts"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_boundary_expansion",
+    "evidence_axis": "G_pair_delta: design normal-branch boundary-preserving missing-seed refresh",
+    "evidence_increment": "designs a route to fix M870's normal-window miss before any implementation or training",
+    "claim_scope": "design only; no replay, objective training, PPO, promotion, or learned driver claim",
+    "stop_condition": [
+      "stop if the design lowers accepted-row thresholds",
+      "stop if the design admits objective training from M870 rows",
+      "stop if branch cadence requires synthesis before implementation"
+    ],
+    "fallback_plan": [
+      "if the design is too narrow, route directly to branch synthesis",
+      "if accepted normal-window search is feasible, pre-register one no-training implementation",
+      "if missing seeds remain normal-window sparse after implementation, synthesize and pivot source generation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M872 is near the post-M863 branch cadence limit; implementation after M872 should be followed by synthesis or replaced by synthesis if scope expands",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A boundary-preserving design can address M870's actual failure mode by first finding missing-seed retargets whose normal branch stays inside the accepted margin window, then replaying pair-delta sequences only on those rows.",
+  "success_criteria": [
+    "M872 designs normal-branch boundary search or refinement for missing seeds 78048 78055 and 78057",
+    "M872 defines separate artifacts for normal-boundary candidate rows and pair-delta sequence outcome rows",
+    "M872 keeps primary accepted thresholds unchanged",
+    "M872 defines component controls as diagnostic-only",
+    "M872 decides whether implementation is allowed before branch synthesis"
+  ],
+  "failure_criteria": [
+    "M872 runs replay or training",
+    "M872 admits objective conversion from M870 rows",
+    "M872 lowers accepted thresholds",
+    "M872 skips the normal-window bracketing issue",
+    "M872 ignores workflow synthesis cadence"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m872-v4-boundary-preserving-missing-seed-pair-delta-refresh-design.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m872-v4-boundary-preserving-missing-seed-pair-delta-refresh-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m871-v4-generated-boundary-pair-delta-coverage-expansion-audit.md",
+    "runs/m870_v4_generated_boundary_pair_delta_coverage_expansion/summary.json"
+  ],
+  "decision_rule": "M872 may only design a no-training normal-boundary-preserving refresh. It must not run replay, train, promote, or admit objective conversion.",
+  "next_blocker": "Boundary-preserving missing-seed refresh has not yet been designed"
+}
