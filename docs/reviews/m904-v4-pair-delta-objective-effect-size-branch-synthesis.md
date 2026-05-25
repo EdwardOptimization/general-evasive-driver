@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260525T204227Z
+- Generated at UTC: 20260525T204537Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M904 may only synthesize the M895-M903 branch and choose the next branch. It must not run benchmark, train, run PPO, or promote.
+- Promotion decision: promote_to_next_branch
+- Decision reason: M904 closes v4_pair_delta_objective_effect_size after margin-positive public proof fresh and challenge evidence and opens public-base integration-readiness
 
 ## Hypothesis
 
@@ -72,7 +72,18 @@ M895-M903 have enough margin-only public evidence to close the effect-size branc
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m904-v4-pair-delta-objective-effect-size-branch-synthesis
+- type: gate
+- checkpoint: docs/m904-v4-pair-delta-objective-effect-size-branch-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: promote_to_next_branch
+- reason: M904 closes v4_pair_delta_objective_effect_size after margin-positive public proof fresh and challenge evidence and opens public-base integration-readiness
 
 ## Next Blocker
 

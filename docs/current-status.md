@@ -62,15 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m904-v4-pair-delta-objective-effect-size-branch-synthesis
+m905-v4-pair-delta-public-base-integration-readiness-design
 ```
 
-M903 passed robust challenge-family margin gates with no success/termination
-regression. M904 must synthesize M895-M903 before integration design, corpus
-work, PPO, or promotion.
+M904 closed the objective effect-size branch and opened public-base integration
+readiness. M905 must design compatibility and objective-only transfer gates
+while keeping M568 diagnostic base separate from the current public-gate base.
 
 ## Recent Evidence Line
 
+- M904 synthesizes M895-M903. Raw objective-only movement is repeatable,
+  proof-safe versus M568, and margin-positive on public proof, m121-style fresh,
+  and robust challenge-family diagnostics without success/termination
+  regression. Unsupported claims remain success improvement, PPO, direct
+  promotion, and public-base integration. Next branch: public-base integration
+  readiness.
 - M903 passes robust challenge-family benchmarks. Near-threshold robust keeps
   raw success `0.843750` and termination `0.156250`, with clearance deltas
   about `+0.00370`. Late high-energy robust keeps raw success `0.781250` and

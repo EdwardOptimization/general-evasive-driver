@@ -14226,3 +14226,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M903 runs the robust challenge-family benchmarks and passes the registered gates. On near-threshold robust, raw candidates retain success `0.843750` and termination `0.156250` with clearance deltas about `+0.00370`. On late high-energy robust, raw candidates retain success `0.781250` and termination `0.218750` with clearance deltas about `+0.00337`. Seed-delta audit shows no success flips. The result is a second margin-only public generalization positive, not success improvement, PPO admission, or promotion.
 - decision: `raw_scaling_challenge_generalization_benchmark_pass_margin_only`
 - next: `m904-v4-pair-delta-objective-effect-size-branch-synthesis`
+
+## 20260525T204315Z - m904-v4-pair-delta-objective-effect-size-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m904-v4-pair-delta-objective-effect-size-branch-synthesis.md`
+- result: M904 synthesizes M895-M903 and closes `v4_pair_delta_objective_effect_size`. The branch supports that raw objective-only movement is repeatable, proof-safe versus M568, and margin-positive on public proof, m121-style fresh, and robust challenge-family diagnostics without success/termination regression. It does not support success improvement, PPO, direct promotion, or public-base integration. The next branch is public-base integration readiness, with M568 diagnostic base and current public-gate base kept separate.
+- decision: `promote_to_next_branch`
+- next: `m905-v4-pair-delta-public-base-integration-readiness-design`

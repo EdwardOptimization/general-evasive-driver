@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 912,
+    "completed": 913,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m903-v4-pair-delta-raw-scaling-challenge-generalization-benchmark",
+    "task_id": "m904-v4-pair-delta-objective-effect-size-branch-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m903-v4-pair-delta-raw-scaling-challenge-generalization-benchmark.md"
+    "command_log": "docs/m904-v4-pair-delta-objective-effect-size-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m904-v4-pair-delta-objective-effect-size-branch-synthesis",
+    "id": "m905-v4-pair-delta-public-base-integration-readiness-design",
     "status": "pending",
-    "priority": 8990,
-    "kind": "gate",
-    "hypothesis": "Synthesize M895-M903 objective-effect-size branch before next branch",
-    "command": "see experiments/manifests/m904-v4-pair-delta-objective-effect-size-branch-synthesis.json",
-    "success_artifact": "docs/m904-v4-pair-delta-objective-effect-size-branch-synthesis.md",
-    "notes": "Pending: branch synthesis before integration design, corpus work, PPO, or promotion"
+    "priority": 9000,
+    "kind": "infrastructure",
+    "hypothesis": "Design public-base integration-readiness route for raw pair-delta objective signal",
+    "command": "see experiments/manifests/m905-v4-pair-delta-public-base-integration-readiness-design.json",
+    "success_artifact": "docs/m905-v4-pair-delta-public-base-integration-readiness-design.md",
+    "notes": "Pending: design public-base compatibility and objective-only transfer gates"
   },
-  "updated_at_utc": "20260525T204013Z"
+  "updated_at_utc": "20260525T204315Z"
 }

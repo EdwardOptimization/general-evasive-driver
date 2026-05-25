@@ -1,0 +1,113 @@
+{
+  "id": "m905-v4-pair-delta-public-base-integration-readiness-design",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "lineage_invalid",
+    "contract_violation",
+    "objective_overfit",
+    "metric_artifact",
+    "proof_washout",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/raw_candidate.pt",
+      "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/raw_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/m904-v4-pair-delta-objective-effect-size-branch-synthesis.md",
+      "docs/current-status.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m904-v4-pair-delta-objective-effect-size-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design public-base integration-readiness route for raw pair-delta objective signal"
+    ],
+    "derived_from": [
+      "m904-v4-pair-delta-objective-effect-size-branch-synthesis"
+    ],
+    "blocked_by": [
+      "raw objective signal is M568-rooted and has not been transferred or tested against current public-gate base lineage"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m905-v4-pair-delta-public-base-integration-readiness-design.md",
+  "public_gates": [
+    "M905 must identify current public-gate base and M568 diagnostic base separately",
+    "M905 must design exact no-update compatibility checks for public base",
+    "M905 must design objective-only public-base probe rules",
+    "M905 must define replay/behavior/fresh gates after any public-base update",
+    "M905 must keep PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run public-base update in M905",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat M568-rooted raw candidates as public-base checkpoints",
+    "do not alter actor input contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_public_base_integration_readiness",
+    "evidence_axis": "G_integration_design: design transfer from M568-rooted objective signal toward public-gate base lineage",
+    "evidence_increment": "opens a public-base readiness branch after M904 margin-only effect-size synthesis",
+    "claim_scope": "design only; no update, replay execution, PPO, private holdout claim, or promotion",
+    "stop_condition": [
+      "stop if public base and diagnostic base are conflated",
+      "stop if exact/replay/behavior/fresh gates are omitted",
+      "stop if update execution is mixed into design",
+      "stop if PPO or promotion is admitted"
+    ],
+    "fallback_plan": [
+      "if public-base compatibility is straightforward, route to no-PPO objective-only probe design",
+      "if objective tensors are incompatible, route to reconstruction compatibility audit",
+      "if lineage risk is high, route to public-base vs diagnostic-base comparison audit",
+      "if public-base is stale, route to current-status checkpoint audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M904 opens public-base integration-readiness branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The raw pair-delta objective signal is ready for a public-base integration-readiness design, but not for immediate update, PPO, or promotion.",
+  "success_criteria": [
+    "M905 writes an integration-readiness design document",
+    "M905 separates current public-gate base from M568 diagnostic base",
+    "M905 defines exact no-update compatibility checks",
+    "M905 defines objective-only probe and gates for public-base lineage",
+    "M905 keeps execution, PPO, and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M905 runs an update or replay",
+    "M905 admits PPO or promotion",
+    "M905 conflates M568 with current public-gate base",
+    "M905 omits required post-update gates",
+    "M905 changes actor inputs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m905-v4-pair-delta-public-base-integration-readiness-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m905-v4-pair-delta-public-base-integration-readiness-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m904-v4-pair-delta-objective-effect-size-branch-synthesis.md"
+  ],
+  "decision_rule": "M905 may only design public-base integration readiness. It must not run updates, replay gates, PPO, or promotion.",
+  "next_blocker": "Public-base integration-readiness route has not yet been designed"
+}

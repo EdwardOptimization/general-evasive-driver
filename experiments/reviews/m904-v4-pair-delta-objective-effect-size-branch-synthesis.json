@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M904 may only synthesize the M895-M903 branch and choose the next branch. It must not run benchmark, train, run PPO, or promote.",
+  "decision_reason": "M904 closes v4_pair_delta_objective_effect_size after margin-positive public proof fresh and challenge evidence and opens public-base integration-readiness",
   "failure_criteria": [
     "M904 runs benchmark or training",
     "M904 admits PPO or promotion",
@@ -25,7 +25,7 @@
     "do not skip synthesis before next branch"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260525T204227Z",
+  "generated_at_utc": "20260525T204537Z",
   "hypothesis": "M895-M903 have enough margin-only public evidence to close the effect-size branch and choose a next branch, while keeping success-improvement, PPO, and promotion claims blocked.",
   "lineage": {
     "blocked_by": [
@@ -62,7 +62,7 @@
   "milestone": "m904-v4-pair-delta-objective-effect-size-branch-synthesis",
   "next_blocker": "M895-M903 effect-size branch synthesis has not yet been written",
   "private_holdout_policy": "promotion_only",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "promote_to_next_branch",
   "public_gates": [
     "M904 must synthesize M895-M903",
     "M904 must separate margin-only evidence from success improvement",
@@ -70,7 +70,20 @@
     "M904 must record public-gate overfit risk",
     "M904 must keep promotion blocked"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m904-v4-pair-delta-objective-effect-size-branch-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "promote_to_next_branch",
+    "milestone": "m904-v4-pair-delta-objective-effect-size-branch-synthesis",
+    "reason": "M904 closes v4_pair_delta_objective_effect_size after margin-positive public proof fresh and challenge evidence and opens public-base integration-readiness",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "M904 writes a synthesis document covering M895-M903",
     "M904 answers required synthesis questions",
