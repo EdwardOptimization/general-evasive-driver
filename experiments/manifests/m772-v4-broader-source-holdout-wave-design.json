@@ -18,7 +18,8 @@
     ],
     "parent_config": [
       "experiments/manifests/m771-v4-limited-residual-holdout-replay-audit.json",
-      "configs/extreme_fault_distribution_v4_scenarios.json"
+      "configs/extreme_fault_distribution_v4_scenarios.json",
+      "configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json"
     ],
     "parent_objective": [
       "design broader fresh source-holdout wave after limited holdout positive"
@@ -38,6 +39,7 @@
     "M772 targets lower source dominance and higher fault-pair diversity",
     "M772 keeps no-training no-PPO no-promotion scope",
     "M772 preserves alpha 0.2 as primary for later replay",
+    "M772 records current-model proxy versus future high-fidelity fault boundaries",
     "M772 does not treat M770 as promotion evidence"
   ],
   "private_holdout_policy": "promotion_only",
@@ -52,7 +54,7 @@
   "workflow_synthesis": {
     "branch": "v4_residual_source_holdout_replay",
     "evidence_axis": "G_generalization: design broader source holdout after limited positive",
-    "evidence_increment": "designs the next broader source-holdout coverage wave needed before stronger generalization claims",
+    "evidence_increment": "designs the next broader source-holdout coverage wave and broader config needed before stronger generalization claims",
     "claim_scope": "design only; no data wave result, PPO claim, or driver promotion",
     "stop_condition": [
       "stop if design does not reduce source concentration",
@@ -62,7 +64,7 @@
     ],
     "fallback_plan": [
       "if broader wave is too expensive, design two smaller disjoint seed blocks",
-      "if source diversity remains poor, revisit v4 source selection rules",
+      "if source diversity remains poor, revisit v4 source selection rules or add a high-fidelity four-wheel simulator branch",
       "if fresh positives remain sparse, add source-balancing audit before replay",
       "if broader corpus passes, audit before residual replay"
     ],
@@ -87,13 +89,17 @@
   "commands": [
     {
       "name": "design",
-      "command": "write docs/m772-v4-broader-source-holdout-wave-design.md; no training command"
+      "command": "write docs/m772-v4-broader-source-holdout-wave-design.md and configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json; no training command"
     }
   ],
   "required_artifacts": [
     {
       "path": "docs/m772-v4-broader-source-holdout-wave-design.md",
       "type": "documentation"
+    },
+    {
+      "path": "configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json",
+      "type": "json"
     }
   ],
   "baseline_checkpoints": [
@@ -101,7 +107,8 @@
   ],
   "baseline_artifacts": [
     "runs/m770_v4_limited_residual_holdout_replay/summary.json",
-    "docs/m771-v4-limited-residual-holdout-replay-audit.md"
+    "docs/m771-v4-limited-residual-holdout-replay-audit.md",
+    "configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json"
   ],
   "decision_rule": "M772 may only design broader source-holdout coverage. It must not run data waves, residual replay, train, run PPO, mutate actor parameters, or promote a checkpoint.",
   "next_blocker": "m773-v4-broader-source-holdout-wave-implementation"

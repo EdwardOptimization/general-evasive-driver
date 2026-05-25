@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 780,
+        "completed": 781,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m771-v4-limited-residual-holdout-replay-audit",
+        "task_id": "m772-v4-broader-source-holdout-wave-design",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m771-v4-limited-residual-holdout-replay-audit.md"
+        "command_log": "docs/m772-v4-broader-source-holdout-wave-design.md"
     },
     "next_task": {
-        "id": "m772-v4-broader-source-holdout-wave-design",
+        "id": "m773-v4-broader-source-holdout-wave-implementation",
         "status": "pending",
-        "priority": 7670,
+        "priority": 7680,
         "kind": "infrastructure",
-        "hypothesis": "Design broader fresh source-holdout wave after limited holdout positive",
-        "command": "see experiments/manifests/m772-v4-broader-source-holdout-wave-design.json",
-        "success_artifact": "docs/m772-v4-broader-source-holdout-wave-design.md",
-        "notes": "Pending: design broader source-holdout coverage to reduce concentration before stronger generalization claims"
+        "hypothesis": "Run broader fresh source-holdout wave after broader coverage design",
+        "command": "see experiments/manifests/m773-v4-broader-source-holdout-wave-implementation.json",
+        "success_artifact": "docs/m773-v4-broader-source-holdout-wave-implementation.md",
+        "notes": "Pending: generate broader source-holdout corpus with seed range 77024..78047 before residual replay PPO or promotion"
     },
-    "updated_at_utc": "20260525T071000Z"
+    "updated_at_utc": "20260525T072000Z"
 }

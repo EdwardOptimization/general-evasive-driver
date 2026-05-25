@@ -12997,3 +12997,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M771 audits M770 as a limited source-holdout mechanism positive. It supports the coverage-mining hypothesis: v4 coverage produced source rows, sequence outcome rows, residual objective signal, public closed-loop replay, and now a limited disjoint-seed holdout replay where primary alpha `0.2` passes while normal branch success remains `995/995`. The audit also preserves caveats: the holdout corpus is sparse/source-concentrated and intervention collisions concentrate in a few seeds/fault pairs. It selects broader source-holdout coverage before stronger generalization, PPO, or promotion claims.
 - decision: `promote_to_broader_source_holdout_wave_design`
 - next: `m772-v4-broader-source-holdout-wave-design`
+
+## 20260525T072000Z - m772-v4-broader-source-holdout-wave-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m772-v4-broader-source-holdout-wave-design.md`
+- config: `configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json`
+- result: M772 designs a broader source-holdout wave to test whether sparse extreme-scenario coverage is limiting self-ID evidence. It preserves the v4 fault families and pairing rules, increases the matched-pair cap from `12288` to `24576`, registers seed range `77024..78047`, sets M773 `max_source_rows=1024`, and records stricter target gates: `positive_rows >= 1500`, `unique_positive_seeds >= 40`, `unique_positive_fault_family_pairs >= 18`, `max_positive_seed_dominance <= 0.15`, and `max_positive_fault_family_pair_dominance <= 0.22`. It also records that wheel blowout, single-corner grip collapse, split-mu, stuck caliper, halfshaft, suspension, and per-wheel sensor faults are current-model proxies or future high-fidelity faults, not true per-wheel physics claims in the single-track model.
+- decision: `broader_source_holdout_wave_design_admit_m773`
+- next: `m773-v4-broader-source-holdout-wave-implementation`

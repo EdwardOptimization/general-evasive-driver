@@ -62,16 +62,31 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m772-v4-broader-source-holdout-wave-design
+m773-v4-broader-source-holdout-wave-implementation
 ```
 
-M772 should design broader fresh source-holdout coverage after M770's limited
-holdout positive. The goal is to reduce source concentration and raise
-fault-family-pair diversity before stronger generalization, PPO, or promotion
-claims.
+M773 should run the broader fresh source-holdout coverage wave designed in
+M772. The goal is to test whether sparse extreme-scenario coverage is limiting
+self-ID evidence by generating a broader disjoint-seed corpus before residual
+replay, PPO, or promotion claims.
 
 ## Recent Evidence Line
 
+- M772 designs a broader source-holdout wave to test whether sparse
+  extreme-scenario coverage is limiting self-ID evidence. It adds
+  `configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json`,
+  preserves the v4 fault families and pairing rules, increases `max_pairs` from
+  `12288` to `24576`, registers fresh seed range `77024..78047`, and sets M773
+  `max_source_rows=1024`. The stricter broader gates are `positive_rows >=
+  1500`, `unique_positive_seeds >= 40`,
+  `unique_positive_fault_family_pairs >= 18`, `max_positive_seed_dominance <=
+  0.15`, and `max_positive_fault_family_pair_dominance <= 0.22`. M772 also
+  keeps the model-fidelity boundary explicit: wheel blowout, single-corner
+  grip collapse, split-mu, stuck caliper, halfshaft, suspension, and per-wheel
+  sensor faults are current-model proxies or future high-fidelity faults, not
+  true per-wheel physics claims in the single-track model. It admits M773
+  broader corpus generation only; residual replay, PPO, training, and promotion
+  remain blocked until audit.
 - M771 audits M770 as a limited source-holdout mechanism positive. It supports
   the coverage-mining hypothesis: v4 coverage produced source rows, sequence
   outcome rows, residual objective signal, public closed-loop replay, and now a
