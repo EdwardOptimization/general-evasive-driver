@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260525T204828Z
+- Generated at UTC: 20260525T205356Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M906 may only run exact no-update compatibility evaluation for the public base. It must not train, run replay, run PPO, or promote.
+- Promotion decision: public_base_exact_compatibility_blocked_feature_dim_mismatch
+- Decision reason: M906 blocks direct public-base objective compatibility because residual feature_dim 64 does not match M399 actor feature_dim 128
 
 ## Hypothesis
 
@@ -69,7 +69,18 @@ The current public-gate base can be evaluated on the existing enriched pair-delt
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m906-v4-pair-delta-public-base-exact-compatibility-audit
+- type: gate
+- checkpoint: runs/m906_public_base_exact_compatibility/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: public_base_exact_compatibility_blocked_feature_dim_mismatch
+- reason: M906 blocks direct public-base objective compatibility because residual feature_dim 64 does not match M399 actor feature_dim 128
 
 ## Next Blocker
 

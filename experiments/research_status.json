@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 914,
+    "completed": 915,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m905-v4-pair-delta-public-base-integration-readiness-design",
+    "task_id": "m906-v4-pair-delta-public-base-exact-compatibility-audit",
     "status": "completed",
-    "returncode": 0,
-    "command_log": "docs/m905-v4-pair-delta-public-base-integration-readiness-design.md"
+    "returncode": 1,
+    "command_log": "docs/m906-v4-pair-delta-public-base-exact-compatibility-audit.md"
   },
   "next_task": {
-    "id": "m906-v4-pair-delta-public-base-exact-compatibility-audit",
+    "id": "m907-v4-pair-delta-public-base-feature-dim-compatibility-audit",
     "status": "pending",
-    "priority": 9010,
+    "priority": 9020,
     "kind": "gate",
-    "hypothesis": "Audit exact no-update pair-delta objective compatibility for current public-gate base",
-    "command": "see experiments/manifests/m906-v4-pair-delta-public-base-exact-compatibility-audit.json",
-    "success_artifact": "runs/m906_public_base_exact_compatibility/summary.json",
-    "notes": "Pending: run exact no-update compatibility audit for M399 public base"
+    "hypothesis": "Audit public-base residual-head feature dimension mismatch and choose compatibility route",
+    "command": "see experiments/manifests/m907-v4-pair-delta-public-base-feature-dim-compatibility-audit.json",
+    "success_artifact": "docs/m907-v4-pair-delta-public-base-feature-dim-compatibility-audit.md",
+    "notes": "Pending: classify feature_dim mismatch before any public-base update, replay, PPO, or promotion"
   },
-  "updated_at_utc": "20260525T204619Z"
+  "updated_at_utc": "20260525T205335Z"
 }

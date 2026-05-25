@@ -62,15 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m906-v4-pair-delta-public-base-exact-compatibility-audit
+m907-v4-pair-delta-public-base-feature-dim-compatibility-audit
 ```
 
-M905 designed the public-base integration readiness route. M906 must run exact
-no-update pair-delta objective sanity on the current public-gate base M399
-before any public-base update, replay, PPO, or promotion.
+M906 found a public-base compatibility blocker: M761 residual head
+`feature_dim=64` does not match M399 public-base actor `feature_dim=128`. M907
+must classify this mismatch and choose a compatibility route before any update,
+replay, PPO, or promotion.
 
 ## Recent Evidence Line
 
+- M906 attempts exact no-update pair-delta sanity on M399 public base and fails
+  before reconstruction: `residual feature_dim=64 does not match actor
+  feature_dim=128`. No training/replay/PPO/promotion occurred. Direct
+  public-base use of the M761 residual head is blocked; next is feature-dim
+  compatibility audit.
 - M905 designs public-base integration readiness. It keeps current public-gate
   base `runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt` separate from
   M568 diagnostic BC and M568-rooted raw candidates. M906 is exact no-update

@@ -14244,3 +14244,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M905 designs the public-base integration-readiness route. It explicitly separates the current public-gate base `runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt` from the M568 diagnostic BC base and M568-rooted raw candidates. The next step is M906 exact no-update compatibility audit on M399 using the same enriched pair-delta objective rows and fixed M761 residual head. Update execution, replay, PPO, and promotion remain blocked.
 - decision: `public_base_integration_readiness_design_admit_m906`
 - next: `m906-v4-pair-delta-public-base-exact-compatibility-audit`
+
+## 20260525T204929Z - m906-v4-pair-delta-public-base-exact-compatibility-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m906_public_base_exact_compatibility`
+- artifact: `docs/m906-v4-pair-delta-public-base-exact-compatibility-audit.md`
+- result: M906 attempts exact no-update pair-delta objective sanity on the current public-gate base M399 and fails before reconstruction with `ValueError: residual feature_dim=64 does not match actor feature_dim=128`. No training, replay, PPO, promotion, or actor parameter mutation occurred. This blocks direct public-base objective application with the M761 residual head and routes to feature-dimension compatibility audit.
+- decision: `public_base_exact_compatibility_blocked_feature_dim_mismatch`
+- next: `m907-v4-pair-delta-public-base-feature-dim-compatibility-audit`

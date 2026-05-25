@@ -1,0 +1,109 @@
+{
+  "id": "m907-v4-pair-delta-public-base-feature-dim-compatibility-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "lineage_invalid",
+    "contract_violation",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+    ],
+    "parent_dataset": [
+      "docs/m906-v4-pair-delta-public-base-exact-compatibility-audit.md",
+      "runs/m906_public_base_exact_compatibility/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m906-v4-pair-delta-public-base-exact-compatibility-audit.json"
+    ],
+    "parent_objective": [
+      "audit residual-head and public-base actor feature dimension mismatch before any compatibility fix"
+    ],
+    "derived_from": [
+      "m906-v4-pair-delta-public-base-exact-compatibility-audit"
+    ],
+    "blocked_by": [
+      "M906 failed because M761 residual feature_dim 64 does not match M399 actor feature_dim 128"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m907-v4-pair-delta-public-base-feature-dim-compatibility-audit.md",
+  "public_gates": [
+    "M907 must audit the feature-dimension mismatch",
+    "M907 must distinguish architecture mismatch from actor input contract violation",
+    "M907 must choose a compatibility route",
+    "M907 must keep training, replay, PPO, and promotion blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train a residual head in M907",
+    "do not modify actor inputs",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not ignore the feature_dim mismatch"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_public_base_integration_readiness",
+    "evidence_axis": "G_compatibility_audit: classify public-base residual/actor feature mismatch",
+    "evidence_increment": "turns M906 feature-dim failure into an explicit compatibility route before any fix",
+    "claim_scope": "process audit only; no model update, no adapter implementation, no replay, no PPO, and no promotion",
+    "stop_condition": [
+      "stop if mismatch is not classified",
+      "stop if contract violation is claimed without evidence",
+      "stop if no compatibility route is chosen",
+      "stop if training or replay is attempted"
+    ],
+    "fallback_plan": [
+      "if residual head is architecture-specific, design public-base residual-head training or distillation",
+      "if adapter is safer, design adapter with exact tests",
+      "if objective can run without residual features, design residual-free objective sanity",
+      "if public-base path is too risky, return to diagnostic branch"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M906 exact compatibility failed before reconstruction due to feature_dim mismatch",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M906 failure is a feature-dimension compatibility blocker between M399 public base and the M761 residual head, not a forbidden-input actor contract violation.",
+  "success_criteria": [
+    "M907 records the exact mismatch",
+    "M907 separates compatibility from actor input contract",
+    "M907 chooses a next route",
+    "M907 keeps training, replay, PPO, and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M907 trains or modifies a model",
+    "M907 runs replay or PPO",
+    "M907 promotes a checkpoint",
+    "M907 treats the mismatch as solved",
+    "M907 omits next-route decision"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m907-v4-pair-delta-public-base-feature-dim-compatibility-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m907-v4-pair-delta-public-base-feature-dim-compatibility-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m906-v4-pair-delta-public-base-exact-compatibility-audit.md"
+  ],
+  "decision_rule": "M907 may only audit feature-dimension compatibility and choose a route. It must not train, run replay, run PPO, or promote.",
+  "next_blocker": "Public-base residual-head feature-dimension mismatch has not yet been audited for route selection"
+}
