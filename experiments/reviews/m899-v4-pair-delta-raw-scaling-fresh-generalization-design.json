@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M899 may only design the fresh/generalization benchmark. It must not run benchmark, train, run PPO, or promote.",
+  "decision_reason": "M899 designs no-training fresh benchmark with success termination non-regression and raw clearance delta threshold before any PPO or promotion",
   "failure_criteria": [
     "M899 runs the benchmark",
     "M899 admits PPO or promotion",
@@ -24,7 +24,7 @@
     "do not use private holdout results for tuning"
   ],
   "gate_tier": "generalization",
-  "generated_at_utc": "20260525T202300Z",
+  "generated_at_utc": "20260525T202605Z",
   "hypothesis": "Raw candidates passed public proof gates, so the next safe step is a no-training fresh/generalization benchmark design that tests usefulness without PPO or promotion.",
   "lineage": {
     "blocked_by": [
@@ -58,7 +58,7 @@
   "milestone": "m899-v4-pair-delta-raw-scaling-fresh-generalization-design",
   "next_blocker": "Raw scaling candidates have not yet been evaluated on a pre-registered fresh/generalization benchmark",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "raw_scaling_fresh_generalization_design_admit_m900",
   "public_gates": [
     "M899 must design fresh/generalization benchmark only",
     "M899 must include M568, alpha_0_1, raw candidates, heuristic, and random",
@@ -66,7 +66,20 @@
     "M899 must pre-register clearance effect-size threshold",
     "M899 must keep PPO and promotion blocked"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m899-v4-pair-delta-raw-scaling-fresh-generalization-design.md",
+    "clearance_margin_mean": "",
+    "decision": "raw_scaling_fresh_generalization_design_admit_m900",
+    "milestone": "m899-v4-pair-delta-raw-scaling-fresh-generalization-design",
+    "reason": "M899 designs no-training fresh benchmark with success termination non-regression and raw clearance delta threshold before any PPO or promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "M899 writes a benchmark design document",
     "M899 names all candidate and baseline policies",

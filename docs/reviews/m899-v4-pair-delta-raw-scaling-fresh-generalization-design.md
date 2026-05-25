@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260525T202300Z
+- Generated at UTC: 20260525T202605Z
 - Type: infrastructure
 - Gate tier: generalization
-- Promotion decision: not_applicable
-- Decision reason: M899 may only design the fresh/generalization benchmark. It must not run benchmark, train, run PPO, or promote.
+- Promotion decision: raw_scaling_fresh_generalization_design_admit_m900
+- Decision reason: M899 designs no-training fresh benchmark with success termination non-regression and raw clearance delta threshold before any PPO or promotion
 
 ## Hypothesis
 
@@ -71,7 +71,18 @@ Raw candidates passed public proof gates, so the next safe step is a no-training
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m899-v4-pair-delta-raw-scaling-fresh-generalization-design
+- type: infrastructure
+- checkpoint: docs/m899-v4-pair-delta-raw-scaling-fresh-generalization-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: raw_scaling_fresh_generalization_design_admit_m900
+- reason: M899 designs no-training fresh benchmark with success termination non-regression and raw clearance delta threshold before any PPO or promotion
 
 ## Next Blocker
 

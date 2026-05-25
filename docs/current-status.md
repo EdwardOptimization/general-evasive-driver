@@ -62,16 +62,20 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m899-v4-pair-delta-raw-scaling-fresh-generalization-design
+m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark
 ```
 
-M898 audited the raw scaling pass as proof-safe larger movement, but not
-success improvement or generalization. M899 must design a no-training
-fresh/generalization benchmark before any execution, public-base integration,
-PPO, or promotion.
+M899 designed the no-training fresh/generalization benchmark. M900 must run
+fresh seeds `9705`/`9706` and seed-delta audit for M568, alpha `0.1`
+candidates, raw candidates, heuristic, and random.
 
 ## Recent Evidence Line
 
+- M899 designs M900 fresh/generalization benchmark: seeds `9705`/`9706`,
+  `256` episodes each, `configs/m121_human_view_zero_obstacle_relvel.json`,
+  and seed-delta audit. Raw candidates must retain success within `-0.005`,
+  termination within `+0.005`, and clearance delta at least `+0.002` versus
+  M568 to count as useful fresh-distribution movement. No PPO or promotion.
 - M898 audits M897 as proof-safe raw scaling evidence and routes to fresh
   generalization design. Supported: raw candidates preserve exact/replay/
   behavior-retention gates while producing about `10x` the alpha `0.1`

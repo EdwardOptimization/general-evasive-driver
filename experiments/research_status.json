@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 907,
+    "completed": 908,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m898-v4-pair-delta-raw-scaling-gate-audit",
+    "task_id": "m899-v4-pair-delta-raw-scaling-fresh-generalization-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m898-v4-pair-delta-raw-scaling-gate-audit.md"
+    "command_log": "docs/m899-v4-pair-delta-raw-scaling-fresh-generalization-design.md"
   },
   "next_task": {
-    "id": "m899-v4-pair-delta-raw-scaling-fresh-generalization-design",
+    "id": "m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark",
     "status": "pending",
-    "priority": 8940,
-    "kind": "infrastructure",
-    "hypothesis": "Design no-training fresh/generalization benchmark for raw scaling candidates",
-    "command": "see experiments/manifests/m899-v4-pair-delta-raw-scaling-fresh-generalization-design.json",
-    "success_artifact": "docs/m899-v4-pair-delta-raw-scaling-fresh-generalization-design.md",
-    "notes": "Pending: design fresh benchmark comparing M568, alpha_0_1, raw candidates, heuristic, and random"
+    "priority": 8950,
+    "kind": "gate",
+    "hypothesis": "Run no-training fresh/generalization benchmark for raw scaling candidates",
+    "command": "see experiments/manifests/m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark.json",
+    "success_artifact": "runs/m900_raw_scaling_fresh_generalization_seed_delta/policy_delta_summary.csv",
+    "notes": "Pending: benchmark seeds 9705/9706 and seed-delta audit"
   },
-  "updated_at_utc": "20260525T202101Z"
+  "updated_at_utc": "20260525T202345Z"
 }

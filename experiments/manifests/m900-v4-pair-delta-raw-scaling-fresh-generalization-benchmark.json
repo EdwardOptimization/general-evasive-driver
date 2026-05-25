@@ -1,0 +1,142 @@
+{
+  "id": "m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "behavior_regression",
+    "objective_overfit",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "contract_violation",
+    "lineage_invalid"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/alpha_0_1.pt",
+      "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/alpha_0_1.pt",
+      "runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/raw_candidate.pt",
+      "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/raw_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/m899-v4-pair-delta-raw-scaling-fresh-generalization-design.md"
+    ],
+    "parent_config": [
+      "configs/m121_human_view_zero_obstacle_relvel.json",
+      "experiments/manifests/m899-v4-pair-delta-raw-scaling-fresh-generalization-design.json"
+    ],
+    "parent_objective": [
+      "execute no-training fresh/generalization benchmark for raw scaling candidates"
+    ],
+    "derived_from": [
+      "m899-v4-pair-delta-raw-scaling-fresh-generalization-design"
+    ],
+    "blocked_by": [
+      "raw candidates have public proof retention but no fresh/generalization benchmark evidence"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark.md",
+  "public_gates": [
+    "benchmark seeds 9705 and 9706 over 256 episodes each",
+    "include M568, alpha_0_1 candidates, raw candidates, heuristic, and random",
+    "success/termination non-regression versus M568",
+    "raw clearance delta >= +0.002 over combined fresh benchmark",
+    "seed-delta audit after benchmark",
+    "no PPO or promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change benchmark thresholds after seeing results",
+    "do not treat this public fresh benchmark as a private holdout"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_objective_effect_size",
+    "evidence_axis": "G_generalization: test raw scaling usefulness on fresh public diagnostic distribution",
+    "evidence_increment": "executes the M899 no-training fresh benchmark and seed-delta audit",
+    "claim_scope": "fresh public diagnostic only; no training, PPO, public-base integration, private holdout claim, or promotion",
+    "stop_condition": [
+      "stop if either benchmark run fails to sample scenarios",
+      "stop if raw success or termination regresses beyond tolerance",
+      "stop if raw clearance effect is below threshold and no seed-level benefit exists",
+      "stop if PPO or promotion is attempted"
+    ],
+    "fallback_plan": [
+      "if sampling fails, route to sampling/config audit",
+      "if behavior regresses, route to behavior-regression audit",
+      "if raw effect is weak, route to richer/fresher corpus design",
+      "if raw effect is useful, route to fresh-result audit before integration design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M899 admits no-training fresh benchmark execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Raw candidates will retain success/termination and show larger clearance movement than alpha_0_1 on a fresh public diagnostic distribution.",
+  "success_criteria": [
+    "both benchmark runs complete",
+    "raw success_rate_delta >= -0.005 versus M568",
+    "raw termination_rate_delta <= +0.005 versus M568",
+    "raw clearance_margin_mean_delta >= +0.002 versus M568",
+    "seed-delta audit is written",
+    "M900 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "benchmark sampling fails",
+    "raw candidates regress success or termination beyond tolerance",
+    "raw clearance delta is below +0.002 and seed deltas show no useful events",
+    "M900 runs PPO or promotes"
+  ],
+  "commands": [
+    {
+      "name": "benchmark_seed9705",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m121_human_view_zero_obstacle_relvel.json --episodes 256 --seed 9705 --policies heuristic random --checkpoint-policy m568_base=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --checkpoint-policy m886_a010=runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/alpha_0_1.pt --checkpoint-policy m891_a010=runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/alpha_0_1.pt --checkpoint-policy m886_raw=runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/raw_candidate.pt --checkpoint-policy m891_raw=runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/raw_candidate.pt --device cpu --run-dir runs/m900_raw_scaling_fresh_generalization_seed9705"
+    },
+    {
+      "name": "benchmark_seed9706",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m121_human_view_zero_obstacle_relvel.json --episodes 256 --seed 9706 --policies heuristic random --checkpoint-policy m568_base=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --checkpoint-policy m886_a010=runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/alpha_0_1.pt --checkpoint-policy m891_a010=runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/alpha_0_1.pt --checkpoint-policy m886_raw=runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/raw_candidate.pt --checkpoint-policy m891_raw=runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/raw_candidate.pt --device cpu --run-dir runs/m900_raw_scaling_fresh_generalization_seed9706"
+    },
+    {
+      "name": "seed_delta_audit",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.seed_delta_audit --episodes-csv runs/m900_raw_scaling_fresh_generalization_seed9705/episodes.csv --episodes-csv runs/m900_raw_scaling_fresh_generalization_seed9706/episodes.csv --baseline-policy m568_base --candidate-policy m886_a010 --candidate-policy m891_a010 --candidate-policy m886_raw --candidate-policy m891_raw --run-dir runs/m900_raw_scaling_fresh_generalization_seed_delta"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m900_raw_scaling_fresh_generalization_seed9705/policy_summary.csv",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m900_raw_scaling_fresh_generalization_seed9706/policy_summary.csv",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m900_raw_scaling_fresh_generalization_seed_delta/seed_deltas.csv",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m900_raw_scaling_fresh_generalization_seed_delta/policy_delta_summary.csv",
+      "type": "run_summary"
+    },
+    {
+      "path": "docs/m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+    "runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/alpha_0_1.pt",
+    "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/alpha_0_1.pt",
+    "runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/raw_candidate.pt",
+    "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/raw_candidate.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m899-v4-pair-delta-raw-scaling-fresh-generalization-design.md"
+  ],
+  "decision_rule": "M900 may only execute the no-training fresh benchmark and seed-delta audit. It must not train, run PPO, or promote.",
+  "next_blocker": "Raw scaling candidates have not yet run the pre-registered fresh/generalization benchmark"
+}

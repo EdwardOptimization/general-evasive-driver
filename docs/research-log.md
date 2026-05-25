@@ -14179,3 +14179,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M898 audits M897 as a proof-safe raw scaling positive but blocks promotion and PPO. The supported claim is that raw objective-only candidates preserve exact, replay, and behavior-retention gates while producing about `10x` the alpha `0.1` clearance movement. Unsupported claims remain success improvement, broad generalization, public-base integration, and PPO safety. The next route is a no-training fresh/generalization benchmark design.
 - decision: `raw_scaling_gate_audit_route_to_fresh_generalization_design`
 - next: `m899-v4-pair-delta-raw-scaling-fresh-generalization-design`
+
+## 20260525T202345Z - m899-v4-pair-delta-raw-scaling-fresh-generalization-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m899-v4-pair-delta-raw-scaling-fresh-generalization-design.md`
+- result: M899 designs a no-training fresh/generalization benchmark for M568, alpha `0.1` candidates, raw candidates, heuristic, and random. M900 will run seeds `9705` and `9706` with `256` episodes each under `configs/m121_human_view_zero_obstacle_relvel.json`, then run seed-delta audit. Acceptance requires raw success non-regression within `-0.005`, termination non-regression within `+0.005`, and raw clearance delta at least `+0.002` versus M568 over the combined fresh benchmark. PPO and promotion remain blocked.
+- decision: `raw_scaling_fresh_generalization_design_admit_m900`
+- next: `m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark`
