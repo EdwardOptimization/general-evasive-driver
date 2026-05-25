@@ -13287,3 +13287,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M802 audits M801 as a clean no-training diagnostic-band-only result. M801 is a broad coverage positive but not a primary low-margin corpus pass: positives increased to `4825` across `108` seeds and `18` fault-family pairs, while the primary successful non-collision low-margin band `<= 0.00005` remains empty and all rows through `<= 0.001` are collisions. M802 classifies the blocker as a boundary-window miss and rejects both threshold relaxation and another generic broad wave.
 - decision: `admit_low_margin_boundary_window_retarget_design`
 - next: `m803-v4-low-margin-boundary-window-retarget-design`
+
+## 20260525T143000Z - m803-v4-low-margin-boundary-window-retarget-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m803-v4-low-margin-boundary-window-retarget-design.md`
+- result: M803 designs no-training boundary-window retargeting after M802. The target evidence is now explicit: M801 has `60` collision-side normal alpha `0.2` rows with margins from `-0.000572` to `-0.000173` across `2` seeds and `5` source indices, while the nearest successful non-collision diagnostic rows are `24` rows with margins from `0.005243` to `0.005768` from `1` seed and `4` source indices. M803 requires M804 to rerun closed-loop candidates under public retarget axes such as obstacle half width, obstacle timing, fault activation step, fault severity, and neighboring source step. It keeps alpha `0.2`, the primary `0.0 <= margin <= 0.00005` gate, source-diversity requirements, checksum invariants, and no-training/no-PPO/no-promotion constraints unchanged.
+- decision: `boundary_window_retarget_design_admit_m804`
+- next: `m804-v4-low-margin-boundary-window-retarget-implementation`

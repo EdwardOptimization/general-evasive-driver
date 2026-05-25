@@ -1,0 +1,144 @@
+{
+  "id": "m804-v4-low-margin-boundary-window-retarget-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m803-v4-low-margin-boundary-window-retarget-design.md",
+      "docs/m802-v4-low-margin-source-diverse-corpus-refresh-audit.md",
+      "runs/m801_v4_low_margin_source_diverse_reference_replay/replay_rows.csv",
+      "runs/m801_v4_low_margin_source_diverse_corpus_refresh/diagnostic_margin_bands.csv",
+      "runs/m801_v4_low_margin_refresh_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m801_v4_low_margin_refresh_corpus_export/contrast_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m803-v4-low-margin-boundary-window-retarget-design.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_objective": [
+      "implement no-training boundary-window retargeting around M801 collision/success transition"
+    ],
+    "derived_from": [
+      "m803-v4-low-margin-boundary-window-retarget-design"
+    ],
+    "blocked_by": [
+      "m801-v4-low-margin-source-diverse-corpus-refresh-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m804-v4-low-margin-boundary-window-retarget-implementation.md",
+  "public_gates": [
+    "M804 implements and runs only no-training boundary-window retargeting",
+    "M804 preserves the P0 human-view actor contract",
+    "M804 keeps alpha 0.2 and the primary <=0.00005 margin threshold unchanged",
+    "M804 reruns closed-loop candidates instead of post-processing margins",
+    "M804 confirms actor and M761 residual-head checksums unchanged",
+    "M804 blocks residual calibration, PPO, and promotion"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not train a new residual calibrator",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add oracle deploy-time inputs",
+    "do not widen the primary 0.00005 margin threshold",
+    "do not count collision rows as primary low-margin successes",
+    "do not post-process obstacle radius after rollout to change margin",
+    "do not treat residual alpha scans as candidate evidence",
+    "do not claim true wheel-level faults from current single-track proxy data",
+    "do not tune from private holdout failures"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_source_diverse_corpus_refresh",
+    "evidence_axis": "G_distribution: low-margin collision/success boundary-window retarget implementation",
+    "evidence_increment": "tests whether targeted public retarget axes can fill the primary low-margin successful non-collision window that M801 missed",
+    "claim_scope": "no-training corpus implementation only; no residual calibration PPO or driver promotion",
+    "stop_condition": [
+      "stop if accepted rows are absent",
+      "stop if accepted rows are source concentrated",
+      "stop if rows only pass by metric post-processing",
+      "stop if actor or residual checksums change",
+      "stop if implementation requires oracle deploy-time inputs"
+    ],
+    "fallback_plan": [
+      "if rows are absent, audit whether current simulator geometry cannot expose stable primary-window rows",
+      "if rows are source concentrated, retarget additional axes or write a synthesis before continuing",
+      "if rows are geometry-only, audit before active-steer calibration",
+      "if corpus passes, route to an audit before any calibration"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M803 designs boundary-window retarget implementation after M801 diagnostic-band-only result",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A no-training boundary-window retarget tool can convert M801 collision-side and nearest-safe anchors into a source-diverse primary low-margin normal guard corpus without relaxing the margin gate.",
+  "success_criteria": [
+    "M804 writes boundary anchor, retarget plan, retarget replay, accepted row, axis summary, progress, and summary artifacts",
+    "M804 reports accepted rows, unique seeds, unique source indices, fault-family pairs, dominance metrics, and retarget-axis diagnostics",
+    "M804 confirms actor and residual-head checksums unchanged",
+    "M804 classifies the result without widening the primary margin gate",
+    "M804 keeps residual calibration, PPO, and promotion blocked"
+  ],
+  "failure_criteria": [
+    "implementation trains actor, residual head, or a new calibrator",
+    "implementation runs PPO",
+    "implementation promotes a checkpoint",
+    "implementation omits source-diversity or retarget-axis diagnostics",
+    "implementation treats diagnostic wider bands as primary-pass evidence",
+    "implementation changes margin by post-processing rather than closed-loop replay"
+  ],
+  "commands": [
+    {
+      "name": "boundary_window_retarget",
+      "command": "implement and run the no-training low-margin boundary-window retarget tool; expected run dir runs/m804_v4_low_margin_boundary_window_retarget"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_low_margin_boundary_window_retarget.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_v4_low_margin_boundary_window_retarget.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m804_v4_low_margin_boundary_window_retarget/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m804_v4_low_margin_boundary_window_retarget/boundary_anchor_rows.csv",
+      "type": "metrics"
+    },
+    {
+      "path": "runs/m804_v4_low_margin_boundary_window_retarget/accepted_low_margin_window_rows.csv",
+      "type": "metrics"
+    },
+    {
+      "path": "docs/m804-v4-low-margin-boundary-window-retarget-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m803-v4-low-margin-boundary-window-retarget-design.md",
+    "runs/m801_v4_low_margin_source_diverse_reference_replay/replay_rows.csv",
+    "runs/m801_v4_low_margin_refresh_corpus_export/positive_sequence_outcomes.csv",
+    "runs/m801_v4_low_margin_refresh_corpus_export/contrast_rows.csv",
+    "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+  ],
+  "decision_rule": "M804 may implement and run only no-training boundary-window retargeting. It must not train actor or residual parameters, run PPO, or promote a checkpoint.",
+  "next_blocker": "m805-v4-low-margin-boundary-window-retarget-audit"
+}

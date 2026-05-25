@@ -62,16 +62,26 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m803-v4-low-margin-boundary-window-retarget-design
+m804-v4-low-margin-boundary-window-retarget-implementation
 ```
 
-M803 should design targeted boundary-window retargeting around the M801
-collision/success transition. The primary low-margin threshold must remain
-unchanged. Further active-steer residual calibration, PPO, promotion, base actor
-mutation, and M761 residual-head mutation remain blocked.
+M804 should implement and run the no-training targeted boundary-window retarget
+tool designed in M803. The primary low-margin threshold and alpha `0.2` must
+remain unchanged. Further active-steer residual calibration, PPO, promotion,
+base actor mutation, and M761 residual-head mutation remain blocked.
 
 ## Recent Evidence Line
 
+- M803 designs the next no-training boundary-window retarget step. It fixes the
+  target anchors from M801: `60` collision rows at alpha `0.2` with margins from
+  `-0.000572` to `-0.000173` across `2` seeds and `5` source indices, plus the
+  nearest `24` successful non-collision diagnostic rows with margins from
+  `0.005243` to `0.005768` from `1` seed and `4` source indices. M803 requires
+  M804 to rerun closed-loop candidates under public retarget axes such as
+  obstacle width, obstacle timing, fault activation step, fault severity, and
+  neighboring source step. It keeps alpha `0.2`, the primary
+  `0.0 <= margin <= 0.00005` gate, source-diversity requirements, checksum
+  invariants, and no-training/no-PPO/no-promotion constraints unchanged.
 - M802 audits M801 as a clean no-training diagnostic-band-only result. M801 is
   a broad coverage positive but not a primary low-margin corpus pass: positives
   increased to `4825` across `108` seeds and `18` fault-family pairs, while the

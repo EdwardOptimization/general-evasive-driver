@@ -1,0 +1,88 @@
+# m803-v4-low-margin-boundary-window-retarget-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260525T055934Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: boundary_window_retarget_design_admit_m804
+- Decision reason: M803 designs no-training boundary-window retargeting around M801 collision and nearest-safe anchors while keeping alpha 0.2 and the primary low-margin gate unchanged
+
+## Hypothesis
+
+A targeted boundary-window retargeting design can convert M801's collision rows and nearest safe diagnostic rows into a source-diverse primary low-margin mining plan without relaxing the margin gate.
+
+## Lineage
+
+- parent_checkpoint: runs/m568_scaled_l3_bc_seed5660/checkpoint.pt
+- parent_dataset: docs/m802-v4-low-margin-source-diverse-corpus-refresh-audit.md, docs/m801-v4-low-margin-source-diverse-corpus-refresh-implementation.md, runs/m801_v4_low_margin_source_diverse_corpus_refresh/summary.json, runs/m801_v4_low_margin_source_diverse_corpus_refresh/diagnostic_margin_bands.csv, runs/m801_v4_low_margin_source_diverse_reference_replay/replay_rows.csv, runs/m801_v4_low_margin_source_diverse_reference_replay/alpha_metrics.csv
+- parent_config: experiments/manifests/m802-v4-low-margin-source-diverse-corpus-refresh-audit.json
+- parent_objective: design a low-margin boundary-window retargeting step after M801 diagnostic-band-only result
+- derived_from: m802-v4-low-margin-source-diverse-corpus-refresh-audit
+- blocked_by: m801-v4-low-margin-source-diverse-corpus-refresh-implementation
+- supersedes: None
+- invalidates: None
+
+## Success Criteria
+
+- M803 documents a design for boundary-window retargeting
+- M803 specifies which M801 collision and safe diagnostic rows seed the retargeting
+- M803 specifies controllable public scenario axes and acceptance gates
+- M803 keeps the primary low-margin threshold unchanged
+- M803 keeps residual calibration, PPO, and promotion blocked
+
+## Failure Criteria
+
+- design only increases seed count
+- design weakens the primary low-margin threshold
+- design uses oracle deploy-time inputs
+- design admits training, PPO, or promotion
+- design ignores source diversity and long-run progress/sharding requirements
+
+## Evidence Gates
+
+- M803 designs only; it does not implement or run a new wave
+- M803 preserves the P0 human-view actor contract
+- M803 targets the M801 collision/success boundary window
+- M803 keeps the primary <=0.00005 margin gate unchanged
+- M803 blocks residual calibration, PPO, and promotion
+
+## Holdout Policy
+
+- promotion_only
+
+## Forbidden Shortcuts
+
+- do not implement the retargeting tool
+- do not run another source wave
+- do not train any parameters
+- do not run PPO
+- do not promote a checkpoint
+- do not widen the primary low-margin threshold
+- do not treat alpha scan results as deployable actor inputs
+- do not use private holdout feedback for public retargeting
+
+## Failure Taxonomy
+
+- scenario_sampling_failure
+- objective_overfit
+- metric_artifact
+
+## Scoreboard
+
+- milestone: m803-v4-low-margin-boundary-window-retarget-design
+- type: infrastructure
+- checkpoint: docs/m803-v4-low-margin-boundary-window-retarget-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: boundary_window_retarget_design_admit_m804
+- reason: M803 designs no-training boundary-window retargeting around M801 collision and nearest-safe anchors while keeping alpha 0.2 and the primary low-margin gate unchanged
+
+## Next Blocker
+
+m804-v4-low-margin-boundary-window-retarget-implementation
