@@ -1,0 +1,130 @@
+{
+  "id": "m767-v4-fresh-source-holdout-wave-implementation",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m766-v4-residual-source-holdout-replay-design.md",
+      "runs/m764_v4_residual_closed_loop_replay/summary.json",
+      "runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m752_v4_reset_source_sequence_intervention/intervention_rollouts.csv",
+      "runs/m749_extreme_fault_distribution_v4/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m766-v4-residual-source-holdout-replay-design.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_objective": [
+      "run fresh no-training source-holdout wave before residual replay"
+    ],
+    "derived_from": [
+      "m766-v4-residual-source-holdout-replay-design"
+    ],
+    "blocked_by": [
+      "m766-v4-residual-source-holdout-replay-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m767-v4-fresh-source-holdout-wave-implementation.md",
+  "public_gates": [
+    "M767 uses seed range 76512..77023 disjoint from M749/M752",
+    "M767 runs no-training v4 source wave and sequence intervention",
+    "M767 exports a fresh v4 sequence-outcome corpus",
+    "M767 reports source diversity and hard-negative sparsity",
+    "residual replay PPO and checkpoint promotion remain blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not reuse M755 assigned_split heldout as unbiased holdout",
+    "do not train actor or residual parameters",
+    "do not run residual closed-loop replay in M767",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not lower fresh corpus gates after seeing output"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_residual_source_holdout_replay",
+    "evidence_axis": "G_generalization: build fresh source-holdout corpus",
+    "evidence_increment": "runs disjoint-seed v4 source mining and exports fresh sequence outcome corpus before residual replay",
+    "claim_scope": "fresh corpus generation only; no residual replay result, PPO claim, or driver promotion",
+    "stop_condition": [
+      "stop if fresh source wave produces too few positives",
+      "stop if source rows overlap M755 positives",
+      "stop if v4 metadata or claim-boundary metadata is missing",
+      "stop if training PPO or promotion starts"
+    ],
+    "fallback_plan": [
+      "if positives are sparse, audit before changing seed count or source selection",
+      "if source diversity is poor, redesign source balancing",
+      "if hard negatives are sparse, keep them optional as in M755/M758",
+      "if corpus is clean, audit before residual replay"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M766 admits fresh source-holdout wave implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A disjoint-seed v4 source-holdout wave can produce a fresh sequence-outcome corpus suitable for later M761 residual replay.",
+  "success_criteria": [
+    "M767 runs the fresh v4 extreme-fault source wave",
+    "M767 runs fresh v4 reset-source sequence interventions",
+    "M767 exports a fresh v4 sequence-outcome corpus",
+    "M767 reports whether minimum fresh corpus gates pass",
+    "M767 does not run residual replay PPO or promotion"
+  ],
+  "failure_criteria": [
+    "fresh seed range overlaps M749/M752",
+    "residual replay is run before fresh corpus audit",
+    "training or PPO starts",
+    "fresh corpus metadata is missing",
+    "positive rows are too sparse to support holdout replay"
+  ],
+  "commands": [
+    {
+      "name": "fresh_extreme_source_wave",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.extreme_dynamics_scenario_corpus --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --config configs/extreme_fault_distribution_v4_scenarios.json --pairing-mode cross_fault --seed-start 76512 --seed-count 512 --device cpu --run-dir runs/m767_v4_source_holdout_extreme_faults"
+    },
+    {
+      "name": "fresh_sequence_intervention",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_reset_source_sequence_intervention --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --config configs/extreme_fault_distribution_v4_scenarios.json --reset-rows runs/m767_v4_source_holdout_extreme_faults/reset_only_rows.csv --rejected-rows runs/m767_v4_source_holdout_extreme_faults/rejected_rows.csv --seed-start 76512 --seed-count 512 --max-source-rows 512 --horizons 2,4,6,8 --device cpu --run-dir runs/m767_v4_source_holdout_sequence_intervention"
+    },
+    {
+      "name": "fresh_corpus_export",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_sequence_outcome_corpus_export --summary runs/m767_v4_source_holdout_sequence_intervention/summary.json --rollouts runs/m767_v4_source_holdout_sequence_intervention/intervention_rollouts.csv --sequence-critical-rows runs/m767_v4_source_holdout_sequence_intervention/sequence_critical_rows.csv --sentinel-rows runs/m767_v4_source_holdout_sequence_intervention/sentinel_rows.csv --fault-config configs/extreme_fault_distribution_v4_scenarios.json --run-dir runs/m767_v4_source_holdout_corpus_export"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m767_v4_source_holdout_extreme_faults/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m767_v4_source_holdout_sequence_intervention/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m767_v4_source_holdout_corpus_export/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m767-v4-fresh-source-holdout-wave-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m766-v4-residual-source-holdout-replay-design.md",
+    "configs/extreme_fault_distribution_v4_scenarios.json"
+  ],
+  "decision_rule": "M767 may only generate and export a fresh source-holdout corpus. It must not run residual replay, train, run PPO, mutate actor parameters, or promote a checkpoint.",
+  "next_blocker": "m768-v4-fresh-source-holdout-wave-audit"
+}

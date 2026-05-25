@@ -107,5 +107,5 @@
     "docs/m765-v4-residual-closed-loop-replay-audit.md"
   ],
   "decision_rule": "M766 may only design a source-holdout replay or fresh source-mining fallback. It must not train, run PPO, mutate actor parameters, or promote a checkpoint.",
-  "next_blocker": "m767-v4-residual-source-holdout-replay-implementation"
+  "next_blocker": "m767-v4-fresh-source-holdout-wave-implementation"
 }

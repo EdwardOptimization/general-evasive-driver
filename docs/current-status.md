@@ -62,16 +62,24 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m766-v4-residual-source-holdout-replay-design
+m767-v4-fresh-source-holdout-wave-implementation
 ```
 
-M766 should design fresh source-holdout replay for the M761 residual head. It
-must not use M755 `assigned_split=heldout` as unbiased holdout because M761
-trained on all M755 positives. It should prioritize alpha `0.2`, keep `0.5`
-and `1.0` diagnostic, and keep training, PPO, and promotion blocked.
+M767 should run a fresh disjoint-seed v4 source-holdout wave before residual
+replay. It should use seed range `76512..77023`, generate fresh v4 reset-only
+source rows, run sequence interventions, export a fresh v4 sequence-outcome
+corpus, and keep residual replay, training, PPO, and promotion blocked.
 
 ## Recent Evidence Line
 
+- M766 designs the fresh source-holdout path. Precheck shows existing artifacts
+  are not enough for unbiased residual holdout: M752 has `1213` non-sentinel
+  outcome positives, M755 exports all `1213`, and there are `0` extra positives
+  not used by M761. Although M752 has `60` unused source rows, they are not
+  clean positive holdout rows. The design therefore selects a disjoint seed
+  range `76512..77023` and admits a no-training fresh v4 source wave,
+  reset-source sequence intervention, and corpus export before any residual
+  replay.
 - M765 audits M764 as a clean public-corpus closed-loop mechanism positive. It
   supports alpha `0.2` as the conservative next candidate and treats alpha
   `1.0` as aggressive diagnostic because its `4/1213` intervention collisions

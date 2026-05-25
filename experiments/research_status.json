@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 774,
+        "completed": 775,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m765-v4-residual-closed-loop-replay-audit",
+        "task_id": "m766-v4-residual-source-holdout-replay-design",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m765-v4-residual-closed-loop-replay-audit.md"
+        "command_log": "docs/m766-v4-residual-source-holdout-replay-design.md"
     },
     "next_task": {
-        "id": "m766-v4-residual-source-holdout-replay-design",
+        "id": "m767-v4-fresh-source-holdout-wave-implementation",
         "status": "pending",
-        "priority": 7610,
+        "priority": 7620,
         "kind": "infrastructure",
-        "hypothesis": "Design fresh source-holdout replay for M761 residual head",
-        "command": "see experiments/manifests/m766-v4-residual-source-holdout-replay-design.json",
-        "success_artifact": "docs/m766-v4-residual-source-holdout-replay-design.md",
-        "notes": "Pending: design fresh source-holdout replay and avoid contaminated M755 assigned_split heldout"
+        "hypothesis": "Run fresh disjoint-seed v4 source-holdout wave and export corpus",
+        "command": "see experiments/manifests/m767-v4-fresh-source-holdout-wave-implementation.json",
+        "success_artifact": "docs/m767-v4-fresh-source-holdout-wave-implementation.md",
+        "notes": "Pending: run fresh source wave sequence intervention and corpus export before residual replay"
     },
-    "updated_at_utc": "20260525T061000Z"
+    "updated_at_utc": "20260525T062000Z"
 }

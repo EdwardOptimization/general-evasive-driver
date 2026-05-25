@@ -12941,3 +12941,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M765 audits M764 as a clean public-corpus closed-loop mechanism positive. It supports alpha `0.2` as the conservative next candidate and treats alpha `1.0` as aggressive diagnostic because its `4/1213` intervention collisions are concentrated in seed `76030`, variant `zero_command_obs`, horizons `6/8`, and fault pair `front_lateral_authority_drop->combined_fault`. The audit records that M755's `assigned_split=heldout` is contaminated for residual evaluation because M761 trained on all M755 positives. The next branch must design fresh source-holdout replay or fresh source mining, not PPO or promotion.
 - decision: `promote_to_v4_residual_source_holdout_replay_design`
 - next: `m766-v4-residual-source-holdout-replay-design`
+
+## 20260525T062000Z - m766-v4-residual-source-holdout-replay-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m766-v4-residual-source-holdout-replay-design.md`
+- result: M766 designs the fresh source-holdout path. Precheck shows existing artifacts are not enough for unbiased residual holdout: M752 has `1213` non-sentinel outcome positives, M755 exports all `1213`, and there are `0` extra positives not used by M761. Although M752 has `60` unused source rows, they are not clean positive holdout rows. The design therefore selects a disjoint seed range `76512..77023` and admits a no-training fresh v4 source wave, reset-source sequence intervention, and corpus export before any residual replay.
+- decision: `v4_fresh_source_holdout_wave_design_admit_m767`
+- next: `m767-v4-fresh-source-holdout-wave-implementation`
