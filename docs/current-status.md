@@ -62,16 +62,27 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m914-v4-public-base-tail-weighted-residual-probe-implementation
+m916-v4-public-base-target-regeneration-design
 ```
 
-M913 designed the tail-weighted objective. M914 may train only a new
-`feature_dim=128` residual head with M399 frozen and must gate on normal
-retention, p10 lift, deficit reduction, and low-tail fraction before any M880
-exact execution, replay, PPO, or promotion.
+M915 synthesized and closed the public-base integration-readiness branch. M916
+starts `v4_public_base_target_regeneration` and must design M399-rooted target
+regeneration/source mining rather than continuing to tune stale M755/M758 target
+weights.
 
 ## Recent Evidence Line
 
+- M915 synthesizes M905-M914 and opens `v4_public_base_target_regeneration`.
+  Supported: direct M761 residual reuse is invalid for M399; M399 can train a
+  128-dim residual head; M755/M758/M761 targets do not yield a normal-retaining
+  public-base residual candidate; low-tail deficit is broad. Next is M399-rooted
+  target regeneration design.
+- M914 implements tail-weighted residual probe. It reconstructs `1213/1213`
+  rows, joins all low-tail keys, keeps M399 actor checksum unchanged, and trains
+  a `feature_dim=128` residual head. `candidate_alpha_count=0`: alpha `1.0`
+  passes tail-lift and reduces low-tail fraction to `0.317395`, but normal
+  retention fails; all normal-retaining alphas fail tail-lift. Route:
+  target regeneration design.
 - M913 designs M399 tail-weighted residual objective. The next probe must join
   M912 low-tail rows back to M755 rows, train residual head only, keep M399
   actor checksum unchanged, and admit a candidate only if gap p10 improves by

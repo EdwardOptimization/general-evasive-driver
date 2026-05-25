@@ -1,0 +1,102 @@
+{
+  "id": "m916-v4-public-base-target-regeneration-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m915-v4-public-base-integration-readiness-branch-synthesis.md",
+      "runs/m914_v4_public_base_tail_weighted_residual_probe/summary.json",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/low_tail_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m915-v4-public-base-integration-readiness-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design M399-rooted target regeneration after stale-target blocker"
+    ],
+    "derived_from": [
+      "m915-v4-public-base-integration-readiness-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M914 tail-weighted residual probe found no admissible alpha"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m916-v4-public-base-target-regeneration-design.md",
+  "public_gates": [
+    "M916 must design M399-rooted target regeneration",
+    "M916 must keep M755/M758/M761 targets diagnostic-only",
+    "M916 must specify source mining and target acceptance gates",
+    "M916 must block residual training, target-generation execution, M880 exact compatibility, replay, PPO, and promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in M916",
+    "do not keep increasing M914 tail weights or epochs",
+    "do not run target generation",
+    "do not run M880 exact compatibility",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_target_regeneration",
+    "evidence_axis": "G_target_design: regenerate public-base targets after stale-target residual failure",
+    "evidence_increment": "starts a new branch by designing M399-rooted source mining and target regeneration",
+    "claim_scope": "design only; no training, target generation execution, exact compatibility, replay, PPO, integration claim, or promotion",
+    "stop_condition": [
+      "stop if design keeps using stale M755/M758 targets as primary",
+      "stop if source diversity gates are omitted",
+      "stop if replay, PPO, or promotion is admitted"
+    ],
+    "fallback_plan": [
+      "if target regeneration design is accepted, route to no-training target regeneration implementation",
+      "if source mining cannot satisfy diversity, route to scenario expansion design",
+      "if target regeneration is too broad, route to branch synthesis before continuing"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M915 opens v4_public_base_target_regeneration",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A design-only milestone can define a safe M399-rooted target regeneration route after M914 showed stale M755/M758 targets cannot produce an admissible residual candidate.",
+  "success_criteria": [
+    "M916 specifies M399 source mining inputs",
+    "M916 specifies target regeneration acceptance gates",
+    "M916 keeps stale M755/M758 targets diagnostic-only",
+    "M916 blocks residual training, target generation execution, exact compatibility, replay, PPO, and promotion"
+  ],
+  "failure_criteria": [
+    "M916 continues tuning M914 weights without target regeneration",
+    "M916 omits source diversity gates",
+    "M916 admits replay, PPO, or promotion",
+    "M916 does not define an implementation route"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m916-v4-public-base-target-regeneration-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m916-v4-public-base-target-regeneration-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m915-v4-public-base-integration-readiness-branch-synthesis.md"
+  ],
+  "decision_rule": "M916 may only design target regeneration. It must not train, run target generation, run exact compatibility, run replay, run PPO, or promote.",
+  "next_blocker": "M399-rooted target regeneration has not yet been designed"
+}

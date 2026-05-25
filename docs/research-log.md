@@ -14319,3 +14319,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M913 designs a residual-head-only tail-weighted objective for M399. M914 should join M912 low-tail membership back to M755 rows, train only a `feature_dim=128` residual head with M399 frozen, and admit a candidate only if normal retention, p10 lift, deficit reduction, and low-tail-fraction reduction all pass. M880 exact execution, replay, PPO, actor update, and promotion remain blocked.
 - decision: `public_base_tail_weighted_objective_design_admit_m914`
 - next: `m914-v4-public-base-tail-weighted-residual-probe-implementation`
+
+## 20260525T212218Z - m914-v4-public-base-tail-weighted-residual-probe-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m914_v4_public_base_tail_weighted_residual_probe`
+- artifact: `docs/m914-v4-public-base-tail-weighted-residual-probe-implementation.md`
+- result: M914 implements and runs the residual-head-only tail-weighted probe. It reconstructs `1213/1213` rows, joins all M912 low-tail keys, keeps the M399 actor checksum unchanged, and trains a `feature_dim=128` residual head. `candidate_alpha_count=0`: alpha `1.0` reduces low-tail fraction from `0.410552` to `0.317395` and passes tail-lift, but normal retention fails; all normal-retaining alphas fail tail-lift. No M880 exact execution, replay, PPO, or promotion occurred.
+- decision: `public_base_tail_weighted_probe_no_candidate_route_to_branch_synthesis_then_target_regeneration`
+- next: `m915-v4-public-base-integration-readiness-branch-synthesis`
+
+## 20260525T212218Z - m915-v4-public-base-integration-readiness-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m915-v4-public-base-integration-readiness-branch-synthesis.md`
+- result: M915 synthesizes M905-M914. The branch supports that public-base integration cannot directly reuse M568/M761 residual features; M399 can reconstruct and train a 128-dim residual head; M755/M758/M761 target structure does not produce a normal-retaining M399 residual candidate; and low-tail deficit is broad. The branch falsifies direct residual reuse, simple 128-dim retraining, and tail-weighting as sufficient fixes.
+- decision: `promote_to_next_branch`
+- next: `m916-v4-public-base-target-regeneration-design`
