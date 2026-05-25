@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m941-v4-public-base-controlled-fusion-branch-synthesis
+m942-v4-public-base-controlled-fusion-micro-boundary-audit
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -86,11 +86,18 @@ objective using differentiable interpolation at alphas `0.125`, `0.150`, and
 `0.175`. M940 implements that objective. It reconstructs all rows and changes
 only `actor_mean` plus `response_context_fusion.0`, but still finds no strict
 candidate: alpha `0.05` is a normal-safe low-tail trend, while alpha `0.075`
-tail-lifts just outside normal retention. M941 must synthesize this branch
-before any broader actor update.
+tail-lifts just outside normal retention. M941 synthesizes the branch and
+allows exactly one no-training micro-alpha audit before any broader actor
+update.
 
 ## Recent Evidence Line
 
+- M941 synthesizes M936-M940 and decides to continue exactly one no-training
+  micro-alpha audit of the M940 raw direction. The justification is narrow:
+  alpha `0.05` is normal-retained with low-tail trend, while alpha `0.075`
+  tail-lifts but barely exceeds the normal-anchor MSE mean threshold. If M942
+  finds no strict candidate, the controlled-fusion branch should close before
+  touching encoders or GRU.
 - M940 implements boundary-alpha controlled-fusion training. It preserves the
   actor-input and trainable-surface contract, but `candidate_alpha_count=0`,
   `boundary_near_miss_count=0`, and result class is

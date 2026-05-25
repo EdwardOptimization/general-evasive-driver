@@ -1,0 +1,88 @@
+{
+  "decision_reason": "M941 synthesizes M936-M940 and continues exactly one no-training micro-alpha audit because M940 alpha 0.05 is normal-retained low-tail trend while alpha 0.075 tail-lifts just outside normal retention",
+  "failure_criteria": [
+    "M941 omits synthesis questions",
+    "M941 continues controlled-fusion training variants without synthesis decision",
+    "M941 admits replay PPO or promotion",
+    "M941 does not choose a next blocker"
+  ],
+  "failure_types": [
+    "promotion_gate_failure",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not train in M941",
+    "do not change actor inputs",
+    "do not unfreeze response_encoder context_encoder or online_gru_cell",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260525T232510Z",
+  "hypothesis": "The controlled-fusion branch has enough evidence to decide whether one no-training micro-boundary audit is warranted before any broader actor update is considered.",
+  "lineage": {
+    "blocked_by": [
+      "M940 found no strict candidate and useful alphas still cross the normal-retention boundary"
+    ],
+    "derived_from": [
+      "m936-v4-public-base-controlled-fusion-surface-design",
+      "m940-v4-public-base-controlled-fusion-boundary-objective-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m940_v4_public_base_controlled_fusion_boundary_objective/checkpoints/raw_boundary_objective_update.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m940-v4-public-base-controlled-fusion-boundary-objective-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m936-v4-public-base-controlled-fusion-surface-design.md",
+      "docs/m937-v4-public-base-controlled-fusion-surface-implementation.md",
+      "docs/m938-v4-public-base-controlled-fusion-alpha-boundary-audit.md",
+      "docs/m939-v4-public-base-controlled-fusion-boundary-objective-design.md",
+      "docs/m940-v4-public-base-controlled-fusion-boundary-objective-implementation.md",
+      "runs/m940_v4_public_base_controlled_fusion_boundary_objective/summary.json",
+      "runs/m940_v4_public_base_controlled_fusion_boundary_objective/alpha_metrics.csv"
+    ],
+    "parent_objective": [
+      "synthesize controlled fusion surface evidence after M940 trust-region conflict"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m941-v4-public-base-controlled-fusion-branch-synthesis",
+  "next_blocker": "m942-v4-public-base-controlled-fusion-micro-boundary-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "continue",
+  "public_gates": [
+    "M941 must synthesize M936-M940 controlled-fusion evidence",
+    "M941 must list supported and falsified claims",
+    "M941 must classify failure taxonomy",
+    "M941 must decide whether a no-training micro-boundary audit is justified",
+    "M941 must block training replay PPO and promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m941-v4-public-base-controlled-fusion-branch-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "continue",
+    "milestone": "m941-v4-public-base-controlled-fusion-branch-synthesis",
+    "reason": "M941 synthesizes M936-M940 and continues exactly one no-training micro-alpha audit because M940 alpha 0.05 is normal-retained low-tail trend while alpha 0.075 tail-lifts just outside normal retention",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M941 summarizes M936-M940 evidence",
+    "M941 records supported and falsified claims",
+    "M941 records failure taxonomy",
+    "M941 records public-gate overfit risk",
+    "M941 chooses the next blocker",
+    "M941 blocks training replay PPO and promotion"
+  ],
+  "type": "gate"
+}

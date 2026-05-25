@@ -14574,3 +14574,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M940 implements differentiable boundary-alpha controlled-fusion training at alphas `0.125`, `0.150`, and `0.175`. It reconstructs `1213/1213`, joins `122/122`, starts training, uses boundary interpolation, and changes only `actor_mean` plus `response_context_fusion.0`; response/context encoders, online GRU, critic, log_std, and actor inputs are unchanged. No strict candidate or boundary near-miss appears: `candidate_alpha_count=0`, `boundary_near_miss_count=0`, `normal_safe_low_tail_trend_count=1`, and result class is `public_base_controlled_fusion_boundary_objective_trust_region_conflict`. Alpha `0.05` is normal-retained with low-tail trend, while alpha `0.075` tail-lifts but barely misses normal retention on mean normal-anchor MSE.
 - decision: `public_base_controlled_fusion_boundary_objective_trust_region_conflict_route_to_branch_synthesis`
 - next: `m941-v4-public-base-controlled-fusion-branch-synthesis`
+
+## 20260525T232407Z - m941-v4-public-base-controlled-fusion-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m941-v4-public-base-controlled-fusion-branch-synthesis.md`
+- result: M941 synthesizes M936-M940. Supported claims: the controlled-fusion surface has real low-tail leverage, M940 preserves the P0 actor-input and trainable-surface contract, and boundary-aware interpolation training is implemented. Falsified claims: the M939 train-alpha objective did not close the alpha `0.15` near miss, and M940 does not justify exact compatibility, replay, PPO, or promotion. Failure taxonomy is `promotion_gate_failure` plus `objective_overfit`. Public-gate overfit risk remains high because the same M912/M919 rows are being used for objective diagnosis. M941 allows exactly one no-training micro-alpha audit because alpha `0.05` is normal-retained with low-tail trend and alpha `0.075` tail-lifts just outside normal retention.
+- decision: `continue`
+- next: `m942-v4-public-base-controlled-fusion-micro-boundary-audit`

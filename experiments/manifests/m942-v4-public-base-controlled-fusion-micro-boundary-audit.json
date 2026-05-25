@@ -1,0 +1,112 @@
+{
+  "id": "m942-v4-public-base-controlled-fusion-micro-boundary-audit",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m940_v4_public_base_controlled_fusion_boundary_objective/checkpoints/raw_boundary_objective_update.pt"
+    ],
+    "parent_dataset": [
+      "docs/m941-v4-public-base-controlled-fusion-branch-synthesis.md",
+      "runs/m940_v4_public_base_controlled_fusion_boundary_objective/summary.json",
+      "runs/m940_v4_public_base_controlled_fusion_boundary_objective/alpha_metrics.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m941-v4-public-base-controlled-fusion-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "no-training fine alpha audit of the M940 raw boundary-objective direction"
+    ],
+    "derived_from": [
+      "m941-v4-public-base-controlled-fusion-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M940 alpha 0.05 is normal-retained but not tail-lift, while alpha 0.075 tail-lifts just outside normal retention"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m942-v4-public-base-controlled-fusion-micro-boundary-audit.md",
+  "public_gates": [
+    "M942 must compare M399 base against the M940 raw checkpoint",
+    "M942 must run no training",
+    "M942 must report whether any micro-alpha is a strict candidate",
+    "M942 must keep replay PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not change actor inputs",
+    "do not update any checkpoint",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_controlled_fusion_surface",
+    "evidence_axis": "G_policy_update: test M940 raw direction micro-boundary feasibility",
+    "evidence_increment": "checks whether the alpha interval between 0.05 normal retention and 0.075 tail lift contains an exact overlap",
+    "claim_scope": "no-training alpha audit only; no replay, PPO, driver improvement claim, or promotion",
+    "stop_condition": [
+      "stop if forbidden parameters differ outside the allowed controlled surface",
+      "stop if no strict candidate exists in the micro-boundary interval",
+      "stop if replay PPO or promotion is attempted"
+    ],
+    "fallback_plan": [
+      "if strict candidate exists, route to exact no-update compatibility design",
+      "if no strict candidate exists, close controlled-fusion branch before touching encoders or GRU"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M941 synthesis allowed exactly one no-training micro-boundary audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M940 raw direction may contain a narrow alpha between 0.05 and 0.075 that satisfies both normal retention and tail lift.",
+  "success_criteria": [
+    "summary.json exists",
+    "training_started is false",
+    "forbidden_parameter_changed_between_checkpoints is false",
+    "sample_reconstruction_success_rate >= 0.98",
+    "strict_candidate_count is reported",
+    "replay_used ppo_used and promoted are false"
+  ],
+  "failure_criteria": [
+    "M942 trains or updates a checkpoint",
+    "actor input contract changes",
+    "forbidden parameters differ between checkpoints",
+    "M942 runs replay PPO or promotion"
+  ],
+  "commands": [
+    {
+      "name": "run_micro_boundary_audit",
+      "command": "PYTHONPATH=src python -m autodrift.public_base_controlled_fusion_raw_direction_feasibility --base-checkpoint runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --raw-checkpoint runs/m940_v4_public_base_controlled_fusion_boundary_objective/checkpoints/raw_boundary_objective_update.pt --positive-rows runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv --contrast-rows runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv --scenario-config configs/extreme_fault_distribution_v4_scenarios.json --target-rows runs/m919_v4_public_base_expanded_target_regeneration/accepted_target_rows.csv --m912-summary runs/m912_v4_public_base_sequence_recalibration_audit/summary.json --low-tail-rows runs/m912_v4_public_base_sequence_recalibration_audit/low_tail_rows.csv --run-dir runs/m942_v4_public_base_controlled_fusion_micro_boundary_audit --device cpu --alphas 0.040,0.045,0.0475,0.050,0.0525,0.055,0.0575,0.060,0.0625,0.065,0.0675,0.070,0.0725,0.075,0.0775,0.080,0.085,0.090,0.100"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m942_v4_public_base_controlled_fusion_micro_boundary_audit/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m942_v4_public_base_controlled_fusion_micro_boundary_audit/alpha_metrics.csv",
+      "type": "data"
+    },
+    {
+      "path": "docs/m942-v4-public-base-controlled-fusion-micro-boundary-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "runs/m940_v4_public_base_controlled_fusion_boundary_objective/checkpoints/raw_boundary_objective_update.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m941-v4-public-base-controlled-fusion-branch-synthesis.md"
+  ],
+  "decision_rule": "M942 may only run a no-training micro-alpha audit. It must not train, run replay, run PPO, or promote.",
+  "next_blocker": "M942 micro-boundary result unknown"
+}

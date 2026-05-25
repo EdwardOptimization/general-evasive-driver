@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 949,
+    "completed": 950,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m940-v4-public-base-controlled-fusion-boundary-objective-implementation",
+    "task_id": "m941-v4-public-base-controlled-fusion-branch-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m940_v4_public_base_controlled_fusion_boundary_objective/summary.json"
+    "command_log": "docs/m941-v4-public-base-controlled-fusion-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m941-v4-public-base-controlled-fusion-branch-synthesis",
+    "id": "m942-v4-public-base-controlled-fusion-micro-boundary-audit",
     "status": "pending",
-    "priority": 9360,
-    "kind": "gate",
-    "hypothesis": "The controlled-fusion branch has enough evidence to decide whether one no-training micro-boundary audit is warranted before any broader actor update is considered",
-    "command": "see experiments/manifests/m941-v4-public-base-controlled-fusion-branch-synthesis.json",
-    "success_artifact": "docs/m941-v4-public-base-controlled-fusion-branch-synthesis.md",
-    "notes": "Pending: synthesize M936-M940 before any broader actor update; training, replay, PPO, and promotion blocked"
+    "priority": 9370,
+    "kind": "infrastructure",
+    "hypothesis": "The M940 raw direction may contain a narrow alpha between 0.05 and 0.075 that satisfies both normal retention and tail lift",
+    "command": "see experiments/manifests/m942-v4-public-base-controlled-fusion-micro-boundary-audit.json",
+    "success_artifact": "runs/m942_v4_public_base_controlled_fusion_micro_boundary_audit/summary.json",
+    "notes": "Pending: no-training micro-alpha audit only; no training, replay, PPO, or promotion"
   },
-  "updated_at_utc": "20260525T231659Z"
+  "updated_at_utc": "20260525T232407Z"
 }
