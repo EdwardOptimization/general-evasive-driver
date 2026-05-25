@@ -62,16 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m911-v4-public-base-sequence-objective-recalibration-design
+m912-v4-public-base-sequence-recalibration-audit-implementation
 ```
 
-M910 classified M909 as an objective/target-lineage blocker rather than a
-feature-dim or input-contract problem. M911 must design M399-specific sequence
-objective recalibration before any new residual training, M880 exact execution,
+M911 designed the no-training M399 recalibration audit. M912 must implement and
+run deterministic alpha comparison, low-tail row export, group deficit summary,
+and route decision before any new residual training, M880 exact execution,
 replay, PPO, or promotion.
 
 ## Recent Evidence Line
 
+- M911 designs deterministic public-base sequence recalibration. It uses M909
+  alpha `0.02` only as a near-base diagnostic, exports low-tail rows where
+  `normal_intervention_gap < 0.021141` or `gap_deficit > 0.02`, summarizes
+  fault/variant/source groups, and chooses one route: tail-weighted objective,
+  target regeneration, or residual-free sanity. No training or exact execution.
 - M910 audits M909 no-gap-lift. Compared with M761, M909 has no admitted alpha:
   its mean gap is already large (`~0.144-0.150`), but low-tail p10 remains low
   (`~0.007-0.012`) and larger alphas break normal retention before fixing the

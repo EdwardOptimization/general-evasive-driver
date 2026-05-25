@@ -1,0 +1,121 @@
+{
+  "id": "m912-v4-public-base-sequence-recalibration-audit-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m911-v4-public-base-sequence-objective-recalibration-design.md",
+      "runs/m909_v4_public_base_residual_head_probe/summary.json",
+      "runs/m909_v4_public_base_residual_head_probe/alpha_metrics.csv",
+      "runs/m909_v4_public_base_residual_head_probe/objective_rows.csv",
+      "runs/m761_v4_sequence_objective_probe/summary.json",
+      "runs/m761_v4_sequence_objective_probe/alpha_metrics.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m911-v4-public-base-sequence-objective-recalibration-design.json"
+    ],
+    "parent_objective": [
+      "implement deterministic no-training M399 sequence objective recalibration audit"
+    ],
+    "derived_from": [
+      "m911-v4-public-base-sequence-objective-recalibration-design"
+    ],
+    "blocked_by": [
+      "M399-specific sequence objective low-tail distribution has not been audited"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m912-v4-public-base-sequence-recalibration-audit-implementation.md",
+  "public_gates": [
+    "M912 must be no-training",
+    "M912 must produce alpha comparison",
+    "M912 must produce low-tail rows",
+    "M912 must produce group deficit summary",
+    "M912 must choose exactly one next route",
+    "M912 must block exact execution, replay, PPO, and promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in M912",
+    "do not load or mutate model checkpoints",
+    "do not run M880 exact compatibility",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat near_base_alpha as exact alpha zero"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_public_base_integration_readiness",
+    "evidence_axis": "G_objective_audit: measure M399 low-tail objective mismatch",
+    "evidence_increment": "implements M911 by producing deterministic low-tail and group-deficit evidence from saved M909/M761 artifacts",
+    "claim_scope": "no-training recalibration audit only; no model update, exact compatibility, replay, PPO, integration claim, or promotion",
+    "stop_condition": [
+      "stop if route_decision is missing",
+      "stop if low-tail rows are not exported",
+      "stop if M912 trains or loads a checkpoint for mutation",
+      "stop if M912 runs exact, replay, PPO, or promotion"
+    ],
+    "fallback_plan": [
+      "if route is tail-weighted objective, design tail-weighted residual objective",
+      "if route is target regeneration, design M399 target regeneration",
+      "if route is residual-free sanity, design residual-free public-base sanity"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M911 admits deterministic recalibration implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A deterministic audit can identify whether M399's M909 failure should route to tail-weighted objective design, target regeneration, or residual-free sanity.",
+  "success_criteria": [
+    "summary.json exists",
+    "alpha_comparison.csv exists",
+    "low_tail_rows.csv exists",
+    "group_deficit_summary.csv exists",
+    "route_decision is one of the registered routes",
+    "near_base_alpha is recorded as diagnostic, not exact zero",
+    "training_started and ppo_used are false",
+    "promoted is false"
+  ],
+  "failure_criteria": [
+    "M912 trains or mutates a model",
+    "M912 omits route_decision",
+    "M912 omits low-tail rows",
+    "M912 treats near_base_alpha as exact zero",
+    "M912 runs exact compatibility, replay, PPO, or promotion"
+  ],
+  "commands": [
+    {
+      "name": "run_public_base_sequence_recalibration_audit",
+      "command": "PYTHONPATH=src python -m autodrift.public_base_sequence_recalibration_audit --m909-summary runs/m909_v4_public_base_residual_head_probe/summary.json --m909-alpha-metrics runs/m909_v4_public_base_residual_head_probe/alpha_metrics.csv --m909-objective-rows runs/m909_v4_public_base_residual_head_probe/objective_rows.csv --m761-summary runs/m761_v4_sequence_objective_probe/summary.json --m761-alpha-metrics runs/m761_v4_sequence_objective_probe/alpha_metrics.csv --run-dir runs/m912_v4_public_base_sequence_recalibration_audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m912_v4_public_base_sequence_recalibration_audit/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m912_v4_public_base_sequence_recalibration_audit/low_tail_rows.csv",
+      "type": "data"
+    },
+    {
+      "path": "docs/m912-v4-public-base-sequence-recalibration-audit-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m911-v4-public-base-sequence-objective-recalibration-design.md"
+  ],
+  "decision_rule": "M912 may only implement and run a deterministic no-training recalibration audit. It must not train, run exact compatibility, run replay, run PPO, or promote.",
+  "next_blocker": "M399 low-tail objective route decision has not yet been computed"
+}

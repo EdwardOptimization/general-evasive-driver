@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M911 designs no-training M399 low-tail recalibration audit with deterministic route decision before any new residual training or M880 exact use",
+  "failure_criteria": [
+    "M911 omits M399-specific calibration",
+    "M911 reuses M568/M761 thresholds as public-base pass gates without audit",
+    "M911 admits replay, PPO, or promotion",
+    "M911 does not choose an implementation route"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train in M911",
+    "do not run M880 exact compatibility",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use M568 thresholds as public-base pass gates without recalibration"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T210953Z",
+  "hypothesis": "A design-only milestone can define a safe M399-specific sequence objective recalibration before any new residual training, exact compatibility, replay, PPO, or promotion.",
+  "lineage": {
+    "blocked_by": [
+      "M909 candidate_alpha_count is zero under M761-style thresholds"
+    ],
+    "derived_from": [
+      "m910-v4-public-base-residual-head-no-gap-lift-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m909_v4_public_base_residual_head_probe/residual_head.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m910-v4-public-base-residual-head-no-gap-lift-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m910-v4-public-base-residual-head-no-gap-lift-audit.md",
+      "runs/m909_v4_public_base_residual_head_probe/summary.json",
+      "runs/m909_v4_public_base_residual_head_probe/alpha_metrics.csv",
+      "runs/m909_v4_public_base_residual_head_probe/objective_rows.csv"
+    ],
+    "parent_objective": [
+      "design M399-specific sequence objective recalibration after M909 no-gap-lift"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m911-v4-public-base-sequence-objective-recalibration-design",
+  "next_blocker": "M399-specific sequence objective recalibration has not yet been designed",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "public_base_sequence_recalibration_design_admit_m912",
+  "public_gates": [
+    "M911 must design a no-training M399-specific recalibration",
+    "M911 must keep M568/M761 thresholds diagnostic-only",
+    "M911 must specify low-tail and deficit diagnostics",
+    "M911 must decide whether to regenerate targets or design a tail-weighted objective",
+    "M911 must block actor update, exact execution, replay, PPO, and promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m911-v4-public-base-sequence-objective-recalibration-design.md",
+    "clearance_margin_mean": "",
+    "decision": "public_base_sequence_recalibration_design_admit_m912",
+    "milestone": "m911-v4-public-base-sequence-objective-recalibration-design",
+    "reason": "M911 designs no-training M399 low-tail recalibration audit with deterministic route decision before any new residual training or M880 exact use",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M911 specifies M399-specific baseline gap and low-tail diagnostics",
+    "M911 specifies target regeneration or tail-weighted objective decision rules",
+    "M911 keeps M909 residual head out of M880 exact use",
+    "M911 blocks actor update, exact execution, replay, PPO, and promotion"
+  ],
+  "type": "infrastructure"
+}

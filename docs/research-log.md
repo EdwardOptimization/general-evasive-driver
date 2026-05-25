@@ -14291,3 +14291,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M910 compares M761 and M909 alpha metrics. M761 has admitted alphas `0.2`, `0.5`, and `1.0`, while M909 has no admitted alpha. M909's mean normal/intervention gap is already large but p10 remains low and gap deficit remains above threshold; increasing alpha breaks normal retention before fixing the low tail. M909 is therefore a public-base objective/target-lineage blocker, not a feature_dim or actor-input compatibility failure.
 - decision: `public_base_residual_head_no_gap_lift_route_to_sequence_recalibration_design`
 - next: `m911-v4-public-base-sequence-objective-recalibration-design`
+
+## 20260525T210806Z - m911-v4-public-base-sequence-objective-recalibration-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m911-v4-public-base-sequence-objective-recalibration-design.md`
+- result: M911 designs a deterministic no-training recalibration audit for the M399 public-base sequence objective. The audit will compare M761 and M909 alpha metrics, label M909 alpha `0.02` as near-base diagnostic rather than exact zero, export low-tail rows and group deficit summaries, and choose exactly one next route: tail-weighted objective, target regeneration, or residual-free sanity. Training, M880 exact execution, replay, PPO, and promotion stay blocked.
+- decision: `public_base_sequence_recalibration_design_admit_m912`
+- next: `m912-v4-public-base-sequence-recalibration-audit-implementation`
