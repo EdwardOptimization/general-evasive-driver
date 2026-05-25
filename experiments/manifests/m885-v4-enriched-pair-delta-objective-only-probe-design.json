@@ -1,0 +1,113 @@
+{
+  "id": "m885-v4-enriched-pair-delta-objective-only-probe-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "proof_washout",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "contract_violation",
+    "lineage_invalid"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m884-v4-pair-delta-objective-readiness-branch-synthesis.md",
+      "runs/m883_v4_enriched_pair_delta_objective_sanity/summary.json",
+      "runs/m883_v4_enriched_pair_delta_objective_sanity/objective_rows.csv",
+      "runs/m883_v4_enriched_pair_delta_objective_sanity/objective_metrics.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m884-v4-pair-delta-objective-readiness-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design no-PPO objective-only probe after objective-readiness synthesis"
+    ],
+    "derived_from": [
+      "m884-v4-pair-delta-objective-readiness-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M884 closed the objective-readiness branch and opened objective probe design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m885-v4-enriched-pair-delta-objective-only-probe-design.md",
+  "public_gates": [
+    "M885 must be design-only",
+    "M885 must define objective-only update scope and trust region",
+    "M885 must define exact objective and replay retention gates",
+    "M885 must define interpolation and rejection rules",
+    "M885 must keep PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor parameters in M885",
+    "do not train M761 residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not tune against source_holdout or new_signature_holdout",
+    "do not treat M883 exact sanity as update success"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_objective_probe",
+    "evidence_axis": "G_objective_update: design no-PPO enriched pair-delta objective probe",
+    "evidence_increment": "designs the first update attempt after objective-readiness synthesis while preserving exact and replay gates",
+    "claim_scope": "design only; no training, PPO, promotion, or learned driver claim",
+    "stop_condition": [
+      "stop if exact objective gates are undefined",
+      "stop if replay retention gates are omitted",
+      "stop if train/eval/holdout discipline is unclear",
+      "stop if design admits PPO directly"
+    ],
+    "fallback_plan": [
+      "if design is complete, pre-register objective-only probe implementation",
+      "if gates are too weak, route to gate design",
+      "if corpus caveats dominate, route to source generation",
+      "if branch cadence is reached, synthesize before continuing"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M884 promoted from objective-readiness to objective-probe branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A small no-PPO objective-only probe can be designed from the M883 exact objective without risking immediate proof washout, provided the design uses strict exact-objective, interpolation, replay-retention, and no-promotion gates.",
+  "success_criteria": [
+    "M885 defines trainable scope and trust region",
+    "M885 defines exact objective non-regression and improvement gates",
+    "M885 defines replay and behavior retention gates",
+    "M885 defines interpolation and rejection rules",
+    "M885 pre-registers implementation only"
+  ],
+  "failure_criteria": [
+    "M885 trains actor or residual-head parameters",
+    "M885 runs PPO",
+    "M885 promotes a checkpoint",
+    "M885 ignores exact objective or replay retention",
+    "M885 hides source-holdout and 78055 caveats"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m885-v4-enriched-pair-delta-objective-only-probe-design.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m885-v4-enriched-pair-delta-objective-only-probe-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m884-v4-pair-delta-objective-readiness-branch-synthesis.md",
+    "runs/m883_v4_enriched_pair_delta_objective_sanity/summary.json"
+  ],
+  "decision_rule": "M885 may only design the objective-only probe. It must not train, run PPO, promote, or claim objective update usefulness.",
+  "next_blocker": "Enriched pair-delta objective-only probe has not yet been designed"
+}

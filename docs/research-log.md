@@ -14039,3 +14039,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M883 implements exact no-update enriched pair-delta objective sanity and passes. It reconstructs all `247` expected actor-state rows with `0` missing tensors, `19` reconstructed snapshots, and `0` snapshot rejections. Exact losses are finite, improvement and degradation rows are present, actor parameters are unchanged, and no training/PPO/promotion occurred.
 - decision: `v4_enriched_pair_delta_objective_sanity_pass`
 - next: `m884-v4-pair-delta-objective-readiness-branch-synthesis`
+
+## 20260525T191524Z - m884-v4-pair-delta-objective-readiness-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m884-v4-pair-delta-objective-readiness-branch-synthesis.md`
+- result: M884 synthesizes M875-M883 and closes `v4_pair_delta_objective_readiness`. The branch turned raw duplicate-heavy M873 pair-delta rows into deduped splits, enriched action targets, and exact no-update objective metrics with full tensor reconstruction. Remaining caveats are public-gate overfit risk, no new source holdout, eval/new-signature degradation-only imbalance, and 78055 still absent from new accepted pair-delta rows.
+- decision: `promote_to_next_branch`
+- next: `m885-v4-enriched-pair-delta-objective-only-probe-design`

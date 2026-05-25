@@ -62,16 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m884-v4-pair-delta-objective-readiness-branch-synthesis
+m885-v4-enriched-pair-delta-objective-only-probe-design
 ```
 
-M883 implemented exact no-update enriched pair-delta objective sanity and
-passed. M884 must synthesize the M875-M883 objective-readiness branch before
-any objective-only actor update, PPO, promotion, base actor mutation, or M761
-residual-head mutation.
+M884 synthesized and closed the `v4_pair_delta_objective_readiness` branch.
+M885 opens `v4_pair_delta_objective_probe` and must design a no-PPO
+objective-only probe before any actor update, PPO, promotion, base actor
+mutation, or M761 residual-head mutation.
 
 ## Recent Evidence Line
 
+- M884 synthesizes M875-M883 and promotes to the next branch:
+  `v4_pair_delta_objective_probe`. The previous branch successfully transformed
+  raw M873 pair-delta rows into deduped splits, enriched action targets, and
+  exact no-update objective sanity with full tensor reconstruction. Remaining
+  caveats are public-gate overfit risk, no new source holdout, degradation-only
+  eval/new-signature splits, and 78055 still absent from new accepted rows.
 - M883 implements exact no-update enriched pair-delta objective sanity and
   passes. It reconstructs all `247` expected actor-state rows with `0` missing
   tensors and `0` snapshot rejections, computes finite improvement/degradation

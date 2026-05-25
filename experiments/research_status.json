@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 892,
+    "completed": 893,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m883-v4-enriched-pair-delta-objective-sanity-implementation",
+    "task_id": "m884-v4-pair-delta-objective-readiness-branch-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m883_v4_enriched_pair_delta_objective_sanity/summary.json"
+    "command_log": "docs/m884-v4-pair-delta-objective-readiness-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m884-v4-pair-delta-objective-readiness-branch-synthesis",
+    "id": "m885-v4-enriched-pair-delta-objective-only-probe-design",
     "status": "pending",
-    "priority": 8790,
-    "kind": "gate",
-    "hypothesis": "Synthesize M875-M883 objective-readiness branch before objective-only update PPO or promotion",
-    "command": "see experiments/manifests/m884-v4-pair-delta-objective-readiness-branch-synthesis.json",
-    "success_artifact": "docs/m884-v4-pair-delta-objective-readiness-branch-synthesis.md",
-    "notes": "Pending: branch synthesis after exact no-update objective sanity pass"
+    "priority": 8800,
+    "kind": "infrastructure",
+    "hypothesis": "Design no-PPO enriched pair-delta objective-only probe after objective-readiness synthesis",
+    "command": "see experiments/manifests/m885-v4-enriched-pair-delta-objective-only-probe-design.json",
+    "success_artifact": "docs/m885-v4-enriched-pair-delta-objective-only-probe-design.md",
+    "notes": "Pending: design objective-only update scope, gates, and rejection rules"
   },
-  "updated_at_utc": "20260525T191250Z"
+  "updated_at_utc": "20260525T191524Z"
 }

@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260525T191436Z
+- Generated at UTC: 20260525T191700Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M884 may only synthesize the branch and choose the next branch. It must not run replay, train, run PPO, or promote.
+- Promotion decision: promote_to_next_branch
+- Decision reason: M884 closes objective-readiness branch and opens v4_pair_delta_objective_probe while keeping PPO and promotion blocked
 
 ## Hypothesis
 
@@ -70,7 +70,18 @@ M875-M883 have produced enough no-training objective-readiness evidence to close
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m884-v4-pair-delta-objective-readiness-branch-synthesis
+- type: gate
+- checkpoint: docs/m884-v4-pair-delta-objective-readiness-branch-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: promote_to_next_branch
+- reason: M884 closes objective-readiness branch and opens v4_pair_delta_objective_probe while keeping PPO and promotion blocked
 
 ## Next Blocker
 
