@@ -1,0 +1,134 @@
+{
+  "id": "m883-v4-enriched-pair-delta-objective-sanity-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "contract_violation",
+    "lineage_invalid"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m882-v4-enriched-pair-delta-objective-design.md",
+      "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_train_public_rows.csv",
+      "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_eval_public_rows.csv",
+      "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_source_holdout_public_rows.csv",
+      "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_new_signature_holdout_public_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m882-v4-enriched-pair-delta-objective-design.json"
+    ],
+    "parent_objective": [
+      "implement exact no-update enriched pair-delta objective sanity"
+    ],
+    "derived_from": [
+      "m882-v4-enriched-pair-delta-objective-design"
+    ],
+    "blocked_by": [
+      "M882 designed objective terms but exact sanity implementation does not exist yet"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m883-v4-enriched-pair-delta-objective-sanity-implementation.md",
+  "public_gates": [
+    "M883 must implement exact no-update sanity only",
+    "M883 must reconstruct actor observation and recurrent hidden tensors or stop",
+    "M883 must compute improvement and degradation objective losses per split",
+    "M883 must write exact objective metrics and reconstruction diagnostics",
+    "M883 must keep actor update PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not evaluate targets with reset hidden unless explicitly labeled",
+    "do not use privileged actor inputs",
+    "do not hide tensor reconstruction failures"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_objective_readiness",
+    "evidence_axis": "G_objective: enriched pair-delta exact objective sanity",
+    "evidence_increment": "implements exact no-update objective metrics or identifies tensor reconstruction as the next blocker",
+    "claim_scope": "exact objective sanity only; no actor update, PPO, promotion, or learned driver claim",
+    "stop_condition": [
+      "stop if tensor reconstruction is missing or ambiguous",
+      "stop if exact losses are nonfinite",
+      "stop if only train split metrics are available",
+      "stop if implementation mutates actor parameters"
+    ],
+    "fallback_plan": [
+      "if exact sanity passes, pre-register objective-readiness audit",
+      "if tensor reconstruction fails, route to tensor-corpus regeneration design",
+      "if losses are degenerate, revise objective design before update",
+      "if cadence is reached, synthesize before further implementation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M882 admits exact no-update objective sanity implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The enriched pair-delta rows can be converted into an exact no-update objective-sanity artifact with finite improvement/degradation preference losses, provided actor observation and recurrent hidden tensors can be reconstructed deterministically.",
+  "success_criteria": [
+    "M883 writes exact objective metrics per split",
+    "M883 reconstructs required actor-state tensors or reports a hard blocker",
+    "M883 reports finite improvement and degradation losses",
+    "M883 preserves human-view actor contract",
+    "M883 keeps actor update PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M883 trains actor or residual-head parameters",
+    "M883 runs PPO",
+    "M883 promotes a checkpoint",
+    "M883 evaluates action targets under mismatched hidden states",
+    "M883 hides missing tensor reconstruction"
+  ],
+  "commands": [
+    {
+      "name": "objective_sanity",
+      "command": "PYTHONPATH=src python -m autodrift.v4_enriched_pair_delta_objective_sanity --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --objective-train-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_train_public_rows.csv --objective-eval-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_eval_public_rows.csv --source-holdout-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_source_holdout_public_rows.csv --new-signature-holdout-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_new_signature_holdout_public_rows.csv --run-dir runs/m883_v4_enriched_pair_delta_objective_sanity"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_enriched_pair_delta_objective_sanity.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_v4_enriched_pair_delta_objective_sanity.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m883_v4_enriched_pair_delta_objective_sanity/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m883_v4_enriched_pair_delta_objective_sanity/objective_metrics.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m883_v4_enriched_pair_delta_objective_sanity/reconstruction_summary.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "docs/m883-v4-enriched-pair-delta-objective-sanity-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m882-v4-enriched-pair-delta-objective-design.md",
+    "runs/m880_v4_pair_delta_objective_target_enrichment/summary.json"
+  ],
+  "decision_rule": "M883 may only implement exact no-update objective sanity. It must not train, run PPO, promote, or claim objective usefulness without later audit.",
+  "next_blocker": "Enriched pair-delta exact objective sanity has not yet been implemented"
+}

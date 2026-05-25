@@ -14021,3 +14021,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M881 audits the M880 enriched corpus as complete enough for a design-only objective loss milestone. The immediate missing-action-target blocker is resolved, but objective implementation still needs explicit actor observation and recurrent-hidden reconstruction; new source holdout is unavailable and the 78055 caveat remains. Actor update, PPO, promotion, and learned self-ID claims remain blocked.
 - decision: `admit_enriched_pair_delta_objective_design`
 - next: `m882-v4-enriched-pair-delta-objective-design`
+
+## 20260525T190533Z - m882-v4-enriched-pair-delta-objective-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m882-v4-enriched-pair-delta-objective-design.md`
+- result: M882 designs exact no-update pair-delta objective sanity. Improvement rows should prefer the override action over the normal action under the same normal observation/hidden state; degradation rows should prefer the normal action over the harmful override. The design explicitly requires deterministic actor observation and recurrent-hidden reconstruction before any logprob objective can be implemented, and it keeps actor update, PPO, and promotion blocked.
+- decision: `enriched_pair_delta_objective_design_admit_m883`
+- next: `m883-v4-enriched-pair-delta-objective-sanity-implementation`

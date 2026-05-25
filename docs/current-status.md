@@ -62,17 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m882-v4-enriched-pair-delta-objective-design
+m883-v4-enriched-pair-delta-objective-sanity-implementation
 ```
 
-M881 audited the M880 enriched corpus as ready for design-only objective loss
-work. M882 must design the enriched pair-delta objective terms and the required
-actor-state tensor reconstruction path before any exact objective sanity
-implementation, actor update, PPO, promotion, base actor mutation, or M761
-residual-head mutation.
+M882 designed the enriched pair-delta objective terms. M883 must implement
+exact no-update objective sanity or expose actor-state tensor reconstruction as
+the next hard blocker. Actor update, PPO, promotion, base actor mutation, and
+M761 residual-head mutation remain blocked.
 
 ## Recent Evidence Line
 
+- M882 designs exact no-update pair-delta objective sanity. Improvement rows
+  should prefer the override action over the normal action under the same
+  normal observation/hidden state; degradation rows should prefer the normal
+  action over the harmful override. The design requires deterministic actor
+  observation and recurrent-hidden reconstruction before logprob losses can be
+  computed. No update or PPO is admitted.
 - M881 audits M880 enriched corpus as complete enough for design-only objective
   work. The action target blocker is resolved, but the next design must define
   how implementation will recover actor observations and recurrent hidden

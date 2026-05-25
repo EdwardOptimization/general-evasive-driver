@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 890,
+    "completed": 891,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m881-v4-enriched-pair-delta-objective-readiness-audit",
+    "task_id": "m882-v4-enriched-pair-delta-objective-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m881-v4-enriched-pair-delta-objective-readiness-audit.md"
+    "command_log": "docs/m882-v4-enriched-pair-delta-objective-design.md"
   },
   "next_task": {
-    "id": "m882-v4-enriched-pair-delta-objective-design",
+    "id": "m883-v4-enriched-pair-delta-objective-sanity-implementation",
     "status": "pending",
-    "priority": 8770,
+    "priority": 8780,
     "kind": "infrastructure",
-    "hypothesis": "Design enriched pair-delta objective loss before any exact sanity implementation actor update PPO or promotion",
-    "command": "see experiments/manifests/m882-v4-enriched-pair-delta-objective-design.json",
-    "success_artifact": "docs/m882-v4-enriched-pair-delta-objective-design.md",
-    "notes": "Pending: design objective terms and tensor reconstruction requirements"
+    "hypothesis": "Implement exact no-update enriched pair-delta objective sanity or expose tensor reconstruction as blocker",
+    "command": "see experiments/manifests/m883-v4-enriched-pair-delta-objective-sanity-implementation.json",
+    "success_artifact": "runs/m883_v4_enriched_pair_delta_objective_sanity/summary.json",
+    "notes": "Pending: exact objective sanity with actor-state tensor reconstruction diagnostics"
   },
-  "updated_at_utc": "20260525T190239Z"
+  "updated_at_utc": "20260525T190533Z"
 }
