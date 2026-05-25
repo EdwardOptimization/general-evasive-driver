@@ -13529,3 +13529,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M828 implements and runs no-training wrong-cross-fault hidden injection. It selects `108` matched pairs from M825, reconstructs `15` shared temporal snapshots, replays `756` rows, and keeps actor/M761 residual-head checksums unchanged. All `108/108` wrong-hidden first actions move closer to the matched right action, but the effect is too small: `wrong_cross_fault_hidden` max first-action L2 is `0.00690`, max prefix L2 is `0.00317`, max margin gap is `0.0000260`, and mean margin gap is `0.00000458`. Accepted primary wrong-history rows and mitigation rows are both `0`, so the result class is `v4_wrong_cross_fault_history_intervention_history_insensitive`.
 - decision: `v4_wrong_cross_fault_history_intervention_history_insensitive`
 - next: `m829-v4-wrong-cross-fault-history-intervention-audit`
+
+## 20260525T205000Z - m829-v4-wrong-cross-fault-history-intervention-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m829-v4-wrong-cross-fault-history-intervention-audit.md`
+- result: M829 audits M828 as a clean negative and identifies pair-boundary slack as the primary limiter. M828 reconstructed pairs successfully and kept checksums unchanged, but all normal margins are wide (`min 0.217669`, `median 1.02877`, `0/108 <= 0.05`). Wrong hidden is directionally meaningful (`108/108` closer to right action), but below thresholds (`max action L2 0.00690`, `0/108 >= 0.014`; `max margin gap 0.0000260`, `0/108 >= 0.01`). No variant reaches the primary margin gate on the M828 pair set. M829 therefore admits near-boundary matched wrong-history pair mining before more wrong-history replay, PPO, or promotion.
+- decision: `admit_near_boundary_wrong_history_pair_mining_design`
+- next: `m830-v4-near-boundary-wrong-history-pair-mining-design`
