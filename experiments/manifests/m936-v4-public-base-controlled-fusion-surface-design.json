@@ -1,0 +1,101 @@
+{
+  "id": "m936-v4-public-base-controlled-fusion-surface-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m935-v4-public-base-policy-level-trust-region-branch-synthesis.md",
+      "runs/m934_v4_public_base_policy_head_low_tail_pressure/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m935-v4-public-base-policy-level-trust-region-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design a controlled broader trainable surface after actor_mean-only branch synthesis"
+    ],
+    "derived_from": [
+      "m935-v4-public-base-policy-level-trust-region-branch-synthesis"
+    ],
+    "blocked_by": [
+      "controlled fusion surface design has not yet been written"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m936-v4-public-base-controlled-fusion-surface-design.md",
+  "public_gates": [
+    "M936 must be design-only",
+    "M936 must preserve P0 actor input contract",
+    "M936 must specify allowed trainable parameters",
+    "M936 must keep response/context encoders and GRU frozen unless explicitly justified",
+    "M936 must block replay PPO and promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in M936",
+    "do not change actor inputs",
+    "do not run exact compatibility",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_controlled_fusion_surface",
+    "evidence_axis": "G_policy_update: design controlled fusion trainable surface",
+    "evidence_increment": "opens a new branch after actor_mean-only synthesis while keeping broader encoder updates blocked",
+    "claim_scope": "design only; no training, exact compatibility, replay, PPO, driver improvement claim, or promotion",
+    "stop_condition": [
+      "stop if actor inputs change",
+      "stop if allowed trainable parameters are not explicitly listed",
+      "stop if training replay PPO or promotion is attempted"
+    ],
+    "fallback_plan": [
+      "if design passes, route to objective-only implementation",
+      "if fusion surface is too broad, route to target-active-set audit",
+      "if design needs encoder/GRU updates, require separate synthesis first"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M935 closes actor_mean-only branch and opens controlled fusion surface branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A narrowly controlled fusion-plus-head trainable surface is the next reasonable step after actor_mean-only trust-region conflict, while keeping recurrent and perception encoders frozen.",
+  "success_criteria": [
+    "docs/m936-v4-public-base-controlled-fusion-surface-design.md exists",
+    "M936 lists allowed and forbidden trainable parameter groups",
+    "M936 pre-registers checksums and objective diagnostics",
+    "M936 blocks exact compatibility replay PPO and promotion"
+  ],
+  "failure_criteria": [
+    "M936 starts training",
+    "M936 changes actor inputs",
+    "M936 omits trainable-surface checksums",
+    "M936 admits replay PPO or promotion"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m936-v4-public-base-controlled-fusion-surface-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m936-v4-public-base-controlled-fusion-surface-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m935-v4-public-base-policy-level-trust-region-branch-synthesis.md"
+  ],
+  "decision_rule": "M936 may only design the controlled fusion trainable surface. It must not train, run exact compatibility, run replay, run PPO, or promote.",
+  "next_blocker": "controlled fusion surface design has not yet been written"
+}

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 943,
+    "completed": 944,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m934-v4-public-base-policy-head-low-tail-pressure-implementation",
+    "task_id": "m935-v4-public-base-policy-level-trust-region-branch-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m934_v4_public_base_policy_head_low_tail_pressure/summary.json"
+    "command_log": "docs/m935-v4-public-base-policy-level-trust-region-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m935-v4-public-base-policy-level-trust-region-branch-synthesis",
+    "id": "m936-v4-public-base-controlled-fusion-surface-design",
     "status": "pending",
-    "priority": 9300,
-    "kind": "gate",
-    "hypothesis": "Synthesize M929-M934 before any broader trainable-surface design",
-    "command": "see experiments/manifests/m935-v4-public-base-policy-level-trust-region-branch-synthesis.json",
-    "success_artifact": "docs/m935-v4-public-base-policy-level-trust-region-branch-synthesis.md",
-    "notes": "Pending: branch synthesis; replay, PPO, and promotion blocked"
+    "priority": 9310,
+    "kind": "infrastructure",
+    "hypothesis": "Design a narrow fusion-plus-head trainable surface after actor_mean-only synthesis",
+    "command": "see experiments/manifests/m936-v4-public-base-controlled-fusion-surface-design.json",
+    "success_artifact": "docs/m936-v4-public-base-controlled-fusion-surface-design.md",
+    "notes": "Pending: design-only controlled fusion surface; exact compatibility, replay, PPO, and promotion blocked"
   },
-  "updated_at_utc": "20260525T224543Z"
+  "updated_at_utc": "20260525T224851Z"
 }

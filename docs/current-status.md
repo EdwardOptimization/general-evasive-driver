@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m935-v4-public-base-policy-level-trust-region-branch-synthesis
+m936-v4-public-base-controlled-fusion-surface-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -74,12 +74,16 @@ tail-lift candidate inside the conservative alpha window. M931 routes to a
 no-training extended-alpha audit of the saved M930 raw actor_mean direction.
 M932 finds weak normal-safe low-tail movement but no tail-lift rows. M933
 designs one more actor_mean-only low-tail pressure pass, and M934 confirms that
-tail lift requires leaving the normal-retention trust region. M935 must
-synthesize the M929-M934 actor_mean-only branch before any broader trainable
-surface is designed.
+tail lift requires leaving the normal-retention trust region. M935 closes the
+actor_mean-only branch and opens controlled fusion surface design.
 
 ## Recent Evidence Line
 
+- M935 synthesizes M929-M934 and closes the actor_mean-only branch. Supported:
+  actor_mean-only tooling is valid and has some low-tail leverage. Falsified:
+  conservative actor_mean-only training, larger alpha on M930 raw direction,
+  and stronger actor_mean-only pressure are sufficient to produce an admissible
+  candidate. Next branch: `v4_public_base_controlled_fusion_surface`.
 - M934 implements the stronger actor_mean-only low-tail pressure probe. It
   reconstructs `1213/1213`, joins `122/122`, changes only `actor_mean`, and
   keeps all non-head checksums unchanged. It gets normal-safe low-tail trend at

@@ -14517,3 +14517,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M934 runs stronger actor_mean-only low-tail pressure. It reconstructs `1213/1213`, joins `122/122`, changes only `actor_mean`, and keeps feature backbone, critic, log_std, and all non-head checksums unchanged. The stronger objective creates normal-safe low-tail trend at alphas `0.05`, `0.10`, and `0.20`, and tail lift at alpha `1.0`, but alpha `1.0` fails normal retention. `candidate_alpha_count=0`, `low_tail_effect_candidate_count=0`, and result class is `public_base_policy_head_trust_region_probe_trust_region_conflict`. No exact compatibility, replay, PPO, or promotion occurred.
 - decision: `public_base_policy_head_low_tail_pressure_trust_region_conflict_route_to_branch_synthesis`
 - next: `m935-v4-public-base-policy-level-trust-region-branch-synthesis`
+
+## 20260525T224851Z - m935-v4-public-base-policy-level-trust-region-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m935-v4-public-base-policy-level-trust-region-branch-synthesis.md`
+- result: M935 synthesizes M929-M934 and closes the actor_mean-only policy-level trust-region branch. Supported: actor_mean-only tooling is valid, preserves the P0 contract, and has some low-tail leverage. Falsified: conservative actor_mean-only training, larger alpha on the M930 raw direction, and stronger actor_mean-only pressure are sufficient to create an admissible candidate. The next branch is `v4_public_base_controlled_fusion_surface`, with response/context encoders and GRU still blocked unless separately justified.
+- decision: `promote_to_next_branch`
+- next: `m936-v4-public-base-controlled-fusion-surface-design`
