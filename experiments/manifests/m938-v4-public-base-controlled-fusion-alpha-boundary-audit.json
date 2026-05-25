@@ -1,0 +1,113 @@
+{
+  "id": "m938-v4-public-base-controlled-fusion-alpha-boundary-audit",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m937_v4_public_base_controlled_fusion_surface/checkpoints/raw_controlled_fusion_update.pt"
+    ],
+    "parent_dataset": [
+      "docs/m937-v4-public-base-controlled-fusion-surface-implementation.md",
+      "runs/m937_v4_public_base_controlled_fusion_surface/summary.json",
+      "runs/m937_v4_public_base_controlled_fusion_surface/alpha_metrics.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m937-v4-public-base-controlled-fusion-surface-implementation.json"
+    ],
+    "parent_objective": [
+      "no-training fine alpha boundary audit of the M937 raw controlled-fusion direction"
+    ],
+    "derived_from": [
+      "m937-v4-public-base-controlled-fusion-surface-implementation"
+    ],
+    "blocked_by": [
+      "M937 raw controlled-fusion direction has not been evaluated on a fine boundary alpha grid"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m938-v4-public-base-controlled-fusion-alpha-boundary-audit.md",
+  "public_gates": [
+    "M938 must be no-training",
+    "M938 must compare M399 base to M937 raw controlled-fusion direction",
+    "M938 must preserve P0 actor input contract",
+    "M938 must keep replay PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in M938",
+    "do not change actor inputs",
+    "do not update checkpoints",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_controlled_fusion_surface",
+    "evidence_axis": "G_policy_update: map controlled fusion alpha boundary",
+    "evidence_increment": "distinguishes a coarse-grid trust-region conflict from a real no-overlap boundary",
+    "claim_scope": "no-training boundary audit only; no replay, PPO, driver improvement claim, or promotion",
+    "stop_condition": [
+      "stop if training is required",
+      "stop if base and raw checkpoints differ outside the allowed controlled surface",
+      "stop if replay PPO or promotion is attempted"
+    ],
+    "fallback_plan": [
+      "if a candidate exists, route to exact no-update compatibility design",
+      "if only near-miss rows exist, route to boundary-aware objective design",
+      "if no overlap exists, route to controlled fusion trust-region audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M937 finds coarse-grid controlled fusion trust-region conflict",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A finer no-training alpha sweep can determine whether M937's controlled-fusion raw direction has a narrow admissible overlap between normal retention and tail lift.",
+  "success_criteria": [
+    "summary.json exists",
+    "training_started is false",
+    "base and raw checkpoints differ only on actor_mean and response_context_fusion.0",
+    "sample_reconstruction_success_rate >= 0.98",
+    "fine alpha grid includes values between 0.10 and 0.35",
+    "route decision is recorded without replay PPO or promotion"
+  ],
+  "failure_criteria": [
+    "M938 starts training",
+    "base and raw checkpoints differ outside allowed controlled surface",
+    "actor input contract changes",
+    "M938 runs replay PPO or promotion"
+  ],
+  "commands": [
+    {
+      "name": "run_controlled_fusion_alpha_boundary_audit",
+      "command": "PYTHONPATH=src python -m autodrift.public_base_controlled_fusion_raw_direction_feasibility --base-checkpoint runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --raw-checkpoint runs/m937_v4_public_base_controlled_fusion_surface/checkpoints/raw_controlled_fusion_update.pt --positive-rows runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv --contrast-rows runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv --scenario-config configs/extreme_fault_distribution_v4_scenarios.json --target-rows runs/m919_v4_public_base_expanded_target_regeneration/accepted_target_rows.csv --m912-summary runs/m912_v4_public_base_sequence_recalibration_audit/summary.json --low-tail-rows runs/m912_v4_public_base_sequence_recalibration_audit/low_tail_rows.csv --run-dir runs/m938_v4_public_base_controlled_fusion_alpha_boundary --device cpu --alphas 0.050,0.075,0.100,0.125,0.150,0.175,0.200,0.225,0.250,0.275,0.300,0.325,0.350,0.500,0.750,1.000"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m938_v4_public_base_controlled_fusion_alpha_boundary/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m938_v4_public_base_controlled_fusion_alpha_boundary/alpha_metrics.csv",
+      "type": "data"
+    },
+    {
+      "path": "docs/m938-v4-public-base-controlled-fusion-alpha-boundary-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "runs/m937_v4_public_base_controlled_fusion_surface/checkpoints/raw_controlled_fusion_update.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m937-v4-public-base-controlled-fusion-surface-implementation.md"
+  ],
+  "decision_rule": "M938 may only run no-training alpha-boundary metrics. It must not train, run replay, run PPO, or promote.",
+  "next_blocker": "M937 raw controlled-fusion direction has not been evaluated on a fine boundary alpha grid"
+}

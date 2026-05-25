@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m937-v4-public-base-controlled-fusion-surface-implementation
+m938-v4-public-base-controlled-fusion-alpha-boundary-audit
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -78,10 +78,19 @@ tail lift requires leaving the normal-retention trust region. M935 closes the
 actor_mean-only branch. M936 designs a controlled fusion-plus-head surface:
 train `actor_mean` plus `response_context_fusion.0`, while keeping
 response/context encoders, GRU, critic, log_std, replay, PPO, and promotion
-blocked.
+blocked. M937 validates the trainable-surface contract and finds strong
+low-tail leverage, but only outside normal retention on the coarse alpha grid.
+M938 must run a no-training fine alpha-boundary audit before changing the
+objective or widening the surface.
 
 ## Recent Evidence Line
 
+- M937 implements controlled fusion-plus-head training. It reconstructs
+  `1213/1213`, changes only `actor_mean` and `response_context_fusion.0`, and
+  keeps response/context encoders, GRU, critic, and log_std unchanged. It gets
+  strong tail lift at high alpha (`low_tail_fraction` about `0.045` at
+  alpha `1.0`) but no coarse-grid alpha satisfies normal retention and
+  tail lift together.
 - M936 designs the controlled fusion surface. M937 may update only
   `actor_mean` and `response_context_fusion.0`; it must reconstruct
   observation/hidden samples instead of using cached final features, because

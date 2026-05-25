@@ -1,0 +1,88 @@
+{
+  "decision_reason": "M937 changes only actor_mean and response_context_fusion.0 and gets strong tail lift at high alpha but no alpha satisfies normal retention and tail lift on the coarse grid",
+  "failure_criteria": [
+    "actor input contract changes",
+    "forbidden parameters change",
+    "sample reconstruction fails",
+    "M937 runs replay PPO or promotion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not change actor inputs",
+    "do not update response_encoder",
+    "do not update context_encoder",
+    "do not update online_gru_cell",
+    "do not update critic",
+    "do not update log_std",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T225959Z",
+  "hypothesis": "Allowing response_context_fusion.0 plus actor_mean to train can provide more low-tail leverage than actor_mean alone while preserving the recurrent self-ID encoder and P0 input contract.",
+  "lineage": {
+    "blocked_by": [
+      "controlled fusion surface probe has not yet been implemented"
+    ],
+    "derived_from": [
+      "m936-v4-public-base-controlled-fusion-surface-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m936-v4-public-base-controlled-fusion-surface-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m936-v4-public-base-controlled-fusion-surface-design.md",
+      "runs/m934_v4_public_base_policy_head_low_tail_pressure/summary.json",
+      "runs/m919_v4_public_base_expanded_target_regeneration/accepted_target_rows.csv",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/summary.json",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/low_tail_rows.csv"
+    ],
+    "parent_objective": [
+      "implement objective-only actor_mean plus response_context_fusion trainable surface"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m937-v4-public-base-controlled-fusion-surface-implementation",
+  "next_blocker": "controlled fusion surface probe has not yet been implemented",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "public_base_controlled_fusion_surface_trust_region_conflict_route_to_alpha_boundary_audit",
+  "public_gates": [
+    "M937 may update only actor_mean and response_context_fusion.0",
+    "M937 must preserve P0 actor input contract",
+    "M937 must keep response encoder context encoder GRU critic and log_std unchanged",
+    "M937 must report strict candidate and target-active-set diagnostics",
+    "M937 must block replay PPO and promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m937_v4_public_base_controlled_fusion_surface/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "public_base_controlled_fusion_surface_trust_region_conflict_route_to_alpha_boundary_audit",
+    "milestone": "m937-v4-public-base-controlled-fusion-surface-implementation",
+    "reason": "M937 changes only actor_mean and response_context_fusion.0 and gets strong tail lift at high alpha but no alpha satisfies normal retention and tail lift on the coarse grid",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary.json exists",
+    "training_started is true",
+    "actor_mean_changed is true",
+    "fusion_changed is true",
+    "forbidden_parameter_changed is false",
+    "sample_reconstruction_success_rate >= 0.98",
+    "diagnostic counts are reported",
+    "replay_used ppo_used and promoted are false"
+  ],
+  "type": "infrastructure"
+}

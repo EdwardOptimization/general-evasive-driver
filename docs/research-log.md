@@ -14535,3 +14535,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M936 designs the next controlled trainable surface after actor_mean-only synthesis. M937 may update only `actor_mean` and `response_context_fusion.0`, while freezing response/context encoders, online GRU, critic, log_std, and actor inputs. Because fusion-layer training needs gradients before final fused features, M937 must reconstruct observation/hidden samples rather than reuse cached final features. Replay, PPO, and promotion remain blocked.
 - decision: `controlled_fusion_surface_design_admit_m937`
 - next: `m937-v4-public-base-controlled-fusion-surface-implementation`
+
+## 20260525T225856Z - m937-v4-public-base-controlled-fusion-surface-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m937_v4_public_base_controlled_fusion_surface`
+- artifact: `docs/m937-v4-public-base-controlled-fusion-surface-implementation.md`
+- result: M937 implements objective-only controlled fusion-plus-head training. It reconstructs `1213/1213`, joins `122/122`, changes only `actor_mean` and `response_context_fusion.0`, and keeps response/context encoders, online GRU, critic, log_std, and actor inputs unchanged. It produces strong low-tail leverage at high alpha, but no coarse-grid alpha satisfies normal retention and tail lift together. `candidate_alpha_count=0`, `low_tail_effect_candidate_count=0`, `normal_safe_low_tail_trend_count=4`, and result class is `public_base_controlled_fusion_surface_probe_trust_region_conflict`. No exact compatibility, replay, PPO, or promotion occurred.
+- decision: `public_base_controlled_fusion_surface_trust_region_conflict_route_to_alpha_boundary_audit`
+- next: `m938-v4-public-base-controlled-fusion-alpha-boundary-audit`

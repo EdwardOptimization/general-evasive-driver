@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 945,
+    "completed": 946,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m936-v4-public-base-controlled-fusion-surface-design",
+    "task_id": "m937-v4-public-base-controlled-fusion-surface-implementation",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m936-v4-public-base-controlled-fusion-surface-design.md"
+    "command_log": "runs/m937_v4_public_base_controlled_fusion_surface/summary.json"
   },
   "next_task": {
-    "id": "m937-v4-public-base-controlled-fusion-surface-implementation",
+    "id": "m938-v4-public-base-controlled-fusion-alpha-boundary-audit",
     "status": "pending",
-    "priority": 9320,
+    "priority": 9330,
     "kind": "infrastructure",
-    "hypothesis": "Controlled fusion-plus-head training may provide more low-tail leverage while preserving recurrent encoders",
-    "command": "see experiments/manifests/m937-v4-public-base-controlled-fusion-surface-implementation.json",
-    "success_artifact": "runs/m937_v4_public_base_controlled_fusion_surface/summary.json",
-    "notes": "Pending: objective-only controlled fusion surface probe; replay, PPO, and promotion blocked"
+    "hypothesis": "A fine no-training alpha sweep can determine whether M937 has a narrow admissible overlap",
+    "command": "see experiments/manifests/m938-v4-public-base-controlled-fusion-alpha-boundary-audit.json",
+    "success_artifact": "runs/m938_v4_public_base_controlled_fusion_alpha_boundary/summary.json",
+    "notes": "Pending: no-training alpha-boundary audit; replay, PPO, and promotion blocked"
   },
-  "updated_at_utc": "20260525T225153Z"
+  "updated_at_utc": "20260525T225856Z"
 }

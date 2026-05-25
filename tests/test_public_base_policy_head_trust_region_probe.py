@@ -9,6 +9,11 @@ from autodrift.public_base_policy_head_trust_region_probe import (
 from autodrift.public_base_policy_head_raw_direction_feasibility import (
     classify_policy_head_raw_direction_feasibility,
 )
+from autodrift.public_base_controlled_fusion_surface_probe import (
+    classify_controlled_fusion_surface_probe,
+    interpolate_controlled_surface_state,
+    set_controlled_fusion_trainable_only,
+)
 from autodrift.train_ppo import ActorCritic
 
 
@@ -123,4 +128,52 @@ def test_classify_policy_head_raw_direction_feasibility_contract_artifact():
             promoted=False,
         )
         == "public_base_policy_head_raw_direction_feasibility_contract_artifact"
+    )
+
+
+def test_set_controlled_fusion_trainable_only_freezes_encoders():
+    model = ActorCritic(obs_dim=72, act_dim=3, hidden_size=8, actor_encoder="human_view_online_gru")
+    set_controlled_fusion_trainable_only(model)
+
+    trainable_names = {name for name, parameter in model.named_parameters() if parameter.requires_grad}
+
+    assert trainable_names == {
+        "actor_mean.weight",
+        "actor_mean.bias",
+        "response_context_fusion.0.weight",
+        "response_context_fusion.0.bias",
+    }
+
+
+def test_interpolate_controlled_surface_preserves_forbidden_parameters():
+    model = ActorCritic(obs_dim=72, act_dim=3, hidden_size=8, actor_encoder="human_view_online_gru")
+    base = {name: tensor.detach().clone() for name, tensor in model.state_dict().items()}
+    raw = {name: tensor.detach().clone() for name, tensor in model.state_dict().items()}
+    raw["actor_mean.weight"] = raw["actor_mean.weight"] + 2.0
+    raw["response_context_fusion.0.bias"] = raw["response_context_fusion.0.bias"] - 1.0
+    raw["response_encoder.0.weight"] = raw["response_encoder.0.weight"] + 5.0
+
+    mixed = interpolate_controlled_surface_state(base, raw, 0.25)
+
+    assert torch.allclose(mixed["actor_mean.weight"], base["actor_mean.weight"] + 0.5)
+    assert torch.allclose(mixed["response_context_fusion.0.bias"], base["response_context_fusion.0.bias"] - 0.25)
+    assert torch.allclose(mixed["response_encoder.0.weight"], base["response_encoder.0.weight"])
+
+
+def test_classify_controlled_fusion_surface_probe_candidate():
+    assert (
+        classify_controlled_fusion_surface_probe(
+            forbidden_parameter_changed=False,
+            actor_mean_changed=True,
+            fusion_changed=True,
+            reconstruction_success_rate=1.0,
+            metadata_missing_rows=0,
+            missing_target_keys=0,
+            candidate_count=1,
+            any_tail_lift=True,
+            any_normal_retained_tail_lift=True,
+            ppo_used=False,
+            promoted=False,
+        )
+        == "public_base_controlled_fusion_surface_probe_candidate"
     )
