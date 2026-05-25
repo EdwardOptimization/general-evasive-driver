@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 778,
+        "completed": 779,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m769-v4-limited-residual-holdout-replay-design",
+        "task_id": "m770-v4-limited-residual-holdout-replay-implementation",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m769-v4-limited-residual-holdout-replay-design.md"
+        "command_log": "runs/m770_v4_limited_residual_holdout_replay/summary.json"
     },
     "next_task": {
-        "id": "m770-v4-limited-residual-holdout-replay-implementation",
+        "id": "m771-v4-limited-residual-holdout-replay-audit",
         "status": "pending",
-        "priority": 7650,
-        "kind": "infrastructure",
-        "hypothesis": "Run limited no-PPO residual replay on the sparse fresh M767 corpus",
-        "command": "see experiments/manifests/m770-v4-limited-residual-holdout-replay-implementation.json",
-        "success_artifact": "docs/m770-v4-limited-residual-holdout-replay-implementation.md",
-        "notes": "Pending: run limited holdout replay with alpha 0.2 primary and 0.5 1.0 diagnostic"
+        "priority": 7660,
+        "kind": "gate",
+        "hypothesis": "Audit limited residual holdout replay before broader source wave or PPO",
+        "command": "see experiments/manifests/m771-v4-limited-residual-holdout-replay-audit.json",
+        "success_artifact": "docs/m771-v4-limited-residual-holdout-replay-audit.md",
+        "notes": "Pending: audit M770 limited holdout positive and source/collision concentration risks"
     },
-    "updated_at_utc": "20260525T065000Z"
+    "updated_at_utc": "20260525T070000Z"
 }

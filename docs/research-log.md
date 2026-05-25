@@ -12978,3 +12978,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M769 designs limited no-PPO residual replay on the sparse fresh M767 corpus. It fixes the replay inputs to the M761 residual head and M767 positive/contrast rows, sets alpha `0.2` as the primary conservative holdout alpha, keeps `0.5` and `1.0` diagnostic, and requires M770 to preserve sparse-holdout caveats. The design blocks residual retraining, alpha tuning from holdout results, PPO, and checkpoint promotion.
 - decision: `limited_residual_holdout_replay_design_admit_m770`
 - next: `m770-v4-limited-residual-holdout-replay-implementation`
+
+## 20260525T070000Z - m770-v4-limited-residual-holdout-replay-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m770_v4_limited_residual_holdout_replay`
+- artifact: `docs/m770-v4-limited-residual-holdout-replay-implementation.md`
+- result: M770 runs limited no-PPO residual replay on the sparse fresh M767 holdout corpus. It reconstructs `995/995` rows with `0` metadata misses and `0` rejected rows, writes `7960` replay rows and `3980` objective rows, and keeps the base actor checksum unchanged. Result class is `v4_residual_closed_loop_replay_candidate`: alpha `0.2`, `0.5`, and `1.0` pass. Normal branch success is `995/995` and normal collision rate is `0` for all alphas. Primary alpha `0.2` raises intervention action gap mean/p10 from base `0.043862/0.039491` to `0.050473/0.045717` and margin gap mean from `0.026641` to `0.030329`, with normal first-action drift mean/p95 `0.000553/0.001208`. Base intervention branch already has `20/995` collisions; alpha `0.2` has `23/995`, alpha `1.0` has `31/995`, concentrated in a few seeds/fault pairs. No optimizer, training, PPO, promotion, or actor mutation occurred.
+- decision: `limited_residual_holdout_replay_candidate_admit_audit`
+- next: `m771-v4-limited-residual-holdout-replay-audit`

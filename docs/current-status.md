@@ -62,16 +62,29 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m770-v4-limited-residual-holdout-replay-implementation
+m771-v4-limited-residual-holdout-replay-audit
 ```
 
-M770 should run limited no-PPO residual replay on the sparse fresh M767 holdout
-corpus. Alpha `0.2` is the primary conservative holdout alpha; `0.5` and `1.0`
-are diagnostic. The result must be reported as limited holdout evidence only,
-with training, PPO, and promotion blocked.
+M771 should audit the M770 limited fresh holdout replay result. It should decide
+whether the limited holdout positive supports a broader source-holdout wave, or
+whether source sparsity and intervention collision concentration require source
+balancing before further residual replay. PPO and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M770 runs limited no-PPO residual replay on the sparse fresh M767 holdout
+  corpus. It reconstructs `995/995` rows with `0` metadata misses and `0`
+  rejected rows, writes `7960` replay rows and `3980` objective rows, and keeps
+  the base actor checksum unchanged. Result class is
+  `v4_residual_closed_loop_replay_candidate`: alpha `0.2`, `0.5`, and `1.0`
+  pass. Normal branch success is `995/995` and normal collision rate is `0` for
+  all alphas. Primary alpha `0.2` raises intervention action gap mean/p10 from
+  base `0.043862/0.039491` to `0.050473/0.045717` and margin gap mean from
+  `0.026641` to `0.030329`, with normal first-action drift mean/p95
+  `0.000553/0.001208`. Base intervention branch already has `20/995`
+  collisions; alpha `0.2` has `23/995`, alpha `1.0` has `31/995`, concentrated
+  in a few seeds/fault pairs. No optimizer, training, PPO, promotion, or actor
+  mutation occurred.
 - M769 designs limited no-PPO residual replay on the sparse fresh M767 corpus.
   It fixes the replay inputs to the M761 residual head and M767
   positive/contrast rows, sets alpha `0.2` as the primary conservative holdout

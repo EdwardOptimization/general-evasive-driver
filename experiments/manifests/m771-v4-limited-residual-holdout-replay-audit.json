@@ -1,0 +1,108 @@
+{
+  "id": "m771-v4-limited-residual-holdout-replay-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m770-v4-limited-residual-holdout-replay-implementation.md",
+      "runs/m770_v4_limited_residual_holdout_replay/summary.json",
+      "runs/m770_v4_limited_residual_holdout_replay/alpha_metrics.csv",
+      "runs/m770_v4_limited_residual_holdout_replay/objective_rows.csv",
+      "runs/m767_v4_source_holdout_corpus_export/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m770-v4-limited-residual-holdout-replay-implementation.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit limited residual holdout replay before broader source wave or PPO"
+    ],
+    "derived_from": [
+      "m770-v4-limited-residual-holdout-replay-implementation"
+    ],
+    "blocked_by": [
+      "m770-v4-limited-residual-holdout-replay-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m771-v4-limited-residual-holdout-replay-audit.md",
+  "public_gates": [
+    "M771 reviews M770 limited holdout replay",
+    "M771 separates normal retention from intervention collision sensitivity",
+    "M771 audits sparse-source and collision concentration risks",
+    "M771 decides between broader source wave and residual replay continuation",
+    "PPO and checkpoint promotion remain blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not treat M770 as broad generalization",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not ignore source sparsity",
+    "do not ignore intervention collision concentration",
+    "do not claim true four-wheel or single-wheel physics"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_residual_source_holdout_replay",
+    "evidence_axis": "G_generalization: audit limited residual holdout replay",
+    "evidence_increment": "turns M770 limited holdout replay result into a branch decision before broader source wave or PPO",
+    "claim_scope": "process audit only; no PPO or driver promotion",
+    "stop_condition": [
+      "stop if M770 is overclaimed as broad generalization",
+      "stop if collision concentration is ignored",
+      "stop if sparse-source caveats are removed",
+      "stop if PPO or promotion is admitted"
+    ],
+    "fallback_plan": [
+      "if clean enough, design broader source-holdout wave v2",
+      "if source concentration dominates, design source-balanced fresh wave",
+      "if normal retention concern appears, return to residual objective design",
+      "if holdout result is strong but sparse, keep it as limited evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M770 completed limited residual holdout replay",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M770 is a limited source-holdout mechanism positive that should be audited before broader source coverage or PPO.",
+  "success_criteria": [
+    "M771 reviews alpha metrics and collision concentration",
+    "M771 records supported and falsified claims",
+    "M771 classifies source sparsity risks",
+    "M771 chooses the next branch without PPO or promotion"
+  ],
+  "failure_criteria": [
+    "audit overclaims broad generalization",
+    "audit ignores collision concentration",
+    "audit admits PPO or promotion",
+    "audit ignores claim-boundary limits"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m771-v4-limited-residual-holdout-replay-audit.md from M770 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m771-v4-limited-residual-holdout-replay-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m770_v4_limited_residual_holdout_replay/summary.json",
+    "docs/m770-v4-limited-residual-holdout-replay-implementation.md"
+  ],
+  "decision_rule": "M771 may only audit M770 and choose the next branch. It must not train, run PPO, mutate actor parameters, or promote a checkpoint.",
+  "next_blocker": "m772-v4-broader-source-holdout-wave-design"
+}

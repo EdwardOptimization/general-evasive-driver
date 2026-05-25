@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M770 limited fresh holdout replay reconstructs 995 of 995 rows and finds candidate alphas 0.2 0.5 1.0 with normal branch 995 of 995 success and zero collisions",
+  "failure_criteria": [
+    "reconstruction fails",
+    "normal retention metrics are missing",
+    "alpha 0.2 is not evaluated as primary",
+    "training or PPO starts",
+    "checkpoint is promoted"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not tune alpha after seeing holdout results",
+    "do not call sparse holdout evidence a promotion gate",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not hide normal-regression or intervention-collision rows"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260525T005531Z",
+  "hypothesis": "The M761 residual head will preserve normal behavior and increase intervention sensitivity on the fresh sparse M767 holdout corpus at conservative alpha 0.2.",
+  "lineage": {
+    "blocked_by": [
+      "m769-v4-limited-residual-holdout-replay-design"
+    ],
+    "derived_from": [
+      "m769-v4-limited-residual-holdout-replay-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m769-v4-limited-residual-holdout-replay-design.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m769-v4-limited-residual-holdout-replay-design.md",
+      "runs/m767_v4_source_holdout_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m767_v4_source_holdout_corpus_export/contrast_rows.csv",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+    ],
+    "parent_objective": [
+      "run limited no-PPO residual replay on fresh sparse M767 holdout corpus"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m770-v4-limited-residual-holdout-replay-implementation",
+  "next_blocker": "m771-v4-limited-residual-holdout-replay-audit",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "v4_residual_closed_loop_replay_candidate",
+  "public_gates": [
+    "M770 runs limited residual replay on fresh M767 corpus",
+    "M770 treats alpha 0.2 as primary and 0.5 1.0 as diagnostic",
+    "M770 reports sparse-holdout caveats",
+    "M770 checks normal retention and intervention sensitivity",
+    "PPO and checkpoint promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m770_v4_limited_residual_holdout_replay/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "v4_residual_closed_loop_replay_candidate",
+    "milestone": "m770-v4-limited-residual-holdout-replay-implementation",
+    "reason": "M770 limited fresh holdout replay reconstructs 995 of 995 rows and finds candidate alphas 0.2 0.5 1.0 with normal branch 995 of 995 success and zero collisions",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "generalization",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M770 runs the registered no-PPO replay command",
+    "M770 reconstructs at least 0.98 of holdout rows",
+    "M770 writes summary alpha replay objective and rejected rows",
+    "M770 reports alpha-specific normal retention and intervention sensitivity",
+    "M770 does not train, run PPO, or promote"
+  ],
+  "type": "infrastructure"
+}
