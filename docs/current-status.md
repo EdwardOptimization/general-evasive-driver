@@ -62,17 +62,28 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m764-v4-residual-closed-loop-replay-implementation
+m765-v4-residual-closed-loop-replay-audit
 ```
 
-M764 should implement the no-PPO closed-loop replay evaluator designed in M763.
-It should compare base alpha `0.0` with residual alphas `0.2`, `0.5`, and
-`1.0`, reconstruct M755/M761 source rows, report normal retention separately
-from intervention sensitivity, stratify by variant/horizon/fault family, and
-keep training, PPO, and checkpoint promotion blocked.
+M765 should audit the M764 no-PPO closed-loop residual replay result before any
+source-holdout replay, PPO, or checkpoint promotion. It should decide whether
+M764 is a clean closed-loop mechanism positive and whether the next step should
+be source-holdout replay, fresh v4 residual corpus mining, or residual objective
+redesign.
 
 ## Recent Evidence Line
 
+- M764 implements and runs the no-PPO closed-loop residual replay evaluator.
+  It reconstructs `1213/1213` source rows with `0` metadata misses and `0`
+  rejected rows, writes `9704` replay rows and `4852` objective rows, and keeps
+  the base actor checksum unchanged. Result class is
+  `v4_residual_closed_loop_replay_candidate`: alpha `0.2`, `0.5`, and `1.0`
+  pass closed-loop candidate gates. Normal success is `1213/1213` and normal
+  collision rate is `0` for all alphas. Alpha `0.2` raises intervention action
+  gap mean/p10 from base `0.041716/0.026395` to `0.047937/0.028594` with normal
+  first-action drift mean/p95 `0.000480/0.000939`; alpha `1.0` raises gap to
+  `0.074868/0.038011` but creates `4/1213` intervention-branch collisions. No
+  optimizer, PPO, promotion, or actor mutation occurred.
 - M763 designs a no-PPO closed-loop replay evaluator for the M761 residual
   head. It compares base alpha `0.0` with residual alphas `0.2`, `0.5`, and
   `1.0`, reconstructs M755/M761 source snapshots, applies the residual wrapper

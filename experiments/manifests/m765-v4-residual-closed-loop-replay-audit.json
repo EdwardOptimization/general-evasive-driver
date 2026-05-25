@@ -1,0 +1,111 @@
+{
+  "id": "m765-v4-residual-closed-loop-replay-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m764-v4-residual-closed-loop-replay-implementation.md",
+      "runs/m764_v4_residual_closed_loop_replay/summary.json",
+      "runs/m764_v4_residual_closed_loop_replay/alpha_metrics.csv",
+      "runs/m764_v4_residual_closed_loop_replay/replay_rows.csv",
+      "runs/m764_v4_residual_closed_loop_replay/objective_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m764-v4-residual-closed-loop-replay-implementation.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit no-PPO closed-loop residual replay before source holdout or PPO"
+    ],
+    "derived_from": [
+      "m764-v4-residual-closed-loop-replay-implementation"
+    ],
+    "blocked_by": [
+      "m764-v4-residual-closed-loop-replay-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m765-v4-residual-closed-loop-replay-audit.md",
+  "public_gates": [
+    "M765 reviews M764 closed-loop residual replay metrics",
+    "M765 separates normal retention from intervention sensitivity",
+    "M765 audits alpha 0.2 0.5 and 1.0 tradeoffs",
+    "M765 keeps public-corpus overfit and sparse hard-negative risks visible",
+    "PPO and checkpoint promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat M764 as promoted driver improvement",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not ignore intervention-branch collisions",
+    "do not hide public-corpus overfit risk",
+    "do not claim true four-wheel or single-wheel physics"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_residual_closed_loop_replay",
+    "evidence_axis": "G_closed_loop: audit no-PPO residual replay result",
+    "evidence_increment": "turns M764 closed-loop replay result into a branch decision before source holdout or PPO",
+    "claim_scope": "process audit only; may admit source-holdout replay design but cannot promote a driver",
+    "stop_condition": [
+      "stop if M764 normal branch regressed",
+      "stop if M764 gap only comes from artifact or metadata leakage",
+      "stop if public-corpus overfit risk is ignored",
+      "stop if audit would admit PPO or promotion directly"
+    ],
+    "fallback_plan": [
+      "if M764 is clean positive, design source-holdout residual replay",
+      "if alpha 1.0 is too aggressive, prioritize alpha 0.2 holdout",
+      "if signal is subgroup-concentrated, refresh source-balanced v4 corpus",
+      "if closed-loop signal is artifact, redesign residual objective"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M764 completed no-PPO residual closed-loop replay",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M764 is a clean closed-loop mechanism positive but still requires audit before source-holdout replay or any PPO discussion.",
+  "success_criteria": [
+    "M765 reviews M764 alpha metrics and stratification",
+    "M765 records supported and falsified claims",
+    "M765 classifies public-corpus and hard-negative risks",
+    "M765 decides whether source-holdout replay is admissible",
+    "M765 keeps PPO and checkpoint promotion blocked"
+  ],
+  "failure_criteria": [
+    "audit treats M764 as a promoted driver",
+    "audit ignores normal retention",
+    "audit ignores intervention-branch collisions",
+    "audit ignores public-corpus overfit risk",
+    "audit admits PPO or promotion directly"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m765-v4-residual-closed-loop-replay-audit.md from M764 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m765-v4-residual-closed-loop-replay-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m764_v4_residual_closed_loop_replay/summary.json",
+    "runs/m764_v4_residual_closed_loop_replay/alpha_metrics.csv",
+    "docs/m764-v4-residual-closed-loop-replay-implementation.md"
+  ],
+  "decision_rule": "M765 may only audit M764 and choose the next branch. It must not train, run PPO, mutate actor parameters, or promote a checkpoint.",
+  "next_blocker": "m766-v4-residual-source-holdout-replay-design"
+}
