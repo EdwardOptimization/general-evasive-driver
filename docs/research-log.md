@@ -13622,3 +13622,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M838 implements the bounded direct first-action override probe. It reuses the M832 near-boundary pair set (`60` pairs, `16` reconstructed snapshots), evaluates `1920` first-step override rows across pair-delta, steer, throttle, and brake directions with epsilon grid `[0.014, 0.025, 0.05, 0.075]`, and preserves actor/M761 residual-head checksums. The result class is `v4_near_boundary_action_effectiveness_first_step_insensitive`: accepted primary action-effective rows are `0`, directional degradation/improvement rows are `0`, success/collision flips are `0`, and max absolute terminal-margin movement is only `0.0026495` versus the `0.01` gate. The strongest direction is throttle-positive (`max_abs_margin_delta 0.0026495`), still far below threshold. This indicates M832 states are not useful first-step action-effectiveness surfaces; the next audit should decide between short-horizon sequence-effectiveness probing and fresh action-leverage boundary mining.
 - decision: `v4_near_boundary_action_effectiveness_first_step_insensitive`
 - next: `m839-v4-near-boundary-action-effectiveness-probe-audit`
+
+## 20260525T231500Z - m839-v4-near-boundary-action-effectiveness-probe-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m839-v4-near-boundary-action-effectiveness-probe-audit.md`
+- result: M839 audits M838 as a clean first-step action-effectiveness negative rather than an implementation or contract failure. M838 artifacts are complete (`1920` rows = `8` directions x `4` epsilon values x `60` pairs), checksums stayed fixed, rejected rows are `0`, and there were no severe clips. The negative is outcome-based: direct overrides up to `0.075` L2 create no accepted rows, no success/collision flips, and max margin movement only `0.0026495`. Pair-delta directions are also weak (`max_abs_margin_delta <= 0.00163`), so the original action-divergent matching direction is not locally outcome-effective at one step. The audit classifies the result as scenario-sampling/metric-artifact negative: M832 is a poor first-step control surface, but this does not falsify sequence-level action effectiveness or the broader driver goal. M840 is admitted as no-training short-horizon sequence-effectiveness design.
+- decision: `admit_short_horizon_sequence_effectiveness_probe_design`
+- next: `m840-v4-near-boundary-sequence-effectiveness-probe-design`

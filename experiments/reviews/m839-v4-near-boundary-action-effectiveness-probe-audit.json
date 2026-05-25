@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M839 audits M838 as clean first-step action-insensitive result rather than contract failure; next is no-training short-horizon sequence-effectiveness design before objective training PPO or promotion",
+  "failure_criteria": [
+    "M839 admits PPO or promotion",
+    "M839 trains actor or residual parameters",
+    "M839 ignores the M838 max margin delta and zero accepted rows",
+    "M839 treats first-step override evidence as learned self-ID proof"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "forbidden_shortcuts": [
+    "do not run replay in M839",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not relax the M837 margin threshold after seeing M838",
+    "do not keep adding first-step variants without an audit decision"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260525T122836Z",
+  "hypothesis": "M838 is a clean no-training first-step action-insensitive result, so the next control variable should be sequence-level action effectiveness or fresh action-leverage boundary mining rather than PPO.",
+  "lineage": {
+    "blocked_by": [
+      "M838 direct first-action overrides produce no accepted rows and max margin delta below threshold"
+    ],
+    "derived_from": [
+      "m838-v4-near-boundary-action-effectiveness-probe-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m838-v4-near-boundary-action-effectiveness-probe-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m838-v4-near-boundary-action-effectiveness-probe-implementation.md",
+      "runs/m838_v4_near_boundary_action_effectiveness_probe/summary.json",
+      "runs/m838_v4_near_boundary_action_effectiveness_probe/direction_summary.csv",
+      "runs/m838_v4_near_boundary_action_effectiveness_probe/action_effectiveness_rows.csv"
+    ],
+    "parent_objective": [
+      "audit first-step action-insensitive result before selecting sequence-effectiveness or new boundary mining"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m839-v4-near-boundary-action-effectiveness-probe-audit",
+  "next_blocker": "M838 indicates first-step local action effectiveness is too weak on M832 near-boundary pairs",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "admit_short_horizon_sequence_effectiveness_probe_design",
+  "public_gates": [
+    "M839 must audit M838 before any new implementation",
+    "M839 must not reinterpret direct override weakness as policy self-ID proof",
+    "M839 must classify whether this is first-step controllability failure or implementation failure",
+    "M839 must keep PPO and promotion blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m839-v4-near-boundary-action-effectiveness-probe-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "admit_short_horizon_sequence_effectiveness_probe_design",
+    "milestone": "m839-v4-near-boundary-action-effectiveness-probe-audit",
+    "reason": "M839 audits M838 as clean first-step action-insensitive result rather than contract failure; next is no-training short-horizon sequence-effectiveness design before objective training PPO or promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M839 writes an audit document for M838",
+    "M839 verifies M838 artifact completeness and frozen checksums",
+    "M839 classifies the failure taxonomy",
+    "M839 selects the next no-training branch",
+    "M839 keeps PPO and promotion blocked"
+  ],
+  "type": "gate"
+}
