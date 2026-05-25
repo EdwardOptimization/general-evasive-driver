@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M926 designs no-training alpha and direction-mixture feasibility sweep over M921 and M924 residual heads before any more residual training exact replay PPO or promotion",
+  "failure_criteria": [
+    "M926 starts training",
+    "M926 omits normal-retention or low-tail gates",
+    "M926 changes actor inputs or actor backbone",
+    "M926 starts exact compatibility replay PPO or promotion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train in M926",
+    "do not update actor parameters",
+    "do not run exact compatibility",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T221107Z",
+  "hypothesis": "Before another residual training variant, a no-training feasibility audit should determine whether existing residual directions can satisfy both normal-retention and low-tail gates through alpha or direction mixing.",
+  "lineage": {
+    "blocked_by": [
+      "trust-region feasibility branch has not yet been designed"
+    ],
+    "derived_from": [
+      "m925-v4-public-base-target-regeneration-branch-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m925-v4-public-base-target-regeneration-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m925-v4-public-base-target-regeneration-branch-synthesis.md",
+      "runs/m921_v4_public_base_regenerated_target_residual_probe/summary.json",
+      "runs/m921_v4_public_base_regenerated_target_residual_probe/residual_head.pt",
+      "runs/m924_v4_public_base_alpha_aware_low_tail_residual_probe/summary.json",
+      "runs/m924_v4_public_base_alpha_aware_low_tail_residual_probe/residual_head.pt"
+    ],
+    "parent_objective": [
+      "design no-training feasibility audit over existing public-base residual directions"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m926-v4-public-base-residual-direction-feasibility-design",
+  "next_blocker": "residual direction feasibility design has not yet been written",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "public_base_residual_direction_feasibility_design_admit_m927",
+  "public_gates": [
+    "M926 must be design-only",
+    "M926 must use existing residual heads only for no-training feasibility",
+    "M926 must preserve frozen M399 and actor-input constraints",
+    "M926 must block exact compatibility, replay, PPO, and promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m926-v4-public-base-residual-direction-feasibility-design.md",
+    "clearance_margin_mean": "",
+    "decision": "public_base_residual_direction_feasibility_design_admit_m927",
+    "milestone": "m926-v4-public-base-residual-direction-feasibility-design",
+    "reason": "M926 designs no-training alpha and direction-mixture feasibility sweep over M921 and M924 residual heads before any more residual training exact replay PPO or promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m926-v4-public-base-residual-direction-feasibility-design.md exists",
+    "M926 pre-registers no-training residual direction interpolation and alpha sweep",
+    "M926 preserves exact compatibility replay PPO and promotion blocks"
+  ],
+  "type": "infrastructure"
+}

@@ -1,0 +1,113 @@
+{
+  "id": "m927-v4-public-base-residual-direction-feasibility-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m926-v4-public-base-residual-direction-feasibility-design.md",
+      "runs/m921_v4_public_base_regenerated_target_residual_probe/residual_head.pt",
+      "runs/m924_v4_public_base_alpha_aware_low_tail_residual_probe/residual_head.pt",
+      "runs/m919_v4_public_base_expanded_target_regeneration/accepted_target_rows.csv",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m926-v4-public-base-residual-direction-feasibility-design.json"
+    ],
+    "parent_objective": [
+      "implement no-training residual direction mixture feasibility sweep"
+    ],
+    "derived_from": [
+      "m926-v4-public-base-residual-direction-feasibility-design"
+    ],
+    "blocked_by": [
+      "M926 feasibility design has not yet been implemented"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m927-v4-public-base-residual-direction-feasibility-implementation.md",
+  "public_gates": [
+    "M927 must not train",
+    "M927 must evaluate only existing M921 and M924 residual directions",
+    "M927 must preserve frozen M399 actor backbone",
+    "M927 must block exact compatibility, replay, PPO, and promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in M927",
+    "do not fit a new residual head",
+    "do not update actor parameters",
+    "do not change actor inputs",
+    "do not run exact compatibility",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_trust_region_feasibility",
+    "evidence_axis": "G_feasibility: execute residual direction mixture feasibility audit",
+    "evidence_increment": "runs a no-training alpha/mix sweep over M921 and M924 residual directions",
+    "claim_scope": "feasibility audit only; no training, exact compatibility, replay, PPO, driver improvement claim, or promotion",
+    "stop_condition": [
+      "stop if the implementation trains a new residual head",
+      "stop if actor_backbone_changed is true",
+      "stop if exact compatibility replay PPO or promotion is attempted"
+    ],
+    "fallback_plan": [
+      "if feasible candidate exists, route to exact no-update compatibility design",
+      "if no candidate exists, route to feasibility audit and likely policy-level or corpus-level strategy"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M926 admits no-training feasibility implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A deterministic mixture/alpha sweep over existing residual directions can determine whether the current residual bridge is feasible before any more training.",
+  "success_criteria": [
+    "summary.json exists",
+    "feasibility_grid.csv exists",
+    "training_started is false",
+    "actor_backbone_changed is false",
+    "m880_exact_used replay_used ppo_used and promoted are false"
+  ],
+  "failure_criteria": [
+    "M927 trains or fits a residual head",
+    "M927 mutates actor backbone",
+    "M927 runs exact compatibility replay PPO or promotion",
+    "M927 omits normal-retention or low-tail metrics"
+  ],
+  "commands": [
+    {
+      "name": "run_feasibility_sweep",
+      "command": "PYTHONPATH=src python -m autodrift.public_base_residual_direction_feasibility --checkpoint runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --positive-rows runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv --contrast-rows runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv --scenario-config configs/extreme_fault_distribution_v4_scenarios.json --target-rows runs/m919_v4_public_base_expanded_target_regeneration/accepted_target_rows.csv --m912-summary runs/m912_v4_public_base_sequence_recalibration_audit/summary.json --low-tail-rows runs/m912_v4_public_base_sequence_recalibration_audit/low_tail_rows.csv --m921-residual-head runs/m921_v4_public_base_regenerated_target_residual_probe/residual_head.pt --m924-residual-head runs/m924_v4_public_base_alpha_aware_low_tail_residual_probe/residual_head.pt --run-dir runs/m927_v4_public_base_residual_direction_feasibility --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m927_v4_public_base_residual_direction_feasibility/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m927_v4_public_base_residual_direction_feasibility/feasibility_grid.csv",
+      "type": "data"
+    },
+    {
+      "path": "docs/m927-v4-public-base-residual-direction-feasibility-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m926-v4-public-base-residual-direction-feasibility-design.md"
+  ],
+  "decision_rule": "M927 may only run no-training feasibility. It must not train, run exact compatibility, replay, PPO, or promote.",
+  "next_blocker": "residual direction feasibility implementation has not yet been run"
+}

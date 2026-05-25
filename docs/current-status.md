@@ -62,18 +62,24 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m926-v4-public-base-residual-direction-feasibility-design
+m927-v4-public-base-residual-direction-feasibility-implementation
 ```
 
 M925 synthesizes M916-M924 and closes the target-regeneration branch. Target
 generation succeeded, but residual objectives either improve target loss
 without enough low-tail lift or improve low-tail metrics only by violating
-normal retention. M926 must design a no-training residual-direction feasibility
-audit before more public-base residual training, exact compatibility, replay,
-PPO, or promotion.
+normal retention. M926 designs a no-training residual-direction feasibility
+audit. M927 must run the alpha/mix sweep over existing residual heads before
+more public-base residual training, exact compatibility, replay, PPO, or
+promotion.
 
 ## Recent Evidence Line
 
+- M926 designs no-training residual-direction feasibility. M927 should load the
+  existing M921 and M924 residual heads, evaluate mixtures
+  `(1-w) * residual_M921 + w * residual_M924` across alpha values, and decide
+  whether any existing direction can satisfy normal-retention, low-tail lift,
+  and target-action gates before more training.
 - M925 synthesizes the `v4_public_base_target_regeneration` branch. Supported:
   M399-rooted source-expanded target generation works and joins cleanly.
   Falsified: strict low-tail-only mining, target-action imitation alone, and

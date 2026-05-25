@@ -14432,3 +14432,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M925 synthesizes M916-M924. The branch supports M399-rooted source-expanded target generation and clean residual-head infrastructure, but falsifies strict low-tail-only mining, regenerated target-action imitation alone, and direct low-tail objective pressure alone as sufficient public-base residual routes. The active blocker is now trust-region feasibility, not source scarcity or reconstruction.
 - decision: `promote_to_next_branch`
 - next: `m926-v4-public-base-residual-direction-feasibility-design`
+
+## 20260525T220922Z - m926-v4-public-base-residual-direction-feasibility-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m926-v4-public-base-residual-direction-feasibility-design.md`
+- result: M926 designs a no-training feasibility audit over existing M921 and M924 residual directions. M927 should sweep direction mixtures and alphas, compute the same normal-retention, low-tail, and target-action metrics as M921/M924, and route based on whether any mixture satisfies all candidate gates. Training, new residual fitting, exact compatibility, replay, PPO, and promotion remain blocked.
+- decision: `public_base_residual_direction_feasibility_design_admit_m927`
+- next: `m927-v4-public-base-residual-direction-feasibility-implementation`
