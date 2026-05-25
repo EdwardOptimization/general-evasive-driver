@@ -1,0 +1,111 @@
+{
+  "id": "m866-v4-generated-boundary-pair-delta-refresh-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m865-v4-generated-boundary-refinement-audit.md",
+      "runs/m864_v4_generated_boundary_refinement/summary.json",
+      "runs/m864_v4_generated_boundary_refinement/combined_generated_boundary_rows.csv",
+      "runs/m864_v4_generated_boundary_refinement/pairability_projection_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m865-v4-generated-boundary-refinement-audit.json"
+    ],
+    "parent_objective": [
+      "design limited pair-delta refresh over M864 combined generated-boundary rows"
+    ],
+    "derived_from": [
+      "m865-v4-generated-boundary-refinement-audit"
+    ],
+    "blocked_by": [
+      "M864 pairability projection has not yet been converted into pair-delta sequence outcome evidence"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m866-v4-generated-boundary-pair-delta-refresh-design.md",
+  "public_gates": [
+    "M866 must design before pair-delta refresh implementation",
+    "M866 must use M864 combined generated-boundary rows as source candidates",
+    "M866 must separate pairability projection from actual pair-delta replay evidence",
+    "M866 must keep actor and residual-head mutation blocked",
+    "M866 must keep PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run replay in M866",
+    "do not train actor or residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat M864 pairability projection as pair-delta outcome evidence",
+    "do not treat generated-boundary rows as learned self-ID proof"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_boundary_expansion",
+    "evidence_axis": "G_pair_delta: limited pair-delta refresh design from generated boundary rows",
+    "evidence_increment": "designs source-aware pair-delta sequence replay over M864 combined generated-boundary rows after sparse boundary gate passes",
+    "claim_scope": "design only; no replay, training, PPO, learned policy claim, pair-delta outcome claim, or driver promotion",
+    "stop_condition": [
+      "stop if the design treats pairability projection as outcome evidence",
+      "stop if actor or residual-head mutation is proposed",
+      "stop if PPO or objective training is admitted before actual pair-delta outcomes",
+      "stop if M864 axis/seed concentration is ignored in pair selection"
+    ],
+    "fallback_plan": [
+      "if design is admitted, implement one no-training limited pair-delta refresh",
+      "if axis/seed concentration makes pair selection invalid, pivot to another boundary-generation pass",
+      "if replay cost is too high, implement a smaller source-aware smoke first",
+      "if artifacts are inconsistent, audit or repair before implementation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M865 admits limited pair-delta refresh design from sparse generated-boundary coverage",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M864 sparse generated-boundary coverage is sufficient to design a no-training limited pair-delta refresh that tests whether pairability projections become real sequence outcome rows.",
+  "success_criteria": [
+    "M866 writes a design document for limited pair-delta refresh",
+    "M866 defines source-aware pair selection from M864 combined rows",
+    "M866 defines pair-delta replay variants acceptance gates and artifacts",
+    "M866 keeps actor mutation residual-head mutation PPO and promotion blocked",
+    "M866 pre-registers the next implementation only if design is admitted"
+  ],
+  "failure_criteria": [
+    "M866 runs replay",
+    "M866 admits PPO or promotion",
+    "M866 trains actor or residual parameters",
+    "M866 treats pairability projection as sequence outcome evidence",
+    "M866 ignores M864 axis or seed concentration"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m866-v4-generated-boundary-pair-delta-refresh-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m866-v4-generated-boundary-pair-delta-refresh-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m865-v4-generated-boundary-refinement-audit.md",
+    "runs/m864_v4_generated_boundary_refinement/combined_generated_boundary_rows.csv",
+    "runs/m864_v4_generated_boundary_refinement/pairability_projection_rows.csv"
+  ],
+  "decision_rule": "M866 may only design a limited pair-delta refresh route. It must not run replay, train, run PPO, or promote.",
+  "next_blocker": "M864 pairability projection has not yet been converted into actual pair-delta sequence outcome evidence"
+}

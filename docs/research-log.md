@@ -13864,3 +13864,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M864 implements no-training generated-boundary refinement from M860 wide/negative brackets. It selects `25` bracket seeds, including `13` no-M860-boundary brackets, reconstructs all `25` snapshots, and produces `120` refinement rows. The result is strongly positive: `42` accepted refined boundary rows, `33` accepted no-M860-boundary rows, `20` refined source groups, `9` refined fault families, and combined M860+M864 coverage of `59` boundary-new-to-M844 rows across `27` source groups, `5` seeds, and `9` fault families. Combined pairability projection jumps to `365` primary rows. Actor and M761 checksums are unchanged; no training, PPO, promotion, or pair-delta sequence replay occurs. Result class is `v4_generated_boundary_refinement_sparse_useful`: sparse generated-boundary gate passes, but strong gate still misses due to `59 < 60` rows, `27 < 32` source groups, and `5 < 8` seeds.
 - decision: `v4_generated_boundary_refinement_sparse_useful`
 - next: `m865-v4-generated-boundary-refinement-audit`
+
+## 20260525T171242Z - m865-v4-generated-boundary-refinement-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m865-v4-generated-boundary-refinement-audit.md`
+- result: M865 audits M864 as a clean sparse-useful generated-boundary result. Sparse gates pass with `59` combined boundary-new-to-M844 rows, `27` source groups, `5` seeds, `9` fault families, and `365` primary pairability projections. Strong gates still fail and the surface is axis-concentrated (`56` lateral-offset rows, `3` timing rows, `0` half-width rows), but the source/fault coverage and abundant pairability projection are sufficient to design a limited pair-delta refresh. The audit explicitly keeps objective training, PPO, promotion, actor mutation, and M761 mutation blocked; pairability projections must be converted into actual sequence outcome rows before any pair-delta claim.
+- decision: `admit_limited_pair_delta_refresh_design`
+- next: `m866-v4-generated-boundary-pair-delta-refresh-design`

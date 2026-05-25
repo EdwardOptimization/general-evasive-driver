@@ -110,5 +110,5 @@
     "runs/m864_v4_generated_boundary_refinement/combined_generated_boundary_rows.csv"
   ],
   "decision_rule": "M865 may only audit M864 and pre-register the next no-training route. It must not run replay, train, run PPO, run pair-delta sequence replay, or promote.",
-  "next_blocker": "M864 sparse generated-boundary result has not yet been audited before pair-delta refresh"
+  "next_blocker": "M864 pairability projection has not yet been converted into actual pair-delta sequence outcome evidence"
 }

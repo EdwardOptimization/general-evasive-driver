@@ -62,16 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m865-v4-generated-boundary-refinement-audit
+m866-v4-generated-boundary-pair-delta-refresh-design
 ```
 
-M865 should audit the M864 sparse-useful generated-boundary refinement result
-before pair-delta refresh, objective training, PPO, promotion, or another
-boundary-generation pass. PPO, promotion, base actor mutation, M761
-residual-head mutation, and pair-delta sequence replay remain blocked.
+M866 should design a source-aware no-training pair-delta refresh over M864
+combined generated-boundary rows. Objective training, PPO, promotion, base actor
+mutation, and M761 residual-head mutation remain blocked.
 
 ## Recent Evidence Line
 
+- M865 audits M864 as clean sparse-useful generated-boundary coverage. Strong
+  gates still fail and the surface is axis-concentrated, but sparse gates pass
+  with `59` combined boundary-new-to-M844 rows, `27` source groups, `5` seeds,
+  `9` fault families, and `365` primary pairability projections. The next route
+  is a limited pair-delta refresh design that converts pairability projections
+  into actual sequence outcome evidence. PPO, objective training, actor
+  mutation, M761 mutation, and promotion remain blocked.
 - M864 implements no-training generated-boundary refinement from M860 brackets.
   It selects `25` bracket seeds, including `13` no-M860-boundary brackets,
   reconstructs all `25` snapshots, and produces `42` accepted refined rows.
