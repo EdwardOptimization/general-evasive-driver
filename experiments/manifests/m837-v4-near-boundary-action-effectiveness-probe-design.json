@@ -1,0 +1,109 @@
+{
+  "id": "m837-v4-near-boundary-action-effectiveness-probe-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m836-v4-full-wrong-history-response-intervention-audit.md",
+      "runs/m835_v4_full_wrong_history_response_intervention/variant_summary.csv",
+      "runs/m832_v4_near_boundary_wrong_history_pair_mining/near_boundary_pair_rows.csv",
+      "runs/m832_v4_near_boundary_wrong_history_pair_mining/accepted_boundary_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m836-v4-full-wrong-history-response-intervention-audit.json"
+    ],
+    "parent_objective": [
+      "design local first-action effectiveness probe before objective or architecture changes"
+    ],
+    "derived_from": [
+      "m836-v4-full-wrong-history-response-intervention-audit"
+    ],
+    "blocked_by": [
+      "M835 response/action interventions create action drift but not outcome evidence"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m837-v4-near-boundary-action-effectiveness-probe-design.md",
+  "public_gates": [
+    "M837 must remain design-only",
+    "M837 must define local action override directions and bounds",
+    "M837 must separate controllability evidence from policy self-ID evidence",
+    "M837 must keep PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run replay in M837",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not reinterpret direct action override success as policy self-ID",
+    "do not relax M835 thresholds after seeing the result"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_new_data_route",
+    "evidence_axis": "G_control: local action-effectiveness design",
+    "evidence_increment": "designs a direct action override controllability probe after hidden and response/action counterfactuals are outcome-weak",
+    "claim_scope": "design only; no replay, PPO, or driver promotion",
+    "stop_condition": [
+      "stop if the probe would be interpreted as policy self-ID proof",
+      "stop if action override bounds are unphysical or too large",
+      "stop if it cannot reuse M832 near-boundary pairs",
+      "stop if it would train parameters"
+    ],
+    "fallback_plan": [
+      "if action-effective directions exist, design an outcome-coupled objective",
+      "if no action-effective directions exist, redesign boundary states or sequence targets",
+      "if the probe is not feasible, pivot to architecture/objective design with explicit caveat",
+      "if more narrow milestones accumulate, synthesize before continuation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M836 audits M835 as action-drift metric artifact without outcome evidence",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A local direct-action override probe can determine whether M832 near-boundary states are first-action controllable enough to support an outcome-coupled response-history objective.",
+  "success_criteria": [
+    "M837 writes a design document for local action-effectiveness probing",
+    "M837 defines override directions bounds and acceptance gates",
+    "M837 specifies required implementation artifacts",
+    "M837 states that direct override evidence is not policy self-ID proof",
+    "M837 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M837 admits PPO or promotion",
+    "M837 trains actor or residual parameters",
+    "M837 treats action override success as learned policy proof",
+    "M837 ignores M835 all-weak result"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m837-v4-near-boundary-action-effectiveness-probe-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m837-v4-near-boundary-action-effectiveness-probe-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m836-v4-full-wrong-history-response-intervention-audit.md",
+    "runs/m835_v4_full_wrong_history_response_intervention/summary.json",
+    "runs/m832_v4_near_boundary_wrong_history_pair_mining/near_boundary_pair_rows.csv"
+  ],
+  "decision_rule": "M837 may only design the action-effectiveness probe. It must not run replay, train, run PPO, or promote.",
+  "next_blocker": "near-boundary state action-effectiveness is unknown"
+}

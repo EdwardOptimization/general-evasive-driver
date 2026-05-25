@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 844,
+    "completed": 845,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m835-v4-full-wrong-history-response-intervention-implementation",
+    "task_id": "m836-v4-full-wrong-history-response-intervention-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m835_v4_full_wrong_history_response_intervention/summary.json"
+    "command_log": "docs/m836-v4-full-wrong-history-response-intervention-audit.md"
   },
   "next_task": {
-    "id": "m836-v4-full-wrong-history-response-intervention-audit",
+    "id": "m837-v4-near-boundary-action-effectiveness-probe-design",
     "status": "pending",
-    "priority": 8310,
-    "kind": "gate",
-    "hypothesis": "Audit all-weak response/action wrong-history intervention result",
-    "command": "see experiments/manifests/m836-v4-full-wrong-history-response-intervention-audit.json",
-    "success_artifact": "docs/m836-v4-full-wrong-history-response-intervention-audit.md",
-    "notes": "Pending: M835 found zero accepted primary/component/mitigation rows; next audit decides pivot"
+    "priority": 8320,
+    "kind": "infrastructure",
+    "hypothesis": "Design direct action-effectiveness probe for M832 near-boundary states",
+    "command": "see experiments/manifests/m837-v4-near-boundary-action-effectiveness-probe-design.json",
+    "success_artifact": "docs/m837-v4-near-boundary-action-effectiveness-probe-design.md",
+    "notes": "Pending: M836 pivots from more wrong-history variants to local action controllability design"
   },
-  "updated_at_utc": "20260525T221500Z"
+  "updated_at_utc": "20260525T223000Z"
 }

@@ -13594,3 +13594,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M835 implements no-training response/action observation swaps over all `60` M832 near-boundary pairs, yielding `540` replay rows and preserving actor/M761 residual-head checksums. The result class is `v4_full_wrong_history_response_intervention_all_weak`: accepted primary response-history rows, component-attribution rows, mitigation rows, and zero-command component-like rows are all `0`. Some response/action variants create action drift (`wrong_response_action_hidden max_action 0.0196`, `wrong_action_history_hidden max_action 0.0172`), but outcome effects remain tiny (`wrong_response_action_hidden max_gap 0.000302`, `wrong_response_action_obs max_gap 0.000274`, threshold `0.01`). Even zero-command has larger action drift and margin gap (`max_gap 0.00467`) but still fails the margin threshold. This strengthens the negative: current M568/M761 behavior is not outcome-sensitive to hidden or response/action counterfactuals on this pair set.
 - decision: `v4_full_wrong_history_response_intervention_all_weak`
 - next: `m836-v4-full-wrong-history-response-intervention-audit`
+
+## 20260525T223000Z - m836-v4-full-wrong-history-response-intervention-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m836-v4-full-wrong-history-response-intervention-audit.md`
+- result: M836 audits M835 as a clean all-weak result, not a runtime or contract failure. M835 produced complete artifacts (`60` pairs, `540` replay rows, `0` rejected rows) and preserved actor/M761 checksums, but no intervention variant creates outcome evidence. Some variants cross the action threshold (`wrong_response_action_hidden max_action 0.0196`, `wrong_action_history_hidden max_action 0.0172`, threshold `0.014`), yet all margin gaps remain far below the `0.01` gate (`wrong_response_action_hidden max_gap 0.000302`, `zero_command_obs max_gap 0.00467`). The audit classifies this as a metric-artifact negative: action drift is visible but not outcome-effective. The next control variable is local first-action effectiveness: before objective or architecture changes, test whether bounded direct action overrides can change terminal margin on M832 near-boundary states.
+- decision: `admit_near_boundary_action_effectiveness_probe_design`
+- next: `m837-v4-near-boundary-action-effectiveness-probe-design`
