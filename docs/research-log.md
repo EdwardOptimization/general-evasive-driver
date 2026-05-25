@@ -13975,3 +13975,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M876 designs a no-training corpus transformation before objective design. The plan deduplicates by closed-loop signature, explicitly excludes retarget-axis labels from the dedup key, preserves duplicate metadata, separates existing M867/M870 evidence from new M873 evidence, and writes purpose-specific objective train/eval/source-holdout plus new-signature holdout splits. The design keeps the `78055` caveat visible and makes objective training, PPO, and promotion remain blocked until the transformed corpus is implemented and audited.
 - decision: `pair_delta_corpus_dedup_resplit_design_admit_m877`
 - next: `m877-v4-pair-delta-corpus-dedup-resplit-implementation`
+
+## 20260525T184401Z - m877-v4-pair-delta-corpus-dedup-resplit-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m877_v4_pair_delta_corpus_dedup_resplit`
+- artifact: `docs/m877-v4-pair-delta-corpus-dedup-resplit-implementation.md`
+- result: M877 implements the no-training dedup/resplit transformation. It reduces the corpus from `273` raw accepted rows to `247` deduplicated rows and collapses new M873 evidence from `39` rows to `13` closed-loop signatures, reducing new duplicate factor from `3.0` to `1.0`. The transformed objective train split has `124` rows including `8` new rows, eval has `22` rows including `2` new rows, source holdout has `98` existing-only rows, and new-signature holdout has `3` rows. The `78055` caveat remains and new source holdout is unavailable, so objective training, PPO, and promotion remain blocked pending audit.
+- decision: `v4_pair_delta_corpus_dedup_resplit_pass`
+- next: `m878-v4-deduped-pair-delta-objective-readiness-audit`
