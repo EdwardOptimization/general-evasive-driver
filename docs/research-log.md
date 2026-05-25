@@ -13473,3 +13473,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M822 audits M821 as a clean identity-only fixed-gate negative, not a contract or runtime failure. M821 produced complete artifacts (`53` candidates, `4505` normal replay rows, `13515` intervention rows), respected train-only selection, and kept actor/M761 residual-head checksums unchanged. Identity ranked first on train and passed holdout retention; all top nonidentity candidates reduced p05 margin lift, including scalar `0.999` (`train -1.07e-7`, `holdout -6.67e-7`) and scalar `0.980` (`train -2.18e-6`, `holdout -1.35e-5`). M822 closes fixed scalar/vector residual suppression on the M814/M817 corpus and blocks learned adaptive gate training, PPO, promotion, threshold relaxation, and same-corpus fixed-gate tuning from this result alone.
 - decision: `stop_fixed_gate_calibration_on_m814_m817_corpus`
 - next: `m823-v4-adaptive-primary-calibration-next-route-design`
+
+## 20260525T192500Z - m823-v4-adaptive-primary-calibration-next-route-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m823-v4-adaptive-primary-calibration-next-route-design.md`
+- result: M823 chooses the next evidence route after M821/M822. It rejects continuing fixed-gate calibration on the M814/M817 corpus and rejects learned adaptive gate training from an identity-only result. It selects an extreme hidden-dynamics data route focused on source-diverse command-response-history necessity: matched-current-state/action-divergent rows, wrong-history sensitivity, reset/delayed/zero-command history sensitivity, normal-history margin advantage, and mitigation-only margin differences. It preserves the current-model versus proxy-fault boundary: the single-track model may use proxy faults for blowout, split-mu, stuck-caliper, halfshaft, and corner-damage stress, but must not claim true wheel-level physical fidelity. PPO, promotion, actor/residual training, and oracle deploy-time inputs remain blocked.
+- decision: `admit_extreme_hidden_dynamics_data_route_design`
+- next: `m824-v4-extreme-hidden-dynamics-data-route-design`

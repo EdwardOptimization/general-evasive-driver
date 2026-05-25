@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M823 rejects same-corpus fixed-gate tuning and learned gate training from identity-only evidence and pivots to source-diverse extreme hidden-dynamics self-ID data-route design",
+  "failure_criteria": [
+    "M823 admits fixed-gate tuning on the same corpus",
+    "M823 starts implementation or training",
+    "M823 allows PPO or promotion",
+    "M823 ignores M821 identity-only result",
+    "M823 weakens actor-input or primary-threshold constraints"
+  ],
+  "failure_types": [
+    "metric_artifact",
+    "objective_overfit",
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not train a calibrator",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not tune fixed scalar/vector gates on the same public corpus",
+    "do not reinterpret identity-only as improvement",
+    "do not widen the primary 0.00005 margin threshold",
+    "do not add oracle deploy-time inputs"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T095913Z",
+  "hypothesis": "After M821/M822, the next useful step must add new data or a different objective signal rather than tuning fixed residual gates on the same corpus.",
+  "lineage": {
+    "blocked_by": [
+      "fixed scalar/vector residual gates do not beat identity on M814/M817 corpus"
+    ],
+    "derived_from": [
+      "m822-v4-adaptive-primary-calibration-grid-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m822-v4-adaptive-primary-calibration-grid-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m822-v4-adaptive-primary-calibration-grid-audit.md",
+      "runs/m821_v4_adaptive_primary_calibration_grid/summary.json",
+      "runs/m821_v4_adaptive_primary_calibration_grid/train_candidate_metrics.csv",
+      "runs/m821_v4_adaptive_primary_calibration_grid/holdout_candidate_metrics.csv"
+    ],
+    "parent_objective": [
+      "design next route after fixed-gate identity-only audit"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m823-v4-adaptive-primary-calibration-next-route-design",
+  "next_blocker": "m824-v4-extreme-hidden-dynamics-data-route-design",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "admit_extreme_hidden_dynamics_data_route_design",
+  "public_gates": [
+    "M823 must remain design-only",
+    "M823 must not train or run PPO",
+    "M823 must not promote a checkpoint",
+    "M823 must not continue fixed-gate tuning on the same corpus",
+    "M823 must choose a next route that adds new evidence rather than optimizing identity retention"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m823-v4-adaptive-primary-calibration-next-route-design.md",
+    "clearance_margin_mean": "",
+    "decision": "admit_extreme_hidden_dynamics_data_route_design",
+    "milestone": "m823-v4-adaptive-primary-calibration-next-route-design",
+    "reason": "M823 rejects same-corpus fixed-gate tuning and learned gate training from identity-only evidence and pivots to source-diverse extreme hidden-dynamics self-ID data-route design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M823 writes a design document for the next route",
+    "M823 explicitly rejects more fixed-gate tuning on the same corpus",
+    "M823 chooses between data-route expansion, diagnostic objective design, or branch closure",
+    "M823 keeps actor/residual training PPO and promotion blocked"
+  ],
+  "type": "infrastructure"
+}

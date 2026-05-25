@@ -1,0 +1,113 @@
+{
+  "id": "m824-v4-extreme-hidden-dynamics-data-route-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m823-v4-adaptive-primary-calibration-next-route-design.md",
+      "docs/m822-v4-adaptive-primary-calibration-grid-audit.md",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m823-v4-adaptive-primary-calibration-next-route-design.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_objective": [
+      "design extreme hidden-dynamics self-ID data route"
+    ],
+    "derived_from": [
+      "m823-v4-adaptive-primary-calibration-next-route-design"
+    ],
+    "blocked_by": [
+      "fixed scalar/vector residual suppression is closed on M814/M817 corpus",
+      "need new source-diverse hidden-dynamics evidence"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m824-v4-extreme-hidden-dynamics-data-route-design.md",
+  "public_gates": [
+    "M824 must remain design-only",
+    "M824 must define source-diverse extreme hidden-dynamics data route",
+    "M824 must preserve current-model versus proxy-fault claim boundary",
+    "M824 must define normal/wrong/reset/delayed history gates",
+    "M824 must not train or run PPO",
+    "M824 must not promote a checkpoint"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use hidden fault labels as deploy-time actor inputs",
+    "do not claim true wheel-level failures from current single-track proxies",
+    "do not optimize only fixed public proof rows",
+    "do not weaken the route to aggregate success rate only"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_new_data_route",
+    "evidence_axis": "G_distribution: extreme hidden-dynamics self-ID data route design",
+    "evidence_increment": "specifies a new source-diverse data route for history-dependent hidden-dynamics evidence after fixed-gate calibration failed",
+    "claim_scope": "design-only; no data run, PPO, or driver promotion",
+    "stop_condition": [
+      "stop if the design cannot preserve actor-input contract",
+      "stop if the design cannot separate current-model faults from proxies",
+      "stop if the design lacks history-intervention gates",
+      "stop if the design only repeats M814/M817 public rows"
+    ],
+    "fallback_plan": [
+      "if current model lacks required fault semantics, design a model-fidelity upgrade plan",
+      "if data route is too broad, split it into no-training source mining and later objective design",
+      "if diversity gates are infeasible, audit scenario sampling before training",
+      "if evidence remains identity-only, synthesize and pivot"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M823 selected extreme hidden-dynamics data route after fixed-gate identity-only audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A source-diverse extreme hidden-dynamics route can expose stronger command-response-history necessity evidence than same-corpus residual-gate calibration.",
+  "success_criteria": [
+    "M824 writes a design document for the extreme hidden-dynamics data route",
+    "M824 defines fault families onset buckets warm-up modes and obstacle axes",
+    "M824 defines normal wrong reset delayed and zero-command history gates",
+    "M824 defines source diversity and dominance thresholds",
+    "M824 preserves no-training no-PPO and no-promotion blocks"
+  ],
+  "failure_criteria": [
+    "M824 starts implementation or training",
+    "M824 allows PPO or promotion",
+    "M824 violates actor-input contract",
+    "M824 claims true wheel-level faults from current proxy dynamics",
+    "M824 lacks source-diverse history-intervention gates"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m824-v4-extreme-hidden-dynamics-data-route-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m824-v4-extreme-hidden-dynamics-data-route-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m823-v4-adaptive-primary-calibration-next-route-design.md",
+    "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+  ],
+  "decision_rule": "M824 may only admit a no-training data-route implementation or a model-fidelity blocker. It must not train, run PPO, or promote.",
+  "next_blocker": "m825-v4-extreme-hidden-dynamics-data-route-implementation"
+}

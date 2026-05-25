@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 831,
+        "completed": 832,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m822-v4-adaptive-primary-calibration-grid-audit",
+        "task_id": "m823-v4-adaptive-primary-calibration-next-route-design",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m822-v4-adaptive-primary-calibration-grid-audit.md"
+        "command_log": "docs/m823-v4-adaptive-primary-calibration-next-route-design.md"
     },
     "next_task": {
-        "id": "m823-v4-adaptive-primary-calibration-next-route-design",
+        "id": "m824-v4-extreme-hidden-dynamics-data-route-design",
         "status": "pending",
-        "priority": 8180,
+        "priority": 8190,
         "kind": "infrastructure",
-        "hypothesis": "Design next evidence route after fixed-gate identity-only audit",
-        "command": "see experiments/manifests/m823-v4-adaptive-primary-calibration-next-route-design.json",
-        "success_artifact": "docs/m823-v4-adaptive-primary-calibration-next-route-design.md",
-        "notes": "Pending: design new data or objective route; no fixed-gate tuning on same corpus"
+        "hypothesis": "Design source-diverse extreme hidden-dynamics self-ID data route after fixed-gate identity-only audit",
+        "command": "see experiments/manifests/m824-v4-extreme-hidden-dynamics-data-route-design.json",
+        "success_artifact": "docs/m824-v4-extreme-hidden-dynamics-data-route-design.md",
+        "notes": "Pending: design normal wrong reset delayed history gates and current-model/proxy fault boundary"
     },
-    "updated_at_utc": "20260525T191000Z"
+    "updated_at_utc": "20260525T192500Z"
 }
