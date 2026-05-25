@@ -13566,3 +13566,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M832 implements boundary-first matched different-fault pair mining. It reconstructs all `64` M825 source snapshots, produces `94` boundary replay rows and `39` accepted boundary rows with true near-boundary margins (`min 0.0000494`, `median 0.009952`, threshold `0.05`). This fixes M828's wide-margin source problem, but the matched pair gate remains sparse: `60` near-boundary pairs versus the pre-registered `80` minimum, with pair rejections dominated by obstacle distance (`389`), action gap (`177`), and same fault family (`115`). Wrong-history replay covers `420` rows across normal/reset/zero/shift/delay/wrong-hidden variants, but accepted primary wrong-history rows remain `0`; wrong-hidden first-action drift stays below threshold (`max 0.00665 < 0.014`) and margin gaps stay tiny (`max 0.0000369`). Actor and M761 residual-head checksums are unchanged, and no training/PPO/promotion occurs.
 - decision: `v4_near_boundary_wrong_history_pair_mining_pair_sparse`
 - next: `m833-v4-near-boundary-wrong-history-pair-mining-audit`
+
+## 20260525T214500Z - m833-v4-near-boundary-wrong-history-pair-mining-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m833-v4-near-boundary-wrong-history-pair-mining-audit.md`
+- result: M833 audits M832 as a clean no-training negative with two separate findings. Boundary-first mining worked: accepted boundary margins are truly near-boundary (`39` rows, min `0.0000494`, median `0.009952`) and fix M828's wide-margin issue. But matched pairs are still sparse (`60/80`) and hidden-only wrong-history remains far below proof thresholds even on those near-boundary pairs: wrong-hidden action drift max `0.00665 < 0.014`, margin gap max `0.0000369 << 0.01`, and accepted wrong-history rows `0`. The audit concludes that simply expanding hidden-only pair mining is not the best immediate control variable; the next diagnostic should swap deployable response/action observation fields to separate hidden-memory weakness from current-response-stream dependence.
+- decision: `admit_full_wrong_history_response_intervention_design`
+- next: `m834-v4-full-wrong-history-response-intervention-design`

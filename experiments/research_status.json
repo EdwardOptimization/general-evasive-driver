@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 841,
+    "completed": 842,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m832-v4-near-boundary-wrong-history-pair-mining-implementation",
+    "task_id": "m833-v4-near-boundary-wrong-history-pair-mining-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m832_v4_near_boundary_wrong_history_pair_mining/summary.json"
+    "command_log": "docs/m833-v4-near-boundary-wrong-history-pair-mining-audit.md"
   },
   "next_task": {
-    "id": "m833-v4-near-boundary-wrong-history-pair-mining-audit",
+    "id": "m834-v4-full-wrong-history-response-intervention-design",
     "status": "pending",
-    "priority": 8280,
-    "kind": "gate",
-    "hypothesis": "Audit M832 pair-sparse near-boundary wrong-history mining result",
-    "command": "see experiments/manifests/m833-v4-near-boundary-wrong-history-pair-mining-audit.json",
-    "success_artifact": "docs/m833-v4-near-boundary-wrong-history-pair-mining-audit.md",
-    "notes": "Pending: M832 fixed boundary slack but found only 60 pairs and zero accepted wrong-history rows"
+    "priority": 8290,
+    "kind": "infrastructure",
+    "hypothesis": "Design full wrong-history response/action observation interventions after hidden-only negative",
+    "command": "see experiments/manifests/m834-v4-full-wrong-history-response-intervention-design.json",
+    "success_artifact": "docs/m834-v4-full-wrong-history-response-intervention-design.md",
+    "notes": "Pending: M833 routes from hidden-only wrong-history weakness to response/action stream intervention design"
   },
-  "updated_at_utc": "20260525T213000Z"
+  "updated_at_utc": "20260525T214500Z"
 }
