@@ -1,0 +1,116 @@
+{
+  "id": "m906-v4-pair-delta-public-base-exact-compatibility-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "lineage_invalid",
+    "contract_violation",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m905-v4-pair-delta-public-base-integration-readiness-design.md",
+      "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_train_public_rows.csv",
+      "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_eval_public_rows.csv",
+      "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_source_holdout_public_rows.csv",
+      "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_new_signature_holdout_public_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m905-v4-pair-delta-public-base-integration-readiness-design.json"
+    ],
+    "parent_objective": [
+      "run exact no-update compatibility audit for current public-gate base on pair-delta objective surface"
+    ],
+    "derived_from": [
+      "m905-v4-pair-delta-public-base-integration-readiness-design"
+    ],
+    "blocked_by": [
+      "public-gate base has not yet been checked for exact pair-delta objective compatibility"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m906-v4-pair-delta-public-base-exact-compatibility-audit.md",
+  "public_gates": [
+    "M906 must evaluate current public-gate base only",
+    "M906 must reconstruct all 247 objective rows",
+    "M906 must keep evaluation no-update",
+    "M906 must report exact split metrics",
+    "M906 must keep PPO, replay, and promotion blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not run replay",
+    "do not promote a checkpoint",
+    "do not alter actor inputs",
+    "do not compare M399 as if it were M568"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_public_base_integration_readiness",
+    "evidence_axis": "G_compatibility: exact no-update pair-delta objective compatibility for public-gate base",
+    "evidence_increment": "tests whether the current public base can be evaluated on the pair-delta objective surface before any update design",
+    "claim_scope": "compatibility audit only; no update, replay, PPO, public-base integration claim, or promotion",
+    "stop_condition": [
+      "stop if reconstruction is incomplete",
+      "stop if exact losses are non-finite",
+      "stop if actor parameters change",
+      "stop if PPO, replay, or promotion is attempted"
+    ],
+    "fallback_plan": [
+      "if compatibility passes, route to public-base objective-only probe design",
+      "if reconstruction fails, route to reconstruction compatibility audit",
+      "if actor contract differs, route to contract audit",
+      "if metrics are finite but surprising, route to objective-surface comparison audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M905 admits public-base exact compatibility audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The current public-gate base can be evaluated on the existing enriched pair-delta objective surface without reconstruction, metric, or contract failure.",
+  "success_criteria": [
+    "tensor_rows_reconstructed is 247",
+    "missing_tensor_count is 0",
+    "exact_losses_finite is true",
+    "actor_parameters_changed is false",
+    "training_started and optimizer_started are false",
+    "ppo_used and promoted are false"
+  ],
+  "failure_criteria": [
+    "any objective tensor row is missing",
+    "exact losses are non-finite",
+    "actor parameters change",
+    "M906 runs replay, PPO, or promotion"
+  ],
+  "commands": [
+    {
+      "name": "exact_public_base_compatibility",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_enriched_pair_delta_objective_sanity --checkpoint runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --residual-head runs/m761_v4_sequence_objective_probe/residual_head.pt --scenario-config configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json --source-rows runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv --objective-train-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_train_public_rows.csv --objective-eval-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_eval_public_rows.csv --source-holdout-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_source_holdout_public_rows.csv --new-signature-holdout-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_new_signature_holdout_public_rows.csv --run-dir runs/m906_public_base_exact_compatibility --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m906_public_base_exact_compatibility/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "docs/m906-v4-pair-delta-public-base-exact-compatibility-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m905-v4-pair-delta-public-base-integration-readiness-design.md"
+  ],
+  "decision_rule": "M906 may only run exact no-update compatibility evaluation for the public base. It must not train, run replay, run PPO, or promote.",
+  "next_blocker": "Current public-gate base exact pair-delta compatibility has not yet been audited"
+}

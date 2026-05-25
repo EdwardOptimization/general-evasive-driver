@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 913,
+    "completed": 914,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m904-v4-pair-delta-objective-effect-size-branch-synthesis",
+    "task_id": "m905-v4-pair-delta-public-base-integration-readiness-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m904-v4-pair-delta-objective-effect-size-branch-synthesis.md"
+    "command_log": "docs/m905-v4-pair-delta-public-base-integration-readiness-design.md"
   },
   "next_task": {
-    "id": "m905-v4-pair-delta-public-base-integration-readiness-design",
+    "id": "m906-v4-pair-delta-public-base-exact-compatibility-audit",
     "status": "pending",
-    "priority": 9000,
-    "kind": "infrastructure",
-    "hypothesis": "Design public-base integration-readiness route for raw pair-delta objective signal",
-    "command": "see experiments/manifests/m905-v4-pair-delta-public-base-integration-readiness-design.json",
-    "success_artifact": "docs/m905-v4-pair-delta-public-base-integration-readiness-design.md",
-    "notes": "Pending: design public-base compatibility and objective-only transfer gates"
+    "priority": 9010,
+    "kind": "gate",
+    "hypothesis": "Audit exact no-update pair-delta objective compatibility for current public-gate base",
+    "command": "see experiments/manifests/m906-v4-pair-delta-public-base-exact-compatibility-audit.json",
+    "success_artifact": "runs/m906_public_base_exact_compatibility/summary.json",
+    "notes": "Pending: run exact no-update compatibility audit for M399 public base"
   },
-  "updated_at_utc": "20260525T204315Z"
+  "updated_at_utc": "20260525T204619Z"
 }

@@ -62,15 +62,20 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m905-v4-pair-delta-public-base-integration-readiness-design
+m906-v4-pair-delta-public-base-exact-compatibility-audit
 ```
 
-M904 closed the objective effect-size branch and opened public-base integration
-readiness. M905 must design compatibility and objective-only transfer gates
-while keeping M568 diagnostic base separate from the current public-gate base.
+M905 designed the public-base integration readiness route. M906 must run exact
+no-update pair-delta objective sanity on the current public-gate base M399
+before any public-base update, replay, PPO, or promotion.
 
 ## Recent Evidence Line
 
+- M905 designs public-base integration readiness. It keeps current public-gate
+  base `runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt` separate from
+  M568 diagnostic BC and M568-rooted raw candidates. M906 is exact no-update
+  compatibility only: reconstruct `247/247` objective rows, finite exact
+  losses, no actor parameter changes, no replay, no PPO, no promotion.
 - M904 synthesizes M895-M903. Raw objective-only movement is repeatable,
   proof-safe versus M568, and margin-positive on public proof, m121-style fresh,
   and robust challenge-family diagnostics without success/termination

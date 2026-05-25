@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M905 may only design public-base integration readiness. It must not run updates, replay gates, PPO, or promotion.",
+  "decision_reason": "M905 designs exact no-update public-base compatibility audit while keeping M399 public base separate from M568 diagnostic base",
   "failure_criteria": [
     "M905 runs an update or replay",
     "M905 admits PPO or promotion",
@@ -23,7 +23,7 @@
     "do not alter actor input contract"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260525T204537Z",
+  "generated_at_utc": "20260525T204828Z",
   "hypothesis": "The raw pair-delta objective signal is ready for a public-base integration-readiness design, but not for immediate update, PPO, or promotion.",
   "lineage": {
     "blocked_by": [
@@ -54,7 +54,7 @@
   "milestone": "m905-v4-pair-delta-public-base-integration-readiness-design",
   "next_blocker": "Public-base integration-readiness route has not yet been designed",
   "private_holdout_policy": "promotion_only",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "public_base_integration_readiness_design_admit_m906",
   "public_gates": [
     "M905 must identify current public-gate base and M568 diagnostic base separately",
     "M905 must design exact no-update compatibility checks for public base",
@@ -62,7 +62,20 @@
     "M905 must define replay/behavior/fresh gates after any public-base update",
     "M905 must keep PPO and promotion blocked"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m905-v4-pair-delta-public-base-integration-readiness-design.md",
+    "clearance_margin_mean": "",
+    "decision": "public_base_integration_readiness_design_admit_m906",
+    "milestone": "m905-v4-pair-delta-public-base-integration-readiness-design",
+    "reason": "M905 designs exact no-update public-base compatibility audit while keeping M399 public base separate from M568 diagnostic base",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "M905 writes an integration-readiness design document",
     "M905 separates current public-gate base from M568 diagnostic base",

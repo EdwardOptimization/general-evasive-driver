@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260525T204537Z
+- Generated at UTC: 20260525T204828Z
 - Type: infrastructure
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M905 may only design public-base integration readiness. It must not run updates, replay gates, PPO, or promotion.
+- Promotion decision: public_base_integration_readiness_design_admit_m906
+- Decision reason: M905 designs exact no-update public-base compatibility audit while keeping M399 public base separate from M568 diagnostic base
 
 ## Hypothesis
 
@@ -70,7 +70,18 @@ The raw pair-delta objective signal is ready for a public-base integration-readi
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m905-v4-pair-delta-public-base-integration-readiness-design
+- type: infrastructure
+- checkpoint: docs/m905-v4-pair-delta-public-base-integration-readiness-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: public_base_integration_readiness_design_admit_m906
+- reason: M905 designs exact no-update public-base compatibility audit while keeping M399 public base separate from M568 diagnostic base
 
 ## Next Blocker
 

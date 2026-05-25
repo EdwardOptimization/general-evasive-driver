@@ -14235,3 +14235,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M904 synthesizes M895-M903 and closes `v4_pair_delta_objective_effect_size`. The branch supports that raw objective-only movement is repeatable, proof-safe versus M568, and margin-positive on public proof, m121-style fresh, and robust challenge-family diagnostics without success/termination regression. It does not support success improvement, PPO, direct promotion, or public-base integration. The next branch is public-base integration readiness, with M568 diagnostic base and current public-gate base kept separate.
 - decision: `promote_to_next_branch`
 - next: `m905-v4-pair-delta-public-base-integration-readiness-design`
+
+## 20260525T204619Z - m905-v4-pair-delta-public-base-integration-readiness-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m905-v4-pair-delta-public-base-integration-readiness-design.md`
+- result: M905 designs the public-base integration-readiness route. It explicitly separates the current public-gate base `runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt` from the M568 diagnostic BC base and M568-rooted raw candidates. The next step is M906 exact no-update compatibility audit on M399 using the same enriched pair-delta objective rows and fixed M761 residual head. Update execution, replay, PPO, and promotion remain blocked.
+- decision: `public_base_integration_readiness_design_admit_m906`
+- next: `m906-v4-pair-delta-public-base-exact-compatibility-audit`
