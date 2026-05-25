@@ -14,6 +14,9 @@ from autodrift.public_base_controlled_fusion_surface_probe import (
     interpolate_controlled_surface_state,
     set_controlled_fusion_trainable_only,
 )
+from autodrift.public_base_controlled_fusion_raw_direction_feasibility import (
+    classify_controlled_fusion_raw_direction_feasibility,
+)
 from autodrift.train_ppo import ActorCritic
 
 
@@ -176,4 +179,23 @@ def test_classify_controlled_fusion_surface_probe_candidate():
             promoted=False,
         )
         == "public_base_controlled_fusion_surface_probe_candidate"
+    )
+
+
+def test_classify_controlled_fusion_raw_direction_feasibility_contract_artifact():
+    assert (
+        classify_controlled_fusion_raw_direction_feasibility(
+            forbidden_parameter_changed_between_checkpoints=True,
+            allowed_surface_changed_between_checkpoints=True,
+            reconstruction_success_rate=1.0,
+            metadata_missing_rows=0,
+            missing_target_keys=0,
+            candidate_count=0,
+            any_tail_lift=True,
+            any_normal_retained_tail_lift=False,
+            training_started=False,
+            ppo_used=False,
+            promoted=False,
+        )
+        == "public_base_controlled_fusion_raw_direction_feasibility_contract_artifact"
     )

@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M938 fine alpha sweep finds no exact overlap but alpha 0.15 is normal-retained and near the tail-lift deficit threshold so boundary-aware objective design is next",
+  "failure_criteria": [
+    "M938 starts training",
+    "base and raw checkpoints differ outside allowed controlled surface",
+    "actor input contract changes",
+    "M938 runs replay PPO or promotion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train in M938",
+    "do not change actor inputs",
+    "do not update checkpoints",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T230517Z",
+  "hypothesis": "A finer no-training alpha sweep can determine whether M937's controlled-fusion raw direction has a narrow admissible overlap between normal retention and tail lift.",
+  "lineage": {
+    "blocked_by": [
+      "M937 raw controlled-fusion direction has not been evaluated on a fine boundary alpha grid"
+    ],
+    "derived_from": [
+      "m937-v4-public-base-controlled-fusion-surface-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m937_v4_public_base_controlled_fusion_surface/checkpoints/raw_controlled_fusion_update.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m937-v4-public-base-controlled-fusion-surface-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m937-v4-public-base-controlled-fusion-surface-implementation.md",
+      "runs/m937_v4_public_base_controlled_fusion_surface/summary.json",
+      "runs/m937_v4_public_base_controlled_fusion_surface/alpha_metrics.csv"
+    ],
+    "parent_objective": [
+      "no-training fine alpha boundary audit of the M937 raw controlled-fusion direction"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m938-v4-public-base-controlled-fusion-alpha-boundary-audit",
+  "next_blocker": "M937 raw controlled-fusion direction has not been evaluated on a fine boundary alpha grid",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "controlled_fusion_alpha_boundary_near_miss_route_to_boundary_objective_design",
+  "public_gates": [
+    "M938 must be no-training",
+    "M938 must compare M399 base to M937 raw controlled-fusion direction",
+    "M938 must preserve P0 actor input contract",
+    "M938 must keep replay PPO and promotion blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m938_v4_public_base_controlled_fusion_alpha_boundary/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "controlled_fusion_alpha_boundary_near_miss_route_to_boundary_objective_design",
+    "milestone": "m938-v4-public-base-controlled-fusion-alpha-boundary-audit",
+    "reason": "M938 fine alpha sweep finds no exact overlap but alpha 0.15 is normal-retained and near the tail-lift deficit threshold so boundary-aware objective design is next",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary.json exists",
+    "training_started is false",
+    "base and raw checkpoints differ only on actor_mean and response_context_fusion.0",
+    "sample_reconstruction_success_rate >= 0.98",
+    "fine alpha grid includes values between 0.10 and 0.35",
+    "route decision is recorded without replay PPO or promotion"
+  ],
+  "type": "infrastructure"
+}

@@ -1,0 +1,102 @@
+{
+  "id": "m939-v4-public-base-controlled-fusion-boundary-objective-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m938-v4-public-base-controlled-fusion-alpha-boundary-audit.md",
+      "runs/m938_v4_public_base_controlled_fusion_alpha_boundary/summary.json",
+      "runs/m938_v4_public_base_controlled_fusion_alpha_boundary/alpha_metrics.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m938-v4-public-base-controlled-fusion-alpha-boundary-audit.json"
+    ],
+    "parent_objective": [
+      "design interpolation-aware controlled-fusion objective focused on normal-retained boundary alphas"
+    ],
+    "derived_from": [
+      "m938-v4-public-base-controlled-fusion-alpha-boundary-audit"
+    ],
+    "blocked_by": [
+      "boundary-aware controlled-fusion objective has not yet been designed"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m939-v4-public-base-controlled-fusion-boundary-objective-design.md",
+  "public_gates": [
+    "M939 must be design-only",
+    "M939 must preserve P0 actor input contract",
+    "M939 must keep trainable surface limited to actor_mean and response_context_fusion.0",
+    "M939 must pre-register boundary alpha objective and normal-retention penalties",
+    "M939 must block replay PPO and promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in M939",
+    "do not change actor inputs",
+    "do not widen trainable surface",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_controlled_fusion_surface",
+    "evidence_axis": "G_policy_update: design boundary-aware controlled-fusion objective",
+    "evidence_increment": "uses M938 fine boundary near-miss to design an interpolation-aware objective before wider surface changes",
+    "claim_scope": "objective design only; no training, replay, PPO, driver improvement claim, or promotion",
+    "stop_condition": [
+      "stop if the design widens trainable surface",
+      "stop if normal-retention penalties are omitted",
+      "stop if replay PPO or promotion is attempted"
+    ],
+    "fallback_plan": [
+      "if design passes, route to boundary-aware controlled-fusion implementation",
+      "if boundary objective is too narrow, route to controlled fusion branch audit",
+      "if candidate remains impossible, synthesize before touching encoders or GRU"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M938 finds normal-retained near-miss around alpha 0.15",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A boundary-aware controlled-fusion objective trained at normal-retained interpolation alphas can close the deficit gap without widening the trainable surface.",
+  "success_criteria": [
+    "docs/m939-v4-public-base-controlled-fusion-boundary-objective-design.md exists",
+    "M939 keeps trainable surface actor_mean plus response_context_fusion.0",
+    "M939 pre-registers boundary alpha objective terms",
+    "M939 blocks replay PPO and promotion"
+  ],
+  "failure_criteria": [
+    "M939 starts training",
+    "M939 changes actor inputs",
+    "M939 widens trainable surface",
+    "M939 admits replay PPO or promotion"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m939-v4-public-base-controlled-fusion-boundary-objective-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m939-v4-public-base-controlled-fusion-boundary-objective-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m938-v4-public-base-controlled-fusion-alpha-boundary-audit.md"
+  ],
+  "decision_rule": "M939 may only design the boundary-aware objective. It must not train, run replay, run PPO, or promote.",
+  "next_blocker": "boundary-aware controlled-fusion objective has not yet been designed"
+}

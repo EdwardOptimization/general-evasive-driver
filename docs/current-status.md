@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m938-v4-public-base-controlled-fusion-alpha-boundary-audit
+m939-v4-public-base-controlled-fusion-boundary-objective-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -80,11 +80,17 @@ train `actor_mean` plus `response_context_fusion.0`, while keeping
 response/context encoders, GRU, critic, log_std, replay, PPO, and promotion
 blocked. M937 validates the trainable-surface contract and finds strong
 low-tail leverage, but only outside normal retention on the coarse alpha grid.
-M938 must run a no-training fine alpha-boundary audit before changing the
-objective or widening the surface.
+M938 fine alpha-boundary audit finds no exact overlap, but alpha `0.15` is a
+normal-retained near miss. M939 should design a boundary-aware controlled-fusion
+objective before widening the surface.
 
 ## Recent Evidence Line
 
+- M938 runs a no-training fine alpha-boundary audit of the M937 raw direction.
+  It confirms no exact normal-retained tail-lift overlap, but alpha `0.15`
+  is a near miss: normal retention passes, p10/fraction move strongly, and the
+  remaining issue is mainly gap-deficit mean. Next route: boundary-aware
+  controlled-fusion objective design.
 - M937 implements controlled fusion-plus-head training. It reconstructs
   `1213/1213`, changes only `actor_mean` and `response_context_fusion.0`, and
   keeps response/context encoders, GRU, critic, and log_std unchanged. It gets

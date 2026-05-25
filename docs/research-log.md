@@ -14545,3 +14545,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M937 implements objective-only controlled fusion-plus-head training. It reconstructs `1213/1213`, joins `122/122`, changes only `actor_mean` and `response_context_fusion.0`, and keeps response/context encoders, online GRU, critic, log_std, and actor inputs unchanged. It produces strong low-tail leverage at high alpha, but no coarse-grid alpha satisfies normal retention and tail lift together. `candidate_alpha_count=0`, `low_tail_effect_candidate_count=0`, `normal_safe_low_tail_trend_count=4`, and result class is `public_base_controlled_fusion_surface_probe_trust_region_conflict`. No exact compatibility, replay, PPO, or promotion occurred.
 - decision: `public_base_controlled_fusion_surface_trust_region_conflict_route_to_alpha_boundary_audit`
 - next: `m938-v4-public-base-controlled-fusion-alpha-boundary-audit`
+
+## 20260525T230417Z - m938-v4-public-base-controlled-fusion-alpha-boundary-audit
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m938_v4_public_base_controlled_fusion_alpha_boundary`
+- artifact: `docs/m938-v4-public-base-controlled-fusion-alpha-boundary-audit.md`
+- result: M938 runs a no-training fine alpha sweep of the saved M937 raw controlled-fusion direction. It reconstructs `1213/1213`, joins `122/122`, confirms the raw checkpoint differs only on the allowed surface, and finds no alpha with both normal retention and tail lift. However, alpha `0.15` is a normal-retained near miss: p10 gap and low-tail fraction move strongly, while gap-deficit mean remains slightly short. No training, exact compatibility, replay, PPO, or promotion occurred.
+- decision: `controlled_fusion_alpha_boundary_near_miss_route_to_boundary_objective_design`
+- next: `m939-v4-public-base-controlled-fusion-boundary-objective-design`

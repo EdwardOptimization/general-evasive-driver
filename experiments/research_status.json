@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 946,
+    "completed": 947,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m937-v4-public-base-controlled-fusion-surface-implementation",
+    "task_id": "m938-v4-public-base-controlled-fusion-alpha-boundary-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m937_v4_public_base_controlled_fusion_surface/summary.json"
+    "command_log": "runs/m938_v4_public_base_controlled_fusion_alpha_boundary/summary.json"
   },
   "next_task": {
-    "id": "m938-v4-public-base-controlled-fusion-alpha-boundary-audit",
+    "id": "m939-v4-public-base-controlled-fusion-boundary-objective-design",
     "status": "pending",
-    "priority": 9330,
+    "priority": 9340,
     "kind": "infrastructure",
-    "hypothesis": "A fine no-training alpha sweep can determine whether M937 has a narrow admissible overlap",
-    "command": "see experiments/manifests/m938-v4-public-base-controlled-fusion-alpha-boundary-audit.json",
-    "success_artifact": "runs/m938_v4_public_base_controlled_fusion_alpha_boundary/summary.json",
-    "notes": "Pending: no-training alpha-boundary audit; replay, PPO, and promotion blocked"
+    "hypothesis": "Design interpolation-aware controlled-fusion objective around the M938 normal-retained near-miss boundary",
+    "command": "see experiments/manifests/m939-v4-public-base-controlled-fusion-boundary-objective-design.json",
+    "success_artifact": "docs/m939-v4-public-base-controlled-fusion-boundary-objective-design.md",
+    "notes": "Pending: design-only boundary-aware objective; replay, PPO, and promotion blocked"
   },
-  "updated_at_utc": "20260525T225856Z"
+  "updated_at_utc": "20260525T230417Z"
 }
