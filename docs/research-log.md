@@ -13091,3 +13091,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M781 audits M780 as a limited lower-alpha feasibility positive. Alpha `0.125` preserves strict normal retention and improves intervention action-gap and margin-gap metrics on M773, showing that M777's alpha `0.2` failure was a narrow residual-scale boundary rather than broad normal collapse. The audit blocks promotion and PPO because the active normal source margin at alpha `0.125` is only about `9e-6`, and alpha `0.15` already crosses into collision on the same source. M781 concludes that more dense alpha sweeps would only refine the crossing point; the next scientific blocker is how to preserve intervention-sensitive residual corrections while explicitly protecting low-margin normal branches.
 - decision: `promote_to_normal_margin_aware_residual_calibration_design`
 - next: `m782-v4-normal-margin-aware-residual-calibration-design`
+
+## 20260525T090000Z - m782-v4-normal-margin-aware-residual-calibration-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m782-v4-normal-margin-aware-residual-calibration-design.md`
+- result: M782 designs a no-PPO normal-margin-aware residual calibration branch. The design keeps the M568 actor frozen, keeps the M761 residual head frozen for the first probe, and adds a small deployable-feature gate `g(feature) in [0, 1]` so executed residual action becomes `base_action + alpha * g(feature) * delta_m761`. Terminal margins, source labels, and fault metadata may be used only as training-time weights and audit metadata, not deploy-time inputs. The objective combines low-margin normal suppression, an explicit `seed 77025/source_index 12` boundary guard, intervention gap retention, an intervention gate floor, optional hard-negative calibration, and parameter regularization. M783 should evaluate alpha `0.0`, `0.125`, `0.15`, `0.2`, verify base actor and M761 residual checksums remain unchanged, train only calibrator parameters, and keep PPO/promotion blocked.
+- decision: `normal_margin_calibration_design_admit_m783`
+- next: `m783-v4-normal-margin-aware-residual-calibration-implementation`

@@ -1,0 +1,88 @@
+{
+  "decision_reason": "M782 designs a no-PPO residual calibrator gate around frozen M761 residual outputs with low-margin normal suppression and intervention signal retention while keeping base actor inputs and weights unchanged",
+  "failure_criteria": [
+    "design admits PPO or promotion",
+    "design mutates the base actor",
+    "design omits seed 77025/source_index 12",
+    "design relies on deploy-time oracle inputs",
+    "design ignores hard-negative sparsity and current-model/proxy caveats"
+  ],
+  "failure_types": [
+    "behavior_regression",
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train in M782",
+    "do not mutate the base actor",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use deploy-time oracle inputs",
+    "do not hide alpha 0.125 tiny-margin caveat",
+    "do not claim true four-wheel or per-wheel fault fidelity"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T022334Z",
+  "hypothesis": "A normal-margin-aware residual calibration objective can preserve the useful intervention-separation signal from M761/M780 while reducing dangerous residual action on low-margin normal branches.",
+  "lineage": {
+    "blocked_by": [
+      "m781-v4-broader-normal-boundary-alpha-probe-audit"
+    ],
+    "derived_from": [
+      "m781-v4-broader-normal-boundary-alpha-probe-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m781-v4-broader-normal-boundary-alpha-probe-audit.json",
+      "experiments/manifests/m780-v4-broader-normal-boundary-alpha-probe-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m781-v4-broader-normal-boundary-alpha-probe-audit.md",
+      "docs/m780-v4-broader-normal-boundary-alpha-probe-implementation.md",
+      "runs/m780_v4_broader_normal_boundary_alpha_probe/summary.json",
+      "runs/m780_v4_broader_normal_boundary_alpha_probe/alpha_metrics.csv",
+      "runs/m780_v4_broader_normal_boundary_alpha_probe/replay_rows.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+    ],
+    "parent_objective": [
+      "design normal-margin-aware residual calibration after alpha 0.125 limited feasibility and tiny boundary margin"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m782-v4-normal-margin-aware-residual-calibration-design",
+  "next_blocker": "m783-v4-normal-margin-aware-residual-calibration-implementation",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "normal_margin_calibration_design_admit_m783",
+  "public_gates": [
+    "M782 designs a normal-margin-aware residual calibration objective",
+    "M782 keeps alpha 0.125 as diagnostic reference not promotion",
+    "M782 protects low-margin normal rows such as seed 77025/source_index 12",
+    "M782 preserves intervention action-gap and margin-gap objectives",
+    "M782 blocks actor mutation PPO and checkpoint promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m782-v4-normal-margin-aware-residual-calibration-design.md",
+    "clearance_margin_mean": "",
+    "decision": "normal_margin_calibration_design_admit_m783",
+    "milestone": "m782-v4-normal-margin-aware-residual-calibration-design",
+    "reason": "M782 designs a no-PPO residual calibrator gate around frozen M761 residual outputs with low-margin normal suppression and intervention signal retention while keeping base actor inputs and weights unchanged",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M782 specifies normal-margin retention terms for low-margin normal rows",
+    "M782 specifies intervention separation terms that preserve action-gap and margin-gap signal",
+    "M782 keeps base actor inputs and weights unchanged",
+    "M782 defines exact and closed-loop gates for a later implementation",
+    "M782 blocks PPO and promotion"
+  ],
+  "type": "infrastructure"
+}

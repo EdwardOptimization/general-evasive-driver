@@ -62,16 +62,28 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m782-v4-normal-margin-aware-residual-calibration-design
+m783-v4-normal-margin-aware-residual-calibration-implementation
 ```
 
-M782 should design a normal-margin-aware residual calibration objective after
-M781 audited alpha `0.125` as a limited feasibility positive with too little
-boundary margin for promotion. Repair implementation, PPO, training, and
-promotion remain blocked until the calibration design is registered.
+M783 should implement the no-PPO normal-margin-aware residual calibrator
+designed by M782. Base actor mutation, M761 residual-head mutation, PPO, and
+promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M782 designs a no-PPO normal-margin-aware residual calibration branch. The
+  design keeps the M568 actor frozen, keeps the M761 residual head frozen for
+  the first probe, and adds a small deployable-feature gate
+  `g(feature) in [0, 1]` so executed residual action becomes
+  `base_action + alpha * g(feature) * delta_m761`. Terminal margins, source
+  labels, and fault metadata may be used only as training-time weights and
+  audit metadata, not deploy-time inputs. The objective combines low-margin
+  normal suppression, an explicit `seed 77025/source_index 12` boundary guard,
+  intervention gap retention, an intervention gate floor, optional
+  hard-negative calibration, and parameter regularization. M783 should evaluate
+  alpha `0.0`, `0.125`, `0.15`, `0.2`, verify base actor and M761 residual
+  checksums remain unchanged, train only calibrator parameters, and keep
+  PPO/promotion blocked.
 - M781 audits M780 as a limited lower-alpha feasibility positive. Alpha
   `0.125` preserves strict normal retention and improves intervention
   action-gap and margin-gap metrics on M773, showing that M777's alpha `0.2`

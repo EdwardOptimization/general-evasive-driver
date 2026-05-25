@@ -1,0 +1,123 @@
+{
+  "id": "m783-v4-normal-margin-aware-residual-calibration-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "behavior_regression",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m782-v4-normal-margin-aware-residual-calibration-design.md",
+      "docs/m781-v4-broader-normal-boundary-alpha-probe-audit.md",
+      "runs/m780_v4_broader_normal_boundary_alpha_probe/replay_rows.csv",
+      "runs/m780_v4_broader_normal_boundary_alpha_probe/objective_rows.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/contrast_rows.csv",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m782-v4-normal-margin-aware-residual-calibration-design.json"
+    ],
+    "parent_objective": [
+      "implement no-PPO normal-margin-aware residual calibrator around frozen M761 residual head"
+    ],
+    "derived_from": [
+      "m782-v4-normal-margin-aware-residual-calibration-design"
+    ],
+    "blocked_by": [
+      "m782-v4-normal-margin-aware-residual-calibration-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m783-v4-normal-margin-aware-residual-calibration-implementation.md",
+  "public_gates": [
+    "M783 implements normal-margin-aware calibrator tooling",
+    "M783 freezes base actor and M761 residual head",
+    "M783 trains only calibrator parameters",
+    "M783 evaluates alpha 0.0 0.125 0.15 0.2",
+    "M783 reports active source margin and intervention gap metrics",
+    "M783 blocks PPO and checkpoint promotion"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not mutate base actor",
+    "do not mutate M761 residual head",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use terminal margin or fault labels as deploy-time inputs",
+    "do not hide calibrator collapse",
+    "do not claim broad generalization or true four-wheel physical fidelity"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_residual_normal_margin_calibration",
+    "evidence_axis": "G_action: normal-margin-aware residual calibration implementation",
+    "evidence_increment": "implements the first no-PPO calibrator probe to test whether low-margin normal suppression can coexist with intervention sensitivity",
+    "claim_scope": "implementation diagnostic only; no PPO or driver promotion",
+    "stop_condition": [
+      "stop if base actor or residual head checksum changes",
+      "stop if implementation cannot reconstruct required rows",
+      "stop if calibrator uses deploy-time oracle inputs",
+      "stop if result admits promotion"
+    ],
+    "fallback_plan": [
+      "if calibrator collapses residual everywhere, redesign intervention gate floor",
+      "if normal collisions remain, increase normal-margin retention or mine more boundary rows",
+      "if exact metrics improve but replay fails, split exact objective from replay implementation",
+      "if tooling is too large, implement objective sanity before full replay"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M782 admits normal-margin-aware calibration implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A small calibrator around the frozen M761 residual head can reduce residual action on low-margin normal branches while preserving intervention-sensitive residual separation.",
+  "success_criteria": [
+    "M783 writes calibrator tooling and run artifacts",
+    "M783 confirms actor and residual head checksums unchanged",
+    "M783 trains only calibrator parameters",
+    "M783 evaluates registered alphas 0.0 0.125 0.15 0.2",
+    "M783 reports whether calibrated alpha 0.2 or 0.125 passes strict normal retention and gap gates"
+  ],
+  "failure_criteria": [
+    "implementation mutates base actor or residual head",
+    "implementation runs PPO",
+    "implementation promotes a checkpoint",
+    "implementation uses oracle labels as deploy-time inputs",
+    "implementation omits active boundary source metrics"
+  ],
+  "commands": [
+    {
+      "name": "calibration_probe",
+      "command": "implement and run normal-margin-aware residual calibration probe; expected module src/autodrift/v4_normal_margin_residual_calibration.py with run dir runs/m783_v4_normal_margin_calibration"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m783_v4_normal_margin_calibration/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m783_v4_normal_margin_calibration/alpha_metrics.csv",
+      "type": "metrics"
+    },
+    {
+      "path": "docs/m783-v4-normal-margin-aware-residual-calibration-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m782-v4-normal-margin-aware-residual-calibration-design.md",
+    "runs/m780_v4_broader_normal_boundary_alpha_probe/replay_rows.csv",
+    "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+  ],
+  "decision_rule": "M783 may implement and run only a no-PPO residual calibration probe. It must not mutate the base actor, mutate the M761 residual head, run PPO, or promote a checkpoint.",
+  "next_blocker": "m784-v4-normal-margin-aware-residual-calibration-audit"
+}
