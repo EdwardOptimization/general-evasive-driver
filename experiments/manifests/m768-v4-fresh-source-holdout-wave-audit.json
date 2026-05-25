@@ -1,0 +1,108 @@
+{
+  "id": "m768-v4-fresh-source-holdout-wave-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m767-v4-fresh-source-holdout-wave-implementation.md",
+      "runs/m767_v4_source_holdout_extreme_faults/summary.json",
+      "runs/m767_v4_source_holdout_sequence_intervention/summary.json",
+      "runs/m767_v4_source_holdout_corpus_export/summary.json",
+      "runs/m767_v4_source_holdout_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m767_v4_source_holdout_corpus_export/contrast_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m767-v4-fresh-source-holdout-wave-implementation.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit fresh source-holdout corpus before residual replay"
+    ],
+    "derived_from": [
+      "m767-v4-fresh-source-holdout-wave-implementation"
+    ],
+    "blocked_by": [
+      "m767-v4-fresh-source-holdout-wave-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m768-v4-fresh-source-holdout-wave-audit.md",
+  "public_gates": [
+    "M768 reviews M767 fresh corpus size diversity and dominance",
+    "M768 checks clean metadata and sentinel behavior",
+    "M768 decides whether limited source-holdout residual replay is admissible",
+    "M768 keeps residual replay PPO and promotion blocked until audit decision",
+    "M768 classifies scenario_sampling_failure if source balance is inadequate"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not lower holdout gates after seeing output without calling it sparse",
+    "do not run residual replay inside the audit",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not claim true four-wheel or single-wheel physics"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_residual_source_holdout_replay",
+    "evidence_axis": "G_generalization: audit fresh source-holdout corpus",
+    "evidence_increment": "decides whether M767 sparse fresh corpus is enough for limited residual holdout replay or requires source refresh",
+    "claim_scope": "process audit only; no residual replay result, PPO claim, or driver promotion",
+    "stop_condition": [
+      "stop if sparse corpus is treated as clean pass",
+      "stop if residual replay is admitted without acknowledging dominance risk",
+      "stop if training PPO or promotion is admitted"
+    ],
+    "fallback_plan": [
+      "if sparse but useful, design limited residual holdout replay with strict caveats",
+      "if too concentrated, design source-balanced fresh wave v2",
+      "if positives are too low, widen seed count or source selection in a new manifest",
+      "if metadata is clean and diversity sufficient, admit residual replay design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M767 completed fresh source-holdout wave",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M767 produced a large but sparse fresh corpus that may support limited source-holdout residual replay only after explicit audit.",
+  "success_criteria": [
+    "M768 reviews fresh corpus gates and failure modes",
+    "M768 records supported and falsified claims",
+    "M768 decides whether residual replay is admissible or source refresh is needed",
+    "M768 keeps PPO and checkpoint promotion blocked"
+  ],
+  "failure_criteria": [
+    "audit ignores sparse corpus gates",
+    "audit treats M767 as residual generalization evidence",
+    "audit admits PPO or promotion",
+    "audit ignores claim-boundary limits"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m768-v4-fresh-source-holdout-wave-audit.md from M767 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m768-v4-fresh-source-holdout-wave-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m767_v4_source_holdout_corpus_export/summary.json",
+    "docs/m767-v4-fresh-source-holdout-wave-implementation.md"
+  ],
+  "decision_rule": "M768 may only audit M767 and choose the next branch. It must not run residual replay, train, run PPO, mutate actor parameters, or promote a checkpoint.",
+  "next_blocker": "m769-v4-limited-residual-holdout-replay-design"
+}

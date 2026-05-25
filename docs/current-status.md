@@ -62,16 +62,27 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m767-v4-fresh-source-holdout-wave-implementation
+m768-v4-fresh-source-holdout-wave-audit
 ```
 
-M767 should run a fresh disjoint-seed v4 source-holdout wave before residual
-replay. It should use seed range `76512..77023`, generate fresh v4 reset-only
-source rows, run sequence interventions, export a fresh v4 sequence-outcome
-corpus, and keep residual replay, training, PPO, and promotion blocked.
+M768 should audit the sparse fresh source-holdout corpus from M767. It must
+decide whether `995` clean fresh positives are sufficient for a limited
+residual holdout replay with caveats, or whether source balancing / another
+fresh wave is required before residual replay.
 
 ## Recent Evidence Line
 
+- M767 runs the disjoint-seed source-holdout pipeline for seed range
+  `76512..77023`. Stage 1 produces `390` reset-only rows with result_class
+  `cross_fault_reset_only`. Stage 2 selects `441` source rows and finds `995`
+  sequence outcome-critical rows with `0` sentinel false positives, but
+  result_class is `v4_reset_source_balance_blocked`. Stage 3 exports `995`
+  clean positives, `995` normal rows, and `1028` hard-negative rows with no
+  missing metadata, no sentinel positives, and no missing normal matches. The
+  fresh corpus gate fails as `v4_sequence_outcome_corpus_sparse`: positive rows
+  `995 < 1000`, fault-family pairs `13 < 16`, and max seed dominance
+  `0.247236 > 0.2`. No residual replay, training, PPO, promotion, or actor
+  mutation occurred.
 - M766 designs the fresh source-holdout path. Precheck shows existing artifacts
   are not enough for unbiased residual holdout: M752 has `1213` non-sentinel
   outcome positives, M755 exports all `1213`, and there are `0` extra positives

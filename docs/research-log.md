@@ -12950,3 +12950,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M766 designs the fresh source-holdout path. Precheck shows existing artifacts are not enough for unbiased residual holdout: M752 has `1213` non-sentinel outcome positives, M755 exports all `1213`, and there are `0` extra positives not used by M761. Although M752 has `60` unused source rows, they are not clean positive holdout rows. The design therefore selects a disjoint seed range `76512..77023` and admits a no-training fresh v4 source wave, reset-source sequence intervention, and corpus export before any residual replay.
 - decision: `v4_fresh_source_holdout_wave_design_admit_m767`
 - next: `m767-v4-fresh-source-holdout-wave-implementation`
+
+## 20260525T063000Z - m767-v4-fresh-source-holdout-wave-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dirs: `runs/m767_v4_source_holdout_extreme_faults`, `runs/m767_v4_source_holdout_sequence_intervention`, `runs/m767_v4_source_holdout_corpus_export`
+- artifact: `docs/m767-v4-fresh-source-holdout-wave-implementation.md`
+- result: M767 runs the disjoint-seed source-holdout pipeline for seed range `76512..77023`. Stage 1 produces `390` reset-only rows with result_class `cross_fault_reset_only`. Stage 2 selects `441` source rows and finds `995` sequence outcome-critical rows with `0` sentinel false positives, but result_class is `v4_reset_source_balance_blocked`. Stage 3 exports `995` clean positives, `995` normal rows, and `1028` hard-negative rows with no missing metadata, no sentinel positives, and no missing normal matches. The fresh corpus gate fails as `v4_sequence_outcome_corpus_sparse`: positive rows `995 < 1000`, fault-family pairs `13 < 16`, and max seed dominance `0.247236 > 0.2`. No residual replay, training, PPO, promotion, or actor mutation occurred.
+- decision: `v4_sequence_outcome_corpus_sparse_admit_audit`
+- next: `m768-v4-fresh-source-holdout-wave-audit`
