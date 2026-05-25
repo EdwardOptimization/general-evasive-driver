@@ -14366,3 +14366,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M918 designs coverage-first near-tail source expansion. M919 should join M909 near-base objective rows with M912 strict low-tail membership, use strict low-tail rows plus near-tail coverage rows from underrepresented seeds and fault-family pairs, and rerun bounded local action target generation. Residual training, M880 exact compatibility, replay, PPO, and promotion remain blocked until the expanded target corpus passes source gates.
 - decision: `public_base_target_source_expansion_design_admit_m919`
 - next: `m919-v4-public-base-expanded-target-regeneration-implementation`
+
+## 20260525T214852Z - m919-v4-public-base-expanded-target-regeneration-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m919_v4_public_base_expanded_target_regeneration`
+- artifact: `docs/m919-v4-public-base-expanded-target-regeneration-implementation.md`
+- result: M919 implements and runs the coverage-first near-tail source expansion. It writes `678` source candidates, selects `122` sources, reconstructs `122/122`, and accepts `122/122` local targets. The accepted set includes `103` strict low-tail targets and `19` near-tail coverage targets across `26` seeds and `14` fault-family pairs, with `max_fault_family_pair_fraction=0.19672131147540983`. Actor checksum is unchanged; no training, exact compatibility, replay, PPO, or promotion occurred.
+- decision: `public_base_expanded_target_regeneration_pass_route_to_residual_objective_design`
+- next: `m920-v4-public-base-regenerated-target-residual-objective-design`
+
+## 20260525T214852Z - m920-v4-public-base-regenerated-target-residual-objective-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m920-v4-public-base-regenerated-target-residual-objective-design.md`
+- result: M920 designs a frozen-M399 residual-head objective using the M919 regenerated targets. M921 may train only a `feature_dim=128` residual head, with target-action loss on the `122` accepted targets and normal-retention/low-tail metrics over the full reconstructed corpus. M880 exact compatibility, replay, PPO, actor update, and promotion remain blocked until objective gates pass.
+- decision: `public_base_regenerated_target_residual_objective_design_admit_m921`
+- next: `m921-v4-public-base-regenerated-target-residual-probe-implementation`

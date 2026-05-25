@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 927,
+    "completed": 929,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m918-v4-public-base-target-source-expansion-design",
+    "task_id": "m920-v4-public-base-regenerated-target-residual-objective-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m918-v4-public-base-target-source-expansion-design.md"
+    "command_log": "docs/m920-v4-public-base-regenerated-target-residual-objective-design.md"
   },
   "next_task": {
-    "id": "m919-v4-public-base-expanded-target-regeneration-implementation",
+    "id": "m921-v4-public-base-regenerated-target-residual-probe-implementation",
     "status": "pending",
-    "priority": 9140,
+    "priority": 9160,
     "kind": "infrastructure",
-    "hypothesis": "Run no-training coverage-first near-tail target regeneration for M399 public base",
-    "command": "see experiments/manifests/m919-v4-public-base-expanded-target-regeneration-implementation.json",
-    "success_artifact": "runs/m919_v4_public_base_expanded_target_regeneration/summary.json",
-    "notes": "Pending: expanded near-tail source target generation; residual training, exact compatibility, replay, PPO, and promotion blocked"
+    "hypothesis": "Train only a frozen-M399 residual head on M919 regenerated targets and evaluate objective gates",
+    "command": "see experiments/manifests/m921-v4-public-base-regenerated-target-residual-probe-implementation.json",
+    "success_artifact": "runs/m921_v4_public_base_regenerated_target_residual_probe/summary.json",
+    "notes": "Pending: residual-head-only objective probe; M880 exact compatibility, replay, PPO, and promotion blocked"
   },
-  "updated_at_utc": "20260525T213831Z"
+  "updated_at_utc": "20260525T214852Z"
 }

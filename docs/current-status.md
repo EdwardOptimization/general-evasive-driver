@@ -62,17 +62,28 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m919-v4-public-base-expanded-target-regeneration-implementation
+m921-v4-public-base-regenerated-target-residual-probe-implementation
 ```
 
-M917 ran M399-rooted target regeneration over strict low-tail states and found
-that target search works for selected rows but the source pool is too sparse
-and concentrated. M918 therefore designs a coverage-first near-tail source
-expansion. M919 must run no-training expanded target regeneration before any
-residual training, M880 exact compatibility, replay, PPO, or promotion.
+M919 passed expanded target generation with a source-diverse M399-rooted target
+corpus. M920 designs the next residual-head-only objective probe. M921 must
+train only a frozen-M399 residual head on the regenerated targets and evaluate
+objective gates before any M880 exact compatibility, replay, PPO, or promotion.
 
 ## Recent Evidence Line
 
+- M920 designs the regenerated-target residual objective. M921 may train only a
+  `feature_dim=128` residual head on frozen M399 features using M919 target
+  actions, while measuring normal-retention over the full `1213` reconstructed
+  rows. Candidate alphas must improve M912 low-tail p10/deficit/fraction and
+  target-action MSE while keeping normal action drift inside registered bounds.
+- M919 implements expanded target regeneration. It joins M909 near-base
+  objective rows with M912 low-tail labels, adds near-tail source coverage, and
+  passes all registered target gates: `accepted_targets=122`,
+  `strict_low_tail_accepted_targets=103`, `distinct_seeds=26`,
+  `distinct_fault_family_pairs=14`, and
+  `max_fault_family_pair_fraction=0.19672131147540983`. Actor checksum remains
+  unchanged, with no training, exact compatibility, replay, PPO, or promotion.
 - M918 designs target source expansion. M919 should join M909 near-base
   objective rows with M912 strict low-tail labels, add near-tail source
   coverage from the full M755 corpus, and accept a regenerated target corpus
