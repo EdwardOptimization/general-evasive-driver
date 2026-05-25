@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M792 implements no-training fixed residual component sensitivity and finds no actionable mask; steer is both useful and harmful brake is useful-only throttle has no meaningful component role so M793 audit is required before another objective",
+  "failure_criteria": [
+    "implementation trains parameters",
+    "implementation mutates base actor or residual head",
+    "implementation runs PPO",
+    "implementation promotes a checkpoint",
+    "implementation omits active-source metrics"
+  ],
+  "failure_types": [
+    "objective_overfit",
+    "behavior_regression",
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train any parameters",
+    "do not mutate base actor",
+    "do not mutate M761 residual head",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use terminal margin or fault labels as deploy-time inputs",
+    "do not hide public active-source pressure",
+    "do not claim broad generalization or true four-wheel physical fidelity"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T041115Z",
+  "hypothesis": "Fixed residual component masks can identify whether steer throttle or brake residual components cause active-source normal collision risk or intervention gap lift.",
+  "lineage": {
+    "blocked_by": [
+      "m791-v4-residual-component-sensitivity-design"
+    ],
+    "derived_from": [
+      "m791-v4-residual-component-sensitivity-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m791-v4-residual-component-sensitivity-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m791-v4-residual-component-sensitivity-design.md",
+      "docs/m790-v4-vector-residual-calibration-audit.md",
+      "runs/m789_v4_vector_residual_calibration/summary.json",
+      "runs/m789_v4_vector_residual_calibration/alpha_metrics.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/contrast_rows.csv",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+    ],
+    "parent_objective": [
+      "implement no-training residual component sensitivity probe over fixed steer throttle brake masks"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m792-v4-residual-component-sensitivity-implementation",
+  "next_blocker": "m793-v4-residual-component-sensitivity-audit",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "v4_residual_component_sensitivity_attribution_found",
+  "public_gates": [
+    "M792 implements no-training fixed residual component masks",
+    "M792 freezes base actor and M761 residual head",
+    "M792 evaluates alpha 0.0 0.125 0.15 0.2",
+    "M792 writes per-mask aggregate and active-source metrics",
+    "M792 blocks training PPO and checkpoint promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m792_v4_residual_component_sensitivity/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "v4_residual_component_sensitivity_attribution_found",
+    "milestone": "m792-v4-residual-component-sensitivity-implementation",
+    "reason": "M792 implements no-training fixed residual component sensitivity and finds no actionable mask; steer is both useful and harmful brake is useful-only throttle has no meaningful component role so M793 audit is required before another objective",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M792 writes run artifacts and docs",
+    "M792 confirms actor and residual head checksums unchanged",
+    "M792 trains no parameters",
+    "M792 evaluates registered masks and alphas",
+    "M792 reports active-source and aggregate component sensitivity"
+  ],
+  "type": "infrastructure"
+}

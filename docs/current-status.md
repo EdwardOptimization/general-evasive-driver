@@ -62,15 +62,30 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m792-v4-residual-component-sensitivity-implementation
+m793-v4-residual-component-sensitivity-audit
 ```
 
-M792 should implement and run the no-training fixed-mask residual component
-sensitivity probe designed by M791. Base actor mutation, M761 residual-head
-mutation, PPO, and promotion remain blocked.
+M793 should audit the M792 attribution-only fixed-mask residual component
+sensitivity result before any steer-specific objective. Base actor mutation,
+M761 residual-head mutation, PPO, and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M792 adds `src/autodrift/v4_residual_component_sensitivity.py` and focused
+  tests, then runs the no-training fixed-mask component sensitivity probe over
+  the M773 broader source-holdout corpus. It reconstructs `2640/2652` rows with
+  `0` metadata misses and the same `12` unsupported `command_shift_obs`
+  rejects, writes `168960` replay rows, `84480` objective rows, `384`
+  active-source rows, and confirms the M568 actor and M761 residual-head
+  checksums unchanged. No optimizer, PPO, or promotion is used. Result class is
+  `v4_residual_component_sensitivity_attribution_found`: no fixed mask is
+  actionable, but component roles are identifiable. Steer is both useful and
+  harmful: at alpha `0.2`, `steer_only` reaches gap mean `0.044286` but
+  collides on the active source with margin `-0.000049`, while
+  `throttle_brake` / no-steer stays safe with margin `+0.000112` but gap mean
+  only `0.042545`. Brake is useful-only with lower gap, and throttle has no
+  meaningful role. M792 therefore blocks PPO/promotion and admits M793 audit
+  before any steer-specific objective.
 - M791 designs a no-training fixed-mask component sensitivity probe for the
   frozen M761 residual head. The design keeps the M568 actor frozen, keeps the
   M761 residual head frozen, and evaluates masks over steer/throttle/brake

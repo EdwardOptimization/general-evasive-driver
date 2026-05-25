@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 800,
+        "completed": 801,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m791-v4-residual-component-sensitivity-design",
+        "task_id": "m792-v4-residual-component-sensitivity-implementation",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m791-v4-residual-component-sensitivity-design.md"
+        "command_log": "docs/m792-v4-residual-component-sensitivity-implementation.md"
     },
     "next_task": {
-        "id": "m792-v4-residual-component-sensitivity-implementation",
+        "id": "m793-v4-residual-component-sensitivity-audit",
         "status": "pending",
-        "priority": 7870,
-        "kind": "infrastructure",
-        "hypothesis": "Implement no-training fixed-mask residual component sensitivity probe before another vector objective",
-        "command": "see experiments/manifests/m792-v4-residual-component-sensitivity-implementation.json",
-        "success_artifact": "docs/m792-v4-residual-component-sensitivity-implementation.md",
-        "notes": "Pending: implementation diagnostic only; training PPO and promotion remain blocked"
+        "priority": 7880,
+        "kind": "gate",
+        "hypothesis": "Audit M792 attribution-only fixed-mask result before another residual objective",
+        "command": "see experiments/manifests/m793-v4-residual-component-sensitivity-audit.json",
+        "success_artifact": "docs/m793-v4-residual-component-sensitivity-audit.md",
+        "notes": "Pending: audit M792 steer-dominant useful/harmful attribution and decide next blocker; training PPO and promotion remain blocked"
     },
-    "updated_at_utc": "20260525T105000Z"
+    "updated_at_utc": "20260525T110000Z"
 }

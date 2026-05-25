@@ -13184,3 +13184,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M791 designs a no-training fixed-mask component sensitivity probe for the frozen M761 residual head. The design keeps the M568 actor frozen, keeps the M761 residual head frozen, and evaluates masks over steer/throttle/brake residual components: none, all, single components, no-component ablations, and two-component combinations. It uses alpha ladder `0.0`, `0.125`, `0.15`, `0.2`, with alpha `0.2` as the primary diagnostic because it has strong intervention gap but active-source normal collision. Required outputs include per-mask aggregate metrics, active-source metrics, component replay rows, and checksums. Actionable evidence requires strict normal retention plus better-than-M786 alpha `0.15` gap and active-source margin; attribution evidence can also identify harmful/useful components without producing a candidate. M792 is admitted as a no-training implementation only; training, PPO, and promotion remain blocked.
 - decision: `residual_component_sensitivity_design_admit_m792`
 - next: `m792-v4-residual-component-sensitivity-implementation`
+
+## 20260525T110000Z - m792-v4-residual-component-sensitivity-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m792_v4_residual_component_sensitivity`
+- artifact: `docs/m792-v4-residual-component-sensitivity-implementation.md`
+- result: M792 adds `src/autodrift/v4_residual_component_sensitivity.py` and focused tests, then runs the no-training fixed-mask component sensitivity probe over the M773 broader source-holdout corpus. It reconstructs `2640/2652` rows with `0` metadata misses and the same `12` unsupported `command_shift_obs` rejects, writes `168960` replay rows, `84480` objective rows, `384` active-source rows, and confirms the M568 actor and M761 residual-head checksums unchanged. No optimizer, PPO, or promotion is used. Result class is `v4_residual_component_sensitivity_attribution_found`: no fixed mask is actionable, but component roles are identifiable. Steer is both useful and harmful: at alpha `0.2`, `steer_only` reaches gap mean `0.044286` but collides on the active source with margin `-0.000049`, while `throttle_brake` / no-steer stays safe with margin `+0.000112` but gap mean only `0.042545`. Brake is useful-only with lower gap, and throttle has no meaningful role. M792 therefore blocks PPO/promotion and admits M793 audit before any steer-specific objective.
+- decision: `v4_residual_component_sensitivity_attribution_found`
+- next: `m793-v4-residual-component-sensitivity-audit`

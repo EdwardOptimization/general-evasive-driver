@@ -1,0 +1,114 @@
+{
+  "id": "m793-v4-residual-component-sensitivity-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "behavior_regression",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m792-v4-residual-component-sensitivity-implementation.md",
+      "runs/m792_v4_residual_component_sensitivity/summary.json",
+      "runs/m792_v4_residual_component_sensitivity/mask_alpha_metrics.csv",
+      "runs/m792_v4_residual_component_sensitivity/component_role_metrics.csv",
+      "runs/m792_v4_residual_component_sensitivity/active_source_metrics.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/contrast_rows.csv",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m792-v4-residual-component-sensitivity-implementation.json"
+    ],
+    "parent_objective": [
+      "audit no-training fixed-mask residual component sensitivity evidence"
+    ],
+    "derived_from": [
+      "m792-v4-residual-component-sensitivity-implementation"
+    ],
+    "blocked_by": [
+      "m792-v4-residual-component-sensitivity-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m793-v4-residual-component-sensitivity-audit.md",
+  "public_gates": [
+    "M793 audits M792 without replay rerun",
+    "M793 checks whether steer residual is both useful and harmful",
+    "M793 checks whether fixed masks are actionable",
+    "M793 decides whether to design steer-specific calibration or stop residual calibration",
+    "M793 blocks training PPO and promotion"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train any parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not weaken M786 or M780 comparison thresholds after seeing M792",
+    "do not treat M792 fixed public corpus as broad generalization",
+    "do not add oracle deploy-time inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_residual_component_sensitivity",
+    "evidence_axis": "G_action: residual component attribution audit",
+    "evidence_increment": "audits fixed-mask component evidence and decides whether residual calibration should continue with steer-specific boundary handling",
+    "claim_scope": "audit decision only; no training PPO or driver promotion",
+    "stop_condition": [
+      "stop if M792 artifacts are inconsistent with the registered no-training invariants",
+      "stop if no component evidence supports a next residual-calibration design",
+      "stop if the next proposed branch would only tune fixed public masks without fresh evidence"
+    ],
+    "fallback_plan": [
+      "if M792 is a tooling artifact, repair M792 before interpretation",
+      "if fixed masks are insufficient but steer attribution is robust, design steer-specific normal-boundary calibration",
+      "if attribution is weak, stop residual calibration and return to corpus or architecture evidence",
+      "if attribution is strong but public-corpus overfit risk is high, design fresh source or trajectory-time audit before training"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M792 produced attribution_found with no actionable fixed mask",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M792 provides enough clean component evidence to choose the next residual-calibration branch without training or promotion.",
+  "success_criteria": [
+    "M793 documents supported and falsified claims from M792",
+    "M793 classifies whether M792 is actionable, attribution-only, or blocked",
+    "M793 identifies the next blocker",
+    "M793 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "audit reruns training or PPO",
+    "audit promotes a checkpoint",
+    "audit ignores M792 no-actionable-mask result",
+    "audit claims broad generalization from the public M773 corpus"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m793-v4-residual-component-sensitivity-audit.md from M792 artifacts; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m793-v4-residual-component-sensitivity-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m792-v4-residual-component-sensitivity-implementation.md",
+    "runs/m792_v4_residual_component_sensitivity/summary.json",
+    "runs/m792_v4_residual_component_sensitivity/mask_alpha_metrics.csv",
+    "runs/m792_v4_residual_component_sensitivity/component_role_metrics.csv",
+    "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+  ],
+  "decision_rule": "M793 may only audit M792 and select the next blocker. It must not train, run PPO, mutate actor or residual parameters, or promote a checkpoint.",
+  "next_blocker": "m794-v4-steer-attributed-residual-calibration-design"
+}
