@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 808,
+        "completed": 809,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m799-v4-active-steer-guard-calibration-audit",
+        "task_id": "m800-v4-low-margin-source-diverse-corpus-refresh-design",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m799-v4-active-steer-guard-calibration-audit.md"
+        "command_log": "docs/m800-v4-low-margin-source-diverse-corpus-refresh-design.md"
     },
     "next_task": {
-        "id": "m800-v4-low-margin-source-diverse-corpus-refresh-design",
+        "id": "m801-v4-low-margin-source-diverse-corpus-refresh-implementation",
         "status": "pending",
-        "priority": 7950,
+        "priority": 7960,
         "kind": "infrastructure",
-        "hypothesis": "Design a source-diverse low-margin normal-boundary corpus refresh before further active-steer calibration",
-        "command": "see experiments/manifests/m800-v4-low-margin-source-diverse-corpus-refresh-design.json",
-        "success_artifact": "docs/m800-v4-low-margin-source-diverse-corpus-refresh-design.md",
-        "notes": "Pending: design source-diverse low-margin corpus refresh; residual calibration PPO and promotion remain blocked"
+        "hypothesis": "Implement a no-training boundary-retargeted low-margin source-diverse corpus refresh",
+        "command": "see experiments/manifests/m801-v4-low-margin-source-diverse-corpus-refresh-implementation.json",
+        "success_artifact": "docs/m801-v4-low-margin-source-diverse-corpus-refresh-implementation.md",
+        "notes": "Pending: implement source-diverse low-margin guard corpus refresh; residual calibration PPO and promotion remain blocked"
     },
-    "updated_at_utc": "20260525T130000Z"
+    "updated_at_utc": "20260525T131500Z"
 }

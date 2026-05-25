@@ -13259,3 +13259,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M799 audits M798 as a valid process-positive blocker. M798 stopped before training because the selected low-margin guard corpus has only `12` rows and all are variants of one public active source (`seed 77025`, `source_index 12`, `step 24`, one fault-family pair), with `1` unique seed, `1` unique source index, `1` unique fault-family pair, and max seed dominance `1.0` versus requirements `8`, `8`, `4`, and `0.25`. The audit classifies the issue as source-diversity/scenario-sampling failure with objective-overfit risk if bypassed. M799 keeps residual calibration, PPO, and promotion blocked.
 - decision: `admit_low_margin_source_diverse_corpus_refresh_design`
 - next: `m800-v4-low-margin-source-diverse-corpus-refresh-design`
+
+## 20260525T131500Z - m800-v4-low-margin-source-diverse-corpus-refresh-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m800-v4-low-margin-source-diverse-corpus-refresh-design.md`
+- result: M800 designs a no-training low-margin corpus refresh after M799 accepted the M798 source-diversity blocker. A direct margin-distribution check on M795 parent replay shows the problem is not only the exact cutoff: alpha `0.2` normal rows have `12` rows at margin `<= 0.00005`, still `12` at `<= 0.00010`, only `36` through `<= 0.10000`, all from one seed, before the next distinct rows jump to about `0.201 m`. M800 therefore requires M801 to retarget source sampling toward low normal-boundary margins, export reference replay rows, and pass strict primary gates: at least `80` accepted low-margin normal rows, `8` seeds, `8` source indices, `4` fault-family pairs, max seed dominance `0.25`, and no actor/residual training.
+- decision: `low_margin_corpus_refresh_design_admit_m801`
+- next: `m801-v4-low-margin-source-diverse-corpus-refresh-implementation`

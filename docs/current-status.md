@@ -62,15 +62,26 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m800-v4-low-margin-source-diverse-corpus-refresh-design
+m801-v4-low-margin-source-diverse-corpus-refresh-implementation
 ```
 
-M800 should design a source-diverse low-margin normal-boundary corpus refresh
-before any further active-steer residual calibration. Base actor mutation, M761
-residual-head mutation, PPO, and promotion remain blocked.
+M801 should implement a no-training boundary-retargeted low-margin
+source-diverse corpus refresh before any further active-steer residual
+calibration. Base actor mutation, M761 residual-head mutation, PPO, and
+promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M800 designs the required low-margin corpus refresh after M799 accepted the
+  M798 source-diversity blocker. A direct M795 parent replay margin-distribution
+  check shows alpha `0.2` normal rows have only `12` rows at margin
+  `<= 0.00005`, still `12` at `<= 0.00010`, and only `36` through
+  `<= 0.10000`, all from one seed, before the next distinct rows jump to about
+  `0.201 m`. M800 therefore rejects a threshold-only fix and requires M801 to
+  run a no-training boundary-retargeted source wave, reference residual replay,
+  and strict low-margin guard export with at least `80` accepted rows, `8`
+  seeds, `8` source indices, `4` fault-family pairs, max seed dominance
+  `0.25`, no actor/residual mutation, no PPO, and no promotion.
 - M799 audits M798 as a valid process-positive blocker. The low-margin guard
   corpus has only `12` rows and all are variants of one public active source:
   `seed 77025`, `source_index 12`, `step 24`, one fault-family pair, with

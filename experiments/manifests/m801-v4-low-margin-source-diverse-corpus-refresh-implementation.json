@@ -1,0 +1,136 @@
+{
+  "id": "m801-v4-low-margin-source-diverse-corpus-refresh-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m800-v4-low-margin-source-diverse-corpus-refresh-design.md",
+      "docs/m799-v4-active-steer-guard-calibration-audit.md",
+      "runs/m798_v4_active_steer_guard_calibration/summary.json",
+      "runs/m798_v4_active_steer_guard_calibration/low_margin_guard_rows.csv",
+      "runs/m795_v4_steer_attributed_residual_calibration/replay_rows.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/contrast_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m800-v4-low-margin-source-diverse-corpus-refresh-design.json"
+    ],
+    "parent_objective": [
+      "implement no-training source-diverse low-margin normal-boundary corpus refresh"
+    ],
+    "derived_from": [
+      "m800-v4-low-margin-source-diverse-corpus-refresh-design"
+    ],
+    "blocked_by": [
+      "m799-v4-active-steer-guard-calibration-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m801-v4-low-margin-source-diverse-corpus-refresh-implementation.md",
+  "public_gates": [
+    "M801 implements and runs only no-training corpus refresh tooling",
+    "M801 preserves the P0 human-view actor contract",
+    "M801 confirms actor and M761 residual-head checksums unchanged",
+    "M801 exports source-diverse low-margin normal guard candidates",
+    "M801 blocks residual calibration, PPO, and promotion"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not train a new residual calibrator",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add oracle deploy-time inputs",
+    "do not pass by widening the primary 0.00005 margin threshold",
+    "do not count seed 77025 source_index 12 toward fresh-source diversity",
+    "do not tune from private holdout failures"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_source_diverse_corpus_refresh",
+    "evidence_axis": "G_distribution: source-diverse low-margin normal-boundary coverage implementation",
+    "evidence_increment": "tests whether a boundary-retargeted public mining wave can produce source-diverse low-margin normal guard rows",
+    "claim_scope": "corpus implementation only; no residual calibration PPO or driver promotion",
+    "stop_condition": [
+      "stop if low-margin primary rows are absent",
+      "stop if primary rows are single-source dominated",
+      "stop if reconstruction or checksum invariants fail",
+      "stop if implementation needs oracle actor inputs"
+    ],
+    "fallback_plan": [
+      "if primary rows are absent, audit the diagnostic margin bands before changing thresholds",
+      "if rows are single-source dominated, retarget scenario axes and source caps",
+      "if reconstruction fails, repair tooling before interpretation",
+      "if corpus passes, route to an audit before any active-steer calibration"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M800 designs low-margin source-diverse corpus refresh implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A boundary-retargeted no-training public mining wave can produce a source-diverse set of low-margin normal guard rows for active-steer residual calibration.",
+  "success_criteria": [
+    "M801 writes refreshed config, source wave, sequence export, reference replay, and low-margin guard artifacts",
+    "M801 reports accepted rows, unique seeds, unique source indices, fault-family pairs, and dominance metrics",
+    "M801 confirms actor and residual-head checksums unchanged",
+    "M801 classifies the result without widening the primary margin gate",
+    "M801 keeps residual calibration, PPO, and promotion blocked"
+  ],
+  "failure_criteria": [
+    "implementation trains actor, residual head, or a new calibrator",
+    "implementation runs PPO",
+    "implementation promotes a checkpoint",
+    "implementation omits low-margin source-diversity metrics",
+    "implementation treats diagnostic wider bands as primary-pass evidence",
+    "implementation counts the old active source as fresh diversity"
+  ],
+  "commands": [
+    {
+      "name": "low_margin_source_diverse_corpus_refresh",
+      "command": "implement and run the no-training low-margin source-diverse corpus refresh; expected run dir runs/m801_v4_low_margin_source_diverse_corpus_refresh"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json",
+      "type": "config"
+    },
+    {
+      "path": "runs/m801_v4_low_margin_source_diverse_corpus_refresh/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m801_v4_low_margin_source_diverse_corpus_refresh/low_margin_guard_candidates.csv",
+      "type": "metrics"
+    },
+    {
+      "path": "runs/m801_v4_low_margin_source_diverse_corpus_refresh/accepted_low_margin_guard_rows.csv",
+      "type": "metrics"
+    },
+    {
+      "path": "docs/m801-v4-low-margin-source-diverse-corpus-refresh-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m800-v4-low-margin-source-diverse-corpus-refresh-design.md",
+    "runs/m798_v4_active_steer_guard_calibration/summary.json",
+    "runs/m795_v4_steer_attributed_residual_calibration/replay_rows.csv",
+    "runs/m773_v4_broader_source_holdout_corpus_export/positive_sequence_outcomes.csv",
+    "runs/m773_v4_broader_source_holdout_corpus_export/contrast_rows.csv",
+    "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+  ],
+  "decision_rule": "M801 may implement and run only no-training corpus-refresh tooling. It must not train actor or residual parameters, run PPO, or promote a checkpoint.",
+  "next_blocker": "m802-v4-low-margin-source-diverse-corpus-refresh-audit"
+}
