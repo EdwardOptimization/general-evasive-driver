@@ -62,15 +62,28 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m791-v4-residual-component-sensitivity-design
+m792-v4-residual-component-sensitivity-implementation
 ```
 
-M791 should design a no-training residual component sensitivity probe before
-another vector objective. Base actor mutation, M761 residual-head mutation,
-PPO, and promotion remain blocked.
+M792 should implement and run the no-training fixed-mask residual component
+sensitivity probe designed by M791. Base actor mutation, M761 residual-head
+mutation, PPO, and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M791 designs a no-training fixed-mask component sensitivity probe for the
+  frozen M761 residual head. The design keeps the M568 actor frozen, keeps the
+  M761 residual head frozen, and evaluates masks over steer/throttle/brake
+  residual components: none, all, single components, no-component ablations,
+  and two-component combinations. It uses alpha ladder `0.0`, `0.125`, `0.15`,
+  `0.2`, with alpha `0.2` as the primary diagnostic because it has strong
+  intervention gap but active-source normal collision. Required outputs include
+  per-mask aggregate metrics, active-source metrics, component replay rows, and
+  checksums. Actionable evidence requires strict normal retention plus
+  better-than-M786 alpha `0.15` gap and active-source margin; attribution
+  evidence can also identify harmful/useful components without producing a
+  candidate. M792 is admitted as a no-training implementation only; training,
+  PPO, and promotion remain blocked.
 - M790 audits M789 as a clean negative. The vector-gate implementation
   preserved actor and residual checksums, trained only the 2179-parameter
   calibrator, and wrote complete artifacts, so the negative is not a tooling

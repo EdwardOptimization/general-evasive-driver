@@ -13175,3 +13175,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M790 audits M789 as a clean negative. The vector-gate implementation preserved actor and residual checksums, trained only the 2179-parameter calibrator, and wrote complete artifacts, so the negative is not a tooling artifact. The audit confirms that M789 did not beat M786 alpha `0.15`: gap mean improved by only about `5e-6`, while active-source margin dropped slightly from `+0.000028246` to `+0.000027881`; alpha `0.2` still collides on the same active source. The decisive failure is component collapse: final normal gates are `0.671292/0.671167/0.671190`, final intervention gates are `0.684914/0.684800/0.684820`, and `gate_component_std_mean` is only `0.000066`. M790 classifies the primary issue as `objective_overfit`: without component attribution, the vector gate found another scalar-like moderate scaling solution. It blocks PPO/promotion and selects a no-training residual component sensitivity design before another vector objective.
 - decision: `pivot_to_residual_component_sensitivity_design`
 - next: `m791-v4-residual-component-sensitivity-design`
+
+## 20260525T105000Z - m791-v4-residual-component-sensitivity-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m791-v4-residual-component-sensitivity-design.md`
+- result: M791 designs a no-training fixed-mask component sensitivity probe for the frozen M761 residual head. The design keeps the M568 actor frozen, keeps the M761 residual head frozen, and evaluates masks over steer/throttle/brake residual components: none, all, single components, no-component ablations, and two-component combinations. It uses alpha ladder `0.0`, `0.125`, `0.15`, `0.2`, with alpha `0.2` as the primary diagnostic because it has strong intervention gap but active-source normal collision. Required outputs include per-mask aggregate metrics, active-source metrics, component replay rows, and checksums. Actionable evidence requires strict normal retention plus better-than-M786 alpha `0.15` gap and active-source margin; attribution evidence can also identify harmful/useful components without producing a candidate. M792 is admitted as a no-training implementation only; training, PPO, and promotion remain blocked.
+- decision: `residual_component_sensitivity_design_admit_m792`
+- next: `m792-v4-residual-component-sensitivity-implementation`

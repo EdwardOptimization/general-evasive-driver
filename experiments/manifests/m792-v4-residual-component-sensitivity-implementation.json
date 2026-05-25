@@ -1,0 +1,125 @@
+{
+  "id": "m792-v4-residual-component-sensitivity-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "behavior_regression",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m791-v4-residual-component-sensitivity-design.md",
+      "docs/m790-v4-vector-residual-calibration-audit.md",
+      "runs/m789_v4_vector_residual_calibration/summary.json",
+      "runs/m789_v4_vector_residual_calibration/alpha_metrics.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/contrast_rows.csv",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m791-v4-residual-component-sensitivity-design.json"
+    ],
+    "parent_objective": [
+      "implement no-training residual component sensitivity probe over fixed steer throttle brake masks"
+    ],
+    "derived_from": [
+      "m791-v4-residual-component-sensitivity-design"
+    ],
+    "blocked_by": [
+      "m791-v4-residual-component-sensitivity-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m792-v4-residual-component-sensitivity-implementation.md",
+  "public_gates": [
+    "M792 implements no-training fixed residual component masks",
+    "M792 freezes base actor and M761 residual head",
+    "M792 evaluates alpha 0.0 0.125 0.15 0.2",
+    "M792 writes per-mask aggregate and active-source metrics",
+    "M792 blocks training PPO and checkpoint promotion"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train any parameters",
+    "do not mutate base actor",
+    "do not mutate M761 residual head",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use terminal margin or fault labels as deploy-time inputs",
+    "do not hide public active-source pressure",
+    "do not claim broad generalization or true four-wheel physical fidelity"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_residual_component_sensitivity",
+    "evidence_axis": "G_action: residual component attribution implementation",
+    "evidence_increment": "tests fixed residual component masks to attribute active-source collision risk and intervention gap lift",
+    "claim_scope": "implementation diagnostic only; no training PPO or driver promotion",
+    "stop_condition": [
+      "stop if any parameters are trained",
+      "stop if actor or residual checksum changes",
+      "stop if active-source alpha 0.2 analysis is omitted",
+      "stop if result admits promotion"
+    ],
+    "fallback_plan": [
+      "if actionable mask appears, audit before designing component-attributed objective",
+      "if harmful/useful components are identified without candidate, audit and design component-attributed repair",
+      "if no component signal appears, stop residual calibration and return to corpus or architecture evidence",
+      "if replay artifacts fail, repair tooling before interpreting result"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M791 admits one fixed-mask implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Fixed residual component masks can identify whether steer throttle or brake residual components cause active-source normal collision risk or intervention gap lift.",
+  "success_criteria": [
+    "M792 writes run artifacts and docs",
+    "M792 confirms actor and residual head checksums unchanged",
+    "M792 trains no parameters",
+    "M792 evaluates registered masks and alphas",
+    "M792 reports active-source and aggregate component sensitivity"
+  ],
+  "failure_criteria": [
+    "implementation trains parameters",
+    "implementation mutates base actor or residual head",
+    "implementation runs PPO",
+    "implementation promotes a checkpoint",
+    "implementation omits active-source metrics"
+  ],
+  "commands": [
+    {
+      "name": "component_sensitivity_probe",
+      "command": "implement and run no-training residual component sensitivity probe; expected run dir runs/m792_v4_residual_component_sensitivity"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m792_v4_residual_component_sensitivity/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m792_v4_residual_component_sensitivity/mask_alpha_metrics.csv",
+      "type": "metrics"
+    },
+    {
+      "path": "docs/m792-v4-residual-component-sensitivity-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m791-v4-residual-component-sensitivity-design.md",
+    "runs/m789_v4_vector_residual_calibration/summary.json",
+    "runs/m789_v4_vector_residual_calibration/alpha_metrics.csv",
+    "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+  ],
+  "decision_rule": "M792 may implement and run only a no-training fixed-mask component sensitivity probe. It must not mutate the base actor, mutate the M761 residual head, train, run PPO, or promote a checkpoint.",
+  "next_blocker": "m793-v4-residual-component-sensitivity-audit"
+}
