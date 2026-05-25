@@ -13371,3 +13371,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M811 implements and runs the no-training source-diverse data route with active diagnostic warm-up and joint obstacle/fault timing. It replays `2688` boundary candidates from `96` source groups and `192` snapshots with `0` replay errors, `0` warm-up artifact rows, and unchanged actor/residual-head checksums. The strict primary band remains empty: `0` rows in `0.0 <= margin <= 0.00005` and `0` rows in `0.00005 < margin <= 0.001`, while `542` rows collide and `2146` rows are safe. Result class is `v4_low_margin_new_data_route_sparse`.
 - decision: `v4_low_margin_new_data_route_sparse`
 - next: `m812-v4-low-margin-new-data-route-audit`
+
+## 20260525T164500Z - m812-v4-low-margin-new-data-route-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m812-v4-low-margin-new-data-route-audit.md`
+- result: M812 audits M811 as a clean sparse result, not an instrumentation failure. M811 has `0` replay errors, `0` warm-up artifact rows, unchanged checksums, and no training/PPO/promotion. It contains `48` collision/safe snapshot-axis brackets (`40` obstacle lateral and `8` obstacle timing), but the closest bracket gap is `0.015385162709582234`, far wider than the `0.00005` primary window. This classifies the blocker as a fixed-grid boundary-resolution miss.
+- decision: `admit_adaptive_boundary_bracketing_design`
+- next: `m813-v4-adaptive-boundary-bracketing-design`

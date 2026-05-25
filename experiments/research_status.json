@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 820,
+        "completed": 821,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m811-v4-low-margin-new-data-route-implementation",
+        "task_id": "m812-v4-low-margin-new-data-route-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m811-v4-low-margin-new-data-route-implementation.md"
+        "command_log": "docs/m812-v4-low-margin-new-data-route-audit.md"
     },
     "next_task": {
-        "id": "m812-v4-low-margin-new-data-route-audit",
+        "id": "m813-v4-adaptive-boundary-bracketing-design",
         "status": "pending",
-        "priority": 8070,
-        "kind": "gate",
-        "hypothesis": "Audit whether M811 sparse result is fixed-grid boundary miss and whether adaptive closed-loop bracketing is admitted",
-        "command": "see experiments/manifests/m812-v4-low-margin-new-data-route-audit.json",
-        "success_artifact": "docs/m812-v4-low-margin-new-data-route-audit.md",
-        "notes": "Pending: audit M811 zero accepted primary rows with calibration PPO and promotion blocked"
+        "priority": 8080,
+        "kind": "infrastructure",
+        "hypothesis": "Design deterministic adaptive bracketing over M811 collision/safe edges",
+        "command": "see experiments/manifests/m813-v4-adaptive-boundary-bracketing-design.json",
+        "success_artifact": "docs/m813-v4-adaptive-boundary-bracketing-design.md",
+        "notes": "Pending: design adaptive bracket refinement while keeping calibration PPO and promotion blocked"
     },
-    "updated_at_utc": "20260525T163000Z"
+    "updated_at_utc": "20260525T164500Z"
 }
