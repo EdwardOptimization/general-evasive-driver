@@ -13631,3 +13631,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M839 audits M838 as a clean first-step action-effectiveness negative rather than an implementation or contract failure. M838 artifacts are complete (`1920` rows = `8` directions x `4` epsilon values x `60` pairs), checksums stayed fixed, rejected rows are `0`, and there were no severe clips. The negative is outcome-based: direct overrides up to `0.075` L2 create no accepted rows, no success/collision flips, and max margin movement only `0.0026495`. Pair-delta directions are also weak (`max_abs_margin_delta <= 0.00163`), so the original action-divergent matching direction is not locally outcome-effective at one step. The audit classifies the result as scenario-sampling/metric-artifact negative: M832 is a poor first-step control surface, but this does not falsify sequence-level action effectiveness or the broader driver goal. M840 is admitted as no-training short-horizon sequence-effectiveness design.
 - decision: `admit_short_horizon_sequence_effectiveness_probe_design`
 - next: `m840-v4-near-boundary-sequence-effectiveness-probe-design`
+
+## 20260525T233000Z - m840-v4-near-boundary-sequence-effectiveness-probe-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m840-v4-near-boundary-sequence-effectiveness-probe-design.md`
+- result: M840 designs a no-training short-horizon sequence-effectiveness probe after M838/M839 showed one-step overrides are outcome-weak. The design keeps the actor contract unchanged and applies bounded per-step deltas around the frozen policy action for `hold_steps [2, 4, 6]`, then resumes normal policy control. Directions reuse M838 pair-delta and component axes; per-step epsilon grid remains `[0.014, 0.025, 0.05, 0.075]`. Acceptance requires near-boundary normal rows and either `abs_margin_delta >= 0.01` or success/collision flip, summarized by hold step, direction, direction family, and epsilon. Direct sequence overrides are explicitly controllability diagnostics only, not learned self-ID proof. M841 implementation is admitted; after M841 the branch should synthesize before further narrow continuation because it reaches the post-M831 cadence boundary.
+- decision: `near_boundary_sequence_effectiveness_probe_design_admit_m841`
+- next: `m841-v4-near-boundary-sequence-effectiveness-probe-implementation`

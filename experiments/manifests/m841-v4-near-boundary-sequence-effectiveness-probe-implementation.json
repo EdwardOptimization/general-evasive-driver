@@ -1,0 +1,126 @@
+{
+  "id": "m841-v4-near-boundary-sequence-effectiveness-probe-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m840-v4-near-boundary-sequence-effectiveness-probe-design.md",
+      "runs/m838_v4_near_boundary_action_effectiveness_probe/summary.json",
+      "runs/m832_v4_near_boundary_wrong_history_pair_mining/near_boundary_pair_rows.csv",
+      "runs/m832_v4_near_boundary_wrong_history_pair_mining/accepted_boundary_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m840-v4-near-boundary-sequence-effectiveness-probe-design.json"
+    ],
+    "parent_objective": [
+      "implement no-training short-horizon sequence-effectiveness probe after first-step overrides are weak"
+    ],
+    "derived_from": [
+      "m840-v4-near-boundary-sequence-effectiveness-probe-design"
+    ],
+    "blocked_by": [
+      "M838 direct first-action overrides are outcome-weak and M839 admits sequence-effectiveness design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m841-v4-near-boundary-sequence-effectiveness-probe-implementation.md",
+  "public_gates": [
+    "M841 must implement bounded short-horizon action sequence overrides only",
+    "M841 must reuse M832/M838 artifacts",
+    "M841 must log hold-step direction and epsilon summaries",
+    "M841 must preserve actor and residual-head checksums",
+    "M841 must not train or promote"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels or oracle fields to actor input",
+    "do not reinterpret direct sequence override success as policy self-ID proof",
+    "do not relax M840 thresholds after seeing the result"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_new_data_route",
+    "evidence_axis": "G_control: short-horizon sequence-effectiveness implementation",
+    "evidence_increment": "implements the M840 sequence override probe to test whether sustained bounded action intent moves terminal margin",
+    "claim_scope": "no-training sequence controllability diagnostics only; no PPO, learned policy claim, or driver promotion",
+    "stop_condition": [
+      "stop if actor or residual-head checksums change",
+      "stop if implementation runs PPO or trains parameters",
+      "stop if direct override success is treated as learned self-ID proof",
+      "stop after M841 and synthesize before further narrow continuation"
+    ],
+    "fallback_plan": [
+      "if sequence overrides are positive, audit before outcome-coupled sequence objective design",
+      "if sequence overrides are weak, pivot to fresh action-leverage boundary mining",
+      "if artifacts are incomplete, repair implementation before interpreting",
+      "after M841, write branch synthesis before more narrow milestones"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M841 is the tenth post-M831 non-synthesis milestone and must be followed by synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Bounded short-horizon action sequence overrides can reveal terminal-margin sensitivity that one-step overrides missed on the M832 near-boundary states.",
+  "success_criteria": [
+    "M841 implements the sequence-effectiveness probe",
+    "M841 runs bounded direction and hold-step sequence overrides on M832 near-boundary pairs",
+    "M841 writes sequence-effectiveness accepted-row direction-hold-summary diversity and summary artifacts",
+    "M841 verifies actor and residual-head checksums unchanged",
+    "M841 classifies the result without PPO or promotion"
+  ],
+  "failure_criteria": [
+    "M841 trains actor or residual-head parameters",
+    "M841 runs PPO",
+    "M841 promotes a checkpoint",
+    "M841 mutates actor input contract",
+    "M841 treats direct sequence override effects as learned self-ID proof"
+  ],
+  "commands": [
+    {
+      "name": "near_boundary_sequence_effectiveness_probe",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_near_boundary_sequence_effectiveness_probe --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --residual-head runs/m761_v4_sequence_objective_probe/residual_head.pt --scenario-config configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json --near-boundary-pairs runs/m832_v4_near_boundary_wrong_history_pair_mining/near_boundary_pair_rows.csv --accepted-boundary-rows runs/m832_v4_near_boundary_wrong_history_pair_mining/accepted_boundary_rows.csv --source-rows runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv --candidate-plan-rows runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv --run-dir runs/m841_v4_near_boundary_sequence_effectiveness_probe --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_near_boundary_sequence_effectiveness_probe.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_v4_near_boundary_sequence_effectiveness_probe.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m841_v4_near_boundary_sequence_effectiveness_probe/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "docs/m841-v4-near-boundary-sequence-effectiveness-probe-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m840-v4-near-boundary-sequence-effectiveness-probe-design.md",
+    "runs/m838_v4_near_boundary_action_effectiveness_probe/summary.json",
+    "runs/m832_v4_near_boundary_wrong_history_pair_mining/summary.json"
+  ],
+  "decision_rule": "M841 may produce a no-training sequence-controllability diagnostic classification only. It must not train, run PPO, promote, or claim learned self-ID.",
+  "next_blocker": "short-horizon sequence effectiveness on M832 near-boundary states has not yet been measured"
+}

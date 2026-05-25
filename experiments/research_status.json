@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 848,
+    "completed": 849,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m839-v4-near-boundary-action-effectiveness-probe-audit",
+    "task_id": "m840-v4-near-boundary-sequence-effectiveness-probe-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m839-v4-near-boundary-action-effectiveness-probe-audit.md"
+    "command_log": "docs/m840-v4-near-boundary-sequence-effectiveness-probe-design.md"
   },
   "next_task": {
-    "id": "m840-v4-near-boundary-sequence-effectiveness-probe-design",
+    "id": "m841-v4-near-boundary-sequence-effectiveness-probe-implementation",
     "status": "pending",
-    "priority": 8350,
+    "priority": 8360,
     "kind": "infrastructure",
-    "hypothesis": "Design short-horizon sequence-effectiveness probe after first-step overrides are outcome-weak",
-    "command": "see experiments/manifests/m840-v4-near-boundary-sequence-effectiveness-probe-design.json",
-    "success_artifact": "docs/m840-v4-near-boundary-sequence-effectiveness-probe-design.md",
-    "notes": "Pending: M839 admits no-training sequence-effectiveness design; PPO and promotion remain blocked"
+    "hypothesis": "Implement short-horizon sequence-effectiveness probe after first-step overrides are outcome-weak",
+    "command": "see experiments/manifests/m841-v4-near-boundary-sequence-effectiveness-probe-implementation.json",
+    "success_artifact": "runs/m841_v4_near_boundary_sequence_effectiveness_probe/summary.json",
+    "notes": "Pending: M840 admits no-training sequence-effectiveness implementation; synthesize branch after M841"
   },
-  "updated_at_utc": "20260525T231500Z"
+  "updated_at_utc": "20260525T233000Z"
 }
