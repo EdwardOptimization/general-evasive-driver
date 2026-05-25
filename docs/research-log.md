@@ -13278,3 +13278,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M801 implements the low-margin refresh config and selector, then runs the no-training data pipeline. The source wave expands to `49152` matched pairs and `3552` reset-only rows. Sequence intervention exports `4825` outcome-critical positives across `108` seeds and `18` fault-family pairs with sentinel false positives `0`. Reference residual replay reconstructs `4805/4825` rows with actor checksum unchanged and no training/PPO, but raw residual alpha `0.2` has normal success `0.987513` and collision `0.012487`. The low-margin selector finds `76` collision-free successful diagnostic rows at margin `<= 0.2`, but `0` rows in the primary `<= 0.00005` band and `0` through `<= 0.001`; all rows at margin `<= 0.001` are collisions. Result class is `v4_low_margin_guard_refresh_diagnostic_band_only`.
 - decision: `v4_low_margin_guard_refresh_diagnostic_band_only`
 - next: `m802-v4-low-margin-source-diverse-corpus-refresh-audit`
+
+## 20260525T141500Z - m802-v4-low-margin-source-diverse-corpus-refresh-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m802-v4-low-margin-source-diverse-corpus-refresh-audit.md`
+- result: M802 audits M801 as a clean no-training diagnostic-band-only result. M801 is a broad coverage positive but not a primary low-margin corpus pass: positives increased to `4825` across `108` seeds and `18` fault-family pairs, while the primary successful non-collision low-margin band `<= 0.00005` remains empty and all rows through `<= 0.001` are collisions. M802 classifies the blocker as a boundary-window miss and rejects both threshold relaxation and another generic broad wave.
+- decision: `admit_low_margin_boundary_window_retarget_design`
+- next: `m803-v4-low-margin-boundary-window-retarget-design`

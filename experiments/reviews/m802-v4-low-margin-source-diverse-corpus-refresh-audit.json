@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M802 audits M801 as a clean diagnostic-band-only result and routes next to targeted boundary-window retargeting instead of threshold relaxation",
+  "failure_criteria": [
+    "audit reruns training or PPO",
+    "audit promotes a checkpoint",
+    "audit weakens the primary low-margin threshold after seeing M801",
+    "audit ignores the collision/success boundary gap"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "objective_overfit",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not train any parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not pass M801 by widening the primary margin threshold",
+    "do not treat diagnostic bands as primary low-margin evidence",
+    "do not tune from private holdout failures"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260525T055140Z",
+  "hypothesis": "M801 is a clean diagnostic-band-only result and should route to boundary-window retargeting rather than active-steer calibration or threshold relaxation.",
+  "lineage": {
+    "blocked_by": [
+      "m801-v4-low-margin-source-diverse-corpus-refresh-implementation"
+    ],
+    "derived_from": [
+      "m801-v4-low-margin-source-diverse-corpus-refresh-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m801-v4-low-margin-source-diverse-corpus-refresh-implementation.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m801-v4-low-margin-source-diverse-corpus-refresh-implementation.md",
+      "runs/m801_v4_low_margin_refresh_extreme_faults/summary.json",
+      "runs/m801_v4_low_margin_refresh_sequence_intervention/summary.json",
+      "runs/m801_v4_low_margin_refresh_corpus_export/summary.json",
+      "runs/m801_v4_low_margin_source_diverse_reference_replay/summary.json",
+      "runs/m801_v4_low_margin_source_diverse_corpus_refresh/summary.json",
+      "runs/m801_v4_low_margin_source_diverse_corpus_refresh/diagnostic_margin_bands.csv"
+    ],
+    "parent_objective": [
+      "audit no-training low-margin source-diverse corpus refresh result"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m802-v4-low-margin-source-diverse-corpus-refresh-audit",
+  "next_blocker": "m803-v4-low-margin-boundary-window-retarget-design",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "admit_low_margin_boundary_window_retarget_design",
+  "public_gates": [
+    "M802 audits M801 without training",
+    "M802 classifies the diagnostic-band-only result",
+    "M802 decides boundary-window retarget versus threshold relaxation",
+    "M802 blocks residual calibration, PPO, and promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m802-v4-low-margin-source-diverse-corpus-refresh-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "admit_low_margin_boundary_window_retarget_design",
+    "milestone": "m802-v4-low-margin-source-diverse-corpus-refresh-audit",
+    "reason": "M802 audits M801 as a clean diagnostic-band-only result and routes next to targeted boundary-window retargeting instead of threshold relaxation",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M802 documents supported and falsified claims from M801",
+    "M802 classifies the blocker",
+    "M802 identifies the next blocker",
+    "M802 keeps residual calibration, PPO, and promotion blocked"
+  ],
+  "type": "gate"
+}

@@ -62,15 +62,24 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m802-v4-low-margin-source-diverse-corpus-refresh-audit
+m803-v4-low-margin-boundary-window-retarget-design
 ```
 
-M802 should audit M801's diagnostic-band-only result before any boundary-window
-retargeting, further active-steer residual calibration, PPO, or promotion.
-Base actor mutation and M761 residual-head mutation remain blocked.
+M803 should design targeted boundary-window retargeting around the M801
+collision/success transition. The primary low-margin threshold must remain
+unchanged. Further active-steer residual calibration, PPO, promotion, base actor
+mutation, and M761 residual-head mutation remain blocked.
 
 ## Recent Evidence Line
 
+- M802 audits M801 as a clean no-training diagnostic-band-only result. M801 is
+  a broad coverage positive but not a primary low-margin corpus pass: positives
+  increased to `4825` across `108` seeds and `18` fault-family pairs, while the
+  primary successful non-collision low-margin band `<= 0.00005` remains empty
+  and all rows through `<= 0.001` are collisions. M802 classifies the blocker
+  as a boundary-window miss and rejects both threshold relaxation and another
+  generic broad wave. M803 should design targeted collision/success boundary
+  retargeting.
 - M801 implements the low-margin refresh config and selector, then runs the
   no-training data pipeline. The source wave expands to `49152` matched pairs
   and `3552` reset-only rows. Sequence intervention exports `4825`
