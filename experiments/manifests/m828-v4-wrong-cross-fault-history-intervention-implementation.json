@@ -1,0 +1,124 @@
+{
+  "id": "m828-v4-wrong-cross-fault-history-intervention-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/matched_pair_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv",
+      "docs/m827-v4-wrong-cross-fault-history-intervention-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m827-v4-wrong-cross-fault-history-intervention-design.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_objective": [
+      "implement no-training wrong-cross-fault history intervention replay"
+    ],
+    "derived_from": [
+      "m827-v4-wrong-cross-fault-history-intervention-design"
+    ],
+    "blocked_by": [
+      "wrong-cross-fault history intervention is designed but not implemented"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m828-v4-wrong-cross-fault-history-intervention-implementation.md",
+  "public_gates": [
+    "M828 must implement no-training wrong-cross-fault history replay",
+    "M828 must preserve actor and residual-head checksums",
+    "M828 must not feed fault labels or hidden params to actor input",
+    "M828 must report accepted wrong-history and mitigation row counts",
+    "M828 must report zero-command dominance separately",
+    "M828 must not run PPO or promote a checkpoint"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use fault labels as actor inputs",
+    "do not count zero-command-only rows as wrong-history proof",
+    "do not claim physical wheel-level faults from current proxies"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_new_data_route",
+    "evidence_axis": "G_distribution: wrong-cross-fault history intervention implementation",
+    "evidence_increment": "implements the missing M825/M826 wrong-history intervention to test response-history self-ID directly",
+    "claim_scope": "data-route/intervention evidence only; no PPO and no promotion",
+    "stop_condition": [
+      "stop if matched pair reconstruction fails broadly",
+      "stop if wrong-history rows are dominated by zero-command-only evidence",
+      "stop if actor or residual-head checksums change",
+      "stop if proxy rows are mislabeled as true wheel-level faults"
+    ],
+    "fallback_plan": [
+      "if reconstruction fails, design stricter matched-pair source preservation",
+      "if wrong-history is sparse, audit pair mining before expanding source sampling",
+      "if zero-command dominates, design response-history-specific pair mining",
+      "if current simulator fidelity blocks interpretation, document model-fidelity route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M827 admits wrong-cross-fault intervention implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Injecting recurrent history from a matched different hidden-dynamics source will expose stronger response-history self-ID evidence than reset or zero-command ablations alone.",
+  "success_criteria": [
+    "M828 writes implementation and run artifacts",
+    "M828 evaluates normal, reset, zero-command, shifted/delayed, and wrong-cross-fault history variants",
+    "M828 reports wrong-history margin/action degradation separately from zero-command sensitivity",
+    "M828 confirms actor and residual-head checksums unchanged",
+    "M828 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M828 trains actor or residual parameters",
+    "M828 runs PPO",
+    "M828 promotes a checkpoint",
+    "M828 uses hidden fault labels as actor inputs",
+    "M828 treats diagnostic matched action divergence as replay evidence without wrong-history rollout"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "implement and run no-training wrong-cross-fault history intervention route; expected run dir runs/m828_v4_wrong_cross_fault_history_intervention"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_wrong_cross_fault_history_intervention.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_v4_wrong_cross_fault_history_intervention.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m828_v4_wrong_cross_fault_history_intervention/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "docs/m828-v4-wrong-cross-fault-history-intervention-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m825_v4_extreme_hidden_dynamics_data_route/matched_pair_rows.csv",
+    "docs/m827-v4-wrong-cross-fault-history-intervention-design.md"
+  ],
+  "decision_rule": "M828 may produce pass or classified negative only. It must not train, run PPO, or promote.",
+  "next_blocker": "wrong-cross-fault history evidence is not yet measured"
+}

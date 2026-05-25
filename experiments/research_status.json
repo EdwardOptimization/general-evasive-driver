@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 835,
+    "completed": 836,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m826-v4-extreme-hidden-dynamics-data-route-audit",
+    "task_id": "m827-v4-wrong-cross-fault-history-intervention-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m826-v4-extreme-hidden-dynamics-data-route-audit.md"
+    "command_log": "docs/m827-v4-wrong-cross-fault-history-intervention-design.md"
   },
   "next_task": {
-    "id": "m827-v4-wrong-cross-fault-history-intervention-design",
+    "id": "m828-v4-wrong-cross-fault-history-intervention-implementation",
     "status": "pending",
-    "priority": 8220,
+    "priority": 8230,
     "kind": "infrastructure",
-    "hypothesis": "Design real wrong-cross-fault history intervention before source expansion PPO or promotion",
-    "command": "see experiments/manifests/m827-v4-wrong-cross-fault-history-intervention-design.json",
-    "success_artifact": "docs/m827-v4-wrong-cross-fault-history-intervention-design.md",
-    "notes": "Pending: M826 found M825 sparse/source-concentrated and dominated by zero-command sensitivity; wrong-cross-fault history injection is the next control variable"
+    "hypothesis": "Implement no-training wrong-cross-fault history replay and measure response-history self-ID evidence directly",
+    "command": "see experiments/manifests/m828-v4-wrong-cross-fault-history-intervention-implementation.json",
+    "success_artifact": "docs/m828-v4-wrong-cross-fault-history-intervention-implementation.md",
+    "notes": "Pending: M827 designs current-geometry replay with injected matched different-fault hidden/history; PPO and promotion remain blocked"
   },
-  "updated_at_utc": "20260525T201500Z"
+  "updated_at_utc": "20260525T202500Z"
 }

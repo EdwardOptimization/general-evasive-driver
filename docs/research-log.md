@@ -13510,3 +13510,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M826 audits M825 as a clean sparse/source-concentrated result, not a contract or runtime failure. The full normal replay pool is broad (`512` rows across `12` seeds, `64` source groups, `9` fault-family pairs, `4` warm-up modes, and `4` onset buckets), but accepted self-ID rows collapse to `18` rows across `2` seeds, `3` source groups, `3` fault-family pairs, `2` onset buckets, and only `natural_policy` warm-up. The strongest intervention signal is `zero_command_obs` (`max gap 0.0282559`, `mean gap 0.0043561`), while `response_delay_obs` is weak (`max gap 0.0000653`, negative mean gap). M826 therefore rejects reading M825 as full response-history self-ID proof and admits wrong-cross-fault history intervention design using the `256` matched action-divergent proxy pairs.
 - decision: `admit_wrong_cross_fault_history_intervention_design`
 - next: `m827-v4-wrong-cross-fault-history-intervention-design`
+
+## 20260525T202500Z - m827-v4-wrong-cross-fault-history-intervention-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m827-v4-wrong-cross-fault-history-intervention-design.md`
+- result: M827 designs the real no-training wrong-cross-fault history intervention. The implementation should join M825 `matched_pair_rows.csv` back to `candidate_plan_rows.csv`, reconstruct left/right temporal snapshots, replay the left relocated current geometry with right recurrent hidden state, and measure margin/action degradation against normal, reset, zero-command, command-shift, and response-delay variants. It defines rejection rules for missing/reconstruction-incomparable pairs, primary/outcome/mitigation wrong-history row classes, zero-command dominance guardrails, source-diversity gates, and required artifacts for M828. Actor input remains P0 human-view; fault labels stay logging/source-selection metadata only. PPO, promotion, and threshold relaxation remain blocked.
+- decision: `wrong_cross_fault_history_intervention_design_admit_m828`
+- next: `m828-v4-wrong-cross-fault-history-intervention-implementation`
