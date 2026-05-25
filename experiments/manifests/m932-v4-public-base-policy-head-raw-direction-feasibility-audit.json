@@ -1,0 +1,115 @@
+{
+  "id": "m932-v4-public-base-policy-head-raw-direction-feasibility-audit",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m930_v4_public_base_policy_head_trust_region_probe/checkpoints/raw_actor_mean_update.pt"
+    ],
+    "parent_dataset": [
+      "runs/m930_v4_public_base_policy_head_trust_region_probe/summary.json",
+      "runs/m919_v4_public_base_expanded_target_regeneration/accepted_target_rows.csv",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/summary.json",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/low_tail_rows.csv",
+      "docs/m931-v4-public-base-policy-head-no-tail-lift-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m931-v4-public-base-policy-head-no-tail-lift-audit.json"
+    ],
+    "parent_objective": [
+      "no-training extended-alpha feasibility audit of M930 raw actor_mean direction"
+    ],
+    "derived_from": [
+      "m931-v4-public-base-policy-head-no-tail-lift-audit"
+    ],
+    "blocked_by": [
+      "M930 raw actor-head direction has not been evaluated beyond the conservative alpha window"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m932-v4-public-base-policy-head-raw-direction-feasibility-audit.md",
+  "public_gates": [
+    "M932 must be no-training",
+    "M932 must compare base M399 to M930 raw actor_mean direction",
+    "M932 must preserve P0 actor input contract",
+    "M932 must block replay PPO and promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in M932",
+    "do not change actor inputs",
+    "do not update checkpoints",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_policy_level_trust_region",
+    "evidence_axis": "G_policy_update: measure raw actor-head direction feasibility",
+    "evidence_increment": "distinguishes no-tail-lift inside the small alpha window from true actor-head leverage insufficiency",
+    "claim_scope": "no-training feasibility audit only; no replay, PPO, driver improvement claim, or promotion",
+    "stop_condition": [
+      "stop if training is required",
+      "stop if non-actor_mean parameters differ between base and raw checkpoint",
+      "stop if replay PPO or promotion is attempted"
+    ],
+    "fallback_plan": [
+      "if tail lift exists only outside normal retention, route to broader trainable-surface design",
+      "if no tail lift exists, route to active-set/objective audit",
+      "if a candidate exists, route to exact no-update compatibility design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M931 requests raw actor-head direction feasibility before broadening update surface",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M930 raw actor_mean direction may reveal whether actor-head-only updates have tail-lift leverage outside the conservative alpha window, without any new training.",
+  "success_criteria": [
+    "summary.json exists",
+    "training_started is false",
+    "base and raw checkpoints differ only in actor_mean",
+    "sample_reconstruction_success_rate >= 0.98",
+    "alpha grid includes values above 0.1",
+    "route decision is recorded without replay PPO or promotion"
+  ],
+  "failure_criteria": [
+    "M932 starts training",
+    "base and raw checkpoints differ outside actor_mean",
+    "actor input contract changes",
+    "M932 runs replay PPO or promotion"
+  ],
+  "commands": [
+    {
+      "name": "run_raw_direction_feasibility_audit",
+      "command": "PYTHONPATH=src python -m autodrift.public_base_policy_head_raw_direction_feasibility --base-checkpoint runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --raw-checkpoint runs/m930_v4_public_base_policy_head_trust_region_probe/checkpoints/raw_actor_mean_update.pt --positive-rows runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv --contrast-rows runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv --scenario-config configs/extreme_fault_distribution_v4_scenarios.json --target-rows runs/m919_v4_public_base_expanded_target_regeneration/accepted_target_rows.csv --m912-summary runs/m912_v4_public_base_sequence_recalibration_audit/summary.json --low-tail-rows runs/m912_v4_public_base_sequence_recalibration_audit/low_tail_rows.csv --run-dir runs/m932_v4_public_base_policy_head_raw_direction_feasibility --device cpu --alphas 0.001,0.002,0.005,0.010,0.020,0.050,0.100,0.200,0.350,0.500,0.750,1.000"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m932_v4_public_base_policy_head_raw_direction_feasibility/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m932_v4_public_base_policy_head_raw_direction_feasibility/alpha_metrics.csv",
+      "type": "data"
+    },
+    {
+      "path": "docs/m932-v4-public-base-policy-head-raw-direction-feasibility-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "runs/m930_v4_public_base_policy_head_trust_region_probe/checkpoints/raw_actor_mean_update.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m931-v4-public-base-policy-head-no-tail-lift-audit.md"
+  ],
+  "decision_rule": "M932 may only run no-training raw-direction alpha metrics. It must not train, run replay, run PPO, or promote.",
+  "next_blocker": "M930 raw actor-head direction has not been evaluated beyond the conservative alpha window"
+}

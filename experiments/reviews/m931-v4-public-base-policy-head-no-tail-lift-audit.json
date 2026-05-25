@@ -1,0 +1,77 @@
+{
+  "decision_reason": "M931 audits M930 as no admissible tail lift inside the conservative alpha window and routes to no-training extended-alpha raw direction feasibility",
+  "failure_criteria": [
+    "M931 starts training",
+    "M931 changes actor inputs",
+    "M931 admits replay PPO or promotion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train in M931",
+    "do not change actor inputs",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not start a broader actor update without an audit route"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260525T223323Z",
+  "hypothesis": "M930's no-tail-lift result must be classified before expanding the trainable policy surface; otherwise the branch risks local gate-passing variants without evidence gain.",
+  "lineage": {
+    "blocked_by": [
+      "policy-head no-tail-lift result has not yet been audited"
+    ],
+    "derived_from": [
+      "m930-v4-public-base-policy-head-trust-region-probe-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m930-v4-public-base-policy-head-trust-region-probe-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m930_v4_public_base_policy_head_trust_region_probe/summary.json",
+      "runs/m930_v4_public_base_policy_head_trust_region_probe/alpha_metrics.csv",
+      "runs/m930_v4_public_base_policy_head_trust_region_probe/training_metrics.csv",
+      "docs/m930-v4-public-base-policy-head-trust-region-probe-implementation.md"
+    ],
+    "parent_objective": [
+      "audit actor_mean-only no-tail-lift result before any broader policy update"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m931-v4-public-base-policy-head-no-tail-lift-audit",
+  "next_blocker": "policy-head no-tail-lift result has not yet been audited",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "policy_head_no_tail_lift_audit_route_to_raw_direction_feasibility",
+  "public_gates": [
+    "M931 must be audit-only",
+    "M931 must preserve P0 actor input contract",
+    "M931 must classify M930 no-tail-lift before any broader actor update",
+    "M931 must keep replay PPO and promotion blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m931-v4-public-base-policy-head-no-tail-lift-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "policy_head_no_tail_lift_audit_route_to_raw_direction_feasibility",
+    "milestone": "m931-v4-public-base-policy-head-no-tail-lift-audit",
+    "reason": "M931 audits M930 as no admissible tail lift inside the conservative alpha window and routes to no-training extended-alpha raw direction feasibility",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m931-v4-public-base-policy-head-no-tail-lift-audit.md exists",
+    "M931 classifies M930 using summary alpha and training metrics",
+    "M931 chooses a next route without replay PPO or promotion"
+  ],
+  "type": "gate"
+}

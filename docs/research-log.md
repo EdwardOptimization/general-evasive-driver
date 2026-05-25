@@ -14479,3 +14479,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M930 runs the objective-only actor_mean trust-region probe. It reconstructs `1213/1213`, joins `122/122` targets, starts training, and changes only `actor_mean`; feature backbone, critic, log_std, and all non-head checksums remain unchanged. All registered alphas pass normal retention, but none pass tail lift or target-loss gates, so `candidate_alpha_count=0`. No exact compatibility, replay, PPO, or promotion occurred.
 - decision: `public_base_policy_head_trust_region_probe_no_tail_lift_route_to_policy_head_audit`
 - next: `m931-v4-public-base-policy-head-no-tail-lift-audit`
+
+## 20260525T223249Z - m931-v4-public-base-policy-head-no-tail-lift-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m931-v4-public-base-policy-head-no-tail-lift-audit.md`
+- result: M931 audits M930 as a clean negative inside the conservative alpha window, not yet proof that actor_mean has no useful raw direction. Because M930 only evaluated alphas up to `0.100`, the next step should be a no-training extended-alpha audit of the saved M930 raw actor_mean update before any broader trainable surface is designed.
+- decision: `policy_head_no_tail_lift_audit_route_to_raw_direction_feasibility`
+- next: `m932-v4-public-base-policy-head-raw-direction-feasibility-audit`

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 939,
+    "completed": 940,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m930-v4-public-base-policy-head-trust-region-probe-implementation",
+    "task_id": "m931-v4-public-base-policy-head-no-tail-lift-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m930_v4_public_base_policy_head_trust_region_probe/summary.json"
+    "command_log": "docs/m931-v4-public-base-policy-head-no-tail-lift-audit.md"
   },
   "next_task": {
-    "id": "m931-v4-public-base-policy-head-no-tail-lift-audit",
+    "id": "m932-v4-public-base-policy-head-raw-direction-feasibility-audit",
     "status": "pending",
-    "priority": 9260,
-    "kind": "gate",
-    "hypothesis": "Audit M930 no-tail-lift before expanding the trainable policy surface",
-    "command": "see experiments/manifests/m931-v4-public-base-policy-head-no-tail-lift-audit.json",
-    "success_artifact": "docs/m931-v4-public-base-policy-head-no-tail-lift-audit.md",
-    "notes": "Pending: classify actor_mean-only no-tail-lift and choose next route; replay, PPO, and promotion blocked"
+    "priority": 9270,
+    "kind": "infrastructure",
+    "hypothesis": "Evaluate the saved M930 raw actor_mean direction across extended alphas without new training",
+    "command": "see experiments/manifests/m932-v4-public-base-policy-head-raw-direction-feasibility-audit.json",
+    "success_artifact": "runs/m932_v4_public_base_policy_head_raw_direction_feasibility/summary.json",
+    "notes": "Pending: no-training raw direction feasibility audit; replay, PPO, and promotion blocked"
   },
-  "updated_at_utc": "20260525T222808Z"
+  "updated_at_utc": "20260525T223249Z"
 }

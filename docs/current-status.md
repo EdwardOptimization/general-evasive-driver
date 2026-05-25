@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m931-v4-public-base-policy-head-no-tail-lift-audit
+m932-v4-public-base-policy-head-raw-direction-feasibility-audit
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -70,12 +70,17 @@ alpha/mix candidate. M928 audits this as a residual-bridge trust-region
 conflict and routes to policy-level trust-region design. M929 designs an
 actor_mean-only objective sanity probe. M930 updates only the policy mean head,
 freezes feature/recurrent encoders, critic, and log_std, and finds no
-tail-lift candidate. M931 must audit whether this is actor-head leverage
-insufficiency, objective active-set mismatch, or another stop condition before
-any broader actor update.
+tail-lift candidate inside the conservative alpha window. M931 audits this as
+insufficient evidence to broaden the actor yet, and routes to a no-training
+extended-alpha feasibility audit of the saved M930 raw actor_mean direction.
 
 ## Recent Evidence Line
 
+- M931 audits M930 and blocks a premature broader actor update. The key
+  distinction is that M930 proves no admissible tail lift inside the registered
+  conservative alpha window, but does not yet prove the raw actor-head direction
+  lacks tail-lift leverage. M932 should evaluate the saved raw direction across
+  extended alphas with no new training.
 - M930 implements the actor_mean-only trust-region probe. It reconstructs
   `1213/1213`, joins `122/122` targets, changes only `actor_mean`, and keeps
   feature backbone, critic, log_std, and all non-head checksums unchanged.
