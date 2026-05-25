@@ -13026,3 +13026,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M774 audits M773 as materially supporting the coverage-limited hypothesis. M773 is much broader than M767 (`2652` positives versus `995`, `49` positive seeds versus `25`, `17` positive fault-family pairs versus `13`, and max seed dominance `0.171569` versus `0.247236`), with clean artifact gates and no mutation/training/PPO flags. The audit preserves caveats: strict broad gates still miss by one fault-family pair and seed dominance, and hard negatives remain incomplete (`2134` hard negatives for `2652` positives, `872` positives without hard negatives). Because ordinary corpus validity is clean and the strict misses are small relative to the coverage improvement, M774 admits only a limited no-PPO residual replay design on M773 with alpha `0.2` primary. PPO, training, and promotion remain blocked.
 - decision: `promote_to_limited_broader_residual_replay_design`
 - next: `m775-v4-limited-broader-residual-replay-design`
+
+## 20260525T075000Z - m775-v4-limited-broader-residual-replay-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m775-v4-limited-broader-residual-replay-design.md`
+- result: M775 designs a limited no-PPO residual replay on the broader M773 corpus using the fixed M568 actor checkpoint, fixed M761 residual head, M773 `2652` positive rows and contrast rows, and `configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json`. It pre-registers alpha `0.2` as the primary conservative candidate with `0.5` and `1.0` diagnostic, requires reconstruction and normal-retention metrics, intervention action-gap and margin-gap metrics, seed/fault-family/variant/horizon stratification, hard-negative sparsity caveat, and current_model_or_proxy claim boundary. It blocks alpha retuning, training, PPO, residual retraining, actor mutation, and promotion. Research validation required workflow synthesis before another implementation milestone, so M775 routes the branch to synthesis first.
+- decision: `limited_broader_residual_replay_design_admit_synthesis`
+- next: `m776-v4-residual-source-holdout-replay-synthesis`

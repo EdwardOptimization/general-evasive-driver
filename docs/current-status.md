@@ -62,15 +62,28 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m775-v4-limited-broader-residual-replay-design
+m776-v4-residual-source-holdout-replay-synthesis
 ```
 
-M775 should design a limited no-PPO residual replay on the broader M773 corpus
-using the M761 residual head. Alpha `0.2` remains the primary conservative
-candidate. PPO, actor/residual training, and promotion remain blocked.
+M776 should synthesize the v4 residual source-holdout replay branch before
+another implementation milestone. Research validation blocked direct residual
+replay because the branch reached workflow synthesis cadence. PPO,
+actor/residual training, and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M775 designs a limited no-PPO residual replay on the broader M773 corpus. It
+  fixes inputs to the M568 actor checkpoint, the M761 residual head, M773
+  `2652` positive rows and contrast rows, and
+  `configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json`.
+  Alpha `0.2` is pre-registered as the primary conservative candidate, with
+  `0.5` and `1.0` diagnostic. M776 must report reconstruction, normal
+  retention, intervention action-gap and margin-gap changes, seed/fault-family
+  pair/variant/horizon stratification, hard-negative sparsity, and
+  `current_model_or_proxy` claim boundary. Alpha retuning, training, PPO,
+  residual retraining, actor mutation, and promotion remain blocked. Research
+  validation required workflow synthesis before another implementation
+  milestone, so M775 now admits M776 synthesis rather than direct replay.
 - M774 audits M773 as materially supporting the coverage-limited hypothesis.
   M773 is much broader than M767: `2652` positives versus `995`, `49` positive
   seeds versus `25`, `17` positive fault-family pairs versus `13`, and max seed
