@@ -13519,3 +13519,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M827 designs the real no-training wrong-cross-fault history intervention. The implementation should join M825 `matched_pair_rows.csv` back to `candidate_plan_rows.csv`, reconstruct left/right temporal snapshots, replay the left relocated current geometry with right recurrent hidden state, and measure margin/action degradation against normal, reset, zero-command, command-shift, and response-delay variants. It defines rejection rules for missing/reconstruction-incomparable pairs, primary/outcome/mitigation wrong-history row classes, zero-command dominance guardrails, source-diversity gates, and required artifacts for M828. Actor input remains P0 human-view; fault labels stay logging/source-selection metadata only. PPO, promotion, and threshold relaxation remain blocked.
 - decision: `wrong_cross_fault_history_intervention_design_admit_m828`
 - next: `m828-v4-wrong-cross-fault-history-intervention-implementation`
+
+## 20260525T204000Z - m828-v4-wrong-cross-fault-history-intervention-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m828_v4_wrong_cross_fault_history_intervention`
+- artifact: `docs/m828-v4-wrong-cross-fault-history-intervention-implementation.md`
+- result: M828 implements and runs no-training wrong-cross-fault hidden injection. It selects `108` matched pairs from M825, reconstructs `15` shared temporal snapshots, replays `756` rows, and keeps actor/M761 residual-head checksums unchanged. All `108/108` wrong-hidden first actions move closer to the matched right action, but the effect is too small: `wrong_cross_fault_hidden` max first-action L2 is `0.00690`, max prefix L2 is `0.00317`, max margin gap is `0.0000260`, and mean margin gap is `0.00000458`. Accepted primary wrong-history rows and mitigation rows are both `0`, so the result class is `v4_wrong_cross_fault_history_intervention_history_insensitive`.
+- decision: `v4_wrong_cross_fault_history_intervention_history_insensitive`
+- next: `m829-v4-wrong-cross-fault-history-intervention-audit`

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 836,
+    "completed": 837,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m827-v4-wrong-cross-fault-history-intervention-design",
+    "task_id": "m828-v4-wrong-cross-fault-history-intervention-implementation",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m827-v4-wrong-cross-fault-history-intervention-design.md"
+    "command_log": "docs/m828-v4-wrong-cross-fault-history-intervention-implementation.md"
   },
   "next_task": {
-    "id": "m828-v4-wrong-cross-fault-history-intervention-implementation",
+    "id": "m829-v4-wrong-cross-fault-history-intervention-audit",
     "status": "pending",
-    "priority": 8230,
-    "kind": "infrastructure",
-    "hypothesis": "Implement no-training wrong-cross-fault history replay and measure response-history self-ID evidence directly",
-    "command": "see experiments/manifests/m828-v4-wrong-cross-fault-history-intervention-implementation.json",
-    "success_artifact": "docs/m828-v4-wrong-cross-fault-history-intervention-implementation.md",
-    "notes": "Pending: M827 designs current-geometry replay with injected matched different-fault hidden/history; PPO and promotion remain blocked"
+    "priority": 8240,
+    "kind": "gate",
+    "hypothesis": "Audit hidden-only wrong-cross-fault intervention negative before choosing next evidence route",
+    "command": "see experiments/manifests/m829-v4-wrong-cross-fault-history-intervention-audit.json",
+    "success_artifact": "docs/m829-v4-wrong-cross-fault-history-intervention-audit.md",
+    "notes": "Pending: M828 reconstructed 108 pairs but produced zero accepted wrong-history rows; hidden-only action and margin effects were too small"
   },
-  "updated_at_utc": "20260525T202500Z"
+  "updated_at_utc": "20260525T204000Z"
 }

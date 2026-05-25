@@ -1,0 +1,106 @@
+{
+  "id": "m829-v4-wrong-cross-fault-history-intervention-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m828_v4_wrong_cross_fault_history_intervention/summary.json",
+      "runs/m828_v4_wrong_cross_fault_history_intervention/wrong_history_replay_rows.csv",
+      "runs/m828_v4_wrong_cross_fault_history_intervention/diversity_summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m828-v4-wrong-cross-fault-history-intervention-implementation.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit hidden-only wrong-cross-fault history intervention negative result"
+    ],
+    "derived_from": [
+      "m828-v4-wrong-cross-fault-history-intervention-implementation"
+    ],
+    "blocked_by": [
+      "M828 wrong-cross-fault hidden injection has zero accepted wrong-history rows and very small action/margin effects"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m829-v4-wrong-cross-fault-history-intervention-audit.md",
+  "public_gates": [
+    "M829 must inspect M828 summary and replay artifacts",
+    "M829 must classify whether the negative is implementation, matching, or policy-insensitivity limited",
+    "M829 must decide between full wrong-history observation replay, stronger boundary pair mining, or branch pivot",
+    "M829 must preserve P0 actor contract and current-model/proxy boundary",
+    "M829 must not run PPO or promote a checkpoint"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not relax wrong-history thresholds after seeing M828",
+    "do not treat closer-to-right action alone as pass evidence",
+    "do not claim physical wheel-level faults from current proxies"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_new_data_route",
+    "evidence_axis": "G_distribution: audit wrong-cross-fault hidden-only intervention",
+    "evidence_increment": "audits M828's hidden-only wrong-history negative before choosing full-history replay or pair mining",
+    "claim_scope": "audit/process evidence only; no PPO and no promotion",
+    "stop_condition": [
+      "stop if hidden-only injection is too weak and full-history replay is required",
+      "stop if matched pairs are too far from terminal boundary",
+      "stop if evidence suggests the current M568/M761 family is not response-history sensitive under this route"
+    ],
+    "fallback_plan": [
+      "if hidden-only is too weak, design full wrong-history observation replay",
+      "if pair boundary slack is too large, design near-boundary matched-pair mining",
+      "if current policy is insensitive, return to training objective design before more corpus mining"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M828 produced a clean hidden-only wrong-history negative",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M828's negative can be attributed to hidden-only intervention being too weak, not a contract or reconstruction failure.",
+  "success_criteria": [
+    "M829 writes an audit document with M828 replay metrics",
+    "M829 verifies no actor/residual training or promotion occurred",
+    "M829 identifies the next control variable",
+    "M829 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M829 treats closer-to-right action without margin/action threshold pass as success",
+    "M829 admits PPO from a zero-accepted-row result",
+    "M829 ignores reconstruction or contract issues",
+    "M829 relaxes thresholds after seeing the result"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "inspect M828 artifacts and write docs/m829-v4-wrong-cross-fault-history-intervention-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m829-v4-wrong-cross-fault-history-intervention-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m828_v4_wrong_cross_fault_history_intervention/summary.json",
+    "docs/m828-v4-wrong-cross-fault-history-intervention-implementation.md"
+  ],
+  "decision_rule": "M829 may admit only a next evidence-route design or branch audit. It must not train, run PPO, or promote.",
+  "next_blocker": "M828 hidden-only wrong-history intervention produced no accepted rows"
+}
