@@ -1,0 +1,134 @@
+{
+  "id": "m820-v4-low-margin-new-data-route-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m810-v4-low-margin-new-data-route-design.md",
+      "docs/m811-v4-low-margin-new-data-route-implementation.md",
+      "docs/m812-v4-low-margin-new-data-route-audit.md",
+      "docs/m813-v4-adaptive-boundary-bracketing-design.md",
+      "docs/m814-v4-adaptive-boundary-bracketing-implementation.md",
+      "docs/m815-v4-adaptive-boundary-bracketing-audit.md",
+      "docs/m816-v4-adaptive-primary-residual-calibration-design.md",
+      "docs/m817-v4-adaptive-primary-residual-calibration-implementation.md",
+      "docs/m818-v4-adaptive-primary-residual-calibration-audit.md",
+      "docs/m819-v4-adaptive-primary-calibration-followup-design.md",
+      "runs/m814_v4_adaptive_boundary_bracketing/summary.json",
+      "runs/m817_v4_adaptive_primary_residual_calibration/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m819-v4-adaptive-primary-calibration-followup-design.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_objective": [
+      "synthesize v4_low_margin_new_data_route branch before implementation"
+    ],
+    "derived_from": [
+      "m819-v4-adaptive-primary-calibration-followup-design"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence after M810-M819",
+      "need branch-level decision before calibration implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m820-v4-low-margin-new-data-route-branch-synthesis.md",
+  "public_gates": [
+    "M820 must synthesize M810 through M819",
+    "M820 must answer required workflow synthesis questions",
+    "M820 must decide continue pivot stop or promote_to_next_branch",
+    "M820 must not train actor residual calibrator or residual head",
+    "M820 must not run PPO or promote a checkpoint"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run replay in the synthesis",
+    "do not train actor or residual parameters",
+    "do not train a calibrator",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not skip public-gate overfit analysis",
+    "do not continue the branch without a synthesis decision"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_new_data_route",
+    "evidence_axis": "process: branch synthesis before calibration implementation",
+    "evidence_increment": "summarizes M810-M819 evidence from new data route through adaptive bracketing and near-identity calibration audit",
+    "claim_scope": "synthesis decision only; no replay result, PPO claim, or driver promotion",
+    "stop_condition": [
+      "stop if evidence no longer supports this branch",
+      "stop if the next implementation would optimize only fixed public rows",
+      "stop if M817 only supports identity retention and no useful follow-up exists",
+      "stop if branch continuation would exceed synthesis cadence"
+    ],
+    "fallback_plan": [
+      "if branch continues, implement exact non-PPO calibration grid from M819",
+      "if branch pivots, return to fresh data generation or new source distribution",
+      "if branch stops, archive M814/M817 as corpus and harness evidence",
+      "if evidence supports a new branch, rename the branch before continuing"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M819 reaches ten non-synthesis milestones in v4_low_margin_new_data_route",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m820-v4-low-margin-new-data-route-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "The v4_low_margin_new_data_route branch has enough positive evidence to continue into exact non-PPO calibration-grid implementation, but only after explicitly recording risks and limits.",
+  "success_criteria": [
+    "M820 summarizes M810 through M819 evidence",
+    "M820 answers all required synthesis questions",
+    "M820 records supported and falsified claims",
+    "M820 records public-gate overfit and metric-artifact risks",
+    "M820 preserves no-PPO no-training and no-promotion blocks",
+    "M820 names the next blocker if continuation is admitted"
+  ],
+  "failure_criteria": [
+    "M820 omits required synthesis questions",
+    "M820 trains or runs replay",
+    "M820 admits PPO or promotion",
+    "M820 hides M817 near-identity caveat",
+    "M820 continues without a branch decision"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m820-v4-low-margin-new-data-route-branch-synthesis.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m820-v4-low-margin-new-data-route-branch-synthesis.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m819-v4-adaptive-primary-calibration-followup-design.md",
+    "docs/m818-v4-adaptive-primary-residual-calibration-audit.md",
+    "runs/m817_v4_adaptive_primary_residual_calibration/summary.json",
+    "runs/m814_v4_adaptive_boundary_bracketing/summary.json"
+  ],
+  "decision_rule": "M820 may only synthesize the branch. It must not run replay, train, run PPO, mutate actor or residual parameters, or promote a checkpoint.",
+  "next_blocker": "m821-v4-adaptive-primary-calibration-grid-implementation"
+}

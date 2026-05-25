@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 827,
+        "completed": 828,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m818-v4-adaptive-primary-residual-calibration-audit",
+        "task_id": "m819-v4-adaptive-primary-calibration-followup-design",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m818-v4-adaptive-primary-residual-calibration-audit.md"
+        "command_log": "docs/m819-v4-adaptive-primary-calibration-followup-design.md"
     },
     "next_task": {
-        "id": "m819-v4-adaptive-primary-calibration-followup-design",
+        "id": "m820-v4-low-margin-new-data-route-branch-synthesis",
         "status": "pending",
-        "priority": 8140,
-        "kind": "infrastructure",
-        "hypothesis": "Design an informative non-PPO source-heldout calibration comparison after M817 near-identity audit",
-        "command": "see experiments/manifests/m819-v4-adaptive-primary-calibration-followup-design.json",
-        "success_artifact": "docs/m819-v4-adaptive-primary-calibration-followup-design.md",
-        "notes": "Pending: design fixed-gate vector-gate and adaptive-gate comparison and route to branch synthesis before implementation"
+        "priority": 8150,
+        "kind": "gate",
+        "hypothesis": "Synthesize M810-M819 before any calibration-grid implementation",
+        "command": "see experiments/manifests/m820-v4-low-margin-new-data-route-branch-synthesis.json",
+        "success_artifact": "docs/m820-v4-low-margin-new-data-route-branch-synthesis.md",
+        "notes": "Pending: workflow synthesis for v4_low_margin_new_data_route after M819 cadence boundary"
     },
-    "updated_at_utc": "20260525T181500Z"
+    "updated_at_utc": "20260525T182500Z"
 }

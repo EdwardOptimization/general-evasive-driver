@@ -13436,3 +13436,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M818 audits M817 as a clean harness-positive retention result, not a performance-improving driver update. The source-heldout split is valid (`57` train rows, `28` holdout rows, `55` split units), snapshots are complete (`110` lookup rows, `0` missing), actor and M761 residual-head checksums are unchanged, train and holdout normal rows remain collision-free, intervention collision rates are exactly retained (`train 0.678363`, `holdout 0.702381`), and old-behavior drift is near zero. The calibrator remains near identity (`gate_mean 0.998986`), so it proves calibration infrastructure, not meaningful adaptive gating.
 - decision: `admit_adaptive_primary_calibration_followup_design`
 - next: `m819-v4-adaptive-primary-calibration-followup-design`
+
+## 20260525T182500Z - m819-v4-adaptive-primary-calibration-followup-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m819-v4-adaptive-primary-calibration-followup-design.md`
+- result: M819 designs the next non-PPO calibration comparison after M817/M818. It requires any follow-up to compare identity, fixed scalar gates, fixed vector gates, and only then train-only adaptive gates under the same source-heldout exact evaluation. Candidate selection is train-only and lexicographic: no train normal collisions, intervention collision-rate retention, old-behavior drift limits, unchanged actor and M761 residual-head checksums, then margin-lift ranking. Holdout acceptance requires no normal collisions, nonnegative holdout margin lift, intervention collision-rate retention within `0.05`, action drift bounds, no PPO, and no promotion. M819 explicitly routes to branch synthesis before implementation because the `v4_low_margin_new_data_route` branch reaches the cadence boundary.
+- decision: `adaptive_primary_calibration_followup_design_admit_branch_synthesis`
+- next: `m820-v4-low-margin-new-data-route-branch-synthesis`
