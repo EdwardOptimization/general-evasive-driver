@@ -62,17 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m923-v4-public-base-alpha-aware-low-tail-objective-design
+m924-v4-public-base-alpha-aware-low-tail-residual-probe-implementation
 ```
 
-M921 trained only a frozen-M399 residual head on M919 regenerated targets but
-found no admitted objective alpha. M922 audits this as target-action objective
-improvement without enough normal-retained low-tail lift. M923 must design an
-alpha-aware low-tail objective before any exact compatibility, replay, PPO, or
-promotion.
+M923 designed an alpha-aware low-tail residual objective after M921's
+target-action imitation objective failed the candidate gate. M924 must train
+only a frozen-M399 residual head with direct low-tail losses at normal-retaining
+train alphas before any exact compatibility, replay, PPO, or promotion.
 
 ## Recent Evidence Line
 
+- M923 designs an alpha-aware low-tail objective. M924 should train at
+  normal-retaining alphas `0.20` and `0.35`, target low-tail gap floor,
+  low-tail deficit, and soft low-tail fraction directly, and keep M919 target
+  action imitation as an auxiliary rather than the only main objective. Exact
+  compatibility, replay, PPO, and promotion remain blocked.
 - M922 audits M921 as an objective-gate negative. The residual direction
   improves target-action MSE and moves low-tail metrics in the right direction
   at larger alphas, but normal-retaining alphas do not produce enough tail

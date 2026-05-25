@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 931,
+    "completed": 932,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m922-v4-public-base-regenerated-target-residual-probe-audit",
+    "task_id": "m923-v4-public-base-alpha-aware-low-tail-objective-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m922-v4-public-base-regenerated-target-residual-probe-audit.md"
+    "command_log": "docs/m923-v4-public-base-alpha-aware-low-tail-objective-design.md"
   },
   "next_task": {
-    "id": "m923-v4-public-base-alpha-aware-low-tail-objective-design",
+    "id": "m924-v4-public-base-alpha-aware-low-tail-residual-probe-implementation",
     "status": "pending",
-    "priority": 9180,
+    "priority": 9190,
     "kind": "infrastructure",
-    "hypothesis": "Design an alpha-aware low-tail objective that targets M921's normal-retained tail-lift failure",
-    "command": "see experiments/manifests/m923-v4-public-base-alpha-aware-low-tail-objective-design.json",
-    "success_artifact": "docs/m923-v4-public-base-alpha-aware-low-tail-objective-design.md",
-    "notes": "Pending: design only; exact compatibility, replay, PPO, and promotion blocked"
+    "hypothesis": "Train only a frozen-M399 residual head with alpha-aware low-tail losses and evaluate objective gates",
+    "command": "see experiments/manifests/m924-v4-public-base-alpha-aware-low-tail-residual-probe-implementation.json",
+    "success_artifact": "runs/m924_v4_public_base_alpha_aware_low_tail_residual_probe/summary.json",
+    "notes": "Pending: residual-head-only objective probe; exact compatibility, replay, PPO, and promotion blocked"
   },
-  "updated_at_utc": "20260525T215411Z"
+  "updated_at_utc": "20260525T215817Z"
 }

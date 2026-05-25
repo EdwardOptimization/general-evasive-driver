@@ -1,0 +1,118 @@
+{
+  "id": "m924-v4-public-base-alpha-aware-low-tail-residual-probe-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m923-v4-public-base-alpha-aware-low-tail-objective-design.md",
+      "runs/m919_v4_public_base_expanded_target_regeneration/accepted_target_rows.csv",
+      "runs/m921_v4_public_base_regenerated_target_residual_probe/summary.json",
+      "runs/m921_v4_public_base_regenerated_target_residual_probe/alpha_metrics.csv",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/summary.json",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/low_tail_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m923-v4-public-base-alpha-aware-low-tail-objective-design.json"
+    ],
+    "parent_objective": [
+      "implement alpha-aware low-tail residual objective after M921 no-candidate result"
+    ],
+    "derived_from": [
+      "m923-v4-public-base-alpha-aware-low-tail-objective-design"
+    ],
+    "blocked_by": [
+      "M923 alpha-aware low-tail objective design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m924-v4-public-base-alpha-aware-low-tail-residual-probe-implementation.md",
+  "public_gates": [
+    "M924 may train only a residual head",
+    "M924 must optimize low-tail metrics at normal-retaining train alphas",
+    "M924 must keep the M399 actor backbone unchanged",
+    "M924 must block exact compatibility, replay, PPO, and promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not update the M399 actor backbone",
+    "do not change actor inputs",
+    "do not run M880 exact compatibility",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_target_regeneration",
+    "evidence_axis": "G_target_objective: execute alpha-aware low-tail residual objective",
+    "evidence_increment": "tests whether direct alpha-aware low-tail losses fix M921's no-candidate failure",
+    "claim_scope": "objective-only residual probe; no exact compatibility, replay, PPO, driver improvement claim, or promotion",
+    "stop_condition": [
+      "stop if actor_backbone_changed is true",
+      "stop if candidate_alpha_count is zero",
+      "stop if exact compatibility, replay, PPO, or promotion is attempted"
+    ],
+    "fallback_plan": [
+      "if an alpha passes, route to exact no-update compatibility design",
+      "if no alpha passes, route to branch synthesis before another narrow objective variant"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M923 admits alpha-aware low-tail residual probe implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Alpha-aware low-tail losses evaluated inside the normal-retention alpha range can produce an admitted residual-head alpha where M921 target-action imitation failed.",
+  "success_criteria": [
+    "summary.json exists",
+    "residual_head.pt exists",
+    "sample_reconstruction_success_rate >= 0.98",
+    "actor_backbone_changed is false",
+    "candidate_alpha_count >= 1",
+    "training_started is true",
+    "ppo_used and promoted are false"
+  ],
+  "failure_criteria": [
+    "actor backbone changes",
+    "sample reconstruction fails",
+    "candidate_alpha_count == 0",
+    "M924 runs exact compatibility replay PPO or promotion"
+  ],
+  "commands": [
+    {
+      "name": "run_alpha_aware_low_tail_probe",
+      "command": "PYTHONPATH=src python -m autodrift.public_base_alpha_aware_low_tail_residual_probe --checkpoint runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --positive-rows runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv --contrast-rows runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv --scenario-config configs/extreme_fault_distribution_v4_scenarios.json --regenerated-target-rows runs/m919_v4_public_base_expanded_target_regeneration/accepted_target_rows.csv --m912-summary runs/m912_v4_public_base_sequence_recalibration_audit/summary.json --low-tail-rows runs/m912_v4_public_base_sequence_recalibration_audit/low_tail_rows.csv --m909-objective-rows runs/m909_v4_public_base_residual_head_probe/objective_rows.csv --run-dir runs/m924_v4_public_base_alpha_aware_low_tail_residual_probe --device cpu --epochs 40 --seed 9240"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m924_v4_public_base_alpha_aware_low_tail_residual_probe/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m924_v4_public_base_alpha_aware_low_tail_residual_probe/residual_head.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "runs/m924_v4_public_base_alpha_aware_low_tail_residual_probe/alpha_metrics.csv",
+      "type": "data"
+    },
+    {
+      "path": "docs/m924-v4-public-base-alpha-aware-low-tail-residual-probe-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m923-v4-public-base-alpha-aware-low-tail-objective-design.md"
+  ],
+  "decision_rule": "M924 may only train a residual head on frozen M399 features and evaluate objective gates. It must not run exact compatibility, replay, PPO, or promotion.",
+  "next_blocker": "alpha-aware low-tail residual objective has not yet been implemented"
+}

@@ -14404,3 +14404,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M922 classifies M921 as `objective_overfit`: the direct target-action objective improves, but the full candidate gate requiring normal-retained low-tail lift does not pass. This is not a reconstruction, target-join, contract, or training-instability failure. Exact compatibility, replay, PPO, and promotion remain blocked.
 - decision: `regenerated_target_residual_probe_audit_route_to_alpha_aware_low_tail_objective_design`
 - next: `m923-v4-public-base-alpha-aware-low-tail-objective-design`
+
+## 20260525T215817Z - m923-v4-public-base-alpha-aware-low-tail-objective-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m923-v4-public-base-alpha-aware-low-tail-objective-design.md`
+- result: M923 designs an alpha-aware low-tail residual objective for frozen M399 features. The next implementation should train at normal-retaining alphas `0.20` and `0.35`, optimize low-tail gap floor, low-tail deficit, and soft low-tail fraction losses directly, and keep target-action imitation as an auxiliary. Exact compatibility, replay, PPO, actor update, and promotion remain blocked until an objective alpha passes.
+- decision: `public_base_alpha_aware_low_tail_objective_design_admit_m924`
+- next: `m924-v4-public-base-alpha-aware-low-tail-residual-probe-implementation`
