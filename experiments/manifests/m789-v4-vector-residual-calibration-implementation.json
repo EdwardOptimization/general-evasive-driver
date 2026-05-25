@@ -1,0 +1,129 @@
+{
+  "id": "m789-v4-vector-residual-calibration-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "behavior_regression",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m788-v4-vector-residual-calibration-design.md",
+      "docs/m787-v4-asymmetric-residual-gate-audit.md",
+      "runs/m786_v4_asymmetric_residual_gate/summary.json",
+      "runs/m786_v4_asymmetric_residual_gate/alpha_metrics.csv",
+      "runs/m783_v4_normal_margin_calibration/alpha_metrics.csv",
+      "runs/m780_v4_broader_normal_boundary_alpha_probe/alpha_metrics.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/contrast_rows.csv",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m788-v4-vector-residual-calibration-design.json"
+    ],
+    "parent_objective": [
+      "implement a no-PPO per-action-dimension residual gate after scalar gate behaves too much like alpha scaling"
+    ],
+    "derived_from": [
+      "m788-v4-vector-residual-calibration-design"
+    ],
+    "blocked_by": [
+      "m788-v4-vector-residual-calibration-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m789-v4-vector-residual-calibration-implementation.md",
+  "public_gates": [
+    "M789 implements a vector residual calibrator",
+    "M789 freezes base actor and M761 residual head",
+    "M789 trains only vector calibrator parameters",
+    "M789 evaluates alpha 0.0 0.125 0.15 0.2",
+    "M789 reports component-level gate metrics",
+    "M789 blocks PPO and checkpoint promotion"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not mutate base actor",
+    "do not mutate M761 residual head",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not weaken strict normal retention or intervention gap thresholds",
+    "do not use terminal margin or fault labels as deploy-time inputs",
+    "do not hide public active-source pressure",
+    "do not claim broad generalization or true four-wheel physical fidelity"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_residual_vector_calibration",
+    "evidence_axis": "G_action: vector residual calibration implementation",
+    "evidence_increment": "tests whether per-action-dimension residual gating beats the M786 scalar-gate Pareto point without normal regression",
+    "claim_scope": "implementation diagnostic only; no PPO or driver promotion",
+    "stop_condition": [
+      "stop if base actor or residual head checksum changes",
+      "stop if deploy-time oracle inputs are used",
+      "stop if thresholds are weakened after M788",
+      "stop if result admits promotion"
+    ],
+    "fallback_plan": [
+      "if component gates collapse to scalar behavior, audit and stop vector-gate branch or design residual component attribution",
+      "if normal collisions return, audit before coefficient changes",
+      "if strong alpha 0.2 candidate passes, audit source-diversity and public-overfit risk before another implementation",
+      "if no Pareto lift appears, stop residual calibration or return to corpus/architecture evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M788 admits one vector residual calibration implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A per-action-dimension vector gate can preserve intervention residual components while suppressing risky low-margin normal components, improving the M786 scalar-gate Pareto point.",
+  "success_criteria": [
+    "M789 writes run artifacts and docs",
+    "M789 confirms actor and residual head checksums unchanged",
+    "M789 trains only vector calibrator parameters",
+    "M789 evaluates registered alphas 0.0 0.125 0.15 0.2",
+    "M789 reports component gate statistics and active-source margins",
+    "M789 records whether any alpha beats the M786 alpha 0.15 Pareto point"
+  ],
+  "failure_criteria": [
+    "implementation mutates base actor or residual head",
+    "implementation runs PPO",
+    "implementation promotes a checkpoint",
+    "implementation weakens M788 thresholds",
+    "implementation omits component gate statistics or active source metrics"
+  ],
+  "commands": [
+    {
+      "name": "vector_calibration_probe",
+      "command": "implement and run per-action-dimension vector residual calibration probe; expected run dir runs/m789_v4_vector_residual_calibration"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m789_v4_vector_residual_calibration/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m789_v4_vector_residual_calibration/alpha_metrics.csv",
+      "type": "metrics"
+    },
+    {
+      "path": "docs/m789-v4-vector-residual-calibration-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m788-v4-vector-residual-calibration-design.md",
+    "runs/m786_v4_asymmetric_residual_gate/summary.json",
+    "runs/m786_v4_asymmetric_residual_gate/alpha_metrics.csv",
+    "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+  ],
+  "decision_rule": "M789 may implement and run only a no-PPO vector residual calibration probe. It must not mutate the base actor, mutate the M761 residual head, run PPO, or promote a checkpoint.",
+  "next_blocker": "m790-v4-vector-residual-calibration-audit"
+}

@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M788 designs a conservative no-PPO per-action-dimension residual gate with frozen M568 actor frozen M761 residual head alpha 0.2 primary target and explicit M780 M783 M786 comparison gates",
+  "failure_criteria": [
+    "design changes the actor input contract",
+    "design mutates base actor or residual head",
+    "design weakens M786 thresholds",
+    "design admits PPO or promotion",
+    "design omits comparison against scalar-gate baselines"
+  ],
+  "failure_types": [
+    "objective_overfit",
+    "behavior_regression",
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not implement the calibrator",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add oracle deploy-time inputs",
+    "do not weaken strict normal retention or intervention gap thresholds",
+    "do not claim broad generalization or true four-wheel physical fidelity"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T030139Z",
+  "hypothesis": "A vector or structured residual calibration design can address M787's scalar-gate limitation by suppressing risky normal action components without globally shrinking useful intervention residuals.",
+  "lineage": {
+    "blocked_by": [
+      "m787-v4-asymmetric-residual-gate-audit"
+    ],
+    "derived_from": [
+      "m787-v4-asymmetric-residual-gate-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m787-v4-asymmetric-residual-gate-audit.json",
+      "experiments/manifests/m786-v4-asymmetric-residual-gate-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m787-v4-asymmetric-residual-gate-audit.md",
+      "docs/m786-v4-asymmetric-residual-gate-implementation.md",
+      "runs/m786_v4_asymmetric_residual_gate/summary.json",
+      "runs/m786_v4_asymmetric_residual_gate/alpha_metrics.csv",
+      "runs/m783_v4_normal_margin_calibration/alpha_metrics.csv",
+      "runs/m780_v4_broader_normal_boundary_alpha_probe/alpha_metrics.csv",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+    ],
+    "parent_objective": [
+      "design a more expressive residual calibration probe after scalar gate produces only a narrow alpha 0.15 diagnostic candidate"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m788-v4-vector-residual-calibration-design",
+  "next_blocker": "m789-v4-vector-residual-calibration-implementation",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "vector_residual_calibration_design_admit_m789",
+  "public_gates": [
+    "M788 designs a vector or structured residual calibration probe",
+    "M788 preserves the M568 base actor and M761 residual head as frozen references",
+    "M788 preserves the human-view deployable input contract",
+    "M788 defines explicit comparison targets against M780 alpha 0.125 M783 alpha 0.2 and M786 alpha 0.15",
+    "M788 blocks implementation PPO and promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m788-v4-vector-residual-calibration-design.md",
+    "clearance_margin_mean": "",
+    "decision": "vector_residual_calibration_design_admit_m789",
+    "milestone": "m788-v4-vector-residual-calibration-design",
+    "reason": "M788 designs a conservative no-PPO per-action-dimension residual gate with frozen M568 actor frozen M761 residual head alpha 0.2 primary target and explicit M780 M783 M786 comparison gates",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M788 documents the vector residual calibration objective",
+    "M788 documents deploy-time inputs and forbidden training-time-only signals",
+    "M788 defines strict normal retention and intervention gap gates",
+    "M788 defines comparison targets against M780 M783 and M786",
+    "M788 keeps implementation PPO and promotion blocked"
+  ],
+  "type": "infrastructure"
+}

@@ -13147,3 +13147,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M787 audits M786 alpha `0.15` as a valid limited diagnostic positive, not a promotion-ready scalar-gate breakthrough. M786 is clean and produces one candidate: alpha `0.15` passes strict normal retention and the registered gap gate with intervention gap mean `0.043397` and active-source margin `+0.000028`. However, alpha `0.2` still fails on the same active source (`seed 77025`, `source_index 12`) with margin `-0.000005`, and M786 does not outperform M780 alpha `0.125` on intervention gap or margin gap. Gate means move from M783's near-half `0.499727/0.499986` to `0.670088/0.683384`, which is an improvement but still far from the intended high-default `0.85` asymmetric behavior. M787 therefore blocks PPO and promotion and pivots from scalar gate tuning to vector residual calibration design.
 - decision: `pivot_to_vector_residual_calibration_design`
 - next: `m788-v4-vector-residual-calibration-design`
+
+## 20260525T102000Z - m788-v4-vector-residual-calibration-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m788-v4-vector-residual-calibration-design.md`
+- result: M788 designs the next no-PPO residual calibration probe after M787 found scalar gating too close to alpha scaling. The design keeps the M568 actor frozen, keeps the M761 residual head frozen, and replaces scalar `g(feature)` with a per-action-dimension vector gate `g(feature) in [0,1]^3` over steer/throttle/brake residual components. It preserves the human-view deployable input contract and uses terminal margins/source labels only as training-time weights and audit metadata. The primary target is alpha `0.2`: a strong candidate must pass strict normal retention, keep active-source margin at least M786 alpha `0.15`'s `+0.000028`, and reach intervention gap mean at least M780 alpha `0.125`'s `0.044047`. A limited candidate must Pareto-improve M786 alpha `0.15`; merely reproducing scalar-gate behavior does not count. M789 is admitted as implementation diagnostic only, with PPO and promotion blocked.
+- decision: `vector_residual_calibration_design_admit_m789`
+- next: `m789-v4-vector-residual-calibration-implementation`

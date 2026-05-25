@@ -62,15 +62,28 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m788-v4-vector-residual-calibration-design
+m789-v4-vector-residual-calibration-implementation
 ```
 
-M788 should design an action-component-aware vector residual calibration probe
-after M787 found the scalar gate result too close to alpha scaling. Base actor
-mutation, M761 residual-head mutation, PPO, and promotion remain blocked.
+M789 should implement and run the no-PPO per-action-dimension vector residual
+calibration probe designed by M788. Base actor mutation, M761 residual-head
+mutation, PPO, and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M788 designs the next no-PPO residual calibration probe after M787 found
+  scalar gating too close to alpha scaling. The design keeps the M568 actor
+  frozen, keeps the M761 residual head frozen, and replaces scalar `g(feature)`
+  with a per-action-dimension vector gate `g(feature) in [0,1]^3` over
+  steer/throttle/brake residual components. It preserves the human-view
+  deployable input contract and uses terminal margins/source labels only as
+  training-time weights and audit metadata. The primary target is alpha `0.2`:
+  a strong candidate must pass strict normal retention, keep active-source
+  margin at least M786 alpha `0.15`'s `+0.000028`, and reach intervention gap
+  mean at least M780 alpha `0.125`'s `0.044047`. A limited candidate must
+  Pareto-improve M786 alpha `0.15`; merely reproducing scalar-gate behavior
+  does not count. M789 is admitted as implementation diagnostic only, with PPO
+  and promotion blocked.
 - M787 audits M786 alpha `0.15` as a valid limited diagnostic positive, not a
   promotion-ready scalar-gate breakthrough. M786 is clean and produces one
   candidate: alpha `0.15` passes strict normal retention and the registered gap
