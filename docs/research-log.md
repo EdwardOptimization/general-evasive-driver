@@ -14003,3 +14003,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M879 designs the no-training enrichment route required before objective loss design. The key correction is that existing M877 evidence must join to M867 sequence rows, while new M873 evidence joins to M873 sequence rows; a primary identity key over pair id, candidate ids, source groups, steps, direction, hold steps, epsilon, and margins gives `247/247` unique matches in the live artifacts. The design requires preserving split labels, duplicate metadata, 78055 caveat, and new-source-holdout limitation while adding normal/right/override first-action fields and sequence diagnostics.
 - decision: `pair_delta_objective_target_enrichment_design_admit_m880`
 - next: `m880-v4-pair-delta-objective-target-enrichment-implementation`
+
+## 20260525T185955Z - m880-v4-pair-delta-objective-target-enrichment-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `runs/m880_v4_pair_delta_objective_target_enrichment/summary.json`
+- result: M880 implements no-training enrichment and passes the registered gates. It enriches `247` dedup rows, `124` objective-train rows, `22` objective-eval rows, `98` source-holdout rows, and `3` new-signature-holdout rows. All `494` dedup/split join checks are `identity_unique`; missing and ambiguous join counts are zero; target action fields, split labels, and duplicate metadata are preserved. New source holdout remains unavailable and the 78055 caveat remains recorded, so objective training, actor update, PPO, and promotion remain blocked pending audit.
+- decision: `v4_pair_delta_objective_target_enrichment_pass`
+- next: `m881-v4-enriched-pair-delta-objective-readiness-audit`

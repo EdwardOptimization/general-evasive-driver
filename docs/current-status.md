@@ -62,19 +62,24 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m880-v4-pair-delta-objective-target-enrichment-implementation
+m881-v4-enriched-pair-delta-objective-readiness-audit
 ```
 
-M879 designed the no-training target-action enrichment route needed before
-objective loss design. Existing M877 evidence must join to M867 sequence rows,
-while new M873 evidence joins to M873 sequence rows. M880 must implement that
-enrichment and verify every deduplicated/split row has concrete normal,
-right-hidden, and first-override action target fields before any objective
-design, actor update, PPO, promotion, base actor mutation, or M761 residual-head
-mutation.
+M880 implemented the no-training target-action enrichment route and passed its
+infrastructure gates. All M877 dedup and split rows now have concrete normal,
+right-hidden, and first-override action target fields. M881 must audit the
+enriched corpus before any objective loss design, actor update, PPO, promotion,
+base actor mutation, or M761 residual-head mutation.
 
 ## Recent Evidence Line
 
+- M880 implements no-training target-action enrichment and passes. It enriches
+  `247` dedup rows plus all four split files, with `494/494` identity-unique
+  joins, zero missing joins, zero ambiguous joins, preserved split labels,
+  preserved duplicate metadata, and restored target action fields. The result
+  is corpus infrastructure only: new source holdout is still unavailable and
+  the 78055 caveat remains, so objective training, actor update, PPO, and
+  promotion remain blocked pending M881 audit.
 - M879 designs the no-training target-action enrichment route. The important
   correction is that M877's `existing_m867_or_m870` rows recover action targets
   from M867 sequence rows, while `new_m873` rows recover action targets from
