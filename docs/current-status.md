@@ -62,16 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m908-v4-public-base-compatible-residual-head-probe-design
+m909-v4-public-base-residual-head-probe-implementation
 ```
 
-M907 classified M906 as an internal feature-basis compatibility blocker, not a
-P0 actor-input contract violation. M908 must design an M399-rooted 128-dim
-residual-head objective probe before any exact execution, replay, PPO, or
-promotion.
+M908 designed the M399-compatible residual-head-only route. M909 may train only
+a new residual head on frozen M399 recurrent features and must verify
+`feature_dim=128`, actor checksum unchanged, and no replay/PPO/promotion.
 
 ## Recent Evidence Line
 
+- M908 designs the public-base-compatible residual-head route. It reuses the
+  M761-style sequence objective probe with M399 frozen, expects a new
+  `feature_dim=128` residual head with `8451` parameters, and requires exact
+  no-update M880 compatibility only after M909 passes. Force-loading M761,
+  padding/truncation, actor-input edits, replay, PPO, and promotion are
+  rejected.
 - M907 audits the M906 mismatch. M399 public base and M568 diagnostic BC both
   use `human_view_online_gru`, `obs_dim=72`, `response_dim=12`, and
   `context_dim=60`, but M399 actor_feature_dim is `128` while M568/M761 are

@@ -14263,3 +14263,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M907 audits the M906 failure as an internal actor-feature mismatch, not an actor-input contract violation. M399 public base and M568 diagnostic BC both use the P0 human-view 72-dim online GRU contract with response_dim 12 and context_dim 60, but M399 actor_feature_dim is 128 while M568 and M761 residual head are 64. Force-loading, padding, truncation, or actor-input changes are rejected.
 - decision: `public_base_feature_dim_compatibility_route_to_128dim_residual_design`
 - next: `m908-v4-public-base-compatible-residual-head-probe-design`
+
+## 20260525T205917Z - m908-v4-public-base-compatible-residual-head-probe-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m908-v4-public-base-compatible-residual-head-probe-design.md`
+- result: M908 designs the public-base-compatible route: reuse the existing M761-style `v4_sequence_objective_probe` with M399 as the frozen actor, train only a new residual head in the M399 128-dim feature basis, and keep M568/M761 as diagnostic lineage. M908 rejects force-loading, padding, truncation, actor-input changes, replay, PPO, and promotion.
+- decision: `public_base_128dim_residual_head_probe_design_admit_m909`
+- next: `m909-v4-public-base-residual-head-probe-implementation`

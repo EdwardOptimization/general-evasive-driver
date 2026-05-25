@@ -1,0 +1,120 @@
+{
+  "id": "m909-v4-public-base-residual-head-probe-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m908-v4-public-base-compatible-residual-head-probe-design.md",
+      "runs/m755_v4_sequence_outcome_corpus_export/summary.json",
+      "runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m908-v4-public-base-compatible-residual-head-probe-design.json"
+    ],
+    "parent_objective": [
+      "train residual head only on frozen M399 recurrent actor features"
+    ],
+    "derived_from": [
+      "m908-v4-public-base-compatible-residual-head-probe-design"
+    ],
+    "blocked_by": [
+      "public-base-compatible 128-dim residual head does not yet exist"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m909-v4-public-base-residual-head-probe-implementation.md",
+  "public_gates": [
+    "M909 must load M399 public base",
+    "M909 must train residual head only",
+    "M909 must keep actor checksum unchanged",
+    "M909 must produce residual_head.pt with feature_dim 128",
+    "M909 must keep replay, PPO, actor update, and promotion blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not update actor parameters",
+    "do not load M761 residual head as the candidate residual",
+    "do not modify actor inputs",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_public_base_integration_readiness",
+    "evidence_axis": "G_compatibility_implementation: create M399-compatible residual head",
+    "evidence_increment": "implements the M908 design by training only a 128-dim residual head on frozen M399 features",
+    "claim_scope": "residual-head compatibility implementation only; no actor update, replay, PPO, public-base integration claim, or promotion",
+    "stop_condition": [
+      "stop if actor checksum changes",
+      "stop if residual feature_dim is not 128",
+      "stop if reconstruction rate is below 0.98",
+      "stop if no candidate alpha is found",
+      "stop if replay, PPO, or promotion is attempted"
+    ],
+    "fallback_plan": [
+      "if candidate_alpha_count is zero, route to public-base target regeneration or residual-free objective sanity",
+      "if reconstruction fails, route to M399 sequence corpus reconstruction audit",
+      "if residual feature_dim is wrong, route to implementation bug audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M908 admits public-base residual-head implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The existing residual-only sequence objective probe can train a finite 128-dim residual head for frozen M399 without actor mutation, replay, PPO, or promotion.",
+  "success_criteria": [
+    "summary.json exists",
+    "actor_backbone_changed is false",
+    "residual_only_training is true",
+    "ppo_used and promoted are false",
+    "sample_reconstruction_success_rate >= 0.98",
+    "metadata_missing_rows is 0",
+    "residual_head_pt exists",
+    "residual feature_dim is 128",
+    "residual_parameter_count is 8451",
+    "candidate_alpha_count >= 1"
+  ],
+  "failure_criteria": [
+    "actor checksum changes",
+    "residual feature_dim is not 128",
+    "reconstruction rate below 0.98",
+    "candidate_alpha_count is 0",
+    "M909 runs replay, PPO, actor update, or promotion"
+  ],
+  "commands": [
+    {
+      "name": "run_public_base_residual_head_probe",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_sequence_objective_probe --checkpoint runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --corpus-summary runs/m755_v4_sequence_outcome_corpus_export/summary.json --positive-rows runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv --contrast-rows runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv --scenario-config configs/extreme_fault_distribution_v4_scenarios.json --run-dir runs/m909_v4_public_base_residual_head_probe --device cpu --epochs 40 --seed 9090"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m909_v4_public_base_residual_head_probe/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m909_v4_public_base_residual_head_probe/residual_head.pt",
+      "type": "checkpoint"
+    },
+    {
+      "path": "docs/m909-v4-public-base-residual-head-probe-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m908-v4-public-base-compatible-residual-head-probe-design.md"
+  ],
+  "decision_rule": "M909 may train only a residual head on frozen M399 features. It must not update actor parameters, run replay, run PPO, or promote.",
+  "next_blocker": "M399-compatible residual head has not yet been generated"
+}

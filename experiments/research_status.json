@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 916,
+    "completed": 917,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m907-v4-pair-delta-public-base-feature-dim-compatibility-audit",
+    "task_id": "m908-v4-public-base-compatible-residual-head-probe-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m907-v4-pair-delta-public-base-feature-dim-compatibility-audit.md"
+    "command_log": "docs/m908-v4-public-base-compatible-residual-head-probe-design.md"
   },
   "next_task": {
-    "id": "m908-v4-public-base-compatible-residual-head-probe-design",
+    "id": "m909-v4-public-base-residual-head-probe-implementation",
     "status": "pending",
-    "priority": 9030,
+    "priority": 9040,
     "kind": "infrastructure",
-    "hypothesis": "Design an M399-rooted 128-dim residual-head objective probe before exact execution",
-    "command": "see experiments/manifests/m908-v4-public-base-compatible-residual-head-probe-design.json",
-    "success_artifact": "docs/m908-v4-public-base-compatible-residual-head-probe-design.md",
-    "notes": "Pending: design public-base-compatible residual-head probe; no exact execution, replay, PPO, or promotion"
+    "hypothesis": "Train residual head only on frozen M399 recurrent actor features and verify 128-dim compatibility",
+    "command": "see experiments/manifests/m909-v4-public-base-residual-head-probe-implementation.json",
+    "success_artifact": "runs/m909_v4_public_base_residual_head_probe/summary.json",
+    "notes": "Pending: residual-head-only implementation; actor update, replay, PPO, and promotion blocked"
   },
-  "updated_at_utc": "20260525T205603Z"
+  "updated_at_utc": "20260525T205917Z"
 }
