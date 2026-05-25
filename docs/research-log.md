@@ -13547,3 +13547,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M830 designs a boundary-first matched different-fault pair-mining route after M828/M829 showed that action-divergent pairs were too far from terminal boundary. The design requires source snapshots to be bracketed into finite non-collision near-boundary bands before matching; primary pair candidates must satisfy different fault families, visible ego/context matching, action divergence, and normal margins within `0.05` with strict proof preference at `0.02` and ultra-strict diagnostics at `0.005`. Follow-up wrong-history replay must keep wrong-cross-fault hidden evidence separate from zero-command evidence and pass source/fault/warm-up/onset diversity gates. M830 also enforces workflow discipline: because M821-M830 are ten non-synthesis milestones after M820, the next step is branch synthesis rather than immediate implementation.
 - decision: `near_boundary_wrong_history_pair_mining_design_ready_synthesis_required`
 - next: `m831-v4-low-margin-new-data-route-second-branch-synthesis`
+
+## 20260525T211500Z - m831-v4-low-margin-new-data-route-second-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m831-v4-low-margin-new-data-route-second-branch-synthesis.md`
+- result: M831 synthesizes M821-M830 and records decision `continue`. The second branch window falsified fixed scalar/vector residual suppression on the M814/M817 corpus (`M821/M822` identity-only), produced broad but sparse extreme hidden-dynamics data (`M825` with `512` normal replays, `3072` interventions, `18` balanced self-ID rows), implemented wrong-cross-fault hidden injection (`M828`, `108/108` wrong-hidden actions closer to matched right action), and diagnosed the M828 failure as wide-margin pair sampling (`M829`, normal margin min `0.217669`, `0/108 <= 0.05`). M830's boundary-first pair-mining design is therefore admitted, but only as no-training data-route implementation. PPO, actor/residual-head training, learned gating, checkpoint promotion, threshold relaxation, and oracle deploy-time inputs remain blocked.
+- decision: `v4_low_margin_new_data_route_continue_to_near_boundary_wrong_history_pair_mining`
+- next: `m832-v4-near-boundary-wrong-history-pair-mining-implementation`

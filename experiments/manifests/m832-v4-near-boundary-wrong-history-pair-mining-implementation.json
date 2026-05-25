@@ -1,0 +1,138 @@
+{
+  "id": "m832-v4-near-boundary-wrong-history-pair-mining-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m831-v4-low-margin-new-data-route-second-branch-synthesis.md",
+      "docs/m830-v4-near-boundary-wrong-history-pair-mining-design.md",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/matched_pair_rows.csv",
+      "runs/m828_v4_wrong_cross_fault_history_intervention/wrong_history_replay_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m831-v4-low-margin-new-data-route-second-branch-synthesis.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_objective": [
+      "implement no-training near-boundary matched different-fault pair mining and wrong-history replay"
+    ],
+    "derived_from": [
+      "m831-v4-low-margin-new-data-route-second-branch-synthesis",
+      "m830-v4-near-boundary-wrong-history-pair-mining-design"
+    ],
+    "blocked_by": [
+      "near-boundary matched wrong-history pair source does not yet exist"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m832-v4-near-boundary-wrong-history-pair-mining-implementation.md",
+  "public_gates": [
+    "M832 must implement no-training near-boundary pair mining only",
+    "M832 must bracket normal-history rows before pair matching",
+    "M832 must keep wrong-history evidence separate from zero-command evidence",
+    "M832 must write source pair replay accepted rejected diversity gate and summary artifacts",
+    "M832 must preserve actor and M761 residual-head checksums",
+    "M832 must not run PPO or promote a checkpoint"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not train a calibrator",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not relax M828 wrong-history thresholds",
+    "do not count wide-margin action-divergent pairs as boundary proof",
+    "do not count zero-command-only degradation as wrong-history proof",
+    "do not feed fault labels or hidden params to actor",
+    "do not claim true wheel-level fault fidelity from current proxy rows"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_new_data_route",
+    "evidence_axis": "G_distribution: near-boundary wrong-history matched pair implementation",
+    "evidence_increment": "implements the M830 boundary-first pair-mining design after M831 synthesis reset the branch cadence",
+    "claim_scope": "no-training corpus and gate classification only; no PPO or driver promotion",
+    "stop_condition": [
+      "stop if actor or residual-head checksums change",
+      "stop if boundary rows remain wide-margin only",
+      "stop if accepted wrong-history rows are dominated by one source or geometry axis",
+      "stop if wrong-history evidence is zero-command dominated",
+      "stop if implementation needs forbidden actor inputs"
+    ],
+    "fallback_plan": [
+      "if near-boundary pairs are sparse but valid, audit as sparse positive diagnostic before implementation changes",
+      "if all pairs remain wide-margin, audit scenario sampling and redesign source generation",
+      "if wrong-history remains weak on boundary pairs, pivot to objective/architecture evidence rather than more pair mining",
+      "if source diversity passes, audit before any PPO or promotion"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M831 synthesis reset the branch cadence and admitted one no-training implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Boundary-first matched different-fault mining will produce stronger wrong-history margin sensitivity than M828's wide-margin action-divergent pairs.",
+  "success_criteria": [
+    "M832 implements the near-boundary pair-mining route",
+    "M832 runs the route with frozen M568 actor and M761 residual head",
+    "M832 writes required boundary pair replay accepted rejected diversity and summary artifacts",
+    "M832 verifies actor and residual-head checksums unchanged",
+    "M832 classifies the result as source-diverse positive sparse positive scenario-sampling negative or contract/runtime failure",
+    "M832 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M832 trains actor or residual-head parameters",
+    "M832 runs PPO",
+    "M832 promotes a checkpoint",
+    "M832 uses hidden fault labels or oracle fields as actor inputs",
+    "M832 counts zero-command-only evidence as wrong-history proof",
+    "M832 ignores wide-margin boundary diagnostics"
+  ],
+  "commands": [
+    {
+      "name": "near_boundary_wrong_history_pair_mining",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_near_boundary_wrong_history_pair_mining --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --residual-head runs/m761_v4_sequence_objective_probe/residual_head.pt --scenario-config configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json --source-rows runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv --candidate-plan-rows runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv --run-dir runs/m832_v4_near_boundary_wrong_history_pair_mining --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_near_boundary_wrong_history_pair_mining.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_v4_near_boundary_wrong_history_pair_mining.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m832_v4_near_boundary_wrong_history_pair_mining/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "docs/m832-v4-near-boundary-wrong-history-pair-mining-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m831-v4-low-margin-new-data-route-second-branch-synthesis.md",
+    "docs/m830-v4-near-boundary-wrong-history-pair-mining-design.md",
+    "runs/m825_v4_extreme_hidden_dynamics_data_route/summary.json",
+    "runs/m828_v4_wrong_cross_fault_history_intervention/summary.json",
+    "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+  ],
+  "decision_rule": "M832 may produce a no-training corpus/gate classification only. It must not train, run PPO, or promote.",
+  "next_blocker": "near-boundary wrong-history evidence has not yet been measured"
+}
