@@ -62,15 +62,26 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m787-v4-asymmetric-residual-gate-audit
+m788-v4-vector-residual-calibration-design
 ```
 
-M787 should audit the M786 alpha `0.15` asymmetric gate candidate before any
-further calibration, PPO, or promotion. Base actor mutation, M761 residual-head
-mutation, PPO, and promotion remain blocked.
+M788 should design an action-component-aware vector residual calibration probe
+after M787 found the scalar gate result too close to alpha scaling. Base actor
+mutation, M761 residual-head mutation, PPO, and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M787 audits M786 alpha `0.15` as a valid limited diagnostic positive, not a
+  promotion-ready scalar-gate breakthrough. M786 is clean and produces one
+  candidate: alpha `0.15` passes strict normal retention and the registered gap
+  gate with intervention gap mean `0.043397` and active-source margin
+  `+0.000028`. However, alpha `0.2` still fails on the same active source
+  (`seed 77025`, `source_index 12`) with margin `-0.000005`, and M786 does not
+  outperform M780 alpha `0.125` on intervention gap or margin gap. Gate means
+  move from M783's near-half `0.499727/0.499986` to `0.670088/0.683384`, which
+  is an improvement but still far from the intended high-default `0.85`
+  asymmetric behavior. M787 therefore blocks PPO and promotion and pivots from
+  scalar gate tuning to vector residual calibration design.
 - M786 extends the frozen-actor frozen-residual calibrator with a high-default
   asymmetric scalar-gate objective and runs the registered no-PPO probe. It
   reconstructs `2640/2652` rows with `0` metadata misses and the same `12`

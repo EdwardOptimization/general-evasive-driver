@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 795,
+        "completed": 796,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m786-v4-asymmetric-residual-gate-implementation",
+        "task_id": "m787-v4-asymmetric-residual-gate-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m786-v4-asymmetric-residual-gate-implementation.md"
+        "command_log": "docs/m787-v4-asymmetric-residual-gate-audit.md"
     },
     "next_task": {
-        "id": "m787-v4-asymmetric-residual-gate-audit",
+        "id": "m788-v4-vector-residual-calibration-design",
         "status": "pending",
-        "priority": 7820,
-        "kind": "gate",
-        "hypothesis": "Audit M786 alpha 0.15 asymmetric gate candidate before any further calibration PPO or promotion",
-        "command": "see experiments/manifests/m787-v4-asymmetric-residual-gate-audit.json",
-        "success_artifact": "docs/m787-v4-asymmetric-residual-gate-audit.md",
-        "notes": "Pending: audit only; PPO and promotion remain blocked"
+        "priority": 7830,
+        "kind": "infrastructure",
+        "hypothesis": "Design action-component-aware vector residual calibration after scalar gate behaves too much like alpha scaling",
+        "command": "see experiments/manifests/m788-v4-vector-residual-calibration-design.json",
+        "success_artifact": "docs/m788-v4-vector-residual-calibration-design.md",
+        "notes": "Pending: design only; implementation PPO and promotion remain blocked"
     },
-    "updated_at_utc": "20260525T100000Z"
+    "updated_at_utc": "20260525T101000Z"
 }

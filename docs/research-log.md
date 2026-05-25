@@ -13138,3 +13138,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M786 extends the frozen-actor frozen-residual calibrator with a high-default asymmetric scalar-gate objective and runs the registered no-PPO probe. It reconstructs `2640/2652` rows with `0` metadata misses and the same `12` unsupported `command_shift_obs` rejects, writes `21120` replay rows and `10560` objective rows, and confirms base actor and M761 residual-head checksums unchanged. Only the 2113-parameter calibrator is trained. Result class is `v4_normal_margin_calibration_candidate` with one candidate alpha: `0.15`. Alpha `0.15` keeps normal success `1.0`, collision `0.0`, improves intervention action gap mean/p10 to `0.043397/0.026649` versus base `0.040348/0.025782`, and keeps active source margin `+0.000028` versus M780 alpha `0.125` reference `+0.000009`. Alpha `0.2` still fails strict normal retention with normal success `0.995455`, collision `0.004545`, and the same active source margin crossing to `-0.000005`. Final gate means are `0.670088` normal and `0.683384` intervention, so M786 partially escapes M783's global half-gate but does not achieve the intended high-default asymmetric behavior.
 - decision: `v4_normal_margin_calibration_candidate_limited_alpha_015`
 - next: `m787-v4-asymmetric-residual-gate-audit`
+
+## 20260525T101000Z - m787-v4-asymmetric-residual-gate-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m787-v4-asymmetric-residual-gate-audit.md`
+- result: M787 audits M786 alpha `0.15` as a valid limited diagnostic positive, not a promotion-ready scalar-gate breakthrough. M786 is clean and produces one candidate: alpha `0.15` passes strict normal retention and the registered gap gate with intervention gap mean `0.043397` and active-source margin `+0.000028`. However, alpha `0.2` still fails on the same active source (`seed 77025`, `source_index 12`) with margin `-0.000005`, and M786 does not outperform M780 alpha `0.125` on intervention gap or margin gap. Gate means move from M783's near-half `0.499727/0.499986` to `0.670088/0.683384`, which is an improvement but still far from the intended high-default `0.85` asymmetric behavior. M787 therefore blocks PPO and promotion and pivots from scalar gate tuning to vector residual calibration design.
+- decision: `pivot_to_vector_residual_calibration_design`
+- next: `m788-v4-vector-residual-calibration-design`
