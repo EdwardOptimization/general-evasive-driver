@@ -5,8 +5,7 @@
   "promotion_decision": "not_applicable",
   "failure_types": [
     "scenario_sampling_failure",
-    "metric_artifact",
-    "contract_violation"
+    "metric_artifact"
   ],
   "lineage": {
     "parent_checkpoint": [

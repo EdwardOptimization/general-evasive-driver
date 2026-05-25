@@ -1,0 +1,111 @@
+{
+  "id": "m808-v4-low-margin-boundary-axis-expansion-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m807-v4-low-margin-boundary-axis-expansion-implementation.md",
+      "runs/m807_v4_low_margin_boundary_axis_expansion/summary.json",
+      "runs/m807_v4_low_margin_boundary_axis_expansion/axis_replay_rows.csv",
+      "runs/m807_v4_low_margin_boundary_axis_expansion/accepted_axis_balanced_rows.csv",
+      "runs/m807_v4_low_margin_boundary_axis_expansion/axis_balance_summary.csv",
+      "runs/m807_v4_low_margin_boundary_axis_expansion/source_balance_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m807-v4-low-margin-boundary-axis-expansion-implementation.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit no-training boundary-axis expansion result"
+    ],
+    "derived_from": [
+      "m807-v4-low-margin-boundary-axis-expansion-implementation"
+    ],
+    "blocked_by": [
+      "m807-v4-low-margin-boundary-axis-expansion-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m808-v4-low-margin-boundary-axis-expansion-audit.md",
+  "public_gates": [
+    "M808 audits M807 without training",
+    "M808 distinguishes multi-axis replay coverage from source-diverse primary-window pass",
+    "M808 decides whether another retargeting milestone is justified or branch synthesis is required",
+    "M808 blocks residual calibration, PPO, and promotion unless the audit explicitly admits a safe diagnostic-only continuation"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train any parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat one-axis accepted rows as source-diverse pass",
+    "do not weaken the primary 0.00005 margin threshold",
+    "do not weaken seed source fault or axis dominance thresholds",
+    "do not tune from private holdout failures"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_source_diverse_corpus_refresh",
+    "evidence_axis": "G_distribution: audit boundary-axis expansion diagnostic",
+    "evidence_increment": "audits whether M807's multi-axis replay result should end this retargeting sub-branch or admit a new diagnostic route",
+    "claim_scope": "audit decision only; no residual calibration PPO or driver promotion",
+    "stop_condition": [
+      "stop if M807 remains geometry-only",
+      "stop if the only next step is accepting half-width rows as source-diverse",
+      "stop if another narrow retargeting milestone would exceed the synthesis trigger"
+    ],
+    "fallback_plan": [
+      "if M807 is clean geometry-only, write branch synthesis or pivot to a new data-generation route",
+      "if M807 has tooling artifacts, repair the retarget tool first",
+      "if M807 unexpectedly passes, route to active-steer calibration design only after audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M807 expands retarget axes but accepted rows remain geometry-only",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M807 is a clean geometry-only diagnostic and the current retargeting branch needs an audit before more corpus mining.",
+  "success_criteria": [
+    "M808 documents supported and falsified claims from M807",
+    "M808 classifies whether the branch should continue pivot or synthesize",
+    "M808 identifies the next blocker",
+    "M808 keeps residual calibration, PPO, and promotion blocked unless a safe diagnostic-only continuation is justified"
+  ],
+  "failure_criteria": [
+    "audit reruns training or PPO",
+    "audit promotes a checkpoint",
+    "audit treats one-axis accepted rows as source-diverse pass",
+    "audit ignores the synthesis trigger after repeated low-margin retargeting misses"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m808-v4-low-margin-boundary-axis-expansion-audit.md from M807 artifacts; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m808-v4-low-margin-boundary-axis-expansion-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m807-v4-low-margin-boundary-axis-expansion-implementation.md",
+    "runs/m807_v4_low_margin_boundary_axis_expansion/summary.json",
+    "runs/m807_v4_low_margin_boundary_axis_expansion/axis_balance_summary.csv",
+    "runs/m807_v4_low_margin_boundary_axis_expansion/source_balance_summary.csv"
+  ],
+  "decision_rule": "M808 may only audit M807 and choose the next blocker. It must not train, run PPO, mutate actor or residual parameters, or promote a checkpoint.",
+  "next_blocker": "m809-v4-low-margin-source-diverse-branch-synthesis"
+}

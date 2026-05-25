@@ -13324,3 +13324,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M806 designs source-diverse boundary-axis expansion after M805. The design keeps M804's closed-loop replay and checksum discipline but adds obstacle lateral offset, source-step neighborhood replay, fault activation step micro-sweeps, fault severity micro-sweeps, and bracketed distance/width bisection. It also adds axis-balance gates: accepted rows must cover at least `3` retarget axes, max retarget-axis dominance must be `<= 0.60`, and at least `10` accepted rows must come from at least `3` axes. The primary low-margin threshold, alpha `0.2`, source/fault dominance gates, no-training invariant, no-PPO invariant, and no-promotion invariant remain unchanged.
 - decision: `boundary_axis_expansion_design_admit_m807`
 - next: `m807-v4-low-margin-boundary-axis-expansion-implementation`
+
+## 20260525T153000Z - m807-v4-low-margin-boundary-axis-expansion-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m807_v4_low_margin_boundary_axis_expansion`
+- artifact: `docs/m807-v4-low-margin-boundary-axis-expansion-implementation.md`
+- result: M807 implements and runs no-training boundary-axis expansion. It replays `7882` candidates across obstacle half-width, obstacle lateral offset, source-step neighborhood, fault activation step, fault severity, bracketed obstacle distance, and bracketed half-width. Actor and residual-head checksums remain unchanged; no optimizer, PPO, or promotion occurs. The strict primary band is still reachable with `252` raw accepted rows, but all accepted rows come from `obstacle_half_width`; every added axis has `0` accepted rows in the `0.0 <= margin <= 0.00005` primary band. Raw accepted rows cover only `3` seeds and have max axis dominance `1.0`, max seed dominance `0.428571`, and max fault-pair dominance `0.714286`. Result class is `v4_low_margin_boundary_axis_expansion_geometry_only_diagnostic`.
+- decision: `v4_low_margin_boundary_axis_expansion_geometry_only_diagnostic`
+- next: `m808-v4-low-margin-boundary-axis-expansion-audit`
