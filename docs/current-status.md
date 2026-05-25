@@ -62,17 +62,27 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m869-v4-generated-boundary-pair-delta-coverage-expansion-design
+m870-v4-generated-boundary-pair-delta-coverage-expansion-implementation
 ```
 
-M868 rejected immediate objective conversion from M867 because accepted
-pair-delta rows are concentrated in two left seeds and direction/axis dominance
-is high. M869 should design targeted no-training coverage expansion for missing
-accepted seeds, directions, and axes. Objective training, PPO, promotion, base
-actor mutation, and M761 residual-head mutation remain blocked.
+M869 designed targeted no-training accepted pair-delta coverage expansion.
+M870 should implement it: rebalance existing accepted M867 rows, then target
+missing accepted seeds `78048`, `78055`, and `78057` with bounded obstacle
+retargeting and extended pair-delta replay. Objective training, PPO, promotion,
+base actor mutation, and M761 residual-head mutation remain blocked.
 
 ## Recent Evidence Line
 
+- M869 designs a no-training accepted pair-delta coverage expansion route. The
+  next implementation should first compute a stronger direction/axis-aware
+  rebalance diagnostic over existing M867 accepted rows, then target missing
+  accepted seeds `78048`, `78055`, and `78057` by selecting their strongest
+  weak pair-delta rows and applying bounded obstacle retargeting plus extended
+  pair-delta replay (`hold_steps` `6,8,10`, epsilon L2 `0.075,0.10,0.125`).
+  Primary gates require at least `60` accepted rows, `36` balanced rows, at
+  least `3` left seeds, at least `2` directions and axis pairs, and dominance
+  limits on seed, direction, and axis-pair. Component controls remain
+  diagnostic-only; objective training, PPO, and promotion stay blocked.
 - M868 audits M867 as real pair-delta outcome evidence but not objective-ready.
   Candidate selection passed, so pair construction is not the active blocker.
   The blocker is accepted outcome sensitivity concentration: accepted rows

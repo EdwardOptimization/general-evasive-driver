@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260525T174642Z
+- Generated at UTC: 20260525T175427Z
 - Type: infrastructure
 - Gate tier: infrastructure
-- Promotion decision: not_applicable
-- Decision reason: M869 may only design the next no-training accepted pair-delta coverage expansion. It must not replay, train, run PPO, promote, or claim learned self-ID.
+- Promotion decision: generated_boundary_pair_delta_coverage_expansion_design_admit_m870
+- Decision reason: M869 designs a no-training accepted pair-delta coverage expansion targeting missing seeds 78048 78055 78057 direction balance and axis-pair balance before any objective training PPO or promotion
 
 ## Hypothesis
 
@@ -69,7 +69,18 @@ A targeted no-training coverage-expansion design can address M867's accepted pai
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m869-v4-generated-boundary-pair-delta-coverage-expansion-design
+- type: infrastructure
+- checkpoint: docs/m869-v4-generated-boundary-pair-delta-coverage-expansion-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: generated_boundary_pair_delta_coverage_expansion_design_admit_m870
+- reason: M869 designs a no-training accepted pair-delta coverage expansion targeting missing seeds 78048 78055 78057 direction balance and axis-pair balance before any objective training PPO or promotion
 
 ## Next Blocker
 

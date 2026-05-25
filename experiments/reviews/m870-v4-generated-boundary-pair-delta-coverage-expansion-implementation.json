@@ -1,0 +1,78 @@
+{
+  "decision_reason": "M870 may only produce a no-training accepted pair-delta coverage expansion diagnostic classification. It must not train, run PPO, promote, or claim learned self-ID.",
+  "failure_criteria": [
+    "M870 trains actor or residual-head parameters",
+    "M870 runs PPO",
+    "M870 promotes a checkpoint",
+    "M870 counts component-control rows as primary pair-delta rows",
+    "M870 lowers primary acceptance thresholds to force a pass",
+    "M870 mutates actor input contract"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not lower primary margin-delta threshold to pass gates",
+    "do not count component-control rows as primary pair-delta rows",
+    "do not treat pairability projection as pair-delta outcome evidence"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T175427Z",
+  "hypothesis": "Targeted no-training retargeting and extended pair-delta sequence replay can improve M867 accepted pair-delta seed/direction/axis coverage without changing actor or residual-head parameters.",
+  "lineage": {
+    "blocked_by": [
+      "M867 accepted pair-delta coverage remains concentrated in two left seeds and dominant direction/axis families"
+    ],
+    "derived_from": [
+      "m869-v4-generated-boundary-pair-delta-coverage-expansion-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m869-v4-generated-boundary-pair-delta-coverage-expansion-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m869-v4-generated-boundary-pair-delta-coverage-expansion-design.md",
+      "runs/m867_v4_generated_boundary_pair_delta_refresh/summary.json",
+      "runs/m867_v4_generated_boundary_pair_delta_refresh/pair_delta_sequence_rows.csv",
+      "runs/m867_v4_generated_boundary_pair_delta_refresh/accepted_pair_delta_rows.csv",
+      "runs/m867_v4_generated_boundary_pair_delta_refresh/balanced_pair_delta_rows.csv",
+      "runs/m867_v4_generated_boundary_pair_delta_refresh/diversity_summary.json",
+      "runs/m864_v4_generated_boundary_refinement/combined_generated_boundary_rows.csv"
+    ],
+    "parent_objective": [
+      "implement no-training accepted pair-delta coverage expansion for missing seeds directions and axes"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m870-v4-generated-boundary-pair-delta-coverage-expansion-implementation",
+  "next_blocker": "M869 accepted pair-delta coverage expansion has not yet been implemented",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M870 must implement no-training accepted pair-delta coverage expansion only",
+    "M870 must target missing accepted left seeds 78048 78055 and 78057",
+    "M870 must write existing rebalance and retarget replay artifacts",
+    "M870 must keep component controls diagnostic-only",
+    "M870 must preserve actor and residual-head checksums",
+    "M870 must not train run PPO or promote"
+  ],
+  "scoreboard": {},
+  "success_criteria": [
+    "M870 implements existing accepted-row rebalance diagnostics",
+    "M870 implements missing-seed target selection from M867 weak pair-delta rows",
+    "M870 implements bounded obstacle retarget replay and pair-delta sequence replay",
+    "M870 writes raw accepted and balanced artifacts with diversity summaries",
+    "M870 verifies actor and residual-head checksums unchanged",
+    "M870 keeps objective training PPO and promotion blocked"
+  ],
+  "type": "infrastructure"
+}

@@ -13901,3 +13901,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M868 audits M867 as real pair-delta outcome evidence but not objective-ready. Candidate selection passed (`1332` raw candidates, `118` selected replay pairs, `27` left source groups, `5` left seeds, `9` left fault families), so pair construction is not the active blocker. The blocker is accepted outcome sensitivity concentration: accepted rows appear only for left seeds `78058` and `78050`; seeds `78048`, `78055`, and `78057` have no flips and max absolute margin deltas below `0.003`. The balanced corpus has `32` rows but only `2` left seeds, direction dominance `0.75`, and axis-pair dominance `0.96875`. Component controls remain diagnostic-only. Objective training, PPO, and promotion remain blocked.
 - decision: `route_to_generated_boundary_pair_delta_coverage_expansion_design`
 - next: `m869-v4-generated-boundary-pair-delta-coverage-expansion-design`
+
+## 20260525T175334Z - m869-v4-generated-boundary-pair-delta-coverage-expansion-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m869-v4-generated-boundary-pair-delta-coverage-expansion-design.md`
+- result: M869 designs a no-training accepted pair-delta coverage expansion route. The next implementation should first compute a stronger direction/axis-aware rebalance diagnostic over existing M867 accepted rows, then target missing accepted seeds `78048`, `78055`, and `78057` by selecting their strongest weak pair-delta rows and applying bounded obstacle retargeting plus extended pair-delta replay (`hold_steps` `6,8,10`, epsilon L2 `0.075,0.10,0.125`). Primary gates require at least `60` accepted rows, `36` balanced rows, at least `3` left seeds, at least `2` directions and axis pairs, and dominance limits on seed, direction, and axis-pair. Component controls remain diagnostic-only; objective training, PPO, and promotion stay blocked.
+- decision: `generated_boundary_pair_delta_coverage_expansion_design_admit_m870`
+- next: `m870-v4-generated-boundary-pair-delta-coverage-expansion-implementation`
