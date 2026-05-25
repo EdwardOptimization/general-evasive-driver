@@ -62,15 +62,33 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m789-v4-vector-residual-calibration-implementation
+m790-v4-vector-residual-calibration-audit
 ```
 
-M789 should implement and run the no-PPO per-action-dimension vector residual
-calibration probe designed by M788. Base actor mutation, M761 residual-head
-mutation, PPO, and promotion remain blocked.
+M790 should audit the M789 component-collapse result before any further vector
+objective, PPO, or promotion. Base actor mutation, M761 residual-head mutation,
+PPO, and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M789 extends the residual calibration tool with `objective_mode=vector_gate`,
+  a 3-output steer/throttle/brake gate, component gate metrics, and vector
+  candidate classification, then runs the registered no-PPO probe. It
+  reconstructs `2640/2652` rows with `0` metadata misses and the same `12`
+  unsupported `command_shift_obs` rejects, writes `21120` replay rows and
+  `10560` objective rows, and confirms base actor and M761 residual-head
+  checksums unchanged. Only the 2179-parameter vector calibrator is trained.
+  Result class is `v4_vector_residual_calibration_component_collapse`:
+  candidate count is `0`, strong candidate count is `0`, and limited candidate
+  count is `0`. Alpha `0.15` passes strict normal retention and has gap mean
+  `0.043403`, but active-source margin `+0.000027881` is slightly below M786
+  alpha `0.15`'s `+0.000028246`, so it is not a Pareto improvement. Alpha
+  `0.2` has gap mean `0.044438` but still collides on the active source with
+  margin `-0.000005`. Final component gates are nearly identical (`normal
+  0.671292/0.671167/0.671190`, `intervention
+  0.684914/0.684800/0.684820`), with `gate_component_std_mean 0.000066`, so
+  the vector gate collapsed to scalar-like behavior. M790 must audit before
+  further vector objective, PPO, or promotion.
 - M788 designs the next no-PPO residual calibration probe after M787 found
   scalar gating too close to alpha scaling. The design keeps the M568 actor
   frozen, keeps the M761 residual head frozen, and replaces scalar `g(feature)`

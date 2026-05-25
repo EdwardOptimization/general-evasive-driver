@@ -43,21 +43,32 @@ DEFAULT_ALPHAS = (0.0, 0.125, 0.15, 0.2)
 ACTIVE_BOUNDARY_SEED = 77025
 ACTIVE_BOUNDARY_SOURCE_INDEX = 12
 ACTIVE_BOUNDARY_STEP = 24
+ACTION_COMPONENTS = ("steer", "throttle", "brake")
+M780_ALPHA_0125_GAP_MEAN = 0.044046541597433105
+M786_ALPHA_015_GAP_MEAN = 0.04339739074330833
+M786_ALPHA_015_ACTIVE_MARGIN = 2.8245982635066724e-05
 
 
 class ResidualGate(nn.Module):
-    """Small scalar gate over deployable actor features."""
+    """Small scalar or per-action gate over deployable actor features."""
 
-    def __init__(self, feature_dim: int, hidden_dim: int = 32, initial_gate: float = 0.5) -> None:
+    def __init__(
+        self,
+        feature_dim: int,
+        hidden_dim: int = 32,
+        initial_gate: float = 0.5,
+        output_dim: int = 1,
+    ) -> None:
         super().__init__()
         self.feature_dim = int(feature_dim)
         self.hidden_dim = int(hidden_dim)
+        self.output_dim = int(output_dim)
         initial_gate = float(np.clip(float(initial_gate), 1e-4, 1.0 - 1e-4))
         self.initial_gate = initial_gate
         self.net = nn.Sequential(
             nn.Linear(self.feature_dim, self.hidden_dim),
             nn.Tanh(),
-            nn.Linear(self.hidden_dim, 1),
+            nn.Linear(self.hidden_dim, self.output_dim),
         )
         nn.init.zeros_(self.net[-1].weight)
         nn.init.constant_(self.net[-1].bias, float(np.log(initial_gate / (1.0 - initial_gate))))
@@ -126,6 +137,30 @@ def _boundary_mask_tensor(meta_rows: list[dict[str, Any]]) -> torch.Tensor:
     return torch.as_tensor([1.0 if _active_boundary_key(row) else 0.0 for row in meta_rows], dtype=torch.float32)
 
 
+def _active_component_mask(delta: torch.Tensor) -> torch.Tensor:
+    abs_delta = torch.abs(delta)
+    row_max = torch.max(abs_delta, dim=-1, keepdim=True).values
+    threshold = torch.maximum(
+        torch.full_like(row_max, 0.002),
+        0.25 * row_max,
+    )
+    return (abs_delta >= threshold).to(dtype=torch.float32)
+
+
+def _masked_mean(values: torch.Tensor, mask: torch.Tensor) -> torch.Tensor:
+    weighted = values * mask
+    return weighted.sum() / torch.clamp(mask.sum(), min=1.0)
+
+
+def _component_values(values: np.ndarray | list[float] | float) -> np.ndarray:
+    arr = np.asarray(values, dtype=np.float64).reshape(-1)
+    if arr.size == 0:
+        return np.full(3, float("nan"), dtype=np.float64)
+    if arr.size == 1:
+        return np.repeat(arr[0], 3).astype(np.float64)
+    return arr[:3].astype(np.float64)
+
+
 def _train_calibrator(
     *,
     samples: dict[str, torch.Tensor],
@@ -149,7 +184,8 @@ def _train_calibrator(
 ) -> tuple[ResidualGate, list[dict[str, Any]]]:
     torch.manual_seed(int(seed))
     feature_dim = int(samples["normal_features"].shape[1])
-    calibrator = ResidualGate(feature_dim=feature_dim, initial_gate=initial_gate)
+    output_dim = 3 if str(objective_mode) == "vector_gate" else 1
+    calibrator = ResidualGate(feature_dim=feature_dim, initial_gate=initial_gate, output_dim=output_dim)
     optimizer = torch.optim.Adam(calibrator.parameters(), lr=float(lr))
     normal_features = samples["normal_features"]
     intervention_features = samples["intervention_features"]
@@ -163,6 +199,7 @@ def _train_calibrator(
     with torch.no_grad():
         normal_delta = residual_head(normal_features)
         intervention_delta = residual_head(intervention_features)
+        intervention_component_mask = _active_component_mask(intervention_delta)
         base_gap = torch.linalg.norm(intervention_actions - normal_actions, dim=-1)
         target_gap = torch.clamp(base_gap + float(gap_lift), max=0.08)
         safe_margin = torch.clamp(torch.nan_to_num(margins, nan=1.0, posinf=1.0, neginf=1e-5), min=1e-5)
@@ -175,26 +212,54 @@ def _train_calibrator(
     history: list[dict[str, Any]] = []
     for epoch in range(int(epochs)):
         optimizer.zero_grad()
-        gate_normal = calibrator(normal_features).squeeze(-1)
-        gate_intervention = calibrator(intervention_features).squeeze(-1)
-        scaled_normal_delta = gate_normal.unsqueeze(-1) * normal_delta
-        scaled_intervention_delta = gate_intervention.unsqueeze(-1) * intervention_delta
+        raw_gate_normal = calibrator(normal_features)
+        raw_gate_intervention = calibrator(intervention_features)
+        is_vector_gate = raw_gate_normal.shape[-1] == normal_delta.shape[-1]
+        gate_normal_for_scale = raw_gate_normal if is_vector_gate else raw_gate_normal
+        gate_intervention_for_scale = raw_gate_intervention if is_vector_gate else raw_gate_intervention
+        gate_normal_scalar = raw_gate_normal.mean(dim=-1)
+        gate_intervention_scalar = raw_gate_intervention.mean(dim=-1)
+        scaled_normal_delta = gate_normal_for_scale * normal_delta
+        scaled_intervention_delta = gate_intervention_for_scale * intervention_delta
         normal_delta_norm = torch.sum(scaled_normal_delta.pow(2), dim=-1)
-        if objective_mode == "asymmetric_gate":
+        if objective_mode == "vector_gate":
+            low_weight_matrix = low_margin_weight.unsqueeze(-1)
+            nonlow_weight_matrix = (1.0 - low_margin_weight).unsqueeze(-1)
+            normal_suppression = (low_weight_matrix * scaled_normal_delta.pow(2)).sum(dim=-1).mean()
+            high_default_normal = (
+                nonlow_weight_matrix * torch.relu(float(high_default_gate) - raw_gate_normal).pow(2)
+            ).mean()
+            high_default_intervention = _masked_mean(
+                torch.relu(float(high_default_gate) - raw_gate_intervention).pow(2),
+                intervention_component_mask,
+            )
+            if float(boundary_mask.sum().item()) > 0.0:
+                boundary_guard = _masked_mean(
+                    torch.relu(raw_gate_normal - float(active_normal_gate_max)).pow(2),
+                    boundary_mask.unsqueeze(-1).expand_as(raw_gate_normal),
+                )
+            else:
+                boundary_guard = torch.zeros((), dtype=torch.float32)
+            gate_contrast_loss = _masked_mean(
+                low_weight_matrix
+                * torch.relu(float(gate_contrast_margin) - (raw_gate_intervention - raw_gate_normal)).pow(2),
+                intervention_component_mask,
+            )
+        elif objective_mode == "asymmetric_gate":
             normal_suppression = (low_margin_weight * normal_delta_norm).mean()
             high_default_normal = (
-                (1.0 - low_margin_weight) * torch.relu(float(high_default_gate) - gate_normal).pow(2)
+                (1.0 - low_margin_weight) * torch.relu(float(high_default_gate) - gate_normal_scalar).pow(2)
             ).mean()
-            high_default_intervention = torch.relu(float(high_default_gate) - gate_intervention).pow(2).mean()
+            high_default_intervention = torch.relu(float(high_default_gate) - gate_intervention_scalar).pow(2).mean()
             if float(boundary_mask.sum().item()) > 0.0:
                 boundary_guard = (
-                    boundary_mask * torch.relu(gate_normal - float(active_normal_gate_max)).pow(2)
+                    boundary_mask * torch.relu(gate_normal_scalar - float(active_normal_gate_max)).pow(2)
                 ).sum() / torch.clamp(boundary_mask.sum(), min=1.0)
             else:
                 boundary_guard = torch.zeros((), dtype=torch.float32)
             gate_contrast_loss = (
                 low_margin_weight
-                * torch.relu(float(gate_contrast_margin) - (gate_intervention - gate_normal)).pow(2)
+                * torch.relu(float(gate_contrast_margin) - (gate_intervention_scalar - gate_normal_scalar)).pow(2)
             ).mean()
         else:
             normal_suppression = (margin_weights * normal_delta_norm).mean()
@@ -215,13 +280,19 @@ def _train_calibrator(
         )
         calibrated_gap = torch.linalg.norm(adjusted_intervention - adjusted_normal, dim=-1)
         gap_loss = (outcome_weights * torch.relu(target_gap - calibrated_gap).pow(2)).mean()
-        gate_floor_loss = torch.relu(float(intervention_gate_floor) - gate_intervention).pow(2).mean()
+        if objective_mode == "vector_gate":
+            gate_floor_loss = _masked_mean(
+                torch.relu(float(intervention_gate_floor) - raw_gate_intervention).pow(2),
+                intervention_component_mask,
+            )
+        else:
+            gate_floor_loss = torch.relu(float(intervention_gate_floor) - gate_intervention_scalar).pow(2).mean()
         hard_terms = torch.relu(hard_gaps - calibrated_gap + 0.005).pow(2) * hard_available
         hard_loss = hard_terms.sum() / torch.clamp(hard_available.sum(), min=1.0)
         l2_loss = torch.zeros((), dtype=torch.float32)
         for parameter in calibrator.parameters():
             l2_loss = l2_loss + parameter.pow(2).mean()
-        if objective_mode == "asymmetric_gate":
+        if objective_mode in {"asymmetric_gate", "vector_gate"}:
             loss = (
                 2.0 * normal_suppression
                 + 0.25 * high_default_normal
@@ -257,8 +328,23 @@ def _train_calibrator(
                 "gate_contrast_loss": float(gate_contrast_loss.detach().item()),
                 "hard_negative_loss": float(hard_loss.detach().item()),
                 "l2_loss": float(l2_loss.detach().item()),
-                "gate_normal_mean": float(gate_normal.detach().mean().item()),
-                "gate_intervention_mean": float(gate_intervention.detach().mean().item()),
+                "gate_normal_mean": float(raw_gate_normal.detach().mean().item()),
+                "gate_intervention_mean": float(raw_gate_intervention.detach().mean().item()),
+                "gate_component_std_mean": (
+                    float(raw_gate_normal.detach().std(dim=-1).mean().item()) if is_vector_gate else 0.0
+                ),
+                **{
+                    f"gate_normal_mean_{component}": (
+                        float(raw_gate_normal[:, index].detach().mean().item()) if is_vector_gate else float(raw_gate_normal.detach().mean().item())
+                    )
+                    for index, component in enumerate(ACTION_COMPONENTS)
+                },
+                **{
+                    f"gate_intervention_mean_{component}": (
+                        float(raw_gate_intervention[:, index].detach().mean().item()) if is_vector_gate else float(raw_gate_intervention.detach().mean().item())
+                    )
+                    for index, component in enumerate(ACTION_COMPONENTS)
+                },
                 "calibrated_gap_mean": float(calibrated_gap.detach().mean().item()),
             }
         )
@@ -275,7 +361,7 @@ def calibrated_action_from_hidden(
     *,
     alpha: float,
     device: torch.device,
-) -> tuple[np.ndarray, torch.Tensor, np.ndarray, np.ndarray, np.ndarray, float]:
+) -> tuple[np.ndarray, torch.Tensor, np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     obs_t = torch.as_tensor(observation, dtype=torch.float32, device=device).unsqueeze(0)
     hidden_t = hidden.to(device=device, dtype=torch.float32)
     with torch.no_grad():
@@ -291,7 +377,7 @@ def calibrated_action_from_hidden(
         base_action.squeeze(0).detach().cpu().numpy().astype(np.float32),
         raw_delta.squeeze(0).detach().cpu().numpy().astype(np.float32),
         calibrated_delta.squeeze(0).detach().cpu().numpy().astype(np.float32),
-        float(gate.squeeze().detach().cpu().item()),
+        gate.squeeze(0).detach().cpu().numpy().astype(np.float32),
     )
 
 
@@ -323,7 +409,7 @@ def replay_calibrated_sequence_variant(
     actions: list[np.ndarray] = []
     raw_deltas: list[np.ndarray] = []
     calibrated_deltas: list[np.ndarray] = []
-    gates: list[float] = []
+    gates: list[np.ndarray] = []
     rewards: list[float] = []
     betas: list[float] = []
     terminated = False
@@ -381,6 +467,19 @@ def replay_calibrated_sequence_variant(
     reason = terminal_reason(info, terminated, truncated, env_config)
     raw_norms = [float(np.linalg.norm(delta)) for delta in raw_deltas]
     calibrated_norms = [float(np.linalg.norm(delta)) for delta in calibrated_deltas]
+    gate_vectors = [_component_values(gate) for gate in gates]
+    first_gate_vector = gate_vectors[0] if gate_vectors else np.full(3, float("nan"), dtype=np.float64)
+    gate_scalar_values = [float(np.mean(vector)) for vector in gate_vectors]
+    gate_component_arrays = {
+        component: [float(vector[index]) for vector in gate_vectors]
+        for index, component in enumerate(ACTION_COMPONENTS)
+    }
+    component_gate_fields: dict[str, float] = {}
+    for component, values in gate_component_arrays.items():
+        component_gate_fields[f"first_gate_{component}"] = float(first_gate_vector[ACTION_COMPONENTS.index(component)])
+        component_gate_fields[f"gate_mean_{component}"] = _mean(values)
+        component_gate_fields[f"gate_p10_{component}"] = _percentile(values, 10)
+        component_gate_fields[f"gate_p90_{component}"] = _percentile(values, 90)
     return {
         "variant": variant,
         "horizon": int(horizon),
@@ -402,10 +501,11 @@ def replay_calibrated_sequence_variant(
         "first_steer": float(first_action[0]),
         "first_throttle": float(first_action[1]),
         "first_brake": float(first_action[2]),
-        "first_gate": float(gates[0]) if gates else float("nan"),
-        "gate_mean": _mean(gates),
-        "gate_p10": _percentile(gates, 10),
-        "gate_p90": _percentile(gates, 90),
+        "first_gate": float(gate_scalar_values[0]) if gate_scalar_values else float("nan"),
+        "gate_mean": _mean(gate_scalar_values),
+        "gate_p10": _percentile(gate_scalar_values, 10),
+        "gate_p90": _percentile(gate_scalar_values, 90),
+        **component_gate_fields,
         "first_raw_residual_steer": float(first_raw_delta[0]),
         "first_raw_residual_throttle": float(first_raw_delta[1]),
         "first_raw_residual_brake": float(first_raw_delta[2]),
@@ -429,6 +529,7 @@ def _augment_alpha_rows(
     objective_rows: list[dict[str, Any]],
     *,
     active_alpha_0125_margin: float,
+    candidate_mode: str = "normal_margin",
 ) -> list[dict[str, Any]]:
     augmented: list[dict[str, Any]] = []
     for row in alpha_rows:
@@ -449,6 +550,48 @@ def _augment_alpha_rows(
                 or active_min_margin + 1e-12 >= float(active_alpha_0125_margin)
             )
         )
+        component_gate_fields: dict[str, Any] = {}
+        component_std_values: list[float] = []
+        for component in ACTION_COMPONENTS:
+            normal_values = [_finite_float(item.get(f"normal_gate_mean_{component}")) for item in subset]
+            intervention_values = [_finite_float(item.get(f"intervention_gate_mean_{component}")) for item in subset]
+            component_gate_fields[f"normal_gate_mean_{component}"] = _mean(normal_values)
+            component_gate_fields[f"intervention_gate_mean_{component}"] = _mean(intervention_values)
+            component_gate_fields[f"component_contrast_mean_{component}"] = _mean(
+                [
+                    _finite_float(item.get(f"intervention_gate_mean_{component}"))
+                    - _finite_float(item.get(f"normal_gate_mean_{component}"))
+                    for item in subset
+                ]
+            )
+        for item in subset:
+            values = [
+                _finite_float(item.get(f"normal_gate_mean_{component}"))
+                for component in ACTION_COMPONENTS
+            ]
+            finite = _finite_values(values)
+            if len(finite):
+                component_std_values.append(float(np.std(finite)))
+        gap_mean = float(row.get("intervention_action_gap_mean_vs_normal", float("nan")))
+        vector_pareto_gap_pass = bool(np.isfinite(gap_mean) and gap_mean > M786_ALPHA_015_GAP_MEAN + 1e-12)
+        vector_pareto_margin_pass = bool(
+            np.isfinite(active_min_margin) and active_min_margin > M786_ALPHA_015_ACTIVE_MARGIN + 1e-12
+        )
+        vector_strong_candidate = bool(
+            abs(alpha - 0.2) <= 1e-12
+            and strict_normal_pass
+            and _bool(row.get("closed_loop_gap_pass", False))
+            and np.isfinite(active_min_margin)
+            and active_min_margin + 1e-12 >= M786_ALPHA_015_ACTIVE_MARGIN
+            and np.isfinite(gap_mean)
+            and gap_mean + 1e-12 >= M780_ALPHA_0125_GAP_MEAN
+        )
+        vector_limited_candidate = bool(
+            strict_normal_pass
+            and _bool(row.get("closed_loop_gap_pass", False))
+            and vector_pareto_gap_pass
+            and vector_pareto_margin_pass
+        )
         new_row = {
             **row,
             "strict_normal_retention_pass": strict_normal_pass,
@@ -457,12 +600,26 @@ def _augment_alpha_rows(
             "active_source_min_margin": active_min_margin,
             "parent_alpha_0125_active_source_margin": active_alpha_0125_margin,
             "active_source_margin_pass_vs_parent": active_margin_pass,
+            "m780_alpha_0125_gap_reference": M780_ALPHA_0125_GAP_MEAN,
+            "m786_alpha_015_gap_reference": M786_ALPHA_015_GAP_MEAN,
+            "m786_alpha_015_active_margin_reference": M786_ALPHA_015_ACTIVE_MARGIN,
+            "vector_pareto_gap_pass": vector_pareto_gap_pass,
+            "vector_pareto_margin_pass": vector_pareto_margin_pass,
+            "vector_strong_candidate": vector_strong_candidate,
+            "vector_limited_candidate": vector_limited_candidate,
+            "component_gate_std_mean": _mean(component_std_values),
+            **component_gate_fields,
         }
-        new_row["normal_margin_calibration_candidate"] = bool(
-            strict_normal_pass
-            and _bool(row.get("closed_loop_gap_pass", False))
-            and active_margin_pass
-        )
+        if str(candidate_mode) == "vector_gate":
+            new_row["normal_margin_calibration_candidate"] = bool(
+                vector_strong_candidate or vector_limited_candidate
+            )
+        else:
+            new_row["normal_margin_calibration_candidate"] = bool(
+                strict_normal_pass
+                and _bool(row.get("closed_loop_gap_pass", False))
+                and active_margin_pass
+            )
         augmented.append(new_row)
     return augmented
 
@@ -497,6 +654,41 @@ def classify_v4_normal_margin_calibration(
     if bool(any_gap_lift) and bool(any_normal_regression):
         return "v4_normal_margin_calibration_normal_regression"
     return "v4_normal_margin_calibration_no_gap_lift"
+
+
+def classify_v4_vector_residual_calibration(
+    *,
+    actor_changed: bool,
+    residual_changed: bool,
+    reconstruction_success_rate: float,
+    metadata_missing_rows: int,
+    strong_candidate_count: int,
+    limited_candidate_count: int,
+    any_gap_lift: bool,
+    any_normal_regression: bool,
+    component_collapse: bool,
+    ppo_used: bool,
+    promoted: bool,
+) -> str:
+    if (
+        bool(actor_changed)
+        or bool(residual_changed)
+        or bool(ppo_used)
+        or bool(promoted)
+        or int(metadata_missing_rows) > 0
+    ):
+        return "v4_vector_residual_calibration_metadata_artifact"
+    if float(reconstruction_success_rate) < 0.98:
+        return "v4_vector_residual_calibration_reconstruction_blocked"
+    if int(strong_candidate_count) > 0:
+        return "v4_vector_residual_calibration_strong_candidate"
+    if int(limited_candidate_count) > 0:
+        return "v4_vector_residual_calibration_limited_candidate"
+    if bool(component_collapse):
+        return "v4_vector_residual_calibration_component_collapse"
+    if bool(any_gap_lift) and bool(any_normal_regression):
+        return "v4_vector_residual_calibration_normal_regression"
+    return "v4_vector_residual_calibration_no_pareto_lift"
 
 
 def run_v4_normal_margin_residual_calibration(
@@ -555,7 +747,11 @@ def run_v4_normal_margin_residual_calibration(
     )
     rejected_rows = [*upfront_rejected_rows, *sample_rejected_rows]
     if len(meta_rows) == 0:
-        calibrator = ResidualGate(feature_dim=feature_dim)
+        calibrator = ResidualGate(
+            feature_dim=feature_dim,
+            initial_gate=float(initial_gate),
+            output_dim=3 if str(objective_mode) == "vector_gate" else 1,
+        )
         train_rows: list[dict[str, Any]] = []
     else:
         calibrator, train_rows = _train_calibrator(
@@ -583,6 +779,7 @@ def run_v4_normal_margin_residual_calibration(
             "state_dict": calibrator.state_dict(),
             "feature_dim": int(feature_dim),
             "hidden_dim": int(calibrator.hidden_dim),
+            "output_dim": int(calibrator.output_dim),
             "initial_gate": float(calibrator.initial_gate),
             "seed": int(seed),
             "alpha_train": float(alpha_train),
@@ -687,6 +884,14 @@ def run_v4_normal_margin_residual_calibration(
                     "normal_margin": normal_margin,
                     "normal_gate_mean": _finite_float(normal.get("gate_mean")),
                     "normal_first_gate": _finite_float(normal.get("first_gate")),
+                    **{
+                        f"normal_gate_mean_{component}": _finite_float(normal.get(f"gate_mean_{component}"))
+                        for component in ACTION_COMPONENTS
+                    },
+                    **{
+                        f"normal_first_gate_{component}": _finite_float(normal.get(f"first_gate_{component}"))
+                        for component in ACTION_COMPONENTS
+                    },
                     "normal_first_action_drift_vs_base": _finite_float(normal.get("first_action_drift_vs_base_normal"), default=0.0),
                     "normal_prefix_l2_mean_vs_base": _finite_float(normal.get("prefix_l2_mean_vs_base_normal"), default=0.0),
                     "intervention_success": bool(intervention.get("success", False)),
@@ -695,6 +900,14 @@ def run_v4_normal_margin_residual_calibration(
                     "intervention_margin": intervention_margin,
                     "intervention_gate_mean": _finite_float(intervention.get("gate_mean")),
                     "intervention_first_gate": _finite_float(intervention.get("first_gate")),
+                    **{
+                        f"intervention_gate_mean_{component}": _finite_float(intervention.get(f"gate_mean_{component}"))
+                        for component in ACTION_COMPONENTS
+                    },
+                    **{
+                        f"intervention_first_gate_{component}": _finite_float(intervention.get(f"first_gate_{component}"))
+                        for component in ACTION_COMPONENTS
+                    },
                     "margin_gap_from_normal": margin_gap,
                     "intervention_first_action_l2_from_normal": _finite_float(intervention.get("first_action_l2_from_reference")),
                     "intervention_prefix_l2_mean": _finite_float(intervention.get("prefix_l2_mean")),
@@ -708,29 +921,52 @@ def run_v4_normal_margin_residual_calibration(
         _alpha_summary_rows(objective_rows, alphas=alphas),
         objective_rows,
         active_alpha_0125_margin=active_alpha_0125_margin,
+        candidate_mode="vector_gate" if str(objective_mode) == "vector_gate" else "normal_margin",
     )
     candidate_rows = [row for row in alpha_rows if _bool(row.get("normal_margin_calibration_candidate", False))]
+    strong_candidate_rows = [row for row in alpha_rows if _bool(row.get("vector_strong_candidate", False))]
+    limited_candidate_rows = [row for row in alpha_rows if _bool(row.get("vector_limited_candidate", False))]
     any_gap_lift = any(_bool(row.get("closed_loop_gap_pass", False)) for row in alpha_rows)
     any_normal_regression = any(not _bool(row.get("strict_normal_retention_pass", False)) for row in alpha_rows if float(row.get("alpha", 0.0)) > 0.0)
     calibrator_collapse = bool(
         alpha_rows
         and max(float(row.get("intervention_action_gap_mean_vs_normal", 0.0)) for row in alpha_rows) <= float(alpha_rows[0].get("base_intervention_action_gap_mean", 0.0)) + 0.001
     )
+    component_collapse = bool(
+        str(objective_mode) == "vector_gate"
+        and alpha_rows
+        and max(_finite_float(row.get("component_gate_std_mean"), default=0.0) for row in alpha_rows) <= 0.02
+    )
     actor_checksum_after = model_parameter_checksum(model)
     residual_checksum_after = model_parameter_checksum(residual_head)
     calibrator_checksum = model_parameter_checksum(calibrator)
-    result_class = classify_v4_normal_margin_calibration(
-        actor_changed=bool(actor_checksum_before != actor_checksum_after),
-        residual_changed=bool(residual_checksum_before != residual_checksum_after),
-        reconstruction_success_rate=reconstruction_rate,
-        metadata_missing_rows=metadata_missing_rows,
-        candidate_count=len(candidate_rows),
-        any_gap_lift=any_gap_lift,
-        any_normal_regression=any_normal_regression,
-        calibrator_collapse=calibrator_collapse,
-        ppo_used=False,
-        promoted=False,
-    )
+    if str(objective_mode) == "vector_gate":
+        result_class = classify_v4_vector_residual_calibration(
+            actor_changed=bool(actor_checksum_before != actor_checksum_after),
+            residual_changed=bool(residual_checksum_before != residual_checksum_after),
+            reconstruction_success_rate=reconstruction_rate,
+            metadata_missing_rows=metadata_missing_rows,
+            strong_candidate_count=len(strong_candidate_rows),
+            limited_candidate_count=len(limited_candidate_rows),
+            any_gap_lift=any_gap_lift,
+            any_normal_regression=any_normal_regression,
+            component_collapse=component_collapse,
+            ppo_used=False,
+            promoted=False,
+        )
+    else:
+        result_class = classify_v4_normal_margin_calibration(
+            actor_changed=bool(actor_checksum_before != actor_checksum_after),
+            residual_changed=bool(residual_checksum_before != residual_checksum_after),
+            reconstruction_success_rate=reconstruction_rate,
+            metadata_missing_rows=metadata_missing_rows,
+            candidate_count=len(candidate_rows),
+            any_gap_lift=any_gap_lift,
+            any_normal_regression=any_normal_regression,
+            calibrator_collapse=calibrator_collapse,
+            ppo_used=False,
+            promoted=False,
+        )
     write_csv_rows(run_dir / "training_metrics.csv", train_rows)
     write_csv_rows(run_dir / "calibration_metrics.csv", train_rows[-1:] if train_rows else [])
     write_csv_rows(run_dir / "replay_rows.csv", replay_rows)
@@ -768,8 +1004,16 @@ def run_v4_normal_margin_residual_calibration(
         "alphas": [float(alpha) for alpha in alphas],
         "candidate_alpha_count": int(len(candidate_rows)),
         "candidate_alphas": [float(row.get("alpha")) for row in candidate_rows],
+        "strong_candidate_alpha_count": int(len(strong_candidate_rows)),
+        "strong_candidate_alphas": [float(row.get("alpha")) for row in strong_candidate_rows],
+        "limited_candidate_alpha_count": int(len(limited_candidate_rows)),
+        "limited_candidate_alphas": [float(row.get("alpha")) for row in limited_candidate_rows],
         "best_candidate": candidate_rows[0] if candidate_rows else {},
+        "component_collapse": component_collapse,
         "active_alpha_0125_margin_reference": active_alpha_0125_margin,
+        "m780_alpha_0125_gap_reference": M780_ALPHA_0125_GAP_MEAN,
+        "m786_alpha_015_gap_reference": M786_ALPHA_015_GAP_MEAN,
+        "m786_alpha_015_active_margin_reference": M786_ALPHA_015_ACTIVE_MARGIN,
         "actor_backbone_changed": bool(actor_checksum_before != actor_checksum_after),
         "base_actor_checksum_before": actor_checksum_before,
         "base_actor_checksum_after": actor_checksum_after,
@@ -778,6 +1022,7 @@ def run_v4_normal_margin_residual_calibration(
         "base_residual_head_checksum_after": residual_checksum_after,
         "calibrator_checksum": calibrator_checksum,
         "calibrator_parameter_count": int(sum(parameter.numel() for parameter in calibrator.parameters())),
+        "calibrator_output_dim": int(calibrator.output_dim),
         "optimizer_started": bool(len(meta_rows) > 0),
         "training_started": bool(len(meta_rows) > 0),
         "optimizer_updates_only_calibrator": True,
@@ -812,7 +1057,11 @@ def main() -> None:
     parser.add_argument("--seed", type=int, default=7830)
     parser.add_argument("--lr", type=float, default=1e-3)
     parser.add_argument("--alpha-train", type=float, default=0.2)
-    parser.add_argument("--objective-mode", choices=["margin_suppression", "asymmetric_gate"], default="margin_suppression")
+    parser.add_argument(
+        "--objective-mode",
+        choices=["margin_suppression", "asymmetric_gate", "vector_gate"],
+        default="margin_suppression",
+    )
     parser.add_argument("--initial-gate", type=float, default=0.5)
     parser.add_argument("--low-margin-cutoff", type=float, default=0.001)
     parser.add_argument("--gap-lift", type=float, default=0.002)

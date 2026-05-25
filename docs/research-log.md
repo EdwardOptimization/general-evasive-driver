@@ -13156,3 +13156,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M788 designs the next no-PPO residual calibration probe after M787 found scalar gating too close to alpha scaling. The design keeps the M568 actor frozen, keeps the M761 residual head frozen, and replaces scalar `g(feature)` with a per-action-dimension vector gate `g(feature) in [0,1]^3` over steer/throttle/brake residual components. It preserves the human-view deployable input contract and uses terminal margins/source labels only as training-time weights and audit metadata. The primary target is alpha `0.2`: a strong candidate must pass strict normal retention, keep active-source margin at least M786 alpha `0.15`'s `+0.000028`, and reach intervention gap mean at least M780 alpha `0.125`'s `0.044047`. A limited candidate must Pareto-improve M786 alpha `0.15`; merely reproducing scalar-gate behavior does not count. M789 is admitted as implementation diagnostic only, with PPO and promotion blocked.
 - decision: `vector_residual_calibration_design_admit_m789`
 - next: `m789-v4-vector-residual-calibration-implementation`
+
+## 20260525T103000Z - m789-v4-vector-residual-calibration-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m789_v4_vector_residual_calibration`
+- artifact: `docs/m789-v4-vector-residual-calibration-implementation.md`
+- result: M789 extends the residual calibration tool with `objective_mode=vector_gate`, a 3-output steer/throttle/brake gate, component gate metrics, and vector candidate classification, then runs the registered no-PPO probe. It reconstructs `2640/2652` rows with `0` metadata misses and the same `12` unsupported `command_shift_obs` rejects, writes `21120` replay rows and `10560` objective rows, and confirms base actor and M761 residual-head checksums unchanged. Only the 2179-parameter vector calibrator is trained. Result class is `v4_vector_residual_calibration_component_collapse`: candidate count is `0`, strong candidate count is `0`, and limited candidate count is `0`. Alpha `0.15` passes strict normal retention and has gap mean `0.043403`, but active-source margin `+0.000027881` is slightly below M786 alpha `0.15`'s `+0.000028246`, so it is not a Pareto improvement. Alpha `0.2` has gap mean `0.044438` but still collides on the active source with margin `-0.000005`. Final component gates are nearly identical (`normal 0.671292/0.671167/0.671190`, `intervention 0.684914/0.684800/0.684820`), with `gate_component_std_mean 0.000066`, so the vector gate collapsed to scalar-like behavior.
+- decision: `v4_vector_residual_calibration_component_collapse`
+- next: `m790-v4-vector-residual-calibration-audit`
