@@ -1,0 +1,169 @@
+{
+  "id": "m867-v4-generated-boundary-pair-delta-refresh-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m866-v4-generated-boundary-pair-delta-refresh-design.md",
+      "runs/m864_v4_generated_boundary_refinement/summary.json",
+      "runs/m864_v4_generated_boundary_refinement/combined_generated_boundary_rows.csv",
+      "runs/m864_v4_generated_boundary_refinement/pairability_projection_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m866-v4-generated-boundary-pair-delta-refresh-design.json"
+    ],
+    "parent_objective": [
+      "implement source-aware no-training pair-delta refresh over M864 combined generated-boundary rows"
+    ],
+    "derived_from": [
+      "m866-v4-generated-boundary-pair-delta-refresh-design"
+    ],
+    "blocked_by": [
+      "M864 pairability projection has not yet been converted into actual pair-delta sequence outcome evidence"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m867-v4-generated-boundary-pair-delta-refresh-implementation.md",
+  "public_gates": [
+    "M867 must implement no-training pair-delta refresh only",
+    "M867 must use M864 combined generated-boundary rows as pair candidates",
+    "M867 must write raw accepted and balanced pair-delta artifacts",
+    "M867 must preserve actor and residual-head checksums",
+    "M867 must not train run PPO or promote"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels or oracle fields to actor input",
+    "do not count component-control rows as primary pair-delta rows",
+    "do not treat pairability projection as pair-delta outcome evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_boundary_expansion",
+    "evidence_axis": "G_pair_delta: limited pair-delta refresh implementation from generated boundary rows",
+    "evidence_increment": "implements source-aware pair-delta sequence replay over M864 combined generated-boundary rows after sparse boundary gate passes",
+    "claim_scope": "no-training pair-delta diagnostics only; no objective training, PPO, learned policy claim, or driver promotion",
+    "stop_condition": [
+      "stop if actor or residual-head checksums change",
+      "stop if component controls satisfy primary gates",
+      "stop if pairability projection is counted as outcome evidence",
+      "stop if result is used to train before audit"
+    ],
+    "fallback_plan": [
+      "if sparse or strong pair-delta passes, audit before objective design",
+      "if raw positives are source-limited, audit before another boundary-generation pass",
+      "if all-weak, audit pairability projection quality before more replay",
+      "if artifacts are incomplete, repair implementation before interpreting"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M866 admits one limited pair-delta refresh implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A source-aware no-training refresh over M864 combined generated-boundary rows can convert pairability projections into real pair-delta sequence outcome rows.",
+  "success_criteria": [
+    "M867 implements pair candidate selection from M864 combined rows",
+    "M867 writes pair-delta sequence and accepted artifacts",
+    "M867 selects a balanced pair-delta corpus after raw acceptance",
+    "M867 verifies actor and residual-head checksums unchanged",
+    "M867 keeps PPO objective training and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M867 trains actor or residual-head parameters",
+    "M867 runs PPO",
+    "M867 promotes a checkpoint",
+    "M867 counts component-control rows as primary pair-delta rows",
+    "M867 mutates actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "generated_boundary_pair_delta_refresh",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_generated_boundary_pair_delta_refresh --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --residual-head runs/m761_v4_sequence_objective_probe/residual_head.pt --scenario-config configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json --combined-boundary-rows runs/m864_v4_generated_boundary_refinement/combined_generated_boundary_rows.csv --pairability-projection-rows runs/m864_v4_generated_boundary_refinement/pairability_projection_rows.csv --source-rows runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv --candidate-plan-rows runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv --run-dir runs/m867_v4_generated_boundary_pair_delta_refresh --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_generated_boundary_pair_delta_refresh.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_v4_generated_boundary_pair_delta_refresh.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m867_v4_generated_boundary_pair_delta_refresh/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m867_v4_generated_boundary_pair_delta_refresh/pair_candidate_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m867_v4_generated_boundary_pair_delta_refresh/pair_delta_sequence_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m867_v4_generated_boundary_pair_delta_refresh/accepted_pair_delta_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m867_v4_generated_boundary_pair_delta_refresh/balanced_pair_delta_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m867_v4_generated_boundary_pair_delta_refresh/component_control_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m867_v4_generated_boundary_pair_delta_refresh/train_public_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m867_v4_generated_boundary_pair_delta_refresh/eval_public_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m867_v4_generated_boundary_pair_delta_refresh/source_holdout_public_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m867_v4_generated_boundary_pair_delta_refresh/diversity_summary.json",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m867_v4_generated_boundary_pair_delta_refresh/gate_summary.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m867_v4_generated_boundary_pair_delta_refresh/rejected_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "docs/m867-v4-generated-boundary-pair-delta-refresh-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m866-v4-generated-boundary-pair-delta-refresh-design.md",
+    "runs/m864_v4_generated_boundary_refinement/combined_generated_boundary_rows.csv"
+  ],
+  "decision_rule": "M867 may only produce a no-training pair-delta refresh diagnostic classification. It must not train, run PPO, promote, or claim learned self-ID.",
+  "next_blocker": "generated-boundary pair-delta refresh has not yet been implemented"
+}

@@ -62,15 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m866-v4-generated-boundary-pair-delta-refresh-design
+m867-v4-generated-boundary-pair-delta-refresh-implementation
 ```
 
-M866 should design a source-aware no-training pair-delta refresh over M864
-combined generated-boundary rows. Objective training, PPO, promotion, base actor
-mutation, and M761 residual-head mutation remain blocked.
+M867 should implement source-aware no-training pair-delta sequence replay over
+M864 combined generated-boundary rows. Objective training, PPO, promotion, base
+actor mutation, and M761 residual-head mutation remain blocked.
 
 ## Recent Evidence Line
 
+- M866 designs the source-aware no-training pair-delta refresh over M864
+  combined generated-boundary rows. M867 should convert pairability projection
+  into actual sequence outcome evidence by replaying only pair-delta directions
+  first, then selecting a balanced pair-delta corpus. Component controls cannot
+  satisfy primary gates. Objective training, PPO, actor mutation, M761 mutation,
+  and promotion remain blocked.
 - M865 audits M864 as clean sparse-useful generated-boundary coverage. Strong
   gates still fail and the surface is axis-concentrated, but sparse gates pass
   with `59` combined boundary-new-to-M844 rows, `27` source groups, `5` seeds,

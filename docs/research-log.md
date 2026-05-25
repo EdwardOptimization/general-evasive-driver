@@ -13873,3 +13873,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M865 audits M864 as a clean sparse-useful generated-boundary result. Sparse gates pass with `59` combined boundary-new-to-M844 rows, `27` source groups, `5` seeds, `9` fault families, and `365` primary pairability projections. Strong gates still fail and the surface is axis-concentrated (`56` lateral-offset rows, `3` timing rows, `0` half-width rows), but the source/fault coverage and abundant pairability projection are sufficient to design a limited pair-delta refresh. The audit explicitly keeps objective training, PPO, promotion, actor mutation, and M761 mutation blocked; pairability projections must be converted into actual sequence outcome rows before any pair-delta claim.
 - decision: `admit_limited_pair_delta_refresh_design`
 - next: `m866-v4-generated-boundary-pair-delta-refresh-design`
+
+## 20260525T171911Z - m866-v4-generated-boundary-pair-delta-refresh-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m866-v4-generated-boundary-pair-delta-refresh-design.md`
+- result: M866 designs a source-aware no-training pair-delta refresh over M864 combined generated-boundary rows. M867 should build pair candidates from successful non-collision boundary rows, cap pairs by source/seed/fault/axis pair, replay only `pair_delta_positive` and `pair_delta_negative` directions over hold steps `4,6` and epsilon L2 values `0.025,0.05,0.075`, and then select a balanced pair-delta corpus. Pairability projection remains only a candidate filter; actual pair-delta sequence replay is required before any pair-delta outcome claim. Component controls may be replayed only after accepted pair-delta rows exist and cannot satisfy primary gates. Actor mutation, M761 mutation, objective training, PPO, and promotion remain blocked.
+- decision: `generated_boundary_pair_delta_refresh_design_admit_m867`
+- next: `m867-v4-generated-boundary-pair-delta-refresh-implementation`
