@@ -14151,3 +14151,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M895 audits M886/M891/M889/M893 effect size using existing artifacts only. Accepted alpha `0.1` is proof-safe but marginal: action L2 mean is about `1.2e-4`, behavior success and termination are retention ties versus M568, and clearance movement is about `+0.00049`. Raw candidates have roughly `10x` larger action movement (`~0.0012`) and still have negative exact holdout deltas, but they have no replay evidence and were not directly admitted by M885. The correct next step is controlled raw-candidate scaling design, not PPO, promotion, or fresh generalization.
 - decision: `effect_size_marginal_route_to_controlled_scaling_design`
 - next: `m896-v4-pair-delta-controlled-scaling-replay-design`
+
+## 20260525T201250Z - m896-v4-pair-delta-controlled-scaling-replay-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m896-v4-pair-delta-controlled-scaling-replay-design.md`
+- result: M896 designs the exact-first controlled scaling gate for the M886 and M891 raw objective-only candidates. M897 must recheck exact objective tensors for both raw candidates, run the sensitive first replay gates `M183/M170` and `M267/M264`, then run the full six-surface replay stack only if first gates pass. Behavior seeds `9505` and `9506` are allowed only after full replay passes. PPO and promotion remain blocked.
+- decision: `controlled_scaling_replay_design_admit_m897`
+- next: `m897-v4-pair-delta-raw-candidate-controlled-scaling-gate`

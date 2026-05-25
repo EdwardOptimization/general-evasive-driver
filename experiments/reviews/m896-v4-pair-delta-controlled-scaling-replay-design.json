@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M896 may only design the controlled scaling replay/proof gate. It must not run replay, train, run PPO, or promote.",
+  "decision_reason": "M896 designs exact-first replay/proof evaluation for M886 and M891 raw candidates before any PPO promotion or raw-candidate claim",
   "failure_criteria": [
     "M896 runs replay or training",
     "M896 admits PPO or promotion",
@@ -24,7 +24,7 @@
     "do not change actor inputs or residual head"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260525T201215Z",
+  "generated_at_utc": "20260525T201529Z",
   "hypothesis": "The raw objective-only candidates may provide a larger but still controlled movement budget; M896 should design exact-first replay/proof evaluation before any execution or stronger claim.",
   "lineage": {
     "blocked_by": [
@@ -57,7 +57,7 @@
   "milestone": "m896-v4-pair-delta-controlled-scaling-replay-design",
   "next_blocker": "Raw candidate controlled scaling replay/proof gate has not yet been designed",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "controlled_scaling_replay_design_admit_m897",
   "public_gates": [
     "M896 must design exact-first evaluation for both raw candidates",
     "M896 must require first replay gates before full replay stack",
@@ -65,7 +65,20 @@
     "M896 must define failure routing for raw-candidate proof washout",
     "M896 must keep PPO and promotion blocked"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m896-v4-pair-delta-controlled-scaling-replay-design.md",
+    "clearance_margin_mean": "",
+    "decision": "controlled_scaling_replay_design_admit_m897",
+    "milestone": "m896-v4-pair-delta-controlled-scaling-replay-design",
+    "reason": "M896 designs exact-first replay/proof evaluation for M886 and M891 raw candidates before any PPO promotion or raw-candidate claim",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "M896 writes a design document for raw-candidate exact/replay/behavior gates",
     "M896 names both raw candidate checkpoints and M568 baseline",

@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260525T201215Z
+- Generated at UTC: 20260525T201529Z
 - Type: infrastructure
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M896 may only design the controlled scaling replay/proof gate. It must not run replay, train, run PPO, or promote.
+- Promotion decision: controlled_scaling_replay_design_admit_m897
+- Decision reason: M896 designs exact-first replay/proof evaluation for M886 and M891 raw candidates before any PPO promotion or raw-candidate claim
 
 ## Hypothesis
 
@@ -71,7 +71,18 @@ The raw objective-only candidates may provide a larger but still controlled move
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m896-v4-pair-delta-controlled-scaling-replay-design
+- type: infrastructure
+- checkpoint: docs/m896-v4-pair-delta-controlled-scaling-replay-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: controlled_scaling_replay_design_admit_m897
+- reason: M896 designs exact-first replay/proof evaluation for M886 and M891 raw candidates before any PPO promotion or raw-candidate claim
 
 ## Next Blocker
 

@@ -62,15 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m896-v4-pair-delta-controlled-scaling-replay-design
+m897-v4-pair-delta-raw-candidate-controlled-scaling-gate
 ```
 
-M895 classified accepted alpha `0.1` movement as proof-safe but marginal. M896
-must design exact-first replay/proof gates for the larger existing raw
-objective-only candidates before any execution, PPO, or promotion.
+M896 designed exact-first controlled scaling gates for the larger raw
+objective-only candidates. M897 must execute exact recheck, first replay gates,
+and full replay gates for M886/M891 raw candidates before any behavior check,
+PPO, or promotion.
 
 ## Recent Evidence Line
 
+- M896 designs controlled raw-candidate scaling gates. M897 must first run
+  exact objective recheck for both raw candidates, then the sensitive replay
+  gates `M183/M170` and `M267/M264`, then all six replay/proof surfaces only if
+  first gates pass. Behavior seeds `9505`/`9506` are allowed only after full
+  replay passes. PPO and promotion remain blocked.
 - M895 audits effect size from existing M886/M891/M889/M893 artifacts. Accepted
   alpha `0.1` is repeatable and proof-safe but too small for performance claims:
   action L2 mean is about `1.2e-4`, success and termination are retention ties,

@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M897 may execute exact-first proof gates for raw candidates only. It must stop on exact or first replay failure and must not run PPO or promote.",
+  "failure_criteria": [
+    "any exact recheck fails",
+    "any first replay gate fails",
+    "any full replay surface fails",
+    "behavior success or termination regresses",
+    "M897 promotes or runs PPO"
+  ],
+  "failure_types": [
+    "proof_washout",
+    "behavior_regression",
+    "objective_overfit",
+    "metric_artifact",
+    "contract_violation",
+    "lineage_invalid"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not skip exact recheck before replay",
+    "do not skip first replay gates before full replay",
+    "do not lower replay thresholds after seeing failures",
+    "do not claim public-base improvement from raw-candidate retention"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260525T201529Z",
+  "hypothesis": "The larger raw objective-only candidates may remain proof-safe under exact-first replay/proof evaluation and provide a more meaningful effect-size budget than alpha_0_1.",
+  "lineage": {
+    "blocked_by": [
+      "raw candidates have larger effect-size budget but no exact-first closed-loop replay evidence"
+    ],
+    "derived_from": [
+      "m896-v4-pair-delta-controlled-scaling-replay-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/raw_candidate.pt",
+      "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/raw_candidate.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m896-v4-pair-delta-controlled-scaling-replay-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m896-v4-pair-delta-controlled-scaling-replay-design.md",
+      "runs/m183_m168_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+      "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+      "runs/m193_m189_boundary_outcome_corpus_seed9630/boundary_outcome_corpus.csv",
+      "runs/m212_m204_boundary_outcome_corpus_seed10040/boundary_outcome_corpus.csv",
+      "runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv"
+    ],
+    "parent_objective": [
+      "execute exact-first controlled replay/proof gates for larger raw objective-only candidates"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m897-v4-pair-delta-raw-candidate-controlled-scaling-gate",
+  "next_blocker": "Raw objective-only candidates have not yet run exact-first controlled replay/proof gates",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "exact objective recheck for both raw candidates",
+    "first replay gates M183/M170 and M267/M264 for both raw candidates",
+    "all six replay/proof surfaces for both raw candidates if first gates pass",
+    "behavior seeds 9505 and 9506 if full replay passes",
+    "no PPO or promotion"
+  ],
+  "scoreboard": {},
+  "success_criteria": [
+    "both exact rechecks pass",
+    "first replay gates pass for both raw candidates",
+    "all six replay/proof surfaces pass for both raw candidates if full replay runs",
+    "behavior seeds 9505 and 9506 do not regress if behavior runs",
+    "M897 keeps PPO and promotion blocked"
+  ],
+  "type": "gate"
+}

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 904,
+    "completed": 905,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m895-v4-pair-delta-objective-effect-size-budget-audit",
+    "task_id": "m896-v4-pair-delta-controlled-scaling-replay-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m895-v4-pair-delta-objective-effect-size-budget-audit.md"
+    "command_log": "docs/m896-v4-pair-delta-controlled-scaling-replay-design.md"
   },
   "next_task": {
-    "id": "m896-v4-pair-delta-controlled-scaling-replay-design",
+    "id": "m897-v4-pair-delta-raw-candidate-controlled-scaling-gate",
     "status": "pending",
-    "priority": 8910,
-    "kind": "infrastructure",
-    "hypothesis": "Design exact-first replay/proof gate for larger raw objective-only candidates",
-    "command": "see experiments/manifests/m896-v4-pair-delta-controlled-scaling-replay-design.json",
-    "success_artifact": "docs/m896-v4-pair-delta-controlled-scaling-replay-design.md",
-    "notes": "Pending: design controlled raw-candidate scaling gate before execution, PPO, or promotion"
+    "priority": 8920,
+    "kind": "gate",
+    "hypothesis": "Execute exact-first controlled replay/proof gates for larger raw objective-only candidates",
+    "command": "see experiments/manifests/m897-v4-pair-delta-raw-candidate-controlled-scaling-gate.json",
+    "success_artifact": "runs/m897_raw_controlled_scaling_full_replay_gate/summary.json",
+    "notes": "Pending: run exact recheck and staged replay/proof gates for both raw candidates"
   },
-  "updated_at_utc": "20260525T201114Z"
+  "updated_at_utc": "20260525T201250Z"
 }
