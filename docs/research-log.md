@@ -13334,3 +13334,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M807 implements and runs no-training boundary-axis expansion. It replays `7882` candidates across obstacle half-width, obstacle lateral offset, source-step neighborhood, fault activation step, fault severity, bracketed obstacle distance, and bracketed half-width. Actor and residual-head checksums remain unchanged; no optimizer, PPO, or promotion occurs. The strict primary band is still reachable with `252` raw accepted rows, but all accepted rows come from `obstacle_half_width`; every added axis has `0` accepted rows in the `0.0 <= margin <= 0.00005` primary band. Raw accepted rows cover only `3` seeds and have max axis dominance `1.0`, max seed dominance `0.428571`, and max fault-pair dominance `0.714286`. Result class is `v4_low_margin_boundary_axis_expansion_geometry_only_diagnostic`.
 - decision: `v4_low_margin_boundary_axis_expansion_geometry_only_diagnostic`
 - next: `m808-v4-low-margin-boundary-axis-expansion-audit`
+
+## 20260525T154500Z - m808-v4-low-margin-boundary-axis-expansion-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m808-v4-low-margin-boundary-axis-expansion-audit.md`
+- result: M808 audits M807 as a clean no-training diagnostic and rejects further calibration from the current half-width-only primary rows. M807 did exercise all planned axis families, but accepted rows remained `252` raw and `48` capped rows from `obstacle_half_width` only, with `0` accepted rows from lateral, source-step, fault activation, fault severity, or bracketed distance/width axes. M808 classifies the blocker as scenario sampling failure plus metric-artifact/objective-overfit risk if those geometry-only rows are treated as a pass.
+- decision: `admit_low_margin_branch_synthesis`
+- next: `m809-v4-low-margin-source-diverse-branch-synthesis`

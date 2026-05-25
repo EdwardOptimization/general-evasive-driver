@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 816,
+        "completed": 817,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m807-v4-low-margin-boundary-axis-expansion-implementation",
+        "task_id": "m808-v4-low-margin-boundary-axis-expansion-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m807-v4-low-margin-boundary-axis-expansion-implementation.md"
+        "command_log": "docs/m808-v4-low-margin-boundary-axis-expansion-audit.md"
     },
     "next_task": {
-        "id": "m808-v4-low-margin-boundary-axis-expansion-audit",
+        "id": "m809-v4-low-margin-source-diverse-branch-synthesis",
         "status": "pending",
-        "priority": 8030,
+        "priority": 8040,
         "kind": "gate",
-        "hypothesis": "Audit M807 geometry-only boundary-axis expansion diagnostic",
-        "command": "see experiments/manifests/m808-v4-low-margin-boundary-axis-expansion-audit.json",
-        "success_artifact": "docs/m808-v4-low-margin-boundary-axis-expansion-audit.md",
-        "notes": "Pending: decide whether M807 routes to branch synthesis or a new data route; calibration PPO and promotion remain blocked"
+        "hypothesis": "Synthesize M800-M808 low-margin source-diverse corpus branch",
+        "command": "see experiments/manifests/m809-v4-low-margin-source-diverse-branch-synthesis.json",
+        "success_artifact": "docs/m809-v4-low-margin-source-diverse-branch-synthesis.md",
+        "notes": "Pending: answer workflow synthesis questions and choose the next branch after repeated geometry-only retargeting evidence"
     },
-    "updated_at_utc": "20260525T153000Z"
+    "updated_at_utc": "20260525T154500Z"
 }
