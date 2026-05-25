@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M944 materializes M942 candidates and all three remain exact candidates from ordinary checkpoint loading; primary alpha 0.0725 passes with training replay PPO and promotion blocked",
+  "failure_criteria": [
+    "candidate checkpoint materialization fails",
+    "primary candidate no longer passes exact metrics after loading",
+    "forbidden parameters change",
+    "M944 runs replay PPO or promotion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor inputs",
+    "do not unfreeze response_encoder context_encoder or online_gru_cell"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T233905Z",
+  "hypothesis": "The M942 candidate alphas remain exact candidates after materializing them as ordinary loadable checkpoints.",
+  "lineage": {
+    "blocked_by": [
+      "candidate checkpoint materialization and exact compatibility have not yet run"
+    ],
+    "derived_from": [
+      "m943-v4-public-base-controlled-fusion-candidate-compatibility-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m940_v4_public_base_controlled_fusion_boundary_objective/checkpoints/raw_boundary_objective_update.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m943-v4-public-base-controlled-fusion-candidate-compatibility-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m943-v4-public-base-controlled-fusion-candidate-compatibility-design.md",
+      "runs/m942_v4_public_base_controlled_fusion_micro_boundary_audit/summary.json",
+      "runs/m942_v4_public_base_controlled_fusion_micro_boundary_audit/alpha_metrics.csv"
+    ],
+    "parent_objective": [
+      "materialize M942 candidate checkpoints and re-run exact no-update objective compatibility"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m944-v4-public-base-controlled-fusion-candidate-compatibility-implementation",
+  "next_blocker": "m945-v4-public-base-controlled-fusion-candidate-replay-gate-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "public_base_controlled_fusion_candidate_compatibility_primary_candidate_route_to_replay_gate_design",
+  "public_gates": [
+    "M944 must materialize candidate checkpoints for alphas 0.0675 0.0700 0.0725",
+    "M944 must re-run exact objective metrics from materialized checkpoints",
+    "M944 must keep forbidden parameters unchanged",
+    "M944 must keep training replay PPO and promotion blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "public_base_controlled_fusion_candidate_compatibility_primary_candidate_route_to_replay_gate_design",
+    "milestone": "m944-v4-public-base-controlled-fusion-candidate-compatibility-implementation",
+    "reason": "M944 materializes M942 candidates and all three remain exact candidates from ordinary checkpoint loading; primary alpha 0.0725 passes with training replay PPO and promotion blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary.json exists",
+    "materialized_checkpoint_count is 3",
+    "exact_candidate_count >= 1",
+    "primary_candidate_exact_pass is true",
+    "forbidden_parameter_changed is false",
+    "training_started optimizer_started replay_used ppo_used and promoted are false"
+  ],
+  "type": "infrastructure"
+}

@@ -108,5 +108,5 @@
     "docs/m943-v4-public-base-controlled-fusion-candidate-compatibility-design.md"
   ],
   "decision_rule": "M944 may only materialize candidate checkpoints and run exact no-update compatibility. It must not train, run replay, run PPO, or promote.",
-  "next_blocker": "candidate compatibility has not yet run"
+  "next_blocker": "m945-v4-public-base-controlled-fusion-candidate-replay-gate-design"
 }

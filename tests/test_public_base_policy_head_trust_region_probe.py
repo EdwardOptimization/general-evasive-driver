@@ -21,6 +21,9 @@ from autodrift.public_base_controlled_fusion_boundary_objective_probe import (
     classify_controlled_fusion_boundary_objective_probe,
     _effective_linear_parameters,
 )
+from autodrift.public_base_controlled_fusion_candidate_compatibility import (
+    classify_controlled_fusion_candidate_compatibility,
+)
 from autodrift.train_ppo import ActorCritic
 
 
@@ -243,3 +246,39 @@ def test_boundary_effective_linear_parameters_alpha_zero_matches_base():
 
     assert torch.allclose(weight, base["response_context_fusion.0.weight"])
     assert torch.allclose(bias, base["response_context_fusion.0.bias"])
+
+
+def test_classify_controlled_fusion_candidate_compatibility_primary_candidate():
+    assert (
+        classify_controlled_fusion_candidate_compatibility(
+            materialized_checkpoint_count=3,
+            expected_checkpoint_count=3,
+            exact_candidate_count=2,
+            primary_candidate_exact_pass=True,
+            forbidden_parameter_changed=False,
+            training_started=False,
+            optimizer_started=False,
+            replay_used=False,
+            ppo_used=False,
+            promoted=False,
+        )
+        == "public_base_controlled_fusion_candidate_compatibility_primary_candidate"
+    )
+
+
+def test_classify_controlled_fusion_candidate_compatibility_contract_artifact():
+    assert (
+        classify_controlled_fusion_candidate_compatibility(
+            materialized_checkpoint_count=3,
+            expected_checkpoint_count=3,
+            exact_candidate_count=2,
+            primary_candidate_exact_pass=True,
+            forbidden_parameter_changed=True,
+            training_started=False,
+            optimizer_started=False,
+            replay_used=False,
+            ppo_used=False,
+            promoted=False,
+        )
+        == "public_base_controlled_fusion_candidate_compatibility_contract_artifact"
+    )

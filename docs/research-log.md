@@ -14602,3 +14602,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M943 designs exact no-update compatibility for the M942 candidates. It selects alpha `0.0725` as the primary candidate because it is the best normal-retaining row by low-tail fraction and deficit, with `0.0675` and `0.0700` as backups. M944 should materialize all three interpolated checkpoints, re-run exact objective metrics from ordinary checkpoint loading at alpha `1.0`, verify forbidden parameters remain unchanged, and aggregate pass/fail. Training, replay, PPO, private holdout, and promotion remain blocked.
 - decision: `controlled_fusion_candidate_compatibility_design_admit_m944`
 - next: `m944-v4-public-base-controlled-fusion-candidate-compatibility-implementation`
+
+## 20260525T233633Z - m944-v4-public-base-controlled-fusion-candidate-compatibility-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m944_v4_public_base_controlled_fusion_candidate_compatibility`
+- artifact: `docs/m944-v4-public-base-controlled-fusion-candidate-compatibility-implementation.md`
+- result: M944 materializes the M942 candidate alphas as ordinary checkpoints and re-runs exact objective metrics from checkpoint loading. It creates three materialized checkpoints, all three remain exact candidates, the primary alpha `0.0725` passes, both backups pass, and forbidden parameters remain unchanged. Summary: `materialized_checkpoint_count=3`, `exact_candidate_count=3`, `primary_candidate_exact_pass=true`, `backup_candidate_exact_pass_count=2`, `forbidden_parameter_changed=false`, and result class is `public_base_controlled_fusion_candidate_compatibility_primary_candidate`. The primary checkpoint is `runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/interpolation/checkpoints/alpha_0_0725.pt`.
+- decision: `public_base_controlled_fusion_candidate_compatibility_primary_candidate_route_to_replay_gate_design`
+- next: `m945-v4-public-base-controlled-fusion-candidate-replay-gate-design`

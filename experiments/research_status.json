@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 952,
+    "completed": 953,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m943-v4-public-base-controlled-fusion-candidate-compatibility-design",
+    "task_id": "m944-v4-public-base-controlled-fusion-candidate-compatibility-implementation",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m943-v4-public-base-controlled-fusion-candidate-compatibility-design.md"
+    "command_log": "runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/summary.json"
   },
   "next_task": {
-    "id": "m944-v4-public-base-controlled-fusion-candidate-compatibility-implementation",
+    "id": "m945-v4-public-base-controlled-fusion-candidate-replay-gate-design",
     "status": "pending",
-    "priority": 9390,
-    "kind": "infrastructure",
-    "hypothesis": "The M942 candidate alphas remain exact candidates after materializing them as ordinary loadable checkpoints",
-    "command": "see experiments/manifests/m944-v4-public-base-controlled-fusion-candidate-compatibility-implementation.json",
-    "success_artifact": "runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/summary.json",
-    "notes": "Pending: materialize candidate checkpoints and exact-check them; training, replay, PPO, and promotion blocked"
+    "priority": 9400,
+    "kind": "gate",
+    "hypothesis": "The materialized M944 primary candidate should be checked on closed-loop replay/proof surfaces before any PPO or promotion path",
+    "command": "see experiments/manifests/m945-v4-public-base-controlled-fusion-candidate-replay-gate-design.json",
+    "success_artifact": "docs/m945-v4-public-base-controlled-fusion-candidate-replay-gate-design.md",
+    "notes": "Pending: design replay/proof retention for the materialized alpha 0.0725 candidate; PPO and promotion blocked"
   },
-  "updated_at_utc": "20260525T233146Z"
+  "updated_at_utc": "20260525T233633Z"
 }

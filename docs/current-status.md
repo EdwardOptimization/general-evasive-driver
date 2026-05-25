@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m944-v4-public-base-controlled-fusion-candidate-compatibility-implementation
+m945-v4-public-base-controlled-fusion-candidate-replay-gate-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -89,10 +89,20 @@ candidate: alpha `0.05` is a normal-safe low-tail trend, while alpha `0.075`
 tail-lifts just outside normal retention. M941 synthesizes the branch and
 allows exactly one no-training micro-alpha audit before any broader actor
 update. M942 runs that audit and finds strict objective-level candidates at
-alphas `0.0675`, `0.0700`, and `0.0725`.
+alphas `0.0675`, `0.0700`, and `0.0725`. M944 materializes these candidates
+and confirms all three remain exact candidates from ordinary checkpoint
+loading.
 
 ## Recent Evidence Line
 
+- M944 materializes the M942 candidate alphas as ordinary checkpoints and
+  re-runs exact metrics from checkpoint loading. `materialized_checkpoint_count=3`,
+  `exact_candidate_count=3`, `primary_candidate_exact_pass=true`,
+  `backup_candidate_exact_pass_count=2`, and
+  `forbidden_parameter_changed=false`. The primary candidate is
+  `runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/interpolation/checkpoints/alpha_0_0725.pt`.
+  M945 should design closed-loop replay/proof retention before any PPO or
+  promotion.
 - M943 designs exact no-update compatibility for the M942 candidates. The
   primary alpha is `0.0725`, with `0.0675` and `0.0700` as backups. M944 should
   materialize all three checkpoints, re-run exact objective metrics from normal
