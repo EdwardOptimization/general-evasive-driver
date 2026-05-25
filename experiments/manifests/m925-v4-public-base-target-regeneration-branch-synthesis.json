@@ -1,0 +1,117 @@
+{
+  "id": "m925-v4-public-base-target-regeneration-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "objective_overfit",
+    "promotion_gate_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m916-v4-public-base-target-regeneration-design.md",
+      "docs/m924-v4-public-base-alpha-aware-low-tail-residual-probe-implementation.md",
+      "runs/m924_v4_public_base_alpha_aware_low_tail_residual_probe/summary.json",
+      "runs/m919_v4_public_base_expanded_target_regeneration/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m924-v4-public-base-alpha-aware-low-tail-residual-probe-implementation.json"
+    ],
+    "parent_objective": [
+      "synthesize target-regeneration branch after M924 no-candidate result"
+    ],
+    "derived_from": [
+      "m916-v4-public-base-target-regeneration-design",
+      "m924-v4-public-base-alpha-aware-low-tail-residual-probe-implementation"
+    ],
+    "blocked_by": [
+      "M924 fallback requires branch synthesis before another narrow objective variant"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m925-v4-public-base-target-regeneration-branch-synthesis.md",
+  "public_gates": [
+    "M925 must synthesize M916-M924",
+    "M925 must list supported and falsified claims",
+    "M925 must classify failures",
+    "M925 must decide the next branch",
+    "M925 must block training, exact compatibility, replay, PPO, and promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in M925",
+    "do not run target generation",
+    "do not run exact compatibility",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not open another narrow objective milestone without synthesis"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_target_regeneration",
+    "evidence_axis": "G_synthesis: synthesize target-regeneration branch evidence",
+    "evidence_increment": "closes M916-M924 branch after target generation success and residual objective no-candidate results",
+    "claim_scope": "branch synthesis only; no training, exact compatibility, replay, PPO, driver improvement claim, or promotion",
+    "stop_condition": [
+      "stop if supported claims are omitted",
+      "stop if falsified claims are omitted",
+      "stop if next branch decision is omitted",
+      "stop if training, replay, PPO, or promotion is attempted"
+    ],
+    "fallback_plan": [
+      "open v4_public_base_trust_region_feasibility after synthesis",
+      "otherwise keep public-base residual integration blocked"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M924 no-candidate result and registered fallback",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m925-v4-public-base-target-regeneration-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "The target-regeneration branch has enough evidence to close and route to trust-region feasibility instead of another narrow residual objective variant.",
+  "success_criteria": [
+    "M925 summarizes M916-M924 evidence",
+    "M925 records supported and falsified claims",
+    "M925 records failure taxonomy",
+    "M925 opens v4_public_base_trust_region_feasibility",
+    "M925 blocks training, exact compatibility, replay, PPO, and promotion"
+  ],
+  "failure_criteria": [
+    "M925 omits synthesis questions",
+    "M925 continues the branch without a synthesis decision",
+    "M925 admits exact compatibility, replay, PPO, or promotion",
+    "M925 does not choose a next branch"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m925-v4-public-base-target-regeneration-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m925-v4-public-base-target-regeneration-branch-synthesis.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m924-v4-public-base-alpha-aware-low-tail-residual-probe-implementation.md"
+  ],
+  "decision_rule": "M925 may only synthesize the branch and choose the next branch. It must not train, run exact compatibility, run replay, run PPO, or promote.",
+  "next_blocker": "m926-v4-public-base-residual-direction-feasibility-design"
+}

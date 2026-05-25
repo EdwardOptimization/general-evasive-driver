@@ -14413,3 +14413,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M923 designs an alpha-aware low-tail residual objective for frozen M399 features. The next implementation should train at normal-retaining alphas `0.20` and `0.35`, optimize low-tail gap floor, low-tail deficit, and soft low-tail fraction losses directly, and keep target-action imitation as an auxiliary. Exact compatibility, replay, PPO, actor update, and promotion remain blocked until an objective alpha passes.
 - decision: `public_base_alpha_aware_low_tail_objective_design_admit_m924`
 - next: `m924-v4-public-base-alpha-aware-low-tail-residual-probe-implementation`
+
+## 20260525T220515Z - m924-v4-public-base-alpha-aware-low-tail-residual-probe-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m924_v4_public_base_alpha_aware_low_tail_residual_probe`
+- artifact: `docs/m924-v4-public-base-alpha-aware-low-tail-residual-probe-implementation.md`
+- result: M924 trains only a residual head on frozen M399 features. Reconstruction and target join succeed (`1213/1213` reconstructed, `122/122` targets joined), and the actor checksum is unchanged. The objective has no admitted alpha (`candidate_alpha_count=0`). Low-tail metrics improve strongly (`alpha 1.0` has `tail_lift_pass=true`, low-tail fraction `0.16652926802635193`), but all useful alphas violate normal retention and target-action MSE worsens.
+- decision: `public_base_alpha_aware_low_tail_probe_no_candidate_route_to_branch_synthesis`
+- next: `m925-v4-public-base-target-regeneration-branch-synthesis`
+
+## 20260525T220515Z - m925-v4-public-base-target-regeneration-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m925-v4-public-base-target-regeneration-branch-synthesis.md`
+- result: M925 synthesizes M916-M924. The branch supports M399-rooted source-expanded target generation and clean residual-head infrastructure, but falsifies strict low-tail-only mining, regenerated target-action imitation alone, and direct low-tail objective pressure alone as sufficient public-base residual routes. The active blocker is now trust-region feasibility, not source scarcity or reconstruction.
+- decision: `promote_to_next_branch`
+- next: `m926-v4-public-base-residual-direction-feasibility-design`

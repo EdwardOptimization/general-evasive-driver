@@ -62,16 +62,30 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m924-v4-public-base-alpha-aware-low-tail-residual-probe-implementation
+m926-v4-public-base-residual-direction-feasibility-design
 ```
 
-M923 designed an alpha-aware low-tail residual objective after M921's
-target-action imitation objective failed the candidate gate. M924 must train
-only a frozen-M399 residual head with direct low-tail losses at normal-retaining
-train alphas before any exact compatibility, replay, PPO, or promotion.
+M925 synthesizes M916-M924 and closes the target-regeneration branch. Target
+generation succeeded, but residual objectives either improve target loss
+without enough low-tail lift or improve low-tail metrics only by violating
+normal retention. M926 must design a no-training residual-direction feasibility
+audit before more public-base residual training, exact compatibility, replay,
+PPO, or promotion.
 
 ## Recent Evidence Line
 
+- M925 synthesizes the `v4_public_base_target_regeneration` branch. Supported:
+  M399-rooted source-expanded target generation works and joins cleanly.
+  Falsified: strict low-tail-only mining, target-action imitation alone, and
+  direct low-tail objective pressure alone are sufficient to admit a
+  normal-retaining residual candidate. Next branch:
+  `v4_public_base_trust_region_feasibility`.
+- M924 implements alpha-aware low-tail residual training. It reconstructs
+  `1213/1213`, joins `122/122` targets, preserves the M399 actor checksum, and
+  trains only a `feature_dim=128` residual head. Result:
+  `candidate_alpha_count=0`. Low-tail metrics improve strongly, but useful
+  alphas violate normal retention and target-action MSE worsens. No exact
+  compatibility, replay, PPO, or promotion occurred.
 - M923 designs an alpha-aware low-tail objective. M924 should train at
   normal-retaining alphas `0.20` and `0.35`, target low-tail gap floor,
   low-tail deficit, and soft low-tail fraction directly, and keep M919 target

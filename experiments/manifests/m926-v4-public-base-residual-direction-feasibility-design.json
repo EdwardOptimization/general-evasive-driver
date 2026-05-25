@@ -1,0 +1,102 @@
+{
+  "id": "m926-v4-public-base-residual-direction-feasibility-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m925-v4-public-base-target-regeneration-branch-synthesis.md",
+      "runs/m921_v4_public_base_regenerated_target_residual_probe/summary.json",
+      "runs/m921_v4_public_base_regenerated_target_residual_probe/residual_head.pt",
+      "runs/m924_v4_public_base_alpha_aware_low_tail_residual_probe/summary.json",
+      "runs/m924_v4_public_base_alpha_aware_low_tail_residual_probe/residual_head.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m925-v4-public-base-target-regeneration-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design no-training feasibility audit over existing public-base residual directions"
+    ],
+    "derived_from": [
+      "m925-v4-public-base-target-regeneration-branch-synthesis"
+    ],
+    "blocked_by": [
+      "trust-region feasibility branch has not yet been designed"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m926-v4-public-base-residual-direction-feasibility-design.md",
+  "public_gates": [
+    "M926 must be design-only",
+    "M926 must use existing residual heads only for no-training feasibility",
+    "M926 must preserve frozen M399 and actor-input constraints",
+    "M926 must block exact compatibility, replay, PPO, and promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in M926",
+    "do not update actor parameters",
+    "do not run exact compatibility",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_trust_region_feasibility",
+    "evidence_axis": "G_feasibility: design residual direction trust-region feasibility audit",
+    "evidence_increment": "opens a branch to test whether existing residual directions can satisfy normal-retention and low-tail gates before more training",
+    "claim_scope": "feasibility design only; no training, exact compatibility, replay, PPO, driver improvement claim, or promotion",
+    "stop_condition": [
+      "stop if the design trains a new residual head",
+      "stop if the design skips normal-retention gates",
+      "stop if actor-input contract changes",
+      "stop if exact compatibility, replay, PPO, or promotion is attempted"
+    ],
+    "fallback_plan": [
+      "if feasibility exists, route to exact no-update compatibility design for the feasible residual mixture",
+      "if feasibility does not exist, route to policy-level or corpus-level strategy instead of more residual-head objectives"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M925 opens trust-region feasibility branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Before another residual training variant, a no-training feasibility audit should determine whether existing residual directions can satisfy both normal-retention and low-tail gates through alpha or direction mixing.",
+  "success_criteria": [
+    "docs/m926-v4-public-base-residual-direction-feasibility-design.md exists",
+    "M926 pre-registers no-training residual direction interpolation and alpha sweep",
+    "M926 preserves exact compatibility replay PPO and promotion blocks"
+  ],
+  "failure_criteria": [
+    "M926 starts training",
+    "M926 omits normal-retention or low-tail gates",
+    "M926 changes actor inputs or actor backbone",
+    "M926 starts exact compatibility replay PPO or promotion"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m926-v4-public-base-residual-direction-feasibility-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m926-v4-public-base-residual-direction-feasibility-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m925-v4-public-base-target-regeneration-branch-synthesis.md"
+  ],
+  "decision_rule": "M926 may only design the no-training feasibility audit. It must not train or run exact compatibility until the design is complete.",
+  "next_blocker": "residual direction feasibility design has not yet been written"
+}

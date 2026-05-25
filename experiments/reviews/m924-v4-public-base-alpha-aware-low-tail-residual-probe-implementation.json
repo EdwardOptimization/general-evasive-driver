@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M924 strongly improves low-tail metrics but violates normal retention and worsens target loss at useful alphas so no candidate alpha is admitted",
+  "failure_criteria": [
+    "actor backbone changes",
+    "sample reconstruction fails",
+    "candidate_alpha_count == 0",
+    "M924 runs exact compatibility replay PPO or promotion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not update the M399 actor backbone",
+    "do not change actor inputs",
+    "do not run M880 exact compatibility",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T220819Z",
+  "hypothesis": "Alpha-aware low-tail losses evaluated inside the normal-retention alpha range can produce an admitted residual-head alpha where M921 target-action imitation failed.",
+  "lineage": {
+    "blocked_by": [
+      "M923 alpha-aware low-tail objective design"
+    ],
+    "derived_from": [
+      "m923-v4-public-base-alpha-aware-low-tail-objective-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m923-v4-public-base-alpha-aware-low-tail-objective-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m923-v4-public-base-alpha-aware-low-tail-objective-design.md",
+      "runs/m919_v4_public_base_expanded_target_regeneration/accepted_target_rows.csv",
+      "runs/m921_v4_public_base_regenerated_target_residual_probe/summary.json",
+      "runs/m921_v4_public_base_regenerated_target_residual_probe/alpha_metrics.csv",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/summary.json",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/low_tail_rows.csv"
+    ],
+    "parent_objective": [
+      "implement alpha-aware low-tail residual objective after M921 no-candidate result"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m924-v4-public-base-alpha-aware-low-tail-residual-probe-implementation",
+  "next_blocker": "alpha-aware low-tail residual objective has not yet been implemented",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "public_base_alpha_aware_low_tail_probe_no_candidate_route_to_branch_synthesis",
+  "public_gates": [
+    "M924 may train only a residual head",
+    "M924 must optimize low-tail metrics at normal-retaining train alphas",
+    "M924 must keep the M399 actor backbone unchanged",
+    "M924 must block exact compatibility, replay, PPO, and promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m924_v4_public_base_alpha_aware_low_tail_residual_probe/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "public_base_alpha_aware_low_tail_probe_no_candidate_route_to_branch_synthesis",
+    "milestone": "m924-v4-public-base-alpha-aware-low-tail-residual-probe-implementation",
+    "reason": "M924 strongly improves low-tail metrics but violates normal retention and worsens target loss at useful alphas so no candidate alpha is admitted",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary.json exists",
+    "residual_head.pt exists",
+    "sample_reconstruction_success_rate >= 0.98",
+    "actor_backbone_changed is false",
+    "candidate_alpha_count >= 1",
+    "training_started is true",
+    "ppo_used and promoted are false"
+  ],
+  "type": "infrastructure"
+}
