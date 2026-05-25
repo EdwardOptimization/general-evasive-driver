@@ -62,16 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m890-v4-enriched-pair-delta-replay-proof-gate-audit
+m891-v4-enriched-pair-delta-objective-only-fresh-seed-repeat
 ```
 
-M889 passed the registered M568-relative proof-gate stack for the M886
-`alpha_0_1.pt` candidate. M890 must audit whether this proof-positive but small
-diagnostic movement should be repeated, generalized, or stopped. PPO and
-promotion remain blocked.
+M890 audited M889 as a clean but single-seed proof-gate positive and routed to a
+fresh-seed repeat of the M886 objective-only recipe. M891 must change only the
+optimizer/minibatch seed (`10887`) before any generalization, PPO, or promotion.
 
 ## Recent Evidence Line
 
+- M890 audits M889 as clean but single-seed proof evidence. The supported claim
+  is limited to M886 seed-10886 `alpha_0_1` preserving M568-relative exact,
+  replay, and behavior-retention gates. Unsupported claims include repeat
+  stability, meaningful driver improvement, generalization, PPO safety, and
+  public-base promotion. Next is an identical no-PPO objective-only repeat with
+  seed `10887`.
 - M889 passes the exact/replay/behavior proof-gate stack for M886
   `alpha_0_1.pt` versus M568. Exact recheck reconstructs `247/247` rows and
   keeps exact deltas nonpositive. All six replay/proof surfaces pass with zero

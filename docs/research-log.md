@@ -14095,3 +14095,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M889 passes the registered proof-gate stack for M886 `alpha_0_1.pt` versus M568. Exact recheck reconstructs `247/247` rows with finite losses and nonpositive split deltas versus M568/M883. All six replay/proof surfaces pass with zero candidate success-drop regression. Behavior seeds 9505 and 9506 retain success `0.8125` and termination `0.1875`; aggregate clearance margin improves by `0.0004892324201435372` while return changes by `-0.003998606511459002`. PPO and promotion remain blocked.
 - decision: `v4_enriched_pair_delta_replay_proof_gate_pass`
 - next: `m890-v4-enriched-pair-delta-replay-proof-gate-audit`
+
+## 20260525T195000Z - m890-v4-enriched-pair-delta-replay-proof-gate-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m890-v4-enriched-pair-delta-replay-proof-gate-audit.md`
+- result: M890 audits M889 as a clean but single-seed proof-gate positive. The supported claim is limited to M886 seed-10886 `alpha_0_1` preserving M568-relative exact, replay, and behavior-retention gates. Unsupported claims include repeat stability, meaningful driver improvement, public-base promotion, generalization, and PPO safety. M890 routes to an identical no-PPO objective-only fresh-seed repeat using seed `10887` before any generalization, PPO, or promotion work.
+- decision: `v4_enriched_pair_delta_replay_proof_gate_audit_route_to_fresh_seed_repeat`
+- next: `m891-v4-enriched-pair-delta-objective-only-fresh-seed-repeat`

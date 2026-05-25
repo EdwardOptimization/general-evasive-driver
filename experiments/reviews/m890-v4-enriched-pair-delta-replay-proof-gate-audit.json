@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M890 may only audit M889 and choose the next route. It must not train, run PPO, promote, or claim generalization.",
+  "decision_reason": "M890 audits M889 as clean single-seed proof-gate positive and routes to fresh-seed repeat before generalization PPO or promotion",
   "failure_criteria": [
     "M890 promotes a checkpoint",
     "M890 runs PPO",
@@ -21,7 +21,7 @@
     "do not ignore that the branch is rooted at M568 diagnostic BC"
   ],
   "gate_tier": "proof",
-  "generated_at_utc": "20260525T194912Z",
+  "generated_at_utc": "20260525T195215Z",
   "hypothesis": "M889 is a clean proof-gate positive but requires audit before any repeat, generalization, PPO, or promotion decision.",
   "lineage": {
     "blocked_by": [
@@ -53,7 +53,7 @@
   "milestone": "m890-v4-enriched-pair-delta-replay-proof-gate-audit",
   "next_blocker": "M889 proof-gate positive result has not been audited for repeat/generalization routing",
   "private_holdout_policy": "promotion_only",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "v4_enriched_pair_delta_replay_proof_gate_audit_route_to_fresh_seed_repeat",
   "public_gates": [
     "M890 must be audit-only",
     "M890 must summarize exact replay and behavior evidence",
@@ -61,7 +61,20 @@
     "M890 must choose repeat generalization or stop routing",
     "M890 must preserve the distinction between proof retention and driver improvement"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m890-v4-enriched-pair-delta-replay-proof-gate-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "v4_enriched_pair_delta_replay_proof_gate_audit_route_to_fresh_seed_repeat",
+    "milestone": "m890-v4-enriched-pair-delta-replay-proof-gate-audit",
+    "reason": "M890 audits M889 as clean single-seed proof-gate positive and routes to fresh-seed repeat before generalization PPO or promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "M890 records M889 exact replay and behavior outcomes",
     "M890 states what claim is supported and not supported",

@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260525T194912Z
+- Generated at UTC: 20260525T195215Z
 - Type: gate
 - Gate tier: proof
-- Promotion decision: not_applicable
-- Decision reason: M890 may only audit M889 and choose the next route. It must not train, run PPO, promote, or claim generalization.
+- Promotion decision: v4_enriched_pair_delta_replay_proof_gate_audit_route_to_fresh_seed_repeat
+- Decision reason: M890 audits M889 as clean single-seed proof-gate positive and routes to fresh-seed repeat before generalization PPO or promotion
 
 ## Hypothesis
 
@@ -68,7 +68,18 @@ M889 is a clean proof-gate positive but requires audit before any repeat, genera
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m890-v4-enriched-pair-delta-replay-proof-gate-audit
+- type: gate
+- checkpoint: docs/m890-v4-enriched-pair-delta-replay-proof-gate-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: v4_enriched_pair_delta_replay_proof_gate_audit_route_to_fresh_seed_repeat
+- reason: M890 audits M889 as clean single-seed proof-gate positive and routes to fresh-seed repeat before generalization PPO or promotion
 
 ## Next Blocker
 

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 898,
+    "completed": 899,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m889-v4-enriched-pair-delta-replay-proof-gate-implementation",
+    "task_id": "m890-v4-enriched-pair-delta-replay-proof-gate-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m889-v4-enriched-pair-delta-replay-proof-gate-implementation.md"
+    "command_log": "docs/m890-v4-enriched-pair-delta-replay-proof-gate-audit.md"
   },
   "next_task": {
-    "id": "m890-v4-enriched-pair-delta-replay-proof-gate-audit",
+    "id": "m891-v4-enriched-pair-delta-objective-only-fresh-seed-repeat",
     "status": "pending",
-    "priority": 8850,
-    "kind": "gate",
-    "hypothesis": "Audit M889 proof-gate positive result and choose repeat generalization or stop routing",
-    "command": "see experiments/manifests/m890-v4-enriched-pair-delta-replay-proof-gate-audit.json",
-    "success_artifact": "docs/m890-v4-enriched-pair-delta-replay-proof-gate-audit.md",
-    "notes": "Pending: audit exact replay and behavior positive result before any repeat generalization PPO or promotion"
+    "priority": 8860,
+    "kind": "infrastructure",
+    "hypothesis": "Repeat M886 objective-only probe from M568 with fresh seed 10887 and identical settings",
+    "command": "see experiments/manifests/m891-v4-enriched-pair-delta-objective-only-fresh-seed-repeat.json",
+    "success_artifact": "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/summary.json",
+    "notes": "Pending: test seed stability of the no-PPO objective-only recipe before generalization PPO or promotion"
   },
-  "updated_at_utc": "20260525T194719Z"
+  "updated_at_utc": "20260525T195000Z"
 }

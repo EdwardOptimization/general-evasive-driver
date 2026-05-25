@@ -1,0 +1,128 @@
+{
+  "id": "m891-v4-enriched-pair-delta-objective-only-fresh-seed-repeat",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility",
+    "metric_artifact",
+    "training_instability",
+    "contract_violation",
+    "lineage_invalid"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m890-v4-enriched-pair-delta-replay-proof-gate-audit.md",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv",
+      "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_train_public_rows.csv",
+      "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_eval_public_rows.csv",
+      "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_source_holdout_public_rows.csv",
+      "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_new_signature_holdout_public_rows.csv",
+      "runs/m886_v4_enriched_pair_delta_objective_only_probe/summary.json",
+      "runs/m889_m886_a010_replay_proof_gate/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m890-v4-enriched-pair-delta-replay-proof-gate-audit.json"
+    ],
+    "parent_objective": [
+      "fresh-seed repeat of M886 no-PPO enriched pair-delta objective-only probe"
+    ],
+    "derived_from": [
+      "m890-v4-enriched-pair-delta-replay-proof-gate-audit"
+    ],
+    "blocked_by": [
+      "M889 passed proof gates for one objective-update seed but repeat stability has not been tested"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m891-v4-enriched-pair-delta-objective-only-fresh-seed-repeat.md",
+  "public_gates": [
+    "M891 must use no PPO",
+    "M891 must change only optimizer/minibatch seed relative to M886",
+    "M891 must train only actor-coupling scope",
+    "M891 must run exact holdout interpolation gates",
+    "M891 must not promote a checkpoint"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train M761 residual-head parameters",
+    "do not promote a checkpoint",
+    "do not change learning rate steps or holdout tolerance from M886",
+    "do not tune against source_holdout or new_signature_holdout",
+    "do not change actor inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_objective_probe",
+    "evidence_axis": "G_objective_update: fresh-seed repeat of proof-safe objective-only direction",
+    "evidence_increment": "tests whether M886's exact-admissible objective-only direction repeats under a fresh optimizer/minibatch seed",
+    "claim_scope": "objective-only repeat; no replay execution, PPO, promotion, or learned driver claim",
+    "stop_condition": [
+      "stop if all nonzero alphas regress exact holdouts",
+      "stop if actor input contract changes",
+      "stop if residual head changes",
+      "stop if raw update is unstable"
+    ],
+    "fallback_plan": [
+      "if repeat passes, route to replay/proof gate for selected repeat alpha",
+      "if repeat fails, route to seed-fragility audit",
+      "if update unstable, reduce scope or audit trainability",
+      "if branch cadence is reached, synthesize before continuing"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M890 routes from single-seed proof-gate positive to fresh-seed repeat",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M886 objective-only recipe remains exact-admissible when repeated from M568 with optimizer/minibatch seed 10887 and otherwise identical settings.",
+  "success_criteria": [
+    "M891 reconstructs 247 / 247 tensor rows",
+    "M891 finds at least one nonzero exact-admissible interpolation alpha",
+    "M891 reports exact objective metrics per split",
+    "M891 verifies actor input contract and residual head are unchanged",
+    "M891 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M891 runs PPO",
+    "M891 promotes a checkpoint",
+    "M891 trains residual-head parameters",
+    "M891 changes actor input contract",
+    "M891 changes recipe knobs beyond seed"
+  ],
+  "commands": [
+    {
+      "name": "objective_only_repeat_seed10887",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_enriched_pair_delta_objective_only_probe --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --residual-head runs/m761_v4_sequence_objective_probe/residual_head.pt --scenario-config configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json --source-rows runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv --objective-train-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_train_public_rows.csv --objective-eval-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_eval_public_rows.csv --source-holdout-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_source_holdout_public_rows.csv --new-signature-holdout-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_new_signature_holdout_public_rows.csv --run-dir runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887 --device cpu --steps 32 --learning-rate 0.000001 --batch-size 32 --action-anchor-coef 0.1 --parameter-anchor-coef 0.0001 --exact-holdout-regression-tolerance 0.0001 --seed 10887"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/interpolation_metrics.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "docs/m891-v4-enriched-pair-delta-objective-only-fresh-seed-repeat.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m890-v4-enriched-pair-delta-replay-proof-gate-audit.md",
+    "runs/m886_v4_enriched_pair_delta_objective_only_probe/summary.json"
+  ],
+  "decision_rule": "M891 may only repeat the registered no-PPO objective-only probe with seed 10887. It must not promote or claim repeat stability before audit.",
+  "next_blocker": "M886 objective-only recipe has one proof-gate-positive seed but no fresh-seed repeat"
+}
