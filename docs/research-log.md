@@ -14310,3 +14310,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M912 implements and runs the deterministic no-training recalibration audit. It finds `498/1213` near-base low-tail rows at alpha `0.02`, with low-tail fraction `0.4105523495465787`, across `17` fault-family pairs. Near-base alpha is explicitly diagnostic and not exact zero. No model checkpoint was loaded, and no training, M880 exact execution, replay, PPO, or promotion occurred.
 - decision: `public_base_sequence_recalibration_audit_route_to_tail_weighted_objective_design`
 - next: `m913-v4-public-base-tail-weighted-objective-design`
+
+## 20260525T211553Z - m913-v4-public-base-tail-weighted-objective-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m913-v4-public-base-tail-weighted-objective-design.md`
+- result: M913 designs a residual-head-only tail-weighted objective for M399. M914 should join M912 low-tail membership back to M755 rows, train only a `feature_dim=128` residual head with M399 frozen, and admit a candidate only if normal retention, p10 lift, deficit reduction, and low-tail-fraction reduction all pass. M880 exact execution, replay, PPO, actor update, and promotion remain blocked.
+- decision: `public_base_tail_weighted_objective_design_admit_m914`
+- next: `m914-v4-public-base-tail-weighted-residual-probe-implementation`

@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M913 designs M399 residual-head-only tail-weighted objective with explicit p10 deficit low-tail fraction and normal-retention gates",
+  "failure_criteria": [
+    "M913 omits low-tail weighting",
+    "M913 optimizes mean gap only",
+    "M913 admits replay or PPO before residual-head-only evidence",
+    "M913 does not define exact candidate gates"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train in M913",
+    "do not run M880 exact compatibility",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not optimize only mean gap while ignoring p10 and deficit"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T211746Z",
+  "hypothesis": "A design-only milestone can specify a safe M399 tail-weighted residual objective that targets the broad M912 low-tail row set while keeping actor update, replay, PPO, and promotion blocked.",
+  "lineage": {
+    "blocked_by": [
+      "M912 routes public-base sequence recalibration to tail-weighted objective design"
+    ],
+    "derived_from": [
+      "m912-v4-public-base-sequence-recalibration-audit-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m912-v4-public-base-sequence-recalibration-audit-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m912-v4-public-base-sequence-recalibration-audit-implementation.md",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/summary.json",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/low_tail_rows.csv",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/group_deficit_summary.csv",
+      "runs/m909_v4_public_base_residual_head_probe/objective_rows.csv"
+    ],
+    "parent_objective": [
+      "design a public-base tail-weighted residual objective for M399 low-tail rows"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m913-v4-public-base-tail-weighted-objective-design",
+  "next_blocker": "Public-base tail-weighted objective has not yet been designed",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "public_base_tail_weighted_objective_design_admit_m914",
+  "public_gates": [
+    "M913 must design tail weighting over M912 low-tail rows",
+    "M913 must preserve normal-retention safeguards",
+    "M913 must keep M399 actor frozen in the next implementation",
+    "M913 must define exact candidate admission gates",
+    "M913 must block replay, PPO, actor update, and promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m913-v4-public-base-tail-weighted-objective-design.md",
+    "clearance_margin_mean": "",
+    "decision": "public_base_tail_weighted_objective_design_admit_m914",
+    "milestone": "m913-v4-public-base-tail-weighted-objective-design",
+    "reason": "M913 designs M399 residual-head-only tail-weighted objective with explicit p10 deficit low-tail fraction and normal-retention gates",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M913 defines row weights from low-tail and deficit severity",
+    "M913 defines normal-retention penalties and gates",
+    "M913 defines p10 and deficit admission gates",
+    "M913 defines next implementation scope as residual-head-only with frozen M399",
+    "M913 blocks replay, PPO, actor update, and promotion"
+  ],
+  "type": "infrastructure"
+}

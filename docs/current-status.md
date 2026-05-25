@@ -62,15 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m913-v4-public-base-tail-weighted-objective-design
+m914-v4-public-base-tail-weighted-residual-probe-implementation
 ```
 
-M912 found broad M399 low-tail deficit: `498/1213` near-base rows across `17`
-fault-family pairs. M913 must design a tail-weighted residual objective before
-any new training, M880 exact execution, replay, PPO, or promotion.
+M913 designed the tail-weighted objective. M914 may train only a new
+`feature_dim=128` residual head with M399 frozen and must gate on normal
+retention, p10 lift, deficit reduction, and low-tail fraction before any M880
+exact execution, replay, PPO, or promotion.
 
 ## Recent Evidence Line
 
+- M913 designs M399 tail-weighted residual objective. The next probe must join
+  M912 low-tail rows back to M755 rows, train residual head only, keep M399
+  actor checksum unchanged, and admit a candidate only if gap p10 improves by
+  at least `0.004`, deficit mean improves by at least `0.002`, and low-tail
+  fraction drops by at least `0.05` while normal retention passes.
 - M912 implements and runs deterministic recalibration audit. It does not load
   model checkpoints or train. At near-base alpha `0.02`, M399 has `498/1213`
   low-tail rows, low-tail fraction `0.4105523495465787`, and `17` distinct
