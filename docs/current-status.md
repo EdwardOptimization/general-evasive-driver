@@ -62,16 +62,24 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m887-v4-enriched-pair-delta-objective-only-probe-audit
+m888-v4-enriched-pair-delta-replay-proof-gate-design
 ```
 
-M886 implemented the tiny no-PPO objective-only actor-coupling probe and found
-exact-admissible nonzero interpolation candidates. M887 must audit that result
-before any replay/proof gate evaluation. PPO, checkpoint promotion, actor input
-changes, and M761 residual-head mutation remain blocked.
+M887 audited the M886 exact-admissible objective-only candidates and selected
+`alpha_0_1.pt` for replay/proof gate design, with `alpha_0_05.pt` as fallback.
+M888 must design the smallest closed-loop replay/proof gate stack before any
+execution. PPO, checkpoint promotion, actor input changes, and M761 residual-head
+mutation remain blocked.
 
 ## Recent Evidence Line
 
+- M887 audits the M886 objective-only result as clean exact-objective evidence
+  and admits replay/proof gate design. It selects
+  `runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/alpha_0_1.pt`
+  because it is the largest exact-admissible interpolation, has the best train
+  objective delta, and keeps exact holdout deltas nonpositive. `alpha_0_05.pt`
+  is the fallback. This is still not replay success, PPO admission, or
+  promotion.
 - M886 implements the first no-PPO enriched pair-delta objective-only probe. It
   reconstructs all `247/247` actor-state tensor rows with `0` missing rows,
   keeps M761 residual-head parameters unchanged, trains only actor-coupling

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 895,
+    "completed": 896,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m886-v4-enriched-pair-delta-objective-only-probe-implementation",
+    "task_id": "m887-v4-enriched-pair-delta-objective-only-probe-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m886-v4-enriched-pair-delta-objective-only-probe-implementation.md"
+    "command_log": "docs/m887-v4-enriched-pair-delta-objective-only-probe-audit.md"
   },
   "next_task": {
-    "id": "m887-v4-enriched-pair-delta-objective-only-probe-audit",
+    "id": "m888-v4-enriched-pair-delta-replay-proof-gate-design",
     "status": "pending",
-    "priority": 8820,
-    "kind": "gate",
-    "hypothesis": "Audit M886 exact-admissible objective-only candidates before replay/proof gates",
-    "command": "see experiments/manifests/m887-v4-enriched-pair-delta-objective-only-probe-audit.json",
-    "success_artifact": "docs/m887-v4-enriched-pair-delta-objective-only-probe-audit.md",
-    "notes": "Pending: audit M886 exact objective-only positive result and choose next replay/proof gate"
+    "priority": 8830,
+    "kind": "infrastructure",
+    "hypothesis": "Design replay/proof gate stack for the M886 alpha_0_1 exact-admissible candidate",
+    "command": "see experiments/manifests/m888-v4-enriched-pair-delta-replay-proof-gate-design.json",
+    "success_artifact": "docs/m888-v4-enriched-pair-delta-replay-proof-gate-design.md",
+    "notes": "Pending: design closed-loop replay/proof gate for selected M886 candidate before any execution"
   },
-  "updated_at_utc": "20260525T193034Z"
+  "updated_at_utc": "20260525T193652Z"
 }

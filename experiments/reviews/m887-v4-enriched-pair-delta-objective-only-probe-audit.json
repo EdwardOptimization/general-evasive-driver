@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M887 may only audit M886 and choose the next gate. It must not train, run PPO, promote, or claim closed-loop improvement.",
+  "decision_reason": "M887 audits M886 as clean exact-objective evidence and selects alpha_0_1 for replay/proof gate design with alpha_0_05 as fallback while keeping PPO and promotion blocked",
   "failure_criteria": [
     "M887 promotes a checkpoint",
     "M887 runs PPO",
@@ -21,7 +21,7 @@
     "do not tune against source_holdout or new_signature_holdout"
   ],
   "gate_tier": "proof",
-  "generated_at_utc": "20260525T193321Z",
+  "generated_at_utc": "20260525T193802Z",
   "hypothesis": "M886's exact-admissible nonzero interpolation candidates are clean enough to justify a later replay/proof gate evaluation, but not promotion or PPO.",
   "lineage": {
     "blocked_by": [
@@ -54,7 +54,7 @@
   "milestone": "m887-v4-enriched-pair-delta-objective-only-probe-audit",
   "next_blocker": "M886 exact-admissible objective-only candidates have not been audited for replay/proof gate admission",
   "private_holdout_policy": "promotion_only",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "v4_enriched_pair_delta_objective_only_probe_audit_admit_replay_gate",
   "public_gates": [
     "M887 must be audit-only",
     "M887 must check that M886 used no PPO and did not promote",
@@ -62,7 +62,20 @@
     "M887 must summarize exact objective train and holdout deltas",
     "M887 must choose replay/proof-gate next steps without claiming driver improvement"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m887-v4-enriched-pair-delta-objective-only-probe-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "v4_enriched_pair_delta_objective_only_probe_audit_admit_replay_gate",
+    "milestone": "m887-v4-enriched-pair-delta-objective-only-probe-audit",
+    "reason": "M887 audits M886 as clean exact-objective evidence and selects alpha_0_1 for replay/proof gate design with alpha_0_05 as fallback while keeping PPO and promotion blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "M887 records M886 exact train and holdout deltas",
     "M887 confirms no PPO, promotion, actor-input change, or residual-head mutation",

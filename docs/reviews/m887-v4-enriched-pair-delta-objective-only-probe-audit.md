@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260525T193321Z
+- Generated at UTC: 20260525T193802Z
 - Type: gate
 - Gate tier: proof
-- Promotion decision: not_applicable
-- Decision reason: M887 may only audit M886 and choose the next gate. It must not train, run PPO, promote, or claim closed-loop improvement.
+- Promotion decision: v4_enriched_pair_delta_objective_only_probe_audit_admit_replay_gate
+- Decision reason: M887 audits M886 as clean exact-objective evidence and selects alpha_0_1 for replay/proof gate design with alpha_0_05 as fallback while keeping PPO and promotion blocked
 
 ## Hypothesis
 
@@ -68,7 +68,18 @@ M886's exact-admissible nonzero interpolation candidates are clean enough to jus
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m887-v4-enriched-pair-delta-objective-only-probe-audit
+- type: gate
+- checkpoint: docs/m887-v4-enriched-pair-delta-objective-only-probe-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: v4_enriched_pair_delta_objective_only_probe_audit_admit_replay_gate
+- reason: M887 audits M886 as clean exact-objective evidence and selects alpha_0_1 for replay/proof gate design with alpha_0_05 as fallback while keeping PPO and promotion blocked
 
 ## Next Blocker
 
