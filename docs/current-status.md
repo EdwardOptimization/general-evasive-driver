@@ -62,15 +62,26 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m785-v4-asymmetric-residual-gate-design
+m786-v4-asymmetric-residual-gate-implementation
 ```
 
-M785 should design a high-default asymmetric residual gate after M784 audited
-M783 as a clean no-gap-lift result. Base actor mutation, M761 residual-head
-mutation, PPO, and promotion remain blocked.
+M786 should implement the high-default asymmetric residual gate designed by
+M785. Base actor mutation, M761 residual-head mutation, PPO, and promotion
+remain blocked.
 
 ## Recent Evidence Line
 
+- M785 designs the second scalar-gate calibration probe. It keeps the M568
+  actor and M761 residual head frozen, keeps deploy-time inputs clean, and
+  changes the objective so high gate is the default rather than a value the
+  optimizer must discover from a `0.5` start. The proposed M786 gate initializes
+  at about `0.85`, applies strong suppression only to low-margin normal rows
+  and the active boundary source, adds high-default priors for non-low-margin
+  normal and intervention rows, requires active/outcome intervention gate
+  retention, adds a low-margin gate contrast term, and keeps the original
+  intervention gap threshold instead of weakening the M783 near miss. M786
+  should evaluate alphas `0.0`, `0.125`, `0.15`, `0.2` and explicitly report
+  whether the gate escaped global half-scaling.
 - M784 audits M783 as a clean negative. The first calibrator successfully fixed
   normal retention, including active source alpha `0.2` margin `+0.000033`,
   while preserving actor and residual-head checksums. It failed because the

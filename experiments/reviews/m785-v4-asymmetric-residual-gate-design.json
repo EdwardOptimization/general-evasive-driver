@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M785 designs high-default asymmetric residual gate with low-margin normal suppression as exception stronger intervention retention and unchanged strict normal/gap thresholds",
+  "failure_criteria": [
+    "design admits PPO or promotion",
+    "design mutates base actor or residual head",
+    "design weakens candidate thresholds after M783",
+    "design relies on deploy-time oracle inputs",
+    "design ignores active source diagnostics"
+  ],
+  "failure_types": [
+    "objective_overfit",
+    "scenario_sampling_failure",
+    "behavior_regression"
+  ],
+  "forbidden_shortcuts": [
+    "do not train in M785",
+    "do not mutate base actor",
+    "do not mutate M761 residual head",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use terminal margin or fault labels as deploy-time inputs",
+    "do not weaken the M783 gap threshold after the near miss",
+    "do not claim broad generalization or true four-wheel physical fidelity"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T024326Z",
+  "hypothesis": "An asymmetric high-default residual gate objective can preserve intervention-sensitive residual signal better than M783's near-global half-gate while still protecting low-margin normal branches.",
+  "lineage": {
+    "blocked_by": [
+      "m784-v4-normal-margin-aware-residual-calibration-audit"
+    ],
+    "derived_from": [
+      "m784-v4-normal-margin-aware-residual-calibration-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m784-v4-normal-margin-aware-residual-calibration-audit.json",
+      "experiments/manifests/m783-v4-normal-margin-aware-residual-calibration-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m784-v4-normal-margin-aware-residual-calibration-audit.md",
+      "docs/m783-v4-normal-margin-aware-residual-calibration-implementation.md",
+      "runs/m783_v4_normal_margin_calibration/summary.json",
+      "runs/m783_v4_normal_margin_calibration/alpha_metrics.csv",
+      "runs/m783_v4_normal_margin_calibration/training_metrics.csv",
+      "runs/m780_v4_broader_normal_boundary_alpha_probe/replay_rows.csv",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+    ],
+    "parent_objective": [
+      "design asymmetric residual gate after M783 global half-gate no-gap-lift result"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m785-v4-asymmetric-residual-gate-design",
+  "next_blocker": "m786-v4-asymmetric-residual-gate-implementation",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "asymmetric_gate_design_admit_m786",
+  "public_gates": [
+    "M785 designs asymmetric residual gate objective",
+    "M785 keeps base actor and M761 residual head frozen",
+    "M785 makes high gate the default and low-margin normal suppression the exception",
+    "M785 adds stronger intervention gate and gap retention",
+    "M785 blocks PPO and checkpoint promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m785-v4-asymmetric-residual-gate-design.md",
+    "clearance_margin_mean": "",
+    "decision": "asymmetric_gate_design_admit_m786",
+    "milestone": "m785-v4-asymmetric-residual-gate-design",
+    "reason": "M785 designs high-default asymmetric residual gate with low-margin normal suppression as exception stronger intervention retention and unchanged strict normal/gap thresholds",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M785 specifies high-default gate initialization and prior",
+    "M785 specifies low-margin normal suppression as an exception",
+    "M785 specifies stronger intervention gate or gap retention",
+    "M785 preserves strict normal retention and original gap thresholds",
+    "M785 blocks PPO training and promotion"
+  ],
+  "type": "infrastructure"
+}

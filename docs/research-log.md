@@ -13119,3 +13119,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M784 audits M783 as a clean negative. The first calibrator successfully fixed normal retention, including active source alpha `0.2` margin `+0.000033`, while preserving actor and residual-head checksums. It failed because the objective found an almost global half-gate solution (`gate_normal_mean 0.499727`, `gate_intervention_mean 0.499986`) that under-shot intervention signal: alpha `0.2` gap lift is `0.002950`, just below the required `+0.003`, and candidate count remains `0`. M784 classifies the issue as `objective_overfit` / objective misalignment rather than contract or metric artifact, and admits only a high-default asymmetric residual gate design. PPO and promotion remain blocked.
 - decision: `promote_to_asymmetric_residual_gate_design`
 - next: `m785-v4-asymmetric-residual-gate-design`
+
+## 20260525T093000Z - m785-v4-asymmetric-residual-gate-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m785-v4-asymmetric-residual-gate-design.md`
+- result: M785 designs the second scalar-gate calibration probe. It keeps the M568 actor and M761 residual head frozen, keeps deploy-time inputs clean, and changes the objective so high gate is the default rather than a value the optimizer must discover from a `0.5` start. The proposed M786 gate initializes at about `0.85`, applies strong suppression only to low-margin normal rows and the active boundary source, adds high-default priors for non-low-margin normal and intervention rows, requires active/outcome intervention gate retention, adds a low-margin gate contrast term, and keeps the original intervention gap threshold instead of weakening the M783 near miss. M786 should evaluate alphas `0.0`, `0.125`, `0.15`, `0.2` and explicitly report whether the gate escaped global half-scaling.
+- decision: `asymmetric_gate_design_admit_m786`
+- next: `m786-v4-asymmetric-residual-gate-implementation`

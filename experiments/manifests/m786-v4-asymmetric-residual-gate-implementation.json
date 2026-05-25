@@ -1,0 +1,125 @@
+{
+  "id": "m786-v4-asymmetric-residual-gate-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "scenario_sampling_failure",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m785-v4-asymmetric-residual-gate-design.md",
+      "docs/m784-v4-normal-margin-aware-residual-calibration-audit.md",
+      "runs/m783_v4_normal_margin_calibration/summary.json",
+      "runs/m783_v4_normal_margin_calibration/alpha_metrics.csv",
+      "runs/m780_v4_broader_normal_boundary_alpha_probe/replay_rows.csv",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m785-v4-asymmetric-residual-gate-design.json"
+    ],
+    "parent_objective": [
+      "implement high-default asymmetric residual gate after M783 global half-gate failure"
+    ],
+    "derived_from": [
+      "m785-v4-asymmetric-residual-gate-design"
+    ],
+    "blocked_by": [
+      "m785-v4-asymmetric-residual-gate-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m786-v4-asymmetric-residual-gate-implementation.md",
+  "public_gates": [
+    "M786 implements high-default asymmetric residual gate objective",
+    "M786 freezes base actor and M761 residual head",
+    "M786 trains only gate/calibrator parameters",
+    "M786 evaluates alpha 0.0 0.125 0.15 0.2",
+    "M786 reports whether gate escaped global half-scaling",
+    "M786 blocks PPO and checkpoint promotion"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not mutate base actor",
+    "do not mutate M761 residual head",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not weaken gap thresholds",
+    "do not use terminal margin or fault labels as deploy-time inputs",
+    "do not hide public active-source pressure",
+    "do not claim broad generalization or true four-wheel physical fidelity"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_residual_normal_margin_calibration",
+    "evidence_axis": "G_action: asymmetric gate implementation",
+    "evidence_increment": "tests whether high-default asymmetric loss escapes M783 global half-gate while retaining normal-margin safety",
+    "claim_scope": "implementation diagnostic only; no PPO or driver promotion",
+    "stop_condition": [
+      "stop if base actor or residual head checksum changes",
+      "stop if gate uses deploy-time oracle inputs",
+      "stop if implementation weakens candidate thresholds",
+      "stop if result admits promotion"
+    ],
+    "fallback_plan": [
+      "if half-scaling persists, audit and stop scalar-gate branch or pivot to vector residual calibration",
+      "if normal collisions return, audit before any coefficient changes",
+      "if candidate passes, audit source-diversity and public-overfit risk before another implementation",
+      "if hard-negative degradation appears, redesign hard-negative calibration"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M785 admits one asymmetric gate implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A high-default asymmetric gate can preserve more intervention residual signal than M783 while retaining strict normal safety on the active low-margin source.",
+  "success_criteria": [
+    "M786 writes run artifacts and docs",
+    "M786 confirms actor and residual head checksums unchanged",
+    "M786 trains only calibrator parameters",
+    "M786 evaluates registered alphas 0.0 0.125 0.15 0.2",
+    "M786 reports gate statistics and active-source margins",
+    "M786 records whether any alpha passes original strict normal and gap gates"
+  ],
+  "failure_criteria": [
+    "implementation mutates base actor or residual head",
+    "implementation runs PPO",
+    "implementation promotes a checkpoint",
+    "implementation weakens M783 gap threshold",
+    "implementation omits gate statistics or active source metrics"
+  ],
+  "commands": [
+    {
+      "name": "asymmetric_gate_probe",
+      "command": "implement and run high-default asymmetric residual gate probe; expected run dir runs/m786_v4_asymmetric_residual_gate"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m786_v4_asymmetric_residual_gate/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m786_v4_asymmetric_residual_gate/alpha_metrics.csv",
+      "type": "metrics"
+    },
+    {
+      "path": "docs/m786-v4-asymmetric-residual-gate-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m785-v4-asymmetric-residual-gate-design.md",
+    "runs/m783_v4_normal_margin_calibration/summary.json",
+    "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+  ],
+  "decision_rule": "M786 may implement and run only a no-PPO asymmetric residual gate probe. It must not mutate the base actor, mutate the M761 residual head, run PPO, or promote a checkpoint.",
+  "next_blocker": "m787-v4-asymmetric-residual-gate-audit"
+}
