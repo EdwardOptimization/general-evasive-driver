@@ -13203,3 +13203,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M793 audits M792 as a clean attribution-only result, not an actionable mask or promotion result. M792 preserves no-training invariants, reconstructs `2640/2652` rows, and reports no actor or residual-head mutation. The audit accepts the main component finding: steering residual is both useful and harmful, because it carries intervention gap but also drives the active-source alpha `0.2` normal collision; brake is useful-only and throttle is inactive on this diagnostic. M793 blocks generic vector-gate continuation, PPO, and promotion. It selects a new design-only blocker: steer-attributed normal-boundary residual calibration that can suppress harmful steering residual on low-normal-margin branches while retaining steering and brake contribution where intervention separation is needed.
 - decision: `admit_steer_attributed_calibration_design`
 - next: `m794-v4-steer-attributed-residual-calibration-design`
+
+## 20260525T113000Z - m794-v4-steer-attributed-residual-calibration-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m794-v4-steer-attributed-residual-calibration-design.md`
+- result: M794 designs the next no-PPO residual calibration probe around M792's component attribution. The design keeps the M568 actor and M761 residual head frozen and adds only a deployable-feature `SteerAttributedResidualGate(feature) -> [g_steer, g_brake]`, with throttle fixed to zero in the primary mode because M792 found no throttle role. The objective makes high residual retention the default, applies steering-specific suppression to low-normal-margin normal rows and the active source, retains steering on intervention-sensitive rows, retains brake as a useful-only component, and adds a steer contrast term between low-margin normal and intervention rows. Candidate rules keep the M786 alpha `0.15` active-margin and gap references plus the M780 alpha `0.125` strong-gap reference, and require component selectivity to avoid another scalar/vector collapse. M795 is admitted as implementation diagnostic only; PPO and promotion remain blocked.
+- decision: `steer_attributed_calibration_design_admit_m795`
+- next: `m795-v4-steer-attributed-residual-calibration-implementation`

@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 802,
+        "completed": 803,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m793-v4-residual-component-sensitivity-audit",
+        "task_id": "m794-v4-steer-attributed-residual-calibration-design",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m793-v4-residual-component-sensitivity-audit.md"
+        "command_log": "docs/m794-v4-steer-attributed-residual-calibration-design.md"
     },
     "next_task": {
-        "id": "m794-v4-steer-attributed-residual-calibration-design",
+        "id": "m795-v4-steer-attributed-residual-calibration-implementation",
         "status": "pending",
-        "priority": 7890,
+        "priority": 7900,
         "kind": "infrastructure",
-        "hypothesis": "Design steer-attributed residual calibration from M792/M793 component evidence",
-        "command": "see experiments/manifests/m794-v4-steer-attributed-residual-calibration-design.json",
-        "success_artifact": "docs/m794-v4-steer-attributed-residual-calibration-design.md",
-        "notes": "Pending: design no-PPO steer-specific normal-boundary residual calibration; training PPO and promotion remain blocked"
+        "hypothesis": "Implement no-PPO steer-attributed residual calibration from M794 design",
+        "command": "see experiments/manifests/m795-v4-steer-attributed-residual-calibration-implementation.json",
+        "success_artifact": "docs/m795-v4-steer-attributed-residual-calibration-implementation.md",
+        "notes": "Pending: implement no-PPO steer-specific normal-boundary residual calibration; actor/residual training PPO and promotion remain blocked"
     },
-    "updated_at_utc": "20260525T111500Z"
+    "updated_at_utc": "20260525T113000Z"
 }
