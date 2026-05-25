@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M916 designs no-training M399-rooted target regeneration with bounded local action search and source-diversity gates",
+  "failure_criteria": [
+    "M916 continues tuning M914 weights without target regeneration",
+    "M916 omits source diversity gates",
+    "M916 admits replay, PPO, or promotion",
+    "M916 does not define an implementation route"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train in M916",
+    "do not keep increasing M914 tail weights or epochs",
+    "do not run target generation",
+    "do not run M880 exact compatibility",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T213134Z",
+  "hypothesis": "A design-only milestone can define a safe M399-rooted target regeneration route after M914 showed stale M755/M758 targets cannot produce an admissible residual candidate.",
+  "lineage": {
+    "blocked_by": [
+      "M914 tail-weighted residual probe found no admissible alpha"
+    ],
+    "derived_from": [
+      "m915-v4-public-base-integration-readiness-branch-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m915-v4-public-base-integration-readiness-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m915-v4-public-base-integration-readiness-branch-synthesis.md",
+      "runs/m914_v4_public_base_tail_weighted_residual_probe/summary.json",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/low_tail_rows.csv"
+    ],
+    "parent_objective": [
+      "design M399-rooted target regeneration after stale-target blocker"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m916-v4-public-base-target-regeneration-design",
+  "next_blocker": "M399-rooted target regeneration has not yet been designed",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "public_base_target_regeneration_design_admit_m917",
+  "public_gates": [
+    "M916 must design M399-rooted target regeneration",
+    "M916 must keep M755/M758/M761 targets diagnostic-only",
+    "M916 must specify source mining and target acceptance gates",
+    "M916 must block residual training, target-generation execution, M880 exact compatibility, replay, PPO, and promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m916-v4-public-base-target-regeneration-design.md",
+    "clearance_margin_mean": "",
+    "decision": "public_base_target_regeneration_design_admit_m917",
+    "milestone": "m916-v4-public-base-target-regeneration-design",
+    "reason": "M916 designs no-training M399-rooted target regeneration with bounded local action search and source-diversity gates",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M916 specifies M399 source mining inputs",
+    "M916 specifies target regeneration acceptance gates",
+    "M916 keeps stale M755/M758 targets diagnostic-only",
+    "M916 blocks residual training, target generation execution, exact compatibility, replay, PPO, and promotion"
+  ],
+  "type": "infrastructure"
+}

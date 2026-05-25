@@ -1,0 +1,120 @@
+{
+  "id": "m917-v4-public-base-target-regeneration-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m916-v4-public-base-target-regeneration-design.md",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/low_tail_rows.csv",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/group_deficit_summary.csv",
+      "runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m916-v4-public-base-target-regeneration-design.json"
+    ],
+    "parent_objective": [
+      "implement no-training M399-rooted target regeneration over low-tail states"
+    ],
+    "derived_from": [
+      "m916-v4-public-base-target-regeneration-design"
+    ],
+    "blocked_by": [
+      "M399-rooted regenerated targets do not yet exist"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m917-v4-public-base-target-regeneration-implementation.md",
+  "public_gates": [
+    "M917 must not train",
+    "M917 must keep actor parameters unchanged",
+    "M917 must export selected, candidate, accepted, and rejected target rows",
+    "M917 must enforce source diversity gates",
+    "M917 must block residual training, M880 exact compatibility, replay, PPO, and promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in M917",
+    "do not update actor parameters",
+    "do not run M880 exact compatibility",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat mined targets as deployed rules"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_target_regeneration",
+    "evidence_axis": "G_target_implementation: generate M399-rooted target rows",
+    "evidence_increment": "implements M916 by mining action-drift-bounded target rows for M399 low-tail states",
+    "claim_scope": "target-generation data route only; no training, exact compatibility, replay, PPO, driver improvement claim, or promotion",
+    "stop_condition": [
+      "stop if accepted_targets < 80",
+      "stop if distinct_fault_family_pairs < 8",
+      "stop if max_fault_family_pair_fraction > 0.25",
+      "stop if training, replay, PPO, or promotion is attempted"
+    ],
+    "fallback_plan": [
+      "if target generation passes, route to regenerated-target residual objective design",
+      "if too few accepted targets, route to public-base source expansion design",
+      "if targets are concentrated, route to source-diversity expansion design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M916 admits target regeneration implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "No-training local action target mining can find source-diverse M399-rooted targets for the broad low-tail set without actor mutation, replay, PPO, or promotion.",
+  "success_criteria": [
+    "summary.json exists",
+    "accepted_target_rows.csv exists",
+    "rejected_target_rows.csv exists",
+    "accepted_targets >= 80",
+    "distinct_fault_family_pairs >= 8",
+    "distinct_seeds >= 24",
+    "max_fault_family_pair_fraction <= 0.25",
+    "training_started and ppo_used are false",
+    "promoted is false"
+  ],
+  "failure_criteria": [
+    "M917 trains or mutates actor parameters",
+    "accepted_targets < 80",
+    "distinct_fault_family_pairs < 8",
+    "max_fault_family_pair_fraction > 0.25",
+    "M917 runs M880 exact compatibility, replay, PPO, or promotion"
+  ],
+  "commands": [
+    {
+      "name": "run_target_regeneration",
+      "command": "PYTHONPATH=src python -m autodrift.public_base_target_regeneration --checkpoint runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt --scenario-config configs/extreme_fault_distribution_v4_scenarios.json --positive-rows runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv --contrast-rows runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv --low-tail-rows runs/m912_v4_public_base_sequence_recalibration_audit/low_tail_rows.csv --group-deficit-summary runs/m912_v4_public_base_sequence_recalibration_audit/group_deficit_summary.csv --run-dir runs/m917_v4_public_base_target_regeneration --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m917_v4_public_base_target_regeneration/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m917_v4_public_base_target_regeneration/accepted_target_rows.csv",
+      "type": "data"
+    },
+    {
+      "path": "docs/m917-v4-public-base-target-regeneration-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m916-v4-public-base-target-regeneration-design.md"
+  ],
+  "decision_rule": "M917 may only run no-training target regeneration. It must not train, run exact compatibility, run replay, run PPO, or promote.",
+  "next_blocker": "M399-rooted target regeneration has not yet been run"
+}

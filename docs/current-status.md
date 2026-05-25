@@ -62,16 +62,20 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m916-v4-public-base-target-regeneration-design
+m917-v4-public-base-target-regeneration-implementation
 ```
 
-M915 synthesized and closed the public-base integration-readiness branch. M916
-starts `v4_public_base_target_regeneration` and must design M399-rooted target
-regeneration/source mining rather than continuing to tune stale M755/M758 target
-weights.
+M916 designed M399-rooted target regeneration. M917 must run no-training local
+action target mining over source-diverse low-tail states before any residual
+training, M880 exact compatibility, replay, PPO, or promotion.
 
 ## Recent Evidence Line
 
+- M916 designs target regeneration. M917 should select up to `256`
+  source-diverse low-tail states, search bounded local action overrides around
+  the M399 base action, accept only targets with bounded action drift and
+  low-tail/deficit improvement, and require at least `80` accepted targets
+  across at least `8` fault-family pairs before any residual objective design.
 - M915 synthesizes M905-M914 and opens `v4_public_base_target_regeneration`.
   Supported: direct M761 residual reuse is invalid for M399; M399 can train a
   128-dim residual head; M755/M758/M761 targets do not yield a normal-retaining

@@ -14338,3 +14338,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M915 synthesizes M905-M914. The branch supports that public-base integration cannot directly reuse M568/M761 residual features; M399 can reconstruct and train a 128-dim residual head; M755/M758/M761 target structure does not produce a normal-retaining M399 residual candidate; and low-tail deficit is broad. The branch falsifies direct residual reuse, simple 128-dim retraining, and tail-weighting as sufficient fixes.
 - decision: `promote_to_next_branch`
 - next: `m916-v4-public-base-target-regeneration-design`
+
+## 20260525T212949Z - m916-v4-public-base-target-regeneration-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m916-v4-public-base-target-regeneration-design.md`
+- result: M916 designs no-training M399-rooted target regeneration. M917 should select up to `256` source-diverse low-tail states, evaluate bounded local action overrides around the M399 base action, accept only action-drift-bounded targets that reduce deficit and clear low-tail status, and require diversity gates before any residual objective design. Residual training, M880 exact compatibility, replay, PPO, and promotion remain blocked.
+- decision: `public_base_target_regeneration_design_admit_m917`
+- next: `m917-v4-public-base-target-regeneration-implementation`
