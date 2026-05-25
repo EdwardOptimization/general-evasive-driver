@@ -14498,3 +14498,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M932 performs a no-training extended-alpha audit of the saved M930 raw actor_mean direction. It reconstructs `1213/1213`, joins `122/122` targets, confirms base and raw checkpoints differ only in `actor_mean`, and evaluates alphas through `1.0`. Alpha `1.0` remains normal-retained and weakly improves low-tail fraction from about `0.41055` to `0.39736`, but `tail_lift_rows=0`, `normal_retained_tail_lift_rows=0`, and `candidate_alpha_count=0`. No training, exact compatibility, replay, PPO, or promotion occurred.
 - decision: `public_base_policy_head_raw_direction_feasibility_no_tail_lift_route_to_low_tail_pressure_design`
 - next: `m933-v4-public-base-policy-head-low-tail-pressure-design`
+
+## 20260525T224106Z - m933-v4-public-base-policy-head-low-tail-pressure-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m933-v4-public-base-policy-head-low-tail-pressure-design.md`
+- result: M933 designs one more actor_mean-only low-tail pressure pass because M932 showed weak normal-safe low-tail movement but no tail-lift row. M934 must keep the trainable surface limited to `actor_mean`, use stronger low-tail pressure, and report strict candidate plus target-active-set diagnostics. Feature/recurrent encoders, critic, log_std, actor inputs, replay, PPO, and promotion remain blocked.
+- decision: `policy_head_low_tail_pressure_design_admit_m934`
+- next: `m934-v4-public-base-policy-head-low-tail-pressure-implementation`

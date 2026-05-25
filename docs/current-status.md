@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m933-v4-public-base-policy-head-low-tail-pressure-design
+m934-v4-public-base-policy-head-low-tail-pressure-implementation
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -72,12 +72,17 @@ actor_mean-only objective sanity probe. M930 updates only the policy mean head,
 freezes feature/recurrent encoders, critic, and log_std, and finds no
 tail-lift candidate inside the conservative alpha window. M931 routes to a
 no-training extended-alpha audit of the saved M930 raw actor_mean direction.
-M932 finds weak normal-safe low-tail movement but no tail-lift rows, so the next
-step is a stronger actor_mean-only low-tail pressure design with
-target-active-set diagnostics.
+M932 finds weak normal-safe low-tail movement but no tail-lift rows. M933
+designs one more actor_mean-only low-tail pressure pass with target-active-set
+diagnostics before any broader trainable surface.
 
 ## Recent Evidence Line
 
+- M933 designs a stronger actor_mean-only low-tail pressure implementation.
+  The trainable surface remains only `actor_mean`; feature/recurrent encoders,
+  critic, log_std, replay, PPO, and promotion stay blocked. M934 should report
+  strict candidate, low-tail-effect candidate, target-tolerance candidate, and
+  normal-safe trend diagnostics.
 - M932 audits the saved M930 raw actor_mean direction through alpha `1.0` with
   no training. The raw direction remains normal-safe and weakly improves
   low-tail metrics (`low_tail_fraction` from about `0.41055` to `0.39736`),

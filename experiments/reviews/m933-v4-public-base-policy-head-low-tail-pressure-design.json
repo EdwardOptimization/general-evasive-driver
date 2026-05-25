@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M933 designs stronger actor_mean-only low-tail pressure with target-active-set diagnostics before broadening feature or recurrent encoders",
+  "failure_criteria": [
+    "M933 starts training",
+    "M933 changes actor inputs",
+    "M933 broadens trainable surface",
+    "M933 admits replay PPO or promotion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train in M933",
+    "do not change actor inputs",
+    "do not broaden trainable surface in M933",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T224210Z",
+  "hypothesis": "Because M932 shows actor_mean-only raw movement is normal-safe and weakly improves low-tail metrics, the next controlled step is stronger low-tail pressure with target-active-set diagnostics before broadening the trainable surface.",
+  "lineage": {
+    "blocked_by": [
+      "actor_mean-only low-tail pressure design has not yet been written"
+    ],
+    "derived_from": [
+      "m932-v4-public-base-policy-head-raw-direction-feasibility-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m932-v4-public-base-policy-head-raw-direction-feasibility-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m932_v4_public_base_policy_head_raw_direction_feasibility/summary.json",
+      "runs/m932_v4_public_base_policy_head_raw_direction_feasibility/alpha_metrics.csv",
+      "docs/m932-v4-public-base-policy-head-raw-direction-feasibility-audit.md"
+    ],
+    "parent_objective": [
+      "design a stronger actor_mean-only low-tail pressure objective after M932 weak normal-safe movement"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m933-v4-public-base-policy-head-low-tail-pressure-design",
+  "next_blocker": "actor_mean-only low-tail pressure design has not yet been written",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "policy_head_low_tail_pressure_design_admit_m934",
+  "public_gates": [
+    "M933 must be design-only",
+    "M933 must preserve P0 actor input contract",
+    "M933 must keep trainable surface at actor_mean only",
+    "M933 must pre-register target-active-set diagnostics",
+    "M933 must block replay PPO and promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m933-v4-public-base-policy-head-low-tail-pressure-design.md",
+    "clearance_margin_mean": "",
+    "decision": "policy_head_low_tail_pressure_design_admit_m934",
+    "milestone": "m933-v4-public-base-policy-head-low-tail-pressure-design",
+    "reason": "M933 designs stronger actor_mean-only low-tail pressure with target-active-set diagnostics before broadening feature or recurrent encoders",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m933-v4-public-base-policy-head-low-tail-pressure-design.md exists",
+    "M933 keeps trainable surface actor_mean-only",
+    "M933 pre-registers low-tail effect-size and target-active-set diagnostics",
+    "M933 blocks replay PPO and promotion"
+  ],
+  "type": "infrastructure"
+}
