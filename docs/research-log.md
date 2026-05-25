@@ -13799,3 +13799,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M857 implements the no-training trace-first diagnostic. It traces `44` primary boundary-new-to-M844 sources and `8` recovered controls, reconstructs all `52` snapshots, writes `1924` bracket trace rows, and classifies `132` primary source-axis rows with cause share `1.0`. Actor and M761 residual-head checksums are unchanged; no pair-delta sequence replay, training, PPO, or promotion occurs. The primary cause is `all_safe_wide`: `114/132 = 0.863636`, with `18/132 = 0.136364` all-collision-or-negative and `0` accepted extended boundary axes. This rules out simple wider same-axis expansion as the best next step for new sources. Controls show expected bracket/accept signals but do not count as primary evidence.
 - decision: `v4_boundary_new_to_m844_bracket_trace_all_safe_wide`
 - next: `m858-v4-boundary-new-to-m844-bracket-trace-audit`
+
+## 20260525T150322Z - m858-v4-boundary-new-to-m844-bracket-trace-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m858-v4-boundary-new-to-m844-bracket-trace-audit.md`
+- result: M858 audits M857 as a valid trace diagnostic and confirms the primary blocker is scenario sampling: boundary-new-to-M844 rows are mostly too safe/wide under the tested grids. M857's controls validate the trace runner, but controls are not counted as new-source evidence. Supported claims are limited to no-training data-route evidence: target source reconstruction works, full trace classification works, same-source axis widening is not the best next move, and closer obstacle/source generation is now justified. Unsupported claims remain learned self-ID, pair-delta outcome evidence, objective-ready corpus, PPO admission, and checkpoint promotion.
+- decision: `admit_closer_obstacle_source_generation_design`
+- next: `m859-v4-closer-obstacle-source-generation-design`

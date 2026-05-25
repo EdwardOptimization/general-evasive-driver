@@ -1,0 +1,110 @@
+{
+  "id": "m859-v4-closer-obstacle-source-generation-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m858-v4-boundary-new-to-m844-bracket-trace-audit.md",
+      "runs/m857_v4_boundary_new_to_m844_bracket_trace/summary.json",
+      "runs/m857_v4_boundary_new_to_m844_bracket_trace/cause_summary.json",
+      "runs/m857_v4_boundary_new_to_m844_bracket_trace/axis_trace_summary.csv",
+      "runs/m857_v4_boundary_new_to_m844_bracket_trace/bracket_trace_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m858-v4-boundary-new-to-m844-bracket-trace-audit.json"
+    ],
+    "parent_objective": [
+      "design closer obstacle/source generation from all-safe-wide boundary-new-to-M844 traces"
+    ],
+    "derived_from": [
+      "m858-v4-boundary-new-to-m844-bracket-trace-audit"
+    ],
+    "blocked_by": [
+      "M857 all-safe-wide primary traces show current boundary-new-to-M844 source pool is too far from low-margin boundary"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m859-v4-closer-obstacle-source-generation-design.md",
+  "public_gates": [
+    "M859 must remain design-only",
+    "M859 must use M857 traces to route all-safe-wide and all-collision subsets differently",
+    "M859 must design no-training source/obstacle generation before pair-delta replay",
+    "M859 must keep actor/residual mutation, PPO, and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run replay in M859",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat M857 trace rows as learned self-ID proof",
+    "do not run pair-delta sequence replay before generating a broader low-margin boundary surface"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_boundary_expansion",
+    "evidence_axis": "G_data: closer obstacle/source generation design from all-safe-wide traces",
+    "evidence_increment": "designs a new data-generation route after M857 rules out same-source axis widening as the primary next step",
+    "claim_scope": "design only; no replay, training, PPO, pair-delta outcome claim, learned policy claim, or driver promotion",
+    "stop_condition": [
+      "stop if the design ignores all-safe-wide dominance",
+      "stop if all-collision rows are mixed with all-safe rows without separate route logic",
+      "stop if it admits pair-delta replay before generating accepted new-source boundary rows",
+      "stop if it mutates actor or residual-head parameters"
+    ],
+    "fallback_plan": [
+      "if closer obstacle generation is feasible, implement it",
+      "if M857 traces are insufficient for generation, synthesize the branch before another implementation",
+      "if new source generation still yields all-safe rows, pivot to scenario distribution generation",
+      "if generation yields accepted source-diverse boundary rows, audit before pair-delta mining"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M858 audits M857 all-safe-wide traces and routes toward closer source generation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M857 all-safe-wide traces justify a no-training closer obstacle/source generation design to create genuinely new low-margin boundary rows before pair-delta mining.",
+  "success_criteria": [
+    "M859 writes a design document for closer obstacle/source generation",
+    "M859 defines separate routes for all-safe-wide and all-collision trace subsets",
+    "M859 defines accepted boundary artifacts and gates",
+    "M859 keeps direct trace evidence separate from learned self-ID proof",
+    "M859 keeps pair-delta replay, PPO, and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M859 admits PPO or promotion",
+    "M859 trains actor or residual parameters",
+    "M859 ignores M857 all-safe-wide evidence",
+    "M859 designs pair-delta replay before accepted new-source boundary generation"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m859-v4-closer-obstacle-source-generation-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m859-v4-closer-obstacle-source-generation-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m858-v4-boundary-new-to-m844-bracket-trace-audit.md",
+    "runs/m857_v4_boundary_new_to_m844_bracket_trace/summary.json",
+    "runs/m857_v4_boundary_new_to_m844_bracket_trace/cause_summary.json"
+  ],
+  "decision_rule": "M859 may only design no-training closer obstacle/source generation. It must not run replay, train, run PPO, run pair-delta sequence replay, or promote.",
+  "next_blocker": "M857 all-safe-wide traces require closer obstacle/source generation design before more boundary mining"
+}

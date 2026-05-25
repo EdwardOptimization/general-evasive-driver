@@ -62,16 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m858-v4-boundary-new-to-m844-bracket-trace-audit
+m859-v4-closer-obstacle-source-generation-design
 ```
 
-M858 should audit the M857 all-safe-wide boundary-new-to-M844 trace result
-before closer obstacle/source generation design. PPO, promotion, base actor
+M859 should design a no-training closer obstacle/source generation route from
+M857 all-safe-wide traces before pair-delta replay. PPO, promotion, base actor
 mutation, M761 residual-head mutation, and pair-delta sequence replay remain
 blocked.
 
 ## Recent Evidence Line
 
+- M858 audits M857 as valid no-training trace evidence and confirms the primary
+  blocker is scenario sampling: boundary-new-to-M844 rows are mostly too
+  safe/wide under the tested grids. Recovered controls validate the trace
+  runner but cannot count as new-source evidence. The next route is closer
+  obstacle/source generation, not wider same-axis replay, objective training, or
+  PPO.
 - M857 implements the no-training trace diagnostic. It traces `44` primary
   boundary-new-to-M844 sources and `8` recovered controls, reconstructs all
   `52` snapshots, writes `1924` bracket trace rows, and classifies `132`

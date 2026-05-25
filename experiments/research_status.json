@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 866,
+    "completed": 867,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m857-v4-boundary-new-to-m844-bracket-trace-implementation",
+    "task_id": "m858-v4-boundary-new-to-m844-bracket-trace-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m857-v4-boundary-new-to-m844-bracket-trace-implementation.md"
+    "command_log": "docs/m858-v4-boundary-new-to-m844-bracket-trace-audit.md"
   },
   "next_task": {
-    "id": "m858-v4-boundary-new-to-m844-bracket-trace-audit",
+    "id": "m859-v4-closer-obstacle-source-generation-design",
     "status": "pending",
-    "priority": 8530,
-    "kind": "gate",
-    "hypothesis": "Audit all-safe-wide boundary-new-to-M844 bracket trace result",
-    "command": "see experiments/manifests/m858-v4-boundary-new-to-m844-bracket-trace-audit.json",
-    "success_artifact": "docs/m858-v4-boundary-new-to-m844-bracket-trace-audit.md",
-    "notes": "Pending: audit M857 before closer obstacle/source generation design"
+    "priority": 8540,
+    "kind": "infrastructure",
+    "hypothesis": "Design closer obstacle/source generation from all-safe-wide traces",
+    "command": "see experiments/manifests/m859-v4-closer-obstacle-source-generation-design.json",
+    "success_artifact": "docs/m859-v4-closer-obstacle-source-generation-design.md",
+    "notes": "Pending: design no-training source/obstacle generation before pair-delta replay"
   },
-  "updated_at_utc": "20260525T145722Z"
+  "updated_at_utc": "20260525T150322Z"
 }
