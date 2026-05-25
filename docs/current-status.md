@@ -62,16 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m885-v4-enriched-pair-delta-objective-only-probe-design
+m886-v4-enriched-pair-delta-objective-only-probe-implementation
 ```
 
-M884 synthesized and closed the `v4_pair_delta_objective_readiness` branch.
-M885 opens `v4_pair_delta_objective_probe` and must design a no-PPO
-objective-only probe before any actor update, PPO, promotion, base actor
-mutation, or M761 residual-head mutation.
+M885 designed a tiny no-PPO objective-only probe for the
+`v4_pair_delta_objective_probe` branch. M886 may run only that registered
+actor-coupling probe with exact holdout and interpolation gates. PPO,
+checkpoint promotion, actor input changes, and M761 residual-head mutation
+remain blocked.
 
 ## Recent Evidence Line
 
+- M885 designs the first no-PPO objective-only probe. It limits the update to a
+  narrow actor-coupling scope, requires exact M883 objective metrics before and
+  after update, uses interpolation from base to raw candidate, rejects exact
+  holdout regression, and explicitly forbids PPO or promotion.
 - M884 synthesizes M875-M883 and promotes to the next branch:
   `v4_pair_delta_objective_probe`. The previous branch successfully transformed
   raw M873 pair-delta rows into deduped splits, enriched action targets, and

@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260525T191700Z
+- Generated at UTC: 20260525T191930Z
 - Type: infrastructure
 - Gate tier: infrastructure
-- Promotion decision: not_applicable
-- Decision reason: M885 may only design the objective-only probe. It must not train, run PPO, promote, or claim objective update usefulness.
+- Promotion decision: enriched_pair_delta_objective_only_probe_design_admit_m886
+- Decision reason: M885 designs tiny no-PPO objective-only probe with exact holdout interpolation and no-promotion gates
 
 ## Hypothesis
 
@@ -71,7 +71,18 @@ A small no-PPO objective-only probe can be designed from the M883 exact objectiv
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m885-v4-enriched-pair-delta-objective-only-probe-design
+- type: infrastructure
+- checkpoint: docs/m885-v4-enriched-pair-delta-objective-only-probe-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: enriched_pair_delta_objective_only_probe_design_admit_m886
+- reason: M885 designs tiny no-PPO objective-only probe with exact holdout interpolation and no-promotion gates
 
 ## Next Blocker
 

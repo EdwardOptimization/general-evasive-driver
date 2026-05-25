@@ -14048,3 +14048,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M884 synthesizes M875-M883 and closes `v4_pair_delta_objective_readiness`. The branch turned raw duplicate-heavy M873 pair-delta rows into deduped splits, enriched action targets, and exact no-update objective metrics with full tensor reconstruction. Remaining caveats are public-gate overfit risk, no new source holdout, eval/new-signature degradation-only imbalance, and 78055 still absent from new accepted pair-delta rows.
 - decision: `promote_to_next_branch`
 - next: `m885-v4-enriched-pair-delta-objective-only-probe-design`
+
+## 20260525T191749Z - m885-v4-enriched-pair-delta-objective-only-probe-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m885-v4-enriched-pair-delta-objective-only-probe-design.md`
+- result: M885 designs a tiny no-PPO objective-only probe for the new `v4_pair_delta_objective_probe` branch. The probe may train only a narrow actor-coupling scope, must use exact M883 objective metrics before and after update, must interpolate between base and raw candidate, must reject exact holdout regression, and cannot promote a checkpoint.
+- decision: `enriched_pair_delta_objective_only_probe_design_admit_m886`
+- next: `m886-v4-enriched-pair-delta-objective-only-probe-implementation`

@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M885 may only design the objective-only probe. It must not train, run PPO, promote, or claim objective update usefulness.",
+  "decision_reason": "M885 designs tiny no-PPO objective-only probe with exact holdout interpolation and no-promotion gates",
   "failure_criteria": [
     "M885 trains actor or residual-head parameters",
     "M885 runs PPO",
@@ -24,7 +24,7 @@
     "do not treat M883 exact sanity as update success"
   ],
   "gate_tier": "infrastructure",
-  "generated_at_utc": "20260525T191700Z",
+  "generated_at_utc": "20260525T191930Z",
   "hypothesis": "A small no-PPO objective-only probe can be designed from the M883 exact objective without risking immediate proof washout, provided the design uses strict exact-objective, interpolation, replay-retention, and no-promotion gates.",
   "lineage": {
     "blocked_by": [
@@ -54,7 +54,7 @@
   "milestone": "m885-v4-enriched-pair-delta-objective-only-probe-design",
   "next_blocker": "Enriched pair-delta objective-only probe has not yet been designed",
   "private_holdout_policy": "promotion_only",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "enriched_pair_delta_objective_only_probe_design_admit_m886",
   "public_gates": [
     "M885 must be design-only",
     "M885 must define objective-only update scope and trust region",
@@ -62,7 +62,20 @@
     "M885 must define interpolation and rejection rules",
     "M885 must keep PPO and promotion blocked"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m885-v4-enriched-pair-delta-objective-only-probe-design.md",
+    "clearance_margin_mean": "",
+    "decision": "enriched_pair_delta_objective_only_probe_design_admit_m886",
+    "milestone": "m885-v4-enriched-pair-delta-objective-only-probe-design",
+    "reason": "M885 designs tiny no-PPO objective-only probe with exact holdout interpolation and no-promotion gates",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "M885 defines trainable scope and trust region",
     "M885 defines exact objective non-regression and improvement gates",

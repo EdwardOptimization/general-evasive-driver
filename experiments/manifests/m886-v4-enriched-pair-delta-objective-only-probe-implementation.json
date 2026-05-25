@@ -1,0 +1,129 @@
+{
+  "id": "m886-v4-enriched-pair-delta-objective-only-probe-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "proof_washout",
+    "metric_artifact",
+    "training_instability",
+    "contract_violation",
+    "lineage_invalid"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m885-v4-enriched-pair-delta-objective-only-probe-design.md",
+      "runs/m883_v4_enriched_pair_delta_objective_sanity/summary.json",
+      "runs/m883_v4_enriched_pair_delta_objective_sanity/objective_rows.csv",
+      "runs/m883_v4_enriched_pair_delta_objective_sanity/objective_metrics.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m885-v4-enriched-pair-delta-objective-only-probe-design.json"
+    ],
+    "parent_objective": [
+      "implement small no-PPO enriched pair-delta objective-only probe"
+    ],
+    "derived_from": [
+      "m885-v4-enriched-pair-delta-objective-only-probe-design"
+    ],
+    "blocked_by": [
+      "M885 designed the objective-only probe but no implementation has run yet"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m886-v4-enriched-pair-delta-objective-only-probe-implementation.md",
+  "public_gates": [
+    "M886 must use no PPO",
+    "M886 must train only the registered actor-coupling scope",
+    "M886 must report exact objective metrics before and after update",
+    "M886 must run interpolation and exact holdout non-regression gates",
+    "M886 must not promote a checkpoint"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train M761 residual-head parameters",
+    "do not promote a checkpoint",
+    "do not tune against source_holdout or new_signature_holdout",
+    "do not change actor inputs",
+    "do not skip interpolation"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_objective_probe",
+    "evidence_axis": "G_objective_update: small no-PPO objective-only probe",
+    "evidence_increment": "tests whether M883 exact objective produces a small admissible actor-coupling direction before replay gates",
+    "claim_scope": "objective-only probe only; no PPO, promotion, or learned driver claim",
+    "stop_condition": [
+      "stop if all nonzero alphas regress exact holdouts",
+      "stop if actor input contract changes",
+      "stop if residual head changes",
+      "stop if raw update is unstable"
+    ],
+    "fallback_plan": [
+      "if exact-admissible candidate exists, route to audit before replay gates",
+      "if exact holdouts regress, redesign objective or expand data",
+      "if update unstable, reduce scope or route to train-scope audit",
+      "if branch cadence is reached, synthesize before continuing"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M885 admits one small objective-only probe implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A tiny no-PPO actor-coupling update from M568 can improve the M883 exact train objective while preserving exact public holdout metrics within tolerance after interpolation.",
+  "success_criteria": [
+    "M886 writes raw and interpolation candidate metrics",
+    "M886 reports exact objective metrics per split",
+    "M886 verifies actor input contract and residual head are unchanged",
+    "M886 identifies whether any nonzero alpha is exact-admissible",
+    "M886 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M886 runs PPO",
+    "M886 promotes a checkpoint",
+    "M886 trains residual-head parameters",
+    "M886 changes actor input contract",
+    "M886 skips exact holdout gates"
+  ],
+  "commands": [
+    {
+      "name": "objective_only_probe",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_enriched_pair_delta_objective_only_probe --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --objective-rows runs/m883_v4_enriched_pair_delta_objective_sanity/objective_rows.csv --run-dir runs/m886_v4_enriched_pair_delta_objective_only_probe --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_enriched_pair_delta_objective_only_probe.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_v4_enriched_pair_delta_objective_only_probe.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m886_v4_enriched_pair_delta_objective_only_probe/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m886_v4_enriched_pair_delta_objective_only_probe/interpolation_metrics.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "docs/m886-v4-enriched-pair-delta-objective-only-probe-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m885-v4-enriched-pair-delta-objective-only-probe-design.md",
+    "runs/m883_v4_enriched_pair_delta_objective_sanity/summary.json"
+  ],
+  "decision_rule": "M886 may run only the registered no-PPO objective-only probe. It must not promote a checkpoint or claim learned self-ID.",
+  "next_blocker": "Enriched pair-delta objective-only probe has not yet been implemented"
+}
