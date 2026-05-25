@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 889,
+    "completed": 890,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m880-v4-pair-delta-objective-target-enrichment-implementation",
+    "task_id": "m881-v4-enriched-pair-delta-objective-readiness-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m880_v4_pair_delta_objective_target_enrichment/summary.json"
+    "command_log": "docs/m881-v4-enriched-pair-delta-objective-readiness-audit.md"
   },
   "next_task": {
-    "id": "m881-v4-enriched-pair-delta-objective-readiness-audit",
+    "id": "m882-v4-enriched-pair-delta-objective-design",
     "status": "pending",
-    "priority": 8760,
-    "kind": "gate",
-    "hypothesis": "Audit M880 enriched pair-delta corpus before objective loss design actor update PPO or promotion",
-    "command": "see experiments/manifests/m881-v4-enriched-pair-delta-objective-readiness-audit.json",
-    "success_artifact": "docs/m881-v4-enriched-pair-delta-objective-readiness-audit.md",
-    "notes": "Pending: audit enriched target-action corpus readiness before objective loss design"
+    "priority": 8770,
+    "kind": "infrastructure",
+    "hypothesis": "Design enriched pair-delta objective loss before any exact sanity implementation actor update PPO or promotion",
+    "command": "see experiments/manifests/m882-v4-enriched-pair-delta-objective-design.json",
+    "success_artifact": "docs/m882-v4-enriched-pair-delta-objective-design.md",
+    "notes": "Pending: design objective terms and tensor reconstruction requirements"
   },
-  "updated_at_utc": "20260525T185955Z"
+  "updated_at_utc": "20260525T190239Z"
 }

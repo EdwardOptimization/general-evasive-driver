@@ -62,17 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m881-v4-enriched-pair-delta-objective-readiness-audit
+m882-v4-enriched-pair-delta-objective-design
 ```
 
-M880 implemented the no-training target-action enrichment route and passed its
-infrastructure gates. All M877 dedup and split rows now have concrete normal,
-right-hidden, and first-override action target fields. M881 must audit the
-enriched corpus before any objective loss design, actor update, PPO, promotion,
-base actor mutation, or M761 residual-head mutation.
+M881 audited the M880 enriched corpus as ready for design-only objective loss
+work. M882 must design the enriched pair-delta objective terms and the required
+actor-state tensor reconstruction path before any exact objective sanity
+implementation, actor update, PPO, promotion, base actor mutation, or M761
+residual-head mutation.
 
 ## Recent Evidence Line
 
+- M881 audits M880 enriched corpus as complete enough for design-only objective
+  work. The action target blocker is resolved, but the next design must define
+  how implementation will recover actor observations and recurrent hidden
+  states for exact log-probability objectives. New source holdout remains
+  unavailable and the 78055 caveat remains, so actor update, PPO, promotion,
+  and learned self-ID claims are still blocked.
 - M880 implements no-training target-action enrichment and passes. It enriches
   `247` dedup rows plus all four split files, with `494/494` identity-unique
   joins, zero missing joins, zero ambiguous joins, preserved split labels,
