@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M909 produces a 128-dim residual head and keeps actor unchanged but candidate_alpha_count is zero so the head is not admitted for M880 exact or replay",
+  "failure_criteria": [
+    "actor checksum changes",
+    "residual feature_dim is not 128",
+    "reconstruction rate below 0.98",
+    "candidate_alpha_count is 0",
+    "M909 runs replay, PPO, actor update, or promotion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not update actor parameters",
+    "do not load M761 residual head as the candidate residual",
+    "do not modify actor inputs",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T210425Z",
+  "hypothesis": "The existing residual-only sequence objective probe can train a finite 128-dim residual head for frozen M399 without actor mutation, replay, PPO, or promotion.",
+  "lineage": {
+    "blocked_by": [
+      "public-base-compatible 128-dim residual head does not yet exist"
+    ],
+    "derived_from": [
+      "m908-v4-public-base-compatible-residual-head-probe-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m908-v4-public-base-compatible-residual-head-probe-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m908-v4-public-base-compatible-residual-head-probe-design.md",
+      "runs/m755_v4_sequence_outcome_corpus_export/summary.json",
+      "runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv"
+    ],
+    "parent_objective": [
+      "train residual head only on frozen M399 recurrent actor features"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m909-v4-public-base-residual-head-probe-implementation",
+  "next_blocker": "M399-compatible residual head has not yet been generated",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "public_base_residual_head_probe_no_gap_lift_blocked",
+  "public_gates": [
+    "M909 must load M399 public base",
+    "M909 must train residual head only",
+    "M909 must keep actor checksum unchanged",
+    "M909 must produce residual_head.pt with feature_dim 128",
+    "M909 must keep replay, PPO, actor update, and promotion blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m909_v4_public_base_residual_head_probe/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "public_base_residual_head_probe_no_gap_lift_blocked",
+    "milestone": "m909-v4-public-base-residual-head-probe-implementation",
+    "reason": "M909 produces a 128-dim residual head and keeps actor unchanged but candidate_alpha_count is zero so the head is not admitted for M880 exact or replay",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary.json exists",
+    "actor_backbone_changed is false",
+    "residual_only_training is true",
+    "ppo_used and promoted are false",
+    "sample_reconstruction_success_rate >= 0.98",
+    "metadata_missing_rows is 0",
+    "residual_head_pt exists",
+    "residual feature_dim is 128",
+    "residual_parameter_count is 8451",
+    "candidate_alpha_count >= 1"
+  ],
+  "type": "infrastructure"
+}

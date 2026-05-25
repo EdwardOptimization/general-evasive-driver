@@ -62,15 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m909-v4-public-base-residual-head-probe-implementation
+m910-v4-public-base-residual-head-no-gap-lift-audit
 ```
 
-M908 designed the M399-compatible residual-head-only route. M909 may train only
-a new residual head on frozen M399 recurrent features and must verify
-`feature_dim=128`, actor checksum unchanged, and no replay/PPO/promotion.
+M909 generated a 128-dim residual head on frozen M399 features, but no alpha
+passed the registered normal-retention plus gap-lift gates. M910 must audit
+whether this is target-lineage/metric mismatch and choose the next route before
+using the head in M880 exact checks.
 
 ## Recent Evidence Line
 
+- M909 trains only a residual head on frozen M399 features. Compatibility
+  succeeds: `1213/1213` rows reconstruct, metadata missing is `0`, residual
+  `feature_dim=128`, residual parameters `8451`, and actor checksum is
+  unchanged. Objective admissibility fails with `candidate_alpha_count=0`;
+  small alphas keep normal retention but fail gap lift, while large alphas
+  break normal retention. No replay/PPO/actor update/promotion occurred.
 - M908 designs the public-base-compatible residual-head route. It reuses the
   M761-style sequence objective probe with M399 frozen, expects a new
   `feature_dim=128` residual head with `8451` parameters, and requires exact

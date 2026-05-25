@@ -14272,3 +14272,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M908 designs the public-base-compatible route: reuse the existing M761-style `v4_sequence_objective_probe` with M399 as the frozen actor, train only a new residual head in the M399 128-dim feature basis, and keep M568/M761 as diagnostic lineage. M908 rejects force-loading, padding, truncation, actor-input changes, replay, PPO, and promotion.
 - decision: `public_base_128dim_residual_head_probe_design_admit_m909`
 - next: `m909-v4-public-base-residual-head-probe-implementation`
+
+## 20260525T210246Z - m909-v4-public-base-residual-head-probe-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m909_v4_public_base_residual_head_probe`
+- artifact: `docs/m909-v4-public-base-residual-head-probe-implementation.md`
+- result: M909 trains only a residual head on frozen M399 features. Compatibility succeeds: `1213/1213` rows reconstruct, metadata missing is `0`, residual `feature_dim=128`, residual parameters `8451`, and actor checksum is unchanged. Objective admissibility fails: `candidate_alpha_count=0`; small alphas preserve normal actions but do not lift p10/deficit enough, while large alphas break normal retention. No replay, PPO, actor update, or promotion occurred.
+- decision: `public_base_residual_head_probe_no_gap_lift_blocked`
+- next: `m910-v4-public-base-residual-head-no-gap-lift-audit`

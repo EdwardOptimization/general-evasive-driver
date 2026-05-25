@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 917,
+    "completed": 918,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m908-v4-public-base-compatible-residual-head-probe-design",
+    "task_id": "m909-v4-public-base-residual-head-probe-implementation",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m908-v4-public-base-compatible-residual-head-probe-design.md"
+    "command_log": "docs/m909-v4-public-base-residual-head-probe-implementation.md"
   },
   "next_task": {
-    "id": "m909-v4-public-base-residual-head-probe-implementation",
+    "id": "m910-v4-public-base-residual-head-no-gap-lift-audit",
     "status": "pending",
-    "priority": 9040,
-    "kind": "infrastructure",
-    "hypothesis": "Train residual head only on frozen M399 recurrent actor features and verify 128-dim compatibility",
-    "command": "see experiments/manifests/m909-v4-public-base-residual-head-probe-implementation.json",
-    "success_artifact": "runs/m909_v4_public_base_residual_head_probe/summary.json",
-    "notes": "Pending: residual-head-only implementation; actor update, replay, PPO, and promotion blocked"
+    "priority": 9050,
+    "kind": "gate",
+    "hypothesis": "Audit M909 no-gap-lift result and choose next public-base objective route",
+    "command": "see experiments/manifests/m910-v4-public-base-residual-head-no-gap-lift-audit.json",
+    "success_artifact": "docs/m910-v4-public-base-residual-head-no-gap-lift-audit.md",
+    "notes": "Pending: audit M909 before any M880 exact use, replay, PPO, or promotion"
   },
-  "updated_at_utc": "20260525T205917Z"
+  "updated_at_utc": "20260525T210246Z"
 }
