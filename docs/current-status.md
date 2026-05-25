@@ -62,15 +62,26 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m798-v4-active-steer-guard-calibration-implementation
+m799-v4-active-steer-guard-calibration-audit
 ```
 
-M798 should implement and run the no-PPO active/source-diverse low-margin
-steer guard calibration diagnostic from M797. Base actor mutation, M761
-residual-head mutation, PPO, and promotion remain blocked.
+M799 should audit the M798 low-margin corpus blocker before any further
+residual calibration objective. Base actor mutation, M761 residual-head
+mutation, PPO, and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M798 extends `v4_normal_margin_residual_calibration.py` with
+  `--objective-mode active_steer_guard`, source-diverse low-margin guard row
+  selection, low-margin guard artifacts, separability artifacts, and focused
+  tests. The run stops before training because the M795 parent replay contains
+  only `12` low-margin guard rows, all from the same public active source
+  (`seed 77025`, `source_index 12`, `step 24`, one fault-family pair).
+  Diversity is `1` unique seed, `1` unique source index, `1` unique
+  fault-family pair, and max seed dominance `1.0`, versus required `8`, `8`,
+  `4`, and `0.25`. No optimizer, closed-loop replay, PPO, or promotion occurs;
+  actor and residual checksums remain unchanged. Result class is
+  `v4_active_steer_guard_low_margin_corpus_blocked`.
 - M797 designs a no-PPO active steer guard calibration after M795's near miss.
   The design keeps the M568 actor and M761 residual head frozen, keeps the M795
   steer/brake gate with fixed-zero throttle, and adds a stronger workflow:

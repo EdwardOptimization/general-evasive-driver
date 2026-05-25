@@ -5,7 +5,9 @@ from autodrift.v4_normal_margin_residual_calibration import (
     ResidualGate,
     SteerAttributedResidualGate,
     _augment_alpha_rows,
+    _select_active_steer_guard_rows,
     calibrated_action_from_hidden,
+    classify_v4_active_steer_guard_calibration,
     classify_v4_steer_attributed_residual_calibration,
     classify_v4_normal_margin_calibration,
     classify_v4_vector_residual_calibration,
@@ -266,4 +268,45 @@ def test_classify_steer_attributed_calibration_component_collapse():
             promoted=False,
         )
         == "v4_steer_attributed_calibration_component_collapse"
+    )
+
+
+def test_select_active_steer_guard_rows_requires_source_diversity(tmp_path):
+    path = tmp_path / "replay.csv"
+    path.write_text(
+        "\n".join(
+            [
+                "contrast_group_id,branch,alpha,seed,source_index,step,fault_family_pair,min_clearance_margin,collision",
+                "a,normal,0.2,77025,12,24,pair_a,0.000003,False",
+                "b,normal,0.2,77025,12,24,pair_a,0.000004,False",
+                "c,normal,0.2,77026,13,25,pair_b,0.5,False",
+                "",
+            ]
+        )
+    )
+
+    rows, summary = _select_active_steer_guard_rows(path)
+
+    assert len(rows) == 2
+    assert summary["low_margin_unique_seed_count"] == 1
+    assert summary["low_margin_corpus_pass"] is False
+
+
+def test_classify_active_steer_guard_corpus_blocked_precedes_reconstruction():
+    assert (
+        classify_v4_active_steer_guard_calibration(
+            actor_changed=False,
+            residual_changed=False,
+            low_margin_corpus_pass=False,
+            separability_pass=False,
+            reconstruction_success_rate=0.0,
+            metadata_missing_rows=0,
+            strong_candidate_count=0,
+            limited_candidate_count=0,
+            any_gap_lift=False,
+            active_margin_pass=False,
+            ppo_used=False,
+            promoted=False,
+        )
+        == "v4_active_steer_guard_low_margin_corpus_blocked"
     )

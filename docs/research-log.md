@@ -13240,3 +13240,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M797 designs a no-PPO active steer guard calibration after M795's near miss. The design keeps the M568 actor and M761 residual head frozen, keeps the M795 steer/brake gate with fixed-zero throttle, and adds a stronger workflow: source-diverse low-margin guard-row selection, supervised gate separability probe, active-steer feasibility projection, then gap retention under the guard. It requires exact alpha `0.2` closed-loop gates, M786/M780 references, active/source-diverse low-margin steering safety, and steer selectivity before any candidate claim. It also adds explicit stop conditions for low-margin corpus block and deployable feature separation failure. M798 is admitted as implementation diagnostic only; PPO and promotion remain blocked.
 - decision: `active_steer_guard_design_admit_m798`
 - next: `m798-v4-active-steer-guard-calibration-implementation`
+
+## 20260525T124500Z - m798-v4-active-steer-guard-calibration-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m798_v4_active_steer_guard_calibration`
+- artifact: `docs/m798-v4-active-steer-guard-calibration-implementation.md`
+- result: M798 extends `v4_normal_margin_residual_calibration.py` with `--objective-mode active_steer_guard`, source-diverse low-margin guard row selection, low-margin guard artifacts, separability artifacts, and focused tests. The run stops before training because the M795 parent replay contains only `12` low-margin guard rows, all from the same public active source (`seed 77025`, `source_index 12`, `step 24`, one fault-family pair). Diversity is `1` unique seed, `1` unique source index, `1` unique fault-family pair, and max seed dominance `1.0`, versus required `8`, `8`, `4`, and `0.25`. No optimizer, closed-loop replay, PPO, or promotion occurs; actor and residual checksums remain unchanged. Result class is `v4_active_steer_guard_low_margin_corpus_blocked`.
+- decision: `v4_active_steer_guard_low_margin_corpus_blocked`
+- next: `m799-v4-active-steer-guard-calibration-audit`

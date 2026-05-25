@@ -47,6 +47,11 @@ ACTION_COMPONENTS = ("steer", "throttle", "brake")
 M780_ALPHA_0125_GAP_MEAN = 0.044046541597433105
 M786_ALPHA_015_GAP_MEAN = 0.04339739074330833
 M786_ALPHA_015_ACTIVE_MARGIN = 2.8245982635066724e-05
+ACTIVE_STEER_GUARD_MARGIN_THRESHOLD = 5.0e-5
+ACTIVE_STEER_GUARD_MIN_SEEDS = 8
+ACTIVE_STEER_GUARD_MIN_SOURCE_INDICES = 8
+ACTIVE_STEER_GUARD_MIN_FAULT_PAIRS = 4
+ACTIVE_STEER_GUARD_MAX_SEED_DOMINANCE = 0.25
 
 
 class ResidualGate(nn.Module):
@@ -120,6 +125,15 @@ def _active_boundary_key(row: dict[str, Any]) -> bool:
     )
 
 
+def _source_diversity_key(row: dict[str, Any]) -> tuple[str, str, str, str]:
+    return (
+        str(row.get("seed", "")),
+        str(row.get("source_index", "")),
+        str(row.get("step", "")),
+        str(row.get("fault_family_pair", "")),
+    )
+
+
 def _filter_supported_positives(rows: list[dict[str, str]]) -> tuple[list[dict[str, str]], list[dict[str, Any]]]:
     supported: list[dict[str, str]] = []
     rejected: list[dict[str, Any]] = []
@@ -134,6 +148,79 @@ def _filter_supported_positives(rows: list[dict[str, str]]) -> tuple[list[dict[s
             continue
         supported.append(row)
     return supported, rejected
+
+
+def _select_active_steer_guard_rows(
+    parent_replay_rows_path: Path,
+    *,
+    margin_threshold: float = ACTIVE_STEER_GUARD_MARGIN_THRESHOLD,
+    min_seeds: int = ACTIVE_STEER_GUARD_MIN_SEEDS,
+    min_source_indices: int = ACTIVE_STEER_GUARD_MIN_SOURCE_INDICES,
+    min_fault_pairs: int = ACTIVE_STEER_GUARD_MIN_FAULT_PAIRS,
+    max_seed_dominance: float = ACTIVE_STEER_GUARD_MAX_SEED_DOMINANCE,
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    rows = _read_csv_rows(parent_replay_rows_path)
+    by_group: dict[str, dict[str, Any]] = {}
+    for row in rows:
+        if str(row.get("branch", "")) != "normal":
+            continue
+        if abs(float(row.get("alpha", 0.0)) - 0.2) > 1e-12:
+            continue
+        margin = _finite_float(row.get("min_clearance_margin"))
+        is_active = _active_boundary_key(row)
+        is_low_margin = bool(np.isfinite(margin) and margin <= float(margin_threshold))
+        if not is_active and not is_low_margin:
+            continue
+        group_id = str(row.get("contrast_group_id", ""))
+        reason = "active_source" if is_active else "low_margin"
+        if is_active and is_low_margin:
+            reason = "active_source|low_margin"
+        candidate = {
+            "contrast_group_id": group_id,
+            "seed": row.get("seed", ""),
+            "source_index": row.get("source_index", ""),
+            "step": row.get("step", ""),
+            "fault_family_pair": row.get("fault_family_pair", ""),
+            "alpha": float(row.get("alpha", 0.0)),
+            "normal_margin": margin,
+            "normal_collision": _bool(row.get("collision", False)),
+            "guard_reason": reason,
+        }
+        existing = by_group.get(group_id)
+        if existing is None or _active_boundary_key(candidate) or margin < _finite_float(existing.get("normal_margin"), default=1.0):
+            by_group[group_id] = candidate
+    guard_rows = list(by_group.values())
+    source_keys = {_source_diversity_key(row) for row in guard_rows}
+    seed_counts: dict[str, int] = {}
+    for key in source_keys:
+        seed_counts[key[0]] = seed_counts.get(key[0], 0) + 1
+    unique_source_count = len(source_keys)
+    unique_seed_count = len({key[0] for key in source_keys})
+    unique_source_index_count = len({key[1] for key in source_keys})
+    unique_fault_pair_count = len({key[3] for key in source_keys})
+    max_seed_count = max(seed_counts.values(), default=0)
+    max_seed_dominance_value = float(max_seed_count / unique_source_count) if unique_source_count else 1.0
+    corpus_pass = bool(
+        unique_seed_count >= int(min_seeds)
+        and unique_source_index_count >= int(min_source_indices)
+        and unique_fault_pair_count >= int(min_fault_pairs)
+        and max_seed_dominance_value <= float(max_seed_dominance)
+    )
+    summary = {
+        "low_margin_guard_row_count": int(len(guard_rows)),
+        "low_margin_unique_source_count": int(unique_source_count),
+        "low_margin_unique_seed_count": int(unique_seed_count),
+        "low_margin_unique_source_index_count": int(unique_source_index_count),
+        "low_margin_unique_fault_pair_count": int(unique_fault_pair_count),
+        "low_margin_max_seed_dominance": max_seed_dominance_value,
+        "low_margin_margin_threshold": float(margin_threshold),
+        "low_margin_min_seed_requirement": int(min_seeds),
+        "low_margin_min_source_index_requirement": int(min_source_indices),
+        "low_margin_min_fault_pair_requirement": int(min_fault_pairs),
+        "low_margin_max_seed_dominance_requirement": float(max_seed_dominance),
+        "low_margin_corpus_pass": corpus_pass,
+    }
+    return guard_rows, summary
 
 
 def _parent_margin_lookup(parent_replay_rows_path: Path) -> tuple[dict[str, float], float]:
@@ -217,7 +304,7 @@ def _train_calibrator(
     feature_dim = int(samples["normal_features"].shape[1])
     if str(objective_mode) == "vector_gate":
         calibrator: nn.Module = ResidualGate(feature_dim=feature_dim, initial_gate=initial_gate, output_dim=3)
-    elif str(objective_mode) == "steer_attributed_gate":
+    elif str(objective_mode) in {"steer_attributed_gate", "active_steer_guard"}:
         calibrator = SteerAttributedResidualGate(feature_dim=feature_dim, initial_gate=initial_gate)
     else:
         calibrator = ResidualGate(feature_dim=feature_dim, initial_gate=initial_gate, output_dim=1)
@@ -257,7 +344,7 @@ def _train_calibrator(
         scaled_normal_delta = gate_normal_for_scale * normal_delta
         scaled_intervention_delta = gate_intervention_for_scale * intervention_delta
         normal_delta_norm = torch.sum(scaled_normal_delta.pow(2), dim=-1)
-        if objective_mode == "steer_attributed_gate":
+        if objective_mode in {"steer_attributed_gate", "active_steer_guard"}:
             steer_index = ACTION_COMPONENTS.index("steer")
             brake_index = ACTION_COMPONENTS.index("brake")
             steer_normal_gate = raw_gate_normal[:, steer_index]
@@ -341,7 +428,7 @@ def _train_calibrator(
         )
         calibrated_gap = torch.linalg.norm(adjusted_intervention - adjusted_normal, dim=-1)
         gap_loss = (outcome_weights * torch.relu(target_gap - calibrated_gap).pow(2)).mean()
-        if objective_mode == "steer_attributed_gate":
+        if objective_mode in {"steer_attributed_gate", "active_steer_guard"}:
             useful_intervention_gates = raw_gate_intervention[:, [
                 ACTION_COMPONENTS.index("steer"),
                 ACTION_COMPONENTS.index("brake"),
@@ -359,7 +446,19 @@ def _train_calibrator(
         l2_loss = torch.zeros((), dtype=torch.float32)
         for parameter in calibrator.parameters():
             l2_loss = l2_loss + parameter.pow(2).mean()
-        if objective_mode == "steer_attributed_gate":
+        if objective_mode == "active_steer_guard":
+            loss = (
+                3.0 * normal_suppression
+                + 0.15 * high_default_normal
+                + 1.0 * high_default_intervention
+                + 50.0 * boundary_guard
+                + 2.0 * gate_floor_loss
+                + 6.0 * gate_contrast_loss
+                + 1.0 * gap_loss
+                + 0.10 * hard_loss
+                + 1e-4 * l2_loss
+            )
+        elif objective_mode == "steer_attributed_gate":
             loss = (
                 3.0 * normal_suppression
                 + 0.25 * high_default_normal
@@ -858,6 +957,44 @@ def classify_v4_steer_attributed_residual_calibration(
     return "v4_steer_attributed_calibration_no_gap_lift"
 
 
+def classify_v4_active_steer_guard_calibration(
+    *,
+    actor_changed: bool,
+    residual_changed: bool,
+    low_margin_corpus_pass: bool,
+    separability_pass: bool,
+    reconstruction_success_rate: float,
+    metadata_missing_rows: int,
+    strong_candidate_count: int,
+    limited_candidate_count: int,
+    any_gap_lift: bool,
+    active_margin_pass: bool,
+    ppo_used: bool,
+    promoted: bool,
+) -> str:
+    if (
+        bool(actor_changed)
+        or bool(residual_changed)
+        or bool(ppo_used)
+        or bool(promoted)
+        or int(metadata_missing_rows) > 0
+    ):
+        return "v4_active_steer_guard_metadata_artifact"
+    if not bool(low_margin_corpus_pass):
+        return "v4_active_steer_guard_low_margin_corpus_blocked"
+    if not bool(separability_pass):
+        return "v4_active_steer_guard_deployable_feature_separation_failed"
+    if float(reconstruction_success_rate) < 0.98:
+        return "v4_active_steer_guard_reconstruction_blocked"
+    if int(strong_candidate_count) > 0:
+        return "v4_active_steer_guard_strong_candidate"
+    if int(limited_candidate_count) > 0:
+        return "v4_active_steer_guard_limited_candidate"
+    if bool(any_gap_lift) and not bool(active_margin_pass):
+        return "v4_active_steer_guard_active_margin_failed"
+    return "v4_active_steer_guard_no_gap_lift"
+
+
 def run_v4_normal_margin_residual_calibration(
     *,
     checkpoint_path: Path,
@@ -904,6 +1041,147 @@ def run_v4_normal_margin_residual_calibration(
     contrast_rows = _read_csv_rows(contrast_rows_path)
     metadata_missing_rows = sum(1 for row in all_positives if _metadata_missing(row))
     base_normal_margin_by_group, active_alpha_0125_margin = _parent_margin_lookup(parent_replay_rows_path)
+    low_margin_guard_rows: list[dict[str, Any]] = []
+    low_margin_guard_summary: dict[str, Any] = {
+        "low_margin_guard_row_count": 0,
+        "low_margin_unique_source_count": 0,
+        "low_margin_unique_seed_count": 0,
+        "low_margin_unique_source_index_count": 0,
+        "low_margin_unique_fault_pair_count": 0,
+        "low_margin_max_seed_dominance": 1.0,
+        "low_margin_corpus_pass": True,
+    }
+    if str(objective_mode) == "active_steer_guard":
+        low_margin_guard_rows, low_margin_guard_summary = _select_active_steer_guard_rows(parent_replay_rows_path)
+        if not _bool(low_margin_guard_summary.get("low_margin_corpus_pass")):
+            calibrator = SteerAttributedResidualGate(feature_dim=feature_dim, initial_gate=float(initial_gate))
+            actor_checksum_after = model_parameter_checksum(model)
+            residual_checksum_after = model_parameter_checksum(residual_head)
+            calibrator_checksum = model_parameter_checksum(calibrator)
+            torch.save(
+                {
+                    "state_dict": calibrator.state_dict(),
+                    "feature_dim": int(feature_dim),
+                    "hidden_dim": int(calibrator.hidden_dim),
+                    "output_dim": int(calibrator.output_dim),
+                    "learned_output_dim": int(calibrator.learned_output_dim),
+                    "throttle_mode": str(calibrator.throttle_mode),
+                    "initial_gate": float(calibrator.initial_gate),
+                    "seed": int(seed),
+                    "alpha_train": float(alpha_train),
+                    "objective_mode": str(objective_mode),
+                    "checkpoint": str(checkpoint_path),
+                    "residual_head": str(residual_head_path),
+                },
+                run_dir / "calibrator.pt",
+            )
+            separability_rows = [
+                {
+                    "stage": "corpus_selection",
+                    **low_margin_guard_summary,
+                    "separability_pass": False,
+                    "skip_reason": "source_diverse_low_margin_corpus_blocked",
+                }
+            ]
+            result_class = classify_v4_active_steer_guard_calibration(
+                actor_changed=bool(actor_checksum_before != actor_checksum_after),
+                residual_changed=bool(residual_checksum_before != residual_checksum_after),
+                low_margin_corpus_pass=False,
+                separability_pass=False,
+                reconstruction_success_rate=0.0,
+                metadata_missing_rows=metadata_missing_rows,
+                strong_candidate_count=0,
+                limited_candidate_count=0,
+                any_gap_lift=False,
+                active_margin_pass=False,
+                ppo_used=False,
+                promoted=False,
+            )
+            empty_rows: list[dict[str, Any]] = []
+            write_csv_rows(run_dir / "training_metrics.csv", empty_rows)
+            write_csv_rows(run_dir / "calibration_metrics.csv", empty_rows)
+            write_csv_rows(run_dir / "replay_rows.csv", empty_rows)
+            write_csv_rows(run_dir / "objective_rows.csv", empty_rows)
+            write_csv_rows(run_dir / "alpha_metrics.csv", empty_rows)
+            write_csv_rows(run_dir / "gate_metrics.csv", empty_rows)
+            write_csv_rows(run_dir / "component_gate_metrics.csv", empty_rows)
+            write_csv_rows(run_dir / "active_source_metrics.csv", empty_rows)
+            write_csv_rows(run_dir / "low_margin_guard_rows.csv", low_margin_guard_rows)
+            write_csv_rows(run_dir / "separability_metrics.csv", separability_rows)
+            write_csv_rows(run_dir / "rejected_rows.csv", upfront_rejected_rows)
+            summary = {
+                "run_type": "v4_active_steer_guard_calibration",
+                "checkpoint": checkpoint_path,
+                "residual_head": residual_head_path,
+                "parent_replay_rows": parent_replay_rows_path,
+                "positive_rows_input": positive_rows_path,
+                "contrast_rows_input": contrast_rows_path,
+                "scenario_config": scenario_config_path,
+                "positive_rows": int(len(all_positives)),
+                "supported_positive_rows": int(len(supported_positives)),
+                "reconstructed_rows": 0,
+                "sample_reconstruction_success_rate": 0.0,
+                "metadata_missing_rows": int(metadata_missing_rows),
+                "rejected_rows": int(len(upfront_rejected_rows)),
+                "replay_rows": 0,
+                "objective_rows": 0,
+                "epochs": int(epochs),
+                "seed": int(seed),
+                "lr": float(lr),
+                "alpha_train": float(alpha_train),
+                "objective_mode": str(objective_mode),
+                "initial_gate": float(initial_gate),
+                "low_margin_cutoff": float(low_margin_cutoff),
+                "gap_lift": float(gap_lift),
+                "high_default_gate": float(high_default_gate),
+                "active_normal_gate_max": float(active_normal_gate_max),
+                "intervention_gate_floor": float(intervention_gate_floor),
+                "gate_contrast_margin": float(gate_contrast_margin),
+                "alphas": [float(alpha) for alpha in alphas],
+                "candidate_alpha_count": 0,
+                "candidate_alphas": [],
+                "strong_candidate_alpha_count": 0,
+                "strong_candidate_alphas": [],
+                "limited_candidate_alpha_count": 0,
+                "limited_candidate_alphas": [],
+                "best_candidate": {},
+                "low_margin_corpus_pass": False,
+                **low_margin_guard_summary,
+                "separability_pass": False,
+                "actor_backbone_changed": bool(actor_checksum_before != actor_checksum_after),
+                "base_actor_checksum_before": actor_checksum_before,
+                "base_actor_checksum_after": actor_checksum_after,
+                "base_residual_head_changed": bool(residual_checksum_before != residual_checksum_after),
+                "base_residual_head_checksum_before": residual_checksum_before,
+                "base_residual_head_checksum_after": residual_checksum_after,
+                "calibrator_checksum": calibrator_checksum,
+                "calibrator_parameter_count": int(sum(parameter.numel() for parameter in calibrator.parameters())),
+                "calibrator_output_dim": int(calibrator.output_dim),
+                "calibrator_learned_output_dim": int(calibrator.learned_output_dim),
+                "gate_throttle_mode": str(calibrator.throttle_mode),
+                "optimizer_started": False,
+                "training_started": False,
+                "optimizer_updates_only_calibrator": True,
+                "ppo_used": False,
+                "promoted": False,
+                "checkpoint_promoted": False,
+                "result_class": result_class,
+                "summary_json": run_dir / "summary.json",
+                "alpha_metrics_csv": run_dir / "alpha_metrics.csv",
+                "gate_metrics_csv": run_dir / "gate_metrics.csv",
+                "component_gate_metrics_csv": run_dir / "component_gate_metrics.csv",
+                "active_source_metrics_csv": run_dir / "active_source_metrics.csv",
+                "low_margin_guard_rows_csv": run_dir / "low_margin_guard_rows.csv",
+                "separability_metrics_csv": run_dir / "separability_metrics.csv",
+                "calibration_metrics_csv": run_dir / "calibration_metrics.csv",
+                "training_metrics_csv": run_dir / "training_metrics.csv",
+                "replay_rows_csv": run_dir / "replay_rows.csv",
+                "objective_rows_csv": run_dir / "objective_rows.csv",
+                "rejected_rows_csv": run_dir / "rejected_rows.csv",
+                "calibrator_pt": run_dir / "calibrator.pt",
+            }
+            write_json(run_dir / "summary.json", summary)
+            return summary
     samples, meta_rows, sample_rejected_rows = _load_probe_samples(
         model=model,
         positive_rows=supported_positives,
@@ -920,7 +1198,7 @@ def run_v4_normal_margin_residual_calibration(
                 initial_gate=float(initial_gate),
                 output_dim=3,
             )
-        elif str(objective_mode) == "steer_attributed_gate":
+        elif str(objective_mode) in {"steer_attributed_gate", "active_steer_guard"}:
             calibrator = SteerAttributedResidualGate(feature_dim=feature_dim, initial_gate=float(initial_gate))
         else:
             calibrator = ResidualGate(
@@ -1095,7 +1373,7 @@ def run_v4_normal_margin_residual_calibration(
                 }
             )
     reconstruction_rate = float(len({str(row["contrast_group_id"]) for row in objective_rows}) / max(len(all_positives), 1))
-    if str(objective_mode) == "steer_attributed_gate":
+    if str(objective_mode) in {"steer_attributed_gate", "active_steer_guard"}:
         candidate_mode = "steer_attributed_gate"
     elif str(objective_mode) == "vector_gate":
         candidate_mode = "vector_gate"
@@ -1108,7 +1386,7 @@ def run_v4_normal_margin_residual_calibration(
         candidate_mode=candidate_mode,
     )
     candidate_rows = [row for row in alpha_rows if _bool(row.get("normal_margin_calibration_candidate", False))]
-    if str(objective_mode) == "steer_attributed_gate":
+    if str(objective_mode) in {"steer_attributed_gate", "active_steer_guard"}:
         strong_candidate_rows = [row for row in alpha_rows if _bool(row.get("steer_strong_candidate", False))]
         limited_candidate_rows = [row for row in alpha_rows if _bool(row.get("steer_limited_candidate", False))]
     else:
@@ -1126,7 +1404,7 @@ def run_v4_normal_margin_residual_calibration(
         and max(_finite_float(row.get("component_gate_std_mean"), default=0.0) for row in alpha_rows) <= 0.02
     )
     steer_component_collapse = bool(
-        str(objective_mode) == "steer_attributed_gate"
+        str(objective_mode) in {"steer_attributed_gate", "active_steer_guard"}
         and alpha_rows
         and max(_finite_float(row.get("active_source_steer_gate_contrast"), default=0.0) for row in alpha_rows)
         < 0.05
@@ -1134,7 +1412,28 @@ def run_v4_normal_margin_residual_calibration(
     actor_checksum_after = model_parameter_checksum(model)
     residual_checksum_after = model_parameter_checksum(residual_head)
     calibrator_checksum = model_parameter_checksum(calibrator)
-    if str(objective_mode) == "steer_attributed_gate":
+    if str(objective_mode) == "active_steer_guard":
+        active_margin_pass = any(
+            abs(float(row.get("alpha", 0.0)) - 0.2) <= 1e-12
+            and _finite_float(row.get("active_source_min_margin")) >= M786_ALPHA_015_ACTIVE_MARGIN
+            for row in alpha_rows
+        )
+        separability_pass = any(_bool(row.get("steer_component_selectivity_pass")) for row in alpha_rows)
+        result_class = classify_v4_active_steer_guard_calibration(
+            actor_changed=bool(actor_checksum_before != actor_checksum_after),
+            residual_changed=bool(residual_checksum_before != residual_checksum_after),
+            low_margin_corpus_pass=_bool(low_margin_guard_summary.get("low_margin_corpus_pass", False)),
+            separability_pass=separability_pass,
+            reconstruction_success_rate=reconstruction_rate,
+            metadata_missing_rows=metadata_missing_rows,
+            strong_candidate_count=len(strong_candidate_rows),
+            limited_candidate_count=len(limited_candidate_rows),
+            any_gap_lift=any_gap_lift,
+            active_margin_pass=active_margin_pass,
+            ppo_used=False,
+            promoted=False,
+        )
+    elif str(objective_mode) == "steer_attributed_gate":
         result_class = classify_v4_steer_attributed_residual_calibration(
             actor_changed=bool(actor_checksum_before != actor_checksum_after),
             residual_changed=bool(residual_checksum_before != residual_checksum_after),
@@ -1208,6 +1507,31 @@ def run_v4_normal_margin_residual_calibration(
         }
         for row in alpha_rows
     ]
+    if str(objective_mode) == "active_steer_guard":
+        separability_pass = any(_bool(row.get("steer_component_selectivity_pass")) for row in alpha_rows)
+        separability_rows = [
+            {
+                "stage": "closed_loop_gate_eval",
+                **low_margin_guard_summary,
+                "separability_pass": separability_pass,
+                "best_active_source_steer_gate_contrast": max(
+                    [
+                        _finite_float(row.get("active_source_steer_gate_contrast"))
+                        for row in alpha_rows
+                    ],
+                    default=float("nan"),
+                ),
+                "best_intervention_gap_mean": max(
+                    [
+                        _finite_float(row.get("intervention_action_gap_mean_vs_normal"))
+                        for row in alpha_rows
+                    ],
+                    default=float("nan"),
+                ),
+            }
+        ]
+    else:
+        separability_rows = []
     write_csv_rows(run_dir / "training_metrics.csv", train_rows)
     write_csv_rows(run_dir / "calibration_metrics.csv", train_rows[-1:] if train_rows else [])
     write_csv_rows(run_dir / "replay_rows.csv", replay_rows)
@@ -1216,9 +1540,14 @@ def run_v4_normal_margin_residual_calibration(
     write_csv_rows(run_dir / "gate_metrics.csv", gate_metric_rows)
     write_csv_rows(run_dir / "component_gate_metrics.csv", component_gate_rows)
     write_csv_rows(run_dir / "active_source_metrics.csv", active_source_rows)
+    write_csv_rows(run_dir / "low_margin_guard_rows.csv", low_margin_guard_rows)
+    write_csv_rows(run_dir / "separability_metrics.csv", separability_rows)
     write_csv_rows(run_dir / "rejected_rows.csv", rejected_rows)
     summary = {
         "run_type": (
+            "v4_active_steer_guard_calibration"
+            if str(objective_mode) == "active_steer_guard"
+            else
             "v4_steer_attributed_residual_calibration"
             if str(objective_mode) == "steer_attributed_gate"
             else "v4_normal_margin_residual_calibration"
@@ -1259,6 +1588,13 @@ def run_v4_normal_margin_residual_calibration(
         "best_candidate": candidate_rows[0] if candidate_rows else {},
         "component_collapse": component_collapse,
         "steer_component_collapse": steer_component_collapse,
+        "low_margin_corpus_pass": _bool(low_margin_guard_summary.get("low_margin_corpus_pass", True)),
+        **low_margin_guard_summary,
+        "separability_pass": (
+            any(_bool(row.get("steer_component_selectivity_pass")) for row in alpha_rows)
+            if str(objective_mode) == "active_steer_guard"
+            else False
+        ),
         "steer_component_selectivity_alpha_count": int(
             sum(1 for row in alpha_rows if _bool(row.get("steer_component_selectivity_pass")))
         ),
@@ -1294,6 +1630,8 @@ def run_v4_normal_margin_residual_calibration(
         "gate_metrics_csv": run_dir / "gate_metrics.csv",
         "component_gate_metrics_csv": run_dir / "component_gate_metrics.csv",
         "active_source_metrics_csv": run_dir / "active_source_metrics.csv",
+        "low_margin_guard_rows_csv": run_dir / "low_margin_guard_rows.csv",
+        "separability_metrics_csv": run_dir / "separability_metrics.csv",
         "calibration_metrics_csv": run_dir / "calibration_metrics.csv",
         "training_metrics_csv": run_dir / "training_metrics.csv",
         "replay_rows_csv": run_dir / "replay_rows.csv",
@@ -1321,7 +1659,13 @@ def main() -> None:
     parser.add_argument("--alpha-train", type=float, default=0.2)
     parser.add_argument(
         "--objective-mode",
-        choices=["margin_suppression", "asymmetric_gate", "vector_gate", "steer_attributed_gate"],
+        choices=[
+            "margin_suppression",
+            "asymmetric_gate",
+            "vector_gate",
+            "steer_attributed_gate",
+            "active_steer_guard",
+        ],
         default="margin_suppression",
     )
     parser.add_argument("--initial-gate", type=float, default=0.5)

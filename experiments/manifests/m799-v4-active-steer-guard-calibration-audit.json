@@ -1,0 +1,108 @@
+{
+  "id": "m799-v4-active-steer-guard-calibration-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "scenario_sampling_failure",
+    "private_holdout_contamination"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m798-v4-active-steer-guard-calibration-implementation.md",
+      "runs/m798_v4_active_steer_guard_calibration/summary.json",
+      "runs/m798_v4_active_steer_guard_calibration/low_margin_guard_rows.csv",
+      "runs/m798_v4_active_steer_guard_calibration/separability_metrics.csv",
+      "docs/m797-v4-active-steer-guard-calibration-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m798-v4-active-steer-guard-calibration-implementation.json"
+    ],
+    "parent_objective": [
+      "audit active-steer guard corpus blocker"
+    ],
+    "derived_from": [
+      "m798-v4-active-steer-guard-calibration-implementation"
+    ],
+    "blocked_by": [
+      "m798-v4-active-steer-guard-calibration-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m799-v4-active-steer-guard-calibration-audit.md",
+  "public_gates": [
+    "M799 audits M798 without training",
+    "M799 classifies whether low-margin corpus block is valid",
+    "M799 decides source-diverse corpus refresh versus branch stop",
+    "M799 blocks PPO and promotion"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train any parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not weaken low-margin source-diversity gates after seeing M798",
+    "do not tune only the single public active source",
+    "do not claim broad generalization from public M773 rows"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_steer_attributed_residual_calibration",
+    "evidence_axis": "G_action: active-steer guard corpus audit",
+    "evidence_increment": "audits whether M798's low-margin corpus block requires a corpus refresh before further residual calibration",
+    "claim_scope": "audit decision only; no training PPO or driver promotion",
+    "stop_condition": [
+      "stop if M798 artifacts are inconsistent with no-training invariants",
+      "stop if the only next step is single active-source tuning",
+      "stop if branch cadence requires synthesis before another implementation"
+    ],
+    "fallback_plan": [
+      "if corpus block is valid, design source-diverse low-margin corpus refresh",
+      "if corpus block is a tooling artifact, repair M798 before interpretation",
+      "if residual branch is exhausted, synthesize and pivot to broader scenario distribution evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M798 blocked before training due low-margin source-diversity failure",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M798's low-margin corpus block is a valid process gate and should route the branch toward source-diverse low-margin corpus refresh before further calibration.",
+  "success_criteria": [
+    "M799 documents supported and falsified claims from M798",
+    "M799 classifies the blocker",
+    "M799 identifies the next blocker",
+    "M799 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "audit reruns training or PPO",
+    "audit promotes a checkpoint",
+    "audit weakens source-diversity gates",
+    "audit ignores single-source overfit risk"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m799-v4-active-steer-guard-calibration-audit.md from M798 artifacts; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m799-v4-active-steer-guard-calibration-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m798-v4-active-steer-guard-calibration-implementation.md",
+    "runs/m798_v4_active_steer_guard_calibration/summary.json",
+    "runs/m798_v4_active_steer_guard_calibration/low_margin_guard_rows.csv",
+    "runs/m798_v4_active_steer_guard_calibration/separability_metrics.csv"
+  ],
+  "decision_rule": "M799 may only audit M798 and select the next blocker. It must not train, run PPO, mutate actor or residual parameters, or promote a checkpoint.",
+  "next_blocker": "m800-v4-low-margin-source-diverse-corpus-refresh-design"
+}

@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M798 implements the active steer guard corpus gate and correctly blocks before training because current low-margin rows are 12 variants of one source only",
+  "failure_criteria": [
+    "implementation trains actor or residual parameters",
+    "implementation runs PPO",
+    "implementation promotes a checkpoint",
+    "implementation omits separability or source-diverse low-margin metrics",
+    "implementation weakens comparison thresholds"
+  ],
+  "failure_types": [
+    "objective_overfit",
+    "behavior_regression",
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train the base actor",
+    "do not train the M761 residual head",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add oracle deploy-time inputs",
+    "do not weaken M786 or M780 thresholds",
+    "do not tune only the single public active source",
+    "do not skip separability or source-diverse low-margin checks"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T044357Z",
+  "hypothesis": "A lexicographic active/source-diverse steer guard can convert M795's collision-free strong-gap near miss into a safer diagnostic candidate.",
+  "lineage": {
+    "blocked_by": [
+      "m797-v4-active-steer-guard-calibration-design"
+    ],
+    "derived_from": [
+      "m797-v4-active-steer-guard-calibration-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m797-v4-active-steer-guard-calibration-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m797-v4-active-steer-guard-calibration-design.md",
+      "docs/m796-v4-steer-attributed-residual-calibration-audit.md",
+      "runs/m795_v4_steer_attributed_residual_calibration/summary.json",
+      "runs/m795_v4_steer_attributed_residual_calibration/alpha_metrics.csv",
+      "runs/m795_v4_steer_attributed_residual_calibration/gate_metrics.csv",
+      "runs/m795_v4_steer_attributed_residual_calibration/component_gate_metrics.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/contrast_rows.csv"
+    ],
+    "parent_objective": [
+      "implement no-PPO active-steer guard calibration diagnostic"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m798-v4-active-steer-guard-calibration-implementation",
+  "next_blocker": "m799-v4-active-steer-guard-calibration-audit",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "v4_active_steer_guard_low_margin_corpus_blocked",
+  "public_gates": [
+    "M798 implements active-steer guard calibration only",
+    "M798 freezes base actor and M761 residual head",
+    "M798 trains only the small steer/brake calibrator",
+    "M798 runs separability and low-margin guard checks before closed-loop candidate claims",
+    "M798 blocks PPO and checkpoint promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m798_v4_active_steer_guard_calibration/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "v4_active_steer_guard_low_margin_corpus_blocked",
+    "milestone": "m798-v4-active-steer-guard-calibration-implementation",
+    "reason": "M798 implements the active steer guard corpus gate and correctly blocks before training because current low-margin rows are 12 variants of one source only",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M798 writes run artifacts and docs",
+    "M798 confirms actor and residual head checksums unchanged",
+    "M798 trains only calibrator parameters",
+    "M798 reports separability metrics and low-margin guard rows",
+    "M798 classifies the result with the M797 taxonomy"
+  ],
+  "type": "infrastructure"
+}
