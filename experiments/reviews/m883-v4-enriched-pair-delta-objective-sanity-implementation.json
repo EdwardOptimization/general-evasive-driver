@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M883 may only implement exact no-update objective sanity. It must not train, run PPO, promote, or claim objective usefulness without later audit.",
+  "decision_reason": "M883 reconstructs all 247 tensor rows with zero missing tensors and finite improvement degradation objective losses",
   "failure_criteria": [
     "M883 trains actor or residual-head parameters",
     "M883 runs PPO",
@@ -24,7 +24,7 @@
     "do not hide tensor reconstruction failures"
   ],
   "gate_tier": "infrastructure",
-  "generated_at_utc": "20260525T190713Z",
+  "generated_at_utc": "20260525T191436Z",
   "hypothesis": "The enriched pair-delta rows can be converted into an exact no-update objective-sanity artifact with finite improvement/degradation preference losses, provided actor observation and recurrent hidden tensors can be reconstructed deterministically.",
   "lineage": {
     "blocked_by": [
@@ -42,6 +42,9 @@
     ],
     "parent_dataset": [
       "docs/m882-v4-enriched-pair-delta-objective-design.md",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv",
       "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_train_public_rows.csv",
       "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_eval_public_rows.csv",
       "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_source_holdout_public_rows.csv",
@@ -55,7 +58,7 @@
   "milestone": "m883-v4-enriched-pair-delta-objective-sanity-implementation",
   "next_blocker": "Enriched pair-delta exact objective sanity has not yet been implemented",
   "private_holdout_policy": "promotion_only",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "v4_enriched_pair_delta_objective_sanity_pass",
   "public_gates": [
     "M883 must implement exact no-update sanity only",
     "M883 must reconstruct actor observation and recurrent hidden tensors or stop",
@@ -63,7 +66,20 @@
     "M883 must write exact objective metrics and reconstruction diagnostics",
     "M883 must keep actor update PPO and promotion blocked"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "runs/m883_v4_enriched_pair_delta_objective_sanity/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "v4_enriched_pair_delta_objective_sanity_pass",
+    "milestone": "m883-v4-enriched-pair-delta-objective-sanity-implementation",
+    "reason": "M883 reconstructs all 247 tensor rows with zero missing tensors and finite improvement degradation objective losses",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "M883 writes exact objective metrics per split",
     "M883 reconstructs required actor-state tensors or reports a hard blocker",

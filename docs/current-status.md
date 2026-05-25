@@ -62,16 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m883-v4-enriched-pair-delta-objective-sanity-implementation
+m884-v4-pair-delta-objective-readiness-branch-synthesis
 ```
 
-M882 designed the enriched pair-delta objective terms. M883 must implement
-exact no-update objective sanity or expose actor-state tensor reconstruction as
-the next hard blocker. Actor update, PPO, promotion, base actor mutation, and
-M761 residual-head mutation remain blocked.
+M883 implemented exact no-update enriched pair-delta objective sanity and
+passed. M884 must synthesize the M875-M883 objective-readiness branch before
+any objective-only actor update, PPO, promotion, base actor mutation, or M761
+residual-head mutation.
 
 ## Recent Evidence Line
 
+- M883 implements exact no-update enriched pair-delta objective sanity and
+  passes. It reconstructs all `247` expected actor-state rows with `0` missing
+  tensors and `0` snapshot rejections, computes finite improvement/degradation
+  preference losses, and leaves actor parameters unchanged. This is still not an
+  update result, so the next step is M884 branch synthesis before objective-only
+  probe work.
 - M882 designs exact no-update pair-delta objective sanity. Improvement rows
   should prefer the override action over the normal action under the same
   normal observation/hidden state; degradation rows should prefer the normal

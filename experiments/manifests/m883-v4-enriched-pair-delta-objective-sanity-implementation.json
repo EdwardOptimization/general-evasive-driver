@@ -16,6 +16,9 @@
     ],
     "parent_dataset": [
       "docs/m882-v4-enriched-pair-delta-objective-design.md",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv",
       "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_train_public_rows.csv",
       "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_eval_public_rows.csv",
       "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_source_holdout_public_rows.csv",
@@ -93,7 +96,7 @@
   "commands": [
     {
       "name": "objective_sanity",
-      "command": "PYTHONPATH=src python -m autodrift.v4_enriched_pair_delta_objective_sanity --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --objective-train-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_train_public_rows.csv --objective-eval-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_eval_public_rows.csv --source-holdout-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_source_holdout_public_rows.csv --new-signature-holdout-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_new_signature_holdout_public_rows.csv --run-dir runs/m883_v4_enriched_pair_delta_objective_sanity"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_enriched_pair_delta_objective_sanity --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --residual-head runs/m761_v4_sequence_objective_probe/residual_head.pt --scenario-config configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json --source-rows runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv --objective-train-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_train_public_rows.csv --objective-eval-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_eval_public_rows.csv --source-holdout-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_source_holdout_public_rows.csv --new-signature-holdout-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_new_signature_holdout_public_rows.csv --run-dir runs/m883_v4_enriched_pair_delta_objective_sanity --device cpu"
     }
   ],
   "required_artifacts": [
