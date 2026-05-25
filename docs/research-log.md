@@ -13584,3 +13584,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M834 designs the no-training full wrong-history response/action intervention after M833 found hidden-only injection too weak. The design preserves the P0 72-dim actor contract and treats all swaps as offline counterfactuals on deployable fields. It separates `wrong_hidden_only`, `wrong_ego_response_obs`, `wrong_action_history_obs`, `wrong_response_action_obs`, and corresponding hidden-combined variants, while keeping left scene context and left environment dynamics fixed. Acceptance gates require normal near-boundary success, wrong-history response/action margin gap `>=0.01` or outcome drop, action drift `>=0.014`, source/fault/warm-up/onset diversity, and zero-command separation. M835 is admitted as no-training implementation only; PPO, training, promotion, hidden labels, oracle fields, and threshold relaxation remain blocked.
 - decision: `full_wrong_history_response_intervention_design_admit_m835`
 - next: `m835-v4-full-wrong-history-response-intervention-implementation`
+
+## 20260525T221500Z - m835-v4-full-wrong-history-response-intervention-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m835_v4_full_wrong_history_response_intervention`
+- artifact: `docs/m835-v4-full-wrong-history-response-intervention-implementation.md`
+- result: M835 implements no-training response/action observation swaps over all `60` M832 near-boundary pairs, yielding `540` replay rows and preserving actor/M761 residual-head checksums. The result class is `v4_full_wrong_history_response_intervention_all_weak`: accepted primary response-history rows, component-attribution rows, mitigation rows, and zero-command component-like rows are all `0`. Some response/action variants create action drift (`wrong_response_action_hidden max_action 0.0196`, `wrong_action_history_hidden max_action 0.0172`), but outcome effects remain tiny (`wrong_response_action_hidden max_gap 0.000302`, `wrong_response_action_obs max_gap 0.000274`, threshold `0.01`). Even zero-command has larger action drift and margin gap (`max_gap 0.00467`) but still fails the margin threshold. This strengthens the negative: current M568/M761 behavior is not outcome-sensitive to hidden or response/action counterfactuals on this pair set.
+- decision: `v4_full_wrong_history_response_intervention_all_weak`
+- next: `m836-v4-full-wrong-history-response-intervention-audit`

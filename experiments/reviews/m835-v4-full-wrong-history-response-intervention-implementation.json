@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M835 implements response/action stream wrong-history interventions and finds action drift without outcome evidence: zero accepted primary component or mitigation rows across 60 near-boundary pairs",
+  "failure_criteria": [
+    "M835 trains actor or residual-head parameters",
+    "M835 runs PPO",
+    "M835 promotes a checkpoint",
+    "M835 mutates actor input contract",
+    "M835 counts zero-command-only effects as wrong-history proof"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not train a calibrator",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels or oracle fields to actor input",
+    "do not count zero-command-only degradation as wrong-history proof",
+    "do not relax M832/M834 thresholds"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T115747Z",
+  "hypothesis": "Swapping deployable response/action observation fields from matched wrong-history sources will expose stronger counterfactual sensitivity than hidden-only injection.",
+  "lineage": {
+    "blocked_by": [
+      "full wrong-history response/action intervention is not yet implemented"
+    ],
+    "derived_from": [
+      "m834-v4-full-wrong-history-response-intervention-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m834-v4-full-wrong-history-response-intervention-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m834-v4-full-wrong-history-response-intervention-design.md",
+      "runs/m832_v4_near_boundary_wrong_history_pair_mining/near_boundary_pair_rows.csv",
+      "runs/m832_v4_near_boundary_wrong_history_pair_mining/accepted_boundary_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv"
+    ],
+    "parent_objective": [
+      "implement no-training full wrong-history response/action observation intervention"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m835-v4-full-wrong-history-response-intervention-implementation",
+  "next_blocker": "response/action stream wrong-history sensitivity has not yet been measured",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "v4_full_wrong_history_response_intervention_all_weak",
+  "public_gates": [
+    "M835 must implement no-training response/action observation interventions only",
+    "M835 must keep left scene context and left environment dynamics fixed",
+    "M835 must separate hidden-only ego-response-only action-history-only and response-plus-hidden variants",
+    "M835 must preserve actor and M761 residual-head checksums",
+    "M835 must not run PPO or promote a checkpoint"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m835_v4_full_wrong_history_response_intervention/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "v4_full_wrong_history_response_intervention_all_weak",
+    "milestone": "m835-v4-full-wrong-history-response-intervention-implementation",
+    "reason": "M835 implements response/action stream wrong-history interventions and finds action drift without outcome evidence: zero accepted primary component or mitigation rows across 60 near-boundary pairs",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M835 implements response/action observation intervention variants",
+    "M835 runs on M832 near-boundary pairs",
+    "M835 writes pair replay accepted variant component diversity gate and summary artifacts",
+    "M835 verifies actor and residual-head checksums unchanged",
+    "M835 classifies the result without PPO or promotion"
+  ],
+  "type": "infrastructure"
+}

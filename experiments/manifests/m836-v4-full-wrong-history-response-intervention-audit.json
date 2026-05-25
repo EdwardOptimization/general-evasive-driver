@@ -1,0 +1,109 @@
+{
+  "id": "m836-v4-full-wrong-history-response-intervention-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m835-v4-full-wrong-history-response-intervention-implementation.md",
+      "runs/m835_v4_full_wrong_history_response_intervention/summary.json",
+      "runs/m835_v4_full_wrong_history_response_intervention/variant_summary.csv",
+      "runs/m835_v4_full_wrong_history_response_intervention/response_intervention_replay_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m835-v4-full-wrong-history-response-intervention-implementation.json"
+    ],
+    "parent_objective": [
+      "audit all-weak full wrong-history response/action intervention result"
+    ],
+    "derived_from": [
+      "m835-v4-full-wrong-history-response-intervention-implementation"
+    ],
+    "blocked_by": [
+      "M835 found zero accepted response-history component mitigation rows and only tiny margin gaps"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m836-v4-full-wrong-history-response-intervention-audit.md",
+  "public_gates": [
+    "M836 must audit M835 before any new implementation",
+    "M836 must distinguish action drift from outcome evidence",
+    "M836 must decide whether to continue data/intervention mining or pivot to objective/architecture evidence",
+    "M836 must keep PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run replay in the audit",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not reinterpret action drift alone as self-ID proof",
+    "do not relax thresholds after seeing the result"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_new_data_route",
+    "evidence_axis": "G_intervention: audit full wrong-history response/action intervention",
+    "evidence_increment": "audits whether M835 all-weak result closes the no-training intervention route for current M568/M761 behavior",
+    "claim_scope": "audit only; no replay, PPO, or driver promotion",
+    "stop_condition": [
+      "stop if M835 artifacts are incomplete",
+      "stop if margin gaps remain far below threshold for all variants",
+      "stop if continuing would only chase action-drift metrics",
+      "stop if more no-training interventions would overfit M832 pairs"
+    ],
+    "fallback_plan": [
+      "if all variants are weak, pivot to objective/architecture evidence",
+      "if a variant was near pass, design focused audit rather than training",
+      "if artifacts are inconsistent, repair implementation first",
+      "if branch evidence is exhausted, synthesize and close or rename the branch"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M835 produced all-weak response/action intervention result",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M835 is a clean all-weak intervention result and should likely pivot the branch away from more no-training counterfactual mining.",
+  "success_criteria": [
+    "M836 writes an audit document for M835",
+    "M836 records per-variant action and margin effects",
+    "M836 separates action drift from outcome evidence",
+    "M836 classifies the failure taxonomy",
+    "M836 names the next blocker without admitting PPO or promotion"
+  ],
+  "failure_criteria": [
+    "M836 treats action drift alone as proof",
+    "M836 admits PPO or promotion",
+    "M836 proposes threshold relaxation as the main fix",
+    "M836 ignores M835 zero accepted rows"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m836-v4-full-wrong-history-response-intervention-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m836-v4-full-wrong-history-response-intervention-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m835-v4-full-wrong-history-response-intervention-implementation.md",
+    "runs/m835_v4_full_wrong_history_response_intervention/summary.json",
+    "runs/m835_v4_full_wrong_history_response_intervention/variant_summary.csv"
+  ],
+  "decision_rule": "M836 may only audit and route the next blocker. It must not run replay, train, run PPO, or promote.",
+  "next_blocker": "M568/M761 behavior is outcome-weak under hidden and response/action counterfactuals"
+}
