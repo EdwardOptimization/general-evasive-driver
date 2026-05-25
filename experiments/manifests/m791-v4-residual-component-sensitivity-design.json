@@ -1,0 +1,116 @@
+{
+  "id": "m791-v4-residual-component-sensitivity-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "behavior_regression",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m790-v4-vector-residual-calibration-audit.md",
+      "docs/m789-v4-vector-residual-calibration-implementation.md",
+      "runs/m789_v4_vector_residual_calibration/summary.json",
+      "runs/m789_v4_vector_residual_calibration/alpha_metrics.csv",
+      "runs/m789_v4_vector_residual_calibration/objective_rows.csv",
+      "runs/m789_v4_vector_residual_calibration/replay_rows.csv",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m790-v4-vector-residual-calibration-audit.json",
+      "experiments/manifests/m789-v4-vector-residual-calibration-implementation.json"
+    ],
+    "parent_objective": [
+      "design a no-training residual component sensitivity probe after vector gate component collapse"
+    ],
+    "derived_from": [
+      "m790-v4-vector-residual-calibration-audit"
+    ],
+    "blocked_by": [
+      "m790-v4-vector-residual-calibration-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m791-v4-residual-component-sensitivity-design.md",
+  "public_gates": [
+    "M791 designs an audit-only residual component sensitivity probe",
+    "M791 uses frozen M568 actor and frozen M761 residual head",
+    "M791 defines component masks for steer throttle brake and combinations",
+    "M791 defines active-source and intervention-gap metrics",
+    "M791 blocks training PPO and promotion"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not implement the probe",
+    "do not train actor residual or calibrator parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add oracle deploy-time inputs",
+    "do not weaken strict normal retention or gap metrics",
+    "do not claim broad generalization or true four-wheel physical fidelity"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_residual_component_sensitivity",
+    "evidence_axis": "G_action: residual component attribution design",
+    "evidence_increment": "moves from failed vector-gate training to no-training component attribution for the M761 residual head",
+    "claim_scope": "design only; no implementation training PPO or driver promotion",
+    "stop_condition": [
+      "stop if design trains any parameters",
+      "stop if design changes actor input contract",
+      "stop if design omits active-source alpha 0.2 analysis",
+      "stop if design admits promotion"
+    ],
+    "fallback_plan": [
+      "if component masks are insufficient, design trajectory-time component ablation",
+      "if active-source attribution is ambiguous, design focused active-source sweep",
+      "if no component explains gap or collision, stop residual calibration and return to corpus or architecture evidence",
+      "if one component dominates, design component-attributed vector objective"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M790 selects component sensitivity after vector-gate collapse",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A no-training residual component sensitivity design can identify which M761 residual action dimensions are responsible for intervention lift and active-source normal collision risk.",
+  "success_criteria": [
+    "M791 documents component masks and alpha ladder",
+    "M791 documents active-source and aggregate metrics",
+    "M791 documents how to compare each component mask against M780 M786 and M789",
+    "M791 keeps training PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "design trains parameters",
+    "design changes actor input contract",
+    "design weakens strict normal retention or gap thresholds",
+    "design omits active-source analysis",
+    "design admits PPO or promotion"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m791-v4-residual-component-sensitivity-design.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m791-v4-residual-component-sensitivity-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m790-v4-vector-residual-calibration-audit.md",
+    "runs/m789_v4_vector_residual_calibration/summary.json",
+    "runs/m789_v4_vector_residual_calibration/alpha_metrics.csv",
+    "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+  ],
+  "decision_rule": "M791 may only design a no-training residual component sensitivity probe. It must not implement, train, run PPO, mutate actor or residual parameters, or promote a checkpoint.",
+  "next_blocker": "m792-v4-residual-component-sensitivity-implementation"
+}

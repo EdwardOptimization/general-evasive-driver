@@ -62,15 +62,28 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m790-v4-vector-residual-calibration-audit
+m791-v4-residual-component-sensitivity-design
 ```
 
-M790 should audit the M789 component-collapse result before any further vector
-objective, PPO, or promotion. Base actor mutation, M761 residual-head mutation,
+M791 should design a no-training residual component sensitivity probe before
+another vector objective. Base actor mutation, M761 residual-head mutation,
 PPO, and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M790 audits M789 as a clean negative. The vector-gate implementation
+  preserved actor and residual checksums, trained only the 2179-parameter
+  calibrator, and wrote complete artifacts, so the negative is not a tooling
+  artifact. The audit confirms that M789 did not beat M786 alpha `0.15`: gap
+  mean improved by only about `5e-6`, while active-source margin dropped
+  slightly from `+0.000028246` to `+0.000027881`; alpha `0.2` still collides on
+  the same active source. The decisive failure is component collapse: final
+  normal gates are `0.671292/0.671167/0.671190`, final intervention gates are
+  `0.684914/0.684800/0.684820`, and `gate_component_std_mean` is only
+  `0.000066`. M790 classifies the primary issue as `objective_overfit`: without
+  component attribution, the vector gate found another scalar-like moderate
+  scaling solution. It blocks PPO/promotion and selects a no-training residual
+  component sensitivity design before another vector objective.
 - M789 extends the residual calibration tool with `objective_mode=vector_gate`,
   a 3-output steer/throttle/brake gate, component gate metrics, and vector
   candidate classification, then runs the registered no-PPO probe. It
