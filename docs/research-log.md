@@ -13556,3 +13556,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M831 synthesizes M821-M830 and records decision `continue`. The second branch window falsified fixed scalar/vector residual suppression on the M814/M817 corpus (`M821/M822` identity-only), produced broad but sparse extreme hidden-dynamics data (`M825` with `512` normal replays, `3072` interventions, `18` balanced self-ID rows), implemented wrong-cross-fault hidden injection (`M828`, `108/108` wrong-hidden actions closer to matched right action), and diagnosed the M828 failure as wide-margin pair sampling (`M829`, normal margin min `0.217669`, `0/108 <= 0.05`). M830's boundary-first pair-mining design is therefore admitted, but only as no-training data-route implementation. PPO, actor/residual-head training, learned gating, checkpoint promotion, threshold relaxation, and oracle deploy-time inputs remain blocked.
 - decision: `v4_low_margin_new_data_route_continue_to_near_boundary_wrong_history_pair_mining`
 - next: `m832-v4-near-boundary-wrong-history-pair-mining-implementation`
+
+## 20260525T213000Z - m832-v4-near-boundary-wrong-history-pair-mining-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m832_v4_near_boundary_wrong_history_pair_mining`
+- artifact: `docs/m832-v4-near-boundary-wrong-history-pair-mining-implementation.md`
+- result: M832 implements boundary-first matched different-fault pair mining. It reconstructs all `64` M825 source snapshots, produces `94` boundary replay rows and `39` accepted boundary rows with true near-boundary margins (`min 0.0000494`, `median 0.009952`, threshold `0.05`). This fixes M828's wide-margin source problem, but the matched pair gate remains sparse: `60` near-boundary pairs versus the pre-registered `80` minimum, with pair rejections dominated by obstacle distance (`389`), action gap (`177`), and same fault family (`115`). Wrong-history replay covers `420` rows across normal/reset/zero/shift/delay/wrong-hidden variants, but accepted primary wrong-history rows remain `0`; wrong-hidden first-action drift stays below threshold (`max 0.00665 < 0.014`) and margin gaps stay tiny (`max 0.0000369`). Actor and M761 residual-head checksums are unchanged, and no training/PPO/promotion occurs.
+- decision: `v4_near_boundary_wrong_history_pair_mining_pair_sparse`
+- next: `m833-v4-near-boundary-wrong-history-pair-mining-audit`

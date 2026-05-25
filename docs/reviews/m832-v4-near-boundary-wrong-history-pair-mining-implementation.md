@@ -1,0 +1,94 @@
+# m832-v4-near-boundary-wrong-history-pair-mining-implementation Research Review
+
+## Summary
+
+- Generated at UTC: 20260525T114417Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: v4_near_boundary_wrong_history_pair_mining_pair_sparse
+- Decision reason: M832 implements boundary-first pair mining and fixes boundary slack with 39 accepted boundary rows but finds only 60 near-boundary pairs and zero accepted wrong-history rows
+
+## Hypothesis
+
+Boundary-first matched different-fault mining will produce stronger wrong-history margin sensitivity than M828's wide-margin action-divergent pairs.
+
+## Lineage
+
+- parent_checkpoint: runs/m568_scaled_l3_bc_seed5660/checkpoint.pt
+- parent_dataset: docs/m831-v4-low-margin-new-data-route-second-branch-synthesis.md, docs/m830-v4-near-boundary-wrong-history-pair-mining-design.md, runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv, runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv, runs/m825_v4_extreme_hidden_dynamics_data_route/matched_pair_rows.csv, runs/m828_v4_wrong_cross_fault_history_intervention/wrong_history_replay_rows.csv
+- parent_config: experiments/manifests/m831-v4-low-margin-new-data-route-second-branch-synthesis.json, configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json
+- parent_objective: implement no-training near-boundary matched different-fault pair mining and wrong-history replay
+- derived_from: m831-v4-low-margin-new-data-route-second-branch-synthesis, m830-v4-near-boundary-wrong-history-pair-mining-design
+- blocked_by: near-boundary matched wrong-history pair source does not yet exist
+- supersedes: None
+- invalidates: None
+
+## Success Criteria
+
+- M832 implements the near-boundary pair-mining route
+- M832 runs the route with frozen M568 actor and M761 residual head
+- M832 writes required boundary pair replay accepted rejected diversity and summary artifacts
+- M832 verifies actor and residual-head checksums unchanged
+- M832 classifies the result as source-diverse positive sparse positive scenario-sampling negative or contract/runtime failure
+- M832 keeps PPO and promotion blocked
+
+## Failure Criteria
+
+- M832 trains actor or residual-head parameters
+- M832 runs PPO
+- M832 promotes a checkpoint
+- M832 uses hidden fault labels or oracle fields as actor inputs
+- M832 counts zero-command-only evidence as wrong-history proof
+- M832 ignores wide-margin boundary diagnostics
+
+## Evidence Gates
+
+- M832 must implement no-training near-boundary pair mining only
+- M832 must bracket normal-history rows before pair matching
+- M832 must keep wrong-history evidence separate from zero-command evidence
+- M832 must write source pair replay accepted rejected diversity gate and summary artifacts
+- M832 must preserve actor and M761 residual-head checksums
+- M832 must not run PPO or promote a checkpoint
+
+## Holdout Policy
+
+- promotion_only
+
+## Forbidden Shortcuts
+
+- do not train actor parameters
+- do not train M761 residual-head parameters
+- do not train a calibrator
+- do not run PPO
+- do not promote a checkpoint
+- do not relax M828 wrong-history thresholds
+- do not count wide-margin action-divergent pairs as boundary proof
+- do not count zero-command-only degradation as wrong-history proof
+- do not feed fault labels or hidden params to actor
+- do not claim true wheel-level fault fidelity from current proxy rows
+
+## Failure Taxonomy
+
+- scenario_sampling_failure
+- metric_artifact
+- objective_overfit
+- contract_violation
+
+## Scoreboard
+
+- milestone: m832-v4-near-boundary-wrong-history-pair-mining-implementation
+- type: infrastructure
+- checkpoint: runs/m832_v4_near_boundary_wrong_history_pair_mining/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: v4_near_boundary_wrong_history_pair_mining_pair_sparse
+- reason: M832 implements boundary-first pair mining and fixes boundary slack with 39 accepted boundary rows but finds only 60 near-boundary pairs and zero accepted wrong-history rows
+
+## Next Blocker
+
+near-boundary wrong-history evidence has not yet been measured

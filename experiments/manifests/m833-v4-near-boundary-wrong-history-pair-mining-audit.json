@@ -1,0 +1,111 @@
+{
+  "id": "m833-v4-near-boundary-wrong-history-pair-mining-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m832-v4-near-boundary-wrong-history-pair-mining-implementation.md",
+      "runs/m832_v4_near_boundary_wrong_history_pair_mining/summary.json",
+      "runs/m832_v4_near_boundary_wrong_history_pair_mining/diversity_summary.json",
+      "runs/m832_v4_near_boundary_wrong_history_pair_mining/near_boundary_pair_rows.csv",
+      "runs/m832_v4_near_boundary_wrong_history_pair_mining/wrong_history_replay_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m832-v4-near-boundary-wrong-history-pair-mining-implementation.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit pair-sparse near-boundary wrong-history mining result"
+    ],
+    "derived_from": [
+      "m832-v4-near-boundary-wrong-history-pair-mining-implementation"
+    ],
+    "blocked_by": [
+      "M832 found 39 boundary rows and 60 near-boundary pairs but zero accepted wrong-history rows"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m833-v4-near-boundary-wrong-history-pair-mining-audit.md",
+  "public_gates": [
+    "M833 must audit M832 before any new implementation",
+    "M833 must distinguish boundary coverage from wrong-history sensitivity",
+    "M833 must classify whether the blocker is pair sparsity or hidden-only weakness",
+    "M833 must keep PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run replay in the audit",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not relax wrong-history thresholds after seeing the result",
+    "do not count zero-command evidence as wrong-history proof"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_new_data_route",
+    "evidence_axis": "G_distribution: audit near-boundary wrong-history pair mining",
+    "evidence_increment": "audits whether M832 pair-sparse result is mainly boundary-source sparsity or hidden-only wrong-history weakness",
+    "claim_scope": "audit only; no replay, PPO, or driver promotion",
+    "stop_condition": [
+      "stop if M832 artifacts are incomplete",
+      "stop if the route only suggests threshold relaxation",
+      "stop if hidden-only injection remains weak despite near-boundary pairs",
+      "stop if further pair mining would overfit public rows"
+    ],
+    "fallback_plan": [
+      "if boundary coverage is the blocker, design broader source generation with held-out source families",
+      "if hidden-only injection is the blocker, pivot to full wrong-history observation replay or objective/architecture evidence",
+      "if artifacts are inconsistent, repair the implementation before interpreting the result",
+      "if evidence is exhausted, synthesize or stop the branch"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M832 produced pair-sparse hidden-only wrong-history negative after M831 synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M832 is a clean near-boundary data-route result, but the audit must decide whether to continue data coverage or pivot away from hidden-only wrong-history injection.",
+  "success_criteria": [
+    "M833 writes an audit document for M832",
+    "M833 records boundary row quality and pair sparsity",
+    "M833 records wrong-hidden action and margin effect sizes",
+    "M833 classifies the failure taxonomy",
+    "M833 names the next blocker without admitting PPO or promotion"
+  ],
+  "failure_criteria": [
+    "M833 ignores M832 zero accepted wrong-history rows",
+    "M833 admits PPO or promotion",
+    "M833 proposes threshold relaxation as the main fix",
+    "M833 fails to separate zero-command and wrong-history evidence"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m833-v4-near-boundary-wrong-history-pair-mining-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m833-v4-near-boundary-wrong-history-pair-mining-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m832-v4-near-boundary-wrong-history-pair-mining-implementation.md",
+    "runs/m832_v4_near_boundary_wrong_history_pair_mining/summary.json",
+    "runs/m832_v4_near_boundary_wrong_history_pair_mining/diversity_summary.json"
+  ],
+  "decision_rule": "M833 may only audit and route the next blocker. It must not run replay, train, run PPO, or promote.",
+  "next_blocker": "near-boundary pairs exist but hidden-only wrong-history remains below action and margin thresholds"
+}
