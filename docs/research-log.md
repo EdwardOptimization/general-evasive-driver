@@ -13706,3 +13706,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M847 implements the no-training real cross-source pair refresh. It builds `208` cross-source candidate pairs from M844 boundary rows, balances to `76` replayable pairs, reconstructs `76` pair rows across `18` unique snapshots, and evaluates `3648` sequence rows including `912` pair-delta rows. This fixes the M844 structural gap: accepted pair-delta rows increase from `0` to `17`. Overall accepted primary sequence-effective rows are `145`, with `115` success/collision flips and unchanged actor/M761 checksums. The result is `v4_cross_source_sequence_effective_pair_refresh_sparse_pair_positive`, not a strong corpus: pair-delta accepted rows are `17 < 30`, source groups are `9 < 10`, seeds `3 < 4`, left fault families `4 < 5`, max source dominance `0.3034 > 0.30`, max seed dominance `0.5517 > 0.35`, and direction dominance `0.6690 > 0.55`. Next is an audit before any objective training.
 - decision: `v4_cross_source_sequence_effective_pair_refresh_sparse_pair_positive`
 - next: `m848-v4-cross-source-sequence-effective-pair-refresh-audit`
+
+## 20260525T134041Z - m848-v4-cross-source-sequence-effective-pair-refresh-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m848-v4-cross-source-sequence-effective-pair-refresh-audit.md`
+- result: M848 audits M847 as a real pair-delta positive but source-concentrated result. The audit supports that real cross-source pairing works and pair-delta sequence controllability exists (`912` pair-delta rows, `17` accepted pair-delta rows), resolving M844's structural gap. It does not support objective training yet: the pair-delta accepted subset has only `3` left source groups, `2` left seeds, `2` left fault families, and max left source/seed dominance `0.7059`; the full accepted set is component-heavy (`97` throttle-axis rows versus `17` pair-delta rows). The next branch should mine pair-delta outcomes first and apply source/fault/seed balancing after observing pair-delta acceptance, with component directions retained only as controls.
+- decision: `admit_pair_delta_focused_source_balanced_mining_design`
+- next: `m849-v4-pair-delta-focused-source-balanced-mining-design`

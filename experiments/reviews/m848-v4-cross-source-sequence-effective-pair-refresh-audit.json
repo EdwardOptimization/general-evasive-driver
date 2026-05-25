@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M848 audits M847 as real pair-delta positive but too concentrated; next is pair-delta-focused source-balanced mining before objective design",
+  "failure_criteria": [
+    "M848 admits PPO or promotion",
+    "M848 trains actor or residual parameters",
+    "M848 ignores M847 pair-delta concentration",
+    "M848 treats direct sequence override rows as learned self-ID proof"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "forbidden_shortcuts": [
+    "do not run replay in M848",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat direct pair-delta sequence rows as learned self-ID proof",
+    "do not ignore accepted pair-delta concentration"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260525T134318Z",
+  "hypothesis": "M847 is a real pair-delta positive but source-concentrated result, so the next step should audit before any objective design.",
+  "lineage": {
+    "blocked_by": [
+      "M847 finds pair-delta sequence evidence but the accepted pair-delta subset is source/fault concentrated"
+    ],
+    "derived_from": [
+      "m847-v4-cross-source-sequence-effective-pair-refresh-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m847-v4-cross-source-sequence-effective-pair-refresh-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m847-v4-cross-source-sequence-effective-pair-refresh-implementation.md",
+      "runs/m847_v4_cross_source_sequence_effective_pair_refresh/summary.json",
+      "runs/m847_v4_cross_source_sequence_effective_pair_refresh/diversity_summary.json",
+      "runs/m847_v4_cross_source_sequence_effective_pair_refresh/accepted_pair_delta_rows.csv",
+      "runs/m847_v4_cross_source_sequence_effective_pair_refresh/accepted_sequence_effective_rows.csv"
+    ],
+    "parent_objective": [
+      "audit sparse pair-positive cross-source sequence-effectiveness result"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m848-v4-cross-source-sequence-effective-pair-refresh-audit",
+  "next_blocker": "M847 pair-delta evidence is positive but source/fault concentrated",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "admit_pair_delta_focused_source_balanced_mining_design",
+  "public_gates": [
+    "M848 must audit M847 before objective design",
+    "M848 must separate pair-delta evidence from component sequence evidence",
+    "M848 must decide whether to refine pair-delta corpus expand bracketing or synthesize",
+    "M848 must keep PPO and promotion blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m848-v4-cross-source-sequence-effective-pair-refresh-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "admit_pair_delta_focused_source_balanced_mining_design",
+    "milestone": "m848-v4-cross-source-sequence-effective-pair-refresh-audit",
+    "reason": "M848 audits M847 as real pair-delta positive but too concentrated; next is pair-delta-focused source-balanced mining before objective design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M848 writes an audit document for M847",
+    "M848 verifies M847 artifact completeness and frozen checksums",
+    "M848 classifies pair-delta concentration and failure taxonomy",
+    "M848 selects the next no-training branch or objective-sanity blocker",
+    "M848 keeps PPO and promotion blocked"
+  ],
+  "type": "gate"
+}

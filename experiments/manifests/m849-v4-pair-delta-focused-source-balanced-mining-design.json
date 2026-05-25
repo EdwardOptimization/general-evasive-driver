@@ -1,0 +1,112 @@
+{
+  "id": "m849-v4-pair-delta-focused-source-balanced-mining-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m848-v4-cross-source-sequence-effective-pair-refresh-audit.md",
+      "runs/m847_v4_cross_source_sequence_effective_pair_refresh/summary.json",
+      "runs/m847_v4_cross_source_sequence_effective_pair_refresh/pair_candidate_rows.csv",
+      "runs/m847_v4_cross_source_sequence_effective_pair_refresh/accepted_pair_delta_rows.csv",
+      "runs/m847_v4_cross_source_sequence_effective_pair_refresh/accepted_sequence_effective_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m848-v4-cross-source-sequence-effective-pair-refresh-audit.json"
+    ],
+    "parent_objective": [
+      "design pair-delta-focused source-balanced mining after M847 sparse pair-positive result"
+    ],
+    "derived_from": [
+      "m848-v4-cross-source-sequence-effective-pair-refresh-audit"
+    ],
+    "blocked_by": [
+      "M847 accepted pair-delta rows are positive but source/fault concentrated"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m849-v4-pair-delta-focused-source-balanced-mining-design.md",
+  "public_gates": [
+    "M849 must remain design-only",
+    "M849 must target pair-delta evidence rather than component-axis dominance",
+    "M849 must define source-balanced pair-delta gates",
+    "M849 must keep direct sequence evidence separate from learned self-ID proof",
+    "M849 must keep PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run replay in M849",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat M847 pair-delta overrides as learned self-ID proof",
+    "do not accept a component-only corpus as a pair-delta corpus",
+    "do not tune thresholds after seeing implementation results"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_source_diverse_sequence_effective_corpus",
+    "evidence_axis": "G_data: pair-delta-focused source-balanced mining design",
+    "evidence_increment": "designs a targeted no-training miner to broaden M847 pair-delta positives before objective design",
+    "claim_scope": "design only; no replay, PPO, learned policy claim, or driver promotion",
+    "stop_condition": [
+      "stop if the design cannot improve pair-delta source balance over M847",
+      "stop if it would train parameters",
+      "stop if component rows are allowed to satisfy pair-delta gates",
+      "stop if direct sequence override evidence is treated as learned self-ID proof"
+    ],
+    "fallback_plan": [
+      "if pair-delta-focused mining is feasible, implement it",
+      "if current candidates cannot support pair-delta diversity, design expanded boundary bracketing",
+      "if next implementation remains sparse, synthesize before objective design",
+      "if pair-delta corpus becomes source-diverse, audit before objective sanity"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M848 admits pair-delta-focused source-balanced mining design after M847 sparse pair-positive result",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A pair-delta-focused source-balanced mining design can broaden M847's positive but concentrated pair-delta evidence before objective training.",
+  "success_criteria": [
+    "M849 writes a design document for pair-delta-focused source-balanced mining",
+    "M849 defines pair-delta-only primary gates",
+    "M849 defines source/fault/seed balance gates",
+    "M849 specifies implementation artifacts and fallback to boundary expansion",
+    "M849 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M849 admits PPO or promotion",
+    "M849 trains actor or residual parameters",
+    "M849 accepts component-only positives as pair-delta positives",
+    "M849 ignores M847 pair-delta concentration"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m849-v4-pair-delta-focused-source-balanced-mining-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m849-v4-pair-delta-focused-source-balanced-mining-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m848-v4-cross-source-sequence-effective-pair-refresh-audit.md",
+    "runs/m847_v4_cross_source_sequence_effective_pair_refresh/summary.json",
+    "runs/m847_v4_cross_source_sequence_effective_pair_refresh/accepted_pair_delta_rows.csv"
+  ],
+  "decision_rule": "M849 may only design a no-training pair-delta-focused source-balanced miner. It must not run replay, train, run PPO, or promote.",
+  "next_blocker": "M847 pair-delta evidence is positive but too source/fault concentrated for objective design"
+}

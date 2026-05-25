@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 856,
+    "completed": 857,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m847-v4-cross-source-sequence-effective-pair-refresh-implementation",
+    "task_id": "m848-v4-cross-source-sequence-effective-pair-refresh-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m847_v4_cross_source_sequence_effective_pair_refresh/summary.json"
+    "command_log": "docs/m848-v4-cross-source-sequence-effective-pair-refresh-audit.md"
   },
   "next_task": {
-    "id": "m848-v4-cross-source-sequence-effective-pair-refresh-audit",
+    "id": "m849-v4-pair-delta-focused-source-balanced-mining-design",
     "status": "pending",
-    "priority": 8430,
-    "kind": "gate",
-    "hypothesis": "Audit sparse pair-positive cross-source sequence-effectiveness result",
-    "command": "see experiments/manifests/m848-v4-cross-source-sequence-effective-pair-refresh-audit.json",
-    "success_artifact": "docs/m848-v4-cross-source-sequence-effective-pair-refresh-audit.md",
-    "notes": "Pending: M847 found real pair-delta sequence evidence but accepted pair-delta rows are source concentrated"
+    "priority": 8440,
+    "kind": "infrastructure",
+    "hypothesis": "Design pair-delta-focused source-balanced mining",
+    "command": "see experiments/manifests/m849-v4-pair-delta-focused-source-balanced-mining-design.json",
+    "success_artifact": "docs/m849-v4-pair-delta-focused-source-balanced-mining-design.md",
+    "notes": "Pending: M848 admits pair-delta-focused source-balanced mining because M847 pair-delta positives are concentrated"
   },
-  "updated_at_utc": "20260525T133551Z"
+  "updated_at_utc": "20260525T134041Z"
 }
