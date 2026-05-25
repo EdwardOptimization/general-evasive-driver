@@ -62,16 +62,24 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m857-v4-boundary-new-to-m844-bracket-trace-implementation
+m858-v4-boundary-new-to-m844-bracket-trace-audit
 ```
 
-M857 should implement the M856 no-training trace-first diagnostic for M854
-boundary-new-to-M844 no-bracket failures before any boundary-range change,
-source generation, or pair-delta replay. PPO, promotion, base actor mutation,
-M761 residual-head mutation, and pair-delta sequence replay remain blocked.
+M858 should audit the M857 all-safe-wide boundary-new-to-M844 trace result
+before closer obstacle/source generation design. PPO, promotion, base actor
+mutation, M761 residual-head mutation, and pair-delta sequence replay remain
+blocked.
 
 ## Recent Evidence Line
 
+- M857 implements the no-training trace diagnostic. It traces `44` primary
+  boundary-new-to-M844 sources and `8` recovered controls, reconstructs all
+  `52` snapshots, writes `1924` bracket trace rows, and classifies `132`
+  primary source-axis rows. The primary cause is `all_safe_wide`:
+  `114/132 = 0.863636`; `18/132 = 0.136364` are
+  `all_collision_or_negative`; accepted extended boundary axes are `0`. This
+  rules out simple same-source axis widening as the best next route and points
+  toward closer obstacle/source generation after audit.
 - M856 designs a full parameter/outcome trace diagnostic for
   boundary-new-to-M844 source axes. The next implementation must preserve every
   initial and extended grid evaluation over obstacle lateral offset, timing, and

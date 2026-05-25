@@ -109,6 +109,38 @@
       "type": "run_summary"
     },
     {
+      "path": "runs/m857_v4_boundary_new_to_m844_bracket_trace/target_trace_source_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m857_v4_boundary_new_to_m844_bracket_trace/bracket_trace_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m857_v4_boundary_new_to_m844_bracket_trace/axis_trace_summary.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m857_v4_boundary_new_to_m844_bracket_trace/source_trace_summary.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m857_v4_boundary_new_to_m844_bracket_trace/cause_summary.json",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m857_v4_boundary_new_to_m844_bracket_trace/candidate_expansion_plan_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m857_v4_boundary_new_to_m844_bracket_trace/gate_summary.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m857_v4_boundary_new_to_m844_bracket_trace/rejected_rows.csv",
+      "type": "run_artifact"
+    },
+    {
       "path": "docs/m857-v4-boundary-new-to-m844-bracket-trace-implementation.md",
       "type": "documentation"
     }
@@ -122,5 +154,5 @@
     "runs/m854_v4_pair_delta_boundary_expansion/rejected_rows.csv"
   ],
   "decision_rule": "M857 may only produce a no-training trace diagnostic classification. It must not train, run PPO, run pair-delta sequence replay, promote, or claim learned self-ID.",
-  "next_blocker": "boundary-new-to-M844 no-bracket traces have not yet been constructed"
+  "next_blocker": "boundary-new-to-M844 traces are dominated by all-safe-wide source axes, so closer obstacle/source generation needs audit and design"
 }

@@ -13789,3 +13789,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M856 designs the next no-training diagnostic for the M854/M855 blocker. M857 must target `boundary_new_to_m844` rejected source axes and log every evaluated parameter/outcome over initial and extended grids for obstacle lateral offset, timing, and half-width. The design adds a no-bracket cause taxonomy (`bracket_found_initial`, `bracket_found_extended`, `accepted_boundary_found_extended`, `all_safe_wide`, `all_collision_or_negative`, `mixed_no_adjacent_bracket`, `ambiguous_or_nonfinite`, `reconstruction_error`) plus trace completeness gates. The result must classify whether the branch should widen axes, generate closer/safe-side sources, shift source steps, or audit trace quality. Pair-delta replay, objective training, PPO, promotion, and actor/M761 mutation remain blocked.
 - decision: `boundary_new_to_m844_bracket_trace_design_admit_m857`
 - next: `m857-v4-boundary-new-to-m844-bracket-trace-implementation`
+
+## 20260525T145722Z - m857-v4-boundary-new-to-m844-bracket-trace-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m857_v4_boundary_new_to_m844_bracket_trace`
+- artifact: `docs/m857-v4-boundary-new-to-m844-bracket-trace-implementation.md`
+- result: M857 implements the no-training trace-first diagnostic. It traces `44` primary boundary-new-to-M844 sources and `8` recovered controls, reconstructs all `52` snapshots, writes `1924` bracket trace rows, and classifies `132` primary source-axis rows with cause share `1.0`. Actor and M761 residual-head checksums are unchanged; no pair-delta sequence replay, training, PPO, or promotion occurs. The primary cause is `all_safe_wide`: `114/132 = 0.863636`, with `18/132 = 0.136364` all-collision-or-negative and `0` accepted extended boundary axes. This rules out simple wider same-axis expansion as the best next step for new sources. Controls show expected bracket/accept signals but do not count as primary evidence.
+- decision: `v4_boundary_new_to_m844_bracket_trace_all_safe_wide`
+- next: `m858-v4-boundary-new-to-m844-bracket-trace-audit`
