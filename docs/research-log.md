@@ -13110,3 +13110,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M783 adds `src/autodrift/v4_normal_margin_residual_calibration.py` and focused tests, then runs the no-PPO calibrator probe. It reconstructs `2640/2652` rows with `0` metadata misses and the same `12` unsupported `command_shift_obs` rejects, writes `21120` replay rows and `10560` objective rows, and confirms base actor and M761 residual-head checksums unchanged. Only the 2113-parameter calibrator is trained. Result class is `v4_normal_margin_calibration_no_gap_lift`: the calibrator fixes the active normal boundary, with alpha `0.2` normal success `1.0`, collision `0.0`, and active source margin `+0.000033`, but no alpha passes the intervention gap candidate threshold. Final gates are almost global half-scale (`gate_normal_mean 0.499727`, `gate_intervention_mean 0.499986`), so alpha `0.2` gap mean improves only to `0.043298` versus base `0.040348`, just below the required `+0.003` lift. This is a clean negative for the first gate-only objective; no PPO or promotion occurred.
 - decision: `v4_normal_margin_calibration_no_gap_lift`
 - next: `m784-v4-normal-margin-aware-residual-calibration-audit`
+
+## 20260525T092000Z - m784-v4-normal-margin-aware-residual-calibration-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m784-v4-normal-margin-aware-residual-calibration-audit.md`
+- result: M784 audits M783 as a clean negative. The first calibrator successfully fixed normal retention, including active source alpha `0.2` margin `+0.000033`, while preserving actor and residual-head checksums. It failed because the objective found an almost global half-gate solution (`gate_normal_mean 0.499727`, `gate_intervention_mean 0.499986`) that under-shot intervention signal: alpha `0.2` gap lift is `0.002950`, just below the required `+0.003`, and candidate count remains `0`. M784 classifies the issue as `objective_overfit` / objective misalignment rather than contract or metric artifact, and admits only a high-default asymmetric residual gate design. PPO and promotion remain blocked.
+- decision: `promote_to_asymmetric_residual_gate_design`
+- next: `m785-v4-asymmetric-residual-gate-design`

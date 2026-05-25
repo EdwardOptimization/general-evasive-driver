@@ -2,7 +2,7 @@
   "id": "m784-v4-normal-margin-aware-residual-calibration-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "repair",
   "failure_types": [
     "objective_overfit",
     "scenario_sampling_failure",
@@ -109,6 +109,6 @@
     "runs/m783_v4_normal_margin_calibration/summary.json",
     "runs/m783_v4_normal_margin_calibration/alpha_metrics.csv"
   ],
-  "decision_rule": "M784 may only audit M783. It must not run replay, train, run PPO, mutate actor or residual parameters, or promote a checkpoint.",
-  "next_blocker": "pending_audit_decision"
+  "decision_rule": "M784 may only audit M783. It must not run replay, train, run PPO, mutate actor or residual parameters, or promote a checkpoint. The audit admits asymmetric residual gate design only.",
+  "next_blocker": "m785-v4-asymmetric-residual-gate-design"
 }

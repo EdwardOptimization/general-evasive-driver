@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M784 audits M783 as clean no-gap-lift: normal retention is fixed but global half-gate under-shoots intervention gap; next is high-default asymmetric gate design with PPO and promotion blocked",
+  "failure_criteria": [
+    "audit promotes a checkpoint",
+    "audit admits PPO",
+    "audit hides gap failure",
+    "audit treats normal retention alone as candidate",
+    "audit ignores source and hard-negative caveats"
+  ],
+  "failure_types": [
+    "objective_overfit",
+    "scenario_sampling_failure",
+    "behavior_regression"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not call M783 a candidate despite normal retention pass",
+    "do not hide intervention-gap failure",
+    "do not claim broad generalization or true four-wheel physical fidelity"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260525T024054Z",
+  "hypothesis": "M783 should be audited as a clean negative: normal-margin calibration fixed the active normal collision but behaved like global residual downscaling and failed the intervention-gap candidate gate.",
+  "lineage": {
+    "blocked_by": [
+      "m783-v4-normal-margin-aware-residual-calibration-implementation"
+    ],
+    "derived_from": [
+      "m783-v4-normal-margin-aware-residual-calibration-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m783-v4-normal-margin-aware-residual-calibration-implementation.json",
+      "experiments/manifests/m782-v4-normal-margin-aware-residual-calibration-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m783-v4-normal-margin-aware-residual-calibration-implementation.md",
+      "runs/m783_v4_normal_margin_calibration/summary.json",
+      "runs/m783_v4_normal_margin_calibration/alpha_metrics.csv",
+      "runs/m783_v4_normal_margin_calibration/training_metrics.csv",
+      "runs/m783_v4_normal_margin_calibration/objective_rows.csv",
+      "docs/m782-v4-normal-margin-aware-residual-calibration-design.md"
+    ],
+    "parent_objective": [
+      "audit first normal-margin-aware residual calibration result before further repair PPO or promotion"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m784-v4-normal-margin-aware-residual-calibration-audit",
+  "next_blocker": "m785-v4-asymmetric-residual-gate-design",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "promote_to_asymmetric_residual_gate_design",
+  "public_gates": [
+    "M784 audits M783 calibrator result",
+    "M784 separates normal-retention fix from intervention-gap insufficiency",
+    "M784 classifies global half-gate behavior",
+    "M784 decides whether to redesign calibration objective or stop branch",
+    "PPO training and checkpoint promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m784-v4-normal-margin-aware-residual-calibration-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "promote_to_asymmetric_residual_gate_design",
+    "milestone": "m784-v4-normal-margin-aware-residual-calibration-audit",
+    "reason": "M784 audits M783 as clean no-gap-lift: normal retention is fixed but global half-gate under-shoots intervention gap; next is high-default asymmetric gate design with PPO and promotion blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M784 records normal retention pass",
+    "M784 records candidate_alpha_count 0",
+    "M784 records near-global half-gate behavior",
+    "M784 classifies objective failure without PPO or promotion",
+    "M784 admits only one next blocker"
+  ],
+  "type": "gate"
+}

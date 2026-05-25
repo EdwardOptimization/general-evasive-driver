@@ -1,0 +1,117 @@
+{
+  "id": "m785-v4-asymmetric-residual-gate-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "scenario_sampling_failure",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m784-v4-normal-margin-aware-residual-calibration-audit.md",
+      "docs/m783-v4-normal-margin-aware-residual-calibration-implementation.md",
+      "runs/m783_v4_normal_margin_calibration/summary.json",
+      "runs/m783_v4_normal_margin_calibration/alpha_metrics.csv",
+      "runs/m783_v4_normal_margin_calibration/training_metrics.csv",
+      "runs/m780_v4_broader_normal_boundary_alpha_probe/replay_rows.csv",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m784-v4-normal-margin-aware-residual-calibration-audit.json",
+      "experiments/manifests/m783-v4-normal-margin-aware-residual-calibration-implementation.json"
+    ],
+    "parent_objective": [
+      "design asymmetric residual gate after M783 global half-gate no-gap-lift result"
+    ],
+    "derived_from": [
+      "m784-v4-normal-margin-aware-residual-calibration-audit"
+    ],
+    "blocked_by": [
+      "m784-v4-normal-margin-aware-residual-calibration-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m785-v4-asymmetric-residual-gate-design.md",
+  "public_gates": [
+    "M785 designs asymmetric residual gate objective",
+    "M785 keeps base actor and M761 residual head frozen",
+    "M785 makes high gate the default and low-margin normal suppression the exception",
+    "M785 adds stronger intervention gate and gap retention",
+    "M785 blocks PPO and checkpoint promotion"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train in M785",
+    "do not mutate base actor",
+    "do not mutate M761 residual head",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use terminal margin or fault labels as deploy-time inputs",
+    "do not weaken the M783 gap threshold after the near miss",
+    "do not claim broad generalization or true four-wheel physical fidelity"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_residual_normal_margin_calibration",
+    "evidence_axis": "G_action: asymmetric residual gate design",
+    "evidence_increment": "designs a second calibration probe after M783 showed global half-gate behavior fixed normal retention but under-shot intervention gap",
+    "claim_scope": "design only; no training, replay, PPO, or driver promotion",
+    "stop_condition": [
+      "stop if design admits PPO or promotion",
+      "stop if design lowers gap threshold after M783 near miss",
+      "stop if design uses deploy-time oracle inputs",
+      "stop if design omits active-boundary source diagnostics"
+    ],
+    "fallback_plan": [
+      "if asymmetric gate still half-scales, stop scalar-gate branch or move to vector residual calibration",
+      "if normal collisions return, increase low-margin normal suppression or mine more boundary rows",
+      "if intervention gap passes but hard-negative behavior degrades, redesign hard-negative calibration",
+      "if branch reaches synthesis cadence, synthesize before another implementation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M784 admits one asymmetric gate design after M783 clean negative",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "An asymmetric high-default residual gate objective can preserve intervention-sensitive residual signal better than M783's near-global half-gate while still protecting low-margin normal branches.",
+  "success_criteria": [
+    "M785 specifies high-default gate initialization and prior",
+    "M785 specifies low-margin normal suppression as an exception",
+    "M785 specifies stronger intervention gate or gap retention",
+    "M785 preserves strict normal retention and original gap thresholds",
+    "M785 blocks PPO training and promotion"
+  ],
+  "failure_criteria": [
+    "design admits PPO or promotion",
+    "design mutates base actor or residual head",
+    "design weakens candidate thresholds after M783",
+    "design relies on deploy-time oracle inputs",
+    "design ignores active source diagnostics"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m785-v4-asymmetric-residual-gate-design.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m785-v4-asymmetric-residual-gate-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m784-v4-normal-margin-aware-residual-calibration-audit.md",
+    "runs/m783_v4_normal_margin_calibration/summary.json",
+    "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+  ],
+  "decision_rule": "M785 may only design an asymmetric residual gate objective. It must not train, run replay, run PPO, mutate actor or residual parameters, or promote a checkpoint.",
+  "next_blocker": "m786-v4-asymmetric-residual-gate-implementation"
+}

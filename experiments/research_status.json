@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 792,
+        "completed": 793,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m783-v4-normal-margin-aware-residual-calibration-implementation",
+        "task_id": "m784-v4-normal-margin-aware-residual-calibration-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m783-v4-normal-margin-aware-residual-calibration-implementation.md"
+        "command_log": "docs/m784-v4-normal-margin-aware-residual-calibration-audit.md"
     },
     "next_task": {
-        "id": "m784-v4-normal-margin-aware-residual-calibration-audit",
+        "id": "m785-v4-asymmetric-residual-gate-design",
         "status": "pending",
-        "priority": 7790,
-        "kind": "gate",
-        "hypothesis": "Audit M783 clean no-gap-lift normal-margin calibration result",
-        "command": "see experiments/manifests/m784-v4-normal-margin-aware-residual-calibration-audit.json",
-        "success_artifact": "docs/m784-v4-normal-margin-aware-residual-calibration-audit.md",
-        "notes": "Pending: audit before redesigning calibration objective PPO or promotion"
+        "priority": 7800,
+        "kind": "infrastructure",
+        "hypothesis": "Design high-default asymmetric residual gate after M783 half-gate no-gap-lift result",
+        "command": "see experiments/manifests/m785-v4-asymmetric-residual-gate-design.json",
+        "success_artifact": "docs/m785-v4-asymmetric-residual-gate-design.md",
+        "notes": "Pending: design only; no training PPO or promotion"
     },
-    "updated_at_utc": "20260525T091000Z"
+    "updated_at_utc": "20260525T092000Z"
 }
