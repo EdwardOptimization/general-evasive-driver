@@ -1,0 +1,87 @@
+# m934-v4-public-base-policy-head-low-tail-pressure-implementation Research Review
+
+## Summary
+
+- Generated at UTC: 20260525T224654Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: public_base_policy_head_low_tail_pressure_trust_region_conflict_route_to_branch_synthesis
+- Decision reason: M934 gets normal-safe low-tail trend at alphas 0.05 0.1 0.2 and tail lift at alpha 1.0 only after normal retention fails so no candidate is admitted
+
+## Hypothesis
+
+Stronger low-tail pressure can produce larger normal-safe low-tail movement from actor_mean-only training than M930, while preserving all non-head parameters.
+
+## Lineage
+
+- parent_checkpoint: runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
+- parent_dataset: docs/m933-v4-public-base-policy-head-low-tail-pressure-design.md, runs/m932_v4_public_base_policy_head_raw_direction_feasibility/summary.json, runs/m919_v4_public_base_expanded_target_regeneration/accepted_target_rows.csv, runs/m912_v4_public_base_sequence_recalibration_audit/summary.json, runs/m912_v4_public_base_sequence_recalibration_audit/low_tail_rows.csv
+- parent_config: experiments/manifests/m933-v4-public-base-policy-head-low-tail-pressure-design.json
+- parent_objective: implement coefficient-configurable actor_mean-only low-tail pressure probe
+- derived_from: m933-v4-public-base-policy-head-low-tail-pressure-design
+- blocked_by: stronger actor_mean-only low-tail pressure implementation has not yet run
+- supersedes: None
+- invalidates: None
+
+## Success Criteria
+
+- summary.json exists
+- training_started is true
+- actor_mean_changed is true
+- feature_backbone_changed is false
+- critic_changed is false
+- log_std_changed is false
+- sample_reconstruction_success_rate >= 0.98
+- diagnostic counts are reported
+- replay_used ppo_used and promoted are false
+
+## Failure Criteria
+
+- actor input contract changes
+- non-actor_mean parameters change
+- M934 omits target-active-set diagnostics
+- M934 runs replay PPO or promotion
+
+## Evidence Gates
+
+- M934 may update only actor_mean
+- M934 must preserve P0 actor input contract
+- M934 must report strict candidate and target-active-set diagnostics
+- M934 must block replay PPO and promotion
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not change actor inputs
+- do not update feature backbone or recurrent encoders
+- do not update critic
+- do not update log_std
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m934-v4-public-base-policy-head-low-tail-pressure-implementation
+- type: infrastructure
+- checkpoint: runs/m934_v4_public_base_policy_head_low_tail_pressure/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: public_base_policy_head_low_tail_pressure_trust_region_conflict_route_to_branch_synthesis
+- reason: M934 gets normal-safe low-tail trend at alphas 0.05 0.1 0.2 and tail lift at alpha 1.0 only after normal retention fails so no candidate is admitted
+
+## Next Blocker
+
+stronger actor_mean-only low-tail pressure implementation has not yet run

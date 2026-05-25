@@ -1,0 +1,119 @@
+{
+  "id": "m935-v4-public-base-policy-level-trust-region-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "promotion_gate_failure",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m929-v4-public-base-policy-level-trust-region-design.md",
+      "docs/m930-v4-public-base-policy-head-trust-region-probe-implementation.md",
+      "docs/m931-v4-public-base-policy-head-no-tail-lift-audit.md",
+      "docs/m932-v4-public-base-policy-head-raw-direction-feasibility-audit.md",
+      "docs/m933-v4-public-base-policy-head-low-tail-pressure-design.md",
+      "docs/m934-v4-public-base-policy-head-low-tail-pressure-implementation.md",
+      "runs/m934_v4_public_base_policy_head_low_tail_pressure/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m934-v4-public-base-policy-head-low-tail-pressure-implementation.json"
+    ],
+    "parent_objective": [
+      "synthesize policy-level trust-region actor_mean branch after M934 trust-region conflict"
+    ],
+    "derived_from": [
+      "m929-v4-public-base-policy-level-trust-region-design",
+      "m934-v4-public-base-policy-head-low-tail-pressure-implementation"
+    ],
+    "blocked_by": [
+      "M934 triggered actor_mean-only branch stop condition"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m935-v4-public-base-policy-level-trust-region-branch-synthesis.md",
+  "public_gates": [
+    "M935 must synthesize M929-M934",
+    "M935 must list supported and falsified claims",
+    "M935 must classify failure taxonomy",
+    "M935 must choose next branch before broader actor updates",
+    "M935 must block training replay PPO and promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in M935",
+    "do not change actor inputs",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not open broader actor updates without synthesis"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_policy_level_trust_region",
+    "evidence_axis": "G_synthesis: synthesize actor_mean policy-level trust-region evidence",
+    "evidence_increment": "closes actor_mean-only branch after no-tail-lift and trust-region-conflict results",
+    "claim_scope": "branch synthesis only; no training, replay, PPO, driver improvement claim, or promotion",
+    "stop_condition": [
+      "stop if supported claims are omitted",
+      "stop if falsified claims are omitted",
+      "stop if next branch decision is omitted",
+      "stop if training replay PPO or promotion is attempted"
+    ],
+    "fallback_plan": [
+      "open controlled broader trainable-surface branch if synthesis supports it",
+      "otherwise route to target-active-set audit",
+      "keep public-base integration blocked until exact-first candidate exists"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M934 actor_mean-only trust-region conflict and registered branch stop condition",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m935-v4-public-base-policy-level-trust-region-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "The actor_mean-only policy-level trust-region branch has enough evidence to close before any broader actor update is attempted.",
+  "success_criteria": [
+    "M935 summarizes M929-M934 evidence",
+    "M935 records supported and falsified claims",
+    "M935 records failure taxonomy",
+    "M935 chooses the next branch",
+    "M935 blocks training replay PPO and promotion"
+  ],
+  "failure_criteria": [
+    "M935 omits synthesis questions",
+    "M935 continues actor_mean-only variants without synthesis decision",
+    "M935 admits replay PPO or promotion",
+    "M935 does not choose a next branch"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m935-v4-public-base-policy-level-trust-region-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m935-v4-public-base-policy-level-trust-region-branch-synthesis.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m934-v4-public-base-policy-head-low-tail-pressure-implementation.md"
+  ],
+  "decision_rule": "M935 may only synthesize the actor_mean branch and choose the next branch. It must not train, run replay, run PPO, or promote.",
+  "next_blocker": "m936-v4-public-base-controlled-fusion-surface-design"
+}

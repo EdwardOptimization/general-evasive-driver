@@ -34,6 +34,7 @@ from autodrift.v4_sequence_objective_probe import _load_probe_samples, _metadata
 
 
 DEFAULT_ALPHAS = (0.001, 0.002, 0.005, 0.010, 0.020, 0.050, 0.100)
+TARGET_MSE_TOLERANCE = 0.000005
 FEATURE_BACKBONE_PREFIXES = (
     "shared.",
     "frame_encoder.",
@@ -286,8 +287,22 @@ def evaluate_policy_head_alphas(
                 row["target_action_mse_mean"] < baseline_target_mse_mean
                 and row["strict_target_action_mse_mean"] < baseline_target_mse_mean
             )
+            row["target_tolerance_pass"] = bool(
+                row["target_action_mse_mean"] <= baseline_target_mse_mean + TARGET_MSE_TOLERANCE
+                and row["strict_target_action_mse_mean"] <= baseline_target_mse_mean + TARGET_MSE_TOLERANCE
+            )
             row["exact_probe_candidate"] = bool(
                 row["normal_retention_pass"] and row["tail_lift_pass"] and row["target_loss_pass"]
+            )
+            row["strict_candidate"] = bool(row["exact_probe_candidate"])
+            row["low_tail_effect_candidate"] = bool(row["normal_retention_pass"] and row["tail_lift_pass"])
+            row["target_tolerance_candidate"] = bool(
+                row["normal_retention_pass"] and row["tail_lift_pass"] and row["target_tolerance_pass"]
+            )
+            row["normal_safe_low_tail_trend"] = bool(
+                row["normal_retention_pass"]
+                and row["low_tail_fraction"] < float(near_base_low_tail_fraction)
+                and row["gap_deficit_mean"] < float(near_base_gap_deficit_mean)
             )
             alpha_rows.append(row)
             for index, meta in enumerate(meta_rows):
@@ -379,6 +394,12 @@ def run_policy_head_trust_region_probe(
     seed: int,
     alphas: tuple[float, ...] = DEFAULT_ALPHAS,
     lr: float = 3e-4,
+    target_action_coef: float = 0.5,
+    low_tail_gap_floor_coef: float = 2.0,
+    low_tail_deficit_coef: float = 1.0,
+    normal_retention_coef: float = 8.0,
+    intervention_anchor_coef: float = 1.0,
+    parameter_anchor_coef: float = 0.01,
 ) -> dict[str, Any]:
     run_dir.mkdir(parents=True, exist_ok=True)
     scenario_config = load_scenario_config(scenario_config_path)
@@ -441,6 +462,12 @@ def run_policy_head_trust_region_probe(
                 epochs=epochs,
                 seed=seed,
                 lr=lr,
+                target_action_coef=target_action_coef,
+                low_tail_gap_floor_coef=low_tail_gap_floor_coef,
+                low_tail_deficit_coef=low_tail_deficit_coef,
+                normal_retention_coef=normal_retention_coef,
+                intervention_anchor_coef=intervention_anchor_coef,
+                parameter_anchor_coef=parameter_anchor_coef,
             )
             raw_state = _clone_state_dict(model)
             alpha_rows, objective_rows = evaluate_policy_head_alphas(
@@ -463,6 +490,9 @@ def run_policy_head_trust_region_probe(
     normal_tail_rows = [
         row for row in alpha_rows if bool(row.get("tail_lift_pass", False)) and bool(row.get("normal_retention_pass", False))
     ]
+    low_tail_effect_rows = [row for row in alpha_rows if bool(row.get("low_tail_effect_candidate", False))]
+    target_tolerance_rows = [row for row in alpha_rows if bool(row.get("target_tolerance_candidate", False))]
+    normal_safe_trend_rows = [row for row in alpha_rows if bool(row.get("normal_safe_low_tail_trend", False))]
     best_candidate = candidate_rows[0] if candidate_rows else {}
     best_normal_retaining_low_tail = _best_row(
         alpha_rows,
@@ -541,12 +571,25 @@ def run_policy_head_trust_region_probe(
         "epochs": int(epochs),
         "seed": int(seed),
         "lr": float(lr),
+        "target_action_coef": float(target_action_coef),
+        "low_tail_gap_floor_coef": float(low_tail_gap_floor_coef),
+        "low_tail_deficit_coef": float(low_tail_deficit_coef),
+        "normal_retention_coef": float(normal_retention_coef),
+        "intervention_anchor_coef": float(intervention_anchor_coef),
+        "parameter_anchor_coef": float(parameter_anchor_coef),
         "alphas": [float(alpha) for alpha in alphas],
         "near_base_gap_p10": float(m912_summary["near_base_gap_p10"]),
         "near_base_gap_deficit_mean": float(m912_summary["near_base_gap_deficit_mean"]),
         "near_base_low_tail_fraction": float(m912_summary["low_tail_fraction"]),
         "candidate_alpha_count": int(len(candidate_rows)),
         "candidate_alphas": [float(row.get("alpha")) for row in candidate_rows],
+        "strict_candidate_count": int(len(candidate_rows)),
+        "low_tail_effect_candidate_count": int(len(low_tail_effect_rows)),
+        "target_tolerance_candidate_count": int(len(target_tolerance_rows)),
+        "normal_safe_low_tail_trend_count": int(len(normal_safe_trend_rows)),
+        "low_tail_effect_candidate_alphas": [float(row.get("alpha")) for row in low_tail_effect_rows],
+        "target_tolerance_candidate_alphas": [float(row.get("alpha")) for row in target_tolerance_rows],
+        "normal_safe_low_tail_trend_alphas": [float(row.get("alpha")) for row in normal_safe_trend_rows],
         "best_candidate": best_candidate,
         "best_normal_retaining_low_tail_row": best_normal_retaining_low_tail,
         "best_tail_lift_nonretaining_row": best_tail_lift_nonretaining,
@@ -595,6 +638,12 @@ def main() -> None:
     parser.add_argument("--seed", type=int, default=9300)
     parser.add_argument("--alphas", type=_parse_float_list, default=DEFAULT_ALPHAS)
     parser.add_argument("--lr", type=float, default=3e-4)
+    parser.add_argument("--target-action-coef", type=float, default=0.5)
+    parser.add_argument("--low-tail-gap-floor-coef", type=float, default=2.0)
+    parser.add_argument("--low-tail-deficit-coef", type=float, default=1.0)
+    parser.add_argument("--normal-retention-coef", type=float, default=8.0)
+    parser.add_argument("--intervention-anchor-coef", type=float, default=1.0)
+    parser.add_argument("--parameter-anchor-coef", type=float, default=0.01)
     args = parser.parse_args()
     summary = run_policy_head_trust_region_probe(
         checkpoint_path=args.checkpoint,
@@ -610,6 +659,12 @@ def main() -> None:
         seed=args.seed,
         alphas=tuple(args.alphas),
         lr=args.lr,
+        target_action_coef=args.target_action_coef,
+        low_tail_gap_floor_coef=args.low_tail_gap_floor_coef,
+        low_tail_deficit_coef=args.low_tail_deficit_coef,
+        normal_retention_coef=args.normal_retention_coef,
+        intervention_anchor_coef=args.intervention_anchor_coef,
+        parameter_anchor_coef=args.parameter_anchor_coef,
     )
     for key, value in summary.items():
         if isinstance(value, (str, int, float, bool)):

@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m934-v4-public-base-policy-head-low-tail-pressure-implementation
+m935-v4-public-base-policy-level-trust-region-branch-synthesis
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -73,11 +73,19 @@ freezes feature/recurrent encoders, critic, and log_std, and finds no
 tail-lift candidate inside the conservative alpha window. M931 routes to a
 no-training extended-alpha audit of the saved M930 raw actor_mean direction.
 M932 finds weak normal-safe low-tail movement but no tail-lift rows. M933
-designs one more actor_mean-only low-tail pressure pass with target-active-set
-diagnostics before any broader trainable surface.
+designs one more actor_mean-only low-tail pressure pass, and M934 confirms that
+tail lift requires leaving the normal-retention trust region. M935 must
+synthesize the M929-M934 actor_mean-only branch before any broader trainable
+surface is designed.
 
 ## Recent Evidence Line
 
+- M934 implements the stronger actor_mean-only low-tail pressure probe. It
+  reconstructs `1213/1213`, joins `122/122`, changes only `actor_mean`, and
+  keeps all non-head checksums unchanged. It gets normal-safe low-tail trend at
+  alphas `0.05`, `0.10`, and `0.20`, but tail lift appears only at alpha `1.0`
+  where normal retention fails. Result:
+  `public_base_policy_head_trust_region_probe_trust_region_conflict`.
 - M933 designs a stronger actor_mean-only low-tail pressure implementation.
   The trainable surface remains only `actor_mean`; feature/recurrent encoders,
   critic, log_std, replay, PPO, and promotion stay blocked. M934 should report
