@@ -13007,3 +13007,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M772 designs a broader source-holdout wave to test whether sparse extreme-scenario coverage is limiting self-ID evidence. It preserves the v4 fault families and pairing rules, increases the matched-pair cap from `12288` to `24576`, registers seed range `77024..78047`, sets M773 `max_source_rows=1024`, and records stricter target gates: `positive_rows >= 1500`, `unique_positive_seeds >= 40`, `unique_positive_fault_family_pairs >= 18`, `max_positive_seed_dominance <= 0.15`, and `max_positive_fault_family_pair_dominance <= 0.22`. It also records that wheel blowout, single-corner grip collapse, split-mu, stuck caliper, halfshaft, suspension, and per-wheel sensor faults are current-model proxies or future high-fidelity faults, not true per-wheel physics claims in the single-track model.
 - decision: `broader_source_holdout_wave_design_admit_m773`
 - next: `m773-v4-broader-source-holdout-wave-implementation`
+
+## 20260525T073000Z - m773-v4-broader-source-holdout-wave-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dirs: `runs/m773_v4_broader_source_holdout_extreme_faults`, `runs/m773_v4_broader_source_holdout_sequence_intervention`, `runs/m773_v4_broader_source_holdout_corpus_export`
+- artifact: `docs/m773-v4-broader-source-holdout-wave-implementation.md`
+- result: M773 runs the broader disjoint-seed source wave from M772. Stage 1 reaches `24576` matched pairs and `1389` reset-only rows with result_class `cross_fault_reset_only`. Stage 2 selects `1024` source rows across `63` seeds and `22` source fault-family pairs and finds `2652` sequence outcome-critical rows with `0` sentinel false positives and result_class `v4_reset_sequence_outcome_positive`. Stage 3 exports `2652` clean positives, `2652` normal rows, and `2134` hard-negative rows with no sentinel positives, no missing normals, no missing metadata, and `current_model_or_proxy` claim boundary. The ordinary positive corpus gate passes, but the result is `v4_sequence_outcome_corpus_hard_negative_sparse`; strict M772 broad gates pass for positive rows, positive seeds, and pair dominance, but miss by `1` pair (`17 < 18`) and max seed dominance (`0.171569 > 0.15`). No actor mutation, training, PPO, residual replay, or promotion occurred.
+- decision: `v4_sequence_outcome_corpus_hard_negative_sparse_admit_audit`
+- next: `m774-v4-broader-source-holdout-wave-audit`

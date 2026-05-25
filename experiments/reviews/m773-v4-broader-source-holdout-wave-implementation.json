@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M773 exports 2652 clean positives with 49 seeds 17 fault-family pairs max seed dominance 0.171569 max pair dominance 0.208145 and no sentinel or metadata artifacts while residual replay PPO and promotion remain blocked",
+  "failure_criteria": [
+    "fresh seed range overlaps previous v4 source waves",
+    "residual replay is run before corpus audit",
+    "training or PPO starts",
+    "fresh corpus metadata is missing",
+    "positive rows remain too sparse or source-concentrated for broad holdout claims"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not reuse M755 M767 or M770 rows as fresh broad holdout rows",
+    "do not train actor or residual parameters",
+    "do not run residual closed-loop replay in M773",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not tune thresholds after seeing the output",
+    "do not claim true four-wheel or single-wheel physical fidelity"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260525T012955Z",
+  "hypothesis": "A larger fresh v4 source-holdout wave can produce a less concentrated corpus and test whether sparse coverage was limiting the residual self-ID evidence.",
+  "lineage": {
+    "blocked_by": [
+      "m772-v4-broader-source-holdout-wave-design"
+    ],
+    "derived_from": [
+      "m772-v4-broader-source-holdout-wave-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m772-v4-broader-source-holdout-wave-design.json",
+      "configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m772-v4-broader-source-holdout-wave-design.md",
+      "runs/m770_v4_limited_residual_holdout_replay/summary.json",
+      "runs/m767_v4_source_holdout_corpus_export/summary.json"
+    ],
+    "parent_objective": [
+      "run broader no-training source-holdout wave before any residual replay or PPO"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m773-v4-broader-source-holdout-wave-implementation",
+  "next_blocker": "m774-v4-broader-source-holdout-wave-audit",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "v4_sequence_outcome_corpus_hard_negative_sparse",
+  "public_gates": [
+    "M773 uses seed range 77024..78047 disjoint from M749/M752/M767",
+    "M773 uses configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json",
+    "M773 increases max_pairs to 24576 and max_source_rows to 1024",
+    "M773 exports a broader fresh v4 sequence-outcome corpus",
+    "M773 reports broader gates: positives seeds fault-family pairs and dominance",
+    "residual replay PPO training and checkpoint promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m773_v4_broader_source_holdout_corpus_export/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "v4_sequence_outcome_corpus_hard_negative_sparse",
+    "milestone": "m773-v4-broader-source-holdout-wave-implementation",
+    "reason": "M773 exports 2652 clean positives with 49 seeds 17 fault-family pairs max seed dominance 0.171569 max pair dominance 0.208145 and no sentinel or metadata artifacts while residual replay PPO and promotion remain blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "generalization",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M773 runs the broader v4 extreme-fault source wave",
+    "M773 runs broader v4 reset-source sequence interventions",
+    "M773 exports a broader v4 sequence-outcome corpus",
+    "M773 reports broad gates: positive_rows unique_positive_seeds unique_positive_fault_family_pairs seed dominance and fault-pair dominance",
+    "M773 does not run residual replay PPO training or promotion"
+  ],
+  "type": "infrastructure"
+}

@@ -1,0 +1,110 @@
+{
+  "id": "m774-v4-broader-source-holdout-wave-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m773-v4-broader-source-holdout-wave-implementation.md",
+      "runs/m773_v4_broader_source_holdout_extreme_faults/summary.json",
+      "runs/m773_v4_broader_source_holdout_sequence_intervention/summary.json",
+      "runs/m773_v4_broader_source_holdout_corpus_export/summary.json",
+      "runs/m773_v4_broader_source_holdout_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/contrast_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m773-v4-broader-source-holdout-wave-implementation.json",
+      "configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit broader source-holdout corpus before residual replay or further source mining"
+    ],
+    "derived_from": [
+      "m773-v4-broader-source-holdout-wave-implementation"
+    ],
+    "blocked_by": [
+      "m773-v4-broader-source-holdout-wave-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m774-v4-broader-source-holdout-wave-audit.md",
+  "public_gates": [
+    "M774 audits M773 broader source wave against M772 broad gates",
+    "M774 separates ordinary corpus validity from stricter broad-coverage adequacy",
+    "M774 audits hard-negative sparsity and source dominance",
+    "M774 decides between limited residual replay and more source-balancing work",
+    "PPO training and checkpoint promotion remain blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run residual replay in the audit",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not hide strict broad-gate misses",
+    "do not claim true four-wheel or single-wheel physical fidelity"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_residual_source_holdout_replay",
+    "evidence_axis": "G_generalization: audit broader fresh source-holdout corpus",
+    "evidence_increment": "audits whether M773's broader corpus is sufficient for limited residual replay or needs another source-balancing branch",
+    "claim_scope": "audit only; no residual replay result, PPO claim, or driver promotion",
+    "stop_condition": [
+      "stop if audit admits PPO or promotion",
+      "stop if audit ignores hard-negative sparsity",
+      "stop if audit ignores strict broad-gate misses",
+      "stop if audit treats current-model proxies as true per-wheel faults"
+    ],
+    "fallback_plan": [
+      "if broad-gate misses are acceptable for limited replay, design no-PPO residual replay with caveats",
+      "if broad-gate misses are too strong, design source-balanced or targeted pair mining",
+      "if high-fidelity limits dominate, open a four-wheel simulator planning branch",
+      "if hard negatives block objective work, keep hard-negative contrast optional"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M773 produces broader corpus with partial strict broad-gate miss",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M773's broader corpus should be audited before deciding whether to run limited residual replay or further improve source coverage.",
+  "success_criteria": [
+    "M774 records which M772 broad gates passed and failed",
+    "M774 records source and fault-family concentration",
+    "M774 records hard-negative sparsity",
+    "M774 records supported and falsified claims",
+    "M774 admits only one next blocker without PPO or promotion"
+  ],
+  "failure_criteria": [
+    "audit admits PPO or promotion",
+    "audit hides source concentration or hard-negative sparsity",
+    "audit overclaims broad generalization",
+    "audit treats current-model proxies as true per-wheel physics"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m774-v4-broader-source-holdout-wave-audit.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m774-v4-broader-source-holdout-wave-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m773-v4-broader-source-holdout-wave-implementation.md",
+    "runs/m773_v4_broader_source_holdout_corpus_export/summary.json"
+  ],
+  "decision_rule": "M774 may only audit M773. It must not run residual replay, train, run PPO, mutate actor parameters, or promote a checkpoint.",
+  "next_blocker": "pending_audit_decision"
+}

@@ -62,16 +62,33 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m773-v4-broader-source-holdout-wave-implementation
+m774-v4-broader-source-holdout-wave-audit
 ```
 
-M773 should run the broader fresh source-holdout coverage wave designed in
-M772. The goal is to test whether sparse extreme-scenario coverage is limiting
-self-ID evidence by generating a broader disjoint-seed corpus before residual
-replay, PPO, or promotion claims.
+M774 should audit the broader fresh source-holdout coverage wave from M773
+before residual replay or more source mining. M773 strongly supports the
+coverage-limited hypothesis but still has partial strict broad-gate misses, so
+the next decision must be an audit rather than residual replay or PPO.
 
 ## Recent Evidence Line
 
+- M773 runs the broader disjoint-seed source wave from M772. Stage 1 reaches
+  `24576` matched pairs and `1389` reset-only rows with result_class
+  `cross_fault_reset_only`, compared with M767's `390` reset-only rows. Stage 2
+  selects `1024` source rows across `63` seeds and `22` source fault-family
+  pairs, finding `2652` sequence outcome-critical rows with `0` sentinel false
+  positives and result_class `v4_reset_sequence_outcome_positive`. Stage 3
+  exports `2652` clean positives, `2652` normal rows, and `2134` hard-negative
+  rows with no sentinel positives, no missing normals, no missing metadata, and
+  `current_model_or_proxy` claim boundary. This materially supports the
+  coverage-limited hypothesis: M767 had `995` positives, `25` positive seeds,
+  `13` positive fault-family pairs, and max seed dominance `0.247236`; M773
+  has `2652`, `49`, `17`, and `0.171569`. The ordinary positive corpus gate
+  passes, but the result is `v4_sequence_outcome_corpus_hard_negative_sparse`.
+  Strict M772 broad gates still miss by one pair (`17 < 18`) and by seed
+  dominance (`0.171569 > 0.15`). No residual replay, training, PPO, actor
+  mutation, or promotion occurred. M774 must audit before choosing limited
+  residual replay versus more source-balancing work.
 - M772 designs a broader source-holdout wave to test whether sparse
   extreme-scenario coverage is limiting self-ID evidence. It adds
   `configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json`,
