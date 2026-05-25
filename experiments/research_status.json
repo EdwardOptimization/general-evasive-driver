@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 826,
+        "completed": 827,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m817-v4-adaptive-primary-residual-calibration-implementation",
+        "task_id": "m818-v4-adaptive-primary-residual-calibration-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m817-v4-adaptive-primary-residual-calibration-implementation.md"
+        "command_log": "docs/m818-v4-adaptive-primary-residual-calibration-audit.md"
     },
     "next_task": {
-        "id": "m818-v4-adaptive-primary-residual-calibration-audit",
+        "id": "m819-v4-adaptive-primary-calibration-followup-design",
         "status": "pending",
-        "priority": 8130,
-        "kind": "gate",
-        "hypothesis": "Audit conservative M817 calibrator candidate before stronger calibration or PPO design",
-        "command": "see experiments/manifests/m818-v4-adaptive-primary-residual-calibration-audit.json",
-        "success_artifact": "docs/m818-v4-adaptive-primary-residual-calibration-audit.md",
-        "notes": "Pending: audit M817 near-identity candidate with actor residual-head PPO and promotion blocked"
+        "priority": 8140,
+        "kind": "infrastructure",
+        "hypothesis": "Design an informative non-PPO source-heldout calibration comparison after M817 near-identity audit",
+        "command": "see experiments/manifests/m819-v4-adaptive-primary-calibration-followup-design.json",
+        "success_artifact": "docs/m819-v4-adaptive-primary-calibration-followup-design.md",
+        "notes": "Pending: design fixed-gate vector-gate and adaptive-gate comparison and route to branch synthesis before implementation"
     },
-    "updated_at_utc": "20260525T180500Z"
+    "updated_at_utc": "20260525T181500Z"
 }

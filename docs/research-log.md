@@ -13427,3 +13427,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M817 implements and runs a source-heldout residual calibration probe. It trains only a separate near-identity scalar gate (`initial_gate=0.999`, `target_gate=0.999`) with `57` train and `28` holdout rows. Train and holdout normal exact replay remain `100%` successful with `0` collisions. Intervention collision rates are retained exactly (`train 0.678363 -> 0.678363`, `holdout 0.702381 -> 0.702381`), and old-behavior action drift is near zero (`mean 8.15e-7`, `max 1.58e-6`). Actor and M761 residual-head checksums are unchanged; no PPO or promotion occurs. Result class is `v4_adaptive_primary_residual_calibration_candidate`.
 - decision: `v4_adaptive_primary_residual_calibration_candidate`
 - next: `m818-v4-adaptive-primary-residual-calibration-audit`
+
+## 20260525T181500Z - m818-v4-adaptive-primary-residual-calibration-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m818-v4-adaptive-primary-residual-calibration-audit.md`
+- result: M818 audits M817 as a clean harness-positive retention result, not a performance-improving driver update. The source-heldout split is valid (`57` train rows, `28` holdout rows, `55` split units), snapshots are complete (`110` lookup rows, `0` missing), actor and M761 residual-head checksums are unchanged, train and holdout normal rows remain collision-free, intervention collision rates are exactly retained (`train 0.678363`, `holdout 0.702381`), and old-behavior drift is near zero. The calibrator remains near identity (`gate_mean 0.998986`), so it proves calibration infrastructure, not meaningful adaptive gating.
+- decision: `admit_adaptive_primary_calibration_followup_design`
+- next: `m819-v4-adaptive-primary-calibration-followup-design`

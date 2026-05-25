@@ -1,0 +1,117 @@
+{
+  "id": "m819-v4-adaptive-primary-calibration-followup-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "objective_overfit",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m818-v4-adaptive-primary-residual-calibration-audit.md",
+      "runs/m817_v4_adaptive_primary_residual_calibration/summary.json",
+      "runs/m814_v4_adaptive_boundary_bracketing/accepted_primary_rows.csv",
+      "runs/m814_v4_adaptive_boundary_bracketing/intervention_replay_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m818-v4-adaptive-primary-residual-calibration-audit.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_objective": [
+      "design informative non-PPO adaptive primary calibration follow-up"
+    ],
+    "derived_from": [
+      "m818-v4-adaptive-primary-residual-calibration-audit"
+    ],
+    "blocked_by": [
+      "m817 near-identity calibrator validates retention harness but does not prove useful adaptation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m819-v4-adaptive-primary-calibration-followup-design.md",
+  "public_gates": [
+    "M819 must remain design-only",
+    "M819 must keep actor and M761 residual-head training blocked",
+    "M819 must keep PPO and promotion blocked",
+    "M819 must distinguish identity-retention from performance improvement",
+    "M819 must require source-heldout exact gates for any follow-up implementation",
+    "M819 must route to branch synthesis before a new implementation milestone"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not widen the primary 0.00005 margin threshold",
+    "do not use holdout rows for training objective selection",
+    "do not claim a useful adaptive calibrator from near-identity gates",
+    "do not add oracle deploy-time inputs",
+    "do not continue the branch past synthesis cadence without a synthesis milestone"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_new_data_route",
+    "evidence_axis": "G_distribution: design informative adaptive primary calibration follow-up",
+    "evidence_increment": "turns the M817 harness-positive near-identity result into a concrete design for testing nontrivial residual scaling and adaptive gating under source-heldout exact gates",
+    "claim_scope": "design-only; no PPO, no training run, no driver promotion",
+    "stop_condition": [
+      "stop if the design would treat identity retention as performance improvement",
+      "stop if the design requires training actor or residual-head weights",
+      "stop if the design uses holdout rows for optimization",
+      "stop if the design would continue implementation before branch synthesis"
+    ],
+    "fallback_plan": [
+      "if fixed residual scaling is enough, implement only exact source-heldout grid evaluation after synthesis",
+      "if fixed scaling is not enough, design adaptive gate objective with train-only optimization and holdout exact gates",
+      "if source-heldout rows are insufficient, return to data-route refresh instead of calibrator tuning"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M819 reaches the cadence boundary for the v4_low_margin_new_data_route branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A stronger follow-up must first design an exact, source-heldout non-PPO comparison that separates identity retention from genuine adaptive residual calibration.",
+  "success_criteria": [
+    "M819 writes a design document for the next calibration probe",
+    "M819 defines fixed-gate, vector-gate, and adaptive-gate comparisons without PPO",
+    "M819 defines train-only objective selection and holdout exact acceptance gates",
+    "M819 defines normal-margin lift and intervention-sensitivity retention criteria",
+    "M819 routes to branch synthesis before implementation"
+  ],
+  "failure_criteria": [
+    "M819 starts implementation or training",
+    "M819 allows actor or residual-head updates",
+    "M819 allows PPO",
+    "M819 treats M817 near-identity gates as performance improvement",
+    "M819 skips source-heldout exact gates",
+    "M819 continues the branch without synthesis"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m819-v4-adaptive-primary-calibration-followup-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m819-v4-adaptive-primary-calibration-followup-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m818-v4-adaptive-primary-residual-calibration-audit.md",
+    "runs/m817_v4_adaptive_primary_residual_calibration/summary.json",
+    "runs/m814_v4_adaptive_boundary_bracketing/summary.json",
+    "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+  ],
+  "decision_rule": "M819 may only admit a synthesis milestone and a later implementation design. It must not train, run PPO, or promote.",
+  "next_blocker": "m820-v4-low-margin-new-data-route-branch-synthesis"
+}
