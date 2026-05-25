@@ -1,0 +1,126 @@
+{
+  "id": "m857-v4-boundary-new-to-m844-bracket-trace-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m856-v4-boundary-new-to-m844-bracket-trace-design.md",
+      "runs/m854_v4_pair_delta_boundary_expansion/target_source_rows.csv",
+      "runs/m854_v4_pair_delta_boundary_expansion/rejected_rows.csv",
+      "runs/m854_v4_pair_delta_boundary_expansion/accepted_boundary_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m856-v4-boundary-new-to-m844-bracket-trace-design.json"
+    ],
+    "parent_objective": [
+      "implement no-training trace diagnostic for boundary-new-to-M844 no-bracket sources"
+    ],
+    "derived_from": [
+      "m856-v4-boundary-new-to-m844-bracket-trace-design"
+    ],
+    "blocked_by": [
+      "M854 boundary-new-to-M844 no-bracket causes are not distinguishable from existing artifacts"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m857-v4-boundary-new-to-m844-bracket-trace-implementation.md",
+  "public_gates": [
+    "M857 must implement no-training bracket tracing only",
+    "M857 must target boundary-new-to-M844 source axes",
+    "M857 must write trace rows and cause summaries",
+    "M857 must preserve actor and residual-head checksums",
+    "M857 must not run pair-delta sequence replay, train, or promote"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels or oracle fields to actor input",
+    "do not replay pair-delta sequences in M857",
+    "do not treat trace rows as learned self-ID proof"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_boundary_expansion",
+    "evidence_axis": "G_data: boundary-new-to-M844 no-bracket trace implementation",
+    "evidence_increment": "implements full parameter/outcome traces for rejected new boundary sources before selecting the next data route",
+    "claim_scope": "no-training trace diagnostics only; no pair-delta outcome claim, PPO, learned policy claim, or driver promotion",
+    "stop_condition": [
+      "stop if actor or residual-head checksums change",
+      "stop if pair-delta sequence replay is run",
+      "stop if trace artifacts do not include all evaluated parameters and outcomes",
+      "stop if trace rows are treated as learned self-ID proof"
+    ],
+    "fallback_plan": [
+      "if extended accepted boundaries appear, audit before bounded boundary expansion",
+      "if all-safe wide dominates, design closer obstacle/source generation",
+      "if all-collision dominates, design safer-side bracketing or source-step shifts",
+      "if ambiguous traces dominate, audit trace quality before changing the data route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M856 admits one trace-first implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Full parameter/outcome traces over M854 boundary-new-to-M844 no-bracket sources can identify whether the next route should widen axes, generate new sources, shift source steps, or stop the branch.",
+  "success_criteria": [
+    "M857 implements bracket trace source selection",
+    "M857 writes full trace and cause artifacts",
+    "M857 verifies actor and residual-head checksums unchanged",
+    "M857 classifies no-bracket causes without pair-delta replay",
+    "M857 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M857 trains actor or residual-head parameters",
+    "M857 runs PPO",
+    "M857 promotes a checkpoint",
+    "M857 runs pair-delta sequence replay",
+    "M857 mutates actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "boundary_new_to_m844_bracket_trace",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_boundary_new_to_m844_bracket_trace --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --residual-head runs/m761_v4_sequence_objective_probe/residual_head.pt --scenario-config configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json --m854-target-source-rows runs/m854_v4_pair_delta_boundary_expansion/target_source_rows.csv --m854-rejected-rows runs/m854_v4_pair_delta_boundary_expansion/rejected_rows.csv --m854-accepted-boundary-rows runs/m854_v4_pair_delta_boundary_expansion/accepted_boundary_rows.csv --source-rows runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv --candidate-plan-rows runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv --run-dir runs/m857_v4_boundary_new_to_m844_bracket_trace --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_boundary_new_to_m844_bracket_trace.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_v4_boundary_new_to_m844_bracket_trace.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m857_v4_boundary_new_to_m844_bracket_trace/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "docs/m857-v4-boundary-new-to-m844-bracket-trace-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m856-v4-boundary-new-to-m844-bracket-trace-design.md",
+    "runs/m854_v4_pair_delta_boundary_expansion/summary.json",
+    "runs/m854_v4_pair_delta_boundary_expansion/rejected_rows.csv"
+  ],
+  "decision_rule": "M857 may only produce a no-training trace diagnostic classification. It must not train, run PPO, run pair-delta sequence replay, promote, or claim learned self-ID.",
+  "next_blocker": "boundary-new-to-M844 no-bracket traces have not yet been constructed"
+}

@@ -13780,3 +13780,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M855 audits M854 as a clean source-limited boundary expansion rather than a contract failure. Supported claims: target selection and snapshot reconstruction work; M854 expanded beyond M850 active pair-delta source groups; pairability projection is close to sparse-useful but remains diagnostic only. Unsupported claims: broad boundary-new-to-M844 coverage, objective-ready pair-delta corpus, pair-delta outcome evidence, PPO admission, or checkpoint promotion. The key blocker is that M854 accepted `0` boundary-new-to-M844 rows and all `151` rejected axis rows failed with `no_collision_safe_bracket`; current artifacts do not preserve full initial/expansion evaluation traces, so the no-bracket causes are not yet distinguishable.
 - decision: `admit_boundary_new_to_m844_bracket_trace_design`
 - next: `m856-v4-boundary-new-to-m844-bracket-trace-design`
+
+## 20260525T144250Z - m856-v4-boundary-new-to-m844-bracket-trace-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m856-v4-boundary-new-to-m844-bracket-trace-design.md`
+- result: M856 designs the next no-training diagnostic for the M854/M855 blocker. M857 must target `boundary_new_to_m844` rejected source axes and log every evaluated parameter/outcome over initial and extended grids for obstacle lateral offset, timing, and half-width. The design adds a no-bracket cause taxonomy (`bracket_found_initial`, `bracket_found_extended`, `accepted_boundary_found_extended`, `all_safe_wide`, `all_collision_or_negative`, `mixed_no_adjacent_bracket`, `ambiguous_or_nonfinite`, `reconstruction_error`) plus trace completeness gates. The result must classify whether the branch should widen axes, generate closer/safe-side sources, shift source steps, or audit trace quality. Pair-delta replay, objective training, PPO, promotion, and actor/M761 mutation remain blocked.
+- decision: `boundary_new_to_m844_bracket_trace_design_admit_m857`
+- next: `m857-v4-boundary-new-to-m844-bracket-trace-implementation`
