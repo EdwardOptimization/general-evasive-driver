@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 882,
+    "completed": 883,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m873-v4-boundary-preserving-missing-seed-pair-delta-refresh-implementation",
+    "task_id": "m874-v4-pair-delta-boundary-expansion-second-branch-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m873-v4-boundary-preserving-missing-seed-pair-delta-refresh-implementation.md"
+    "command_log": "docs/m874-v4-pair-delta-boundary-expansion-second-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m874-v4-pair-delta-boundary-expansion-second-branch-synthesis",
+    "id": "m875-v4-pair-delta-objective-readiness-audit",
     "status": "pending",
-    "priority": 8690,
+    "priority": 8700,
     "kind": "gate",
-    "hypothesis": "Synthesize M864-M873 pair-delta boundary expansion continuation after M873 positive no-training corpus result",
-    "command": "see experiments/manifests/m874-v4-pair-delta-boundary-expansion-second-branch-synthesis.json",
-    "success_artifact": "docs/m874-v4-pair-delta-boundary-expansion-second-branch-synthesis.md",
-    "notes": "Pending: branch synthesis before any further narrow implementation objective training PPO or promotion"
+    "hypothesis": "Audit M873 pair-delta corpus objective readiness before any actor update objective design PPO or promotion",
+    "command": "see experiments/manifests/m875-v4-pair-delta-objective-readiness-audit.json",
+    "success_artifact": "docs/m875-v4-pair-delta-objective-readiness-audit.md",
+    "notes": "Pending: audit duplicate pressure source split quality and 78055 caveat before objective design"
   },
-  "updated_at_utc": "20260525T182802Z"
+  "updated_at_utc": "20260525T183117Z"
 }

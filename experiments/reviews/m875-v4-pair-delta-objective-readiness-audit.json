@@ -1,0 +1,76 @@
+{
+  "decision_reason": "M875 may only audit objective readiness. It must not train, run PPO, promote, or claim learned self-ID.",
+  "failure_criteria": [
+    "M875 trains actor or residual-head parameters",
+    "M875 runs PPO",
+    "M875 promotes a checkpoint",
+    "M875 skips corpus-readiness audit",
+    "M875 hides the 78055 caveat"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit",
+    "contract_violation"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not skip objective-readiness audit",
+    "do not treat M873 pass as learned self-ID proof"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260525T183259Z",
+  "hypothesis": "M873's positive no-training corpus may be ready for objective design, but only after auditing duplicate pressure, source-aware splits, and the 78055 missing-new-accepted caveat.",
+  "lineage": {
+    "blocked_by": [
+      "M873 positive corpus has not yet been audited for objective-readiness risks including duplicate pressure and 78055 caveat"
+    ],
+    "derived_from": [
+      "m874-v4-pair-delta-boundary-expansion-second-branch-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m874-v4-pair-delta-boundary-expansion-second-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m874-v4-pair-delta-boundary-expansion-second-branch-synthesis.md",
+      "docs/m873-v4-boundary-preserving-missing-seed-pair-delta-refresh-implementation.md",
+      "runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh/summary.json",
+      "runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh/new_accepted_pair_delta_rows.csv",
+      "runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh/balanced_pair_delta_rows.csv",
+      "runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh/train_public_rows.csv",
+      "runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh/eval_public_rows.csv",
+      "runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh/source_holdout_public_rows.csv"
+    ],
+    "parent_objective": [
+      "audit M873 corpus objective readiness before any actor update or objective design"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m875-v4-pair-delta-objective-readiness-audit",
+  "next_blocker": "M873 pair-delta corpus objective-readiness has not yet been audited",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M875 must audit M873 corpus before objective design",
+    "M875 must keep PPO actor update and promotion blocked",
+    "M875 must inspect duplicate pressure and source split quality",
+    "M875 must explicitly account for the 78055 caveat",
+    "M875 must decide whether to design an objective or return to data construction"
+  ],
+  "scoreboard": {},
+  "success_criteria": [
+    "M875 audits M873 artifact completeness",
+    "M875 audits duplicate pressure and unique information content",
+    "M875 audits train eval holdout split quality",
+    "M875 records the 78055 caveat",
+    "M875 decides whether objective design is admissible"
+  ],
+  "type": "gate"
+}

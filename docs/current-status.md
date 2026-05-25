@@ -62,18 +62,29 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m874-v4-pair-delta-boundary-expansion-second-branch-synthesis
+m875-v4-pair-delta-objective-readiness-audit
 ```
 
-M873 passed no-training pair-delta coverage gates after fixing M870's
-normal-window miss. The result is positive but still diagnostic: new accepted
-rows cover missing seeds `78048` and `78057`, while `78055` has accepted
-normal-boundary candidates but no new accepted pair-delta rows. M874 must
-synthesize M864-M873 before any further narrow implementation, objective
-training, PPO, promotion, base actor mutation, or M761 residual-head mutation.
+M874 synthesized M864-M873 and closed the
+`v4_pair_delta_boundary_expansion` branch. M873 produced a positive
+no-training corpus result, but it is not a learned-driver or promotion claim.
+The next branch is `v4_pair_delta_objective_readiness`; M875 must audit
+duplicate pressure, source split quality, and the `78055` caveat before any
+objective design, actor update, PPO, promotion, base actor mutation, or M761
+residual-head mutation.
 
 ## Recent Evidence Line
 
+- M874 synthesizes M864-M873 and closes the
+  `v4_pair_delta_boundary_expansion` branch. The branch supports that
+  no-training generated boundary data can be converted into real pair-delta
+  outcome evidence, and that M873's boundary-preserving normal-window search
+  materially improves coverage to `56` balanced rows across `4` left seeds. It
+  does not support learned self-ID or promotion, and the `78055` caveat remains.
+  Public-gate overfit risk is moderate because all evidence is still corpus
+  construction on public surfaces. Objective training, PPO, and promotion
+  remain blocked until the new objective-readiness branch audits duplicate
+  pressure, source split quality, and caveats.
 - M873 implements the no-training boundary-preserving refresh and passes the
   registered coverage gates. Normal-boundary search produces `48`
   accepted-window candidates across all `3` missing seeds and all `3` retarget

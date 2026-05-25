@@ -13948,3 +13948,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M873 implements the no-training boundary-preserving refresh and passes the registered coverage gates. Normal-boundary search produces `48` accepted-window candidates across all `3` missing seeds and all `3` retarget axes. Pair-delta replay over `48` candidates produces `864` sequence rows and `39` new accepted pair-delta rows. Combined with existing accepted rows, the balanced corpus reaches `56` rows across `4` left seeds, `11` source groups, `8` fault families, `27` fault pairs, `2` directions, and `2` axis pairs; seed/direction/axis dominance gates pass. Caveat: new accepted rows cover `78048` and `78057` but not `78055`, so this is not a complete missing-seed solution and not a promotion claim. Actor and M761 checksums are unchanged; no training, PPO, or promotion occurs.
 - decision: `v4_boundary_preserving_missing_seed_pair_delta_refresh_pass`
 - next: `m874-v4-pair-delta-boundary-expansion-second-branch-synthesis`
+
+## 20260525T183117Z - m874-v4-pair-delta-boundary-expansion-second-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m874-v4-pair-delta-boundary-expansion-second-branch-synthesis.md`
+- result: M874 synthesizes M864-M873 and closes the `v4_pair_delta_boundary_expansion` branch. The branch supports that no-training generated boundary data can be converted into real pair-delta outcome evidence, and that M873's boundary-preserving normal-window search materially improves coverage to `56` balanced rows across `4` left seeds. It does not support learned self-ID or promotion, and the `78055` caveat remains. Public-gate overfit risk is moderate because all evidence is still corpus construction on public surfaces. Objective training, PPO, and promotion remain blocked until the new objective-readiness branch audits duplicate pressure, source split quality, and caveats.
+- decision: `promote_to_next_branch`
+- next: `m875-v4-pair-delta-objective-readiness-audit`
