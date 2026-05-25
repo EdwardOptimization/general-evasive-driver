@@ -13668,3 +13668,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M843 designs a no-training source-diverse sequence-effective corpus refresh to broaden M841's sparse-positive sequence evidence before objective design. The design uses M825 source rows and candidate plans, M832 accepted boundary rows, and M841 sequence-positive rows as seed evidence, while explicitly avoiding replay only on the concentrated M841 sources. It defines Stage A source-diverse candidate selection, Stage B near-boundary bracketing/reuse, and Stage C sequence-effectiveness scan with hold steps `[4, 6]`, epsilon grid `[0.025, 0.05, 0.075]`, and pair/component directions. Strong corpus gates require at least `120` accepted primary sequence-effective rows, `10` left source groups, `5` left fault families, `8` fault-family pairs, `2` hold-step values, `3` direction families, and max left source dominance `<=0.30`. M844 implementation is admitted as no-training corpus construction only; PPO, promotion, actor/residual training, learned gating, and outcome objective training remain blocked.
 - decision: `source_diverse_sequence_effective_corpus_design_admit_m844`
 - next: `m844-v4-source-diverse-sequence-effective-corpus-implementation`
+
+## 20260526T003000Z - m844-v4-source-diverse-sequence-effective-corpus-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m844_v4_source_diverse_sequence_effective_corpus`
+- artifact: `docs/m844-v4-source-diverse-sequence-effective-corpus-implementation.md`
+- result: M844 implements the no-training source-diverse sequence-effective corpus refresh. It reuses the `39` M832 accepted boundary rows as self-pair/component-sequence states, reconstructs `20` snapshots, evaluates `1404` sequence rows over component directions, hold steps `[4, 6]`, and epsilons `[0.025, 0.05, 0.075]`, and preserves actor/M761 checksums. The result improves source diversity over M841: accepted unique left source groups increase from `4` to `10`, and max left source dominance improves to `0.2807 <= 0.30`. It remains `v4_source_diverse_sequence_effective_corpus_source_limited`: accepted rows are `57`, below the `120` strong target, with only `3` left seeds, `4` left fault families, and `4` fault-family pairs. Source-aware splits were written (`train 41`, `eval 11`, `source_holdout 5`). Pair-delta rows were unavailable because this first refresh used self-pairs. Next is an audit before deciding whether to expand bracketing or construct real cross-source pairs.
+- decision: `v4_source_diverse_sequence_effective_corpus_source_limited`
+- next: `m845-v4-source-diverse-sequence-effective-corpus-audit`

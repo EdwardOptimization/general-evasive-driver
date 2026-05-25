@@ -1,0 +1,109 @@
+{
+  "id": "m845-v4-source-diverse-sequence-effective-corpus-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m844-v4-source-diverse-sequence-effective-corpus-implementation.md",
+      "runs/m844_v4_source_diverse_sequence_effective_corpus/summary.json",
+      "runs/m844_v4_source_diverse_sequence_effective_corpus/diversity_summary.json",
+      "runs/m844_v4_source_diverse_sequence_effective_corpus/accepted_sequence_effective_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m844-v4-source-diverse-sequence-effective-corpus-implementation.json"
+    ],
+    "parent_objective": [
+      "audit source-diverse sequence-effective corpus source-limited result"
+    ],
+    "derived_from": [
+      "m844-v4-source-diverse-sequence-effective-corpus-implementation"
+    ],
+    "blocked_by": [
+      "M844 improves source diversity but remains source/fault limited and lacks pair-delta rows"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m845-v4-source-diverse-sequence-effective-corpus-audit.md",
+  "public_gates": [
+    "M845 must audit M844 before another corpus implementation",
+    "M845 must separate source diversity improvements from strong corpus proof",
+    "M845 must decide whether to expand bracketing cross-source pairing or objective design",
+    "M845 must keep PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run replay in M845",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat direct sequence override rows as learned self-ID proof",
+    "do not ignore missing pair-delta rows"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_source_diverse_sequence_effective_corpus",
+    "evidence_axis": "G_data: source-diverse sequence-effective corpus audit",
+    "evidence_increment": "audits whether M844 source-limited result should continue into broader bracketing or paired corpus construction",
+    "claim_scope": "audit only; no replay, training, PPO, learned policy claim, or driver promotion",
+    "stop_condition": [
+      "stop if M844 artifacts are incomplete",
+      "stop if checksums changed",
+      "stop if source-limited evidence is treated as strong corpus proof",
+      "stop if PPO is admitted before corpus quality is sufficient"
+    ],
+    "fallback_plan": [
+      "if M844 is useful but source-limited, design broader bracketing or cross-source paired refresh",
+      "if M844 is implementation-artifact limited, repair the corpus tool",
+      "if M844 is unexpectedly strong after audit, design outcome-coupled objective sanity without PPO",
+      "if branch stalls, synthesize before further continuation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M844 returns source-limited source-diverse corpus result",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M844 is a useful source-diversity improvement but not a strong corpus, so the next step should expand bracketing or construct real cross-source pairs rather than train.",
+  "success_criteria": [
+    "M845 writes an audit document for M844",
+    "M845 verifies M844 artifact completeness and frozen checksums",
+    "M845 classifies source diversity and failure taxonomy",
+    "M845 selects the next no-training branch",
+    "M845 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M845 admits PPO or promotion",
+    "M845 trains actor or residual parameters",
+    "M845 ignores M844 source/fault limitations",
+    "M845 treats direct sequence override rows as learned self-ID proof"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m845-v4-source-diverse-sequence-effective-corpus-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m845-v4-source-diverse-sequence-effective-corpus-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m844-v4-source-diverse-sequence-effective-corpus-implementation.md",
+    "runs/m844_v4_source_diverse_sequence_effective_corpus/summary.json",
+    "runs/m844_v4_source_diverse_sequence_effective_corpus/diversity_summary.json"
+  ],
+  "decision_rule": "M845 may only audit M844 and pre-register the next no-training branch. It must not run replay, train, run PPO, or promote.",
+  "next_blocker": "M844 improves source diversity but remains source-limited and lacks cross-source pair-delta coverage"
+}
