@@ -62,17 +62,24 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m762-v4-sequence-objective-only-probe-audit
+m763-v4-residual-closed-loop-replay-design
 ```
 
-M762 should audit the M761 no-PPO residual objective-only probe before any
-closed-loop replay, PPO, or checkpoint promotion. It must decide whether the
-M761 candidate alphas are clean enough to admit a no-PPO residual replay design
-or whether sparse hard negatives / public-corpus overfit risk require a source
-refresh first.
+M763 should design a no-PPO closed-loop replay evaluator for the M761 residual
+head. It should compare base alpha `0.0` with residual alphas `0.2`, `0.5`,
+and `1.0`, report closed-loop outcome metrics and normal-retention metrics,
+stratify by variant/horizon/fault family/source, and keep PPO plus checkpoint
+promotion blocked.
 
 ## Recent Evidence Line
 
+- M762 audits M761 as a clean objective-only positive, not a promoted driver.
+  It supports that the v4 sequence corpus has residual actor-coupling signal:
+  alpha `0.2`, `0.5`, and `1.0` improve exact gap metrics while keeping normal
+  first-action drift inside gates. It keeps `scenario_sampling_failure` visible
+  because hard-negative availability remains `0.721352` and rows are dominated
+  by `zero_command_obs` and long horizons. The next admitted step is only a
+  no-PPO closed-loop residual replay design.
 - M761 implements and runs the no-PPO frozen-backbone residual objective probe.
   It reconstructs `1213/1213` M755 positive rows with `0` metadata misses and
   `0` rejected rows, trains only a `4355`-parameter residual head for `40`

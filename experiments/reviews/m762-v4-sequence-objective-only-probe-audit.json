@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M762 audits M761 as clean objective-only positive but keeps sparse hard-negative and public-corpus overfit risks visible before no-PPO closed-loop residual replay design",
+  "failure_criteria": [
+    "audit treats M761 as promoted driver improvement",
+    "audit ignores sparse hard negatives",
+    "audit ignores public-corpus overfit risk",
+    "audit admits PPO or promotion directly",
+    "audit ignores claim-boundary limits"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not treat M761 as a promoted driver",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not hide hard-negative sparsity",
+    "do not ignore public-corpus overfit risk",
+    "do not claim true per-wheel or four-wheel fault physics"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260525T001541Z",
+  "hypothesis": "M761 is a clean objective-only positive that can admit a no-PPO closed-loop residual replay design while keeping PPO and promotion blocked.",
+  "lineage": {
+    "blocked_by": [
+      "m761-v4-sequence-objective-only-probe-implementation"
+    ],
+    "derived_from": [
+      "m761-v4-sequence-objective-only-probe-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m761-v4-sequence-objective-only-probe-implementation.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m761-v4-sequence-objective-only-probe-implementation.md",
+      "runs/m761_v4_sequence_objective_probe/summary.json",
+      "runs/m761_v4_sequence_objective_probe/alpha_metrics.csv",
+      "runs/m761_v4_sequence_objective_probe/objective_rows.csv",
+      "runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv"
+    ],
+    "parent_objective": [
+      "audit no-PPO residual objective-only probe before closed-loop replay or PPO"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m762-v4-sequence-objective-only-probe-audit",
+  "next_blocker": "m763-v4-residual-closed-loop-replay-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "promote_to_v4_residual_closed_loop_replay_design",
+  "public_gates": [
+    "M762 reviews M761 reconstruction and exact alpha metrics",
+    "M762 verifies actor checksum and residual-only scope",
+    "M762 keeps hard-negative sparsity and public-corpus overfit risk visible",
+    "M762 decides whether closed-loop residual replay is admissible",
+    "PPO and checkpoint promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m762-v4-sequence-objective-only-probe-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "promote_to_v4_residual_closed_loop_replay_design",
+    "milestone": "m762-v4-sequence-objective-only-probe-audit",
+    "reason": "M762 audits M761 as clean objective-only positive but keeps sparse hard-negative and public-corpus overfit risks visible before no-PPO closed-loop residual replay design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M762 reviews M761 exact alpha metrics",
+    "M762 records supported and falsified claims",
+    "M762 classifies hard-negative sparsity and public-corpus overfit risk",
+    "M762 decides whether closed-loop residual replay is admissible",
+    "M762 keeps PPO and checkpoint promotion blocked"
+  ],
+  "type": "gate"
+}

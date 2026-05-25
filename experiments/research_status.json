@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 770,
+        "completed": 771,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m761-v4-sequence-objective-only-probe-implementation",
+        "task_id": "m762-v4-sequence-objective-only-probe-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "runs/m761_v4_sequence_objective_probe/summary.json"
+        "command_log": "docs/m762-v4-sequence-objective-only-probe-audit.md"
     },
     "next_task": {
-        "id": "m762-v4-sequence-objective-only-probe-audit",
+        "id": "m763-v4-residual-closed-loop-replay-design",
         "status": "pending",
-        "priority": 7570,
-        "kind": "gate",
-        "hypothesis": "Audit no-PPO v4 sequence objective-only probe before closed-loop replay or PPO",
-        "command": "see experiments/manifests/m762-v4-sequence-objective-only-probe-audit.json",
-        "success_artifact": "docs/m762-v4-sequence-objective-only-probe-audit.md",
-        "notes": "Pending: audit M761 residual-only positive result and decide whether closed-loop residual replay is admissible"
+        "priority": 7580,
+        "kind": "infrastructure",
+        "hypothesis": "Design no-PPO closed-loop replay for M761 residual head",
+        "command": "see experiments/manifests/m763-v4-residual-closed-loop-replay-design.json",
+        "success_artifact": "docs/m763-v4-residual-closed-loop-replay-design.md",
+        "notes": "Pending: design base-vs-residual alpha closed-loop replay while keeping PPO and promotion blocked"
     },
-    "updated_at_utc": "20260525T053000Z"
+    "updated_at_utc": "20260525T054000Z"
 }
