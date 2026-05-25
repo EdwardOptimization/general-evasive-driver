@@ -1,0 +1,124 @@
+{
+  "id": "m844-v4-source-diverse-sequence-effective-corpus-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m843-v4-source-diverse-sequence-effective-corpus-design.md",
+      "runs/m841_v4_near_boundary_sequence_effectiveness_probe/accepted_sequence_effective_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv",
+      "runs/m832_v4_near_boundary_wrong_history_pair_mining/accepted_boundary_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m843-v4-source-diverse-sequence-effective-corpus-design.json"
+    ],
+    "parent_objective": [
+      "implement no-training source-diverse sequence-effective corpus refresh"
+    ],
+    "derived_from": [
+      "m843-v4-source-diverse-sequence-effective-corpus-design"
+    ],
+    "blocked_by": [
+      "M841 sequence-effective evidence is sparse and source-concentrated"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m844-v4-source-diverse-sequence-effective-corpus-implementation.md",
+  "public_gates": [
+    "M844 must implement no-training source-diverse corpus refresh only",
+    "M844 must write source-aware train/eval/source-holdout splits",
+    "M844 must preserve actor and residual-head checksums",
+    "M844 must not train or promote"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels or oracle fields to actor input",
+    "do not treat direct sequence override rows as learned self-ID proof",
+    "do not tune thresholds around M841 source-concentrated positives"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_source_diverse_sequence_effective_corpus",
+    "evidence_axis": "G_data: source-diverse sequence-effective corpus implementation",
+    "evidence_increment": "implements the M843 corpus refresh to broaden M841 sparse-positive sequence-effectiveness evidence",
+    "claim_scope": "no-training corpus diagnostics only; no PPO, learned policy claim, or driver promotion",
+    "stop_condition": [
+      "stop if actor or residual-head checksums change",
+      "stop if implementation does not improve source diversity over M841",
+      "stop if direct sequence rows are treated as learned self-ID proof",
+      "stop if artifacts lack source-aware splits"
+    ],
+    "fallback_plan": [
+      "if strong corpus gate passes, audit before outcome-coupled sequence objective design",
+      "if sparse-positive only, audit before expansion or restricted objective sanity",
+      "if all weak, pivot to fresh action-leverage boundary mining",
+      "if artifacts are incomplete, repair implementation before interpreting"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M843 admits one source-diverse sequence-effective corpus implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A source-diverse corpus refresh can expand M841's sparse-positive sequence-effectiveness evidence into a broader no-training data surface.",
+  "success_criteria": [
+    "M844 implements the source-diverse sequence-effective corpus refresh",
+    "M844 writes accepted rows and source-aware splits",
+    "M844 reports source diversity gates",
+    "M844 verifies actor and residual-head checksums unchanged",
+    "M844 classifies the result without PPO or promotion"
+  ],
+  "failure_criteria": [
+    "M844 trains actor or residual-head parameters",
+    "M844 runs PPO",
+    "M844 promotes a checkpoint",
+    "M844 mutates actor input contract",
+    "M844 treats direct sequence override effects as learned self-ID proof"
+  ],
+  "commands": [
+    {
+      "name": "source_diverse_sequence_effective_corpus",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_source_diverse_sequence_effective_corpus --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --residual-head runs/m761_v4_sequence_objective_probe/residual_head.pt --scenario-config configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json --source-rows runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv --candidate-plan-rows runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv --accepted-boundary-rows runs/m832_v4_near_boundary_wrong_history_pair_mining/accepted_boundary_rows.csv --seed-sequence-positive-rows runs/m841_v4_near_boundary_sequence_effectiveness_probe/accepted_sequence_effective_rows.csv --run-dir runs/m844_v4_source_diverse_sequence_effective_corpus --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_source_diverse_sequence_effective_corpus.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_v4_source_diverse_sequence_effective_corpus.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m844_v4_source_diverse_sequence_effective_corpus/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "docs/m844-v4-source-diverse-sequence-effective-corpus-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m843-v4-source-diverse-sequence-effective-corpus-design.md",
+    "runs/m841_v4_near_boundary_sequence_effectiveness_probe/summary.json",
+    "runs/m841_v4_near_boundary_sequence_effectiveness_probe/diversity_summary.json"
+  ],
+  "decision_rule": "M844 may produce a no-training corpus diagnostic classification only. It must not train, run PPO, promote, or claim learned self-ID.",
+  "next_blocker": "source-diverse sequence-effective corpus has not yet been constructed"
+}
