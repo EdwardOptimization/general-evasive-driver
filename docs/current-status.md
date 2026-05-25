@@ -62,16 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m893-v4-enriched-pair-delta-fresh-seed-replay-proof-gate
+m894-v4-pair-delta-objective-probe-branch-synthesis
 ```
 
-M892 audited M891 as a clean objective-level fresh-seed repeat. M893 must now
-run exact recheck and closed-loop replay/proof gates for M891 alpha `0.1`
-against the M568 diagnostic BC base, with alpha `0.05` kept as fallback if a
-boundary cliff appears.
+M893 repeated the M889 proof-gate positive on the M891 seed-10887 candidate.
+M894 must synthesize M885-M893 before any further repeat, generalization gate,
+PPO, or promotion work.
 
 ## Recent Evidence Line
 
+- M893 passes exact recheck, six replay/proof surfaces, and behavior seeds
+  `9505`/`9506` for M891 `alpha_0_1` versus M568. Exact recheck reconstructs
+  `247/247` rows; all six replay surfaces pass with zero candidate success-drop
+  regression. Behavior retention stays at success `0.8125` and termination
+  `0.1875`, with aggregate clearance delta `+0.0004909103515290392`. Together
+  with M889, this supports two-seed proof retention for the no-PPO
+  objective-only recipe, not promotion or PPO safety.
 - M892 audits M891 as a clean fresh-seed repeat of the M886 no-PPO
   objective-only result. Both seeds reconstruct `247/247` rows, find `7`
   nonzero exact-admissible interpolation candidates, and select alpha `0.1` as

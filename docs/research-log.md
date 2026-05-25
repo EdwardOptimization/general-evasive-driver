@@ -14123,3 +14123,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M892 audits M891 as a clean fresh-seed repeat of the M886 objective-only result. M891 matches M886 on the key exact-objective outcome: both reconstruct `247/247` tensor rows, both find `7` nonzero exact-admissible interpolation candidates, and both select alpha `0.1` as the best exact-admissible candidate. The supported claim is limited to objective-level repeatability across two optimizer/minibatch seeds; replay retention for the repeat remains untested.
 - decision: `v4_enriched_pair_delta_objective_only_fresh_seed_repeat_audit_admit_replay_gate`
 - next: `m893-v4-enriched-pair-delta-fresh-seed-replay-proof-gate`
+
+## 20260525T200354Z - m893-v4-enriched-pair-delta-fresh-seed-replay-proof-gate
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m893_m891_a010_replay_proof_gate`
+- artifact: `docs/m893-v4-enriched-pair-delta-fresh-seed-replay-proof-gate.md`
+- result: M893 passes the registered proof-gate stack for the M891 seed-10887 `alpha_0_1` candidate versus M568. Exact recheck reconstructs `247/247` rows with finite losses and nonpositive split deltas versus M568/M883. All six replay/proof surfaces pass with zero candidate success-drop regression. Behavior seeds `9505` and `9506` retain success `0.8125` and termination `0.1875`; aggregate clearance margin changes by `+0.0004909103515290392` while return changes by `-0.004009246678577938`. PPO and promotion remain blocked.
+- decision: `v4_enriched_pair_delta_fresh_seed_replay_proof_gate_pass`
+- next: `m894-v4-pair-delta-objective-probe-branch-synthesis`

@@ -1,0 +1,135 @@
+{
+  "id": "m894-v4-pair-delta-objective-probe-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "metric_artifact",
+    "behavior_regression",
+    "seed_fragility",
+    "proof_washout",
+    "contract_violation",
+    "lineage_invalid"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/alpha_0_1.pt",
+      "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m885-v4-enriched-pair-delta-objective-only-probe-design.md",
+      "docs/m886-v4-enriched-pair-delta-objective-only-probe-implementation.md",
+      "docs/m887-v4-enriched-pair-delta-objective-only-probe-audit.md",
+      "docs/m888-v4-enriched-pair-delta-replay-proof-gate-design.md",
+      "docs/m889-v4-enriched-pair-delta-replay-proof-gate-implementation.md",
+      "docs/m890-v4-enriched-pair-delta-replay-proof-gate-audit.md",
+      "docs/m891-v4-enriched-pair-delta-objective-only-fresh-seed-repeat.md",
+      "docs/m892-v4-enriched-pair-delta-objective-only-fresh-seed-repeat-audit.md",
+      "docs/m893-v4-enriched-pair-delta-fresh-seed-replay-proof-gate.md",
+      "runs/m886_v4_enriched_pair_delta_objective_only_probe/summary.json",
+      "runs/m889_m886_a010_replay_proof_gate/summary.json",
+      "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/summary.json",
+      "runs/m893_m891_a010_replay_proof_gate/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m893-v4-enriched-pair-delta-fresh-seed-replay-proof-gate.json"
+    ],
+    "parent_objective": [
+      "synthesize M885-M893 objective-probe branch before any further repeats, generalization gates, PPO, or promotion work"
+    ],
+    "derived_from": [
+      "m893-v4-enriched-pair-delta-fresh-seed-replay-proof-gate"
+    ],
+    "blocked_by": [
+      "branch cadence reached after two exact-admissible objective-only seeds and two replay/proof gate positives"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m894-v4-pair-delta-objective-probe-branch-synthesis.md",
+  "public_gates": [
+    "M894 must synthesize M885-M893 before further narrow continuation",
+    "M894 must answer required synthesis questions",
+    "M894 must separate exact-objective/replay retention from driver improvement",
+    "M894 must decide whether to continue, pivot, or open a next branch",
+    "M894 must keep PPO and promotion blocked unless explicitly admitted by the synthesis decision"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run replay in M894",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat public replay retention as generalization",
+    "do not continue with another narrow repeat without a synthesis decision"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_objective_probe",
+    "evidence_axis": "G_objective_update synthesis: no-PPO pair-delta objective-only update repeatability and proof retention",
+    "evidence_increment": "synthesizes M885-M893 after two objective-only seeds and two replay/proof gates passed",
+    "claim_scope": "branch synthesis only; no replay, training, PPO, learned driver claim, generalization claim, or driver promotion",
+    "stop_condition": [
+      "stop if synthesis questions are not answered",
+      "stop if M889/M893 replay positives are treated as promotion evidence",
+      "stop if the tiny movement/effect-size caveat is omitted",
+      "stop if no next branch decision is made"
+    ],
+    "fallback_plan": [
+      "if proof retention and repeatability are sufficient, promote to a next branch focused on effect size or generalization",
+      "if movement is too small to justify more gates, pivot to objective scaling or richer corpus design",
+      "if public-gate overfit risk dominates, pivot to fresh-source surface refresh",
+      "if artifacts are inconsistent, repair before continuation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M893 completes the second replay/proof gate positive in the M885-M893 objective-probe branch",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m894-v4-pair-delta-objective-probe-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "M885-M893 have produced enough no-PPO objective-probe evidence to close the current branch and choose a next branch, while preserving caveats before any further repeat, generalization, PPO, or promotion work.",
+  "success_criteria": [
+    "M894 writes a synthesis document covering M885-M893",
+    "M894 answers the required synthesis questions",
+    "M894 records exact-objective repeatability and replay/proof retention",
+    "M894 records unsupported claims and effect-size caveats",
+    "M894 decides the next branch without running replay, training, PPO, or promotion"
+  ],
+  "failure_criteria": [
+    "M894 runs replay or training",
+    "M894 admits promotion",
+    "M894 treats M889/M893 as public-base driver evidence",
+    "M894 omits public-gate overfit and tiny-movement caveats",
+    "M894 continues narrow work without synthesis"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m894-v4-pair-delta-objective-probe-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m894-v4-pair-delta-objective-probe-branch-synthesis.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+    "runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/alpha_0_1.pt",
+    "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m893-v4-enriched-pair-delta-fresh-seed-replay-proof-gate.md"
+  ],
+  "decision_rule": "M894 may only synthesize the M885-M893 branch and choose the next branch. It must not run replay, train, run PPO, or promote.",
+  "next_blocker": "M885-M893 objective-probe branch synthesis has not yet been written"
+}

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 901,
+    "completed": 902,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m892-v4-enriched-pair-delta-objective-only-fresh-seed-repeat-audit",
+    "task_id": "m893-v4-enriched-pair-delta-fresh-seed-replay-proof-gate",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m892-v4-enriched-pair-delta-objective-only-fresh-seed-repeat-audit.md"
+    "command_log": "docs/m893-v4-enriched-pair-delta-fresh-seed-replay-proof-gate.md"
   },
   "next_task": {
-    "id": "m893-v4-enriched-pair-delta-fresh-seed-replay-proof-gate",
+    "id": "m894-v4-pair-delta-objective-probe-branch-synthesis",
     "status": "pending",
-    "priority": 8880,
+    "priority": 8890,
     "kind": "gate",
-    "hypothesis": "Run exact recheck and replay/proof gates for M891 alpha_0_1 versus M568",
-    "command": "see experiments/manifests/m893-v4-enriched-pair-delta-fresh-seed-replay-proof-gate.json",
-    "success_artifact": "runs/m893_m891_a010_replay_proof_gate/summary.json",
-    "notes": "Pending: execute proof gate for fresh-seed repeat before synthesis or further repeats"
+    "hypothesis": "Synthesize M885-M893 objective-probe branch before further repeats, generalization, PPO, or promotion",
+    "command": "see experiments/manifests/m894-v4-pair-delta-objective-probe-branch-synthesis.json",
+    "success_artifact": "docs/m894-v4-pair-delta-objective-probe-branch-synthesis.md",
+    "notes": "Pending: branch synthesis after two objective-only seeds and two replay/proof gate positives"
   },
-  "updated_at_utc": "20260525T195728Z"
+  "updated_at_utc": "20260525T200354Z"
 }

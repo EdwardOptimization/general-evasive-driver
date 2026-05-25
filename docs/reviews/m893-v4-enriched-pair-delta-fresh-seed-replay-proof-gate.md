@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260525T200024Z
+- Generated at UTC: 20260525T200533Z
 - Type: gate
 - Gate tier: proof
-- Promotion decision: not_applicable
-- Decision reason: M893 may only execute proof gates for the fresh repeat. It must not promote, run PPO, or claim generalization.
+- Promotion decision: v4_enriched_pair_delta_fresh_seed_replay_proof_gate_pass
+- Decision reason: M893 repeats the M889 proof-gate positive for fresh seed M891 alpha_0_1 with exact recheck six replay surfaces and behavior seeds passing versus M568
 
 ## Hypothesis
 
@@ -69,7 +69,18 @@ The M891 seed-10887 alpha_0_1 exact-admissible objective-only checkpoint can pre
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m893-v4-enriched-pair-delta-fresh-seed-replay-proof-gate
+- type: gate
+- checkpoint: runs/m893_m891_a010_replay_proof_gate/summary.json
+- success_rate: 0.8125
+- termination_rate: 0.1875
+- clearance_margin_mean: 1.472736
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: v4_enriched_pair_delta_fresh_seed_replay_proof_gate_pass
+- reason: M893 repeats the M889 proof-gate positive for fresh seed M891 alpha_0_1 with exact recheck six replay surfaces and behavior seeds passing versus M568
 
 ## Next Blocker
 

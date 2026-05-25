@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M893 may only execute proof gates for the fresh repeat. It must not promote, run PPO, or claim generalization.",
+  "decision_reason": "M893 repeats the M889 proof-gate positive for fresh seed M891 alpha_0_1 with exact recheck six replay surfaces and behavior seeds passing versus M568",
   "failure_criteria": [
     "exact recheck regresses holdouts",
     "any replay surface fails",
@@ -22,7 +22,7 @@
     "do not claim generalization from public replay surfaces"
   ],
   "gate_tier": "proof",
-  "generated_at_utc": "20260525T200024Z",
+  "generated_at_utc": "20260525T200533Z",
   "hypothesis": "The M891 seed-10887 alpha_0_1 exact-admissible objective-only checkpoint can preserve M568-relative replay/proof surfaces and behavior seeds without PPO or promotion.",
   "lineage": {
     "blocked_by": [
@@ -57,7 +57,7 @@
   "milestone": "m893-v4-enriched-pair-delta-fresh-seed-replay-proof-gate",
   "next_blocker": "M891 alpha_0_1 exact-admissible repeat has not run replay/proof gates",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "v4_enriched_pair_delta_fresh_seed_replay_proof_gate_pass",
   "public_gates": [
     "exact objective recheck for M891 alpha_0_1 versus M568 base",
     "six public replay surfaces pass versus M568 base",
@@ -65,7 +65,20 @@
     "fallback alpha_0_05 handling is recorded if alpha_0_1 fails",
     "no PPO or promotion"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "runs/m893_m891_a010_replay_proof_gate/summary.json",
+    "clearance_margin_mean": "1.472736",
+    "decision": "v4_enriched_pair_delta_fresh_seed_replay_proof_gate_pass",
+    "milestone": "m893-v4-enriched-pair-delta-fresh-seed-replay-proof-gate",
+    "reason": "M893 repeats the M889 proof-gate positive for fresh seed M891 alpha_0_1 with exact recheck six replay surfaces and behavior seeds passing versus M568",
+    "reset_success": "",
+    "success_rate": "0.8125",
+    "termination_rate": "0.1875",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "exact recheck passes for M891 alpha_0_1",
     "all six replay/proof surfaces pass versus M568",
