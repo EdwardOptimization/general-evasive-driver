@@ -13491,3 +13491,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M824 designs the no-training extreme hidden-dynamics self-ID route. It targets source-diverse evidence where normal command-response history outperforms reset, zero-command, delayed/shifted-response, or wrong-cross-fault history. It defines accepted row classes for primary self-ID rows, matched-current-state/action-divergent rows, and mitigation rows; proposes diversity gates (`>=120` primary self-ID rows, `>=16` seeds, `>=48` source groups, `>=8` fault-family pairs, `>=4` onset buckets, `>=3` warm-up modes, and dominance limits); and requires artifacts for source rows, matched pairs, history interventions, accepted rows, rejected rows, diversity summary, and gate summary. The design preserves actor-input restrictions and explicitly marks current-model faults versus proxy faults, blocking true wheel-level physical claims until a higher-fidelity model exists.
 - decision: `extreme_hidden_dynamics_data_route_design_admit_m825`
 - next: `m825-v4-extreme-hidden-dynamics-data-route-implementation`
+
+## 20260525T200500Z - m825-v4-extreme-hidden-dynamics-data-route-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m825_v4_extreme_hidden_dynamics_data_route`
+- artifact: `docs/m825-v4-extreme-hidden-dynamics-data-route-implementation.md`
+- result: M825 implements and runs the no-training extreme hidden-dynamics data route. It evaluates `512` normal replays and `3072` history-intervention rows across `64` source groups and `18` fault specs with frozen M568 actor and M761 residual head checksums unchanged. Supported variants are reset-hidden-each-step, reset-hidden-then-normal, zero-command observation, command-shift observation, and response-delay observation. `wrong_cross_fault_history` is explicitly logged as unsupported diagnostic rather than faked. The route finds `47` raw / `18` balanced primary self-ID rows, `40` raw / `12` balanced mitigation rows, and `256` matched action-divergent proxy pairs, but the pre-registered `120` row and source-diversity gates fail. Accepted rows are concentrated in `2` seeds, `3` source groups, `3` fault-family pairs, `2` onset buckets, and `natural_policy` warm-up only. Result class is `v4_extreme_hidden_dynamics_data_route_sparse`.
+- decision: `v4_extreme_hidden_dynamics_data_route_sparse`
+- next: `m826-v4-extreme-hidden-dynamics-data-route-audit`

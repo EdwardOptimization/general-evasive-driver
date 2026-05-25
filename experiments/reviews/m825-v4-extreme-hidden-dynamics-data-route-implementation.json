@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M825 implements no-training extreme hidden-dynamics mining with 512 normal replays 3072 history interventions 18 balanced self-ID rows 12 mitigation rows and 256 matched action-divergent proxy pairs; sparse/source-concentrated result blocks PPO and promotion",
+  "failure_criteria": [
+    "M825 trains actor or residual parameters",
+    "M825 runs PPO",
+    "M825 promotes a checkpoint",
+    "M825 uses hidden fault labels as actor inputs",
+    "M825 mislabels proxy faults as true wheel-level faults",
+    "M825 omits history-intervention gates"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use hidden fault labels as actor inputs",
+    "do not claim true wheel-level physical faults from current proxies",
+    "do not optimize only fixed public proof rows",
+    "do not report aggregate success as self-ID proof"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T103513Z",
+  "hypothesis": "No-training extreme hidden-dynamics source mining can produce source-diverse rows where command-response history interventions degrade margin or action quality.",
+  "lineage": {
+    "blocked_by": [
+      "need source-diverse history-intervention corpus beyond M814/M817 fixed-gate route"
+    ],
+    "derived_from": [
+      "m824-v4-extreme-hidden-dynamics-data-route-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m824-v4-extreme-hidden-dynamics-data-route-design.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m824-v4-extreme-hidden-dynamics-data-route-design.md",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_objective": [
+      "implement no-training extreme hidden-dynamics self-ID data route"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m825-v4-extreme-hidden-dynamics-data-route-implementation",
+  "next_blocker": "m826-v4-extreme-hidden-dynamics-data-route-audit",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "v4_extreme_hidden_dynamics_data_route_sparse",
+  "public_gates": [
+    "M825 must implement a no-training data route",
+    "M825 must preserve actor and residual-head checksums",
+    "M825 must evaluate normal wrong/reset/delayed/zero-command history variants or explicitly classify unsupported variants",
+    "M825 must report source and fault diversity",
+    "M825 must separate current-model faults from proxy faults",
+    "M825 must not run PPO or promote a checkpoint"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m825_v4_extreme_hidden_dynamics_data_route/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "v4_extreme_hidden_dynamics_data_route_sparse",
+    "milestone": "m825-v4-extreme-hidden-dynamics-data-route-implementation",
+    "reason": "M825 implements no-training extreme hidden-dynamics mining with 512 normal replays 3072 history interventions 18 balanced self-ID rows 12 mitigation rows and 256 matched action-divergent proxy pairs; sparse/source-concentrated result blocks PPO and promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M825 writes source test run summary and documentation artifacts",
+    "M825 reports accepted self-ID and mitigation row counts",
+    "M825 reports normal versus intervention margin/action gaps",
+    "M825 reports diversity and dominance metrics",
+    "M825 confirms actor and residual-head checksums unchanged",
+    "M825 keeps PPO and promotion blocked"
+  ],
+  "type": "infrastructure"
+}

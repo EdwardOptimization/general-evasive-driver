@@ -1,27 +1,27 @@
 {
-    "counts": {
-        "blocked": 1,
-        "completed": 833,
-        "failed": 0,
-        "pending": 1,
-        "planned": 0,
-        "running": 0
-    },
-    "last_result": {
-        "task_id": "m824-v4-extreme-hidden-dynamics-data-route-design",
-        "status": "completed",
-        "returncode": 0,
-        "command_log": "docs/m824-v4-extreme-hidden-dynamics-data-route-design.md"
-    },
-    "next_task": {
-        "id": "m825-v4-extreme-hidden-dynamics-data-route-implementation",
-        "status": "pending",
-        "priority": 8200,
-        "kind": "infrastructure",
-        "hypothesis": "Implement no-training extreme hidden-dynamics self-ID data route after M824 design",
-        "command": "see experiments/manifests/m825-v4-extreme-hidden-dynamics-data-route-implementation.json",
-        "success_artifact": "docs/m825-v4-extreme-hidden-dynamics-data-route-implementation.md",
-        "notes": "Pending: source mining only; actor residual training PPO and promotion blocked"
-    },
-    "updated_at_utc": "20260525T194000Z"
+  "counts": {
+    "blocked": 1,
+    "completed": 834,
+    "failed": 0,
+    "pending": 1,
+    "planned": 0,
+    "running": 0
+  },
+  "last_result": {
+    "task_id": "m825-v4-extreme-hidden-dynamics-data-route-implementation",
+    "status": "completed",
+    "returncode": 0,
+    "command_log": "docs/m825-v4-extreme-hidden-dynamics-data-route-implementation.md"
+  },
+  "next_task": {
+    "id": "m826-v4-extreme-hidden-dynamics-data-route-audit",
+    "status": "pending",
+    "priority": 8210,
+    "kind": "gate",
+    "hypothesis": "Audit M825 sparse evidence before any source expansion wrong-history implementation PPO or promotion",
+    "command": "see experiments/manifests/m826-v4-extreme-hidden-dynamics-data-route-audit.json",
+    "success_artifact": "docs/m826-v4-extreme-hidden-dynamics-data-route-audit.md",
+    "notes": "Pending: M825 found 18 balanced self-ID rows versus 120 required; wrong-cross-fault history remains unsupported"
+  },
+  "updated_at_utc": "20260525T200500Z"
 }
