@@ -1,0 +1,101 @@
+{
+  "id": "m931-v4-public-base-policy-head-no-tail-lift-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m930_v4_public_base_policy_head_trust_region_probe/summary.json",
+      "runs/m930_v4_public_base_policy_head_trust_region_probe/alpha_metrics.csv",
+      "runs/m930_v4_public_base_policy_head_trust_region_probe/training_metrics.csv",
+      "docs/m930-v4-public-base-policy-head-trust-region-probe-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m930-v4-public-base-policy-head-trust-region-probe-implementation.json"
+    ],
+    "parent_objective": [
+      "audit actor_mean-only no-tail-lift result before any broader policy update"
+    ],
+    "derived_from": [
+      "m930-v4-public-base-policy-head-trust-region-probe-implementation"
+    ],
+    "blocked_by": [
+      "policy-head no-tail-lift result has not yet been audited"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m931-v4-public-base-policy-head-no-tail-lift-audit.md",
+  "public_gates": [
+    "M931 must be audit-only",
+    "M931 must preserve P0 actor input contract",
+    "M931 must classify M930 no-tail-lift before any broader actor update",
+    "M931 must keep replay PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in M931",
+    "do not change actor inputs",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not start a broader actor update without an audit route"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_policy_level_trust_region",
+    "evidence_axis": "G_policy_update: classify actor_mean-only no-tail-lift evidence",
+    "evidence_increment": "audits whether M930 failed because actor_mean-only has insufficient leverage or because the objective active set is wrong",
+    "claim_scope": "process and mechanism audit only; no training, replay, PPO, driver improvement claim, or promotion",
+    "stop_condition": [
+      "stop if the audit attempts training",
+      "stop if the audit changes actor inputs",
+      "stop if the audit admits replay PPO or promotion"
+    ],
+    "fallback_plan": [
+      "if actor_head_leverage_insufficient, route to controlled final-fusion plus actor_mean design",
+      "if objective_active_set_mismatch, route to fresh target or low-tail source audit",
+      "if branch stop condition fires, write synthesis before further variants"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M930 produces no tail lift from actor_mean-only update",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M930's no-tail-lift result must be classified before expanding the trainable policy surface; otherwise the branch risks local gate-passing variants without evidence gain.",
+  "success_criteria": [
+    "docs/m931-v4-public-base-policy-head-no-tail-lift-audit.md exists",
+    "M931 classifies M930 using summary alpha and training metrics",
+    "M931 chooses a next route without replay PPO or promotion"
+  ],
+  "failure_criteria": [
+    "M931 starts training",
+    "M931 changes actor inputs",
+    "M931 admits replay PPO or promotion"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m931-v4-public-base-policy-head-no-tail-lift-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m931-v4-public-base-policy-head-no-tail-lift-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m930_v4_public_base_policy_head_trust_region_probe/summary.json",
+    "docs/m930-v4-public-base-policy-head-trust-region-probe-implementation.md"
+  ],
+  "decision_rule": "M931 may only audit M930 and choose the next branch-local route. It must not train, run replay, run PPO, or promote.",
+  "next_blocker": "policy-head no-tail-lift result has not yet been audited"
+}

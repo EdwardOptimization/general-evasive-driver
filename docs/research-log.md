@@ -14469,3 +14469,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M929 designs an objective-only actor_mean trust-region probe after residual bridge infeasibility. M930 may update only `model.actor_mean`; feature/recurrent encoders, critic, log_std, actor inputs, replay, PPO, and promotion remain blocked. Candidate alphas must satisfy the same normal-retention, low-tail, and target-action gates before any exact/replay work.
 - decision: `public_base_policy_level_trust_region_design_admit_m930`
 - next: `m930-v4-public-base-policy-head-trust-region-probe-implementation`
+
+## 20260525T222808Z - m930-v4-public-base-policy-head-trust-region-probe-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m930_v4_public_base_policy_head_trust_region_probe`
+- artifact: `docs/m930-v4-public-base-policy-head-trust-region-probe-implementation.md`
+- result: M930 runs the objective-only actor_mean trust-region probe. It reconstructs `1213/1213`, joins `122/122` targets, starts training, and changes only `actor_mean`; feature backbone, critic, log_std, and all non-head checksums remain unchanged. All registered alphas pass normal retention, but none pass tail lift or target-loss gates, so `candidate_alpha_count=0`. No exact compatibility, replay, PPO, or promotion occurred.
+- decision: `public_base_policy_head_trust_region_probe_no_tail_lift_route_to_policy_head_audit`
+- next: `m931-v4-public-base-policy-head-no-tail-lift-audit`

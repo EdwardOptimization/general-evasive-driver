@@ -62,18 +62,26 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m930-v4-public-base-policy-head-trust-region-probe-implementation
+m931-v4-public-base-policy-head-no-tail-lift-audit
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
 alpha/mix candidate. M928 audits this as a residual-bridge trust-region
 conflict and routes to policy-level trust-region design. M929 designs an
-actor_mean-only objective sanity probe. M930 must train only the policy mean
-head, freeze feature/recurrent encoders, critic, and log_std, and evaluate
-objective gates before replay, PPO, or promotion.
+actor_mean-only objective sanity probe. M930 updates only the policy mean head,
+freezes feature/recurrent encoders, critic, and log_std, and finds no
+tail-lift candidate. M931 must audit whether this is actor-head leverage
+insufficiency, objective active-set mismatch, or another stop condition before
+any broader actor update.
 
 ## Recent Evidence Line
 
+- M930 implements the actor_mean-only trust-region probe. It reconstructs
+  `1213/1213`, joins `122/122` targets, changes only `actor_mean`, and keeps
+  feature backbone, critic, log_std, and all non-head checksums unchanged.
+  Result: `candidate_alpha_count=0` and
+  `public_base_policy_head_trust_region_probe_no_tail_lift`. No exact
+  compatibility, replay, PPO, or promotion occurred.
 - M929 designs the policy-level trust-region route. M930 may update only
   `actor_mean` while freezing feature/recurrent encoders, critic, and log_std.
   It must use objective sanity and interpolation gates before any replay, PPO,
