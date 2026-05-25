@@ -108,6 +108,34 @@
       "type": "run_summary"
     },
     {
+      "path": "runs/m854_v4_pair_delta_boundary_expansion/target_source_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m854_v4_pair_delta_boundary_expansion/expanded_boundary_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m854_v4_pair_delta_boundary_expansion/accepted_boundary_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m854_v4_pair_delta_boundary_expansion/pairability_projection_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m854_v4_pair_delta_boundary_expansion/boundary_diversity_summary.json",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m854_v4_pair_delta_boundary_expansion/gate_summary.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m854_v4_pair_delta_boundary_expansion/rejected_rows.csv",
+      "type": "run_artifact"
+    },
+    {
       "path": "docs/m854-v4-pair-delta-boundary-expansion-implementation.md",
       "type": "documentation"
     }
@@ -121,5 +149,5 @@
     "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv"
   ],
   "decision_rule": "M854 may produce a no-training boundary expansion diagnostic classification only. It must not train, run PPO, run pair-delta sequence replay, promote, or claim learned self-ID.",
-  "next_blocker": "expanded boundary coverage for underrepresented pair-delta sources has not yet been constructed"
+  "next_blocker": "expanded boundary bracketing accepted only existing-boundary recovered sources; boundary-new-to-M844 sources remain no-bracket failures"
 }

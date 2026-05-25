@@ -13761,3 +13761,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M853 designs the first step of the new `v4_pair_delta_boundary_expansion` branch. It targets the specific M850 coverage gap: balanced pair-delta positives use only source groups `35, 41, 47`, seeds `78053, 78059`, and fault families `mass_cg_shift`, `global_mu_drop`, and `delay_noise_fault`. The design selects underrepresented M825 source rows, prioritizing absent seeds and missing fault families such as brake/drive authority drops, front/rear lateral authority drops, steering fault, and combined fault. M854 is constrained to no-training boundary expansion only: adaptive bracketing on obstacle lateral offset, timing, and half-width; accepted boundary rows must be successful non-collision low-margin rows; pairability projection is allowed, but pair-delta sequence replay is explicitly blocked until after audit.
 - decision: `pair_delta_boundary_expansion_design_admit_m854`
 - next: `m854-v4-pair-delta-boundary-expansion-implementation`
+
+## 20260525T142923Z - m854-v4-pair-delta-boundary-expansion-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m854_v4_pair_delta_boundary_expansion`
+- artifact: `docs/m854-v4-pair-delta-boundary-expansion-implementation.md`
+- result: M854 implements the no-training pair-delta boundary expansion. Target selection is broad: `61` source groups, `12` seeds, and `9` fault families, with all `61` requested snapshots reconstructed and actor/M761 checksums unchanged. Boundary bracketing is still source-limited: it produces `73` expanded boundary rows and `32` accepted successful non-collision low-margin rows, with `17` source groups, `4` seeds, `7` fault families, and all `3` boundary axes. Pairability projection is near sparse but below gate with `77` primary rows and `125` diagnostic rows. The important failure mode is that all accepted rows are `existing_boundary_recovered`; the `44` target sources that were new to M844 produced only `no_collision_safe_bracket` rejections. M854 is therefore `v4_pair_delta_boundary_expansion_source_limited`, not a contract failure and not pair-delta outcome evidence.
+- decision: `v4_pair_delta_boundary_expansion_source_limited`
+- next: `m855-v4-pair-delta-boundary-expansion-audit`

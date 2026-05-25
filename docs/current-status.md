@@ -62,15 +62,35 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m807-v4-low-margin-boundary-axis-expansion-implementation
+m855-v4-pair-delta-boundary-expansion-audit
 ```
 
-M807 should implement and run the no-training source-diverse boundary-axis
-expansion designed in M806. Further active-steer residual calibration, PPO,
-promotion, base actor mutation, and M761 residual-head mutation remain blocked.
+M855 should audit the M854 no-training boundary expansion before any further
+boundary implementation or pair-delta replay. M854 selected broad
+underrepresented M825 sources but accepted boundary rows only from existing
+M844 boundary sources, so PPO, promotion, base actor mutation, M761 residual
+head mutation, and pair-delta sequence replay remain blocked.
 
 ## Recent Evidence Line
 
+- M854 implements the no-training pair-delta boundary expansion. Target
+  selection is broad: `61` source groups, `12` seeds, and `9` fault families,
+  with all `61` requested snapshots reconstructed. Actor and M761 residual-head
+  checksums are unchanged and no training, PPO, promotion, or pair-delta
+  sequence replay occurs. Boundary bracketing remains source-limited:
+  `73` expanded rows produce only `32` accepted successful non-collision
+  low-margin rows, covering `17` source groups, `4` seeds, `7` fault families,
+  and all `3` boundary axes. Pairability projection is close to sparse-useful
+  but below gate with `77` primary rows. The key blocker is that all accepted
+  rows are `existing_boundary_recovered`; the `boundary_new_to_m844` targets
+  produced only `no_collision_safe_bracket` failures.
+- M853 designs the first step of the `v4_pair_delta_boundary_expansion` branch.
+  It targets the M850 coverage gap by selecting sources absent from the M850
+  balanced pair-delta left side, prioritizing absent seeds and missing fault
+  families such as brake/drive authority drops, front/rear lateral authority
+  drops, steering fault, and combined fault. M853 explicitly blocks PPO,
+  promotion, actor/residual training, and pair-delta sequence replay until
+  boundary coverage is audited.
 - M806 designs the next no-training boundary-axis expansion. It preserves the
   M804 closed-loop replay discipline but adds obstacle lateral offset,
   source-step neighborhood replay, fault activation micro-sweeps, fault

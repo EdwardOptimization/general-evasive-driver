@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M854 targets 61 underrepresented sources and reconstructs all snapshots but accepts only 32 low-margin boundary rows all from existing M844 boundary sources; pairability projection is 77 primary rows so audit is required before replay",
+  "failure_criteria": [
+    "M854 trains actor or residual-head parameters",
+    "M854 runs PPO",
+    "M854 promotes a checkpoint",
+    "M854 runs pair-delta sequence replay",
+    "M854 mutates actor input contract"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels or oracle fields to actor input",
+    "do not replay pair-delta sequences in M854",
+    "do not treat boundary rows as learned self-ID proof"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T143351Z",
+  "hypothesis": "No-training boundary expansion over underrepresented source/fault/seed families can produce a broader low-margin surface for later pair-delta mining.",
+  "lineage": {
+    "blocked_by": [
+      "M850 balanced pair-delta rows use only three source groups and two seeds"
+    ],
+    "derived_from": [
+      "m853-v4-pair-delta-boundary-expansion-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m853-v4-pair-delta-boundary-expansion-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m853-v4-pair-delta-boundary-expansion-design.md",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv",
+      "runs/m844_v4_source_diverse_sequence_effective_corpus/boundary_rows.csv",
+      "runs/m850_v4_pair_delta_focused_source_balanced_mining/balanced_pair_delta_rows.csv"
+    ],
+    "parent_objective": [
+      "implement no-training expanded boundary bracketing for underrepresented pair-delta sources"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m854-v4-pair-delta-boundary-expansion-implementation",
+  "next_blocker": "expanded boundary bracketing accepted only existing-boundary recovered sources; boundary-new-to-M844 sources remain no-bracket failures",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "v4_pair_delta_boundary_expansion_source_limited",
+  "public_gates": [
+    "M854 must implement no-training boundary expansion only",
+    "M854 must target underrepresented source seed and fault families",
+    "M854 must write boundary and pairability projection artifacts",
+    "M854 must preserve actor and residual-head checksums",
+    "M854 must not run pair-delta sequence replay, train, or promote"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m854_v4_pair_delta_boundary_expansion/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "v4_pair_delta_boundary_expansion_source_limited",
+    "milestone": "m854-v4-pair-delta-boundary-expansion-implementation",
+    "reason": "M854 targets 61 underrepresented sources and reconstructs all snapshots but accepts only 32 low-margin boundary rows all from existing M844 boundary sources; pairability projection is 77 primary rows so audit is required before replay",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M854 implements target source selection",
+    "M854 writes expanded accepted boundary artifacts",
+    "M854 writes pairability projection artifacts without sequence replay",
+    "M854 verifies actor and residual-head checksums unchanged",
+    "M854 classifies the boundary expansion result without PPO or promotion"
+  ],
+  "type": "infrastructure"
+}
