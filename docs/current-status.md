@@ -62,16 +62,27 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m804-v4-low-margin-boundary-window-retarget-implementation
+m805-v4-low-margin-boundary-window-retarget-audit
 ```
 
-M804 should implement and run the no-training targeted boundary-window retarget
-tool designed in M803. The primary low-margin threshold and alpha `0.2` must
-remain unchanged. Further active-steer residual calibration, PPO, promotion,
-base actor mutation, and M761 residual-head mutation remain blocked.
+M805 should audit the M804 geometry-only diagnostic before any active-steer
+residual calibration or further retargeting. Further active-steer residual
+calibration, PPO, promotion, base actor mutation, and M761 residual-head
+mutation remain blocked.
 
 ## Recent Evidence Line
 
+- M804 implements and runs the no-training boundary-window retarget tool.
+  Closed-loop retargeting creates `252` accepted primary-window rows with
+  margins from `0.000004953` to `0.000046264`, no reconstruction failures, and
+  unchanged actor/residual checksums. However every accepted row comes from
+  `obstacle_half_width` retargeting; obstacle-distance retargeting produces
+  `0` accepted rows. Accepted rows cover only `3` seeds, have max seed
+  dominance `0.428571`, and max fault-pair dominance `0.714286`, so M804 is
+  classified as `v4_low_margin_boundary_window_geometry_only_diagnostic`, not a
+  source-diverse guard pass. Intervention branches on accepted rows still all
+  collide, so the local proof mechanism is present but too source/axis
+  concentrated for calibration.
 - M803 designs the next no-training boundary-window retarget step. It fixes the
   target anchors from M801: `60` collision rows at alpha `0.2` with margins from
   `-0.000572` to `-0.000173` across `2` seeds and `5` source indices, plus the

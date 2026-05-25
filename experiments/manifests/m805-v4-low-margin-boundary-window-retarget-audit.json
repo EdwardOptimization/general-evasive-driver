@@ -1,0 +1,109 @@
+{
+  "id": "m805-v4-low-margin-boundary-window-retarget-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m804-v4-low-margin-boundary-window-retarget-implementation.md",
+      "runs/m804_v4_low_margin_boundary_window_retarget/summary.json",
+      "runs/m804_v4_low_margin_boundary_window_retarget/boundary_anchor_rows.csv",
+      "runs/m804_v4_low_margin_boundary_window_retarget/retarget_replay_rows.csv",
+      "runs/m804_v4_low_margin_boundary_window_retarget/accepted_low_margin_window_rows.csv",
+      "runs/m804_v4_low_margin_boundary_window_retarget/diagnostic_axis_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m804-v4-low-margin-boundary-window-retarget-implementation.json"
+    ],
+    "parent_objective": [
+      "audit no-training boundary-window retarget result"
+    ],
+    "derived_from": [
+      "m804-v4-low-margin-boundary-window-retarget-implementation"
+    ],
+    "blocked_by": [
+      "m804-v4-low-margin-boundary-window-retarget-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m805-v4-low-margin-boundary-window-retarget-audit.md",
+  "public_gates": [
+    "M805 audits M804 without training",
+    "M805 distinguishes primary-window existence from source-diverse guard pass",
+    "M805 decides geometry-only diagnostic versus usable guard corpus",
+    "M805 blocks residual calibration, PPO, and promotion unless audit explicitly admits a next diagnostic step"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train any parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat geometry-only rows as source-diverse pass",
+    "do not weaken seed or fault-pair dominance thresholds",
+    "do not tune from private holdout failures"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_source_diverse_corpus_refresh",
+    "evidence_axis": "G_distribution: audit geometry-only boundary-window diagnostic",
+    "evidence_increment": "audits whether M804's primary-window rows are useful evidence or just geometry-only diagnostic rows",
+    "claim_scope": "audit decision only; no residual calibration PPO or driver promotion",
+    "stop_condition": [
+      "stop if M804 has contract or replay artifacts",
+      "stop if the only next step is accepting geometry-only rows as source-diverse",
+      "stop if branch needs synthesis before more retargeting"
+    ],
+    "fallback_plan": [
+      "if M804 is a clean geometry-only diagnostic, decide between source-diverse axis expansion and limited guard-debug use",
+      "if M804 has tooling artifacts, repair retarget tooling first",
+      "if source diversity remains structurally impossible, write branch synthesis before changing the guard definition"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M804 creates primary-window rows but only through one geometry retarget axis",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M804 is a clean geometry-only diagnostic and should not admit active-steer calibration until audited.",
+  "success_criteria": [
+    "M805 documents supported and falsified claims from M804",
+    "M805 classifies the geometry-only diagnostic result",
+    "M805 identifies the next blocker",
+    "M805 keeps residual calibration, PPO, and promotion blocked unless a safe diagnostic-only continuation is justified"
+  ],
+  "failure_criteria": [
+    "audit reruns training or PPO",
+    "audit promotes a checkpoint",
+    "audit treats one-axis geometry rows as source-diverse pass",
+    "audit ignores seed or fault-pair dominance failures"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m805-v4-low-margin-boundary-window-retarget-audit.md from M804 artifacts; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m805-v4-low-margin-boundary-window-retarget-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m804-v4-low-margin-boundary-window-retarget-implementation.md",
+    "runs/m804_v4_low_margin_boundary_window_retarget/summary.json",
+    "runs/m804_v4_low_margin_boundary_window_retarget/accepted_low_margin_window_rows.csv",
+    "runs/m804_v4_low_margin_boundary_window_retarget/diagnostic_axis_summary.csv"
+  ],
+  "decision_rule": "M805 may only audit M804 and choose the next blocker. It must not train, run PPO, mutate actor or residual parameters, or promote a checkpoint.",
+  "next_blocker": "m806-v4-low-margin-boundary-axis-expansion-design"
+}

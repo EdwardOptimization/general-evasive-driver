@@ -13296,3 +13296,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M803 designs no-training boundary-window retargeting after M802. The target evidence is now explicit: M801 has `60` collision-side normal alpha `0.2` rows with margins from `-0.000572` to `-0.000173` across `2` seeds and `5` source indices, while the nearest successful non-collision diagnostic rows are `24` rows with margins from `0.005243` to `0.005768` from `1` seed and `4` source indices. M803 requires M804 to rerun closed-loop candidates under public retarget axes such as obstacle half width, obstacle timing, fault activation step, fault severity, and neighboring source step. It keeps alpha `0.2`, the primary `0.0 <= margin <= 0.00005` gate, source-diversity requirements, checksum invariants, and no-training/no-PPO/no-promotion constraints unchanged.
 - decision: `boundary_window_retarget_design_admit_m804`
 - next: `m804-v4-low-margin-boundary-window-retarget-implementation`
+
+## 20260525T144500Z - m804-v4-low-margin-boundary-window-retarget-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m804_v4_low_margin_boundary_window_retarget`
+- artifact: `docs/m804-v4-low-margin-boundary-window-retarget-implementation.md`
+- result: M804 implements and runs no-training boundary-window retargeting. It selects `136` anchors and replays `672` retarget candidates with zero reconstruction failures and unchanged actor/residual checksums. The run creates `252` primary-window rows with margins from `0.000004953` to `0.000046264`, and accepted-row interventions all collide, preserving local history sensitivity. However all `252` accepted rows come from `obstacle_half_width` retargeting; obstacle-distance retargeting creates `0`. Accepted rows cover only `3` seeds with max seed dominance `0.428571` and max fault-pair dominance `0.714286`, so the result is classified as `v4_low_margin_boundary_window_geometry_only_diagnostic`, not a source-diverse guard pass.
+- decision: `v4_low_margin_boundary_window_geometry_only_diagnostic`
+- next: `m805-v4-low-margin-boundary-window-retarget-audit`

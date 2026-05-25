@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 812,
+        "completed": 813,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m803-v4-low-margin-boundary-window-retarget-design",
+        "task_id": "m804-v4-low-margin-boundary-window-retarget-implementation",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m803-v4-low-margin-boundary-window-retarget-design.md"
+        "command_log": "docs/m804-v4-low-margin-boundary-window-retarget-implementation.md"
     },
     "next_task": {
-        "id": "m804-v4-low-margin-boundary-window-retarget-implementation",
+        "id": "m805-v4-low-margin-boundary-window-retarget-audit",
         "status": "pending",
-        "priority": 7990,
-        "kind": "infrastructure",
-        "hypothesis": "Implement no-training boundary-window retargeting around M801 collision/success transition",
-        "command": "see experiments/manifests/m804-v4-low-margin-boundary-window-retarget-implementation.json",
-        "success_artifact": "docs/m804-v4-low-margin-boundary-window-retarget-implementation.md",
-        "notes": "Pending: implement targeted retargeting without relaxing primary low-margin gate; calibration PPO and promotion remain blocked"
+        "priority": 8000,
+        "kind": "gate",
+        "hypothesis": "Audit M804 geometry-only boundary-window retarget result",
+        "command": "see experiments/manifests/m805-v4-low-margin-boundary-window-retarget-audit.json",
+        "success_artifact": "docs/m805-v4-low-margin-boundary-window-retarget-audit.md",
+        "notes": "Pending: audit geometry-only primary-window rows before calibration PPO or further retargeting"
     },
-    "updated_at_utc": "20260525T143000Z"
+    "updated_at_utc": "20260525T144500Z"
 }
