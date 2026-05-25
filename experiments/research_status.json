@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 850,
+    "completed": 851,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m841-v4-near-boundary-sequence-effectiveness-probe-implementation",
+    "task_id": "m842-v4-low-margin-new-data-route-third-branch-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m841_v4_near_boundary_sequence_effectiveness_probe/summary.json"
+    "command_log": "docs/m842-v4-low-margin-new-data-route-third-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m842-v4-low-margin-new-data-route-third-branch-synthesis",
+    "id": "m843-v4-source-diverse-sequence-effective-corpus-design",
     "status": "pending",
-    "priority": 8370,
-    "kind": "gate",
-    "hypothesis": "Synthesize M832-M841 after sparse-positive sequence-effectiveness evidence",
-    "command": "see experiments/manifests/m842-v4-low-margin-new-data-route-third-branch-synthesis.json",
-    "success_artifact": "docs/m842-v4-low-margin-new-data-route-third-branch-synthesis.md",
-    "notes": "Pending: M841 found 73 sequence-effective rows but source concentration; synthesis required before further narrow continuation"
+    "priority": 8380,
+    "kind": "infrastructure",
+    "hypothesis": "Design source-diverse sequence-effective corpus refresh after M841 sparse-positive result",
+    "command": "see experiments/manifests/m843-v4-source-diverse-sequence-effective-corpus-design.json",
+    "success_artifact": "docs/m843-v4-source-diverse-sequence-effective-corpus-design.md",
+    "notes": "Pending: M842 continues into source-diverse sequence-effective corpus design; PPO and promotion remain blocked"
   },
-  "updated_at_utc": "20260525T234500Z"
+  "updated_at_utc": "20260526T000000Z"
 }

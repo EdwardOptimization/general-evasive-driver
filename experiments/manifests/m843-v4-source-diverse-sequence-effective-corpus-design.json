@@ -1,0 +1,109 @@
+{
+  "id": "m843-v4-source-diverse-sequence-effective-corpus-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m842-v4-low-margin-new-data-route-third-branch-synthesis.md",
+      "runs/m841_v4_near_boundary_sequence_effectiveness_probe/summary.json",
+      "runs/m841_v4_near_boundary_sequence_effectiveness_probe/accepted_sequence_effective_rows.csv",
+      "runs/m841_v4_near_boundary_sequence_effectiveness_probe/diversity_summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m842-v4-low-margin-new-data-route-third-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design source-diverse sequence-effective corpus refresh after M841 sparse-positive controllability"
+    ],
+    "derived_from": [
+      "m842-v4-low-margin-new-data-route-third-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M841 sequence-effective rows are positive but source-concentrated"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m843-v4-source-diverse-sequence-effective-corpus-design.md",
+  "public_gates": [
+    "M843 must remain design-only",
+    "M843 must define source-diverse sequence-effective mining targets",
+    "M843 must keep direct sequence override evidence separate from learned policy self-ID evidence",
+    "M843 must keep PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run replay in M843",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat M841 direct sequence overrides as learned self-ID proof",
+    "do not relax M841 diversity thresholds after seeing the result"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_source_diverse_sequence_effective_corpus",
+    "evidence_axis": "G_data: source-diverse sequence-effective corpus design",
+    "evidence_increment": "starts a new branch to broaden M841 sparse-positive sequence-effectiveness evidence before objective design",
+    "claim_scope": "design only; no replay, PPO, learned policy claim, or driver promotion",
+    "stop_condition": [
+      "stop if the design cannot improve source diversity over M841",
+      "stop if it treats direct sequence override evidence as learned self-ID proof",
+      "stop if it would train parameters",
+      "stop if it only optimizes the fixed M832 public rows"
+    ],
+    "fallback_plan": [
+      "if broader source diversity is feasible, implement corpus refresh",
+      "if M832 cannot support diversity, pivot to fresh action-leverage boundary mining",
+      "if sequence-effective rows remain sparse after refresh, synthesize before objective design",
+      "if accepted rows become source-diverse, design outcome-coupled sequence objective without PPO first"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M842 opens a new source-diverse sequence-effective corpus branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A source-diverse sequence-effective corpus design can convert M841's sparse-positive controllability evidence into a broader training/evaluation surface before outcome-coupled objectives.",
+  "success_criteria": [
+    "M843 writes a design document for source-diverse sequence-effective corpus refresh",
+    "M843 defines source diversity and accepted-row gates",
+    "M843 specifies required implementation artifacts",
+    "M843 keeps direct sequence override evidence separate from learned self-ID proof",
+    "M843 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M843 admits PPO or promotion",
+    "M843 trains actor or residual parameters",
+    "M843 treats direct sequence override success as learned policy proof",
+    "M843 ignores M841 source concentration"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m843-v4-source-diverse-sequence-effective-corpus-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m843-v4-source-diverse-sequence-effective-corpus-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m842-v4-low-margin-new-data-route-third-branch-synthesis.md",
+    "runs/m841_v4_near_boundary_sequence_effectiveness_probe/summary.json",
+    "runs/m841_v4_near_boundary_sequence_effectiveness_probe/diversity_summary.json"
+  ],
+  "decision_rule": "M843 may only design a no-training source-diverse sequence-effective corpus refresh. It must not run replay, train, run PPO, or promote.",
+  "next_blocker": "M841 sequence-effective evidence is positive but source-concentrated"
+}

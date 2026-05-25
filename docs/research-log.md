@@ -13650,3 +13650,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M841 implements the bounded short-horizon sequence override probe. It reuses the M832 pair set (`60` pairs, `16` reconstructed snapshots), evaluates `5760` rows over `8` directions, `4` epsilons, and hold steps `[2, 4, 6]`, and preserves actor/M761 checksums. Unlike M838, sequence overrides produce positive controllability evidence: `73` accepted primary sequence-effective rows, `65` degradation rows, `8` improvement rows, `59` success flips, `59` collision flips, and max abs margin delta `0.0158369` over the `0.01` gate. The result remains `v4_near_boundary_sequence_effectiveness_sparse_diagnostic`, not a pass, because accepted rows are source-concentrated (`unique_left_source_group_count 4 < 8`, `unique_left_fault_family_count 4 < 5`, max left source dominance `0.5616 > 0.30`). The branch should synthesize before more narrow work and likely decide between source-diverse sequence-effective corpus expansion and outcome-coupled sequence objective design.
 - decision: `v4_near_boundary_sequence_effectiveness_sparse_diagnostic`
 - next: `m842-v4-low-margin-new-data-route-third-branch-synthesis`
+
+## 20260526T000000Z - m842-v4-low-margin-new-data-route-third-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m842-v4-low-margin-new-data-route-third-branch-synthesis.md`
+- result: M842 synthesizes the post-M831 branch window. M832 fixed boundary slack but found hidden-only wrong-history weak; M835 found response/action observation interventions move action but not outcome; M838 showed one-step direct action overrides are outcome-weak; M841 showed short-horizon sequence overrides are outcome-effective on a sparse subset (`73` accepted rows, max abs margin delta `0.0158369`) but too source-concentrated for training or promotion. Supported claim: sequence-level controllability is the promising control variable. Falsified claim: first-step hidden/response/action interventions on M832 are enough. Public-gate overfit risk remains high because M841 positives come from only `4` left source groups with max source dominance `0.5616`. Decision is to continue into a source-diverse sequence-effective corpus refresh design before any outcome objective, PPO, or promotion.
+- decision: `v4_low_margin_new_data_route_continue_to_source_diverse_sequence_effective_corpus`
+- next: `m843-v4-source-diverse-sequence-effective-corpus-design`
