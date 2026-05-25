@@ -1,0 +1,117 @@
+{
+  "id": "m770-v4-limited-residual-holdout-replay-implementation",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m769-v4-limited-residual-holdout-replay-design.md",
+      "runs/m767_v4_source_holdout_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m767_v4_source_holdout_corpus_export/contrast_rows.csv",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m769-v4-limited-residual-holdout-replay-design.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_objective": [
+      "run limited no-PPO residual replay on fresh sparse M767 holdout corpus"
+    ],
+    "derived_from": [
+      "m769-v4-limited-residual-holdout-replay-design"
+    ],
+    "blocked_by": [
+      "m769-v4-limited-residual-holdout-replay-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m770-v4-limited-residual-holdout-replay-implementation.md",
+  "public_gates": [
+    "M770 runs limited residual replay on fresh M767 corpus",
+    "M770 treats alpha 0.2 as primary and 0.5 1.0 as diagnostic",
+    "M770 reports sparse-holdout caveats",
+    "M770 checks normal retention and intervention sensitivity",
+    "PPO and checkpoint promotion remain blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not tune alpha after seeing holdout results",
+    "do not call sparse holdout evidence a promotion gate",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not hide normal-regression or intervention-collision rows"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_residual_source_holdout_replay",
+    "evidence_axis": "G_generalization: run limited residual replay on fresh sparse holdout",
+    "evidence_increment": "tests M761 residual head on disjoint-seed M767 corpus without training or promotion",
+    "claim_scope": "limited source-holdout mechanism replay only; no PPO or driver promotion",
+    "stop_condition": [
+      "stop if reconstruction fails",
+      "stop if alpha 0.2 fails normal retention",
+      "stop if only aggressive diagnostic alphas pass",
+      "stop if optimizer PPO or promotion starts"
+    ],
+    "fallback_plan": [
+      "if alpha 0.2 passes, audit before stronger claims",
+      "if only 0.5 or 1.0 passes, classify as diagnostic tradeoff",
+      "if all alphas fail, audit source sparsity versus residual overfit",
+      "if normal regresses, return to residual objective design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M769 admits limited residual holdout replay implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M761 residual head will preserve normal behavior and increase intervention sensitivity on the fresh sparse M767 holdout corpus at conservative alpha 0.2.",
+  "success_criteria": [
+    "M770 runs the registered no-PPO replay command",
+    "M770 reconstructs at least 0.98 of holdout rows",
+    "M770 writes summary alpha replay objective and rejected rows",
+    "M770 reports alpha-specific normal retention and intervention sensitivity",
+    "M770 does not train, run PPO, or promote"
+  ],
+  "failure_criteria": [
+    "reconstruction fails",
+    "normal retention metrics are missing",
+    "alpha 0.2 is not evaluated as primary",
+    "training or PPO starts",
+    "checkpoint is promoted"
+  ],
+  "commands": [
+    {
+      "name": "registered_replay",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_residual_closed_loop_replay --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --residual-head runs/m761_v4_sequence_objective_probe/residual_head.pt --positive-rows runs/m767_v4_source_holdout_corpus_export/positive_sequence_outcomes.csv --contrast-rows runs/m767_v4_source_holdout_corpus_export/contrast_rows.csv --scenario-config configs/extreme_fault_distribution_v4_scenarios.json --run-dir runs/m770_v4_limited_residual_holdout_replay --device cpu --alphas 0.0,0.2,0.5,1.0"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m770_v4_limited_residual_holdout_replay/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m770_v4_limited_residual_holdout_replay/alpha_metrics.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m770-v4-limited-residual-holdout-replay-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m767_v4_source_holdout_corpus_export/summary.json",
+    "docs/m769-v4-limited-residual-holdout-replay-design.md"
+  ],
+  "decision_rule": "M770 may only run limited no-PPO residual holdout replay. It must not train, run PPO, mutate actor parameters, or promote a checkpoint.",
+  "next_blocker": "m771-v4-limited-residual-holdout-replay-audit"
+}

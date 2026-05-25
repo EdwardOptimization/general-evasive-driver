@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M769 designs limited no-PPO residual replay on sparse fresh M767 corpus with alpha 0.2 primary and diagnostic alphas 0.5 1.0",
+  "failure_criteria": [
+    "design treats M767 as clean broad holdout",
+    "design admits residual retraining",
+    "design admits PPO or promotion",
+    "design hides source sparsity",
+    "design lacks alpha-specific reporting"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not tune alpha from holdout results",
+    "do not call limited holdout evidence a promotion gate",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not hide sparse-source caveats"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T005115Z",
+  "hypothesis": "A limited no-PPO residual replay can test whether M761's closed-loop mechanism signal transfers to the fresh but sparse M767 holdout corpus.",
+  "lineage": {
+    "blocked_by": [
+      "m768-v4-fresh-source-holdout-wave-audit"
+    ],
+    "derived_from": [
+      "m768-v4-fresh-source-holdout-wave-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m768-v4-fresh-source-holdout-wave-audit.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m768-v4-fresh-source-holdout-wave-audit.md",
+      "runs/m767_v4_source_holdout_corpus_export/summary.json",
+      "runs/m767_v4_source_holdout_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m767_v4_source_holdout_corpus_export/contrast_rows.csv",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+    ],
+    "parent_objective": [
+      "design limited no-PPO residual replay on fresh M767 holdout corpus"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m769-v4-limited-residual-holdout-replay-design",
+  "next_blocker": "m770-v4-limited-residual-holdout-replay-implementation",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "limited_residual_holdout_replay_design_admit_m770",
+  "public_gates": [
+    "M769 designs limited residual holdout replay on M767 corpus",
+    "M769 labels source-holdout evidence as limited and sparse",
+    "M769 prioritizes alpha 0.2 with alpha 0.5 and 1.0 diagnostic",
+    "M769 keeps no-PPO no-promotion scope",
+    "M769 preserves normal retention and intervention sensitivity metrics"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m769-v4-limited-residual-holdout-replay-design.md",
+    "clearance_margin_mean": "",
+    "decision": "limited_residual_holdout_replay_design_admit_m770",
+    "milestone": "m769-v4-limited-residual-holdout-replay-design",
+    "reason": "M769 designs limited no-PPO residual replay on sparse fresh M767 corpus with alpha 0.2 primary and diagnostic alphas 0.5 1.0",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M769 defines input corpus and alphas",
+    "M769 defines limited-holdout claim scope",
+    "M769 defines normal retention and intervention sensitivity gates",
+    "M769 blocks training PPO and promotion",
+    "M769 admits only implementation as next step"
+  ],
+  "type": "infrastructure"
+}

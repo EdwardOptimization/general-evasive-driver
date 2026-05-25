@@ -62,16 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m769-v4-limited-residual-holdout-replay-design
+m770-v4-limited-residual-holdout-replay-implementation
 ```
 
-M769 should design limited no-PPO residual replay on the sparse fresh M767
-holdout corpus. It should use alpha `0.2` as primary, keep `0.5` and `1.0`
-diagnostic, report all evidence as limited holdout only, and keep training,
-PPO, and promotion blocked.
+M770 should run limited no-PPO residual replay on the sparse fresh M767 holdout
+corpus. Alpha `0.2` is the primary conservative holdout alpha; `0.5` and `1.0`
+are diagnostic. The result must be reported as limited holdout evidence only,
+with training, PPO, and promotion blocked.
 
 ## Recent Evidence Line
 
+- M769 designs limited no-PPO residual replay on the sparse fresh M767 corpus.
+  It fixes the replay inputs to the M761 residual head and M767
+  positive/contrast rows, sets alpha `0.2` as the primary conservative holdout
+  alpha, keeps `0.5` and `1.0` diagnostic, and requires M770 to preserve
+  sparse-holdout caveats. Residual retraining, alpha tuning from holdout
+  results, PPO, and checkpoint promotion remain blocked.
 - M768 audits M767 as fresh, clean, but sparse. The corpus fails strict
   exporter gates, but passes M766 limited-holdout minimums: `995` positives,
   `25` seeds, `13` fault-family pairs, max seed dominance `0.247236 <= 0.25`,

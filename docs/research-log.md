@@ -12969,3 +12969,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M768 audits M767 as fresh, clean, but sparse. The corpus fails strict exporter gates, but passes M766 limited-holdout minimums: `995` positives, `25` seeds, `13` fault-family pairs, max seed dominance `0.247236 <= 0.25`, no sentinel positives, no missing normal matches, no metadata misses, and `current_model_or_proxy` claim boundary. The audit admits only limited residual holdout replay design with caveats; it does not admit broad generalization, PPO, or promotion.
 - decision: `promote_to_limited_residual_holdout_replay_design`
 - next: `m769-v4-limited-residual-holdout-replay-design`
+
+## 20260525T065000Z - m769-v4-limited-residual-holdout-replay-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m769-v4-limited-residual-holdout-replay-design.md`
+- result: M769 designs limited no-PPO residual replay on the sparse fresh M767 corpus. It fixes the replay inputs to the M761 residual head and M767 positive/contrast rows, sets alpha `0.2` as the primary conservative holdout alpha, keeps `0.5` and `1.0` diagnostic, and requires M770 to preserve sparse-holdout caveats. The design blocks residual retraining, alpha tuning from holdout results, PPO, and checkpoint promotion.
+- decision: `limited_residual_holdout_replay_design_admit_m770`
+- next: `m770-v4-limited-residual-holdout-replay-implementation`
