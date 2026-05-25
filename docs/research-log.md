@@ -14160,3 +14160,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M896 designs the exact-first controlled scaling gate for the M886 and M891 raw objective-only candidates. M897 must recheck exact objective tensors for both raw candidates, run the sensitive first replay gates `M183/M170` and `M267/M264`, then run the full six-surface replay stack only if first gates pass. Behavior seeds `9505` and `9506` are allowed only after full replay passes. PPO and promotion remain blocked.
 - decision: `controlled_scaling_replay_design_admit_m897`
 - next: `m897-v4-pair-delta-raw-candidate-controlled-scaling-gate`
+
+## 20260525T201804Z - m897-v4-pair-delta-raw-candidate-controlled-scaling-gate
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m897_raw_controlled_scaling_full_replay_gate`
+- artifact: `docs/m897-v4-pair-delta-raw-candidate-controlled-scaling-gate.md`
+- result: M897 passes the exact-first controlled scaling gate for both raw objective-only candidates. Both exact rechecks reconstruct `247/247` rows with finite losses and no actor changes. First replay gates pass `4/4`; full replay gates pass `12/12`; behavior seeds `9505` and `9506` retain success `0.8125` and termination `0.1875`. Raw candidates increase clearance versus M568 by about `+0.00488`, roughly `10x` the alpha `0.1` movement, but still do not improve success and slightly reduce return. PPO and promotion remain blocked.
+- decision: `raw_candidate_controlled_scaling_gate_pass`
+- next: `m898-v4-pair-delta-raw-scaling-gate-audit`

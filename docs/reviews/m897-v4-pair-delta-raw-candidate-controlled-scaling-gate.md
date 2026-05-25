@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260525T201529Z
+- Generated at UTC: 20260525T202017Z
 - Type: gate
 - Gate tier: proof
-- Promotion decision: not_applicable
-- Decision reason: M897 may execute exact-first proof gates for raw candidates only. It must stop on exact or first replay failure and must not run PPO or promote.
+- Promotion decision: raw_candidate_controlled_scaling_gate_pass
+- Decision reason: M897 passes exact first full replay and behavior gates for both raw objective-only candidates with about 10x alpha_0_1 clearance movement but no success gain
 
 ## Hypothesis
 
@@ -71,7 +71,18 @@ The larger raw objective-only candidates may remain proof-safe under exact-first
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m897-v4-pair-delta-raw-candidate-controlled-scaling-gate
+- type: gate
+- checkpoint: runs/m897_raw_controlled_scaling_full_replay_gate/summary.json
+- success_rate: 0.8125
+- termination_rate: 0.1875
+- clearance_margin_mean: 1.477136
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: raw_candidate_controlled_scaling_gate_pass
+- reason: M897 passes exact first full replay and behavior gates for both raw objective-only candidates with about 10x alpha_0_1 clearance movement but no success gain
 
 ## Next Blocker
 

@@ -62,16 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m897-v4-pair-delta-raw-candidate-controlled-scaling-gate
+m898-v4-pair-delta-raw-scaling-gate-audit
 ```
 
-M896 designed exact-first controlled scaling gates for the larger raw
-objective-only candidates. M897 must execute exact recheck, first replay gates,
-and full replay gates for M886/M891 raw candidates before any behavior check,
+M897 passed exact recheck, first replay, full replay, and behavior retention
+for both raw objective-only candidates. M898 must audit the result and choose
+the next route before any fresh/generalization test, public-base integration,
 PPO, or promotion.
 
 ## Recent Evidence Line
 
+- M897 passes the controlled raw-candidate scaling gate. Both raw candidates
+  reconstruct `247/247` exact rows, first replay gates pass `4/4`, full replay
+  gates pass `12/12`, and behavior seeds `9505`/`9506` retain success `0.8125`
+  and termination `0.1875`. Raw candidates increase clearance by about
+  `+0.00488` versus M568, roughly `10x` alpha `0.1`, but still do not improve
+  success and slightly reduce return. PPO and promotion remain blocked.
 - M896 designs controlled raw-candidate scaling gates. M897 must first run
   exact objective recheck for both raw candidates, then the sensitive replay
   gates `M183/M170` and `M267/M264`, then all six replay/proof surfaces only if

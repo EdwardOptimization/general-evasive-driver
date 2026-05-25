@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M897 may execute exact-first proof gates for raw candidates only. It must stop on exact or first replay failure and must not run PPO or promote.",
+  "decision_reason": "M897 passes exact first full replay and behavior gates for both raw objective-only candidates with about 10x alpha_0_1 clearance movement but no success gain",
   "failure_criteria": [
     "any exact recheck fails",
     "any first replay gate fails",
@@ -24,7 +24,7 @@
     "do not claim public-base improvement from raw-candidate retention"
   ],
   "gate_tier": "proof",
-  "generated_at_utc": "20260525T201529Z",
+  "generated_at_utc": "20260525T202017Z",
   "hypothesis": "The larger raw objective-only candidates may remain proof-safe under exact-first replay/proof evaluation and provide a more meaningful effect-size budget than alpha_0_1.",
   "lineage": {
     "blocked_by": [
@@ -59,7 +59,7 @@
   "milestone": "m897-v4-pair-delta-raw-candidate-controlled-scaling-gate",
   "next_blocker": "Raw objective-only candidates have not yet run exact-first controlled replay/proof gates",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "raw_candidate_controlled_scaling_gate_pass",
   "public_gates": [
     "exact objective recheck for both raw candidates",
     "first replay gates M183/M170 and M267/M264 for both raw candidates",
@@ -67,7 +67,20 @@
     "behavior seeds 9505 and 9506 if full replay passes",
     "no PPO or promotion"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "runs/m897_raw_controlled_scaling_full_replay_gate/summary.json",
+    "clearance_margin_mean": "1.477136",
+    "decision": "raw_candidate_controlled_scaling_gate_pass",
+    "milestone": "m897-v4-pair-delta-raw-candidate-controlled-scaling-gate",
+    "reason": "M897 passes exact first full replay and behavior gates for both raw objective-only candidates with about 10x alpha_0_1 clearance movement but no success gain",
+    "reset_success": "",
+    "success_rate": "0.8125",
+    "termination_rate": "0.1875",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "both exact rechecks pass",
     "first replay gates pass for both raw candidates",

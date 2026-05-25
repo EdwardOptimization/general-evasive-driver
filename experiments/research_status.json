@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 905,
+    "completed": 906,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m896-v4-pair-delta-controlled-scaling-replay-design",
+    "task_id": "m897-v4-pair-delta-raw-candidate-controlled-scaling-gate",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m896-v4-pair-delta-controlled-scaling-replay-design.md"
+    "command_log": "docs/m897-v4-pair-delta-raw-candidate-controlled-scaling-gate.md"
   },
   "next_task": {
-    "id": "m897-v4-pair-delta-raw-candidate-controlled-scaling-gate",
+    "id": "m898-v4-pair-delta-raw-scaling-gate-audit",
     "status": "pending",
-    "priority": 8920,
+    "priority": 8930,
     "kind": "gate",
-    "hypothesis": "Execute exact-first controlled replay/proof gates for larger raw objective-only candidates",
-    "command": "see experiments/manifests/m897-v4-pair-delta-raw-candidate-controlled-scaling-gate.json",
-    "success_artifact": "runs/m897_raw_controlled_scaling_full_replay_gate/summary.json",
-    "notes": "Pending: run exact recheck and staged replay/proof gates for both raw candidates"
+    "hypothesis": "Audit raw-candidate controlled scaling pass and choose next route",
+    "command": "see experiments/manifests/m898-v4-pair-delta-raw-scaling-gate-audit.json",
+    "success_artifact": "docs/m898-v4-pair-delta-raw-scaling-gate-audit.md",
+    "notes": "Pending: decide fresh/generalization, boundary search, integration design, or corpus routing"
   },
-  "updated_at_utc": "20260525T201250Z"
+  "updated_at_utc": "20260525T201804Z"
 }
