@@ -13910,3 +13910,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M869 designs a no-training accepted pair-delta coverage expansion route. The next implementation should first compute a stronger direction/axis-aware rebalance diagnostic over existing M867 accepted rows, then target missing accepted seeds `78048`, `78055`, and `78057` by selecting their strongest weak pair-delta rows and applying bounded obstacle retargeting plus extended pair-delta replay (`hold_steps` `6,8,10`, epsilon L2 `0.075,0.10,0.125`). Primary gates require at least `60` accepted rows, `36` balanced rows, at least `3` left seeds, at least `2` directions and axis pairs, and dominance limits on seed, direction, and axis-pair. Component controls remain diagnostic-only; objective training, PPO, and promotion stay blocked.
 - decision: `generated_boundary_pair_delta_coverage_expansion_design_admit_m870`
 - next: `m870-v4-generated-boundary-pair-delta-coverage-expansion-implementation`
+
+## 20260525T180949Z - m870-v4-generated-boundary-pair-delta-coverage-expansion-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m870_v4_generated_boundary_pair_delta_coverage_expansion`
+- artifact: `docs/m870-v4-generated-boundary-pair-delta-coverage-expansion-implementation.md`
+- result: M870 implements the no-training accepted pair-delta coverage expansion. Construction gates pass with `24` target weak-seed rows across missing seeds `78048`, `78055`, and `78057`, `96` retarget candidates, and `1728` pair-delta sequence replay rows. Actor and M761 residual-head checksums are unchanged and no training, PPO, or promotion occurs. The result remains source-limited: `new_accepted_pair_delta_rows` is `0`, accepted coverage remains the original `234` rows, and the balanced corpus has `40` rows but only `2` left seeds. Existing accepted rows rebalance better on direction and axis (`0.525` dominance each), but missing-seed retargets mostly create sensitivity on colliding-normal rows, so they cannot count as accepted primary pair-delta evidence.
+- decision: `v4_generated_boundary_pair_delta_coverage_expansion_source_limited`
+- next: `m871-v4-generated-boundary-pair-delta-coverage-expansion-audit`

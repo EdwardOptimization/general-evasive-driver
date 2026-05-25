@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 878,
+    "completed": 879,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m869-v4-generated-boundary-pair-delta-coverage-expansion-design",
+    "task_id": "m870-v4-generated-boundary-pair-delta-coverage-expansion-implementation",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m869-v4-generated-boundary-pair-delta-coverage-expansion-design.md"
+    "command_log": "docs/m870-v4-generated-boundary-pair-delta-coverage-expansion-implementation.md"
   },
   "next_task": {
-    "id": "m870-v4-generated-boundary-pair-delta-coverage-expansion-implementation",
+    "id": "m871-v4-generated-boundary-pair-delta-coverage-expansion-audit",
     "status": "pending",
-    "priority": 8650,
-    "kind": "infrastructure",
-    "hypothesis": "Implement targeted no-training expansion for M867 accepted pair-delta coverage concentration",
-    "command": "see experiments/manifests/m870-v4-generated-boundary-pair-delta-coverage-expansion-implementation.json",
-    "success_artifact": "docs/m870-v4-generated-boundary-pair-delta-coverage-expansion-implementation.md",
-    "notes": "Pending: implement accepted pair-delta seed direction and axis coverage expansion before objective training PPO or promotion"
+    "priority": 8660,
+    "kind": "gate",
+    "hypothesis": "Audit M870 clean source-limited accepted pair-delta coverage expansion result before further implementation or objective training",
+    "command": "see experiments/manifests/m871-v4-generated-boundary-pair-delta-coverage-expansion-audit.json",
+    "success_artifact": "docs/m871-v4-generated-boundary-pair-delta-coverage-expansion-audit.md",
+    "notes": "Pending: audit M870 zero-new-accepted retarget result and decide whether to route to boundary-aware missing-seed refresh or branch synthesis"
   },
-  "updated_at_utc": "20260525T175334Z"
+  "updated_at_utc": "20260525T180949Z"
 }

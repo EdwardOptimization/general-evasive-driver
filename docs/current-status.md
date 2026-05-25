@@ -62,17 +62,30 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m870-v4-generated-boundary-pair-delta-coverage-expansion-implementation
+m871-v4-generated-boundary-pair-delta-coverage-expansion-audit
 ```
 
-M869 designed targeted no-training accepted pair-delta coverage expansion.
-M870 should implement it: rebalance existing accepted M867 rows, then target
-missing accepted seeds `78048`, `78055`, and `78057` with bounded obstacle
-retargeting and extended pair-delta replay. Objective training, PPO, promotion,
-base actor mutation, and M761 residual-head mutation remain blocked.
+M870 implemented targeted no-training accepted pair-delta coverage expansion.
+Construction worked, but no new accepted pair-delta rows were produced for
+missing left seeds `78048`, `78055`, or `78057`; accepted coverage remains
+limited to two left seeds. M871 must audit this result before any further
+narrow implementation, objective training, PPO, promotion, base actor mutation,
+or M761 residual-head mutation.
 
 ## Recent Evidence Line
 
+- M870 implements the no-training accepted pair-delta coverage expansion.
+  Construction gates pass with `24` target weak-seed rows across missing seeds
+  `78048`, `78055`, and `78057`, `96` retarget candidates, and `1728`
+  pair-delta sequence replay rows. Actor and M761 checksums are unchanged; no
+  training, PPO, or promotion occurs. The result remains source-limited:
+  `new_accepted_pair_delta_rows` is `0`, accepted coverage remains the
+  original `234` rows, and the balanced corpus has `40` rows but only `2` left
+  seeds. Existing accepted rows rebalance better on direction and axis
+  dominance (`0.525` each), but missing-seed retargets mostly produce high
+  margin deltas only after the normal branch is already colliding, so they
+  cannot count as accepted primary pair-delta evidence. M871 should audit
+  before more implementation.
 - M869 designs a no-training accepted pair-delta coverage expansion route. The
   next implementation should first compute a stronger direction/axis-aware
   rebalance diagnostic over existing M867 accepted rows, then target missing
