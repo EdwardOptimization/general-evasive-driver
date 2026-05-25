@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M814 adaptive bracketing resolves fixed-grid miss with 101 raw and 85 balanced primary rows across 9 seeds 55 source groups 8 fault pairs 4 warm-up modes and 3 axes while checksums remain unchanged and no training PPO or promotion occurs",
+  "failure_criteria": [
+    "implementation trains actor residual head or a new calibrator",
+    "implementation runs PPO",
+    "implementation promotes a checkpoint",
+    "implementation omits source warm-up fault or axis diversity diagnostics",
+    "implementation treats two-axis or geometry-only rows as a full pass",
+    "implementation claims true wheel-level faults from current proxy data"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not train a new residual calibrator",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add oracle deploy-time inputs",
+    "do not widen the primary 0.00005 margin threshold",
+    "do not weaken source fault warm-up or axis dominance thresholds",
+    "do not treat two-axis or geometry-only rows as a full pass",
+    "do not claim true wheel-level faults from current single-track proxy data",
+    "do not tune from private holdout failures"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T073744Z",
+  "hypothesis": "Adaptive closed-loop bracketing can resolve M811 collision/safe edges into source-diverse primary low-margin rows without weakening thresholds or training parameters.",
+  "lineage": {
+    "blocked_by": [
+      "fixed_grid_boundary_resolution_miss"
+    ],
+    "derived_from": [
+      "m813-v4-adaptive-boundary-bracketing-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m813-v4-adaptive-boundary-bracketing-design.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m813-v4-adaptive-boundary-bracketing-design.md",
+      "docs/m812-v4-low-margin-new-data-route-audit.md",
+      "runs/m811_v4_low_margin_new_data_route/summary.json"
+    ],
+    "parent_objective": [
+      "implement no-training adaptive closed-loop boundary bracketing"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m814-v4-adaptive-boundary-bracketing-implementation",
+  "next_blocker": "m815-v4-adaptive-boundary-bracketing-audit",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "v4_adaptive_boundary_bracketing_pass",
+  "public_gates": [
+    "M814 implements and runs only a no-training adaptive bracketing route",
+    "M814 preserves the P0 human-view actor contract",
+    "M814 keeps alpha 0.2 and the primary <=0.00005 margin threshold unchanged",
+    "M814 requires source warm-up fault and axis diversity before pass",
+    "M814 confirms actor and M761 residual-head checksums unchanged",
+    "M814 blocks residual calibration PPO and promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m814_v4_adaptive_boundary_bracketing/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "v4_adaptive_boundary_bracketing_pass",
+    "milestone": "m814-v4-adaptive-boundary-bracketing-implementation",
+    "reason": "M814 adaptive bracketing resolves fixed-grid miss with 101 raw and 85 balanced primary rows across 9 seeds 55 source groups 8 fault pairs 4 warm-up modes and 3 axes while checksums remain unchanged and no training PPO or promotion occurs",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M814 writes source bracket refinement accepted intervention balance limitations progress summary and documentation artifacts",
+    "M814 reports brackets attempted valid refined nonmonotone and failed",
+    "M814 reports accepted rows seeds source groups source indices warm-up modes fault-family pairs boundary axes and dominance metrics",
+    "M814 confirms actor and residual-head checksums unchanged",
+    "M814 classifies the result without widening the primary margin gate",
+    "M814 keeps residual calibration PPO and promotion blocked"
+  ],
+  "type": "infrastructure"
+}

@@ -13389,3 +13389,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M813 designs deterministic no-training adaptive bracketing after the M812 fixed-grid boundary-resolution miss. The design regenerates source snapshots deterministically, constructs collision/safe brackets per snapshot-axis, uses bounded expansion when only one side exists, refines continuous axes with bisection and nonmonotone guards, and preserves alpha `0.2`, the `0.00005` primary threshold, source/fault/warm-up/axis diversity gates, checksum invariants, and current-model proxy-fault claim limits. It explicitly classifies two-axis or geometry-only primary rows as diagnostic rather than a full pass.
 - decision: `adaptive_boundary_bracketing_design_admit_m814`
 - next: `m814-v4-adaptive-boundary-bracketing-implementation`
+
+## 20260525T172000Z - m814-v4-adaptive-boundary-bracketing-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m814_v4_adaptive_boundary_bracketing`
+- artifact: `docs/m814-v4-adaptive-boundary-bracketing-implementation.md`
+- result: M814 implements and runs the no-training adaptive bracketing route. It attempts `576` brackets, validates/refines `193`, and finds `101` raw primary rows. The balanced accepted corpus has `85` rows across `9` seeds, `55` source groups, `73` source indices, `8` fault-family pairs, `4` warm-up modes, and `3` axes with axis counts `48` lateral, `25` timing, and `12` half-width. Max seed dominance is `0.235294`, max source-group dominance `0.047059`, max fault-pair dominance `0.235294`, and max axis dominance `0.564706`. Actor and residual checksums are unchanged; no training, PPO, or promotion occurs. Result class is `v4_adaptive_boundary_bracketing_pass`.
+- decision: `v4_adaptive_boundary_bracketing_pass`
+- next: `m815-v4-adaptive-boundary-bracketing-audit`
