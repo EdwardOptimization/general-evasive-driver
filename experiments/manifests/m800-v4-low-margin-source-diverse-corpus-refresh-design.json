@@ -1,0 +1,121 @@
+{
+  "id": "m800-v4-low-margin-source-diverse-corpus-refresh-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "objective_overfit",
+    "private_holdout_contamination"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m799-v4-active-steer-guard-calibration-audit.md",
+      "docs/m798-v4-active-steer-guard-calibration-implementation.md",
+      "runs/m798_v4_active_steer_guard_calibration/summary.json",
+      "runs/m798_v4_active_steer_guard_calibration/low_margin_guard_rows.csv",
+      "runs/m798_v4_active_steer_guard_calibration/separability_metrics.csv",
+      "runs/m795_v4_steer_attributed_residual_calibration/replay_rows.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/contrast_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m799-v4-active-steer-guard-calibration-audit.json"
+    ],
+    "parent_objective": [
+      "design a source-diverse low-margin normal-boundary corpus refresh"
+    ],
+    "derived_from": [
+      "m799-v4-active-steer-guard-calibration-audit"
+    ],
+    "blocked_by": [
+      "m798-v4-active-steer-guard-calibration-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m800-v4-low-margin-source-diverse-corpus-refresh-design.md",
+  "public_gates": [
+    "M800 designs only; it does not implement or train",
+    "M800 preserves the P0 human-view actor contract",
+    "M800 targets source-diverse low-margin normal-boundary coverage",
+    "M800 caps the known active public source instead of optimizing only it",
+    "M800 blocks residual calibration, PPO, and promotion"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not implement the corpus miner",
+    "do not train any parameters",
+    "do not run closed-loop replay as a result claim",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add oracle deploy-time inputs",
+    "do not weaken low-margin source-diversity thresholds",
+    "do not tune only seed 77025 source_index 12",
+    "do not use private holdout failures to tune the public corpus"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_source_diverse_corpus_refresh",
+    "evidence_axis": "G_distribution: source-diverse low-margin normal-boundary coverage",
+    "evidence_increment": "moves from single-source active-boundary blocker to a planned source-diverse low-margin corpus refresh",
+    "claim_scope": "design only; no corpus implementation training PPO or driver promotion",
+    "stop_condition": [
+      "stop if the design still depends on the single public active source as the only guard evidence",
+      "stop if it cannot define measurable source-diversity acceptance criteria",
+      "stop if it uses oracle deploy-time inputs",
+      "stop if it admits residual calibration before corpus coverage is refreshed"
+    ],
+    "fallback_plan": [
+      "if no low-margin rows can be found with the current scenario generator, broaden fault and obstacle sampling",
+      "if only one fault-family pair appears, retarget the scenario distribution before calibration",
+      "if the active source remains dominant, cap its contribution and report coverage failure",
+      "if the refresh succeeds, route to low-margin corpus refresh implementation before any calibrator training"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M799 pivots the branch from residual calibration tuning to corpus coverage",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A dedicated source-diverse low-margin corpus refresh can provide enough near-boundary normal rows to fairly test active-steer residual guarding without overfitting to the single public active source.",
+  "success_criteria": [
+    "M800 documents a no-training corpus refresh design",
+    "M800 specifies measurable row, seed, source_index, fault-family, and dominance gates",
+    "M800 specifies outputs for candidates, accepted rows, and summary",
+    "M800 preserves actor and residual-head input contracts",
+    "M800 keeps residual calibration, PPO, and promotion blocked"
+  ],
+  "failure_criteria": [
+    "design weakens the M798 source-diversity blocker",
+    "design optimizes only seed 77025 source_index 12",
+    "design lacks measurable corpus acceptance targets",
+    "design uses private holdout feedback for public tuning",
+    "design admits training, PPO, or promotion"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m800-v4-low-margin-source-diverse-corpus-refresh-design.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m800-v4-low-margin-source-diverse-corpus-refresh-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m799-v4-active-steer-guard-calibration-audit.md",
+    "runs/m798_v4_active_steer_guard_calibration/summary.json",
+    "runs/m798_v4_active_steer_guard_calibration/low_margin_guard_rows.csv",
+    "runs/m795_v4_steer_attributed_residual_calibration/replay_rows.csv",
+    "runs/m773_v4_broader_source_holdout_corpus_export/positive_sequence_outcomes.csv",
+    "runs/m773_v4_broader_source_holdout_corpus_export/contrast_rows.csv"
+  ],
+  "decision_rule": "M800 may only design a source-diverse low-margin corpus refresh. It must not implement the miner, train parameters, run PPO, mutate actor or residual parameters, or promote a checkpoint.",
+  "next_blocker": "m801-v4-low-margin-source-diverse-corpus-refresh-implementation"
+}

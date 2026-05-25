@@ -13250,3 +13250,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M798 extends `v4_normal_margin_residual_calibration.py` with `--objective-mode active_steer_guard`, source-diverse low-margin guard row selection, low-margin guard artifacts, separability artifacts, and focused tests. The run stops before training because the M795 parent replay contains only `12` low-margin guard rows, all from the same public active source (`seed 77025`, `source_index 12`, `step 24`, one fault-family pair). Diversity is `1` unique seed, `1` unique source index, `1` unique fault-family pair, and max seed dominance `1.0`, versus required `8`, `8`, `4`, and `0.25`. No optimizer, closed-loop replay, PPO, or promotion occurs; actor and residual checksums remain unchanged. Result class is `v4_active_steer_guard_low_margin_corpus_blocked`.
 - decision: `v4_active_steer_guard_low_margin_corpus_blocked`
 - next: `m799-v4-active-steer-guard-calibration-audit`
+
+## 20260525T130000Z - m799-v4-active-steer-guard-calibration-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m799-v4-active-steer-guard-calibration-audit.md`
+- result: M799 audits M798 as a valid process-positive blocker. M798 stopped before training because the selected low-margin guard corpus has only `12` rows and all are variants of one public active source (`seed 77025`, `source_index 12`, `step 24`, one fault-family pair), with `1` unique seed, `1` unique source index, `1` unique fault-family pair, and max seed dominance `1.0` versus requirements `8`, `8`, `4`, and `0.25`. The audit classifies the issue as source-diversity/scenario-sampling failure with objective-overfit risk if bypassed. M799 keeps residual calibration, PPO, and promotion blocked.
+- decision: `admit_low_margin_source_diverse_corpus_refresh_design`
+- next: `m800-v4-low-margin-source-diverse-corpus-refresh-design`

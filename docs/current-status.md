@@ -62,15 +62,24 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m799-v4-active-steer-guard-calibration-audit
+m800-v4-low-margin-source-diverse-corpus-refresh-design
 ```
 
-M799 should audit the M798 low-margin corpus blocker before any further
-residual calibration objective. Base actor mutation, M761 residual-head
-mutation, PPO, and promotion remain blocked.
+M800 should design a source-diverse low-margin normal-boundary corpus refresh
+before any further active-steer residual calibration. Base actor mutation, M761
+residual-head mutation, PPO, and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M799 audits M798 as a valid process-positive blocker. The low-margin guard
+  corpus has only `12` rows and all are variants of one public active source:
+  `seed 77025`, `source_index 12`, `step 24`, one fault-family pair, with
+  normal margin `+0.000003618`. Diversity is `1` unique seed, `1` unique source
+  index, `1` unique fault-family pair, and max seed dominance `1.0`, versus
+  required `8`, `8`, `4`, and `0.25`. The audit rejects weakening the
+  diversity thresholds or tuning only that active source. It routes next to
+  `m800-v4-low-margin-source-diverse-corpus-refresh-design`; residual
+  calibration, PPO, and promotion remain blocked.
 - M798 extends `v4_normal_margin_residual_calibration.py` with
   `--objective-mode active_steer_guard`, source-diverse low-margin guard row
   selection, low-margin guard artifacts, separability artifacts, and focused

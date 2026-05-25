@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 807,
+        "completed": 808,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m798-v4-active-steer-guard-calibration-implementation",
+        "task_id": "m799-v4-active-steer-guard-calibration-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m798-v4-active-steer-guard-calibration-implementation.md"
+        "command_log": "docs/m799-v4-active-steer-guard-calibration-audit.md"
     },
     "next_task": {
-        "id": "m799-v4-active-steer-guard-calibration-audit",
+        "id": "m800-v4-low-margin-source-diverse-corpus-refresh-design",
         "status": "pending",
-        "priority": 7940,
-        "kind": "gate",
-        "hypothesis": "Audit M798 low-margin source-diverse corpus blocker before any further residual calibration",
-        "command": "see experiments/manifests/m799-v4-active-steer-guard-calibration-audit.json",
-        "success_artifact": "docs/m799-v4-active-steer-guard-calibration-audit.md",
-        "notes": "Pending: audit low-margin corpus block and choose corpus refresh or branch stop; PPO and promotion remain blocked"
+        "priority": 7950,
+        "kind": "infrastructure",
+        "hypothesis": "Design a source-diverse low-margin normal-boundary corpus refresh before further active-steer calibration",
+        "command": "see experiments/manifests/m800-v4-low-margin-source-diverse-corpus-refresh-design.json",
+        "success_artifact": "docs/m800-v4-low-margin-source-diverse-corpus-refresh-design.md",
+        "notes": "Pending: design source-diverse low-margin corpus refresh; residual calibration PPO and promotion remain blocked"
     },
-    "updated_at_utc": "20260525T124500Z"
+    "updated_at_utc": "20260525T130000Z"
 }
