@@ -62,17 +62,25 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m765-v4-residual-closed-loop-replay-audit
+m766-v4-residual-source-holdout-replay-design
 ```
 
-M765 should audit the M764 no-PPO closed-loop residual replay result before any
-source-holdout replay, PPO, or checkpoint promotion. It should decide whether
-M764 is a clean closed-loop mechanism positive and whether the next step should
-be source-holdout replay, fresh v4 residual corpus mining, or residual objective
-redesign.
+M766 should design fresh source-holdout replay for the M761 residual head. It
+must not use M755 `assigned_split=heldout` as unbiased holdout because M761
+trained on all M755 positives. It should prioritize alpha `0.2`, keep `0.5`
+and `1.0` diagnostic, and keep training, PPO, and promotion blocked.
 
 ## Recent Evidence Line
 
+- M765 audits M764 as a clean public-corpus closed-loop mechanism positive. It
+  supports alpha `0.2` as the conservative next candidate and treats alpha
+  `1.0` as aggressive diagnostic because its `4/1213` intervention collisions
+  are concentrated in seed `76030`, variant `zero_command_obs`, horizons `6/8`,
+  and fault pair `front_lateral_authority_drop->combined_fault`. The audit
+  records that M755's `assigned_split=heldout` is contaminated for residual
+  evaluation because M761 trained on all M755 positives. The next branch must
+  design fresh source-holdout replay or fresh source mining, not PPO or
+  promotion.
 - M764 implements and runs the no-PPO closed-loop residual replay evaluator.
   It reconstructs `1213/1213` source rows with `0` metadata misses and `0`
   rejected rows, writes `9704` replay rows and `4852` objective rows, and keeps

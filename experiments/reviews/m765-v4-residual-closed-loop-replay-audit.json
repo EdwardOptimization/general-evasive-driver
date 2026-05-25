@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M765 audits M764 as clean public-corpus mechanism positive but requires fresh source-holdout replay because M761 trained on all M755 positives including assigned_split heldout",
+  "failure_criteria": [
+    "audit treats M764 as a promoted driver",
+    "audit ignores normal retention",
+    "audit ignores intervention-branch collisions",
+    "audit ignores public-corpus overfit risk",
+    "audit admits PPO or promotion directly"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not treat M764 as promoted driver improvement",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not ignore intervention-branch collisions",
+    "do not hide public-corpus overfit risk",
+    "do not claim true four-wheel or single-wheel physics"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260525T003214Z",
+  "hypothesis": "M764 is a clean closed-loop mechanism positive but still requires audit before source-holdout replay or any PPO discussion.",
+  "lineage": {
+    "blocked_by": [
+      "m764-v4-residual-closed-loop-replay-implementation"
+    ],
+    "derived_from": [
+      "m764-v4-residual-closed-loop-replay-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m764-v4-residual-closed-loop-replay-implementation.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m764-v4-residual-closed-loop-replay-implementation.md",
+      "runs/m764_v4_residual_closed_loop_replay/summary.json",
+      "runs/m764_v4_residual_closed_loop_replay/alpha_metrics.csv",
+      "runs/m764_v4_residual_closed_loop_replay/replay_rows.csv",
+      "runs/m764_v4_residual_closed_loop_replay/objective_rows.csv"
+    ],
+    "parent_objective": [
+      "audit no-PPO closed-loop residual replay before source holdout or PPO"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m765-v4-residual-closed-loop-replay-audit",
+  "next_blocker": "m766-v4-residual-source-holdout-replay-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "promote_to_v4_residual_source_holdout_replay_design",
+  "public_gates": [
+    "M765 reviews M764 closed-loop residual replay metrics",
+    "M765 separates normal retention from intervention sensitivity",
+    "M765 audits alpha 0.2 0.5 and 1.0 tradeoffs",
+    "M765 keeps public-corpus overfit and sparse hard-negative risks visible",
+    "PPO and checkpoint promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m765-v4-residual-closed-loop-replay-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "promote_to_v4_residual_source_holdout_replay_design",
+    "milestone": "m765-v4-residual-closed-loop-replay-audit",
+    "reason": "M765 audits M764 as clean public-corpus mechanism positive but requires fresh source-holdout replay because M761 trained on all M755 positives including assigned_split heldout",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M765 reviews M764 alpha metrics and stratification",
+    "M765 records supported and falsified claims",
+    "M765 classifies public-corpus and hard-negative risks",
+    "M765 decides whether source-holdout replay is admissible",
+    "M765 keeps PPO and checkpoint promotion blocked"
+  ],
+  "type": "gate"
+}

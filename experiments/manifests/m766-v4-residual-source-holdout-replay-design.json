@@ -1,0 +1,111 @@
+{
+  "id": "m766-v4-residual-source-holdout-replay-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m765-v4-residual-closed-loop-replay-audit.md",
+      "runs/m764_v4_residual_closed_loop_replay/summary.json",
+      "runs/m764_v4_residual_closed_loop_replay/alpha_metrics.csv",
+      "runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m752_v4_reset_source_sequence_intervention/intervention_rollouts.csv",
+      "runs/m749_extreme_fault_distribution_v4/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m765-v4-residual-closed-loop-replay-audit.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_objective": [
+      "design fresh source-holdout replay for M761 residual head"
+    ],
+    "derived_from": [
+      "m765-v4-residual-closed-loop-replay-audit"
+    ],
+    "blocked_by": [
+      "m765-v4-residual-closed-loop-replay-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m766-v4-residual-source-holdout-replay-design.md",
+  "public_gates": [
+    "M766 designs a fresh source-holdout replay plan",
+    "M766 explicitly avoids using M755 assigned_split heldout as unbiased holdout",
+    "M766 prioritizes alpha 0.2 and treats 0.5 1.0 as diagnostics",
+    "M766 keeps no-PPO no-promotion scope",
+    "M766 defines fallback to fresh v4 source mining if existing artifacts are insufficient"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not use M755 assigned_split heldout as unbiased holdout",
+    "do not train residual or actor parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not tune alpha from holdout and call it unbiased",
+    "do not claim true four-wheel or single-wheel physics"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_residual_source_holdout_replay",
+    "evidence_axis": "G_generalization: test M761 residual on fresh source rows",
+    "evidence_increment": "designs a no-PPO source-holdout replay after M764 public-corpus closed-loop positive",
+    "claim_scope": "design only; no holdout result, PPO claim, or driver promotion",
+    "stop_condition": [
+      "stop if no fresh source rows can be identified",
+      "stop if design relies on M755 assigned_split heldout as unbiased",
+      "stop if design admits residual retraining or PPO",
+      "stop if normal-retention and intervention-sensitivity metrics are missing"
+    ],
+    "fallback_plan": [
+      "if existing artifacts do not contain enough fresh rows, design a fresh v4 reset-source wave",
+      "if source rows are too concentrated, source-balance by seed fault family variant and horizon",
+      "if alpha 0.2 is too weak on holdout, report negative and audit before trying stronger alpha",
+      "if alpha 1.0 is too aggressive, keep it diagnostic only"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M765 admits source-holdout replay design",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A fresh source-holdout replay can be designed to test whether the M761 residual closed-loop signal generalizes beyond the public M755/M761 corpus.",
+  "success_criteria": [
+    "M766 defines what counts as fresh relative to M761",
+    "M766 defines source selection and fallback source-mining plan",
+    "M766 defines alpha set and conservative primary alpha",
+    "M766 defines normal retention and intervention sensitivity gates",
+    "M766 blocks training PPO and promotion"
+  ],
+  "failure_criteria": [
+    "design uses contaminated assigned_split heldout as unbiased",
+    "design admits training or PPO",
+    "design lacks source freshness criteria",
+    "design lacks normal retention metrics",
+    "design treats holdout as promotion gate"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m766-v4-residual-source-holdout-replay-design.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m766-v4-residual-source-holdout-replay-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m764_v4_residual_closed_loop_replay/summary.json",
+    "docs/m765-v4-residual-closed-loop-replay-audit.md"
+  ],
+  "decision_rule": "M766 may only design a source-holdout replay or fresh source-mining fallback. It must not train, run PPO, mutate actor parameters, or promote a checkpoint.",
+  "next_blocker": "m767-v4-residual-source-holdout-replay-implementation"
+}

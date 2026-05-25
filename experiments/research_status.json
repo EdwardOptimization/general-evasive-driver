@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 773,
+        "completed": 774,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m764-v4-residual-closed-loop-replay-implementation",
+        "task_id": "m765-v4-residual-closed-loop-replay-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "runs/m764_v4_residual_closed_loop_replay/summary.json"
+        "command_log": "docs/m765-v4-residual-closed-loop-replay-audit.md"
     },
     "next_task": {
-        "id": "m765-v4-residual-closed-loop-replay-audit",
+        "id": "m766-v4-residual-source-holdout-replay-design",
         "status": "pending",
-        "priority": 7600,
-        "kind": "gate",
-        "hypothesis": "Audit no-PPO closed-loop residual replay before source holdout or PPO",
-        "command": "see experiments/manifests/m765-v4-residual-closed-loop-replay-audit.json",
-        "success_artifact": "docs/m765-v4-residual-closed-loop-replay-audit.md",
-        "notes": "Pending: audit M764 closed-loop candidate alphas and decide whether source-holdout replay is admissible"
+        "priority": 7610,
+        "kind": "infrastructure",
+        "hypothesis": "Design fresh source-holdout replay for M761 residual head",
+        "command": "see experiments/manifests/m766-v4-residual-source-holdout-replay-design.json",
+        "success_artifact": "docs/m766-v4-residual-source-holdout-replay-design.md",
+        "notes": "Pending: design fresh source-holdout replay and avoid contaminated M755 assigned_split heldout"
     },
-    "updated_at_utc": "20260525T060000Z"
+    "updated_at_utc": "20260525T061000Z"
 }

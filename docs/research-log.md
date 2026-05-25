@@ -12932,3 +12932,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M764 implements and runs the no-PPO closed-loop residual replay evaluator. It reconstructs `1213/1213` source rows with `0` metadata misses and `0` rejected rows, writes `9704` replay rows and `4852` objective rows, and keeps the base actor checksum unchanged. Result class is `v4_residual_closed_loop_replay_candidate`: alpha `0.2`, `0.5`, and `1.0` pass closed-loop candidate gates. Normal success is `1213/1213` and normal collision rate is `0` for all alphas. Alpha `0.2` raises intervention action gap mean/p10 from base `0.041716/0.026395` to `0.047937/0.028594` with normal first-action drift mean/p95 `0.000480/0.000939`; alpha `1.0` raises gap to `0.074868/0.038011` but creates `4/1213` intervention-branch collisions. No optimizer, PPO, promotion, or actor mutation occurred.
 - decision: `v4_residual_closed_loop_replay_candidate_admit_audit`
 - next: `m765-v4-residual-closed-loop-replay-audit`
+
+## 20260525T061000Z - m765-v4-residual-closed-loop-replay-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m765-v4-residual-closed-loop-replay-audit.md`
+- result: M765 audits M764 as a clean public-corpus closed-loop mechanism positive. It supports alpha `0.2` as the conservative next candidate and treats alpha `1.0` as aggressive diagnostic because its `4/1213` intervention collisions are concentrated in seed `76030`, variant `zero_command_obs`, horizons `6/8`, and fault pair `front_lateral_authority_drop->combined_fault`. The audit records that M755's `assigned_split=heldout` is contaminated for residual evaluation because M761 trained on all M755 positives. The next branch must design fresh source-holdout replay or fresh source mining, not PPO or promotion.
+- decision: `promote_to_v4_residual_source_holdout_replay_design`
+- next: `m766-v4-residual-source-holdout-replay-design`
