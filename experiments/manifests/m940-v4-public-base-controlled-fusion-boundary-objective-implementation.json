@@ -113,5 +113,5 @@
     "docs/m939-v4-public-base-controlled-fusion-boundary-objective-design.md"
   ],
   "decision_rule": "M940 may only run objective-only boundary-aware controlled-fusion training and diagnostics. It must not run replay, PPO, or promote.",
-  "next_blocker": "boundary-aware controlled-fusion implementation has not yet run"
+  "next_blocker": "m941-v4-public-base-controlled-fusion-branch-synthesis"
 }

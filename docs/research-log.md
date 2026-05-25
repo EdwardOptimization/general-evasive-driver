@@ -14564,3 +14564,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M939 designs a boundary-aware controlled-fusion objective focused on M938's alpha `0.15` near miss. M940 should train the same allowed surface with differentiable interpolation at alphas `0.125`, `0.150`, and `0.175`, emphasizing low-tail deficit closure and explicit normal-retention hinges. Response/context encoders, GRU, critic, log_std, actor inputs, replay, PPO, and promotion remain blocked.
 - decision: `controlled_fusion_boundary_objective_design_admit_m940`
 - next: `m940-v4-public-base-controlled-fusion-boundary-objective-implementation`
+
+## 20260525T231659Z - m940-v4-public-base-controlled-fusion-boundary-objective-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m940_v4_public_base_controlled_fusion_boundary_objective`
+- artifact: `docs/m940-v4-public-base-controlled-fusion-boundary-objective-implementation.md`
+- result: M940 implements differentiable boundary-alpha controlled-fusion training at alphas `0.125`, `0.150`, and `0.175`. It reconstructs `1213/1213`, joins `122/122`, starts training, uses boundary interpolation, and changes only `actor_mean` plus `response_context_fusion.0`; response/context encoders, online GRU, critic, log_std, and actor inputs are unchanged. No strict candidate or boundary near-miss appears: `candidate_alpha_count=0`, `boundary_near_miss_count=0`, `normal_safe_low_tail_trend_count=1`, and result class is `public_base_controlled_fusion_boundary_objective_trust_region_conflict`. Alpha `0.05` is normal-retained with low-tail trend, while alpha `0.075` tail-lifts but barely misses normal retention on mean normal-anchor MSE.
+- decision: `public_base_controlled_fusion_boundary_objective_trust_region_conflict_route_to_branch_synthesis`
+- next: `m941-v4-public-base-controlled-fusion-branch-synthesis`

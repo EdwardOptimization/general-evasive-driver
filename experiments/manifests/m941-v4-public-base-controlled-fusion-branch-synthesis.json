@@ -1,0 +1,121 @@
+{
+  "id": "m941-v4-public-base-controlled-fusion-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "promotion_gate_failure",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m940_v4_public_base_controlled_fusion_boundary_objective/checkpoints/raw_boundary_objective_update.pt"
+    ],
+    "parent_dataset": [
+      "docs/m936-v4-public-base-controlled-fusion-surface-design.md",
+      "docs/m937-v4-public-base-controlled-fusion-surface-implementation.md",
+      "docs/m938-v4-public-base-controlled-fusion-alpha-boundary-audit.md",
+      "docs/m939-v4-public-base-controlled-fusion-boundary-objective-design.md",
+      "docs/m940-v4-public-base-controlled-fusion-boundary-objective-implementation.md",
+      "runs/m940_v4_public_base_controlled_fusion_boundary_objective/summary.json",
+      "runs/m940_v4_public_base_controlled_fusion_boundary_objective/alpha_metrics.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m940-v4-public-base-controlled-fusion-boundary-objective-implementation.json"
+    ],
+    "parent_objective": [
+      "synthesize controlled fusion surface evidence after M940 trust-region conflict"
+    ],
+    "derived_from": [
+      "m936-v4-public-base-controlled-fusion-surface-design",
+      "m940-v4-public-base-controlled-fusion-boundary-objective-implementation"
+    ],
+    "blocked_by": [
+      "M940 found no strict candidate and useful alphas still cross the normal-retention boundary"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m941-v4-public-base-controlled-fusion-branch-synthesis.md",
+  "public_gates": [
+    "M941 must synthesize M936-M940 controlled-fusion evidence",
+    "M941 must list supported and falsified claims",
+    "M941 must classify failure taxonomy",
+    "M941 must decide whether a no-training micro-boundary audit is justified",
+    "M941 must block training replay PPO and promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in M941",
+    "do not change actor inputs",
+    "do not unfreeze response_encoder context_encoder or online_gru_cell",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_controlled_fusion_surface",
+    "evidence_axis": "G_synthesis: synthesize controlled-fusion surface and boundary-objective evidence",
+    "evidence_increment": "decides the next route after M940 shifted tail lift into a narrower normal-retention boundary without producing a strict candidate",
+    "claim_scope": "branch synthesis only; no training, replay, PPO, driver improvement claim, or promotion",
+    "stop_condition": [
+      "stop if supported claims are omitted",
+      "stop if falsified claims are omitted",
+      "stop if next branch decision is omitted",
+      "stop if training replay PPO or promotion is attempted"
+    ],
+    "fallback_plan": [
+      "continue only with no-training micro-alpha audit if M940 boundary evidence justifies it",
+      "if micro-boundary audit has no exact overlap, close the branch before touching encoders or GRU",
+      "if micro-boundary audit finds a strict candidate, route to exact no-update compatibility design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M940 boundary objective still produced trust-region conflict after the registered controlled-fusion implementation",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m941-v4-public-base-controlled-fusion-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "The controlled-fusion branch has enough evidence to decide whether one no-training micro-boundary audit is warranted before any broader actor update is considered.",
+  "success_criteria": [
+    "M941 summarizes M936-M940 evidence",
+    "M941 records supported and falsified claims",
+    "M941 records failure taxonomy",
+    "M941 records public-gate overfit risk",
+    "M941 chooses the next blocker",
+    "M941 blocks training replay PPO and promotion"
+  ],
+  "failure_criteria": [
+    "M941 omits synthesis questions",
+    "M941 continues controlled-fusion training variants without synthesis decision",
+    "M941 admits replay PPO or promotion",
+    "M941 does not choose a next blocker"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m941-v4-public-base-controlled-fusion-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m941-v4-public-base-controlled-fusion-branch-synthesis.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m940-v4-public-base-controlled-fusion-boundary-objective-implementation.md"
+  ],
+  "decision_rule": "M941 may only synthesize controlled-fusion branch evidence and choose the next blocker. It must not train, run replay, run PPO, or promote.",
+  "next_blocker": "m942-v4-public-base-controlled-fusion-micro-boundary-audit"
+}

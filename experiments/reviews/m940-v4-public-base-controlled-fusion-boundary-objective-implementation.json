@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M940 uses differentiable boundary-alpha training and changes only actor_mean plus response_context_fusion.0 but finds no strict candidate boundary near miss or admissible tail lift; alpha 0.05 is normal-safe trend and alpha 0.075 tail-lifts just outside normal retention",
+  "failure_criteria": [
+    "actor input contract changes",
+    "forbidden parameters change",
+    "M940 omits boundary interpolation",
+    "M940 runs replay PPO or promotion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not change actor inputs",
+    "do not update response_encoder",
+    "do not update context_encoder",
+    "do not update online_gru_cell",
+    "do not update critic",
+    "do not update log_std",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T232152Z",
+  "hypothesis": "Differentiable boundary-alpha objective training can reduce the alpha-0.15 deficit miss without widening the trainable surface or breaking normal retention.",
+  "lineage": {
+    "blocked_by": [
+      "boundary-aware controlled-fusion implementation has not yet run"
+    ],
+    "derived_from": [
+      "m939-v4-public-base-controlled-fusion-boundary-objective-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m939-v4-public-base-controlled-fusion-boundary-objective-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m939-v4-public-base-controlled-fusion-boundary-objective-design.md",
+      "runs/m938_v4_public_base_controlled_fusion_alpha_boundary/summary.json",
+      "runs/m938_v4_public_base_controlled_fusion_alpha_boundary/alpha_metrics.csv"
+    ],
+    "parent_objective": [
+      "implement differentiable boundary-alpha controlled-fusion objective"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m940-v4-public-base-controlled-fusion-boundary-objective-implementation",
+  "next_blocker": "m941-v4-public-base-controlled-fusion-branch-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "public_base_controlled_fusion_boundary_objective_trust_region_conflict_route_to_branch_synthesis",
+  "public_gates": [
+    "M940 may update only actor_mean and response_context_fusion.0",
+    "M940 must preserve P0 actor input contract",
+    "M940 must train with boundary-alpha interpolation",
+    "M940 must report strict candidate and boundary near-miss diagnostics",
+    "M940 must block replay PPO and promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m940_v4_public_base_controlled_fusion_boundary_objective/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "public_base_controlled_fusion_boundary_objective_trust_region_conflict_route_to_branch_synthesis",
+    "milestone": "m940-v4-public-base-controlled-fusion-boundary-objective-implementation",
+    "reason": "M940 uses differentiable boundary-alpha training and changes only actor_mean plus response_context_fusion.0 but finds no strict candidate boundary near miss or admissible tail lift; alpha 0.05 is normal-safe trend and alpha 0.075 tail-lifts just outside normal retention",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary.json exists",
+    "training_started is true",
+    "boundary_interpolation_used is true",
+    "forbidden_parameter_changed is false",
+    "sample_reconstruction_success_rate >= 0.98",
+    "boundary diagnostics are reported",
+    "replay_used ppo_used and promoted are false"
+  ],
+  "type": "infrastructure"
+}

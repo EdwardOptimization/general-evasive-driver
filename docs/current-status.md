@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m940-v4-public-base-controlled-fusion-boundary-objective-implementation
+m941-v4-public-base-controlled-fusion-branch-synthesis
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -83,10 +83,22 @@ low-tail leverage, but only outside normal retention on the coarse alpha grid.
 M938 fine alpha-boundary audit finds no exact overlap, but alpha `0.15` is a
 normal-retained near miss. M939 designs a boundary-aware controlled-fusion
 objective using differentiable interpolation at alphas `0.125`, `0.150`, and
-`0.175`.
+`0.175`. M940 implements that objective. It reconstructs all rows and changes
+only `actor_mean` plus `response_context_fusion.0`, but still finds no strict
+candidate: alpha `0.05` is a normal-safe low-tail trend, while alpha `0.075`
+tail-lifts just outside normal retention. M941 must synthesize this branch
+before any broader actor update.
 
 ## Recent Evidence Line
 
+- M940 implements boundary-alpha controlled-fusion training. It preserves the
+  actor-input and trainable-surface contract, but `candidate_alpha_count=0`,
+  `boundary_near_miss_count=0`, and result class is
+  `public_base_controlled_fusion_boundary_objective_trust_region_conflict`.
+  The useful transition is now narrow: alpha `0.05` is normal-retained but not
+  tail-lift, while alpha `0.075` tail-lifts but misses normal retention only on
+  mean normal-anchor MSE. M941 should synthesize the controlled-fusion branch
+  and decide whether a no-training micro-alpha audit is justified.
 - M939 designs the boundary-aware controlled-fusion objective. M940 should
   train with differentiable interpolation at boundary alphas `0.125`, `0.150`,
   and `0.175`, keep the trainable surface unchanged, and report strict

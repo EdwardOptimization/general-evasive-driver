@@ -17,6 +17,10 @@ from autodrift.public_base_controlled_fusion_surface_probe import (
 from autodrift.public_base_controlled_fusion_raw_direction_feasibility import (
     classify_controlled_fusion_raw_direction_feasibility,
 )
+from autodrift.public_base_controlled_fusion_boundary_objective_probe import (
+    classify_controlled_fusion_boundary_objective_probe,
+    _effective_linear_parameters,
+)
 from autodrift.train_ppo import ActorCritic
 
 
@@ -199,3 +203,43 @@ def test_classify_controlled_fusion_raw_direction_feasibility_contract_artifact(
         )
         == "public_base_controlled_fusion_raw_direction_feasibility_contract_artifact"
     )
+
+
+def test_classify_controlled_fusion_boundary_objective_near_miss():
+    assert (
+        classify_controlled_fusion_boundary_objective_probe(
+            forbidden_parameter_changed=False,
+            actor_mean_changed=True,
+            fusion_changed=True,
+            boundary_interpolation_used=True,
+            reconstruction_success_rate=1.0,
+            metadata_missing_rows=0,
+            missing_target_keys=0,
+            candidate_count=0,
+            low_tail_effect_candidate_count=0,
+            boundary_near_miss_count=1,
+            any_tail_lift=False,
+            any_normal_retained_tail_lift=False,
+            ppo_used=False,
+            promoted=False,
+        )
+        == "public_base_controlled_fusion_boundary_objective_boundary_near_miss"
+    )
+
+
+def test_boundary_effective_linear_parameters_alpha_zero_matches_base():
+    model = ActorCritic(obs_dim=72, act_dim=3, hidden_size=8, actor_encoder="human_view_online_gru")
+    base = {name: tensor.detach().clone() for name, tensor in model.state_dict().items()}
+    with torch.no_grad():
+        model.response_context_fusion[0].weight.add_(1.0)
+        model.response_context_fusion[0].bias.sub_(0.5)
+
+    weight, bias = _effective_linear_parameters(
+        model=model,
+        base_state=base,
+        layer_name="response_context_fusion.0",
+        alpha=0.0,
+    )
+
+    assert torch.allclose(weight, base["response_context_fusion.0.weight"])
+    assert torch.allclose(bias, base["response_context_fusion.0.bias"])
