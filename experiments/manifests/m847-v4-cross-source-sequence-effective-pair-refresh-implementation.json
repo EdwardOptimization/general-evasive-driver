@@ -1,0 +1,127 @@
+{
+  "id": "m847-v4-cross-source-sequence-effective-pair-refresh-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m846-v4-cross-source-sequence-effective-pair-refresh-design.md",
+      "runs/m844_v4_source_diverse_sequence_effective_corpus/boundary_rows.csv",
+      "runs/m844_v4_source_diverse_sequence_effective_corpus/reconstructed_snapshot_rows.csv",
+      "runs/m844_v4_source_diverse_sequence_effective_corpus/accepted_sequence_effective_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv",
+      "runs/m832_v4_near_boundary_wrong_history_pair_mining/accepted_boundary_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m846-v4-cross-source-sequence-effective-pair-refresh-design.json"
+    ],
+    "parent_objective": [
+      "implement no-training real cross-source sequence-effective pair refresh"
+    ],
+    "derived_from": [
+      "m846-v4-cross-source-sequence-effective-pair-refresh-design"
+    ],
+    "blocked_by": [
+      "M844 source-diverse refresh lacks pair-delta sequence rows"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m847-v4-cross-source-sequence-effective-pair-refresh-implementation.md",
+  "public_gates": [
+    "M847 must implement no-training cross-source pair refresh only",
+    "M847 must write pair candidate and balanced pair artifacts",
+    "M847 must include pair-delta sequence rows or classify pair construction failure",
+    "M847 must preserve actor and residual-head checksums",
+    "M847 must not train or promote"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels or oracle fields to actor input",
+    "do not treat direct sequence override rows as learned self-ID proof",
+    "do not silently fall back to self-pair component-only scans"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_source_diverse_sequence_effective_corpus",
+    "evidence_axis": "G_data: real cross-source pair-delta sequence corpus implementation",
+    "evidence_increment": "implements the M846 paired refresh to test pair-delta sequence-effectiveness on source-diverse near-boundary states",
+    "claim_scope": "no-training corpus diagnostics only; no PPO, learned policy claim, or driver promotion",
+    "stop_condition": [
+      "stop if actor or residual-head checksums change",
+      "stop if pair-delta rows are unavailable",
+      "stop if pair construction silently degenerates into self-pair scans",
+      "stop if direct sequence override rows are treated as learned self-ID proof"
+    ],
+    "fallback_plan": [
+      "if strong paired corpus gate passes, audit before outcome-coupled sequence objective design",
+      "if sparse pair-positive, audit before restricted objective sanity or boundary expansion",
+      "if component-only positive, audit pair construction limitations",
+      "if pair construction fails, design expanded boundary bracketing"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M846 admits one real cross-source pair refresh implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A no-training cross-source pair refresh can produce pair-delta sequence-effectiveness rows that M844 self-pair construction could not provide.",
+  "success_criteria": [
+    "M847 implements cross-source pair construction",
+    "M847 writes balanced pair and sequence-effectiveness artifacts",
+    "M847 reports pair-delta accepted rows separately",
+    "M847 verifies actor and residual-head checksums unchanged",
+    "M847 classifies the result without PPO or promotion"
+  ],
+  "failure_criteria": [
+    "M847 trains actor or residual-head parameters",
+    "M847 runs PPO",
+    "M847 promotes a checkpoint",
+    "M847 mutates actor input contract",
+    "M847 treats direct sequence override effects as learned self-ID proof"
+  ],
+  "commands": [
+    {
+      "name": "cross_source_sequence_effective_pair_refresh",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_cross_source_sequence_effective_pair_refresh --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --residual-head runs/m761_v4_sequence_objective_probe/residual_head.pt --scenario-config configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json --boundary-rows runs/m844_v4_source_diverse_sequence_effective_corpus/boundary_rows.csv --reconstructed-snapshot-rows runs/m844_v4_source_diverse_sequence_effective_corpus/reconstructed_snapshot_rows.csv --source-rows runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv --candidate-plan-rows runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv --run-dir runs/m847_v4_cross_source_sequence_effective_pair_refresh --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_cross_source_sequence_effective_pair_refresh.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_v4_cross_source_sequence_effective_pair_refresh.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m847_v4_cross_source_sequence_effective_pair_refresh/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "docs/m847-v4-cross-source-sequence-effective-pair-refresh-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m846-v4-cross-source-sequence-effective-pair-refresh-design.md",
+    "runs/m844_v4_source_diverse_sequence_effective_corpus/summary.json",
+    "runs/m844_v4_source_diverse_sequence_effective_corpus/boundary_rows.csv"
+  ],
+  "decision_rule": "M847 may produce a no-training paired corpus diagnostic classification only. It must not train, run PPO, promote, or claim learned self-ID.",
+  "next_blocker": "real cross-source pair-delta sequence-effectiveness has not yet been tested"
+}

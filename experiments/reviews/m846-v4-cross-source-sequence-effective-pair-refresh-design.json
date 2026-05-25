@@ -1,0 +1,88 @@
+{
+  "decision_reason": "M846 designs a no-training real cross-source pair refresh with mandatory pair-delta sequence rows source-aware splits and no PPO or promotion",
+  "failure_criteria": [
+    "M846 admits PPO or promotion",
+    "M846 trains actor or residual parameters",
+    "M846 ignores missing pair-delta evidence",
+    "M846 treats direct sequence override rows as learned policy proof"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "forbidden_shortcuts": [
+    "do not run replay in M846",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat M844 direct sequence overrides as learned self-ID proof",
+    "do not ignore missing pair-delta evidence",
+    "do not add hidden fault labels or oracle fields to actor input"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T132149Z",
+  "hypothesis": "A real cross-source paired refresh can add pair-delta sequence-effectiveness evidence that M844 self-pair construction could not test.",
+  "lineage": {
+    "blocked_by": [
+      "M844 lacks pair-delta rows and remains below strong source/fault corpus gates"
+    ],
+    "derived_from": [
+      "m845-v4-source-diverse-sequence-effective-corpus-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m845-v4-source-diverse-sequence-effective-corpus-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m845-v4-source-diverse-sequence-effective-corpus-audit.md",
+      "docs/m844-v4-source-diverse-sequence-effective-corpus-implementation.md",
+      "runs/m844_v4_source_diverse_sequence_effective_corpus/summary.json",
+      "runs/m844_v4_source_diverse_sequence_effective_corpus/boundary_rows.csv",
+      "runs/m844_v4_source_diverse_sequence_effective_corpus/accepted_sequence_effective_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv"
+    ],
+    "parent_objective": [
+      "design real cross-source sequence-effective pair refresh after M844 source-limited self-pair result"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m846-v4-cross-source-sequence-effective-pair-refresh-design",
+  "next_blocker": "M844 improved source diversity but did not test pair-delta sequence-effectiveness",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "cross_source_sequence_effective_pair_refresh_design_admit_m847",
+  "public_gates": [
+    "M846 must remain design-only",
+    "M846 must define real cross-source pairing criteria",
+    "M846 must include pair-delta sequence directions",
+    "M846 must preserve direct sequence evidence as controllability-only",
+    "M846 must keep PPO and promotion blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m846-v4-cross-source-sequence-effective-pair-refresh-design.md",
+    "clearance_margin_mean": "",
+    "decision": "cross_source_sequence_effective_pair_refresh_design_admit_m847",
+    "milestone": "m846-v4-cross-source-sequence-effective-pair-refresh-design",
+    "reason": "M846 designs a no-training real cross-source pair refresh with mandatory pair-delta sequence rows source-aware splits and no PPO or promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M846 writes a design document for cross-source sequence-effective pair refresh",
+    "M846 defines pair construction and diversity gates",
+    "M846 specifies pair-delta and component sequence scans",
+    "M846 specifies source-aware split discipline",
+    "M846 keeps direct sequence evidence separate from learned self-ID proof",
+    "M846 keeps PPO and promotion blocked"
+  ],
+  "type": "infrastructure"
+}

@@ -13687,3 +13687,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M845 audits M844 as a useful but source-limited data result. M844 produced complete no-training artifacts, preserved actor/M761 checksums, and improved accepted source coverage over M841 (`unique_left_source_group_count 4 -> 10`, max source dominance `0.5616 -> 0.2807`). It still fails strong corpus criteria: only `57 < 120` accepted primary sequence-effective rows, `3 < 4` left seeds, `4 < 5` left fault families, `4 < 8` fault-family pairs, and max left seed dominance `0.4211 > 0.35`. M844 also has no pair-delta rows because it used self-pair boundary rows. The audit classifies this as scenario-sampling limitation plus metric-artifact risk, not a contract violation. Next step is a design-only real cross-source sequence-effective pair refresh to test pair-delta sequence directions before objective training or PPO.
 - decision: `admit_cross_source_sequence_effective_pair_refresh_design`
 - next: `m846-v4-cross-source-sequence-effective-pair-refresh-design`
+
+## 20260525T131503Z - m846-v4-cross-source-sequence-effective-pair-refresh-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m846-v4-cross-source-sequence-effective-pair-refresh-design.md`
+- result: M846 designs the next no-training data route after M845: construct real cross-source near-boundary pairs before any objective training. The design starts from M844 boundary rows and reconstructed snapshots, pairs distinct source groups with low normal margins and first-action divergence, then scans mandatory pair-delta sequence directions plus component controls over hold steps `[4, 6]` and epsilon grid `[0.025, 0.05, 0.075]`. Pair-delta rows are now first-class: strong corpus requires at least `120` accepted primary sequence-effective rows and at least `30` accepted pair-delta rows, while pair construction failure is explicitly classified if fewer than `40` paired candidates survive or no pair-delta rows are available. Source-aware train/eval/source-holdout splits are required, and all direct sequence rows remain controllability diagnostics only. M847 implementation is admitted; PPO, promotion, actor/residual training, and outcome-coupled objective training remain blocked.
+- decision: `cross_source_sequence_effective_pair_refresh_design_admit_m847`
+- next: `m847-v4-cross-source-sequence-effective-pair-refresh-implementation`

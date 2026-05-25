@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 854,
+    "completed": 855,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m845-v4-source-diverse-sequence-effective-corpus-audit",
+    "task_id": "m846-v4-cross-source-sequence-effective-pair-refresh-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m845-v4-source-diverse-sequence-effective-corpus-audit.md"
+    "command_log": "docs/m846-v4-cross-source-sequence-effective-pair-refresh-design.md"
   },
   "next_task": {
-    "id": "m846-v4-cross-source-sequence-effective-pair-refresh-design",
+    "id": "m847-v4-cross-source-sequence-effective-pair-refresh-implementation",
     "status": "pending",
-    "priority": 8410,
+    "priority": 8420,
     "kind": "infrastructure",
-    "hypothesis": "Design real cross-source sequence-effective pair refresh",
-    "command": "see experiments/manifests/m846-v4-cross-source-sequence-effective-pair-refresh-design.json",
-    "success_artifact": "docs/m846-v4-cross-source-sequence-effective-pair-refresh-design.md",
-    "notes": "Pending: M845 admits cross-source pair refresh design because M844 improved source diversity but lacks pair-delta evidence"
+    "hypothesis": "Implement no-training cross-source sequence-effective pair refresh",
+    "command": "see experiments/manifests/m847-v4-cross-source-sequence-effective-pair-refresh-implementation.json",
+    "success_artifact": "docs/m847-v4-cross-source-sequence-effective-pair-refresh-implementation.md",
+    "notes": "Pending: M846 designs real cross-source pair refresh with mandatory pair-delta sequence rows before objective training or PPO"
   },
   "updated_at_utc": "20260525T131503Z"
 }
